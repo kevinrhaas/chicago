@@ -36,6 +36,16 @@ def time_names():
     block = js.split('export const TIME_NAMES = [', 1)[1].split('];', 1)[0]
     return frozenset(re.findall(r"id: '([a-z-]+)'", block))
 
+def leg_mode(doc, i):
+    """T-3355: the catalog row's stop i carries the mode of the authored leg that reaches it, if any."""
+    if not i: return {}
+    frm, to = doc['stops'][i - 1]['id'], doc['stops'][i]['id']
+    for j, leg in enumerate(doc.get('legs', [])):
+        if leg.get('mode') and leg.get('from', doc['stops'][j]['id'] if j < len(doc['stops']) else None) == frm \
+                and leg.get('to', doc['stops'][j + 1]['id'] if j + 1 < len(doc['stops']) else None) == to:
+            return {'leg_mode': leg['mode']}
+    return {}
+
 def unique(rows, label):
     result = {r['id']: r for r in rows}
     require(len(result) == len(rows), f'duplicate {label} id')
@@ -140,7 +150,9 @@ class Compiler:
         require(not doc['review_required'] or reasons, 'review_required needs reason')
         graph = {}
         for i, stop in enumerate(doc['stops']):
-            require(25 <= len((stop['text'] + ' ' + stop.get('narrative', '')).split()) <= 60, f'{stop["id"]}: text needs 25–60 words')
+            # T-3355: a long-form story jaunt tells each stop in full, up to 150 words.
+            most = 150 if doc.get('long_form') else 60
+            require(25 <= len((stop['text'] + ' ' + stop.get('narrative', '')).split()) <= most, f'{stop["id"]}: text needs 25–{most} words')
             require(set(stop['evidence']) <= set(claims), 'dangling evidence id')
             # T-3328: a stop's hour rests on its own claims, and names only a time the setting knows.
             if 'hour' in stop or 'date' in stop or 'hour_evidence' in stop:
@@ -183,6 +195,8 @@ class Compiler:
             require((frm, to) not in leg_edges, 'duplicate leg')
             leg_edges.add((frm, to))
             require(leg.get('note') or leg.get('story'), 'empty leg')
+            # T-3355: a leg's own mode (a long ride Instantly) is one the jaunt allows.
+            require('mode' not in leg or leg['mode'] in doc['allowed_modes'], 'leg mode not allowed')
             require(set(leg['evidence']) <= set(claims), 'dangling leg evidence')
             require(set(leg.get('story_evidence', [])) <= set(claims), 'dangling story evidence')
         require(sum(bool(e.get('default')) for e in ends.values()) <= 1, 'multiple default endings')
@@ -248,7 +262,7 @@ class Compiler:
                 ids.add(doc['id'])
                 row = {k: doc[k] for k in ('id', 'title', 'premise', 'category', 'content_version', 'default_mode', 'allowed_modes')}
                 row.update(featured=doc.get('featured', False), stop_count=len(doc['stops']), primary_family=doc['keepsake']['family'], secondary_family=doc.get('secondary_family'),
-                           timing={'opening_read_s': doc['opening']['read_s'], 'stops': [{'read_s': s['read_s'], 'action_s': s.get('action_s', 0)} for s in doc['stops']], 'endings_read_s': [e['read_s'] for e in doc['endings']]},
+                           timing={'opening_read_s': doc['opening']['read_s'], 'stops': [{'read_s': s['read_s'], 'action_s': s.get('action_s', 0), **leg_mode(doc, i)} for i, s in enumerate(doc['stops'])], 'endings_read_s': [e['read_s'] for e in doc['endings']]},
                            destinations=[s['destination'] for s in doc['stops']], availability='unavailable' if reasons else 'available', reason='; '.join(reasons) or None)
                 catalog.append(row)
                 citations = cite({sid for claim in doc['evidence'] for sid in claim['sources']}, self.refs['source'])

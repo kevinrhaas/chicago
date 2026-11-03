@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "bbc489fd83af2fd81b3bc988df60e8a51b860d7504256ec4102e812d8275e265",
+  "glb_sha256": "dcca397ff222786b0b4c25e0f139b90d40677cd8982e55254363fe781fcaf4b0",
   "camera_sha256": "9899de4e97306a9d591d77b9ef34cf6387660f6973574193e6da723d78e179a8",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_flora": {
@@ -66,7 +66,7 @@
       "sha256": "a222fb6e6af97d1650b05940f9ca0a79874a53c60a688e1b7b49838a7a637c66"
     }
   ],
-  "flora_sha256": "00cabb8f331770139ff4aee21d51ccada61f7501e3d5a39515425b12ae8456a8",
+  "flora_sha256": "15a5759658d7834d26d0ce2f7ff12bb511e90418438b0fe03f00dab54d2a232e",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -177,8 +177,8 @@
     },
     {
       "what": "the run of posts on a lower curb along 18th Street east of x 693 (to x 760 and on behind the trees)",
-      "status": "open",
-      "how": "T-1881: the low course is built (0.5 m) at its place; its posts are not T-1881 (2026-10-30): the balustrade Taylor's no. 1445 shows on the wall's east part (x 16.4-8.6) is built, and through this camera stands at x 770-793, where the print's last panel and post stand behind the carriage; the posts and panels west of it (x 695-770, about u 34.5-17), which Taylor's squarer view of the same stretch does not show, are not"
+      "status": "within tolerance",
+      "how": "T-1881: the low course is built (0.5 m) at its place; its posts are not T-1881 (2026-10-30): the balustrade Taylor's no. 1445 shows on the wall's east part (x 16.4-8.6) is built, and through this camera stands at x 770-793, where the print's last panel and post stand behind the carriage; the posts and panels west of it (x 695-770, about u 34.5-17), which Taylor's squarer view of the same stretch does not show, are not T-1881 (2026-11-03): read at full size along the panels' band (y 478-485), bright posts stand at x 695, 710.5, 718.5, 723, 738.5, 751.5, 764.5 and 780.5 (u 34.6, 31.6, 29.9, 28.9, 25.3, 21.95, 18.25 and 13.1 on the 18th Street line; 34.6, 28.9 and 18.25 are the three piers, each within about 1 m), under a pale rail at y 476-478 over a pale base to y 486. West of the third pier the pictures disagree: Taylor's no. 1445, which sees that stretch squarely, draws the 0.5 m course and a plain 1.0 m wall with no posts or rail, and Taylor's no. 16554 a plain low wall; whether the Detroit print's posts there stand on the wall or behind it (the house's area, which Taylor's no. 1445 sees behind the low course) is not read. So under the T-3153 bar it is within tolerance and the wall is left as Taylor's no. 1445 draws it. East of the third pier the two agree: the post at x 779.5-781.5 (u 13.48-12.8) is the solid post Taylor's no. 1445 draws in the middle of the built balustrade, now built as a 0.9 m pier to the rail's top at u 13.05-13.95 (behind the carriage and the trees' shadows here, too fine to resolve in this render)."
     },
     {
       "what": "the lamp post and the hydrant",

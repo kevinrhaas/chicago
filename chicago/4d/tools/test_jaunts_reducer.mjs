@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { emptyState, reduce, createJaunts, canNext } from '../renderers/web/js/jaunts.js';
+import { emptyState, reduce, createJaunts, canNext, legMode } from '../renderers/web/js/jaunts.js';
 const fixture = id => JSON.parse(fs.readFileSync(new URL(`../data/jaunts/_fixtures/fixture-${id}.json`, import.meta.url)));
 const branch = fixture('branch'), walk = fixture('walk');
 const arrive = s => reduce(s, { type: 'ARRIVE', session: s.session, leg: s.leg });
@@ -128,5 +128,24 @@ await test('T-3328: a stop with an hour sets it on arrival; a stop without, and 
     render() {}, showMenu() {}, openDetail() {}, closeDetail() {}, onError: e => { throw e; } });
   calls.length = 0; await quiet.start('walk'); quiet.next(); active.onArrive(active.token); quiet.end(); await settle();
   assert.deepEqual(calls, [], 'a jaunt with no hours never touches the visitor\'s');
+});
+await test('T-3355: a leg with its own mode rides that way on the default mode; a picked mode wins', async () => {
+  const doc = structuredClone(walk);
+  doc.legs = [{ note: 'A long ride.', evidence: [doc.stops[0].evidence[0]], mode: 'instantly' }];
+  let active;
+  const travel = { mode: 'walk', setMode(v) { this.mode = v; }, go(target, hooks) { active = hooks; return true; }, stop() { active = null; } };
+  const make = () => createJaunts({ load: async () => doc, resolve: x => x, place: () => true, enter: () => true, travel,
+    render() {}, showMenu() {}, openDetail() {}, closeDetail() {}, onError: e => { throw e; } });
+  const c = make(); await c.start('walk'); c.next();
+  assert.equal(travel.mode, 'instantly', 'the authored leg goes Instantly');
+  assert.equal(legMode(c.state), 'instantly'); assert.equal(c.state.mode, 'walk', 'the visitor\'s mode is untouched');
+  active.onArrive(active.token); c.prev();
+  assert.equal(travel.mode, 'instantly', 'going back over the same leg goes the same way');
+  active.onArrive(active.token); c.end();
+  const d = make(); await d.start('walk', { mode: 'horse' }); d.next();
+  assert.equal(travel.mode, 'horse', 'a mode the visitor picked rides every leg');
+  d.end();
+  assert.equal(legMode({ ...emptyState(), jaunt: walk, mode: 'walk', visited: [{ id: 'mail-corner' }], fromStopId: 'arrival' }), 'walk',
+    'a jaunt with no leg modes rides its own mode');
 });
 console.log(`JAUNT REDUCER PASS — ${tests} cases`);

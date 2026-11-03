@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 1,
+  "content_version": 2,
   "category": "Fort Dearborn",
   "featured": true,
   "review_required": false,
@@ -14,8 +14,8 @@
     "instantly"
   ],
   "opening": {
-    "text": "JAUNT: CHICAGO'S FIRST MURDER. Sunset, 17 June 1812, outside the gate of Fort Dearborn. The fort's interpreter, Jean Lalime, lies dead in the dust, stabbed. The man walking away bleeding from the shoulder is John Kinzie, the trader the history books would call 'The Father of Chicago'. Who did it has never been in doubt. Why, and whether it was murder, depends on whom you believe. Eight stops on both banks: the house bought in Lalime's name that Kinzie took for his own, the feud over the soldiers' trade, the quarrel, the gate, the flight, the grave. Three versions: the Kinzie family's, told for a century; a girl's who watched from inside the fort; and the letters the factor and the surgeon's mate sent to Washington within weeks. Fly is set: the river had no bridge. No one is drawn; the places are.",
-    "read_s": 41
+    "text": "JAUNT: CHICAGO'S FIRST MURDER. Sunset, 17 June 1812, outside the gate of Fort Dearborn. Jean Lalime, the fort's interpreter, lies dead in the dust, stabbed. The man walking away, bleeding from the shoulder, is John Kinzie, the trader who sells to the garrison, the man later histories would call 'The Father of Chicago'. Who did it has never been in doubt. Why, and whether it was murder, depends on whom you believe. \n\nChicago in 1812 is a small, crowded place: a garrison of about fifty soldiers under Captain Nathan Heald, a government trading house, and a few houses on the north bank. Everyone knows everyone, and the two men who will meet at the gate have been rivals for years: over a house, over the soldiers' trade, and over how to treat their neighbours as war with Britain comes closer. \n\nEight stops, from 1804 to the night of the killing and the morning after, with the time of day set for each. Three versions are told side by side: the Kinzie family's, told for a century; a girl's who watched from inside the fort; and the letters the factor and the surgeon's mate sent to Washington within weeks. \n\nThe story starts eight years earlier, with the house across the river.",
+    "read_s": 60
   },
   "stops": [
     {
@@ -24,13 +24,20 @@
         "kind": "anchor",
         "id": "kinzie_house_front"
       },
-      "text": "Jean Baptiste Point du Sable built this house. In 1800 he sold out, and the Detroit deed names the buyer as Jean Lalime, with John Kinzie signing as witness. By 1804 Kinzie lived here; no record of a sale to him has been found. The family said he bought from 'Le Mai', and Lalime was long read as a misspelling.",
-      "read_s": 17,
+      "text": "May 1804, morning. This is the best house in Chicago, built by Jean Baptiste Point du Sable, the trader who settled here first. In 1800 he sold out, and the deed recorded in Detroit names the buyer as Jean Lalime, a French interpreter and trader, with the money from their shared employer, the fur trader William Burnett. The witness who signed it was John Kinzie, another of Burnett's traders. Now Kinzie moves his family in and makes it his. No record of any sale from Lalime to Kinzie has been found. The family later said Kinzie bought the place from a 'Le Mai', and historians long treated 'Lalime' as a misspelling of that name. Lalime did not leave. He moved a few doors west, close enough to watch Kinzie live in his house.",
+      "read_s": 38,
       "evidence": [
         "deed",
-        "family-version"
+        "family-version",
+        "winter",
+        "dates-frame"
       ],
-      "next": "lalime-house"
+      "next": "lalime-house",
+      "hour": "10:00",
+      "date": "1804-05-20",
+      "hour_evidence": [
+        "dates-frame"
+      ]
     },
     {
       "id": "lalime-house",
@@ -38,13 +45,19 @@
         "kind": "anchor",
         "id": "lalime_house_front"
       },
-      "text": "Lalime wintered in the big house in 1803-04 with the fort's surgeon, who called him 'a very decent man and a good companion'. Then Kinzie moved in, and Lalime ended up here, in the smaller house west along the bank, as the fort's interpreter. His letters of 1811 warn of raids on the southern settlements.",
-      "read_s": 16,
+      "text": "26 May 1811, afternoon. Lalime had wintered in the big house in 1803-04 with the fort's first surgeon, who called him 'a very decent man and a good companion'. When Kinzie took it, Lalime moved here, to a smaller house west along the bank, and became the fort's interpreter, the man who speaks for the garrison with its neighbours. Today he writes to Governor William Clark at St. Louis: 'An Indian from the Peorias passed here yesterday' with word of horses stolen from the southern settlements. His letters show, Kirkland wrote, 'a man of ability and education'. Across the river, a new arrangement is about to make Kinzie richer, and Lalime his enemy.",
+      "read_s": 32,
       "evidence": [
         "winter",
-        "letters"
+        "letters",
+        "dates-frame"
       ],
-      "next": "factory"
+      "next": "factory",
+      "hour": "afternoon",
+      "date": "1811-05-26",
+      "hour_evidence": [
+        "dates-frame"
+      ]
     },
     {
       "id": "factory",
@@ -52,12 +65,18 @@
         "kind": "anchor",
         "id": "first_fort_factory_front"
       },
-      "text": "Across the river, the feud. Matthew Irwin, the government's factor, ran this trading house at cost. In January 1812 Heald made 'Messrs. Kinzie & Forsyth' the garrison's only sutlers, and Irwin wrote to Washington that the pair had offered a man '400$ per annum' to get them the post. Lalime and the surgeon's mate, Van Voorhis, sided with Irwin.",
-      "read_s": 17,
+      "text": "10 March 1812, morning, at the factory. This is the government's own trading house, run at cost by the factor, Matthew Irwin. The sutler is different: a private merchant licensed to sell to the soldiers. In January Captain Nathan Heald, the fort's commander, made 'Messrs. Kinzie & Forsyth', Kinzie's trading firm, the garrison's only sutlers. Today Irwin writes to Washington that the pair had offered someone '400$ per annum' to win them the post. Two men side with Irwin: the young surgeon's mate, Isaac Van Voorhis, and the interpreter, Lalime. Kinzie, an older officer once wrote, was 'a man of ungovernable temper'. Within weeks, a quarrel over money becomes talk of killing.",
+      "read_s": 32,
       "evidence": [
-        "sutler"
+        "sutler",
+        "dates-frame"
       ],
-      "next": "bad-blood"
+      "next": "bad-blood",
+      "hour": "09:00",
+      "date": "1812-03-10",
+      "hour_evidence": [
+        "dates-frame"
+      ]
     },
     {
       "id": "bad-blood",
@@ -65,12 +84,19 @@
         "kind": "anchor",
         "id": "first_fort_officers_quarters"
       },
-      "text": "After the April killings at Lee's Place, Irwin wrote, 'Propositions were openly made to murder' peaceable neighbours, pressed by 'the Suttler for this garrison & his Son-in law—Lt Helm'. Ensign Ronan threatened to shoot Lalime. Helm swore he would scalp the factor. In May Heald arrested Helm for plotting to kill six Sauk visitors, then let him go.",
-      "read_s": 17,
+      "text": "16 April 1812, the officers' barracks. Ten days ago men 'supposed to be Winnebagoes' killed two farmhands at Hardscrabble, up the South Branch. Fear has turned on everyone. Irwin writes today that 'Propositions were openly made to murder' neighbours who had always been peaceable, French settlers among them, and names who pushed hardest: 'the Suttler for this garrison & his Son-in law—Lt Helm'. That is Kinzie and Lieutenant Linai Helm, the fort's second officer, married to Kinzie's stepdaughter. Ensign George Ronan, the youngest officer, threatens to shoot Lalime. Helm swears to scalp the factor. In May, Heald arrests Helm for plotting to kill six Sauk men who had come in peace, then lets him go. By June everyone at the fort has chosen a side. On the evening of the 17th they are all on the parade.",
+      "read_s": 39,
       "evidence": [
-        "bad-blood"
+        "bad-blood",
+        "heald-april",
+        "dates-frame"
       ],
-      "next": "the-quarrel"
+      "next": "the-quarrel",
+      "hour": "afternoon",
+      "date": "1812-04-16",
+      "hour_evidence": [
+        "dates-frame"
+      ]
     },
     {
       "id": "the-quarrel",
@@ -78,11 +104,12 @@
         "kind": "anchor",
         "id": "first_fort_parade"
       },
-      "text": "17 June 1812, about six in the evening, inside the fort. Helm railed against the factor and said, Van Voorhis wrote, 'he would give a very handsome treat if the Factory would be done away!' Kinzie took his son-in-law's side. Lalime 'defended the pure motives and just dealings of the Institution'. Then Kinzie and Lalime went out together.",
-      "read_s": 17,
+      "text": "17 June 1812, about six in the evening, inside the fort. Tomorrow, in Washington, Congress will declare war on Britain; the news will not reach this fort until the middle of July. On the parade Helm rails against the factor, and ends, as Van Voorhis wrote, 'by saying he would give a very handsome treat if the Factory would be done away!' Kinzie backs his son-in-law. Lalime stands up for Irwin's store: he 'defended the pure motives and just dealings of the Institution'. Voices rise. Then Kinzie and Lalime walk out of the gate together. The gates are about to close for the night. Only one of the two men will walk back.",
+      "read_s": 32,
       "evidence": [
         "quarrel",
-        "porthier"
+        "porthier",
+        "war-declared"
       ],
       "next": "the-gate",
       "hour": "18:00",
@@ -97,8 +124,8 @@
         "kind": "anchor",
         "id": "first_fort_gate"
       },
-      "text": "'It was sunset, when they used to shut the gates of the fort.' A girl inside, Victoire Porthier, heard Helm shout a warning, then a pistol, and saw the two men fall together. Kinzie got up bleeding; Lalime did not. The factor watched from twenty or thirty yards. Van Voorhis called it 'a perfect assassination'. The family called it self-defence.",
-      "read_s": 17,
+      "text": "17 June, sunset, outside the main gate. Victoire Porthier, a girl inside the fort, remembered: 'It was sunset, when they used to shut the gates of the fort.' She heard Helm call out to Kinzie to look out for Lalime, 'as he had a pistol.' 'We heard the pistol go off and saw the smoke. Then they fell down together.' Kinzie got up, bleeding from the shoulder. Lalime did not; he had been stabbed. Irwin, the factor, saw it all from twenty or thirty yards. Van Voorhis wrote that 'it was a perfect assassination and can be proven to be such'. The Kinzie family called it self-defence. A man is dead at the gate, the killer is the commander's sutler and the lieutenant's father-in-law, and the officers must decide what to do with him.",
+      "read_s": 38,
       "evidence": [
         "porthier",
         "irwin-saw",
@@ -118,18 +145,19 @@
         "kind": "anchor",
         "id": "kinzie_house_across_river"
       },
-      "text": "Irwin's letters say Kinzie hid in the garrison about four hours, then Helm walked him to the river's edge, shook his hand and let him go. The family's story has him come home 'covered with blood' and hide in the woods while his wife dressed his wounds. Porthier said her father took him to Milwaukee that night.",
-      "read_s": 16,
+      "text": "17 June, about 11:20 at night. Irwin's account: Ensign Ronan told Kinzie to run, Helm hid him in the garrison about four hours, then walked him down to the river's edge, shook his hand and let him go. The family's account: Kinzie 'returned to the house covered with blood', and his wife took him into the woods, where 'she dressed his wounds' and kept him hidden for days. Porthier's account: 'In the night he packed up some things and my father took him to Milwaukee'. Three versions of one night. At the gate, Lalime's body is still lying where it fell.",
+      "read_s": 29,
       "evidence": [
         "irwin-saw",
         "hubbard",
-        "porthier"
+        "porthier",
+        "flight-hour"
       ],
       "next": "the-grave",
-      "hour": "night",
+      "hour": "23:20",
       "date": "1812-06-17",
       "hour_evidence": [
-        "porthier"
+        "flight-hour"
       ]
     },
     {
@@ -138,13 +166,20 @@
         "kind": "anchor",
         "id": "west_of_kinzie_house"
       },
-      "text": "The townspeople wanted an inquest, but 'a file of soldiers headed by Lt. Helm carried it away by force', Irwin wrote. Lalime was buried on this bank, some 'two hundred yards west of the Kinzie house', inside a picket fence. In 1891 men digging a cellar near Cass and Illinois streets found a skeleton in a pine coffin.",
-      "read_s": 17,
+      "text": "18 June, morning. The townspeople want an inquest, a public inquiry into the death. Irwin wrote that instead 'a file of soldiers headed by Lt. Helm carried it away by force'. Lalime was buried on this bank, about 'two hundred yards west of the Kinzie house', inside a picket fence, in plain view of the house he had once owned on paper. In 1891 men digging a cellar near Cass and Illinois streets found a skeleton in 'a rude pine coffin', and the bones went to the Chicago Historical Society.",
+      "read_s": 26,
       "evidence": [
         "grave",
-        "stand-west"
+        "stand-west",
+        "hubbard",
+        "dates-frame"
       ],
-      "next": "$end"
+      "next": "$end",
+      "hour": "08:00",
+      "date": "1812-06-18",
+      "hour_evidence": [
+        "dates-frame"
+      ]
     }
   ],
   "legs": [
@@ -191,7 +226,8 @@
       ]
     },
     {
-      "story": "Round to the north side of the fort, above the river.",
+      "note": "Across the river to the Kinzie house.",
+      "story": "Kinzie crosses the river in the dark.",
       "evidence": [
         "irwin-saw"
       ],
@@ -200,8 +236,11 @@
       ]
     },
     {
-      "note": "Across the river again. Fly, or go Instantly.",
+      "story": "West along the bank, past Ouilmette's and Lalime's own house.",
       "evidence": [
+        "grave"
+      ],
+      "story_evidence": [
         "grave"
       ]
     }
@@ -211,8 +250,8 @@
       "id": "verdict",
       "default": true,
       "completion_eligible": true,
-      "read_s": 38,
-      "text": "Heald ordered the factor out at night to arrest Kinzie. Irwin refused and was turned out of the garrison, and Heald's own letter to him admits what happened: 'a Citizen who had but a few days previous stabed an other citizen to the heart in your presence'. Irwin left on 5 July and was taken prisoner at Mackinac. Van Voorhis, who had offered to testify, died on the lake shore on 15 August. Kinzie lived, came back in 1816, and his family told the story for the next century. Quaife's verdict, 1913: 'The fact of La Lime's death at the hands of Kinzie is clear; the responsibility for it cannot, in the light of existing information, be determined.' The bones from the cellar are still in a box in the Chicago History Museum's storage."
+      "read_s": 96,
+      "text": "That night Heald ordered the factor to help arrest Kinzie. Irwin refused and was turned out of the garrison; Heald's own letter says why: 'a Citizen who had but a few days previous stabed an other citizen to the heart in your presence'. Irwin left on 5 July and was taken prisoner at Mackinac. Van Voorhis died on the lake shore on 15 August. Kinzie lived, came back in 1816, and his family told the story for a century. \n\nSo was it murder? Historians still disagree, and they disagree sharply. \n\nTHE CASE AGAINST KINZIE. Irwin, writing after the fall of the fort, accused him of worse than murder: of helping bring on the disaster of 15 August, and so 'destroying the Witnesses to the murder of Lalime'. Milo Quaife, the historian who found Irwin's letters, warned in 1915 that to readers who saw Kinzie 'as a kind of demigod', that charge 'will come as a distinct shock'. The Chicago Reader in 2018 called the self-defence story 'a popular lie': Lalime was 'stabbed to death in broad daylight and cold blood', one of 'three forgotten men who tried and failed to end the corruption, bribery, and smuggling' at the fort. 'Kinzie was behind it all, the doctor and factor alleged.' \n\nTHE CASE FOR KINZIE. In the family's telling, Lalime, 'insanely jealous over Kinzie's success as a trader, treacherously attacked him'. Currey (1912) says an officers' inquiry found 'a verdict of justifiable homicide', and Hubbard said 'Mr. Kinzie deeply regretted the killing of Lalime'. Porthier, the girl at the gate: 'You see Kinzie wasn't to blame at all.' And then: 'That is what they all said.' \n\nWHO TOLD IT. Quaife: only the version 'originating with the relatives and friends of the slayer gained the public ear', and it 'put the onus of the affray on the slain'. The Reader: 'The winners didn't write the history books.' \n\nLalime's bones are still in a box in the Chicago History Museum's storage. You have stood where he fell. Decide for yourself."
     }
   ],
   "keepsake": {
@@ -354,7 +393,74 @@
         "quaife_1913"
       ],
       "locator": "Chicago Reader, 18 October 2018, the paragraphs beginning 'And, when you report', 'Irwin left Fort Dearborn', 'The plots entered into' and the opening paragraphs; Quaife, the paragraph on La Lime's death"
+    },
+    {
+      "id": "heald-april",
+      "text": "Captain Nathan Heald, writing from Chicago on 15 April 1812: 'On the 6th instant, a little before sunset, a party of eleven Indians, supposed to be Winnebagoes, came to Messrs. Russell and Lee's cabin, in a field on the Portage branch of the Chicago river, about three miles from the garrison, where they murdered two men, one by the name of Liberty White, an American, and the other a Canadian Frenchman whose name I do not know.' The 1895 editors add the name [Debou] in brackets.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 43, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 6876-6890 (machine OCR of the 1895 printing, read as corrected: Heald's letter of 15 April 1812)"
+    },
+    {
+      "id": "dates-frame",
+      "text": "Stops that tell a record are set on its date: Kinzie's first season at Chicago (May 1804, the month his account book there begins), Lalime's letter of 26 May 1811, Irwin's letters of 10 March and 16 April 1812, and the morning after the killing. The hours of those stops are the jaunt's, chosen for daylight; no source gives them.",
+      "confidence": "inferred",
+      "sources": [
+        "quaife_1913",
+        "kirkland_1893_chicago_massacre",
+        "dailing_2018_chicago_reader_lalime"
+      ],
+      "reasoning": "Each date is the date of the document the stop tells; the hours are pacing, not records."
+    },
+    {
+      "id": "flight-hour",
+      "text": "Sunset at the gate, then 'about four hours' hidden in the garrison before Helm walked Kinzie to the river: this stop is set at twenty past eleven that night. Porthier says only 'In the night'.",
+      "confidence": "inferred",
+      "sources": [
+        "dailing_2018_chicago_reader_lalime",
+        "kirkland_1893_chicago_massacre"
+      ],
+      "reasoning": "The Reader's 'about four hours' from Irwin's report, counted from sunset on 17 June (about 7:20 local solar time at Chicago); an estimate."
+    },
+    {
+      "id": "war-declared",
+      "text": "Quaife (1913): 'Meanwhile war had been declared by Congress on June 18'. 'News of the declaration of war was received at Fort Dearborn toward the middle of July.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "Quaife, the chapter on the evacuation (Gutenberg #69274 plain text, the paragraphs on Hull's march and on the news reaching Fort Dearborn)"
+    },
+    {
+      "id": "historians",
+      "text": "The Chicago Reader (2018): 'The story of Lalime's 1812 murder at the hands of early settler John Kinzie is a popular lie'; the self-defence version was 'traced back to Kinzie's wife and one of their servants'. Irwin's and Van Voorhis's letters 'tell the story of three forgotten men who tried and failed to end the corruption, bribery, and smuggling that defined life at the fort that became Chicago.' 'Kinzie was behind it all, the doctor and factor alleged.' 'The winners didn't write the history books. The books ... were how the Kinzies made themselves the winners.' 'Cracks started to form in the story in the 20th century, when Quaife found a few of Irwin's letters'. Quaife, 1915, as the Reader quotes him: 'To those who subscribe to a traditional estimate local to Chicago which pictures Kinzie as a kind of demigod, Irwin's charge that in addition to being a murderer and a traitor he contrived the massacre of the garrison and settlers in order to destroy the witnesses of his crime will come as a distinct shock'. Porthier, as the Reader quotes her: 'You see Kinzie wasn't to blame at all.' 'That is what they all said.' Peter Alter of the Chicago History Museum: 'What I do know is that a lot is not known'.",
+      "confidence": "attested",
+      "sources": [
+        "dailing_2018_chicago_reader_lalime"
+      ],
+      "locator": "Chicago Reader, 18 October 2018, the paragraphs beginning 'The story of Lalime's 1812 murder', 'The real story', 'Kinzie was behind it all', 'The winners didn't', 'You see Kinzie', 'Cracks started to form', 'To those who subscribe' and 'What I do know'"
+    },
+    {
+      "id": "quaife-tradition",
+      "text": "Quaife (1913): 'La Lime's side of the story has not been preserved, except in the form of unreliable verbal tradition, which pictures Kinzie in the light of aggressor and murderer.' 'The Kinzie family tradition represents that La Lime, insanely jealous over Kinzie's success as a trader, treacherously attacked him, armed with a pistol and dirk, and was stabbed to death by Kinzie in self-defense. Practically all writers on Chicago history hitherto have accepted this version, but it is as little worthy of credence as the contrary one.' 'When in a later generation interest in his fate was revived only the version of it originating with the relatives and friends of the slayer gained the public ear, and this, for obvious reasons, put the onus of the affray on the slain.'",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "Quaife, the paragraph beginning 'In the summer of 1812, a few weeks before the massacre' (Gutenberg #69274 plain text)"
+    },
+    {
+      "id": "currey-verdict",
+      "text": "Currey (1912): 'An inquiry into all the circumstances of the affair was made by the officers of the garrison, and a verdict of justifiable homicide was reached.' 'It was said by Gurdon S. Hubbard in later years that Mr. Kinzie deeply regretted the killing of Lalime, and further, that he firmly believed the deed was committed in self-defence.'",
+      "confidence": "attested",
+      "sources": [
+        "currey_1912_story_of_old_fort_dearborn"
+      ],
+      "locator": "Currey ch. II, the paragraphs beginning 'An inquiry into all the circumstances' and 'It was said by Gurdon S. Hubbard'"
     }
   ],
-  "liberties": []
+  "liberties": [],
+  "long_form": true
 }

@@ -129,7 +129,9 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
     if (session?.jaunt && ['menu', 'outcome'].includes(session.phase)) {
       const note = node('section', '', 'jaunt-session-note');
       if (session.phase === 'outcome') {
-        note.append(node('h3', session.outcome.fallback ? 'Outing interrupted' : 'Outing complete'), node('p', session.outcome.text));
+        note.append(node('h3', session.outcome.fallback ? 'Outing interrupted' : 'Outing complete'),
+          // T-3355: a long ending is told in paragraphs, split at blank lines.
+          ...String(session.outcome.text).split(/\n\s*\n/).map(text => node('p', text.trim())));
         const awarded = !session.outcome.fallback && awardNote(session);
         if (awarded) note.append(awarded);
         else if (!session.outcome.fallback) note.append(node('h4', session.jaunt.keepsake.title), node('p', session.jaunt.keepsake.text));
@@ -173,7 +175,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
       if (request !== serial) return;
       const title = node('h3', content.title);
       root.replaceChildren(backButton(() => { ++serial; list(api.catalog, row.id); }), title,
-        node('p', 'Route preview', 'jaunt-meta'), node('p', content.opening.text));
+        node('p', 'Route preview', 'jaunt-meta'), ...String(content.opening.text).split(/\n\s*\n/).map(text => node('p', text.trim())));
       const stops = node('ol', '', 'jaunt-stops');
       for (const stop of content.stops) {
         const item = node('li', '');

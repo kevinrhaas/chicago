@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { createRouter } from '../renderers/web/js/route.js';
-import { estimateLeg, estimateJaunt, formatEstimate } from '../renderers/web/js/travel-estimate.js';
+import { estimateLeg, estimateJaunt, formatEstimate, authoredLeg } from '../renderers/web/js/travel-estimate.js';
 import { paceSpeed, ARRIVAL_SETTLE_S } from '../renderers/web/js/travel-settings.js';
 
 const place = id => {
@@ -44,6 +44,16 @@ const story = { opening: { read_s: 15 }, stops: [{ destination: sauganash, read_
 const estimate = estimateJaunt(story, 'walk', { router });
 assert.equal(estimate.seconds, 62 + estimate.legs[0].seconds);
 assert.equal(estimateJaunt(story, 'walk', { resolve: () => null, router }), null);
+// T-3355: a leg authored Instantly is priced Instantly on the jaunt's default mode, from the
+// story's legs or the catalog row's timing; a mode the visitor picked prices every leg.
+const longRide = { ...story, default_mode: 'walk', allowed_modes: ['walk', 'instantly'],
+  stops: story.stops.map((s, i) => ({ ...s, id: `s${i}` })), legs: [{ note: 'A long ride.', evidence: ['x'], mode: 'instantly' }] };
+assert.equal(estimateJaunt(longRide, 'walk', { router }).legs[0].seconds, ARRIVAL_SETTLE_S);
+assert.equal(estimateJaunt(longRide, 'horse', { router }).legs[0].seconds, estimateLeg({ from: sauganash, to: peck, mode: 'horse', router }).seconds);
+const row = { default_mode: 'walk', allowed_modes: ['walk', 'instantly'], destinations: [sauganash, peck],
+  timing: { opening_read_s: 15, stops: [{ read_s: 22 }, { read_s: 22, action_s: 3, leg_mode: 'instantly' }] } };
+assert.equal(estimateJaunt(row, 'walk', { router }).seconds, 62 + ARRIVAL_SETTLE_S);
+assert.equal(authoredLeg(longRide, 's1', 's0'), longRide.legs[0], 'a leg is found in either direction');
 assert.equal(formatEstimate(null), 'No estimate'); assert.equal(formatEstimate({ seconds: 150 }), 'about 2.5 min');
 assert.match(formatEstimate(fallback), /approximate route/);
-console.log('TRAVEL ESTIMATE PASS — routed distance, bridge detour, live paces, flight, instant, fallback and missing positions');
+console.log('TRAVEL ESTIMATE PASS — routed distance, bridge detour, live paces, flight, instant, fallback, missing positions and per-leg modes');
