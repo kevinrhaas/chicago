@@ -238,7 +238,7 @@ const print_ = css.slice(css.indexOf('@media print'));
 assert(css.indexOf('@media print') > 0, 'a print stylesheet');
 assert.match(css, /\.handout-print \{ display: none; \}/, 'the copy never shows on screen');
 assert.match(print_, /html\.is-printing-handout body > :not\(\.handout-print\) \{ display: none !important; \}/, 'printed, everything else is left out');
-assert.match(print_, /@page \{ margin: 12mm; \}/, 'margins that hold at Letter and A4');
+assert.match(print_, /@page \{ margin: 10mm; \}/, 'margins that hold at Letter and A4 with nine Jaunts (T-3328)');
 assert(!/@page[^}]*size/.test(print_), 'no page size forced: the printer\'s Letter or A4');
 assert.match(read('renderers/web/index.html'), /<link rel="stylesheet" href="\.\/css\/handout\.css">/);
 const main = read('renderers/web/js/main.js');

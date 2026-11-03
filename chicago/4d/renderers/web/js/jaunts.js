@@ -206,7 +206,11 @@ export function replaySession(jaunt, saved, session = 1) {
 export function createJaunts({ scene = '1835', load, resolve, place, travel, enter, showMenu, render, openDetail, closeDetail, onError,
   estimate = () => null, contextForRoute = () => null, onComplete = () => {}, storage: suppliedStorage,
   // T-2652: the mode the visitor's getting-there choice asks of this Jaunt, or null for its own.
-  preferredMode = () => null }) {
+  preferredMode = () => null,
+  // T-3328: the scene's hour (api.timeOfDay, T-3331). A stop with an `hour` sets it on
+  // arrival, transiently; a stop without one, and the end of the jaunt, give the visitor's
+  // own hour back. Optional: a harness without it plays the jaunt in the hour it has.
+  hour = null }) {
   const sessionKey = scene === '1835' ? SESSION_KEY : `${SESSION_KEY}.${scene}`;
   let state = emptyState(), serial = 0, request, detailRequest, destroyed = false, previousMode;
   let storage = suppliedStorage;
@@ -216,6 +220,18 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
     if (!state.jaunt) return clearSaved();
     try { storage?.setItem(sessionKey, JSON.stringify({ content_version: state.jaunt.content_version,
       jaunt: state.jaunt.id, events: state.events })); } catch { /* memory-only */ }
+  };
+  let hourSet = false;
+  const restoreHour = () => {
+    if (!hour || !hourSet) return;
+    hourSet = false;
+    Promise.resolve().then(() => hour.restore()).catch(() => { /* the hour stays; the outing goes on */ });
+  };
+  const applyHour = stop => {
+    if (!hour) return;
+    if (!stop?.hour) { restoreHour(); return; }
+    hourSet = true;
+    Promise.resolve().then(() => hour.set(stop.hour, { date: stop.date, transient: true })).catch(() => { /* daylight it is */ });
   };
   const restore = () => { if (previousMode !== undefined) travel.setMode(previousMode); previousMode = undefined; };
   const cancel = (reason = 'jaunt') => travel.stop(reason);
@@ -233,6 +249,8 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
     if (state.jaunt && !['DETAIL', 'RETURN'].includes(event.type) && (state.leg !== old.leg || state.phase !== old.phase || state.mode !== old.mode))
       state = { ...state, estimate: estimate(state) };
     render(state);
+    if (state.phase === 'atStop' && (old.phase !== 'atStop' || old.stopIndex !== state.stopIndex || old.session !== state.session))
+      applyHour(currentStop(state));
     if (state.phase === 'travelling' && (old.leg !== state.leg || old.phase !== state.phase)) {
       cancel(['MODE', 'INSTANT'].includes(event.type) ? 'replan' : 'jaunt'); dismissDetail();
       if (previousMode === undefined) previousMode = travel.mode;
@@ -251,14 +269,14 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
     } else if (state.phase === 'paused') {
       cancel(); restore();
     } else if (['menu', 'outcome'].includes(state.phase)) {
-      cancel(); dismissDetail(); restore(); showMenu({ state, returnId: state.jaunt?.id ?? old.jaunt?.id });
+      cancel(); dismissDetail(); restore(); restoreHour(); showMenu({ state, returnId: state.jaunt?.id ?? old.jaunt?.id });
     }
     persist();
     return true;
   }
   async function start(id, { mode } = {}) {
     const generation = ++serial; request?.abort(); request = new AbortController();
-    state = emptyState(); clearSaved(); cancel(); dismissDetail(); restore(); render(state);
+    state = emptyState(); clearSaved(); cancel(); dismissDetail(); restore(); restoreHour(); render(state);
     try {
       const jaunt = await load(id, { signal: request.signal });
       if (destroyed || generation !== serial) return false;
@@ -286,14 +304,16 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
     try {
       const jaunt = await load(saved.jaunt);
       if (saved.content_version !== jaunt.content_version) throw new Error('version');
-      state = replaySession(jaunt, saved, ++serial); render(state); persist(); return true;
+      state = replaySession(jaunt, saved, ++serial); render(state); persist();
+      if (state.phase === 'atStop') applyHour(currentStop(state));
+      return true;
     } catch (error) {
       clearSaved(); state = { ...emptyState(), notice: error.message === 'version'
         ? 'A saved outing from an older version was discarded.' : 'A damaged saved outing was discarded.' };
       render(state); return false;
     }
   }
-  const explore = () => { ++serial; request?.abort(); state = emptyState(); clearSaved(); cancel(); dismissDetail(); restore(); render(state); };
+  const explore = () => { ++serial; request?.abort(); state = emptyState(); clearSaved(); cancel(); dismissDetail(); restore(); restoreHour(); render(state); };
   return { start, get state() { return state; }, next: () => dispatch({ type: 'NEXT' }), prev: () => dispatch({ type: 'PREV' }),
     choose: id => dispatch({ type: 'CHOOSE', id }), retry: () => dispatch({ type: 'RETRY' }),
     revise: () => dispatch({ type: 'REVISE' }), restore: restoreSession,

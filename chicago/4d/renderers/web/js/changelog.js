@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2608, ts: '2026-11-03T09:51:47.576Z', date: 'Nov 3, 2026, 3:51 AM CT', title: 'Jaunt stops set the hour the sources give', kind: 'feature',
+    items: [
+      'A jaunt stop can carry its own hour and date: arriving sets the scene\'s light and the year chip\'s day, and leaving the jaunt gives your own Time of Day back.',
+      'The Lalime killing plays at six in the evening, sunset at the gate and night for Kinzie\'s flight, all on 17 June 1812, as the letters and Victoire Porthier tell it.',
+      'The Battle of Fort Dearborn: sunset at Lee\'s Place, dusk at the Burns house, evening for the well and the liquor, and 9 o\'clock in the morning for the march down the beach.',
+      'Every hour cites its claim; an hour no source gives is marked inferred.',
+    ] },
   { v: 2607, ts: '2026-11-03T09:02:15.229Z', date: 'Nov 3, 2026, 3:02 AM CT', title: 'Glessner\'s north-face colonnettes carved like the Prairie front\'s', kind: 'fix',
     items: [
       'The two colonnettes between the 18th Street window pairs were pale plain posts; they are now the front\'s kind, as the 1965 HABS photographs show them.',
