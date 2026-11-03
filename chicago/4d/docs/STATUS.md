@@ -25458,3 +25458,10 @@ T-2793 follow-up: costly continuous flora motion within each pass's existing rea
 
 
 Current integration note: the checked wagon/flora feature ee67adfe passed its native1112-step source gate and exact-HEAD delivery checks. That feature result does not qualify the subsequently merged DEV609edb67 source. The ordinary integration owner and current CI remain required before DEV delivery; photographic, occupied-vehicle, riding/driving and horse/Otis-motion acceptance are not closed by this partial. T-3173 is already DONE through merged PR1605: retain and adopt its current memory/empty-scene fixes, do not reopen that ticket or make obsolete memory/refill qualification a blocker for this wagon increment. The older dated memory notes remain historical records, not current ticket claims.
+
+
+## 2026-11-03 — Wolf Point poster source credit (T-2386, partial)
+
+The Images source list gains a distinct credited link for the Blanchard/Davis colored poster, on explicit archived Newberry ca. 1893 publication evidence. Its current object record still lists 1935/Copyright Not Evaluated; that conflict remains documented. The native cited-illustration join is used without adding a camera or changing geometry, form-source arrays, placement, material or existing match verdicts.
+
+The initial poster diagnostic remains unfitted and unreviewed outside the application. Seven accepted views and Herriott's unmeasurable-target disposition are retained. Full original T-2386 picture acceptance remains open; this increment registers provenance and makes the source reachable from the card.
