@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2610, ts: '2026-11-03T10:50:47.299Z', date: 'Nov 3, 2026, 4:50 AM CT', title: 'Green Tree\'s connecting range and Wolf Point picture credit', kind: 'change',
+    items: [
+      'A low connector and angled gabled range now stand beside Green Tree Tavern\'s open wagon bay, replacing the previous rear ell.',
+      'The existing bay roof and posts remain, with open gaps preserved. Uncertain dimensions and the July-1835 appearance stay recorded as liberties.',
+      'The tavern\'s Images tab links the Blanchard/Davis colored poster with its publication credit.',
+      'The source record explains Newberry\'s conflicting dates. No building or camera changes are included.',
+    ] },
   { v: 2609, ts: '2026-11-03T10:13:03.384Z', date: 'Nov 3, 2026, 4:13 AM CT', title: '1835 by night: lamp-lit windows, the lighthouse lit, a gate lantern', kind: 'feature',
     items: [
       'Set Time of day to dusk or night in 1835 and the town\'s and the fort\'s windows glow with candle and oil-lamp light, most in the evening and only a few in the small hours.',
