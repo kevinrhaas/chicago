@@ -58,7 +58,7 @@ parcel `prairie_1834`'s rear line. The bearing is the parcel's, -0.616 degrees.
   key's shingle-roof sign; if it is, the kit's slate is wrong for this roof, and the liberty says so.
 - **Street furniture.** On the alley line, the barn's eave reached alley pole
   `pole.alley.indiana_prairie_18_20#03`. `lay_prairie_1904_street_furniture.py` moved it through its
-  own inset list (E 1338.73 to 1336.78); its `--check` now finds no pole, crossarm or wire touching a
+  own inset list, 0.45 m further into the alley (E 1338.73 to 1338.28); its `--check` now finds no pole, crossarm or wire touching a
   baked model.
 
 ## Also in this change: 1824's stable re-stamped
