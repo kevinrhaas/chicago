@@ -39069,6 +39069,40 @@ it.
 **Review:** `docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/cdn_almanac_1913-side-by-side.jpg`.
 **Recorded:** 2026-11-02 (T-3314).
 
+### L-k01-1919-north-bay-coped-gables-3337 — 1919 Prairie's canted north bay on its rear range, flat-topped under a balustrade, and its rear ranges' stone-coped gables, read off the Gatlin plates and the 1911 sheet
+
+**Decision:** the north flank of 1919 Prairie's rear ranges (T-3337, piece 1 of T-3303, of T-1907) carries
+what the 1911 sheet draws and both Gatlin Institute plates show: on the rear range's north wall, the
+sheet's canted north bay (u -14.5 to -9.4, about 1.4 m out), standing two storeys to the range's wall top
+under a flat top and a balustrade, its windows grouped between stone mullions, the range's steep gable
+standing back over it; and the gables of both ranges carried up past the slate in a pale stone coping,
+springing from kneelers and finialled at their peaks, as T-3301 found the street dormer's gable is. K01
+learns two additive things for it, byte-identical for every other house (`k01_emit --check`): a
+flat-topped full-height projection may stand on a wing's gable end (it was refused there, since a tower's
+back closes over the wing's wall top and a flat top closes nothing), and a flank-gabled wing's roof may
+name a stone `coping` on its gable ends (`generators/archetypes/k01_wing_coping.py`, the dormer coping's
+parts in the gable face's frame).
+**What is read, not invented.** The bay's place along the wall and its canted plan, from the 1911 sheet's
+trace; that it is two storeys, flat-topped under a balustrade and glazed in mullioned groups, from both
+plates; that the flank's gables are coped in pale stone with finials at their peaks, from both plates.
+**What is invented.** The bay's 1.2 m projection (the kit's most for a projection, 0.2 m under the sheet's
+reading) and its 1.2 m cants; its windows' kinds (K06's four-light transomed mullioned group on its face,
+a two-over-two sash in each cheek), sizes and sills; its 0.6 m plinth, its moulded stone cornice and its
+balustrade's rails; the rear range's two remaining flank windows moved to s 1.0 and 8.2 m beside it; the
+coping's 0.18 m section, 0.35 m run back and 0.35 m kneelers (the dormer's), the 0.6 m finials, and that
+the ranges' south gable ends, which face 1923's wall a metre off and no picture shows, are coped as the
+north ends are.
+**What is not built.** The stone quoins the plates show at the bay's corners (K08 dresses only a stone
+bay); the quoined flat-topped block at the middle range's north-west corner and its mullioned stretch;
+the small pinnacled dormers between the gables; the third, smaller gable at the flank's far end. And both
+plates' cameras put the flank's two-storey face nearer the street-side viewpoint, or higher, than the
+1911 sheet's trace puts the ranges, which is open in both match records.
+**How to resolve:** T-3338 takes the rest of the flank, the ranges' place against both plates and the
+house's remaining pictures.
+**Ticket:** T-3337 (piece 1 of T-3303).
+**Review:** `docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/gatlin_programme_1919-side-by-side.jpg`.
+**Recorded:** 2026-11-03 (T-3337).
+
 ### L-k03-brick-shuffle-3295 — A K03 brick wall draws each brick from another of its kind in the panel, with its own small colour spread and a broad mottle
 
 **Decision:** the renderer no longer repeats a K03 brick panel (`assets/textures/prairie_1904_brick/panel/`,
@@ -39430,6 +39464,32 @@ sketch of the 1812 ground that shows a path (the 1821 and 1830 surveys are the n
 places one.
 **Ticket:** T-3339.
 **Recorded:** 2026-11-03 (T-3339).
+
+### L-t3340-south-groves-1812 — 1812's timber south of the river: the South Branch belt carried east of Wells, and groves in the wet hollows
+
+**Decision:** in the 1812 scene only, `renderers/web/js/trees.js` (`SOUTH_GROVES`) deals two kinds of grove on the
+South Division, each stem from a generator seeded by its own position, off the shared stream. The **belt**: on the
+South Branch's east bank south of the forks, wherever no wood already stands, ZONE 5's trees (cottonwood, green ash,
+elm, silver maple, black willow, swamp white oak, hackberry) near-continuous within 40-95 m of the water and in groves
+out to 230 m, thinning outward. The **hollows**: on the low ground of the south prairie (below 0.96-1.32 m above the summer
+water) more than 230 m from the river, a coarse field picks the few hollows that carry a grove of black and
+peach-leaved willow, cottonwood and green ash. **Why:** the owner, 2026-11-03: *"I also think there should be more
+trees south of the river it was well documented from before that there were cottonwoods and other occasional groves
+of trees along the water and in patchy water areas throughout the prairie, the south part should not look so
+desolate."* The wood `communityAt` gives the South Branch is a gallery 30-74 m deep, the low half of ZONE 5's 30-120
+m because in 1835 the town was cutting there, and it stops at the Wells Street line, the east end Andreas gives the
+main stem's belt, which the South Branch crosses for about a mile south of N -2000; in 1812 nobody was cutting, and
+the bank stood nearly bare. **What is read, not invented:** that the South Side timber "follow[ed] the bend of the river ... and extend[ed]
+south two or three miles" (Andreas, through `chicagology_prefire273`); that the surveyors met willow thickets and
+swamp margins on the Cook County prairie, and that timber stood thickest where water broke the prairie fires
+(McBride and Bowles, `mcbride_bowles_2007`). **What is invented:** every stem's place; the belt's depth (40-95 m
+near-continuous, groves to 230 m) and density (30-72 stems a hectare at its thickest); which hollows carry a grove,
+the height band that makes a hollow (fully wet below 0.96 m, none above 1.32 m), and their density (20-56 a hectare); the species weights. That the belt follows the South Branch's east bank
+past the Wells Street line rather than stopping at it. **How to resolve:** the 1821-22 federal
+survey's field notes for the South Branch townships (line trees, "timber" and "prairie" calls along the section
+lines south of the forks), or an early map that draws the timber along the South Branch.
+**Ticket:** T-3340.
+**Recorded:** 2026-11-03 (T-3340).
 
 
 ### L-sauganash-entrance-lower-sash-2383 — Sauganash entrance and four lower sash

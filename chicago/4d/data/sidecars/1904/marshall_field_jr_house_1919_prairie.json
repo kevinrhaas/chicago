@@ -605,6 +605,93 @@
             "covering": "tin_flat_seam_painted"
           },
           "plinth_m": 1.7
+        },
+        {
+          "id": "north_bay",
+          "variant": "k08.projection.full_height",
+          "wall": "k01.wall.wing.rear_range.south",
+          "s_m": 4.45,
+          "fabric": "brick",
+          "plinth_m": 0.6,
+          "plan": {
+            "width_m": 2.7,
+            "proud_m": 1.2,
+            "cant_left_m": 1.2,
+            "cant_right_m": 1.2
+          },
+          "storeys": [
+            {
+              "height_m": 5.9,
+              "windows": [
+                {
+                  "opening": "k06.opening.casement_four_transom_mullioned",
+                  "clear_width_m": 2.15,
+                  "clear_height_m": 2.4,
+                  "sill_m": 2.45,
+                  "at": [
+                    0.5
+                  ],
+                  "why_not_ordinary": "both Gatlin Institute plates draw the bay's windows as a group of tall lights between stone mullions, wider than a sash: K06's four-light transomed mullioned group across its face"
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.75,
+                  "clear_height_m": 2.4,
+                  "sill_m": 2.45,
+                  "at": [
+                    0.1641,
+                    0.8359
+                  ]
+                }
+              ]
+            },
+            {
+              "height_m": 3.7,
+              "windows": [
+                {
+                  "opening": "k06.opening.casement_four_transom_mullioned",
+                  "clear_width_m": 2.15,
+                  "clear_height_m": 1.95,
+                  "sill_m": 0.6,
+                  "at": [
+                    0.5
+                  ],
+                  "why_not_ordinary": "both Gatlin Institute plates draw the bay's windows as a group of tall lights between stone mullions, wider than a sash: K06's four-light transomed mullioned group across its face"
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.75,
+                  "clear_height_m": 1.95,
+                  "sill_m": 0.6,
+                  "at": [
+                    0.1641,
+                    0.8359
+                  ]
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "hip",
+            "pitch": 0.0,
+            "covering": "tin_flat_seam_painted"
+          },
+          "eaves": {
+            "cornice": "k10.cornice.moulded_stone"
+          },
+          "balcony": {
+            "fabric": "stone",
+            "height_m": 0.75,
+            "inset_m": 0.05,
+            "post_m": 0.3,
+            "bar_m": 0.07,
+            "pitch_m": 0.2,
+            "rail_m": [
+              0.2,
+              0.12
+            ],
+            "foot_rail_m": 0.12
+          }
         }
       ],
       "confidence": "inferred",
@@ -613,7 +700,7 @@
         "sanborn_1911_chicago_v3_sheet_28",
         "gatlin_programme_1919_field_jr_plate"
       ],
-      "note": "(1) FRONT_BOW: the broad bow across the front's north part, which the 1913 plate shows as the curved eave and wall sweeping from the north corner along the front, and which the 1911 sheet draws as the front swelling 0.8 m forward of corners cut back at v 0.4 and 8.8 (in this frame). Built as a K08 bow, 6.0 m on its chord and 1.0 m out (K08's facet and window rules refuse a flatter one), two storeys of three windows, its nearly flat tin cap tucked under the main cornice's bed (K08 stops a bay below it), where the plate carries the eave itself round the bow; its windows and their heights are RECONSTRUCTED. (2) NORTH_TOWER: the round tower on the north flank close behind the front, which the 1913 plate shows rising through both storeys and a stage past the eave with tall windows round it, and which stands there still (the 2004 photograph). Its place along the wall, s 13.4 m from the rear corner, is the plate's through its camera; the 1911 sheet bows the north wall out about 0.6-1.0 m there. It is built half-engaged, 2.6 m across with its centre 0.1 m before the wall plane, so it stands 1.4 m out where the sheet's bow reads 0.6-1.0 m. Its radius, storey heights, windows and low slated cap are RECONSTRUCTED: the halftone cannot resolve the top. T-3280: (2) NORTH_TOWER's top: the 1919 programme plate and the 1913 plate both show the tower carried up past its third tier of windows as a plain band to a flat top with a heavy edge, its top at about 13.7 m and 14.9 m through their cameras, where T-3279's slated cone rose from 12.1 m to a finial at 14.4 m; built by carrying its third storey up 1.9 m, plain over its windows, to 14.0 m under K08's nearly flat tin cap (its eaves the heavy edge), and the cone and finial taken off. (3) FRONT_BOW's upper storey 2.4 m and its lights 1.7 m, 0.2 and 0.1 m under T-3279's, so the bow still stops under the cornice's bed, which the steeper hip's soffit brings 0.1 m lower. T-3305: the bow and the tower stand on the house's stone basement (plinth_m 1.7, the basement's top), the plates' pale base carried round both under their brick. T-3313: (1) FRONT_BOW carried up to the eave: the 1913 plate and the 1919 programme plate both run the main cornice round the bow, its wall rising to the eave with the front's, where T-3279's bow stopped under the cornice's bed. Built as K08's bow carrying the bracketed cornice's own section as its eaves (eaves.cornice, T-2472's rule, as 1816's and 1923's bays): its upper storey 2.8 m, so its wall top is the cornice's bed foot at 8.6 m, and the bed moulding, the house's 0.5 m soffit and its fascia run round the bow at the main eave's line, its nearly flat cap dying into the hip behind. Its upper lights take the house's upper storey's (sill 0.6 m over the floor, 1.8 m high). Its centre moved 0.2 m south along the front (s 4.1 m) so its eave, now 0.5 m out past each junction, leaves the corner bracket room at the front's north corner; the bow (1.1-7.1 m along the front) stays inside the sheet's swell (about 1.2-9.6 m). INFERRED: that the cornice runs round the bow is the plates'; the bow's upper storey and lights are RECONSTRUCTED, the eave's section the kit's."
+      "note": "(1) FRONT_BOW: the broad bow across the front's north part, which the 1913 plate shows as the curved eave and wall sweeping from the north corner along the front, and which the 1911 sheet draws as the front swelling 0.8 m forward of corners cut back at v 0.4 and 8.8 (in this frame). Built as a K08 bow, 6.0 m on its chord and 1.0 m out (K08's facet and window rules refuse a flatter one), two storeys of three windows, its nearly flat tin cap tucked under the main cornice's bed (K08 stops a bay below it), where the plate carries the eave itself round the bow; its windows and their heights are RECONSTRUCTED. (2) NORTH_TOWER: the round tower on the north flank close behind the front, which the 1913 plate shows rising through both storeys and a stage past the eave with tall windows round it, and which stands there still (the 2004 photograph). Its place along the wall, s 13.4 m from the rear corner, is the plate's through its camera; the 1911 sheet bows the north wall out about 0.6-1.0 m there. It is built half-engaged, 2.6 m across with its centre 0.1 m before the wall plane, so it stands 1.4 m out where the sheet's bow reads 0.6-1.0 m. Its radius, storey heights, windows and low slated cap are RECONSTRUCTED: the halftone cannot resolve the top. T-3280: (2) NORTH_TOWER's top: the 1919 programme plate and the 1913 plate both show the tower carried up past its third tier of windows as a plain band to a flat top with a heavy edge, its top at about 13.7 m and 14.9 m through their cameras, where T-3279's slated cone rose from 12.1 m to a finial at 14.4 m; built by carrying its third storey up 1.9 m, plain over its windows, to 14.0 m under K08's nearly flat tin cap (its eaves the heavy edge), and the cone and finial taken off. (3) FRONT_BOW's upper storey 2.4 m and its lights 1.7 m, 0.2 and 0.1 m under T-3279's, so the bow still stops under the cornice's bed, which the steeper hip's soffit brings 0.1 m lower. T-3305: the bow and the tower stand on the house's stone basement (plinth_m 1.7, the basement's top), the plates' pale base carried round both under their brick. T-3313: (1) FRONT_BOW carried up to the eave: the 1913 plate and the 1919 programme plate both run the main cornice round the bow, its wall rising to the eave with the front's, where T-3279's bow stopped under the cornice's bed. Built as K08's bow carrying the bracketed cornice's own section as its eaves (eaves.cornice, T-2472's rule, as 1816's and 1923's bays): its upper storey 2.8 m, so its wall top is the cornice's bed foot at 8.6 m, and the bed moulding, the house's 0.5 m soffit and its fascia run round the bow at the main eave's line, its nearly flat cap dying into the hip behind. Its upper lights take the house's upper storey's (sill 0.6 m over the floor, 1.8 m high). Its centre moved 0.2 m south along the front (s 4.1 m) so its eave, now 0.5 m out past each junction, leaves the corner bracket room at the front's north corner; the bow (1.1-7.1 m along the front) stays inside the sheet's swell (about 1.2-9.6 m). INFERRED: that the cornice runs round the bow is the plates'; the bow's upper storey and lights are RECONSTRUCTED, the eave's section the kit's. T-3337: (4) NORTH_BAY: the canted north bay the 1911 sheet draws on the rear range's north wall (u -14.5 to -9.4, about 1.4 m out; K01's k01.wall.wing.rear_range.south, s 1.9-7.0), which both Gatlin Institute plates show as a two-storey bay with a flat top under a balustrade, its windows grouped between stone mullions, the range's steep gable standing back over it. Built as K08's full-height projection on the wing's gable end (K01 allows a flat-topped one there since T-3337): 2.7 m across its face, its cheeks canted 1.2 m each way and 1.2 m out (the kit's most for a projection; the sheet's 1.4 m is 0.2 m more), two storeys (5.9 and 3.7 m from grade) to the range's 9.6 m wall top, under K10's moulded stone cornice and a stone balustrade on its flat top, with K06's four-light transomed mullioned group on its face and a sash in each cheek in each storey. Its plan is the sheet's (inferred); its storeys follow the range's; the window kinds, sizes and sills, the cornice, the balustrade's rails and the 0.6 m plinth are RECONSTRUCTED from the plates' reading at their resolution. The stone quoins the plates show at its corners are not built (K08 dresses only a stone bay)."
     },
     "rear_wings": {
       "value": [
@@ -659,7 +746,17 @@
             "pitch_deg": 50,
             "overhang_m": 0.3,
             "fascia_m": 0.3,
-            "covering": "slate_pennsylvania"
+            "covering": "slate_pennsylvania",
+            "coping": {
+              "thickness_m": 0.18,
+              "depth_m": 0.35,
+              "kneeler_m": 0.35,
+              "finial_m": 0.6,
+              "ends": [
+                "south",
+                "north"
+              ]
+            }
           }
         },
         {
@@ -690,9 +787,8 @@
           ],
           "windows": {
             "south": [
-              1.8,
-              4.6,
-              7.4
+              1.0,
+              8.2
             ],
             "north": [
               2.4,
@@ -705,7 +801,17 @@
             "pitch_deg": 50,
             "overhang_m": 0.3,
             "fascia_m": 0.3,
-            "covering": "slate_pennsylvania"
+            "covering": "slate_pennsylvania",
+            "coping": {
+              "thickness_m": 0.18,
+              "depth_m": 0.35,
+              "kneeler_m": 0.35,
+              "finial_m": 0.6,
+              "ends": [
+                "south",
+                "north"
+              ]
+            }
           }
         },
         {
@@ -756,9 +862,10 @@
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28",
-        "cdn_almanac_1913_gatlin_1919_plate"
+        "cdn_almanac_1913_gatlin_1919_plate",
+        "gatlin_programme_1919_field_jr_plate"
       ],
-      "note": "The ranges the 1911 sheet draws behind the front block, read off its trace (s28fp-1919-b1) in this frame (v runs south, K01's 'south' wall is the real north flank): (1) MIDDLE_RANGE, u -7.0 to 0, v -3.1 to 10.85, '2½S.B.', stepping out 3.1 m north of the front block and to the south lot line; (2) REAR_RANGE, u -16.4 to -7.0, v -4.8 to 10.8, '2½S.B.', a further 1.7 m north (its canted north bay, about 1.4 m out from u -14.5 to -9.4 on the sheet, is not yet built); (3) GARAGE, u -28.2 to -16.4, the sheet's '2B' 'GARAGE CEMENT FL'R' to the alley, its floor near grade. The two half-storey ranges are built under slated gables facing north and south, the steep gables the 1913 plate shows along the north flank; their pitch, heights and windows are RECONSTRUCTED. Whether the garage stood by 1904 the sheet cannot say (it is 1911's); it is carried as part of the building the T-1841 census rules present_as_mapped."
+      "note": "The ranges the 1911 sheet draws behind the front block, read off its trace (s28fp-1919-b1) in this frame (v runs south, K01's 'south' wall is the real north flank): (1) MIDDLE_RANGE, u -7.0 to 0, v -3.1 to 10.85, '2½S.B.', stepping out 3.1 m north of the front block and to the south lot line; (2) REAR_RANGE, u -16.4 to -7.0, v -4.8 to 10.8, '2½S.B.', a further 1.7 m north (its canted north bay, about 1.4 m out from u -14.5 to -9.4 on the sheet, is not yet built); (3) GARAGE, u -28.2 to -16.4, the sheet's '2B' 'GARAGE CEMENT FL'R' to the alley, its floor near grade. The two half-storey ranges are built under slated gables facing north and south, the steep gables the 1913 plate shows along the north flank; their pitch, heights and windows are RECONSTRUCTED. Whether the garage stood by 1904 the sheet cannot say (it is 1911's); it is carried as part of the building the T-1841 census rules present_as_mapped. T-3337: the rear range's north-wall windows moved to s 1.0 and 8.2 m (RECONSTRUCTED), either side of the sheet's canted north bay (bays: north_bay), which covers the middle one. Both ranges' gables are carried up in a stone coping along each rake, a kneeler at each foot and a 0.6 m turned finial at each apex (roof.coping), as both Gatlin Institute plates draw the flank's gables with pale copings finialled at their peaks and as T-3301 coped the street dormer; the coping's section, kneelers and finial are RECONSTRUCTED at the dormer's sizes, and the south ends, which face 1923's north wall a metre off and no picture shows, are coped as the north ends are."
     },
     "boundary": {
       "value": {
