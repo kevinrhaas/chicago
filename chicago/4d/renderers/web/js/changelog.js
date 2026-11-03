@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2598, ts: '2026-11-03T05:04:21.487Z', date: 'Nov 2, 2026, 11:04 PM CT', title: '1812: worn trails and trodden yards round the settlement', kind: 'feature',
+    items: [
+      'The beaten Indian trail along the lake shore, the line the garrison marched out on in August 1812, is worn into the grass from the fort south.',
+      'The Vincennes trace runs south from the fork below the fort, the Potawatomi trail to the Wabash that Captain Heald rode up in 1811.',
+      'A cart road leaves the fort gate, and fainter paths follow both banks to Kinzie\'s, Burns\'s, the Clark house and on up the South Branch to Lee\'s Place.',
+      'Every house, the stables, the agency and the shops have a trodden yard that fades raggedly into the grass.',
+      'Wear varies with use: the fort road is near bare, the paths up the South Branch barely a line in the grass.',
+      'Grass and trees keep off the trails. Every line is ours, routed over the dry ground, and is recorded as a liberty.',
+    ] },
   { v: 2597, ts: '2026-11-03T04:29:58.014Z', date: 'Nov 2, 2026, 10:29 PM CT', title: '1701 Prairie\'s stable: the low wing gets the photograph\'s narrow gable', kind: 'improvement',
     items: [
       'Behind 1701 Prairie Avenue, the stable\'s lower south wing no longer carries a gable across its whole end. As the Chicagology photograph shows it, the wing is hipped, with a narrow steep gable about 1.8 m across at its north corner, a lunette under it and a round window below that.',
