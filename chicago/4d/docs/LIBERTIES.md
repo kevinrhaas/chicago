@@ -6230,6 +6230,23 @@ it is unchanged: every vertex of the layer is graded `reconstructed`, so hiding 
 all thirty-three signs down at once and leaves the town as the sources leave it — mute, with one
 wolf sign at the forks. What a visitor cannot see from the street is that the names are the
 dataset's and the paint is not; the card behind each sign says so, and this entry is why.
+**AMENDED, T-3359 (2026-11-03): NOTHING HANGS BUT A TAVERN'S POST.** The owner, on a screenshot of
+Jones's grocery under its awning board: *"this whole hanging awning sign thing is not likely, like i
+have not seen images of that but what is more likely is the sign on the face of the building either
+put there or painted directly ... sizing and moving most if not all of the hanging signs to ones
+affixed to logical places either on the front or over the door"*. The evidence agrees: no picture
+in this corpus shows an 1835 Chicago board under a hood or on a bracket, the owner's brief shows
+painted fronts (image 5) and the Green Tree's post (images 6 and 7), and the National Park
+Service's Preservation Brief 25, *Signs*, has flat and flush-mounted boards "standard" by 1800 with
+the hanging sign persisting "less so than previously", chiefly at public houses. So the cycles
+above are still DEALT, unchanged, and every board dealt a `bracket_board` or an `awning_board` (35
+of them) is built as a `wall_board` on its own front instead — over the door where the wall has the
+height above its head, else beside it on the nearest clear face, and kept off every door, sash,
+shutter and frontispiece. Its wording, colourway and letterform are the board it was. The six post
+boards stay. What is invented is unchanged in kind: WHERE on the front each board is fixed, and its
+size, are this file's rule and no record's. Fourteen of the boards are on frame taverns, so
+`frame_tavern_params.front_wall` now reads the frontage scheme's front for the sign layer, held to
+the builder's literals by `tools/check_tavern_front_reader.py`.
 **And the tier got cheaper, not dearer.** The layer draws **1,106 triangles** where it drew 1,380,
 because a painted band is two triangles and a board fixed flat on a wall is twenty-four where a
 bracket is sixty. The lettering costs nothing at all: the whole town's paint is ONE canvas atlas
