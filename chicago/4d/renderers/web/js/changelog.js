@@ -1,4 +1,31 @@
 export const CHANGELOG = [ // newest first
+  { v: 2627, ts: '2026-11-03T22:43:25.728Z', date: 'Nov 3, 2026, 4:43 PM CT', title: '1900 Prairie\'s brick stable on the alley', kind: 'feature',
+    items: [
+      'The alley building behind 1900 Prairie Avenue, the Elbridge G. Keith house, is no longer a rough draft. It now stands as a two-storey brick stable, 15.4 m along the alley and 9.2 m deep, drawn from the 1911 fire-insurance map. The rough draft had it at one storey; the map says two.',
+      'A paired window sits where the map marks one, beside two carriage doors and a hay-loft hatch. A fire wall stands at the north end, where the map marks one, and a paved walk runs from the yard door to the house\'s back porch.',
+      'The doors, roof pitch and most windows are reconstructed, and they are listed on the building\'s card.',
+    ] },
+  { v: 2626, ts: '2026-11-03T22:40:25.953Z', date: 'Nov 3, 2026, 4:40 PM CT', title: 'Dead trees and leafy crowns no longer float pieces in the air', kind: 'fix',
+    items: [
+      'A dead standing tree keeps only the branches still joined to its broken limbs. Before, about four sticks per dead tree hung in the air, some up to 8 m away.',
+      'The broken trunk now ends at its break, so the limbs that grew just below it stay attached.',
+      'Leaf clusters on the outside of a crown now sit on a twig. Before, some hung several metres off the side of a tree, such as the Kinzie cottonwoods in 1812.',
+      'Big limbs that branch just above the trunk\'s fork now start on the trunk instead of up to 0.7 m beside it.',
+      'Crowns keep their width and triangle count. This applies in 1812, 1835 and 1904.',
+    ] },
+  { v: 2625, ts: '2026-11-03T22:33:17.106Z', date: 'Nov 3, 2026, 4:33 PM CT', title: 'The Pullman house\'s 18th Street balustrade gains its middle post', kind: 'polish',
+    items: [
+      'Along 18th Street, the stone balustrade on the Pullman estate\'s wall now has the solid post in its middle that two old photographs show.',
+    ] },
+  { v: 2624, ts: '2026-11-03T22:11:48.552Z', date: 'Nov 3, 2026, 4:11 PM CT', title: 'The 1812 jaunts tell the whole story, stop by stop', kind: 'improvement',
+    items: [
+      'All three 1812 jaunts open by setting the scene: the fort, when it was built, its garrison under Captain Heald, and the war with Britain coming closer. Each opening ends on the moment the story ignites.',
+      'Every person is introduced the first time they appear, so the jaunts make sense with no history in hand. Each stop now tells its part in full prose and ends on a hook for the next.',
+      'Every stop has its date and time of day, and the scene\'s clock follows. Where no record gives the hour, the jaunt says so and picks a reasonable one.',
+      'Long rides go Instantly by default, such as Hardscrabble to the Burns house or the march to the lake shore. Every place still keeps its full stop, and a travel mode you pick yourself still wins.',
+      'Chicago\'s First Murder now closes with the historians\' cases side by side: Kinzie as aggressor, the family\'s self-defence story, and who got to tell it.',
+      'Fort Dearborn, Building by Building now walks the last full day of the fort, 14 August 1812, from daybreak to sunset.',
+    ] },
   { v: 2623, ts: '2026-11-03T22:00:30.935Z', date: 'Nov 3, 2026, 4:00 PM CT', title: 'Wolf Point\'s poster joins its pictured-grade evidence', kind: 'change',
     items: [
       'Wolf Point\'s pictured-grade explanation now includes the newly compared poster. The eighth building comparison and the unkeyed panorama\'s limits are recorded; the building\'s shape and materials are unchanged.',

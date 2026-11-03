@@ -1,23 +1,25 @@
 {
   "id": "elbridge_keith_house_1900_prairie_coach_house",
-  "name": "1900 S. Prairie Avenue — the alley building of the house at 1900 (district draft; refined by T-1935)",
+  "name": "1900 Prairie Avenue (the Elbridge G. Keith house): the brick stable on the alley, K12",
   "aka": [
-    "1900 S. Prairie Avenue"
+    "1900 S. Prairie Avenue",
+    "1900 S. Prairie Avenue, alley building",
+    "Keith stable (1900 Prairie)"
   ],
-  "archetype": "prairie_draft",
+  "archetype": "k12_coach_house",
   "function": {
-    "value": "barn_or_carriage_shed",
-    "confidence": "inferred",
+    "value": "stable",
+    "confidence": "reconstructed",
     "sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "note": "The 1911 sheet reads '1-storey brick GARAGE on the alley'. 1911 labels it a garage or barn; for 1904 the envelope is backcast and its use reconstructed as a stable/coach house."
+    "note": "Sheet 28 of the 1911 Sanborn draws a two-storey brick building on the alley behind 1900, uncrossed, and letters it GARAGE. GARAGE is a 1911 use and is not read as the 1904 one (the K12 kit's restriction no_1911_use_labels; T-1837 study ruling 11; the T-1841 census row s28-1900-rear: 'its use reconstructed as a stable/coach house'). This record builds it as the house's stable and coach house, as 1726's GARAGE is (T-1932): two carriage bays, a loft with its hatch and hoist, stable sash, and no motor-garage part. The use is RECONSTRUCTED; no source read names a horse, a carriage or a motor car on this lot."
   },
   "review_required": false,
-  "research_note": "A DISTRICT DRAFT (T-2329, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1935 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1900-b2), the T-1841 census (s28-1900-rear) and the T-1837 register row frontage-28-043; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-west-2329).",
+  "research_note": "T-1935 refines the district draft (T-2329) in place under the same id onto the K12 coach-house kit, the fourth of the package's seven alley buildings on the west side of Prairie Avenue, 18th to 20th, after 1816's, 1824's and 1834's. The sheet census (census row s28-1900-rear, trace s28fp-1900-b2) carries the building into 1904; the draft rules now skip that row. Read afresh off the committed sheet 28 raster by median darkness profiles rather than taken from the draft's fitted rectangle: the sheet draws a building 9.15 m deep and 15.42 m along the alley on the alley line, filling the lot's width, its north wall on the line it shares with the one-storey frame shed on the strip between 1834 and 1900 (where the key's fire-wall sign stands at the alley end) and its south wall on the line it shares with 1906's two-storey building. The census row reads the building as '1-storey'; the sheet letters '2' in its north-west corner (the '1' just north of the line is the frame shed's), so this record builds two storeys and the draft's one-storey body is retired. Robinson's 1886 atlas (plate 10) stops at 18th Street, so nothing read here dates the building before 1911. The one picture the T-1935 image gate names for it (Clark's c. 1905 street view north from 1936) shows the house fronts on Prairie Avenue and not the alley.",
   "phases": [
     {
-      "id": "draft_1904",
+      "id": "as_standing_1904",
       "documented_range": {
         "from": "1904-07-01",
         "to": "1911-12-31",
@@ -25,143 +27,260 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+        "note": "The draft's claim, kept: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Robinson's 1886 plate 10, which dates the 1600 and 1700 blocks' stables, stops at 18th Street, and nothing else read dates this one, so the range claims the 1904 target and no more. TO is the last day of the year the sheet was published, the latest date anything here shows it standing; it is not a demolition date.",
         "to_is": "seen"
       },
       "position": {
-        "utm_e": 448412.48,
-        "utm_n": 4634040.338,
+        "utm_e": 448412.1,
+        "utm_n": 4634047.06,
         "rotation_deg": -0.616,
-        "symbolic_location": "1900 S. Prairie Avenue, parcel prairie_1900 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
+        "symbolic_location": "1900 S. Prairie Avenue: west side of Prairie between 18th and 20th Streets, parcel prairie_1900 (data/street_grid/1904.json), the lot south of the strip between 1834 and 1900; on the rear lot line, its alley wall on the east line of the alley between Indiana and Prairie.",
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 0.250, v -6.500 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation -0.616 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "note": "The middle of the building's alley (west) wall at grade, read off the committed sheet 28 raster (chicago/reference/prairie-avenue/sanborn-1911-and-robinson-1886/sanborn_1911_vol3_sheet_28.jpg) at pixel (566.67, 3777.54): the alley wall's line, read by median darkness profile at rows 3680-3720, 3740-3780, 3840-3880 and 3900-3940 (567.44, 566.83, 566.39, 565.67; the raster leans about 0.6 degrees, so the line is fitted through the four), halfway between the building's north and south wall lines (3625.03 and 3930.05). Carried to the local frame by the sheet's fitted similarity (data/traces/gcp/sanborn_1911_v3_sheet_28_gcps.json): local E 1339.397, N -3348.735, 0.23 m north of the middle of parcel prairie_1900's rear line, plus the datum origin. The bearing is the parcel's own (its north and south lines run at 0.616 degrees north of east), so the building's ends lie along the lot lines.",
         "derivation": {
           "method": "not_derivable",
-          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
+          "reason": "The four derivation methods re-derive from the 1835 files; none reads a 1911 Sanborn sheet. This position is pixel (566.67, 3777.54) of the committed sheet 28 raster carried through the similarity in data/traces/gcp/sanborn_1911_v3_sheet_28_gcps.json (local_e = a*px + b*py + c, local_n = d*px + e*py + f) plus the datum origin, and the note carries the pixel and the result so the sum can be recomputed by hand."
         }
       },
       "footprint": {
         "polygon": [
           [
             0.0,
-            0.0
+            -7.71
           ],
           [
-            8.75,
-            0.0
+            9.15,
+            -7.71
           ],
           [
-            8.75,
-            13.75
+            9.15,
+            7.71
           ],
           [
             0.0,
-            13.75
+            7.71
           ]
         ],
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+        "note": "About the middle of the alley wall, u east (into the lot) and v north. The sheet draws the building from the alley line (pixel column 566.67 at its middle row; the line read by median darkness profile at rows 3680-3720, 3740-3780, 3840-3880 and 3900-3940 as 567.44, 566.83, 566.39 and 565.67, the raster leaning about 0.6 degrees) to its east wall line (748.80, 748.01, 746.97 and 746.29 at the same rows; 747.66 at the middle row), 180.98 pixels at the sheet's 0.050558 m a pixel, 9.15 m deep, and from its north wall line (row 3625.03, the line it shares with the frame shed on the strip between 1834 and 1900, which the sheet draws once) to its south one (3930.05, the line it shares with 1906's building), 305.01 pixels, 15.42 m along the alley. It is one rectangle: no piece, wing or open strip. The kit's party walls stand inside this outline at both ends, their returns 0.5 m past the eaves, which is the kit's and not the sheet's; the shed and 1906's building are still the district draft's."
       },
       "form": {
         "stories": {
-          "value": 1,
+          "value": 2,
           "confidence": "attested",
           "sources": [
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "The census reading '1-storey brick GARAGE on the alley': 1 storeys."
+          "note": "'2' lettered in the building's north-west corner, just south of its north wall line (the '1' just north of that line is the frame shed's; the T-1841 census row read the building as '1-storey', which the sheet does not bear out). Built as the kit's carriage room (3.6 m) under a loft whose walls rise 2.7 m more to the eave, under the kit's 40-degree roof (3.84 m from eave to ridge over the 9.15 m span); those heights are RECONSTRUCTED. No dormer: the sheet draws none and the kit builds none.",
+          "geometry": "simplified"
         },
         "construction": {
           "value": "brick",
-          "confidence": "inferred",
+          "confidence": "attested",
           "sources": [
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "The trace's fabric colour on the main part: brick."
+          "note": "Drawn pink, the sheet's colour for brick. The '12 8' written across its south wall line stands on the line it shares with 1906's building and is read as the two walls' thicknesses in inches, the sheet's practice at 1834's north wall; the kit builds its own 13-inch walls.",
+          "geometry": "simplified"
         },
-        "draft_plan": {
+        "coach_house": {
           "value": {
-            "parts": [
+            "id": "k12.coach_house.prairie_1900",
+            "kind": "coach_house",
+            "class": "coach_house",
+            "alley_side": "west",
+            "width_m": 15.421,
+            "depth_m": 9.15,
+            "east_end": "party",
+            "pitch_deg": 40,
+            "ventilator": false,
+            "openings": [
               {
-                "id": "r1",
-                "role": "main",
-                "storeys": 1,
-                "roof": "gable",
-                "rect": [
-                  0.0,
-                  0.0,
-                  8.75,
-                  13.75
-                ],
-                "from": "s28fp-1900-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 88% of its fill"
+                "id": "carriage",
+                "wall": "alley",
+                "kind": "carriage",
+                "s0": 0.9,
+                "s1": 3.9,
+                "sill": 0.0,
+                "head": 3.0
+              },
+              {
+                "id": "loft_hatch",
+                "wall": "alley",
+                "kind": "hatch",
+                "s0": 1.8,
+                "s1": 3.0,
+                "sill": 3.9,
+                "head": 5.3
+              },
+              {
+                "id": "man_door",
+                "wall": "alley",
+                "kind": "door",
+                "s0": 4.9,
+                "s1": 5.85,
+                "sill": 0.0,
+                "head": 2.3
+              },
+              {
+                "id": "stable_sash_1",
+                "wall": "alley",
+                "kind": "sash",
+                "s0": 7.03,
+                "s1": 8.03,
+                "sill": 1.3,
+                "head": 2.5
+              },
+              {
+                "id": "loft_sash_1",
+                "wall": "alley",
+                "kind": "sash",
+                "s0": 7.08,
+                "s1": 7.98,
+                "sill": 4.3,
+                "head": 5.6
+              },
+              {
+                "id": "carriage_2",
+                "wall": "alley",
+                "kind": "carriage",
+                "s0": 9.0,
+                "s1": 12.0,
+                "sill": 0.0,
+                "head": 3.0
+              },
+              {
+                "id": "loft_sash_2",
+                "wall": "alley",
+                "kind": "sash",
+                "s0": 10.05,
+                "s1": 10.95,
+                "sill": 4.3,
+                "head": 5.6
+              },
+              {
+                "id": "stable_sash_2",
+                "wall": "alley",
+                "kind": "sash",
+                "s0": 12.9,
+                "s1": 13.9,
+                "sill": 1.3,
+                "head": 2.5
+              },
+              {
+                "id": "loft_sash_3",
+                "wall": "alley",
+                "kind": "sash",
+                "s0": 12.95,
+                "s1": 13.85,
+                "sill": 4.3,
+                "head": 5.6
+              },
+              {
+                "id": "yard_sash_1",
+                "wall": "yard",
+                "kind": "sash",
+                "s0": 1.6,
+                "s1": 2.6,
+                "sill": 1.3,
+                "head": 2.5
+              },
+              {
+                "id": "yard_loft_sash_1",
+                "wall": "yard",
+                "kind": "sash",
+                "s0": 1.65,
+                "s1": 2.55,
+                "sill": 4.3,
+                "head": 5.6
+              },
+              {
+                "id": "yard_sash_2",
+                "wall": "yard",
+                "kind": "sash",
+                "s0": 4.4,
+                "s1": 5.4,
+                "sill": 1.3,
+                "head": 2.5
+              },
+              {
+                "id": "yard_loft_sash_2",
+                "wall": "yard",
+                "kind": "sash",
+                "s0": 4.45,
+                "s1": 5.35,
+                "sill": 4.3,
+                "head": 5.6
+              },
+              {
+                "id": "yard_door",
+                "wall": "yard",
+                "kind": "door",
+                "s0": 7.25,
+                "s1": 8.2,
+                "sill": 0.05,
+                "head": 2.3
+              },
+              {
+                "id": "yard_sash_3",
+                "wall": "yard",
+                "kind": "sash",
+                "s0": 10.4,
+                "s1": 11.4,
+                "sill": 1.3,
+                "head": 2.5
+              },
+              {
+                "id": "yard_loft_sash_3",
+                "wall": "yard",
+                "kind": "sash",
+                "s0": 10.45,
+                "s1": 11.35,
+                "sill": 4.3,
+                "head": 5.6
+              },
+              {
+                "id": "yard_sash_4",
+                "wall": "yard",
+                "kind": "sash",
+                "s0": 12.6,
+                "s1": 13.6,
+                "sill": 1.3,
+                "head": 2.5
+              },
+              {
+                "id": "yard_loft_sash_4",
+                "wall": "yard",
+                "kind": "sash",
+                "s0": 12.65,
+                "s1": 13.55,
+                "sill": 4.3,
+                "head": 5.6
               }
             ],
-            "lot_v": [
-              -1.225,
-              14.225
-            ],
-            "street_u": 53.666
+            "ramp": null,
+            "stair": null,
+            "lean_to": null,
+            "wing": null,
+            "workyard": {
+              "apron_m": 2.4,
+              "to_house_m": 14.037,
+              "walk_x": -0.35
+            },
+            "confidence": "reconstructed",
+            "note": "Everything but the plan, the storeys, the brick, the fire-wall sign and the one window mark is RECONSTRUCTED from the K12 kit (L-k12-coach-house-kit-2320), recorded as L-k12-1900-stable-1935. The sheet gives the outline, '2' storeys, the brick, the key's fire-wall sign with two ticks at the alley end of its north wall line, and one of the key's window marks on the alley wall, a cross with a dot for each storey (the sign 1816's, 1824's and 1834's alley walls carry), 7.86 m from the north wall line (row 3780.5) and 7.56 m from the south. It letters the building GARAGE, a 1911 use not carried to 1904. Both ends are party walls: the north on the fire-wall sign, against the frame shed on the strip between 1834 and 1900; the south on the line the sheet draws once with 1906's two-storey building (as 1834's north wall stands on the line it shares with 1828's), so there is no open gable. The mark is built as a stable sash with a loft sash over it, centred where it stands (s counts from the north party wall's inner face, 0.33 m in, on the alley wall, and from the south party wall's inner face on the yard wall). The rest of the alley wall is the kit's laid out for 15.4 m: two carriage bays 3.0 m clear, the loft hatch and hoist over the northern one and a loft sash over the other, a man door between the northern bay and the mark, and a stable sash and loft sash toward the south end. The yard wall has a door onto the workyard where the walk to the house meets it and four stable sash with loft sash over them. The kit's 40-degree gable runs its ridge along the alley, 3.84 m from eave to ridge over the 9.15 m span, with no dormer. The workyard is paved from the yard door 14.04 m east to the west face of the house's one-storey frame rear porch (sheet column 1025.4, rows 3696.6-3844.6), the walk on that porch's middle, 0.35 m north of the building's. A small ring the sheet draws inside the building's south-west corner (about column 585, row 3915), as it does inside 1824's, is not read and builds nothing."
           },
-          "confidence": "inferred",
+          "confidence": "reconstructed",
           "sources": [
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1900-b2 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 88% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-        },
-        "draft_elevation": {
-          "value": {
-            "kind": "service",
-            "seed": 1603571526,
-            "principal_floor_m": 0.0,
-            "storey_heights_m": [
-              3.4,
-              2.8,
-              2.6
-            ],
-            "roof_pitch_deg": 40,
-            "mansard_lower_m": 3.0,
-            "front_bays": 5,
-            "entrance": "south",
-            "side_spacing_m": 2.6,
-            "chimneys": 0,
-            "brackets": false,
-            "attic_dormers": false,
-            "stone": "stone",
-            "features": [],
-            "draft_label": {
-              "pass": "T-2329",
-              "refined_by": [
-                "T-1935"
-              ]
-            }
-          },
-          "confidence": "reconstructed",
-          "note": "RECONSTRUCTED by the draft rules, family row 'service' overlaid with the frontage row: Second Empire: slate mansard and dormers over the mapped corner bay. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 1603571526 only tints the fabric inside +-6 %. Liberty L-draft-prairie-18-20-west-2329."
-        },
-        "draft": {
-          "value": {
-            "pass": "T-2329",
-            "liberty": "L-draft-prairie-18-20-west-2329",
-            "register_row": "frontage-28-043",
-            "census_ids": [
-              "s28-1900-rear"
-            ],
-            "trace_building": "s28fp-1900-b2",
-            "seed": 1603571526,
-            "replaceable_by": [
-              "T-1935"
-            ],
-            "card": "District draft — refined by T-1935."
-          },
-          "confidence": "reconstructed",
-          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-          "geometry": "record_only"
+          "note": "The building's dimensions are the footprint's (inferred, above); its openings, roof, party walls and workyard are the kit's, laid out for this lot, and RECONSTRUCTED except where the window mark places a sash. See the value's own note for each choice and what bounds it."
         }
       }
     }
