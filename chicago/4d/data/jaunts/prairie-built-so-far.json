@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 109821357,
+  "content_version": 220039165,
   "category": "Build log",
   "featured": true,
   "review_required": false,
@@ -15,7 +15,7 @@
     "instantly"
   ],
   "opening": {
-    "text": "WALK: BUILT SO FAR. The 50 most detailed of the 87 Prairie Avenue buildings modelled past their first rough model, in 1 area. A walk holds 50 stops, so 37 less detailed buildings wait outside it until they gain detail. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
+    "text": "WALK: BUILT SO FAR. The 50 most detailed of the 88 Prairie Avenue buildings modelled past their first rough model, in 1 area. A walk holds 50 stops, so 38 less detailed buildings wait outside it until they gain detail. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
     "read_s": 28
   },
   "stops": [
@@ -970,7 +970,7 @@
         "kind": "structure",
         "id": "house_1634_prairie"
       },
-      "text": "1634 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1608 Prairie.",
+      "text": "1634 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1604 Prairie.",
       "read_s": 12,
       "evidence": [
         "stood-46",
@@ -989,33 +989,12 @@
       "id": "stop-47",
       "destination": {
         "kind": "structure",
-        "id": "house_1608_prairie"
-      },
-      "text": "1608 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1604 Prairie.",
-      "read_s": 12,
-      "evidence": [
-        "stood-47",
-        "tour"
-      ],
-      "links": [
-        {
-          "kind": "structure",
-          "id": "house_1608_prairie",
-          "label": "About this building"
-        }
-      ],
-      "next": "stop-48"
-    },
-    {
-      "id": "stop-48",
-      "destination": {
-        "kind": "structure",
         "id": "house_1604_prairie"
       },
       "text": "1604 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1600 Prairie.",
       "read_s": 12,
       "evidence": [
-        "stood-48",
+        "stood-47",
         "tour"
       ],
       "links": [
@@ -1025,10 +1004,10 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-49"
+      "next": "stop-48"
     },
     {
-      "id": "stop-49",
+      "id": "stop-48",
       "destination": {
         "kind": "structure",
         "id": "house_1600_prairie"
@@ -1036,7 +1015,7 @@
       "text": "1600 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1619 Prairie.",
       "read_s": 12,
       "evidence": [
-        "stood-49",
+        "stood-48",
         "tour"
       ],
       "links": [
@@ -1046,16 +1025,37 @@
           "label": "About this building"
         }
       ],
+      "next": "stop-49"
+    },
+    {
+      "id": "stop-49",
+      "destination": {
+        "kind": "structure",
+        "id": "house_1619_prairie"
+      },
+      "text": "1619 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: a picture on the Images tab shows it. Next: 2001 Prairie.",
+      "read_s": 10,
+      "evidence": [
+        "stood-49",
+        "tour"
+      ],
+      "links": [
+        {
+          "kind": "structure",
+          "id": "house_1619_prairie",
+          "label": "About this building"
+        }
+      ],
       "next": "stop-50"
     },
     {
       "id": "stop-50",
       "destination": {
         "kind": "structure",
-        "id": "house_1619_prairie"
+        "id": "house_2001_prairie"
       },
-      "text": "1619 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: a picture on the Images tab shows it. Last stop of the walk so far; it grows as more buildings are built out.",
-      "read_s": 16,
+      "text": "2001 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Last stop of the walk so far; it grows as more buildings are built out.",
+      "read_s": 17,
       "evidence": [
         "stood-50",
         "tour"
@@ -1063,7 +1063,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1619_prairie",
+          "id": "house_2001_prairie",
           "label": "About this building"
         }
       ],
@@ -1527,15 +1527,6 @@
     },
     {
       "id": "stood-47",
-      "text": "1608 Prairie stood on 1 July 1904, as its structure record carries it.",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
-      ],
-      "confidence": "inferred",
-      "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
-    },
-    {
-      "id": "stood-48",
       "text": "1604 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1544,7 +1535,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-49",
+      "id": "stood-48",
       "text": "1600 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1553,13 +1544,22 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-50",
+      "id": "stood-49",
       "text": "1619 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
       "confidence": "inferred",
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+    },
+    {
+      "id": "stood-50",
+      "text": "2001 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "confidence": "inferred",
+      "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     }
   ],
   "liberties": [

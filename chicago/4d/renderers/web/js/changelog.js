@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2613, ts: '2026-11-03T12:43:46.565Z', date: 'Nov 3, 2026, 6:43 AM CT', title: '2001 Prairie\'s stone-fronted corner house on 20th Street, built on the house kit', kind: 'feature',
+    items: [
+      '2001 Prairie Avenue, the corner house on 20th Street, is no longer a rough draft: it now has two and a half storeys with a light stone front, a hipped roof with a dormer for the half storey, and a stoop at the corner end of its front.',
+      'Its outline is now read from the 1911 fire-insurance map at full size. The house is about 19 m deep, not the draft\'s 15 m. Its back part steps out to the 20th Street line, as the map draws it.',
+    ] },
   { v: 2612, ts: '2026-11-03T11:50:19.415Z', date: 'Nov 3, 2026, 5:50 AM CT', title: '1904 by night: Prairie Avenue\'s gas lamps lit, and the houses\' windows', kind: 'feature',
     items: [
       'Set Time of day to dusk or night in 1904 and every gas lamp on the parkways is lit, with a warm pool of light on the walk under it.',
