@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2627, ts: '2026-11-03T22:43:25.728Z', date: 'Nov 3, 2026, 4:43 PM CT', title: '1900 Prairie\'s brick stable on the alley', kind: 'feature',
+    items: [
+      'The alley building behind 1900 Prairie Avenue, the Elbridge G. Keith house, is no longer a rough draft. It now stands as a two-storey brick stable, 15.4 m along the alley and 9.2 m deep, drawn from the 1911 fire-insurance map. The rough draft had it at one storey; the map says two.',
+      'A paired window sits where the map marks one, beside two carriage doors and a hay-loft hatch. A fire wall stands at the north end, where the map marks one, and a paved walk runs from the yard door to the house\'s back porch.',
+      'The doors, roof pitch and most windows are reconstructed, and they are listed on the building\'s card.',
+    ] },
   { v: 2626, ts: '2026-11-03T22:40:25.953Z', date: 'Nov 3, 2026, 4:40 PM CT', title: 'Dead trees and leafy crowns no longer float pieces in the air', kind: 'fix',
     items: [
       'A dead standing tree keeps only the branches still joined to its broken limbs. Before, about four sticks per dead tree hung in the air, some up to 8 m away.',
