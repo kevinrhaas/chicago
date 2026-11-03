@@ -41,9 +41,24 @@ const centre = { x: 0, y: 0 };
   B.setMatrixAt(0, new THREE.Matrix4().makeTranslation(0, 0, -5));
   assert.equal(boxPick([A, B], centre, camera, 400).object, B);
   B.setMatrixAt(0, new THREE.Matrix4().makeTranslation(0, 0, -20));
-  // A ray that starts inside a part meets it at once.
+  // A ray that starts inside a part answers it where the ray leaves it (T-3321)...
   const inside = camera.clone(); inside.position.set(0, 0, -10); inside.updateMatrixWorld(true);
-  assert.equal(boxPick([A, B], centre, inside, 400).distance, 0);
+  const own = boxPick([A, B], centre, inside, 400);
+  assert.equal(own.object, A); assert.equal(own.batchId, 0);
+  assert.ok(Math.abs(own.distance - 1) < 0.05, `the part is left at 1 m, read ${own.distance}`);
+  // ...so standing inside a stockade's box, the barracks in front of you is answered, not
+  // the stockade at 0 m; and with nothing nearer the stockade is still answered.
+  const fort = new THREE.BatchedMesh(1, 24, 36, new THREE.MeshBasicMaterial());
+  fort.setMatrixAt(fort.addInstance(fort.addGeometry(new THREE.BoxGeometry(60, 6, 60))), new THREE.Matrix4());
+  fort.updateMatrixWorld(true);
+  const barracks = batch('barracks', [[0, -12]]);
+  const parade = camera.clone(); parade.position.set(0, 0, 0); parade.updateMatrixWorld(true);
+  const looked = boxPick([fort, barracks], centre, parade, 400);
+  assert.equal(looked.object, barracks, 'the building looked at, not the stockade round it');
+  parade.lookAt(0, 0, 10); parade.updateMatrixWorld(true);
+  const away = boxPick([fort, barracks], centre, parade, 400);
+  assert.equal(away.object, fort, 'with nothing else ahead, the stockade');
+  assert.ok(Math.abs(away.distance - 30) < 0.05, `its far wall at 30 m, read ${away.distance}`);
 }
 
 // The drawn pick: only met batches go to the GPU, and a pick no box answers draws nothing.
