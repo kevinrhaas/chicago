@@ -19,6 +19,7 @@
 //   QA_TARGET=1816 node tools/qa_k12_t1932.mjs       T-1935: 1816's long stable on the 18th-20th alley (sheet 28), party walls both ends
 //   QA_TARGET=1824 node tools/qa_k12_t1932.mjs       T-1935: 1824's stable, the next one south on that alley, party walls both ends
 //   QA_TARGET=1834 node tools/qa_k12_t1932.mjs       T-1935: 1834's barn, south of 1828's, its one-storey piece on the yard side at the north end
+//   QA_TARGET=1900 node tools/qa_k12_t1932.mjs       T-1935: 1900's stable (GARAGE in 1911), between the 1834/1900 shed and 1906's building, party walls both ends
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
@@ -99,6 +100,11 @@ const TARGETS={
   ['alley-from-north',[1335.6,-3298,1.7],[1339.5,-3325,4]],
   ['yard-face',[1362,-3340,1.7],[1347,-3326,3]],
   ['air',[1382,-3352,44],[1345,-3325,0]]]},
+ '1900':{dir:'k12-1900-keith-stable-1935',ids:['elbridge_keith_house_1900_prairie_coach_house','elbridge_keith_house_1900_prairie','shed_1834_1900_prairie','edson_keith_house_1906_prairie_coach_house'],glb:'elbridge_keith_house_1900_prairie_coach',stands:[
+  ['alley-from-south',[1336.2,-3376,1.7],[1339.8,-3349,4]],
+  ['alley-from-north',[1335.9,-3322,1.7],[1339.8,-3349,4]],
+  ['yard-face',[1364,-3362,1.7],[1349,-3349,3]],
+  ['air',[1384,-3376,44],[1345,-3349,0]]]},
 };
 const TARGET=TARGETS[process.env.QA_TARGET||'1620'];if(!TARGET)throw Error(`QA_TARGET must be one of ${Object.keys(TARGETS)}`);
 const site=path.resolve(root,'../../site/4d'),out=path.join(root,'docs/RESEARCH',TARGET.dir),TAG=process.env.QA_TAG||'after';
