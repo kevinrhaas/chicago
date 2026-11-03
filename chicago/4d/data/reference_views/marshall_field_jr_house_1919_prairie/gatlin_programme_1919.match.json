@@ -2,7 +2,7 @@
   "structure_id": "marshall_field_jr_house_1919_prairie",
   "view": "gatlin_programme_1919",
   "glb": "assets/gltf/marshall_field_jr_house_1919_prairie__as_mapped_1904.glb",
-  "glb_sha256": "967924564b5d3ea7ff6ef44bfcfce058f544e0bb39c5ad735ed15bc69fca8820",
+  "glb_sha256": "d370c08701c46ba5083058c33ea0c4e4a41a66a13288aac3b14b5c14f2047ffe",
   "camera_sha256": "5761231c09122f5ce6c9fd950c12b502e4ff369c817aedbdd46f780f691c9a20",
   "photo_sha256": "ea845bca0465b8b2d11fc97efe3f9b21ac4b569ee9a9b1c8743d605bf00b8f5e",
   "side_by_side": "docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/gatlin_programme_1919-side-by-side.jpg",
@@ -37,11 +37,11 @@
       "status": "fixed"
     },
     {
-      "what": "the rear ranges' roofs: the plate draws a broad gable over the rear range, steep gables stepping down the flank and a row of small gabled dormers with pinnacles between them; built as two plain slated gables (T-3279)",
+      "what": "the rear ranges' roofs: the plate draws a broad gable over the rear range, steep gables stepping down the flank, each carried up in a pale stone coping finialled at its peak, and a row of small gabled dormers with pinnacles between them; T-3337 carries both ranges' gables up in a stone coping along each rake with a kneeler at each foot and a 0.6 m turned finial at the apex (K01's rear_wings[].roof.coping, as T-3301's street dormer); the row of small pinnacled dormers between the gables is not built",
       "status": "open"
     },
     {
-      "what": "the north flank's two-storey bays with flat tops across the middle and rear ranges, and their stone mullioned windows: not built, the ranges' north walls are flat with single sashes",
+      "what": "the north flank's two-storey bays with flat tops and their stone mullioned windows: T-3337 builds the 1911 sheet's canted north bay on the rear range (u -14.5 to -9.4, 1.2 m out where the sheet reads about 1.4), two storeys to the range's wall top, flat-topped under a moulded stone cornice and a stone balustrade, with a four-light stone-mullioned transomed group on its face in each storey and a sash in each cheek, the range's gable standing back over it; the quoined block at the middle range's north-west corner and its mullioned stretch are not built",
       "status": "open"
     },
     {
@@ -65,7 +65,11 @@
       "status": "not shown"
     },
     {
-      "what": "the rear ranges' stone: quoins up the corners of the north flank's two-storey bays, the stone surrounds and mullions of their windows and the pale courses across them, which this plate draws plainest of all; they stand on the bays, which are not built, and the ranges' walls still carry K03's brick course (the flat-topped bays item; T-3303)",
+      "what": "the rear ranges' stone: quoins up the corners of the north flank's two-storey bays, the stone surrounds and mullions of their windows and the pale courses across them, which this plate draws plainest of all; T-3337 builds the canted north bay with its windows in stone-mullioned groups, but without the quoins up its corners, and the ranges' walls still carry K03's brick course (T-3338)",
+      "status": "open"
+    },
+    {
+      "what": "the rear ranges' north flank against both Gatlin plates: through this camera the plate's two-storey flank runs on past the garage's north-east corner (about 50-80 px further from the tower than the render's) and its cornice stands higher in the frame, as though its north face stood nearer the street-side camera than the 1911 sheet's trace puts the ranges (v -3.1 and -4.8 m); the camera is fitted on the front block alone, so whether the ranges or the fit are out is not settled here",
       "status": "open"
     }
   ],
