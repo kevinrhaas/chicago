@@ -26,6 +26,7 @@ const THREE = await import('three');
 const { createWalker, footprintsFrom, passageLane, WALK, HEADROOM_MARGIN_M, LANE_REACH_M } = await import('../renderers/web/js/walker.js');
 const { createIntent } = await import('../renderers/web/js/controls/intent.js');
 const { passageGroundFrom, passageDepth } = await import('../renderers/web/js/passage-ground.js');
+const { structureOutlines } = await import('../renderers/web/js/navigation.js');
 
 const flat = { walkHeight: () => 0, surfaceHeight: () => 0, isWater: () => false };
 const inside = (e, n, pts) => {
@@ -57,6 +58,31 @@ const reg = (fp) => new Map([['b', { id: 'b', sidecar: { id: 'b', placement: { l
 const speedWas = WALK.speed, eyeWas = WALK.eyeHeight;
 WALK.speed = 1.5;
 try {
+  // Separate occupied components retain one owner and leave the open yard gap
+  // walkable. The same compiler rings drive map outlines, routing and keep-outs.
+  const compound = reg({ polygon: [[0, 0], [4, 0], [4, 4], [0, 4]],
+    additional_polygons: [
+      { id: 'connector', polygon: [[8, 0], [10, 0], [10, 4], [8, 4]] },
+      { id: 'turned-range', polygon: [[10, 1], [12, 2], [11, 4], [9, 3]] },
+    ] });
+  const compoundFeet = footprintsFrom(compound);
+  assert.equal(compoundFeet.length, 3);
+  assert.deepEqual(compoundFeet.map(f => f.id), ['b', 'b', 'b']);
+  const gapWalk = walk(compoundFeet, [6, -3], 0, 8);
+  assert.ok(gapWalk.end[1] > 5, 'the open bay gap is not filled by a bounding polygon');
+  const annexWalk = walk(compoundFeet, [8.8, -3], 0, 8);
+  assert.ok(annexWalk.end[1] < 0, 'the actual connector wall blocks the walk');
+  assert.deepEqual(structureOutlines(compound).map(r => [...r]), compoundFeet.map(f => f.pts));
+  const turned = reg({ polygon: [[0, 0], [1, 0], [1, 1]],
+    additional_polygons: [{ polygon: [[2, 1], [4, 2], [3, 4]] }] });
+  turned.get('b').sidecar.placement.rotation_deg = 90;
+  const turnedFeet = footprintsFrom(turned)[1].pts;
+  assert.ok(Math.abs(turnedFeet[0][0] - 1) < 1e-9 && Math.abs(turnedFeet[0][1] + 2) < 1e-9,
+    'compiled rotated-component coordinates receive the same clockwise placement');
+  assert.deepEqual(structureOutlines(turned)[1].map(p => [...p]), turnedFeet);
+  assert.throws(() => footprintsFrom(reg({ polygon: box,
+    additional_polygons: [{ polygon: [[0, 0], [1, NaN], [2, 0]] }] })), /occupied polygon/);
+
   // ---- the lane: open ends reach past the walls; the side walls are the other edges
   const lane = passageLane(passage);
   assert.equal(lane.walls.length, 2, 'two side walls, two open ends');

@@ -50,6 +50,7 @@ import json
 import math
 import sys
 from pathlib import Path
+from occupied_footprints import phase_world_polygons
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -168,12 +169,13 @@ def laps(structures: dict | None = None, streets: dict | None = None,
         lines.append((street["id"], pts, half, box))
     rows = []
     for sid, pid, phase in standing(structures, streets["target_date"]):
-        poly = world_polygon(phase, datum)
-        px, py = [p[0] for p in poly], [p[1] for p in poly]
+        polygons = phase_world_polygons(structures[sid], phase, datum)
+        points = [p for poly in polygons for p in poly]
+        px, py = [p[0] for p in points], [p[1] for p in points]
         for street_id, pts, half, (x0, x1, y0, y1) in lines:
             if max(px) < x0 or min(px) > x1 or max(py) < y0 or min(py) > y1:
                 continue
-            d = round(depth_into(poly, pts, half), PLACES)
+            d = round(max(depth_into(poly, pts, half) for poly in polygons), PLACES)
             if d > 0:
                 rows.append({"structure": sid, "phase": pid, "street": street_id,
                              "depth_m": d})

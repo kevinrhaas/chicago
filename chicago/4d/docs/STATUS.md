@@ -25458,3 +25458,12 @@ T-2793 follow-up: costly continuous flora motion within each pass's existing rea
 
 
 Current integration note: the checked wagon/flora feature ee67adfe passed its native1112-step source gate and exact-HEAD delivery checks. That feature result does not qualify the subsequently merged DEV609edb67 source. The ordinary integration owner and current CI remain required before DEV delivery; photographic, occupied-vehicle, riding/driving and horse/Otis-motion acceptance are not closed by this partial. T-3173 is already DONE through merged PR1605: retain and adopt its current memory/empty-scene fixes, do not reopen that ticket or make obsolete memory/refill qualification a blocker for this wagon increment. The older dated memory notes remain historical records, not current ticket claims.
+
+
+## Green Tree connector and turned range — 2026-11-03
+
+Original T-2376 now has a low connector and turned farther gabled range beside the existing open wagon bay, replacing the earlier rear ell. The MASTER deliberately omits the open shoulder; native yard geometry remains the sole bay roof/post owner. Separate occupied rings follow the new solids through compilation, collision/routes, ground/prop clearance, entrance placement and framing, preserving the core reference footprint and open gaps.
+
+The authenticated existing MASTER `f447aa45…` was adopted only after all25 current full native recipe documents/input hashes matched its original production evidence; no local Blender ran. Real pinned WEB25 production preserved the other24 MASTER/WEB files, both Tremont version links and foreign registry entries. The scene/entrance/source-use/yard owner chain reached its native fixed point. Numeric annex dimensions and July1835 continuity remain reconstructed at liberty `L-green-tree-enclosed-left-reading-2376`.
+
+The unchanged Andreas camera was genuinely rendered again. Direct before/after review accepts the newly visible connector/farther gable as an increment; the record remains `differs` with one compound open entry for the closed-shoulder/dormered alternative and the remaining range-opening/dimension match. The neutral asset comparison omits procedural bay/signs, terrain and neighbors and establishes no app or door-traversal verdict. Original full-picture signoff remains unfinished; no follow-up ticket is created.

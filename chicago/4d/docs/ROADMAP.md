@@ -6073,3 +6073,10 @@ T-2793 follow-up: costly continuous flora motion within each pass's existing rea
 
 
 Current integration note: the checked wagon/flora feature ee67adfe passed its native1112-step source gate and exact-HEAD delivery checks. That feature result does not qualify the subsequently merged DEV609edb67 source. The ordinary integration owner and current CI remain required before DEV delivery; photographic, occupied-vehicle, riding/driving and horse/Otis-motion acceptance are not closed by this partial. T-3173 is already DONE through merged PR1605: retain and adopt its current memory/empty-scene fixes, do not reopen that ticket or make obsolete memory/refill qualification a blocker for this wagon increment. The older dated memory notes remain historical records, not current ticket claims.
+
+
+## Original T-2376 — connector/range increment, 2026-11-03
+
+Implemented the pictured low connector and turned farther gabled range beside Green Tree's preserved procedural open wagon bay. The prior rear ell is retired; the reference footprint and placement stay unchanged. Authenticated model adoption and compound physical consumers are documented at `docs/RESEARCH/green-tree-annex-T-2376/README.md`; the new reconstructed form is declared at `L-green-tree-enclosed-left-reading-2376`.
+
+The genuine refreshed Andreas comparison remains `differs`: its tall enclosed shoulder/dormered reading and complete farther-range opening/dimension match are not signed off by this useful partial increment. Continue original T-2376 for remaining picture coverage and signoff; the operational state stays in the original ticket, with no new photo follow-up.

@@ -157,6 +157,7 @@ import functools
 import json
 import math
 from pathlib import Path
+from occupied_footprints import phase_world_polygons
 
 from block_faces import face_frame, project
 
@@ -237,6 +238,32 @@ def footprints(datum: dict, exclude: set[str] | frozenset[str] = frozenset()
                 continue
             placed.append((record["id"], world_polygon(phase, datum)))
     return placed
+
+
+def occupied_footprint_groups(datum: dict, exclude: set[str] | frozenset[str] = frozenset()
+                              ) -> list[tuple[str, list[list[tuple[float, float]]]]]:
+    """Occupied parts grouped by their original owner/phase, never duplicate dict keys.
+
+    `footprints` remains the core coordinate reference used by historical frontage
+    rulings and anchors. Physical lot ownership asks every occupied component.
+    A caller that needs a per-id map can retain this list of shapes as its value.
+    """
+    records = {}
+    out = []
+    for sid, core in footprints(datum, exclude):
+        if sid not in records:
+            path = STRUCTURES / f"{sid}.json"
+            records[sid] = json.loads(path.read_text()) if path.exists() else None
+        record = records[sid]
+        extras = []
+        for phase in (record or {}).get("phases", []):
+            if not (phase.get("form", {}).get("enclosed_left_annex") or {}).get("value"):
+                continue
+            if world_polygon(phase, datum) == core:
+                extras = phase_world_polygons(record, phase, datum)[1:]
+                break
+        out.append((sid, [core, *extras]))
+    return out
 
 
 def _signed_area(poly: list[tuple[float, float]]) -> float:
@@ -375,18 +402,21 @@ def lot_holders(grid: dict, datum: dict,
                  for bid, index, polygon in frames}
 
     held: dict[str, dict[int, list[str]]] = {}
-    for structure_id, world in footprints(datum, exclude):
-        seat, best = None, SLIVER_M2
-        for bid, index, polygon in frames:
-            here = overlap_area(world, polygon)
-            if here > best:
-                seat, best = (bid, index), here
-        if seat is None:
-            continue
-        room = buildable[seat]
-        if not room or overlap_area(world, room) <= SLIVER_M2:
-            continue
-        held.setdefault(seat[0], {}).setdefault(seat[1], []).append(structure_id)
+    for structure_id, parts in occupied_footprint_groups(datum, exclude):
+        counted = set()
+        for world in parts:
+            seat, best = None, SLIVER_M2
+            for bid, index, polygon in frames:
+                here = overlap_area(world, polygon)
+                if here > best:
+                    seat, best = (bid, index), here
+            if seat is None or seat in counted:
+                continue
+            room = buildable[seat]
+            if not room or overlap_area(world, room) <= SLIVER_M2:
+                continue
+            held.setdefault(seat[0], {}).setdefault(seat[1], []).append(structure_id)
+            counted.add(seat)
     return held
 
 
