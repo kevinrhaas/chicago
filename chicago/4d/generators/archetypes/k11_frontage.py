@@ -997,3 +997,78 @@ def open_front(a, t):
                   "leaf_reach_m": 0, "entrance_s_m": [], "side_gate_s_m": [], "fence_posts_s_m": [],
                   "wall_piers_x_m": [], "inner_x_m": round(public, 4),
                   "openings_s_m": [[round(south, 4), round(north, 4)]]}
+
+
+ALLEY_WALL = "k11.wall.alley_return"
+
+
+def alley_wall_spec(params) -> dict | None:
+    """The record's `alley_wall` (T-3321), checked: one straight brick run on the lot's rear
+    (alley) line, square to it, `u_m` its west and east faces and `s_m` its south and north
+    ends in the house's plan frame, standing `height_m` over grade under a stone coping
+    `coping_m` deep that overhangs `overhang_m` on each free side (those three in
+    `alley_wall_height`). `ends` (south, north) says
+    what each end meets: `free` wraps the coping round it, `wall` (another record's wall
+    abutting it) drops the hidden end face and stops the coping short of that wall's own."""
+    t = getattr(params, "alley_wall", None)
+    if not t:
+        return None
+    # the plan (`alley_wall`) and the elevation (`alley_wall_height`) are two attributes,
+    # because a drawing can give the one and not the other
+    t = {**t, **(getattr(params, "alley_wall_height", None) or {})}
+    u0, u1 = t["u_m"]
+    s0, s1 = t["s_m"]
+    if not (u0 < u1 and 0.2 <= u1 - u0 <= 0.8):
+        raise ValueError(f"alley_wall.u_m {t['u_m']}: a brick run 0.2-0.8 m through, west face first")
+    if u1 > 0:
+        raise ValueError(f"alley_wall.u_m {t['u_m']}: the run stands behind the house's rear face (u 0)")
+    if not (s0 < s1 and 0.5 <= s1 - s0 <= 40):
+        raise ValueError(f"alley_wall.s_m {t['s_m']}: south end first, 0.5-40 m long")
+    if not 1.0 <= t["height_m"] <= 3.5:
+        raise ValueError(f"alley_wall.height_m {t['height_m']}: a yard wall stands 1.0-3.5 m")
+    if not (0.05 <= t["coping_m"] <= 0.3 and 0 <= t["overhang_m"] <= 0.1):
+        raise ValueError("alley_wall: a coping 0.05-0.3 m deep, overhanging 0-0.1 m")
+    if len(t["ends"]) != 2 or set(t["ends"]) - {"free", "wall"}:
+        raise ValueError("alley_wall.ends: (south, north), each 'free' or 'wall'")
+    return t
+
+
+def alley_wall(a):
+    """Lay the record's alley wall: a common-brick body (the K11 wall's brick slot, outside
+    the envelope's materials, so the house's origin and grade are read off the house alone)
+    sunk 0.10 m into the ground, under a stone coping. No pier and no opening: HABS IL-1015
+    sheet 2 draws the return as a plain hatched run off the Glessner gate's granite pier."""
+    from .k01_stone_finish import box_faces
+    t = alley_wall_spec(a.p)
+    if not t:
+        return
+    conf = a.p.worst_conf("alley_wall", "alley_wall_height")
+    u0, u1 = t["u_m"]
+    s0, s1 = t["s_m"]
+    h, c, ov = t["height_m"], t["coping_m"], t["overhang_m"]
+    south, north = t["ends"]
+    seed = a.instance(ALLEY_WALL, "wall",
+                      {"length_m": round(s1 - s0, 4), "height_m": h, "thickness_m": round(u1 - u0, 4)},
+                      {"end_a": ((u0 + u1) / 2, 0.0, -s0), "end_b": ((u0 + u1) / 2, 0.0, -s1)})
+    tris = 0
+
+    def box(mat, x0, x1, y0, y1, sa, sb, skip):
+        nonlocal tris
+        # box_faces yields -X, +X, -Y, +Y, -Z (the north end, s max), +Z (the south end)
+        for i, (pts, n) in enumerate(box_faces(x0, x1, y0, y1, -sb, -sa)):
+            if i in skip:
+                continue
+            a._sface(mat, pts, n, pts[0], (0.0, 0.0, -1.0), seed, False, conf)
+            tris += 2
+
+    # the body's top is under the coping's bed (a coplanar pair otherwise); at a `wall` end
+    # the strip the coping stops short of is under the abutting wall's coping
+    hidden = {2, 3} | ({4} if north == "wall" else set()) | ({5} if south == "wall" else set())
+    box("k11_wall_brick", u0, u1, -0.10, h, s0, s1, hidden)
+    cs0 = s0 - ov if south == "free" else s0
+    # a `wall` end stops short of the abutting wall's coping, which overhangs this side by as much
+    cs1 = s1 + ov if north == "free" else s1 - ov
+    box("stoop_stone", u0 - ov, u1 + ov, h, h + c, cs0, cs1, set())
+    a.trim_triangles[ALLEY_WALL] = a.trim_triangles.get(ALLEY_WALL, 0) + tris
+    a.alley_wall = {"u_m": [round(u0, 4), round(u1, 4)], "s_m": [round(s0, 4), round(s1, 4)],
+                    "top_m": round(h + c, 4)}
