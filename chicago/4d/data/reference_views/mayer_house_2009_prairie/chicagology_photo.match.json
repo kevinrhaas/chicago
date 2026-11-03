@@ -2,7 +2,7 @@
   "structure_id": "mayer_house_2009_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/mayer_house_2009_prairie__as_mapped_1904.glb",
-  "glb_sha256": "3ae70901ba95b0c26fb6fac96bd555f2fbf0e6b71cfa6a3ab3bff393a8701850",
+  "glb_sha256": "757d32e65459d1b75821ee4651ed67e4a76b8188bfbd383dd89394e0a600d261",
   "camera_sha256": "78ec8f49f37566693a797fc7fa98ded24d4845ec40ef057129786224b8258d8a",
   "photo_sha256": "03db894ab10dff078b747f611eba3dd8d9bc3b1f35aae50435017dcd4640b4a2",
   "side_by_side": "docs/RESEARCH/photo-match/mayer_house_2009_prairie/chicagology_photo-side-by-side.jpg",
@@ -41,11 +41,19 @@
       "status": "open"
     },
     {
+      "what": "the street lights' stone surrounds of long and short blocks, round the ground window, the small light and the paired light",
+      "status": "fixed"
+    },
+    {
+      "what": "the low coped stone wall on the street line, about 0.47 m high, from about 0.6 m along the lot to short of the walk to the stoop",
+      "status": "fixed"
+    },
+    {
       "what": "the door: the print's elliptical head with its tracery under a carved panel between pinnacled pilasters; the build stands a square-headed panelled door with a transom under a plain lintel (T-1914)",
       "status": "open"
     },
     {
-      "what": "the windows' moulded hoods and surrounds (the ground window's hood on consoles, the paired light's hood rising to the pendant, the small light's hood block), and the carved pendant in the gable: the build's lintels are plain (T-1914)",
+      "what": "the windows' moulded hoods (the ground window's hood on consoles, the paired light's hood rising to the pendant, the small light's hood block), and the carved pendant in the gable: under the build's plain lintels (T-1914)",
       "status": "open"
     },
     {
@@ -81,7 +89,7 @@
       "status": "not shown"
     },
     {
-      "what": "the low stone kerb along the front of the yard and the two bare parkway trees: not this record's (the yard and the street's trees)",
+      "what": "the two bare parkway trees: not this record's (the street's trees)",
       "status": "open"
     },
     {

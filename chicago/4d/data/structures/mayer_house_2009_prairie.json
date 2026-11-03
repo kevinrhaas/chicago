@@ -166,7 +166,7 @@
             ]
           },
           "confidence": "reconstructed",
-          "note": "Stone lintels over the street lights; the photograph's moulded hoods and the oriel's carved frieze are T-1914's (the facade's detailing), so this ticket stands the kit's plain lintel under them."
+          "note": "Stone lintels over the street lights, under the surrounds street_front_windows names; the photograph's moulded hoods and the oriel's carved frieze are T-1914's (the facade's detailing)."
         },
         "wall_head": {
           "value": {},
@@ -301,13 +301,25 @@
                 9.05,
                 9.2
               ]
-            ]
+            ],
+            "surrounds": {
+              "storeys": [
+                0,
+                1,
+                2
+              ],
+              "returns_m": [
+                0.18,
+                0.3
+              ],
+              "lintel_m": 0.35
+            }
           },
           "confidence": "inferred",
           "sources": [
             "chicagology_2009_prairie_meyer_photo"
           ],
-          "note": "Every street light read off the photograph at 100 px a metre from the north corner and the wall's foot: the ground floor's window, two lights on a mullion under a transom, at 2.98 m, 2.05 m clear, from 2.0 to about 4.4 m (built 2.25 m high, its head 0.15 m under the print's, so it clears the oriel's corbel); the small square-headed light beside the oriel at 6.32 m, 0.46 m across, 6.3-7.35 m; and the third storey's paired light at 4.02 m, 2.5 m across its two lights, 9.6-11.45 m. The oriel's three lights are its own (bays)."
+          "note": "Every street light read off the photograph at 100 px a metre from the north corner and the wall's foot: the ground floor's window, two lights on a mullion under a transom, at 2.98 m, 2.05 m clear, from 2.0 to about 4.4 m (built 2.25 m high, its head 0.15 m under the print's, so it clears the oriel's corbel); the small square-headed light beside the oriel at 6.32 m, 0.46 m across, 6.3-7.35 m; and the third storey's paired light at 4.02 m, 2.5 m across its two lights, 9.6-11.45 m. Each stands in a stone surround of long and short blocks, as the photograph shows round all three (K01's quoined surround, its returns and lintel the kit's). The oriel's three lights are its own (bays)."
         },
         "bays": {
           "value": [
@@ -606,17 +618,34 @@
         },
         "boundary": {
           "value": {
-            "layout": "open",
+            "layout": "stone_coping_wall",
+            "street_line_m": 7.0,
             "lot_s_m": [
               -1.49,
               7.33
+            ],
+            "thickness_m": 0.4,
+            "chamfer_m": 0.08,
+            "runs": [
+              {
+                "to_s_m": 0.6,
+                "opening": true
+              },
+              {
+                "to_s_m": 5.25,
+                "height_m": 0.47
+              },
+              {
+                "to_s_m": 7.33,
+                "opening": true
+              }
             ]
           },
           "confidence": "inferred",
           "sources": [
             "chicagology_2009_prairie_meyer_photo"
           ],
-          "note": "The photograph shows no fence or wall across the front: a low stone kerb at the walk and an iron rail only along the north side's areaway."
+          "note": "The photograph shows no fence across the front, only a low coped stone wall on the street line, read through its camera (the street line 7.0 m before the front, where the parcel's street corner stands): about 0.47 m high from about 0.6 m to 5.4 m along the lot (built to 5.25 m, clear of the walk), stopping short of the front walk to the stoop and of the north passage. Its thickness and chamfer are the kit's."
         },
         "yard": {
           "value": {
@@ -630,7 +659,7 @@
               "flag_m": 0.75,
               "top_m": 0.06,
               "wear_tone": 0.9,
-              "width_m": 1.7
+              "width_m": 1.6
             }
           },
           "confidence": "reconstructed",
