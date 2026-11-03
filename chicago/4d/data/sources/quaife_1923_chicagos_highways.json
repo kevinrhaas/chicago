@@ -1,0 +1,25 @@
+{
+  "id": "quaife_1923_chicagos_highways",
+  "type": "book",
+  "citation": "Quaife, Milo Milton. Chicago's Highways Old and New: From Indian Trail to Motor Road. Chicago: D. F. Keller & Company, 1923.",
+  "author": "Milo Milton Quaife",
+  "date": "1923",
+  "describes_date": "1673-1923",
+  "url": "https://archive.org/details/chicagoshighways00quairich",
+  "archived_url": "https://archive.org/download/chicagoshighways00quairich/chicagoshighways00quairich_djvu.txt",
+  "locator": "ch. II 'The Road to Chicago' (pp. 29-50: the Chicago road from Detroit 'followed the beach the remaining sixty miles to Chicago'); ch. III 'The Vincennes Trace' (pp. 51-71: the ancient Potawatomi trail from Lake Michigan to the Wabash; Heald's ride up it in the spring of 1811; the Wabash bands on it in August 1812; Hubbard's trail and the 1834 State road on its line)",
+  "tier": 4,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "note": "Read 2026-11-03 for T-3339 (the 1812 worn paths and trails), from the Internet Archive's OCR of the Kansas City Public Library copy. Quaife is the standard history of the region's roads and the same scholar who wrote quaife_1913 on Fort Dearborn. He says that the Vincennes Trace was 'in reality a thoroughfare from the Wabash to Chicago', an ancient Potawatomi trail 'connect[ing] the different bands with the trading-post at Chicago on the north'; that 'An expedition of different character over the ancient trace was that of Captain Heald of Fort Dearborn, who in the spring of 1811 brought his charming bride on horseback through the wilderness from Kentucky to Chicago'; that in August 1812 'the Wabash bands ... hastened northward with utmost speed along the ancient trail'; that the Hubbard trail 'was, of course, but another name for the Vincennes Trace'; and that the commissioners who located the 1834 State road 'were forced to follow the old track with but little deviation'. He traces no line of it inside the later city beyond saying its name 'still survives in that of modern State Street'. So the trail's EXISTENCE in 1812 rests on him (inferred: he wrote in 1923, from the earlier histories and Hubbard), and its ALIGNMENT does not.",
+  "what_it_supplies": [
+    "that the Vincennes Trace existed as a Potawatomi trail before 1812 and was ridden in 1811 and 1812",
+    "that the road from Detroit came in along the lake beach",
+    "that Hubbard's trail and the 1834 State road followed the old trace"
+  ],
+  "what_it_does_not_supply": [
+    "any surveyed or mapped line of a trail inside the 1812 ground",
+    "the width or wear of any trail"
+  ]
+}

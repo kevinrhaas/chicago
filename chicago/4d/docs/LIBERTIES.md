@@ -37855,6 +37855,27 @@ the crown base raised, 0.44 of its height against the young elm's 0.30
 **Review:**
 `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg`
 and both 16554 side-by-sides.
+**Extended (T-1881, 2026-11-03), the house's own trees' habit:** the seven pictured trees before
+1729 Prairie itself, the four on Prairie Avenue's parkway at 232.0, 238.8, 246.4 and 256.0 m
+(`prairie__prairie_ic_16_18`) and the three nearest the corner on 18th Street at 3.7, 14.25 and
+24.65 m (`e18th__prairie_ic_16_18`), no longer grow as the rule's grown parkway elm, whose low fork
+drew a V about 3 m up and covered the house's front down to its principal storey through the
+Detroit print's camera and Clark's 1905. They grow on a third pictured form, `high_head`
+(street-trees.js FORMS, tree-model.js ARCH.ulmus_americana_high). **What is read:** the Detroit
+print (1897-1901, f 1093 px, the trunks 48-53 m off) draws each Prairie tree as one straight
+leader about 6 px (0.3 m) across, its head's foot at y 250-320 px (about 8.5-12.5 m up), the head
+125-140 px (about 6 m) across, the tree 16 m to over 20 m tall (three rise past the print's top);
+Taylor's no. 1445 (f 1610 px) draws the three 18th Street trees as leaders 0.33-0.35 m across,
+small limbs from about 5 m and the head from about 10-10.5 m, the heads 4.5-5 m across, the third
+about 15.5 m tall and the first two past the print's top. **What is chosen (reconstructed):** the
+habit's numbers: the young elm's excurrent leader with its crown base raised to 0.45 of the
+height, its limbs steeper (44 degrees), a round head 0.40 of the height across and a bole of
+0.28-0.35 m; scale 1.0 for the trees rising past the pictures' tops, 0.85 for the Prairie corner
+tree and 0.8 for the tree at 24.65 m, read off their tops; one form for all seven, though the
+pictures' heads vary by a couple of metres; that trees of the 1890s pictures are of this size in
+1904. The winter heads are the layer's bare sprays, coarser than the prints' fine twigs.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`,
+`taylor_1445_album-side-by-side.jpg`, `chm_clark_1905-side-by-side.jpg` and their match records.
 
 
 ### L-pullman-terrace-tubs-1934 — The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them
@@ -39365,6 +39386,27 @@ which the generator asserts. **How to resolve:** a garrison description, return 
 surface, grass, gravel or bare earth.
 **Ticket:** T-3320.
 **Recorded:** 2026-11-02 (T-3320).
+
+### L-t3339-worn-ground-1812 — the 1812 settlement's worn trails and trodden yards, routed by rule
+
+**Decision:** 1812 gets fifteen worn trails and seventeen trodden yards, all written by
+`tools/generate_worn_ground_1812.py` into `data/enclosures/1812/` (`worn_trails_1812.json`, `worn_yard_1812_*.json`) and
+laid by `renderers/web/js/yards.js`: a trail is a strip of bare earth draped on the terrain whose cover fades to
+nothing at its edges, the sward and the trees kept off it. Three are attested in kind: the beaten Indian trail along
+the lake shore, the path from Lee's Place to the canoes, and the way along the river from Lee's Place to the fort
+(Andreas 1884; Currey 1912; Kinzie 1856). The Vincennes trace is inferred: Quaife 1923 has it as the Potawatomi trail
+to the Wabash that Heald rode up in 1811 and the Wabash bands came up in August 1812, and its line from 35th Street
+south follows the 1834 State road that he says followed it. The rest are ours: the cart road south from the gate,
+the paths along both banks and to the Clark and Lemai houses, the short faint paths from the fort to its wharf,
+stables, agency and gardens. **What is ours throughout:** every line inside the box (routed by A* on a 5 m grid over
+the committed terrain, kept off wet ground, off the banks by a set distance, round every building and fence, then
+smoothed and given a seeded wander); every width (0.9 m tread to a 2.4 m two-track) and every wear figure (0.3 to
+0.9, by our guess at how much each way was used); the yards' extent (each house's footprint grown and ragged) and
+that they are bare earth. Nothing reached maps a path or a yard in 1812 Chicago. **How to resolve:** a survey or
+sketch of the 1812 ground that shows a path (the 1821 and 1830 surveys are the nearest), or a recollection that
+places one.
+**Ticket:** T-3339.
+**Recorded:** 2026-11-03 (T-3339).
 
 
 ### L-sauganash-entrance-lower-sash-2383 — Sauganash entrance and four lower sash

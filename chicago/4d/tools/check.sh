@@ -2722,6 +2722,14 @@ step "the fort apron re-derives from the palisade it is measured off" \
 step "the forts' parade grounds re-derive from their parade records" \
   python3 tools/generate_fort_parade_ground.py --check
 
+# And the ground BETWEEN the 1812 buildings (T-3339): the worn trails (the beaten lake-shore
+# trail, the Vincennes trace, the cart road south from the gate, the paths along both banks)
+# and the trodden yards round each house. Every line is routed by a fixed rule over the
+# committed terrain and footprints, so it re-derives here with its assertions: no trail on
+# water, none through a building or a garden, every yard on dry ground.
+step "the 1812 worn trails and yards re-derive from the terrain and the footprints" \
+  python3 tools/generate_worn_ground_1812.py --check
+
 # And the layer above that ground: the wood p4_0 draws outside the same walls (T-0098). Same
 # shape again — the plate attests a tree mass and places nothing, so which ground carries a
 # stem is a rule off the palisade's own footprint and its apron's own width, re-derived here.
