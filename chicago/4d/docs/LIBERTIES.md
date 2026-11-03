@@ -24933,7 +24933,8 @@ square on at 100 px a metre between the front's ends and through the camera
 smooth band to the brick at the principal floor; the door at the south end over a straight stoop; every
 street light's place and size (the ground floor's mullioned and transomed window, the bowed oriel of three
 lights from the second floor on its corbel, the small light beside it, the third storey's paired light);
-the string course; the side walls' head at the kneeler stone; the ogee gable's outline at ten heights, its
+the quoined stone surrounds round the street lights; the low coped wall on the street line; the string
+course; the side walls' head at the kneeler stone; the ogee gable's outline at ten heights, its
 attic pair and its crest's height; the near tall stack on the north flank. Monroe's 1896 plate
 (`monroe_1896_john_wellborn_root_meyer_plate`) confirms the composition.
 
