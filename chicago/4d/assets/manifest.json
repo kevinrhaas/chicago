@@ -2250,14 +2250,14 @@
       "phase_id": "draft_1904",
       "structure_id": "house_2001_prairie_coach_house"
     },
-    "house_2003_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "house_2003_prairie__as_mapped_1904.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 126500,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "40bd2c8109860541f37e9cefdc070cbefaa0f80d20e5b4f1c73c9f64149674a6",
+      "bytes": 2664792,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "49464d87399f16474d8f2126b15761ed0412752aec58a58472a4915d9e6c1db2",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "house_2003_prairie"
     },
     "house_2004_calumet__draft_1904.glb": {
@@ -2280,14 +2280,14 @@
       "phase_id": "draft_1904",
       "structure_id": "house_2004_calumet_coach_house"
     },
-    "house_2005_prairie__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "house_2005_prairie__as_mapped_1904.glb": {
+      "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 171440,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "eacee6a2671705ca32df58050fa2aad80790089cecc9e140ad9a52eea8096634",
+      "bytes": 2719828,
+      "generator": "generators/k01_emit.py",
+      "inputs_sha256": "fce969ee046cc4121ef24726bf99b4f416555e21501f521f4011ad2437906415",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_mapped_1904",
       "structure_id": "house_2005_prairie"
     },
     "house_2007_indiana__draft_1904.glb": {
@@ -3276,14 +3276,14 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "jones_house_1834_prairie"
     },
-    "jones_house_1834_prairie_coach_house__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "jones_house_1834_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
       "baked_ao": false,
-      "bytes": 126288,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "439b706f6c26ce1ba852e814fd08de4c715937c9cd382425faa6d75557869df6",
+      "bytes": 140968,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "b5ba4e83fea39aca70ba4a77a003ad22c02b16105c36d554af21dc468ceef85d",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_standing_1904",
       "structure_id": "jones_house_1834_prairie_coach_house"
     },
     "keith_house_1808_prairie__as_built_1886.glb": {
