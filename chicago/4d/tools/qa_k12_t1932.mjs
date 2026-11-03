@@ -18,6 +18,7 @@
 //   QA_TARGET=1638 node tools/qa_k12_t1932.mjs       1638's stable, the last (the kit in mirror image, its gable window to the north)
 //   QA_TARGET=1816 node tools/qa_k12_t1932.mjs       T-1935: 1816's long stable on the 18th-20th alley (sheet 28), party walls both ends
 //   QA_TARGET=1824 node tools/qa_k12_t1932.mjs       T-1935: 1824's stable, the next one south on that alley, party walls both ends
+//   QA_TARGET=1834 node tools/qa_k12_t1932.mjs       T-1935: 1834's barn, south of 1828's, its one-storey piece on the yard side at the north end
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
@@ -93,6 +94,11 @@ const TARGETS={
   ['alley-from-north',[1335.4,-3262,1.7],[1339,-3292,4]],
   ['yard-face',[1360,-3306,1.7],[1346,-3293,4]],
   ['air',[1380,-3322,44],[1344,-3292,0]]]},
+ '1834':{dir:'k12-1834-jones-stable-1935',ids:['jones_house_1834_prairie_coach_house','jones_house_1834_prairie','house_1828_prairie_coach_house'],glb:'jones_house_1834_prairie_coach',stands:[
+  ['alley-from-south',[1335.8,-3352,1.7],[1339.5,-3325,4]],
+  ['alley-from-north',[1335.6,-3298,1.7],[1339.5,-3325,4]],
+  ['yard-face',[1362,-3340,1.7],[1347,-3326,3]],
+  ['air',[1382,-3352,44],[1345,-3325,0]]]},
 };
 const TARGET=TARGETS[process.env.QA_TARGET||'1620'];if(!TARGET)throw Error(`QA_TARGET must be one of ${Object.keys(TARGETS)}`);
 const site=path.resolve(root,'../../site/4d'),out=path.join(root,'docs/RESEARCH',TARGET.dir),TAG=process.env.QA_TAG||'after';
