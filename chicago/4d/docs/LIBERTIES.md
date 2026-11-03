@@ -24386,9 +24386,12 @@ round its faces as the kit's corbel table, a 0.35 m stone course 0.5 m out over 
 shows no balcony at that level, only the belvedere's. The heights over it are read on the photograph's
 own vertical scale down the tower's front (a level camera keeps one scale down a vertical plane), set by
 the Tribune's 44 ft at the main cornice's top, which then puts the top balustrade at the Tribune's 73 ft:
-a blind stage 1.78 m (its three lights withdrawn), the belvedere 5.2 m from its balcony's floor with
-lights 1.8 m high, a 1.1 m top balustrade. Those sizes are reconstructed to that scale, and the
-belvedere's cornice is still the kit's thin bracketed eave where the photograph's stands about 1 m deep. The door stands in the
+a blind stage 1.78 m (its three lights withdrawn), the belvedere 4.78 m from its balcony's floor to its
+wall head with lights 1.8 m high, and over it (T-3345) the belvedere's own deep cornice as the photograph
+draws it: a soffit rising 0.27 m to a corona 1.1 m out and 0.51 m deep, a skirt of the hip rising 0.55 m
+to a flat deck, and on the deck a 0.9 m top balustrade to the Tribune's 73 ft. Those sizes are
+reconstructed to that scale; the cornice's section is a straight soffit and a plain corona where the
+photograph's is moulded, and its brackets are the kit's plain ones in the frieze under it. The door stands in the
 front's bay just north of the tower, its stoop running straight to the avenue: the Tribune enters through
 the tower and the photograph's flight runs north along the front, but K01 refuses a door behind a tower.
 The verandah's fluted columns are the corner porch's plain piers. The rear range is built to its second
@@ -27997,6 +28000,32 @@ replace the fixed night key with the moon where it stood, or no key on a moonles
 **Ticket:** T-3331.
 **Review:** `renderers/web/js/time-of-day.js`.
 **Recorded:** 2026-11-03 (T-3331).
+
+### L-night-lights-3333 — 1835 by night: candle and lamp-lit windows by the hour, the lighthouse lit, a lantern at the fort's south gate
+
+**Decision:** when Time of day darkens 1835 (T-3331), every window pane in the town and the fort can
+glow with the warm yellow-orange of a candle or a small oil lamp, building by building: about seven in
+ten lit from dusk, half after nine, a third after ten, a few through the small hours, more again before
+daybreak (`data/night_lights/1835.json` share_by_hour). The lighthouse's lantern room shows a large
+steady glow from dusk to dawn. A lantern hangs outside the fort's south gate with a warm pool under it.
+**What it stands on:** the town made and sold its light: the Chicago Democrat of 26 November 1833
+carries Daniel Elston's soap and candle manufactory and Philo Carpenter's 'oils'
+(`chicago_democrat_1833_11_26`); the Army's ration carried candles (`us_statutes_1802_military_peace_establishment`,
+sec. 6). The lighthouse 'employed four, fourteen-inch reflectors in its bird-cage lantern room' and had a
+keeper of the light (`lighthousefriends_chicago`; Andreas, `andreas_1884_v1`, says one reflector).
+Hubbard puts the guard-house beside the southern gate (`andreas_1884_v1`).
+**What is invented:** which buildings are lit at which hour (a seeded choice per building, not a record of
+any household, tavern or store), the hours table, the flame's colour, brightness and flicker; the
+lighthouse light's brightness, colour and the size of its glow (the reflectors are not modelled and no
+beam is drawn); and the gate lantern, which no source names. No tavern or store lantern is drawn: the
+record reached names none. The glow is drawn on the panes and the light they would throw into the
+street is not, except under the gate lantern.
+**How to resolve:** a tavern keeper's or merchant's account book (candles and oil bought), a newspaper
+notice of lamps or lanterns, or the lighthouse's own returns (lamps, oil and hours) would replace the
+table and the beacon's look.
+**Ticket:** T-3333.
+**Review:** `renderers/web/js/night-lights.js`, `data/night_lights/1835.json`.
+**Recorded:** 2026-11-03 (T-3333).
 
 ### L-night-lights-3332 — 1812 by night: candlelit windows by the hour, and a lantern at the fort's gate
 
@@ -39613,3 +39642,19 @@ as carved.
 **Ticket:** T-3343.
 **Review:** `data/reference_views/glessner_house/habs-13-north-level.match.json`.
 **Recorded:** 2026-11-03 (T-3343).
+
+
+### L-green-tree-enclosed-left-reading-2376 — Green Tree connector beside the open wagon bay
+
+**Covers:** `green_tree_tavern.frame_1833.form.enclosed_left_annex`, `green_tree_tavern.frame_1833.form.rear_ell`.
+
+**Decision:** Retain the already-adopted main-gable entrance/two front sash and the existing procedural open wagon bay. Replace the former rear ell with a low connector and the turned farther gabled boarding range shown more fully by Andreas. The MASTER omits the open shoulder (`shoulder_enclosed: false`); the native yard layer remains the sole owner of its roof, posts and covered wagon. It is not a duplicate model roof, and its open ground is not filled by a collision hull.
+
+The retrospective, potentially dependent pictures disagree about an open or enclosed shoulder and do not establish a dated alteration sequence. This increment retains the open reading; the separate closed-shoulder alternate is not enrolled. Every span, hidden depth, elevation, roof slope, opening station, plan turn, offset and timber/pigment treatment is reconstructed. Choosing the undated additions for July1835 proves no unchanged survival, exact dimensions, surveyed coordinate, tenant identity or increased lodging capacity. The unverified1859 catalogue photograph supplies no geometry. Geometry source records: `andreas_1884_green_tree_hotel_plate`, `trowbridge_green_tree_1902`, `kurz_allison_1893`. The modern `chicagology_prefire127` page remains text-only context for transcribed later testimony and counterevidence; its unresolved webpage rights supply no new annex geometry.
+
+The two existing static farm-wagon stands retain their earlier reconstructed parking-apron line, using the archetype's former rear-ell depth as an offset even though the wing is now absent. This preserves their positions, clearances, dimensions and eligibility; it is not a wall, a new surveyed dimension or evidence that the ell existed in1835. Their protected historical notes retain the earlier ell-based derivation; this paragraph amends that reasoning for the current open apron. Other structures' placement rules remain unchanged.
+
+The main-body reference footprint and source placement remain unchanged. Separate occupied rings follow the connector and turned range; consumers retain open gaps and the existing core's passages. Neither those physical consumers nor an isolated asset render establishes full original-ticket picture coverage, a calibrated historical camera, door traversal or an actual app-performance verdict. The original T-2376 signoff remains open; genuine changed-model comparisons and published app review are still required.
+
+**Ticket:** T-2376.
+**Recorded:** 2026-11-03.

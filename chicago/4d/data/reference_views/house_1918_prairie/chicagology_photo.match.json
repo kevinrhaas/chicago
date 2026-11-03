@@ -2,7 +2,7 @@
   "structure_id": "house_1918_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/house_1918_prairie__as_mapped_1904.glb",
-  "glb_sha256": "f4242a7d4eaa08b4c747374a35db414f558fd8220508338b40aba7aea2273847",
+  "glb_sha256": "bcc628a4dfa9e13d14dfd88163510d5979ce30c228225b46fb9f17335f0e175c",
   "camera_sha256": "08a023b25d98770a1eb2830d73d84583e1fbf3dc02414c9cd7c5cf057c201980",
   "photo_sha256": "7458a4902276cccdaa289b9767e8ab717b5dd0fcf06ba3969a97c4fa8d00e92a",
   "side_by_side": "docs/RESEARCH/photo-match/house_1918_prairie/chicagology_photo-side-by-side.jpg",
@@ -21,12 +21,12 @@
       "status": "open"
     },
     {
-      "what": "the tower: the photograph's is square, with the main cornice carried round it at the main cornice's level, a short blind stage, a balconied belvedere with arched lights and a deep bracketed cornice under a balustraded top (x 1440-1785, y 5-385 px). T-3318 built it square, T-3324 bracketed the belvedere and stood it back over its corbelled balcony, and T-3330 set its heights on the photograph's own vertical scale down the tower's front (39.6 px/m from the main cornice's top at y 380, the Tribune's 44 ft, which puts the top rail at y 30, the Tribune's 73 ft): the main cornice carried round the tower as a corbel table at 12.66-13.41 m (y 380-410), the stage 1.78 m and blind (y 310-380; the photograph shows no balcony at the cornice's level and no lights in the stage), the balcony's floor at 15.19 m (y 310), the belvedere's lights 16.07-17.87 m (y 205-275), its eaves at 20.39 m. Built; the earlier 'about 70 px taller' was the stage's 3.4 m with lights over a cornice that stood 1.2 m low",
+      "what": "the tower: the photograph's is square, with the main cornice carried round it at the main cornice's level, a short blind stage, a balconied belvedere with arched lights and a deep bracketed cornice under a balustraded top (x 1440-1785, y 5-385 px). T-3318 built it square, T-3324 bracketed the belvedere and stood it back over its corbelled balcony, and T-3330 set its heights on the photograph's own vertical scale down the tower's front (39.6 px/m from the main cornice's top at y 380, the Tribune's 44 ft, which puts the top rail at y 30, the Tribune's 73 ft): the main cornice carried round the tower as a corbel table at 12.66-13.41 m (y 380-410), the stage 1.78 m and blind (y 310-380; the photograph shows no balcony at the cornice's level and no lights in the stage), the balcony's floor at 15.19 m (y 310), the belvedere's lights 16.07-17.87 m (y 205-275), its eaves at 20.39 m (T-3345: its wall head now 19.97 m under the deep cornice, y 120). Built; the earlier 'about 70 px taller' was the stage's 3.4 m with lights over a cornice that stood 1.2 m low",
       "status": "fixed"
     },
     {
-      "what": "the belvedere's cornice: the photograph's stands about 1 m deep over its brackets (y 80-120 px, 19.97-20.98 m on the tower's scale); the build's is the kit's thin bracketed eave, about 0.3 m",
-      "status": "open"
+      "what": "the belvedere's cornice: the photograph's stands about 1 m deep over its brackets (y 80-120 px, 19.97-20.98 m on the tower's scale); the build's was the kit's thin bracketed eave, about 0.3 m. T-3345 built the belvedere's own deep cornice: the wall head at 19.97 m (y 120), the brackets hanging in the frieze under it, a soffit rising 0.27 m to a corona 1.1 m out and 0.51 m deep (20.30-20.81 m, y 107-87), a skirt of the hip rising 0.55 m to a flat deck (21.36 m, the balustrade's foot at y 62) and on it the balustrade 0.9 m high to the Tribune's 73 ft (22.25 m, y 30)",
+      "status": "fixed"
     },
     {
       "what": "the verandah south of the tower: the photograph's three arched openings on columns under a balustraded balcony (x 1395-1600, y 640-870 px) are built as K01's corner porch of plain piers; its fluted Corinthian columns (Tribune 1869) and its place along the front (see the camera item)",

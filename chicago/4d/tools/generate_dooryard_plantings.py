@@ -60,6 +60,8 @@ import json
 import math
 from pathlib import Path
 
+from occupied_footprints import additional_world_polygons
+
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -407,6 +409,7 @@ def world():
         fp = footprint_world(sc)
         if len(fp) >= 3:
             obstructions.append(fp)
+            obstructions.extend(additional_world_polygons(sc))
             # …and the wing a frame tavern builds behind it, which is wall too (T-3078:
             # eleven woodpiles stood inside boarding houses' kitchen wings).
             ell = rear_ell_world(sc)

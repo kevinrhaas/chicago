@@ -14427,11 +14427,11 @@ for (const [label, viewport, touch] of [
     check(`${label}: Guide › For teachers prints the eight tour steps and three Jaunts per destination on one page at Letter and A4 (T-2666)`,
       handoutRead.teachers && handoutRead.print === 'Print the handout' && handoutRead.stepsFromTour
       && handoutRead.dests.map((d) => d.name).join('|') === '1835 · Chicago|1904 · Prairie Avenue|1812 · Fort Dearborn'
-      && handoutRead.dests.filter((d) => d.year !== '1812').every((d) => d.jaunts === 3)
-      && handoutRead.dests.find((d) => d.year === '1812')?.empty === 'No Jaunts here yet.'
+      // T-3325..T-3327 gave 1812 its three Fort Dearborn jaunts, so every destination has three.
+      && handoutRead.dests.every((d) => d.jaunts === 3 && d.empty === null)
       && !handoutRead.snake && !handoutRead.lore
       && printedLayout.shown.join() === 'handout-print'
-      && Object.values(sheets).every((s) => s.printed === 1 && s.copy && s.steps === 8 && s.jaunts === 6)
+      && Object.values(sheets).every((s) => s.printed === 1 && s.copy && s.steps === 8 && s.jaunts === 9)
       && (pdfUnsupported || Object.values(sheets).every((s) => s.pages === 1 && s.after)),
       JSON.stringify({ handoutRead, printedLayout, sheets }));
     // <<< T-2666
