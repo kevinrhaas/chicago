@@ -1,5 +1,5 @@
 {
-  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp — mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP — a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
   "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
@@ -88,7 +88,7 @@
     "fort_dearborn_artillery_house__log_1816.glb": "4e5a2c8b2b8b1d5aaabeca9b0e9addedd51be73efe6bf545eca236243043bf50",
     "fort_dearborn_barracks__log_1816.glb": "7ebaced223a57704d0cb2f451fcafc8b8430f0991241b28b48c8060c2c79724d",
     "fort_dearborn_big_barn__barn_1830.glb": "2a2374a78d4d8ab77db3df18358d1da805d35da0be9e3e354b5858ab4c2eed47",
-    "fort_dearborn_blockhouse__log_1816.glb": "4b49f0dba271d11ce407e6b407c6e4a766402bce04b93b24ebbcc2862f899e00",
+    "fort_dearborn_blockhouse__log_1816.glb": "96d9fb803cdd3b1639c32b9e0c562d0b3bf2af1b2fe8254abea4d62e8e136b15",
     "fort_dearborn_commandants_quarters__brick_1816.glb": "34b2f35e17a7375af521734bbefbc4be57d754ffc5029e8dada47902bc867935",
     "fort_dearborn_flagstaff__staff_1833_37.glb": "476674491a725533413da111db916bc8922b4f406c2863e633d0562a0b4b29de",
     "fort_dearborn_garrison_garden__fence_1816.glb": "565c8aaa23f8e6ed4389d4acc53f2fdfbbfc2aff5d736a53c63a19ae43e7fd1e",

@@ -39925,3 +39925,56 @@ The yard source owner follows the same canonical attribute and declines only the
 
 **Ticket:** T-2376.
 **Recorded:** 2026-11-03.
+
+### L-second-fort-blockhouse-cupola-2388 — the cupola on the second fort's blockhouse, and the stack it replaces
+
+**Covers:** `fort_dearborn_blockhouse.log_1816.form.chimneys`.
+
+**Decision:** Build the small square cupola the fort's own pictures draw at the centre of the
+blockhouse's pyramid cap, and record the count of separately generated centre stacks at 0.
+
+**What the pictures carry, and it is one thing:** Panel 5 of the Kurz & Allison sheet of 1893,
+captioned "Fort Dearborn as rebuilt 1835", draws this blockhouse with a small square body at the
+centre of its four-sided roof under a little four-sided cap of its own; the two Wau-Bun
+reproductions of the 1831 view (`kinzie_1857_chicago_1831_panorama`) draw the same body. Two
+depictions of this fort's blockhouse agree on the feature, so its OCCURRENCE is carried at
+`inferred` in `form.cupola`. Nothing else about it is carried: these are tier-5 pictorial
+sources, form only and never a coordinate, and the 1893 sheet is a retrospective whose own key
+dates several of its subjects wrongly, so its caption is not proof that the feature stood on
+1 July 1835.
+
+**What is invented:** Every dimension of the cupola, and they live in the archetype
+(`generators/archetypes/fort_structure_params.py`), not in the record — the 1.8 m side, the
+2.1 m body height from its seat to the cap's eave, the 0.22 m cap eave, the 36 degree cap pitch,
+and the 0.12 m the body is sunk into the main roof so that it meets all four sloping planes
+instead of balancing on the apex. A printed drawing at that scale measures nothing; these are a
+defensible working size in the proportions the panel shows, and they are not a reading off the
+plate. Also invented: plain boarded sides, with no openings, no louvres, no finial and no
+gallery. The 1856 Kellogg/Blanchard print — filed, misleadingly, as
+`chicago_fort_dearborn_river_mouth_1830.jpg` — does show a LOUVRED cap and a small ambiguous
+projection beside it, but it depicts about 1836-1849 and is not backdated here; that later
+detail stays unresolved rather than built.
+
+**What a count of 0 says, and what it does not:** This record used to count one chimney,
+reconstructed, on the reasoning that "a blockhouse manned in a Chicago winter is heated".
+`fort_structure._chimneys` stands a single stack at exactly the centre of the plan, which is
+where the cupola stands, so the two could not both be built and one of them is pictured. THIS IS
+A CHOICE ABOUT WHAT TO DEPICT. It is not a finding that the blockhouse was unheated, that it had
+no flue, or that nothing else ever stood on that roof: pictorial silence at tier 5 is not
+testimony, and the Kellogg/Blanchard print's ambiguous later projection is live evidence that
+something else may have. Nor has the stack been quietly moved somewhere else to keep the count:
+no source reached puts one anywhere, so the count is 0 and the admission is here.
+
+**What is not changed:** The surveyed seat and 8 degree rotation, the inferred 14.52 x 9.80 m
+footprint and its plus-or-minus 25 per cent ambiguity, the 5.2 m reconstructed walls, the two
+storeys, the 0.45 m jetty, the loopholes, the doors, the main pyramid and its 30 degree pitch,
+the wall, foundation and roof palettes, and every neighbouring record. No other roof in the fort
+is touched, and the cupola control is off by default on every other record of this archetype.
+
+**How to resolve:** a contemporary description or a plan of the 1816 blockhouse's roof, or a
+picture of it drawn from life before 1836, would settle the cupola's size and whether a flue
+stood beside it.
+
+**Ticket:** T-2388 (partial — the ticket stays open on the rest of the fort).
+**Review:** `docs/RESEARCH/second-fort-cupola-T-2388/second-fort-panel-5-compound.match.json`.
+**Recorded:** 2026-11-03.

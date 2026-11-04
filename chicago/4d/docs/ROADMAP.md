@@ -6115,3 +6115,19 @@ No new geometry or photo follow-up ticket is needed for this source conflict. Th
 ### Original T-2376 — closed shoulder working increment,2026-11-03
 
 Choose the detailed Andreas closed shoulder through the existing boolean and couple the yard source owner to decline its competing open shed/posts and covered wagon. Preserve Trowbridge's open reading, all existing metrics/world placement and verbatim prior rationale. Genuine0b53geometry/full80d47recipe reuse and actual unchanged-camera comparison are bound; original remainsDIFFERS for left-cluster shape/proportions. Actual selected WEB/registration, native all-asset WEB contract, schema validation and focused physical consumers now pass; native tail steps finished but final Git snapshot timed out, so owner-loop closure remains owed. Finish fullsource4 and actual published phone/desktop access/yard checks, then a partial-progress PR to dev. No new photo follow-up or original completion.
+
+
+### T-2388 (partial) — the second fort blockhouse's pictured cupola, 2026-11-03
+
+Build the small square cupola panel 5 of the Kurz & Allison sheet draws at the centre of the
+blockhouse's cap, through a new keyword-only default-off `cupola` control on `fort_structure`,
+and record the invented centre stack that stood in its place at a count of 0 — a depiction
+choice, not a finding about heating. Occurrence inferred from the identified pictures; every
+dimension reconstructed and admitted in LIBERTIES. All 25 current `fort_structure` MASTERs were
+genuinely rebuilt on the pinned Blender; one master's bytes moved. The picture is enrolled on the
+card by an explicit pictured ruling, so the grade derives `attested` with its reason rather than
+from a camera fit. Before and after are captured from one identical diagnostic camera.
+
+The original T-2388 stays OPEN. Still owed: a fitted camera for this panel, the ranges and their
+galleries, the facade openings, the other roof forms and chimney counts, the compound's
+composition, and every other dated picture the ticket lists.
