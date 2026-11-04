@@ -2,7 +2,7 @@
   "structure_id": "log_jail",
   "view": "andreas_1884_context",
   "glb": "assets/gltf/log_jail__log_1833.glb",
-  "glb_sha256": "ee949fa9f67187678a034e0a84025f0acdab971ef1ee923261467341bc09182b",
+  "glb_sha256": "e767412faebcd8b77a680d188d89458ea879cf467ec56494a8df1a49a2e65dec",
   "camera_sha256": "22fab9978a88c613df36d100cc39e996092593be141e86695063878d7739724a",
   "photo_sha256": "1fcbfe2a1f6c1b71439e5f0ad39fba8d3d59c319be73c4d706c2f9b2d3577277",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "ee949fa9f67187678a034e0a84025f0acdab971ef1ee923261467341bc09182b"
+      "glb_sha256": "e767412faebcd8b77a680d188d89458ea879cf467ec56494a8df1a49a2e65dec"
     },
     {
       "structure_id": "log_jail_keeper_house",
@@ -42,10 +42,10 @@
         -1.3000000000000114
       ],
       "rotation_y": 0,
-      "glb_sha256": "431dc44f37bdcb2c7f705a5b17b65fe6a1cf748d077c337b699094c9b41752a8"
+      "glb_sha256": "91837241ab0873cbbd27c9f64cd314cc453e41addf019657da3afc8a98c6978b"
     }
   ],
-  "group_sha256": "6cfdb34d2732a695be9efdae82d467263ffd3adbdb8fe391da7a80a9c0330a98",
+  "group_sha256": "b9a143ef6fe010920b352fc008d860d9267ed9aae03d75a5427efc1e1d333c67",
   "rendered_enclosures": [
     {
       "id": "log_jail_palisade",
@@ -102,7 +102,7 @@
   ],
   "enclosures_sha256": "66d972818f54bef0981811b852ed7d0f4eb5995a60bd72e3c563e5b33f1a3f75",
   "side_by_side": "docs/RESEARCH/photo-match/log_jail/andreas_1884_context-side-by-side.jpg",
-  "verdict": "unreviewed",
+  "verdict": "differs",
   "differences": [
     {
       "what": "Previously absent high plank palisade is now present in the actual native enclosure render. Gale p.51 supplies the kind/existence; overall3.05m height, compact outline and stock are declared reconstructions, not picture measurements.",
@@ -143,6 +143,10 @@
     {
       "what": "The plate draws a light plank fence of separate boards; the render's palisade is one flat dark mass. No per-board stock is modelled and none is claimed.",
       "status": "open"
+    },
+    {
+      "what": "The keeper house's end gable took the roof-shingle material rather than wall boarding (see the Gale view, which is the plate that shows this end). FIXED 2026-11-04 (T-2380) by the same material-role change. In THIS plate the jail group is small at the right edge and the keeper's gable spans a few dozen pixels (93 px changed), so this view neither shows nor tests the correction; it is recorded here only so the two records do not disagree about the model.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

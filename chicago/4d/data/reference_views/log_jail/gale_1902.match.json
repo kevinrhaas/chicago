@@ -2,7 +2,7 @@
   "structure_id": "log_jail",
   "view": "gale_1902",
   "glb": "assets/gltf/log_jail__log_1833.glb",
-  "glb_sha256": "ee949fa9f67187678a034e0a84025f0acdab971ef1ee923261467341bc09182b",
+  "glb_sha256": "e767412faebcd8b77a680d188d89458ea879cf467ec56494a8df1a49a2e65dec",
   "camera_sha256": "74641a1adcba03d01345eb92734dd3c9c8b4b24fa48aea36ea33e9753dffb8c9",
   "photo_sha256": "d1fa0afa1dcd10af3b97ba11b46510fd71dd6504f6f9574aba73828e0fefb85a",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "ee949fa9f67187678a034e0a84025f0acdab971ef1ee923261467341bc09182b"
+      "glb_sha256": "e767412faebcd8b77a680d188d89458ea879cf467ec56494a8df1a49a2e65dec"
     },
     {
       "structure_id": "log_jail_keeper_house",
@@ -42,10 +42,10 @@
         -1.3000000000000114
       ],
       "rotation_y": 0,
-      "glb_sha256": "431dc44f37bdcb2c7f705a5b17b65fe6a1cf748d077c337b699094c9b41752a8"
+      "glb_sha256": "91837241ab0873cbbd27c9f64cd314cc453e41addf019657da3afc8a98c6978b"
     }
   ],
-  "group_sha256": "6cfdb34d2732a695be9efdae82d467263ffd3adbdb8fe391da7a80a9c0330a98",
+  "group_sha256": "b9a143ef6fe010920b352fc008d860d9267ed9aae03d75a5427efc1e1d333c67",
   "rendered_enclosures": [
     {
       "id": "log_jail_palisade",
@@ -102,7 +102,7 @@
   ],
   "enclosures_sha256": "66d972818f54bef0981811b852ed7d0f4eb5995a60bd72e3c563e5b33f1a3f75",
   "side_by_side": "docs/RESEARCH/photo-match/log_jail/gale_1902-side-by-side.jpg",
-  "verdict": "unreviewed",
+  "verdict": "differs",
   "differences": [
     {
       "what": "Previously absent high plank palisade is now present in the actual native enclosure render. Gale p.51 supplies the kind/existence; overall3.05m height, compact outline and stock are declared reconstructions, not picture measurements.",
@@ -143,6 +143,10 @@
     {
       "what": "Tone and material: the render's palisade reads as one flat dark brown mass, where the plate draws light vertical boards with visible joints and shadow. No board-by-board palisade stock is modelled and none is claimed.",
       "status": "open"
+    },
+    {
+      "what": "The keeper house's pictured end gable carried the roof-shingle material, so the end triangle read as roof covering where the Gale/Trowbridge plate draws horizontal boarding continuing around the loft light, distinct from the covering above it. FIXED 2026-11-04 (T-2380): the generator now gives that one east roof-end triangle the existing wall finish, as wall infill. The roof envelope, slopes, loft, openings and the unpictured west end are unchanged, and no board relief, paint or colour is claimed from the plate. LIMIT, measured on this very side-by-side: the diagnostic camera meets that end almost edge-on, so the corrected face reads here only as a thin lightened sliver along the rake (610 px changed, mean RGB 169 -> 186). The gable face itself is not presented to this uncalibrated camera, so this is a correction of material role, not a demonstration that the end now matches the plate.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

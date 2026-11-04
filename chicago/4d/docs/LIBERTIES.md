@@ -40230,6 +40230,8 @@ The6.4x4.6m footprint,2.65m eaves,25degree gable,7.8m east registration, wall/ra
 
 The separate1.10m gate, diagonal brace, hinge, pose, stock and endpoint spacing are reconstructed. Both independent pictures disagree on the concealed core roof and house elevation. The genuine private compound comparison still DIFFERS in exposed rear-core roof and relative proportions; no calibrated camera, full photo acceptance, grade promotion or original-ticket closure is implied. Published terrain and doorway/gate clearance remain acceptance work.
 
+**Amended 2026-11-04 (T-2380) — the pictured end gable is wall, not roof covering.** The generator gave the keeper's end roof triangles the roof-shingle material, so the one end the plate actually draws read as covering. Gale's plate continues horizontal boarding around the loft light in that triangle, distinct from the covering above it, so the east end triangle now takes the same wall finish as the walls below it. What the plate supports is the ROLE of that face as wall infill. It does not supply paint, colour, board width, lap or any exposed relief: the simplification recorded above stands unchanged, the finish is still the archetype's existing reconstructed clapboard material, and the whitewash remains a choice. Nothing else moves — the roof envelope, 25 degree slopes, loft light, openings and the unpictured west end are untouched, and the change is confined to this house by its own `picture_layout` selector. The plate is captioned 1836, so this is evidence of the building's finish as drawn then, not a July 1835 finding.
+
 **Ticket:** T-2380.
 **Recorded:** 2026-11-03.
 
