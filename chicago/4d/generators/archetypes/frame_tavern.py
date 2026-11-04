@@ -171,6 +171,8 @@ def build(params: FrameTavernParams, name: str):
         _fenestration(b, params, w, d, wall_z, c_fen)
         if params.end_windows:
             _end_windows(b, params, w, d, wall_z)
+        if params.main_gable_cornice is not None:
+            _main_gable_cornice(b, params, w, d, wall_z, ridge_z)
 
     if params.log_wing:
         _log_wing(b, params, d)
@@ -520,6 +522,102 @@ def _wall_clad_gable_roof(b: MeshBuilder, params: FrameTavernParams,
             if outward>0: pts.reverse()
             poly(pts,1.0,M_WALL)
     return ridge
+
+
+def _face(b: MeshBuilder, pts, outward, conf: float, mat: int = M_WALL) -> None:
+    """One planar face wound so its normal runs with `outward`.
+
+    The cornice below is written in plain (x, y, z) at either gable end, so the
+    handedness of its quads flips with the end. Deciding the winding from the
+    geometry rather than from a sign the caller remembers to pass is what keeps
+    a mirrored copy from coming out inside-out.
+    """
+    (ax, ay, az), (bx, by, bz), (cx, cy, cz) = pts[0], pts[1], pts[2]
+    ux, uy, uz = bx - ax, by - ay, bz - az
+    vx, vy, vz = cx - ax, cy - ay, cz - az
+    n = (uy * vz - uz * vy, uz * vx - ux * vz, ux * vy - uy * vx)
+    if sum(a * b_ for a, b_ in zip(n, outward)) < 0:
+        pts = list(reversed(pts))
+    b.add_poly(pts, conf, mat)
+
+
+def _main_gable_cornice(b: MeshBuilder, params: FrameTavernParams, w: float,
+                        d: float, wall_z: float, ridge_z: float) -> None:
+    """A boxed rake cornice with short horizontal returns on ONE gable end.
+
+    THE PICTURE SHOWS THE ELEMENT; THE PICTURE DOES NOT GIVE ITS SIZE. The
+    Andreas/Braunhold plate of the Sauganash draws a boxed band following both
+    rakes of the visible gable and a short horizontal return turning the corner
+    at each eaves end — a thing the archetype has never built, so the gable has
+    been standing with a bare rake the plate does not draw. What the plate
+    cannot give is a dimension: it is a retrospective engraving and its own
+    scale datum is a standing man, so the three sections here are the record's
+    and are RECONSTRUCTED. docs/LIBERTIES.md L-sauganash-main-gable-cornice-2383
+    states what bounded them.
+
+    The band is drawn in the wall's own finish, which is what the plate shows:
+    a painted boxed cornice, not a shingled one. It hangs UNDER the rake line
+    rather than raising it, so the roof planes, the ridge, the eave and the
+    silhouette of every other mass are untouched — a building that does not
+    select this control comes out byte-for-byte as it did.
+
+    Geometry, at the selected end's roof plane (the gable triangle's own plane,
+    one eave overhang proud of the wall):
+
+      - two rake prisms, from each eaves corner up to the apex, their top in
+        the rake plane and their soffit `section_m` below it, standing
+        `projection_m` proud of the gable;
+      - two returns, `return_m` long, running inward from each eaves corner at
+        the eave line, closing the assembly with their own end faces.
+
+    The rakes and the returns interpenetrate at the corners, which is the
+    mitre a cornice is actually built with; neither floats and neither opens a
+    hole. The face against the gable is left off — it is coincident with the
+    gable triangle, so drawing it would only z-fight.
+    """
+    g = params.main_gable_cornice
+    section = float(g["section_m"])
+    projection = float(g["projection_m"])
+    run = float(g["return_m"])
+
+    y0, y1 = -ROOF_OVERHANG, d + ROOF_OVERHANG
+    mid = d / 2.0
+    outward = 1 if g["end"] == "+x" else -1
+    plane = (w + ROOF_OVERHANG) if outward > 0 else -ROOF_OVERHANG
+    face = plane + outward * projection
+    out_x = (float(outward), 0.0, 0.0)
+
+    # Every section is a working choice, so the whole assembly is painted at
+    # the reconstructed tier — 1.0 in _CONFIDENCE, the same value the wall-clad
+    # gable triangles take.
+    conf = 1.0
+
+    for eave_y in (y0, y1):
+        # top (in the rake plane), soffit, and the fascia that faces the street
+        _face(b, [(plane, eave_y, wall_z), (face, eave_y, wall_z),
+                  (face, mid, ridge_z), (plane, mid, ridge_z)],
+              (0.0, 0.0, 1.0), conf)
+        _face(b, [(plane, eave_y, wall_z - section), (face, eave_y, wall_z - section),
+                  (face, mid, ridge_z - section), (plane, mid, ridge_z - section)],
+              (0.0, 0.0, -1.0), conf)
+        _face(b, [(face, eave_y, wall_z), (face, eave_y, wall_z - section),
+                  (face, mid, ridge_z - section), (face, mid, ridge_z)],
+              out_x, conf)
+
+    for eave_y, inward in ((y0, 1.0), (y1, -1.0)):
+        stop = eave_y + inward * run
+        lo, hi = wall_z - section, wall_z
+        # five faces, not six: the one against the gable is coincident with the
+        # gable triangle, so drawing it would only z-fight with it.
+        _face(b, [(plane, eave_y, hi), (face, eave_y, hi),
+                  (face, stop, hi), (plane, stop, hi)], (0.0, 0.0, 1.0), conf)
+        _face(b, [(plane, eave_y, lo), (face, eave_y, lo),
+                  (face, stop, lo), (plane, stop, lo)], (0.0, 0.0, -1.0), conf)
+        _face(b, [(face, eave_y, lo), (face, eave_y, hi),
+                  (face, stop, hi), (face, stop, lo)], out_x, conf)
+        for y, away in ((eave_y, -inward), (stop, inward)):
+            _face(b, [(plane, y, lo), (face, y, lo), (face, y, hi), (plane, y, hi)],
+                  (0.0, away, 0.0), conf)
 
 
 def _corner_wall_box(b: MeshBuilder, axis: str, plane: float, outward: int,

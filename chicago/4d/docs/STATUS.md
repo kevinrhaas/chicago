@@ -1,3 +1,23 @@
+## T-2383 — the Sauganash's boxed gable cornice (2026-11-04)
+
+Andreas/Braunhold draws a boxed cornice down both rakes of the hotel's visible main gable
+and a short horizontal return at each eaves corner. The archetype had never built either,
+so the gable stood with a bare rake — a missing element over T-3153's bar. `frame_tavern`
+now carries a default-off `main_gable_cornice` control, selected only on
+`sauganash_hotel.frame_1831` and only on its `+x` gable, drawn in the wall finish and hung
+below the rake line.
+
+**Honest limits.** The picture gives the element, not its size: the plate is retrospective
+and its only scale datum is a standing man. The drawn return reads about 0.86 m against the
+gable's own width and about 0.71 m against the 0.85 m attic sash; the built 0.55 m return,
+0.18 m section and 0.18 m projection are reconstructed working choices at the conservative
+end of that range (`docs/LIBERTIES.md` L-sauganash-main-gable-cornice-2383). Nothing is
+built on the opposite, unseen gable. The whole frame-tavern family — 23 structures and the
+two Tremont version meshes — was genuinely rebuilt through the pinned Blender for the new
+producer; only the hotel's own master moved a byte, which is what default-off means and is
+the check that it is off. The hotel's own comparison still reads **differs** on the compound
+roof silhouette; the three Carpenter-shop comparisons were re-rendered, directly reviewed
+and retain **matches** with the shop anchor unchanged. T-2383 stays open and partial.
 ## T-3041 — the first fort's north-east small house, and nothing else in that picture (2026-11-03)
 
 `first_fort_dearborn_small_house_ne` carries the four-sided pyramid cap the Currey 1912
