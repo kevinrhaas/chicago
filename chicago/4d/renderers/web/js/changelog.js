@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2642, ts: '2026-11-04T05:14:19.653Z', date: 'Nov 3, 2026, 11:14 PM CT', title: 'The first fort\'s parade ground is accounted for', kind: 'fix',
+    items: [
+      'The 1812 walk recognizes the parade ground\'s existing surface without a false missing-building warning.',
+      'Buildings that fail to load still produce a warning.',
+    ] },
   { v: 2641, ts: '2026-11-04T04:43:37.564Z', date: 'Nov 3, 2026, 10:43 PM CT', title: 'The Agency House\'s front gets the openings its picture draws', kind: 'improve',
     items: [
       'Cobweb Castle\'s centre gable now carries two upright apertures standing on the ground and one small light above them, which is the count the 1831 Wau-Bun panorama draws. The single centred door it had before is gone.',
