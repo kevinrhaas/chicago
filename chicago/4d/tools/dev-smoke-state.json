@@ -2045,6 +2045,68 @@
         ]
       },
       "source": "/tmp/smoke_d14.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 344,
+      "takenAt": "2026-11-04T04:29:54.152Z",
+      "ref": "steward/t3041-parade-presence-20261104",
+      "commit": "05366ebe43f1",
+      "devCommit": "8025bc1ef69d",
+      "treeHash": "sha256:8622667b2d1aa7f2",
+      "treeDirty": false,
+      "changelogHash": "sha256:e2f0b8883637c044",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 33.3,
+        "loadavg": [
+          1.5,
+          2.9,
+          3.1
+        ]
+      },
+      "source": "/tmp/fort-parade-recovery-20261104/runtime/native3/desktop.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 167,
+      "takenAt": "2026-11-04T04:29:53.960Z",
+      "ref": "steward/t3041-parade-presence-20261104",
+      "commit": "05366ebe43f1",
+      "devCommit": "8025bc1ef69d",
+      "treeHash": "sha256:8622667b2d1aa7f2",
+      "treeDirty": false,
+      "changelogHash": "sha256:e2f0b8883637c044",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 33.3,
+        "loadavg": [
+          1.5,
+          2.9,
+          3.1
+        ]
+      },
+      "source": "/tmp/fort-parade-recovery-20261104/runtime/native3/mobile.log"
     }
   ]
 }
