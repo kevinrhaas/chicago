@@ -1,3 +1,23 @@
+## T-2383 — the Sauganash's boxed gable cornice (2026-11-04)
+
+Andreas/Braunhold draws a boxed cornice down both rakes of the hotel's visible main gable
+and a short horizontal return at each eaves corner. The archetype had never built either,
+so the gable stood with a bare rake — a missing element over T-3153's bar. `frame_tavern`
+now carries a default-off `main_gable_cornice` control, selected only on
+`sauganash_hotel.frame_1831` and only on its `+x` gable, drawn in the wall finish and hung
+below the rake line.
+
+**Honest limits.** The picture gives the element, not its size: the plate is retrospective
+and its only scale datum is a standing man. The drawn return reads about 0.86 m against the
+gable's own width and about 0.71 m against the 0.85 m attic sash; the built 0.55 m return,
+0.18 m section and 0.18 m projection are reconstructed working choices at the conservative
+end of that range (`docs/LIBERTIES.md` L-sauganash-main-gable-cornice-2383). Nothing is
+built on the opposite, unseen gable. The whole frame-tavern family — 23 structures and the
+two Tremont version meshes — was genuinely rebuilt through the pinned Blender for the new
+producer; only the hotel's own master moved a byte, which is what default-off means and is
+the check that it is off. The hotel's own comparison still reads **differs** on the compound
+roof silhouette; the three Carpenter-shop comparisons were re-rendered, directly reviewed
+and retain **matches** with the shop anchor unchanged. T-2383 stays open and partial.
 ## T-3041 — the first fort's north-east small house, and nothing else in that picture (2026-11-03)
 
 `first_fort_dearborn_small_house_ne` carries the four-sided pyramid cap the Currey 1912
@@ -25673,6 +25693,14 @@ This increment adds a reconstructed occupied wagon circuit for Otis Bardwell in1
 The1835 route remains the18m-radius reconstructed circle on level southwestern ground. The1904 route now uses a slightly adjusted reconstructed lane inside the existing carriageways. Paving priority is expressed through numerical depth ordering with zero slope bias, preserving the T-1805 wall correction. Roadway and worn overlays share the common physical road level; vehicle support reads their actual Float32 triangles rather than the old bilinear approximation. The native complete1904 circuit passed7,906 samples at no more than0.1m spacing; the worst sampled support spread was0.858234mm and wheel gap9.258174mm. Generic support dimensions and the original1mm/2degree/30mm limits remain unchanged; the selected horse alone uses its independently reproduced complete-hoof domain.
 
 Native acquisition, lifecycle, route, support, clock and shared-interaction controls pass, including actual-source fault controls and the1,154-pose native/F32 domain reproduction. These finite checks do not establish photographic appearance, continuous planted contact, boarding or riding. Browser results, current-source gate results and delivery commits are recorded separately on the PR and linked evidence checkpoints. Earlier failed world and automation attempts remain preserved; no whole-ticket photographic or gait completion is asserted.
+
+### T-2804 seated driver looking, 3 November 2026 — scene acceptance pending
+
+A bounded animation-only derivative adds the eight-second `sit_drive_look_v2` clip to the active master/web LOD0 and LOD3 exports for Otis Bardwell and Hans Johnson. It changes only neck/head rotation curves. The exact original clips, graphical content, identities, support/seat transforms and arm/palm/lower-body channels remain. New driver clips use visible elapsed time while driving or stopped, suspend through holds, Reduced Motion, hidden/range conditions and Light, restore the saved phase, and are not advanced a second time by vehicle substeps. Existing static clips keep their original clock.
+
+All eight children were generated from pinned public parents. Actual native CPU GLTFLoader/Meshopt/AnimationMixer readback covers 65 keys and 64 midpoints per child (1,032 phases), decodes the original images, and finds bit-exact protected body world transforms and Float32 skin palettes; non-target local transforms including the jaw/eyes remain exact while the head branch moves. Selected Hans web LOD0/3 palm points do not move; the original 1 nm comparison bound and real 3 mm pelvis-fault controls are retained. The exact derivative, native result and four-field active palm-payload hash bridge are recorded under `data/humans/animations/seated-driver-look-v2.*.json`. The initial new observer incorrectly treated the jaw as world-static; that failed attempt is retained separately, and the corrected observer protects all non-target local transforms and every body world transform outside the authored head branch.
+
+The unchanged native all-24-human browser fixture now passes at 1280x800 and 390x780 for these exact payloads; it wrote the current fixture measure in 118.631 seconds, and the subsequent native hash/verdict check passed. Original skeleton, skinning, morph, texture, frame, master/web and viewport assertions remain. Published desktop/phone scene motion and clothing review, unchanged resource/memory limits, the complete source gate, exact-HEAD CI and ordinary DEV delivery remain pending. Existing natural-standing and resident proofs remain historical parent evidence. This finite seated increment closes no photographic, continuous garment/contact, horse gait, riding or boarding acceptance.
 ## Green Tree connector and turned range — 2026-11-03
 
 Original T-2376 now has a low connector and turned farther gabled range beside the existing open wagon bay, replacing the earlier rear ell. The MASTER deliberately omits the open shoulder; native yard geometry remains the sole bay roof/post owner. Separate occupied rings follow the new solids through compilation, collision/routes, ground/prop clearance, entrance placement and framing, preserving the core reference footprint and open gaps.
@@ -25744,10 +25772,75 @@ This authored checkpoint claims no completed four-part gate, committed-head
 publication or desktop/phone application QA; those are recorded separately for
 the actual PR head. Original T-2383 remains partial/open, with no new ticket.
 
-### T-2804 seated driver looking, 3 November 2026 — scene acceptance pending
 
-A bounded animation-only derivative adds the eight-second `sit_drive_look_v2` clip to the active master/web LOD0 and LOD3 exports for Otis Bardwell and Hans Johnson. It changes only neck/head rotation curves. The exact original clips, graphical content, identities, support/seat transforms and arm/palm/lower-body channels remain. New driver clips use visible elapsed time while driving or stopped, suspend through holds, Reduced Motion, hidden/range conditions and Light, restore the saved phase, and are not advanced a second time by vehicle substeps. Existing static clips keep their original clock.
+### Lake House source reading — 2026-11-04
 
-All eight children were generated from pinned public parents. Actual native CPU GLTFLoader/Meshopt/AnimationMixer readback covers 65 keys and 64 midpoints per child (1,032 phases), decodes the original images, and finds bit-exact protected body world transforms and Float32 skin palettes; non-target local transforms including the jaw/eyes remain exact while the head branch moves. Selected Hans web LOD0/3 palm points do not move; the original 1 nm comparison bound and real 3 mm pelvis-fault controls are retained. The exact derivative, native result and four-field active palm-payload hash bridge are recorded under `data/humans/animations/seated-driver-look-v2.*.json`. The initial new observer incorrectly treated the jaw as world-static; that failed attempt is retained separately, and the corrected observer protects all non-target local transforms and every body world transform outside the authored head branch.
+The Record now distinguishes a directly checked line in Fergus's 1876 recollection of the 1839 Rush/North Water address from Andreas's differing street account. The July 1835 construction stage, position and dimensions remain uncertain. This increment changes source and Record metadata; it claims no new geometry or image-match completion.
+## 2026-11-04 — T-2374: the Agency House's front aperture count
 
-The unchanged native all-24-human browser fixture now passes at 1280x800 and 390x780 for these exact payloads; it wrote the current fixture measure in 118.631 seconds, and the subsequent native hash/verdict check passed. Original skeleton, skinning, morph, texture, frame, master/web and viewport assertions remain. Published desktop/phone scene motion and clothing review, unchanged resource/memory limits, the complete source gate, exact-HEAD CI and ordinary DEV delivery remain pending. Existing natural-standing and resident proofs remain historical parent evidence. This finite seated increment closes no photographic, continuous garment/contact, horse gait, riding or boarding acceptance.
+Cobweb Castle's centre room now states its own front openings. The archetype's
+compound path offered ONE opening per room, so the front the Wau-Bun panorama draws
+— two upright dark marks standing on the ground and one small mark above them — was
+not sayable in data at all; every data-only trial was correctly refused by the
+archetype's own validation. `compound_apertures` is the opt-in that says it: an
+explicit set on one room's outward face, overriding that room's singular
+`front_opening`, with its own bounds (inside the wall, under the room's own roof
+rake, clear of each other, at most one stated way in, refused on the bounded elbow
+and absent by default everywhere else).
+
+Built and qualified on the pinned Ubuntu 26.04 / Blender 4.5.3 binary in four bounded
+batches: all 82 log_dwelling masters regenerated, and **81 came out byte-identical**,
+which is the measurement that the new option is genuinely off for every other record.
+Cobweb's MASTER moved from `af1f33c0f5d75fc8c40e6cbb589adfd7d29d551572c2775e236bb260f6ee561f`
+(139,824 B) to `4f42207be5fcb2391fda58672ce8442b02aba9510f3096db8c2934b695fe7bea`
+(139,248 B), and its WEB derivative from `49cfcb869c0a39bd936c2c22428179538c37c5a380b9f27c53fab019719b8dcd`
+(31,804 B) to `1699d7aa1c4b0abb6229bd4cbfaed95013f3ede9323f4945396583fd14b26e23`
+(30,304 B). No other family, version or foreign registry row is touched. The town's
+single grounded entrance on that front stays one entrance; it moves 0.17 m and
+narrows to 0.90 m, which is the apron re-deriving onto the aperture that now stands
+where the old centre door did.
+
+**What is read and what is ours.** The picture gives the COUNT and roughly the
+arrangement along the face, and nothing else: every coordinate is set out from this
+record's own 5 m centre wall and its own rake, and the entry role on the right-hand
+mark is a design inference, not a reading. No glazing, closure, interior, attic room,
+white paint or historic function is claimed; the engraving's white paper is not
+evidence of paint. `L-cobweb-apertures-2374` records all of it.
+
+**Still open, and this is not a match.** The camera on this panorama remains UNSOLVED
+and is not enrolled in `data/reference_views/`; no verdict is claimed and T-2374's
+image gate stays open. The compound's overall width, the wing and sub-roof
+silhouettes, the roof junctions and valleys, the text-attested partial clapboarding
+"part way up", and the finish and tone all still differ from the picture. The source
+is retrospective 1831 context printed in 1881 and is not proof of the building as it
+stood on 1835-07-01.
+
+**The first cut of this shipped the dark faces BEHIND the logs, and an independent
+fixed-camera review caught it before the merge.** `_compound_aperture` passed the bare
+`APERTURE_BACK_M` (0.004 m) to `openings.face`, which measures out from the wall's
+PLANE, while `openings.surround` reads its `back` from the wall's SKIN and ran the
+reveal to 0.026 m. The log courses stand out 0.022 m. So both grounded apertures were
+crossed by horizontal log courses and read as striped ladders rather than holes —
+while every numeric check in `tools/test_log_compound_apertures.py`, both smoke legs
+and the application review passed, because the fault lived in a depth no reading looks
+at. The repair passes `w.skin + APERTURE_BACK_M`, which is the convention the same
+file's blind doorway already follows and what the constant's own comment describes.
+The test now pins that invariant by reading the builder's source, and reverting the one
+expression makes it fail.
+
+The repair was rebuilt the same way — pinned sha-verified Blender 4.5.3 on Ubuntu
+26.04.1, all 82 log_dwelling masters in four bounded batches, 81 byte-identical again —
+taking Cobweb's MASTER from `4f42207be5fcb2391fda58672ce8442b02aba9510f3096db8c2934b695fe7bea`
+to `1ddf548d9a378167163d6db45e5d89e1b4c544ea176355eb7061dd99d6a1ee82` (139,248 B both)
+and its WEB derivative from `1699d7aa1c4b0abb6229bd4cbfaed95013f3ede9323f4945396583fd14b26e23`
+to `99997b5f3935ceceddb072286387859a5d9a8dd3dfa112b64978d1213e20890e` (30,304 B both).
+The controlled before/after was re-run at the same private camera on the same source,
+with only the GLB changed; rendering the two earlier meshes reproduced the review's own
+images byte-for-byte, which is what makes the third render comparable. Both lower faces
+now read as uninterrupted dark recesses and the upper light, the casing, the wings'
+windows, the stacks and the massing are unchanged. That camera is STILL UNSOLVED,
+still unenrolled and still private: no RMS, no grade, no verdict, no completion.
+
+
+### First Fort parade presence — T-3041, 2026-11-04
+The first fort's loaded earth-only parade asset is supplied by its named trodden-ground owner, so it is now listed separately from direct building batches. No bounding box or standing building is invented. Failed, empty or malformed assets remain missing, and the second fort's sundial still has to draw. The ground layer already drew independently; this corrects the false missing-host report, not an absent ground surface. Actual createBuildings regression checks pass; the earlier 1812 desktop runtime failed its zero-console-error check and remains preserved as a failure. Full source and both-viewport runtime qualification are required before this repair merges; actual final receipts are kept with the PR. The original first-fort picture acceptance remains open.

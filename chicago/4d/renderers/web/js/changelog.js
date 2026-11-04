@@ -1,4 +1,36 @@
 export const CHANGELOG = [ // newest first
+  { v: 2642, ts: '2026-11-04T05:14:19.653Z', date: 'Nov 3, 2026, 11:14 PM CT', title: 'The first fort\'s parade ground is accounted for', kind: 'fix',
+    items: [
+      'The 1812 walk recognizes the parade ground\'s existing surface without a false missing-building warning.',
+      'Buildings that fail to load still produce a warning.',
+    ] },
+  { v: 2641, ts: '2026-11-04T04:43:37.564Z', date: 'Nov 3, 2026, 10:43 PM CT', title: 'The Agency House\'s front gets the openings its picture draws', kind: 'improve',
+    items: [
+      'Cobweb Castle\'s centre gable now carries two upright apertures standing on the ground and one small light above them, which is the count the 1831 Wau-Bun panorama draws. The single centred door it had before is gone.',
+      'The right-hand aperture is the way in, so the worn path to the door shifts with it. Which of the two was the door is our choice, not the picture\'s.',
+      'Everything else about the house is unchanged: its five rooms, roofs, chimneys, size and placement, and its bare hewn-log finish. The picture and the model still differ in all of those, and its match is not claimed.',
+    ] },
+  { v: 2640, ts: '2026-11-04T04:13:37.317Z', date: 'Nov 3, 2026, 10:13 PM CT', title: 'The Lake House\'s later address, checked', kind: 'change',
+    items: [
+      'Its Record now cites Fergus\'s 1876 recollection of an 1839 address at Rush and North Water, alongside the conflicting Michigan Street account. The July 1835 building site remains uncertain.',
+    ] },
+  { v: 2639, ts: '2026-11-04T03:44:50.240Z', date: 'Nov 3, 2026, 9:44 PM CT', title: '1904 sends a third fewer draws, so walking and flying run smoother', kind: 'improvement',
+    items: [
+      'Street trees, front-yard trees and the 1835 and 1812 woods now draw every copy of a tree shape at once, instead of one tree at a time.',
+      'At Light, building glass is drawn one building at a time, the way Full draws it, instead of one small piece at a time.',
+      'Nothing on screen changes. On the owner\'s desktop view, walking Prairie Avenue at Light drops from about 6,100 draws to 4,000, and flying drops from 5,100 to 2,900.',
+    ] },
+  { v: 2638, ts: '2026-11-04T03:44:50.240Z', date: 'Nov 3, 2026, 9:44 PM CT', title: 'The Sauganash\'s gable gets the boxed cornice its picture draws', kind: 'improvement',
+    items: [
+      'Andreas\'s 1884 engraving draws a boxed cornice along both rakes of the Sauganash Hotel\'s end gable, with a short horizontal return turning each eaves corner. The hotel was standing with a bare rake instead. Both are now built, on the gable that faces the Carpenter shop.',
+      'The cornice is drawn in the building\'s own white wall finish and hangs below the roof line, so the roof, ridge, pitch, windows, blue shutters, chimneys and rear wing are exactly where they were.',
+      'The picture shows the cornice but gives no size for it: the depth, projection and the length of the returns are our reconstruction, recorded as one in the liberties register. Nothing is built on the gable the picture cannot see.',
+      'The rest of the hotel\'s comparison with the engraving is still open — the roof silhouette of the compound, chiefly — so this is one difference closed, not the whole building signed off.',
+    ] },
+  { v: 2637, ts: '2026-11-04T03:44:50.240Z', date: 'Nov 3, 2026, 9:44 PM CT', title: 'The Pullman house gains the chimney stack behind its rear roof', kind: 'improvement',
+    items: [
+      '1729 Prairie now has the stone chimney stack that Taylor\'s winter photograph shows rising behind the rear roof, between its two rear dormers. Its exact spot on the roof is our reconstruction and is recorded as one.',
+    ] },
   { v: 2636, ts: '2026-11-04T03:32:17.563Z', date: 'Nov 3, 2026, 9:32 PM CT', title: 'The first fort\'s north-east small house gets its pyramid roof', kind: 'change',
     items: [
       'The little house in the fort\'s north-east inner angle now carries the four-sided pyramid cap the 1912 Currey bird\'s-eye draws there, instead of a gable.',

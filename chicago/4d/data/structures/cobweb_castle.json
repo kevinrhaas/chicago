@@ -267,6 +267,45 @@
           ],
           "note": "T-2374 first massing increment: Wau-Bun's centre, two wings and two rear tails now become five connected log rooms. Wall rectangles exactly partition the already reconstructed footprint; every dimension remains invented. Wing roofs extend to the centre ridge to conceal internal gable ends, giving intersecting roof planes. All five eaves inherit the inferred 2.6 m wall height. Roof directions, extensions, junctions, one central front door, one window on each wing, and both outer-wing stack positions are reconstructed, not read from the small retrospective panorama. No pictured opening count, roof pitch, valley detail, finish or 1835 continuation is established. This does not settle the agency-house identification in the panorama or constitute an image match. See L-cobweb-compound-2374."
         },
+        "compound_apertures": {
+          "value": [
+            {
+              "room": 0,
+              "face": "+y",
+              "zone": "wall",
+              "kind": "aperture",
+              "u0": 4.26,
+              "u1": 5.16,
+              "z0": 0.02,
+              "z1": 1.95
+            },
+            {
+              "room": 0,
+              "face": "+y",
+              "zone": "wall",
+              "kind": "door",
+              "u0": 6.22,
+              "u1": 7.12,
+              "z0": 0.02,
+              "z1": 1.95
+            },
+            {
+              "room": 0,
+              "face": "+y",
+              "zone": "gable",
+              "kind": "aperture",
+              "u0": 5.57,
+              "u1": 6.27,
+              "z0": 2.74,
+              "z1": 3.54
+            }
+          ],
+          "confidence": "reconstructed",
+          "sources": [
+            "kinzie_1857_chicago_1831_panorama"
+          ],
+          "note": "T-2374 FRONT APERTURE INCREMENT, AND THE COUNT IS THE ONLY THING THE PICTURE GIVES. The keyed panorama 'Fort Dearborn and Chicago in 1831', read here at full resolution on its Agency-House subject (chicago/reference/images/chicago/chicago_fort_dearborn_1831_1.jpg, sha256 624d8f1f52a75bf30653e8cbf37a388478b0ddf5a02f1fadf727cf2144b84c3f), draws the front gable with THREE dark marks: TWO upright ones standing on the ground line, and ONE small one high on the face at the head of the wall. The archetype's compound path states one opening per room, so that front could not be expressed at all and every data-only attempt at it was refused by the archetype's own validation; this attribute is the opt-in that lets one room state its own set, and it OVERRIDES the centre door that room's `front_opening` would otherwise put here, so the old opening does not survive among the new marks. WHAT IS READ AND WHAT IS INVENTED. Read from the picture: that there are two lower marks and one upper one; that the lower pair stand on the ground; and roughly where the three fall along the face, the lower pair in its left and middle leaving the right-hand stretch blank, the upper mark a little left of the apex. Invented: every dimension, every band, the depth and section of the recesses, and which of the two lower marks is the way in. The marks are a few pixels across a thirty-pixel gable in a retrospective engraving whose proportions are not this model's, so no fraction of them is carried across as a measurement: the coordinates here are set out from this record's own 5 m central wall and the rake of its own roof, inside the bounds the archetype validates. The face is drawn slightly oblique, which compresses its right-hand side, so even the arrangement is read with that caution. THE ENTRY ROLE IS A DESIGN INFERENCE AND NOT A READING. The picture does not say which mark was a door, or that either was. The right-hand one carries `kind: door` because it stands where this record's previous single centre door stood, so the town's entrance, apron and doorway clearance keep the ground they already held; the other is `kind: aperture`, which claims a hole and nothing else. No glazing, closure, interior, attic room, white paint or historic function is claimed by any of the three, and the white of the engraving's paper is not evidence of paint. WHAT THIS DOES NOT SETTLE. The source is retrospective 1831 context printed in 1881, not proof of the building as it stood on 1835-07-01; the camera on it remains unsolved and is not enrolled in data/reference_views/. The compound's overall width, the wing and sub-roof silhouettes, the roof junctions, the text-attested partial clapboarding and the building's finish and tone are all unchanged and still open. T-2374's image gate stays open. See L-cobweb-apertures-2374."
+        },
         "chimney_head_m": {
           "value": 5.05,
           "confidence": "reconstructed",

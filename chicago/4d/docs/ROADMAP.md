@@ -6279,3 +6279,25 @@ cabin. Geometry and placement stay unchanged. DIFFERS retains the main/left
 roof, broad rear-left wing and left-gable review; the old shop camera does not
 establish hotel dimensions or a historical viewpoint. Other pictures and the
 original full match remain open. See docs/RESEARCH/photo-match/sauganash_hotel/.
+
+
+### T2379 — later-address source cross-check, 2026-11-04
+
+The existing Fergus source now identifies a directly checked Lake House Hotels entry from his 1876 recollection of 1839. Record and Sources state its date and the conflicting street accounts. Construction-state picture matching remains OPEN; coordinates, phases, dimensions, grades and meshes are unchanged.
+### T-2374 — the Agency House's front aperture count, 2026-11-04
+
+Partial progress: Cobweb Castle's centre gable carries the two grounded upright
+apertures and the one small upper light the 1831 Wau-Bun panorama draws, through a
+new opt-in `compound_apertures` set that overrides that room's singular front
+opening. The old centred door is gone and no phantom survives beside the new marks.
+Count and arrangement are read from the picture; every coordinate, the recess
+section and the entry role on the right-hand mark are reconstructed
+(`L-cobweb-apertures-2374`). 81 of the 82 log_dwelling masters rebuilt byte-identical,
+so the option is off for every other record. The panorama's camera stays UNSOLVED and
+unenrolled: no verdict is claimed, the compound's width, wings, sub-roofs, roof
+junctions, clapboarding and finish still differ, and T-2374's image gate remains
+open. File no photo follow-up.
+
+
+### T-3041 — a loaded parade ground is not a missing building, 2026-11-04
+The NE-house pyramid increment merged in PR1685. Finish the separate presence-accounting repair exposed by its actual 1812 browser check. A successfully loaded, nonempty earth-only parade uses the existing named ground owner and is reported separately; failed/empty assets and mixed sundial geometry retain the ordinary missing-host checks. No model dimensions or source grades change. Keep the actual failed runtime receipt, rerun the required source and both-viewport gates after the repair, and leave the original all-buildings/image comparison open for its remaining differences.

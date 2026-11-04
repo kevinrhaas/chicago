@@ -58,7 +58,7 @@ import { loadCampSurfaces } from './camp-surfaces.js';
 import { applyBrickBond, brickBondFromSearch } from './brick-bond.js';
 import { addFeet, feetPoints, packFeet } from './building-feet.js';
 import { buildingBodyBounds } from './building-body-bounds.js';
-import { drawsLeaves as leavesHungElsewhere, paradeLaidAsGround } from './fort-gates.js';
+import { drawsLeaves as leavesHungElsewhere, paradeLaidAsGround, paradeGroundOwner } from './fort-gates.js';
 import { cheapenGlass, DEFAULT_GLASS, writePaneAttributes } from './glass.js';
 import { patchNightWindows } from './night-lights.js';
 import { layerPick } from './gpu-pick.js';
@@ -478,6 +478,12 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   // material key -> { material, entries: [{ record, geo, factors }] }
   const groups = new Map();
   const sourceRoles = new WeakMap();
+  const originalRole = (material) => {
+    if (!sourceRoles.has(material)) sourceRoles.set(material, material.name);
+    return sourceRoles.get(material);
+  };
+  /** Loaded ground-only assets fulfilled by the named native yards owner (T-3320). */
+  const delegatedGround = new Map();
   const viewOccluders = [];
   /**
    * T-3213: what every backing's `active()` compares against — identity is read
@@ -629,6 +635,39 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       continue;
     }
 
+    // A successfully loaded parade may contain only the earth slab T-3320 leaves
+    // to yards. It has no building batch or box; account for the actual delegation
+    // separately. A failed/empty asset, or any remaining non-earth mesh (the second
+    // fort's sundial), must still pass the ordinary batched-geometry roll below.
+    const groundOwner = paradeGroundOwner(record);
+    const identifiedGround = groundOwner && node.userData?.structure_id === record.id
+      && (!node.userData.phase_id || node.userData.phase_id === record.sidecar.phase);
+    if (identifiedGround && meshes.every(({ mesh, matrix }) => {
+      if (!matrix.elements.every(Number.isFinite)) return false;
+      const materials = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
+      if (!materials.length || !materials.every((material) => material && originalRole(material) === 'earth')) return false;
+      const positions = mesh.geometry.getAttribute('position');
+      const indices = mesh.geometry.getIndex();
+      const count = indices ? indices.count : positions?.count;
+      if (!positions || positions.count < 3 || !(count >= 3) || count % 3) return false;
+      for (let i = 0; i < positions.count; i += 1) {
+        if (![positions.getX(i), positions.getY(i), positions.getZ(i)].every(Number.isFinite)) return false;
+      }
+      if (indices) for (let i = 0; i < indices.count; i += 1) {
+        const index = indices.getX(i);
+        if (!Number.isInteger(index) || index < 0 || index >= positions.count) return false;
+      }
+      const a = new THREE.Vector3(), b = new THREE.Vector3(), c = new THREE.Vector3();
+      for (let i = 0; i < count; i += 3) {
+        a.fromBufferAttribute(positions, indices ? indices.getX(i) : i);
+        b.fromBufferAttribute(positions, indices ? indices.getX(i + 1) : i + 1);
+        c.fromBufferAttribute(positions, indices ? indices.getX(i + 2) : i + 2);
+        const area = b.sub(a).cross(c.sub(a)).lengthSq();
+        if (Number.isFinite(area) && area > 0) return true;
+      }
+      return false;
+    })) delegatedGround.set(record.id, groundOwner);
+
     // T-0002. One tone per STRUCTURE, resolved once and multiplied into every
     // surface the structure owns — walls, roof, trim, stack alike. Per
     // structure rather than per material because on 38 of the shipped assets
@@ -640,8 +679,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     for (const { mesh, matrix } of meshes) {
       const label = `${record.id}/${mesh.name || 'mesh'}`;
       const sourceMaterial = Array.isArray(mesh.material) ? mesh.material[0] : mesh.material;
-      if (!sourceRoles.has(sourceMaterial)) sourceRoles.set(sourceMaterial, sourceMaterial.name);
-      const bodyRole = sourceRoles.get(sourceMaterial); // before batching whitens/names it
+      const bodyRole = originalRole(sourceMaterial); // before batching whitens/names it
       // T-3319: a fort gate's leaves are hung by fort-gates.js so they can swing; the
       // shut pair the palisade baked (its `dark` primitive, the leaves and nothing else)
       // is left out for those stockades only.
@@ -1356,8 +1394,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    * THE TOWN'S ROLL CALL — T-1126. Which structures actually put geometry into
    * a batch, and which were supposed to and did not.
    *
-   * `localBoxes` is the honest answer to "is this building standing" and the
-   * only one in this file: it is filled where a mesh enters a batch, so a
+   * `localBoxes` is the honest answer to "is this building standing": it is
+   * filled where a mesh enters a batch, so a
    * record that has a sidecar, a placement matrix and a manifest entry but
    * whose GLB never arrived is simply not in it. `placements` is NOT that
    * answer — it is filled for every record in the registry before a single
@@ -1384,6 +1422,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // A record with no asset is drawn by another layer (the estray pen's fence)
     // and the loader has already reported it if it names no layer at all.
     if (!record.sidecar?.asset) continue;
+    // Like the no-asset delegated layer above, a proven loaded earth-only parade
+    // is ground rather than a building batch. Keep it visible in a separate roll;
+    // never manufacture a box or count it as a standing building.
+    if (delegatedGround.has(record.id)) continue;
     expected.push(record.id);
     if (!localBoxes.has(record.id)) missing.add(record.id);
   }
@@ -1484,6 +1526,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       expected: expected.length,
       standing: expected.length - missing.size,
       missing: [...missing],
+      delegatedGround: Object.fromEntries(delegatedGround),
     },
     /**
      * What the walls were bound with (T-1963): `off` under `?walls=flat`, else
