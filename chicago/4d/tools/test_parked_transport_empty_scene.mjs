@@ -64,7 +64,7 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
   `)}`);
   const { mountTownTransport } = await import(new URL('../renderers/web/js/town-transport-scene.js', import.meta.url));
   const configRoot = new URL('../data/', import.meta.url);
-  const previousFetch = globalThis.fetch; let directoryReads = 0, heightReads = 0, assetReads = 0;
+  const previousFetch = globalThis.fetch; let directoryReads = 0, heightReads = 0, assetReads = 0, cardPreparations = 0;
   globalThis.fetch = async url => {
     const bytes = readFileSync(new URL(String(url)));
     return { ok: true, status: 200, json: async () => JSON.parse(bytes),
@@ -75,6 +75,7 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
     const localProblems = [];
     const town = await mountTownTransport({ sceneId: '1904', dataBase: configRoot,
       getPeople: async () => { directoryReads++; return directory; },
+      preparePersonCard: () => { cardPreparations++; },
       humans: { get assets() { assetReads++; return {}; }, withhold() { throw Error('Unexpected adoption'); } },
       heightAt: () => { heightReads++; return 0; }, footprints: () => [], visitor: () => null,
       interactions: { add() { throw Error('Unexpected Light interaction'); } }, detail: 'light', problems: localProblems });
@@ -82,10 +83,38 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
     assert.equal(town.driverAnchorForPerson('pa1904_otis_f_r_c1900_hans_johnson'), null, 'Light does not invent a mounted driver anchor');
     assert.deepEqual(globalThis.__townLazyTools, { imports: 0, loader: 0, hitch: 0, factory: 0 });
     assert.equal(directoryReads, 0); assert.equal(assetReads, 0); assert.equal(heightReads, 0);
+    assert.equal(cardPreparations, 0, 'Light does not prepare a person card');
     await town.setTier('balanced'); await town.ready();
     assert.deepEqual(globalThis.__townLazyTools, { imports: 2, loader: 1, hitch: 1, factory: 1 });
     assert.equal(directoryReads, 1); assert(localProblems.some(s => s.includes('ELIGIBLE_LAZY_ASSEMBLY_SENTINEL')));
+    assert.equal(cardPreparations, 1, 'eligible near assembly prepares its existing person card');
     town.dispose();
+
+    // Real supported-scene metadata with no eligible rows remains empty at every tier.
+    const readActual = globalThis.fetch;
+    globalThis.fetch = async url => {
+      const response = await readActual(url);
+      if (!String(url).endsWith('/transport/driven/loops.json')) return response;
+      const config = await response.json();
+      return { ...response, json: async () => ({ ...config, rows: [] }) };
+    };
+    const beforeEmpty = { ...globalThis.__townLazyTools, directoryReads, heightReads, assetReads, cardPreparations };
+    const emptyProblems = [];
+    const empty = await mountTownTransport({ sceneId: '1904', dataBase: configRoot,
+      getPeople: async () => { directoryReads++; return directory; },
+      preparePersonCard: () => { cardPreparations++; },
+      humans: { get assets() { assetReads++; return {}; }, withhold() { throw Error('Unexpected empty-scene adoption'); } },
+      heightAt: () => { heightReads++; return 0; }, footprints: () => [], visitor: () => null,
+      interactions: { add() { throw Error('Unexpected empty-scene interaction'); } }, detail: 'balanced', problems: emptyProblems });
+    for (const tier of ['balanced', 'full', 'light']) {
+      await empty.setTier(tier);
+      assert.equal(empty.ensureNear(new THREE.Vector3(1335, 5, 3340), true), false);
+      await empty.ready();
+      assert.equal(empty.actors.length, 0);
+      assert.deepEqual({ ...globalThis.__townLazyTools, directoryReads, heightReads, assetReads, cardPreparations }, beforeEmpty,
+        `${tier}: no eligible row imports tools, reads models or prepares a card`);
+    }
+    assert.deepEqual(emptyProblems, []); empty.dispose();
   } finally { globalThis.fetch = previousFetch; delete globalThis.__townLazyTools; }
   console.log('actual Light town scene: zero assembly imports/factories/directory/height queries; eligible route opens deferred tools only then PASS');
 }
@@ -115,7 +144,7 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
   const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
   const boot = new AsyncFunction('YEAR', 'api', 'bases', 'people', 'peopleDirectory', 'confidence', 'streetGrid',
     'profiledGroundHeight', 'terrain', 'decks', 'footprints', 'walker', 'interactions', 'detailLevel', 'coarse',
-    'problems', 'scene3d', 'supportsTownTransport', 'importTown',
+    'problems', 'scene3d', 'supportsTownTransport', 'importTown', 'draws', 'prepareSceneDirectoryPerson',
     block.replace("import('./town-transport-scene.js')", 'importTown()'));
   const previousFetch = globalThis.fetch;
   let configFetches = 0;
@@ -126,18 +155,24 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
         const api = { humans: {} }, people = {}, directory = {}, confidence = {}, terrain = {}, decks = {},
           footprints = [], walker = { state: {} }, interactions = {}, bases = { dataBase: new URL('http://127.0.0.1/data/') };
         const problems = [], added = [], group = {}, calls = [];
-        let imports = 0, directoryCalls = 0;
+        let imports = 0, directoryCalls = 0, cardPreparations = 0;
+        const sceneLayers = new Set(supportsTownTransport(year)
+          ? JSON.parse(readFileSync(new URL(`../data/scenes/${year}.json`, import.meta.url))).layers : []);
+        const draws = layer => sceneLayers.has(layer);
+        const prepareSceneDirectoryPerson = () => { cardPreparations++; };
         const streetGrid = { carriagewayHeight: (e, n) => ['road', e, n] };
         const ground = (t, d, e, n) => { assert.equal(t, terrain); assert.equal(d, decks); return ['ground', e, n]; };
         const mountTownTransport = async (options) => { calls.push(options); if (failure === 'mount') throw Error('mount failure'); return failure === 'empty' ? null : { group }; };
         await boot(year, api, bases, people, { load() { directoryCalls++; return directory; } }, confidence,
           streetGrid, ground, terrain, decks, footprints, walker, interactions, 'balanced', false, problems,
           { add: (g) => added.push(g) }, supportsTownTransport,
-          async () => { imports++; if (failure === 'import') throw Error('import failure'); return { mountTownTransport }; });
+          async () => { imports++; if (failure === 'import') throw Error('import failure'); return { mountTownTransport }; },
+          draws, prepareSceneDirectoryPerson);
         const supported = supportsTownTransport(year);
         assert.equal(imports, supported ? 1 : 0);
         assert.equal(configFetches, 0, 'no imported/fetched town configuration on unsupported boot');
         assert.equal(directoryCalls, 0, 'mount receives an uncalled lazy directory callback');
+        assert.equal(cardPreparations, 0, 'boot only passes optional card preparation; it does not call it');
         if (!supported) { assert.equal(api.townTransport, null); assert.deepEqual(calls, []); assert.deepEqual(added, []); assert.deepEqual(problems, []); continue; }
         if (failure === 'import' || failure === 'mount') {
           assert.equal(api.townTransport, null); assert.deepEqual(added, []);
@@ -145,8 +180,10 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
         } else { assert.deepEqual(problems, []); assert.deepEqual(added, failure === 'empty' ? [] : [group]); }
         if (failure === 'import') continue;
         assert.equal(calls.length, 1); const options = calls[0];
-        assert.deepEqual(Object.keys(options).sort(), ['sceneId', 'dataBase', 'people', 'getPeople', 'humans', 'confidence',
+        assert.deepEqual(Object.keys(options).sort(), ['sceneId', 'dataBase', 'people', 'getPeople', 'preparePersonCard', 'humans', 'confidence',
           'heightAt', 'footprints', 'visitor', 'interactions', 'detail', 'coarse', 'problems'].sort());
+        assert.equal(options.preparePersonCard, year === '1835' ? null : prepareSceneDirectoryPerson,
+          'the actual1835 resident layer keeps its existing cards;1904 gets optional preparation');
         assert.equal(options.sceneId, year); assert.equal(options.dataBase, bases.dataBase); assert.equal(options.people, people);
         assert.equal(options.humans, api.humans); assert.equal(options.confidence, confidence);
         assert.equal(options.interactions, interactions); assert.equal(options.detail, 'balanced'); assert.equal(options.coarse, false);
