@@ -40458,3 +40458,14 @@ stood beside it.
 **Ticket:** T-2388 (partial — the ticket stays open on the rest of the fort).
 **Review:** `docs/RESEARCH/second-fort-cupola-T-2388/second-fort-panel-5-compound.match.json`.
 **Recorded:** 2026-11-03.
+
+### L-green-tree-shoulder-dormer-cap-2376 — the shoulder light's gable cap
+
+**Covers:** `green_tree_tavern.frame_1833.form.enclosed_left_annex`.
+
+**Decision:** Raise the enclosed shoulder's `front_gable_peak_m` from 4.50 to 4.85 m so the small front-gable light over the shoulder reads as the sharply pointed cap Andreas's detailed retrospective engraving draws, rather than the blunt, nearly flat one the earlier value produced. Against the builder's unchanged 4.20 m dormer head and its 0.625 m roof half-span this turns the cap from about 25.6 to about 46.1 degrees. The picture supplies the triangular SHAPE and nothing else: 4.85 m is a RECONSTRUCTED working control chosen to draw that shape, not a measurement, and the plate carries no scale, dimension, geographic camera or date for it. It establishes no alteration year and no part of the July 1835 condition beyond the earlier reading.
+
+Nothing else moves. The peak stays below the unchanged 5.0 m main-block wall head and far below the model's existing 8.722 m maximum; the dormer's plan extent, its light, the lower sash, the connector, the farther turned range, the main block, the footprint, the world placement, the occupied rings, the door faces, the entrance and the ground contact are all unchanged, and the rebuilt master's full bounding box is exactly equal to the previous one. The remaining shoulder roof slope and the relative proportions of shoulder, connector and range against the main block still differ from the engraving and stay OPEN on T-2376; Trowbridge/Gale's 1902 open wagon bay remains explicit counterevidence to the enclosed shoulder itself, and the conversion date remains unknown. Source ids remain `andreas_1884_green_tree_hotel_plate`, `kurz_allison_1893` and `trowbridge_green_tree_1902`; `chm_green_tree_1859` stays excluded as a geometry witness. The earlier comparison is preserved at `docs/RESEARCH/green-tree-annex-T-2376/andreas_1838-side-by-side-before-dormer-cap-20261104.jpg`. No original-ticket signoff, picture acceptance or new measurement follows.
+
+**Ticket:** T-2376.
+**Recorded:** 2026-11-04.

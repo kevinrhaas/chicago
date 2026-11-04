@@ -2107,6 +2107,195 @@
         ]
       },
       "source": "/tmp/fort-parade-recovery-20261104/runtime/native3/mobile.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 429,
+      "takenAt": "2026-11-04T05:16:59.012Z",
+      "ref": "steward/t2376-dormer-peak-native-20261104",
+      "commit": "f3309412c00f",
+      "devCommit": "a5eee9a01769",
+      "treeHash": "sha256:a805c1fd4db717c4",
+      "treeDirty": false,
+      "changelogHash": "sha256:d6ab886c4e7da251",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          2.9,
+          3.7,
+          3.8
+        ]
+      },
+      "source": "/tmp/smoke_desktop_3.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3-4",
+      "parts": [
+        3,
+        4
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 139,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 427,
+      "takenAt": "2026-11-04T05:16:58.887Z",
+      "ref": "steward/t2376-dormer-peak-native-20261104",
+      "commit": "f3309412c00f",
+      "devCommit": "a5eee9a01769",
+      "treeHash": "sha256:a805c1fd4db717c4",
+      "treeDirty": false,
+      "changelogHash": "sha256:d6ab886c4e7da251",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          2.9,
+          3.7,
+          3.8
+        ]
+      },
+      "source": "/tmp/smoke_mobile_34.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 429,
+      "takenAt": "2026-11-04T03:13:09.149Z",
+      "ref": "steward/t2376-dormer-peak-native-20261104",
+      "commit": "f2c5517a3969",
+      "devCommit": "a3a87cafe932",
+      "treeHash": "sha256:da70d3c089d1ecc4",
+      "treeDirty": false,
+      "changelogHash": "sha256:360dd63fd8fae06d",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.1,
+          4.3,
+          4.1
+        ]
+      },
+      "source": "/tmp/gtaudit/smoke-desktop-3.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3-4",
+      "parts": [
+        3,
+        4
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 139,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 444,
+      "takenAt": "2026-11-04T03:13:09.027Z",
+      "ref": "steward/t2376-dormer-peak-native-20261104",
+      "commit": "f2c5517a3969",
+      "devCommit": "a3a87cafe932",
+      "treeHash": "sha256:da70d3c089d1ecc4",
+      "treeDirty": false,
+      "changelogHash": "sha256:360dd63fd8fae06d",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.1,
+          4.3,
+          4.1
+        ]
+      },
+      "source": "/tmp/gtaudit/smoke-mobile-3-4.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 351,
+      "takenAt": "2026-11-04T01:15:03.929Z",
+      "ref": "steward/t2376-dormer-peak-native-20261104",
+      "commit": "ba7d4bd8b129",
+      "devCommit": "42b9c601d51d",
+      "treeHash": "sha256:9c86edecab340e69",
+      "treeDirty": false,
+      "changelogHash": "sha256:9687c67d69b10ffe",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.5,
+          4.2,
+          4.1
+        ]
+      },
+      "source": "/tmp/t2376/smoke-desktop-3.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3-4",
+      "parts": [
+        3,
+        4
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 139,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 372,
+      "takenAt": "2026-11-04T01:09:07.714Z",
+      "ref": "steward/t2376-dormer-peak-native-20261104",
+      "commit": "ba7d4bd8b129",
+      "devCommit": "42b9c601d51d",
+      "treeHash": "sha256:9c86edecab340e69",
+      "treeDirty": false,
+      "changelogHash": "sha256:9687c67d69b10ffe",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          5.3,
+          4.6,
+          4
+        ]
+      },
+      "source": "/tmp/t2376/smoke-mobile-34.log"
     }
   ]
 }
