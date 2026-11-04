@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "dcca397ff222786b0b4c25e0f139b90d40677cd8982e55254363fe781fcaf4b0"
+      "glb_sha256": "1df1feeedb8007fd96c1a65f300a263369f33daf8068f6b1156beca070f0f493"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "f165d4af7461c032c7c7fb87ba3af9e83c3b64a4b7946bea9b402993baa40cdf"
     }
   ],
-  "group_sha256": "9b973d7c4d25302ad6dd0112dff52f796836d4c72c678c0534040e2d66eae2bf",
+  "group_sha256": "edf1e6d349f68a09b54bb12d130dded3d5b9c1774618bad033299afbeeb0a57f",
   "rendered_flora": {
     "season": "winter",
     "lots": [
@@ -119,7 +119,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "cd404eba8da667728585833a369f14ffe3c7757799d2df960b2f77439ac151ed"
+      "sha256": "abf705150b8cbf9548ec963ce000d87822e618ef3387bef61d725a750d71ce24"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -138,9 +138,9 @@
       "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "ca5c63c0f97ee3156aa053191a65e349e5222be2fa3ddf7881711e8a2ed837e2",
+  "flora_sha256": "6269f498e1bead79f9a5e427e07312983ae2ecb9f8d721f0a4715d2d6cf3044f",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "the stable's 18th Street front: three bays of sash in two storeys between the corner bay and the stack, the stack at the front's east end rising past the deck, the lantern toward the deck's west end",
@@ -289,8 +289,8 @@
     },
     {
       "what": "a stack rising behind the house's rear face, between its two dormers (x 513-522 px, its cap at about y 318), which the build does not stand",
-      "status": "open",
-      "how": "T-1881 (2026-11-01): seen while laying the rear dormers; this camera does not place it on the house's deck to better than a few metres, so it waits on a camera fitted to the house (L-pullman-1729-rear-dormers-1881)"
+      "status": "fixed",
+      "how": "T-1934 (2026-11-03): built as the house's fourth stack (chimneys.stacks[3], u 1.4, v 10.0, top 18.4 m), placed against the rear face's dormers since this camera is not fitted on the house's rear: it now renders between the first and second rear dormers, about a fifth to a third of the way (x 486-494 against the dormers' 476 and 540), where the print sets it 0.35 of the way (512-523 against 500 and 543); the whole rear renders about 25 px left of the print's through this camera, as the house's other items here say. L-pullman-1729-rear-stack-1934"
     },
     {
       "what": "the nearest parkway elm's twig (top right, about 12 m from the eye) reads a little heavier in stroke than the print's fine twig",

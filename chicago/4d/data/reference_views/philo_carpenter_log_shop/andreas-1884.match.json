@@ -42,13 +42,17 @@
         3.0999999999999943
       ],
       "rotation_y": 0,
-      "glb_sha256": "a369598aafec6a868b0ec3e04ba591a821e4518174a1e75ac2bdba790ffbe5ec"
+      "glb_sha256": "08b77238df24e8481a3926a8670044efc9908d80029d91c6dd10f370e23a429b"
     }
   ],
-  "group_sha256": "a8fe7c17dbf1f39cc42ee95cb05d42801be41f127254dbb5908ac7333694232d",
+  "group_sha256": "109804337dfce98ab633b639ccc8a9469fb9835be956c122bb894d7763634cd1",
   "side_by_side": "docs/RESEARCH/photo-match/philo_carpenter_log_shop/andreas-1884-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
+    {
+      "what": "The hotel standing behind the shop in this view was built with a bare rake where the picture draws a boxed gable cornice and its two short horizontal returns. Both are now built on the hotel's +x gable at reconstructed sections (T-2383, docs/LIBERTIES.md L-sauganash-main-gable-cornice-2383). The Carpenter shop ANCHOR is untouched: its own master, camera, placement, openings, materials and every prior T-3153 disposition are unchanged, and this pair was re-rendered and directly reviewed before the verdict below was retained.",
+      "status": "fixed"
+    },
     {
       "what": "Generic35degree roof is replaced by accepted21.49degree reconstructed roof; actualnative ridge lowered0.824m includingoverhang, following the lowannex in this controlling retrospective plate. The numeric angle is not an attested historic measurement.",
       "status": "fixed"
@@ -70,10 +74,10 @@
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
   "context_refresh_review": {
-    "reviewed_at": "2026-11-02T23:33:24.940233+00:00",
-    "disposition": "Root directly viewed all three actual current native side-by-sides and approved Carpenter-target nonregression.",
-    "scope": "Carpenter MASTER, camera, placement and prior T-3153 dispositions are unchanged. The genuine Sauganash context now uses the bounded entrance/lower-sash correction; no newly introduced target occlusion or discrepancy was found. This review does not sign off the whole hotel or T-2383."
+    "reviewed_at": "2026-11-04T02:20:00+00:00",
+    "disposition": "This run directly viewed the new side-by-side against the picture, beside the image it replaced, before setting the verdict below.",
+    "scope": "The only rendered input that moved is the Sauganash hotel's master, which gained the pictured boxed gable cornice and returns on its +x gable (T-2383). No camera, placement, photograph or other member changed. This review signs off neither the whole hotel nor T-2383, whose remaining roof silhouette and left-gable differences stay open."
   }
 }

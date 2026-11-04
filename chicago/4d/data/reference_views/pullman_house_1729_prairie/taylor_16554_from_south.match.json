@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_16554_from_south",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "dcca397ff222786b0b4c25e0f139b90d40677cd8982e55254363fe781fcaf4b0",
+  "glb_sha256": "1df1feeedb8007fd96c1a65f300a263369f33daf8068f6b1156beca070f0f493",
   "camera_sha256": "568a603acd37c9549b21b76a5f24b692670a1c74a4abc57c3eaf1aaa48334598",
   "photo_sha256": "f1099e538ca42a2bf75bc3db892a8e73c172c22f866862b71fa38c27c464dbfa",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "dcca397ff222786b0b4c25e0f139b90d40677cd8982e55254363fe781fcaf4b0"
+      "glb_sha256": "1df1feeedb8007fd96c1a65f300a263369f33daf8068f6b1156beca070f0f493"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "33753cacaa38e5035e8d72e0f568c4efa6c9770272b67ef2f03738313beeb916"
     }
   ],
-  "group_sha256": "49b6d270c95ca7803052938f158963fd2488cd943909e0098315bc834fd776aa",
+  "group_sha256": "aa696bbeb2d4d64e423acf6ba452fcb013e365a10d73beb51d466526bfbffe44",
   "rendered_flora": {
     "season": "winter",
     "lots": [
@@ -123,7 +123,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "cd404eba8da667728585833a369f14ffe3c7757799d2df960b2f77439ac151ed"
+      "sha256": "abf705150b8cbf9548ec963ce000d87822e618ef3387bef61d725a750d71ce24"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -142,7 +142,7 @@
       "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "ae46b9cb44066b6933690fdee2f5f5f59244680f0d277bcb4df0ace810fdb8e6",
+  "flora_sha256": "c028a6d3f536dc0f15d09c1160bbbfea5920361d74264b40a4e4a58bf0490dda",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -186,6 +186,11 @@
     {
       "what": "the main block's height through this camera: the cornice at the south-east corner at y about 394 px and the deck's cresting at about 325 in the print, against about 358 and 300 in the render, which is the camera's scale (above), not a storey",
       "status": "within tolerance"
+    },
+    {
+      "what": "a stack rising behind the house's rear face, between its two dormers (x 512-523 px, its cap at about y 317, about 4 px over the cresting), which the build did not stand (seen first in the conservatory's record of this picture)",
+      "status": "fixed",
+      "how": "T-1934 (2026-11-03): built as the house's fourth stack (chimneys.stacks[3], u 1.4, v 10.0, top 18.4 m), placed against the rear face's dormers since this camera is not fitted on the house's rear: it now renders between the first and second rear dormers, about a fifth to a third of the way (x 486-494 against the dormers' 476 and 540), where the print sets it 0.35 of the way (512-523 against 500 and 543); the whole rear renders about 25 px left of the print's through this camera, as the house's other items here say. L-pullman-1729-rear-stack-1934"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

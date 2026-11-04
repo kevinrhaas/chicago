@@ -43,6 +43,7 @@ import * as THREE from 'three';
 import { LEAF_SKY } from './time-of-day.js';
 import { buildTreeTemplate, archFor, mulberry32 } from './tree-model.js';
 import { loadCompressed, countSheet } from './ktx2.js';
+import { instanceDraws, patchInstancedDraws, extraSlots } from './batch-instance.js';
 
 /** Level distances by Scene detail, metres from the eye. A near tree is a few
  *  thousand triangles, so the near ring is kept to the trees a visitor walks
@@ -220,12 +221,18 @@ export class TreeInstances {
     const n = this.stems.length;
     const fading = this.fadeS > 0;
     const castFar = this.castFar;
+    // T-3363: each template a set holds is one instanced draw (batch-instance.js),
+    // and its batch keeps one indirect-table entry for it beside the stems'.
+    let templates = 0;
+    for (const kind of this.kinds.values()) templates += kind.variants.length;
     const make = (set, part, mat, depth, distance) => {
       const [vc, ic] = sizes[set][part];
       // T-2948: a fading wood holds a ghost instance per stem beside its own.
-      const b = new THREE.BatchedMesh(fading ? 2 * n : n, Math.max(3, vc), Math.max(3, ic), mat);
+      const slots = (fading ? 2 * n : n) + extraSlots(templates * sets[set].length);
+      const b = new THREE.BatchedMesh(slots, Math.max(3, vc), Math.max(3, ic), mat);
       b.name = `${this.name}-${set}-${part}`;
       b.sortObjects = false;
+      instanceDraws(b, stats);
       b.castShadow = set === 'shade' || castFar;
       b.receiveShadow = true;
       if (depth) b.customDepthMaterial = depth;
@@ -551,6 +558,8 @@ export async function createGrownTreeMaterials({ assetBase, uWind, confidence = 
     if (fade) patchFade(mm);
     confidence?.patch(mm);
   }
+  // T-3363: every copy of one template drawn as one instanced draw (batch-instance.js).
+  for (const mm of [woodMat, leafMat, leafDepth, leafDistance, woodDepth, woodDistance]) patchInstancedDraws(mm);
   return {
     woodMat, leafMat, woodDepth, leafDepth, woodDistance, leafDistance,
     dispose() {
