@@ -1,3 +1,13 @@
+## T-2379 — retain the editor's comparison without making it a measurement (2026-11-04)
+
+An editor requesting a hotel “about double” the Lake House's size expresses a desired
+relative size; it supplies no dimensions, existing-building ranking, July construction
+stage or vacant-site proof. The existing c001 interpretation and visitor Record now say
+so, retaining the exact quotation and earlier Fergus address ruling. No physical change
+is justified by this proposal. The original image-match ticket remains open and partial;
+further shell refinement requires dated construction evidence or an explicitly bounded
+reconstruction, rather than backdating the completed-hotel illustration into July 1835.
+
 ## T-3041 — the north-east small house's pyramid cap (2026-11-03)
 
 The reasoning, archived; the backlog is the queue in kevinrhaas/chicago-tickets.
