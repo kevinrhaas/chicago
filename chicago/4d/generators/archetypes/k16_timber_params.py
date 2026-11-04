@@ -457,6 +457,10 @@ def frame_house_errors(fh: dict) -> list[str]:
         if bm is not None and not (_num(bm) and 0.0 <= bm <= 2.5):
             out.append("porch.basement_m (the floor raised over the kit's) must lie in 0-2.5 m")
         out += _porch_detail_errors(po)
+    ids = [b.get("id") for b in blocks]
+    for name, part in [("porch", po)] + [(f"bay {i}", bay) for i, bay in enumerate(fh.get("bays") or [])]:
+        if part is not None and "block" in part and part["block"] not in ids:   # T-1909
+            out.append(f"{name}: block names no block of this house")
     ch = fh.get("chimney")
     if ch is not None and not all(_num(ch.get(k)) for k in ("u_m", "v_m", "width_m", "depth_m", "above_ridge_m")):
         out.append("chimney needs u_m, v_m, width_m, depth_m and above_ridge_m")

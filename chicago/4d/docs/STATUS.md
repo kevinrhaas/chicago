@@ -25789,6 +25789,7 @@ This saved increment does not close the original image gate. Both compound match
 ### Lake House source reading — 2026-11-04
 
 The Record now distinguishes a directly checked line in Fergus's 1876 recollection of the 1839 Rush/North Water address from Andreas's differing street account. The July 1835 construction stage, position and dimensions remain uncertain. This increment changes source and Record metadata; it claims no new geometry or image-match completion.
+
 ## 2026-11-04 — T-2374: the Agency House's front aperture count
 
 Cobweb Castle's centre room now states its own front openings. The archetype's

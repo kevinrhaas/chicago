@@ -127,8 +127,11 @@ refused(lambda f: wings(f)["rear_range"]["roof"]["coping"].update(ends=["rear"])
         "coping.ends")
 refused(lambda f: wings(f)["middle_range"]["roof"].update(kind="hip", gable_to=None) or
         wings(f)["middle_range"]["roof"].pop("gable_to"), "a coping on a hip", "gable facing a flank")
-refused(lambda f: wings(f)["garage"]["roof"].update(coping={"thickness_m": 0.18}), "a coping on a flat deck",
-        "gable facing a flank")
+# T-3354: 1919's garage is gabled now, so the flat deck the coping is refused on is made here
+refused(lambda f: wings(f)["garage"].update(roof={"kind": "flat", "overhang_m": 0.15, "fascia_m": 0.3,
+                                                  "covering": "painted_tin_sheet",
+                                                  "coping": {"thickness_m": 0.18}}),
+        "a coping on a flat deck", "gable facing a flank")
 
 print(f"test_k01_wing_coping: {'all passed' if not failures else f'{len(failures)} FAILED'}")
 sys.exit(1 if failures else 0)

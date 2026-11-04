@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 897080296,
+  "content_version": 361410481,
   "category": "Build log",
   "featured": true,
   "review_required": false,
@@ -15,7 +15,7 @@
     "instantly"
   ],
   "opening": {
-    "text": "WALK: BUILT SO FAR. The 50 most detailed of the 91 Prairie Avenue buildings modelled past their first rough model, in 1 area. A walk holds 50 stops, so 41 less detailed buildings wait outside it until they gain detail. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
+    "text": "WALK: BUILT SO FAR. The 50 most detailed of the 93 Prairie Avenue buildings modelled past their first rough model, in 1 area. A walk holds 50 stops, so 43 less detailed buildings wait outside it until they gain detail. Most detailed first, one area at a time, so the route does not double back. It is rewritten from the building records whenever one gains detail.",
     "read_s": 28
   },
   "stops": [
@@ -844,7 +844,7 @@
         "kind": "structure",
         "id": "marshall_field_jr_house_1919_prairie"
       },
-      "text": "Marshall Field Jr. House, 1919 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 9 of the pictures on the Images tab show it. Next: Dent House, 1823 Prairie.",
+      "text": "Marshall Field Jr. House, 1919 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 3 solved pictures, 0 matching. Pictured: 9 of the pictures on the Images tab show it. Next: Dent House, 1823 Prairie.",
       "read_s": 16,
       "evidence": [
         "stood-40",

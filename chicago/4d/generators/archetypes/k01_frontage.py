@@ -3622,6 +3622,10 @@ class Assembly:
         for k in ("transom_beam", "fanlight_columns"):
             if p.entrance_kit.get(k):
                 v[k] = p.entrance_kit[k]
+        # T-1914: a flat arch's head glazed over a transom bar, and the leaves it is hung with
+        ft = p.entrance_kit.get("fanlight_transom")
+        if ft:
+            v["transom_m"], v["transom_lights"], v["leaves"] = ft["height_m"], ft["lights"], ft["leaves"]
         # T-3236: the leaves' own panels, rails and raised fields
         lv = p.entrance_kit.get("leaf")
         if lv:

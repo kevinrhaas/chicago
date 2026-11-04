@@ -3212,7 +3212,7 @@ def frame_house_parts(st: dict, phase: dict, data: dict | None = None) -> dict:
                 out[f"{b['id']}.{w['side']}_gable"] = sm
     po = fh.get("porch")
     if po:
-        main = fh["blocks"][0]
+        main = host_block(fh, po)
         O, U, _ = side_frame(main["rect_uv"], po.get("side", "east"))
         half = dict(po, width_m=po["half_width_m"])
         probe = Sample(half, data).build()
@@ -3233,10 +3233,19 @@ def frame_house_parts(st: dict, phase: dict, data: dict | None = None) -> dict:
     return out
 
 
+def host_block(fh: dict, part: dict) -> dict:
+    """T-1909: the block a porch or a bay stands on: the one its `block` names, else the first.
+    2000 and 2010 Prairie's sheet draws the porch across a front block and the canted bays on
+    the flanks of rooms that stand out from the main body, none of them on the first block."""
+    want = part.get("block")
+    return next(b for b in fh["blocks"] if b["id"] == want) if want else fh["blocks"][0]
+
+
 def _bay_frame(fh: dict, bay: dict):
     """T-3182: where a frame house's bay plan stands: its (s, z) run along the named side of the
-    first block from that side's start corner, z out from the wall."""
-    O, U, _ = side_frame(fh["blocks"][0]["rect_uv"], bay["side"])
+    first block (T-1909: or of the block it names) from that side's start corner, z out from
+    the wall."""
+    O, U, _ = side_frame(host_block(fh, bay)["rect_uv"], bay["side"])
     return O, U, _cross(U, Y)
 
 
