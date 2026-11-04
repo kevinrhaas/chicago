@@ -6323,6 +6323,18 @@ galleries, the facade openings, the other roof forms and chimney counts, the com
 composition, and every other dated picture the ticket lists.
 
 
+### T-3041 — magazine vault delivered; finish current visitor review, 2026-11-04
+
+PR [#1698](https://github.com/kevinrhaas/chicago/pull/1698) merged the first-fort magazine's adopted barrel-vault shape as `a92e7c3d`, preserving its measured seat/front and reconstructed wall/crown envelope. Radius, rise, covering and completion date remain unmeasured; the second fort's magazine retains its gable. The Currey comparison stays DIFFERS, and the first-fort blockhouse cupolas, western gateway and full original picture coverage remain open.
+
+The immediate follow-up is actual current published 1812 magazine body, Design and Sources review at 1280x800 and 390x780, with real native roof/ground presence and zero errors. These target checks were absent from the completed native SDK; its earlier generic 1835 smoke runs are not relabelled as final-head execution. The documentation/source checkpoint is saved before this work; only fresh successful target checks and the follow-up's own current-head hosted gate permit its ordinary partial-progress merge. No model or source-value change is proposed.
+
+
+#### Magazine visitor review delivered — PR #1699
+
+The missing current 1812 magazine exterior, real roof/ground presence and actual Inspect Design/Sources review now pass at desktop and phone sizes on published `d5fdc7d4c6`, with proper process closure and zero browser/server errors. Native centered source captures retain the Whistler/Currey credits and separate the inferred vault shape from its reconstructed profile and covering. [Guarded review evidence](https://github.com/kevinrhaas/chicago-evidence/blob/38e7792be383556ed9506f3047e6fa2c041b7ea0/evidence/first-fort-2026-11-04/pr1699-current1812-magazine-body-design-sources/runtime-d5-v2/FINAL-CLOSURE.json) and [source-credit supplement](https://github.com/kevinrhaas/chicago-evidence/blob/38e7792be383556ed9506f3047e6fa2c041b7ea0/evidence/first-fort-2026-11-04/pr1699-current1812-magazine-body-design-sources/sources-centered-d5/FINAL-CLOSURE.json) record the actual execution; the final append-only docs commit carries unchanged runtime inputs and still requires its own hosted eight-part gate and aggregate. The earlier wrong probe expectation is preserved as RED, and old generic runs are not relabelled. No model changed here. First-fort cupolas, western gateway and full original picture coverage remain open; T-3041/T-2387 remain partial, with Currey DIFFERS.
+
+
 #### 2026-11-04 — T-2380 keeper east-gable material checkpoint
 
 Saved native source `34a242bb60d527cfe10daee173c3d40302cd6e24` changes one existing east-end triangle from the roof-shingle material to the existing wall material. No geometry, dimensions, normals, UVs, vertex colour, confidence or camera changed. The actual pinned Blender 4.5.3 build wrote all 272 frame-dwelling defaults before the early `c453ece5761` checkpoint; 271 MASTERs were byte-identical, and the keeper alone received a genuine new WEB derivative. Independent full-attribute triangle review and directly viewed fixed side-by-sides accept this bounded finish correction. The Gale end is nearly edge-on, the Andreas compound is distant, and both picture records remain DIFFERS. [Full native/raw/source and review evidence](https://github.com/kevinrhaas/chicago-evidence/blob/49239fcd6898b180969e38651a677414274e7941/evidence/log-jail-2026-11-04/keeper-east-gable-native272-saved34a-quota-and-final-gaps/RECOVERY.md).

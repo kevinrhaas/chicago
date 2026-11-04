@@ -18,6 +18,52 @@ producer; only the hotel's own master moved a byte, which is what default-off me
 the check that it is off. The hotel's own comparison still reads **differs** on the compound
 roof silhouette; the three Carpenter-shop comparisons were re-rendered, directly reviewed
 and retain **matches** with the shop anchor unchanged. T-2383 stays open and partial.
+## T-3041 — the first fort's magazine gets its vault, and nothing else in that picture (2026-11-04)
+
+`first_fort_dearborn_magazine` carries the barrel vault the owner adopted on 2026-11-03
+(T-3335): a circular segment across the unchanged 4.51 m front, its axis along the 3.05 m
+depth, springing from the unchanged 2.6 m brick walls and closed at each end by a brick
+infill above them. The roof attribute moves from `gable`/`reconstructed` to
+`barrel_vault`/`inferred`, cited to Whistler's measured draught of 25 January 1808 (his
+index no. 4, drawn in elevation with an arched front) and to Currey's 1912 bird's-eye (its
+no. 8, drawn rounded). The obsolete `roof_pitch_deg` is gone from the record, because a
+curved roof has a varying tangent and a single pitch figure would state something the mesh
+does not contain; an explicit reconstructed `barrel_rise_m` replaces it. The archetype grew
+an opt-in `barrel_vault` branch, and the parameter check REFUSES an invalid rise, a
+non-finite derived radius, or a vault asked for with a chimney, a gallery, a cupola, a
+lantern, loopholes, a second storey or on anything but a magazine, rather than clamping to
+something that would build.
+
+**The shape is adopted; the curve's depth is not matched.** The rise of 1.0286254881847008 m
+is envelope conservation, not a measurement: it holds the crown at 3.628625488184701 m, where
+the old reconstructed gable's peak stood. That makes a SHALLOW segment (radius
+2.9860699863584146 m), where Whistler draws something close to a semicircle. Neither picture
+supplies a radius, rise, thickness, colour, roofing fabric or completion date, and none was
+invented to fit one. The one edge that does move is the side eave: the same circle run out to
+the existing 0.30 m projection sits at 2.188061556 m instead of the gable's 2.397647445 m,
+0.209586 m lower. Recorded in docs/LIBERTIES.md as
+`L-first-fort-magazine-barrel-vault-3041`.
+
+**What is NOT done.** T-3041 and its parent T-2387 are not finished and are released open.
+The Currey view's verdict stays `differs`: the blockhouse cupolas and the western gateway are
+still `open` on the match record, and the full first-fort acceptance (21 named records, nine
+context records, every listed picture) is untouched by this increment. Two differences of
+thirteen are now fixed. Nothing here is carried to the second fort's magazine, which is a
+separate record and keeps its gable.
+
+**What was verified.** The producer change reaches 25 `fort_structure` defaults and 0
+variants; all 25 were genuinely rebuilt on pinned, sha256-verified Blender 4.5.3 under Ubuntu
+26.04 BEFORE the first source commit, and the web derivatives were re-encoded from that build.
+Exactly ONE master moved a byte — this magazine's — and the other 24 came back byte-identical,
+including the second fort's magazine and the cupola blockhouse. Their `inputs_sha256` rows all
+change, because the archetype's own source is part of a mesh's inputs; that is a real
+freshness hash from a real rebuild, not a hand-written one. All 243 outbuilding masters, their
+web derivatives and registry rows, and the T-3041 north-east pyramid, are untouched. The
+before/after comparison is a genuine same-camera render through the existing fourteen-member
+Currey group camera from the committed GLBs; a pixel comparison of the two renders changes
+only this building, and the previous render is kept beside the new one at
+`docs/RESEARCH/photo-match/first_fort_dearborn_pickets_outer/currey_1912_birdseye-side-by-side-before-magazine-vault-20261104.jpg`.
+
 ## T-3041 — the first fort's north-east small house, and nothing else in that picture (2026-11-03)
 
 `first_fort_dearborn_small_house_ne` carries the four-sided pyramid cap the Currey 1912
@@ -25966,6 +26012,22 @@ producer, parameter-validator, schema or recipe-scheme was edited, and no geomet
 rebuilt for this integration: the pinned-Blender master and its WEB derivative are the
 ones that run already produced (f213818f / 65863b3c), and `validate.py --stale` is the
 gate that proves it. T-2376 stays open/partial/differs.
+
+
+### T-3041 — magazine delivery and current 1812 visitor review, 2026-11-04
+
+PR [#1698](https://github.com/kevinrhaas/chicago/pull/1698) merged the bounded magazine vault into dev as `a92e7c3d0c4d9e8376192baac9b8b1c025f1c41f`. Its genuine pinned 25-member fort build changed only the magazine MASTER; the other 24 physical pairs and all 243 outbuilding pairs remain preserved. The explicit reconstructed rise holds the old crown; it is not a measured radius, historical pitch, colour or completion date. The controlled Currey comparison remains DIFFERS, with the two first-fort blockhouse cupolas and western gateway still open.
+
+The native run's two generic 1835 Stage 3 checks passed 107/0 each before the final `619f811c` renderer integration, on recorded source fingerprint `80af7948313c92ac`. They are historical executions, not current-619 or current-dev runs. The completed SDK contains no target 1812 magazine body, Design or Sources browser review. The earlier local source-part-4/NumPy failure is retained as red; the coordinator separately verified its actual step passes in final hosted shard 4/8 under Python 3.11.17. This follow-up does not claim a new local four-part run.
+
+This documentation and validation increment supplies the missing ROADMAP delivery note and checks the actual current published 1812 magazine exterior, native roof/ground presence and Inspect Design/Sources on desktop and phone. At this source checkpoint those target checks are still PENDING, and the new PR requires its own current-head eight-part gate and aggregate before merge. No geometry, source grades, dimensions, placement, camera, paint or native asset is changed. Original T-3041 and parent T-2387 remain partial/open; no new photo ticket or full-fort image acceptance is filed.
+
+
+#### Current 1812 magazine review closed — PR #1699
+
+The actual published `d5fdc7d4c6` tree passed target review at 1280×800 and 390×780: the magazine's brick front, door and curved covering are visible in a curated native exterior view; real GPU picks reach its roof crown and body and the mounted parade-ground owner. Native arrival is safe real ground, with a stockade-obstructed view, not doorway traversal. Both Inspect Design/Sources panels show the inferred barrel vault and reconstructed rise without a roof-pitch field. Centered native source captures expose the Whistler 1808/War Department/Quaife and Currey 1912 credits and the limits on radius, rise, covering, colour, metric fit and construction date. Long text can span screenshots; this is no whole-fort or calibrated picture-match acceptance.
+
+[Both target legs and complete guards](https://github.com/kevinrhaas/chicago-evidence/blob/38e7792be383556ed9506f3047e6fa2c041b7ea0/evidence/first-fort-2026-11-04/pr1699-current1812-magazine-body-design-sources/runtime-d5-v2/FINAL-CLOSURE.json) closed properly in 500.71s and 207.64s, with zero page, console, network or server errors and all children reaped. [Centered source-credit captures](https://github.com/kevinrhaas/chicago-evidence/blob/38e7792be383556ed9506f3047e6fa2c041b7ea0/evidence/first-fort-2026-11-04/pr1699-current1812-magazine-body-design-sources/sources-centered-d5/FINAL-CLOSURE.json) are a separate bounded supplement. All 714 selected inputs and 5,895 published members stayed exact. The first desktop probe's incorrect raw-sidecar expectation remains published as RED; its replacement asserts the actual consumed readerCopy note, rather than suppressing a product error. The final documentation commit carries this execution only through exact runtime-consumer equivalence; it does not claim a new final-head browser execution or a new historical 107-check run. Its own exact-head hosted eight-part gate and aggregate remain the merge requirement. T-3041/T-2387 stay open/partial and the Currey verdict stays DIFFERS.
 
 
 #### 2026-11-04 — T-2380 keeper east-gable material checkpoint

@@ -56,7 +56,9 @@ CONFIDENCE_VALUE = {"attested": 0.0, "inferred": 0.5, "reconstructed": 1.0}
 
 KINDS = ("quarters", "barracks", "blockhouse", "magazine", "store", "guard",
          "sutler", "artillery", "parade", "root_house", "tower", "flagstaff")
-ROOF_TYPES = ("gable", "hip", "pyramid", "shed", "flat", "none")
+ROOF_TYPES = ("gable", "hip", "pyramid", "shed", "flat", "none", "barrel_vault")
+# Existing roof projection, reused only by the explicit magazine vault.
+BARREL_EAVE_M = 0.30
 CONSTRUCTIONS = ("log", "hewn_log", "braced_frame", "brick", "stone", "earth")
 PAINTS = ("unpainted", "whitewash", "white", "brick", "earth", "stone")
 LANTERN_PROFILES = ("legacy", "birdcage_dome")
@@ -89,7 +91,7 @@ CUPOLA_SEAT_M = 0.12
 # outside it cannot move a vertex, so the record states something the mesh does
 # not contain and tools/validate.py makes the record say which.
 CONSUMED = frozenset({
-    "kind", "stories", "wall_height_m", "roof_type", "roof_pitch_deg",
+    "kind", "stories", "wall_height_m", "roof_type", "roof_pitch_deg", "barrel_rise_m",
     "construction", "paint", "chimneys", "gallery", "loopholes", "sun_dial",
     "upper_overhang_m", "lantern", "gallery_storeys", "face_openings",
     "lantern_profile", "tower_diameter_m", "tower_openings", "tower_profile",
@@ -123,6 +125,8 @@ class FortStructureParams:
     wall_height_m: float = 2.8
     roof_type: str = "gable"
     roof_pitch_deg: float = 34.0
+    # T-3041: rise ABOVE the unchanged wall top, not a uniform curved-roof pitch.
+    barrel_rise_m: float | None = field(default=None, kw_only=True)
     construction: str = "log"
     paint: str = "unpainted"
 
@@ -434,6 +438,20 @@ class FortStructureParams:
             raise ParamError(f"paint '{self.paint}' not in {PAINTS}")
         if self.roof_type not in ROOF_TYPES:
             raise ParamError(f"roof_type '{self.roof_type}' not in {ROOF_TYPES}")
+        if self.roof_type == "barrel_vault":
+            if (self.kind != "magazine" or self.stories != 1 or self.chimneys or
+                    self.gallery or self.cupola or self.loopholes or self.lantern):
+                raise ParamError("barrel_vault is a one-storey magazine without roof fittings")
+            h = self.barrel_rise_m
+            a = self.width_m / 2.0
+            if (isinstance(h, bool) or not isinstance(h, (int, float)) or
+                    not math.isfinite(h) or not 0.0 < h < a):
+                raise ParamError("barrel_rise_m must be finite, positive and below half the width")
+            radius = (a * a + h * h) / (2.0 * h)
+            if not math.isfinite(radius) or radius <= a + BARREL_EAVE_M:
+                raise ParamError("barrel rise leaves no real same-circle 0.30 m side eave")
+        elif self.barrel_rise_m is not None:
+            raise ParamError("barrel_rise_m requires roof_type barrel_vault")
         for k, v in self.confidence.items():
             if v not in CONFIDENCE_VALUE:
                 raise ParamError(f"confidence['{k}'] = '{v}' is not a confidence level")
@@ -485,7 +503,7 @@ class FortStructureParams:
         if self.stories == 1 and self.wall_height_m > 4.2:
             raise ParamError(f"wall_height_m {self.wall_height_m} is two storeys' worth of "
                              f"wall on a one-storey record; set stories or the height")
-        if self.roof_type not in ("flat", "none") and not 8.0 <= self.roof_pitch_deg <= 60.0:
+        if self.roof_type not in ("flat", "none", "barrel_vault") and not 8.0 <= self.roof_pitch_deg <= 60.0:
             raise ParamError(f"roof_pitch_deg {self.roof_pitch_deg} outside 8-60 deg")
         if self.loopholes and self.kind != "blockhouse":
             raise ParamError(f"loopholes on a '{self.kind}' would be a claim about how this "
@@ -551,6 +569,7 @@ def from_phase(phase: dict, record: dict | None = None) -> FortStructureParams:
         wall_height_m=float(val("wall_height_m", 5.0 if stories == 2 else 2.8)),
         roof_type=str(val("roof_type", "gable")),
         roof_pitch_deg=float(val("roof_pitch_deg", 34.0)),
+        barrel_rise_m=val("barrel_rise_m", None),
         construction=str(val("construction", "log")),
         paint=str(val("paint", "unpainted")),
         chimneys=int(val("chimneys", 0)),
