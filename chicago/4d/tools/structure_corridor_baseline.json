@@ -1,17 +1,13 @@
 {
  "_doc": "Banked by tools/check_structure_corridors.py --write-baseline (T-1743). Every structure phase standing on the 1835 street layer's target date whose footprint laps a street corridor at that street's declared width, with its depth in metres. A ratchet: re-write only to record a repair.",
  "laps": {
-  "agency_striker_log_house.log_1830 in north_water": 8.39,
-  "bates_auction_room.frame_1834 in dearborn": 0.97,
+  "agency_striker_log_house.log_1830 in north_water": 7.54,
   "blacksmith_shop_state_st.log_1823 in north_water": 7.77,
   "brickyard_north_side.yard_1833 in north_water": 10.44,
   "caldwell_agency_log_house.log_1830 in north_water": 2.66,
-  "chappel_infant_school.log_1833 in state": 1.98,
   "cobweb_castle.log_1820 in north_water": 9.31,
   "council_house.log_1834 in north_water": 2.54,
   "dearborn_street_drawbridge.draw_1834 in north_water": 0.69,
-  "exchange_coffee_house.frame_1834 in wells": 1.44,
-  "first_presbyterian_church.frame_1834 in clark": 1.92,
   "goss_cobb_saddlery.shop_1833 in canal": 0.56,
   "goss_cobb_saddlery.shop_1833 in lake": 0.18,
   "harmon_loomis_store.frame_1833 in clark": 0.21,
@@ -37,9 +33,7 @@
   "slough_log_bridge.log_1833 in state": 12.19,
   "south_bank_shed_dearborn_e2.shed_1835 in south_water": 4.7,
   "south_branch_raft_bridge.log_1833 in west_water": 0.43,
-  "st_marys_church.frame_1833 in state": 3.97,
   "steamboat_hotel.frame_1835 in north_water": 7.2,
-  "tremont_house_1.frame_1833 in dearborn": 1.75,
   "watkins_school_house.house_1833 in michigan_north": 8.4,
   "western_hotel.frame_1834 in canal": 0.85,
   "western_hotel.frame_1834 in randolph": 0.2
