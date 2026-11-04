@@ -1,0 +1,97 @@
+{
+  "schema": "seated_driver_look_v2",
+  "clip": "sit_drive_look_v2",
+  "source_clip": "sit_drive",
+  "parent_revision": "ae762df51dad3bd48e7d5307e0bda3cd0ce05e31",
+  "samples": 65,
+  "duration_s": 8,
+  "targets": [
+    "neck_01",
+    "head"
+  ],
+  "motion_degrees": {
+    "neck_look_yaw": 3,
+    "head_look_yaw": 4,
+    "head_nod_pitch": 1.5
+  },
+  "basis": "Original bounded head-and-neck looking action on the exact exported seated pose. This is reconstructed animation, not recorded behavior or an archival likeness. All arms, palms, torso, pelvis, seat and leg channels remain unchanged. Scene appearance, garment and photographic qualification remain separate.",
+  "liberty": "L-driven-town-circuits-2804",
+  "active_driver_lods": [
+    0,
+    3
+  ],
+  "parents": [
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod0.glb",
+      "sha256": "821d771462b6ff583c27ccc00fbcde3604dc34d24b4512c5d5ba92dba331589f",
+      "bytes": 8673076,
+      "asset_id": "bardwell_otis_1835",
+      "lod": 0,
+      "web": false,
+      "pose_parent_file": "assets/humans/bardwell_otis_1835.lod0.glb"
+    },
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod3.glb",
+      "sha256": "18e48c466ace5f47f799607128b52c1a9118627fec7afc323ad18cd63c4914d1",
+      "bytes": 7258004,
+      "asset_id": "bardwell_otis_1835",
+      "lod": 3,
+      "web": false,
+      "pose_parent_file": "assets/humans/bardwell_otis_1835.lod3.glb"
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod0.glb",
+      "sha256": "d568cb8f7d17fb9f8ca7035049c6f1c3f02a30f3d153242d1ea67f876b454ddf",
+      "bytes": 4463076,
+      "asset_id": "bardwell_otis_1835",
+      "lod": 0,
+      "web": true,
+      "pose_parent_file": "assets/humans/bardwell_otis_1835.lod0.glb"
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod3.glb",
+      "sha256": "bb650009de2987b46e1c54fa64ca45f42c7e3d088f71de3451adb8d83c9de0d7",
+      "bytes": 325492,
+      "asset_id": "bardwell_otis_1835",
+      "lod": 3,
+      "web": true,
+      "pose_parent_file": "assets/humans/bardwell_otis_1835.lod3.glb"
+    },
+    {
+      "file": "assets/humans/anonymous_working_driver_1904.lod0.glb",
+      "sha256": "5ca3300d48e7479e29897665409c1e95340f3fc5831b35f3f0ba25d2a3b6edc6",
+      "bytes": 8635408,
+      "asset_id": "anonymous_working_driver_1904",
+      "lod": 0,
+      "web": false,
+      "pose_parent_file": "assets/humans/anonymous_working_driver_1904.lod0.glb"
+    },
+    {
+      "file": "assets/humans/anonymous_working_driver_1904.lod3.glb",
+      "sha256": "c9d644084cff807aa5faea6387213a28ea9f7f431b6e2eb2997e1d58d4fc8f41",
+      "bytes": 7241288,
+      "asset_id": "anonymous_working_driver_1904",
+      "lod": 3,
+      "web": false,
+      "pose_parent_file": "assets/humans/anonymous_working_driver_1904.lod3.glb"
+    },
+    {
+      "file": "assets/humans/web/anonymous_working_driver_1904.lod0.glb",
+      "sha256": "7a3c2392e63edf75950f48a4bd607075f3e8c71015db5c81a6d8a7df40b0f09e",
+      "bytes": 4442992,
+      "asset_id": "anonymous_working_driver_1904",
+      "lod": 0,
+      "web": true,
+      "pose_parent_file": "assets/humans/anonymous_working_driver_1904.lod0.glb"
+    },
+    {
+      "file": "assets/humans/web/anonymous_working_driver_1904.lod3.glb",
+      "sha256": "681da7b7e9119f5c4e8bf0ddd0a491427ef5898697665157b2321d8725138bed",
+      "bytes": 311448,
+      "asset_id": "anonymous_working_driver_1904",
+      "lod": 3,
+      "web": true,
+      "pose_parent_file": "assets/humans/anonymous_working_driver_1904.lod3.glb"
+    }
+  ]
+}

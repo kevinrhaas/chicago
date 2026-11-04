@@ -529,6 +529,8 @@ step "Portable human contract holds; every human GLB and instance is held to it 
   python3 tools/human_contract.py --check
 step "Every selected natural-standing derivative reproduces from its exact canonical parent (T-1790)" \
   python3 tools/human_natural_idle.py --check
+step "Active seated drivers reproduce their bounded looking clip from exact parent exports (T-2804)" \
+  python3 tools/human_seated_look.py --check
 step "Natural standing derivative preserves canonical parents, old clips and planted lower-body channels (T-1790)" \
   python3 tools/test_human_natural_idle.py
 step "Human animation consumes native elapsed time through slow frames, holds and route corners (T-1790)" \
