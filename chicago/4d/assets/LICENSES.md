@@ -1866,3 +1866,19 @@ These are the source and numerical-provenance files accompanying the driven-team
 | `authored/transport/driven_hitch_v2/build_live_bindings.py` | GPL-3.0-or-later | Original project-authored binding producer; referenced graphical assets retain their existing notices. |
 | `authored/transport/driven_hitch_v2/connection-unit-parameters.json` | GPL-3.0-or-later | Original reconstructed connection-unit dimensions and construction parameters under the existing driven-team hitch declaration. |
 | `authored/transport/driven_hitch_v2/team-hitch-parameters.json` | GPL-3.0-or-later | Original reconstructed fitted-hitch parameters; declared source horse and wagon hashes and inherited graphical attribution remain unchanged. |
+
+
+### T-2804 — original seated driver looking animation derivative
+
+The following active LOD0/LOD3 exports append an original reconstructed head/neck animation to the exact cleared Otis and Hans parents. All existing MakeHuman, Toigo, short04 hair and original workwear creator notices, identity/scene metadata, graphical geometry, materials, textures and source clips remain. The original animation data is released as CC0-1.0 with the graphical derivatives; `tools/human_seated_look.py` and its tests remain GPL-3.0-or-later. No external image, cultural evidence, historical likeness or witnessed action is introduced. The exact parent chain, generated children and finite native readback are in `data/humans/animations/seated-driver-look-v2.json`, `.derivation.json`, `.native.json` and `.binding-refresh.json`. Earlier table rows and receipts remain parent records.
+
+| Active file under `assets/` | License | Bytes | SHA256 |
+|---|---|---:|---|
+| `humans/bardwell_otis_1835.lod0.glb` | CC0-1.0; original creator notices retained | 8688224 | `4816ec6176ef6037834c1e8a14c528a5b394173bfa2821372bd66ae1d802bd38` |
+| `humans/bardwell_otis_1835.lod3.glb` | CC0-1.0; original creator notices retained | 7273156 | `2c57f30ca74d2390913167a63e2df6fe0b3b92d9296c6b078d237e6bda0a693e` |
+| `humans/web/bardwell_otis_1835.lod0.glb` | CC0-1.0; original creator notices retained | 4478104 | `afc2fda09713911404b4b2c39ee08bf5d98e126f62ca16c55cf50de728586c6b` |
+| `humans/web/bardwell_otis_1835.lod3.glb` | CC0-1.0; original creator notices retained | 340516 | `9423585a506b1ae317c08c7eae9fb936e6ceea5e46d00ae6b2673f8c5e268f81` |
+| `humans/anonymous_working_driver_1904.lod0.glb` | CC0-1.0; original creator notices retained | 8650564 | `c3b285d0305559ee5fbe13695985df86cde4c38ca8d7efd8419fcdd2d97bc4b8` |
+| `humans/anonymous_working_driver_1904.lod3.glb` | CC0-1.0; original creator notices retained | 7256444 | `3833f8fc26f722d17c62afa36ce1b511e38fd112142619db58fa1bf9f551ef75` |
+| `humans/web/anonymous_working_driver_1904.lod0.glb` | CC0-1.0; original creator notices retained | 4458148 | `49a84c1d858f67359ff33e56762336ade56db1dcbbb1cbe923846d95825c9547` |
+| `humans/web/anonymous_working_driver_1904.lod3.glb` | CC0-1.0; original creator notices retained | 326600 | `84e602cd49c6e355fb25bc6659a0f4a9e573e4bebe6ce8d2e30e14ed5250b60b` |

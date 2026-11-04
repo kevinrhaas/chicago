@@ -8,6 +8,7 @@ from pathlib import Path
 import unittest
 
 import human_natural_idle as idle
+import human_seated_look as seated
 
 
 class NaturalStanding(unittest.TestCase):
@@ -89,6 +90,78 @@ class NaturalStanding(unittest.TestCase):
         out, _ = idle.append_clip(self.raw, self.row['sha256'], self.bases, self.recipe)
         with self.assertRaisesRegex(ValueError, 'already installed'):
             idle.append_clip(out, idle.sha(out), self.bases, self.recipe)
+
+
+class SeatedLooking(unittest.TestCase):
+    def test_standing_reproduction_remains_exact_seated_parent(self):
+        recipe = json.loads(idle.RECIPE.read_text())
+        row = recipe['parents'][0]
+        raw = idle.parent_bytes(row, recipe)
+        original, _ = idle.append_clip(raw, row['sha256'], idle.source_pose(*idle.parse(raw)), recipe)
+        seated_recipe = seated.read_recipe()
+        selected = next(p for p in seated_recipe['parents'] if p['file'] == row['file'])
+        self.assertEqual(idle.sha(original), selected['sha256'])
+        chained = seated.chained_active_derivative(row['file'], original)
+        self.assertEqual(chained, seated.derive(selected, seated_recipe)[0])
+        changed = bytearray(original)
+        changed[-1] ^= 1
+        with self.assertRaisesRegex(ValueError, 'exact standing-to-seated parent chain'):
+            seated.chained_active_derivative(row['file'], bytes(changed))
+        with self.assertRaisesRegex(ValueError, 'exact standing-to-seated parent chain'):
+            seated.chained_active_derivative('assets/humans/bardwell_otis_1835.lod1.glb', original)
+
+    def test_actual_seated_parents_and_protected_channels(self):
+        recipe = seated.read_recipe()
+        masters = [row for row in recipe['parents'] if not row['web']]
+        self.assertEqual(len(masters), 4)
+        for row in masters:
+            raw = seated.parent_bytes(row, recipe)
+            doc, binary = seated.parse(raw)
+            bases = seated.seated_pose(raw)
+            result, proof = seated.append_clip(raw, row['sha256'], bases, recipe)
+            repeated, _ = seated.append_clip(raw, row['sha256'], bases, recipe)
+            self.assertEqual(result, repeated)
+            child, child_bin = seated.parse(result)
+            self.assertEqual(child_bin[:len(binary)], binary)
+            self.assertEqual(child['animations'][:-1], doc['animations'])
+            old = next(a for a in doc['animations'] if a['name'] == 'sit_drive')
+            new = child['animations'][-1]
+            self.assertEqual(len(new['channels']), len(old['channels']))
+            self.assertEqual(new['channels'], old['channels'])
+            changed = []
+            for channel in old['channels']:
+                target = channel['target']
+                name = doc['nodes'][target['node']].get('name')
+                if target['path'] == 'rotation' and name in seated.TARGETS:
+                    changed.append(name)
+                    sampler = new['samplers'][channel['sampler']]
+                    rows = idle.float_rows(child, child_bin, sampler['output'], 'VEC4')
+                    self.assertEqual(len(rows), 65)
+                    self.assertEqual(rows[0], rows[-1])
+                    self.assertGreater(max(math.dist(rows[0], r) for r in rows), .001)
+                else:
+                    self.assertEqual(new['samplers'][channel['sampler']], old['samplers'][channel['sampler']])
+            self.assertEqual(sorted(changed), sorted(seated.TARGETS))
+            self.assertTrue(proof['non_head_neck_channels_unchanged'])
+
+    def test_invalid_timing_or_angles_refused_before_derivation(self):
+        for field, value in [('duration_s', 0), ('samples', 64), ('motion_degrees', {})]:
+            recipe = copy.deepcopy(seated.read_recipe())
+            recipe[field] = value
+            with self.assertRaisesRegex(ValueError, 'reviewed'):
+                seated.validate_recipe(recipe)
+
+    def test_wrong_or_changed_parent_refused(self):
+        recipe = seated.read_recipe()
+        row = recipe['parents'][0]
+        raw = seated.parent_bytes(row, recipe)
+        bases = seated.seated_pose(raw)
+        with self.assertRaisesRegex(ValueError, 'parent SHA'):
+            seated.append_clip(raw, '0'*64, bases, recipe)
+        changed = bytearray(raw)
+        changed[-1] ^= 1
+        with self.assertRaisesRegex(ValueError, 'parent SHA'):
+            seated.append_clip(bytes(changed), row['sha256'], bases, recipe)
 
 
 if __name__ == '__main__':
