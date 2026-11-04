@@ -1,3 +1,27 @@
+## T-2383 — the Sauganash's ridge-end stacks (2026-11-04)
+
+Andreas/Braunhold draws both main-block stacks close to the ends of the ridge: the near one
+sits immediately behind the visible gable peak, the far one well out toward the far end. The
+record carried the generic `chimney_placement` default, which puts them at 0.22/0.78 of the
+frontage — about 1.6 m further inboard on each side, and inboard enough on a 9.92 m block for
+a visitor on the street to see it. `sauganash_hotel.frame_1831.form.chimney_placement` now
+selects the existing `gable_ends` kit, so the two centres read 0.60 m and 9.32 m. No producer,
+archetype or kit code changed: this is a data selection of geometry the generator already had.
+
+**Honest limits.** The 0.60 m inset, the 0.90 m square shaft and the ridge + 0.55 m top are
+the kit's reconstructed choices, not dimensions read off the plate; the engraving supports the
+relative disposition and supplies no coordinate, no metre, no July 1835 fitting date and no
+historical camera (`docs/LIBERTIES.md` L-sauganash-ridge-end-stacks-2383). Measured on the
+hotel's own camera, the near stack's offset from the gable peak falls from about 0.19 to 0.08
+of the visible ridge run against the picture's 0.04, and the far stack's rises from 0.57 to
+0.67 against the picture's 0.65 — a reading of the before and after renders beside the picture,
+not a survey. Exactly one asset was stale and exactly one was rebuilt on the pinned Blender;
+nothing else in the frame-tavern family moved, because no producer did. The stacks' own
+proportions and heads stay **open** — the plate draws slender shafts under a corbelled cap
+where the model has squat blocks with a plain top — as do the compound roof silhouette and the
+left-gable questions. The hotel's comparison still reads **differs**; the three Carpenter-shop
+comparisons were re-rendered from their own cameras, directly reviewed and retain **matches**
+with the shop anchor byte-identical. T-2383 stays open and partial.
 ## T-2383 — the Sauganash's boxed gable cornice (2026-11-04)
 
 Andreas/Braunhold draws a boxed cornice down both rakes of the hotel's visible main gable
