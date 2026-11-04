@@ -25790,19 +25790,6 @@ All eight children were generated from pinned public parents. Actual native CPU 
 
 The unchanged native all-24-human browser fixture now passes at 1280x800 and 390x780 for these exact payloads; it wrote the current fixture measure in 118.631 seconds, and the subsequent native hash/verdict check passed. Original skeleton, skinning, morph, texture, frame, master/web and viewport assertions remain. Published desktop/phone scene motion and clothing review, unchanged resource/memory limits, the complete source gate, exact-HEAD CI and ordinary DEV delivery remain pending. Existing natural-standing and resident proofs remain historical parent evidence. This finite seated increment closes no photographic, continuous garment/contact, horse gait, riding or boarding acceptance.
 
-### T-2380 keeper dwelling and low compound gate — incremental source, 2026-11-03
-
-A separate source-qualified keeper house, continuous high palisade front and low braced hung gate are prepared as one visible increment. The exact retained native keeper pair is bound to its resolved inputs. The July1835 continuity, dimensions, finishes and compound registration are explicitly reconstructed from Gale1902's1835-framed narrative and1836-captioned plate; the old one-roof assertion is corrected. Core fabric/roof remain unchanged; a1.30m reconstructed access setback is declared. Original T-2380 remains OPEN/DIFFERS, including rear-core roof exposure and compound proportions.
-
-This source packet is not a passed build or release: current frame-family native parity/registration, ordered derivatives, fresh original-composition group comparisons, all four source-check parts, published desktop/phone physical review and normal PR/dev integration remain pending. No existing trial is relabelled as current published acceptance.
-
-
-### T-2380 keeper compound: integration checkpoint (2026-11-04)
-
-The keeper-house increment now integrates dev caef594d while retaining dev’s current jail-core/outbuilding outputs and the genuine native keeper pair (MASTER 431dc44f, WEB 15eb2fba). All 272 frame-dwelling resolved input digests and 544 actual outputs still match the saved native build; all 243 current outbuilding inputs and native pairs remain exact. Current liberties, scene, source-use, derivative and validation owners pass. The four earlier native source parts passed; this checkpoint reuses that qualified unchanged geometry scope and verifies the incoming merge with its owners.
-
-This is saved progress, not a completed image or runtime gate. Both compound match records are explicitly unreviewed pending a fresh render with the newer core and the keeper together. Latest dev 19910ff integration, actual published Jail desktop/phone checks, native Stage 3 at both viewports and the final eight-part hosted gate remain pending. The earlier desktop background task and mobile five failures are not green release checks. Original T-2380 remains partial/open.
-
 ## 2026-11-04 — T-2374: the Agency House's front aperture count
 
 Cobweb Castle's centre room now states its own front openings. The archetype's

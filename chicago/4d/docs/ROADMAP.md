@@ -6290,10 +6290,6 @@ The retained native keeper pair and all272/243 family inputs/outputs are now qua
 
 The existing Fergus source now identifies a directly checked Lake House Hotels entry from his 1876 recollection of 1839. Record and Sources state its date and the conflicting street accounts. Construction-state picture matching remains OPEN; coordinates, phases, dimensions, grades and meshes are unchanged.
 
-### Original T-2380 — bounded keeper/compound increment, 2026-11-03
-
-Prepared the missing keeper dwelling, continuous high palisade and low braced gate from the retained actual V4 native proposal, preserving concurrent scene-directory support and enclosure entries. The current concealed-core roof is retained; no32degree prediction is adopted. Next: native current-family qualification and actual registered/derived outputs, fresh group-bound source reviews and published desktop/phone access review, then a partial-progress PR to dev. The original two-composition picture-match acceptance stays open; no photo follow-up or completion is filed.
-
 ### T-2374 — the Agency House's front aperture count, 2026-11-04
 
 Partial progress: Cobweb Castle's centre gable carries the two grounded upright
