@@ -54,6 +54,7 @@ CONSUMED = frozenset({
     "first_story_height_m", "entry_raise_m", "gable_lunette", "front_ground_layout",
     "flagstaff", "flagstaff_height_m", "gable_wall_cladding",
     "gable_arch_treatment", "corner_entry_surround", "gable_arch_text",
+    "main_gable_cornice",
 })
 
 # How narrow a window bay may get before the piers between the sashes are not walls
@@ -100,6 +101,21 @@ class FrameTavernParams:
     # Main-block end triangles continue the wall cladding (T-2376/T-2383).
     # False retains every legacy roof-material gable; no subsidiary roofs change.
     gable_wall_cladding: bool = field(default=False, kw_only=True)
+
+    # A boxed rake cornice with short horizontal returns on ONE main gable end
+    # (T-2383). None is the archetype's own treatment — a bare rake, which is
+    # what every committed frame tavern wears — so an absent key leaves all 23
+    # of them exactly as they stand. A dict selects the end and the three
+    # sections: {"end", "return_m", "section_m", "projection_m"}.
+    #
+    # The Andreas/Braunhold plate draws this cornice on the Sauganash's visible
+    # gable: a boxed band under both rakes and a short horizontal return turning
+    # the corner at each eaves end. THE OCCURRENCE AND THE FORM ARE READ OFF THE
+    # PICTURE; EVERY NUMBER HERE IS RECONSTRUCTED, and validate() refuses the
+    # attribute at any confidence but `reconstructed` so no later edit can
+    # promote a working section into a measurement. docs/LIBERTIES.md
+    # L-sauganash-main-gable-cornice-2383 owns the invention and its bounds.
+    main_gable_cornice: dict | None = field(default=None, kw_only=True)
 
     # appearance
     paint: str = "white"
@@ -394,6 +410,8 @@ class FrameTavernParams:
             _validate_front_lower_sash(self)
         if self.front_opening_details is not None:
             _validate_front_opening_details(self)
+        if self.main_gable_cornice is not None:
+            _validate_main_gable_cornice(self)
         if self.elevation_scheme not in ("frontage", "gable_front", "corner_gable"):
             raise ParamError(f"elevation_scheme '{self.elevation_scheme}' not in "
                              f"('frontage', 'gable_front', 'corner_gable')")
@@ -688,6 +706,75 @@ def _validate_front_lower_sash(p: FrameTavernParams) -> None:
         raise ParamError("front_lower_sash and shutters overlap the neighbouring bay")
 
 
+MAIN_GABLE_CORNICE_BOUNDS = {
+    # (lowest, highest) metres a working section may take. The window is wide
+    # enough to hold any reading the plate supports and narrow enough that a
+    # typo cannot put a cornice through a sash or out over the street.
+    "return_m": (0.20, 1.60),
+    "section_m": (0.08, 0.40),
+    "projection_m": (0.05, 0.40),
+}
+
+
+def _validate_main_gable_cornice(p: FrameTavernParams) -> None:
+    """One main gable end's boxed rake and returns; never a second roof.
+
+    Refused outright where the block has no gable at an x end, where the scheme
+    dresses its gables itself, or where the band would cross an opening the
+    record already states on that end. Every section stays reconstructed.
+    """
+    g = p.main_gable_cornice
+    keys = {"end", "return_m", "section_m", "projection_m"}
+    if not isinstance(g, dict) or set(g) != keys:
+        raise ParamError("main_gable_cornice needs exactly end, return_m, "
+                         "section_m and projection_m")
+    if p.confidence.get("main_gable_cornice", "reconstructed") != "reconstructed":
+        raise ParamError("main_gable_cornice sections must remain reconstructed")
+    if p.elevation_scheme != "frontage" or p.roof_type != "gable" or p.width_m < p.depth_m:
+        raise ParamError("main_gable_cornice needs a frontage block with gables "
+                         "at its x ends")
+    if p.gallery:
+        raise ParamError("main_gable_cornice is not resolved against a gallery")
+    if g["end"] not in ("+x", "-x"):
+        raise ParamError(f"main_gable_cornice end {g['end']!r} not in (+x, -x)")
+    for key, (lo, hi) in MAIN_GABLE_CORNICE_BOUNDS.items():
+        value = g[key]
+        if (isinstance(value, bool) or not isinstance(value, (int, float))
+                or not math.isfinite(value) or not lo <= value <= hi):
+            raise ParamError(f"main_gable_cornice {key} needs a finite number "
+                             f"in {lo}..{hi}")
+    section, projection = float(g["section_m"]), float(g["projection_m"])
+    run = float(g["return_m"])
+    # The two returns run inward from the gable's own eaves corners, so together
+    # they may not meet in the middle of the end wall.
+    if 2.0 * run >= p.depth_m + 2.0 * 0.25:
+        raise ParamError("main_gable_cornice returns meet across the gable end")
+    # The band hangs below the eave line. Nothing the record already states on
+    # that end may fall inside it, and the soffit may not drop below the sash
+    # heads of the storey under it.
+    soffit = p.wall_height_m - section
+    if soffit <= p.wall_height_m / p.stories + 0.10:
+        raise ParamError("main_gable_cornice soffit drops into the storey below")
+    pitch = math.tan(math.radians(p.roof_pitch_deg))
+    for end, at, z, width, height in p.end_windows:
+        if end != g["end"]:
+            continue
+        lo, hi = z - height / 2.0, z + height / 2.0
+        if hi > soffit and lo < p.wall_height_m:
+            raise ParamError("main_gable_cornice crosses a stated wall sash on "
+                             f"the {end} end")
+        if lo >= p.wall_height_m:
+            u0 = at * p.depth_m - width / 2.0
+            u1 = at * p.depth_m + width / 2.0
+            reach = min(u0 + 0.25, p.depth_m + 0.25 - u1)
+            if hi > p.wall_height_m + reach * pitch - section - 0.05:
+                raise ParamError("main_gable_cornice soffit crosses the attic "
+                                 f"sash on the {end} end")
+    if projection > 0.25 + section:
+        raise ParamError("main_gable_cornice projects further than its own depth "
+                         "and the roof's eave can carry")
+
+
 def _validate_front_opening_details(p: FrameTavernParams) -> None:
     """A bounded frontage-only entrance; never an unsupported interior claim."""
     g = p.front_opening_details
@@ -817,6 +904,7 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameTavernParams:
         entrance_frontispiece=bool(val("entrance_frontispiece", False)),
         front_opening_details=val("front_opening_details"),
         front_lower_sash=val("front_lower_sash"),
+        main_gable_cornice=val("main_gable_cornice"),
         log_wing=bool(val("log_wing", False)),
         log_wing_door=bool(val("log_wing_door", False)),
         log_wing_porch_hood=bool(val("log_wing_porch_hood", False)),

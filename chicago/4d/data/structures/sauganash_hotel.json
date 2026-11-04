@@ -346,6 +346,19 @@
           ],
           "note": "The pictured main gable continues the framed wall\u2019s horizontal clapboard above the eaves; it is not roof covering. The main-block end triangles now use the existing wall finish and existing reconstructed siding course stock. This switch covers both main gables for a closed model: continuing the pictured finish around the unseen/opposite end is reconstructed, not independently attested. Existing footprint, placement, eave/ridge geometry, roof pitch and covering, course stock and all subsidiary roofs remain unchanged. It does not settle the provisional camera or any remaining opening, roof, wing or grouped-annex differences."
         },
+        "main_gable_cornice": {
+          "value": {
+            "end": "+x",
+            "return_m": 0.55,
+            "section_m": 0.18,
+            "projection_m": 0.18
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_sauganash_hotel_plate"
+          ],
+          "note": "T-2383 PICTURED BOXED GABLE CORNICE, WITH RECONSTRUCTED SECTIONS. The Andreas/Braunhold plate draws a boxed band following both rakes of the hotel's visible main gable and a short horizontal return turning the corner at each eaves end; the archetype has never built either, so that gable has been standing with a bare rake the picture does not draw. THE OCCURRENCE AND THE FORM ARE READ OFF THE PICTURE; THE THREE SECTIONS ARE NOT. The plate is a retrospective 1884 engraving whose only scale datum is a standing man, and a direct reading of the drawn return against the gable's own eaves-to-eaves width and against the 0.85 m attic sash gives roughly 0.7-0.9 m with several tenths of a metre of line-weight and perspective uncertainty either way; the 0.55 m taken here sits at the conservative end of that range and is a working choice, not a measurement. The 0.18 m section and 0.18 m projection are the same kind of choice, bounded by the plate showing a band plainly deeper than a clapboard course and plainly shallower than the entrance cornice already built. Drawn in the existing wall finish, hanging below the rake line, so the roof planes, ridge, eave, pitch, footprint, placement, openings, shutters, stacks, cross wing and the separate Carpenter shop are all unchanged. Occurrence on the opposite, unseen end is not claimed and nothing is built there. docs/LIBERTIES.md L-sauganash-main-gable-cornice-2383 owns the invention. This does not settle the provisional camera, the roof silhouette or any other open difference on the original picture comparison."
+        },
         "front_opening_details": {
           "value": {
             "kind": "blind_dark_recess",

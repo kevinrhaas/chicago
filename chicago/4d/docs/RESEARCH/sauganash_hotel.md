@@ -195,3 +195,35 @@ See [the current comparison](photo-match/sauganash_hotel/README.md) and
 [actual native output and root review](https://github.com/kevinrhaas/chicago-evidence/blob/9b32b26903431ce4fcfb083f47e18147b759d956/evidence/sauganash-2026-11-03/current-andreas-native-private-root-reviewed/RECOVERY.md).
 The earlier provisional study remains historical; do not treat its old roof
 measurement as the current model. Full T-2383 picture coverage remains open.
+
+## The boxed gable cornice — 2026-11-04, T-2383
+
+Braunhold's engraving draws a **boxed cornice along both rakes of the visible
+main gable**, with a **short horizontal return** turning the corner onto the
+gable wall at each eaves end. Read it on the plate at full size: the band stands
+plainly proud of the clapboard, carries its own soffit, and both returns stop a
+short way in from the corner. The model had a bare rake there, which is a
+missing element a visitor on the street would notice (T-3153's bar), so the
+archetype now builds it — `main_gable_cornice` on `frame_tavern`, selected only
+on this record's `frame_1831` phase and only on its `+x` gable.
+
+**The picture gives the element and not its size.** The plate is retrospective
+(1884) and its only scale datum is a standing man, the same datum the 9.92 m
+frontage rests on. Measured on the plate, the drawn return reads about 0.86 m
+against the gable's own eaves-to-eaves width and about 0.71 m against the 0.85 m
+attic sash, with several tenths of a metre of line-weight and perspective
+uncertainty either way. The built 0.55 m return, 0.18 m section and 0.18 m
+projection are therefore **reconstructed working choices at the conservative end
+of that range**, not measurements; `docs/LIBERTIES.md`
+L-sauganash-main-gable-cornice-2383 states what bounded them and what a later
+reading could move. Nothing is built on the opposite gable, which no picture
+shows.
+
+**What did not change.** The roof planes, ridge, 25.2° pitch, eave, 9.92 × 8 m
+footprint, 5.5 m wall, UTM placement and bearing, every opening and bay, the
+four lower sash, the entrance case and leaf, the blue louvred shutters, the two
+stacks, the 8 m cross wing and the separate Carpenter shop. The control is
+default-off, so the other twenty-two frame taverns rebuild byte-for-byte. The
+hotel's own comparison still reads **DIFFERS** on the compound roof silhouette
+and the remaining left-gable questions; this closes one difference, not the
+building.
