@@ -7,10 +7,10 @@
  "target_date": "1835-07-01",
  "coordinates": "Local East-North-Up metres from data/datum.json's origin, the same frame data/enclosures/ and data/signage/ and the sidecars' placement.local_e / placement.local_n use.",
  "counts": {
-  "dwellings": 399,
+  "dwellings": 400,
   "by_row": {
    "cabin": 42,
-   "cottage": 174,
+   "cottage": 175,
    "house": 92,
    "keeper": 21,
    "merchant": 37,
@@ -20,22 +20,22 @@
    "keeper": 21,
    "labourer": 89,
    "merchant": 37,
-   "tradesman": 251
+   "tradesman": 252
   },
   "by_basis": {
-   "default": 16,
+   "default": 17,
    "fabric_rule": 351,
    "function": 6,
    "household_trade": 11,
    "reconstruction_occupation": 14
   },
   "items": {
-   "chopping_block": 366,
-   "cordwood": 419,
+   "chopping_block": 367,
+   "cordwood": 420,
    "log_heap": 42,
    "slab_heap": 32
   },
-  "piled": 398,
+  "piled": 399,
   "refused": 1
  },
  "existence": {
@@ -1471,6 +1471,43 @@
      "bearing_deg": 180.46,
      "billets": 3,
      "seed": 1291592092
+    }
+   ]
+  },
+  {
+   "structure_id": "log_jail_keeper_house",
+   "name": "John Beach’s house at the log jail",
+   "function": "dwelling",
+   "household_class": "tradesman",
+   "household_by": "default",
+   "house": "small",
+   "row": "cottage",
+   "rule": "Y-W3",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      478.25,
+      -275.32
+     ],
+     "bearing_deg": 0.0,
+     "length_m": 2.22,
+     "depth_m": 0.61,
+     "height_m": 0.84,
+     "stick": "stove",
+     "seed": 1811259482
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      478.91,
+      -276.73
+     ],
+     "bearing_deg": 0.0,
+     "billets": 2,
+     "seed": 61018890
     }
    ]
   },

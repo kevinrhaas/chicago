@@ -32,24 +32,24 @@
   "counts": {
     "records_awaiting_a_household": 1222,
     "under_a_standing_dwelling": {
-      "dealt": 186,
+      "dealt": 187,
       "family": 119
     },
     "room_by_division": {
       "north": 86,
       "south": 165,
-      "west": 73
+      "west": 72
     },
     "counted_by_division": {
       "north": 79,
-      "south": 163,
+      "south": 164,
       "west": 67
     },
     "counted_by_rung": {
-      "dealt": 186,
+      "dealt": 187,
       "family": 123
     },
-    "persons_in_the_counted_houses": 1180,
+    "persons_in_the_counted_houses": 1187,
     "not_counted": 0
   },
   "beyond_the_index": {
@@ -118,7 +118,7 @@
   },
   "fills": {
     "households/family_dwelling/north": 79,
-    "households/family_dwelling/south": 163,
+    "households/family_dwelling/south": 164,
     "households/family_dwelling/west": 67
   },
   "store_households": {
@@ -895,6 +895,15 @@
       "family": "D4",
       "persons": 7,
       "seed": "18c40a29919b"
+    },
+    {
+      "household": "hh_dewey_d_s",
+      "division": "south",
+      "rung": "dealt",
+      "place": "recon_1835_blk_randolph_market_d2_06",
+      "family": "D2",
+      "persons": 7,
+      "seed": "2680d0f7ae09"
     },
     {
       "household": "hh_bonn_augustin",

@@ -8,16 +8,16 @@ The closeout of the reconstruction (T-1215) asks four joins of the committed dat
 
 | join | state | what keeps it open |
 |---|---|---|
-| Every household housed | open | 40 households without a roof yet |
+| Every household housed | open | 37 households without a roof yet |
 | Every working person at a workplace | open | 27 working people owed a workplace |
 | Every business roofed or its limit stated | closed | — |
-| Every standing roof occupied or its use stated | open | 5 standing roofs empty and owed somebody |
+| Every standing roof occupied or its use stated | open | 6 standing roofs empty and owed somebody |
 
 Dangling ids: **0**. The town is **not yet complete**: the open joins above are the work T-1215's remaining pieces owe.
 
 ## The three tiers' shares of the people housed
 
-Of the **3,395** people housed in a standing building: **11.3 % attested** (384), **29.3 % inferred** (994), **59.4 % reconstructed** (2,017).
+Of the **3,404** people housed in a standing building: **11.3 % attested** (385), **29.3 % inferred** (996), **59.4 % reconstructed** (2,023).
 
 ## Every table by tier
 
@@ -25,8 +25,8 @@ Of the **3,395** people housed in a standing building: **11.3 % attested** (384)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| housed | 384 | 994 | 2,017 | 3,395 |
-| counted apart — waiting on a roof | 19 | 21 | 86 | 126 |
+| housed | 385 | 996 | 2,023 | 3,404 |
+| counted apart — waiting on a roof | 18 | 19 | 80 | 117 |
 | counted apart — absent on the scene date | 10 | 10 | 30 | 50 |
 | unhoused (owed a roof) | 0 | 0 | 0 | 0 |
 | **all** | **413** | **1,025** | **2,133** | **3,571** |
@@ -36,8 +36,8 @@ Of the **3,395** people housed in a standing building: **11.3 % attested** (384)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| housed | 370 | 978 | 565 | 1,913 |
-| counted apart — waiting on a roof | 19 | 21 | 0 | 40 |
+| housed | 371 | 980 | 565 | 1,916 |
+| counted apart — waiting on a roof | 18 | 19 | 0 | 37 |
 | counted apart — absent on the scene date | 10 | 10 | 30 | 50 |
 | unhoused (owed a roof) | 0 | 0 | 0 | 0 |
 | **all** | **399** | **1,009** | **595** | **2,003** |
@@ -68,12 +68,12 @@ Of the **3,395** people housed in a standing building: **11.3 % attested** (384)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| occupied | 51 | 9 | 345 | 405 |
-| occupants named in prose only | 8 | 10 | 69 | 87 |
+| occupied | 51 | 9 | 346 | 406 |
+| occupants named in prose only | 8 | 10 | 68 | 86 |
 | a use that needs nobody | 25 | 6 | 158 | 189 |
-| empty, owing somebody | 0 | 0 | 5 | 5 |
-| **all** | **84** | **25** | **577** | **686** |
-| share | 12.2 % | 3.6 % | 84.1 % | |
+| empty, owing somebody | 1 | 0 | 5 | 6 |
+| **all** | **85** | **25** | **577** | **687** |
+| share | 12.4 % | 3.6 % | 84.0 % | |
 
 ### Streets (two questions of each street — not summed)
 

@@ -1,5 +1,5 @@
 {
-  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp — mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP — a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
   "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
@@ -378,6 +378,7 @@
     "livery_2123_indiana__draft_1904.glb": "c46bb2aca736946875de41e10c10e377d51fd8cf29df59c77f67986c05874ca9",
     "livery_2129_indiana__draft_1904.glb": "03076c42d824135c13e23043f5f2a0064b77f42c8de1a36389f60e1f680c4f5c",
     "log_jail__log_1833.glb": "ee949fa9f67187678a034e0a84025f0acdab971ef1ee923261467341bc09182b",
+    "log_jail_keeper_house__frame_1835.glb": "431dc44f37bdcb2c7f705a5b17b65fe6a1cf748d077c337b699094c9b41752a8",
     "madore_beaubien_house__log_1831.glb": "a7502d5ffd15b8e050160975af57dea42acb07d5279bbda5235a95ed40e93906",
     "mansion_house__log_frame_1833.glb": "ccf4b66e6de77d5669a29405545e683549b14a842f328fbc160b0de581269760",
     "mansion_house_stable__stable_1833.glb": "f5b166a1b03182141e6c0687cedc1c8104df8d6251a15b21a19dfa31cc86ed20",

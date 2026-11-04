@@ -82,6 +82,11 @@
       "id": "log_jail_palisade",
       "file": "log_jail_palisade.json",
       "note": "HAND-AUTHORED T-2380. The high plank palisadeGale describes around the log jail; existence/kind inferred, layout/height/access/scantlings reconstructed. Core/keeper-house/source-camera differences remain open."
+    },
+    {
+      "id": "log_jail_keeper_link",
+      "file": "log_jail_keeper_link.json",
+      "note": "T-2380 V4 source-inferred low hung keeper link, exact layout/height/stock reconstructed; sourcefit unaccepted."
     }
   ]
 }

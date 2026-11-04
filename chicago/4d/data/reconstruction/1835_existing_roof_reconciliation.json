@@ -658,6 +658,17 @@
       "reasoning": "Documented separate log jail, one gable roof."
     },
     {
+      "structure_id": "log_jail_keeper_house",
+      "district": "south",
+      "roof_count": 1,
+      "inventory_eligible": false,
+      "inventory_roof_count": 0,
+      "likely_family": null,
+      "substitutes_anonymous_slots": 0,
+      "confidence": "low",
+      "reasoning": "T-2380. One reconstructed domestic roof beside the jail, from Gale 1902 p51's 1835-framed walk; the plate it comes with is captioned 1836. Nothing establishes that this roof stood on 1 July 1835, so it is deducted from no 1835 inventory and substitutes for no anonymous slot: it stands in the scene and not in the count."
+    },
+    {
       "structure_id": "madore_beaubien_house",
       "district": "south",
       "roof_count": 1,

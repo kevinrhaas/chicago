@@ -1,8 +1,12 @@
 {
   "structure_id": "log_jail",
+  "also_render": [
+    "log_jail_keeper_house"
+  ],
   "scene": "1835",
   "enclosures": [
-    "log_jail_palisade"
+    "log_jail_palisade",
+    "log_jail_keeper_link"
   ],
   "source_id": "andreas_1884_v1",
   "photo": "../../../../reference/images/chicago/chicago_first_courthouse_1835.jpg",
