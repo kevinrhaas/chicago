@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2635, ts: '2026-11-04T01:37:22.621Z', date: 'Nov 3, 2026, 7:37 PM CT', title: '1936 Prairie\'s verandah gets its iron rail', kind: 'improvement',
+    items: [
+      'The Allerton house\'s verandah on Prairie Avenue (1904) now has a dark iron rail across the foot of each of its three arches, about waist high, as the old photograph shows it.',
+    ] },
   { v: 2634, ts: '2026-11-04T01:30:25.653Z', date: 'Nov 3, 2026, 7:30 PM CT', title: 'Otis and Hans drive through town', kind: 'change',
     items: [
       'The horse in the Western Hotel wagon yard has a thinner upper eyelid and a less raised upper-eye contour while retaining its eye opening, body proportions and planted stance.',
