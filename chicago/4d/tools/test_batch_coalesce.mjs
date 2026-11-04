@@ -179,6 +179,57 @@ check('joining again changes nothing, and a second frame joins the same', () => 
   assert.deepEqual(drawn(b), first);
 });
 
+// External proposal: whole native-style opaque primitives, never spatial cells.
+function wholePrimitivePair(setup = () => {}) {
+  const make = () => {
+    const pieces = [new THREE.BoxGeometry(.4, .8, .3), new THREE.PlaneGeometry(.5, .6),
+      new THREE.ConeGeometry(.3, .5, 4), new THREE.BoxGeometry(.2, .7, .4)];
+    pieces.forEach((g, i) => g.translate(i * .7, 0, 0));
+    const b = new THREE.BatchedMesh(4, pieces.reduce((n,g)=>n+g.attributes.position.count,0),
+      pieces.reduce((n,g)=>n+g.index.count,0), new THREE.MeshStandardMaterial());
+    b.userData.batchIndex = [];
+    pieces.forEach((g, i) => {
+      const id = b.addInstance(b.addGeometry(g));
+      b.setMatrixAt(id, new THREE.Matrix4().makeTranslation(0, 0, -20));
+      b.setColorAt(id, new THREE.Color(0xaabbcc));
+      b.userData.batchIndex[id] = 'native-owner-a';
+    });
+    setup(b); b.updateMatrixWorld(true); return b;
+  };
+  const plain=make(), joined=make();
+  plain.onBeforeRender(null,null,camera,plain.geometry,plain.material);
+  const attributesBefore = Object.fromEntries(Object.entries(joined.geometry.attributes)
+    .map(([k,a])=>[k,Array.from(a.array)]));
+  const indexBefore=Array.from(joined.geometry.index.array);
+  coalesceRuns(joined);
+  joined.onBeforeRender(null,null,camera,joined.geometry,joined.material);
+  assert.deepEqual(Object.fromEntries(Object.entries(joined.geometry.attributes)
+    .map(([k,a])=>[k,Array.from(a.array)])),attributesBefore);
+  assert.deepEqual(Array.from(joined.geometry.index.array),indexBefore);
+  assert.deepEqual(drawn(joined),drawn(plain));
+  return {plain,joined};
+}
+check('unsplit whole opaque primitives join with exact geometry/attributes/owner/matrix/paint',()=>{
+  const {plain,joined}=wholePrimitivePair();
+  assert.equal(plain._multiDrawCount,4);assert.equal(joined._multiDrawCount,1);
+});
+check('unsplit whole opaque primitives keep a hidden gap',()=>{
+  const {plain,joined}=wholePrimitivePair(b=>b.setVisibleAt(1,false));
+  assert.equal(plain._multiDrawCount,3);assert.equal(joined._multiDrawCount,2);
+});
+check('unsplit primitives cannot join across owners even with identical matrix and paint',()=>{
+  const {joined}=wholePrimitivePair(b=>{b.userData.batchIndex[2]='native-owner-b';});
+  assert.equal(joined._multiDrawCount,3);
+});
+check('unsplit primitives cannot join across a different matrix at the same owner/paint',()=>{
+  const {joined}=wholePrimitivePair(b=>b.setMatrixAt(2,new THREE.Matrix4().makeTranslation(0,.25,-20)));
+  assert.equal(joined._multiDrawCount,3);
+});
+check('unsplit primitives cannot join across different paint at the same owner/matrix',()=>{
+  const {joined}=wholePrimitivePair(b=>b.setColorAt(2,new THREE.Color(0xff0000)));
+  assert.equal(joined._multiDrawCount,3);
+});
+
 // What the join costs a frame, on this machine, at the size of 1904's structures
 // (about 25,000 drawn cells): printed, not asserted.
 {

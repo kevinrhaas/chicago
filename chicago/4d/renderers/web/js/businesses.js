@@ -836,7 +836,7 @@ export async function mountBusinesses({
       // join is megabytes and the card must not wait on it. A firm whose row the
       // book has no seat for (the 62 unplaceable, the 32 owed) gets nothing here,
       // which is the honest answer and not a degradation.
-      state.seatPending = seatSlot(cardEl, r).catch(() => {});
+      state.seatPending = seatSlot(cardEl, r, seq).catch(() => {});
     } catch (err) {
       if (seq !== openSeq || signal?.aborted) return false;
       problems.push(`businesses: ${err.message} — one business record is missing`);
@@ -851,11 +851,12 @@ export async function mountBusinesses({
    *  Keyed on `register_id`, the crosswalk `compile_businesses.py` commits
    *  between a business record (`biz_*`) and the register row the address book
    *  files it under (`business_*`); nothing here invents that mapping. */
-  async function seatSlot(card, r) {
+  async function seatSlot(card, r, seq) {
     if (!r.register_id) return;
     const joins = await loadResidentJoins(dataBase, sceneId, problems);
     const raw = joins.seatByBusiness?.get(r.register_id);
     const row = raw ? readerCopy(raw, reader ?? await loadReaderText(dataBase, 'businesses', problems)) : raw;
+    if (seq !== openSeq || state.open !== r.id) return;
     const slot = card.querySelector('.biz-seat-slot');
     if (!row || !slot || card.hidden) return;
     // The ladder's seat first, and the policy's dealt roof where the ladder

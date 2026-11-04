@@ -1005,12 +1005,8 @@ export async function mountPeople({
   });
 
   paint();
-  // The citation join, the identity reviews and the directory crosswalks are what
-  // a card renders a record WITH, and together they are a couple of megabytes.
-  // Started now, after the list has painted, so the first card a visitor opens
-  // is not waiting on them; `loadResidentJoins` caches, so opening a card before
-  // this settles simply awaits the same promise.
-  setTimeout(() => { loadResidentJoins(dataBase, sceneId, problems).catch(() => {}); }, 0);
+  // A card awaits its research joins in open(), using the same cached promise.
+  // Do not prefetch the address book and crosswalks before a visitor opens a card.
 
   return {
     people: rows.length,

@@ -609,7 +609,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   /** T-2927: whether this build cuts meshes into cells (below), and so joins the
    *  drawn cells of one mesh back into one draw; and how many draws that saved. */
   const cutsCells = !!spatialCells || preserveMaterials;
-  const coalesce = { on: cutsCells && COALESCE_ON, joined: 0 };
+  const coalesce = { on: COALESCE_ON, joined: 0 };
 
   let completed = 0;
   onProgress(0, registry.size);
@@ -1312,7 +1312,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     backingConfidenceVersion=batch.geometry.attributes[SCALARS].version;
     // Narrow phase sees native whole-instance entries before existing coalescing.
     const narrow = installFrustumBoxCull(batch, bucket.boundsRigid, depthMaterial, seasonPreservesSurface, coalesce, shadowCasters);
-    if (cutsCells) coalesceRuns(batch, coalesce);
+    // Whole native opaque primitives can share an owner/frame/paint too.
+    // The existing joiner keeps culled gaps, exact index ranges and pick owners.
+    if (cutsCells || !batch.material.transparent) coalesceRuns(batch, coalesce);
     // T-3363: a blended batch's cells sorted by their piece, so its glass joins up.
     if (cutsCells && batch.material.transparent) sortCellsByPiece(batch);
     narrow?.seal();

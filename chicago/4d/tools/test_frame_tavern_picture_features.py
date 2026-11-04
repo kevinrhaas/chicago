@@ -105,6 +105,24 @@ class PictureFeatures(unittest.TestCase):
             local_polygons({"footprint": {"polygon": phase["footprint"]["polygon"],
                            "additional_polygons": [{"polygon": [[0, 0], [1, math.nan], [2, 0]]}]}})
 
+    def test_green_tree_yard_shed_and_enclosed_shoulder_are_mutually_exclusive(self):
+        from generate_yard_goods import _green_tree_wagon_shed
+        sc = json.loads((ROOT / "data/sidecars/1835/green_tree_tavern.json").read_text())
+        # Exercise both choices independently of the currently selected reading.
+        for closed in (False, True):
+            candidate = copy.deepcopy(sc)
+            candidate["attributes"]["enclosed_left_annex"]["value"]["shoulder_enclosed"] = closed
+            sheds, wagons, refused = _green_tree_wagon_shed(candidate,
+                candidate["placement"], candidate["footprint"]["polygon"], [])
+            if closed:
+                self.assertEqual((sheds, wagons), ([], []))
+                self.assertEqual(len(refused), 1)
+                self.assertEqual(refused[0]["structure_id"], "green_tree_tavern")
+                self.assertIn("canonical enclosed shoulder occupies the open-bay ground", refused[0]["why"])
+            else:
+                self.assertEqual((len(sheds), len(wagons), len(refused)), (1, 1, 0))
+                self.assertEqual(wagons[0]["under_shed"], sheds[0]["id"])
+
     def test_annex_door_uses_the_same_rotated_frame_as_its_walls(self):
         import generate_entrances
         record, phase, params = record_params("green_tree_tavern", "frame_1833", annex=True)

@@ -6390,3 +6390,12 @@ The first stock attempt built two MASTERs and two WEBs but stopped on missing ex
 The repaired source produced durable two-target MASTER/WEB assets in b1d63be1 after all 1,161 source checks passed. Current foreign integration retains every non-target native binding; actual full-dataset owners and the existing transport scene-bridge lifecycle pass. Only the two reconstructed cupolas and the necessary empty-transport-root renderer correction are being advanced.
 
 Stock browser failures remain explicit, including a boot-budget overrun independently reproduced on the unchanged e803 dev publication. The new target picture/body and visitor-source checks are still owed at this source checkpoint, followed by current final gates and ordinary dev review. Whistler's not-yet-built-in-1808 counterevidence, unknown completion date and reconstructed kit dimensions remain visible in source notes. No whole-fort completion or original-ticket closure is claimed.
+
+
+#### T-3041 — target proof saved; exact browser contracts and loading repair checkpoint (2026-11-04)
+
+Both first-fort blockhouses passed desktop and phone body/Design/Sources/native-GPU checks on 1c423c10, with root picture review and the current source gate green; immutable evidence is chicago-evidence 4d9a5873. Those executions remain pinned to that head.
+
+The next source increment addresses the existing boot warmup and stale business-seat race, recognises the intentional 1904 adapter, and requires the canonical enclosed Green Tree shoulder and the explicit seventh night-window material class. It reuses the existing exact opaque-run joiner after native visibility culling, with fourteen CPU invariants and the relevant registered owners passing. Geometry, native recipes and all existing performance thresholds remain unchanged.
+
+GPU differential, actual post-change budget/component checks and the complete browser policy are still owed before ordinary dev merge. No saving, generic browser PASS, original-ticket completion or full fort match is claimed at this checkpoint.

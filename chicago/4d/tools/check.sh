@@ -545,6 +545,8 @@ step "Current in-place horse travel keeps route, wheel, stop and culled-motion c
   node tools/test_transport_loop.mjs
 step "Driven assembly retains named drivers, vehicle ownership and exact current horse travel (T-2804)" \
   node tools/test_driven_assembly.mjs
+step "A cold business address join cannot overwrite a later card" \
+  node tools/check_business_seat_lifetime.mjs
 step "Driven-team clearance uses the complete occupied envelope and refuses blocked routes (T-2804)" \
   node tools/test_transport_clearance.mjs
 step "Driven-team support reads actual ground and preserves physical contact limits (T-2804)" \
