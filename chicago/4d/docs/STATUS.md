@@ -25790,14 +25790,6 @@ This saved increment does not close the original image gate. Both compound match
 
 The Record now distinguishes a directly checked line in Fergus's 1876 recollection of the 1839 Rush/North Water address from Andreas's differing street account. The July 1835 construction stage, position and dimensions remain uncertain. This increment changes source and Record metadata; it claims no new geometry or image-match completion.
 
-### T-2804 seated driver looking, 3 November 2026 — scene acceptance pending
-
-A bounded animation-only derivative adds the eight-second `sit_drive_look_v2` clip to the active master/web LOD0 and LOD3 exports for Otis Bardwell and Hans Johnson. It changes only neck/head rotation curves. The exact original clips, graphical content, identities, support/seat transforms and arm/palm/lower-body channels remain. New driver clips use visible elapsed time while driving or stopped, suspend through holds, Reduced Motion, hidden/range conditions and Light, restore the saved phase, and are not advanced a second time by vehicle substeps. Existing static clips keep their original clock.
-
-All eight children were generated from pinned public parents. Actual native CPU GLTFLoader/Meshopt/AnimationMixer readback covers 65 keys and 64 midpoints per child (1,032 phases), decodes the original images, and finds bit-exact protected body world transforms and Float32 skin palettes; non-target local transforms including the jaw/eyes remain exact while the head branch moves. Selected Hans web LOD0/3 palm points do not move; the original 1 nm comparison bound and real 3 mm pelvis-fault controls are retained. The exact derivative, native result and four-field active palm-payload hash bridge are recorded under `data/humans/animations/seated-driver-look-v2.*.json`. The initial new observer incorrectly treated the jaw as world-static; that failed attempt is retained separately, and the corrected observer protects all non-target local transforms and every body world transform outside the authored head branch.
-
-The unchanged native all-24-human browser fixture now passes at 1280x800 and 390x780 for these exact payloads; it wrote the current fixture measure in 118.631 seconds, and the subsequent native hash/verdict check passed. Original skeleton, skinning, morph, texture, frame, master/web and viewport assertions remain. Published desktop/phone scene motion and clothing review, unchanged resource/memory limits, the complete source gate, exact-HEAD CI and ordinary DEV delivery remain pending. Existing natural-standing and resident proofs remain historical parent evidence. This finite seated increment closes no photographic, continuous garment/contact, horse gait, riding or boarding acceptance.
-
 ## 2026-11-04 — T-2374: the Agency House's front aperture count
 
 Cobweb Castle's centre room now states its own front openings. The archetype's
