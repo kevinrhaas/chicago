@@ -11440,6 +11440,12 @@
       "asset": "gltf/log_jail__log_1833.glb"
     },
     {
+      "id": "log_jail_keeper_house",
+      "name": "John Beach’s house at the log jail",
+      "sidecar": "sidecars/1835/log_jail_keeper_house.json",
+      "asset": "gltf/log_jail_keeper_house__frame_1835.glb"
+    },
+    {
       "id": "madore_beaubien_house",
       "name": "Madore Beaubien's Log House",
       "sidecar": "sidecars/1835/madore_beaubien_house.json",

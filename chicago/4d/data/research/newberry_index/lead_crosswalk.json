@@ -44,17 +44,17 @@
   }
  ],
  "counts": {
-  "leads_ruled": 1032,
+  "leads_ruled": 1033,
   "cards_ruled": 1430,
   "by_outcome": {
-   "refused": 767,
+   "refused": 768,
    "candidate": 265
   },
   "by_class": {
    "ocr_variant_only": 370,
    "testable_in_a_held_work": 265,
    "locality_absent": 296,
-   "surname_only_chicago": 101
+   "surname_only_chicago": 102
   },
   "matched": 0,
   "discriminators_found": 0
@@ -2579,6 +2579,31 @@
    "person_ids": [
     "beach_william_h"
    ],
+   "works_cited": [],
+   "held_works": [],
+   "discriminators": []
+  },
+  {
+   "lead_id": "lead_v01_beach_structures",
+   "surname_key": "beach",
+   "spellings_as_printed": [
+    "Beach"
+   ],
+   "layer": "structures",
+   "outcome": "refused",
+   "class": "surname_only_chicago",
+   "reason": "Refused. 1 of the 1 card(s) heading 'Beach' do name Chicago or Cook County and the heading is the surname of John Beach’s house at the log jail exactly, but the index files every family of a surname under one heading and gives no forename, so 'Beach' against John Beach’s house at the log jail is a surname against a person. It waits on a work the citation table could not read off the card, which this project does not hold.",
+   "record_ids": [
+    "nbi_v01_0394"
+   ],
+   "candidates": [
+    {
+     "id": "log_jail_keeper_house",
+     "name": "John Beach’s house at the log jail",
+     "rule": "exact surname"
+    }
+   ],
+   "person_ids": [],
    "works_cited": [],
    "held_works": [],
    "discriminators": []
@@ -60350,17 +60375,19 @@
   {
    "record_id": "nbi_v01_0394",
    "a": "Beach | Chicago,lit Second rrtsb. Ch, 184202. (Qriat,",
-   "b": "Jno. Beach; William H. Beach",
+   "b": "Jno. Beach; William H. Beach; John Beach’s house at the log jail",
    "outcome": "refused",
    "class": "surname_only_chicago",
-   "rule": "Refused. 1 of the 1 card(s) heading 'Beach' do name Chicago or Cook County and the heading is the surname of Jno. Beach exactly, but the index files every family of a surname under one heading and gives no forename, so 'Beach' against Jno. Beach is a surname against a person. It waits on a work the citation table could not read off the card, which this project does not hold. Ruled on the card 'Beach | Chicago,lit Second rrtsb. Ch, 184202. (Qriat,' against Jno. Beach; William H. Beach.",
+   "rule": "Refused. 1 of the 1 card(s) heading 'Beach' do name Chicago or Cook County and the heading is the surname of Jno. Beach exactly, but the index files every family of a surname under one heading and gives no forename, so 'Beach' against Jno. Beach is a surname against a person. It waits on a work the citation table could not read off the card, which this project does not hold. Ruled on the card 'Beach | Chicago,lit Second rrtsb. Ch, 184202. (Qriat,' against Jno. Beach; William H. Beach; John Beach’s house at the log jail.",
    "layers": [
     "census_1840",
-    "residents"
+    "residents",
+    "structures"
    ],
    "leads": [
     "lead_v01_beach_census_1840",
-    "lead_v01_beach_residents"
+    "lead_v01_beach_residents",
+    "lead_v01_beach_structures"
    ],
    "person_ids": [
     "beach_william_h"

@@ -533,6 +533,8 @@ step "Portable human contract holds; every human GLB and instance is held to it 
   python3 tools/human_contract.py --check
 step "Every selected natural-standing derivative reproduces from its exact canonical parent (T-1790)" \
   python3 tools/human_natural_idle.py --check
+step "Active seated drivers reproduce their bounded looking clip from exact parent exports (T-2804)" \
+  python3 tools/human_seated_look.py --check
 step "Natural standing derivative preserves canonical parents, old clips and planted lower-body channels (T-1790)" \
   python3 tools/test_human_natural_idle.py
 step "Human animation consumes native elapsed time through slow frames, holds and route corners (T-1790)" \
@@ -1370,6 +1372,13 @@ step "a K01 house's mansarded sections join its mansard under one rail of cresti
 # of range, a low keystone, an unknown key and two architraves run together refused.
 step "a K01 house's named round-arched street lights stand in moulded architraves (T-1881)" \
   python3 tools/test_k01_architrave.py
+
+# T-3364 (T-1914). A K01 door under a flat (elliptical or segmental) arch glazed as a fanlight
+# over a transom bar, hung with its own count of leaves (`fanlight_transom`), held on 2009
+# Prairie's record off the Chicagology photograph; a round head, a side light, a bar or a leaf
+# out of range, three leaves and an unknown key refused.
+step "a K01 door under a flat arch takes a fanlight over a transom bar (T-3364)" \
+  python3 tools/test_k01_fanlight_transom.py
 
 # T-3255. Eared and crested stone hoods over a K01 wall's round-headed lights, and the main
 # block's corner pilasters (k01_dressings), held on 1701 Prairie's record: every round light on

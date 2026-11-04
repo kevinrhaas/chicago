@@ -33,31 +33,31 @@
     "ruled_in_households_already_housed": 38,
     "ruled_in_households_owed_a_roof": 885,
     "of_them_only_at_work_on_a_roof": 31,
-    "seated": 1804,
+    "seated": 1807,
     "seated_by_presence": {
       "on_the_card": 951,
-      "ruled_in": 853
+      "ruled_in": 856
     },
     "refused": 0,
-    "persons_seated": 2992,
+    "persons_seated": 3001,
     "counted_apart": {
       "absent_on_the_scene_date": 50,
-      "waiting_on_a_roof": 40
+      "waiting_on_a_roof": 37
     },
     "persons_counted_apart": {
       "absent_on_the_scene_date": 50,
-      "waiting_on_a_roof": 126
+      "waiting_on_a_roof": 117
     },
     "by_rung": {
-      "boarder": 1350,
-      "dealt": 261,
+      "boarder": 1352,
+      "dealt": 262,
       "family": 166,
       "keeper": 19,
       "lodger": 8
     },
     "by_division": {
       "north": 542,
-      "south": 932,
+      "south": 935,
       "west": 330
     },
     "by_family": {
@@ -65,8 +65,8 @@
       "C2": 7,
       "C3": 6,
       "C4": 3,
-      "D1": 686,
-      "D2": 290,
+      "D1": 688,
+      "D2": 291,
       "D3": 117,
       "D4": 206,
       "D5": 187,
@@ -77,18 +77,18 @@
       "H3": 8
     },
     "roofs_in_the_pool": 117,
-    "roofs_the_deal_used": 298,
-    "of_them_assigned_to_their_own_household": 187
+    "roofs_the_deal_used": 299,
+    "of_them_assigned_to_their_own_household": 188
   },
   "the_ceiling": {
     "census_people_per_dwelling": 8.204,
     "source": "data/reconstruction/1835_town_model.json people_per_dwelling_november_1835 (3,265 people in 398 dwellings)",
     "the_ratio_is": "people under a roof / standing dwellings — the enumerator's own division, every dwelling counted whether this layer links anybody to it or not",
-    "standing_dwellings": 414,
-    "people_under_a_roof": 3393,
-    "people_per_dwelling": 8.196,
-    "inhabited_roofs": 332,
-    "people_per_inhabited_roof": 10.22,
+    "standing_dwellings": 415,
+    "people_under_a_roof": 3402,
+    "people_per_dwelling": 8.198,
+    "inhabited_roofs": 333,
+    "people_per_inhabited_roof": 10.216,
     "why_the_two_differ": "documented dwellings no card links and roofs whose record already states its occupants stand in the first count and are refused by this deal; who sleeps in them is T-1966's and T-1615's to settle, not a policy deal's",
     "most_crowded_roof": {
       "structure_id": "recon_1835_blk_lake_market_d1_05",
@@ -96,8 +96,8 @@
       "floor_m2": 40.26
     },
     "densest_roof": {
-      "structure_id": "recon_1835_south_d1_010",
-      "people_per_m2": 3.1478
+      "structure_id": "recon_1835_south_d1_018",
+      "people_per_m2": 3.1528
     }
   },
   "the_keepers": {
@@ -303,17 +303,17 @@
     "who": "households whose cards still read `uncertain` and whom T-1386's rule puts in the town (data/reconstruction/1835_presence_rulings.json): an attested or inferred resident is present unless evidence says otherwise",
     "order": "the ruling's leg, strongest first (on_the_day, spans, bracketed, carried), then the nearest last dated reading, then a seeded hash",
     "the_line_stops": "at the first household the census's people per dwelling cannot take; nobody behind it is seated, so a weaker ruling never takes a roof a stronger one waits for",
-    "admitted": 845,
+    "admitted": 848,
     "kept_a_store_before_the_line": 8,
-    "waiting": 40,
+    "waiting": 37,
     "admitted_by_leg": {
       "bracketed": 29,
-      "carried": 730,
+      "carried": 733,
       "on_the_day": 50,
       "spans": 36
     },
     "waiting_by_leg": {
-      "carried": 40
+      "carried": 37
     }
   },
   "counted_apart_reasons": {
@@ -396,7 +396,7 @@
     {
       "household": "hh_acker_jacob_van",
       "file": "households/hh_acker_jacob_van.json",
-      "place": "recon_1835_south_d1_010",
+      "place": "recon_1835_south_d1_018",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -744,7 +744,7 @@
     {
       "household": "hh_andrus_thomas",
       "file": "households/hh_andrus_thomas.json",
-      "place": "recon_1835_south_d1_010",
+      "place": "recon_1835_south_d1_018",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -1008,12 +1008,12 @@
     {
       "household": "hh_babeu_joseph",
       "file": "households/hh_babeu_joseph.json",
-      "place": "recon_1835_blk_south_water_lasalle_d1_04",
+      "place": "recon_1835_blk_school_section_tier_82_d2_01",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -1176,7 +1176,7 @@
     {
       "household": "hh_bane_george_b",
       "file": "households/hh_bane_george_b.json",
-      "place": "recon_1835_south_d1_003",
+      "place": "recon_1835_blk_south_water_wells_d1_07",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -1320,12 +1320,12 @@
     {
       "household": "hh_barry_john_s",
       "file": "households/hh_barry_john_s.json",
-      "place": "recon_1835_south_d1_010",
+      "place": "recon_1835_blk_randolph_dearborn_d2_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -1344,7 +1344,7 @@
     {
       "household": "hh_bartlett_charles_h",
       "file": "households/hh_bartlett_charles_h.json",
-      "place": "recon_1835_blk_south_water_lasalle_d1_04",
+      "place": "recon_1835_south_d1_003",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -1704,7 +1704,7 @@
     {
       "household": "hh_bench_reuben",
       "file": "households/hh_bench_reuben.json",
-      "place": "recon_1835_blk_lake_market_d1_05",
+      "place": "recon_1835_south_d1_010",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -1800,12 +1800,12 @@
     {
       "household": "hh_bently_wm_t",
       "file": "households/hh_bently_wm_t.json",
-      "place": "recon_1835_blk_south_water_franklin_d2_05",
+      "place": "recon_1835_blk_lake_market_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -1836,7 +1836,7 @@
     {
       "household": "hh_berger_f_c",
       "file": "households/hh_berger_f_c.json",
-      "place": "recon_1835_blk_south_water_wells_d1_07",
+      "place": "recon_1835_blk_south_water_lasalle_d1_04",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -1884,7 +1884,7 @@
     {
       "household": "hh_bertrand_b_h",
       "file": "households/hh_bertrand_b_h.json",
-      "place": "recon_1835_blk_south_water_wells_d1_07",
+      "place": "recon_1835_blk_lake_market_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -2532,12 +2532,12 @@
     {
       "household": "hh_brewster_william",
       "file": "households/hh_brewster_william.json",
-      "place": "recon_1835_south_d1_003",
+      "place": "recon_1835_blk_school_section_tier_82_d2_01",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -2580,7 +2580,7 @@
     {
       "household": "hh_bristol_r_c",
       "file": "households/hh_bristol_r_c.json",
-      "place": "recon_1835_south_d1_010",
+      "place": "recon_1835_blk_south_water_lasalle_d1_04",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -2592,7 +2592,7 @@
     {
       "household": "hh_britain_hiram_z",
       "file": "households/hh_britain_hiram_z.json",
-      "place": "recon_1835_blk_south_water_wells_d1_05",
+      "place": "recon_1835_blk_south_water_lasalle_d1_04",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -2628,7 +2628,7 @@
     {
       "household": "hh_brookes_samuel",
       "file": "households/hh_brookes_samuel.json",
-      "place": "recon_1835_blk_lake_market_d1_05",
+      "place": "recon_1835_blk_south_water_lasalle_d1_04",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -2856,7 +2856,7 @@
     {
       "household": "hh_burk_james",
       "file": "households/hh_burk_james.json",
-      "place": "recon_1835_south_d1_010",
+      "place": "recon_1835_blk_south_water_wells_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -2880,12 +2880,12 @@
     {
       "household": "hh_burlingame_geo_a",
       "file": "households/hh_burlingame_geo_a.json",
-      "place": "recon_1835_south_d1_018",
+      "place": "recon_1835_blk_south_water_franklin_d2_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -2904,7 +2904,7 @@
     {
       "household": "hh_burnet_lyman",
       "file": "households/hh_burnet_lyman.json",
-      "place": "recon_1835_blk_school_section_tier_82_d2_01",
+      "place": "recon_1835_blk_randolph_dearborn_d2_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -3156,7 +3156,7 @@
     {
       "household": "hh_carter_j",
       "file": "households/hh_carter_j.json",
-      "place": "recon_1835_south_d1_018",
+      "place": "recon_1835_blk_lake_market_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -3492,12 +3492,12 @@
     {
       "household": "hh_chattin_clark",
       "file": "households/hh_chattin_clark.json",
-      "place": "recon_1835_blk_randolph_dearborn_d2_05",
+      "place": "recon_1835_south_d1_003",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -3684,7 +3684,7 @@
     {
       "household": "hh_chrouch_john",
       "file": "households/hh_chrouch_john.json",
-      "place": "recon_1835_blk_south_water_wells_d1_05",
+      "place": "recon_1835_blk_south_water_wells_d1_07",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -3828,12 +3828,12 @@
     {
       "household": "hh_cleaveland_wm_p",
       "file": "households/hh_cleaveland_wm_p.json",
-      "place": "recon_1835_blk_south_water_lasalle_d1_04",
+      "place": "recon_1835_blk_school_section_tier_82_d2_01",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -3864,7 +3864,7 @@
     {
       "household": "hh_clevinger_d_p",
       "file": "households/hh_clevinger_d_p.json",
-      "place": "recon_1835_south_d1_003",
+      "place": "recon_1835_blk_south_water_wells_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -4056,7 +4056,7 @@
     {
       "household": "hh_cone_joseph_c",
       "file": "households/hh_cone_joseph_c.json",
-      "place": "recon_1835_blk_south_water_wells_d1_07",
+      "place": "recon_1835_south_d1_003",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -4104,7 +4104,7 @@
     {
       "household": "hh_conter_willard",
       "file": "households/hh_conter_willard.json",
-      "place": "recon_1835_south_d1_010",
+      "place": "recon_1835_south_d1_018",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -4308,7 +4308,7 @@
     {
       "household": "hh_crisey_william",
       "file": "households/hh_crisey_william.json",
-      "place": "recon_1835_south_d1_018",
+      "place": "recon_1835_blk_south_water_wells_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -4524,7 +4524,7 @@
     {
       "household": "hh_daniel_b_clevinger_4",
       "file": "households/hh_daniel_b_clevinger_4.json",
-      "place": "recon_1835_south_d1_003",
+      "place": "recon_1835_blk_south_water_wells_d1_07",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -4860,7 +4860,7 @@
     {
       "household": "hh_devoe_samuel",
       "file": "households/hh_devoe_samuel.json",
-      "place": "recon_1835_blk_south_water_wells_d1_07",
+      "place": "recon_1835_south_d1_018",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -4868,6 +4868,18 @@
       "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
+    },
+    {
+      "household": "hh_dewey_d_s",
+      "file": "households/hh_dewey_d_s.json",
+      "place": "recon_1835_blk_randolph_market_d2_06",
+      "rung": "dealt",
+      "relation": "lived here",
+      "persons": 7,
+      "division": "south",
+      "family": "D2",
+      "presence": "ruled_in",
+      "words": "the roof T-1613 dealt this household, joined here and not re-argued"
     },
     {
       "household": "hh_dewey_s",
@@ -5076,12 +5088,12 @@
     {
       "household": "hh_doty_j_d",
       "file": "households/hh_doty_j_d.json",
-      "place": "recon_1835_blk_school_section_tier_82_d2_01",
+      "place": "recon_1835_south_d1_003",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -5124,7 +5136,7 @@
     {
       "household": "hh_douglass_nelson",
       "file": "households/hh_douglass_nelson.json",
-      "place": "recon_1835_blk_south_water_wells_d1_05",
+      "place": "recon_1835_blk_south_water_wells_d1_07",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -5160,7 +5172,7 @@
     {
       "household": "hh_downer_pierce",
       "file": "households/hh_downer_pierce.json",
-      "place": "recon_1835_blk_lake_market_d1_05",
+      "place": "recon_1835_south_d1_003",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -5196,12 +5208,12 @@
     {
       "household": "hh_drake_charles_c",
       "file": "households/hh_drake_charles_c.json",
-      "place": "recon_1835_blk_south_water_lasalle_d1_04",
+      "place": "recon_1835_blk_randolph_market_d2_09",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -5232,7 +5244,7 @@
     {
       "household": "hh_dudley_john",
       "file": "households/hh_dudley_john.json",
-      "place": "recon_1835_blk_randolph_dearborn_d2_05",
+      "place": "recon_1835_blk_south_water_franklin_d2_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -5280,7 +5292,7 @@
     {
       "household": "hh_dustin_thomas",
       "file": "households/hh_dustin_thomas.json",
-      "place": "recon_1835_blk_lake_market_d1_05",
+      "place": "recon_1835_blk_south_water_lasalle_d1_04",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -5340,7 +5352,7 @@
     {
       "household": "hh_eager_hiram",
       "file": "households/hh_eager_hiram.json",
-      "place": "recon_1835_blk_randolph_dearborn_d2_05",
+      "place": "recon_1835_blk_south_water_franklin_d2_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -5364,7 +5376,7 @@
     {
       "household": "hh_early_henry_a",
       "file": "households/hh_early_henry_a.json",
-      "place": "recon_1835_blk_south_water_wells_d1_07",
+      "place": "recon_1835_south_d1_003",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -5376,12 +5388,12 @@
     {
       "household": "hh_easling_n_w",
       "file": "households/hh_easling_n_w.json",
-      "place": "recon_1835_blk_south_water_wells_d1_07",
+      "place": "recon_1835_blk_randolph_market_d2_09",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -5544,12 +5556,12 @@
     {
       "household": "hh_eliphalet_atkins_2",
       "file": "households/hh_eliphalet_atkins_2.json",
-      "place": "recon_1835_blk_south_water_wells_d1_05",
+      "place": "recon_1835_blk_randolph_dearborn_d2_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -6096,7 +6108,7 @@
     {
       "household": "hh_folliott_jonathan",
       "file": "households/hh_folliott_jonathan.json",
-      "place": "recon_1835_south_d1_018",
+      "place": "recon_1835_blk_south_water_lasalle_d1_04",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -6252,7 +6264,7 @@
     {
       "household": "hh_forster_jane",
       "file": "households/hh_forster_jane.json",
-      "place": "recon_1835_south_d1_018",
+      "place": "recon_1835_blk_south_water_lasalle_d1_04",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -6312,7 +6324,7 @@
     {
       "household": "hh_foster_john_n",
       "file": "households/hh_foster_john_n.json",
-      "place": "recon_1835_blk_south_water_lasalle_d1_04",
+      "place": "recon_1835_blk_south_water_wells_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -6636,12 +6648,12 @@
     {
       "household": "hh_gibbs_james_h",
       "file": "households/hh_gibbs_james_h.json",
-      "place": "recon_1835_south_d1_003",
+      "place": "recon_1835_blk_south_water_franklin_d2_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -6684,7 +6696,7 @@
     {
       "household": "hh_gleason_joseph",
       "file": "households/hh_gleason_joseph.json",
-      "place": "recon_1835_south_d1_010",
+      "place": "recon_1835_blk_south_water_wells_d1_07",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -6732,12 +6744,12 @@
     {
       "household": "hh_goodell_nancey_ann",
       "file": "households/hh_goodell_nancey_ann.json",
-      "place": "recon_1835_south_d1_018",
+      "place": "recon_1835_blk_south_water_franklin_d2_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -6912,12 +6924,12 @@
     {
       "household": "hh_green_j",
       "file": "households/hh_green_j.json",
-      "place": "recon_1835_blk_randolph_dearborn_d2_05",
+      "place": "recon_1835_blk_lake_market_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -7016,6 +7028,18 @@
       "family": "D1",
       "presence": "on_the_card",
       "words": "boarding in the town's least crowded dwelling"
+    },
+    {
+      "household": "hh_guy_josphine",
+      "file": "households/hh_guy_josphine.json",
+      "place": "recon_1835_blk_randolph_dearborn_d2_05",
+      "rung": "boarder",
+      "relation": "boarded here",
+      "persons": 1,
+      "division": "south",
+      "family": "D2",
+      "presence": "ruled_in",
+      "words": "boarding in the division's least crowded dwelling"
     },
     {
       "household": "hh_h_w_knickerbocker",
@@ -7212,7 +7236,7 @@
     {
       "household": "hh_harrington_catherine",
       "file": "households/hh_harrington_catherine.json",
-      "place": "recon_1835_south_d1_018",
+      "place": "recon_1835_south_d1_003",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -7296,12 +7320,12 @@
     {
       "household": "hh_hasslen_daniel",
       "file": "households/hh_hasslen_daniel.json",
-      "place": "recon_1835_blk_randolph_market_d2_09",
+      "place": "recon_1835_blk_south_water_wells_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -7332,7 +7356,7 @@
     {
       "household": "hh_hathaway_joshua",
       "file": "households/hh_hathaway_joshua.json",
-      "place": "recon_1835_south_d1_003",
+      "place": "recon_1835_blk_lake_market_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -7344,7 +7368,7 @@
     {
       "household": "hh_haviland_samuel",
       "file": "households/hh_haviland_samuel.json",
-      "place": "recon_1835_blk_south_water_lasalle_d1_04",
+      "place": "recon_1835_blk_south_water_wells_d1_07",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -7524,7 +7548,7 @@
     {
       "household": "hh_hill_isaac_l",
       "file": "households/hh_hill_isaac_l.json",
-      "place": "recon_1835_blk_south_water_wells_d1_07",
+      "place": "recon_1835_south_d1_003",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -7644,7 +7668,7 @@
     {
       "household": "hh_holder_jesse",
       "file": "households/hh_holder_jesse.json",
-      "place": "recon_1835_blk_school_section_tier_82_d2_01",
+      "place": "recon_1835_blk_south_water_franklin_d2_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -7704,12 +7728,12 @@
     {
       "household": "hh_hooker_edward_t",
       "file": "households/hh_hooker_edward_t.json",
-      "place": "recon_1835_blk_south_water_wells_d1_05",
+      "place": "recon_1835_blk_randolph_dearborn_d2_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -7824,7 +7848,7 @@
     {
       "household": "hh_howland_daniel",
       "file": "households/hh_howland_daniel.json",
-      "place": "recon_1835_blk_south_water_lasalle_d1_04",
+      "place": "recon_1835_south_d1_018",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -8040,7 +8064,7 @@
     {
       "household": "hh_hurlburt_hannah",
       "file": "households/hh_hurlburt_hannah.json",
-      "place": "recon_1835_south_d1_010",
+      "place": "recon_1835_south_d1_018",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -8064,12 +8088,12 @@
     {
       "household": "hh_hussy_robert",
       "file": "households/hh_hussy_robert.json",
-      "place": "recon_1835_blk_school_section_tier_82_d2_01",
+      "place": "recon_1835_south_d1_010",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -8256,12 +8280,12 @@
     {
       "household": "hh_ives_chauncy_p",
       "file": "households/hh_ives_chauncy_p.json",
-      "place": "recon_1835_south_d1_003",
+      "place": "recon_1835_blk_school_section_tier_82_d2_01",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -9360,12 +9384,12 @@
     {
       "household": "hh_kirby_hannah_a",
       "file": "households/hh_kirby_hannah_a.json",
-      "place": "recon_1835_blk_randolph_market_d2_09",
+      "place": "recon_1835_south_d1_010",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -9420,7 +9444,7 @@
     {
       "household": "hh_knapp_george",
       "file": "households/hh_knapp_george.json",
-      "place": "recon_1835_blk_south_water_lasalle_d1_04",
+      "place": "recon_1835_south_d1_018",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -9480,7 +9504,7 @@
     {
       "household": "hh_knox_archibald",
       "file": "households/hh_knox_archibald.json",
-      "place": "recon_1835_blk_south_water_wells_d1_07",
+      "place": "recon_1835_south_d1_018",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -9512,6 +9536,18 @@
       "family": "D1",
       "presence": "ruled_in",
       "words": "a dwelling of its division"
+    },
+    {
+      "household": "hh_kulozjcky_john",
+      "file": "households/hh_kulozjcky_john.json",
+      "place": "recon_1835_blk_south_water_wells_d1_05",
+      "rung": "boarder",
+      "relation": "boarded here",
+      "persons": 1,
+      "division": "south",
+      "family": "D1",
+      "presence": "ruled_in",
+      "words": "boarding in the division's least crowded dwelling"
     },
     {
       "household": "hh_kurcheval_louis_c",
@@ -9588,7 +9624,7 @@
     {
       "household": "hh_laframboise_josette",
       "file": "households/hh_laframboise_josette.json",
-      "place": "recon_1835_blk_south_water_wells_d1_07",
+      "place": "recon_1835_south_d1_018",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -9684,12 +9720,12 @@
     {
       "household": "hh_langer_jacob",
       "file": "households/hh_langer_jacob.json",
-      "place": "recon_1835_blk_randolph_dearborn_d2_05",
+      "place": "recon_1835_south_d1_010",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -9768,7 +9804,7 @@
     {
       "household": "hh_lauretta_plympton_2",
       "file": "households/hh_lauretta_plympton_2.json",
-      "place": "recon_1835_blk_south_water_wells_d1_05",
+      "place": "recon_1835_south_d1_003",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -9816,7 +9852,7 @@
     {
       "household": "hh_lee_george",
       "file": "households/hh_lee_george.json",
-      "place": "recon_1835_blk_lake_market_d1_05",
+      "place": "recon_1835_south_d1_010",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -10260,7 +10296,7 @@
     {
       "household": "hh_luce_william",
       "file": "households/hh_luce_william.json",
-      "place": "recon_1835_blk_south_water_wells_d1_05",
+      "place": "recon_1835_blk_south_water_lasalle_d1_04",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -10272,7 +10308,7 @@
     {
       "household": "hh_ludb_john",
       "file": "households/hh_ludb_john.json",
-      "place": "recon_1835_blk_south_water_lasalle_d1_04",
+      "place": "recon_1835_blk_south_water_wells_d1_07",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -10344,7 +10380,7 @@
     {
       "household": "hh_mack_stephen",
       "file": "households/hh_mack_stephen.json",
-      "place": "recon_1835_south_d1_018",
+      "place": "recon_1835_blk_lake_market_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -10404,7 +10440,7 @@
     {
       "household": "hh_makepiece_george_r",
       "file": "households/hh_makepiece_george_r.json",
-      "place": "recon_1835_blk_south_water_wells_d1_07",
+      "place": "recon_1835_south_d1_018",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -10548,12 +10584,12 @@
     {
       "household": "hh_marsh_silvester",
       "file": "households/hh_marsh_silvester.json",
-      "place": "recon_1835_blk_randolph_market_d2_09",
+      "place": "recon_1835_south_d1_010",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -10752,7 +10788,7 @@
     {
       "household": "hh_mcclinton_wilson",
       "file": "households/hh_mcclinton_wilson.json",
-      "place": "recon_1835_south_d1_003",
+      "place": "recon_1835_blk_south_water_wells_d1_07",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -10788,12 +10824,12 @@
     {
       "household": "hh_mclintock_thomas",
       "file": "households/hh_mclintock_thomas.json",
-      "place": "recon_1835_south_d1_010",
+      "place": "recon_1835_blk_south_water_franklin_d2_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -10836,7 +10872,7 @@
     {
       "household": "hh_meacham_mary",
       "file": "households/hh_meacham_mary.json",
-      "place": "recon_1835_blk_south_water_lasalle_d1_04",
+      "place": "recon_1835_blk_south_water_wells_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -10968,12 +11004,12 @@
     {
       "household": "hh_mgrigg_a_a",
       "file": "households/hh_mgrigg_a_a.json",
-      "place": "recon_1835_blk_school_section_tier_82_d2_01",
+      "place": "recon_1835_blk_south_water_wells_d1_07",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -11064,24 +11100,24 @@
     {
       "household": "hh_mills_philo_c",
       "file": "households/hh_mills_philo_c.json",
-      "place": "recon_1835_blk_south_water_franklin_d2_05",
+      "place": "recon_1835_blk_south_water_lasalle_d1_04",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
     {
       "household": "hh_milow_john",
       "file": "households/hh_milow_john.json",
-      "place": "recon_1835_blk_south_water_wells_d1_07",
+      "place": "recon_1835_blk_randolph_market_d2_09",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -11136,7 +11172,7 @@
     {
       "household": "hh_mitchell_henry",
       "file": "households/hh_mitchell_henry.json",
-      "place": "recon_1835_south_d1_003",
+      "place": "recon_1835_blk_south_water_wells_d1_07",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -11280,12 +11316,12 @@
     {
       "household": "hh_morland_f_h",
       "file": "households/hh_morland_f_h.json",
-      "place": "recon_1835_south_d1_018",
+      "place": "recon_1835_blk_school_section_tier_82_d2_01",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -11316,12 +11352,12 @@
     {
       "household": "hh_morris_potily",
       "file": "households/hh_morris_potily.json",
-      "place": "recon_1835_blk_randolph_market_d2_09",
+      "place": "recon_1835_blk_south_water_lasalle_d1_04",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -11376,24 +11412,24 @@
     {
       "household": "hh_morrison_t_m",
       "file": "households/hh_morrison_t_m.json",
-      "place": "recon_1835_south_d1_003",
+      "place": "recon_1835_blk_school_section_tier_82_d2_01",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
     {
       "household": "hh_morrow_jeremiah",
       "file": "households/hh_morrow_jeremiah.json",
-      "place": "recon_1835_blk_randolph_dearborn_d2_05",
+      "place": "recon_1835_blk_south_water_wells_d1_07",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -11412,7 +11448,7 @@
     {
       "household": "hh_mosely_e_b",
       "file": "households/hh_mosely_e_b.json",
-      "place": "recon_1835_blk_south_water_lasalle_d1_04",
+      "place": "recon_1835_south_d1_018",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -11544,12 +11580,12 @@
     {
       "household": "hh_musgrave_john",
       "file": "households/hh_musgrave_john.json",
-      "place": "recon_1835_blk_randolph_market_d2_09",
+      "place": "recon_1835_south_d1_003",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -11604,31 +11640,31 @@
     {
       "household": "hh_nadeau_monique",
       "file": "households/hh_nadeau_monique.json",
-      "place": "recon_1835_blk_randolph_dearborn_d2_05",
+      "place": "recon_1835_south_d1_010",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
     {
       "household": "hh_nalla_john_v",
       "file": "households/hh_nalla_john_v.json",
-      "place": "recon_1835_blk_school_section_tier_82_d2_01",
+      "place": "recon_1835_blk_south_water_wells_d1_07",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
     {
       "household": "hh_natta_j_v",
       "file": "households/hh_natta_j_v.json",
-      "place": "recon_1835_blk_south_water_franklin_d2_05",
+      "place": "recon_1835_blk_school_section_tier_82_d2_01",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -11712,7 +11748,7 @@
     {
       "household": "hh_newton_daniel",
       "file": "households/hh_newton_daniel.json",
-      "place": "recon_1835_south_d1_018",
+      "place": "recon_1835_blk_lake_market_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -11748,7 +11784,7 @@
     {
       "household": "hh_night_clapp",
       "file": "households/hh_night_clapp.json",
-      "place": "recon_1835_blk_south_water_wells_d1_07",
+      "place": "recon_1835_south_d1_018",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -12036,12 +12072,12 @@
     {
       "household": "hh_ouilmette_marie_louise",
       "file": "households/hh_ouilmette_marie_louise.json",
-      "place": "recon_1835_blk_lake_market_d1_05",
+      "place": "recon_1835_blk_randolph_dearborn_d2_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -12060,7 +12096,7 @@
     {
       "household": "hh_paddock_jane",
       "file": "households/hh_paddock_jane.json",
-      "place": "recon_1835_south_d1_018",
+      "place": "recon_1835_blk_lake_market_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -12084,7 +12120,7 @@
     {
       "household": "hh_page_frederick_w",
       "file": "households/hh_page_frederick_w.json",
-      "place": "recon_1835_blk_south_water_wells_d1_05",
+      "place": "recon_1835_blk_lake_market_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -12204,7 +12240,7 @@
     {
       "household": "hh_parcell_aron",
       "file": "households/hh_parcell_aron.json",
-      "place": "recon_1835_blk_south_water_wells_d1_07",
+      "place": "recon_1835_blk_south_water_wells_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -12336,12 +12372,12 @@
     {
       "household": "hh_payne_l_w",
       "file": "households/hh_payne_l_w.json",
-      "place": "recon_1835_blk_south_water_franklin_d2_05",
+      "place": "recon_1835_blk_lake_market_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -12396,12 +12432,12 @@
     {
       "household": "hh_pease_h",
       "file": "households/hh_pease_h.json",
-      "place": "recon_1835_south_d1_010",
+      "place": "recon_1835_blk_randolph_market_d2_09",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -12420,7 +12456,7 @@
     {
       "household": "hh_peltier_jacquette",
       "file": "households/hh_peltier_jacquette.json",
-      "place": "recon_1835_south_d1_010",
+      "place": "recon_1835_blk_south_water_wells_d1_07",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -12432,7 +12468,7 @@
     {
       "household": "hh_pennington_sack_f",
       "file": "households/hh_pennington_sack_f.json",
-      "place": "recon_1835_blk_lake_market_d1_05",
+      "place": "recon_1835_blk_south_water_wells_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -12468,12 +12504,12 @@
     {
       "household": "hh_perry_francis",
       "file": "households/hh_perry_francis.json",
-      "place": "recon_1835_blk_south_water_wells_d1_05",
+      "place": "recon_1835_blk_school_section_tier_82_d2_01",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -12648,12 +12684,12 @@
     {
       "household": "hh_poel_green",
       "file": "households/hh_poel_green.json",
-      "place": "recon_1835_blk_lake_market_d1_05",
+      "place": "recon_1835_blk_randolph_dearborn_d2_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -12684,7 +12720,7 @@
     {
       "household": "hh_polk_mary",
       "file": "households/hh_polk_mary.json",
-      "place": "recon_1835_blk_randolph_dearborn_d2_05",
+      "place": "recon_1835_blk_randolph_market_d2_09",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -12696,12 +12732,12 @@
     {
       "household": "hh_poor_edward",
       "file": "households/hh_poor_edward.json",
-      "place": "recon_1835_south_d1_003",
+      "place": "recon_1835_blk_school_section_tier_82_d2_01",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -12720,12 +12756,12 @@
     {
       "household": "hh_pottier_augustin",
       "file": "households/hh_pottier_augustin.json",
-      "place": "recon_1835_blk_randolph_dearborn_d2_05",
+      "place": "recon_1835_south_d1_010",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -12768,12 +12804,12 @@
     {
       "household": "hh_powell_reuben",
       "file": "households/hh_powell_reuben.json",
-      "place": "recon_1835_blk_school_section_tier_82_d2_01",
+      "place": "recon_1835_south_d1_003",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -12792,12 +12828,12 @@
     {
       "household": "hh_powers_t_w",
       "file": "households/hh_powers_t_w.json",
-      "place": "recon_1835_blk_south_water_wells_d1_05",
+      "place": "recon_1835_blk_south_water_franklin_d2_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -17064,24 +17100,24 @@
     {
       "household": "hh_reeder_henry",
       "file": "households/hh_reeder_henry.json",
-      "place": "recon_1835_blk_south_water_wells_d1_05",
+      "place": "recon_1835_blk_randolph_market_d2_09",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
     {
       "household": "hh_reel_absolam",
       "file": "households/hh_reel_absolam.json",
-      "place": "recon_1835_blk_south_water_franklin_d2_05",
+      "place": "recon_1835_blk_lake_market_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -17208,7 +17244,7 @@
     {
       "household": "hh_richardson_benjamin",
       "file": "households/hh_richardson_benjamin.json",
-      "place": "recon_1835_blk_lake_market_d1_05",
+      "place": "recon_1835_south_d1_003",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -17220,7 +17256,7 @@
     {
       "household": "hh_richey_thos_h",
       "file": "households/hh_richey_thos_h.json",
-      "place": "recon_1835_blk_randolph_market_d2_09",
+      "place": "recon_1835_blk_randolph_dearborn_d2_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -17292,7 +17328,7 @@
     {
       "household": "hh_risley_horace",
       "file": "households/hh_risley_horace.json",
-      "place": "recon_1835_blk_lake_market_d1_05",
+      "place": "recon_1835_south_d1_010",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -17376,7 +17412,7 @@
     {
       "household": "hh_robian_daniel_o",
       "file": "households/hh_robian_daniel_o.json",
-      "place": "recon_1835_south_d1_003",
+      "place": "recon_1835_south_d1_010",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -17424,7 +17460,7 @@
     {
       "household": "hh_rogers_bridget",
       "file": "households/hh_rogers_bridget.json",
-      "place": "recon_1835_south_d1_018",
+      "place": "recon_1835_south_d1_003",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -17436,7 +17472,7 @@
     {
       "household": "hh_rogers_edward_a",
       "file": "households/hh_rogers_edward_a.json",
-      "place": "recon_1835_south_d1_018",
+      "place": "recon_1835_blk_lake_market_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -17568,12 +17604,12 @@
     {
       "household": "hh_russell_aaron",
       "file": "households/hh_russell_aaron.json",
-      "place": "recon_1835_blk_randolph_dearborn_d2_05",
+      "place": "recon_1835_south_d1_018",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -17880,7 +17916,7 @@
     {
       "household": "hh_sawyer_james_a",
       "file": "households/hh_sawyer_james_a.json",
-      "place": "recon_1835_blk_south_water_lasalle_d1_04",
+      "place": "recon_1835_blk_south_water_wells_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -18324,7 +18360,7 @@
     {
       "household": "hh_silver_judge",
       "file": "households/hh_silver_judge.json",
-      "place": "recon_1835_blk_south_water_franklin_d2_05",
+      "place": "recon_1835_blk_school_section_tier_82_d2_01",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -18444,7 +18480,7 @@
     {
       "household": "hh_sloat_benjamin",
       "file": "households/hh_sloat_benjamin.json",
-      "place": "recon_1835_blk_south_water_wells_d1_05",
+      "place": "recon_1835_south_d1_003",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -18480,7 +18516,7 @@
     {
       "household": "hh_smith_jeremiah",
       "file": "households/hh_smith_jeremiah.json",
-      "place": "recon_1835_south_d1_010",
+      "place": "recon_1835_blk_south_water_wells_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -18612,12 +18648,12 @@
     {
       "household": "hh_spalding_franklin",
       "file": "households/hh_spalding_franklin.json",
-      "place": "recon_1835_blk_randolph_market_d2_09",
+      "place": "recon_1835_blk_south_water_wells_d1_07",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -18720,7 +18756,7 @@
     {
       "household": "hh_sproat_grenville",
       "file": "households/hh_sproat_grenville.json",
-      "place": "recon_1835_blk_south_water_lasalle_d1_04",
+      "place": "recon_1835_blk_lake_market_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -18732,12 +18768,12 @@
     {
       "household": "hh_squar_geo",
       "file": "households/hh_squar_geo.json",
-      "place": "recon_1835_south_d1_010",
+      "place": "recon_1835_blk_south_water_franklin_d2_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -18756,12 +18792,12 @@
     {
       "household": "hh_stafford_b_p",
       "file": "households/hh_stafford_b_p.json",
-      "place": "recon_1835_blk_lake_market_d1_05",
+      "place": "recon_1835_blk_randolph_market_d2_09",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -18816,7 +18852,7 @@
     {
       "household": "hh_starr_ruel",
       "file": "households/hh_starr_ruel.json",
-      "place": "recon_1835_south_d1_003",
+      "place": "recon_1835_south_d1_010",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -18924,12 +18960,12 @@
     {
       "household": "hh_stephenson_james_w",
       "file": "households/hh_stephenson_james_w.json",
-      "place": "recon_1835_blk_randolph_market_d2_09",
+      "place": "recon_1835_blk_south_water_lasalle_d1_04",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -18996,7 +19032,7 @@
     {
       "household": "hh_stiles_david",
       "file": "households/hh_stiles_david.json",
-      "place": "recon_1835_blk_randolph_market_d2_09",
+      "place": "recon_1835_blk_randolph_dearborn_d2_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -19020,7 +19056,7 @@
     {
       "household": "hh_stimson_s_c",
       "file": "households/hh_stimson_s_c.json",
-      "place": "recon_1835_blk_south_water_wells_d1_05",
+      "place": "recon_1835_south_d1_010",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -19104,12 +19140,12 @@
     {
       "household": "hh_stout_samuel",
       "file": "households/hh_stout_samuel.json",
-      "place": "recon_1835_blk_randolph_dearborn_d2_05",
+      "place": "recon_1835_south_d1_018",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -19332,12 +19368,12 @@
     {
       "household": "hh_taylor_william",
       "file": "households/hh_taylor_william.json",
-      "place": "recon_1835_south_d1_010",
+      "place": "recon_1835_blk_randolph_dearborn_d2_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -19692,7 +19728,7 @@
     {
       "household": "hh_tucker_alexr_h",
       "file": "households/hh_tucker_alexr_h.json",
-      "place": "recon_1835_blk_south_water_wells_d1_07",
+      "place": "recon_1835_south_d1_018",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -20616,7 +20652,7 @@
     {
       "household": "hh_vandeventer_wm",
       "file": "households/hh_vandeventer_wm.json",
-      "place": "recon_1835_blk_school_section_tier_82_d2_01",
+      "place": "recon_1835_blk_randolph_market_d2_09",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -20628,7 +20664,7 @@
     {
       "household": "hh_vandino_john",
       "file": "households/hh_vandino_john.json",
-      "place": "recon_1835_blk_lake_market_d1_05",
+      "place": "recon_1835_south_d1_010",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -20760,12 +20796,12 @@
     {
       "household": "hh_vaughn_alison_b",
       "file": "households/hh_vaughn_alison_b.json",
-      "place": "recon_1835_south_d1_003",
+      "place": "recon_1835_blk_south_water_franklin_d2_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -20796,7 +20832,7 @@
     {
       "household": "hh_vieau_josette",
       "file": "households/hh_vieau_josette.json",
-      "place": "recon_1835_blk_lake_market_d1_05",
+      "place": "recon_1835_blk_south_water_wells_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -20808,12 +20844,12 @@
     {
       "household": "hh_vieau_marie_josette",
       "file": "households/hh_vieau_marie_josette.json",
-      "place": "recon_1835_blk_south_water_franklin_d2_05",
+      "place": "recon_1835_blk_south_water_wells_d1_07",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -20940,12 +20976,12 @@
     {
       "household": "hh_walker_james",
       "file": "households/hh_walker_james.json",
-      "place": "recon_1835_south_d1_010",
+      "place": "recon_1835_blk_school_section_tier_82_d2_01",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -21012,12 +21048,12 @@
     {
       "household": "hh_ward_hanibal",
       "file": "households/hh_ward_hanibal.json",
-      "place": "recon_1835_blk_south_water_franklin_d2_05",
+      "place": "recon_1835_south_d1_010",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -21204,12 +21240,12 @@
     {
       "household": "hh_welsh_john",
       "file": "households/hh_welsh_john.json",
-      "place": "recon_1835_blk_school_section_tier_82_d2_01",
+      "place": "recon_1835_blk_south_water_lasalle_d1_04",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -21636,7 +21672,7 @@
     {
       "household": "hh_winn_jesse_b",
       "file": "households/hh_winn_jesse_b.json",
-      "place": "recon_1835_blk_lake_market_d1_05",
+      "place": "recon_1835_south_d1_010",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -21648,12 +21684,12 @@
     {
       "household": "hh_winship_charles",
       "file": "households/hh_winship_charles.json",
-      "place": "recon_1835_blk_school_section_tier_82_d2_01",
+      "place": "recon_1835_blk_south_water_wells_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -21720,7 +21756,7 @@
     {
       "household": "hh_wode_catherine",
       "file": "households/hh_wode_catherine.json",
-      "place": "recon_1835_blk_school_section_tier_82_d2_01",
+      "place": "recon_1835_blk_randolph_market_d2_09",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
@@ -21840,12 +21876,12 @@
     {
       "household": "hh_worden_nathaniel",
       "file": "households/hh_worden_nathaniel.json",
-      "place": "recon_1835_south_d1_018",
+      "place": "recon_1835_blk_randolph_dearborn_d2_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D1",
+      "family": "D2",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -21888,12 +21924,12 @@
     {
       "household": "hh_wright_amasa",
       "file": "households/hh_wright_amasa.json",
-      "place": "recon_1835_blk_south_water_franklin_d2_05",
+      "place": "recon_1835_blk_south_water_lasalle_d1_04",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -21924,12 +21960,12 @@
     {
       "household": "hh_young_gideon",
       "file": "households/hh_young_gideon.json",
-      "place": "recon_1835_blk_south_water_franklin_d2_05",
+      "place": "recon_1835_blk_lake_market_d1_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "south",
-      "family": "D2",
+      "family": "D1",
       "presence": "ruled_in",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -22167,14 +22203,6 @@
       "evidence": "The register's LAST sighting of this name is 1833-10-10 — entry 18 of 1833, of the 1 entry/entries that name her — 1.72 years before the scene date."
     },
     {
-      "household": "hh_dewey_d_s",
-      "file": "households/hh_dewey_d_s.json",
-      "persons": 7,
-      "why": "waiting_on_a_roof",
-      "leg": "carried",
-      "queue_position": 846
-    },
-    {
       "household": "hh_dixon_robert",
       "file": "households/hh_dixon_robert.json",
       "persons": 8,
@@ -22227,14 +22255,6 @@
       "confidence": "attested",
       "basis": "the_card's_own_reading",
       "evidence": "DEAD BEFORE THE DAY (T-2189)."
-    },
-    {
-      "household": "hh_guy_josphine",
-      "file": "households/hh_guy_josphine.json",
-      "persons": 1,
-      "why": "waiting_on_a_roof",
-      "leg": "carried",
-      "queue_position": 847
     },
     {
       "household": "hh_hall_george",
@@ -22363,14 +22383,6 @@
       "why": "waiting_on_a_roof",
       "leg": "carried",
       "queue_position": 869
-    },
-    {
-      "household": "hh_kulozjcky_john",
-      "file": "households/hh_kulozjcky_john.json",
-      "persons": 1,
-      "why": "waiting_on_a_roof",
-      "leg": "carried",
-      "queue_position": 848
     },
     {
       "household": "hh_laughton_david",

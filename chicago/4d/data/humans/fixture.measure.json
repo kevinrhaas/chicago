@@ -1,7 +1,7 @@
 {
   "_doc": "T-1787: the portable-human export path, measured in the browser by tools/human_fixture.mjs on the CI fixture that tools/human_export.sh builds (tools/human_fixture_blend.py -> tools/human_export.py -> gltf-transform meshopt). docs/HUMAN-ASSET-CONTRACT.md § 8 publishes the budgets from it. Frame times are SwiftShader (software) and only compare LODs with each other. tools/human_fixture.mjs --check (in tools/check.sh) holds every sha256 here to the committed GLB, so a rebuild that is not re-measured fails.",
   "ticket": "T-1787",
-  "measured": "2026-11-02",
+  "measured": "2026-11-04",
   "viewports": {
     "desktop": {
       "width": 1280,
@@ -20,7 +20,7 @@
         2,
         3
       ],
-      "web_bytes_if_all_fetched": 6943100,
+      "web_bytes_if_all_fetched": 6973408,
       "nearest_lod_triangles": 40973
     },
     "balanced": {
@@ -29,7 +29,7 @@
         2,
         3
       ],
-      "web_bytes_if_all_fetched": 2500108,
+      "web_bytes_if_all_fetched": 2515260,
       "nearest_lod_triangles": 24951
     },
     "light": {
@@ -37,17 +37,17 @@
         2,
         3
       ],
-      "web_bytes_if_all_fetched": 932196,
+      "web_bytes_if_all_fetched": 947348,
       "nearest_lod_triangles": 12348
     }
   },
   "files": [
     {
       "file": "assets/humans/anonymous_working_driver_1904.lod0.glb",
-      "sha256": "5ca3300d48e7479e29897665409c1e95340f3fc5831b35f3f0ba25d2a3b6edc6",
+      "sha256": "c3b285d0305559ee5fbe13695985df86cde4c38ca8d7efd8419fcdd2d97bc4b8",
       "lod": 0,
       "derivative_of": null,
-      "bytes": 8635408,
+      "bytes": 8650564,
       "meshopt": false,
       "triangles": 40973,
       "vertices": 22859,
@@ -96,17 +96,22 @@
           "duration_s": 1.2,
           "tracks": 112,
           "speed_m_s": 0.6
+        },
+        "sit_drive_look_v2": {
+          "duration_s": 8,
+          "tracks": 112,
+          "speed_m_s": null
         }
       },
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 308,
-        "mobile": 157.8
+        "desktop": 246.1,
+        "mobile": 337.4
       },
       "frame_ms_median": {
-        "desktop": 0.3,
-        "mobile": 0.3
+        "desktop": 0.4,
+        "mobile": 0.4
       },
       "verdicts": [
         {
@@ -250,12 +255,12 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 106.2,
-        "mobile": 121.3
+        "desktop": 372.3,
+        "mobile": 303
       },
       "frame_ms_median": {
-        "desktop": 0.2,
-        "mobile": 0.2
+        "desktop": 0.3,
+        "mobile": 0.5
       },
       "verdicts": [
         {
@@ -395,12 +400,12 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 109.3,
-        "mobile": 117.8
+        "desktop": 397.1,
+        "mobile": 340
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.2,
+        "mobile": 0.3
       },
       "verdicts": [
         {
@@ -472,10 +477,10 @@
     },
     {
       "file": "assets/humans/anonymous_working_driver_1904.lod3.glb",
-      "sha256": "c9d644084cff807aa5faea6387213a28ea9f7f431b6e2eb2997e1d58d4fc8f41",
+      "sha256": "3833f8fc26f722d17c62afa36ce1b511e38fd112142619db58fa1bf9f551ef75",
       "lod": 3,
       "derivative_of": null,
-      "bytes": 7241288,
+      "bytes": 7256444,
       "meshopt": false,
       "triangles": 6026,
       "vertices": 4185,
@@ -520,17 +525,22 @@
           "duration_s": 1.2,
           "tracks": 112,
           "speed_m_s": 0.6
+        },
+        "sit_drive_look_v2": {
+          "duration_s": 8,
+          "tracks": 112,
+          "speed_m_s": null
         }
       },
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 131,
-        "mobile": 108.9
+        "desktop": 326.8,
+        "mobile": 378.9
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.2,
+        "mobile": 0.2
       },
       "verdicts": [
         {
@@ -602,10 +612,10 @@
     },
     {
       "file": "assets/humans/bardwell_otis_1835.lod0.glb",
-      "sha256": "821d771462b6ff583c27ccc00fbcde3604dc34d24b4512c5d5ba92dba331589f",
+      "sha256": "4816ec6176ef6037834c1e8a14c528a5b394173bfa2821372bd66ae1d802bd38",
       "lod": 0,
       "derivative_of": null,
-      "bytes": 8673076,
+      "bytes": 8688224,
       "meshopt": false,
       "triangles": 41555,
       "vertices": 23209,
@@ -659,17 +669,22 @@
           "duration_s": 8,
           "tracks": 112,
           "speed_m_s": null
+        },
+        "sit_drive_look_v2": {
+          "duration_s": 8,
+          "tracks": 112,
+          "speed_m_s": null
         }
       },
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 114.7,
-        "mobile": 108.3
+        "desktop": 241.8,
+        "mobile": 218.9
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.3,
+        "mobile": 0.2
       },
       "verdicts": [
         {
@@ -818,12 +833,12 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 106.9,
-        "mobile": 123.1
+        "desktop": 217.9,
+        "mobile": 208
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.2,
+        "mobile": 0.2
       },
       "verdicts": [
         {
@@ -968,12 +983,12 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 118.9,
-        "mobile": 127.7
+        "desktop": 275,
+        "mobile": 214.1
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.2,
+        "mobile": 0.2
       },
       "verdicts": [
         {
@@ -1045,10 +1060,10 @@
     },
     {
       "file": "assets/humans/bardwell_otis_1835.lod3.glb",
-      "sha256": "18e48c466ace5f47f799607128b52c1a9118627fec7afc323ad18cd63c4914d1",
+      "sha256": "2c57f30ca74d2390913167a63e2df6fe0b3b92d9296c6b078d237e6bda0a693e",
       "lod": 3,
       "derivative_of": null,
-      "bytes": 7258004,
+      "bytes": 7273156,
       "meshopt": false,
       "triangles": 6098,
       "vertices": 4230,
@@ -1098,17 +1113,22 @@
           "duration_s": 8,
           "tracks": 112,
           "speed_m_s": null
+        },
+        "sit_drive_look_v2": {
+          "duration_s": 8,
+          "tracks": 112,
+          "speed_m_s": null
         }
       },
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 99.8,
-        "mobile": 117.1
+        "desktop": 196.7,
+        "mobile": 227.3
       },
       "frame_ms_median": {
         "desktop": 0.1,
-        "mobile": 0.1
+        "mobile": 0.2
       },
       "verdicts": [
         {
@@ -1217,12 +1237,12 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 10.3,
-        "mobile": 19.9
+        "desktop": 19.4,
+        "mobile": 14.7
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.3,
+        "mobile": 0.2
       },
       "verdicts": [
         {
@@ -1346,12 +1366,12 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 13,
-        "mobile": 12.2
+        "desktop": 24.3,
+        "mobile": 18.9
       },
       "frame_ms_median": {
         "desktop": 0.1,
-        "mobile": 0.1
+        "mobile": 0.2
       },
       "verdicts": [
         {
@@ -1471,8 +1491,8 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 11.7,
-        "mobile": 18.3
+        "desktop": 14.2,
+        "mobile": 11.7
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -1581,8 +1601,8 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 10.4,
-        "mobile": 11.9
+        "desktop": 18.4,
+        "mobile": 11.2
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -1658,10 +1678,10 @@
     },
     {
       "file": "assets/humans/web/anonymous_working_driver_1904.lod0.glb",
-      "sha256": "7a3c2392e63edf75950f48a4bd607075f3e8c71015db5c81a6d8a7df40b0f09e",
+      "sha256": "49a84c1d858f67359ff33e56762336ade56db1dcbbb1cbe923846d95825c9547",
       "lod": 0,
       "derivative_of": "assets/humans/anonymous_working_driver_1904.lod0.glb",
-      "bytes": 4442992,
+      "bytes": 4458148,
       "meshopt": true,
       "triangles": 40973,
       "vertices": 22859,
@@ -1710,17 +1730,22 @@
           "duration_s": 1.2,
           "tracks": 112,
           "speed_m_s": 0.6
+        },
+        "sit_drive_look_v2": {
+          "duration_s": 8,
+          "tracks": 112,
+          "speed_m_s": null
         }
       },
       "rest_height_m": 1.7539,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 85,
-        "mobile": 119.7
+        "desktop": 155,
+        "mobile": 172.2
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.3,
+        "mobile": 0.2
       },
       "verdicts": [
         {
@@ -1874,12 +1899,12 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 36.4,
-        "mobile": 36.5
+        "desktop": 120.7,
+        "mobile": 71.2
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.2,
+        "mobile": 0.2
       },
       "verdicts": [
         {
@@ -2029,12 +2054,12 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 24.9,
-        "mobile": 22.6
+        "desktop": 93,
+        "mobile": 73.4
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.2,
+        "mobile": 0.2
       },
       "verdicts": [
         {
@@ -2116,10 +2141,10 @@
     },
     {
       "file": "assets/humans/web/anonymous_working_driver_1904.lod3.glb",
-      "sha256": "681da7b7e9119f5c4e8bf0ddd0a491427ef5898697665157b2321d8725138bed",
+      "sha256": "84e602cd49c6e355fb25bc6659a0f4a9e573e4bebe6ce8d2e30e14ed5250b60b",
       "lod": 3,
       "derivative_of": "assets/humans/anonymous_working_driver_1904.lod3.glb",
-      "bytes": 311448,
+      "bytes": 326600,
       "meshopt": true,
       "triangles": 6026,
       "vertices": 4185,
@@ -2164,17 +2189,22 @@
           "duration_s": 1.2,
           "tracks": 112,
           "speed_m_s": 0.6
+        },
+        "sit_drive_look_v2": {
+          "duration_s": 8,
+          "tracks": 112,
+          "speed_m_s": null
         }
       },
       "rest_height_m": 1.7537,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 18,
-        "mobile": 15.7
+        "desktop": 38.2,
+        "mobile": 62.3
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.2,
+        "mobile": 0.2
       },
       "verdicts": [
         {
@@ -2256,10 +2286,10 @@
     },
     {
       "file": "assets/humans/web/bardwell_otis_1835.lod0.glb",
-      "sha256": "d568cb8f7d17fb9f8ca7035049c6f1c3f02a30f3d153242d1ea67f876b454ddf",
+      "sha256": "afc2fda09713911404b4b2c39ee08bf5d98e126f62ca16c55cf50de728586c6b",
       "lod": 0,
       "derivative_of": "assets/humans/bardwell_otis_1835.lod0.glb",
-      "bytes": 4463076,
+      "bytes": 4478104,
       "meshopt": true,
       "triangles": 41555,
       "vertices": 23209,
@@ -2313,17 +2343,22 @@
           "duration_s": 8,
           "tracks": 112,
           "speed_m_s": null
+        },
+        "sit_drive_look_v2": {
+          "duration_s": 8,
+          "tracks": 112,
+          "speed_m_s": null
         }
       },
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 73.9,
-        "mobile": 96.7
+        "desktop": 291.7,
+        "mobile": 262.7
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.2,
+        "mobile": 0.2
       },
       "verdicts": [
         {
@@ -2482,11 +2517,11 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 46.9,
-        "mobile": 45.4
+        "desktop": 87.4,
+        "mobile": 68
       },
       "frame_ms_median": {
-        "desktop": 0.1,
+        "desktop": 0.2,
         "mobile": 0.1
       },
       "verdicts": [
@@ -2642,11 +2677,11 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 33.3,
-        "mobile": 36.2
+        "desktop": 71.2,
+        "mobile": 41.8
       },
       "frame_ms_median": {
-        "desktop": 0.1,
+        "desktop": 0.2,
         "mobile": 0.1
       },
       "verdicts": [
@@ -2729,10 +2764,10 @@
     },
     {
       "file": "assets/humans/web/bardwell_otis_1835.lod3.glb",
-      "sha256": "bb650009de2987b46e1c54fa64ca45f42c7e3d088f71de3451adb8d83c9de0d7",
+      "sha256": "9423585a506b1ae317c08c7eae9fb936e6ceea5e46d00ae6b2673f8c5e268f81",
       "lod": 3,
       "derivative_of": "assets/humans/bardwell_otis_1835.lod3.glb",
-      "bytes": 325492,
+      "bytes": 340516,
       "meshopt": true,
       "triangles": 6098,
       "vertices": 4230,
@@ -2782,16 +2817,21 @@
           "duration_s": 8,
           "tracks": 112,
           "speed_m_s": null
+        },
+        "sit_drive_look_v2": {
+          "duration_s": 8,
+          "tracks": 112,
+          "speed_m_s": null
         }
       },
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 13.7,
-        "mobile": 27
+        "desktop": 30.2,
+        "mobile": 56
       },
       "frame_ms_median": {
-        "desktop": 0.1,
+        "desktop": 0.2,
         "mobile": 0.1
       },
       "verdicts": [
@@ -2911,12 +2951,12 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 11.3,
-        "mobile": 11.4
+        "desktop": 16.9,
+        "mobile": 53.7
       },
       "frame_ms_median": {
         "desktop": 0.1,
-        "mobile": 0.1
+        "mobile": 0.2
       },
       "verdicts": [
         {
@@ -3050,11 +3090,11 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 10.9,
-        "mobile": 10
+        "desktop": 26.6,
+        "mobile": 60.7
       },
       "frame_ms_median": {
-        "desktop": 0.1,
+        "desktop": 0.2,
         "mobile": 0.1
       },
       "verdicts": [
@@ -3185,8 +3225,8 @@
       "rest_height_m": 1.7032,
       "soles_y_m": 0.0018,
       "load_ms": {
-        "desktop": 9.5,
-        "mobile": 12
+        "desktop": 19.2,
+        "mobile": 10.4
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -3305,12 +3345,12 @@
       "rest_height_m": 1.7032,
       "soles_y_m": 0.0018,
       "load_ms": {
-        "desktop": 10,
-        "mobile": 7.3
+        "desktop": 11.8,
+        "mobile": 11.4
       },
       "frame_ms_median": {
         "desktop": 0.1,
-        "mobile": 0
+        "mobile": 0.1
       },
       "verdicts": [
         {

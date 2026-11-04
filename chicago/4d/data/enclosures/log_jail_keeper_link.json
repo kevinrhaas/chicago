@@ -1,0 +1,103 @@
+{
+  "id": "log_jail_keeper_link",
+  "name": "The keeper-side low hung gate",
+  "kind": "yard",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "structure_id": "log_jail",
+  "belongs_to": [
+    "log_jail",
+    "log_jail_keeper_house"
+  ],
+  "documented_range": {
+    "from": "1833-10-01",
+    "to": "1835-12-31",
+    "confidence": "reconstructed",
+    "note": "Continuity bounds copied from the enclosed jail phase, not a dated fence contract. Gale1902 p51 remembers the small jail concealed within a high plank palisade in his1835 town-walk narrative; its exact completion relative to1July is not dated. The separate plate is captioned1836. Building this enclosure in theJuly scene is a declared continuity reconstruction; neither the1833 opening bound nor the1835 closing bound dates this fence."
+  },
+  "existence": {
+    "value": true,
+    "confidence": "inferred",
+    "sources": [
+      "trowbridge_first_jail_gale_1902"
+    ],
+    "note": "The1902 plate captioned1836 shows a low framed hung gate beside the keeper front door, linking house to tall palisade. ExactJuly1835 continuity is reconstructed."
+  },
+  "runs": [
+    {
+      "id": "keeper_link",
+      "path_local_enu_m": [
+        [
+          472.306,
+          -269.25
+        ],
+        [
+          473.31,
+          -269.97
+        ]
+      ],
+      "note": "R diagonal link between proposed tall front endpoint and V3 keeper NW corner.1.235 m is derived from these reconstructed endpoints, not measured from the picture. The whole run is an opening; tall endpoint supplies its own jamb and the native gate opt-in adds only the low house-end jamb."
+    }
+  ],
+  "openings": [
+    {
+      "id": "keeper_link_gate",
+      "on": "keeper_link",
+      "at_local_enu_m": [
+        472.808,
+        -269.61
+      ],
+      "width_m": 1.2354820921405854,
+      "confidence": "reconstructed",
+      "opens_into_local_enu_m": [
+        472.5,
+        -271.0
+      ],
+      "gate": {
+        "kind": "foot_gate",
+        "leaves": 1,
+        "leaf_stock": "braced_rail",
+        "hinge": "b",
+        "swing_deg": 0,
+        "jamb_posts": "b",
+        "confidence": "reconstructed",
+        "note": "Native optional open framed leaf with one diagonal brace. Low open hung profile is pictorially inferred; exact stock, brace direction, hinge, closed pose and dimensions are R. Existing board/picket/default gate output is untouched."
+      },
+      "note": "Link post-centre spacing1.235 m, native timber/hinge/latch allowances leave about1.035 m of leaf. This is not a new independent historical width. Low gate remains outside both genuine core approach and proposed keeper doorway approach."
+    }
+  ],
+  "form": {
+    "fence_type": {
+      "value": "post_and_rail",
+      "confidence": "reconstructed",
+      "note": "Native container for a fully open link run; no rail-fence bays are emitted because its entire length is the declared gate opening."
+    },
+    "height_m": {
+      "value": 1.1,
+      "confidence": "reconstructed",
+      "note": "Chosen low jamb height to distinguish the source low hung gate from3.05 m palisade. No metric height is attested."
+    },
+    "post_size_m": {
+      "value": 0.14,
+      "confidence": "reconstructed",
+      "note": "Native gate stock140 mm; no source scantling."
+    },
+    "post_spacing_m": {
+      "value": 2.44,
+      "confidence": "reconstructed"
+    },
+    "rail_courses": {
+      "value": 2,
+      "confidence": "reconstructed"
+    }
+  },
+  "citations": [
+    {
+      "source_id": "trowbridge_first_jail_gale_1902",
+      "citation": "Edwin O.Gale, Reminiscences of Early Chicago and Vicinity (Chicago:Fleming H.Revell,1902), p51 and plate facingp53; actual scan n76/n79. Illustration byW.E.S.Trowbridge, captioned1836.",
+      "tier": 5,
+      "tier_label": "retrospective memoir and illustration, independently verified1902 publication"
+    }
+  ],
+  "research_note": "Low framed hung gate between the keeper house and high palisade, informed by the verified1902 plate captioned1836. One diagonal brace, exact1.10m height, stock, hinge direction, pose, jamb and all metric placement are reconstructed. The native descriptor is opt-in; ordinary fence and gate defaults remain unchanged. The original compound picture acceptance remains DIFFERS, and current published clearance/terrain review is required. No July construction date, measured dimension or completed match is claimed."
+}

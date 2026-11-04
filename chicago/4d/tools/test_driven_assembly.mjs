@@ -653,3 +653,63 @@ console.log('module-warm oldgeneration cancels beforemodels/newgeneration mounts
   await assert.rejects(retry(), /offline/); fail = false; assert.deepEqual(await retry(), {});
 }
 console.log('eligible named-card warm: actual directory household/citation cache, no UI/model dependency, guarded optional failures PASS');
+
+// A qualified seated look consumes one visual interval even when its vehicle is
+// stopped. It never consumes the bounded vehicle substeps as a second clock.
+{
+  let phase = 0, legacyUpdates = 0, freed = 0, mounts = 0;
+  const visualCalls = [];
+  const town = createTownTransport({ rows: [{ ...validRow, id: 'visual-driver' }], sceneId: '1835',
+    heightAt: () => 0, clear: () => true,
+    makeAssembly(row) {
+      mounts++;
+      phase = row.initial_assembly_state?.driver?.time_s ?? 0;
+      const scene = vehicle.clone(true);
+      return createDrivenAssembly({ vehicle: scene,
+        driver: { root: new THREE.Group(), update() { legacyUpdates++; },
+          updateVisual(dt) { phase += dt; visualCalls.push(dt); },
+          snapshot() { return { time_s: phase }; } },
+        horse: { root: new THREE.Group(), advance() {}, stop() {} },
+        driverSeat_m: [0, 1.58, .65], horseOffset_m: [0, 0, 5], disposeVehicle() { freed++; } });
+    } });
+  const near = { x: 20, z: 0 };
+  await town.ready();
+  town.update(.2, near, { visualDt: .7 });
+  assert.equal(phase, 0, 'first actual visual frame begins at the restored pose');
+  town.update(.2, near, { visualDt: .7 });
+  assert.equal(phase, .7);
+  assert.equal(legacyUpdates, 0, 'vehicle substeps cannot double-advance the looking clip');
+  const moving = town.actors[0]; moving.stop();
+  const stopped = moving.snapshot(), stoppedRoot = town.roots[0].matrixWorld.toArray();
+  town.update(.25, near, { visualDt: 3 });
+  assert.equal(phase, 3.7, 'driver can look while the vehicle remains stopped');
+  assert.equal(moving.snapshot().distance_m, stopped.distance_m);
+  assert.deepEqual(moving.snapshot().wheel_rotation_rad, stopped.wheel_rotation_rad);
+  assert.deepEqual(town.roots[0].matrixWorld.toArray(), stoppedRoot);
+  for (const hold of [{ paused: true }, { reducedMotion: true }, { hidden: true }]) {
+    const saved = phase;
+    town.update(.25, near, { ...hold, visualDt: 8 });
+    assert.equal(phase, saved);
+    town.update(.25, near, { visualDt: 8 });
+    assert.equal(phase, saved, 'first frame after each hold discards held elapsed time');
+    town.update(.25, near, { visualDt: .25 });
+    assert.equal(phase, saved + .25);
+  }
+  const beforeRange = phase;
+  town.update(.25, { x: 1000, z: 1000 }, { visualDt: 8 });
+  town.update(.25, near, { visualDt: 8 });
+  assert.equal(phase, beforeRange, 'out-of-range/first return frame is frozen');
+  town.update(.25, near, { visualDt: .5 });
+  const beforeLight = phase;
+  await town.setTier('light');
+  assert.equal(freed, 1); assert.equal(town.actors.length, 0);
+  await town.setTier('full');
+  assert.equal(mounts, 2); assert.equal(phase, beforeLight);
+  assert.equal(town.actors[0].state, 'stopped');
+  assert.deepEqual(town.actors[0].snapshot().wheel_rotation_rad, stopped.wheel_rotation_rad);
+  town.update(.25, near, { visualDt: .125 });
+  assert.equal(phase, beforeLight + .125, 'Light restoration keeps the driver phase');
+  assert(visualCalls.every(dt => Number.isFinite(dt) && dt >= 0));
+  town.dispose(); assert.equal(freed, 2);
+}
+console.log('seated driver visual clock: stop, holds, range, Light restoration and no doubled vehicle time PASS');
