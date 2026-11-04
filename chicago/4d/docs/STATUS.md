@@ -1,3 +1,35 @@
+## T-3041 — the first fort's north-east small house, and nothing else in that picture (2026-11-03)
+
+`first_fort_dearborn_small_house_ne` carries the four-sided pyramid cap the Currey 1912
+bird's-eye draws in the fort's north-east inner angle, adopted on the owner's ruling of
+2026-11-03 (T-3335). The roof attribute moves from `gable`/`reconstructed` to
+`pyramid`/`inferred`; the archetype grew an opt-in `pyramid` branch with its own
+triangular covering, and the branch refuses an open side, a loft or a chimney rather
+than approximate one. Nothing else about the building moved — not the walls, the batten
+door, the rear vent, the footprint, the 2.4 m wall, the reconstructed 34-degree pitch,
+the surveyed seat or the bearing — and the drawing supplies none of those.
+
+**What is NOT done.** T-3041 and its parent T-2387 are not finished and are released
+open. The Currey view's verdict is still `differs`: the blockhouse cupolas, the
+magazine's barrel vault and the western gateway are all still `open` on the match
+record, and the full first-fort acceptance (21 named records, nine context records,
+every listed picture) is untouched by this increment. One difference of thirteen moved.
+
+**What was verified, and what was not.** The original worker's source qualification
+was incomplete: parts 1–3 passed, part 4 failed on the liberties register, and only the
+failed validator step was rerun after its repair. That is not a complete four-part pass;
+final integration source checks and actual app smoke are recorded on PR1685. The original
+worker did not rerun the whole fifteen-case smoke. Changing `outbuilding.py` staled all
+243 committed outbuilding masters; all 243 were regenerated on the pinned, sha-verified
+Blender 4.5.3 before the first source commit. Of 180 changed MASTER blobs, one is this
+house's intended roof change and 179 have only unused UV coordinates repacked. An
+independent accessor audit found all 179 default meshes' positions, normals, colours,
+indices, materials and topology exact, with no texture or image bindings. The remaining
+63 masters were byte-identical. Re-encoding the 180 changed masters moved exactly ONE
+WEB derivative, the NE small house's; every other WEB blob stayed exact. The earlier
+attribution to sub-millimetre hardware float noise was incorrect. No freshness hash was
+written by hand.
+
 ## T-3262 — deferred verge buffers
 
 Unreached railway verge tufts retain their exact final Float32 transforms and colours in a smaller CPU cache. The existing reach installs their full buffers before drawing, while density changes retain the original counts. Unusual transforms or colours keep an exact fallback. The tie cache and the original mesh identities remain intact.
