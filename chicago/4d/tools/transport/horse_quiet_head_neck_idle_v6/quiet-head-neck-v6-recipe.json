@@ -1,0 +1,44 @@
+{
+  "schema": "quiet_head_neck_idle_v6",
+  "source_parent_sha256": "0ced8a09e27da047ad404c902e9d032e43654393027199db8dfd9c315be17929",
+  "paired_parent_sha256": "a3eca1a164e2adf13d7d5f6699ff43de66d48dde0e3220f4aae90591dcaf4cb3",
+  "head_template_sha256": "a9d9573368f48b4df839c3f246035aa7ac96b04ca098c37e015113266954cf8e",
+  "selected_clip": "sevket_reconstructed_quiet_head_neck_idle_v1",
+  "retained_channels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "omitted_added_tail_channels": [
+    15,
+    16
+  ],
+  "source17_unqualified": true,
+  "head_field": "All2306 head/neck JOINTS_0/WEIGHTS_0 rows exactly V4; no new field solve",
+  "tail_field": "All969 original V2 tail rows exact; no V4/V5 tail adoption",
+  "all_retained_curve_bytes_and_amplitudes_exact": true,
+  "all_original13_and_failed17_preserved": true,
+  "qualifications": {
+    "source_export": "UNRUN",
+    "native_old13": "UNRUN",
+    "native_quiet15": "UNRUN",
+    "paired925": "UNRUN",
+    "world": "UNRUN",
+    "runtime_adoption": false,
+    "old_certificate_transferred": false
+  },
+  "scope": "Project-authored reconstructed quiet head/neck first motion. Tail gesture/walk/trot/riding and broader photographic acceptance remain open.",
+  "source_credit": "Horse by sevketkabatas, CC-BY-4.0; original source lineage assets/authored/transport/horse_standing/SOURCE.json. Project-authored binding GPL-3.0-or-later."
+}

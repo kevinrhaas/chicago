@@ -53,8 +53,8 @@ disposable. The first rendered scene is `1835` (target date 1835-07-01).
    (T-3299): whole, it was about nineteen minutes of pool on four cores on 2026-11-01, so
    a bare call is cut off at the 600 s cap with no verdict. The parts are a partition of
    the same steps, and each one publishes the mirror for itself. All four green is the
-   gate green; one part's `CHECK PASS — part k/4` is not, and it says so. CI runs it
-   whole. It runs its steps in a pool sized to the machine (`CHECK_JOBS`, on by
+   gate green; one part's `CHECK PASS — part k/4` is not, and it says so. CI runs the same complete gate in eight parallel parts; its required
+   `gate` check passes only when every part succeeds. It runs its steps in a pool sized to the machine (`CHECK_JOBS`, on by
    default since T-1578 — it was serial everywhere but CI, where a 620 s gate no longer
    fit the 600 s a run's single foreground command gets, so a run got no verdict at all).
    `CHECK_JOBS=1` is the serial escape hatch, for reproducing one step's red on a quiet

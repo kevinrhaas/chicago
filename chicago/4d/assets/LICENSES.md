@@ -1641,3 +1641,220 @@ images intentionally have bounded, recorded codec loss rather than byte identity
 Exact reconstructed-fit limitation: the retained artist kingbolt axis is 4.994mm eccentric from the tyre-centre yaw frame (XZ+1.925/+4.609mm), moving0.697mm over an8degree turn. No exact coaxial/strength claim. Original rims retain at most2.617mm radial ground irregularity; this is not a perfect-circle/suspension simulation.
 
 The final farm-box master also includes an actual central90x55mm coupling reach, reconstructed from the same licensed shaft surface/UVs and separately owned in vehicle_reach. Its end connections are geometry-checked against the fixed front bolster and rear axle. The actual original28-triangle kingbolt is separately owned in vehicle_kingbolt; this is a component split, not an empty proxy or a hidden change to source surfaces. Both remain CC BY4.0 derivatives with the same author credit; fit/strength/historic-design limits remain reconstruction.
+
+## T-3088 source-bounded horse anatomy authoring
+
+The anatomy recipes derive from the preserved selected d454 standing horse above,
+under the same sevketkabatas **CC-BY-4.0** credit, source URL and change-notice
+requirements. Existing source images, repaired eye UVs, acquired original,
+b479 and d454 parent files remain preserved. The project-authored recipe code
+and bounds are **GPL-3.0-or-later**; no claim is made that a software licence
+replaces the model's attribution licence.
+
+|Path relative to assets/|Licence and provenance|
+|---|---|
+|`authored/transport/horse_standing/generate_anatomy_v1.py`|Project-authored GPL-3.0-or-later source-only smooth rest-surface recipe; parent mesh rights remain CC-BY-4.0.|
+|`authored/transport/horse_standing/anatomy-v1-recipe.json`|Project-authored reconstructed source bounds and exact reference-image bindings; no reference pixels copied into the model.|
+|`authored/transport/horse_standing/generate_anatomy_v2.py`|Project-authored GPL-3.0-or-later canonical authored-mesh derivation with immutable-parent and live-field lineage.|
+|`authored/transport/horse_standing/anatomy_topology_v2.py`|Project-authored GPL-3.0-or-later adaptive hoof-wall/coronet/toe subdivision and bounded fairing; generated geometry remains an attributed CC-BY-4.0 model derivative.|
+|`authored/transport/horse_standing/anatomy-v2-recipe.json`|Project-authored reconstructed anatomy/topology choices, per-feature source IDs, confidence and immutable reference hashes.|
+|`authored/transport/horse_standing/ANATOMY.md`|Project-authored source, reconstruction, authoring and acceptance boundary notice; original model attribution remains separate.|
+|`authored/transport/horse_standing/horse-sevket-anatomy-v2.glb`|CC-BY-4.0 derivative of sevketkabatas' Horse; reconstructed eyelid and hoof topology changes declared in ANATOMY.md and the versioned recipe. Repaired eye UVs and original six image payloads retain the source rights and credit.|
+
+The anatomy runtime copy is byte-identical at
+`renderers/web/transport/standing-horse/horse-sevket-anatomy-v2.glb`.
+The original acquired model and b479/d454 authored parents and their old receipts
+remain unchanged. Fresh selected-body Mixer129 physical proof is separate from
+surface, LOD, world, device performance and photographic qualification.
+
+The input plates by Ellenberger/Baum/Dittrich and Seton are recorded public-domain
+anatomical works. The Vassil and Joselodos living-animal photographs are cleared
+CC0 references. These supply anatomical relationships and visible continuity;
+neither the modern animals' breeds/markings nor their dimensions become evidence
+for an 1835 Chicago animal. Their pixels are not sampled into output textures.
+The unchanged six model texture payloads retain the source model's CC-BY-4.0
+provenance. Source recipes and uninstalled candidate generation do not constitute
+native, physical, historical or photographic acceptance.
+
+
+## T-3088 exact fixed-boundary upper-lid strip
+
+The selected5a2b2e87 source is a **CC-BY-4.0 derivative of Horse by
+sevketkabatas**, published29March2021, retrieved via Objaverse. The original
+credit, licence/source URLs and ODC-By1.0 dataset notice remain in
+`authored/transport/horse_standing/SOURCE.json`;925fac95, d454 and the acquired
+original remain preserved. The changes replace142 upper-lid head face slots,
+41 interior position/normal rows and two declared internal BODY UV rows. Every
+EYE UV and all six original image payloads retain their exact bytes and source
+rights. No reference-photo pixels are copied into model textures.
+
+|Path relative to assets/|Licence and provenance|
+|---|---|
+|`authored/transport/horse_standing/horse-sevket-upper-lid-strip-v1.glb`|CC-BY-4.0 derivative of sevketkabatas' Horse via Objaverse, exact qualified5a source copied without re-export. Fixed-boundary upper-lid topology and two BODY UV repairs are declared in ANATOMY.md and the versioned recipe; source model/images keep their original attribution.|
+|`authored/transport/horse_standing/upper-lid-strip-v1-recipe.json`|Project-authored GPL-3.0-or-later reconstructed bounds, explicit patch/UV ownership and cleared source/reference bindings. No source pixels or modern breed identity are transferred as historical evidence.|
+|`authored/transport/horse_standing/generate_upper_lid_strip_v1.py`|Project-authored GPL-3.0-or-later deterministic NumPy source generator derived from the reviewed strip algorithm. It verifies immutable parents, source rights and fixed bounds; generation does not replace the model's CC-BY-4.0 attribution or assert qualification.|
+
+The exact runtime copy is
+`renderers/web/transport/standing-horse/horse-sevket-upper-lid-strip-v1.glb`.
+The old925 authored/runtime files remain unchanged. Ellenberger/Baum/Dittrich
+public-domain anatomy plates and the Joselodos CC0 living-animal reference guide
+this bounded reconstruction; their rights, dates and limits remain in the source
+register. Source qualification and visible anatomical improvement do not establish
+full photographic, historical-individual, gait or occupied-use acceptance.
+
+
+### Preserved5a child: upper-orbital BODY transition (T-3088)
+
+| File | Credit and scope |
+|---|---|
+|`authored/transport/horse_standing/horse-sevket-upper-orbital-transition-v1.glb`|Exact e49b CC-BY-4.0 derivative of sevketkabatas's2021 Horse; original modern author, source URL and Objaverse/acquisition provenance remain in SOURCE.json. Project-authored reconstructed BODY ridge adjustment; no historical owner/breed or pixel-calibrated period measurement claimed.|
+|`authored/transport/horse_standing/upper-orbital-transition-v1-recipe.json`|GPL-3.0-or-later project recipe, explicit10-position/38-normal region, same-side fixed anchors and unchanged limits. Original5a/f77 recipe and strict failure remain preserved.|
+|`authored/transport/horse_standing/generate_upper_orbital_transition_v1.py`|GPL-3.0-or-later pure source-table generator and protected-source controls; it does not replace the asset's CC-BY-4.0 attribution or prove photographic likeness.|
+
+The runtime file is `renderers/web/transport/standing-horse/horse-sevket-upper-orbital-transition-v1.glb`, byte-identical to the authored source. All5a/925/d454/raw/canonical26 sources and old modes remain. Cleared PD anatomy/CC0 living-animal references guide the bounded reconstruction with their existing date/identity limits. Exact-source fresh129 and matched source views support this increment; current app/yard/full gates and remaining anatomy/surface concerns are separate.
+
+
+### Pending e49 child: eye smooth normals (T-3088, 29 October 2026)
+
+|File|License and change notice|
+|---|---|
+|`authored/transport/horse_standing/horse-sevket-eye-smooth-normals-v1.glb`|CC-BY-4.0 derivative of “Horse” by sevketkabatas, published29March2021, via the preserved Objaverse/acquisition lineage and original source URL in SOURCE.json. Exact e49 parent; only3968 EYE NORMAL rows and their truthful accessor min/max change. Existing model, six images, UVs, rig, clip and material credit remain unchanged.|
+|`authored/transport/horse_standing/eye-smooth-normals-v1-recipe.json`|GPL-3.0-or-later project recipe for deterministic source-derived sphere normals. Its historical unadopted creation-state notice is preserved; it does not grant asset qualification.|
+|`authored/transport/horse_standing/generate_eye_smooth_normals_v1.py`|GPL-3.0-or-later project source-table derivation and protected-byte verifier; the emitted model remains credited to sevketkabatas under CC-BY-4.0.|
+
+This is a separately declared pending source child, not the selected runtime horse.
+SOURCE.json retains the original modern author, source URL, license URL and parent
+lineage. No normal texture, new photograph, reference-image derivative or invented
+historical individual is introduced. Exact-child physical/socket qualification,
+canonical source gates and genuine native organic yard comparison remain pending.
+The e49/5a/925/d454 assets and their exact-byte certificates remain preserved.
+
+
+The separate eye-normal child above is now source-selected under explicit
+`eye_smooth_normals_v1` after fresh29October2026 canonical static/native
+physical129/posed socket129 qualification of exact bd443 bytes. Its runtime copy
+is `renderers/web/transport/standing-horse/horse-sevket-eye-smooth-normals-v1.glb`.
+The preserved e49 parent retains its old exact-byte proof. The new recipe's
+creation notice remains historical; actual qualification is in the separate
+source-bound summary. Native organic published-yard comparison and whole-photo
+acceptance remain pending. Source credits and CC-BY-4.0 license do not change.
+
+
+### Pending natural planted idle source (T-2803, 29 October 2026)
+
+|File|License and change notice|
+|---|---|
+|`authored/transport/horse_standing/horse-sevket-natural-planted-idle-v1.glb`|Animation-only CC-BY-4.0 model derivative of sevketkabatas' Horse, via unchanged SOURCE.json/Objaverse acquisition lineage. All geometry, skin, six images, materials and existing clip retain original credit. Project-authored reconstructed neck/head look and tail flick are exported as one additional clip; no source-native donated animation, historical individual/breed or gait is claimed.|
+|`authored/transport/horse_standing/natural-planted-idle-v1-recipe.json`|GPL-3.0-or-later project reconstructed motion parameters, explicit local axes and original standing protections. Historical creation flags remain preserved; qualification is separate.|
+|`authored/transport/horse_standing/generate_natural_planted_idle_v1.py`|GPL-3.0-or-later deterministic portable animation-only source generator and strict parent-byte verifier. Emitted model credit and CC-BY-4.0 attribution remain intact.|
+|`authored/transport/horse_standing/natural-planted-idle-v1-PROVENANCE.json`|GPL-3.0-or-later project change/provenance notice with original licensed asset credit, parent/candidate identities and pending qualification scope.|
+
+Exact source candidate8ea7748f is PREPARED ONLY. Active runtime stays exact bd443
+and its existing one-clip mode. Fresh selected17track native physical/socket129,
+actual published desktop/phone visible motion and full application gates are
+UNRUN. No old certificate transfers. No new photograph or invented archival action.
+
+
+### Prepared anatomical binding repair v2 (T-2803, 29 October 2026)
+
+|File|License and change notice|
+|---|---|
+|`authored/transport/horse_standing/horse-sevket-natural-planted-binding-v2.glb`|CC-BY-4.0 derivative of sevketkabatas' Horse through unchanged SOURCE.json credit/acquisition lineage. Project-authored reconstructed skull/neck and tail binding replaces only declared skin rows; original geometry, rig, images and animation are retained. Source preparation only, no native motion acceptance or historical individual likeness.|
+|`authored/transport/horse_standing/horse-sevket-original925-paired-binding-v2.glb`|CC-BY-4.0 separately versioned original925-geometry reference with exactly the same reviewed new skin tuples, retaining original author/credits. Never represented as unchanged original925.|
+|`authored/transport/horse_standing/natural-planted-binding-v2-recipe.json`|GPL-3.0-or-later project anatomical field recipe and explicit row domain; no copied image pixels.|
+|`authored/transport/horse_standing/natural-planted-binding-v2-PROVENANCE.json`|GPL-3.0-or-later project change notice retaining original model credit and CC-BY-4.0 asset attribution.|
+
+The earlier8ea new17-track trial failed physical limits; that verdict is preserved.
+V2 source-byte controls pass, but old13/native17/socket129/world qualification and
+application adoption remain UNRUN. Active runtime stays bd443.
+
+
+### Prepared root-aware mane binding v3 (T-2803, 29 October 2026)
+
+|File|License and change notice|
+|---|---|
+|`authored/transport/horse_standing/horse-sevket-natural-planted-root-binding-v3.glb`|CC-BY-4.0 derivative of sevketkabatas' Horse retaining SOURCE.json acquisition/author/source credit and all previous notices. Project-authored reconstructed mane-root binding changes1119declaredHAIR rows only; no donated/source-native motion or historic animal identity is asserted.|
+|`authored/transport/horse_standing/horse-sevket-original925-root-binding-v3.glb`|CC-BY-4.0 separately versioned original925-geometry reference, with the same reviewed root-binding overlay; original model credit remains intact. Not unchanged925.|
+|`authored/transport/horse_standing/root-binding-v3-recipe.json`|GPL-3.0-or-later project source-geometry crest guide, explicit domain and reconstructed attachment rule; no copied image pixels.|
+|`authored/transport/horse_standing/root-binding-v3-PROVENANCE.json`|GPL-3.0-or-later project change/lineage notice retaining original model attribution and CC-BY-4.0 license.|
+
+V2 actualretained13-track parity/physical passed, but new17HAIRarea failed. The V3
+source-only export/11corruption controls pass; all fresh native/posed/world gates
+and adoption remain UNRUN. Runtime remains bd443; no old qualification transfers.
+
+
+### Quiet head/neck first motion V6 — reconstructed, unselected PhaseA
+
+|File|Rights and scope|
+|---|---|
+|`authored/transport/horse_standing/horse-sevket-quiet-head-neck-idle-v6.glb`|CC-BY-4.0 derivative of Horse by sevketkabatas (29March2021), retaining SOURCE.json acquisition/source URL and original model/six-image credit. Project-authored exact V4HEAD skin field and separately named quiet head/neck clip; all original source13/failed17 history preserved. Reconstructed first motion, not a historical animal or gait. Unselected pending fresh canonical qualification.|
+|`authored/transport/horse_standing/horse-sevket-original925-head-neck-binding-v6.glb`|Separately versioned CC-BY-4.0 original925-geometry reference with identical new HEAD binding. Same sevketkabatas attribution; never represented as unchanged925.|
+|`authored/transport/horse_standing/quiet-head-neck-v6-PROVENANCE.json`|GPL-3.0-or-later project source/change/scope notice. Original model/images retain CC-BY-4.0 credit and acquired provenance; no qualification or historical likeness is transferred.|
+
+Project-authored V6 code/recipe/HEAD-field fixture are under `tools/transport/horse_quiet_head_neck_idle_v6/`, GPL-3.0-or-later. The one-quiet-clip runtime derivative is `renderers/web/transport/standing-horse/horse-sevket-quiet-head-neck-idle-v6.glb`; its entire BIN/geometry/images/materials/rig and retained motion curves equal the authored master, with old13/failed17 omitted only from playable inventory. Source/projection preparation is not native/socket/world/photo acceptance.
+
+
+### T-1790 original natural-standing animation derivative
+
+The eight existing `bardwell_otis_1835` master/web LODs below append the project-authored `idle_natural_v1` standing look and breath. Original geometry, images, skinning, inverse binds, nodes, materials, arm/lower-body animation channels and all original clips remain preserved. Original MakeHuman/other graphical notices above continue to apply. New animation curve arrays are dedicated CC0-1.0; generator/probe code remains GPL-3.0-or-later. Timings and amplitudes are reconstructed ordinary standing, not a witnessed action, named gesture or documentary likeness (liberty L-natural-standing-1790). Original canonical metadata identifies the parents only; exact derivation and separate native qualification are filed under data/humans/animations/. Finite native CPU checks are not photographic or complete clothing/scene acceptance.
+
+|Path relative to assets/|Licence|Bytes|SHA256|
+|---|---|---:|---|
+|`humans/bardwell_otis_1835.lod0.glb`|CC0-1.0 graphical assets and original notices retained|8673076|`821d771462b6ff583c27ccc00fbcde3604dc34d24b4512c5d5ba92dba331589f`|
+|`humans/bardwell_otis_1835.lod1.glb`|CC0-1.0 graphical assets and original notices retained|8034376|`4752182f829f21e9e959c700d98e2aa4c75b97a7ea1b58814148bb3a7cded854`|
+|`humans/bardwell_otis_1835.lod2.glb`|CC0-1.0 graphical assets and original notices retained|7482072|`c4a99b4ba9f1a375a4490383322506d772ee6b588959aa645d686f7dddd1a68f`|
+|`humans/bardwell_otis_1835.lod3.glb`|CC0-1.0 graphical assets and original notices retained|7258004|`18e48c466ace5f47f799607128b52c1a9118627fec7afc323ad18cd63c4914d1`|
+|`humans/web/bardwell_otis_1835.lod0.glb`|CC0-1.0 graphical assets and original notices retained|4463076|`d568cb8f7d17fb9f8ca7035049c6f1c3f02a30f3d153242d1ea67f876b454ddf`|
+|`humans/web/bardwell_otis_1835.lod1.glb`|CC0-1.0 graphical assets and original notices retained|1585036|`aef139f58ee352ef7c8e73d945bc0af5d1bbf5d4f27e4f43fb5ed8b739b16bc3`|
+|`humans/web/bardwell_otis_1835.lod2.glb`|CC0-1.0 graphical assets and original notices retained|636028|`dd12e07063c142628cfe3c0f2d7b42a38c018376722af669b27ee768fc8408ad`|
+|`humans/web/bardwell_otis_1835.lod3.glb`|CC0-1.0 graphical assets and original notices retained|325492|`bb650009de2987b46e1c54fa64ca45f42c7e3d088f71de3451adb8d83c9de0d7`|
+
+## Driven-team hitch (T-2804, bounded reconstructed increment)
+
+`assets/authored/transport/driven_hitch_v2/`, `renderers/web/transport/driven-hitch/current26-collar-girth-v2.glb` and `connection-units-v1.glb`: original project-authored fitted strap/link geometry and producers, GPL-3.0-or-later. Surface fitting and skin-weight interpolation derive from **Horse by sevketkabatas**, CC BY4.0, https://sketchfab.com/3d-models/horse-53a6eb7ccf054aa2a378dd7ec08f88fe. Existing source-specific26-joint adaptation retains its separate **antemeossa** Rigged Mid-Poly Horse rig/motion reference credit, CC BY4.0, https://sketchfab.com/3d-models/rigged-mid-poly-horse-fea999c1d8d64eb4a9c2bb1fac1e7d83. Complete inherited source credit, exact input hashes and modification notice are in `assets/authored/transport/driven_hitch_v2/LICENSE-PROVENANCE.json`. No historical harness photograph or rights-pending image was traced. Colors, construction, dimensions and driving use are declared reconstructions.
+
+## Driven current26 in-place horse (T-2803/T-2804)
+
+`assets/authored/transport/driven_current26_v1/horse-current26-inplace-master.glb` and `renderers/web/transport/driven/horse-current26-inplace-full.glb`: **Horse by sevketkabatas**, CC BY4.0, https://sketchfab.com/3d-models/horse-53a6eb7ccf054aa2a378dd7ec08f88fe. Inherited **Rigged Mid-Poly Horse by antemeossa** rig/motion reference credit, CC BY4.0, https://sketchfab.com/3d-models/rigged-mid-poly-horse-fea999c1d8d64eb4a9c2bb1fac1e7d83. Original author/license/source links and the complete declared derivative history remain in the GLB. Reconstructed current26 skin/rig, quiet idle and in-place careful WALK are modifications; no historical breed, owner or individual is identified. The authored master publishes byte-identically with its included Python command; no Blender or source photograph tracing is required for that delivery.
+
+### T-2804 — reconstructed1904 working-driver depiction ingredient
+
+The following graphical assets are CC0-1.0 derivatives of the cleared MakeHuman adult35, Toigo skin, short04 hair and original project workwear components. Complete original creator notices, exact immutable canonical artifact12398870779/source34cf462e ingredient hashes and transformations are retained in authored/humans/working_driver_1904/SOURCE.json. The display figure binds existing inferred coachman Hans Johnson; body, clothes, seated action and journey are reconstructed, not a portrait or household carriage ownership. Producer/test code is GPL-3.0-or-later. No new external image is used.
+
+| File | License | Basis |
+|---|---|---|
+| `authored/humans/working_driver_1904/POSE-MASTER.json` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `authored/humans/working_driver_1904/SOURCE.json` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `authored/humans/working_driver_1904/ingredients/dufresne_joseph_1835.lod0.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `authored/humans/working_driver_1904/ingredients/dufresne_joseph_1835.lod1.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `authored/humans/working_driver_1904/ingredients/dufresne_joseph_1835.lod2.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `authored/humans/working_driver_1904/ingredients/dufresne_joseph_1835.lod3.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `authored/humans/working_driver_1904/ingredients/web/dufresne_joseph_1835.lod0.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `authored/humans/working_driver_1904/ingredients/web/dufresne_joseph_1835.lod1.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `authored/humans/working_driver_1904/ingredients/web/dufresne_joseph_1835.lod2.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `authored/humans/working_driver_1904/ingredients/web/dufresne_joseph_1835.lod3.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `humans/anonymous_working_driver_1904.lod0.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `humans/anonymous_working_driver_1904.lod1.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `humans/anonymous_working_driver_1904.lod2.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `humans/anonymous_working_driver_1904.lod3.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `humans/web/anonymous_working_driver_1904.lod0.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `humans/web/anonymous_working_driver_1904.lod1.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `humans/web/anonymous_working_driver_1904.lod2.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+| `humans/web/anonymous_working_driver_1904.lod3.glb` | CC0-1.0 | Cleared graphical ingredient or original documented derivative; SOURCE.json retains exact source and credit. |
+
+
+### T-3088 — explicit authored transport source-file registration
+
+These are the source and numerical-provenance files accompanying the driven-team hitch and current26 horse entries above. This registration retains their existing source credits and licenses; it adds no external ingredient or historical attestation. Project-authored producers and parameter records are GPL-3.0-or-later. Referenced horse graphics retain CC BY4.0 credits, and referenced MakeHuman graphical ingredients retain their CC0 notices. No geometry, animation, material, source image or asset selection changes here.
+
+| File | License | Basis |
+|---|---|---|
+| `authored/transport/driven_current26_v1/SOURCE.json` | CC-BY-4.0 | Attribution and derivative record for Horse by sevketkabatas; inherited antemeossa rig/motion-reference credit remains in the master and the preceding entry. |
+| `authored/transport/driven_current26_v1/publish_master.py` | GPL-3.0-or-later | Original project-authored byte-preserving publisher; its SPDX notice is retained. |
+| `authored/transport/driven_hitch_v2/ACTUAL-1835-OTIS-PALM-SURFACES.json` | GPL-3.0-or-later | Original numerical surface-measurement record; the named Bardwell MakeHuman graphical ingredients retain their CC0 notices. Not a photograph or a closed-finger-grasp claim. |
+| `authored/transport/driven_hitch_v2/author_hitch.py` | GPL-3.0-or-later | Original project-authored producer covered by the driven-team hitch provenance entry and LICENSE-PROVENANCE.json above. |
+| `authored/transport/driven_hitch_v2/build_connection_units.py` | GPL-3.0-or-later | Original project-authored producer; inherited ingredient credits remain as declared above. |
+| `authored/transport/driven_hitch_v2/build_hitch_prototype.py` | GPL-3.0-or-later | Original project-authored producer; Horse by sevketkabatas and the inherited antemeossa reference retain CC BY4.0 attribution. |
+| `authored/transport/driven_hitch_v2/build_live_bindings.py` | GPL-3.0-or-later | Original project-authored binding producer; referenced graphical assets retain their existing notices. |
+| `authored/transport/driven_hitch_v2/connection-unit-parameters.json` | GPL-3.0-or-later | Original reconstructed connection-unit dimensions and construction parameters under the existing driven-team hitch declaration. |
+| `authored/transport/driven_hitch_v2/team-hitch-parameters.json` | GPL-3.0-or-later | Original reconstructed fitted-hitch parameters; declared source horse and wagon hashes and inherited graphical attribution remain unchanged. |

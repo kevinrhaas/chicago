@@ -1,0 +1,192 @@
+{
+  "status": "EXACT_EIGHT_SAME_FINAL_SOURCE_NATIVE_129_ONLY_PASS",
+  "all_eight_passed": true,
+  "implementation_and_parent_pins": {
+    "tools/human_natural_idle.py": "c95193aaaea2bd89c0340d5b2c4c07aef08be90980931a63a55f10467cc26138",
+    "tools/human_natural_idle_cpu.html": "8b32cc5788aa5313d2b70a204192048d07ab90905ad589db4483512a07f8e6c4",
+    "tools/human_natural_idle_cpu.cjs": "a7f82ecf10788033a5c1f797d378f7a53f69ce65a68c8054fe850cd483a4c787",
+    "tools/human_body_ray_grid.mjs": "f9d91c62a676a0aaa4d7ab9c362dd288b7d87f506a898285aae8f9be6e015a46",
+    "data/humans/animations/natural-standing-v1.json": "1b98eb613aea60a315857a96307ba8e6712c6b13e60c412d22e75c313ee5cf7f",
+    "renderers/web/js/humans.js": "9b8dec415115977d4a36906e73a7e3dfafee6b6872b90486e06009fe625c7145",
+    "renderers/web/js/main.js": "ddedb71579609134a9e6674dc5b597b6c42d2645dd38bbb3f1e7a1a67319979c",
+    "renderers/web/js/scene-loader.js": "df54baa8a205890e5046d18d9b3c3b9f6c0e6f7b1ce3b063a0df89a816c9e6ed",
+    "renderers/web/vendor/three-0.185.1/three.module.js": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7",
+    "renderers/web/vendor/three-0.185.1/three.core.js": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759",
+    "renderers/web/vendor/three-0.185.1/addons/loaders/GLTFLoader.js": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2",
+    "renderers/web/vendor/three-0.185.1/addons/libs/meshopt_decoder.module.js": "d428e73a000057c6c94bfcedc3412d0c2dc14ca8800e88553aab05113ad2bf19",
+    "renderers/web/vendor/three-0.185.1/addons/utils/SkeletonUtils.js": "b1632a703206c3d830de9fcbe515696770d04b71a15ee6b50afa6d2c3298c86f",
+    "assets/humans/bardwell_otis_1835.lod0.glb": "84cdeb6d362aa1a85549b18daef41ae492f18595a19ff5b7e6eff539a3576d04",
+    "assets/humans/bardwell_otis_1835.lod1.glb": "e2ff6d6d4df02b3852248c4712b9472c86fe7ca14a60b3db02788deed8db73c3",
+    "assets/humans/bardwell_otis_1835.lod2.glb": "bc7ab6752b92f5451b285b070d2f76d896edddffa46d976c3569820745b8be7f",
+    "assets/humans/bardwell_otis_1835.lod3.glb": "8d36ceade3b2dce3b8d081dc484faa98bb57dd2c0d288c1043f0a6da9d3dc233",
+    "assets/humans/web/bardwell_otis_1835.lod0.glb": "3c75b33e5130fb8fe4813866d52d248bdab4207ab7a10c78b4074cc5fc30e999",
+    "assets/humans/web/bardwell_otis_1835.lod1.glb": "af2492264df071facce2c4ba128d851a5624f93bcf3f9e507eb406694e3124f1",
+    "assets/humans/web/bardwell_otis_1835.lod2.glb": "ac21fdb00c402f76810a23467e299612042aa3ce21b017e7705ca675793df77a",
+    "assets/humans/web/bardwell_otis_1835.lod3.glb": "b61d09e2efdb204a90d5d3c8fe49d1a6502108fd6ac62a592350129db48f8d40"
+  },
+  "candidate_pins": {
+    "assets/humans/bardwell_otis_1835.lod0.glb": "adf3cfdaec176487d672ca3143dc3fb563c5b29bdd1d4e720d6250e187f75f53",
+    "assets/humans/bardwell_otis_1835.lod1.glb": "1deeadb17864849f63107b6c8559aca82b0333be1485635016f6f5033daa24f8",
+    "assets/humans/bardwell_otis_1835.lod2.glb": "0563ad48b4f810f9614c1db7171da7cc1b338214f2b971b3663474073ed53846",
+    "assets/humans/bardwell_otis_1835.lod3.glb": "df26d7047f19ad4da7e8f80b6ec506e4967929a147008bd5e38dfd11db125089",
+    "assets/humans/web/bardwell_otis_1835.lod0.glb": "8fa8630b79fa9baf2e9a707f03e05aa165ef7abb3a1a41334951f65f9e83e12d",
+    "assets/humans/web/bardwell_otis_1835.lod1.glb": "c5038937842da3e4588c878a4aa60bfb32b3c1329ec99ac7a6ba6db39a090cb0",
+    "assets/humans/web/bardwell_otis_1835.lod2.glb": "17c9ec6489d0ca10c332d2cff41a16edc76924d721c552936e863f5f155c99b2",
+    "assets/humans/web/bardwell_otis_1835.lod3.glb": "ffbdb55c0acf7c0de9326ed55118c25e519ed8f8a60292eb1fa67256ca2561c0"
+  },
+  "anatomical_reference": {
+    "file": "assets/humans/bardwell_otis_1835.lod0.glb",
+    "canonical_parent_sha256": "84cdeb6d362aa1a85549b18daef41ae492f18595a19ff5b7e6eff539a3576d04",
+    "candidate_sha256": "adf3cfdaec176487d672ca3143dc3fb563c5b29bdd1d4e720d6250e187f75f53",
+    "scope": "Native closed master-LOD0 BODY posed at the identical old/new clip time; actual render BODY unsigned distance changes reported separately"
+  },
+  "groups": [
+    {
+      "directory": "HUMAN-NATURAL-STANDING-CLOSED-REFERENCE-LOD1-01",
+      "supervisor_prefix": "human-natural-standing-closed-reference-lod1-01",
+      "seconds": 42.37882132298546,
+      "result_sha256": "7c57efc91ee8e078c4d6db7cb25791dc43ad13759d2db4613a245361978beeb4",
+      "cleanup_sha256": "4abe2bc53710359360a852c5b04df6f003ef906cc7dd7911e1eb13813efb8984",
+      "report_sha256": "4d8e60e6706d2a77f33b529149781e1b419a8f3ac15f65dce436fb16c5132d86",
+      "selected_files": [
+        "assets/humans/bardwell_otis_1835.lod1.glb"
+      ]
+    },
+    {
+      "directory": "HUMAN-NATURAL-STANDING-CLOSED-REFERENCE-REMAINING7-01",
+      "supervisor_prefix": "human-natural-standing-closed-reference-remaining7-01",
+      "seconds": 309.374127314979,
+      "result_sha256": "b1ff69ffdef7fb7a0e8e02c1acf819e36f5f15a0b7bce01ac97d0e9d43acd78a",
+      "cleanup_sha256": "e6c78a9c2022b124086913def49bbfdc0737c1912daf7b50edcf39c5cd41bdbc",
+      "report_sha256": "2316e7e38087cdfd1ae5accc26ab2bbcb30aabfcbb155b6a34eaf92db4afe7bb",
+      "selected_files": [
+        "assets/humans/bardwell_otis_1835.lod0.glb",
+        "assets/humans/bardwell_otis_1835.lod2.glb",
+        "assets/humans/bardwell_otis_1835.lod3.glb",
+        "assets/humans/web/bardwell_otis_1835.lod0.glb",
+        "assets/humans/web/bardwell_otis_1835.lod1.glb",
+        "assets/humans/web/bardwell_otis_1835.lod2.glb",
+        "assets/humans/web/bardwell_otis_1835.lod3.glb"
+      ]
+    }
+  ],
+  "models": [
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod0.glb",
+      "sha256": "adf3cfdaec176487d672ca3143dc3fb563c5b29bdd1d4e720d6250e187f75f53",
+      "samples": 129,
+      "footwear_maximum_displacement_m": 0,
+      "upper_body_maximum_displacement_m": 0.018687678881122573,
+      "robust_classifications": 112134,
+      "maximum_reference_subject_bone_world_matrix_difference": 0,
+      "actual_open_render_body_unsigned_distance_increase_m": 0.0009204254261426532,
+      "actual_open_render_body_unsigned_distance_decrease_m": 0.0008394657972985416,
+      "inherited_inside_vertices_observed": 4,
+      "record": "/workspace/.cloud-setup/logs/transport-recovery/HUMAN-NATURAL-STANDING-CLOSED-REFERENCE-REMAINING7-01/assets__humans__bardwell_otis_1835.lod0.glb.json",
+      "record_sha256": "fa560b5d03175fdd0a066ede8902807f5edc2f8c42495e86815852da287c3d91"
+    },
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod1.glb",
+      "sha256": "1deeadb17864849f63107b6c8559aca82b0333be1485635016f6f5033daa24f8",
+      "samples": 129,
+      "footwear_maximum_displacement_m": 0,
+      "upper_body_maximum_displacement_m": 0.018687678881122573,
+      "robust_classifications": 41591,
+      "maximum_reference_subject_bone_world_matrix_difference": 0,
+      "actual_open_render_body_unsigned_distance_increase_m": 0.0009272838717009216,
+      "actual_open_render_body_unsigned_distance_decrease_m": 0.0008070051302490212,
+      "inherited_inside_vertices_observed": 0,
+      "record": "/workspace/.cloud-setup/logs/transport-recovery/HUMAN-NATURAL-STANDING-CLOSED-REFERENCE-LOD1-01/assets__humans__bardwell_otis_1835.lod1.glb.json",
+      "record_sha256": "91a0ac9e7d5137e6c01a042963ab58ffa59abec170f7894ee0781f5cc17c144f"
+    },
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod2.glb",
+      "sha256": "0563ad48b4f810f9614c1db7171da7cc1b338214f2b971b3663474073ed53846",
+      "samples": 129,
+      "footwear_maximum_displacement_m": 0,
+      "upper_body_maximum_displacement_m": 0.018687678881122573,
+      "robust_classifications": 23740,
+      "maximum_reference_subject_bone_world_matrix_difference": 0,
+      "actual_open_render_body_unsigned_distance_increase_m": 0.0008828938266613922,
+      "actual_open_render_body_unsigned_distance_decrease_m": 0.0008501933484284432,
+      "inherited_inside_vertices_observed": 0,
+      "record": "/workspace/.cloud-setup/logs/transport-recovery/HUMAN-NATURAL-STANDING-CLOSED-REFERENCE-REMAINING7-01/assets__humans__bardwell_otis_1835.lod2.glb.json",
+      "record_sha256": "2f8256808b30b05271e4e18ddd6b8e74a070d4b52a2acd9802cb6c70b1eacdd1"
+    },
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod3.glb",
+      "sha256": "df26d7047f19ad4da7e8f80b6ec506e4967929a147008bd5e38dfd11db125089",
+      "samples": 129,
+      "footwear_maximum_displacement_m": 0,
+      "upper_body_maximum_displacement_m": 0.018687678881122573,
+      "robust_classifications": 12065,
+      "maximum_reference_subject_bone_world_matrix_difference": 0,
+      "actual_open_render_body_unsigned_distance_increase_m": 0.0010144029258814533,
+      "actual_open_render_body_unsigned_distance_decrease_m": 0.0009841239935130868,
+      "inherited_inside_vertices_observed": 0,
+      "record": "/workspace/.cloud-setup/logs/transport-recovery/HUMAN-NATURAL-STANDING-CLOSED-REFERENCE-REMAINING7-01/assets__humans__bardwell_otis_1835.lod3.glb.json",
+      "record_sha256": "bffe9f9f2fdab0bccb18ea524818b9d94c7e15c68af47efff8c8865eada8afe4"
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod0.glb",
+      "sha256": "8fa8630b79fa9baf2e9a707f03e05aa165ef7abb3a1a41334951f65f9e83e12d",
+      "samples": 129,
+      "footwear_maximum_displacement_m": 0,
+      "upper_body_maximum_displacement_m": 0.01868601506299114,
+      "robust_classifications": 113030,
+      "maximum_reference_subject_bone_world_matrix_difference": 0,
+      "actual_open_render_body_unsigned_distance_increase_m": 0.000917918712876678,
+      "actual_open_render_body_unsigned_distance_decrease_m": 0.0008556236657588142,
+      "inherited_inside_vertices_observed": 0,
+      "record": "/workspace/.cloud-setup/logs/transport-recovery/HUMAN-NATURAL-STANDING-CLOSED-REFERENCE-REMAINING7-01/assets__humans__web__bardwell_otis_1835.lod0.glb.json",
+      "record_sha256": "b483591eefac563496023da8849e3e137056eef5fd50c2f885151890682c56d7"
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod1.glb",
+      "sha256": "c5038937842da3e4588c878a4aa60bfb32b3c1329ec99ac7a6ba6db39a090cb0",
+      "samples": 129,
+      "footwear_maximum_displacement_m": 0,
+      "upper_body_maximum_displacement_m": 0.018689588147630342,
+      "robust_classifications": 41911,
+      "maximum_reference_subject_bone_world_matrix_difference": 0,
+      "actual_open_render_body_unsigned_distance_increase_m": 0.0009261178061918812,
+      "actual_open_render_body_unsigned_distance_decrease_m": 0.0008019970936867108,
+      "inherited_inside_vertices_observed": 0,
+      "record": "/workspace/.cloud-setup/logs/transport-recovery/HUMAN-NATURAL-STANDING-CLOSED-REFERENCE-REMAINING7-01/assets__humans__web__bardwell_otis_1835.lod1.glb.json",
+      "record_sha256": "c4b96ef2e6b07ff261b9edea7b3711f8d29ba6c0493213589a96f3393803306a"
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod2.glb",
+      "sha256": "17c9ec6489d0ca10c332d2cff41a16edc76924d721c552936e863f5f155c99b2",
+      "samples": 129,
+      "footwear_maximum_displacement_m": 0,
+      "upper_body_maximum_displacement_m": 0.018686848317013754,
+      "robust_classifications": 23823,
+      "maximum_reference_subject_bone_world_matrix_difference": 0,
+      "actual_open_render_body_unsigned_distance_increase_m": 0.000879859955639487,
+      "actual_open_render_body_unsigned_distance_decrease_m": 0.0008462121249386808,
+      "inherited_inside_vertices_observed": 0,
+      "record": "/workspace/.cloud-setup/logs/transport-recovery/HUMAN-NATURAL-STANDING-CLOSED-REFERENCE-REMAINING7-01/assets__humans__web__bardwell_otis_1835.lod2.glb.json",
+      "record_sha256": "32952fe562f5b6ff6a402c3a5e52ffb85a6ad67a378bd28458258d21667f8073"
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod3.glb",
+      "sha256": "ffbdb55c0acf7c0de9326ed55118c25e519ed8f8a60292eb1fa67256ca2561c0",
+      "samples": 129,
+      "footwear_maximum_displacement_m": 0,
+      "upper_body_maximum_displacement_m": 0.01868791822254845,
+      "robust_classifications": 11963,
+      "maximum_reference_subject_bone_world_matrix_difference": 0,
+      "actual_open_render_body_unsigned_distance_increase_m": 0.000996753552096307,
+      "actual_open_render_body_unsigned_distance_decrease_m": 0.0009866479700813891,
+      "inherited_inside_vertices_observed": 0,
+      "record": "/workspace/.cloud-setup/logs/transport-recovery/HUMAN-NATURAL-STANDING-CLOSED-REFERENCE-REMAINING7-01/assets__humans__web__bardwell_otis_1835.lod3.glb.json",
+      "record_sha256": "deda890ae89c4bd125d59ca5b0b12e785763dd6c730c398c285406e2c05f9e7f"
+    }
+  ],
+  "scope": "Actual native loader/Meshopt/mixer/skin readback, planted footwear and finite garment vertices against the closed master-LOD0 anatomical reference. Actual coarse render BODYs remain open; their unsigned deltas are disclosed. No continuous full fit, actual scene, photographic or canonical CI transfer.",
+  "active_app_asset_adoption": false,
+  "published_scene_accepted": false,
+  "photographic_accepted": false,
+  "whole_ticket_accepted": false
+}

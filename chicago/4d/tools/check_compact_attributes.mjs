@@ -265,3 +265,62 @@ assert.ok(hit && Math.abs(hit.point.y - (placement.elements[13] + 9)) < boxScale
 one.dispose();
 console.log('PASS batch: BatchedMesh keeps Int16 x4 positions and a pick lands on the roof through the instance matrix');
 }
+
+// Timber scalar formats are lossless, AFTER BatchedMesh has copied its source chunks.
+{
+  const timberSource = await readFile(path.join(web, 'js/trees.js'), 'utf8');
+  const helper = timberSource.match(/export function compactTimberFlags\(geometry\) \{[\s\S]*?\n\}/)?.[0];
+  const meshBuf = timberSource.match(/class MeshBuf \{[\s\S]*?\n\}/)?.[0];
+  assert(helper && meshBuf);
+  const { compactTimberFlags, MeshBuf } = await import('data:text/javascript;base64,'
+    + Buffer.from(`import * as THREE from '${threeURL}';\n${helper}\n${meshBuf}\nexport { MeshBuf };`).toString('base64'));
+  const finish = timberSource.indexOf('compactTimberFlags(batch.geometry);');
+  assert(finish > timberSource.indexOf('batch.addInstance(batch.addGeometry(geo));'));
+  assert(finish < timberSource.indexOf('batch.computeBoundingSphere();', finish));
+  const chunks = [0, 1].map((chunk) => {
+    const buf = new MeshBuf('light');
+    for (let i = 0; i < 6; i++) buf.vert(chunk * 3 + i % 3, i < 3 ? 0 : 1, i % 2,
+      0, 1, 0, 0.2, 0.4, 0.3, i / 8, [0, 0.5, 1][i % 3], [i / 6, 0.5], i % 2);
+    buf.tri(0, 1, 2); buf.tri(3, 4, 5);
+    return buf.build();
+  });
+  const batch = new THREE.BatchedMesh(2, 12, 12, new THREE.MeshBasicMaterial());
+  for (const g of chunks) batch.addInstance(batch.addGeometry(g));
+  const geo = batch.geometry;
+  const before = Object.fromEntries(Object.entries(geo.attributes).map(([name, attr]) => [name,
+    { attr, array: attr.array, copy: attr.array.slice(), values: Array.from({ length: attr.count }, (_, i) => attr.getX(i)) }]));
+  const index = geo.index, indices = geo.index.array.slice();
+  assert.equal(compactTimberFlags(geo), 12 * 5, 'three fewer leaf bytes and two fewer grade bytes per vertex');
+  assert(geo.attributes.aLeaf.array instanceof Uint8Array); assert.equal(geo.attributes.aLeaf.normalized, false);
+  assert(geo.attributes._confidence.isFloat16BufferAttribute); assert.equal(geo.attributes._confidence.normalized, false);
+  assert.deepEqual([...geo.attributes._confidence.array].slice(0, 3), [0, 14336, 15360], 'actual encoded half words, not integers mistaken for half');
+  for (const name of ['aLeaf', '_confidence']) {
+    const attr = geo.attributes[name];
+    assert.deepEqual(Array.from({ length: attr.count }, (_, i) => attr.getX(i)), before[name].values);
+    assert.deepEqual(Array.from({ length: attr.count }, (_, i) => attr.clone().getX(i)), before[name].values, 'native attribute clone preserves half decoding');
+  }
+  for (const [name, { attr, array, copy }] of Object.entries(before)) if (!['aLeaf', '_confidence'].includes(name)) {
+    assert.equal(geo.attributes[name], attr); assert.equal(attr.array, array); assert.deepEqual(attr.array, copy);
+  }
+  assert.equal(geo.index, index); assert.deepEqual(geo.index.array, indices);
+  for (let n = 0; n < chunks.length; n++) {
+    assert(chunks[n].attributes.aLeaf.array instanceof Float32Array);
+    assert(chunks[n].attributes._confidence.array instanceof Float32Array);
+  }
+  const clone = batch.clone();
+  assert(clone.geometry.attributes._confidence.isFloat16BufferAttribute);
+  assert.deepEqual(Array.from({ length: 12 }, (_, i) => clone.geometry.attributes._confidence.getX(i)), before._confidence.values);
+  assert.equal(compactTimberFlags(geo), 0, 'already packed scalar arrays are retained');
+  for (const [name, values] of [['aLeaf', [0, 0.5, 1]], ['aLeaf', [0, NaN, 1]], ['aLeaf', [0, -0, 1]],
+    ['_confidence', [0, 0.25, 1]], ['_confidence', [0, Infinity, 1]]]) {
+    const g = new THREE.BufferGeometry(), attr = new THREE.Float32BufferAttribute(values, 1);
+    g.setAttribute(name, attr); assert.equal(compactTimberFlags(g), 0); assert.equal(g.getAttribute(name), attr);
+  }
+  const changing = new THREE.BufferGeometry();
+  const dynamic = new THREE.Float32BufferAttribute([0, 1], 1).setUsage(THREE.DynamicDrawUsage);
+  changing.setAttribute('aLeaf', dynamic); assert.equal(compactTimberFlags(changing), 0); assert.equal(changing.attributes.aLeaf, dynamic);
+  // Existing upload/confidence readers use getX, which now returns the same three grades.
+  assert.deepEqual([...new Set(before._confidence.values)].sort(), [0, 0.5, 1]);
+  clone.dispose(); batch.dispose(); for (const g of chunks) g.dispose();
+  console.log('PASS timber final scalars: exact U8 leaf/encoded FP16 grades, other lanes and sources retained, native clones and invalid-value fallbacks');
+}
