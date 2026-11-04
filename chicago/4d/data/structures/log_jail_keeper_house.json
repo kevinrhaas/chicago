@@ -1,0 +1,165 @@
+{
+  "id": "log_jail_keeper_house",
+  "name": "John Beach’s house at the log jail",
+  "aka": [
+    "the first jail keeper’s house"
+  ],
+  "archetype": "frame_dwelling",
+  "phases": [
+    {
+      "id": "frame_1835",
+      "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "sources": [
+          "trowbridge_first_jail_gale_1902"
+        ],
+        "note": "Book1902 p51 places John Beach in a house partly inside the jail enclosure facing Randolph during the retrospective1835-framed walk. The actual illustration says1836. Bounds are continuity conventions, not construction/demolition dates, and do not prove every pictured detail existed by1July1835.",
+        "from_is": "began"
+      },
+      "position": {
+        "utm_e": 447546.01,
+        "utm_n": 4637121.23,
+        "rotation_deg": 0.0,
+        "confidence": "reconstructed",
+        "symbolic_location": "Beside the log jail at northwest public square, facing Randolph; exact position reconstructed.",
+        "note": "Reconstructed house southwest corner7.8m east of the jail's preceding southwest convention, and1.30m north of the core's new reconstructed access setback; both face north by convention. This east registration gives the Gale view's keeper-left/compound-right order. Neither7.8m spacing,1.30m offset, compass registration nor exact setback is surveyed or measured from the print. House and core remain in the public square; current terrain and doorway clearance require actual published app review. No street or parcel control moves.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "No surveyed offset exists. This is one topological correction of an explicitly reconstructed prototype after actual native framing review;7.8m is retained as a trial distance, not new historical evidence."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            6.4,
+            0
+          ],
+          [
+            6.4,
+            4.6
+          ],
+          [
+            0,
+            4.6
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "One6.4x4.6m rectangular house pilot. Both dimensions and hidden rear are invented; source plate supplies appearance topology, never a metric plan."
+      },
+      "form": {
+        "picture_layout": {
+          "value": "keeper_gale_1902",
+          "confidence": "reconstructed",
+          "note": "One corrected north-facing interpretation of the1902 Gale artwork captioned1836: depicted gable is the model east/uMax end; local-u D/W/W stations read W/W/D from outside the north front, with two depicted gable ground sash and loft light. All numeric set-out, compass registration and July1835 continuity remain reconstructed. Andreas has a different elevation; no reconciliation or match is claimed.",
+          "sources": [
+            "trowbridge_first_jail_gale_1902"
+          ]
+        },
+        "construction": {
+          "value": "braced_frame",
+          "confidence": "reconstructed",
+          "note": "Clapboard hides framing; a braced frame is a prototype convention, not observed studs."
+        },
+        "cladding": {
+          "value": "clapboard",
+          "confidence": "inferred",
+          "note": "The1902picture depicts horizontal siding; the native frame dwelling always builds clapboard.",
+          "sources": [
+            "trowbridge_first_jail_gale_1902"
+          ],
+          "geometry": "simplified"
+        },
+        "stories": {
+          "value": 1.0,
+          "confidence": "reconstructed",
+          "note": "One low main storey plus a small unclassified loft light; no habitable half storey asserted."
+        },
+        "wall_height_m": {
+          "value": 2.65,
+          "confidence": "reconstructed",
+          "note": "Prototype standing height, not measured from drawing."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "note": "Both pictures show the keeper house under a gable; its depicted orientation differs between the independent drawings.",
+          "sources": [
+            "trowbridge_first_jail_gale_1902"
+          ]
+        },
+        "roof_pitch_deg": {
+          "value": 25.0,
+          "confidence": "reconstructed",
+          "note": "One finite low-gable prototype; no source measures angle."
+        },
+        "plan": {
+          "value": "hall_parlour",
+          "confidence": "reconstructed",
+          "note": "Native base plan vocabulary only; interior rooms are unknown. The opt-in picture layout governs front apertures."
+        },
+        "bays": {
+          "value": 3,
+          "confidence": "inferred",
+          "note": "Two sash followed by the door on the long front in Gale; Andreas shows a different elevation. Count inferred, metric spacing reconstructed.",
+          "sources": [
+            "trowbridge_first_jail_gale_1902"
+          ]
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "inferred",
+          "note": "One brick-looking stack appears in Gale. The corrected pictured-end assignment moves the same reconstructed prototype stack to localu5.5m near the east pictured gable; neither location nor dimensions are source measurements.",
+          "sources": [
+            "trowbridge_first_jail_gale_1902"
+          ]
+        },
+        "paint": {
+          "value": "whitewash",
+          "confidence": "reconstructed",
+          "note": "A light tone in monochrome does not establish hue or coating; whitewash is a reconstructed prototype finish."
+        },
+        "glazing": {
+          "value": "12_over_12_6x8",
+          "confidence": "reconstructed",
+          "note": "Native available pane module used as a prototype placeholder; exact panes have not been established from either source."
+        },
+        "shutters": {
+          "value": "green",
+          "confidence": "reconstructed",
+          "note": "Dark open shutters appear at pictured windows. The actual hue/material detail is not shown in monochrome; native green is reconstructed."
+        },
+        "porch": {
+          "value": null,
+          "confidence": "reconstructed",
+          "note": "No roofed porch is asserted. The opt-in layout draws the pictured low front rail with a clear door station; a separate native enclosure supplies the low hung compound gate. A historically measured landing/platform is not known."
+        },
+        "siding_exposure_m": {
+          "value": 0.152,
+          "confidence": "reconstructed",
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this record wears 6 in — dealt by tools/deal_siding_stock.py: keyed to the phase's construction season, because buildings sided from the same season's shipments of St Joseph sawn lumber tend toward one stock, then advanced so no frame building within 60 m shares this one's. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention."
+        }
+      },
+      "change_note": "A separate keeper dwelling described byGale p51, partly within the jail enclosure and facingRandolph. Included in the July1835 prototype by explicit continuity reconstruction; plate caption1836 remains unchanged. New house does not relabel the original log cell or select a core roof from conflicting images."
+    }
+  ],
+  "function": {
+    "value": "dwelling",
+    "confidence": "inferred",
+    "sources": [
+      "trowbridge_first_jail_gale_1902"
+    ],
+    "note": "Gale 1902 p51 places John Beach in a house beside the jail, facing Randolph, and a house is a dwelling. INFERRED and not documented, deliberately: Trowbridge's plate and Gale's recollection are tier-5 pictorial and retrospective sources, and the project's evidence ladder forbids a documented value resting on tier 5 alone, so the use is read off a memoir rather than attested by a period record. Who the household was beyond Beach, when the house went up and came down, where exactly it stood and every dimension of it are reconstruction, recorded on the phase and in docs/LIBERTIES.md under L-log-jail-keeper-compound-2380."
+  },
+  "research_note": "SOURCE-INFORMED KEEPER HOUSE, originalT-2380 incremental work. The separate house appears in Gale1902's public-domain plate captioned1836 and is described partly within the jail enclosure on p51 of the retrospective1835-framed walk. One low clapboard storey, two long-front sash followed by a door, two pictured-end ground sash, a small loft light and one stack inform the optional keeper_gale_1902 layout. Metric size,25degree pitch, exact glazing, green shutter hue, whitewash, hidden framing, plan, compass, placement and July continuity remain reconstructed. The low braced gate belongs to a separate enclosure. A genuine native model pair exists for these exact resolved inputs; existing default-family models still require native parity and current registration before source adoption can pass its gates. The actual private V4 full-page compound comparison remains DIFFERS: relative compound proportions and the screened rear-core roof are unresolved, and Andreas shows a different elevation/cap. This record neither claims a complete picture match nor creates a household or population seat.",
+  "resident_assignment": {
+    "status": "unassigned",
+    "confidence": "reconstructed",
+    "note": "Gale namesJohn Beach, but this candidate does not create a person, household or population seat. Existing resident identity research must govern any later assignment."
+  }
+}

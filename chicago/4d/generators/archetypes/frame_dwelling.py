@@ -164,6 +164,9 @@ def build(params: FrameDwellingParams, name: str):
                 params.conf("plan", "reconstructed"), params.conf("bays", "reconstructed"),
                 params.conf("glazing", "reconstructed"))
 
+    if params.picture_layout is not None:
+        c_fen = max(c_fen, params.conf("picture_layout", "reconstructed"))
+
     # main range — omit the bottom, it is never seen and costs two triangles per
     # building across the whole town
     b.add_box(0, y0, 0, w, d, wall_z, c_mass, M_WALL, skip=("bottom",))
@@ -184,10 +187,15 @@ def build(params: FrameDwellingParams, name: str):
         else None
 
     _chimneys(b, params, w, y0, d, wall_z, ridge_z, ell_ridge_z,
-              (params.worst_conf("chimneys", "chimney_placement")
-               if params.chimney_placement != "house"
-               else params.conf("chimneys", "reconstructed")),
+              (params.worst_conf("chimneys", "picture_layout")
+               if params.picture_layout is not None else
+               (params.worst_conf("chimneys", "chimney_placement")
+                if params.chimney_placement != "house"
+                else params.conf("chimneys", "reconstructed"))),
               M_CHIMNEY if params.chimneys > 0 else M_ROOF)
+
+    if params.picture_layout == "keeper_gale_1902":
+        _keeper_front_rail(b, params, d, params.conf("picture_layout", "reconstructed"))
 
     if params.tower:
         _chapel_belfry(b, params, y0, d, ridge_z, params.conf("tower"))
@@ -663,6 +671,10 @@ def _gable_ends(b: MeshBuilder, p: FrameDwellingParams, w: float, y0: float,
     A ground-floor window goes in whichever gable end has no stack against it. The end
     walls of a small house carried very little glass; the fireplaces were there.
     """
+    if p.picture_layout == "keeper_gale_1902":
+        _keeper_gale_gable(b, p, wall_z, c_fen, c_mass)
+        # The unseen west gable is still reconstructed using the old house rule.
+        # Generate it below, while suppressing only the replaced east end.
     if p.roof_type != "gable" or p.chapel_blank_gables:
         return
     rise = ridge_z - wall_z
@@ -670,6 +682,8 @@ def _gable_ends(b: MeshBuilder, p: FrameDwellingParams, w: float, y0: float,
     half_depth = (d - y0) / 2.0 + EAVE_M
 
     for x, out in ((0.0, -1), (w, 1)):
+        if p.picture_layout == "keeper_gale_1902" and out == 1:
+            continue
         top = wall_z + 0.16 + GABLE_WIN_H_M
         shrink = 1.0 - (top - wall_z) / max(rise, 1e-6)
         if shrink * half_depth > GABLE_WIN_W_M / 2 + 0.35 and p.stories >= 1.5:
@@ -684,9 +698,54 @@ def _gable_ends(b: MeshBuilder, p: FrameDwellingParams, w: float, y0: float,
     if sash[0] < 0.5:
         return
     for x, out in ((0.0, -1), (w, 1)):
+        if p.picture_layout == "keeper_gale_1902" and out == 1:
+            continue
         if any(abs(sx - x) < 1.0 for sx in stack_x):
             continue
         _window(b, p, "x", x, yc, sill, sash, out, c_fen)
+
+
+def _keeper_front_rail(b: MeshBuilder, p: FrameDwellingParams, d: float,
+                       conf: float) -> None:
+    """Low unroofed front rail in Gale; exact stock/set-out reconstructed.
+
+    Keep the native doorway's full safety band clear. This rail is part of the
+    pictured keeper-house frontage; the separate compound gate remains pending.
+    """
+    door = next(cx for cx, kind in p.keeper_front_stations if kind == "door")
+    a, end = door + DOOR_W_M / 2 + 0.40, p.width_m - 0.12
+    y = d + 0.60
+    for z in (0.30, 0.80):
+        b.add_box(a, y - 0.035, z - 0.035, end, y + 0.035, z + 0.035,
+                  conf, M_TRIM)
+    for x in (a, a + (end - a) / 3, a + 2 * (end - a) / 3, end):
+        b.add_box(x - 0.045, y - 0.045, 0.0, x + 0.045, y + 0.045, 0.88,
+                  conf, M_TRIM, skip=("bottom",))
+
+
+def _keeper_gale_gable(b: MeshBuilder, p: FrameDwellingParams, wall_z: float,
+                       c_fen: float, c_mass: float) -> None:
+    """The pictured east end only: two ground sash and a separate small loft light.
+
+    Source topology is inferred; every set-out dimension is reconstructed. The
+    optional source layout does not change the generic house's far-end arithmetic.
+    """
+    conf = max(c_fen, p.conf("picture_layout", "reconstructed"))
+    sill = p.front_sill_m
+    sash = _sash(p, sill, wall_z - 0.28)
+    for v in p.keeper_gable_sash_centres:
+        _window(b, p, "x", p.width_m, v, sill, sash, 1, conf)
+        if p.shutters:
+            # Native panel primitive on x-normal end, same stock as front shutters.
+            shutter_conf = max(conf, p.conf("shutters", "reconstructed"))
+            for side in (-1, 1):
+                v0 = v + side * (p.window_w_m / 2 + openings.CASING_W_M + 0.012)
+                v1 = v0 + side * p.window_w_m * 0.5
+                _panel(b, "x", p.width_m + CLAPBOARD_LIP_M + 0.008, min(v0, v1), max(v0, v1),
+                       sill, sill + sash[0], 1, shutter_conf, M_SHUTTER)
+    v, z0, width, height = p.keeper_loft_opening
+    _fixed_light(b, p, "x", p.width_m, v - width / 2, v + width / 2,
+                 z0, z0 + height, 1, max(conf, c_mass))
 
 
 # -------------------------------------------------------------------- the ell

@@ -71,7 +71,7 @@
   "naming": "A unit is named for a block only where the plat module reaches it. Everything else is a district balance that states what it waits on."
  },
  "standing": {
-  "structure_records": 687,
+  "structure_records": 688,
   "physical_roofs": {
    "min": 668,
    "max": 669,
@@ -152,6 +152,7 @@
    "land_sale_camp_shore",
    "landing_camp_west",
    "lasalle_slough_crossing",
+   "log_jail_keeper_house",
    "north_branch_bridge",
    "north_pier",
    "north_water_slough_crossing",

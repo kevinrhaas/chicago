@@ -8,9 +8,9 @@
 | | target | known | to reconstruct |
 |---|---:|---:|---:|
 | Persons | 2,549 | 1,417 | 1,798 |
-| Households | 645 | 165 | 425 |
+| Households | 645 | 165 | 426 |
 | Businesses (enumerated classes) | 109 | 128 | 7 |
-| Roofs | 668 | 687 | 0 |
+| Roofs | 668 | 688 | 0 |
 
 **2,863 people stand in the layer today** and **13** are still owed after the counters, so the town this book converges to is **2,876** — inside the model's 2,370-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
 
@@ -356,8 +356,8 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 |---|---:|---:|
 | T-1174 | 596 | 27 |
 | T-2021 | 469 | 19 |
+| T-2193 | 310 | 3 |
 | T-1347 | 309 | 24 |
-| T-2193 | 309 | 3 |
 | T-1171 | 294 | 19 |
 | T-1371 | 138 | 35 |
 | T-1533 | 26 | 5 |
@@ -402,7 +402,7 @@ Two committed passes have offered every banded household ground: the plat first,
 - offered ground: 1,424
 - seated: 316 — 316 by adopting a roof that already stands, 0 by asking for one
 - still on no ground at all: 1,108
-- of the 687 roofs the town already has, 316 now carry a reconstructed household
+- of the 688 roofs the town already has, 316 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
@@ -573,7 +573,7 @@ The households the model wants, by kind and division.
 | `households/boarding_house/south` | 41 | 12 | 29 | 7 | T-2023 |
 | `households/boarding_house/west` | 9 | 2 | 7 | 3 | T-2023 |
 | `households/family_dwelling/north` | 123 | 27 | 89 | 89 | T-2286 |
-| `households/family_dwelling/south` | 258 | 74 | 182 | 182 | T-2256 |
+| `households/family_dwelling/south` | 258 | 74 | 183 | 183 | T-2256 |
 | `households/family_dwelling/west` | 110 | 21 | 78 | 78 | T-2286 |
 | `households/inn_tavern/north` | 3 | 0 | 3 | 0 | T-2023 |
 | `households/inn_tavern/south` | 7 | 2 | 5 | 5 | T-2023 |
@@ -586,9 +586,9 @@ The households the model wants, by kind and division.
 
 **The store rows, ruled (T-2194).** The book ordered 77 store households on the town's 52 civil store roofs, 1.48 a roof, because the households are apportioned on roof counts. A store residence is one household, the keeper's, so 25 are discharged; 8 more stand a house of trade whose keeper the town places on another roof, so nobody lived over them; 4 stand a house of trade whose keeper the town holds no card for, so nobody is seated over them; and 0 are still owed: a keeper for a store roof that stands with nobody in it. BOTH. The book over-orders the store rows, by what it ordered above one household a store roof, and that is discharged here. And the index is short: the household quota counts houses off the residents index alone, so the trade households the reconstruction drew as heads of their own and seated on a roof, the readmitted and the underdocumented are outside the count. They are people the cards hold present, not an order to fill, and T-2236 forms the store households from the keepers of the houses of trade the town holds, over their own stores, rather than from anybody new; what it could not form is T-2246's.
 
-**The family rows, ruled (T-2256).** The held heads fall 20 short of the family_dwelling order. The housing deal holds 15 families present on the scene date and waiting on a roof behind the census ceiling, none of them a letter-list household, 15 with no division on the card; spread pro rata on the cells' targets, as rule 2 spreads the unplaced known, with a share past its cell's shortfall spread on over the cells still short (6 so), they discharge 15 and 5 are still owed. NOT A HOUSEHOLD THE TOWN LACKS. Rule 2 never orders a replacement for somebody standing in the town, and these families stand in it on their own cards: what they lack is a roof, which the remaining dwelling builds raise, and the deal seats them where the room is when they do.
+**The family rows, ruled (T-2256).** The held heads fall 19 short of the family_dwelling order. The housing deal holds 14 families present on the scene date and waiting on a roof behind the census ceiling, none of them a letter-list household, 14 with no division on the card; spread pro rata on the cells' targets, as rule 2 spreads the unplaced known, with a share past its cell's shortfall spread on over the cells still short (6 so), they discharge 14 and 5 are still owed. NOT A HOUSEHOLD THE TOWN LACKS. Rule 2 never orders a replacement for somebody standing in the town, and these families stand in it on their own cards: what they lack is a roof, which the remaining dwelling builds raise, and the deal seats them where the room is when they do.
 
-**What the waiting families leave, ruled (T-2286).** The waiting families leave 5 houses owed on the family_dwelling rows. Every family person cell of West reads 0 left, so 5 of those houses have nobody the book may draw into them without overfilling a person cell; discharged, the book orders 588 households, inside the model's range from 473, and 0 are still owed. NOT A HOUSEHOLD THE TOWN LACKS. A house is the people in it, and the person side of the division is full: its families stand in the town in fewer houses than the households midpoint asks, and larger, which the model's range admits. The order past what the open family cells could people is discharged rather than met with a house nobody lives in.
+**What the waiting families leave, ruled (T-2286).** The waiting families leave 5 houses owed on the family_dwelling rows. Every family person cell of West reads 0 left, so 5 of those houses have nobody the book may draw into them without overfilling a person cell; discharged, the book orders 589 households, inside the model's range from 473, and 0 are still owed. NOT A HOUSEHOLD THE TOWN LACKS. A house is the people in it, and the person side of the division is full: its families stand in the town in fewer houses than the households midpoint asks, and larger, which the model's range admits. The order past what the open family cells could people is discharged rather than met with a house nobody lives in.
 
 ## Businesses
 
@@ -627,11 +627,11 @@ The December 1835 State census set against the register the town already holds.
 The roofs the 668-roof programme still owes, by archetype group and division.
 
 - `roof_target`: 668
-- `standing_records`: 687
+- `standing_records`: 688
 - `standing_with_an_occupant`: 373
-- `standing_without_an_occupant`: 314
+- `standing_without_an_occupant`: 315
 - `to_build_total`: 0
-- `redeal_note`: A roof standing where the reconstruction plan has nobody to put in it is a SUBSTITUTION for other work, never a demolition: 314 of the 687 standing records carry no occupants block today, and other work re-audits them against this book.
+- `redeal_note`: A roof standing where the reconstruction plan has nobody to put in it is a SUBSTITUTION for other work, never a demolition: 315 of the 688 standing records carry no occupants block today, and other work re-audits them against this book.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
@@ -719,7 +719,7 @@ The book carries THE MODEL. Every difference is listed here for T-1196, which re
 - **every_person_housed** (T-1215) — Every person in the layer — attested, inferred or reconstructed — is a member of a household or a lodging place that is seated on a roof. *Now:* 22 of 1387 present households name a lives at.
 - **every_working_person_has_a_workplace** (T-1189) — Every person carrying a trade, profession or employment has a workplace, or a stated `no fixed workplace`. *Now:* 50 of 1387 present households name a works at.
 - **every_business_has_staff** (T-1189) — Every business — attested, inferred or reconstructed — carries the staff other work's model implies for its kind. *Now:* not yet measurable: the authored business layer is other work.
-- **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 314 of 687 standing records carry no occupants block.
+- **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 315 of 688 standing records carry no occupants block.
 - **dwellings_ratio_within_its_bracket** (T-1215) — The town census's people-per-dwelling ratio is met within the model's bracket. *Now:* the book orders 2,549 people into 645 households.
 - **an_uncompared_class_orders_nothing** (T-1442) — A trade-census class the crosswalk rules `compared: false` carries its figures but orders no reconstruction: the difference between a census line and the register is only a shortfall where the crosswalk has ruled the two comparable. *Now:* carried uncompared: 1 of 18 enumerated business classes, each ordering nought.
 - **no_bucket_overfilled** (T-1166) — No bucket's `filled` exceeds its to reconstruct; a filler that bypasses the book is red in the project's gate. *Now:* enforced by --check on every gate run.

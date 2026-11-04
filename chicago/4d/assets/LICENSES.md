@@ -1642,6 +1642,14 @@ Exact reconstructed-fit limitation: the retained artist kingbolt axis is 4.994mm
 
 The final farm-box master also includes an actual central90x55mm coupling reach, reconstructed from the same licensed shaft surface/UVs and separately owned in vehicle_reach. Its end connections are geometry-checked against the fixed front bolster and rear axle. The actual original28-triangle kingbolt is separately owned in vehicle_kingbolt; this is a component split, not an empty proxy or a hidden change to source surfaces. Both remain CC BY4.0 derivatives with the same author credit; fit/strength/historic-design limits remain reconstruction.
 
+
+### Log-jail keeper house generated pair — T-2380
+
+| path | origin | license | notes |
+|---|---|---|---|
+| `gltf/log_jail_keeper_house__frame_1835.glb` | Native Blender4.5.3 generation from `data/structures/log_jail_keeper_house.json`, optional `frame_dwelling` keeper layout | project license | Source-informed form from W.E.S.Trowbridge's illustration in Edwin O.Gale, *Reminiscences of Early Chicago and Vicinity* (Fleming H.Revell,1902), plate facingp53, source `trowbridge_first_jail_gale_1902`; independently public domain by1902USpublication. Flat/procedural materials, no source-image texture. Metric dimensions, finish and July1835continuity remain reconstructed. Actual source/MASTER registration is required, not supplied by this prose. |
+| `web/log_jail_keeper_house__frame_1835.glb` | Native pinned web derivative of the master above | project license | Same provenance. The retained pair is byte-exact actual native output; current family qualification and entrywise registry integration remain required before release. |
+
 ## T-3088 source-bounded horse anatomy authoring
 
 The anatomy recipes derive from the preserved selected d454 standing horse above,

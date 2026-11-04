@@ -13,8 +13,9 @@
  * one leaf, a pair of cart leaves, or slip bars let down out of a rail fence.
  * A boarded leaf is one panel, the way the fence's own butted boards read; a
  * paled leaf is two rails with the pales spaced across them. No brace is
- * drawn, because this layer only draws boxes that stand upright, and a
- * leaning one would be a claim about the gate it does not make.
+ * drawn for those default leaves. The explicit braced_rail opt-in is an open
+ * framed leaf read from a cited picture; only enclosures consumes its optional
+ * tilted brace descriptor. No current frontage gate selects this stock.
  *
  * WHAT IT DOES NOT DRAW, and why (T-0672's ceilings): the gate posts. Both
  * fence layers already stand a post at either end of every stretch, so the
@@ -51,6 +52,22 @@ function leaf(out, h, d, inward, len, deg, height, stock) {
   const top = height - 0.12;
   const low = 0.18;
   const mid = at(len / 2);
+  if (stock === 'braced_rail') {
+    // Explicit source-led open leaf only. Every unstated/board/picket leaf
+    // continues through its original branch below with identical arithmetic.
+    for (const y of [low, top]) box(out, mid[0], h.y + y, mid[1], ue, un,
+      len / 2, LEAF_T_M, LEAF_RAIL_H_M / 2, 'rail');
+    for (const t of [LEAF_RAIL_H_M / 2, len - LEAF_RAIL_H_M / 2]) {
+      const p = at(t); box(out, p[0], h.y + (low + top) / 2, p[1], ue, un,
+        LEAF_RAIL_H_M / 2, LEAF_T_M, (top - low) / 2, 'rail');
+    }
+    const rise = top - low, diag = Math.hypot(len, rise);
+    box(out, mid[0], h.y + (low + top) / 2, mid[1], ue, un,
+      diag / 2, LEAF_T_M / 2, LEAF_RAIL_H_M / 2, 'rail');
+    out[out.length - 1].tilt_cos = len / diag;
+    out[out.length - 1].tilt_sin = rise / diag;
+    return;
+  }
   if (stock !== 'picket') {
     // Boards butted edge to edge read as one face, so they are drawn as one.
     box(out, mid[0], h.y + (0.06 + top) / 2, mid[1], ue, un, len / 2, LEAF_T_M / 2,
