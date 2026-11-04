@@ -14,6 +14,53 @@ execution is claimed. Validation and the actual current hosted eight-part gate a
 in the PR/evidence checkpoint. The July shell remains reconstructed and T-2379 OPEN/partial;
 the later completed-hotel picture does not establish July 1835 construction progress.
 
+## T-2383 — the ridge-end stacks retained through native recovery (2026-11-04)
+
+The genuine one-Hotel MASTER/WEB and four accepted controlled picture groups survived
+the native worker's provider usage limit. Its saved source00163f30 integrated current
+dev and the magazine increment. Fresh published Stage3 runs on that exact head passed
+at390x780 and1280x800,107 checks each, zero failures. These are Stage3 readings, not
+the full15-part runtime gate or a new whole-image acceptance. The final PR records
+the separate current Hotel/card/source-credit review and final-head qualification.
+
+The source receipt stays literal: part1 passed on7819, parts2 and3 passed after the
+real SourceUse repair c1ad5c839, while part4 failed its unchanged T-3088 two-vector
+np.cross fixture under Python3.14/NumPy2.5.4. The monolithic preflight wrapper reached
+its590-second timeout. Neither is relabelled PASS; a later current correct-environment
+execution of the exact step supplies its own evidence. Actual paired commands,
+execution heads and the provider-limit terminal are retained at chicago-evidence
+commit d810003956db87761e80d5745a4ccab39f315295.
+
+The bounded stack move remains the scope. The Hotel still **differs**, the shop's
+three views retain **matches**, and shaft proportions/heads, compound roof and
+left-gable questions remain open. Every kit dimension and July1835 continuity caveat
+remains explicit; no camera, metric or fitting date is promoted. Original T-2383
+stays OPEN/PARTIAL, and the reasoning archive now records this increment too.
+
+## T-2383 — the Sauganash's ridge-end stacks (2026-11-04)
+
+Andreas/Braunhold draws both main-block stacks close to the ends of the ridge: the near one
+sits immediately behind the visible gable peak, the far one well out toward the far end. The
+record carried the generic `chimney_placement` default, which puts them at 0.22/0.78 of the
+frontage — about 1.6 m further inboard on each side, and inboard enough on a 9.92 m block for
+a visitor on the street to see it. `sauganash_hotel.frame_1831.form.chimney_placement` now
+selects the existing `gable_ends` kit, so the two centres read 0.60 m and 9.32 m. No producer,
+archetype or kit code changed: this is a data selection of geometry the generator already had.
+
+**Honest limits.** The 0.60 m inset, the 0.90 m square shaft and the ridge + 0.55 m top are
+the kit's reconstructed choices, not dimensions read off the plate; the engraving supports the
+relative disposition and supplies no coordinate, no metre, no July 1835 fitting date and no
+historical camera (`docs/LIBERTIES.md` L-sauganash-ridge-end-stacks-2383). Measured on the
+hotel's own camera, the near stack's offset from the gable peak falls from about 0.19 to 0.08
+of the visible ridge run against the picture's 0.04, and the far stack's rises from 0.57 to
+0.67 against the picture's 0.65 — a reading of the before and after renders beside the picture,
+not a survey. Exactly one asset was stale and exactly one was rebuilt on the pinned Blender;
+nothing else in the frame-tavern family moved, because no producer did. The stacks' own
+proportions and heads stay **open** — the plate draws slender shafts under a corbelled cap
+where the model has squat blocks with a plain top — as do the compound roof silhouette and the
+left-gable questions. The hotel's comparison still reads **differs**; the three Carpenter-shop
+comparisons were re-rendered from their own cameras, directly reviewed and retain **matches**
+with the shop anchor byte-identical. T-2383 stays open and partial.
 ## T-2383 — the Sauganash's boxed gable cornice (2026-11-04)
 
 Andreas/Braunhold draws a boxed cornice down both rakes of the hotel's visible main gable

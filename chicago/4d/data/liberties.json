@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1002,
+  "count": 1003,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -67794,6 +67794,53 @@
         "T-3335",
         "T-3041",
         "T-2387"
+      ]
+    },
+    {
+      "id": "L-sauganash-ridge-end-stacks-2383",
+      "title": "The Sauganash stacks move toward the ridge ends",
+      "section": "per_subject",
+      "subjects": [
+        "sauganash_hotel"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "sauganash_hotel",
+          "phase": "frame_1831",
+          "aspect": "form.chimney_placement"
+        }
+      ],
+      "recorded": "2026-11-04",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`sauganash_hotel.frame_1831.form.chimney_placement`."
+        },
+        {
+          "label": "Decision",
+          "text": "select the existing gable ends placement for the two main-block stacks. On the retained 9.92 m frontage their centres move from the generic 0.22/0.78 fractions (2.1824/7.7376 m) to the existing kit's 0.60 m end insets (0.60/9.32 m). Count, square shaft section, top height and material are retained. No new stack is added."
+        },
+        {
+          "label": "Why",
+          "text": "direct review of the credited public-domain Andreas/Braunhold 1884 plate and the current cornice comparison shows the stacks near the ridge ends in the picture and farther inward in the model. The retrospective plate supports relative disposition; the numeric inset is an explicit reconstruction from the existing kit, not a measurement. Petford and Trowbridge are related compositions, not independent corroboration, and no new geometry is derived from the colour reproduction. This scoped choice supersedes “Every chimney stands where the archetype puts it”'s generic frontage fractions for this Hotel phase alone."
+        },
+        {
+          "label": "Limits",
+          "text": "all metres, July 1835 continuity and exact historical station remain unestablished. Main/rear-wing silhouette, chimney caps/stock proportions, the left-gable details and whole compound remain open. A fixed diagnostic-camera horizontal projection is preparation, not a native render or image acceptance. The original this work remains partial/open; the separate Carpenter shop and the Hotel's earlier log phase remain their own records."
+        },
+        {
+          "label": "Sources",
+          "text": "\"THE SAUGANASH HOTEL.\" — wood engraving, in A. T. Andreas, History of Chicago…; existing held reproduction SHA256 `3884c16f72702fd3b1696663dd82b444ac26028b97472e03bd00a2fa75026afb`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-04."
+        }
+      ],
+      "work_refs": [
+        "T-2383"
       ]
     },
     {

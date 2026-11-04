@@ -2,7 +2,7 @@
   "structure_id": "sauganash_hotel",
   "view": "andreas-1884",
   "glb": "assets/gltf/sauganash_hotel__frame_1831.glb",
-  "glb_sha256": "08b77238df24e8481a3926a8670044efc9908d80029d91c6dd10f370e23a429b",
+  "glb_sha256": "16335b77d354996661cd5da85405b7cd51e76ed34088991f762b787be59f0d93",
   "camera_sha256": "276f2051fa8db6379236b5d642a6ca75c740f4e82ebf44819c72808917d55991",
   "photo_sha256": "3884c16f72702fd3b1696663dd82b444ac26028b97472e03bd00a2fa75026afb",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "08b77238df24e8481a3926a8670044efc9908d80029d91c6dd10f370e23a429b"
+      "glb_sha256": "16335b77d354996661cd5da85405b7cd51e76ed34088991f762b787be59f0d93"
     },
     {
       "structure_id": "philo_carpenter_log_shop",
@@ -45,10 +45,18 @@
       "glb_sha256": "f3e26f650627f36879087d75f30db5c4553e0f5938ae5bd0d305480958549cfc"
     }
   ],
-  "group_sha256": "4b0807f05e91d516f15a98cc894901a74538acf68002b2a23b1698a9b6c31400",
+  "group_sha256": "7f9b0deb5521bbe972c5d6e20a6018b5d2b2fe239bd814ff39fb34053745d6c9",
   "side_by_side": "docs/RESEARCH/photo-match/sauganash_hotel/andreas-1884-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
+    {
+      "what": "THE TWO RIDGE STACKS STOOD TOO FAR INBOARD. Andreas/Braunhold draws both main-block stacks close to the ridge ends — the near one immediately behind the visible gable peak, the far one well out toward the far end — while the model placed them at the generic 0.22/0.78 frontage fractions, about 1.6 m inboard of the picture's disposition on each side. The existing `gable_ends` kit is now selected, so on the retained 9.92 m block their centres are 0.60 m and 9.32 m. Measured on this same camera, the near stack's offset from the gable peak falls from about 0.19 to 0.08 of the visible ridge run against the picture's 0.04, and the far stack's rises from 0.57 to 0.67 against the picture's 0.65. The 0.60 m inset, the 0.90 m square shaft and the ridge + 0.55 m top are reconstructed generator choices; the plate supports the relative disposition and supplies no measurement. docs/LIBERTIES.md L-sauganash-ridge-end-stacks-2383.",
+      "status": "fixed"
+    },
+    {
+      "what": "The stacks' own proportions and heads still differ from the picture. Andreas draws slender brick shafts standing well clear of the ridge with a corbelled cap; the model carries squat 0.90 m square blocks ridge + 0.55 m with a plain top, which a visitor on the street would notice. Count (2), brick material and the ridge line are unchanged and are not in question. Only the along-ridge station moved here; shaft section, height and cap remain open on their own merits.",
+      "status": "open"
+    },
     {
       "what": "THE BOXED GABLE CORNICE AND ITS RETURNS. Andreas/Braunhold draws a boxed band following both rakes of the visible main gable and a short horizontal return turning the corner at each eaves end; the model had a bare rake there, which a visitor on the street would notice. Both are now built on the +x gable in the wall finish, hanging below the rake line. The three sections are reconstructed working choices, not measurements, and the picture's own scale datum supports a return anywhere in roughly 0.55-0.9 m; the remaining section uncertainty is within tolerance under T-3153. Occurrence on the opposite, unseen gable is not claimed and nothing is built there. docs/LIBERTIES.md L-sauganash-main-gable-cornice-2383.",
       "status": "fixed"
@@ -80,8 +88,8 @@
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
   "context_refresh_review": {
-    "reviewed_at": "2026-11-04T02:20:00+00:00",
-    "disposition": "This run directly viewed the new side-by-side against the picture, beside the image it replaced, before setting the verdict below.",
-    "scope": "The only rendered input that moved is the Sauganash hotel's master, which gained the pictured boxed gable cornice and returns on its +x gable (T-2383). No camera, placement, photograph or other member changed. This review signs off neither the whole hotel nor T-2383, whose remaining roof silhouette and left-gable differences stay open."
+    "reviewed_at": "2026-11-04T07:00:00+00:00",
+    "disposition": "This run rendered the view from its own camera before and after the change and viewed both side-by-sides beside the picture itself before setting the verdict below.",
+    "scope": "The only rendered input that moved is the Sauganash hotel's master: its two main-block ridge stacks moved from the generic 0.22/0.78 frontage fractions to the existing gable_ends kit's 0.60 m end insets (T-2383). The Carpenter shop anchor's GLB is byte-identical, and no camera, placement or photograph changed. This review signs off neither the whole hotel nor T-2383, whose roof silhouette and left-gable differences stay open."
   }
 }

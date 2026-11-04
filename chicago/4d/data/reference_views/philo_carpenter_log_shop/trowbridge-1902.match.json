@@ -42,10 +42,10 @@
         3.0999999999999943
       ],
       "rotation_y": 0,
-      "glb_sha256": "08b77238df24e8481a3926a8670044efc9908d80029d91c6dd10f370e23a429b"
+      "glb_sha256": "16335b77d354996661cd5da85405b7cd51e76ed34088991f762b787be59f0d93"
     }
   ],
-  "group_sha256": "109804337dfce98ab633b639ccc8a9469fb9835be956c122bb894d7763634cd1",
+  "group_sha256": "8740f16344972785805c6f3d6ea467c0f685de3495b73fe550bae0db410ce8ab",
   "side_by_side": "docs/RESEARCH/photo-match/philo_carpenter_log_shop/trowbridge-1902-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -68,8 +68,8 @@
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
   "context_refresh_review": {
-    "reviewed_at": "2026-11-04T02:20:00+00:00",
-    "disposition": "This run directly viewed the new side-by-side against the picture, beside the image it replaced, before setting the verdict below.",
-    "scope": "The only rendered input that moved is the Sauganash hotel's master, which gained the pictured boxed gable cornice and returns on its +x gable (T-2383). No camera, placement, photograph or other member changed. This review signs off neither the whole hotel nor T-2383, whose remaining roof silhouette and left-gable differences stay open."
+    "reviewed_at": "2026-11-04T07:00:00+00:00",
+    "disposition": "This run rendered the view from its own camera before and after the change and viewed both side-by-sides beside the picture itself before setting the verdict below.",
+    "scope": "The only rendered input that moved is the Sauganash hotel's master: its two main-block ridge stacks moved from the generic 0.22/0.78 frontage fractions to the existing gable_ends kit's 0.60 m end insets (T-2383). The Carpenter shop anchor's GLB is byte-identical, and no camera, placement or photograph changed. This review signs off neither the whole hotel nor T-2383, whose roof silhouette and left-gable differences stay open."
   }
 }
