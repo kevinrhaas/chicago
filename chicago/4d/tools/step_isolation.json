@@ -5546,6 +5546,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_batch_instance.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_batch_shadow_cull.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6154,6 +6158,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_parade_presence.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_parked_transport_empty_scene.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6607,70 +6615,6 @@
       "wrote_ignored": []
     },
     "{}": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/human_natural_idle.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_driven_assembly.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_human_body_ray_grid.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_human_driver_transfer.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_human_frame_time.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_human_natural_idle.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_standing_horse_eye_smooth_normals.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_standing_horse_quiet_head_neck.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_standing_horse_upper_lid.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_standing_horse_upper_orbital.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_transport_clearance.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_transport_interactions.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_transport_loop.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_transport_support.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_working_driver_1904.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_batch_instance.mjs": {
       "wrote": [],
       "wrote_ignored": []
     }

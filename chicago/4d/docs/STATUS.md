@@ -25832,3 +25832,7 @@ images byte-for-byte, which is what makes the third render comparable. Both lowe
 now read as uninterrupted dark recesses and the upper light, the casing, the wings'
 windows, the stacks and the massing are unchanged. That camera is STILL UNSOLVED,
 still unenrolled and still private: no RMS, no grade, no verdict, no completion.
+
+
+### First Fort parade presence — T-3041, 2026-11-04
+The first fort's loaded earth-only parade asset is supplied by its named trodden-ground owner, so it is now listed separately from direct building batches. No bounding box or standing building is invented. Failed, empty or malformed assets remain missing, and the second fort's sundial still has to draw. The ground layer already drew independently; this corrects the false missing-host report, not an absent ground surface. Actual createBuildings regression checks pass; the earlier 1812 desktop runtime failed its zero-console-error check and remains preserved as a failure. Full source and both-viewport runtime qualification are required before this repair merges; actual final receipts are kept with the PR. The original first-fort picture acceptance remains open.

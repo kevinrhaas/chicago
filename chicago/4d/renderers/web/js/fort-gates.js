@@ -80,9 +80,23 @@ function gradeOf(sidecar, name) {
  * The buildings layer then leaves out the archetype's flat 6 cm slab (its `earth`
  * primitive) and keeps the rest (Fergus's sun-dial).
  */
-export function paradeLaidAsGround(record) {
+export const PARADE_GROUNDS = Object.freeze({
+  first_fort_dearborn_parade: { scene: '1812', id: 'first_fort_dearborn_parade_ground' },
+  fort_dearborn_parade: { scene: '1835', id: 'fort_dearborn_parade_ground' },
+});
+
+/** The T-3320 ground owner, whose generated record supplies this parade's surface. */
+export function paradeGroundOwner(record) {
+  const ground = PARADE_GROUNDS[record?.id];
   const kind = record?.sidecar?.attributes?.['kind'];
-  return (kind && typeof kind === 'object' ? kind['value'] : kind) === 'parade';
+  return ground && record.sidecar?.id === record.id
+    && String(record.sidecar?.scene) === ground.scene
+    && (kind && typeof kind === 'object' ? kind['value'] : kind) === 'parade'
+    ? ground.id : null;
+}
+
+export function paradeLaidAsGround(record) {
+  return paradeGroundOwner(record) !== null;
 }
 
 /** Does the buildings layer leave this record's baked leaves to this layer? */
