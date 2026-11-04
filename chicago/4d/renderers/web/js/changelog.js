@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2646, ts: '2026-11-04T06:27:31.748Z', date: 'Nov 4, 2026, 12:27 AM CT', title: 'Drivers look around while seated', kind: 'feature',
+    items: [
+      'Otis Bardwell in 1835 and coachman Hans Johnson in 1904 make small head and neck movements while driving or stopped. Their appearance and actions remain reconstructed.',
+    ] },
   { v: 2645, ts: '2026-11-04T06:23:01.061Z', date: 'Nov 4, 2026, 12:23 AM CT', title: 'A keeper house and low gate at the log jail', kind: 'change',
     items: [
       'The log jail gains the keeper\'s low house and a framed gate beside its pointed fence. Their exact layout and July1835 continuity are reconstructed; the picture comparison remains unfinished.',
