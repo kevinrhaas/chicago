@@ -6338,3 +6338,8 @@ The missing current 1812 magazine exterior, real roof/ground presence and actual
 ### T-3041 — prepare the two first-fort blockhouse cupolas, 2026-11-04
 
 The source half enables the existing cupola control on the NW and SE blockhouses for the reconstructed 1812 prototype, retaining Whistler's not-built-in-1808 counterevidence and the unknown completion date. All inherited kit dimensions are working reconstructions. No native output exists for these flags yet; the draft feature remains unqualified and cannot merge to dev. Two genuine pinned native outputs and WEB derivatives, controlled Currey comparison/current target visitor checks, foreign preservation and final exact-head gates are still owed. The approved stock workflow's child checkpoint may target only this isolated feature branch. Cupola acceptance, western gateway and full original first-fort picture coverage remain open; T-3041/T-2387 stay partial.
+
+
+#### Cupola provenance repaired; retained native assets still owed
+
+The first stock attempt built two MASTERs and two WEBs but stopped on missing explicit liberty coverage and stale source-use backlinks before its checkpoint push. Preserve that actual RED; no generated asset can be adopted from it. Both cupola admissions and the official generated source backlinks are now repaired, with real full-dataset parameter/provenance validation and the original metadata owners passing. Geometry inputs are unchanged. The parent stays draft and needs a new separately approved pinned build, retained output review, current visitor/picture checks and final gates. T-3041/T-2387 remain partial and Currey DIFFERS.

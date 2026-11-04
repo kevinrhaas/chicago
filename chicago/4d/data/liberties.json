@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1002,
+  "count": 1003,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -67792,6 +67792,70 @@
       ],
       "work_refs": [
         "T-3335",
+        "T-3041",
+        "T-2387"
+      ]
+    },
+    {
+      "id": "L-first-fort-blockhouse-cupola-prototype-3041",
+      "title": "Two reconstructed 1812 cupolas",
+      "section": "per_subject",
+      "subjects": [
+        "first_fort_dearborn_blockhouse_nw",
+        "first_fort_dearborn_blockhouse_se",
+        "fort_dearborn_blockhouse"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "first_fort_dearborn_blockhouse_nw",
+          "phase": "first_fort_1803",
+          "aspect": "form.cupola"
+        },
+        {
+          "domain": "structure",
+          "structure": "first_fort_dearborn_blockhouse_se",
+          "phase": "first_fort_1803",
+          "aspect": "form.cupola"
+        }
+      ],
+      "recorded": "2026-11-04",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Request the existing plain square cupola body and separate pyramid cap on the NW and SE first-fort blockhouses for the owner-adopted 1812-08-14 prototype. Currey's 1912 retrospective bird's-eye depicts this topology; it is not a contemporary measured view. Whistler expressly says the cupolas were not yet built in 1808. No source establishes a completion date or their presence throughout the parent fort's 1803–1812 range. Occurrence on this prototype remains reconstructed, not attested."
+        },
+        {
+          "label": "What is invented",
+          "text": "Every inherited kit figure: the 1.8 m body, 2.1 m total body height, 0.22 m cap eave, 36-degree cap pitch and 0.12 m roof seat. These are working reconstruction defaults, not picture measurements or evidence transferred from the second fort. Covering, material and colour remain reconstructed; no glazing, louvres, interior, function or finial is asserted."
+        },
+        {
+          "label": "Supersedes",
+          "text": "Only the old-model statement in “Retire two reconstructed stacks” that the first-fort lanterns remain unbuilt. Its zero separate chimneys and “The first Fort Dearborn's heights, roofs, stacks, pickets and two missing depths are ours”'s other height, roof and jetty choices remain; all historical entries are retained. The current source half still needs genuine rebuilt assets and visual acceptance before dev adoption."
+        },
+        {
+          "label": "What is retained",
+          "text": "Main pyramid roofs, surveyed positions and plan, bearing, wall heights, phase ranges and all other buildings. No dimension, date, palette or source grade is promoted by this admission."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Keep the original picture piece of work partial, retain Whistler's counterevidence, and compare the actual rebuilt prototype against the adopted Currey view before accepting it. A contemporary completion record or specification would be needed to date or measure these fittings."
+        },
+        {
+          "label": "Covers",
+          "text": "`first_fort_dearborn_blockhouse_nw.first_fort_1803.form.cupola`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.cupola`."
+        },
+        {
+          "label": "Source",
+          "text": "'Bird’s-Eye View of Old Fort Dearborn.' Illustration at p. 27 of J. Seymour…; Whistler, Captain John. \"Fort Dearborn\" [draught of the garrison and its…."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-04."
+        }
+      ],
+      "work_refs": [
         "T-3041",
         "T-2387"
       ]

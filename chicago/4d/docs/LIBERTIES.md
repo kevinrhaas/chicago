@@ -40535,3 +40535,17 @@ project is `diagnostic_only` for that reason.
 **Ticket:** T-3041 (piece of T-2387).
 **Review:** `data/reference_views/first_fort_dearborn_pickets_outer/currey_1912_birdseye.match.json`.
 **Recorded:** 2026-11-04 (T-3041).
+
+
+### L-first-fort-blockhouse-cupola-prototype-3041 — Two reconstructed 1812 cupolas
+
+**Decision:** Request the existing plain square cupola body and separate pyramid cap on the NW and SE first-fort blockhouses for the owner-adopted 1812-08-14 prototype. Currey's 1912 retrospective bird's-eye depicts this topology; it is not a contemporary measured view. Whistler expressly says the cupolas were not yet built in 1808. No source establishes a completion date or their presence throughout the parent fort's 1803–1812 range. Occurrence on this prototype remains reconstructed, not attested.
+**What is invented:** Every inherited kit figure: the 1.8 m body, 2.1 m total body height, 0.22 m cap eave, 36-degree cap pitch and 0.12 m roof seat. These are working reconstruction defaults, not picture measurements or evidence transferred from the second fort. Covering, material and colour remain reconstructed; no glazing, louvres, interior, function or finial is asserted.
+**Supersedes:** Only the old-model statement in L-first-fort-pictured-blockhouse-stacks-3041 that the first-fort lanterns remain unbuilt. Its zero separate chimneys and L370's other height, roof and jetty choices remain; all historical entries are retained. The current source half still needs genuine rebuilt assets and visual acceptance before dev adoption.
+**What is retained:** Main pyramid roofs, surveyed positions and plan, bearing, wall heights, phase ranges and all other buildings. No dimension, date, palette or source grade is promoted by this admission.
+**How to resolve:** Keep the original picture ticket partial, retain Whistler's counterevidence, and compare the actual rebuilt prototype against the adopted Currey view before accepting it. A contemporary completion record or specification would be needed to date or measure these fittings.
+**Covers:** `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.cupola`,
+`first_fort_dearborn_blockhouse_se.first_fort_1803.form.cupola`.
+**Source:** `currey_1912_first_fort_birdseye`; `whistler_1808_fort_dearborn_draught`.
+**Ticket:** T-3041 (increment under T-2387).
+**Recorded:** 2026-11-04.
