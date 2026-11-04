@@ -6247,3 +6247,8 @@ cabin. Geometry and placement stay unchanged. DIFFERS retains the main/left
 roof, broad rear-left wing and left-gable review; the old shop camera does not
 establish hotel dimensions or a historical viewpoint. Other pictures and the
 original full match remain open. See docs/RESEARCH/photo-match/sauganash_hotel/.
+
+
+### T2379 — later-address source cross-check, 2026-11-04
+
+The existing Fergus source now identifies a directly checked Lake House Hotels entry from his 1876 recollection of 1839. Record and Sources state its date and the conflicting street accounts. Construction-state picture matching remains OPEN; coordinates, phases, dimensions, grades and meshes are unchanged.

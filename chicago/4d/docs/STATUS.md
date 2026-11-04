@@ -25711,3 +25711,8 @@ placements, phases, material values and source disagreements are retained.
 This authored checkpoint claims no completed four-part gate, committed-head
 publication or desktop/phone application QA; those are recorded separately for
 the actual PR head. Original T-2383 remains partial/open, with no new ticket.
+
+
+### Lake House source reading — 2026-11-04
+
+The Record now distinguishes a directly checked line in Fergus's 1876 recollection of the 1839 Rush/North Water address from Andreas's differing street account. The July 1835 construction stage, position and dimensions remain uncertain. This increment changes source and Record metadata; it claims no new geometry or image-match completion.
