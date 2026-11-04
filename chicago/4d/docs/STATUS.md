@@ -25510,3 +25510,34 @@ The [prepared canonical capture and source-conflict review](https://github.com/k
 The existing Green Tree enclosure option now selects Andreas's closed shoulder, lower sash and small front-gable light. Trowbridge's open bay stays explicit conflicting evidence; no conversion year or exactJuly1835form is asserted. The yard producer declines only its competing open shed/posts and associated covered wagon. Native false/absent behavior and the other two farm-wagon/bench records have exact before/after output proof. Main footprint/world placement, all numeric form controls, dates, sources and confidence remain unchanged.
 
 The genuine retained0b53MASTER/full80d47input identity and actual5.019second unchanged-camera comparison support this partial increment. The canonical image review stays DIFFERS for left-cluster roof silhouette/proportions. The actual selected native WEB optimize/meshopt run produced the48648byte derivative, and the native all-asset WEB contract and validate --all pass. Ordered native tail owners reached every remaining step, including compiled occupied shoulder and yard consumers; the final Git snapshot exceeded600seconds during pack copy-up, so owner-loop closure is not claimed. Existing native clearance, street-corridor and compound-walker checks pass. The newly occupied shoulder also removes one colliding Green Tree cordwood rick through the existing woodpile owner. Canonical camera, entrance aprons, all foreign registry rows and version registry stay exact. Allfour source-check parts and published phone/desktop physical review remain pending. No source commit/PR/merge, app pass or original-ticket completion is claimed here.
+
+### T-2376 — the shoulder light's gable cap, 2026-11-04
+
+One bounded, data-only trial inside the open original. `front_gable_peak_m` on the
+Green Tree's enclosed shoulder goes 4.50 → 4.85 m, so the small front-gable light
+reads as the sharply pointed cap Andreas's engraving draws rather than the blunt,
+nearly flat one. Against the builder's unchanged 4.20 m dormer head and 0.625 m roof
+half-span that is about 25.6° → about 46.1°. 4.85 m is a reconstructed control for
+the drawn shape, not a measurement; the plate has no scale, dimension, camera or
+date, and nothing is dated by it.
+
+Built on the pinned Blender, one master stale and one rebuilt: inputs 80d47de6a302 →
+bb16568756e3, MASTER 0b53a6fe → f213818f (269,880 → 270,816 bytes), WEB 0154cfad →
+65863b3c (48,648 → 48,772 bytes). Exported-mesh comparison confines the change to the
+dormer roof and its gable-course infill — 3,318 → 3,330 triangles, two ridge vertices
+up 0.35 m, 24 cladding vertices added in the 4.307–4.581 m band, every other primitive
+byte-identical, full bounding box exactly equal. Controlled before/after at the
+unchanged camera 9439f5f7 and picture bfaa184f; the previous side-by-side is kept in
+RESEARCH/green-tree-annex-T-2376. No sky seam, hole or roof penetration. Closed
+shoulder, lower sash, upper light and the two uncovered farm wagons retained; no shed,
+posts or covered wagon returns. Every foreign registry row and producer family is
+untouched.
+
+The canonical review stays **differs**: only the sharper dormer cap is marked fixed,
+and the shoulder's own roof slope and the left group's relative proportions stay OPEN.
+Trowbridge/Gale's 1902 open bay remains explicit counterevidence with no known
+conversion date; the drawing-to-drawing upper/attic count and the camera residuals stay
+within tolerance (T-3153). The original ticket's wider coverage — Andreas 1884,
+Trowbridge/Gale 1902, CHM c1859 (unverified, link-only, no geometry) and Kurz & Allison
+1893, plus both named reproductions — is still incomplete. T-2376 stays open/partial;
+no signoff, no new photo follow-up.
