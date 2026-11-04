@@ -907,6 +907,39 @@
       ],
       "note": "The sheet prints the small circle on the house that its key uses for a slate or tin roof; slate is chosen of the two, for the pitched hips, and its blue-grey is reconstructed."
     },
+    "boundary": {
+      "value": {
+        "layout": "open",
+        "street_u_m": 30.38,
+        "lot_s_m": [
+          -12.1,
+          15.9
+        ]
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "T-1909. The street line is the 1904 parcel's (data/street_grid/1904.json prairie_2000, u 30.38 in this frame); this house's share of the lot the sheet divides among 2000, 2010 and 2018 runs between the midpoints to its neighbours. No picture shows the front, so the front is left open, as its neighbours at 2001-2005 across the street stand (liberty L-k16-2000-2010-frame-1909)."
+    },
+    "yard": {
+      "value": {
+        "kit": "k16_yard",
+        "built": 1904,
+        "front_walk": {
+          "surface": "stone_flags",
+          "flag_m": 0.9,
+          "top_m": 0.06,
+          "wear_tone": 0.9,
+          "width_m": 1.2
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "T-1909. A front walk of stone flags from the porch stair's foot straight out to the public walk, 1.2 m wide. RECONSTRUCTED: its surface, width and course (liberty L-k16-2000-2010-frame-1909). No lawn is laid: the yard's ground is the app's own (generators/archetypes/k16_yard.py)."
+    },
     "function": {
       "value": "residence",
       "confidence": "inferred",

@@ -24972,10 +24972,11 @@ the body paints (a warm stone drab for 2000, a grey-green for 2010, so the two a
 repeated); the slate's colour (the sheet's roof mark is read as slate or tin, and slate chosen).
 **What is not built.** The porches' returns along each front block's south side (the kit's porch runs
 one wall); 2000's narrow brick range on the rear wall, 0.75 m deep, whose height the sheet does not
-print; 2010's 0.65 m step in the rear range's south wall.
+print; 2010's 0.65 m step in the rear range's south wall. The fronts are left open to the street
+with a flagged walk from each porch stair (no picture of either front is held).
 **How to resolve:** a photograph, plate or description of either house, ingested as a source,
 replaces the elevations; the sheet's key read for 'BB' confirms or corrects the raised basement.
-**Covers:** `house_2000_prairie.as_mapped_1904.form.frame_house`, `house_2000_prairie.as_mapped_1904.form.roof_covering`, `house_2010_prairie.as_mapped_1904.form.frame_house`, `house_2010_prairie.as_mapped_1904.form.roof_covering`
+**Covers:** `house_2000_prairie.as_mapped_1904.form.frame_house`, `house_2000_prairie.as_mapped_1904.form.roof_covering`, `house_2010_prairie.as_mapped_1904.form.frame_house`, `house_2010_prairie.as_mapped_1904.form.roof_covering`, `house_2000_prairie.as_mapped_1904.form.boundary`, `house_2000_prairie.as_mapped_1904.form.yard`, `house_2010_prairie.as_mapped_1904.form.boundary`, `house_2010_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-1909.
 **Review:** `docs/RESEARCH/k16-2000-2010-frame-1909/README.md`.
 **Recorded:** 2026-11-04 (T-1909).

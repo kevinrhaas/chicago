@@ -2213,9 +2213,9 @@
     "house_2000_prairie__as_mapped_1904.glb": {
       "archetype": "k16_timber",
       "baked_ao": false,
-      "bytes": 5147196,
+      "bytes": 5156064,
       "generator": "generators/k16_emit.py",
-      "inputs_sha256": "f9bff74e5fa83282c6d2451a73514921dcc209d83984a2eef47bbf2ed480bf72",
+      "inputs_sha256": "c307b4d0dbadf7b272cd38204f972354bca7ada5099f1639e4f24c5816516aa7",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_2000_prairie"
@@ -2323,9 +2323,9 @@
     "house_2010_prairie__as_mapped_1904.glb": {
       "archetype": "k16_timber",
       "baked_ao": false,
-      "bytes": 5065804,
+      "bytes": 5074692,
       "generator": "generators/k16_emit.py",
-      "inputs_sha256": "3d2200b768030d75bba36a41845a74d3ccdc3df8215291d2f3b5581375a8a91c",
+      "inputs_sha256": "75cb25fc0d41689e2fe5ce9d9951d0549e030b80f227ddf2522f0b289033d91d",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_2010_prairie"
