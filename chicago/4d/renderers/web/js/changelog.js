@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2651, ts: '2026-11-04T09:32:10.552Z', date: 'Nov 4, 2026, 3:32 AM CT', title: 'The Sauganash Hotel\'s chimneys move out to the ridge ends', kind: 'improve',
+    items: [
+      'Andreas and Braunhold\'s 1884 plate of the hotel draws both main-block stacks close to the ends of the ridge — the near one right behind the gable peak. The model had them about 1.6 m further inboard on each side. They now stand where the picture puts them.',
+      'Only the along-ridge station moved. There are still two stacks, the same square brick shafts at the same height, and the roof, cornice, wing, openings, paint and the building\'s surveyed position are untouched.',
+      'The inset itself is ours, not a measurement: the engraving shows where the stacks sat relative to the roof and nothing about their size. docs/LIBERTIES.md records that.',
+      'The shafts\' own proportions and heads are still squatter than the picture draws them, and the compound\'s roof silhouette and left gable still differ. Those stay open.',
+    ] },
   { v: 2650, ts: '2026-11-04T07:27:14.491Z', date: 'Nov 4, 2026, 1:27 AM CT', title: 'The first fort\'s powder magazine gets its vaulted roof', kind: 'improvement',
     items: [
       'The little brick magazine inside the first Fort Dearborn no longer wears a gable. Its roof is now a vault, curving across the front and running back along the depth of the building, the way the garrison\'s own commandant drew its arched front in January 1808 and the way Currey\'s 1912 bird\'s-eye draws it under the number 8.',

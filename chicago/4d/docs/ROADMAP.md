@@ -6335,6 +6335,27 @@ The immediate follow-up is actual current published 1812 magazine body, Design a
 The missing current 1812 magazine exterior, real roof/ground presence and actual Inspect Design/Sources review now pass at desktop and phone sizes on published `d5fdc7d4c6`, with proper process closure and zero browser/server errors. Native centered source captures retain the Whistler/Currey credits and separate the inferred vault shape from its reconstructed profile and covering. [Guarded review evidence](https://github.com/kevinrhaas/chicago-evidence/blob/38e7792be383556ed9506f3047e6fa2c041b7ea0/evidence/first-fort-2026-11-04/pr1699-current1812-magazine-body-design-sources/runtime-d5-v2/FINAL-CLOSURE.json) and [source-credit supplement](https://github.com/kevinrhaas/chicago-evidence/blob/38e7792be383556ed9506f3047e6fa2c041b7ea0/evidence/first-fort-2026-11-04/pr1699-current1812-magazine-body-design-sources/sources-centered-d5/FINAL-CLOSURE.json) record the actual execution; the final append-only docs commit carries unchanged runtime inputs and still requires its own hosted eight-part gate and aggregate. The earlier wrong probe expectation is preserved as RED, and old generic runs are not relabelled. No model changed here. First-fort cupolas, western gateway and full original picture coverage remain open; T-3041/T-2387 remain partial, with Currey DIFFERS.
 
 
+### T-2383 — the Sauganash's ridge-end stacks, bounded increment (2026-11-04)
+
+Select the existing `gable_ends` chimney placement for the Hotel's 1831 frame phase:
+the two centres move from the generic frontage fractions to 0.60 m and 9.32 m on
+the unchanged 9.92 m block. The inset, shaft section and tops remain reconstructed
+kit choices; Andreas/Braunhold's retrospective 1884 plate supports relative
+placement, not dimensions, an alteration date or a historical camera. No producer
+changes. Only the Hotel default was genuinely rebuilt with its ordered WEB;
+other family defaults and the Tremont variants were preserved.
+
+Independent source/before/after review of all four Hotel-dependent groups accepts
+the bounded movement: the Hotel remains **differs**, with shaft proportions/heads,
+compound roof and left-gable questions open; all three Carpenter-shop comparisons
+retain **matches** with the shop anchor unchanged. The native MASTER's 40 brick
+positions move outward; their confidence becomes reconstructed. Unused UV repacking
+is explicit, not described as whole-primitive byte equality. Sources, metric/date
+limits and L-sauganash-ridge-end-stacks-2383 remain the governing account. This is
+incremental progress on original T-2383, which remains OPEN/PARTIAL; no new photo
+follow-up or whole-image acceptance is created.
+
+
 #### 2026-11-04 — T-2380 keeper east-gable material checkpoint
 
 Saved native source `34a242bb60d527cfe10daee173c3d40302cd6e24` changes one existing east-end triangle from the roof-shingle material to the existing wall material. No geometry, dimensions, normals, UVs, vertex colour, confidence or camera changed. The actual pinned Blender 4.5.3 build wrote all 272 frame-dwelling defaults before the early `c453ece5761` checkpoint; 271 MASTERs were byte-identical, and the keeper alone received a genuine new WEB derivative. Independent full-attribute triangle review and directly viewed fixed side-by-sides accept this bounded finish correction. The Gale end is nearly edge-on, the Andreas compound is distant, and both picture records remain DIFFERS. [Full native/raw/source and review evidence](https://github.com/kevinrhaas/chicago-evidence/blob/49239fcd6898b180969e38651a677414274e7941/evidence/log-jail-2026-11-04/keeper-east-gable-native272-saved34a-quota-and-final-gaps/RECOVERY.md).

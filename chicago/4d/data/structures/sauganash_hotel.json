@@ -387,6 +387,14 @@
             "andreas_1884_sauganash_hotel_plate"
           ],
           "note": "T-2383 bounded four-lower-front-sash correction. Direct comparison with the held Andreas/Braunhold1884 engraving shows tall narrow lower facade sash, with heads near the high entrance case, rather than the stock squat 0.85-by-1.35m rectangles. Keep their four existing bay stations, every upper and rear opening and all wall/roof/placement fields. The selected 0.70m width, 1.85m height and 0.90m sill put their heads at2.75m, below the unchanged storey division; open blue leaves follow these same four envelopes. These are reconstructed visual proportions, bounded by the separately reconstructed entrance and the retained provisional own-hotel camera, not historic measurements or an independent 1835 survey. The engraving and camera have unresolved perspective/date limits; no whole-hotel or compound match is claimed by this change."
+        },
+        "chimney_placement": {
+          "value": "gable_ends",
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_sauganash_hotel_plate"
+          ],
+          "note": "T-2383 bounded ridge-end stack placement trial. Andreas/Braunhold's public-domain 1884 retrospective plate draws the two ridge stacks near the gable ends; the current comparison has them farther inward at the generic frontage fractions 0.22/0.78. Select the existing gable_ends kit instead. Its 0.60 m end inset, 0.90 m square shafts and ridge + 0.55 m tops are reconstructed generator choices, not dimensions measured from the engraving. The source supports relative disposition only; it supplies no coordinate, July 1835 fitting date, historical camera or independent metric calibration. Count 2, brick finish, shaft section/top, main roof/cornice/wing, openings, position and the separate Carpenter shop remain selected as before. The retained diagnostic-camera projection suggests improved horizontal placement but leaves vertical/roof and broader compound differences unresolved; no rendered acceptance or full image match is claimed by this data trial. docs/LIBERTIES.md L-sauganash-ridge-end-stacks-2383."
         }
       },
       "change_note": "Two-story frame block built onto the log core at the Lake and Market corner, 1831; the whole then known as the Sauganash Hotel, Chicago's first hotel."
