@@ -6283,3 +6283,7 @@ original full match remain open. See docs/RESEARCH/photo-match/sauganash_hotel/.
 ### Original T-2380 — bounded keeper/compound increment, 2026-11-03
 
 Prepared the missing keeper dwelling, continuous high palisade and low braced gate from the retained actual V4 native proposal, preserving concurrent scene-directory support and enclosure entries. The current concealed-core roof is retained; no32degree prediction is adopted. Next: native current-family qualification and actual registered/derived outputs, fresh group-bound source reviews and published desktop/phone access review, then a partial-progress PR to dev. The original two-composition picture-match acceptance stays open; no photo follow-up or completion is filed.
+
+### T2379 — later-address source cross-check, 2026-11-04
+
+The existing Fergus source now identifies a directly checked Lake House Hotels entry from his 1876 recollection of 1839. Record and Sources state its date and the conflicting street accounts. Construction-state picture matching remains OPEN; coordinates, phases, dimensions, grades and meshes are unchanged.
