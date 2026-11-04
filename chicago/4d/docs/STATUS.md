@@ -25904,3 +25904,48 @@ still unenrolled and still private: no RMS, no grade, no verdict, no completion.
 
 ### First Fort parade presence — T-3041, 2026-11-04
 The first fort's loaded earth-only parade asset is supplied by its named trodden-ground owner, so it is now listed separately from direct building batches. No bounding box or standing building is invented. Failed, empty or malformed assets remain missing, and the second fort's sundial still has to draw. The ground layer already drew independently; this corrects the false missing-host report, not an absent ground surface. Actual createBuildings regression checks pass; the earlier 1812 desktop runtime failed its zero-console-error check and remains preserved as a failure. Full source and both-viewport runtime qualification are required before this repair merges; actual final receipts are kept with the PR. The original first-fort picture acceptance remains open.
+### T-2388 (partial) — the second fort's blockhouse gets its pictured cupola, 2026-11-03
+
+Panel 5 of the Kurz & Allison sheet, captioned "Fort Dearborn as rebuilt 1835", draws a small
+square cupola at the centre of this blockhouse's four-sided cap, under a little cap of its own,
+and draws no stack anywhere on that roof; the two Wau-Bun reproductions of the 1831 view draw the
+same body. The cupola is now built. The invented, unattested centre chimney that stood in exactly
+its place is recorded at a count of 0 — a choice about what to depict, stated as one, and NOT a
+finding that the blockhouse was unheated or had no flue. The 1856 Kellogg/Blanchard print (filed
+misleadingly as `chicago_fort_dearborn_river_mouth_1830.jpg`) depicts about 1836-1849 and shows a
+louvred cap and a small ambiguous projection; that later detail is left unresolved, not
+backdated.
+
+The control is a keyword-only, default-off `cupola` on `fort_structure`, consumed by a local
+`_cupola` helper. It is not the lighthouse's `lantern` (only `_tower` reads that, so setting it
+on a blockhouse adds nothing), it does not route this building through the tower builder, and it
+changes no shared geometry. Its occurrence is `inferred` from the identified pictures; every
+dimension is reconstructed in the archetype and admitted in
+`docs/LIBERTIES.md` L-second-fort-blockhouse-cupola-2388. The body is sunk 0.12 m below the
+lowest the main roof reaches under its own footprint, so it meets all four sloping planes rather
+than balancing on the apex — no floating corner, no strip of sky, nowhere to hide a stack.
+Everything below the roof is untouched: surveyed seat and 8 degree rotation, the inferred
+14.52 x 9.80 m footprint and its ambiguity, 5.2 m walls, two storeys, 0.45 m jetty, loopholes,
+doors and every palette.
+
+Changing the producer staled the whole family. All 25 current `fort_structure` MASTERs — the
+accepted 1832 lighthouse and the Lake House construction shell included — were genuinely rebuilt
+on the pinned Ubuntu 26.04 / Blender 4.5.3 in two bounded native batches, and all 25 input hashes
+in `assets/manifest.json` are the regenerated ones. Exactly one master's bytes moved
+(`fort_dearborn_blockhouse__log_1816.glb`, 134,632 -> 133,092); the other 24 came back
+byte-identical and keep their bound WEB derivatives, and the blockhouse's own derivative was
+re-encoded. No foreign registry row was touched.
+
+The picture is now reachable on the building's card: `kurz_allison_1893` is cited by the record,
+and `data/structure_grades.json` carries an explicit pictured ruling saying why panel 5 is a
+reasonable whole picture of this named building. The sidecar grade therefore derives `attested`
+from the rule rather than being hand-typed, and it is NOT taken from a camera fit — the only
+camera on this panel is the T-3040 compound diagnostic, whose eye reached its imposed 100 m bound.
+
+Before and after were captured through `photo_match.mjs` from one identical camera, with only
+the blockhouse's bytes changed, in `docs/RESEARCH/second-fort-cupola-T-2388/`. The historical
+T-3040 bodies are preserved untouched. The new camera is `diagnostic_only`, so no invented
+"from this spot" is offered. Only the roof assembly is marked `fixed`. **The original T-2388
+remains OPEN and the view remains DIFFERS**: the camera is unfitted, the ranges, galleries,
+facade openings, other roof forms and chimney counts are unresolved, the compound's composition
+differs, and the other dated pictures the ticket lists have not been read at all.
