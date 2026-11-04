@@ -42,6 +42,52 @@ producer; only the hotel's own master moved a byte, which is what default-off me
 the check that it is off. The hotel's own comparison still reads **differs** on the compound
 roof silhouette; the three Carpenter-shop comparisons were re-rendered, directly reviewed
 and retain **matches** with the shop anchor unchanged. T-2383 stays open and partial.
+## T-3041 — the first fort's magazine gets its vault, and nothing else in that picture (2026-11-04)
+
+`first_fort_dearborn_magazine` carries the barrel vault the owner adopted on 2026-11-03
+(T-3335): a circular segment across the unchanged 4.51 m front, its axis along the 3.05 m
+depth, springing from the unchanged 2.6 m brick walls and closed at each end by a brick
+infill above them. The roof attribute moves from `gable`/`reconstructed` to
+`barrel_vault`/`inferred`, cited to Whistler's measured draught of 25 January 1808 (his
+index no. 4, drawn in elevation with an arched front) and to Currey's 1912 bird's-eye (its
+no. 8, drawn rounded). The obsolete `roof_pitch_deg` is gone from the record, because a
+curved roof has a varying tangent and a single pitch figure would state something the mesh
+does not contain; an explicit reconstructed `barrel_rise_m` replaces it. The archetype grew
+an opt-in `barrel_vault` branch, and the parameter check REFUSES an invalid rise, a
+non-finite derived radius, or a vault asked for with a chimney, a gallery, a cupola, a
+lantern, loopholes, a second storey or on anything but a magazine, rather than clamping to
+something that would build.
+
+**The shape is adopted; the curve's depth is not matched.** The rise of 1.0286254881847008 m
+is envelope conservation, not a measurement: it holds the crown at 3.628625488184701 m, where
+the old reconstructed gable's peak stood. That makes a SHALLOW segment (radius
+2.9860699863584146 m), where Whistler draws something close to a semicircle. Neither picture
+supplies a radius, rise, thickness, colour, roofing fabric or completion date, and none was
+invented to fit one. The one edge that does move is the side eave: the same circle run out to
+the existing 0.30 m projection sits at 2.188061556 m instead of the gable's 2.397647445 m,
+0.209586 m lower. Recorded in docs/LIBERTIES.md as
+`L-first-fort-magazine-barrel-vault-3041`.
+
+**What is NOT done.** T-3041 and its parent T-2387 are not finished and are released open.
+The Currey view's verdict stays `differs`: the blockhouse cupolas and the western gateway are
+still `open` on the match record, and the full first-fort acceptance (21 named records, nine
+context records, every listed picture) is untouched by this increment. Two differences of
+thirteen are now fixed. Nothing here is carried to the second fort's magazine, which is a
+separate record and keeps its gable.
+
+**What was verified.** The producer change reaches 25 `fort_structure` defaults and 0
+variants; all 25 were genuinely rebuilt on pinned, sha256-verified Blender 4.5.3 under Ubuntu
+26.04 BEFORE the first source commit, and the web derivatives were re-encoded from that build.
+Exactly ONE master moved a byte — this magazine's — and the other 24 came back byte-identical,
+including the second fort's magazine and the cupola blockhouse. Their `inputs_sha256` rows all
+change, because the archetype's own source is part of a mesh's inputs; that is a real
+freshness hash from a real rebuild, not a hand-written one. All 243 outbuilding masters, their
+web derivatives and registry rows, and the T-3041 north-east pyramid, are untouched. The
+before/after comparison is a genuine same-camera render through the existing fourteen-member
+Currey group camera from the committed GLBs; a pixel comparison of the two renders changes
+only this building, and the previous render is kept beside the new one at
+`docs/RESEARCH/photo-match/first_fort_dearborn_pickets_outer/currey_1912_birdseye-side-by-side-before-magazine-vault-20261104.jpg`.
+
 ## T-3041 — the first fort's north-east small house, and nothing else in that picture (2026-11-03)
 
 `first_fort_dearborn_small_house_ne` carries the four-sided pyramid cap the Currey 1912
@@ -25813,6 +25859,7 @@ This saved increment does not close the original image gate. Both compound match
 ### Lake House source reading — 2026-11-04
 
 The Record now distinguishes a directly checked line in Fergus's 1876 recollection of the 1839 Rush/North Water address from Andreas's differing street account. The July 1835 construction stage, position and dimensions remain uncertain. This increment changes source and Record metadata; it claims no new geometry or image-match completion.
+
 ## 2026-11-04 — T-2374: the Agency House's front aperture count
 
 Cobweb Castle's centre room now states its own front openings. The archetype's

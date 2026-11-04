@@ -2,7 +2,7 @@
   "structure_id": "marshall_field_jr_house_1919_prairie",
   "view": "cdn_almanac_1913",
   "glb": "assets/gltf/marshall_field_jr_house_1919_prairie__as_mapped_1904.glb",
-  "glb_sha256": "0cbdb350236b85456d945ec280faf3032cd13a1c07610f85c5fdda39991a7243",
+  "glb_sha256": "b3d1b757be0ac207ac7ab0b5982ca66e81ed8a8b1a584a9349ac36cefb3869ac",
   "camera_sha256": "039f1e74f02647fce3fa54efb12800c0136c009585a76cb593a2070adbeff332",
   "photo_sha256": "0d82a77e9db197b91d68e67cc3eb66520b9ec00b84890cd97447e0c5cd4c553f",
   "side_by_side": "docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/cdn_almanac_1913-side-by-side.jpg",
@@ -37,7 +37,7 @@
       "status": "open"
     },
     {
-      "what": "the steep gables over the rear ranges: the plate draws three or more, stepped and finialled at their peaks; T-3337 carries both ranges' gables up in a stone coping with kneelers and a turned finial at each apex (the two ranges' apexes stand at about 13.8 and 15.2 m, stepping up toward the alley); the third, smaller gable the plate shows at the flank's far end and the small pinnacled dormers between the gables are not built",
+      "what": "the steep gables over the rear ranges: the plate draws three, stepped and finialled at their peaks; T-3337 carries both ranges' gables up in a stone coping with kneelers and a turned finial at each apex; the small pinnacled dormers between the gables, on the slope the plates show facing the street: all three plates draw two, standing between the rear range's gable and the middle range's over the flank's flat-topped bays; through the 1919 and 1912 cameras they fall where the rear range's street-facing slope stands over its north end (about u -7.5, v -4.5 to -3.3), which the record's ranges leave about 1.7 m of before the middle range's roof meets it. Not built: K01 builds dormers on a hip's slopes and the front, not on a rear wing's gable roof, and their place waits on the ranges' plan (above)",
       "status": "open"
     },
     {
@@ -73,8 +73,12 @@
       "status": "not shown"
     },
     {
-      "what": "the rear ranges' north flank against both Gatlin plates: through this camera the plate's two-storey flank runs on past the garage's north-east corner (about 50-80 px further from the tower than the render's) and its cornice stands higher in the frame, as though its north face stood nearer the street-side camera than the 1911 sheet's trace puts the ranges (v -3.1 and -4.8 m); the camera is fitted on the front block alone, so whether the ranges or the fit are out is not settled here",
+      "what": "the rear ranges' gables against all three Gatlin plates (T-3354): through the 1912, 1913 and 1919 plates' cameras the garage's new north gable lands on the plates' third gable within about 15 px, but the two ranges' gables do not: the rear range's apex stands about 20-35 px (about 1-2 m) left of the plates' and the middle range's about 25-30 px left and 30-60 px (about 2-3 m) under them, the same way in all three. The three cameras are fitted to the front block alone and agree with one another; moving the 1912 camera's eye back along its degenerate line (u 47 to 90) moves the ranges' gables further from the plate's, not nearer. So the difference is the ranges', not a fit's: the plates stand the middle range's gable nearer the street and much higher than the 1911 sheet's trace (u -7 to 0) and a 50-degree gable over its 7 m span can reach (13.8 m; K01 slates nothing over 60 degrees). Not rebuilt here: the sheet's plan is the trace the house stands on, and the plates do not show the ranges' plan, so re-cutting it waits on a reading that reconciles the two (L-k01-1919-garage-gable-3354)",
       "status": "open"
+    },
+    {
+      "what": "the third, smaller gable the plates draw at the flank's far end, coped and finialled as the ranges' are: T-3354 roofs the garage under a slated gable facing the flank, pitched 54 degrees to an apex at 15.7 m, with the ranges' stone coping, kneelers and 0.6 m finial (where it was flat in tin); through this camera its apex lands on the plate's third gable within about 15 px",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

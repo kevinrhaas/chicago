@@ -433,6 +433,13 @@ def build_records(rules=None) -> dict:
                 bs.append(b)
             for b in split_townhouses(bs, polys, rules):
                 if any(c in rules["skip"] for c in b["census_ids"]):
+                    # T-1909: a house refined off a lot several frontages share still names its
+                    # frontage's stable — by the id its skip reason gives in backticks
+                    why = next(rules["skip"][c] for c in b["census_ids"] if c in rules["skip"])
+                    named = re.search(r"`([a-z0-9_]+)`", why)
+                    fr = polys.get(b["census_ids"][0], (None,))[0]
+                    if b["kind"] == "front" and named and fr and parcel.get("frontage_shares"):
+                        house_by_fid[fr["frontage_id"]] = named.group(1)
                     continue
                 f, cp = polys[b["census_ids"][0]]
                 fid = f["frontage_id"] if f else None

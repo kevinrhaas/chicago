@@ -1,4 +1,28 @@
 export const CHANGELOG = [ // newest first
+  { v: 2650, ts: '2026-11-04T07:27:14.491Z', date: 'Nov 4, 2026, 1:27 AM CT', title: 'The first fort\'s powder magazine gets its vaulted roof', kind: 'improvement',
+    items: [
+      'The little brick magazine inside the first Fort Dearborn no longer wears a gable. Its roof is now a vault, curving across the front and running back along the depth of the building, the way the garrison\'s own commandant drew its arched front in January 1808 and the way Currey\'s 1912 bird\'s-eye draws it under the number 8.',
+      'Only the shape is taken from the pictures. How deep the curve is remains ours: the crown sits exactly where the old roof\'s peak did, and the Evidence panel now says so instead of quoting a pitch a curved roof does not have.',
+      'Nothing else moved — the same place, the same footprint, the same brick walls and doorway, and the second fort\'s magazine keeps its gable.',
+      'Two things the same picture shows are still missing from the first fort: the cupolas on both blockhouses and the western gateway beside the north-west one.',
+    ] },
+  { v: 2649, ts: '2026-11-04T06:44:56.277Z', date: 'Nov 4, 2026, 12:44 AM CT', title: '2009 Prairie\'s carved Gothic doorway and oriel frieze', kind: 'feature',
+    items: [
+      'The Meyer house\'s door now stands in its photograph\'s elliptical stone arch, a moulded ring round the head and a pilaster each side, with one dark leaf under a two-light fanlight.',
+      'A carved course runs over the door between its pilasters, and a carved frieze rings the oriel under its cap, where both were plain stone.',
+    ] },
+  { v: 2648, ts: '2026-11-04T06:44:56.277Z', date: 'Nov 4, 2026, 12:44 AM CT', title: '1919 Prairie: a third gable at its north side\'s far end', kind: 'feature',
+    items: [
+      'At the alley end of Marshall Field Jr.\'s house at 1919 Prairie Avenue, the garage now has a steep slate gable with a stone edge and a finial, like the two wings in front of it. All three old advertisement pictures of the house show that third gable, and the garage\'s flat tin roof is gone.',
+      'A third of those pictures, from the 1912 Chicago Blue Book, is now lined up with the model, so the house is checked against all three.',
+      'Still to come on this side: the small pinnacled dormers between the gables, and a closer look at the two wings\' gables, which the pictures show nearer the street and taller than the 1911 fire-insurance map allows.',
+    ] },
+  { v: 2647, ts: '2026-11-04T06:44:56.277Z', date: 'Nov 4, 2026, 12:44 AM CT', title: '2000 and 2010 Prairie stand as clapboard frame houses', kind: 'feature',
+    items: [
+      '2000 and 2010 Prairie Avenue, the two frame houses at the 20th Street end of the west side, are no longer rough drafts: each is now a three-storey clapboard house with cased windows, a bracketed eave under low hipped roofs and a porch across its front.',
+      'Their outlines are read from the 1911 fire-insurance map at full size: a two-storey range beside each front, canted bays on both flanks and lower rooms behind, built at the storey counts the map prints. The houses are wider than the draft drew them.',
+      'No picture of either house is known, so their windows, heights and paint are reconstructed, and each is painted its own colour.',
+    ] },
   { v: 2646, ts: '2026-11-04T06:27:31.748Z', date: 'Nov 4, 2026, 12:27 AM CT', title: 'Drivers look around while seated', kind: 'feature',
     items: [
       'Otis Bardwell in 1835 and coachman Hans Johnson in 1904 make small head and neck movements while driving or stopped. Their appearance and actions remain reconstructed.',
