@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1000,
+  "count": 1001,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -67720,6 +67720,41 @@
       ],
       "work_refs": [
         "T-2388"
+      ]
+    },
+    {
+      "id": "L-green-tree-shoulder-dormer-cap-2376",
+      "title": "the shoulder light's gable cap",
+      "section": "per_subject",
+      "subjects": [
+        "green_tree_tavern"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "green_tree_tavern",
+          "phase": "frame_1833",
+          "aspect": "form.enclosed_left_annex"
+        }
+      ],
+      "recorded": "2026-11-04",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`green_tree_tavern.frame_1833.form.enclosed_left_annex`."
+        },
+        {
+          "label": "Decision",
+          "text": "Raise the enclosed shoulder's front gable peak (m) from 4.50 to 4.85 m so the small front-gable light over the shoulder reads as the sharply pointed cap Andreas's detailed retrospective engraving draws, rather than the blunt, nearly flat one the earlier value produced. Against the builder's unchanged 4.20 m dormer head and its 0.625 m roof half-span this turns the cap from about 25.6 to about 46.1 degrees. The picture supplies the triangular SHAPE and nothing else: 4.85 m is a RECONSTRUCTED working control chosen to draw that shape, not a measurement, and the plate carries no scale, dimension, geographic camera or date for it. It establishes no alteration year and no part of the July 1835 condition beyond the earlier reading. Nothing else moves. The peak stays below the unchanged 5.0 m main-block wall head and far below the model's existing 8.722 m maximum; the dormer's plan extent, its light, the lower sash, the connector, the farther turned range, the main block, the footprint, the world placement, the occupied rings, the door faces, the entrance and the ground contact are all unchanged, and the rebuilt master's full bounding box is exactly equal to the previous one. The remaining shoulder roof slope and the relative proportions of shoulder, connector and range against the main block still differ from the engraving and stay OPEN on this work; Trowbridge/Gale's 1902 open wagon bay remains explicit counterevidence to the enclosed shoulder itself, and the conversion date remains unknown. Source ids remain \"THE GREEN TREE HOTEL.\" — wood engraving, in A. T. Andreas, History of Chicago…, Kurz & Allison. Chicago In Early Days, 1779-1857 and The Green Tree Tavern in 1835 (published 1902); \"Green Tree Tavern, Chicago, 1859.\" Photograph of the Green Tree Tavern at the… stays excluded as a geometry witness. The earlier comparison is preserved at the research notes on green tree annex this work/the andreas 1838 side by side before dormer cap 20261104 image. No original-piece of work signoff, picture acceptance or new measurement follows."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-04."
+        }
+      ],
+      "work_refs": [
+        "T-2376"
       ]
     },
     {
