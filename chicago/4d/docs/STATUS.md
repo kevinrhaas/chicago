@@ -25510,3 +25510,23 @@ The [prepared canonical capture and source-conflict review](https://github.com/k
 The existing Green Tree enclosure option now selects Andreas's closed shoulder, lower sash and small front-gable light. Trowbridge's open bay stays explicit conflicting evidence; no conversion year or exactJuly1835form is asserted. The yard producer declines only its competing open shed/posts and associated covered wagon. Native false/absent behavior and the other two farm-wagon/bench records have exact before/after output proof. Main footprint/world placement, all numeric form controls, dates, sources and confidence remain unchanged.
 
 The genuine retained0b53MASTER/full80d47input identity and actual5.019second unchanged-camera comparison support this partial increment. The canonical image review stays DIFFERS for left-cluster roof silhouette/proportions. The actual selected native WEB optimize/meshopt run produced the48648byte derivative, and the native all-asset WEB contract and validate --all pass. Ordered native tail owners reached every remaining step, including compiled occupied shoulder and yard consumers; the final Git snapshot exceeded600seconds during pack copy-up, so owner-loop closure is not claimed. Existing native clearance, street-corridor and compound-walker checks pass. The newly occupied shoulder also removes one colliding Green Tree cordwood rick through the existing woodpile owner. Canonical camera, entrance aprons, all foreign registry rows and version registry stay exact. Allfour source-check parts and published phone/desktop physical review remain pending. No source commit/PR/merge, app pass or original-ticket completion is claimed here.
+
+## 2026-11-03 — T-2383: held Andreas engraving and current hotel comparison
+
+The Sauganash Images card retains three credited rows and now holds the Andreas
+engraving where it previously offered a plain link; no duplicate or geographic
+“From this spot” is introduced. Its new hotel-owned two-building comparison is
+DIFFERS. Main/left roof massing and the broad rear-left wing remain open, with
+left-gable presentation to review. Five upper front windows, four lower front
+windows and the central entrance are earlier merged work, not a new rebuild.
+
+One actual native comparison completed in 4.363462 seconds, exit 0, five children
+properly reaped. All current tool/model/frame/source/camera guards stayed exact,
+and root directly reviewed the fresh JPG. The inherited shop framing supplies
+no new hotel dimension or calibrated historical viewpoint. All hotel geometry,
+placements, phases, material values and source disagreements are retained.
+[Native output and direct review](https://github.com/kevinrhaas/chicago-evidence/blob/9b32b26903431ce4fcfb083f47e18147b759d956/evidence/sauganash-2026-11-03/current-andreas-native-private-root-reviewed/RECOVERY.md);
+`docs/RESEARCH/photo-match/sauganash_hotel/README.md` records the remaining gaps.
+This authored checkpoint claims no completed four-part gate, committed-head
+publication or desktop/phone application QA; those are recorded separately for
+the actual PR head. Original T-2383 remains partial/open, with no new ticket.
