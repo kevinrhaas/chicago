@@ -1,0 +1,8 @@
+{
+  "title": "The first fort's parade ground is accounted for",
+  "kind": "fix",
+  "items": [
+    "The 1812 walk recognizes the parade ground's existing surface without a false missing-building warning.",
+    "Buildings that fail to load still produce a warning."
+  ]
+}

@@ -6297,3 +6297,7 @@ so the option is off for every other record. The panorama's camera stays UNSOLVE
 unenrolled: no verdict is claimed, the compound's width, wings, sub-roofs, roof
 junctions, clapboarding and finish still differ, and T-2374's image gate remains
 open. File no photo follow-up.
+
+
+### T-3041 — a loaded parade ground is not a missing building, 2026-11-04
+The NE-house pyramid increment merged in PR1685. Finish the separate presence-accounting repair exposed by its actual 1812 browser check. A successfully loaded, nonempty earth-only parade uses the existing named ground owner and is reported separately; failed/empty assets and mixed sundial geometry retain the ordinary missing-host checks. No model dimensions or source grades change. Keep the actual failed runtime receipt, rerun the required source and both-viewport gates after the repair, and leave the original all-buildings/image comparison open for its remaining differences.
