@@ -40127,6 +40127,29 @@ The main-body reference footprint and source placement remain unchanged. Separat
 **Ticket:** T-2376.
 **Recorded:** 2026-11-03.
 
+### L-pullman-1729-rear-stack-1934 — 1729 Prairie's stack behind the rear face, off Taylor's photograph 16554: its being there read, its place reconstructed
+
+**Decision:** the Pullman house gains a fourth stone stack on the deck behind the rear (east) face
+(`chimneys.stacks[3]`, at u 1.4, v 10.0, top 18.4 m). Taylor's no. 16554 (AIC; camera
+`data/reference_views/pullman_house_1729_prairie/taylor_16554_from_south.json`) shows it rising
+behind the rear face between that face's two dormers. **What is read, not invented.** That the
+stack stands there, of stone, about 10 px wide at x 512-523, its cap at y 317, about 4 px over the
+deck's cresting beside it (about 1 m across and about 0.4 m over the cresting top), and that it
+stands about a third of the way from the face's first dormer to its second (14 px and 26 px).
+**What is invented.** Its place on the deck. The camera was fitted on the ground and the stable, not
+the house's rear: it draws the rear face about 156 px long where the print draws it about 73, so no
+pixel can be carried to the deck through it, and the stack is placed against the dormers instead.
+Read along the face, the print's third falls at about v 12.4, between the south section's dormer
+(v 14.93) and the rear step's south dormer (v 8.04); but a stack 1-2 m behind the face is seen from
+this oblique eye well left of the dormers below it, and at v 11.9 it rendered directly over the
+first. At v 10.0, on the rear step's deck just behind its mansard's lower slope, it renders a third
+of the way between the two, as the print draws it. Its plan (the house's 1.0 x 0.8 m) and its cap
+are the house's other deck stacks'.
+**How to resolve:** a camera for 16554 fitted on the house's rear face (its corners and dormers),
+or the CHM 1905 views from the east, would place the stack on the deck.
+**Ticket:** T-1934.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg`.
+**Recorded:** 2026-11-03 (T-1934).
 
 ### L-green-tree-closed-shoulder-working-2376 — the enclosed shoulder as a working reading
 
