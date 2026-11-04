@@ -1482,8 +1482,8 @@
         "block": "blk_lake_lasalle",
         "face": "north",
         "setback_m": 1.5,
-        "west_wall_along_m": 80.74,
-        "why": "T-0251, the owner's ruling of 2026-09-21. This building gives way to first_presbyterian_church, whose plat reconciliation needs the ground it stood on, and is re-seated on its own Lake Street frontage band rather than withdrawn. Written as a face rather than as a centre for the same reason T-0182 rewrote the other two: a hand-typed centre at bearing 0 on a face that runs at 0.469 is arithmetic nobody re-derives, and the along-face figure is the one interpretive choice left - which part of Lake Street a made-up building occupies. See `displaced_by` for the rule and the numbers that refused every alternative.",
+        "west_wall_along_m": 78.24,
+        "why": "T-0251, the owner's ruling of 2026-09-21. This building gives way to first_presbyterian_church, whose plat reconciliation needs the ground it stood on, and is re-seated on its own Lake Street frontage band rather than withdrawn. Written as a face rather than as a centre for the same reason T-0182 rewrote the other two: a hand-typed centre at bearing 0 on a face that runs at 0.469 is arithmetic nobody re-derives, and the along-face figure is the one interpretive choice left - which part of Lake Street a made-up building occupies. See `displaced_by` for the rule and the numbers that refused every alternative. MOVED A FURTHER 2.50 m WEST, 80.74 to 78.24 m, ON THE SAME RULE (T-3360, the owner 2026-11-03: buildings 'placed in the middle of the walkways'): the church still stood 1.91 m out past the block's Clark Street lot line, on that street's plank walk, and was moved 2.41 m west onto its lot; the attested placement keeps the ground and this building gives it 3.0 m again.",
         "along_why": ". IT IS NOT the position it already occupied: this building moved along the street, and the paragraph below says what moved it."
       },
       "displaced_by": {
