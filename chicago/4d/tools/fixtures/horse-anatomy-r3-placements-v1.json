@@ -1,0 +1,77 @@
+{
+  "schema": "standing_horse_placements_v1",
+  "status": "Same reconstructed1835 horse placement selects the source-bounded anatomy master; fresh current-SHA native views and canonical physical proof, with app/yard/phone and full static surface/LOD photographic qualification pending.",
+  "models": {
+    "sevket_horse_standing_development_01": {
+      "file": "transport/standing-horse/horse-sevket-anatomy-v2.glb",
+      "sidecar": "transport/parked/horse-sevket-sidecar.json"
+    }
+  },
+  "scenes": {
+    "1835": [
+      {
+        "id": "western_hotel_yard_standing_horse_01",
+        "model": "sevket_horse_standing_development_01",
+        "name": "Horse in the Western Hotel wagon yard",
+        "belongs_to": "western_hotel",
+        "ground_record_id": "western_hotel_wagon_yard",
+        "at_local_enu_m": [
+          -127.5,
+          -296.0
+        ],
+        "bearing_deg": 90,
+        "support_quaternion_xyzw": [
+          0.0034569299659433193,
+          8.186949270382101e-08,
+          2.3682575088531932e-05,
+          0.9999940245193165
+        ],
+        "support_confidence": "reconstructed",
+        "support_note": "Retained reconstructed whole-root0.396145-degree support transform; selected-source contact samples are regenerated. No per-leg placement offset; fresh actual-yard qualification required.",
+        "support_limits": {
+          "status": "Root accepted development-placement1mm per-foot sampled MINIMUM and no sampled penetration; not continuous-contact/anatomy/photo approval",
+          "maximum_per_hoof_minimum_gap_m": 0.001,
+          "minimum_sample_clearance_m": -1e-05
+        },
+        "material_variant": "organic_dielectric_v1",
+        "material_variant_status": "Root selected explicit organic_dielectric_v1 after actual four-image flat-plane matched material study; image filenames side denote FRONT, not broadside. Actual yard/phone and photographic master remain open.",
+        "location": "Western Hotel wagon yard, near the stable and existing reconstructed parked wagons",
+        "source_ids": [
+          "chicagology_prefire278"
+        ],
+        "confidence": "reconstructed",
+        "note": "The existing yard record cites recollections of the Western Hotel stable, trains and farmers/teamsters. A standing horse is plausible context; this exact animal, chestnut coat/blaze/stockings, stature, grooming, stand and date are reconstructed. No historical breed, owner, attachment, tie rope, halter, tack, rider or driver is assigned. belongs_to filters the host location only and does not assert horse ownership.",
+        "capabilities": {
+          "static_standing": true,
+          "skinned_hierarchy_preserved": false,
+          "source_clips_preserved": false,
+          "playback_enabled": true,
+          "walk_trot_gallop_approved": false,
+          "hitching": false,
+          "riding": false,
+          "boarding": false,
+          "tying": false,
+          "halter_or_harness_fitted": false,
+          "certified_sockets": false,
+          "driver_interface": false,
+          "collision_physics": false,
+          "historical_individual_or_breed_identified": false,
+          "photographic_master_complete": false,
+          "head_tail_idle": false,
+          "skin_joint_hierarchy_preserved": false,
+          "original_mesh_node_parenting_preserved": false,
+          "standing_weight_shift": true,
+          "original_source_preserved_separately": true,
+          "reconstructed26_hierarchy": true
+        },
+        "ground_support_region_id": "western_hotel_yard_horse_support_01",
+        "liberty": "L-standing-horse-development-2800",
+        "animation": {
+          "enabled": true,
+          "clip": "sevket_reconstructed_planted_posture_v1",
+          "confidence": "reconstructed"
+        }
+      }
+    ]
+  }
+}

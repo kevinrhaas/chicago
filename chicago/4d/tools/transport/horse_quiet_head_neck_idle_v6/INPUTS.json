@@ -1,0 +1,110 @@
+{
+  "schema": "quiet_head_neck_v6_actual_canonical_inputs",
+  "state": "PHASE_A_UNSELECTED_MODELS_CANONICAL_PHASES_UNRUN",
+  "inputs": {
+    "motion_source": {
+      "base": "app",
+      "path": "assets/authored/transport/horse_standing/horse-sevket-natural-planted-idle-v1.glb",
+      "bytes": 4166488,
+      "sha256": "8ea7748ffba6c5fe17cde91042c6d8b26ed9a0ab77de69cadd4f4fb12e9c09fa"
+    },
+    "v2_candidate": {
+      "base": "app",
+      "path": "assets/authored/transport/horse_standing/horse-sevket-natural-planted-binding-v2.glb",
+      "bytes": 4166816,
+      "sha256": "0ced8a09e27da047ad404c902e9d032e43654393027199db8dfd9c315be17929"
+    },
+    "v2_paired_reference": {
+      "base": "app",
+      "path": "assets/authored/transport/horse_standing/horse-sevket-original925-paired-binding-v2.glb",
+      "bytes": 4158356,
+      "sha256": "a3eca1a164e2adf13d7d5f6699ff43de66d48dde0e3220f4aae90591dcaf4cb3"
+    },
+    "cpu_reference": {
+      "base": "app",
+      "path": "tools/transport/horse_eye_smooth_normals_v1/fixtures/cpu-rest-protection.json",
+      "bytes": 851885,
+      "sha256": "2179deb652914a49ee16b6c05c2a676587fb05bb746f996f7ecc5d121210c0b1"
+    },
+    "accepted_matrices": {
+      "base": "app",
+      "path": "tools/transport/horse_eye_smooth_normals_v1/fixtures/accepted-stationary65-matrices.json",
+      "bytes": 332521,
+      "sha256": "294f0a1a8a1f154831b5d6fd3207bfda9c1ec7dd61ee2bf9802d4248e532a107"
+    },
+    "controls26": {
+      "base": "app",
+      "path": "tools/transport/horse_eye_smooth_normals_v1/fixtures/rig26-controls.json",
+      "bytes": 16577,
+      "sha256": "f540c3e1da1e84e694336d4872cd965e1ca594a4e988ae73d749acaf30f7f6dc"
+    },
+    "limits": {
+      "base": "app",
+      "path": "tools/transport/horse_eye_smooth_normals_v1/fixtures/original-physical-limits.json",
+      "bytes": 469,
+      "sha256": "b64a5784c0b8310b5d0e054d10d9052edb0034938ed61d46e2b819230ff7bb54"
+    },
+    "anatomy_receipt": {
+      "base": "app",
+      "path": "tools/transport/horse_eye_smooth_normals_v1/fixtures/anatomy-r3-full-derivation.json",
+      "bytes": 676459,
+      "sha256": "baef5aa5304e667acd1d18014e4d62921efe0de2fe0c098ceb8aa75860c0fca2"
+    },
+    "selected_parent": {
+      "base": "app",
+      "path": "assets/authored/transport/horse_standing/horse-sevket-v16-planted-standing-eye-uv-v1.glb",
+      "bytes": 3784176,
+      "sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914"
+    },
+    "legacy_parent": {
+      "base": "app",
+      "path": "assets/authored/transport/horse_standing/horse-sevket-anatomy-v2.glb",
+      "bytes": 4158016,
+      "sha256": "925fac957110b9b57b95c5abfed17fabf29f868b173f38f0569d984dd9999a48"
+    },
+    "head_field": {
+      "base": "app",
+      "path": "tools/transport/horse_quiet_head_neck_idle_v6/fixtures/EXACT-V4-HEAD-FIELD.json",
+      "bytes": 109975,
+      "sha256": "3b4c315155ba3ecb3250d345e15179f6ad7ca673de2ae7a999625fdabaa5532f"
+    },
+    "quiet_recipe": {
+      "base": "app",
+      "path": "tools/transport/horse_quiet_head_neck_idle_v6/quiet-head-neck-v6-recipe.json",
+      "bytes": 1462,
+      "sha256": "240b6c2f83de101417301d6cd97a0c5411c6d55ad6bb12d7670dc1e8204ed213"
+    },
+    "candidate": {
+      "base": "app",
+      "path": "assets/authored/transport/horse_standing/horse-sevket-quiet-head-neck-idle-v6.glb",
+      "bytes": 4169184,
+      "sha256": "0a93029a951c000771c9fc8ca39809fd5323633b2e70fc462ba27b7ab9ccfc5b"
+    },
+    "paired_reference": {
+      "base": "app",
+      "path": "assets/authored/transport/horse_standing/horse-sevket-original925-head-neck-binding-v6.glb",
+      "bytes": 4158796,
+      "sha256": "fd3cd0bdf928551b21837442fc4d3e4d5008208cadd4cb832ec54565b1b95775"
+    },
+    "runtime_candidate": {
+      "base": "app",
+      "path": "renderers/web/transport/standing-horse/horse-sevket-quiet-head-neck-idle-v6.glb",
+      "bytes": 4165556,
+      "sha256": "7ce84d43445e930eecc6d9f69e97ed7ade0fe0b3fc44a9a753c25d88b3f548e1"
+    },
+    "provenance": {
+      "base": "app",
+      "path": "assets/authored/transport/horse_standing/quiet-head-neck-v6-PROVENANCE.json",
+      "bytes": 2098,
+      "sha256": "5ee57a2a5a6e463f9c0f110d3249c0c912ae053d95d38f505c22cb498cd77b10"
+    }
+  },
+  "selected_clip": "sevket_reconstructed_quiet_head_neck_idle_v1",
+  "retained_master_clip_count": 3,
+  "runtime_exported_clip_count": 1,
+  "canonical_static": "UNRUN",
+  "canonical_native": "UNRUN",
+  "paired925_posed": "UNRUN",
+  "world": "UNRUN",
+  "runtime_adoption": false
+}

@@ -1,0 +1,56 @@
+{
+  "schema": "current26_two_horse_draft_hitch_prototype_v1",
+  "scope": "Bounded original reconstructed engineering prototype; actual native motion/contact/render acceptance unrun",
+  "source_horse_sha256": "bf519adae76693c5e2b8c18bfe9bbaea8a7c83c523b502ca748df2dd7251241e",
+  "source_wagon_sha256": "f415e6fb79c9df9372c5b2ec6cb77c9a305117de3fa8e9c704c87d5c09a6aeb0",
+  "units": "m",
+  "up": "+Y",
+  "forward": "+Z",
+  "segments": 48,
+  "bands": [
+    {
+      "name": "full_collar",
+      "center_y_m": 1.24,
+      "center_z_m": 0.75,
+      "width_z_m": 0.05
+    },
+    {
+      "name": "girth",
+      "center_y_m": 1.18,
+      "center_z_m": 0.0,
+      "width_z_m": 0.035
+    },
+    {
+      "name": "noseband",
+      "center_y_m": 1.43,
+      "center_z_m": 1.4,
+      "width_z_m": 0.035
+    },
+    {
+      "name": "pollstrap",
+      "center_y_m": 1.48,
+      "center_z_m": 1.05,
+      "width_z_m": 0.035
+    }
+  ],
+  "surface_inner_clearance_m": 0.008,
+  "surface_outer_clearance_m": 0.012,
+  "horse_center_half_track_m": 0.65,
+  "front_axle_root_m": [
+    0,
+    0.535,
+    1.175
+  ],
+  "tongue_pivot_in_front_axle_m": [
+    0,
+    0,
+    0.35
+  ],
+  "tongue_length_m": 2.75,
+  "singletree_root_y_m": 0.72,
+  "singletree_root_z_m": 1.9,
+  "singletree_halfwidth_m": 0.45,
+  "trace_width_m": 0.025,
+  "trace_thickness_m": 0.004,
+  "policy": "Horse source streams remain exact. New collars interpolate the actual intersected BODY triangle skin weights into the same26 joints. Visible links are new portable geometry. No historical owner, exact harness construction, force physics, accepted tack sockets or rein grip is asserted."
+}

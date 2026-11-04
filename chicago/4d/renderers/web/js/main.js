@@ -85,6 +85,8 @@ import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
 import { mountHumans } from './humans.js';
+import { createInteractions, createInteractKey } from './interact.js';
+import { supportsTownTransport } from './transport-scenes.js';
 import { createWells } from './wells.js';
 import { createTimeStream } from './time-stream.js';
 import { createTelemetry } from './arrival-telemetry.js';
@@ -93,7 +95,6 @@ import './strings/arrival.js';
 import { createFlags } from './flags.js';
 import { createFortGates } from './fort-gates.js';
 import { createNightLights } from './night-lights.js';
-import { createInteractions, createInteractKey } from './interact.js';
 import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
 import { jobsState } from './jobs/pool.js';
@@ -1983,14 +1984,22 @@ async function boot() {
   };
   let frameLoop = null;
   let contextPaused = false;
+  // Cosmetic idles follow visible wall time; locomotion keeps its bounded steps.
+  let visualClockReset = true;
+  const resetVisualClock = () => { visualClockReset = true; };
+  document.addEventListener('visibilitychange', resetVisualClock);
+  window.addEventListener('pageshow', resetVisualClock);
+  window.addEventListener('pagehide', resetVisualClock);
   // An ordinary reload is asynchronous. Never submit released arrays in the
   // old document between context restoration and that navigation, or after a
   // repeated loss which deliberately waits for the visitor's Reload choice.
   renderer.domElement.addEventListener('webglcontextlost', () => {
+    visualClockReset = true;
     contextPaused = true;
     renderer.setAnimationLoop(null);
   });
   renderer.domElement.addEventListener('webglcontextrestored', () => {
+    visualClockReset = true;
     contextPaused = contextNeedsReload();
     if (!contextPaused && frameLoop) renderer.setAnimationLoop(frameLoop);
   });
@@ -2295,6 +2304,9 @@ async function boot() {
     ?? groundProof?.STRIP_ANCHORS[0] ?? loaded.scene.spawn ?? {};
   const walker = createWalker({ camera, terrain, footprints, decks, spawn });
   walker.apply();
+  // Shared with the fort gates: one engine and one keyboard/touch Interact key.
+  const interactions = createInteractions();
+  api.interactions = interactions;
   // From where the visitor will stand, so the ground's reach can be read.
   settleOnGpu(terrain.group);
 
@@ -2782,7 +2794,6 @@ async function boot() {
   // the stockade's solid footprint. Every gate starts shut; the Interact key works them.
   const fortGates = createFortGates({ registry: loaded.registry, buildings, footprints, confidence, problems });
   scene3d.add(fortGates.group);
-  const interactions = createInteractions();
   for (const thing of fortGates.gates) interactions.add(thing);
   api.fortGates = fortGates;
   // T-3332 — the town by night: lit windows (buildings.js patches the glass) and the
@@ -3332,6 +3343,7 @@ async function boot() {
       api.humans?.setTier(level);
       void parkedTransport.setTier(level);
       void standingHorses.setTier(level);
+      void api.townTransport?.setTier(level);
       applyShadowTier(level);
       applyFurnitureReach(level);
       applyGroundDetailReach(level);
@@ -3390,6 +3402,7 @@ async function boot() {
     api.humans?.setTier(level);
     void parkedTransport.setTier(level);
     void standingHorses.setTier(level);
+    void api.townTransport?.setTier(level);
     // The sun's half of the level takes effect on THIS frame rather than after
     // the replanting: it costs nothing to apply, and a visitor who turns the
     // setting down on a machine that is struggling should get the cheap half of
@@ -3623,10 +3636,30 @@ async function boot() {
   });
   api.humans.on('open', ({ personId }) => {
     if (!api.people) return;
+    if (supportsTownTransport(YEAR) && !draws('residents')) { void openPersonCard(personId); return; }
     hud.setPanel(true); hud.selectTab('people'); api.people.open?.(personId);
   });
   api.humans.on('role_open', ({ roleCard }) => showHumanRoleCard(roleCard));
   scene3d.add(api.humans.group);
+  // Read only the small route table at boot. Actual occupied assets and full
+  // rendered-ground/collision readings begin after the visitor approaches a circuit.
+  api.townTransport = null;
+  if (supportsTownTransport(YEAR)) {
+    try {
+      const { mountTownTransport } = await import('./town-transport-scene.js');
+      api.townTransport = await mountTownTransport({
+        sceneId: YEAR, dataBase: bases.dataBase, people, getPeople: () => peopleDirectory.load(),
+        preparePersonCard: !draws('residents') ? prepareSceneDirectoryPerson : null,
+        humans: api.humans, confidence,
+        heightAt: String(YEAR) === '1904'
+          ? (e, n) => streetGrid.carriagewayHeight(e, n)
+          : (e, n) => profiledGroundHeight(terrain, decks, e, n),
+        footprints: () => footprints, visitor: () => walker.state,
+        interactions, detail: detailLevel, coarse, problems,
+      });
+      if (api.townTransport) scene3d.add(api.townTransport.group);
+    } catch (error) { problems.push(`town transport: ${error.message}`); }
+  }
 
   /** A structure's ground position in local ENU metres — footprint centroid where
    *  one is drawn, the placement otherwise. Go to measures distance from it;
@@ -3961,7 +3994,12 @@ async function boot() {
   });
   bootController.end('people');
   } catch (err) { bootController.fail('people', err); }
-  else bootController.end('people');
+  else {
+    bootController.end('people');
+    // 1904 uses its existing scene-aware Navigator household card, never the
+    // 1835 drawer/research joins. This does not populate a human scene layer.
+    if (supportsTownTransport(YEAR)) api.people = { open: openSceneDirectoryPerson };
+  }
 
   // …and the town's FIRMS, which until now reached a visitor only through the
   // roof they stood in. 166 of the 196 the register knows have no roof here — 26
@@ -3983,6 +4021,7 @@ async function boot() {
     // A proprietor the town holds a card for is one tap from their firm: the
     // People view already knows how to open them, so this only has to ask.
     onPerson: (personId) => {
+      if (supportsTownTransport(YEAR) && !draws('residents')) { void openPersonCard(personId); return; }
       hud.selectTab('people');
       api.people?.open?.(personId);
     },
@@ -4343,7 +4382,9 @@ async function boot() {
     }
     // A figure answers with its PERSON, not a card of its own (T-1788): the layer's
     // `open` event takes the visitor to the resident card the directory already draws.
-    const figure = api.humans?.pickAt(ndc, camera);
+    let figure = api.humans?.pickAt(ndc, camera);
+    const driver = api.townTransport?.pickDriverAt(ndc, camera);
+    if (driver && (!figure || driver.distance < figure.distance)) figure = driver;
     if (figure && (!hit || figure.distance < hit.distance)) {
       popup.close();
       api.humans.select(figure);
@@ -4621,10 +4662,27 @@ async function boot() {
     // the scene measurement harness. Named picker rows still resolve strictly.
     if (!target?.id && target?.kind === 'intersection'
         && Number.isFinite(target.local_e) && Number.isFinite(target.local_n)) return travel.go(target);
+    const anchor = target?.kind === 'person' ? api.townTransport?.driverAnchorForPerson(target.id) : null;
+    if (anchor) {
+      const driver = api.humans?.external(target.id);
+      const at = anchor.at, yaw = anchor.yaw_rad;
+      // Approach beside the actual seat, outside the body, on a router-checked
+      // stand. The historical person/household record is not relocated.
+      for (const side of [1, -1]) {
+        const e = at[0] + Math.cos(yaw) * side * 4;
+        const n = at[1] + Math.sin(yaw) * side * 4;
+        if (router.blockedAt(e, n)) continue;
+        anchor.actor?.stop('approach');
+        return travel.go({ kind: 'intersection', local_e: e, local_n: n,
+          label: target.label ?? driver?.person?.name ?? 'Driver' });
+      }
+      hud.say('No clear place beside this driver'); return false;
+    }
     const resolved = destinations.resolve(target);
     if (!resolved) {
       const row = target && destinations.byId(target.kind, target.id);
       if (row?.kind === 'person') {
+        if (supportsTownTransport(YEAR) && !draws('residents')) { void openPersonCard(row.id); return true; }
         hud.setPanel(true); hud.selectTab('people'); api.people?.open?.(row.id); return true;
       }
       if (row?.kind === 'business' && !row.derived_from) { openBusiness(row.id); return true; }
@@ -4655,8 +4713,6 @@ async function boot() {
 
   // T-2617: the Navigator and the probe it reads, made once the welcome is (below).
   let navigatorUi = null, target = null, targetTag = null;
-  // T-3319: the Interact key (set beside targetTag), and how long since it last looked.
-  let interactKey = null, interactPaintAt = 0;
   let guideFaq = null; // T-2662
   const jauntCatalogs = {}; // T-2666: each destination's Jaunt catalog, for Guide › For teachers
   // T-2634: Free roam's one-time tip, once per device.
@@ -4696,6 +4752,7 @@ async function boot() {
     }
     const firstEntry = !enteredWorld;
     gateOpen = false;
+    visualClockReset = true;
     enteredWorld = true;
     gate.hidden = true;
     hudRoot.inert = false;
@@ -4864,6 +4921,7 @@ async function boot() {
     pause: () => {
       if (jauntRuntime?.state.jaunt && !['menu', 'outcome'].includes(jauntRuntime.state.phase)) jauntRuntime.menu();
       gateOpen = true;
+      visualClockReset = true;
       gateFrame.reset();
       backends.activate(null);
       gesture.setLook({ inWorld: false });
@@ -4902,6 +4960,45 @@ async function boot() {
         .catch((err) => { householdRecords.delete(file); throw err; }));
     }
     return householdRecords.get(file);
+  }
+  // A nearby occupied driver can be inspected as soon as its model is ready.
+  // Warm only the existing card code/metadata; never open Navigator or acquire a model.
+  async function prepareSceneDirectoryPerson(id) {
+    if (!supportsTownTransport(YEAR) || draws('residents')) return;
+    await Promise.allSettled([
+      navigatorUi?.preload?.('inspect') ?? import('./apps/inspect-view.js'), ensureInspect(), ensureReaderText(), ensurePictures(),
+      peopleDirectory.load().then((directory) => {
+        const row = directory?.people?.find(person => person.id === id);
+        return row ? Promise.allSettled([householdRecord(row.file), ensureResidentCitations()]) : null;
+      }),
+    ]);
+  }
+  function ensureResidentCitations() {
+    return residentCitations ??= fetch(new URL(`sidecars/${loaded.scene.id ?? YEAR}/residents_sources.json`, resolveBases().dataBase), { cache: 'no-cache' })
+      .then((res) => { if (!res.ok) throw new Error(String(res.status)); return res.json(); })
+      .then((doc) => doc?.citations ?? {})
+      .catch((err) => { residentCitations = null; throw err; });
+  }
+  // One public person-card route for figure picks, firms, Go to and Navigator.
+  // The existing later-scene reader follows the directory's own residents_root.
+  async function openSceneDirectoryPerson(id) {
+    const row = (await peopleDirectory.load().catch(() => null))?.people?.find(r => r.id === id);
+    const at = [row?.lives_at, row?.works_at].find(s => s && loaded.registry.has(s));
+    if (at) return !!openBuilding(at, { person: id });
+    return navigatorUi?.select?.('people') ?? false;
+  }
+  async function findSceneDirectoryPerson(id) {
+    const row = (await peopleDirectory.load().catch(() => null))?.people?.find(r => r.id === id);
+    if (!row) return false;
+    if (api.townTransport?.driverAnchorForPerson(id)) return goToTarget({ kind: 'person', id });
+    const at = [row.lives_at, row.works_at].find(s => s && loaded.registry.has(s));
+    return at ? goToTarget({ kind: 'structure', id: at }) : false;
+  }
+  async function openPersonCard(id) {
+    if (api.people && !document.querySelector('.panel-tab[data-tab="people"]')?.hidden) {
+      hud.setPanel(true); hud.selectTab('people'); api.people.open?.(id); return true;
+    }
+    return openSceneDirectoryPerson(id);
   }
   // T-2618: whether this scene has a people directory, without paying for it at boot.
   const peopleDirectory = (() => {
@@ -5013,17 +5110,22 @@ async function boot() {
   });
   targetTag.setEnabled(!gateOpen);
   api.targetTag = targetTag;
-  // T-3319: the Interact key, under Inspect, while something to work is in reach on foot.
-  interactKey = createInteractKey({
-    interactions,
+  const interactKey = createInteractKey({ interactions,
     keyEl: document.getElementById('btn-interact'),
     where: () => ({ e: walker.state.e, n: walker.state.n, bearing: walker.bearingDeg, flying: walker.state.flying }),
-    say: (text) => hud.say(text),
-    enabled: () => !gateOpen,
-    keys: window,
-    isTyping,
+    say: text => hud.say(text), enabled: () => !gateOpen, keys: window, isTyping,
   });
   api.interactKey = interactKey;
+  const transportReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let interactPaintAt = 0;
+  window.addEventListener('pagehide', event => {
+    if (event.persisted) return;
+    // Driver leases and standing transfers finish before the human asset cache
+    // loses its remaining scene actors. BFCache pagehide keeps the scene alive.
+    api.townTransport?.dispose();
+    api.humans?.dispose();
+    interactKey.dispose();
+  });
   // T-2640 (§08 "Look for", §13): Show me stands you outside the building on the line its
   // record's camera looks along, faces that bearing, and pulses an outline on the building.
   const showMeOutline = document.getElementById('show-me-outline');
@@ -5181,33 +5283,25 @@ async function boot() {
         },
         // T-2639: the card's content as Inspect's tabs show it, once the lazy data it reads
         // (liberties, pictures, a seated record's household notes) is in hand.
-        cardSections: async (id) => {
+        cardSections: async (id, { tab = null } = {}) => {
           const record = loaded.registry.get(id);
           if (!record) return null;
           ensureHouseholdNotes(record);
-          await Promise.all([ensureLiberties(), ensurePictures(), householdNotes.get(record.id), ensureReaderText()].map((x) => Promise.resolve(x).catch(() => null)));
+          // People reads the record/households, not the Sources/Research liberties index.
+          await Promise.all([tab === 'people' ? null : ensureLiberties(), ensurePictures(), householdNotes.get(record.id), ensureReaderText()].map((x) => Promise.resolve(x).catch(() => null)));
           return popup.sections(record);
         },
         // A person by directory id: in the drawer's People section where the scene has one
         // (1835), else their own card in Inspect on the house they lived or worked in
         // (T-3265), else the Navigator's People screen (1904, T-1740).
-        openPerson: async (id) => {
-          if (api.people && !document.querySelector('.panel-tab[data-tab="people"]')?.hidden) {
-            hud.setPanel(true); hud.selectTab('people'); api.people.open?.(id); return true;
-          }
-          const row = (await peopleDirectory.load().catch(() => null))?.people?.find((r) => r.id === id);
-          const at = [row?.lives_at, row?.works_at].find((s) => s && loaded.registry.has(s));
-          if (at) return !!openBuilding(at, { person: id });
-          return navigatorUi?.select?.('people');
-        },
+        openPerson: (id) => openPersonCard(id),
+        findPerson: supportsTownTransport(YEAR) && !draws('residents')
+          ? (id) => findSceneDirectoryPerson(id) : null,
         // T-3265: a person's card reads their household's own record (the scene's
         // data/residents_<scene>/, published by publish.sh) and the citations it cites,
         // each once, when a card first asks.
         householdRecord: (file) => householdRecord(file),
-        residentCitations: () => (residentCitations ??= fetch(new URL(`sidecars/${loaded.scene.id ?? YEAR}/residents_sources.json`, resolveBases().dataBase), { cache: 'no-cache' })
-          .then((res) => { if (!res.ok) throw new Error(String(res.status)); return res.json(); })
-          .then((doc) => doc?.citations ?? {})
-          .catch((err) => { residentCitations = null; throw err; })),
+        residentCitations: () => ensureResidentCitations(),
         openPicture: (id, i) => openPictureViewer(popup.picturesDoc, id, i),
         holdInspect: (id) => { inspectHold = id ?? null; },
         closeCard: () => popup.close(),
@@ -5402,9 +5496,14 @@ async function boot() {
     // quarter-second of real frame time in <= 0.05 s collision/terrain steps.
     // The clock is read either way, so releasing a hold does not deliver the
     // whole held interval as one enormous frame.
-    const elapsed = Math.min(clock.getDelta(), 0.25);
+    const rawElapsed = clock.getDelta();
+    const elapsed = Math.min(rawElapsed, 0.25);
     const frameDt = animationHold || gateOpen ? 0 : elapsed;
     const dt = Math.min(frameDt, 0.05);
+    const visualHeld = animationHold || gateOpen || document.hidden;
+    const visualDt = visualHeld || visualClockReset || !Number.isFinite(rawElapsed) || rawElapsed < 0
+      ? 0 : rawElapsed;
+    visualClockReset = visualHeld;
 
     if (!gateOpen) backends.active?.update?.(dt);
     else intent.clear();
@@ -5412,9 +5511,7 @@ async function boot() {
     nightLights.update(dt);
     const asked = intent.takeInteract();
     if (asked && !gateOpen) travel.stop('input');
-    // T-3319: a gate swinging, and the Interact key's reach, read four times a second.
-    api.interactions?.update(frameDt);
-    if (interactKey && (interactPaintAt += elapsed) >= 0.25) { interactPaintAt = 0; interactKey.refresh(); }
+    interactions.update(frameDt);
     // The inspect KEY toggles: the reach that opened the card also closes it
     // (T-0108). Since T-2954 a click or tap on the scene does too: an open card
     // holds the visitor until it is closed or the town is touched again (the owner,
@@ -5457,11 +5554,21 @@ async function boot() {
     railway.update(camera);
     flags.update(dt);
     parkedTransport.update(camera);
-    standingHorses.update(camera, frameDt, { paused: animationHold || gateOpen });
+    api.townTransport?.ensureNear(camera.position, !gateOpen && !animationHold && !document.hidden && !confidence.hidden.reconstructed);
+    api.townTransport?.update(frameDt, camera.position, {
+      paused: animationHold || gateOpen || document.hidden,
+      reducedMotion: transportReducedMotion.matches,
+      hidden: confidence.hidden.reconstructed,
+    });
+    api.townTransport?.refreshInteractions();
+    if ((interactPaintAt += elapsed) >= .25) { interactPaintAt = 0; interactKey.refresh(); }
+    standingHorses.update(camera, visualDt, { paused: animationHold || gateOpen, visualFrame: true });
     // T-2598: which house pictures are on the GPU, from where the eye ended up; at
     // most a frame's allowance of them is uploaded here, before the draw.
     residency?.tick(camera.position);
-    api.humans?.update(dt, camera, walker.state);
+    // Consume the same real elapsed interval as walking and the standing horse.
+    // A 0.05 s visual-effects step made human clips/routes crawl on slow devices.
+    api.humans?.update(frameDt, camera, walker.state, visualDt);
 
     // T-2113. Under the gate, draw only a frame that differs from the last one
     // drawn: the first, one a capture or a test asked for, or one in which
@@ -5768,7 +5875,12 @@ async function boot() {
     setFloraSpread(on) { stepFloraSpread = !!on; return stepFloraSpread; },
     /** Keep rendering, advance nothing — for tests comparing two frames of the
      *  same scene. Never set by the application. */
-    setAnimationHold(on) { animationHold = !!on; return animationHold; },
+    setAnimationHold(on) {
+      const next = !!on;
+      if (next !== animationHold) visualClockReset = true;
+      animationHold = next;
+      return animationHold;
+    },
     /** Same-camera on/off proof, like setFarMerge; no visitor setting. */
     setGlessnerOcclusion(on) { return glessnerOcclusion?.setEnabled(on) ?? false; },
     glessnerOcclusionStats() { return glessnerOcclusion?.stats ?? {active:false}; },

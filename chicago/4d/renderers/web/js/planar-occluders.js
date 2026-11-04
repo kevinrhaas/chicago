@@ -114,7 +114,7 @@ function inTriangle(t, x, y) {
  * @param {ArrayLike<number>} position  xyz triples, the frame the planes come back in
  * @param {ArrayLike<number>|null} index
  * @returns {{normal:number[], d:number, u:number[], v:number[], umin:number, vmin:number,
- *   res:number, W:number, H:number, sat:Int32Array, cells:number, tol:number}[]}
+ *   res:number, W:number, H:number, sat:Uint16Array|Int32Array, cells:number, tol:number}[]}
  *   `sat` is the covered cells' summed-area table, (W+1) x (H+1), so a caller asks whether
  *   a whole range of cells is covered in four reads.
  */
@@ -208,17 +208,19 @@ export function planarCoverPlanes(position, index, {
         if (segmentMeetsRect(e.a[0], e.a[1], e.b[0], e.b[1], cx0, cy0, cx0 + res + 2 * inset, cy0 + res + 2 * inset)) mask[gy * W + gx] = 0;
       }
     }
-    const sat = new Int32Array((W + 1) * (H + 1));
-    let cells = 0;
+    // Every prefix is a count of a subset of these covered cells. Narrow only
+    // when the COMPLETE plane count fits; neither wrap nor approximate a prefix.
+    const cells = mask.reduce((sum, covered) => sum + covered, 0);
+    if (cells < minCells) continue;
+    const Counts = cells <= 0xffff ? Uint16Array : Int32Array;
+    const sat = new Counts((W + 1) * (H + 1));
     for (let gy = 0; gy < H; gy++) {
       let row = 0;
       for (let gx = 0; gx < W; gx++) {
         row += mask[gy * W + gx];
         sat[(gy + 1) * (W + 1) + gx + 1] = sat[gy * (W + 1) + gx + 1] + row;
       }
-      cells += row;
     }
-    if (cells < minCells) continue;
     out.push({ normal: n, d, u, v: v2, umin, vmin, res, W, H, sat, cells, tol });
   }
   return out;

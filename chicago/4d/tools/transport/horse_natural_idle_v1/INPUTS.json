@@ -1,0 +1,104 @@
+{
+  "schema": "portable-natural-planted-idle-qualification-inputs-v1",
+  "inputs": {
+    "original": {
+      "base": "app",
+      "path": "tools/transport/horse_eye_smooth_normals_v1/fixtures/canonical26-bind.glb",
+      "bytes": 3766696,
+      "sha256": "03a1f747189ee2457f0fc3dc9720b1d3d288e36c32b7171b5a9976afb7e63c36"
+    },
+    "selected_parent": {
+      "base": "app",
+      "path": "assets/authored/transport/horse_standing/horse-sevket-v16-planted-standing-eye-uv-v1.glb",
+      "bytes": 3784176,
+      "sha256": "d4544c2845256858dfa614235bcb37cb964ab63095a53a2436225182cefbb914"
+    },
+    "legacy_parent": {
+      "base": "app",
+      "path": "assets/authored/transport/horse_standing/horse-sevket-anatomy-v2.glb",
+      "bytes": 4158016,
+      "sha256": "925fac957110b9b57b95c5abfed17fabf29f868b173f38f0569d984dd9999a48"
+    },
+    "socket_recipe": {
+      "base": "app",
+      "path": "assets/authored/transport/horse_standing/upper-lid-strip-v1-recipe.json",
+      "bytes": 9751,
+      "sha256": "f77e115a340a6cbb8d6efb1b7887c8cdba001a47f493b97be6ffb0eee72dd133"
+    },
+    "cpu_reference": {
+      "base": "app",
+      "path": "tools/transport/horse_eye_smooth_normals_v1/fixtures/cpu-rest-protection.json",
+      "bytes": 851885,
+      "sha256": "2179deb652914a49ee16b6c05c2a676587fb05bb746f996f7ecc5d121210c0b1"
+    },
+    "accepted_matrices": {
+      "base": "app",
+      "path": "tools/transport/horse_eye_smooth_normals_v1/fixtures/accepted-stationary65-matrices.json",
+      "bytes": 332521,
+      "sha256": "294f0a1a8a1f154831b5d6fd3207bfda9c1ec7dd61ee2bf9802d4248e532a107"
+    },
+    "controls26": {
+      "base": "app",
+      "path": "tools/transport/horse_eye_smooth_normals_v1/fixtures/rig26-controls.json",
+      "bytes": 16577,
+      "sha256": "f540c3e1da1e84e694336d4872cd965e1ca594a4e988ae73d749acaf30f7f6dc"
+    },
+    "limits": {
+      "base": "app",
+      "path": "tools/transport/horse_eye_smooth_normals_v1/fixtures/original-physical-limits.json",
+      "bytes": 469,
+      "sha256": "b64a5784c0b8310b5d0e054d10d9052edb0034938ed61d46e2b819230ff7bb54"
+    },
+    "accepted_known": {
+      "base": "app",
+      "path": "tools/transport/horse_eye_smooth_normals_v1/fixtures/accepted-phasea-known.json",
+      "bytes": 512303,
+      "sha256": "15c22fe886dccfe7071bf9bb172cacb7e4042b27615d07594aa9e142143f3497"
+    },
+    "phase_a_arrays": {
+      "base": "app",
+      "path": "tools/transport/horse_eye_smooth_normals_v1/fixtures/phasea-source-readback.npz",
+      "bytes": 515704,
+      "sha256": "869fdff5ca774f48554d1c762539946084246f9d03f413c5067a79d46827d2f1"
+    },
+    "parent_e49": {
+      "base": "app",
+      "path": "assets/authored/transport/horse_standing/horse-sevket-upper-orbital-transition-v1.glb",
+      "bytes": 4159196,
+      "sha256": "e49b6f1c9f7b70f1fcdf19fa7f6dddf54048b32256b4d8030d6238d6dfe79d49"
+    },
+    "candidate": {
+      "base": "app",
+      "path": "assets/authored/transport/horse_standing/horse-sevket-natural-planted-idle-v1.glb",
+      "bytes": 4166488,
+      "sha256": "8ea7748ffba6c5fe17cde91042c6d8b26ed9a0ab77de69cadd4f4fb12e9c09fa"
+    },
+    "anatomy_receipt": {
+      "base": "app",
+      "path": "tools/transport/horse_eye_smooth_normals_v1/fixtures/anatomy-r3-full-derivation.json",
+      "bytes": 676459,
+      "sha256": "baef5aa5304e667acd1d18014e4d62921efe0de2fe0c098ceb8aa75860c0fca2"
+    },
+    "idle_parent": {
+      "base": "app",
+      "path": "assets/authored/transport/horse_standing/horse-sevket-eye-smooth-normals-v1.glb",
+      "bytes": 4159196,
+      "sha256": "bd443df87b92d19266284cb9b52d30e791215cddf099876c774e9cfb5f5a79b6"
+    },
+    "motion_recipe": {
+      "base": "app",
+      "path": "assets/authored/transport/horse_standing/natural-planted-idle-v1-recipe.json",
+      "bytes": 3141,
+      "sha256": "f948df0e0dc510475df1de85ba5954f46c1b4035f041df582265a37a4ff4b1ef"
+    },
+    "expected_matrices": {
+      "base": "package",
+      "path": "independent-natural-idle65-matrices.json",
+      "bytes": 919990,
+      "sha256": "f410a02b5d700cbf71fa6f8ced2d7795a03153433b227c854fc983a7f81ea2fb"
+    }
+  },
+  "creation_state": "NEW8EA_SECOND_EXPORTED17TRACK_CLIP_UNSELECTED_NATIVE_PHYSICAL_SOCKET_UNRUN_ACTIVE_BD443_UNCHANGED",
+  "recipe_creation_flags_remain_historical": true,
+  "old_certificate_transferred": false
+}

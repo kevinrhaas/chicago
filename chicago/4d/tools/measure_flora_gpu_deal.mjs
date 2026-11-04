@@ -139,7 +139,7 @@ await new Promise((r) => server.listen(PORT, r));
 const base = `http://127.0.0.1:${PORT}`;
 
 /** Runs in the page: one station's two deals, CPU and GPU, side by side. */
-async function pageRead({ st, uni, lattice, deal, stride }) {
+async function pageRead({ st, uni, lattice, deal, stride, dummyPositionControl = false }) {
   const api = window.__chicago4d;
   const nf = api.flora.nearField;
   const THREE = await import('three');
@@ -242,6 +242,34 @@ void main() { o = vOut; }`,
   }
   r.setRenderTarget(prev);
   r.setClearColor(prevClear, prevAlpha);
+  let dummyPositionProof = null;
+  if (dummyPositionControl) {
+    const byteGeo = new THREE.BufferGeometry();
+    byteGeo.setAttribute('position', new THREE.BufferAttribute(new Uint8Array(N * 3), 3));
+    const missingGeo = byteGeo.clone(); missingGeo.setDrawRange(0, 0);
+    const sameBits = (a, b) => {
+      const x = new Uint32Array(a.buffer, a.byteOffset, a.length), y = new Uint32Array(b.buffer, b.byteOffset, b.length);
+      return x.length === y.length && x.every((v, i) => v === y[i]);
+    };
+    const drawAll = geometry => {
+      pts.geometry = geometry; const out = [];
+      for (let p = 0; p < 4; p++) {
+        mat.uniforms.uPass.value = p; const buf = new Float32Array(W * H * 4);
+        r.setRenderTarget(rt); r.setClearColor(0x000000, 0); r.clear();
+        r.render(sc, new THREE.Camera()); r.readRenderTargetPixels(rt, 0, 0, W, H, buf); out.push(buf);
+      }
+      return out;
+    };
+    try {
+      const compact = drawAll(byteGeo), missing = drawAll(missingGeo);
+      const equal = passes.every((p, i) => sameBits(p, compact[i]));
+      const missingCountRejected = passes.some((p, i) => !sameBits(p, missing[i]));
+      if (!equal || !missingCountRejected) throw Error('Dummy position count/type native readback control failed');
+      dummyPositionProof = { exactRGBA32FReadback: true, count: N, oldCPUBytes: N * 12, newCPUBytes: N * 3,
+        missingCountNegativeDetected: true, positionAttributeReadByShader: false };
+    } finally { pts.geometry = geo; byteGeo.dispose(); missingGeo.dispose(); }
+    r.setRenderTarget(prev); r.setClearColor(prevClear, prevAlpha);
+  }
   const gpuMs = performance.now() - g0;
   const glError = gl.getError();
 
@@ -271,7 +299,7 @@ void main() { o = vOut; }`,
   }
   for (const d of [cls, hgt, tab, rt, geo, mat]) d.dispose();
   return {
-    id: st.id, e, n, instances: N, cpuMs, gpuMs, glError, tileMs: tile.ms,
+    id: st.id, e, n, instances: N, cpuMs, gpuMs, glError, tileMs: tile.ms, dummyPositionProof,
     flags: { ...F }, species: table.species,
     slots, gpu,
     // What the threshold bins need of the table: per community its subsets'
@@ -428,7 +456,11 @@ for (const vp of VIEWPORTS) {
       perCell: meta.walk.perCell, radius: meta.ring.outer, inner: meta.ring.inner,
       salt: meta.walk.salt, draw: meta.walk.draw });
     const raw = await page.evaluate(pageRead, { st, uni, lattice: LATTICE_GLSL,
-      deal: SELF_TEST ? BROKEN : DEAL_GLSL, stride: DEAL_STRIDE });
+      deal: SELF_TEST ? BROKEN : DEAL_GLSL, stride: DEAL_STRIDE, dummyPositionControl: argv.includes('--dummy-position-control') });
+    if (argv.includes('--dummy-position-control')) {
+      if (!raw.dummyPositionProof?.exactRGBA32FReadback || !raw.dummyPositionProof.missingCountNegativeDetected) throw Error('Missing native dummy-position proof');
+      console.log('  dummy position control ' + JSON.stringify(raw.dummyPositionProof));
+    }
     const j = judge(raw);
     rows.push(j);
     console.log(`  ${st.id.padEnd(26)} ${String(j.slots).padStart(5)} slots  placed cpu ${String(j.cpuPlaced).padStart(4)}`

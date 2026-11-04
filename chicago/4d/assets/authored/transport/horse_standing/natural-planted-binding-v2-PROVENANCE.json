@@ -1,0 +1,23 @@
+{
+  "schema": "natural_planted_binding_v2_change_notice",
+  "original_author": "sevketkabatas",
+  "original_title": "Horse",
+  "model_license": "CC-BY-4.0",
+  "license_credit_lineage": "SOURCE.json retains the original Objaverse acquisition, author, source links and notices.",
+  "source_parent_sha256": "8ea7748ffba6c5fe17cde91042c6d8b26ed9a0ab77de69cadd4f4fb12e9c09fa",
+  "original925_sha256": "925fac957110b9b57b95c5abfed17fabf29f868b173f38f0569d984dd9999a48",
+  "candidate_sha256": "0ced8a09e27da047ad404c902e9d032e43654393027199db8dfd9c315be17929",
+  "paired925_sha256": "a3eca1a164e2adf13d7d5f6699ff43de66d48dde0e3220f4aae90591dcaf4cb3",
+  "recipe_sha256": "0c1ceebbcf3fbc4824156bdc5bbad3df19b924ba724b1e5d02aa331d4939d626",
+  "new_work": "Project-authored reconstructed continuous skull/cervical and dock/tail skin field. Original positions, normals, UV, six images, topology, nodes, pivots, IBMs and both clips remain exact.",
+  "sources": [
+    "ellenberger_baum_dittrich_equine_plates",
+    "joselodos_2025_horse_anatomy"
+  ],
+  "source_limits": "Anatomical region authoring only, no copied pixels, exact movement measurements, archival likeness or historical animal identity.",
+  "runtime_adoption": false,
+  "old13_native_pose_parity": "UNRUN",
+  "new17_physical129": "UNRUN",
+  "paired925_socket129": "UNRUN",
+  "old_certificate_transferred": false
+}
