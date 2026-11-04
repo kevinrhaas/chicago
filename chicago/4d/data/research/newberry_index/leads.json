@@ -9,23 +9,23 @@
     4
   ],
   "derives_from": {
-    "fingerprint": "60ea1c73105db123b3913330bc8d688a571317bc790d3b6edd380a4f53eca75e",
+    "fingerprint": "5a69c60f0298654989567e7c86ffe6ded6f7fb8a3dce3454d2f51ed1ff7d6084",
     "_doc": "sha256 over the layers the leads are looked up in, the WORKS table, and the committed card text of every parsed volume. Recomputed by --check; a mismatch means --parse is no longer a no-op and the leads must be regenerated and re-ruled.",
     "layer_counts": {
       "census_1840": 995,
       "residents": 1438,
-      "structures": 687,
+      "structures": 688,
       "voters": 345
     }
   },
   "counts": {
     "cards": 6635,
     "distinct_surname_keys": 4530,
-    "leads": 1032,
+    "leads": 1033,
     "leads_by_layer": {
       "census_1840": 355,
       "residents": 482,
-      "structures": 44,
+      "structures": 45,
       "voters": 151
     }
   },
@@ -2048,6 +2048,26 @@
         {
           "id": "beach_william_h",
           "name": "William H. Beach",
+          "rule": "exact surname"
+        }
+      ],
+      "entries": [
+        "nbi_v01_0394"
+      ],
+      "works_cited": [],
+      "note": "A LEAD, never a match. The index files every family of this surname together and this project's person is one of them at most; the card is worth following only into the work it cites."
+    },
+    {
+      "id": "lead_v01_beach_structures",
+      "surname_key": "beach",
+      "spellings_as_printed": [
+        "Beach"
+      ],
+      "layer": "structures",
+      "candidates": [
+        {
+          "id": "log_jail_keeper_house",
+          "name": "John Beach’s house at the log jail",
           "rule": "exact surname"
         }
       ],

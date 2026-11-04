@@ -25822,3 +25822,9 @@ T-3040 bodies are preserved untouched. The new camera is `diagnostic_only`, so n
 remains OPEN and the view remains DIFFERS**: the camera is unfitted, the ranges, galleries,
 facade openings, other roof forms and chimney counts are unresolved, the compound's composition
 differs, and the other dated pictures the ticket lists have not been read at all.
+
+### T-2380 keeper dwelling and low compound gate — incremental source, 2026-11-03
+
+A separate source-qualified keeper house, continuous high palisade front and low braced hung gate are prepared as one visible increment. The exact retained native keeper pair is bound to its resolved inputs. The July1835 continuity, dimensions, finishes and compound registration are explicitly reconstructed from Gale1902's1835-framed narrative and1836-captioned plate; the old one-roof assertion is corrected. Core fabric/roof remain unchanged; a1.30m reconstructed access setback is declared. Original T-2380 remains OPEN/DIFFERS, including rear-core roof exposure and compound proportions.
+
+This source packet is not a passed build or release: current frame-family native parity/registration, ordered derivatives, fresh original-composition group comparisons, all four source-check parts, published desktop/phone physical review and normal PR/dev integration remain pending. No existing trial is relabelled as current published acceptance.

@@ -270,6 +270,28 @@ function pushBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level,
   }
 }
 
+/** One opted-in gate brace; ordinary fence posts/boxes remain upright. */
+function pushTiltedGateBox(buf, bx, level) {
+  const c = bx.tilt_cos, s = bx.tilt_sin;
+  const u = [bx.ux * c, s, bx.uz * c];
+  const v = [-bx.uz, 0, bx.ux];
+  const up = [-bx.ux * s, c, -bx.uz * s];
+  const p = BOX_P;
+  for (let i = 0; i < 8; i += 1) {
+    const q = BOX_CORNER[i];
+    for (let k = 0; k < 3; k += 1) p[i * 3 + k] = [bx.cx, bx.cy, bx.cz][k]
+      + u[k] * q[0] * bx.halfLen + v[k] * q[1] * bx.halfW + up[k] * q[2] * bx.halfH;
+  }
+  for (const f of (PARTS[bx.part] ?? PARTS.box)) {
+    const n = BOX_FACE_NORMAL[f];
+    for (const i of BOX_FACE_TRIS[f]) {
+      buf.pos.push(p[i * 3], p[i * 3 + 1], p[i * 3 + 2]);
+      buf.nrm.push(...u.map((x, k) => n[0] * x + n[1] * v[k] + n[2] * up[k]));
+      buf.conf.push(level);
+    }
+  }
+}
+
 /** The pointed head of a vertical pale; the body uses the ordinary timber box. */
 function pushPointedPale(buf, cx, foot, cz, ux, uz, width, height, point, level, plank) {
   const shoulder = height - point;
@@ -666,8 +688,16 @@ function emitRun(task, terrain, ch, tally, plankPales) {
     into(ja, jb);
     cover(ch.buf, ja.e, ja.n);
     cover(ch.buf, jb.e, jb.n);
+    // A fully open link has no residual fence stretch to emit its house-end jamb.
+    // This explicit opt-in supplies only B; A is the adjacent tall palisade post.
+    if (g.o.gate.jamb_posts === 'b') {
+      pushBox(ch.buf, jb.e, jb.y + height / 2, -jb.n, 1, 0,
+        postHalf, postHalf, height / 2, level, 'post');
+      tally.posts++;
+    }
     for (const bx of gateBoxes(g.o.gate, ja, jb, height, g.o.opens_into_local_enu_m)) {
-      pushBox(ch.buf, bx.cx, bx.cy, bx.cz, bx.ux, bx.uz, bx.halfLen, bx.halfW, bx.halfH,
+      if (bx.tilt_cos !== undefined) pushTiltedGateBox(ch.buf, bx, level);
+      else pushBox(ch.buf, bx.cx, bx.cy, bx.cz, bx.ux, bx.uz, bx.halfLen, bx.halfW, bx.halfH,
         level, bx.part);
     }
     tally.gates = (tally.gates ?? 0) + 1;

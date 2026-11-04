@@ -1874,3 +1874,11 @@ The following active LOD0/LOD3 exports append an original reconstructed head/nec
 | `humans/anonymous_working_driver_1904.lod3.glb` | CC0-1.0; original creator notices retained | 7256444 | `3833f8fc26f722d17c62afa36ce1b511e38fd112142619db58fa1bf9f551ef75` |
 | `humans/web/anonymous_working_driver_1904.lod0.glb` | CC0-1.0; original creator notices retained | 4458148 | `49a84c1d858f67359ff33e56762336ade56db1dcbbb1cbe923846d95825c9547` |
 | `humans/web/anonymous_working_driver_1904.lod3.glb` | CC0-1.0; original creator notices retained | 326600 | `84e602cd49c6e355fb25bc6659a0f4a9e573e4bebe6ce8d2e30e14ed5250b60b` |
+
+
+### Log-jail keeper house generated pair — T-2380
+
+| path | origin | license | notes |
+|---|---|---|---|
+| `gltf/log_jail_keeper_house__frame_1835.glb` | Native Blender4.5.3 generation from `data/structures/log_jail_keeper_house.json`, optional `frame_dwelling` keeper layout | project license | Source-informed form from W.E.S.Trowbridge's illustration in Edwin O.Gale, *Reminiscences of Early Chicago and Vicinity* (Fleming H.Revell,1902), plate facingp53, source `trowbridge_first_jail_gale_1902`; independently public domain by1902USpublication. Flat/procedural materials, no source-image texture. Metric dimensions, finish and July1835continuity remain reconstructed. Actual source/MASTER registration is required, not supplied by this prose. |
+| `web/log_jail_keeper_house__frame_1835.glb` | Native pinned web derivative of the master above | project license | Same provenance. The retained pair is byte-exact actual native output; current family qualification and entrywise registry integration remain required before release. |

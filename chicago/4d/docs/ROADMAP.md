@@ -6281,11 +6281,10 @@ establish hotel dimensions or a historical viewpoint. Other pictures and the
 original full match remain open. See docs/RESEARCH/photo-match/sauganash_hotel/.
 
 
-<<<<<<< HEAD
 ### T2379 — later-address source cross-check, 2026-11-04
 
 The existing Fergus source now identifies a directly checked Lake House Hotels entry from his 1876 recollection of 1839. Record and Sources state its date and the conflicting street accounts. Construction-state picture matching remains OPEN; coordinates, phases, dimensions, grades and meshes are unchanged.
-=======
+
 ### T-2388 (partial) — the second fort blockhouse's pictured cupola, 2026-11-03
 
 Build the small square cupola panel 5 of the Kurz & Allison sheet draws at the centre of the
@@ -6300,4 +6299,7 @@ from a camera fit. Before and after are captured from one identical diagnostic c
 The original T-2388 stays OPEN. Still owed: a fitted camera for this panel, the ranges and their
 galleries, the facade openings, the other roof forms and chimney counts, the compound's
 composition, and every other dated picture the ticket lists.
->>>>>>> origin/steward/t2388-blockhouse-cupola-native-20261103
+
+### Original T-2380 — bounded keeper/compound increment, 2026-11-03
+
+Prepared the missing keeper dwelling, continuous high palisade and low braced gate from the retained actual V4 native proposal, preserving concurrent scene-directory support and enclosure entries. The current concealed-core roof is retained; no32degree prediction is adopted. Next: native current-family qualification and actual registered/derived outputs, fresh group-bound source reviews and published desktop/phone access review, then a partial-progress PR to dev. The original two-composition picture-match acceptance stays open; no photo follow-up or completion is filed.
