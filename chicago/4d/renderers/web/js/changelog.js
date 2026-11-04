@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2652, ts: '2026-11-04T10:01:26.358Z', date: 'Nov 4, 2026, 4:01 AM CT', title: 'Lake House’s Record separates proposals from measurements', kind: 'fix',
+    items: [
+      'The Lake House Record now explains that an 1835 editorial proposal for a larger hotel does not measure the building, rank existing hotels or establish construction progress. The quotation and reconstructed shell are unchanged.',
+    ] },
   { v: 2651, ts: '2026-11-04T09:32:10.552Z', date: 'Nov 4, 2026, 3:32 AM CT', title: 'The Sauganash Hotel\'s chimneys move out to the ridge ends', kind: 'improve',
     items: [
       'Andreas and Braunhold\'s 1884 plate of the hotel draws both main-block stacks close to the ends of the ridge — the near one right behind the gable peak. The model had them about 1.6 m further inboard on each side. They now stand where the picture puts them.',

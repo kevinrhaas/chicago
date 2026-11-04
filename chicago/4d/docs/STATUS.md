@@ -1,3 +1,19 @@
+## T-2379 — Lake House proposal distinguished from a measurement (2026-11-04)
+
+The visitor Record and admitted June 10, 1835 Chicago Democrat c001 interpretation now
+identify the suggested hotel “about double” the Lake House's size as an editorial
+proposal. It supplies no measured dimensions, existing-building ranking, July progress,
+or proof of a vacant proposed site. “Unfinished building” also replaces “unfinished frame”
+in the same note so the attestation does not imply an unsupported timber material.
+
+This is an interpretation correction, not a new newspaper reading or facsimile inspection.
+The quotation remains transcription-mediated; quote, normalized text, locator, reading,
+other claims and the merged PR1694 Fergus address ruling are exact. Phases, geometry,
+grades, resolved inputs and native MASTER/WEB files are unchanged. No new native or visual
+execution is claimed. Validation and the actual current hosted eight-part gate are recorded
+in the PR/evidence checkpoint. The July shell remains reconstructed and T-2379 OPEN/partial;
+the later completed-hotel picture does not establish July 1835 construction progress.
+
 ## T-2383 — the ridge-end stacks retained through native recovery (2026-11-04)
 
 The genuine one-Hotel MASTER/WEB and four accepted controlled picture groups survived
