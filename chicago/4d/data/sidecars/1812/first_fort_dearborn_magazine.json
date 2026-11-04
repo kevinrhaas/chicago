@@ -102,14 +102,18 @@
       "note": "Unattested. The elevation is not at the plan scale; a one-storey powder store."
     },
     "roof_type": {
-      "value": "gable",
-      "confidence": "reconstructed",
-      "note": "Unattested. The elevation's arched front may be a vault; the archetype builds a gable over it and that is ours."
+      "value": "barrel_vault",
+      "confidence": "inferred",
+      "sources": [
+        "whistler_1808_fort_dearborn_draught",
+        "currey_1912_first_fort_birdseye"
+      ],
+      "note": "Owner adoption (2026-11-03, T-3335/T-3041): Currey's 1912 retrospective bird's-eye labels the magazine (8) under a rounded vault, consistent with Whistler's 1808 arched front. Adopt that roof shape for the first-fort 1812 phase only. These sources give no vault radius, rise, thickness, colour or construction date. The contemporary surveyed seat, bearing and front width remain unchanged; neither the retrospective picture nor its diagnostic camera supplies a metric fit."
     },
-    "roof_pitch_deg": {
-      "value": 34.0,
+    "barrel_rise_m": {
+      "value": 1.0286254881847008,
       "confidence": "reconstructed",
-      "note": "Unattested."
+      "note": "Not a measured vault rise. Preserve the former reconstructed gable peak: half of the shorter unchanged 3.05 m plan span times tan(34 degrees) = 1.02862548818 m above the unchanged 2.6 m wall. The old 34-degree gable parameter is no longer a visitor-facing pitch claim: a curved roof has varying tangent. A circular segment across the unchanged 4.51 m front, the existing 0.30 m projection and 0.07 m covering edge are working reconstructions, not dimensions read from Whistler or Currey. Covering, material and colour remain the existing reconstruction; the black-and-white illustration attests none of them."
     },
     "chimneys": {
       "value": 0,
@@ -170,6 +174,25 @@
         "any plan, footprint, orientation or measured survey",
         "the height, roof form or fenestration of any fort building",
         "any evidence independent of wentworth_1881_fort_dearborn - it is the same text at a different address"
+      ]
+    },
+    {
+      "source_id": "currey_1912_first_fort_birdseye",
+      "citation": "'Bird’s-Eye View of Old Fort Dearborn.' Illustration at p. 27 of J. Seymour Currey, The Story of Old Fort Dearborn (Chicago: A. C. McClurg & Co., 1912). Numbered reconstruction of the first fort, not a contemporary view.",
+      "url": "https://commons.wikimedia.org/wiki/File:Birds_eye_view_of_first_Fort_Dearborn.jpg",
+      "archived_url": "https://www.gutenberg.org/cache/epub/52346/pg52346-images.html#Page_27",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "Two-storey courtyard gallery treatment on the visible inner barracks/quarters ranges: an upper walk with close vertical rail pales over the open lower level, under a roof near the main eave.",
+        "The numbered caption identifies the main entrance (1), sally-port (2), western gateway (3), NW and SE blockhouses (4,5), officers quarters (6), barracks (7), and magazine (8).",
+        "The roofed blockhouse lanterns as a retrospective representation, without a construction date."
+      ],
+      "what_it_does_not_supply": [
+        "An eyewitness, independent testimony from 1803–1812, or a dated record of when the upper walks or blockhouse lanterns were built.",
+        "Any dimension, coordinate, bearing, measured roof slope, gallery depth, post section, rail height, baluster spacing or floor thickness.",
+        "Independent identification of every existing named range’s interior facade: the near faces are concealed, and the reconstruction’s main entrance and magazine arrangement must not displace Whistler’s contemporary measured plan.",
+        "Colour, material tone, or agreement between all pictorial reconstructions."
       ]
     },
     {
@@ -260,7 +283,7 @@
       ]
     }
   ],
-  "research_note": "THE ONE BUILDING OF THE FIRST FORT THAT DID NOT BURN — Quaife says the brick magazine alone 'defied the fire'. Its front and place are the commandant's draught; its depth, height and roof are ours.",
+  "research_note": "THE ONE BUILDING OF THE FIRST FORT THAT DID NOT BURN — Quaife says the brick magazine alone 'defied the fire'. Its front and place are the commandant's draught. The vault shape is inferred from the arched front and Currey's later reconstruction under owner adoption (T-3335/T-3041); the depth, height, circular-segment profile, rise and covering details remain reconstructed. Neither picture supplies a vault completion date.",
   "research_doc": "",
   "review_required": false
 }
