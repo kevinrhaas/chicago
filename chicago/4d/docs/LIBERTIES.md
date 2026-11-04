@@ -40288,3 +40288,43 @@ and it remains a shape taken from a retrospective picture.
 **Ticket:** T-2383.
 **Review:** `docs/RESEARCH/photo-match/sauganash_hotel/andreas-1884-side-by-side.jpg` and its match record.
 **Recorded:** 2026-11-04 (T-2383).
+### L-cobweb-apertures-2374 — three marks on the Agency House's gable, and all of them set out by us
+**What is read:** the keyed panorama "Fort Dearborn and Chicago in 1831" (`kinzie_1857_chicago_1831_panorama`,
+the verified public-domain Wentworth 1881 reproduction crediting Wau-Bun), opened at full
+resolution on its Agency-House subject in `chicago/reference/images/chicago/chicago_fort_dearborn_1831_1.jpg`.
+Its front gable carries THREE dark marks: TWO upright ones standing on the ground line, and
+ONE small one high on the face at the head of the wall. That COUNT, and roughly where the
+three fall along the face — the lower pair in the face's left and middle with the right-hand
+stretch left blank, the upper mark a little left of the apex — is everything this picture
+gives. The face is drawn slightly oblique, which compresses its right-hand side, so even the
+arrangement is read with that caution.
+**What is reconstructed:** every coordinate. The marks are a few pixels across a thirty-pixel
+gable in a retrospective engraving whose proportions are not this model's — its gable reads
+taller than wide where this record's centre room is 5 m across and 2.6 m to the eaves — so no
+fraction of them is carried across as a measurement. The two lower apertures are set out at
+u 4.26–5.16 and 6.22–7.12 on the centre room's own front wall, both in the band 0.02–1.95 m
+this archetype already gives a log cabin's door; the upper one is a 0.70 × 0.80 m light on the
+gable the centre roof closes, at u 5.57–6.27 and z 2.74–3.54, standing clear of that roof's own
+rake. The depth and section of each recess — a sawn casing with its reveal running back to a
+dark face, and nothing behind it — are this archetype's existing opening kit, not a reading.
+**What is a design inference and not a reading:** which of the two lower marks is a way in.
+The picture does not say that either was a door. The right-hand one is built as one, with a
+threshold, because it stands where this record's previous single centre door stood, so the
+town's entrance, apron and doorway clearance keep ground they already held; the other claims a
+hole and nothing else. No glazing, closure, leaf, shutter, interior, attic room, white paint or
+historic function is claimed by any of the three, and the white of the engraving's paper is not
+evidence of paint.
+**What this replaces:** the single centred door `compound_parts` put on the centre room. The
+stated set OVERRIDES that opening rather than standing beside it, so no phantom centre door
+survives among the new marks, in the mesh or in the front-wall reading the entrance and
+signboard generators share.
+**What remains open:** the camera on this picture is UNSOLVED and is not enrolled in
+`data/reference_views/`; no match verdict is claimed and T-2374's image gate stays open. The
+compound's overall width, the wing and sub-roof silhouettes, the roof junctions and valleys,
+the text-attested partial clapboarding "part way up", and the building's finish and tone are
+all unchanged and still differ from the picture. The source is retrospective 1831 context
+printed in 1881, not proof of the building as it stood on 1835-07-01; the 1820 phase date and
+the survival inference are untouched. See L-cobweb-compound-2374 for the massing this
+stands on.
+**Recorded:** 2026-11-04 (T-2374).
+**Covers:** `cobweb_castle.log_1820.form.compound_apertures`.
