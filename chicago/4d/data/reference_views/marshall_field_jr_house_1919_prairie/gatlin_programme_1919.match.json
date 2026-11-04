@@ -2,7 +2,7 @@
   "structure_id": "marshall_field_jr_house_1919_prairie",
   "view": "gatlin_programme_1919",
   "glb": "assets/gltf/marshall_field_jr_house_1919_prairie__as_mapped_1904.glb",
-  "glb_sha256": "d370c08701c46ba5083058c33ea0c4e4a41a66a13288aac3b14b5c14f2047ffe",
+  "glb_sha256": "0cbdb350236b85456d945ec280faf3032cd13a1c07610f85c5fdda39991a7243",
   "camera_sha256": "5761231c09122f5ce6c9fd950c12b502e4ff369c817aedbdd46f780f691c9a20",
   "photo_sha256": "ea845bca0465b8b2d11fc97efe3f9b21ac4b569ee9a9b1c8743d605bf00b8f5e",
   "side_by_side": "docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/gatlin_programme_1919-side-by-side.jpg",
@@ -65,7 +65,11 @@
       "status": "not shown"
     },
     {
-      "what": "the rear ranges' stone: quoins up the corners of the north flank's two-storey bays, the stone surrounds and mullions of their windows and the pale courses across them, which this plate draws plainest of all; T-3337 builds the canted north bay with its windows in stone-mullioned groups, but without the quoins up its corners, and the ranges' walls still carry K03's brick course (T-3338)",
+      "what": "the rear ranges' stone: the plate draws pale quoins up the corners of the north flank's stepped-out ranges and pale courses across them, plainest of all its walls; T-3353 quoins both ranges' north-east corners (where each range's north wall meets the face it steps out on), long and short stones in turn from grade to the wall top, and carries the main block's three stone courses (under the principal sills, at the second floor, under the chamber sills) across both ranges' north walls and stepped-out faces in place of K03's brick course; through this camera the pale corners and bands stand where the plate's do, the stones themselves too fine in the halftone to count",
+      "status": "fixed"
+    },
+    {
+      "what": "the rear range's canted north bay: the plate draws it dark (brick or ivy) between the range's pale corners and does not resolve its own corners; built in brick with its stone-mullioned groups (T-3337) and no quoins of its own",
       "status": "open"
     },
     {

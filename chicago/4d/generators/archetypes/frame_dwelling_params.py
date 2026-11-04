@@ -1251,4 +1251,25 @@ def front_wall(p: "FrameDwellingParams") -> dict:
             for cx, _kind in facade_bays(p):
                 out.append({"kind": "window", "u0": cx - hw, "u1": cx + hw,
                             "z0": z, "z1": z + hu})
+    # T-3359: what stands ON the front as well as what is cut into it, so a board
+    # fixed flat beside or over the door stays off it — the shutter leaves
+    # (`frame_dwelling._shutters`: from the casing's outer edge, half a sash wide)
+    # and a roofed porch's shed roof over the door (`_porch`: 2.30 m wide, its head
+    # at `min(wall_z - 0.32, 2.62)`). Copies of the builder's literals, which
+    # tools/check_tavern_front_reader.py holds against frame_dwelling.py.
+    if p.shutters:
+        for o in [o for o in out if o["kind"] == "window"]:
+            cx = (o["u0"] + o["u1"]) / 2.0
+            for side in (-1, 1):
+                a = cx + side * (hw + DWELLING_CASING_W_M + 0.012)
+                b = a + side * (p.window_w_m * 0.5)
+                out.append({"kind": "shutter", "u0": min(a, b), "u1": max(a, b),
+                            "z0": o["z0"], "z1": o["z1"]})
+    if p.porch == "roofed":
+        door = next((cx for cx, k in facade_bays(p) if k == "door"), w / 2.0)
+        out.append({"kind": "porch", "u0": door - 1.15, "u1": door + 1.15,
+                    "z0": 0.0, "z1": min(wall_z - 0.32, 2.62)})
     return {"u0": 0.0, "u1": w, "wall_height_m": wall_z, "openings": out}
+
+
+DWELLING_CASING_W_M = 0.090      # common/openings.CASING_W_M

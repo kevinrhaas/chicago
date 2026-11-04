@@ -1293,6 +1293,14 @@ step "a K08 tower stands on a K01 rear wing's wall past the wing's eave, closed 
 step "a flat-topped projection stands on a K01 wing's gable end, and a wing's gables are stone-coped (T-3337)" \
   python3 tools/test_k01_wing_coping.py
 
+# T-3353. ...and a brick wing may name stone `dressings`: belts on the walls it names, in place of
+# K03's brick string course there, and quoins up the corners it names (1919 Prairie's rear
+# ranges, the 1919 programme plate's pale corners and courses). Held on 1919's record; a corner
+# the wing has not got, a stone or a belt through a light, a belt on a missing wall, an unknown
+# dressing, a frame wing's and stones out of bounds refused.
+step "a K01 brick wing's stone belts and corner quoins (T-3353)" \
+  python3 tools/test_k01_wing_dressings.py
+
 # T-3242. A two-level timber veranda on a K01 house's rear wall (k01_rear_veranda), held on
 # 1701 Prairie's record: its decks, paired posts, balusters, frieze and flight built where
 # the record puts them, nothing inside the main block; a wing's wall left standing behind an
@@ -2873,6 +2881,13 @@ selftest "…and that agreement still fires when the frames drift off the holes"
 # T-2376/T-2383/T-2385: pictured frame controls on the real accumulator.
 step "pictured frame taverns preserve defaults and build their opt-in details" \
   python3 tools/test_frame_tavern_picture_features.py
+
+# T-3359: the tavern front reader the 1835 flat signs stand clear of copies the
+# builder's literals (it cannot import Blender); hold the two together.
+step "frame_tavern_params.front_wall matches frame_tavern.py's frontage literals" \
+  python3 tools/check_tavern_front_reader.py
+selftest "the tavern front reader's check refuses a sash moved in the builder alone" \
+  python3 tools/check_tavern_front_reader.py --self-test
 
 # T-3105: gallery supports must clear the declared pictured front.
 step "first-fort explicit fronts preserve positional defaults and keep supports off apertures" \

@@ -25505,6 +25505,33 @@ The native scene owner retains the existing attested grade and adds the poster t
 The [prepared canonical capture and source-conflict review](https://github.com/kevinrhaas/chicago-evidence/blob/9bbce05b3f135e4cb91abb930c1750eda1cb3a43/evidence/wolf-sauganash-2026-11-03/poster-eighth-canonical-prepared-after-outage/RECOVERY.md) and [clear desktop/phone native body inspection](https://github.com/kevinrhaas/chicago-evidence/blob/b2fc8cc3061faa6cdf408f7948ce97e6e808e88a/evidence/wolf-sauganash-2026-11-03/fresh-07b8-clear-body-both/RECOVERY.md) preserve all raw runs, actual direct reviews and closed guards/reapers. The body proof is specifically source 07b8, elevated flying inspection, with the real low log compound, roofs and wolf sign identifiable. It proves no historical street pose, door traversal or view of every opening. Earlier roof-obstructed images remain inconclusive. Those dated proofs do not certify the final source8 head; its native gates and published app acceptance belong with the final PR, and original completion follows only its normal protected-dev merge.
 
 
+### T-2376 — closed shoulder and coupled yard reading,2026-11-03
+
+The existing Green Tree enclosure option now selects Andreas's closed shoulder, lower sash and small front-gable light. Trowbridge's open bay stays explicit conflicting evidence; no conversion year or exactJuly1835form is asserted. The yard producer declines only its competing open shed/posts and associated covered wagon. Native false/absent behavior and the other two farm-wagon/bench records have exact before/after output proof. Main footprint/world placement, all numeric form controls, dates, sources and confidence remain unchanged.
+
+The genuine retained0b53MASTER/full80d47input identity and actual5.019second unchanged-camera comparison support this partial increment. The canonical image review stays DIFFERS for left-cluster roof silhouette/proportions. The actual selected native WEB optimize/meshopt run produced the48648byte derivative, and the native all-asset WEB contract and validate --all pass. Ordered native tail owners reached every remaining step, including compiled occupied shoulder and yard consumers; the final Git snapshot exceeded600seconds during pack copy-up, so owner-loop closure is not claimed. Existing native clearance, street-corridor and compound-walker checks pass. The newly occupied shoulder also removes one colliding Green Tree cordwood rick through the existing woodpile owner. Canonical camera, entrance aprons, all foreign registry rows and version registry stay exact. Allfour source-check parts and published phone/desktop physical review remain pending. No source commit/PR/merge, app pass or original-ticket completion is claimed here.
+
+## 2026-11-03 — T-2383: held Andreas engraving and current hotel comparison
+
+The Sauganash Images card retains three credited rows and now holds the Andreas
+engraving where it previously offered a plain link; no duplicate or geographic
+“From this spot” is introduced. Its new hotel-owned two-building comparison is
+DIFFERS. Main/left roof massing and the broad rear-left wing remain open, with
+left-gable presentation to review. Five upper front windows, four lower front
+windows and the central entrance are earlier merged work, not a new rebuild.
+
+One actual native comparison completed in 4.363462 seconds, exit 0, five children
+properly reaped. All current tool/model/frame/source/camera guards stayed exact,
+and root directly reviewed the fresh JPG. The inherited shop framing supplies
+no new hotel dimension or calibrated historical viewpoint. All hotel geometry,
+placements, phases, material values and source disagreements are retained.
+[Native output and direct review](https://github.com/kevinrhaas/chicago-evidence/blob/9b32b26903431ce4fcfb083f47e18147b759d956/evidence/sauganash-2026-11-03/current-andreas-native-private-root-reviewed/RECOVERY.md);
+`docs/RESEARCH/photo-match/sauganash_hotel/README.md` records the remaining gaps.
+This authored checkpoint claims no completed four-part gate, committed-head
+publication or desktop/phone application QA; those are recorded separately for
+the actual PR head. Original T-2383 remains partial/open, with no new ticket.
+
+
 ### T-2380 keeper dwelling and low compound gate — incremental source, 2026-11-03
 
 A separate source-qualified keeper house, continuous high palisade front and low braced hung gate are prepared as one visible increment. The exact retained native keeper pair is bound to its resolved inputs. The July1835 continuity, dimensions, finishes and compound registration are explicitly reconstructed from Gale1902's1835-framed narrative and1836-captioned plate; the old one-roof assertion is corrected. Core fabric/roof remain unchanged; a1.30m reconstructed access setback is declared. Original T-2380 remains OPEN/DIFFERS, including rear-core roof exposure and compound proportions.

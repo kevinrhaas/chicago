@@ -1,4 +1,37 @@
 export const CHANGELOG = [ // newest first
+  { v: 2633, ts: '2026-11-04T00:40:20.258Z', date: 'Nov 3, 2026, 6:40 PM CT', title: '1919 Prairie: stone corners and bands on its rear wings', kind: 'feature',
+    items: [
+      'Along the north side of Marshall Field Jr.\'s house at 1919 Prairie Avenue, the corners of both rear wings now rise in pale stone blocks, long and short in turn, from the ground to the eaves, as a 1919 picture of the house shows them.',
+      'The three pale stone bands across the main house\'s side now run on across both rear wings too, in place of their plain brick band.',
+      'Still to come on this side: the small pinnacled dormers between the gables and a closer check of where the wings stand and how their roofs run.',
+    ] },
+  { v: 2632, ts: '2026-11-04T00:16:38.275Z', date: 'Nov 3, 2026, 6:16 PM CT', title: 'The Dearborn drawbridge\'s lowered draw lies level', kind: 'fix',
+    items: [
+      'In 1835 the closed draw of the Dearborn Street drawbridge no longer rises to a peak in mid-river. Its two leaves now lie level with the rest of the deck.',
+      'The peak came from the one 1880s engraving of the bridge, drawn more than forty years after it was torn down. No written account mentions a rise, and the bridge carried the town\'s wagons on its main street.',
+      'Level is still our reconstruction, since no source says how the leaves sat when down. It is listed in Liberties.',
+    ] },
+  { v: 2631, ts: '2026-11-04T00:16:38.275Z', date: 'Nov 3, 2026, 6:16 PM CT', title: '1835 plank walks and alleys run clear past every building', kind: 'fix',
+    items: [
+      'Six buildings stood out on the street\'s plank walk line, so the walk stopped dead at their walls: St. Mary\'s and Chappel\'s school on State, the Tremont House and Bates\'s auction room on Dearborn, the Exchange Coffee House on Wells and First Presbyterian on Clark. Each now stands back on its own lot and the walks run past.',
+      'Seventeen buildings stood in the middle of a block alley. Each has moved off the alley so the lane runs end to end.',
+      'St. Mary\'s and First Presbyterian now have a landing and a step at the door, down to the Lake Street walk.',
+      'No source fixed any of them to the spot they stood on, so none of the walks had to bend around one.',
+    ] },
+  { v: 2630, ts: '2026-11-04T00:16:38.275Z', date: 'Nov 3, 2026, 6:16 PM CT', title: 'A closer look at the Sauganash Hotel', kind: 'change',
+    items: [
+      'Andreas\'s 1884 engraving is now held on the hotel\'s Images tab, with full credit. The record distinguishes this retrospective view from an exact July 1835 likeness and keeps the unfinished hotel comparison explicit.',
+    ] },
+  { v: 2629, ts: '2026-11-03T23:10:42.020Z', date: 'Nov 3, 2026, 5:10 PM CT', title: 'Green Tree\'s enclosed shoulder beside the main gable', kind: 'change',
+    items: [
+      'The inn gains the closed wall, lower window and small gable light drawn by Andreas. Its competing open shed and covered wagon are removed together; the conflicting pictures and unfinished shape match remain recorded.',
+    ] },
+  { v: 2628, ts: '2026-11-03T23:04:17.362Z', date: 'Nov 3, 2026, 5:04 PM CT', title: '1835 shop signs are fixed to the building, not hung', kind: 'change',
+    items: [
+      'The 35 signs that hung from brackets or under awnings in 1835 are now boards fixed flat on the shop or tavern front, over the door or beside it.',
+      'Each keeps its wording, colours and lettering, and stays clear of doors, windows and shutters.',
+      'Tavern posts at the street edge stay: they are the one free-standing sign the period pictures show.',
+    ] },
   { v: 2627, ts: '2026-11-03T22:43:25.728Z', date: 'Nov 3, 2026, 4:43 PM CT', title: '1900 Prairie\'s brick stable on the alley', kind: 'feature',
     items: [
       'The alley building behind 1900 Prairie Avenue, the Elbridge G. Keith house, is no longer a rough draft. It now stands as a two-storey brick stable, 15.4 m along the alley and 9.2 m deep, drawn from the 1911 fire-insurance map. The rough draft had it at one storey; the map says two.',

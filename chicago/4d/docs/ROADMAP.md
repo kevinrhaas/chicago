@@ -6112,6 +6112,19 @@ Where the ca. 1893 poster adds a left-gable opening against the earlier 1867 she
 No new geometry or photo follow-up ticket is needed for this source conflict. The native-derived pictured-evidence explanation now includes the poster; the existing attested grade itself is unchanged. The prior 07b8 native body screenshots now clearly identify the low log compound at both viewports, using validated native body bounds and unchanged default geometry/frustum. Their scope remains 07b8 curated flying inspection. The final source adoption requires its own native source gate, exact-head published acceptance and ordinary dev PR/merge; no historical street arrival or door-traversal result is invented. The public recovery links and limits are recorded in STATUS.
 
 
+### Original T-2376 — closed shoulder working increment,2026-11-03
+
+Choose the detailed Andreas closed shoulder through the existing boolean and couple the yard source owner to decline its competing open shed/posts and covered wagon. Preserve Trowbridge's open reading, all existing metrics/world placement and verbatim prior rationale. Genuine0b53geometry/full80d47recipe reuse and actual unchanged-camera comparison are bound; original remainsDIFFERS for left-cluster shape/proportions. Actual selected WEB/registration, native all-asset WEB contract, schema validation and focused physical consumers now pass; native tail steps finished but final Git snapshot timed out, so owner-loop closure remains owed. Finish fullsource4 and actual published phone/desktop access/yard checks, then a partial-progress PR to dev. No new photo follow-up or original completion.
+
+### T-2383 — current Andreas hotel comparison, 2026-11-03
+
+Partial progress: the hotel's Images tab holds the credited Andreas engraving,
+and a current hotel-owned diagnostic comparison includes the separate Carpenter
+cabin. Geometry and placement stay unchanged. DIFFERS retains the main/left
+roof, broad rear-left wing and left-gable review; the old shop camera does not
+establish hotel dimensions or a historical viewpoint. Other pictures and the
+original full match remain open. See docs/RESEARCH/photo-match/sauganash_hotel/.
+
 ### Original T-2380 — bounded keeper/compound increment, 2026-11-03
 
 Prepared the missing keeper dwelling, continuous high palisade and low braced gate from the retained actual V4 native proposal, preserving concurrent scene-directory support and enclosure entries. The current concealed-core roof is retained; no32degree prediction is adopted. Next: native current-family qualification and actual registered/derived outputs, fresh group-bound source reviews and published desktop/phone access review, then a partial-progress PR to dev. The original two-composition picture-match acceptance stays open; no photo follow-up or completion is filed.

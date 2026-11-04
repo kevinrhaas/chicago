@@ -182,3 +182,16 @@ in an old part of town that is quietly losing its primacy to the Lake Street axi
 | Braced frame vs balloon frame | Period building practice at Wolf Point 1831; Andreas on early construction |
 | Whether the log core survived visibly into the 1831 building | Unattested; currently modelled as absorbed |
 | The 1835 proprietor "Mr. Davis" | Chicago Democrat advertisements, 1835 |
+
+## Current whole-hotel comparison — 2026-11-03, T-2383
+
+Andreas's held engraving now reaches the hotel's own Images card. The new
+hotel-owned diagnostic comparison includes the separately recorded Carpenter
+cabin at its unchanged placement. No model, opening count, material, coordinate
+or phase changes in this increment. Its verdict is DIFFERS: the main/left roof
+and broad rear-left wing still differ, and left-gable presentation needs review.
+The inherited shop framing is not an independently calibrated hotel camera.
+See [the current comparison](photo-match/sauganash_hotel/README.md) and
+[actual native output and root review](https://github.com/kevinrhaas/chicago-evidence/blob/9b32b26903431ce4fcfb083f47e18147b759d956/evidence/sauganash-2026-11-03/current-andreas-native-private-root-reviewed/RECOVERY.md).
+The earlier provisional study remains historical; do not treat its old roof
+measurement as the current model. Full T-2383 picture coverage remains open.

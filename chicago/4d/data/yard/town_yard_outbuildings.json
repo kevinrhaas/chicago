@@ -131,14 +131,14 @@
   },
   "wells": "None dealt. docs/RESEARCH/wells.md § 4 refuses a well class for the town — July 1835 Chicago drank from the lake by cart — and that ruling stands; data/wells/ draws only the wells a source places.",
   "counts": {
-    "dwelling_lots": 239,
-    "privies": 195,
+    "dwelling_lots": 241,
+    "privies": 196,
     "stables": 23,
     "privy_standing": 36,
-    "stable_standing": 16,
-    "horse_households": 40,
-    "refused": 9,
-    "dwellings_off_plat": 134
+    "stable_standing": 17,
+    "horse_households": 42,
+    "refused": 11,
+    "dwellings_off_plat": 130
   },
   "dwellings_off_plat_note": "Dwellings standing on no platted lot have no lot line to put an alley behind; they are counted, not drawn.",
   "outbuildings": [
@@ -579,6 +579,34 @@
       "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "whitewash"
+    },
+    {
+      "id": "privy_blk_south_water_clark_lot7",
+      "kind": "privy",
+      "lot": "blk_south_water_clark_lot7",
+      "belongs_to": "tremont_house_1",
+      "households": [
+        {
+          "id": "hh_couch_ira",
+          "held_as": "home",
+          "at": "tremont_house_1"
+        }
+      ],
+      "household_class": "keeper",
+      "class_read_from": "its function, hotel",
+      "at_local_enu_m": [
+        663.2,
+        -57.85
+      ],
+      "bearing_deg": -179.64,
+      "along_m": 1.52,
+      "depth_m": 1.22,
+      "eave_m": 2.0,
+      "head_m": 2.3,
+      "roof": "shed",
+      "weather": "weathered",
+      "confidence": "reconstructed",
+      "finish": "board"
     },
     {
       "id": "privy_blk_south_water_dearborn_lot1",
@@ -1307,8 +1335,8 @@
       "household_class": "tradesman",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        514.45,
-        -181.15
+        536.48,
+        -181.34
       ],
       "bearing_deg": 0.36,
       "along_m": 1.22,
@@ -5057,7 +5085,7 @@
     {
       "lot": "blk_south_water_franklin_lot7",
       "kind": "privy",
-      "belongs_to": "new_york_house",
+      "belongs_to": "exchange_coffee_house",
       "why": "a committed building stands in that corner"
     },
     {
@@ -5076,37 +5104,49 @@
       "lot": "blk_lake_wells_lot3",
       "kind": "privy",
       "belongs_to": "recon_1835_south_d4_025",
-      "why": "no yard: the committed buildings reach 0.56 m past the lot's own rear line"
+      "why": "no yard: only 0.00 m of lot is left behind them"
     },
     {
       "lot": "blk_lake_wells_lot5",
       "kind": "privy",
       "belongs_to": "recon_1835_south_d4_026",
-      "why": "no yard: the committed buildings reach 0.85 m past the lot's own rear line"
+      "why": "no yard: only 0.00 m of lot is left behind them"
     },
     {
       "lot": "blk_lake_lasalle_lot3",
       "kind": "privy",
       "belongs_to": "recon_1835_south_d5_028",
-      "why": "no yard: the committed buildings reach 2.07 m past the lot's own rear line"
+      "why": "no yard: only 0.00 m of lot is left behind them"
     },
     {
       "lot": "blk_lake_clark_lot3",
       "kind": "privy",
       "belongs_to": "recon_1835_south_d6_031",
-      "why": "no yard: the committed buildings reach 4.69 m past the lot's own rear line"
+      "why": "no yard: only 0.00 m of lot is left behind them"
     },
     {
       "lot": "blk_lake_clark_lot5",
       "kind": "privy",
       "belongs_to": "recon_1835_south_d1_032",
-      "why": "no yard: the committed buildings reach 1.86 m past the lot's own rear line"
+      "why": "no yard: only 0.00 m of lot is left behind them"
     },
     {
       "lot": "blk_lake_dearborn_lot3",
       "kind": "privy",
       "belongs_to": "recon_1835_south_d5_034",
-      "why": "no yard: the committed buildings reach 6.44 m past the lot's own rear line"
+      "why": "no yard: only 0.00 m of lot is left behind them"
+    },
+    {
+      "lot": "blk_randolph_clinton_lot5",
+      "kind": "privy",
+      "belongs_to": "recon_1835_west_018",
+      "why": "no yard: only 0.00 m of lot is left behind them"
+    },
+    {
+      "lot": "blk_randolph_clinton_lot5",
+      "kind": "stable",
+      "belongs_to": "recon_1835_west_018",
+      "why": "no yard: only 0.00 m of lot is left behind them"
     }
   ]
 }

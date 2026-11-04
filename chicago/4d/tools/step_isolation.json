@@ -2980,6 +2980,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_tavern_front_reader.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_terrain_e1830.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5967,6 +5971,10 @@
       "wrote_ignored": []
     },
     "tools/test_k01_wing_coping.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_wing_dressings.py": {
       "wrote": [],
       "wrote_ignored": []
     },
