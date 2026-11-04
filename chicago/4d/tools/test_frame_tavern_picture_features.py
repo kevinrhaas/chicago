@@ -541,10 +541,161 @@ class PictureFeatures(unittest.TestCase):
             with self.subTest(changes=changes), self.assertRaises(ParamError):
                 dataclasses.replace(p, **changes).validate()
 
+    def test_main_gable_cornice_is_additive_and_only_on_the_pictured_end(self):
+        """The hotel's pictured gable gets its boxed rake; nothing else moves."""
+        _, _, hotel = record_params("sauganash_hotel", "frame_1831")
+        self.assertEqual(hotel.main_gable_cornice,
+                         {"end": "+x", "return_m": .55,
+                          "section_m": .18, "projection_m": .18})
+        bare = dataclasses.replace(hotel, main_gable_cornice=None)
+        with patch.object(builder, "_main_gable_cornice",
+                          wraps=builder._main_gable_cornice) as cornice:
+            after, _ = builder.build(hotel, "sauganash_hotel__frame_1831")
+        self.assertEqual(cornice.call_count, 1)
+        with patch.object(builder, "_main_gable_cornice") as never:
+            before, _ = builder.build(bare, "sauganash_hotel__frame_1831")
+        self.assertEqual(never.call_count, 0)
+
+        # PURELY ADDITIVE: every face the building already had comes out
+        # unchanged, in place, with the same material and confidence. A roof,
+        # ridge, opening or wall that moved would fail here rather than in a
+        # picture nobody re-renders.
+        def faces(mesh):
+            return collections.Counter(
+                (tuple(tuple(round(c, 9) for c in mesh.verts[i]) for i in f), m,
+                 tuple(mesh.conf[i] for i in f))
+                for f, m in zip(mesh.faces, mesh.mat_index))
+        kept, grown = faces(before), faces(after)
+        self.assertEqual(kept - grown, collections.Counter())
+        added = grown - kept
+        self.assertEqual(sum(added.values()), 16)   # 3 faces a rake, 5 a return box
+        self.assertTrue(all(m == builder.M_WALL for _, m, _ in added))
+        self.assertTrue(all(set(c) == {1.0} for _, _, c in added))
+        self.assert_valid_mesh(after)
+
+        # Built in isolation, the assembly hangs UNDER the rake and OUTSIDE the
+        # gable: the silhouette the roof draws is untouched, nothing floats
+        # clear of the building, and the opposite end gets nothing at all.
+        mesh = MeshBuilder("cornice")
+        ridge = hotel.wall_height_m + (hotel.depth_m / 2 + builder.ROOF_OVERHANG) * \
+            math.tan(math.radians(hotel.roof_pitch_deg))
+        builder._main_gable_cornice(mesh, hotel, hotel.width_m, hotel.depth_m,
+                                    hotel.wall_height_m, ridge)
+        self.assertEqual(len(mesh.faces), 16)
+        self.assert_valid_mesh(mesh)
+        self.assertEqual(set(mesh.conf), {1.0})
+        self.assertEqual(set(mesh.mat_index), {builder.M_WALL})
+        gable = hotel.width_m + builder.ROOF_OVERHANG
+        xs = [v[0] for v in mesh.verts]
+        zs = [v[2] for v in mesh.verts]
+        self.assertAlmostEqual(min(xs), gable)
+        self.assertAlmostEqual(max(xs), gable + .18)
+        self.assertAlmostEqual(max(zs), ridge)
+        self.assertAlmostEqual(min(zs), hotel.wall_height_m - .18)
+
+        # Both rakes and both returns, and the returns run INWARD from the
+        # gable's own eaves corners rather than out over the street.
+        ys = sorted({round(v[1], 6) for v in mesh.verts})
+        self.assertEqual(ys[0], -builder.ROOF_OVERHANG)
+        self.assertEqual(ys[-1], round(hotel.depth_m + builder.ROOF_OVERHANG, 6))
+        self.assertIn(round(-builder.ROOF_OVERHANG + .55, 6), ys)
+        self.assertIn(round(hotel.depth_m + builder.ROOF_OVERHANG - .55, 6), ys)
+        self.assertIn(round(hotel.depth_m / 2, 6), ys)   # both rakes reach the apex
+
+        # Every face looks away from the building, so none is inside out, and
+        # the face coincident with the gable triangle is left off rather than
+        # drawn into a z-fight with it. Four fascias face the street, four
+        # surfaces look up, four look down and four are end caps.
+        fascia = up = down = caps = 0
+        for face in mesh.faces:
+            n = normal(mesh, face)
+            mid = [sum(mesh.verts[i][k] for i in face) / len(face) for k in range(3)]
+            self.assertGreater(mid[0], hotel.width_m)
+            if all(abs(mesh.verts[i][0] - (gable + .18)) < 1e-9 for i in face):
+                self.assertGreater(n[0], 0, "a fascia looks back into the gable")
+                fascia += 1
+                continue
+            self.assertLess(abs(n[0]), 1e-9)
+            if abs(n[2]) > 1e-9:
+                up += n[2] > 0
+                down += n[2] < 0
+            else:
+                self.assertGreater(abs(n[1]), 1e-9)
+                caps += 1
+        self.assertEqual((fascia, up, down, caps), (4, 4, 4, 4))
+
+        # The other end is bare, as the record says and the picture cannot show.
+        far = MeshBuilder("other_end")
+        builder._main_gable_cornice(
+            far, dataclasses.replace(
+                hotel, main_gable_cornice={**hotel.main_gable_cornice, "end": "-x"},
+                end_windows=()),
+            hotel.width_m, hotel.depth_m, hotel.wall_height_m, ridge)
+        self.assertLess(max(v[0] for v in far.verts), 0)
+        for face in far.faces:
+            n = normal(far, face)
+            if abs(n[0]) > 1e-9:
+                self.assertLess(n[0], 0, "the mirrored copy came out inside out")
+
+    def test_main_gable_cornice_is_off_for_every_other_frame_tavern(self):
+        """No committed tavern grows a cornice because the control now exists."""
+        seen = 0
+        for path in sorted((ROOT / "data/structures").glob("*.json")):
+            record = json.loads(path.read_text())
+            if record.get("archetype") != "frame_tavern":
+                continue
+            seen += 1
+            for phase in record["phases"]:
+                value = (phase.get("form", {}).get("main_gable_cornice") or {}).get("value")
+                if record["id"] == "sauganash_hotel" and phase["id"] == "frame_1831":
+                    self.assertIsNotNone(value)
+                else:
+                    self.assertIsNone(value, f"{record['id']}/{phase['id']}")
+        self.assertGreaterEqual(seen, 20)
+        plain = FrameTavernParams(12., 8., 2, 5.5)
+        self.assertIsNone(plain.main_gable_cornice)
+        self.assertEqual(
+            signature(builder.build(plain, "plain__frame")),
+            signature(builder.build(dataclasses.replace(plain, main_gable_cornice=None),
+                                    "plain__frame")))
+
+    def test_main_gable_cornice_refuses_what_it_cannot_honestly_build(self):
+        _, _, hotel = record_params("sauganash_hotel", "frame_1831")
+        _, _, green = record_params("green_tree_tavern", "frame_1833")
+        good = dict(hotel.main_gable_cornice)
+        bad = [{"main_gable_cornice": v} for v in (
+            True, 1, "boxed", {},
+            {**good, "end": "+y"}, {**good, "end": "x_max"},
+            {k: v for k, v in good.items() if k != "return_m"},
+            {**good, "extra": 1},
+            {**good, "section_m": float("nan")}, {**good, "projection_m": float("inf")},
+            {**good, "return_m": True}, {**good, "return_m": .05},
+            {**good, "return_m": 5.}, {**good, "section_m": .01},
+            {**good, "projection_m": 1.2},
+        )]
+        for changes in bad:
+            with self.subTest(changes=changes), self.assertRaises(ParamError):
+                dataclasses.replace(hotel, **changes).validate()
+        # the roof, the scheme and the confidence are refusals of their own
+        for changes in ({"roof_type": "shed"}, {"gallery": True},
+                        {"confidence": {**hotel.confidence,
+                                        "main_gable_cornice": "attested"}}):
+            with self.subTest(changes=changes), self.assertRaises(ParamError):
+                dataclasses.replace(hotel, main_gable_cornice=good,
+                                    gable_wall_cladding=False, **changes).validate()
+        # the Green Tree fronts on a gable end, so it has none at its x ends
+        with self.assertRaises(ParamError):
+            dataclasses.replace(green, main_gable_cornice=good).validate()
+        # and a band that would cross a stated sash is refused rather than drawn
+        with self.assertRaises(ParamError):
+            dataclasses.replace(hotel, main_gable_cornice={**good, "section_m": .35},
+                                end_windows=(("+x", .5, 5.3, .85, .6),)).validate()
+
     def test_record_values_are_consumed_and_not_truthy_coerced(self):
         fields = {"eaves_bays", "end_windows", "first_story_height_m", "entry_raise_m",
                   "gable_lunette", "flagstaff", "flagstaff_height_m", "gable_wall_cladding",
-                  "gable_arch_treatment", "corner_entry_surround", "gable_arch_text"}
+                  "gable_arch_treatment", "corner_entry_surround", "gable_arch_text",
+                  "main_gable_cornice"}
         self.assertTrue(fields <= CONSUMED)
         record, phase, _ = record_params("green_tree_tavern", "frame_1833")
         for value in (1, "false", None):

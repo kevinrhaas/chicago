@@ -40125,6 +40125,29 @@ The main-body reference footprint and source placement remain unchanged. Separat
 **Ticket:** T-2376.
 **Recorded:** 2026-11-03.
 
+### L-pullman-1729-rear-stack-1934 — 1729 Prairie's stack behind the rear face, off Taylor's photograph 16554: its being there read, its place reconstructed
+
+**Decision:** the Pullman house gains a fourth stone stack on the deck behind the rear (east) face
+(`chimneys.stacks[3]`, at u 1.4, v 10.0, top 18.4 m). Taylor's no. 16554 (AIC; camera
+`data/reference_views/pullman_house_1729_prairie/taylor_16554_from_south.json`) shows it rising
+behind the rear face between that face's two dormers. **What is read, not invented.** That the
+stack stands there, of stone, about 10 px wide at x 512-523, its cap at y 317, about 4 px over the
+deck's cresting beside it (about 1 m across and about 0.4 m over the cresting top), and that it
+stands about a third of the way from the face's first dormer to its second (14 px and 26 px).
+**What is invented.** Its place on the deck. The camera was fitted on the ground and the stable, not
+the house's rear: it draws the rear face about 156 px long where the print draws it about 73, so no
+pixel can be carried to the deck through it, and the stack is placed against the dormers instead.
+Read along the face, the print's third falls at about v 12.4, between the south section's dormer
+(v 14.93) and the rear step's south dormer (v 8.04); but a stack 1-2 m behind the face is seen from
+this oblique eye well left of the dormers below it, and at v 11.9 it rendered directly over the
+first. At v 10.0, on the rear step's deck just behind its mansard's lower slope, it renders a third
+of the way between the two, as the print draws it. Its plan (the house's 1.0 x 0.8 m) and its cap
+are the house's other deck stacks'.
+**How to resolve:** a camera for 16554 fitted on the house's rear face (its corners and dormers),
+or the CHM 1905 views from the east, would place the stack on the deck.
+**Ticket:** T-1934.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg`.
+**Recorded:** 2026-11-03 (T-1934).
 
 ### L-green-tree-closed-shoulder-working-2376 — the enclosed shoulder as a working reading
 
@@ -40209,6 +40232,22 @@ and it remains a shape taken from a retrospective picture.
 **Ticket:** T-3041 (piece of T-2387).
 **Review:** `data/reference_views/first_fort_dearborn_pickets_outer/currey_1912_birdseye.match.json`.
 **Recorded:** 2026-11-03 (T-3041).
+
+### L-sauganash-main-gable-cornice-2383 — the Sauganash's boxed gable cornice, drawn without a dimension
+
+**Covers:** `sauganash_hotel.frame_1831.form.main_gable_cornice`.
+
+**Decision:** Build the boxed rake cornice and its two short horizontal returns on the hotel's visible main `+x` gable, at reconstructed sections of 0.55 m return, 0.18 m section and 0.18 m projection, in the existing wall finish.
+
+**What the picture gives, and what it does not.** F. Braunhold's engraving in Andreas 1884 (`andreas_1884_sauganash_hotel_plate`) draws the band plainly: a boxed member following both rakes of the gable that faces the Carpenter shop, and at each eaves corner a short horizontal return turning the corner onto the gable wall and stopping. The archetype had never built either, so that gable has been standing with a bare rake the picture does not draw — the element is read off the picture and its occurrence on this gable is not in doubt. **The three sections are not in the picture.** The plate is a retrospective 1884 engraving whose only scale datum is a standing man, the same datum the frontage is measured against; reading the drawn return against the gable's own eaves-to-eaves width gives about 0.86 m and against the 0.85 m attic sash about 0.71 m, with several tenths of a metre of line-weight and perspective uncertainty either way. The 0.55 m taken here sits at the conservative end of that range and is a working choice, not a measurement; a larger return remains inside what the plate supports. The 0.18 m section and 0.18 m projection are bounded above and below in the same way — the plate shows a band plainly deeper than a clapboard course (0.114 m here) and plainly shallower than the entrance cornice already built — and are otherwise invented.
+
+**What it does not claim.** Nothing here attests the cornice on 1 July 1835: the engraving is evidence of its own date, and the band is carried back to the scene on the same reading that carries the rest of the block's form. Occurrence on the opposite, unseen gable is **not** claimed and nothing is built there. The band hangs below the rake line, so the roof planes, ridge, eave, pitch, footprint, placement, openings, blue shutters, stacks, cross wing and the separate Carpenter shop are all unchanged, and the control is default-off: the other twenty-two frame taverns come out of the generator exactly as they went in.
+
+**Sources and limits:** `andreas_1884_sauganash_hotel_plate`. The monochrome retrospective plate establishes no colour, no pigment, no historical viewpoint and no date for any feature. The hotel's own picture comparison still reads `differs` on the compound roof silhouette; this liberty settles none of that.
+
+**Ticket:** T-2383.
+**Review:** `docs/RESEARCH/photo-match/sauganash_hotel/andreas-1884-side-by-side.jpg` and its match record.
+**Recorded:** 2026-11-04 (T-2383).
 
 ### L-green-tree-shoulder-dormer-cap-2376 — the shoulder light's gable cap
 
