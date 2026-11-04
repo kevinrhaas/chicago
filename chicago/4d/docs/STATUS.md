@@ -25828,3 +25828,10 @@ differs, and the other dated pictures the ticket lists have not been read at all
 A separate source-qualified keeper house, continuous high palisade front and low braced hung gate are prepared as one visible increment. The exact retained native keeper pair is bound to its resolved inputs. The July1835 continuity, dimensions, finishes and compound registration are explicitly reconstructed from Gale1902's1835-framed narrative and1836-captioned plate; the old one-roof assertion is corrected. Core fabric/roof remain unchanged; a1.30m reconstructed access setback is declared. Original T-2380 remains OPEN/DIFFERS, including rear-core roof exposure and compound proportions.
 
 This source packet is not a passed build or release: current frame-family native parity/registration, ordered derivatives, fresh original-composition group comparisons, all four source-check parts, published desktop/phone physical review and normal PR/dev integration remain pending. No existing trial is relabelled as current published acceptance.
+
+
+### T-2380 keeper compound: integration checkpoint (2026-11-04)
+
+The keeper-house increment now integrates dev caef594d while retaining dev’s current jail-core/outbuilding outputs and the genuine native keeper pair (MASTER 431dc44f, WEB 15eb2fba). All 272 frame-dwelling resolved input digests and 544 actual outputs still match the saved native build; all 243 current outbuilding inputs and native pairs remain exact. Current liberties, scene, source-use, derivative and validation owners pass. The four earlier native source parts passed; this checkpoint reuses that qualified unchanged geometry scope and verifies the incoming merge with its owners.
+
+This is saved progress, not a completed image or runtime gate. Both compound match records are explicitly unreviewed pending a fresh render with the newer core and the keeper together. Latest dev 19910ff integration, actual published Jail desktop/phone checks, native Stage 3 at both viewports and the final eight-part hosted gate remain pending. The earlier desktop background task and mobile five failures are not green release checks. Original T-2380 remains partial/open.

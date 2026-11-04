@@ -40219,6 +40219,20 @@ The yard source owner follows the same canonical attribute and declines only the
 **Review:** `docs/RESEARCH/photo-match/dearborn_street_drawbridge/andreas_1884-side-by-side.jpg` and its match record.
 **Recorded:** 2026-11-03 (T-3361).
 
+
+### L-log-jail-keeper-compound-2380 — the keeper dwelling and low compound gate
+
+**Covers:** `log_jail.log_1833.position`, `log_jail_keeper_house.frame_1835.documented_range`, `log_jail_keeper_house.frame_1835.position`, `log_jail_keeper_house.frame_1835.footprint`, `log_jail_keeper_house.frame_1835.form.picture_layout`, `log_jail_keeper_house.frame_1835.form.construction`, `log_jail_keeper_house.frame_1835.form.stories`, `log_jail_keeper_house.frame_1835.form.wall_height_m`, `log_jail_keeper_house.frame_1835.form.roof_pitch_deg`, `log_jail_keeper_house.frame_1835.form.plan`, `log_jail_keeper_house.frame_1835.form.paint`, `log_jail_keeper_house.frame_1835.form.glazing`, `log_jail_keeper_house.frame_1835.form.shutters`, `log_jail_keeper_house.frame_1835.form.porch`, `log_jail_keeper_house.frame_1835.form.cladding`.
+
+**Decision:** Include the separate low keeper house and its low framed gate beside the existing high pointed palisade. Gale1902 p51 places John Beach's house partly inside the enclosure facing Randolph in an1835-framed retrospective walk; its plate facingp53 explicitly depicts1836. The July1835 existence/continuity and exact boundary dates are reconstruction, not a dated construction finding. The new domestic roof explicitly supersedes the earlier sole-roof assertion for the square, without adding the fall1835 courthouse or a named household/population. Sources: `trowbridge_first_jail_gale_1902` and contrasting `andreas_1884_v1`.
+
+The6.4x4.6m footprint,2.65m eaves,25degree gable,7.8m east registration, wall/rail/stack sections, hidden plan and framing,12-over12 glazing, shutter colour and whitewash are choices. The small loft light does not assert a habitable half-storey. The source-informed aperture count and material class do not measure those numbers. The clapboard is inferred from the drawing's horizontal siding but its GEOMETRY IS SIMPLIFIED: the walls carry a clapboard material rather than individually modelled boards, so no board width, lap or nailing is drawn and none is claimed. The core retains its existing mesh and12degree roof; only its exact setback moves1.30m south inside its declared roughly20m site uncertainty, permitting a continuous high front and reconstructed doorway approach. No surveyed street/parcel control changes.
+
+The separate1.10m gate, diagonal brace, hinge, pose, stock and endpoint spacing are reconstructed. Both independent pictures disagree on the concealed core roof and house elevation. The genuine private compound comparison still DIFFERS in exposed rear-core roof and relative proportions; no calibrated camera, full photo acceptance, grade promotion or original-ticket closure is implied. Published terrain and doorway/gate clearance remain acceptance work.
+
+**Ticket:** T-2380.
+**Recorded:** 2026-11-03.
+
 ### L-first-fort-ne-house-pyramid-3041 — the north-east small house's four-sided cap
 
 **Covers:** `first_fort_dearborn_small_house_ne.first_fort_1803.form.roof_pitch_deg`
@@ -40404,17 +40418,3 @@ three lights are still as L-k01-2009-meyer-1913 left them.
 **Ticket:** T-3364 (a piece of T-1914, S05B).
 **Review:** `docs/RESEARCH/photo-match/mayer_house_2009_prairie/chicagology_photo-side-by-side.jpg`.
 **Recorded:** 2026-11-04 (T-3364).
-
-
-### L-log-jail-keeper-compound-2380 — the keeper dwelling and low compound gate
-
-**Covers:** `log_jail.log_1833.position`, `log_jail_keeper_house.frame_1835.documented_range`, `log_jail_keeper_house.frame_1835.position`, `log_jail_keeper_house.frame_1835.footprint`, `log_jail_keeper_house.frame_1835.form.picture_layout`, `log_jail_keeper_house.frame_1835.form.construction`, `log_jail_keeper_house.frame_1835.form.stories`, `log_jail_keeper_house.frame_1835.form.wall_height_m`, `log_jail_keeper_house.frame_1835.form.roof_pitch_deg`, `log_jail_keeper_house.frame_1835.form.plan`, `log_jail_keeper_house.frame_1835.form.paint`, `log_jail_keeper_house.frame_1835.form.glazing`, `log_jail_keeper_house.frame_1835.form.shutters`, `log_jail_keeper_house.frame_1835.form.porch`, `log_jail_keeper_house.frame_1835.form.cladding`.
-
-**Decision:** Include the separate low keeper house and its low framed gate beside the existing high pointed palisade. Gale1902 p51 places John Beach's house partly inside the enclosure facing Randolph in an1835-framed retrospective walk; its plate facingp53 explicitly depicts1836. The July1835 existence/continuity and exact boundary dates are reconstruction, not a dated construction finding. The new domestic roof explicitly supersedes the earlier sole-roof assertion for the square, without adding the fall1835 courthouse or a named household/population. Sources: `trowbridge_first_jail_gale_1902` and contrasting `andreas_1884_v1`.
-
-The6.4x4.6m footprint,2.65m eaves,25degree gable,7.8m east registration, wall/rail/stack sections, hidden plan and framing,12-over12 glazing, shutter colour and whitewash are choices. The small loft light does not assert a habitable half-storey. The source-informed aperture count and material class do not measure those numbers. The clapboard is inferred from the drawing's horizontal siding but its GEOMETRY IS SIMPLIFIED: the walls carry a clapboard material rather than individually modelled boards, so no board width, lap or nailing is drawn and none is claimed. The core retains its existing mesh and12degree roof; only its exact setback moves1.30m south inside its declared roughly20m site uncertainty, permitting a continuous high front and reconstructed doorway approach. No surveyed street/parcel control changes.
-
-The separate1.10m gate, diagonal brace, hinge, pose, stock and endpoint spacing are reconstructed. Both independent pictures disagree on the concealed core roof and house elevation. The genuine private compound comparison still DIFFERS in exposed rear-core roof and relative proportions; no calibrated camera, full photo acceptance, grade promotion or original-ticket closure is implied. Published terrain and doorway/gate clearance remain acceptance work.
-
-**Ticket:** T-2380.
-**Recorded:** 2026-11-03.
