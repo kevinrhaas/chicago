@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2645, ts: '2026-11-04T06:23:01.061Z', date: 'Nov 4, 2026, 12:23 AM CT', title: 'A keeper house and low gate at the log jail', kind: 'change',
+    items: [
+      'The log jail gains the keeper\'s low house and a framed gate beside its pointed fence. Their exact layout and July1835 continuity are reconstructed; the picture comparison remains unfinished.',
+    ] },
+  { v: 2644, ts: '2026-11-04T05:58:06.694Z', date: 'Nov 3, 2026, 11:58 PM CT', title: 'The Green Tree\'s shoulder light gets its pointed cap', kind: 'improvement',
+    items: [
+      'The little gabled light over the Green Tree Tavern\'s enclosed shoulder now comes to a sharp point, the way Andreas\'s engraving of the inn draws it, instead of the blunt, nearly flat cap it had.',
+      'Its clapboard courses step up the small gable face with it; nothing else about the tavern moves.',
+      'The rest of the left group — the shoulder\'s own roof slope, and how shoulder, connector and turned range sit against the main block — still differs from the picture, and stays open.',
+    ] },
   { v: 2643, ts: '2026-11-04T05:39:21.042Z', date: 'Nov 3, 2026, 11:39 PM CT', title: 'The fort\'s blockhouse gets the cupola its pictures draw', kind: 'change',
     items: [
       'Panel 5 of the Kurz & Allison sheet — "Fort Dearborn as rebuilt 1835" — draws a small square cupola at the centre of the blockhouse\'s four-sided roof, under a little cap of its own. Two reproductions of the 1831 Wau-Bun view draw the same thing. It is now built.',
