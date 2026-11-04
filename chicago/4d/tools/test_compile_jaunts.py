@@ -100,6 +100,23 @@ class JauntTests(unittest.TestCase):
             stop.update(hour='sunset', date='1812-06-17')
             self.bad('neither HH:MM nor a named time')
 
+    def test_long_form_and_leg_mode(self):
+        """T-3355: long-form stops run to 150 words; a leg's own mode is one the jaunt allows."""
+        stop = self.doc['stops'][0]
+        stop['text'] = ' '.join(['word'] * 120)
+        self.bad('text needs 25–60 words')
+        self.doc['long_form'] = True
+        self.compiler.validate(self.doc)
+        stop['text'] = ' '.join(['word'] * 151)
+        self.bad('text needs 25–150 words')
+        stop['text'] = ' '.join(['word'] * 30)
+        self.doc['legs'] = [{'note': 'A long ride.', 'evidence': [self.doc['evidence'][0]['id']], 'mode': 'teleport'}]
+        self.bad('schema')
+        self.doc['legs'][0]['mode'] = 'instantly'
+        self.compiler.validate(self.doc)
+        self.doc['allowed_modes'] = [self.doc['default_mode']]
+        self.bad('leg mode not allowed')
+
     def test_dangling_id(self):
         self.doc['stops'][0]['destination']['id'] = 'missing'; self.bad('dangling')
 

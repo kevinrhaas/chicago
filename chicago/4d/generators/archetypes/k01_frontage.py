@@ -1167,22 +1167,57 @@ class Assembly:
                                  self.front_course_beds, cover)
                 continue
             breaks = (w["top_m"], *k03_brick.condition_breaks(w["top_m"]))
-            frame, t = self.wall(cid, "brick", O, R, length, w["top_m"], p.side_thickness_m, hs, breaks)
+            # T-3353: a wing's stone belts on the walls its dressings name, stopped against
+            # what stands on the wall, in place of the brick string course there
+            dr = w.get("dressings") or {}
+            belted = side in dr.get("belt_sides", ())
+            frame, t = self.wall(cid, "brick", O, R, length, w["top_m"], p.side_thickness_m, hs, breaks,
+                                 bands=dr["belts"] if belted else (), gaps=[c[:2] for c in cover] if belted else ())
             for o in ops:
                 self.opening(o, frame, t, "brick", "limestone_trim")
             # the string course at its second floor, on the south and rear walls as the main
             # body's: the south one stops short of the front by the course's own projection,
             # so it never doubles a course the main south wall runs out past its quoin
-            if side in ("south", "rear") and len(w["floors_m"]) > 1:
+            if side in ("south", "rear") and len(w["floors_m"]) > 1 and not belted:
                 s_from, s_to = (-k03_brick.STRING_PROUD, length - k03_brick.STRING_PROUD) if side == "south" \
                     else (0.0, length)
                 for s0, s1 in _pieces(s_from, s_to, [c[:2] for c in cover]):
                     k03_brick.string_course(self, seed_of(self.sid, cid, 0), frame, s0, s1, w["floors_m"][1], sc_conf)
+        if (w.get("dressings") or {}).get("quoins") and not frame_wing and not p.stone.get("all_round"):
+            self.wing_quoins(w, walls)
         self.soffit_m = keep
         if w["roof"]["kind"] == "flat":
             self.wing_deck(w)
         else:
             self.wing_roof(w)
+
+    def wing_quoins(self, w, walls):
+        """T-3353: k01.wall.wing.<id>.quoins — dressed stones up a brick wing's corners
+        (1919 Prairie's rear ranges, the 1919 programme plate's pale corners on the north
+        flank): from the dressings' `from_m` to the wing's wall top, one course every
+        `course_m`, each stone `long_m` along one face and `short_m` along the other, the two
+        changing faces course by course; each a box `proud_m` out of its face, the first
+        face's run on past the corner by that much so the two meet on the arris."""
+        from .k01_frontage_params import WING_CORNERS
+        q = w["dressings"]["quoins"]
+        conf = self.p.worst_conf("footprint", "stories", "storey_heights_m", "construction")
+        cid = f"k01.wall.wing.{w['id']}.quoins"
+        d, top = q["proud_m"], w["top_m"]
+        n = max(1, round((top - q["from_m"]) / q["course_m"]))
+        ch = (top - q["from_m"]) / n
+        for corner in q["corners"]:
+            (wa, end_a), (wb, end_b) = WING_CORNERS[corner]
+            seed = self.instance(cid, "wall", {"corner": corner, "courses": n, "course_m": round(ch, 4),
+                                               "long_m": q["long_m"], "short_m": q["short_m"], "proud_m": d},
+                                 {"base": walls[wa][0]})
+            for k in range(n):
+                y0, y1 = q["from_m"] + k * ch, q["from_m"] + (k + 1) * ch
+                for j, (side, at_end) in enumerate(((wa, end_a), (wb, end_b))):
+                    O, R, length = walls[side]
+                    run = q["long_m"] if (k + j) % 2 == 0 else q["short_m"]
+                    out = d if j == 0 else 0.0     # the first face's stone covers the arris
+                    s0, s1 = (length - run, length + out) if at_end else (-out, run)
+                    self.proud_box("limestone_trim", (O, R, _cross(R, Y)), s0, s1, y0, y1, d, seed, conf)
 
     def wing_deck(self, w):
         """The wing's flat deck: a slab from its wall top to the fascia's top, run out over

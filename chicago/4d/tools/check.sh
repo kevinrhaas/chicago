@@ -470,6 +470,21 @@ step "Horse eye-UV derivative preserves original geometry, rig, clip, materials 
 step "Selected horse anatomy reproduces the authored source and protects rig, eye maps and skin ancestry (T-3088)" \
   python3 tools/test_standing_horse_anatomy_v2.py
 
+# Exact-source derivation/static socket controls; no browser and no physical129 rerun.
+step "Selected upper-lid source preserves925/eyeUV/hoof ownership and qualifies the fixed socket interface (T-3088)" \
+  python3 tools/test_standing_horse_upper_lid.py
+# Explicit ten-row BODY transition with recorded exact-source129 qualification.
+step "Selected upper-orbital source preserves frozen5a and qualifies its declared BODY transition (T-3088)" \
+  python3 tools/test_standing_horse_upper_orbital.py
+
+# New NORMAL-only child remains pending until its own canonical native129 proof.
+step "Pending horse eye-normal child protects all parent source data and admits no old certificate (T-3088)" \
+  python3 tools/test_standing_horse_eye_smooth_normals.py
+
+# New selected quiet15 has its own finite proof; original qualifier source remains immutable.
+step "Quiet horse head/neck selection binds actual new finite129 proof and preserves prior selected metadata (T-2803)" \
+  python3 tools/test_standing_horse_quiet_head_neck.py
+
 step "Parked vehicles keep their exact wagon stands and cannot cross era boundaries (T-2979)" \
   python3 tools/transport/check_parked_placements.py
 # Fresh original W01 geometry plus authored project charts and CC0 maps; about 13 s, no browser.
@@ -514,6 +529,28 @@ step "Hierarchy control refuses nonidentity frames and object animation before m
 
 step "Portable human contract holds; every human GLB and instance is held to it (T-1786)" \
   python3 tools/human_contract.py --check
+step "Every selected natural-standing derivative reproduces from its exact canonical parent (T-1790)" \
+  python3 tools/human_natural_idle.py --check
+step "Natural standing derivative preserves canonical parents, old clips and planted lower-body channels (T-1790)" \
+  python3 tools/test_human_natural_idle.py
+step "Human animation consumes native elapsed time through slow frames, holds and route corners (T-1790)" \
+  node tools/test_human_frame_time.mjs
+step "BODY ray broad phase preserves native ray hits at faces, edges and grid boundaries (T-1790)" \
+  node tools/test_human_body_ray_grid.mjs
+step "Current in-place horse travel keeps route, wheel, stop and culled-motion contracts (T-2804)" \
+  node tools/test_transport_loop.mjs
+step "Driven assembly retains named drivers, vehicle ownership and exact current horse travel (T-2804)" \
+  node tools/test_driven_assembly.mjs
+step "Driven-team clearance uses the complete occupied envelope and refuses blocked routes (T-2804)" \
+  node tools/test_transport_clearance.mjs
+step "Driven-team support reads actual ground and preserves physical contact limits (T-2804)" \
+  node tools/test_transport_support.mjs
+step "All named1904 driver LODs retain their native contract and seated geometry (T-2804)" \
+  node tools/test_working_driver_1904.mjs
+step "A person transfers to their driven vehicle without duplicate bodies or lifetime ownership (T-2804)" \
+  node tools/test_human_driver_transfer.mjs
+step "The shared interaction key and touch control stop and resume the existing transport actor (T-2804)" \
+  node tools/test_transport_interactions.mjs
 selftest "…incompatible skeletons, missing slots and morphs, duplicate clips, non-metric scale, missing provenance and L1 refused by name" \
   python3 tools/human_contract.py --self-test
 step "Every human GLB is the one the browser measured: sha256 and verdicts in data/humans/fixture.measure.json (T-1787)" \
@@ -1294,6 +1331,14 @@ step "a K08 tower stands on a K01 rear wing's wall past the wing's eave, closed 
 # of its bounds refused.
 step "a flat-topped projection stands on a K01 wing's gable end, and a wing's gables are stone-coped (T-3337)" \
   python3 tools/test_k01_wing_coping.py
+
+# T-3353. ...and a brick wing may name stone `dressings`: belts on the walls it names, in place of
+# K03's brick string course there, and quoins up the corners it names (1919 Prairie's rear
+# ranges, the 1919 programme plate's pale corners and courses). Held on 1919's record; a corner
+# the wing has not got, a stone or a belt through a light, a belt on a missing wall, an unknown
+# dressing, a frame wing's and stones out of bounds refused.
+step "a K01 brick wing's stone belts and corner quoins (T-3353)" \
+  python3 tools/test_k01_wing_dressings.py
 
 # T-3242. A two-level timber veranda on a K01 house's rear wall (k01_rear_veranda), held on
 # 1701 Prairie's record: its decks, paired posts, balusters, frieze and flight built where
@@ -2875,6 +2920,13 @@ selftest "…and that agreement still fires when the frames drift off the holes"
 # T-2376/T-2383/T-2385: pictured frame controls on the real accumulator.
 step "pictured frame taverns preserve defaults and build their opt-in details" \
   python3 tools/test_frame_tavern_picture_features.py
+
+# T-3359: the tavern front reader the 1835 flat signs stand clear of copies the
+# builder's literals (it cannot import Blender); hold the two together.
+step "frame_tavern_params.front_wall matches frame_tavern.py's frontage literals" \
+  python3 tools/check_tavern_front_reader.py
+selftest "the tavern front reader's check refuses a sash moved in the builder alone" \
+  python3 tools/check_tavern_front_reader.py --self-test
 
 # T-3105: gallery supports must clear the declared pictured front.
 step "first-fort explicit fronts preserve positional defaults and keep supports off apertures" \

@@ -1,0 +1,20 @@
+{
+  "schema": "standing-horse-eye-smooth-normals-derivation-summary-v1",
+  "source_admission": "eye_smooth_normals_v1",
+  "candidate_sha256": "bd443df87b92d19266284cb9b52d30e791215cddf099876c774e9cfb5f5a79b6",
+  "candidate_bytes": 4159196,
+  "normal_parent_e49_sha256": "e49b6f1c9f7b70f1fcdf19fa7f6dddf54048b32256b4d8030d6238d6dfe79d49",
+  "generator_sha256": "b174f165545f3c5eeb98e31dbc7b50637330d4eeeaa5e00ae9e6b9c45de343c8",
+  "recipe_sha256": "9a6c38e01c81ffd0d5ae262008e80fa3227fc5ab974bbfa66252ca0521717911",
+  "normal_accessor": 208,
+  "normal_rows": 3968,
+  "actual_changed_BIN_bytes": 37722,
+  "protected_BIN_sha256": "9aedc6267216365eabb6e01b223541437d81ec21222c94a1aae84bf58288b863",
+  "positions_topology_UV_skin_rig_clip_images_materials_and_other_normals_exact_parent": true,
+  "qualification_file": "transport/parked/standing-horse-planted/eye-smooth-normals-v1-qualification-summary.json",
+  "qualification_sha256": "e730f59fdbf32db6a02270b62b96c2f0d75b4f465cdbe1fda4a957cfa8530342",
+  "prototype_creation_flags_preserved_as_historical": true,
+  "new_canonical_actual129_executed": true,
+  "native_organic_world_visible_improvement": "PENDING_REAL_EXPORTED_LAYER_COMPARISON",
+  "photographic_acceptance": false
+}

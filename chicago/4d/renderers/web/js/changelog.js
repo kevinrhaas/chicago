@@ -1,4 +1,88 @@
 export const CHANGELOG = [ // newest first
+  { v: 2635, ts: '2026-11-04T01:37:22.621Z', date: 'Nov 3, 2026, 7:37 PM CT', title: '1936 Prairie\'s verandah gets its iron rail', kind: 'improvement',
+    items: [
+      'The Allerton house\'s verandah on Prairie Avenue (1904) now has a dark iron rail across the foot of each of its three arches, about waist high, as the old photograph shows it.',
+    ] },
+  { v: 2634, ts: '2026-11-04T01:30:25.653Z', date: 'Nov 3, 2026, 7:30 PM CT', title: 'Otis and Hans drive through town', kind: 'change',
+    items: [
+      'The horse in the Western Hotel wagon yard has a thinner upper eyelid and a less raised upper-eye contour while retaining its eye opening, body proportions and planted stance.',
+      'The horse in the Western Hotel yard can make reconstructed gentle head and neck movements while standing with planted hooves.',
+      'Otis Bardwell looks around and breathes while standing in the tavern yard. His appearance and actions remain reconstructions.',
+      'In Full or Balanced detail, Otis Bardwell and Hans Johnson drive reconstructed circuits in1835 and1904. Walk up and use Interact to stop or continue a vehicle, or open its driver’s person card.',
+    ] },
+  { v: 2633, ts: '2026-11-04T00:40:20.258Z', date: 'Nov 3, 2026, 6:40 PM CT', title: '1919 Prairie: stone corners and bands on its rear wings', kind: 'feature',
+    items: [
+      'Along the north side of Marshall Field Jr.\'s house at 1919 Prairie Avenue, the corners of both rear wings now rise in pale stone blocks, long and short in turn, from the ground to the eaves, as a 1919 picture of the house shows them.',
+      'The three pale stone bands across the main house\'s side now run on across both rear wings too, in place of their plain brick band.',
+      'Still to come on this side: the small pinnacled dormers between the gables and a closer check of where the wings stand and how their roofs run.',
+    ] },
+  { v: 2632, ts: '2026-11-04T00:16:38.275Z', date: 'Nov 3, 2026, 6:16 PM CT', title: 'The Dearborn drawbridge\'s lowered draw lies level', kind: 'fix',
+    items: [
+      'In 1835 the closed draw of the Dearborn Street drawbridge no longer rises to a peak in mid-river. Its two leaves now lie level with the rest of the deck.',
+      'The peak came from the one 1880s engraving of the bridge, drawn more than forty years after it was torn down. No written account mentions a rise, and the bridge carried the town\'s wagons on its main street.',
+      'Level is still our reconstruction, since no source says how the leaves sat when down. It is listed in Liberties.',
+    ] },
+  { v: 2631, ts: '2026-11-04T00:16:38.275Z', date: 'Nov 3, 2026, 6:16 PM CT', title: '1835 plank walks and alleys run clear past every building', kind: 'fix',
+    items: [
+      'Six buildings stood out on the street\'s plank walk line, so the walk stopped dead at their walls: St. Mary\'s and Chappel\'s school on State, the Tremont House and Bates\'s auction room on Dearborn, the Exchange Coffee House on Wells and First Presbyterian on Clark. Each now stands back on its own lot and the walks run past.',
+      'Seventeen buildings stood in the middle of a block alley. Each has moved off the alley so the lane runs end to end.',
+      'St. Mary\'s and First Presbyterian now have a landing and a step at the door, down to the Lake Street walk.',
+      'No source fixed any of them to the spot they stood on, so none of the walks had to bend around one.',
+    ] },
+  { v: 2630, ts: '2026-11-04T00:16:38.275Z', date: 'Nov 3, 2026, 6:16 PM CT', title: 'A closer look at the Sauganash Hotel', kind: 'change',
+    items: [
+      'Andreas\'s 1884 engraving is now held on the hotel\'s Images tab, with full credit. The record distinguishes this retrospective view from an exact July 1835 likeness and keeps the unfinished hotel comparison explicit.',
+    ] },
+  { v: 2629, ts: '2026-11-03T23:10:42.020Z', date: 'Nov 3, 2026, 5:10 PM CT', title: 'Green Tree\'s enclosed shoulder beside the main gable', kind: 'change',
+    items: [
+      'The inn gains the closed wall, lower window and small gable light drawn by Andreas. Its competing open shed and covered wagon are removed together; the conflicting pictures and unfinished shape match remain recorded.',
+    ] },
+  { v: 2628, ts: '2026-11-03T23:04:17.362Z', date: 'Nov 3, 2026, 5:04 PM CT', title: '1835 shop signs are fixed to the building, not hung', kind: 'change',
+    items: [
+      'The 35 signs that hung from brackets or under awnings in 1835 are now boards fixed flat on the shop or tavern front, over the door or beside it.',
+      'Each keeps its wording, colours and lettering, and stays clear of doors, windows and shutters.',
+      'Tavern posts at the street edge stay: they are the one free-standing sign the period pictures show.',
+    ] },
+  { v: 2627, ts: '2026-11-03T22:43:25.728Z', date: 'Nov 3, 2026, 4:43 PM CT', title: '1900 Prairie\'s brick stable on the alley', kind: 'feature',
+    items: [
+      'The alley building behind 1900 Prairie Avenue, the Elbridge G. Keith house, is no longer a rough draft. It now stands as a two-storey brick stable, 15.4 m along the alley and 9.2 m deep, drawn from the 1911 fire-insurance map. The rough draft had it at one storey; the map says two.',
+      'A paired window sits where the map marks one, beside two carriage doors and a hay-loft hatch. A fire wall stands at the north end, where the map marks one, and a paved walk runs from the yard door to the house\'s back porch.',
+      'The doors, roof pitch and most windows are reconstructed, and they are listed on the building\'s card.',
+    ] },
+  { v: 2626, ts: '2026-11-03T22:40:25.953Z', date: 'Nov 3, 2026, 4:40 PM CT', title: 'Dead trees and leafy crowns no longer float pieces in the air', kind: 'fix',
+    items: [
+      'A dead standing tree keeps only the branches still joined to its broken limbs. Before, about four sticks per dead tree hung in the air, some up to 8 m away.',
+      'The broken trunk now ends at its break, so the limbs that grew just below it stay attached.',
+      'Leaf clusters on the outside of a crown now sit on a twig. Before, some hung several metres off the side of a tree, such as the Kinzie cottonwoods in 1812.',
+      'Big limbs that branch just above the trunk\'s fork now start on the trunk instead of up to 0.7 m beside it.',
+      'Crowns keep their width and triangle count. This applies in 1812, 1835 and 1904.',
+    ] },
+  { v: 2625, ts: '2026-11-03T22:33:17.106Z', date: 'Nov 3, 2026, 4:33 PM CT', title: 'The Pullman house\'s 18th Street balustrade gains its middle post', kind: 'polish',
+    items: [
+      'Along 18th Street, the stone balustrade on the Pullman estate\'s wall now has the solid post in its middle that two old photographs show.',
+    ] },
+  { v: 2624, ts: '2026-11-03T22:11:48.552Z', date: 'Nov 3, 2026, 4:11 PM CT', title: 'The 1812 jaunts tell the whole story, stop by stop', kind: 'improvement',
+    items: [
+      'All three 1812 jaunts open by setting the scene: the fort, when it was built, its garrison under Captain Heald, and the war with Britain coming closer. Each opening ends on the moment the story ignites.',
+      'Every person is introduced the first time they appear, so the jaunts make sense with no history in hand. Each stop now tells its part in full prose and ends on a hook for the next.',
+      'Every stop has its date and time of day, and the scene\'s clock follows. Where no record gives the hour, the jaunt says so and picks a reasonable one.',
+      'Long rides go Instantly by default, such as Hardscrabble to the Burns house or the march to the lake shore. Every place still keeps its full stop, and a travel mode you pick yourself still wins.',
+      'Chicago\'s First Murder now closes with the historians\' cases side by side: Kinzie as aggressor, the family\'s self-defence story, and who got to tell it.',
+      'Fort Dearborn, Building by Building now walks the last full day of the fort, 14 August 1812, from daybreak to sunset.',
+    ] },
+  { v: 2623, ts: '2026-11-03T22:00:30.935Z', date: 'Nov 3, 2026, 4:00 PM CT', title: 'Wolf Point\'s poster joins its pictured-grade evidence', kind: 'change',
+    items: [
+      'Wolf Point\'s pictured-grade explanation now includes the newly compared poster. The eighth building comparison and the unkeyed panorama\'s limits are recorded; the building\'s shape and materials are unchanged.',
+    ] },
+  { v: 2622, ts: '2026-11-03T21:37:46.537Z', date: 'Nov 3, 2026, 3:37 PM CT', title: 'Night windows stay lit as you walk past', kind: 'fix',
+    items: [
+      'Fixed: lit windows went out and came back on as you walked (Glessner House at 18th Street, 1904 at dusk). Each building\'s lit-or-dark choice is now tied to where it stands, so its near and far versions agree.',
+    ] },
+  { v: 2621, ts: '2026-11-03T21:02:41.394Z', date: 'Nov 3, 2026, 3:02 PM CT', title: 'Lake House links its later completed-state picture', kind: 'change',
+    items: [
+      'The unfinished Lake House’s Images tab links a credited public-domain print showing the later completed hotel.',
+      'Its caption separates that later scene from the construction site in July 1835.',
+    ] },
   { v: 2620, ts: '2026-11-03T19:40:08.323Z', date: 'Nov 3, 2026, 1:40 PM CT', title: '1936 Prairie\'s verandah stands on its columns', kind: 'improvement',
     items: [
       'The Allerton house\'s verandah on Prairie Avenue (1904) now stands on two fluted Corinthian columns between its three arches, as the 1869 Tribune describes and the old photograph shows, instead of solid piers.',

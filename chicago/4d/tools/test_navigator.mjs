@@ -184,6 +184,10 @@ function miniDom() {
     if ((m = /^\[data-app="([\w-]+)"\]$/.exec(sel))) return el.dataset.app === m[1];
     if ((m = /^\.([\w-]+)\[data-tab\]$/.exec(sel))) return el.classList.contains(m[1]) && el.dataset.tab != null;
     if ((m = /^\.([\w-]+)\[data-tab="([\w-]+)"\]$/.exec(sel))) return el.classList.contains(m[1]) && el.dataset.tab === m[2];
+    if ((m = /^(?:\.([\w-]+))?\[([\w-]+)(?:="([^"]*)")?\]$/.exec(sel))) {
+      const value = m[2].startsWith('data-') ? el.dataset[m[2].slice(5).replace(/-([a-z])/g, (_, c) => c.toUpperCase())] : el.getAttribute(m[2]);
+      return (!m[1] || el.classList.contains(m[1])) && (m[3] === undefined ? value != null : value === m[3]);
+    }
     if (sel === 'svg') return el.tagName === 'SVG';
     return false;
   };
@@ -216,6 +220,9 @@ function miniDom() {
         const i = ref ? el.children.indexOf(ref) : -1;
         if (i < 0) el.children.push(c); else el.children.splice(i, 0, c);
       },
+      closest(sel) { for (let p = el; p; p = p.parent) if (matches(p, sel)) return p; return null; },
+      prepend(...cs) { for (const c of cs.reverse()) { if (typeof c === 'string') continue; el.insertBefore(c, el.children[0]); } },
+      replaceWith(c) { el.parent?.insertBefore(c, el); el.remove(); },
       remove() { if (el.parent) { el.parent.children.splice(el.parent.children.indexOf(el), 1); el.parent = null; } },
       replaceChildren(...cs) { el.children = []; el.append(...cs); },
       insertAdjacentHTML(_where, html) { el.html += html; },
@@ -239,6 +246,7 @@ function miniDom() {
   const doc = {
     documentElement: docEl, body,
     createElement: (tag) => make(tag),
+    createTextNode: (text) => Object.assign(make('#text'), { textContent: text }),
     getElementById: (id) => byId.get(id) ?? null,
     querySelectorAll: (sel) => body.querySelectorAll(sel),
     querySelector: (sel) => body.querySelector(sel),
@@ -1384,3 +1392,222 @@ console.log('NAVIGATOR KEYS PASS — N and Tab-from-the-scene toggle it, 1–9 o
 
 console.log('NAVIGATOR PASS — the probe looks only when asked and moved, each asker within its own distance (Home 100 m); the street at the 1904 spawn is Prairie & Eighteenth; '
   + 'DOCK, HALF and FULL by tap, drag and flick, the desktop panel to its rail; Home paints the place, the target, the Jaunt, Move and the Confidence view; the rail opens the drawer’s sections');
+
+// First opening calls mount then shown with the same link (nav-rail.select).
+// The actual Inspect view must retain the linked card through both async draws.
+{
+  const previousCSS = globalThis.CSS;
+  globalThis.CSS ??= { escape: (id) => { assert.match(id, /^[\w-]+$/); return id; } };
+  const inspect = await import('../renderers/web/js/apps/inspect-view.js');
+  const dom = miniDom();
+  const panel = dom.doc.createElement('div'); dom.root.append(panel);
+  const events = new Map();
+  panel.addEventListener = (type, fn) => events.set(type, fn);
+  panel.removeEventListener = (type, fn) => { if (events.get(type) === fn) events.delete(type); };
+  panel.dispatch = (type, ev) => events.get(type)?.({ preventDefault() {}, ...ev });
+  const personId = 'pa1904_otis_f_r_c1900_hans_johnson';
+  const id = 'otis_house_2033_prairie';
+  const directory = json('data/sidecars/1904/people.json');
+  const row = directory.people.find((r) => r.id === personId);
+  const household = json(`data/residents_1904/${row.file}`);
+  const citations = json('data/sidecars/1904/residents_sources.json').citations;
+  let releaseSections;
+  let sections = new Promise((resolve) => { releaseSections = resolve; });
+  const section = { people: '', hasResidents: false, households: [] };
+  const link = { app: 'inspect', id, tab: 'people', person: personId };
+  let fetched = 0, found = null, releaseHousehold;
+  const waitingHousehold = new Promise((resolve) => { releaseHousehold = resolve; });
+  const ctx = { selected: id, link, scene: { id: '1904' }, isPhone: true,
+    actions: { record: (key) => ({ id: key, sidecar: json(`data/sidecars/1904/${key}.json`) }),
+      inspectSummaries: async () => null, pictures: async () => null,
+      cardSections: () => sections, peopleDirectory: async () => directory,
+      householdRecord: async (file) => { assert.equal(file, row.file); fetched++; return waitingHousehold; },
+      residentCitations: async () => citations, findPerson: (id) => { found = id; } } };
+  const flush = async () => { for (let i = 0; i < 24; i++) await Promise.resolve(); };
+  await inspect.mount(panel, ctx);
+  await inspect.shown(panel, ctx);
+  assert.equal(panel._insp.person, personId, 'mount followed by shown retains the requested person');
+  releaseSections(section); await flush();
+  assert.ok(panel.querySelector('.insp-person-wait'), 'actual card waits for the deferred household');
+  await inspect.shown(panel, ctx); await flush();
+  assert.equal(panel._insp.person, personId, 'same-link refresh while household pending preserves selection');
+  releaseHousehold(household); await flush();
+  const pane = panel.querySelector('.insp-pane[data-insp-pane="people"]');
+  const card = pane.querySelector('.insp-person-card');
+  assert.equal(pane.dataset.person, personId);
+  assert.equal(card.dataset.personId, personId);
+  assert.equal(card.querySelector('.insp-person-name').textContent, 'Hans Johnson');
+  assert.ok(card.querySelector('.insp-person-census'), 'actual household census record hydrated');
+  assert.equal(card.querySelector('.insp-person-wait'), null);
+  assert.ok(fetched > 0, 'household was actually requested');
+  card.querySelector('.insp-person-find').dispatch('click');
+  assert.equal(found, personId, 'native rendered Find dispatches the same person');
+  panel.dispatch('click', { currentTarget: panel, target: card.querySelector('[data-person-back]') });
+  assert.equal(pane.dataset.person, undefined);
+  assert.equal(pane.querySelector('.insp-person-card'), null);
+  assert.equal(pane.querySelector('.insp-people-home').hidden, false);
+  await inspect.shown(panel, ctx); await flush();
+  assert.equal(panel.querySelector('.insp-person-card'), null, 'same consumed link must not undo Back');
+  assert.equal(panel._insp.person, null);
+  // A fresh public link to the same person must open it again.
+  await inspect.shown(panel, { ...ctx, link: { ...link } }); await flush();
+  assert.equal(panel.querySelector('.insp-person-card')?.dataset.personId, personId);
+  await inspect.shown(panel, { ...ctx, selected: 'glessner_house', link: { app: 'inspect', id: 'glessner_house', tab: 'people' } }); await flush();
+  assert.equal(panel._insp.person, null, 'a different building must reset the person selection');
+  assert.equal(panel.querySelector('.insp-person-card'), null);
+  inspect.unmount(panel);
+  if (previousCSS === undefined) delete globalThis.CSS; else globalThis.CSS = previousCSS;
+  console.log('INSPECT LINKED PERSON PASS — actual mount/shown, household hydration, Find, Back and new link');
+}
+
+// Actual main cardSections + popup.sections + Inspect: People must not await the
+// unrelated liberties index; every other/default caller retains that exact barrier.
+{
+  const { createPopup } = await import('../renderers/web/js/popup.js');
+  const inspect = await import('../renderers/web/js/apps/inspect-view.js');
+  const main = fs.readFileSync(path.join(ROOT, 'renderers/web/js/main.js'), 'utf8');
+  const begin = main.indexOf('cardSections: async (id, { tab = null } = {}) => {');
+  const end = main.indexOf('\n        // A person by directory id', begin);
+  assert(begin >= 0 && end > begin);
+  const method = main.slice(begin + 'cardSections: '.length, end).trim().replace(/,$/, '');
+  const id = 'otis_house_2033_prairie', personId = 'pa1904_otis_f_r_c1900_hans_johnson';
+  const sidecar = json(`data/sidecars/1904/${id}.json`);
+  sidecar.review_required = true; // Exercise the existing held flag, not only an unflagged record.
+  const record = { id, sidecar };
+  const popup = createPopup({ addEventListener() {} });
+  const directory = json('data/sidecars/1904/people.json');
+  const row = directory.people.find(person => person.id === personId);
+  const household = json(`data/residents_1904/${row.file}`);
+  const citations = json('data/sidecars/1904/residents_sources.json').citations;
+  let releaseLiberties, libertyCalls = 0, pictures = 0, reader = 0, notes = 0;
+  const liberties = new Promise(resolve => { releaseLiberties = resolve; });
+  const cardSections = new Function('loaded', 'ensureHouseholdNotes', 'ensureLiberties', 'ensurePictures',
+    'householdNotes', 'ensureReaderText', 'popup', `return (${method});`)(
+    { registry: new Map([[id, record]]) }, current => { assert.strictEqual(current, record); notes++; },
+    () => { libertyCalls++; return liberties; }, () => { pictures++; return Promise.resolve(); },
+    new Map([[id, Promise.resolve()]]), () => { reader++; return Promise.resolve(); }, popup);
+  const flush = async () => { for (let n = 0; n < 48; n++) await Promise.resolve(); };
+  let peopleReady = false;
+  const earlyPromise = cardSections(id, { tab: 'people' }).then(sec => { peopleReady = true; return sec; });
+  await flush(); assert.equal(peopleReady, true, 'People must settle while liberties are still unresolved');
+  const early = await earlyPromise;
+  assert.equal(libertyCalls, 0, 'People must not even request the unrelated liberties file');
+  assert.equal(notes, 1); assert.equal(pictures, 1); assert.equal(reader, 1);
+  assert(early.people.includes('pop-flags'), 'held/review flags remain in real popup People HTML');
+  const pending = [];
+  for (const options of [undefined, { tab: 'sources' }, { tab: 'research' }, { tab: 'photos' }, { tab: 'unknown' }]) {
+    const state = { done: false };
+    state.promise = cardSections(id, options).then(sec => { state.done = true; return sec; }); pending.push(state);
+  }
+  await flush(); assert(pending.every(state => !state.done), 'default/Sources/Research/other tabs retain original unresolved-liberties barrier');
+  assert.equal(libertyCalls, pending.length);
+  const previousCSS = globalThis.CSS;
+  globalThis.CSS ??= { escape: value => value };
+  const dom = miniDom(), panel = dom.doc.createElement('div'); dom.root.append(panel);
+  panel.removeEventListener = () => {};
+  const ctx = { selected: id, scene: { id: '1904' }, isPhone: true,
+    link: { app: 'inspect', id, tab: 'people', person: personId },
+    actions: { record: () => record, inspectSummaries: async () => null, pictures: async () => null,
+      cardSections, peopleDirectory: async () => directory, householdRecord: async () => household,
+      residentCitations: async () => citations } };
+  await inspect.mount(panel, ctx); await inspect.shown(panel, ctx); await flush();
+  const pane = panel.querySelector('.insp-pane[data-insp-pane="people"]');
+  const card = pane?.querySelector('.insp-person-card');
+  assert.equal(pane?.dataset.filled, 'yes', 'actual fillPane passed the People tab to actual main action');
+  assert.equal(card?.dataset.personId, personId);
+  assert.equal(card.querySelector('.insp-person-name').textContent, 'Hans Johnson');
+  assert(card.querySelector('.insp-person-census'), 'actual household census hydrates while liberties remain unresolved');
+  assert.equal(card.querySelector('.insp-person-wait'), null);
+  assert(pending.every(state => !state.done), 'rendering a real named card does not resolve or bypass Sources/Research');
+  popup.setLiberties([{ structure_id: id, description: 'Native fixture liberty' }]);
+  releaseLiberties();
+  const ready = await Promise.all(pending.map(state => state.promise));
+  for (const sec of ready) {
+    assert.equal(sec.people, early.people, 'People HTML including review/household/agency content is byte-identical after liberties load');
+    assert.equal(sec.hasResidents, early.hasResidents); assert.deepEqual(sec.households, early.households);
+  }
+  assert(pending.every(state => state.done));
+  assert.equal(await cardSections('missing', { tab: 'people' }), null);
+  inspect.unmount(panel);
+  if (previousCSS === undefined) delete globalThis.CSS; else globalThis.CSS = previousCSS;
+  console.log('INSPECT PEOPLE BARRIER PASS — actual main/popup/view renders Hans+census/flags without liberties; Sources/Research/default retain original barrier');
+}
+
+// T-2804: an eligible driver may prepare Inspect's registered code before selection.
+// Preparation never mounts a screen or changes UI ownership; actual selection does.
+{
+  const dom = miniDom(), storage = fakeStorage(), opened = [];
+  let loads = 0, mounts = 0, resolveCode;
+  const code = new Promise(resolve => { resolveCode = resolve; });
+  const rail = createRail({ rail: dom.rail, screens: dom.root.querySelector('.nav-body'), doc: dom.doc,
+    storage, reduced: () => true, wait: () => {}, onOpen: id => opened.push(id), context: () => ({ selected: 'otis_house' }) });
+  rail.register({ id: 'home', label: 'Home', panel: 'nav-home' });
+  rail.register({ id: 'inspect', label: 'Inspect', when: () => true,
+    load: () => { loads++; return code; } });
+  await rail.select('home'); rail.evaluate();
+  const initialSeen = storage.m.get('chicago4d.navigator.seen');
+  const first = rail.preload('inspect'), second = rail.preload('inspect');
+  assert.strictEqual(first, second, 'simultaneous preparation shares the exact in-flight import');
+  await Promise.resolve();
+  assert.equal(loads, 1); assert.equal(mounts, 0);
+  assert.equal(rail.current, 'home'); assert.deepEqual(opened, ['home']);
+  assert.equal(dom.byId.get('nav-app-inspect'), undefined, 'preparation creates no panel');
+  assert.equal(storage.m.get('chicago4d.navigator.seen'), initialSeen, 'preparation marks nothing seen');
+  assert(button(dom, 'inspect').classList.contains('is-new'));
+  resolveCode({ mount(el) { mounts++; el.textContent = 'prepared inspector'; } });
+  assert.equal(await first, true);
+  assert.equal(mounts, 0); assert.equal(rail.current, 'home');
+  const openedPrepared = rail.select('inspect');
+  assert.equal(rail.current, 'inspect', 'a prepared synchronous mount switches in this task, without another import await');
+  assert.equal(mounts, 1); assert.equal(loads, 1);
+  assert.equal(await openedPrepared, true);
+  assert.deepEqual(opened, ['home', 'inspect']);
+  assert.deepEqual(JSON.parse(storage.m.get('chicago4d.navigator.seen')), ['inspect']);
+  assert.equal(await rail.preload('missing'), false);
+}
+{
+  const dom = miniDom(); let loads = 0, mounts = 0, release;
+  const code = new Promise(resolve => { release = resolve; });
+  const rail = createRail({ rail: dom.rail, screens: dom.root.querySelector('.nav-body'), doc: dom.doc,
+    storage: fakeStorage(), reduced: () => true, wait: () => {} });
+  rail.register({ id: 'home', label: 'Home', panel: 'nav-home' });
+  rail.register({ id: 'inspect', label: 'Inspect', load: () => { loads++; return code; } });
+  await rail.select('home');
+  const preparing = rail.preload('inspect'), opening = rail.select('inspect');
+  await Promise.resolve(); assert.equal(loads, 1, 'selection joins a pending preparation');
+  await rail.select('home'); // A newer choice must still win while the import is pending.
+  release({ mount() { mounts++; } });
+  assert.equal(await preparing, true); assert.equal(await opening, false);
+  assert.equal(rail.current, 'home'); assert.equal(mounts, 0);
+  assert.equal(await rail.select('inspect'), true); assert.equal(loads, 1); assert.equal(mounts, 1);
+}
+{
+  const dom = miniDom(); let attempts = 0, mounts = 0;
+  const rail = createRail({ rail: dom.rail, screens: dom.root.querySelector('.nav-body'), doc: dom.doc,
+    storage: fakeStorage(), reduced: () => true, wait: () => {} });
+  rail.register({ id: 'home', label: 'Home', panel: 'nav-home' });
+  rail.register({ id: 'inspect', label: 'Inspect', load: () => {
+    attempts++; if (attempts === 1) return Promise.reject(Error('optional code offline'));
+    return { mount() { mounts++; } };
+  } });
+  await rail.select('home');
+  await assert.rejects(rail.preload('inspect'), /optional code offline/);
+  assert.equal(rail.current, 'home'); assert.equal(mounts, 0);
+  assert.equal(dom.byId.get('nav-app-inspect'), undefined);
+  assert.equal(await rail.select('inspect'), true, 'a failed optional preparation does not poison the real open');
+  assert.equal(attempts, 2); assert.equal(mounts, 1);
+}
+{
+  const dom = miniDom(); let loads = 0, mounts = 0;
+  const nav = createNavigator({ root: dom.root, scene: { id: '1904' }, isPhone: () => true,
+    viewportHeight: () => 780, storage: fakeStorage(),
+    apps: [{ id: 'home', label: 'Home', panel: 'nav-home' },
+      { id: 'inspect', label: 'Inspect', load: () => { loads++; return { mount() { mounts++; } }; } }] });
+  await Promise.resolve();
+  assert.equal(await nav.preload('inspect'), true);
+  assert.equal(nav.app, 'home'); assert.equal(nav.level, 0); assert.equal(mounts, 0);
+  assert.equal(await nav.openLink({ app: 'inspect', id: 'otis_house', tab: 'people', person: 'Hans' }), true);
+  assert.equal(nav.app, 'inspect'); assert.equal(nav.level, 1); assert.equal(loads, 1); assert.equal(mounts, 1);
+  assert.deepEqual(nav.link, { app: 'inspect', id: 'otis_house', tab: 'people', person: 'Hans' });
+}
+console.log('NAVIGATOR PRELOAD PASS — code only, exact import dedup, synchronous prepared switch, original choice race, retry and real device port');
