@@ -2,7 +2,7 @@
   "structure_id": "sauganash_hotel",
   "view": "andreas-1884",
   "glb": "assets/gltf/sauganash_hotel__frame_1831.glb",
-  "glb_sha256": "a369598aafec6a868b0ec3e04ba591a821e4518174a1e75ac2bdba790ffbe5ec",
+  "glb_sha256": "08b77238df24e8481a3926a8670044efc9908d80029d91c6dd10f370e23a429b",
   "camera_sha256": "276f2051fa8db6379236b5d642a6ca75c740f4e82ebf44819c72808917d55991",
   "photo_sha256": "3884c16f72702fd3b1696663dd82b444ac26028b97472e03bd00a2fa75026afb",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "a369598aafec6a868b0ec3e04ba591a821e4518174a1e75ac2bdba790ffbe5ec"
+      "glb_sha256": "08b77238df24e8481a3926a8670044efc9908d80029d91c6dd10f370e23a429b"
     },
     {
       "structure_id": "philo_carpenter_log_shop",
@@ -45,10 +45,14 @@
       "glb_sha256": "f3e26f650627f36879087d75f30db5c4553e0f5938ae5bd0d305480958549cfc"
     }
   ],
-  "group_sha256": "67b94e08aed0d1c4abc5ae57789a467c66c6958b1b81bffd7e7e6e0c5f15ee85",
+  "group_sha256": "4b0807f05e91d516f15a98cc894901a74538acf68002b2a23b1698a9b6c31400",
   "side_by_side": "docs/RESEARCH/photo-match/sauganash_hotel/andreas-1884-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
+    {
+      "what": "THE BOXED GABLE CORNICE AND ITS RETURNS. Andreas/Braunhold draws a boxed band following both rakes of the visible main gable and a short horizontal return turning the corner at each eaves end; the model had a bare rake there, which a visitor on the street would notice. Both are now built on the +x gable in the wall finish, hanging below the rake line. The three sections are reconstructed working choices, not measurements, and the picture's own scale datum supports a return anywhere in roughly 0.55-0.9 m; the remaining section uncertainty is within tolerance under T-3153. Occurrence on the opposite, unseen gable is not claimed and nothing is built there. docs/LIBERTIES.md L-sauganash-main-gable-cornice-2383.",
+      "status": "fixed"
+    },
     {
       "what": "The main and left compound roof silhouette, including the broad rear-left wing, differs visibly from Andreas in the actual current two-building comparison. Existing geometry and surveyed placement are retained. The inherited annex fit does not supply independent hotel dimensions, and this material shape/proportion review remains open.",
       "status": "open"
@@ -74,5 +78,10 @@
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "context_refresh_review": {
+    "reviewed_at": "2026-11-04T02:20:00+00:00",
+    "disposition": "This run directly viewed the new side-by-side against the picture, beside the image it replaced, before setting the verdict below.",
+    "scope": "The only rendered input that moved is the Sauganash hotel's master, which gained the pictured boxed gable cornice and returns on its +x gable (T-2383). No camera, placement, photograph or other member changed. This review signs off neither the whole hotel nor T-2383, whose remaining roof silhouette and left-gable differences stay open."
+  }
 }
