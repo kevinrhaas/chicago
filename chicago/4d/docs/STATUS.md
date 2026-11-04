@@ -26012,3 +26012,12 @@ producer, parameter-validator, schema or recipe-scheme was edited, and no geomet
 rebuilt for this integration: the pinned-Blender master and its WEB derivative are the
 ones that run already produced (f213818f / 65863b3c), and `validate.py --stale` is the
 gate that proves it. T-2376 stays open/partial/differs.
+
+
+### T-3041 — magazine delivery and current 1812 visitor review, 2026-11-04
+
+PR [#1698](https://github.com/kevinrhaas/chicago/pull/1698) merged the bounded magazine vault into dev as `a92e7c3d0c4d9e8376192baac9b8b1c025f1c41f`. Its genuine pinned 25-member fort build changed only the magazine MASTER; the other 24 physical pairs and all 243 outbuilding pairs remain preserved. The explicit reconstructed rise holds the old crown; it is not a measured radius, historical pitch, colour or completion date. The controlled Currey comparison remains DIFFERS, with the two first-fort blockhouse cupolas and western gateway still open.
+
+The native run's two generic 1835 Stage 3 checks passed 107/0 each before the final `619f811c` renderer integration, on recorded source fingerprint `80af7948313c92ac`. They are historical executions, not current-619 or current-dev runs. The completed SDK contains no target 1812 magazine body, Design or Sources browser review. The earlier local source-part-4/NumPy failure is retained as red; the coordinator separately verified its actual step passes in final hosted shard 4/8 under Python 3.11.17. This follow-up does not claim a new local four-part run.
+
+This documentation and validation increment supplies the missing ROADMAP delivery note and checks the actual current published 1812 magazine exterior, native roof/ground presence and Inspect Design/Sources on desktop and phone. At this source checkpoint those target checks are still PENDING, and the new PR requires its own current-head eight-part gate and aggregate before merge. No geometry, source grades, dimensions, placement, camera, paint or native asset is changed. Original T-3041 and parent T-2387 remain partial/open; no new photo ticket or full-fort image acceptance is filed.

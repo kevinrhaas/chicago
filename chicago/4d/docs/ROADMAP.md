@@ -6321,3 +6321,10 @@ from a camera fit. Before and after are captured from one identical diagnostic c
 The original T-2388 stays OPEN. Still owed: a fitted camera for this panel, the ranges and their
 galleries, the facade openings, the other roof forms and chimney counts, the compound's
 composition, and every other dated picture the ticket lists.
+
+
+### T-3041 — magazine vault delivered; finish current visitor review, 2026-11-04
+
+PR [#1698](https://github.com/kevinrhaas/chicago/pull/1698) merged the first-fort magazine's adopted barrel-vault shape as `a92e7c3d`, preserving its measured seat/front and reconstructed wall/crown envelope. Radius, rise, covering and completion date remain unmeasured; the second fort's magazine retains its gable. The Currey comparison stays DIFFERS, and the first-fort blockhouse cupolas, western gateway and full original picture coverage remain open.
+
+The immediate follow-up is actual current published 1812 magazine body, Design and Sources review at 1280x800 and 390x780, with real native roof/ground presence and zero errors. These target checks were absent from the completed native SDK; its earlier generic 1835 smoke runs are not relabelled as final-head execution. The documentation/source checkpoint is saved before this work; only fresh successful target checks and the follow-up's own current-head hosted gate permit its ordinary partial-progress merge. No model or source-value change is proposed.
