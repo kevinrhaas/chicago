@@ -20,7 +20,7 @@
         2,
         3
       ],
-      "web_bytes_if_all_fetched": 6973408,
+      "web_bytes_if_all_fetched": 7198296,
       "nearest_lod_triangles": 40973
     },
     "balanced": {
@@ -29,7 +29,7 @@
         2,
         3
       ],
-      "web_bytes_if_all_fetched": 2515260,
+      "web_bytes_if_all_fetched": 2740148,
       "nearest_lod_triangles": 24951
     },
     "light": {
@@ -37,7 +37,7 @@
         2,
         3
       ],
-      "web_bytes_if_all_fetched": 947348,
+      "web_bytes_if_all_fetched": 1172236,
       "nearest_lod_triangles": 12348
     }
   },
@@ -106,12 +106,12 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 246.1,
-        "mobile": 337.4
+        "desktop": 257.1,
+        "mobile": 263.2
       },
       "frame_ms_median": {
-        "desktop": 0.4,
-        "mobile": 0.4
+        "desktop": 0.5,
+        "mobile": 0.6
       },
       "verdicts": [
         {
@@ -255,8 +255,8 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 372.3,
-        "mobile": 303
+        "desktop": 294.9,
+        "mobile": 253.5
       },
       "frame_ms_median": {
         "desktop": 0.3,
@@ -400,11 +400,11 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 397.1,
-        "mobile": 340
+        "desktop": 435.2,
+        "mobile": 285.9
       },
       "frame_ms_median": {
-        "desktop": 0.2,
+        "desktop": 0.4,
         "mobile": 0.3
       },
       "verdicts": [
@@ -477,13 +477,13 @@
     },
     {
       "file": "assets/humans/anonymous_working_driver_1904.lod3.glb",
-      "sha256": "3833f8fc26f722d17c62afa36ce1b511e38fd112142619db58fa1bf9f551ef75",
+      "sha256": "0754da886b868ffe1f18d9d89a11174bbca6b9f330bf3a5ca45f7982dcb44a9a",
       "lod": 3,
       "derivative_of": null,
-      "bytes": 7256444,
+      "bytes": 7557312,
       "meshopt": false,
-      "triangles": 6026,
-      "vertices": 4185,
+      "triangles": 13635,
+      "vertices": 8282,
       "draw_calls": 9,
       "materials": 9,
       "textures": [
@@ -535,8 +535,8 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 326.8,
-        "mobile": 378.9
+        "desktop": 507.1,
+        "mobile": 314.6
       },
       "frame_ms_median": {
         "desktop": 0.2,
@@ -606,7 +606,7 @@
         {
           "check": "the same at 390x780",
           "ok": true,
-          "got": "6026 tris, 9 draws"
+          "got": "13635 tris, 9 draws"
         }
       ]
     },
@@ -679,11 +679,11 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 241.8,
-        "mobile": 218.9
+        "desktop": 311.4,
+        "mobile": 250.5
       },
       "frame_ms_median": {
-        "desktop": 0.3,
+        "desktop": 0.2,
         "mobile": 0.2
       },
       "verdicts": [
@@ -833,8 +833,8 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 217.9,
-        "mobile": 208
+        "desktop": 247.4,
+        "mobile": 248.9
       },
       "frame_ms_median": {
         "desktop": 0.2,
@@ -983,8 +983,8 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 275,
-        "mobile": 214.1
+        "desktop": 211.7,
+        "mobile": 182.6
       },
       "frame_ms_median": {
         "desktop": 0.2,
@@ -1060,13 +1060,13 @@
     },
     {
       "file": "assets/humans/bardwell_otis_1835.lod3.glb",
-      "sha256": "2c57f30ca74d2390913167a63e2df6fe0b3b92d9296c6b078d237e6bda0a693e",
+      "sha256": "e89508276188b4ceabd612a79552fdab284dc45d832f26b6d2a09b42401a3016",
       "lod": 3,
       "derivative_of": null,
-      "bytes": 7273156,
+      "bytes": 7573012,
       "meshopt": false,
-      "triangles": 6098,
-      "vertices": 4230,
+      "triangles": 13679,
+      "vertices": 8310,
       "draw_calls": 9,
       "materials": 9,
       "textures": [
@@ -1123,8 +1123,8 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 196.7,
-        "mobile": 227.3
+        "desktop": 219.4,
+        "mobile": 249.5
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -1194,7 +1194,7 @@
         {
           "check": "the same at 390x780",
           "ok": true,
-          "got": "6098 tris, 9 draws"
+          "got": "13679 tris, 9 draws"
         }
       ]
     },
@@ -1237,11 +1237,11 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 19.4,
-        "mobile": 14.7
+        "desktop": 15.3,
+        "mobile": 22.3
       },
       "frame_ms_median": {
-        "desktop": 0.3,
+        "desktop": 0.2,
         "mobile": 0.2
       },
       "verdicts": [
@@ -1366,11 +1366,11 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 24.3,
-        "mobile": 18.9
+        "desktop": 47.9,
+        "mobile": 27.6
       },
       "frame_ms_median": {
-        "desktop": 0.1,
+        "desktop": 0.3,
         "mobile": 0.2
       },
       "verdicts": [
@@ -1491,11 +1491,11 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 14.2,
-        "mobile": 11.7
+        "desktop": 11.1,
+        "mobile": 26.4
       },
       "frame_ms_median": {
-        "desktop": 0.1,
+        "desktop": 0.2,
         "mobile": 0.1
       },
       "verdicts": [
@@ -1601,11 +1601,11 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 18.4,
-        "mobile": 11.2
+        "desktop": 17,
+        "mobile": 16
       },
       "frame_ms_median": {
-        "desktop": 0.1,
+        "desktop": 0.2,
         "mobile": 0.1
       },
       "verdicts": [
@@ -1740,12 +1740,12 @@
       "rest_height_m": 1.7539,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 155,
-        "mobile": 172.2
+        "desktop": 148.3,
+        "mobile": 208.3
       },
       "frame_ms_median": {
-        "desktop": 0.3,
-        "mobile": 0.2
+        "desktop": 0.1,
+        "mobile": 0.3
       },
       "verdicts": [
         {
@@ -1899,11 +1899,11 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 120.7,
-        "mobile": 71.2
+        "desktop": 104.7,
+        "mobile": 126.3
       },
       "frame_ms_median": {
-        "desktop": 0.2,
+        "desktop": 0.3,
         "mobile": 0.2
       },
       "verdicts": [
@@ -2054,8 +2054,8 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 93,
-        "mobile": 73.4
+        "desktop": 65.4,
+        "mobile": 94.2
       },
       "frame_ms_median": {
         "desktop": 0.2,
@@ -2141,13 +2141,13 @@
     },
     {
       "file": "assets/humans/web/anonymous_working_driver_1904.lod3.glb",
-      "sha256": "84e602cd49c6e355fb25bc6659a0f4a9e573e4bebe6ce8d2e30e14ed5250b60b",
+      "sha256": "6c5182d709ce9de5be003a650c4f7f69b90ae9591d0865174d4303103bd97de4",
       "lod": 3,
       "derivative_of": "assets/humans/anonymous_working_driver_1904.lod3.glb",
-      "bytes": 326600,
+      "bytes": 551488,
       "meshopt": true,
-      "triangles": 6026,
-      "vertices": 4185,
+      "triangles": 13635,
+      "vertices": 8282,
       "draw_calls": 9,
       "materials": 9,
       "textures": [
@@ -2199,11 +2199,11 @@
       "rest_height_m": 1.7537,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 38.2,
-        "mobile": 62.3
+        "desktop": 54.9,
+        "mobile": 73.2
       },
       "frame_ms_median": {
-        "desktop": 0.2,
+        "desktop": 0.1,
         "mobile": 0.2
       },
       "verdicts": [
@@ -2270,7 +2270,7 @@
         {
           "check": "the same at 390x780",
           "ok": true,
-          "got": "6026 tris, 9 draws"
+          "got": "13635 tris, 9 draws"
         },
         {
           "check": "decoded frame matches its master",
@@ -2280,7 +2280,7 @@
         {
           "check": "same triangles, joints, morphs and clips as its master",
           "ok": true,
-          "got": "6026 tris"
+          "got": "13635 tris"
         }
       ]
     },
@@ -2353,12 +2353,12 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 291.7,
-        "mobile": 262.7
+        "desktop": 221.9,
+        "mobile": 309.6
       },
       "frame_ms_median": {
-        "desktop": 0.2,
-        "mobile": 0.2
+        "desktop": 0.4,
+        "mobile": 0.3
       },
       "verdicts": [
         {
@@ -2517,12 +2517,12 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 87.4,
-        "mobile": 68
+        "desktop": 95.7,
+        "mobile": 168.4
       },
       "frame_ms_median": {
-        "desktop": 0.2,
-        "mobile": 0.1
+        "desktop": 0.1,
+        "mobile": 0.2
       },
       "verdicts": [
         {
@@ -2677,8 +2677,8 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 71.2,
-        "mobile": 41.8
+        "desktop": 44.3,
+        "mobile": 45.3
       },
       "frame_ms_median": {
         "desktop": 0.2,
@@ -2764,13 +2764,13 @@
     },
     {
       "file": "assets/humans/web/bardwell_otis_1835.lod3.glb",
-      "sha256": "9423585a506b1ae317c08c7eae9fb936e6ceea5e46d00ae6b2673f8c5e268f81",
+      "sha256": "c5b1e37cc39b44e5dfb74496df957de7d93e5e0341f58e6d608f6fb09857bd88",
       "lod": 3,
       "derivative_of": "assets/humans/bardwell_otis_1835.lod3.glb",
-      "bytes": 340516,
+      "bytes": 564628,
       "meshopt": true,
-      "triangles": 6098,
-      "vertices": 4230,
+      "triangles": 13679,
+      "vertices": 8310,
       "draw_calls": 9,
       "materials": 9,
       "textures": [
@@ -2827,12 +2827,12 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 30.2,
-        "mobile": 56
+        "desktop": 40.5,
+        "mobile": 71
       },
       "frame_ms_median": {
         "desktop": 0.2,
-        "mobile": 0.1
+        "mobile": 0.2
       },
       "verdicts": [
         {
@@ -2898,7 +2898,7 @@
         {
           "check": "the same at 390x780",
           "ok": true,
-          "got": "6098 tris, 9 draws"
+          "got": "13679 tris, 9 draws"
         },
         {
           "check": "decoded frame matches its master",
@@ -2908,7 +2908,7 @@
         {
           "check": "same triangles, joints, morphs and clips as its master",
           "ok": true,
-          "got": "6098 tris"
+          "got": "13679 tris"
         }
       ]
     },
@@ -2951,11 +2951,11 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 16.9,
-        "mobile": 53.7
+        "desktop": 53.8,
+        "mobile": 77.9
       },
       "frame_ms_median": {
-        "desktop": 0.1,
+        "desktop": 0.2,
         "mobile": 0.2
       },
       "verdicts": [
@@ -3090,8 +3090,8 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 26.6,
-        "mobile": 60.7
+        "desktop": 23.1,
+        "mobile": 25.1
       },
       "frame_ms_median": {
         "desktop": 0.2,
@@ -3225,11 +3225,11 @@
       "rest_height_m": 1.7032,
       "soles_y_m": 0.0018,
       "load_ms": {
-        "desktop": 19.2,
-        "mobile": 10.4
+        "desktop": 25.4,
+        "mobile": 43.8
       },
       "frame_ms_median": {
-        "desktop": 0.1,
+        "desktop": 0.2,
         "mobile": 0.1
       },
       "verdicts": [
@@ -3345,11 +3345,11 @@
       "rest_height_m": 1.7032,
       "soles_y_m": 0.0018,
       "load_ms": {
-        "desktop": 11.8,
-        "mobile": 11.4
+        "desktop": 27.2,
+        "mobile": 17
       },
       "frame_ms_median": {
-        "desktop": 0.1,
+        "desktop": 0.2,
         "mobile": 0.1
       },
       "verdicts": [

@@ -12503,13 +12503,22 @@ for (const [label, viewport, touch] of [
       + `per texel (want ±${want.reachM} m over ${want.mapSize}² = `
       + `${(want.texelM * 100).toFixed(1)} cm)`);
 
-    // THE VIEW THIS CHECK REQUIRES (T-0848): the boot pose again, and re-taken
-    // rather than assumed to have survived the facade section — the same reason.
-    // `worst >= 4` is a number about how much of the town the rig can reach IN
-    // FRAME; from a stand with little standing behind the visitor, winding the
-    // reach from its documented value back to +/-60 m moves almost nothing and
-    // the check silently becomes an assertion about the previous section.
-    await standAtBootPose();
+    // The 48² / >=4 calibration above names lake_market, not the welcome pose.
+    // Retake that declared view so a changed arrival composition cannot hide
+    // the distant casters this counterfactual measures. Current boot: worst 3;
+    // declared lake_market: worst 8, with exact restoration (390x780, C8057b7d6).
+    const shadowPose = await page.evaluate(() => {
+      const anchor = window.__chicago4d.scene.anchors.find((a) => a.id === 'lake_market');
+      if (!anchor || ![anchor.local_e, anchor.local_n, anchor.yaw_deg].every(Number.isFinite)) {
+        throw new Error('shadow reach calibration requires the declared lake_market anchor');
+      }
+      return { local_e: anchor.local_e, local_n: anchor.local_n, yaw_deg: anchor.yaw_deg,
+        pitch_deg: 0, altitude_m: null };
+    });
+    await page.evaluate((pose) => {
+      window.__chicago4d.walker.teleport(pose);
+      window.__chicago4d.step();
+    }, shadowPose);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
     const reachFull = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_GRID);
     const woundBack = await page.evaluate(() => window.__chicago4d.world.setShadowReach(60));
@@ -12533,6 +12542,8 @@ for (const [label, viewport, touch] of [
     console.log(`        shadow reach: ±${rig.reachM} m at `
       + `${(rig.texelM * 100).toFixed(1)} cm/texel · winding back to ±60 m moves `
       + `worst cell ${dReach.worst}; restored residual worst ${dReachBack.worst}`);
+    // Keep the following probes at the pose they previously inherited.
+    await standAtBootPose();
 
     // --- R-BUG6, the shadow box moves in whole texels -----------------------
     //

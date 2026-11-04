@@ -15,9 +15,68 @@ const source = await readFile(path.join(web, 'js/compact-attributes.js'), 'utf8'
 const {
   compactPlan, compactGeometry, bytesPerVertex, strideOf, RULES,
   positionScale, quantizePositions, structureFrameGLSL, POSITION_STEPS,
-  packScalars, unpackScalar, toneScaleOf, SCALARS, SCALAR_CODES, SCALARS_GLSL,
+  packScalars, compactConstantBatchScalars, unpackScalar, toneScaleOf, SCALARS, SCALAR_CODES, SCALARS_GLSL,
 } = await import('data:text/javascript;base64,'
   + Buffer.from(source.replace("from 'three'", `from '${threeURL}'`)).toString('base64'));
+
+// Exact storage de-duplication, with every unsupported or varying input retained.
+{
+  const make = () => {
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array([0, 0, 0, 1, 0, 0, 0, 1, 0]), 3));
+    geo.setIndex([0, 1, 2]);
+    geo.setAttribute(SCALARS, new THREE.BufferAttribute(new Uint8Array([140, 127, 128, 255, 140, 127, 128, 255, 140, 127, 128, 255]), 4));
+    const batch = new THREE.BatchedMesh(2, 6, 6, new THREE.MeshStandardMaterial());
+    for (let i = 0; i < 2; i += 1) batch.addInstance(batch.addGeometry(geo));
+    return { geo, batch };
+  };
+  const { geo, batch } = make();
+  const original = batch.geometry.getAttribute(SCALARS), originalBytes = original.array.slice();
+  const version = original.version, position = batch.geometry.attributes.position.array.slice();
+  const index = batch.geometry.index.array.slice(), sourceBytes = geo.attributes[SCALARS].array.slice();
+  assert.equal(compactConstantBatchScalars(batch), 20);
+  const compact = batch.geometry.getAttribute(SCALARS);
+  assert(compact.isInstancedBufferAttribute);
+  assert.equal(compact.meshPerAttribute, 1);
+  assert.equal(compact.count, 1);
+  assert.equal(compact.array.byteLength, 4);
+  assert.equal(compact.normalized, false);
+  assert.equal(compact.version, version, 'backing guard starts at the original version');
+  for (let i = 0; i < originalBytes.length; i += 1) assert.equal(compact.array[i % 4], originalBytes[i]);
+  assert.deepEqual(batch.geometry.attributes.position.array, position);
+  assert.deepEqual(batch.geometry.index.array, index);
+  assert.deepEqual(geo.attributes[SCALARS].array, sourceBytes, 'CPU source channel is untouched');
+  compact.needsUpdate = true;
+  assert.equal(compact.version, version + 1, 'ordinary edits still invalidate backing guards');
+  assert.equal(compactConstantBatchScalars(batch), 0, 'repeat is a no-op');
+  batch.dispose(); geo.dispose();
+  for (let lane = 0; lane < 4; lane += 1) {
+    const { geo: g, batch: b } = make(), a = b.geometry.getAttribute(SCALARS);
+    a.array[a.array.length - 4 + lane] ^= 1;
+    assert.equal(compactConstantBatchScalars(b), 0, `last-vertex lane ${lane} variation remains per-vertex`);
+    assert.equal(b.geometry.getAttribute(SCALARS), a);
+    b.dispose(); g.dispose();
+  }
+  for (const fault of [
+    (b, a) => a.setUsage(THREE.DynamicDrawUsage),
+    (b, a) => a.onUpload(() => {}),
+    (b, a) => { a.userData = { uploadReleased: true }; },
+    (b, a) => { a.normalized = true; },
+    (b, a) => { a.count += 1; },
+    (b, a) => { a.array = new Float32Array(a.array); },
+    (b) => { b.userData.instancedDraws = true; },
+    (b) => { b.material.userData.instancedDraws = true; },
+  ]) {
+    const { geo: g, batch: b } = make(), a = b.geometry.getAttribute(SCALARS);
+    fault(b, a);
+    assert.equal(compactConstantBatchScalars(b), 0);
+    assert.equal(b.geometry.getAttribute(SCALARS), a, 'fallback retains original ownership and bytes');
+    b.dispose(); g.dispose();
+  }
+  assert.equal(compactConstantBatchScalars(null), 0);
+  assert.equal(compactConstantBatchScalars(new THREE.Mesh()), 0);
+  console.log('PASS constant batch scalars: exact bytes/source/geometry/version; varying, dynamic, malformed and ownership fallbacks');
+}
 
 function building(n, { uv = 1, tone = 0.9 } = {}) {
   const g = new THREE.BufferGeometry();

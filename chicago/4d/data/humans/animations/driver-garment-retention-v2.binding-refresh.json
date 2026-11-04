@@ -1,0 +1,26 @@
+{
+  "schema": "terminal_garment_palm_payload_refresh_v2",
+  "source_loops_sha256": "ef755fe7f43c71fd6e428021136b4843e86183a03a94c867da8c00a855fb5421",
+  "updated_loops_sha256": "0fe4da2e4c45918545425f71f9a9e989650ea570d8eec07d876e9f9aab5cc172",
+  "changed_fields": [
+    {
+      "row_id": "prairie_driven_brougham_loop_1904",
+      "lod": 3,
+      "side": "l",
+      "field": "asset_sha256",
+      "old": "84e602cd49c6e355fb25bc6659a0f4a9e573e4bebe6ce8d2e30e14ed5250b60b",
+      "new": "6c5182d709ce9de5be003a650c4f7f69b90ae9591d0865174d4303103bd97de4"
+    },
+    {
+      "row_id": "prairie_driven_brougham_loop_1904",
+      "lod": 3,
+      "side": "r",
+      "field": "asset_sha256",
+      "old": "84e602cd49c6e355fb25bc6659a0f4a9e573e4bebe6ce8d2e30e14ed5250b60b",
+      "new": "6c5182d709ce9de5be003a650c4f7f69b90ae9591d0865174d4303103bd97de4"
+    }
+  ],
+  "all_other_loop_data_exact": true,
+  "all_original_barycentric_triangle_point_pose_and_source_proof_fields_exact": true,
+  "scope": "Only two active Hans WEB LOD3 payload hashes change. Protected body streams and native working-driver seat/shoe/palm assertions remain unchanged. Original measurements and seated native readback remain historical evidence; this is no new closed-grasp or continuous-contact claim."
+}

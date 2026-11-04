@@ -1882,3 +1882,15 @@ The following active LOD0/LOD3 exports append an original reconstructed head/nec
 | `humans/anonymous_working_driver_1904.lod3.glb` | CC0-1.0; original creator notices retained | 7256444 | `3833f8fc26f722d17c62afa36ce1b511e38fd112142619db58fa1bf9f551ef75` |
 | `humans/web/anonymous_working_driver_1904.lod0.glb` | CC0-1.0; original creator notices retained | 4458148 | `49a84c1d858f67359ff33e56762336ade56db1dcbbb1cbe923846d95825c9547` |
 | `humans/web/anonymous_working_driver_1904.lod3.glb` | CC0-1.0; original creator notices retained | 326600 | `84e602cd49c6e355fb25bc6659a0f4a9e573e4bebe6ce8d2e30e14ed5250b60b` |
+
+
+### T-2804 — explicit terminal LOD3 garment retention
+
+Only the following four active LOD3 payloads replace the seated-looking parents listed above. The exact same-resident LOD0 shirt/trouser topology is retained on LOD3; WEB garment positions/normals are newly derived by deterministic single-skin rest-weighted rebinding. Existing cleared MakeHuman, Toigo, short04 hair and original workwear notices remain; no external image, likeness or new historical claim is introduced. Existing body, rig, original skin, images/materials and old clips remain. Graphical derivatives retain CC0-1.0 and creator notices; project-authored tools remain GPL-3.0-or-later. All LOD0/1/2 files and every other human payload are unchanged. Exact parents, donors, outputs and regeneration are in `data/humans/animations/driver-garment-retention-v2.json`, `.derivation.json` and `.native.json`; previous receipt/table hashes remain historical parent records.
+
+| Active file under `assets/` | License | Bytes | SHA256 |
+|---|---|---:|---|
+| `humans/bardwell_otis_1835.lod3.glb` | CC0-1.0; original creator notices retained | 7573012 | `e89508276188b4ceabd612a79552fdab284dc45d832f26b6d2a09b42401a3016` |
+| `humans/web/bardwell_otis_1835.lod3.glb` | CC0-1.0; original creator notices retained | 564628 | `c5b1e37cc39b44e5dfb74496df957de7d93e5e0341f58e6d608f6fb09857bd88` |
+| `humans/anonymous_working_driver_1904.lod3.glb` | CC0-1.0; original creator notices retained | 7557312 | `0754da886b868ffe1f18d9d89a11174bbca6b9f330bf3a5ca45f7982dcb44a9a` |
+| `humans/web/anonymous_working_driver_1904.lod3.glb` | CC0-1.0; original creator notices retained | 551488 | `6c5182d709ce9de5be003a650c4f7f69b90ae9591d0865174d4303103bd97de4` |

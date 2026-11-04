@@ -6361,3 +6361,10 @@ is explicit, not described as whole-primitive byte equality. Sources, metric/dat
 limits and L-sauganash-ridge-end-stacks-2383 remain the governing account. This is
 incremental progress on original T-2383, which remains OPEN/PARTIAL; no new photo
 follow-up or whole-image acceptance is created.
+
+
+### T-2804 — measured lossless phone-memory repair for driver clothing, 2026-11-04
+
+The isolated PR1700 clothing descendant passes the unchanged 1904 mobile 400 MiB gate at 399.358 MiB, with 0.642 MiB of measured headroom. Exactly constant building scalar channels use one tuple; varying channels, geometry, appearance, picking and shader behaviour retain their original contracts. Actual native/fallback WebGL controls and the existing native scalar suite pass. All four clothing hashes stay fixed. These are scoped results on TREE `05a2899f72a8628fcff0a765019de3f26b2295c3`; the uncommitted source now integrates the qualified interaction increment and its later legitimate house assets. Next run the complete integrated native gate and exact-head CI, then make the ordinary DEV update. Broad T-2804/T-1790, photographic, continuous contact and riding/boarding acceptance remain open.
+
+The shadow counterfactual uses its existing declared lake_market calibration view, retaining original thresholds and restoring boot afterward. The source8057 mobile diagnostic is scoped evidence; integrated G desktop/mobile Stage9 qualification remains pending.
