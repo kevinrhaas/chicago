@@ -39954,7 +39954,6 @@ three lights are still as L-k01-2009-meyer-1913 left them.
 
 **How to resolve:** the open rows of the match record; a camera solved on Monroe's 1896 plate
 (`monroe_1896_john_wellborn_root_meyer_plate`) would check the entrance from a second side.
-**Covers:** `mayer_house_2009_prairie.as_mapped_1904.form.entrance_kit`, `mayer_house_2009_prairie.as_mapped_1904.form.street_front_windows`, `mayer_house_2009_prairie.as_mapped_1904.form.bays`
 **Ticket:** T-3364 (a piece of T-1914, S05B).
 **Review:** `docs/RESEARCH/photo-match/mayer_house_2009_prairie/chicagology_photo-side-by-side.jpg`.
 **Recorded:** 2026-11-04 (T-3364).

@@ -66912,26 +66912,7 @@
       "subjects": [
         "mayer_house_2009_prairie"
       ],
-      "covers": [
-        {
-          "domain": "structure",
-          "structure": "mayer_house_2009_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "mayer_house_2009_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.entrance_kit"
-        },
-        {
-          "domain": "structure",
-          "structure": "mayer_house_2009_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.street_front_windows"
-        }
-      ],
+      "covers": [],
       "recorded": "2026-11-04",
       "revised": null,
       "fields": [
@@ -66942,10 +66923,6 @@
         {
           "label": "How to resolve",
           "text": "the open rows of the match record; a camera solved on Monroe's 1896 plate (Harriet Monroe, John Wellborn Root (Boston: Houghton, Mifflin, 1896), p. 155…) would check the entrance from a second side."
-        },
-        {
-          "label": "Covers",
-          "text": "`mayer_house_2009_prairie.as_mapped_1904.form.entrance_kit`, `mayer_house_2009_prairie.as_mapped_1904.form.street_front_windows`, `mayer_house_2009_prairie.as_mapped_1904.form.bays`"
         },
         {
           "label": "Review",
