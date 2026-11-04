@@ -10,9 +10,11 @@
   "scene": "1835",
   "target_date": "1835-07-01",
   "grade": {
-    "value": "inferred",
-    "why": "Known from maps or written records; no picture of it has been found.",
-    "pictures": []
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "kurz_allison_1893"
+    ]
   },
   "documented_range": {
     "from": "1816-07-01",
@@ -104,7 +106,7 @@
     "roof_type": {
       "value": "pyramid",
       "confidence": "reconstructed",
-      "note": "Unattested. A four-sided pitched cap over a near-square plan is the surviving type. Andreas's own 1808 index for the first fort notes 'the Cupolas are not yet built on the Block Houses as laid down', which attests a cupola on that fort's blockhouses and nothing about this one; no cupola is built here."
+      "note": "Unattested in words. A four-sided pitched cap over a near-square plan is the surviving type. Andreas's own 1808 index for the FIRST fort notes 'the Cupolas are not yet built on the Block Houses as laid down', which attests a cupola on that fort's blockhouses and says nothing about this one; the cupola this record now carries is read off this fort's own pictures instead, and stands in `cupola` with its own confidence rather than being folded into this attribute."
     },
     "roof_pitch_deg": {
       "value": 30.0,
@@ -112,9 +114,22 @@
       "note": "Unattested. A shallower pitch than the ranges because a pyramid over a wide plan gets tall fast."
     },
     "chimneys": {
-      "value": 1,
+      "value": 0,
       "confidence": "reconstructed",
-      "note": "Unattested. A blockhouse manned in a Chicago winter is heated; the count, the position and everything else about the stack is ours."
+      "note": "RECONSTRUCTED AT NONE, AND THAT IS A CHOICE ABOUT WHAT TO DEPICT, NOT A FINDING ABOUT HEATING (T-2388). This record used to count one stack — 'a blockhouse manned in a Chicago winter is heated' — and the archetype stands a single stack at the exact centre of the plan, which is where this fort's own pictures put a cupola instead. Panel 5 of the Kurz & Allison sheet and the two Wau-Bun reproductions of the 1831 view all draw the small square cupola on this roof and none of them draws a stack beside it, so the invented stack was both unattested and in the way of a pictured feature, and the pictured feature wins. WHAT THIS DOES NOT CLAIM: that the blockhouse was unheated, that it had no flue, or that nothing ever stood on this roof besides the cupola. Pictorial sources are tier 5 and their silence is not testimony; the 1856 Kellogg/Blanchard print (filed, misleadingly, as `chicago_fort_dearborn_river_mouth_1830.jpg`) depicts about 1836-1849 and does show a small ambiguous projection beside a louvred cap, and that later detail is left unresolved rather than backdated onto 1 July 1835. The count is recorded at 0 because nothing reached counts one, and a stack has not been quietly moved somewhere else to keep it.",
+      "sources": [
+        "kurz_allison_1893",
+        "kinzie_1857_chicago_1831_panorama"
+      ]
+    },
+    "cupola": {
+      "value": true,
+      "confidence": "inferred",
+      "sources": [
+        "kurz_allison_1893",
+        "kinzie_1857_chicago_1831_panorama"
+      ],
+      "note": "PICTURED, AND ONLY PICTURED (T-2388). Panel 5 of the Kurz & Allison sheet, captioned 'Fort Dearborn as rebuilt 1835', draws this blockhouse with a small square body at the centre of its four-sided cap, under a little four-sided cap of its own; the two Wau-Bun reproductions of the 1831 view draw the same body. Two independent-looking depictions of this fort's blockhouse agree on the feature, which is what carries INFERRED rather than attested: the sheet is an 1893 retrospective, it is tier 5, it dates several of its own subjects wrongly, and its caption is not proof that this feature stood on 1 July 1835. EVERY DIMENSION IS RECONSTRUCTED and none of it is in this record: the side, the height, the cap's pitch, the plain boarded sides and the absence of louvres are the archetype's working reconstruction at the proportions the panel shows, and docs/LIBERTIES.md owns them. The louvres and the ambiguous secondary projection of the 1856 Kellogg/Blanchard print are NOT built: that print depicts about 1836-1849."
     },
     "function": {
       "value": "block_house",
@@ -171,9 +186,59 @@
       "archived_url": "",
       "tier": 1,
       "tier_label": "period/eyewitness"
+    },
+    {
+      "source_id": "kinzie_1857_chicago_1831_panorama",
+      "citation": "[Unresolved Beaubien-group identification, preferred working residence] “Fort Dearborn and Chicago in 1831.” Keyed cut in Wentworth, Fort Dearborn (1881), p. 86; credits Kinzie’s Wau-Bun (1857).",
+      "url": "https://commons.wikimedia.org/wiki/File:Fort_Dearborn_%26_Chicago_in_1831.jpg",
+      "archived_url": "https://archive.org/stream/earlychicagofort00wentiala#page/86/mode/1up",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "the exact keyed 1831 panorama in an independently inspected 1881 publication",
+        "Wentworth’s explicit annotation placing the keyed Beaubien house near Michigan Avenue and South Water Street’s northeast corner",
+        "a preferred, inferred identification with the sale-located homestead, subject to the same-witness and drawing-accuracy limits",
+        "Hubbard’s contemporary-to-publication criticism of this drawing’s geography and fort buildings"
+      ],
+      "what_it_does_not_supply": [
+        "independent corroboration of Wentworth’s sale narrative or an 1831 surveyed position",
+        "which earlier or later Beaubien building stood at that corner",
+        "the Factory House’s separately documented squared-log fabric or two storeys for this dwelling",
+        "a calibrated camera, metric dimensions, accepted form or proof of unchanged appearance in July 1835",
+        "an accepted image match or independent eyewitness status for two Wau-Bun-derived reproductions"
+      ]
+    },
+    {
+      "source_id": "kurz_allison_1893",
+      "citation": "Kurz & Allison. Chicago In Early Days, 1779-1857. Chicago: Kurz & Allison, 76 & 78 Wabash Avenue, 1893. Chromolithograph, fifteen numbered vignettes with printed key.",
+      "url": "https://www.loc.gov/pictures/item/2003656685/",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "panel 1: Old Fort Dearborn of 1803 from across the river - the palisade under a ruled cap line, the barracks ranges, the blockhouses and the bare trodden ground outside the walls that data/enclosures/fort_dearborn_apron.json is built on",
+        "panel 8: the town from the lake in 1830, population 96 - the low far bank, a lodge and bark canoes on the shore, and trees round the buildings on both banks; a scene-adjacent TOWN view, five years early, not a second view of the fort",
+        "panel 12: the long low Kinzie house with a full-width piazza on its front, a red roof, and outbuildings up the rise behind it",
+        "panel 12: a row of four Lombardy poplars standing between the house and the river — the count and rhythm tools/generate_planted_rows.py measures across seven plates",
+        "panel 12: PICKET-FENCED garden plots at the house — close-set vertical pales, the treatment data/enclosures/town_dooryard_pickets.json deals to the town's house lots",
+        "panel 12: the fenced green between house and water that Wau-Bun describes in words, drawn",
+        "panel 11: the Green Tree Hotel as a two-storey clapboard block with end chimneys and even sash, with ship masts behind it",
+        "panel 5: Fort Dearborn as rebuilt 1835 — picket palisade, galleried barracks range, blockhouse; the blockhouse's four-sided cap carries a small square cupola at its centre, under a little cap of its own, and the panel draws no separate stack anywhere on that roof (T-2388). FORM ONLY, as every line of this sheet is: the cupola's size, height and detail are not in it, and the absence of a stack in a retrospective chromolithograph is not testimony that the building had no flue",
+        "panel 14: the Sauganash Hotel as a two-storey clapboard block with an attached single-storey log wing and no full-width gallery",
+        "the sheet's printed key, which names each panel and dates several of the buildings"
+      ],
+      "what_it_does_not_supply": [
+        "any coordinate, footprint outline or dimension — tier 5, and a perspective vignette cannot be asked for a metre",
+        "a date for anything it draws that can be relied on: its own key puts the Kinzie Mansion at 1832, which contradicts every documentary source this project holds",
+        "independent testimony for panel 14, which follows the F. Braunhold engraving in Andreas (1884) closely enough to be probably derived from it",
+        "any evidence that a garden fence stood on a lot in the town: panel 12 is the north bank, and the house it draws is excluded from the 1835 scene (data/exclusions.json, kinzie_house)",
+        "a height, a pale width or a bay for the fence it draws — every dimension on the fence layer is invented, and docs/LIBERTIES.md L129 says so",
+        "a Lombardy poplar anywhere in Chicago but this one group",
+        "a view of the 1835 fort in panel 8: that panel is dated 1830 by the sheet's own key and was mistaken for a fort plate for a month (T-1107)"
+      ]
     }
   ],
-  "research_note": "THE MOST INVENTED BUILDING IN THE COMPLEX, and the one a visitor will look at hardest. Its corner is documented three times over and its outline is on the only plan; its height, its jetty, its loopholes, its roof and its stack are all ours, because nothing reached describes this blockhouse at all beyond the words 'block-house' and 'southwest'. The footprint note explains why the measured size is bigger than the type and why it was not quietly reduced.",
+  "research_note": "THE MOST INVENTED BUILDING IN THE COMPLEX, and the one a visitor will look at hardest. Its corner is documented three times over and its outline is on the only plan; its height, its jetty, its loopholes and the dimensions of its roof are all ours, because nothing reached describes this blockhouse at all beyond the words 'block-house' and 'southwest'. The footprint note explains why the measured size is bigger than the type and why it was not quietly reduced. SINCE T-2388 the roof is no longer entirely ours: the fort's own pictures put a small square cupola at the centre of the cap and no stack beside it, so the cupola is built (occurrence inferred, every dimension reconstructed) and the invented centre stack that stood in its place is recorded at a count of 0. That is a choice about what to depict and not a claim that the building was unheated — the chimneys note sets it out. The building as a whole still DIFFERS from its pictures: T-2388 remains open on the ranges, the galleries, the facade openings, the other roof forms, the compound's composition and every other dated picture of the fort.",
   "research_doc": "docs/RESEARCH/fort_dearborn_blockhouse.md",
   "review_required": false
 }

@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 2644, ts: '2026-11-04T05:58:06.694Z', date: 'Nov 3, 2026, 11:58 PM CT', title: 'The Green Tree\'s shoulder light gets its pointed cap', kind: 'improvement',
+    items: [
+      'The little gabled light over the Green Tree Tavern\'s enclosed shoulder now comes to a sharp point, the way Andreas\'s engraving of the inn draws it, instead of the blunt, nearly flat cap it had.',
+      'Its clapboard courses step up the small gable face with it; nothing else about the tavern moves.',
+      'The rest of the left group — the shoulder\'s own roof slope, and how shoulder, connector and turned range sit against the main block — still differs from the picture, and stays open.',
+    ] },
+  { v: 2643, ts: '2026-11-04T05:39:21.042Z', date: 'Nov 3, 2026, 11:39 PM CT', title: 'The fort\'s blockhouse gets the cupola its pictures draw', kind: 'change',
+    items: [
+      'Panel 5 of the Kurz & Allison sheet — "Fort Dearborn as rebuilt 1835" — draws a small square cupola at the centre of the blockhouse\'s four-sided roof, under a little cap of its own. Two reproductions of the 1831 Wau-Bun view draw the same thing. It is now built.',
+      'The chimney that used to stand on that roof was invented, unattested, and standing in exactly the cupola\'s place. Its count is now 0. That is a choice about what to depict, not a finding that the blockhouse was unheated — the record says so in as many words.',
+      'The cupola\'s occurrence is read off the pictures; every one of its dimensions is ours, and docs/LIBERTIES.md says which. The blockhouse\'s body, jetty, loopholes, walls and surveyed position are untouched.',
+      'The building\'s Images tab now carries the picture it was read from, so its grade moves from "known from maps or written records" to pictured.',
+      'The rest of the fort still differs from its pictures: the ranges, the galleries, the openings and the other roofs are all still open.',
+    ] },
   { v: 2642, ts: '2026-11-04T05:14:19.653Z', date: 'Nov 3, 2026, 11:14 PM CT', title: 'The first fort\'s parade ground is accounted for', kind: 'fix',
     items: [
       'The 1812 walk recognizes the parade ground\'s existing surface without a false missing-building warning.',

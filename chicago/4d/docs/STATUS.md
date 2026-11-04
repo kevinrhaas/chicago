@@ -25772,7 +25772,6 @@ This authored checkpoint claims no completed four-part gate, committed-head
 publication or desktop/phone application QA; those are recorded separately for
 the actual PR head. Original T-2383 remains partial/open, with no new ticket.
 
-
 ### Lake House source reading — 2026-11-04
 
 The Record now distinguishes a directly checked line in Fergus's 1876 recollection of the 1839 Rush/North Water address from Andreas's differing street account. The July 1835 construction stage, position and dimensions remain uncertain. This increment changes source and Record metadata; it claims no new geometry or image-match completion.
@@ -25844,3 +25843,111 @@ still unenrolled and still private: no RMS, no grade, no verdict, no completion.
 
 ### First Fort parade presence — T-3041, 2026-11-04
 The first fort's loaded earth-only parade asset is supplied by its named trodden-ground owner, so it is now listed separately from direct building batches. No bounding box or standing building is invented. Failed, empty or malformed assets remain missing, and the second fort's sundial still has to draw. The ground layer already drew independently; this corrects the false missing-host report, not an absent ground surface. Actual createBuildings regression checks pass; the earlier 1812 desktop runtime failed its zero-console-error check and remains preserved as a failure. Full source and both-viewport runtime qualification are required before this repair merges; actual final receipts are kept with the PR. The original first-fort picture acceptance remains open.
+### T-2388 (partial) — the second fort's blockhouse gets its pictured cupola, 2026-11-03
+
+Panel 5 of the Kurz & Allison sheet, captioned "Fort Dearborn as rebuilt 1835", draws a small
+square cupola at the centre of this blockhouse's four-sided cap, under a little cap of its own,
+and draws no stack anywhere on that roof; the two Wau-Bun reproductions of the 1831 view draw the
+same body. The cupola is now built. The invented, unattested centre chimney that stood in exactly
+its place is recorded at a count of 0 — a choice about what to depict, stated as one, and NOT a
+finding that the blockhouse was unheated or had no flue. The 1856 Kellogg/Blanchard print (filed
+misleadingly as `chicago_fort_dearborn_river_mouth_1830.jpg`) depicts about 1836-1849 and shows a
+louvred cap and a small ambiguous projection; that later detail is left unresolved, not
+backdated.
+
+The control is a keyword-only, default-off `cupola` on `fort_structure`, consumed by a local
+`_cupola` helper. It is not the lighthouse's `lantern` (only `_tower` reads that, so setting it
+on a blockhouse adds nothing), it does not route this building through the tower builder, and it
+changes no shared geometry. Its occurrence is `inferred` from the identified pictures; every
+dimension is reconstructed in the archetype and admitted in
+`docs/LIBERTIES.md` L-second-fort-blockhouse-cupola-2388. The body is sunk 0.12 m below the
+lowest the main roof reaches under its own footprint, so it meets all four sloping planes rather
+than balancing on the apex — no floating corner, no strip of sky, nowhere to hide a stack.
+Everything below the roof is untouched: surveyed seat and 8 degree rotation, the inferred
+14.52 x 9.80 m footprint and its ambiguity, 5.2 m walls, two storeys, 0.45 m jetty, loopholes,
+doors and every palette.
+
+Changing the producer staled the whole family. All 25 current `fort_structure` MASTERs — the
+accepted 1832 lighthouse and the Lake House construction shell included — were genuinely rebuilt
+on the pinned Ubuntu 26.04 / Blender 4.5.3 in two bounded native batches, and all 25 input hashes
+in `assets/manifest.json` are the regenerated ones. Exactly one master's bytes moved
+(`fort_dearborn_blockhouse__log_1816.glb`, 134,632 -> 133,092); the other 24 came back
+byte-identical and keep their bound WEB derivatives, and the blockhouse's own derivative was
+re-encoded. No foreign registry row was touched.
+
+The picture is now reachable on the building's card: `kurz_allison_1893` is cited by the record,
+and `data/structure_grades.json` carries an explicit pictured ruling saying why panel 5 is a
+reasonable whole picture of this named building. The sidecar grade therefore derives `attested`
+from the rule rather than being hand-typed, and it is NOT taken from a camera fit — the only
+camera on this panel is the T-3040 compound diagnostic, whose eye reached its imposed 100 m bound.
+
+Before and after were captured through `photo_match.mjs` from one identical camera, with only
+the blockhouse's bytes changed, in `docs/RESEARCH/second-fort-cupola-T-2388/`. The historical
+T-3040 bodies are preserved untouched. The new camera is `diagnostic_only`, so no invented
+"from this spot" is offered. Only the roof assembly is marked `fixed`. **The original T-2388
+remains OPEN and the view remains DIFFERS**: the camera is unfitted, the ranges, galleries,
+facade openings, other roof forms and chimney counts are unresolved, the compound's composition
+differs, and the other dated pictures the ticket lists have not been read at all.
+
+### T-2376 — the shoulder light's gable cap, 2026-11-04
+
+One bounded, data-only trial inside the open original. `front_gable_peak_m` on the
+Green Tree's enclosed shoulder goes 4.50 → 4.85 m, so the small front-gable light
+reads as the sharply pointed cap Andreas's engraving draws rather than the blunt,
+nearly flat one. Against the builder's unchanged 4.20 m dormer head and 0.625 m roof
+half-span that is about 25.6° → about 46.1°. 4.85 m is a reconstructed control for
+the drawn shape, not a measurement; the plate has no scale, dimension, camera or
+date, and nothing is dated by it.
+
+Built on the pinned Blender, one master stale and one rebuilt: inputs 80d47de6a302 →
+bb16568756e3, MASTER 0b53a6fe → f213818f (269,880 → 270,816 bytes), WEB 0154cfad →
+65863b3c (48,648 → 48,772 bytes). Exported-mesh comparison confines the change to the
+dormer roof and its gable-course infill — 3,318 → 3,330 triangles, two ridge vertices
+up 0.35 m, 24 cladding vertices added in the 4.307–4.581 m band, every other primitive
+byte-identical, full bounding box exactly equal. Controlled before/after at the
+unchanged camera 9439f5f7 and picture bfaa184f; the previous side-by-side is kept in
+RESEARCH/green-tree-annex-T-2376. No sky seam, hole or roof penetration. Closed
+shoulder, lower sash, upper light and the two uncovered farm wagons retained; no shed,
+posts or covered wagon returns. Every foreign registry row and producer family is
+untouched.
+
+The canonical review stays **differs**: only the sharper dormer cap is marked fixed,
+and the shoulder's own roof slope and the left group's relative proportions stay OPEN.
+Trowbridge/Gale's 1902 open bay remains explicit counterevidence with no known
+conversion date; the drawing-to-drawing upper/attic count and the camera residuals stay
+within tolerance (T-3153). The original ticket's wider coverage — Andreas 1884,
+Trowbridge/Gale 1902, CHM c1859 (unverified, link-only, no geometry) and Kurz & Allison
+1893, plus both named reproductions — is still incomplete. T-2376 stays open/partial;
+no signoff, no new photo follow-up.
+
+### T-2376 — the dormer-cap trial's proof, corrected and integrated, 2026-11-04
+
+The paragraph above is kept as written, and one of its sentences is withdrawn. "Every
+other primitive byte-identical" is too broad a claim for the rebuilt master, and a
+re-audit accessor by accessor across both masters says what is actually true. The
+master holds ten primitives. **Two** changed: `wall` (positions, normals, indices and
+`_CONFIDENCE`; 1,926 → 1,950 vertices, 960 → 972 triangles, the new vertices in the
+4.307–4.850 m band) and `roof_shingle` (positions and normals only — the four vertex
+entries carrying the two ridge corners move in y alone, 4.500 → 4.850, x and z
+bit-identical). The **other eight** (`glass`, `brick`, `trim`, `door`, `door_panel`,
+`iron`, `board_door`, `board_door_panel`) are byte-identical in geometry, normals,
+vertex colours, `_CONFIDENCE`, indices and material — **but `TEXCOORD_0` was repacked
+across all ten**, so those eight are not byte-identical as whole primitives. Those UVs
+are unused: both masters declare zero textures, zero images and no material texture
+reference, so nothing samples them and the repack moves no rendered pixel. The
+triangle counts, the 0.35 m ridge lift, the 24 added cladding vertices and the exactly
+equal bounding box all re-measure as stated; the accepted cap and the view's remaining
+`differs` verdict are unchanged, and this provenance correction is not a new ticket.
+
+Integrated onto current dev (a3a87ca) in the same PR. The only merge conflict was the
+GENERATED `data/liberties.json`, resolved by recompiling it from the merged
+`docs/LIBERTIES.md` — 992 liberties, dev's 991 plus this branch's one, none dropped —
+and both sides' LIBERTIES/STATUS text and all 1,034 manifest and web-manifest rows are
+preserved, with only `green_tree_tavern__frame_1833.glb` differing from dev. The
+hosted gate's one red on the earlier head, *Source-use backlinks match authored claims
+(T-1248)*, was that same generated-backlink count: `tools/compile_source_use.py`
+re-run through its owner takes the liberties row 991 → 992 and the check passes. No
+producer, parameter-validator, schema or recipe-scheme was edited, and no geometry was
+rebuilt for this integration: the pinned-Blender master and its WEB derivative are the
+ones that run already produced (f213818f / 65863b3c), and `validate.py --stale` is the
+gate that proves it. T-2376 stays open/partial/differs.
