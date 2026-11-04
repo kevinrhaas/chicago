@@ -40262,3 +40262,95 @@ and it remains a shape taken from a retrospective picture.
 **Ticket:** T-2383.
 **Review:** `docs/RESEARCH/photo-match/sauganash_hotel/andreas-1884-side-by-side.jpg` and its match record.
 **Recorded:** 2026-11-04 (T-2383).
+### L-cobweb-apertures-2374 — three marks on the Agency House's gable, and all of them set out by us
+**What is read:** the keyed panorama "Fort Dearborn and Chicago in 1831" (`kinzie_1857_chicago_1831_panorama`,
+the verified public-domain Wentworth 1881 reproduction crediting Wau-Bun), opened at full
+resolution on its Agency-House subject in `chicago/reference/images/chicago/chicago_fort_dearborn_1831_1.jpg`.
+Its front gable carries THREE dark marks: TWO upright ones standing on the ground line, and
+ONE small one high on the face at the head of the wall. That COUNT, and roughly where the
+three fall along the face — the lower pair in the face's left and middle with the right-hand
+stretch left blank, the upper mark a little left of the apex — is everything this picture
+gives. The face is drawn slightly oblique, which compresses its right-hand side, so even the
+arrangement is read with that caution.
+**What is reconstructed:** every coordinate. The marks are a few pixels across a thirty-pixel
+gable in a retrospective engraving whose proportions are not this model's — its gable reads
+taller than wide where this record's centre room is 5 m across and 2.6 m to the eaves — so no
+fraction of them is carried across as a measurement. The two lower apertures are set out at
+u 4.26–5.16 and 6.22–7.12 on the centre room's own front wall, both in the band 0.02–1.95 m
+this archetype already gives a log cabin's door; the upper one is a 0.70 × 0.80 m light on the
+gable the centre roof closes, at u 5.57–6.27 and z 2.74–3.54, standing clear of that roof's own
+rake. The depth and section of each recess — a sawn casing with its reveal running back to a
+dark face, and nothing behind it — are this archetype's existing opening kit, not a reading.
+**What is a design inference and not a reading:** which of the two lower marks is a way in.
+The picture does not say that either was a door. The right-hand one is built as one, with a
+threshold, because it stands where this record's previous single centre door stood, so the
+town's entrance, apron and doorway clearance keep ground they already held; the other claims a
+hole and nothing else. No glazing, closure, leaf, shutter, interior, attic room, white paint or
+historic function is claimed by any of the three, and the white of the engraving's paper is not
+evidence of paint.
+**What this replaces:** the single centred door `compound_parts` put on the centre room. The
+stated set OVERRIDES that opening rather than standing beside it, so no phantom centre door
+survives among the new marks, in the mesh or in the front-wall reading the entrance and
+signboard generators share.
+**What remains open:** the camera on this picture is UNSOLVED and is not enrolled in
+`data/reference_views/`; no match verdict is claimed and T-2374's image gate stays open. The
+compound's overall width, the wing and sub-roof silhouettes, the roof junctions and valleys,
+the text-attested partial clapboarding "part way up", and the building's finish and tone are
+all unchanged and still differ from the picture. The source is retrospective 1831 context
+printed in 1881, not proof of the building as it stood on 1835-07-01; the 1820 phase date and
+the survival inference are untouched. See L-cobweb-compound-2374 for the massing this
+stands on.
+**Recorded:** 2026-11-04 (T-2374).
+**Covers:** `cobweb_castle.log_1820.form.compound_apertures`.
+### L-second-fort-blockhouse-cupola-2388 — the cupola on the second fort's blockhouse, and the stack it replaces
+
+**Covers:** `fort_dearborn_blockhouse.log_1816.form.chimneys`.
+
+**Decision:** Build the small square cupola the fort's own pictures draw at the centre of the
+blockhouse's pyramid cap, and record the count of separately generated centre stacks at 0.
+
+**What the pictures carry, and it is one thing:** Panel 5 of the Kurz & Allison sheet of 1893,
+captioned "Fort Dearborn as rebuilt 1835", draws this blockhouse with a small square body at the
+centre of its four-sided roof under a little four-sided cap of its own; the two Wau-Bun
+reproductions of the 1831 view (`kinzie_1857_chicago_1831_panorama`) draw the same body. Two
+depictions of this fort's blockhouse agree on the feature, so its OCCURRENCE is carried at
+`inferred` in `form.cupola`. Nothing else about it is carried: these are tier-5 pictorial
+sources, form only and never a coordinate, and the 1893 sheet is a retrospective whose own key
+dates several of its subjects wrongly, so its caption is not proof that the feature stood on
+1 July 1835.
+
+**What is invented:** Every dimension of the cupola, and they live in the archetype
+(`generators/archetypes/fort_structure_params.py`), not in the record — the 1.8 m side, the
+2.1 m body height from its seat to the cap's eave, the 0.22 m cap eave, the 36 degree cap pitch,
+and the 0.12 m the body is sunk into the main roof so that it meets all four sloping planes
+instead of balancing on the apex. A printed drawing at that scale measures nothing; these are a
+defensible working size in the proportions the panel shows, and they are not a reading off the
+plate. Also invented: plain boarded sides, with no openings, no louvres, no finial and no
+gallery. The 1856 Kellogg/Blanchard print — filed, misleadingly, as
+`chicago_fort_dearborn_river_mouth_1830.jpg` — does show a LOUVRED cap and a small ambiguous
+projection beside it, but it depicts about 1836-1849 and is not backdated here; that later
+detail stays unresolved rather than built.
+
+**What a count of 0 says, and what it does not:** This record used to count one chimney,
+reconstructed, on the reasoning that "a blockhouse manned in a Chicago winter is heated".
+`fort_structure._chimneys` stands a single stack at exactly the centre of the plan, which is
+where the cupola stands, so the two could not both be built and one of them is pictured. THIS IS
+A CHOICE ABOUT WHAT TO DEPICT. It is not a finding that the blockhouse was unheated, that it had
+no flue, or that nothing else ever stood on that roof: pictorial silence at tier 5 is not
+testimony, and the Kellogg/Blanchard print's ambiguous later projection is live evidence that
+something else may have. Nor has the stack been quietly moved somewhere else to keep the count:
+no source reached puts one anywhere, so the count is 0 and the admission is here.
+
+**What is not changed:** The surveyed seat and 8 degree rotation, the inferred 14.52 x 9.80 m
+footprint and its plus-or-minus 25 per cent ambiguity, the 5.2 m reconstructed walls, the two
+storeys, the 0.45 m jetty, the loopholes, the doors, the main pyramid and its 30 degree pitch,
+the wall, foundation and roof palettes, and every neighbouring record. No other roof in the fort
+is touched, and the cupola control is off by default on every other record of this archetype.
+
+**How to resolve:** a contemporary description or a plan of the 1816 blockhouse's roof, or a
+picture of it drawn from life before 1836, would settle the cupola's size and whether a flue
+stood beside it.
+
+**Ticket:** T-2388 (partial — the ticket stays open on the rest of the fort).
+**Review:** `docs/RESEARCH/second-fort-cupola-T-2388/second-fort-panel-5-compound.match.json`.
+**Recorded:** 2026-11-03.

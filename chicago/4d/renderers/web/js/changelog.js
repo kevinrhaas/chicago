@@ -1,4 +1,27 @@
 export const CHANGELOG = [ // newest first
+  { v: 2643, ts: '2026-11-04T05:39:21.042Z', date: 'Nov 3, 2026, 11:39 PM CT', title: 'The fort\'s blockhouse gets the cupola its pictures draw', kind: 'change',
+    items: [
+      'Panel 5 of the Kurz & Allison sheet — "Fort Dearborn as rebuilt 1835" — draws a small square cupola at the centre of the blockhouse\'s four-sided roof, under a little cap of its own. Two reproductions of the 1831 Wau-Bun view draw the same thing. It is now built.',
+      'The chimney that used to stand on that roof was invented, unattested, and standing in exactly the cupola\'s place. Its count is now 0. That is a choice about what to depict, not a finding that the blockhouse was unheated — the record says so in as many words.',
+      'The cupola\'s occurrence is read off the pictures; every one of its dimensions is ours, and docs/LIBERTIES.md says which. The blockhouse\'s body, jetty, loopholes, walls and surveyed position are untouched.',
+      'The building\'s Images tab now carries the picture it was read from, so its grade moves from "known from maps or written records" to pictured.',
+      'The rest of the fort still differs from its pictures: the ranges, the galleries, the openings and the other roofs are all still open.',
+    ] },
+  { v: 2642, ts: '2026-11-04T05:14:19.653Z', date: 'Nov 3, 2026, 11:14 PM CT', title: 'The first fort\'s parade ground is accounted for', kind: 'fix',
+    items: [
+      'The 1812 walk recognizes the parade ground\'s existing surface without a false missing-building warning.',
+      'Buildings that fail to load still produce a warning.',
+    ] },
+  { v: 2641, ts: '2026-11-04T04:43:37.564Z', date: 'Nov 3, 2026, 10:43 PM CT', title: 'The Agency House\'s front gets the openings its picture draws', kind: 'improve',
+    items: [
+      'Cobweb Castle\'s centre gable now carries two upright apertures standing on the ground and one small light above them, which is the count the 1831 Wau-Bun panorama draws. The single centred door it had before is gone.',
+      'The right-hand aperture is the way in, so the worn path to the door shifts with it. Which of the two was the door is our choice, not the picture\'s.',
+      'Everything else about the house is unchanged: its five rooms, roofs, chimneys, size and placement, and its bare hewn-log finish. The picture and the model still differ in all of those, and its match is not claimed.',
+    ] },
+  { v: 2640, ts: '2026-11-04T04:13:37.317Z', date: 'Nov 3, 2026, 10:13 PM CT', title: 'The Lake House\'s later address, checked', kind: 'change',
+    items: [
+      'Its Record now cites Fergus\'s 1876 recollection of an 1839 address at Rush and North Water, alongside the conflicting Michigan Street account. The July 1835 building site remains uncertain.',
+    ] },
   { v: 2639, ts: '2026-11-04T03:44:50.240Z', date: 'Nov 3, 2026, 9:44 PM CT', title: '1904 sends a third fewer draws, so walking and flying run smoother', kind: 'improvement',
     items: [
       'Street trees, front-yard trees and the 1835 and 1812 woods now draw every copy of a tree shape at once, instead of one tree at a time.',

@@ -25776,8 +25776,121 @@ This source packet is not a passed build or release: current frame-family native
 
 The keeper-house increment now integrates dev caef594d while retaining dev’s current jail-core/outbuilding outputs and the genuine native keeper pair (MASTER 431dc44f, WEB 15eb2fba). All 272 frame-dwelling resolved input digests and 544 actual outputs still match the saved native build; all 243 current outbuilding inputs and native pairs remain exact. Current liberties, scene, source-use, derivative and validation owners pass. The four earlier native source parts passed; this checkpoint reuses that qualified unchanged geometry scope and verifies the incoming merge with its owners.
 
-This is saved progress, not a completed image or runtime gate. Both compound match records are explicitly unreviewed pending a fresh render with the newer core and the keeper together. The subsequent dev 19910ff integration is also saved, preserving the Sauganash cornice producer and all its native rows; its current source owners and exact Jail/outbuilding input-output audits pass. Dev 5673cb9’s bounded Lake House source-reading increment is now also integrated: current1835 scene/source-use owners and the exact disjoint metadata audit pass, and Lake/Jail/outbuilding native inputs and outputs remain unchanged. Actual published Jail desktop/phone checks, native Stage 3 at both viewports and the final eight-part hosted gate remain pending. The earlier desktop background task and mobile five failures are not green release checks. Original T-2380 remains partial/open.
+This is saved progress, not a completed image or runtime gate. Both compound match records are explicitly unreviewed pending a fresh render with the newer core and the keeper together. The subsequent dev 19910ff integration is also saved, preserving the Sauganash cornice producer and all its native rows; its current source owners and exact Jail/outbuilding input-output audits pass. Dev 5673cb9’s bounded Lake House source-reading increment is now also integrated: current1835 scene/source-use owners and the exact disjoint metadata audit pass, and Lake/Jail/outbuilding native inputs and outputs remain unchanged. Actual published Jail keeper body checks now pass on desktop and phone (396.35s/222.00s), including exact native GPU picks and a short exterior on-foot approach. Desktop cards pass (535.62s); phone cards pass strict data/error assertions with separate direct visual review (350.51s), not an automated visibility claim. Both native Stage 3 runs pass107/0 (166.28s/342.59s), and the eight-part gate passed on tested3f3e0bf. The current c9fe751 integration preserves the independently qualified parade, Cobweb and cupola increments; all five fresh source owners pass, all272 dwelling recipes/544 actual outputs and243 outbuilding pairs remain exact, and the separate25-member fort/lighthouse/Lake recipe audit passes. Runtime is explicitly carried by unchanged Jail consumer bindings and independently tested shared parade code; it was not rerun on this later integration. The new merged head still requires its own eight-part gate. Actual body/credit screenshots and cross-version source/publication guards are saved in evidence commits9f8a5cc and96e2af2. The Gale1902 compound render is genuine and remains unreviewed/different; the second optional external context render failed with a missing fixture photo path and was stopped cleanly. Generic roof-shingled keeper gable, compound camera/proportion differences, some context occlusion and collapsed Record account controls remain explicit limitations. No interior traversal, complete narrative visibility or full historical match is claimed. The earlier desktop background task and mobile five failures are not green release checks. Original T-2380 remains partial/open.
 
 ### Lake House source reading — 2026-11-04
 
 The Record now distinguishes a directly checked line in Fergus's 1876 recollection of the 1839 Rush/North Water address from Andreas's differing street account. The July 1835 construction stage, position and dimensions remain uncertain. This increment changes source and Record metadata; it claims no new geometry or image-match completion.
+## 2026-11-04 — T-2374: the Agency House's front aperture count
+
+Cobweb Castle's centre room now states its own front openings. The archetype's
+compound path offered ONE opening per room, so the front the Wau-Bun panorama draws
+— two upright dark marks standing on the ground and one small mark above them — was
+not sayable in data at all; every data-only trial was correctly refused by the
+archetype's own validation. `compound_apertures` is the opt-in that says it: an
+explicit set on one room's outward face, overriding that room's singular
+`front_opening`, with its own bounds (inside the wall, under the room's own roof
+rake, clear of each other, at most one stated way in, refused on the bounded elbow
+and absent by default everywhere else).
+
+Built and qualified on the pinned Ubuntu 26.04 / Blender 4.5.3 binary in four bounded
+batches: all 82 log_dwelling masters regenerated, and **81 came out byte-identical**,
+which is the measurement that the new option is genuinely off for every other record.
+Cobweb's MASTER moved from `af1f33c0f5d75fc8c40e6cbb589adfd7d29d551572c2775e236bb260f6ee561f`
+(139,824 B) to `4f42207be5fcb2391fda58672ce8442b02aba9510f3096db8c2934b695fe7bea`
+(139,248 B), and its WEB derivative from `49cfcb869c0a39bd936c2c22428179538c37c5a380b9f27c53fab019719b8dcd`
+(31,804 B) to `1699d7aa1c4b0abb6229bd4cbfaed95013f3ede9323f4945396583fd14b26e23`
+(30,304 B). No other family, version or foreign registry row is touched. The town's
+single grounded entrance on that front stays one entrance; it moves 0.17 m and
+narrows to 0.90 m, which is the apron re-deriving onto the aperture that now stands
+where the old centre door did.
+
+**What is read and what is ours.** The picture gives the COUNT and roughly the
+arrangement along the face, and nothing else: every coordinate is set out from this
+record's own 5 m centre wall and its own rake, and the entry role on the right-hand
+mark is a design inference, not a reading. No glazing, closure, interior, attic room,
+white paint or historic function is claimed; the engraving's white paper is not
+evidence of paint. `L-cobweb-apertures-2374` records all of it.
+
+**Still open, and this is not a match.** The camera on this panorama remains UNSOLVED
+and is not enrolled in `data/reference_views/`; no verdict is claimed and T-2374's
+image gate stays open. The compound's overall width, the wing and sub-roof
+silhouettes, the roof junctions and valleys, the text-attested partial clapboarding
+"part way up", and the finish and tone all still differ from the picture. The source
+is retrospective 1831 context printed in 1881 and is not proof of the building as it
+stood on 1835-07-01.
+
+**The first cut of this shipped the dark faces BEHIND the logs, and an independent
+fixed-camera review caught it before the merge.** `_compound_aperture` passed the bare
+`APERTURE_BACK_M` (0.004 m) to `openings.face`, which measures out from the wall's
+PLANE, while `openings.surround` reads its `back` from the wall's SKIN and ran the
+reveal to 0.026 m. The log courses stand out 0.022 m. So both grounded apertures were
+crossed by horizontal log courses and read as striped ladders rather than holes —
+while every numeric check in `tools/test_log_compound_apertures.py`, both smoke legs
+and the application review passed, because the fault lived in a depth no reading looks
+at. The repair passes `w.skin + APERTURE_BACK_M`, which is the convention the same
+file's blind doorway already follows and what the constant's own comment describes.
+The test now pins that invariant by reading the builder's source, and reverting the one
+expression makes it fail.
+
+The repair was rebuilt the same way — pinned sha-verified Blender 4.5.3 on Ubuntu
+26.04.1, all 82 log_dwelling masters in four bounded batches, 81 byte-identical again —
+taking Cobweb's MASTER from `4f42207be5fcb2391fda58672ce8442b02aba9510f3096db8c2934b695fe7bea`
+to `1ddf548d9a378167163d6db45e5d89e1b4c544ea176355eb7061dd99d6a1ee82` (139,248 B both)
+and its WEB derivative from `1699d7aa1c4b0abb6229bd4cbfaed95013f3ede9323f4945396583fd14b26e23`
+to `99997b5f3935ceceddb072286387859a5d9a8dd3dfa112b64978d1213e20890e` (30,304 B both).
+The controlled before/after was re-run at the same private camera on the same source,
+with only the GLB changed; rendering the two earlier meshes reproduced the review's own
+images byte-for-byte, which is what makes the third render comparable. Both lower faces
+now read as uninterrupted dark recesses and the upper light, the casing, the wings'
+windows, the stacks and the massing are unchanged. That camera is STILL UNSOLVED,
+still unenrolled and still private: no RMS, no grade, no verdict, no completion.
+
+
+### First Fort parade presence — T-3041, 2026-11-04
+The first fort's loaded earth-only parade asset is supplied by its named trodden-ground owner, so it is now listed separately from direct building batches. No bounding box or standing building is invented. Failed, empty or malformed assets remain missing, and the second fort's sundial still has to draw. The ground layer already drew independently; this corrects the false missing-host report, not an absent ground surface. Actual createBuildings regression checks pass; the earlier 1812 desktop runtime failed its zero-console-error check and remains preserved as a failure. Full source and both-viewport runtime qualification are required before this repair merges; actual final receipts are kept with the PR. The original first-fort picture acceptance remains open.
+### T-2388 (partial) — the second fort's blockhouse gets its pictured cupola, 2026-11-03
+
+Panel 5 of the Kurz & Allison sheet, captioned "Fort Dearborn as rebuilt 1835", draws a small
+square cupola at the centre of this blockhouse's four-sided cap, under a little cap of its own,
+and draws no stack anywhere on that roof; the two Wau-Bun reproductions of the 1831 view draw the
+same body. The cupola is now built. The invented, unattested centre chimney that stood in exactly
+its place is recorded at a count of 0 — a choice about what to depict, stated as one, and NOT a
+finding that the blockhouse was unheated or had no flue. The 1856 Kellogg/Blanchard print (filed
+misleadingly as `chicago_fort_dearborn_river_mouth_1830.jpg`) depicts about 1836-1849 and shows a
+louvred cap and a small ambiguous projection; that later detail is left unresolved, not
+backdated.
+
+The control is a keyword-only, default-off `cupola` on `fort_structure`, consumed by a local
+`_cupola` helper. It is not the lighthouse's `lantern` (only `_tower` reads that, so setting it
+on a blockhouse adds nothing), it does not route this building through the tower builder, and it
+changes no shared geometry. Its occurrence is `inferred` from the identified pictures; every
+dimension is reconstructed in the archetype and admitted in
+`docs/LIBERTIES.md` L-second-fort-blockhouse-cupola-2388. The body is sunk 0.12 m below the
+lowest the main roof reaches under its own footprint, so it meets all four sloping planes rather
+than balancing on the apex — no floating corner, no strip of sky, nowhere to hide a stack.
+Everything below the roof is untouched: surveyed seat and 8 degree rotation, the inferred
+14.52 x 9.80 m footprint and its ambiguity, 5.2 m walls, two storeys, 0.45 m jetty, loopholes,
+doors and every palette.
+
+Changing the producer staled the whole family. All 25 current `fort_structure` MASTERs — the
+accepted 1832 lighthouse and the Lake House construction shell included — were genuinely rebuilt
+on the pinned Ubuntu 26.04 / Blender 4.5.3 in two bounded native batches, and all 25 input hashes
+in `assets/manifest.json` are the regenerated ones. Exactly one master's bytes moved
+(`fort_dearborn_blockhouse__log_1816.glb`, 134,632 -> 133,092); the other 24 came back
+byte-identical and keep their bound WEB derivatives, and the blockhouse's own derivative was
+re-encoded. No foreign registry row was touched.
+
+The picture is now reachable on the building's card: `kurz_allison_1893` is cited by the record,
+and `data/structure_grades.json` carries an explicit pictured ruling saying why panel 5 is a
+reasonable whole picture of this named building. The sidecar grade therefore derives `attested`
+from the rule rather than being hand-typed, and it is NOT taken from a camera fit — the only
+camera on this panel is the T-3040 compound diagnostic, whose eye reached its imposed 100 m bound.
+
+Before and after were captured through `photo_match.mjs` from one identical camera, with only
+the blockhouse's bytes changed, in `docs/RESEARCH/second-fort-cupola-T-2388/`. The historical
+T-3040 bodies are preserved untouched. The new camera is `diagnostic_only`, so no invented
+"from this spot" is offered. Only the roof assembly is marked `fixed`. **The original T-2388
+remains OPEN and the view remains DIFFERS**: the camera is unfitted, the ranges, galleries,
+facade openings, other roof forms and chimney counts are unresolved, the compound's composition
+differs, and the other dated pictures the ticket lists have not been read at all.
