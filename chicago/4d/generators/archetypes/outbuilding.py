@@ -366,6 +366,15 @@ def _top_z(p: OutbuildingParams, side: str, u: float) -> float:
     """
     wall_z = float(p.wall_height_m)
     rise = p.roof_rise_m
+    if p.roof_type == "pyramid":
+        # LEVEL ALL ROUND, and that is the whole difference a pyramid makes to the
+        # walls. Four hips rise off the wall head towards one point over the centre
+        # of the plan, so no elevation is carried above the plate — there is no
+        # gable end to board and no trapezoid side. `_top_break` already returns
+        # None for anything that is not a gable, so every polygon and every course
+        # that reads this profile gets two points and a straight line between them,
+        # which is what they get on the eave wall of a gable today (T-3041).
+        return wall_z
     if p.roof_type == "gable":
         if p.ridge_along_x:
             if side in ("front", "back"):
@@ -773,6 +782,10 @@ def _roof(b: MeshBuilder, p: OutbuildingParams, conf: float) -> float:
     oh = eave_overhang_m(p.width_m, p.depth_m)
     w, d = p.width_m, p.depth_m
 
+    if p.roof_type == "pyramid":
+        _pyramid(b, p, oh, conf)
+        return p.apex_z_m
+
     # `along` is the axis the roof slopes down; `z_at` is the roof's top surface at a
     # given coordinate on it, and it is the SAME line the wall tops follow, extended
     # past the building by the overhang. Building the planes out of one function
@@ -813,6 +826,132 @@ def _roof(b: MeshBuilder, p: OutbuildingParams, conf: float) -> float:
         _roof_plane(b, p, pts, conf, f"{p.roof_type[0]}{k}",
                     ridge_edge=(p.roof_type == "gable"))
     return p.apex_z_m
+
+
+def _pyramid(b: MeshBuilder, p: OutbuildingParams, oh: float, conf: float) -> None:
+    """The four-sided cap: four triangles meeting at one point over the plan's centre.
+
+    OPT-IN, and drawn for one record — `first_fort_dearborn_small_house_ne`, whose
+    roof the owner adopted on 2026-11-03 from the Currey 1912 bird's-eye of the first
+    Fort Dearborn (T-3041). The drawing gives the TOPOLOGY and nothing else: it is a
+    1912 retrospective reconstruction, not a measured sheet, so the pitch, the
+    footprint and the wall height stay the record's own reconstructed numbers and no
+    dimension here is read off the plate.
+
+    THE EAVE IS THE FOOTPRINT SCALED ABOUT ITS CENTRE, not grown by a constant
+    margin, and that is the one real decision in this function. This archetype's
+    standing promise is that `_top_z` and the roof agree EXACTLY at every point of
+    every wall — the module docstring calls the alternative "a strip of daylight" —
+    and on a rectangle the two rules part company:
+
+    - grow the plan by `oh` on all four sides (what `fort_structure._hip_roof` does,
+      correctly, over the square plans it serves) and the four planes still meet, but
+      only the two faces across the SHORT span pass through the wall head. The other
+      two are shallower to reach the same apex, so they cross the long walls BELOW
+      the plate — 23 mm below, on the 3.72 x 3.05 m plan this was written for. Small,
+      and still the wall standing through its own roof;
+    - scale the plan about its centre instead, so the eave rectangle is similar to
+      the footprint, and every face passes through the wall head exactly. The price
+      is that the overhang is no longer one number: it is `oh` across the short span
+      and `oh * long / short` across the long one, 0.258 m where the other is 0.212 m
+      on this building. A deeper eave on the two ends of a near-square cap is not a
+      claim about anything, and the exact meeting is.
+
+    So: the scale is set by the SHORT span, which is the span `roof_run_m` reads and
+    the one the declared pitch belongs to; the eave drops below the wall head by the
+    same `oh * tan(pitch)` the gable's overhang falls by, continuing the slope rather
+    than being pinned at the eave, exactly as `_roof` says. The hips then run straight
+    from the apex to the four eave corners and the surface is closed.
+    """
+    w, d = p.width_m, p.depth_m
+    run = p.roof_run_m                      # half the SHORT span; the pitch's own run
+    rise = p.roof_rise_m
+    wall_z = float(p.wall_height_m)
+    # tan(pitch), taken off the two numbers the params module already derives rather
+    # than re-entering the angle, so the roof cannot disagree with `apex_z_m`.
+    slope = rise / run if run > 1e-9 else 0.0
+    k = (run + oh) / run if run > 1e-9 else 1.0
+    ox, oy = (w / 2.0) * (k - 1.0), (d / 2.0) * (k - 1.0)
+    eave_z = wall_z - oh * slope
+    apex = (w / 2.0, d / 2.0, p.apex_z_m)
+
+    corners = [(-ox, -oy), (w + ox, -oy), (w + ox, d + oy), (-ox, d + oy)]
+    for i in range(4):
+        (ax, ay), (bx, by) = corners[i], corners[(i + 1) % 4]
+        _pyramid_face(b, p, (ax, ay, eave_z), (bx, by, eave_z), apex, conf, f"p{i}")
+
+
+def _pyramid_face(b: MeshBuilder, p: OutbuildingParams, e0: tuple, e1: tuple,
+                  apex: tuple, conf: float, tag: str) -> None:
+    """One triangular face of the cap: a plate, then boards laid up it to the hips.
+
+    `_roof_plane` cannot do this. It sorts the four corners of a quad into two low and
+    two high and lays boards between the two down-slope edges, which on a triangle
+    leaves one point in the `high` list and walks off the end of it. The covering here
+    is the same board, jittered by the same hash off the same seeds, cut to a
+    TRIANGLE: each board runs up the slope from the eave and is stopped where it meets
+    a hip, which is how a board roof is actually laid on a hipped end — the bevel at
+    the hip is the cut, not a gap. The boards therefore tile the face exactly, with no
+    pile of them overlapping at the apex (what converging triangles would give) and no
+    wedge of bare plate left beside each hip (what a rectangular strip would give).
+
+    The one place that needs care is the board the apex stands over: a straight top
+    edge between two points on different hips would cut the point off. That board is
+    emitted as two quads meeting under the apex, which is one board to look at.
+    """
+    ex = [e1[i] - e0[i] for i in range(3)]
+    span = math.sqrt(sum(c * c for c in ex))
+    if span < 1e-6:
+        return
+    along = [c / span for c in ex]
+    av = [apex[i] - e0[i] for i in range(3)]
+    m = sum(av[i] * along[i] for i in range(3))     # the apex's foot, along the eave
+    perp = [av[i] - m * along[i] for i in range(3)]
+    h = math.sqrt(sum(c * c for c in perp))        # the face's true slope length
+    if h < 1e-6 or m <= 1e-6 or span - m <= 1e-6:
+        return
+    up = [c / h for c in perp]
+
+    def at(x: float, y: float) -> list:
+        return [e0[i] + x * along[i] + y * up[i] for i in range(3)]
+
+    def hip_y(x: float) -> float:
+        """How far up the slope the face still reaches at `x` along the eave: the
+        lower of the two hips, which below the apex's foot is the near one."""
+        return h * (x / m) if x <= m else h * ((span - x) / (span - m))
+
+    # The plate. Its two hip edges are shared with the neighbouring faces, so their
+    # edge returns would be a pair of triangles buried inside the hip — the same
+    # argument `_roof_plane` makes about a gable's ridge, twice over. The eave edge
+    # keeps its return: that one is the fascia, and it is visible.
+    tri = _ccw_from_above([list(e0), list(e1), list(apex)])
+    hi = max(q[2] for q in tri)
+    skip = tuple(i for i in range(3)
+                 if abs(tri[i][2] - hi) < 1e-6 or abs(tri[(i + 1) % 3][2] - hi) < 1e-6)
+    _slab(b, tri, ROOF_THK_M, conf, M_ROOF, skip=skip)
+
+    salt = sum(ord(ch) for ch in tag) * 977
+    f, i = 0.0, 0
+    while f < 1.0 - 1e-4:
+        s = _seed(p, "back", i) + salt
+        wfrac = min(_lerp_jit(s, *ROOF_BOARD_W_M) / span, 1.0 - f)
+        gapf = (0.010 + 0.012 * _jit(s + 1)) / span
+        lip = ROOF_BOARD_LIP_M * _lerp_jit(s + 2, 0.6, 1.5)
+        f1 = min(f + wfrac, 1.0)
+        # Each board runs a little further past the eave than its neighbour, for the
+        # reason `_roof_plane` gives: a ragged eave line is the clearest thing in the
+        # silhouette that says this building was not finished by a joiner.
+        ext = ROOF_BOARD_OVERSHOOT_M * _jit(s + 4)
+        x0, x1 = f * span, f1 * span
+        cuts = [x0, m, x1] if x0 < m < x1 else [x0, x1]
+        for xa, xb in zip(cuts, cuts[1:]):
+            ya, yb = hip_y(xa), hip_y(xb)
+            if max(ya, yb) < 1e-4:
+                continue
+            quad = [at(xa, -ext), at(xb, -ext), at(xb, yb), at(xa, ya)]
+            _slab(b, [(q[0], q[1], q[2] + lip) for q in quad], lip, conf, M_ROOF)
+        f = f1 + gapf
+        i += 1
 
 
 def _roof_plane(b: MeshBuilder, p: OutbuildingParams, quad: list, conf: float,
