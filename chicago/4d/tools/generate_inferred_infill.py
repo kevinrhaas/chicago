@@ -610,6 +610,44 @@ def make_record(seq: int, family: str, e: float, n: float, row: dict,
     }
 
 
+# THE ALLEY HOLD — T-3360. The owner, 2026-11-03: buildings "placed in the middle of the
+# walkways or alleys". The `block_interior` row's northing (-194.0) lies on the mid-block
+# alley the plat model cut through these blocks after the recipe was written (T-0380,
+# thompson_lots.json `alley_local_enu_m`), and twelve of its roofs stood 0.46 to 6.45 m
+# inside the 18 ft strip, so the alley lane was cut short at every one of them and
+# tools/check_structure_clearance.py now refuses it. Each is moved square to its alley,
+# away from the centreline, by the least distance that leaves its alley wall 0.30 m clear
+# of the alley line. Frozen constants, as every hold in this project is: a seat that moves
+# when an unrelated gate changes is not reproducible. Nothing else is re-dealt.
+ALLEY_ADJUSTMENTS = {
+    "recon_1835_south_d1_032": (-0.02, -2.19),   # blk_lake_clark's alley, 1.89 m in
+    "recon_1835_south_d1_033": (-0.03, -3.47),   # blk_lake_dearborn's alley, 3.17 m in
+    "recon_1835_south_d3_027": (-0.01, -0.76),   # blk_lake_lasalle's alley, 0.46 m in
+    "recon_1835_south_d4_025": (-0.01, -0.87),   # blk_lake_wells's alley, 0.57 m in
+    "recon_1835_south_d4_026": (-0.01, -1.16),   # blk_lake_wells's alley, 0.86 m in
+    "recon_1835_south_d4_030": (-0.02, -2.85),   # blk_lake_clark's alley, 2.55 m in
+    "recon_1835_south_d5_023": (-0.01, -1.63),   # blk_lake_franklin's alley, 1.33 m in
+    "recon_1835_south_d5_028": (-0.02, -2.37),   # blk_lake_lasalle's alley, 2.07 m in
+    "recon_1835_south_d5_034": (-0.05, -6.75),   # blk_lake_dearborn's alley, 6.45 m in
+    "recon_1835_south_d6_031": (-0.04, -5.00),   # blk_lake_clark's alley, 4.70 m in
+    "recon_1835_south_d7_035": (-0.04, -5.14),   # blk_lake_dearborn's alley, 4.84 m in
+    "recon_1835_south_h1_029": (-0.05, -5.58),   # blk_lake_lasalle's alley, 5.28 m in
+}
+
+
+def hold_out_of_alleys(records: list[dict], datum: dict) -> None:
+    for rec in records:
+        de, dn = ALLEY_ADJUSTMENTS.get(rec["id"], (0.0, 0.0))
+        if not (de or dn):
+            continue
+        pos = rec["phases"][0]["position"]
+        pos["utm_e"] = round(pos["utm_e"] + de, 3)
+        pos["utm_n"] = round(pos["utm_n"] + dn, 3)
+        pos["note"] += (f" Moved {math.hypot(de, dn):.2f} m square to its block's platted "
+                        "alley, which the recipe row stood inside, so the alley runs clear "
+                        "(T-3360).")
+
+
 def world_polygon(record: dict, datum: dict) -> list[tuple[float, float]]:
     """A record's footprint in local ENU metres, rotated as it is placed."""
     phase = record["phases"][0]
@@ -894,6 +932,7 @@ def records_from_inputs() -> list[dict]:
                 record["_frontage"] = frontage
             records.append(record)
     place_on_frontage(records, parcel, datum)
+    hold_out_of_alleys(records, datum)
     deal_siding(records)
     validate_programme(inventory, parcel, records)
     check_frontage(records, parcel, datum)

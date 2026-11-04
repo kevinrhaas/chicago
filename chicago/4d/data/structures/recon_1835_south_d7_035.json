@@ -12,12 +12,12 @@
         "note": "This is an anonymous count-unit created to begin the July 1835 aggregate roof target. No evidence establishes that this particular building existed."
       },
       "position": {
-        "utm_e": 447852.65,
-        "utm_n": 4637201.971,
+        "utm_e": 447852.61,
+        "utm_n": 4637196.831,
         "rotation_deg": 1.02,
         "symbolic_location": "Anonymous reconstructed roof in the South Division block between Dearborn and State, south of Lake Street",
         "confidence": "reconstructed",
-        "note": "Interpretive lot placement inside a measured street grid. It preserves mixed-block spacing and open lots but is not a recovered parcel position. The whole footprint - not its centre - is tested against the platted street corridors of the K7 block grid, so no invented building of this parcel stands in the roadway; clearing the roadway is not the same as standing on a recovered lot.",
+        "note": "Interpretive lot placement inside a measured street grid. It preserves mixed-block spacing and open lots but is not a recovered parcel position. The whole footprint - not its centre - is tested against the platted street corridors of the K7 block grid, so no invented building of this parcel stands in the roadway; clearing the roadway is not the same as standing on a recovered lot. Moved 5.14 m square to its block's platted alley, which the recipe row stood inside, so the alley runs clear (T-3360).",
         "derivation": {
           "method": "not_derivable",
           "reason": "No parcel-by-parcel July 1835 roof register survives in the supplied evidence."

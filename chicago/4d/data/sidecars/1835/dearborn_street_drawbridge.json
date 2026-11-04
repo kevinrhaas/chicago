@@ -62,7 +62,7 @@
         ],
         [
           38.165,
-          3.42
+          2.22
         ],
         [
           47.309,
@@ -214,20 +214,17 @@
       "sources": [
         "andreas_1884_dearborn_drawbridge_plate"
       ],
-      "note": "THE DRAW BEARS ON THE CRIBS. The retrospective Andreas 1884 p. 631 plate shows a crib beneath each frame/draw-end assembly. Align the nearest existing surviving approach support on each side with the existing text-derived draw end. The current stations move inward 2.081 m, from 26.94/49.39 m to 29.021/47.309 m along the unchanged 76.33 m local span; these numbers are model arithmetic, not dimensions measured from the engraving or a geographic placement. The 12 surviving support stations remain reconstructed. The two selected frame-bearing crib platforms and the general approach bents are separately declared reconstructions. The approaches retain their previous height; the separately declared closed-draw profile raises only the centre. This finite correction does not settle the central rise, gallows proportions/mechanism, approach trestle or provisional camera, and original T-2375 remains open/differs. CURRENT PLATFORM CORRECTION: the two selected bearing foundations are open vertical-pile/boarded-cap reconstructions, replacing the rejected solid-crib visual trial."
+      "note": "THE DRAW BEARS ON THE CRIBS. The retrospective Andreas 1884 p. 631 plate shows a crib beneath each frame/draw-end assembly. Align the nearest existing surviving approach support on each side with the existing text-derived draw end. The current stations move inward 2.081 m, from 26.94/49.39 m to 29.021/47.309 m along the unchanged 76.33 m local span; these numbers are model arithmetic, not dimensions measured from the engraving or a geographic placement. The 12 surviving support stations remain reconstructed. The two selected frame-bearing crib platforms and the general approach bents are separately declared reconstructions. The approaches retain their previous height; the separately declared closed-draw profile raises only the centre. This finite correction does not settle the central rise, gallows proportions/mechanism, approach trestle or provisional camera, and original T-2375 remains open/differs. CURRENT PLATFORM CORRECTION: the two selected bearing foundations are open vertical-pile/boarded-cap reconstructions, replacing the rejected solid-crib visual trial. CURRENT PROFILE — T-3361: the closed draw is now level (form.draw_profile); the bearing positions are unchanged."
     },
     "draw_profile": {
-      "value": "peaked",
-      "confidence": "inferred",
-      "sources": [
-        "andreas_1884_dearborn_drawbridge_plate"
-      ],
-      "note": "The retrospective Andreas 1884 p. 631 plate shows a central rise in the closed draw and boarded parapet. This supports qualitative form, not a surveyed profile, a geographic coordinate or an attested operating mechanism. The exact rise and folded timber joints are separately reconstructed. The same native pure profile drives the mesh and nominal walk surface."
+      "value": "flat",
+      "confidence": "reconstructed",
+      "note": "OWNER RULING — T-3361, 2026-11-03. The owner, on the closed draw rising to a ridge at mid-river: “when the bridge was down did it really have a peak in the center like this, it seems very odd to me that would be the case”. Withdrawn and laid level. The rise rests on one composition only: Braunhold’s plate in Andreas 1884 p. 631 and the Baker-Co engraving (credited to the Chicago Tribune, 15 February 1880, original unverified), which share their schooner, lighthouse and viewpoint and so are one composition drawn twice, not two witnesses — both made more than forty years after the bridge was chopped up in 1839 by artists who never saw it. No text gives a rise: Andreas has a draw ‘hoisted’ by ‘gallows’ frames, Moses and Kirkland 1895 p. 95 ‘a double draw’, and neither says the leaves stood above the approaches when down. Against it is the bridge’s use: it carried the town’s main street and its teams, and 1.2 m over a 9.14 m leaf is a 1-in-7.6 grade each way with the leaves’ joint at its crest. A hinged leaf lowered onto its bearing lies at the bearing’s height, and the drawings’ rise reads as the engraver’s or as leaves caught part-way up. So the closed draw is laid level with the approaches. This departs from the pictures on purpose and both match records carry it as an `owner ruling` difference. The earlier reading is kept below as history. SUPERSEDED (T-2375, 2026-10-29): The retrospective Andreas 1884 p. 631 plate shows a central rise in the closed draw and boarded parapet. This supports qualitative form, not a surveyed profile, a geographic coordinate or an attested operating mechanism. The exact rise and folded timber joints are separately reconstructed. The same native pure profile drives the mesh and nominal walk surface."
     },
     "draw_rise_m": {
-      "value": 1.2,
+      "value": 0.0,
       "confidence": "reconstructed",
-      "note": "A reconstructed 1.2 m rise at the closed-draw centre, tapering to zero at the existing draw endpoints. It is a visual trial bounded by the pictured rise, not a metric camera measurement: the existing provisional camera reaches a principal-point bound. Original whole-picture acceptance remains open. Preserve the 18.288 m draw, geographic placement, flat approaches and vertical gallows."
+      "note": "No rise: the lowered draw is level with the approaches (owner ruling, T-3361, 2026-11-03; argued on form.draw_profile). SUPERSEDED (T-2375): A reconstructed 1.2 m rise at the closed-draw centre, tapering to zero at the existing draw endpoints. It is a visual trial bounded by the pictured rise, not a metric camera measurement: the existing provisional camera reaches a principal-point bound. Original whole-picture acceptance remains open. Preserve the 18.288 m draw, geographic placement, flat approaches and vertical gallows."
     },
     "gallows_shore_attach_m": {
       "value": 5.2,

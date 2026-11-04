@@ -12,12 +12,12 @@
         "note": "Anonymous count-unit toward the July 1835 programme. No evidence establishes that this particular building existed."
       },
       "position": {
-        "utm_e": 446852.823,
-        "utm_n": 4637123.153,
+        "utm_e": 446857.763,
+        "utm_n": 4637123.333,
         "rotation_deg": 90.0,
         "symbolic_location": "Anonymous reconstructed roof on the Canal and Randolph teamster approach",
         "confidence": "reconstructed",
-        "note": "Interpretive placement within the reviewed West Division cluster w2_canal_randolph_teamster. The recipe coordinate is a production-layout control, not a recovered lot.",
+        "note": "Interpretive placement within the reviewed West Division cluster w2_canal_randolph_teamster. The recipe coordinate is a production-layout control, not a recovered lot. Moved 4.9 m square to its block's platted alley, which the recipe coordinate stood inside, so the alley runs clear (T-3360); also well inside the recipe's ±20 m.",
         "derivation": {
           "method": "not_derivable",
           "reason": "No parcel-by-parcel July 1835 West Division roof register survives in the supplied evidence."
