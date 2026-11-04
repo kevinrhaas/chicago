@@ -26012,3 +26012,12 @@ producer, parameter-validator, schema or recipe-scheme was edited, and no geomet
 rebuilt for this integration: the pinned-Blender master and its WEB derivative are the
 ones that run already produced (f213818f / 65863b3c), and `validate.py --stale` is the
 gate that proves it. T-2376 stays open/partial/differs.
+
+
+## Driver LOD3 clothing retention — 2026-11-04
+
+Only four Otis/Hans MASTER/WEB LOD3 payloads retain their same-resident LOD0 shirt/trouser topology, addressing the viewed reduced-detail clothing holes. The portable final stage reproduces all four admitted prototype hashes exactly after the original historical animation stages; all four selected LOD0 files are explicit no-ops, and the other twenty human assets are byte-exact. WEB uses new rest-weighted geometry with the original single skin; protected body, rig, images/materials and old clips remain. Historical parent qualification is not relabelled.
+
+Original standing/seated/protected checks, real terminal-chain negative controls and human contracts pass. The unchanged native working-driver test passes all eight LOD/domain combinations and forty original contact samples. The original all 24 desktop/phone browser fixture writer passes in 129.091 seconds under its 600 second cap, followed by its hash/verdict check; source/resource/owned-child guards pass. Actual Otis/Hans LOD3 costs are 13,679/13,635 triangles and 564,628/551,488 WEB bytes, each with nine draws, compared with 6,098/6,026 triangles and 340,516/326,600 bytes in the parents. No new tolerance or limit is introduced. Separate `driver-garment-retention-v2` recipe/derivation/native/binding records retain the exact provenance and measured costs. Only two active Hans WEB LOD3 palm payload hashes change; all original contact data remain.
+
+The complete required source/native gate, original town performance/memory limits, exact-HEAD CI and ordinary DEV delivery remain pending. This increment closes no photographic, continuous garment/contact, riding or boarding acceptance; broad T-2804 and T-1790 remain claimed with no new PR assigned.

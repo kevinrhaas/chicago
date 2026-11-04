@@ -537,6 +537,10 @@ step "Active seated drivers reproduce their bounded looking clip from exact pare
   python3 tools/human_seated_look.py --check
 step "Natural standing derivative preserves canonical parents, old clips and planted lower-body channels (T-1790)" \
   python3 tools/test_human_natural_idle.py
+step "Selected terminal garments reproduce their exact installed payloads (T-2804)" \
+  python3 tools/human_garment_retention.py --check
+step "Terminal garments reproduce the real parent chain and refuse malformed or repeated derivation (T-2804)" \
+  python3 tools/test_human_garment_retention.py
 step "Human animation consumes native elapsed time through slow frames, holds and route corners (T-1790)" \
   node tools/test_human_frame_time.mjs
 step "BODY ray broad phase preserves native ray hits at faces, edges and grid boundaries (T-1790)" \
