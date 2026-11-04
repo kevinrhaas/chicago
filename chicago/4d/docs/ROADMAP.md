@@ -22,8 +22,11 @@ liberty.
 
 What it cost. `outbuilding.py`'s bytes are hashed into every outbuilding's mesh inputs, so
 one branch staled all 243 committed masters and all 243 were regenerated on the pinned
-Blender before the source was committed. 180 moved bytes by float noise alone and one web
-derivative — the house that actually changed — moved at all.
+Blender before the source was committed. Of 180 changed MASTER blobs, one is the NE
+house's roof change and 179 are unused UV repacks: their positions, normals, colours,
+indices, materials and topology are exact, and none binds a texture or image. Only the
+NE house's WEB derivative changed; the other WEB blobs stayed exact. The original
+attribution to hardware float noise was incorrect; the independent audit is on PR1685.
 
 What it did not buy. One of thirteen differences on that picture. T-3041 and T-2387 stay open.
 
@@ -6144,3 +6147,12 @@ No new geometry or photo follow-up ticket is needed for this source conflict. Th
 ### Original T-2376 — closed shoulder working increment,2026-11-03
 
 Choose the detailed Andreas closed shoulder through the existing boolean and couple the yard source owner to decline its competing open shed/posts and covered wagon. Preserve Trowbridge's open reading, all existing metrics/world placement and verbatim prior rationale. Genuine0b53geometry/full80d47recipe reuse and actual unchanged-camera comparison are bound; original remainsDIFFERS for left-cluster shape/proportions. Actual selected WEB/registration, native all-asset WEB contract, schema validation and focused physical consumers now pass; native tail steps finished but final Git snapshot timed out, so owner-loop closure remains owed. Finish fullsource4 and actual published phone/desktop access/yard checks, then a partial-progress PR to dev. No new photo follow-up or original completion.
+
+### T-2383 — current Andreas hotel comparison, 2026-11-03
+
+Partial progress: the hotel's Images tab holds the credited Andreas engraving,
+and a current hotel-owned diagnostic comparison includes the separate Carpenter
+cabin. Geometry and placement stay unchanged. DIFFERS retains the main/left
+roof, broad rear-left wing and left-gable review; the old shop camera does not
+establish hotel dimensions or a historical viewpoint. Other pictures and the
+original full match remain open. See docs/RESEARCH/photo-match/sauganash_hotel/.

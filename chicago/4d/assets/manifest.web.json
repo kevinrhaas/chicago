@@ -1,5 +1,5 @@
 {
-  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp — mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP — a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
   "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
@@ -30,7 +30,7 @@
     "coleman_ames_house_1811_prairie_coach_house__draft_1904.glb": "2c5298a5a5a11a255c636a36c7f73ad5ccb41f9d923c3b52a6dfb899aa083f2d",
     "council_house__log_1834.glb": "0764f6745af664df9c6b29601a7c179d49ab7f1269cef7a5e7e4fb638b1a435d",
     "coursoll_field_1812__coursoll_1808.glb": "c0d9006b495bc654bf2a29f5a6211db4cbaf6164d629a1682997642e6a8b079a",
-    "dearborn_street_drawbridge__draw_1834.glb": "c7408d424c67488f56650e190fdd7af6a23a667c67f005dff1849ef20c3b2f84",
+    "dearborn_street_drawbridge__draw_1834.glb": "869ca317179e01bdd087f73c23dc3d53955750b9a1ca6425ec029140aff6b1e1",
     "dent_house_1823_prairie__as_mapped_1904.glb": "34c34abaa54f519cc003dd9cdc75fc9d37a1a55bd9a9c898c90b44e313bf7d11",
     "dexter_house_1721_prairie__as_mapped_1904.glb": "7fd31b1da5606084d7ee8532130e27ebfbd8b23e601c4a299d147c74d081b2f5",
     "dexter_house_1721_prairie_coach_house__as_standing_1904.glb": "092e76dcde4f57f85b6803868ac97f553702cd02eea73151a1b85ae24c85947c",
@@ -388,7 +388,7 @@
     "marshall_field_house_1905_prairie__as_mapped_1904.glb": "95862ab3dd00167c768dad224dae45c747362b3d8d416e9a73e6547f689b12c2",
     "marshall_field_house_1905_prairie_coach_house__draft_1904.glb": "c6f3b008737a57782c29abbe9ae2e50658c7439cb78771c5fdcc2566b890ca38",
     "marshall_field_house_1905_prairie_conservatory__as_mapped_1904.glb": "14f854e7e58de5534ca29a6512cc2bcd646b50be483b509ecc3f4934f873b11f",
-    "marshall_field_jr_house_1919_prairie__as_mapped_1904.glb": "d370c08701c46ba5083058c33ea0c4e4a41a66a13288aac3b14b5c14f2047ffe",
+    "marshall_field_jr_house_1919_prairie__as_mapped_1904.glb": "0cbdb350236b85456d945ec280faf3032cd13a1c07610f85c5fdda39991a7243",
     "mason_blacksmith_shop__documented_1835.glb": "12ec7295d8de3f242295bc5a9242d694e9c7d8dd05d32074a0a87289391f4a93",
     "mayer_house_2009_prairie__as_mapped_1904.glb": "757d32e65459d1b75821ee4651ed67e4a76b8188bfbd383dd89394e0a600d261",
     "mayer_house_2009_prairie_coach_house__draft_1904.glb": "c3eb3b83af88e74403124290aaf422fb6f099631a2700bb7a672db20da24b6bd",
@@ -430,7 +430,7 @@
     "potawatomi_camp_1812_south_reach__camp_1812.glb": "e61423321ef75cebe077ef0c733b41b9869a77916f09a1ca52d560b52838473a",
     "potawatomi_camp_1812_upper__camp_1812.glb": "6bb35448422c026ebd8ee87b6c081e4243ada13e31d2744a870e4ef45abb5a88",
     "potawatomi_camp_1812_west_bank__camp_1812.glb": "0b53907ea75507e980677c56750a8ca57a39e619cb48856c161ceacf9a0d29a8",
-    "pruyne_kimball_drugstore__frame_1830s.glb": "408ff1e6e386e04cc2487eedf5c731b76ca4d52fa5b9ffbb08fa425764913bc5",
+    "pruyne_kimball_drugstore__frame_1830s.glb": "4229632a5ee00ae06b385a2dd7847f043ddbbac580eab6eae911303e94e4c703",
     "pullman_glasshouse_1800_calumet_east__as_standing_1904.glb": "db614e8e41bfd2daa49bb19f9a250355d0acc501be59d1c2df4afee6275955d1",
     "pullman_glasshouse_1800_calumet_east_end__as_standing_1904.glb": "cee0d6fea152eb04e9fc91bfb82b38157fb7749831b6e460e18d2c3adb2c009c",
     "pullman_glasshouse_1800_calumet_north__as_standing_1904.glb": "90ecaa7328e04d6c3da52efb09fe4475df0195fce7925a199b0c1eab8812b2c1",

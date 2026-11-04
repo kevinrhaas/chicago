@@ -38636,6 +38636,8 @@ drawings.
 
 **Evidence since, 2026-10-31 (T-2375):** The two Dearborn approach crests now use a reconstructed **6.0 m half-width**, replacing their earlier4.0 m grid allowance. The source-supported sixteen-foot deck extends only in local positive-v; its widened end corner mixed a low shoulder/water vertex through the2.5 m bilinear grid and stood0.711 m above the south-bank surface,0.438 m above the north-bank surface. Widening the existing invented fill crest supports that full end edge. It does not change the mapped street/approach axes, bank/shoreline controls, bridge origin or bearing,76.33 m water gap,2.22 m end-deck elevation,1-in-12 grade,3 m overhang,0.06 ft seat, or the separately reconstructed centre-rise profile. Six metres is a numerical walk-access allowance, **not a historically documented road width**. The four valid numeric bridge Covers tokens remain unchanged; no new terrain Covers token is added here; fresh native field/mesh fit, full-end-edge measurements and actual walking checks must establish that the wider crossing lands safely.
 
+**Owner ruling, 2026-11-03 (T-3361):** the 1.2 m central rise is withdrawn and the lowered draw is laid level (`draw_rise_m` 0); `draw_rise_m` stays covered here at its new value of zero, and the level profile is its own liberty, L-dearborn-level-draw-3361. The other three numeric choices are unchanged.
+
 ### L-school-narrow-front-2372 — a reconstructed reading of an unidentified school drawing
 
 **Covers:** `chappel_infant_school.log_1833.footprint`, `chappel_infant_school.log_1833.form.roof_pitch_deg`, `chappel_infant_school.log_1833.form.door_h_m`, `chappel_infant_school.log_1833.form.front_set_out`.
@@ -39327,6 +39329,33 @@ house's remaining pictures.
 **Review:** `docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/gatlin_programme_1919-side-by-side.jpg`.
 **Recorded:** 2026-11-03 (T-3337).
 
+### L-k01-1919-range-dressings-3353 — 1919 Prairie's rear ranges quoined at their street-facing corners and banded in stone across the north flank, read off the 1919 programme plate
+
+**Decision:** 1919 Prairie's two rear ranges (T-3353, piece 1 of T-3338, of T-3303) carry the stone the
+1919 programme plate draws plainest of all its walls: pale quoins up the north-east corner of each range,
+where its north wall meets the face it steps out on, and pale courses across the brick. Each corner takes
+dressed stones from grade to the range's wall top, long and short along the two faces in turn; the main
+block's three stone courses (T-3305: under the principal sills, at the second floor, under the chamber
+sills) run on across both ranges' north walls and their stepped-out faces, stopped against the canted
+north bay, in place of K03's brick string course there. K01 learns it as an additive `dressings` entry
+on a brick rear wing (`belts` with `belt_sides`, and `quoins` at named corners), byte-identical for every
+other house (`k01_emit --check`).
+**What is read, not invented.** That the ranges' corners are quoined in pale stone and that pale courses
+cross their walls, from the programme plate (the 1913 plate sees the flank too obliquely, under trees).
+**What is invented.** The stones' 0.55 m and 0.3 m lengths, their 0.35 m courses and 0.03 m projection;
+that the quoins run from grade; that the courses are the main block's three carried on at the same
+lines, 0.05 m proud. The plate's halftone is too soft to count the stones or read the courses' lines.
+**What is not built.** Quoins at the canted north bay's own corners, which the plate draws dark; the
+quoined flat-topped block at the middle range's north-west corner and its mullioned stretch; the small
+pinnacled dormers between the gables and the third, smaller gable at the flank's far end (both plates
+show the dormers standing on a slope facing the street-side camera, which the ranges' north-facing gables
+leave no room for, so they wait on the ranges' roofs being read again); the ranges' place against both
+plates; and the house's unsolved pictures (the 1912 Blue Book plate among them).
+**How to resolve:** T-3354 (piece 2 of T-3338) reads the ranges' roofs and place against all three Gatlin plates.
+**Ticket:** T-3353 (piece 1 of T-3338).
+**Review:** `docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/gatlin_programme_1919-side-by-side.jpg`.
+**Recorded:** 2026-11-03 (T-3353).
+
 ### L-k03-brick-shuffle-3295 — A K03 brick wall draws each brick from another of its kind in the panel, with its own small colour spread and a broad mottle
 
 **Decision:** the renderer no longer repeats a K03 brick panel (`assets/textures/prairie_1904_brick/panel/`,
@@ -39926,6 +39955,22 @@ The yard source owner follows the same canonical attribute and declines only the
 **Ticket:** T-2376.
 **Recorded:** 2026-11-03.
 
+
+### L-dearborn-level-draw-3361 — Dearborn's lowered draw laid level, against its one picture
+
+**Covers:** `dearborn_street_drawbridge.draw_1834.form.draw_profile`.
+
+**Decision:** The closed draw of the 1834 Dearborn Street drawbridge lies level with its approaches, by the owner's ruling. The owner, 2026-11-03, on the ridge the draw then rose to at mid-river: *"when the bridge was down did it really have a peak in the center like this, it seems very odd to me that would be the case"*. This replaces the 1.2 m centre rise T-2375 read from the pictures (L-dearborn-picture-profile-2375).
+
+**Why the picture is not followed here.** The rise rests on one composition drawn twice: Braunhold's plate in Andreas 1884 p. 631 and the Baker-Co engraving share their schooner, lighthouse and viewpoint, so they are not two witnesses. Both were made more than forty years after the bridge was chopped up in 1839. No text gives a rise: Andreas has a draw "hoisted" between "gallows" frames, and Moses and Kirkland 1895 p. 95 "a double draw". The bridge carried the town's main street and its teams, and 1.2 m over a 9.14 m leaf is a grade of about 1 in 7.6 each way, with the leaves' joint at its crest. A leaf hinged at its frame and lowered onto its bearing lies at the bearing's height. The drawings' rise reads as the engraver's licence or as leaves caught part-way up.
+
+**Reconstructed:** level is still our choice. No source states how the leaves lay when down, and a small camber of a few inches, which no picture or text resolves, is not modelled. Both match records (`andreas_1884`, `earle_1902_lunette`) carry the difference as `owner ruling`.
+
+**Sources and limits:** `andreas_1884_dearborn_drawbridge_plate`, `moses_kirkland_history_of_chicago_v1`, `andreas_1884_v1`. Nothing here moves the bridge's origin, bearing, 76.33 m water gap, 18.288 m draw, 2.22 m deck or sixteen-foot width.
+
+**Ticket:** T-3361.
+**Review:** `docs/RESEARCH/photo-match/dearborn_street_drawbridge/andreas_1884-side-by-side.jpg` and its match record.
+**Recorded:** 2026-11-03 (T-3361).
 
 ### L-first-fort-ne-house-pyramid-3041 — the north-east small house's four-sided cap
 
