@@ -37,6 +37,7 @@
       "phases[].form.chimneys.note",
       "phases[].form.cladding.note",
       "phases[].form.clearance_m.note",
+      "phases[].form.compound_apertures.note",
       "phases[].form.compound_door_state.note",
       "phases[].form.compound_joint.note",
       "phases[].form.compound_log_profile.note",

@@ -6124,3 +6124,18 @@ cabin. Geometry and placement stay unchanged. DIFFERS retains the main/left
 roof, broad rear-left wing and left-gable review; the old shop camera does not
 establish hotel dimensions or a historical viewpoint. Other pictures and the
 original full match remain open. See docs/RESEARCH/photo-match/sauganash_hotel/.
+
+
+### T-2374 — the Agency House's front aperture count, 2026-11-04
+
+Partial progress: Cobweb Castle's centre gable carries the two grounded upright
+apertures and the one small upper light the 1831 Wau-Bun panorama draws, through a
+new opt-in `compound_apertures` set that overrides that room's singular front
+opening. The old centred door is gone and no phantom survives beside the new marks.
+Count and arrangement are read from the picture; every coordinate, the recess
+section and the entry role on the right-hand mark are reconstructed
+(`L-cobweb-apertures-2374`). 81 of the 82 log_dwelling masters rebuilt byte-identical,
+so the option is off for every other record. The panorama's camera stays UNSOLVED and
+unenrolled: no verdict is claimed, the compound's width, wings, sub-roofs, roof
+junctions, clapboarding and finish still differ, and T-2374's image gate remains
+open. File no photo follow-up.

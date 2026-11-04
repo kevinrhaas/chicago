@@ -25530,3 +25530,43 @@ placements, phases, material values and source disagreements are retained.
 This authored checkpoint claims no completed four-part gate, committed-head
 publication or desktop/phone application QA; those are recorded separately for
 the actual PR head. Original T-2383 remains partial/open, with no new ticket.
+
+
+## 2026-11-04 — T-2374: the Agency House's front aperture count
+
+Cobweb Castle's centre room now states its own front openings. The archetype's
+compound path offered ONE opening per room, so the front the Wau-Bun panorama draws
+— two upright dark marks standing on the ground and one small mark above them — was
+not sayable in data at all; every data-only trial was correctly refused by the
+archetype's own validation. `compound_apertures` is the opt-in that says it: an
+explicit set on one room's outward face, overriding that room's singular
+`front_opening`, with its own bounds (inside the wall, under the room's own roof
+rake, clear of each other, at most one stated way in, refused on the bounded elbow
+and absent by default everywhere else).
+
+Built and qualified on the pinned Ubuntu 26.04 / Blender 4.5.3 binary in four bounded
+batches: all 82 log_dwelling masters regenerated, and **81 came out byte-identical**,
+which is the measurement that the new option is genuinely off for every other record.
+Cobweb's MASTER moved from `af1f33c0f5d75fc8c40e6cbb589adfd7d29d551572c2775e236bb260f6ee561f`
+(139,824 B) to `4f42207be5fcb2391fda58672ce8442b02aba9510f3096db8c2934b695fe7bea`
+(139,248 B), and its WEB derivative from `49cfcb869c0a39bd936c2c22428179538c37c5a380b9f27c53fab019719b8dcd`
+(31,804 B) to `1699d7aa1c4b0abb6229bd4cbfaed95013f3ede9323f4945396583fd14b26e23`
+(30,304 B). No other family, version or foreign registry row is touched. The town's
+single grounded entrance on that front stays one entrance; it moves 0.17 m and
+narrows to 0.90 m, which is the apron re-deriving onto the aperture that now stands
+where the old centre door did.
+
+**What is read and what is ours.** The picture gives the COUNT and roughly the
+arrangement along the face, and nothing else: every coordinate is set out from this
+record's own 5 m centre wall and its own rake, and the entry role on the right-hand
+mark is a design inference, not a reading. No glazing, closure, interior, attic room,
+white paint or historic function is claimed; the engraving's white paper is not
+evidence of paint. `L-cobweb-apertures-2374` records all of it.
+
+**Still open, and this is not a match.** The camera on this panorama remains UNSOLVED
+and is not enrolled in `data/reference_views/`; no verdict is claimed and T-2374's
+image gate stays open. The compound's overall width, the wing and sub-roof
+silhouettes, the roof junctions and valleys, the text-attested partial clapboarding
+"part way up", and the finish and tone all still differ from the picture. The source
+is retrospective 1831 context printed in 1881 and is not proof of the building as it
+stood on 1835-07-01.
