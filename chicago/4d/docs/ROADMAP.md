@@ -6220,6 +6220,13 @@ T-1790 update (2026-10-29): the exact native-qualified animation-only derivative
 T-1790 current native qualification (2026-10-29): the unchanged browser fixture freshly measures all 16 human GLBs in both viewport sizes, including all eight natural-standing derivatives. Their exact original finite native-129 qualification is preserved, with a separate metadata-only equivalence bridge for the shared rig-pose source field. The latest DEV architecture changes are integrated without changing the human runtime or eight animation/geometry BINs. Native metadata owners settle in two actual tail laps. Published-world motion/clothing and real resident-card interaction in desktop/phone near/mid views, full gates and ordinary PR delivery remain open; this is not the complete animation/route/rider/driver program.
 
 
+### T-1790 interaction ownership continuation — 4 November 2026
+
+A Go-to arrival can dock the navigator before the cold Inspect module finishes loading. Its late completion must retain that docking, while an explicit Inspect action still opens normally. Reuse the existing selection ticket to mark a docked completion quiet; advance that ticket for launch actions too, so a late old mount cannot replace newer navigation. Keep the existing1904 people-card API: actual1835 directory DOM, including hidden descendants, is the mount boundary. Empty Full-to-Light transport root lists need no Three `add` call.
+
+The original b83 failures and repaired mobile/desktop native-DOM controls are retained separately in STATUS. This bounded interaction increment still requires current-base combined source gates and published application qualification. It does not settle the larger T-1790/T-2804 animation, populated routes, clothing, gait, riders or boarding goals, and it changes no ticket state.
+
+
 ### T-2804 provisional named-driver circuits, 2 November 2026
 
 The current source connects reconstructed1835 Otis/W01 and1904 Hans Johnson/Brougham circuits to the actual current26 in-place horse, fitted hitch, existing person cards and shared stop/continue control. Human-layer ownership temporarily transfers the same named person and restores it on release. Runtime/ground/clearance/unit evidence is separate from actual full-material rendered-world route, contact, interaction and phone qualification, which remain pending. The unqualified Light256 child and optional lower-eye refinement are not selected. Hans's eight new human files still require their actual native browser fixture readings. Broader photo quality, gait, boarding, riding and town-traffic acceptance is not closed by source staging; no ticket completion is recorded here.

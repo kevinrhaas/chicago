@@ -249,3 +249,163 @@ assert.deepEqual(beforeAnyRead.boundaries, [0]); count++;
 await assert.rejects(defaultScheduleReading({ rejectYield: true }), /native scheduler rejection/); count++;
 
 console.log(`transport loop: ${count} checks PASS`);
+
+
+// Full visible elapsed admission is deliberately opt-in: the established bounded
+// dt callers and their no-ten-second-teleport assertions above remain unchanged.
+{
+  const elapsedSetup = (speed = .084375, clear = () => true) => {
+    const poses = [], advances = [];
+    const row = { id: 'elapsed-clock', name: 'Clock driver', scene: 'clock',
+      speed_m_s: speed, wheelbase_m: 2, track_m: 1.2, root_ahead_of_rear_axle_m: 1,
+      steering_limit_deg: 12, wheel_radii_m: [.7, .7, .5, .5], driver_local_m: [0, 1.58, .65],
+      route: { center_enu_m: [0, 0], radius_m: 10 } };
+    const actor = createTransportLoop({ ...row, route: circleRoute(row.route), heightAt: () => 0, clear,
+      assembly: { pose(p) { poses.push(p); }, advance(dt, ds) { advances.push({ dt, ds }); },
+        visible() {}, stop() {}, dispose() {} } });
+    const frame = (dt, flags = {}) => actor.update(dt, { elapsedFrame: true, ...flags });
+    return { actor, row, frame, poses, advances };
+  };
+  const run = deltas => {
+    const a = elapsedSetup(); a.frame(0);
+    for (const delta of deltas) a.frame(delta);
+    return a;
+  };
+  const reference = run(Array(60).fill(1 / 60));
+  for (const deltas of [Array(4).fill(.25), [.5, .5], [1], [.1, .55, .35]]) {
+    const a = run(deltas), actual = a.actor.snapshot(), expected = reference.actor.snapshot();
+    near(actual.total_distance_m, .084375);
+    near(actual.distance_m, expected.distance_m);
+    actual.wheel_rotation_rad.forEach((value, i) => near(value, expected.wheel_rotation_rad[i]));
+    near(a.advances.reduce((sum, step) => sum + step.dt, 0), 1);
+    assert(a.advances.every(step => step.dt <= .05 && step.ds <= .05 * .084375));
+    assert.equal(a.poses.length, a.advances.length + 1, 'One pose per accepted swept step; no extra external travel');
+    a.actor.dispose();
+  }
+  reference.actor.dispose();
+  const atHalfFps = run([2]); near(atHalfFps.actor.snapshot().total_distance_m, .16875);
+  const slow = run([10]); near(slow.actor.snapshot().total_distance_m, .25);
+  assert(slow.advances.every(step => step.dt <= .05));
+  const highSpeed = elapsedSetup(1); highSpeed.frame(0); highSpeed.frame(10);
+  near(highSpeed.actor.snapshot().total_distance_m, .25, 1e-9);
+  const legacy = elapsedSetup(1); legacy.actor.update(10);
+  near(legacy.actor.snapshot().total_distance_m, .25); // exact original legacy intent
+  for (const a of [atHalfFps, slow, highSpeed, legacy]) a.actor.dispose();
+
+  for (const flag of [{ paused: true }, { enabled: false }, { reducedMotion: true }]) {
+    const a = run([.5]), before = a.actor.snapshot();
+    a.frame(30, flag); a.frame(30);
+    near(a.actor.snapshot().total_distance_m, before.total_distance_m);
+    assert.deepEqual(a.actor.snapshot().wheel_rotation_rad, before.wheel_rotation_rad);
+    a.frame(.5); near(a.actor.snapshot().total_distance_m, before.total_distance_m + .0421875);
+    a.actor.dispose();
+  }
+  for (const stoppedTick of [false, true]) {
+    const a = run([.5]), before = a.actor.snapshot();
+    a.actor.stop(); if (stoppedTick) a.frame(30);
+    assert(a.actor.resume());
+    // This models Continue running before transport.update in the same tick:
+    // none of that tick's pre-action interval belongs to the resumed journey.
+    a.frame(30); near(a.actor.snapshot().total_distance_m, before.total_distance_m);
+    a.frame(.5); near(a.actor.snapshot().total_distance_m, before.total_distance_m + .0421875);
+    a.actor.dispose();
+  }
+  const fresh = elapsedSetup();
+  fresh.frame(0, { motionFrame: false }); fresh.frame(30);
+  near(fresh.actor.snapshot().total_distance_m, 0, 1e-12);
+  fresh.frame(.5); near(fresh.actor.snapshot().total_distance_m, .0421875);
+  fresh.actor.stop(); assert(fresh.actor.resume());
+  fresh.frame(0, { motionFrame: false }); fresh.frame(30);
+  near(fresh.actor.snapshot().total_distance_m, .0421875, 1e-12);
+  fresh.frame(.5); near(fresh.actor.snapshot().total_distance_m, .084375);
+  fresh.actor.dispose();
+
+  const reach = run([.5]); reach.frame(.5, { drawn: false });
+  near(reach.actor.snapshot().total_distance_m, .084375, 1e-12);
+  // An offscreen journey continues. Its first drawn frame rejects an interval
+  // spanning the range boundary; a synthetic visibility replay cannot prime it.
+  reach.frame(0, { drawn: true, motionFrame: false }); reach.frame(30);
+  near(reach.actor.snapshot().total_distance_m, .084375, 1e-12);
+  reach.frame(.5); near(reach.actor.snapshot().total_distance_m, .1265625);
+  reach.actor.dispose();
+
+  let obstruction = true;
+  const blocked = elapsedSetup(1, (_from, to) => !obstruction || to.distance <= .12);
+  blocked.frame(0); blocked.frame(10);
+  near(blocked.actor.snapshot().total_distance_m, .1);
+  assert.equal(blocked.actor.snapshot().reason, 'obstruction');
+  near(blocked.advances.reduce((sum, step) => sum + step.ds, 0), .1);
+  const wheelReference = elapsedSetup(1); wheelReference.actor.update(.1);
+  assert.deepEqual(blocked.actor.snapshot().wheel_rotation_rad, wheelReference.actor.snapshot().wheel_rotation_rad);
+  assert.equal(blocked.actor.resume(), false);
+  obstruction = false; assert(blocked.actor.resume()); blocked.frame(10);
+  near(blocked.actor.snapshot().total_distance_m, .1);
+  blocked.frame(10); near(blocked.actor.snapshot().total_distance_m, .35);
+  blocked.actor.dispose(); wheelReference.actor.dispose();
+
+  // Exercise actual town admission and its synthetic lastUpdate replay, with
+  // adapters only: no GPU, GLBs, browser, head/body asset or copied town logic.
+  const { createTownTransport } = await import('../renderers/web/js/town-transport.js');
+  const seed = elapsedSetup(); const row = seed.row; seed.actor.dispose();
+  const visualCalls = [], movement = [];
+  const town = createTownTransport({ rows: [row], sceneId: 'clock', heightAt: () => 0,
+    clear: () => true, makeAssembly: async () => ({ root: {}, pose() {},
+      advance(dt, ds) { movement.push({dt, ds}); }, visible() {}, stop() {}, dispose() {},
+      updateVisual(dt) { visualCalls.push(dt); } }) });
+  const camera = { x: 10, z: 0 };
+  town.update(0, camera, { elapsedFrame: true, visualDt: 0 });
+  await town.ready(); // replays lastUpdate with motionFrame:false
+  town.update(30, camera, { elapsedFrame: true, visualDt: 30 });
+  near(town.snapshot()[0].total_distance_m, 0);
+  const beforeVisual = visualCalls.length;
+  town.update(.5, camera, { elapsedFrame: true, visualDt: .5 });
+  near(town.snapshot()[0].total_distance_m, .0421875);
+  assert.equal(visualCalls.length, beforeVisual + 1, 'Driver visual clock receives one call, never each swept substep');
+  assert.equal(visualCalls.at(-1), .5);
+  assert(movement.length > 1);
+  const actor = town.actors[0]; actor.stop(); const stoppedDistance = town.snapshot()[0].total_distance_m;
+  town.update(.5, camera, { elapsedFrame: true, visualDt: .5 });
+  near(town.snapshot()[0].total_distance_m, stoppedDistance);
+  assert.equal(visualCalls.at(-1), .5, 'Independent seated looking still advances while stopped');
+  town.dispose();
+  console.log('elapsed transport: same configured low-FPS pace, .25m ceiling, swept obstruction, transition/range/admission reset and independent visual clock PASS');
+}
+
+
+// Execute main's actual new event bindings, clock and town forwarding: a pair
+// of preference/hide events without any held tick must still discard old time.
+{
+  const main = readFileSync(new URL('../renderers/web/js/main.js', import.meta.url), 'utf8');
+  const required = (match, name) => { assert(match, `native ${name} missing`); return match[0]; };
+  const clockBody = required(main.match(/function tick\([^\n]*\) \{([\s\S]*?)\n    if \(!gateOpen\)/), 'tick clock')
+    .replace(/^function tick[^\n]*\{\n/, '').replace(/\n    if \(!gateOpen\)$/, '');
+  const latch = required(main.match(/  let visualClockReset = true;\n  const resetVisualClock = [^\n]+/), 'visible latch');
+  const media = required(main.match(/  const transportReducedMotion = window.matchMedia\([^\n]+\n  transportReducedMotion.addEventListener\([^\n]+/), 'motion preference binding');
+  const forwarding = required(main.match(/api\.townTransport\?\.update\(visualDt, camera.position, \{[\s\S]*?\n    \}\);/), 'elapsed town forwarding');
+  const hide = required(main.match(/onHideLevel: \(level, hide\) => \{[^}]*\},/), 'confidence hide callback')
+    .replace(/^onHideLevel: \(level, hide\) => \{/, '').replace(/\s*\},$/, '');
+  const listeners = [], calls = [], eye = {};
+  const motion = { matches: false, addEventListener(name, fn) { assert.equal(name, 'change'); listeners.push(fn); } };
+  const clock = { delta: 0, reads: 0, getDelta() { this.reads++; return this.delta; } };
+  const confidence = { hidden: { reconstructed: false }, setHidden(level, value) { this.hidden[level] = !!value; } };
+  const native = new Function('clock', 'document', 'window', 'api', 'camera', 'confidence', 'gateFrame', `
+    let animationHold = false, gateOpen = false;
+    ${latch}\n${media}
+    return {tick() { ${clockBody}\n${forwarding} }, hide(level, hide) { ${hide} }};
+  `)(clock, { hidden: false }, { matchMedia: () => motion },
+    { townTransport: { update(dt, camera, options) { assert.strictEqual(camera, eye); calls.push({dt, options}); } } },
+    { position: eye }, confidence, { invalidate() {} });
+  const tick = delta => { clock.delta = delta; const reads = clock.reads; native.tick(); assert.equal(clock.reads, reads + 1); return calls.at(-1); };
+  assert.equal(tick(30).dt, 0);
+  assert.equal(tick(.5).dt, .5);
+  assert.equal(calls.at(-1).options.elapsedFrame, true);
+  assert.equal(calls.at(-1).options.visualDt, .5);
+  motion.matches = true; for (const listener of listeners) listener();
+  motion.matches = false; for (const listener of listeners) listener();
+  assert.equal(tick(30).dt, 0, 'Preference off/on without any held tick rebases the journey interval');
+  assert.equal(tick(.5).dt, .5);
+  native.hide('reconstructed', true); native.hide('reconstructed', false);
+  assert.equal(tick(30).dt, 0, 'Confidence hide/show without any held tick rebases the journey interval');
+  assert.equal(tick(.5).dt, .5);
+  console.log('native main elapsed forwarding and no-held-tick transport preference/confidence boundaries PASS');
+}

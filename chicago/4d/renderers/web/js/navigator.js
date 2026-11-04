@@ -221,6 +221,7 @@ export function createNavigator({
     const max = names().length - 1;
     const was = level;
     level = Math.max(0, Math.min(max, next));
+    if (level === 0) registry.dockPending();
     paintLevel();
     listen(level > 0);
     listenNear();

@@ -713,3 +713,362 @@ console.log('eligible named-card warm: actual directory household/citation cache
   town.dispose(); assert.equal(freed, 2);
 }
 console.log('seated driver visual clock: stop, holds, range, Light restoration and no doubled vehicle time PASS');
+
+
+// Real createDrivenAssembly adapter: synthetic visibility refreshes must never
+// prime an elapsed journey OR its independent visual clock. No copied adapter.
+{
+  let phase = 0, mounts = 0;
+  const calls = [];
+  const town = createTownTransport({ rows: [{ ...validRow, id: 'elapsed-adapter-clock' }], sceneId: '1835',
+    heightAt: () => 0, clear: () => true,
+    makeAssembly(row) {
+      mounts++; phase = row.initial_assembly_state?.driver?.time_s ?? 0;
+      return createDrivenAssembly({ vehicle: vehicle.clone(true),
+        driver: { root: new THREE.Group(),
+          updateVisual(dt) { phase += dt; calls.push(dt); },
+          snapshot() { return { time_s: phase }; } },
+        horse: { root: new THREE.Group(), advance() {}, stop() {} },
+        driverSeat_m: [0, 1.58, .65], horseOffset_m: [0, 0, 5], disposeVehicle() {} });
+    } });
+  const near = { x: 20, z: 0 };
+  const frame = (dt, extra = {}) => town.update(dt, near, { elapsedFrame: true, visualDt: dt, ...extra });
+  frame(0); await town.ready();
+  assert.equal(calls.length, 0, 'Actual town admission replays visibility without calling/priming the driver');
+  frame(8); assert.equal(phase, 0); assert.equal(calls.at(-1), 0);
+  assert.equal(town.snapshot()[0].total_distance_m, 0);
+  frame(.5); assert.equal(phase, .5);
+  const moving = town.actors[0]; moving.stop(); const stopped = town.snapshot()[0].total_distance_m;
+  const count = calls.length; frame(.5);
+  assert.equal(calls.length, count + 1, 'One visual call per actual frame even when stopped');
+  assert.equal(phase, 1); assert.equal(town.snapshot()[0].total_distance_m, stopped);
+  assert(moving.resume()); frame(8);
+  assert.equal(town.snapshot()[0].total_distance_m, stopped, 'Continue rebases journey but keeps the independently active look');
+  assert.equal(phase, 9);
+  town.update(.5, { x: 1000, z: 1000 }, { elapsedFrame: true, visualDt: .5 });
+  const beforeReturn = phase, beforeSynthetic = calls.length;
+  frame(0, { motionFrame: false });
+  assert.equal(calls.length, beforeSynthetic, 'A near synthetic replay cannot prime the real assembly visual latch');
+  frame(8); assert.equal(phase, beforeReturn);
+  frame(.125); assert.equal(phase, beforeReturn + .125);
+  moving.stop(); const beforeLight = phase;
+  await town.setTier('light'); await town.setTier('full');
+  assert.equal(mounts, 2); assert.equal(phase, beforeLight);
+  const beforeRestoredFrame = calls.length;
+  frame(8); assert.equal(phase, beforeLight);
+  assert.equal(calls.length, beforeRestoredFrame + 1);
+  frame(.125); assert.equal(phase, beforeLight + .125);
+  town.dispose();
+  console.log('elapsed actual assembly: synthetic admission/range/Light cannot prime visual reset; real stopped frame gets exactly one independent look update PASS');
+}
+
+// Cold named-driver rendezvous: actual town/loop/main/Travel/Interact behavior.
+// Append to the existing test_driven_assembly.mjs; no new gate declaration.
+{
+  const { createInteractions } = await import('../renderers/web/js/interact.js');
+  const { registerTransportInteraction } = await import('../renderers/web/js/transport-interactions.js');
+  const { createTravel } = await import('../renderers/web/js/travel.js');
+  const config = JSON.parse(readFileSync(new URL('../data/transport/driven/loops.json', import.meta.url)));
+  const main = readFileSync(new URL('../renderers/web/js/main.js', import.meta.url), 'utf8');
+  const start = main.indexOf('  function goToTarget(target) {');
+  const end = main.indexOf('  /** The future welcome picker', start);
+  assert(start >= 0 && end > start);
+  const actualGo = main.slice(start, end);
+  const pending = () => { let resolve, reject; const promise = new Promise((a, b) => { resolve = a; reject = b; }); return {promise, resolve, reject}; };
+  const fixture = (sourceRow, options = {}) => {
+    const loads = [], publications = [], problems = [], disposed = [], poses = [], visual = [];
+    const rows = options.rows ?? [sourceRow];
+    let liveClear = options.liveClear ?? true;
+    const town = createTownTransport({ rows, sceneId: options.sceneId ?? sourceRow.scene,
+      detail: options.detail ?? 'full', heightAt: options.heightAt ?? (() => 0),
+      routeClear: () => true, routeSupport: () => ({ valid: true }),
+      clear: () => liveClear, problems,
+      makeAssembly(row) {
+        const gate = pending(), number = loads.length;
+        const assembly = { root: new THREE.Group(), pose(p) { poses.push([number, p]); }, advance() {}, visible() {}, stop() {},
+          updateVisual(dt) { visual.push(dt); }, dispose() { disposed.push(number); } };
+        const load = { row, assembly, gate }; loads.push(load); return gate.promise;
+      },
+      onActorsChanged(actors) { publications.push(actors.map(a => ({ id:a.id, personId:a.personId, state:a.state, reason:a.snapshot().reason }))); },
+    });
+    const anchor = town.driverAnchorForPerson(sourceRow.person_id);
+    const camera = anchor ? { x:anchor.at[0], z:-anchor.at[1] } : { x:0, z:0 };
+    town.update(0, camera); // Existing lastUpdate path, not a fake source mutation.
+    const load = async number => { await until(() => loads.length > number); return loads[number]; };
+    return {town, loads, publications, problems, disposed, poses, visual, camera,
+      setClear(value) { liveClear = value; }, load,
+    };
+  };
+  const settle = async (f, loadNumber = 0) => {
+    const ready = f.town.ready(), load = await f.load(loadNumber);
+    load.gate.resolve(load.assembly); await ready; return f.town.actors[0];
+  };
+  const makeGo = (town, travel, options = {}) => Function('api','jauntRuntime','travel','router','hud','destinations',
+    'openBusiness','openBuilding','supportsTownTransport','YEAR','draws','openPersonCard', actualGo + '\nreturn goToTarget;')(
+    { townTransport:town, humans:{ external:() => null } }, null, travel,
+    { blockedAt:options.blockedAt ?? (() => false) }, { say(){}, setPanel(){}, selectTab(){} },
+    { resolve:options.resolve ?? (() => null), byId:() => null }, () => {}, () => {}, () => true, '1835', () => true, () => {});
+  const target = row => ({kind:'person', id:row.person_id, label:row.name});
+  const assertStopped = (actor, row) => {
+    assert.equal(actor.id, row.id); assert.equal(actor.personId, row.person_id);
+    assert.equal(actor.state, 'stopped'); assert.equal(actor.snapshot().reason, 'approach');
+  };
+
+  // Both actual configured identities: no load at request, stop before publication,
+  // no later automatic resume, and no change to the route/seat side-stand owner.
+  for (const row of config.rows) {
+    const f = fixture(row), original = JSON.stringify(row), visits = [];
+    const cold = f.town.driverAnchorForPerson(row.person_id);
+    const go = makeGo(f.town, { go(destination, callbacks) { visits.push({destination, callbacks}); return true; } });
+    assert.equal(go(target(row)), true); assert.equal(f.loads.length, 0); assert.equal(f.town.actors.length, 0);
+    assert.equal(visits[0].destination.local_e, cold.at[0] + Math.cos(cold.yaw_rad) * 4);
+    assert.equal(visits[0].destination.local_n, cold.at[1] + Math.sin(cold.yaw_rad) * 4);
+    assert.equal(JSON.stringify(row), original);
+    const actor = await settle(f); assertStopped(actor, row);
+    assert.deepEqual(f.publications.at(-1), [{id:row.id,personId:row.person_id,state:'stopped',reason:'approach'}]);
+    const saved = actor.snapshot();
+    for (let i=0;i<8;i++) f.town.update(.25, f.camera, {visualDt:.25});
+    assert.equal(actor.snapshot().total_distance_m, saved.total_distance_m);
+    assert.deepEqual(actor.snapshot().wheel_rotation_rad, saved.wheel_rotation_rad);
+    visits[0].callbacks.onStop({reason:'input'}); assertStopped(actor,row);
+    f.town.dispose(); assert.equal(f.disposed.length,1);
+  }
+
+  const row = config.rows.find(r => r.scene === '1835');
+  // Cancellation is observable through the subsequently admitted actor state.
+  {
+    const f = fixture(row); const request = f.town.requestDriverApproach(row.person_id);
+    assert(request); request.cancel(); request.cancel();
+    const actor = await settle(f); assert.equal(actor.state,'moving','Canceled intent is idempotent');
+    f.town.dispose();
+  }
+  for (const outcome of ['false','throw']) {
+    const f=fixture(row); const go=makeGo(f.town,{go(){if(outcome==='throw')throw Error('planned travel refusal');return false;}});
+    if(outcome==='throw')assert.throws(()=>go(target(row)),/planned travel refusal/);else assert.equal(go(target(row)),false);
+    const actor=await settle(f);assert.equal(actor.state,'moving');f.town.dispose();
+  }
+  // Actual Travel onStop wiring, including the real manual-input branch.
+  for (const reason of ['input','button','unreachable','replaced']) {
+    const f=fixture(row), walker={state:{e:0,n:0,yaw:0,pitch:0,altitude:0,flying:false,speed:0,bob:0},resettle(){}};
+    const intent={flying:false,moving:false,yawDelta:0,pitchDelta:0};
+    const travel=createTravel({walker,intent,router:{plan:()=>reason==='unreachable'?null:{points:[[1,1],[2,2]]}},hud:{},settings:{}});
+    travel.setMode('walk');const go=makeGo(f.town,travel);
+    assert.equal(go(target(row)),reason!=='unreachable');
+    if(reason==='input'){intent.moving=true;travel.update(.1,intent);}else if(reason==='button')travel.stop('button');
+    else if(reason==='replaced'){assert(travel.go({kind:'intersection',local_e:3,local_n:4}));travel.stop('button');}
+    const actor=await settle(f);assert.equal(actor.state,'moving');f.town.dispose();
+  }
+  // Native instant arrival retains rendezvous intent; the real Move Stop callback
+  // cancels it even though the instant Travel controller is already idle.
+  for(const cancelAfterInstantArrival of [false,true]){
+    const f=fixture(row), visits=[], walker={state:{e:0,n:0,flying:false},resettle(){}};
+    const travel=createTravel({walker,intent:{flying:false},settings:{},teleport:p=>visits.push(p),setFly(){}});
+    assert.equal(makeGo(f.town,travel)(target(row)),true);assert.equal(visits.length,1);
+    if(cancelAfterInstantArrival){
+      const match=main.match(/onTravelStop: \(\) => \{ ([^\n]+) \},/);assert(match,'Actual Move Stop callback missing');
+      Function('api','travel',match[1])({townTransport:f.town},travel);
+    }
+    const actor=await settle(f);assert.equal(actor.state,cancelAfterInstantArrival?'moving':'stopped');f.town.dispose();
+  }
+  // A second real Find installs its new token before native Travel replaces the
+  // old ride; the old onStop closure must not remove that new rendezvous.
+  {
+    const f=fixture(row),walker={state:{e:0,n:0,yaw:0,pitch:0,altitude:0,flying:false,speed:0,bob:0},resettle(){}};
+    const travel=createTravel({walker,intent:{flying:false},settings:{},router:{plan:()=>({points:[[1,1],[2,2]]})}});
+    travel.setMode('walk');const go=makeGo(f.town,travel);assert(go(target(row)));assert(go(target(row)));
+    assertStopped(await settle(f),row);travel.stop('button');assertStopped(f.town.actors[0],row);f.town.dispose();
+  }
+  // Actual fatal-row refusal is transactional: it cannot replace a still-valid
+  // cold Find or its real Travel ride. The older actor must stop after load.
+  {
+    const failedRow=structuredClone(row);failedRow.id='fixture-terminal-row';failedRow.person_id='fixture-terminal-person';
+    failedRow.name='Fixture terminal driver';failedRow.driver_instance.person_id=failedRow.person_id;
+    const f=fixture(row,{rows:[failedRow,row]});const loading=f.town.ready(),bad=await f.load(0);
+    bad.gate.reject(Error('planned terminal row refusal'));const oldLoad=await f.load(1);
+    const walker={state:{e:0,n:0,yaw:0,pitch:0,altitude:0,flying:false,speed:0,bob:0},resettle(){}};
+    const travel=createTravel({walker,intent:{flying:false},settings:{},router:{plan:()=>({points:[[1,1],[2,2]]})}});
+    travel.setMode('walk');const go=makeGo(f.town,travel);assert(go(target(row)));
+    const oldRide=travel.state,oldRoute=travel.routeAhead();assert.equal(go(target(failedRow)),false);
+    assert.equal(travel.state.phase,oldRide.phase);assert.equal(travel.state.dest,oldRide.dest);assert.deepEqual(travel.routeAhead(),oldRoute);
+    oldLoad.gate.resolve(oldLoad.assembly);await loading;assertStopped(f.town.driverForPerson(row.person_id),row);
+    travel.stop('button');assertStopped(f.town.driverForPerson(row.person_id),row);f.town.dispose();
+  }
+
+  // The old handle cannot cancel a newer request for the same identity.
+  {
+    const f=fixture(row), old=f.town.requestDriverApproach(row.person_id);
+    const current=f.town.requestDriverApproach(row.person_id);old.cancel();
+    const actor=await settle(f);assertStopped(actor,row);current.cancel();assertStopped(actor,row);
+    const interactions=createInteractions(), handle=registerTransportInteraction(interactions,actor);
+    f.setClear(false);assert.equal(handle.thing.actions.stopped[0].id,'give-room');
+    assert.equal(interactions.act(handle.thing.id,'continue').ok,false);assert.equal(actor.state,'stopped');
+    f.setClear(true);assert.equal(interactions.act(handle.thing.id,'continue').ok,true);interactions.update(0);
+    assert.equal(actor.state,'moving');f.town.update(.1,f.camera);assert.equal(actor.state,'moving');
+    assert.equal(interactions.act(handle.thing.id,'stop').ok,true);interactions.update(0);assert.equal(actor.state,'stopped');
+    current.cancel();assert.equal(actor.state,'stopped');handle.dispose();f.town.dispose();
+  }
+  // A namespaced synthetic second metadata row exercises map-key isolation only;
+  // no assertion here qualifies that fixture identity/asset for a historical scene.
+  {
+    const other=structuredClone(row);other.id='fixture-other-route';other.person_id='fixture-other-person';
+    other.driver_instance.person_id=other.person_id;
+    const f=fixture(row,{rows:[row,other]});const first=f.town.requestDriverApproach(row.person_id);
+    f.town.requestDriverApproach(other.person_id);first.cancel();
+    const loading=f.town.ready(), a=await f.load(0);a.gate.resolve(a.assembly);
+    const b=await f.load(1);b.gate.resolve(b.assembly);await loading;
+    assert.equal(f.town.driverForPerson(row.person_id).state,'moving');
+    assertStopped(f.town.driverForPerson(other.person_id),other);f.town.dispose();
+  }
+  // Blocked/invalid proposed destinations preserve current pending intent; a new
+  // valid coordinate destination cancels unresolved intent, never fulfilled Stop.
+  {
+    const f=fixture(row);f.town.requestDriverApproach(row.person_id);
+    assert.equal(makeGo(f.town,{go(){throw Error('blocked target must not navigate');}},{blockedAt:()=>true})(target(row)),false);
+    assert.equal(makeGo(f.town,{go(){throw Error('invalid target must not navigate');}})({kind:'person',id:'unknown'}),false);
+    assertStopped(await settle(f),row);f.town.dispose();
+    const g=fixture(row);g.town.requestDriverApproach(row.person_id);
+    assert.equal(makeGo(g.town,{go:()=>true})({kind:'intersection',local_e:12,local_n:34}),true);
+    assert.equal((await settle(g)).state,'moving');g.town.dispose();
+  }
+  // Identity/date/eligibility/Light guards remain lazy metadata operations.
+  for (const variant of ['unknown','wrongyear','mismatch','unselectable','missingasset','light']) {
+    const changed=structuredClone(row);if(variant==='mismatch')changed.driver_instance.person_id='someone-else';
+    if(variant==='unselectable')changed.driver_instance.interaction.selectable=false;
+    if(variant==='missingasset')delete changed.driver_asset;
+    const f=fixture(changed,{sceneId:variant==='wrongyear'?'1904':changed.scene,detail:variant==='light'?'light':'full'});
+    assert.equal(f.town.requestDriverApproach(variant==='unknown'?'unknown':changed.person_id),null);
+    assert.equal(f.loads.length,0);f.town.dispose();
+  }
+  // Fulfilled Stop remains the saved native journey through Light restoration.
+  {
+    const f=fixture(row);const request=f.town.requestDriverApproach(row.person_id);const actor=await settle(f);assertStopped(actor,row);
+    const saved=actor.snapshot(),savedPose=f.poses.at(-1)[1];
+    await f.town.setTier('light');assert.equal(f.town.actors.length,0);assert.equal(f.disposed.length,1);
+    const restoring=f.town.setTier('full'), next=await f.load(1);next.gate.resolve(next.assembly);await restoring;
+    const restored=f.town.actors[0];assert.equal(restored.id,row.id);assert.equal(restored.personId,row.person_id);
+    assert.equal(restored.state,'stopped');assert.equal(restored.snapshot().reason,null,'Existing Light serialization preserves stopped state, not its diagnostic reason');
+    assert.equal(restored.snapshot().total_distance_m,saved.total_distance_m);assert.equal(restored.snapshot().distance_m,saved.distance_m);
+    assert.deepEqual(restored.snapshot().wheel_rotation_rad,saved.wheel_rotation_rad);assert.deepEqual(f.poses.at(-1)[1],savedPose);
+    request.cancel();f.town.update(8,f.camera);assert.equal(restored.state,'stopped');
+    assert.equal(restored.snapshot().total_distance_m,saved.total_distance_m);assert.deepEqual(f.poses.at(-1)[1],savedPose);
+    f.setClear(false);assert.equal(restored.canResume(),false);assert.equal(restored.resume(),false);assert.equal(restored.state,'stopped');
+    f.setClear(true);assert(restored.resume());f.town.update(.1,f.camera);
+    assert.equal(restored.state,'moving');assert(restored.snapshot().total_distance_m>saved.total_distance_m);
+    assert.equal(restored.id,row.id);assert.equal(restored.personId,row.person_id);f.town.dispose();
+  }
+  // Retired generation cannot consume active intent; cancel while Light removes it.
+  for(const cancelWhileLight of [false,true]){
+    const f=fixture(row), request=f.town.requestDriverApproach(row.person_id), firstReady=f.town.ready(), old=await f.load(0);
+    const light=f.town.setTier('light');if(cancelWhileLight)request.cancel();
+    const full=f.town.setTier('full'), next=await f.load(1);
+    old.gate.resolve(old.assembly);await firstReady;await light;assert.deepEqual(f.disposed,[0]);
+    next.gate.resolve(next.assembly);await full;
+    assert.equal(f.town.actors.length,1);assert.equal(f.town.actors[0].state,cancelWhileLight?'moving':'stopped');
+    assert.equal(f.publications.filter(p=>p.some(a=>a.id===row.id)).length,1);f.town.dispose();
+  }
+  // Disposed layer callbacks cannot touch a same-person request in another layer.
+  {
+    const old=fixture(row), oldRequest=old.town.requestDriverApproach(row.person_id), oldReady=old.town.ready(), load=await old.load(0);
+    old.town.dispose();const current=fixture(row);current.town.requestDriverApproach(row.person_id);oldRequest.cancel();
+    load.gate.resolve(load.assembly);await oldReady;assert.equal(old.town.actors.length,0);assert.deepEqual(old.disposed,[0]);
+    assertStopped(await settle(current),row);current.town.dispose();
+  }
+  // Real recoverable post-asset spawn error retains intent; fatal factory failure
+  // clears it and retains the original no-automatic-retry row owner.
+  {
+    const f=fixture(row);f.town.requestDriverApproach(row.person_id);f.setClear(false);
+    await settle(f);assert.equal(f.town.actors.length,0);assert.deepEqual(f.disposed,[0]);assert.equal(f.problems.length,0);
+    await f.town.ready();assert.equal(f.loads.length,1);
+    f.setClear(true);assertStopped(await settle(f,1),row);f.town.dispose();
+    const g=fixture(row);g.town.requestDriverApproach(row.person_id);const loading=g.town.ready(), failed=await g.load(0);
+    failed.gate.reject(Error('actual fatal fixture factory refusal'));await loading;assert.equal(g.problems.length,1);
+    await g.town.ready();assert.equal(g.loads.length,1);
+    assert.equal(g.town.requestDriverApproach(row.person_id),null,'Known terminal failed row cannot acquire an unfulfillable new request');
+    await g.town.setTier('light');const restoring=g.town.setTier('full'), next=await g.load(1);next.gate.resolve(next.assembly);await restoring;
+    assert.equal(g.town.actors[0].state,'moving','Fatal row removed its old intent before a later explicit tier reset');g.town.dispose();
+    const ground=fixture(row,{heightAt:()=>null});ground.town.requestDriverApproach(row.person_id);await ground.town.ready();
+    assert.equal(ground.loads.length,0,'Fatal actual route-ground refusal must precede any model acquisition');
+    assert.equal(ground.problems.length,1);assert.equal(ground.town.requestDriverApproach(row.person_id),null);ground.town.dispose();
+  }
+  console.log('cold named-driver Find: exact configured identities, stop-before-publication, real Travel cancellation, stale tokens, shared Continue, Light/generation/dispose and recoverable/fatal ownership PASS');
+}
+
+// Optional composed-parcel acceptance: requires BOTH motion V2 and cold Find.
+// Exercise the actual createDrivenAssembly adapter, town and loop together.
+{
+  const config=JSON.parse(readFileSync(new URL('../data/transport/driven/loops.json',import.meta.url)));
+  const row=config.rows.find(r=>r.scene==='1835');let phase=0;const calls=[];let town;
+  town=createTownTransport({rows:[row],sceneId:row.scene,heightAt:()=>0,clear:()=>true,routeSupport:()=>({valid:true}),
+    makeAssembly:async liveRow=>createDrivenAssembly({vehicle:vehicle.clone(true),
+      driver:{root:new THREE.Group(),updateVisual(dt){phase+=dt;calls.push(dt);},snapshot(){return{time_s:phase};}},
+      horse:{root:new THREE.Group(),advance(){},stop(){}},driverSeat_m:row.driver_seat_node_m,
+      horseOffset_m:row.horse_offset_m,disposeVehicle(){}}),
+    onActorsChanged(actors){for(const actor of actors)assert.equal(actor.state,'stopped','Cold Find owns stop before publication and synthetic replay');}});
+  const anchor=town.driverAnchorForPerson(row.person_id),camera={x:anchor.at[0],z:-anchor.at[1]};
+  town.update(0,camera,{elapsedFrame:true,visualDt:0});const request=town.requestDriverApproach(row.person_id);await town.ready();
+  assert.equal(calls.length,0,'Motion V2 synthetic admission cannot prime the independent driver visual clock');
+  let actor=town.driverForPerson(row.person_id);assert.equal(actor.state,'stopped');assert.equal(actor.personId,row.person_id);
+  const frame=dt=>town.update(dt,camera,{elapsedFrame:true,visualDt:dt});
+  frame(8);assert.equal(phase,0);assert.equal(actor.snapshot().total_distance_m,0);
+  frame(.5);assert.equal(phase,.5);request.cancel();assert.equal(actor.state,'stopped');
+  const saved=actor.snapshot(),savedPhase=phase;
+  await town.setTier('light');await town.setTier('full');actor=town.driverForPerson(row.person_id);
+  assert.equal(actor.id,row.id);assert.equal(actor.personId,row.person_id);assert.equal(actor.state,'stopped');assert.equal(actor.snapshot().reason,null);
+  assert.equal(actor.snapshot().distance_m,saved.distance_m);assert.equal(actor.snapshot().total_distance_m,saved.total_distance_m);
+  assert.deepEqual(actor.snapshot().wheel_rotation_rad,saved.wheel_rotation_rad);
+  frame(8);assert.equal(phase,savedPhase,'First actual restored visual clock rejects the unseen interval');
+  assert.equal(actor.snapshot().total_distance_m,saved.total_distance_m);assert.deepEqual(actor.snapshot().wheel_rotation_rad,saved.wheel_rotation_rad);
+  frame(.125);assert.equal(phase,savedPhase+.125);assert.equal(actor.state,'stopped');request.cancel();assert.equal(actor.state,'stopped');
+  const before=actor.snapshot(),beforeContinuePhase=phase;assert(actor.resume());frame(8);
+  assert.equal(actor.snapshot().total_distance_m,before.total_distance_m,'Continue consumes no pre-action interval');
+  assert.deepEqual(actor.snapshot().wheel_rotation_rad,before.wheel_rotation_rad);
+  assert.equal(phase,beforeContinuePhase+8,'Qualified independent look continues during a journey-only Stop/Continue');
+  frame(.5);assert(Math.abs(actor.snapshot().total_distance_m-row.speed_m_s*.5)<1e-9);
+  assert.equal(actor.state,'moving','Fulfilled/canceled Find intent cannot stop a resumed native journey again');
+  town.dispose();console.log('composed motionV2+cold Find: actual assembly publication/visual admission, fulfilled Stop, native Continue zero and configured next-frame pace PASS');
+}
+
+// The supported later-scene public card adapter is not an 1835 directory mount.
+// Exercise its real main function, using the actual named1904 directory above.
+{
+  const publicPeople = { open: cardOpen };
+  const before = opened.length;
+  assert.equal(await publicPeople.open(named.personId), true);
+  assert.deepEqual(opened.slice(before), [{ id: 'otis_house_2033_prairie', person: named.personId }]);
+  assert.equal(publicPeople.people, undefined, 'the public card bridge never claims a mounted directory');
+}
+
+// Exercise two actual scene-adapter Light transitions with native Object3D.add.
+// Metadata comes from the real configured route/certificates; no assembly/model
+// is acquired because the visitor has not approached and lastUpdate is absent.
+{
+  const { registerHooks } = await import('node:module');
+  const threeURL = new URL('../renderers/web/vendor/three-0.185.1/three.module.js', import.meta.url).href;
+  const hooks = registerHooks({ resolve(specifier, context, next) {
+    return specifier === 'three' ? { url: threeURL, shortCircuit: true } : next(specifier, context);
+  } });
+  const oldFetch = globalThis.fetch, oldError = console.error, errors = [], requests = [];
+  let town;
+  try {
+    globalThis.fetch = async url => {
+      requests.push(String(url));
+      assert(String(url).endsWith('.json'), 'Light transitions never acquire a model');
+      return new Response(readFileSync(new URL(url)));
+    };
+    console.error = (...args) => { errors.push(args); };
+    const { mountTownTransport } = await import('../renderers/web/js/town-transport-scene.js');
+    town = await mountTownTransport({ sceneId: '1835', dataBase: new URL('../data/', import.meta.url),
+      humans: { assets: {} }, heightAt: () => 0, footprints: [], visitor: () => null,
+      interactions: {}, detail: 'full' });
+    await town.setTier('light');
+    await town.setTier('full');
+    await town.setTier('light');
+    assert.deepEqual(errors, [], 'both actual Light callbacks keep the original zero-console-errors contract');
+    assert.equal(town.group.children.length, 0);
+    assert.deepEqual(town.snapshot(), []);
+    assert(requests.length > 0 && requests.every(url => url.endsWith('.json')));
+  } finally {
+    town?.dispose(); globalThis.fetch = oldFetch; console.error = oldError; hooks.deregister();
+  }
+}
+console.log('LIGHT SCENE CALLBACK + HANS PUBLIC CARD PASS — native scene adapter has zero errors and preserves the named card API');

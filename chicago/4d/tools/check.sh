@@ -8374,5 +8374,10 @@ step "the walkthrough's tier reader agrees with the published table" \
 selftest "…and its own derivation still answers each case" \
   node tools/check_attribute_tiers.mjs --self-test
 
+step "World smoke keeps exact structure batches and both source-owned Green Tree yard readings (T-1790)" \
+  node tools/test_world_smoke_contracts.mjs
+step "Green Tree yard generator preserves enclosed, open and blocked source readings (T-1790)" \
+  python3 tools/test_green_tree_yard_modes.py
+
 check_summary
 exit $CHECK_FAILED
