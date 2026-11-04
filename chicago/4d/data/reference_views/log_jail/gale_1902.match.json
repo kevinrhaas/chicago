@@ -2,7 +2,7 @@
   "structure_id": "log_jail",
   "view": "gale_1902",
   "glb": "assets/gltf/log_jail__log_1833.glb",
-  "glb_sha256": "ee949fa9f67187678a034e0a84025f0acdab971ef1ee923261467341bc09182b",
+  "glb_sha256": "e767412faebcd8b77a680d188d89458ea879cf467ec56494a8df1a49a2e65dec",
   "camera_sha256": "96720b71e5f5e13dd19132c2e421edef8d09aa4c9c2d4f7f9873179ce7e9b719",
   "photo_sha256": "d1fa0afa1dcd10af3b97ba11b46510fd71dd6504f6f9574aba73828e0fefb85a",
   "rendered_enclosures": [
@@ -23,7 +23,7 @@
   "enclosure_renderer_sources": [
     {
       "file": "tools/photo_match.mjs",
-      "sha256": "45d1dae558c75926070806c99ef82d29117a72fe76d2a91f3d6820bebf4bce47"
+      "sha256": "75e452b467c22fc5d00cd4b512706c364c942d181869e504f7218ea25167a79c"
     },
     {
       "file": "tools/photo_match_enclosures.mjs",
@@ -31,7 +31,7 @@
     },
     {
       "file": "renderers/web/js/enclosures.js",
-      "sha256": "4ede1357214160ef50fb86d62410cb39b6a40a038834f3f99059fb89a294badd"
+      "sha256": "429fee7f530da2148dfbd707dc9241f383a0fb56277f715b4a88f9a32e762a1e"
     },
     {
       "file": "renderers/web/js/gates.js",
@@ -43,7 +43,7 @@
     },
     {
       "file": "renderers/web/js/gpu-pick.js",
-      "sha256": "cc56599416ed37601d2d06ff62835bca8ee3058c024b1dbf559a735229491540"
+      "sha256": "4314066f2eed63983df7230e375879358b89152168f1b3ee0a55992347a6c11a"
     },
     {
       "file": "renderers/web/vendor/three-0.185.1/three.module.js",
@@ -54,7 +54,7 @@
       "sha256": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759"
     }
   ],
-  "enclosures_sha256": "cf33b7521e8af0a535e3c49208da4ba5efa5a91ef88d7ea085d6ae1f383eff57",
+  "enclosures_sha256": "5e0540c47f852cce3d144fb6726d6bb7d87e5c4fed39c89939936d5f3155182b",
   "side_by_side": "docs/RESEARCH/photo-match/log_jail/gale_1902-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -83,5 +83,5 @@
       "status": "within tolerance"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
