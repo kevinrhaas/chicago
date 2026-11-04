@@ -25776,7 +25776,7 @@ This source packet is not a passed build or release: current frame-family native
 
 The keeper-house increment now integrates dev caef594d while retaining dev’s current jail-core/outbuilding outputs and the genuine native keeper pair (MASTER 431dc44f, WEB 15eb2fba). All 272 frame-dwelling resolved input digests and 544 actual outputs still match the saved native build; all 243 current outbuilding inputs and native pairs remain exact. Current liberties, scene, source-use, derivative and validation owners pass. The four earlier native source parts passed; this checkpoint reuses that qualified unchanged geometry scope and verifies the incoming merge with its owners.
 
-This is saved progress, not a completed image or runtime gate. Both compound match records are explicitly unreviewed pending a fresh render with the newer core and the keeper together. The subsequent dev 19910ff integration is also saved, preserving the Sauganash cornice producer and all its native rows; its current source owners and exact Jail/outbuilding input-output audits pass. Dev 5673cb9’s bounded Lake House source-reading increment is now also integrated: current1835 scene/source-use owners and the exact disjoint metadata audit pass, and Lake/Jail/outbuilding native inputs and outputs remain unchanged. Actual published Jail keeper body checks now pass on desktop and phone (396.35s/222.00s), including exact native GPU picks and a short exterior on-foot approach. Desktop cards pass (535.62s); phone cards pass strict data/error assertions with separate direct visual review (350.51s), not an automated visibility claim. Both native Stage 3 runs pass107/0 (166.28s/342.59s), and the eight-part gate passed on tested3f3e0bf. The current c9fe751 integration preserves the independently qualified parade, Cobweb and cupola increments; all five fresh source owners pass, all272 dwelling recipes/544 actual outputs and243 outbuilding pairs remain exact, and the separate25-member fort/lighthouse/Lake recipe audit passes. Runtime is explicitly carried by unchanged Jail consumer bindings and independently tested shared parade code; it was not rerun on this later integration. The new merged head still requires its own eight-part gate. Actual body/credit screenshots and cross-version source/publication guards are saved in evidence commits9f8a5cc and96e2af2. The Gale1902 compound render is genuine and remains unreviewed/different; the second optional external context render failed with a missing fixture photo path and was stopped cleanly. Generic roof-shingled keeper gable, compound camera/proportion differences, some context occlusion and collapsed Record account controls remain explicit limitations. No interior traversal, complete narrative visibility or full historical match is claimed. The earlier desktop background task and mobile five failures are not green release checks. Original T-2380 remains partial/open.
+This saved increment does not close the original image gate. Both compound match records remain explicitly unreviewed; the genuine current Gale capture still differs and the optional context capture did not complete. The subsequent dev 19910ff integration is also saved, preserving the Sauganash cornice producer and all its native rows; its current source owners and exact Jail/outbuilding input-output audits pass. Dev 5673cb9’s bounded Lake House source-reading increment is now also integrated: current1835 scene/source-use owners and the exact disjoint metadata audit pass, and Lake/Jail/outbuilding native inputs and outputs remain unchanged. Actual published Jail keeper body checks now pass on desktop and phone (396.35s/222.00s), including exact native GPU picks and a short exterior on-foot approach. Desktop cards pass (535.62s); phone cards pass strict data/error assertions with separate direct visual review (350.51s), not an automated visibility claim. Both native Stage 3 runs pass107/0 (166.28s/342.59s), and the eight-part gate passed on tested3f3e0bf. The current26f6b8d integration also preserves the merged Green Tree Tavern combined native pair and all23 frame-tavern recipes, along with the independently qualified parade, Cobweb and cupola increments; all five fresh source owners pass, all272 dwelling recipes/544 actual outputs and243 outbuilding pairs remain exact, and the separate25-member fort/lighthouse/Lake recipe audit passes. Runtime is explicitly carried by unchanged Jail consumer bindings and independently tested shared parade code; it was not rerun on this later integration. The new merged head still requires its own eight-part gate. Actual body/credit screenshots and cross-version source/publication guards are saved in evidence commits9f8a5cc and96e2af2. The Gale1902 compound render is genuine and remains unreviewed/different; the second optional external context render failed with a missing fixture photo path and was stopped cleanly. Generic roof-shingled keeper gable, compound camera/proportion differences, some context occlusion and collapsed Record account controls remain explicit limitations. No interior traversal, complete narrative visibility or full historical match is claimed. The earlier desktop background task and mobile five failures are not green release checks. Original T-2380 remains partial/open.
 
 ### Lake House source reading — 2026-11-04
 
@@ -25894,3 +25894,66 @@ T-3040 bodies are preserved untouched. The new camera is `diagnostic_only`, so n
 remains OPEN and the view remains DIFFERS**: the camera is unfitted, the ranges, galleries,
 facade openings, other roof forms and chimney counts are unresolved, the compound's composition
 differs, and the other dated pictures the ticket lists have not been read at all.
+
+### T-2376 — the shoulder light's gable cap, 2026-11-04
+
+One bounded, data-only trial inside the open original. `front_gable_peak_m` on the
+Green Tree's enclosed shoulder goes 4.50 → 4.85 m, so the small front-gable light
+reads as the sharply pointed cap Andreas's engraving draws rather than the blunt,
+nearly flat one. Against the builder's unchanged 4.20 m dormer head and 0.625 m roof
+half-span that is about 25.6° → about 46.1°. 4.85 m is a reconstructed control for
+the drawn shape, not a measurement; the plate has no scale, dimension, camera or
+date, and nothing is dated by it.
+
+Built on the pinned Blender, one master stale and one rebuilt: inputs 80d47de6a302 →
+bb16568756e3, MASTER 0b53a6fe → f213818f (269,880 → 270,816 bytes), WEB 0154cfad →
+65863b3c (48,648 → 48,772 bytes). Exported-mesh comparison confines the change to the
+dormer roof and its gable-course infill — 3,318 → 3,330 triangles, two ridge vertices
+up 0.35 m, 24 cladding vertices added in the 4.307–4.581 m band, every other primitive
+byte-identical, full bounding box exactly equal. Controlled before/after at the
+unchanged camera 9439f5f7 and picture bfaa184f; the previous side-by-side is kept in
+RESEARCH/green-tree-annex-T-2376. No sky seam, hole or roof penetration. Closed
+shoulder, lower sash, upper light and the two uncovered farm wagons retained; no shed,
+posts or covered wagon returns. Every foreign registry row and producer family is
+untouched.
+
+The canonical review stays **differs**: only the sharper dormer cap is marked fixed,
+and the shoulder's own roof slope and the left group's relative proportions stay OPEN.
+Trowbridge/Gale's 1902 open bay remains explicit counterevidence with no known
+conversion date; the drawing-to-drawing upper/attic count and the camera residuals stay
+within tolerance (T-3153). The original ticket's wider coverage — Andreas 1884,
+Trowbridge/Gale 1902, CHM c1859 (unverified, link-only, no geometry) and Kurz & Allison
+1893, plus both named reproductions — is still incomplete. T-2376 stays open/partial;
+no signoff, no new photo follow-up.
+
+### T-2376 — the dormer-cap trial's proof, corrected and integrated, 2026-11-04
+
+The paragraph above is kept as written, and one of its sentences is withdrawn. "Every
+other primitive byte-identical" is too broad a claim for the rebuilt master, and a
+re-audit accessor by accessor across both masters says what is actually true. The
+master holds ten primitives. **Two** changed: `wall` (positions, normals, indices and
+`_CONFIDENCE`; 1,926 → 1,950 vertices, 960 → 972 triangles, the new vertices in the
+4.307–4.850 m band) and `roof_shingle` (positions and normals only — the four vertex
+entries carrying the two ridge corners move in y alone, 4.500 → 4.850, x and z
+bit-identical). The **other eight** (`glass`, `brick`, `trim`, `door`, `door_panel`,
+`iron`, `board_door`, `board_door_panel`) are byte-identical in geometry, normals,
+vertex colours, `_CONFIDENCE`, indices and material — **but `TEXCOORD_0` was repacked
+across all ten**, so those eight are not byte-identical as whole primitives. Those UVs
+are unused: both masters declare zero textures, zero images and no material texture
+reference, so nothing samples them and the repack moves no rendered pixel. The
+triangle counts, the 0.35 m ridge lift, the 24 added cladding vertices and the exactly
+equal bounding box all re-measure as stated; the accepted cap and the view's remaining
+`differs` verdict are unchanged, and this provenance correction is not a new ticket.
+
+Integrated onto current dev (a3a87ca) in the same PR. The only merge conflict was the
+GENERATED `data/liberties.json`, resolved by recompiling it from the merged
+`docs/LIBERTIES.md` — 992 liberties, dev's 991 plus this branch's one, none dropped —
+and both sides' LIBERTIES/STATUS text and all 1,034 manifest and web-manifest rows are
+preserved, with only `green_tree_tavern__frame_1833.glb` differing from dev. The
+hosted gate's one red on the earlier head, *Source-use backlinks match authored claims
+(T-1248)*, was that same generated-backlink count: `tools/compile_source_use.py`
+re-run through its owner takes the liberties row 991 → 992 and the check passes. No
+producer, parameter-validator, schema or recipe-scheme was edited, and no geometry was
+rebuilt for this integration: the pinned-Blender master and its WEB derivative are the
+ones that run already produced (f213818f / 65863b3c), and `validate.py --stale` is the
+gate that proves it. T-2376 stays open/partial/differs.

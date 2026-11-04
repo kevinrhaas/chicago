@@ -2,7 +2,7 @@
   "structure_id": "green_tree_tavern",
   "view": "andreas_1838",
   "glb": "assets/gltf/green_tree_tavern__frame_1833.glb",
-  "glb_sha256": "0b53a6fe30e23b10b330ddb60d4bb362cbce2e798690104e90f4f304cd9d18b8",
+  "glb_sha256": "f213818f5a686d31bfbb07217233a7021c514be64b841035d3c29996a380807b",
   "camera_sha256": "9439f5f7e6f3138e53328647456d332110948ef8421692f951827e48eb274f6b",
   "photo_sha256": "bfaa184f9043ea94560eb74e44926c631f06338bc90e6ba54951a610edef119a",
   "side_by_side": "docs/RESEARCH/photo-match/green_tree_tavern/andreas_1838-side-by-side.jpg",
@@ -13,11 +13,15 @@
       "status": "fixed"
     },
     {
-      "what": "The previously omitted closed shoulder now has its clapboard wall, lower sash and raised front-gable/dormer light in the actual native closed-reading comparison at the unchanged camera/source. Existing metric controls are retained as reconstruction. The canonical yard producer declines the separate open shed/posts and its coupled covered wagon to avoid competing geometry. Trowbridge\u2019s open bay remains explicit source disagreement, not a dated conversion.",
+      "what": "The previously omitted closed shoulder now has its clapboard wall, lower sash and raised front-gable/dormer light in the actual native closed-reading comparison at the unchanged camera/source. Existing metric controls are retained as reconstruction. The canonical yard producer declines the separate open shed/posts and its coupled covered wagon to avoid competing geometry. Trowbridge’s open bay remains explicit source disagreement, not a dated conversion.",
       "status": "fixed"
     },
     {
-      "what": "The left group\u2019s shoulder roof/dormer silhouette and relative compound proportions still differ visibly from Andreas in the actual0b53model comparison. No new metric distance, height, angle or historical camera is inferred from the provisional fit. Keep this material shape/proportion review open on originalT-2376; this partial increment is not full picture acceptance.",
+      "what": "The small front-gable light over the closed shoulder now reads as the sharply pointed cap Andreas draws, instead of the blunt, nearly flat one. front_gable_peak_m 4.50 to 4.85 m against the builder's unchanged 4.20 m dormer head and 0.625 m roof half-span turns the cap from about 25.6 to about 46.1 degrees, and the clapboard courses step up the little gable face with it. Independent exported-mesh comparison at the unchanged camera 9439f5f7 and picture bfaa184f confines the change to that dormer roof and its gable-course infill: 3318 to 3330 triangles, two roof-ridge vertices raised 0.35 m, 24 cladding vertices added in the 4.307-4.581 m band, the full model bounding box exactly equal, and the other eight primitives byte-identical in geometry, normals, vertex colours, confidence, indices and material. Re-audited 2026-11-04: `TEXCOORD_0` was repacked across all ten primitives, so those eight are not byte-identical as whole primitives; the earlier “every other primitive byte-identical” wording is withdrawn as too broad. Those UVs are unused — the master declares no texture, no image and no material texture reference — so the repack changes no rendered pixel. No sky seam, hole or roof penetration. 4.85 m is a RECONSTRUCTED control for the drawn shape, not a measurement off the retrospective plate, and it dates nothing.",
+      "status": "fixed"
+    },
+    {
+      "what": "The rest of the left group still differs from Andreas: the shoulder's own roof slope and eaves line, and the relative proportions of shoulder, connector and farther turned range against the main block. The sharper dormer cap above does not settle them. No new metric distance, height, angle or historical camera is inferred from the provisional fit, and this partial increment is not picture acceptance for the view or for original T-2376.",
       "status": "open"
     },
     {
@@ -45,5 +49,5 @@
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
