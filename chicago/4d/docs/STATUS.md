@@ -25783,3 +25783,29 @@ silhouettes, the roof junctions and valleys, the text-attested partial clapboard
 "part way up", and the finish and tone all still differ from the picture. The source
 is retrospective 1831 context printed in 1881 and is not proof of the building as it
 stood on 1835-07-01.
+
+**The first cut of this shipped the dark faces BEHIND the logs, and an independent
+fixed-camera review caught it before the merge.** `_compound_aperture` passed the bare
+`APERTURE_BACK_M` (0.004 m) to `openings.face`, which measures out from the wall's
+PLANE, while `openings.surround` reads its `back` from the wall's SKIN and ran the
+reveal to 0.026 m. The log courses stand out 0.022 m. So both grounded apertures were
+crossed by horizontal log courses and read as striped ladders rather than holes —
+while every numeric check in `tools/test_log_compound_apertures.py`, both smoke legs
+and the application review passed, because the fault lived in a depth no reading looks
+at. The repair passes `w.skin + APERTURE_BACK_M`, which is the convention the same
+file's blind doorway already follows and what the constant's own comment describes.
+The test now pins that invariant by reading the builder's source, and reverting the one
+expression makes it fail.
+
+The repair was rebuilt the same way — pinned sha-verified Blender 4.5.3 on Ubuntu
+26.04.1, all 82 log_dwelling masters in four bounded batches, 81 byte-identical again —
+taking Cobweb's MASTER from `4f42207be5fcb2391fda58672ce8442b02aba9510f3096db8c2934b695fe7bea`
+to `1ddf548d9a378167163d6db45e5d89e1b4c544ea176355eb7061dd99d6a1ee82` (139,248 B both)
+and its WEB derivative from `1699d7aa1c4b0abb6229bd4cbfaed95013f3ede9323f4945396583fd14b26e23`
+to `99997b5f3935ceceddb072286387859a5d9a8dd3dfa112b64978d1213e20890e` (30,304 B both).
+The controlled before/after was re-run at the same private camera on the same source,
+with only the GLB changed; rendering the two earlier meshes reproduced the review's own
+images byte-for-byte, which is what makes the third render comparable. Both lower faces
+now read as uninterrupted dark recesses and the upper light, the casing, the wings'
+windows, the stacks and the massing are unchanged. That camera is STILL UNSOLVED,
+still unenrolled and still private: no RMS, no grade, no verdict, no completion.

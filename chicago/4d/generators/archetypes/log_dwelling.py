@@ -1459,7 +1459,14 @@ def _compound_aperture(b: MeshBuilder, plane: float, u0: float, u1: float,
     openings.surround(b, w, u0, u1, z0, z1, conf, k, sill=False, cap=False,
                       casing_w=casing_w, head_w=head_w, proud=proud,
                       back=APERTURE_BACK_M)
-    openings.face(b, w, APERTURE_BACK_M, u0, u1, z0, z1, conf, M_DARK)
+    # The dark face sits where the surround's own reveal ends. `surround` reads
+    # `back` from the wall's SKIN (its reveal stops at `w.skin + back`), so the
+    # face has to be given the same absolute offset; passing the bare constant
+    # put it at 0.004 m, BEHIND the 0.022 m log relief, and the courses ran
+    # across the two grounded apertures as stripes instead of leaving a clear
+    # recess. The recess convention is the one `_opening`'s own blind doorway
+    # uses, where `back = -0.30 - w.skin` and the face is at -0.30.
+    openings.face(b, w, w.skin + APERTURE_BACK_M, u0, u1, z0, z1, conf, M_DARK)
     if kind == "door":
         openings.threshold(b, w, u0, u1, z0, conf, k.casing, casing_w, proud)
 

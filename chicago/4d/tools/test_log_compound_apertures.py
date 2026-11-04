@@ -24,7 +24,15 @@ needing Blender:
   3. the front WALL reading and the builder's rectangles are the same rectangles, and
      the gable one is NOT on the front wall (it stands above the wall head, outboard of
      it, where no signboard, apron or doorway reads);
-  4. every malformed set is refused, one case per rule, and every other log_dwelling
+  4. the dark face the builder draws stands PROUD OF THE LOG RELIEF, at the same
+     offset the surround's own reveal runs back to. The first cut of this passed the
+     bare `APERTURE_BACK_M` to `openings.face`, which measures from the wall PLANE,
+     while `openings.surround` reads its `back` from the wall's SKIN — so the face
+     landed 0.004 m out where the logs bulge 0.022 m, and the courses ran across both
+     grounded apertures as stripes. Every numeric check in this file passed anyway,
+     because the fault was in a depth no reading looks at. Read off the source, so it
+     needs no Blender;
+  5. every malformed set is refused, one case per rule, and every other log_dwelling
      record in the tree resolves with an empty set and the front rects the legacy rule
      has always given it.
 
@@ -66,6 +74,38 @@ def gable_roof_default_overhang() -> float | None:
                 if arg.arg == "overhang" and isinstance(default, ast.Constant):
                     return default.value
     return None
+
+
+def module_constant(module: Path, name: str) -> float | None:
+    """A module-level float constant, read from source rather than imported."""
+    tree = ast.parse(module.read_text(encoding="utf-8"))
+    for node in tree.body:
+        if isinstance(node, ast.Assign):
+            for target in node.targets:
+                if isinstance(target, ast.Name) and target.id == name \
+                        and isinstance(node.value, ast.Constant):
+                    return node.value.value
+    return None
+
+
+def aperture_face_offset() -> tuple[str, str]:
+    """What `_compound_aperture` passes as the dark face's offset, and as the
+    surround's `back`, each rendered back to source text."""
+    tree = ast.parse((ROOT / "generators" / "archetypes" / "log_dwelling.py")
+                     .read_text(encoding="utf-8"))
+    face = back = ""
+    for node in ast.walk(tree):
+        if not (isinstance(node, ast.FunctionDef) and node.name == "_compound_aperture"):
+            continue
+        for call in (n for n in ast.walk(node) if isinstance(n, ast.Call)):
+            target = ast.unparse(call.func)
+            if target == "openings.face" and len(call.args) >= 3:
+                face = ast.unparse(call.args[2])
+            elif target == "openings.surround":
+                for kw in call.keywords:
+                    if kw.arg == "back":
+                        back = ast.unparse(kw.value)
+    return face, back
 
 
 def record(structure_id: str) -> dict:
@@ -205,6 +245,36 @@ def run_reading(rec: dict) -> None:
           "the one gable aperture is reported on the gable plane, not on the wall")
     check(not any(abs(r[0] - plane) < 1e-9 for r in rects),
           "...and never reaches the front-wall reading")
+
+    run_face_depth()
+
+
+def run_face_depth() -> None:
+    """The dark face stands clear of the logs, and with the surround's own reveal.
+
+    `openings.face(b, w, n, ...)` puts its rectangle `n` out from the wall's PLANE;
+    `openings.surround(..., back=k)` runs its reveal back to `w.skin + k`. So the
+    builder has to hand the face `w.skin + APERTURE_BACK_M` for the two to meet,
+    and if it hands over the bare constant the face sits BEHIND the log relief and
+    the courses stripe it. That is a geometry fault no count or rectangle reading
+    in this file can see, so it is pinned here on the source itself.
+    """
+    gen = ROOT / "generators"
+    back_m = module_constant(gen / "archetypes" / "log_dwelling.py", "APERTURE_BACK_M")
+    relief_m = module_constant(gen / "common" / "logwork.py", "RELIEF_M")
+    check(isinstance(back_m, float) and isinstance(relief_m, float) and back_m > 0
+          and relief_m > 0,
+          f"APERTURE_BACK_M {back_m} and RELIEF_M {relief_m} both read off source")
+
+    face, back = aperture_face_offset()
+    check(back == "APERTURE_BACK_M",
+          f"the surround's reveal runs back to the wall skin plus APERTURE_BACK_M ({back})")
+    check(face == "w.skin + APERTURE_BACK_M",
+          f"and the dark face is given that same absolute offset ({face})")
+    if isinstance(back_m, float) and isinstance(relief_m, float):
+        check(relief_m + back_m > relief_m,
+              f"so the face lands at {relief_m + back_m:.3f} m, proud of the "
+              f"{relief_m:.3f} m the log courses stand out — not behind them")
 
 
 def run_default_off() -> None:
