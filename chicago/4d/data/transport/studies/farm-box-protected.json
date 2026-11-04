@@ -129,8 +129,8 @@
   },
   "town_wagons": {
     "path": "data/yard/town_trade_goods.json",
-    "sha256": "dfb80501fbe4dc66bb8b4e5e2956f3b3ce7c4fdc75d648af44bad81eb6b5b73e",
-    "record_count": 80,
+    "sha256": "1e4389b7422614e33802b2061414e43db1498eb8f3d4b1b194cc1f9e3e5629fd",
+    "record_count": 79,
     "form_keys": [
       "barrel_height_m",
       "barrel_belly_diameter_m",
@@ -148,94 +148,111 @@
       "marks"
     ],
     "baseline_transition": {
-      "previous_sha256": "bf594894b4a3510972e61c791dad9c854b381b0282dfd982b3552d6dc4e3b0b1",
-      "baseline_source_commit": "92bee8bdb89a900a840bcd94e760bb8f21c757c2",
-      "ticket": "T-2376",
-      "reason": "The selected enclosed Green Tree shoulder occupies the competing open-bay ground, so its separate shed and coupled covered wagon are removed together. Preserve the two independent Green Tree farm wagons. This transition removes only green_tree_tavern_shed_wagon and adds only its explicit closed-shoulder refusal; all 80 retained wagon/cart bodies, order, dimensions, eligibility, form controls and placement rules, plus all 67 prior refusals in order, are exactly unchanged. The licensed moving master, its source credit, geometry and LOD contracts remain unchanged and strictly checked.",
-      "previous_record_count": 81,
-      "current_record_count": 80,
-      "removed_record": {
-        "id": "green_tree_tavern_shed_wagon",
-        "belongs_to": "green_tree_tavern",
-        "under_shed": "green_tree_tavern_wagon_shed",
-        "kind": "covered",
-        "tilt": true,
-        "confidence": "reconstructed",
-        "at_local_enu_m": [
-          -34.87,
-          -86.97
-        ],
-        "bearing_deg": 90.0,
-        "clearance_m": 3.31,
-        "note": "THE COVERED WAGON UNDER THE SHED, from the same plate and standing on the same derived centre as the bay over it. It is the farm wagon this record already draws — the body, the wheels and the tongue are L131's invented numbers and have not moved — with a TILT added: canvas on bows, 1.10 m of rise over the body's top rail and 0.12 m pulled past the end bows, open at both ends. The bows themselves are not drawn, for the reason the barrels' hoops are not: under the canvas there is nothing to see. It lies ALONG the wall because that is how a 4.05 m bay takes a 3.05 m body, with the tongue down and out of the open end into the yard. What is invented is the wagon, the tilt and the fact that either stood here on 1 July 1835: docs/LIBERTIES.md L131 and L134."
-      },
-      "added_refusal": {
-        "structure_id": "green_tree_tavern",
-        "why": "the canonical enclosed shoulder occupies the open-bay ground; the separate shed/posts and its covered wagon are not drawn twice. Trowbridge's open bay remains a conflicting retrospective reading, not a dated conversion or a measured July1835 condition."
-      },
-      "all80_retained_records_and_order_exact": true,
-      "all67_prior_refusals_and_order_exact": true,
+      "previous_sha256": "dfb80501fbe4dc66bb8b4e5e2956f3b3ce7c4fdc75d648af44bad81eb6b5b73e",
+      "tickets": [
+        "T-3360"
+      ],
+      "reason": "T-3360 moved six 1835 buildings off the street walk line, so new board crossings are laid over Lake Street; the new crossing at Wells and Lake (blk_lake_franklin_east_crossing_blk_south_water_franklin_east) stands where town_wagon_lake_18 was parked, and the wagon rule refuses a wagon on a footway. One wagon fewer, one more refusal; every other wagon record, form, dimension and the placement rule are unchanged.",
+      "previous_record_count": 80,
+      "current_record_count": 79,
+      "changes": [
+        {
+          "stand": "lake 18",
+          "field": "wagon",
+          "before": "town_wagon_lake_18 at [318.01, -104.77]",
+          "after": "refused: it stands on the plank walk blk_lake_franklin_east_crossing_blk_south_water_franklin_east"
+        }
+      ],
       "previous_transition_preserved": {
-        "previous_sha256": "3fee4d86d1fc5d2858aed1811e8cae7ec4132226c78619f4e86372f8abd285fb",
-        "accepted_dev": "609edb67aa3610aa6ab081ebd5833cefa6681135",
-        "upstream_commit": "03329bbcbf16239b85172bdb66b9625bfb2073c3",
-        "upstream_pr": 1512,
-        "tickets": [
-          "T-2372",
-          "T-2375",
-          "T-2378",
-          "T-2382"
-        ],
-        "reason": "Accepted DEV changes only three refusal explanations after the early-Chicago drawing integration. All 81 wagon/cart records, every form/dimension, placement rule, eligibility and 67 refusal identities are exactly unchanged. Protect the complete current incoming logical record, without replacing any placed vehicle or weakening the strict full-record comparison.",
-        "changes": [
-          {
-            "index": 56,
-            "stand": "south_water 32",
-            "field": "why",
-            "before": "on the right verge, the ground under it is under 0.60 m over the water surface — a wagon standing in the river or in the slough would be a claim about the bank, not about the wagon.",
-            "after": "on the right verge, the ground under it is under 0.60 m over the water surface — a wagon standing in the river or in the slough would be a claim about the bank, not about the wagon. · on the left verge, the ground under it is under 0.60 m over the water surface — a wagon standing in the river or in the slough would be a claim about the bank, not about the wagon."
-          },
-          {
-            "index": 57,
-            "stand": "south_water 33",
-            "field": "why",
-            "before": "on the left verge, the ground under it is under 0.60 m over the water surface — a wagon standing in the river or in the slough would be a claim about the bank, not about the wagon. · on the right verge, the ground under it is under 0.60 m over the water surface — a wagon standing in the river or in the slough would be a claim about the bank, not about the wagon.",
-            "after": "on the left verge, it stands on the plank walk river_plank_walk_dearborn_crossing (T-0119). A footway is a floor and a wagon parked across it is the town's own Ordinance 9 complaint, drawn. · on the right verge, the ground under it is under 0.60 m over the water surface — a wagon standing in the river or in the slough would be a claim about the bank, not about the wagon."
-          },
-          {
-            "index": 66,
-            "stand": "*",
-            "field": "why",
-            "before": "964 offered stand(s) fell more than 16 m from every committed footprint in the town and are not enumerated one by one. Past that the street is running out into the prairie: a wagon parked in the grass two blocks beyond the last house would be this record inventing a reason for it to be there, and the reason is the whole of what an invented object has to have.",
-            "after": "963 offered stand(s) fell more than 16 m from every committed footprint in the town and are not enumerated one by one. Past that the street is running out into the prairie: a wagon parked in the grass two blocks beyond the last house would be this record inventing a reason for it to be there, and the reason is the whole of what an invented object has to have."
-          }
-        ],
+        "previous_sha256": "bf594894b4a3510972e61c791dad9c854b381b0282dfd982b3552d6dc4e3b0b1",
+        "baseline_source_commit": "92bee8bdb89a900a840bcd94e760bb8f21c757c2",
+        "ticket": "T-2376",
+        "reason": "The selected enclosed Green Tree shoulder occupies the competing open-bay ground, so its separate shed and coupled covered wagon are removed together. Preserve the two independent Green Tree farm wagons. This transition removes only green_tree_tavern_shed_wagon and adds only its explicit closed-shoulder refusal; all 80 retained wagon/cart bodies, order, dimensions, eligibility, form controls and placement rules, plus all 67 prior refusals in order, are exactly unchanged. The licensed moving master, its source credit, geometry and LOD contracts remain unchanged and strictly checked.",
+        "previous_record_count": 81,
+        "current_record_count": 80,
+        "removed_record": {
+          "id": "green_tree_tavern_shed_wagon",
+          "belongs_to": "green_tree_tavern",
+          "under_shed": "green_tree_tavern_wagon_shed",
+          "kind": "covered",
+          "tilt": true,
+          "confidence": "reconstructed",
+          "at_local_enu_m": [
+            -34.87,
+            -86.97
+          ],
+          "bearing_deg": 90.0,
+          "clearance_m": 3.31,
+          "note": "THE COVERED WAGON UNDER THE SHED, from the same plate and standing on the same derived centre as the bay over it. It is the farm wagon this record already draws — the body, the wheels and the tongue are L131's invented numbers and have not moved — with a TILT added: canvas on bows, 1.10 m of rise over the body's top rail and 0.12 m pulled past the end bows, open at both ends. The bows themselves are not drawn, for the reason the barrels' hoops are not: under the canvas there is nothing to see. It lies ALONG the wall because that is how a 4.05 m bay takes a 3.05 m body, with the tongue down and out of the open end into the yard. What is invented is the wagon, the tilt and the fact that either stood here on 1 July 1835: docs/LIBERTIES.md L131 and L134."
+        },
+        "added_refusal": {
+          "structure_id": "green_tree_tavern",
+          "why": "the canonical enclosed shoulder occupies the open-bay ground; the separate shed/posts and its covered wagon are not drawn twice. Trowbridge's open bay remains a conflicting retrospective reading, not a dated conversion or a measured July1835 condition."
+        },
+        "all80_retained_records_and_order_exact": true,
+        "all67_prior_refusals_and_order_exact": true,
         "previous_transition_preserved": {
-          "previous_sha256": "a1feb467bc1092f23a8bde0bafe26a27b528670d5cc2b663d74f6ec1b369af5c",
-          "accepted_dev": "ec16b8dd726fa7852ede885ef2d754d55b9b4c59",
-          "upstream_commit": "f2635549179a61fd684336248418ba1e48aaeea9",
-          "ticket": "T-2376",
-          "reason": "Accepted DEV aligns the Green Tree front wagon bay and its existing wagon together by 8.14 m. Preserve that incoming placement, not the older pre-integration coordinates. All 81 wagon/cart records remain protected; all 80 other records, the remaining fields of this wagon, forms, dimensions, eligibility and refusals are exactly unchanged.",
-          "record_id": "green_tree_tavern_shed_wagon",
-          "changes": {
-            "at_local_enu_m": {
-              "from": [
-                -26.73,
-                -86.97
-              ],
-              "to": [
-                -34.87,
-                -86.97
-              ]
+          "previous_sha256": "3fee4d86d1fc5d2858aed1811e8cae7ec4132226c78619f4e86372f8abd285fb",
+          "accepted_dev": "609edb67aa3610aa6ab081ebd5833cefa6681135",
+          "upstream_commit": "03329bbcbf16239b85172bdb66b9625bfb2073c3",
+          "upstream_pr": 1512,
+          "tickets": [
+            "T-2372",
+            "T-2375",
+            "T-2378",
+            "T-2382"
+          ],
+          "reason": "Accepted DEV changes only three refusal explanations after the early-Chicago drawing integration. All 81 wagon/cart records, every form/dimension, placement rule, eligibility and 67 refusal identities are exactly unchanged. Protect the complete current incoming logical record, without replacing any placed vehicle or weakening the strict full-record comparison.",
+          "changes": [
+            {
+              "index": 56,
+              "stand": "south_water 32",
+              "field": "why",
+              "before": "on the right verge, the ground under it is under 0.60 m over the water surface — a wagon standing in the river or in the slough would be a claim about the bank, not about the wagon.",
+              "after": "on the right verge, the ground under it is under 0.60 m over the water surface — a wagon standing in the river or in the slough would be a claim about the bank, not about the wagon. · on the left verge, the ground under it is under 0.60 m over the water surface — a wagon standing in the river or in the slough would be a claim about the bank, not about the wagon."
             },
-            "clearance_m": {
-              "from": 11.45,
-              "to": 3.31
+            {
+              "index": 57,
+              "stand": "south_water 33",
+              "field": "why",
+              "before": "on the left verge, the ground under it is under 0.60 m over the water surface — a wagon standing in the river or in the slough would be a claim about the bank, not about the wagon. · on the right verge, the ground under it is under 0.60 m over the water surface — a wagon standing in the river or in the slough would be a claim about the bank, not about the wagon.",
+              "after": "on the left verge, it stands on the plank walk river_plank_walk_dearborn_crossing (T-0119). A footway is a floor and a wagon parked across it is the town's own Ordinance 9 complaint, drawn. · on the right verge, the ground under it is under 0.60 m over the water surface — a wagon standing in the river or in the slough would be a claim about the bank, not about the wagon."
+            },
+            {
+              "index": 66,
+              "stand": "*",
+              "field": "why",
+              "before": "964 offered stand(s) fell more than 16 m from every committed footprint in the town and are not enumerated one by one. Past that the street is running out into the prairie: a wagon parked in the grass two blocks beyond the last house would be this record inventing a reason for it to be there, and the reason is the whole of what an invented object has to have.",
+              "after": "963 offered stand(s) fell more than 16 m from every committed footprint in the town and are not enumerated one by one. Past that the street is running out into the prairie: a wagon parked in the grass two blocks beyond the last house would be this record inventing a reason for it to be there, and the reason is the whole of what an invented object has to have."
+            }
+          ],
+          "previous_transition_preserved": {
+            "previous_sha256": "a1feb467bc1092f23a8bde0bafe26a27b528670d5cc2b663d74f6ec1b369af5c",
+            "accepted_dev": "ec16b8dd726fa7852ede885ef2d754d55b9b4c59",
+            "upstream_commit": "f2635549179a61fd684336248418ba1e48aaeea9",
+            "ticket": "T-2376",
+            "reason": "Accepted DEV aligns the Green Tree front wagon bay and its existing wagon together by 8.14 m. Preserve that incoming placement, not the older pre-integration coordinates. All 81 wagon/cart records remain protected; all 80 other records, the remaining fields of this wagon, forms, dimensions, eligibility and refusals are exactly unchanged.",
+            "record_id": "green_tree_tavern_shed_wagon",
+            "changes": {
+              "at_local_enu_m": {
+                "from": [
+                  -26.73,
+                  -86.97
+                ],
+                "to": [
+                  -34.87,
+                  -86.97
+                ]
+              },
+              "clearance_m": {
+                "from": 11.45,
+                "to": 3.31
+              }
             }
           }
-        }
-      },
-      "context": "T-2376 canonical closed-shoulder and coupled-yard increment."
+        },
+        "context": "T-2376 canonical closed-shoulder and coupled-yard increment."
+      }
     }
   },
   "fine_wood_selection": {
