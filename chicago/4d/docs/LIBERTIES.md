@@ -24422,7 +24422,10 @@ The verandah's two piers between its arches stand as the photograph's columns (T
 square abacus at the springing; the photograph's capitals are carved leafage a few pixels across, and the
 tiers, the 24 flutes and the shafts' diameter (read as about 15 px against the openings' 45-50 px) stand
 for the Tribune's "Corinthian fluted columns". The verandah's end piers stay solid, as the photograph
-shows them. The rear range is built to its second
+shows them. Across the verandah's three openings (T-3357) stands an iron rail, a 0.06 m square bar from jamb to
+column at 0.8 m over the floor on one standard in each opening's middle: the photograph's dark bar and the
+dark upright under it in its first two openings, a few pixels across, so the section and the standard's
+count are reconstructed and the iron is the dark tone's reading. The rear range is built to its second
 storey's head (9.45 m) under a flat roof, short of the Tribune's 37 ft cornice.
 
 **How to resolve:** T-1901's next piece re-solves the photograph's camera (its present fit is provisional:
