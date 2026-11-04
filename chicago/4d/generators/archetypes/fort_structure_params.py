@@ -61,6 +61,29 @@ CONSTRUCTIONS = ("log", "hewn_log", "braced_frame", "brick", "stone", "earth")
 PAINTS = ("unpainted", "whitewash", "white", "brick", "earth", "stone")
 LANTERN_PROFILES = ("legacy", "birdcage_dome")
 
+# THE CUPOLA ON THE SECOND FORT'S BLOCKHOUSE (T-2388), every number RECONSTRUCTED.
+# The pictures carry its OCCURRENCE and nothing else: panel 5 of the Kurz & Allison
+# sheet draws a small square body under its own four-sided cap at the apex, and the
+# two Wau-Bun reproductions of the 1831 view draw the same thing. A printed drawing
+# at that scale measures nothing, so these are a defensible working size in the
+# proportions the panel shows, and docs/LIBERTIES.md says so. They live here, beside
+# the vocabularies, so `validate` can bound them without importing the builder.
+#: The square body's side.
+CUPOLA_SIDE_M = 1.8
+#: Its height, from its seat inside the main roof to the cupola cap's eave. The body
+#: is sunk into the pyramid (see CUPOLA_SEAT_M), so rather less than this stands clear.
+CUPOLA_HEIGHT_M = 2.1
+#: How far the cupola's own cap reaches past the body, which the panel draws plainly.
+CUPOLA_EAVE_M = 0.22
+#: The pitch of that cap. Steeper than the main pyramid's, as the panel draws it.
+CUPOLA_CAP_PITCH_DEG = 36.0
+#: How far the body's foot is sunk BELOW the main roof's surface under its own
+#: corners, which is the lowest the roof gets under the body's footprint. The point
+#: is that the body meets all four sloping planes instead of balancing on the apex:
+#: a box started at the apex floats clear of the roof at its corners, which is a
+#: strip of sky and a hidden stack, and neither is an acceptable thing to ship.
+CUPOLA_SEAT_M = 0.12
+
 # The form attributes whose VALUE this archetype reads. See the same set in
 # frame_tavern_params for the argument; the short version is that an attribute
 # outside it cannot move a vertex, so the record states something the mesh does
@@ -70,7 +93,7 @@ CONSUMED = frozenset({
     "construction", "paint", "chimneys", "gallery", "loopholes", "sun_dial",
     "upper_overhang_m", "lantern", "gallery_storeys", "face_openings",
     "lantern_profile", "tower_diameter_m", "tower_openings", "tower_profile",
-    "tower_lantern_detail", "tower_masonry",
+    "tower_lantern_detail", "tower_masonry", "cupola",
 })
 
 # Where this archetype touches the ground: the whole footprint outline, at the
@@ -131,6 +154,17 @@ class FortStructureParams:
 
     # per-attribute confidence, keyed by the attribute name in the record
     # Opt-in first-fort details; preserve every legacy positional argument.
+    # A little square cupola at the apex of a blockhouse's pyramid cap, under its
+    # own four-sided cap (T-2388). Keyword-only and OFF unless a record turns it on,
+    # so every other record of this archetype keeps exactly the semantics it had.
+    #
+    # This is NOT `lantern`: that switch is the lighthouse's and only `_tower`
+    # reads it, so setting it on a blockhouse adds nothing at all. Nor does it route
+    # a blockhouse through the tower builder. The geometry is `fort_structure._cupola`
+    # and its dimensions are the archetype's, RECONSTRUCTED — a record states that the
+    # cupola was THERE, which is what its pictures can carry, and nothing about how
+    # big it was. docs/LIBERTIES.md owns the size.
+    cupola: bool = field(default=False, kw_only=True)
     gallery_storeys: int = field(default=1, kw_only=True)
     face_openings: list | None = field(default=None, kw_only=True)
 
@@ -346,6 +380,48 @@ class FortStructureParams:
                 raise ParamError("a double gallery requires gallery=true on quarters or barracks")
             if self.stories != 2:
                 raise ParamError("a double gallery requires a two-storey range")
+        if not isinstance(self.cupola, bool):
+            raise ParamError("cupola is a yes or no, not a count or a size")
+        if self.cupola:
+            # Only the combination that is actually built. A cupola on anything but a
+            # blockhouse's pyramid cap, or over a record that also counts a stack,
+            # would be geometry this module does not draw — and the stack case is
+            # worse than unsupported: `_chimneys` stands its single stack at exactly
+            # the centre of the plan, which is where the cupola stands.
+            if self.kind != "blockhouse":
+                raise ParamError(f"a cupola is built on a blockhouse, not on a "
+                                 f"'{self.kind}'")
+            if self.roof_type != "pyramid":
+                raise ParamError(f"the cupola is seated into a pyramid cap; this "
+                                 f"record's roof is '{self.roof_type}'")
+            if self.chimneys:
+                raise ParamError(f"a cupola and this archetype's {self.chimneys} "
+                                 f"stack(s) both stand on the centre of the plan; a "
+                                 f"record cannot ask for both")
+            sizes = {"CUPOLA_SIDE_M": CUPOLA_SIDE_M, "CUPOLA_HEIGHT_M": CUPOLA_HEIGHT_M,
+                     "CUPOLA_EAVE_M": CUPOLA_EAVE_M, "CUPOLA_SEAT_M": CUPOLA_SEAT_M,
+                     "CUPOLA_CAP_PITCH_DEG": CUPOLA_CAP_PITCH_DEG}
+            for key, value in sizes.items():
+                if (isinstance(value, bool) or not isinstance(value, (int, float))
+                        or not math.isfinite(value)):
+                    raise ParamError(f"{key} must be a finite number")
+            if not 1.0 <= CUPOLA_SIDE_M <= 3.0:
+                raise ParamError("CUPOLA_SIDE_M outside the 1-3 m a little square "
+                                 "cupola can reconstructed-ly be")
+            if not 0.6 <= CUPOLA_HEIGHT_M <= 4.0:
+                raise ParamError("CUPOLA_HEIGHT_M outside 0.6-4 m")
+            if not 0.0 <= CUPOLA_EAVE_M <= 0.6:
+                raise ParamError("CUPOLA_EAVE_M outside 0-0.6 m")
+            if not 8.0 <= CUPOLA_CAP_PITCH_DEG <= 60.0:
+                raise ParamError("CUPOLA_CAP_PITCH_DEG outside 8-60 deg")
+            if not 0.02 <= CUPOLA_SEAT_M <= 0.6:
+                raise ParamError("CUPOLA_SEAT_M outside 0.02-0.6 m — the body has to "
+                                 "be sunk into the roof, and not through it")
+            if (CUPOLA_SIDE_M + 2 * CUPOLA_EAVE_M
+                    >= min(self.width_m, self.depth_m) / 2.0):
+                raise ParamError(f"a {CUPOLA_SIDE_M} m cupola and its eaves take more "
+                                 f"than half the short span of a {self.width_m} x "
+                                 f"{self.depth_m} m roof; that is not a cupola")
         if self.kind not in KINDS:
             raise ParamError(f"kind '{self.kind}' not in {KINDS}")
         if not 0.5 <= self.width_m <= 120.0:
@@ -482,6 +558,7 @@ def from_phase(phase: dict, record: dict | None = None) -> FortStructureParams:
         gallery_storeys=val("gallery_storeys", 1),
         face_openings=val("face_openings", None),
         loopholes=bool(val("loopholes", False)),
+        cupola=bool(val("cupola", False)),
         upper_overhang_m=float(val("upper_overhang_m", 0.45)),
         sun_dial=bool(val("sun_dial", False)),
         lantern=bool(val("lantern", False)),

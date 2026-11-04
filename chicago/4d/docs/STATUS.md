@@ -25776,3 +25776,49 @@ A bounded animation-only derivative adds the eight-second `sit_drive_look_v2` cl
 All eight children were generated from pinned public parents. Actual native CPU GLTFLoader/Meshopt/AnimationMixer readback covers 65 keys and 64 midpoints per child (1,032 phases), decodes the original images, and finds bit-exact protected body world transforms and Float32 skin palettes; non-target local transforms including the jaw/eyes remain exact while the head branch moves. Selected Hans web LOD0/3 palm points do not move; the original 1 nm comparison bound and real 3 mm pelvis-fault controls are retained. The exact derivative, native result and four-field active palm-payload hash bridge are recorded under `data/humans/animations/seated-driver-look-v2.*.json`. The initial new observer incorrectly treated the jaw as world-static; that failed attempt is retained separately, and the corrected observer protects all non-target local transforms and every body world transform outside the authored head branch.
 
 The unchanged native all-24-human browser fixture now passes at 1280x800 and 390x780 for these exact payloads; it wrote the current fixture measure in 118.631 seconds, and the subsequent native hash/verdict check passed. Original skeleton, skinning, morph, texture, frame, master/web and viewport assertions remain. Published desktop/phone scene motion and clothing review, unchanged resource/memory limits, the complete source gate, exact-HEAD CI and ordinary DEV delivery remain pending. Existing natural-standing and resident proofs remain historical parent evidence. This finite seated increment closes no photographic, continuous garment/contact, horse gait, riding or boarding acceptance.
+
+### T-2388 (partial) — the second fort's blockhouse gets its pictured cupola, 2026-11-03
+
+Panel 5 of the Kurz & Allison sheet, captioned "Fort Dearborn as rebuilt 1835", draws a small
+square cupola at the centre of this blockhouse's four-sided cap, under a little cap of its own,
+and draws no stack anywhere on that roof; the two Wau-Bun reproductions of the 1831 view draw the
+same body. The cupola is now built. The invented, unattested centre chimney that stood in exactly
+its place is recorded at a count of 0 — a choice about what to depict, stated as one, and NOT a
+finding that the blockhouse was unheated or had no flue. The 1856 Kellogg/Blanchard print (filed
+misleadingly as `chicago_fort_dearborn_river_mouth_1830.jpg`) depicts about 1836-1849 and shows a
+louvred cap and a small ambiguous projection; that later detail is left unresolved, not
+backdated.
+
+The control is a keyword-only, default-off `cupola` on `fort_structure`, consumed by a local
+`_cupola` helper. It is not the lighthouse's `lantern` (only `_tower` reads that, so setting it
+on a blockhouse adds nothing), it does not route this building through the tower builder, and it
+changes no shared geometry. Its occurrence is `inferred` from the identified pictures; every
+dimension is reconstructed in the archetype and admitted in
+`docs/LIBERTIES.md` L-second-fort-blockhouse-cupola-2388. The body is sunk 0.12 m below the
+lowest the main roof reaches under its own footprint, so it meets all four sloping planes rather
+than balancing on the apex — no floating corner, no strip of sky, nowhere to hide a stack.
+Everything below the roof is untouched: surveyed seat and 8 degree rotation, the inferred
+14.52 x 9.80 m footprint and its ambiguity, 5.2 m walls, two storeys, 0.45 m jetty, loopholes,
+doors and every palette.
+
+Changing the producer staled the whole family. All 25 current `fort_structure` MASTERs — the
+accepted 1832 lighthouse and the Lake House construction shell included — were genuinely rebuilt
+on the pinned Ubuntu 26.04 / Blender 4.5.3 in two bounded native batches, and all 25 input hashes
+in `assets/manifest.json` are the regenerated ones. Exactly one master's bytes moved
+(`fort_dearborn_blockhouse__log_1816.glb`, 134,632 -> 133,092); the other 24 came back
+byte-identical and keep their bound WEB derivatives, and the blockhouse's own derivative was
+re-encoded. No foreign registry row was touched.
+
+The picture is now reachable on the building's card: `kurz_allison_1893` is cited by the record,
+and `data/structure_grades.json` carries an explicit pictured ruling saying why panel 5 is a
+reasonable whole picture of this named building. The sidecar grade therefore derives `attested`
+from the rule rather than being hand-typed, and it is NOT taken from a camera fit — the only
+camera on this panel is the T-3040 compound diagnostic, whose eye reached its imposed 100 m bound.
+
+Before and after were captured through `photo_match.mjs` from one identical camera, with only
+the blockhouse's bytes changed, in `docs/RESEARCH/second-fort-cupola-T-2388/`. The historical
+T-3040 bodies are preserved untouched. The new camera is `diagnostic_only`, so no invented
+"from this spot" is offered. Only the roof assembly is marked `fixed`. **The original T-2388
+remains OPEN and the view remains DIFFERS**: the camera is unfitted, the ranges, galleries,
+facade openings, other roof forms and chimney counts are unresolved, the compound's composition
+differs, and the other dated pictures the ticket lists have not been read at all.
