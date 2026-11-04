@@ -40,7 +40,7 @@ import { CELL_M, MAX_PIXELS as FAR_SHADOW_MAX_PIXELS, shadowTwin, twinReachM, dr
   farShadowFromSearch } from './far-shadow.js';
 import { drawFarColourAsTwins, farColourFromSearch, MAX_PIXELS as FAR_COLOUR_MAX_PIXELS,
   CELL_M as FAR_COLOUR_CELL_M, KEEP_RATIO as FAR_COLOUR_KEEP_RATIO } from './far-colour.js';
-import { coalesceRuns, COALESCE_ON } from './batch-coalesce.js';
+import { coalesceRuns, sortCellsByPiece, COALESCE_ON } from './batch-coalesce.js';
 import { rigidBoundsMaterial, installFrustumBoxCull } from './batch-frustum-box.js';
 import { backingTriangles } from './view-occlusion.js';
 import { planarCoverPlanes } from './planar-occluders.js';
@@ -1313,6 +1313,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // Narrow phase sees native whole-instance entries before existing coalescing.
     const narrow = installFrustumBoxCull(batch, bucket.boundsRigid, depthMaterial, seasonPreservesSurface, coalesce, shadowCasters);
     if (cutsCells) coalesceRuns(batch, coalesce);
+    // T-3363: a blended batch's cells sorted by their piece, so its glass joins up.
+    if (cutsCells && batch.material.transparent) sortCellsByPiece(batch);
     narrow?.seal();
     batch.computeBoundingBox();
     batch.computeBoundingSphere();
