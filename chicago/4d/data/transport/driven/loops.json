@@ -67,6 +67,7 @@
       },
       "vehicle_file": "transport/wagon-driver/wagon-w01.glb",
       "driver_asset": "bardwell_otis_1835",
+      "driver_clip": "sit_drive_look_v2",
       "replace_human_instance": "hi_rc_bardwell_otis_1835",
       "person_id": "rc_bardwell_otis",
       "driver_seat_node_m": [
@@ -183,6 +184,7 @@
       ],
       "vehicle_file": "transport/parked-brougham/brougham-near.glb",
       "driver_asset": "anonymous_working_driver_1904",
+      "driver_clip": "sit_drive_look_v2",
       "person_id": "pa1904_otis_f_r_c1900_hans_johnson",
       "driver_seat_node_m": [
         0,
@@ -241,7 +243,7 @@
             "asset_id": "anonymous_working_driver_1904",
             "web": true,
             "lod": 0,
-            "asset_sha256": "7a3c2392e63edf75950f48a4bd607075f3e8c71015db5c81a6d8a7df40b0f09e",
+            "asset_sha256": "49a84c1d858f67359ff33e56762336ade56db1dcbbb1cbe923846d95825c9547",
             "side": "l",
             "actual_body_mesh": "anonymous_working_driver_1904_body_0_lod0",
             "actual_point_vehicle_local_m": [
@@ -275,7 +277,7 @@
             "asset_id": "anonymous_working_driver_1904",
             "web": true,
             "lod": 0,
-            "asset_sha256": "7a3c2392e63edf75950f48a4bd607075f3e8c71015db5c81a6d8a7df40b0f09e",
+            "asset_sha256": "49a84c1d858f67359ff33e56762336ade56db1dcbbb1cbe923846d95825c9547",
             "side": "r",
             "actual_body_mesh": "anonymous_working_driver_1904_body_0_lod0",
             "actual_point_vehicle_local_m": [
@@ -311,7 +313,7 @@
             "asset_id": "anonymous_working_driver_1904",
             "web": true,
             "lod": 3,
-            "asset_sha256": "681da7b7e9119f5c4e8bf0ddd0a491427ef5898697665157b2321d8725138bed",
+            "asset_sha256": "84e602cd49c6e355fb25bc6659a0f4a9e573e4bebe6ce8d2e30e14ed5250b60b",
             "side": "l",
             "actual_body_mesh": "anonymous_working_driver_1904_body_0_lod3",
             "actual_point_vehicle_local_m": [
@@ -345,7 +347,7 @@
             "asset_id": "anonymous_working_driver_1904",
             "web": true,
             "lod": 3,
-            "asset_sha256": "681da7b7e9119f5c4e8bf0ddd0a491427ef5898697665157b2321d8725138bed",
+            "asset_sha256": "84e602cd49c6e355fb25bc6659a0f4a9e573e4bebe6ce8d2e30e14ed5250b60b",
             "side": "r",
             "actual_body_mesh": "anonymous_working_driver_1904_body_0_lod3",
             "actual_point_vehicle_local_m": [

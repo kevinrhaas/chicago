@@ -45,7 +45,7 @@ export function createDrivenAssembly({ vehicle, driver, horse, confidence,
   });
   const wheelRest = wheels.map(node => node.rotation.x), steerRest = steer.rotation.y;
   const horseRestYaw = horse.root.rotation.y;
-  let priorHorse = null, stopped = true, disposed = false;
+  let priorHorse = null, stopped = true, disposed = false, visualReset = true;
   return {
     root,
     pose(pose) {
@@ -73,7 +73,19 @@ export function createDrivenAssembly({ vehicle, driver, horse, confidence,
       const connection = hitch?.update(pose);
       if (connection?.valid === false) throw Error('town transport: actual hitch exceeds its declared connection bound');
     },
-    advance(dt) { if (dt > 0) stopped = false; driver.update?.(dt); },
+    advance(dt) {
+      if (dt > 0) stopped = false;
+      // Legacy static clips retain their original vehicle clock. A qualified
+      // looking clip instead consumes one independent visual frame below.
+      if (!driver.updateVisual) driver.update?.(dt);
+    },
+    updateVisual(dt, { paused = false } = {}) {
+      if (disposed || !driver.updateVisual) return;
+      if (!Number.isFinite(dt) || dt < 0) throw Error('town transport: finite nonnegative driver visual time required');
+      const held = paused || !root.visible;
+      driver.updateVisual(held || visualReset ? 0 : dt);
+      visualReset = held;
+    },
     visible(value) {
       if (disposed) return;
       root.visible = value;
@@ -145,6 +157,7 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
             if (disposed || ownGeneration !== generation || tier === 'light') { assembly.dispose(); break; }
             const actor = createTransportLoop({ ...liveRow, route, assembly, heightAt,
               clear: (from, to) => clear(row, from, to) });
+            actor.updateVisual = assembly.updateVisual;
             deferred.delete(row.id);
             actors.push(actor); roots.push(assembly.root);
             actor.routeReading = routeReading;
@@ -179,14 +192,15 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
       if (near) void out.ready();
       return near;
     },
-    update(dt, cameraPosition, { paused = false, reducedMotion = false, hidden = false } = {}) {
+    update(dt, cameraPosition, { paused = false, reducedMotion = false, hidden = false, visualDt = dt } = {}) {
       if (disposed) return;
-      lastUpdate = [0, cameraPosition, { paused, reducedMotion, hidden }];
+      lastUpdate = [0, cameraPosition, { paused, reducedMotion, hidden, visualDt: 0 }];
       const distance = reach[tier] ?? 0;
       for (const actor of actors) {
         const at = actor.at;
         const drawn = distance > 0 && Math.hypot(at[0] - cameraPosition.x, -at[1] - cameraPosition.z) < distance;
         actor.update(dt, { enabled: !hidden, drawn, paused, reducedMotion });
+        actor.updateVisual?.(visualDt, { paused: paused || reducedMotion || hidden });
       }
     },
     async setTier(next) {
