@@ -6373,3 +6373,32 @@ Saved native source `34a242bb60d527cfe10daee173c3d40302cd6e24` changes one exist
 The provider stopped at its weekly limit before a PR. This local recovery preserves the saved native outputs rather than rebuilding them. Source part 1 was RED for derived liberties, followed by the owner's corrected `data/liberties.json` without a local part-1 rerun. Parts 2 and 3 passed 292 steps each; part 4 retained the inherited Python 3.14.4/NumPy 2.5.4 two-dimensional-cross error. Those are the actual local results, not an all-four PASS. The authenticated check harness invokes the official publisher in every partition: the post-fix parts 2/3 passed and part 4 reported only that unrelated NumPy failure before mobile stages 3–4 passed 139/0 on saved source 34a. A separate published-input map/buildstamp was not captured; this is scoped execution provenance, not a new current-finisher run.
 
 Qualification remains in progress: integrate current dev while preserving foreign outputs, pass the current exact-head hosted eight parts and aggregate (including the known environment-sensitive step), and review the genuinely published keeper east material at desktop and phone sizes with the missing desktop/relevant runtime. Exact old Sources/Images inputs may carry only after consumed-row equality is verified. No current target-body BOTH, passage/ground clearance or complete picture match is claimed. T-2380 stays OPEN/partial; no grade, source camera or historical fit is promoted. This is an append-only checkpoint; the archived raw prefix is preserved.
+
+
+### T-2383 — finite street review; shared-ridge and shaft-width trial pending
+
+A normal Lake Street sidewalk review on published e803db79d3, at the native1.68m
+eye with flight off, confirms the two shaft bodies are visibly broad and squat.
+Both actual views and real stack GPU picks are retained; root directly reviewed
+them. The corrected capture properly exited0 with zero errors and unchanged
+source/publication bindings. Its earlier surface-label fixture RED is preserved.
+
+One cohesive candidate is prepared, not applied: opt this Hotel into the existing
+producer's intended shared-ridge join, accounting for the roof helper's end
+overhang, and try a reconstructed0.60m square shaft width without changing shaft
+height or adding caps. The3.75m ridge separation is measured in the current model,
+not a historical dimension; a source-proven exact intersection is not asserted.
+Footprint, existing site, main walls/pitch, outer wing length, date and cameras
+stay fixed. Static/pure peer approval does not qualify new native geometry.
+
+The next source stage must add explicit Covers for both controls and regenerate
+SourceUse through its official owner on the full dataset before native work.
+Actual current family inventory is23 defaults plus two Tremont variants: all25
+need a genuine pinned rebuild, then24 non-Hotel MASTER comparisons before WEB
+reuse. Full source, controlled picture, current visitor and exact-head hosted
+gates remain owed. This first draft is documentation only, original T-2383 is
+not done, and no photo followup is filed. The finite signoff will apply T3153 to
+actual remaining shapes rather than preserving stale pixel/count placeholders.
+
+[Actual street review and history](https://github.com/kevinrhaas/chicago-evidence/tree/de48d0b43c5df6fd9fae32143eab0c8ae2f98f1b/evidence/sauganash-2026-11-04/finite-street-review-and-unapplied-join-width-prep/)
+[Unapplied V2 proposal and independent peer](https://github.com/kevinrhaas/chicago-evidence/tree/b46dc28277df09824a871edfbebdbcc21c5317f2/evidence/sauganash-2026-11-04/finite-join-width-prep-v2-peer-reviewed/)
