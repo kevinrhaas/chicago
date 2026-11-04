@@ -41,7 +41,10 @@ from common.logwork import (  # noqa: E402
 from common import materials  # noqa: E402
 from common import openings  # noqa: E402
 from common.mesh import MeshBuilder, ROOF_RGBA, simple_material  # noqa: E402
-from archetypes.fort_structure_params import FortStructureParams, wall_openings, tower_opening_layout  # noqa: E402
+from archetypes.fort_structure_params import (  # noqa: E402
+    CUPOLA_CAP_PITCH_DEG, CUPOLA_EAVE_M, CUPOLA_HEIGHT_M, CUPOLA_SEAT_M,
+    CUPOLA_SIDE_M, FortStructureParams, tower_opening_layout, wall_openings,
+)
 
 #: This archetype's roof COVERING, off the sheet's dealing rule (T-1487).
 #: `materials.roof_substrate` holds the argument for why it is this one and
@@ -316,6 +319,8 @@ def _building(b: MeshBuilder, p: FortStructureParams) -> None:
         _gallery(b, p, p.conf("gallery", "reconstructed"))
     if p.chimneys:
         _chimneys(b, p, ridge, p.conf("chimneys", "reconstructed"), M_CHIMNEY)
+    if p.cupola:
+        _cupola(b, p, ridge, p.conf("cupola", "inferred"))
 
 
 #: How far a pitched roof reaches past the wall at its eaves and its rakes. The
@@ -518,8 +523,14 @@ def _gable_wall(b: MeshBuilder, p: FortStructureParams, axis: str, plane: float,
                    M_TRIM)
 
 
+#: How far a hip or a pyramid reaches past the walls it covers. Named rather than
+#: left as a literal default because `_cupola` has to know where the roof surface
+#: under its own footprint actually is, and a copy of this number would drift.
+HIP_OVERHANG_M = 0.28
+
+
 def _hip_roof(b: MeshBuilder, x0, y0, x1, y1, eave_z, pitch_deg, conf,
-              pyramid: bool, overhang: float = 0.28) -> float:
+              pyramid: bool, overhang: float = HIP_OVERHANG_M) -> float:
     """A hip or a pyramid. A pyramid is the degenerate hip whose ridge is a point,
     and a blockhouse gets one because a four-sided pitched cap over a square plan
     is what every surviving blockhouse of the period carries."""
@@ -749,6 +760,61 @@ def _chimneys(b: MeshBuilder, p: FortStructureParams, ridge_z: float,
         b.add_box(x - half_x - 0.08, yc - half_y - 0.08, ridge_z + 0.60,
                   x + half_x + 0.08, yc + half_y + 0.08, ridge_z + 0.78,
                   conf, mat, skip=("bottom",))
+
+
+def _cupola(b: MeshBuilder, p: FortStructureParams, ridge_z: float,
+            conf: float) -> None:
+    """The little square cupola at the apex of a blockhouse's pyramid cap (T-2388).
+
+    Panel 5 of the Kurz & Allison sheet — captioned "Fort Dearborn as rebuilt 1835" —
+    draws the second fort's blockhouse with a small square body at the centre of its
+    four-sided roof, under a cap of its own, and nothing else on the roof at all. The
+    two Wau-Bun reproductions of the 1831 view draw the same body and no separate
+    stack beside it. That is what this builds. **The pictures carry the cupola's
+    OCCURRENCE and not one of its dimensions**: a retrospective chromolithograph is a
+    tier-5 source, form only, never a measurement, and the size, the height, the cap's
+    pitch and the plain boarded sides below it are all reconstructed at a defensible
+    working size in the proportions the panel shows (fort_structure_params, and
+    docs/LIBERTIES.md).
+
+    **It MEETS the roof, it does not balance on it.** A box set down at the apex
+    stands clear of the covering at its own four corners, because the pyramid falls
+    away from the apex in every direction — which would ship a strip of sky under the
+    cupola and, worse, somewhere to hide a stack. So the body's foot is carried
+    CUPOLA_SEAT_M below the lowest the main roof gets anywhere under its footprint,
+    which is at the body's corners; everywhere else along its perimeter the covering
+    is higher still, and the body simply comes up through it. The main roof is not
+    touched: it is the same four planes `_hip_roof` has always laid.
+
+    The cap is `_hip_roof` again, a pyramid of the same covering as the roof below,
+    with its own small eave; `_hip_roof` drops its eave by the overhang's own rise, so
+    the cap passes exactly through the top of the body at the body's wall line.
+
+    Nothing is louvred and nothing is finialled. The 1856 Kellogg/Blanchard print
+    (misleadingly filed as `chicago_fort_dearborn_river_mouth_1830.jpg`) shows a
+    LOUVRED cap and a small ambiguous projection beside it, but it depicts about
+    1836-1849 and may not be backdated onto 1 July 1835; and the lighthouse's birdcage
+    lantern is a different building's fitting, not a part to be reached for because
+    the helper exists.
+    """
+    half = CUPOLA_SIDE_M / 2.0
+    cx, cy = p.width_m / 2.0, p.depth_m / 2.0
+    # The main pyramid, as `_building` laid it: the jetty's outline, then
+    # `_hip_roof`'s own overhang, and its rise is set by the SHORT span.
+    ex = p.overhang_m + HIP_OVERHANG_M
+    half_w, half_d = p.width_m / 2.0 + ex, p.depth_m / 2.0 + ex
+    rise = min(half_w, half_d) * math.tan(math.radians(p.roof_pitch_deg))
+    # How far that surface has fallen below the apex at the body's own corners —
+    # whichever of the two slopes governs there is the one that has fallen further.
+    fall = rise * max(half / half_w, half / half_d)
+    base_z = ridge_z - fall - CUPOLA_SEAT_M
+    eave_z = base_z + CUPOLA_HEIGHT_M
+    # Plain boarded sides, in the building's own wall fabric. The bottom face is
+    # inside the roof cone and is skipped; the top is covered by the cap above it.
+    b.add_box(cx - half, cy - half, base_z, cx + half, cy + half, eave_z,
+              conf, M_WALL, skip=("bottom",))
+    _hip_roof(b, cx - half, cy - half, cx + half, cy + half, eave_z,
+              CUPOLA_CAP_PITCH_DEG, conf, pyramid=True, overhang=CUPOLA_EAVE_M)
 
 
 # ------------------------------------------------------------ ground furniture

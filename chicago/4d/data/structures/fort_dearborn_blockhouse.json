@@ -97,7 +97,7 @@
         "roof_type": {
           "value": "pyramid",
           "confidence": "reconstructed",
-          "note": "Unattested. A four-sided pitched cap over a near-square plan is the surviving type. Andreas's own 1808 index for the first fort notes 'the Cupolas are not yet built on the Block Houses as laid down', which attests a cupola on that fort's blockhouses and nothing about this one; no cupola is built here."
+          "note": "Unattested in words. A four-sided pitched cap over a near-square plan is the surviving type. Andreas's own 1808 index for the FIRST fort notes 'the Cupolas are not yet built on the Block Houses as laid down', which attests a cupola on that fort's blockhouses and says nothing about this one; the cupola this record now carries is read off this fort's own pictures instead, and stands in `cupola` with its own confidence rather than being folded into this attribute."
         },
         "roof_pitch_deg": {
           "value": 30.0,
@@ -105,9 +105,22 @@
           "note": "Unattested. A shallower pitch than the ranges because a pyramid over a wide plan gets tall fast."
         },
         "chimneys": {
-          "value": 1,
+          "value": 0,
           "confidence": "reconstructed",
-          "note": "Unattested. A blockhouse manned in a Chicago winter is heated; the count, the position and everything else about the stack is ours."
+          "note": "RECONSTRUCTED AT NONE, AND THAT IS A CHOICE ABOUT WHAT TO DEPICT, NOT A FINDING ABOUT HEATING (T-2388). This record used to count one stack — 'a blockhouse manned in a Chicago winter is heated' — and the archetype stands a single stack at the exact centre of the plan, which is where this fort's own pictures put a cupola instead. Panel 5 of the Kurz & Allison sheet and the two Wau-Bun reproductions of the 1831 view all draw the small square cupola on this roof and none of them draws a stack beside it, so the invented stack was both unattested and in the way of a pictured feature, and the pictured feature wins. WHAT THIS DOES NOT CLAIM: that the blockhouse was unheated, that it had no flue, or that nothing ever stood on this roof besides the cupola. Pictorial sources are tier 5 and their silence is not testimony; the 1856 Kellogg/Blanchard print (filed, misleadingly, as `chicago_fort_dearborn_river_mouth_1830.jpg`) depicts about 1836-1849 and does show a small ambiguous projection beside a louvred cap, and that later detail is left unresolved rather than backdated onto 1 July 1835. The count is recorded at 0 because nothing reached counts one, and a stack has not been quietly moved somewhere else to keep it.",
+          "sources": [
+            "kurz_allison_1893",
+            "kinzie_1857_chicago_1831_panorama"
+          ]
+        },
+        "cupola": {
+          "value": true,
+          "confidence": "inferred",
+          "sources": [
+            "kurz_allison_1893",
+            "kinzie_1857_chicago_1831_panorama"
+          ],
+          "note": "PICTURED, AND ONLY PICTURED (T-2388). Panel 5 of the Kurz & Allison sheet, captioned 'Fort Dearborn as rebuilt 1835', draws this blockhouse with a small square body at the centre of its four-sided cap, under a little four-sided cap of its own; the two Wau-Bun reproductions of the 1831 view draw the same body. Two independent-looking depictions of this fort's blockhouse agree on the feature, which is what carries INFERRED rather than attested: the sheet is an 1893 retrospective, it is tier 5, it dates several of its own subjects wrongly, and its caption is not proof that this feature stood on 1 July 1835. EVERY DIMENSION IS RECONSTRUCTED and none of it is in this record: the side, the height, the cap's pitch, the plain boarded sides and the absence of louvres are the archetype's working reconstruction at the proportions the panel shows, and docs/LIBERTIES.md owns them. The louvres and the ambiguous secondary projection of the 1856 Kellogg/Blanchard print are NOT built: that print depicts about 1836-1849."
         }
       }
     }
@@ -120,7 +133,7 @@
     ],
     "note": "The fort's one blockhouse, at the south-west angle, flanking the south and west curtains. It outlived the fort as a landmark: Wentworth records that when the reservation was sold in 1839 'the land whereon the block-house stood ... was not parted with'."
   },
-  "research_note": "THE MOST INVENTED BUILDING IN THE COMPLEX, and the one a visitor will look at hardest. Its corner is documented three times over and its outline is on the only plan; its height, its jetty, its loopholes, its roof and its stack are all ours, because nothing reached describes this blockhouse at all beyond the words 'block-house' and 'southwest'. The footprint note explains why the measured size is bigger than the type and why it was not quietly reduced.",
+  "research_note": "THE MOST INVENTED BUILDING IN THE COMPLEX, and the one a visitor will look at hardest. Its corner is documented three times over and its outline is on the only plan; its height, its jetty, its loopholes and the dimensions of its roof are all ours, because nothing reached describes this blockhouse at all beyond the words 'block-house' and 'southwest'. The footprint note explains why the measured size is bigger than the type and why it was not quietly reduced. SINCE T-2388 the roof is no longer entirely ours: the fort's own pictures put a small square cupola at the centre of the cap and no stack beside it, so the cupola is built (occurrence inferred, every dimension reconstructed) and the invented centre stack that stood in its place is recorded at a count of 0. That is a choice about what to depict and not a claim that the building was unheated — the chimneys note sets it out. The building as a whole still DIFFERS from its pictures: T-2388 remains open on the ranges, the galleries, the facade openings, the other roof forms, the compound's composition and every other dated picture of the fort.",
   "review_required": false,
   "land_owner": {
     "value": "The ground was entered by John Baptist Baubian, 28 May 1835",

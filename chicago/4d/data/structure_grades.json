@@ -120,6 +120,12 @@
       "structure": "chicago_lighthouse_1832",
       "picture": "early-castelnau-1842-chicago-harbor",
       "why": "The identified 1842 Castelnau harbour print shows the distinct visible lighthouse shaft, gallery, framed lantern, rounded crown and finial sufficiently to guide its appearance, although it is the small far-right building and its foot is occluded. The entire source and its original plate detail were inspected; this is appearance evidence rather than the mapped plan alone. The whole-building grade does not attest metric diameter, the 40 ft datum, paint, hidden construction, a historical viewing station or unchanged July 1835 detail. Circa 1838-to-1835 continuity remains inferred. The canonical Castelnau comparison now matches under T-3153; the Kellogg aperture/proportion and Baker cap disagreements remain explicit conflicting-picture readings, not literal matches. Tiny or occluded features and the original source/date/rights limits remain qualified in the seven-picture review."
+    },
+    {
+      "scene": "1835",
+      "structure": "fort_dearborn_blockhouse",
+      "picture": "kurz_allison_1893",
+      "why": "Panel 5 of the sheet, 'Fort Dearborn as rebuilt 1835', shows this blockhouse WHOLE and from outside the stockade — the two-storey body, its jettied upper storey, the full four-sided cap and the little square cupola at the centre of it — not a corner and not a building the view merely contains (read 2026-11-03 off the committed crop data/sources/assets/prefire_views_kevin_2026_08/p3_1.png, which tools/measure_plate_join.py joins to the sheet as panel 5). RULED IN HERE RATHER THAN BY A SOLVED CAMERA on purpose: the only camera fitted on this panel is the T-3040 compound diagnostic, whose eye reached its imposed 100 m bound and which renders the whole fort aerial and undersized, so it is not evidence that anything is well framed — the reasonable-picture judgement is the plate's own and is stated here. The grade says a picture shows what this building looked like; it says nothing about how closely the model matches it, which T-2388 still records as DIFFERS."
     }
   ],
   "not_pictured": [
