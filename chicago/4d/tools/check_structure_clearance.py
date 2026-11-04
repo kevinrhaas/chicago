@@ -3,7 +3,7 @@
 
     python3 tools/check_structure_clearance.py               the gate, every scene
     python3 tools/check_structure_clearance.py --report      every finding, ruled ones too
-    python3 tools/check_structure_clearance.py --self-test   break it four ways; each must fire
+    python3 tools/check_structure_clearance.py --self-test   break it six ways; each must fire
 
 WHY THIS EXISTS. The owner, 2026-10-23, with a screenshot from 35 ft over Lake and Canal
 in 1835: *"Not right make sure this does not happen again."* Two shops stood inside each
@@ -43,6 +43,20 @@ THE THREE QUESTIONS, per scene (1812, 1835, 1904):
      wagons, sheds, outbuildings, building material, the water cart) and the street edge's
      posts and fittings: its centre may not stand more than PROP_TOL_M inside a building. A
      woodpile against a wall stands outside it; one whose middle is in the parlour does not.
+
+  D. BUILDING ACROSS A WALK OR AN ALLEY (1835, T-3360). The owner, 2026-11-03, over State
+     and Lake: buildings "placed in the middle of the walkways or alleys" — St. Mary's church
+     stood 3.97 m out past its State Street lot line and the plank walk stopped dead at its
+     wall; Chappel's school did the same north of Lake and sat in its block's alley mouth.
+     The street-edge generator had been doing exactly what it says (a march step a footprint
+     stands on carries no boards) and the alley generator cut its lane short and printed the
+     cut, so nothing went red: a refused step is the generator's answer, not a fault. This
+     asks the TOWN the question instead. Every street-edge face the walk rule marches
+     (tools/generate_frontage_works.py, the same faces and the same three probes across the
+     deck its march uses) may carry no building on its walk line, and no building may stand
+     more than ALLEY_TOL_M inside a platted alley strip (thompson_lots.json
+     `alley_local_enu_m`). Where a source fixes a building so exactly that the walk must have
+     gone round it, that is a ruling in RULED_ON_WAY, with the reason.
 
 RULINGS are the pairs that overlap on purpose, each with the reason; a ruling that no longer
 matches anything fails, so the list cannot outlive what it excuses.
@@ -99,6 +113,15 @@ OPEN_GROUND = {
 }
 
 FENCE_ARCHETYPES = {"palisade"}
+
+ALLEY_TOL_M = 0.05        # a wall may stand on the alley line, not inside the strip
+
+# Buildings a source places so exactly that the walk or the alley went round them (question D):
+# (scene, structure id, "walk" | "alley") and why. Empty: every building that stood on a walk or
+# in an alley on 2026-11-03 was placed by a corner, a block face or a recipe, never by a
+# coordinate, and was moved back onto its lot instead (T-3360). A ruling here that no longer
+# matches anything fails, like RULED.
+RULED_ON_WAY: dict = {}
 
 
 # --------------------------------------------------------------------------- geometry
@@ -378,17 +401,88 @@ def findings(scene: str, blds: list[dict], runs=(), props=()) -> list[dict]:
     return out
 
 
+def ways_1835(blds: list[dict]) -> list[dict]:
+    """Question D: buildings standing on a street-edge walk line or inside a platted alley."""
+    import generate_frontage_works as gfw   # noqa: E402 — heavy, and only 1835 needs it
+    out = []
+    walls = [b for b in blds if b["archetype"] not in FENCE_ARCHETYPES and b["id"] not in OPEN_GROUND]
+    # The march's own building shape: centre, radius and ring, one entry per shape so a rear
+    # ell blocks the walk the way its house does.
+    feet = []
+    for w in walls:
+        for shape in w["shapes"]:
+            ce = sum(p[0] for p in shape) / len(shape)
+            cn = sum(p[1] for p in shape) / len(shape)
+            feet.append({"id": w["id"], "pts": shape, "e": ce, "n": cn,
+                         "r": max(math.hypot(p[0] - ce, p[1] - cn) for p in shape)})
+    lots = gfw._lots()
+    faces = gfw._edge_faces(lots)
+    covered = {(f["block"]["id"], f["face"]) for f in faces}
+    faces += gfw._front_faces(lots, gfw._placed_footprints(), gfw._streets(), covered)
+    half = gfw.WALK_W_M / 2.0
+    seen = set()
+    for entry in faces:
+        frame = entry["frame"]
+        steps = max(1, int(frame["length"] / 0.5))
+        for k in range(steps + 1):
+            t = frame["length"] * k / steps
+            pt = (frame["origin"][0] + frame["along"][0] * t + frame["outward"][0] * gfw.EDGE_OFFSET_M,
+                  frame["origin"][1] + frame["along"][1] * t + frame["outward"][1] * gfw.EDGE_OFFSET_M)
+            sid = gfw._wall_on(pt, half, frame["outward"], feet)
+            key = (sid, entry["block"]["id"], entry["face"])
+            if sid and key not in seen:
+                seen.add(key)
+                out.append({"scene": "1835", "kind": "building_on_walk", "a": sid, "b": "walk",
+                            "text": f"{sid} stands on the plank walk line of {entry['block']['id']}'s "
+                                    f"{entry['face']} face ({entry['street']}), {t:.1f} m along it"})
+    for blk in lots.get("blocks", []):
+        strip = blk.get("alley_local_enu_m")
+        if not strip or len(strip) < 4:
+            continue
+        q = [tuple(p) for p in strip[:4]]
+        sides = [(q[i], q[(i + 1) % 4]) for i in range(4)]
+        lens = [math.dist(a, b) for a, b in sides]
+        k = 0 if lens[0] + lens[2] < lens[1] + lens[3] else 1
+        mid = lambda s: ((s[0][0] + s[1][0]) / 2.0, (s[0][1] + s[1][1]) / 2.0)  # noqa: E731
+        a, b = mid(sides[k]), mid(sides[k + 2])
+        length, hw = math.dist(a, b), (lens[k] + lens[k + 2]) / 4.0 - ALLEY_TOL_M
+        if length < 1e-6 or hw <= 0:
+            continue
+        u = ((b[0] - a[0]) / length, (b[1] - a[1]) / length)
+        nrm = (-u[1], u[0])
+        box = bbox(q)
+        for w in walls:
+            if boxes_apart(box, w["box"]):
+                continue
+            hit = None
+            for shape in w["shapes"]:
+                sb = bbox(shape)
+                s = 0.0
+                while s <= length and hit is None:
+                    for f in (-1.0, -0.5, 0.0, 0.5, 1.0):
+                        p = (a[0] + u[0] * s + nrm[0] * hw * f, a[1] + u[1] * s + nrm[1] * hw * f)
+                        if sb[0] <= p[0] <= sb[2] and sb[1] <= p[1] <= sb[3] and inside(p, shape):
+                            hit = s
+                            break
+                    s += 0.25
+            if hit is not None:
+                out.append({"scene": "1835", "kind": "building_in_alley", "a": w["id"], "b": "alley",
+                            "text": f"{w['id']} stands inside {blk['id']}'s platted alley, "
+                                    f"{hit:.1f} m along it"})
+    return out
+
+
 def judge(all_findings: list[dict]) -> tuple[list[dict], list[dict], list[tuple]]:
     """(faults, ruled, stale rulings)."""
     faults, ruled, used = [], [], set()
     for f in all_findings:
         key = (f["scene"], f["a"], f["b"])
-        if key in RULED:
+        if key in RULED or key in RULED_ON_WAY:
             ruled.append(f)
             used.add(key)
         else:
             faults.append(f)
-    stale = [k for k in RULED if k not in used]
+    stale = [k for k in (*RULED, *RULED_ON_WAY) if k not in used]
     return faults, ruled, stale
 
 
@@ -398,6 +492,7 @@ def survey(overrides: dict | None = None, layers: dict | None = None) -> list[di
         blds = buildings(scene, (overrides or {}).get(scene))
         if scene == "1835":
             out += findings(scene, blds, runs_1835(layers), props_1835(layers))
+            out += ways_1835(blds)
         else:
             out += findings(scene, blds)
     return out
@@ -469,7 +564,27 @@ def self_test() -> int:
     hit = [f for f in survey(layers=layers) if f["kind"] == "prop_in_building" and f["a"] == "self_test_pile"]
     expect("…a woodpile standing in a room is refused", bool(hit))
 
-    # 5. a ruling that excuses nothing is itself refused.
+    # 5. question D (T-3360): a house set down on a plank walk line and another in an alley.
+    walked = next(w for w in json.loads((DATA / "frontage" / "town_street_edge.json").read_text())["walks"]
+                  if w["id"].endswith("_walk_1") and "_crossing_" not in w["id"])
+    (e0, n0), (e1, n1) = walked["centreline_local_enu_m"]
+    on_walk = copy.deepcopy(sidecar("1835", "goss_cobb_saddlery"))
+    on_walk["placement"].update({"local_e": (e0 + e1) / 2.0 - 3.0, "local_n": (n0 + n1) / 2.0 - 3.0,
+                                 "rotation_deg": 0.0})
+    hit = [f for f in survey({"1835": {on_walk["id"]: on_walk}})
+           if f["kind"] == "building_on_walk" and f["a"] == on_walk["id"]]
+    expect("…a shop set down on a plank walk line is refused", bool(hit))
+    lots_doc = load(DATA / "traces" / "vectors" / "thompson_lots.json")
+    strip = next(b["alley_local_enu_m"] for b in lots_doc["blocks"] if b.get("alley_local_enu_m"))
+    ae = sum(p[0] for p in strip[:4]) / 4.0
+    an = sum(p[1] for p in strip[:4]) / 4.0
+    in_alley = copy.deepcopy(sidecar("1835", "goss_cobb_saddlery"))
+    in_alley["placement"].update({"local_e": ae - 2.0, "local_n": an - 2.0, "rotation_deg": 0.0})
+    hit = [f for f in survey({"1835": {in_alley["id"]: in_alley}})
+           if f["kind"] == "building_in_alley" and f["a"] == in_alley["id"]]
+    expect("…a shop set down in the middle of a platted alley is refused", bool(hit))
+
+    # 6. a ruling that excuses nothing is itself refused.
     RULED[("1835", "a_house_that_is_not", "another_that_is_not")] = "self-test"
     try:
         _, _, stale = judge(base)
@@ -494,7 +609,8 @@ def main() -> int:
     faults, ruled, stale = judge(survey())
     if args.report:
         for f in ruled:
-            print("ruled  " + describe(f) + " — " + RULED[(f["scene"], f["a"], f["b"])])
+            key = (f["scene"], f["a"], f["b"])
+            print("ruled  " + describe(f) + " — " + (RULED.get(key) or RULED_ON_WAY[key]))
     for f in faults:
         print("FAIL   " + describe(f))
     for k in stale:
@@ -504,7 +620,8 @@ def main() -> int:
               f"{len(stale)} stale ruling(s)")
         return 1
     print(f"structure clearance: no building, fence or yard prop stands inside a building in "
-          f"{', '.join(SCENES)} ({len(ruled)} ruled overlap(s))")
+          f"{', '.join(SCENES)}, and no 1835 building stands on a plank walk line or in an alley "
+          f"({len(ruled)} ruled overlap(s))")
     return 0
 
 

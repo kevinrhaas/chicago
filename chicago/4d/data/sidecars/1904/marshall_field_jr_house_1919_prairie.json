@@ -757,6 +757,39 @@
                 "north"
               ]
             }
+          },
+          "dressings": {
+            "belts": [
+              {
+                "from_m": 2.3,
+                "to_m": 2.45,
+                "proud_m": 0.05
+              },
+              {
+                "from_m": 5.6,
+                "to_m": 5.8,
+                "proud_m": 0.05
+              },
+              {
+                "from_m": 6.25,
+                "to_m": 6.4,
+                "proud_m": 0.05
+              }
+            ],
+            "belt_sides": [
+              "south",
+              "front"
+            ],
+            "quoins": {
+              "corners": [
+                "south_front"
+              ],
+              "from_m": 0.0,
+              "course_m": 0.35,
+              "long_m": 0.55,
+              "short_m": 0.3,
+              "proud_m": 0.03
+            }
           }
         },
         {
@@ -812,6 +845,39 @@
                 "north"
               ]
             }
+          },
+          "dressings": {
+            "belts": [
+              {
+                "from_m": 2.3,
+                "to_m": 2.45,
+                "proud_m": 0.05
+              },
+              {
+                "from_m": 5.6,
+                "to_m": 5.8,
+                "proud_m": 0.05
+              },
+              {
+                "from_m": 6.25,
+                "to_m": 6.4,
+                "proud_m": 0.05
+              }
+            ],
+            "belt_sides": [
+              "south",
+              "front"
+            ],
+            "quoins": {
+              "corners": [
+                "south_front"
+              ],
+              "from_m": 0.0,
+              "course_m": 0.35,
+              "long_m": 0.55,
+              "short_m": 0.3,
+              "proud_m": 0.03
+            }
           }
         },
         {
@@ -865,7 +931,7 @@
         "cdn_almanac_1913_gatlin_1919_plate",
         "gatlin_programme_1919_field_jr_plate"
       ],
-      "note": "The ranges the 1911 sheet draws behind the front block, read off its trace (s28fp-1919-b1) in this frame (v runs south, K01's 'south' wall is the real north flank): (1) MIDDLE_RANGE, u -7.0 to 0, v -3.1 to 10.85, '2½S.B.', stepping out 3.1 m north of the front block and to the south lot line; (2) REAR_RANGE, u -16.4 to -7.0, v -4.8 to 10.8, '2½S.B.', a further 1.7 m north (its canted north bay, about 1.4 m out from u -14.5 to -9.4 on the sheet, is not yet built); (3) GARAGE, u -28.2 to -16.4, the sheet's '2B' 'GARAGE CEMENT FL'R' to the alley, its floor near grade. The two half-storey ranges are built under slated gables facing north and south, the steep gables the 1913 plate shows along the north flank; their pitch, heights and windows are RECONSTRUCTED. Whether the garage stood by 1904 the sheet cannot say (it is 1911's); it is carried as part of the building the T-1841 census rules present_as_mapped. T-3337: the rear range's north-wall windows moved to s 1.0 and 8.2 m (RECONSTRUCTED), either side of the sheet's canted north bay (bays: north_bay), which covers the middle one. Both ranges' gables are carried up in a stone coping along each rake, a kneeler at each foot and a 0.6 m turned finial at each apex (roof.coping), as both Gatlin Institute plates draw the flank's gables with pale copings finialled at their peaks and as T-3301 coped the street dormer; the coping's section, kneelers and finial are RECONSTRUCTED at the dormer's sizes, and the south ends, which face 1923's north wall a metre off and no picture shows, are coped as the north ends are."
+      "note": "The ranges the 1911 sheet draws behind the front block, read off its trace (s28fp-1919-b1) in this frame (v runs south, K01's 'south' wall is the real north flank): (1) MIDDLE_RANGE, u -7.0 to 0, v -3.1 to 10.85, '2½S.B.', stepping out 3.1 m north of the front block and to the south lot line; (2) REAR_RANGE, u -16.4 to -7.0, v -4.8 to 10.8, '2½S.B.', a further 1.7 m north (its canted north bay, about 1.4 m out from u -14.5 to -9.4 on the sheet, is not yet built); (3) GARAGE, u -28.2 to -16.4, the sheet's '2B' 'GARAGE CEMENT FL'R' to the alley, its floor near grade. The two half-storey ranges are built under slated gables facing north and south, the steep gables the 1913 plate shows along the north flank; their pitch, heights and windows are RECONSTRUCTED. Whether the garage stood by 1904 the sheet cannot say (it is 1911's); it is carried as part of the building the T-1841 census rules present_as_mapped. T-3337: the rear range's north-wall windows moved to s 1.0 and 8.2 m (RECONSTRUCTED), either side of the sheet's canted north bay (bays: north_bay), which covers the middle one. Both ranges' gables are carried up in a stone coping along each rake, a kneeler at each foot and a 0.6 m turned finial at each apex (roof.coping), as both Gatlin Institute plates draw the flank's gables with pale copings finialled at their peaks and as T-3301 coped the street dormer; the coping's section, kneelers and finial are RECONSTRUCTED at the dormer's sizes, and the south ends, which face 1923's north wall a metre off and no picture shows, are coped as the north ends are. T-3353: both ranges' street-facing corners (the north-east corner of each, where its north wall meets the face that steps out from the range in front of it) are quoined in pale stone, long and short in turn from grade to the wall top, and the main block's three stone courses (under the principal sills, at the second floor, under the chamber sills) are carried on across both ranges' north walls and their stepped-out faces, in place of K03's brick string course there (dressings), as the 1919 programme plate draws the rear ranges' corners and courses pale against the brick, plainest of all its walls, and as T-3305 carried the courses round the main block's flank. INFERRED: that the corners are quoined and the courses run on is the plate's; the stones' 0.55 and 0.3 m lengths, their 0.35 m courses and 0.03 m projection, and the courses' lines (the main block's, carried on) are RECONSTRUCTED, the plate being too soft to count stones."
     },
     "boundary": {
       "value": {
