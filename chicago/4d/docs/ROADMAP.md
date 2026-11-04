@@ -6373,3 +6373,20 @@ Saved native source `34a242bb60d527cfe10daee173c3d40302cd6e24` changes one exist
 The provider stopped at its weekly limit before a PR. This local recovery preserves the saved native outputs rather than rebuilding them. Source part 1 was RED for derived liberties, followed by the owner's corrected `data/liberties.json` without a local part-1 rerun. Parts 2 and 3 passed 292 steps each; part 4 retained the inherited Python 3.14.4/NumPy 2.5.4 two-dimensional-cross error. Those are the actual local results, not an all-four PASS. The authenticated check harness invokes the official publisher in every partition: the post-fix parts 2/3 passed and part 4 reported only that unrelated NumPy failure before mobile stages 3–4 passed 139/0 on saved source 34a. A separate published-input map/buildstamp was not captured; this is scoped execution provenance, not a new current-finisher run.
 
 Qualification remains in progress: integrate current dev while preserving foreign outputs, pass the current exact-head hosted eight parts and aggregate (including the known environment-sensitive step), and review the genuinely published keeper east material at desktop and phone sizes with the missing desktop/relevant runtime. Exact old Sources/Images inputs may carry only after consumed-row equality is verified. No current target-body BOTH, passage/ground clearance or complete picture match is claimed. T-2380 stays OPEN/partial; no grade, source camera or historical fit is promoted. This is an append-only checkpoint; the archived raw prefix is preserved.
+
+
+### T-3041 — prepare the two first-fort blockhouse cupolas, 2026-11-04
+
+The source half enables the existing cupola control on the NW and SE blockhouses for the reconstructed 1812 prototype, retaining Whistler's not-built-in-1808 counterevidence and the unknown completion date. All inherited kit dimensions are working reconstructions. No native output exists for these flags yet; the draft feature remains unqualified and cannot merge to dev. Two genuine pinned native outputs and WEB derivatives, controlled Currey comparison/current target visitor checks, foreign preservation and final exact-head gates are still owed. The approved stock workflow's child checkpoint may target only this isolated feature branch. Cupola acceptance, western gateway and full original first-fort picture coverage remain open; T-3041/T-2387 stay partial.
+
+
+#### Cupola provenance repaired; retained native assets still owed
+
+The first stock attempt built two MASTERs and two WEBs but stopped on missing explicit liberty coverage and stale source-use backlinks before its checkpoint push. Preserve that actual RED; no generated asset can be adopted from it. Both cupola admissions and the official generated source backlinks are now repaired, with real full-dataset parameter/provenance validation and the original metadata owners passing. Geometry inputs are unchanged. The parent stays draft and needs a new separately approved pinned build, retained output review, current visitor/picture checks and final gates. T-3041/T-2387 remain partial and Currey DIFFERS.
+
+
+#### T-3041 — retained two-cupola native checkpoint, direct target checks next (2026-11-04)
+
+The repaired source produced durable two-target MASTER/WEB assets in b1d63be1 after all 1,161 source checks passed. Current foreign integration retains every non-target native binding; actual full-dataset owners and the existing transport scene-bridge lifecycle pass. Only the two reconstructed cupolas and the necessary empty-transport-root renderer correction are being advanced.
+
+Stock browser failures remain explicit, including a boot-budget overrun independently reproduced on the unchanged e803 dev publication. The new target picture/body and visitor-source checks are still owed at this source checkpoint, followed by current final gates and ordinary dev review. Whistler's not-yet-built-in-1808 counterevidence, unknown completion date and reconstructed kit dimensions remain visible in source notes. No whole-fort completion or original-ticket closure is claimed.

@@ -111,7 +111,7 @@
         "roof_type": {
           "value": "pyramid",
           "confidence": "reconstructed",
-          "note": "Unattested. The index adds 'the Cupolas are not yet built on the Block Houses as laid down', so the draught drew cupolas that did not yet stand in February 1808; no source says they were ever built, and none is built here. The cap under where one would sit is the surviving type."
+          "note": "Unattested. The index adds 'the Cupolas are not yet built on the Block Houses as laid down', so the draught drew cupolas that did not yet stand in February 1808; no source says they were ever built, and none is built here. The cap under where one would sit is the surviving type. T-3041 proposed supersession: the preceding omission describes the old model. The owner adopted the pictured cupolas for the 1812 prototype in T-3335; cupola now states that reconstructed trial separately, retaining the explicit not-built-in-1808 counterevidence and unknown completion date. Main pyramid shape, pitch, measured plan, height and seat remain unchanged."
         },
         "roof_pitch_deg": {
           "value": 30.0,
@@ -125,6 +125,15 @@
           "sources": [
             "kurz_allison_1893"
           ]
+        },
+        "cupola": {
+          "value": true,
+          "confidence": "reconstructed",
+          "sources": [
+            "currey_1912_first_fort_birdseye",
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "T-3041 proposed bounded trial, implementing owner adoption in T-3335 (2026-11-03): show the square body under its separate pyramid cap pictured on each Currey blockhouse. Occurrence on the selected 1812-08-14 prototype is an owner-adopted reconstruction, not a finding that it was built. Whistler explicitly says the cupolas were not yet built in 1808; no completion date is known, and this attribute does not claim presence throughout the parent fort's 1803-1812 range. The existing kit supplies a 1.8 m body, 2.1 m total body height, 0.22 m cap eave, 36-degree cap pitch and 0.12 m roof seat: every number is reconstructed and inherited as a trial, not measured from Currey or transferred as evidence from the second fort. No louvres, glazing, interior, function or finial is asserted. Actual native comparison must show useful improvement; other first-fort proportions and image differences remain open."
         }
       }
     }
@@ -138,6 +147,6 @@
     ],
     "note": "The south-east of the first fort's two blockhouses. Quaife (after Wilson): one held two small cannon and the other one; which is which is not said, and no gun is built."
   },
-  "research_note": "THE FIRST FORT'S BLOCKHOUSE, NOT THE SECOND'S. The fort of 1816 had one blockhouse, at the south-west angle (fort_dearborn_blockhouse); this one stood from 1803 until the fort was burned on 16 August 1812. Its plan and corner are the commandant's own measured draught; its height, jetty, roof and stack are ours, and its cupola is left off because the drafter says it was not yet built.",
+  "research_note": "THE FIRST FORT'S BLOCKHOUSE, NOT THE SECOND'S. The fort of 1816 had one blockhouse, at the south-west angle (fort_dearborn_blockhouse); this one stood from 1803 until the fort was burned on 16 August 1812. Its plan and corner are the commandant's own measured draught; its height, jetty, roof and stack are ours, and its cupola is left off because the drafter says it was not yet built. T-3041 proposed supersession: the preceding cupola omission describes the old model. The owner-adopted 1812 prototype trial now adds the pictured square cupola and separate pyramid cap through the existing cupola control; its occurrence and every kit dimension remain reconstructed, not proof of presence in 1808 or throughout the fort-range.",
   "review_required": false
 }

@@ -86,7 +86,7 @@ export async function mountTownTransport({ sceneId, dataBase, people, getPeople 
     onActorsChanged(actors) {
       registration?.dispose();
       registration = registerTransportInteractions(interactions, actors);
-      group.add(...town.roots);
+      for (const root of town.roots) group.add(root);
     },
   });
   const dispose = town.dispose;
