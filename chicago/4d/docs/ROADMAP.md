@@ -6281,5 +6281,10 @@ establish hotel dimensions or a historical viewpoint. Other pictures and the
 original full match remain open. See docs/RESEARCH/photo-match/sauganash_hotel/.
 
 
+### T2379 — later-address source cross-check, 2026-11-04
+
+The existing Fergus source now identifies a directly checked Lake House Hotels entry from his 1876 recollection of 1839. Record and Sources state its date and the conflicting street accounts. Construction-state picture matching remains OPEN; coordinates, phases, dimensions, grades and meshes are unchanged.
+
+
 ### T-3041 — a loaded parade ground is not a missing building, 2026-11-04
 The NE-house pyramid increment merged in PR1685. Finish the separate presence-accounting repair exposed by its actual 1812 browser check. A successfully loaded, nonempty earth-only parade uses the existing named ground owner and is reported separately; failed/empty assets and mixed sundial geometry retain the ordinary missing-host checks. No model dimensions or source grades change. Keep the actual failed runtime receipt, rerun the required source and both-viewport gates after the repair, and leave the original all-buildings/image comparison open for its remaining differences.
