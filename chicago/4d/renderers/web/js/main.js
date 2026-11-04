@@ -5559,6 +5559,7 @@ async function boot() {
       paused: animationHold || gateOpen || document.hidden,
       reducedMotion: transportReducedMotion.matches,
       hidden: confidence.hidden.reconstructed,
+      visualDt,
     });
     api.townTransport?.refreshInteractions();
     if ((interactPaintAt += elapsed) >= .25) { interactPaintAt = 0; interactKey.refresh(); }

@@ -56,3 +56,13 @@ quality. Actual published desktop/phone motion and clothing review, the existing
 all-asset native browser measurement, complete app gates and ordinary DEV PR
 checks remain required. Walking, gestures, populated routes, mounted riders,
 drivers and boarding remain separate unfinished work.
+
+## Seated driver looking animation
+
+`seated-driver-look-v2.json` appends an original eight-second head/neck action to the exact seated Otis and Hans exports used by the town transport layer: master/web LOD0 and LOD3 for each resident. The old `sit_drive`, walking and standing clips and every original BIN byte remain. LOD1 and LOD2 are unchanged. This keeps the standing regeneration chain exact: its selected original standing children must reproduce before the subsequent seated derivative can match.
+
+Generate separately with `python3 tools/human_seated_look.py --output /tmp/seated-looking-new`; verify installed children with `python3 tools/human_seated_look.py --check`. The recipe pins the immutable public parents and the matching master pose for each resident and LOD. The new curves are authored only for `neck_01` and `head`; all other local channels remain original. The jaw and eyes move with their head while their own local channels stay fixed.
+
+The derivation record contains exact parent/child SHA256s. The separate native record covers 65 keys and 64 midpoints per child through actual GLTFLoader, Meshopt and AnimationMixer with real CPU image decoding. Every protected body world transform and Float32 skin palette is exact, and selected Hans web LOD0/3 palms retain the original measured barycentric points. The binding-refresh record changes only four active child payload hashes; original triangle, barycentric, point, pose and source-proof fields remain historical measurements. These finite CPU results do not provide browser/WebGL, garment, scene-contact or photographic acceptance.
+
+The existing browser measurement command is `node tools/human_fixture.mjs --write`; it has no selective-file flag and measures all 24 human GLBs at desktop and phone sizes before writing `data/humans/fixture.measure.json`. Until that command and the actual scene checks pass, the prepared seated increment remains unqualified for delivery. Older natural-standing receipts, metadata bridges and standalone resident measurements remain immutable parent evidence; their earlier accepted hashes are not retargeted to the new children.

@@ -1,0 +1,44 @@
+{
+  "schema": "seated_driver_look_palm_hash_refresh_v2",
+  "source_loops_sha256": "2e9478a743a01cbc81849b207bc8c60d68f83b57934a6d48d951b167cf0068b6",
+  "updated_loops_sha256": "ef755fe7f43c71fd6e428021136b4843e86183a03a94c867da8c00a855fb5421",
+  "native_readback_file": "data/humans/animations/seated-driver-look-v2.native.json",
+  "native_readback_sha256": "9e0871a172e13b256775b767513c8abc8c3192c3bc5e7d43c36301c5dc8b8b68",
+  "changed_fields": [
+    {
+      "row_id": "prairie_driven_brougham_loop_1904",
+      "lod": 0,
+      "side": "l",
+      "field": "asset_sha256",
+      "old": "7a3c2392e63edf75950f48a4bd607075f3e8c71015db5c81a6d8a7df40b0f09e",
+      "new": "49a84c1d858f67359ff33e56762336ade56db1dcbbb1cbe923846d95825c9547"
+    },
+    {
+      "row_id": "prairie_driven_brougham_loop_1904",
+      "lod": 0,
+      "side": "r",
+      "field": "asset_sha256",
+      "old": "7a3c2392e63edf75950f48a4bd607075f3e8c71015db5c81a6d8a7df40b0f09e",
+      "new": "49a84c1d858f67359ff33e56762336ade56db1dcbbb1cbe923846d95825c9547"
+    },
+    {
+      "row_id": "prairie_driven_brougham_loop_1904",
+      "lod": 3,
+      "side": "l",
+      "field": "asset_sha256",
+      "old": "681da7b7e9119f5c4e8bf0ddd0a491427ef5898697665157b2321d8725138bed",
+      "new": "84e602cd49c6e355fb25bc6659a0f4a9e573e4bebe6ce8d2e30e14ed5250b60b"
+    },
+    {
+      "row_id": "prairie_driven_brougham_loop_1904",
+      "lod": 3,
+      "side": "r",
+      "field": "asset_sha256",
+      "old": "681da7b7e9119f5c4e8bf0ddd0a491427ef5898697665157b2321d8725138bed",
+      "new": "84e602cd49c6e355fb25bc6659a0f4a9e573e4bebe6ce8d2e30e14ed5250b60b"
+    }
+  ],
+  "all_other_loop_data_exact": true,
+  "all_original_barycentric_triangle_point_pose_and_source_proof_fields_exact": true,
+  "scope": "Only active child payload hashes change. The original sit_drive surface measurements remain historical parent evidence; actual new-clip native readback establishes identical selected palm points at65keys+64midpoints. No closed-finger, continuous-contact or photographic claim."
+}

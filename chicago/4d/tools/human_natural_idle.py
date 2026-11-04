@@ -237,6 +237,11 @@ def main():
     for row in recipe['parents']:
         output, proof = append_clip(parent_bytes(row, recipe), row['sha256'], bases, recipe)
         if args.check:
+            if (APP/row['file']).read_bytes() != output:
+                # A subsequent animation derivative must reproduce from this
+                # exact standing child; no old parent assertion is bypassed.
+                from human_seated_look import chained_active_derivative
+                output = chained_active_derivative(row['file'], output)
             require((APP/row['file']).read_bytes() == output, 'active derivative does not reproduce: '+row['file'])
         else:
             destination = args.output/row['file']

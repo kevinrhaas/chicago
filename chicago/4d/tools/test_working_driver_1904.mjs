@@ -66,7 +66,10 @@ for (const web of [false,true]) for (let lod=0;lod<4;lod++) {
   const bytes=await fs.readFile(path);
   const loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
   const gltf=await loader.parseAsync(geometryOnly(bytes),'');
-  assert.deepEqual(gltf.animations.map(a=>a.name).sort(),['idle','sit_drive','walk']);
+  const expectedClips=['idle','sit_drive','walk'];
+  // Active derivatives add looking; the original clips remain on every LOD.
+  if(lod===0||lod===3)expectedClips.push('sit_drive_look_v2');
+  assert.deepEqual(gltf.animations.map(a=>a.name).sort(),expectedClips.sort());
   const mixer=new THREE.AnimationMixer(gltf.scene),clip=gltf.animations.find(a=>a.name==='sit_drive');
   mixer.clipAction(clip).play();
   const runs=[];

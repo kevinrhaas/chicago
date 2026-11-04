@@ -43,11 +43,13 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
   };
   return async row => {
     if (row.scene !== sceneId) throw Error('driven assembly: wrong scene');
+    const driverClip = row.driver_clip ?? 'sit_drive';
+    if (!['sit_drive', 'sit_drive_look_v2'].includes(driverClip)) throw Error('driven assembly: explicit qualified seated driver clip required');
     const instance = { ...row.driver_instance,
       id: row.replace_human_instance ?? `hi_driver_${row.id}`, contract_version: 1, display: 'shown', scene: sceneId,
       placement: { local_e: 0, local_n: 0, heading_deg: 180, anchor: 'terrain' },
       appearance: { asset_id: row.driver_asset }, behaviour: { state: 'seated' },
-      animation: { clip: 'sit_drive', loop: true, phase: 0 }, lod: { policy: 'fixed', fixed: driverLod },
+      animation: { clip: driverClip, loop: true, phase: 0 }, lod: { policy: 'fixed', fixed: driverLod },
     };
     const identity = resolveHumanIdentity(instance, { sceneId, people, profiles });
     let vehicle = null, actor = null, template = null, team = null, hitch = null, restore = null, inspectionLease = false;
@@ -87,7 +89,7 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
       actor = new HumanActor({ instance, identity, person: identity.person, assets: humanAssets, heightAt: () => 0, tier: 'full' });
       await actor.setLod(driverLod);
       humanAssets.release(row.driver_asset, driverLod); inspectionLease = false;
-      if (!actor.body?.clips.has('sit_drive') || !actor.play('sit_drive', { fade: 0, time: 0 })) throw Error('driven assembly: real seated export absent');
+      if (!actor.body?.clips.has(driverClip) || !actor.play(driverClip, { fade: 0, time: 0 })) throw Error('driven assembly: real seated export absent');
       actor.body.mixer.update(0); actor.root.updateMatrixWorld(true);
       for (const mesh of actor.body.meshes) mesh.skeleton.update();
       const seatedBounds = new THREE.Box3().setFromObject(actor.body.scene, true);
@@ -162,7 +164,8 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
       };
       if (Number.isFinite(row.initial_assembly_state?.driver?.time_s)) actor.body.mixer.setTime(row.initial_assembly_state.driver.time_s);
       const driver = { root: actor.root, update(dt) { actor.body?.mixer.update(dt); },
-        snapshot() { return { time_s: actor.body?.mixer.time ?? 0 }; }, dispose() { actor.dispose(); } };
+        snapshot() { return { clip: driverClip, time_s: actor.body?.mixer.time ?? 0 }; }, dispose() { actor.dispose(); } };
+      if (driverClip === 'sit_drive_look_v2') driver.updateVisual = driver.update;
       const hitchRow = { ...row };
       const palmBindings = row.driver_palm_bindings_by_lod?.[String(driverLod)];
       const updatePalms = () => {
