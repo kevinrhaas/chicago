@@ -1,10 +1,8 @@
 {
-  "title": "The first fort's north-east small house gets its pyramid roof",
-  "kind": "change",
+  "title": "The first fort's parade ground is accounted for",
+  "kind": "fix",
   "items": [
-    "The little house in the fort's north-east inner angle now carries the four-sided pyramid cap the 1912 Currey bird's-eye draws there, instead of a gable.",
-    "Only the roof changed: the walls, the batten door, the rear vent and Whistler's measured plan and position are all untouched.",
-    "The shape is adopted from a retrospective drawing, so it is marked inferred; the pitch, footprint and wall height stay reconstructed and are not read off the plate.",
-    "Its roof is the one difference in that picture now settled. The blockhouse cupolas, the magazine's vault and the western gate are still open."
+    "The 1812 walk recognizes the parade ground's existing surface without a false missing-building warning.",
+    "Buildings that fail to load still produce a warning."
   ]
 }

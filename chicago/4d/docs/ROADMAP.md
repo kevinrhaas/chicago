@@ -6279,3 +6279,7 @@ cabin. Geometry and placement stay unchanged. DIFFERS retains the main/left
 roof, broad rear-left wing and left-gable review; the old shop camera does not
 establish hotel dimensions or a historical viewpoint. Other pictures and the
 original full match remain open. See docs/RESEARCH/photo-match/sauganash_hotel/.
+
+
+### T-3041 — a loaded parade ground is not a missing building, 2026-11-04
+The NE-house pyramid increment merged in PR1685. Finish the separate presence-accounting repair exposed by its actual 1812 browser check. A successfully loaded, nonempty earth-only parade uses the existing named ground owner and is reported separately; failed/empty assets and mixed sundial geometry retain the ordinary missing-host checks. No model dimensions or source grades change. Keep the actual failed runtime receipt, rerun the required source and both-viewport gates after the repair, and leave the original all-buildings/image comparison open for its remaining differences.
