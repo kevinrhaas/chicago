@@ -17,7 +17,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const web = path.join(root, 'renderers/web');
 const THREE = await import(pathToFileURL(path.join(web, 'vendor/three-0.185.1/three.module.js')).href);
-const { coalesceRuns, joinRuns } = await import(pathToFileURL(path.join(web, 'js/batch-coalesce.js')).href);
+const { coalesceRuns, joinRuns, sortCellsByPiece } = await import(pathToFileURL(path.join(web, 'js/batch-coalesce.js')).href);
 
 /** A row of `n` unit cells along x, each its own small indexed geometry. */
 function cells(n, x0 = 0) {
@@ -124,6 +124,30 @@ check('a blended batch draws every triangle in the order it drew it before', () 
     assert.deepEqual(drawn(joined, false), drawn(plain, false), `sortObjects ${sorted}`);
     if (!sorted) assert.equal(joined._multiDrawCount, 2, 'kept in instance order, every run joins');
   }
+});
+
+check('T-3363: a blended batch sorted by piece draws each piece whole, back to front, in its own order', () => {
+  const glass = new THREE.MeshBasicMaterial({ transparent: true });
+  const { plain, joined } = readBoth((b) => { b.sortObjects = true; sortCellsByPiece(b); }, glass);
+  // The same triangles with the same instance data...
+  assert.deepEqual(drawn(joined), drawn(plain));
+  // ...one draw a piece, where three's cell-by-cell sort had one a cell...
+  assert.equal(plain._multiDrawCount, 10);
+  assert.equal(joined._multiDrawCount, 2);
+  // ...the farther piece (b, at -25) first, and each piece in its own triangle order.
+  const order = drawn(joined, false);
+  const owners = order.map((t) => t.split(',').at(-1));
+  assert.equal(owners[0], 'b');
+  assert.equal(owners.at(-1), 'a');
+  const elements = order.map((t) => Number(t.split('|')[0]));
+  for (const who of ['a', 'b']) {
+    const mine = elements.filter((_, i) => owners[i] === who);
+    assert.deepEqual(mine, [...mine].sort((x, y) => x - y), `piece ${who} in its own order`);
+  }
+  // A hidden cell still breaks its piece's run, and stays hidden.
+  const gap = readBoth((b) => { b.sortObjects = true; sortCellsByPiece(b); b.setVisibleAt(2, false); }, glass);
+  assert.deepEqual(drawn(gap.joined), drawn(gap.plain));
+  assert.equal(gap.joined._multiDrawCount, 3);
 });
 
 check('the sun\'s pass (onBeforeShadow) is joined too', () => {

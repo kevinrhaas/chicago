@@ -77,9 +77,13 @@
           "note": "Unattested; a one-storey small house."
         },
         "roof_type": {
-          "value": "gable",
-          "confidence": "reconstructed",
-          "note": "Unattested at this scale of drawing."
+          "value": "pyramid",
+          "confidence": "inferred",
+          "note": "ADOPTED FROM THE CURREY BIRD'S-EYE, BY OWNER RULING (2026-11-03, T-3335/T-3041). The 1912 plate draws a small building in the fort's north-east inner angle under an unmistakable four-sided cap: a point apex, two hips running down to the eave corners and no ridge. Only the roof clears the picket row in that view, so the cap is the one thing of this building the drawing shows. The owner compared the plate with Whistler's 1808 draught building by building and chose to take the pyramid here while keeping Whistler's measured plan for everything else. WHAT THE DRAWING SUPPLIES IS THE SHAPE AND NOTHING ELSE. It is retrospective - Currey 1912, after a Chicago Daily Tribune sketch of 1899 of Van den Berghen's 1898 model - and not to scale: its own camera here is diagnostic only, and the same fit cannot hold both the plan corners and the flagstaff. So the pitch below stays 34 degrees reconstructed, the footprint stays the register's half-measured 12.2 x 10.0 ft and the wall stays 2.4 m; none of the three is read off the plate. Whistler's draught is cited beside it because the building, its place and its front are his (index no. 16, drawn in elevation) and the sheet is silent on the roof - this attribute is inferred from the later picture standing on the contemporary identification, and it was 'gable', reconstructed and unattested, before the owner ruled. docs/LIBERTIES.md records what the shape still leaves invented.",
+          "sources": [
+            "currey_1912_first_fort_birdseye",
+            "whistler_1808_fort_dearborn_draught"
+          ]
         },
         "roof_pitch_deg": {
           "value": 34.0,
