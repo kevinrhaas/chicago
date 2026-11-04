@@ -1,0 +1,222 @@
+{
+  "schema": "terminal_garment_finite_native_readback_v2",
+  "recipe_sha256": "245074767cd2041f1e68ae918eca2425d97250b8c8ae9fba928f8117de77501c",
+  "standalone_regeneration_closed_sha256": "11e2bc59095ebc888db11976fe3688bb4b143a8a3dec67026807642b6fea4ca1",
+  "all_four_admitted_prototype_bytes_reproduced": true,
+  "protected_other_twenty_human_payloads_exact": true,
+  "original_targeted_checks": [
+    {
+      "name": "seated",
+      "command": [
+        "python3",
+        "tools/human_seated_look.py",
+        "--check"
+      ],
+      "seconds": 3.63399272699462,
+      "cap_seconds": 5.0
+    },
+    {
+      "name": "standing",
+      "command": [
+        "python3",
+        "tools/human_natural_idle.py",
+        "--check"
+      ],
+      "seconds": 2.37538880899956,
+      "cap_seconds": 5.0
+    },
+    {
+      "name": "standing-protected",
+      "command": [
+        "python3",
+        "tools/test_human_natural_idle.py"
+      ],
+      "seconds": 1.7191816239937907,
+      "cap_seconds": 5.0
+    },
+    {
+      "name": "terminal",
+      "command": [
+        "python3",
+        "tools/human_garment_retention.py",
+        "--check"
+      ],
+      "seconds": 3.1763132339983713,
+      "cap_seconds": 120.0
+    },
+    {
+      "name": "terminal-chain-negatives",
+      "command": [
+        "python3",
+        "tools/test_human_garment_retention.py"
+      ],
+      "seconds": 3.129408707995026,
+      "cap_seconds": 120.0
+    },
+    {
+      "name": "human-contract",
+      "command": [
+        "python3",
+        "tools/human_contract.py",
+        "--check"
+      ],
+      "seconds": 0.5157529540010728,
+      "cap_seconds": 5.0
+    }
+  ],
+  "original_working1904_geometry_contacts": {
+    "command": [
+      "node",
+      "tools/test_working_driver_1904.mjs"
+    ],
+    "seconds": 1.018000274001679,
+    "cap_seconds": 120,
+    "actual_mixer_samples": 40,
+    "actual_lod_domain_runs": 8
+  },
+  "original_human_fixture": {
+    "files": 24,
+    "viewports": {
+      "desktop": {
+        "width": 1280,
+        "height": 800
+      },
+      "mobile": {
+        "width": 390,
+        "height": 780
+      }
+    },
+    "write_seconds": 129.0909128350031,
+    "write_cap_seconds": 600,
+    "check_seconds": 0.26536589299939806,
+    "check_cap_seconds": 120,
+    "only_measure_file_changed_during_native_run": true,
+    "source_and_resource_guards_pass": true,
+    "all_owned_children_reaped": true
+  },
+  "files": [
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod3.glb",
+      "sha256": "e89508276188b4ceabd612a79552fdab284dc45d832f26b6d2a09b42401a3016",
+      "parent_sha256": "2c57f30ca74d2390913167a63e2df6fe0b3b92d9296c6b078d237e6bda0a693e",
+      "bytes": 7573012,
+      "previous_bytes": 7273156,
+      "triangles": 13679,
+      "previous_triangles": 6098,
+      "vertices": 8310,
+      "draw_calls": 9,
+      "load_ms": {
+        "desktop": 219.4,
+        "mobile": 249.5
+      },
+      "frame_ms_median": {
+        "desktop": 0.1,
+        "mobile": 0.2
+      }
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod3.glb",
+      "sha256": "c5b1e37cc39b44e5dfb74496df957de7d93e5e0341f58e6d608f6fb09857bd88",
+      "parent_sha256": "9423585a506b1ae317c08c7eae9fb936e6ceea5e46d00ae6b2673f8c5e268f81",
+      "bytes": 564628,
+      "previous_bytes": 340516,
+      "triangles": 13679,
+      "previous_triangles": 6098,
+      "vertices": 8310,
+      "draw_calls": 9,
+      "load_ms": {
+        "desktop": 40.5,
+        "mobile": 71
+      },
+      "frame_ms_median": {
+        "desktop": 0.2,
+        "mobile": 0.2
+      }
+    },
+    {
+      "file": "assets/humans/anonymous_working_driver_1904.lod3.glb",
+      "sha256": "0754da886b868ffe1f18d9d89a11174bbca6b9f330bf3a5ca45f7982dcb44a9a",
+      "parent_sha256": "3833f8fc26f722d17c62afa36ce1b511e38fd112142619db58fa1bf9f551ef75",
+      "bytes": 7557312,
+      "previous_bytes": 7256444,
+      "triangles": 13635,
+      "previous_triangles": 6026,
+      "vertices": 8282,
+      "draw_calls": 9,
+      "load_ms": {
+        "desktop": 507.1,
+        "mobile": 314.6
+      },
+      "frame_ms_median": {
+        "desktop": 0.2,
+        "mobile": 0.2
+      }
+    },
+    {
+      "file": "assets/humans/web/anonymous_working_driver_1904.lod3.glb",
+      "sha256": "6c5182d709ce9de5be003a650c4f7f69b90ae9591d0865174d4303103bd97de4",
+      "parent_sha256": "84e602cd49c6e355fb25bc6659a0f4a9e573e4bebe6ce8d2e30e14ed5250b60b",
+      "bytes": 551488,
+      "previous_bytes": 326600,
+      "triangles": 13635,
+      "previous_triangles": 6026,
+      "vertices": 8282,
+      "draw_calls": 9,
+      "load_ms": {
+        "desktop": 54.9,
+        "mobile": 73.2
+      },
+      "frame_ms_median": {
+        "desktop": 0.1,
+        "mobile": 0.2
+      }
+    }
+  ],
+  "scope": "Finite standalone exact regeneration, original native geometry/contact assertions and all24 browser skinning/image/contract measurements. Isolated figure frame times do not establish town budgets. Historical canonical and seated receipts remain parent evidence.",
+  "whole_world_performance_or_continuous_garment_fit_qualified": false,
+  "photographic_accepted": false,
+  "historical_native_recipe_sha256": "7efb4d3feb9508ccb81b134b85a3fb5d213c02805cb89d90fb47ce830325f4ef",
+  "previous_standalone_regeneration_closed_sha256": "2486af2bd4b3e3eff4f040dcc20505005ec3fa21d6c398f6c26fddd2b3fc9239",
+  "implementation_pin_refresh_scope": "Only one extra EOF newline was removed from the MASTER helper; expected four payload hashes stay unchanged. Exact fresh regeneration after that source-pin refresh reproduces all four previously native-measured payloads. Original native fixture/contact results describe the same exact asset bytes and remain historical measurements.",
+  "registered_real_chain_step": {
+    "command": [
+      "python3",
+      "tools/test_human_garment_retention.py"
+    ],
+    "normal_step": true,
+    "actual_direct_seconds": 3.6840052229963476,
+    "actual_instrumented_seconds": 3.681912291998742,
+    "cap_seconds": 120,
+    "measured_writes": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "measurement_command": [
+      "node",
+      "tools/measure_step_isolation.mjs",
+      "--tool",
+      "tools/test_human_garment_retention.py"
+    ]
+  },
+  "registered_terminal_reproduction_step": {
+    "command": [
+      "python3",
+      "tools/human_garment_retention.py",
+      "--check"
+    ],
+    "normal_step": true,
+    "actual_direct_seconds": 3.5256020189990522,
+    "actual_instrumented_seconds": 3.33100255500176,
+    "cap_seconds": 120,
+    "measured_writes": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "measurement_command": [
+      "node",
+      "tools/measure_step_isolation.mjs",
+      "--tool",
+      "tools/human_garment_retention.py"
+    ]
+  }
+}

@@ -111,6 +111,7 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
   if (prepareAssembly !== null && typeof prepareAssembly !== 'function') throw Error('town transport: optional assembly preparation callback required');
   const actors = [], roots = [];
   const saved = new Map();
+  const pendingApproaches = new Map();
   const routeReadings = new Map(), deferred = new Map(), failed = new Set();
   const circuits = rows.filter(row => row.scene === sceneId).map(row => {
     const route = row.route.kind === 'rounded_block' ? roundedBlockRoute(row.route) : circleRoute(row.route);
@@ -158,6 +159,12 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
             const actor = createTransportLoop({ ...liveRow, route, assembly, heightAt,
               clear: (from, to) => clear(row, from, to) });
             actor.updateVisual = assembly.updateVisual;
+            // Consume only after this generation owns a successfully created actor.
+            const approach = pendingApproaches.get(row.person_id);
+            if (approach?.rowId === row.id) {
+              actor.stop('approach');
+              pendingApproaches.delete(row.person_id);
+            }
             deferred.delete(row.id);
             actors.push(actor); roots.push(assembly.root);
             actor.routeReading = routeReading;
@@ -169,7 +176,10 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
             // A typed spawn error from the static preflight is still fatal: only
             // the post-asset live visitor check may defer an otherwise qualified row.
             if (assembly && error instanceof TransportSpawnObstructedError) deferred.set(row.id, error.pose);
-            else { deferred.delete(row.id); failed.add(row.id); problems.push(`town transport ${row.id}: ${error.message}`); }
+            else {
+              if (pendingApproaches.get(row.person_id)?.rowId === row.id) pendingApproaches.delete(row.person_id);
+              deferred.delete(row.id); failed.add(row.id); problems.push(`town transport ${row.id}: ${error.message}`);
+            }
           }
         }
       })();
@@ -192,15 +202,18 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
       if (near) void out.ready();
       return near;
     },
-    update(dt, cameraPosition, { paused = false, reducedMotion = false, hidden = false, visualDt = dt } = {}) {
+    update(dt, cameraPosition, { paused = false, reducedMotion = false, hidden = false, visualDt = dt,
+      elapsedFrame = false, motionFrame = true } = {}) {
       if (disposed) return;
-      lastUpdate = [0, cameraPosition, { paused, reducedMotion, hidden, visualDt: 0 }];
+      // A visibility replay must not prime a new/restored journey's first real frame.
+      lastUpdate = [0, cameraPosition, { paused, reducedMotion, hidden, visualDt: 0, elapsedFrame, motionFrame: false }];
       const distance = reach[tier] ?? 0;
       for (const actor of actors) {
         const at = actor.at;
         const drawn = distance > 0 && Math.hypot(at[0] - cameraPosition.x, -at[1] - cameraPosition.z) < distance;
-        actor.update(dt, { enabled: !hidden, drawn, paused, reducedMotion });
-        actor.updateVisual?.(visualDt, { paused: paused || reducedMotion || hidden });
+        actor.update(dt, { enabled: !hidden, drawn, paused, reducedMotion, elapsedFrame, motionFrame });
+        // Synthetic visibility replays cannot prime the independent driver clock.
+        if (!elapsedFrame || motionFrame) actor.updateVisual?.(visualDt, { paused: paused || reducedMotion || hidden });
       }
     },
     async setTier(next) {
@@ -250,10 +263,31 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
         n + Math.sin(yaw) * row.driver_local_m[0] - Math.cos(yaw) * row.driver_local_m[2]],
       yaw_rad: yaw, actor: null };
     },
+    /** Keep a named Find request through lazy loading; cancellation never resumes
+     * a driver already stopped by this or the shared Interact engine. */
+    requestDriverApproach(personId) {
+      const anchor = out.driverAnchorForPerson(personId);
+      if (!anchor) return null;
+      const circuit = circuits.find(item => item.row.person_id === personId
+        && (!anchor.actor || item.id === anchor.actor.id));
+      if (!circuit || failed.has(circuit.id)) return null;
+      // Reject invalid/failed targets before replacing an earlier rendezvous.
+      // A live stop must succeed before older unresolved intent is cleared.
+      if (anchor.actor && !anchor.actor.stop('approach')) return null;
+      pendingApproaches.clear();
+      const request = { rowId: circuit.id };
+      pendingApproaches.set(personId, request);
+      const cancel = () => {
+        if (pendingApproaches.get(personId) === request) pendingApproaches.delete(personId);
+      };
+      if (anchor.actor) cancel();
+      return { cancel };
+    },
+    cancelDriverApproaches() { pendingApproaches.clear(); },
     stopPerson(personId) { return out.driverForPerson(personId)?.stop('approach') ?? false; },
     dispose() {
       if (disposed) return;
-      disposed = true; generation++; routeReadings.clear(); deferred.clear(); failed.clear();
+      disposed = true; generation++; pendingApproaches.clear(); routeReadings.clear(); deferred.clear(); failed.clear();
       for (const actor of actors) actor.dispose();
       actors.length = 0; roots.length = 0; lastUpdate = null;
     },

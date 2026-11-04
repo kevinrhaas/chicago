@@ -1,0 +1,8 @@
+{
+  "title": "Driver clothes keep their shape at lower detail",
+  "kind": "fix",
+  "items": [
+    "Fewer visible gaps in Otis\u2019s and Hans\u2019s shirts and trousers at lower scene detail.",
+    "Town buildings use less graphics memory."
+  ]
+}

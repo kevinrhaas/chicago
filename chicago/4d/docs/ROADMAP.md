@@ -6230,6 +6230,13 @@ T-1790 update (2026-10-29): the exact native-qualified animation-only derivative
 T-1790 current native qualification (2026-10-29): the unchanged browser fixture freshly measures all 16 human GLBs in both viewport sizes, including all eight natural-standing derivatives. Their exact original finite native-129 qualification is preserved, with a separate metadata-only equivalence bridge for the shared rig-pose source field. The latest DEV architecture changes are integrated without changing the human runtime or eight animation/geometry BINs. Native metadata owners settle in two actual tail laps. Published-world motion/clothing and real resident-card interaction in desktop/phone near/mid views, full gates and ordinary PR delivery remain open; this is not the complete animation/route/rider/driver program.
 
 
+### T-1790 interaction ownership continuation — 4 November 2026
+
+A Go-to arrival can dock the navigator before the cold Inspect module finishes loading. Its late completion must retain that docking, while an explicit Inspect action still opens normally. Reuse the existing selection ticket to mark a docked completion quiet; advance that ticket for launch actions too, so a late old mount cannot replace newer navigation. Keep the existing1904 people-card API: actual1835 directory DOM, including hidden descendants, is the mount boundary. Empty Full-to-Light transport root lists need no Three `add` call.
+
+The original b83 failures and repaired mobile/desktop native-DOM controls are retained separately in STATUS. This bounded interaction increment still requires current-base combined source gates and published application qualification. It does not settle the larger T-1790/T-2804 animation, populated routes, clothing, gait, riders or boarding goals, and it changes no ticket state.
+
+
 ### T-2804 provisional named-driver circuits, 2 November 2026
 
 The current source connects reconstructed1835 Otis/W01 and1904 Hans Johnson/Brougham circuits to the actual current26 in-place horse, fitted hitch, existing person cards and shared stop/continue control. Human-layer ownership temporarily transfers the same named person and restores it on release. Runtime/ground/clearance/unit evidence is separate from actual full-material rendered-world route, contact, interaction and phone qualification, which remain pending. The unqualified Light256 child and optional lower-eye refinement are not selected. Hans's eight new human files still require their actual native browser fixture readings. Broader photo quality, gait, boarding, riding and town-traffic acceptance is not closed by source staging; no ticket completion is recorded here.
@@ -6373,3 +6380,15 @@ Saved native source `34a242bb60d527cfe10daee173c3d40302cd6e24` changes one exist
 The provider stopped at its weekly limit before a PR. This local recovery preserves the saved native outputs rather than rebuilding them. Source part 1 was RED for derived liberties, followed by the owner's corrected `data/liberties.json` without a local part-1 rerun. Parts 2 and 3 passed 292 steps each; part 4 retained the inherited Python 3.14.4/NumPy 2.5.4 two-dimensional-cross error. Those are the actual local results, not an all-four PASS. The authenticated check harness invokes the official publisher in every partition: the post-fix parts 2/3 passed and part 4 reported only that unrelated NumPy failure before mobile stages 3–4 passed 139/0 on saved source 34a. A separate published-input map/buildstamp was not captured; this is scoped execution provenance, not a new current-finisher run.
 
 Qualification remains in progress: integrate current dev while preserving foreign outputs, pass the current exact-head hosted eight parts and aggregate (including the known environment-sensitive step), and review the genuinely published keeper east material at desktop and phone sizes with the missing desktop/relevant runtime. Exact old Sources/Images inputs may carry only after consumed-row equality is verified. No current target-body BOTH, passage/ground clearance or complete picture match is claimed. T-2380 stays OPEN/partial; no grade, source camera or historical fit is promoted. This is an append-only checkpoint; the archived raw prefix is preserved.
+
+
+### T-2804 — measured lossless phone-memory repair for driver clothing, 2026-11-04
+
+The isolated PR1700 clothing descendant passes the unchanged 1904 mobile 400 MiB gate at 399.358 MiB, with 0.642 MiB of measured headroom. Exactly constant building scalar channels use one tuple; varying channels, geometry, appearance, picking and shader behaviour retain their original contracts. Actual native/fallback WebGL controls and the existing native scalar suite pass. All four clothing hashes stay fixed. These are scoped results on TREE `05a2899f72a8628fcff0a765019de3f26b2295c3`; the uncommitted source now integrates the qualified interaction increment and its later legitimate house assets. Next run the complete integrated native gate and exact-head CI, then make the ordinary DEV update. Broad T-2804/T-1790, photographic, continuous contact and riding/boarding acceptance remain open.
+
+The shadow counterfactual uses its existing declared lake_market calibration view, retaining original thresholds and restoring boot afterward. The source8057 mobile diagnostic is scoped evidence; integrated G desktop/mobile Stage9 qualification remains pending.
+
+
+### Driver delivery checkpoint and reviewed DEV reconciliation — 2026-11-04
+
+Public `967b427e` passed all four original native parts (1,165 checks/402 self-tests) on its exact committed tree, then HEAD QA and publication/check. Its current E803-based reconciliation retains all new DEV content and awaits a fresh integrated gate, current frame/memory CI and full smoke. Earlier evidence remains source-scoped; no DEV merge, global Light pass or photographic/boarding/riding acceptance is claimed.

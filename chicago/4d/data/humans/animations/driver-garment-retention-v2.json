@@ -1,0 +1,112 @@
+{
+  "schema": "portable_driver_terminal_garments_v2",
+  "installed": true,
+  "parent_revision": "edfc3edc60cf00a8cf2376419d0df8fc3cd8b0a3",
+  "materials": [
+    "garment_upper__shirt_linen",
+    "garment_lower__highwaist_pantaloons"
+  ],
+  "terminals": [
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod3.glb",
+      "asset_id": "bardwell_otis_1835",
+      "domain": "master",
+      "parent_sha256": "2c57f30ca74d2390913167a63e2df6fe0b3b92d9296c6b078d237e6bda0a693e",
+      "donor_file": "assets/humans/bardwell_otis_1835.lod0.glb",
+      "donor_sha256": "4816ec6176ef6037834c1e8a14c528a5b394173bfa2821372bd66ae1d802bd38",
+      "output_sha256": "e89508276188b4ceabd612a79552fdab284dc45d832f26b6d2a09b42401a3016"
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod3.glb",
+      "asset_id": "bardwell_otis_1835",
+      "domain": "web",
+      "parent_sha256": "9423585a506b1ae317c08c7eae9fb936e6ceea5e46d00ae6b2673f8c5e268f81",
+      "donor_file": "assets/humans/web/bardwell_otis_1835.lod0.glb",
+      "donor_sha256": "afc2fda09713911404b4b2c39ee08bf5d98e126f62ca16c55cf50de728586c6b",
+      "output_sha256": "c5b1e37cc39b44e5dfb74496df957de7d93e5e0341f58e6d608f6fb09857bd88",
+      "observed_prototype_max_world_position_residual_m": 3.553643840142267e-08
+    },
+    {
+      "file": "assets/humans/anonymous_working_driver_1904.lod3.glb",
+      "asset_id": "anonymous_working_driver_1904",
+      "domain": "master",
+      "parent_sha256": "3833f8fc26f722d17c62afa36ce1b511e38fd112142619db58fa1bf9f551ef75",
+      "donor_file": "assets/humans/anonymous_working_driver_1904.lod0.glb",
+      "donor_sha256": "c3b285d0305559ee5fbe13695985df86cde4c38ca8d7efd8419fcdd2d97bc4b8",
+      "output_sha256": "0754da886b868ffe1f18d9d89a11174bbca6b9f330bf3a5ca45f7982dcb44a9a"
+    },
+    {
+      "file": "assets/humans/web/anonymous_working_driver_1904.lod3.glb",
+      "asset_id": "anonymous_working_driver_1904",
+      "domain": "web",
+      "parent_sha256": "84e602cd49c6e355fb25bc6659a0f4a9e573e4bebe6ce8d2e30e14ed5250b60b",
+      "donor_file": "assets/humans/web/anonymous_working_driver_1904.lod0.glb",
+      "donor_sha256": "49a84c1d858f67359ff33e56762336ade56db1dcbbb1cbe923846d95825c9547",
+      "output_sha256": "6c5182d709ce9de5be003a650c4f7f69b90ae9591d0865174d4303103bd97de4",
+      "observed_prototype_max_world_position_residual_m": 3.734819812380055e-08
+    }
+  ],
+  "passthrough": [
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod0.glb",
+      "sha256": "4816ec6176ef6037834c1e8a14c528a5b394173bfa2821372bd66ae1d802bd38"
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod0.glb",
+      "sha256": "afc2fda09713911404b4b2c39ee08bf5d98e126f62ca16c55cf50de728586c6b"
+    },
+    {
+      "file": "assets/humans/anonymous_working_driver_1904.lod0.glb",
+      "sha256": "c3b285d0305559ee5fbe13695985df86cde4c38ca8d7efd8419fcdd2d97bc4b8"
+    },
+    {
+      "file": "assets/humans/web/anonymous_working_driver_1904.lod0.glb",
+      "sha256": "49a84c1d858f67359ff33e56762336ade56db1dcbbb1cbe923846d95825c9547"
+    }
+  ],
+  "implementation_sha256": {
+    "tools/human_garment_retention_master.py": "a155a2491cf9e886b5bff06c7def33a35e2377a2ffff594d2bbb8cb3a36182f8",
+    "tools/human_garment_retention_web.mjs": "948f212893e1b72b9fed0361430aa776e98e8b749357ab98d5cf6616257dd536",
+    "tools/human_garment_retention_web_helpers.mjs": "a047e8091ef1059c46c9dc6b3c740565190a76d7e395ea1b78a2e4cffc5b95dd",
+    "tools/human_garment_retention_rebind_math.mjs": "76c3ec4213dacfc0520f42aac6ef4a6f85606c60c2b916c71f49611c7516dc61"
+  },
+  "historical_recipe_sha256": {
+    "data/humans/animations/natural-standing-v1.json": "1b98eb613aea60a315857a96307ba8e6712c6b13e60c412d22e75c313ee5cf7f",
+    "data/humans/animations/seated-driver-look-v2.json": "23ecf4274a5b109d276f6de20abf83b83f20d8acdce4e888ef5f5e2a1d7e798d"
+  },
+  "acceptance_scope": "Four installed LOD3 payloads reproduce the fixed admitted prototype digests after the exact historical animation stages; four selected LOD0 payloads remain byte-exact. Separate derivation and native records describe actual regeneration and targeted evidence. WEB is newly rebound geometry, not exact donor POSITION/NORMAL. Whole-world budgets, continuous garment/contact fit and photographic acceptance remain open.",
+  "admission_evidence_sha256": {
+    "master_prototype": "49844010ff9c6ed97792609cc09c0481939ad20e9a8e2c98777b651a6e8235ac",
+    "master_native_render": "9a0d489d3579dbf94e46c6b91faac43243d64715d8cd9fb540a0344fbf42a7d4",
+    "web_single_skin_rebind_v3": "d6bf1798f0f7ae8e0cf7f995c572a2dea203c4ca0ccdfbbdbcee66c3d8235c1d",
+    "web_native_render_v3": "28355f8796b1912d3a44567b4f031c044f6af3061b163b08d1d2e0afb9454c56"
+  },
+  "web_transform": "single_skin_weighted_rebind_v3",
+  "maximum_web_position_residual_m": 1e-06,
+  "runtime_sha256": {
+    "renderers/web/vendor/three-0.185.1/three.module.js": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7",
+    "renderers/web/vendor/three-0.185.1/three.core.js": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759",
+    "renderers/web/vendor/three-0.185.1/addons/loaders/GLTFLoader.js": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2",
+    "renderers/web/vendor/three-0.185.1/addons/libs/meshopt_decoder.module.js": "d428e73a000057c6c94bfcedc3412d0c2dc14ca8800e88553aab05113ad2bf19",
+    "renderers/web/vendor/three-0.185.1/addons/utils/BufferGeometryUtils.js": "5c552223a9309883743b80538d6e9cdb45e3227f30d3ec56fb2c39b46e78d595",
+    "renderers/web/vendor/three-0.185.1/addons/utils/SkeletonUtils.js": "b1632a703206c3d830de9fcbe515696770d04b71a15ee6b50afa6d2c3298c86f"
+  },
+  "retained_failed_raw_copy_admission_sha256": "4f758b80294877d0fb320f39cdb5988d495dcba7638e8b466a9a4f186e63e86f",
+  "asset_causal_qualification_sources": {
+    "master": {
+      "HEAD": "edfc3edc60cf00a8cf2376419d0df8fc3cd8b0a3",
+      "TREE": "e00cce448cb51118f000749488aaa774b95aac78",
+      "semantic_index_sha256": "460f7a8b6225c22a4f4874b5adfe336fd117a3812513a6c0d7bab1f4f35080f1"
+    },
+    "web": {
+      "HEAD": "27d52718290a2708f70ca536c6b796a83a936601",
+      "TREE": "f2d0bc74730766d3309a8b23900e39c112e1fffe",
+      "APP": "956ba4adc9ed9d855d18c197d26e208e8f6cb2d0",
+      "semantic_index_sha256": "f1ce756b9a58dd4e4d00b06ec90ac3db5f9ae693dd129bbb4c497561cc0e6257"
+    }
+  },
+  "encoding": {
+    "master": "python_json_compact_utf8_glb_padding_v1",
+    "web": "javascript_JSON_stringify_glb_padding_v1"
+  }
+}

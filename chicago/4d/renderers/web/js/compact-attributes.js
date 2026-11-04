@@ -310,6 +310,35 @@ export function packScalars(geometry, toneScale) {
   return geometry;
 }
 
+/**
+ * Store an exactly constant batch channel once. BatchedMesh's ordinary multi-draw
+ * and drawElements fallback both have instanceID zero: a divisor-one attribute
+ * therefore supplies the same four bytes at every vertex, without a shader change.
+ * Source geometries stay per-vertex for the existing CPU readers. Call only after
+ * addGeometry and before the batch's version guards or upload owners are installed.
+ */
+export function compactConstantBatchScalars(batch) {
+  if (!batch?.isBatchedMesh || batch.userData?.instancedDraws
+    || batch.material?.userData?.instancedDraws) return 0;
+  const attribute = batch.geometry.getAttribute(SCALARS);
+  if (!attribute || attribute.isInterleavedBufferAttribute || attribute.isInstancedBufferAttribute
+    || !(attribute.array instanceof Uint8Array) || attribute.itemSize !== 4 || attribute.normalized
+    || attribute.usage !== THREE.StaticDrawUsage || Object.hasOwn(attribute, 'onUploadCallback')
+    || (attribute.userData && Object.keys(attribute.userData).length)
+    || !Number.isInteger(attribute.count) || attribute.count < 2
+    || attribute.array.length !== attribute.count * 4) return 0;
+  const bytes = attribute.array;
+  for (let i = 4; i < bytes.length; i += 1) {
+    if (bytes[i] !== bytes[i % 4]) return 0;
+  }
+  const constant = new THREE.InstancedBufferAttribute(bytes.slice(0, 4), 4, false, 1);
+  constant.name = attribute.name;
+  constant.gpuType = attribute.gpuType;
+  constant.version = attribute.version;
+  batch.geometry.setAttribute(SCALARS, constant);
+  return bytes.byteLength - constant.array.byteLength;
+}
+
 /** The value a shader reads from lane `name` of vertex `i` — the readback. */
 export function unpackScalar(attribute, name, i, toneScale = 255) {
   const code = SCALAR_CODES[name];

@@ -145,11 +145,13 @@ def derive(row, recipe, raw=None):
 
 
 def chained_active_derivative(file, original):
-    """Let the standing generator verify an exact subsequent seated derivative."""
+    """Verify exact subsequent seated and selected garment terminal stages."""
     recipe = read_recipe()
     rows = [row for row in recipe['parents'] if row['file'] == file]
     require(len(rows) == 1 and sha(original) == rows[0]['sha256'], 'exact standing-to-seated parent chain required')
-    return derive(rows[0], recipe, original)[0]
+    seated_output = derive(rows[0], recipe, original)[0]
+    from human_garment_retention import apply as garment_terminal
+    return garment_terminal(file, seated_output)
 
 
 def main():
@@ -164,6 +166,8 @@ def main():
     for row in recipe['parents']:
         output, proof = derive(row, recipe)
         if args.check:
+            from human_garment_retention import apply as garment_terminal
+            output = garment_terminal(row['file'], output)
             require((APP/row['file']).read_bytes() == output, 'active seated derivative does not reproduce: '+row['file'])
         else:
             destination = args.output/row['file']

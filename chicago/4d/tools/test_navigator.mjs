@@ -1611,3 +1611,60 @@ console.log('NAVIGATOR PASS — the probe looks only when asked and moved, each 
   assert.deepEqual(nav.link, { app: 'inspect', id: 'otis_house', tab: 'people', person: 'Hans' });
 }
 console.log('NAVIGATOR PRELOAD PASS — code only, exact import dedup, synchronous prepared switch, original choice race, retry and real device port');
+
+// An actual Go-to pick pockets a cold Inspect selection. Its delayed mount must
+// not lift the device again, and a newer app or launch owns the selection ticket.
+for (const phone of [true, false]) {
+  const dom = miniDom(), deferred = () => {
+    let resolve; const promise = new Promise(r => { resolve = r; });
+    return { promise, resolve };
+  };
+  const code = deferred(), mounting = deferred();
+  let mounts = 0, opening;
+  const nav = createNavigator({ root: dom.root, scene: json('data/scenes/1904.json'),
+    isPhone: () => phone, viewportHeight: () => 780, storage: fakeStorage(),
+    apps: [
+      { id: 'home', label: 'Home', panel: 'nav-home' },
+      { id: 'jaunts', label: 'Jaunts', mount() {} },
+      { id: 'guide', label: 'Guide', mount() {} },
+      { id: 'inspect', label: 'Inspect', load: () => code.promise },
+      { id: 'launch', label: 'Launch', launch: () => true },
+    ], context: () => ({ selected: 'sauganash_hotel' }) });
+  await nav.select('jaunts');
+  const closed = phone ? 'dock' : 'rail', shown = phone ? 'half' : 'open';
+  const pick = goToPick({ inTown: () => true,
+    goTo: target => { opening = nav.openLink({ app: 'inspect', id: target.id }); return true; },
+    dock: () => nav.dock() });
+  assert.equal(pick({ kind: 'structure', id: 'sauganash_hotel' }), true);
+  assert.equal(nav.detent, closed, 'the original Go-to contract docks immediately');
+  code.resolve({ async mount() { mounts++; await mounting.promise; } });
+  for (let i = 0; i < 20 && !mounts; i++) await Promise.resolve();
+  assert.equal(mounts, 1, 'the real registry reached the deferred mount');
+  assert.equal(nav.detent, closed, 'code arrival does not raise the device while mounting');
+  mounting.resolve();
+  assert.equal(await opening, true);
+  assert.equal(nav.app, 'inspect');
+  assert.equal(nav.detent, closed, 'a cold Inspect completion cannot undo Go-to docking');
+  await nav.select('jaunts');
+  assert.equal(pick({ kind: 'structure', id: 'sauganash_hotel' }), true);
+  await opening;
+  assert.equal(mounts, 1, 'the warm case uses the original mounted screen');
+  assert.equal(nav.detent, closed, 'a warm Inspect pick keeps the same dock contract');
+  await nav.openLink({ app: 'inspect', id: 'sauganash_hotel' });
+  assert.equal(nav.detent, shown, 'an explicit Inspect still opens normally');
+
+  for (const next of ['guide', 'launch']) {
+    const late = deferred();
+    nav.register({ id: `late_${next}`, label: 'Late Inspect', async mount() { await late.promise; } });
+    const old = nav.openLink({ app: `late_${next}`, id: 'sauganash_hotel' });
+    nav.dock();
+    assert.equal(await nav.select(next), true);
+    const latest = { app: nav.app, detent: nav.detent };
+    late.resolve();
+    assert.equal(await old, false, 'a newer app or launch supersedes the old selection');
+    assert.deepEqual({ app: nav.app, detent: nav.detent }, latest,
+      'late Inspect cannot replace or dock the newer user navigation');
+    nav.unregister(`late_${next}`);
+  }
+}
+console.log('GOTO COLD/WARM/SUPERSEDED PASS — actual Navigator and registry preserve dock and newer selection ownership');
