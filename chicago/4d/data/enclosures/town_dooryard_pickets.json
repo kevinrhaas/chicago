@@ -26,9 +26,9 @@
     "confidence": "derived",
     "counts": {
       "runs_joined_to_a_household": 2,
-      "runs_bounding_structures_only": 97,
+      "runs_bounding_structures_only": 96,
       "households_that_gained_a_fence": 2,
-      "lots_named": 99,
+      "lots_named": 98,
       "households": [
         "hh_harmon_elijah_d",
         "hh_heacock_russel_e"
@@ -1720,42 +1720,6 @@
         }
       ],
       "note": "THE HOUSE LOT: blk_west_lake_des_plaines lot 4 of the platted grid, holding recon_1835_west_044 (two_room_frame_cottage) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT ON — one building on the lot, a dwelling by archetype and by function, so a house lot, and the garden follows the house (owner, T-0772) — and the rule is the answer to 'why this lot': no source puts a garden here or anywhere else in the town. THE HOUSE IS GRADED 'reconstructed' on its own record, and the garden stands at that tier or below it: a garden behind a reconstructed house is an invention resting on an invention, admitted at the house's own tier as T-1212 asked. NO HOUSEHOLD IS JOINED TO THIS HOUSE in the committed index, so the garden is drawn as the lot's ground and not as anyone's: under the ruling it passes to whoever the roof is next dealt to, or stands unworked. THE RECTANGLE IS DERIVED AND NOT PLACED: 8.53 x 6.10 m at the back of the lot, 0.914 m inside the rear and side lot lines, 3.048 m or more clear of the house's own back face, and centred on the house. Every metre of it comes from data/traces/vectors/thompson_lots.json and this building's committed footprint; the SIZE of the plot and its position at the rear are the invention, and they are the same for every lot on this record. THE CEILING ON THE PLOT — 28 x 20 ft — is invented twice over: nothing states a garden's size, and the number is additionally bounded by the renderer's own triangle budget, because a paled fence is thousands of small boxes and this layer draws in one pass. docs/LIBERTIES.md L129 claims that, on the precedent of L121."
-    },
-    {
-      "id": "blk_west_lake_des_plaines_lot8",
-      "path_local_enu_m": [
-        [
-          -418.98,
-          -193.55
-        ],
-        [
-          -418.78,
-          -202.08
-        ],
-        [
-          -424.87,
-          -202.03
-        ],
-        [
-          -425.08,
-          -193.5
-        ],
-        [
-          -418.98,
-          -193.55
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_west_lake_des_plaines_lot8",
-          "structures": [
-            "recon_1835_west_033"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "THE HOUSE LOT: blk_west_lake_des_plaines lot 8 of the platted grid, holding recon_1835_west_033 (deep_plan_frame_cottage) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT ON — one building on the lot, a dwelling by archetype and by function, so a house lot, and the garden follows the house (owner, T-0772) — and the rule is the answer to 'why this lot': no source puts a garden here or anywhere else in the town. THE HOUSE IS GRADED 'reconstructed' on its own record, and the garden stands at that tier or below it: a garden behind a reconstructed house is an invention resting on an invention, admitted at the house's own tier as T-1212 asked. NO HOUSEHOLD IS JOINED TO THIS HOUSE in the committed index, so the garden is drawn as the lot's ground and not as anyone's: under the ruling it passes to whoever the roof is next dealt to, or stands unworked. THE RECTANGLE IS DERIVED AND NOT PLACED: 8.53 x 6.10 m at the back of the lot, 0.914 m inside the rear and side lot lines, 3.048 m or more clear of the house's own back face, and centred on the house. Every metre of it comes from data/traces/vectors/thompson_lots.json and this building's committed footprint; the SIZE of the plot and its position at the rear are the invention, and they are the same for every lot on this record. THE CEILING ON THE PLOT — 28 x 20 ft — is invented twice over: nothing states a garden's size, and the number is additionally bounded by the renderer's own triangle budget, because a paled fence is thousands of small boxes and this layer draws in one pass. docs/LIBERTIES.md L129 claims that, on the precedent of L121."
     },
     {
       "id": "blk_west_lake_canal_lot2",
@@ -4143,17 +4107,6 @@
       "note": "INVENTED, like every gateway on this layer. A garden that is worked daily from the house has a way in from the house, so the gap is centred in the side that faces the back door; 3 ft 6 in is a person with a hoe or a basket, not a team. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard and the pound, because a hung gate would be an invention on top of an invention."
     },
     {
-      "id": "blk_west_lake_des_plaines_lot8_gate",
-      "on": "dooryard",
-      "at_local_enu_m": [
-        -418.88,
-        -197.82
-      ],
-      "width_m": 1.067,
-      "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A garden that is worked daily from the house has a way in from the house, so the gap is centred in the side that faces the back door; 3 ft 6 in is a person with a hoe or a basket, not a team. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard and the pound, because a hung gate would be an invention on top of an invention."
-    },
-    {
       "id": "blk_west_lake_canal_lot2_gate",
       "on": "dooryard",
       "at_local_enu_m": [
@@ -4772,13 +4725,14 @@
   },
   "refused": [
     "blk_lake_franklin lot 3 (recon_1835_south_d3_022): only 0.00 m of lot is left behind the house — so nothing 4.57 m deep fits behind it",
-    "blk_lake_wells lot 3 (recon_1835_south_d4_025): the committed house stands at the rear of its lot — its back face is 1.47 m past the lot's own rear line — so nothing 4.57 m deep fits behind it",
-    "blk_lake_wells lot 5 (recon_1835_south_d4_026): the committed house stands at the rear of its lot — its back face is 1.77 m past the lot's own rear line — so nothing 4.57 m deep fits behind it",
-    "blk_lake_lasalle lot 3 (recon_1835_south_d5_028): the committed house stands at the rear of its lot — its back face is 2.99 m past the lot's own rear line — so nothing 4.57 m deep fits behind it",
-    "blk_lake_clark lot 3 (recon_1835_south_d6_031): the committed house stands at the rear of its lot — its back face is 5.60 m past the lot's own rear line — so nothing 4.57 m deep fits behind it",
-    "blk_lake_clark lot 5 (recon_1835_south_d1_032): the committed house stands at the rear of its lot — its back face is 2.77 m past the lot's own rear line — so nothing 4.57 m deep fits behind it",
-    "blk_lake_dearborn lot 3 (recon_1835_south_d5_034): the committed house stands at the rear of its lot — its back face is 7.35 m past the lot's own rear line — so nothing 4.57 m deep fits behind it",
-    "blk_randolph_clinton lot 3 (recon_1835_west_021): only 4.04 m of lot is left behind the house — so nothing 4.57 m deep fits behind it"
+    "blk_lake_wells lot 3 (recon_1835_south_d4_025): the committed house stands at the rear of its lot — its back face is 0.60 m past the lot's own rear line — so nothing 4.57 m deep fits behind it",
+    "blk_lake_wells lot 5 (recon_1835_south_d4_026): the committed house stands at the rear of its lot — its back face is 0.61 m past the lot's own rear line — so nothing 4.57 m deep fits behind it",
+    "blk_lake_lasalle lot 3 (recon_1835_south_d5_028): the committed house stands at the rear of its lot — its back face is 0.62 m past the lot's own rear line — so nothing 4.57 m deep fits behind it",
+    "blk_lake_clark lot 3 (recon_1835_south_d6_031): the committed house stands at the rear of its lot — its back face is 0.60 m past the lot's own rear line — so nothing 4.57 m deep fits behind it",
+    "blk_lake_clark lot 5 (recon_1835_south_d1_032): the committed house stands at the rear of its lot — its back face is 0.58 m past the lot's own rear line — so nothing 4.57 m deep fits behind it",
+    "blk_lake_dearborn lot 3 (recon_1835_south_d5_034): the committed house stands at the rear of its lot — its back face is 0.60 m past the lot's own rear line — so nothing 4.57 m deep fits behind it",
+    "blk_randolph_clinton lot 3 (recon_1835_west_021): only 4.04 m of lot is left behind the house — so nothing 4.57 m deep fits behind it",
+    "blk_randolph_clinton lot 5 (recon_1835_west_018): the committed house stands at the rear of its lot — its back face is 0.41 m past the lot's own rear line — so nothing 4.57 m deep fits behind it"
   ],
   "research_note": "THE EVIDENCE HERE IS A TREATMENT AND NOT A LOCATION, which is why this record is generated from a rule instead of authored lot by lot. Read the rule in tools/generate_dooryard_pickets.py — it is the answer to 'why this lot' and it is enforced on every commit, because tools/check.sh re-derives this file byte for byte. In short: one building on a platted lot, a dwelling by archetype and by function — a house lot, because the garden follows the HOUSE and not the household (the owner's ruling on T-0772, 2026-09-21) — and room at the back for a plot that hits nothing. A garden behind a reconstructed house is admitted at that house's own tier (T-1212), and each run's note names the grade. WHAT THE CLAUSES COST is visible in the count — the platted grid holds 144 lots and this record fences a fraction of them, because most lots hold more than one building or none, and the town's house lots outside the 19 platted blocks (the West Division approaches, the reservation, the North Division) have no lot geometry to derive a plot from at all. WHAT WOULD CHANGE IT: a Chicago or Cook County fence ordinance of the 1830s, which would settle the height and probably the pale rhythm; any tax, insurance or sale description of a town lot naming a garden or a fence; and the North Division street control docs/ROADMAP.md S9 still records as owed, which is what keeps two thirds of the plat off this grid."
 }
