@@ -40211,3 +40211,19 @@ and it remains a shape taken from a retrospective picture.
 **Ticket:** T-3041 (piece of T-2387).
 **Review:** `data/reference_views/first_fort_dearborn_pickets_outer/currey_1912_birdseye.match.json`.
 **Recorded:** 2026-11-03 (T-3041).
+
+### L-sauganash-main-gable-cornice-2383 — the Sauganash's boxed gable cornice, drawn without a dimension
+
+**Covers:** `sauganash_hotel.frame_1831.form.main_gable_cornice`.
+
+**Decision:** Build the boxed rake cornice and its two short horizontal returns on the hotel's visible main `+x` gable, at reconstructed sections of 0.55 m return, 0.18 m section and 0.18 m projection, in the existing wall finish.
+
+**What the picture gives, and what it does not.** F. Braunhold's engraving in Andreas 1884 (`andreas_1884_sauganash_hotel_plate`) draws the band plainly: a boxed member following both rakes of the gable that faces the Carpenter shop, and at each eaves corner a short horizontal return turning the corner onto the gable wall and stopping. The archetype had never built either, so that gable has been standing with a bare rake the picture does not draw — the element is read off the picture and its occurrence on this gable is not in doubt. **The three sections are not in the picture.** The plate is a retrospective 1884 engraving whose only scale datum is a standing man, the same datum the frontage is measured against; reading the drawn return against the gable's own eaves-to-eaves width gives about 0.86 m and against the 0.85 m attic sash about 0.71 m, with several tenths of a metre of line-weight and perspective uncertainty either way. The 0.55 m taken here sits at the conservative end of that range and is a working choice, not a measurement; a larger return remains inside what the plate supports. The 0.18 m section and 0.18 m projection are bounded above and below in the same way — the plate shows a band plainly deeper than a clapboard course (0.114 m here) and plainly shallower than the entrance cornice already built — and are otherwise invented.
+
+**What it does not claim.** Nothing here attests the cornice on 1 July 1835: the engraving is evidence of its own date, and the band is carried back to the scene on the same reading that carries the rest of the block's form. Occurrence on the opposite, unseen gable is **not** claimed and nothing is built there. The band hangs below the rake line, so the roof planes, ridge, eave, pitch, footprint, placement, openings, blue shutters, stacks, cross wing and the separate Carpenter shop are all unchanged, and the control is default-off: the other twenty-two frame taverns come out of the generator exactly as they went in.
+
+**Sources and limits:** `andreas_1884_sauganash_hotel_plate`. The monochrome retrospective plate establishes no colour, no pigment, no historical viewpoint and no date for any feature. The hotel's own picture comparison still reads `differs` on the compound roof silhouette; this liberty settles none of that.
+
+**Ticket:** T-2383.
+**Review:** `docs/RESEARCH/photo-match/sauganash_hotel/andreas-1884-side-by-side.jpg` and its match record.
+**Recorded:** 2026-11-04 (T-2383).
