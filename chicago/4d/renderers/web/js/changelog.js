@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2653, ts: '2026-11-04T10:33:20.048Z', date: 'Nov 4, 2026, 4:33 AM CT', title: 'The jail keeper\'s gable end is boarded, not shingled', kind: 'fix',
+    items: [
+      'The keeper\'s house beside the log jail on the public square took its roof covering right down the end gable. The 1902 plate of the compound draws horizontal boarding carrying on around the loft light in that triangle, so the end now wears the same wall finish as the walls under it.',
+      'The roof itself is untouched: same shape, same slopes, same loft light, same openings, and the other end is unchanged.',
+      'The compound still differs from both pictures in other ways, and the comparison records say where.',
+    ] },
   { v: 2652, ts: '2026-11-04T10:01:26.358Z', date: 'Nov 4, 2026, 4:01 AM CT', title: 'Lake House’s Record separates proposals from measurements', kind: 'fix',
     items: [
       'The Lake House Record now explains that an 1835 editorial proposal for a larger hotel does not measure the building, rank existing hotels or establish construction progress. The quotation and reconstructed shell are unchanged.',
