@@ -1,3 +1,26 @@
+## T-2383 — the ridge-end stacks retained through native recovery (2026-11-04)
+
+The genuine one-Hotel MASTER/WEB and four accepted controlled picture groups survived
+the native worker's provider usage limit. Its saved source00163f30 integrated current
+dev and the magazine increment. Fresh published Stage3 runs on that exact head passed
+at390x780 and1280x800,107 checks each, zero failures. These are Stage3 readings, not
+the full15-part runtime gate or a new whole-image acceptance. The final PR records
+the separate current Hotel/card/source-credit review and final-head qualification.
+
+The source receipt stays literal: part1 passed on7819, parts2 and3 passed after the
+real SourceUse repair c1ad5c839, while part4 failed its unchanged T-3088 two-vector
+np.cross fixture under Python3.14/NumPy2.5.4. The monolithic preflight wrapper reached
+its590-second timeout. Neither is relabelled PASS; a later current correct-environment
+execution of the exact step supplies its own evidence. Actual paired commands,
+execution heads and the provider-limit terminal are retained at chicago-evidence
+commit d810003956db87761e80d5745a4ccab39f315295.
+
+The bounded stack move remains the scope. The Hotel still **differs**, the shop's
+three views retain **matches**, and shaft proportions/heads, compound roof and
+left-gable questions remain open. Every kit dimension and July1835 continuity caveat
+remains explicit; no camera, metric or fitting date is promoted. Original T-2383
+stays OPEN/PARTIAL, and the reasoning archive now records this increment too.
+
 ## T-2383 — the Sauganash's ridge-end stacks (2026-11-04)
 
 Andreas/Braunhold draws both main-block stacks close to the ends of the ridge: the near one

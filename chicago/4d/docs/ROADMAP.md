@@ -6321,3 +6321,24 @@ from a camera fit. Before and after are captured from one identical diagnostic c
 The original T-2388 stays OPEN. Still owed: a fitted camera for this panel, the ranges and their
 galleries, the facade openings, the other roof forms and chimney counts, the compound's
 composition, and every other dated picture the ticket lists.
+
+
+### T-2383 — the Sauganash's ridge-end stacks, bounded increment (2026-11-04)
+
+Select the existing `gable_ends` chimney placement for the Hotel's 1831 frame phase:
+the two centres move from the generic frontage fractions to 0.60 m and 9.32 m on
+the unchanged 9.92 m block. The inset, shaft section and tops remain reconstructed
+kit choices; Andreas/Braunhold's retrospective 1884 plate supports relative
+placement, not dimensions, an alteration date or a historical camera. No producer
+changes. Only the Hotel default was genuinely rebuilt with its ordered WEB;
+other family defaults and the Tremont variants were preserved.
+
+Independent source/before/after review of all four Hotel-dependent groups accepts
+the bounded movement: the Hotel remains **differs**, with shaft proportions/heads,
+compound roof and left-gable questions open; all three Carpenter-shop comparisons
+retain **matches** with the shop anchor unchanged. The native MASTER's 40 brick
+positions move outward; their confidence becomes reconstructed. Unused UV repacking
+is explicit, not described as whole-primitive byte equality. Sources, metric/date
+limits and L-sauganash-ridge-end-stacks-2383 remain the governing account. This is
+incremental progress on original T-2383, which remains OPEN/PARTIAL; no new photo
+follow-up or whole-image acceptance is created.
