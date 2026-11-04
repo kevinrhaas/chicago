@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 982,
+  "count": 983,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -65964,6 +65964,42 @@
         "T-1907",
         "T-3301",
         "T-3338"
+      ]
+    },
+    {
+      "id": "L-k01-1919-range-dressings-3353",
+      "title": "1919 Prairie's rear ranges quoined at their street-facing corners and banded in stone across the north flank, read off the 1919 programme plate",
+      "section": "per_subject",
+      "subjects": [
+        "marshall_field_jr_house_1919_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-11-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "1919 Prairie's two rear ranges carry the stone the 1919 programme plate draws plainest of all its walls: pale quoins up the north-east corner of each range, where its north wall meets the face it steps out on, and pale courses across the brick. Each corner takes dressed stones from grade to the range's wall top, long and short along the two faces in turn; the main block's three stone courses (under the principal sills, at the second floor, under the chamber sills) run on across both ranges' north walls and their stepped-out faces, stopped against the canted north bay, in place of K03's brick string course there. K01 learns it as an additive `dressings` entry on a brick rear wing (`belts` with belt sides, and `quoins` at named corners), byte-identical for every other house (k01 emit --check). **What is read, not invented.** That the ranges' corners are quoined in pale stone and that pale courses cross their walls, from the programme plate (the 1913 plate sees the flank too obliquely, under trees). **What is invented.** The stones' 0.55 m and 0.3 m lengths, their 0.35 m courses and 0.03 m projection; that the quoins run from grade; that the courses are the main block's three carried on at the same lines, 0.05 m proud. The plate's halftone is too soft to count the stones or read the courses' lines. **What is not built.** Quoins at the canted north bay's own corners, which the plate draws dark; the quoined flat-topped block at the middle range's north-west corner and its mullioned stretch; the small pinnacled dormers between the gables and the third, smaller gable at the flank's far end (both plates show the dormers standing on a slope facing the street-side camera, which the ranges' north-facing gables leave no room for, so they wait on the ranges' roofs being read again); the ranges' place against both plates; and the house's unsolved pictures (the 1912 Blue Book plate among them)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Later work reads the ranges' roofs and place against all three Gatlin plates."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-03 (T-3353)."
+        }
+      ],
+      "work_refs": [
+        "T-3353",
+        "T-3338",
+        "T-3303",
+        "T-3305",
+        "T-3354"
       ]
     },
     {

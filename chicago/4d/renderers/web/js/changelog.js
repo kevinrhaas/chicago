@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2633, ts: '2026-11-04T00:40:20.258Z', date: 'Nov 3, 2026, 6:40 PM CT', title: '1919 Prairie: stone corners and bands on its rear wings', kind: 'feature',
+    items: [
+      'Along the north side of Marshall Field Jr.\'s house at 1919 Prairie Avenue, the corners of both rear wings now rise in pale stone blocks, long and short in turn, from the ground to the eaves, as a 1919 picture of the house shows them.',
+      'The three pale stone bands across the main house\'s side now run on across both rear wings too, in place of their plain brick band.',
+      'Still to come on this side: the small pinnacled dormers between the gables and a closer check of where the wings stand and how their roofs run.',
+    ] },
   { v: 2632, ts: '2026-11-04T00:16:38.275Z', date: 'Nov 3, 2026, 6:16 PM CT', title: 'The Dearborn drawbridge\'s lowered draw lies level', kind: 'fix',
     items: [
       'In 1835 the closed draw of the Dearborn Street drawbridge no longer rises to a peak in mid-river. Its two leaves now lie level with the rest of the deck.',
