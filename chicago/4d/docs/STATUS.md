@@ -25742,3 +25742,35 @@ within tolerance (T-3153). The original ticket's wider coverage — Andreas 1884
 Trowbridge/Gale 1902, CHM c1859 (unverified, link-only, no geometry) and Kurz & Allison
 1893, plus both named reproductions — is still incomplete. T-2376 stays open/partial;
 no signoff, no new photo follow-up.
+
+### T-2376 — the dormer-cap trial's proof, corrected and integrated, 2026-11-04
+
+The paragraph above is kept as written, and one of its sentences is withdrawn. "Every
+other primitive byte-identical" is too broad a claim for the rebuilt master, and a
+re-audit accessor by accessor across both masters says what is actually true. The
+master holds ten primitives. **Two** changed: `wall` (positions, normals, indices and
+`_CONFIDENCE`; 1,926 → 1,950 vertices, 960 → 972 triangles, the new vertices in the
+4.307–4.850 m band) and `roof_shingle` (positions and normals only — the four vertex
+entries carrying the two ridge corners move in y alone, 4.500 → 4.850, x and z
+bit-identical). The **other eight** (`glass`, `brick`, `trim`, `door`, `door_panel`,
+`iron`, `board_door`, `board_door_panel`) are byte-identical in geometry, normals,
+vertex colours, `_CONFIDENCE`, indices and material — **but `TEXCOORD_0` was repacked
+across all ten**, so those eight are not byte-identical as whole primitives. Those UVs
+are unused: both masters declare zero textures, zero images and no material texture
+reference, so nothing samples them and the repack moves no rendered pixel. The
+triangle counts, the 0.35 m ridge lift, the 24 added cladding vertices and the exactly
+equal bounding box all re-measure as stated; the accepted cap and the view's remaining
+`differs` verdict are unchanged, and this provenance correction is not a new ticket.
+
+Integrated onto current dev (a3a87ca) in the same PR. The only merge conflict was the
+GENERATED `data/liberties.json`, resolved by recompiling it from the merged
+`docs/LIBERTIES.md` — 992 liberties, dev's 991 plus this branch's one, none dropped —
+and both sides' LIBERTIES/STATUS text and all 1,034 manifest and web-manifest rows are
+preserved, with only `green_tree_tavern__frame_1833.glb` differing from dev. The
+hosted gate's one red on the earlier head, *Source-use backlinks match authored claims
+(T-1248)*, was that same generated-backlink count: `tools/compile_source_use.py`
+re-run through its owner takes the liberties row 991 → 992 and the check passes. No
+producer, parameter-validator, schema or recipe-scheme was edited, and no geometry was
+rebuilt for this integration: the pinned-Blender master and its WEB derivative are the
+ones that run already produced (f213818f / 65863b3c), and `validate.py --stale` is the
+gate that proves it. T-2376 stays open/partial/differs.

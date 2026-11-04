@@ -45,9 +45,30 @@ as `andreas_1838-side-by-side-before-dormer-cap-20261104.jpg`; the current one i
 
 Independent exported-mesh comparison of the two masters confines the change to the
 dormer roof and its gable-course infill: 3,318 → 3,330 triangles; the two dormer
-ridge vertices raised 0.35 m; 24 cladding vertices added in the 4.307–4.581 m band;
-every other primitive byte-identical; and the full model bounding box exactly equal
-(`[-0.25, 0.0, -15.131628] … [18.177464, 8.722019, 0.355]`). No sky seam, hole or
+ridge vertices raised 0.35 m (the four `roof_shingle` vertex entries that carry them
+move in y alone, 4.500 → 4.850, with x and z bit-identical); 24 cladding vertices
+added to the `wall` primitive in the 4.307–4.850 m band; and the full model bounding
+box exactly equal (`[-0.25, 0.0, -15.131628] … [18.177464, 8.722019, 0.355]`).
+
+**Correction, 2026-11-04 (what the other primitives actually share).** The first
+account of this trial said “every other primitive byte-identical”. That phrase was
+too broad and is withdrawn. Re-audited accessor by accessor across both masters, the
+master holds **ten** primitives, and the honest statement is narrower:
+
+- **two** primitives changed — `wall` (positions, normals, indices and
+  `_CONFIDENCE`; 1,926 → 1,950 vertices, 960 → 972 triangles) and `roof_shingle`
+  (positions and normals only, same 32 vertices and 16 triangles);
+- the **other eight** — `glass`, `brick`, `trim`, `door`, `door_panel`, `iron`,
+  `board_door`, `board_door_panel` — are byte-identical in **geometry, normals,
+  vertex colours, `_CONFIDENCE`, indices and material**;
+- **but `TEXCOORD_0` was repacked across all ten**, the eight unchanged ones
+  included, so those eight are not byte-identical as whole primitives.
+
+Those UVs are **unused**: both masters declare zero textures, zero images and no
+material texture reference, so nothing samples `TEXCOORD_0` and the repack changes
+no rendered pixel. The earlier wording is left in place as dated historical WIP where
+it was first written; this entry is the owning record. The accepted cap and the
+view's remaining `differs` verdict are unaffected. No sky seam, hole or
 roof penetration appears in the render. The closed shoulder, its lower sash and
 upper light, and the two separate uncovered farm wagons are retained; no shed, posts
 or covered wagon returns.
