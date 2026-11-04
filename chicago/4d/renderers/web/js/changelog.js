@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2645, ts: '2026-11-04T06:23:01.061Z', date: 'Nov 4, 2026, 12:23 AM CT', title: 'A keeper house and low gate at the log jail', kind: 'change',
+    items: [
+      'The log jail gains the keeper\'s low house and a framed gate beside its pointed fence. Their exact layout and July1835 continuity are reconstructed; the picture comparison remains unfinished.',
+    ] },
   { v: 2644, ts: '2026-11-04T05:58:06.694Z', date: 'Nov 3, 2026, 11:58 PM CT', title: 'The Green Tree\'s shoulder light gets its pointed cap', kind: 'improvement',
     items: [
       'The little gabled light over the Green Tree Tavern\'s enclosed shoulder now comes to a sharp point, the way Andreas\'s engraving of the inn draws it, instead of the blunt, nearly flat cap it had.',
