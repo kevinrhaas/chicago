@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2650, ts: '2026-11-04T07:27:14.491Z', date: 'Nov 4, 2026, 1:27 AM CT', title: 'The first fort\'s powder magazine gets its vaulted roof', kind: 'improvement',
+    items: [
+      'The little brick magazine inside the first Fort Dearborn no longer wears a gable. Its roof is now a vault, curving across the front and running back along the depth of the building, the way the garrison\'s own commandant drew its arched front in January 1808 and the way Currey\'s 1912 bird\'s-eye draws it under the number 8.',
+      'Only the shape is taken from the pictures. How deep the curve is remains ours: the crown sits exactly where the old roof\'s peak did, and the Evidence panel now says so instead of quoting a pitch a curved roof does not have.',
+      'Nothing else moved — the same place, the same footprint, the same brick walls and doorway, and the second fort\'s magazine keeps its gable.',
+      'Two things the same picture shows are still missing from the first fort: the cupolas on both blockhouses and the western gateway beside the north-west one.',
+    ] },
   { v: 2649, ts: '2026-11-04T06:44:56.277Z', date: 'Nov 4, 2026, 12:44 AM CT', title: '2009 Prairie\'s carved Gothic doorway and oriel frieze', kind: 'feature',
     items: [
       'The Meyer house\'s door now stands in its photograph\'s elliptical stone arch, a moulded ring round the head and a pilaster each side, with one dark leaf under a two-light fanlight.',
