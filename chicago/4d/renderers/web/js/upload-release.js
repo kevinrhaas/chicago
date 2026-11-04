@@ -53,10 +53,13 @@ import { compactBatchBounds } from './batch-bounds.js';
 export const RELEASE_KEEP = {
   terrain: [],
   trees: [],
+  'street-trees': [],
   'yard-ground': [],
   streets: [],
   // Street-grid CPU ray picks keep positions and indices; other uploaded lanes can go.
   'street-grid': ['position', 'index'],
+  // Front yards pick analytically; keep triangles for ordinary raycast compatibility.
+  'front-yards': ['position', 'index'],
   // T-2572: picked on the GPU (gpu-pick.js), so their triangles go too.
   frontage: [],
   enclosures: [],
@@ -114,8 +117,56 @@ function release(attr, drop = dropArray) {
   if (!KEEP_ARRAYS) attr.onUpload(drop);
 }
 
+/** Railway alone opts in after its last matrix write. Shared near/far users
+ * must all have full-capacity bounds before the shared upload array can go. */
+function markRailwayStaticMatrices(layer) {
+  if (layer.name !== 'railway') return;
+  const users = new Map();
+  layer.traverse(o => {
+    const a = o.instanceMatrix;
+    if (!o.isInstancedMesh || !a?.array
+      || a.itemSize !== 16 || a.usage !== THREE.StaticDrawUsage
+      || !(a.array instanceof Float32Array) || !a.count || a.userData?.uploadReleased) return;
+    if (!users.has(a)) users.set(a, []);
+    users.get(a).push(o);
+  });
+  for (const [a, meshes] of users) {
+    if (!meshes.every(m => m.userData.railwayStaticMatrix === true)) continue;
+    a.userData = a.userData || {};
+    a.userData.uploadReleased = true; a.userData.uploadBytes = a.array.byteLength;
+    census.attributes += 1; census.bytes += a.array.byteLength;
+    if (KEEP_ARRAYS) continue;
+    const previousUpload = a.onUploadCallback;
+    a.onUpload(function releaseRailwayMatrix() {
+      // No future tier/count increase may lazily read a discarded matrix.
+      const box = new THREE.Box3(), sphere = new THREE.Sphere();
+      for (const mesh of meshes) {
+        const count = mesh.count, oldBox = mesh.boundingBox, oldSphere = mesh.boundingSphere;
+        if (oldBox) box.union(oldBox);
+        if (oldSphere) sphere.union(oldSphere);
+        try {
+          mesh.count = this.count; mesh.boundingBox = null; mesh.boundingSphere = null;
+          mesh.computeBoundingBox(); mesh.computeBoundingSphere();
+          box.union(mesh.boundingBox); sphere.union(mesh.boundingSphere);
+        } finally { mesh.count = count; mesh.boundingBox = oldBox; mesh.boundingSphere = oldSphere; }
+      }
+      // Preserve near/far's shared sphere and never shrink any previous bound.
+      const sharedSphere = meshes.find(m => m.boundingSphere)?.boundingSphere ?? new THREE.Sphere();
+      sharedSphere.copy(sphere);
+      for (const mesh of meshes) {
+        if (mesh.boundingBox) mesh.boundingBox.copy(box); else mesh.boundingBox = box.clone();
+        mesh.boundingSphere = sharedSphere;
+      }
+      previousUpload.call(this);
+      this.array = null;
+      this.onUploadCallback = previousUpload;
+    });
+  }
+}
+
 /** Mark one layer's geometries to let go of their page arrays once uploaded. */
 function markLayer(layer, keep) {
+  markRailwayStaticMatrices(layer);
   layer.traverse((o) => {
     const geo = o.geometry;
     if (!geo || o.isInstancedMesh || geo.userData.uploadReleased) return;

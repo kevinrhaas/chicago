@@ -187,11 +187,10 @@ jobs:
         with:
           fetch-depth: 0
           filter: blob:none
-          # Dispatch runs only the liveness screen below; the production bake
-          # still checks out the full current tree. Other events remain full.
+          # First screen reads Git trees only; do not check out unrelated archives.
           sparse-checkout: |
-            ${{ github.event_name == 'workflow_dispatch' && '.github' || '' }}
-            ${{ github.event_name == 'workflow_dispatch' && 'chicago/4d/tools' || '' }}
+            .github
+            chicago/4d/tools
       # The second screen below reads the generators' own input-hash recipe. It
       # needs no third-party package — that is measured, and it is why this gate
       # is still a five-minute job — but it should read it under the same Python
@@ -254,6 +253,28 @@ jobs:
           # before asking whether an output is missing or stale, just as publish
           # does. The recovery verifier refuses mismatched existing bytes; an
           # unreadable package keeps the existing fail-open bake decision.
+          # Keep every native freshness input/output physically present. Discover
+          # app directories from this HEAD, including future additions; only the
+          # unrelated docs archives stay sparse. The exact committed Glessner
+          # recovery package is an input and must be present before materialize.
+          if ! python3 - <<'PY'
+          import os, subprocess
+          names = subprocess.check_output([
+              'git', 'ls-tree', '-z', '-d', '--name-only', 'HEAD:chicago/4d'
+          ]).split(b'\0')
+          directories = {name for name in names if name}
+          if not {b'assets', b'data', b'generators', b'tools', b'renderers'} <= directories:
+              raise SystemExit('Native freshness directories cannot be established')
+          paths = ['.github', 'chicago/4d/docs/RESEARCH/glessner-v4-recovery']
+          paths += ['chicago/4d/' + os.fsdecode(name)
+                    for name in sorted(directories) if name != b'docs']
+          subprocess.run(['git', 'sparse-checkout', 'set', '--cone', *paths], check=True)
+          PY
+          then
+            echo "bake=1" >> "$GITHUB_OUTPUT"
+            echo "::warning::baking — native freshness files could not be materialized, so not skipping"
+            exit 0
+          fi
           if ! python3 chicago/4d/tools/recover_glessner_v4.py --materialize; then
             echo "bake=1" >> "$GITHUB_OUTPUT"
             echo "::warning::baking — committed asset package could not be materialized, so freshness cannot be established"

@@ -87,6 +87,7 @@ const COPIES = [
   ['data/signage/', 'data/signage/'],
   ['data/yard/', 'data/yard/'],
   ['data/transport/parked/', 'data/transport/parked/'],
+  ['data/transport/driven/', 'data/transport/driven/'],
   ['data/wharves/', 'data/wharves/'],
   ['data/boats/', 'data/boats/'],
   ['data/wells/', 'data/wells/'],
@@ -321,6 +322,15 @@ if (existsSync(transportPolicyFile)) {
       }
     }
     console.log(`transport publication: ${files.length} declared source masters retained outside the mirror`);
+  }
+}
+
+// The driven layer fetches these at runtime. Checking only existing mirror
+// files would let an entirely omitted data family pass (and the app fetch 404).
+for (const rel of ['data/transport/driven/loops.json', 'data/transport/driven/hitch-bindings-v2.json',
+  'data/transport/driven/current26-hoof-support-domain.json']) {
+  if (existsSync(path.join(REPO, rel)) && !existsSync(path.join(SITE, rel))) {
+    problems.push(`${rel} is missing from the published mirror; publish.sh must copy the driven runtime data.`);
   }
 }
 

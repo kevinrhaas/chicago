@@ -49,6 +49,16 @@ import { LATTICE_GLSL, latticeUniforms, STRAT_SALT, STRAT_BLOCK_SHIFT }
   from '../renderers/web/js/flora-gpu-lattice.js';
 import { latticeSlots } from '../renderers/web/js/jobs/lattice-kernel.js';
 
+import assert from 'node:assert/strict';
+import { FIELD_GLSL } from '../renderers/web/js/near-field.js';
+import { DEAL_GLSL } from '../renderers/web/js/flora-gpu-deal.js';
+import { nearPassShaders, NEAR_RING_GLSL } from '../renderers/web/js/flora-gpu-near.js';
+import { midPassShaders } from '../renderers/web/js/flora-gpu-mid.js';
+import { forbPassShaders } from '../renderers/web/js/flora-gpu-forb.js';
+import { farPassShaders, FAR_SLOT_GLSL, FAR_UNASKED } from '../renderers/web/js/flora-gpu-far.js';
+import { carryPassShaders } from '../renderers/web/js/flora-gpu-carry.js';
+import { farShrubPassShaders } from '../renderers/web/js/flora-gpu-farshrub.js';
+
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const APP = path.resolve(HERE, '..');
 const FLORA = path.join(APP, 'renderers/web/js/flora.js');
@@ -113,7 +123,31 @@ function textFaults(glsl, k, exported) {
   return faults;
 }
 
+function zeroPositionCheck() {
+  const source = fs.readFileSync(FLORA, 'utf8');
+  for (const count of ['max', 'midMax', 'forbMax', 'fb.max', 'carryMax[i]', 'fsRoom.texels']) {
+    assert(source.includes(`new THREE.BufferAttribute(new Uint8Array(${count} * 3), 3)`), 'Count-only zero position buffer remains byte-backed');
+  }
+  const common = { lattice: LATTICE_GLSL, field: FIELD_GLSL, deal: DEAL_GLSL, ring: NEAR_RING_GLSL,
+    slot: FAR_SLOT_GLSL, unasked: FAR_UNASKED };
+  const positionUnused = shader => {
+    const code = shader.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/[^\n]*/g, '');
+    return (code.match(/\bposition\b/g) ?? []).length === 1 && /in\s+vec3\s+position\s*;/.test(code);
+  };
+  for (const make of [nearPassShaders, midPassShaders, forbPassShaders, farPassShaders, carryPassShaders, farShrubPassShaders]) {
+    const { vertexShader } = make(common); assert(positionUnused(vertexShader), 'Actual production shader must use gl_VertexID without position reads');
+    assert(!positionUnused(vertexShader.replace('void main() {', 'void main() { float broken = position.x;')), 'A syntactically valid position read is refused');
+  }
+  for (const n of [0, 1, 33, 1600, 34596]) {
+    const old = new Float32Array(n * 3), next = new Uint8Array(n * 3);
+    assert.equal(old.length / 3, next.length / 3); assert(next.every(x => x === 0));
+    assert.equal(old.byteLength - next.byteLength, n * 9);
+  }
+  console.log('PASS — six placement shader zero buffers preserve count/values; actual shader position-read control refused');
+}
+
 function textCheck() {
+  zeroPositionCheck();
   const k = floraConstants(fs.readFileSync(FLORA, 'utf8'));
   const exported = { STRAT_SALT, STRAT_BLOCK_SHIFT };
   const faults = textFaults(LATTICE_GLSL, k, exported);
