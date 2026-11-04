@@ -1,0 +1,36 @@
+{
+  "schema": "portable_draft_connection_units_v1",
+  "unit_length_axis": "+Z",
+  "unit_length_m": 1,
+  "units": [
+    {
+      "name": "unit_trace",
+      "kind": "box",
+      "width_m": 0.025,
+      "thickness_m": 0.004,
+      "material": "leather"
+    },
+    {
+      "name": "unit_rein",
+      "kind": "box",
+      "width_m": 0.008,
+      "thickness_m": 0.003,
+      "material": "leather"
+    },
+    {
+      "name": "unit_wood_bar",
+      "kind": "cylinder",
+      "radius_m": 0.025,
+      "radial_segments": 8,
+      "material": "wood"
+    },
+    {
+      "name": "unit_iron_link",
+      "kind": "cylinder",
+      "radius_m": 0.006,
+      "radial_segments": 8,
+      "material": "iron"
+    }
+  ],
+  "policy": "Original reconstructed geometry. Unitprimitivesareinstancedbetweenactualsource-bound liveendpoints. No loadstrength, historicalconstruction or bodycontactcertification."
+}

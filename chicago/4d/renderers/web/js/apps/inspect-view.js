@@ -326,7 +326,9 @@ function render(root, ctx) {
   let tab = tabFor === id ? lastTab : (linked ?? 'overview');
   if (EXPERT_TABS.has(tab) && !expertOn(doc)) tab = 'overview';
   // T-3265: a link to a person (the People app, a map pin) opens People on their card, once.
-  const person = ctx.link?.app === 'inspect' && ctx.link.id === id && ctx.link.person && ctx.link !== personLinked
+  // First-open mount and shown both draw; keep the pending card across that refresh.
+  const person = ctx.link?.app === 'inspect' && ctx.link.id === id && ctx.link.person
+    && (ctx.link !== personLinked || (root._insp?.id === id && root._insp.person === ctx.link.person))
     ? ctx.link.person : null;
   if (person) { personLinked = ctx.link; tab = 'people'; }
   tabFor = id;
@@ -399,7 +401,7 @@ async function fillPane(root, pane, key) {
   pane.dataset.filled = 'pending';
   pane.replaceChildren(el(doc, 'p', 'nav-sub', 'Reading the record…'));
   let sec = null;
-  try { sec = await ctx.actions?.cardSections?.(id); } catch { sec = null; }
+  try { sec = await ctx.actions?.cardSections?.(id, { tab: key }); } catch { sec = null; }
   if (root._insp?.id !== id) return; // the building changed while this was read
   pane.replaceChildren();
   if (!sec) {
@@ -542,7 +544,7 @@ async function openPersonCard(pane, personId, ctx) {
   pane.querySelector('.insp-person-card')?.remove();
   const sceneYear = Number(String(ctx?.scene?.id ?? ctx?.scene?.scene_id ?? '').slice(0, 4)) || null;
   const draw = (m) => {
-    const card = renderPersonCard(doc, m, { dot });
+    const card = renderPersonCard(doc, m, { dot, onFind: ctx?.actions?.findPerson ?? null });
     const was = pane.querySelector('.insp-person-card');
     if (was) was.replaceWith(card); else pane.append(card);
     return card;
@@ -571,6 +573,9 @@ async function openPersonCard(pane, personId, ctx) {
 function closePersonCard(pane) {
   const id = pane.dataset.person;
   delete pane.dataset.person;
+  // A later shown/refresh must preserve Back to the household list.
+  const state = pane.closest('.insp-panes')?.parentElement?._insp;
+  if (state) state.person = null;
   pane.querySelector('.insp-person-card')?.remove();
   const home = pane.querySelector('.insp-people-home');
   if (home) home.hidden = false;

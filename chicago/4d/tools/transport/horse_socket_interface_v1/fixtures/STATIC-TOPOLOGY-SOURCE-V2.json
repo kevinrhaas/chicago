@@ -1,0 +1,357 @@
+{
+  "patches": [
+    {
+      "id": "right_upper_lid",
+      "faces": 72,
+      "boundary_rows": 32,
+      "interior_rows": 21,
+      "Euler_characteristic": 1,
+      "UV_area": 0.0002591092516159854
+    },
+    {
+      "id": "left_upper_lid",
+      "faces": 70,
+      "boundary_rows": 32,
+      "interior_rows": 20,
+      "Euler_characteristic": 1,
+      "UV_area": 0.00026189538080756414
+    }
+  ],
+  "owned_rows": [
+    414,
+    416,
+    1348,
+    1349,
+    1350,
+    1351,
+    1352,
+    1353,
+    1354,
+    1355,
+    1475,
+    1479,
+    1480,
+    1482,
+    1484,
+    1487,
+    1488,
+    1489,
+    1510,
+    1511,
+    1512,
+    1514,
+    1518,
+    1519,
+    1520,
+    1521,
+    2340,
+    2341,
+    2342,
+    2344,
+    2345,
+    2346,
+    2348,
+    2349,
+    2350,
+    2351,
+    2370,
+    2371,
+    2408,
+    2410,
+    2412
+  ],
+  "removed_faces": [
+    259,
+    261,
+    970,
+    971,
+    972,
+    973,
+    975,
+    977,
+    1714,
+    1715,
+    1716,
+    1717,
+    1718,
+    1719,
+    1720,
+    1721,
+    1722,
+    1723,
+    1724,
+    1725,
+    1726,
+    1727,
+    1728,
+    1729,
+    1762,
+    1764,
+    2086,
+    2088,
+    2099,
+    2101,
+    2106,
+    2107,
+    2108,
+    2109,
+    2111,
+    2113,
+    2114,
+    2116,
+    2118,
+    2119,
+    2120,
+    2121,
+    2122,
+    2123,
+    2124,
+    2125,
+    2158,
+    2159,
+    2160,
+    2161,
+    2162,
+    2163,
+    2164,
+    2165,
+    2166,
+    2167,
+    2168,
+    2169,
+    2170,
+    2172,
+    2174,
+    2175,
+    2176,
+    2177,
+    2178,
+    2179,
+    2180,
+    2181,
+    2182,
+    2183,
+    2184,
+    2185,
+    2186,
+    2187,
+    2188,
+    2189,
+    3670,
+    3671,
+    3672,
+    3673,
+    3674,
+    3675,
+    3676,
+    3677,
+    3678,
+    3679,
+    3680,
+    3681,
+    3686,
+    3688,
+    3690,
+    3691,
+    3692,
+    3693,
+    3694,
+    3695,
+    3696,
+    3697,
+    3699,
+    3701,
+    3727,
+    3729,
+    3734,
+    3735,
+    3736,
+    3737,
+    3738,
+    3739,
+    3740,
+    3741,
+    3742,
+    3743,
+    3744,
+    3745,
+    3763,
+    3765,
+    3766,
+    3768,
+    3807,
+    3809,
+    3810,
+    3811,
+    3812,
+    3813,
+    3814,
+    3815,
+    3816,
+    3817,
+    3818,
+    3819,
+    3820,
+    3821,
+    3822,
+    3823,
+    3824,
+    3825,
+    3827,
+    3829,
+    3851,
+    3854,
+    3855,
+    3856
+  ],
+  "geometric_edge_incidence": {
+    "2": 14687,
+    "4": 2
+  },
+  "preserved_parent_edge_exceptions": [
+    {
+      "endpoints": [
+        [
+          -0.1802645,
+          1.7727952,
+          1.3678155
+        ],
+        [
+          -0.1795357,
+          1.7817309,
+          1.3700264
+        ]
+      ],
+      "source_faces": [
+        9726,
+        9727,
+        9746,
+        9747
+      ]
+    },
+    {
+      "endpoints": [
+        [
+          0.1785183,
+          1.7817291,
+          1.3700241
+        ],
+        [
+          0.1792472,
+          1.7727933,
+          1.3678131
+        ]
+      ],
+      "source_faces": [
+        9728,
+        9729,
+        9748,
+        9749
+      ]
+    }
+  ],
+  "minimum_body_double_area_m2": 1.1035038276675286e-06,
+  "boundary_exterior_BIN_and_JSON_exact": true,
+  "boundary_exterior_BODY_and_all_EYE_UV_skin_exact": true,
+  "internal_BODY_UV_repairs": [
+    {
+      "row": 2410,
+      "old_UV": [
+        0.17520999908447266,
+        0.5540300011634827
+      ],
+      "new_UV": [
+        0.17522333562374115,
+        0.5537400245666504
+      ],
+      "preserved_boundary_interpolation_rows": [
+        2372,
+        2373,
+        2411
+      ],
+      "weights": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "UV_displacement": 0.000290283120401597
+    },
+    {
+      "row": 2412,
+      "old_UV": [
+        0.17381000518798828,
+        0.45120999217033386
+      ],
+      "new_UV": [
+        0.17383334040641785,
+        0.4514966607093811
+      ],
+      "preserved_boundary_interpolation_rows": [
+        2374,
+        2375,
+        2413
+      ],
+      "weights": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "UV_displacement": 0.0002876167305610631
+    }
+  ],
+  "geometric_T_junctions": 0,
+  "T_junction_tolerance_m": 1e-08,
+  "state": "STATIC_TOPOLOGY_SOURCE_ONLY_PASS",
+  "candidate_sha256": "5a2b2e87c3931e3ab82be3ce3bc69724a0a088aac30920cea9ad348bbaf8fad5",
+  "recipe_sha256": "f77e115a340a6cbb8d6efb1b7887c8cdba001a47f493b97be6ffb0eee72dd133",
+  "qualifier_sha256": "eab41c8a30d7a36b377babc9c3852b4e43a54cb357882d97a8517a5e11d6d21f",
+  "proper_crossings": "UNRUN",
+  "fresh129": "UNRUN",
+  "images": "UNRUN",
+  "corruption_controls": {
+    "reversed_owned_triangle": {
+      "refused": true,
+      "reason": "Patch UV winding/collapse failed"
+    },
+    "collapsed_owned_position": {
+      "refused": true,
+      "reason": "Collapsed geometric triangle"
+    },
+    "outside_position": {
+      "refused": true,
+      "reason": "Protected exterior/UV/skin/rig/globe/foot bytes changed"
+    },
+    "source_UV": {
+      "refused": true,
+      "reason": "Unexpected third BODY UV row changed"
+    },
+    "source_skin": {
+      "refused": true,
+      "reason": "Protected exterior/UV/skin/rig/globe/foot bytes changed"
+    },
+    "foot_position": {
+      "refused": true,
+      "reason": "Protected exterior/UV/skin/rig/globe/foot bytes changed"
+    },
+    "rig_JSON": {
+      "refused": true,
+      "reason": "Protected JSON/material/rig/metadata changed"
+    },
+    "dropped_triangle": {
+      "refused": true,
+      "reason": "Body counts changed"
+    },
+    "wrong_barycentric_internal_UV": {
+      "refused": true,
+      "reason": "Wrong or excessive serialized UV repair"
+    },
+    "excessive_internal_UV": {
+      "refused": true,
+      "reason": "Wrong or excessive serialized UV repair"
+    },
+    "separate_EYE_UV": {
+      "refused": true,
+      "reason": "Protected exterior/UV/skin/rig/globe/foot bytes changed"
+    }
+  }
+}

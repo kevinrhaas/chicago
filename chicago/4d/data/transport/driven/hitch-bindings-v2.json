@@ -1,0 +1,865 @@
+{
+  "schema": "current26_live_draft_hitch_bindings_v2",
+  "horse_source_sha256": "bf519adae76693c5e2b8c18bfe9bbaea8a7c83c523b502ca748df2dd7251241e",
+  "source_body_material_name": "Material_HorseMain4k00.png",
+  "source_body_vertex_count": 5595,
+  "joint_names": [
+    "horse_motion_root",
+    "horse_body",
+    "horse_neck",
+    "horse_head",
+    "horse_tail_base",
+    "horse_tail_tip",
+    "fore_l_shoulder",
+    "fore_l_elbow",
+    "fore_l_carpus",
+    "fore_l_fetlock",
+    "fore_l_hoof",
+    "fore_r_shoulder",
+    "fore_r_elbow",
+    "fore_r_carpus",
+    "fore_r_fetlock",
+    "fore_r_hoof",
+    "hind_l_hip",
+    "hind_l_stifle",
+    "hind_l_hock",
+    "hind_l_fetlock",
+    "hind_l_hoof",
+    "hind_r_hip",
+    "hind_r_stifle",
+    "hind_r_hock",
+    "hind_r_fetlock",
+    "hind_r_hoof"
+  ],
+  "bands": {
+    "full_collar": {
+      "first_vertex": 0,
+      "segments": 48
+    },
+    "girth": {
+      "first_vertex": 192,
+      "segments": 48
+    },
+    "noseband": {
+      "first_vertex": 384,
+      "segments": 48
+    },
+    "pollstrap": {
+      "first_vertex": 576,
+      "segments": 48
+    }
+  },
+  "surface_guides": {
+    "trace_left": [
+      {
+        "face": 9061,
+        "indices": [
+          3991,
+          4048,
+          4050
+        ],
+        "barycentric": [
+          0.3925921475621978,
+          0.17773866335820576,
+          0.42966918907959645
+        ],
+        "rest_outward": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.025,
+        "rest_surface_m": [
+          0.287415831561597,
+          1.226,
+          0.6
+        ]
+      },
+      {
+        "face": 9121,
+        "indices": [
+          4062,
+          4052,
+          3996
+        ],
+        "barycentric": [
+          0.025283981824767765,
+          0.4217658131420918,
+          0.5529502050331404
+        ],
+        "rest_outward": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.025,
+        "rest_surface_m": [
+          0.320838932178052,
+          1.212,
+          0.45
+        ]
+      },
+      {
+        "face": 9101,
+        "indices": [
+          2880,
+          2886,
+          2882
+        ],
+        "barycentric": [
+          0.8259325099194118,
+          0.06944953385708603,
+          0.10461795622350215
+        ],
+        "rest_outward": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.025,
+        "rest_surface_m": [
+          0.31110859524744877,
+          1.198,
+          0.3
+        ]
+      },
+      {
+        "face": 4693,
+        "indices": [
+          2868,
+          2856,
+          2870
+        ],
+        "barycentric": [
+          0.130490019249217,
+          0.06290065199089805,
+          0.806609328759885
+        ],
+        "rest_outward": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.025,
+        "rest_surface_m": [
+          0.3517303457477339,
+          1.184,
+          0.15
+        ]
+      },
+      {
+        "face": 4673,
+        "indices": [
+          2856,
+          2844,
+          2846
+        ],
+        "barycentric": [
+          0.4407915734504752,
+          0.2584830828922479,
+          0.3007253436572768
+        ],
+        "rest_outward": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.025,
+        "rest_surface_m": [
+          0.3210190460454508,
+          1.17,
+          0.0
+        ]
+      },
+      {
+        "face": 4632,
+        "indices": [
+          2832,
+          2834,
+          2822
+        ],
+        "barycentric": [
+          0.5995994909261603,
+          0.2113798196356668,
+          0.189020689438173
+        ],
+        "rest_outward": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.025,
+        "rest_surface_m": [
+          0.32426114458094996,
+          1.156,
+          -0.15
+        ]
+      },
+      {
+        "face": 4592,
+        "indices": [
+          2810,
+          2808,
+          2798
+        ],
+        "barycentric": [
+          0.08992742266523646,
+          0.40084302336777117,
+          0.5092295539669924
+        ],
+        "rest_outward": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.025,
+        "rest_surface_m": [
+          0.28560395736366934,
+          1.142,
+          -0.3
+        ]
+      },
+      {
+        "face": 4496,
+        "indices": [
+          2734,
+          2736,
+          2754
+        ],
+        "barycentric": [
+          0.9223050411196361,
+          0.06703702159326283,
+          0.01065793728710111
+        ],
+        "rest_outward": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.025,
+        "rest_surface_m": [
+          0.3126816555924019,
+          1.128,
+          -0.45
+        ]
+      },
+      {
+        "face": 4500,
+        "indices": [
+          2736,
+          2738,
+          2756
+        ],
+        "barycentric": [
+          0.32977084865650386,
+          0.41568775619011905,
+          0.25454139515337704
+        ],
+        "rest_outward": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.025,
+        "rest_surface_m": [
+          0.3271924921393315,
+          1.1139999999999999,
+          -0.6
+        ]
+      },
+      {
+        "face": 4504,
+        "indices": [
+          2738,
+          2740,
+          2758
+        ],
+        "barycentric": [
+          0.17695499068916665,
+          0.23506499126915817,
+          0.5879800180416752
+        ],
+        "rest_outward": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.025,
+        "rest_surface_m": [
+          0.24880153092045817,
+          1.1,
+          -0.75
+        ]
+      }
+    ],
+    "cheek_left": [
+      {
+        "face": 1040,
+        "indices": [
+          1009,
+          1020,
+          1012
+        ],
+        "barycentric": [
+          0.4061861632838283,
+          0.22268110808297356,
+          0.37113272863319813
+        ],
+        "rest_outward": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.012,
+        "rest_surface_m": [
+          0.13281582240336406,
+          1.4442857142857142,
+          1.3
+        ]
+      },
+      {
+        "face": 1101,
+        "indices": [
+          1057,
+          1049,
+          1058
+        ],
+        "barycentric": [
+          0.17246807347945387,
+          0.4061794154175035,
+          0.42135251110304256
+        ],
+        "rest_outward": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.012,
+        "rest_surface_m": [
+          0.16447060436299674,
+          1.4585714285714284,
+          1.2
+        ]
+      },
+      {
+        "face": 1913,
+        "indices": [
+          1419,
+          1063,
+          1420
+        ],
+        "barycentric": [
+          0.08840777483437168,
+          0.4838592963250504,
+          0.4277329288405779
+        ],
+        "rest_outward": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.012,
+        "rest_surface_m": [
+          0.14011541098495622,
+          1.4728571428571429,
+          1.1
+        ]
+      }
+    ],
+    "trace_right": [
+      {
+        "face": 9059,
+        "indices": [
+          4045,
+          3990,
+          4049
+        ],
+        "barycentric": [
+          0.1766312949393869,
+          0.3973141553946499,
+          0.4260545496659631
+        ],
+        "rest_outward": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.025,
+        "rest_surface_m": [
+          -0.2883724048302693,
+          1.226,
+          0.6
+        ]
+      },
+      {
+        "face": 9119,
+        "indices": [
+          4051,
+          4061,
+          3995
+        ],
+        "barycentric": [
+          0.4049068246229742,
+          0.09518189232493587,
+          0.49991128305208987
+        ],
+        "rest_outward": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.025,
+        "rest_surface_m": [
+          -0.32057071806558307,
+          1.212,
+          0.45
+        ]
+      },
+      {
+        "face": 9099,
+        "indices": [
+          2884,
+          2879,
+          2881
+        ],
+        "barycentric": [
+          0.06942697740365233,
+          0.8259480389490067,
+          0.10462498364734096
+        ],
+        "rest_outward": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.025,
+        "rest_surface_m": [
+          -0.3121843309472394,
+          1.198,
+          0.3
+        ]
+      },
+      {
+        "face": 4691,
+        "indices": [
+          2855,
+          2867,
+          2869
+        ],
+        "barycentric": [
+          0.06292257486398978,
+          0.1305121735504237,
+          0.8065652515855866
+        ],
+        "rest_outward": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.025,
+        "rest_surface_m": [
+          -0.3527267277011778,
+          1.184,
+          0.15
+        ]
+      },
+      {
+        "face": 4671,
+        "indices": [
+          2843,
+          2855,
+          2845
+        ],
+        "barycentric": [
+          0.25865964735789004,
+          0.4401058920504,
+          0.30123446059171
+        ],
+        "rest_outward": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.025,
+        "rest_surface_m": [
+          -0.3220255763219787,
+          1.17,
+          0.0
+        ]
+      },
+      {
+        "face": 4630,
+        "indices": [
+          2821,
+          2833,
+          2831
+        ],
+        "barycentric": [
+          0.18897805562528946,
+          0.21148828950096116,
+          0.5995336548737494
+        ],
+        "rest_outward": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.025,
+        "rest_surface_m": [
+          -0.3252555385602946,
+          1.156,
+          -0.15
+        ]
+      },
+      {
+        "face": 4590,
+        "indices": [
+          2797,
+          2807,
+          2809
+        ],
+        "barycentric": [
+          0.5103261555489712,
+          0.3998625619981958,
+          0.089811282452833
+        ],
+        "rest_outward": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.025,
+        "rest_surface_m": [
+          -0.28659473721239653,
+          1.142,
+          -0.3
+        ]
+      },
+      {
+        "face": 4494,
+        "indices": [
+          2753,
+          2735,
+          2732
+        ],
+        "barycentric": [
+          0.010775977830424499,
+          0.06563170116305497,
+          0.9235923210065206
+        ],
+        "rest_outward": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.025,
+        "rest_surface_m": [
+          -0.3127374758005623,
+          1.128,
+          -0.45
+        ]
+      },
+      {
+        "face": 4498,
+        "indices": [
+          2755,
+          2737,
+          2735
+        ],
+        "barycentric": [
+          0.26179062494104277,
+          0.3987282968767236,
+          0.3394810781822336
+        ],
+        "rest_outward": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.025,
+        "rest_surface_m": [
+          -0.3330512684772835,
+          1.1139999999999999,
+          -0.6
+        ]
+      },
+      {
+        "face": 4502,
+        "indices": [
+          2757,
+          2739,
+          2737
+        ],
+        "barycentric": [
+          0.6122887755033729,
+          0.2031011688012097,
+          0.18461005569541747
+        ],
+        "rest_outward": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.025,
+        "rest_surface_m": [
+          -0.25168159181726135,
+          1.1,
+          -0.75
+        ]
+      }
+    ],
+    "cheek_right": [
+      {
+        "face": 1038,
+        "indices": [
+          1011,
+          1019,
+          1007
+        ],
+        "barycentric": [
+          0.3708978015405607,
+          0.22312529217396954,
+          0.40597690628546984
+        ],
+        "rest_outward": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.012,
+        "rest_surface_m": [
+          -0.1338357032590625,
+          1.4442857142857142,
+          1.3
+        ]
+      },
+      {
+        "face": 1099,
+        "indices": [
+          1048,
+          1055,
+          1056
+        ],
+        "barycentric": [
+          0.40802394151209903,
+          0.18213961454056213,
+          0.4098364439473388
+        ],
+        "rest_outward": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.012,
+        "rest_surface_m": [
+          -0.16602391685719334,
+          1.4585714285714284,
+          1.2
+        ]
+      },
+      {
+        "face": 1911,
+        "indices": [
+          1061,
+          1417,
+          1416
+        ],
+        "barycentric": [
+          0.4823387872796063,
+          0.08896262223822464,
+          0.42869859048216913
+        ],
+        "rest_outward": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "normal_offset_m": 0.012,
+        "rest_surface_m": [
+          -0.14114291113811447,
+          1.4728571428571429,
+          1.1
+        ]
+      }
+    ]
+  },
+  "wood_yoke_radius_m": 0.025,
+  "team_half_spacing_m": 0.65,
+  "singletree_halfwidth_m": 0.45,
+  "evener_relative_y_m": -0.04,
+  "evener_relative_z_m": -0.105,
+  "trace_contact_scope": "New surface-bound guides and collar rims, not inherited certified tack sockets. Full global-body/trace collision and native/world render remain unrun.",
+  "palm_records": [
+    {
+      "scene": "1835",
+      "asset_id": "bardwell_otis_1835",
+      "web": false,
+      "lod": 0,
+      "actual_asset_sha256": "84cdeb6d362aa1a85549b18daef41ae492f18595a19ff5b7e6eff539a3576d04",
+      "actual_asset_path": "assets/humans/bardwell_otis_1835.lod0.glb",
+      "points_m": {
+        "l": [
+          0.16476547063097102,
+          1.8959362850166306,
+          1.0868522084756258
+        ],
+        "r": [
+          -0.16476547063097102,
+          1.8959362850166306,
+          1.0868522084756258
+        ]
+      },
+      "actual_triangle_indices": {
+        "l": [
+          11345,
+          11344,
+          11346
+        ],
+        "r": [
+          4110,
+          4112,
+          4113
+        ]
+      },
+      "clip": "sit_drive",
+      "clip_time_s": 0.5,
+      "closed_finger_grip_verified": false
+    },
+    {
+      "scene": "1835",
+      "asset_id": "bardwell_otis_1835",
+      "web": false,
+      "lod": 3,
+      "actual_asset_sha256": "8d36ceade3b2dce3b8d081dc484faa98bb57dd2c0d288c1043f0a6da9d3dc233",
+      "actual_asset_path": "assets/humans/bardwell_otis_1835.lod3.glb",
+      "points_m": {
+        "l": [
+          0.16662148027895496,
+          1.894942970953845,
+          1.088205495667822
+        ],
+        "r": [
+          -0.16662151067396078,
+          1.8949429381930794,
+          1.088205516415685
+        ]
+      },
+      "actual_triangle_indices": {
+        "l": [
+          1483,
+          1554,
+          1555
+        ],
+        "r": [
+          474,
+          547,
+          546
+        ]
+      },
+      "clip": "sit_drive",
+      "clip_time_s": 0.5,
+      "closed_finger_grip_verified": false
+    },
+    {
+      "scene": "1835",
+      "asset_id": "bardwell_otis_1835",
+      "web": true,
+      "lod": 0,
+      "actual_asset_sha256": "3c75b33e5130fb8fe4813866d52d248bdab4207ab7a10c78b4074cc5fc30e999",
+      "actual_asset_path": "assets/humans/web/bardwell_otis_1835.lod0.glb",
+      "points_m": {
+        "l": [
+          0.1647362186113725,
+          1.8959596887949328,
+          1.0868882341498274
+        ],
+        "r": [
+          -0.1647362186113725,
+          1.8959596887949328,
+          1.0868882341498274
+        ]
+      },
+      "actual_triangle_indices": {
+        "l": [
+          12482,
+          12478,
+          12483
+        ],
+        "r": [
+          7726,
+          7730,
+          7731
+        ]
+      },
+      "clip": "sit_drive",
+      "clip_time_s": 0.5,
+      "closed_finger_grip_verified": false
+    },
+    {
+      "scene": "1835",
+      "asset_id": "bardwell_otis_1835",
+      "web": true,
+      "lod": 3,
+      "actual_asset_sha256": "b61d09e2efdb204a90d5d3c8fe49d1a6502108fd6ac62a592350129db48f8d40",
+      "actual_asset_path": "assets/humans/web/bardwell_otis_1835.lod3.glb",
+      "points_m": {
+        "l": [
+          0.1666331916732133,
+          1.8949606806562935,
+          1.0882057222708597
+        ],
+        "r": [
+          -0.1666331916732133,
+          1.8949606806562935,
+          1.0882057222708597
+        ]
+      },
+      "actual_triangle_indices": {
+        "l": [
+          1638,
+          1640,
+          1641
+        ],
+        "r": [
+          808,
+          806,
+          809
+        ]
+      },
+      "clip": "sit_drive",
+      "clip_time_s": 0.5,
+      "closed_finger_grip_verified": false
+    }
+  ],
+  "palm_source_receipt": {
+    "evidence_name": "ACTUAL-1835-OTIS-PALM-SURFACES.json",
+    "sha256": "ea1d8c9149ad8e4f4cad39cbcebb54c2fa14e2a180f9fe6d7a4b6b8ad558aa36"
+  },
+  "vehicle_bindings": {
+    "wagon_w01": {
+      "pole_node": "vehicle_tongue",
+      "tip_node": "vehicle_hitch_team",
+      "reuse_existing_pivot": true,
+      "horse_center_z_root_m": 3.4987,
+      "front_axle_node": "vehicle_steer_front",
+      "singletree_root_z_m": 1.9,
+      "singletree_root_y_m": 0.72
+    },
+    "studebaker_brougham_1893": {
+      "pole_node": "vehicle_team_pole",
+      "tip_node": "vehicle_hitch_team",
+      "reuse_existing_pivot": false,
+      "new_pivot_root_m": [
+        0,
+        0.553,
+        1.15
+      ],
+      "horse_center_z_root_m": 3.08,
+      "front_axle_node": "vehicle_steer_front",
+      "singletree_root_z_m": 1.9,
+      "singletree_root_y_m": 0.72,
+      "derivative_scope": "Independent driven clone only: source rear beam centre becomes explicit front-axle steering/lift pivot; original parked model and all geometry/material bytes remain unchanged."
+    }
+  },
+  "all_native_harness_render_world_qualification": "UNRUN"
+}

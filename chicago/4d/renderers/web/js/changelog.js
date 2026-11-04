@@ -1,4 +1,21 @@
 export const CHANGELOG = [ // newest first
+  { v: 2635, ts: '2026-11-04T01:37:22.621Z', date: 'Nov 3, 2026, 7:37 PM CT', title: '1936 Prairie\'s verandah gets its iron rail', kind: 'improvement',
+    items: [
+      'The Allerton house\'s verandah on Prairie Avenue (1904) now has a dark iron rail across the foot of each of its three arches, about waist high, as the old photograph shows it.',
+    ] },
+  { v: 2634, ts: '2026-11-04T01:30:25.653Z', date: 'Nov 3, 2026, 7:30 PM CT', title: 'Otis and Hans drive through town', kind: 'change',
+    items: [
+      'The horse in the Western Hotel wagon yard has a thinner upper eyelid and a less raised upper-eye contour while retaining its eye opening, body proportions and planted stance.',
+      'The horse in the Western Hotel yard can make reconstructed gentle head and neck movements while standing with planted hooves.',
+      'Otis Bardwell looks around and breathes while standing in the tavern yard. His appearance and actions remain reconstructions.',
+      'In Full or Balanced detail, Otis Bardwell and Hans Johnson drive reconstructed circuits in1835 and1904. Walk up and use Interact to stop or continue a vehicle, or open its driver’s person card.',
+    ] },
+  { v: 2633, ts: '2026-11-04T00:40:20.258Z', date: 'Nov 3, 2026, 6:40 PM CT', title: '1919 Prairie: stone corners and bands on its rear wings', kind: 'feature',
+    items: [
+      'Along the north side of Marshall Field Jr.\'s house at 1919 Prairie Avenue, the corners of both rear wings now rise in pale stone blocks, long and short in turn, from the ground to the eaves, as a 1919 picture of the house shows them.',
+      'The three pale stone bands across the main house\'s side now run on across both rear wings too, in place of their plain brick band.',
+      'Still to come on this side: the small pinnacled dormers between the gables and a closer check of where the wings stand and how their roofs run.',
+    ] },
   { v: 2632, ts: '2026-11-04T00:16:38.275Z', date: 'Nov 3, 2026, 6:16 PM CT', title: 'The Dearborn drawbridge\'s lowered draw lies level', kind: 'fix',
     items: [
       'In 1835 the closed draw of the Dearborn Street drawbridge no longer rises to a peak in mid-river. Its two leaves now lie level with the rest of the deck.',
