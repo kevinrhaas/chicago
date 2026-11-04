@@ -40535,3 +40535,19 @@ project is `diagnostic_only` for that reason.
 **Ticket:** T-3041 (piece of T-2387).
 **Review:** `data/reference_views/first_fort_dearborn_pickets_outer/currey_1912_birdseye.match.json`.
 **Recorded:** 2026-11-04 (T-3041).
+
+
+### L-sauganash-ridge-end-stacks-2383 — The Sauganash stacks move toward the ridge ends
+
+**Covers:** `sauganash_hotel.frame_1831.form.chimney_placement`.
+
+**Decision:** select the existing `gable_ends` placement for the two main-block stacks. On the retained 9.92 m frontage their centres move from the generic 0.22/0.78 fractions (2.1824/7.7376 m) to the existing kit's 0.60 m end insets (0.60/9.32 m). Count, square shaft section, top height and material are retained. No new stack is added.
+
+**Why:** direct review of the credited public-domain Andreas/Braunhold 1884 plate and the current cornice comparison shows the stacks near the ridge ends in the picture and farther inward in the model. The retrospective plate supports relative disposition; the numeric inset is an explicit reconstruction from the existing kit, not a measurement. Petford and Trowbridge are related compositions, not independent corroboration, and no new geometry is derived from the colour reproduction. This scoped choice supersedes L26's generic frontage fractions for this Hotel phase alone.
+
+**Limits:** all metres, July 1835 continuity and exact historical station remain unestablished. Main/rear-wing silhouette, chimney caps/stock proportions, the left-gable details and whole compound remain open. A fixed diagnostic-camera horizontal projection is preparation, not a native render or image acceptance. The original T-2383 remains partial/open; the separate Carpenter shop and the Hotel's earlier log phase remain their own records.
+
+**Sources:** `andreas_1884_sauganash_hotel_plate`; existing held reproduction SHA256 `3884c16f72702fd3b1696663dd82b444ac26028b97472e03bd00a2fa75026afb`.
+
+**Ticket:** T-2383.
+**Recorded:** 2026-11-04.

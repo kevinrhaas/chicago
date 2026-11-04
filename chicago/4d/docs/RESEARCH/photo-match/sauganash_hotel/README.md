@@ -49,3 +49,38 @@ This study omits app terrain, streets and people. Published desktop/phone body,
 card and entrance checks are separate release evidence. The other original
 hotel pictures and eventual full signoff remain on T-2383; no follow-up ticket
 or full completion is filed. Original T-2383 stays open after partial release.
+
+## The ridge-end stacks — 2026-11-04
+
+A second bounded increment on the same comparison. The plate draws both
+main-block stacks close to the ridge ends; the model carried them at the
+generic 0.22/0.78 frontage fractions, roughly 1.6 m further inboard on each
+side. `form.chimney_placement` now selects the existing `gable_ends` kit, so on
+the retained 9.92 m block their centres read 0.60 m and 9.32 m. Nothing else in
+the record moved: count 2, square brick shafts, ridge + 0.55 m tops, the roof
+and its new boxed gable cornice, the cross wing, every opening, the paint and
+the surveyed position are all as they were, and the Carpenter shop is untouched.
+
+The inset, the shaft section and the top height are the kit's reconstructed
+choices. The engraving supports the relative disposition and nothing more: no
+coordinate, no metre, no July 1835 fitting date, no historical camera. Petford
+and Trowbridge are related compositions, not independent corroboration.
+`docs/LIBERTIES.md` L-sauganash-ridge-end-stacks-2383 records the decision, the
+reasoning and these limits.
+
+Measured on this same camera, the near stack's offset from the visible gable
+peak falls from about 0.19 to 0.08 of the ridge run against the picture's 0.04,
+and the far stack's rises from 0.57 to 0.67 against the picture's 0.65. That is
+a comparison of the before and after renders with the picture, directly viewed;
+it is not a survey and not an acceptance. The hotel's own verdict stays
+**differs**.
+
+The stacks' own proportions and heads remain **open**: Andreas draws slender
+shafts standing clear of the ridge under a corbelled cap, and the model's are
+squat blocks with a plain top. The compound roof silhouette and the left-gable
+questions are unchanged and stay open. The three Carpenter shop views were
+re-rendered from their own cameras because the hotel stands behind the shop in
+all three; the shop's master is byte-identical, each refreshed pair was viewed
+beside its picture, and all three keep **matches**.
+
+Original T-2383 remains open and partial after this increment.
