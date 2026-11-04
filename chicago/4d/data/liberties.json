@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 981,
+  "count": 982,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -36021,18 +36021,6 @@
         },
         {
           "domain": "structure",
-          "structure": "house_2000_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2000_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "house_2000_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -36040,18 +36028,6 @@
         {
           "domain": "structure",
           "structure": "house_2000_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2010_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "house_2010_prairie",
           "phase": "draft_1904",
           "aspect": "form.draft_elevation"
         },
@@ -36313,7 +36289,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`buckingham_house_2036_prairie.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie.draft_1904.form.draft`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie.draft_1904.form.draft_elevation`, `house_2000_prairie.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie.draft_1904.form.draft_elevation`, `house_2010_prairie.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie.draft_1904.form.draft_elevation`, `house_2018_prairie.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie.draft_1904.form.draft_elevation`, `house_2026_prairie.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie.draft_1904.form.draft_elevation`, `house_2120_prairie.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `mark_kimball_house_2108_prairie.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie.draft_1904.form.draft`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `rees_house_2110_prairie.draft_1904.form.draft_elevation`, `rees_house_2110_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `sherman_house_2100_prairie.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie.draft_1904.form.draft`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`"
+          "text": "`buckingham_house_2036_prairie.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie.draft_1904.form.draft`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft_elevation`, `buckingham_house_2036_prairie_coach_house.draft_1904.form.draft`, `house_2000_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2000_prairie_coach_house.draft_1904.form.draft`, `house_2010_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2010_prairie_coach_house.draft_1904.form.draft`, `house_2018_prairie.draft_1904.form.draft_elevation`, `house_2018_prairie.draft_1904.form.draft`, `house_2018_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2018_prairie_coach_house.draft_1904.form.draft`, `house_2026_prairie.draft_1904.form.draft_elevation`, `house_2026_prairie.draft_1904.form.draft`, `house_2026_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2026_prairie_coach_house.draft_1904.form.draft`, `house_2120_prairie.draft_1904.form.draft_elevation`, `house_2120_prairie.draft_1904.form.draft`, `house_2120_prairie_coach_house.draft_1904.form.draft_elevation`, `house_2120_prairie_coach_house.draft_1904.form.draft`, `mark_kimball_house_2108_prairie.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie.draft_1904.form.draft`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft_elevation`, `mark_kimball_house_2108_prairie_coach_house.draft_1904.form.draft`, `murdoch_house_2130_prairie.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie.draft_1904.form.draft`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft_elevation`, `murdoch_house_2130_prairie_coach_house.draft_1904.form.draft`, `rees_house_2110_prairie.draft_1904.form.draft_elevation`, `rees_house_2110_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie.draft_1904.form.draft`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft_elevation`, `robbins_house_2126_prairie_coach_house.draft_1904.form.draft`, `rothschild_house_2112_prairie.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie.draft_1904.form.draft`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft_elevation`, `rothschild_house_2112_prairie_coach_house.draft_1904.form.draft`, `sherman_house_2100_prairie.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie.draft_1904.form.draft`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft_elevation`, `sherman_house_2100_prairie_coach_house.draft_1904.form.draft`, `tucker_smith_house_2140_prairie.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_alley_building.draft_1904.form.draft`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft_elevation`, `tucker_smith_house_2140_prairie_coach_house.draft_1904.form.draft`"
         },
         {
           "label": "Decision",
@@ -36322,6 +36298,10 @@
         {
           "label": "How to resolve",
           "text": "each house's per-building piece of work (to, named on its card and in its record's draft.replaceable by) replaces its attributes in place, under the same id; the alley buildings are earlier work's."
+        },
+        {
+          "label": "Retired in part",
+          "text": "2000 and 2010, the two frame dwellings at the 20th Street end, by earlier work, which refined both in place on the K16 timber kit under `“2000 and 2010 Prairie refined from the district draft to two whole K16 clapboard frame houses on the outline the 1911 sheet draws, everything but the plan and the storey counts the kit's”`, under the same ids; their draft attributes are gone (their alley buildings are still the draft's, 's)."
         },
         {
           "label": "Review",
@@ -36340,7 +36320,71 @@
         "T-1929",
         "T-1842",
         "T-1909",
-        "T-1937"
+        "T-1937",
+        "T-1935"
+      ]
+    },
+    {
+      "id": "L-k16-2000-2010-frame-1909",
+      "title": "2000 and 2010 Prairie refined from the district draft to two whole K16 clapboard frame houses on the outline the 1911 sheet draws, everything but the plan and the storey counts the kit's",
+      "section": "per_subject",
+      "subjects": [
+        "house_2000_prairie",
+        "house_2010_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "house_2000_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.frame_house"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2000_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2010_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.frame_house"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2010_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_covering"
+        }
+      ],
+      "recorded": "2026-11-04",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the two frame dwellings at 2000 and 2010 Prairie Avenue are no longer district drafts. Each stands, under the draft's own id (2000 Prairie Avenue — Frame dwelling, 2010 Prairie Avenue — Frame dwelling), as a k16 timber whole frame house built by the k16 emit generator: clapboard walls board by board with corner boards and returns, cased two-over-two sash, a panelled door, a boxed and bracketed eave, low hips over the three-storey parts and flat decks over the lower ranges, canted bays, the kit porch with its steps across the front, and one brick stack. The kit gained one thing for them: a porch or a bay may name the block it stands on (host block), because the sheet draws the porch across a front block and the bays on the flanks of rooms standing out from the main body. **What is read, not invented.** From sheet 35 of the 1911 Sanborn, read at full size off the raster (0.186 m a pixel) through the fit the committed trace stands on: frame (yellow) throughout; '3BB' over each front block, read as three storeys over a raised basement; the north range of each front marked '2', 2000's canted rear room on the south flank '2BB' and 2010's rear range on the south flank '1', each built at that count; and every block's outline — the main body, the front block, the north range, the north flank's canted bay, the south flank's room ending in a canted bay, the rear south room or range (with 2010's own canted end), and the one-storey porch across the front, 1.76 m (2000) and 2.04 m (2010) deep. The draft's fit (5.5 m along the front) had stopped on the dashed lines and roof marks printed inside the houses; the sheet draws them 7.3 and 6.8 m wide at the rear and 5.5 and 5.4 m at the front block. **What is invented.** Every height (a 1.0 m raised basement; storeys of 3.3, 3.1 and 2.9 m); every opening's kind, size and place; the door on each front under the porch; the eave, its brackets and the 25-degree hips; the flat decks; the canted bays carried the full height of the part they stand on, on a panelled base; the porch's posts, balustrade and steps (the kit's); the one stack's place; the body paints (a warm stone drab for 2000, a grey-green for 2010, so the two are not one facade repeated); the slate's colour (the sheet's roof mark is read as slate or tin, and slate chosen). **What is not built.** The porches' returns along each front block's south side (the kit's porch runs one wall); 2000's narrow brick range on the rear wall, 0.75 m deep, whose height the sheet does not print; 2010's 0.65 m step in the rear range's south wall."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph, plate or description of either house, ingested as a source, replaces the elevations; the sheet's key read for 'BB' confirms or corrects the raised basement."
+        },
+        {
+          "label": "Covers",
+          "text": "`house_2000_prairie.as_mapped_1904.form.frame_house`, `house_2000_prairie.as_mapped_1904.form.roof_covering`, `house_2010_prairie.as_mapped_1904.form.frame_house`, `house_2010_prairie.as_mapped_1904.form.roof_covering`"
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on 2000 2010 frame."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-04 (T-1909)."
+        }
+      ],
+      "work_refs": [
+        "T-1909",
+        "T-1250"
       ]
     },
     {

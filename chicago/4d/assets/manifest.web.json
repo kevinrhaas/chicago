@@ -1,5 +1,5 @@
 {
-  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp — mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP — a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
   "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
@@ -231,7 +231,7 @@
     "house_1932_calumet_coach_house__draft_1904.glb": "ea67af5de513be898e6e3ebc39210cd414f9d003ef60ce29c1909ffe12e3ef57",
     "house_2000_calumet__draft_1904.glb": "974b30e09bfeb442f6707da471973125984a62c87b623491192fc65269f9dd35",
     "house_2000_calumet_coach_house__draft_1904.glb": "30a4d836cee3de9b660a4f2cf0d02bf890596c5287f6d0ac1d8f4c7472ba5b97",
-    "house_2000_prairie__draft_1904.glb": "ca6bf50bb68985958efddb5a8b61fb530a3e343d25edf82ecc1d635d9b43c91b",
+    "house_2000_prairie__as_mapped_1904.glb": "c32a901fdaad41ccfd21e767c5fdc73a8a1b67e33ceca5f2a29344addd0b8ae1",
     "house_2000_prairie_coach_house__draft_1904.glb": "748b666afbf8fc798f5791440fd7e1827e46f788d085aa4b44b067db52cafa94",
     "house_2001_prairie__as_mapped_1904.glb": "beeed9ef4e667936a0a57978775d0402dd4d26f8a54a5d789a671de6219b4358",
     "house_2001_prairie_coach_house__draft_1904.glb": "a530574304cd92962140e32869b4a0f3af536fddf28b7aae967c3905bf30f24c",
@@ -242,7 +242,7 @@
     "house_2007_indiana__draft_1904.glb": "c5e75970e55e0615f7196b3a442c3fa03d5c6d62c5e450df9b9dda0e724e336e",
     "house_2009_indiana__draft_1904.glb": "d52d29c04328abd9e93c3f7e50da87634e54202774a0b99643ff339df0fb95ea",
     "house_2009_indiana_rear_dwelling__draft_1904.glb": "45cbb8fc740f2cb2c78fc62be5df1250a0e1ce2ca6833c00f1150b7fc86b9839",
-    "house_2010_prairie__draft_1904.glb": "b7bd6b821e768b207532050d8cfb48b33dc19a2c1641f67423f51b09493a6604",
+    "house_2010_prairie__as_mapped_1904.glb": "f0273e55c936cf7aa340c322da3a3a3d08f02a0e50be9636c4d9eb2ea996d1a5",
     "house_2010_prairie_coach_house__draft_1904.glb": "9e55fce2ad5d03d0fd2d508986236f68855fff34da2d3fbb10ccda37b39b02b5",
     "house_2011_indiana__draft_1904.glb": "406612474b84d5aabae3b4c78dc38bce92ca1826bbc535bece41cdf0345c8e87",
     "house_2011_indiana_coach_house__draft_1904.glb": "15cec39be3ad8d53cddc70410016972dd7581941d776e37001632d313ac9dd7d",

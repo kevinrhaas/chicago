@@ -1,12 +1,12 @@
 {
   "id": "house_2010_prairie",
-  "phase": "draft_1904",
-  "name": "2010 Prairie Avenue — Frame dwelling (district draft; refined by T-1909)",
+  "phase": "as_mapped_1904",
+  "name": "2010 Prairie Avenue — Frame dwelling, K16 clapboard",
   "aka": [
     "2010 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
-  "asset": "gltf/house_2010_prairie__draft_1904.glb",
+  "archetype": "k16_timber",
+  "asset": "gltf/house_2010_prairie__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
@@ -43,27 +43,27 @@
   "footprint": {
     "polygon": [
       [
-        0.0,
-        0.0
+        -1.94,
+        0.16
       ],
       [
-        12.75,
-        0.0
+        14.5,
+        0.16
       ],
       [
-        12.75,
-        5.5
+        14.5,
+        6.95
       ],
       [
-        0.0,
-        5.5
+        -1.94,
+        6.95
       ]
     ],
     "confidence": "inferred",
     "sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front), widened to 5.5 m along the front because the fitted strip was narrower than any house of the avenue (T-2690). The building's other rectangles are in draft_plan."
+    "note": "The main body as the 1911 sheet draws it at full size (u toward the street, v along the front); the front block, the side ranges and rooms and the bays are frame_house's other blocks. T-1909 re-read the outline: the draft's fitted rectangle (5.5 m along the front) had stopped on the dashed lines and roof marks printed inside the house."
   },
   "attributes": {
     "stories": {
@@ -72,7 +72,8 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "'3BB; section2BB' printed on the 1911 sheet: 3 full storeys."
+      "note": "'3BB' printed on the 1911 sheet over the front block: three storeys over a raised basement, read as 1720 Prairie's '2BB' was. The north range is marked '2' and the rear range on the south flank '1', and are built at those counts; the parts the sheet does not mark are built at the house's three.",
+      "geometry": "simplified"
     },
     "construction": {
       "value": "frame",
@@ -80,282 +81,831 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "The register reads the map's colours as 'frame'."
+      "note": "Drawn yellow, the sheet's colour for frame. Built board by board from the K16 timber kit as clapboard at a frame wall's 0.15 m.",
+      "geometry": "simplified"
     },
-    "draft_plan": {
+    "frame_house": {
       "value": {
-        "parts": [
+        "foundation_m": 1.0,
+        "return_m": 0.3,
+        "blocks": [
           {
-            "id": "r1",
-            "role": "main",
-            "storeys": 3,
-            "roof": "hip",
-            "rect": [
-              0.0,
-              0.0,
-              12.75,
-              5.5
+            "id": "main",
+            "rect_uv": [
+              -1.94,
+              0.16,
+              14.5,
+              6.95
             ],
-            "from": "s35fp-2000-b1 p10 (main, frame), rectangle 1 of that part; the part's rectangles cover 86% of its fill"
+            "wall_top_m": 10.3,
+            "roof": {
+              "kind": "hip",
+              "pitch_deg": 25
+            },
+            "walls": [
+              {
+                "side": "east",
+                "windows": []
+              },
+              {
+                "side": "north",
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 7.4
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 10.0
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 12.6
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 15.2
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 7.4
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 10.0
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 12.6
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 15.2
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 7.4
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 10.0
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 12.6
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 15.2
+                  }
+                ]
+              },
+              {
+                "side": "west",
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 1.4
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 3.4
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 5.4
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 1.4
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 3.4
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 5.4
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 1.4
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 3.4
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 5.4
+                  }
+                ]
+              },
+              {
+                "side": "south",
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 0.95
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 0.95
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 3.0
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 5.6
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 8.2
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 0.95
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 3.0
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 5.6
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 8.2
+                  }
+                ]
+              }
+            ]
           },
           {
-            "id": "r2",
-            "role": "bay",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              9.75,
-              -1.875,
-              13.25,
-              0.375
+            "id": "front",
+            "rect_uv": [
+              14.5,
+              -1.14,
+              20.64,
+              4.25
             ],
-            "from": "s35fp-2000-b1 p10 (main, frame), rectangle 2 of that part; the part's rectangles cover 86% of its fill"
+            "wall_top_m": 10.3,
+            "roof": {
+              "kind": "hip",
+              "pitch_deg": 25
+            },
+            "against": "west",
+            "walls": [
+              {
+                "side": "south",
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 1.5
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 4.6
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 1.5
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 4.6
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 1.5
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 4.6
+                  }
+                ]
+              },
+              {
+                "side": "east",
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 3.9
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 3.9
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 1.5
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 3.9
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 1.5
+                  }
+                ],
+                "doors": [
+                  {
+                    "centre_m": 1.5,
+                    "clear_width_m": 0.95,
+                    "clear_height_m": 2.35,
+                    "panels": [
+                      2,
+                      2
+                    ],
+                    "stile_m": 0.12,
+                    "top_rail_m": 0.12,
+                    "lock_rail_m": 0.2,
+                    "bottom_rail_m": 0.24,
+                    "panel_sink_m": 0.015
+                  }
+                ]
+              },
+              {
+                "side": "north",
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 1.5
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 4.6
+                  }
+                ]
+              }
+            ]
           },
           {
-            "id": "r3",
-            "role": "range",
-            "storeys": 2,
-            "roof": "flat",
-            "rect": [
-              3.0,
-              -4.375,
-              9.5,
-              0.375
+            "id": "north_range",
+            "rect_uv": [
+              14.5,
+              4.25,
+              20.64,
+              7.5
             ],
-            "from": "s35fp-2000-b1 p11 (range, frame), rectangle 1 of that part; the part's rectangles cover 84% of its fill"
+            "wall_top_m": 7.4,
+            "roof": {
+              "kind": "flat"
+            },
+            "against": "south",
+            "walls": [
+              {
+                "side": "east",
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 1.6
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 1.6
+                  }
+                ]
+              },
+              {
+                "side": "north",
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 1.5
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 4.6
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 1.5
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 4.6
+                  }
+                ]
+              },
+              {
+                "side": "west",
+                "windows": []
+              }
+            ]
           },
           {
-            "id": "r4",
-            "role": "range",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              1.0,
-              -1.375,
-              3.0,
-              0.125
+            "id": "south_range",
+            "rect_uv": [
+              -0.18,
+              -3.55,
+              8.18,
+              0.16
             ],
-            "from": "s35fp-2000-b1 p11 (range, frame), rectangle 2 of that part; the part's rectangles cover 84% of its fill"
+            "wall_top_m": 4.3,
+            "roof": {
+              "kind": "flat"
+            },
+            "against": "north",
+            "walls": [
+              {
+                "side": "west",
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 1.85
+                  }
+                ]
+              },
+              {
+                "side": "south",
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 1.3
+                  }
+                ]
+              },
+              {
+                "side": "east",
+                "windows": []
+              }
+            ]
           },
           {
-            "id": "r5",
-            "role": "porch",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              14.75,
-              -3.375,
-              21.5,
-              -1.125
+            "id": "south_room",
+            "rect_uv": [
+              8.18,
+              -2.75,
+              14.5,
+              0.16
             ],
-            "from": "s35fp-2000-b1 p1 (range, frame), rectangle 1 of that part; the part's rectangles cover 89% of its fill"
-          },
-          {
-            "id": "r6",
-            "role": "porch",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              20.75,
-              -1.125,
-              22.75,
-              5.125
-            ],
-            "from": "s35fp-2000-b1 p1 (range, frame), rectangle 2 of that part; the part's rectangles cover 89% of its fill"
-          },
-          {
-            "id": "r7",
-            "role": "range",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              1.25,
-              4.875,
-              9.25,
-              6.625
-            ],
-            "from": "s35fp-2000-b1 p8 (range, frame), rectangle 1 of that part; the part's rectangles cover 80% of its fill"
-          },
-          {
-            "id": "r8",
-            "role": "bay",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              9.25,
-              5.625,
-              13.25,
-              7.625
-            ],
-            "from": "s35fp-2000-b1 p8 (range, frame), rectangle 2 of that part; the part's rectangles cover 80% of its fill"
-          },
-          {
-            "id": "r9",
-            "role": "porch",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              16.0,
-              3.375,
-              19.5,
-              6.875
-            ],
-            "from": "s35fp-2000-b1 p2 (range, frame), rectangle 1 of that part; the part's rectangles cover 68% of its fill"
-          },
-          {
-            "id": "r10",
-            "role": "porch",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              -1.75,
-              0.875,
-              -0.25,
-              5.375
-            ],
-            "from": "s35fp-2000-b1 p12 (porch, frame), rectangle 1 of that part; the part's rectangles cover 68% of its fill"
-          },
-          {
-            "id": "r11",
-            "role": "porch",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              12.75,
-              0.375,
-              16.0,
-              3.375
-            ],
-            "from": "s35fp-2000-b1 p5 (porch, frame), rectangle 1 of that part; the part's rectangles cover 84% of its fill"
-          },
-          {
-            "id": "r12",
-            "role": "porch",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              16.0,
-              0.375,
-              18.0,
-              1.625
-            ],
-            "from": "s35fp-2000-b1 p5 (porch, frame), rectangle 2 of that part; the part's rectangles cover 84% of its fill"
-          },
-          {
-            "id": "r13",
-            "role": "porch",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              14.75,
-              -1.375,
-              19.25,
-              0.375
-            ],
-            "from": "s35fp-2000-b1 p4 (porch, frame), rectangle 1 of that part; the part's rectangles cover 83% of its fill"
-          },
-          {
-            "id": "r14",
-            "role": "porch",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              10.5,
-              -4.125,
-              13.25,
-              -1.875
-            ],
-            "from": "s35fp-2000-b1 p9 (porch, frame), rectangle 1 of that part; the part's rectangles cover 73% of its fill"
-          },
-          {
-            "id": "r15",
-            "role": "porch",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              12.75,
-              3.625,
-              14.75,
-              5.875
-            ],
-            "from": "s35fp-2000-b1 p6 (porch, frame), rectangle 1 of that part; the part's rectangles cover 82% of its fill"
-          },
-          {
-            "id": "r16",
-            "role": "porch",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              19.25,
-              0.875,
-              20.75,
-              3.125
-            ],
-            "from": "s35fp-2000-b1 p3 (porch, frame), rectangle 1 of that part; the part's rectangles cover 77% of its fill"
+            "wall_top_m": 10.3,
+            "roof": {
+              "kind": "hip",
+              "pitch_deg": 25
+            },
+            "against": "north",
+            "walls": [
+              {
+                "side": "west",
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 1.45
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 1.45
+                  }
+                ]
+              },
+              {
+                "side": "south",
+                "windows": []
+              },
+              {
+                "side": "east",
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 0.8
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 0.8
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 0.8
+                  }
+                ]
+              }
+            ]
           }
         ],
-        "lot_v": [
-          -26.54,
-          34.29
+        "bays": [
+          {
+            "block": "main",
+            "side": "north",
+            "plan": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                1.9,
+                1.39
+              ],
+              [
+                4.46,
+                1.39
+              ],
+              [
+                5.94,
+                0.0
+              ]
+            ],
+            "floor_m": 0.05,
+            "base_m": 1.0,
+            "wall_top_m": 9.8,
+            "frieze_m": 0.3,
+            "post_m": 0.1,
+            "cap_rise_m": 0.35,
+            "faces": [
+              {
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 1.177
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 1.177
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 1.177
+                  }
+                ]
+              },
+              {
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 1.28
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 1.28
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 1.28
+                  }
+                ]
+              },
+              {
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 1.015
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 1.015
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 1.015
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "block": "south_range",
+            "side": "south",
+            "plan": [
+              [
+                2.6,
+                0.0
+              ],
+              [
+                4.09,
+                1.68
+              ],
+              [
+                7.06,
+                1.68
+              ],
+              [
+                8.36,
+                0.0
+              ]
+            ],
+            "floor_m": 0.05,
+            "base_m": 1.0,
+            "wall_top_m": 3.95,
+            "frieze_m": 0.3,
+            "post_m": 0.1,
+            "cap_rise_m": 0.35,
+            "faces": [
+              {
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 1.123
+                  }
+                ]
+              },
+              {
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 1.485
+                  }
+                ]
+              },
+              {
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 1.062
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "block": "south_room",
+            "side": "south",
+            "plan": [
+              [
+                0.38,
+                0.0
+              ],
+              [
+                2.23,
+                1.36
+              ],
+              [
+                5.02,
+                1.36
+              ],
+              [
+                6.32,
+                0.0
+              ]
+            ],
+            "floor_m": 0.05,
+            "base_m": 1.0,
+            "wall_top_m": 9.8,
+            "frieze_m": 0.3,
+            "post_m": 0.1,
+            "cap_rise_m": 0.35,
+            "faces": [
+              {
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 1.148
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 1.148
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 1.148
+                  }
+                ]
+              },
+              {
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 1.395
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 1.395
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 1.395
+                  }
+                ]
+              },
+              {
+                "windows": [
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 2.1,
+                    "sill_m": 1.75,
+                    "centre_m": 0.941
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.9,
+                    "sill_m": 5.05,
+                    "centre_m": 0.941
+                  },
+                  {
+                    "k06_variant": "k06.opening.sash_2over2_flat",
+                    "clear_height_m": 1.4,
+                    "sill_m": 8.15,
+                    "centre_m": 0.941
+                  }
+                ]
+              }
+            ]
+          }
         ],
-        "street_u": 30.378
+        "porch": {
+          "id": "k16.porch.2010_front",
+          "kind": "porch",
+          "use": "porch",
+          "block": "front",
+          "side": "east",
+          "half_width_m": 4.3,
+          "depth_m": 2.04,
+          "centre_m": 4.3,
+          "basement_m": 0.55,
+          "steps": {
+            "centre_m": 1.5,
+            "width_m": 1.4,
+            "going_m": 0.28,
+            "max_riser_m": 0.2
+          }
+        },
+        "chimney": {
+          "u_m": 4.0,
+          "v_m": 3.5,
+          "width_m": 0.6,
+          "depth_m": 0.9,
+          "above_ridge_m": 1.0
+        },
+        "paint": {
+          "body": [
+            0.6,
+            0.63,
+            0.55
+          ]
+        }
       },
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2000-b1 p10 (main, frame), rectangle 1 of that part; the part's rectangles cover 86% of its fill; s35fp-2000-b1 p10 (main, frame), rectangle 2 of that part; the part's rectangles cover 86% of its fill; s35fp-2000-b1 p11 (range, frame), rectangle 1 of that part; the part's rectangles cover 84% of its fill; s35fp-2000-b1 p11 (range, frame), rectangle 2 of that part; the part's rectangles cover 84% of its fill; s35fp-2000-b1 p1 (range, frame), rectangle 1 of that part; the part's rectangles cover 89% of its fill; s35fp-2000-b1 p1 (range, frame), rectangle 2 of that part; the part's rectangles cover 89% of its fill; s35fp-2000-b1 p8 (range, frame), rectangle 1 of that part; the part's rectangles cover 80% of its fill; s35fp-2000-b1 p8 (range, frame), rectangle 2 of that part; the part's rectangles cover 80% of its fill; s35fp-2000-b1 p2 (range, frame), rectangle 1 of that part; the part's rectangles cover 68% of its fill; s35fp-2000-b1 p12 (porch, frame), rectangle 1 of that part; the part's rectangles cover 68% of its fill; s35fp-2000-b1 p5 (porch, frame), rectangle 1 of that part; the part's rectangles cover 84% of its fill; s35fp-2000-b1 p5 (porch, frame), rectangle 2 of that part; the part's rectangles cover 84% of its fill; s35fp-2000-b1 p4 (porch, frame), rectangle 1 of that part; the part's rectangles cover 83% of its fill; s35fp-2000-b1 p9 (porch, frame), rectangle 1 of that part; the part's rectangles cover 73% of its fill; s35fp-2000-b1 p6 (porch, frame), rectangle 1 of that part; the part's rectangles cover 82% of its fill; s35fp-2000-b1 p3 (porch, frame), rectangle 1 of that part; the part's rectangles cover 77% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "The whole house from the K16 kit (T-1909), refined from the district draft in place under the draft's id. READ from the 1911 sheet 35 raster at full size (0.186 m a pixel), carried into the draft's lot plan frame through the T-1250 fit (the same fit the trace s35fp-2000-b1 stands on): the main body 16.4 m deep and 6.8 m along Prairie (columns 593.5-682, rows 418.5-455); the front block 6.1 m deep and 5.4 m along the street (to column 715), marked '3BB'; beside it on the north the two-storey range marked '2' (rows 415.5-433), 3.25 m wide; the one-storey porch marked '1' across the front, 2.04 m deep (to column 726); on the north flank a canted bay 5.9 m across at the wall and 1.4 m out; on the south flank a three-storey room 6.3 m across and 2.9 m out ending in a canted bay 1.4 m deeper; and behind it the one-storey range marked '1', 8.4 m along the flank and 3.7 m out, ending in a canted bay of its own 1.7 m deeper. RECONSTRUCTED and recorded as L-k16-2000-2010-frame-1909: no picture of the house is known, so everything the plan does not fix is the kit's and the reconstruction rules' — the 1.0 m raised basement, storeys of 3.3, 3.1 and 2.9 m, every opening (cased two-over-two sash, three to five to a storey on the long flanks, the door on the front under the porch), the bracketed eave, the 25-degree hips and the flat decks of the lower ranges, the canted bays carried the full height of the part they stand on, the one brick stack and the body's paint. The porch's return along the front block's south side (rows 462-476: the kit's porch runs one wall) and the 0.65 m step in the rear range's south wall (rows 455-458.5) are not built."
     },
-    "draft_elevation": {
+    "roof_covering": {
       "value": {
-        "kind": "house",
-        "seed": 18036693,
-        "principal_floor_m": 1.4,
-        "storey_heights_m": [
-          3.9,
-          3.5,
-          3.3,
-          3.1
-        ],
-        "roof_pitch_deg": 34,
-        "mansard_lower_m": 3.0,
-        "front_bays": 2,
-        "entrance": "south",
-        "side_spacing_m": 2.6,
-        "chimneys": 2,
-        "brackets": false,
-        "attic_dormers": false,
-        "stone": "stone",
-        "features": [],
-        "draft_label": {
-          "pass": "T-2351",
-          "refined_by": [
-            "T-1909"
-          ]
-        }
+        "material": "slate",
+        "color": [
+          0.27,
+          0.28,
+          0.31
+        ]
       },
-      "confidence": "reconstructed",
-      "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: 3BB frame, the twin in plan of 2000 (the register's 'detached dwelling similar to 2000'): the same hip over three storeys, its door mirrored to the south, so the attested pair reads as two houses of one design. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 18036693 only tints the fabric inside +-6 %. Liberty L-draft-prairie-20-22-west-2351."
-    },
-    "draft": {
-      "value": {
-        "pass": "T-2351",
-        "liberty": "L-draft-prairie-20-22-west-2351",
-        "register_row": "frontage-35-060",
-        "census_ids": [
-          "s35-2010-front",
-          "s35-2010-wing"
-        ],
-        "trace_building": "s35fp-2000-b1",
-        "seed": 18036693,
-        "replaceable_by": [
-          "T-1909"
-        ],
-        "card": "District draft — refined by T-1909."
-      },
-      "confidence": "reconstructed",
-      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-      "geometry": "record_only"
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "The sheet prints the small circle on the house that its key uses for a slate or tin roof; slate is chosen of the two, for the pitched hips, and its blue-grey is reconstructed."
     },
     "function": {
       "value": "residence",
@@ -388,7 +938,7 @@
       ]
     }
   ],
-  "research_note": "A DISTRICT DRAFT (T-2351, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1909 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35 trace (s35fp-2000-b1), the T-1842 census (s35-2010-front, s35-2010-wing) and the T-1837 register row frontage-35-060 (Frame dwelling); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-20-22-west-2351).",
+  "research_note": "T-1909 refines the district draft (T-2351) in place under the same id: the whole house is rebuilt from the K16 timber kit — clapboard walls, cased sash, a bracketed eave under low hips, canted bays and a porch across the front — on the outline the 1911 Sanborn sheet 35 draws (s35fp-2000-b1, register row frontage-35-060). No photograph, print or drawing of the house has been found in the Prairie library or data/sources/; its elevations are a bounded reconstruction (liberty L-k16-2000-2010-frame-1909). The register reads 2010 as similar to 2000 and the sheet draws them alike; they are given different paint, porch depths and side ranges where the sheet differs, never one facade repeated.",
   "research_doc": "",
   "review_required": false,
   "called": "2010 Prairie Avenue — Frame dwelling"
