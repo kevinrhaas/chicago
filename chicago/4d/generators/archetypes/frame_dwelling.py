@@ -528,9 +528,20 @@ def _roof(b: MeshBuilder, p: FrameDwellingParams, x0: float, y0: float,
     """
     if p.roof_type == "shed":
         return _shed_roof(b, x0, y0, x1, y1, eave_z, p.roof_pitch_deg, conf)
-    return b.add_gable_roof(x0 + EAVE_M, y0, x1 - EAVE_M, y1, eave_z,
-                            p.roof_pitch_deg, conf, M_ROOF, overhang=EAVE_M,
-                            ridge_along_x=True)
+    first_roof_face = len(b.faces)
+    ridge_z = b.add_gable_roof(x0 + EAVE_M, y0, x1 - EAVE_M, y1, eave_z,
+                             p.roof_pitch_deg, conf, M_ROOF, overhang=EAVE_M,
+                             ridge_along_x=True)
+    if p.picture_layout == "keeper_gale_1902":
+        # T-2380: the pictured east gable is wall infill, not roof covering.
+        # Preserve the complete roof envelope, unpictured west end and loft light.
+        east_faces = [i for i in range(first_roof_face, len(b.faces))
+                      if len(b.faces[i]) == 3 and all(
+                          abs(b.verts[v][0] - x1) < 1e-9 for v in b.faces[i])]
+        if len(east_faces) != 1 or b.mat_index[east_faces[0]] != M_ROOF:
+            raise ValueError("keeper east gable must be one native roof-end triangle")
+        b.mat_index[east_faces[0]] = M_WALL
+    return ridge_z
 
 
 def _shed_roof(b: MeshBuilder, x0, y0, x1, y1, eave_z, pitch_deg, conf,
