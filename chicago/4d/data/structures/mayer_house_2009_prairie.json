@@ -313,13 +313,31 @@
                 0.3
               ],
               "lintel_m": 0.35
-            }
+            },
+            "carved_bands": [
+              {
+                "bed_m": 4.8,
+                "top_m": 5.3,
+                "s_m": [
+                  5.4,
+                  7.2
+                ],
+                "guilloche": {
+                  "radius_m": 0.2,
+                  "ring_width_m": 0.035,
+                  "ring_proud_m": 0.03,
+                  "margin_m": 0.03,
+                  "pitch": 2.0,
+                  "segments": 16
+                }
+              }
+            ]
           },
           "confidence": "inferred",
           "sources": [
             "chicagology_2009_prairie_meyer_photo"
           ],
-          "note": "Every street light read off the photograph at 100 px a metre from the north corner and the wall's foot: the ground floor's window, two lights on a mullion under a transom, at 2.98 m, 2.05 m clear, from 2.0 to about 4.4 m (built 2.25 m high, its head 0.15 m under the print's, so it clears the oriel's corbel); the small square-headed light beside the oriel at 6.32 m, 0.46 m across, 6.3-7.35 m; and the third storey's paired light at 4.02 m, 2.5 m across its two lights, 9.6-11.45 m. Each stands in a stone surround of long and short blocks, as the photograph shows round all three (K01's quoined surround, its returns and lintel the kit's). The oriel's three lights are its own (bays)."
+          "note": "Every street light read off the photograph at 100 px a metre from the north corner and the wall's foot: the ground floor's window, two lights on a mullion under a transom, at 2.98 m, 2.05 m clear, from 2.0 to about 4.4 m (built 2.25 m high, its head 0.15 m under the print's, so it clears the oriel's corbel); the small square-headed light beside the oriel at 6.32 m, 0.46 m across, 6.3-7.35 m; and the third storey's paired light at 4.02 m, 2.5 m across its two lights, 9.6-11.45 m. Each stands in a stone surround of long and short blocks, as the photograph shows round all three (K01's quoined surround, its returns and lintel the kit's). The oriel's three lights are its own (bays). T-1914: the carved panels over the door, between its pilasters (x 935-1125 px, about 4.5-5.2 m), under a thin course at about 5.25 m that runs across the front: a carved course of rings 4.8-5.3 m over the door (carved_bands, s 5.4-7.2 m), the print's foliage drawn as the kit's guilloche; K01 lays a carved band's course across the whole front, so the course reads 0.5 m deep where the print's is thin."
         },
         "bays": {
           "value": [
@@ -378,6 +396,18 @@
                 "kind": "cone",
                 "pitch": 0.05,
                 "covering": "copper_sheet"
+              },
+              "cap_band": {
+                "height_m": 0.75,
+                "proud_m": 0.05,
+                "guilloche": {
+                  "radius_m": 0.26,
+                  "ring_width_m": 0.04,
+                  "ring_proud_m": 0.03,
+                  "margin_m": 0.04,
+                  "pitch": 2.0,
+                  "segments": 16
+                }
               }
             },
             {
@@ -448,7 +478,7 @@
             "monroe_1896_john_wellborn_root_meyer_plate",
             "sanborn_1911_chicago_v3_sheet_35"
           ],
-          "note": "The 'slightly bowed window group' of the register: a shallow bowed oriel on the street front over the ground-floor window, read off the photograph: 3.45 m across its stone frame (x 515-860 px), carried on a corbelled apron from 5.05 m, its three lights 6.0-8.25 m, a carved frieze over them to about 8.9 m and its cap at the string course (9.2 m). Its depth is not measurable square on: a flat front 3.2 m across with short cants to the wall, 0.38 m out on three corbel courses (their foot at 4.7 m, the photograph's at about 5.05 m), as Monroe's plate shows it standing a little proud; the register's 'slightly bowed' group is drawn canted, the kit's bow being too deep for three lights this wide. The carved frieze and apron are T-1914's. The north wall's projection: the sheet draws the main body's north line stepping out 1.3 m for 5.86 m, from 5.85 to 11.71 m behind the front (px 946-978, rows 386-393), read at full size; it rises to the wall head, where the photograph's camera puts a cornice on the north flank about 12 m up behind the front (y 715 px). A light a storey in its outer face is reconstructed."
+          "note": "The 'slightly bowed window group' of the register: a shallow bowed oriel on the street front over the ground-floor window, read off the photograph: 3.45 m across its stone frame (x 515-860 px), carried on a corbelled apron from 5.05 m, its three lights 6.0-8.25 m, a carved frieze over them to about 8.9 m and its cap at the string course (9.2 m). Its depth is not measurable square on: a flat front 3.2 m across with short cants to the wall, 0.38 m out on three corbel courses (their foot at 4.7 m, the photograph's at about 5.05 m), as Monroe's plate shows it standing a little proud; the register's 'slightly bowed' group is drawn canted, the kit's bow being too deep for three lights this wide. The carved frieze and apron are T-1914's. The north wall's projection: the sheet draws the main body's north line stepping out 1.3 m for 5.86 m, from 5.85 to 11.71 m behind the front (px 946-978, rows 386-393), read at full size; it rises to the wall head, where the photograph's camera puts a cornice on the north flank about 12 m up behind the front (y 715 px). A light a storey in its outer face is reconstructed. T-1914: the oriel's carved frieze over its lights (the print's about 8.3-8.9 m, under its moulded cap at 9.2 m) as a 0.75 m carved band round the oriel under its cap (cap_band), the print's foliage in three cartouches drawn as the kit's guilloche rings; the carved apron under the lights is still plain."
         },
         "shaped_gable": {
           "value": {
@@ -606,15 +636,72 @@
         "entrance_kit": {
           "value": {
             "k01.opening.door_leaf": {
-              "variant": "k07.entrance.panel_door_stoop",
-              "front_yard_m": 7.0
+              "variant": "k07.entrance.double_door_deep_arch",
+              "front_yard_m": 7.0,
+              "reveal_depth_m": 0.35,
+              "opening_m": [
+                1.08,
+                2.3
+              ],
+              "arch": {
+                "ring_m": 0.23,
+                "keystone_top_m": 4.53,
+                "keystone_m": [
+                  0.2,
+                  0.05
+                ],
+                "rise_over_span": 0.23,
+                "head": "elliptical",
+                "moulding": {
+                  "steps_m": [
+                    0.1,
+                    0.08
+                  ],
+                  "proud_m": [
+                    0.05,
+                    0.025
+                  ]
+                },
+                "pilasters": {
+                  "width_m": 0.25,
+                  "proud_m": 0.06,
+                  "gap_m": 0.08,
+                  "capital_m": 0.2,
+                  "abacus_m": 0.06
+                }
+              },
+              "fanlight_transom": {
+                "height_m": 0.25,
+                "lights": 2,
+                "leaves": 1
+              },
+              "leaf": {
+                "panels": [
+                  1,
+                  3
+                ],
+                "rails_y_m": [
+                  0.75,
+                  1.35
+                ],
+                "panel_recess_m": 0.03,
+                "raised_field": {
+                  "margin_m": 0.06,
+                  "proud_m": 0.015
+                },
+                "color": [
+                  0.085,
+                  0.045,
+                  0.022
+                ]
+              }
             }
           },
           "confidence": "inferred",
           "sources": [
             "chicagology_2009_prairie_meyer_photo"
           ],
-          "note": "A panelled door up a straight stoop between stone cheek walls, as the photograph shows; its elliptical head, fanlight tracery and the carved surround with its finials are T-1914's."
+          "note": "A panelled door up a straight stoop between stone cheek walls, as the photograph shows. T-1914 reads the entrance off the photograph at 100 px a metre from the north corner and the wall's foot: one dark leaf, 1.08 m across (x 957-1065 px, s 5.68-6.76 m), from the principal floor to a transom bar at about 3.8 m (y 1345 px); over the bar a fanlight of two lights parted by a mullion (the print's Y-tracery) in an elliptical head springing at about 4.05 m and rising to its crown at about 4.3 m (y 1295 px), so a rise of about 0.25 m, 0.23 of the span; a moulded stone ring round the head and down the jambs, about 0.23 m broad to its outer edge at about 4.53 m (y 1272 px); and a stone pilaster each side, about 0.25 m broad (x 917-942 and 1110-1135 px), under a capital. Built as K07's arched entrance in the record's elliptical head (entrance_kit.arch), hung with one leaf under a two-light fanlight on its bar 0.25 m under the spring (fanlight_transom), the leaf in a dark varnish as the print's reads near black. The pilasters' pinnacles over the carved panels, and the third pinnacle over the crown, are not built. The keystone is the kit's smallest: the print shows none under the moulding."
         },
         "boundary": {
           "value": {

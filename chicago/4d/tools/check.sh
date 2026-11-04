@@ -1322,6 +1322,13 @@ step "a K01 house's mansarded sections join its mansard under one rail of cresti
 step "a K01 house's named round-arched street lights stand in moulded architraves (T-1881)" \
   python3 tools/test_k01_architrave.py
 
+# T-3364 (T-1914). A K01 door under a flat (elliptical or segmental) arch glazed as a fanlight
+# over a transom bar, hung with its own count of leaves (`fanlight_transom`), held on 2009
+# Prairie's record off the Chicagology photograph; a round head, a side light, a bar or a leaf
+# out of range, three leaves and an unknown key refused.
+step "a K01 door under a flat arch takes a fanlight over a transom bar (T-3364)" \
+  python3 tools/test_k01_fanlight_transom.py
+
 # T-3255. Eared and crested stone hoods over a K01 wall's round-headed lights, and the main
 # block's corner pilasters (k01_dressings), held on 1701 Prairie's record: every round light on
 # the named walls hooded and no other, a pair meeting ear to ear, every crest under the eave,

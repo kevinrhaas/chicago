@@ -6460,6 +6460,24 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                              f"0.01-0.05 m, the field 0.02-0.12 m in and raised less than the sinking, a linear RGB")
         door_kit["leaf"] = {"panels": [cols, rows], "rails_y_m": ry, "panel_recess_m": rec,
                             "raised_field": {"margin_m": mg, "proud_m": up}, "color": col}
+    # T-1914: a single door under a flat (elliptical or segmental) arch, its head glazed as a
+    # fanlight over a plain transom bar `height_m` under the arch's spring (K07 glazes from the
+    # bar up into the head) in `lights` lights, and the
+    # mouth hung with `leaves` leaves (2009's, the Chicagology photograph: one leaf under a
+    # two-light fanlight in the elliptical head). K07's round head glazes its own radial fanlight
+    if "fanlight_transom" in door_kit_in:
+        fnt = door_kit_in["fanlight_transom"]
+        if not door_arch or door_arch.get("head", "segmental") not in ("elliptical", "segmental") \
+                or "rise_over_span" not in door_arch or "side_light" in door_kit or "porch_door" in door_kit_in \
+                or not isinstance(fnt, dict) or set(fnt) != {"height_m", "lights", "leaves"}:
+            raise ParamError("entrance_kit.fanlight_transom takes height_m, lights and leaves, under an elliptical "
+                             "or segmental door arch (`arch` with rise_over_span) without a side light or porch door")
+        fh, fl, nl = float(fnt["height_m"]), int(fnt["lights"]), int(fnt["leaves"])
+        rise = door_w * float(door_arch["rise_over_span"])
+        if not 0.1 <= fh <= 0.8 or door_h - rise - fh < 1.7 or not 1 <= fl <= 3 or nl not in (1, 2):
+            raise ParamError(f"entrance_kit.fanlight_transom {fnt}: a bar 0.1-0.8 m under the spring of the "
+                             f"{rise:.3f} m arch, leaving the leaves 1.7 m, in 1-3 lights over 1 or 2 leaves")
+        door_kit["fanlight_transom"] = {"height_m": fh, "lights": fl, "leaves": nl}
     # T-2910: a loggia behind the arch (1801's, the Taylor photograph): a room `v_m` [from, to]
     # along the front and `depth_m` behind its face, its floor the door's, a flat ceiling
     # `ceiling_m` over it, the porch door in its back wall; and `side_arch`, a round arch

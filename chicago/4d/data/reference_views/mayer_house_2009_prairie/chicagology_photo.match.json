@@ -2,7 +2,7 @@
   "structure_id": "mayer_house_2009_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/mayer_house_2009_prairie__as_mapped_1904.glb",
-  "glb_sha256": "757d32e65459d1b75821ee4651ed67e4a76b8188bfbd383dd89394e0a600d261",
+  "glb_sha256": "52f84de3b6399cec47a7b43ae099292bb90cad7756bddc27ecaaf4ba9105edbe",
   "camera_sha256": "78ec8f49f37566693a797fc7fa98ded24d4845ec40ef057129786224b8258d8a",
   "photo_sha256": "03db894ab10dff078b747f611eba3dd8d9bc3b1f35aae50435017dcd4640b4a2",
   "side_by_side": "docs/RESEARCH/photo-match/mayer_house_2009_prairie/chicagology_photo-side-by-side.jpg",
@@ -37,7 +37,15 @@
       "status": "within tolerance"
     },
     {
-      "what": "the oriel's carved frieze over its lights and the carved apron under them: the build's are plain stone (T-1914)",
+      "what": "the oriel's carved frieze over its lights: a band of carved rings round the oriel under its cap, 8.45-9.2 m, where the print's carved frieze runs from about 8.3 to 8.9 m under a moulded cap to 9.2 m (T-1914)",
+      "status": "fixed"
+    },
+    {
+      "what": "the oriel's frieze band about 0.15 m higher than the print's, and its carving drawn as a run of rings where the print's is foliage in three large cartouches",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the oriel's carved apron under its lights (5.05-5.9 m): the build's corbel courses are plain stone",
       "status": "open"
     },
     {
@@ -49,7 +57,23 @@
       "status": "fixed"
     },
     {
-      "what": "the door: the print's elliptical head with its tracery under a carved panel between pinnacled pilasters; the build stands a square-headed panelled door with a transom under a plain lintel (T-1914)",
+      "what": "the door: one dark leaf under a two-light fanlight on a transom bar (3.8 m) in an elliptical head (crown 4.3 m, 1.08 m across), a moulded stone ring round the head and down the jambs, and a stone pilaster each side under a capital, on the print's place and size (T-1914)",
+      "status": "fixed"
+    },
+    {
+      "what": "the fanlight's Y-tracery drawn as a plain mullion between its two lights, and the moulded ring narrower than the print's deep reveal",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the door's pilasters stop under their capitals at about 4.5 m where the print carries them up through the carved panels to pinnacles at about 5.6 m, a third pinnacle over the arch's crown",
+      "status": "open"
+    },
+    {
+      "what": "the carved panels over the door: a carved course of rings from 4.8 to 5.3 m over the door between its pilasters, on the print's place (T-1914)",
+      "status": "fixed"
+    },
+    {
+      "what": "that carved course is laid as a 0.5 m stone belt across the whole front (K01 lays a carved band's course full width) where the print shows a thin course at about 5.25 m with the carving over the door alone, and its carving starts about 0.3 m over the print's panels' foot",
       "status": "open"
     },
     {

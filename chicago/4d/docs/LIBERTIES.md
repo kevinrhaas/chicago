@@ -39925,3 +39925,36 @@ The yard source owner follows the same canonical attribute and declines only the
 
 **Ticket:** T-2376.
 **Recorded:** 2026-11-03.
+
+### L-k01-2009-meyer-entrance-1914 — 2009 Prairie's entrance, the carved panels over it and the oriel's frieze, read off its photograph
+
+**Decision:** T-1914 (S05B) details three parts of the Max A. Meyer house's front to the undated Chicagology
+photograph (`chicagology_2009_prairie_meyer_photo`, rights check_required: forms, places and sizes only), read
+square on at 100 px a metre through `data/reference_views/mayer_house_2009_prairie/chicagology_photo.json`.
+
+**What is read, not invented.** The door's place and width (1.08 m), its transom bar (about 3.8 m), the
+elliptical head's spring and crown (about 4.05 and 4.3 m), the moulded ring round it to about 4.53 m, the two
+pilasters' places and breadth (about 0.25 m); the carved panels over the door between the pilasters; the
+oriel's carved frieze over its lights under its cap.
+
+**What is invented.** The ring's two mouldings' steps and projections, the pilasters' projection, gap and
+capital; the small keystone the K07 arch requires (the print shows none under the moulding); the leaf's panels
+and rails, which the dark print does not show, and its colour, a dark varnish because the leaf reads near black;
+the carving itself: the print's foliage, in two panels over the door and three cartouches over the oriel's
+lights, is drawn as the kit's guilloche of rings.
+
+**What is built otherwise than the evidence, and why.** The fanlight's Y-tracery is a plain mullion between two
+lights. The carved course over the door is laid by K01 as a belt across the whole front, 4.8-5.3 m, where the
+print shows a thin course at about 5.25 m with the carving over the door alone, and it starts about 0.3 m over
+the print's panels' foot so the door's ring stays clear of it. The oriel's frieze band is 0.75 m deep under the
+cap, about 0.15 m higher than the print's frieze, because the kit hangs it from the cap. The pilasters stop
+under their capitals where the print runs them up through the panels to pinnacles; the oriel's apron, the
+windows' hoods and the gable's pendant, the north corner's quoins, the gable's carved crest and the basement's
+three lights are still as L-k01-2009-meyer-1913 left them.
+
+**How to resolve:** the open rows of the match record; a camera solved on Monroe's 1896 plate
+(`monroe_1896_john_wellborn_root_meyer_plate`) would check the entrance from a second side.
+**Covers:** `mayer_house_2009_prairie.as_mapped_1904.form.entrance_kit`, `mayer_house_2009_prairie.as_mapped_1904.form.street_front_windows`, `mayer_house_2009_prairie.as_mapped_1904.form.bays`
+**Ticket:** T-3364 (a piece of T-1914, S05B).
+**Review:** `docs/RESEARCH/photo-match/mayer_house_2009_prairie/chicagology_photo-side-by-side.jpg`.
+**Recorded:** 2026-11-04 (T-3364).
