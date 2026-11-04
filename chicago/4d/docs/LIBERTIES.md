@@ -40290,3 +40290,32 @@ and it remains a shape taken from a retrospective picture.
 **Ticket:** T-2383.
 **Review:** `docs/RESEARCH/photo-match/sauganash_hotel/andreas-1884-side-by-side.jpg` and its match record.
 **Recorded:** 2026-11-04 (T-2383).
+
+### L-k01-1919-garage-gable-3354 — 1919 Prairie's garage roofed under a steep coped gable facing the flank, the third gable all three Gatlin plates draw at its far end
+
+**Decision:** 1919 Prairie's garage (the 1911 sheet's '2B' 'GARAGE CEMENT FL'R' to the alley, u -28.2
+to -16.4) was roofed flat in tin. All three Gatlin Institute plates (the 1912 Blue Book's, the 1913
+Almanac's and the 1919 programme's) draw a third gable at the north flank's far end, beyond the two
+ranges' gables, coped and finialled as theirs are. Through each plate's camera the garage's own north
+gable is where that gable stands: its apex lands within about 15 px of the plate's across in all three,
+and the 1912 and 1919 plates set its height at about 15.7-15.9 m (41 and 54 px over a 12.5 m trial apex,
+at about 13 and 16 px a metre). So the garage takes a slated gable facing the flank (K01's `gable_to:
+south`, the ranges' own), pitched 54 degrees, which puts its apex at 15.7 m over its 7.55 m wall top,
+and the ranges' stone coping, kneelers and 0.6 m finial on both ends (T-3337's `roof.coping`). No new
+generator feature: the record uses what K01 already builds.
+**What is read, not invented.** That a coped, finialled gable stands at the flank's far end, and its
+place and height, from all three plates through their solved cameras.
+**What is invented.** That the gable is the garage's own roof rather than a gable on a part the sheet
+does not separate; the 54-degree pitch (the plates give the apex, not the span it stands on); the slate,
+the 0.3 m overhang and fascia; the coping's section, kneelers and finial at the ranges' sizes; the south
+end, which faces 1923's north wall and no picture shows, coped as the north end is. Whether the garage
+stood by 1904 is still the sheet's 1911 question (T-1841's present_as_mapped).
+**What is not built.** The small pinnacled dormers between the gables; the quoined flat-topped block at
+the middle range's north-west corner; and the place and height of the two ranges' gables, which all three
+plates stand about 1-2 m nearer the street and (the middle range's) about 2-3 m higher than the 1911
+sheet's trace and the record put them — written into all three match records.
+**How to resolve:** a reading of the ranges' plan that reconciles the plates with the 1911 sheet's trace,
+or a picture of the rear.
+**Ticket:** T-3354 (piece 2 of T-3338).
+**Review:** `docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/blue_book_1912-side-by-side.jpg` and the other two views' side-by-sides.
+**Recorded:** 2026-11-04 (T-3354).
