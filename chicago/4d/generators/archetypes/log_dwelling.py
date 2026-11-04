@@ -73,6 +73,7 @@ from archetypes.log_dwelling_params import (  # noqa: E402
     ADDITION_WIN_HALF_M, DOOR_HALF_M, WIN_AT_FRAC, WIN_HALF_M, LogDwellingParams,
     addition_extent, addition_front_rects, core_extent, core_front_rects,
     lean_to_extent, compound_front_rects, resolved_core_ridge_axis,
+    compound_aperture_rects,
 )
 
 #: This archetype's roof COVERING, off the sheet's dealing rule (T-1487).
@@ -1399,8 +1400,19 @@ def _compound(b: MeshBuilder, p: LogDwellingParams) -> None:
         ridge = b.add_gable_roof(*roof,p.wall_height_m,p.roof_pitch_deg,1.0,M_ROOF,
                                   ridge_along_x=axis == "x")
         roofs.append(ridge)
-    for plane,kind,u0,u1,z0,z1 in compound_front_rects(p):
+    stated=compound_aperture_rects(p)
+    # T-2374: a stated set replaces its room's singular opening, so the rectangles
+    # it owns are drawn as apertures below and never also as a door or a sash here.
+    owned={(plane,kind,u0,u1,z0,z1)
+           for plane,zone,kind,u0,u1,z0,z1 in stated if zone == "wall"}
+    for entry in compound_front_rects(p):
+        if entry in owned:
+            continue
+        plane,kind,u0,u1,z0,z1=entry
         _opening(b,"y",plane,u0,u1,z0,z1,+1,1.0,kind=kind)
+    c_ap=p.conf("compound_apertures", "reconstructed")
+    for plane,zone,kind,u0,u1,z0,z1 in stated:
+        _compound_aperture(b,plane,u0,u1,z0,z1,c_ap,kind=kind,gable=zone == "gable")
     # Retain the recorded count, but choose the outermost rooms for the two
     # stacks. Their axis, position, section and head remain reconstructed.
     if p.chimneys:
@@ -1411,6 +1423,52 @@ def _compound(b: MeshBuilder, p: LogDwellingParams) -> None:
             r,roof,axis,_=p.compound_parts[i]
             _stack(b,*r,roofs[i],1.0,M_CHIMNEY_AFTER_SIGN,gable_axis=axis,at_min=n == 0,
                    head_z=p.chimney_head_m)
+
+
+# T-2374 — a stated compound aperture, and why it is drawn this thinly.
+#
+# What the Wau-Bun panorama shows of the Agency House's front is three dark marks
+# on a white gable: two upright ones standing on the ground and one small one
+# above them. It does not show a sash, a pane, a leaf, a hinge, a shutter or a
+# sill, and at that scale it could not. So this draws a hole and a surround and
+# stops: the sawn casing the archetype's other openings wear, its reveal running
+# back to a dark face, and nothing else. A `door` gets the threshold too, because
+# a way in that hangs off the ground reads as a picture hung on the wall — and
+# that threshold is the one piece here that is a reconstruction of a FUNCTION
+# rather than a reading of the picture.
+#
+# `gable=True` puts it on the closed gable the room's roof carries, which
+# `add_gable_roof` draws COMPOUND_ROOF_OVERHANG_M outboard of the roof rectangle;
+# the plane arrives already carrying that, and the 0.04 m here is the same
+# standoff GABLE_FACE_OUT applies above every other gable in this archetype, so
+# the surround stands in front of the board rather than inside it.
+APERTURE_BACK_M = 0.004     # the dark face, just proud of the logs' own relief
+APERTURE_PROUD_M = 0.050    # ...and the casing in front of it: a 46 mm reveal
+GABLE_APERTURE_STANDOFF_M = GABLE_FACE_OUT - 0.25
+
+
+def _compound_aperture(b: MeshBuilder, plane: float, u0: float, u1: float,
+                       z0: float, z1: float, conf: float, kind: str,
+                       gable: bool) -> None:
+    """One stated aperture: a dark recess in a sawn surround, on a wall or a gable."""
+    k = _kit(b)
+    w = openings.Wall("y", plane + (GABLE_APERTURE_STANDOFF_M if gable else 0.0),
+                      1, RELIEF_M)
+    casing_w, head_w, proud = ((0.07, 0.08, 0.03) if gable
+                               else (0.11, 0.12, APERTURE_PROUD_M))
+    openings.surround(b, w, u0, u1, z0, z1, conf, k, sill=False, cap=False,
+                      casing_w=casing_w, head_w=head_w, proud=proud,
+                      back=APERTURE_BACK_M)
+    # The dark face sits where the surround's own reveal ends. `surround` reads
+    # `back` from the wall's SKIN (its reveal stops at `w.skin + back`), so the
+    # face has to be given the same absolute offset; passing the bare constant
+    # put it at 0.004 m, BEHIND the 0.022 m log relief, and the courses ran
+    # across the two grounded apertures as stripes instead of leaving a clear
+    # recess. The recess convention is the one `_opening`'s own blind doorway
+    # uses, where `back = -0.30 - w.skin` and the face is at -0.30.
+    openings.face(b, w, w.skin + APERTURE_BACK_M, u0, u1, z0, z1, conf, M_DARK)
+    if kind == "door":
+        openings.threshold(b, w, u0, u1, z0, conf, k.casing, casing_w, proud)
 
 
 def _clip_plan(poly, a, c, bound, keep_less=True):

@@ -51,8 +51,13 @@ from archetypes import frame_tavern_params as _tavern
 
 # Kinds that are holes in the wall, as against applied joinery standing on it.
 # Both refuse a signboard; only the first is an "opening" in the ticket's sense.
+# T-2374: `aperture` is a hole and nothing more — a dark recess a picture draws
+# and does not explain, with no sash, glass, leaf or function claimed. It belongs
+# here because it IS a hole: a board hung across one covers an opening, and two of
+# them running together on one front is the defect T-1984 refuses, exactly as for a
+# door or a window. It is not an entrance kind: see generate_entrances.ENTRANCE_KINDS.
 HOLE_KINDS = frozenset({"door", "window", "shop_door", "show_window",
-                        "loft_door", "vent", "open_bay"})
+                        "loft_door", "vent", "open_bay", "aperture"})
 
 
 def _storefront_front(p) -> dict:
