@@ -82,6 +82,32 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            .github
+            chicago/4d/tools
+
+      # Publish reads the app, two sibling browsers and the production site.
+      # Keep their complete native inputs; unrelated app research archives need
+      # not consume the phone job's existing 25-minute wall-time budget.
+      - name: Materialize the complete native publication inputs
+        run: |
+          set -euo pipefail
+          python3 - <<'PYTHON'
+          import os, subprocess
+          names = subprocess.check_output([
+              'git', 'ls-tree', '-z', '-d', '--name-only', 'HEAD:chicago/4d'
+          ]).split(b'\0')
+          directories = {name for name in names if name}
+          if not {b'assets', b'data', b'generators', b'tools', b'renderers'} <= directories:
+              raise SystemExit('Native publication directories cannot be established')
+          paths = ['.github', 'chicago/4d/docs/RESEARCH/glessner-v4-recovery',
+                   'chicago/pre_fire_v1', 'chicago/prairie_1904_v1', 'site']
+          paths += ['chicago/4d/' + os.fsdecode(name)
+                    for name in sorted(directories) if name != b'docs']
+          subprocess.run(['git', 'sparse-checkout', 'set', '--cone', *paths], check=True)
+          PYTHON
 
       - uses: actions/setup-node@v4
         with:

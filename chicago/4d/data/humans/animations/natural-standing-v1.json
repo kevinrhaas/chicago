@@ -1,0 +1,68 @@
+{
+  "schema": "human_natural_standing_recipe_v1",
+  "clip": "idle_natural_v1",
+  "duration_s": 8,
+  "samples": 65,
+  "basis": "Project-authored plain standing: modest head look and breathing, with original arm/elbow animation channels unchanged. Exact action, amplitude and timing are reconstructed; no named gesture, historical action, dialogue or likeness is asserted.",
+  "motion_degrees": {
+    "breath_pitch": 1.0,
+    "neck_look_yaw": 1.5,
+    "head_look_yaw": 4.5,
+    "head_nod_pitch": 1.2
+  },
+  "protected": [
+    "all geometry, skin weights, inverse binds, images, material and original clip bytes",
+    "all root, pelvis and lower-body channels",
+    "existing canonical metadata describes the parent only"
+  ],
+  "parent_canonical": {
+    "source_sha": "96c4da4b1fe68e6dec3b18c15da2f14c596a60c5",
+    "run_id": 39736567239,
+    "artifact_id": 12408480668
+  },
+  "parents": [
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod0.glb",
+      "sha256": "84cdeb6d362aa1a85549b18daef41ae492f18595a19ff5b7e6eff539a3576d04",
+      "bytes": 8656876
+    },
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod1.glb",
+      "sha256": "e2ff6d6d4df02b3852248c4712b9472c86fe7ca14a60b3db02788deed8db73c3",
+      "bytes": 8018176
+    },
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod2.glb",
+      "sha256": "bc7ab6752b92f5451b285b070d2f76d896edddffa46d976c3569820745b8be7f",
+      "bytes": 7465876
+    },
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod3.glb",
+      "sha256": "8d36ceade3b2dce3b8d081dc484faa98bb57dd2c0d288c1043f0a6da9d3dc233",
+      "bytes": 7241808
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod0.glb",
+      "sha256": "3c75b33e5130fb8fe4813866d52d248bdab4207ab7a10c78b4074cc5fc30e999",
+      "bytes": 4447008
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod1.glb",
+      "sha256": "af2492264df071facce2c4ba128d851a5624f93bcf3f9e507eb406694e3124f1",
+      "bytes": 1568968
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod2.glb",
+      "sha256": "ac21fdb00c402f76810a23467e299612042aa3ce21b017e7705ca675793df77a",
+      "bytes": 619964
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod3.glb",
+      "sha256": "b61d09e2efdb204a90d5d3c8fe49d1a6502108fd6ac62a592350129db48f8d40",
+      "bytes": 309428
+    }
+  ],
+  "implementation_revision": 2,
+  "parent_revision": "623eccd80f5d5fee2dbbc6d33b8262fd50b7fe2e",
+  "liberty": "L-natural-standing-1790"
+}
