@@ -617,6 +617,22 @@ STREET_ADJUSTMENTS = {
     "west_rec_046": (13.25, 0.00),   # Des Plaines Street, 12.08 m in; clears by 0.39 m
 }
 
+
+# THE ALLEY HOLD — T-3360. The owner, 2026-11-03: buildings "placed in the middle of the
+# walkways or alleys". Three slots of this parcel stood inside a platted 18 ft mid-block
+# alley (thompson_lots.json `alley_local_enu_m`), and tools/check_structure_clearance.py
+# now refuses that in every 1835 block. Each is moved square to its alley, away from the
+# alley's centreline, by the least distance that leaves its alley wall 0.30 m clear of
+# the alley line — the same quarter-metre-and-a-bit margin the corridor hold above keeps,
+# for the same reason. The largest move is 4.94 m, inside the +/-20 m the recipe states
+# for its own layout controls, and no slot leaves its cluster. Added to any street
+# setback the same slot already carries.
+ALLEY_ADJUSTMENTS = {
+    "west_rec_018": (4.94, 0.18),   # blk_randolph_clinton's alley, 4.64 m in; clears by 0.30 m
+    "west_rec_023": (-1.00, 0.30),    # blk_lake_clinton's alley, 0.70 m in; clears by 0.30 m, and 0.30 m north so it keeps clear of Randolph
+    "west_rec_034": (4.36, 0.10),   # blk_west_lake_des_plaines's alley, 4.06 m in; clears by 0.30 m
+}
+
 # THE EAVES-FRONT HOLD — T-1497, and it replaces a quarter-circle turn.
 #
 # This parcel is the one that takes its rectangle STRAIGHT FROM THE RECIPE instead of
@@ -742,8 +758,9 @@ def omitted_street_corridors() -> dict:
 def make_record(row: dict, seq: int, datum: dict) -> dict:
     sid = f"{PREFIX}{row['id'].split('_')[-1]}"
     de, dn = STREET_ADJUSTMENTS.get(row["id"], (0.0, 0.0))
-    center_e = float(row["center_local_enu_m"][0]) + de
-    center_n = float(row["center_local_enu_m"][1]) + dn
+    ae, an = ALLEY_ADJUSTMENTS.get(row["id"], (0.0, 0.0))
+    center_e = float(row["center_local_enu_m"][0]) + de + ae
+    center_n = float(row["center_local_enu_m"][1]) + dn + an
     width_ft, depth_ft = (float(v) for v in row["footprint_ft"])
     bearing = float(row["rotation_deg"])
     family = row["family"]
@@ -777,6 +794,10 @@ def make_record(row: dict, seq: int, datum: dict) -> dict:
                "placed it inside a platted street corridor; the move is well inside the "
                "±20 m uncertainty the recipe states for its own layout controls."
                if de or dn else "")
+    if ae or an:
+        setback += (f" Moved {math.hypot(ae, an):.1f} m square to its block's platted alley, "
+                    "which the recipe coordinate stood inside, so the alley runs clear (T-3360); "
+                    "also well inside the recipe's ±20 m.")
     if held:
         setback += (f" The recipe's {recipe_width_ft:.0f} ft front is widened to "
                     f"{width_ft:.2f} ft here, its {depth_ft:.0f} ft depth kept exactly. "

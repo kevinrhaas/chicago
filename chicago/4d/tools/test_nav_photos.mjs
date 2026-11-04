@@ -168,10 +168,11 @@ ok('link-only cards keep sourced identity warnings and creator plus holder witho
   const py = 'import sys, json; sys.path.insert(0, "tools"); import compile_pictures as cp; '
     + 'print(json.dumps(cp.derive(*cp.read_tree())["1835"]))';
   const pictures = JSON.parse(execFileSync('python3', ['-c', py], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 << 20 }));
-  for (const [sid, sourceId, leaf] of [
+  for (const [sid, sourceId, leaf, holder, year, book] of [
     ['jb_beaubien_homestead', 'kinzie_1857_chicago_1831_panorama', null],
-    ['green_tree_tavern', 'andreas_1884_green_tree_hotel_plate', '1301'],
-    ['sauganash_hotel', 'andreas_1884_sauganash_hotel_plate', '1297'],
+    ['green_tree_tavern', 'andreas_1884_green_tree_hotel_plate', '1301', 'Andreas', '1884', 'historyofchicago01andr'],
+    // Andreas is now held on the hotel card; retain a real link-only hotel fixture.
+    ['sauganash_hotel', 'trowbridge_sauganash_hotel', '49', 'Edwin O\\.', '1902', 'reminiscencesofe00ingale'],
   ]) {
     const picture = pictures.by_structure[sid].find(p => p.id === sourceId);
     assert.ok(picture && !picture.held, `${sourceId}: real compiled link-only entry`);
@@ -183,9 +184,9 @@ ok('link-only cards keep sourced identity warnings and creator plus holder witho
     assert.ok(pane.textContent.includes(picture.title), 'the actual catalogue title is visible');
     assert.ok(pane.textContent.includes(creditOf(picture)), 'actual creator credit is retained');
     if (leaf) {
-      assert.match(pane.textContent, /Andreas/i, 'the actual publication holder is visible');
-      assert.match(pane.textContent, /1884/);
-      assert.match(link.href, new RegExp(`/historyofchicago01andr/page/n${leaf}/mode/1up$`));
+      assert.match(pane.textContent, new RegExp(holder, 'i'), 'the actual publication holder is visible');
+      assert.match(pane.textContent, new RegExp(year));
+      assert.match(link.href, new RegExp(`/${book}/page/n${leaf}/mode/1up$`));
     } else {
       assert.match(pane.textContent, /unresolved.*Beaubien|Beaubien.*unresolved/i);
       assert.match(pane.textContent, /Kinzie/i);
