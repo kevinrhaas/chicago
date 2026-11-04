@@ -21267,7 +21267,7 @@ cupola, because the drafter wrote that the cupolas he drew were "not yet built".
 **How to resolve:** a War Department estimate or return for the post of 1803-1812, the
 quartermaster's building accounts, or a dimensioned elevation; any of them would move the heights
 to inferred.
-**Covers:** `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.chimneys`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.roof_type`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.upper_overhang_m`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.chimneys`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.roof_type`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.upper_overhang_m`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.chimneys`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_flagstaff.first_fort_1803.footprint`, `first_fort_dearborn_flagstaff.first_fort_1803.form.construction`, `first_fort_dearborn_flagstaff.first_fort_1803.form.paint`, `first_fort_dearborn_flagstaff.first_fort_1803.form.roof_type`, `first_fort_dearborn_magazine.first_fort_1803.footprint`, `first_fort_dearborn_magazine.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_magazine.first_fort_1803.form.roof_type`, `first_fort_dearborn_magazine.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_north_range.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_north_range.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.chimneys`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_height_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_spacing_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_width_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_height_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_spacing_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_width_m`, `first_fort_dearborn_small_house_ne.first_fort_1803.footprint`, `first_fort_dearborn_small_house_ne.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_small_house_ne.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.roof_type`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.chimneys`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.chimneys`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.wall_height_m`.
+**Covers:** `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.chimneys`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.roof_type`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.upper_overhang_m`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.chimneys`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.roof_type`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.upper_overhang_m`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.chimneys`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_flagstaff.first_fort_1803.footprint`, `first_fort_dearborn_flagstaff.first_fort_1803.form.construction`, `first_fort_dearborn_flagstaff.first_fort_1803.form.paint`, `first_fort_dearborn_flagstaff.first_fort_1803.form.roof_type`, `first_fort_dearborn_magazine.first_fort_1803.footprint`, `first_fort_dearborn_magazine.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_north_range.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_north_range.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.chimneys`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_height_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_spacing_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_width_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_height_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_spacing_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_width_m`, `first_fort_dearborn_small_house_ne.first_fort_1803.footprint`, `first_fort_dearborn_small_house_ne.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_small_house_ne.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.roof_type`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.chimneys`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.chimneys`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.wall_height_m`.
 **Recorded:** 2026-10-04 (T-2049).
 
 
@@ -40469,3 +40469,69 @@ Nothing else moves. The peak stays below the unchanged 5.0 m main-block wall hea
 
 **Ticket:** T-2376.
 **Recorded:** 2026-11-04.
+
+### L-first-fort-magazine-barrel-vault-3041 — the magazine's vault, its rise and its profile
+
+**Covers:** `first_fort_dearborn_magazine.first_fort_1803.form.barrel_rise_m`
+
+**Supersedes:** L370's reconstructed `roof_pitch_deg` for `first_fort_dearborn_magazine` only.
+That attribute no longer exists on the record: a curved roof has a varying tangent, so a single
+pitch figure would state something the mesh does not contain. L370's historical entry stands
+unchanged, including this record's footprint and wall height and every other building in it.
+L370's claim on this record's `roof_type` has likewise stopped biting, because the owner's
+ruling gives that attribute a picture and it is now `inferred` with its two sources — the same
+move L-first-fort-ne-house-pyramid-3041 made for the north-east small house.
+
+**Decision:** The roof SHAPE is adopted, by the owner's ruling of 2026-11-03 (T-3335, carried
+out under T-3041), from two pictures that agree about it. Whistler's measured draught of
+January 25, 1808 draws the magazine — his index no. 4 — in elevation with an arched front
+springing from its side walls, and the bird's-eye printed at p. 27 of Currey's *The Story of
+Old Fort Dearborn* (1912) labels the same building 8 and draws it under a rounded vault. The
+attribute moves from `gable`/`reconstructed` to `barrel_vault`/`inferred`, and the archetype
+builds a circular segment whose axis runs along the building's depth. Nothing here is carried
+to the second fort's magazine, which is a separate record and keeps its gable.
+
+**What is invented, and stays invented — the whole profile.** Both pictures give a shape and
+no number. Neither dates the vault's completion, and neither measures a radius, a rise, a
+thickness, a colour or a roofing fabric. So:
+
+- The **rise of 1.0286254881847008 m** is not read from either picture. It is envelope
+  conservation: half of the shorter unchanged 3.05 m plan span times the tangent of the old
+  reconstructed 34-degree gable, which holds the crown at exactly the height the gable reached
+  (3.628625488184701 m over the seat). The old 34 degrees survives only inside that derivation
+  and is no longer a visitor-facing claim about any slope on the building.
+- The **radius of 2.9860699863584146 m** follows from that rise across the unchanged 4.51 m
+  front. It is therefore reconstructed twice over, and it makes a SHALLOW segment. Whistler
+  draws something much closer to a semicircle. We did not follow him there, because matching
+  his arch would raise the crown about 1.2 m above a height nothing attests and the only reason
+  to prefer the taller curve would be the draughtsman's hand. That gap between our curve and
+  the drawn one is a known, open difference, not a resolved one.
+- The **0.30 m roof projection** and the **0.07 m covering edge** are the archetype's existing
+  reconstructed figures, carried over so the change is the shape alone. Extending the same
+  circle out to that projection drops the side eave from the old gable's 2.397647445 m to
+  2.188061556 m, 0.209586 m lower. The overall footprint and the base-to-crown envelope are
+  unchanged; this one edge is not, and that is stated rather than hidden.
+- The **covering, material and colour** are the prior reconstruction, untouched. Both sources
+  are black-and-white line work and attest none of them. There are no ribs, no banding and no
+  per-strip paint: the vault carries one continuous height tone, which is a drawing decision of
+  this project's.
+- The mesh's **32 arc facets** are a resolution, not a count of anything historical.
+
+**What is not changed.** The surveyed seat and bearing; the phase and its date range; the
+4.51 m front width (half-measured) and the 3.05 m depth; the 2.6 m wall; the brick wall
+material; the door, window and vent counts and positions; the two brick end walls below the
+springing; every other building in the fort and the historical camera. No grade was promoted,
+no footprint moved and no date touched. An invalid rise, a non-finite derived radius, or a
+vault asked for with a chimney, a gallery, a cupola, a lantern, loopholes, a second storey or
+on anything but a magazine is REFUSED by the parameter check rather than clamped to something
+that would build.
+
+**How to resolve:** a contemporary section, a specification or an excavation of the magazine's
+footing would settle the rise and the thickness. Nothing in hand does. Whistler's elevation is
+contemporary but is not at the plan's scale and is not a measured section; Currey's plate is a
+1912 retrospective, after an 1899 newspaper sketch of an 1898 model, and its camera in this
+project is `diagnostic_only` for that reason.
+
+**Ticket:** T-3041 (piece of T-2387).
+**Review:** `data/reference_views/first_fort_dearborn_pickets_outer/currey_1912_birdseye.match.json`.
+**Recorded:** 2026-11-04 (T-3041).

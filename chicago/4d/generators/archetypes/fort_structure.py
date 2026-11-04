@@ -41,7 +41,8 @@ from common.logwork import (  # noqa: E402
 from common import materials  # noqa: E402
 from common import openings  # noqa: E402
 from common.mesh import MeshBuilder, ROOF_RGBA, simple_material  # noqa: E402
-from archetypes.fort_structure_params import (  # noqa: E402
+from archetypes.fort_structure_params import (
+    BARREL_EAVE_M,  # noqa: E402
     CUPOLA_CAP_PITCH_DEG, CUPOLA_EAVE_M, CUPOLA_HEIGHT_M, CUPOLA_SEAT_M,
     CUPOLA_SIDE_M, FortStructureParams, tower_opening_layout, wall_openings,
 )
@@ -278,7 +279,7 @@ def _building(b: MeshBuilder, p: FortStructureParams) -> None:
     frame_tavern.build and is not repeated here.
     """
     c_mass = p.worst_conf("kind", "stories", "construction")
-    c_roof = p.worst_conf("roof_type", "roof_pitch_deg")
+    c_roof = p.worst_conf("roof_type", "barrel_rise_m" if p.roof_type == "barrel_vault" else "roof_pitch_deg")
     w, d, wz = p.width_m, p.depth_m, p.wall_height_m
     over = p.overhang_m
 
@@ -354,6 +355,8 @@ def _roof(b: MeshBuilder, p: FortStructureParams, x0, y0, x1, y1,
     """
     c_wall = conf if c_wall is None else c_wall
     t = math.tan(math.radians(p.roof_pitch_deg))
+    if p.roof_type == "barrel_vault":
+        return _barrel_vault_roof(b, p, x0, y0, x1, y1, eave_z, conf, c_wall)
     if p.roof_type == "none":
         return eave_z
     if p.roof_type == "flat":
@@ -398,6 +401,69 @@ def _roof_plane(b: MeshBuilder, pts, conf: float, ridge_edge: int = None) -> Non
         b.add_poly([a, (a[0], a[1], a[2] - ROOF_EDGE_M),
                     (z[0], z[1], z[2] - ROOF_EDGE_M), z], conf, M_ROOF)
     b.tone_fn = prev
+
+
+def _barrel_vault_roof(b: MeshBuilder, p: FortStructureParams,
+                       x0, y0, x1, y1, eave_z: float, conf: float,
+                       c_wall: float) -> float:
+    """T-3041: a circular-segment magazine roof, its axis along local Y.
+
+    The pictures/owner ruling supply a vault, NOT its radius. The explicit
+    reconstructed rise preserves the old reconstructed gable's peak. Its varying
+    tangent is never called a uniform pitch. Walls, door and footprint stay put.
+    """
+    a = (x1 - x0) / 2.0
+    h = p.barrel_rise_m
+    radius = (a * a + h * h) / (2.0 * h)
+    o = BARREL_EAVE_M
+    if not math.isfinite(radius) or radius <= a + o:
+        raise ValueError("barrel side eave is outside the declared circle")
+    xm = (x0 + x1) / 2.0
+    crown = eave_z + h
+    zc = crown - radius
+    edge = math.asin((a + o) / radius)
+    spring = math.asin(a / radius)
+    # Exact crown and wall-seat samples; 32 arc facets are a mesh resolution,
+    # not a historical count. No radicand clamp or guessed replacement radius.
+    angles = sorted(set([-edge + 2.0 * edge * i / 32 for i in range(33)] +
+                        [-spring, 0.0, spring]))
+    profile = [(xm + radius * math.sin(t), zc + radius * math.cos(t)) for t in angles]
+    lo = profile[0][1]
+    prev = b.tone_fn
+    # One continuous height treatment, not a new random paint for every strip.
+    b.tone_fn = lambda q, _c, _m: (ROOF_EAVE_K +
+        (ROOF_RIDGE_K - ROOF_EAVE_K) * (q[2] - lo) / (crown - lo))
+    for (xa, za), (xb, zb) in zip(profile, profile[1:]):
+        b.add_poly([(xa, y0 - o, za), (xb, y0 - o, zb),
+                    (xb, y1 + o, zb), (xa, y1 + o, za)], conf, M_ROOF)
+    # A closed covering: underside, front/rear fascia and only the TWO outer
+    # side eaves. Per-strip perimeter thickness would put ribs inside the vault.
+    b.tone_fn = lambda _q, _c, _m: ROOF_EAVE_K * ROOF_EDGE_K
+    t = ROOF_EDGE_M
+    for (xa, za), (xb, zb) in zip(profile, profile[1:]):
+        b.add_poly([(xa, y0 - o, za - t), (xa, y1 + o, za - t),
+                    (xb, y1 + o, zb - t), (xb, y0 - o, zb - t)], conf, M_ROOF)
+        b.add_poly([(xa, y1 + o, za), (xb, y1 + o, zb),
+                    (xb, y1 + o, zb - t), (xa, y1 + o, za - t)], conf, M_ROOF)
+        b.add_poly([(xb, y0 - o, zb), (xa, y0 - o, za),
+                    (xa, y0 - o, za - t), (xb, y0 - o, zb - t)], conf, M_ROOF)
+    xa, za = profile[0]
+    xb, zb = profile[-1]
+    b.add_poly([(xa, y0 - o, za), (xa, y1 + o, za),
+                (xa, y1 + o, za - t), (xa, y0 - o, za - t)], conf, M_ROOF)
+    b.add_poly([(xb, y0 - o, zb), (xb, y0 - o, zb - t),
+                (xb, y1 + o, zb - t), (xb, y1 + o, zb)], conf, M_ROOF)
+    b.tone_fn = prev
+    # Only the two brick end infills change above the unchanged rectangular
+    # wall tops. Outward winding: front +Y, rear -Y. Geometry uncertainty follows
+    # the reconstructed rise (larger _CONFIDENCE means more reconstructed).
+    wall = [(xm + radius * math.sin(t), y1, zc + radius * math.cos(t))
+            for t in angles if -spring <= t <= spring]
+    wall[0] = (x0, y1, eave_z)
+    wall[-1] = (x1, y1, eave_z)
+    b.add_poly(wall, max(conf, c_wall), M_WALL)
+    b.add_poly([(x, y0, z) for x, _y, z in reversed(wall)], max(conf, c_wall), M_WALL)
+    return crown
 
 
 def _gable_roof(b: MeshBuilder, p: FortStructureParams, x0, y0, x1, y1, eave_z: float,
