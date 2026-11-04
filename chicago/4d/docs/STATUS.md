@@ -26139,3 +26139,26 @@ T-2383 stays owned and incomplete, with no new photo ticket.
 
 Actual street evidence: https://github.com/kevinrhaas/chicago-evidence/blob/de48d0b43c5df6fd9fae32143eab0c8ae2f98f1b/evidence/sauganash-2026-11-04/finite-street-review-and-unapplied-join-width-prep/STREET-CAPTURE-QUALIFICATION.json
 Refined unapplied proposal and peer: https://github.com/kevinrhaas/chicago-evidence/blob/b46dc28277df09824a871edfbebdbcc21c5317f2/evidence/sauganash-2026-11-04/finite-join-width-prep-v2-peer-reviewed/RECOVERY-V2.md
+
+
+### T-2383 — local source trial admitted; genuine25-output build still owed
+
+The approved Hotel-only shared-ridge join and reconstructed0.60m square shaft
+section are now applied to the local source, with legacy False/None defaults for
+other buildings. Explicit Liberties Covers name both new form controls. Official
+Liberties and SourceUse build/checks, full1031-record parameter validation, strict
+confidence and entry checks passed; official scene compilation/check now carries
+the new attributes to the visitor card. Current SourceUse/confidence checks pass.
+The original seven owner commands passed before an external reporting adapter
+misread the official FAIL prefix; that wrapper RED is retained. Its raw official
+staleness result is exactly25 errors:23 defaults plus two Tremont variants. It is
+expected RED before native, never a green staleness claim. No asset changed here.
+
+This is still an unqualified SOURCE stage. The producer-intended ridge rendezvous
+is not a measured historic intersection; shaft height, heads, count and stations,
+main dimensions, existing site, phase dates and cameras stay fixed. The new source
+commit must not be pushed until its public intent and separately reviewed exact
+root authorization bind it. The automatic same-feature push bake will be superseded
+by one scoped23-ID build expanding to25 outputs, with24 physical controls checked
+before WEB reuse. Actual source comparisons, current visitor checks and final
+gates remain owed; the whole-Hotel comparison still DIFFERS and T-2383 is not done.

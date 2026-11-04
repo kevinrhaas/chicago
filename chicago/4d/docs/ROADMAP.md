@@ -6402,3 +6402,17 @@ actual remaining shapes rather than preserving stale pixel/count placeholders.
 
 [Actual street review and history](https://github.com/kevinrhaas/chicago-evidence/tree/de48d0b43c5df6fd9fae32143eab0c8ae2f98f1b/evidence/sauganash-2026-11-04/finite-street-review-and-unapplied-join-width-prep/)
 [Unapplied V2 proposal and independent peer](https://github.com/kevinrhaas/chicago-evidence/tree/b46dc28277df09824a871edfbebdbcc21c5317f2/evidence/sauganash-2026-11-04/finite-join-width-prep-v2-peer-reviewed/)
+
+
+#### T-2383 local SOURCE stage — provenance current, native25 still pending
+
+The one joined-ridge/shaft-width candidate is locally applied with explicit Covers
+and official compiled SourceUse/scene views. All11 actual fast/derived owner steps
+pass on the full1031-structure/559-source tree; seven were executed before a
+reporting-prefix adapter failure and four in the properly closed derived-owner
+supplement. The raw stale owner remains RED at exactly23 defaults and two variants.
+No geometry output has been adopted. Source publication and native execution need
+a new exact source-bound authorization; one scoped build,24 control comparisons,
+actual source/visitor review and final checks still precede ordinary dev delivery.
+The finite original signoff remains the goal, without new photo tickets or claims
+that an unbuilt parameter request already matches the engraving.

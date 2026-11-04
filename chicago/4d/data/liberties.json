@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1003,
+  "count": 1004,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -67833,6 +67833,63 @@
         {
           "label": "Sources",
           "text": "\"THE SAUGANASH HOTEL.\" — wood engraving, in A. T. Andreas, History of Chicago…; existing held reproduction SHA256 `3884c16f72702fd3b1696663dd82b444ac26028b97472e03bd00a2fa75026afb`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-04."
+        }
+      ],
+      "work_refs": [
+        "T-2383"
+      ]
+    },
+    {
+      "id": "L-sauganash-ridge-join-and-shaft-section-2383",
+      "title": "A joined rear ridge and narrower shafts",
+      "section": "per_subject",
+      "subjects": [
+        "sauganash_hotel"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "sauganash_hotel",
+          "phase": "frame_1831",
+          "aspect": "form.cross_wing_shared_ridge_join"
+        },
+        {
+          "domain": "structure",
+          "structure": "sauganash_hotel",
+          "phase": "frame_1831",
+          "aspect": "form.ridge_end_chimney_section_m"
+        }
+      ],
+      "recorded": "2026-11-04",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Trial the existing interpretation of the Sauganash's two perpendicular roofs as meeting at a shared ridge, and a narrower square section for its two existing ridge-end brick shafts. The actual model had equal ridge heights but stopped the rear crest3.75m before the main crest; equality of heights alone did not fulfil the producer's shared-apex contract. Andreas/Braunhold1884 is the governing retrospective form view. The model gap is measured from its own vertices, not from a historical survey. This is a trial of the producer-intended shared-join contract; the engraving does not prove this exact historic roof intersection."
+        },
+        {
+          "label": "What is invented",
+          "text": "The geometric rendezvous uses the current main depth and the existing roof helper's overhang; it does not measure a historical junction or change the retained unmeasured outer wing length. The shaft's0.60m square section is a working reconstructed width-only trial, not metres read from the plate. Keep the two existing shaft stations, ridge+0.55m top heights and plain heads. No cap lip or new height is asserted."
+        },
+        {
+          "label": "What is retained",
+          "text": "Main footprint, existing placement, bearing, phase dates, walls,25.2-degree working pitch, outer wing depth, every opening, cornice, paint, separate Carpenter shop, stack count and brick finish. Other buildings retain the legacy helper and shaft sections by default. Source date and camera limits remain."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Compare actual newly retained native outputs in all four fixed source-dependent groups and at the already reviewed ordinary Lake Street human-eye approach. Reject the trial if materially worse. Apply other work to remaining visible shapes, retire pixel-only/count/duplicate gaps, and finish or release the original piece of work without photo followups. No match or completion is granted by this admission."
+        },
+        {
+          "label": "Covers",
+          "text": "`sauganash_hotel.frame_1831.form.cross_wing_shared_ridge_join`, `sauganash_hotel.frame_1831.form.ridge_end_chimney_section_m`."
+        },
+        {
+          "label": "Source",
+          "text": "\"THE SAUGANASH HOTEL.\" — wood engraving, in A. T. Andreas, History of Chicago…."
         },
         {
           "label": "Recorded",
