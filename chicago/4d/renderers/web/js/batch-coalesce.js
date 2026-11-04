@@ -158,6 +158,45 @@ function joinNeighbours(batch, n, bpe, starts, counts, indirect, group) {
 }
 
 /**
+ * T-3363 — A BLENDED BATCH'S CELLS IN THEIR STRUCTURE'S ORDER, AS `full` DRAWS THEM.
+ *
+ * three sorts a blended batch back to front entry by entry, so once a piece is cut
+ * into cells its glass is sorted cell by cell, and two cells of one pane are next
+ * to each other in the list only by chance: at the owner's 1904 walk at `light` the
+ * glass batch drew 972 entries for 9,663 triangles, nearly one draw per ten
+ * triangles. At `full` the same glass is one entry per piece, sorted back to front
+ * by the piece and drawn within it in its own triangle order.
+ *
+ * This sort gives the cells that order back: the pieces (the runs `groupsOf`
+ * finds: one structure, one matrix, one paint) back to front by the mean depth of
+ * their kept cells, and each piece's cells in the order they were added, which is
+ * the piece's own triangle order. Neighbouring kept cells of one piece then touch
+ * in the list and `joinNeighbours` joins them. Between pieces the order is
+ * three's back to front; within one, it is `full`'s.
+ */
+export function sortCellsByPiece(batch) {
+  if (!COALESCE_ON) return;
+  batch.customSort = function sortByPiece(list) {
+    const group = groupsOf(this);
+    let acc = this.userData.pieceDepth;
+    if (!acc || acc.sum.length < group.length) {
+      acc = { sum: new Float64Array(group.length), n: new Int32Array(group.length) };
+      this.userData.pieceDepth = acc;
+    }
+    for (let k = 0; k < list.length; k += 1) { const g = group[list[k].index]; acc.sum[g] = 0; acc.n[g] = 0; }
+    for (let k = 0; k < list.length; k += 1) { const it = list[k]; const g = group[it.index]; acc.sum[g] += it.z; acc.n[g] += 1; }
+    list.sort((a, b) => {
+      const ga = group[a.index], gb = group[b.index];
+      if (ga !== gb) {
+        const za = acc.sum[ga] / acc.n[ga], zb = acc.sum[gb] / acc.n[gb];
+        return za !== zb ? zb - za : ga - gb;
+      }
+      return a.index - b.index;
+    });
+  };
+}
+
+/**
  * Wrap a structures batch so both its passes draw joined runs. The sun's pass
  * reaches `onBeforeRender` through three's own `onBeforeShadow` (and through
  * shadow-casters.js, which wraps that), so one wrap serves both.
