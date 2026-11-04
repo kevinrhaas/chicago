@@ -2,15 +2,19 @@
   "structure_id": "dearborn_street_drawbridge",
   "view": "andreas_1884",
   "glb": "assets/gltf/dearborn_street_drawbridge__draw_1834.glb",
-  "glb_sha256": "c7408d424c67488f56650e190fdd7af6a23a667c67f005dff1849ef20c3b2f84",
+  "glb_sha256": "869ca317179e01bdd087f73c23dc3d53955750b9a1ca6425ec029140aff6b1e1",
   "camera_sha256": "f8db35a138c7bd489e1ee22e5b76e72dc083ee64f4f07f027dc1aae91d7333e3",
   "photo_sha256": "e050ec582de1c82416a77ac9958fdc7ac174946037ac7c7816f93367f182aa8b",
   "side_by_side": "docs/RESEARCH/photo-match/dearborn_street_drawbridge/andreas_1884-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
     {
-      "what": "Two gallows, high outer braces, peaked closed draw, boarded parapets and two piled bearing caps are physically present in the selected native mesh.",
+      "what": "Two gallows, high outer braces, boarded parapets and two piled bearing caps are physically present in the selected native mesh.",
       "status": "fixed"
+    },
+    {
+      "what": "The picture draws the closed draw rising to a ridge at mid-river; the model lays the lowered leaves level with the approaches. The owner, 2026-11-03: “when the bridge was down did it really have a peak in the center like this, it seems very odd to me that would be the case” (T-3361; argued on form.draw_profile). Do not restore the rise without asking the owner.",
+      "status": "owner ruling"
     },
     {
       "what": "Projected post widths, deck ridge perspective and neutral review tone differ between retrospective pictures and finite diagnostic camera fits; root accepted these within illustration/camera uncertainty underT3153. No metric or historicpaintclaim.",
