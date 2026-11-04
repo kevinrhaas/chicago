@@ -1910,6 +1910,77 @@
         "note": "GitHub-hosted ubuntu-latest; original job log and run metadata retrieved through GitHub connector"
       },
       "source": "gh-run:37157020341 https://github.com/kevinrhaas/chicago/actions/runs/37157020341"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1-2",
+      "parts": [
+        1,
+        2
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 193,
+      "failed": 5,
+      "failures": [
+        "mobile 390x780: the yard layer stands the record's goods — 158 object(s) on 29 frontage(s) from 8 record(s), 85 wagon(s), 1 bench(es), 0 shed(s), 572964 vertices, 80 frontage(s) refused",
+        "mobile 390x780: exact owners reject missing, unknown, misassigned, overlapping and out-of-buffer ranges and displaced bench/wagon vertices — {\"missingRejected\":true,\"unknownRejected\":true,\"misassignmentRejected\":false,\"outsideRejected\":true,\"overlapRejected\":true,\"displacementRejected\":true,\"wagonCleanAccepted\":false,\"wagonDisplacementRejected\":false}",
+        "mobile 390x780: every owned covered-wagon vertex stays within its original 4.6 m bound — actual {\"vertices\":0,\"outsideBay\":0,\"maxRadius\":0}; displaced outside-bay control {\"vertices\":0,\"outsideBay\":0,\"maxRadius\":0}",
+        "mobile 390x780: the Green Tree's wagon shed is a lean-to that clears its tilt — 0 shed(s), bay undefined x undefined m, eave undefined m over a 2.60 m tilt, head undefined m, undefined m clear, covered wagon MISSING",
+        "mobile 390x780: nothing in the shed's bay reaches through its wall or its roof — 0 vertices in the bay, Infinity m behind the wall, -Infinity m out from it, undefined m tall against a undefined m head"
+      ],
+      "wallSeconds": 360,
+      "takenAt": "2026-11-04T04:12:59.766Z",
+      "ref": "steward/t2374-cobweb-front-apertures",
+      "commit": "ee8529e2c5c9",
+      "devCommit": "22d624f3e506",
+      "treeHash": "sha256:1d5c963082e572d5",
+      "treeDirty": false,
+      "changelogHash": "sha256:360dd63fd8fae06d",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          1.7,
+          3.3,
+          3.7
+        ]
+      },
+      "source": "/tmp/smoke-mobile-12.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "14",
+      "parts": [
+        14
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 15,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: the suite body ran to completion — Error: page.evaluate: Target page, context or browser has been closed"
+      ],
+      "wallSeconds": null,
+      "takenAt": "2026-10-28T01:35:34.773Z",
+      "ref": "steward/t3214-goodman-law-walks",
+      "commit": "3ca5c9940cec",
+      "devCommit": "1f999039ef5b",
+      "treeHash": "sha256:37847de93c963a8d",
+      "treeDirty": false,
+      "changelogHash": "sha256:dfc955be37d950ec",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4,
+          4.7,
+          4.8
+        ]
+      },
+      "source": "/tmp/smoke_d14.log"
     }
   ]
 }

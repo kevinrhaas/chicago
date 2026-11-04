@@ -2665,6 +2665,18 @@ step "the business signboards re-derive from the rule that chose their frontages
 step "no flat signboard hangs across a log front's mid-wall corner notches (T-3268)" \
   python3 tools/test_log_notch_front.py
 
+# ...AND A STATED COMPOUND APERTURE SET STAYS INSIDE ITS OWN WALL AND RAKE (T-2374). The
+# Agency House's picture draws two upright marks on the ground and a small one above
+# them, which the one-opening-per-room compound rule could not say. The opt-in that says
+# it is bounded here: its gable geometry tracks the builder's own overhang, its set
+# OVERRIDES the room's centre opening rather than standing beside it, the entrance reader
+# still finds exactly one grounded way in, and every other log_dwelling record resolves
+# with the set absent and its legacy front unchanged.
+step "a stated compound aperture set is read once, overrides its room's opening and leaves every other log front alone (T-2374)" \
+  python3 tools/test_log_compound_apertures.py
+selftest "a stated compound aperture set is refused outside its room's wall, through its own rake, with two ways in or on the bounded elbow" \
+  python3 tools/test_log_compound_apertures.py --self-test
+
 # ...AND THE RULE IS LOCAL (T-0405). "Re-derives" only says the committed file matches the
 # rule; it says nothing about how far one frontage reaches. Until T-0405 the mounting was
 # dealt from a counter walked down the town in id order, so admitting one frontage in the

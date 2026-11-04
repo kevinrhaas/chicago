@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2641, ts: '2026-11-04T04:43:37.564Z', date: 'Nov 3, 2026, 10:43 PM CT', title: 'The Agency House\'s front gets the openings its picture draws', kind: 'improve',
+    items: [
+      'Cobweb Castle\'s centre gable now carries two upright apertures standing on the ground and one small light above them, which is the count the 1831 Wau-Bun panorama draws. The single centred door it had before is gone.',
+      'The right-hand aperture is the way in, so the worn path to the door shifts with it. Which of the two was the door is our choice, not the picture\'s.',
+      'Everything else about the house is unchanged: its five rooms, roofs, chimneys, size and placement, and its bare hewn-log finish. The picture and the model still differ in all of those, and its match is not claimed.',
+    ] },
   { v: 2640, ts: '2026-11-04T04:13:37.317Z', date: 'Nov 3, 2026, 10:13 PM CT', title: 'The Lake House\'s later address, checked', kind: 'change',
     items: [
       'Its Record now cites Fergus\'s 1876 recollection of an 1839 address at Rush and North Water, alongside the conflicting Michigan Street account. The July 1835 building site remains uncertain.',
