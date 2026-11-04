@@ -1,0 +1,48 @@
+{
+  "schema": "horse-eye-normal-only-source-study-v1",
+  "state": "UNADOPTED_UNQUALIFIED_SOURCE_STUDY",
+  "parent_sha256": "e49b6f1c9f7b70f1fcdf19fa7f6dddf54048b32256b4d8030d6238d6dfe79d49",
+  "parent_bytes": 4159196,
+  "parent_public_source": "kevinrhaas/chicago-evidence CP15 2c76735371058f52d1e7c275f23dd25c1ffedfda (exact e49 source)",
+  "normal_accessor": 208,
+  "position_accessor_read_only": 207,
+  "construction": "Separate negative-X and positive-X actual near-spheres; deterministic centered algebraic least-squares unique POSITION fit; outward normalize(P-center), Float32 serialized. All source vertex positions remain fixed.",
+  "eyes": {
+    "negative_x": {
+      "center_m": [
+        -0.08190010690063015,
+        1.5196372239921074,
+        1.3421662949986715
+      ],
+      "unique_positions": 482,
+      "radius_min_m": 0.03482851579508493,
+      "radius_max_m": 0.03483169472570869,
+      "radius_mean_m": 0.03483021956476016
+    },
+    "positive_x": {
+      "center_m": [
+        0.08116699382591966,
+        1.5196359365078531,
+        1.3421654682847983
+      ],
+      "unique_positions": 482,
+      "radius_min_m": 0.0348283862513641,
+      "radius_max_m": 0.0348315926789398,
+      "radius_mean_m": 0.0348300923727712
+    }
+  },
+  "fit_limits": {
+    "unique_positions_per_eye": 482,
+    "radius_mean_min_m": 0.0348,
+    "radius_mean_max_m": 0.0349,
+    "radius_max_minus_min_max_m": 4e-06,
+    "fit_center_repeat_tolerance_m": 1e-12
+  },
+  "scope": "Only eye NORMAL bytes plus truthful existing accessor208 min/max. No source installation, metadata/certificate rebinding or old qualification transfer.",
+  "not_improved": [
+    "BODY socket/ring thickness",
+    "cheek topology/silhouette",
+    "hair geometry/alpha/texture detail"
+  ],
+  "qualification": "NONE: source invariants only; old e49 certificate remains applicable only to exact e49 parent. Native old/new source-view comparison is a later separate study."
+}

@@ -21267,7 +21267,7 @@ cupola, because the drafter wrote that the cupolas he drew were "not yet built".
 **How to resolve:** a War Department estimate or return for the post of 1803-1812, the
 quartermaster's building accounts, or a dimensioned elevation; any of them would move the heights
 to inferred.
-**Covers:** `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.chimneys`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.roof_type`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.upper_overhang_m`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.chimneys`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.roof_type`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.upper_overhang_m`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.chimneys`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_flagstaff.first_fort_1803.footprint`, `first_fort_dearborn_flagstaff.first_fort_1803.form.construction`, `first_fort_dearborn_flagstaff.first_fort_1803.form.paint`, `first_fort_dearborn_flagstaff.first_fort_1803.form.roof_type`, `first_fort_dearborn_magazine.first_fort_1803.footprint`, `first_fort_dearborn_magazine.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_magazine.first_fort_1803.form.roof_type`, `first_fort_dearborn_magazine.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_north_range.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_north_range.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.chimneys`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_height_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_spacing_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_width_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_height_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_spacing_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_width_m`, `first_fort_dearborn_small_house_ne.first_fort_1803.footprint`, `first_fort_dearborn_small_house_ne.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_small_house_ne.first_fort_1803.form.roof_type`, `first_fort_dearborn_small_house_ne.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.roof_type`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.chimneys`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.chimneys`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.wall_height_m`.
+**Covers:** `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.chimneys`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.roof_type`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.upper_overhang_m`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.chimneys`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.roof_type`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.upper_overhang_m`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.chimneys`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_flagstaff.first_fort_1803.footprint`, `first_fort_dearborn_flagstaff.first_fort_1803.form.construction`, `first_fort_dearborn_flagstaff.first_fort_1803.form.paint`, `first_fort_dearborn_flagstaff.first_fort_1803.form.roof_type`, `first_fort_dearborn_magazine.first_fort_1803.footprint`, `first_fort_dearborn_magazine.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_magazine.first_fort_1803.form.roof_type`, `first_fort_dearborn_magazine.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_north_range.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_north_range.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.chimneys`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_height_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_spacing_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_width_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_height_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_spacing_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_width_m`, `first_fort_dearborn_small_house_ne.first_fort_1803.footprint`, `first_fort_dearborn_small_house_ne.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_small_house_ne.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.roof_type`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.chimneys`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.chimneys`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.wall_height_m`.
 **Recorded:** 2026-10-04 (T-2049).
 
 
@@ -24422,7 +24422,10 @@ The verandah's two piers between its arches stand as the photograph's columns (T
 square abacus at the springing; the photograph's capitals are carved leafage a few pixels across, and the
 tiers, the 24 flutes and the shafts' diameter (read as about 15 px against the openings' 45-50 px) stand
 for the Tribune's "Corinthian fluted columns". The verandah's end piers stay solid, as the photograph
-shows them. The rear range is built to its second
+shows them. Across the verandah's three openings (T-3357) stands an iron rail, a 0.06 m square bar from jamb to
+column at 0.8 m over the floor on one standard in each opening's middle: the photograph's dark bar and the
+dark upright under it in its first two openings, a few pixels across, so the section and the standard's
+count are reconstructed and the iron is the dark tone's reading. The rear range is built to its second
 storey's head (9.45 m) under a flat roof, short of the Tribune's 37 ft cornice.
 
 **How to resolve:** T-1901's next piece re-solves the photograph's camera (its present fit is provisional:
@@ -39890,6 +39893,185 @@ not evidence of a graded lawn.
 **Covers:** `elbridge_keith_house_1900_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-3322.
 **Recorded:** 2026-11-03 (T-3322).
+### L-horse-upper-eye-contour-3088 — bounded upper-lid strip and upper-orbital contour
+
+**Recorded:** 2026-10-29 (recovery of source work recorded26–27October2026). **Ticket:** T-3088.
+
+**Sources:** `ellenberger_baum_dittrich_equine_plates`,
+`seton_1892_equine_skeleton`, `vassil_2014_konik_horse_anatomy`,
+`joselodos_2025_horse_anatomy`; original licensed model
+`sevketkabatas_2021_horse_model`. Their existing rights, dates and limits remain.
+
+**Ancestry:** `L-horse-anatomy-master-3088` remains the unchanged declaration for
+the already-delivered925 hoof/body refinement. Those hoof domains, proportions,
+placement and support are preserved ancestry, not new work under this record.
+
+**Decision and reconstruction:** add only the5a fixed-boundary upper-lid strip and
+its e49 upper-orbital contour child. Cleared head/eyelid references guide the local
+rest-surface reconstruction; they do not calibrate an1835Chicago animal, breed,
+owner, coat, or absolute historical dimensions. Control centres, local offsets
+and the resulting unseen geometry remain bounded project choices.
+
+**Upper-lid source update:** the exact fixed-boundary strip child
+`5a2b2e87c3931e3ab82be3ce3bc69724a0a088aac30920cea9ad348bbaf8fad5`
+retains the original925 master as an immutable ancestor and replaces142 head face
+slots without inherited face ancestry. Its41 interior position/normal rows and64
+fixed boundary rows leave the rounded hoof domains unchanged. Only internal BODY
+UV rows2410/2412 are repaired from original boundary barycentres; every EYE UV,
+image, skin row, rig and standing clip stays exact.
+
+**Upper-lid qualification boundary:** the distinct opt-in
+`canonical_socket_interface_v1` mode derives20 unchanged same-side interface faces
+from actual925 source intersections. Complete BODY loci must remain inside the
+original closed same-side globe within14mm of the original same-face curves;
+globe contacts stay within7mm of original patch/globe curves. These fixed
+engineering bounds are not plate measurements. Patch/patch, exterior, wrong-side
+and undeclared crossings fail. Seventeen genuinely new globe contact faces are
+disclosed. Actual static, native65keys+64midpoints and all129 posed socket checks
+qualified the exact5a source; the original9176-byte physical loop and physical
+limits stay unchanged. The earlier strict24 BODY/82 globe rejection remains
+preserved rather than relabelled as passing. Current app/yard/phone comparisons
+and a fresh complete source gate remain required. Broad brow ridge, lower pale
+ring/fur and full photographic surface/LOD work remain open under T-3088/T-3089;
+no gait, rider, driver, breed or historical-individual acceptance is asserted.
+
+
+**Explicit upper-orbital transition (27 October 2026):** exact e49b is a reconstructed child of preserved5a. Ten BODY X coordinates and38 normals over44 faces reduce the raised upper-eye ledge; six formerly fixed boundary rows are declared in this new region rather than waived under the old recipe. All eye/UV/image/skin/rig/standing-foot tables and the original source prefix remain exact. Recorded27October2026 e49 source/static and actual65-key+64-midpoint physical/socket129 proof passed under unchanged20mm/4MiB/20ktriangle,20-face same-side14/7mm and original physical-loop limits. Matched source views support a small visible ledge reduction; dark upper-eye appearance, pale ring and pointed forelock remain conspicuous and are not automatically paint-only or wholly assigned to the surface sibling. Stocky unchanged body proportions are retained as plausible generic anatomy. No calibrated plate millimetres, breed/identified individual, Chicago ownership, T3088DONE or broad photo/gait/tack acceptance is claimed. Canonical owners, actual current yard views, full source gate and CI remain required before delivery.
+
+**Recovery limit:** this29October2026 source recovery preserves the exact historical certificate and asset bytes; external raw129 arrays are unavailable and physical129 was not rerun. Current published-yard views and full source/CI gates remain separate.
+
+
+### L-horse-eye-smooth-normals-3088 — source-derived eye shading normals
+
+**Recorded:** 2026-10-29. **Ticket:** T-3088.
+
+**Source:** `sevketkabatas_2021_horse_model`, the existing licensed modern
+“Horse” model by sevketkabatas under CC-BY-4.0, via its preserved acquisition
+lineage. Exact e49 is preserved as the parent;
+`L-horse-upper-eye-contour-3088` and `L-horse-anatomy-master-3088` remain
+unchanged BODY reconstruction records.
+
+**Decision and reconstruction:** derive outward unit shading normals from each
+actual source eye's near-spherical POSITION rows. Only3968 EYE NORMAL rows and
+the existing NORMAL accessor's truthful min/max change. No position, silhouette,
+index, skin, rig, animation, UV, image or material is altered. The fit is a
+rendering choice on a modern generic asset, not a measurement of an1835 Chicago
+animal, breed, individual, owner or coat. Source rights and model credit remain.
+
+**Observed scope:** root personally inspected eight matched fixed-light
+RAW-material parent/candidate source views. Clear triangular shading bands recede
+in the eye close-ups, with a subtle change in head views. The angular silhouette,
+heavy BODY socket/ring, painted appearance and mane remain unchanged. This
+viewer did not use the native organic-dielectric material/world and establishes
+no native-world benefit or photographic acceptance.
+
+**Exact-child source qualification:** canonical static11.384s, actual native
+standard-loader/SkeletonUtils clone/Mixer65keys+64midpoints73.616s and all129
+posed socket samples225.420s passed on exact bd443 bytes; complete
+pipeline314.328s with cleanup complete and no remaining owned children. The
+original9176-byte physical loop, all original physical limits,178 scan faces,
+20 unchanged same-side interface faces and14/7mm locus bounds remain fixed.
+Each posed sample retains24 BODY pairs and82 globe contacts; no new
+exterior/undeclared/patch-patch crossing is admitted. The new source-bound
+summary records actual capture/Float64-array/posed-result hashes. Old e49/5a
+certificates remain exact-parent history, never transferred.
+
+**Remaining qualification:** this child is source-selected, while new native
+organic published-yard comparison, phone/desktop app acceptance, canonical
+Liberty/source-use owners and complete source gates/CI remain pending. No BODY
+ring/topology/hair, placement/support, walking, rider, driver, tack, whole
+T-3088/T-3089 photographic acceptance or historical identification is claimed.
+
+
+### L-horse-natural-planted-idle-2803 - pending reconstructed standing head look and tail flick
+
+**Decision:**
+
+**State: authored source preparation only; no runtime selection.** The owner
+reported that the1835 horse looks motionless. Its selected13track body/leg shift
+remains unchanged. A separately versioned bd443 child adds a slow neck/head look
+and one lateral tail flick on existing joints2/3/4/5, exported as a real second
+17track glTF clip. All original geometry, rig, skin, six images, UVs/materials,
+oldclip and BINprefix remain exact. This motion is a reconstructed general idle,
+not an attested action by a known1835 animal, breed or individual. No donated
+source animation, independent ear joint, route or gait is introduced.
+
+The canonical frame is+Yup/+Zforward/+Xleft. Bounded local neck yaw/pitch2/0.75deg,
+head4/1.5deg and tail-base/tip lateral Zroll4/8deg are project choices. The tail
+points predominantly downward, so Zroll sweeps left/right rather than twisting
+its longaxis. Full original hoof patches179/179/30/24 vertices have zero weight
+on the four new targets; actual native deformation/contact/socket acceptance
+remains REQUIRED. Existing fourteen qualifying files and fixed physical/socket
+limits remain unchanged. A separate fresh native129/posed129 record is mandatory;
+no bd443/e49 certificate transfers. This preparation adds no selected runtime
+master, photographic acceptance, walk/trot, rider/driver or interactive transport.
+
+
+#### 29 October 2026 — prepared horse anatomical binding v2 (T-2803)
+
+The existing Horse model is re-bound by a project-authored reconstructed skull,
+cervical-chain and tail field, without changing its rest shape or movement keys.
+The actual earlier lower-jaw skin tear motivates this repair. Existing public-
+domain Ellenberger/Baum/ Dittrich plate and CC0Joselodos anatomy references guide
+regions only; no copied pixels, calibrated movement measurement, archival animal
+identity or historical breed is claimed. A separate original925-geometry
+reference receives the identical new binding for like-for-like future tests.
+These new prepared assets have no posed, visual, photographic or DEV acceptance
+and are not enabled. All earlier credits, liberties and failed trials stand.
+
+
+#### 29 October 2026 — prepared root-aware mane binding v3 (T-2803)
+
+Long hanging source mane ribbons are assigned to reconstructed dorsal-crest root
+attachments using8actual source-geometry guide points and a continuous rootheight
+profile. This separates root attachment from the falling tip's height; it is a
+project anatomical binding choice, not calibrated hair simulation or attested
+historical grooming. The actual V2hair-area failure is preserved. Only declared
+HAIRskinrows change; original BODY/EYE/tail/shape/textures/rig and both clips stay
+exact. All previous source credit, liberties and failedtrials stand. No motion,
+photographic, rider/driver, towntraffic or DEV acceptance is inferred from source
+export. Fresh native/paired/world qualification remains required before enabling.
+
+
+**Recorded:** 2026-10-30.
+
+
+### L-horse-quiet-head-neck-idle-2803 - reconstructed quiet standing head and neck motion
+
+**Decision:**
+
+The 1835 Western Hotel yard horse's gentle head/neck look and body weight shifts are reconstructed animation, not a claim about an identified historical animal. The quiet12s runtime retains the original13 standing tracks plus full neck/head curves; the newly proposed tail flick is omitted because it failed its unchanged deformation limits. The original clip/assets and failures remain preserved. A separately versioned HEAD skin field and paired925 reference were freshly qualified at65keys+64midpoints under original14mm BODY,7mm globe-contact, unchanged physical limits and zero new exterior crossings. The exact new finite certificate is badca71fb2ab7596be9447adaf01b3d035d5a59c7b844bc27b500d0a004d78a6; it is not continuous collision, native-yard/video, photographic, gait, rider, driver or traffic acceptance. Original body/eye geometry, coat/maps/materials, source rig, and actual yard placement/support remain unchanged. Visitors can still inspect the horse card and its reconstructed standing action.
+
+**Recorded:** 2026-10-30.
+
+
+### L-natural-standing-1790 — a reconstructed standing look and breath
+
+**What is reconstructed:** Otis Bardwell is the existing reconstructed resident, not a documented likeness. An original eight-second portable animation derivative adds a small head/neck look and breathing to his existing rig. Amplitudes and timing are project-authored, ordinary standing choices, not a witnessed action, occupation, greeting, cultural gesture or historical fact. The same source body, clothing, appearance, location, lower-body and original arm/elbow channels remain. No walking route, dialogue, driver, rider or new person is introduced. The original canonical GLBs and their qualification describe the parents only; the new animation needs its own actual native, contact, sampled garment and published scene review. This is a bounded idle increment; continuous fit, photographic quality and the rest of T-1790 stay open.
+
+**How to resolve:** Better qualified animation and tailoring, reviewed in the published town; retain reconstructed action and timing unless documentary evidence supports a narrower statement.
+**Ticket:** T-1790.
+**Recorded:** 2026-10-29 (T-1790).
+
+### L-driven-team-hitch-2804 — Surface-fitted two-horse draft connections
+
+**Decision:** The owner requested occupied moving wagons/carriages and nearby interaction. This limited original reconstruction fits leather collar/girth/nose/poll bands to the selected current26 horse surface, with visible trace guides, wood singletrees/evener/neck yoke and reins terminating on independently measured posed palm surfaces. Band construction, leather/wood/iron colors and dimensions, fittings, exact animals, driver activity and routes are unpictured choices. The noseband/headcollar does not establish a historically attested bit, training method, owner or equipment maker. No closed-finger grasp or force/load physics is asserted. The independent driven Brougham clone lifts/steers its pole about the actual rear beam datum; the original empty parked carriage is unchanged. Broader photographic, full collision/contact, gait, driving and boarding acceptance remain open pending their actual checks.
+
+**Recorded:** 2026-11-02.
+
+### L-driven-town-circuits-2804 — Reconstructed occupied town circuits
+
+**Decision:** The owner requested a person driving a wagon or carriage around a loop in1835 and1904 with walk-up interaction. The1835 demonstration uses a reconstructed18m-radius circle on level ground southwest of town, with no historical-road, hotel-proximity or recorded-journey claim. The unchanged1904 carriageway candidate remains physically unqualified on the actual street ground. The exact vehicles, horses, team assignment, timetable and route are reconstructed activity. Otis's existing1835 figure is temporarily transferred rather than duplicated; Hans Johnson's existing inferred1904 coachman identity retains its census1900 basis and uncertain continued presence, while appearance, seated action and this journey remain reconstructed. No household carriage ownership, attested trip, archival likeness or dialogue is manufactured. Stop/continue is the first interaction; boarding, riding, force physics, broader photographic quality and continuous world contact remain separate acceptance questions.
+
+**Recorded:** 2026-11-02.
+
+### L-working-driver-1904-2804 — Reconstructed appearance and seated work of Hans Johnson
+
+**Decision:** T-2804/L418 — bounded1904 driven-vehicle increment: the reusable adult35 working-driver depiction ingredient is assigned to existing inferred coachman Hans Johnson (1900census, current project1904presence inference). His appearance, height, complexion, plain shirt/waistcoat/trousers/shoes, Brougham assignment, activity and loop are reconstructed. The census is not a portrait, wardrobe inventory, carriage ownership proof or1904journey record. Body/skin/hair/workwear graphical sources remain the cleared CC0 inputs. A new static seated clip is solved to actual Brougham cushion/footboard surfaces; finite CPU skin/contact and portable format checks do not establish closed-finger rein grasp, continuous occupied-world collision, phonebudget or photographic acceptance.
+
+**Related:** L418 is the existing portable-human depiction liberty; this named model/assignment supplement does not replace or rewrite it.
+
+**Recorded:** 2026-11-02.
 
 ### L-pullman-1729-light-foot-1881 — 1729 Prairie's big principal-storey light set on its sill with ears, a longer sill on two blocks under it and a sunk panel below, off the 1890 Albertype plate; the parts' projections reconstructed
 
@@ -39943,6 +40125,29 @@ The main-body reference footprint and source placement remain unchanged. Separat
 **Ticket:** T-2376.
 **Recorded:** 2026-11-03.
 
+### L-pullman-1729-rear-stack-1934 — 1729 Prairie's stack behind the rear face, off Taylor's photograph 16554: its being there read, its place reconstructed
+
+**Decision:** the Pullman house gains a fourth stone stack on the deck behind the rear (east) face
+(`chimneys.stacks[3]`, at u 1.4, v 10.0, top 18.4 m). Taylor's no. 16554 (AIC; camera
+`data/reference_views/pullman_house_1729_prairie/taylor_16554_from_south.json`) shows it rising
+behind the rear face between that face's two dormers. **What is read, not invented.** That the
+stack stands there, of stone, about 10 px wide at x 512-523, its cap at y 317, about 4 px over the
+deck's cresting beside it (about 1 m across and about 0.4 m over the cresting top), and that it
+stands about a third of the way from the face's first dormer to its second (14 px and 26 px).
+**What is invented.** Its place on the deck. The camera was fitted on the ground and the stable, not
+the house's rear: it draws the rear face about 156 px long where the print draws it about 73, so no
+pixel can be carried to the deck through it, and the stack is placed against the dormers instead.
+Read along the face, the print's third falls at about v 12.4, between the south section's dormer
+(v 14.93) and the rear step's south dormer (v 8.04); but a stack 1-2 m behind the face is seen from
+this oblique eye well left of the dormers below it, and at v 11.9 it rendered directly over the
+first. At v 10.0, on the rear step's deck just behind its mansard's lower slope, it renders a third
+of the way between the two, as the print draws it. Its plan (the house's 1.0 x 0.8 m) and its cap
+are the house's other deck stacks'.
+**How to resolve:** a camera for 16554 fitted on the house's rear face (its corners and dormers),
+or the CHM 1905 views from the east, would place the stack on the deck.
+**Ticket:** T-1934.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg`.
+**Recorded:** 2026-11-03 (T-1934).
 
 ### L-green-tree-closed-shoulder-working-2376 — the enclosed shoulder as a working reading
 
@@ -39985,3 +40190,59 @@ The separate1.10m gate, diagonal brace, hinge, pose, stock and endpoint spacing 
 
 **Ticket:** T-2380.
 **Recorded:** 2026-11-03.
+
+### L-first-fort-ne-house-pyramid-3041 — the north-east small house's four-sided cap
+
+**Covers:** `first_fort_dearborn_small_house_ne.first_fort_1803.form.roof_pitch_deg`
+
+**Supersedes:** L370's reconstructed roof for `first_fort_dearborn_small_house_ne` only —
+that record's `roof_type` is no longer ours to admit to, because the owner's ruling gives it
+a picture and the attribute is now `inferred` with its sources, so L370 has stopped claiming
+it. Keep L370's historical entry and every other height, roof, stack, picket and depth in it,
+including the south-west small house's roof and this house's own plan depth and wall height.
+The pitch below is still ours, which is why this entry stands rather than resolving.
+
+**Decision:** The roof SHAPE is adopted, by the owner's ruling of 2026-11-03 (T-3335,
+carried out under T-3041), from the bird's-eye of the first Fort Dearborn printed at p. 27
+of Currey's *The Story of Old Fort Dearborn* (1912) — `currey_1912_first_fort_birdseye`.
+The plate draws a small building in the fort's north-east inner angle under an unmistakable
+four-sided cap: a point apex, two hips to the eave corners, no ridge. The attribute moves
+from `gable`/`reconstructed` to `pyramid`/`inferred`, and the reasoning is the owner's
+building-by-building comparison of that plate with Whistler's 1808 draught, which identifies
+the building (his index no. 16) but is silent about its roof.
+
+**What is invented, and stays invented.** Everything about the roof except its topology. The
+34-degree pitch is this archetype's reconstructed working figure and was so before the change;
+the drawing is not metric and no pitch can be read from it. So are the roof's covering (riven
+boards), its board widths, the eave overhang, and the 3.72 x 3.05 m footprint's depth — the
+register measured the 12.2 ft width off an elevation and the 10.0 ft depth is ours, which the
+record already says. The wall height of 2.4 m is unattested. None of these was touched to fit
+the plate, and the surveyed seat, bearing and the 75 ft flagstaff are unchanged.
+
+**What the source can and cannot carry.** `currey_1912_first_fort_birdseye` is a 1912
+retrospective reconstruction, after a *Chicago Daily Tribune* sketch of 1899 of Van den
+Berghen's 1898 model; its own camera in this project is marked `diagnostic_only`, because the
+same fit cannot hold both the plan corners and the flagstaff. It is evidence of a shape
+somebody drew, not of a building somebody saw. It therefore supports `inferred` and could not
+support `attested`, and the structure's own grade is left where it was for that reason: this
+change does not add the house to the picture's `card_members`.
+
+**What is invented in the builder.** The pyramid's eave is the footprint scaled about its
+centre rather than grown by a constant margin, so that all four planes pass through the wall
+head exactly (measured: 0.000 m, against 0.023 m of wall left standing through its own roof
+under a constant overhang on this rectangle). The consequence is an overhang of 0.258 m across
+the long span against 0.212 m across the short one. That asymmetry is a drawing decision of
+this project's, not a reading of any source.
+
+**What is not changed.** The walls, materials and ground contact; the 0.86 x 1.88 m batten
+front doorway; the rear vent; every other outbuilding in the dataset, whose gable and shed
+branches are untouched. A pyramid with an open side, a loft or a chimney is refused rather
+than approximated.
+
+**How to resolve:** nothing can. No contemporary sheet draws this building's roof, and the
+1808 draught shows it only in elevation. A pyramid cap is the best-attested shape available
+and it remains a shape taken from a retrospective picture.
+
+**Ticket:** T-3041 (piece of T-2387).
+**Review:** `data/reference_views/first_fort_dearborn_pickets_outer/currey_1912_birdseye.match.json`.
+**Recorded:** 2026-11-03 (T-3041).

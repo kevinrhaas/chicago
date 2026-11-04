@@ -1,0 +1,473 @@
+{
+  "created_utc": "2026-10-29T21:14:33.437707+00:00",
+  "state": "ROOT_BINDING_V3_CANONICAL_SOURCE_EXPORT_CONTROLS_PASS_NATIVE_STATIC_OLD13_NEW17_SOCKET_WORLD_UNRUN",
+  "base_HEAD": "ddb77c3191c6fbf28953b8b96f2477bf91f088cb",
+  "tree": "296e2b1da6e99d7dd60cf55f4ca28f789173fcfa",
+  "app_tree": "33240195d303d7186b0e638dbf4f2e5ed36e59f1",
+  "source_files": [
+    {
+      "path": "chicago/4d/assets/LICENSES.md",
+      "bytes": 162415,
+      "sha256": "5c1864af1a8b5a2e641a0e79c87cf831e07aa102409d76cb068710b0fc8b0efb"
+    },
+    {
+      "path": "chicago/4d/assets/authored/transport/horse_standing/ANATOMY.md",
+      "bytes": 15754,
+      "sha256": "b8b8713080993fe2924e1edd315bd15a8648bea1a89bed287626fc317a11342d"
+    },
+    {
+      "path": "chicago/4d/assets/authored/transport/horse_standing/SOURCE.json",
+      "bytes": 22662,
+      "sha256": "270276eca73501abfdabeb57b5e3350003a031f2664ece7e7b4da0078eb9452c"
+    },
+    {
+      "path": "chicago/4d/assets/authored/transport/horse_standing/eye-smooth-normals-v1-recipe.json",
+      "bytes": 1946,
+      "sha256": "9a6c38e01c81ffd0d5ae262008e80fa3227fc5ab974bbfa66252ca0521717911"
+    },
+    {
+      "path": "chicago/4d/assets/authored/transport/horse_standing/generate_eye_smooth_normals_v1.py",
+      "bytes": 11093,
+      "sha256": "b174f165545f3c5eeb98e31dbc7b50637330d4eeeaa5e00ae9e6b9c45de343c8"
+    },
+    {
+      "path": "chicago/4d/assets/authored/transport/horse_standing/generate_natural_planted_idle_v1.py",
+      "bytes": 12532,
+      "sha256": "416ddf09431b2fc73053dc6fe9f02eea64a3f5b9fba6bc1ff3bca7d13f7aaadb"
+    },
+    {
+      "path": "chicago/4d/assets/authored/transport/horse_standing/horse-sevket-eye-smooth-normals-v1.glb",
+      "bytes": 4159196,
+      "sha256": "bd443df87b92d19266284cb9b52d30e791215cddf099876c774e9cfb5f5a79b6"
+    },
+    {
+      "path": "chicago/4d/assets/authored/transport/horse_standing/horse-sevket-natural-planted-binding-v2.glb",
+      "bytes": 4166816,
+      "sha256": "0ced8a09e27da047ad404c902e9d032e43654393027199db8dfd9c315be17929"
+    },
+    {
+      "path": "chicago/4d/assets/authored/transport/horse_standing/horse-sevket-natural-planted-idle-v1.glb",
+      "bytes": 4166488,
+      "sha256": "8ea7748ffba6c5fe17cde91042c6d8b26ed9a0ab77de69cadd4f4fb12e9c09fa"
+    },
+    {
+      "path": "chicago/4d/assets/authored/transport/horse_standing/horse-sevket-natural-planted-root-binding-v3.glb",
+      "bytes": 4167152,
+      "sha256": "014ab3b117e0ab4462b41df7dde8c507ad58606eb461a1a8f2b9e89bc55fed63"
+    },
+    {
+      "path": "chicago/4d/assets/authored/transport/horse_standing/horse-sevket-original925-paired-binding-v2.glb",
+      "bytes": 4158356,
+      "sha256": "a3eca1a164e2adf13d7d5f6699ff43de66d48dde0e3220f4aae90591dcaf4cb3"
+    },
+    {
+      "path": "chicago/4d/assets/authored/transport/horse_standing/horse-sevket-original925-root-binding-v3.glb",
+      "bytes": 4158700,
+      "sha256": "b1367d44c91bf2772110f6d1091c0cf4c2df85c8b74d5aba7f45ec50356c8716"
+    },
+    {
+      "path": "chicago/4d/assets/authored/transport/horse_standing/natural-planted-binding-v2-PROVENANCE.json",
+      "bytes": 1364,
+      "sha256": "01aeac29cbbcb4da365c6cceb3c5e728de0ffe793e4bfa40f875ac3459bf8415"
+    },
+    {
+      "path": "chicago/4d/assets/authored/transport/horse_standing/natural-planted-binding-v2-recipe.json",
+      "bytes": 74349,
+      "sha256": "0c1ceebbcf3fbc4824156bdc5bbad3df19b924ba724b1e5d02aa331d4939d626"
+    },
+    {
+      "path": "chicago/4d/assets/authored/transport/horse_standing/natural-planted-idle-v1-PROVENANCE.json",
+      "bytes": 2099,
+      "sha256": "0bdcf43632885643062e071460d6b74ad0b63d73f0152941e75aa66c70c315dc"
+    },
+    {
+      "path": "chicago/4d/assets/authored/transport/horse_standing/natural-planted-idle-v1-recipe.json",
+      "bytes": 3141,
+      "sha256": "f948df0e0dc510475df1de85ba5954f46c1b4035f041df582265a37a4ff4b1ef"
+    },
+    {
+      "path": "chicago/4d/assets/authored/transport/horse_standing/root-binding-v3-PROVENANCE.json",
+      "bytes": 1547,
+      "sha256": "32629aa32066e2d6ac288aa652519d6ee5b2cf9f7e3621c33384cb970586e12a"
+    },
+    {
+      "path": "chicago/4d/assets/authored/transport/horse_standing/root-binding-v3-recipe.json",
+      "bytes": 25053,
+      "sha256": "be7aa1c9e00859f1a22d7906bb2dedb8b73393d630c406270b5ef07c231ea0f6"
+    },
+    {
+      "path": "chicago/4d/changelog.d/T-3088.json",
+      "bytes": 452,
+      "sha256": "bd13295b2aceb22074c88580abb9ec99d40ea3acfaaf4a4dd07c9fafcc9b8203"
+    },
+    {
+      "path": "chicago/4d/data/liberties.json",
+      "bytes": 4854030,
+      "sha256": "cc5b947d7e89d699b3dbaf282a29530141e1065e1fb3bb79835dff7898cbeb58"
+    },
+    {
+      "path": "chicago/4d/data/transport/parked/horse-sevket-sidecar.json",
+      "bytes": 403797,
+      "sha256": "e6e175c8d13c1662665861f710ea32adfe295074e9f8a717cf7ecaa2d5cb5646"
+    },
+    {
+      "path": "chicago/4d/data/transport/parked/standing-horse-planted/eye-smooth-normals-v1-derivation-summary.json",
+      "bytes": 1229,
+      "sha256": "f7ab0213f61f912cd9fca9e4ec7f2d33b466c38b25f0da99209d4d6d44100ee6"
+    },
+    {
+      "path": "chicago/4d/data/transport/parked/standing-horse-planted/eye-smooth-normals-v1-qualification-summary.json",
+      "bytes": 48476,
+      "sha256": "e730f59fdbf32db6a02270b62b96c2f0d75b4f465cdbe1fda4a957cfa8530342"
+    },
+    {
+      "path": "chicago/4d/data/transport/parked/standing-horses.json",
+      "bytes": 3861,
+      "sha256": "e6c880cd65bdd6b3101d07a8caacba711234c1936da074d5e22e595e15c97391"
+    },
+    {
+      "path": "chicago/4d/docs/LIBERTIES.md",
+      "bytes": 3384117,
+      "sha256": "318293f2017d1dfb2158e1aab0acb42bf216a9d01c95a4a545f02e0404382a8a"
+    },
+    {
+      "path": "chicago/4d/docs/ROADMAP.md",
+      "bytes": 894882,
+      "sha256": "13ceb0636df6431846c116fe12a0901180a47ad99d1de8f3e08e32f00e3de861"
+    },
+    {
+      "path": "chicago/4d/docs/STATUS.md",
+      "bytes": 1973198,
+      "sha256": "d95670832c0444cff147e78abd05fd36af5fa02f66843ff0aa38257391f0303b"
+    },
+    {
+      "path": "chicago/4d/docs/measurements/source_use_coverage.md",
+      "bytes": 3589,
+      "sha256": "45c268e2081883d633491062b8d6f8c98c3ddef65dd0bfe8a401c829526fb9c2"
+    },
+    {
+      "path": "chicago/4d/renderers/web/js/standing-horse-planted-idle.js",
+      "bytes": 9889,
+      "sha256": "8473114d8ac3520f04312f6f228ec41b9ed6cb94add68dc5baec8041a9c828b2"
+    },
+    {
+      "path": "chicago/4d/renderers/web/transport/LICENSES.md",
+      "bytes": 16025,
+      "sha256": "f30ea055279482e9b77a4e77e795cb8626ccf977c3691a7d0b6321bd1f166cc6"
+    },
+    {
+      "path": "chicago/4d/renderers/web/transport/standing-horse/horse-sevket-eye-smooth-normals-v1.glb",
+      "bytes": 4159196,
+      "sha256": "bd443df87b92d19266284cb9b52d30e791215cddf099876c774e9cfb5f5a79b6"
+    },
+    {
+      "path": "chicago/4d/tools/check.sh",
+      "bytes": 555142,
+      "sha256": "3dba9c254232788d7c184878bb5bffb1b968f07388071c06d6836b9271465c01"
+    },
+    {
+      "path": "chicago/4d/tools/test_planted_standing_horse_contract.mjs",
+      "bytes": 12726,
+      "sha256": "63c541981eeea80398bd807a3340792b13b8a3444f8e24d5409975c6b91752e2"
+    },
+    {
+      "path": "chicago/4d/tools/test_standing_horse_anatomy_v2.py",
+      "bytes": 6904,
+      "sha256": "5d77323312bf67493b6bdb7fda99335d9846f23345a61ad4d232c14149d5e2b8"
+    },
+    {
+      "path": "chicago/4d/tools/test_standing_horse_eye_smooth_normals.py",
+      "bytes": 7112,
+      "sha256": "4a1d0b8ba2c1adfd7212c270237183ca564163874f311dcad1aab21b108feef5"
+    },
+    {
+      "path": "chicago/4d/tools/test_standing_horse_upper_lid.py",
+      "bytes": 5715,
+      "sha256": "23f92be3628e4bddabc1ad43fbf8dbb5c21cc10901914ce66851e707fd6fd984"
+    },
+    {
+      "path": "chicago/4d/tools/test_standing_horse_upper_orbital.py",
+      "bytes": 12430,
+      "sha256": "4544563eab6b08f607f52b701992e4dac02a71d998ad5fdf70df796549a7c100"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_eye_smooth_normals_v1/INPUTS.json",
+      "bytes": 3183,
+      "sha256": "3ba3a98e6c38b622d6e3fdb434bebb709779ee64f69c94a559164e1ab6bad37f"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_eye_smooth_normals_v1/README.md",
+      "bytes": 7769,
+      "sha256": "3eb291897bab33a82a612d10b36739528a36d3fb5cd50acb1f1fb6b214779694"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_eye_smooth_normals_v1/fixtures/accepted-phasea-known.json",
+      "bytes": 512303,
+      "sha256": "15c22fe886dccfe7071bf9bb172cacb7e4042b27615d07594aa9e142143f3497"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_eye_smooth_normals_v1/fixtures/accepted-stationary65-matrices.json",
+      "bytes": 332521,
+      "sha256": "294f0a1a8a1f154831b5d6fd3207bfda9c1ec7dd61ee2bf9802d4248e532a107"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_eye_smooth_normals_v1/fixtures/anatomy-r3-full-derivation.json",
+      "bytes": 676459,
+      "sha256": "baef5aa5304e667acd1d18014e4d62921efe0de2fe0c098ceb8aa75860c0fca2"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_eye_smooth_normals_v1/fixtures/canonical26-bind.glb",
+      "bytes": 3766696,
+      "sha256": "03a1f747189ee2457f0fc3dc9720b1d3d288e36c32b7171b5a9976afb7e63c36"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_eye_smooth_normals_v1/fixtures/cpu-rest-protection.json",
+      "bytes": 851885,
+      "sha256": "2179deb652914a49ee16b6c05c2a676587fb05bb746f996f7ecc5d121210c0b1"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_eye_smooth_normals_v1/fixtures/original-physical-limits.json",
+      "bytes": 469,
+      "sha256": "b64a5784c0b8310b5d0e054d10d9052edb0034938ed61d46e2b819230ff7bb54"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_eye_smooth_normals_v1/fixtures/phasea-source-readback.npz",
+      "bytes": 515704,
+      "sha256": "869fdff5ca774f48554d1c762539946084246f9d03f413c5067a79d46827d2f1"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_eye_smooth_normals_v1/fixtures/protected-parent-source-paths.json",
+      "bytes": 4366,
+      "sha256": "0372d0dcc4b3448790ec2b0e97c7e3444a8b30cb4ebbd4307e0974bf0b72b372"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_eye_smooth_normals_v1/fixtures/rig26-controls.json",
+      "bytes": 16577,
+      "sha256": "f540c3e1da1e84e694336d4872cd965e1ca594a4e988ae73d749acaf30f7f6dc"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_eye_smooth_normals_v1/native_normal_child129.mjs",
+      "bytes": 43146,
+      "sha256": "85bec4edd85b46ef0e43bf383152cd9484b7ed7f7e7e29af18a7e6aadd444673"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_eye_smooth_normals_v1/normal_child_source.py",
+      "bytes": 4933,
+      "sha256": "5284edad55a3509e0270a6b52a6dcf2aa765a186e8bdae1f4f17b218069b0f84"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_eye_smooth_normals_v1/qualify_normal_child.py",
+      "bytes": 9871,
+      "sha256": "170e30e2285912d290c4953f69fe241b2fc8c81abf5053e253bd4a4b864dcec3"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_eye_smooth_normals_v1/recorded_qualification.py",
+      "bytes": 6552,
+      "sha256": "a1bd53e292692bbf3a51bb56a7f25e2acba53a777e558f609d2c32a4ca618892"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_eye_smooth_normals_v1/run_normal_child129.cjs",
+      "bytes": 14817,
+      "sha256": "27473e004ec375ab7db1626a1a4ff4470a3093fa93dacf915b5f075a9250e592"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_binding_v2/ACTUAL-TUPLE-OVERLAY.json",
+      "bytes": 359664,
+      "sha256": "c90962631140e581b2020fa584bef79264d56307a978447267345dcc5c38af9f"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_binding_v2/CODE-PIN-PATHS.json",
+      "bytes": 7068,
+      "sha256": "d3a9981df36d258ccffb4f4fde21cbd47d52b930b25640b12ace5b46b73b6aab"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_binding_v2/INPUTS.json",
+      "bytes": 5144,
+      "sha256": "19ec987080450cd726dd29ca075cde396b2af1ca2aaff653fe5e063787084558"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_binding_v2/README.md",
+      "bytes": 2287,
+      "sha256": "2ec6161235360dde9260698bc36a10189412800f6fc627b2e2558f276db39a20"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_binding_v2/audit_binding_v2.py",
+      "bytes": 7629,
+      "sha256": "6efd52c7cfac367c7d6e09fb9f7bf803f4f7ae1ca796d4bb7c4a646b2140b561"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_binding_v2/binding_source.py",
+      "bytes": 4802,
+      "sha256": "d034fc980cac3c55ee6c4c7568e39db4c20b989893afbc97f0c7dcc9d0fb099f"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_binding_v2/generate_natural_planted_binding_v2.py",
+      "bytes": 12949,
+      "sha256": "27a98c82256d133f2c8a34d3be65c29caf55f3ae50db9df61309f224dadab8f1"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_binding_v2/native_binding129.mjs",
+      "bytes": 36044,
+      "sha256": "4be840cd75ba88c4d3a61a42122f26eec2069d2a9ac6abca33eba37d4c908e2d"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_binding_v2/qualify_binding.py",
+      "bytes": 9877,
+      "sha256": "fdb6d016fea8efc05fbd51148c44c9a1f6489721ffbc639769fd2ccec3cf0a4c"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_binding_v2/run_binding129.cjs",
+      "bytes": 15722,
+      "sha256": "4e3df03067aaaac75444cd2887136c36ec9e528139d750b55cf141f1e2d4e0a0"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_root_binding_v3/ACTUAL-ROOT-TUPLE-OVERLAY.json",
+      "bytes": 87016,
+      "sha256": "147476af32d799f4eb7bfce39c36a91386f76b8582dbf8c2de7c9559c52d238e"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_root_binding_v3/CODE-PIN-PATHS.json",
+      "bytes": 9685,
+      "sha256": "26d432ccfec82add29810c2f0caba235707b86a43e3b96af5806045dadad97c6"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_root_binding_v3/INPUTS.json",
+      "bytes": 6170,
+      "sha256": "09d9aefe11411a85e7e3164fc000bdf67670d0a0fd2d42f0af53d49594e12a65"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_root_binding_v3/README.md",
+      "bytes": 2876,
+      "sha256": "6417ea91c21df7a06bee4a486b73541e2e0933e7eba1154a819202178ffdc208"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_root_binding_v3/generate_root_binding_v3.py",
+      "bytes": 16137,
+      "sha256": "ed32bcfea2a3130d6ba9c54b31dc0b01f116fc614b6b6e29ec5609ca83356360"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_root_binding_v3/native_root_binding129.mjs",
+      "bytes": 38354,
+      "sha256": "808b907c80114ee778023f361af0191953b83cd1a654d5f0b0e295fc222d8220"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_root_binding_v3/qualify_root_binding.py",
+      "bytes": 9897,
+      "sha256": "eb51d0653237ebe3cfb8754edb44b9fc0a43d734b284e35c358cf1b86b3e30dd"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_root_binding_v3/root_binding_source.py",
+      "bytes": 4915,
+      "sha256": "147a6b6b1f17f262b20b7511fda7b0599baeec2c2c9aaf1880aaa483897c5b39"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_root_binding_v3/run_root_binding129.cjs",
+      "bytes": 15811,
+      "sha256": "3a10931effe5691550fd67938edd13a4a723a5b442ce7a2eb03bbc6f1e44d158"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_v1/CODE-PIN-PATHS.json",
+      "bytes": 4601,
+      "sha256": "8f774a299b0e2f30d7268f180c21a321181d48b4d8e59e32846d15215324d9ad"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_v1/INPUTS.json",
+      "bytes": 4316,
+      "sha256": "06647d574a42cbcdfc254fcb92480a690d19dccb7fec791bfa50f50d2892e1de"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_v1/README.md",
+      "bytes": 7857,
+      "sha256": "4b31118fe7e0e6b41d0848a4678f98a87e93fd35ffd36fa9596d35271728492c"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_v1/expected_matrices.py",
+      "bytes": 5192,
+      "sha256": "aee54e970b5e0c139df853ae6bf25811fdcc39a61a9c13aeac23f5faf86f4d50"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_v1/independent-natural-idle65-matrices.json",
+      "bytes": 919990,
+      "sha256": "f410a02b5d700cbf71fa6f8ced2d7795a03153433b227c854fc983a7f81ea2fb"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_v1/native_natural_idle129.mjs",
+      "bytes": 47678,
+      "sha256": "27044cd6f921b38bf769151fb0422e503b24a15ab71baab868174985087ffc50"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_v1/natural_idle_source.py",
+      "bytes": 8290,
+      "sha256": "0e8f4a05957cb183988f397ede5a415f33108c0b69a6d5dc7b3fb08be8ef44c0"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_v1/qualify_natural_idle.py",
+      "bytes": 8649,
+      "sha256": "cf1d7af1768355450a3d617a51caef74a367ea3d3494fbc96d7637ed5b886954"
+    },
+    {
+      "path": "chicago/4d/tools/transport/horse_natural_idle_v1/run_natural_idle129.cjs",
+      "bytes": 14599,
+      "sha256": "beff9911ea25bba13a9db71567c1599d9c5a7ccb964baaa9915b5a5c48687acf"
+    }
+  ],
+  "semantic_index_sha256": "359bacc09e1bf89bc33df4d896902986ee7329de8dedc37ac978669440711cd2",
+  "semantic_index_entries": 18135,
+  "code_pins": {
+    "socket_geometry.py": "41c4394cbf3f415c2e7cc4c362b3652d736ba2ccb04a920b4cfb0b3c1a3764a8",
+    "socket_sources.py": "8ab010121c057c390aa3acc50a934743b8e8a08bd31990b569a674b12992eee1",
+    "socket_qualification.py": "ce7b708702c61c7f6567a8b47dc58f5c34bc6f9bc88a06ad221fd032397a0d4b",
+    "POLICY-DECLARATION.json": "001df7f2994571a4719a7673518e9fce1eef5c3b71180f895b3c8cebdd02871c",
+    "fixtures/UNCHANGED-PHYSICAL-METRIC-LOOP.mjs.txt": "a8515b35e18a058673fe330a127eba129851f324915858971e3b683bc4d259a1",
+    "PARENT/tools/transport/horse_upper_orbital_transition_v1/upper_orbital_source.py": "4d32bc1d351154af6416d4783289cc063706abfae6220ca29ef850cdbc6d4557",
+    "PARENT/assets/authored/transport/horse_standing/generate_upper_orbital_transition_v1.py": "6fd840e7e10caf18f466dd2486488dc9a2903c9045a87934b348a80d882ab5b9",
+    "PARENT/assets/authored/transport/horse_standing/generate_upper_lid_strip_v1.py": "7e6ed1ca8f03179743d2305dd864769e794ebfa56c2cea082a8da660063bba39",
+    "CHILD/generate_eye_smooth_normals_v1.py": "b174f165545f3c5eeb98e31dbc7b50637330d4eeeaa5e00ae9e6b9c45de343c8",
+    "CHILD/eye-smooth-normals-v1-recipe.json": "9a6c38e01c81ffd0d5ae262008e80fa3227fc5ab974bbfa66252ca0521717911",
+    "NEW/normal_child_source.py": "5284edad55a3509e0270a6b52a6dcf2aa765a186e8bdae1f4f17b218069b0f84",
+    "NEW/qualify_normal_child.py": "170e30e2285912d290c4953f69fe241b2fc8c81abf5053e253bd4a4b864dcec3",
+    "NEW/native_normal_child129.mjs": "85bec4edd85b46ef0e43bf383152cd9484b7ed7f7e7e29af18a7e6aadd444673",
+    "NEW/run_normal_child129.cjs": "27473e004ec375ab7db1626a1a4ff4470a3093fa93dacf915b5f075a9250e592",
+    "MOTION/natural_idle_source.py": "0e8f4a05957cb183988f397ede5a415f33108c0b69a6d5dc7b3fb08be8ef44c0",
+    "MOTION/qualify_natural_idle.py": "cf1d7af1768355450a3d617a51caef74a367ea3d3494fbc96d7637ed5b886954",
+    "MOTION/native_natural_idle129.mjs": "27044cd6f921b38bf769151fb0422e503b24a15ab71baab868174985087ffc50",
+    "MOTION/run_natural_idle129.cjs": "beff9911ea25bba13a9db71567c1599d9c5a7ccb964baaa9915b5a5c48687acf",
+    "MOTION/expected_matrices.py": "aee54e970b5e0c139df853ae6bf25811fdcc39a61a9c13aeac23f5faf86f4d50",
+    "MOTION/independent-natural-idle65-matrices.json": "f410a02b5d700cbf71fa6f8ced2d7795a03153433b227c854fc983a7f81ea2fb",
+    "MOTION/INPUTS.json": "06647d574a42cbcdfc254fcb92480a690d19dccb7fec791bfa50f50d2892e1de",
+    "MOTION/CODE-PIN-PATHS.json": "8f774a299b0e2f30d7268f180c21a321181d48b4d8e59e32846d15215324d9ad",
+    "MOTION-AUTHORED/generate_natural_planted_idle_v1.py": "416ddf09431b2fc73053dc6fe9f02eea64a3f5b9fba6bc1ff3bca7d13f7aaadb",
+    "MOTION-AUTHORED/natural-planted-idle-v1-recipe.json": "f948df0e0dc510475df1de85ba5954f46c1b4035f041df582265a37a4ff4b1ef",
+    "BINDING-V2/qualify_binding.py": "fdb6d016fea8efc05fbd51148c44c9a1f6489721ffbc639769fd2ccec3cf0a4c",
+    "BINDING-V2/INPUTS.json": "19ec987080450cd726dd29ca075cde396b2af1ca2aaff653fe5e063787084558",
+    "BINDING-V2/ACTUAL-TUPLE-OVERLAY.json": "c90962631140e581b2020fa584bef79264d56307a978447267345dcc5c38af9f",
+    "BINDING-V2/run_binding129.cjs": "4e3df03067aaaac75444cd2887136c36ec9e528139d750b55cf141f1e2d4e0a0",
+    "BINDING-V2/binding_source.py": "d034fc980cac3c55ee6c4c7568e39db4c20b989893afbc97f0c7dcc9d0fb099f",
+    "BINDING-V2/native_binding129.mjs": "4be840cd75ba88c4d3a61a42122f26eec2069d2a9ac6abca33eba37d4c908e2d",
+    "BINDING-V2/README.md": "2ec6161235360dde9260698bc36a10189412800f6fc627b2e2558f276db39a20",
+    "BINDING-V2/audit_binding_v2.py": "6efd52c7cfac367c7d6e09fb9f7bf803f4f7ae1ca796d4bb7c4a646b2140b561",
+    "BINDING-V2/generate_natural_planted_binding_v2.py": "27a98c82256d133f2c8a34d3be65c29caf55f3ae50db9df61309f224dadab8f1",
+    "BINDING-V2/CODE-PIN-PATHS.json": "d3a9981df36d258ccffb4f4fde21cbd47d52b930b25640b12ace5b46b73b6aab",
+    "BINDING-V2-AUTHORED/natural-planted-binding-v2-recipe.json": "0c1ceebbcf3fbc4824156bdc5bbad3df19b924ba724b1e5d02aa331d4939d626",
+    "BINDING-V2-AUTHORED/natural-planted-binding-v2-PROVENANCE.json": "01aeac29cbbcb4da365c6cceb3c5e728de0ffe793e4bfa40f875ac3459bf8415",
+    "ROOT-V3/README.md": "6417ea91c21df7a06bee4a486b73541e2e0933e7eba1154a819202178ffdc208",
+    "ROOT-V3/INPUTS.json": "09d9aefe11411a85e7e3164fc000bdf67670d0a0fd2d42f0af53d49594e12a65",
+    "ROOT-V3/run_root_binding129.cjs": "3a10931effe5691550fd67938edd13a4a723a5b442ce7a2eb03bbc6f1e44d158",
+    "ROOT-V3/native_root_binding129.mjs": "808b907c80114ee778023f361af0191953b83cd1a654d5f0b0e295fc222d8220",
+    "ROOT-V3/qualify_root_binding.py": "eb51d0653237ebe3cfb8754edb44b9fc0a43d734b284e35c358cf1b86b3e30dd",
+    "ROOT-V3/root_binding_source.py": "147a6b6b1f17f262b20b7511fda7b0599baeec2c2c9aaf1880aaa483897c5b39",
+    "ROOT-V3/ACTUAL-ROOT-TUPLE-OVERLAY.json": "147476af32d799f4eb7bfce39c36a91386f76b8582dbf8c2de7c9559c52d238e",
+    "ROOT-V3/generate_root_binding_v3.py": "ed32bcfea2a3130d6ba9c54b31dc0b01f116fc614b6b6e29ec5609ca83356360",
+    "ROOT-V3/CODE-PIN-PATHS.json": "26d432ccfec82add29810c2f0caba235707b86a43e3b96af5806045dadad97c6",
+    "ROOT-V3-AUTHORED/root-binding-v3-recipe.json": "be7aa1c9e00859f1a22d7906bb2dedb8b73393d630c406270b5ef07c231ea0f6",
+    "ROOT-V3-AUTHORED/root-binding-v3-PROVENANCE.json": "32629aa32066e2d6ac288aa652519d6ee5b2cf9f7e3621c33384cb970586e12a"
+  },
+  "allold36_exact": true,
+  "old68_exact_except_four_prefix_appends": true,
+  "published_mirror_exists": false,
+  "old13_native129": "UNRUN",
+  "new17_native129": "UNRUN",
+  "paired925_socket129": "UNRUN",
+  "runtime_asset_sha256": "bd443df87b92d19266284cb9b52d30e791215cddf099876c774e9cfb5f5a79b6",
+  "old_certificate_transferred": false
+}

@@ -96,10 +96,24 @@ CONFIDENCE_VALUE = {"attested": 0.0, "inferred": 0.5, "reconstructed": 1.0}
 # absent — a record using one of those is describing a house.
 CONSTRUCTIONS = ("log", "plank", "light_frame")
 
-# Two forms, and `shed` is not the poor relation. A hip or gambrel on a stable at the
-# forks in 1835 would be a claim, so it is refused loudly rather than substituted —
-# the same rule log_dwelling applies.
-ROOF_TYPES = ("gable", "shed")
+# Two forms for the town, and `shed` is not the poor relation. A gambrel on a stable
+# at the forks in 1835 would be a claim, so it is refused loudly rather than
+# substituted — the same rule log_dwelling applies.
+#
+# `pyramid` is the THIRD, and it is not a town form: it is OPT-IN ONLY, never
+# defaulted (`default_roof_type` still answers gable or shed and nothing else), and
+# it exists because one record in the dataset has a picture of its roof. The owner
+# ruled on 2026-11-03 (T-3041, from the Currey 1912 bird's-eye of the first Fort
+# Dearborn) that `first_fort_dearborn_small_house_ne` carries the four-sided cap the
+# drawing gives it. Nothing else selects it, and a record that does is making the
+# same kind of claim a `gable` makes — so it still states a confidence and a reason.
+#
+# It is a hip whose ridge is a POINT: four triangles meeting over the centre of the
+# plan. On a rectangle that means the two faces across the short span carry the
+# declared pitch and the two across the long span come out shallower, which is what a
+# rectangular pyramid IS; `roof_run_m` therefore keeps reading the half of the SHORT
+# span, exactly as the gable does, and `apex_z_m` needs no new equation.
+ROOF_TYPES = ("gable", "shed", "pyramid")
 
 # The four elevations, named on the PLAN with north up: `front` is the facade (+y in
 # Blender, the bearing `rotation_deg` names, north at 0), `back` is opposite it, and
@@ -319,14 +333,19 @@ def default_roof_type(depth_m: float) -> str:
 
 
 def default_roof_pitch_deg(roof_type: str) -> float:
-    """32 degrees for a gable, 18 for a shed.
+    """32 degrees for a gable or a pyramid, 18 for a shed.
 
     Both are lower than the 35-38 the house archetypes use, and deliberately: pitch on
     a dwelling is set by wanting a loft under it, and nobody framed a secondary building
     steeper than the covering required. 18 degrees is about the shallowest a riven shake
     roof sheds at, which is why a shed roof is what a shallow building gets.
+
+    A pyramid takes the gable's number because it is pitched the same way — the angle
+    is the one the SHORT span's faces stand at, which is the span `roof_run_m` reads
+    for both forms. It is a fallback and not a reading: the one record that selects
+    `pyramid` today states its own 34 degrees, and that figure is reconstructed.
     """
-    return 32.0 if roof_type == "gable" else 18.0
+    return 32.0 if roof_type in ("gable", "pyramid") else 18.0
 
 
 def eave_overhang_m(width_m: float, depth_m: float) -> float:
@@ -531,7 +550,16 @@ class OutbuildingParams:
     @property
     def roof_run_m(self) -> float:
         """The horizontal run one roof plane covers, before overhang. A gable's plane
-        covers half the span across the ridge; a shed's covers the whole thing."""
+        covers half the span across the ridge; a shed's covers the whole thing.
+
+        A PYRAMID READS THE GABLE'S LINE, and that is audited rather than assumed
+        (T-3041). `ridge_along_x` is `width >= depth`, so the expression below is
+        always half the SHORT span — which is the run of the two faces that carry the
+        declared pitch on a rectangular pyramid. The other two faces are shallower
+        because they cross the long span to the same apex; they are a consequence of
+        the same point, not a second pitch to state. So `roof_rise_m` and `apex_z_m`
+        are right for a pyramid with no new equation, which is why none was invented.
+        """
         if self.roof_type == "shed":
             return self.depth_m if self.shed_axis == "y" else self.width_m
         return (self.depth_m if self.ridge_along_x else self.width_m) / 2.0
@@ -542,7 +570,8 @@ class OutbuildingParams:
 
     @property
     def apex_z_m(self) -> float:
-        """Top of the roof surface — the ridge, or the high eave of a shed."""
+        """Top of the roof surface — the ridge, the high eave of a shed, or the apex
+        point of a pyramid, which stands over the centre of the plan."""
         return round(float(self.wall_height_m) + self.roof_rise_m, 4)
 
     @property
@@ -691,8 +720,10 @@ class OutbuildingParams:
         if self.roof_type not in ROOF_TYPES:
             raise ParamError(
                 f"roof_type '{self.roof_type}' not in {ROOF_TYPES}. outbuilding builds "
-                f"gable and shed only; a hip or gambrel on a stable at the forks in "
-                f"1835 would be an invention, so it is refused rather than substituted")
+                f"gable, shed and the opt-in pyramid only; a gambrel on a stable at "
+                f"the forks in 1835 would be an invention, so it is refused rather "
+                f"than substituted")
+        self._validate_pyramid()
         if self.paint not in PAINTS:
             raise ParamError(f"paint '{self.paint}' not in {PAINTS}")
 
@@ -740,6 +771,44 @@ class OutbuildingParams:
         for k, v in self.confidence.items():
             if v not in CONFIDENCE_VALUE:
                 raise ParamError(f"confidence['{k}'] = '{v}' is not a confidence level")
+
+    def _validate_pyramid(self) -> None:
+        """What a pyramid roof on this archetype will NOT carry, yet (T-3041).
+
+        The branch was added for one record with a picture of its cap, and it is kept
+        to exactly what that record needs. Each combination below is REFUSED rather
+        than approximated, for the reason this module refuses a gambrel: the builder
+        would have to invent an arrangement to draw it, and the alternative — quietly
+        changing what `loft_side`, `_plate_z` or `_forge_stack` mean for the 242 other
+        outbuildings in the dataset so a third roof could borrow them — is a much
+        larger change than any of these is worth. Every refusal names the work it
+        would take, so the next record that wants one is not left guessing.
+        """
+        if self.roof_type != "pyramid":
+            return
+        if self.open_sides:
+            raise ParamError(
+                f"roof_type 'pyramid' with open_sides {tuple(self.open_sides)}. A "
+                f"pyramid's wall tops are level all round, so `_plate_z` puts the "
+                f"plate over an open bay at the wall head and the hip above it has "
+                f"no gable end to be boarded — a wagon bay under a point apex needs "
+                f"a hip rafter and a valley this builder does not draw. Close the "
+                f"side, or use 'gable'")
+        if self.loft:
+            raise ParamError(
+                "roof_type 'pyramid' with loft. A hay door goes in a gable END or "
+                "under a shed's tall eave, and a pyramid has neither: every "
+                "elevation stops level at the wall head. Nothing in the dossiers "
+                "puts a loft under one, so it is refused rather than placed by "
+                "invention")
+        if self.chimneys:
+            raise ParamError(
+                f"roof_type 'pyramid' with chimneys {self.chimneys}. The forge stack "
+                f"is built to break the roof at its highest point, which on a gable "
+                f"is the whole length of the ridge and on a pyramid is a single "
+                f"point over the centre of the plan — a stack against an end wall "
+                f"would come out through the middle of a hip. No record asks for "
+                f"both, so the combination is refused rather than drawn wrong")
 
     def _validate_chimney(self) -> None:
         """The forge stack's own refusals. T-1680.
@@ -792,7 +861,14 @@ class OutbuildingParams:
         elsewhere the low end of the axis takes it, which is `log_dwelling._chimneys`'
         habit restated so two archetypes put a stack on the same end of the same plan.
         """
-        if self.roof_type == "gable":
+        if self.roof_type in ("gable", "pyramid"):
+            # A pyramid is routed with the gable rather than left to fall into the
+            # shed branch, which would have read `shed_axis` — a property about where
+            # a single slope falls, and meaningless over a point apex. `validate`
+            # refuses a stack on a pyramid outright (there is no attested one, and
+            # the stack builder assumes a ridge to break through), so this never
+            # draws; it is kept answerable because the property is hashed into every
+            # record's mesh inputs whether the geometry reads it or not.
             ends = ("left", "right") if self.ridge_along_x else ("back", "front")
         else:
             ends = ("back", "front") if self.shed_axis == "x" else ("left", "right")

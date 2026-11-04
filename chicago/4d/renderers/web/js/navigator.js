@@ -407,6 +407,8 @@ export function createNavigator({
     unregister: (id) => registry.unregister(id),
     /** Open an app by id: the device opens to show it (or, for a stub, runs it and docks). */
     select: (id) => registry.select(id, { by: 'code' }),
+    /** Prepare an app's module without opening the device or mounting its screen. */
+    preload: (id) => registry.preload(id),
     has: (id) => registry.has(id),
     /** T-2621: open what a deep link names; an app the rail does not have is ignored. */
     openLink(next) {

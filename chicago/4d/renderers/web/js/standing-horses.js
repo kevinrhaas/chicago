@@ -6,6 +6,11 @@ import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
 import { disposeLoadedAsset } from './scene-loader.js';
 import { createPlantedStandingHorseIdle, validatePlantedStandingHeader } from './standing-horse-planted-idle.js';
 import { standingHorseCard as card } from './standing-horse-card.js';
+import { createQuietHeadNeckStandingContract, QUIET_MODE } from './standing-horse-quiet-head-neck-idle.js';
+// Trusted code pin: exact newly executed finite129 certificate, never sidecar-derived.
+const quietContract = createQuietHeadNeckStandingContract({ qualificationSha256: 'badca71fb2ab7596be9447adaf01b3d035d5a59c7b844bc27b500d0a004d78a6' });
+const idleContract = spec => spec.runtime_asset.source_qualification_mode === QUIET_MODE
+  ? quietContract : { validateHeader: validatePlantedStandingHeader, createIdle: createPlantedStandingHorseIdle };
 
 const REACH = { full: 70, balanced: 40, light: 0 };
 const yawOf = bearing => Math.PI - bearing * Math.PI / 180;
@@ -157,11 +162,13 @@ function instantiate(asset, spec, row, confidence, groundHeight) {
     if (row.animation?.enabled) {
       assert(spec.idle.enabled && row.animation.clip === spec.idle.clip,
         'Explicit qualified horse idle contract required');
-      idle = createPlantedStandingHorseIdle({ T: THREE, root, clips: asset.animations,
-        verifiedDerivedSha256: spec.runtime_asset.sha256, instanceId: row.id });
+      idle = idleContract(spec).createIdle({ T: THREE, root, clips: asset.animations,
+        verifiedDerivedSha256: spec.runtime_asset.sha256, instanceId: row.id,
+        sourceQualificationMode: spec.runtime_asset.source_qualification_mode });
     }
-    return { group: placement, root, asset, row, idle, card: card(row, spec), dispose: retireClone,
-      receipt: { material_variant: row.material_variant, root_y_m: base,
+    return { group: placement, root, asset, row, idle, idleWasActive: false, card: card(row, spec), dispose: retireClone,
+      receipt: { asset_sha256: spec.runtime_asset.sha256, source_qualification_mode: spec.runtime_asset.source_qualification_mode ?? 'anatomy_r3',
+        material_variant: row.material_variant, root_y_m: base,
         support_quaternion_xyzw: q, minimum_gap_by_hoof_m: gaps,
         equal_10mm_slab_minimum_gaps_m: slabGaps, mixer_count: idle ? 1 : 0,
         autoplay: Boolean(idle), original_six_autoplay: false, idle_clip: idle?.status.clip ?? null } };
@@ -176,6 +183,8 @@ export async function createStandingHorses({ dataBase = null, sceneId, confidenc
   const motionPreference = globalThis.matchMedia?.('(prefers-reduced-motion: reduce)');
   let tier = detail, disposed = false, revision = 0, pending = null, active = null, abort = null;
   let manifest = null, rows = [], lastCamera = null, attemptedRevision = -1;
+  const resetIdleClock = () => { if (active) active.idleWasActive = false; };
+  motionPreference?.addEventListener?.('change', resetIdleClock);
   const withinReach = () => {
     if (!lastCamera || !rows.length || !(REACH[tier] > 0)) return false;
     lastCamera.getWorldPosition(eye);
@@ -183,12 +192,12 @@ export async function createStandingHorses({ dataBase = null, sceneId, confidenc
       -eye.z - rows[0].at_local_enu_m[1]) < REACH[tier];
   };
   const retire = () => {
-    if (active) { active.dispose(); disposeSource(active.asset); active = null; }
+    if (active) { active.idleWasActive = false; active.dispose(); disposeSource(active.asset); active = null; }
   };
   const out = { group, records: [],
     get instances() { return active ? [active] : []; },
     get ready() { return pending ?? Promise.resolve(); },
-    update(camera, dt = 0, { paused = false, reducedMotion = motionPreference?.matches ?? false } = {}) {
+    update(camera, dt = 0, { paused = false, reducedMotion = motionPreference?.matches ?? false, visualFrame = dt > 0 } = {}) {
       if (disposed || !camera) return;
       lastCamera = camera;
       if (!active) { if (withinReach()) void load(); return; }
@@ -200,11 +209,19 @@ export async function createStandingHorses({ dataBase = null, sceneId, confidenc
       });
       let visible = active.group.visible && !globalThis.document?.hidden;
       for (let ancestor = group; ancestor; ancestor = ancestor.parent) visible &&= ancestor.visible;
-      active.idle?.update(dt, { visible, reducedMotion, paused });
+      assert(Number.isFinite(dt) && dt >= 0, 'Horse clock delta must be finite and nonnegative');
+      const idleActive = !!active.idle && !active.idle.status.disposed && visible && !reducedMotion && !paused;
+      const idleDt = visualFrame && idleActive && active.idleWasActive ? dt : 0;
+      active.idle?.update(idleDt, { visible, reducedMotion, paused });
+      // Loading/tier refresh calls update(camera) only to establish visibility.
+      // Each instance starts/resumes on its first real frame without unseen time.
+      if (visualFrame) active.idleWasActive = idleActive;
+      else if (!idleActive) active.idleWasActive = false;
     },
     async setTier(next) {
       if (!(next in REACH) || disposed) return;
       if (next !== tier) {
+        resetIdleClock();
         tier = next; revision++;
         if (tier === 'light') { abort?.abort(); retire(); }
       }
@@ -227,6 +244,7 @@ export async function createStandingHorses({ dataBase = null, sceneId, confidenc
     dispose() {
       if (disposed) return;
       disposed = true; revision++; abort?.abort(); retire(); group.removeFromParent();
+      motionPreference?.removeEventListener?.('change', resetIdleClock);
     },
   };
   // Scene/layer and phone-light guards precede ANY model fetch. No inherited
@@ -261,7 +279,7 @@ export async function createStandingHorses({ dataBase = null, sceneId, confidenc
         const bytes = await response.arrayBuffer();
         assert(bytes.byteLength <= 4 * 1024 * 1024, 'Horse download cap exceeded');
         assert(await sha256(bytes) === spec.runtime_asset.sha256, 'Horse runtime derivative hash mismatch');
-        validatePlantedStandingHeader(bytes, spec);
+        idleContract(spec).validateHeader(bytes, spec);
         if (mine !== revision || disposed || tier === 'light') return;
         asset = await new GLTFLoader().parseAsync(bytes, new URL('.', file).href);
         const canonicalReceipt = inspectStanding(asset.scene, spec);
