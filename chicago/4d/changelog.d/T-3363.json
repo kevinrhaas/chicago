@@ -1,9 +1,0 @@
-{
-  "title": "1904 sends a third fewer draws, so walking and flying run smoother",
-  "kind": "improvement",
-  "items": [
-    "Street trees, front-yard trees and the 1835 and 1812 woods now draw every copy of a tree shape at once, instead of one tree at a time.",
-    "At Light, building glass is drawn one building at a time, the way Full draws it, instead of one small piece at a time.",
-    "Nothing on screen changes. On the owner's desktop view, walking Prairie Avenue at Light drops from about 6,100 draws to 4,000, and flying drops from 5,100 to 2,900."
-  ]
-}
