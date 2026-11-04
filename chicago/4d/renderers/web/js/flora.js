@@ -1649,7 +1649,7 @@ export async function createFlora({
     const passMat = new THREE.RawShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: pass,
       ...nearPassShaders({ lattice: LATTICE_GLSL, field: FIELD_GLSL, deal: DEAL_GLSL }) });
     const passGeo = new THREE.BufferGeometry();
-    passGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(max * 3), 3));
+    passGeo.setAttribute('position', new THREE.BufferAttribute(new Uint8Array(max * 3), 3));
     const points = new THREE.Points(passGeo, passMat);
     points.frustumCulled = false;
     const passScene = new THREE.Scene();
@@ -1712,7 +1712,7 @@ export async function createFlora({
     const midMat = new THREE.RawShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: midPass,
       ...midPassShaders({ lattice: LATTICE_GLSL, field: FIELD_GLSL, deal: DEAL_GLSL, ring: NEAR_RING_GLSL }) });
     const midGeo = new THREE.BufferGeometry();
-    midGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(midMax * 3), 3));
+    midGeo.setAttribute('position', new THREE.BufferAttribute(new Uint8Array(midMax * 3), 3));
     const midPoints = new THREE.Points(midGeo, midMat);
     midPoints.frustumCulled = false;
     const midScene = new THREE.Scene();
@@ -1737,7 +1737,7 @@ export async function createFlora({
       };
       const mat = new THREE.RawShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: u, ...forbShaders });
       const geo = new THREE.BufferGeometry();
-      geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(forbMax * 3), 3));
+      geo.setAttribute('position', new THREE.BufferAttribute(new Uint8Array(forbMax * 3), 3));
       const points = new THREE.Points(geo, mat);
       points.frustumCulled = false;
       midScene.add(points);
@@ -1770,7 +1770,7 @@ export async function createFlora({
       };
       const mat = new THREE.RawShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: u, ...farShaders });
       const geo = new THREE.BufferGeometry();
-      geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(fb.max * 3), 3));
+      geo.setAttribute('position', new THREE.BufferAttribute(new Uint8Array(fb.max * 3), 3));
       geo.setDrawRange(0, 0);
       const points = new THREE.Points(geo, mat);
       points.frustumCulled = false;
@@ -1817,7 +1817,7 @@ export async function createFlora({
       };
       const mat = new THREE.RawShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: u, ...carryShaders });
       const geo = new THREE.BufferGeometry();
-      geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(carryMax[i] * 3), 3));
+      geo.setAttribute('position', new THREE.BufferAttribute(new Uint8Array(carryMax[i] * 3), 3));
       const points = new THREE.Points(geo, mat);
       points.frustumCulled = false;
       carryScene.add(points);
@@ -1847,7 +1847,7 @@ export async function createFlora({
         ...farShrubPassShaders({ lattice: LATTICE_GLSL, field: FIELD_GLSL, deal: DEAL_GLSL,
           slot: FAR_SLOT_GLSL, unasked: FAR_UNASKED }) });
       fsGeo = new THREE.BufferGeometry();
-      fsGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(fsRoom.texels * 3), 3));
+      fsGeo.setAttribute('position', new THREE.BufferAttribute(new Uint8Array(fsRoom.texels * 3), 3));
       fsGeo.setDrawRange(0, 0);
       const points = new THREE.Points(fsGeo, fsMat);
       points.frustumCulled = false;

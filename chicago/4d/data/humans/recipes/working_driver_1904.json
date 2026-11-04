@@ -1,0 +1,88 @@
+{
+  "format": "chicago4d_working_driver_derivative_v1",
+  "asset_id": "anonymous_working_driver_1904",
+  "scene": "1904",
+  "scene_date": "1904-07-01",
+  "person_reference_id": "pa1904_otis_f_r_c1900_hans_johnson",
+  "person_reference_name": "Hans Johnson",
+  "person_reference_grade": "inferred",
+  "appearance_grade": "reconstructed",
+  "license": "CC0-1.0",
+  "liberty": "L418",
+  "master": "assets/authored/humans/working_driver_1904/POSE-MASTER.json",
+  "producer": "python3 tools/human_working_driver_1904.py --root . --output-root . --receipts-root /tmp/chicago4d-working-driver-1904 --lod N",
+  "source_ids": [
+    "census_1900_chicago_t623_roll245"
+  ],
+  "source_scope": "Identity and1900occupation only; no face, clothes,1904journey or carriageownership derived from census.",
+  "presence_scope": "Uses the existing inferred1904 presence of Hans Johnson; the1900 census alone does not attest the1904 scene activity.",
+  "age_basis": "Hans bornJanuary1870,34inJuly1904; cleared generic adult35 engineering geometry is a bounded depiction ingredient, not a likeness.",
+  "height_basis": "Unmeasured1.75m engineering body; not an asserted resident height.",
+  "wardrobe_basis": "Original cleared plain linen-shirt, wool-waistcoat, high-waisted trousers and closed shoes reused as reconstructed1904 working clothes. No livery, personal wardrobe, measured1904cut or source-matched outfit is asserted; original1835 garment comparators are source lineage only.",
+  "graphical_ingredients": "assets/authored/humans/working_driver_1904/ingredients/dufresne_joseph_1835.lod0..3.glb and web counterparts, recovered from immutable canonical artifact12398870779, source34cf462e. Donoridentity stays in ingredient provenance and is stripped from display exports.",
+  "pose": {
+    "actual_cushion_top_m": 1.765850067138672,
+    "seat_reference_node_m": [
+      0.0,
+      1.77585,
+      0.76
+    ],
+    "actual_footboard_top_m": 1.0893750190734863,
+    "seat_y_shift_m": 0.04,
+    "seat_z_shift_m": 0.2,
+    "pelvis_tilt_delta_degrees": 10.0,
+    "toe_brace_plantarflexion_degrees": 25.0,
+    "foot_support": "actual toe/forefoot contact; raised heels, not flat soles",
+    "pelvis_center_vehicle_local_m": [
+      0.0,
+      1.8969076149697068,
+      0.849999964372947
+    ],
+    "torso_world_orientation_retained": true,
+    "legs": [
+      {
+        "side": "l",
+        "original_upper_leg_m": 0.41527622938159214,
+        "original_lower_leg_m": 0.44413962960248166,
+        "target_ankle_m": [
+          0.17999999740772066,
+          1.2399681417729016,
+          1.2193729294142086
+        ],
+        "actual_ankle_error_m": 3.1401849173675503e-16,
+        "knee_angle_degrees": 123.36255326363911
+      },
+      {
+        "side": "r",
+        "original_upper_leg_m": 0.41527622938159214,
+        "original_lower_leg_m": 0.44413962960248166,
+        "target_ankle_m": [
+          -0.17999999740772066,
+          1.2399681417729016,
+          1.2193729294142086
+        ],
+        "actual_ankle_error_m": 3.1401849173675503e-16,
+        "knee_angle_degrees": 123.36255326363911
+      }
+    ],
+    "rein_binding_validated": false,
+    "full_material_visual_review": "UNRUN"
+  },
+  "vehicle": "studebaker_1893_brougham_reconstruction_01",
+  "vehicle_sidecar_sha256": "768f849182bb8ca7aa9d28db98a5d2cb3d502ea6c23c6f0b8fbf2a5b329e541f",
+  "vehicle_near_glb_sha256": "3d2f3a802f4b32dba6a3e61f2c188dddce4db05cecfcbba81e1e8d369d5dfe89",
+  "clips": [
+    "idle",
+    "walk",
+    "sit_drive"
+  ],
+  "driver_root_offset_m": [
+    0,
+    0,
+    0
+  ],
+  "pose_scope": "Pose-only supported high-coach-seat correction: pelvis7cm rearward over cushion,10degree pelvis adjustment with existing torso orientation retained, fresh two-bone legs and25degree toe-braced contact on unchanged physical footplate. Heels are raised. No flat-sole, closedfingergrasp, harness/worldroute, phonebudget or photographic acceptance is asserted.",
+  "coarse_lod_support_limit": "Source-model original contact predicates pass all4master LODs: near-seat surfaces1.766239/1.767140/1.766918/1.771841m; real footplate1.089375m. LOD2alone uses .052m seat_y_shift versus .04m others to prevent two coarse trouser vertices entering the cushion; feet are re-solved to the same plate. Native Meshopt/Mixer, actual materials and full continuous body/cushion collision remain pending.",
+  "actual_native_portable_contract_and_Three_CPU_pending_final_recheck": true,
+  "image_decode_WebGL_and_world_verified": false
+}

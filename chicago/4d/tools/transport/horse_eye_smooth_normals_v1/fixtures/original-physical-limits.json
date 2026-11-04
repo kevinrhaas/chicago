@@ -1,0 +1,14 @@
+{
+  "stance_patch_drift_m": 1e-05,
+  "segment_length_error_m": 1e-09,
+  "loop_position_m": 1e-09,
+  "loop_rotation_matrix_abs": 1e-09,
+  "negative_control_min_detected_m": 0.001,
+  "minimum_triangle_edge_ratio": 0.9,
+  "maximum_triangle_edge_ratio": 1.1,
+  "minimum_triangle_area_ratio": 0.8,
+  "maximum_triangle_area_ratio": 1.2,
+  "allowed_rest_relative_triangle_normal_dot_negative": 0,
+  "minimum_all_surface_y_m": -1e-05,
+  "minimum_seam_gap_tolerance_m": 1e-06
+}

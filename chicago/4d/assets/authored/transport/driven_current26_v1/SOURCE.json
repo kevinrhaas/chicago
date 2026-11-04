@@ -1,0 +1,10 @@
+{
+  "schema": "authored_current26_inplace_master_v1",
+  "kind": "authored",
+  "source_sha256": "ad9dc060f8630d0de04fef97d716e8c82be3ac8bf070684e78107720c5221ec6",
+  "license": "CC-BY-4.0",
+  "credit": "Horse by sevketkabatas; original mesh/maps and inherited antemeossa rig/motion-reference attribution retained in GLB asset extras.",
+  "changes": "Reconstructed source-specific26rig, quiet head/neck clip and explicitly in-place careful WALK, with external actor travel .135m/cycle once.",
+  "historical_individual_or_breed": "not identified",
+  "actual_native_component": "ad9 native1154 CPU geometry/skin/strict-loop component a3a29bdd; images/actualworld/phone acceptance separate"
+}

@@ -49,6 +49,7 @@
  */
 
 import * as THREE from 'three';
+import { createLazyRoadTriangleHeight } from './road-triangle-height.js';
 import { ktx2Beside, loadSheet } from './ktx2.js';
 import {
   SEASON_HEAD, SEASON_VERTEX_DECL, SEASON_VERTEX_ASSIGN, SEASON_FRAGMENT_DECL, SEASON_FRAGMENT_APPLY,
@@ -66,7 +67,7 @@ const LIBRARY = 'textures/prairie_1904_pbr/';
  * The draw order is the stacking order: each class a few centimetres above the one
  * it overlaps, plus a polygon offset, so a band laid over a carriageway (the
  * carriageways run through their intersections and under the corner bands) always
- * wins. A carriageway also rises by its `priority` (street_surfaces), and since
+ * wins. Carriageway `priority` orders paving and depth, without a physical step; since
  * T-2475 the lower of two crossing roadways is cut out from under the higher one, so
  * the avenue's surface is the only one drawn at the crossing (L297) and the cross
  * street's wears into it across a fading seam.
@@ -103,8 +104,6 @@ const CURB_FACE_COLOUR = 0xcfcabe;
 const CARRIAGE_POST_COLOUR = 0xe4e0d6;
 /** T-2475: how far one paving fades into the next where two roadways meet, metres. */
 const SEAM_M = 1.6;
-/** The fade overlay's height above the highest roadway, so it never fights one. */
-const SEAM_LIFT_M = 0.004;
 // T-3233: and `seamEnd`, metres along the edge from each END of the run of fade (where the
 // lower roadway's own side lines cross the higher one), negative past it: the fade runs on
 // past each end over the higher roadway and wears out there too.
@@ -853,7 +852,7 @@ export async function createStreetGrid({
   });
   /** A ramp's foot, as an offset the walk's own lift is then added to: flush with the
    *  highest roadway's top, so the slab meets the paving without a lip. */
-  const rampFoot = () => ROAD + CLASSES.carriageway.lift + MAX_PRIORITY * PRIORITY_LIFT_M + 0.002 - CLASSES.walk.lift;
+  const rampFoot = () => ROAD + CLASSES.carriageway.lift + 0.002 - CLASSES.walk.lift;
   const acrossIn = (x, e, n) => (e - x.origin[0]) * x.out[0] + (n - x.origin[1]) * x.out[1];
   /** Across distance from a face's street line: to the nearest segment's own line,
    *  so a point in the corner square past the line's end still measures across. */
@@ -904,7 +903,7 @@ export async function createStreetGrid({
     if (!bufs.has(key)) {
       bufs.set(key, {
         key, cls, material: surface?.material ?? null, priority: seam ? 0 : priority,
-        lift: seam ? c.lift + MAX_PRIORITY * PRIORITY_LIFT_M + SEAM_LIFT_M : c.lift + priority * PRIORITY_LIFT_M,
+        lift: cls === 'carriageway' ? c.lift : c.lift + priority * PRIORITY_LIFT_M,
         offset: c.offset - priority * 0.3,
         pos: [], uv: [], conf: [], spans: [], seam: seam ? [] : null, seamEnd: seam ? [] : null,
       });
@@ -1142,15 +1141,12 @@ export async function createStreetGrid({
       }
     }
   }
-  const roadStandSurfaces = [];
   for (const w of ways) {
     const quads = w.items.filter((it) => it.quad).map((it) => it.quad);
     const polys = [...w.items.filter((it) => it.poly),
       ...w.extra.flatMap((x) => (x.sliver ? x.sliver.polys.map((poly) => ({ poly, frame: x.frame })) : [x]))];
     if (quads.length || polys.length) {
       push('carriageway', w.id, quads, w.tier, w.surface, { priority: w.priority, pieceOf: w.pieceOf, polys });
-      roadStandSurfaces.push({ polygons: [...quads, ...polys.map(p => p.poly)],
-        lift: CLASSES.carriageway.lift + w.priority * PRIORITY_LIFT_M });
     }
     // T-3233: the run each margin belongs to along its edge — the margins of one edge that
     // touch, merged — and past each of its two ends, SEAM_M more of the fade laid over the
@@ -1193,18 +1189,10 @@ export async function createStreetGrid({
       out.census.seams += 1;
     }
   }
-  // Vehicles stand on the same clipped carriageway and display lift we just drew,
-  // not the uncut heightfield above the depressed road (T-2979).
-  out.carriagewayHeight = (e, n) => {
-    let lift = null;
-    for (const surface of roadStandSurfaces) {
-      if (surface.polygons.some(poly => pointInPolygon(e, n, poly))) {
-        lift = Math.max(lift ?? -Infinity, surface.lift);
-      }
-    }
-    const ground = terrain.surfaceHeight(e, n);
-    return lift === null || !Number.isFinite(ground) ? null : ground + ROAD + lift;
-  };
+  // Filled from actual Float32 draw geometry below. No bilinear approximation or
+  // outside-road fallback is permitted for parked/moving vehicle support.
+  let carriagewaySurface = null;
+  out.carriagewayHeight = (e, n) => carriagewaySurface?.heightAt(e, n) ?? null;
   for (const a of grid.alleys ?? []) {
     const s = surfaceOf(surfaces, 'alley', a.id);
     push('alley', a.id, a.quads_local_m ?? [], a.geometry_tier, s);
@@ -1314,13 +1302,12 @@ export async function createStreetGrid({
     const lib = buf.material ? library.get(buf.material) : null;
     const mat = new THREE.MeshStandardMaterial({
       color: lib ? 0xffffff : new THREE.Color(c.colour), roughness: 1.0, metalness: 0.0,
-      // T-1805: these surfaces already stand 30–60 mm above the sampled
-      // terrain, with priority expressed in their actual lift. A large negative
-      // slope bias (-11 for walks) pulls a grazing sidewalk THROUGH nearby walls,
-      // producing the apparent projecting slab at Glessner's corner. Retain only
-      // a one-unit numerical tie-break; do not displace depth by screen-space slope.
-      // The seam overlay (T-2475) takes four, to stay over the roadway it fades onto.
-      polygonOffset: true, polygonOffsetFactor: 0, polygonOffsetUnits: buf.seam ? -4 : -1,
+      // T-1805: never use a slope bias: it pulls a grazing sidewalk through walls.
+      // Roads and their wear overlay share one physical surface. Express paving
+      // priority with numerical depth units only, beyond the roadway for a seam.
+      // Walk/alley/curb physical levels and their one-unit tie-break are retained.
+      polygonOffset: true, polygonOffsetFactor: 0,
+      polygonOffsetUnits: seam ? -(MAX_PRIORITY + 2) : buf.cls === 'carriageway' ? -1 - buf.priority : -1,
     });
     if (buf.seam) {
       // T-2475: the seam overlay fades out across its margin, raggedly, as a worn
@@ -1695,7 +1682,12 @@ export async function createStreetGrid({
     return null;
   };
 
+  // Worn fade geometry is cosmetic. Its maximum is a conservative bound over
+  // the actual drawn base+overlay triangles; posed contact checks read both.
+  carriagewaySurface = createLazyRoadTriangleHeight(() => [...meshes, ...overlays]
+    .filter(mesh => mesh.userData.cls === 'carriageway'));
   out.dispose = () => {
+    carriagewaySurface?.dispose(); carriagewaySurface = null;
     if (out.groundCut) { terrain.setGroundCut?.({}); out.groundCut.mask.dispose(); }
     for (const m of [...meshes, ...overlays]) m.geometry.dispose();
     for (const m of materials) m.dispose();

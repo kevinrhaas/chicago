@@ -153,7 +153,7 @@ export function createRail({
     const screens = ['panel', 'load', 'mount'].filter((k) => app[k]);
     const bad = app.panel && app.load ? true : screens.length > 2 || (!screens.length && !app.launch) || (app.load && app.mount);
     if (bad) throw new Error(`navigator.register: ${app.id} needs one of panel, load or mount, or a launch`);
-    const s = { app, button: makeButton(app), shown: !app.when, leaveAt: null, panel: null, mounted: false, module: null };
+    const s = { app, button: makeButton(app), shown: !app.when, leaveAt: null, panel: null, mounted: false, module: null, loading: null };
     apps.set(app.id, s);
     place();
     return () => unregister(app.id);
@@ -242,6 +242,24 @@ export function createRail({
     return s.panel;
   }
 
+  /** Prepare only an app's code. No screen, mount, seen marker or choice changes. */
+  function preload(id) {
+    const s = apps.get(id);
+    if (!s) return Promise.resolve(false);
+    if (!s.app.load || s.module) return Promise.resolve(true);
+    if (!s.loading) {
+      s.loading = Promise.resolve().then(() => s.app.load()).then((mod) => {
+        if (apps.get(id) !== s) return false;
+        s.module = mod?.default ?? mod;
+        return true;
+      }).catch((error) => {
+        s.loading = null; // A later open may retry a failed optional preparation.
+        throw error;
+      });
+    }
+    return s.loading;
+  }
+
   async function select(id, { by = 'code' } = {}) {
     const s = apps.get(id);
     if (!s) return false;
@@ -260,11 +278,8 @@ export function createRail({
     const ticket = ++switching;
     const panel = panelFor(s);
     if (!s.mounted) {
-      if (s.app.load) {
-        const mod = await s.app.load();
-        s.module = mod?.default ?? mod;
-      }
-      if (ticket !== switching) return false; // a later choice won the race
+      if (s.app.load && !s.module) await preload(id);
+      if (ticket !== switching || apps.get(id) !== s) return false; // a later choice won the race
       const mounting = settle((s.module ?? s.app).mount?.(panel, ctx));
       if (mounting) await mounting;
       s.mounted = true;
@@ -328,6 +343,7 @@ export function createRail({
     register,
     unregister,
     evaluate,
+    preload,
     select,
     setVisible,
     get current() { return current; },
