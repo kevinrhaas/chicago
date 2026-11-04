@@ -394,7 +394,23 @@
           "sources": [
             "andreas_1884_sauganash_hotel_plate"
           ],
-          "note": "T-2383 bounded ridge-end stack placement trial. Andreas/Braunhold's public-domain 1884 retrospective plate draws the two ridge stacks near the gable ends; the current comparison has them farther inward at the generic frontage fractions 0.22/0.78. Select the existing gable_ends kit instead. Its 0.60 m end inset, 0.90 m square shafts and ridge + 0.55 m tops are reconstructed generator choices, not dimensions measured from the engraving. The source supports relative disposition only; it supplies no coordinate, July 1835 fitting date, historical camera or independent metric calibration. Count 2, brick finish, shaft section/top, main roof/cornice/wing, openings, position and the separate Carpenter shop remain selected as before. The retained diagnostic-camera projection suggests improved horizontal placement but leaves vertical/roof and broader compound differences unresolved; no rendered acceptance or full image match is claimed by this data trial. docs/LIBERTIES.md L-sauganash-ridge-end-stacks-2383."
+          "note": "T-2383 bounded ridge-end stack placement trial. Andreas/Braunhold's public-domain 1884 retrospective plate draws the two ridge stacks near the gable ends; the current comparison has them farther inward at the generic frontage fractions 0.22/0.78. Select the existing gable_ends kit instead. Its 0.60 m end inset, 0.90 m square shafts and ridge + 0.55 m tops are reconstructed generator choices, not dimensions measured from the engraving. The source supports relative disposition only; it supplies no coordinate, July 1835 fitting date, historical camera or independent metric calibration. Count 2, brick finish, shaft section/top, main roof/cornice/wing, openings, position and the separate Carpenter shop remain selected as before. The retained diagnostic-camera projection suggests improved horizontal placement but leaves vertical/roof and broader compound differences unresolved; no rendered acceptance or full image match is claimed by this data trial. docs/LIBERTIES.md L-sauganash-ridge-end-stacks-2383.\n\nCURRENT WIDTH-ONLY TRIAL: the 0.90 m shaft figure above describes the earlier placement-only increment. The explicit ridge_end_chimney_section_m trial now supersedes that horizontal section with a reconstructed 0.60 m square shaft, leaving the two ridge-end stations, ridge + 0.55 m tops, plain heads and brick finish unchanged. This is a relative-profile trial, not an attested dimension or a new picture-match acceptance."
+        },
+        "cross_wing_shared_ridge_join": {
+          "value": true,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_sauganash_hotel_plate"
+          ],
+          "note": "T-2383 bounded shared-ridge trial. The existing source reading interprets the main and rear roofs as perpendicular ridges meeting at one height; the old model gave them equal heights but stopped the rear crest 3.75 m short of the main crest. Select the explicit join, using the existing main depth and roof overhang to locate the rendezvous, without changing the existing site, footprint, wall height, pitch or the unmeasured outer wing depth. This is a trial of the producer-intended shared-join contract, not proof that the engraving determines this exact historic roof intersection. It supplies no historical junction measurement, dimension, camera or July-1835 alteration date. Actual native picture and visitor comparison must still accept the trial. L-sauganash-ridge-join-and-shaft-section-2383."
+        },
+        "ridge_end_chimney_section_m": {
+          "value": 0.6,
+          "confidence": "reconstructed",
+          "sources": [
+            "andreas_1884_sauganash_hotel_plate"
+          ],
+          "note": "T-2383 width-only stack-profile trial. The retrospective Andreas/Braunhold plate draws relatively slender shafts; ordinary Lake Street review confirms the current wide squat bodies are visible at human eye height. The selected 0.60 m square section is a bounded working reconstruction, not metres read from the plate or a source-calibrated camera. Count two, ridge-end stations, brick finish, the ridge + 0.55 m tops and plain heads remain unchanged. No height or cap lip is added, and no source date, metric or whole-Hotel match is asserted before actual native comparison. L-sauganash-ridge-join-and-shaft-section-2383."
         }
       },
       "change_note": "Two-story frame block built onto the log core at the Lake and Market corner, 1831; the whole then known as the Sauganash Hotel, Chicago's first hotel."

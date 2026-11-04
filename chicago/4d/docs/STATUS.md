@@ -26100,3 +26100,65 @@ Saved native source `34a242bb60d527cfe10daee173c3d40302cd6e24` changes one exist
 The provider stopped at its weekly limit before a PR. This local recovery preserves the saved native outputs rather than rebuilding them. Source part 1 was RED for derived liberties, followed by the owner's corrected `data/liberties.json` without a local part-1 rerun. Parts 2 and 3 passed 292 steps each; part 4 retained the inherited Python 3.14.4/NumPy 2.5.4 two-dimensional-cross error. Those are the actual local results, not an all-four PASS. The authenticated check harness invokes the official publisher in every partition: the post-fix parts 2/3 passed and part 4 reported only that unrelated NumPy failure before mobile stages 3–4 passed 139/0 on saved source 34a. A separate published-input map/buildstamp was not captured; this is scoped execution provenance, not a new current-finisher run.
 
 Qualification remains in progress: integrate current dev while preserving foreign outputs, pass the current exact-head hosted eight parts and aggregate (including the known environment-sensitive step), and review the genuinely published keeper east material at desktop and phone sizes with the missing desktop/relevant runtime. Exact old Sources/Images inputs may carry only after consumed-row equality is verified. No current target-body BOTH, passage/ground clearance or complete picture match is claimed. T-2380 stays OPEN/partial; no grade, source camera or historical fit is promoted. This is an append-only checkpoint; the archived raw prefix is preserved.
+
+
+## T-2383 — ordinary street review and one pending signoff trial (2026-11-04)
+
+Actual current published e803db79d3 was reviewed from the native Lake Street
+sidewalk at E122.5,N-100: real ground0.875m plus the normal1.68m eye, flight off,
+unchanged55-degree field of view. Whole-Hotel and upward-looking captures both
+hit each genuine brick stack through the native GPU picker. The corrected
+focused capture exited0, reaped all five children, left none, and recorded zero
+page/console/network/server errors. All693 critical bindings and5895 published
+files stayed exact. Root directly reviewed both frames (receipt899248a7). The
+first helper's wrong walk-versus-sidewalk label remains a separate proper-closed
+RED; it is not a model failure or a relabelled pass.
+
+The shaft bodies look visibly broad and squat from the street. Cap lips alone
+are not the next task. The existing rear-roof producer promises a shared ridge
+but its actual crest stops3.75m short of the main crest; that is a model-contract
+finding, not proof of the precise historical intersection. Correct opening
+counts and old pixel-only/duplicate questions do not justify endless followups.
+
+ONE unapplied trial is prepared: a default-off shared-ridge join on this Hotel
+and a reconstructed0.60m square shaft section, retaining two stations, the
+ridge+0.55m tops and plain heads. No footprint, existing placement, wall height,
+roof pitch, outer wing depth, dates or canonical camera moves. Every other model
+keeps legacy defaults. Independent static/pure peer ac9cd01c passed the guarded
+parameters and actual padded-roof-end math; this is not a native or image match.
+The official current owner recomputed all23 FrameTavern defaults and two Tremont
+variants as fresh. A changed producer still owes a genuine all25 rebuild and
+actual24-control MASTER-byte comparison before any WEB reuse.
+
+This documentation-only draft checkpoint changes no generator, form flag, source
+record or asset and arms no native build. The approved proposal still needs
+explicit Liberties Covers, official SourceUse/full-dataset validation, a separately
+approved bounded native execution, actual controlled source comparisons, current
+visitor review and final gates. The whole-Hotel verdict remains DIFFERS; original
+T-2383 stays owned and incomplete, with no new photo ticket.
+
+Actual street evidence: https://github.com/kevinrhaas/chicago-evidence/blob/de48d0b43c5df6fd9fae32143eab0c8ae2f98f1b/evidence/sauganash-2026-11-04/finite-street-review-and-unapplied-join-width-prep/STREET-CAPTURE-QUALIFICATION.json
+Refined unapplied proposal and peer: https://github.com/kevinrhaas/chicago-evidence/blob/b46dc28277df09824a871edfbebdbcc21c5317f2/evidence/sauganash-2026-11-04/finite-join-width-prep-v2-peer-reviewed/RECOVERY-V2.md
+
+
+### T-2383 — local source trial admitted; genuine25-output build still owed
+
+The approved Hotel-only shared-ridge join and reconstructed0.60m square shaft
+section are now applied to the local source, with legacy False/None defaults for
+other buildings. Explicit Liberties Covers name both new form controls. Official
+Liberties and SourceUse build/checks, full1031-record parameter validation, strict
+confidence and entry checks passed; official scene compilation/check now carries
+the new attributes to the visitor card. Current SourceUse/confidence checks pass.
+The original seven owner commands passed before an external reporting adapter
+misread the official FAIL prefix; that wrapper RED is retained. Its raw official
+staleness result is exactly25 errors:23 defaults plus two Tremont variants. It is
+expected RED before native, never a green staleness claim. No asset changed here.
+
+This is still an unqualified SOURCE stage. The producer-intended ridge rendezvous
+is not a measured historic intersection; shaft height, heads, count and stations,
+main dimensions, existing site, phase dates and cameras stay fixed. The new source
+commit must not be pushed until its public intent and separately reviewed exact
+root authorization bind it. The automatic same-feature push bake will be superseded
+by one scoped23-ID build expanding to25 outputs, with24 physical controls checked
+before WEB reuse. Actual source comparisons, current visitor checks and final
+gates remain owed; the whole-Hotel comparison still DIFFERS and T-2383 is not done.
