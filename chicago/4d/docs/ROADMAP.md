@@ -1,3 +1,32 @@
+## T-3041 — the north-east small house's pyramid cap (2026-11-03)
+
+The reasoning, archived; the backlog is the queue in kevinrhaas/chicago-tickets.
+
+Why a third roof in `outbuilding` rather than a different archetype. The owner adopted the
+Currey 1912 bird's-eye's four-sided cap for `first_fort_dearborn_small_house_ne` (T-3335)
+while keeping Whistler's measured plan everywhere else in that picture. `fort_structure`
+already builds a pyramid, and moving the record there was priced and refused: its facade
+machinery deals multiple window apertures and a different door, so the migration would have
+destroyed this building's batten doorway and rear vent to reuse a roof. The cheaper, smaller
+change is an opt-in branch in the producer the record already uses.
+
+Why the eave is a scaled footprint and not a constant margin. `fort_structure._hip_roof`
+grows the plan by one number on all four sides, which is exact over the square plans it
+serves. On this 3.72 x 3.05 m rectangle it leaves the two long walls standing 23 mm through
+their own roof, because the faces across the long span must be shallower to reach the same
+apex. Scaling the eave rectangle about the centre instead makes all four planes pass through
+the wall head exactly (measured 0.000 m), at the price of an overhang that is 0.258 m across
+the long span and 0.212 m across the short one. This archetype's standing promise is that
+`_top_z` and the roof agree exactly, so exactness won and the asymmetry is recorded as a
+liberty.
+
+What it cost. `outbuilding.py`'s bytes are hashed into every outbuilding's mesh inputs, so
+one branch staled all 243 committed masters and all 243 were regenerated on the pinned
+Blender before the source was committed. 180 moved bytes by float noise alone and one web
+derivative — the house that actually changed — moved at all.
+
+What it did not buy. One of thirteen differences on that picture. T-3041 and T-2387 stay open.
+
 ## T-3262 — deferred verge buffers
 
 Unreached railway verge tufts retain their exact final Float32 transforms and colours in a smaller CPU cache. The existing reach installs their full buffers before drawing, while density changes retain the original counts. Unusual transforms or colours keep an exact fallback. The tie cache and the original mesh identities remain intact.

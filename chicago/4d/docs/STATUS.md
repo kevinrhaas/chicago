@@ -1,3 +1,30 @@
+## T-3041 — the first fort's north-east small house, and nothing else in that picture (2026-11-03)
+
+`first_fort_dearborn_small_house_ne` carries the four-sided pyramid cap the Currey 1912
+bird's-eye draws in the fort's north-east inner angle, adopted on the owner's ruling of
+2026-11-03 (T-3335). The roof attribute moves from `gable`/`reconstructed` to
+`pyramid`/`inferred`; the archetype grew an opt-in `pyramid` branch with its own
+triangular covering, and the branch refuses an open side, a loft or a chimney rather
+than approximate one. Nothing else about the building moved — not the walls, the batten
+door, the rear vent, the footprint, the 2.4 m wall, the reconstructed 34-degree pitch,
+the surveyed seat or the bearing — and the drawing supplies none of those.
+
+**What is NOT done.** T-3041 and its parent T-2387 are not finished and are released
+open. The Currey view's verdict is still `differs`: the blockhouse cupolas, the
+magazine's barrel vault and the western gateway are all still `open` on the match
+record, and the full first-fort acceptance (21 named records, nine context records,
+every listed picture) is untouched by this increment. One difference of thirteen moved.
+
+**What was verified, and what was not.** `check.sh` ran in its four parts and the smoke
+by the parts `smoke_budget.mjs --for-diff` named for this diff; the whole fifteen-case
+smoke was not re-run and is not claimed. Changing `outbuilding.py` staled all 243
+committed outbuilding masters, every one of which was regenerated on the pinned Blender
+4.5.3 (sha-verified) before the first source commit: 180 came back with different bytes
+— sub-millimetre float noise from a different machine, not moved geometry — and 63 were
+byte-identical. Re-encoding those 180 moved exactly ONE web derivative, the NE small
+house's, because the quantised derivatives absorb that noise. No freshness hash was
+written by hand.
+
 ## T-3262 — deferred verge buffers
 
 Unreached railway verge tufts retain their exact final Float32 transforms and colours in a smaller CPU cache. The existing reach installs their full buffers before drawing, while density changes retain the original counts. Unusual transforms or colours keep an exact fallback. The tie cache and the original mesh identities remain intact.

@@ -213,7 +213,7 @@
         -30.69999999999999
       ],
       "rotation_y": -3.141592653589793,
-      "glb_sha256": "1b8b3a40b3f5da3f355bd8e91b3fe56410cac25ebd1c15d5d45b0c909b378441"
+      "glb_sha256": "1e275240d88cab9f5a9ac4a47d4fd90f7e08204e310cb630a00a003455633c8c"
     },
     {
       "structure_id": "first_fort_dearborn_small_house_sw",
@@ -232,7 +232,7 @@
         -4.359999999999985
       ],
       "rotation_y": 0,
-      "glb_sha256": "3a90ae5849854a8b2b99ef654a03e992f6f0ce556940e78057688b0fa9ce4c97"
+      "glb_sha256": "32a70d9d187a619d72b8cd3debf1de60be1700ad5dfebd9a08285beb1be02613"
     },
     {
       "structure_id": "first_fort_dearborn_soldiers_barracks_se",
@@ -273,7 +273,7 @@
       "glb_sha256": "f29ff0571f83798d9663a1d2a1d79a40b6fed779ce3e50ddfd4fd8ca4d973161"
     }
   ],
-  "group_sha256": "abfa98d8a3223f8c2abe7e76d3b611c800d7853544199580cd0196749144d72c",
+  "group_sha256": "bda582f91ec8c5dc3bbc5bc2c45b1d0e07faf6867f154257fdcbe9a420d75731",
   "side_by_side": "docs/RESEARCH/photo-match/first_fort_dearborn_pickets_outer/currey_1912_birdseye-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -306,8 +306,8 @@
       "status": "open"
     },
     {
-      "what": "North-east inner angle: the drawing has a small square building with a pyramid roof there; ours has Whistler's small house (index no. 16) in the same angle with a gable roof. Owner, 2026-11-03 (T-3335): adopt it; the fix belongs to T-3041.",
-      "status": "open"
+      "what": "North-east inner angle: the drawing has a small square building with a pyramid roof there; ours had Whistler's small house (index no. 16) in the same angle with a gable roof. Owner, 2026-11-03 (T-3335): adopt it. FIXED under T-3041: `first_fort_dearborn_small_house_ne` now carries a four-sided pyramid cap - a point apex over the centre of the plan, four hips to the eave corners, no ridge - built by an opt-in `pyramid` branch of the outbuilding archetype. Confirmed by eye on this side-by-side against the plate: the ridge the render used to show across that angle is gone and the cap converges to a point, which is what the drawing draws. The ROOF SHAPE alone is adopted; Whistler's measured plan, the surveyed seat and bearing, the 3.72 x 3.05 m footprint, the 2.4 m wall and the reconstructed 34-degree pitch are unchanged, and the drawing supplies none of them (docs/LIBERTIES.md L-first-fort-ne-house-pyramid-3041).",
+      "status": "fixed"
     },
     {
       "what": "Chimneys: the drawing's are small stacks along each ridge; ours are larger red brick stacks. Counts follow Whistler's folded elevations; section and brick are reconstructed. Owner ruling 2026-11-03 (T-3335): keep the current stacks.",
@@ -331,5 +331,5 @@
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "note": "T-3335 (owner, 2026-11-03). A retrospective reconstruction, not an eyewitness view: Currey (1912) after a Chicago Daily Tribune sketch (5 March 1899) of Albert L. Van den Berghen's 1898 model. Where it departs from Whistler's contemporary 1808 measured draught, the draught governs unless the owner rules otherwise; the owner ruled on 2026-11-03: adopt the blockhouse cupolas, the magazine's vault, the north-east small house's pyramid roof and the western gate (open, for T-3041); keep Whistler's plan for the rest (owner ruling)."
+  "note": "T-3335 (owner, 2026-11-03). A retrospective reconstruction, not an eyewitness view: Currey (1912) after a Chicago Daily Tribune sketch (5 March 1899) of Albert L. Van den Berghen's 1898 model. Where it departs from Whistler's contemporary 1808 measured draught, the draught governs unless the owner rules otherwise; the owner ruled on 2026-11-03: adopt the blockhouse cupolas, the magazine's vault, the north-east small house's pyramid roof and the western gate; keep Whistler's plan for the rest (owner ruling). Of those four, the north-east small house's roof is BUILT (T-3041, the fixed difference below); the blockhouse cupolas, the magazine's vault and the western gate are still open, so this view still differs and T-3041 and its parent T-2387 are not finished."
 }
