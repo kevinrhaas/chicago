@@ -918,10 +918,22 @@
             ]
           },
           "roof": {
-            "kind": "flat",
-            "overhang_m": 0.15,
+            "kind": "gable",
+            "gable_to": "south",
+            "pitch_deg": 54,
+            "overhang_m": 0.3,
             "fascia_m": 0.3,
-            "covering": "painted_tin_sheet"
+            "covering": "slate_pennsylvania",
+            "coping": {
+              "thickness_m": 0.18,
+              "depth_m": 0.35,
+              "kneeler_m": 0.35,
+              "finial_m": 0.6,
+              "ends": [
+                "south",
+                "north"
+              ]
+            }
           }
         }
       ],
