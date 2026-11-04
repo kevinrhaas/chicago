@@ -6230,6 +6230,23 @@ it is unchanged: every vertex of the layer is graded `reconstructed`, so hiding 
 all thirty-three signs down at once and leaves the town as the sources leave it — mute, with one
 wolf sign at the forks. What a visitor cannot see from the street is that the names are the
 dataset's and the paint is not; the card behind each sign says so, and this entry is why.
+**AMENDED, T-3359 (2026-11-03): NOTHING HANGS BUT A TAVERN'S POST.** The owner, on a screenshot of
+Jones's grocery under its awning board: *"this whole hanging awning sign thing is not likely, like i
+have not seen images of that but what is more likely is the sign on the face of the building either
+put there or painted directly ... sizing and moving most if not all of the hanging signs to ones
+affixed to logical places either on the front or over the door"*. The evidence agrees: no picture
+in this corpus shows an 1835 Chicago board under a hood or on a bracket, the owner's brief shows
+painted fronts (image 5) and the Green Tree's post (images 6 and 7), and the National Park
+Service's Preservation Brief 25, *Signs*, has flat and flush-mounted boards "standard" by 1800 with
+the hanging sign persisting "less so than previously", chiefly at public houses. So the cycles
+above are still DEALT, unchanged, and every board dealt a `bracket_board` or an `awning_board` (35
+of them) is built as a `wall_board` on its own front instead — over the door where the wall has the
+height above its head, else beside it on the nearest clear face, and kept off every door, sash,
+shutter and frontispiece. Its wording, colourway and letterform are the board it was. The six post
+boards stay. What is invented is unchanged in kind: WHERE on the front each board is fixed, and its
+size, are this file's rule and no record's. Fourteen of the boards are on frame taverns, so
+`frame_tavern_params.front_wall` now reads the frontage scheme's front for the sign layer, held to
+the builder's literals by `tools/check_tavern_front_reader.py`.
 **And the tier got cheaper, not dearer.** The layer draws **1,106 triangles** where it drew 1,380,
 because a painted band is two triangles and a board fixed flat on a wall is twenty-four where a
 bracket is sixty. The lettering costs nothing at all: the whole town's paint is ONE canvas atlas
@@ -39920,6 +39937,18 @@ The retrospective, potentially dependent pictures disagree about an open or encl
 The two existing static farm-wagon stands retain their earlier reconstructed parking-apron line, using the archetype's former rear-ell depth as an offset even though the wing is now absent. This preserves their positions, clearances, dimensions and eligibility; it is not a wall, a new surveyed dimension or evidence that the ell existed in1835. Their protected historical notes retain the earlier ell-based derivation; this paragraph amends that reasoning for the current open apron. Other structures' placement rules remain unchanged.
 
 The main-body reference footprint and source placement remain unchanged. Separate occupied rings follow the connector and turned range; consumers retain open gaps and the existing core's passages. Neither those physical consumers nor an isolated asset render establishes full original-ticket picture coverage, a calibrated historical camera, door traversal or an actual app-performance verdict. The original T-2376 signoff remains open; genuine changed-model comparisons and published app review are still required.
+
+**Ticket:** T-2376.
+**Recorded:** 2026-11-03.
+
+
+### L-green-tree-closed-shoulder-working-2376 — the enclosed shoulder as a working reading
+
+**Covers:** `green_tree_tavern.frame_1833.form.enclosed_left_annex`.
+
+**Decision:** Select the existing group's enclosed shoulder from Andreas's detailed retrospective engraving, with its lower sash and small gabled/dormered light. Trowbridge/Gale's1902 illustration captioned1835 instead shows an open wagon bay; that conflict remains explicit and does not establish a conversion year or exactJuly1835condition. Source ids remain `andreas_1884_green_tree_hotel_plate`, `kurz_allison_1893` and `trowbridge_green_tree_1902`. No new measurement, historical chronology or confidence is invented. All numeric spans, depths, heights, pitches, opening stations, turn, finish and hidden fabric stay the earlier reconstructed choices; the canonical main footprint and world coordinate do not move.
+
+The yard source owner follows the same canonical attribute and declines only the competing open shed/posts and covered wagon while the shoulder is enclosed. The two separate farm wagons, bench and frontage goods retain their rules. The actual closed-model comparison adds the missing wall/sash/upper light but still differs in left-cluster roof silhouette and relative proportions. Earlier open-bay notes and prior model history remain verbatim in the dossier. No new25family bake, complete picture match, geographic camera, published-app acceptance, dated alteration or original-ticket closure is implied.
 
 **Ticket:** T-2376.
 **Recorded:** 2026-11-03.

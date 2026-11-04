@@ -1087,6 +1087,17 @@ def _green_tree_wagon_shed(sc: dict, place: dict, poly: list,
     ground `WAGON_CLEAR_M` gives a parked wagon, and its open eave stands a
     hand's breadth over the tilt it has to cover.
     """
+    # The same canonical building state owns this ground. Andreas's closed
+    # shoulder and Trowbridge's open bay are competing readings, not two roofs
+    # to draw together. Leave every absent/false case on the old path exactly.
+    annex = ((sc.get("attributes") or {}).get("enclosed_left_annex") or {}).get("value")
+    if isinstance(annex, dict) and annex.get("shoulder_enclosed") is True:
+        return [], [], [{"structure_id": GREEN_TREE_ID, "why": (
+            "the canonical enclosed shoulder occupies the open-bay ground; "
+            "the separate shed/posts and its covered wagon are not drawn twice. "
+            "Trowbridge's open bay remains a conflicting retrospective reading, "
+            "not a dated conversion or a measured July1835 condition.")}]
+
     refused: list = []
     u0 = min(p[0] for p in poly)
     u1 = max(p[0] for p in poly)

@@ -31,7 +31,7 @@
   },
   "items": {
    "chopping_block": 366,
-   "cordwood": 419,
+   "cordwood": 418,
    "log_heap": 42,
    "slab_heap": 32
   },
@@ -574,19 +574,6 @@
      "seed": 1305320839
     },
     {
-     "kind": "cordwood",
-     "at_local_enu_m": [
-      -29.06,
-      -87.51
-     ],
-     "bearing_deg": 180.0,
-     "length_m": 2.44,
-     "depth_m": 1.22,
-     "height_m": 1.03,
-     "stick": "cord",
-     "seed": 876087640
-    },
-    {
      "kind": "chopping_block",
      "at_local_enu_m": [
       -25.5,
@@ -594,12 +581,12 @@
      ],
      "bearing_deg": 180.0,
      "billets": 3,
-     "seed": 495305494
+     "seed": 876087640
     }
    ],
    "household": "hh_ingersoll_chester",
    "trade": "tavern_keeper",
-   "cut_down": "dealt 3 ricks; 2 fit the wall"
+   "cut_down": "dealt 3 ricks; 1 fit the wall"
   },
   {
    "structure_id": "harmon_log_cabin",

@@ -14690,7 +14690,7 @@
         },
         {
           "label": "Consequence",
-          "text": "a visitor walking South Water Street now reads the town instead of guessing at it, and **every word of what they read is ours**. The counterweight is the same one “Twenty-four shop signs in a town that documents one” built and it is unchanged: every vertex of the layer is graded `reconstructed`, so hiding that level takes all thirty-three signs down at once and leaves the town as the sources leave it — mute, with one wolf sign at the forks. What a visitor cannot see from the street is that the names are the dataset's and the paint is not; the card behind each sign says so, and this entry is why. **And the grade got cheaper, not dearer.** The layer draws **1,106 triangles** where it drew 1,380, because a painted band is two triangles and a board fixed flat on a wall is twenty-four where a bracket is sixty. The lettering costs nothing at all: the whole town's paint is ONE canvas atlas and every triangle carries a `uv` into it, so the layer is still one draw call with one material, which is the invariant the smoke renderer tool has held since other work."
+          "text": "a visitor walking South Water Street now reads the town instead of guessing at it, and **every word of what they read is ours**. The counterweight is the same one “Twenty-four shop signs in a town that documents one” built and it is unchanged: every vertex of the layer is graded `reconstructed`, so hiding that level takes all thirty-three signs down at once and leaves the town as the sources leave it — mute, with one wolf sign at the forks. What a visitor cannot see from the street is that the names are the dataset's and the paint is not; the card behind each sign says so, and this entry is why. **AMENDED, other work (2026-11-03): NOTHING HANGS BUT A TAVERN'S POST.** The owner, on a screenshot of Jones's grocery under its awning board: *\"this whole hanging awning sign thing is not likely, like i have not seen images of that but what is more likely is the sign on the face of the building either put there or painted directly... sizing and moving most if not all of the hanging signs to ones affixed to logical places either on the front or over the door\"*. The evidence agrees: no picture in this corpus shows an 1835 Chicago board under a hood or on a bracket, the owner's brief shows painted fronts (image 5) and the Green Tree's post (images 6 and 7), and the National Park Service's Preservation Brief 25, *Signs*, has flat and flush-mounted boards \"standard\" by 1800 with the hanging sign persisting \"less so than previously\", chiefly at public houses. So the cycles above are still DEALT, unchanged, and every board dealt a bracket board or an awning board (35 of them) is built as a wall board on its own front instead — over the door where the wall has the height above its head, else beside it on the nearest clear face, and kept off every door, sash, shutter and frontispiece. Its wording, colourway and letterform are the board it was. The six post boards stay. What is invented is unchanged in kind: WHERE on the front each board is fixed, and its size, are this file's rule and no record's. Fourteen of the boards are on frame taverns, so frame tavern params front wall now reads the frontage scheme's front for the sign layer, held to the builder's literals by the tavern front reader check. **And the grade got cheaper, not dearer.** The layer draws **1,106 triangles** where it drew 1,380, because a painted band is two triangles and a board fixed flat on a wall is twenty-four where a bracket is sixty. The lettering costs nothing at all: the whole town's paint is ONE canvas atlas and every triangle carries a `uv` into it, so the layer is still one draw call with one material, which is the invariant the smoke renderer tool has held since other work."
         },
         {
           "label": "How to resolve",
@@ -14703,6 +14703,7 @@
       ],
       "work_refs": [
         "T-0082",
+        "T-3359",
         "T-0039"
       ]
     },
@@ -66895,6 +66896,41 @@
         {
           "label": "Decision",
           "text": "Retain the already-adopted main-gable entrance/two front sash and the existing procedural open wagon bay. Replace the former rear ell with a low connector and the turned farther gabled boarding range shown more fully by Andreas. The MASTER omits the open shoulder (shoulder enclosed: false); the native yard layer remains the sole owner of its roof, posts and covered wagon. It is not a duplicate model roof, and its open ground is not filled by a collision hull. The retrospective, potentially dependent pictures disagree about an open or enclosed shoulder and do not establish a dated alteration sequence. This increment retains the open reading; the separate closed-shoulder alternate is not enrolled. Every span, hidden depth, elevation, roof slope, opening station, plan turn, offset and timber/pigment treatment is reconstructed. Choosing the undated additions for July1835 proves no unchanged survival, exact dimensions, surveyed coordinate, tenant identity or increased lodging capacity. The unverified1859 catalogue photograph supplies no geometry. Geometry source records: \"THE GREEN TREE HOTEL.\" — wood engraving, in A. T. Andreas, History of Chicago…, The Green Tree Tavern in 1835 (published 1902), Kurz & Allison. Chicago In Early Days, 1779-1857. The modern \"Green Tree Tavern.\" Chicagology. Transcribing the Inter Ocean of 1 July 1883… page remains text-only context for transcribed later testimony and counterevidence; its unresolved webpage rights supply no new annex geometry. The two existing static farm-wagon stands retain their earlier reconstructed parking-apron line, using the archetype's former rear-ell depth as an offset even though the wing is now absent. This preserves their positions, clearances, dimensions and eligibility; it is not a wall, a new surveyed dimension or evidence that the ell existed in1835. Their protected historical notes retain the earlier ell-based derivation; this paragraph amends that reasoning for the current open apron. Other structures' placement rules remain unchanged. The main-body reference footprint and source placement remain unchanged. Separate occupied rings follow the connector and turned range; consumers retain open gaps and the existing core's passages. Neither those physical consumers nor an isolated asset render establishes full original-piece of work picture coverage, a calibrated historical camera, door traversal or an actual app-performance verdict. The original this work signoff remains open; genuine changed-model comparisons and published app review are still required."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-03."
+        }
+      ],
+      "work_refs": [
+        "T-2376"
+      ]
+    },
+    {
+      "id": "L-green-tree-closed-shoulder-working-2376",
+      "title": "the enclosed shoulder as a working reading",
+      "section": "per_subject",
+      "subjects": [
+        "green_tree_tavern"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "green_tree_tavern",
+          "phase": "frame_1833",
+          "aspect": "form.enclosed_left_annex"
+        }
+      ],
+      "recorded": "2026-11-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`green_tree_tavern.frame_1833.form.enclosed_left_annex`."
+        },
+        {
+          "label": "Decision",
+          "text": "Select the existing group's enclosed shoulder from Andreas's detailed retrospective engraving, with its lower sash and small gabled/dormered light. Trowbridge/Gale's1902 illustration captioned1835 instead shows an open wagon bay; that conflict remains explicit and does not establish a conversion year or exactJuly1835condition. Source ids remain \"THE GREEN TREE HOTEL.\" — wood engraving, in A. T. Andreas, History of Chicago…, Kurz & Allison. Chicago In Early Days, 1779-1857 and The Green Tree Tavern in 1835 (published 1902). No new measurement, historical chronology or confidence is invented. All numeric spans, depths, heights, pitches, opening stations, turn, finish and hidden fabric stay the earlier reconstructed choices; the canonical main footprint and world coordinate do not move. The yard source owner follows the same canonical attribute and declines only the competing open shed/posts and covered wagon while the shoulder is enclosed. The two separate farm wagons, bench and frontage goods retain their rules. The actual closed-model comparison adds the missing wall/sash/upper light but still differs in left-cluster roof silhouette and relative proportions. Earlier open-bay notes and prior model history remain verbatim in the dossier. No new25family bake, complete picture match, geographic camera, published-app acceptance, dated alteration or original-piece of work closure is implied."
         },
         {
           "label": "Recorded",
