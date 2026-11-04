@@ -21267,7 +21267,7 @@ cupola, because the drafter wrote that the cupolas he drew were "not yet built".
 **How to resolve:** a War Department estimate or return for the post of 1803-1812, the
 quartermaster's building accounts, or a dimensioned elevation; any of them would move the heights
 to inferred.
-**Covers:** `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.chimneys`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.roof_type`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.upper_overhang_m`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.chimneys`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.roof_type`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.upper_overhang_m`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.chimneys`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_flagstaff.first_fort_1803.footprint`, `first_fort_dearborn_flagstaff.first_fort_1803.form.construction`, `first_fort_dearborn_flagstaff.first_fort_1803.form.paint`, `first_fort_dearborn_flagstaff.first_fort_1803.form.roof_type`, `first_fort_dearborn_magazine.first_fort_1803.footprint`, `first_fort_dearborn_magazine.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_magazine.first_fort_1803.form.roof_type`, `first_fort_dearborn_magazine.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_north_range.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_north_range.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.chimneys`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_height_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_spacing_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_width_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_height_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_spacing_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_width_m`, `first_fort_dearborn_small_house_ne.first_fort_1803.footprint`, `first_fort_dearborn_small_house_ne.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_small_house_ne.first_fort_1803.form.roof_type`, `first_fort_dearborn_small_house_ne.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.roof_type`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.chimneys`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.chimneys`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.wall_height_m`.
+**Covers:** `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.chimneys`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.roof_type`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.upper_overhang_m`, `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.chimneys`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.roof_type`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.upper_overhang_m`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.chimneys`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_flagstaff.first_fort_1803.footprint`, `first_fort_dearborn_flagstaff.first_fort_1803.form.construction`, `first_fort_dearborn_flagstaff.first_fort_1803.form.paint`, `first_fort_dearborn_flagstaff.first_fort_1803.form.roof_type`, `first_fort_dearborn_magazine.first_fort_1803.footprint`, `first_fort_dearborn_magazine.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_magazine.first_fort_1803.form.roof_type`, `first_fort_dearborn_magazine.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_north_range.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_north_range.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.chimneys`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_height_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_spacing_m`, `first_fort_dearborn_pickets_inner.first_fort_1803.form.picket_width_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_height_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_spacing_m`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.picket_width_m`, `first_fort_dearborn_small_house_ne.first_fort_1803.footprint`, `first_fort_dearborn_small_house_ne.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_small_house_ne.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.roof_type`, `first_fort_dearborn_small_house_sw.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.chimneys`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.wall_height_m`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.chimneys`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.roof_pitch_deg`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.wall_height_m`.
 **Recorded:** 2026-10-04 (T-2049).
 
 
@@ -40154,6 +40154,61 @@ The yard source owner follows the same canonical attribute and declines only the
 **Review:** `docs/RESEARCH/photo-match/dearborn_street_drawbridge/andreas_1884-side-by-side.jpg` and its match record.
 **Recorded:** 2026-11-03 (T-3361).
 
+### L-first-fort-ne-house-pyramid-3041 — the north-east small house's four-sided cap
+
+**Covers:** `first_fort_dearborn_small_house_ne.first_fort_1803.form.roof_pitch_deg`
+
+**Supersedes:** L370's reconstructed roof for `first_fort_dearborn_small_house_ne` only —
+that record's `roof_type` is no longer ours to admit to, because the owner's ruling gives it
+a picture and the attribute is now `inferred` with its sources, so L370 has stopped claiming
+it. Keep L370's historical entry and every other height, roof, stack, picket and depth in it,
+including the south-west small house's roof and this house's own plan depth and wall height.
+The pitch below is still ours, which is why this entry stands rather than resolving.
+
+**Decision:** The roof SHAPE is adopted, by the owner's ruling of 2026-11-03 (T-3335,
+carried out under T-3041), from the bird's-eye of the first Fort Dearborn printed at p. 27
+of Currey's *The Story of Old Fort Dearborn* (1912) — `currey_1912_first_fort_birdseye`.
+The plate draws a small building in the fort's north-east inner angle under an unmistakable
+four-sided cap: a point apex, two hips to the eave corners, no ridge. The attribute moves
+from `gable`/`reconstructed` to `pyramid`/`inferred`, and the reasoning is the owner's
+building-by-building comparison of that plate with Whistler's 1808 draught, which identifies
+the building (his index no. 16) but is silent about its roof.
+
+**What is invented, and stays invented.** Everything about the roof except its topology. The
+34-degree pitch is this archetype's reconstructed working figure and was so before the change;
+the drawing is not metric and no pitch can be read from it. So are the roof's covering (riven
+boards), its board widths, the eave overhang, and the 3.72 x 3.05 m footprint's depth — the
+register measured the 12.2 ft width off an elevation and the 10.0 ft depth is ours, which the
+record already says. The wall height of 2.4 m is unattested. None of these was touched to fit
+the plate, and the surveyed seat, bearing and the 75 ft flagstaff are unchanged.
+
+**What the source can and cannot carry.** `currey_1912_first_fort_birdseye` is a 1912
+retrospective reconstruction, after a *Chicago Daily Tribune* sketch of 1899 of Van den
+Berghen's 1898 model; its own camera in this project is marked `diagnostic_only`, because the
+same fit cannot hold both the plan corners and the flagstaff. It is evidence of a shape
+somebody drew, not of a building somebody saw. It therefore supports `inferred` and could not
+support `attested`, and the structure's own grade is left where it was for that reason: this
+change does not add the house to the picture's `card_members`.
+
+**What is invented in the builder.** The pyramid's eave is the footprint scaled about its
+centre rather than grown by a constant margin, so that all four planes pass through the wall
+head exactly (measured: 0.000 m, against 0.023 m of wall left standing through its own roof
+under a constant overhang on this rectangle). The consequence is an overhang of 0.258 m across
+the long span against 0.212 m across the short one. That asymmetry is a drawing decision of
+this project's, not a reading of any source.
+
+**What is not changed.** The walls, materials and ground contact; the 0.86 x 1.88 m batten
+front doorway; the rear vent; every other outbuilding in the dataset, whose gable and shed
+branches are untouched. A pyramid with an open side, a loft or a chimney is refused rather
+than approximated.
+
+**How to resolve:** nothing can. No contemporary sheet draws this building's roof, and the
+1808 draught shows it only in elevation. A pyramid cap is the best-attested shape available
+and it remains a shape taken from a retrospective picture.
+
+**Ticket:** T-3041 (piece of T-2387).
+**Review:** `data/reference_views/first_fort_dearborn_pickets_outer/currey_1912_birdseye.match.json`.
+**Recorded:** 2026-11-03 (T-3041).
 
 ### L-sauganash-main-gable-cornice-2383 — the Sauganash's boxed gable cornice, drawn without a dimension
 
