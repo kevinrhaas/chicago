@@ -6069,12 +6069,135 @@ T-2793: finish current-source publisher/full-gate and world/photo release checks
 T-2793 final-source qualification must use the separately owned actual reach/kingbolt candidate (8,465,076-bytewebset); old pre-reach captures do not qualify the added member. Preserve current80staticwagons/3finewoodstands until explicitworld-selection qualification.
 
 
+### T-3088 — qualify the refined canonical horse anatomy
+
+Keep the source-bounded 925fac master as the selected candidate: rounded locally refined hooves and thinner eyelid margins, protected eye/maps/rig/clip, repeatable authored recipe and fresh all-face/expanded-contact Mixer129 proof. Finish actual selected-body yard support, mobile/desktop normal app review and the native whole preflight before delivery. Record the remaining resting-lid appearance honestly; complete the existing T-3089 material/LOD work sequentially from this exact accepted anatomy master. No gait/rider/driver acceptance is implied and no new photo follow-ups are opened.
+
+
+### T-3088 - deliver the exact qualified upper-lid increment
+
+Select exact5a2b2e87 through its explicit bounded socket mode, preserving the925
+ancestor, d454/raw sources, eye UVs/maps, rig/clip and rounded hoof domains. The
+actual external static/native65keys+64midpoints/all129 posed proof and unchanged
+9176-byte physical loop qualify these exact source bytes; the old strict-mode
+rejection remains preserved. Complete the fresh native source/static port check,
+real current app yard/stand/head/eye comparison at desktop and phone widths,
+normal source preflight and exact-HEAD PR checks before landing the bounded
+increment. Keep T-3088/T-3089 open for broad brow ridge, lower pale ring/fur and
+remaining full photographic/surface/LOD work. No gait, rider, driver or historical
+individual claim follows from this source qualification.
+
+
+T-3088 bounded source increment27 October2026: exact e49b reduces the upper BODY orbital ledge through an explicit10-position/38-normal/44-face child of5a. Fresh actual129 proof and matched16 source views are recorded, with unchanged source/physical/collision limits and old masters/proofs retained. Continue canonical owners, complete source gate/CI and current Full yard body/head views at both widths before landing. Remaining dark upper-eye/pale ring/forelock concerns are not automatically paint-only or wholly surface work; no T3088DONE/full-photo/gait/tack claim. Preserve stocky unchanged body rather than inventing a global warp.
+
+
+### T-3088 eye-normal child checkpoint, 29 October 2026
+
+Finish the separately declared source-derived EYE NORMAL child through new
+exact-byte static/physical129/posed socket qualification, canonical source gates
+and actual matched native organic yard views before selecting it. Retain current
+e49 and every original source/certificate,9176-byte physical loop, fixed physical
+limits and14/7mm source-interface policy. Inspected RAW source shading improvement
+is bounded and does not settle the unchanged angular silhouette, BODY ring,
+paint, mane or broad photographic/surface/gait/rider/driver acceptance.
+
+
+### Selected eye-normal child after fresh canonical qualification, 29 October 2026
+
+The source-selected runtime is now exact
+`bd443df87b92d19266284cb9b52d30e791215cddf099876c774e9cfb5f5a79b6`,
+4,159,196bytes/17,390triangles, in explicit `eye_smooth_normals_v1` mode. Exact
+e49 remains preserved as a supported parent with its original runtime/idle
+metadata and certificate. The original source candidate and recipe creation
+notices are preserved as historical records. Only3968 EYE NORMAL rows and
+truthful existing NORMAL accessor extrema change; BODY geometry, silhouette,
+all positions/indices, UVs/images/materials, rig/skin/clip, bounds, hoof contacts,
+placement and support remain unchanged.
+
+Fresh qualification of these exact new bytes actually passed canonical static
+11.384s, native standard-loader/SkeletonUtils clone/Mixer65keys+64midpoints
+73.616s, and all129 posed socket samples225.420s; complete pipeline314.328s,
+with all owned-process cleanup complete and no remaining children. It retained
+the original9176-byte physical loop, every original physical limit,178 source
+scan faces,20 unchanged same-side interface faces and14/7mm locus bounds.
+Each posed sample retained24 contained BODY crossings/82 globe contacts and
+zero new exterior/undeclared/patch-patch crossings. Maximum upper bounds are
+13.770834108mm BODY and6.247168226mm globe contact. No parent certificate
+transfers. The new source summary binds actual raw capture, Float64 arrays,
+posed results and canonical code/input pins.
+
+The eight earlier RAW-material views remain a bounded source observation: clear
+triangular eye shading bands recede; the angular silhouette, heavy BODY
+socket/ring, painted appearance and mane remain. New selected-child native
+organic published-yard comparison, phone/desktop app acceptance, canonical
+Liberty/source-use owners, complete source gates/CI and broad photographic
+acceptance are still PENDING. No walking, rider, driver, tack, identified
+historical individual or whole T-3088/T-3089 completion is claimed.
+
+
+T-2803 natural planted idle source preparation (29 October 2026): owner-reported
+1835 motionlessness is being addressed with explicit exported head/neck/tail
+animation on existing26joint rig, separate8ea child of selectedbd443. Geometry,
+weights, original body/leg clip and old14 qualifiers are preserved. Root-approved
+source-only export/12 corruptions passed; independent expected65 and canonical
+native17track/physical/socket129 preparation exist. Fresh native/posed/world
+desktop+phone/full gates remain UNRUN; no active runtime change or old-proof
+transfer. Walk/trot, gear, riders/drivers, boarding/riding, interactions and town
+traffic remain the existing owner's program, not completion of this idle source.
+
+
+T-2803 continuation: the actual8ea independent-head/tail trial failed physical
+skin limits because lower-jaw vertices were body-fixed. New anatomical binding
+v2 and separately versioned paired925 reference are source-prepared with exact
+protected bytes and twelve corruption controls. All new old13/native17/socket129
+and actual town desktop/phone motion acceptance remain open; runtime remains
+bd443. This repair supports the existing riders, drivers and interactive town
+program; no gait, tack, rider/driver, boarding or traffic completion is claimed.
+
+
+T-2803: V2 actualjaw/body repair passed retained13-track parity/physical and new17
+BODY/EYE/contact, butHAIRarea1.225623>1.2failed. V3 root-aware mane source is
+prepared from8sourcecrest points, changing only1119HAIRrows with exactpaired925
+reference and11corruption controls. All fresh V3native/posed/world acceptance
+remains open; runtimebd443 unchanged, larger gait/tack/rider/driver/interactions/
+towntraffic program remains open. No failedfield or oldcertificate is retargeted.
+
+
+#### T-2803/T-3088 quiet standing head/neck continuation, 30 October 2026
+
+Fresh exact quiet15 finite129 static/native/runtime-master/paired925 posed qualification and certified-helper CPU mechanics passed. Local source integration retains the original yard placement/support and preserves prior bd443 metadata/assets. Finish real unheld desktop and phone near/mid observation, actual card interaction and video/image review, then whole-app gates and normal checked feature/DEV delivery. Photographic master, tail flick, gaits, riding, driving and town population remain open; this quiet standing motion does not complete those goals.
+
+
+T-2793 desktop memory follow-up (2026-10-29): qualify the existing railway upload-release path at desktop detail without removing geometry or changing caps. Compare the same native 1904 meter against public 9e14c1388, then verify real rail picks, near/far rebuilds, confidence/season/detail changes and ordinary context recovery. Savings and the historical T-3173 memory goal remain unverified; T-3173 stays OPEN. Complete current-source canonical/preflight and every mapped published smoke before release.
 T-2793 follow-up: costly continuous flora motion within each pass's existing reach and yaw step uses the original immediate producer path, so horseback travel does not repeatedly abandon an unfinished jump. Native scheduler regression controls retain teleport/snap-turn, pending/carry ownership and synchronous buffer reads. The original frame ceilings and plant algorithms are unchanged. Larger-than-reach motion at low frame rates retains its existing limitation. Actual cold flight-to-travel performance and current CI remain required; this source change is not a performance PASS.
 
 
 Current integration note: the checked wagon/flora feature ee67adfe passed its native1112-step source gate and exact-HEAD delivery checks. That feature result does not qualify the subsequently merged DEV609edb67 source. The ordinary integration owner and current CI remain required before DEV delivery; photographic, occupied-vehicle, riding/driving and horse/Otis-motion acceptance are not closed by this partial. T-3173 is already DONE through merged PR1605: retain and adopt its current memory/empty-scene fixes, do not reopen that ticket or make obsolete memory/refill qualification a blocker for this wagon increment. The older dated memory notes remain historical records, not current ticket claims.
 
 
+T-2803 / T-3088 visible standing clock correction (2026-10-30): the old near-world run remains NONPASS (5.636/12 native seconds); local source now gives only the cosmetic standing-horse idle visible wall time with activation/hold/visibility/context/reduced-motion rebases, keeps physics, planted helper, model and finite certificate unchanged, and leaves fresh desktop/phone world observation, full gates, photographic quality, gaits and occupied transport pending.
+
+
+### T-1790 first visible standing-motion increment
+
+Prioritize the owner's stiff-Otis/quiet-horse report in the actual DEV scene. First deliver a bounded natural look and breath on the existing Otis rig, with planted feet, unchanged original geometry/appearance, actual desktop/phone review and ordinary gates. Human elapsed-time advancement must remain correct on slow displays and preserve arrival/capture holds. The first idle increment does not close the shared animation library, horse gait, populated routes, fitted riders/drivers or boarding/riding work. Exact parent canonical qualification is preserved as parent history; derivative native and visual proof is separate.
+
+
+T-1790 update (2026-10-29): the exact native-qualified animation-only derivatives are selected for the existing Otis stand. All eight files pass the finite native CPU/contact/anatomical-reference scope; actual desktop/phone near/mid motion and clothing, native browser cost measurement, publication, full gates and ordinary PR delivery are still required. The broader people/horse/vehicle interaction program remains open.
+
+T-1790 current native qualification (2026-10-29): the unchanged browser fixture freshly measures all 16 human GLBs in both viewport sizes, including all eight natural-standing derivatives. Their exact original finite native-129 qualification is preserved, with a separate metadata-only equivalence bridge for the shared rig-pose source field. The latest DEV architecture changes are integrated without changing the human runtime or eight animation/geometry BINs. Native metadata owners settle in two actual tail laps. Published-world motion/clothing and real resident-card interaction in desktop/phone near/mid views, full gates and ordinary PR delivery remain open; this is not the complete animation/route/rider/driver program.
+
+
+### T-2804 provisional named-driver circuits, 2 November 2026
+
+The current source connects reconstructed1835 Otis/W01 and1904 Hans Johnson/Brougham circuits to the actual current26 in-place horse, fitted hitch, existing person cards and shared stop/continue control. Human-layer ownership temporarily transfers the same named person and restores it on release. Runtime/ground/clearance/unit evidence is separate from actual full-material rendered-world route, contact, interaction and phone qualification, which remain pending. The unqualified Light256 child and optional lower-eye refinement are not selected. Hans's eight new human files still require their actual native browser fixture readings. Broader photo quality, gait, boarding, riding and town-traffic acceptance is not closed by source staging; no ticket completion is recorded here.
+
+
+### Existing transport parcels: incremental occupied circuits (2 November2026)
+
+T-2793/T-3088/T-2803/T-1790/T-1789/T-2804 continue through an additive occupied1835 wagon and1904 carriage prototype. Existing named residents retain their evidence grades; the trips, appearances and activity are reconstructions. Find/Go to and the shared fort Interact path address the driver, with one resident card and reversible standing-person ownership. Slow in-place horse travel drives the vehicle and wheel phases; no riding or boarding is represented by camera motion.
+
+The earlier1904 candidate is superseded by the adjusted lane and exact drawn-road triangle reader described in STATUS. Paving depth order no longer introduces artificial physical steps. A model-bound complete native hoof-domain reproduction supplies source-specific dimensions without relaxing generic support defaults or the1mm/2degree/30mm limits. The complete native route passes7,906 finite samples; this is distinct from actual posed terrain contact, a replay of every instant, photographic matching and portable performance acceptance. Broader gait, mounted rider, rein/grip and photographic acceptance remain in the existing tickets rather than new follow-ups.
 ## Original T-2376 — connector/range increment, 2026-11-03
 
 Implemented the pictured low connector and turned farther gabled range beside Green Tree's preserved procedural open wagon bay. The prior rear ell is retired; the reference footprint and placement stay unchanged. Authenticated model adoption and compound physical consumers are documented at `docs/RESEARCH/green-tree-annex-T-2376/README.md`; the new reconstructed form is declared at `L-green-tree-enclosed-left-reading-2376`.

@@ -1,0 +1,261 @@
+{
+  "scope": "Actual pinnedGLTFLoader/Meshopt/ThreeMixer body-skin palm triangles; no closedfingergrasp assertion",
+  "rows": [
+    {
+      "web": false,
+      "lod": 0,
+      "file": "/workspace/chicago-wagon-delivery-20261030/chicago/4d/assets/humans/bardwell_otis_1835.lod0.glb",
+      "sha256": "84cdeb6d362aa1a85549b18daef41ae492f18595a19ff5b7e6eff539a3576d04",
+      "actual_palm_endpoints": [
+        {
+          "side": "l",
+          "actual_body_mesh": "bardwell_otis_1835_body_0_lod0",
+          "triangle_vertex_indices": [
+            11345,
+            11344,
+            11346
+          ],
+          "endpoint_vehicle_local_m": [
+            0.16476547063097102,
+            1.8959362850166306,
+            1.0868522084756258
+          ],
+          "surface_normal_vehicle_local": [
+            -0.19262055398592537,
+            -0.9806420328035741,
+            0.035192693574508334
+          ],
+          "socket_vehicle_local_m": [
+            0.17527238551324426,
+            1.9121369020727097,
+            1.0904127012993068
+          ],
+          "socket_distance_m": 0.019634978036365106,
+          "clip": "sit_drive",
+          "time": 0.5,
+          "closed_finger_grasp_verified": false
+        },
+        {
+          "side": "r",
+          "actual_body_mesh": "bardwell_otis_1835_body_0_lod0",
+          "triangle_vertex_indices": [
+            4110,
+            4112,
+            4113
+          ],
+          "endpoint_vehicle_local_m": [
+            -0.16476547063097102,
+            1.8959362850166306,
+            1.0868522084756258
+          ],
+          "surface_normal_vehicle_local": [
+            0.5591594170416534,
+            -0.8051014830722025,
+            -0.19786952339503516
+          ],
+          "socket_vehicle_local_m": [
+            -0.17527238551324426,
+            1.9121369020727097,
+            1.0904127012993068
+          ],
+          "socket_distance_m": 0.019634978036365106,
+          "clip": "sit_drive",
+          "time": 0.5,
+          "closed_finger_grasp_verified": false
+        }
+      ]
+    },
+    {
+      "web": false,
+      "lod": 3,
+      "file": "/workspace/chicago-wagon-delivery-20261030/chicago/4d/assets/humans/bardwell_otis_1835.lod3.glb",
+      "sha256": "8d36ceade3b2dce3b8d081dc484faa98bb57dd2c0d288c1043f0a6da9d3dc233",
+      "actual_palm_endpoints": [
+        {
+          "side": "l",
+          "actual_body_mesh": "bardwell_otis_1835_body_0_lod3",
+          "triangle_vertex_indices": [
+            1483,
+            1554,
+            1555
+          ],
+          "endpoint_vehicle_local_m": [
+            0.16662148027895496,
+            1.894942970953845,
+            1.088205495667822
+          ],
+          "surface_normal_vehicle_local": [
+            -0.6492798897247524,
+            -0.7291927606054626,
+            -0.21613315960212603
+          ],
+          "socket_vehicle_local_m": [
+            0.17527238551324426,
+            1.9121369020727097,
+            1.0904127012993068
+          ],
+          "socket_distance_m": 0.019373724097152198,
+          "clip": "sit_drive",
+          "time": 0.5,
+          "closed_finger_grasp_verified": false
+        },
+        {
+          "side": "r",
+          "actual_body_mesh": "bardwell_otis_1835_body_0_lod3",
+          "triangle_vertex_indices": [
+            474,
+            547,
+            546
+          ],
+          "endpoint_vehicle_local_m": [
+            -0.16662151067396078,
+            1.8949429381930794,
+            1.088205516415685
+          ],
+          "surface_normal_vehicle_local": [
+            0.6492777645804754,
+            -0.7291952161456772,
+            -0.21613125912657752
+          ],
+          "socket_vehicle_local_m": [
+            -0.17527238551324426,
+            1.9121369020727097,
+            1.0904127012993068
+          ],
+          "socket_distance_m": 0.019373737235997335,
+          "clip": "sit_drive",
+          "time": 0.5,
+          "closed_finger_grasp_verified": false
+        }
+      ]
+    },
+    {
+      "web": true,
+      "lod": 0,
+      "file": "/workspace/chicago-wagon-delivery-20261030/chicago/4d/assets/humans/web/bardwell_otis_1835.lod0.glb",
+      "sha256": "3c75b33e5130fb8fe4813866d52d248bdab4207ab7a10c78b4074cc5fc30e999",
+      "actual_palm_endpoints": [
+        {
+          "side": "l",
+          "actual_body_mesh": "bardwell_otis_1835_body_0_lod0",
+          "triangle_vertex_indices": [
+            12482,
+            12478,
+            12483
+          ],
+          "endpoint_vehicle_local_m": [
+            0.1647362186113725,
+            1.8959596887949328,
+            1.0868882341498274
+          ],
+          "surface_normal_vehicle_local": [
+            -0.19767937694903787,
+            -0.9795675527473945,
+            0.03701720591185574
+          ],
+          "socket_vehicle_local_m": [
+            0.17527238551324426,
+            1.9121369020727097,
+            1.0904127012993068
+          ],
+          "socket_distance_m": 0.019624854422556567,
+          "clip": "sit_drive",
+          "time": 0.5,
+          "closed_finger_grasp_verified": false
+        },
+        {
+          "side": "r",
+          "actual_body_mesh": "bardwell_otis_1835_body_0_lod0",
+          "triangle_vertex_indices": [
+            7726,
+            7730,
+            7731
+          ],
+          "endpoint_vehicle_local_m": [
+            -0.1647362186113725,
+            1.8959596887949328,
+            1.0868882341498274
+          ],
+          "surface_normal_vehicle_local": [
+            0.19767937694903787,
+            -0.9795675527473944,
+            0.03701720591185573
+          ],
+          "socket_vehicle_local_m": [
+            -0.17527238551324426,
+            1.9121369020727097,
+            1.0904127012993068
+          ],
+          "socket_distance_m": 0.019624854422556567,
+          "clip": "sit_drive",
+          "time": 0.5,
+          "closed_finger_grasp_verified": false
+        }
+      ]
+    },
+    {
+      "web": true,
+      "lod": 3,
+      "file": "/workspace/chicago-wagon-delivery-20261030/chicago/4d/assets/humans/web/bardwell_otis_1835.lod3.glb",
+      "sha256": "b61d09e2efdb204a90d5d3c8fe49d1a6502108fd6ac62a592350129db48f8d40",
+      "actual_palm_endpoints": [
+        {
+          "side": "l",
+          "actual_body_mesh": "bardwell_otis_1835_body_0_lod3",
+          "triangle_vertex_indices": [
+            1638,
+            1640,
+            1641
+          ],
+          "endpoint_vehicle_local_m": [
+            0.1666331916732133,
+            1.8949606806562935,
+            1.0882057222708597
+          ],
+          "surface_normal_vehicle_local": [
+            -0.649171403408417,
+            -0.7293015841617578,
+            -0.21609185161846475
+          ],
+          "socket_vehicle_local_m": [
+            0.17527238551324426,
+            1.9121369020727097,
+            1.0904127012993068
+          ],
+          "socket_distance_m": 0.019352751969252013,
+          "clip": "sit_drive",
+          "time": 0.5,
+          "closed_finger_grasp_verified": false
+        },
+        {
+          "side": "r",
+          "actual_body_mesh": "bardwell_otis_1835_body_0_lod3",
+          "triangle_vertex_indices": [
+            808,
+            806,
+            809
+          ],
+          "endpoint_vehicle_local_m": [
+            -0.1666331916732133,
+            1.8949606806562935,
+            1.0882057222708597
+          ],
+          "surface_normal_vehicle_local": [
+            0.6491714034084171,
+            -0.729301584161758,
+            -0.21609185161846486
+          ],
+          "socket_vehicle_local_m": [
+            -0.17527238551324426,
+            1.9121369020727097,
+            1.0904127012993068
+          ],
+          "socket_distance_m": 0.019352751969252013,
+          "clip": "sit_drive",
+          "time": 0.5,
+          "closed_finger_grasp_verified": false
+        }
+      ]
+    }
+  ]
+}

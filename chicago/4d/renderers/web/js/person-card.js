@@ -239,7 +239,7 @@ function el(doc, tag, cls, text) {
 }
 
 /** Draw a model. `dot(doc, grade)` is Inspect's grade dot. */
-export function renderPersonCard(doc, m, { dot = () => doc.createTextNode('') } = {}) {
+export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), onFind = null } = {}) {
   const card = el(doc, 'article', 'insp-person-card');
   card.dataset.personId = m.id ?? '';
   const back = el(doc, 'button', 'insp-person-back');
@@ -260,6 +260,12 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode('') } 
   head.append(chips);
   if (m.household) head.append(el(doc, 'p', 'insp-address insp-person-hh', m.household));
   card.append(head);
+  if (typeof onFind === 'function') {
+    const find = el(doc, 'button', 'nav-tile insp-person-find', 'Find this person');
+    find.type = 'button'; find.dataset.personFind = m.id;
+    find.addEventListener('click', () => onFind(m.id)); card.append(find);
+  }
+
 
   if (m.facts.length) {
     const dl = el(doc, 'dl', 'insp-key');

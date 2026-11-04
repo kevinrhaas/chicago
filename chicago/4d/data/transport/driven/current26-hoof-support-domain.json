@@ -1,0 +1,28 @@
+{
+  "schema": "actual_native_complete_hoof_finite_domain_v1",
+  "asset_sha256": "ad9dc060f8630d0de04fef97d716e8c82be3ac8bf070684e78107720c5221ec6",
+  "asset_file": "renderers/web/transport/driven/horse-current26-inplace-full.glb",
+  "accepted_native_proof_sha256": "b0024dc6ed116251b41a046e0bfd02c1e66a37d56385a09b430975783dc0f2d4",
+  "accepted_native_domain_bridge_sha256": "b063265f5d00721089cb92f518227e459d2b7a551a838eba55a37a8f35433484",
+  "original_body_motion_native_proof_sha256": "a3a29bddf2c24835fe02ed97bfb5123984bc5039722630e057486df5fb3e9db4",
+  "walk_frames": 1025,
+  "quiet_frames": 129,
+  "maximum_support_tilt_deg": 2,
+  "extra_domain_numerical_allowance_m": 1e-05,
+  "original_ground_plane_spread_limit_m": 0.001,
+  "original_wheel_gap_limit_m": 0.03,
+  "measured_required_centered_half_width_m": 0.34852683866067585,
+  "measured_required_centered_half_length_m": 0.5937919879345586,
+  "half_width_m": 0.35,
+  "half_length_m": 0.595,
+  "transform_convention": "Actual native rendered horse model root-local meters after every mesh/node/skin/bind transform and exact native Float32 alternative. Remove only external actor Z advance .135*time/duration once. Wrapper scale1/quaternionidentity. Runtime support tilt<=2deg included analytically; arbitrary world yaw rotates this admitted local box. Actor world translation/supportheight excluded.",
+  "scope": "All1154 actual native/F32 finite poses; all classified complete triangles, any up-to2degree support tilt. No continuous interpolation, absolute terrain contact or rendered route acceptance claimed.",
+  "reproduce": "node tools/measure_horse_support_domain.mjs --native --start 0 --count 32 (repeat bounded chunks covering all1154 rows); node tools/test_transport_support.mjs",
+  "classifier": {
+    "assetSHA256": "ad9dc060f8630d0de04fef97d716e8c82be3ac8bf070684e78107720c5221ec6",
+    "vertex_rows": 1196,
+    "complete_triangles": 2048
+  },
+  "native_measurement_fixture": "tools/transport/current26-hoof-support-domain/actual-native-1154.json",
+  "native_measurement_fixture_sha256": "70f9a62ff7660dda0ec3859f48dbe1c9e0e63ec3471f4b5f405c4e1b3a5722d2"
+}

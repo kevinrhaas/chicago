@@ -407,8 +407,8 @@ def resolve_porch(spec, *, width, openings, bays) -> dict:
     left either side, its crown under the entablature."""
     if not spec:
         return {}
-    if not isinstance(spec, dict) or not PORCH_KEYS <= set(spec) <= PORCH_KEYS | {"roundels", "columns"}:
-        raise ParamError(f"corner_porch takes {sorted(PORCH_KEYS)} (and roundels, columns)")
+    if not isinstance(spec, dict) or not PORCH_KEYS <= set(spec) <= PORCH_KEYS | {"roundels", "columns", "rail"}:
+        raise ParamError(f"corner_porch takes {sorted(PORCH_KEYS)} (and roundels, columns, rail)")
     s0, s1 = sorted(float(x) for x in spec["s_m"])
     out, t, fl = float(spec["out_m"]), float(spec["thickness_m"]), float(spec["floor_m"])
     ys, H = float(spec["spring_m"]), float(spec["head_m"])
@@ -476,9 +476,11 @@ def resolve_porch(spec, *, width, openings, bays) -> dict:
             raise ParamError("corner_porch.roundels stand inside the porch's front face, 0.1 m clear of its ends")
         roundels = {"y_m": ry, "d_m": rdm, "centre_m": cs}
     columns = _porch_columns(spec.get("columns"), arches, t, fl, ys)
+    rail = _porch_rail(spec.get("rail"), arches, fl, ys)
     return {"wall": "k01.wall.street_front", "s_m": [s0, s1], "out_m": out, "thickness_m": t, "floor_m": fl,
             **({"roundels": roundels} if roundels else {}),
             **({"columns": columns} if columns else {}),
+            **({"rail": rail} if rail else {}),
             "spring_m": ys, "head_m": H, "arches": arches, "entablature": {"height_m": eh, "proud_m": ep},
             "balustrade": {"height_m": bh, "post_m": bp, "baluster_m": bb, "pitch_m": bpi, "rail_m": [rw, rd]}}
 
@@ -523,6 +525,55 @@ def _porch_columns(cs, arches, t, fl, ys):
                          "than 0.4 of the column's height")
     return {"radius_m": rs, "base_m": bh, "capital_m": ch, "flutes": nf,
             "centre_m": [round((g0 + g1) / 2, 4) for g0, g1 in gaps], "piers": [list(g) for g in gaps]}
+
+
+# T-3357: an iron rail across the front's openings. 1936 Prairie's verandah, in Chicagology's
+# photograph, has a dark bar across the feet of its three arched openings (y 822 px, about
+# 0.8 m over the floor, against the openings' 45-50 px), a short dark standard under it in
+# the middle of each, standing out from the brownstone round it. Each front arch takes a
+# square iron bar from jamb to jamb (or column to column) at `height_m` over the porch's
+# floor, set in the wall's middle, on `standards` uprights spaced evenly along it. The bar's
+# section and the standards' count are read off the print a few pixels across; its iron is
+# the dark tone's reading (docs/LIBERTIES.md L-k01-1936-allerton-1901).
+
+PORCH_RAIL_KEYS = {"height_m", "bar_m", "standards"}
+
+
+def _porch_rail(rl, arches, fl, ys):
+    """The record's `corner_porch.rail`, checked: a 0.5-1.2 m rail under the springing, a
+    0.03-0.1 m bar on 0-3 standards an opening. Returns the resolved dict, or None."""
+    if rl is None:
+        return None
+    if not isinstance(rl, dict) or set(rl) != PORCH_RAIL_KEYS:
+        raise ParamError(f"corner_porch.rail takes {sorted(PORCH_RAIL_KEYS)}")
+    h, b, n = float(rl["height_m"]), float(rl["bar_m"]), rl["standards"]
+    if not any(a["face"] == "front" for a in arches):
+        raise ParamError("corner_porch.rail runs across the front's arches, and the front has none")
+    if not 0.5 <= h <= 1.2 or fl + h + b > ys - 0.3:
+        raise ParamError(f"corner_porch.rail: 0.5-1.2 m over the floor, at least 0.3 m under the springing at {ys} m")
+    if not 0.03 <= b <= 0.1 or not isinstance(n, int) or not 0 <= n <= 3:
+        raise ParamError("corner_porch.rail: a 0.03-0.1 m bar on 0-3 standards an opening")
+    return {"height_m": h, "bar_m": b, "standards": n}
+
+
+def _dress_rail(a, frame, rl, arches, s0, d, fl, seed, conf):
+    """The iron rail across each front opening (T-3357): a bar between the opening's jambs at
+    the rail's height and its standards on the floor under it."""
+    from .k01_arched_front import _box
+    mat = "iron"
+    h, b, n = rl["height_m"], rl["bar_m"], rl["standards"]
+    y0, y1, hb = fl + h - b, fl + h, b / 2
+    bars = 0
+    for ar in arches:
+        if ar["face"] != "front":
+            continue
+        c, r = s0 + ar["centre_m"], ar["span_m"] / 2
+        _box(a, mat, frame, c - r, c + r, y0, y1, d - hb, d + hb, seed, conf, skip=("left", "right"))
+        for k in range(1, n + 1):
+            sk = c - r + 2 * r * k / (n + 1)
+            _box(a, mat, frame, sk - hb, sk + hb, fl, y0, d - hb, d + hb, seed, conf, skip=("bottom", "top"))
+        bars += 1
+    return bars
 
 
 def _fluted(a, mat, frame, s, d, y0, y1, r0, r1, flutes, seed, conf):
@@ -630,6 +681,8 @@ def dress_porch(a):
                 quad([at(g0, fl, 0.0), at(g1, fl, 0.0), at(g1, fl, t), at(g0, fl, t)], up, bh)
                 quad([at(g0, ys, 0.0), at(g1, ys, 0.0), at(g1, ys, t), at(g0, ys, t)], down, bh)
             _dress_columns(a, (O, R, N), cols, s0, out - t / 2, fl, ys, mat, seed, conf)
+    if pc.get("rail"):   # T-3357: the iron rail across the front's openings (_porch_rail)
+        _dress_rail(a, (O, R, N), pc["rail"], pc["arches"], s0, out - t / 2, fl, seed, conf)
     rnd = pc.get("roundels")
     if rnd:   # T-3257: the podium's roundels (resolve_porch)
         ring_out, sunk, k_n = 0.05, 0.02, 24
