@@ -841,9 +841,9 @@
     },
     {
       "id": "house_2000_prairie",
-      "name": "2000 Prairie Avenue — Frame dwelling (district draft; refined by T-1909)",
+      "name": "2000 Prairie Avenue — Frame dwelling, K16 clapboard",
       "sidecar": "sidecars/1904/house_2000_prairie.json",
-      "asset": "gltf/house_2000_prairie__draft_1904.glb"
+      "asset": "gltf/house_2000_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_2000_prairie_coach_house",
@@ -907,9 +907,9 @@
     },
     {
       "id": "house_2010_prairie",
-      "name": "2010 Prairie Avenue — Frame dwelling (district draft; refined by T-1909)",
+      "name": "2010 Prairie Avenue — Frame dwelling, K16 clapboard",
       "sidecar": "sidecars/1904/house_2010_prairie.json",
-      "asset": "gltf/house_2010_prairie__draft_1904.glb"
+      "asset": "gltf/house_2010_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_2010_prairie_coach_house",
