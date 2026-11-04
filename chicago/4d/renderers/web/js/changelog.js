@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2640, ts: '2026-11-04T04:13:37.317Z', date: 'Nov 3, 2026, 10:13 PM CT', title: 'The Lake House\'s later address, checked', kind: 'change',
+    items: [
+      'Its Record now cites Fergus\'s 1876 recollection of an 1839 address at Rush and North Water, alongside the conflicting Michigan Street account. The July 1835 building site remains uncertain.',
+    ] },
   { v: 2639, ts: '2026-11-04T03:44:50.240Z', date: 'Nov 3, 2026, 9:44 PM CT', title: '1904 sends a third fewer draws, so walking and flying run smoother', kind: 'improvement',
     items: [
       'Street trees, front-yard trees and the 1835 and 1812 woods now draw every copy of a tree shape at once, instead of one tree at a time.',
