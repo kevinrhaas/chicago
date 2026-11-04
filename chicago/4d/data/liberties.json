@@ -67332,6 +67332,126 @@
       ]
     },
     {
+      "id": "L-log-jail-keeper-compound-2380",
+      "title": "the keeper dwelling and low compound gate",
+      "section": "per_subject",
+      "subjects": [
+        "log_jail",
+        "log_jail_keeper_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "log_jail",
+          "phase": "log_1833",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "log_jail_keeper_house",
+          "phase": "frame_1835",
+          "aspect": "documented_range"
+        },
+        {
+          "domain": "structure",
+          "structure": "log_jail_keeper_house",
+          "phase": "frame_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "log_jail_keeper_house",
+          "phase": "frame_1835",
+          "aspect": "form.cladding"
+        },
+        {
+          "domain": "structure",
+          "structure": "log_jail_keeper_house",
+          "phase": "frame_1835",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "log_jail_keeper_house",
+          "phase": "frame_1835",
+          "aspect": "form.glazing"
+        },
+        {
+          "domain": "structure",
+          "structure": "log_jail_keeper_house",
+          "phase": "frame_1835",
+          "aspect": "form.paint"
+        },
+        {
+          "domain": "structure",
+          "structure": "log_jail_keeper_house",
+          "phase": "frame_1835",
+          "aspect": "form.picture_layout"
+        },
+        {
+          "domain": "structure",
+          "structure": "log_jail_keeper_house",
+          "phase": "frame_1835",
+          "aspect": "form.plan"
+        },
+        {
+          "domain": "structure",
+          "structure": "log_jail_keeper_house",
+          "phase": "frame_1835",
+          "aspect": "form.porch"
+        },
+        {
+          "domain": "structure",
+          "structure": "log_jail_keeper_house",
+          "phase": "frame_1835",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "log_jail_keeper_house",
+          "phase": "frame_1835",
+          "aspect": "form.shutters"
+        },
+        {
+          "domain": "structure",
+          "structure": "log_jail_keeper_house",
+          "phase": "frame_1835",
+          "aspect": "form.stories"
+        },
+        {
+          "domain": "structure",
+          "structure": "log_jail_keeper_house",
+          "phase": "frame_1835",
+          "aspect": "form.wall_height_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "log_jail_keeper_house",
+          "phase": "frame_1835",
+          "aspect": "position"
+        }
+      ],
+      "recorded": "2026-11-03",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`log_jail.log_1833.position`, `log_jail_keeper_house.frame_1835.documented_range`, `log_jail_keeper_house.frame_1835.position`, `log_jail_keeper_house.frame_1835.footprint`, `log_jail_keeper_house.frame_1835.form.picture_layout`, `log_jail_keeper_house.frame_1835.form.construction`, `log_jail_keeper_house.frame_1835.form.stories`, `log_jail_keeper_house.frame_1835.form.wall_height_m`, `log_jail_keeper_house.frame_1835.form.roof_pitch_deg`, `log_jail_keeper_house.frame_1835.form.plan`, `log_jail_keeper_house.frame_1835.form.paint`, `log_jail_keeper_house.frame_1835.form.glazing`, `log_jail_keeper_house.frame_1835.form.shutters`, `log_jail_keeper_house.frame_1835.form.porch`, `log_jail_keeper_house.frame_1835.form.cladding`."
+        },
+        {
+          "label": "Decision",
+          "text": "Include the separate low keeper house and its low framed gate beside the existing high pointed palisade. Gale1902 p51 places John Beach's house partly inside the enclosure facing Randolph in an1835-framed retrospective walk; its plate facingp53 explicitly depicts1836. The July1835 existence/continuity and exact boundary dates are reconstruction, not a dated construction finding. The new domestic roof explicitly supersedes the earlier sole-roof assertion for the square, without adding the fall1835 courthouse or a named household/population. Sources: Cook County’s First Jail as it was in 1836 (published 1902) and contrasting Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. The6.4x4.6m footprint,2.65m eaves,25degree gable,7.8m east registration, wall/rail/stack sections, hidden plan and framing,12-over12 glazing, shutter colour and whitewash are choices. The small loft light does not assert a habitable half-storey. The source-informed aperture count and material class do not measure those numbers. The clapboard is inferred from the drawing's horizontal siding but its GEOMETRY IS SIMPLIFIED: the walls carry a clapboard material rather than individually modelled boards, so no board width, lap or nailing is drawn and none is claimed. The core retains its existing mesh and12degree roof; only its exact setback moves1.30m south inside its declared roughly20m site uncertainty, permitting a continuous high front and reconstructed doorway approach. No surveyed street/parcel control changes. The separate1.10m gate, diagonal brace, hinge, pose, stock and endpoint spacing are reconstructed. Both independent pictures disagree on the concealed core roof and house elevation. The genuine private compound comparison still DIFFERS in exposed rear-core roof and relative proportions; no calibrated camera, full photo acceptance, grade promotion or original-piece of work closure is implied. Published terrain and doorway/gate clearance remain acceptance work."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-03."
+        }
+      ],
+      "work_refs": [
+        "T-2380"
+      ]
+    },
+    {
       "id": "L-first-fort-ne-house-pyramid-3041",
       "title": "the north-east small house's four-sided cap",
       "section": "per_subject",
@@ -67549,126 +67669,6 @@
       "work_refs": [
         "T-1914",
         "T-3364"
-      ]
-    },
-    {
-      "id": "L-log-jail-keeper-compound-2380",
-      "title": "the keeper dwelling and low compound gate",
-      "section": "per_subject",
-      "subjects": [
-        "log_jail",
-        "log_jail_keeper_house"
-      ],
-      "covers": [
-        {
-          "domain": "structure",
-          "structure": "log_jail",
-          "phase": "log_1833",
-          "aspect": "position"
-        },
-        {
-          "domain": "structure",
-          "structure": "log_jail_keeper_house",
-          "phase": "frame_1835",
-          "aspect": "documented_range"
-        },
-        {
-          "domain": "structure",
-          "structure": "log_jail_keeper_house",
-          "phase": "frame_1835",
-          "aspect": "footprint"
-        },
-        {
-          "domain": "structure",
-          "structure": "log_jail_keeper_house",
-          "phase": "frame_1835",
-          "aspect": "form.cladding"
-        },
-        {
-          "domain": "structure",
-          "structure": "log_jail_keeper_house",
-          "phase": "frame_1835",
-          "aspect": "form.construction"
-        },
-        {
-          "domain": "structure",
-          "structure": "log_jail_keeper_house",
-          "phase": "frame_1835",
-          "aspect": "form.glazing"
-        },
-        {
-          "domain": "structure",
-          "structure": "log_jail_keeper_house",
-          "phase": "frame_1835",
-          "aspect": "form.paint"
-        },
-        {
-          "domain": "structure",
-          "structure": "log_jail_keeper_house",
-          "phase": "frame_1835",
-          "aspect": "form.picture_layout"
-        },
-        {
-          "domain": "structure",
-          "structure": "log_jail_keeper_house",
-          "phase": "frame_1835",
-          "aspect": "form.plan"
-        },
-        {
-          "domain": "structure",
-          "structure": "log_jail_keeper_house",
-          "phase": "frame_1835",
-          "aspect": "form.porch"
-        },
-        {
-          "domain": "structure",
-          "structure": "log_jail_keeper_house",
-          "phase": "frame_1835",
-          "aspect": "form.roof_pitch_deg"
-        },
-        {
-          "domain": "structure",
-          "structure": "log_jail_keeper_house",
-          "phase": "frame_1835",
-          "aspect": "form.shutters"
-        },
-        {
-          "domain": "structure",
-          "structure": "log_jail_keeper_house",
-          "phase": "frame_1835",
-          "aspect": "form.stories"
-        },
-        {
-          "domain": "structure",
-          "structure": "log_jail_keeper_house",
-          "phase": "frame_1835",
-          "aspect": "form.wall_height_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "log_jail_keeper_house",
-          "phase": "frame_1835",
-          "aspect": "position"
-        }
-      ],
-      "recorded": "2026-11-03",
-      "revised": null,
-      "fields": [
-        {
-          "label": "Covers",
-          "text": "`log_jail.log_1833.position`, `log_jail_keeper_house.frame_1835.documented_range`, `log_jail_keeper_house.frame_1835.position`, `log_jail_keeper_house.frame_1835.footprint`, `log_jail_keeper_house.frame_1835.form.picture_layout`, `log_jail_keeper_house.frame_1835.form.construction`, `log_jail_keeper_house.frame_1835.form.stories`, `log_jail_keeper_house.frame_1835.form.wall_height_m`, `log_jail_keeper_house.frame_1835.form.roof_pitch_deg`, `log_jail_keeper_house.frame_1835.form.plan`, `log_jail_keeper_house.frame_1835.form.paint`, `log_jail_keeper_house.frame_1835.form.glazing`, `log_jail_keeper_house.frame_1835.form.shutters`, `log_jail_keeper_house.frame_1835.form.porch`, `log_jail_keeper_house.frame_1835.form.cladding`."
-        },
-        {
-          "label": "Decision",
-          "text": "Include the separate low keeper house and its low framed gate beside the existing high pointed palisade. Gale1902 p51 places John Beach's house partly inside the enclosure facing Randolph in an1835-framed retrospective walk; its plate facingp53 explicitly depicts1836. The July1835 existence/continuity and exact boundary dates are reconstruction, not a dated construction finding. The new domestic roof explicitly supersedes the earlier sole-roof assertion for the square, without adding the fall1835 courthouse or a named household/population. Sources: Cook County’s First Jail as it was in 1836 (published 1902) and contrasting Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. The6.4x4.6m footprint,2.65m eaves,25degree gable,7.8m east registration, wall/rail/stack sections, hidden plan and framing,12-over12 glazing, shutter colour and whitewash are choices. The small loft light does not assert a habitable half-storey. The source-informed aperture count and material class do not measure those numbers. The clapboard is inferred from the drawing's horizontal siding but its GEOMETRY IS SIMPLIFIED: the walls carry a clapboard material rather than individually modelled boards, so no board width, lap or nailing is drawn and none is claimed. The core retains its existing mesh and12degree roof; only its exact setback moves1.30m south inside its declared roughly20m site uncertainty, permitting a continuous high front and reconstructed doorway approach. No surveyed street/parcel control changes. The separate1.10m gate, diagonal brace, hinge, pose, stock and endpoint spacing are reconstructed. Both independent pictures disagree on the concealed core roof and house elevation. The genuine private compound comparison still DIFFERS in exposed rear-core roof and relative proportions; no calibrated camera, full photo acceptance, grade promotion or original-piece of work closure is implied. Published terrain and doorway/gate clearance remain acceptance work."
-        },
-        {
-          "label": "Recorded",
-          "text": "2026-11-03."
-        }
-      ],
-      "work_refs": [
-        "T-2380"
       ]
     },
     {
