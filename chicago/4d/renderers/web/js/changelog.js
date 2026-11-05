@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2657, ts: '2026-11-05T05:55:28.009Z', date: 'Nov 4, 2026, 11:55 PM CT', title: 'Nothing you can see changed: the Pullman house\'s photo checks re-read', kind: 'chore',
+    items: [
+      'Nothing you can see changed in the walkthrough. The Pullman house at 1729 Prairie was compared again with two of its pictures, the 1890 Albertype plate and Taylor\'s photograph no. 1445.',
+      'On the 1890 plate, the big front dormer still stands over its column of windows. It only looked a metre off because of how that picture\'s camera was fitted. One item was out of date: the window it named over the portico already has its moulded frame.',
+      'The same look found something new on the plate: a hanging lantern beside the entrance, between two banded piers, which the house does not have yet. It is now the plate\'s one open item.',
+    ] },
   { v: 2656, ts: '2026-11-05T05:38:09.553Z', date: 'Nov 4, 2026, 11:38 PM CT', title: 'Nothing you can see: a horse check runs on newer NumPy', kind: 'fix',
     items: [
       'Nothing you can see changed in the town. One of the standing horse\'s checks used a NumPy shortcut that NumPy 2.5 removed, so it failed on newer machines. It now does the same sum written out by hand, and gives the same answer.',
