@@ -1380,9 +1380,11 @@ class Bay:
                         continue
                     hi = min(hi, ct)
                 dh = v.get("door_hole")
-                if dh and k == 0 and i == 1 and v["plan"].get("kind") == "polyline" and len(self.runs) == 3:
-                    # T-1881: the door a forward block carries, cut through its face as K07 cuts it
-                    x0 = v["plan"]["points"][1][0]
+                if dh and k == 0 and i == 1 and v["plan"].get("kind") in ("polyline", "polygon") \
+                        and len(self.runs) == 3:
+                    # T-1881: the door a forward block carries, cut through its face as K07 cuts it;
+                    # T-3367: or a square tower (1936's), its face the middle of its three runs
+                    x0 = self.runs[1].A[0]
                     (a_, b_), (c_, d_) = dh["x_m"], dh["y_m"]
                     holes.append((a_ - x0, b_ - x0, c_, d_, (), True))
                 for w, s in per_run[i][k]:
