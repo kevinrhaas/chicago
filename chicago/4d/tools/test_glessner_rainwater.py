@@ -41,7 +41,11 @@ for reduced in (False,True):
     branches={r['name']:r for r in net['branches']}
     # T-2928: a gutter that runs on into the bow's trough has no leader of its own.
     fed=len(cfg.get('court_east_into_bow',()))
-    assert len(leaders)==12-fed and len(net['gutters'])==12
+    # T-3373: the copper lean-to adds its own trough and corner leader.
+    lean=int(bool(p.detail.get('north_copper_leanto')))
+    assert len(leaders)==12-fed+lean and len(net['gutters'])==12+lean
+    if lean:
+        assert branches['court-north-leanto']['target']=='court-leanto' and 'court-north-bow' not in branches
     assert leaders['prairie-north']['head']==leaders['prairie-south']['head']=='panel'
     assert leaders['north-tower']['head']=='bowl' and leaders['north-service']['head']=='plain'
     assert leaders['alley-north']['normal']==(0,1,0),'Alley corner leader belongs on the north face'
@@ -128,4 +132,4 @@ for reduced in (False,True):
     assert floors
     assert not any(contains(f,1,-.045) for f in floors),'Sealed gutter floor above outlet'
     assert any(contains(f,.5,-.045) for f in floors),'Missing gutter floor away from outlet'
-    print(f'PASS {"Light" if reduced else "Full"}: 12 collectors, {len(leaders)} leaders, 2 descending connections; openings clear; open gutter stock ({sum(len(f)-2 for f,_ in emitted.faces)} nominal triangles)')
+    print(f'PASS {"Light" if reduced else "Full"}: {len(net["gutters"])} collectors, {len(leaders)} leaders, 2 descending connections; openings clear; open gutter stock ({sum(len(f)-2 for f,_ in emitted.faces)} nominal triangles)')

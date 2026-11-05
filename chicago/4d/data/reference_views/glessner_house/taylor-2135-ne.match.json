@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "taylor-2135-ne",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "17f32dcda246581867830123eccf5d108f3de184955c7bac729b4d75e99d214d",
+  "glb_sha256": "c0e04a9b0ea66e97262944a673083581049c3ef3fd04a192059675935ea8d237",
   "camera_sha256": "7146c5ae0d24d7c724177b925417a90c20a38cb3d0e36e01a5a6ad3e04549ec7",
   "photo_sha256": "8f8c80a1fa6df906463ed8514b631ea6785b5b4b9b15b9d1e30b717da86c0a04",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/taylor-2135-ne-side-by-side.jpg",
@@ -75,6 +75,10 @@
     {
       "what": "T-3372: the two courtyard service stacks moved onto HABS sheets 2-3's flues (W 102.5-105.5 over the court door, and the stable corner at W 121.5-125.25) stand on the courtyard slope behind the ridge from here; re-rendered and reviewed beside the picture, every other item reads as before.",
       "status": "within tolerance"
+    },
+    {
+      "what": "T-3373: the northeast court corner's copper lean-to, raised wall, corner leader and small dormer east of the great chimney are out of this view or hidden behind nearer fabric; re-rendered and reviewed, nothing visible in it changed.",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
