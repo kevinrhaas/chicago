@@ -308,13 +308,13 @@
         "chicago_tribune_1869_10_30_thompson_residence",
         "chicagology_1936_prairie_exterior_photo"
       ],
-      "note": "The 1869 Tribune: 'The main entrance is through a tower', approached 'up a flight of stone steps, which is covered by a stone porch, with fluted stone Corinthian columns'. K01 refuses a door behind a tower, so the door stands in the front's bay just north of the tower (s 11.25), under the columned porch the photograph shows at the tower's north-east foot (x 1655-1760 px); liberty L-k01-1936-allerton-1901."
+      "note": "The 1869 Tribune: 'The main entrance is through a tower', approached 'up a flight of stone steps, which is covered by a stone porch, with fluted stone Corinthian columns'. T-3367 cuts the door in the tower's face (the tower carries the entrance, as T-1881's forward block does), at s 8.65, 1.1 m in from its north corner: the photograph draws the porch under the tower's north part (x about 1690-1815 px) and the shaft plain south of it (x about 1600-1690 px); liberty L-k01-1936-allerton-1901."
     },
     "front_bays": {
       "value": [
         1.8,
         4.0,
-        11.25,
+        8.65,
         13.4,
         14.7
       ],
@@ -323,7 +323,7 @@
         "chicago_tribune_1869_10_30_thompson_residence",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "The 1869 Tribune: the reception room (south of the hall) has 'two windows in the east front' under the verandah (s 1.8, 4.0); the parlor (north of it) 'is lighted by two windows on the east front' (s 13.4, 14.7); the door between them north of the tower (s 11.25). Places along the front read against the 1911 sheet's tower (v 5.95-9.74)."
+      "note": "The 1869 Tribune: the reception room (south of the hall) has 'two windows in the east front' under the verandah (s 1.8, 4.0); the parlor (north of it) 'is lighted by two windows on the east front' (s 13.4, 14.7); the main entrance 'through a tower' (s 8.65, in the tower's face, T-3367). Places along the front read against the 1911 sheet's tower (v 5.95-9.74)."
     },
     "sash_by_storey": {
       "value": [
@@ -477,6 +477,14 @@
             },
             "railing_fabric": "stone",
             "fabric": "stone"
+          },
+          "side_stoop": {
+            "run": "right",
+            "landing_v_m": [
+              7.55,
+              9.75
+            ],
+            "out_m": 0.0
           }
         }
       },
@@ -485,7 +493,7 @@
         "chicago_tribune_1869_10_30_thompson_residence",
         "chicagology_1936_prairie_exterior_photo"
       ],
-      "note": "The 1869 Tribune: the steps 'covered by a stone porch, with fluted stone Corinthian columns, and from these columns spring stone brackets, which support a Corinthian cornice of stone'; the photograph shows that porch's columns at the tower's north-east foot. K07's door under 1906's columned hood stands for it; the fluting, capitals and the flight running north along the front are T-1902's."
+      "note": "The 1869 Tribune: the steps 'covered by a stone porch, with fluted stone Corinthian columns, and from these columns spring stone brackets, which support a Corinthian cornice of stone'; the photograph shows that porch's columns under the tower's north part and its flight running north along the front from it (x 1655-1950, y 700-960 px). K07's door under 1906's columned hood stands for it, on the tower's face (T-3367); its landing runs along the face under the hood (v 7.55-9.75) and the flight leaves its north end parallel to the front (a side stoop, T-2530's), down to the walk. The fluting and capitals are T-1902's."
     },
     "corner_porch": {
       "value": {
@@ -573,18 +581,7 @@
           "storeys": [
             {
               "height_m": 6.33,
-              "windows": [
-                {
-                  "opening": "k06.opening.sash_2over2_flat",
-                  "clear_width_m": 0.9,
-                  "clear_height_m": 3.0,
-                  "sill_m": 2.3,
-                  "at": [
-                    0.5
-                  ],
-                  "why_not_ordinary": "the tower's principal-floor light toward the avenue"
-                }
-              ]
+              "windows": []
             },
             {
               "height_m": 4.11,
@@ -595,9 +592,10 @@
                   "clear_height_m": 2.6,
                   "sill_m": 0.75,
                   "at": [
-                    0.5
+                    0.524,
+                    0.696
                   ],
-                  "why_not_ordinary": "the 1869 Tribune's dressing room in the tower, 'lighted by two windows over main entrance'"
+                  "why_not_ordinary": "the 1869 Tribune's dressing room in the tower, 'lighted by two windows over main entrance': paired over the door (T-3367), as the photograph draws two lights over the porch"
                 }
               ]
             },
@@ -685,7 +683,8 @@
               0.12
             ],
             "foot_rail_m": 0.12
-          }
+          },
+          "entrance": true
         },
         {
           "id": "reception_bay",

@@ -1,5 +1,5 @@
 {
-  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp — mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP — a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
   "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
@@ -108,7 +108,7 @@
     "fort_dearborn_wash_house__wash_house_1830.glb": "c6b18f16934bd08a2aa4ceea85544c2f681b79ebd7224eb6ea07262719e238c5",
     "frederick_thomas_shop__frame_1835.glb": "f5f97f2b1e8883918259964661f0657ab51754145cf720cbc972e5ac7ab1213f",
     "george_glessner_house_1706_prairie__as_mapped_1904.glb": "0e773bd349eb252f7cd0d5d73ae84ddc04f278a7b1c542d5d11c8be5c12fbaf4",
-    "glessner_house__as_built_1887.glb": "d419de6058cfc0d822bca63b60e203b80d5281023a4db9472a2a33560c7c9d49",
+    "glessner_house__as_built_1887.glb": "05503ca43e17496a86f040f9c5c1553be1f8b4df63e60abb4625ffa2a849c780",
     "glessner_lee_house_1700_prairie__as_mapped_1904.glb": "6518984e7583fba7335b5fa83d6d20aaf4413dfcb67b7cde7d0d37720fa5d9ed",
     "glessner_lee_house_1700_prairie_coach_house__as_standing_1904.glb": "30a3328be80568f3cbada118343cde47cd750aec3761862d1a127d23533348ad",
     "goodman_house_1612_prairie__as_built_1869.glb": "9a9ac8f5d525a390a2f4b1c0f12b5ef9e7d8482510dd8a948db431327e56e198",
@@ -217,7 +217,7 @@
     "house_1913_indiana_shed__draft_1904.glb": "9561c0b84d2325fea147f486dbaaabdc8ea845cfb9c3d6ba287f6c338b334ba5",
     "house_1915_indiana__draft_1904.glb": "52e853fa377b65f8ab04f37cca9038d8fd57c1e34107c901b9d11dd919792135",
     "house_1917_indiana__draft_1904.glb": "d2f6028e59e63d0ee70eae6783aef625c434cf9d66a1576f0a2476f18878d54a",
-    "house_1918_prairie__as_mapped_1904.glb": "ac3edfbedea901d7cdd00aae057382fd58ea90600af16e4e17d6b940af194dab",
+    "house_1918_prairie__as_mapped_1904.glb": "b5c6b573cf82e65de7b73ad5655083443c06aea6fd0a3a97fdf5d77b0fdeb521",
     "house_1918_prairie_coach_house__draft_1904.glb": "70b03d6690cf6c7f73588b6d8addf92c663f5c2570f6f66c6c63cda848ce114b",
     "house_1921_indiana__draft_1904.glb": "b038ac4dd8781201ae60d332d3f76683b86aee850701be8e49d89aa783d9db84",
     "house_1921_indiana_coach_house__draft_1904.glb": "a83c1e16cb959b61e6bd25471940a9df5c8a7e849208e8221c5bba26780a0cb9",

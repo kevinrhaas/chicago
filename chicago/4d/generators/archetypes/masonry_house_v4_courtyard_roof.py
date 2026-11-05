@@ -34,6 +34,21 @@ def dining(params):
     return triangles,cut
 
 
+def connector_end(params):
+    """Where the dining cap's level tiled ridge meets the north range.
+
+    T-3371: the north ridge was raised to the stable's cross ridge, above the
+    cap's point, which T-2172 keeps at 34.1 ft. The connector keeps its level
+    ridge and dies into the courtyard slope short of the main ridge, rather
+    than climbing to it or lifting the owner-shortened cap with it.
+    """
+    bay=params.bays[0];n=north(params);ap=tuple(bay['apex'])
+    if ap[2]>=n['ridge_z']-1e-9:
+        return (ap[0],n['ridge_at'],n['ridge_z'])
+    y=n['y0']+(ap[2]-n['eave_lo_z'])*(n['ridge_at']-n['y0'])/(n['ridge_z']-n['eave_lo_z'])
+    return (ap[0],y,ap[2])
+
+
 def dining_connection(params):
     """A raised cross ridge, intersected with the unchanged north roof plane.
 
@@ -42,7 +57,7 @@ def dining_connection(params):
     rectangular hole cut down to the clerestory (T-2157).
     """
     bay=params.bays[0];n=north(params);ap=tuple(bay['apex'])
-    back=(ap[0],n['ridge_at'],n['ridge_z'])
+    back=connector_end(params)
     eave_y=n['y0']-n.get('eave_lo_overhang',.20);eave_z=north_height(params,eave_y)
     # T-2183: at the extended eave, the tile and copper have the same front
     # section (apex -> apron fold -> shoulder). Intersect BOTH pitches with
@@ -131,11 +146,15 @@ def add_dining_roof(b,params):
     for poly in dining_connection(params)[0]:
         legacy._two_sided_roof(b,poly,conf,roof)
     # Same cap radius, spacing and raised terracotta collars as the main ridge.
-    end=north(params)['ridge_at'];start=ap[1]+.30;step=.36
+    end=connector_end(params)[1];start=ap[1]+.30;step=.36
     if params.detail.get('roof_edges'):
         from archetypes.masonry_house_v4_roof_edges import ridge_chain
+        # A connector that meets the main ridge stops at its roll; one that dies
+        # into the slope (T-3371) runs its roll on into the rising tiles.
+        meets=end>=north(params)['ridge_at']-1e-9
+        tail=-params.detail['roof_edges']['cap_radius_m'] if meets else .20
         ridge_chain(b,params,{'axis':'y','ridge_at':ap[0],'ridge_z':ap[2]},start,
-                    end-params.detail['roof_edges']['cap_radius_m'],join_end=True)
+                    end+tail,join_end=True)
     else:
         for i in range(math.ceil((end-start)/step)):
             lo=start+i*step;hi=min(end,lo+step-.012)
