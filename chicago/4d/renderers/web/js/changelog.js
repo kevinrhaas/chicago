@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2659, ts: '2026-11-05T07:29:06.504Z', date: 'Nov 5, 2026, 1:29 AM CT', title: 'Glessner\'s 18th Street roof now meets the stable cupola level', kind: 'fix',
+    items: [
+      'The ridge of Glessner House\'s 18th Street wing is about 2 ft higher. It now runs level into the stable\'s ridge at the little cupola, as the 1963 survey photograph and today\'s aerial views show, instead of stepping down.',
+      'The stone gable on the alley side of the stable now sits on its roof, with its coping just above the ridge tiles, instead of standing over the roof like a fin.',
+      'The courtyard dining tower\'s copper cap keeps its height; its short tiled ridge now runs back into the raised roof.',
+    ] },
   { v: 2658, ts: '2026-11-05T07:21:50.022Z', date: 'Nov 5, 2026, 1:21 AM CT', title: '1936 Prairie is entered through its tower', kind: 'improvement',
     items: [
       'The Allerton house on Prairie Avenue (1904) now has its front door in the tower, under the columned stone porch, with two windows paired above it and the stone steps running down to the north along the front, as the 1869 newspaper and the old photograph describe it.',
