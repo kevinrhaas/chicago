@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2672, ts: '2026-11-05T23:01:26.679Z', date: 'Nov 5, 2026, 5:01 PM CT', title: 'The carriage horses walk out properly', kind: 'improvement',
+    items: [
+      'Hans\'s pair walk with a real stride, one foot after another, picking up and folding each leg, with a nod of the head at every step.',
+      'The brougham now goes at a slow carriage walk, about 3 mph, instead of a crawl; a lap of the block takes about ten minutes.',
+      'Otis Bardwell\'s 1835 wagon team walks the same way.',
+    ] },
   { v: 2671, ts: '2026-11-05T22:13:58.516Z', date: 'Nov 5, 2026, 4:13 PM CT', title: 'The Navigator\'s Map is sharp close up', kind: 'fix',
     items: [
       'Close up, the Map now draws every building outline and street line at the zoom you are looking at, so houses have clean edges instead of soft, smeared blobs.',
