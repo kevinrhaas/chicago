@@ -14,7 +14,9 @@ def box(lo,hi):
 def notch():
     # CCW polygon: off-centre top notch. Endpoint AND midpoint-only checks fail.
     p=np.array([[0,0],[4,0],[4,2],[1.5,2],[1.5,.5],[.5,.5],[.5,2],[0,2]],float)
-    def orient(a,b,c):return float(np.cross(b-a,c-a))
+    # 2-D signed area written out (T-3368): np.cross on 2-vectors was deprecated and
+    # NumPy 2.5 removed it, so it raised on any runner whose Python resolves numpy>=2.5.
+    def orient(a,b,c):return float((b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0]))
     ring=list(range(len(p)));cap=[]
     while len(ring)>3:
         for k,i in enumerate(ring):
