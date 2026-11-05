@@ -45,22 +45,38 @@ def dress(a, w):
     o, top = w["overhang_m"], w["top_m"]
     t = math.tan(math.radians(r["pitch_deg"]))
     conf = a.p.worst_conf("rear_wings", "footprint")
-    half, wc = (u1 - u0) / 2, (u0 + u1) / 2
+    if r["axis"] == "u":
+        half, wc = (v1 - v0) / 2, -(v0 + v1) / 2
+    else:
+        half, wc = (u1 - u0) / 2, (u0 + u1) / 2
     S = half + o                                     # the eave's edge, each side of the apex
     cover = lambda s: top + (half - abs(s)) * t      # the slate's top line in the face's plane
     tv = cp["thickness_m"] * math.sqrt(1 + t * t)    # the coping's depth, measured plumb
-    d0, d1 = -cp["depth_m"], o + PROUD_M
+    d0 = -cp["depth_m"]
     kw = cp["kneeler_m"]
     mat = "limestone_trim"
     for end in cp["ends"]:
-        z, sg_end = (-v0, 1.0) if end == "south" else (-v1, -1.0)
-        R, N = (sg_end, 0.0, 0.0), (0.0, 0.0, sg_end)   # R x Y = N, out of the gable
-        frame = ((wc, 0.0, z), R, N)
+        d1 = o + PROUD_M
+        if end in ("front", "rear"):
+            # T-3354: a gable to the rear, its faces across u: the rear verge stands the overhang
+            # out of the rear wall; the front is cut flush in the host wall's plane, so its
+            # coping stands only PROUD_M before the face, as a parapet gable's does
+            x, sg_end = (u1, 1.0) if end == "front" else (u0, -1.0)
+            R, N = (0.0, 0.0, -sg_end), (sg_end, 0.0, 0.0)   # R x Y = N, out of the gable
+            frame = ((x, 0.0, wc), R, N)
+            if end == "front":
+                d1 = PROUD_M
+            apex = (x, round(cover(0.0) + tv, 4), wc)
+        else:
+            z, sg_end = (-v0, 1.0) if end == "south" else (-v1, -1.0)
+            R, N = (sg_end, 0.0, 0.0), (0.0, 0.0, sg_end)   # R x Y = N, out of the gable
+            frame = ((wc, 0.0, z), R, N)
+            apex = (wc, round(cover(0.0) + tv, 4), z)
         seed = a.instance(f"k01.roof.wing_coping.{w['id']}.{end}", "roof",
                           {"span_m": round(u1 - u0, 4), "thickness_m": cp["thickness_m"],
                            "depth_m": cp["depth_m"], "kneeler_m": kw, "finial_m": cp["finial_m"],
                            "pitch_deg": r["pitch_deg"]},
-                          {"apex": (wc, round(cover(0.0) + tv, 4), z)})
+                          {"apex": apex})
         for sg in (-1.0, 1.0):
             s0, s1 = sg * (S - kw), 0.0              # from the kneeler's inner face to the apex
             lo0, lo1 = cover(s0) - SEAT_M, cover(s1) - SEAT_M

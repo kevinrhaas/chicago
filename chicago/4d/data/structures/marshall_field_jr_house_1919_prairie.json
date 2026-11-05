@@ -799,7 +799,7 @@
         -16.4,
         -7.0,
         -4.8,
-        10.8
+        3.96
        ],
        "past_host": true,
        "floor_m": 1.7,
@@ -823,16 +823,12 @@
         "south": [
          1.0,
          8.2
-        ],
-        "north": [
-         2.4,
-         6.6
         ]
        },
        "roof": {
         "kind": "gable",
-        "gable_to": "south",
-        "pitch_deg": 50,
+        "gable_to": "rear",
+        "pitch_deg": 58,
         "overhang_m": 0.3,
         "fascia_m": 0.3,
         "covering": "slate_pennsylvania",
@@ -842,8 +838,8 @@
          "kneeler_m": 0.35,
          "finial_m": 0.6,
          "ends": [
-          "south",
-          "north"
+          "front",
+          "rear"
          ]
         }
        },
@@ -882,6 +878,46 @@
        }
       },
       {
+       "id": "rear_range_south",
+       "rect": [
+        -16.4,
+        -7.0,
+        3.96,
+        10.8
+       ],
+       "floor_m": 1.7,
+       "storey_heights_m": [
+        4.2,
+        3.7
+       ],
+       "sash_by_storey": [
+        {
+         "sill_above_floor_m": 0.75,
+         "width_m": 1.1,
+         "height_m": 2.4
+        },
+        {
+         "sill_above_floor_m": 0.6,
+         "width_m": 1.1,
+         "height_m": 1.95
+        }
+       ],
+       "windows": {
+        "north": [
+         2.4,
+         6.6
+        ]
+       },
+       "roof": {
+        "kind": "gable",
+        "gable_to": "rear",
+        "pitch_deg": 58,
+        "overhang_m": 0.3,
+        "fascia_m": 0.3,
+        "covering": "slate_pennsylvania"
+       }
+      },
+      {
        "id": "garage",
        "rect": [
         -28.2,
@@ -889,6 +925,7 @@
         -4.8,
         10.8
        ],
+       "past_host": true,
        "floor_m": 0.15,
        "storey_heights_m": [
         4.0,
@@ -945,7 +982,7 @@
       "gatlin_programme_1919_field_jr_plate",
       "chicago_blue_book_1912_gatlin_1919_plate"
      ],
-     "note": "The ranges the 1911 sheet draws behind the front block, read off its trace (s28fp-1919-b1) in this frame (v runs south, K01's 'south' wall is the real north flank): (1) MIDDLE_RANGE, u -7.0 to 0, v -3.1 to 10.85, '2\u00bdS.B.', stepping out 3.1 m north of the front block and to the south lot line; (2) REAR_RANGE, u -16.4 to -7.0, v -4.8 to 10.8, '2\u00bdS.B.', a further 1.7 m north (its canted north bay, about 1.4 m out from u -14.5 to -9.4 on the sheet, is not yet built); (3) GARAGE, u -28.2 to -16.4, the sheet's '2B' 'GARAGE CEMENT FL'R' to the alley, its floor near grade. The two half-storey ranges are built under slated gables facing north and south, the steep gables the 1913 plate shows along the north flank; their pitch, heights and windows are RECONSTRUCTED. Whether the garage stood by 1904 the sheet cannot say (it is 1911's); it is carried as part of the building the T-1841 census rules present_as_mapped. T-3337: the rear range's north-wall windows moved to s 1.0 and 8.2 m (RECONSTRUCTED), either side of the sheet's canted north bay (bays: north_bay), which covers the middle one. Both ranges' gables are carried up in a stone coping along each rake, a kneeler at each foot and a 0.6 m turned finial at each apex (roof.coping), as both Gatlin Institute plates draw the flank's gables with pale copings finialled at their peaks and as T-3301 coped the street dormer; the coping's section, kneelers and finial are RECONSTRUCTED at the dormer's sizes, and the south ends, which face 1923's north wall a metre off and no picture shows, are coped as the north ends are. T-3353: both ranges' street-facing corners (the north-east corner of each, where its north wall meets the face that steps out from the range in front of it) are quoined in pale stone, long and short in turn from grade to the wall top, and the main block's three stone courses (under the principal sills, at the second floor, under the chamber sills) are carried on across both ranges' north walls and their stepped-out faces, in place of K03's brick string course there (dressings), as the 1919 programme plate draws the rear ranges' corners and courses pale against the brick, plainest of all its walls, and as T-3305 carried the courses round the main block's flank. INFERRED: that the corners are quoined and the courses run on is the plate's; the stones' 0.55 and 0.3 m lengths, their 0.35 m courses and 0.03 m projection, and the courses' lines (the main block's, carried on) are RECONSTRUCTED, the plate being too soft to count stones. T-3354: the GARAGE is roofed under a slated gable facing the flank (gable_to south, as the ranges'), pitched 54 degrees to an apex at 15.7 m over its 7.55 m wall top, coped, kneelered and finialled at both ends as the ranges are, where the record had it flat in tin: all three Gatlin Institute plates (1912, 1913, 1919) draw a third gable at the flank's far end beyond the ranges' two, and through each plate's solved camera the garage's north gable lands where that gable stands (its apex within about 15 px across in all three; the 1912 and 1919 plates set it at about 15.7-15.9 m). INFERRED: the gable's place and height are the plates'; that it is the garage's own roof, its 54-degree pitch (the plates give the apex, not the span), the slate and the coping's sizes are RECONSTRUCTED (L-k01-1919-garage-gable-3354)."
+     "note": "The ranges the 1911 sheet draws behind the front block, read off its trace (s28fp-1919-b1) in this frame (v runs south, K01's 'south' wall is the real north flank): (1) MIDDLE_RANGE, u -7.0 to 0, v -3.1 to 10.85, '2\u00bdS.B.', stepping out 3.1 m north of the front block and to the south lot line; (2) REAR_RANGE, u -16.4 to -7.0, v -4.8 to 10.8, '2\u00bdS.B.', a further 1.7 m north (its canted north bay, about 1.4 m out from u -14.5 to -9.4 on the sheet, is not yet built); (3) GARAGE, u -28.2 to -16.4, the sheet's '2B' 'GARAGE CEMENT FL'R' to the alley, its floor near grade. The two half-storey ranges are built under slated gables facing north and south, the steep gables the 1913 plate shows along the north flank; their pitch, heights and windows are RECONSTRUCTED. Whether the garage stood by 1904 the sheet cannot say (it is 1911's); it is carried as part of the building the T-1841 census rules present_as_mapped. T-3337: the rear range's north-wall windows moved to s 1.0 and 8.2 m (RECONSTRUCTED), either side of the sheet's canted north bay (bays: north_bay), which covers the middle one. Both ranges' gables are carried up in a stone coping along each rake, a kneeler at each foot and a 0.6 m turned finial at each apex (roof.coping), as both Gatlin Institute plates draw the flank's gables with pale copings finialled at their peaks and as T-3301 coped the street dormer; the coping's section, kneelers and finial are RECONSTRUCTED at the dormer's sizes, and the south ends, which face 1923's north wall a metre off and no picture shows, are coped as the north ends are. T-3353: both ranges' street-facing corners (the north-east corner of each, where its north wall meets the face that steps out from the range in front of it) are quoined in pale stone, long and short in turn from grade to the wall top, and the main block's three stone courses (under the principal sills, at the second floor, under the chamber sills) are carried on across both ranges' north walls and their stepped-out faces, in place of K03's brick string course there (dressings), as the 1919 programme plate draws the rear ranges' corners and courses pale against the brick, plainest of all its walls, and as T-3305 carried the courses round the main block's flank. INFERRED: that the corners are quoined and the courses run on is the plate's; the stones' 0.55 and 0.3 m lengths, their 0.35 m courses and 0.03 m projection, and the courses' lines (the main block's, carried on) are RECONSTRUCTED, the plate being too soft to count stones. T-3354: the GARAGE is roofed under a slated gable facing the flank (gable_to south, as the ranges'), pitched 54 degrees to an apex at 15.7 m over its 7.55 m wall top, coped, kneelered and finialled at both ends as the ranges are, where the record had it flat in tin: all three Gatlin Institute plates (1912, 1913, 1919) draw a third gable at the flank's far end beyond the ranges' two, and through each plate's solved camera the garage's north gable lands where that gable stands (its apex within about 15 px across in all three; the 1912 and 1919 plates set it at about 15.7-15.9 m). INFERRED: the gable's place and height are the plates'; that it is the garage's own roof, its 54-degree pitch (the plates give the apex, not the span), the slate and the coping's sizes are RECONSTRUCTED (L-k01-1919-garage-gable-3354). T-3354 (second pass): the REAR RANGE is ridged across, not along: its north pile (u -16.4 to -7.0, v -4.8 to 3.96) is gabled to the rear and to the street, pitched 58 degrees to a ridge at 16.6 m, its street-facing gable standing over the middle range's 9.6 m wall top and coped and finialled at both ends (roof.coping front and rear); its south pile (REAR_RANGE_SOUTH, v 3.96 to 10.8, the rest of the sheet's one rectangle) is gabled the same way, uncoped, behind it. What was built before (a gable facing the flank, apex 15.2 m at the range's middle) did not land on the plates: their big gable stands about 1.5-2 m higher and nearer the street, and its rakes and lit face read foreshortened as a face toward the street is from these cameras, not as a face toward the flank (which these cameras see at about 60 degrees, so that a 50-degree flank gable draws about 70 degrees steep where the plates draw about 45). Through the 1913 and 1919 plates' cameras the plates' big apex, taken on the range's front (u -7.0), stands at v -0.4 and 16.9-17.5 m over grade (its coping and finial), and the shallow line the plates draw from it back to a small peak is the ridge running west to the range's rear gable: projected, the new ridge lands on it within about 10 px in both. INFERRED: the gable's facing, its apex's place and height and the ridge's line are the plates'; that the apex stands midway over a north pile from the range's north wall (v -4.8), the 58-degree pitch that follows, the south pile and its roof are RECONSTRUCTED (L-k01-1919-rear-range-ridge-3354). The Prairie library's later photograph of the house (a19-cgy-1919-later, rights unknown, link only) was looked at to tell a face toward the street from one toward the flank (its big gable is lit as the street front is, the flank's walls in shade); nothing is measured off it. The garage now stands on the north pile's rear wall and runs past it to the south (past_host)."
     },
     "boundary": {
      "value": {

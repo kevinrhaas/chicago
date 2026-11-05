@@ -4539,6 +4539,11 @@ WING_ROOFS = ("flat", "hip", "gable")
 WING_GABLE_SIDES = ("rear", "north", "south")
 
 
+#: T-3337 / T-3354: the ends a wing's coped gable names — a flank gable's (ridge along v) its
+#: south and north walls, a rear gable's (ridge along u) its front over the host and its rear
+WING_COPING_ENDS = {"v": ("south", "north"), "u": ("front", "rear")}
+
+
 def _wing_pitched(wid, roof, kind, u0, u1, v0, v1, top) -> dict:
     """T-2841: a wing's hipped or gabled roof, resolved. Slated in a K04 slate read at its
     own pitch by K04's slate_exposure rule, as the main roof's is (`_k04`); its eaves are
@@ -4604,8 +4609,9 @@ def _wing_pitched(wid, roof, kind, u0, u1, v0, v1, top) -> dict:
     coping = None
     if roof.get("coping") is not None:
         c = roof["coping"]
-        if kind != "gable" or axis != "v":
-            raise ParamError(f"rear_wings: {wid}'s coping is laid on a gable facing a flank (south or north)")
+        if kind != "gable":
+            raise ParamError(f"rear_wings: {wid}'s coping is laid on a gable facing a flank (south or north) "
+                             f"or the rear")
         if not isinstance(c, dict) or set(c) != {"thickness_m", "depth_m", "kneeler_m", "finial_m", "ends"}:
             raise ParamError(f"rear_wings: {wid}'s coping takes thickness_m, depth_m, kneeler_m, finial_m and ends")
         coping = {k_: float(c[k_]) for k_ in ("thickness_m", "depth_m", "kneeler_m", "finial_m")}
@@ -4615,10 +4621,15 @@ def _wing_pitched(wid, roof, kind, u0, u1, v0, v1, top) -> dict:
             raise ParamError(f"rear_wings: {wid}'s coping: a 0.1-0.3 m stone, 0.15-0.6 m back from the face, "
                              f"0.2-0.5 m kneelers and a 0.4-0.9 m finial (or 0, none)")
         ends = c["ends"]
+        # T-3354: a gable to the rear (its ridge along u) is coped at its own two ends instead:
+        # the rear verge, and the front, where its section stands over the host's top as the
+        # wing's walling (1919's rear range, its street-facing gable over the middle range)
+        named = WING_COPING_ENDS[axis]
         if not isinstance(ends, list) or not ends or len(set(ends)) != len(ends) \
-                or set(ends) - {"south", "north"}:
-            raise ParamError(f"rear_wings: {wid}'s coping.ends names its gable ends, south and/or north")
-        coping["ends"] = tuple(sd for sd in ("south", "north") if sd in ends)
+                or set(ends) - set(named):
+            raise ParamError(f"rear_wings: {wid}'s coping.ends names its gable ends, "
+                             f"{' and/or '.join(named)}")
+        coping["ends"] = tuple(sd for sd in named if sd in ends)
     return {"kind": kind, "pitch_deg": pitch, "covering": cov, "axis": axis,
             **({"coping": coping} if coping else {}),
             **({"gable_to": gable_to} if kind == "gable" else {}),
@@ -4770,6 +4781,18 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
             # ridge: across the wing (along u) it dies into the host wall, along it (v) the front
             # slope comes down to the host wall at the wing's own wall top
             pitched = _wing_pitched(wid, roof, kind, u0, u1, v0, v1, top)
+            # T-3354: a rear gable coped at its front shows that front over its host, so the
+            # ridge stands clear above the host's top (a wing's; the main eave is checked as built)
+            if pitched["axis"] == "u" and kind == "gable" and past and host is not None \
+                    and top < host["top_m"] - 1e-9:
+                raise ParamError(f"rear_wings: {wid} gabled to the rear runs past its host wall at a {top} m wall "
+                                 f"top, under its host {host['id']}'s {host['top_m']} m: its front gable would "
+                                 f"open below the host's top")
+            cp_ = pitched.get("coping")
+            if cp_ and "front" in cp_["ends"] and host is not None \
+                    and pitched["ridge_m"] < host["top_m"] + 1.0:
+                raise ParamError(f"rear_wings: {wid}'s front gable is coped, but its {pitched['ridge_m']} m ridge "
+                                 f"stands less than 1 m over its host {host['id']}'s {host['top_m']} m wall top")
             # the host wall is drawn down to the wing's wall top, the roof dying into it; a host
             # light is behind the wing up to the roof's highest point on that wall
             deck, cover = top, pitched["cover_m"]

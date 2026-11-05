@@ -1320,6 +1320,13 @@ class Assembly:
         hv0, hv1 = w["host_v_m"]
         c0 = -hv1 if v1 > hv1 + 1e-9 else z0 - o - 2.0
         c1 = -hv0 if v0 < hv0 - 1e-9 else z1 + o + 2.0
+        # T-3354: but a gable to the rear ends in ONE plane at its front: past the host its
+        # section is the wing's own front gable over its front wall (1919's rear range, whose
+        # street-facing gable runs out over its 1.7 m step past the middle range), never a
+        # slope run on toward the street (k01_frontage_params refuses one standing lower than
+        # its host there, where the section would open under the host's top)
+        if r["kind"] == "gable" and r["axis"] == "u":
+            c0, c1 = z0 - o - 2.0, z1 + o + 2.0
         cut = k5.extrude([(u1, base - 1.0), (end, base - 1.0), (end, hi), (u1, hi)], c0, c1,
                          k5.frame("z"), "host_end", "host_end", "host_end")
         pts, tris = _weld_shell(*k5.close(k5.subtract(k5.union_all(k5._snap(solids)), k5._snap([cut])[0])))

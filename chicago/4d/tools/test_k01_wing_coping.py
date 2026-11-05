@@ -11,7 +11,11 @@ Institute plates). Held on the committed record:
   * every coped end registers its coping, whose apex stands over the slate's apex by the
     coping's plumb depth, and limestone rises past the apex by the finial;
   * refused: a pitched projection, a tower and a projection run past its wall's end on a gable
-    end; a coping on a hip, on a gable to the rear, out of its bounds, or naming no end.
+    end; a coping on a hip, on an end its gable does not have, out of its bounds, or naming no
+    end; a rear gable coped at a front that does not stand over its host (T-3354).
+
+T-3354: the rear range is ridged across (gabled to the street and the rear, both coped), so the
+bay's wall is an eave wall now and the gable-end refusals are tried on the middle range's.
 
     python3 tools/test_k01_wing_coping.py
 """
@@ -69,7 +73,9 @@ length = KP.wing_walls(rr)["south"][2]
 s0, s1 = bay["span_m"]
 check(bay.get("wing") == "rear_range" and bay["wall"] == "k01.wall.wing.rear_range.south",
       "the north bay stands on the rear range's north wall (K01's south), a gable end")
-check("south" in KP._gable_walls(rr["roof"]), "that wall is the range's gable end")
+# T-3354: the range is ridged across now, so that wall is an eave wall and the gable stands over its front
+check("south" not in KP._gable_walls(rr["roof"]) and "rear" in KP._gable_walls(rr["roof"]),
+      "that wall is the range's eave wall, its gables at its front and rear")
 check(0.0 < s0 < s1 < length, f"the bay lies inside its wall (s {s0:.2f}-{s1:.2f} of {length:.2f} m)")
 top = sum(x["height_m"] for x in bay["variant"]["storeys"])
 check(abs(top - rr["top_m"]) < 1e-6, f"its flat top stands at the range's wall top ({top:.2f} m)")
@@ -111,20 +117,34 @@ def bays(f):
     return {b["id"]: b for b in f["bays"]["value"]}
 
 
-refused(lambda f: bays(f)["north_bay"].update(roof={"kind": "hip", "pitch": 0.6, "covering": "slate_pennsylvania"}),
+# T-3354: the middle range's north wall (K01's south) is the gable end the bay is tried on now
+ON_GABLE = {"wall": "k01.wall.wing.middle_range.south", "s_m": 3.5}
+refused(lambda f: bays(f)["north_bay"].update(ON_GABLE, roof={"kind": "hip", "pitch": 0.6,
+                                                               "covering": "slate_pennsylvania"}),
         "a pitched projection on a gable end", "a gable end")
 refused(lambda f: f["bays"]["value"].append({"id": "t", "variant": "k08.tower.round", "s_m": 8.0,
                                              "wall": "k01.wall.wing.middle_range.south",
                                              "plan": {"radius_m": 1.2, "centre_proud_m": 0.5}}),
         "a tower on a gable end", "a gable end")
-refused(lambda f: bays(f)["north_bay"].update(past_end="left"), "a flat projection run past a gable end's end",
-        "a gable end")
+refused(lambda f: bays(f)["north_bay"].update(ON_GABLE, past_end="left"),
+        "a flat projection run past a gable end's end", "a gable end")
 refused(lambda f: wings(f)["rear_range"]["roof"]["coping"].update(thickness_m=0.5), "a coping out of its bounds",
         "a 0.1-0.3 m stone")
 refused(lambda f: wings(f)["rear_range"]["roof"]["coping"].update(ends=[]), "a coping naming no end",
         "coping.ends")
-refused(lambda f: wings(f)["rear_range"]["roof"]["coping"].update(ends=["rear"]), "a coping on a rear end",
+refused(lambda f: wings(f)["middle_range"]["roof"]["coping"].update(ends=["rear"]), "a flank gable coped at its rear",
         "coping.ends")
+refused(lambda f: wings(f)["rear_range"]["roof"]["coping"].update(ends=["north"]), "a rear gable coped at a flank",
+        "coping.ends")
+# T-3354: a rear gable coped at its front shows that front over its host
+refused(lambda f: wings(f)["rear_range_south"].update(
+            storey_heights_m=[1.5, 1.5],
+            roof={**wings(f)["rear_range_south"]["roof"],
+                  "coping": {**wings(f)["rear_range"]["roof"]["coping"], "ends": ["front"]}}),
+        "a front coping under the host's top", "less than 1 m over its host")
+# T-3354: and a rear gable run past its host stands at least as high as the host there
+refused(lambda f: wings(f)["rear_range"].update(storey_heights_m=[3.0, 3.0]),
+        "a rear gable past its host, under the host's top", "open below the host's top")
 refused(lambda f: wings(f)["middle_range"]["roof"].update(kind="hip", gable_to=None) or
         wings(f)["middle_range"]["roof"].pop("gable_to"), "a coping on a hip", "gable facing a flank")
 # T-3354: 1919's garage is gabled now, so the flat deck the coping is refused on is made here
