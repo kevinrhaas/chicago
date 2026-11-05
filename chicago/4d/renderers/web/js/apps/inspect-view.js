@@ -518,7 +518,7 @@ async function fillPeople(pane, sec, ctx, id) {
   const order = (r) => RANK[r.relationship] ?? 3;
   // T-3382: a child of the house carded for the years they lived in it says those years; one
   // not living here on the scene date is listed under the household, not in it.
-  const years = (r) => (r.lived_here?.years ? `lived here ${String(r.lived_here.years).replace(/(\d)-(\d)/g, '$1\u2013$2')}` : '');
+  const years = (r) => (r.lived_here?.years ? `lived here ${String(r.lived_here.years).replace(/([\ds])-(\d|about)/g, '$1\u2013$2')}` : '');
   const away = (r) => r.lived_here?.on_scene_date === 'no';
   const rowFor = (r, sub) => {
     const b = el(doc, 'button', 'nav-person insp-person-link');

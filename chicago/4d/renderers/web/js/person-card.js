@@ -142,7 +142,7 @@ export function personModel({ row, person = null, household = null, citations = 
   // T-3382: a child of the house carded for the years they lived in it, which need not
   // include the scene date. The years are the card's, as the listings and censuses give them.
   const lived = p.lived_here ?? row?.lived_here ?? null;
-  if (lived?.years) facts.push({ label: 'Lived here', value: String(lived.years).replace(/(\d)-(\d)/g, '$1\u2013$2'), grade });
+  if (lived?.years) facts.push({ label: 'Lived here', value: String(lived.years).replace(/([\ds])-(\d|about)/g, '$1\u2013$2'), grade });
   if (lived?.on_scene_date && ON_SCENE_DATE[lived.on_scene_date]) {
     facts.push({ label: year ? `In ${year}` : 'On the scene date', value: ON_SCENE_DATE[lived.on_scene_date], grade });
   }
@@ -189,6 +189,7 @@ export function personModel({ row, person = null, household = null, citations = 
     sheetNotes,
     sources,
     ownCard,
+    away: lived?.on_scene_date === 'no',
     read: !!person,
   };
 }
@@ -255,7 +256,7 @@ function livedWhy({ grade, census, year, lived }) {
     : on === 'unknown' ? ` No record we read says whether they were here in ${when}.` : '';
   if (grade === 'attested') {
     return { grade, title: 'Attested: a source says so',
-      text: `The sources below place them in this house as a child of the family${lived.years ? `, ${String(lived.years).replace(/(\d)-(\d)/g, '$1\u2013$2')}` : ''}.${then}` };
+      text: `The sources below place them in this house as a child of the family${lived.years ? `, ${String(lived.years).replace(/([\ds])-(\d|about)/g, '$1\u2013$2')}` : ''}.${then}` };
   }
   if (grade === 'inferred') {
     const later = census && census.year > (Number(year) || 0)
@@ -295,7 +296,7 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), o
   head.append(chips);
   if (m.household) head.append(el(doc, 'p', 'insp-address insp-person-hh', m.household));
   card.append(head);
-  if (typeof onFind === 'function') {
+  if (typeof onFind === 'function' && !m.away) {   // T-3382: nobody to find who was not here
     const find = el(doc, 'button', 'nav-tile insp-person-find', 'Find this person');
     find.type = 'button'; find.dataset.personFind = m.id;
     find.addEventListener('click', () => onFind(m.id)); card.append(find);
