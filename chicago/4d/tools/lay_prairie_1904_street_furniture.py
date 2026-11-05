@@ -1012,15 +1012,32 @@ def lay_built(grid):
     if CONTEXT.exists():
         ctx = json.loads(CONTEXT.read_text())
         at = {k: i for i, k in enumerate(ctx["fields"]["buildings"])}
+
+        def gives_way(b):
+            # the renderer drops a block that touches a placed structure's footprint, grown 1 m
+            e, n, w, d, brg = (b[at["e"]], b[at["n"]], b[at["width_m"]], b[at["depth_m"]], b[at["bearing_deg"]])
+            rect = context_box(e, n, w, d, brg, 1.0)
+            return any(in_poly((e, n), fp) or any(in_poly(c, fp) for c in rect) or any(in_poly(c, rect) for c in fp)
+                       for fp in footprints)
+        # ...and (T-3388) a drawn building's parts give way together, as one `group`, once the
+        # touched parts hold half its plan (context.js GIVE_WAY_SHARE)
+        group_at = at.get("group")
+        touched = {k for k, b in enumerate(ctx["buildings"]) if group_at is not None and b[group_at] and gives_way(b)}
+        g_all, g_hit = {}, {}
+        for k, b in enumerate(ctx["buildings"]):
+            gid = b[group_at] if group_at is not None else 0
+            if gid:
+                a = b[at["width_m"]] * b[at["depth_m"]]
+                g_all[gid] = g_all.get(gid, 0.0) + a
+                g_hit[gid] = g_hit.get(gid, 0.0) + (a if k in touched else 0.0)
+        gone = {gid for gid in g_all if g_hit[gid] >= 0.5 * g_all[gid]}
         for k, b in enumerate(ctx["buildings"]):
             e, n, w, d, brg = (b[at["e"]], b[at["n"]], b[at["width_m"]], b[at["depth_m"]], b[at["bearing_deg"]])
             R = math.hypot(w, d) / 2 + 1.0
             if not built.touches(e - R, n - R, e + R, n + R):
                 continue
-            # the renderer drops a block that touches a placed structure's footprint, grown 1 m
-            rect = context_box(e, n, w, d, brg, 1.0)
-            if any(in_poly((e, n), fp) or any(in_poly(c, fp) for c in rect) or any(in_poly(c, rect) for c in fp)
-                   for fp in footprints):
+            gid = b[group_at] if group_at is not None else 0
+            if (k in touched or gid in gone) if gid else gives_way(b):
                 continue
             built.lay_prism(f"context block {k} ({ctx['enums']['rule'][b[at['rule']]]})",
                             context_box(e, n, w, d, brg), b[at["eave_m"]] + b[at["rise_m"]], 0.0)

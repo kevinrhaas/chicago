@@ -1923,9 +1923,9 @@
     "house_1837_indiana__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
-      "bytes": 107352,
+      "bytes": 98008,
       "generator": "generators/draft_emit.py",
-      "inputs_sha256": "26d2c91259d4b51a9312e9447bc596a5e747c6fed8d485933b1405860a7fcf4f",
+      "inputs_sha256": "21e351cbd86915248a894fdc2eacd0887ba095a3d833e88490de18387deb92bc",
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "house_1837_indiana"
@@ -2063,9 +2063,9 @@
     "house_1917_indiana__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
-      "bytes": 141208,
+      "bytes": 118736,
       "generator": "generators/draft_emit.py",
-      "inputs_sha256": "5b5aa220f89eafe9ed20219bd3ae6baf3666fc7298deb5b997f9dc74ef21d724",
+      "inputs_sha256": "976ef2f145cc923bcd97f1fd58a374743dec4e03de2ddc1dbd424b73684a07b0",
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "house_1917_indiana"
@@ -2093,9 +2093,9 @@
     "house_1921_indiana__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
-      "bytes": 303396,
+      "bytes": 239748,
       "generator": "generators/draft_emit.py",
-      "inputs_sha256": "329459053641c5050479d1a3e518cf88bfea4d113890cceebb94f15005375d5b",
+      "inputs_sha256": "13d0617120c412bbd0283e17d14b314c1a5d8a9ea75b53c950db24157e54123b",
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "house_1921_indiana"
@@ -2153,9 +2153,9 @@
     "house_1931_indiana__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
-      "bytes": 278908,
+      "bytes": 189048,
       "generator": "generators/draft_emit.py",
-      "inputs_sha256": "fea06d7e058fdbad7aef526bb6a7dc92a8f56d0e46716d712fb55f37b96990cc",
+      "inputs_sha256": "ad5d43e5cf4b665442aea2a39df6edc47cf7628bb7fd28a552ede7b85f7d81e2",
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "house_1931_indiana"
@@ -2643,9 +2643,9 @@
     "house_2100_calumet__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
-      "bytes": 282580,
+      "bytes": 260116,
       "generator": "generators/draft_emit.py",
-      "inputs_sha256": "916f9a1171e0c231fddb6cad943a612be1c4411dbc21251ab5531d8ed55e2e09",
+      "inputs_sha256": "ac505c809049c2c3dbc73a34cdb92d982f95852864bd8794f0c3f67de76b91ba",
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "house_2100_calumet"
@@ -2763,9 +2763,9 @@
     "house_2115_indiana__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
-      "bytes": 271360,
+      "bytes": 256384,
       "generator": "generators/draft_emit.py",
-      "inputs_sha256": "c9f7e6f926beca4d8d926011466cf6de9792894e05139d0d2c14b8a9ba8bb617",
+      "inputs_sha256": "5110877e072235cf82ebaef4ad7e9fbee3ce97c88516a9ab9629bfd758d1c624",
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "house_2115_indiana"
@@ -2825,7 +2825,7 @@
       "baked_ao": false,
       "bytes": 172840,
       "generator": "generators/draft_emit.py",
-      "inputs_sha256": "9a0f58d2296982263a7550466bbf0c0b7654a96c020d5b2cee679daf4d186f3c",
+      "inputs_sha256": "2e8791cf8f846432240ee902c7aec4a07336bc79eb602f93c13bbaf185105077",
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "house_2124_calumet"
@@ -2873,9 +2873,9 @@
     "house_213_e18th__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
-      "bytes": 355652,
+      "bytes": 280772,
       "generator": "generators/draft_emit.py",
-      "inputs_sha256": "80c2a54990731ba39a34d01460ab28b9fda82f3da63fa43782d415713a6453fe",
+      "inputs_sha256": "523471f60d38df1dd99b3c22c6462eb5b6314221b7b5e9b1f1a578f0aac2e062",
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "house_213_e18th"
@@ -9132,9 +9132,9 @@
     "sears_meeker_house_1815_prairie_coach_house__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
-      "bytes": 105700,
+      "bytes": 110408,
       "generator": "generators/draft_emit.py",
-      "inputs_sha256": "8e69571670d551baac20ccea299fa51e2cc3d95cf9ede6af016f27ece9f1c315",
+      "inputs_sha256": "95bebda78df1c1fa7f3a1f17798439d10d24b407325b5b5b498f840adb3e09dc",
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "sears_meeker_house_1815_prairie_coach_house"

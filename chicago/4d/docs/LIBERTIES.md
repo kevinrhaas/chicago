@@ -24238,6 +24238,14 @@ standing 3 m or less clear of everything else of its building is stretched acros
 the nearest wall (`fit.snap_gap_m`), since the sheet draws one building; and every draft porch
 is a solid stone stoop up to the principal floor with four steps down on its face away from
 the house, its posts and roof left to the house's own pass.
+**Swept a third time by T-3388 (2026-11-05; owner: "do a sweep of unbuilt but non-sensible
+buildings and make them believable for now"):** pieces the fit left standing clear of everything
+joined to their house (more than the 3 m the snap closes, or chained to it only through a porch)
+still rose two and three storeys: 2124 Calumet's 2.5 m range 7 m off the house, 1931 Indiana's
+2.75 m one, ranges behind 1917 and 1921 Indiana, 2100 Calumet and 213 E. 18th Street. Still with no
+source claimed: such a piece narrower than `fit.min_body_m` (5.5 m, the narrowest house the drafts
+build) stands one storey under a flat roof, a shed or lean-to on the lot; and a stone front standing
+clear of every wall (1815 Prairie's coach house) is dropped, since a stone front is a wall's face.
 **1812 retired from this liberty by T-2543 (2026-10-16):** George H. Wheeler's house now stands as the K01 frontage built from Albert Levy's photograph through a solved camera: three storeys over a raised basement, the south projection on K08 and the whole front carried up as a shaped Flemish gable, under `L-k01-1812-wheeler-front-2543`, under the same id; its draft attributes are gone.
 **How to resolve:** each house's own per-building ticket (named on its card and in its record's
 `draft.replaceable_by`) replaces its attributes in place, under the same id, from a photograph,
@@ -27829,6 +27837,17 @@ the 110 m strip Robinson's plate 10 draws on 16th Street's north side, Mortimer 
 subdivision of sixteen lots, is a row of three-storey houses and no longer a 16 m block. The trees
 are drawn as the parkway's grown American elm (street-trees.js), sized by each tree's own height;
 the species is ours, after the elms the prints show on Prairie Avenue.
+**Amended (T-3388, 2026-11-05; owner, behind 244-250 E. 18th Street: free-standing pink towers with
+windows, "make them believable for now").** The traced sheets join neighbouring buildings into runs,
+and the run's size had set every part's height: a 2.9 x 4.8 m yard piece behind 1727 Indiana stood
+16 m to its eaves as part of a 2,000 m2 "block", and when the Indiana drafts took the run's main body
+away its pieces stood on alone. Now a part takes a block's height only when it is 450 m2 itself; a
+part of a run at least 90 m2 and 5.5 m across is a house at the house rules' height (the terraces
+sheet 35 draws on Indiana Avenue at 20th-21st), and a smaller one a wing or porch; no sheet stand-in
+stands taller than twice its narrower side; a drawn part under 1.5 m across is a line the trace
+caught, not a building, and is dropped; and every part carries its drawn building's `group`, so the
+renderer drops a drawn building whole once placed structures touch half its plan. All of it is
+still invented by rule and claims nothing about any building.
 **How to resolve:** read the storey figures each sheet prints into the rows; trace sheets 19, 27, 34
 and 36 (Indiana's west face, Indiana 18th-20th, Calumet's east face) to replace the projection where
 they reach; each stand-in a drafted building lands on is dropped by the renderer already.
