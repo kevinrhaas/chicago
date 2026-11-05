@@ -46,7 +46,7 @@
     },
     {
       "file": "renderers/web/js/tree-instances.js",
-      "sha256": "39ea6657e4a0799dd9241b69481e62f3a5ce64c250151b2828ca87a77c17b361"
+      "sha256": "9388917b206b17f47c54671a727d355441f480b30fb19eb040ce1940ec668489"
     },
     {
       "file": "renderers/web/js/tree-model.js",
@@ -62,10 +62,10 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "a222fb6e6af97d1650b05940f9ca0a79874a53c60a688e1b7b49838a7a637c66"
+      "sha256": "d0d3bd8f1bf64e6a8b73b86ee2a9a29b39ce18def909882ba39b438b773f4411"
     }
   ],
-  "flora_sha256": "d91a9143dd4ac7fbce0074852cead94d621c2f25246766e6fe181b7b49fc236f",
+  "flora_sha256": "423f3496c4623a1a5c8caf1b6d414a109fc7896a0076c1558ddbf6e9ca1af3ef",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -171,8 +171,8 @@
     },
     {
       "what": "the large Prairie dormer as a whole (its light, hood and pediment) draws about 20-30 px left of the plate's (x 1152-1213 against 1183-1233), about 1 m at the vignette's scale",
-      "status": "open",
-      "how": "T-1881: seen while judging the pediment; the dormer's place on the front (v 11.45) is the Detroit print's, which lands it within a few px there, so this is the plate's camera along the front or the dormer's place, not yet resolved"
+      "status": "within tolerance",
+      "how": "T-1881: seen while judging the pediment; the dormer's place on the front (v 11.45) is the Detroit print's, which lands it within a few px there, so this is the plate's camera along the front or the dormer's place, not yet resolved T-1881 (2026-11-05, sign-off pass): measured on the side-by-side, the dormer and the column of lights under it draw left by the same amount: the principal storey's big light's glass at x 1199-1222 in the plate against 1178-1191 in the render (centre 26 px left), the second storey's at 1194-1219 against 1176-1194 (21.5 px), the dormer at 1183-1233 against 1152-1213 (25.5 px). So the dormer stands over its own lights within about 4 px (0.2 m at the vignette's 22 px a metre), as the plate draws it; the 1 m is the plate's camera along this front, the same offset its record reads for the parkway trees, and the Detroit print's and Clark's 1905 cameras both land the dormer and its lights at v 11.0-11.45 (the build's v 11.225). A gap two camera fits disagree about (T-3153), not a place on the house."
     },
     {
       "what": "the 18th Street pavilion's oculus pier between its second storey's pair and triple, and the flank's banded east corner pier (T-1881, read off Taylor's photograph no. 1445)",
@@ -190,8 +190,8 @@
     },
     {
       "what": "the forward block's second-storey light over the portico (x 1017-1044) under the same moulded head as the front's other lights: in the build it is a K08 bay light (p_forward) under K06's own arch band, which the K01 architrave does not reach",
-      "status": "open",
-      "how": "T-1881 (2026-10-31): seen when the front's K01 lights were framed; needs the K08 bay window to take an architrave"
+      "status": "fixed",
+      "how": "T-1881 (2026-10-31): seen when the front's K01 lights were framed; needs the K08 bay window to take an architrave T-1881 (2026-11-05, sign-off pass): the K08 bay this item names (p_forward) was replaced in round 3 (#1581) by the north block, bays.p_block, whose second-storey light (k06 round fanlight, 0.9 x 2.65 m) carries the K08 `architrave` key that #1581 brought over from #1550: a 0.18 m band 0.12 m proud round the jambs and arch on 0.25 m imposts, the same head as the front's other K01-framed lights of its size (the narrow south column's, street_front_windows). Through this camera the render draws its moulded ring round the light at about x 985-998 under the plate's x 1017-1044, inside the camera's offset along this front (item above)."
     },
     {
       "what": "the principal storey's big light stands on a projecting sill carried on two blocks over a sunk panel (x 1180-1240, y 545-560); the build's light stands on K06's plain sill",
@@ -207,6 +207,11 @@
       "what": "the Prairie front's massing: the north block forward, the entry stepped back, the south part stepped back again (round 3; it was two pavilions either side of a stepped-in centre)",
       "status": "fixed",
       "how": "T-1881 round 3 (2026-11-01, the owner's plan and elevation sketches): the Prairie front in his three parts: the north block 2.95 m forward (v 0-7.4), the entry 1.6 m forward with the door, portico and stoop (v 7.35-12.1), the south part on the main wall with the big lights and the pedimented dormer; the depths are the 1911 sheet's front lines, the ends the sketch's (L-pullman-1729-three-part-front-1881)"
+    },
+    {
+      "what": "a dark bell-shaped fitting hanging on the Prairie front just south of the portico (x 1140-1153 px, y 473-497), between two banded piers (x 1126-1138 and 1158-1168) under the belt course: a cap widening downward over a small drop, about 0.7 m across and 0.9 m tall at the plate's 22 px a metre, read as a hanging lantern; the build has no lantern there, and draws one banded pier where the plate draws two",
+      "status": "open",
+      "how": "T-1881 (2026-11-05, sign-off pass): found while judging the view element by element on a fresh render. Through this camera the place is about v 9.5-10 on the front (46 px south of the portico's south column, less the camera's 20-26 px offset along this front), past the hood's south end (v 8.425), so it is a wall lantern, not one hung under the portico's soffit. No K01, K07 or K08 kit draws a lantern on a front yet. The Detroit print's ivy covers the same stretch, so it neither confirms nor refutes the fitting in 1901."
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
