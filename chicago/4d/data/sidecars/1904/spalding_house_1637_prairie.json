@@ -121,6 +121,16 @@
       "confidence": "reconstructed",
       "note": "The one K03 panel k03_brick lays; the engraving's brick is monochrome."
     },
+    "face_brick": {
+      "value": {
+        "front": "pressed_red_deep"
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "glessner_blog_1637_grosvenor_asbuilt_photo"
+      ],
+      "note": "T-3385: The Grosvenor as-built photograph reads the front's brick very dark, under a tenth of its slate's reflectance (a deep red; buff reads 1.5), and the flank at about half its dressings' (a common buff). Deep red pressed front, common buff sides. Palette: data/components/prairie_1904/k03_face_brick.json; the reading: docs/RESEARCH/face-brick-1904-T-3385/README.md (L-k03-face-brick-3385)."
+    },
     "street_front_trim": {
       "value": {
         "by_storey": [
