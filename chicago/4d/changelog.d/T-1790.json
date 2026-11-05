@@ -1,9 +1,0 @@
-{
-  "title": "Drivers wait for you and keep their pace",
-  "kind": "fix",
-  "items": [
-    "Find a named driver and they wait for you, even while their vehicle finishes loading, in these reconstructed journeys.",
-    "Drivers keep their configured pace on slow frames, with a steady restart after Stop and Continue.",
-    "Go to keeps the drawer out of the way while Inspect finishes loading."
-  ]
-}

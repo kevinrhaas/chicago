@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2655, ts: '2026-11-05T04:03:26.967Z', date: 'Nov 4, 2026, 10:03 PM CT', title: 'Driver clothes keep their shape at lower detail', kind: 'fix',
+    items: [
+      'Fewer visible gaps in Otis’s and Hans’s shirts and trousers at lower scene detail.',
+      'Town buildings use less graphics memory.',
+    ] },
+  { v: 2654, ts: '2026-11-05T04:03:26.967Z', date: 'Nov 4, 2026, 10:03 PM CT', title: 'Drivers wait for you and keep their pace', kind: 'fix',
+    items: [
+      'Find a named driver and they wait for you, even while their vehicle finishes loading, in these reconstructed journeys.',
+      'Drivers keep their configured pace on slow frames, with a steady restart after Stop and Continue.',
+      'Go to keeps the drawer out of the way while Inspect finishes loading.',
+    ] },
   { v: 2653, ts: '2026-11-04T10:33:20.048Z', date: 'Nov 4, 2026, 4:33 AM CT', title: 'The jail keeper\'s gable end is boarded, not shingled', kind: 'fix',
     items: [
       'The keeper\'s house beside the log jail on the public square took its roof covering right down the end gable. The 1902 plate of the compound draws horizontal boarding carrying on around the loft light in that triangle, so the end now wears the same wall finish as the walls under it.',
