@@ -129,6 +129,34 @@ await test('T-3328: a stop with an hour sets it on arrival; a stop without, and 
   calls.length = 0; await quiet.start('walk'); quiet.next(); active.onArrive(active.token); quiet.end(); await settle();
   assert.deepEqual(calls, [], 'a jaunt with no hours never touches the visitor\'s');
 });
+await test('T-3377: a jaunt\'s ambience holds its season for the outing and its hour at every stop without one', async () => {
+  const doc = structuredClone(walk);
+  doc.ambience = { hour: 'dusk', season: 'fall' };
+  doc.stops[1] = { ...doc.stops[1], hour: 'night', hour_evidence: [doc.stops[1].evidence[0]] };
+  const calls = [];
+  const hour = { set: (v, o) => { calls.push(['hour', v, o.date, o.transient]); }, restore: () => { calls.push(['hour-back']); } };
+  const season = { set: (v, o) => { calls.push(['season', v, o.transient]); }, restore: () => { calls.push(['season-back']); } };
+  let active;
+  const travel = { mode: 'walk', setMode(v) { this.mode = v; }, go(target, hooks) { active = hooks; return true; }, stop() { active = null; } };
+  const settle = () => new Promise(r => setTimeout(r, 0));
+  const controller = createJaunts({ load: async () => doc, resolve: x => x, place: () => true, enter: () => true, travel, hour, season,
+    render() {}, showMenu() {}, openDetail() {}, closeDetail() {}, onError: e => { throw e; } });
+  await controller.start('walk'); await settle();
+  assert.deepEqual(calls, [['season', 'fall', true], ['hour', 'dusk', undefined, true]], 'the season first, then the hour solved on its day');
+  controller.next(); active.onArrive(active.token); await settle();
+  assert.deepEqual(calls.at(-1), ['hour', 'night', undefined, true], 'a stop\'s own hour outranks the jaunt\'s');
+  controller.next(); if (active) { active.onArrive(active.token); await settle(); }
+  if (controller.state.phase === 'atStop') assert.deepEqual(calls.at(-1), ['hour', 'dusk', undefined, true], 'the jaunt\'s hour comes back after');
+  const sets = calls.filter(c => c[0] === 'season').length;
+  controller.end(); await settle();
+  assert.deepEqual(calls.slice(-2), [['hour-back'], ['season-back']], 'ending gives back the hour, then the season');
+  assert.equal(sets, 1, 'the season is set once for the whole outing');
+  calls.length = 0;
+  const plain = createJaunts({ load: async () => walk, resolve: x => x, place: () => true, enter: () => true, travel, hour, season,
+    render() {}, showMenu() {}, openDetail() {}, closeDetail() {}, onError: e => { throw e; } });
+  await plain.start('walk'); plain.next(); active.onArrive(active.token); plain.end(); await settle();
+  assert.deepEqual(calls, [], 'a jaunt with no ambience never touches the visitor\'s light');
+});
 await test('T-3355: a leg with its own mode rides that way on the default mode; a picked mode wins', async () => {
   const doc = structuredClone(walk);
   doc.legs = [{ note: 'A long ride.', evidence: [doc.stops[0].evidence[0]], mode: 'instantly' }];

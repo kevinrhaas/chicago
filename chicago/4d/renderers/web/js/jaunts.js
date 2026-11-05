@@ -220,7 +220,10 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
   // T-3328: the scene's hour (api.timeOfDay, T-3331). A stop with an `hour` sets it on
   // arrival, transiently; a stop without one, and the end of the jaunt, give the visitor's
   // own hour back. Optional: a harness without it plays the jaunt in the hour it has.
-  hour = null }) {
+  // T-3377: a jaunt's `ambience` is the hour and season it opens in (a morning walk in
+  // spring, a night walk in the fall): its hour stands at every stop without one of its
+  // own, its season for the whole outing, and both are given back when it ends.
+  hour = null, season = null }) {
   const sessionKey = scene === '1835' ? SESSION_KEY : `${SESSION_KEY}.${scene}`;
   let state = emptyState(), serial = 0, request, detailRequest, destroyed = false, previousMode;
   let storage = suppliedStorage;
@@ -231,17 +234,35 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
     try { storage?.setItem(sessionKey, JSON.stringify({ content_version: state.jaunt.content_version,
       jaunt: state.jaunt.id, events: state.events })); } catch { /* memory-only */ }
   };
-  let hourSet = false;
+  // One queue for the light, so a season (which moves the sun's day) lands before the
+  // hour solved on it, and a give-back never overtakes the set it undoes.
+  let hourSet = false, hourHeld = '', seasonHeld = false, lightQueue = Promise.resolve();
+  const queueLight = fn => { lightQueue = lightQueue.then(fn).catch(() => { /* the light stays; the outing goes on */ }); };
   const restoreHour = () => {
     if (!hour || !hourSet) return;
-    hourSet = false;
-    Promise.resolve().then(() => hour.restore()).catch(() => { /* the hour stays; the outing goes on */ });
+    hourSet = false; hourHeld = '';
+    queueLight(() => hour.restore());
+  };
+  const restoreLight = () => {
+    restoreHour();
+    if (!season || !seasonHeld) return;
+    seasonHeld = false;
+    queueLight(() => season.restore());
   };
   const applyHour = stop => {
+    const ambience = state.jaunt?.ambience;
+    if (season && ambience?.season && !seasonHeld) {
+      seasonHeld = true;
+      queueLight(() => season.set(ambience.season, { transient: true }));
+    }
     if (!hour) return;
-    if (!stop?.hour) { restoreHour(); return; }
-    hourSet = true;
-    Promise.resolve().then(() => hour.set(stop.hour, { date: stop.date, transient: true })).catch(() => { /* daylight it is */ });
+    const value = stop?.hour || ambience?.hour;
+    if (!value) { restoreHour(); return; }
+    const date = stop?.hour ? stop.date : undefined, key = `${value}@${date || ''}`;
+    // A relight is a sky bake: the jaunt's one hour, held stop after stop, is set once.
+    if (hourSet && hourHeld === key) return;
+    hourSet = true; hourHeld = key;
+    queueLight(() => hour.set(value, { date, transient: true }));
   };
   const restore = () => { if (previousMode !== undefined) travel.setMode(previousMode); previousMode = undefined; };
   const cancel = (reason = 'jaunt') => travel.stop(reason);
@@ -279,14 +300,14 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
     } else if (state.phase === 'paused') {
       cancel(); restore();
     } else if (['menu', 'outcome'].includes(state.phase)) {
-      cancel(); dismissDetail(); restore(); restoreHour(); showMenu({ state, returnId: state.jaunt?.id ?? old.jaunt?.id });
+      cancel(); dismissDetail(); restore(); restoreLight(); showMenu({ state, returnId: state.jaunt?.id ?? old.jaunt?.id });
     }
     persist();
     return true;
   }
   async function start(id, { mode } = {}) {
     const generation = ++serial; request?.abort(); request = new AbortController();
-    state = emptyState(); clearSaved(); cancel(); dismissDetail(); restore(); restoreHour(); render(state);
+    state = emptyState(); clearSaved(); cancel(); dismissDetail(); restore(); restoreLight(); render(state);
     try {
       const jaunt = await load(id, { signal: request.signal });
       if (destroyed || generation !== serial) return false;
@@ -323,7 +344,7 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
       render(state); return false;
     }
   }
-  const explore = () => { ++serial; request?.abort(); state = emptyState(); clearSaved(); cancel(); dismissDetail(); restore(); restoreHour(); render(state); };
+  const explore = () => { ++serial; request?.abort(); state = emptyState(); clearSaved(); cancel(); dismissDetail(); restore(); restoreLight(); render(state); };
   return { start, get state() { return state; }, next: () => dispatch({ type: 'NEXT' }), prev: () => dispatch({ type: 'PREV' }),
     choose: id => dispatch({ type: 'CHOOSE', id }), retry: () => dispatch({ type: 'RETRY' }),
     revise: () => dispatch({ type: 'REVISE' }), restore: restoreSession,

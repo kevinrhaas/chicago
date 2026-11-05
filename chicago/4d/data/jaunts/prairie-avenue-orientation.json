@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 7,
+  "content_version": 8,
   "category": "Orientation",
   "featured": true,
   "review_required": false,
@@ -14,9 +14,13 @@
     "fly",
     "instantly"
   ],
+  "ambience": {
+    "hour": "morning",
+    "season": "summer"
+  },
   "opening": {
-    "text": "WALK: THE GLESSNER HOUSE. Summer 1904, 1800 Prairie Avenue. Ten stops on foot, all the way round one house: the corner, the Eighteenth Street side, the alley, the front door, the carriage passage and the courtyard inside. The story is mostly the owner's own, from the account he wrote for his children in 1923. Exteriors only; who is home today is not claimed.",
-    "read_s": 19
+    "text": "JAUNT: MEET THE GLESSNER HOUSE. A summer morning, 1904, at 1800 Prairie Avenue. The morning sun off the lake is on the granite front. Behind it live John J. Glessner, a farm-machinery man from Ohio, his wife Frances, who has kept a journal since 1879, and the house that shocked the street.\n\nTen stops on foot, all the way round one house: the corner, the Eighteenth Street side, the alley, the front door, the carriage passage and the courtyard inside. The story is mostly the owner's own, from the account he wrote for his children in 1923. Exteriors only.\n\nStart at the corner, where the neighbours first saw it and did not like what they saw.",
+    "read_s": 32
   },
   "stops": [
     {
@@ -568,10 +572,19 @@
     },
     {
       "id": "outing",
-      "text": "The walk, its order and its viewpoints, its reading times, the narration's framing and the keepsake are modern interpretation; no visit on a day in 1904 is asserted.",
+      "text": "The walk, its order and its viewpoints, its summer morning, its reading times, the narration's framing and the keepsake are modern interpretation; no visit on a day in 1904 is asserted.",
       "confidence": "reconstructed",
       "sources": [],
       "liberty": "L-jaunt-prairie"
+    },
+    {
+      "id": "glessner-firm",
+      "text": "Glessner was a partner in Warder, Bushnell & Glessner, farm machinery, of Springfield, Ohio; in 1902 the firm merged with four others to form International Harvester, and he became its vice president.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_glessner_house"
+      ],
+      "locator": "The history section."
     }
   ],
   "liberties": [

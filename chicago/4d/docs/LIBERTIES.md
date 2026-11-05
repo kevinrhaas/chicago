@@ -31070,6 +31070,20 @@ says it.
 `data/jaunts/prairie-style-romanesque.json`, `data/jaunts/prairie-style-second-empire.json`,
 `data/jaunts/prairie-style-italianate.json`.
 **Recorded:** 2026-10-17 (T-2747).
+**Revised:** 2026-11-05 (T-3378, T-3379; the owner: "a nighttime spooky tour of prairie ave", "time of day
+settings included by default with the jaunt", "more story telling and character development"). The walks
+are now told as stories: openings that set the scene, people introduced on first mention, stops that lead
+into the next and leg lines about the houses passed, each fact cited. Each walk has its own light (a spring
+morning, a summer dusk, an autumn afternoon, a winter afternoon, a spring sunset), a viewing choice like
+Settings > Time of day and Season and never a claim about the day; the stories are still not set on a
+dated day in 1904. A seventh walk, `prairie-ghosts-at-night` ("Ghosts of Prairie Avenue", an autumn night),
+retells the street's ghost legends as legends: what modern ghost tours and the Glessner House Museum say is
+told of 1800, 1801, 1900 and 1919 Prairie, the Clarke House garden and the 1812 battle ground. The legends
+are cited to the tellers; that anything was ever seen is not asserted. The deaths behind them (Richardson
+1886, Edson Keith 1896, Pullman 1897, Kimball 1904, Field Jr. 1905, Field 1906) are cited as history. The
+stop on the battle ground is a scene anchor, `haunted_battle_ground`, a stand at Eighteenth Street chosen for
+the view, not a mapped place of the battle.
+**Applies also to:** `data/jaunts/prairie-notable-women.json`, `data/jaunts/prairie-ghosts-at-night.json`.
 
 ### L-jaunt-prairie-built-so-far — The built-so-far walk: detail levels, areas and order
 

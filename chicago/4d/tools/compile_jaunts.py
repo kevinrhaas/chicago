@@ -261,6 +261,7 @@ class Compiler:
                 require(path.stem == doc['id'], 'filename must match jaunt id')
                 ids.add(doc['id'])
                 row = {k: doc[k] for k in ('id', 'title', 'premise', 'category', 'content_version', 'default_mode', 'allowed_modes')}
+                if doc.get('ambience'): row['ambience'] = doc['ambience']  # T-3377: the light it is walked in
                 row.update(featured=doc.get('featured', False), stop_count=len(doc['stops']), primary_family=doc['keepsake']['family'], secondary_family=doc.get('secondary_family'),
                            timing={'opening_read_s': doc['opening']['read_s'], 'stops': [{'read_s': s['read_s'], 'action_s': s.get('action_s', 0), **leg_mode(doc, i)} for i, s in enumerate(doc['stops'])], 'endings_read_s': [e['read_s'] for e in doc['endings']]},
                            destinations=[s['destination'] for s in doc['stops']], availability='unavailable' if reasons else 'available', reason='; '.join(reasons) or None)

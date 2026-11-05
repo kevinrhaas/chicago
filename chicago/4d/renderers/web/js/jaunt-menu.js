@@ -4,6 +4,7 @@
 import { PACES } from './travel-settings.js';
 import { formatEstimate } from './travel-estimate.js';
 import { FAMILIES, familySlot, icon } from './menu-icons.js';
+import { TIME_NAMES } from './time-of-day.js';
 
 export const WINDOW_SIZE = 30;
 const SHORT = { 'News & Knowledge': 'News' };
@@ -20,6 +21,13 @@ export function jauntOrder(a, b) {
   const kind = (r) => { const i = FAMILIES.indexOf(r.primary_family); return i < 0 ? FAMILIES.length : i; };
   return kind(a) - kind(b) || (b.featured === true) - (a.featured === true)
     || sortTitle(a.title).localeCompare(sortTitle(b.title)) || String(a.id).localeCompare(String(b.id));
+}
+/** T-3377: the light an outing is walked in, as its card says it: "Dusk · Fall". */
+export function ambienceLabel(ambience) {
+  if (!ambience) return '';
+  const hour = ambience.hour ? (TIME_NAMES.find(n => n.id === ambience.hour)?.label ?? ambience.hour) : '';
+  const season = ambience.season ? ambience.season[0].toUpperCase() + ambience.season.slice(1) : '';
+  return [hour, season].filter(Boolean).join(' · ');
 }
 export function filterJaunts(rows, query = '', family = '') {
   const words = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
@@ -64,6 +72,8 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     const length = node('span', '', 'jaunt-length'); length.dataset.jauntLength = row.id;
     const meta = node('p', '', 'jaunt-tags');
     meta.append(node('span', SHORT[row.primary_family] || row.primary_family, 'jaunt-family'), node('span', `${row.stop_count} stops`), length);
+    const light = ambienceLabel(row.ambience);
+    if (light) { const tag = node('span', light, 'jaunt-light'); tag.title = 'The jaunt sets this time of day and season, and gives yours back at the end'; meta.append(tag); }
     // T-2631: the keepsake, once earned, on the outing's own card.
     if (kept(row)) meta.append(node('span', 'Keepsake earned', 'jaunt-kept'));
     body.append(head, node('p', row.premise, 'jaunt-premise'), meta);

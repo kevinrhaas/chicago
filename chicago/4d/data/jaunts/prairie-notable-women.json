@@ -1,22 +1,27 @@
 {
   "schema_version": 1,
-  "content_version": 1,
+  "content_version": 2,
   "category": "Residents",
   "featured": true,
   "review_required": false,
   "id": "prairie-notable-women",
   "scene": "1904",
   "title": "Women of Prairie Avenue",
-  "premise": "Walk south past six houses tied to women who changed Chicago and beyond: nursing, forensic science, a forty-year journal, suffrage, a famous fountain and the street's last great household.",
+  "premise": "A spring morning walk past six houses tied to women who changed Chicago: nursing, forensic science, a forty-year journal, suffrage, a famous fountain and the street's last great lady.",
   "default_mode": "walk",
   "allowed_modes": [
     "walk",
     "fly",
     "instantly"
   ],
+  "long_form": true,
+  "ambience": {
+    "hour": "morning",
+    "season": "spring"
+  },
   "opening": {
-    "text": "WALK: WOMEN OF PRAIRIE AVENUE. Six houses, 1608 to 2115 Prairie, north to south on foot. Each stop names the woman a source ties to the house and why she still matters. Exteriors only; who was home on 1 July 1904 is not claimed.",
-    "read_s": 16
+    "text": "JAUNT: WOMEN OF PRAIRIE AVENUE. A spring morning, 1904. The men of this street have gone downtown to their stores, banks and packing houses, and their names are on everything. Their wives, sisters and daughters are not allowed to vote for president, and won't be for another nine years.\n\nThey are busy anyway. Six houses on foot, 1608 to 2115 Prairie, north to south, and at each a woman the sources tie to the house: a nurse's champion, a future detective, a diarist with a silversmith's bench in her basement, a suffragist, a fountain-builder and the street's last great lady.\n\nBegin at the north end, with two sisters who walked into a club that had never let anyone like them in.",
+    "read_s": 34
   },
   "stops": [
     {
@@ -25,8 +30,8 @@
         "kind": "structure",
         "id": "house_1608_prairie"
       },
-      "text": "1608 Prairie, the Frank household in 1904. Henrietta Greenebaum Frank worked for nursing education at the Illinois Training School for Nurses. In 1876 she and her sister Hannah Solomon became the first Jewish members of the Chicago Woman's Club; Hannah went on to found the National Council of Jewish Women.",
-      "read_s": 20,
+      "text": "1608 Prairie, the Frank household. Henrietta Greenebaum Frank worked year after year for better nursing education at the Illinois Training School for Nurses. In 1876 she and her sister Hannah Greenebaum Solomon became the first Jewish members of the prestigious Chicago Woman's Club. Hannah went on to found the National Council of Jewish Women and was its first president. Two sisters, one door opened. A block south, a young mother is living in a house her parents built for her.",
+      "read_s": 22,
       "evidence": [
         "frank-listing",
         "frank-nursing",
@@ -41,8 +46,8 @@
         "kind": "structure",
         "id": "glessner_lee_house_1700_prairie"
       },
-      "text": "1700 Prairie, built by the Glessners for their daughter. Frances Glessner Lee later built eighteen tiny crime-scene dioramas, the Nutshell Studies of Unexplained Death, still used to train investigators. She helped found Harvard's Department of Legal Medicine and in 1943 became the first woman police captain in the United States.",
-      "read_s": 20,
+      "text": "1700 Prairie, built by John and Frances Glessner for their daughter, Frances, who married Blewett Lee in 1898. Right now she is a society wife. Wait. Decades from now she will build eighteen tiny, perfect rooms, each one a death scene in miniature for students to solve: the Nutshell Studies of Unexplained Death, still used to train investigators. She will help found Harvard's Department of Legal Medicine, and in 1943 she will become the first woman police captain in the United States. Her mother lives one block south, and is probably writing about her right now.",
+      "read_s": 27,
       "evidence": [
         "lee-listing",
         "lee-house",
@@ -58,8 +63,8 @@
         "kind": "structure",
         "id": "glessner_house"
       },
-      "text": "1800 Prairie, Glessner House. Frances Macbeth Glessner kept a journal from 1879 for forty years; the house museum writes the family's story from it. In 1904, the year of this scene, she set up a silversmith's workbench in the basement. She also kept bees and ran a Monday Morning Reading Class here from 1893.",
-      "read_s": 20,
+      "text": "1800 Prairie, Glessner House. Frances Macbeth Glessner began a journal in 1879 and kept it for forty years, and the house museum still writes the family's story from it. She kept bees. Since 1893 her Monday Morning Reading Class has met in the library, women reading together every week through the winter and spring. And this year, 1904, she has set up a silversmith's workbench in the basement and begun making silver with her own hands. Across Eighteenth Street and down the west walk, a neighbour is fighting for something bigger.",
+      "read_s": 25,
       "evidence": [
         "glessner-frances",
         "glessner-journal",
@@ -74,8 +79,8 @@
         "kind": "structure",
         "id": "jones_house_1834_prairie"
       },
-      "text": "1834 Prairie, the Fernando Jones house. Jane Grahame Jones was a longtime and outspoken activist for woman suffrage; her husband's scrapbook keeps clippings on the Illinois Woman Suffrage Association from 1875. In 1913 Illinois became the first state east of the Mississippi to let women vote for president.",
-      "read_s": 18,
+      "text": "1834 Prairie, the Fernando Jones house. Jane Grahame Jones was, in the words of the city's encyclopedia, a longtime and outspoken activist for woman suffrage; her husband's scrapbook keeps clippings on the Illinois Woman Suffrage Association from as early as 1875. She has been at it for nearly thirty years and still cannot vote. In 1913 Illinois will become the first state east of the Mississippi to let women vote for president. Keep walking south, past Twentieth Street, to a family that will give the city a fountain.",
+      "read_s": 24,
       "evidence": [
         "jones-listing",
         "jones-suffrage",
@@ -91,8 +96,8 @@
         "kind": "structure",
         "id": "buckingham_house_2036_prairie"
       },
-      "text": "2036 Prairie, the Buckingham house, where the 1904 Blue Book lists Clarence Buckingham. In 1927 his sister Kate Sturges Buckingham gave Chicago the Buckingham Fountain in his memory: twice the size of the Versailles fountain it copies, with a centre jet that throws water 150 feet high.",
-      "read_s": 18,
+      "text": "2036 Prairie, the Buckingham house, where the 1904 Blue Book lists Clarence Buckingham, philanthropist and businessman. His sister was Kate Sturges Buckingham, philanthropist and art patron. In 1927, after his death, she will give Chicago the Buckingham Fountain in his memory: twice the size of the Versailles fountain it copies, with a centre jet that throws water 150 feet into the air. One more house, and the woman who stayed after everyone else had gone.",
+      "read_s": 21,
       "evidence": [
         "buckingham-listing",
         "buckingham-fountain",
@@ -107,22 +112,70 @@
         "kind": "structure",
         "id": "armour_house_2115_prairie"
       },
-      "text": "2115 Prairie, the Kelley-Armour house. The 1904 Blue Book lists Mrs. Philip D. Armour here. As the great families died or left for suburbs like Lake Forest she stayed, and the district marker says Armour's widow was among the last residents of the street, dying here in 1927.",
-      "read_s": 18,
+      "text": "2115 Prairie, the Kelley-Armour house. The 1904 Blue Book lists Mrs. Philip D. Armour here; the census of 1900 names her Belle, born in Ohio. Her husband, the meatpacker, died in 1901. As the great families died or moved away to suburbs like Lake Forest, she stayed on, and on. The district marker says Armour's widow was among the last residents of the street, dying here in 1927, long after most of her neighbours' houses had been sold or torn down.",
+      "read_s": 22,
       "evidence": [
         "armour-listing",
         "armour-last",
         "armour-leaving",
-        "tour"
+        "tour",
+        "armour-belle"
       ],
       "next": "finish"
+    }
+  ],
+  "legs": [
+    {
+      "story": "South past the 1600s. In 1904 no woman on this street can vote for president; Illinois changes that in 1913.",
+      "evidence": [
+        "illinois-1913"
+      ],
+      "story_evidence": [
+        "illinois-1913"
+      ]
+    },
+    {
+      "story": "A block south, past the Glessner twins at 1700 and 1706, to the granite corner at Eighteenth Street.",
+      "evidence": [
+        "lee-house"
+      ],
+      "story_evidence": [
+        "lee-house"
+      ]
+    },
+    {
+      "story": "Across Eighteenth Street and down the west walk.",
+      "evidence": [
+        "jones-listing"
+      ],
+      "story_evidence": [
+        "jones-listing"
+      ]
+    },
+    {
+      "story": "South past Twentieth Street.",
+      "evidence": [
+        "buckingham-listing"
+      ],
+      "story_evidence": [
+        "buckingham-listing"
+      ]
+    },
+    {
+      "story": "To the end of the street's great row.",
+      "evidence": [
+        "armour-listing"
+      ],
+      "story_evidence": [
+        "armour-listing"
+      ]
     }
   ],
   "endings": [
     {
       "id": "finish",
-      "text": "End of the walk at 2115 Prairie. These are six of the women the sources tie to the avenue; many more lived in its houses unrecorded.",
-      "read_s": 10,
+      "text": "End of the walk at 2115 Prairie. Six women, six houses. A nurse's champion, a detective, a diarist, a suffragist, a fountain-builder and a widow who would not leave.\n\nThey are only the ones the sources name. Behind every one of these fronts lived maids, cooks, nurses and laundresses whose names are only in the census. Their stories are waiting too.",
+      "read_s": 17,
       "completion_eligible": true
     }
   ],
@@ -318,10 +371,19 @@
     },
     {
       "id": "tour",
-      "text": "The route, its order, its reading times, its keepsake and its framing are modern interpretation; no historical visit, conversation or occupant on 1 July 1904 is asserted.",
+      "text": "The route, its order, its spring morning, its reading times, its keepsake and its framing are modern interpretation; no historical visit, conversation or occupant on a day in 1904 is asserted.",
       "confidence": "reconstructed",
       "sources": [],
       "liberty": "L-jaunt-prairie-walks"
+    },
+    {
+      "id": "armour-belle",
+      "text": "The 1900 census lists Belle O. Armour at 2115 Prairie as the wife of the household, born in Ohio.",
+      "confidence": "attested",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "locator": "ED 40, sheet 14B, line 69, leaf n821, as data/residents_1904/households/hh_armour_mrs_philip_d.json reads it."
     }
   ],
   "liberties": [

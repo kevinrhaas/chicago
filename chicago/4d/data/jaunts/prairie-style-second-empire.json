@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 1,
+  "content_version": 2,
   "category": "Architectural style",
   "featured": false,
   "review_required": false,
@@ -14,9 +14,14 @@
     "fly",
     "instantly"
   ],
+  "long_form": true,
+  "ambience": {
+    "hour": "sunset",
+    "season": "spring"
+  },
   "opening": {
-    "text": "STYLE WALK: SECOND EMPIRE. Look for the mansard: a steep roof slope that holds a whole storey, with dormers set in it. The Glessner House Museum calls it the street's most popular style. Six houses, north to south.",
-    "read_s": 16
+    "text": "JAUNT: SECOND EMPIRE STYLE. A spring sunset, 1904. The mansard roof came from Paris: a steep slope that hides a whole extra storey, crowned with iron cresting and pierced with dormers. By the 1880s it dominated the street, and the Glessner House Museum calls it Prairie Avenue's most popular style.\n\nSix houses on foot, 1620 to 2115 Prairie, north to south: a pioneer's roof that swells into a crown, Pullman's palace, a house that bought a mansard to keep up with the neighbours, the street's last survivor, the richest man in Chicago, and the meatpacker's widow. Watch the sunset catch the slate.\n\nStart at 1620, with a roof drawn for a magazine in 1874.",
+    "read_s": 32
   },
   "stops": [
     {
@@ -25,8 +30,8 @@
         "kind": "structure",
         "id": "law_house_1620_prairie"
       },
-      "text": "1620 Prairie. Robert Law's house, engraved in 1874: two storeys over a raised basement under a slated mansard with round-headed dormers, and its north part rising into a taller curved crown. Compare the engraving's roof with the one in front of you.",
-      "read_s": 18,
+      "text": "1620 Prairie, Robert Law's house, engraved in 1874 for a series on the homes of Chicago: two storeys over a raised basement under a slated mansard with round-headed dormers, its north part rising into a taller curved crown. Compare the drawing's roof with the one in front of you, then walk a block south to the grandest mansard on the street.",
+      "read_s": 17,
       "evidence": [
         "law-engraving",
         "second-empire-museum",
@@ -40,12 +45,13 @@
         "kind": "structure",
         "id": "pullman_house_1729_prairie"
       },
-      "text": "1729 Prairie. Pullman's house of 1870 to 1876, read by the district register as a brownstone main block under a mansard with dormers and cresting, entered by a portico on Prairie Avenue.",
-      "read_s": 13,
+      "text": "1729 Prairie, George Pullman's house of 1870 to 1876, read by the district register as a brownstone block under a mansard with dormers and iron cresting, entered by a portico on Prairie Avenue. Inside: a theatre of about two hundred seats, a pipe organ and a bowling alley, and later a palm room and a large conservatory by Solon S. Beman. Pullman died in 1897; his widow still keeps it. Across Eighteenth Street, a smaller house that refused to be left behind.",
+      "read_s": 23,
       "evidence": [
         "pullman-marker",
         "pullman-draft",
-        "tour"
+        "tour",
+        "pullman-widow"
       ],
       "next": "jones"
     },
@@ -55,8 +61,8 @@
         "kind": "structure",
         "id": "jones_house_1834_prairie"
       },
-      "text": "1834 Prairie. Fernando Jones's house was built in 1866 as an Italianate house, and in 1886 it received a mansard addition to bring it into fashion with many of its neighbours. Here the style arrived late, as a new top storey.",
-      "read_s": 17,
+      "text": "1834 Prairie, Fernando Jones's house, built in 1866 as an Italianate house with a low roof. Twenty years later his neighbours all had mansards. In 1886 the house 'received a mansard addition to bring it into fashion with many of its neighbors': a whole new top storey, bought to keep up. That is how a style takes over a street. Two doors south stands the one Second Empire house that will outlive them all.",
+      "read_s": 21,
       "evidence": [
         "jones-marker",
         "tour"
@@ -69,12 +75,13 @@
         "kind": "structure",
         "id": "elbridge_keith_house_1900_prairie"
       },
-      "text": "1900 Prairie. Elbridge G. Keith's house of 1870, by John W. Roberts. The district marker calls it the last surviving example of the Second Empire style, which dominated Prairie Avenue by the 1880s. Look for the slate mansard over the corner bay.",
-      "read_s": 18,
+      "text": "1900 Prairie, Elbridge G. Keith's house of 1870, by John W. Roberts. The district marker calls it 'The last surviving example of the popular Second Empire style, which dominated the street by the 1880s.' Keith was a bank president, and his house will still be standing long after the palaces around it are gone. Look for the slate mansard over the corner bay, then cross the avenue to the biggest fortune of all.",
+      "read_s": 20,
       "evidence": [
         "ekeith-marker",
         "ekeith-draft",
-        "tour"
+        "tour",
+        "ekeith-banker"
       ],
       "next": "field"
     },
@@ -84,13 +91,14 @@
         "kind": "structure",
         "id": "marshall_field_house_1905_prairie"
       },
-      "text": "1905 Prairie. Marshall Field's house, by Richard Morris Hunt, read by the district register as a broad brick and stone mansion under a mansard, with an angular corner bay, dormers and a central portico.",
-      "read_s": 14,
+      "text": "1905 Prairie, Marshall Field's house, by Richard Morris Hunt, read by the district register as a broad brick and stone mansion under a mansard, with an angular corner bay, dormers and a central portico. Field, 'the wealthiest and most powerful businessman in Chicago', lived here. Picture his carriage turning in at sunset. One more mansard, at the far end of the row.",
+      "read_s": 17,
       "evidence": [
         "field-caption",
         "field-museum",
         "field-draft",
-        "tour"
+        "tour",
+        "field-rich"
       ],
       "next": "armour"
     },
@@ -100,21 +108,70 @@
         "kind": "structure",
         "id": "armour_house_2115_prairie"
       },
-      "text": "2115 Prairie. The district marker calls the Kelley-Armour house of 1871 a stately Second Empire residence. The register reads a patterned slate mansard with cresting over a central arched doorway under a pediment.",
-      "read_s": 14,
+      "text": "2115 Prairie, the Kelley-Armour house of 1871, which the district marker calls a stately Second Empire residence: a patterned slate mansard with cresting over a central arched doorway under a pediment. Built for the lumberman David Kelley, it became the home of the meatpacker Philip D. Armour, who boasted of using 'everything but the squeal'. His widow still lives here, and will be among the street's last residents.",
+      "read_s": 19,
       "evidence": [
         "armour-marker",
         "armour-draft",
-        "tour"
+        "tour",
+        "armour-squeal",
+        "armour-widow"
       ],
       "next": "finish"
+    }
+  ],
+  "legs": [
+    {
+      "story": "South through the 1700 block to Eighteenth Street.",
+      "evidence": [
+        "pullman-marker"
+      ],
+      "story_evidence": [
+        "pullman-marker"
+      ]
+    },
+    {
+      "story": "Across Eighteenth Street and down the west walk.",
+      "evidence": [
+        "jones-marker"
+      ],
+      "story_evidence": [
+        "jones-marker"
+      ]
+    },
+    {
+      "story": "Two doors south.",
+      "evidence": [
+        "ekeith-marker"
+      ],
+      "story_evidence": [
+        "ekeith-marker"
+      ]
+    },
+    {
+      "story": "Across Prairie Avenue.",
+      "evidence": [
+        "field-caption"
+      ],
+      "story_evidence": [
+        "field-caption"
+      ]
+    },
+    {
+      "story": "South past Twentieth Street.",
+      "evidence": [
+        "armour-marker"
+      ],
+      "story_evidence": [
+        "armour-marker"
+      ]
     }
   ],
   "endings": [
     {
       "id": "finish",
-      "text": "End of the Second Empire walk. Count the mansards you passed: by the 1880s they lined the street.",
-      "read_s": 10,
+      "text": "End of the Second Empire walk. Count the mansards you passed: by the 1880s they lined the street, and even old houses bought them.\n\nThen taste changed, the families moved north, and most of these roofs came down. Only Elbridge Keith's survives. Go back and look at it again before the light goes.",
+      "read_s": 15,
       "completion_eligible": true
     }
   ],
@@ -227,10 +284,56 @@
     },
     {
       "id": "tour",
-      "text": "The route, its order, its reading times, its keepsake and its framing are modern interpretation; no historical visit, conversation or occupant on 1 July 1904 is asserted.",
+      "text": "The route, its order, its spring sunset, its reading times, its keepsake and its framing are modern interpretation; no historical visit, conversation or occupant on a day in 1904 is asserted.",
       "confidence": "reconstructed",
       "sources": [],
       "liberty": "L-jaunt-prairie-walks"
+    },
+    {
+      "id": "pullman-widow",
+      "text": "The 1904 Blue Book lists Mrs. George M. Pullman at 1729 Prairie.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "locator": "The street-and-number list, PRAIRIE AV., printed pp. 186-187 (PDF pp. 188-189), as data/residents_1904/households/hh_pullman_mrs_george_m.json reads it."
+    },
+    {
+      "id": "field-rich",
+      "text": "Marshall Field: 'Give the lady what she wants'; 'the wealthiest and most powerful businessman in Chicago', his fortune valued at $125 million in 1905. His son Marshall Field Jr. was shot on 22 November 1905; Field himself died of pneumonia on 16 January 1906, caught after a New Year's Day golf game with, among others, Robert Todd Lincoln.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_marshall_field"
+      ],
+      "locator": "The biography's paragraphs on the store, his wealth, his son and his death."
+    },
+    {
+      "id": "armour-squeal",
+      "text": "Armour 'famously declared that he made use of 'everything but the squeal''.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_philip_danforth_armour"
+      ],
+      "locator": "The biography."
+    },
+    {
+      "id": "ekeith-banker",
+      "text": "The 1900 census lists Elbridge G. Keith at 1900 Prairie as head of the household, a bank president.",
+      "confidence": "attested",
+      "sources": [
+        "census_1900_chicago_t623_roll245"
+      ],
+      "locator": "ED 40, sheet 5A, line 2, leaf n802, as data/residents_1904/households/hh_keith_elbridge_g.json reads it."
+    },
+    {
+      "id": "armour-widow",
+      "text": "The 1904 Blue Book prints Mrs. Philip D. Armour at 2115; the district marker says Armour's widow was among the last residents of the street, dying there in 1927.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "hmdb_prairie_lost_houses_2000_2100"
+      ],
+      "locator": "The street-and-number list, PRAIRIE AV.; the marker's 2115 S. Prairie Avenue entry."
     }
   ],
   "liberties": [

@@ -1,0 +1,23 @@
+{
+  "id": "wikipedia_richard_morris_hunt",
+  "type": "website",
+  "citation": "Wikipedia, 'Richard Morris Hunt'. Read 5 November 2026.",
+  "author": "Wikipedia contributors",
+  "date": "accessed 2026-11-05",
+  "describes_date": "1846-1902",
+  "url": "https://en.wikipedia.org/wiki/Richard_Morris_Hunt",
+  "locator": "The biography's list of works and his training.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "Textual factual citation only (CC BY-SA text, nothing copied beyond short quoted fragments).",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-05 (T-3378/T-3379) through a fetch that returned the page's sentences in short quoted fragments and paraphrase; this record is cited only for what those fragments say.",
+  "note": "Fragments read: 'Hunt was the first American to be admitted to the school of architecture at the École des Beaux-Arts'; his works include 'the pedestal of the Statue of Liberty', Biltmore, 'America's largest private house', and the Metropolitan Museum's 'the 1902 entrance façade'; 'Hunt's design for the fair's Administration Building won a gold medal'.",
+  "what_it_supplies": [
+    "Hunt's training and famous works"
+  ],
+  "what_it_does_not_supply": [
+    "the Field house"
+  ]
+}

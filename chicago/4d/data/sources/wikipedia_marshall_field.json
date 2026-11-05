@@ -1,0 +1,23 @@
+{
+  "id": "wikipedia_marshall_field",
+  "type": "website",
+  "citation": "Wikipedia, 'Marshall Field'. Read 5 November 2026.",
+  "author": "Wikipedia contributors",
+  "date": "accessed 2026-11-05",
+  "describes_date": "1834-1906",
+  "url": "https://en.wikipedia.org/wiki/Marshall_Field",
+  "locator": "The biography: the store, his fortune, his son's death, his own death.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "Textual factual citation only (CC BY-SA text, nothing copied beyond short quoted fragments).",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-05 (T-3378/T-3379) through a fetch that returned the page's sentences in short quoted fragments and paraphrase; this record is cited only for what those fragments say.",
+  "note": "Fragments read: 'Give the lady what she wants'; 'the wealthiest and most powerful businessman in Chicago', his fortune valued at $125 million in 1905; his son Marshall Field Jr. shot on 22 November 1905, the cause still uncertain; Field himself died of pneumonia in New York on 16 January 1906, caught after a New Year's Day golf game with, among others, Robert Todd Lincoln; buried at Graceland.",
+  "what_it_supplies": [
+    "Field's slogan, fortune and death, and his son's"
+  ],
+  "what_it_does_not_supply": [
+    "the house's architecture"
+  ]
+}
