@@ -1,0 +1,8 @@
+{
+  "title": "The Navigator's Map is sharp close up",
+  "kind": "fix",
+  "items": [
+    "Close up, the Map now draws every building outline and street line at the zoom you are looking at, so houses have clean edges instead of soft, smeared blobs.",
+    "The 1904 whole field is drawn the same way. The small round map by the compass is unchanged."
+  ]
+}
