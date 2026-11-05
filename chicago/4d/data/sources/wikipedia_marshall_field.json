@@ -1,0 +1,23 @@
+{
+  "id": "wikipedia_marshall_field",
+  "type": "website",
+  "citation": "Wikipedia, 'Marshall Field'. Read 5 November 2026.",
+  "author": "Wikipedia contributors",
+  "url": "https://en.wikipedia.org/wiki/Marshall_Field",
+  "locator": "His children with Nannie Douglas Scott: 'two sons and a daughter, but one son, Louis, died in 1866 as an infant'; Marshall Field Jr. (1868-1905), who married Albertine Huck and whose children included Henry Field, Marshall Field III and Gwendolyn Mary Field; Nannie's death in 1896.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "rights_note": "Textual factual citation only (CC BY-SA text, nothing copied).",
+  "verified": true,
+  "access_notes": "Read 2026-11-05 (T-3382) through a fetch that returned the article in short quoted segments; no archived snapshot verified.",
+  "note": "Encyclopedia biography. It names Marshall Field's children and grandchildren; it does not give the Prairie Avenue addresses (the Blue Book does) or Gwendolyn Field's birth date.",
+  "what_it_supplies": [
+    "Marshall Field's children",
+    "Gwendolyn Mary Field as a child of Marshall Field Jr."
+  ],
+  "what_it_does_not_supply": [
+    "the house numbers",
+    "Gwendolyn Field's birth date"
+  ]
+}

@@ -182,6 +182,8 @@ def card_surnames() -> dict[str, set[str]]:
         for person in d["persons"]:
             if person.get("census_1900") and person.get("grade") != "attested":
                 continue                         # 1900 staff do not name the household
+            if person.get("lived_here"):
+                continue                         # a child carded for other years (T-3382)
             out[sid].add(norm(person["name"].replace(" jr.", "").split()[-1]))
     return out
 
@@ -210,6 +212,8 @@ def card_full_names() -> dict[str, set[str]]:
         for person in d["persons"]:
             if person["name"].startswith("Mrs. "):
                 continue        # 'Mrs. George M. Pullman' is his widow, not him
+            if person.get("lived_here"):
+                continue        # 'George M. Pullman jr.' is his son, not him (T-3382)
             out[sid].add(first_last(person["name"]))
     return out
 

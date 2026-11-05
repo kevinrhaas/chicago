@@ -272,6 +272,8 @@ button.insp-hot-row:focus-visible { outline: 2px solid var(--accent, currentColo
    Back is a full-width 44 px row naming the household it returns to; the census line reads
    in the mono face, as the enumerator's hand is quoted; every colour is a skin token. */
 .insp-people-home[hidden] { display: none; }
+/* T-3382: the household's children who lived here in other years, under its 1904 list. */
+.insp-people-home .insp-people-other { margin-top: 16px; }
 .insp-person-card { display: flex; flex-direction: column; gap: 12px; color: var(--ink); overflow-wrap: anywhere; }
 .insp-person-back { display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; min-height: 44px;
   margin-left: -8px; padding: 0 12px 0 6px; border: 0; border-radius: var(--r-control, 4px); background: transparent;

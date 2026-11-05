@@ -1,0 +1,21 @@
+{
+  "id": "wikipedia_ethel_beatty",
+  "type": "website",
+  "citation": "Wikipedia, 'Ethel Beatty, Countess Beatty'. Read 5 November 2026.",
+  "author": "Wikipedia contributors",
+  "url": "https://en.wikipedia.org/wiki/Ethel_Beatty",
+  "locator": "Born in Cook County, Illinois, in 1873 to Marshall Field and his first wife Nannie Douglas Scott; married Arthur Magie Tree on 1 January 1891 at 'the home of her parents, 1905 Prairie Avenue in Chicago'.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "rights_note": "Textual factual citation only (CC BY-SA text, nothing copied).",
+  "verified": true,
+  "access_notes": "Read 2026-11-05 (T-3382) through a fetch that returned the article in short quoted segments; no archived snapshot verified.",
+  "note": "Encyclopedia biography of Marshall Field's daughter. It dates her wedding in her parents' house, which is the last date the sources read put her there.",
+  "what_it_supplies": [
+    "Ethel Field's birth year and her wedding at 1905 Prairie Avenue on 1 January 1891"
+  ],
+  "what_it_does_not_supply": [
+    "when the family moved into the house"
+  ]
+}

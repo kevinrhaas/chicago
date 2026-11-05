@@ -29,10 +29,11 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The four live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: Earl Keith (a grown son the 1904 Blue Book does not list at the house); Bessie Keith (the one daughter at home in 1900, so very likely the Blue Book's \"Miss Keith\"; named in that line's note). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The four live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: Earl Keith (a grown son the 1904 Blue Book does not list at the house); Bessie Keith (the one daughter at home in 1900, so very likely the Blue Book's \"Miss Keith\"; named in that line's note). The 1910 census (T624 roll 241, ED 166 and 167) was read for this card's children: the children it lists, and those the Blue Book lists at the number from 1890 to 1911, are on the card with the years each lived here, whether or not they were at home in 1904. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
-      "census_1900_chicago_t623_roll245"
+      "census_1900_chicago_t623_roll245",
+      "census_1910_chicago_t624_roll241"
     ]
   },
   "persons": [
@@ -126,6 +127,41 @@
         "as_enumerated": "Keith, Harold",
         "relation_as_enumerated": "Son"
       }
+    },
+    {
+      "id": "pa1904_keith_elbridge_b",
+      "name": "Elbridge B. Keith",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "chicago_blue_book_1892",
+        "chicago_blue_book_1893",
+        "chicago_blue_book_1894",
+        "chicago_blue_book_1895"
+      ],
+      "printed_as": "1900 Elbridge B. Keith",
+      "lived_here": {
+        "years": "1892-1895",
+        "on_scene_date": "no"
+      },
+      "note": "Listed at 1900 under Mr. and Mrs. Elbridge G. Keith from 1892 to 1895. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship. The 1910 census has Mrs. Keith the mother of six children, four of them living (ED 166, sheet 1A, line 11, leaf n1429)."
+    },
+    {
+      "id": "pa1904_keith_carl",
+      "name": "Carl Keith",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "chicago_blue_book_1897",
+        "chicago_blue_book_1898",
+        "chicago_blue_book_1901"
+      ],
+      "printed_as": "1900 Carl Keith",
+      "lived_here": {
+        "years": "1897-1901",
+        "on_scene_date": "no"
+      },
+      "note": "Listed at 1900 under Mr. and Mrs. Elbridge G. Keith in 1897, 1898 and 1901. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship."
     },
     {
       "id": "pa1904_keith_elbridge_g_c1900_christine_kaecher",
