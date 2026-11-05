@@ -21,6 +21,24 @@
         "half_width_m": 0.35,
         "half_length_m": 0.595
       }
+    },
+    "current26_walk_v2": {
+      "file": "transport/driven/horse-current26-inplace-full.glb",
+      "sha256": "ad9dc060f8630d0de04fef97d716e8c82be3ac8bf070684e78107720c5221ec6",
+      "stride_m": 1.0,
+      "walk_clip": "reconstructed_current26_walk_v2",
+      "walk_clip_file": "transport/driven/horse-walk-v2.json",
+      "walk_clip_sha256": "b122c987c5dd7fdd33b77516e532f3fea54919cd4a28ec0028a5cdb708e6f50f",
+      "walk_clip_producer": "tools/horse_walk_v2.mjs",
+      "material_variant": "organic_dielectric_v1",
+      "appearance_grade": "reconstructed",
+      "support_domain": {
+        "certificate_file": "transport/driven/current26-walk-v2-hoof-domain.json",
+        "certificate_sha256": "7162108dddcde6af8421d137ff4bfea3aa221154758efa08af4a18bc78c968e1",
+        "model_sha256": "ad9dc060f8630d0de04fef97d716e8c82be3ac8bf070684e78107720c5221ec6",
+        "half_width_m": 0.35,
+        "half_length_m": 0.89
+      }
     }
   },
   "source_inputs": [
@@ -35,7 +53,7 @@
   ],
   "rows": [
     {
-      "speed_m_s": 0.084375,
+      "speed_m_s": 1.3,
       "steering_limit_deg": 8,
       "track_m": 1.21,
       "wheelbase_m": 2.35,
@@ -110,7 +128,7 @@
         },
         "review_required": false
       },
-      "horse_model": "current26_inplace_full",
+      "horse_model": "current26_walk_v2",
       "hitch": {
         "harness_file": "transport/driven-hitch/current26-collar-girth-v2.glb",
         "units_file": "transport/driven-hitch/connection-units-v1.glb",
@@ -128,7 +146,7 @@
       "liberty": "L-driven-town-circuits-2804"
     },
     {
-      "speed_m_s": 0.084375,
+      "speed_m_s": 1.3,
       "steering_limit_deg": 8,
       "track_m": 1.34,
       "wheelbase_m": 2.3,
@@ -228,7 +246,7 @@
         },
         "review_required": false
       },
-      "horse_model": "current26_inplace_full",
+      "horse_model": "current26_walk_v2",
       "hitch": {
         "harness_file": "transport/driven-hitch/current26-collar-girth-v2.glb",
         "units_file": "transport/driven-hitch/connection-units-v1.glb",

@@ -67076,13 +67076,18 @@
           "text": "The owner, seeing Hans on dev: *\"he is frozen, arms stiff, not looking around or shifting naturally\"*. A procedural layer (the walkthrough's driver life code) now runs over the seated clip each visual frame for both drivers: breathing about 13 times a minute; pelvis and spine moved by the travelled road (a sum of sines over metres, not a surveyed surface) and the team's stride, with the head held level against them; a lean into a turn from v²k/g; a new settling on the seat every 5-13 s; looks that eyes lead and head, neck and (past 35 degrees) torso follow, mostly down the road, at the houses and walks either side, at the horses, into a turn, and at a visitor standing within about 7 m (12 m when stopped); elbows in, forearms lowered to the lap, wrists turned thumb-up with the fingers closed, the hands giving and taking twice a stride and now and then shortening one rein; blinks where a LOD carries the eyelid morphs. Every amplitude, interval and choice of where he looks is a reconstructed authoring choice, not an observed habit or a documented coachman's practice; the sequence is seeded from the person id, so it is the same on every load. The reins still run to the actual palm surfaces, which now move with the hands. The clips, exports, skin and geometry are unchanged. the driver life test holds it bounded and deterministic on the real LOD0 and LOD3 exports; continuous rein grasp, garment fit and photographic acceptance remain open."
         },
         {
+          "label": "Walking-team supplement, 2026-11-05",
+          "text": "The owner: *\"The carriage is moving very slowly, might be more realistic if it was at a slow carriage speed\"*. The careful in-place walk covers 0.135 m a cycle, so both teams were held to 0.084 m/s to keep the hooves from sliding. the horse walk v2 tool now authors a lateral-sequence walk (left hind, left fore, right hind, right fore, a quarter cycle apart) on the same current26 horse by two-link leg IK. Its parameters are authoring choices for this small model, not a measured gait of any horse: a 1.0 m cycle (the longest these legs reach without the hoof leaving the ground in stance), each foot loaded 58% of the cycle, the trunk carried 7 cm lower than the square stand with a 0.8 cm bob, swing lifts of 11 cm fore and 8.5 cm hind, and a small nod of neck and head. Stance hooves move back at exactly the travel speed, and the generator refuses slide or lift over 1 mm. Both teams now travel at 1.3 m/s, about 3 mph, a slow carriage walk. The hoof-support domain for the longer stride is measured from the skinned hoof vertices through the clip (0.35 x 0.89 m), and its ground plane may depart from flat by 2 mm instead of 1 mm, because the street crown under a 1.8 m-long domain reaches about 1.4 mm. No terrain contact, rendered route or photograph of a 1904 team is claimed for the gait."
+        },
+        {
           "label": "Recorded",
           "text": "2026-11-02."
         }
       ],
       "work_refs": [
         "T-2804",
-        "T-1790"
+        "T-1790",
+        "T-2803"
       ]
     },
     {

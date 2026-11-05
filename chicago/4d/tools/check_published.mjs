@@ -328,7 +328,8 @@ if (existsSync(transportPolicyFile)) {
 // The driven layer fetches these at runtime. Checking only existing mirror
 // files would let an entirely omitted data family pass (and the app fetch 404).
 for (const rel of ['data/transport/driven/loops.json', 'data/transport/driven/hitch-bindings-v2.json',
-  'data/transport/driven/current26-hoof-support-domain.json']) {
+  'data/transport/driven/current26-hoof-support-domain.json',
+  'data/transport/driven/current26-walk-v2-hoof-domain.json']) {
   if (existsSync(path.join(REPO, rel)) && !existsSync(path.join(SITE, rel))) {
     problems.push(`${rel} is missing from the published mirror; publish.sh must copy the driven runtime data.`);
   }
