@@ -77,6 +77,10 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
                             (T-3301, `k01_dormer_coping`) — the coping along each rake, a
                             kneeler at each foot, a finial — or a gabled mansard dormer's
                             coping and its crockets (T-3293, `dormer_ornament`)
+  k01.roof.wing_dormer      a flank-gabled wing's dormer on its street slope (T-3354,
+                            `k01_wing_dormers`): its face with one light, its cheeks and
+                            slated roof back to the slope, coped, pinnacled and finialled
+  k01.roof.wing_flat_end    the flat tin deck a wing's flank gable stands back from (T-3354)
   k01.opening.sash_round    a mansard crown's round-headed dormer sash (T-2404): K06's
                             round-arched variant in the recess the roof's union cut
   k01.opening.sash_round_hooded
@@ -1282,6 +1286,8 @@ class Assembly:
                               "eave_datum_m": top, "ridge_datum_m": r["ridge_m"], "host_top_m": host_top,
                               **({"end_pitch_deg": dict(r["end_pitch_deg"])} if r.get("end_pitch_deg") else {}),
                               **({"stacks": len(w["stacks"])} if w.get("stacks") else {}),
+                              **({"flat_end": dict(r["flat_end"])} if r.get("flat_end") else {}),
+                              **({"dormers": len(r["dormers"])} if r.get("dormers") else {}),
                               "construction": "k05"},
                              {"eave": (u0, top, z1), "ridge": ((u0 + u1) / 2, r["ridge_m"], (z0 + z1) / 2)})
         # a ridge across the wing is built past the host wall by more than the roof's span,
@@ -1297,7 +1303,9 @@ class Assembly:
         elif r["axis"] == "u":   # a gable to the rear: the one verge, on the rear wall
             solids, _, _, _ = k5.gable_element(u0, far, z0, z1, top, t, o, o, f, base, "x", verge_ends=("lo",))
         else:                    # a gable to a flank: the ridge along the wing, a gable at each end
-            solids, _, _, _ = k5.gable_element(z0, z1, u0, u1, top, t, o, o, f, base, "z")
+            # T-3354: standing back from a flat end (`flat_end`) over that end's deck
+            gv0, gv1 = k01_frontage_params.wing_gable_span(w)
+            solids, _, _, _ = k5.gable_element(-gv1, -gv0, u0, u1, top, t, o, o, f, base, "z")
         # T-1890: the wing's own stacks (rear_wings[].stacks), T-2302's plain prism under its
         # cap, joined into the roof solid so the shaft is cut where it leaves the slate
         P = k5.frame("z")
@@ -1373,6 +1381,53 @@ class Assembly:
         if r.get("coping"):   # T-3337: its stone-coped gables (1919's rear ranges)
             from . import k01_wing_coping
             k01_wing_coping.dress(self, w)
+        if r.get("flat_end"):   # T-3354: the deck the gable stands back from
+            self.wing_flat_end_deck(w, seed, conf)
+        if r.get("dormers"):    # T-3354: pinnacled dormers on its street slope (1919's rear range)
+            from . import k01_wing_dormers
+            k01_wing_dormers.dress(self, w)
+
+    def wing_flat_end_deck(self, w, seed, conf):
+        """T-3354: a flank-gabled wing's flat end (`roof.flat_end`, 1919 Prairie's middle range,
+        flat-topped at its north-west corner in all three Gatlin plates): a deck at the wing's
+        wall top from that end to the gable standing back from it, painted tin on top, run out
+        by the wing's overhang over its open sides — its end, its front where it stands past
+        its host, its rear where no wing stands on that wall — with a soffit under and a
+        fascia round them; against the gable it stops at the gable's wall."""
+        p, fe = self.p, w["roof"]["flat_end"]
+        u0, u1, v0, v1 = w["rect"]
+        ov, yt = w["overhang_m"], w["top_m"]
+        yd = yt + w["fascia_m"]
+        b0, b1 = (v0 - ov, v0 + fe["depth_m"]) if fe["end"] == "south" else (v1 - fe["depth_m"], v1 + ov)
+        hv0, hv1 = w["host_v_m"]
+        past = b1 <= hv0 + 1e-9 or b0 >= hv1 - 1e-9
+        on_rear = any(x["host_wall"] == f"k01.wall.wing.{w['id']}.rear" and x["rect"][2] < b1 and x["rect"][3] > b0
+                      for x in p.rear_wings)
+        a0, a1 = (u0 if on_rear else u0 - ov), (u1 + ov if past else u1)
+        X = lambda u, y, v: (u, y, -v)
+        tin, fas = "k04_painted_tin_sheet", "fascia"
+        E, NZ = (1.0, 0.0, 0.0), (0.0, 0.0, -1.0)
+        dseed = self.instance(f"k01.roof.wing_flat_end.{w['id']}", "roof",
+                              {"end": fe["end"], "depth_m": fe["depth_m"], "overhang_m": ov, "fascia_m": w["fascia_m"],
+                               "covering": "painted_tin_sheet", "deck_datum_m": yd},
+                              {"base": X(a0, yt, b0), "top": X(a1, yd, b1)})
+        self.prim(tin).face([X(a0, yd, b0), X(a1, yd, b0), X(a1, yd, b1), X(a0, yd, b1)], Y,
+                            self.basis(tin, X(a0, yd, b0), E, NZ, dseed), conf)
+        self.prim(fas).face([X(a0, yt, b0), X(a1, yt, b0), X(a1, yt, b1), X(a0, yt, b1)], (0.0, -1.0, 0.0),
+                            self.basis(fas, X(a0, yt, b0), E, NZ, dseed), conf)
+        edge = lambda O, R: self.basis(fas, O, R, Y, dseed)
+        if fe["end"] == "south":
+            self.prim(fas).face([X(a0, yt, b0), X(a1, yt, b0), X(a1, yd, b0), X(a0, yd, b0)], (0.0, 0.0, 1.0),
+                                edge(X(a0, yt, b0), E), conf)
+        else:
+            self.prim(fas).face([X(a0, yt, b1), X(a1, yt, b1), X(a1, yd, b1), X(a0, yd, b1)], NZ,
+                                edge(X(a1, yt, b1), (-1.0, 0.0, 0.0)), conf)
+        if not on_rear:
+            self.prim(fas).face([X(a0, yt, b0), X(a0, yt, b1), X(a0, yd, b1), X(a0, yd, b0)], (-1.0, 0.0, 0.0),
+                                edge(X(a0, yt, b1), (0.0, 0.0, 1.0)), conf)
+        if past:
+            self.prim(fas).face([X(a1, yt, b0), X(a1, yt, b1), X(a1, yd, b1), X(a1, yd, b0)], E,
+                                edge(X(a1, yt, b1), (0.0, 0.0, 1.0)), conf)
 
     @staticmethod
     def wing_hip_ends(k5, r, u0, u1, z0, z1, top, t, o, f):

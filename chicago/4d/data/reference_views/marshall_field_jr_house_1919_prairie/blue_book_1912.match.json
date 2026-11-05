@@ -2,7 +2,7 @@
   "structure_id": "marshall_field_jr_house_1919_prairie",
   "view": "blue_book_1912",
   "glb": "assets/gltf/marshall_field_jr_house_1919_prairie__as_mapped_1904.glb",
-  "glb_sha256": "b3d1b757be0ac207ac7ab0b5982ca66e81ed8a8b1a584a9349ac36cefb3869ac",
+  "glb_sha256": "7f6964a4a2309ee6d440ee670bf5a78896fdd686fcd5b536c5ce186ad1ebc642",
   "camera_sha256": "43f9767ba9b3148d7c572de09d0d2de25a4fc87fe0fe9d4c0df8edd01c25f689",
   "photo_sha256": "c3491ed0b74e34bb08921b79398d06efd3aefb00ff685b3d8fe3c54a332623c5",
   "side_by_side": "docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/blue_book_1912-side-by-side.jpg",
@@ -21,15 +21,15 @@
       "status": "fixed"
     },
     {
-      "what": "the steep gables over the rear ranges, coped and finialled (T-3337), stand where the plate's two nearer gables do in kind and count; the small pinnacled dormers between the gables, on the slope the plates show facing the street: all three plates draw two, standing between the rear range's gable and the middle range's over the flank's flat-topped bays; through the 1919 and 1912 cameras they fall where the rear range's street-facing slope stands over its north end (about u -7.5, v -4.5 to -3.3), which the record's ranges leave about 1.7 m of before the middle range's roof meets it. Not built: K01 builds dormers on a hip's slopes and the front, not on a rear wing's gable roof, and their place waits on the ranges' plan (above)",
+      "what": "the steep gables over the rear ranges, coped and finialled (T-3337), stand where the plate's two nearer gables do in kind and count; the small pinnacled dormers between the gables, on the rear range's slope facing the street: all three plates draw two, and T-3354 builds them (rear_wings.rear_range.roof.dormers, k01_wing_dormers): at v -3.85 and -2.3 m, their faces 0.3 m in from the range's wall line over the middle range's flat end, each a 1.0 m face with one tall light under a 60-degree stone-coped gable to its finial, a pinnacle at each edge; through this camera both land on the plate's two within about 10 px",
+      "status": "fixed"
+    },
+    {
+      "what": "the rear ranges' gables against all three Gatlin plates (T-3354): the MIDDLE range's gable now stands back 1.6 m from its north end over a flat deck (roof.flat_end) and is pitched 60 degrees, where it rose 50 degrees off the north wall; through the 1912, 1913 and 1919 cameras its finial now lands on the plates' highest gable within about 3 px across and 3 px up (it stood 25-30 px left and 30-60 px under). The REAR range's apex still stands about 20-35 px (1-2 m) left of the plates' second gable, the same way in all three, and the plates do not show its plan; re-cutting it waits on a reading that reconciles the 1911 trace with the plates (L-k01-1919-garage-gable-3354, L-k01-1919-range-dormers-3354)",
       "status": "open"
     },
     {
-      "what": "the rear ranges' gables against all three Gatlin plates (T-3354): through the 1912, 1913 and 1919 plates' cameras the garage's new north gable lands on the plates' third gable within about 15 px, but the two ranges' gables do not: the rear range's apex stands about 20-35 px (about 1-2 m) left of the plates' and the middle range's about 25-30 px left and 30-60 px (about 2-3 m) under them, the same way in all three. The three cameras are fitted to the front block alone and agree with one another; moving the 1912 camera's eye back along its degenerate line (u 47 to 90) moves the ranges' gables further from the plate's, not nearer. So the difference is the ranges', not a fit's: the plates stand the middle range's gable nearer the street and much higher than the 1911 sheet's trace (u -7 to 0) and a 50-degree gable over its 7 m span can reach (13.8 m; K01 slates nothing over 60 degrees). Not rebuilt here: the sheet's plan is the trace the house stands on, and the plates do not show the ranges' plan, so re-cutting it waits on a reading that reconciles the two (L-k01-1919-garage-gable-3354)",
-      "status": "open"
-    },
-    {
-      "what": "the north flank's two-storey flat-topped bays and their mullioned windows: the plate draws the flank's lower storeys in deep shade behind the parkway trees; it confirms a flat-topped two-storey block under the far gables and pale corners at the ranges' steps, as the 1919 plate does, but resolves no window, no balustrade and none of the canted bay's own corners; the quoined flat-topped block at the middle range's north-west corner the 1919 plate shows is not built",
+      "what": "the north flank's two-storey flat-topped bays and their mullioned windows: the plate draws the flank's lower storeys in deep shade behind the parkway trees; it confirms a flat-topped two-storey block under the far gables and pale corners at the ranges' steps, as the 1919 plate does, which T-3354 now builds at the middle range's north-west corner (roof.flat_end); it resolves no window, no balustrade and none of the canted bay's own corners, so the mullioned windows the 1919 plate draws there stay that plate's open item",
       "status": "open"
     },
     {
