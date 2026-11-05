@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1003,
+  "count": 1004,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -67848,6 +67848,39 @@
       ],
       "work_refs": [
         "T-2383"
+      ]
+    },
+    {
+      "id": "L-k01-1919-rear-range-ridge-3354",
+      "title": "1919 Prairie's rear range ridged across under a coped gable facing the street, read off the three Gatlin plates",
+      "section": "per_subject",
+      "subjects": [
+        "marshall_field_jr_house_1919_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-11-05",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "1919 Prairie's rear range (the 1911 sheet's '2½S.B.' rectangle behind the middle range, u -16.4 to -7.0, v -4.8 to 10.8) was gabled facing the flank, its apex at 15.2 m over the range's middle. Through the 1912, 1913 and 1919 Gatlin plates' cameras that apex stood 20-35 px left of the plates' and the middle range's 25-30 px left and 30-60 px under theirs (“1919 Prairie's garage roofed under a steep coped gable facing the flank, the third gable all three Gatlin plates draw at its far end”). Read again, the plates' big gable is not a face toward the flank at all: these cameras see the flank at about 60 degrees, so a 50-degree flank gable draws about 70 degrees steep, where the plates draw the big gable's rakes at about 45 and its face lit as the street front is. Taken as a face toward the street on the rear range's front (u -7.0, where it stands over the middle range's 9.6 m wall top), the big apex is at v -0.4 and 16.9-17.5 m (its coping and finial) in the 1913 and 1919 plates alike, and the shallow line both plates draw from it back toward a small peak is the ridge running west. So the range is split along the sheet's rectangle into a north pile (v -4.8 to 3.96), its ridge across (K01's gable to: rear) at 16.6 m on a 58-degree pitch, coped, kneelered and finialled at its street and rear gables as the other ranges' gables are, and a south pile (v 3.96 to 10.8) ridged the same way, uncoped, behind it. K01 gains two things for it: a gable to the rear is cut off in one plane at its front even where the wing runs past its host (the north pile's 1.7 m step), and a gable to the rear may be coped at its `front` and `rear` ends. The garage now stands on the north pile's rear wall and runs past it to the south. **What is read, not invented.** That the gable faces the street; the place of its apex across the flank and its height; that a ridge runs back from it; all from the 1913 and 1919 plates through their solved cameras, the 1912 plate agreeing. The Prairie library's later photograph of the house (`a19-cgy-1919-later`, rights unknown, link only: forms only) was looked at to tell a face toward the street from one toward the flank — its big gable is lit as the front is and the flank's walls are in shade — and nothing is measured off it. **What is invented.** That the gable stands on the range's own front (u -7.0) rather than further back, which the plates cannot separate (their cameras look almost along the flank, so a metre across it is several along it); that its apex stands midway over a north pile rising from the range's north wall, the 58-degree pitch that follows, and the split at v 3.96; the south pile and its uncoped roof, which no picture shows; the coping's section, kneelers and finial at the other ranges' sizes. **What is not built.** The ridge's west end: projected, it stands about 30 px right of the small peak both plates draw, as though the plates' ridge ran on about 3 m further west over the garage. The small pinnacled dormers between the gables, and the quoined flat-topped block at the middle range's north-west corner; and the middle range's own gable, kept facing the flank as before, which no plate now shows clearly in front of the street gable. All written into the three match records."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a picture of the rear or the north flank from another place, which would separate the gables along the flank."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match and the other two views' side-by-sides."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-05 (T-3354)."
+        }
+      ],
+      "work_refs": [
+        "T-3354",
+        "T-3338"
       ]
     },
     {
