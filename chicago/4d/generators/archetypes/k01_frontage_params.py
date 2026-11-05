@@ -188,6 +188,12 @@ class K01FrontageParams:
     wall_paint_opaque: bool = False
     front_brick_tone: tuple = ()   # T-3093: the street front's brick, tinted apart from the side walls
     front_brick_panel: str = ""    # T-3244: or laid in another K03 panel (1708's red-brown)
+    # T-3385: the record's `face_brick` palette pick (k03_face_brick.json): the front's
+    # roughness shift (a pressed face is smoother than a common one), and the side and rear
+    # walls' own common brick, a factor over their panel and a roughness shift
+    front_brick_roughness: float = 0.0
+    side_brick_tone: tuple = ()
+    side_brick_roughness: float = 0.0
     # T-3244: the sash and frames in a record's own paint (1700/1706's white, every photograph),
     # where K01's are the kit's dark green; empty for the kit's
     sash_color: tuple = ()
@@ -311,6 +317,12 @@ class K01FrontageParams:
                      * math.tan(math.radians(self.roof_pitch_deg)), 4)
 
 
+def panel_default_of(val) -> str:
+    """T-3385: the K03 panel a record's side and rear walls wear (service_wall_brick, else k03's)."""
+    from . import k03_brick
+    return val("service_wall_brick", k03_brick.PANEL)
+
+
 CONSUMED = frozenset({
     "stories", "construction", "principal_floor_m", "storey_heights_m",
     "wall_thickness_front_m", "wall_thickness_side_m", "roof_form", "roof_pitch_deg",
@@ -325,7 +337,7 @@ CONSUMED = frozenset({
     "slope_dormers", "round_corner", "cant_corner", "front_pier", "street_front_pavilions", "porte_cochere",
     "side_base", "street_front_iron", "window_shutters", "flat_balustrade", "sash_paint", "corner_porch",
     "hip_deck", "rear_veranda", "side_porch", "eared_round_heads", "corner_pilasters", "rear_terrace",
-    "alley_wall", "alley_wall_height",
+    "alley_wall", "alley_wall_height", "face_brick",
 })
 
 #: T-2451: a bay's corner strip -> K01 slot: dressed stone, or painted timber on a frame bay
@@ -5568,6 +5580,40 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if front_panel and front_panel not in k03_brick.PANELS:
             raise ParamError(f"street_front_brick.panel {front_panel!r}: one of {sorted(k03_brick.PANELS)}")
 
+    # T-3385: the house's face and common brick, named from the palette (k03_face_brick.json)
+    # where a record's pictures, or its period, choose one: `front` lays the street front (and
+    # its brick bays) in a face recipe, as street_front_brick does, on a brick front or over a
+    # stone front's brick_above_m line; `sides` lays the side and rear walls, the stacks and
+    # the area walls in a common one, its panel the record's service_wall_brick
+    fb = val("face_brick", {}) or {}
+    front_rough, side_tone, side_rough = 0.0, (), 0.0
+    if fb:
+        from . import k03_brick
+        if not set(fb) <= {"front", "sides"} or not fb:
+            raise ParamError("face_brick is {\"front\": a face recipe, \"sides\": a common recipe} "
+                             "(data/components/prairie_1904/k03_face_brick.json)")
+        try:
+            if fb.get("front"):
+                if sfb:
+                    raise ParamError("face_brick.front and street_front_brick both lay the front; name one")
+                sf = val("stone_front") or {}
+                if sf and not sf.get("brick_above_m"):
+                    raise ParamError("face_brick.front lays a brick front, or the brick over a stone "
+                                     "front's brick_above_m line, and this stone front names none")
+                r = k03_brick.recipe(fb["front"], "face")
+                front_panel = "" if r["panel"] == panel_default_of(val) else r["panel"]
+                front_tone = r["tone"] if r["tone"] != (1.0, 1.0, 1.0) or not front_panel else ()
+                front_rough = r["roughness_delta"]
+            if fb.get("sides"):
+                r = k03_brick.recipe(fb["sides"], "common")
+                if r["panel"] != panel_default_of(val):
+                    raise ParamError(f"face_brick.sides {fb['sides']!r} is laid in {r['panel']}, and "
+                                     f"service_wall_brick names {panel_default_of(val)}")
+                side_tone = r["tone"] if r["tone"] != (1.0, 1.0, 1.0) else ()
+                side_rough = r["roughness_delta"]
+        except ValueError as e:
+            raise ParamError(f"face_brick: {e}") from None
+
     # T-3244: the sash's paint, a record's own (k01_frontage MATERIALS["sash"] otherwise)
     sp = val("sash_paint", {}) or {}
     sash_color = ()
@@ -7626,6 +7672,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         stone=stone, rear_wings=wings, condition=condition, arched_front=arched,
         roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, gable=gable_roof, shaped_gable=shaped, entrance_floor_m=ef, round_heads=rh,
         wall_paint=paint, wall_paint_opaque=paint_opaque, front_brick_tone=front_tone, front_brick_panel=front_panel,
+        front_brick_roughness=front_rough, side_brick_tone=side_tone, side_brick_roughness=side_rough,
         sash_color=sash_color, street_dress=street_dress, frontispiece=frontispiece, rear_section=rear_section,
         round_corner=round_corner, cant_corner=cant_corner, front_pier=front_pier, pavilions=pavilions, porte_cochere=porte_cochere,
         corner_porch=corner_porch, hip_deck=hip_deck, rear_veranda=rear_veranda, rear_terrace=rear_terrace, side_porch=side_porch, shutters=shutters,

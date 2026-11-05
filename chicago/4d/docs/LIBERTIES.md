@@ -40703,6 +40703,31 @@ photographs show.
 **Ticket:** T-3376.
 **Recorded:** 2026-11-05 (T-3376).
 
+### L-k03-face-brick-3385 — Prairie Avenue's brick told house by house: a period face brick on each brick front, a common run on each house's flanks, as tints over the two K03 panels
+
+**Decision:** a palette of period bricks (`data/components/prairie_1904/k03_face_brick.json`): six face
+bricks (pressed red, deep red, rough red-brown, brown, golden buff, and an 1860s cream dulled by smoke)
+and four runs of Chicago common (buff, salmon, yellow, smoke-dulled), each one of the two K03 panels
+1904 already loads under a colour factor (its mean over the panel's, never above 1) and a roughness
+shift, so no map is added. A K01 record names its pick as `face_brick`; 28 houses on Prairie Avenue
+now wear one: the brick fronts a face brick, the side and rear walls, stacks and area walls a common
+run. The owner, 2026-11-05: "this is prairie avenue and they would have nice face brick and it would
+be different for houses".
+**What is read.** That the street's brick fronts were red and their flanks a pale common: tone readings
+inside each build's own surfaces on the photographs of 1905, 1816, 1637, 1834 and 1812 Prairie (all
+read red fronts) and of the flanks of 1625, 1637, 1816, 1828, 1834, 1900 and 1612 (all read a common
+buff family), `docs/RESEARCH/face-brick-1904-T-3385/`. The period's practice, pressed face brick on
+the street elevation and commons on the party and side walls, is in the sources that note cites.
+**What is invented.** Every colour is a reconstruction (the pictures are monochrome; a plate cannot
+tell buff from salmon or yellow), and so is each pick for a house no picture reads: chosen by the
+decade the record gives it (the 1860s pairs cream, the 1870s fronts red, the 1880s darker reds and
+browns, about 1890 buff), and each house's common run, dealt so that neighbours differ.
+**How to resolve:** a colour description or a colour picture of a house (a contemporary account, an
+early autochrome, a surviving wall) replaces its pick.
+**Covers:** `marshall_field_house_1905_prairie.as_mapped_1904.form.face_brick`, `henderson_house_1816_prairie.as_mapped_1904.form.face_brick`, `spalding_house_1637_prairie.as_mapped_1904.form.face_brick`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.face_brick`, `house_1600_prairie.as_mapped_1904.form.face_brick`, `house_1604_prairie.as_mapped_1904.form.face_brick`, `house_1608_prairie.as_mapped_1904.form.face_brick`, `house_1613_prairie.as_mapped_1904.form.face_brick`, `house_1615_prairie.as_mapped_1904.form.face_brick`, `house_1616_prairie.as_mapped_1904.form.face_brick`, `house_1626_prairie.as_mapped_1904.form.face_brick`, `house_1628_prairie.as_mapped_1904.form.face_brick`, `house_1726_prairie.as_mapped_1904.form.face_brick`, `house_1730_prairie.as_mapped_1904.form.face_brick`, `house_2003_prairie.as_mapped_1904.form.face_brick`, `house_2005_prairie.as_mapped_1904.form.face_brick`, `kellogg_house_1709_prairie.as_mapped_1904.form.face_brick`, `kellogg_house_1923_prairie.as_mapped_1904.form.face_brick`, `dexter_house_1721_prairie.as_mapped_1904.form.face_brick`, `dent_house_1823_prairie.as_mapped_1904.form.face_brick`, `edson_keith_house_1906_prairie.as_mapped_1904.form.face_brick`, `house_1619_prairie.as_mapped_1904.form.face_brick`, `house_1621_prairie.as_mapped_1904.form.face_brick`, `house_1623_prairie.as_mapped_1904.form.face_brick`, `house_1634_prairie.as_mapped_1904.form.face_brick`, `house_1636_prairie.as_mapped_1904.form.face_brick`, `house_1712_prairie.as_mapped_1904.form.face_brick`, `house_2001_prairie.as_mapped_1904.form.face_brick`.
+**Ticket:** T-3385.
+**Recorded:** 2026-11-05 (T-3385).
+
 ### L-k01-1700-1706-roof-3384 — 1700 and 1706 Prairie under one mansard, the party wall carried up through it
 
 **Decision:** the Glessner townhouses at 1700 and 1706 Prairie are roofed as ONE mansard run across

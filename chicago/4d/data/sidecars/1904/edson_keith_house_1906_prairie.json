@@ -125,6 +125,13 @@
       "confidence": "reconstructed",
       "note": "RECONSTRUCTED: the one K03 panel K01 lays on the brick flanks and rear, which neither picture shows in colour. Liberty L-k01-1906-keith-3238."
     },
+    "face_brick": {
+      "value": {
+        "sides": "common_dun"
+      },
+      "confidence": "reconstructed",
+      "note": "T-3385: A stone front; its side and rear walls are common brick, and no picture of this house reads which kiln run: a chicago common brick, smoke-dulled run, so the street's commons are not all one. Palette: data/components/prairie_1904/k03_face_brick.json; the reading: docs/RESEARCH/face-brick-1904-T-3385/README.md (L-k03-face-brick-3385)."
+    },
     "stone_front": {
       "value": {
         "fabric": "sandstone_brown",

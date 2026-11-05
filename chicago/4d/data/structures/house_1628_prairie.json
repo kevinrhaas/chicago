@@ -114,6 +114,14 @@
           "confidence": "reconstructed",
           "note": "The sheet colours the house brick; the fabric, bond, heads, string course and grime are the K03 library's common buff brick in common bond (the one panel k03_brick lays), on all four walls since the street front is brick too. No photograph of 1628 has been read, so the brick's colour and bond are the kit's, not the house's."
         },
+        "face_brick": {
+          "value": {
+            "front": "cream_sooted",
+            "sides": "common_salmon"
+          },
+          "confidence": "reconstructed",
+          "note": "T-3385: No picture of this house reads its brick. Built in the 1860s, before pressed red fronts reached Chicago in number and while Milwaukee's cream brick was the city's front brick, south of the 1871 fire: the cream front brick, smoke-dulled, greyed by 1904's smoke; the sides a chicago common brick, salmon run. Palette: data/components/prairie_1904/k03_face_brick.json; the reading: docs/RESEARCH/face-brick-1904-T-3385/README.md (L-k03-face-brick-3385)."
+        },
         "street_front_trim": {
           "value": {
             "by_storey": [
