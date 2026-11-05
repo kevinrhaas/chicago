@@ -96,8 +96,11 @@ def dress(f):
     return wings(f)["middle_range"]["dressings"]
 
 
-refused(lambda f: wings(f)["garage"].update(dressings={"quoins": dict(dress(f)["quoins"], corners=["south_front"])}),
-        "a corner on a wall the wing has not got (the garage has no stepped-out face)", "has no south_front corner")
+# T-3354: the garage runs past the rear range's north pile now, so it has a front; the south pile has none
+refused(lambda f: wings(f)["rear_range_south"].update(
+            dressings={"quoins": dict(dress(f)["quoins"], corners=["south_front"])}),
+        "a corner on a wall the wing has not got (the rear range's south pile has no stepped-out face)",
+        "has no south_front corner")
 refused(lambda f: dress(f)["quoins"].update(corners=["south_rear", "south_rear"]), "a corner named twice",
         "once each")
 refused(lambda f: dress(f)["quoins"].update(long_m=1.6), "a quoin out of bounds", "short < long")
