@@ -35042,18 +35042,6 @@
       "covers": [
         {
           "domain": "structure",
-          "structure": "edson_keith_house_1906_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "edson_keith_house_1906_prairie_coach_house",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "house_1828_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -35106,7 +35094,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`."
+          "text": "`house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -66554,12 +66542,6 @@
         {
           "domain": "structure",
           "structure": "edson_keith_house_1906_prairie_coach_house",
-          "phase": null,
-          "aspect": "function"
-        },
-        {
-          "domain": "structure",
-          "structure": "edson_keith_house_1906_prairie_coach_house",
           "phase": "as_standing_1904",
           "aspect": "form.coach_house"
         },
@@ -66593,7 +66575,7 @@
         },
         {
           "label": "Covers",
-          "text": "`edson_keith_house_1906_prairie_coach_house.as_standing_1904.form.coach_house`, `edson_keith_house_1906_prairie_coach_house.as_standing_1904.form.stories`, `edson_keith_house_1906_prairie_coach_house.as_standing_1904.form.construction`, `edson_keith_house_1906_prairie_coach_house.function`"
+          "text": "`edson_keith_house_1906_prairie_coach_house.as_standing_1904.form.coach_house`, `edson_keith_house_1906_prairie_coach_house.as_standing_1904.form.stories`, `edson_keith_house_1906_prairie_coach_house.as_standing_1904.form.construction`"
         }
       ],
       "work_refs": [

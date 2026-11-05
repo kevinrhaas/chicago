@@ -24191,7 +24191,7 @@ once.
 
 ### L-draft-prairie-18-20-west-2329 — The west side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
-**Covers:** `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`.
+**Covers:** `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`.
 **Decision:** the owner's district pass (2026-10-08) drafts the whole of Prairie Avenue as a
 serviceable first model that the per-building tickets then refine in place. On the west side of
 the 18th-20th block (Sanborn 1911 sheet 28) it stands nine houses and nine alley buildings —
@@ -39766,7 +39766,7 @@ entered as a source, gives its openings, roof, ends, use and date their true for
 gate names for it (Clark's c. 1905 view north from 1936; the 1874 Land Owner engraving, which predates the
 house) do not show the alley.
 **Recorded:** 2026-11-05 (T-1935).
-**Covers:** `edson_keith_house_1906_prairie_coach_house.as_standing_1904.form.coach_house`, `edson_keith_house_1906_prairie_coach_house.as_standing_1904.form.stories`, `edson_keith_house_1906_prairie_coach_house.as_standing_1904.form.construction`, `edson_keith_house_1906_prairie_coach_house.function`
+**Covers:** `edson_keith_house_1906_prairie_coach_house.as_standing_1904.form.coach_house`, `edson_keith_house_1906_prairie_coach_house.as_standing_1904.form.stories`, `edson_keith_house_1906_prairie_coach_house.as_standing_1904.form.construction`
 
 ### L-k12-1900-stable-1935 — The brick stable on the alley behind 1900 Prairie, built from the K12 kit on the outline the 1911 sheet draws, its window mark and its fire-wall sign
 
