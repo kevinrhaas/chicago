@@ -67,8 +67,8 @@ const LIBRARY = 'textures/prairie_1904_pbr/';
  * The draw order is the stacking order: each class a few centimetres above the one
  * it overlaps, plus a polygon offset, so a band laid over a carriageway (the
  * carriageways run through their intersections and under the corner bands) always
- * wins. A carriageway also rises by its level (T-3389: its `priority`, then its place
- * among the overlapping roadways of that priority), PRIORITY_LIFT_M a level, and since
+ * wins. Carriageway `priority` orders paving without a physical step (T-3088), and the
+ * roadways draw as ground decals in that order (T-3389, ROAD_RENDER_ORDER); since
  * T-2475 the lower of two crossing roadways is cut out from under the higher one, so
  * the avenue's surface is the only one drawn at the crossing (L297) and the cross
  * street's wears into it across a fading seam.
@@ -105,13 +105,23 @@ const CURB_FACE_COLOUR = 0xcfcabe;
 const CARRIAGE_POST_COLOUR = 0xe4e0d6;
 /** T-2475: how far one paving fades into the next where two roadways meet, metres. */
 const SEAM_M = 1.6;
-/** The fade overlay's height above the highest roadway, so it never fights one. T-3389:
- *  T-3088 drew every roadway and the overlay on one surface and ranked them by polygon
- *  offset alone. Two pavings triangulated differently over the 5 mm-quantized field differ
- *  by up to 1.7 mm between their vertices, far past any offset in depth units, so the
- *  seams and the strips tucked under a higher roadway flickered in blocks wherever the
- *  pavings meet. Height keeps them apart; the offsets only break ties. */
-const SEAM_LIFT_M = 0.004;
+/**
+ * T-3389 — the roadways are ground decals. T-3088 laid every roadway and the seam overlay
+ * on one surface (vehicles and horses stand on the drawn triangles, and a horse's four
+ * hooves must meet within 1 mm) and ranked them by polygon offset alone. But two pavings
+ * are triangulated differently over the 5 mm-quantized field, so between their vertices
+ * they differ by up to 1.7 mm, far past any offset in depth units: the fade dipped under
+ * the roadway it lies on and the strip a lower roadway runs on under a higher one's edge
+ * (TUCK_M) lay in it, and they fought in moving blocks at every crossing. So the roadways
+ * write no depth and are drawn in their stacking order, after every other opaque surface
+ * (which therefore holds the depth buffer over them: a curb, a walk, a wheel), each over
+ * the one below it; the fades follow first in the transparent list. Nothing here depends
+ * on the depth buffer telling two pavings apart. The street ribbon (streets.js) is order
+ * 0 and the 1835 board walks 1 (frontage.js, T-0625), so these stand between.
+ */
+const ROAD_RENDER_ORDER = 0.5;
+const ROAD_LEVEL_ORDER = 0.01;
+const SEAM_RENDER_ORDER = -1;
 // T-3233: and `seamEnd`, metres along the edge from each END of the run of fade (where the
 // lower roadway's own side lines cross the higher one), negative past it: the fade runs on
 // past each end over the higher roadway and wears out there too.
@@ -860,7 +870,7 @@ export async function createStreetGrid({
   });
   /** A ramp's foot, as an offset the walk's own lift is then added to: flush with the
    *  highest roadway's top, so the slab meets the paving without a lip. */
-  const rampFoot = () => ROAD + CLASSES.carriageway.lift + topRoadLift + 0.002 - CLASSES.walk.lift;
+  const rampFoot = () => ROAD + CLASSES.carriageway.lift + 0.002 - CLASSES.walk.lift;
   const acrossIn = (x, e, n) => (e - x.origin[0]) * x.out[0] + (n - x.origin[1]) * x.out[1];
   /** Across distance from a face's street line: to the nearest segment's own line,
    *  so a point in the corner square past the line's end still measures across. */
@@ -903,20 +913,18 @@ export async function createStreetGrid({
   for (const xs of Object.values(grid.cross_sections ?? {})) for (const b of xs.bands ?? []) tierOf[b.band] = b.tier;
 
   const MAX_PRIORITY = Math.max(0, ...Object.values(surfaces?.carriageways ?? {}).map((x) => x?.priority ?? 0));
-  /** T-3389: the highest roadway's lift over the carriageway class's own, set once the
-   *  roadways are cut (each way's `lift`) and before any seam overlay or ramp is laid. */
-  let topRoadLift = 0;
-  const bufFor = (cls, surface, priority, seam = false) => {
+  const bufFor = (cls, surface, priority, seam = false, depth = 0, level = 0) => {
     const c = CLASSES[cls];
     // A seam overlay is one draw per paving, whatever its priority: it lies over
-    // the highest roadway there is.
-    const key = seam ? `${cls}|${surface?.material ?? 'none'}|seam` : `${cls}|${surface?.material ?? 'none'}|${priority}`;
+    // the highest roadway there is. T-3389: a roadway stacked over another of its own
+    // priority (`depth`) is its own draw, so it can be drawn after that one.
+    const key = seam ? `${cls}|${surface?.material ?? 'none'}|seam`
+      : `${cls}|${surface?.material ?? 'none'}|${priority}${depth ? `|d${depth}` : ''}`;
     if (!bufs.has(key)) {
       bufs.set(key, {
         key, cls, material: surface?.material ?? null, priority: seam ? 0 : priority,
-        // T-3389: a roadway's own level is added per way (`push`'s `lift`); the seam
-        // overlay lies SEAM_LIFT_M over the highest.
-        lift: seam ? c.lift + topRoadLift + SEAM_LIFT_M : cls === 'carriageway' ? c.lift : c.lift + priority * PRIORITY_LIFT_M,
+        depth: seam ? 0 : depth, level: seam ? null : level,
+        lift: cls === 'carriageway' ? c.lift : c.lift + priority * PRIORITY_LIFT_M,
         offset: c.offset - priority * 0.3,
         pos: [], uv: [], conf: [], spans: [], seam: seam ? [] : null, seamEnd: seam ? [] : null,
       });
@@ -929,8 +937,8 @@ export async function createStreetGrid({
    * number (the band width, for a walk or a curb tile that spans its band) or null
    * for flat-tone surfaces with no maps.
    */
-  const push = (cls, id, quads, geometryTier, surface, { priority = 0, tileAcross = null, tileAlong = null, pieceOf = null, seam = null, seamEnds = null, polys = [], lift = 0 } = {}) => {
-    const buf = bufFor(cls, surface, priority, !!seam);
+  const push = (cls, id, quads, geometryTier, surface, { priority = 0, tileAcross = null, tileAlong = null, pieceOf = null, seam = null, seamEnds = null, polys = [], depth = 0, roadLevel = 0 } = {}) => {
+    const buf = bufFor(cls, surface, priority, !!seam, depth, roadLevel);
     // A seam overlay's vertices carry how far into the fade they stand, 0 on the
     // edge of the roadway it runs under, 1 SEAM_M on.
     let seamAt = null; let seamEndAt = null;
@@ -961,7 +969,7 @@ export async function createStreetGrid({
       for (const tri of tris) {
         for (const [e, n, u, v] of tri) {
           const below = cls === 'carriageway' ? ROAD : offsetAt(e, n);
-          buf.pos.push(wx(e), terrain.surfaceHeight(e, n) + below + buf.lift + lift, wz(n));
+          buf.pos.push(wx(e), terrain.surfaceHeight(e, n) + below + buf.lift, wz(n));
           if (worldLaid) buf.uv.push((northSouth ? n : e) / along, (northSouth ? e : n) / along);
           else buf.uv.push(u / along, v / across);
           buf.conf.push(level);
@@ -1155,12 +1163,12 @@ export async function createStreetGrid({
     }
   }
   /*
-   * T-3389 — each roadway at its own height. Where two still overlap after the cuts (the
-   * strip a lower one runs on under a higher one's edge, TUCK_M; the stub where two of one
-   * priority meet, brick and asphalt at Indiana and 18th) they lie PRIORITY_LIFT_M or more
-   * apart: a roadway's level is its priority, then, among the roadways of that priority it
-   * overlaps, one more than the highest it is stacked over. Levels are numbered densely,
-   * so the avenues stand 9 mm over the cross streets, as before T-3088.
+   * T-3389 — the order the roadways are drawn in (ROAD_RENDER_ORDER). Where two still
+   * overlap after the cuts (the strip a lower one runs on under a higher one's edge,
+   * TUCK_M; the stub where two of one priority meet, brick and asphalt at Indiana and
+   * 18th, Calumet's two pavings at 21st) the higher must be drawn after: a roadway's level
+   * is its priority, then, among the roadways of that priority it overlaps, one more than
+   * the highest it is stacked over (`depth`). Two of one level never overlap.
    */
   const finalPolys = (w) => [...w.items.map((it) => it.poly ?? it.quad),
     ...w.extra.flatMap((x) => (x.sliver ? x.sliver.polys : [x.poly]))]
@@ -1171,24 +1179,23 @@ export async function createStreetGrid({
     return !!covered && Math.abs(area2(covered)) / 2 > PIECE_EPS_M2;
   }));
   const stacked = [...ways].sort((a, b) => a.stacking - b.stacking);
-  for (const w of stacked) w.plan = finalPolys(w);
+  const plans = new Map(stacked.map((w) => [w, finalPolys(w)]));
   for (const [i, w] of stacked.entries()) {
     w.depth = 0;
     for (const o of stacked.slice(0, i)) {
-      if (o.priority === w.priority && o.depth + 1 > w.depth && overlapping(w.plan, o.plan)) w.depth = o.depth + 1;
+      if (o.priority === w.priority && o.depth + 1 > w.depth && overlapping(plans.get(w), plans.get(o))) w.depth = o.depth + 1;
     }
   }
   const levels = [...new Set(ways.map((w) => `${w.priority}|${w.depth}`))]
     .sort((a, b) => { const [pa, da] = a.split('|').map(Number); const [pb, db] = b.split('|').map(Number); return pa - pb || da - db; });
-  for (const w of ways) { w.lift = levels.indexOf(`${w.priority}|${w.depth}`) * PRIORITY_LIFT_M; delete w.plan; }
-  topRoadLift = Math.max(0, ...ways.map((w) => w.lift));
+  for (const w of ways) w.level = levels.indexOf(`${w.priority}|${w.depth}`);
   out.census.roadLevels = levels.length;
   for (const w of ways) {
     const quads = w.items.filter((it) => it.quad).map((it) => it.quad);
     const polys = [...w.items.filter((it) => it.poly),
       ...w.extra.flatMap((x) => (x.sliver ? x.sliver.polys.map((poly) => ({ poly, frame: x.frame })) : [x]))];
     if (quads.length || polys.length) {
-      push('carriageway', w.id, quads, w.tier, w.surface, { priority: w.priority, pieceOf: w.pieceOf, polys, lift: w.lift });
+      push('carriageway', w.id, quads, w.tier, w.surface, { priority: w.priority, pieceOf: w.pieceOf, polys, depth: w.depth, roadLevel: w.level });
     }
     // T-3233: the run each margin belongs to along its edge — the margins of one edge that
     // touch, merged — and past each of its two ends, SEAM_M more of the fade laid over the
@@ -1345,9 +1352,11 @@ export async function createStreetGrid({
     const mat = new THREE.MeshStandardMaterial({
       color: lib ? 0xffffff : new THREE.Color(c.colour), roughness: 1.0, metalness: 0.0,
       // T-1805: never use a slope bias: it pulls a grazing sidewalk through walls.
-      // T-3389: roads and their wear overlay stand at their own heights (each way's
-      // level, SEAM_LIFT_M over the highest); these depth units only break ties.
+      // Roads and their wear overlay share one physical surface. Express paving
+      // priority with numerical depth units only, beyond the roadway for a seam.
       // Walk/alley/curb physical levels and their one-unit tie-break are retained.
+      // T-3389: the roads' units no longer rank them against each other (they write
+      // no depth and are drawn in order, ROAD_RENDER_ORDER); they are kept as T-3088 set them.
       polygonOffset: true, polygonOffsetFactor: 0,
       polygonOffsetUnits: seam ? -(MAX_PRIORITY + 2) : buf.cls === 'carriageway' ? -1 - buf.priority : -1,
     });
@@ -1386,7 +1395,16 @@ export async function createStreetGrid({
     confidence?.patch(mat);
     mat.customProgramCacheKey = () => `chicago4d-street-grid-${seam ? 'seam-' : ''}${lib ? 'mapped' : 'flat'}`;
     const mesh = new THREE.Mesh(geo, mat);
-    mesh.name = `street-grid-${buf.cls}${buf.material ? `-${buf.material}` : ''}${buf.priority ? `-p${buf.priority}` : ''}`;
+    mesh.name = `street-grid-${buf.cls}${buf.material ? `-${buf.material}` : ''}${buf.priority ? `-p${buf.priority}` : ''}${buf.depth ? `-d${buf.depth}` : ''}`;
+    // T-3389: a roadway is a ground decal drawn in its level's order (ROAD_RENDER_ORDER);
+    // the fades come first in the transparent list, in a fixed order among themselves.
+    if (seam) {
+      mesh.renderOrder = SEAM_RENDER_ORDER + overlays.length * 0.001;
+    } else if (buf.cls === 'carriageway') {
+      mat.depthWrite = false;
+      mesh.renderOrder = ROAD_RENDER_ORDER + buf.level * ROAD_LEVEL_ORDER;
+      mesh.userData.roadLevel = buf.level;
+    }
     mesh.userData.cls = buf.cls;
     mesh.userData.material = buf.material;
     mesh.userData.spans = buf.spans;

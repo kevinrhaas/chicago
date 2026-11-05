@@ -6330,12 +6330,13 @@ selftest "the 1904 street-ground check fires on each of its five causes put back
 # T-3389. The owner, on Prairie at 18th and 20th: "pixely flashy transitions" where the asphalt
 # meets the macadam. T-3088 had put every roadway and the seam overlay on one surface, ranked by
 # polygon offset only; differently triangulated over the 5 mm field they differ by up to 1.7 mm,
-# and fought in moving blocks. Each roadway now stands at its own level and the overlay over the
-# top one. This builds the grid on the real 1904 field and holds both gaps at every 0.1 m.
-step "the 1904 pavings never share a height where they overlap: fades over their roadway, roadways apart (T-3389)" \
-  node tools/test_street_paving_depth.mjs
-selftest "the 1904 paving-depth check fires with the roadway levels or the fade's lift taken out (T-3389)" \
-  node tools/test_street_paving_depth.mjs --self-test
+# and fought in moving blocks. Lifting them apart broke the horses' 1 mm footing, so the roadways
+# are ground decals now: no depth written, drawn in their stacking order, fades after. This holds
+# that on the shipped grid and checks the order at every 0.1 m where two pavings overlap.
+step "the 1904 roadways are ground decals drawn in their stacking order, fades over them (T-3389)" \
+  node tools/test_street_paving_order.mjs
+selftest "the 1904 paving-order check fires with the roadways' depthWrite or draw order taken out (T-3389)" \
+  node tools/test_street_paving_order.mjs --self-test
 
 # T-3231. A corner ramp's head corners lie exactly on its edge; where the parity test
 # put one outside the ramp and outside the face's bands it took the roadway's level
