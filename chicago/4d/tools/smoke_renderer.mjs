@@ -17645,9 +17645,18 @@ for (const [label, viewport, touch] of [
     // on #957 took 14.6 s to return from the pick alone), and the page went to the other
     // year mid-part: "Execution context was destroyed". The Escape is a keydown from the
     // focused element, which reaches the ring's capture listener as a key press does.
+    // T-3390: the pick asks first (DEPART / CANCEL); CANCEL leaves no ring, then DEPART runs it.
     const ring = await page.evaluate((y) => {
-      if (y) document.querySelector(`#nav-app-jump .nav-jump[data-year="${y}"]`)?.click();
-      const out = { ring: !!document.querySelector('.nav-jump-ring'),
+      const pick = () => document.querySelector(`#nav-app-jump .nav-jump[data-year="${y}"]`)?.click();
+      if (y) pick();
+      const shade = document.querySelector('.recall-confirm');
+      const ask = { prompt: !!shade, ring: !!document.querySelector('.nav-jump-ring'),
+        title: shade?.querySelector('.recall-title')?.textContent ?? '', go: shade?.querySelector('.recall-go')?.textContent ?? '' };
+      shade?.querySelector('.recall-cancel')?.click();
+      ask.cancelled = !document.querySelector('.recall-confirm') && !document.querySelector('.nav-jump-ring');
+      if (y) pick();
+      document.querySelector('.recall-confirm .recall-go')?.click();
+      const out = { ask, ring: !!document.querySelector('.nav-jump-ring'),
         label: document.querySelector('.nav-jump-ring-label')?.textContent ?? '',
         stamp: Number(sessionStorage.getItem('chicago4d.transfer')) > 0 };
       (document.activeElement ?? document.body).dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', code: 'Escape', bubbles: true, cancelable: true }));
@@ -17659,11 +17668,12 @@ for (const [label, viewport, touch] of [
     await page.waitForTimeout(1300);
     const stayed = await page.evaluate(() => location.href);
     await page.evaluate(() => window.__chicago4d.navigator.dock());
-    check(`${label}: the year chip opens Jump — three era cards, HERE on this one, RECALL the one signal-red key; a pick runs the ring and Escape aborts it, leaving no transfer stamp (T-2655)`,
+    check(`${label}: the year chip opens Jump — three era cards, HERE on this one, RECALL the one signal-red key; a pick asks DEPART / CANCEL first (T-3390), runs the ring on DEPART, and Escape aborts it, leaving no transfer stamp (T-2655)`,
       jumpScreen.app === 'jump' && jumpScreen.years.join() === '1835,1904,1812' && jumpScreen.here.join() === String(YEAR)
       && jumpScreen.hereWord === 1 && jumpScreen.keys === 1 && jumpScreen.recall === '../' && jumpScreen.red && !jumpScreen.snake
       // The stamp is written as the page leaves, not as the ring starts (44450de1), so a
       // ring that is aborted leaves none: part 15's real jump reads it on arrival.
+      && ring.ask.prompt && !ring.ask.ring && ring.ask.title.includes(String(YEAR)) && ring.ask.title.includes(other) && ring.ask.cancelled
       && ring.ring && ring.label.includes(other) && !ring.stamp && !aborted.ring && stayed === aborted.href
       && !aborted.stamp,
       JSON.stringify({ jumpScreen, other, ring, aborted, stayed }));
@@ -21457,6 +21467,8 @@ for (const [label, viewport, touch] of [
       const to = await p14.evaluate(() => {
         const card = [...document.querySelectorAll('#nav-app-jump a.nav-jump')].find((c) => c.dataset.year === (window.__chicago4d.scene?.id === '1904' ? '1835' : '1904'));
         card?.click();
+        // T-3390: the pick asks first; DEPART.
+        document.querySelector('.recall-confirm .recall-go')?.click();
         return card?.dataset.year ?? null;
       });
       const ringShown = await p14.evaluate(() => !!document.querySelector('.nav-jump-ring'));

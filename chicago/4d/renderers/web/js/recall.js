@@ -5,6 +5,8 @@
  *
  *   ask(href)     a small prompt in the machine's voice, CANCEL and RETURN. Esc, a tap
  *                 outside the card or CANCEL leaves the scene exactly as it was.
+ *   askJump(to, go)  the same prompt before the Navigator's Jump leaves this year for
+ *                 another (T-3390), CANCEL and DEPART; `go` runs the jump's own ring.
  *   depart(href)  the reverse ring: the outbound transfer's rings run backwards (wide and
  *                 faint, closing to the centre), the lamps light Arrive › Lock › Scan and the
  *                 year readout rolls forward to the present, then the page goes. The recall
@@ -87,22 +89,22 @@ export function createRecall({
     if (restore) try { back?.focus?.({ preventScroll: true }); } catch { /* focus is a courtesy */ }
   }
 
-  /** Ask first. Returns false when a prompt or a ring is already up. */
-  function ask(href = '../') {
+  /** The prompt itself: a briefing card with CANCEL and a bright confirm key. Returns
+   * false when a prompt or a ring is already up. `onYes` runs after the card is gone. */
+  function open({ eyebrow, code, title, body, confirm, onYes }) {
     if (prompt || ring) return false;
     const card = el('div', 'recall-card');
     const head = el('p', 'recall-head');
-    head.append(el('span', 'recall-eyebrow', t('recall.eyebrow')),
-      el('span', 'recall-code', year ? t('recall.code', { year }) : t('recall.code.plain')));
-    const title = el('h2', 'recall-title', t('recall.title'));
-    title.id = 'recall-title';
-    const body = el('p', 'recall-body', year ? t('recall.body', { year }) : t('recall.body.plain'));
-    body.id = 'recall-body';
+    head.append(el('span', 'recall-eyebrow', eyebrow), el('span', 'recall-code', code));
+    const h = el('h2', 'recall-title', title);
+    h.id = 'recall-title';
+    const p = el('p', 'recall-body', body);
+    p.id = 'recall-body';
     const no = button('recall-cancel', t('recall.cancel'));
-    const yes = button('recall-go', t('recall.confirm'));
+    const yes = button('recall-go', confirm);
     const actions = el('div', 'recall-actions');
     actions.append(no, yes);
-    card.append(head, title, body, actions);
+    card.append(head, h, p, actions);
     const shade = el('div', 'recall-confirm');
     shade.setAttribute('role', 'alertdialog');
     shade.setAttribute('aria-modal', 'true');
@@ -110,15 +112,44 @@ export function createRecall({
     shade.setAttribute('aria-describedby', 'recall-body');
     shade.append(card);
     no.addEventListener('click', () => close());
-    yes.addEventListener('click', () => { const to = prompt?.href ?? href; close({ restore: false }); depart(to); });
+    yes.addEventListener('click', () => { if (!prompt) return; close({ restore: false }); onYes(); });
     // A tap on the shade, outside the card, is a no.
     shade.addEventListener('click', (e) => { if (e.target === shade) close(); });
-    prompt = { el: shade, href, back: doc.activeElement, keys: [no, yes] };
+    prompt = { el: shade, back: doc.activeElement, keys: [no, yes] };
     doc.body.append(shade);
     doc.documentElement?.setAttribute?.('data-recall-open', '');
-    // The safe answer has the focus; RETURN is the bright key.
+    // The safe answer has the focus; the confirm key is the bright one.
     try { no.focus({ preventScroll: true }); } catch { /* focus is a courtesy */ }
     return true;
+  }
+
+  /** Ask first. Returns false when a prompt or a ring is already up. */
+  function ask(href = '../') {
+    return open({
+      eyebrow: t('recall.eyebrow'),
+      code: year ? t('recall.code', { year }) : t('recall.code.plain'),
+      title: t('recall.title'),
+      body: year ? t('recall.body', { year }) : t('recall.body.plain'),
+      confirm: t('recall.confirm'),
+      onYes: () => depart(href),
+    });
+  }
+
+  /** T-3390: the same question before a Jump to another year. `to` is the destination
+   * ({ year, when } — `when` its scene date in words); `go` runs the jump on DEPART.
+   * CANCEL, Esc or a tap outside leaves everything as it was and `go` is never called. */
+  function askJump(to, go) {
+    const dest = String(to?.year ?? '');
+    // The date is kept on one line ("1 July / 1835" read badly on a phone).
+    const when = String(to?.when || dest).replace(/ /g, '\u00a0');
+    return open({
+      eyebrow: t('recall.jump.eyebrow'),
+      code: year ? t('recall.jump.code', { from: year, to: dest }) : t('recall.jump.code.plain', { to: dest }),
+      title: year ? t('recall.jump.title', { from: year, to: dest }) : t('recall.jump.title.plain', { to: dest }),
+      body: year ? t('recall.jump.body', { from: year, when }) : t('recall.jump.body.plain', { when }),
+      confirm: t('recall.jump.confirm'),
+      onYes: () => go?.(),
+    });
   }
 
   function stopRing() {
@@ -181,6 +212,7 @@ export function createRecall({
 
   return {
     ask,
+    askJump,
     depart,
     close,
     abort: stopRing,

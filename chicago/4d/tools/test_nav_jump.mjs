@@ -99,8 +99,22 @@ const text = (el) => [el.textContent, ...el.children.map(text)].join('');
   assert.equal(to1835.href, '../1835/');
   const modified = to1835.click({ metaKey: true });
   assert.equal(modified.defaultPrevented, false, 'a modified click opens the page as a link does');
-  const e = to1835.click();
-  assert.equal(e.defaultPrevented, true, 'a plain click jumps in the world');
+  // T-3390: a plain click asks first, and the ring waits on the answer.
+  const asks = [];
+  mount(panel, { scene: { id: '1904' }, actions: { recall: () => calls.push('recall'), confirmJump: (to, go) => asks.push({ to, go }) } }, {
+    doc, reduced: false, go: (href) => calls.push(['go', href]),
+    wait: (fn, ms) => { timers.push({ fn, ms }); return timers.length; }, cancel: (id) => { timers[id - 1].fn = null; },
+    storage: { setItem: (k, v) => stored.set(k, v) },
+  });
+  const asking = walk(panel).find((c) => String(c.className).split(' ').includes('nav-jump') && c.dataset.year === '1835');
+  const e = asking.click();
+  assert.equal(e.defaultPrevented, true, 'a plain click does not follow the link');
+  assert.equal(asks.length, 1, 'it asks the page first');
+  assert.deepEqual([asks[0].to.year, asks[0].to.when], [1835, '1 July 1835'], 'naming the year and its scene date');
+  assert.equal(doc.body.children.find((c) => c.className === 'nav-jump-ring'), undefined, 'no ring while it asks');
+  assert.equal(timers.length, 0, 'and no timer: a cancelled prompt leaves nothing running');
+  assert.equal(stored.size, 0, 'nor any stamp');
+  asks[0].go();
   const ring = doc.body.children.find((c) => c.className === 'nav-jump-ring');
   assert.ok(ring, 'the transfer ring closes over the town');
   assert.equal(ring.getAttribute('role'), 'status');
@@ -147,6 +161,7 @@ const text = (el) => [el.textContent, ...el.children.map(text)].join('');
   assert.match(css, /prefers-reduced-motion: reduce\) \{\s*\.nav-jump-ring, \.nav-jump-ring i \{ animation: none; \}/);
   assert.match(css, /\.nav-key[\s\S]*?background: var\(--signal/, 'the key is signal red');
   const main = readFileSync(path.join(web, 'js/main.js'), 'utf8');
+  assert.match(main, /confirmJump: \(to, go\) => \(recallHome \? recallHome\.askJump\(to, go\) : go\(\)\)/, 'the page asks before a Jump (T-3390)');
   assert.match(main, /getElementById\('year-badge'\)\?\.addEventListener\('click', \(\) => \{ void navigatorUi\?\.select\('jump'\)/, 'the year chip opens Jump (T-2626\'s #year-badge button)');
 }
 
