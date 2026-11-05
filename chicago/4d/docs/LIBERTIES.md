@@ -40639,3 +40639,24 @@ leader's presence (aerials), the dormer's presence and place (aerials, HABS phot
 `glessner_house.as_built_1887.form.rainwater_details`.
 **Ticket:** T-3373.
 **Recorded:** 2026-11-05 (T-3373).
+
+### L-glessner-court-stones-3374 — Glessner's dining-bay corner stones and the lintel courses beside it
+
+**Decision:** on the `glessner_house` dining bay, each corner between two lit facets is now one tall
+rock-faced stone, from the sill course to the lintel course, where brick and two narrow jamb stones
+stood. East of the bay, the three first-floor windows and the three second-floor windows now sit
+under two continuous stone lintel courses, which run from the bay's east facet (W 60.9) to the hall
+bow (W 38.22). There the first-floor course had been three separate lintels and the second floor had
+none. The owner, 2026-11-05: "In the round tower, middle height, the stone facing covers the corner
+and there are other stone headers that can't be seen well or are incorrect", with his 2024
+photograph marking those two courses.
+**What is read.** HABS photograph 5 (c. 1923) and the owner's 2024 photograph show the corner stones
+and the two continuous courses. The tops of both courses follow the bow's own lintel courses on
+sheet 4 (15.49 and 25.62 ft ng), and their feet are the windows' heads (14.5 and 24.0 ft).
+**What is invented.** The stones' projection (the jambs' 50 mm) and their mitre at the corner, and
+each course's ends at the bay and at the bow.
+**How to resolve:** a measured elevation of the north range's court face.
+**Covers:** `glessner_house.as_built_1887.form.bay_dining_elevation`,
+`glessner_house.as_built_1887.form.openings_court_north`.
+**Ticket:** T-3374.
+**Recorded:** 2026-11-05 (T-3374).
