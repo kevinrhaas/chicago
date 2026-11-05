@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "cornell-northwest-west-windows",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "d419de6058cfc0d822bca63b60e203b80d5281023a4db9472a2a33560c7c9d49",
+  "glb_sha256": "05503ca43e17496a86f040f9c5c1553be1f8b4df63e60abb4625ffa2a849c780",
   "camera_sha256": "98341850e0c29a9e5841d5ef17833ecdc7c3c14a11ff76aa740c3aa84f82f4f4",
   "photo_sha256": "5fe13212fd1a893382c2b02c5be1cd2c1feb5d17b1e32f13a1a734fc90dbbca5",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg",
@@ -78,6 +78,10 @@
     },
     {
       "what": "T-3140, the window over the great arch: this print, taken as the house was finished, shows it as one wide unglazed opening under one lintel, with no stone pier in it, where the build had three lights between two piers. HABS 01 (1963) and HABS 15 (1965) show the same single opening, so the form is attested by three pictures across 78 years. Rebuilt as one opening on its old span (W 97.7-110.1) and heights; re-rendered, it reads as one opening here, standing about 40 px off the print's as the rest of the range east of the stable does through this camera (the stable-end-cameras row). docs/RESEARCH/glessner-signoff-T-3140/.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3371: the alley (right-hand) gable no longer stands over its roof as a fin; its apex now sits on the cresting line running from the cupola, as this print draws it, with its coping just proud. The north range's roof at the left edge rises with its raised ridge (L-glessner-north-ridge-3371).",
       "status": "fixed"
     }
   ],

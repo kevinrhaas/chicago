@@ -40560,3 +40560,34 @@ project is `diagnostic_only` for that reason.
 
 **Ticket:** T-2383.
 **Recorded:** 2026-11-04.
+
+
+### L-glessner-north-ridge-3371 — Glessner's 18th Street range ridge raised to meet the stable's at the cupola; the alley gable brought down onto its roof
+
+**Decision:** the `glessner_house` north range's ridge stands at 36.17 ft over north grade, the
+stable's cross ridge, where sheet 4's Section A-A prints 34.1. The two ridges now meet level at the
+cupola and run as one line from the stable to the east wing. The street eave (23.1 ft) and the
+courtyard edge (24.0 ft at S 29.19) stay, so both slopes steepen about their eaves. The alley gable's
+wall is brought down onto the roof's own apex, S 12.31 at 36.17 ft, from S 14.6 at 38.6, so its
+coping follows the tiles and stands its 1 ft proud. The dining bay's copper point keeps its 34.1 ft
+(T-2172's shortened cap), and its level tiled connector now meets the courtyard slope about 2.5 ft
+short of the ridge. The owner, 2026-11-05, from Google Earth: the north ridge "joins the cupola
+tower like thing evenly with the rest of the north wing", and the alley gable reads as stone where
+the photographs do not show it.
+**What is read.** HABS photograph 1 (1963) draws the north range's cresting and the stable's cross
+ridge cresting on one straight line: the cross crest lies within about 4 px of the north line's
+extension, where the 34.1 ft model put it 36-42 px above. The print's eave-to-roll gaps put the north
+ridge 0.7-1.7 ft over 34.1. The owner's aerials show one level ridge. Both prints (Cornell c. 1887
+and HABS 1) show the alley gable in granite with a thin coping whose apex is at the cresting line.
+**What is invented.** The ridge's exact height: it is set to the cross ridge's 36.17 ft rather than
+measured, 0.4 ft over the photographic range; sheet 4's printed 11.0 ft rise is departed from by
+2.07 ft. The coping's top, about 37.2 ft, is under T-2758's 38.75-40.63 ft read through the Cornell
+fits of the earlier, higher gable. The connector's meeting with the slope is drawn, not seen.
+**What is not changed.** The east wing's ridge (45.7 ft above the door), checked against sheet 6,
+Taylor 2135 and HABS 16 and 17 and kept; the cupola; the stable's W 141 ridge; every eave.
+**How to resolve:** a measured section through the north range west of W 51.3, or a level
+photograph of the north roof's cresting.
+**Ticket:** T-3371.
+**Review:** `docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg`.
+**Recorded:** 2026-11-05 (T-3371).
