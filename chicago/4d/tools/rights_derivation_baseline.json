@@ -1722,6 +1722,14 @@
       "sole_support": false,
       "confidence": "inferred"
     },
+    "henderson_house_1816_prairie/as_mapped_1904/form.face_brick": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1816_henderson_photo"
+      ],
+      "sole_support": true,
+      "confidence": "reconstructed"
+    },
     "henderson_house_1816_prairie/as_mapped_1904/form.front_bays": {
       "kind": "structure",
       "blocked_sources": [
@@ -3188,6 +3196,14 @@
       "sole_support": false,
       "confidence": "inferred"
     },
+    "marshall_field_house_1905_prairie/as_mapped_1904/form.face_brick": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1905_field_photo"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
     "marshall_field_house_1905_prairie/as_mapped_1904/form.north_bays": {
       "kind": "structure",
       "blocked_sources": [
@@ -4280,6 +4296,14 @@
       ],
       "sole_support": true,
       "confidence": "inferred"
+    },
+    "spalding_house_1637_prairie/as_mapped_1904/form.face_brick": {
+      "kind": "structure",
+      "blocked_sources": [
+        "glessner_blog_1637_grosvenor_asbuilt_photo"
+      ],
+      "sole_support": true,
+      "confidence": "reconstructed"
     },
     "spalding_house_1637_prairie/as_mapped_1904/form.front_bays": {
       "kind": "structure",

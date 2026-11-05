@@ -29,7 +29,7 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The five live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. A coachman's wife and children in the rear building are named in his note rather than carded. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The five live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. A coachman's wife and children in the rear building are named in his note rather than carded. The children the Blue Book lists at the number from 1890 to 1911 are on the card with the years each was listed, whether or not they were at home in 1904. The 1910 census was not read for this card. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
       "census_1900_chicago_t623_roll245"
@@ -55,6 +55,55 @@
         "relation_as_enumerated": "Head"
       },
       "note": "The 1900 census lists Marshall Field here as head, born August 1834, in Massachusetts, widowed, dry goods merchant (ED 40, sheet 4A, line 34, leaf n800)."
+    },
+    {
+      "id": "pa1904_field_marshall_jr_at_1905",
+      "name": "Marshall Field jr.",
+      "relationship": "son",
+      "grade": "attested",
+      "sources": [
+        "classic_chicago_prairie_kids_party",
+        "wikipedia_marshall_field",
+        "chicago_blue_book_1892"
+      ],
+      "born": {
+        "value": "1868",
+        "confidence": "attested",
+        "sources": [
+          "wikipedia_marshall_field"
+        ],
+        "note": "1868-1905 (Wikipedia)."
+      },
+      "lived_here": {
+        "years": "by 1886 to about 1890",
+        "on_scene_date": "no"
+      },
+      "own_card": "pa1904_field_marshall_jr",
+      "note": "Marshall Field's only surviving son (a brother, Louis, died as a baby in 1866). He was at home here at seventeen, for the children's party his parents gave on 1 January 1886. He married Albertine Huck and by the 1892 edition of the Blue Book the couple had their own house a few doors south at 1919, where they live in 1904 on their own card. He died in 1905."
+    },
+    {
+      "id": "pa1904_field_ethel",
+      "name": "Ethel Field",
+      "relationship": "daughter",
+      "grade": "attested",
+      "sources": [
+        "wikipedia_ethel_beatty",
+        "classic_chicago_prairie_kids_party",
+        "wikipedia_marshall_field"
+      ],
+      "born": {
+        "value": "1873",
+        "confidence": "attested",
+        "sources": [
+          "wikipedia_ethel_beatty"
+        ],
+        "note": "Born in Cook County, Illinois, in 1873 (Wikipedia)."
+      },
+      "lived_here": {
+        "years": "by 1886 to 1891",
+        "on_scene_date": "no"
+      },
+      "note": "Marshall Field's daughter, twelve at the children's party of 1 January 1886 in this house. She was married here, at 'the home of her parents, 1905 Prairie Avenue', to Arthur Magie Tree on 1 January 1891, and was later Countess Beatty."
     },
     {
       "id": "pa1904_field_marshall_c1900_sophia_peterson",

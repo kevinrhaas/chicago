@@ -615,6 +615,10 @@ def _cornice(a, K, data, bays, conf):
     if straight:
         from .k01_mansard_straight import perimeter_span
         cut.append(perimeter_span(p))
+    # T-3384: nor does a side wall carried up through the mansard (k01_mansard_walled.cornice_cut)
+    from .k01_mansard_walled import cornice_cut
+    walled = cornice_cut(p) if getattr(p, "mansard", None) else []
+    cut += walled
     w, h = B["width_m"], B["height_m"]
     y_low = y_s - h
     # T-2350: under a flat roof the cornice is the street front's alone — its box ends flush
@@ -632,6 +636,8 @@ def _cornice(a, K, data, bays, conf):
     perim = start
     if straight:
         c0, c1 = perimeter_span(p)
+        stations = [st for st in stations if not c0 - w / 2 - 0.05 <= st[0] <= c1 + w / 2 + 0.05]
+    for c0, c1 in walled:
         stations = [st for st in stations if not c0 - w / 2 - 0.05 <= st[0] <= c1 + w / 2 + 0.05]
     crown = _crown_stations(p, B, cr, spec(p).get("crown"))
     seed = a.instance(CORNICE, "cornice",

@@ -1,0 +1,28 @@
+{
+  "id": "census_1910_chicago_t624_roll241",
+  "type": "manuscript",
+  "citation": "Thirteenth Census of the United States, 1910: Population. Illinois, Cook County, City of Chicago, Ward 1. NARA microfilm publication T624, roll 241 (\"Cook (EDs 114-134, 140-167, 1544, 1601, 1632) County\"), digitised from the film and republished by the Internet Archive as item 13thcensus1910po241unit, 1,472 leaves.",
+  "author": "The enumerators of supervisor's district 1, enumeration districts 166 (Edward Ransom) and 167 (Sadie Nelson King)",
+  "date": "1910",
+  "describes_date": "1910-04-15",
+  "repository": "National Archives and Records Administration, Record Group 29, microfilm publication T624, roll 241. The copy read is the Internet Archive's digitisation of that roll.",
+  "url": "https://archive.org/details/13thcensus1910po241unit",
+  "locator": "Leaves are cited as https://archive.org/download/13thcensus1910po241unit/page/n<N>.jpg. ED 166 (Ward 1, Tract A 18 part: bounded by 16th, Lake Michigan, 18th, Prairie, 20th, Indiana) holds Prairie Avenue 1600-1737 and the west side 1800-1918; ED 167 (20th, Prairie, 18th, Lake Michigan, 22nd, Indiana) holds the east side 1801-1945 and both sides 2000-2140. The ED bounds are the NARA T1224 descriptions as transcribed in Steve Morse's one-step ED tool. Leaves read for T-3382, with the checksums of the copies read on 2026-11-05:\nn1429 57591f2fb2a04193b43910853e397cd8b84410dcf211bfe9db9c4d8d74914781 (ED 166 sheet 1A)\nn1430 3430060abca5b629a8674ec04b33bee9a98a0d2d943417aaf31ef120540b340b (ED 166 sheet 1B)\nn1437 48597d300cfcc31b12b225cb36ec36e739f387a9e329e51db3bfbd3c9c1a25a8 (ED 166 sheet 5A)\nn1438 2f501b803f014d033d5a72d318656169d0629c9fcf6e787fa6f6da21025e4838 (ED 166 sheet 5B)\nn1439 82300d67489b1a61f4b6bb9dd4e327741b9a69c16b6779c2bf0fcefb45f2cdde (ED 166 sheet 6A)\nn1440 6975acb84a7f3edd340863184c8d9981973a90edc1ef8b9501763931a3d94d6d (ED 166 sheet 6B)\nn1443 f83a3a677d058f2d8eaf692233eb54056f1c4af9bd1fc49c9201c65a42d544ba (ED 166 sheet 8A)\nn1444 6f9c59becbb42500b008e045f003b28b33b3a000bd5d247e80213c1bc9243f12 (ED 166 sheet 8B)\nn1445 a759f42a906c04c0551e53503d9923e0dfb692223c9d4ca41d308ae2305093cb (ED 166 sheet 9A)\nn1451 b90743c1ceeccb4d4b3b123d99c43513180004a7d23ccfd4e3106b640e096492 (ED 167 sheet 2A)\nn1458 db4214eba9a2884a842da7f7bc3584f7b0a8e495163d03e3b7b4420764a90b15 (ED 167 sheet 5B)\nn1460 dd879540fd25ba6e70bedc5bedcba5859896931e6c63e800fabe8caf79b01b2c (ED 167 sheet 6B)\nn1462 f25ae8b94a47c6df048c9d25c8200db82b615d4ef03f2f1d13ccab5c666d4e8e (ED 167 sheet 7B)",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "rights_note": "A US federal census schedule of 1910, in the public domain. Read for who lived at an address; no asset is derived from it.",
+  "verified": true,
+  "access_notes": "Read 2026-11-05 (T-3382) from the Internet Archive's page images by eye; the schedules are handwritten and the item has no usable OCR. Only the Prairie Avenue households of the 1904 People cards were read closely; the rest of each sheet was not transcribed.",
+  "note": "The census of 15 April 1910 lists every person whose usual place of abode was the dwelling, by relationship to the head, with age, and for each married or widowed woman the number of children she had borne and the number living. It is six years after the 1904 scene: it is read here for the CHILDREN of the 1904 households, both those who were already at home in 1904 (then younger) and those born after it, and for the relationships the Blue Book does not print.",
+  "what_it_supplies": [
+    "the children at home in April 1910, by name, with age and relationship to the head",
+    "the mothers' counts of children born and living",
+    "relationships the Blue Book never prints (a son, a daughter, a sister, a niece)"
+  ],
+  "what_it_does_not_supply": [
+    "anything on 1 July 1904; a child seen in 1910 is placed in the 1904 house only by inference from age and the family's listing",
+    "children already grown and gone by 1910",
+    "households not on Prairie Avenue (the Lowdens, gone by 1910)"
+  ]
+}

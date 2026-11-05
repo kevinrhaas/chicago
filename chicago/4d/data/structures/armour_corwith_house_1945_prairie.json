@@ -122,6 +122,14 @@
           "confidence": "reconstructed",
           "note": "RECONSTRUCTED (L-k01-1945-corwith-3281): the kit's common brick for walls no picture shows."
         },
+        "face_brick": {
+          "value": {
+            "front": "pressed_red",
+            "sides": "common_salmon"
+          },
+          "confidence": "reconstructed",
+          "note": "T-3385: The 1928 Tribune halftone is crushed to black and reads no tone. A Second Empire brick front of 1872 on Prairie: the pressed red front of its decade, as Field's and Henderson's photographs read; the sides a salmon common run. Both picks are the period's, not this house's reading. Palette: data/components/prairie_1904/k03_face_brick.json; the reading: docs/RESEARCH/face-brick-1904-T-3385/README.md (L-k03-face-brick-3385)."
+        },
         "roof_form": {
           "value": "mansard",
           "confidence": "attested",

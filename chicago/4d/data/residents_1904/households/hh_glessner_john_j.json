@@ -41,7 +41,7 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS LEFT OUT, AND WHY. The two grown children are not here: the daughter Frances married Blewett Lee on 9 February 1898 and 'within a few years' moved one block north into 1700 S. Prairie Avenue, and the son George married Alice Hamlin in June 1898 and is listed at 1706 in the 1904 Blue Book; both households have cards of their own. Of the household staff the cook is here, with five more the 1900 census lists. The museum's account of her says she cooked for 'the live-in staff of eight' as well as the family; it names one other, Fanny Tynan, who worked for the Glessners 'on and off' for over twenty years without a date that reaches 1904, and the 1923 account says only that the passages were planned so that 'servants rarely are in evidence'. The 1900 census (ED 40, T623 roll 245) was read for this card. The five live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. A coachman's wife and children in the rear building are named in his note rather than carded. Left off: J. J. Glessner (the family was at The Rocks, their New Hampshire farm; the line points to their own entry elsewhere). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS LEFT OUT, AND WHY. The two grown children are not here: the daughter Frances married Blewett Lee on 9 February 1898 and 'within a few years' moved one block north into 1700 S. Prairie Avenue, and the son George married Alice Hamlin in June 1898 and is listed at 1706 in the 1904 Blue Book; both households have cards of their own. Of the household staff the cook is here, with five more the 1900 census lists. The museum's account of her says she cooked for 'the live-in staff of eight' as well as the family; it names one other, Fanny Tynan, who worked for the Glessners 'on and off' for over twenty years without a date that reaches 1904, and the 1923 account says only that the passages were planned so that 'servants rarely are in evidence'. The 1900 census (ED 40, T623 roll 245) was read for this card. The five live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. A coachman's wife and children in the rear building are named in his note rather than carded. Left off: J. J. Glessner (the family was at The Rocks, their New Hampshire farm; the line points to their own entry elsewhere). The children the Blue Book lists at the number from 1890 to 1911 are on the card with the years each was listed, whether or not they were at home in 1904. The 1910 census was not read for this card. A person goes on this card when a source names them, and not before.",
     "sources": [
       "glessner_house_family_page",
       "glessner_story_of_a_house_1923",
@@ -103,6 +103,51 @@
         ],
         "note": "No paid occupation is recorded. The museum's family page records her journal, kept from 1879 for forty years; her silversmith's workbench in the basement from 1904; her beekeeping; and the Monday Morning Reading Class she held in the library from 1893."
       }
+    },
+    {
+      "id": "pa1904_glessner_george_m_at_1800",
+      "name": "George M. Glessner",
+      "relationship": "son",
+      "grade": "attested",
+      "sources": [
+        "glessner_house_family_page",
+        "glessner_story_of_a_house_1923",
+        "chicago_blue_book_1895",
+        "chicago_blue_book_1897",
+        "chicago_blue_book_1898"
+      ],
+      "printed_as": "1800 J. G. M. Glessner",
+      "born": {
+        "value": "1871",
+        "confidence": "attested",
+        "sources": [
+          "glessner_house_family_page"
+        ],
+        "note": "Born 1871 (the museum's family page)."
+      },
+      "lived_here": {
+        "years": "1887-1898",
+        "on_scene_date": "no"
+      },
+      "own_card": "pa1904_glessner_george_m",
+      "note": "John George Macbeth Glessner, the son of the house, moved in with his parents the night the family first slept here, 1 December 1887, at sixteen. The Blue Book lists him here as J. G. M. Glessner from 1895 to 1898. He married Alice Hamlin in 1898 and in 1904 lives with her and their four children a block north at 1706, in one of the two townhouses his parents built for their children; that household has its own card. His mother had borne three children, two of them living, by 1910 (ED 166, sheet 1B, line 54, leaf n1430)."
+    },
+    {
+      "id": "pa1904_glessner_frances_at_1800",
+      "name": "Frances Glessner",
+      "relationship": "daughter",
+      "grade": "attested",
+      "sources": [
+        "glessner_house_family_page",
+        "glessner_story_of_a_house_1923",
+        "chicago_blue_book_1898"
+      ],
+      "lived_here": {
+        "years": "1887-1898",
+        "on_scene_date": "no"
+      },
+      "own_card": "pa1904_lee_frances_glessner",
+      "note": "The daughter of the house, nine when the family moved in on 1 December 1887. The 1898 Blue Book prints the household with '& dr.' for her. She married Blewett Lee on 9 February 1898 and within a few years was living one block north at 1700, the other of the twin townhouses her parents built; as Frances Glessner Lee she is on that card in 1904, and later made the Nutshell Studies of Unexplained Death."
     },
     {
       "id": "glessner_williamson_martha_l",

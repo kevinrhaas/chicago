@@ -7,7 +7,8 @@
  * motion), the Observatory's transfer stamp is written, and the destination's page takes
  * it from there with its own time-stream and landing (T-2610, T-2611, T-2613), the ring's
  * tail on screen as it would be from the Observatory (skin.js, `chicago4d.transfer`).
- * Escape, or Abort, during the ring stays put.
+ * Escape, or Abort, during the ring stays put. A plain pick asks first (T-3390): the page's
+ * DEPART / CANCEL prompt, the one Recall uses, and the ring starts only on DEPART.
  *
  * RECALL returns to the Observatory, asking first (T-2735), and is the screen's one
  * signal-red key. Time of day is not offered: no scene is lit at another hour yet, and a
@@ -101,7 +102,13 @@ export function mount(el, ctx = {}, opts = {}) {
         // A plain click jumps in the world; a modified one opens the page as a link does.
         if (e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
         e.preventDefault();
-        jumpTo(d, opts);
+        // T-3390: and asks first, as Recall does: one tap must not leave the year. The page's
+        // prompt (js/recall.js `askJump`) runs the ring only on DEPART; without one (a
+        // harness with no page), the jump goes as before.
+        const go = () => jumpTo(d, opts);
+        const ask = opts.confirm ?? ctx.actions?.confirmJump;
+        if (ask) ask({ year: d.year, date: d.date, when: dateWords(d.date) }, go);
+        else go();
       });
     }
     const plate = doc.createElement('img');

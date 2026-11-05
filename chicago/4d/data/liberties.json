@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1004,
+  "count": 1010,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -35114,7 +35114,7 @@
         },
         {
           "label": "Swept again by later work (2026-10-17)",
-          "text": "the owner still saw a standing tower at 1729, the one-storey 5.3 m stone range the fit left 2.5 m off the south wall, and draft porches hanging on their posts a basement's height above the lawn. So, still with no source claimed: a piece standing 3 m or less clear of everything else of its building is stretched across the gap to the nearest wall (fit.snap gap (m)), since the sheet draws one building; and every draft porch is a solid stone stoop up to the principal floor with four steps down on its face away from the house, its posts and roof left to the house's own pass. **1812 retired from this liberty by later work (2026-10-16):** George H. Wheeler's house now stands as the K01 frontage built from Albert Levy's photograph through a solved camera: three storeys over a raised basement, the south projection on K08 and the whole front carried up as a shaped Flemish gable, under `“1812 Prairie refined from the district draft to a K01 house built from Albert Levy's photograph: its massing, south projection and shaped Flemish gable read through a solved camera, the rest the kits' until later work”`, under the same id; its draft attributes are gone."
+          "text": "the owner still saw a standing tower at 1729, the one-storey 5.3 m stone range the fit left 2.5 m off the south wall, and draft porches hanging on their posts a basement's height above the lawn. So, still with no source claimed: a piece standing 3 m or less clear of everything else of its building is stretched across the gap to the nearest wall (fit.snap gap (m)), since the sheet draws one building; and every draft porch is a solid stone stoop up to the principal floor with four steps down on its face away from the house, its posts and roof left to the house's own pass. **Swept a third time by later work (2026-11-05; owner: \"do a sweep of unbuilt but non-sensible buildings and make them believable for now\"):** pieces the fit left standing clear of everything joined to their house (more than the 3 m the snap closes, or chained to it only through a porch) still rose two and three storeys: 2124 Calumet's 2.5 m range 7 m off the house, 1931 Indiana's 2.75 m one, ranges behind 1917 and 1921 Indiana, 2100 Calumet and 213 E. 18th Street. Still with no source claimed: such a piece narrower than fit.min body (m) (5.5 m, the narrowest house the drafts build) stands one storey under a flat roof, a shed or lean-to on the lot; and a stone front standing clear of every wall (1815 Prairie's coach house) is dropped, since a stone front is a wall's face. **1812 retired from this liberty by later work (2026-10-16):** George H. Wheeler's house now stands as the K01 frontage built from Albert Levy's photograph through a solved camera: three storeys over a raised basement, the south projection on K08 and the whole front carried up as a shaped Flemish gable, under `“1812 Prairie refined from the district draft to a K01 house built from Albert Levy's photograph: its massing, south projection and shaped Flemish gable read through a solved camera, the rest the kits' until later work”`, under the same id; its draft attributes are gone."
         },
         {
           "label": "How to resolve",
@@ -35168,6 +35168,7 @@
         "T-1837",
         "T-2690",
         "T-2738",
+        "T-3388",
         "T-2543",
         "T-1935",
         "T-1886",
@@ -43420,7 +43421,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "This work (owner, 2026-10-13: \"very simple buildings in varied appropriate colors based on Sanborn or other projections... gently faded\") draws the city around Prairie Avenue as faded, opaque stand-ins, from the 1904 context data (the context 1904 generator). On the ground the Sanborn 1911 sheets 20, 28 and 35 draw off Prairie Avenue (the Indiana and Calumet faces, the cross-street lots, Calumet's east face at 20th) each drawn part is the smallest rectangle that holds it, in its sheet colour's material: pink brick, blue stone, yellow frame. Everywhere else in the e1871 box and in a 450 m ring past it on the west, north and south, the city is PROJECTED. **What is inferred, not attested.** The sheet outlines and materials, for 1904: a 1911 survey carried back on Glessner House's reading that these sheets changed only at 1609-1611 and 1620 Prairie. **What is invented.** Every height and roof: by size and colour class (a masonry house 10.5 m to the eaves, gabled or flat about half each; a frame house 6.5 m and gabled; a rear building under 110 m2 5.5 m; over 450 m2 a 13 m flat-roofed block, over 1,200 m2 16 m), except three buildings given the figure the sheet prints (1st Presbyterian Church, 48 ft to the eaves and its 90 ft spire; the Thompson-Reid ice cream works, four storeys). Each building's tone within its material's family, and the fade. Every tree. Past the sheets, everything: the avenues on Michigan to Indiana's 128 m pitch repeated west, cross streets at the 20th-21st-22nd pitch (130 m) past 16th and 22nd, lots on the frontages the grid's own Indiana and Calumet lots measure, one house per lot set back 4.5-7.5 m, a stable on some, and materials in the mix the traced sheets measure; kept 40 m off the water and west of the Illinois Central's line on sheets 20 and 28. The rectangles drop porches' and bays' shapes and the sheets' storey figures. **Amended (2026-10-19; owner: the street ends showed \"fake buildings as just boxes and the bad trees\").** Each stand-in's walls are now painted, not modelled, with what its rule already claims: storeys at its height (3.4 m a house storey on a 1.1 m raised stone basement, 3.9 m a loft's), rows of two-over-two sash windows under stone lintels, string courses, a door at the top of a stoop on a house's end and in each house of a row; a row of lots is divided into 25 ft houses (7.6 m), each a slightly different brick, and a gabled row takes a gable to the street per house rather than one ridge; shop blocks carry shop windows under their flats, lofts wide windows, sheds high lights and doors; a flat roof sits behind a cornice. All of that is invented, by building type, and claims nothing about any one building. A drawn building at least 3.5 times as long as it is deep and no deeper than 16 m is read as a row of attached houses at the house rules' height, not a block: so the 110 m strip Robinson's plate 10 draws on 16th Street's north side, Mortimer and Tappan's subdivision of sixteen lots, is a row of three-storey houses and no longer a 16 m block. The trees are drawn as the parkway's grown American elm (the walkthrough's street trees code), sized by each tree's own height; the species is ours, after the elms the prints show on Prairie Avenue."
+          "text": "This work (owner, 2026-10-13: \"very simple buildings in varied appropriate colors based on Sanborn or other projections... gently faded\") draws the city around Prairie Avenue as faded, opaque stand-ins, from the 1904 context data (the context 1904 generator). On the ground the Sanborn 1911 sheets 20, 28 and 35 draw off Prairie Avenue (the Indiana and Calumet faces, the cross-street lots, Calumet's east face at 20th) each drawn part is the smallest rectangle that holds it, in its sheet colour's material: pink brick, blue stone, yellow frame. Everywhere else in the e1871 box and in a 450 m ring past it on the west, north and south, the city is PROJECTED. **What is inferred, not attested.** The sheet outlines and materials, for 1904: a 1911 survey carried back on Glessner House's reading that these sheets changed only at 1609-1611 and 1620 Prairie. **What is invented.** Every height and roof: by size and colour class (a masonry house 10.5 m to the eaves, gabled or flat about half each; a frame house 6.5 m and gabled; a rear building under 110 m2 5.5 m; over 450 m2 a 13 m flat-roofed block, over 1,200 m2 16 m), except three buildings given the figure the sheet prints (1st Presbyterian Church, 48 ft to the eaves and its 90 ft spire; the Thompson-Reid ice cream works, four storeys). Each building's tone within its material's family, and the fade. Every tree. Past the sheets, everything: the avenues on Michigan to Indiana's 128 m pitch repeated west, cross streets at the 20th-21st-22nd pitch (130 m) past 16th and 22nd, lots on the frontages the grid's own Indiana and Calumet lots measure, one house per lot set back 4.5-7.5 m, a stable on some, and materials in the mix the traced sheets measure; kept 40 m off the water and west of the Illinois Central's line on sheets 20 and 28. The rectangles drop porches' and bays' shapes and the sheets' storey figures. **Amended (2026-10-19; owner: the street ends showed \"fake buildings as just boxes and the bad trees\").** Each stand-in's walls are now painted, not modelled, with what its rule already claims: storeys at its height (3.4 m a house storey on a 1.1 m raised stone basement, 3.9 m a loft's), rows of two-over-two sash windows under stone lintels, string courses, a door at the top of a stoop on a house's end and in each house of a row; a row of lots is divided into 25 ft houses (7.6 m), each a slightly different brick, and a gabled row takes a gable to the street per house rather than one ridge; shop blocks carry shop windows under their flats, lofts wide windows, sheds high lights and doors; a flat roof sits behind a cornice. All of that is invented, by building type, and claims nothing about any one building. A drawn building at least 3.5 times as long as it is deep and no deeper than 16 m is read as a row of attached houses at the house rules' height, not a block: so the 110 m strip Robinson's plate 10 draws on 16th Street's north side, Mortimer and Tappan's subdivision of sixteen lots, is a row of three-storey houses and no longer a 16 m block. The trees are drawn as the parkway's grown American elm (the walkthrough's street trees code), sized by each tree's own height; the species is ours, after the elms the prints show on Prairie Avenue. **Amended (2026-11-05; owner, behind 244-250 E. 18th Street: free-standing pink towers with windows, \"make them believable for now\").** The traced sheets join neighbouring buildings into runs, and the run's size had set every part's height: a 2.9 x 4.8 m yard piece behind 1727 Indiana stood 16 m to its eaves as part of a 2,000 m2 \"block\", and when the Indiana drafts took the run's main body away its pieces stood on alone. Now a part takes a block's height only when it is 450 m2 itself; a part of a run at least 90 m2 and 5.5 m across is a house at the house rules' height (the terraces sheet 35 draws on Indiana Avenue at 20th-21st), and a smaller one a wing or porch; no sheet stand-in stands taller than twice its narrower side; a drawn part under 1.5 m across is a line the trace caught, not a building, and is dropped; and every part carries its drawn building's `group`, so the renderer drops a drawn building whole once placed structures touch half its plan. All of it is still invented by rule and claims nothing about any building."
         },
         {
           "label": "How to resolve",
@@ -43433,6 +43434,7 @@
       ],
       "work_refs": [
         "T-2833",
+        "T-3388",
         "T-2477"
       ]
     },
@@ -67070,6 +67072,10 @@
           "text": "Only Otis/Hans MASTER and WEB LOD3 retain their same-resident cleared LOD0 shirt/trouser topology to repair visible reduced-detail clothing holes. WEB garment positions/normals are new deterministic rest-weighted single-skin derivations, not an exact donor-position copy. Body, original skin/rig, images, material values and old clips remain unchanged; all LOD0/1/2 payloads remain exact. This introduces no new garment pattern, archival likeness, period attestation or driver action. The separate terminal recipe, exact regeneration, native seat/shoe/palm controls and all24 desktop/phone fixture record finite evidence; additional triangles/bytes and unchanged nine draws are explicitly measured. Full town budgets, continuous garment/contact fit, photographic quality and broad other work acceptance remain open."
         },
         {
+          "label": "Driver life supplement, 2026-11-05",
+          "text": "The owner, seeing Hans on dev: *\"he is frozen, arms stiff, not looking around or shifting naturally\"*. A procedural layer (the walkthrough's driver life code) now runs over the seated clip each visual frame for both drivers: breathing about 13 times a minute; pelvis and spine moved by the travelled road (a sum of sines over metres, not a surveyed surface) and the team's stride, with the head held level against them; a lean into a turn from v²k/g; a new settling on the seat every 5-13 s; looks that eyes lead and head, neck and (past 35 degrees) torso follow, mostly down the road, at the houses and walks either side, at the horses, into a turn, and at a visitor standing within about 7 m (12 m when stopped); elbows in, forearms lowered to the lap, wrists turned thumb-up with the fingers closed, the hands giving and taking twice a stride and now and then shortening one rein; blinks where a LOD carries the eyelid morphs. Every amplitude, interval and choice of where he looks is a reconstructed authoring choice, not an observed habit or a documented coachman's practice; the sequence is seeded from the person id, so it is the same on every load. The reins still run to the actual palm surfaces, which now move with the hands. The clips, exports, skin and geometry are unchanged. the driver life test holds it bounded and deterministic on the real LOD0 and LOD3 exports; continuous rein grasp, garment fit and photographic acceptance remain open."
+        },
+        {
           "label": "Recorded",
           "text": "2026-11-02."
         }
@@ -67883,6 +67889,435 @@
         "T-2172",
         "T-2758",
         "T-3371"
+      ]
+    },
+    {
+      "id": "L-glessner-court-stacks-3372",
+      "title": "Glessner's two courtyard service stacks set on the flues HABS sheets 2 and 3 draw",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.chimney_service_east"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.chimney_service_west"
+        }
+      ],
+      "recorded": "2026-11-05",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the John J. Glessner House north range's two courtyard stacks, carried into 1904 from the owner's aerial by “Connected north, stable and courtyard roofs”, move onto the flue masses the HABS first- and second-floor plans draw: chimney service east to W 102.5-105.5 / S 18-21, on the partition just west of the court door (W 100-104), so it rises over the door's west half; chimney service west to W 121.5-125.25 / S 23.5-26.5, in the inner corner against the stable's court wall. They had stood at W 94-97 and W 113.5-117, read off an aerial to about 2 ft. The east stack's top goes from 36 to 38 ft ng, keeping its clearance over the north ridge earlier work raised. The owner, 2026-11-05: the corner stack \"appears to be misplaced\", and the middle one \"should be aligned with the door\". **What is read.** The plan positions, from the sheets' dimension chain off the west wall (about 17 px/ft; the east breast is printed 3 ft 0.5 in). **What is invented.** As before, each stack's height, cap and flues, and its pre-1904 presence (“Connected north, stable and courtyard roofs”)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a dated photograph of the north range's courtyard slope."
+        },
+        {
+          "label": "Covers",
+          "text": "`glessner_house.as_built_1887.form.chimney_service_east`, `glessner_house.as_built_1887.form.chimney_service_west`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-05 (T-3372)."
+        }
+      ],
+      "work_refs": [
+        "T-3371",
+        "T-3372"
+      ]
+    },
+    {
+      "id": "L-glessner-court-leanto-3373",
+      "title": "Glessner's northeast court corner: a low hipped copper roof and a small dormer",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.rainwater_details"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.v4_detail"
+        }
+      ],
+      "recorded": "2026-11-05",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "between the dining bay and the hall bow, the John J. Glessner House north range's courtyard slope now ends in a low copper roof instead of copper laid flush on the tiles (“Northeast courtyard copper return”). HABS sheet 4's section at W 51.3 cuts this run: the court wall stands higher there (26.5 ft on its frame) and the slope's lowest 5.7 ft run at 27 degrees, flatter than the 36.6-degree slope above; carried on in the sheet's own geometry, that flatter run meets the main slope at S 20.41, where the owner's 2026 aerials end the copper and where the great chimney's foot stands. So the court wall rises east of W 58 to the hall bow's eave (27.33 ft ng), the copper rises from there at about 32 degrees to meet the tiles at S 20.41, and the roof kinks there; its west end is hipped at W 58, clear of the dining bay, and a leader stands at that corner, as the aerials show. The tiled eave beside the dining bay now drains into that leader, not the bow's. The owner, 2026-11-05: \"you have a flat roof in the northeast corner of the courtyard, but you can see that it is a peaked roof there and stepped down and there is a drainage pipe\". A small dormer stands just east of the great chimney (W 32.6-36.6, front at S 20.3), where the aerials show a small pointed tiled dormer and HABS photograph 5 shows a finial; it copies the east wing's courtyard dormers (sheet 4): timber front, one light, tile-hung cheeks, a kicked pyramid hood under a clay finial. **What is read.** The section's wall height and lower pitch, the copper's upper edge, the hip and the leader's presence (aerials), the dormer's presence and place (aerials, HABS photograph 5). **What is invented.** The lean-to's eave set level with the bow's, the hip's place (W 58), the 0.5 ft overhang, the trough and the leader's exact place; the dormer's 4 ft width, its eave (33.9 ft ng) and apex (35.9 ft ng, under the ridge), its light and its smaller finial."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a dated photograph of the north range's courtyard slope from the court."
+        },
+        {
+          "label": "Covers",
+          "text": "`glessner_house.as_built_1887.form.v4_detail`, `glessner_house.as_built_1887.form.rainwater_details`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-05 (T-3373)."
+        }
+      ],
+      "work_refs": [
+        "T-3373"
+      ]
+    },
+    {
+      "id": "L-glessner-court-stones-3374",
+      "title": "Glessner's dining-bay corner stones and the lintel courses beside it",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.bay_dining_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.openings_court_north"
+        }
+      ],
+      "recorded": "2026-11-05",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "on the John J. Glessner House dining bay, each corner between two lit facets is now one tall rock-faced stone, from the sill course to the lintel course, where brick and two narrow jamb stones stood. East of the bay, the three first-floor windows and the three second-floor windows now sit under two continuous stone lintel courses, which run from the bay's east facet (W 60.9) to the hall bow (W 38.22). There the first-floor course had been three separate lintels and the second floor had none. The owner, 2026-11-05: \"In the round tower, middle height, the stone facing covers the corner and there are other stone headers that can't be seen well or are incorrect\", with his 2024 photograph marking those two courses. **What is read.** HABS photograph 5 (c. 1923) and the owner's 2024 photograph show the corner stones and the two continuous courses. The tops of both courses follow the bow's own lintel courses on sheet 4 (15.49 and 25.62 ft ng), and their feet are the windows' heads (14.5 and 24.0 ft). **What is invented.** The stones' projection (the jambs' 50 mm) and their mitre at the corner, and each course's ends at the bay and at the bow."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a measured elevation of the north range's court face."
+        },
+        {
+          "label": "Covers",
+          "text": "`glessner_house.as_built_1887.form.bay_dining_elevation`, `glessner_house.as_built_1887.form.openings_court_north`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-05 (T-3374)."
+        }
+      ],
+      "work_refs": [
+        "T-3374"
+      ]
+    },
+    {
+      "id": "L-glessner-stable-verges-3376",
+      "title": "Glessner's stable gables are verges, not parapets",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.v4_detail"
+        }
+      ],
+      "recorded": "2026-11-05",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "on the John J. Glessner House stable, the 18th Street gable and the alley gable no longer carry a stone coping standing 1 ft over the roof with kneelers at their feet. The tiles now run over both gables' rakes, 0.15 m past the wall, and end in a thin lip. The stone gables, their apexes and the roof behind them are unchanged. The owner, 2026-11-05, marking the c. 1887 Cornell print beside the model: \"the photo the roof line goes over the end, and that is not how you have it\", and \"also the edge of the north gable too\". **What is read.** The Cornell print draws both gables with a dark tile edge over the stone and the cresting carried to each apex; HABS photograph 1 (1963) shows the same thin edge on the 18th Street gable. Neither shows a coping standing proud of the tiles. **What is invented.** The verge's 0.15 m oversail (the alley eave's own), its 0.10 m rise over the stone and its 0.16 m lip, set in the stable builder; the gables' `plain` ends are what the photographs show."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a measured section through either gable's rake."
+        },
+        {
+          "label": "Covers",
+          "text": "`glessner_house.as_built_1887.form.v4_detail`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-05 (T-3376)."
+        }
+      ],
+      "work_refs": [
+        "T-3376"
+      ]
+    },
+    {
+      "id": "L-k03-face-brick-3385",
+      "title": "Prairie Avenue's brick told house by house: a period face brick on each brick front, a common run on each house's flanks, as tints over the two K03 panels",
+      "section": "per_subject",
+      "subjects": [
+        "armour_corwith_house_1945_prairie",
+        "dent_house_1823_prairie",
+        "dexter_house_1721_prairie",
+        "edson_keith_house_1906_prairie",
+        "henderson_house_1816_prairie",
+        "house_1600_prairie",
+        "house_1604_prairie",
+        "house_1608_prairie",
+        "house_1613_prairie",
+        "house_1615_prairie",
+        "house_1616_prairie",
+        "house_1619_prairie",
+        "house_1621_prairie",
+        "house_1623_prairie",
+        "house_1626_prairie",
+        "house_1628_prairie",
+        "house_1634_prairie",
+        "house_1636_prairie",
+        "house_1712_prairie",
+        "house_1726_prairie",
+        "house_1730_prairie",
+        "house_2001_prairie",
+        "house_2003_prairie",
+        "house_2005_prairie",
+        "kellogg_house_1709_prairie",
+        "kellogg_house_1923_prairie",
+        "marshall_field_house_1905_prairie",
+        "spalding_house_1637_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "armour_corwith_house_1945_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "dent_house_1823_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "dexter_house_1721_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "edson_keith_house_1906_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "henderson_house_1816_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1600_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1604_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1608_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1613_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1616_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1619_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1621_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1626_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1628_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1634_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1636_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1712_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1726_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1730_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2001_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2003_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2005_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "kellogg_house_1709_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "kellogg_house_1923_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "marshall_field_house_1905_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "spalding_house_1637_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        }
+      ],
+      "recorded": "2026-11-05",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "a palette of period bricks (the k03 face brick data): six face bricks (pressed red, deep red, rough red-brown, brown, golden buff, and an 1860s cream dulled by smoke) and four runs of Chicago common (buff, salmon, yellow, smoke-dulled), each one of the two K03 panels 1904 already loads under a colour factor (its mean over the panel's, never above 1) and a roughness shift, so no map is added. A K01 record names its pick as face brick; 28 houses on Prairie Avenue now wear one: the brick fronts a face brick, the side and rear walls, stacks and area walls a common run. The owner, 2026-11-05: \"this is prairie avenue and they would have nice face brick and it would be different for houses\". **What is read.** That the street's brick fronts were red and their flanks a pale common: tone readings inside each build's own surfaces on the photographs of 1905, 1816, 1637, 1834 and 1812 Prairie (all read red fronts) and of the flanks of 1625, 1637, 1816, 1828, 1834, 1900 and 1612 (all read a common buff family), the research notes on face brick 1904 this work/. The period's practice, pressed face brick on the street elevation and commons on the party and side walls, is in the sources that note cites. **What is invented.** Every colour is a reconstruction (the pictures are monochrome; a plate cannot tell buff from salmon or yellow), and so is each pick for a house no picture reads: chosen by the decade the record gives it (the 1860s pairs cream, the 1870s fronts red, the 1880s darker reds and browns, about 1890 buff), and each house's common run, dealt so that neighbours differ."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a colour description or a colour picture of a house (a contemporary account, an early autochrome, a surviving wall) replaces its pick."
+        },
+        {
+          "label": "Covers",
+          "text": "`marshall_field_house_1905_prairie.as_mapped_1904.form.face_brick`, `henderson_house_1816_prairie.as_mapped_1904.form.face_brick`, `spalding_house_1637_prairie.as_mapped_1904.form.face_brick`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.face_brick`, `house_1600_prairie.as_mapped_1904.form.face_brick`, `house_1604_prairie.as_mapped_1904.form.face_brick`, `house_1608_prairie.as_mapped_1904.form.face_brick`, `house_1613_prairie.as_mapped_1904.form.face_brick`, `house_1615_prairie.as_mapped_1904.form.face_brick`, `house_1616_prairie.as_mapped_1904.form.face_brick`, `house_1626_prairie.as_mapped_1904.form.face_brick`, `house_1628_prairie.as_mapped_1904.form.face_brick`, `house_1726_prairie.as_mapped_1904.form.face_brick`, `house_1730_prairie.as_mapped_1904.form.face_brick`, `house_2003_prairie.as_mapped_1904.form.face_brick`, `house_2005_prairie.as_mapped_1904.form.face_brick`, `kellogg_house_1709_prairie.as_mapped_1904.form.face_brick`, `kellogg_house_1923_prairie.as_mapped_1904.form.face_brick`, `dexter_house_1721_prairie.as_mapped_1904.form.face_brick`, `dent_house_1823_prairie.as_mapped_1904.form.face_brick`, `edson_keith_house_1906_prairie.as_mapped_1904.form.face_brick`, `house_1619_prairie.as_mapped_1904.form.face_brick`, `house_1621_prairie.as_mapped_1904.form.face_brick`, `house_1623_prairie.as_mapped_1904.form.face_brick`, `house_1634_prairie.as_mapped_1904.form.face_brick`, `house_1636_prairie.as_mapped_1904.form.face_brick`, `house_1712_prairie.as_mapped_1904.form.face_brick`, `house_2001_prairie.as_mapped_1904.form.face_brick`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-05 (T-3385)."
+        }
+      ],
+      "work_refs": [
+        "T-3385"
+      ]
+    },
+    {
+      "id": "L-k01-1700-1706-roof-3384",
+      "title": "1700 and 1706 Prairie under one mansard, the party wall carried up through it",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-05",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the Glessner townhouses at 1700 and 1706 Prairie are roofed as ONE mansard run across the pair, not two each hipped at the party line. The party wall, centred on the line between the two houses, is carried up through the roof: its coping follows the roof's own section from the cornice up the steep face and over the deck, a stack standing on it just behind the deck's railing. 1700's north end wall is carried up the same way past its end of the roof, a stack on it behind the railing. One downpipe stands on the party line, both houses' street gutters running to it. The deck's railing is the white fret of Chicagology's photograph, not the K10 kit's cresting. The owner, 2026-11-05, with the render beside both photographs: the dividing wall \"would be centered on the property\", \"it is continous in the center and that diving wall runs through the roof and there is a single gitter there in the center\", and to correct the chimneys and the roof's ornament. **What is read.** Both photographs (Chicagology's, after 1902, and the Glessner House Museum's Christmas print) show the continuous street face, the broad pale coping falling down the steep face to the cornice at the party line and at 1700's north end, one stack on the party wall behind the railing and one on 1700's north end wall, one pipe down the front at the party line, and the fret: square posts about a metre apart, a bar corner to corner in each panel, a rectilinear key in each triangle it leaves. **What is invented.** The parapets' upstand (0.3 m square to the slope at the curb, tapering to 0.25 m over the wall head at the fascia), the party wall's thickness (0.25 m each side of the line), the stacks' plan (the party stack 0.9 by 1.2 m, the end stack the house's 0.9 by 0.75 m) and their tops (14.4 m), the fret's sections and its keys' exact turns. The rear of the deck and the rear lower face are not seen in any picture; they follow the front's section."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of the pair's roof from above or from the rear, or a building permit drawing."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-05 (T-3384)."
+        }
+      ],
+      "work_refs": [
+        "T-3384"
       ]
     },
     {

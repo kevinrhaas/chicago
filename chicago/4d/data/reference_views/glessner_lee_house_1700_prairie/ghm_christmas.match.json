@@ -2,7 +2,7 @@
   "structure_id": "glessner_lee_house_1700_prairie",
   "view": "ghm_christmas",
   "glb": "assets/gltf/glessner_lee_house_1700_prairie__as_mapped_1904.glb",
-  "glb_sha256": "6518984e7583fba7335b5fa83d6d20aaf4413dfcb67b7cde7d0d37720fa5d9ed",
+  "glb_sha256": "8b780c558036848558f2394dd50313b9d3fbd49ce4c03a61db267bc859de5cc1",
   "camera_sha256": "0a66885c0e3407c0f7438e6923dede1f8f9f56a32cb3dd4a386e47eb81b3b19a",
   "photo_sha256": "d691b958d2cffc522407f1ac1443c91d7d51f740e348c5773cc348d6d90f7f63",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "6518984e7583fba7335b5fa83d6d20aaf4413dfcb67b7cde7d0d37720fa5d9ed"
+      "glb_sha256": "8b780c558036848558f2394dd50313b9d3fbd49ce4c03a61db267bc859de5cc1"
     },
     {
       "structure_id": "george_glessner_house_1706_prairie",
@@ -42,7 +42,7 @@
         11.05056758709686
       ],
       "rotation_y": 0,
-      "glb_sha256": "0e773bd349eb252f7cd0d5d73ae84ddc04f278a7b1c542d5d11c8be5c12fbaf4"
+      "glb_sha256": "85d3f7cf9906caa3fac2bf1025368e39d3c093ce32333792f4babde0ed4cca1a"
     },
     {
       "structure_id": "house_1708_prairie",
@@ -64,8 +64,8 @@
       "glb_sha256": "b2c0aa9da2efb90f7ca21650ff7ef4b048e4fe49933bd63cb762d1244c7c949a"
     }
   ],
-  "group_sha256": "1cb952a556f15216eb36fcfa13530c51bbd9329b1d49763277e7f3d1ab2bfada",
-  "side_by_side": "../../../../../tmp/claude-0/-home-user/5a118db4-74ff-5a97-bf1f-abc21f596262/scratchpad/pm/glessner_lee_house_1700_prairie_ghm_christmas/ghm_christmas-side-by-side.jpg",
+  "group_sha256": "cf5675bb9416f1eefb2f688e12084cf22a8a1484b8af3a5afccf150268cf2a7c",
+  "side_by_side": "docs/RESEARCH/photo-match/glessner_lee_house_1700_prairie/ghm_christmas-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
     {
@@ -76,7 +76,7 @@
     {
       "what": "1700's north end wall carried up past the mansard's curb",
       "status": "fixed",
-      "how": "T-3211: K05's side parapet on 1700's north wall, coped about 0.6 m over the curb"
+      "how": "T-3211: K05's side parapet on 1700's north wall, coped about 0.6 m over the curb T-3384 (the owner, 2026-11-05): the end wall now follows the roof's own section, its coping falling down the steep face to the cornice at the corner as the print draws it, a stack on it behind the railing"
     },
     {
       "what": "the eight upper windows, the eight arched principal windows' places and the balconettes",
@@ -95,8 +95,8 @@
     },
     {
       "what": "the large chimney at the party line with a fret panel over the deck",
-      "status": "within tolerance",
-      "how": "T-3211: the party wall's parapet and a stack beside it stand there; the fret panel is not built"
+      "status": "fixed",
+      "how": "T-3211: the party wall's parapet and a stack beside it stand there; the fret panel is not built T-3384 (the owner, 2026-11-05): one stack now, standing on the party wall itself just behind the railing, the fret running on in front of it as the print shows"
     },
     {
       "what": "the iron fence before 1700",

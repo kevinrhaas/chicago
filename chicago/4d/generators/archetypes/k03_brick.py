@@ -110,6 +110,45 @@ TEXTURE_FILES = sorted({p for v in IMAGES.values() for p in v.values()})
 
 VARIANTS = _fab["variants"]
 
+# T-3385: the face and common brick palette (data/components/prairie_1904/k03_face_brick.json):
+# each recipe is one of PANELS under a colour factor and a roughness shift, never a map of its
+# own (1904 is at its phone memory ceiling). The factor is the recipe's mean over the panel's,
+# both linear; the panel's is measured off the web map the renderer draws, so a recipe's mean
+# is what a wall in it averages to.
+FACE_BRICK_FILE = ROOT / "data" / "components" / "prairie_1904" / "k03_face_brick.json"
+FACE_BRICK = json.loads(FACE_BRICK_FILE.read_text())
+_panel_means = {}
+
+
+def panel_mean(panel: str) -> tuple:
+    """The linear mean base colour of a K03 panel's web map (what a wall in it averages to)."""
+    if panel not in _panel_means:
+        import numpy as np
+        from PIL import Image
+        a = np.asarray(Image.open(IMAGES[f"k03:{panel}"]["basecolor"]).convert("RGB"), dtype=np.float64) / 255.0
+        lin = np.where(a <= 0.04045, a / 12.92, ((a + 0.055) / 1.055) ** 2.4)
+        _panel_means[panel] = tuple(round(float(x), 4) for x in lin.reshape(-1, 3).mean(axis=0))
+    return _panel_means[panel]
+
+
+def recipe(rid: str, role: str | None = None) -> dict:
+    """A palette recipe resolved: {"panel", "tone" (the factor over the panel), "roughness_delta"}.
+    Refuses an unknown id, a recipe of another role, a panel k03 does not lay, or a factor over 1."""
+    r = FACE_BRICK["recipes"].get(rid)
+    if r is None:
+        raise ValueError(f"face brick {rid!r}: one of {sorted(FACE_BRICK['recipes'])}")
+    if role and r["role"] != role:
+        raise ValueError(f"face brick {rid!r} is a {r['role']} brick, not a {role} brick")
+    if r["panel"] not in PANELS:
+        raise ValueError(f"face brick {rid!r}: panel {r['panel']!r} is not one k03_brick lays")
+    mean = panel_mean(r["panel"])
+    tone = tuple(round(t / m, 4) for t, m in zip(r["mean_linear"], mean))
+    if not all(0.0 < t <= 1.005 for t in tone):
+        raise ValueError(f"face brick {rid!r}: factor {tone} over {r['panel']} leaves [0, 1]; "
+                         "a recipe may only darken or re-hue its panel")
+    return {"panel": r["panel"], "tone": tuple(min(1.0, t) for t in tone),
+            "roughness_delta": float(r.get("roughness_delta", 0.0))}
+
 # The material slots k01_frontage adds. "brick" keeps its name: the K01 envelope measure
 # reads walls by `^brick`. The units carry their variant's tint as the base colour, so
 # the renderer batches all four with the wall's own fabric (one map, one key).

@@ -29,7 +29,7 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The four live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The four live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. The children the Blue Book lists at the number from 1890 to 1911 are on the card with the years each was listed, whether or not they were at home in 1904. The 1910 census was not read for this card. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
       "census_1900_chicago_t623_roll245"
@@ -75,6 +75,21 @@
         "relation_as_enumerated": "Wife"
       },
       "note": "The 1900 census lists Louise Clark here as wife, born January 1850, in New York, married (ED 40, sheet 9A, line 46, leaf n810)."
+    },
+    {
+      "id": "pa1904_clark_bruce",
+      "name": "Bruce Clark",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "chicago_blue_book_1895"
+      ],
+      "printed_as": "2000 Bruce Clark",
+      "lived_here": {
+        "years": "1895",
+        "on_scene_date": "no"
+      },
+      "note": "Listed at 2000 under Mr. and Mrs. John M. Clark in the 1895 edition. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship."
     },
     {
       "id": "pa1904_clark_john_m_c1900_berthe_riches",

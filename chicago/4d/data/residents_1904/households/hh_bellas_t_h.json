@@ -29,10 +29,11 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 36, T623 roll 245) was read for this card. The three live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: Emeline C. Bellas (named in the note on \"The Misses Bellas\"); Helen M. Bellas (named in the note on \"The Misses Bellas\"); Edith Bellas (named in the note on \"The Misses Bellas\"). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 36, T623 roll 245) was read for this card. The three live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: Emeline C. Bellas (named in the note on \"The Misses Bellas\"); Helen M. Bellas (named in the note on \"The Misses Bellas\"); Edith Bellas (named in the note on \"The Misses Bellas\"). The 1910 census (T624 roll 241, ED 166 and 167) was read for this card's children: the children it lists, and those the Blue Book lists at the number from 1890 to 1911, are on the card with the years each lived here, whether or not they were at home in 1904. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
-      "census_1900_chicago_t623_roll245"
+      "census_1900_chicago_t623_roll245",
+      "census_1910_chicago_t624_roll241"
     ]
   },
   "persons": [
@@ -83,10 +84,11 @@
       "sources": [
         "chicago_blue_book_1904",
         "chicago_blue_book_1905",
-        "census_1900_chicago_t623_roll245"
+        "census_1900_chicago_t623_roll245",
+        "census_1910_chicago_t624_roll241"
       ],
       "printed_as": "1634 Mr. & Mrs. T. H. Bellas & drs.",
-      "note": "The Blue Book prints '& drs.' after the household's name: two or more unmarried daughters at home, neither named nor counted. One line stands for them all. 'Miss Bellas' is the book's own form of address, not a recorded name. The 1900 census lists the unmarried daughters at home as Emeline C. Bellas (born March 1881, in Illinois, single; ED 36, sheet 2A, line 38, leaf n667); Helen M. Bellas (born July 1884, in Illinois; ED 36, sheet 2A, line 39, leaf n667); Edith Bellas (born October 1887, in Illinois; ED 36, sheet 2A, line 40, leaf n667). Which of them the 1904 line stands for, the book does not say."
+      "note": "The Blue Book prints '& drs.' after the household's name: two or more unmarried daughters at home, neither named nor counted. One line stands for them all. 'Miss Bellas' is the book's own form of address, not a recorded name. The 1900 census lists the unmarried daughters at home as Emeline C. Bellas (born March 1881, in Illinois, single; ED 36, sheet 2A, line 38, leaf n667); Helen M. Bellas (born July 1884, in Illinois; ED 36, sheet 2A, line 39, leaf n667); Edith Bellas (born October 1887, in Illinois; ED 36, sheet 2A, line 40, leaf n667). Which of them the 1904 line stands for, the book does not say. The 1910 census lists the household under Erastus Foote, with Emma L. Bellas, widow, as his sister and Helena M. Bellas, 23, and Edith Bellas, 20, as his nieces (ED 166, sheet 9A, lines 1-4): very likely the daughters the book means."
     },
     {
       "id": "pa1904_foote_erastus",

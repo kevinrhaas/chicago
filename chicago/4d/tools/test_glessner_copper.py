@@ -35,15 +35,23 @@ def north_height(y):
 def east_height(x):
     return e['eave_lo_z']+(e['ridge_z']-e['eave_lo_z'])*(x-e['x0'])/(e['ridge_at']-e['x0'])
 
+# T-3373: the copper lean-to's plane is the hood's third host. Read independently:
+# its eave on the court wall at the bow's wall top, rising to meet the tiles at meets_y.
+spec=p.detail.get('north_copper_leanto')
+def lean_height(y):
+    if not spec:return -math.inf
+    top=north_height(spec['meets_y'])
+    return spec['eave_z']+(top-spec['eave_z'])*(y-n['y0'])/(spec['meets_y']-n['y0'])
+
 for part in parts:
     poly=part['points'];plane=part['plane']
     assert area(poly)>1e-8,'Reversed/interleaved fan'
     for x,y,h in poly:
         assert abs(h-z(plane,x,y))<1e-7,'Twisted sheet'
-        assert h>=north_height(y)-1e-7 and h>=east_height(x)-1e-7,'Sheet passes through host'
+        assert h>=north_height(y)-1e-7 and h>=east_height(x)-1e-7 and h>=lean_height(y)-1e-7,'Sheet passes through host'
         if math.dist((x,y,h),apex)<1e-7:continue
         on_eave=abs(h-bow['wall_top_z'])<1e-7
-        assert on_eave or min(abs(h-north_height(y)),abs(h-east_height(x)))<1e-7,'Floating cut edge'
+        assert on_eave or min(abs(h-north_height(y)),abs(h-east_height(x)),abs(h-lean_height(y)))<1e-7,'Floating cut edge'
     for other in parts[:parts.index(part)]:
         overlap=[q[:2] for q in poly]
         op=other['points']
@@ -65,7 +73,9 @@ from archetypes.masonry_house_v4_courtyard_roof import wall_profile
 profile=wall_profile(p,n['x0'],n['x1'],n['eave_lo_z'])
 for j in range(161):
     x=36.+(n['x1']-36.)*j/160
-    roof=max(n['eave_lo_z'],min(z(part['plane'],x,n['y0']) for part in parts)) if contains(holes[0],x,n['y0']) else n['eave_lo_z']
+    # T-3373: east of the lean-to's hipped end the wall rises to the copper's eave.
+    base=spec['eave_z'] if spec and x>=spec['x_west'] else n['eave_lo_z']
+    roof=max(base,min(z(part['plane'],x,n['y0']) for part in parts)) if contains(holes[0],x,n['y0']) else base
     for a,c in zip(profile,profile[1:]):
         if c[0]-a[0]<1e-9:continue
         if a[0]-1e-8<=x<=c[0]+1e-8:
@@ -86,43 +96,78 @@ for reduced in (False,True):
     b=Capture(reduced);add_hood(b,p)
     for x,y,h in b.verts:
         hood=min(z(part['plane'],x,y) for part in parts)
-        supporting=max(hood,north_height(y),east_height(x))
+        supporting=max(hood,north_height(y),east_height(x),lean_height(y))
         assert h-supporting<.018,(reduced,'stock floats above the roof',h-supporting)
     assert all(math.isfinite(v) for pair in b.roof_uvs.values() for v in pair)
 
 print(f'PASS: {len(parts)} planar nonoverlapping hood facets; exact shared roof edges; host cut coverage; attached Full/Light stock')
 
-# Owner's overhead return: one roof surface at each sampled plan point, with
-# replacement copper exactly on the original slope. A raised rectangle or an
-# uncut tile layer fails independently of the producer's subdivision choices.
-from archetypes.masonry_house_v4_copper import north_cladding, add_north_cladding
+# T-3373: HABS sheet 4's flatter copper run between the dining bay and the bow.
+# One roof surface at each sampled plan point: the lean-to's sheets, the hood or
+# tiles, never two and never none; tiles are gone from the band in front of the
+# raised wall; below meets_y the copper runs flatter than the tiles (the kink) and
+# its west end is hipped. An independent analytic surface, not the producer's.
+from archetypes.masonry_house_v4_copper import leanto_facets, add_leanto
 from archetypes.masonry_house_v4_courtyard_roof import clip_host
 from _glessner_lod import _geometry_modules
 d,_,_=_geometry_modules(ROOT)
-return_faces = north_cladding(p)
-assert return_faces
-for face in return_faces:
-    assert area(face)>1e-8
-    assert all(abs(h-north_height(y))<1e-8 for x,y,h in face), 'floating copper return'
-host = [(x,y,north_height(y)) for x,y in
-        [(31,13),(n['x1'],13),(n['x1'],18.1),(31,18.1)]]
-tiles = clip_host(host,p)
-assert any(contains(face,33,16) for face in return_faces), 'west copper extent omitted'
-assert not any(contains(face,33,18) for face in return_faces), 'return reached the ridge'
-rng=random.Random(102228)
-for i in range(2000):
-    x,y=rng.uniform(31,n['x1']),rng.uniform(13,18.1)
-    copper_hits=sum(contains(face,x,y) for face in return_faces)
-    hood_hits=sum(contains(face,x,y) for face in faces)
-    tile_hits=sum(contains(face,x,y) for face in tiles)
-    assert copper_hits+hood_hits+tile_hits==1, ('copper return hole/overlap',x,y,copper_hits,hood_hits,tile_hits)
+assert spec, 'lean-to missing'
+xw,ym,ez=spec['x_west'],spec['meets_y'],spec['eave_z']
+assert abs(ez-bow['wall_top_z'])<1e-6, 'lean-to eave not level with the bow'
+pitch_lean=(lean_height(ym)-ez)/(ym-n['y0']);pitch_tile=(n['ridge_z']-n['eave_lo_z'])/(n['ridge_at']-n['y0'])
+assert .45<pitch_lean<pitch_tile-.1, ('lean-to does not step down from the tiles',pitch_lean,pitch_tile)
+ov=spec['overhang_m']
+def copper_height(x,y):
+    return min(lean_height(y),ez+pitch_lean*(x-xw))  # the hip rises east from the west eave
+facets=leanto_facets(p)
+assert {f['name'] for f in facets}=={'slope','hip'}
+for f in facets:
+    assert area(f['points'])>1e-10
+    for x,y,h in f['points']:
+        assert abs(h-copper_height(x,y))<1e-7, ('copper off its hipped surface',f['name'],x,y)
+        assert h>=north_height(y)-1e-7 and h>=east_height(x)-1e-7, 'copper below tiles or wing'
+host=[(x,y,north_height(y)) for x,y in
+      [(xw-1.,n['y0']-n['eave_lo_overhang']),(e['x0']-.05,n['y0']-n['eave_lo_overhang']),
+       (e['x0']-.05,n['ridge_at']-.05),(xw-1.,n['ridge_at']-.05)]]
+tiles=clip_host(host,p)
+from archetypes.masonry_house_v4_north_dormer import spec as dormer_spec
+dm=dormer_spec(p)
+rng=random.Random(3373)
+hood_faces=[f for f in faces]
+for i in range(3000):
+    x=rng.uniform(xw-.5,e['x0']-.06);y=rng.uniform(n['y0']-n['eave_lo_overhang']+.01,n['ridge_at']-.06)
+    c_hits=sum(contains(f['points'] if area(f['points'])>0 else f['points'][::-1],x,y) for f in facets)
+    h_hits=sum(contains(f,x,y) for f in hood_faces)
+    t_hits=sum(contains(f if area(f)>0 else f[::-1],x,y) for f in tiles)
+    front=y<n['y0']-ov and x>=xw-ov
+    body=dm['x'][0]<x<dm['x'][1] and dm['front_y']<y<dm['back_y']
+    if body:
+        assert t_hits==0 and c_hits==0, ('tiles left inside the dormer',x,y)
+    elif front:
+        assert c_hits==0 and t_hits==0, ('tile or copper left in front of the raised wall',x,y)
+    else:
+        assert c_hits+h_hits+t_hits==1, ('lean-to hole/overlap',x,y,c_hits,h_hits,t_hits)
+        if c_hits:
+            assert copper_height(x,y)>=north_height(y)-1e-9, ("copper under the tiles",x,y)
 for reduced in (False,True):
-    emitted=Capture(reduced);add_north_cladding(emitted,p)
+    emitted=d.DetailBuilder('leanto',p);emitted.reduced_roof_details=reduced
+    add_leanto(emitted,p)
     assert emitted.verts
     for x,y,h in emitted.verts:
-        assert -.013<h-north_height(y)<.018, ('unseated return stock',reduced,x,y,h)
+        roof=max(north_height(y),east_height(x),copper_height(x,y) if xw-ov-.04<=x and y>=n['y0']-ov-.04 else -math.inf)
+        assert h-roof<.05, ('lean-to stock floats above the roof',reduced,x,y,h-roof)
     assert all(math.isfinite(v) for pair in emitted.roof_uvs.values() for v in pair)
-print('PASS: 2000 independent copper-return rays; no overlapping tiles/hood, no lifted sheet; Full/Light stock seated on host')
+# The raised wall reaches the copper: no slit between the hip's end and the hood.
+for j in range(41):
+    x=xw+.01+(bow['cx']-bow['eave_r']-xw-.02)*j/40
+    for a,c in zip(profile,profile[1:]):
+        if c[0]-a[0]<1e-9:continue
+        if a[0]-1e-8<=x<=c[0]+1e-8:
+            assert abs(a[1]+(c[1]-a[1])*(x-a[0])/(c[0]-a[0])-ez)<1e-6, ('raised wall slit',x)
+            break
+# The small dormer stands on the tiles above the kink, its apex under the ridge.
+assert dm['front_y']>ym and dm['apex_z']<n['ridge_z'] and dm['eave_z']<dm['apex_z']
+print('PASS: 3000 lean-to rays: one roof surface, hipped west end, flatter than the tiles below the kink; raised wall closed; Full/Light stock seated')
 
 # T-2228: the three dormers replace only enclosed host roof below their roofs.
 # An independent analytic height field probes emitted host fragments, including

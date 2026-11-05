@@ -2257,6 +2257,11 @@ export function buildWallVineTemplate(spec, seed, lod = 'near', { conf = 0.5, le
     for (let i = 0; i < 3; i++) leaves.vert([0, 0.05, 0], [0, 1, 0], [0, 0, 0], [0.5, 0.5], 0);
     leaves.tri(0, 1, 2);
   }
+  // T-3383: the owner, 2026-11-05, of Pullman's ivy: "when they blow they disappear into
+  // the building". A leaf held 2-16 cm off the wall swung two ways by up to 19 cm, so
+  // every leaf's flex is turned negative, the mark patchTreeWind (tree-surface.js) reads
+  // as "held on a wall": the gust lifts it off the stone and along it, never into it.
+  leaves.flex = leaves.flex.map((f) => -Math.max(f, 0.001));
   return {
     wood: wood.build(0, conf),
     leaves: leaves.build(1, conf),
