@@ -1,5 +1,6 @@
 {
-  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp — mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP — a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
     "armour_corwith_house_1945_prairie__as_mapped_1904.glb": "6aa73fa88398761901b71ccd061b4a8ec86f47bfc4489726b34a1462afcdcf66",
@@ -37,7 +38,7 @@
     "doane_house_1827_prairie_coach_house__draft_1904.glb": "b0b6349e9910aa7064763281e20625f7b890aadbe27084707a0d0756a223fec5",
     "dole_warehouse_south__frame_1832.glb": "7b1ead2b9d0ace1b13f4a6339dc76413ec65141bd19452e0dd581c23288439c7",
     "edson_keith_house_1906_prairie__as_mapped_1904.glb": "fc70e7c04fd38618de02765c91acef939960560be8b6dda4d3044841bc00af48",
-    "edson_keith_house_1906_prairie_coach_house__draft_1904.glb": "fc6ab854e3520d4f22ff5271822a6954bf2d63fdb6f61fea0d5e85b6c3aaf187",
+    "edson_keith_house_1906_prairie_coach_house__as_standing_1904.glb": "2eddcdb3ef77d1b44adf55c849757b0bd0adfd1ada516efc4dee90f4d922e884",
     "elbridge_keith_house_1900_prairie__as_mapped_1904.glb": "b8cedd3f5be2c81365222214fb0ce615475c3af75ec4a6f1c15fb3931aec7b8d",
     "elbridge_keith_house_1900_prairie_coach_house__as_standing_1904.glb": "5c6e3ea676c3b1ed27b8fe9fd191db06ac9007347dec3706490c82fd67a07d61",
     "elston_ash_house__works_1833.glb": "895a00d9f65e884074abc9bf75cecd223fd5b6d8da74685687e51d235076e3fe",
@@ -1036,6 +1037,5 @@
     "wolf_point_trading_camp__camp_1835.glb": "394c965b3637b16fc5b35b7a169d4ef95ce7c2c3805bcb50abb20f8e1912f75f",
     "wright_building_to_let_a__documented_1835.glb": "47dfcbe909ed2cace0f517d63cf996c49cff8f196a8f2c0b67e413d35234e49a",
     "wright_building_to_let_b__documented_1835.glb": "4f15702f7be9d0e407cc004477278d866bdd72661e5fb80f2b95790893fcb8a8"
-  },
-  "written_by": "tools/web_derivatives.sh"
+  }
 }
