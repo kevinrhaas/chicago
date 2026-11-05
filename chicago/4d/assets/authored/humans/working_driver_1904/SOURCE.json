@@ -340,5 +340,13 @@
     "source_record": "data/residents_1904/households/hh_otis_f_r.json",
     "source_record_sha256": "84a397c2df50c99b765e50997d5631cb6b14695d5b6af02ae5fe383f0a39fc84"
   },
-  "limits": "Portable contract and finite CPU skin/Mixer proof do not establish image decode, WebGL render, phonebudget, full garmentcollision, driver/harness closedgrip, occupiedroutes or photographic acceptance."
+  "limits": "Portable contract and finite CPU skin/Mixer proof do not establish image decode, WebGL render, phonebudget, full garmentcollision, driver/harness closedgrip, occupiedroutes or photographic acceptance.",
+  "terminal_garment_derivative": {
+    "recipe": "data/humans/animations/driver-garment-retention-v2.json",
+    "derivation": "data/humans/animations/driver-garment-retention-v2.derivation.json",
+    "native_readback": "data/humans/animations/driver-garment-retention-v2.native.json",
+    "scope": "Only MASTER/WEB LOD3 shirt and trousers retain same-resident exact LOD0 garment topology. WEB positions/normals use deterministic single-skin native rest-weighted rebinding; existing body, rig, skin, images, materials and old clips are retained. New derived geometry is not donor-position bit identity. LOD0/1/2 and all source creator notices remain unchanged.",
+    "license": "CC0-1.0; existing creator notices retained",
+    "photographic_or_continuous_fit_or_world_budget_accepted": false
+  }
 }

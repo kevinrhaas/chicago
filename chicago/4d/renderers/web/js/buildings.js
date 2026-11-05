@@ -63,7 +63,7 @@ import { cheapenGlass, DEFAULT_GLASS, writePaneAttributes } from './glass.js';
 import { patchNightWindows } from './night-lights.js';
 import { layerPick } from './gpu-pick.js';
 import {
-  compactPlan, compactGeometry, positionScale, quantizePositions, packScalars, toneScaleOf, unpackScalar, SCALARS, SCALARS_GLSL,
+  compactPlan, compactGeometry, positionScale, quantizePositions, packScalars, compactConstantBatchScalars, toneScaleOf, unpackScalar, SCALARS, SCALARS_GLSL,
 } from './compact-attributes.js';
 
 /** Readers own their short-lived closure scopes. A retained occlusion predicate in
@@ -1307,6 +1307,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       }
       geo.dispose();
     }
+    compactConstantBatchScalars(batch);
     backingPositionVersion=batch.geometry.attributes.position.version;
     backingIndexVersion=batch.geometry.index.version;
     backingConfidenceVersion=batch.geometry.attributes[SCALARS].version;

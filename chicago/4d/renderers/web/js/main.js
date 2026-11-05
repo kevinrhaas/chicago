@@ -3769,7 +3769,7 @@ async function boot() {
     people,
     positionOf: structurePosition,
     visitor: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg }),
-    onTravelStop: () => travel?.stop('button'),
+    onTravelStop: () => { api.townTransport?.cancelDriverApproaches(); travel?.stop('button'); },
     isTouch: prefersTouch(),
     resolvedDetail: detailLevel,
     resolvedQuality: crashBoot.lowered.quality ? crashBoot.quality : qualityGuess,
@@ -3782,7 +3782,9 @@ async function boot() {
     onFly: (on) => { intent.flying = !!on; },
     onGoTo: (target) => goToTarget(target),
     // Hiding a level removes it from the view outright — see confidence.setHidden.
-    onHideLevel: (level, hide) => { confidence.setHidden(level, hide); gateFrame.invalidate(); api.welcome?.refresh?.(); },
+    onHideLevel: (level, hide) => {
+      if (level === 'reconstructed' && confidence.hidden.reconstructed !== !!hide) resetVisualClock();
+      confidence.setHidden(level, hide); gateFrame.invalidate(); api.welcome?.refresh?.(); },
     onSetting: (key, value) => {
       api.sound?.setting(key); // T-2659: Settings › Sound's levels, live
       // A setting can write a value no material owns (a patched shader's
@@ -4661,7 +4663,10 @@ async function boot() {
     // Explicit coordinate viewpoints predate the shared picker and are used by
     // the scene measurement harness. Named picker rows still resolve strictly.
     if (!target?.id && target?.kind === 'intersection'
-        && Number.isFinite(target.local_e) && Number.isFinite(target.local_n)) return travel.go(target);
+        && Number.isFinite(target.local_e) && Number.isFinite(target.local_n)) {
+      api.townTransport?.cancelDriverApproaches();
+      return travel.go(target);
+    }
     const anchor = target?.kind === 'person' ? api.townTransport?.driverAnchorForPerson(target.id) : null;
     if (anchor) {
       const driver = api.humans?.external(target.id);
@@ -4672,9 +4677,17 @@ async function boot() {
         const e = at[0] + Math.cos(yaw) * side * 4;
         const n = at[1] + Math.sin(yaw) * side * 4;
         if (router.blockedAt(e, n)) continue;
-        anchor.actor?.stop('approach');
-        return travel.go({ kind: 'intersection', local_e: e, local_n: n,
-          label: target.label ?? driver?.person?.name ?? 'Driver' });
+        const approach = api.townTransport.requestDriverApproach(target.id);
+        if (!approach) return false;
+        try {
+          const started = travel.go({ kind: 'intersection', local_e: e, local_n: n,
+            label: target.label ?? driver?.person?.name ?? 'Driver' }, { onStop: () => approach.cancel() });
+          if (!started) approach.cancel();
+          return started;
+        } catch (error) {
+          approach.cancel();
+          throw error;
+        }
       }
       hud.say('No clear place beside this driver'); return false;
     }
@@ -4692,6 +4705,7 @@ async function boot() {
       }
       return false;
     }
+    api.townTransport?.cancelDriverApproaches();
     return travel.go(resolved.structureId
       ? { kind: 'structure', id: resolved.structureId, label: resolved.label, person: resolved.kind === 'person' ? resolved.id : null }
       : resolved);
@@ -4701,6 +4715,7 @@ async function boot() {
   function spawnAtDestination(target) {
     const resolved = destinations.resolve(target, { card: false });
     if (!resolved || router.blockedAt(resolved.standOff.e, resolved.standOff.n)) return false;
+    api.townTransport?.cancelDriverApproaches();
     travel.stop('spawn'); lastArrival = null; popup.close(); hud.setPanel(false);
     hud.setFly(false, { announce: false });
     if (resolved.structureId) applyFraming(resolved.standOff);
@@ -4745,6 +4760,7 @@ async function boot() {
       if (destination) {
         if (!spawnAtDestination(destination)) return false;
       } else {
+        api.townTransport?.cancelDriverApproaches();
         travel.stop('spawn'); popup.close();
         hud.setFly(false, { announce: false });
         walker.teleport(loaded.scene.spawn ?? spawn);
@@ -5117,6 +5133,7 @@ async function boot() {
   });
   api.interactKey = interactKey;
   const transportReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  transportReducedMotion.addEventListener('change', resetVisualClock);
   let interactPaintAt = 0;
   window.addEventListener('pagehide', event => {
     if (event.persisted) return;
@@ -5555,7 +5572,10 @@ async function boot() {
     flags.update(dt);
     parkedTransport.update(camera);
     api.townTransport?.ensureNear(camera.position, !gateOpen && !animationHold && !document.hidden && !confidence.hidden.reconstructed);
-    api.townTransport?.update(frameDt, camera.position, {
+    // The journey bounds travelled metres, then checks every <= .05s sweep.
+    // The shared visible clock has already rejected held/document lifecycle time.
+    api.townTransport?.update(visualDt, camera.position, {
+      elapsedFrame: true,
       paused: animationHold || gateOpen || document.hidden,
       reducedMotion: transportReducedMotion.matches,
       hidden: confidence.hidden.reconstructed,
@@ -5741,6 +5761,7 @@ async function boot() {
     goTo(anchorId) {
       const a = anchorFor(loaded.scene, anchorId);
       if (!a) return false;
+      api.townTransport?.cancelDriverApproaches();
       // Set the MODE through the HUD, not on the walker: intent.flying is the
       // one master, and a walker flipped directly would be reverted on the very
       // next frame when update() reconciled it against an intent still reading

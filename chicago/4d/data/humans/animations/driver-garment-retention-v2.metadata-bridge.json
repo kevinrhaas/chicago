@@ -1,0 +1,89 @@
+{
+  "schema": "terminal_garment_metadata_caption_bridge_v1",
+  "qualified_fourpart_source": {
+    "HEAD": "ff1827f94a7c05cc7e5802be88f38b8193f4d2ac",
+    "TREE": "14f42560097b085bb4e9ee2237faf8e368f43089",
+    "APP": "7c4043582eea3ae3753d95aecc86e8d856c1c3b7",
+    "semantic_index_sha256": "4806e9db4b6fc238f487db6c4b4042eba1aad699f4dc045bbf311d195104989f"
+  },
+  "qualified_fourpart_closed_sha256": "87f500175cfec2feccbcf064ca4b4900ba4e2ccbee432c3396dd8d42216b6965",
+  "qualified_fourpart_status": "PASS_ALL_FOUR_NATIVE_CHECK_PARTS_SAME_STAGED_SOURCE",
+  "original_caps_unchanged": true,
+  "all_four_ran_on_final_metadata_TREE": false,
+  "recipe_before_sha256": "245074767cd2041f1e68ae918eca2425d97250b8c8ae9fba928f8117de77501c",
+  "recipe_after_sha256": "43fd412c064f1b35413eb35336935f7b257b27afcb55cfd68fea8a66b522e3a3",
+  "only_recipe_field_changed": "acceptance_scope",
+  "old_acceptance_scope": "Four actual prototype output digests bound; installed remains false pending portable byte regeneration, source review and original scene/gate qualification. WEB is newly rebound geometry, not exact donor POSITION/NORMAL. No photographic or whole-world acceptance transferred.",
+  "new_acceptance_scope": "Four installed LOD3 payloads reproduce the fixed admitted prototype digests after the exact historical animation stages; four selected LOD0 payloads remain byte-exact. Separate derivation and native records describe actual regeneration and targeted evidence. WEB is newly rebound geometry, not exact donor POSITION/NORMAL. Whole-world budgets, continuous garment/contact fit and photographic acceptance remain open.",
+  "derivation_before_sha256": "b44cdcf0b02f8d177cf6463f93ee1ae3bd86fe9876093a4870f02298c2281f6b",
+  "derivation_after_sha256": "9ea42588e3d411d1d25feeae0b0d4066e0fec1cef5a27f2079e5321144a596b4",
+  "only_generated_receipt_field_changed": "recipe_sha256",
+  "original_native_and_historical_receipts_preserved": true,
+  "all_24_asset_payloads_exact": true,
+  "all_code_runtime_thresholds_and_other_source_exact": true,
+  "expected_four_payload_hashes_unchanged": {
+    "assets/humans/bardwell_otis_1835.lod3.glb": "e89508276188b4ceabd612a79552fdab284dc45d832f26b6d2a09b42401a3016",
+    "assets/humans/web/bardwell_otis_1835.lod3.glb": "c5b1e37cc39b44e5dfb74496df957de7d93e5e0341f58e6d608f6fb09857bd88",
+    "assets/humans/anonymous_working_driver_1904.lod3.glb": "0754da886b868ffe1f18d9d89a11174bbca6b9f330bf3a5ca45f7982dcb44a9a",
+    "assets/humans/web/anonymous_working_driver_1904.lod3.glb": "6c5182d709ce9de5be003a650c4f7f69b90ae9591d0865174d4303103bd97de4"
+  },
+  "pre_bridge_metadata_source": {
+    "HEAD": "ff1827f94a7c05cc7e5802be88f38b8193f4d2ac",
+    "TREE": "5d300e5a13414d4e1ca0c6a5611f2074057449b8",
+    "APP": "cc15d9da05b493538f7fdc6c695f9ebf824a0471",
+    "semantic_index_sha256": "0c815dc9a361d64003efb5f868d9119da0b586ac28e29efdbd1258babfcfbf16"
+  },
+  "actual_original_producer_and_affected_checks": [
+    {
+      "name": "fresh-original-regeneration",
+      "command": [
+        "python3",
+        "tools/human_garment_retention.py",
+        "--output",
+        "/workspace/.cloud-setup/transport-current-20261103/actual-garment-terminal-v2-caption-bridge-01/generated"
+      ],
+      "seconds": 3.7783776739961468,
+      "cap_seconds": 120.0
+    },
+    {
+      "name": "terminal",
+      "command": [
+        "python3",
+        "tools/human_garment_retention.py",
+        "--check"
+      ],
+      "seconds": 3.2768912889951025,
+      "cap_seconds": 120.0
+    },
+    {
+      "name": "chain",
+      "command": [
+        "python3",
+        "tools/test_human_garment_retention.py"
+      ],
+      "seconds": 3.133721598998818,
+      "cap_seconds": 120.0
+    },
+    {
+      "name": "human-schema",
+      "command": [
+        "python3",
+        "tools/human_contract.py",
+        "--check"
+      ],
+      "seconds": 0.5654539759998443,
+      "cap_seconds": 5.0
+    },
+    {
+      "name": "changelog",
+      "command": [
+        "node",
+        "tools/changelog-entries.mjs",
+        "--check"
+      ],
+      "seconds": 0.16462487499666167,
+      "cap_seconds": 5.0
+    }
+  ],
+  "scope": "Finite metadata bridge only: update the stale preparation caption and regenerate the current receipt hash with the original producer. No all-four-on-final-tree claim; fresh exact-source CI and world/frame/memory/photographic acceptance remain pending."
+}

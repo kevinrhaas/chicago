@@ -1,0 +1,72 @@
+{
+  "schema": "human_garment_retention_derivation_v1",
+  "recipe_sha256": "43fd412c064f1b35413eb35336935f7b257b27afcb55cfd68fea8a66b522e3a3",
+  "generator_sha256": "700f4126c09ae7680a317cf71070b15a5bf0bb8f51478603533839e78ef643f1",
+  "implementation_sha256": {
+    "tools/human_garment_retention_master.py": "a155a2491cf9e886b5bff06c7def33a35e2377a2ffff594d2bbb8cb3a36182f8",
+    "tools/human_garment_retention_web.mjs": "948f212893e1b72b9fed0361430aa776e98e8b749357ab98d5cf6616257dd536",
+    "tools/human_garment_retention_web_helpers.mjs": "a047e8091ef1059c46c9dc6b3c740565190a76d7e395ea1b78a2e4cffc5b95dd",
+    "tools/human_garment_retention_rebind_math.mjs": "76c3ec4213dacfc0520f42aac6ef4a6f85606c60c2b916c71f49611c7516dc61"
+  },
+  "parent_revision": "edfc3edc60cf00a8cf2376419d0df8fc3cd8b0a3",
+  "files": [
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod3.glb",
+      "parent_sha256": "2c57f30ca74d2390913167a63e2df6fe0b3b92d9296c6b078d237e6bda0a693e",
+      "sha256": "e89508276188b4ceabd612a79552fdab284dc45d832f26b6d2a09b42401a3016",
+      "bytes": 7573012,
+      "changed": true
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod3.glb",
+      "parent_sha256": "9423585a506b1ae317c08c7eae9fb936e6ceea5e46d00ae6b2673f8c5e268f81",
+      "sha256": "c5b1e37cc39b44e5dfb74496df957de7d93e5e0341f58e6d608f6fb09857bd88",
+      "bytes": 564628,
+      "changed": true
+    },
+    {
+      "file": "assets/humans/anonymous_working_driver_1904.lod3.glb",
+      "parent_sha256": "3833f8fc26f722d17c62afa36ce1b511e38fd112142619db58fa1bf9f551ef75",
+      "sha256": "0754da886b868ffe1f18d9d89a11174bbca6b9f330bf3a5ca45f7982dcb44a9a",
+      "bytes": 7557312,
+      "changed": true
+    },
+    {
+      "file": "assets/humans/web/anonymous_working_driver_1904.lod3.glb",
+      "parent_sha256": "84e602cd49c6e355fb25bc6659a0f4a9e573e4bebe6ce8d2e30e14ed5250b60b",
+      "sha256": "6c5182d709ce9de5be003a650c4f7f69b90ae9591d0865174d4303103bd97de4",
+      "bytes": 551488,
+      "changed": true
+    },
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod0.glb",
+      "parent_sha256": "4816ec6176ef6037834c1e8a14c528a5b394173bfa2821372bd66ae1d802bd38",
+      "sha256": "4816ec6176ef6037834c1e8a14c528a5b394173bfa2821372bd66ae1d802bd38",
+      "bytes": 8688224,
+      "changed": false
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod0.glb",
+      "parent_sha256": "afc2fda09713911404b4b2c39ee08bf5d98e126f62ca16c55cf50de728586c6b",
+      "sha256": "afc2fda09713911404b4b2c39ee08bf5d98e126f62ca16c55cf50de728586c6b",
+      "bytes": 4478104,
+      "changed": false
+    },
+    {
+      "file": "assets/humans/anonymous_working_driver_1904.lod0.glb",
+      "parent_sha256": "c3b285d0305559ee5fbe13695985df86cde4c38ca8d7efd8419fcdd2d97bc4b8",
+      "sha256": "c3b285d0305559ee5fbe13695985df86cde4c38ca8d7efd8419fcdd2d97bc4b8",
+      "bytes": 8650564,
+      "changed": false
+    },
+    {
+      "file": "assets/humans/web/anonymous_working_driver_1904.lod0.glb",
+      "parent_sha256": "49a84c1d858f67359ff33e56762336ade56db1dcbbb1cbe923846d95825c9547",
+      "sha256": "49a84c1d858f67359ff33e56762336ade56db1dcbbb1cbe923846d95825c9547",
+      "bytes": 4458148,
+      "changed": false
+    }
+  ],
+  "native_garment_fit_or_contact_or_world_qualified": false,
+  "photographic_accepted": false
+}

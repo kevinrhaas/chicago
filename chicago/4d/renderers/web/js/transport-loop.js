@@ -107,7 +107,7 @@ export function createTransportLoop({
     || !initial_wheel_rotation_rad.every(Number.isFinite)) throw Error('transport loop: invalid saved journey');
   let distance = wrap(initial_distance_m, route.length), totalDistance = initial_total_distance_m;
   let state = initial_state, reason = null, disposed = false, visible = false;
-  let lastPose = null;
+  let lastPose = null, motionReset = true;
   const wheelRotation = [...initial_wheel_rotation_rad];
   const localToEnu = (p, x, z) => [p.e + Math.cos(p.yaw) * x + Math.sin(p.yaw) * z,
     p.n + Math.sin(p.yaw) * x - Math.cos(p.yaw) * z];
@@ -156,7 +156,7 @@ export function createTransportLoop({
     previewAt(s) { return poseAt(wrap(s, route.length)); },
     stop(why = 'interaction') {
       if (disposed) return false;
-      state = 'stopped'; reason = why;
+      state = 'stopped'; reason = why; motionReset = true;
       assembly.stop?.();
       return true;
     },
@@ -165,20 +165,34 @@ export function createTransportLoop({
     },
     resume() {
       if (!out.canResume()) return false;
-      state = 'moving'; reason = null;
+      state = 'moving'; reason = null; motionReset = true;
       return true;
     },
-    update(dt, { enabled = true, paused = false, reducedMotion = false, drawn = true } = {}) {
+    update(dt, { enabled = true, paused = false, reducedMotion = false, drawn = true,
+      elapsedFrame = false, motionFrame = true } = {}) {
       finite(dt, 'frame time');
       if (dt < 0) throw Error('transport loop: negative frame time');
       if (disposed) return;
+      const wasVisible = visible;
       visible = enabled && drawn;
+      if (elapsedFrame && visible && !wasVisible) motionReset = true;
       assembly.visible?.(visible);
       // Draw reach only culls rendering. A loaded journey keeps approaching the
       // visitor offscreen, with the same bounded ground/clearance and gait steps.
       // Scene holds, hidden tabs and reduced motion still suspend the journey.
-      if (!enabled || paused || reducedMotion || state !== 'moving') { assembly.stop?.(); return; }
-      let remaining = Math.min(dt, 0.25);
+      if (!enabled || paused || reducedMotion || state !== 'moving') {
+        motionReset = true; assembly.stop?.(); return;
+      }
+      // Full visible elapsed time is opt-in; existing bounded-dt callers retain
+      // their original contract. Never charge pre-Continue/held/admission time.
+      if (elapsedFrame) {
+        if (!motionFrame) return;
+        if (motionReset) { motionReset = false; return; }
+      }
+      // Bound the rear axle's per-frame advance, not the slow horse's elapsed
+      // time. Speed 1 + update(10) still advances at most .25m. Every accepted
+      // metre takes the same <= .05s clearance/ground/wheel/gait steps below.
+      let remaining = Math.min(dt, elapsedFrame ? 0.25 / speed_m_s : 0.25);
       while (remaining > 1e-10) {
         const tick = Math.min(remaining, 0.05), ds = tick * speed_m_s;
         const next = readNext(ds);

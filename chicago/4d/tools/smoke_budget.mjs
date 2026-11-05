@@ -380,7 +380,7 @@ const COVERAGE = [
   // `api.people?.close?.()` that asserts nothing. A run that trusted the old row ran
   // part 13 and never opened the directory it had changed. ANCHORS below now holds it.
   ['renderers/web/js/agencies.js', [3, 14], 'the agency on the card, and on the person'],
-  ['renderers/web/js/people.js', [13], 'the directory of everyone in the town'],
+  ['renderers/web/js/people.js', [13, 14], 'the directory of everyone in the town and the later scene’s no-directory mount controls'],
   // T-0438. The reader the cohort's rows go through once the mirror ships them packed:
   // a letter-list person opened from the directory (13) and a row of the Evidence
   // panel's letter-list group, whose body the smoke reads (14). No building card holds

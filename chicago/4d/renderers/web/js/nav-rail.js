@@ -107,6 +107,7 @@ export function createRail({
   })()) : null;
   let current = null;
   let switching = 0;
+  let dockedSelection = -1;
 
   function makeButton(app) {
     const b = doc.createElement('button');
@@ -263,6 +264,7 @@ export function createRail({
   async function select(id, { by = 'code' } = {}) {
     const s = apps.get(id);
     if (!s) return false;
+    const ticket = ++switching;
     const ctx = context();
     if (s.app.when && !seen.has(id)) { seen.add(id); writeSeen(storage, seen); }
     s.button.classList.remove('is-new');
@@ -272,10 +274,10 @@ export function createRail({
     if (s.app.launch) {
       let handled = s.app.launch(ctx);
       if (settle(handled)) handled = await handled;
+      if (ticket !== switching || apps.get(id) !== s) return false;
       if (handled !== false) { onLaunch(id, by); return true; }
       if (!s.app.panel && !s.app.load && !s.app.mount) return false;
     }
-    const ticket = ++switching;
     const panel = panelFor(s);
     if (!s.mounted) {
       if (s.app.load && !s.module) await preload(id);
@@ -298,7 +300,9 @@ export function createRail({
     }
     if (codeEl && s.app.code) codeEl.textContent = s.app.code;
     if (was !== id && was !== null) warm(panel);
-    onOpen(id, by);
+    // Docking while this selection loads keeps its eventual screen pocketed.
+    // A later selection has its own ticket and retains its ordinary opening.
+    onOpen(id, ticket === dockedSelection ? 'quiet' : by);
     (s.module ?? s.app).shown?.(panel, ctx);
     return true;
   }
@@ -345,6 +349,7 @@ export function createRail({
     evaluate,
     preload,
     select,
+    dockPending() { dockedSelection = switching; },
     setVisible,
     get current() { return current; },
     has: (id) => apps.has(id),
