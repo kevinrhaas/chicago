@@ -118,7 +118,9 @@ PURE_PYTHON_HELPERS = {
                                        # T-1881: a raised stone terrace under an awning on the rear wall
                                        "k01_rear_terrace.py",
                                        # T-3255: eared and crested hoods, and corner pilasters
-                                       "k01_dressings.py"),
+                                       "k01_dressings.py",
+                                       # T-3384: side walls carried up through a mansard, and the deck's fret
+                                       "k01_mansard_walled.py"),
                        # T-2306: the conservatory is cut with K01's Prim and K06's polygon helpers
                        "k13_conservatories": ("k01_frontage.py", "k06_windows.py"),
                        # T-2323: the timber front is cut with K01's Prim and K06's sash and polygon helpers
