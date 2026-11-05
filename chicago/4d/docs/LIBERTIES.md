@@ -40703,6 +40703,39 @@ photographs show.
 **Ticket:** T-3376.
 **Recorded:** 2026-11-05 (T-3376).
 
+### L-glessner-fan-photographs-3381 — Glessner's Prairie door tympanum carved ring by ring to the owner's photographs
+
+**Decision:** the Prairie Avenue door's tympanum on the `glessner_house` is rebuilt, rim by rim,
+to the owner's close photographs of 2026-11-05: "the inside face has a plant-like ornamentation, a
+stepped out thin rim, a larger, rounded and ornamented rim and then a final outer thinner rim with
+blockier marks, you need to make that arch a photographic match also". Outside in, inside the
+fifteen voussoirs: a fillet; a flat rim sunk with thirty-six square pockets round the head and on down
+its plumb legs (it was a channel of 33 raised billets); a fillet; a rounded roll cut at dark joints
+into thirteen blocks round the head, each carved with a four-leaf cluster round a boss and drilled
+between the leaves (it was a flat archivolt of 23 palmettes and 24 beads, then a torus); a thin plain
+rim stepped out in front of the field; and the field, a flared trunk up the middle with four mirrored
+pairs of stems bent into leafy rings, a small ring at its head, leaves sprung off every ring and
+crowded between them, all standing in front of a ground in shadow where the carving is pierced.
+This supersedes the field of L-glessner-fan-stilt-2912 (HABS sheet 5's eight unmirrored rings): the
+photographs show the field mirrored about its trunk, and the owner's photographs govern over the
+sheet's stipple. The light (mobile) tier carries the same bands and motifs as lozenge leaves and
+flat rings, in fewer triangles than before.
+**What is read.** The owner's photographs (2026-11-05; his own references, not published here): the
+order and relative widths of the four rims, the square pockets of the outer rim, the roll's joints
+and drilled foliage, the mirrored trunk-and-rings field and its dark piercing.
+**What is invented.** Every count and size: thirty-six pockets, thirteen blocks, the rings' centres and
+radii (`ornament.FIELD_ROUNDELS`, read by eye to about a twentieth of the field), the stems' paths,
+every leaf's place, size and turn, every depth, and the shadow ground (the renderer bakes no
+occlusion, so the piercing's shadow is the dark-glass slot, as window recesses use it).
+**What is not changed.** The stilt, the spring line, the radii of the fan and tympanum, the fifteen
+voussoirs, the header stone, the door and its leaf.
+**How to resolve:** a measured photograph square to the fan would set the rims' widths and the rings'
+places; a raking-light close-up would set the depths.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-3381.
+**Review:** `docs/RESEARCH/photo-match/glessner_house/habs5-entry-side-by-side.jpg`.
+**Recorded:** 2026-11-05 (T-3381).
+
 ### L-k03-face-brick-3385 — Prairie Avenue's brick told house by house: a period face brick on each brick front, a common run on each house's flanks, as tints over the two K03 panels
 
 **Decision:** a palette of period bricks (`data/components/prairie_1904/k03_face_brick.json`): six face

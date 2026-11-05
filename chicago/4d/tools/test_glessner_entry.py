@@ -56,7 +56,7 @@ assert field and max(field)<-.18 and min(field)<-.30,'Carving or its bed floats 
 assert max(field)-min(field)>.04,'Carving flattened against its recessed backing'
 # T-2912: HABS sheet 5 draws the head stilted, its centre about 0.5 ft over the spring
 # line and both rings plumb below it; the springers must reach the spring, not stop at
-# the centre, and the field's rings are the sheet's eight.
+# the centre. T-3381: the field's eight rings are the photographs' mirrored four pairs.
 st=fan.get('stilt',0)
 assert .12<st<.18,'Fan lost its stilt'
 legs=[v[2]-cz for v in fb.verts if abs(abs(v[1]-cx)-fan['r_out'])<.02 and cz-.01<v[2]<cz+st]
