@@ -83,3 +83,16 @@ a,c=(m.Leaf(B(False),o,side,0) for side in (0,1))
 assert .008 < c.meeting-a.meeting < .018
 assert abs(a.w-c.w)<1e-8
 print('PASS: symmetric meeting stiles with a 12-mm operating joint')
+
+# T-3392: the floor is sunk below the opening's foot (T-2976), so no stone reveal may
+# lie across the mouth at the foot; it showed as a grey slab between the open leaves.
+sys.path.insert(0,str(ROOT/'tools'))
+from _glessner_lod import _geometry_modules
+d,_,_=_geometry_modules(ROOT)
+ob=d.DetailBuilder('porte-mouth',p);d.opening(ob,o)
+floor=p.detail['prairie_frontage']['passage_front_z']
+assert floor<o['z0']
+across=[ids for ids in ob.faces if all(abs(ob.verts[i][2]-o['z0'])<1e-6 for i in ids)
+        and max(ob.verts[i][1] for i in ids)-min(ob.verts[i][1] for i in ids)>1]
+assert not across,'A reveal lies across the carriage mouth over its sunk floor'
+print('PASS: no reveal across the carriage mouth above its sunk floor')

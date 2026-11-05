@@ -890,6 +890,11 @@ def opening(b,o,courtyard=False):
         if (o.get('style')=='prairie_front_door' and b.params.detail.get('prairie_entry')
                 and abs(poly[i][1]-z0)<1e-8 and abs(poly[j][1]-z0)<1e-8):
             continue  # the single integral threshold owns this horizontal face
+        if (o.get('style')=='porte_cochere' and abs(poly[i][1]-z0)<1e-8 and abs(poly[j][1]-z0)<1e-8
+                and b.params.detail.get('prairie_frontage',{}).get('passage_front_z',z0)<z0-1e-6):
+            # T-3392: the carriage way's floor is sunk below the opening's foot
+            # (T-2976), so a reveal there is a stone slab across the mouth.
+            continue
         b.raw([front[i],back[i],back[j],front[j]],conf,ROUGH_TRIM if courtyard else GRANITE)
     if o.get('style')=='court_garden_grille':
         from archetypes.masonry_house_v4_court import garden_light
