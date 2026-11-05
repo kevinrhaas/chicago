@@ -40159,6 +40159,8 @@ The 1835 Western Hotel yard horse's gentle head/neck look and body weight shifts
 
 **Driver life supplement, 2026-11-05 (T-1790):** The owner, seeing Hans on dev: *"he is frozen, arms stiff, not looking around or shifting naturally"*. A procedural layer (`renderers/web/js/driver-life.js`) now runs over the seated clip each visual frame for both drivers: breathing about 13 times a minute; pelvis and spine moved by the travelled road (a sum of sines over metres, not a surveyed surface) and the team's stride, with the head held level against them; a lean into a turn from v²k/g; a new settling on the seat every 5-13 s; looks that eyes lead and head, neck and (past 35 degrees) torso follow, mostly down the road, at the houses and walks either side, at the horses, into a turn, and at a visitor standing within about 7 m (12 m when stopped); elbows in, forearms lowered to the lap, wrists turned thumb-up with the fingers closed, the hands giving and taking twice a stride and now and then shortening one rein; blinks where a LOD carries the eyelid morphs. Every amplitude, interval and choice of where he looks is a reconstructed authoring choice, not an observed habit or a documented coachman's practice; the sequence is seeded from the person id, so it is the same on every load. The reins still run to the actual palm surfaces, which now move with the hands. The clips, exports, skin and geometry are unchanged. `tools/test_driver_life.mjs` holds it bounded and deterministic on the real LOD0 and LOD3 exports; continuous rein grasp, garment fit and photographic acceptance remain open.
 
+**Walking-team supplement, 2026-11-05 (T-2803):** The owner: *"The carriage is moving very slowly, might be more realistic if it was at a slow carriage speed"*. The careful in-place walk covers 0.135 m a cycle, so both teams were held to 0.084 m/s to keep the hooves from sliding. `tools/horse_walk_v2.mjs` now authors a lateral-sequence walk (left hind, left fore, right hind, right fore, a quarter cycle apart) on the same current26 horse by two-link leg IK. Its parameters are authoring choices for this small model, not a measured gait of any horse: a 1.0 m cycle (the longest these legs reach without the hoof leaving the ground in stance), each foot loaded 58% of the cycle, the trunk carried 7 cm lower than the square stand with a 0.8 cm bob, swing lifts of 11 cm fore and 8.5 cm hind, and a small nod of neck and head. Stance hooves move back at exactly the travel speed, and the generator refuses slide or lift over 1 mm. Both teams now travel at 1.3 m/s, about 3 mph, a slow carriage walk. The hoof-support domain for the longer stride is measured from the skinned hoof vertices through the clip (0.35 x 0.89 m), and its ground plane may depart from flat by 2 mm instead of 1 mm, because the street crown under a 1.8 m-long domain reaches about 1.4 mm. No terrain contact, rendered route or photograph of a 1904 team is claimed for the gait.
+
 **Recorded:** 2026-11-02.
 
 ### L-working-driver-1904-2804 — Reconstructed appearance and seated work of Hans Johnson
@@ -40726,6 +40728,39 @@ photographs show.
 **Covers:** `glessner_house.as_built_1887.form.v4_detail`.
 **Ticket:** T-3376.
 **Recorded:** 2026-11-05 (T-3376).
+
+### L-glessner-fan-photographs-3381 — Glessner's Prairie door tympanum carved ring by ring to the owner's photographs
+
+**Decision:** the Prairie Avenue door's tympanum on the `glessner_house` is rebuilt, rim by rim,
+to the owner's close photographs of 2026-11-05: "the inside face has a plant-like ornamentation, a
+stepped out thin rim, a larger, rounded and ornamented rim and then a final outer thinner rim with
+blockier marks, you need to make that arch a photographic match also". Outside in, inside the
+fifteen voussoirs: a fillet; a flat rim sunk with thirty-six square pockets round the head and on down
+its plumb legs (it was a channel of 33 raised billets); a fillet; a rounded roll cut at dark joints
+into thirteen blocks round the head, each carved with a four-leaf cluster round a boss and drilled
+between the leaves (it was a flat archivolt of 23 palmettes and 24 beads, then a torus); a thin plain
+rim stepped out in front of the field; and the field, a flared trunk up the middle with four mirrored
+pairs of stems bent into leafy rings, a small ring at its head, leaves sprung off every ring and
+crowded between them, all standing in front of a ground in shadow where the carving is pierced.
+This supersedes the field of L-glessner-fan-stilt-2912 (HABS sheet 5's eight unmirrored rings): the
+photographs show the field mirrored about its trunk, and the owner's photographs govern over the
+sheet's stipple. The light (mobile) tier carries the same bands and motifs as lozenge leaves and
+flat rings, in fewer triangles than before.
+**What is read.** The owner's photographs (2026-11-05; his own references, not published here): the
+order and relative widths of the four rims, the square pockets of the outer rim, the roll's joints
+and drilled foliage, the mirrored trunk-and-rings field and its dark piercing.
+**What is invented.** Every count and size: thirty-six pockets, thirteen blocks, the rings' centres and
+radii (`ornament.FIELD_ROUNDELS`, read by eye to about a twentieth of the field), the stems' paths,
+every leaf's place, size and turn, every depth, and the shadow ground (the renderer bakes no
+occlusion, so the piercing's shadow is the dark-glass slot, as window recesses use it).
+**What is not changed.** The stilt, the spring line, the radii of the fan and tympanum, the fifteen
+voussoirs, the header stone, the door and its leaf.
+**How to resolve:** a measured photograph square to the fan would set the rims' widths and the rings'
+places; a raking-light close-up would set the depths.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-3381.
+**Review:** `docs/RESEARCH/photo-match/glessner_house/habs5-entry-side-by-side.jpg`.
+**Recorded:** 2026-11-05 (T-3381).
 
 ### L-k03-face-brick-3385 — Prairie Avenue's brick told house by house: a period face brick on each brick front, a common run on each house's flanks, as tints over the two K03 panels
 
