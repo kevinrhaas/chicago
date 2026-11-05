@@ -116,10 +116,13 @@ const SEAM_M = 1.6;
  * write no depth and are drawn in their stacking order, after every other opaque surface
  * (which therefore holds the depth buffer over them: a curb, a walk, a wheel), each over
  * the one below it; the fades follow first in the transparent list. Nothing here depends
- * on the depth buffer telling two pavings apart. The street ribbon (streets.js) is order
- * 0 and the 1835 board walks 1 (frontage.js, T-0625), so these stand between.
+ * on the depth buffer telling two pavings apart. LAST, because a decal that writes no
+ * depth is painted over by anything opaque drawn after it, however far below: the
+ * terrain's water plane (order 1) lies under the whole district at the datum, and the
+ * ground is cut away under the roadways, so at any order under 1 the water showed through
+ * every street. Nothing opaque is ordered past 2 (the yards' garden beds).
  */
-const ROAD_RENDER_ORDER = 0.5;
+const ROAD_RENDER_ORDER = 10;
 const ROAD_LEVEL_ORDER = 0.01;
 const SEAM_RENDER_ORDER = -1;
 // T-3233: and `seamEnd`, metres along the edge from each END of the run of fade (where the

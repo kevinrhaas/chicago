@@ -41,6 +41,9 @@ const SRC = join(ROOT, 'renderers/web/js/street-grid.js');
 const THREE_DIR = pathToFileURL(join(ROOT, 'renderers/web/vendor/three-0.185.1/')).href;
 const SELF_TEST = process.argv.includes('--self-test');
 const SAMPLE_M = 0.1;
+/** terrain.js's water plane, read from the source so the two cannot drift apart. */
+const WATER_RENDER_ORDER = Number(/water\.renderOrder = (\d+(?:\.\d+)?);/.exec(readFileSync(join(ROOT, 'renderers/web/js/terrain.js'), 'utf8'))?.[1]);
+if (!Number.isFinite(WATER_RENDER_ORDER)) { console.error('DRIFT — terrain.js no longer sets water.renderOrder as a number'); process.exit(2); }
 
 const UNDO = {
   decal: [['      mat.depthWrite = false;\n      mesh.renderOrder = ROAD_RENDER_ORDER', '      mesh.renderOrder = ROAD_RENDER_ORDER']],
@@ -131,7 +134,10 @@ function checkDecal(sg) {
   for (const m of roads) {
     if (m.material.depthWrite !== false) faults.push(`${m.name} writes depth`);
     if (m.material.transparent) faults.push(`${m.name} is in the transparent list`);
+    // after the grid's other opaque draws, and after the terrain's water plane (order 1),
+    // which lies under the whole district where the ground is cut away for the roadways
     const over = others.filter((o) => o.renderOrder >= m.renderOrder);
+    if (!(m.renderOrder > WATER_RENDER_ORDER)) faults.push(`${m.name} (order ${m.renderOrder}) is drawn before the water plane (order ${WATER_RENDER_ORDER}), which then shows through it`);
     if (over.length) faults.push(`${m.name} (order ${m.renderOrder}) is not drawn after ${over.slice(0, 2).map((o) => o.name).join(', ')}`);
   }
   for (const m of fades) if (!m.material.transparent || m.material.depthWrite !== false) faults.push(`${m.name}: a fade must be transparent and write no depth`);
