@@ -29,10 +29,11 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The four live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The four live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. The 1910 census (T624 roll 241, ED 166 and 167) was read for this card's children: the children it lists, and those the Blue Book lists at the number from 1890 to 1911, are on the card with the years each lived here, whether or not they were at home in 1904. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
-      "census_1900_chicago_t623_roll245"
+      "census_1900_chicago_t623_roll245",
+      "census_1910_chicago_t624_roll241"
     ]
   },
   "persons": [
@@ -79,40 +80,56 @@
     {
       "id": "pa1904_mcbean_george_b",
       "name": "George B. McBean",
-      "relationship": "household_member",
+      "relationship": "son",
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
         "chicago_blue_book_1905",
-        "census_1900_chicago_t623_roll245"
+        "census_1900_chicago_t623_roll245",
+        "census_1910_chicago_t624_roll241"
       ],
       "printed_as": "2017 George B. McBean",
-      "note": "Listed at 2017 in both editions; his relation to A. J. McBean is not printed. The 1900 census lists George McBean here as son, born April 1876, in Illinois, single (ED 40, sheet 12B, line 55, leaf n817).",
+      "note": "Listed at 2017 in both editions; his relation to A. J. McBean is not printed. The 1900 census lists George McBean here as son, born April 1876, in Illinois, single (ED 40, sheet 12B, line 55, leaf n817). The 1910 census again lists him as son, of the widowed Georgiana McBean (ED 167, sheet 2A, line 10).",
       "census_1900": {
         "date": "1900-06-01",
         "source": "census_1900_chicago_t623_roll245",
         "locator": "ED 40, sheet 12B, line 55, leaf n817",
         "as_enumerated": "McBean, George",
         "relation_as_enumerated": "Son"
+      },
+      "census_1910": {
+        "date": "1910-04-15",
+        "source": "census_1910_chicago_t624_roll241",
+        "locator": "ED 167, sheet 2A, line 10, leaf n1451",
+        "as_enumerated": "McBean, George B.",
+        "relation_as_enumerated": "Son"
       }
     },
     {
       "id": "pa1904_mcbean_a_j_f",
       "name": "A. J. F. McBean",
-      "relationship": "household_member",
+      "relationship": "son",
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
         "chicago_blue_book_1905",
-        "census_1900_chicago_t623_roll245"
+        "census_1900_chicago_t623_roll245",
+        "census_1910_chicago_t624_roll241"
       ],
       "printed_as": "2017 Mr. & Mrs. A. J. F. McBean",
-      "note": "A second McBean couple listed at 2017 in both editions; the relation to the first is not printed. The 1900 census lists A. McBean Jr. here as son, born February 1870, in Illinois, married, lawyer (ED 40, sheet 12B, line 53, leaf n817).",
+      "note": "A second McBean couple listed at 2017 in both editions; the relation to the first is not printed. The 1900 census lists A. McBean Jr. here as son, born February 1870, in Illinois, married, lawyer (ED 40, sheet 12B, line 53, leaf n817). The 1910 census again lists him as son, as Archibald (ED 167, sheet 2A, line 14).",
       "census_1900": {
         "date": "1900-06-01",
         "source": "census_1900_chicago_t623_roll245",
         "locator": "ED 40, sheet 12B, line 53, leaf n817",
         "as_enumerated": "McBean, A. Jr.",
+        "relation_as_enumerated": "Son"
+      },
+      "census_1910": {
+        "date": "1910-04-15",
+        "source": "census_1910_chicago_t624_roll241",
+        "locator": "ED 167, sheet 2A, line 14, leaf n1451",
+        "as_enumerated": "McBean, Archibald J.",
         "relation_as_enumerated": "Son"
       }
     },

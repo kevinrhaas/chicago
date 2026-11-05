@@ -29,10 +29,11 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The three live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. A coachman's wife and children in the rear building are named in his note rather than carded. Left off: Marie S. Johnson (a sister-in-law of 67, the given name hard to read; no 1904 source puts her here); J. P. Mackenzie (a widowed sister-in-law; no 1904 source puts her here). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The three live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. A coachman's wife and children in the rear building are named in his note rather than carded. Left off: Marie S. Johnson (a sister-in-law of 67, the given name hard to read; no 1904 source puts her here); J. P. Mackenzie (a widowed sister-in-law; no 1904 source puts her here). The 1910 census (T624 roll 241, ED 166 and 167) was read for this card's children: the children it lists, and those the Blue Book lists at the number from 1890 to 1911, are on the card with the years each lived here, whether or not they were at home in 1904. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
-      "census_1900_chicago_t623_roll245"
+      "census_1900_chicago_t623_roll245",
+      "census_1910_chicago_t624_roll241"
     ]
   },
   "persons": [
@@ -75,6 +76,29 @@
         "relation_as_enumerated": "Wife"
       },
       "note": "The 1900 census lists Isabella M. McBirney here as wife, born October 1830 (the figures are hard to read), in Maryland, married (ED 40, sheet 1B, line 62, leaf n795)."
+    },
+    {
+      "id": "pa1904_mcbirney_george_d",
+      "name": "George D. McBirney",
+      "relationship": "son",
+      "grade": "attested",
+      "sources": [
+        "census_1910_chicago_t624_roll241",
+        "chicago_blue_book_1897"
+      ],
+      "printed_as": "1736 George D. McBirney",
+      "census_1910": {
+        "date": "1910-04-15",
+        "source": "census_1910_chicago_t624_roll241",
+        "locator": "ED 166, sheet 6A, line 18, leaf n1439",
+        "as_enumerated": "McBirney, George D.",
+        "relation_as_enumerated": "Son"
+      },
+      "lived_here": {
+        "years": "1897; 1910",
+        "on_scene_date": "unknown"
+      },
+      "note": "Listed at 1736 under his parents in the 1897 edition; the 1910 census finds him at home as their son, divorced. His mother had borne five children, only he then living (ED 166, sheet 6A, lines 16-18). Whether he lived here in 1904 is not documented."
     },
     {
       "id": "pa1904_mcbirney_day",

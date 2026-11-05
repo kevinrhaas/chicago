@@ -248,6 +248,24 @@
         "the 1910 census, which was not read"
       ]
     },
+    "census_1910_chicago_t624_roll241": {
+      "source_id": "census_1910_chicago_t624_roll241",
+      "citation": "Thirteenth Census of the United States, 1910: Population. Illinois, Cook County, City of Chicago, Ward 1. NARA microfilm publication T624, roll 241 (\"Cook (EDs 114-134, 140-167, 1544, 1601, 1632) County\"), digitised from the film and republished by the Internet Archive as item 13thcensus1910po241unit, 1,472 leaves.",
+      "url": "https://archive.org/details/13thcensus1910po241unit",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the children at home in April 1910, by name, with age and relationship to the head",
+        "the mothers' counts of children born and living",
+        "relationships the Blue Book never prints (a son, a daughter, a sister, a niece)"
+      ],
+      "what_it_does_not_supply": [
+        "anything on 1 July 1904; a child seen in 1910 is placed in the 1904 house only by inference from age and the family's listing",
+        "children already grown and gone by 1910",
+        "households not on Prairie Avenue (the Lowdens, gone by 1910)"
+      ]
+    },
     "chicago_american_1835": {
       "source_id": "chicago_american_1835",
       "citation": "The Chicago American. Vol. I, No. 1 (June 8, 1835) through Vol. I, No. 12 (August 29, 1835). Chicago, Ill.: T. O. Davis. Thirteen issues, OCR-assisted research transcriptions from page scans.",
@@ -315,6 +333,198 @@
         "reliable orthography for the outfit book, and it says so: 'Pains have been taken to carefully follow the orthography' is a claim about fidelity to the manuscript, not about the manuscript being right — 'Jamie Kinzie', 'Milliwaki', 'Lower Wasbash' and 'Achoolcraft' are all on the page"
       ]
     },
+    "chicago_blue_book_1890": {
+      "source_id": "chicago_blue_book_1890",
+      "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1890. Chicago: The Chicago Directory Company.",
+      "url": "https://archive.org/details/chicagobluebooko1890chic",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "which households the register listed at each Prairie Avenue number from 1600 to 2140 for 1890"
+      ],
+      "what_it_does_not_supply": [
+        "servants, young children, or households outside society",
+        "the date a household came or went within the year",
+        "the building's form, storeys, material or outline"
+      ]
+    },
+    "chicago_blue_book_1891": {
+      "source_id": "chicago_blue_book_1891",
+      "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1891. Chicago: The Chicago Directory Company.",
+      "url": "https://archive.org/details/chicagobluebooko1891chic",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "which households the register listed at each Prairie Avenue number from 1600 to 2140 for 1891"
+      ],
+      "what_it_does_not_supply": [
+        "servants, young children, or households outside society",
+        "the date a household came or went within the year",
+        "the building's form, storeys, material or outline"
+      ]
+    },
+    "chicago_blue_book_1892": {
+      "source_id": "chicago_blue_book_1892",
+      "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1892. Chicago: The Chicago Directory Company.",
+      "url": "https://archive.org/details/chicagobluebooko1892chic",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "which households the register listed at each Prairie Avenue number from 1600 to 2140 for 1892"
+      ],
+      "what_it_does_not_supply": [
+        "servants, young children, or households outside society",
+        "the date a household came or went within the year",
+        "the building's form, storeys, material or outline"
+      ]
+    },
+    "chicago_blue_book_1893": {
+      "source_id": "chicago_blue_book_1893",
+      "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1893. Chicago: The Chicago Directory Company.",
+      "url": "https://archive.org/details/chicagobluebooko1893chic",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "which households the register listed at each Prairie Avenue number from 1600 to 2140 for 1893"
+      ],
+      "what_it_does_not_supply": [
+        "servants, young children, or households outside society",
+        "the date a household came or went within the year",
+        "the building's form, storeys, material or outline"
+      ]
+    },
+    "chicago_blue_book_1894": {
+      "source_id": "chicago_blue_book_1894",
+      "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1894. Chicago: The Chicago Directory Company.",
+      "url": "https://archive.org/details/chicagobluebooko1894chic",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "which households the register listed at each Prairie Avenue number from 1600 to 2140 for 1894"
+      ],
+      "what_it_does_not_supply": [
+        "servants, young children, or households outside society",
+        "the date a household came or went within the year",
+        "the building's form, storeys, material or outline"
+      ]
+    },
+    "chicago_blue_book_1895": {
+      "source_id": "chicago_blue_book_1895",
+      "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1895. Chicago: The Chicago Directory Company.",
+      "url": "https://archive.org/details/chicagobluebooko1895chic",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "which households the register listed at each Prairie Avenue number from 1600 to 2140 for 1895"
+      ],
+      "what_it_does_not_supply": [
+        "servants, young children, or households outside society",
+        "the date a household came or went within the year",
+        "the building's form, storeys, material or outline"
+      ]
+    },
+    "chicago_blue_book_1897": {
+      "source_id": "chicago_blue_book_1897",
+      "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1897. Chicago: The Chicago Directory Company.",
+      "url": "https://archive.org/details/chicagobluebooko1897chic",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "which households the register listed at each Prairie Avenue number from 1600 to 2140 for 1897"
+      ],
+      "what_it_does_not_supply": [
+        "servants, young children, or households outside society",
+        "the date a household came or went within the year",
+        "the building's form, storeys, material or outline"
+      ]
+    },
+    "chicago_blue_book_1898": {
+      "source_id": "chicago_blue_book_1898",
+      "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1898. Chicago: The Chicago Directory Company.",
+      "url": "https://archive.org/details/chicagobluebooko1898chic",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "which households the register listed at each Prairie Avenue number from 1600 to 2140 for 1898"
+      ],
+      "what_it_does_not_supply": [
+        "servants, young children, or households outside society",
+        "the date a household came or went within the year",
+        "the building's form, storeys, material or outline"
+      ]
+    },
+    "chicago_blue_book_1899": {
+      "source_id": "chicago_blue_book_1899",
+      "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1899. Chicago: The Chicago Directory Company.",
+      "url": "https://archive.org/details/chicagobluebooko1899chic",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "which households the register listed at each Prairie Avenue number from 1600 to 2140 for 1899"
+      ],
+      "what_it_does_not_supply": [
+        "servants, young children, or households outside society",
+        "the date a household came or went within the year",
+        "the building's form, storeys, material or outline"
+      ]
+    },
+    "chicago_blue_book_1901": {
+      "source_id": "chicago_blue_book_1901",
+      "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1901. Chicago: The Chicago Directory Company.",
+      "url": "https://archive.org/details/chicagobluebooko1901chic",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "which households the register listed at each Prairie Avenue number from 1600 to 2140 for 1901"
+      ],
+      "what_it_does_not_supply": [
+        "servants, young children, or households outside society",
+        "the date a household came or went within the year",
+        "the building's form, storeys, material or outline"
+      ]
+    },
+    "chicago_blue_book_1902": {
+      "source_id": "chicago_blue_book_1902",
+      "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1902. Chicago: The Chicago Directory Company.",
+      "url": "https://archive.org/details/chicagobluebooko1902chic",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "which households the register listed at each Prairie Avenue number from 1600 to 2140 for 1902"
+      ],
+      "what_it_does_not_supply": [
+        "servants, young children, or households outside society",
+        "the date a household came or went within the year",
+        "the building's form, storeys, material or outline"
+      ]
+    },
+    "chicago_blue_book_1903": {
+      "source_id": "chicago_blue_book_1903",
+      "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1903. Chicago: The Chicago Directory Company.",
+      "url": "https://archive.org/details/chicagobluebooko1903chic",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "which households the register listed at each Prairie Avenue number from 1600 to 2140 for 1903"
+      ],
+      "what_it_does_not_supply": [
+        "servants, young children, or households outside society",
+        "the date a household came or went within the year",
+        "the building's form, storeys, material or outline"
+      ]
+    },
     "chicago_blue_book_1904": {
       "source_id": "chicago_blue_book_1904",
       "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1904. Chicago: The Chicago Directory Company, 1903.",
@@ -348,6 +558,86 @@
         "that Bane Brothers' livery was established in 1901 and incorporated in 1904",
         "that by 1905 it held 2123 through 2129 Indiana Avenue",
         "who the register listed at each Prairie Avenue number for 1904-05, the later bracket of the 1904 household cards (T-3253)"
+      ],
+      "what_it_does_not_supply": [
+        "the building's form, storeys, material or outline",
+        "a construction or demolition date"
+      ]
+    },
+    "chicago_blue_book_1907": {
+      "source_id": "chicago_blue_book_1907",
+      "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1907. Chicago: The Chicago Directory Company.",
+      "url": "https://archive.org/details/chicagobluebooko1907chic",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "which households the register listed at each Prairie Avenue number from 1600 to 2140 for 1907"
+      ],
+      "what_it_does_not_supply": [
+        "servants, young children, or households outside society",
+        "the date a household came or went within the year",
+        "the building's form, storeys, material or outline"
+      ]
+    },
+    "chicago_blue_book_1908": {
+      "source_id": "chicago_blue_book_1908",
+      "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1908. Chicago: The Chicago Directory Company.",
+      "url": "https://archive.org/details/chicagobluebooko1908chic",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "which households the register listed at each Prairie Avenue number from 1600 to 2140 for 1908"
+      ],
+      "what_it_does_not_supply": [
+        "servants, young children, or households outside society",
+        "the date a household came or went within the year",
+        "the building's form, storeys, material or outline"
+      ]
+    },
+    "chicago_blue_book_1909": {
+      "source_id": "chicago_blue_book_1909",
+      "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1909. Chicago: The Chicago Directory Company.",
+      "url": "https://archive.org/details/chicagobluebooko1909chic",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "which households the register listed at each Prairie Avenue number from 1600 to 2140 for 1909"
+      ],
+      "what_it_does_not_supply": [
+        "servants, young children, or households outside society",
+        "the date a household came or went within the year",
+        "the building's form, storeys, material or outline"
+      ]
+    },
+    "chicago_blue_book_1910": {
+      "source_id": "chicago_blue_book_1910",
+      "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1910. Chicago: The Chicago Directory Company.",
+      "url": "https://archive.org/details/chicagobluebooko1910chic",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "that 2123-2129 Indiana Avenue were still one livery in 1910, under George G. West",
+        "the first Blue Book households at 216 East 20th Street, in 1910"
+      ],
+      "what_it_does_not_supply": [
+        "the building's form, storeys, material or outline",
+        "a construction or demolition date"
+      ]
+    },
+    "chicago_blue_book_1911": {
+      "source_id": "chicago_blue_book_1911",
+      "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1911. Chicago: The Chicago Directory Company.",
+      "url": "https://archive.org/details/chicagobluebooko1911chic",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "that the 1911 garage at 2127-2129 Indiana Avenue was the West livery's motor branch",
+        "households at 216 East 20th Street in 1911"
       ],
       "what_it_does_not_supply": [
         "the building's form, storeys, material or outline",
@@ -676,6 +966,36 @@
       "archived_url": "",
       "tier": 4,
       "tier_label": "later scholarship"
+    },
+    "classic_chicago_prairie_kids_party": {
+      "source_id": "classic_chicago_prairie_kids_party",
+      "citation": "Classic Chicago Magazine, 'Prairie Avenue's Best Kids' Party Ever'. Read 5 November 2026.",
+      "url": "https://classicchicagomagazine.com/?p=26387",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "Marshall Field Jr. and Ethel Field at home at 1905 Prairie Avenue in January 1886"
+      ],
+      "what_it_does_not_supply": [
+        "when the family moved in"
+      ]
+    },
+    "classic_chicago_pullman_finale": {
+      "source_id": "classic_chicago_pullman_finale",
+      "citation": "Classic Chicago Magazine, 'Pullman Finale: Florence and the Naughty Twins'. Read 5 November 2026.",
+      "url": "https://classicchicagomagazine.com/?p=71646",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "Florence Pullman's wedding at the house in 1896",
+        "the twins' later marriages and California homes"
+      ],
+      "what_it_does_not_supply": [
+        "the house number",
+        "Harriet's wedding"
+      ]
     },
     "cook_county_mclintock_bachelors_grove": {
       "source_id": "cook_county_mclintock_bachelors_grove",
@@ -1678,6 +1998,22 @@
       "tier": 4,
       "tier_label": "later scholarship"
     },
+    "pullman_museum_children_page": {
+      "source_id": "pullman_museum_children_page",
+      "citation": "Pullman State Historic Site / Historic Pullman Foundation, 'The Children of George M. Pullman' and 'George, Jr. and Walter (Sanger) Pullman' (pullman-museum.org). Read 5 November 2026.",
+      "url": "https://pullman-museum.org/theMan/theChildren.html",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "the four children's names and birth and death years",
+        "that the twins were schooled at home on Prairie Avenue"
+      ],
+      "what_it_does_not_supply": [
+        "the house number",
+        "when each child left the house"
+      ]
+    },
     "racine_old_settlers_elisha_raymond_1871": {
       "source_id": "racine_old_settlers_elisha_raymond_1871",
       "citation": "Official Record of the Old Settlers' Society of Racine County, Wisconsin, Raymond settlement account.",
@@ -2066,6 +2402,20 @@
         "the sisters' names or dates"
       ]
     },
+    "wikipedia_ethel_beatty": {
+      "source_id": "wikipedia_ethel_beatty",
+      "citation": "Wikipedia, 'Ethel Beatty, Countess Beatty'. Read 5 November 2026.",
+      "url": "https://en.wikipedia.org/wiki/Ethel_Beatty",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "Ethel Field's birth year and her wedding at 1905 Prairie Avenue on 1 January 1891"
+      ],
+      "what_it_does_not_supply": [
+        "when the family moved into the house"
+      ]
+    },
     "wikipedia_frances_glessner_lee": {
       "source_id": "wikipedia_frances_glessner_lee",
       "citation": "Wikipedia, 'Frances Glessner Lee'. Read 30 October 2026.",
@@ -2096,6 +2446,22 @@
       "what_it_does_not_supply": [
         "his address",
         "his children"
+      ]
+    },
+    "wikipedia_marshall_field": {
+      "source_id": "wikipedia_marshall_field",
+      "citation": "Wikipedia, 'Marshall Field'. Read 5 November 2026.",
+      "url": "https://en.wikipedia.org/wiki/Marshall_Field",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "Marshall Field's children",
+        "Gwendolyn Mary Field as a child of Marshall Field Jr."
+      ],
+      "what_it_does_not_supply": [
+        "the house numbers",
+        "Gwendolyn Field's birth date"
       ]
     },
     "wikipedia_marshall_field_iii": {

@@ -51,7 +51,9 @@ export async function mount(el, ctx = {}) {
       }
       const name = Object.assign(doc.createElement('span'), { className: 'nav-person-name', textContent: p.name });
       const sub = Object.assign(doc.createElement('span'), { className: 'nav-sub',
-        textContent: [placeIn(p.relationship), GRADES[p.grade]].filter(Boolean).join(' · ') });
+        // T-3382: a child of the house carded for other years says when they lived there.
+        textContent: [placeIn(p.relationship), p.lived_here?.years ? `lived here ${String(p.lived_here.years).replace(/(\d)-(\d)/g, '$1\u2013$2')}` : '',
+          GRADES[p.grade]].filter(Boolean).join(' · ') });
       row.append(name, sub);
       block.append(row);
     }

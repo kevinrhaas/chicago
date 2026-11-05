@@ -29,7 +29,7 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The two live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: W. G. Hibbard (William Gold Hibbard died in 1903; the 1900 line names him with every other column blank). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The two live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: W. G. Hibbard (William Gold Hibbard died in 1903; the 1900 line names him with every other column blank). The children the Blue Book lists at the number from 1890 to 1911 are on the card with the years each was listed, whether or not they were at home in 1904. The 1910 census was not read for this card. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
       "census_1900_chicago_t623_roll245"
@@ -46,6 +46,59 @@
         "chicago_blue_book_1905"
       ],
       "printed_as": "1701 Mrs. William Gold Hibbard"
+    },
+    {
+      "id": "pa1904_hibbard_lilian_b",
+      "name": "Lilian B. Hibbard",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "chicago_blue_book_1890"
+      ],
+      "printed_as": "1701 Miss Lilian B. Hibbard",
+      "lived_here": {
+        "years": "1890",
+        "on_scene_date": "no"
+      },
+      "note": "Listed at 1701 under Mr. and Mrs. William G. Hibbard in the 1890 edition, and not after. That she was a daughter of the house is read from the shared surname and 'Miss' at the number; the Blue Book does not print the relationship."
+    },
+    {
+      "id": "pa1904_hibbard_f_v_s_at_1701",
+      "name": "F. V. S. Hibbard",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "chicago_blue_book_1894",
+        "chicago_blue_book_1895",
+        "chicago_blue_book_1897"
+      ],
+      "printed_as": "1701 F. V. S. Hibbard",
+      "lived_here": {
+        "years": "1894-1897",
+        "on_scene_date": "no"
+      },
+      "own_card": "pa1904_hibbard_f_vans",
+      "note": "Listed at 1701 under his parents in the 1894, 1895 and 1897 editions; in 1904 he and his wife keep their own house at 1620, on their own card. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship. The Frank Hibbard listed at 1701 again from the 1905 edition is very likely the same man, but the book does not say so."
+    },
+    {
+      "id": "pa1904_hibbard_william_g_jr_at_1701",
+      "name": "William G. Hibbard jr.",
+      "relationship": "son",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1894",
+        "chicago_blue_book_1895",
+        "chicago_blue_book_1897",
+        "chicago_blue_book_1898",
+        "chicago_blue_book_1899"
+      ],
+      "printed_as": "1701 William G. Hibbard jr.",
+      "lived_here": {
+        "years": "1894-1899",
+        "on_scene_date": "no"
+      },
+      "own_card": "pa1904_hibbard_william_gold_jr",
+      "note": "Listed at 1701 under his parents from 1894 to 1899, as William G. Hibbard jr.: the 'jr.' names him the son of the house. From the 1901 edition he and his wife are across the street at 1637, where they live in 1904 on their own card."
     },
     {
       "id": "pa1904_ward_mrs_o_van_schaack",

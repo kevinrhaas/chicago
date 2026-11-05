@@ -516,13 +516,27 @@ async function fillPeople(pane, sec, ctx, id) {
   // T-3258: the family before its staff — head, spouse, children, kin, then the servants the
   // 1900 census names — so a house of twelve servants still opens on the people it is named for.
   const order = (r) => RANK[r.relationship] ?? 3;
-  for (const r of [...here].sort((a, b) => order(a) - order(b) || a.name.localeCompare(b.name))) {
+  // T-3382: a child of the house carded for the years they lived in it says those years; one
+  // not living here on the scene date is listed under the household, not in it.
+  const years = (r) => (r.lived_here?.years ? `lived here ${String(r.lived_here.years).replace(/(\d)-(\d)/g, '$1\u2013$2')}` : '');
+  const away = (r) => r.lived_here?.on_scene_date === 'no';
+  const rowFor = (r, sub) => {
     const b = el(doc, 'button', 'nav-person insp-person-link');
     b.type = 'button';
     b.dataset.personCard = r.id;
-    b.append(line(doc, 'span', 'nav-person-name', r.name, r.grade),
-      el(doc, 'span', 'nav-sub', [r.household_name, r.relationship === 'head' ? 'head of the household' : r.relationship].filter(Boolean).join(' · ')));
-    block.append(b);
+    b.append(line(doc, 'span', 'nav-person-name', r.name, r.grade), el(doc, 'span', 'nav-sub', sub.filter(Boolean).join(' \u00b7 ')));
+    return b;
+  };
+  const sorted = [...here].sort((a, b) => order(a) - order(b) || a.name.localeCompare(b.name));
+  for (const r of sorted.filter((x) => !away(x))) {
+    block.append(rowFor(r, [r.household_name, r.relationship === 'head' ? 'head of the household' : r.relationship, years(r)]));
+  }
+  const children = sorted.filter(away);
+  if (children.length) {
+    const h = heading(doc, 'Children who lived here in other years');
+    h.classList.add('insp-people-other');
+    block.append(h);
+    for (const r of children) block.append(rowFor(r, [r.relationship, years(r)]));
   }
   pane.append(block);
   const past = history();

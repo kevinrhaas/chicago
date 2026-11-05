@@ -29,7 +29,7 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The one live-in servant it lists at the house on 1 June 1900 is on the card, graded inferred because the count was taken four years before the scene. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The one live-in servant it lists at the house on 1 June 1900 is on the card, graded inferred because the count was taken four years before the scene. The children the Blue Book lists at the number from 1890 to 1911 are on the card with the years each was listed, whether or not they were at home in 1904. The 1910 census was not read for this card. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
       "census_1900_chicago_t623_roll245"
@@ -55,6 +55,42 @@
         "relation_as_enumerated": "Head"
       },
       "note": "The 1900 census lists J. M. Walker here with the other columns left blank (ED 40, sheet 1A, line 36, leaf n794)."
+    },
+    {
+      "id": "pa1904_walker_wirt_d",
+      "name": "Wirt D. Walker",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "chicago_blue_book_1890",
+        "chicago_blue_book_1891",
+        "chicago_blue_book_1892",
+        "chicago_blue_book_1893",
+        "chicago_blue_book_1894",
+        "chicago_blue_book_1895"
+      ],
+      "printed_as": "1720 Wirt D. Walker",
+      "lived_here": {
+        "years": "1890-1895",
+        "on_scene_date": "no"
+      },
+      "note": "Listed at 1720 under Mrs. James M. Walker from 1890 to 1895; a Mrs. Wirt D. Walker is listed there in 1901. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship."
+    },
+    {
+      "id": "pa1904_walker_henry_h_at_1720",
+      "name": "Henry H. Walker",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "chicago_blue_book_1902"
+      ],
+      "printed_as": "1720 Mr. & Mrs. Henry H. Walker",
+      "lived_here": {
+        "years": "1902",
+        "on_scene_date": "no"
+      },
+      "own_card": "pa1904_walker_henry_h",
+      "note": "Listed at 1720 with his wife in the 1902 edition; from 1903 they are next door at 1721, where they live in 1904 on their own card. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship."
     },
     {
       "id": "pa1904_walker_mrs_james_m_c1900_winnifred_johnson",
