@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2671, ts: '2026-11-05T22:13:58.516Z', date: 'Nov 5, 2026, 4:13 PM CT', title: 'The Navigator\'s Map is sharp close up', kind: 'fix',
+    items: [
+      'Close up, the Map now draws every building outline and street line at the zoom you are looking at, so houses have clean edges instead of soft, smeared blobs.',
+      'The 1904 whole field is drawn the same way. The small round map by the compass is unchanged.',
+    ] },
   { v: 2670, ts: '2026-11-05T21:53:34.652Z', date: 'Nov 5, 2026, 3:53 PM CT', title: 'Prairie Avenue\'s brick differs house by house', kind: 'feature',
     items: [
       'Brick fronts on Prairie Avenue in 1904 now wear a period face brick instead of all wearing one buff common: pressed red, deep red, brown, golden buff, or a smoke-dulled 1860s cream, with the side and rear walls in a common brick whose shade varies by house.',
