@@ -1,0 +1,9 @@
+{
+  "title": "Jump asks before you leave the year",
+  "kind": "improvement",
+  "items": [
+    "Picking another year in the Navigator's Jump now asks first: \"Depart 1904 for 1835?\" with Cancel and Depart.",
+    "Cancel, Esc or a tap outside the card keeps you where you are; the transfer ring runs only on Depart.",
+    "The prompt is the one Recall uses, dressed by all four appearances and sized for a phone."
+  ]
+}

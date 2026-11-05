@@ -7,6 +7,7 @@ import { resolveHumanIdentity } from './human-identity.js';
 import { disposeLoadedAsset } from './scene-loader.js';
 import { createDrivenAssembly } from './town-transport.js';
 import { fitHorseSupport } from './transport-support.js';
+import { createDriverLife } from './driver-life.js';
 
 /** Actual portable assets, never an identity/wardrobe or idle-only fallback. */
 export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], humanAssets,
@@ -163,8 +164,17 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
         },
       };
       if (Number.isFinite(row.initial_assembly_state?.driver?.time_s)) actor.body.mixer.setTime(row.initial_assembly_state.driver.time_s);
-      const driver = { root: actor.root, update(dt) { actor.body?.mixer.update(dt); },
-        snapshot() { return { clip: driverClip, time_s: actor.body?.mixer.time ?? 0 }; }, dispose() { actor.dispose(); } };
+      // T-1790: breathing, the ride, weight shifts, looking around and hands on the
+      // reins, layered over the seated clip each frame (driver-life.js). Bound to the
+      // clip's first pose; a rig that is not the contract skeleton is left as it was.
+      const life = actor.body?.scene && createDriverLife({ root: actor.root, scene: actor.body.scene, id: instance.person_id ?? row.id,
+        faces: actor.body.faces ?? [], gaitCycle_m: horseSpecCopy.stride_m });
+      let motion = { distance_m: null, curvature: 0, moving: false };
+      const driver = { root: actor.root,
+        update(dt, viewer = null) { actor.body?.mixer.update(dt); life?.apply(dt, motion, viewer); },
+        move(pose, moving) { motion = { distance_m: pose.totalDistance, curvature: pose.curvature ?? 0, moving }; },
+        snapshot() { return { clip: driverClip, time_s: actor.body?.mixer.time ?? 0, life: life?.snapshot() ?? null }; },
+        dispose() { actor.dispose(); } };
       if (driverClip === 'sit_drive_look_v2') driver.updateVisual = driver.update;
       const hitchRow = { ...row };
       const palmBindings = row.driver_palm_bindings_by_lod?.[String(driverLod)];

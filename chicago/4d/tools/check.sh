@@ -549,6 +549,8 @@ step "Current in-place horse travel keeps route, wheel, stop and culled-motion c
   node tools/test_transport_loop.mjs
 step "Driven assembly retains named drivers, vehicle ownership and exact current horse travel (T-2804)" \
   node tools/test_driven_assembly.mjs
+step "A seated driver breathes, looks round and holds his reins, bounded and deterministic, on the real 1904 driver (T-1790)" \
+  node tools/test_driver_life.mjs
 step "Driven-team clearance uses the complete occupied envelope and refuses blocked routes (T-2804)" \
   node tools/test_transport_clearance.mjs
 step "Driven-team support reads actual ground and preserves physical contact limits (T-2804)" \

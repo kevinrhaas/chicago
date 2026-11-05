@@ -1364,6 +1364,20 @@ def compile_people(scene_id: str, outdir: Path) -> int:
             "works_at": first_place(links, "works_at"),
             **role_row_view(person),
         }
+        lived = person.get("lived_here")
+        if lived:
+            # A CHILD OF THE HOUSE WHO LIVED HERE IN OTHER YEARS (T-3382). The card names the
+            # years and whether that span reaches the scene date; a child gone before it (or
+            # born after it) reads absent, one the sources do not place either way uncertain,
+            # so the pins and the 'Here on 1 July' filter never put them in the house in 1904.
+            row["lived_here"] = {k: lived.get(k) for k in ("years", "on_scene_date") if lived.get(k)}
+            on = lived.get("on_scene_date")
+            if on == "no":
+                row["present"] = "absent"
+            elif on == "unknown" and row["present"] == "present":
+                row["present"] = "uncertain"
+        if person.get("own_card"):
+            row["own_card"] = person["own_card"]
         seat = seat_for.get(person.get("id"))
         if seat is not None and not row["lives_at"]:
             # THE SEAT IS THE ONLY PLACE THIS PERSON IS GIVEN A ROOF, and it is written

@@ -30,7 +30,7 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. In 1900 Leroy W. Fuller lived here, not Marshall Field jr. The census says nothing about this household's staff. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. In 1900 Leroy W. Fuller lived here, not Marshall Field jr. The census says nothing about this household's staff. The children the Blue Book lists at the number from 1890 to 1911 are on the card with the years each was listed, whether or not they were at home in 1904. The 1910 census was not read for this card. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
       "census_1900_chicago_t623_roll245"
@@ -96,6 +96,20 @@
         "note": "Born 1895, died 1917 (the lifespan Wikipedia's article on his brother gives him)."
       },
       "note": "About nine on the scene date; his place in his parents' house is inferred as his brother's is. A sister, Gwendolyn, is not on this card because the source read for it does not name her."
+    },
+    {
+      "id": "pa1904_field_gwendolyn",
+      "name": "Gwendolyn Field",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "wikipedia_marshall_field"
+      ],
+      "lived_here": {
+        "years": "a child here in 1903-1905",
+        "on_scene_date": "yes"
+      },
+      "note": "Gwendolyn Mary Field, the daughter of Marshall Field Jr. and Albertine Huck (Wikipedia names her among their children). The household is listed here from the 1903 edition to 1905, and her father died in November 1905; her birth date is not in the source read, so her place in the house in 1904 is inferred as her brothers' is."
     }
   ]
 }
