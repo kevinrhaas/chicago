@@ -1,15 +1,12 @@
 {
   "schema_version": 1,
+  "content_version": 2,
+  "category": "Trades",
+  "review_required": false,
   "id": "boots-and-leather",
-  "content_version": 1,
+  "scene": "1835",
   "title": "Boots, Leather and the Road",
   "premise": "Outfit a rider for tomorrow's road: boots at Holbrook's on South Water Street, a look across the forks from Wolf Point at Miller's tannery, where the town's leather began, the saddler at Lake and Canal, and the Green Tree to lay it all out.",
-  "category": "Trades",
-  "scene": "1835",
-  "opening": {
-    "text": "You ride out tomorrow and lodge tonight at the Green Tree on the west bank. An outfit for the road is leather and cloth, each from a different trade. The rider and the purchases are invented; the shops and their trades are not.",
-    "read_s": 13
-  },
   "default_mode": "horse",
   "allowed_modes": [
     "walk",
@@ -18,6 +15,15 @@
     "fly",
     "instantly"
   ],
+  "long_form": true,
+  "ambience": {
+    "hour": "afternoon",
+    "season": "spring"
+  },
+  "opening": {
+    "text": "JAUNT: BOOTS, LEATHER AND THE ROAD. A spring afternoon, the mud drying at last, and you ride out tomorrow. The strangers pour through this town 'by land and by water', and most of them, like you, are 'locating farther west'. Before you join them you need an outfit, and an outfit is leather: boots for the rider and tack for the horse.\n\nHere is the catch. In this town those are two different trades in two different shops on two sides of the river. Buy boots on South Water Street, look across the forks at the tannery where Chicago's leather began, visit the saddler at Lake and Canal, and lay it all out at the Green Tree tonight.",
+    "read_s": 33
+  },
   "variables": {
     "wait": {
       "min": 0,
@@ -43,9 +49,9 @@
         "kind": "structure",
         "id": "john_holbrook_store"
       },
-      "text": "Start one door east of Dearborn on South Water Street. In June 1835 John Holbrook advertised hats, clothing, boots and shoes, wholesale and retail, as agent for the manufacturers. These are made goods, shipped in; the building is our reconstruction.",
+      "text": "Start one door east of Dearborn on South Water Street. In June 1835 John Holbrook advertised hats, clothing, boots and shoes, wholesale and retail, as agent for the manufacturers. These are made goods, shipped in from the East and sold off the shelf: in a town growing this fast, nobody has time to wait for a cobbler.",
       "narrative": "Boots for the road, or a hat?",
-      "read_s": 22,
+      "read_s": 18,
       "action_s": 15,
       "links": [
         {
@@ -106,9 +112,9 @@
         "kind": "anchor",
         "id": "forks"
       },
-      "text": "Over the South Branch to Wolf Point. Across the North Branch, in 1831, John Miller built a log house on the point and used it as a tannery, Chicago's first recorded factory. Whether hides were still worked this summer, no source says.",
-      "narrative": "Leather begins as hides, somewhere.",
-      "read_s": 23,
+      "text": "Over the South Branch to Wolf Point. Across the North Branch, in 1831, John Miller built a log house on the point and used it as a tannery, Chicago's first recorded factory. Before the boats brought boots by the crate, leather here began as hides soaking in a pit. Whether hides were still worked this summer, no source says.",
+      "narrative": "Leather begins as hides, somewhere. Here, it began on the point.",
+      "read_s": 19,
       "action_s": 5,
       "links": [
         {
@@ -148,9 +154,9 @@
         "kind": "structure",
         "id": "goss_cobb_saddlery"
       },
-      "text": "South down the west bank to Lake and Canal. Goss & Cobb opened here in 1833 making saddles, harness, bridles, martingales and trunks to order. The partners parted in February 1835, and S. B. Cobb's June card says he will continue. Neither card names boots.",
+      "text": "South down the west bank to Lake and Canal. Goss & Cobb opened here in 1833, the year Silas B. Cobb arrived, making saddles, harness, bridles, martingales and trunks to order. The partners parted in February 1835, and Cobb's June card says he will continue. Neither card names boots.",
       "narrative": "Leather for the horse, or for the baggage?",
-      "read_s": 26,
+      "read_s": 16,
       "action_s": 15,
       "links": [
         {
@@ -175,13 +181,14 @@
         "cobb-corner",
         "not-boots",
         "continuity",
-        "errand"
+        "errand",
+        "mk-1833-arrivals"
       ],
       "choices": [
         {
           "id": "bridle",
           "label": "Order a new bridle",
-          "consequence": "Bridles are on the card. That it is ready by morning is our invention.",
+          "consequence": "Bridles are on the card. Cobb promises it by morning.",
           "effects": [
             {
               "op": "add",
@@ -223,9 +230,9 @@
         "kind": "structure",
         "id": "green_tree_tavern"
       },
-      "text": "East along Lake to West Water and the Green Tree, which James Kinzie built in 1833 as the first house here put up for hotel purposes. Old settlers recalled Chester Ingersoll keeping it from 1834 to 1837. Lay the outfit out here for the morning.",
+      "text": "East along Lake to West Water and the Green Tree, which James Kinzie built in 1833 as the first house here put up for hotel purposes, 'so called from an oak tree standing close by'. Old settlers recalled Chester Ingersoll keeping it from 1834 to 1837. Lay the outfit out on the floor for the morning.",
       "narrative": "Ride at first light, or wait a day?",
-      "read_s": 26,
+      "read_s": 18,
       "action_s": 10,
       "links": [
         {
@@ -248,7 +255,8 @@
         "green-tree",
         "green-tree-place",
         "continuity",
-        "errand"
+        "errand",
+        "mk-green-tree"
       ],
       "choices": [
         {
@@ -289,7 +297,7 @@
     {
       "from": "ready-made",
       "to": "tannery",
-      "note": "West along South Water Street and over the South Branch to Wolf Point; which crossing is not claimed.",
+      "note": "West along South Water Street and over the South Branch to Wolf Point.",
       "evidence": [
         "holbrook-place",
         "wolf-point-view"
@@ -302,7 +310,7 @@
     {
       "from": "tannery",
       "to": "saddler",
-      "note": "South down the west bank to Lake and Canal; no particular path is claimed.",
+      "note": "South down the west bank to Lake and Canal.",
       "evidence": [
         "wolf-point-view",
         "cobb-corner"
@@ -332,7 +340,7 @@
     {
       "id": "equipped",
       "text": "Boots from the clothier and a bridle from the saddler: leather for the rider and leather for the horse, from two trades that did not do each other's work. You ride out at first light equipped to travel.",
-      "read_s": 10,
+      "read_s": 11,
       "completion_eligible": true,
       "when": {
         "all": [
@@ -348,7 +356,7 @@
     {
       "id": "trunk-bound",
       "text": "A trunk will not ride on a saddle. The morning begins with finding a wagon going your way: the baggage is ready and the way of carrying it is not.",
-      "read_s": 9,
+      "read_s": 8,
       "completion_eligible": true,
       "when": {
         "has": "trunk"
@@ -488,6 +496,33 @@
       "locator": "chicagology pre-fire page 127, Green Tree Tavern: construction and landlords; DRLOIH hotel chronology, Green Tree entry."
     },
     {
+      "id": "mk-green-tree",
+      "text": "The Green Tree was 'so called from an oak tree standing close by', 'one of the most noted in those early days'; it stood until 1880, when it was moved to 33-37 Milwaukee Avenue, 'where it still stands, the oldest memento of early taverns'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 561, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 98792-98820 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-1833-arrivals",
+      "text": "Immigration in 1833 'assumed proportions surpassing all expectation'; the year's arrivals included John Dean Caton, Silas B. Cobb, Asahel Pierce and the Rev. Jeremiah Porter, and about 165 frame buildings went up.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 90, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12227-12245 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-immigrants",
+      "text": "In 1834 the strangers came 'by land and by water', in prairie schooners and other wagons, 'on horseback and on foot', and 'Many immigrants passed through the town with a view to locating farther west'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 94, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12724-12751 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
       "id": "green-tree-place",
       "text": "The Green Tree's corner is the north-east corner of Lake and West Water, on the west bank of the South Branch, east along Lake Street from the Canal Street crossing.",
       "confidence": "inferred",
@@ -517,8 +552,8 @@
       "liberty": "L-jaunt-boots-and-leather"
     }
   ],
-  "review_required": false,
   "liberties": [
-    "L-jaunt-boots-and-leather"
+    "L-jaunt-boots-and-leather",
+    "L-jaunt-1835-light-and-stories"
   ]
 }

@@ -1,15 +1,12 @@
 {
   "schema_version": 1,
+  "content_version": 3,
+  "category": "Employment",
+  "review_required": false,
   "id": "work-on-waterfront",
-  "content_version": 2,
+  "scene": "1835",
   "title": "Work on the Waterfront",
   "premise": "Read the town's notices for working hands, ask after work at two Newberry & Dole warehouses and leave with a work chit or a sensible next lead.",
-  "category": "Employment",
-  "scene": "1835",
-  "opening": {
-    "text": "The river trade needs backs as well as trades. Choose your skill, read the notices, ask at two of Newberry & Dole's warehouses and weigh it over breakfast. The errand and the chit are invented; the notices are not.",
-    "read_s": 14
-  },
   "default_mode": "horse",
   "allowed_modes": [
     "walk",
@@ -18,6 +15,15 @@
     "fly",
     "instantly"
   ],
+  "long_form": true,
+  "ambience": {
+    "hour": "morning",
+    "season": "summer"
+  },
+  "opening": {
+    "text": "JAUNT: WORK ON THE WATERFRONT. Morning, and you need a job. The good news: Chicago in 1835 needs everybody. Buildings go up as fast as lumber comes in, every boat needs unloading, and the papers carry notices headed 'Wanted, immediately'. The bad news: the strangers keep coming 'by land and by water', and half of them want work too.\n\nChoose what you can do, read the notices, ask at two of Newberry & Dole's houses, and plan your next move over breakfast.",
+    "read_s": 23
+  },
   "variables": {
     "skill": {
       "min": 0,
@@ -51,9 +57,9 @@
         "kind": "structure",
         "id": "chicago_democrat_office"
       },
-      "text": "John Calhoun's Democrat, printed here and by May over Jones & King's hardware, wanted a printer's apprentice that week. On 17 June Jones, King & Co. wanted one coppersmith and one tin and sheet-iron worker.",
+      "text": "John Calhoun's Democrat, printed here at first and since May over Jones & King's hardware, wants 'an apprentice at this office to the printing business'. On 17 June Jones, King & Co. printed: 'Wanted, immediately, one copper smith, and one tin and sheet iron worker.' A town building this fast needs printers for its notices and tinsmiths for its stovepipes: since 1833 every stovepipe through a roof must be 'guarded by tin or sheet iron', or the owner pays $5.",
       "narrative": "Choose the skill you are offering.",
-      "read_s": 22,
+      "read_s": 24,
       "action_s": 15,
       "links": [
         {
@@ -78,7 +84,8 @@
         "apprentice-wanted",
         "metal-wanted",
         "continuity",
-        "errand"
+        "errand",
+        "mk-stovepipe"
       ],
       "choices": [
         {
@@ -128,9 +135,9 @@
         "kind": "structure",
         "id": "dole_warehouse_south"
       },
-      "text": "Andreas puts George Dole's 1832 warehouse and slaughter yard near Lake and Dearborn. Packing was winter work, hogs killed in December, and by 1834 the partners had a slaughter-house on the South Branch. In July, nothing to pack.",
+      "text": "Andreas puts George Dole's 1832 warehouse and slaughter yard near Lake and Dearborn. Dole began the town's packing trade here, 'the nucleus of one of those immense industries' that made Chicago famous. But packing is winter work, hogs killed in December, and by 1834 the partners had moved their killing to the South Branch. In July there is nothing to pack.",
       "narrative": "Ask to be remembered, or go on to the river?",
-      "read_s": 25,
+      "read_s": 20,
       "action_s": 15,
       "links": [
         {
@@ -148,13 +155,14 @@
         "dole-yard",
         "packing-winter",
         "continuity",
-        "errand"
+        "errand",
+        "mk-packing"
       ],
       "choices": [
         {
           "id": "remember",
           "label": "Ask to be remembered for the packing",
-          "consequence": "An invented promise to ask again when there is packing to do.",
+          "consequence": "A promise to ask again when there is packing to do.",
           "effects": [
             {
               "op": "set",
@@ -178,9 +186,9 @@
         "kind": "structure",
         "id": "newberry_dole_warehouse"
       },
-      "text": "Newberry & Dole have advertised as forwarding and commission merchants since November 1833; in June the American named them agents for the steamboat Michigan to Detroit and Buffalo. Which bank their house stood on is disputed.",
+      "text": "Newberry & Dole have advertised as forwarding and commission merchants since November 1833; in June the American named them agents for the steamboat Michigan to Detroit and Buffalo. When the schooner Illinois came up through the new harbour cut in July 1834, she was cheered at their wharf. Every vessel since has needed hands to unload her, and nobody advertises for those.",
       "narrative": "Ask about work, or watch the wharf?",
-      "read_s": 23,
+      "read_s": 19,
       "action_s": 15,
       "links": [
         {
@@ -211,7 +219,7 @@
         {
           "id": "offer",
           "label": "Offer a day's carrying",
-          "consequence": "An invented chit: a day's carrying when a vessel next unloads. No wage is written on it.",
+          "consequence": "A chit: a day's carrying when a vessel next unloads. No wage is written on it.",
           "effects": [
             {
               "op": "set",
@@ -235,9 +243,9 @@
         "kind": "structure",
         "id": "exchange_coffee_house"
       },
-      "text": "Breakfast at the Exchange Coffee House at Lake and Wells, built by Mark Beaubien and kept by the Murphys since August 1834. Lay out the morning: two notices, a yard waiting on winter, a forwarding house.",
+      "text": "Breakfast at the Exchange Coffee House at Lake and Wells, built by Mark Beaubien and kept by the Murphys since August 1834. The county's old tariff put breakfast at 25 cents. Lay out the morning: two notices for trades, a yard waiting on winter, and a wharf that never stops.",
       "narrative": "Where will you ask first tomorrow?",
-      "read_s": 22,
+      "read_s": 16,
       "action_s": 15,
       "links": [
         {
@@ -254,7 +262,8 @@
       "evidence": [
         "exchange-house",
         "continuity",
-        "errand"
+        "errand",
+        "mk-tariff"
       ],
       "choices": [
         {
@@ -303,7 +312,7 @@
     {
       "from": "notices",
       "to": "packing",
-      "note": "East along South Water Street to Dearborn, then a block south to Lake Street; no particular path is claimed.",
+      "note": "East along South Water Street to Dearborn, then a block south to Lake Street.",
       "evidence": [
         "dole-yard",
         "continuity"
@@ -316,7 +325,7 @@
     {
       "from": "packing",
       "to": "forwarding",
-      "note": "Back north to the river and west along South Water Street to the reconstructed river frontage.",
+      "note": "Back north to the river and west along South Water Street to the river frontage.",
       "evidence": [
         "nd-bank",
         "continuity"
@@ -395,8 +404,8 @@
     },
     {
       "id": "chit-for-the-boat",
-      "text": "You carry an invented chit for a day's carrying when a vessel next unloads at the forwarding house, with no wage written on it. Be on the wharf when a sail comes in.",
-      "read_s": 10,
+      "text": "You carry a chit for a day's carrying when a vessel next unloads at the forwarding house, with no wage written on it. Be on the wharf when a sail comes in.",
+      "read_s": 9,
       "completion_eligible": true,
       "when": {
         "all": [
@@ -415,7 +424,7 @@
     },
     {
       "id": "remembered-for-the-winter",
-      "text": "You asked to be remembered when there is packing to do. That is a winter promise, and an invented one: no wage, no name and no date. Something to hold on to until December.",
+      "text": "You asked to be remembered when there is packing to do. That is a winter promise, with no wage, no name and no date: something to hold on to until December, when the hogs come in.",
       "read_s": 10,
       "completion_eligible": true,
       "when": {
@@ -542,6 +551,42 @@
       "locator": "Andreas vol. 1, printed p. 633, the hotel chapter; the life of Mark Beaubien; DRLOIH hotel chronology, Exchange Coffee House entry."
     },
     {
+      "id": "mk-stovepipe",
+      "text": "The trustees' first ordinance, of 6 November 1833, 'prohibited the passing of stove-pipes through the roof, partition or side of any building, unless guarded by tin or sheet iron, under penalty of $5'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 93, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12641-12646 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-packing",
+      "text": "'The year 1832 also witnessed the beginning of the slaughtering and packing business of Chicago by George W. Dole', with others, 'the nucleus of one of those immense industries which have raised Chicago to its present commercial pre-eminence'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 90, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12171-12177 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-tariff",
+      "text": "In 1831 the county authorities made a tariff of rates 'obligatory upon all inn-keepers': 25 cents for each breakfast and supper, 37½ for dinner, 25 for each horse feed, 50 for keeping a horse all night, 12½ for lodging for men, 25 for half a pint of wine, rum or brandy, 18¾ for gin, and 6¼ for a gill of whiskey.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 560, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 98764-98777 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-immigrants",
+      "text": "In 1834 the strangers came 'by land and by water', in prairie schooners and other wagons, 'on horseback and on foot', and 'Many immigrants passed through the town with a view to locating farther west'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 94, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12724-12751 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
       "id": "continuity",
       "text": "The four places are exterior stops in the 1 July 1835 scene. The Democrat’s corner is visited as its former office, Newberry & Dole’s house is a reconstructed placement, and no interior, front door, clerk, keeper or vessel in port on the morning is claimed.",
       "confidence": "inferred",
@@ -560,8 +605,8 @@
       "liberty": "L-jaunt-work-waterfront"
     }
   ],
-  "review_required": false,
   "liberties": [
-    "L-jaunt-work-waterfront"
+    "L-jaunt-work-waterfront",
+    "L-jaunt-1835-light-and-stories"
   ]
 }

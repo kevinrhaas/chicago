@@ -1,15 +1,12 @@
 {
   "schema_version": 1,
+  "content_version": 3,
+  "category": "Social life",
+  "review_required": false,
   "id": "sunday-circuit",
-  "content_version": 2,
+  "scene": "1835",
   "title": "A Sunday Circuit",
   "premise": "A quiet outing past the town's two churches and its log meeting house, ending with a call at the Sauganash.",
-  "category": "Social life",
-  "scene": "1835",
-  "opening": {
-    "text": "A neighbour expects you at the Sauganash, and the way passes every place the town worshipped. Look from the road; no service or day is claimed.",
-    "read_s": 8
-  },
   "default_mode": "horse",
   "allowed_modes": [
     "walk",
@@ -18,6 +15,15 @@
     "fly",
     "instantly"
   ],
+  "long_form": true,
+  "ambience": {
+    "hour": "morning",
+    "season": "spring"
+  },
+  "opening": {
+    "text": "JAUNT: A SUNDAY CIRCUIT. A spring Sunday morning. Three years ago this town had no church at all. Then, in a single season, 1833, they came all at once: a Catholic priest said mass in one of Mark Beaubien's log cabins, a Presbyterian minister preached in the fort's carpenter's shop, and the Methodists met in a log room at Wolf Point. Soon the town's trustees will even ban 'the sale of liquors on Sunday'.\n\nA neighbour expects you at the Sauganash. On the way you pass every place the town worships. Look from the road and see how far three years have come.",
+    "read_s": 29
+  },
   "stops": [
     {
       "id": "st-marys",
@@ -25,8 +31,8 @@
         "kind": "structure",
         "id": "st_marys_church"
       },
-      "text": "St. Mary's, on Lake Street west of State, built in 1833 by Augustine D. Taylor for about $400; Andreas says unplastered and unpainted. The lot is our placement.",
-      "read_s": 16,
+      "text": "St. Mary's, on Lake Street west of State, the town's first Catholic church. Father St. Cyr 'celebrated his first mass in a log cabin belonging to Mark Beaubien' in May 1833; that August Augustine D. Taylor raised this frame, twenty-five by thirty-five feet, its lumber brought by scow across the lake from St. Joseph at $12 a thousand. It cost about $400. Inside, rough benches for pews; outside, no paint, no steeple and no tower.",
+      "read_s": 22,
       "links": [
         {
           "kind": "structure",
@@ -43,7 +49,8 @@
         "stmarys-build",
         "stmarys-plain",
         "stmarys-place",
-        "outing"
+        "outing",
+        "mk-st-cyr"
       ],
       "next": "presbyterian",
       "narrative": "The plainest church in town."
@@ -54,8 +61,8 @@
         "kind": "structure",
         "id": "first_presbyterian_church"
       },
-      "text": "Two blocks west, at Lake and Clark, the Presbyterian church, dedicated 4 January 1834, was a meeting room too: School District No. 4 was called here for 7 July.",
-      "read_s": 16,
+      "text": "Two blocks west, at Lake and Clark, the Presbyterian church, dedicated on 4 January 1834. Its pastor, Jeremiah Porter, 'the pioneer Protestant minister of Chicago', came with the troops from Fort Brady and 'preached a sermon in the carpenter's shop of the garrison on the 19th of May, 1833'. Until the church went up he lived and studied upstairs in Peck's store. It is a meeting room too: School District No. 4 is called here for 7 July.",
+      "read_s": 23,
       "links": [
         {
           "kind": "structure",
@@ -72,7 +79,9 @@
         "presbyterian-dedicated",
         "presbyterian-notice",
         "presbyterian-place",
-        "outing"
+        "outing",
+        "mk-porter-sermon",
+        "mk-peck-porter"
       ],
       "next": "walker",
       "narrative": "Church and meeting room."
@@ -83,8 +92,8 @@
         "kind": "structure",
         "id": "walker_meeting_house"
       },
-      "text": "Over the South Branch to Wolf Point, where Wau-Bun remembered a log school-house used for worship in 1831. Whether it is the 1835 meeting house is unsettled; our marker is a placeholder.",
-      "read_s": 17,
+      "text": "Over the South Branch to Wolf Point, where Wau-Bun remembered 'a small square log building, originally designed for a school-house, but occasionally used as a place of worship whenever any itinerant minister presented himself'. A pioneer account credits Father Jesse Walker, the Methodist missionary, with building it, and his own log house 'served the purpose of a parsonage, parlor, kitchen and audience-room'. A frontier preacher made one room do everything.",
+      "read_s": 21,
       "links": [
         {
           "kind": "structure",
@@ -101,7 +110,8 @@
         "walker-waubun",
         "walker-builder",
         "walker-bank",
-        "outing"
+        "outing",
+        "mk-walker-house"
       ],
       "next": "the-call",
       "narrative": "One log room, wherever it stood."
@@ -112,8 +122,8 @@
         "kind": "structure",
         "id": "sauganash_hotel"
       },
-      "text": "Back over the bridge to Lake and Market and the Sauganash, white with blue shutters in Wau-Bun, newly fitted up by the Democrat of 10 June 1835. The neighbour and the visit are invented.",
-      "read_s": 17,
+      "text": "Back over the bridge to Lake and Market and the Sauganash, white with blue shutters in Wau-Bun, newly fitted up by the Democrat of 10 June 1835. Your neighbour is waiting. On a Sunday the landlord's fiddle ought to be quiet, though Moses and Kirkland remember Mark Beaubien as 'an ardent, if not always devout, Catholic', and 'a liberal contributor' to St. Mary's.",
+      "read_s": 19,
       "links": [
         {
           "kind": "structure",
@@ -130,17 +140,59 @@
         "sauganash-look",
         "sauganash-refit",
         "sauganash-place",
-        "outing"
+        "outing",
+        "mk-beaubien-catholic"
       ],
       "next": "$end",
       "narrative": "Arrive where the call is expected."
     }
   ],
+  "legs": [
+    {
+      "from": "st-marys",
+      "to": "presbyterian",
+      "note": "Two blocks west along Lake Street, from State past Dearborn to Clark.",
+      "evidence": [
+        "stmarys-place",
+        "presbyterian-place"
+      ],
+      "story": "Two blocks west, from the priest's plain frame to the minister's church.",
+      "story_evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "presbyterian",
+      "to": "walker",
+      "note": "West on Lake Street to the South Branch, over the bridge between Lake and Randolph, and north up the west bank to the forks.",
+      "evidence": [
+        "bridge-place",
+        "walker-bank"
+      ],
+      "story": "Leave the town's frame churches for its oldest place of worship.",
+      "story_evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "walker",
+      "to": "the-call",
+      "note": "Back down the west bank and over the same bridge to Lake Street and the Market Street corner.",
+      "evidence": [
+        "bridge-place",
+        "sauganash-place"
+      ],
+      "story": "Cross once more, to the call you set out for.",
+      "story_evidence": [
+        "outing"
+      ]
+    }
+  ],
   "endings": [
     {
       "id": "among-neighbors",
-      "text": "You reach the Sauganash's door with four gathering places in mind: two churches, a log room that served for school and worship, and the public house where your call is expected. The call is the outing's invention; the places are the town's.",
-      "read_s": 13,
+      "text": "You reach the Sauganash's door with the whole of the town's religion behind you: a priest's plain frame, a minister's church that doubles as a meeting hall, and a log room at the forks that served for school and worship both. Three years ago there was none of it.",
+      "read_s": 14,
       "default": true,
       "completion_eligible": true
     }
@@ -257,6 +309,60 @@
       "locator": "10 June 1835 (Vol. II No. 8), p. 2, col. 5, the paragraph on the town's public houses (claim chicago_democrat_1835_06_10#c001). Transcription-mediated reading."
     },
     {
+      "id": "mk-st-cyr",
+      "text": "Father John M. I. St. Cyr 'celebrated his first mass in a log cabin belonging to Mark Beaubien, May 5, 1833'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 92, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12519-12525 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-porter-sermon",
+      "text": "Jeremiah Porter, 'the pioneer Protestant minister of Chicago', came to Fort Dearborn with troops from Fort Brady and 'preached a sermon in the carpenter's shop of the garrison on the 19th of May, 1833'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 574, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 100186-100192 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-peck-porter",
+      "text": "Peck gave the Rev. Jeremiah Porter 'a lodging place and study in the second story of his store building', and there was held 'one of the earliest Sunday-schools organized in the town'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 571, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 99868-99876 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-board-1835",
+      "text": "The trustees elected in 1835 'prohibited gaming houses, and the sale of liquors on Sunday'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 96, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12917-12925 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-walker-house",
+      "text": "The Rev. Jesse Walker, the Methodist preacher, lived on the West Side in a log house, afterwards a school-house, which then 'served the purpose of a parsonage, parlor, kitchen and audience-room'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 87, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 11871-11877 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-beaubien-catholic",
+      "text": "Mark Beaubien 'was an ardent, if not always devout, Catholic', prominent in founding 'old St. Mary's', to which he was 'a liberal contributor'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 560, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 98710-98714 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
       "id": "sauganash-place",
       "text": "The Sauganash stood at the south-east corner of Lake and Market Streets, on the east bank of the South Branch.",
       "confidence": "inferred",
@@ -284,49 +390,8 @@
       "liberty": "L-jaunt-sunday-circuit"
     }
   ],
-  "review_required": false,
   "liberties": [
-    "L-jaunt-sunday-circuit"
-  ],
-  "legs": [
-    {
-      "from": "st-marys",
-      "to": "presbyterian",
-      "note": "Two blocks west along Lake Street, from State past Dearborn to Clark.",
-      "evidence": [
-        "stmarys-place",
-        "presbyterian-place"
-      ],
-      "story": "From the plainest church in town to the one built by subscription.",
-      "story_evidence": [
-        "outing"
-      ]
-    },
-    {
-      "from": "presbyterian",
-      "to": "walker",
-      "note": "West on Lake Street to the South Branch, over the bridge between Lake and Randolph, and north up the west bank to the forks; the meeting house's spot is unfixed.",
-      "evidence": [
-        "bridge-place",
-        "walker-bank"
-      ],
-      "story": "Leave the town's frame churches for its oldest place of worship.",
-      "story_evidence": [
-        "outing"
-      ]
-    },
-    {
-      "from": "walker",
-      "to": "the-call",
-      "note": "Back down the west bank and over the same bridge to Lake Street, where the Sauganash keeps the Market Street corner.",
-      "evidence": [
-        "bridge-place",
-        "sauganash-place"
-      ],
-      "story": "Cross once more, to the call you set out for.",
-      "story_evidence": [
-        "outing"
-      ]
-    }
+    "L-jaunt-sunday-circuit",
+    "L-jaunt-1835-light-and-stories"
   ]
 }

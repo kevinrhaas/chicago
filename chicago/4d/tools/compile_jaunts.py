@@ -10,6 +10,7 @@ from pathlib import Path
 from jsonschema import Draft202012Validator
 from compile_scene import cite
 import jaunt_names
+import jaunt_place_facts
 
 ROOT = Path(__file__).resolve().parents[1]
 # Not jaunts: the content schema, and the visitor's daybook (T-1258), which every scene's
@@ -251,6 +252,9 @@ class Compiler:
         catalog, files, errors, ids = [], {}, [], set()
         # T-2946: one name per building for a stop's heading and its road notes, in every jaunt.
         places = jaunt_names.names(self.scene_id, list(self.refs['structure'].values()))
+        # T-3379: a sourced fact for each building a road note passes, cited like any claim.
+        facts = jaunt_place_facts.facts(self.scene_id, list(self.refs['structure'].values()))
+        errors_facts = jaunt_place_facts.check(self.scene_id, list(self.refs['structure'].values()), self.refs['source'])
         for path in sorted(source.glob('*.json')):
             if path.name in NOT_JAUNTS or path.name == 'catalog-55.json': continue  # Harness catalog, not a story.
             try:
@@ -267,9 +271,11 @@ class Compiler:
                            destinations=[s['destination'] for s in doc['stops']], availability='unavailable' if reasons else 'available', reason='; '.join(reasons) or None)
                 catalog.append(row)
                 citations = cite({sid for claim in doc['evidence'] for sid in claim['sources']}, self.refs['source'])
-                files[doc['id'] + '.json'] = packed({**doc, 'citations': citations, **({'places': places} if places else {})})
+                files[doc['id'] + '.json'] = packed({**doc, 'citations': citations, **({'places': places} if places else {}),
+                                                     **({'place_facts': facts} if facts else {})})
             except (ValueError, KeyError, TypeError) as error:
                 errors.append(f'{path.name}: {error}')
+        errors.extend(errors_facts)
         files['catalog.json'] = packed({'schema_version': 1, 'scene': self.scene_id, 'jaunts': catalog})
         files['daybook.json'] = packed(self.daybook())
         return files, errors

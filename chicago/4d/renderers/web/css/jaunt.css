@@ -41,7 +41,6 @@
 .jaunt-evidence summary { color: #e5b54b; font-size: .75rem; display: flex; align-items: center; }
 .jaunt-evidence details[open] { flex-basis: 100%; }
 .jaunt-evidence p { font-size: .85rem; }
-.jaunt-map-note { font-size: .7rem; opacity: .8; }
 .jaunt-leg-notes { border-top: 1px solid #64716e; }
 .jaunt-leg-notes > p { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
 .jaunt-leg-notes > p.jaunt-narrative { -webkit-line-clamp: 1; }

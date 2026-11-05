@@ -30,6 +30,12 @@ assert.deepEqual(passingPlaces(south, [{ ...glessner, point: glessner.stand, out
 assert.deepEqual(passingPlaces([[-50, 20], [50, 20]], [{ ...glessner, outline: box(-36, -15, -6, 15) }]).map(p => p.side), ['on your right'], 'eastbound on its north street, the house is on the right');
 const note = legContext({ stops: [{ id: 'a' }, { id: 'b' }] }, 'a', 'b', south, [glessner], []);
 assert.equal(note.lines[0].text, 'Passing Glessner House, 1800 Prairie, on your right.');
+assert.equal(note.lines[0].generated, true, 'a house with no fact is named only');
+// T-3379: a passed house's fact follows its name and carries its sources.
+const told = legContext({ stops: [{ id: 'a' }, { id: 'b' }], place_facts: { glessner_house: { text: 'A granite fortress.', confidence: 'attested', sources: ['src'] } } }, 'a', 'b', south, [glessner], []);
+assert.equal(told.lines[0].text, 'Passing Glessner House, 1800 Prairie, on your right. A granite fortress.');
+assert.deepEqual(told.lines[0].claims, [{ id: 'place:glessner_house', text: 'A granite fortress.', confidence: 'attested', sources: ['src'] }]);
+assert.equal(told.lines[0].generated, undefined);
 assert.equal(passingPlaces([[0, 0], [0, 0]], ids.map(place)).length, 0);
 assert.equal(new Set(passed.map(p => p.id)).size, passed.length);
 const doc = read('data/jaunts/_fixtures/fixture-walk.json');

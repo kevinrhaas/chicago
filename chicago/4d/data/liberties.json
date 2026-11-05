@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1007,
+  "count": 1008,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -29510,6 +29510,40 @@
       ],
       "work_refs": [
         "T-3251"
+      ]
+    },
+    {
+      "id": "L-jaunt-1835-light-and-stories",
+      "title": "The 1835 jaunts retold: their own light and season, and stories told plainly",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-05",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The owner asked that every 1835 jaunt be \"more robust like we did in 1812\", with \"more story telling\", context at the start, stops that lead into the next, and its own time of day and season. Each of the 27 jaunts now opens with a scene-setting paragraph, tells its stops as a story and sets an `ambience` (hour and season). The light is a viewing choice, like Settings > Time of day and Season, never a claim about the day: the scene stays 1 July 1835, so a winter morning at the fort or an autumn dusk on South Water Street is how the walk is shown, not when it is set. The stories add the colour of the town from Moses and Kirkland's History of Chicago, vol. 1 (1895) — Mark Beaubien's fiddle and lighthouse, the balloon frame, the land-office mania and its auction crier, the mud, the mail read aloud from a dry-goods box, the winter cut-off — each quoted from the OCR at the cited lines and page. The visitor, errands, purses, prices, choices and endings stay invented connective narrative under each jaunt's own liberty; the stop and ending texts no longer repeat that in every sentence, because the jaunt's errand claim and its own liberty already say it."
+        },
+        {
+          "label": "Bounds",
+          "text": "The approved 1 July 1835 scene and its records. Facts after the scene date (the Lake House's 1836 opening, the Green Tree's move in 1880, the Calumet Club fire of 1893, the panic after 1836) are told as later history. The Indigenous-history constraint holds: no invented voice uses an Indigenous term and the August 1835 gathering is not staged."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Revise as interpretation; a page-image reading of a Moses and Kirkland passage would raise its claim from transcription-mediated."
+        },
+        {
+          "label": "Applies to",
+          "text": "the a decent coat data, the across wolf point data, the along the harbor data, the an evening stroll data, the bed for the night data, the boots and leather data, the calling on neighbors data, the fort dearborn errand data, the freight for the store data, the from prairie to town data, the gossip or notice data, the household provisions data, the inspect a lot data, the letter home data, the materials for a roof data, the mend the harness data, the new in chicago data, the news before breakfast data, the notable women 1835 data, the outfit for the west data, the over the draw data, the schoolday errand data, the shopping south water data, the soap and candles data, the sunday circuit data, the taverns of chicago data, the work on waterfront data."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-05 (T-3380)."
+        }
+      ],
+      "work_refs": [
+        "T-3380"
       ]
     },
     {

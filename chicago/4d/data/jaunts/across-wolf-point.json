@@ -1,16 +1,13 @@
 {
   "schema_version": 1,
+  "content_version": 2,
+  "category": "River and routes",
+  "featured": true,
+  "review_required": false,
   "id": "across-wolf-point",
-  "content_version": 1,
+  "scene": "1835",
   "title": "Across Wolf Point",
   "premise": "Make a short crossing between the settlement's divisions and learn why the forks mattered.",
-  "category": "River and routes",
-  "scene": "1835",
-  "featured": true,
-  "opening": {
-    "text": "Cross the river where the town began: from the tavern at the forks, down the west bank, over the South Branch bridge to the south side. Four exterior stops, nothing to buy. The outing is reconstructed; the places and the bridge are documented.",
-    "read_s": 16
-  },
   "default_mode": "walk",
   "allowed_modes": [
     "walk",
@@ -19,6 +16,15 @@
     "fly",
     "instantly"
   ],
+  "long_form": true,
+  "ambience": {
+    "hour": "daybreak",
+    "season": "spring"
+  },
+  "opening": {
+    "text": "JAUNT: ACROSS WOLF POINT. Daybreak in spring, and the river is running high. This is where Chicago began: the forks, where the North and South Branches meet and run east to the lake as one river. Before there were streets there were taverns here, and the first bridges, and a ferryman who also played the fiddle.\n\nCross the river the way the town did: from the tavern that named Wolf Point, down the west bank past the Green Tree, over the South Branch bridge, and up to the Sauganash. Four stops, nothing to buy, and the whole early town in view.",
+    "read_s": 28
+  },
   "stops": [
     {
       "id": "the-fork",
@@ -26,8 +32,8 @@
         "kind": "structure",
         "id": "wolf_point_tavern"
       },
-      "text": "Start on the west bank at the tavern that named Wolf Point, partly log and partly frame, its sign a wolf painted on a piece of box. Whether it still kept travellers in July 1835 is disputed.",
-      "read_s": 26,
+      "text": "Start on the west bank at the tavern that named Wolf Point, partly log and partly frame. Its sign was made by an army officer, Lieutenant Allen, from a piece of a box, with a wolf painted on it. Whether it still keeps travellers is disputed: one account has William Walters keeping it until 1836, another says it stopped in 1834. Look east: the two branches meet off this bank and run to the lake as one river.",
+      "read_s": 24,
       "links": [
         {
           "kind": "structure",
@@ -47,7 +53,7 @@
         "outing"
       ],
       "next": "west-bank",
-      "narrative": "Read the fork: the North and South Branches meet off this bank and run east as one river."
+      "narrative": "Read the fork before you cross it."
     },
     {
       "id": "west-bank",
@@ -55,8 +61,8 @@
         "kind": "structure",
         "id": "green_tree_tavern"
       },
-      "text": "South along the bank to the Green Tree, the public house at Lake and West Water on the west bank of the South Branch. Old settlers recalled Chester Ingersoll keeping it from 1834 to 1837.",
-      "read_s": 24,
+      "text": "South along the bank to the Green Tree, at Lake and West Water, which James Kinzie built in 1833 as the first house here put up for hotel purposes, 'so called from an oak tree standing close by'. Old settlers recalled Chester Ingersoll keeping it from 1834 to 1837. It is the great survivor among the town's taverns: sixty years on it still stands, moved to Milwaukee Avenue, 'the oldest memento of early taverns'.",
+      "read_s": 23,
       "links": [
         {
           "kind": "structure",
@@ -72,10 +78,12 @@
       "evidence": [
         "green-tree",
         "west-bank",
-        "outing"
+        "outing",
+        "green-tree-built",
+        "mk-green-tree"
       ],
       "next": "the-crossing",
-      "narrative": "Face east: the river, and the south side beyond it, is where you are going."
+      "narrative": "Face east: the south side is where you are going."
     },
     {
       "id": "the-crossing",
@@ -83,8 +91,8 @@
         "kind": "structure",
         "id": "south_branch_raft_bridge"
       },
-      "text": "A few steps south, the South Branch bridge, between Lake and Randolph. Four old settlers signed that it stood on log abutments and two bents, about ten feet wide and six feet above the water. Retellings call it a raft; the signers describe a fixed bridge.",
-      "read_s": 26,
+      "text": "A few steps south, the South Branch bridge between Lake and Randolph. Moses and Kirkland say it 'at first consisted of floating logs tied together'; four old settlers signed that it stood on log abutments and two bents, about ten feet wide and six feet above the water, high enough for teams to pass under it on the ice. It was paid for by subscription, $486.20, 'of which the Indians of the vicinity contributed $200'.",
+      "read_s": 23,
       "links": [
         {
           "kind": "structure",
@@ -101,7 +109,8 @@
         "bridge-build",
         "bridge-raft",
         "bridge-place",
-        "outing"
+        "outing",
+        "mk-sb-bridge"
       ],
       "next": "south-side",
       "narrative": "This is the crossing: the deck, never the water."
@@ -112,7 +121,7 @@
         "kind": "structure",
         "id": "sauganash_hotel"
       },
-      "text": "Off the bridge and north to Lake and Market: the Sauganash. Wau-Bun describes it in 1831 as white, two-story, with bright-blue wooden shutters. On 10 June 1835 the Democrat reported it repaired and newly fitted up.",
+      "text": "Off the bridge and north to Lake and Market: the Sauganash, white, two-storey, with bright-blue wooden shutters, which the Democrat of 10 June 1835 found newly fitted up. Moses and Kirkland call it 'the most attractive hostlery the city possessed'. Its landlord, Mark Beaubien, was 'fiddler, landlord, merchant, ferryman and a patron of horse racing', and in winter the town raced its horses on the frozen river you just crossed.",
       "read_s": 24,
       "links": [
         {
@@ -130,17 +139,59 @@
         "sauganash-look",
         "sauganash-refit",
         "sauganash-place",
-        "outing"
+        "outing",
+        "mk-sauganash",
+        "mk-beaubien",
+        "mk-river-sport"
       ],
       "next": "$end",
-      "narrative": "Note the route: down the west bank, over the bridge, north to this corner."
+      "narrative": "Down the west bank, over the bridge, north to this corner: you know the way now."
+    }
+  ],
+  "legs": [
+    {
+      "from": "the-fork",
+      "to": "west-bank",
+      "note": "A short way south along the west bank toward Lake Street.",
+      "evidence": [
+        "forks"
+      ],
+      "story": "See the two branches first, then walk down the one you will cross.",
+      "story_evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "west-bank",
+      "to": "the-crossing",
+      "note": "On down West Water Street to the bridge's west landing, between Lake and Randolph.",
+      "evidence": [
+        "bridge-place"
+      ],
+      "story": "The South Branch is the water between you and the south side.",
+      "story_evidence": [
+        "outing"
+      ]
+    },
+    {
+      "from": "the-crossing",
+      "to": "south-side",
+      "note": "Over the deck and north to Lake Street.",
+      "evidence": [
+        "bridge-place",
+        "sauganash-place"
+      ],
+      "story": "Arrive on the south side at the town's best-known house.",
+      "story_evidence": [
+        "outing"
+      ]
     }
   ],
   "endings": [
     {
       "id": "crossed",
-      "text": "You have crossed between the divisions by the bridge, not the water. In this imagined outing you can now find your way from the west bank to the south side.",
-      "read_s": 12,
+      "text": "You have crossed between the divisions as the town did, by the bridge and not the water, from the oldest tavern corner to the most famous one. Come back when the river freezes, for the races.",
+      "read_s": 10,
       "default": true,
       "completion_eligible": true
     }
@@ -247,6 +298,61 @@
       "locator": "10 June 1835 (Vol. II No. 8), p. 2, col. 5, the paragraph on the town's public houses (claim chicago_democrat_1835_06_10#c001). Transcription-mediated reading."
     },
     {
+      "id": "mk-green-tree",
+      "text": "The Green Tree was 'so called from an oak tree standing close by', 'one of the most noted in those early days'; it stood until 1880, when it was moved to 33-37 Milwaukee Avenue, 'where it still stands, the oldest memento of early taverns'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 561, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 98792-98820 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-sb-bridge",
+      "text": "The bridge across the South Branch near Randolph Street 'at first consisted of floating logs tied together'; Alanson H. and Charles Taylor built it from funds raised by subscription, $486.20, 'of which the Indians of the vicinity contributed $200'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 90, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12185-12192 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-sauganash",
+      "text": "Moses and Kirkland call the Sauganash 'the most attractive hostlery the city possessed', and its genial landlord, 'with his merry fiddle, the most popular of hosts'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 87, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 11879-11886 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-beaubien",
+      "text": "Moses and Kirkland call Mark Beaubien 'the jovial, generous Frenchman', 'the fun of every funeral and the life of every wake'; 'As fiddler, landlord, merchant, ferryman and a patron of horse racing he was alike interesting and always original.'",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 560, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 98698-98710 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-river-sport",
+      "text": "On the frozen river hundreds turned out to skate and sleigh, in sleighs 'made from two saplings, with a crate filled with hay for a box'; 'The river was also brought into requisition as a race track'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 100, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13408-13418 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "green-tree-built",
+      "text": "James Kinzie built the Green Tree in 1833 as the first building in the place erected for hotel purposes; Chester Ingersoll is given as landlord 1834–1837.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire127",
+        "drloih_hotels"
+      ],
+      "locator": "chicagology pre-fire page 127, Green Tree Tavern: construction and landlords; DRLOIH hotel chronology, Green Tree entry."
+    },
+    {
       "id": "sauganash-place",
       "text": "The Sauganash stood at the south-east corner of Lake and Market Streets, on the east bank of the South Branch.",
       "confidence": "inferred",
@@ -264,47 +370,8 @@
       "liberty": "L-jaunt-across-wolf-point"
     }
   ],
-  "review_required": false,
   "liberties": [
-    "L-jaunt-across-wolf-point"
-  ],
-  "legs": [
-    {
-      "from": "the-fork",
-      "to": "west-bank",
-      "note": "A short way south along the west bank. How far north of Lake Street the tavern stood is not fixed by any source.",
-      "evidence": [
-        "forks"
-      ],
-      "story": "See the two branches first, then walk down the one you will cross.",
-      "story_evidence": [
-        "outing"
-      ]
-    },
-    {
-      "from": "west-bank",
-      "to": "the-crossing",
-      "note": "On down West Water Street to the bridge's west landing, between Lake and Randolph.",
-      "evidence": [
-        "bridge-place"
-      ],
-      "story": "The South Branch is the water between you and the south side.",
-      "story_evidence": [
-        "outing"
-      ]
-    },
-    {
-      "from": "the-crossing",
-      "to": "south-side",
-      "note": "Over the deck and north to Lake Street. The route keeps to the bridge; there is no way across the water here without it.",
-      "evidence": [
-        "bridge-place",
-        "sauganash-place"
-      ],
-      "story": "Arrive on the south side at the town's best-known house.",
-      "story_evidence": [
-        "outing"
-      ]
-    }
+    "L-jaunt-across-wolf-point",
+    "L-jaunt-1835-light-and-stories"
   ]
 }
