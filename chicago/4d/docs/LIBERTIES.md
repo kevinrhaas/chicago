@@ -37055,12 +37055,17 @@ kits'. No lawn is laid (`lawn: none`): the yards' grass is the app's own ground.
 the app's ground under the pair's yards was not measured (1708's, beside it, rises 7-18 mm, under the
 flags' 60 mm). The 1901 construction photograph shows the railing already standing during the
 build, on a stone curb, running on from 1708's to the gateway's piers before 1706 and stopping there,
-as Chicagology's later photograph shows it: so it is read as the 1904 railing.
+as Chicagology's later photograph shows it: so it is read as the 1904 railing. T-3393 (the owner,
+2026-11-05: "the front is missing its street fence"): the low edging stone across the pair's middle,
+between the two gateways, is laid as K11's railing curb alone (`boundary.open_curb`), from each
+gateway's inner pier to the party line, bare of iron as both photographs show it; its 0.30 m width and
+0.25 m height are the kit's railing curb, read as the same stone the photographs carry on under the
+iron. The lawn's rise behind it is not modelled (the app's ground stays level there).
 **How to resolve:** a K11 gateway set off its flight's axis with a walk that turns to it (1706's, about
 1.6 m south); a photograph showing the pair's yards nearer the street line, or a second camera on
 Chicagology's picture fitted on the curb and the stair feet as well as the front.
 **Covers:** `glessner_lee_house_1700_prairie.as_mapped_1904.form.yard`, `george_glessner_house_1706_prairie.as_mapped_1904.form.yard`
-**Ticket:** T-3212.
+**Ticket:** T-3212, T-3393.
 
 ### L-k01-1812-wheeler-bay-3236 — 1812 Prairie's entrance bay centred at the owner's ask: its windows and porch arch on the bay's middle, the arch clear of the projection, and the door's panels
 
