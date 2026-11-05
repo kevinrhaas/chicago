@@ -30,10 +30,11 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. In 1900 the Lees were not yet here: the census finds Blewett and Frances Lee at 1623 Prairie Avenue (ED 36, sheet 1A, lines 14-19) with their son John, then a year old, and three servants: Margaret Kelly, waitress, Anna Sawtelle, nurse, and Julia Nolan, cook. Those servants kept a different house four years earlier and are not carried to 1700. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. In 1900 the Lees were not yet here: the census finds Blewett and Frances Lee at 1623 Prairie Avenue (ED 36, sheet 1A, lines 14-19) with their son John, then a year old, and three servants: Margaret Kelly, waitress, Anna Sawtelle, nurse, and Julia Nolan, cook. Those servants kept a different house four years earlier and are not carried to 1700. The 1910 census (T624 roll 241, ED 166 and 167) was read for this card's children: the children it lists, and those the Blue Book lists at the number from 1890 to 1911, are on the card with the years each lived here, whether or not they were at home in 1904. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
-      "census_1900_chicago_t623_roll245"
+      "census_1900_chicago_t623_roll245",
+      "census_1910_chicago_t624_roll241"
     ]
   },
   "persons": [
@@ -106,6 +107,35 @@
         "note": "Born 1903 (the museum's family page)."
       },
       "note": "An infant on the scene date; her place in her parents' house is inferred. The third child, Martha, was born in 1906 and is not on the 1904 card."
+    },
+    {
+      "id": "pa1904_lee_martha",
+      "name": "Martha Lee",
+      "relationship": "daughter",
+      "grade": "attested",
+      "sources": [
+        "census_1910_chicago_t624_roll241"
+      ],
+      "born": {
+        "value": "1907",
+        "confidence": "inferred",
+        "sources": [
+          "census_1910_chicago_t624_roll241"
+        ],
+        "note": "The 1910 census gives age 3 on 15 April 1910, so born about 1906-1907."
+      },
+      "census_1910": {
+        "date": "1910-04-15",
+        "source": "census_1910_chicago_t624_roll241",
+        "locator": "ED 166, sheet 8A, line 47, leaf n1443",
+        "as_enumerated": "Lee, Martha",
+        "relation_as_enumerated": "Daughter"
+      },
+      "lived_here": {
+        "years": "born about 1906; here in 1910",
+        "on_scene_date": "no"
+      },
+      "note": "The youngest of Frances Glessner Lee's three children, born after the scene: the 1910 census lists her at 1700 with her mother, brother John and sister Frances, aged 3 (her mother had borne three children, all living; ED 166, sheet 8A, lines 44-47). Her father is not in the house that day; the marriage ended in 1914."
     }
   ]
 }

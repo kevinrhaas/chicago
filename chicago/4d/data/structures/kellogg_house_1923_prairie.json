@@ -121,6 +121,14 @@
      "confidence": "reconstructed",
      "note": "The kit's common brick for the flanks and rear, which no picture shows."
     },
+    "face_brick": {
+     "value": {
+      "front": "pressed_red",
+      "sides": "common_dun"
+     },
+     "confidence": "reconstructed",
+     "note": "T-3385: No picture of this house reads its brick. The front is the pressed_red (pressed red front brick) a brick front of its decade on Prairie Avenue wore, as the photographed fronts of the street read (Field, Henderson, Spalding, Jones, Wheeler: red fronts over paler common sides); the sides a chicago common brick, smoke-dulled run. Palette: data/components/prairie_1904/k03_face_brick.json; the reading: docs/RESEARCH/face-brick-1904-T-3385/README.md (L-k03-face-brick-3385)."
+    },
     "street_front_trim": {
      "value": {
       "by_storey": [

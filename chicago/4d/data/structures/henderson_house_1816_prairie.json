@@ -121,6 +121,16 @@
           "confidence": "reconstructed",
           "note": "RECONSTRUCTED: the K03 common brick panel 1620 wears; the print is monochrome."
         },
+        "face_brick": {
+          "value": {
+            "front": "pressed_red"
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "chicagology_1816_henderson_photo"
+          ],
+          "note": "T-3385: Chicagology's photograph reads the front's brick at 0.65-0.70 of its slate's reflectance (a red; a buff reads 1.5) and well under its white trim; the side wall paler. Pressed red front, common buff sides. Palette: data/components/prairie_1904/k03_face_brick.json; the reading: docs/RESEARCH/face-brick-1904-T-3385/README.md (L-k03-face-brick-3385)."
+        },
         "street_front_trim": {
           "value": {
             "by_storey": [

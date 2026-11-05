@@ -30,10 +30,11 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. In 1900 Levi Mayer lived here, not the Meekers. The census says nothing about this household's staff. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. In 1900 Levi Mayer lived here, not the Meekers. The census says nothing about this household's staff. The 1910 census (T624 roll 241, ED 166 and 167) was read for this card's children: the children it lists, and those the Blue Book lists at the number from 1890 to 1911, are on the card with the years each lived here, whether or not they were at home in 1904. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
-      "census_1900_chicago_t623_roll245"
+      "census_1900_chicago_t623_roll245",
+      "census_1910_chicago_t624_roll241"
     ]
   },
   "persons": [
@@ -87,6 +88,96 @@
         "note": "Born in Chicago on 3 November 1902 (Wikipedia); the later novelist of Prairie Avenue."
       },
       "note": "A child of twenty months on the scene date. Wikipedia says 'the family lived on Prairie Avenue' without a number; the Blue Book puts his parents at 1815, so his place here is inferred from theirs. He had three sisters, whom the article does not name or date, so they are not on this card."
+    },
+    {
+      "id": "pa1904_meeker_katherine",
+      "name": "Katherine Meeker",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "census_1910_chicago_t624_roll241",
+        "wikipedia_arthur_meeker"
+      ],
+      "born": {
+        "value": "1894",
+        "confidence": "inferred",
+        "sources": [
+          "census_1910_chicago_t624_roll241"
+        ],
+        "note": "The 1910 census gives age 16 on 15 April 1910, so born about 1893-1894."
+      },
+      "census_1910": {
+        "date": "1910-04-15",
+        "source": "census_1910_chicago_t624_roll241",
+        "locator": "ED 167, sheet 6B, line 84, leaf n1460",
+        "as_enumerated": "Meeker, Katherine",
+        "relation_as_enumerated": "Daughter"
+      },
+      "lived_here": {
+        "years": "1903-1910 and after",
+        "on_scene_date": "yes"
+      },
+      "note": "The eldest of Arthur Jr.'s three sisters, whom his biography mentions without naming. The 1910 census lists her at 1815 aged 16, with her sisters Grace and Mary and her brother, and their mother as having borne four children, all living (ED 167, sheet 6B, lines 82-87). The family is listed here from the 1903 edition, so she was very likely about ten and at home in 1904; that is inferred, not recorded."
+    },
+    {
+      "id": "pa1904_meeker_grace",
+      "name": "Grace Meeker",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "census_1910_chicago_t624_roll241",
+        "wikipedia_arthur_meeker"
+      ],
+      "born": {
+        "value": "1895",
+        "confidence": "inferred",
+        "sources": [
+          "census_1910_chicago_t624_roll241"
+        ],
+        "note": "The 1910 census gives age 15 on 15 April 1910, so born about 1894-1895."
+      },
+      "census_1910": {
+        "date": "1910-04-15",
+        "source": "census_1910_chicago_t624_roll241",
+        "locator": "ED 167, sheet 6B, line 85, leaf n1460",
+        "as_enumerated": "Meeker, Grace",
+        "relation_as_enumerated": "Daughter"
+      },
+      "lived_here": {
+        "years": "1903-1910 and after",
+        "on_scene_date": "yes"
+      },
+      "note": "Named for her mother. The 1910 census lists her at 1815 aged 15 (ED 167, sheet 6B, line 85); with the family listed here from 1903 she was very likely at home in 1904, aged about nine, though no record of that year names her."
+    },
+    {
+      "id": "pa1904_meeker_mary",
+      "name": "Mary Meeker",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "census_1910_chicago_t624_roll241",
+        "wikipedia_arthur_meeker"
+      ],
+      "born": {
+        "value": "1904",
+        "confidence": "inferred",
+        "sources": [
+          "census_1910_chicago_t624_roll241"
+        ],
+        "note": "The 1910 census gives age 6 on 15 April 1910, so born about 1903-1904."
+      },
+      "census_1910": {
+        "date": "1910-04-15",
+        "source": "census_1910_chicago_t624_roll241",
+        "locator": "ED 167, sheet 6B, line 87, leaf n1460",
+        "as_enumerated": "Meeker, Mary",
+        "relation_as_enumerated": "Daughter"
+      },
+      "lived_here": {
+        "years": "born about 1903-04; here in 1910",
+        "on_scene_date": "yes"
+      },
+      "note": "The youngest Meeker child: the 1910 census lists her at 1815 aged 6 (ED 167, sheet 6B, line 87), so she was born between April 1903 and April 1904 and was very likely a baby in the house on 1 July 1904. The 1914 Blue Book's '& dr.' is probably her eldest sister."
     }
   ]
 }

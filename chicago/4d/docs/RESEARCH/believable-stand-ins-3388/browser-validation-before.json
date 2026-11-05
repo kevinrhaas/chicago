@@ -1,0 +1,241 @@
+{
+  "method": "Published /1904/ app, normal boot (TAG before, context.js, data/context/1904.json and the changed draft GLBs routed to origin/dev's); desktop 1280x800 at full detail, mobile 390x780 at light; animation paused after readiness.",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "load_ms_to_ready": 106606,
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904",
+        "context": {
+          "buildings": 6026,
+          "trees": 3280,
+          "dropped": 235,
+          "triangles": 239116,
+          "meshes": 5,
+          "street_km": 273.6
+        }
+      },
+      "errors": [],
+      "bad": [],
+      "stands": [
+        {
+          "name": "owner-244-e18th-40ft",
+          "detail": "full",
+          "problems": [],
+          "camera": [
+            1334,
+            -3204,
+            16.33
+          ],
+          "target": [
+            1290,
+            -3143,
+            8.27
+          ],
+          "context": {
+            "buildings": 6026,
+            "trees": 3280,
+            "dropped": 235,
+            "triangles": 239116,
+            "meshes": 5,
+            "street_km": 273.6
+          }
+        },
+        {
+          "name": "owner-250-e18th-18ft",
+          "detail": "full",
+          "problems": [],
+          "camera": [
+            1338,
+            -3206,
+            9.83
+          ],
+          "target": [
+            1300,
+            -3150,
+            10.27
+          ],
+          "context": {
+            "buildings": 6026,
+            "trees": 3280,
+            "dropped": 235,
+            "triangles": 239116,
+            "meshes": 5,
+            "street_km": 273.6
+          }
+        },
+        {
+          "name": "1931-indiana-from-the-alley",
+          "detail": "full",
+          "problems": [],
+          "camera": [
+            1345,
+            -3470,
+            20.47
+          ],
+          "target": [
+            1300,
+            -3440,
+            8.41
+          ],
+          "context": {
+            "buildings": 6026,
+            "trees": 3280,
+            "dropped": 235,
+            "triangles": 239116,
+            "meshes": 5,
+            "street_km": 273.6
+          }
+        },
+        {
+          "name": "2124-calumet-from-the-alley",
+          "detail": "full",
+          "problems": [],
+          "camera": [
+            1470,
+            -3720,
+            20.43
+          ],
+          "target": [
+            1515,
+            -3690,
+            8.45
+          ],
+          "context": {
+            "buildings": 6026,
+            "trees": 3280,
+            "dropped": 235,
+            "triangles": 239116,
+            "meshes": 5,
+            "street_km": 273.6
+          }
+        }
+      ]
+    },
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "load_ms_to_ready": 72940,
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904",
+        "context": {
+          "buildings": 5029,
+          "trees": 379,
+          "dropped": 235,
+          "triangles": 88416,
+          "meshes": 6,
+          "street_km": 273.6
+        }
+      },
+      "errors": [],
+      "bad": [],
+      "stands": [
+        {
+          "name": "owner-244-e18th-40ft",
+          "detail": "light",
+          "problems": [],
+          "camera": [
+            1334,
+            -3204,
+            16.33
+          ],
+          "target": [
+            1290,
+            -3143,
+            8.27
+          ],
+          "context": {
+            "buildings": 5029,
+            "trees": 379,
+            "dropped": 235,
+            "triangles": 88416,
+            "meshes": 6,
+            "street_km": 273.6
+          }
+        },
+        {
+          "name": "owner-250-e18th-18ft",
+          "detail": "light",
+          "problems": [],
+          "camera": [
+            1338,
+            -3206,
+            9.83
+          ],
+          "target": [
+            1300,
+            -3150,
+            10.27
+          ],
+          "context": {
+            "buildings": 5029,
+            "trees": 379,
+            "dropped": 235,
+            "triangles": 88416,
+            "meshes": 6,
+            "street_km": 273.6
+          }
+        },
+        {
+          "name": "1931-indiana-from-the-alley",
+          "detail": "light",
+          "problems": [],
+          "camera": [
+            1345,
+            -3470,
+            20.47
+          ],
+          "target": [
+            1300,
+            -3440,
+            8.41
+          ],
+          "context": {
+            "buildings": 5029,
+            "trees": 379,
+            "dropped": 235,
+            "triangles": 88416,
+            "meshes": 6,
+            "street_km": 273.6
+          }
+        },
+        {
+          "name": "2124-calumet-from-the-alley",
+          "detail": "light",
+          "problems": [],
+          "camera": [
+            1470,
+            -3720,
+            20.43
+          ],
+          "target": [
+            1515,
+            -3690,
+            8.45
+          ],
+          "context": {
+            "buildings": 5029,
+            "trees": 379,
+            "dropped": 235,
+            "triangles": 88416,
+            "meshes": 6,
+            "street_km": 273.6
+          }
+        }
+      ]
+    }
+  ]
+}

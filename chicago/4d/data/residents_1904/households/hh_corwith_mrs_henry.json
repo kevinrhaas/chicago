@@ -29,7 +29,7 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The six live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: Charlotte McGinnis (a widowed daughter the 1904 Blue Book does not list at the house); Isabelle McGinnis (her daughter, who would go where her mother went). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The six live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: Charlotte McGinnis (a widowed daughter the 1904 Blue Book does not list at the house); Isabelle McGinnis (her daughter, who would go where her mother went). The children the Blue Book lists at the number from 1890 to 1911 are on the card with the years each was listed, whether or not they were at home in 1904. The 1910 census was not read for this card. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
       "census_1900_chicago_t623_roll245"
@@ -75,6 +75,45 @@
         "as_enumerated": "Corwith, Charles R",
         "relation_as_enumerated": "Son"
       }
+    },
+    {
+      "id": "pa1904_corwith_john_w",
+      "name": "John W. Corwith",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "chicago_blue_book_1892",
+        "chicago_blue_book_1893",
+        "chicago_blue_book_1894",
+        "chicago_blue_book_1895",
+        "chicago_blue_book_1897",
+        "chicago_blue_book_1898",
+        "chicago_blue_book_1899",
+        "chicago_blue_book_1901",
+        "chicago_blue_book_1902"
+      ],
+      "printed_as": "1945 John W. Corwith",
+      "lived_here": {
+        "years": "1892-1902",
+        "on_scene_date": "no"
+      },
+      "note": "Listed at 1945 under Mrs. Henry Corwith from 1892 to 1902, beside his brother Charles R. Corwith; not in 1903 or after. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship."
+    },
+    {
+      "id": "pa1904_corwith_frank",
+      "name": "Frank Corwith",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "chicago_blue_book_1892",
+        "chicago_blue_book_1893"
+      ],
+      "printed_as": "1945 Frank Corwith",
+      "lived_here": {
+        "years": "1892-1893",
+        "on_scene_date": "no"
+      },
+      "note": "Listed at 1945 under Mrs. Henry Corwith in 1892 and 1893. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship. The household also printed '& dr.' from 1892 to 1894, a daughter the book does not name."
     },
     {
       "id": "pa1904_corwith_mrs_henry_c1900_hannah_bolin",

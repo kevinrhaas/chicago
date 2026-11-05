@@ -714,10 +714,13 @@ for (const phone of [true, false]) {
   assert(block, 'the Glessner household has its block');
   const people = block.children.filter((c) => c.classList.contains('nav-person'));
   // T-3258: the family first, then the staff (Mattie Williamson and the five the 1900 census names), by name.
-  assert.deepEqual(people.map((p) => p.children[0].textContent), ['John J. Glessner', 'Frances M. Glessner', 'August Billings',
-    'Charles Nelson', 'Christine Nelson', 'Kate Ryan', 'Martha L. (Mattie) Williamson', 'Mary Reynolds'], 'the head first, the staff last');
-  assert.deepEqual(people.map((p) => p.children[1].textContent).filter((s, i) => [0, 1, 6, 7].includes(i)),
-    ['Head of the household · Attested', 'Wife · Attested', 'Servant · Attested', 'Servant · Inferred'], 'their place and the record\u2019s grade, in the locked terms');
+  // T-3382: their children, who lived here from 1887 until they married in 1898, after them.
+  assert.deepEqual(people.map((p) => p.children[0].textContent), ['John J. Glessner', 'Frances M. Glessner', 'Frances Glessner',
+    'George M. Glessner', 'August Billings', 'Charles Nelson', 'Christine Nelson', 'Kate Ryan', 'Martha L. (Mattie) Williamson',
+    'Mary Reynolds'], 'the head first, the staff last');
+  assert.deepEqual(people.map((p) => p.children[1].textContent).filter((s, i) => [0, 1, 2, 8, 9].includes(i)),
+    ['Head of the household · Attested', 'Wife · Attested', 'Daughter · lived here 1887\u20131898 · Attested', 'Servant · Attested',
+      'Servant · Inferred'], 'their place, their years here and the record\u2019s grade, in the locked terms');
   people[0].dispatch('click');
   assert.deepEqual(inspected, ['glessner_house'], 'a tap takes you to the house they live in');
   await nav4.select('home'); await nav4.select('people');

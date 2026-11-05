@@ -29,10 +29,11 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The five live-in staff and two children it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: Jeannie Rothschild (the eldest daughter in 1900; which daughter is the 1904 \"& dr.\" is not known, so the daughters are named in that line's note); Maurice Rothschild (a grown son (given name hard to read) the 1904 Blue Book does not list at the house). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The five live-in staff and two children it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: Jeannie Rothschild (the eldest daughter in 1900; which daughter is the 1904 \"& dr.\" is not known, so the daughters are named in that line's note); Maurice Rothschild (a grown son (given name hard to read) the 1904 Blue Book does not list at the house). The 1910 census (T624 roll 241, ED 166 and 167) was read for this card's children: the children it lists, and those the Blue Book lists at the number from 1890 to 1911, are on the card with the years each lived here, whether or not they were at home in 1904. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
-      "census_1900_chicago_t623_roll245"
+      "census_1900_chicago_t623_roll245",
+      "census_1910_chicago_t624_roll241"
     ]
   },
   "persons": [
@@ -154,6 +155,51 @@
         "relation_as_enumerated": "Daughter"
       },
       "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head (at school); born January 1885 (the figures are hard to read), in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+    },
+    {
+      "id": "pa1904_rothschild_monroe_r",
+      "name": "Monroe R. Rothschild",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "chicago_blue_book_1897",
+        "chicago_blue_book_1898",
+        "chicago_blue_book_1899",
+        "chicago_blue_book_1901"
+      ],
+      "printed_as": "2112 Monroe R. Rothschild",
+      "lived_here": {
+        "years": "1897-1901",
+        "on_scene_date": "no"
+      },
+      "note": "Listed at 2112 under Mrs. M. M. Rothschild from 1897 to 1901. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship. The 1910 census has her the mother of five children, all living (ED 167, sheet 7B, line 87, leaf n1462)."
+    },
+    {
+      "id": "pa1904_rothschild_mamie_f",
+      "name": "Mamie F. Rothschild",
+      "relationship": "daughter",
+      "grade": "attested",
+      "sources": [
+        "census_1910_chicago_t624_roll241",
+        "chicago_blue_book_1899",
+        "chicago_blue_book_1901",
+        "chicago_blue_book_1908",
+        "chicago_blue_book_1909",
+        "chicago_blue_book_1910"
+      ],
+      "printed_as": "2112 Miss Mamie F. Rothschild",
+      "census_1910": {
+        "date": "1910-04-15",
+        "source": "census_1910_chicago_t624_roll241",
+        "locator": "ED 167, sheet 7B, line 89, leaf n1462",
+        "as_enumerated": "Austrian, Maurice R.",
+        "relation_as_enumerated": "Daughter"
+      },
+      "lived_here": {
+        "years": "1899-1901; 1908-1910",
+        "on_scene_date": "unknown"
+      },
+      "note": "Listed at 2112 as Miss Mamie F. Rothschild in 1899 and 1901; married to Alfred S. Austrian, she is back in the house from the 1908 edition, and the 1910 census lists her there as the widow's daughter, married eight years, with her own daughter Margaret, 6 (ED 167, sheet 7B, lines 88-90; the given name is written as it reads, 'Maurice R.'). Where she lived in 1904 is not in the sources read."
     },
     {
       "id": "pa1904_rothschild_mrs_m_m_c1900_may_dick",
