@@ -657,6 +657,29 @@ class Assembly:
             for slot in ("brick_front", "bay_brick"):
                 self.spec[slot]["color"] = tuple(round(c * f, 4) for c, f in
                                                  zip(self.spec[slot]["color"], params.front_brick_tone))
+        # T-3385: the palette's face and common bricks (k03_face_brick.json, the record's
+        # `face_brick`): the front a shade smoother or rougher than the common it was cut from, and
+        # the side and rear walls, their stacks, the area walls and K03's units toned to the
+        # house's own common run. A brick front with brick heads carries its units in the front's
+        # brick when both are laid in the one panel (the units are one set of slots per house)
+        if self.front_brick == "brick_front" and params.front_brick_roughness:
+            for slot in ("brick_front", "bay_brick"):
+                self.spec[slot]["roughness"] = round(self.spec[slot]["roughness"] + params.front_brick_roughness, 3)
+        units = [k for k in MATERIALS if k.startswith("brick_unit_")]
+        unit_tone = params.side_brick_tone
+        if params.street_front_trim.get("brick_heads") and self.front_brick == "brick_front" \
+                and not params.front_brick_panel:
+            unit_tone = params.front_brick_tone
+        if params.side_brick_tone:
+            for slot in ("brick", "area_brick", "chimney_soot"):
+                self.spec[slot]["color"] = tuple(round(c * f, 4) for c, f in
+                                                 zip(self.spec[slot]["color"], params.side_brick_tone))
+        if params.side_brick_roughness:
+            for slot in ("brick", "area_brick"):
+                self.spec[slot]["roughness"] = round(self.spec[slot]["roughness"] + params.side_brick_roughness, 3)
+        if unit_tone:
+            for slot in units:
+                self.spec[slot]["color"] = tuple(round(c * f, 4) for c, f in zip(self.spec[slot]["color"], unit_tone))
         if params.stone:
             st = params.stone
             trim = st.get("trim_face", st["trim"])   # T-1881: or the walling's own stone
@@ -6262,7 +6285,8 @@ def build(params, structure_id: str):
                     for b in p.side_base if b["wall"] == f"k01.wall.side.{which}")   # T-3184
     walls = {
         # T-2341: a record with no K02 stone front is a brick house, its front in the K03 brick
-        "k01.wall.street_front": ("rough_stone_trim" if p.stone else "brick", (D, 0.0, 0.0), (0.0, 0.0, -1.0),
+        # T-3385: in its own face brick when the record names one (`face_brick.front`)
+        "k01.wall.street_front": ("rough_stone_trim" if p.stone else a.front_brick, (D, 0.0, 0.0), (0.0, 0.0, -1.0),
                                   W, p.front_thickness_m, belts),
         "k01.wall.side.north": (side, (D, 0.0, -W), (-1.0, 0.0, 0.0), D, p.side_thickness_m, side_belts("north")),
         "k01.wall.rear_service": (side, (0.0, 0.0, -W), (0.0, 0.0, 1.0), W, p.side_thickness_m, ()),
