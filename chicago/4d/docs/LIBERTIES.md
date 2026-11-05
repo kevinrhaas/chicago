@@ -24415,8 +24415,13 @@ draws it: a soffit rising 0.27 m to a corona 1.1 m out and 0.51 m deep, a skirt 
 to a flat deck, and on the deck a 0.9 m top balustrade to the Tribune's 73 ft. Those sizes are
 reconstructed to that scale; the cornice's section is a straight soffit and a plain corona where the
 photograph's is moulded, and its brackets are the kit's plain ones in the frieze under it. The door stands in the
-front's bay just north of the tower, its stoop running straight to the avenue: the Tribune enters through
-the tower and the photograph's flight runs north along the front, but K01 refuses a door behind a tower.
+tower's face (T-3367), as the Tribune enters "through a tower": its place along the face is read off the
+photograph, which draws the porch under the tower's north part with the plain shaft south of it, so the
+door's centre at 1.1 m from the north corner and the dressing room's "two windows over main entrance"
+paired over it are reconstructed, and the tower's principal-floor light the build had shown is taken out
+(the photograph shows none). Its landing runs along the tower's face under the porch and the flight runs
+north from its end along the front, as the photograph draws it; the landing's length along the face is
+reconstructed, and the flight's risers are the kit's equal ones up the Tribune's six feet.
 The verandah's two piers between its arches stand as the photograph's columns (T-3356): fluted shafts
 0.32 m across at the foot on a square plinth and a torus, each under a capital of two flaring tiers and a
 square abacus at the springing; the photograph's capitals are carved leafage a few pixels across, and the
