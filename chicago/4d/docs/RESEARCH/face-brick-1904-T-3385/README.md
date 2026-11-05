@@ -107,3 +107,14 @@ A record names its pick as `face_brick` (`front`, `sides`); `k01_frontage_params
   salmon, yellow or dun run each, so the street's flanks are not one colour.
 
 Every pick without a reading is liberty L-k03-face-brick-3385.
+
+## First Presbyterian Church, 2029 Indiana (T-3386)
+
+A district draft, so until T-3386 its walls were the draft's flat brick colour with no texture.
+The 1911 sheet colours it brick; through T-3066's camera the Otis 1887 plate reads its wall brick
+at 0.53-0.60 of its slate spire, and the 1912 plate its flank at 0.51-0.57: red on either plate.
+(Against its light dressings the 1887 wall reads 0.79-0.82, which fits neither a red nor a buff
+well; slate is the reference this method reads every house against, so that reading is kept.)
+A draft record may now name `face_brick` `{front}`; `prairie_draft.to_glb` then lays that recipe's
+K03 panel on every brick face (the same maps a K01 wall embeds, so the shuffle finds it and the
+phone decodes the picture once) with K01's metre UVs. The church wears pressed red.
