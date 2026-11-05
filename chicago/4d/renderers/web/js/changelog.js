@@ -1,4 +1,61 @@
 export const CHANGELOG = [ // newest first
+  { v: 2669, ts: '2026-11-05T21:44:53.355Z', date: 'Nov 5, 2026, 3:44 PM CT', title: 'Jump asks before you leave the year', kind: 'improvement',
+    items: [
+      'Picking another year in the Navigator\'s Jump now asks first: "Depart 1904 for 1835?" with Cancel and Depart.',
+      'Cancel, Esc or a tap outside the card keeps you where you are; the transfer ring runs only on Depart.',
+      'The prompt is the one Recall uses, dressed by all four appearances and sized for a phone.',
+    ] },
+  { v: 2668, ts: '2026-11-05T21:44:53.355Z', date: 'Nov 5, 2026, 3:44 PM CT', title: 'No more lone towers among 1904\'s placeholder buildings', kind: 'fix',
+    items: [
+      'The tall pink slabs behind 244-250 E 18th Street are gone. They were small yard sheds that had been given the height of a whole four-storey block, and they were left standing on their own once the Indiana Avenue houses were drafted.',
+      'Every faded placeholder building now takes its height from its own size. Houses stand at a house\'s height, back wings and sheds stay low, and none is more than twice as tall as it is wide. Thin lines picked up from the old maps are no longer drawn as buildings.',
+      'When a drafted house takes a placeholder\'s place, the placeholder\'s sheds and porches now go with it.',
+      'Narrow back pieces standing apart from nine drafted houses on Indiana and Calumet, including 2124 Calumet and 1931 Indiana, are now one-storey sheds instead of two- and three-storey slabs.',
+    ] },
+  { v: 2667, ts: '2026-11-05T21:44:53.355Z', date: 'Nov 5, 2026, 3:44 PM CT', title: '1700–1706 Prairie under one roof', kind: 'fix',
+    items: [
+      'The two Glessner townhouses at 1700 and 1706 Prairie had separate roofs, each hipped down at the party line, so the roofs crossed in a valley with a brick slab standing out of it. They now share one mansard, as both period photographs show. The party wall sits on the line between the houses and runs up through the roof, its pale coping following the slope from the cornice to the deck.',
+      'One chimney stands on the party wall just behind the railing, and another stands on 1700\'s north end wall. A single downpipe runs down the front on the party line.',
+      'The rooftop railing is now the white fret from the photographs: square posts, one bar corner to corner in each panel, and a squared key in each triangle. It replaces the iron-style cresting.',
+    ] },
+  { v: 2666, ts: '2026-11-05T21:44:53.355Z', date: 'Nov 5, 2026, 3:44 PM CT', title: 'Wall ivy stays on the wall in the wind', kind: 'fix',
+    items: [
+      'The Boston ivy on the Pullman house, and on 1912 Prairie, swung back and forth in the wind and half of every gust carried its leaves into the stone, where they vanished. The leaves now lift off the wall and drift along it, and never go into it. Trees and shrubs move as before.',
+    ] },
+  { v: 2665, ts: '2026-11-05T21:44:53.355Z', date: 'Nov 5, 2026, 3:44 PM CT', title: 'Prairie Avenue houses now list the children who grew up in them', kind: 'feature',
+    items: [
+      'Forty-eight children join the 1904 Prairie Avenue households, read from the Blue Books of 1890 to 1911 and the 1910 census. Each says the years they lived in the house.',
+      'The Pullman house now has Florence, Harriett and the twins George and Sanger, and Glessner House has George and Frances, who lived there from 1887 until they married in 1898 and moved a block north.',
+      'Children who had left by 1904, or were born after it, appear in a house\'s People tab under \'Children who lived here in other years\'. Their cards say they were not living there in 1904, and a grown child with a house of their own links to that household.',
+      'Four people already on the cards are now marked as the family\'s son or daughter, where the census says so.',
+    ] },
+  { v: 2664, ts: '2026-11-05T21:44:53.355Z', date: 'Nov 5, 2026, 3:44 PM CT', title: 'Glessner\'s stable gables wear their roof over the edge', kind: 'fix',
+    items: [
+      'The stable\'s two stone gables, on 18th Street and on the alley, had a stone coping standing up above the roof. The tiles now run over the top of both gables to a thin edge, as the 1887 and 1963 photographs show.',
+    ] },
+  { v: 2663, ts: '2026-11-05T21:44:53.355Z', date: 'Nov 5, 2026, 3:44 PM CT', title: 'Glessner\'s dining bay and courtyard windows get their stonework right', kind: 'fix',
+    items: [
+      'Each corner of Glessner House\'s dining-room bay is now one tall stone between the windows, as the 1923 and 2024 photographs show, where brick and two thin jamb stones stood.',
+      'The courtyard windows between the dining bay and the round hall bay now sit under continuous stone lintel courses that run on into the hall bay\'s own courses. The upper windows had no lintels at all before.',
+    ] },
+  { v: 2662, ts: '2026-11-05T21:44:53.355Z', date: 'Nov 5, 2026, 3:44 PM CT', title: 'Glessner\'s northeast courtyard corner gets its low copper roof and dormer', kind: 'fix',
+    items: [
+      'The courtyard corner between the dining bay and the round hall bay was copper laid flat on the tiles. It is now a low copper roof: the wall below stands higher, the copper runs flatter than the tiles above and meets them in a crease, its west end is hipped, and a downpipe stands at that corner. The 1963 survey\'s section and the aerial photographs both show it.',
+      'A small pointed dormer with a finial now sits on the slope just east of the great chimney, where the aerials and a 1923 photograph show one.',
+    ] },
+  { v: 2661, ts: '2026-11-05T21:44:53.355Z', date: 'Nov 5, 2026, 3:44 PM CT', title: 'Glessner\'s courtyard chimneys stand where the survey plans put them', kind: 'fix',
+    items: [
+      'The two chimneys on the courtyard side of Glessner House\'s 18th Street wing now stand over the flues the 1963 survey plans draw. The middle one is about 8 ft further west, over the courtyard door, and the other sits in the inner corner against the stable.',
+      'The middle chimney is also 2 ft taller, so it still clears the wing\'s raised ridge.',
+      'The great chimney beside the copper roof was checked against the survey and photographs, and is unchanged.',
+    ] },
+  { v: 2660, ts: '2026-11-05T21:44:53.355Z', date: 'Nov 5, 2026, 3:44 PM CT', title: 'Hans comes alive on his carriage box', kind: 'improvement',
+    items: [
+      'Hans breathes, settles his weight on the seat and sways with the road and the horses\' stride.',
+      'He looks around: down the road, at the houses and walks, at his horses, into a turn, and at you if you stand close.',
+      'His elbows are in, his hands at his lap closed on the reins, giving and taking with the horses\' heads.',
+      'Otis Bardwell drives his 1835 wagon the same way.',
+    ] },
   { v: 2659, ts: '2026-11-05T07:29:06.504Z', date: 'Nov 5, 2026, 1:29 AM CT', title: 'Glessner\'s 18th Street roof now meets the stable cupola level', kind: 'fix',
     items: [
       'The ridge of Glessner House\'s 18th Street wing is about 2 ft higher. It now runs level into the stable\'s ridge at the little cupola, as the 1963 survey photograph and today\'s aerial views show, instead of stepping down.',

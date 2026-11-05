@@ -35,6 +35,7 @@ CORNER_CLEAR_M = 0.05      # the cresting stops this far short of a hood's base
 CROSS_CLEAR_M = 0.1        # ... and this far short of a pavilion's cross roof (T-1890)
 FINIAL_CLEAR_M = 0.12      # ... and this far short of a plain finial's turning
 FINIAL_INSET_M = 0.15      # a plain finial stands this far inside both curb lines
+WALL_CLEAR_M = 0.03        # T-3384: the cresting stops this far short of a wall carried up through the roof
 LET_IN_M = 0.03            # a finial's foot let into what carries it
 FINIAL_SEGS = 12
 #: a finial's turning, (r, y) as fractions of its radius and height: a collar on the
@@ -57,8 +58,17 @@ def resolve(deck: dict, m: dict, depth: float, width: float, overhang: float, pi
     run = m["lower_rise_m"] / math.tan(math.radians(m["lower_pitch_deg"]))
     u0, u1 = -overhang + run, depth + overhang - run
     v0, v1 = -overhang + run, width + overhang - run
+    # T-3384: the deck runs on to a side wall carried up through the roof, to the wall's inner face
+    walled = {e["wall"]: e for e in m.get("walled_ends", [])}
+    # (on a party wall the railing runs on over the wall to the line, where the neighbour's meets it,
+    # in front of the stack on the wall, as Chicagology's photograph shows it)
+    if "south" in walled:
+        v0 = 0.0 if walled["south"]["party"] else walled["south"]["thickness_m"]
+    if "north" in walled:
+        v1 = width - (0.0 if walled["north"]["party"] else walled["north"]["thickness_m"])
     out = {"curb": [round(x, 4) for x in (u0, u1, v0, v1)], "curb_m": m["curb_m"],
-           "deck_pitch_deg": pitch}
+           "deck_pitch_deg": pitch, **({"walled": sorted(walled)} if walled else {}),
+           **({"party": sorted(w for w, e in walled.items() if e["party"])} if walled else {})}
     cr = deck.get("cresting")
     if cr is not None:
         h, ins = float(cr["height_m"]), float(cr.get("inset_m", 0.08))
@@ -85,6 +95,18 @@ def resolve(deck: dict, m: dict, depth: float, width: float, overhang: float, pi
             if cr["painted"] is not True:
                 raise ParamError("mansard.deck.cresting.painted: true, or leave it out for the iron")
             out["cresting"]["painted"] = True
+        # T-3384: or not the kit's pattern but the photograph's own painted fret (1700-1706's,
+        # k01_mansard_walled.fret_pieces), in panels about `panel_m` between posts
+        if cr.get("pattern") is not None:
+            if cr["pattern"] != "fret" or cr.get("painted") is not True or cr.get("joined"):
+                raise ParamError("mansard.deck.cresting.pattern: fret, painted, on the deck's own sides")
+            pm = float(cr.get("panel_m", 1.0))
+            if not 0.6 <= pm <= 1.6:
+                raise ParamError(f"mansard.deck.cresting.panel_m {pm}: 0.6-1.6 m between posts")
+            out["cresting"]["pattern"] = "fret"
+            out["cresting"]["panel_m"] = pm
+        elif cr.get("panel_m") is not None:
+            raise ParamError("mansard.deck.cresting.panel_m sizes a fret's panels (pattern: fret)")
     fn = deck.get("finials")
     if fn is not None:
         fh, fr = float(fn["height_m"]), float(fn["radius_m"])
@@ -112,8 +134,10 @@ def resolve(deck: dict, m: dict, depth: float, width: float, overhang: float, pi
     # a stack across the curb line would cut the rail: none may stand on it
     for c in chimneys:
         sx, sz = c["plan_m"]
-        for along, lo, hi, cu, cv in (("v", u0, u1, None, v0), ("v", u0, u1, None, v1),
-                                      ("u", v0, v1, u0, None), ("u", v0, v1, u1, None)):
+        lines = ((("v", u0, u1, None, v0),) if "south" not in walled else ()) + \
+                ((("v", u0, u1, None, v1),) if "north" not in walled else ()) + \
+                (("u", v0, v1, u0, None), ("u", v0, v1, u1, None))
+        for along, lo, hi, cu, cv in lines:
             if cv is not None and abs(c["v_m"] - cv) < sz / 2 + 0.1 and lo < c["u_m"] < hi:
                 raise ParamError(f"chimney at ({c['u_m']}, {c['v_m']}) stands on the curb at v {cv:.2f}")
             if cu is not None and abs(c["u_m"] - cu) < sx / 2 + 0.1 and lo < c["v_m"] < hi:
@@ -467,6 +491,10 @@ def dress(a, dk, conf):
     laid = {"cresting": [], "finials": []}
 
     def stop(name):   # how far along each side from this corner the cresting stops
+        if name and name.split("_")[1] in dk.get("party", ()):
+            return 0.0            # T-3384: over a party wall to the line, the neighbour's rail beyond
+        if name and name.split("_")[1] in dk.get("walled", ()):
+            return WALL_CLEAR_M   # T-3384: at a wall carried up through the roof, up to its face
         if name in hd["corners"]:
             return HOOD_INSET_M + hd["base_m"] + CORNER_CLEAR_M
         if fn:
@@ -502,6 +530,20 @@ def dress(a, dk, conf):
                 continue
             mid = (s0 + s1) / 2
             ridge = (mid, y_cap, -at) if along == "u" else (at, y_cap, -mid)
+            if cr.get("pattern") == "fret":   # T-3384: the photograph's painted fret, not the kit's
+                from .k01_mansard_walled import fret_pieces
+                a.instance("k01.roof.deck_fret", "cresting", {"length_m": round(L, 4), "foot_m": round(y_cap, 4),
+                                                              "height_m": cr["height_m"], "panel_m": cr["panel_m"],
+                                                              "host": "mansard deck", "side": side}, {"ridge": ridge})
+                pieces = fret_pieces(L, y_cap - 0.01, cr["height_m"], cr["panel_m"], "mansard deck")
+                if along == "u":
+                    _aim(pieces, mid, -at, (1.0, 0.0))
+                else:
+                    _turn(pieces, at, -mid)
+                laid["cresting"].append({"side": side, "from_m": round(s0, 3), "to_m": round(s1, 3),
+                                         "pattern": "fret"})
+                k10_frontage._lay(a, pieces, conf, "k01.roof.deck_fret")
+                continue
             seed = a.instance(CRESTING, "cresting", {"length_m": round(L, 4), "ridge_cap_top_m": round(y_cap, 4),
                                                      "height_m": cr["height_m"], "host": "mansard deck",
                                                      "side": side}, {"ridge": ridge})

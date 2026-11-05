@@ -822,6 +822,34 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
                       "from": f"{b['id']} {p['trace_part']} ({p['trace_role']}, {p['material']}), "
                               f"rectangle {p['k'] + 1} of that part; the part's rectangles cover "
                               f"{p['coverage']:.0%} of its fill"})
+    if fit.get("min_body_m"):
+        # T-3388 (the owner, 2026-11-05: "make them believable"): a piece standing clear of
+        # everything joined to the house is a building of its own on the lot, and one narrower
+        # than the narrowest house the drafts build (min_body_m) is a shed or lean-to of one
+        # storey, never a two- or three-storey slab on the lawn (2124 Calumet's 2.5 m range
+        # 7 m off the house, 1931 Indiana's 2.75 m one). A stone front is a wall's face: one
+        # standing clear of every wall is a slab, and goes.
+        joined, grew = {0}, True
+        while grew:
+            grew = False
+            for i, q in enumerate(parts):
+                if i not in joined and any(_touches(q["rect"], parts[j]["rect"]) for j in joined):
+                    joined.add(i)
+                    grew = True
+        kept_parts = []
+        for i, q in enumerate(parts):
+            if i not in joined:
+                r = q["rect"]
+                if q["role"] == "stone_front":
+                    continue
+                if q["storeys"] > 1 and min(r[2] - r[0], r[3] - r[1]) < fit["min_body_m"]:
+                    q = {**q, "storeys": 1, "roof": "flat",
+                         "from": q["from"] + "; it stands clear of the house and is narrower than a house, "
+                                             "so it stands one storey (T-3388)"}
+            kept_parts.append(q)
+        if len(kept_parts) != len(parts):
+            kept_parts = [{**q, "id": f"r{k + 1}"} for k, q in enumerate(kept_parts)]
+        parts = kept_parts
     # `+ 0.0`: a body widened against its lot line would write -0.0, which JSON readers
     # in the browser take as 0 and the boot packer then refuses as a different record
     lot_v_local = [round(lot_v[0] - mv0, 3) + 0.0, round(lot_v[1] - mv0, 3) + 0.0]

@@ -5269,6 +5269,8 @@ async function boot() {
         travelRoute: () => travel.routeAhead(),
         // T-2735: Recall asks first; the journey moves only as the page leaves.
         recall: (href) => recallHome?.ask(href),
+        // T-3390: a Jump to another year asks the same way before its ring runs.
+        confirmJump: (to, go) => (recallHome ? recallHome.askJump(to, go) : go()),
         peopleDirectory: () => peopleDirectory.load(),
         onControls: (fn) => backends.onChange(fn),
         // T-2662: the Guide's questions, read the first time Guide opens, never at boot.

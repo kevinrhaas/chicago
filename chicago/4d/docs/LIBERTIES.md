@@ -24238,6 +24238,14 @@ standing 3 m or less clear of everything else of its building is stretched acros
 the nearest wall (`fit.snap_gap_m`), since the sheet draws one building; and every draft porch
 is a solid stone stoop up to the principal floor with four steps down on its face away from
 the house, its posts and roof left to the house's own pass.
+**Swept a third time by T-3388 (2026-11-05; owner: "do a sweep of unbuilt but non-sensible
+buildings and make them believable for now"):** pieces the fit left standing clear of everything
+joined to their house (more than the 3 m the snap closes, or chained to it only through a porch)
+still rose two and three storeys: 2124 Calumet's 2.5 m range 7 m off the house, 1931 Indiana's
+2.75 m one, ranges behind 1917 and 1921 Indiana, 2100 Calumet and 213 E. 18th Street. Still with no
+source claimed: such a piece narrower than `fit.min_body_m` (5.5 m, the narrowest house the drafts
+build) stands one storey under a flat roof, a shed or lean-to on the lot; and a stone front standing
+clear of every wall (1815 Prairie's coach house) is dropped, since a stone front is a wall's face.
 **1812 retired from this liberty by T-2543 (2026-10-16):** George H. Wheeler's house now stands as the K01 frontage built from Albert Levy's photograph through a solved camera: three storeys over a raised basement, the south projection on K08 and the whole front carried up as a shaped Flemish gable, under `L-k01-1812-wheeler-front-2543`, under the same id; its draft attributes are gone.
 **How to resolve:** each house's own per-building ticket (named on its card and in its record's
 `draft.replaceable_by`) replaces its attributes in place, under the same id, from a photograph,
@@ -27829,6 +27837,17 @@ the 110 m strip Robinson's plate 10 draws on 16th Street's north side, Mortimer 
 subdivision of sixteen lots, is a row of three-storey houses and no longer a 16 m block. The trees
 are drawn as the parkway's grown American elm (street-trees.js), sized by each tree's own height;
 the species is ours, after the elms the prints show on Prairie Avenue.
+**Amended (T-3388, 2026-11-05; owner, behind 244-250 E. 18th Street: free-standing pink towers with
+windows, "make them believable for now").** The traced sheets join neighbouring buildings into runs,
+and the run's size had set every part's height: a 2.9 x 4.8 m yard piece behind 1727 Indiana stood
+16 m to its eaves as part of a 2,000 m2 "block", and when the Indiana drafts took the run's main body
+away its pieces stood on alone. Now a part takes a block's height only when it is 450 m2 itself; a
+part of a run at least 90 m2 and 5.5 m across is a house at the house rules' height (the terraces
+sheet 35 draws on Indiana Avenue at 20th-21st), and a smaller one a wing or porch; no sheet stand-in
+stands taller than twice its narrower side; a drawn part under 1.5 m across is a line the trace
+caught, not a building, and is dropped; and every part carries its drawn building's `group`, so the
+renderer drops a drawn building whole once placed structures touch half its plan. All of it is
+still invented by rule and claims nothing about any building.
 **How to resolve:** read the storey figures each sheet prints into the rows; trace sheets 19, 27, 34
 and 36 (Indiana's west face, Indiana 18th-20th, Calumet's east face) to replace the projection where
 they reach; each stand-in a drafted building lands on is dropped by the renderer already.
@@ -40112,6 +40131,8 @@ The 1835 Western Hotel yard horse's gentle head/neck look and body weight shifts
 
 **Terminal garment supplement, 2026-11-04:** Only Otis/Hans MASTER and WEB LOD3 retain their same-resident cleared LOD0 shirt/trouser topology to repair visible reduced-detail clothing holes. WEB garment positions/normals are new deterministic rest-weighted single-skin derivations, not an exact donor-position copy. Body, original skin/rig, images, material values and old clips remain unchanged; all LOD0/1/2 payloads remain exact. This introduces no new garment pattern, archival likeness, period attestation or driver action. The separate terminal recipe, exact regeneration, native seat/shoe/palm controls and all24 desktop/phone fixture record finite evidence; additional triangles/bytes and unchanged nine draws are explicitly measured. Full town budgets, continuous garment/contact fit, photographic quality and broad T-2804/T-1790 acceptance remain open.
 
+**Driver life supplement, 2026-11-05 (T-1790):** The owner, seeing Hans on dev: *"he is frozen, arms stiff, not looking around or shifting naturally"*. A procedural layer (`renderers/web/js/driver-life.js`) now runs over the seated clip each visual frame for both drivers: breathing about 13 times a minute; pelvis and spine moved by the travelled road (a sum of sines over metres, not a surveyed surface) and the team's stride, with the head held level against them; a lean into a turn from v²k/g; a new settling on the seat every 5-13 s; looks that eyes lead and head, neck and (past 35 degrees) torso follow, mostly down the road, at the houses and walks either side, at the horses, into a turn, and at a visitor standing within about 7 m (12 m when stopped); elbows in, forearms lowered to the lap, wrists turned thumb-up with the fingers closed, the hands giving and taking twice a stride and now and then shortening one rein; blinks where a LOD carries the eyelid morphs. Every amplitude, interval and choice of where he looks is a reconstructed authoring choice, not an observed habit or a documented coachman's practice; the sequence is seeded from the person id, so it is the same on every load. The reins still run to the actual palm surfaces, which now move with the hands. The clips, exports, skin and geometry are unchanged. `tools/test_driver_life.mjs` holds it bounded and deterministic on the real LOD0 and LOD3 exports; continuous rein grasp, garment fit and photographic acceptance remain open.
+
 **Recorded:** 2026-11-02.
 
 ### L-working-driver-1904-2804 — Reconstructed appearance and seated work of Hans Johnson
@@ -40679,3 +40700,56 @@ photographs show.
 **Covers:** `glessner_house.as_built_1887.form.v4_detail`.
 **Ticket:** T-3376.
 **Recorded:** 2026-11-05 (T-3376).
+
+### L-k03-face-brick-3385 — Prairie Avenue's brick told house by house: a period face brick on each brick front, a common run on each house's flanks, as tints over the two K03 panels
+
+**Decision:** a palette of period bricks (`data/components/prairie_1904/k03_face_brick.json`): six face
+bricks (pressed red, deep red, rough red-brown, brown, golden buff, and an 1860s cream dulled by smoke)
+and four runs of Chicago common (buff, salmon, yellow, smoke-dulled), each one of the two K03 panels
+1904 already loads under a colour factor (its mean over the panel's, never above 1) and a roughness
+shift, so no map is added. A K01 record names its pick as `face_brick`; 28 houses on Prairie Avenue
+now wear one: the brick fronts a face brick, the side and rear walls, stacks and area walls a common
+run. The owner, 2026-11-05: "this is prairie avenue and they would have nice face brick and it would
+be different for houses".
+**What is read.** That the street's brick fronts were red and their flanks a pale common: tone readings
+inside each build's own surfaces on the photographs of 1905, 1816, 1637, 1834 and 1812 Prairie (all
+read red fronts) and of the flanks of 1625, 1637, 1816, 1828, 1834, 1900 and 1612 (all read a common
+buff family), `docs/RESEARCH/face-brick-1904-T-3385/`. The period's practice, pressed face brick on
+the street elevation and commons on the party and side walls, is in the sources that note cites.
+**What is invented.** Every colour is a reconstruction (the pictures are monochrome; a plate cannot
+tell buff from salmon or yellow), and so is each pick for a house no picture reads: chosen by the
+decade the record gives it (the 1860s pairs cream, the 1870s fronts red, the 1880s darker reds and
+browns, about 1890 buff), and each house's common run, dealt so that neighbours differ.
+**How to resolve:** a colour description or a colour picture of a house (a contemporary account, an
+early autochrome, a surviving wall) replaces its pick.
+**Covers:** `marshall_field_house_1905_prairie.as_mapped_1904.form.face_brick`, `henderson_house_1816_prairie.as_mapped_1904.form.face_brick`, `spalding_house_1637_prairie.as_mapped_1904.form.face_brick`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.face_brick`, `house_1600_prairie.as_mapped_1904.form.face_brick`, `house_1604_prairie.as_mapped_1904.form.face_brick`, `house_1608_prairie.as_mapped_1904.form.face_brick`, `house_1613_prairie.as_mapped_1904.form.face_brick`, `house_1615_prairie.as_mapped_1904.form.face_brick`, `house_1616_prairie.as_mapped_1904.form.face_brick`, `house_1626_prairie.as_mapped_1904.form.face_brick`, `house_1628_prairie.as_mapped_1904.form.face_brick`, `house_1726_prairie.as_mapped_1904.form.face_brick`, `house_1730_prairie.as_mapped_1904.form.face_brick`, `house_2003_prairie.as_mapped_1904.form.face_brick`, `house_2005_prairie.as_mapped_1904.form.face_brick`, `kellogg_house_1709_prairie.as_mapped_1904.form.face_brick`, `kellogg_house_1923_prairie.as_mapped_1904.form.face_brick`, `dexter_house_1721_prairie.as_mapped_1904.form.face_brick`, `dent_house_1823_prairie.as_mapped_1904.form.face_brick`, `edson_keith_house_1906_prairie.as_mapped_1904.form.face_brick`, `house_1619_prairie.as_mapped_1904.form.face_brick`, `house_1621_prairie.as_mapped_1904.form.face_brick`, `house_1623_prairie.as_mapped_1904.form.face_brick`, `house_1634_prairie.as_mapped_1904.form.face_brick`, `house_1636_prairie.as_mapped_1904.form.face_brick`, `house_1712_prairie.as_mapped_1904.form.face_brick`, `house_2001_prairie.as_mapped_1904.form.face_brick`.
+**Ticket:** T-3385.
+**Recorded:** 2026-11-05 (T-3385).
+
+### L-k01-1700-1706-roof-3384 — 1700 and 1706 Prairie under one mansard, the party wall carried up through it
+
+**Decision:** the Glessner townhouses at 1700 and 1706 Prairie are roofed as ONE mansard run across
+the pair, not two each hipped at the party line. The party wall, centred on the line between the
+two houses, is carried up through the roof: its coping follows the roof's own section from the
+cornice up the steep face and over the deck, a stack standing on it just behind the deck's railing.
+1700's north end wall is carried up the same way past its end of the roof, a stack on it behind the
+railing. One downpipe stands on the party line, both houses' street gutters running to it. The
+deck's railing is the white fret of Chicagology's photograph, not the K10 kit's cresting. The
+owner, 2026-11-05, with the render beside both photographs: the dividing wall "would be centered on
+the property", "it is continous in the center and that diving wall runs through the roof and there
+is a single gitter there in the center", and to correct the chimneys and the roof's ornament.
+**What is read.** Both photographs (Chicagology's, after 1902, and the Glessner House Museum's
+Christmas print) show the continuous street face, the broad pale coping falling down the steep face
+to the cornice at the party line and at 1700's north end, one stack on the party wall behind the
+railing and one on 1700's north end wall, one pipe down the front at the party line, and the fret:
+square posts about a metre apart, a bar corner to corner in each panel, a rectilinear key in each
+triangle it leaves.
+**What is invented.** The parapets' upstand (0.3 m square to the slope at the curb, tapering to
+0.25 m over the wall head at the fascia), the party wall's thickness (0.25 m each side of the line),
+the stacks' plan (the party stack 0.9 by 1.2 m, the end stack the house's 0.9 by 0.75 m) and their
+tops (14.4 m), the fret's sections and its keys' exact turns. The rear of the deck and the rear
+lower face are not seen in any picture; they follow the front's section.
+**How to resolve:** a photograph of the pair's roof from above or from the rear, or a building
+permit drawing.
+**Ticket:** T-3384.
+**Recorded:** 2026-11-05 (T-3384).

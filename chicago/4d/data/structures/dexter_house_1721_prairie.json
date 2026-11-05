@@ -135,6 +135,14 @@
           ],
           "note": "A buff brick: the plate shows the walls light, much lighter than the red and brown brick of the houses beside it. Its exact colour is not read."
         },
+        "face_brick": {
+          "value": {
+            "front": "red_brown",
+            "sides": "common_buff"
+          },
+          "confidence": "reconstructed",
+          "note": "T-3385: The Inland Architect plate is a drawing and reads no tone. Arthur Little's front of 1889, in the Colonial manner his Boston work laid in red brick: the rough red-brown brick in light joints; the sides a chicago common brick, buff run. Palette: data/components/prairie_1904/k03_face_brick.json; the reading: docs/RESEARCH/face-brick-1904-T-3385/README.md (L-k03-face-brick-3385)."
+        },
         "wall_finish": {
           "value": {
             "paint": {

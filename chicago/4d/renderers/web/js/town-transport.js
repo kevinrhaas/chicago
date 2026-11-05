@@ -46,10 +46,12 @@ export function createDrivenAssembly({ vehicle, driver, horse, confidence,
   const wheelRest = wheels.map(node => node.rotation.x), steerRest = steer.rotation.y;
   const horseRestYaw = horse.root.rotation.y;
   let priorHorse = null, stopped = true, disposed = false, visualReset = true;
+  let lastPose = null, posed = false;
   return {
     root,
     pose(pose) {
       if (disposed) return;
+      lastPose = pose; posed = true;
       root.position.set(pose.e, pose.height, -pose.n); root.rotation.y = pose.yaw;
       steer.rotation.y = steerRest + pose.steering;
       if (!horse.poseVehicle) {
@@ -79,12 +81,23 @@ export function createDrivenAssembly({ vehicle, driver, horse, confidence,
       // looking clip instead consumes one independent visual frame below.
       if (!driver.updateVisual) driver.update?.(dt);
     },
-    updateVisual(dt, { paused = false } = {}) {
+    updateVisual(dt, { paused = false, viewer = null } = {}) {
       if (disposed || !driver.updateVisual) return;
       if (!Number.isFinite(dt) || dt < 0) throw Error('town transport: finite nonnegative driver visual time required');
       const held = paused || !root.visible;
-      driver.updateVisual(held || visualReset ? 0 : dt);
+      // T-1790: the driver's motion layer reads the ride (travelled metres, the
+      // turn) and whether the team is moving; a stopped carriage is still a ride.
+      if (lastPose) driver.move?.(lastPose, posed && !stopped);
+      driver.updateVisual(held || visualReset ? 0 : dt, held ? null : viewer);
       visualReset = held;
+      // The reins follow his hands. A moving carriage re-fits them in pose() next
+      // frame; a stopped one is not posed, so they are re-fitted here.
+      if (!posed && !held && lastPose && hitch) {
+        root.updateMatrixWorld(true);
+        const connection = hitch.update(lastPose);
+        if (connection?.valid === false) throw Error('town transport: actual hitch exceeds its declared connection bound');
+      }
+      posed = false;
     },
     visible(value) {
       if (disposed) return;
@@ -213,7 +226,7 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
         const drawn = distance > 0 && Math.hypot(at[0] - cameraPosition.x, -at[1] - cameraPosition.z) < distance;
         actor.update(dt, { enabled: !hidden, drawn, paused, reducedMotion, elapsedFrame, motionFrame });
         // Synthetic visibility replays cannot prime the independent driver clock.
-        if (!elapsedFrame || motionFrame) actor.updateVisual?.(visualDt, { paused: paused || reducedMotion || hidden });
+        if (!elapsedFrame || motionFrame) actor.updateVisual?.(visualDt, { paused: paused || reducedMotion || hidden, viewer: cameraPosition });
       }
     },
     async setTier(next) {

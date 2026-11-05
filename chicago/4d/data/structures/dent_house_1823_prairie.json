@@ -123,6 +123,13 @@
           "confidence": "reconstructed",
           "note": "Reconstructed (T-3162): K03's common buff brick for the flanks and rear; the pictures are monochrome, so the brick's colour is not read."
         },
+        "face_brick": {
+          "value": {
+            "sides": "common_salmon"
+          },
+          "confidence": "reconstructed",
+          "note": "T-3385: A stone front; its side and rear walls are common brick, and no picture of this house reads which kiln run: a chicago common brick, salmon run, so the street's commons are not all one. Palette: data/components/prairie_1904/k03_face_brick.json; the reading: docs/RESEARCH/face-brick-1904-T-3385/README.md (L-k03-face-brick-3385)."
+        },
         "stair_tread_m": {
           "value": 0.3,
           "confidence": "reconstructed",

@@ -171,6 +171,18 @@
       "confidence": "reconstructed",
       "note": "RECONSTRUCTED: the K03 common brick panel 1620 wears; the print is monochrome."
     },
+    "face_brick": {
+      "value": {
+        "front": "pressed_red"
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "cdn_dn0003324_field_residence",
+        "rand_mcnally_pictorial_chicago_1893_field",
+        "chicagology_1905_field_photo"
+      ],
+      "note": "T-3385: The Daily News print reads the brick over the stone basement at 0.39-0.46 of its slate's reflectance (a red: a buff brick reads about 1.5); the 1893 plate reads it level with its slate and well under its stone dressings; Chicagology's later print reads it lighter than a mansard that takes the sky's glare, the weakest of the three. The house is remembered as red brick with stone trim (Hunt, 1873). Pressed red front brick over the stone; the side and rear walls stay the common buff. Palette: data/components/prairie_1904/k03_face_brick.json; the reading: docs/RESEARCH/face-brick-1904-T-3385/README.md (L-k03-face-brick-3385)."
+    },
     "roof_pitch_deg": {
       "value": 10,
       "confidence": "reconstructed",
