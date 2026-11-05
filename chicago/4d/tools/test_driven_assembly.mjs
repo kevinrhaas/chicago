@@ -1023,7 +1023,7 @@ console.log('seated driver visual clock: stop, holds, range, Light restoration a
   assert.equal(actor.snapshot().total_distance_m,before.total_distance_m,'Continue consumes no pre-action interval');
   assert.deepEqual(actor.snapshot().wheel_rotation_rad,before.wheel_rotation_rad);
   assert.equal(phase,beforeContinuePhase+8,'Qualified independent look continues during a journey-only Stop/Continue');
-  frame(.5);assert(Math.abs(actor.snapshot().total_distance_m-row.speed_m_s*.5)<1e-9);
+  frame(.5);assert(Math.abs(actor.snapshot().total_distance_m-Math.min(row.speed_m_s*.5,.25))<1e-9); // one elapsed frame travels at most .25 m
   assert.equal(actor.state,'moving','Fulfilled/canceled Find intent cannot stop a resumed native journey again');
   town.dispose();console.log('composed motionV2+cold Find: actual assembly publication/visual admission, fulfilled Stop, native Continue zero and configured next-frame pace PASS');
 }

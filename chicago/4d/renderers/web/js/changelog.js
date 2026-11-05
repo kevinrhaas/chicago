@@ -1,4 +1,20 @@
 export const CHANGELOG = [ // newest first
+  { v: 2674, ts: '2026-11-05T23:34:28.005Z', date: 'Nov 5, 2026, 5:34 PM CT', title: 'Street crossings no longer flicker where the paving changes', kind: 'fix',
+    items: [
+      'Where Prairie Avenue\'s asphalt meets a gravel cross street, at 18th, 20th and every other 1904 crossing, the edge no longer breaks into flashing blocks as you move. The worn edge between the two surfaces now stays put.',
+    ] },
+  { v: 2673, ts: '2026-11-05T23:12:21.408Z', date: 'Nov 5, 2026, 5:12 PM CT', title: 'Glessner\'s front-door arch is carved to the photographs', kind: 'fix',
+    items: [
+      'The carved arch over Glessner House\'s Prairie Avenue front door now matches close photographs of it, rim by rim. The outer rim is flat with square pockets cut into it. Inside it is a rounded rim cut into carved blocks with drilled foliage. Then comes a thin plain rim, stepped forward.',
+      'The half-circle in the middle is a tree: a trunk up the middle with leafy rings either side, mirrored, and dark gaps wherever the stone is cut through.',
+      'Phones get the same design with simpler leaves, at fewer triangles than before.',
+    ] },
+  { v: 2672, ts: '2026-11-05T23:01:26.679Z', date: 'Nov 5, 2026, 5:01 PM CT', title: 'The carriage horses walk out properly', kind: 'improvement',
+    items: [
+      'Hans\'s pair walk with a real stride, one foot after another, picking up and folding each leg, with a nod of the head at every step.',
+      'The brougham now goes at a slow carriage walk, about 3 mph, instead of a crawl; a lap of the block takes about ten minutes.',
+      'Otis Bardwell\'s 1835 wagon team walks the same way.',
+    ] },
   { v: 2671, ts: '2026-11-05T22:13:58.516Z', date: 'Nov 5, 2026, 4:13 PM CT', title: 'The Navigator\'s Map is sharp close up', kind: 'fix',
     items: [
       'Close up, the Map now draws every building outline and street line at the zoom you are looking at, so houses have clean edges instead of soft, smeared blobs.',
