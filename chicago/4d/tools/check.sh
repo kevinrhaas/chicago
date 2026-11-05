@@ -551,6 +551,8 @@ step "Driven assembly retains named drivers, vehicle ownership and exact current
   node tools/test_driven_assembly.mjs
 step "A seated driver breathes, looks round and holds his reins, bounded and deterministic, on the real 1904 driver (T-1790)" \
   node tools/test_driver_life.mjs
+step "The driven team's generated walk and its hoof-support domain reproduce byte for byte, hooves planted without slide (T-2803)" \
+  node tools/horse_walk_v2.mjs --check
 step "Driven-team clearance uses the complete occupied envelope and refuses blocked routes (T-2804)" \
   node tools/test_transport_clearance.mjs
 step "Driven-team support reads actual ground and preserves physical contact limits (T-2804)" \
@@ -6328,6 +6330,17 @@ step "the 1904 street ground draws no hard straight line: no turf margin, no dro
   node tools/test_street_ground_seams.mjs
 selftest "the 1904 street-ground check fires on each of its five causes put back (T-3233)" \
   node tools/test_street_ground_seams.mjs --self-test
+
+# T-3389. The owner, on Prairie at 18th and 20th: "pixely flashy transitions" where the asphalt
+# meets the macadam. T-3088 had put every roadway and the seam overlay on one surface, ranked by
+# polygon offset only; differently triangulated over the 5 mm field they differ by up to 1.7 mm,
+# and fought in moving blocks. Lifting them apart broke the horses' 1 mm footing, so the roadways
+# are ground decals now: no depth written, drawn in their stacking order, fades after. This holds
+# that on the shipped grid and checks the order at every 0.1 m where two pavings overlap.
+step "the 1904 roadways are ground decals drawn in their stacking order, fades over them (T-3389)" \
+  node tools/test_street_paving_order.mjs
+selftest "the 1904 paving-order check fires with the roadways' depthWrite or draw order taken out (T-3389)" \
+  node tools/test_street_paving_order.mjs --self-test
 
 # T-3231. A corner ramp's head corners lie exactly on its edge; where the parity test
 # put one outside the ramp and outside the face's bands it took the roadway's level

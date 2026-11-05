@@ -59,6 +59,37 @@ const generic = []; teamSupportAt(row, pose, (e, n) => { generic.push([e, n]); r
 assert.equal(Math.max(...generic.map(p => Math.abs(p[1] + 3))), 1);
 console.log('model-bound complete1196vertex/2048face native1154 domain, original rounding, stale/missing/wrong model controls PASS');
 
+// T-2803: the generated walk's certificate, bound to the same GLB and the exact clip
+// bytes, admits its longer domain with a 2mm plane bound; the generic 1mm stays.
+{
+  const walkSpec = config.horse_models.current26_walk_v2, certBytes = read('data/' + walkSpec.support_domain.certificate_file);
+  assert.equal(sha256(certBytes), walkSpec.support_domain.certificate_sha256);
+  assert.equal(walkSpec.sha256, spec.sha256, 'the generated walk drives the same horse GLB');
+  assert.equal(sha256(read('renderers/web/' + walkSpec.walk_clip_file)), walkSpec.walk_clip_sha256);
+  const walkCert = JSON.parse(certBytes);
+  assert.equal(walkCert.clip_sha256, walkSpec.walk_clip_sha256);
+  const clip = JSON.parse(read('renderers/web/' + walkSpec.walk_clip_file));
+  assert.equal(clip.cycle_m, walkSpec.stride_m); assert.equal(clip.name, walkSpec.walk_clip); assert.equal(clip.model_sha256, spec.sha256);
+  const walkDomain = certifiedHorseSupportDomain(walkSpec, walkCert);
+  assert.deepEqual(walkDomain, { half_width_m: .35, half_length_m: .89, plane_residual_limit_m: .002 }); assert(Object.isFrozen(walkDomain));
+  for (const bad of [
+    { ...walkSpec, sha256: '0'.repeat(64) },
+    { ...walkSpec, walk_clip_sha256: '0'.repeat(64) },
+    { ...walkSpec, support_domain: { ...walkSpec.support_domain, half_length_m: .88 } },
+    { ...walkSpec, support_domain: { ...walkSpec.support_domain, model_sha256: '0'.repeat(64) } },
+  ]) assert.throws(() => certifiedHorseSupportDomain(bad, walkCert), /invalid or stale/);
+  assert.throws(() => certifiedHorseSupportDomain(walkSpec, { ...walkCert, plane_residual_limit_m: .003 }), /invalid or stale/);
+  assert.throws(() => certifiedHorseSupportDomain(walkSpec, { ...walkCert, stance: { ...walkCert.stance, maximum_hoof_slip_m: .01 } }), /invalid or stale/);
+  const rough = { heightAt: (e, n) => e > 10 ? .0015 : 0 };
+  assert.throws(() => support(rough), /1mm/);
+  assert(support({ ...rough, plane_residual_limit_m: .002 }).sampled_maximum_clearance_m <= .002);
+  assert.throws(() => support({ heightAt: (e, n) => e > 10 ? .0025 : 0, plane_residual_limit_m: .002 }), /2mm/);
+  assert.throws(() => support({ plane_residual_limit_m: .005 }), /finite placement/);
+  const walkSeen = []; teamSupportAt(row, pose, (e, n) => { walkSeen.push([e, n]); return 0; }, walkDomain);
+  assert(Math.abs(Math.max(...walkSeen.map(p => Math.abs(p[1] + 3))) - .89) < 1e-9);
+  console.log('generated walk v2 hoof domain: GLB + clip-byte binding, 2mm plane bound only through its certificate, stale controls PASS');
+}
+
 // Actual roadway triangle heights survive the existing phone upload release.
 // This exercises transformed/indexed geometry and an independent native raycast,
 // rather than checking a copy of the barycentric implementation.
