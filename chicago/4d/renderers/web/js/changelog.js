@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2670, ts: '2026-11-05T21:53:34.652Z', date: 'Nov 5, 2026, 3:53 PM CT', title: 'Prairie Avenue\'s brick differs house by house', kind: 'feature',
+    items: [
+      'Brick fronts on Prairie Avenue in 1904 now wear a period face brick instead of all wearing one buff common: pressed red, deep red, brown, golden buff, or a smoke-dulled 1860s cream, with the side and rear walls in a common brick whose shade varies by house.',
+      'Houses with photographs (1905 Field, 1816 Henderson, 1637 Spalding) take the brick their pictures read: every photographed front reads red, every flank a pale common. The rest take their decade\'s fashion, and the Liberties panel says so.',
+      'Same brick pattern and per-brick variation as before, and no new textures, so the phone build costs no more memory.',
+    ] },
   { v: 2669, ts: '2026-11-05T21:44:53.355Z', date: 'Nov 5, 2026, 3:44 PM CT', title: 'Jump asks before you leave the year', kind: 'improvement',
     items: [
       'Picking another year in the Navigator\'s Jump now asks first: "Depart 1904 for 1835?" with Cancel and Depart.',
