@@ -40611,3 +40611,31 @@ the north range's courtyard slope.
 `glessner_house.as_built_1887.form.chimney_service_west`.
 **Ticket:** T-3372.
 **Recorded:** 2026-11-05 (T-3372).
+
+### L-glessner-court-leanto-3373 — Glessner's northeast court corner: a low hipped copper roof and a small dormer
+
+**Decision:** between the dining bay and the hall bow, the `glessner_house` north range's courtyard
+slope now ends in a low copper roof instead of copper laid flush on the tiles
+(L-glessner-copper-return-2228). HABS sheet 4's section at W 51.3 cuts this run: the court wall
+stands higher there (26.5 ft on its frame) and the slope's lowest 5.7 ft run at 27 degrees, flatter
+than the 36.6-degree slope above; carried on in the sheet's own geometry, that flatter run meets the
+main slope at S 20.41, where the owner's 2026 aerials end the copper and where the great chimney's
+foot stands. So the court wall rises east of W 58 to the hall bow's eave (27.33 ft ng), the copper
+rises from there at about 32 degrees to meet the tiles at S 20.41, and the roof kinks there; its west
+end is hipped at W 58, clear of the dining bay, and a leader stands at that corner, as the aerials
+show. The tiled eave beside the dining bay now drains into that leader, not the bow's. The owner,
+2026-11-05: "you have a flat roof in the northeast corner of the courtyard, but you can see that it
+is a peaked roof there and stepped down and there is a drainage pipe". A small dormer stands just east
+of the great chimney (W 32.6-36.6, front at S 20.3), where the aerials show a small pointed tiled
+dormer and HABS photograph 5 shows a finial; it copies the east wing's courtyard dormers (sheet 4):
+timber front, one light, tile-hung cheeks, a kicked pyramid hood under a clay finial.
+**What is read.** The section's wall height and lower pitch, the copper's upper edge, the hip and the
+leader's presence (aerials), the dormer's presence and place (aerials, HABS photograph 5).
+**What is invented.** The lean-to's eave set level with the bow's, the hip's place (W 58), the
+0.5 ft overhang, the trough and the leader's exact place; the dormer's 4 ft width, its eave
+(33.9 ft ng) and apex (35.9 ft ng, under the ridge), its light and its smaller finial.
+**How to resolve:** a dated photograph of the north range's courtyard slope from the court.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`,
+`glessner_house.as_built_1887.form.rainwater_details`.
+**Ticket:** T-3373.
+**Recorded:** 2026-11-05 (T-3373).

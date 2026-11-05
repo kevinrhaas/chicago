@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs04-hood-section",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "17f32dcda246581867830123eccf5d108f3de184955c7bac729b4d75e99d214d",
+  "glb_sha256": "c0e04a9b0ea66e97262944a673083581049c3ef3fd04a192059675935ea8d237",
   "camera_sha256": "1f76d223ece9f5501fd8d70d9e23282213d62971a12fb5efc6c65de2247ba249",
   "photo_sha256": "eaf3d363e02df67688c6c18cbc3653a9d291246a4c5fdc65bfba4109b088dd46",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-hood-section-side-by-side.jpg",
@@ -35,6 +35,10 @@
     {
       "what": "T-3372: the two courtyard service stacks moved onto HABS sheets 2-3's flues are out of this view; re-rendered and reviewed, nothing in it changed.",
       "status": "not shown"
+    },
+    {
+      "what": "T-3373: the hood now dies into the copper lean-to's flatter plane, not the tiles, so its back stops at the kink where sheet 4's section draws the hood meeting the steeper 27-degree run behind it; the lean-to itself lies behind the section plane.",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

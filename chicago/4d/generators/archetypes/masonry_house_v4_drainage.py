@@ -170,12 +170,29 @@ def layout(p,reduced=False):
                                straight=g['head_straight_m'],height=g['head_height_m'],neck=pd,
                                studs=g.get('studs',[])))
         bn=row['normal']
-    right=bow['cx']-math.sqrt(radius*radius-(cy-bow['cy'])**2)
-    gutter('court-north-east',[(d1[0],cy,cz),(right,cy,cz)],[normals[-1],(0,-1,0)],[])
-    branches.append(dict(name='court-north-bow', target='court-bow', width=cfg['pipe_width_m'],
-        normal=bn, path=[(right-.05,cy-.045,cz-depth),(right-.05,cy-.045,cz-.22),
-                        (bx,by,cz-.40)]))
-    gutters[-1]['branch']='court-north-bow'
+    if p.detail.get('north_copper_leanto'):
+        # T-3373: the copper lean-to's eave has its own trough and a leader at
+        # its hipped west corner, as the owner's aerials show; the short tiled
+        # eave beside the dining bay joins that leader, no longer the bow's.
+        from archetypes.masonry_house_v4_copper import leanto, leanto_front_x
+        L=leanto(p)
+        ly=L['y0']-L['ov'];lz=L['eave_z']-L['pitch']*L['ov'];lx=L['xw']+.10
+        leader('court-leanto',(lx,ly-.045,lz),(lx,n['y0']-.13),(0,-1,0),n['y0'],'none',True)
+        gutter('leanto',[(L['xw']-L['ov'],ly,lz),(leanto_front_x(p),ly,lz)],[(0,-1,0)]*2,
+               ['court-leanto'])
+        right=L['xw']-L['ov']
+        gutter('court-north-east',[(d1[0],cy,cz),(right,cy,cz)],[normals[-1],(0,-1,0)],[])
+        branches.append(dict(name='court-north-leanto', target='court-leanto', width=cfg['pipe_width_m'],
+            normal=(0,-1,0), path=[(right-.05,cy-.045,cz-depth),(right-.05,cy-.045,cz-.22),
+                                   (lx,n['y0']-.13,cz-.40)]))
+        gutters[-1]['branch']='court-north-leanto'
+    else:
+        right=bow['cx']-math.sqrt(radius*radius-(cy-bow['cy'])**2)
+        gutter('court-north-east',[(d1[0],cy,cz),(right,cy,cz)],[normals[-1],(0,-1,0)],[])
+        branches.append(dict(name='court-north-bow', target='court-bow', width=cfg['pipe_width_m'],
+            normal=bn, path=[(right-.05,cy-.045,cz-depth),(right-.05,cy-.045,cz-.22),
+                            (bx,by,cz-.40)]))
+        gutters[-1]['branch']='court-north-bow'
     ex=e['x0']-.20
     ez=e['eave_lo_z']-.20*(e['ridge_z']-e['eave_lo_z'])/(e['ridge_at']-e['x0'])
     end=bow['cy']-math.sqrt(radius*radius-(ex-bow['cx'])**2)

@@ -2258,9 +2258,11 @@ def supplemental(b,p):
         for tri in dining(p)[0]:
             legacy._two_sided_roof(b,list(tri),1.0,ROOF)
     if p.detail.get('continuous_copper_corner'):
-        from archetypes.masonry_house_v4_copper import add_hood, add_north_cladding
+        from archetypes.masonry_house_v4_copper import add_hood, add_leanto
         add_hood(b,p)
-        add_north_cladding(b,p)
+        add_leanto(b,p)
+        from archetypes.masonry_house_v4_north_dormer import add as add_north_dormer
+        add_north_dormer(b,p)
 
 
 
