@@ -119,6 +119,14 @@
       "confidence": "reconstructed",
       "note": "RECONSTRUCTED: the one K03 panel k03_brick lays, on every wall of the house: the sheet says brick and the drawing gives no colour."
     },
+    "face_brick": {
+      "value": {
+        "front": "pressed_red_deep",
+        "sides": "common_salmon"
+      },
+      "confidence": "reconstructed",
+      "note": "T-3385: No picture of this house reads its brick. The front is the pressed_red_deep (deep red pressed brick) a brick front of its decade on Prairie Avenue wore, as the photographed fronts of the street read (Field, Henderson, Spalding, Jones, Wheeler: red fronts over paler common sides); the sides a chicago common brick, salmon run. Palette: data/components/prairie_1904/k03_face_brick.json; the reading: docs/RESEARCH/face-brick-1904-T-3385/README.md (L-k03-face-brick-3385)."
+    },
     "street_front_trim": {
       "value": {
         "by_storey": [
