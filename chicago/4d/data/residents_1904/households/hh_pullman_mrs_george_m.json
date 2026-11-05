@@ -29,7 +29,7 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The three live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. A coachman's wife and children in the rear building are named in his note rather than carded. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The three live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. A coachman's wife and children in the rear building are named in his note rather than carded. The children the Blue Book lists at the number from 1890 to 1911 are on the card with the years each was listed, whether or not they were at home in 1904. The 1910 census was not read for this card. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
       "census_1900_chicago_t623_roll245"
@@ -55,6 +55,112 @@
         "relation_as_enumerated": "Head"
       },
       "note": "The 1900 census lists G. M. Pullman here as head, with the personal columns written 'Unknown' (ED 40, sheet 1A, line 1, leaf n794)."
+    },
+    {
+      "id": "pa1904_pullman_florence_at_1729",
+      "name": "Florence Pullman",
+      "relationship": "daughter",
+      "grade": "attested",
+      "sources": [
+        "pullman_museum_children_page",
+        "classic_chicago_pullman_finale",
+        "chicago_blue_book_1890",
+        "chicago_blue_book_1892",
+        "chicago_blue_book_1894"
+      ],
+      "born": {
+        "value": "1868",
+        "confidence": "attested",
+        "sources": [
+          "pullman_museum_children_page"
+        ],
+        "note": "Born 1868, died 1937 (the museum's page)."
+      },
+      "lived_here": {
+        "years": "1870s-1896",
+        "on_scene_date": "no"
+      },
+      "own_card": "pa1904_lowden_mrs_frank_orren",
+      "note": "The Pullmans' elder daughter, who grew up in the house. The Blue Book prints the household as Mr. and Mrs. Geo. M. Pullman '& drs.' in 1890 and 1892 and '& dr.' in 1894, when she was the daughter still at home. She married Frank Lowden in 1896 in the house itself, two of George Pullman's brothers taking the service. In 1904 she lives across the street at 1912 with her husband and children, on their own card."
+    },
+    {
+      "id": "pa1904_pullman_harriett",
+      "name": "Harriett Pullman",
+      "relationship": "daughter",
+      "grade": "attested",
+      "sources": [
+        "pullman_museum_children_page",
+        "chicago_blue_book_1890",
+        "chicago_blue_book_1892"
+      ],
+      "born": {
+        "value": "1869",
+        "confidence": "attested",
+        "sources": [
+          "pullman_museum_children_page"
+        ],
+        "note": "Born 1869, died 1956 at 87 (the museum's page)."
+      },
+      "lived_here": {
+        "years": "1870s-about 1893",
+        "on_scene_date": "no"
+      },
+      "note": "The younger daughter, who grew up in the house. The Blue Book's '& drs.' (two daughters at home) runs to the 1892 edition and is '& dr.' by 1894, so she had left between the two. She married Frank J. Carolan of San Francisco (the museum's page); the year of the marriage is not in the sources read."
+    },
+    {
+      "id": "pa1904_pullman_george_m_jr",
+      "name": "George M. Pullman jr.",
+      "relationship": "son",
+      "grade": "attested",
+      "sources": [
+        "pullman_museum_children_page",
+        "classic_chicago_pullman_finale",
+        "chicago_blue_book_1897",
+        "chicago_blue_book_1898"
+      ],
+      "printed_as": "1729 George M. Pullman, jr.",
+      "born": {
+        "value": "1875",
+        "confidence": "attested",
+        "sources": [
+          "pullman_museum_children_page",
+          "classic_chicago_pullman_finale"
+        ],
+        "note": "One of identical twins born in 1875."
+      },
+      "lived_here": {
+        "years": "1875-1898",
+        "on_scene_date": "no"
+      },
+      "note": "One of the twins. As boys the twins were schooled at home on Prairie Avenue, and the Blue Book lists him at 1729 in the 1897 and 1898 editions. He married on 30 September 1899 in Carson, Nevada, and died at Menlo Park, California, in November 1901, aged 26, long before the scene. The census of 1910 has his mother the mother of four children, two then living (ED 166, sheet 6A, line 28, leaf n1439)."
+    },
+    {
+      "id": "pa1904_pullman_w_sanger",
+      "name": "W. Sanger Pullman",
+      "relationship": "son",
+      "grade": "attested",
+      "sources": [
+        "pullman_museum_children_page",
+        "classic_chicago_pullman_finale",
+        "chicago_blue_book_1895",
+        "chicago_blue_book_1897",
+        "chicago_blue_book_1898"
+      ],
+      "printed_as": "1729 W. Sanger Pullman",
+      "born": {
+        "value": "1875",
+        "confidence": "attested",
+        "sources": [
+          "pullman_museum_children_page",
+          "classic_chicago_pullman_finale"
+        ],
+        "note": "One of identical twins born in 1875."
+      },
+      "lived_here": {
+        "years": "1875-1898",
+        "on_scene_date": "no"
+      },
+      "note": "Walter Sanger Pullman, called Sanger, the other twin, schooled at home on Prairie Avenue with his brother. The Blue Book lists him at 1729 from 1895 to 1898. Like his brother he made his home in California, and he died there, at Belmont, on 14 August 1905."
     },
     {
       "id": "pa1904_robinson_miss_r_s",

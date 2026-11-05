@@ -192,9 +192,12 @@ def clip_host(pts,params):
             holes.extend([[(v[0],v[1]) for v in poly] for poly in dining(params)[0]])
         else:holes.append(dining(params)[1])
     if params.detail.get('continuous_copper_corner'):holes.extend(copper(params)[1])
-    if params.detail.get('north_copper_cladding'):
-        from archetypes.masonry_house_v4_copper import north_cladding
-        holes.extend([[(p[0],p[1]) for p in face] for face in north_cladding(params)])
+    if params.detail.get('north_copper_leanto'):
+        from archetypes.masonry_house_v4_copper import leanto_tile_holes
+        holes.extend(leanto_tile_holes(params))
+    if params.detail.get('north_court_dormer'):
+        from archetypes.masonry_house_v4_north_dormer import tile_holes
+        holes.extend(tile_holes(params))
     normal=_normal(pts);a=pts[0]
     def point(p):
         x,y=p
@@ -202,6 +205,15 @@ def clip_host(pts,params):
     poly=[(p[0],p[1]) for p in pts]
     if sum(a[0]*b[1]-b[0]*a[1] for a,b in zip(poly,poly[1:]+poly[:1]))<0:poly.reverse()
     return [[point(p) for p in f] for f in subtract(poly,holes)]
+
+
+def base_z(points,x):
+    """Height of a sorted (u, z) wall-top profile at u=x."""
+    q=sorted(points)
+    for a,c in zip(q,q[1:]):
+        if a[0]<=x<=c[0] and c[0]-a[0]>1e-12:
+            return a[1]+(c[1]-a[1])*(x-a[0])/(c[0]-a[0])
+    return q[0][1] if x<q[0][0] else q[-1][1]
 
 
 def wall_profile(params,lo,hi,z):
@@ -222,9 +234,16 @@ def wall_profile(params,lo,hi,z):
             if lo<join<hi:
                 points[0]=(lo,max(z,west['ridge_z']+pitch*(lo-west['ridge_at'])))
                 points.append((join,z))
+        leanto=params.detail.get('north_copper_leanto')
+        if leanto and lo<leanto['x_west']<hi:
+            # T-3373: east of the lean-to's hipped end the court wall stands
+            # up to the copper's eave (HABS sheet 4's section at W 51.3).
+            xw,top=leanto['x_west'],leanto['eave_z']
+            points=[q for q in points if q[0]<xw]+[(xw,base_z(points,xw)),(xw,top),(hi,top)]
         base=sorted(points)
         def base_height(x):
             for a,c in zip(base,base[1:]):
+                if c[0]-a[0]<1e-12:continue
                 if a[0]<=x<=c[0]:
                     return a[1]+(c[1]-a[1])*(x-a[0])/(c[0]-a[0])
             return z

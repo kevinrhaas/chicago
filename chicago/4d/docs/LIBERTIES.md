@@ -24238,6 +24238,14 @@ standing 3 m or less clear of everything else of its building is stretched acros
 the nearest wall (`fit.snap_gap_m`), since the sheet draws one building; and every draft porch
 is a solid stone stoop up to the principal floor with four steps down on its face away from
 the house, its posts and roof left to the house's own pass.
+**Swept a third time by T-3388 (2026-11-05; owner: "do a sweep of unbuilt but non-sensible
+buildings and make them believable for now"):** pieces the fit left standing clear of everything
+joined to their house (more than the 3 m the snap closes, or chained to it only through a porch)
+still rose two and three storeys: 2124 Calumet's 2.5 m range 7 m off the house, 1931 Indiana's
+2.75 m one, ranges behind 1917 and 1921 Indiana, 2100 Calumet and 213 E. 18th Street. Still with no
+source claimed: such a piece narrower than `fit.min_body_m` (5.5 m, the narrowest house the drafts
+build) stands one storey under a flat roof, a shed or lean-to on the lot; and a stone front standing
+clear of every wall (1815 Prairie's coach house) is dropped, since a stone front is a wall's face.
 **1812 retired from this liberty by T-2543 (2026-10-16):** George H. Wheeler's house now stands as the K01 frontage built from Albert Levy's photograph through a solved camera: three storeys over a raised basement, the south projection on K08 and the whole front carried up as a shaped Flemish gable, under `L-k01-1812-wheeler-front-2543`, under the same id; its draft attributes are gone.
 **How to resolve:** each house's own per-building ticket (named on its card and in its record's
 `draft.replaceable_by`) replaces its attributes in place, under the same id, from a photograph,
@@ -27832,6 +27840,17 @@ the 110 m strip Robinson's plate 10 draws on 16th Street's north side, Mortimer 
 subdivision of sixteen lots, is a row of three-storey houses and no longer a 16 m block. The trees
 are drawn as the parkway's grown American elm (street-trees.js), sized by each tree's own height;
 the species is ours, after the elms the prints show on Prairie Avenue.
+**Amended (T-3388, 2026-11-05; owner, behind 244-250 E. 18th Street: free-standing pink towers with
+windows, "make them believable for now").** The traced sheets join neighbouring buildings into runs,
+and the run's size had set every part's height: a 2.9 x 4.8 m yard piece behind 1727 Indiana stood
+16 m to its eaves as part of a 2,000 m2 "block", and when the Indiana drafts took the run's main body
+away its pieces stood on alone. Now a part takes a block's height only when it is 450 m2 itself; a
+part of a run at least 90 m2 and 5.5 m across is a house at the house rules' height (the terraces
+sheet 35 draws on Indiana Avenue at 20th-21st), and a smaller one a wing or porch; no sheet stand-in
+stands taller than twice its narrower side; a drawn part under 1.5 m across is a line the trace
+caught, not a building, and is dropped; and every part carries its drawn building's `group`, so the
+renderer drops a drawn building whole once placed structures touch half its plan. All of it is
+still invented by rule and claims nothing about any building.
 **How to resolve:** read the storey figures each sheet prints into the rows; trace sheets 19, 27, 34
 and 36 (Indiana's west face, Indiana 18th-20th, Calumet's east face) to replace the projection where
 they reach; each stand-in a drafted building lands on is dropped by the renderer already.
@@ -40163,6 +40182,10 @@ The 1835 Western Hotel yard horse's gentle head/neck look and body weight shifts
 
 **Terminal garment supplement, 2026-11-04:** Only Otis/Hans MASTER and WEB LOD3 retain their same-resident cleared LOD0 shirt/trouser topology to repair visible reduced-detail clothing holes. WEB garment positions/normals are new deterministic rest-weighted single-skin derivations, not an exact donor-position copy. Body, original skin/rig, images, material values and old clips remain unchanged; all LOD0/1/2 payloads remain exact. This introduces no new garment pattern, archival likeness, period attestation or driver action. The separate terminal recipe, exact regeneration, native seat/shoe/palm controls and all24 desktop/phone fixture record finite evidence; additional triangles/bytes and unchanged nine draws are explicitly measured. Full town budgets, continuous garment/contact fit, photographic quality and broad T-2804/T-1790 acceptance remain open.
 
+**Driver life supplement, 2026-11-05 (T-1790):** The owner, seeing Hans on dev: *"he is frozen, arms stiff, not looking around or shifting naturally"*. A procedural layer (`renderers/web/js/driver-life.js`) now runs over the seated clip each visual frame for both drivers: breathing about 13 times a minute; pelvis and spine moved by the travelled road (a sum of sines over metres, not a surveyed surface) and the team's stride, with the head held level against them; a lean into a turn from v²k/g; a new settling on the seat every 5-13 s; looks that eyes lead and head, neck and (past 35 degrees) torso follow, mostly down the road, at the houses and walks either side, at the horses, into a turn, and at a visitor standing within about 7 m (12 m when stopped); elbows in, forearms lowered to the lap, wrists turned thumb-up with the fingers closed, the hands giving and taking twice a stride and now and then shortening one rein; blinks where a LOD carries the eyelid morphs. Every amplitude, interval and choice of where he looks is a reconstructed authoring choice, not an observed habit or a documented coachman's practice; the sequence is seeded from the person id, so it is the same on every load. The reins still run to the actual palm surfaces, which now move with the hands. The clips, exports, skin and geometry are unchanged. `tools/test_driver_life.mjs` holds it bounded and deterministic on the real LOD0 and LOD3 exports; continuous rein grasp, garment fit and photographic acceptance remain open.
+
+**Walking-team supplement, 2026-11-05 (T-2803):** The owner: *"The carriage is moving very slowly, might be more realistic if it was at a slow carriage speed"*. The careful in-place walk covers 0.135 m a cycle, so both teams were held to 0.084 m/s to keep the hooves from sliding. `tools/horse_walk_v2.mjs` now authors a lateral-sequence walk (left hind, left fore, right hind, right fore, a quarter cycle apart) on the same current26 horse by two-link leg IK. Its parameters are authoring choices for this small model, not a measured gait of any horse: a 1.0 m cycle (the longest these legs reach without the hoof leaving the ground in stance), each foot loaded 58% of the cycle, the trunk carried 7 cm lower than the square stand with a 0.8 cm bob, swing lifts of 11 cm fore and 8.5 cm hind, and a small nod of neck and head. Stance hooves move back at exactly the travel speed, and the generator refuses slide or lift over 1 mm. Both teams now travel at 1.3 m/s, about 3 mph, a slow carriage walk. The hoof-support domain for the longer stride is measured from the skinned hoof vertices through the clip (0.35 x 0.89 m), and its ground plane may depart from flat by 2 mm instead of 1 mm, because the street crown under a 1.8 m-long domain reaches about 1.4 mm. No terrain contact, rendered route or photograph of a 1904 team is claimed for the gait.
+
 **Recorded:** 2026-11-02.
 
 ### L-working-driver-1904-2804 — Reconstructed appearance and seated work of Hans Johnson
@@ -40642,3 +40665,177 @@ photograph of the north roof's cresting.
 **Review:** `docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg`,
 `docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg`.
 **Recorded:** 2026-11-05 (T-3371).
+
+
+### L-glessner-court-stacks-3372 — Glessner's two courtyard service stacks set on the flues HABS sheets 2 and 3 draw
+
+**Decision:** the `glessner_house` north range's two courtyard stacks, carried into 1904 from the
+owner's aerial by L-glessner-connected-roof-2016, move onto the flue masses the HABS first- and second-floor
+plans draw: `chimney_service_east` to W 102.5-105.5 / S 18-21, on the partition just west of the
+court door (W 100-104), so it rises over the door's west half; `chimney_service_west` to
+W 121.5-125.25 / S 23.5-26.5, in the inner corner against the stable's court wall. They had stood at
+W 94-97 and W 113.5-117, read off an aerial to about 2 ft. The east stack's top goes from 36 to 38 ft
+ng, keeping its clearance over the north ridge T-3371 raised. The owner, 2026-11-05: the corner stack
+"appears to be misplaced", and the middle one "should be aligned with the door".
+**What is read.** The plan positions, from the sheets' dimension chain off the west wall (about
+17 px/ft; the east breast is printed 3 ft 0.5 in). **What is invented.** As before, each stack's
+height, cap and flues, and its pre-1904 presence (L-glessner-connected-roof-2016). **How to resolve:** a dated photograph of
+the north range's courtyard slope.
+**Covers:** `glessner_house.as_built_1887.form.chimney_service_east`,
+`glessner_house.as_built_1887.form.chimney_service_west`.
+**Ticket:** T-3372.
+**Recorded:** 2026-11-05 (T-3372).
+
+### L-glessner-court-leanto-3373 — Glessner's northeast court corner: a low hipped copper roof and a small dormer
+
+**Decision:** between the dining bay and the hall bow, the `glessner_house` north range's courtyard
+slope now ends in a low copper roof instead of copper laid flush on the tiles
+(L-glessner-copper-return-2228). HABS sheet 4's section at W 51.3 cuts this run: the court wall
+stands higher there (26.5 ft on its frame) and the slope's lowest 5.7 ft run at 27 degrees, flatter
+than the 36.6-degree slope above; carried on in the sheet's own geometry, that flatter run meets the
+main slope at S 20.41, where the owner's 2026 aerials end the copper and where the great chimney's
+foot stands. So the court wall rises east of W 58 to the hall bow's eave (27.33 ft ng), the copper
+rises from there at about 32 degrees to meet the tiles at S 20.41, and the roof kinks there; its west
+end is hipped at W 58, clear of the dining bay, and a leader stands at that corner, as the aerials
+show. The tiled eave beside the dining bay now drains into that leader, not the bow's. The owner,
+2026-11-05: "you have a flat roof in the northeast corner of the courtyard, but you can see that it
+is a peaked roof there and stepped down and there is a drainage pipe". A small dormer stands just east
+of the great chimney (W 32.6-36.6, front at S 20.3), where the aerials show a small pointed tiled
+dormer and HABS photograph 5 shows a finial; it copies the east wing's courtyard dormers (sheet 4):
+timber front, one light, tile-hung cheeks, a kicked pyramid hood under a clay finial.
+**What is read.** The section's wall height and lower pitch, the copper's upper edge, the hip and the
+leader's presence (aerials), the dormer's presence and place (aerials, HABS photograph 5).
+**What is invented.** The lean-to's eave set level with the bow's, the hip's place (W 58), the
+0.5 ft overhang, the trough and the leader's exact place; the dormer's 4 ft width, its eave
+(33.9 ft ng) and apex (35.9 ft ng, under the ridge), its light and its smaller finial.
+**How to resolve:** a dated photograph of the north range's courtyard slope from the court.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`,
+`glessner_house.as_built_1887.form.rainwater_details`.
+**Ticket:** T-3373.
+**Recorded:** 2026-11-05 (T-3373).
+
+### L-glessner-court-stones-3374 — Glessner's dining-bay corner stones and the lintel courses beside it
+
+**Decision:** on the `glessner_house` dining bay, each corner between two lit facets is now one tall
+rock-faced stone, from the sill course to the lintel course, where brick and two narrow jamb stones
+stood. East of the bay, the three first-floor windows and the three second-floor windows now sit
+under two continuous stone lintel courses, which run from the bay's east facet (W 60.9) to the hall
+bow (W 38.22). There the first-floor course had been three separate lintels and the second floor had
+none. The owner, 2026-11-05: "In the round tower, middle height, the stone facing covers the corner
+and there are other stone headers that can't be seen well or are incorrect", with his 2024
+photograph marking those two courses.
+**What is read.** HABS photograph 5 (c. 1923) and the owner's 2024 photograph show the corner stones
+and the two continuous courses. The tops of both courses follow the bow's own lintel courses on
+sheet 4 (15.49 and 25.62 ft ng), and their feet are the windows' heads (14.5 and 24.0 ft).
+**What is invented.** The stones' projection (the jambs' 50 mm) and their mitre at the corner, and
+each course's ends at the bay and at the bow.
+**How to resolve:** a measured elevation of the north range's court face.
+**Covers:** `glessner_house.as_built_1887.form.bay_dining_elevation`,
+`glessner_house.as_built_1887.form.openings_court_north`.
+**Ticket:** T-3374.
+**Recorded:** 2026-11-05 (T-3374).
+
+### L-glessner-stable-verges-3376 — Glessner's stable gables are verges, not parapets
+
+**Decision:** on the `glessner_house` stable, the 18th Street gable and the alley gable no longer
+carry a stone coping standing 1 ft over the roof with kneelers at their feet. The tiles now run over
+both gables' rakes, 0.15 m past the wall, and end in a thin lip. The stone gables, their apexes and
+the roof behind them are unchanged. The owner, 2026-11-05, marking the c. 1887 Cornell print beside
+the model: "the photo the roof line goes over the end, and that is not how you have it", and "also
+the edge of the north gable too".
+**What is read.** The Cornell print draws both gables with a dark tile edge over the stone and the
+cresting carried to each apex; HABS photograph 1 (1963) shows the same thin edge on the 18th Street
+gable. Neither shows a coping standing proud of the tiles.
+**What is invented.** The verge's 0.15 m oversail (the alley eave's own), its 0.10 m rise over the
+stone and its 0.16 m lip, set in the stable builder; the gables' `plain` ends are what the
+photographs show.
+**How to resolve:** a measured section through either gable's rake.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-3376.
+**Recorded:** 2026-11-05 (T-3376).
+
+### L-glessner-fan-photographs-3381 — Glessner's Prairie door tympanum carved ring by ring to the owner's photographs
+
+**Decision:** the Prairie Avenue door's tympanum on the `glessner_house` is rebuilt, rim by rim,
+to the owner's close photographs of 2026-11-05: "the inside face has a plant-like ornamentation, a
+stepped out thin rim, a larger, rounded and ornamented rim and then a final outer thinner rim with
+blockier marks, you need to make that arch a photographic match also". Outside in, inside the
+fifteen voussoirs: a fillet; a flat rim sunk with thirty-six square pockets round the head and on down
+its plumb legs (it was a channel of 33 raised billets); a fillet; a rounded roll cut at dark joints
+into thirteen blocks round the head, each carved with a four-leaf cluster round a boss and drilled
+between the leaves (it was a flat archivolt of 23 palmettes and 24 beads, then a torus); a thin plain
+rim stepped out in front of the field; and the field, a flared trunk up the middle with four mirrored
+pairs of stems bent into leafy rings, a small ring at its head, leaves sprung off every ring and
+crowded between them, all standing in front of a ground in shadow where the carving is pierced.
+This supersedes the field of L-glessner-fan-stilt-2912 (HABS sheet 5's eight unmirrored rings): the
+photographs show the field mirrored about its trunk, and the owner's photographs govern over the
+sheet's stipple. The light (mobile) tier carries the same bands and motifs as lozenge leaves and
+flat rings, in fewer triangles than before.
+**What is read.** The owner's photographs (2026-11-05; his own references, not published here): the
+order and relative widths of the four rims, the square pockets of the outer rim, the roll's joints
+and drilled foliage, the mirrored trunk-and-rings field and its dark piercing.
+**What is invented.** Every count and size: thirty-six pockets, thirteen blocks, the rings' centres and
+radii (`ornament.FIELD_ROUNDELS`, read by eye to about a twentieth of the field), the stems' paths,
+every leaf's place, size and turn, every depth, and the shadow ground (the renderer bakes no
+occlusion, so the piercing's shadow is the dark-glass slot, as window recesses use it).
+**What is not changed.** The stilt, the spring line, the radii of the fan and tympanum, the fifteen
+voussoirs, the header stone, the door and its leaf.
+**How to resolve:** a measured photograph square to the fan would set the rims' widths and the rings'
+places; a raking-light close-up would set the depths.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-3381.
+**Review:** `docs/RESEARCH/photo-match/glessner_house/habs5-entry-side-by-side.jpg`.
+**Recorded:** 2026-11-05 (T-3381).
+
+### L-k03-face-brick-3385 — Prairie Avenue's brick told house by house: a period face brick on each brick front, a common run on each house's flanks, as tints over the two K03 panels
+
+**Decision:** a palette of period bricks (`data/components/prairie_1904/k03_face_brick.json`): six face
+bricks (pressed red, deep red, rough red-brown, brown, golden buff, and an 1860s cream dulled by smoke)
+and four runs of Chicago common (buff, salmon, yellow, smoke-dulled), each one of the two K03 panels
+1904 already loads under a colour factor (its mean over the panel's, never above 1) and a roughness
+shift, so no map is added. A K01 record names its pick as `face_brick`; 28 houses on Prairie Avenue
+now wear one: the brick fronts a face brick, the side and rear walls, stacks and area walls a common
+run. The owner, 2026-11-05: "this is prairie avenue and they would have nice face brick and it would
+be different for houses".
+**What is read.** That the street's brick fronts were red and their flanks a pale common: tone readings
+inside each build's own surfaces on the photographs of 1905, 1816, 1637, 1834 and 1812 Prairie (all
+read red fronts) and of the flanks of 1625, 1637, 1816, 1828, 1834, 1900 and 1612 (all read a common
+buff family), `docs/RESEARCH/face-brick-1904-T-3385/`. The period's practice, pressed face brick on
+the street elevation and commons on the party and side walls, is in the sources that note cites.
+**What is invented.** Every colour is a reconstruction (the pictures are monochrome; a plate cannot
+tell buff from salmon or yellow), and so is each pick for a house no picture reads: chosen by the
+decade the record gives it (the 1860s pairs cream, the 1870s fronts red, the 1880s darker reds and
+browns, about 1890 buff), and each house's common run, dealt so that neighbours differ.
+**How to resolve:** a colour description or a colour picture of a house (a contemporary account, an
+early autochrome, a surviving wall) replaces its pick.
+**Covers:** `marshall_field_house_1905_prairie.as_mapped_1904.form.face_brick`, `henderson_house_1816_prairie.as_mapped_1904.form.face_brick`, `spalding_house_1637_prairie.as_mapped_1904.form.face_brick`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.face_brick`, `house_1600_prairie.as_mapped_1904.form.face_brick`, `house_1604_prairie.as_mapped_1904.form.face_brick`, `house_1608_prairie.as_mapped_1904.form.face_brick`, `house_1613_prairie.as_mapped_1904.form.face_brick`, `house_1615_prairie.as_mapped_1904.form.face_brick`, `house_1616_prairie.as_mapped_1904.form.face_brick`, `house_1626_prairie.as_mapped_1904.form.face_brick`, `house_1628_prairie.as_mapped_1904.form.face_brick`, `house_1726_prairie.as_mapped_1904.form.face_brick`, `house_1730_prairie.as_mapped_1904.form.face_brick`, `house_2003_prairie.as_mapped_1904.form.face_brick`, `house_2005_prairie.as_mapped_1904.form.face_brick`, `kellogg_house_1709_prairie.as_mapped_1904.form.face_brick`, `kellogg_house_1923_prairie.as_mapped_1904.form.face_brick`, `dexter_house_1721_prairie.as_mapped_1904.form.face_brick`, `dent_house_1823_prairie.as_mapped_1904.form.face_brick`, `edson_keith_house_1906_prairie.as_mapped_1904.form.face_brick`, `house_1619_prairie.as_mapped_1904.form.face_brick`, `house_1621_prairie.as_mapped_1904.form.face_brick`, `house_1623_prairie.as_mapped_1904.form.face_brick`, `house_1634_prairie.as_mapped_1904.form.face_brick`, `house_1636_prairie.as_mapped_1904.form.face_brick`, `house_1712_prairie.as_mapped_1904.form.face_brick`, `house_2001_prairie.as_mapped_1904.form.face_brick`.
+**Ticket:** T-3385.
+**Recorded:** 2026-11-05 (T-3385).
+
+### L-k01-1700-1706-roof-3384 — 1700 and 1706 Prairie under one mansard, the party wall carried up through it
+
+**Decision:** the Glessner townhouses at 1700 and 1706 Prairie are roofed as ONE mansard run across
+the pair, not two each hipped at the party line. The party wall, centred on the line between the
+two houses, is carried up through the roof: its coping follows the roof's own section from the
+cornice up the steep face and over the deck, a stack standing on it just behind the deck's railing.
+1700's north end wall is carried up the same way past its end of the roof, a stack on it behind the
+railing. One downpipe stands on the party line, both houses' street gutters running to it. The
+deck's railing is the white fret of Chicagology's photograph, not the K10 kit's cresting. The
+owner, 2026-11-05, with the render beside both photographs: the dividing wall "would be centered on
+the property", "it is continous in the center and that diving wall runs through the roof and there
+is a single gitter there in the center", and to correct the chimneys and the roof's ornament.
+**What is read.** Both photographs (Chicagology's, after 1902, and the Glessner House Museum's
+Christmas print) show the continuous street face, the broad pale coping falling down the steep face
+to the cornice at the party line and at 1700's north end, one stack on the party wall behind the
+railing and one on 1700's north end wall, one pipe down the front at the party line, and the fret:
+square posts about a metre apart, a bar corner to corner in each panel, a rectilinear key in each
+triangle it leaves.
+**What is invented.** The parapets' upstand (0.3 m square to the slope at the curb, tapering to
+0.25 m over the wall head at the fascia), the party wall's thickness (0.25 m each side of the line),
+the stacks' plan (the party stack 0.9 by 1.2 m, the end stack the house's 0.9 by 0.75 m) and their
+tops (14.4 m), the fret's sections and its keys' exact turns. The rear of the deck and the rear
+lower face are not seen in any picture; they follow the front's section.
+**How to resolve:** a photograph of the pair's roof from above or from the rear, or a building
+permit drawing.
+**Ticket:** T-3384.
+**Recorded:** 2026-11-05 (T-3384).

@@ -112,6 +112,9 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
   k01.wall.corner_bond      a quoin on the south return, long and short in turn
                             against the front's own corner stone (T-2581: or a straight
                             strip, stone_front.south_return_m, on every course)
+  k01.wall.corner_stone     T-3365: the front's low-s corner dressed in stone from a height
+                            to the wall head over a brick front, returned on the south wall
+                            (street_front_windows.corner_stone; 2009's, off its photograph)
   k01.opening.flat_arch     voussoirs over every front opening K09 leaves a flat
                             head (the area lights, the third floor), their joints
                             radiating and each stone's bed turned along its joint
@@ -135,6 +138,7 @@ import struct
 from pathlib import Path
 
 from . import k01_arched_front
+from . import k01_mansard_walled
 from . import k01_dressings
 from . import k03_brick
 from . import k09_frontage
@@ -656,6 +660,29 @@ class Assembly:
             for slot in ("brick_front", "bay_brick"):
                 self.spec[slot]["color"] = tuple(round(c * f, 4) for c, f in
                                                  zip(self.spec[slot]["color"], params.front_brick_tone))
+        # T-3385: the palette's face and common bricks (k03_face_brick.json, the record's
+        # `face_brick`): the front a shade smoother or rougher than the common it was cut from, and
+        # the side and rear walls, their stacks, the area walls and K03's units toned to the
+        # house's own common run. A brick front with brick heads carries its units in the front's
+        # brick when both are laid in the one panel (the units are one set of slots per house)
+        if self.front_brick == "brick_front" and params.front_brick_roughness:
+            for slot in ("brick_front", "bay_brick"):
+                self.spec[slot]["roughness"] = round(self.spec[slot]["roughness"] + params.front_brick_roughness, 3)
+        units = [k for k in MATERIALS if k.startswith("brick_unit_")]
+        unit_tone = params.side_brick_tone
+        if params.street_front_trim.get("brick_heads") and self.front_brick == "brick_front" \
+                and not params.front_brick_panel:
+            unit_tone = params.front_brick_tone
+        if params.side_brick_tone:
+            for slot in ("brick", "area_brick", "chimney_soot"):
+                self.spec[slot]["color"] = tuple(round(c * f, 4) for c, f in
+                                                 zip(self.spec[slot]["color"], params.side_brick_tone))
+        if params.side_brick_roughness:
+            for slot in ("brick", "area_brick"):
+                self.spec[slot]["roughness"] = round(self.spec[slot]["roughness"] + params.side_brick_roughness, 3)
+        if unit_tone:
+            for slot in units:
+                self.spec[slot]["color"] = tuple(round(c * f, 4) for c, f in zip(self.spec[slot]["color"], unit_tone))
         if params.stone:
             st = params.stone
             trim = st.get("trim_face", st["trim"])   # T-1881: or the walling's own stone
@@ -1218,6 +1245,28 @@ class Assembly:
                     out = d if j == 0 else 0.0     # the first face's stone covers the arris
                     s0, s1 = (length - run, length + out) if at_end else (-out, run)
                     self.proud_box("limestone_trim", (O, R, _cross(R, Y)), s0, s1, y0, y1, d, seed, conf)
+
+    def corner_stone(self, front, side, side_len):
+        """T-3365: k01.wall.corner_stone — the street front's low-s corner dressed in stone from
+        `from_m` to the wall head (2009 Prairie's north corner, off the Chicagology photograph:
+        brick to the string course, then a pale stone strip to the kneeler): one course every
+        about `course_m`, each stone a box `proud_m` out of the brick, `width_m` along the front
+        and `return_m` along the side wall, the front's run on past the arris by `proud_m` so
+        the two meet on it."""
+        p, cs = self.p, self.p.street_dress["corner_stone"]
+        conf = p.worst_conf("footprint", "stories", "storey_heights_m", "construction", "street_front_windows")
+        d, y0, top = cs["proud_m"], cs["from_m"], p.eave_m
+        n = max(1, round((top - y0) / cs["course_m"]))
+        ch = (top - y0) / n
+        O, R, N = front
+        seed = self.instance("k01.wall.corner_stone", "wall",
+                             {"from_m": y0, "to_m": top, "courses": n, "course_m": round(ch, 4),
+                              "width_m": cs["width_m"], "return_m": cs["return_m"], "proud_m": d},
+                             {"base": _add(O, _mul(Y, y0))})
+        for k in range(n):
+            ya, yb = y0 + k * ch, y0 + (k + 1) * ch
+            self.proud_box("limestone_trim", front, -d, cs["width_m"], ya, yb, d, seed, conf)
+            self.proud_box("limestone_trim", side, side_len - cs["return_m"], side_len, ya, yb, d, seed, conf)
 
     def wing_deck(self, w):
         """The wing's flat deck: a slab from its wall top to the fascia's top, run out over
@@ -4087,7 +4136,9 @@ class Assembly:
             # T-3186: a canted corner cuts every ring on its face's line, out to the fascia
             cut = ((lambda ring, out: k01_frontage_params.cant_ring(ring, p.cant_corner, D, W, out)),
                    o + p.cant_corner["cut_m"] / (2.0 - math.sqrt(2.0))) if p.cant_corner else None
-            hip, hs, _ = k5.mansard_element(0.0, D, -W, 0.0, E, m["lower_pitch_deg"], p.roof_pitch_deg,
+            # T-3384: run on past a wall carried up through it, so no hip reaches that wall
+            mz0, mz1 = k01_mansard_walled.extend(p, -W, 0.0) if m.get("walled_ends") else (-W, 0.0)
+            hip, hs, _ = k5.mansard_element(0.0, D, mz0, mz1, E, m["lower_pitch_deg"], p.roof_pitch_deg,
                                             m["lower_rise_m"], m["bulge"], m["segments"], m["profile"], o, f,
                                             cut=cut)
         elif gb:   # T-2459: the parapets first, so the union keeps their faces on the walls' planes
@@ -4119,6 +4170,9 @@ class Assembly:
             solids = k5.parapet_element({}, [(0.0, slab), (D - FRONT_SET_M, slab)], (c0, c1), "z", tw, hs,
                                         spp["coping_m"], spp["drip_m"], 0.0, 0.0) + solids
         straight_cut = []
+        if (m or {}).get("walled_ends"):   # T-3384: the walls carried up through the roof, and their cutters
+            more, straight_cut = k01_mansard_walled.elements(p, k5, hs)
+            solids = more + solids
         if (m or {}).get("straight"):   # T-2995: the straight walls' parapets, and their cutters
             from . import k01_mansard_straight
             more, straight_cut, _ = k01_mansard_straight.elements(p, k5, hs)
@@ -4233,7 +4287,7 @@ class Assembly:
         self.stone_stack_boxes = []
         plain_stacks = []
         for c in p.chimneys:
-            if "k15" in c or "k15_head" in c:
+            if "k15" in c or "k15_head" in c or c.get("wall_end"):   # T-3384: a walled end's are its own
                 continue
             sx, sz = c["plan_m"]
             u, z = c["u_m"], -c["v_m"]
@@ -5784,8 +5838,8 @@ class Assembly:
             # not built and each side run dies into the gable's base at its back (k01_shaped_gable)
             xb = self.shaped_gable_geom["xb"]
             dead += [(starts[3] + xb + A, P), (0.0, starts[1] + D + A - xb)]
-        spp = (p.mansard or {}).get("side_parapet")
-        if spp:
+        # T-3384: and none along a wall carried up through the mansard, the same way
+        for spp in [x for x in [(p.mansard or {}).get("side_parapet")] if x] + k01_mansard_walled.wall_ends(p):
             # T-3061: no gutter along a side wall carried up as a parapet: the runs beside it
             # stop at the wall's outer plane, each end stopped where the run beside it is live
             i = 3 if spp["wall"] == "south" else 1
@@ -5856,6 +5910,8 @@ class Assembly:
         rp = r["pipe_diameter_m"] / 2
         kick = math.radians(r["shoe_kick_deg"])
         for x in r["downpipes"]:
+            if x.get("shared"):   # T-3384: the neighbour's pipe, on the party wall's line
+                continue
             O, R = walls[x["wall"]]
             N = _cross(R, Y)
             # clear of anything proud of the wall: the street front's belt courses
@@ -6254,7 +6310,8 @@ def build(params, structure_id: str):
                     for b in p.side_base if b["wall"] == f"k01.wall.side.{which}")   # T-3184
     walls = {
         # T-2341: a record with no K02 stone front is a brick house, its front in the K03 brick
-        "k01.wall.street_front": ("rough_stone_trim" if p.stone else "brick", (D, 0.0, 0.0), (0.0, 0.0, -1.0),
+        # T-3385: in its own face brick when the record names one (`face_brick.front`)
+        "k01.wall.street_front": ("rough_stone_trim" if p.stone else a.front_brick, (D, 0.0, 0.0), (0.0, 0.0, -1.0),
                                   W, p.front_thickness_m, belts),
         "k01.wall.side.north": (side, (D, 0.0, -W), (-1.0, 0.0, 0.0), D, p.side_thickness_m, side_belts("north")),
         "k01.wall.rear_service": (side, (0.0, 0.0, -W), (0.0, 0.0, 1.0), W, p.side_thickness_m, ()),
@@ -6339,6 +6396,8 @@ def build(params, structure_id: str):
             a.wall(cid, mat, O, R, length, E, t, holes(cid) + bond, breaks, bands, gaps[cid], cols)
         if quoins:
             a.quoins(frames["k01.wall.side.south"][0][0], D, quoins)
+        if p.street_dress.get("corner_stone"):   # T-3365
+            a.corner_stone(frame, frames["k01.wall.side.south"][0][0], D)
     for cid, (mat, O, R, length, t, bands) in walls.items():
         if cid in frames:
             continue

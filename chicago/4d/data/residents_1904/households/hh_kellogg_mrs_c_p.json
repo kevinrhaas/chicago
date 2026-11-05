@@ -29,10 +29,11 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The one live-in servant it lists at the house on 1 June 1900 is on the card, graded inferred because the count was taken four years before the scene. A coachman's wife and children in the rear building are named in his note rather than carded. Left off: Charles Kellogg (written \"abroad\"; the surname is hard to read). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The one live-in servant it lists at the house on 1 June 1900 is on the card, graded inferred because the count was taken four years before the scene. A coachman's wife and children in the rear building are named in his note rather than carded. Left off: Charles Kellogg (written \"abroad\"; the surname is hard to read). The 1910 census (T624 roll 241, ED 166 and 167) was read for this card's children: the children it lists, and those the Blue Book lists at the number from 1890 to 1911, are on the card with the years each lived here, whether or not they were at home in 1904. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
-      "census_1900_chicago_t623_roll245"
+      "census_1900_chicago_t623_roll245",
+      "census_1910_chicago_t624_roll241"
     ]
   },
   "persons": [
@@ -50,14 +51,22 @@
     {
       "id": "pa1904_kellogg_mrs_lois",
       "name": "Mrs. Lois Kellogg",
-      "relationship": "household_member",
+      "relationship": "daughter",
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1910_chicago_t624_roll241"
       ],
       "printed_as": "1923 Mrs. Lois Kellogg",
-      "note": "Listed at 1923 in both editions. The Blue Book does not say how she was related to Mrs. C. P. Kellogg."
+      "note": "Listed at 1923 in both editions. The Blue Book does not say how she was related to Mrs. C. P. Kellogg. The 1910 census lists Lois Kellogg at 1923 as the daughter of the head, Sarah H. Kellogg, divorced, aged 43 (ED 167, sheet 6B, lines 75-76).",
+      "census_1910": {
+        "date": "1910-04-15",
+        "source": "census_1910_chicago_t624_roll241",
+        "locator": "ED 167, sheet 6B, line 76, leaf n1460",
+        "as_enumerated": "Kellogg, Lois",
+        "relation_as_enumerated": "Daughter"
+      }
     },
     {
       "id": "pa1904_kellogg_mrs_c_p_c1900_thomas_nelson",

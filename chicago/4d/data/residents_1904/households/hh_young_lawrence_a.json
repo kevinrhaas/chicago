@@ -29,10 +29,11 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The seven live-in staff and two children it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The seven live-in staff and two children it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. The 1910 census (T624 roll 241, ED 166 and 167) was read for this card's children: the children it lists, and those the Blue Book lists at the number from 1890 to 1911, are on the card with the years each lived here, whether or not they were at home in 1904. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
-      "census_1900_chicago_t623_roll245"
+      "census_1900_chicago_t623_roll245",
+      "census_1910_chicago_t624_roll241"
     ]
   },
   "persons": [
@@ -133,6 +134,35 @@
         "relation_as_enumerated": "Daughter"
       },
       "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born May 1898, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference. Part of the name is hard to read on the sheet; this is the best reading."
+    },
+    {
+      "id": "pa1904_young_lawrence_r",
+      "name": "Lawrence R. Young",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "census_1910_chicago_t624_roll241"
+      ],
+      "born": {
+        "value": "1903",
+        "confidence": "inferred",
+        "sources": [
+          "census_1910_chicago_t624_roll241"
+        ],
+        "note": "The 1910 census gives age 7 on 15 April 1910, so born about 1902-1903."
+      },
+      "census_1910": {
+        "date": "1910-04-15",
+        "source": "census_1910_chicago_t624_roll241",
+        "locator": "ED 166, sheet 1A, line 45, leaf n1429",
+        "as_enumerated": "Young, Lawrence R.",
+        "relation_as_enumerated": "Son"
+      },
+      "lived_here": {
+        "years": "born about 1903; here in 1910",
+        "on_scene_date": "yes"
+      },
+      "note": "The Youngs' third child: the 1910 census lists him at 1812 aged 7, with his brother Henry W. and sister Alice, and their mother as having borne three children, all living (ED 166, sheet 1A, lines 41-45). Born about 1902-03 to a family listed here from the 1897 edition to 1914, he was very likely a baby in the house on 1 July 1904; that is inferred from his age, not recorded."
     },
     {
       "id": "pa1904_young_lawrence_a_c1900_katie_lyden",

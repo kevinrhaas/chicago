@@ -72,21 +72,16 @@ if g.get('level_courtyard_gable'):
         assert abs(run.get('ridge_skew',0))<1e-10
     cross_runs=[(a,b) for run,a,b in east_west if abs(run['ridge_at']-g['cross_y'])<1e-4]
     assert len(cross_runs)==1 and t['x0']<cross_runs[0][1]<t['x1'],cross_runs
-    # T-3371: the alley gable's apex comes down onto the roof's own apex (S12.31,
-    # 36.17 ft), so the wall follows the tiles: its wall line is never under the
-    # roof at the alley face, and its coping clears the tiles (0.245 m over this
-    # envelope) along both rakes without standing over them as a fin.
-    ap=g['alley_parapet']
-    assert abs(ap['apex_y']-g['cross_y'])<1e-4 and abs(ap['apex_z']-g['cross_z'])<1e-4
+    # T-3376 (owner review of the c. 1887 Cornell print): both stable gables are
+    # verges, not parapets. The roof's apex at the alley stays T-3371's (S12.31,
+    # 36.17 ft); over the gable's span the cross roof oversails the alley wall by
+    # 0.15 m at the wall's own heights, as the alley eave south of its foot does.
+    assert 'alley_parapet' not in g
+    assert r['gable_ends']['west']=='plain' and r['gable_ends']['north']=='plain'
+    assert abs(height(r,r['x0'],g['cross_y'])-g['cross_z'])<1e-4
     for i in range(1,100):
         y=g['south_foot_y']+(r['y1']-g['south_foot_y'])*i/100
-        a,c=(g['south_foot_y'],g['cross_foot_eave']),(ap['apex_y'],ap['apex_z'])
-        if y>ap['apex_y']:a,c=c,(r['y1'],g['north_west_eave'])
-        line=a[1]+(c[1]-a[1])*(y-a[0])/(c[0]-a[0])
-        assert line>=height(r,r['x0'],y)-1e-3,(y,line)
-        assert line+ap['lift']>height(r,r['x0'],y)+.245+.04,(y,line)
-    # No roof oversails the alley wall over the gable; the alley eave south of it does.
-    assert height(r,r['x0']-.1,(g['south_foot_y']+r['y1'])/2)==0
+        assert abs(height(r,r['x0']-.1,y)-height(r,r['x0'],y))<1e-4,y
     assert height(r,r['x0']-.1,g['south_foot_y']-1)>0
     # Matching 2.36-ft awning, continuous at the 24-ft north courtyard edge.
     edge=r['x1']+2.36*.3048

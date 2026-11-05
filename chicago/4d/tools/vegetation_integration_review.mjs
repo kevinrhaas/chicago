@@ -204,7 +204,7 @@ try {
           const mats = [timber.material, timber.customDepthMaterial, timber.customDistanceMaterial];
           if (mats.some(m => !m)) throw new Error('Tree surface/depth/distance material missing');
           const shaders = mats.map(mock);
-          const windBlock = s => s.vertexShader.match(/vec3 chiW[\s\S]*?transformed\.z \+= chiS \* aFlex \* 0\.26;/)?.[0] ?? null;
+          const windBlock = s => s.vertexShader.match(/vec3 chiW[\s\S]*?transformed\.z \+= [^;]*;/)?.[0] ?? null;
           return {
             level: a.detail, near: near.count, far: far.count, nearTriangles: near.geometry.index.count / 3, farTriangles: far.geometry.index.count / 3, matched, worst, handoverWorst,
             sharedAtlas: !!atlas && atlas === fs.uniforms.uChiFoliage?.value, atlasSize: atlas ? [atlas.image.width, atlas.image.height] : null,

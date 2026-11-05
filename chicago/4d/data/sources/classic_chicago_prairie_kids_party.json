@@ -1,0 +1,21 @@
+{
+  "id": "classic_chicago_prairie_kids_party",
+  "type": "website",
+  "citation": "Classic Chicago Magazine, 'Prairie Avenue's Best Kids' Party Ever'. Read 5 November 2026.",
+  "author": "Classic Chicago Magazine",
+  "url": "https://classicchicagomagazine.com/?p=26387",
+  "locator": "The Fields' children's party of 1 January 1886 at 'the Marshall Field Residence at 1905 S. Prairie Avenue', with Marshall Field Jr., 17, and Ethel Field, 12, in its cast list.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "rights_note": "Textual factual citation only. No website text or images reused as an asset.",
+  "verified": true,
+  "access_notes": "Read 2026-11-05 (T-3382) through a fetch that returned the article in short quoted segments; no archived snapshot verified.",
+  "note": "Puts both Field children at home at 1905 Prairie Avenue at the start of 1886. It does not say when the family moved in.",
+  "what_it_supplies": [
+    "Marshall Field Jr. and Ethel Field at home at 1905 Prairie Avenue in January 1886"
+  ],
+  "what_it_does_not_supply": [
+    "when the family moved in"
+  ]
+}

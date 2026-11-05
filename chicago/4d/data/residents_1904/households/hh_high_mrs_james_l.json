@@ -29,10 +29,11 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. It lists no live-in staff at the house on 1 June 1900. Left off: J. L. High (written \"at Lakeside\", with an office address; nobody else is listed at the house). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. It lists no live-in staff at the house on 1 June 1900. Left off: J. L. High (written \"at Lakeside\", with an office address; nobody else is listed at the house). The 1910 census (T624 roll 241, ED 166 and 167) was read for this card's children: the children it lists, and those the Blue Book lists at the number from 1890 to 1911, are on the card with the years each lived here, whether or not they were at home in 1904. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
-      "census_1900_chicago_t623_roll245"
+      "census_1900_chicago_t623_roll245",
+      "census_1910_chicago_t624_roll241"
     ]
   },
   "persons": [
@@ -58,6 +59,43 @@
       ],
       "printed_as": "2021 Mrs. James L. High & dr.",
       "note": "The Blue Book prints '& dr.' after the household's name: an unmarried daughter at home, not named. 'Miss High' is the book's own form of address, not a recorded name."
+    },
+    {
+      "id": "pa1904_high_shirley_t",
+      "name": "Shirley T. High",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "census_1910_chicago_t624_roll241",
+        "chicago_blue_book_1897",
+        "chicago_blue_book_1898",
+        "chicago_blue_book_1899",
+        "chicago_blue_book_1903",
+        "chicago_blue_book_1909",
+        "chicago_blue_book_1910",
+        "chicago_blue_book_1911"
+      ],
+      "printed_as": "2021 Shirley T. High",
+      "born": {
+        "value": "1874",
+        "confidence": "inferred",
+        "sources": [
+          "census_1910_chicago_t624_roll241"
+        ],
+        "note": "The 1910 census gives age 36 on 15 April 1910, so born about 1873-1874."
+      },
+      "census_1910": {
+        "date": "1910-04-15",
+        "source": "census_1910_chicago_t624_roll241",
+        "locator": "ED 167, sheet 2A, line 20, leaf n1451",
+        "as_enumerated": "High, Shirley T.",
+        "relation_as_enumerated": "Head"
+      },
+      "lived_here": {
+        "years": "1897-1899; 1903; 1909-1911",
+        "on_scene_date": "no"
+      },
+      "note": "Listed at 2021 under Mr. and Mrs. James L. High from 1897 to 1899, with his own wife in 1903, and from 1909, when he heads the house: the 1910 census lists him there with his wife Helen and their sons James and Raymond (ED 167, sheet 2A, lines 20-23). The 1904 to 1908 editions do not list him there. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship."
     }
   ]
 }

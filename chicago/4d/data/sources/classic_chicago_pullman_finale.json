@@ -1,0 +1,23 @@
+{
+  "id": "classic_chicago_pullman_finale",
+  "type": "website",
+  "citation": "Classic Chicago Magazine, 'Pullman Finale: Florence and the Naughty Twins'. Read 5 November 2026.",
+  "author": "Classic Chicago Magazine",
+  "url": "https://classicchicagomagazine.com/?p=71646",
+  "locator": "Florence's wedding to Frank Lowden in 1896, 'performed ... at the Pullmans' Prairie Avenue house' by two of George Pullman's brothers; the twins 'born to George and Hattie Pullman in 1875', home-schooled 'on Prairie Avenue'; George Jr.'s marriage on 30 September 1899 in Carson, Nevada, and death at Menlo Park in November 1901; Sanger's death on 14 August 1905 at Belmont.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "rights_note": "Textual factual citation only. No website text or images reused as an asset.",
+  "verified": true,
+  "access_notes": "Read 2026-11-05 (T-3382) through a fetch that returned the article in short quoted segments; no archived snapshot verified.",
+  "note": "A popular history magazine's account of the Pullman children, written from newspapers of the day. Cited for the 1896 wedding in the house and the twins' later homes in California.",
+  "what_it_supplies": [
+    "Florence Pullman's wedding at the house in 1896",
+    "the twins' later marriages and California homes"
+  ],
+  "what_it_does_not_supply": [
+    "the house number",
+    "Harriet's wedding"
+  ]
+}
