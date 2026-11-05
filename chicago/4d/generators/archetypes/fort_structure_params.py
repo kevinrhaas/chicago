@@ -96,6 +96,8 @@ CONSUMED = frozenset({
     "upper_overhang_m", "lantern", "gallery_storeys", "face_openings",
     "lantern_profile", "tower_diameter_m", "tower_openings", "tower_profile",
     "tower_lantern_detail", "tower_masonry", "cupola",
+    # T-3387: the hand-made period brick a brick wall and the stacks are laid in
+    "period_brick",
 })
 
 # Where this archetype touches the ground: the whole footprint outline, at the
@@ -181,6 +183,10 @@ class FortStructureParams:
     tower_profile: dict | None = field(default=None, kw_only=True)
     tower_lantern_detail: dict | None = field(default=None, kw_only=True)
     tower_masonry: dict | None = field(default=None, kw_only=True)
+    # T-3387: {"walls"?, "stacks"?} -> a resolved K03 period recipe (period_brick_of), laid
+    # by fort_structure._lay_period_brick on the brick walls and on the stacks. None (every
+    # record that names none) leaves the flat sheet colours exactly as they were.
+    period_brick: dict | None = field(default=None, kw_only=True)
 
     confidence: dict = field(default_factory=dict)
 
@@ -519,6 +525,35 @@ class FortStructureParams:
                              f"no building behind it")
 
 
+def period_brick_of(value, construction: str, chimneys: int) -> dict | None:
+    """T-3387: a record's `period_brick` ({"walls"?, "stacks"?}: K03 period recipe ids,
+    data/components/prairie_1904/k03_face_brick.json) resolved to what the builder lays: the
+    panel, its colour factor and roughness shift, its tile and its two web maps (repo-relative)."""
+    if value is None:
+        return None
+    if not isinstance(value, dict) or not value or set(value) - {"walls", "stacks"}:
+        raise ParamError(f"period_brick {value!r}: a map of `walls` and/or `stacks` to a recipe id")
+    if "walls" in value and construction != "brick":
+        raise ParamError(f"period_brick.walls on a {construction} building, which lays no brick wall")
+    if "stacks" in value and not chimneys:
+        raise ParamError("period_brick.stacks on a building with no chimneys")
+    from archetypes import k03_brick
+    out = {}
+    for part, rid in sorted(value.items()):
+        try:
+            r = k03_brick.recipe(rid, "period")
+        except ValueError as e:
+            raise ParamError(f"period_brick.{part}: {e}") from e
+        fab = f"k03:{r['panel']}"
+        rel = lambda q: q.relative_to(k03_brick.ROOT).as_posix()  # noqa: E731
+        out[part] = {"recipe": rid, "panel": r["panel"], "tone": list(r["tone"]),
+                     "roughness_delta": r["roughness_delta"],
+                     "tile_m": list(k03_brick.TILES[fab]),
+                     "basecolor": rel(k03_brick.IMAGES[fab]["basecolor"]),
+                     "normal": rel(k03_brick.IMAGES[fab]["normal"])}
+    return out
+
+
 def from_phase(phase: dict, record: dict | None = None) -> FortStructureParams:
     """Resolve one structure phase into generator parameters.
 
@@ -589,6 +624,8 @@ def from_phase(phase: dict, record: dict | None = None) -> FortStructureParams:
         tower_profile=val("tower_profile", None),
         tower_lantern_detail=val("tower_lantern_detail", None),
         tower_masonry=val("tower_masonry", None),
+        period_brick=period_brick_of(val("period_brick", None), str(val("construction", "log")),
+                                     int(val("chimneys", 0))),
         confidence=confidences,
     )
     p.validate()

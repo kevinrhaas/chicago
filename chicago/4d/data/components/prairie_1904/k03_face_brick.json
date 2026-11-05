@@ -7,15 +7,15 @@
   "reader": "generators/archetypes/k03_brick.py (recipe), read for a K01 record's `face_brick` by generators/archetypes/k01_frontage_params.py",
   "research": "docs/RESEARCH/face-brick-1904-T-3385/README.md",
   "owner": "2026-11-05: \"this is prairie avenue and they would have nice face brick and it would be different for houses ... use that base model and probably add more versions with tuned color and material based on the correct time period and likely brick styles across all the buildings\"",
-  "rule": "Every recipe is the K03 panel it names, unchanged (its bricks, its joints, its bond, and the renderer's per-brick shuffle, brick-bond.js), under a colour factor and a roughness shift. The factor is mean_linear over the panel's own mean (material.json mean_srgb, linearised) and must lie in [0, 1] on each channel, so a recipe only ever darkens or re-hues a panel and never asks a glTF base colour factor over 1. No recipe adds a map: 1904 is at its phone memory ceiling, and both panels named here are already loaded there. A face recipe goes on the street front (and its brick bays); a common recipe on the side and rear walls, the stacks and the area walls. Which recipe a house wears is the record's (`face_brick`), read off its own pictures where it has them.",
+  "rule": "Every recipe is the K03 panel it names, unchanged (its bricks, its joints, its bond, and the renderer's per-brick shuffle, brick-bond.js), under a colour factor and a roughness shift. The factor is mean_linear over the panel's own mean (material.json mean_srgb, linearised) and must lie in [0, 1] on each channel, so a recipe only ever darkens or re-hues a panel and never asks a glTF base colour factor over 1. No recipe adds a map: 1904 is at its phone memory ceiling, and both panels named here are already loaded there. A period recipe (T-3387) is an earlier hand-made brick for the 1812 and 1835 scenes, read by fort_structure for its brick walls and its stacks (`period_brick`). A face recipe goes on the street front (and its brick bays); a common recipe on the side and rear walls, the stacks and the area walls. Which recipe a house wears is the record's (`face_brick`), read off its own pictures where it has them.",
   "panels": ["common_buff_common_6", "rough_red_brown_running"],
   "recipes": {
     "pressed_red": {
       "role": "face",
       "name": "Pressed red front brick",
       "panel": "common_buff_common_6",
-      "mean_linear": [0.300, 0.075, 0.048],
-      "roughness_delta": -0.10,
+      "mean_linear": [0.3, 0.075, 0.048],
+      "roughness_delta": -0.1,
       "period": [1865, 1890],
       "note": "Dry-pressed red face brick, the eastern ('Philadelphia' or 'Baltimore') front brick and its western makers' copies, the fashionable front of the 1870s and early 1880s: a smooth, even red face with sharp arrises in a thin joint, its mortar stained to the brick so the front reads as one colour field. Laid over the common panel, whose lime joints the factor stains with the brick."
     },
@@ -23,7 +23,7 @@
       "role": "face",
       "name": "Deep red pressed brick",
       "panel": "rough_red_brown_running",
-      "mean_linear": [0.197, 0.050, 0.035],
+      "mean_linear": [0.197, 0.05, 0.035],
       "roughness_delta": -0.08,
       "period": [1875, 1895],
       "note": "A darker, bluer red pressed brick, the dark reds the large hydraulic-press works sold from the 1880s; in running bond, the face laid without headers."
@@ -41,7 +41,7 @@
       "role": "face",
       "name": "Brown pressed brick",
       "panel": "rough_red_brown_running",
-      "mean_linear": [0.140, 0.075, 0.050],
+      "mean_linear": [0.14, 0.075, 0.05],
       "roughness_delta": -0.06,
       "period": [1880, 1895],
       "note": "A dark brown pressed brick of the Queen Anne and Romanesque 1880s fronts, laid to read nearly as dark as brownstone."
@@ -77,7 +77,7 @@
       "role": "common",
       "name": "Chicago common brick, salmon",
       "panel": "common_buff_common_6",
-      "mean_linear": [0.407, 0.220, 0.139],
+      "mean_linear": [0.407, 0.22, 0.139],
       "roughness_delta": 0.02,
       "period": [1850, 1910],
       "note": "The same common burnt pinker: a salmon kiln run."
@@ -99,8 +99,31 @@
       "roughness_delta": 0.02,
       "period": [1850, 1910],
       "note": "The common buff dulled by the city's smoke on an older or north-facing flank."
+    },
+    "soft_mud_red_garrison": {
+      "role": "period",
+      "name": "Hand-made soft-mud red brick, garrison",
+      "panel": "common_buff_common_6",
+      "mean_linear": [0.4, 0.2, 0.15],
+      "roughness_delta": 0.03,
+      "period": [1803, 1835],
+      "note": "T-3387. The federal garrison's brick: the first fort's magazine (1803), the second fort's commandant's quarters and magazine (1816), and the stacks that carry every fort building's flues. Struck by hand in sanded moulds and burnt in a clamp, a soft, rough, uneven red with wide lime joints, darker than a pressed face. Its colour is the sheet's own brick row (common/materials.py `wall_colour('brick')`, 0.45/0.23/0.17, read off the Petford watercolour's brick stacks), a shade darker because a recipe may only darken its panel; that a clamp-burnt soft-mud brick was what a frontier post laid is the period's ordinary practice, not a record of this fort's."
+    },
+    "soft_mud_salmon_lake": {
+      "role": "period",
+      "name": "Hand-made soft-mud brick of the lake clay, salmon",
+      "panel": "common_buff_common_6",
+      "mean_linear": [0.405, 0.236, 0.15],
+      "roughness_delta": 0.03,
+      "period": [1833, 1840],
+      "note": "T-3387. Chicago's own first brick: Blodgett's yard on the North Side from the spring of 1833 (Andreas), the yard the Lake House's brick of 1835 is traced to. The local lake-bed clay is high in lime and burns salmon to buff rather than red (the later Chicago common's colour, docs/RESEARCH/face-brick-1904-T-3385/README.md), hand-struck and soft. Which shade the Lake House's brick burnt is a reconstruction."
     }
   },
   "confidence": "reconstructed",
-  "liberty": "L-k03-face-brick-3385"
+  "liberty": "L-k03-face-brick-3385",
+  "panel_mean_linear": {
+    "common_buff_common_6": [0.407, 0.2563, 0.1537],
+    "rough_red_brown_running": [0.1973, 0.0985, 0.0685]
+  },
+  "panel_mean_rule": "Each panel's linear mean base colour, measured off its web map (the picture the renderer draws) by k03_brick.panel_mean, which holds these figures to the map wherever PIL is at hand; written down so a generator that runs inside Blender, which has no PIL, resolves a recipe to the same factor (T-3387)."
 }

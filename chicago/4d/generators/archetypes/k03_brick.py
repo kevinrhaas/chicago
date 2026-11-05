@@ -121,13 +121,26 @@ _panel_means = {}
 
 
 def panel_mean(panel: str) -> tuple:
-    """The linear mean base colour of a K03 panel's web map (what a wall in it averages to)."""
+    """The linear mean base colour of a K03 panel's web map (what a wall in it averages to).
+
+    T-3387: the figure is the palette's `panel_mean_linear`, so a generator running inside
+    Blender (no PIL) resolves a recipe to the same factor; wherever PIL is at hand the map is
+    measured and a figure that no longer matches it is refused."""
     if panel not in _panel_means:
-        import numpy as np
-        from PIL import Image
+        stated = tuple(FACE_BRICK["panel_mean_linear"][panel])
+        try:
+            import numpy as np
+            from PIL import Image
+        except ImportError:
+            _panel_means[panel] = stated
+            return stated
         a = np.asarray(Image.open(IMAGES[f"k03:{panel}"]["basecolor"]).convert("RGB"), dtype=np.float64) / 255.0
         lin = np.where(a <= 0.04045, a / 12.92, ((a + 0.055) / 1.055) ** 2.4)
-        _panel_means[panel] = tuple(round(float(x), 4) for x in lin.reshape(-1, 3).mean(axis=0))
+        measured = tuple(round(float(x), 4) for x in lin.reshape(-1, 3).mean(axis=0))
+        if any(abs(m - s) > 1e-4 for m, s in zip(measured, stated)):
+            raise ValueError(f"k03_face_brick.json panel_mean_linear[{panel!r}] {stated} is not its map's "
+                             f"measured {measured}: write the measured figure")
+        _panel_means[panel] = stated
     return _panel_means[panel]
 
 

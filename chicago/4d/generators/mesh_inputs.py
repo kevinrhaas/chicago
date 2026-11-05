@@ -178,6 +178,9 @@ def _code_shas(archetype: str, params=None) -> dict[str, str]:
         # T-3222: a K16 house with a yard has its walk routed by K14 and worn by the condition kit
         if archetype == "k16_timber" and getattr(params, "yard", None):
             wanted += [gen / "archetypes" / "k14_yard.py", gen / "archetypes" / "k14_condition.py"]
+    # T-3387: a fort building laid in a K03 period recipe resolves it through k03_brick
+    if archetype == "fort_structure" and getattr(params, "period_brick", None):
+        wanted += [gen / "archetypes" / "k03_brick.py"]
     # T-1730: the high-detail Glessner build delegates to v4-only modules.
     # Hash every module in that family, including the material/texture recipe;
     # the legacy path never imports them. New helpers in the family therefore
@@ -257,6 +260,12 @@ def structure_inputs_doc(structure: dict, phase: dict, archetype: str | None = N
     }
     if arch in PURE_PYTHON:
         del doc["blender_pin"]
+    if arch == "fort_structure" and getattr(params, "period_brick", None):
+        # T-3387: a fort building laid in a K03 period recipe embeds its panel's maps
+        from archetypes import k03_brick
+        doc["textures"] = {p.relative_to(ROOT).as_posix(): _sha_file(p) for p in k03_brick.TEXTURE_FILES}
+        doc["component_data"] = {k03_brick.FACE_BRICK_FILE.relative_to(ROOT).as_posix():
+                                 _sha_file(k03_brick.FACE_BRICK_FILE)}
     if arch == "prairie_draft" and params.elevation.get("brick_recipe"):
         # T-3386: a draft laid in a K03 recipe embeds its panel's maps and reads the palette
         from archetypes import k03_brick
