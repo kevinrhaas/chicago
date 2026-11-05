@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-16-prairie-front",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "c0e04a9b0ea66e97262944a673083581049c3ef3fd04a192059675935ea8d237",
+  "glb_sha256": "a6ca4426b4e4576dea7ca87f2ef01772d7b365f99f105131ac0e26f94b825452",
   "camera_sha256": "a6cab11dcafff11f11d93e858c37ba17f45a1f59a8a82f28cf0431c025755e50",
   "photo_sha256": "c48a056ae87e4e31d21aa95956cf7c1b57b00df4ded49323f5daca424107f8d8",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-16-prairie-front-side-by-side.jpg",
@@ -66,6 +66,10 @@
     },
     {
       "what": "T-3373: the northeast court corner's copper lean-to, raised wall, corner leader and small dormer east of the great chimney are out of this view or hidden behind nearer fabric; re-rendered and reviewed, nothing visible in it changed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3374: the dining bay's corner stones and the two lintel courses on the north range's court face east of it are out of this view; re-rendered and reviewed, nothing visible in it changed.",
       "status": "not shown"
     }
   ],

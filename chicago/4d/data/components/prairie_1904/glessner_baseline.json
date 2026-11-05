@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/glessner_house__as_built_1887.glb",
-      "bytes": 204543104,
-      "sha256": "c0e04a9b0ea66e97262944a673083581049c3ef3fd04a192059675935ea8d237",
+      "bytes": 204726980,
+      "sha256": "a6ca4426b4e4576dea7ca87f2ef01772d7b365f99f105131ac0e26f94b825452",
       "generator": "Khronos glTF Blender I/O v4.5.48",
       "extensions_required": [
         "KHR_texture_transform"
@@ -21,13 +21,13 @@
       "mesh": {
         "draw_primitives": 31,
         "materials": 31,
-        "triangles": 1419808,
-        "vertices": 3266992
+        "triangles": 1421388,
+        "vertices": 3271592
       },
       "texture": {
         "images": 38,
         "textures": 73,
-        "encoded_bytes": 31475079,
+        "encoded_bytes": 31428675,
         "pixels": 68681032,
         "gpu_rgba8_mip_bytes": 366298837,
         "largest_px": 4096
@@ -308,13 +308,13 @@
           "uv_per_m_times_tile_m": 0.9994
         },
         "rough_stone_trim": {
-          "median_uv_per_m": 0.8309,
+          "median_uv_per_m": 0.8305,
           "fabric": "limestone",
           "tile_m": [
             1.2,
             1.2
           ],
-          "uv_per_m_times_tile_m": 0.9971
+          "uv_per_m_times_tile_m": 0.9966
         }
       },
       "origin": {
@@ -340,8 +340,8 @@
     },
     "web": {
       "path": "assets/web/glessner_house__as_built_1887.glb",
-      "bytes": 45600412,
-      "sha256": "236692efed0cd5a87c49aad284b949c6f10615798b5925fa4b0c0f225f7f424a",
+      "bytes": 45588400,
+      "sha256": "5aad27a6034fb20f453fc0cee4761cefa1caf41b855b8ae0ec5e81fd2dcf7e24",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -361,13 +361,13 @@
       "mesh": {
         "draw_primitives": 31,
         "materials": 31,
-        "triangles": 1419808,
-        "vertices": 2600515
+        "triangles": 1421388,
+        "vertices": 2602532
       },
       "texture": {
         "images": 37,
         "textures": 37,
-        "encoded_bytes": 17359082,
+        "encoded_bytes": 17319182,
         "pixels": 62390272,
         "gpu_rgba8_mip_bytes": 332748117,
         "largest_px": 2048
@@ -656,14 +656,14 @@
           "below_quantization_floor": 13466
         },
         "rough_stone_trim": {
-          "median_uv_per_m": 0.8243,
+          "median_uv_per_m": 0.8237,
           "fabric": "limestone",
           "tile_m": [
             1.2,
             1.2
           ],
-          "uv_per_m_times_tile_m": 0.9892,
-          "below_quantization_floor": 9010
+          "uv_per_m_times_tile_m": 0.9885,
+          "below_quantization_floor": 9502
         }
       },
       "origin": {
@@ -689,8 +689,8 @@
     },
     "light": {
       "path": "assets/web/glessner_house__as_built_1887.light.glb",
-      "bytes": 15672668,
-      "sha256": "53957f8c0eb342756c5c589bd4d223514664bcf2b10528876b85ccf7f13bc492",
+      "bytes": 15670416,
+      "sha256": "499b68ef9df62d5045a37840fdb749143057394021155680a5d0b3bf018dfeef",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -710,13 +710,13 @@
       "mesh": {
         "draw_primitives": 28,
         "materials": 28,
-        "triangles": 199953,
-        "vertices": 389821
+        "triangles": 199889,
+        "vertices": 389686
       },
       "texture": {
         "images": 37,
         "textures": 37,
-        "encoded_bytes": 12187269,
+        "encoded_bytes": 12187652,
         "pixels": 34078720,
         "gpu_rgba8_mip_bytes": 181753173,
         "largest_px": 1024

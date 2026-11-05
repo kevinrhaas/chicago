@@ -959,7 +959,7 @@ def opening(b,o,courtyard=False):
                 linen_shade(b,a,c,z0,z1,lambda u,z,off:legacy._plane_point(o,u,z,off),
                             legacy._plane_dir(o),conf,int((a*17+c*31+o['at']*7+z0)*10003),
                             prairie_colonnade=(not courtyard and o.get('face')=='east' and z0>5))
-            if courtyard and not o.get('courses'):
+            if courtyard and not o.get('courses') and not o.get('lintel_course'):
                 rough_lintel(b,o,a-.24,c+.24,z1+.006,z1+.21,conf)
             return
     frame=.025 if small else .062
@@ -987,7 +987,7 @@ def opening(b,o,courtyard=False):
                         legacy._plane_dir(o),conf,int((a*17+c*31+o['at']*7+z0)*10003),
                         prairie_colonnade=(not courtyard and kind=='window' and o.get('face')=='east' and z0>5))
         slab(b,o,a-.09,c+.09,z0-.085,z0+.025,-.055,.11,conf,ROUGH_TRIM if courtyard else GRANITE)
-    if courtyard and not small:
+    if courtyard and not small and not o.get('lintel_course'):
         # Courtyard photographs show brick jambs with rock-faced limestone
         # heads and sills. Full stone jambs belong to the dining bay only.
         rough_lintel(b,o,a-.24,c+.24,z1+.006,z1+.21,conf)
@@ -1272,7 +1272,7 @@ def arc_course(b,cx,cy,r,a0,a1,z0,z1,conf,proud=.05,bed=.03):
 
 
 def facet_window(b,p,q,z0,z1,normal,conf,small=False,stone_jambs=True,door=False,panes=None,surrounds=True,
-                 sash=False,stones_m=None):
+                 sash=False,stones_m=None,jamb_sides=(True,True)):
     """Recessed sash on an arbitrarily oriented planar bay facet.
 
     `sash` draws T-2212's one-over-one double-hung in two planes in place of the
@@ -1388,9 +1388,36 @@ def facet_window(b,p,q,z0,z1,normal,conf,small=False,stone_jambs=True,door=False
     # `stones_m` (head, sill, side) sizes a surround the drawing measures (T-2925)
     head,sill,side=stones_m or (.18,.1,.20)
     stones=[(-side,width+side,z0-sill,z0),(-side,width+side,z1,z1+head)] if surrounds else []
-    if stone_jambs:stones += [(-.27,0,z0,z1),(width,width+.27,z0,z1)]
+    # `jamb_sides` drops a jamb where a corner pier stone stands instead (T-3374).
+    if stone_jambs:stones += [s for s,keep in zip([(-.27,0,z0,z1),(width,width+.27,z0,z1)],jamb_sides) if keep]
     for ua,ub,za,zb in stones:
         box(ua,ub,za,zb,-.03,.05,ROUGH_TRIM)
+
+
+def corner_piers(b,p,q,edges,index,before,after,row,normal,conf):
+    """The facet's half of each corner pier: from its window's edge to the corner,
+    its face mitred to meet the neighbouring facet's half at the corner."""
+    tangent=norm(sub((*q,0),(*p,0)));length=math.dist(p,q)
+    lo,hi=row;front,back=.05,-.03
+    def P(u,z,off):
+        return (p[0]+tangent[0]*u+normal[0]*off,p[1]+tangent[1]*u+normal[1]*off,z)
+    def mitre(other):
+        o=norm(sub((*other[1],0),(*other[0],0)))
+        turn=math.acos(max(-1.,min(1.,dot(tangent,o))))
+        return front*math.tan(turn/2)
+    spans=[]
+    if before:spans.append((-mitre(edges[index-1]),.2*length))
+    if after:spans.append((.8*length,length+mitre(edges[index+1])))
+    for ua,ub in spans:
+        face=[P(ua,lo,front),P(ub,lo,front),P(ub,hi,front),P(ua,hi,front)]
+        b.raw(face,conf,ROUGH_TRIM,normal)
+        # Its window-side return and its top and bottom; the corner end is closed by the
+        # neighbouring half.
+        u=ub if ua<0 else ua
+        b.raw([P(u,lo,front),P(u,lo,back),P(u,hi,back),P(u,hi,front)],conf,ROUGH_TRIM,
+              tuple(tangent[k]*(1 if ua<0 else -1) for k in range(3)))
+        for z,up in ((lo,-1),(hi,1)):
+            b.raw([P(ua,z,front),P(ub,z,front),P(ub,z,back),P(ua,z,back)],conf,ROUGH_TRIM,(0,0,up))
 
 
 def bay(b,y,params):
@@ -1398,9 +1425,17 @@ def bay(b,y,params):
     cx=sum(p[0] for p in pts)/len(pts);cy=sum(p[1] for p in pts)/len(pts)
     ix,iy=2*mx-cx,2*my-cy;zt,zb=y['wall_top_z'],y['band_top_z'];conf=y['conf_wall']
     principal=-1
-    for p,q in zip(pts,pts[1:]):
+    edges=list(zip(pts,pts[1:]))
+    lit=[math.dist(p,q)>1.2 for p,q in edges]
+    piers=y.get('corner_piers') and y['light_row']
+    for index,(p,q) in enumerate(edges):
         want=norm(((p[0]+q[0])/2-ix,(p[1]+q[1])/2-iy,0))
         length=math.dist(p,q);holes=[];windows=[]
+        # T-3374: HABS photograph 5 and the owner's 2024 photograph show one tall
+        # rock-faced stone over each corner between two lit facets, sill course to
+        # lintel course, where brick and two narrow jambs stood.
+        pier_before=bool(piers and lit[index] and index>0 and lit[index-1])
+        pier_after=bool(piers and lit[index] and index+1<len(edges) and lit[index+1])
         if length>1.2:
             principal+=1
             a=(p[0]+(q[0]-p[0])*.2,p[1]+(q[1]-p[1])*.2)
@@ -1420,7 +1455,11 @@ def bay(b,y,params):
                 b.raw([(*pa,lo),(*qa,lo),(*qa,hi),(*pa,hi)],conf,ROUGH_TRIM,want)
         for a,c,lo,hi in windows:
             basal=lo<2
-            facet_window(b,a,c,lo,hi,want,conf,small=basal,stone_jambs=not basal,sash=True)
+            main=not basal and y['light_row'] and abs(lo-y['light_row'][0])<1e-9
+            facet_window(b,a,c,lo,hi,want,conf,small=basal,stone_jambs=not basal,sash=True,
+                         jamb_sides=(not (main and pier_before),not (main and pier_after)))
+        if pier_before or pier_after:
+            corner_piers(b,p,q,edges,index,pier_before,pier_after,y['light_row'],want,conf)
             if basal:
                 count=max(3,round(math.dist(a,c)/.115))
                 for i in range(count+1):

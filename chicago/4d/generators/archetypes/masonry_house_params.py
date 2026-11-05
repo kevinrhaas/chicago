@@ -503,6 +503,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             "conf_wall": cf(attr, el_attr),
             "conf_roof": cf(el_attr),
         })
+        if el.get("corner_piers"):
+            # T-3374: one tall stone over each corner between two lit facets. Set
+            # only when asked, so records without it resolve to the same params.
+            p.bays[-1]["corner_piers"] = True
 
     # ---------------------------------------------------------------- dormers
     dm = val("dormers")
@@ -646,6 +650,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                     # T-2926: the light stands in continuous lintel and sill courses
                     # (their own `band` items), so it lays no stones of its own.
                     op["courses"] = True
+                if it.get("lintel_course"):
+                    # T-3374: the light's head is a continuous lintel course (its own
+                    # `band` item); it keeps its own sill.
+                    op["lintel_course"] = True
                 if it.get("panes"):
                     # T-2928: a narrow light drawn as one pane, with no glazing bars.
                     op["panes"] = int(it["panes"])
