@@ -1,7 +1,0 @@
-{
-  "title": "Street crossings no longer flicker where the paving changes",
-  "kind": "fix",
-  "items": [
-    "Where Prairie Avenue's asphalt meets a gravel cross street, at 18th, 20th and every other 1904 crossing, the edge no longer breaks into flashing blocks as you move. The worn edge between the two surfaces now stays put."
-  ]
-}

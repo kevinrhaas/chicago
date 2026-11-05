@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2674, ts: '2026-11-05T23:34:28.005Z', date: 'Nov 5, 2026, 5:34 PM CT', title: 'Street crossings no longer flicker where the paving changes', kind: 'fix',
+    items: [
+      'Where Prairie Avenue\'s asphalt meets a gravel cross street, at 18th, 20th and every other 1904 crossing, the edge no longer breaks into flashing blocks as you move. The worn edge between the two surfaces now stays put.',
+    ] },
   { v: 2673, ts: '2026-11-05T23:12:21.408Z', date: 'Nov 5, 2026, 5:12 PM CT', title: 'Glessner\'s front-door arch is carved to the photographs', kind: 'fix',
     items: [
       'The carved arch over Glessner House\'s Prairie Avenue front door now matches close photographs of it, rim by rim. The outer rim is flat with square pockets cut into it. Inside it is a rounded rim cut into carved blocks with drilled foliage. Then comes a thin plain rim, stepped forward.',
