@@ -6320,7 +6320,10 @@ def build(params, structure_id: str):
             elif op.component == "k01.opening.door_leaf" and p.entrance_block():
                 # T-1881: laid on the face of the forward block that carries it
                 O_, R_, N_ = frame
-                proud = max(z for _, z in p.entrance_block()["variant"]["plan"]["points"])
+                pl = p.entrance_block()["variant"]["plan"]
+                # T-3367: or a square tower's face (1936's), its centre's offset and half its side
+                proud = max(z for _, z in pl["points"]) if pl.get("kind") == "polyline" else \
+                    pl["centre_proud_m"] + pl["radius_m"] * math.cos(math.pi / int(pl["sides"]))
                 frame = (_add(O_, _mul(N_, proud)), R_, N_)
             a.opening(op, frame, t, mat, "limestone_trim", coursed=all_round or op.wall == "k01.wall.street_front")
         a._walls, a._yf = walls, yf   # T-2773: a bay coursed on the front's beds strikes them first

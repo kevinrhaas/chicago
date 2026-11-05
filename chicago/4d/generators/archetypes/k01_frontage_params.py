@@ -3533,8 +3533,15 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 # it, and the host wall's door stands inside the block
                 # T-1881 (2026-11-01): or the front step between that block and the corner, as the
                 # owner's plan of the front puts the door on the stepped-back middle part
-                if e.get("entrance") is True and v["kind"] == "projection" \
-                        and ((e.get("plan") or {}).get("block") or (e.get("plan") or {}).get("front_step")) \
+                # T-3367: or a SQUARE tower on the front that carries it in its face (1936's: the 1869
+                # Tribune, 'the main entrance is through a tower', and Chicagology's photograph, the
+                # porch under the tower's north part and its flight running north from it)
+                sq_tower = v["kind"] == "tower" and v["plan"].get("kind") == "polygon" \
+                    and int(v["plan"].get("sides", 0)) == 4 and not v["plan"].get("across_corner") \
+                    and e.get("corner") is None
+                if e.get("entrance") is True and (sq_tower or v["kind"] == "projection"
+                                                  and ((e.get("plan") or {}).get("block")
+                                                       or (e.get("plan") or {}).get("front_step"))) \
                         and e["wall"] == "k01.wall.street_front" and a + BAY_PIER_M <= j0 and j1 <= b - BAY_PIER_M:
                     v["door_hole"] = {"x_m": (round(j0 - (a + b) / 2, 4), round(j1 - (a + b) / 2, 4)),
                                       "y_m": (round(o.sill_m, 4), round(o.head_m, 4))}
@@ -6852,7 +6859,13 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             ters = ters if isinstance(ters, list) else [ters] if ters else []
             lo = min([sv - sh] + [t["to_v_m"] for t in ters if t["side"] == "left"])
             hi = max([sv + sh] + [t["to_v_m"] for t in ters if t["side"] == "right"])
-            if float(val("stair_landing_depth_m")) < hd["out_m"] - 0.05 or lo > hs0 + 0.05 or hi < hs1 - 0.05:
+            deep = float(val("stair_landing_depth_m"))
+            # T-3367: a side stoop's landing runs along the front over landing_v_m, as deep as its
+            # flight stands out and is wide (1936's, under the porch at the tower's face)
+            if "side_stoop" in door_kit_in:
+                lo, hi = sorted(float(x) for x in door_kit_in["side_stoop"]["landing_v_m"])
+                deep = float(door_kit_in["side_stoop"]["out_m"]) + 2 * sh
+            if deep < hd["out_m"] - 0.05 or lo > hs0 + 0.05 or hi < hs1 - 0.05:
                 raise ParamError("entrance_kit.hood.columns stand on the stoop's landing, or the terraces beside "
                                  "it: they must be as deep as the hood is out and reach both its ends")
             door_kit["hood"]["columns"] = {"diameter_m": dia, "plinth_m": [pw, ph], "capital_m": cap, "respond_m": rsp}
@@ -6977,6 +6990,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                              f"public walk's inner edge is {yard:.2f} m (front_yard_m)")
         for bay in (val("bays") or []):
             if bay.get("wall", "k01.wall.street_front") != "k01.wall.street_front":
+                continue
+            # T-3367: the bay the door is cut in carries the landing on its face (1936's tower)
+            if bay.get("entrance") is True:
                 continue
             # T-3163: a bow names its chord, a projection its width (1823's pavilion), a
             # polyline its ends on the wall

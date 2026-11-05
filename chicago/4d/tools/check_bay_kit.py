@@ -351,9 +351,16 @@ def inside_point(b):
     # halfway between its jambs and the block's sides are tried too
     # (T-1881 round 3: and, on a front step as shallow as 1729's entry, 1.6 m, the same points
     # 0.3 m behind its front, where no 45-degree ray reaches across to the door)
+    # (T-3367: or a square tower's face, 1936's: the face is the middle of the bay's three runs)
     dh = b.v.get("door_hole")
     if dh:
-        (xa, zf_), (xb, _) = b.v["plan"]["points"][1:3]
+        f = b.runs[1]
+        (xa, zf_), xb = f.A, f.A[0] + f.L * f.e[0]
+        # T-3367: on a square tower whose door stands off its axis (1936's, under the face's north
+        # part) the points beside the door see it, and its belvedere's deep cornice leaves the
+        # points behind the face outside the shell at the wall top; so its far sides come first
+        if b.v["plan"].get("kind") == "polygon":
+            cands = (*cands, (xa + 0.3, 0.1), (xb - 0.3, 0.1))
         cands = (*cands, ((dh["x_m"][1] + xb) / 2, 0.1), ((dh["x_m"][0] + xa) / 2, 0.1),
                  ((dh["x_m"][1] + xb) / 2, zf_ - 0.3), ((dh["x_m"][0] + xa) / 2, zf_ - 0.3))
     lv = b.meta["levels_m"]
@@ -373,7 +380,7 @@ def through_door(b, p, dh):
     """T-1881: whether a ray of DIRS from p meets the block's front inside its door hole."""
     if not dh:
         return False
-    zf = b.v["plan"]["points"][1][1]
+    zf = b.runs[1].A[1]
     for d in DIRS:
         if d[2] <= 0:
             continue

@@ -72,11 +72,12 @@ if g.get('level_courtyard_gable'):
         assert abs(run.get('ridge_skew',0))<1e-10
     cross_runs=[(a,b) for run,a,b in east_west if abs(run['ridge_at']-g['cross_y'])<1e-4]
     assert len(cross_runs)==1 and t['x0']<cross_runs[0][1]<t['x1'],cross_runs
-    # The alley gable keeps its apex and stands proud of the lowered roof: its
-    # wall line is never under the roof at the alley face, and its coping clears
-    # the tiles (0.245 m over this envelope) along both rakes.
+    # T-3371: the alley gable's apex comes down onto the roof's own apex (S12.31,
+    # 36.17 ft), so the wall follows the tiles: its wall line is never under the
+    # roof at the alley face, and its coping clears the tiles (0.245 m over this
+    # envelope) along both rakes without standing over them as a fin.
     ap=g['alley_parapet']
-    assert abs(ap['apex_y']-(74-14.6)*.3048)<1e-4 and abs(ap['apex_z']-zng(38.6))<1e-4
+    assert abs(ap['apex_y']-g['cross_y'])<1e-4 and abs(ap['apex_z']-g['cross_z'])<1e-4
     for i in range(1,100):
         y=g['south_foot_y']+(r['y1']-g['south_foot_y'])*i/100
         a,c=(g['south_foot_y'],g['cross_foot_eave']),(ap['apex_y'],ap['apex_z'])
@@ -98,7 +99,8 @@ if g.get('level_courtyard_gable'):
             assert abs(height(r,x,y)-zng(38.6+(24-38.6)*f))<1e-4
     north_edge=n['eave_lo_z']-n['eave_lo_overhang']*(n['ridge_z']-n['eave_lo_z'])/(n['ridge_at']-n['y0'])
     assert abs(height(r,edge,ny)-north_edge)<1e-4
-    assert abs(n['ridge_z']-zng(34.1))<1e-4
+    # T-3371: the north range's ridge meets the stable's cross ridge level at the cupola.
+    assert abs(n['ridge_z']-zng(36.17))<1e-4 and abs(n['ridge_z']-g['cross_z'])<1e-4
     from archetypes.masonry_house_v4_courtyard_roof import wall_profile
     court_wall=wall_profile(p,r['x1'],n['x1'],n['eave_lo_z'])
     for x,h in court_wall:
@@ -291,12 +293,20 @@ if p.detail.get('dining_crested_connection'):
     n=next(r for r in p.ranges if r['name']=='north_range')
     bay=p.bays[0];ap=bay['apex']
     assert bay['pts'][1][1]-1e-4<=ap[1]<=bay['pts'][0][1]
-    assert abs(ap[2]-n['ridge_z'])<1e-5 and n['ridge_at']-ap[1]>3.5
+    # T-3371: the cap's point keeps T-2172's height under the raised north ridge;
+    # its level connector dies into the courtyard slope short of the ridge.
+    from archetypes.masonry_house_v4_courtyard_roof import connector_end
+    assert ap[2]<=n['ridge_z']+1e-9 and n['ridge_at']-ap[1]>3.5
+    end=connector_end(p)
+    assert abs(end[2]-ap[2])<1e-9 and ap[1]<end[1]<=n['ridge_at']+1e-9
+    assert abs(end[2]-(n['eave_lo_z']+(end[1]-n['y0'])*(n['ridge_z']-n['eave_lo_z'])/(n['ridge_at']-n['y0'])))<1e-6
     profile_points=wall_profile(p,n['x0'],n['x1'],n['eave_lo_z'])
     if g.get('level_courtyard_gable'):
         # The restored west slope closes a 0.32-ft corner wedge above the
         # north wall datum; the original flat endpoint would leave a slit.
-        left_height=zng(38.6+(24-38.6)*15.25/(15.25+2.36))
+        # T-3371: the raised north ridge lifts the north wall's courtyard eave 4 mm
+        # over the west slope there, so the wedge closes on the eave itself.
+        left_height=max(n['eave_lo_z'],zng(38.6+(24-38.6)*15.25/(15.25+2.36)))
         assert profile_points[0][0]==n['x0'] and abs(profile_points[0][1]-left_height)<1e-4
     else:
         assert profile_points[0]==(n['x0'],n['eave_lo_z'])
@@ -338,7 +348,8 @@ b=f['bay_dining_elevation']['value']
 wing=f['opening_heights']['value']['openings_court_north']['second']
 assert abs(b['glazed_band_top'][0]-wing[1])<1e-8
 assert abs(b['glazed_band_top'][0]-b['wall_top'][0]-3.1)<1e-8
-assert abs(b['roof_apex'][2][0]-f['ridge_north_range']['value']['ridge'][0])<1e-8
+# T-3371 raised the north ridge to 36.17 ft; the cap keeps its 34.1-ft point under it.
+assert abs(b['roof_apex'][2][0]-34.1)<1e-8 and b['roof_apex'][2][0]<=f['ridge_north_range']['value']['ridge'][0]
 assert 9.5 < b['roof_apex'][2][0]-b['glazed_band_top'][0] < 10.7
 # T-2183 corrects the earlier perspective-based enlargement. The openings must
 # share floor datums; keeping a ratio that forced tall tower windows was wrong.
