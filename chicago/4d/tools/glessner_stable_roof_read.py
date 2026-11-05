@@ -154,7 +154,8 @@ def fit(build, x0, obs):
 def model_heights():
     form = json.loads((ROOT / 'data/structures/glessner_house.json').read_text())['phases'][0]['form']
     ridge, turret = form['ridge_west_wing']['value'], form['turret_stable']['value']
-    parapet = form['gable_west_wing_north']['value']['parapet_ft']
+    # T-3376: the gable is a verge now, so its top is the ridge's own (no coping).
+    parapet = form['gable_west_wing_north']['value'].get('parapet_ft', 0.0)
     assert ridge['ridge'][1] == turret['apex'][1] == 'ng'
     return {'ridge_W': ridge['W'], 'ridge_ft': ridge['ridge'][0], 'gable_coping_apex_ft': round(ridge['ridge'][0] + parapet, 2),
             'cupola_centre_WS': [turret['centre_W'], turret['centre_S']], 'cupola_apex_ft': turret['apex'][0]}

@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs5-entry",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "a6ca4426b4e4576dea7ca87f2ef01772d7b365f99f105131ac0e26f94b825452",
+  "glb_sha256": "7884c563d60a662407445a76ab2560c814377151c296bc2ed733bd659272136c",
   "camera_sha256": "8912fa320f417bc61deeba8add0324e7cd2467ee644ef5c2fafef05eaba759a1",
   "photo_sha256": "1a921a9ac23470bc30223553c657dc50cf0348437e27e7f6fc529e66582c43a3",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs5-entry-side-by-side.jpg",
@@ -74,6 +74,10 @@
     },
     {
       "what": "T-3374: the dining bay's corner stones and the two lintel courses on the north range's court face east of it are out of this view; re-rendered and reviewed, nothing visible in it changed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3376: the stable gables' verges are out of this view or hidden behind nearer fabric; re-rendered and reviewed, nothing visible in it changed.",
       "status": "not shown"
     }
   ],

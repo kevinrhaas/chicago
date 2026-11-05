@@ -40686,3 +40686,22 @@ each course's ends at the bay and at the bow.
 `glessner_house.as_built_1887.form.openings_court_north`.
 **Ticket:** T-3374.
 **Recorded:** 2026-11-05 (T-3374).
+
+### L-glessner-stable-verges-3376 — Glessner's stable gables are verges, not parapets
+
+**Decision:** on the `glessner_house` stable, the 18th Street gable and the alley gable no longer
+carry a stone coping standing 1 ft over the roof with kneelers at their feet. The tiles now run over
+both gables' rakes, 0.15 m past the wall, and end in a thin lip. The stone gables, their apexes and
+the roof behind them are unchanged. The owner, 2026-11-05, marking the c. 1887 Cornell print beside
+the model: "the photo the roof line goes over the end, and that is not how you have it", and "also
+the edge of the north gable too".
+**What is read.** The Cornell print draws both gables with a dark tile edge over the stone and the
+cresting carried to each apex; HABS photograph 1 (1963) shows the same thin edge on the 18th Street
+gable. Neither shows a coping standing proud of the tiles.
+**What is invented.** The verge's 0.15 m oversail (the alley eave's own), its 0.10 m rise over the
+stone and its 0.16 m lip, set in the stable builder; the gables' `plain` ends are what the
+photographs show.
+**How to resolve:** a measured section through either gable's rake.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-3376.
+**Recorded:** 2026-11-05 (T-3376).
