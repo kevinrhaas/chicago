@@ -40591,3 +40591,23 @@ photograph of the north roof's cresting.
 **Review:** `docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg`,
 `docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg`.
 **Recorded:** 2026-11-05 (T-3371).
+
+
+### L-glessner-court-stacks-3372 — Glessner's two courtyard service stacks set on the flues HABS sheets 2 and 3 draw
+
+**Decision:** the `glessner_house` north range's two courtyard stacks, carried into 1904 from the
+owner's aerial by L-glessner-connected-roof-2016, move onto the flue masses the HABS first- and second-floor
+plans draw: `chimney_service_east` to W 102.5-105.5 / S 18-21, on the partition just west of the
+court door (W 100-104), so it rises over the door's west half; `chimney_service_west` to
+W 121.5-125.25 / S 23.5-26.5, in the inner corner against the stable's court wall. They had stood at
+W 94-97 and W 113.5-117, read off an aerial to about 2 ft. The east stack's top goes from 36 to 38 ft
+ng, keeping its clearance over the north ridge T-3371 raised. The owner, 2026-11-05: the corner stack
+"appears to be misplaced", and the middle one "should be aligned with the door".
+**What is read.** The plan positions, from the sheets' dimension chain off the west wall (about
+17 px/ft; the east breast is printed 3 ft 0.5 in). **What is invented.** As before, each stack's
+height, cap and flues, and its pre-1904 presence (L-glessner-connected-roof-2016). **How to resolve:** a dated photograph of
+the north range's courtyard slope.
+**Covers:** `glessner_house.as_built_1887.form.chimney_service_east`,
+`glessner_house.as_built_1887.form.chimney_service_west`.
+**Ticket:** T-3372.
+**Recorded:** 2026-11-05 (T-3372).

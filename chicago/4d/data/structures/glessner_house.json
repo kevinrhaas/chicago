@@ -1026,7 +1026,7 @@
             "habs_glessner_house_il_1015_drawings",
             "inland_architect_1888_02_glessner_exterior"
           ],
-          "note": "Four stone stacks. North gable: '48.62 +/- 0.02 AT TOP OF NORTH CHIMNEY' printed on sheet 6. South (12.85-16.81 ft north of the south end) and middle (base emerging 2 ft east of the ridge at 42.4 ft): sheet 6, tops measured. Great chimney behind the north gable: sheet 4 (S 16.5-20.5, top 46.6 ft above north grade); the 1888 photograph shows all four. N-S extents and tops only \u2014 see chimney_plans for the rest. T-2214: the north stack's face is taken at S 0, flush with the 18th Street gable's face, where it had been S 0.5: sheet 6 draws the stack's north face on the gable's coping line (within about 0.1 ft, at 73.9 px/ft) with only its two datestones standing proud of it, and HABS photograph 4 shows the gable's ashlar running up into the stack's face without a step. T-3065: the north stack is 2.6 ft deep (S 0-2.6), not 3.1. Sheet 6 draws it edge-on 2.44 ft between its outline strokes (x 7915-8097 at 73.59 px/ft), where the same reading gives the middle and south stacks 2.64 and 3.85 ft against their recorded 2.8 and 4.0, so on this record's own reading of the sheet it is about 2.6 ft: the depth it carried as S 0.5-3.1 until T-2214 moved the face to S 0 and left the back where it was. Through Taylor 2135 refitted on the new box, the stack's back corner falls within 0.5 px of the photograph's edge and its width residual from +8.6 to +1.5 px. See docs/RESEARCH/glessner-stack-depth-T-3065."
+          "note": "Four stone stacks. North gable: '48.62 +/- 0.02 AT TOP OF NORTH CHIMNEY' printed on sheet 6. South (12.85-16.81 ft north of the south end) and middle (base emerging 2 ft east of the ridge at 42.4 ft): sheet 6, tops measured. Great chimney behind the north gable: sheet 4 (S 16.5-20.5, top 46.6 ft above north grade); the 1888 photograph shows all four. N-S extents and tops only \u2014 see chimney_plans for the rest. T-2214: the north stack's face is taken at S 0, flush with the 18th Street gable's face, where it had been S 0.5: sheet 6 draws the stack's north face on the gable's coping line (within about 0.1 ft, at 73.9 px/ft) with only its two datestones standing proud of it, and HABS photograph 4 shows the gable's ashlar running up into the stack's face without a step. T-3065: the north stack is 2.6 ft deep (S 0-2.6), not 3.1. Sheet 6 draws it edge-on 2.44 ft between its outline strokes (x 7915-8097 at 73.59 px/ft), where the same reading gives the middle and south stacks 2.64 and 3.85 ft against their recorded 2.8 and 4.0, so on this record's own reading of the sheet it is about 2.6 ft: the depth it carried as S 0.5-3.1 until T-2214 moved the face to S 0 and left the back where it was. Through Taylor 2135 refitted on the new box, the stack's back corner falls within 0.5 px of the photograph's edge and its width residual from +8.6 to +1.5 px. See docs/RESEARCH/glessner-stack-depth-T-3065. T-3372 checked the great chimney (S 16.5-20.5, W 37.8-42.2, top 46.6 ft ng) against the owner's 2026-11-05 aerials and HABS photograph 5: its foot stands on the tiles just above the copper return's upper edge and it rises well over the ridge in both, as built; nothing changes."
         },
         "chimney_plans": {
           "value": {
@@ -4063,38 +4063,38 @@
         "chimney_service_east": {
           "value": {
             "W": [
-              94.0,
-              97.0
+              102.5,
+              105.5
             ],
             "S": [
-              20.0,
-              23.0
+              18.0,
+              21.0
             ],
             "base": [
               24,
               "ng"
             ],
             "top": [
-              36,
+              38.0,
               "ng"
             ]
           },
           "confidence": "reconstructed",
           "sources": [
-            "owner_glessner_v4_reconstruction_brief_2026",
-            "habs_glessner_house_il_1015_drawings"
+            "habs_glessner_house_il_1015_drawings",
+            "owner_glessner_v4_reconstruction_brief_2026"
           ],
-          "note": "T-2016: one of two north service-range courtyard stacks visible in owner Pasted Graphic 31 aerial. HABS sheets 2-3 locate the service rooms but the reviewed archive does not independently date these two visible stacks to 1904. Presence in this scene, plan rectangle, height and flues are reconstructed from the owner-directed surviving roof arrangement (+/-2 ft), not claimed as a HABS measurement. No image pixels used."
+          "note": "T-2016: one of two north service-range courtyard stacks visible in owner Pasted Graphic 31 aerial. HABS sheets 2-3 locate the service rooms but the reviewed archive does not independently date these two visible stacks to 1904. Presence in this scene, plan rectangle, height and flues are reconstructed from the owner-directed surviving roof arrangement (+/-2 ft), not claimed as a HABS measurement. No image pixels used. T-3372 (owner review 2026-11-05: the stack should stand over the court door): moved from W 94-97 / S 20-23 onto the flue mass HABS sheets 2 and 3 draw on the partition just west of the court door, W 102.5-105.5 (the sheet's 3 ft 0.5 in breast, read at about 17 px/ft along its own dimension chain from the west wall) and S 18-21, so it rises over the door's west half and the second-floor window above it (W 101-105), as the owner's aerials show it over the door and stair. Its top goes from 36 to 38 ft ng, about 1.8 ft over the north ridge T-3371 raised to 36.17, keeping the clearance it had over the old 34.1 ridge. Plan position now drawn (inferred from the plans); size and height stay reconstructed."
         },
         "chimney_service_west": {
           "value": {
             "W": [
-              113.5,
-              117.0
+              121.5,
+              125.25
             ],
             "S": [
-              24.0,
-              27.0
+              23.5,
+              26.5
             ],
             "base": [
               24,
@@ -4107,10 +4107,10 @@
           },
           "confidence": "reconstructed",
           "sources": [
-            "owner_glessner_v4_reconstruction_brief_2026",
-            "habs_glessner_house_il_1015_drawings"
+            "habs_glessner_house_il_1015_drawings",
+            "owner_glessner_v4_reconstruction_brief_2026"
           ],
-          "note": "T-2016: one of two north service-range courtyard stacks visible in owner Pasted Graphic 31 aerial. HABS sheets 2-3 locate the service rooms but the reviewed archive does not independently date these two visible stacks to 1904. Presence in this scene, plan rectangle, height and flues are reconstructed from the owner-directed surviving roof arrangement (+/-2 ft), not claimed as a HABS measurement. No image pixels used."
+          "note": "T-2016: one of two north service-range courtyard stacks visible in owner Pasted Graphic 31 aerial. HABS sheets 2-3 locate the service rooms but the reviewed archive does not independently date these two visible stacks to 1904. Presence in this scene, plan rectangle, height and flues are reconstructed from the owner-directed surviving roof arrangement (+/-2 ft), not claimed as a HABS measurement. No image pixels used. T-3372 (owner review 2026-11-05: this stack was misplaced): moved from W 113.5-117 / S 24-27 into the inner corner with the stable, onto the flue mass HABS sheets 2 and 3 draw in the court wall there (W about 120.6-125.75, S 23.5-26.8), W 121.5-125.25 / S 23.5-26.5, its west face just inside the stable's court wall at W 125.75. The owner's aerials show the stack rising from that corner against the stable. Top kept at 33 ft ng. Plan position now drawn (inferred from the plans); size and height stay reconstructed."
         },
         "prairie_frontage": {
           "value": {
