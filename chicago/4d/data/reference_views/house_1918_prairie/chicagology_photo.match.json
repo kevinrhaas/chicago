@@ -2,7 +2,7 @@
   "structure_id": "house_1918_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/house_1918_prairie__as_mapped_1904.glb",
-  "glb_sha256": "ac3edfbedea901d7cdd00aae057382fd58ea90600af16e4e17d6b940af194dab",
+  "glb_sha256": "b5c6b573cf82e65de7b73ad5655083443c06aea6fd0a3a97fdf5d77b0fdeb521",
   "camera_sha256": "08a023b25d98770a1eb2830d73d84583e1fbf3dc02414c9cd7c5cf057c201980",
   "photo_sha256": "7458a4902276cccdaa289b9767e8ab717b5dd0fcf06ba3969a97c4fa8d00e92a",
   "side_by_side": "docs/RESEARCH/photo-match/house_1918_prairie/chicagology_photo-side-by-side.jpg",
@@ -33,8 +33,8 @@
       "status": "open"
     },
     {
-      "what": "the entrance porch at the tower's north-east foot and its stoop running north along the front (x 1655-1950, y 700-960 px): built as a columned hood over a straight stoop toward the avenue, beside the tower rather than in it (K01 refuses a door behind a tower)",
-      "status": "open"
+      "what": "the entrance porch at the tower's north-east foot and its stoop running north along the front (x 1655-1950, y 700-960 px): the build had a columned hood over a straight stoop toward the avenue, beside the tower rather than in it. T-3367 cuts the door in the tower's face, as the 1869 Tribune enters 'through a tower': under its north part, where the photograph draws the porch (x about 1690-1815 px) with the plain shaft south of it (x about 1600-1690 px), the columned hood over it and the dressing room's 'two windows over main entrance' paired above it (the photograph's two lights over the porch; the tower's principal-floor light the build had shown, which the photograph does not, taken out). The landing runs along the tower's face under the hood and the flight leaves its north end parallel to the front, down to the walk, as the photograph draws the flight. Where along the front the flight's foot lands waits on the camera",
+      "status": "fixed"
     },
     {
       "what": "the window dressings: the photograph's pedimented and scrolled brownstone hoods, the paired principal windows and the round-headed chamber lights on the south flank; built as K09's corniced lintels over flat-headed sashes",
