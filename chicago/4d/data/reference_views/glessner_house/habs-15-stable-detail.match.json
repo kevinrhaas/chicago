@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-15-stable-detail",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "a6ca4426b4e4576dea7ca87f2ef01772d7b365f99f105131ac0e26f94b825452",
+  "glb_sha256": "7884c563d60a662407445a76ab2560c814377151c296bc2ed733bd659272136c",
   "camera_sha256": "593c7c5e3fcdfd3278fef4c109d799b644e36c0db59f3245b3c9af3a0d8ed2f2",
   "photo_sha256": "b2606ba44eb608ed801cd9e2ead0d58a0d24a99b9a443fdac8c8023bf0636cbc",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-15-stable-detail-side-by-side.jpg",
@@ -71,6 +71,10 @@
     {
       "what": "T-3374: the dining bay's corner stones and the two lintel courses on the north range's court face east of it are out of this view; re-rendered and reviewed, nothing visible in it changed.",
       "status": "not shown"
+    },
+    {
+      "what": "T-3376: the stable's gables carried a stone coping standing about 1 ft over the tiles with kneelers at their feet; the tiles now run over both rakes to a thin verge, as the photograph shows. Re-rendered and reviewed.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

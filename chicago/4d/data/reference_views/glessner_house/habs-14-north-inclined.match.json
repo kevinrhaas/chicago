@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-14-north-inclined",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "a6ca4426b4e4576dea7ca87f2ef01772d7b365f99f105131ac0e26f94b825452",
+  "glb_sha256": "7884c563d60a662407445a76ab2560c814377151c296bc2ed733bd659272136c",
   "camera_sha256": "8bfd6b92c10170309c7b2656ba3f8d146184065de167400db4ce40edf4577a1d",
   "photo_sha256": "03e9b881e2032acd85c4c23f534ac235747ae6f17f373943b31308c13b0d8400",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-14-north-inclined-side-by-side.jpg",
@@ -94,6 +94,10 @@
     },
     {
       "what": "T-3374: the dining bay's corner stones and the two lintel courses on the north range's court face east of it are out of this view; re-rendered and reviewed, nothing visible in it changed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3376: the stable gables' verges are out of this view (it shows the 18th Street range's east end); re-rendered and reviewed, nothing visible in it changed.",
       "status": "not shown"
     }
   ],
