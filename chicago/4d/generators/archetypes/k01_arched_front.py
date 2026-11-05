@@ -1141,8 +1141,13 @@ def street_carved_bands(a, frame, bands, conf):
         s0, s1 = cb["s_m"]
         kind = next(k for k in ("guilloche", "interlace", "panels") if k in cb)
         seed = a.instance("k01.wall.carved_band", "wall",
-                          {"bed_m": b0, "top_m": b1, "from_s_m": s0, "to_s_m": s1, "carving": kind},
+                          {"bed_m": b0, "top_m": b1, "from_s_m": s0, "to_s_m": s1, "carving": kind,
+                           **({"panel": True} if cb.get("panel") else {})},
                           {"bed": _P(frame, s0, b0, 0.0), "top": _P(frame, s1, b1, 0.0)})
+        if cb.get("panel"):
+            # T-3365: no course under it: its own dressed stone, as proud as a belt's face, so
+            # the carving stands on it as on a belt
+            a.proud_box("limestone_trim", frame, s0, s1, b0, b1, BELT_PROUD_M, seed, conf)
         if kind == "guilloche":
             n = _guilloche_run(a, frame, s0, s1, b0, b1, cb["guilloche"], seed, conf)
             a.components["k01.wall.carved_band"]["instances"][-1]["params"]["rings"] = n

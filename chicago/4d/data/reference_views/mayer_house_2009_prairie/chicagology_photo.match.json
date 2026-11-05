@@ -2,7 +2,7 @@
   "structure_id": "mayer_house_2009_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/mayer_house_2009_prairie__as_mapped_1904.glb",
-  "glb_sha256": "52f84de3b6399cec47a7b43ae099292bb90cad7756bddc27ecaaf4ba9105edbe",
+  "glb_sha256": "3223dfd25943b064c083bcdeeaa4006f02b4fe85126fe5bf17ebdc57efec680a",
   "camera_sha256": "78ec8f49f37566693a797fc7fa98ded24d4845ec40ef057129786224b8258d8a",
   "photo_sha256": "03db894ab10dff078b747f611eba3dd8d9bc3b1f35aae50435017dcd4640b4a2",
   "side_by_side": "docs/RESEARCH/photo-match/mayer_house_2009_prairie/chicagology_photo-side-by-side.jpg",
@@ -73,23 +73,31 @@
       "status": "fixed"
     },
     {
-      "what": "that carved course is laid as a 0.5 m stone belt across the whole front (K01 lays a carved band's course full width) where the print shows a thin course at about 5.25 m with the carving over the door alone, and its carving starts about 0.3 m over the print's panels' foot",
-      "status": "open"
+      "what": "the carved panels over the door: laid as a carved stone panel over the door's run alone (4.65-5.25 m, s 5.4-7.2 m, its foot on the pilasters' capitals), the brick running on beside it as the print's does, where K01 had laid a 0.5 m course across the whole front (T-3365)",
+      "status": "fixed"
+    },
+    {
+      "what": "the print's thin course at about 5.25 m running from the oriel to the party wall over the carving: not laid (about 0.1 m deep)",
+      "status": "within tolerance"
     },
     {
       "what": "the windows' moulded hoods (the ground window's hood on consoles, the paired light's hood rising to the pendant, the small light's hood block), and the carved pendant in the gable: under the build's plain lintels (T-1914)",
       "status": "open"
     },
     {
-      "what": "the north corner's stone quoins up the front's edge: the build's corner is brick (T-1914)",
-      "status": "open"
+      "what": "the north corner: the print, read at 2x with its contrast stretched, shows brick up the corner to the string course and a pale stone strip about 0.5 m across from the string course to the kneeler (9.2-11.75 m), not quoins from grade; laid as stone courses up the corner from 9.2 m to the wall head, returned 0.3 m on the flank (T-3365)",
+      "status": "fixed"
     },
     {
       "what": "the gable's crest: a carved block on the apex in the print, a turned finial in the build (T-1914)",
       "status": "open"
     },
     {
-      "what": "the basement's three square lights under the ground window: not cut (K01 takes no basement lights on a front whose street windows are named one by one)",
+      "what": "the basement's three square lights under the ground window: cut in the rusticated base at the print's centres (1.96, 3.02, 4.05 m), 0.74 m across, from 0.08 m to the base's top at 0.85 m, 0.08 m under the print's heads (T-3365)",
+      "status": "fixed"
+    },
+    {
+      "what": "the base's top: the print's rock-faced stone runs on over the lights to about 1.35 m under a smooth band to about 1.85 m, where the build's smooth coping is 0.85-1.25 m (about 0.4-0.5 m low, the T-1913 reading of the base, unchanged here)",
       "status": "open"
     },
     {

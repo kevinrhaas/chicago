@@ -1,5 +1,6 @@
 {
   "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "a66bc9c713cd95396b5c07d10dd4ac9ffdbeaa004fbac13c1529d19965dbf204",
     "armour_corwith_house_1945_prairie__as_mapped_1904.glb": "6aa73fa88398761901b71ccd061b4a8ec86f47bfc4489726b34a1462afcdcf66",
@@ -390,7 +391,7 @@
     "marshall_field_house_1905_prairie_conservatory__as_mapped_1904.glb": "14f854e7e58de5534ca29a6512cc2bcd646b50be483b509ecc3f4934f873b11f",
     "marshall_field_jr_house_1919_prairie__as_mapped_1904.glb": "b3d1b757be0ac207ac7ab0b5982ca66e81ed8a8b1a584a9349ac36cefb3869ac",
     "mason_blacksmith_shop__documented_1835.glb": "12ec7295d8de3f242295bc5a9242d694e9c7d8dd05d32074a0a87289391f4a93",
-    "mayer_house_2009_prairie__as_mapped_1904.glb": "52f84de3b6399cec47a7b43ae099292bb90cad7756bddc27ecaaf4ba9105edbe",
+    "mayer_house_2009_prairie__as_mapped_1904.glb": "3223dfd25943b064c083bcdeeaa4006f02b4fe85126fe5bf17ebdc57efec680a",
     "mayer_house_2009_prairie_coach_house__draft_1904.glb": "c3eb3b83af88e74403124290aaf422fb6f099631a2700bb7a672db20da24b6bd",
     "mckee_log_house__log_1823.glb": "b96705a8864ad6931dc8a9e370c917326a0d934a21ba9be232e726ae4468a957",
     "miller_house__log_frame_1827.glb": "6cba8105637c3792125c1fe7c783dbd3c58b08f44e076ebfd9186f6f26cbd4d1",
@@ -1036,6 +1037,5 @@
     "wolf_point_trading_camp__camp_1835.glb": "394c965b3637b16fc5b35b7a169d4ef95ce7c2c3805bcb50abb20f8e1912f75f",
     "wright_building_to_let_a__documented_1835.glb": "47dfcbe909ed2cace0f517d63cf996c49cff8f196a8f2c0b67e413d35234e49a",
     "wright_building_to_let_b__documented_1835.glb": "4f15702f7be9d0e407cc004477278d866bdd72661e5fb80f2b95790893fcb8a8"
-  },
-  "written_by": "tools/web_derivatives.sh"
+  }
 }
