@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1008,
+  "count": 1009,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -68058,6 +68058,49 @@
       ],
       "work_refs": [
         "T-3376"
+      ]
+    },
+    {
+      "id": "L-glessner-fan-photographs-3381",
+      "title": "Glessner's Prairie door tympanum carved ring by ring to the owner's photographs",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.v4_detail"
+        }
+      ],
+      "recorded": "2026-11-05",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the Prairie Avenue door's tympanum on the John J. Glessner House is rebuilt, rim by rim, to the owner's close photographs of 2026-11-05: \"the inside face has a plant-like ornamentation, a stepped out thin rim, a larger, rounded and ornamented rim and then a final outer thinner rim with blockier marks, you need to make that arch a photographic match also\". Outside in, inside the fifteen voussoirs: a fillet; a flat rim sunk with thirty-six square pockets round the head and on down its plumb legs (it was a channel of 33 raised billets); a fillet; a rounded roll cut at dark joints into thirteen blocks round the head, each carved with a four-leaf cluster round a boss and drilled between the leaves (it was a flat archivolt of 23 palmettes and 24 beads, then a torus); a thin plain rim stepped out in front of the field; and the field, a flared trunk up the middle with four mirrored pairs of stems bent into leafy rings, a small ring at its head, leaves sprung off every ring and crowded between them, all standing in front of a ground in shadow where the carving is pierced. This supersedes the field of “Glessner's Prairie door fan stilted to HABS sheet 5 and its tympanum's field laid as the sheet's eight rings” (HABS sheet 5's eight unmirrored rings): the photographs show the field mirrored about its trunk, and the owner's photographs govern over the sheet's stipple. The light (mobile) grade carries the same bands and motifs as lozenge leaves and flat rings, in fewer triangles than before. **What is read.** The owner's photographs (2026-11-05; his own references, not published here): the order and relative widths of the four rims, the square pockets of the outer rim, the roll's joints and drilled foliage, the mirrored trunk-and-rings field and its dark piercing. **What is invented.** Every count and size: thirty-six pockets, thirteen blocks, the rings' centres and radii (ornament.field roundels, read by eye to about a twentieth of the field), the stems' paths, every leaf's place, size and turn, every depth, and the shadow ground (the renderer bakes no occlusion, so the piercing's shadow is the dark-glass slot, as window recesses use it). **What is not changed.** The stilt, the spring line, the radii of the fan and tympanum, the fifteen voussoirs, the header stone, the door and its leaf."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a measured photograph square to the fan would set the rims' widths and the rings' places; a raking-light close-up would set the depths."
+        },
+        {
+          "label": "Covers",
+          "text": "`glessner_house.as_built_1887.form.v4_detail`."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-05 (T-3381)."
+        }
+      ],
+      "work_refs": [
+        "T-3381"
       ]
     },
     {
