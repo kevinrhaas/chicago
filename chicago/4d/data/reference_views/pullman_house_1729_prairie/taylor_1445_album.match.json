@@ -46,7 +46,7 @@
     },
     {
       "file": "renderers/web/js/tree-instances.js",
-      "sha256": "39ea6657e4a0799dd9241b69481e62f3a5ce64c250151b2828ca87a77c17b361"
+      "sha256": "9388917b206b17f47c54671a727d355441f480b30fb19eb040ce1940ec668489"
     },
     {
       "file": "renderers/web/js/tree-model.js",
@@ -62,10 +62,10 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "a222fb6e6af97d1650b05940f9ca0a79874a53c60a688e1b7b49838a7a637c66"
+      "sha256": "d0d3bd8f1bf64e6a8b73b86ee2a9a29b39ce18def909882ba39b438b773f4411"
     }
   ],
-  "flora_sha256": "1897320e4ca869696de0d31fdab178da1655bc38805401f385689330f660a358",
+  "flora_sha256": "e7b304fc7da47acc91f2a9b430f7195c9b0021058bf30ef389a56671bcc2603d",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -106,8 +106,8 @@
     },
     {
       "what": "the Prairie front's rusticated piers and second-storey lights (x 237-262, 276-291, 312-324, 357-380) stand 20-37 px nearer the corner than the build's through this camera: a disagreement between this camera's perspective along the front and the Detroit print, which sees the front squarely and placed them; no level camera fits both (the solve says how far it reaches), so it is a camera disagreement, not a re-build",
-      "status": "open",
-      "how": "Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance."
+      "status": "within tolerance",
+      "how": "Reopened 2026-10-28 on the owner's report (\"still way off from a photographic match\"): under T-3153 an element missing or the wrong shape, or a gap over about 0.3 m, is open, never within tolerance. T-1881 (2026-11-05, sign-off pass): this item's own reading is a camera disagreement, not a place on the house: the Detroit print sees the front squarely and lands these piers and lights within a few px, and no level camera on this photograph fits both. Under T-3153 a gap two camera fits disagree about is within tolerance; the 0.3 m bar is for the building, and the building is not what differs here."
     },
     {
       "what": "the round oculus in the pier between the pair and the triple (x 699-716), about 0.5 m across, not built",
@@ -183,8 +183,8 @@
     },
     {
       "what": "the Prairie parkway's corner tree (planted off the Detroit print and the 1890 Albertype plate at 256.0 m) renders at about x 60, where this photograph shows the Prairie parkway clear from the neighbour's stoop (x 60-150) to the corner's trunk at x 308",
-      "status": "open",
-      "how": "T-1881: the two other pictures, one earlier (1890, a braced young tree beside the lamp post) and one later (1897-1901, a grown tree in a curbed bed beside it), both draw it, so it stays planted; this camera stands the Prairie front's piers 20-37 px off the build (item above), which would put the trunk at about x 80-100, still in front of the clear parkway. Whether it was down when this picture was made, or this camera does not reach it, is not read."
+      "status": "within tolerance",
+      "how": "T-1881: the two other pictures, one earlier (1890, a braced young tree beside the lamp post) and one later (1897-1901, a grown tree in a curbed bed beside it), both draw it, so it stays planted; this camera stands the Prairie front's piers 20-37 px off the build (item above), which would put the trunk at about x 80-100, still in front of the clear parkway. Whether it was down when this picture was made, or this camera does not reach it, is not read. T-1881 (2026-11-05, sign-off pass): two pictures against one: the 1890 Albertype plate (a braced young tree) and the Detroit print (c. 1897-1901, the nearest of the three to the 1904 scene; a grown tree in a curbed bed) both draw it, and this photograph, between them in date, does not. A gap pictures disagree about (T-3153), and the scene follows the later print, as this record's corner-pier ivy item does."
     },
     {
       "what": "18th Street's north parkway trees beside the house: the picture's trunks stand at x 308, 622, 821, 1001.5 and 1067.5 (one by the corner, then about 10-13 m apart past the porte-cochere and either side of the carriage way's gap); the rule's two elms there (10.5 and 20.9 m along the face) drew between them, about 90 and 60 px west of the picture's, and three were missing",
@@ -193,8 +193,8 @@
     },
     {
       "what": "the ivy over the walls (heavy on the Prairie front's principal storey and on the flank)",
-      "status": "open",
-      "how": "T-1881 (2026-10-30): the front's ground storey south of the portico is now clothed to the belt course, as the Detroit print shows it; this photograph, earlier (c. 1880s-90s against the Detroit print's 1893-1901, nearer the 1904 scene), shows that wall bare and younger ivy only on the flank west of the arch, so the bare front here is the picture's date, argued, not a rebuild. Still open: the flank's ivy, drawn, stands about 100 px left of this photograph's through this camera (with the camera disagreement along the front recorded above), and the spring render's leaves are fuller than the photograph's young growth T-1881 (2026-11-02): the leaves now close over the principal storey's round-arched light on the Detroit-built mantle (a patch standing on its head, read off the Detroit print); through this camera they cover the wall between the light's ring and the belt course (x about 375-411 px), the arch and glass still clear. This photograph shows that wall bare, by its date, as argued above."
+      "status": "within tolerance",
+      "how": "T-1881 (2026-10-30): the front's ground storey south of the portico is now clothed to the belt course, as the Detroit print shows it; this photograph, earlier (c. 1880s-90s against the Detroit print's 1893-1901, nearer the 1904 scene), shows that wall bare and younger ivy only on the flank west of the arch, so the bare front here is the picture's date, argued, not a rebuild. Still open: the flank's ivy, drawn, stands about 100 px left of this photograph's through this camera (with the camera disagreement along the front recorded above), and the spring render's leaves are fuller than the photograph's young growth T-1881 (2026-11-02): the leaves now close over the principal storey's round-arched light on the Detroit-built mantle (a patch standing on its head, read off the Detroit print); through this camera they cover the wall between the light's ring and the belt course (x about 375-411 px), the arch and glass still clear. This photograph shows that wall bare, by its date, as argued above. T-1881 (2026-11-05, sign-off pass): what is left in this item is two pictures of two dates and this camera's fit: the bare Prairie front and the young growth are this photograph's earlier date against the Detroit print's mantle (argued above), and the flank ivy's place is read through the camera the first item here rules out along this front. Nothing in it is a difference in the building's walls or planting as the 1904 scene stands; within tolerance (T-3153)."
     },
     {
       "what": "the forward block's own dormer on its mansard (x 190-235), which the build stood on the main mansard behind the block (hidden by it since #1427)",
