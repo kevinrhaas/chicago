@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2658, ts: '2026-11-05T07:21:50.022Z', date: 'Nov 5, 2026, 1:21 AM CT', title: '1936 Prairie is entered through its tower', kind: 'improvement',
+    items: [
+      'The Allerton house on Prairie Avenue (1904) now has its front door in the tower, under the columned stone porch, with two windows paired above it and the stone steps running down to the north along the front, as the 1869 newspaper and the old photograph describe it.',
+    ] },
   { v: 2657, ts: '2026-11-05T05:55:28.009Z', date: 'Nov 4, 2026, 11:55 PM CT', title: 'Nothing you can see changed: the Pullman house\'s photo checks re-read', kind: 'chore',
     items: [
       'Nothing you can see changed in the walkthrough. The Pullman house at 1729 Prairie was compared again with two of its pictures, the 1890 Albertype plate and Taylor\'s photograph no. 1445.',
