@@ -16,34 +16,34 @@
       "archetype": "masonry_house",
       "baked_ao": false,
       "bytes": 96512,
-      "inputs_sha256": "45fcd96c9ba136218d58812e465d21df2eda6d4022b04110108cb3ab66985697",
+      "inputs_sha256": "89dcfdad1bcbab852095effe466a48245355c8b3b71fe1f3e3caf7b1872b14cb",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "version_label": "pre-v4",
-      "web_master_sha256": "918937c8d7bbe568c5a444dd664bdc80fec45de5710d7daa7f92b2b24f5eabd8"
+      "web_master_sha256": "352f187c0879b3188ff3f63bd78fb046a7cfdc89d9c980343fcaa29d25167410"
     },
     "versions/glessner_house/v2/glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
       "baked_ao": false,
       "bytes": 98844,
-      "inputs_sha256": "c875e2c7a3ba888a7d9fd5a1f2f99b31e1ed342f394542d3998403562aefd0ae",
+      "inputs_sha256": "cfbae37a8d9f68d7ee597d4687c10e5e9295ee0536e7c56db1e7847af63f9e83",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "version_label": "v2",
-      "web_master_sha256": "4efd9b2ca60cdcddc10ba7664475cf3e31141b8d31f298ac043a1ae05c68d2e3"
+      "web_master_sha256": "951b64e0914b57c79db7386a534bf501aea9da586deceb43f639b7112c43d39e"
     },
     "versions/glessner_house/v3/glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
       "baked_ao": false,
       "bytes": 95740,
-      "inputs_sha256": "4101a91b2c0b6e3bdc2dd764801b1f2949c6812644bbbb83d579b20ce4225e3a",
+      "inputs_sha256": "5dbda3a839ba01a4637da4f9ea6c20c87d29591495d50b9d7aa827b510fa247b",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "version_label": "v3",
-      "web_master_sha256": "b7ca4637959ce45ee3104bdb80d442c9d0b3687fcc957e23b5d39a10a0c598c2"
+      "web_master_sha256": "f1b011b292bf59eed7ed5ba789051fcacefedd05f439bf8832dd0679b27da2d2"
     },
     "versions/tremont_house_1/gale-reading/tremont_house_1__frame_1833.glb": {
       "archetype": "frame_tavern",
