@@ -1,4 +1,20 @@
 export const CHANGELOG = [ // newest first
+  { v: 2675, ts: '2026-11-05T23:46:54.977Z', date: 'Nov 5, 2026, 5:46 PM CT', title: '2009 Prairie\'s basement lights, stone corner and carved door panel', kind: 'feature',
+    items: [
+      'The Meyer house\'s rusticated basement now has the three square lights its photograph shows under the ground-floor window.',
+      'The north corner is pale stone from the string course up to the gable\'s foot, as in the photograph. Below that it stays brick.',
+      'The carving over the door is now a panel between the door\'s pilasters. The heavy stone band that ran across the whole front is gone, and the brick runs on beside the panel.',
+    ] },
+  { v: 2674, ts: '2026-11-05T23:34:28.005Z', date: 'Nov 5, 2026, 5:34 PM CT', title: 'Street crossings no longer flicker where the paving changes', kind: 'fix',
+    items: [
+      'Where Prairie Avenue\'s asphalt meets a gravel cross street, at 18th, 20th and every other 1904 crossing, the edge no longer breaks into flashing blocks as you move. The worn edge between the two surfaces now stays put.',
+    ] },
+  { v: 2673, ts: '2026-11-05T23:12:21.408Z', date: 'Nov 5, 2026, 5:12 PM CT', title: 'Glessner\'s front-door arch is carved to the photographs', kind: 'fix',
+    items: [
+      'The carved arch over Glessner House\'s Prairie Avenue front door now matches close photographs of it, rim by rim. The outer rim is flat with square pockets cut into it. Inside it is a rounded rim cut into carved blocks with drilled foliage. Then comes a thin plain rim, stepped forward.',
+      'The half-circle in the middle is a tree: a trunk up the middle with leafy rings either side, mirrored, and dark gaps wherever the stone is cut through.',
+      'Phones get the same design with simpler leaves, at fewer triangles than before.',
+    ] },
   { v: 2672, ts: '2026-11-05T23:01:26.679Z', date: 'Nov 5, 2026, 5:01 PM CT', title: 'The carriage horses walk out properly', kind: 'improvement',
     items: [
       'Hans\'s pair walk with a real stride, one foot after another, picking up and folding each leg, with a nod of the head at every step.',
