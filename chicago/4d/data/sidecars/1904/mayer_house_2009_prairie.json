@@ -308,8 +308,8 @@
         },
         "carved_bands": [
           {
-            "bed_m": 4.8,
-            "top_m": 5.3,
+            "bed_m": 4.65,
+            "top_m": 5.25,
             "s_m": [
               5.4,
               7.2
@@ -321,15 +321,40 @@
               "margin_m": 0.03,
               "pitch": 2.0,
               "segments": 16
-            }
+            },
+            "panel": true
           }
-        ]
+        ],
+        "corner_stone": {
+          "from_m": 9.2,
+          "width_m": 0.5,
+          "return_m": 0.3,
+          "course_m": 0.6,
+          "proud_m": 0.03
+        }
       },
       "confidence": "inferred",
       "sources": [
         "chicagology_2009_prairie_meyer_photo"
       ],
-      "note": "Every street light read off the photograph at 100 px a metre from the north corner and the wall's foot: the ground floor's window, two lights on a mullion under a transom, at 2.98 m, 2.05 m clear, from 2.0 to about 4.4 m (built 2.25 m high, its head 0.15 m under the print's, so it clears the oriel's corbel); the small square-headed light beside the oriel at 6.32 m, 0.46 m across, 6.3-7.35 m; and the third storey's paired light at 4.02 m, 2.5 m across its two lights, 9.6-11.45 m. Each stands in a stone surround of long and short blocks, as the photograph shows round all three (K01's quoined surround, its returns and lintel the kit's). The oriel's three lights are its own (bays). T-1914: the carved panels over the door, between its pilasters (x 935-1125 px, about 4.5-5.2 m), under a thin course at about 5.25 m that runs across the front: a carved course of rings 4.8-5.3 m over the door (carved_bands, s 5.4-7.2 m), the print's foliage drawn as the kit's guilloche; K01 lays a carved band's course across the whole front, so the course reads 0.5 m deep where the print's is thin."
+      "note": "Every street light read off the photograph at 100 px a metre from the north corner and the wall's foot: the ground floor's window, two lights on a mullion under a transom, at 2.98 m, 2.05 m clear, from 2.0 to about 4.4 m (built 2.25 m high, its head 0.15 m under the print's, so it clears the oriel's corbel); the small square-headed light beside the oriel at 6.32 m, 0.46 m across, 6.3-7.35 m; and the third storey's paired light at 4.02 m, 2.5 m across its two lights, 9.6-11.45 m. Each stands in a stone surround of long and short blocks, as the photograph shows round all three (K01's quoined surround, its returns and lintel the kit's). The oriel's three lights are its own (bays). T-1914: the carved panels over the door, between its pilasters (x 935-1125 px, about 4.5-5.2 m), under a thin course at about 5.25 m that runs across the front: a carved course of rings 4.8-5.3 m over the door (carved_bands, s 5.4-7.2 m), the print's foliage drawn as the kit's guilloche; T-3365: the carving is laid as a panel over the door's run alone (carved_bands panel, 4.65-5.25 m, s 5.4-7.2 m, its foot the pilasters' capitals), the brick running on beside it where K01 had laid a 0.5 m course across the whole front; the print's thin course at about 5.25 m (about 0.1 m) is not laid. T-3365: the north corner (x 380-440 px, read at 2x with the contrast stretched): brick from the stone sill course to the string course, then a pale stone strip about 0.5 m across from the string course's top (9.2 m, y 810 px) to the kneeler (11.75 m), one bed joint read near its middle; laid as stone courses about 0.6 m deep (corner_stone), their 0.3 m return on the north flank reconstructed (the camera sees the flank edge-on)."
+    },
+    "basement_lights": {
+      "value": {
+        "at_m": [
+          1.96,
+          3.02,
+          4.05
+        ],
+        "sill_m": 0.08,
+        "width_m": 0.74,
+        "height_m": 0.77
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_2009_prairie_meyer_photo"
+      ],
+      "note": "T-3365: the basement's three square lights under the ground window, read off the photograph at 100 px a metre from the north corner (x 390 px) and the wall's foot (y 1725 px): x 547-625, 655-728 and 760-830 px, so centres 1.96, 3.02 and 4.05 m, each about 0.7-0.78 m across between rock-faced piers, from about 0.08 m over the walk (y 1718 px) to 0.93 m (y 1632 px); built 0.77 m high, their heads on the rusticated base's top (0.85 m) under its coping, 0.08 m under the print's. Their sills stand above the walk, so no area well is dug (window_kit's area light, well false); the print shows each as a dark opening, its glazing unread, so the kit's fixed basement light is laid in it."
     },
     "bays": {
       "value": [

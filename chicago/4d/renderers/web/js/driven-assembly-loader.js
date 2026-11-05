@@ -38,6 +38,23 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
     horseLeases++;
     try { return await horseAsset; } catch (error) { horseLeases--; if (!horseLeases) horseAsset = null; throw error; }
   };
+  // T-2803: a walk generated for this GLB (tools/horse_walk_v2.mjs), bound by its
+  // bytes, played by travelled metres exactly as the embedded careful walk is.
+  let walkClip = null;
+  const acquireWalkClip = () => (walkClip ??= (async () => {
+    const response = await fetch(assetURL(horseSpecCopy.walk_clip_file));
+    if (!response.ok) throw Error(`driven assembly: horse walk HTTP${response.status}`);
+    const bytes = await response.arrayBuffer();
+    const hash = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))]
+      .map(n => n.toString(16).padStart(2, '0')).join('');
+    if (hash !== horseSpecCopy.walk_clip_sha256) throw Error('driven assembly: horse walk clip differs from its binding');
+    const clip = JSON.parse(new TextDecoder().decode(bytes));
+    if (clip.schema !== 'chicago4d_inplace_walk_clip_v1' || clip.name !== horseSpecCopy.walk_clip
+      || clip.model_sha256 !== horseSpecCopy.sha256 || clip.cycle_m !== horseSpecCopy.stride_m
+      || !(clip.duration_s > 0) || !Array.isArray(clip.tracks) || !clip.tracks.length) throw Error('driven assembly: horse walk clip lacks the in-place travel contract');
+    return new THREE.AnimationClip(clip.name, clip.duration_s, clip.tracks.map(t => t.type === 'quaternion'
+      ? new THREE.QuaternionKeyframeTrack(t.name, t.times, t.values) : new THREE.VectorKeyframeTrack(t.name, t.times, t.values)));
+  })().catch(error => { walkClip = null; throw error; }));
   const releaseHorse = template => {
     horseLeases--;
     if (horseLeases === 0) { disposeLoadedAsset(template); horseAsset = null; }
@@ -99,13 +116,14 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
       actor.proxy.position.set(centre.x, seatedBounds.min.y, centre.z);
       // Source identity/vehicle contact proofs are explicit inputs. The loader
       // refuses a mismatched scene or asset instead of changing pose/scale to fit.
-      const walk = template.animations.find(a => a.name === horseSpecCopy.walk_clip);
+      const walk = horseSpecCopy.walk_clip_file ? await acquireWalkClip()
+        : template.animations.find(a => a.name === horseSpecCopy.walk_clip);
       if (!walk) throw Error('driven assembly: selected in-place WALK is missing');
       const travel = template.parser.json.asset?.extras?.inplace_walk_source?.contract;
-      if (travel?.kind !== 'IN_PLACE_EXTERNAL_ACTOR_TRAVEL_REQUIRED_ONCE'
+      if (!horseSpecCopy.walk_clip_file && (travel?.kind !== 'IN_PLACE_EXTERNAL_ACTOR_TRAVEL_REQUIRED_ONCE'
         || travel.intendedCycleDistanceM !== horseSpecCopy.stride_m
         || travel.rootZInClipM?.join(',') !== '0,0'
-        || Math.abs(travel.serializedClipDurationSeconds - walk.duration) > 1e-12) throw Error('driven assembly: actual horse clip lacks the exact external-travel-once contract');
+        || Math.abs(travel.serializedClipDurationSeconds - walk.duration) > 1e-12)) throw Error('driven assembly: actual horse clip lacks the exact external-travel-once contract');
       const group = new THREE.Group(); group.name = `team:${row.id}`;
       const horses = [-1, 1].map(side => {
         const root = cloneSkinned(template.scene);
