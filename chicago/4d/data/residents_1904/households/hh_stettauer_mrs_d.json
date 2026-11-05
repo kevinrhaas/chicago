@@ -29,7 +29,7 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The one live-in servant it lists at the house on 1 June 1900 is on the card, graded inferred because the count was taken four years before the scene. Left off: David Stettauer (written \"in Europe\"; by 1904 the Blue Book lists Mrs. D. Stettauer). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The one live-in servant it lists at the house on 1 June 1900 is on the card, graded inferred because the count was taken four years before the scene. Left off: David Stettauer (written \"in Europe\"; by 1904 the Blue Book lists Mrs. D. Stettauer). The children the Blue Book lists at the number from 1890 to 1911 are on the card with the years each was listed, whether or not they were at home in 1904. The 1910 census was not read for this card. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
       "census_1900_chicago_t623_roll245"
@@ -78,6 +78,26 @@
         "as_enumerated": "Stettauer, Charles",
         "relation_as_enumerated": "(in Europe)"
       }
+    },
+    {
+      "id": "pa1904_stettauer_james",
+      "name": "James Stettauer",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "chicago_blue_book_1890",
+        "chicago_blue_book_1891",
+        "chicago_blue_book_1892",
+        "chicago_blue_book_1893",
+        "chicago_blue_book_1894",
+        "chicago_blue_book_1895"
+      ],
+      "printed_as": "2026 James Stettauer",
+      "lived_here": {
+        "years": "1890-1895",
+        "on_scene_date": "no"
+      },
+      "note": "Listed at 2026 under Mr. and Mrs. D. Stettauer from 1890 to 1895, beside his brother Charles S. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship."
     },
     {
       "id": "pa1904_stettauer_mrs_d_c1900_charles_rolde",

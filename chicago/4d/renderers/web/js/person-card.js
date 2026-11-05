@@ -34,6 +34,9 @@ const PLACE = {
 const NUMBER = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
 const BLUE_BOOKS = { chicago_blue_book_1904: '1904', chicago_blue_book_1905: '1905' };
 const CENSUS_1900 = 'census_1900_chicago_t623_roll245';
+const CENSUS_1910 = 'census_1910_chicago_t624_roll241';
+/** T-3382: where a child of the house stood on the scene date, from the card's `lived_here`. */
+const ON_SCENE_DATE = { yes: 'At home', no: 'Not living here', unknown: 'Not documented' };
 
 /** Sentences of a note that speak to the evidence rather than the person. */
 const ABOUT_THE_EVIDENCE = [
@@ -136,6 +139,14 @@ export function personModel({ row, person = null, household = null, citations = 
   if (place) facts.push({ label: 'Born in', value: place, grade: gradeOf(p.born, grade) });
   const arrived = text.match(ARRIVED)?.[1];
   if (arrived) facts.push({ label: 'Came to America', value: arrived, grade: gradeOf(p.born, grade) });
+  // T-3382: a child of the house carded for the years they lived in it, which need not
+  // include the scene date. The years are the card's, as the listings and censuses give them.
+  const lived = p.lived_here ?? row?.lived_here ?? null;
+  if (lived?.years) facts.push({ label: 'Lived here', value: String(lived.years).replace(/([\ds])-(\d|about)/g, '$1\u2013$2'), grade });
+  if (lived?.on_scene_date && ON_SCENE_DATE[lived.on_scene_date]) {
+    facts.push({ label: year ? `In ${year}` : 'On the scene date', value: ON_SCENE_DATE[lived.on_scene_date], grade });
+  }
+  const ownCard = p.own_card ?? row?.own_card ?? null;
 
   // How we know.
   const sources = (Array.isArray(p.sources) ? p.sources : []).map((id) => {
@@ -146,16 +157,19 @@ export function personModel({ row, person = null, household = null, citations = 
     return { id, title, url: c?.url || '' };
   });
   const ids = new Set(sources.map((s) => s.id));
-  const census = p.census_1900 && typeof p.census_1900 === 'object' ? {
-    asWritten: String(p.census_1900.as_enumerated ?? ''),
-    relation: String(p.census_1900.relation_as_enumerated ?? ''),
-    locator: String(p.census_1900.locator ?? ''),
-    date: String(p.census_1900.date ?? ''),
-    link: leafLink(citations?.[p.census_1900.source ?? CENSUS_1900], p.census_1900.locator),
+  // The 1900 census line where there is one, else the 1910 line a child is carded from (T-3382).
+  const line = [[p.census_1900, CENSUS_1900], [p.census_1910, CENSUS_1910]].find(([c]) => c && typeof c === 'object');
+  const census = line ? {
+    asWritten: String(line[0].as_enumerated ?? ''),
+    relation: String(line[0].relation_as_enumerated ?? ''),
+    locator: String(line[0].locator ?? ''),
+    date: String(line[0].date ?? ''),
+    year: yearOf(line[0].date) ?? (line[1] === CENSUS_1910 ? 1910 : 1900),
+    link: leafLink(citations?.[line[0].source ?? line[1]], line[0].locator),
     reading: sheet ? sheet[0].trim() : '',
   } : null;
   const book = Object.keys(BLUE_BOOKS).find((id) => ids.has(id));
-  const why = whyLine({ grade, census, book: book ? BLUE_BOOKS[book] : null, year, relationship, sources, doubted: caveats.length > 0 });
+  const why = whyLine({ grade, census, book: book ? BLUE_BOOKS[book] : null, year, relationship, sources, doubted: caveats.length > 0, lived });
   const printedAs = p.printed_as ? { text: String(p.printed_as), edition: book ? BLUE_BOOKS[book] : null } : null;
 
   return {
@@ -174,6 +188,8 @@ export function personModel({ row, person = null, household = null, citations = 
     caveats,
     sheetNotes,
     sources,
+    ownCard,
+    away: lived?.on_scene_date === 'no',
     read: !!person,
   };
 }
@@ -207,17 +223,18 @@ export function censusLead({ name, line, work, householdName }) {
 }
 
 /** Why the grade is what it is, in a sentence or two a visitor can follow. */
-function whyLine({ grade, census, book, year, relationship, sources, doubted }) {
+function whyLine({ grade, census, book, year, relationship, sources, doubted, lived = null }) {
+  if (lived) return livedWhy({ grade, census, year, lived });
   const gap = census && year ? year - (yearOf(census.date) ?? year) : 0;
   const before = gap > 0 ? `${NUMBER[gap] ?? gap} year${gap === 1 ? '' : 's'} before this scene` : 'before this scene';
   if (grade === 'attested') {
     const lead = book
       ? `The ${book} Blue Book, Chicago's society register, lists ${relationship === 'head' ? 'this household' : 'them'} at this house.`
       : `${sources.length > 1 ? 'The sources below say' : 'The source below says'} so directly: they lived in this house.`;
-    return { grade, title: 'Attested: a source says so', text: census ? `${lead} The 1900 census found them here too.` : lead };
+    return { grade, title: 'Attested: a source says so', text: census ? `${lead} The ${census.year ?? 1900} census found them here too.` : lead };
   }
   if (grade === 'inferred') {
-    if (census && !book) {
+    if (census && !book && (census.year ?? 1900) <= (year ?? 1900)) {
       return { grade, title: 'Inferred: worked out from clues',
         text: `The 1900 census lists them in this house on 1 June 1900, ${before}. The Blue Book, which places the family, never prints servants or young children, so the census is the nearest record that names them.${doubted ? '' : ` No record we read says they were still here in ${year ?? 'the scene year'}.`}` };
     }
@@ -227,6 +244,25 @@ function whyLine({ grade, census, book, year, relationship, sources, doubted }) 
   if (grade === 'reconstructed') {
     return { grade, title: 'Reconstructed: built so the street makes sense',
       text: 'No source names this person here; our model of the town placed them, and says so.' };
+  }
+  return null;
+}
+
+/** T-3382: the grade of a child carded for the years they lived here. */
+function livedWhy({ grade, census, year, lived }) {
+  const when = year ?? 'the scene year';
+  const on = lived.on_scene_date;
+  const then = on === 'no' ? ` They were not living here in ${when}.`
+    : on === 'unknown' ? ` No record we read says whether they were here in ${when}.` : '';
+  if (grade === 'attested') {
+    return { grade, title: 'Attested: a source says so',
+      text: `The sources below place them in this house as a child of the family${lived.years ? `, ${String(lived.years).replace(/([\ds])-(\d|about)/g, '$1\u2013$2')}` : ''}.${then}` };
+  }
+  if (grade === 'inferred') {
+    const later = census && census.year > (Number(year) || 0)
+      ? `The ${census.year} census lists them in this house${on === 'yes' ? `; their age and the family's listings put them at home in ${when}, which no record of that year states` : ''}.`
+      : 'No source prints the relationship outright; it is read from the listings below.';
+    return { grade, title: 'Inferred: worked out from clues', text: `${later}${then}` };
   }
   return null;
 }
@@ -260,10 +296,15 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), o
   head.append(chips);
   if (m.household) head.append(el(doc, 'p', 'insp-address insp-person-hh', m.household));
   card.append(head);
-  if (typeof onFind === 'function') {
+  if (typeof onFind === 'function' && !m.away) {   // T-3382: nobody to find who was not here
     const find = el(doc, 'button', 'nav-tile insp-person-find', 'Find this person');
     find.type = 'button'; find.dataset.personFind = m.id;
     find.addEventListener('click', () => onFind(m.id)); card.append(find);
+  }
+  if (m.ownCard) {
+    // T-3382: a grown child with a house of their own in the scene year has a card there too.
+    const own = el(doc, 'button', 'nav-tile insp-person-link insp-person-own', 'Their own household');
+    own.type = 'button'; own.dataset.person = m.ownCard; card.append(own);
   }
 
 
@@ -307,7 +348,7 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), o
   }
   if (m.census) {
     const box = el(doc, 'div', 'insp-person-census');
-    box.append(el(doc, 'span', 'nav-k', 'The 1900 census, as written'));
+    box.append(el(doc, 'span', 'nav-k', `The ${m.census.year ?? 1900} census, as written`));
     box.append(el(doc, 'p', 'insp-person-as', `“${m.census.asWritten}”${m.census.relation ? ` · ${m.census.relation}` : ''}`));
     if (m.census.locator) box.append(el(doc, 'p', 'nav-sub', m.census.locator));
     if (m.census.reading) box.append(el(doc, 'p', 'insp-person-reading', m.census.reading));

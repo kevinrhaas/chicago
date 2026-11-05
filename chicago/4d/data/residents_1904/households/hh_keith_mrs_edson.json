@@ -29,10 +29,11 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The three live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The three live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. The 1910 census (T624 roll 241, ED 166 and 167) was read for this card's children: the children it lists, and those the Blue Book lists at the number from 1890 to 1911, are on the card with the years each lived here, whether or not they were at home in 1904. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
-      "census_1900_chicago_t623_roll245"
+      "census_1900_chicago_t623_roll245",
+      "census_1910_chicago_t624_roll241"
     ]
   },
   "persons": [
@@ -55,6 +56,46 @@
         "relation_as_enumerated": "Head"
       },
       "note": "The 1900 census lists Edson Keith here as head, born July 1839, in Illinois, widowed (ED 40, sheet 4B, line 95, leaf n801)."
+    },
+    {
+      "id": "pa1904_keith_edson_jr_at_1906",
+      "name": "Edson Keith jr.",
+      "relationship": "son",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1890",
+        "chicago_blue_book_1891",
+        "chicago_blue_book_1892"
+      ],
+      "printed_as": "1906 Edson Keith jr.",
+      "lived_here": {
+        "years": "1890-1892",
+        "on_scene_date": "no"
+      },
+      "own_card": "pa1904_keith_edson_jr",
+      "note": "Listed at 1906 under Mr. and Mrs. Edson Keith in 1890 and 1891, and with his wife in 1892; the 'jr.' names him the son of the house. From the 1894 edition he lives at 2110, where he and his family are on their own card in 1904. The 1910 census has his mother the mother of two children, both living (ED 166, sheet 8B, line 71, leaf n1444)."
+    },
+    {
+      "id": "pa1904_keith_walter_w",
+      "name": "Walter W. Keith",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "census_1910_chicago_t624_roll241",
+        "chicago_blue_book_1890",
+        "chicago_blue_book_1891",
+        "chicago_blue_book_1892",
+        "chicago_blue_book_1893",
+        "chicago_blue_book_1894",
+        "chicago_blue_book_1895",
+        "chicago_blue_book_1897"
+      ],
+      "printed_as": "1906 Walter W. Keith",
+      "lived_here": {
+        "years": "1890-1897",
+        "on_scene_date": "no"
+      },
+      "note": "Listed at 1906 under his parents from 1890, and with his own wife in 1897. In 1910 the census finds Walter W. Keith, 40, next door at 1904 with his wife Frances and son Winchester (ED 166, sheet 8B, lines 76-78), and the widow at 1906 the mother of two living children; with Edson Keith jr. that makes the two. That he was her son is read from the listing and that count."
     },
     {
       "id": "pa1904_keith_mrs_edson_c1900_hilda_johnson",
