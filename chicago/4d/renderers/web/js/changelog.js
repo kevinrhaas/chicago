@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2656, ts: '2026-11-05T05:38:09.553Z', date: 'Nov 4, 2026, 11:38 PM CT', title: 'Nothing you can see: a horse check runs on newer NumPy', kind: 'fix',
+    items: [
+      'Nothing you can see changed in the town. One of the standing horse\'s checks used a NumPy shortcut that NumPy 2.5 removed, so it failed on newer machines. It now does the same sum written out by hand, and gives the same answer.',
+    ] },
   { v: 2655, ts: '2026-11-05T04:03:26.967Z', date: 'Nov 4, 2026, 10:03 PM CT', title: 'Driver clothes keep their shape at lower detail', kind: 'fix',
     items: [
       'Fewer visible gaps in Otis’s and Hans’s shirts and trousers at lower scene detail.',

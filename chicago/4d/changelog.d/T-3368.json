@@ -1,7 +1,0 @@
-{
-  "title": "Nothing you can see: a horse check runs on newer NumPy",
-  "kind": "fix",
-  "items": [
-    "Nothing you can see changed in the town. One of the standing horse's checks used a NumPy shortcut that NumPy 2.5 removed, so it failed on newer machines. It now does the same sum written out by hand, and gives the same answer."
-  ]
-}
