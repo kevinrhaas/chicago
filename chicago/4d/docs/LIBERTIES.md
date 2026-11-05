@@ -40704,3 +40704,31 @@ early autochrome, a surviving wall) replaces its pick.
 **Covers:** `marshall_field_house_1905_prairie.as_mapped_1904.form.face_brick`, `henderson_house_1816_prairie.as_mapped_1904.form.face_brick`, `spalding_house_1637_prairie.as_mapped_1904.form.face_brick`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.face_brick`, `house_1600_prairie.as_mapped_1904.form.face_brick`, `house_1604_prairie.as_mapped_1904.form.face_brick`, `house_1608_prairie.as_mapped_1904.form.face_brick`, `house_1613_prairie.as_mapped_1904.form.face_brick`, `house_1615_prairie.as_mapped_1904.form.face_brick`, `house_1616_prairie.as_mapped_1904.form.face_brick`, `house_1626_prairie.as_mapped_1904.form.face_brick`, `house_1628_prairie.as_mapped_1904.form.face_brick`, `house_1726_prairie.as_mapped_1904.form.face_brick`, `house_1730_prairie.as_mapped_1904.form.face_brick`, `house_2003_prairie.as_mapped_1904.form.face_brick`, `house_2005_prairie.as_mapped_1904.form.face_brick`, `kellogg_house_1709_prairie.as_mapped_1904.form.face_brick`, `kellogg_house_1923_prairie.as_mapped_1904.form.face_brick`, `dexter_house_1721_prairie.as_mapped_1904.form.face_brick`, `dent_house_1823_prairie.as_mapped_1904.form.face_brick`, `edson_keith_house_1906_prairie.as_mapped_1904.form.face_brick`, `house_1619_prairie.as_mapped_1904.form.face_brick`, `house_1621_prairie.as_mapped_1904.form.face_brick`, `house_1623_prairie.as_mapped_1904.form.face_brick`, `house_1634_prairie.as_mapped_1904.form.face_brick`, `house_1636_prairie.as_mapped_1904.form.face_brick`, `house_1712_prairie.as_mapped_1904.form.face_brick`, `house_2001_prairie.as_mapped_1904.form.face_brick`.
 **Ticket:** T-3385.
 **Recorded:** 2026-11-05 (T-3385).
+
+### L-k01-1700-1706-roof-3384 — 1700 and 1706 Prairie under one mansard, the party wall carried up through it
+
+**Decision:** the Glessner townhouses at 1700 and 1706 Prairie are roofed as ONE mansard run across
+the pair, not two each hipped at the party line. The party wall, centred on the line between the
+two houses, is carried up through the roof: its coping follows the roof's own section from the
+cornice up the steep face and over the deck, a stack standing on it just behind the deck's railing.
+1700's north end wall is carried up the same way past its end of the roof, a stack on it behind the
+railing. One downpipe stands on the party line, both houses' street gutters running to it. The
+deck's railing is the white fret of Chicagology's photograph, not the K10 kit's cresting. The
+owner, 2026-11-05, with the render beside both photographs: the dividing wall "would be centered on
+the property", "it is continous in the center and that diving wall runs through the roof and there
+is a single gitter there in the center", and to correct the chimneys and the roof's ornament.
+**What is read.** Both photographs (Chicagology's, after 1902, and the Glessner House Museum's
+Christmas print) show the continuous street face, the broad pale coping falling down the steep face
+to the cornice at the party line and at 1700's north end, one stack on the party wall behind the
+railing and one on 1700's north end wall, one pipe down the front at the party line, and the fret:
+square posts about a metre apart, a bar corner to corner in each panel, a rectilinear key in each
+triangle it leaves.
+**What is invented.** The parapets' upstand (0.3 m square to the slope at the curb, tapering to
+0.25 m over the wall head at the fascia), the party wall's thickness (0.25 m each side of the line),
+the stacks' plan (the party stack 0.9 by 1.2 m, the end stack the house's 0.9 by 0.75 m) and their
+tops (14.4 m), the fret's sections and its keys' exact turns. The rear of the deck and the rear
+lower face are not seen in any picture; they follow the front's section.
+**How to resolve:** a photograph of the pair's roof from above or from the rear, or a building
+permit drawing.
+**Ticket:** T-3384.
+**Recorded:** 2026-11-05 (T-3384).

@@ -135,6 +135,7 @@ import struct
 from pathlib import Path
 
 from . import k01_arched_front
+from . import k01_mansard_walled
 from . import k01_dressings
 from . import k03_brick
 from . import k09_frontage
@@ -4110,7 +4111,9 @@ class Assembly:
             # T-3186: a canted corner cuts every ring on its face's line, out to the fascia
             cut = ((lambda ring, out: k01_frontage_params.cant_ring(ring, p.cant_corner, D, W, out)),
                    o + p.cant_corner["cut_m"] / (2.0 - math.sqrt(2.0))) if p.cant_corner else None
-            hip, hs, _ = k5.mansard_element(0.0, D, -W, 0.0, E, m["lower_pitch_deg"], p.roof_pitch_deg,
+            # T-3384: run on past a wall carried up through it, so no hip reaches that wall
+            mz0, mz1 = k01_mansard_walled.extend(p, -W, 0.0) if m.get("walled_ends") else (-W, 0.0)
+            hip, hs, _ = k5.mansard_element(0.0, D, mz0, mz1, E, m["lower_pitch_deg"], p.roof_pitch_deg,
                                             m["lower_rise_m"], m["bulge"], m["segments"], m["profile"], o, f,
                                             cut=cut)
         elif gb:   # T-2459: the parapets first, so the union keeps their faces on the walls' planes
@@ -4142,6 +4145,9 @@ class Assembly:
             solids = k5.parapet_element({}, [(0.0, slab), (D - FRONT_SET_M, slab)], (c0, c1), "z", tw, hs,
                                         spp["coping_m"], spp["drip_m"], 0.0, 0.0) + solids
         straight_cut = []
+        if (m or {}).get("walled_ends"):   # T-3384: the walls carried up through the roof, and their cutters
+            more, straight_cut = k01_mansard_walled.elements(p, k5, hs)
+            solids = more + solids
         if (m or {}).get("straight"):   # T-2995: the straight walls' parapets, and their cutters
             from . import k01_mansard_straight
             more, straight_cut, _ = k01_mansard_straight.elements(p, k5, hs)
@@ -4256,7 +4262,7 @@ class Assembly:
         self.stone_stack_boxes = []
         plain_stacks = []
         for c in p.chimneys:
-            if "k15" in c or "k15_head" in c:
+            if "k15" in c or "k15_head" in c or c.get("wall_end"):   # T-3384: a walled end's are its own
                 continue
             sx, sz = c["plan_m"]
             u, z = c["u_m"], -c["v_m"]
@@ -5807,8 +5813,8 @@ class Assembly:
             # not built and each side run dies into the gable's base at its back (k01_shaped_gable)
             xb = self.shaped_gable_geom["xb"]
             dead += [(starts[3] + xb + A, P), (0.0, starts[1] + D + A - xb)]
-        spp = (p.mansard or {}).get("side_parapet")
-        if spp:
+        # T-3384: and none along a wall carried up through the mansard, the same way
+        for spp in [x for x in [(p.mansard or {}).get("side_parapet")] if x] + k01_mansard_walled.wall_ends(p):
             # T-3061: no gutter along a side wall carried up as a parapet: the runs beside it
             # stop at the wall's outer plane, each end stopped where the run beside it is live
             i = 3 if spp["wall"] == "south" else 1
@@ -5879,6 +5885,8 @@ class Assembly:
         rp = r["pipe_diameter_m"] / 2
         kick = math.radians(r["shoe_kick_deg"])
         for x in r["downpipes"]:
+            if x.get("shared"):   # T-3384: the neighbour's pipe, on the party wall's line
+                continue
             O, R = walls[x["wall"]]
             N = _cross(R, Y)
             # clear of anything proud of the wall: the street front's belt courses

@@ -2,7 +2,7 @@
   "structure_id": "george_glessner_house_1706_prairie",
   "view": "chicagology_townhouses",
   "glb": "assets/gltf/george_glessner_house_1706_prairie__as_mapped_1904.glb",
-  "glb_sha256": "0e773bd349eb252f7cd0d5d73ae84ddc04f278a7b1c542d5d11c8be5c12fbaf4",
+  "glb_sha256": "85d3f7cf9906caa3fac2bf1025368e39d3c093ce32333792f4babde0ed4cca1a",
   "camera_sha256": "1b3c45c138977ed0cea9859e6a8cab9c4848f047b491dacc9b2564cd37d30936",
   "photo_sha256": "56843b92bab0a3581dfa1629949584543d6d12f5e9e556b699e9df6e91275a87",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "0e773bd349eb252f7cd0d5d73ae84ddc04f278a7b1c542d5d11c8be5c12fbaf4"
+      "glb_sha256": "85d3f7cf9906caa3fac2bf1025368e39d3c093ce32333792f4babde0ed4cca1a"
     },
     {
       "structure_id": "glessner_lee_house_1700_prairie",
@@ -42,7 +42,7 @@
         -11.05056758709686
       ],
       "rotation_y": 0,
-      "glb_sha256": "6518984e7583fba7335b5fa83d6d20aaf4413dfcb67b7cde7d0d37720fa5d9ed"
+      "glb_sha256": "8b780c558036848558f2394dd50313b9d3fbd49ce4c03a61db267bc859de5cc1"
     },
     {
       "structure_id": "house_1708_prairie",
@@ -64,8 +64,8 @@
       "glb_sha256": "b2c0aa9da2efb90f7ca21650ff7ef4b048e4fe49933bd63cb762d1244c7c949a"
     }
   ],
-  "group_sha256": "a42384af07403bad5543b049b7318b5eb78f912438f997b794a4acca2f5e3a57",
-  "side_by_side": "../../../../../tmp/claude-0/-home-user/5a118db4-74ff-5a97-bf1f-abc21f596262/scratchpad/pm/george_glessner_house_1706_prairie_chicagology_townhouses/chicagology_townhouses-side-by-side.jpg",
+  "group_sha256": "2a21ba13c7d342d6e9d66209612707cd7ac57192964a0032a45b69826c9490d4",
+  "side_by_side": "docs/RESEARCH/photo-match/george_glessner_house_1706_prairie/chicagology_townhouses-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
     {
@@ -111,12 +111,12 @@
     {
       "what": "the party wall rising through the roof between the two houses, and the stacks over the deck",
       "status": "fixed",
-      "how": "T-3211: 1706's north wall carried up past the curb as K05's side parapet, a stack at the party wall over the deck and one toward each outer wall"
+      "how": "T-3211: 1706's north wall carried up past the curb as K05's side parapet, a stack at the party wall over the deck and one toward each outer wall T-3384 (the owner, 2026-11-05): the two houses no longer hip at the party line: ONE mansard runs across the pair, and the party wall, centred on the line, is carried up through it, its coping following the roof's section from the cornice up the steep face and over the deck (k01_mansard_walled, each house building its half); one stack on the party wall just behind the railing, one on 1700's north end wall"
     },
     {
       "what": "the downpipe at the party line",
-      "status": "within tolerance",
-      "how": "T-3211: built 0.55 m south of the party line on 1706 and north of it on 1700 (two pipes about 1.1 m apart, where the photograph shows one): the cornice's corner brackets stand where one pipe would"
+      "status": "fixed",
+      "how": "T-3211: built 0.55 m south of the party line on 1706 and north of it on 1700 (two pipes about 1.1 m apart, where the photograph shows one): the cornice's corner brackets stand where one pipe would T-3384 (the owner, 2026-11-05): one pipe now, on the party line, built by 1706, 1700's gutter naming it as its outlet (`shared`)"
     },
     {
       "what": "the upper windows' stone keys and gauged flat arches",
@@ -135,8 +135,8 @@
     },
     {
       "what": "the deck railing's fret",
-      "status": "within tolerance",
-      "how": "T-3211: the kit's openwork pattern in place of the fret's diagonals, at the fret's height and tone"
+      "status": "fixed",
+      "how": "T-3211: the kit's openwork pattern in place of the fret's diagonals, at the fret's height and tone T-3384 (the owner, 2026-11-05): the photograph's own fret replaces the kit's cresting: square posts about a metre apart under a moulded rail, a bar corner to corner in each panel and a rectilinear key in each triangle it leaves; it runs on over the party wall in front of the stack, as here"
     },
     {
       "what": "the dormer cases' width",
