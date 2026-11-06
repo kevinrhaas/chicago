@@ -39,34 +39,34 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "ecebd8c3fa044a2f7c23fe8dd4b8c0b79f0edeca5c4bd4ddde04885a437d38bc"
+      "sha256": "cac67fd26e677f5a848f1817b51d2a485835b09f09aa2c234efc1b3a5b3e3329"
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "0910d1c4c92ae365a8e7bdc9eded2ca745cdcb5b564f6d9ed97028d76b8582ca"
+      "sha256": "90d02b3e6b6ac5d1ab27a0eb3088f72719a8c1f59a7624dd833db80b127268f2"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
-      "sha256": "39ea6657e4a0799dd9241b69481e62f3a5ce64c250151b2828ca87a77c17b361"
+      "sha256": "a103f17c2d5a18b12a39126c62c539dd69ad9a118939254589b0b579d4cb9c61"
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "abf705150b8cbf9548ec963ce000d87822e618ef3387bef61d725a750d71ce24"
+      "sha256": "516638c5cb53043e352359012564973fbaca844282e7809913d3f4709d8e5572"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
-      "sha256": "96fd05c1ef7de0a65f0d0966c6d418aa0b1a0391d19773a3382cc0b9ed04c909"
+      "sha256": "23dec0e5dda80547d8ee2ae86f1400fb1a4af2bd54ca0b53d7fe8d52f088cc84"
     },
     {
       "file": "renderers/web/js/season.js",
-      "sha256": "2c010c2598f57fe242361e18171d4919fc86b96691fa3282a59424554ea40e4e"
+      "sha256": "e44ebdadf8266909cd6e8676775a9decc3b7376ba245ad784118851e15b409cc"
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "a222fb6e6af97d1650b05940f9ca0a79874a53c60a688e1b7b49838a7a637c66"
+      "sha256": "bd022919ca052610595908f83128dfceea976790c5bf2eff63f381abaa3b89b5"
     }
   ],
-  "flora_sha256": "9c42f927ef0c5ebd3af56cd397a918292f0960b653ac7b56375c51375f1ee7e0",
+  "flora_sha256": "3fca96dfe81356854b9c8b80cff92729c8e03ecc47b79dfbc13849ae80d89b44",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -275,7 +275,7 @@
       "how": "T-1881, 2026-10-30: through this camera the oculus renders at about x 664, y 348 px, under 2 px across at the print's 5-6 px a metre along the flank, in a stretch the print draws behind the tree's branches, and the east corner pier at x 687-689, behind the tree at x 685-700; the print can say neither."
     },
     {
-      "what": "the porte-cochère's west arch, seen nearly square (x 610-645 px), and the front's past the corner pier: piers either side of each arch equal, banded, under the entablature",
+      "what": "the porte-coch\u00e8re's west arch, seen nearly square (x 610-645 px), and the front's past the corner pier: piers either side of each arch equal, banded, under the entablature",
       "status": "within tolerance",
       "how": "T-1881: the end arches centred on the face standing out before the 18th Street pavilion (4.22 m out, 2.5 m across, 0.5 m piers) and the front's at s 10.5 (2.4 m); this print reads the west arch 0.81-3.18 m out on a block it reads 4.27 m out, and Taylor's no. 1445 reads the block 5.45 m out with its arch 1.9-4.7 m, so the build's place between them is a disagreement between the two pictures; the banding, impost and ring are a pixel or two here and are read off Taylor's"
     },
@@ -319,7 +319,11 @@
       "what": "the big pedimented dormer and its column of round-arched lights at x 460-466, and the narrow south bay with its smaller dormer (x 502-528): round 3 had the big column at v 14.45 (x 509) and no south bay",
       "status": "fixed",
       "how": "T-1881 (2026-11-02): the Prairie front re-divided to the photographs: the north block v 0-5.0, the entry v 4.95-8.8 on the door at v 6.875 (the gate's axis), the south part v 8.8-17.93 on the main wall with the big column and its pedimented dormer at v 11.225 and the narrow south column (lights at v 15.45, a small dormer at v 14.8) restored (L-pullman-1729-three-part-front-1881); through this camera the render's big dormer at x 458 and the narrow column's light at x 523"
+    },
+    {
+      "what": "T-3429 (2026-11-06): the parkway elms are bare round wood now, twig forking off twig, where T-1934's painted twig cards stood; read against the print again, the verdict is kept.",
+      "status": "fixed"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

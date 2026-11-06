@@ -30857,6 +30857,15 @@ skipped limbs and branches as spikes too; at `far` (past about 44 m) it keeps ha
 for its fringe, one spike off each limb tip it reaches, at least 0.08 m across at the foot (a pixel
 near the ring's edge), and at `mid` what is left once every sprout is drawn goes on the next fork;
 the split and the widths are this file's (T-1934).
+T-3429 replaces those spikes and the twig cards T-1934 also drew (the owner saw them as "odd brown
+fans" in 1904 winter, 2026-11-06): no bare elm draws a twig card at any level. At `mid` (and on the
+phone's tier, whose elms are all `mid`) every kept limb and branch is a round, bark-mapped tube,
+and the fringe is drawn fork by fork as three-sided tubes no finer than 0.9 cm in radius, each rooted
+on a drawn parent, within about three triangles per summer clump (2.2 on the phone's tier); at `far`
+each branch's rising run, then each sprout's first twig, is one stroke at least 2.5 cm in radius
+with its foot set on the nearest wood already drawn; in winter the `distant` level (the bole and
+its stoutest stems) starts at 160 m (120 m on the phone's tier) rather than the summer ring. The widths,
+budgets and rings are this file's (T-3429).
 **How to resolve:** a period photograph or drawing of a particular tree, read for its own form (the
 Kinzie house cottonwoods in the 1831 and 1857 plates, the 18th Street cottonwood in its 1880s photographs).
 **Ticket:** T-2743.

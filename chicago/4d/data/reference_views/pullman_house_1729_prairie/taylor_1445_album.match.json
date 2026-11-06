@@ -38,34 +38,34 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "ecebd8c3fa044a2f7c23fe8dd4b8c0b79f0edeca5c4bd4ddde04885a437d38bc"
+      "sha256": "cac67fd26e677f5a848f1817b51d2a485835b09f09aa2c234efc1b3a5b3e3329"
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "0910d1c4c92ae365a8e7bdc9eded2ca745cdcb5b564f6d9ed97028d76b8582ca"
+      "sha256": "90d02b3e6b6ac5d1ab27a0eb3088f72719a8c1f59a7624dd833db80b127268f2"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
-      "sha256": "9388917b206b17f47c54671a727d355441f480b30fb19eb040ce1940ec668489"
+      "sha256": "a103f17c2d5a18b12a39126c62c539dd69ad9a118939254589b0b579d4cb9c61"
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "abf705150b8cbf9548ec963ce000d87822e618ef3387bef61d725a750d71ce24"
+      "sha256": "516638c5cb53043e352359012564973fbaca844282e7809913d3f4709d8e5572"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
-      "sha256": "96fd05c1ef7de0a65f0d0966c6d418aa0b1a0391d19773a3382cc0b9ed04c909"
+      "sha256": "23dec0e5dda80547d8ee2ae86f1400fb1a4af2bd54ca0b53d7fe8d52f088cc84"
     },
     {
       "file": "renderers/web/js/season.js",
-      "sha256": "2c010c2598f57fe242361e18171d4919fc86b96691fa3282a59424554ea40e4e"
+      "sha256": "e44ebdadf8266909cd6e8676775a9decc3b7376ba245ad784118851e15b409cc"
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "d0d3bd8f1bf64e6a8b73b86ee2a9a29b39ce18def909882ba39b438b773f4411"
+      "sha256": "bd022919ca052610595908f83128dfceea976790c5bf2eff63f381abaa3b89b5"
     }
   ],
-  "flora_sha256": "e7b304fc7da47acc91f2a9b430f7195c9b0021058bf30ef389a56671bcc2603d",
+  "flora_sha256": "1053dc759487714ad2336c63d32b6b5cc70c61918ac6059e84c3177601b50753",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -212,12 +212,12 @@
       "how": "T-1881: seen while judging the pediment; the Detroit print, which sees the front squarely, lands the dormer within a few px, so this belongs with the camera disagreement along the front recorded above, and with the owner's item 4 (the front judged as a whole)"
     },
     {
-      "what": "the way under the porte-cochère: the gap in the wall east of the house",
+      "what": "the way under the porte-coch\u00e8re: the gap in the wall east of the house",
       "status": "fixed",
-      "how": "T-1934: a gravel drive (reconstructed) comes in through the gap and runs under the porte-cochère's arches to a turning apron; the 18th Street shrub border starts east of the house, clear of both ways (L-pullman-carriage-ways-1934)"
+      "how": "T-1934: a gravel drive (reconstructed) comes in through the gap and runs under the porte-coch\u00e8re's arches to a turning apron; the 18th Street shrub border starts east of the house, clear of both ways (L-pullman-carriage-ways-1934)"
     },
     {
-      "what": "the porte-cochère's arches and their dressing (the owner, 2026-10-30: \"this part of the pullman house would have been balanced not off centered lop sided like that, and there is more detail you need on it on the corners and arches\"): the large round arch in the west end (x 660-715 px) and the narrower one in the south front (x 745-780) each framed by banded piers that run from grade to the entablature, a moulded impost at the springing, and a moulded ring round each head with a keystone at the crown",
+      "what": "the porte-coch\u00e8re's arches and their dressing (the owner, 2026-10-30: \"this part of the pullman house would have been balanced not off centered lop sided like that, and there is more detail you need on it on the corners and arches\"): the large round arch in the west end (x 660-715 px) and the narrower one in the south front (x 745-780) each framed by banded piers that run from grade to the entablature, a moulded impost at the springing, and a moulded ring round each head with a keystone at the crown",
       "status": "fixed",
       "how": "T-1881: each arch centred on the face it shows, the ends' on the 3.5 m standing out before the 18th Street pavilion (back_m 2.47, the end arches at 4.22 m out, 2.5 m across) and the front's at s 10.5 (2.4 m); porte_cochere.dressing lays the banded piers (0.4 m courses, 0.1 m channels, the corner piers' bands turned round the corner), the 0.25 m impost and an eleven-voussoir ring with its keystone. Through this camera the west arch draws at about x 657-697 against the photograph's 660-715 and the front's about 15 px west of the photograph's, the disagreement between this camera and the Detroit print's along the flank already recorded here (the Detroit print reads the arches 2.37 and 2.27 m across, this photograph 2.8 and 2.46: the built 2.5 and 2.4 stand between them)"
     },
@@ -260,5 +260,5 @@
       "how": "T-1881 (2026-11-03): built as a 0.9 m pier in the 18th Street return's pier list, rising to the rail's top (1.8 m, no cap), at u 13.05-13.95, between this print's reading and the Detroit print's (x 779.5-781.5 there, u 13.48-12.8); it renders at x 873-892 here, flush with the rail."
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
