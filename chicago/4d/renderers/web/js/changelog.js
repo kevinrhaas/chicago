@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2698, ts: '2026-11-06T08:07:07.592Z', date: 'Nov 6, 2026, 2:07 AM CT', title: 'Look at, find and follow the people in town', kind: 'feature',
+    items: [
+      'Look at someone in town, such as Hans Johnson on his brougham or Otis Bardwell on his wagon, and the tag names them. Tap the tag or Inspect to open their card.',
+      'A person\'s card has Follow. You walk beside them as they go, a few metres off and looking at them. Move, or press Stop following, to let them go.',
+      'Find this person sets you down facing them.',
+      'In 1835, Go to where they lived on a driver\'s card goes to the house again. Find this person goes to his wagon.',
+    ] },
+  { v: 2697, ts: '2026-11-06T08:07:07.592Z', date: 'Nov 6, 2026, 2:07 AM CT', title: 'The fort\'s brick costs one draw, not seven', kind: 'fix',
+    items: [
+      'The brick of the 1816 fort and the Lake House is now drawn as one group in 1835 instead of seven, one for each building. It looks exactly the same, with every brick still laid and shuffled, and the scene does less work each frame, which matters most on a phone.',
+    ] },
   { v: 2696, ts: '2026-11-06T07:51:47.069Z', date: 'Nov 6, 2026, 1:51 AM CT', title: 'The Glessner House print has even roof tiles', kind: 'improvement',
     items: [
       'Nothing you can see changed in the scene. The 3D-print export now gives every roof the same tile courses, evenly spaced, instead of a different ripple on each roof plane and the odd tile sticking up.',
