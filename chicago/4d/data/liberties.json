@@ -50303,9 +50303,15 @@
         {
           "label": "Hair component update (2026-10-19)",
           "text": "Existing reconstructed residents rc bardwell otis, rc dufresne joseph and rc flynn martin retain their current identity, age-band, occupation and presence basis. Their referenced studies may share the cleared CC0 MakeHuman short04 component, fitted to each selected adult25/35 prepared body. Hair shape, dark color, parting, hairline, density and grooming are reconstructed appearance choices, not attested1835hairstyles or individual likenesses. This introduces no new person or biography and implies no ethnicity. Source license clearance is not historical style acceptance. The adaptation retains signed geometric proxy coefficients; normalized existing body skinweights clamp one negative interpolation row (maximum mass0.0000127) and keep at most4joints. The original Vmaximum1.0031 is remapped with a clearly labeled periodic-padded derivative:8toprows+1bottomrow, Vnew=(2048V+1)/2057. Measured unminified bilinear equivalence does not establish mipmap/aniso/export equivalence. PBR roughness.65, alpha threshold.4 and double-sided rendering are reconstructed shader choices, not the original legacy litsphere appearance. Source topology retained at every LOD pending measured reductions. Actual pinned exporter source statically recognizes the proposed 1-(Alpha<.4) node pattern as glTF MASK/.4; actual canonical BPy creation, packed image decode, exported material/UV/skin integrity and close/mobile hair-edge, scalp/ear/collar and animated-contact review still require CI. No photographic quality, historical haircut acceptance or independently validated resident depiction is claimed by this addendum."
+        },
+        {
+          "label": "Skin and hair shader update",
+          "text": "The owner, of Hans on his brougham: *\"he looks too smooth and not real... set us on a path for all humans to look photographic realistic\"*. The 1904 phone is at its memory ceiling, so the walkthrough's human skin code adds no texture: it patches the skin, hair and eye shaders of every portable human, from each body's own bind pose in metres. Skin gets pits about half a millimetre across and two crossing families of shallow lines a millimetre or so apart, which tip the shading normal and fade out by their screen-space rate before they alias; blotches of a few percent toward red and toward brown at a few centimetres to a few millimetres, and sparse small dark spots; a roughness of 0.55 with oilier and matte places; diffuse light taken partly from the smooth normal and a warm wrap past the terminator, the usual cheap stand-in for light scattering inside skin; and a faint grazing bloom for the fine hair on a face. Hair loses its round highlight and gets two Kajiya-Kay strand lobes, a pale one and one tinted by the hair's colour, with strands taken to run out from the crown and down. Eyes are made glossy (roughness 0.08) and the sclera 22% darker than its exported near-white. Every value is a reconstructed rendering choice; no measurement of any person's skin, no complexion, likeness or hair of any resident, and no photograph is claimed."
         }
       ],
-      "work_refs": []
+      "work_refs": [
+        "T-3400"
+      ]
     },
     {
       "id": "L-k01-1637-south-flank-2781",

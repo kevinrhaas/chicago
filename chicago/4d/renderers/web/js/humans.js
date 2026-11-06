@@ -37,6 +37,7 @@ import { registerKTX2 } from './ktx2.js';
 import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
 import { loadMeshoptDecoder, disposeLoadedAsset } from './scene-loader.js';
 import { enuToWorld } from './terrain.js';
+import { dressSkin } from './human-skin.js';
 
 /** § 8: the LODs each scene-detail tier may draw. `light` stays the floor. */
 export const HUMAN_TIERS = Object.freeze({ full: [0, 1, 2, 3], balanced: [1, 2, 3], light: [2, 3] });
@@ -236,6 +237,9 @@ export class HumanActor {
       meshes.push(o);
       o.frustumCulled = false;    // a skinned bound is the rest pose's, not the walk's
     });
+    // T-3400: skin with pores, blood and a glow, hair with a strand sheen, wet eyes, on
+    // every person (human-skin.js; a shader patch, no texture). Bound to the rest pose.
+    dressSkin(scene);
     // Measured through the node transforms: a quantised derivative's positions are not metres.
     scene.updateMatrixWorld(true);
     const height = new THREE.Box3().setFromObject(scene).max.y;
