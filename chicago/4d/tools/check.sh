@@ -466,6 +466,9 @@ step "Catalogue Brougham preserves physical masters, exact optical delivery, lam
 step "A person's own card from a building's People tab: their story, why attested or inferred, the census line, Back to the household (T-3265)" \
   node tools/test_person_card.mjs
 
+step "People screen as a directory: households and people, search, a household's own card, Go to house (T-3430)" \
+  node tools/test_people_directory.mjs
+
 step "Brougham card and actual near/mid selection preserve catalogue scope, current/historical card contracts, active picking and disposal (T-2794)" \
   node tools/test_brougham_card.mjs
 
