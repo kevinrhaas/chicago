@@ -1355,7 +1355,7 @@ step "a K01 stone front may carry a moulded belt course round its projections, a
 # 2): a flat-capped stone wall dormer on the main mansard's street face, wider than its one light,
 # the light off its middle; a hipped head there, a face too wide or too narrow, a light off the
 # face, or a wide face on another head refused; the built face and glass where the record says.
-step "a main-mansard dormer may be a flat-capped stone wall wider than its light (T-1890)" \
+step "a main-mansard dormer may be a flat-capped stone wall wider than its light, its light in a lugged architrave (T-1890)" \
   python3 tools/test_k01_wall_dormer.py
 
 # T-1890. ...and a single light named by wall, place and storey (`street_front_trim.lights`)

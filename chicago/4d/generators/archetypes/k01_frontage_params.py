@@ -1461,6 +1461,35 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool
         if abs(sh_) + out["width_m"] / 2 > fw / 2 + 1e-9:
             raise ParamError(f"{what}.face_shift_m {sh_}: the light and its surround stay on the face")
         out.update(width_m=round(fw, 4), light_shift_m=round(sh_, 4))
+    if "architrave" in d:
+        # T-1890 (2026-11-06): a flat-capped face's light may stand in a moulded ARCHITRAVE: a band
+        # `band_m` broad standing `proud_m` out of the face up both jambs and across the head, the
+        # head's ends carried `lug_m` past the jambs as lugs `lug_drop_m` deep, and a sill
+        # `sill_depth_m` deep standing `sill_proud_m` out and running `sill_ext_m` past the band
+        # (1801's third storey: HABS photograph 2 and the Taylor print frame its one light so)
+        if head != "flat":
+            raise ParamError(f"{what}.architrave: a lugged architrave frames a flat-capped wall dormer's light")
+        ar = d["architrave"]
+        keys = {"band_m", "proud_m", "lug_m", "lug_drop_m", "sill_depth_m", "sill_proud_m", "sill_ext_m"}
+        if set(ar) != keys:
+            raise ParamError(f"{what}.architrave takes {', '.join(sorted(keys))}")
+        ar = {k: float(v) for k, v in ar.items()}
+        if not (0.08 <= ar["band_m"] <= 0.3 and 0.02 <= ar["proud_m"] <= 0.12
+                and 0.0 <= ar["lug_m"] <= 0.2 and ar["band_m"] <= ar["lug_drop_m"] <= 0.5):
+            raise ParamError(f"{what}.architrave: a 0.08-0.3 m band 0.02-0.12 m proud, its lugs 0-0.2 m out "
+                             f"and from the band's own breadth to 0.5 m deep")
+        if not (0.06 <= ar["sill_depth_m"] <= min(0.25, out["sill_m"]) and ar["proud_m"] <= ar["sill_proud_m"] <= 0.2
+                and 0.0 <= ar["sill_ext_m"] <= 0.2):
+            raise ParamError(f"{what}.architrave: a sill 0.06 m deep up to its light's sill ({out['sill_m']} m), "
+                             f"standing out at least as far as the band up to 0.2 m, 0-0.2 m past it")
+        if ar["band_m"] > out["frieze_m"]:
+            raise ParamError(f"{what}.architrave.band_m {ar['band_m']}: the head stands under the cap, inside "
+                             f"the frieze ({out['frieze_m']} m)")
+        reach = abs(out.get("light_shift_m", 0.0)) + sw / 2 + ar["band_m"] + max(ar["lug_m"], ar["sill_ext_m"])
+        if reach > out["width_m"] / 2 + 1e-9:
+            raise ParamError(f"{what}.architrave: its lugs and sill stay on the face ({reach:.3f} m from the "
+                             f"face's middle against {out['width_m'] / 2:.3f})")
+        out["architrave"] = ar
     return out
 
 

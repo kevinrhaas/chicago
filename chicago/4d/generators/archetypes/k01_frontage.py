@@ -5104,6 +5104,8 @@ class Assembly:
             t = math.tan(math.radians(d["hip_pitch_deg"]))
             roof, _ = k5.hip_element(x0, x1, z0, z1, top + d["overhang_m"] * t + d["fascia_m"], t,
                                      d["overhang_m"], d["fascia_m"])
+        if d.get("architrave"):   # T-1890: a wall dormer's light in a lugged architrave
+            hood = self.dormer_architrave(d, k5, axis, sg, nf, lc, sill)
         if d.get("head") == "hood":
             hood = self.dormer_hood(d, k5, axis, sg, nf, back, centre, r, eaves, top)
             top = eaves   # the face, as the K01 dormer face is registered, stops under the shelf
@@ -5319,6 +5321,33 @@ class Assembly:
                 [(x1, y0), (x1 + fm, y0), (x1 + fm, y1), (x1, y1)])                         # the other
         ends = ("hidden", "dormer_face") if sg > 0 else ("dormer_face", "hidden")
         return [k5.extrude(q, a, b, P, "dormer_face", *ends) for q in bars]
+
+    def dormer_architrave(self, d, k5, axis, sg, nf, lc, sill):
+        """T-1890 (2026-11-06): a flat-capped wall dormer's light in a moulded architrave, as
+        closed solids for the roof's union (1801's third storey, HABS photograph 2 and the Taylor
+        print): two jambs and a head `band_m` broad standing `proud_m` out of the face round the
+        sash's square outline, the head's ends carried `lug_m` past the jambs as lugs `lug_drop_m`
+        deep from the head's top, and a sill `sill_depth_m` deep under the light standing
+        `sill_proud_m` out and running `sill_ext_m` past the band, each bedded FRAME_BED_M in."""
+        ar, sw, sht = d["architrave"], d["sash_width_m"], d["sash_height_m"]
+        b, lg, ld = ar["band_m"], ar["lug_m"], ar["lug_drop_m"]
+        sd, sx = ar["sill_depth_m"], ar["sill_ext_m"]
+        x0, x1, y0, y1 = lc - sw / 2, lc + sw / 2, sill, sill + sht
+        P = k5.frame(axis)
+        ends = ("hidden", "dormer_face") if sg > 0 else ("dormer_face", "hidden")
+        span = lambda proud: sorted((nf - sg * self.FRAME_BED_M, nf + sg * proud))
+        bars = [[(x0 - b, y0), (x0, y0), (x0, y1), (x0 - b, y1)],                 # a jamb
+                [(x1, y0), (x1 + b, y0), (x1 + b, y1), (x1, y1)],                 # the other
+                [(x0 - b, y1), (x1 + b, y1), (x1 + b, y1 + b), (x0 - b, y1 + b)]]  # the head
+        if lg > 0:
+            bars += [[(x0 - b - lg, y1 + b - ld), (x0 - b, y1 + b - ld), (x0 - b, y1 + b), (x0 - b - lg, y1 + b)],
+                     [(x1 + b, y1 + b - ld), (x1 + b + lg, y1 + b - ld), (x1 + b + lg, y1 + b), (x1 + b, y1 + b)]]
+        a, c = span(ar["proud_m"])
+        out = [k5.extrude(q, a, c, P, "dormer_face", *ends) for q in bars]
+        a, c = span(ar["sill_proud_m"])
+        out.append(k5.extrude([(x0 - b - sx, y0 - sd), (x1 + b + sx, y0 - sd), (x1 + b + sx, y0),
+                               (x0 - b - sx, y0)], a, c, P, "dormer_face", *ends))
+        return out
 
     def crown_dormer_body(self, cr, E, f):
         """T-2404: the crown's round-headed dormer, on the crown's street face, centred on it."""
