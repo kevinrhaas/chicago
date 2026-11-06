@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-16-prairie-front",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "6b9382e7139383eb51e3ead401494423d3d2b9c26e8ecc15a3996e41ea580ead",
+  "glb_sha256": "f0364fc468b9e25200f904ae0ec4d29eb83c6540cacb2cd48411038ca1c76dd8",
   "camera_sha256": "a6cab11dcafff11f11d93e858c37ba17f45a1f59a8a82f28cf0431c025755e50",
   "photo_sha256": "c48a056ae87e4e31d21aa95956cf7c1b57b00df4ded49323f5daca424107f8d8",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-16-prairie-front-side-by-side.jpg",
@@ -78,6 +78,10 @@
     },
     {
       "what": "T-3381: the door fan's tympanum rebuilt to the owner's close photographs; at this distance it reads as the photograph's carved half-disc.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3392: no stone sill lies across the carriage passage's mouth over its sunk floor; the paving runs in under the leaves.",
       "status": "fixed"
     }
   ],
