@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 2685, ts: '2026-11-06T03:40:24.674Z', date: 'Nov 5, 2026, 9:40 PM CT', title: 'Every 1835 jaunt retold, each with its own light', kind: 'feature',
+    items: [
+      'All 27 jaunts of 1835 are retold as stories: an opening that sets the scene, stops that lead into the next, and the town\'s colour from Moses and Kirkland\'s History of Chicago, from Mark Beaubien\'s fiddle to the land-office crier on his white horse.',
+      'Each 1835 jaunt has its own time of day and season: Taverns of Chicago at night, the Fort Dearborn errand on a winter morning, Over the Draw on an autumn afternoon, Across Wolf Point at a spring daybreak.',
+    ] },
+  { v: 2684, ts: '2026-11-06T03:40:24.674Z', date: 'Nov 5, 2026, 9:40 PM CT', title: 'A night ghost walk, and every Prairie jaunt has its own light', kind: 'feature',
+    items: [
+      'New jaunt, Ghosts of Prairie Avenue: an autumn night walk past seven stops and the legends told of them, from the 1812 battle ground to the gunshot at 1919 Prairie.',
+      'Jaunts now set their own time of day and season and give yours back at the end. Women of Prairie Avenue is a spring morning, Famous names a summer dusk, the architects an autumn afternoon, the Romanesque walk a winter afternoon.',
+      'Each jaunt\'s card shows its light, such as Dusk · Summer.',
+      'The 1904 walks are retold as stories, with scene-setting openings, the people behind each house, stops that lead into the next, and lines about the houses you pass on the way.',
+      'Road notes now give a fact about each house you pass, with its sources, instead of a bare name, and the "[MAP] From the model\'s map" line is gone.',
+    ] },
   { v: 2683, ts: '2026-11-06T03:10:28.605Z', date: 'Nov 5, 2026, 9:10 PM CT', title: 'Fort Dearborn and the Lake House in hand-made brick', kind: 'feature',
     items: [
       'The brick buildings of 1812 and 1835 now have real brick, laid in courses, instead of one flat colour. This covers both forts\' magazines, the commandant\'s quarters of 1816, and the chimneys of every fort building.',
