@@ -5954,6 +5954,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_human_skin.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_human_skin_canonicalize.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6707,6 +6711,14 @@
       "wrote_ignored": []
     },
     "{}": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/human_variation_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_variation.mjs": {
       "wrote": [],
       "wrote_ignored": []
     }

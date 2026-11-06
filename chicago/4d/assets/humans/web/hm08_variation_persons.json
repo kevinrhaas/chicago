@@ -1,0 +1,40 @@
+{
+ "format": "chicago4d_human_variation_persons_v1",
+ "ticket": "T-3412",
+ "generated_by": "tools/human_variation_kit.py",
+ "_doc": "Each drawn person's age (from their own record: a birth date, else an age band) and any face fitted to a picture of them. renderers/web/js/human-variation.js seeds everything else from the person id. Regenerate; never edit by hand.",
+ "persons": {
+  "pa1904_otis_f_r_c1900_hans_johnson": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_otis_f_r.json",
+   "drawn_as": [
+    "data/transport/driven/loops.json#prairie_driven_brougham_loop_1904"
+   ],
+   "age": {
+    "years": 34,
+    "grade": "attested",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1870 (the person's record)"
+   }
+  },
+  "rc_bardwell_otis": {
+   "scene": "1835",
+   "record": "data/residents/reconstructed_trades/hh_rc_bardwell_otis.json",
+   "drawn_as": [
+    "data/humans/instances/1835/hi_rc_bardwell_otis_1835.json",
+    "data/transport/driven/loops.json#western_hotel_driven_wagon_loop_1835"
+   ],
+   "age": {
+    "band": [
+     20,
+     29
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-29 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  }
+ }
+}

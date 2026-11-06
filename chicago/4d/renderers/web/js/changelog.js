@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 2705, ts: '2026-11-06T12:08:49.039Z', date: 'Nov 6, 2026, 6:08 AM CT', title: 'People\'s skin, hair and eyes look real up close', kind: 'improvement',
+    items: [
+      'Skin has pores and fine lines that catch the light, uneven colour with redder and browner patches, and a few small marks.',
+      'Light sinks a little into skin, so faces are soft and warm at the shadow\'s edge instead of plastic.',
+      'Hair shines in a band across the strands instead of one round highlight, and eyes are wet enough to catch the sky.',
+      'Every person gets it, Hans in 1904 and Otis Bardwell in 1835 included. Drawn by the graphics card: no images to download, nothing added to phone memory.',
+    ] },
+  { v: 2704, ts: '2026-11-06T11:25:15.108Z', date: 'Nov 6, 2026, 5:25 AM CT', title: 'A photo test for people: Hans beside period coachmen', kind: 'improvement',
+    items: [
+      'Nothing you can see changes in the town. People now get the test buildings have had: stills of a person sit beside period photographs of the same kind of person.',
+      'The first set is three 1900s coachmen from the Library of Congress: two stereographs of 1902 and 1905 and an Edward Penfield drawing.',
+      'Hans is shot at 3 m and 10 m, on desktop and phone, in the town\'s own light, with a 5-second strip of how he moves.',
+    ] },
   { v: 2703, ts: '2026-11-06T11:18:51.459Z', date: 'Nov 6, 2026, 5:18 AM CT', title: '1812 phones load the officer\'s garden only when it comes into view', kind: 'fix',
     items: [
       'On a phone, the commanding officer\'s garden in 1812 is laid out the first time it comes into view, not at load, so 1812 starts in less memory.',

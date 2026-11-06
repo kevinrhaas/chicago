@@ -31496,6 +31496,8 @@ Actual pinned exporter source statically recognizes the proposed 1-(Alpha<.4) no
 
 **Wagon driver's wardrobe supplement, 2026-11-06 (T-3409):** On the 1835 wagon circuit Otis Bardwell (`rc_bardwell_otis`) wears, over the unchanged workwear above, a waist-length wool round jacket stood off his shirt and waistcoat by a wool's loft, with a low standing collar and four dark horn buttons, and a low-crowned, broad-brimmed felt hat fitted to his head, all made by the wardrobe kit (`tools/human_wardrobe.py`, recipe `data/humans/wardrobes/bardwell_otis_1835.json`). **What is read, not invented.** Only the word: the transcription-mediated June/July 1835 `chicago_american_1835` advertisements list round jackets among men's clothing. **What is invented.** That he wore one, its cut, length, colour, cloth and buttons, and the whole of the hat. No picture or record of what Otis Bardwell wore is claimed. **How to resolve:** a dated 1835-1836 picture or inventory of a Chicago teamster's clothes would set the jacket and hat.
 
+**Skin and hair shader update (2026-11-06, T-3400):** The owner, of Hans on his brougham: *"he looks too smooth and not real ... set us on a path for all humans to look photographic realistic"*. The 1904 phone is at its memory ceiling, so `renderers/web/js/human-skin.js` adds no texture: it patches the skin, hair and eye shaders of every portable human, from each body's own bind pose in metres. Skin gets pits about half a millimetre across and two crossing families of shallow lines a millimetre or so apart, which tip the shading normal and fade out by their screen-space rate before they alias; blotches of a few percent toward red and toward brown at a few centimetres to a few millimetres, and sparse small dark spots; a roughness of 0.55 with oilier and matte places; diffuse light taken partly from the smooth normal and a warm wrap past the terminator, the usual cheap stand-in for light scattering inside skin; and a faint grazing bloom for the fine hair on a face. Hair loses its round highlight and gets two Kajiya-Kay strand lobes, a pale one and one tinted by the hair's colour, with strands taken to run out from the crown and down. Eyes are made glossy (roughness 0.08) and the sclera 22% darker than its exported near-white. Every value is a reconstructed rendering choice; no measurement of any person's skin, no complexion, likeness or hair of any resident, and no photograph is claimed.
+
 
 ## T-2793 — W01 original wheel/edge refinement (2026-10-19)
 
@@ -41139,3 +41141,28 @@ not change any person's grade.
 the town.
 **Ticket:** T-3419 (a piece of T-3415).
 **Recorded:** 2026-11-06 (T-3419).
+
+### L-human-variation-3412 — Every person drawn gets their own height, build and face
+
+**Decision:** every figure drawn by `humans.js` takes its own shape from the shared body all figures wear,
+by seeded weights of 40 axes of pinned CC0 MakeHuman graphical targets (`data/humans/variation/axes.json`,
+built into `assets/humans/web/hm08_variation_kit.*` by `tools/human_variation_kit.py`, applied by
+`renderers/web/js/human-variation.js`): nose, mouth, lips, chin, jaw, cheeks, brows, forehead, ears and
+jowls for everyone; and, for a person on foot, head outline, neck, weight, muscle, a small paunch, how far
+forward the neck carries the head, and a height within 7 % of the 1.75 m engineering body. Clothes, hair and
+eyes are carried by the skin under them, so a coat follows the chest. A seated driver's face changes and
+nothing he sits on, holds or wears does. The owner, 2026-11-06, agreeing the plan "Photographic humans: the
+path" (T-3412): bodies and faces "that differ", "no two neighbours alike".
+**What is read.** A person's age where their own record states it (Hans Johnson, born 1870, is 34; the
+1900 census), or the age band their record holds (Otis Bardwell, 20-29, itself reconstructed), moves
+MakeHuman's own age targets. `assets/humans/web/hm08_variation_persons.json` lists each drawn person, their age and its
+source.
+**What is invented.** Every drawn value: the face, height and build of each person, seeded from their id
+so it is the same on every load and in every year file; the spread of each axis and its limit (60 % of
+MakeHuman's own slider, past which its targets read as caricature); the year inside an age band. No
+person's likeness, stature or build is claimed, and no person's grade changes. A face fitted to a picture
+of its person replaces the drawn face and carries the picture's grade instead.
+**How to resolve:** a picture of the person (fit the face to it, as for John J. Glessner, T-3413), or a
+record of their height or build.
+**Ticket:** T-3412.
+**Recorded:** 2026-11-06 (T-3412).
