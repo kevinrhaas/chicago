@@ -78,6 +78,13 @@
       ],
       "note": "THE ONE THING ABOUT THIS STRUCTURE'S FABRIC THAT IS DOCUMENTED, and it is documented in the source's own words: 'This hotel, WHICH WAS BUILT OF BRICK, was three stories and a basement in height' (Andreas, transcribed on chicagology_prefire112, and confirmed in the printed volume). The uncredited paragraph on the same page repeats 'built of brick'. It is also locally plausible rather than merely asserted: Tyler K. Blodgett established Chicago's first brickyard on the North Side in the spring of 1833 (docs/research/03-structures-north.md section 3.12; data/structures/brickyard_north_side.json). NOTE WHAT IS NOT DOCUMENTED BY IT: that any brick had been laid by 1835-07-01. Andreas describes the FINISHED hotel of 1836. The material is carried into the scene-date shell as an inference about continuity of intention, which is a small step and still a step."
     },
+    "period_brick": {
+      "value": {
+        "walls": "soft_mud_salmon_lake"
+      },
+      "confidence": "reconstructed",
+      "note": "T-3387: laid in K03's lake-clay brick (`soft_mud_salmon_lake`): Chicago's own first brick, from Blodgett's North Side yard of 1833, which the record traces this building's brick to; the local lake clay is high in lime and burns salmon to buff, not red. The shade, the bond and that the Lake House's brick came from that yard's clay are the reconstruction (L-k03-period-brick-3387)."
+    },
     "stories": {
       "value": 1,
       "confidence": "reconstructed",

@@ -83,6 +83,13 @@
       "confidence": "inferred",
       "note": "Not stated. Log by the same argument as the barracks: everything in this fort except the commandant's quarters and the magazine is described as timber where it is described at all."
     },
+    "period_brick": {
+      "value": {
+        "stacks": "soft_mud_red_garrison"
+      },
+      "confidence": "reconstructed",
+      "note": "T-3387: laid in K03's hand-made garrison brick (data/components/prairie_1904/k03_face_brick.json `soft_mud_red_garrison`): a soft, sand-struck, clamp-burnt red in wide lime joints, its colour the sheet's brick row (a shade darker), in the bonded K03 panel the 1904 walls wear, each brick shuffled. That this is brick is the record's construction and the archetype's stack argument; that it was a hand-made soft-mud brick of this colour and bond is the reconstruction (L-k03-period-brick-3387)."
+    },
     "stories": {
       "value": 1,
       "confidence": "inferred",

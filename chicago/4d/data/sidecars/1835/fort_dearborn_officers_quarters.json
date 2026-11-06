@@ -90,6 +90,13 @@
       ],
       "note": "Hubbard, standing in the fort in 1827: 'The old officers' quarters built of logs on the west'. The 1855 key says 'wood', which is the same claim less precisely. A CORRECTION TO THIS PROJECT'S OWN DOSSIER: docs/research/04-structures-south.md section 1.2 reads Andreas as giving brick officers' quarters on the west and flags a conflict with the 1855 key. Andreas's page 84 states no material for them at all, and his page 264 - Hubbard's own words - says logs. The conflict was a misreading; the two sources agree."
     },
+    "period_brick": {
+      "value": {
+        "stacks": "soft_mud_red_garrison"
+      },
+      "confidence": "reconstructed",
+      "note": "T-3387: laid in K03's hand-made garrison brick (data/components/prairie_1904/k03_face_brick.json `soft_mud_red_garrison`): a soft, sand-struck, clamp-burnt red in wide lime joints, its colour the sheet's brick row (a shade darker), in the bonded K03 panel the 1904 walls wear, each brick shuffled. That this is brick is the record's construction and the archetype's stack argument; that it was a hand-made soft-mud brick of this colour and bond is the reconstruction (L-k03-period-brick-3387)."
+    },
     "stories": {
       "value": 2,
       "confidence": "reconstructed",
