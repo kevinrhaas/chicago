@@ -4973,9 +4973,9 @@ async function boot() {
           const w = walker.state;
           const from = enteredWorld ? { e: w.e, n: w.n, altitude: w.eyeY - w.groundY, yaw: w.yaw, pitch: w.pitch } : null;
           return { begin(callbacks) {
-            const s = walker.state, to = { e: s.e, n: s.n, altitude: s.eyeY - s.groundY, yaw: s.yaw, pitch: s.pitch };
-            const start = from ?? { e: s.e + Math.sin(s.yaw) * 90, n: s.n - Math.cos(s.yaw) * 90,
-              altitude: 45, yaw: s.yaw, pitch: -20 * DEG };
+            const eye = walker.state, to = { e: eye.e, n: eye.n, altitude: eye.eyeY - eye.groundY, yaw: eye.yaw, pitch: eye.pitch };
+            const start = from ?? { e: eye.e + Math.sin(eye.yaw) * 90, n: eye.n - Math.cos(eye.yaw) * 90,
+              altitude: 45, yaw: eye.yaw, pitch: -20 * DEG };
             return travel.glide(start, to, callbacks, { label: callbacks.label });
           } };
         },
