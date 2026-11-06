@@ -1,0 +1,169 @@
+{
+ "format": "chicago4d_human_portrait_marks_v1",
+ "ticket": "T-3413",
+ "person_id": "glessner_john_j",
+ "scene": "1904",
+ "source": "glessner_commercial_club_1910_presidents_plate",
+ "scan": "https://archive.org/download/commercialclubof00gles/page/leaf95_w3000.jpg",
+ "scan_size_px": [
+  2737,
+  4555
+ ],
+ "crop_px": [
+  202,
+  2337,
+  966,
+  3480
+ ],
+ "_doc": "Where a reader marked Glessner's facial landmarks on the 1910 plate, in pixels of the crop `crop_px` (left, top, right, bottom) of the scan, after a 1.6 px Gaussian blur that removes the halftone screen. `sigma_px` is the reader's own uncertainty: the pupils are the catchlights' centres; the eye corners sit behind the spectacle rims; the mouth and the lip line are under the moustache; the chin's lower edge meets the collar's shadow; the ear is in shadow; the crown's top is the bald scalp's outline, under a little white hair. tools/fit_portrait_face.py fits the face to these marks.",
+ "age_at_picture_years": 61,
+ "age_note": "The photograph is undated and was printed in 1910, when he was 67. It is fitted as his face at the scene date (61, from born 1843): between 61 and 67 the renderer's ageing pair moves these landmarks by under a millimetre, far inside the marks' uncertainty.",
+ "grade": "attested",
+ "basis": "Fitted to a photograph of him showing his whole face (the 1910 Commercial Club plate): the eye spacing, nose, mouth, chin and ear placement are read from it, as far as the shared MakeHuman face axes can express them. Depth is read from a single quarter view, so an axis the marks say little about stays near the town's average (listed as mostly_prior).",
+ "not_modelled": [
+  "round wire spectacles (worn in the photograph)",
+  "a full grey moustache",
+  "white hair at the sides and a bald crown",
+  "his colouring (the plate is a monochrome halftone)"
+ ],
+ "axes": [
+  "nose_length",
+  "nose_width",
+  "nose_depth",
+  "nose_hump",
+  "nose_curve",
+  "nose_tip",
+  "nose_tip_width",
+  "nostrils",
+  "nose_height",
+  "mouth_width",
+  "lip_upper",
+  "lip_lower",
+  "mouth_height",
+  "chin_prominence",
+  "chin_width",
+  "chin_height",
+  "jaw",
+  "prognathism",
+  "cheekbones",
+  "cheek_volume",
+  "cheek_inner",
+  "brow_height",
+  "brow_angle",
+  "brow_ridge",
+  "forehead_slope",
+  "temples",
+  "ear_size",
+  "ear_flap",
+  "ear_lobe",
+  "jowls",
+  "head_shape",
+  "forehead_height"
+ ],
+ "marks": [
+  {
+   "landmark": "pupil_r",
+   "x": 383,
+   "y": 392,
+   "sigma_px": 3
+  },
+  {
+   "landmark": "pupil_l",
+   "x": 511,
+   "y": 382,
+   "sigma_px": 3
+  },
+  {
+   "landmark": "eye_outer_r",
+   "x": 360,
+   "y": 396,
+   "sigma_px": 5
+  },
+  {
+   "landmark": "eye_inner_r",
+   "x": 414,
+   "y": 395,
+   "sigma_px": 5
+  },
+  {
+   "landmark": "eye_inner_l",
+   "x": 483,
+   "y": 387,
+   "sigma_px": 5
+  },
+  {
+   "landmark": "eye_outer_l",
+   "x": 541,
+   "y": 384,
+   "sigma_px": 5
+  },
+  {
+   "landmark": "nasion",
+   "x": 446,
+   "y": 392,
+   "sigma_px": 6
+  },
+  {
+   "landmark": "nose_tip",
+   "x": 470,
+   "y": 494,
+   "sigma_px": 5
+  },
+  {
+   "landmark": "subnasale",
+   "x": 459,
+   "y": 510,
+   "sigma_px": 6
+  },
+  {
+   "landmark": "stomion",
+   "x": 455,
+   "y": 572,
+   "sigma_px": 6
+  },
+  {
+   "landmark": "menton",
+   "x": 475,
+   "y": 638,
+   "sigma_px": 8
+  },
+  {
+   "landmark": "ear_top_r",
+   "x": 175,
+   "y": 391,
+   "sigma_px": 8
+  },
+  {
+   "landmark": "ear_lobe_r",
+   "x": 211,
+   "y": 521,
+   "sigma_px": 10
+  },
+  {
+   "landmark": "vertex",
+   "x": 365,
+   "y": 121,
+   "sigma_px": 8
+  }
+ ],
+ "card": {
+  "_doc": "What the person's card shows (T-3413): `portrait` is cut from the scan at `portrait_from_scan_px` (left, top, right, bottom) and scaled to `size_px`; `model` is tools/portrait_still.mjs's render of the fitted face on `body`, turned to the fit's yaw and framed like the portrait. Hair is left out of the still because the body's own hair is a young man's dark crop, which is not his.",
+  "portrait": "assets/humans/web/portraits/glessner_john_j_portrait.jpg",
+  "portrait_from_scan_px": [
+   282,
+   2377,
+   842,
+   3124
+  ],
+  "model": "assets/humans/web/portraits/glessner_john_j_model.jpg",
+  "size_px": [
+   360,
+   480
+  ],
+  "body": "anonymous_working_driver_1904",
+  "hide": "^hair",
+  "background": "#1c1b18",
+  "distance_m": 0.78,
+  "aim_above_head_m": 0.008
+ }
+}
