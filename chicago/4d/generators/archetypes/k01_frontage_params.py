@@ -1288,7 +1288,8 @@ def _dormer_dress(dr: dict, what: str, sw: float, ring: float, frieze: float) ->
     return {"cornice_m": [h, pj], "return_m": rt, "rake": rake, "pilasters": pl, "cheeks": dr["cheeks"]}
 
 
-def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool = False) -> dict:
+def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool = False,
+                  flat_ok: bool = False) -> dict:
     """A lower-face dormer's numbers (T-2404's crown dormer, T-2411's lower-face ones,
     T-2452's gabled ones): a K06 sash in a stone face `surround_m` round it, its face
     `face_setback_m` in from the fascia's face. `head` is `round` (the default: the sash's
@@ -1301,7 +1302,9 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool
     head = d.get("head", "round")
     if head not in DORMER_HEADS:
         raise ParamError(f"{what}.head {head!r}: one of {', '.join(DORMER_HEADS)}")
-    if head in HIPPED_HEADS and not hip:
+    # T-1890: a flat-capped wall dormer may stand on the main mansard's lower faces too (1801's
+    # third storey over the bow); a hipped one still only on a hip's slope or an attic
+    if head in HIPPED_HEADS and not hip and not (head == "flat" and flat_ok):
         raise ParamError(f"{what}.head {head!r}: a dormer under its own eaves stands on a hip's slope "
                          f"(slope_dormers) or a rear section's attic")
     if head == "hood" and not hood:
@@ -1433,6 +1436,19 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool
         if not 2.0 <= fall <= 15.0:
             raise ParamError(f"{what}.hood_fall_deg {fall}: a flat hood's cap falls 2-15 deg")
         out.update(frieze_m=fz, hood_fall_deg=fall, hip_pitch_deg=fall, head_m=round(sht + fz, 4))
+    if "face_width_m" in d or "face_shift_m" in d:
+        # T-1890: a flat-capped face may be WIDER than its light, a storey of wall carried up
+        # through the lower face with one light in it, the light `face_shift_m` along the face
+        # from its middle (1801's third storey over the bow: about 2.95 m of stone in the Taylor
+        # print and HABS photograph 2, its one light south of the middle in both)
+        if head != "flat":
+            raise ParamError(f"{what}.face_width_m: a face wider than its light is a flat-capped wall dormer's")
+        fw, sh_ = float(d.get("face_width_m", out["width_m"])), float(d.get("face_shift_m", 0.0))
+        if not out["width_m"] <= fw <= 3.5:
+            raise ParamError(f"{what}.face_width_m {fw}: from its light and surround ({out['width_m']} m) up to 3.5 m")
+        if abs(sh_) + out["width_m"] / 2 > fw / 2 + 1e-9:
+            raise ParamError(f"{what}.face_shift_m {sh_}: the light and its surround stay on the face")
+        out.update(width_m=round(fw, 4), light_shift_m=round(sh_, 4))
     return out
 
 
@@ -1942,7 +1958,7 @@ def _mansard_dormers(entries, m: dict, depth: float, width: float, eave: float, 
             continue
         if face not in MANSARD_FACES:
             raise ParamError(f"{what}.face {face!r}: one of {', '.join(MANSARD_FACES)}")
-        d = _round_dormer(e, what, run, hood=True)
+        d = _round_dormer(e, what, run, hood=True, flat_ok=True)
         ax = MANSARD_FACES[face]
         c, r = float(e["along_m"]), d["width_m"] / 2
         lo, hi = -overhang + run + 0.3 + r, lengths[ax] + overhang - run - 0.3 - r
@@ -1951,6 +1967,13 @@ def _mansard_dormers(entries, m: dict, depth: float, width: float, eave: float, 
         foot = mansard_face_height(d["face_setback_m"], m["lower_rise_m"], m["lower_pitch_deg"], m["bulge"],
                                    m["profile"])
         top = foot + d["sill_m"] + d["head_m"]
+        if d["head"] == "flat":
+            # T-1890: its cap is K05's hip at the flat's fall, its eaves the kit's dormer overhang
+            # (as a slope dormer's), and the cap's ridge stays under the curb with the head
+            dp = json.loads((ROOT / "data" / "components" / "prairie_1904" / "k05_roofs.json").read_text())["parts"]["dormer"]
+            do, df = float(dp["overhang_m"]), float(dp["fascia_depth_m"])
+            d = dict(d, overhang_m=do, fascia_m=df)
+            top += df + (r + do) * math.tan(math.radians(d["hip_pitch_deg"]))
         if top > m["lower_rise_m"] - 0.1:
             raise ParamError(f"{what}: its head at {top:.2f} m over the eave meets the curb at {m['lower_rise_m']} m")
         if d["head"] == "hood":

@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_02_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "e3b43b8664e9ebd032ee3065cdda0c749704c13918301bf63d7f3552a0700938",
+  "glb_sha256": "0f424de954346cc9481ebe11c34d41c48e251af28a0c198fdd68e3d0692cc2a4",
   "camera_sha256": "475749e1e90699915d11ebb50d92b46197e764f7d46d08a73a70e5fe6cdc6593",
   "photo_sha256": "c7398dc2aaa4756b623abf4f559ebd98d609dd89f45bec762ade94a7510ac606",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg",
@@ -156,7 +156,11 @@
       "status": "fixed"
     },
     {
-      "what": "the front's third storey over the bow (T-1890, 2026-11-06): behind the bow's balcony this print, like the Taylor print, shows a stone wall carried up a storey at the front with one light in it (about x 1430-1483, y 530-570) under an eave at about y 510-520, the cross roof's slate rising over it, where the build carries the mansard's slate down to the cornice; the Taylor record carries the triangulated eave. Read with care here: this camera puts the build's north-west roof corner about 20 px west of and 55 px under the print's, so it is the Taylor print that sets the numbers",
+      "what": "the front's third storey over the bow (T-1890, 2026-11-06): behind the bow's balcony this print, like the Taylor print, shows a stone wall carried up a storey at the front with one light in it (about x 1430-1483, y 530-570) under an eave at about y 510-520, the cross roof's slate rising over it, where the build carries the mansard's slate down to the cornice; the Taylor record carries the triangulated eave. Read with care here: this camera puts the build's north-west roof corner about 20 px west of and 55 px under the print's, so it is the Taylor print that sets the numbers FIXED (T-1890, 2026-11-06): mansard.dormers[3], the flat-capped stone wall dormer from v 3.9 to the pavilion with its one light south of its middle (see the Taylor record for the numbers). Here the wall, its light and the slate over its eave all render; this camera's own lean (the front's level lines fall to the right in the render where they rise in the print) still sets the eave's line about 20-40 px apart at its ends.",
+      "status": "fixed"
+    },
+    {
+      "what": "the third storey's light's frame (T-1890, 2026-11-06): this print shows the one light behind the bow's balcony in a moulded architrave with lugs at its head and a projecting sill (about x 1430-1485, y 525-575), where the build's light is a plain recess in the wall dormer's face; a visitor would see the frame. The kit's flat-capped wall dormer has no architrave yet (its surround is only the face's own stone)",
       "status": "open"
     }
   ],
