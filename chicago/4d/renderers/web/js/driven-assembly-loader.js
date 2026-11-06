@@ -8,6 +8,7 @@ import { disposeLoadedAsset } from './scene-loader.js';
 import { createDrivenAssembly } from './town-transport.js';
 import { fitHorseSupport } from './transport-support.js';
 import { createDriverLife } from './driver-life.js';
+import { clothHuman } from './fabric.js';
 
 /** Actual portable assets, never an identity/wardrobe or idle-only fallback. */
 export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], humanAssets,
@@ -185,6 +186,8 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
       // T-1790: breathing, the ride, weight shifts, looking around and hands on the
       // reins, layered over the seated clip each frame (driver-life.js). Bound to the
       // clip's first pose; a rig that is not the contract skeleton is left as it was.
+      // T-2804: the driver's plain garments read as cloth (a shader patch, no texture).
+      if (actor.body?.scene) clothHuman(actor.body.scene);
       const life = actor.body?.scene && createDriverLife({ root: actor.root, scene: actor.body.scene, id: instance.person_id ?? row.id,
         faces: actor.body.faces ?? [], gaitCycle_m: horseSpecCopy.stride_m });
       let motion = { distance_m: null, curvature: 0, moving: false };
