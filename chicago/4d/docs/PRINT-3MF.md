@@ -41,6 +41,14 @@ grid. Ridge and hip rolls are tile material too; anything over 8 cm off the deck
 (`--roll-m`) is kept. `--roof-tiles modelled` prints the tiles as modelled. A structure
 with no tile/deck materials by those names keeps its roof as modelled.
 
+Sheet-metal roofs take the same courses (the owner, 2026-11-06, of the copper roof on
+Glessner's dining bay: *"Yes the turret should match"*). Its standing seams are 2 cm
+wide and 1.6 cm proud, 0.06 mm on the print; voxelized they came out as lines of
+one-voxel nubs that the thickener then swelled into beads. So for `--sheet-material`
+(default `copper`; `none` to skip) the broad sloped sheets join the deck and take the
+courses, the narrow seams and folds lying on them go, and the metal's other pieces
+(finials, flashing, cresting) stay as modelled.
+
 ## What it keeps and drops
 
 - **Dropped by material name**: lawn, turf, drive, paving, ground, water, vines, ivy,

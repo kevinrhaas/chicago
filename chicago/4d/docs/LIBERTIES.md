@@ -40254,6 +40254,7 @@ The 1835 Western Hotel yard horse's gentle head/neck look and body weight shifts
 
 **Livery supplement, 2026-11-06 (T-3398):** The owner: *"his clothing is form fitting and he looks too smooth and not real"*. Hans now wears, over the unchanged donor shirt, waistcoat and pantaloons, a coachman's long double-breasted box coat with a turned-up collar and a shoulder cape, two rows of three brass buttons and a silk top hat; the donor's pale pantaloons are dyed a near-black livery cloth. `tools/human_driver_livery_1904.py` builds the coat's body by standing the shirt off by a wool's loft and smoothing the anatomy out of it, and hangs the skirt and cape as cloth dropped under gravity onto his seated body and the brougham's measured box, so the folds are where the cloth had to fall. **What is reconstructed.** All of it: that he wore livery on the box, the coat's cut, length, cape and colour, the buttons' number and metal, the hat's shape and size. Box coats, capes and top hats were common wear for a private brougham's coachman around 1900, but no photograph, inventory or record of the Otis household's livery or of Hans Johnson's clothes is claimed. **How to resolve:** a photograph of a Prairie Avenue coachman on the box, or the household's livery, would set the cut and colour.
 **Wardrobe kit supplement, 2026-11-06 (T-3409):** The owner agreed a plan for photographic people that starts with clothes. `tools/human_driver_livery_1904.py` is replaced by a kit (`tools/wardrobe_kit.py`, run by `tools/human_wardrobe.py`) that dresses any portable human from a recipe in `data/humans/wardrobes/`; it remade Hans's livery byte for byte before anything else changed. Every garment in a recipe now states its grade and its sources or this liberty, and the check refuses one with neither. **Spring tails.** Hans's cape and the part of his coat skirt that hangs below the cushion now share their weight with nine extra bones (five round the cape's collar, four on the thighs) that the renderer swings as damped springs behind the driver's motion, 1.1 to 1.5 swings a second, at most 6 to 12 degrees, settling back to the drape at a steady pace. Their number, placement, stiffness, damping and limits are reconstructed authoring choices, not a measurement of cloth. **Otis Bardwell on the 1835 wagon** now wears, over his unchanged shirt, waistcoat and trousers, a waist-length wool round jacket closed with four horn buttons and a low-crowned, broad-brimmed felt hat (recorded under L418, his workwear liberty). **How to resolve:** as above; a measured cloth study would set the tails' stiffness and damping.
+**Photo-match supplement, 2026-11-06 (T-3422):** The people photo rig (T-3417) laid Hans beside three period pictures of coachmen on the box (the `coachman_1904` reference set: W. H. Rau 1902, Griffith & Griffith 1905, Edward Penfield) and read him as differing: the coat followed his chest and arms, it showed no gathered folds over the lap, and his hands were bare where the pictures show gloves. The wardrobe kit now stands the box coat off him as a heavy coat would hang, fuller at the chest and square at the shoulder, its sleeves loose to the cuff with a few creases at the crook of the elbow; the coat's skirt is buttoned closed over his lap for its first 36 cm, so it lies across his thighs in gathered folds and parts only below the knees; and he wears pale driving gloves with a short gauntlet over the shirt cuff, his hands closed on the reins. **What is reconstructed.** All of it, as above: the amount of ease, the folds' size and spacing, how far the skirt is closed, and the gloves' colour and cut. Pale gloves and a coat buttoned over the lap are what the reference set's pictures show other coachmen wearing; nothing records Hans Johnson's own. **How to resolve:** as above.
 
 **Recorded:** 2026-11-02.
 
@@ -41165,6 +41166,25 @@ of its person replaces the drawn face and carries the picture's grade instead.
 record of their height or build.
 **Ticket:** T-3412.
 **Recorded:** 2026-11-06 (T-3412).
+
+### L-pullman-gate-stone-3273 — The Pullman glasshouse's 18th Street gate drawn in a dark stone of its own
+**Recorded:** 2026-11-06.
+
+**Decision:** re-reviewing both of the conservatory's match records (T-3273), the 18th Street gate's two
+piers, their stepped caps and their swept wings read dark in both pictures: Lowe's c. 1897 print shows the
+east pier near black in open light, and the 1894 Inland plate a deep grey, each well under the podium's
+dressed stone and the lodge's front beside it. They had been drawn in the kit's pale buff stone, the
+podium's own, so the gate read as the palest thing in the foreground. The gate is now drawn in a stone of
+its own, a dark brown-grey (`gate.color` on the record), and nothing else on the house changes.
+**What is read, not invented.** That the gate prints much darker than the conservatory's podium and the
+lodge in both pictures, in shade and in light. **What is invented.** The stone and its hue: both pictures
+are monochrome, and a dark print can be a red granite, a brownstone or a weathered sandstone. A
+brown-grey was chosen as the tone that sits nearest every one of those; the house across the estate is
+recorded in a fawn sandstone, which the gate is not assumed to share.
+**How to resolve:** a written description of the gate or the estate's walls, or a colour picture of them.
+**Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
+**Ticket:** T-3273.
+**Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
 
 ### L-k01-1729-pullman-lantern-1881 — 1729 Prairie's hanging lantern beside the portico and the banded pier at the entrance's inner angle, read off the 1890 Albertype plate
 

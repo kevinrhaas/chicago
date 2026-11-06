@@ -764,9 +764,10 @@ def resolve_glb(args):
     return path
 
 
-def _proud_of(tris, deck, min_m, step=0.05):
-    """Which triangles stand more than min_m off the deck (along its normal), or have no
-    deck under them at all: a ridge roll or hip cap, not a tile lying on the roof."""
+def _offset_from(tris, deck, step=0.05, lateral=False):
+    """Each triangle's centre height off the nearest point of the deck, along the deck's
+    upward normal (real m; Y-up glTF triangles), and whether no deck lies within 0.5 m;
+    with `lateral`, also how far it lies across the deck from that point."""
     from scipy.spatial import cKDTree
 
     pts, nrm = [], []
@@ -789,7 +790,41 @@ def _proud_of(tris, deck, min_m, step=0.05):
     far = ~np.isfinite(dist)
     idx = np.where(far, 0, idx)
     off = np.einsum("ij,ij->i", centre - pts[idx], nrm[idx])
+    if lateral:
+        return off, far, np.sqrt(np.maximum(np.where(far, np.inf, dist) ** 2 - off ** 2, 0))
+    return off, far
+
+
+def _proud_of(tris, deck, min_m, step=0.05):
+    """Which triangles stand more than min_m off the deck (along its normal), or have no
+    deck under them at all: a ridge roll or hip cap, not a tile lying on the roof."""
+    off, far = _offset_from(tris, deck, step)
     return far | (off > min_m)
+
+
+def split_sheet_roof(tris, seam_m=0.04, min_width_m=0.05):
+    """A sheet-metal roof (copper) as (sheet, seam) masks over its Y-up triangles.
+
+    The sheets are its broad sloped faces (15 to 75 deg, the slopes that take courses, at
+    least `min_width_m` across); the standing seams and folded stock are the narrow
+    pieces lying on a sheet, over it and at most `seam_m` proud of it. A seam is 2 cm wide and 1.6 cm tall
+    in the model, 0.06 mm on the print: rasterised it comes out as a line of one-voxel
+    nubs that the thickener then swells into beads. Everything else made of the metal
+    (flashing, finials, cresting, gutters) is neither and stays as modelled.
+    """
+    a, b, c = tris[:, 0], tris[:, 1], tris[:, 2]
+    n = np.cross(b - a, c - a)
+    area2 = np.linalg.norm(n, axis=1)
+    up = np.abs(n[:, 1]) / np.maximum(area2, 1e-12)            # glTF Y-up
+    longest = np.max(np.stack([np.linalg.norm(b - a, axis=1), np.linalg.norm(c - b, axis=1),
+                               np.linalg.norm(a - c, axis=1)]), axis=0)
+    narrow = area2 / np.maximum(longest, 1e-12) < min_width_m
+    sheet = (up > math.cos(math.radians(75))) & (up < math.cos(math.radians(15))) & ~narrow
+    seam = np.zeros(len(tris), bool)
+    if sheet.any() and narrow.any():
+        off, far, across = _offset_from(tris[narrow], tris[sheet], lateral=True)
+        seam[narrow] = ~far & (off > -0.005) & (off <= seam_m) & (across <= 0.05)
+    return sheet, seam
 
 
 def _z_up(tris):
@@ -812,7 +847,6 @@ def build(args):
         if tile_names and deck_names:
             exclude += tuple(sorted(tile_names))
             deck_raw = np.concatenate([t for n, t in parts if n in deck_names])
-            deck = _z_up(deck_raw)
             # Ridge and hip rolls are made of the same tile material: keep whatever
             # stands well off the deck, so only the courses themselves are replaced.
             rolls = [(f"{n} (ridge rolls)", t[m]) for n, t in parts if n in tile_names
@@ -821,6 +855,22 @@ def build(args):
             log(f"uniform roof: tiles {sorted(tile_names)} replaced by courses on {sorted(deck_names)}; "
                 f"kept {sum(len(t) for _n, t in rolls):,} ridge/hip roll triangles standing over "
                 f"{args.roll_m} m off the deck")
+            # Sheet-metal roofs (Glessner's copper dining bay and courtyard hood) take
+            # the same courses: their sheets join the deck, their seams go.
+            sheet_names = {n for n in names if any(fnmatch.fnmatch(n.lower(), g.lower())
+                                                   for g in args.sheet_material)} - tile_names - deck_names
+            decks, split = [deck_raw], []
+            for n, t in parts:
+                if n in sheet_names:
+                    sheet, seam = split_sheet_roof(t)
+                    decks.append(t[sheet])
+                    split.append((n, t[~seam]))
+                    log(f"uniform roof: {n}: {int(sheet.sum()):,} sheet triangles take courses, "
+                        f"{int(seam.sum()):,} seam triangles dropped")
+                else:
+                    split.append((n, t))
+            parts = split
+            deck = _z_up(np.concatenate(decks))
         else:
             log("uniform roof: no tile and deck materials found by name; roof kept as modelled")
     kept, dropped = select(parts, exclude, tuple(args.include))
@@ -916,6 +966,9 @@ def main(argv=None):
                    help="material glob of the roof tiles to replace (default roof_plane_*)")
     p.add_argument("--deck-material", action="append", default=None,
                    help="material glob of the roof deck the courses are laid on (default roof_plane)")
+    p.add_argument("--sheet-material", action="append", default=None,
+                   help="material glob of sheet-metal roofs whose sheets take the same courses and "
+                        "whose seams are dropped (default copper; 'none' for none)")
     p.add_argument("--roll-m", type=float, default=0.08,
                    help="tile-material pieces standing more than this (real m) off the deck are "
                         "ridge/hip rolls and are kept (default 0.08)")
@@ -929,6 +982,7 @@ def main(argv=None):
     args = p.parse_args(argv)
     args.tile_material = args.tile_material or ["roof_plane_*"]
     args.deck_material = args.deck_material or ["roof_plane"]
+    args.sheet_material = [] if args.sheet_material == ["none"] else (args.sheet_material or ["copper"])
     report = build(args)
     if args.quiet:
         print(json.dumps(report, indent=2))
