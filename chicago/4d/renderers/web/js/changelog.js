@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2713, ts: '2026-11-06T15:17:19.164Z', date: 'Nov 6, 2026, 9:17 AM CT', title: 'People have real hair, whiskers and wet eyes', kind: 'improvement',
+    items: [
+      'Up close, a person\'s hair is no longer one smooth cap: strands are grown over it at load, combed by the cut of their year, with broken edges and a sheen along the strands.',
+      'Hans the 1904 coachman wears a short back and sides and is clean-shaven, like the coachmen in the period photographs; Otis Bardwell in 1835 wears his hair brushed forward with side whiskers. The cuts are reconstructed choices, listed in Liberties.',
+      'Hair stays under a hat: nothing shows through Hans\'s top hat.',
+      'Eyes catch a small sharp highlight on a domed cornea, and the whites are shaded toward the corners.',
+    ] },
   { v: 2712, ts: '2026-11-06T15:13:03.188Z', date: 'Nov 6, 2026, 9:13 AM CT', title: 'Phones draw house shadows from simpler shapes', kind: 'improvement',
     items: [
       'On a phone, each house now casts its sun shadow from one simplified copy of itself, near as well as far. Mouldings, sash and trim are smaller than one point of the phone\'s shadow map, so they never changed a shadow anyway. Looking down Prairie Avenue from 1801 or across 18th Street, the shadow pass draws about 56% fewer house triangles, and fewer than 1 pixel in 1,000 changes. Desktops and the Full and Balanced settings are unchanged.',
