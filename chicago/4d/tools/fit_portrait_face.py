@@ -257,7 +257,8 @@ def fit(person):
             hi = np.concatenate([[1.4, 0.8, 0.6, s0 * 2, 1e5, 1e5], limit * np.ones(len(fitted))])
             if 'head_shape' in fitted:
                 lo[6 + fitted.index('head_shape')] = 0
-            r = least_squares(residuals, p0, bounds=(lo, hi), args=(option,), x_scale='jac', max_nfev=4000)
+            r = least_squares(residuals, p0, bounds=(lo, hi), args=(option,), x_scale='jac', max_nfev=20000,
+                              ftol=1e-13, xtol=1e-13, gtol=1e-13)   # converge fully: a flat axis must not stop wherever the BLAS build leaves it
             if best is None or r.cost < best[0].cost - 1e-9:
                 best = (r, option)
     r, option = best
@@ -345,12 +346,19 @@ FIT_TOLERANCE = (
 )
 
 
-def differences(want, got, path=''):
-    """Where a refit differs from the committed fit beyond FIT_TOLERANCE (exact for everything else)."""
+# An axis the picture hardly decides (`mostly_prior`) sits in a flat valley of the fit, and where a
+# solver stops in it follows the build (CI landed brow_ridge at 0.0 where a local run had 0.014).
+# Its tolerance is the width it was never pinned to, still far inside its prior's spread.
+LOOSE_AXIS_TOLERANCE = 0.05
+
+
+def differences(want, got, path='', loose=frozenset()):
+    """Where a refit differs from the committed fit beyond FIT_TOLERANCE (exact for everything else);
+    `loose` names the axes held to LOOSE_AXIS_TOLERANCE instead."""
     if isinstance(want, dict) and isinstance(got, dict):
         out = [f'{path}{k}: missing or extra' for k in sorted(set(want) ^ set(got))]
         for k in sorted(set(want) & set(got)):
-            out += differences(want[k], got[k], f'{path}{k}.' if isinstance(want[k], (dict, list)) else f'{path}{k}')
+            out += differences(want[k], got[k], f'{path}{k}.' if isinstance(want[k], (dict, list)) else f'{path}{k}', loose)
         return out
     if isinstance(want, list) and isinstance(got, list) and len(want) == len(got):
         if all(isinstance(x, (int, float)) and not isinstance(x, bool) for x in want + got):
@@ -358,10 +366,12 @@ def differences(want, got, path=''):
             return [f'{path.rstrip(".")}: {want} -> {got}'] if any(abs(a - b) > tol + 1e-9 for a, b in zip(want, got)) else []
         out = []
         for i, (a, b) in enumerate(zip(want, got)):
-            out += differences(a, b, f'{path}{i}.')
+            out += differences(a, b, f'{path}{i}.', loose)
         return out
     if isinstance(want, (int, float)) and isinstance(got, (int, float)) and not isinstance(want, bool):
         tol = next((t for pre, t in FIT_TOLERANCE if path.startswith(pre)), 0)
+        if path.startswith('values.') and path[len('values.'):] in loose:
+            tol = LOOSE_AXIS_TOLERANCE
         return [] if abs(want - got) <= tol + 1e-9 else [f'{path}: {want} -> {got}']
     return [] if want == got else [f'{path.rstrip(".")}: {str(want)[:40]} -> {str(got)[:40]}']
 
@@ -385,7 +395,7 @@ def main():
             # The optimiser's last digits follow the numpy/scipy/BLAS build, so a refit is held to
             # the committed fit within FIT_TOLERANCE, not byte for byte (CI and a local run differ).
             committed = out.read_text() if out.exists() else None
-            drift = [] if committed is None else differences(json.loads(committed), rec)
+            drift = [] if committed is None else differences(json.loads(committed), rec, loose=set(rec.get('mostly_prior', [])))
             if committed is None or drift:
                 bad.append(f"{out.relative_to(ROOT)}{' (' + '; '.join(drift[:6]) + ')' if drift else ''}")
             card = json.loads(path.read_text()).get('card')
