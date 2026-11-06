@@ -1134,6 +1134,12 @@ const DETAIL_DECLARED = {
               // (far-colour.js). `light` only: it is the floor that has to stay
               // inside its own ceiling, and `full`/`balanced` keep every piece exact.
               farColourLod: true,
+              // T-3249: and in the sun's pass, on a phone, a structure casts from
+              // one clustered texel twin of all its pieces (far-shadow.js) wherever
+              // the twin's edge moves no more than one texel of this tier's map, near
+              // as well as far: detail under a texel costs the pass triangles and
+              // changes no texel. `full` and `balanced` keep T-3286's screen bound.
+              shadowTwinsByTexel: true,
               furnitureReachM: FURNITURE_REACH_LIGHT_M,
               groundDetailReachM: GROUND_DETAIL_REACH_LIGHT_M,
               // T-1959: NO WOODPILES AT `light`. They are one mesh for the whole
@@ -2206,7 +2212,7 @@ async function boot() {
   // T-2529: one switch for every structure batch, old and rebuilt alike; the
   // detail tier sets it (applyShadowTier) and the sun is read when the shadow
   // map is drawn. See shadow-casters.js for the test and the reading behind it.
-  const shadowCasters = { on: false, culled: 0, sun: () => world.direction,
+  const shadowCasters = { on: false, culled: 0, sunTexelM: 0, sun: () => world.direction,
     light: () => world.light, fresh: () => detailLevel === 'full' && governor.shadowFresh };
   // T-3312: the same kind of switch for the colour pass's far twins (far-colour.js),
   // shared by every structure batch, old and rebuilt alike; applyShadowTier sets it.
@@ -2937,9 +2943,12 @@ async function boot() {
    */
   function applyShadowTier(level) {
     const want = DETAIL[level] ?? DETAIL.full;
-    world.setShadowRig(want.shadowReachM);
+    const rig = world.setShadowRig(want.shadowReachM);
     const casts = want.furnitureCastsShadow !== false;
     shadowCasters.on = want.castersTowardView === true;
+    // T-3249: where the tier says so, a structure piece casts from its clustered
+    // twin wherever the twin's edge moves no more than one texel of this map.
+    shadowCasters.sunTexelM = want.shadowTwinsByTexel === true ? rig.texelM : 0;
     farColourTier.on = want.farColourLod === true;
     for (const name of FURNITURE_LAYERS) {
       const group = scene3d.getObjectByName(name);
@@ -2968,7 +2977,8 @@ async function boot() {
       });
     }
     return { reachM: want.shadowReachM, furnitureCastsShadow: casts,
-      castersTowardView: shadowCasters.on, farColourLod: farColourTier.on };
+      castersTowardView: shadowCasters.on, farColourLod: farColourTier.on,
+      shadowTwinsByTexel: shadowCasters.sunTexelM > 0 };
   }
   applyShadowTier(detailLevel);
 
