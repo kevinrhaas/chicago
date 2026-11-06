@@ -2,7 +2,8 @@
  "id": "hans_box_livery_1904",
  "tickets": [
   "T-3398",
-  "T-3409"
+  "T-3409",
+  "T-3422"
  ],
  "scene": "1904",
  "asset_id": "anonymous_working_driver_1904",
@@ -125,6 +126,16 @@
    "roughness": 0.35,
    "metalness": 0.9,
    "double_sided": false
+  },
+  "accessory__pale_driving_gloves": {
+   "color": [
+    0.64,
+    0.62,
+    0.56
+   ],
+   "roughness": 0.85,
+   "metalness": 0,
+   "double_sided": false
   }
  },
  "recolor_body_materials": {
@@ -151,6 +162,27 @@
     "grade": "reconstructed",
     "liberty": "L-driven-town-circuits-2804",
     "note": "A coachman's long box coat, its body and sleeves stood off the shirt by a wool's loft, with a turned-up collar."
+   },
+   "ease": {
+    "chest_m": 0.03,
+    "front_bias": 0.6,
+    "chest_band_y_m": [
+     1.98,
+     2.3
+    ],
+    "band_fade_m": 0.08,
+    "sleeve_m": [
+     0.018,
+     0.01
+    ],
+    "shoulder_m": 0.018,
+    "shoulder_reach_m": 0.08,
+    "hull_iterations": 40
+   },
+   "elbow_creases": {
+    "amp_m": 0.006,
+    "wavelength_m": 0.045,
+    "reach_m": 0.09
    }
   },
   {
@@ -225,6 +257,18 @@
       "max_deg": 6
      }
     ]
+   },
+   "closed_front_m": 0.36,
+   "lap_folds": {
+    "amp_m": 0.02,
+    "wavelength_m": 0.075,
+    "radius_m": 0.3,
+    "rows_m": [
+     0.05,
+     0.55
+    ],
+    "facing_up": 0.0,
+    "seed": 3
    }
   },
   {
@@ -372,6 +416,21 @@
     "grade": "reconstructed",
     "liberty": "L-driven-town-circuits-2804",
     "note": "Two rows of three brass livery buttons."
+   }
+  },
+  {
+   "name": "driving_gloves",
+   "kind": "gloves",
+   "material": "accessory__pale_driving_gloves",
+   "from": "body_0",
+   "loft_m": 0.0025,
+   "gauntlet_m": 0.12,
+   "gauntlet_flare_m": 0.014,
+   "smooth_iterations": 6,
+   "provenance": {
+    "grade": "reconstructed",
+    "liberty": "L-driven-town-circuits-2804",
+    "note": "Pale driving gloves with a short gauntlet over the shirt cuff."
    }
   }
  ]
