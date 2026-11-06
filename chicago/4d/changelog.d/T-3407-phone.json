@@ -1,8 +1,0 @@
-{
-  "title": "1812 phones load the officer's garden only when it comes into view",
-  "kind": "fix",
-  "items": [
-    "On a phone, the commanding officer's garden in 1812 is laid out the first time it comes into view, not at load, so 1812 starts in less memory.",
-    "Phones also draw the garden with lighter soil, leaf textures and plant models. Computers are unchanged."
-  ]
-}
