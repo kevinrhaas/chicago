@@ -776,18 +776,35 @@
         },
         "boundary": {
           "value": {
-            "layout": "open",
+            "layout": "stone_coping_wall",
+            "street_line_m": 3.47,
             "lot_s_m": [
               -0.15,
               8.89
+            ],
+            "thickness_m": 0.35,
+            "chamfer_m": 0.05,
+            "runs": [
+              {
+                "to_s_m": 4.65,
+                "height_m": 0.35
+              },
+              {
+                "to_s_m": 6.85,
+                "opening": true
+              },
+              {
+                "to_s_m": 8.89,
+                "height_m": 0.35
+              }
             ]
           },
-          "confidence": "inferred",
+          "confidence": "reconstructed",
           "sources": [
             "inland_architect_1890_01_mcbirney_residence",
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "T-3215: no boundary across the front. The Inland Architect's January 1890 photograph of the McBirney house (data/reference_views/house_1625_prairie/inland_architect_front.json) shows the front yard open from the public walk to the stone front, with no fence, wall, coping or gate across it; the paling fence it shows past the house's corner stands along the open ground next door, which the match record rules the lot's and not the house's (status 'not shown'), so it is not built. Carried to 1904 on that photograph, fourteen years before the scene, so INFERRED. The lot's sides are parcel prairie_1625's street corners (data/street_grid/1904.json) in this frame, s -0.15 and 8.89."
+          "note": "T-3394. The owner, 2026-11-05, standing at 1625 looking north: \"the bulk of these in the 1600 block are missing their street fences/borders\" (T-3394). 1625's January 1890 Inland Architect photograph shows the front open to the walk, fourteen years before the scene; the owner's ruling over it is recorded as `owner ruling` in data/reference_views/house_1625_prairie/inland_architect_front.match.json. Built as the district's own street border: a low squared stone coping on the street line, its street face on the public walk's inner edge, 0.35 m high and 0.35 m through with its arris chamfered 0.05 m, as the 1700 block's unpictured fronts are built (T-3205: 1700's Chicagology photograph, 1721's 1891 plate, 1736's c. 1890 photograph and its surviving curbstone), and as the lot-line coping read along the walk's inside edge in Views of Chicago (1905) and the Flinn view (docs/RESEARCH/prairie_1904_street_section.md); cut for the walk square to the stair, the opening the walk's (or the stoop's) width and 0.3 m either side. Here the line stands 3.47 m before the street front (3.78 m to the public walk, less the 0.31 m the district's copings stand inside it), open s 4.650-6.850 on the stair's axis (s 5.75). The lot's sides stay parcel s -0.15 and 8.89. RECONSTRUCTED: the coping, its line, height and section (liberty L-k11-coping-1600-east-3394). Replaces T-3215/T-3216's open front."
         },
         "yard": {
           "value": {
