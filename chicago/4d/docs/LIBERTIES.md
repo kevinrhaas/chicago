@@ -41202,3 +41202,61 @@ recorded in a fawn sandstone, which the gate is not assumed to share.
 **Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
 **Ticket:** T-3273.
 **Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
+
+### L-k01-1729-pullman-lantern-1881 — 1729 Prairie's hanging lantern beside the portico and the banded pier at the entrance's inner angle, read off the 1890 Albertype plate
+
+**Decision:** a hanging lantern on a wrought-iron arm is hung off the entrance part's south return
+(the 1.6 m face looking toward 18th Street, s 8.8), its axis 1.1 m out from the main wall and 0.42 m
+off the return, its arm at 6.15 m and its foot at 5.15 m: a bell cap widening down to a 0.66 m brim
+over a glazed body tapering in, a base and a drop finial, 1.0 m in all (`wall_lanterns`, a new K01
+option, k01_wall_lanterns). A banded pier, 0.61 m broad, is set on the main wall at the entrance's
+inner south angle (s 8.8-9.41, `street_front_pavilions`).
+**What is read, not invented.** The 1890 Albertype plate (Prairie library
+a16-albertype-1890-pullman-residence; it has no record in `data/sources`), through its solved camera
+(`data/reference_views/pullman_house_1729_prairie/albertype_1890.json`): a dark bell-shaped fitting
+just south of the portico under the belt course (x 1140-1153, y 473-497 px, about 0.7 m across and
+1 m tall at 22 px a metre) between two banded piers (x 1126-1138 and 1158-1168). The plate's pier, gap
+and pier, 17, 15 and 15 px, fall on the entrance part's south corner pilaster, its return and the
+main wall just south of the angle (16, 17 and 16 px as built), 20-26 px left of the plate as the
+camera reads everything on this front; so the gap is the return, the lantern hangs off it, and the
+second pier is at the inner angle.
+**What is invented.** The lantern's profile (how the bell curves, the glazing's taper, the base and
+the finial), its eight sides, its dark glass, and the arm's square section with a diagonal brace and
+an upturned end; how far out along the return the arm is fixed (read to about 0.3 m through a camera
+that sees the return at a steep angle); the pier's breadth (built at about the kit's least, 0.61 m,
+to clear the big principal-storey light's sill table, where the plate's 15 px would hold 0.8 m); and
+the lantern's standing in 1904, which the 1901 Detroit print neither shows nor rules out (the stretch
+is under ivy there).
+**How to resolve:** a nearer view of the portico's south side (the Beman-addition views, CHM i70232),
+or a close photograph of the entrance, which would draw the lantern's shape and its bracket.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg`, with its match record.
+**Recorded:** 2026-11-06 (T-1881).
+
+### L-k01-1919-range-mullions-3354 — 1919 Prairie's middle range's street face lit by a two-light stone-mullioned window in each storey, off the Gatlin plates
+
+**Decision:** Through their solved cameras, the 1919 programme plate and the 1913 Almanac plate both draw
+a pair of pale lights either side of a dark mullion, in both storeys, in the 3.1 m street face the middle
+range stands out north of the front block, where the record had bare brick. K01 now cuts a rear wing's
+lights as a stone-mullioned group where the record names the side (`rear_wings[].mullioned`,
+`k01.opening.wing_mullioned`): the window kit's grouped flat-headed K06 variant, one hole to a light so the
+brick between them stands behind the mullion's stone, a dressed stone up the mullion from sill to head and
+one stone lintel over the group in place of K03's brick head. 1919's middle range
+(`marshall_field_jr_house_1919_prairie`) carries one such window
+in each storey at s 1.6 m along that face (the kit's paired flat sash, two 0.8 m lights either side of a
+0.2 m mullion, 1.8 m across): through the 1919 programme camera it lands within about 0.1 m of the plate's
+pair, and the 1913 plate draws the pair about 0.5 m nearer the north corner, which two fits disagree about.
+**What is read, not invented.** That the face is lit; that each storey's window is a pair of lights under one
+head with a mullion between; the pair's place along the face and its overall width (about 1.8-1.9 m).
+**What is invented.** The lights' 0.8 m width and one-over-one glazing (the plates resolve no glazing bar);
+their sill and head lines, which are the range's own storeys'; the mullion's 0.2 m; the 0.3 m lintel running
+0.1 m past the group; the stones' 0.03 m projection; that the head is a stone lintel and not a brick arch
+(the halftones draw the face pale and too soft to tell).
+**What is not built.** Any change to the middle range's north face: neither plate resolves a light in it
+(the 1919 plate draws it dark under ivy, the 1913 plate in shade), so its two single sashes stay the kit's;
+the narrow lights the 1913 plate draws just west of the corner block fall on the rear range's 1.7 m street
+face, where the record has bare brick and which its quoin and its junction leave 0.8 m to light; the rear
+range's own gable, still about 20-35 px (1-2 m) left of the plates' second gable in all three.
+**How to resolve:** a picture of the flank at closer range, or the plates at a finer screen.
+**Ticket:** T-3354 (piece 2 of T-3338).
+**Recorded:** 2026-11-06 (T-3354).

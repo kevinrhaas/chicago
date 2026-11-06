@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "1df1feeedb8007fd96c1a65f300a263369f33daf8068f6b1156beca070f0f493",
+  "glb_sha256": "60ffbd8ce96c0eee6d420b4fd463bb8c821c9f6e70923fc78353c7e11430a8b5",
   "camera_sha256": "9899de4e97306a9d591d77b9ef34cf6387660f6973574193e6da723d78e179a8",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_flora": {
@@ -319,6 +319,11 @@
       "what": "the big pedimented dormer and its column of round-arched lights at x 460-466, and the narrow south bay with its smaller dormer (x 502-528): round 3 had the big column at v 14.45 (x 509) and no south bay",
       "status": "fixed",
       "how": "T-1881 (2026-11-02): the Prairie front re-divided to the photographs: the north block v 0-5.0, the entry v 4.95-8.8 on the door at v 6.875 (the gate's axis), the south part v 8.8-17.93 on the main wall with the big column and its pedimented dormer at v 11.225 and the narrow south column (lights at v 15.45, a small dormer at v 14.8) restored (L-pullman-1729-three-part-front-1881); through this camera the render's big dormer at x 458 and the narrow column's light at x 523"
+    },
+    {
+      "what": "the hanging lantern off the entrance part's south return (wall_lanterns), which the render draws beside the portico's south column under the balcony, where the print shows only the ivy mantle",
+      "status": "within tolerance",
+      "how": "T-1881 (2026-11-06): built off the 1890 Albertype plate, which draws it plainly; in this 1901 print the stretch is under dense ivy, which could hide a 0.66 m fitting or may mean it was gone. The two pictures disagree, so it is within tolerance under the T-3153 bar and the plate, the clearer view of it, governs."
     },
     {
       "what": "T-3429 (2026-11-06): the parkway elms are bare round wood now, twig forking off twig, where T-1934's painted twig cards stood; read against the print again, the verdict is kept.",

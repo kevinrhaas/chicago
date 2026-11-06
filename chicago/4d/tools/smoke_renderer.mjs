@@ -12699,7 +12699,7 @@ for (const [label, viewport, touch] of [
 
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
     const brightOff = await page.evaluate((g) => window.__chicago4d.capture(g), BRIGHT_AID_GRID);
-    const brightSet = await page.evaluate(() => window.__chicago4d.setBrightness(1));
+    const brightSet = await page.evaluate(() => window.__chicago4d.setBrightness(2));
     const brightOn = await page.evaluate((g) => window.__chicago4d.capture(g), BRIGHT_AID_GRID);
     const exposureOn = await page.evaluate(() => window.__chicago4d.exposure);
     const dBright = signatureDistance(brightOff, brightOn);
@@ -12714,8 +12714,10 @@ for (const [label, viewport, touch] of [
     const exposureRestored = await page.evaluate(() => window.__chicago4d.exposure);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
 
+    // T-3428: the top is two stops, of which the exposure takes half (world.js
+    // § BASE_EXPOSURE) — so the exposure at the top is still the old one-stop 2x.
     check(`${label}: raising the brightness aid reaches the render`,
-      brightSet === 1 && brightClamped === 1
+      brightSet === 2 && brightClamped === 2
       && Math.abs(exposureOn - BASE_EXPOSURE * 2) < 1e-6
       && dBright.worst >= BRIGHT_AID_MIN_WORST && dBright.mean >= BRIGHT_AID_MIN_MEAN,
       `set to ${brightSet} stop (9 clamps to ${brightClamped}), exposure ${exposureOn}: `
@@ -12727,7 +12729,7 @@ for (const [label, viewport, touch] of [
       `brightness ${brightRestored} stops, exposure ${exposureRestored}, `
       + `residual mean ${dBrightBack.mean?.toFixed(2)}, worst-cell delta `
       + `${dBrightBack.worst}`);
-    console.log(`        brightness aid: +1 stop delta mean ${dBright.mean?.toFixed(2)} / worst `
+    console.log(`        brightness aid: 4x delta mean ${dBright.mean?.toFixed(2)} / worst `
       + `${dBright.worst} at ${BRIGHT_AID_GRID}²; restored residual mean `
       + `${dBrightBack.mean?.toFixed(2)} / worst ${dBrightBack.worst}`);
 
@@ -20708,6 +20710,52 @@ for (const [label, viewport, touch] of [
           && inspectTabs1904.story && inspectTabs1904.newOpensOn === 'overview' && inspectTabs1904.sameKeeps === 'design'
           && inspectTabs1904.keith && inspectTabs1904.coleman,
           JSON.stringify(inspectTabs1904));
+        // >>> T-3430: the People app is a directory. A search finds a household and a person; a
+        // household opens its own card (the scene-date reading, family, Go to house); a person
+        // opens their full card in place; Back returns through the cards to the list, its search kept.
+        const peopleDir1904 = await page.evaluate(async () => {
+          const a = window.__chicago4d;
+          const wait = (f, n = 100) => new Promise(async (res) => { for (let i = 0; i < n && !f(); i++) await new Promise((r) => setTimeout(r, 100)); res(f()); });
+          const root = () => document.getElementById('nav-app-people');
+          await a.navigator.select('people');
+          a.navigator.open(2);
+          await wait(() => !!root()?.querySelector('.ppl-search'));
+          const input = root().querySelector('.ppl-search');
+          const out = { status: root().querySelector('.ppl-status')?.textContent ?? '' };
+          input.value = 'roloson';
+          input.dispatchEvent(new Event('input', { bubbles: true }));
+          out.households = [...root().querySelectorAll('.ppl-results .ppl-row .nav-person-name')].map((n) => n.textContent.trim());
+          root().querySelector('[data-ppl-seg="people"]').click();
+          out.people = [...root().querySelectorAll('.ppl-results .ppl-row .nav-person-name')].map((n) => n.textContent.trim());
+          root().querySelector('[data-ppl-seg="households"]').click();
+          root().querySelector('.ppl-results .ppl-row')?.click();
+          await wait(() => !!root().querySelector('.ppl-hh-card .ppl-when .insp-summary'));
+          const hh = root().querySelector('.ppl-hh-card');
+          out.household = { listHidden: !!root().querySelector('.ppl-dir')?.hidden, name: hh?.querySelector('.insp-name')?.textContent ?? '',
+            when: /Blue Book/.test(hh?.querySelector('.ppl-when')?.textContent ?? ''), go: hh?.querySelector('[data-ppl-go]')?.dataset.pplGo ?? '',
+            members: hh?.querySelectorAll('.ppl-members .ppl-row').length ?? 0 };
+          hh?.querySelector('.ppl-members .ppl-row')?.click();
+          await wait(() => !!root().querySelector('.insp-person-card:not(.ppl-hh-card) .insp-person-how'));
+          const card = root().querySelector('.insp-person-card:not(.ppl-hh-card)');
+          out.person = { name: card?.querySelector('.insp-person-name')?.textContent ?? '', back: card?.querySelector('[data-ppl-back]')?.textContent.trim() ?? '',
+            go: !!card?.querySelector('[data-ppl-go]') };
+          card?.querySelector('[data-ppl-back]')?.click();
+          out.backToHousehold = !!root().querySelector('.ppl-hh-card');
+          root().querySelector('[data-ppl-back]')?.click();
+          out.backToList = !root().querySelector('.ppl-dir')?.hidden && input.value === 'roloson';
+          input.value = '';
+          input.dispatchEvent(new Event('input', { bubbles: true }));
+          await a.navigator.select('home'); a.navigator.dock();
+          return out;
+        });
+        check(`${label}: People is a directory: search finds the Rolosons and their staff, a household opens its card with Go to house, a person their full card, Back to the list (T-3430)`,
+          /71 households/.test(peopleDir1904.status) && peopleDir1904.households.includes('The Roloson household')
+          && peopleDir1904.people.includes('Frank Allen') && peopleDir1904.household.listHidden
+          && peopleDir1904.household.name === 'The Roloson household' && peopleDir1904.household.when
+          && peopleDir1904.household.go === 'roloson_house_2109_prairie' && peopleDir1904.household.members >= 4
+          && peopleDir1904.person.name === 'Robert W. Roloson' && peopleDir1904.person.back === 'The Roloson household'
+          && peopleDir1904.person.go && peopleDir1904.backToHousehold && peopleDir1904.backToList,
+          JSON.stringify(peopleDir1904));
         // >>> T-2644: Glessner's Sources tab groups every fact by grade with real counts (the
         // same count the Overview's Confidence meter shows), a Liberties section with every
         // liberty recorded against the house, each fact folded with its sources named by human

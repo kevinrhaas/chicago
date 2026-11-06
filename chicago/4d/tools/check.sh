@@ -104,7 +104,7 @@ selftest "Light GLB textures retain the device mip policy on initial decode and 
 selftest "Rail zones retain exact geometry, reach, upload callbacks and disposal across rebuilds (T-2380)" \
   node tools/test_rail_geometry_lifecycle.mjs --self-test
 
-selftest "Scenes with no parked vehicles boot: update, retier and dispose without a TDZ error (T-3311)" \
+selftest "Scenes with no parked vehicles boot: update, retier and dispose without a TDZ error (T-3311); a drop to Light hands Three no empty add (T-3427)" \
   node tools/test_parked_transport_empty_scene.mjs --self-test
 
 step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
@@ -465,6 +465,9 @@ step "Catalogue Brougham preserves physical masters, exact optical delivery, lam
 
 step "A person's own card from a building's People tab: their story, why attested or inferred, the census line, Back to the household (T-3265)" \
   node tools/test_person_card.mjs
+
+step "People screen as a directory: households and people, search, a household's own card, Go to house (T-3430)" \
+  node tools/test_people_directory.mjs
 
 step "Brougham card and actual near/mid selection preserve catalogue scope, current/historical card contracts, active picking and disposal (T-2794)" \
   node tools/test_brougham_card.mjs
@@ -1402,6 +1405,14 @@ step "a flat-topped projection stands on a K01 wing's gable end, and a wing's ga
 step "a K01 wing's gable stands back from a flat end, and pinnacled dormers stand on its street slope (T-3354)" \
   python3 tools/test_k01_wing_dormers.py
 
+# T-3354. ...and a brick wing's lights may be cut as stone-mullioned groups on the sides its
+# `mullioned` names: the window kit's grouped flat-headed K06 variant, one hole to a light, a
+# stone mullion and lintel proud of the brick (1919 Prairie's middle range's street face, the
+# 1919 and 1913 Gatlin plates' two-light windows). Held on 1919's record; a side with no windows
+# or round-headed, a kit naming no grouped variant, lights out of range and stray keys, refused.
+step "a K01 wing's lights may be cut as stone-mullioned groups (T-3354)" \
+  python3 tools/test_k01_wing_mullions.py
+
 # T-3353. ...and a brick wing may name stone `dressings`: belts on the walls it names, in place of
 # K03's brick string course there, and quoins up the corners it names (1919 Prairie's rear
 # ranges, the 1919 programme plate's pale corners and courses). Held on 1919's record; a corner
@@ -1423,6 +1434,13 @@ step "a K01 house carries a two-level veranda on its rear wall, and a wing's wal
 # brick block gone; an over-high floor, a low eave, a run past the wall and an unknown key refused.
 step "a K01 house carries a raised terrace under a striped awning on its rear wall (T-1881)" \
   python3 tools/test_k01_rear_terrace.py
+
+# T-1881 (2026-11-06). A hanging lantern on a wrought-iron arm off a K01 house's street front
+# (k01_wall_lanterns), held on 1729 Prairie's record: off the entrance's south return beside the
+# portico, as the 1890 Albertype plate draws it, with the banded pier at the inner angle; a low
+# lantern, a short arm, an unknown face and an unknown key refused.
+step "a K01 house hangs a lantern on an iron arm off its street front (T-1881)" \
+  python3 tools/test_k01_wall_lantern.py
 
 # T-1881 (2026-11-02). A K01 house's mansarded K08 sections joined to its own mansard under one
 # rail (k08_bays._hip back_m/open, k01_mansard_deck.dress_joined), held on 1729 Prairie's

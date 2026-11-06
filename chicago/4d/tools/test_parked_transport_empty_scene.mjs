@@ -65,6 +65,14 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
   const { mountTownTransport } = await import(new URL('../renderers/web/js/town-transport-scene.js', import.meta.url));
   const configRoot = new URL('../data/', import.meta.url);
   const previousFetch = globalThis.fetch; let directoryReads = 0, heightReads = 0, assetReads = 0, cardPreparations = 0;
+  // T-3427: every drop to Light clears the roots and calls onActorsChanged([]).
+  // Before 8057b7d6b that ran `group.add(...[])`, and Three logs (does not throw)
+  // "THREE.Object3D.add: object not an instance of THREE.Object3D. undefined" —
+  // the page error dev's 2026-11-04 content build failed stage 5 on. The smoke
+  // counts console.error as a page error, so this test counts it too.
+  const previousError = console.error, threeAddErrors = [];
+  console.error = (...args) => { const text = args.map(String).join(' ');
+    if (/Object3D\.add/.test(text)) threeAddErrors.push(text); else previousError(...args); };
   globalThis.fetch = async url => {
     const bytes = readFileSync(new URL(String(url)));
     return { ok: true, status: 200, json: async () => JSON.parse(bytes),
@@ -115,8 +123,9 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
         `${tier}: no eligible row imports tools, reads models or prepares a card`);
     }
     assert.deepEqual(emptyProblems, []); empty.dispose();
-  } finally { globalThis.fetch = previousFetch; delete globalThis.__townLazyTools; }
-  console.log('actual Light town scene: zero assembly imports/factories/directory/height queries; eligible route opens deferred tools only then PASS');
+    assert.deepEqual(threeAddErrors, [], 'a drop to Light never hands Three an empty add (T-3427)');
+  } finally { globalThis.fetch = previousFetch; console.error = previousError; delete globalThis.__townLazyTools; }
+  console.log('actual Light town scene: zero assembly imports/factories/directory/height queries; eligible route opens deferred tools only then; no empty Three add on a drop to Light (T-3427) PASS');
 }
 
 // Execute main's actual town boot block with only the dynamic import boundary

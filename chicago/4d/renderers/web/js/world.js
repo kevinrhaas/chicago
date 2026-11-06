@@ -72,17 +72,33 @@ const SKY_EXPOSURE = 0.045;
  * takes and every reading `tools/light_probe.mjs` reports is taken here, and the
  * aid below is off at boot so they stay taken here.
  *
- * The ceiling is ONE PHOTOGRAPHIC STOP — a doubling, 0.95 → 1.90 — and the stop
- * is the bound rather than a number chosen for how it looks. A stop is the unit
- * a camera's own exposure compensation is calibrated in, it is the largest
- * correction that still reads as the same photograph, and past it ACES rolls the
- * sunlit roofs and the sky together into a flat highlight: the scene stops
- * getting easier to see and starts losing the surfaces this project documents.
- * A visitor who cannot see the town at +1 stop has a problem the renderer should
- * not answer by inventing a brighter 1835.
+ * T-3428 (owner, 2026-11-06): the ceiling is TWO STOPS — 4x — and it is no longer
+ * exposure alone. One stop of exposure was the old ceiling, and the owner found a
+ * shaded front (the Glessner house under the parkway elms on a jaunt stop) still
+ * too dark at it, because exposure lifts the sunlit roofs and the sky into the
+ * ACES shoulder long before a wall in shade has moved. So the aid now splits its
+ * stops three ways:
+ *
+ *   - EXPOSURE takes half of them (4x → 2x, the old ceiling), lifting everything.
+ *   - The SKY FILL takes the other half (4x → 2x on `environmentIntensity`, the
+ *     flora's published fill and the leaves' transmitted skylight). The fill is
+ *     nearly all of the light on a surface in shade and a small part of it in
+ *     sun, so a facade in shade gets the whole 4x and a sunlit roof about 2.3x.
+ *   - The SKY ITSELF (the dome and the haze matched to it) is held back to a
+ *     quarter of the stops, 4x → 1.41x, so it keeps its blue rather than washing
+ *     to white at the top of the slider.
+ *
+ * Still an accommodation and not a second grade: no material or record changes,
+ * nothing is baked from it, and 0 is the calibrated frame exactly (every factor
+ * is 2^0). A visitor's stored stop from the old 0..1 slider means the same
+ * exposure it did plus the fill, which is only ever brighter in shade.
  */
 const BASE_EXPOSURE = 0.95;
-const MAX_BRIGHTNESS_STOPS = 1;
+const MAX_BRIGHTNESS_STOPS = 2;
+/** T-3428: the share of the aid's stops each of the three takes. */
+const BRIGHT_EXPOSURE_SHARE = 0.5;
+const BRIGHT_FILL_SHARE = 0.5;
+const BRIGHT_SKY_SHARE = 0.25;
 
 /**
  * Putting the colour back into Preetham's horizon.
@@ -1019,6 +1035,10 @@ export function createWorld({
       .addScaledVector(snapUp, Math.round(u / texel) * texel - u);
   }
   let brightness = 0;
+  // The haze's own state: which of the ring's 36 bearings the fog is currently
+  // set to, so `aim()` writes a uniform when the view has actually turned that
+  // far and not once per frame.
+  let hazeSlot = -1;
 
   // T-3331 — THE RELIGHT. One function takes the sun (date and hour) to every
   // number the frame is lit by: the sky's sun and its night and twilight terms, the
@@ -1033,7 +1053,20 @@ export function createWorld({
   const skySun = new THREE.Vector3();
   let grade = gradeAt(sun.elevationDeg);
   let keyElevation = sun.elevationDeg;
-  const exposureNow = () => BASE_EXPOSURE * (2 ** brightness) * grade.adapt;
+  const exposureNow = () => BASE_EXPOSURE * (2 ** (brightness * BRIGHT_EXPOSURE_SHARE)) * grade.adapt;
+  // T-3428: the aid's fill lift, and what the sky and the haze are scaled by so they
+  // rise by the sky's share only (the exposure would otherwise carry them its whole
+  // share). All three are exactly 1 at 0.
+  const fillLift = () => 2 ** (brightness * BRIGHT_FILL_SHARE);
+  const skyHold = () => 2 ** (brightness * (BRIGHT_SKY_SHARE - BRIGHT_EXPOSURE_SHARE));
+  // The environment bake and the horizon sample read the sky as calibrated, never
+  // through the aid's hold, or the fill and haze baked from it would carry it twice.
+  const atCalibratedSky = (fn) => {
+    const u = sky.material.uniforms.skyExposure;
+    const held = u.value;
+    u.value = SKY_EXPOSURE;
+    try { return fn(); } finally { u.value = held; }
+  };
   function applyGrade() {
     grade = gradeAt(sun.elevationDeg);
     sunDirection(sun.azimuthDeg, sun.elevationDeg, skySun);
@@ -1044,7 +1077,8 @@ export function createWorld({
       .lerp(new THREE.Vector3(...DUSK_SKY_ZENITH), grade.dusk);
     sky.material.uniforms.nightHorizon.value.set(...NIGHT_SKY_HORIZON)
       .lerp(new THREE.Vector3(...DUSK_SKY_HORIZON), grade.dusk);
-    scene.environmentIntensity = ENV_INTENSITY * grade.envBoost;
+    scene.environmentIntensity = ENV_INTENSITY * grade.envBoost * fillLift();
+    sky.material.uniforms.skyExposure.value = SKY_EXPOSURE * skyHold();
     if (grade.sunK > 0) {
       // A sun on the horizon is held a degree up for the shadow map: a light from
       // under the ground plane would cast every shadow through it.
@@ -1058,7 +1092,7 @@ export function createWorld({
       light.color.copy(nightColor);
       light.intensity = NIGHT_KEY * grade.nightK;
     }
-    scene.userData.chiSkyFill = FILL_UP.map((v) => v * grade.fillK);
+    scene.userData.chiSkyFill = FILL_UP.map((v) => v * grade.fillK * fillLift());
     groundMat.color.copy(groundRadianceFor(keyElevation, grade.fillK));
     renderer.toneMappingExposure = exposureNow();
     // What an unlit, display-space layer should be multiplied by: the light on a
@@ -1070,13 +1104,13 @@ export function createWorld({
       const ref = SUN_INTENSITY * 0.5 + 0.9;
       display = Math.min(1, Math.pow(Math.max(0, flat / ref) * grade.adapt, 1 / 2.2));
     }
-    publishDaylight({ display, grade, elevationDeg: sun.elevationDeg, sunTime, sunDate });
+    // A changed lift has to reach the haze too: forget the slot so the next aim() writes it.
+    hazeSlot = -1;
+    publishDaylight({
+      display, grade, elevationDeg: sun.elevationDeg, sunTime, sunDate, lift: fillLift(),
+    });
   }
   applyGrade();
-  // The haze's own state: which of the ring's 36 bearings the fog is currently
-  // set to, so `aim()` writes a uniform when the view has actually turned that
-  // far and not once per frame.
-  let hazeSlot = -1;
   const aimForward = new THREE.Vector3();
 
   return {
@@ -1109,7 +1143,7 @@ export function createWorld({
         + HORIZON_RING_STEPS) % HORIZON_RING_STEPS;
       if (slot === hazeSlot) return false;
       hazeSlot = slot;
-      scene.fog.color.copy(ring[slot]);
+      scene.fog.color.copy(ring[slot]).multiplyScalar(skyHold());
       return true;
     },
     /** The environment map this rig installed, and the fill it delivers. */
@@ -1184,19 +1218,19 @@ export function createWorld({
     /**
      * K24. The visitor's brightness aid, in stops above the calibrated grade.
      *
-     * It multiplies the tone-mapping exposure and touches nothing else: no
-     * light's intensity, no material, no sky uniform, no fog. So it cannot
-     * become a second reconstruction — there is no setting of it under which a
-     * wall is a different colour in the data than it was — and dropping it back
-     * to 0 returns the calibrated frame exactly, which is the third assertion
-     * the smoke takes of it.
+     * T-3428: up to two stops (4x), split between the exposure, the sky fill and
+     * a hold on the sky — see BASE_EXPOSURE. It moves no material and no record,
+     * so it cannot become a second reconstruction, and dropping it back to 0
+     * returns the calibrated frame exactly, which is the third assertion the
+     * smoke takes of it.
      *
      * @param {number} stops 0 = calibrated, clamped to [0, MAX_BRIGHTNESS_STOPS]
      */
     setBrightness(stops) {
       const s = Math.min(MAX_BRIGHTNESS_STOPS, Math.max(0, Number(stops) || 0));
+      if (s === brightness) return s;
       brightness = s;
-      renderer.toneMappingExposure = exposureNow();
+      applyGrade();
       return s;
     },
     /** The aid's current position, so a gate can assert it rather than assume it. */
@@ -1272,12 +1306,12 @@ export function createWorld({
       });
       applyGrade();
       const old = envRT;
-      envRT = bakeEnvironment();
+      envRT = atCalibratedSky(bakeEnvironment);
       scene.environment = envRT.texture;
       old.dispose();
       // The committed horizon reading is of the scene's own hour; at any other
       // hour the sky is taken as rendered (sampleHorizonRing § validate).
-      ring = sampleHorizonRing(renderer, sky, [], sunTime === sceneTime) ?? ring;
+      ring = atCalibratedSky(() => sampleHorizonRing(renderer, sky, [], sunTime === sceneTime)) ?? ring;
       hazeSlot = -1;
       snapBasis();
       this.follow(lastFollow);
