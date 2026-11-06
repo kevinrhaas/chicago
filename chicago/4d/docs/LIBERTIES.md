@@ -41316,3 +41316,37 @@ range's own gable, still about 20-35 px (1-2 m) left of the plates' second gable
 **How to resolve:** a picture of the flank at closer range, or the plates at a finer screen.
 **Ticket:** T-3354 (piece 2 of T-3338).
 **Recorded:** 2026-11-06 (T-3354).
+
+### L-k01-1919-north-face-triple-3354 — 1919 Prairie's middle range's north face lit by one three-light stone-mullioned group in each storey, off the Gatlin plates
+
+**Decision:** The 1919 programme plate, read at 8x (x 420-530, y 490-690 px), draws in each storey of the
+dark, ivy-hung face between the rear range's return and the middle range's pale quoined north-west corner
+a group of three narrow pale lights under one head, the dark mullions between them; the 1913 Almanac plate
+draws the same group (both third-run match records said so and left it unbuilt). K01's rear-wing groups
+now take `mullioned.triple` (the sides whose groups are three lights, each `light_m` across), cut as the
+window kit's new three-light flat sash (`k06.opening.sash_triple_flat`, three plate-glass sashes on two
+0.2 m stone mullions, `k01.opening.wing_mullioned_triple`) with the same stone mullions and lintel as the
+street face's pair. 1919's middle range (`marshall_field_jr_house_1919_prairie`) carries one such group in
+each storey of its north face (K01's `south` wall), three 1.1 m lights, 3.7 m across, centred at s 2.2 m
+from the face's east end, in place of the two single sashes at s 2.0 and 5.0 m that the earlier liberty
+(L-k01-1919-range-mullions-3354) left as the kit's. Through the 1919 camera, shifted the 17 px that lands its
+corner on the plate's (the 3.1 m street face is then 65 px against the plate's 64), the plate's group
+centres at s 2.2 m; its west end lands within about 5 px of the plate's in both plates.
+**What is read, not invented.** That the face is lit in both storeys; that each storey's lights are three
+under one head with mullions between; the group's west end, about 15 px short of the quoined corner in both
+plates.
+**What is invented.** The lights' 1.1 m width (the range's own sash) and one-over-one glazing; the 0.2 m
+mullions; the sill and head lines (the range's storeys'); the lintel and its stones, as the street pair's.
+That the group stands on the middle range's north face and not on the rear range's 1.7 m return beside it
+is a reading: the earlier liberty put the 1913 plate's narrow lights on that return, but the 1919 plate
+draws the group as one run of three under one head ending at the quoined corner, which the 1.7 m return
+cannot hold.
+**What is not built.** The group's east end: both plates run it about 1.5-2 m further east than the build's
+3.7 m group (the 1919 plate about 47 px against 27, the 1913 about 33 against 22), past where the 1911 trace
+stands the rear range's west return. That is the same eastward shift the plates give the rear range's gable
+(20-35 px left of the build's in all three), so it waits on a plan reading that reconciles the 1911 trace
+with the plates, not on a wider window.
+**How to resolve:** a picture of the flank at closer range, or the plates at a finer screen; with it, the
+rear range's return re-placed and the group's span read against it.
+**Ticket:** T-3354 (piece 2 of T-3338).
+**Recorded:** 2026-11-06 (T-3354).

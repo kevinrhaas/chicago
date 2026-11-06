@@ -357,6 +357,12 @@ ROUND_PLAIN = "k01.opening.sash_round_plain"
 #: grouped K06 variant the record's window_kit names for it, cut one hole to a light, the stone
 #: mullion between them and a stone lintel over the group (`rear_wings[].mullioned`)
 WING_MULLIONED = "k01.opening.wing_mullioned"
+#: T-3354: the same group of three lights (1919's middle range's north face, where the 1913 and
+#: 1919 plates draw three narrow lights under one head in each storey): the grouped K06 variant
+#: the record's window_kit names for it (`rear_wings[].mullioned.triple`)
+WING_MULLIONED_TRIPLE = "k01.opening.wing_mullioned_triple"
+#: the K01 components cut and dressed as a wing's stone-mullioned group
+WING_GROUPED = (WING_MULLIONED, WING_MULLIONED_TRIPLE)
 #: T-3354: how far the mullion's and the lintel's stones stand proud of the brick (the quoins'
 #: 0.03 m, T-3353), the lintel's height, and how far it runs past the group at each side; all
 #: RECONSTRUCTED, the plates being too soft to measure a stone
@@ -4998,25 +5004,37 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
         # T-3354: the sides whose lights a picture draws as stone-mullioned groups (1919's middle
         # range, the Gatlin plates' two-light windows in its street face): each light the group
         # the window_kit's grouped variant for WING_MULLIONED makes of `light_m`-wide lights
-        mu, msides, group = e.get("mullioned"), (), 0.0
+        mu, msides, group = e.get("mullioned"), {}, {}
         if mu is not None:
-            if not isinstance(mu, dict) or set(mu) != {"sides", "light_m"} or not mu["sides"]:
+            if not isinstance(mu, dict) or not {"sides", "light_m"} <= set(mu) \
+                    or set(mu) - {"sides", "light_m", "triple"} or not mu["sides"]:
                 raise ParamError(f"rear_wings: {wid}'s mullioned takes sides (the walls whose lights are "
-                                 f"grouped) and light_m (each light's clear width), not {mu}")
-            msides = tuple(mu["sides"])
-            for side in msides:
-                if side not in (e.get("windows") or {}) or side in rheads or side in bls:
-                    raise ParamError(f"rear_wings: {wid}'s mullioned side {side!r} is one whose windows it "
-                                     f"lists, cuts square-headed and lights no basement under")
-            vid = ((kit or {}).get(WING_MULLIONED) or {}).get("variant")
-            v6 = next((x for x in json.loads(WINDOW_KIT.read_text())["variants"] if x["id"] == vid), None)
-            if v6 is None or v6["head"] != "flat" or int(v6.get("bays", 1)) < 2:
-                raise ParamError(f"rear_wings: {wid}'s mullioned lights need window_kit to name a flat-headed "
-                                 f"grouped K06 variant for {WING_MULLIONED} (not {vid})")
-            light = float(mu["light_m"])
-            _within(light, cw, f"rear_wings.{wid}.mullioned.light_m")
-            n6, m6 = int(v6["bays"]), float(v6.get("mullion_m", 0.0))
-            group = round(n6 * light + (n6 - 1) * m6, 4)
+                                 f"grouped) and light_m (each light's clear width), and may take triple, not {mu}")
+            # T-3354: `triple` names the sides whose groups are three lights, not two, each
+            # `light_m` across, under the window_kit's three-light variant
+            tri = mu.get("triple")
+            if tri is not None and (not isinstance(tri, dict) or set(tri) != {"sides", "light_m"}
+                                    or not tri["sides"] or set(tri["sides"]) & set(mu["sides"])):
+                raise ParamError(f"rear_wings: {wid}'s mullioned.triple takes sides (none of mullioned's "
+                                 f"own) and light_m, not {tri}")
+            for comp_, spec, n_ in ((WING_MULLIONED, mu, 2), (WING_MULLIONED_TRIPLE, tri, 3)):
+                if spec is None:
+                    continue
+                for side in spec["sides"]:
+                    if side not in (e.get("windows") or {}) or side in rheads or side in bls:
+                        raise ParamError(f"rear_wings: {wid}'s mullioned side {side!r} is one whose windows it "
+                                         f"lists, cuts square-headed and lights no basement under")
+                vid = ((kit or {}).get(comp_) or {}).get("variant")
+                v6 = next((x for x in json.loads(WINDOW_KIT.read_text())["variants"] if x["id"] == vid), None)
+                if v6 is None or v6["head"] != "flat" or int(v6.get("bays", 1)) != n_:
+                    raise ParamError(f"rear_wings: {wid}'s mullioned lights need window_kit to name a flat-headed "
+                                     f"grouped K06 variant of {n_} lights for {comp_} (not {vid})")
+                light = float(spec["light_m"])
+                _within(light, cw, f"rear_wings.{wid}.mullioned{'.triple' if n_ == 3 else ''}.light_m")
+                m6 = float(v6.get("mullion_m", 0.0))
+                for side in spec["sides"]:
+                    msides[side] = comp_
+                    group[side] = round(n_ * light + (n_ - 1) * m6, 4)
         for side, ss in sorted((e.get("windows") or {}).items()):
             if side not in walls:
                 raise ParamError(f"rear_wings: {wid} has no {side} wall ({', '.join(walls)})")
@@ -5038,14 +5056,14 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
                                          f"than 0.30 m to a corner of its {length:.3f} m wall")
                     ops.append(Opening(ROUND_PLAIN, f"k01.wall.wing.{wid}.{side}", s, round(bs, 4), bw, bh,
                                        False, plain=True, narrow=bw < cw[0]))
-            comp = ROUND_HOODED if side in rheads else WING_MULLIONED if side in msides else "k01.opening.sash_flat"
+            comp = ROUND_HOODED if side in rheads else msides.get(side, "k01.opening.sash_flat")
             for k, row in enumerate(sash):
                 sill = floors[k] + float(row["sill_above_floor_m"])
                 w_, h_ = float(row["width_m"]), float(row["height_m"])
                 _within(w_, cw, f"rear_wings.{wid}.sash_by_storey[{k}].width_m")
                 _within(h_, ch, f"rear_wings.{wid}.sash_by_storey[{k}].height_m")
-                if comp == WING_MULLIONED:   # T-3354: the group's width, its lights the storey's height
-                    w_ = group
+                if comp in WING_GROUPED:   # T-3354: the group's width, its lights the storey's height
+                    w_ = group[side]
                     if sill + h_ + WING_LINTEL_M + 0.15 > top:
                         raise ParamError(f"rear_wings: {wid}'s storey {k} mullioned lintels run into its deck")
                 if sill + h_ + 0.30 > top:
