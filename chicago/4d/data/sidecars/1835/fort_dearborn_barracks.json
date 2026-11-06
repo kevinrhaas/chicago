@@ -87,6 +87,13 @@
       ],
       "note": "Not stated for the second fort's barracks. Hubbard calls the west officers' quarters of this fort log; the commandant's quarters is the one building two sources call brick, and the 1855 key calls the officers' quarters wood. A log barracks is the type at this post and at this date, and the inference is that everything here except the commandant's quarters and the magazine was timber."
     },
+    "period_brick": {
+      "value": {
+        "stacks": "soft_mud_red_garrison"
+      },
+      "confidence": "reconstructed",
+      "note": "T-3387: laid in K03's hand-made garrison brick (data/components/prairie_1904/k03_face_brick.json `soft_mud_red_garrison`): a soft, sand-struck, clamp-burnt red in wide lime joints, its colour the sheet's brick row (a shade darker), in the bonded K03 panel the 1904 walls wear, each brick shuffled. That this is brick is the record's construction and the archetype's stack argument; that it was a hand-made soft-mud brick of this colour and bond is the reconstruction (L-k03-period-brick-3387)."
+    },
     "stories": {
       "value": 2,
       "confidence": "reconstructed",

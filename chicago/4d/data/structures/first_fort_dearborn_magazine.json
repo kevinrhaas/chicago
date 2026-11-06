@@ -80,6 +80,13 @@
           ],
           "note": "Quaife: 'the magazine, a small structure made of brick. This alone defied the fire which destroyed the fort'."
         },
+        "period_brick": {
+          "value": {
+            "walls": "soft_mud_red_garrison"
+          },
+          "confidence": "reconstructed",
+          "note": "T-3387: laid in K03's hand-made garrison brick (data/components/prairie_1904/k03_face_brick.json `soft_mud_red_garrison`): a soft, sand-struck, clamp-burnt red in wide lime joints, its colour the sheet's brick row (a shade darker), in the bonded K03 panel the 1904 walls wear, each brick shuffled. That this is brick is the record's construction and the archetype's stack argument; that it was a hand-made soft-mud brick of this colour and bond is the reconstruction (L-k03-period-brick-3387)."
+        },
         "stories": {
           "value": 1,
           "confidence": "inferred",

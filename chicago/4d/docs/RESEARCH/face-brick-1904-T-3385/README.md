@@ -118,3 +118,20 @@ well; slate is the reference this method reads every house against, so that read
 A draft record may now name `face_brick` `{front}`; `prairie_draft.to_glb` then lays that recipe's
 K03 panel on every brick face (the same maps a K01 wall embeds, so the shuffle finds it and the
 phone decodes the picture once) with K01's metre UVs. The church wears pressed red.
+
+## The 1812 and 1835 brick (T-3387)
+
+Two hand-made period recipes join the palette: `soft_mud_red_garrison` (the forts' brick: a soft,
+sand-struck, clamp-burnt red, its colour the sheet's brick row a shade darker) and
+`soft_mud_salmon_lake` (Blodgett's North Side yard of 1833, Chicago's first; the lime-rich lake
+clay burns salmon to buff). A `fort_structure` record names them as `period_brick` (`walls`,
+`stacks`). The archetype gives the mesh a first UV layer registered in metres on the brick faces
+(the exporter's TEXCOORD_0, the one the renderer keeps; emit.py's smart projection writes the
+second) and wires the K03 common panel's two maps under the recipe's factor. Worn by: the 1803 and
+1816 magazines and the 1816 commandant's quarters (walls), the Lake House (walls, lake-clay), and
+the stacks of all ten fort buildings that have them. Liberty L-k03-period-brick-3387.
+
+Where it stops: the 1835 Cook County courthouse (`outbuilding`, 245 records on that builder), the
+Sauganash's brick stacks (`frame_tavern`) and the brick chimney heads of the town's framed houses
+(`frame_dwelling`, 272 records) still wear the flat sheet colour; each needs the same hook in its
+own builder and a rebake of every record on it.

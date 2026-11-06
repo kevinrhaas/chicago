@@ -266,7 +266,94 @@ def build(params: FortStructureParams, name: str):
     ob = b.to_object(mats)
     if params.tower_lantern_detail is not None:
         _configure_cage_glass(ob, params)
+    if params.period_brick:
+        _lay_period_brick(ob, params, mats)
     return ob
+
+
+# ------------------------------------------------------------------ period brick
+
+#: The repository root, which a resolved recipe's map paths are relative to.
+_REPO = Path(__file__).resolve().parents[2]
+
+
+def _lay_period_brick(ob, p: FortStructureParams, mats) -> None:
+    """T-3387: lay a K03 period recipe on the brick walls and on the stacks.
+
+    The owner, 2026-11-05: "lay any foundations to apply the appropriate brick to the few
+    1835 buildings with brick or 1812 maybe some of the chimneys"; then, asked, to rebake
+    them with it. Until this every brick surface of the garrison was the sheet's flat brick
+    colour. Now a record that names `period_brick` wears the K03 panel its recipe names (the
+    same picture a 1904 wall embeds, so the renderer's per-brick shuffle, brick-bond.js,
+    finds it by its image name) under the recipe's colour factor.
+
+    THE UVS. The brick has to lie in courses, so it takes K01's metre registration (u along
+    the course, horizontal; v up the wall from a bed joint at grade, over the panel's tile),
+    which a smart projection cannot give. So the brick's map is the mesh's FIRST UV layer,
+    which the exporter writes as TEXCOORD_0, the one the renderer keeps; emit.unwrap's smart
+    projection writes the second, made active here, and nothing reads it. Only the faces of a
+    brick material are registered; the rest of the first layer is zero and no map reads it.
+    glTF's v runs down the image, the exporter writes 1 - v, so the layer holds 1 + height.
+    """
+    me = ob.data
+    slots = list(me.materials)
+    targets = {}
+    if "walls" in p.period_brick:
+        targets[slots.index(mats[M_WALL])] = p.period_brick["walls"]
+    if "stacks" in p.period_brick:
+        targets[slots.index(mats[M_CHIMNEY])] = p.period_brick["stacks"]
+    if len(me.uv_layers):
+        raise RuntimeError(f"{ob.name}: the builder made a UV layer, so the brick's would not be first")
+    brick_uv = me.uv_layers.new(name="brick_uv")
+    me.uv_layers.active = me.uv_layers.new(name="UVMap")
+    for poly in me.polygons:
+        r = targets.get(poly.material_index)
+        if r is None:
+            continue
+        tu, tv = r["tile_m"]
+        nx, ny, nz = poly.normal
+        ax, ay, az = -ny, nx, 0.0                      # up x n: level, along the course
+        h = math.hypot(ax, ay)
+        if h < 1e-3:                                   # a level face: the plan's x and y
+            ax, ay, vx, vy, vz = 1.0, 0.0, 0.0, 1.0, 0.0
+        else:
+            ax, ay = ax / h, ay / h
+            vx, vy, vz = ny * az - nz * ay, nz * ax - nx * az, nx * ay - ny * ax   # n x u: up the face
+        for li in poly.loop_indices:
+            x, y, z = me.vertices[me.loops[li].vertex_index].co
+            brick_uv.data[li].uv = ((x * ax + y * ay) / tu, 1.0 + (x * vx + y * vy + z * vz) / tv)
+    for idx, r in targets.items():
+        _period_brick_nodes(me.materials[idx], r)
+
+
+def _period_brick_nodes(mat, r: dict) -> None:
+    """The panel's base colour times the recipe's factor, and its normal map, on brick_uv."""
+    import bpy
+    nt = mat.node_tree
+    bsdf = nt.nodes["Principled BSDF"]
+    uv = nt.nodes.new("ShaderNodeUVMap")
+    uv.uv_map = "brick_uv"
+    tex = nt.nodes.new("ShaderNodeTexImage")
+    tex.image = bpy.data.images.load(str(_REPO / r["basecolor"]), check_existing=True)
+    nt.links.new(uv.outputs["UV"], tex.inputs["Vector"])
+    mix = nt.nodes.new("ShaderNodeMix")
+    mix.data_type, mix.blend_type = "RGBA", "MULTIPLY"
+    mix.inputs[0].default_value = 1.0
+    mix.inputs[7].default_value = (*r["tone"], 1.0)
+    nt.links.new(tex.outputs["Color"], mix.inputs[6])
+    nt.links.new(mix.outputs[2], bsdf.inputs["Base Color"])
+    ntex = nt.nodes.new("ShaderNodeTexImage")
+    ntex.image = bpy.data.images.load(str(_REPO / r["normal"]), check_existing=True)
+    ntex.image.colorspace_settings.name = "Non-Color"
+    nt.links.new(uv.outputs["UV"], ntex.inputs["Vector"])
+    nm = nt.nodes.new("ShaderNodeNormalMap")
+    nm.uv_map = "brick_uv"
+    nt.links.new(ntex.outputs["Color"], nm.inputs["Color"])
+    nt.links.new(nm.outputs["Normal"], bsdf.inputs["Normal"])
+    # the recipe's shift on the surface's own gloss (a wall's 0.90, a stack's 0.85), so a wall
+    # and a stack in one recipe stay two materials through the web derivative's merge
+    rough = bsdf.inputs["Roughness"]
+    rough.default_value = round(rough.default_value + r["roughness_delta"], 3)
 
 
 # ------------------------------------------------------------------ buildings
