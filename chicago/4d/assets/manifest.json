@@ -3549,9 +3549,9 @@
     "lees_place_haystack_1812_a__lees_place_1812.glb": {
       "archetype": "haystack",
       "baked_ao": false,
-      "bytes": 26732,
+      "bytes": 422152,
       "generator": "generators/haystack_emit.py",
-      "inputs_sha256": "710c595cf7d35a4d85a6f933293325668fff87efad9b0526e1441f700e6556b8",
+      "inputs_sha256": "ce6875d622655056c03e000c5c27dd7827d9ac52579c04872f421ece56c14851",
       "kind": "generated",
       "phase_id": "lees_place_1812",
       "structure_id": "lees_place_haystack_1812_a"
@@ -3559,9 +3559,9 @@
     "lees_place_haystack_1812_b__lees_place_1812.glb": {
       "archetype": "haystack",
       "baked_ao": false,
-      "bytes": 26748,
+      "bytes": 422156,
       "generator": "generators/haystack_emit.py",
-      "inputs_sha256": "de0144a831bdbbadfb33e6d1f34bb9a66c9331489d6dfce1d110f0b7eeb0a685",
+      "inputs_sha256": "36669141e043dccd626c5daaed6854030df3d4bbe06106ffcd9f175686b06cd7",
       "kind": "generated",
       "phase_id": "lees_place_1812",
       "structure_id": "lees_place_haystack_1812_b"
@@ -3569,9 +3569,9 @@
     "lees_place_haystack_1812_c__lees_place_1812.glb": {
       "archetype": "haystack",
       "baked_ao": false,
-      "bytes": 26728,
+      "bytes": 470232,
       "generator": "generators/haystack_emit.py",
-      "inputs_sha256": "082d4e2775b975d2df1f8e4afd47f78de8eb99c812f0acb8c570f6df01692791",
+      "inputs_sha256": "b4c8faeb851f65125fdf5cb64c09c7d9cd1ba38a9743fd71b05d3d6bab85939e",
       "kind": "generated",
       "phase_id": "lees_place_1812",
       "structure_id": "lees_place_haystack_1812_c"
@@ -3579,9 +3579,9 @@
     "lees_place_haystack_1812_d__lees_place_1812.glb": {
       "archetype": "haystack",
       "baked_ao": false,
-      "bytes": 26732,
+      "bytes": 479092,
       "generator": "generators/haystack_emit.py",
-      "inputs_sha256": "05bb8c135fce12390928a3b7ca5c3064b1224fbe93d57aebc766270af47dfe17",
+      "inputs_sha256": "a4497f3090b071bbd66260674f0b92d79d6196660c4c1648019cb8ce54e17ce4",
       "kind": "generated",
       "phase_id": "lees_place_1812",
       "structure_id": "lees_place_haystack_1812_d"

@@ -74,9 +74,24 @@
           "value": true,
           "confidence": "reconstructed",
           "note": "Unattested. A round stack pitched by hand was built round a pole set in the ground, which stands clear of the peak."
+        },
+        "shape": {
+          "value": "fed",
+          "confidence": "reconstructed",
+          "note": "Unattested (T-3401). The cattle loose among the stacks have eaten into its foot all round, so it stands on a narrower waist under an overhang of hay: Wau-Bun's stack yard has no fence, and the cattle stood 'among the haystacks'. Which stack stands which way is this project's choice, so the four read as hay built and used by hand and not as one form four times (L-1812-lees-place-haystacks-2510)."
+        },
+        "lean_deg": {
+          "value": 1.0,
+          "confidence": "reconstructed",
+          "note": "Unattested (T-3401). How far the stack has tipped as it settled; a hand-built stack is never quite plumb, and none here leans so far it would need propping."
+        },
+        "rider_poles": {
+          "value": true,
+          "confidence": "reconstructed",
+          "note": "Unattested (T-3401). Two pairs of poles tied over the peak and lying down its sides to hold the top against the wind, a common way of weighting a stack; drawn on one of the four."
         }
       },
-      "change_note": "Built T-2510 (2026-10-15), piece 2 of T-2503: the haystacks at Lee's Place in the 1812 scene, on the bank opposite the cabin, on T-2502's apron ground."
+      "change_note": "Built T-2510 (2026-10-15), piece 2 of T-2503: the haystacks at Lee's Place in the 1812 scene, on the bank opposite the cabin, on T-2502's apron ground. Rebuilt T-3401 (2026-11-06) on the owner's report that the stacks read as smooth pale domes: a lumpy hand-pitched body textured with hay, wisps standing out of it, trodden hay at the foot, and a `shape` of its own (pitched, settled, fed into by the cattle, or cut from)."
     }
   ],
   "function": {

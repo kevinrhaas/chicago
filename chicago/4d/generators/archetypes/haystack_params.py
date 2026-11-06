@@ -31,6 +31,28 @@ hands for. From the ground up:
 `weathered` is a stack that has stood through a winter, greyed and settled, and a stack
 cattle have been fed from is lower than it was pitched (`height_m` says by how much).
 
+## Four ways a stack stands (T-3401)
+
+The owner, 2026-11-06, at the first stop of the Fort Dearborn jaunt: the four stacks
+read as smooth pale onion domes, not hay, and they were four copies of one lathe. A
+stack pitched by hand is never that: it is built forkful by forkful, so its girth is
+lumpy and its peak off-centre; it settles and leans as it dries; the stock eat into
+it; and hay is pulled out of it to feed them, as Wau-Bun's soldier "pulled some hay
+for the cattle". So `shape` says which of those a stack is now:
+
+- `pitched` — round and full, drawn in to its peak, lightly settled;
+- `settled` — dried down and sagged, its belly out, its top slumped to one side;
+- `fed` — the cattle loose among the stacks have eaten into its foot all round, so
+  it stands on a narrower waist under an overhang of hay (Wau-Bun's stack yard has no
+  fence; the cattle stood "among the haystacks");
+- `cut` — hay has been pulled out of one side down to the ground, leaving a ragged
+  face of the stack's brighter heart and a heap of pulled hay at its foot.
+
+`lean_deg` tips the whole stack (a stack settles toward its wetter side), and
+`rider_poles` lays two pairs of poles tied over the peak to hold the top down against
+the wind. Every one is reconstructed: no source shows a stack at Lee's Place, and
+each record carries L-1812-lees-place-haystacks-2510.
+
 **No figure is drawn, and no animal** (docs/LIBERTIES.md L1 binds figures; the cattle
 Wau-Bun puts among the stacks are not built either, and the record says so).
 
@@ -50,11 +72,13 @@ two to three tons, and each record that uses them says so and carries the libert
 from __future__ import annotations
 
 import math
+import zlib
 from dataclasses import dataclass, field
 
 CONFIDENCE_VALUE = {"attested": 0.0, "inferred": 0.5, "reconstructed": 1.0}
 
 CONDITIONS = ("new", "weathered")
+SHAPES = ("pitched", "settled", "fed", "cut")
 
 # A round stack of about twelve feet across and fourteen to the peak. Its volume, about
 # 30 cubic metres, is two to three tons of loose hay settled in the stack: what two or
@@ -91,6 +115,12 @@ class HaystackParams:
     height_m: float = DEFAULT_HEIGHT_M
     condition: str = "new"
     stack_pole: bool = True
+    shape: str = "pitched"
+    lean_deg: float = 0.0
+    rider_poles: bool = False
+    # A fixed number from the record's id: each stack's lumps, tufts and litter are its
+    # own, and two builds of one record make the same bytes.
+    seed: int = 0
     confidence: dict = field(default_factory=dict)
 
     def conf(self, attr: str, default: str = "reconstructed") -> float:
@@ -132,6 +162,11 @@ class HaystackParams:
     def validate(self) -> None:
         if self.condition not in CONDITIONS:
             raise ParamError(f"condition '{self.condition}' not in {CONDITIONS}")
+        if self.shape not in SHAPES:
+            raise ParamError(f"shape '{self.shape}' not in {SHAPES}")
+        if not 0.0 <= self.lean_deg <= 8.0:
+            raise ParamError(f"lean_deg {self.lean_deg} outside 0-8: a stack leaning more "
+                             f"than that has fallen")
         if not 2.0 <= self.diameter_m <= 7.0:
             raise ParamError(f"diameter_m {self.diameter_m} outside 2-7 m: a round stack "
                              f"pitched by hand off a wagon or a sled")
@@ -152,7 +187,8 @@ class HaystackParams:
                 raise ParamError(f"confidence['{k}'] = '{v}' is not a confidence level")
 
 
-CONSUMED = frozenset({"diameter_m", "height_m", "condition", "stack_pole"})
+CONSUMED = frozenset({"diameter_m", "height_m", "condition", "stack_pole", "shape",
+                      "lean_deg", "rider_poles"})
 
 
 def from_phase(phase: dict, record: dict | None = None) -> HaystackParams:
@@ -188,6 +224,10 @@ def from_phase(phase: dict, record: dict | None = None) -> HaystackParams:
         height_m=float(val("height_m", DEFAULT_HEIGHT_M)),
         condition=val("condition", "new"),
         stack_pole=bool(val("stack_pole", True)),
+        shape=val("shape", "pitched"),
+        lean_deg=float(val("lean_deg", 0.0)),
+        rider_poles=bool(val("rider_poles", False)),
+        seed=zlib.crc32(str((record or {}).get("id", "")).encode()),
         confidence={n: conf(n) for n in names if n in form},
     )
     params.validate()
