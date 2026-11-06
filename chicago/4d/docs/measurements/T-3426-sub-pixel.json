@@ -1,0 +1,17 @@
+{
+  "ticket": "T-3426",
+  "what": "light against full at West prairie (local_e -250, local_n -150, yaw 90, pitch -8), driver draws; held-frame pixels with the sub-pixel cull off, on, and a 4 px positive control",
+  "tree": "dev 589fb6c67 + this change, published mirror, steward runner, SwiftShader",
+  "tools": ["tools/measure_stand_budget.mjs --stand prairie_west --tiers light,full --only mobile --attribute", "tools/qa_t3426_sub_pixel.mjs"],
+  "attribution_before_light_mobile": { "total": 4100, "structures": { "colour": 2974, "sun": 61 }, "yard-ground": 551, "streets": 313, "terrain": 80, "trees": 74, "other": 47 },
+  "attribution_before_full_mobile": { "total": 4498, "structures": { "colour": 2974, "sun": 116 }, "yard-ground": 551, "streets": 321, "trees": 149, "enclosures": 112, "terrain": 111, "yard": 70, "frontage": 63, "other": 46 },
+  "bound_sweep_draws": {
+    "390x780":  { "off": 4100, "r<=0.5px": 3652, "r<=1px": 3149, "r<=1.5px": 2818, "full": 4498 },
+    "1280x800": { "off": 4981, "r<=0.5px": 4942, "r<=1px": 4532, "r<=1.5px": 4170, "full": 5445 }
+  },
+  "shipped": {
+    "390x780":  { "pixels": 304200, "off": { "calls": 4100, "tris": 955804 }, "on": { "calls": 3149, "tris": 935726, "skipped": 1137 }, "control4px": { "calls": 1497, "skipped": 3208 }, "offVsOff": 0, "offVsOn": { "n": 14, "over24": 1, "max": 28 }, "offVsControl": { "n": 236, "over24": 78, "max": 75 }, "full": { "calls": 4498 }, "ratio": 0.700 },
+    "1280x800": { "pixels": 1024000, "off": { "calls": 4981, "tris": 1126906 }, "on": { "calls": 4532, "tris": 1123186, "skipped": 448 }, "control4px": { "calls": 3144, "skipped": 1893 }, "offVsOff": 0, "offVsOn": { "n": 1, "over24": 0, "max": 7 }, "offVsControl": { "n": 226, "over24": 71, "max": 117 }, "full": { "calls": 5445 }, "ratio": 0.832 }
+  },
+  "bar": "light <= 0.9 x full at the worst stand (tools/smoke_renderer.mjs part 5)"
+}

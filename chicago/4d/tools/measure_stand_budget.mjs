@@ -74,6 +74,14 @@ const argAt = (name) => {
   return i >= 0 ? process.argv[i + 1] : null;
 };
 const wantSource = process.argv.includes('--source');
+// T-3426: `--attribute` prices the frame in ONE render instead of a hide-and-read
+// per layer. Every drawable's onBeforeRender/onAfterRender (and the sun's
+// onBeforeShadow/onAfterShadow) is wrapped to read the driver's draw count
+// (driver-draws.js) either side of its own draw, so each draw lands on the layer
+// and the sub-group that issued it, colour pass and sun pass apart. It is exact
+// where the hide method is not (no occlusion, no batch-straddle), and it fits a
+// runner: the hide loop at West prairie did not finish in 590 s.
+const wantAttribute = process.argv.includes('--attribute');
 const jsonOut = argAt('--json');
 const ONLY = argAt('--only') || 'desktop';
 const TIERS = (argAt('--tiers') || 'full,balanced').split(',').map((s) => s.trim());
@@ -168,6 +176,88 @@ for (const vp of VIEWPORTS) {
   page.on('pageerror', (e) => errors.push(String(e)));
   await page.goto(`http://127.0.0.1:${PORT}${ENTRY}?year=1835`, { waitUntil: 'load' });
   await page.waitForFunction(() => window.__chicago4d?.ready === true, null, { timeout: 300_000 });
+  console.log(`${vp.label}: booted at ${Math.round(process.uptime())} s`);
+  if (wantAttribute) {
+    const attributed = await page.evaluate(async ({ st, tiers }) => {
+      const a = window.__chicago4d;
+      const dd = a.renderer.__driverDraws;
+      const frame = () => new Promise((r) => requestAnimationFrame(r));
+      const settle = async () => { await frame(); await frame(); };
+      const putBack = () => {
+        if (st.kind === 'frame') { a.setFly(false); a.frame(st.target, st.distance); }
+        else if (st.kind === 'pose') {
+          a.setFly(typeof st.pose.altitude_m === 'number');
+          a.walker.teleport(st.pose);
+        } else a.goTo(st.target);
+      };
+      // Enter the town the way the smoke does, so the frame read is the walk's.
+      if (!document.getElementById('gate').hasAttribute('hidden') && a.welcome) {
+        const deadline = Date.now() + 90_000;
+        while (a.welcome.state !== 'world' && Date.now() < deadline) {
+          if (a.welcome.state === 'welcome') a.welcome.enter('spawn');
+          if (a.welcome.state !== 'world') await new Promise((r) => setTimeout(r, 100));
+        }
+      }
+      // Hold the draws while nothing is being read (the smoke's T-2337 holdDraws):
+      // in the town one setDetail costs minutes of software frames otherwise.
+      const render = a.renderer.render;
+      const hold = (on) => { a.renderer.render = on ? () => {} : render; };
+      const started = a.detail;
+      const out = [];
+      for (const tier of tiers) {
+        hold(true);
+        try {
+          await a.setDetail(tier);
+          await settle();
+          putBack();
+          await settle();
+        } finally { hold(false); }
+        a.step();
+        const tally = new Map();
+        const hooked = [];
+        const HOOKS = [['onBeforeRender', 'onAfterRender', 'color'],
+          ['onBeforeShadow', 'onAfterShadow', 'sun']];
+        a.scene3d.traverse((o) => {
+          if (!(o.isMesh || o.isLine || o.isPoints || o.isSprite)) return;
+          let top = o;
+          const chain = [];
+          while (top.parent && top.parent !== a.scene3d) { chain.unshift(top); top = top.parent; }
+          const layer = top.name || `(unnamed ${top.type})`;
+          const sub = chain[0] ? (chain[0].name || `(${chain[0].type})`) : (o.name || `(${o.type})`);
+          const key = `${layer}\u0000${sub}`;
+          if (!tally.has(key)) tally.set(key, { layer, sub, color: 0, sun: 0, objs: 0, batched: 0 });
+          const t = tally.get(key);
+          t.objs += 1;
+          if (o.isBatchedMesh) t.batched += 1;
+          for (const [before, after, pass] of HOOKS) {
+            const own = [Object.prototype.hasOwnProperty.call(o, before) ? o[before] : undefined,
+              Object.prototype.hasOwnProperty.call(o, after) ? o[after] : undefined];
+            const b = o[before];
+            const f = o[after];
+            let at = 0;
+            o[before] = function hookedBefore(...args) { const r = b.apply(this, args); at = dd.draws; return r; };
+            o[after] = function hookedAfter(...args) { t[pass] += dd.draws - at; return f.apply(this, args); };
+            hooked.push([o, before, after, own]);
+          }
+        });
+        for (const t of tally.values()) { t.color = 0; t.sun = 0; }
+        a.step();
+        const total = a.stats().drawCalls;
+        const rows = [...tally.values()].map((t) => ({ ...t }));
+        for (const [o, before, after, own] of hooked) {
+          if (own[0] === undefined) delete o[before]; else o[before] = own[0];
+          if (own[1] === undefined) delete o[after]; else o[after] = own[1];
+        }
+        out.push({ tier, total, rows });
+      }
+      hold(true);
+      try { await a.setDetail(started); } finally { hold(false); }
+      return out;
+    }, { st: stand, tiers: TIERS });
+    passes.push({ viewport: vp.label, stand: stand.label, attributed, errors });
+    await page.close();
+    continue;
+  }
 
   const measured = await page.evaluate(async ({ st, tiers }) => {
     const a = window.__chicago4d;
@@ -270,7 +360,35 @@ await browser.close();
 server.close();
 
 const num = (n) => n.toLocaleString('en-US');
-for (const pass of passes) {
+for (const pass of passes.filter((p) => p.attributed)) {
+  console.log(`================  ${pass.viewport}  ·  ${pass.stand}  ·  attributed  ================`);
+  const byLayer = (rows) => {
+    const m = new Map();
+    for (const r of rows) {
+      const l = m.get(r.layer) || { layer: r.layer, color: 0, sun: 0 };
+      l.color += r.color; l.sun += r.sun; m.set(r.layer, l);
+    }
+    return [...m.values()];
+  };
+  for (const t of pass.attributed) {
+    const sum = t.rows.reduce((n, r) => n + r.color + r.sun, 0);
+    console.log(`\n${t.tier}: ${t.total} driver draws in the frame; attributed ${sum}`);
+    console.log('   layer                         colour    sun  total');
+    for (const l of byLayer(t.rows).sort((x, y) => (y.color + y.sun) - (x.color + x.sun))) {
+      if (!(l.color + l.sun)) continue;
+      console.log(`   ${l.layer.padEnd(28)} ${String(l.color).padStart(7)} ${String(l.sun).padStart(6)} `
+        + `${String(l.color + l.sun).padStart(6)}`);
+      for (const r of t.rows.filter((x) => x.layer === l.layer && x.color + x.sun)
+        .sort((x, y) => (y.color + y.sun) - (x.color + x.sun)).slice(0, 8)) {
+        console.log(`     · ${r.sub.slice(0, 24).padEnd(24)} ${String(r.color).padStart(7)} `
+          + `${String(r.sun).padStart(6)} ${String(r.color + r.sun).padStart(6)}  `
+          + `(${r.objs} obj${r.batched ? `, ${r.batched} batched` : ''})`);
+      }
+    }
+  }
+  if (pass.errors.length) console.log(`\nPAGE ERRORS: ${pass.errors.join('; ')}`);
+}
+for (const pass of passes.filter((p) => !p.attributed)) {
   console.log(`================  ${pass.viewport}  ·  ${pass.stand}  ================`);
   for (const t of pass.tiers) {
     const over = t.base.tris - t.ceiling;
