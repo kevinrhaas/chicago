@@ -333,6 +333,9 @@ step "Navigator Jaunts app: Jaunts · Go to · Free roam, the Welcome card's lis
 # T-2632: Go to cleanup.
 step "Go to offers All, Places, People, Shops & work and Viewpoints with no empty chip, names on two lines, and each row's distance and bearing (T-2632)" \
   node tools/test_goto_cleanup.mjs
+# T-3436: 1904's viewpoints by short name and glyph, and Go to's Photos.
+step "Go to lists 1904's viewpoints by short name with their own glyphs, features six, and offers Photos at their cameras, walked or flown to like any place (T-3436)" \
+  node tools/test_goto_photos_t3436.mjs
 # T-2633: Go to follows the Confidence view.
 step "Go to has no reconstructed-roofs checkbox; what the Confidence view hides is listed dimmed with its reason and restored when shown (T-2633)" \
   node tools/test_goto_confidence.mjs
@@ -394,6 +397,8 @@ step "Jaunt session history, cancellation and replacement (T-1279)" \
   node tools/test_jaunts_reducer.mjs
 step "Jaunt optional context and route notes (T-1257)" \
   node tools/test_leg_notes.mjs
+step "Jaunt flies to its start, welcome, final stop and readable road notes (T-3432)" \
+  node tools/test_jaunt_start_finish.mjs
 step "Jaunt resources, Revise, endings and saved-session replay (T-1256)" \
   node tools/test_jaunt_mechanics.mjs
 step "Jaunt route and pace estimates (T-1280)" \

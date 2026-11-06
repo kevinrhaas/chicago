@@ -18112,8 +18112,9 @@ for (const [label, viewport, touch] of [
       api.navigator.dock();
       return out;
     });
-    check(`${label}: Go to offers All · Places · People · Shops & work · Viewpoints, no empty chip, two-line names, and each row's distance and bearing (T-2632)`,
-      gotoClean.labels.join() === 'All,Places,People,Shops & work,Viewpoints' && gotoClean.shown[0] === 'All'
+    // T-3436: Viewpoints reads "Views", and Photos follows once the pictures file is read.
+    check(`${label}: Go to offers All · Places · People · Shops & work · Views · Photos, no empty chip, two-line names, and each row's distance and bearing (T-2632, T-3436)`,
+      gotoClean.labels.join() === 'All,Places,People,Shops & work,Views,Photos' && gotoClean.shown[0] === 'All'
       && gotoClean.counts.every(([, n]) => n > 0) && gotoClean.rows > 0 && gotoClean.withDistance === gotoClean.rows
       && String(gotoClean.clamp) === '2' && gotoClean.overflow,
       JSON.stringify(gotoClean));
