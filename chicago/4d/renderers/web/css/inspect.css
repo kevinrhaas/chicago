@@ -303,4 +303,10 @@ button.insp-hot-row:focus-visible { outline: 2px solid var(--accent, currentColo
   font: 400 0.875rem/1.45 var(--font-body, inherit); }
 .insp-person-sources a { color: var(--ink); }
 .insp-person-reading { margin: 6px 0 0; font: 400 0.875rem/1.5 var(--font-body, inherit); color: var(--ink); }
+/* T-3413: a portrait beside the model's fitted face, the same size, side by side even on a phone. */
+.insp-person-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 4px 0 10px; }
+.insp-person-face { margin: 0; display: flex; flex-direction: column; gap: 4px; }
+.insp-person-face img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover;
+  border-radius: 6px; border: 1px solid var(--edge); background: var(--panel-raised, #1c1b18); }
+.insp-person-likeness .insp-person-why-title { margin-top: 0; }
 .insp-person-card .insp-key { grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr)); }
