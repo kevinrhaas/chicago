@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 2709, ts: '2026-11-06T14:15:38.961Z', date: 'Nov 6, 2026, 8:15 AM CT', title: 'The Pullman conservatory\'s gate in its own dark stone', kind: 'fix',
+    items: [
+      'The gate on 18th Street at the Pullman conservatory, 1800 Calumet, now stands in a dark stone, as the 1894 Inland Architect plate and Lowe\'s photograph both show it, instead of the pale stone of the conservatory\'s base. The stone\'s exact colour is our reconstruction.',
+    ] },
+  { v: 2708, ts: '2026-11-06T13:57:37.416Z', date: 'Nov 6, 2026, 7:57 AM CT', title: 'The Glessner House print\'s copper turret roof matches the rest', kind: 'improvement',
+    items: [
+      'Nothing you can see changed in the scene. In the 3D-print export, the copper roofs on the dining bay turret and over the court now carry the same even tile courses as every other roof.',
+      'Their standing seams, too fine to print, used to come out as rows of beads. They are left out of the print now.',
+    ] },
+  { v: 2707, ts: '2026-11-06T13:46:04.349Z', date: 'Nov 6, 2026, 7:46 AM CT', title: 'Hans dresses like the coachmen in the photographs', kind: 'improvement',
+    items: [
+      'Hans\'s box coat now hangs off him like heavy wool, full at the chest and square at the shoulder, instead of following his body.',
+      'His coat is buttoned over his lap and gathers in folds across his thighs, as in period photographs of coachmen on the box.',
+      'He now wears pale driving gloves, and his hands close on the reins.',
+    ] },
   { v: 2706, ts: '2026-11-06T12:12:48.495Z', date: 'Nov 6, 2026, 6:12 AM CT', title: 'No two people alike: each has their own face, height and build', kind: 'improvement',
     items: [
       'Every person now has a face of their own: nose, mouth, chin, jaw, cheeks, brows and ears differ.',
