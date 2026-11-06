@@ -553,6 +553,8 @@ step "A seated driver breathes, looks round and holds his reins, bounded and det
   node tools/test_driver_life.mjs
 step "The driven team's generated walk and its hoof-support domain reproduce byte for byte, hooves planted without slide (T-2803)" \
   node tools/horse_walk_v2.mjs --check
+step "A driver's plain garments read as cloth: weave, heather and sheen by shader patch, no texture, one program (T-2804)" \
+  node tools/test_fabric.mjs
 step "Driven-team clearance uses the complete occupied envelope and refuses blocked routes (T-2804)" \
   node tools/test_transport_clearance.mjs
 step "Driven-team support reads actual ground and preserves physical contact limits (T-2804)" \
@@ -640,6 +642,8 @@ step "Glessner service posts seat on stone and gate hinges connect to masonry (T
   python3 tools/test_glessner_service_access.py
 step "Glessner stacks meet both roof pitches and retain deep open flues (T-2222)" \
   python3 tools/test_glessner_chimneys.py
+step "Print export makes one closed, solid, standing piece from a leaky render soup (T-3395)" \
+  python3 tools/test_export_print_3mf.py
 step "Glessner's curved stone staggers, its eave clears the gable and its pipe meets the roof (T-2470)" \
   python3 tools/test_glessner_north_tower.py
 step "Glessner's service openings stay whole and the stable roof meets the north range (T-2219)" \

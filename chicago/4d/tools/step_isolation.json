@@ -5674,11 +5674,19 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_fabric.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_driver_life.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/test_enclosure_points.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_export_print_3mf.py": {
       "wrote": [],
       "wrote_ignored": []
     },
