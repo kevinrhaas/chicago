@@ -4019,6 +4019,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/fit_portrait_face.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/generate_alley_lanes.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -4236,6 +4240,10 @@
       "wrote_ignored": []
     },
     "tools/human_seated_look.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/human_variation_kit.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5694,10 +5702,6 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/test_people_match.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
     "tools/test_enclosure_points.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5742,10 +5746,6 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/test_gardens.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
     "tools/test_fort_gates.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5763,6 +5763,10 @@
       "wrote_ignored": []
     },
     "tools/test_frontage_faces.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_gardens.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5970,6 +5974,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_human_variation.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_human_workwear_shoulders.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6011,6 +6019,10 @@
       "wrote_ignored": []
     },
     "tools/test_k01_hood_flare.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_hood_shelf.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6243,6 +6255,10 @@
       "wrote_ignored": []
     },
     "tools/test_parked_transport_empty_scene.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_people_match.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6711,18 +6727,6 @@
       "wrote_ignored": []
     },
     "{}": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/human_variation_kit.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_human_variation.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/fit_portrait_face.py": {
       "wrote": [],
       "wrote_ignored": []
     }

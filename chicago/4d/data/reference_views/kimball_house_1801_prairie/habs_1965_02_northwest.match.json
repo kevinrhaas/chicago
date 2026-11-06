@@ -2,11 +2,11 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_02_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "9c1366b83565ceb2f4e762938c48660b0761fdea4f1aa9442f7674cebe0b602f",
+  "glb_sha256": "e3b43b8664e9ebd032ee3065cdda0c749704c13918301bf63d7f3552a0700938",
   "camera_sha256": "475749e1e90699915d11ebb50d92b46197e764f7d46d08a73a70e5fe6cdc6593",
   "photo_sha256": "c7398dc2aaa4756b623abf4f559ebd98d609dd89f45bec762ade94a7510ac606",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg",
-  "verdict": "matches",
+  "verdict": "differs",
   "differences": [
     {
       "what": "the east range's frontispiece over its side door (T-3110): the print's stone frontispiece between pilaster strips from grade (x 345-398 px) carries a small round-arched light filled with an ornamental grille (x 362-382, y 1045-1070, about 2.4-3.1 m), a paired light in the upper storey (x 355-385, y 940-985, about 4.7-5.9 m) and, through the eave, a coped gable between pinnacles with a finial (apex x 372, y 835, about 8.65 m); the build's range wall ran plain under its hip with two rows of reconstructed sash. Built (bays.p_door): 3.0 m wide, 0.1 m proud, the grilled round-headed light and the mullioned pair on its axis, a coped gable of pitch 1.5 between pinnacles; its lights render within about 5 px of the print's rows",
@@ -49,7 +49,7 @@
       "status": "within tolerance"
     },
     {
-      "what": "the gabled section's 18th Street face: the print's round oriel, two storeys on corbels (x 430-505 px, y 780-1000) under a balustraded balcony with an open loggia behind it, three round-arched lights under it (x 436-539, y 1020-1065) and the coped gable over (apex x 497); the build's p_gable is a flat pavilion with transomed pairs. The Taylor print's match record carries the same difference (open there) \u2014 T-1890: rebuilt to the print: a round oriel on the shallow pavilion's face, its bow 2.7 m on the chord and 0.6 m out, from the 5.0 m floor to a 9.2 m wall top on six stepped corbel courses down to 3.8 m, its two transomed lights bent to the bow, under a moulded cornice and the round stone balustrade the print carries on its top; the principal storey's three round-arched lights under it, 0.5 m clear each. Through this camera the oriel's width, its corbel, its balcony and the arched lights now stand where the print's do, the balcony's rail a little (about 0.5 m) over the print's",
+      "what": "the gabled section's 18th Street face: the print's round oriel, two storeys on corbels (x 430-505 px, y 780-1000) under a balustraded balcony with an open loggia behind it, three round-arched lights under it (x 436-539, y 1020-1065) and the coped gable over (apex x 497); the build's p_gable is a flat pavilion with transomed pairs. The Taylor print's match record carries the same difference (open there) — T-1890: rebuilt to the print: a round oriel on the shallow pavilion's face, its bow 2.7 m on the chord and 0.6 m out, from the 5.0 m floor to a 9.2 m wall top on six stepped corbel courses down to 3.8 m, its two transomed lights bent to the bow, under a moulded cornice and the round stone balustrade the print carries on its top; the principal storey's three round-arched lights under it, 0.5 m clear each. Through this camera the oriel's width, its corbel, its balcony and the arched lights now stand where the print's do, the balcony's rail a little (about 0.5 m) over the print's",
       "status": "fixed"
     },
     {
@@ -150,7 +150,15 @@
       "what": "the 18th Street section's depth (T-1890, from the Taylor print's record): stood at the 1911 sheet's 0.1 m, its corner over the corbel table now renders at about x 60-70 on the 1800 px render, where the print's corbel table ends at about x 65 (it rendered at about x 85 at 0.6 m)",
       "status": "fixed",
       "how": "L-kimball-1801-flank-shallow-1890"
+    },
+    {
+      "what": "the 18th Street and street dormers' shelves (T-1890, 2026-11-06): the print shows each hood's slate run down to its flared foot, a thin pale edge along the eave over the light (a flashing or a painted board, not built), where the build stood each hood on a pale stone shelf; now slated as the hoods are (hood.shelf). The street hood now rises 1.8 m off the Taylor print, which this print also reads tall",
+      "status": "fixed"
+    },
+    {
+      "what": "the front's third storey over the bow (T-1890, 2026-11-06): behind the bow's balcony this print, like the Taylor print, shows a stone wall carried up a storey at the front with one light in it (about x 1430-1483, y 530-570) under an eave at about y 510-520, the cross roof's slate rising over it, where the build carries the mansard's slate down to the cornice; the Taylor record carries the triangulated eave. Read with care here: this camera puts the build's north-west roof corner about 20 px west of and 55 px under the print's, so it is the Taylor print that sets the numbers",
+      "status": "open"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

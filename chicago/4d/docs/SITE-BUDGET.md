@@ -172,7 +172,8 @@ BOOT PAYLOAD — first visit stands in the 1835 street
 Three consecutive runs produced byte-identical totals — the measurement is a
 property of the tree, not of the run.
 
-**The boot payload budget is 39.6 MB**, re-set on 2026-11-01 by T-3300 for two weeks of the
+**The boot payload budget is 40.2 MB**, re-set on 2026-11-06 by T-3425 for five days of the
+owner's town past T-3300's room (§ 4l). T-3300 had set it at 39.6 MB on 2026-11-01 for two weeks of the
 owner's town landing unmeasured (§ 4k). T-2711 had set it at 36.2 MB on 2026-10-17 for the prebuilt
 yards (§ 4j). T-2710 had set it at 33.7 MB the same day for the prebuilt streets (§ 4i), and
 T-2693 at 29 MB for the prebuilt ground (§ 4g). T-2677 had set it at 20 MB on 2026-10-16 for the prebuilt frontage timber
@@ -187,9 +188,9 @@ Re-measure and check with:
 ```
 bash tools/publish.sh                      # build the mirror the visitor gets
 node tools/measure_boot_payload.mjs        # the report above
-node tools/measure_boot_payload.mjs --check  # exit 1 past the 39.6 MB budget
-node tools/measure_boot_payload.mjs --against docs/measurements/T-3300-boot-payload-entries.json
-                                           # what grew since § 4k's reading, file by file
+node tools/measure_boot_payload.mjs --check  # exit 1 past the 40.2 MB budget
+node tools/measure_boot_payload.mjs --against docs/measurements/T-3425-boot-payload-entries.json
+                                           # what grew since § 4l's reading, file by file
 ```
 
 The nightly `chicago-4d-bake.yml` enforces this with `--check` in the desktop
@@ -747,10 +748,39 @@ against well under 1 MB. **The next breach is cheaper to read.** Compare it with
 The levers for the next byte are unchanged: § 4g's partition in place of float32 vertices, and
 then the tree atlas's resolution, if the owner asks for it.
 
+### 4l. Five days past T-3300's room, re-measured 2026-11-06 (T-3425), and the budget is 40.2 MB
+
+The content build's desktop `1-2` leg went red on 2026-11-04 at **39.696 MB** (run 41814891441, dev
+`16dab2f5a`), and PR #1710's build read 39.697 MB the next day on a one-house diff, so the breach was
+dev's own (T-3375, split into T-3425 for this number, T-3426 for the light tier at West prairie and
+T-3427 for the stage-5 page error). Re-read on dev `2ab4f2c3d`, published without a bake by
+`check.sh` and measured by `--against` § 4k's entries, it is **39.978 MB across 1,165 requests**:
++0.610 MB and 37 requests on T-3300's 39.368 MB in five days.
+
+| | on the wire | where it came from |
+|---|---|---|
+| two shared kit sheets | +0.198 MB | T-3387 (#1736): Fort Dearborn and the Lake House in hand-made period brick. Six 1816 fort buildings and the Lake House shell carry them, so `share_glb_sheets.mjs` ships each once: `data/gltf/sheets/6d1c7abde336b776.ktx2` 0.152 MB, `b12a3da2bbcc3dc2.ktx2` 0.046 MB |
+| prebuilt layers | +0.189 MB | frontage +0.133 MB, yards +0.054 MB: the town's walks, fences and yards as they grew |
+| walk code | +0.175 MB | 37 new modules, most of them the people's (human-variation, human-life, human-actions, human-skin, driver-life) and the driven transport's (town-transport, transport-loop), with gardens and fort-gates |
+| everything else | +0.048 MB | sidecars, signboards, GLBs, data files |
+
+**Nothing in it is a careless import or an unmetered fetch** — § 4b's test. The largest single
+arrival is 0.152 MB, every arrival is a file the 1835 street draws from where the visitor stands, and
+the measurement's top fifteen are unchanged in order. Cutting any of it is a choice about how the
+town looks (the fort's brick, the people's faces and build) and that is the owner's, not a budget's,
+so this re-argues the number the way § 4k did: **39.978 MB measured plus 0.222 MB of room, 40.2 MB.**
+
+**Said plainly, what 40.2 surrenders.** § 4k kept 0.23 MB of room and it lasted five days. At this
+week's pace the next breach is about as far off, so this budget is now a rate meter more than a
+ceiling: it says when the boot grew, and the levers that would actually turn it back remain § 4g's
+partition in place of float32 vertices and the tree atlas's resolution (§ 4k). The next breach should
+be read against this reading first:
+`node tools/measure_boot_payload.mjs --against docs/measurements/T-3425-boot-payload-entries.json`.
+
 ## 5. What the gate does now
 
 - **Refuses** over 416 MiB (T-3170; measured re-budgets in §8, §9, §11 and §13) — the repository-hygiene guard, not the visitor-cost
-  budget; the visitor-cost budget is the 39.6 MB boot payload budget in § 4,
+  budget; the visitor-cost budget is the 40.2 MB boot payload budget in § 4,
   enforced by `tools/measure_boot_payload.mjs --check`. The gate names
   `tools/site_budget.py` in the message so the next run does not have to invent
   the report again.

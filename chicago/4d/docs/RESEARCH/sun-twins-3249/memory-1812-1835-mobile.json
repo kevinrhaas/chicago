@@ -1,0 +1,438 @@
+{
+  "ticket": "T-2546",
+  "measured": {
+    "on": "2026-11-06T13:59:11.149Z",
+    "build": "98542a3f5",
+    "machine": "AMD EPYC 9V45 96-Core Processor ×4",
+    "seconds": 63,
+    "method": "published year door, welcome entered at spawn, 3 frames + 1 s, texture residency let finish its uploads, two forced GCs; heap and backing store from Runtime.getHeapUsage; GPU from a WebGL allocation meter"
+  },
+  "rows": [
+    {
+      "year": "1812",
+      "viewport": "mobile",
+      "label": "phone 390x780 dpr3",
+      "tier": "light",
+      "pixelRatio": 1,
+      "keepGeometry": false,
+      "totals": {
+        "jsHeap": 30037784,
+        "arrayBuffers": 82088151,
+        "gpuBuffers": 58062013,
+        "gpuTextures": 43110905,
+        "gpuRenderbuffers": 3145728,
+        "total": 213298853
+      },
+      "gl": {
+        "gpuBuffers": 58062013,
+        "gpuTextures": 39965177,
+        "gpuRenderbuffers": 3145728,
+        "liveBuffers": 523,
+        "liveTextures": 178,
+        "liveRenderbuffers": 1,
+        "liveFramebuffers": 7,
+        "livePrograms": 40
+      },
+      "heapTotal": 30896128,
+      "shadowMapBytes": 8388608,
+      "textures": {
+        "distinct": 34,
+        "images": 34
+      },
+      "layers": [
+        {
+          "name": "terrain",
+          "cpuKept": 28047366,
+          "gpuGeometry": 5748242,
+          "textureBytes": 87381,
+          "textures": 1,
+          "geometries": 228,
+          "cpuNeverUploaded": 28047366
+        },
+        {
+          "name": "trees",
+          "cpuKept": 151200,
+          "gpuGeometry": 20177943,
+          "textureBytes": 4194304,
+          "textures": 3,
+          "geometries": 6,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "structures",
+          "cpuKept": 12,
+          "gpuGeometry": 10224468,
+          "textureBytes": 3845472,
+          "textures": 26,
+          "geometries": 20,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "yard-ground",
+          "cpuKept": 0,
+          "gpuGeometry": 10527348,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 2,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "flora",
+          "cpuKept": 4443980,
+          "gpuGeometry": 4443980,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 19,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "flags",
+          "cpuKept": 40332,
+          "gpuGeometry": 40332,
+          "textureBytes": 756395,
+          "textures": 1,
+          "geometries": 2,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "fort-gates",
+          "cpuKept": 41472,
+          "gpuGeometry": 41472,
+          "textureBytes": 174763,
+          "textures": 1,
+          "geometries": 5,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "night-lights",
+          "cpuKept": 232,
+          "gpuGeometry": 232,
+          "textureBytes": 43690,
+          "textures": 2,
+          "geometries": 2,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "sky",
+          "cpuKept": 840,
+          "gpuGeometry": 840,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 1,
+          "cpuNeverUploaded": 0
+        }
+      ],
+      "layerSum": {
+        "cpuKept": 32725434,
+        "gpuGeometry": 51204857,
+        "textureBytes": 9102005,
+        "cpuNeverUploaded": 28047366
+      },
+      "uploadRelease": {
+        "geometries": 255,
+        "attributes": 1049,
+        "bytes": 81531419,
+        "keptForHarness": false,
+        "sources": 59,
+        "sourceBytes": 8837628,
+        "images": 0,
+        "imageBytes": 0,
+        "compressed": 2,
+        "compressedBytes": 174816,
+        "boundsRows": 18469,
+        "boundsBytes": 749879
+      },
+      "residency": {
+        "pendingAtRead": 0,
+        "settleMs": 5,
+        "resident": 2,
+        "sources": 2,
+        "residentBytes": 174816,
+        "budgetBytes": 268435456,
+        "wantedBytes": 174816,
+        "pending": 0,
+        "uploads": 0,
+        "evictions": 0,
+        "overBudget": 0
+      },
+      "ktx2": {
+        "enabled": true,
+        "reason": "on",
+        "dropTopMip": true,
+        "glb": "shared",
+        "formats": [
+          "dxt",
+          "bptc"
+        ],
+        "sheets": {
+          "ktx2": 28,
+          "fallback": 0,
+          "gpuBytes": 7166032,
+          "failed": []
+        }
+      },
+      "errors": [],
+      "seconds": {
+        "boot": 22
+      }
+    },
+    {
+      "year": "1835",
+      "viewport": "mobile",
+      "label": "phone 390x780 dpr3",
+      "tier": "light",
+      "pixelRatio": 1,
+      "keepGeometry": false,
+      "totals": {
+        "jsHeap": 98199388,
+        "arrayBuffers": 183324605,
+        "gpuBuffers": 155349867,
+        "gpuTextures": 77269097,
+        "gpuRenderbuffers": 3145728,
+        "total": 514142957
+      },
+      "gl": {
+        "gpuBuffers": 155349867,
+        "gpuTextures": 74123369,
+        "gpuRenderbuffers": 3145728,
+        "liveBuffers": 1227,
+        "liveTextures": 397,
+        "liveRenderbuffers": 1,
+        "liveFramebuffers": 7,
+        "livePrograms": 52
+      },
+      "heapTotal": 101126144,
+      "shadowMapBytes": 8388608,
+      "textures": {
+        "distinct": 28,
+        "images": 26
+      },
+      "layers": [
+        {
+          "name": "frontage",
+          "cpuKept": 46807224,
+          "gpuGeometry": 30413496,
+          "textureBytes": 1048656,
+          "textures": 3,
+          "geometries": 128,
+          "cpuNeverUploaded": 45441024
+        },
+        {
+          "name": "terrain",
+          "cpuKept": 17390540,
+          "gpuGeometry": 13352514,
+          "textureBytes": 87381,
+          "textures": 1,
+          "geometries": 234,
+          "cpuNeverUploaded": 17390540
+        },
+        {
+          "name": "yard-ground",
+          "cpuKept": 0,
+          "gpuGeometry": 29092284,
+          "textureBytes": 87381,
+          "textures": 1,
+          "geometries": 5,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "signage",
+          "cpuKept": 377136,
+          "gpuGeometry": 377136,
+          "textureBytes": 27525120,
+          "textures": 3,
+          "geometries": 1,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "yard",
+          "cpuKept": 16439520,
+          "gpuGeometry": 6354816,
+          "textureBytes": 5024480,
+          "textures": 3,
+          "geometries": 84,
+          "cpuNeverUploaded": 16439520
+        },
+        {
+          "name": "structures",
+          "cpuKept": 8,
+          "gpuGeometry": 24134836,
+          "textureBytes": 2807392,
+          "textures": 10,
+          "geometries": 28,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "trees",
+          "cpuKept": 151200,
+          "gpuGeometry": 19714039,
+          "textureBytes": 4194304,
+          "textures": 3,
+          "geometries": 6,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "enclosures",
+          "cpuKept": 17180640,
+          "gpuGeometry": 3765096,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 200,
+          "cpuNeverUploaded": 17180640
+        },
+        {
+          "name": "streets",
+          "cpuKept": 0,
+          "gpuGeometry": 9486720,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 3,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "flora",
+          "cpuKept": 4443980,
+          "gpuGeometry": 4443980,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 19,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "flags",
+          "cpuKept": 80664,
+          "gpuGeometry": 80664,
+          "textureBytes": 1739435,
+          "textures": 2,
+          "geometries": 4,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "working_bank",
+          "cpuKept": 484892,
+          "gpuGeometry": 484892,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 1,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "boats",
+          "cpuKept": 134400,
+          "gpuGeometry": 134400,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 1,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "wharves",
+          "cpuKept": 115920,
+          "gpuGeometry": 115920,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 1,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "fort-gates",
+          "cpuKept": 36288,
+          "gpuGeometry": 36288,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 4,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "night-lights",
+          "cpuKept": 232,
+          "gpuGeometry": 232,
+          "textureBytes": 43690,
+          "textures": 2,
+          "geometries": 2,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "wells",
+          "cpuKept": 11760,
+          "gpuGeometry": 11760,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 2,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "sky",
+          "cpuKept": 840,
+          "gpuGeometry": 840,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 1,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "humans",
+          "cpuKept": 840,
+          "gpuGeometry": 840,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 1,
+          "cpuNeverUploaded": 0
+        }
+      ],
+      "layerSum": {
+        "cpuKept": 103656084,
+        "gpuGeometry": 142000753,
+        "textureBytes": 42557839,
+        "cpuNeverUploaded": 96451724
+      },
+      "uploadRelease": {
+        "geometries": 687,
+        "attributes": 2601,
+        "bytes": 244826891,
+        "keptForHarness": false,
+        "sources": 686,
+        "sourceBytes": 25322548,
+        "images": 0,
+        "imageBytes": 0,
+        "compressed": 2,
+        "compressedBytes": 174816,
+        "boundsRows": 25333,
+        "boundsBytes": 915469
+      },
+      "residency": {
+        "pendingAtRead": 0,
+        "settleMs": 11,
+        "resident": 0,
+        "sources": 2,
+        "residentBytes": 0,
+        "budgetBytes": 268435456,
+        "wantedBytes": 0,
+        "pending": 0,
+        "uploads": 0,
+        "evictions": 2,
+        "overBudget": 0
+      },
+      "ktx2": {
+        "enabled": true,
+        "reason": "on",
+        "dropTopMip": true,
+        "glb": "shared",
+        "formats": [
+          "dxt",
+          "bptc"
+        ],
+        "sheets": {
+          "ktx2": 13,
+          "fallback": 0,
+          "gpuBytes": 6641344,
+          "failed": []
+        }
+      },
+      "errors": [],
+      "seconds": {
+        "boot": 40
+      }
+    }
+  ]
+}

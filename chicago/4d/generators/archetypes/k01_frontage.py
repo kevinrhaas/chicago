@@ -5179,7 +5179,8 @@ class Assembly:
         narrows as it climbs, as the print's do. T-1890: a hood with `flare_m` stands that much
         wider than the face each side at its foot and that much out in front of it, its shelf
         with it, and sweeps in from there to the same top. Both plan boxes are a gabled
-        dormer's: the hood's slate is the lower faces' own."""
+        dormer's: the hood's slate is the lower faces' own. A hood whose `shelf` is "slate"
+        has its shelf slated too, read as the hood's own flared eave (T-1890, 2026-11-06)."""
         h = d["hood"]
         fl = h.get("flare_m", 0.0)
         y0, y1 = eaves - self.HOOD_BED_M, eaves + h["shelf_m"]
@@ -5187,9 +5188,11 @@ class Assembly:
         out = nf + sg * (h["shelf_proud_m"] + fl)
         rh, rt = r + fl + self.HOOD_LIP_M, r - h["taper_m"]
         P = k5.frame("z" if axis == "x" else "x")   # (out, up, along) for a face whose out is `axis`
+        # T-1890: a slated shelf is the hood's own eave, its faces slated as the hood's cheeks are
+        sr = "cheek" if h.get("shelf") == "slate" else "dormer_face"
         shelf = k5.extrude([(bk, y0), (out, y0), (out, y1), (bk, y1)], centre - rh, centre + rh, P,
                            lambda i, p_, q_: "hidden" if abs(p_[0] - bk) < 1e-9 and abs(q_[0] - bk) < 1e-9
-                           else "dormer_face", "dormer_face", "dormer_face")
+                           else sr, sr, sr)
         # the hood: bedded HOOD_BED_M into the shelf, its eight corners (out, up, along)
         yb, nt, hb = y1 - self.HOOD_BED_M, nf - sg * h["lean_m"], bk + sg * 0.02
         nb = nf + sg * fl

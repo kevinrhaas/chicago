@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 2712, ts: '2026-11-06T15:13:03.188Z', date: 'Nov 6, 2026, 9:13 AM CT', title: 'Phones draw house shadows from simpler shapes', kind: 'improvement',
+    items: [
+      'On a phone, each house now casts its sun shadow from one simplified copy of itself, near as well as far. Mouldings, sash and trim are smaller than one point of the phone\'s shadow map, so they never changed a shadow anyway. Looking down Prairie Avenue from 1801 or across 18th Street, the shadow pass draws about 56% fewer house triangles, and fewer than 1 pixel in 1,000 changes. Desktops and the Full and Balanced settings are unchanged.',
+    ] },
+  { v: 2711, ts: '2026-11-06T15:06:23.316Z', date: 'Nov 6, 2026, 9:06 AM CT', title: 'The first visit\'s download measured again, and its budget re-argued', kind: 'chore',
+    items: [
+      'A first visit to 1835 now downloads 39.98 MB, 0.61 MB more than five days ago: the fort\'s and the Lake House\'s hand-made brick, the people\'s new faces and builds, and the town\'s walks and yards.',
+      'Nothing in it was a careless addition, so the budget moves to 40.2 MB with the reasoning written down, rather than trimming what the town looks like.',
+    ] },
+  { v: 2710, ts: '2026-11-06T15:06:23.316Z', date: 'Nov 6, 2026, 9:06 AM CT', title: '1801 Prairie\'s roof dormers lose their pale stone shelves', kind: 'fix',
+    items: [
+      'The Kimball house\'s three hooded roof dormers no longer sit on pale stone slabs. Each hood\'s slate now runs down to a dark eave over its window, as the 1895 photograph and both 1965 survey photographs show.',
+      'The Prairie Avenue dormer\'s hood stands about a foot taller, to the height of the 1895 photograph\'s.',
+      'Its photo-match records now list what still differs on the Prairie Avenue front: a stone third storey with a small window behind the round bay\'s balcony, and a lower roof ridge at the corner.',
+    ] },
   { v: 2709, ts: '2026-11-06T14:15:38.961Z', date: 'Nov 6, 2026, 8:15 AM CT', title: 'The Pullman conservatory\'s gate in its own dark stone', kind: 'fix',
     items: [
       'The gate on 18th Street at the Pullman conservatory, 1800 Calumet, now stands in a dark stone, as the 1894 Inland Architect plate and Lowe\'s photograph both show it, instead of the pale stone of the conservatory\'s base. The stone\'s exact colour is our reconstruction.',
