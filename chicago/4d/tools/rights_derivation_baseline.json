@@ -3228,6 +3228,14 @@
       "sole_support": false,
       "confidence": "reconstructed"
     },
+    "mayer_house_2009_prairie/as_mapped_1904/form.basement_lights": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2009_prairie_meyer_photo"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "mayer_house_2009_prairie/as_mapped_1904/form.bays": {
       "kind": "structure",
       "blocked_sources": [

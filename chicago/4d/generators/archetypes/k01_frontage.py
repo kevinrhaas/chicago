@@ -112,6 +112,9 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
   k01.wall.corner_bond      a quoin on the south return, long and short in turn
                             against the front's own corner stone (T-2581: or a straight
                             strip, stone_front.south_return_m, on every course)
+  k01.wall.corner_stone     T-3365: the front's low-s corner dressed in stone from a height
+                            to the wall head over a brick front, returned on the south wall
+                            (street_front_windows.corner_stone; 2009's, off its photograph)
   k01.opening.flat_arch     voussoirs over every front opening K09 leaves a flat
                             head (the area lights, the third floor), their joints
                             radiating and each stone's bed turned along its joint
@@ -1242,6 +1245,28 @@ class Assembly:
                     out = d if j == 0 else 0.0     # the first face's stone covers the arris
                     s0, s1 = (length - run, length + out) if at_end else (-out, run)
                     self.proud_box("limestone_trim", (O, R, _cross(R, Y)), s0, s1, y0, y1, d, seed, conf)
+
+    def corner_stone(self, front, side, side_len):
+        """T-3365: k01.wall.corner_stone — the street front's low-s corner dressed in stone from
+        `from_m` to the wall head (2009 Prairie's north corner, off the Chicagology photograph:
+        brick to the string course, then a pale stone strip to the kneeler): one course every
+        about `course_m`, each stone a box `proud_m` out of the brick, `width_m` along the front
+        and `return_m` along the side wall, the front's run on past the arris by `proud_m` so
+        the two meet on it."""
+        p, cs = self.p, self.p.street_dress["corner_stone"]
+        conf = p.worst_conf("footprint", "stories", "storey_heights_m", "construction", "street_front_windows")
+        d, y0, top = cs["proud_m"], cs["from_m"], p.eave_m
+        n = max(1, round((top - y0) / cs["course_m"]))
+        ch = (top - y0) / n
+        O, R, N = front
+        seed = self.instance("k01.wall.corner_stone", "wall",
+                             {"from_m": y0, "to_m": top, "courses": n, "course_m": round(ch, 4),
+                              "width_m": cs["width_m"], "return_m": cs["return_m"], "proud_m": d},
+                             {"base": _add(O, _mul(Y, y0))})
+        for k in range(n):
+            ya, yb = y0 + k * ch, y0 + (k + 1) * ch
+            self.proud_box("limestone_trim", front, -d, cs["width_m"], ya, yb, d, seed, conf)
+            self.proud_box("limestone_trim", side, side_len - cs["return_m"], side_len, ya, yb, d, seed, conf)
 
     def wing_deck(self, w):
         """The wing's flat deck: a slab from its wall top to the fascia's top, run out over
@@ -6371,6 +6396,8 @@ def build(params, structure_id: str):
             a.wall(cid, mat, O, R, length, E, t, holes(cid) + bond, breaks, bands, gaps[cid], cols)
         if quoins:
             a.quoins(frames["k01.wall.side.south"][0][0], D, quoins)
+        if p.street_dress.get("corner_stone"):   # T-3365
+            a.corner_stone(frame, frames["k01.wall.side.south"][0][0], D)
     for cid, (mat, O, R, length, t, bands) in walls.items():
         if cid in frames:
             continue
