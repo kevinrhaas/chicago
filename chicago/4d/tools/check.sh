@@ -568,6 +568,8 @@ step "A driver's plain garments read as cloth: weave, heather and sheen by shade
   node tools/test_fabric.mjs
 step "Every person's skin has pores, blood and a glow, hair a strand sheen and eyes a wet glint: shader patch, no texture (T-3400)" \
   node tools/test_human_skin.mjs
+step "Near people grow strand-card hair, beards and whiskers from their own scalp and face, cut under a hat, and their eyes a cornea: no texture (T-3414)" \
+  node tools/test_human_hair.mjs
 step "Every wardrobe file matches its recipe, each garment sourced or a liberty, clear of its seated body and vehicle, and is the one its row binds (T-3398, T-3409)" \
   python3 tools/human_wardrobe.py --check
 step "The shared body-and-face kit reproduces from its pinned MakeHuman targets, and each drawn person's age from their record (T-3412)" \
@@ -1284,6 +1286,13 @@ step "a K08 finial may be turned on a crocketed collar and a hooded dormer's fac
 # box spanning it; a hood without it as before; a flare under 0.05 or over 0.3 m refused.
 step "a K01 hooded dormer's hood may flare at its foot (T-1890)" \
   python3 tools/test_k01_hood_flare.py
+
+# T-1890. ...and its shelf may be slated, read as the hood's own dark flared eave rather than a
+# pale stone slab (1801 Prairie's three: no pale course at any hood's foot in the Taylor print or
+# HABS photographs 1 and 2): every face of a slated shelf slated, its geometry the stone one's;
+# a hood without `shelf` as before; any other fabric refused.
+step "a K01 hooded dormer's shelf may be slated as its hood is (T-1890)" \
+  python3 tools/test_k01_hood_shelf.py
 
 # T-1890. 1801 Prairie's cross roof ends under a slated hood with its finial on the apex
 # (HABS photograph 1; the Taylor print sets its rise through the finial's top).

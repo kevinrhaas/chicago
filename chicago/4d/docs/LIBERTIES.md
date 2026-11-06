@@ -31498,6 +31498,8 @@ Actual pinned exporter source statically recognizes the proposed 1-(Alpha<.4) no
 
 **Skin and hair shader update (2026-11-06, T-3400):** The owner, of Hans on his brougham: *"he looks too smooth and not real ... set us on a path for all humans to look photographic realistic"*. The 1904 phone is at its memory ceiling, so `renderers/web/js/human-skin.js` adds no texture: it patches the skin, hair and eye shaders of every portable human, from each body's own bind pose in metres. Skin gets pits about half a millimetre across and two crossing families of shallow lines a millimetre or so apart, which tip the shading normal and fade out by their screen-space rate before they alias; blotches of a few percent toward red and toward brown at a few centimetres to a few millimetres, and sparse small dark spots; a roughness of 0.55 with oilier and matte places; diffuse light taken partly from the smooth normal and a warm wrap past the terminator, the usual cheap stand-in for light scattering inside skin; and a faint grazing bloom for the fine hair on a face. Hair loses its round highlight and gets two Kajiya-Kay strand lobes, a pale one and one tinted by the hair's colour, with strands taken to run out from the crown and down. Eyes are made glossy (roughness 0.08) and the sclera 22% darker than its exported near-white. Every value is a reconstructed rendering choice; no measurement of any person's skin, no complexion, likeness or hair of any resident, and no photograph is claimed.
 
+**Strand hair, beards and eyes (2026-11-06, T-3414):** From the plan "Photographic humans: the path" the owner approved (*"Agreed on your recommendations, proceed"*). `renderers/web/js/human-hair.js` grows strand cards at load over each body's own hair cap and face, at the near levels only (LOD0, LOD1), with no texture and no file: narrow ribbons combed by a cut, a millimetre or two off the cap, cut into strands of uneven length by their shader, lit by the cap's two strand lobes, and skinned to the body's own bones; roots are kept where the cap's own texture is hair, and strands above the band of a hat put on later are cut away. The cuts and facial hair are a table, `renderers/web/js/human-hair-styles.js`, each choice graded: Hans Johnson (1904) wears a short back and sides with a side part, dark brown, and is clean-shaven, as the liveried coachmen in the people-match reference set (coachman_1904: Rau 1902, Griffith 1905) are; Otis Bardwell (1835) wears his hair fuller and brushed forward, with side whiskers, mid brown; anyone else takes their era's cut with no facial hair. No picture of either man is known: the cuts, the whiskers, every length, the colours and the density are reconstructed choices for a working man of each year, not evidence of what either wore. The iris and pupil now take the normals of a dome about 7.8 mm in radius centred behind each eye's own disc (roughness 0.1, the sky's reflection on them 2.5 times three's default), so a light makes one small sharp highlight on them and the sky a catchlight, and the white is shaded up to 45% toward the corners the lids cover; both are reconstructed rendering choices.
+
 
 ## T-2793 — W01 original wheel/edge refinement (2026-10-19)
 
@@ -36613,7 +36615,7 @@ records. This supersedes the faces' stone in L-kimball-1801-deck-cresting-3000.
 **How to resolve:** a nearer photograph of a dormer, or a measured drawing of the roof.
 
 ### L-kimball-1801-hood-flare-1890 — 1801 Prairie's dormer hoods flared out at their feet
-**Recorded:** 2026-10-27.
+**Recorded:** 2026-10-27; amended 2026-11-06 when the shelves were slated and the street hood raised.
 
 **Decision:** the W. W. Kimball house's three hooded dormers (`mansard.dormers`, T-1890) stand their
 hoods' feet 0.2 m wider than the faces under them on each side and 0.2 m out in front of them, the
@@ -36626,7 +36628,13 @@ third wider than the face and its top about half the foot; HABS photograph 2
 the Taylor photograph of c. 1895 shows the street hood's cheek standing out of the slate at its foot.
 **What is invented or held by the kit.** The 0.2 m is one figure for all three, read off HABS 1 and the
 Taylor print; the prints' feet sweep out in a concave bell, which the build runs straight; the shelf
-stays the kit's stone slab where HABS 2 shows a slimmer moulding; the hoods' ridge cresting (HABS 2) is
+is the kit's 0.12 m slab, its section unchanged, but slated as the hood is since 2026-11-06
+(`hood.shelf`): the Taylor print and both HABS photographs show no pale course at any hood's foot, only
+the slate run down to a thin dark eave over the light's pale frame, where the stone slab read from the
+street as a pale shelf under a dark notch; HABS 2's thin pale edge along that eave (a flashing or a
+painted board) is not built. The street hood rises 1.8 m, the south one's figure, where it rose 1.5 m:
+through the Taylor print's camera its front's top stood about 18 px (0.33 m at that dormer's 55 px a
+metre) under the print's, and now stands within about 2 px of it; the hoods' ridge cresting (HABS 2) is
 not built. The 18th Street hood's cheek still reads shallower than the Taylor print's at its top, which
 goes with the mansard's lower face and stays open in that record.
 **How to resolve:** a nearer photograph of a dormer, or a measured drawing of the roof.

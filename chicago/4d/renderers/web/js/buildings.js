@@ -37,6 +37,7 @@ import { spatialPiecesAsync } from './spatial-batch.js';
 import { castOnlyTowardView } from './shadow-casters.js';
 import { crestTwin, drawFarReliefAsCrests, farReliefFromSearch } from './far-roof-relief.js';
 import { CELL_M, MAX_PIXELS as FAR_SHADOW_MAX_PIXELS, shadowTwin, twinReachM, drawFarShadowAsTwins,
+  SUN_CELL_M, groupTwin, rebaseGroupTwin,
   farShadowFromSearch } from './far-shadow.js';
 import { drawFarColourAsTwins, farColourFromSearch, MAX_PIXELS as FAR_COLOUR_MAX_PIXELS,
   CELL_M as FAR_COLOUR_CELL_M, KEEP_RATIO as FAR_COLOUR_KEEP_RATIO } from './far-colour.js';
@@ -638,8 +639,11 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   // T-3285: `sun` lets the sun's pass keep the relief whole while the colour pass swaps.
   const farRelief = { on: farReliefFromSearch(globalThis.location?.search), sun: true, batches: [] };
   // T-3286: far pieces cast from a clustered twin (far-shadow.js); one state per batch.
+  // T-3249: `byTexel` lets the tier's texel bound swap a structure's group twin at any
+  // distance; the group twins are cut only for a tier below `full` on a low-spec device.
   const farShadow = { on: farShadowFromSearch(globalThis.location?.search), maxPixels: FAR_SHADOW_MAX_PIXELS,
-    batches: [], twinTriangles: 0, twinVertices: 0, buildMs: 0 };
+    byTexel: true, batches: [], twinTriangles: 0, twinVertices: 0, buildMs: 0,
+    groups: 0, groupTriangles: 0, groupIndices: 0, groupMs: 0 };
   // T-3312: at `light`, far pieces draw in the colour pass from a clustered twin that
   // keeps each face's normal (far-colour.js). Cut only when `colourTwins` (a build for
   // a tier below `full`); drawn only while the tier says so (`farColourTier.on`).
@@ -1115,6 +1119,36 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // structure whole where it fits (short-index.js); one material, plan and tone
     // scale across them, decided above over the whole bucket.
     for (const entries of lowSpec ? shortIndexRuns(bucket.entries) : [bucket.entries]) {
+      // T-3249: each structure's texel twin, one per run it lies in (a twin indexes its
+      // pieces' vertices, so it must share their batch), after every piece and twin. Cut
+      // only where it can ever be swapped: a build for a tier below `full` on a low-spec
+      // device, whose `light` map is 1024 over +/-120 m (world.js) and so 23.4 cm a texel.
+      // A desktop's `light` map is 11.7 cm, under the twin's 0.208 m reach, so it never
+      // would be, and a desktop carries none.
+      if (shadowCasters && colourTwins && lowSpec) {
+        const of = new Map();
+        for (const e of entries) {
+          if (e.twinOf || e.shadowOf || e.colourOf) continue;
+          const list = of.get(e.record.id);
+          if (list) list.push(e); else of.set(e.record.id, [e]);
+        }
+        const twins = [];
+        for (const [id, pieces] of of) {
+          const pause = checkpoint(); if (pause) await pause;
+          const scale = placements.get(id)?.getMaxScaleOnAxis?.() ?? 1;
+          const t0 = performance.now();
+          const twin = groupTwin(pieces.map((e) => e.geo), SUN_CELL_M / (scale > 0 ? scale : 1));
+          farShadow.groupMs += performance.now() - t0;
+          if (!twin) continue;
+          farShadow.groups += 1;
+          farShadow.groupTriangles += twin.twinTriangles;
+          farShadow.groupIndices += twin.geo.getIndex().count;
+          twins.push({ ...pieces[0], geo: twin.geo, groupOf: pieces, segments: twin.segments,
+            twinTriangles: twin.twinTriangles, saved: twin.triangles - twin.twinTriangles,
+            occludesView: false, planar: null });
+        }
+        entries.push(...twins);
+      }
       parts.push({ material: bucket.material, boundsRigid: bucket.boundsRigid, entries, plan, toneScale, depthMaterial });
     }
     bucket.entries = [];
@@ -1142,11 +1176,16 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     }
     // T-3286: after the relief swap (a piece hidden here is passed over there) and
     // before the narrow phase below, which trusts only the hook it wrapped.
-    let shadowPairs = null;
-    if (bucket.entries.some((e) => e.shadowOf)) {
+    let shadowPairs = null, shadowGroups = null;
+    const pairSaved = new Map();
+    if (bucket.entries.some((e) => e.shadowOf || e.groupOf)) {
       shadowPairs = [];
+      shadowGroups = [];
+      // T-3249: `texelM` is the sun map's texel where the tier swaps the group twins by
+      // the map's own bound (main.js applyShadowTier sets `shadowCasters.sunTexelM`).
       const state = { get on() { return farShadow.on; }, sun: shadowCasters.sun, pairs: shadowPairs,
-        get maxPixels() { return farShadow.maxPixels; }, swapped: 0, saved: 0 };
+        groups: shadowGroups, get texelM() { return farShadow.byTexel ? (shadowCasters.sunTexelM ?? 0) : 0; },
+        get maxPixels() { return farShadow.maxPixels; }, swapped: 0, saved: 0, groupsSwapped: 0, swapMs: 0 };
       drawFarShadowAsTwins(batch, state);
       farShadow.batches.push({ batch, state });
     }
@@ -1188,6 +1227,33 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       const geometryId = batch.addGeometry(geo);
       const instanceId = batch.addInstance(geometryId);
       entry.instanceId = instanceId;
+      if (entry.groupOf) {
+        // T-3249: a structure's texel twin is drawn only in the sun's pass, in place of
+        // all its pieces here, and is an index into their vertices (far-shadow.js).
+        const pieces = entry.groupOf.map((e) => e.instanceId);
+        rebaseGroupTwin(batch, geometryId, pieces.map((p) => batch.getGeometryIdAt(p)), entry.segments);
+        batch.setMatrixAt(instanceId, frame.matrix);
+        batch.userData.positionScale[instanceId] = frame.scale;
+        batch.userData.batchIndex[instanceId] = record.id;
+        const pieceRange = batch.userData.confidenceRanges[pieces[0]];
+        if (pieceRange) batch.userData.confidenceRanges[instanceId] = pieceRange;
+        batch.setVisibleAt(instanceId, false);
+        // culled by the union of its pieces' spheres, which holds it
+        const twinInfo = batch._geometryInfo?.[geometryId];
+        if (twinInfo && 'boundingSphere' in twinInfo) {
+          const box = new THREE.Box3(), sphere = new THREE.Sphere();
+          for (const p of pieces) box.union(batch.getBoundingSphereAt(batch.getGeometryIdAt(p), sphere).getBoundingBox(new THREE.Box3()));
+          twinInfo.boundingSphere = box.getBoundingSphere(new THREE.Sphere());
+        }
+        // the fewest triangles each piece can cast with: its own, less its far twin's saving
+        const pieceTriangles = pieces.map((p) => batch.getGeometryRangeAt(batch.getGeometryIdAt(p)).count / 3
+          - (pairSaved.get(p) ?? 0));
+        shadowGroups.push({ pieces, pieceTriangles, allTriangles: pieceTriangles.reduce((a, b) => a + b, 0),
+          twin: instanceId, twinTriangles: entry.twinTriangles,
+          reachM: twinReachM(SUN_CELL_M), saved: entry.saved });
+        geo.dispose();
+        continue;
+      }
       if (entry.shadowOf) {
         // T-3286: a shadow twin is drawn only in the sun's pass, in its piece's place.
         const piece = entry.shadowOf.instanceId;
@@ -1203,6 +1269,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
           twinInfo.boundingSphere = batch.getBoundingSphereAt(batch.getGeometryIdAt(piece), new THREE.Sphere());
         }
         shadowPairs.push({ piece, twin: instanceId, reachM: twinReachM(), saved: entry.saved });
+        pairSaved.set(piece, entry.saved);
         geo.dispose();
         continue;
       }
@@ -1531,6 +1598,20 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       set on(v) { farShadow.on = !!v; },
       get maxPixels() { return farShadow.maxPixels; },
       set maxPixels(v) { farShadow.maxPixels = Number.isFinite(v) && v >= 0 ? v : FAR_SHADOW_MAX_PIXELS; },
+      /** T-3249: whether the tier's texel bound may swap the structures' group twins (the
+       *  on/off proof turns it off); `texelM` is the bound in use, 0 where the tier has none. */
+      get byTexel() { return farShadow.byTexel; },
+      set byTexel(v) { farShadow.byTexel = !!v; },
+      get texelM() { return farShadow.byTexel ? (shadowCasters?.sunTexelM ?? 0) : 0; },
+      /** T-3249: the group twins cut, the triangles they draw, the index entries they add
+       *  (they add no vertex), and the main-thread time spent cutting them */
+      get groups() { return farShadow.groups; },
+      get groupTriangles() { return farShadow.groupTriangles; },
+      get groupIndices() { return farShadow.groupIndices; },
+      get groupMs() { return farShadow.groupMs; },
+      /** as of the last shadow render: group twins swapped, and the hooks' own time in ms */
+      get groupsSwapped() { return farShadow.batches.reduce((n, b) => n + (b.state.groupsSwapped ?? 0), 0); },
+      get swapMs() { return farShadow.batches.reduce((n, b) => n + (b.state.swapMs ?? 0), 0); },
       get pieces() { return farShadow.batches.reduce((n, b) => n + b.state.pairs.length, 0); },
       get swapped() { return farShadow.batches.reduce((n, b) => n + (b.state.swapped ?? 0), 0); },
       get saved() { return farShadow.batches.reduce((n, b) => n + (b.state.saved ?? 0), 0); },

@@ -25,6 +25,9 @@
  * by the hair's own colour, both stretched ACROSS the strands, which run from
  * the crown down and out; the cap's own round highlight is rubbed out.
  * Eyes: wet, so they catch the light; the sclera a little less paper-white.
+ * T-3414: the iris and pupil take a domed cornea's normals (from each eye's
+ * own disc), so the sun and sky make a small sharp highlight on them that
+ * turns with the gaze; the white is shaded toward the corners the lids cover.
  *
  * Everything is a reconstructed rendering choice; no likeness of anyone's
  * skin, hair or eyes is claimed (liberty L418, its skin and hair supplement).
@@ -38,18 +41,18 @@ import * as THREE from 'three';
 /** Strengths. Pores, lines and mottle are 0..1 multipliers; scatter the glow. */
 export const SKIN = Object.freeze({ pores: 1, lines: 1, mottle: 1, scatter: 1, oil: .14, fuzz: .05, roughness: .55 });
 export const HAIR = Object.freeze({ primary: .5, secondary: .45, shift: .12, roughness_floor: .82 });
-export const EYES = Object.freeze({ roughness: .08, sclera_value: .78 });
+export const EYES = Object.freeze({ roughness: .08, sclera_value: .78, cornea_roughness: .1, cornea_sky: 2.5, cornea_radius_m: .0078, corner_shade: .45 });
 
 /** What a material of a portable human is, by the contract's slot names (HUMAN-ASSET-CONTRACT § 5). */
 export function surfaceFor(material) {
   const name = material?.name ?? '';
   if (/^skin($|__)/.test(name)) return 'skin';
   if (/^hair($|__)/.test(name)) return 'hair';
-  if (/^eyes($|__(sclera|iris)$)/.test(name)) return 'eyes';
+  if (/^eyes($|__(sclera|iris|pupil)$)/.test(name)) return 'eyes';
   return null;
 }
 
-const KEY = { skin: 'chicago-skin-v1', hair: 'chicago-hair-v1' };
+const KEY = { skin: 'chicago-skin-v1', hair: 'chicago-hair-v1', sclera: 'chicago-sclera-v1' };
 
 // Shared: the bind pose in metres, and a small value noise.
 const VERTEX_DECLARE = `
@@ -240,6 +243,10 @@ export function restMatrix(mesh, root) {
 
 const patched = new WeakMap();
 
+/** The pieces strand cards (human-hair.js) share with the hair cap: noise, the two lobes, the chain. */
+export const STRAND_GLSL = Object.freeze({ VERTEX_DECLARE, VERTEX, HAIR_DECLARE, HAIR_COLOR, HAIR_ROUGHNESS, HAIR_NORMAL, HAIR_LIGHT, PHYSICAL });
+export function chainPatch(material, key, uniforms, patch) { chain(material, key, uniforms, patch); }
+
 function chain(material, key, uniforms, patch) {
   const prior = material.onBeforeCompile;
   const hadKey = Object.prototype.hasOwnProperty.call(material, 'customProgramCacheKey');
@@ -293,9 +300,82 @@ function patchHair(material, rest, crown) {
   return uniforms;
 }
 
-function patchEyes(material) {
-  material.roughness = Math.min(material.roughness, EYES.roughness);
-  if (/sclera/.test(material.name)) material.color.multiplyScalar(EYES.sclera_value);
+// The white of the eye, shaded where the lids and the corners cover it: by how far
+// its bind-pose normal turns from the way the eye looks.
+const SCLERA_DECLARE = `
+uniform vec4 chiSclera; // forward (bind pose), shade
+varying vec3 vChiSkinP;
+varying vec3 vChiSkinN;
+`;
+const SCLERA_COLOR = `
+  diffuseColor.rgb *= 1.0 - chiSclera.w * ( 1.0 - smoothstep( 0.2, 0.8, dot( normalize( vChiSkinN ), chiSclera.xyz ) ) );`;
+
+function patchEyes(material, mesh, root) {
+  const cornea = /__(iris|pupil)$/.test(material.name);
+  material.roughness = Math.min(material.roughness, cornea ? EYES.cornea_roughness : EYES.roughness);
+  // A wet cornea mirrors the bright sky over the dark iris: the catchlight of every portrait.
+  if (cornea) material.envMapIntensity = EYES.cornea_sky;
+  if (!/sclera/.test(material.name)) return null;
+  material.color.multiplyScalar(EYES.sclera_value);
+  const uniforms = {
+    chiSkinRest: { value: restMatrix(mesh, root) },
+    chiSclera: { value: new THREE.Vector4(...forwardOf(mesh, root).toArray(), EYES.corner_shade) },
+  };
+  chain(material, KEY.sclera, uniforms, shader => {
+    shader.vertexShader = VERTEX_DECLARE + shader.vertexShader.replace('#include <begin_vertex>', `#include <begin_vertex>${VERTEX}`);
+    shader.fragmentShader = SCLERA_DECLARE + shader.fragmentShader.replace('#include <color_fragment>', `#include <color_fragment>${SCLERA_COLOR}`);
+  });
+  return uniforms;
+}
+
+/** The way a body faces in its bind pose: from its head bone out to its eyes (else +z). */
+function forwardOf(mesh, root) {
+  const bones = mesh.skeleton?.bones ?? [];
+  const at = name => {
+    const i = bones.findIndex(b => b.name === name);
+    return i < 0 ? null : boneRest(mesh, root, i);
+  };
+  const head = at('head'), l = at('eye_l'), r = at('eye_r');
+  if (!head || !l || !r) return new THREE.Vector3(0, 0, 1);
+  const f = l.clone().add(r).multiplyScalar(.5).sub(head).setY(0);
+  return f.lengthSq() > 1e-8 ? f.normalize() : new THREE.Vector3(0, 0, 1);
+}
+
+/** A bone's bind-pose position in metres, relative to `root`. */
+export function boneRest(mesh, root, i) {
+  root.updateMatrixWorld(true);
+  const s = mesh.skeleton;
+  return new THREE.Vector3().applyMatrix4(new THREE.Matrix4().copy(root.matrixWorld).invert()
+    .multiply(s.bones[0].matrixWorld).multiply(s.boneInverses[0]).multiply(s.boneInverses[i].clone().invert()));
+}
+
+/**
+ * A cornea over each eye's iris and pupil: their normals are turned to a dome's, centred
+ * behind each eye's own disc, so a light makes one small sharp highlight on it rather than
+ * a flat plate's. Once per geometry (a clone shares its export's; a varied face has its own).
+ */
+const domed = new WeakSet();
+export function domeCornea(mesh, root) {
+  const g = mesh.geometry, p = g?.attributes?.position, n = g?.attributes?.normal;
+  if (!p || !n || domed.has(g)) return false;
+  domed.add(g);
+  const R = restMatrix(mesh, root), Rn = new THREE.Matrix3().getNormalMatrix(R), back = new THREE.Matrix3().setFromMatrix4(R).transpose();
+  const v = new THREE.Vector3(), w = new THREE.Vector3();
+  const eyes = [-1, 1].map(() => ({ c: new THREE.Vector3(), a: new THREE.Vector3(), k: 0 }));
+  const side = new Uint8Array(p.count);
+  for (let i = 0; i < p.count; i++) {
+    v.fromBufferAttribute(p, i).applyMatrix4(R);
+    const e = eyes[side[i] = v.x >= 0 ? 1 : 0];
+    e.c.add(v); e.a.add(w.fromBufferAttribute(n, i).applyMatrix3(Rn).normalize()); e.k++;
+  }
+  for (const e of eyes) if (e.k) { e.c.divideScalar(e.k); e.a.normalize(); e.c.addScaledVector(e.a, -EYES.cornea_radius_m); }
+  for (let i = 0; i < p.count; i++) {
+    v.fromBufferAttribute(p, i).applyMatrix4(R).sub(eyes[side[i]].c).normalize();
+    v.applyMatrix3(back).normalize();
+    n.setXYZ(i, v.x, v.y, v.z);
+  }
+  n.needsUpdate = true;
+  return true;
 }
 
 /** Where the hair grows from, in the rest pose's metres: the top of the cap, a little behind its middle. */
@@ -327,8 +407,9 @@ export function dressSkin(root) {
         const rest = restMatrix(mesh, root);
         if (surface === 'skin') patched.set(m, patchSkin(m, rest));
         else if (surface === 'hair') patched.set(m, patchHair(m, rest, crownOf(mesh, rest)));
-        else { patchEyes(m); patched.set(m, null); }
+        else patched.set(m, patchEyes(m, mesh, root));
       }
+      if (surface === 'eyes' && /__(iris|pupil)$/.test(m.name)) domeCornea(mesh, root);
       dressed[m.name] = surface;
     }
   }
