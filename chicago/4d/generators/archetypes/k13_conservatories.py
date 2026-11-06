@@ -87,6 +87,9 @@ ROLE_MATERIAL = {
     "plinth_stone": "stone",
     # T-3270: a roof deck in painted tin and the iron railing round it (1905 Prairie's conservatory)
     "deck": "deck", "rail": "iron",
+    # T-3273: a gate whose record gives its stone a tone of its own (the Pullman glasshouse's
+    # 18th Street gate, which both its pictures print darker than the conservatory's podium)
+    "gate_stone": "gate_stone",
     # T-1934: the court's flagged floor and the house terrace's striped awning
     "paving": "paving", "canvas_a": "canvas_light", "canvas_b": "canvas_dark", "court_bench": "staging",
 }
@@ -148,6 +151,9 @@ def materials(data: dict) -> dict:
         "paving": {"color": (0.40, 0.38, 0.34), "roughness": 0.9},
         "canvas_light": {"color": (0.80, 0.77, 0.66), "roughness": 0.95},
         "canvas_dark": {"color": (0.16, 0.28, 0.18), "roughness": 0.95},
+        # T-3273: a gate's own stone where its record sets one (`gate.color` overrides this tone,
+        # which is only the kit's default and reconstructed)
+        "gate_stone": {"color": (0.25, 0.20, 0.16), "roughness": 0.9},
     }
 
 
@@ -2910,21 +2916,28 @@ def gate(h: House, gs: dict):
     from the north-east corner, z = -v) where the plate's camera puts their bases."""
     xn, s = gs["north_u_m"], gs["pier_m"]
     x0, x1 = xn, xn + s
+    # T-3273: a gate whose record sets `color` is drawn in its own stone (both of the Pullman
+    # gate's pictures print its piers and wings dark against the podium's pale stone); without
+    # one it stays the kit's `stonework`, so no other gate changes
+    role = "stonework"
+    if gs.get("color"):
+        role = "gate_stone"
+        h.meta["gate_color"] = list(gs["color"])
     rect = lambda a, b, c, d: [(a, c), (b, c), (b, d), (a, d)]
     w = gs["wing"]
     for p in gs["piers"]:
         za, zb = sorted((-p["v_m"][0], -p["v_m"][1]))
         po, pl = gs["plinth_out_m"], gs["plinth_m"]
-        _prism(h, "stonework", rect(x0 - po, x1 + po, za - po, zb + po), 0.0, pl)
+        _prism(h, role, rect(x0 - po, x1 + po, za - po, zb + po), 0.0, pl)
         if gs.get("panel"):
-            _panelled_shaft(h, "stonework", x0, x1, za, zb, pl, gs["shaft_m"], gs["panel"])
+            _panelled_shaft(h, role, x0, x1, za, zb, pl, gs["shaft_m"], gs["panel"])
         else:
-            _prism(h, "stonework", rect(x0, x1, za, zb), pl, gs["shaft_m"], top=False)
+            _prism(h, role, rect(x0, x1, za, zb), pl, gs["shaft_m"], top=False)
         cap = gs["cap"]                         # the cap's courses, bottom up, each `out` past the shaft
         for i, (out, y0, y1) in enumerate(cap):
             below, above = cap[i - 1][0] if i else 0.0, cap[i + 1][0] if i + 1 < len(cap) else -1.0
             # a course's top or underside is drawn only where it shows past its neighbour
-            _prism(h, "stonework", rect(x0 - out, x1 + out, za - out, zb + out), y0, y1,
+            _prism(h, role, rect(x0 - out, x1 + out, za - out, zb + out), y0, y1,
                    top=above < out, bottom=out > below)
         # the wing: from the pier's face toward the drive (z grows with `sg`), centred on the pier
         zp, zw = -p["wing_v_m"][0], -p["wing_v_m"][1]
@@ -2937,16 +2950,16 @@ def gate(h: House, gs: dict):
         for (d0, y0), (d1, y1) in zip(top, top[1:]):
             z0_, z1_ = zp + sg * d0, zp + sg * d1
             for x, sx in ((xa, -1.0), (xb, 1.0)):
-                h.face("stonework", [(x, 0.0, z0_), (x, 0.0, z1_), (x, y1, z1_), (x, y0, z0_)], (sx, 0.0, 0.0))
-            h.face("stonework", [(xa, y0, z0_), (xb, y0, z0_), (xb, y1, z1_), (xa, y1, z1_)], (0.0, d1 - d0, sg * (y0 - y1)))
+                h.face(role, [(x, 0.0, z0_), (x, 0.0, z1_), (x, y1, z1_), (x, y0, z0_)], (sx, 0.0, 0.0))
+            h.face(role, [(xa, y0, z0_), (xb, y0, z0_), (xb, y1, z1_), (xa, y1, z1_)], (0.0, d1 - d0, sg * (y0 - y1)))
         # the roll at the sweep's foot, and the block under it out to the drive's edge
         zr = zp + sg * run
-        _roll(h, "stonework", xa - 0.02, xb + 0.02, lo - r, zr, r)
+        _roll(h, role, xa - 0.02, xb + 0.02, lo - r, zr, r)
         eb = w["block_m"]
         zc, zd = sorted((zr - sg * r, zw))
-        _prism(h, "stonework", rect(xa - 0.04, xb + 0.04, zc, zd), 0.0, eb)
+        _prism(h, role, rect(xa - 0.04, xb + 0.04, zc, zd), 0.0, eb)
         if gs.get("carving"):
-            _wing_carving(h, "stonework", xa, zp, sg, run, r, hi, lo, gs["carving"])
+            _wing_carving(h, role, xa, zp, sg, run, r, hi, lo, gs["carving"])
 
 
 GRAVEL_PROUD_M = 0.02   # a drive's gravel over the ground its row measures, as K14's drives stand
@@ -3092,7 +3105,7 @@ def structure_glb(h: House, data: dict, structure_id: str, phase_id: str, scene_
     # pipes are measured from the ground they stand on, the base's top
     lift = float(h.v.get("base_m", 0.0))
     return to_glb([h], data, host_color=(h.meta.get("host") or {}).get("color"), stone_color=h.meta.get("stone_color"),
-                  frame_color=h.v.get("frame_color"),
+                  frame_color=h.v.get("frame_color"), gate_color=h.meta.get("gate_color"),
                   node_name=name, node_extras={
         "structure_id": structure_id, "phase_id": phase_id, "scene_ids": list(scene_ids),
         **({"base_m": lift} if lift else {})},
@@ -3101,7 +3114,7 @@ def structure_glb(h: House, data: dict, structure_id: str, phase_id: str, scene_
 
 def to_glb(kit: list[House], data: dict, node_name: str | None = None, node_extras: dict | None = None,
            extras: dict | None = None, host_color=None, stone_color=None, lift: float = 0.0,
-           frame_color=None) -> bytes:
+           frame_color=None, gate_color=None) -> bytes:
     mats = materials(data)
     if node_extras:     # a structure in the scene carries only the materials it draws (T-2306)
         used = {ROLE_MATERIAL[r] for h in kit for r, pr in h.prims.items() if pr.idx}
@@ -3112,6 +3125,9 @@ def to_glb(kit: list[House], data: dict, node_name: str | None = None, node_extr
             mats["stone"] = {**mats["stone"], "color": tuple(stone_color)}
         # T-3270: a house whose frame is painted dark (1905 Prairie's bars, which the 1893 plate
         # prints dark against its pale glass); every other house keeps the kit's white paint
+        # T-3273: a gate whose record gives its stone a tone (the Pullman glasshouse's gate)
+        if "gate_stone" in mats and gate_color:
+            mats["gate_stone"] = {**mats["gate_stone"], "color": tuple(gate_color)}
         if "frame" in mats and frame_color:
             mats["frame"] = {**mats["frame"], "color": tuple(frame_color)}
     bin_ = bytearray()

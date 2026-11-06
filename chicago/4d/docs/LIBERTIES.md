@@ -41165,3 +41165,22 @@ of its person replaces the drawn face and carries the picture's grade instead.
 record of their height or build.
 **Ticket:** T-3412.
 **Recorded:** 2026-11-06 (T-3412).
+
+### L-pullman-gate-stone-3273 — The Pullman glasshouse's 18th Street gate drawn in a dark stone of its own
+**Recorded:** 2026-11-06.
+
+**Decision:** re-reviewing both of the conservatory's match records (T-3273), the 18th Street gate's two
+piers, their stepped caps and their swept wings read dark in both pictures: Lowe's c. 1897 print shows the
+east pier near black in open light, and the 1894 Inland plate a deep grey, each well under the podium's
+dressed stone and the lodge's front beside it. They had been drawn in the kit's pale buff stone, the
+podium's own, so the gate read as the palest thing in the foreground. The gate is now drawn in a stone of
+its own, a dark brown-grey (`gate.color` on the record), and nothing else on the house changes.
+**What is read, not invented.** That the gate prints much darker than the conservatory's podium and the
+lodge in both pictures, in shade and in light. **What is invented.** The stone and its hue: both pictures
+are monochrome, and a dark print can be a red granite, a brownstone or a weathered sandstone. A
+brown-grey was chosen as the tone that sits nearest every one of those; the house across the estate is
+recorded in a fawn sandstone, which the gate is not assumed to share.
+**How to resolve:** a written description of the gate or the estate's walls, or a colour picture of them.
+**Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
+**Ticket:** T-3273.
+**Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
