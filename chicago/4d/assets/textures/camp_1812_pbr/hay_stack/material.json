@@ -1,0 +1,26 @@
+{
+  "id": "hay_stack",
+  "group": "hay_1812",
+  "span_m": 1.2,
+  "mean_roughness": 0.92,
+  "resolution_px": 1024,
+  "web_resolution_px": 512,
+  "px_per_m": 853.33,
+  "orientation": "image x = round the covering (u, horizontal); image y = up it (v)",
+  "note": "The outside of a round stack of prairie hay, pitched by fork and combed down so it sheds the rain: cured stems and blades lying down the slope in forkfuls, straw gold through tan to grey-green, dark gaps between. Image y is UP the stack. Reconstructed (Wau-Bun ch. XVIII puts the stacks; no picture of them exists).",
+  "confidence": "reconstructed appearance; the covering's material is inferred from the texts the record cites (L-1812-lees-place-haystacks-2510)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic",
+    "height16": "linear 16-bit"
+  },
+  "web": {
+    "basecolor": "hay_stack_basecolor_web.jpg",
+    "normal_gl": "hay_stack_normal_gl_web.jpg",
+    "orm": "hay_stack_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 18120406,
+  "generation_method": "deterministic procedural synthesis (tools/generate_camp_1812_pbr.py); no photograph sampled"
+}

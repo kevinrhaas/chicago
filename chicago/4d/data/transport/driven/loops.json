@@ -86,6 +86,9 @@
       "vehicle_file": "transport/wagon-driver/wagon-w01.glb",
       "driver_asset": "bardwell_otis_1835",
       "driver_clip": "sit_drive_look_v2",
+      "driver_livery_file": "transport/driven/wardrobe-bardwell-otis-1835.json",
+      "driver_livery_sha256": "91910277acd96a290f5ad1046aca2e33a92f0d84f0314732e63e2f2b615f7d2c",
+      "driver_livery_body_sha256": "4816ec6176ef6037834c1e8a14c528a5b394173bfa2821372bd66ae1d802bd38",
       "replace_human_instance": "hi_rc_bardwell_otis_1835",
       "person_id": "rc_bardwell_otis",
       "driver_seat_node_m": [
@@ -254,6 +257,9 @@
         "vehicle_binding": "studebaker_brougham_1893",
         "web_assets": true
       },
+      "driver_livery_file": "transport/driven/driver-livery-1904.json",
+      "driver_livery_sha256": "a0e5e98532b5aae2d6177e34a2b5e97373235567dddf768588640df671bf034a",
+      "driver_livery_body_sha256": "c3b285d0305559ee5fbe13695985df86cde4c38ca8d7efd8419fcdd2d97bc4b8",
       "driver_palm_bindings_by_lod": {
         "0": {
           "l": {

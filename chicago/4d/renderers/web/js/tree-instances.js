@@ -181,7 +181,9 @@ export class TreeInstances {
         // T-3017: the phone's tier asks a grown habit that has one (the parkway
         // elm) for its coarse leaf: fewer, larger sprays.
         // T-3223: an evergreen (the front yards' arborvitae) keeps its summer crown in every Season.
-        const o = { conf: spec.conf ?? 0.5, ...(spec.evergreen ? {} : season), coarse: light };
+        // T-3399: a plant that names its own crown for the Season (`seasonCrown`: a lilac
+        // holds its leaf into late October, a hydrangea is cut back to stubs in April) has it.
+        const o = { conf: spec.conf ?? 0.5, ...(spec.evergreen ? {} : (spec.seasonCrown ?? season)), coarse: light };
         const first = buildTreeTemplate(spec, seed, light ? 'mid' : 'near', o);
         const mid = light ? first : buildTreeTemplate(spec, seed, 'mid', { ...o, skeleton: first.skeleton });
         const far = buildTreeTemplate(spec, seed, 'far', { ...o, skeleton: first.skeleton });

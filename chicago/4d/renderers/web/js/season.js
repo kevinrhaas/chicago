@@ -228,7 +228,7 @@ export function patchSeason(material, kind = 1) {
  *   FOLIAGE.far    the horizon band of woods: olive-russet in fall, the grey
  *                  violet of bare woods at a distance in winter.
  */
-export const FOLIAGE = Object.freeze({ leaf: 0, grass: 1, far: 2 });
+export const FOLIAGE = Object.freeze({ leaf: 0, grass: 1, far: 2, vine: 3 });
 const FOLIAGE_HEAD = /* glsl */`
 uniform float uChiFoliageRole;
 vec3 chiFoliage(vec3 c, vec2 xz, float role) {
@@ -259,11 +259,24 @@ vec3 chiFoliage(vec3 c, vec2 xz, float role) {
     float dead = max(green, petal) * uChiStraw;
     c = mix(c, mix(tawny, straw, uChiBare), dead);
     c = mix(c, vec3(0.13, 0.09, 0.05), petal * uChiStraw * 0.8);
+  } else if (role > 2.5) {
+    // T-3399, a wall creeper (Boston ivy, Virginia creeper): bronze-red first leaf
+    // in April, crimson to scarlet in October by stem; the leaves themselves go
+    // (chiVineKeep) and in winter only the stems are left on the wall.
+    float pick = chiSeasonNoise(xz * 0.9);
+    vec3 turned = pick < 0.4 ? vec3(0.62, 0.07, 0.04) : pick < 0.75 ? vec3(0.80, 0.20, 0.05) : vec3(0.46, 0.06, 0.10);
+    c = mix(c, turned * (0.7 + 2.2 * luma), green * uChiTurn);
+    c = mix(c, vec3(luma) * vec3(1.75, 0.95, 0.62), green * uChiFresh * 0.8);
   } else {
     c = mix(c, vec3(luma) * vec3(1.25, 1.0, 0.70), green * uChiTurn * 0.8);
     c = mix(c, vec3(luma) * vec3(1.08, 0.98, 1.06), green * uChiBare * 0.9);
   }
   return c;
+}
+// T-3399: how much of a wall creeper's leaf is out: spring's first small leaves,
+// fall's thinning, winter's bare stems. 1 in summer.
+float chiVineKeep() {
+  return 1.0 - 0.6 * uChiFresh - 0.15 * uChiTurn - uChiBare;
 }
 `;
 /** Where the fragment is, for a material without a world position of its own: as
@@ -286,6 +299,22 @@ const FOLIAGE_VERTEX_ASSIGN = `
 const foliageApply = (xz) => `
   diffuseColor.rgb = chiFoliage(diffuseColor.rgb, ${xz}, uChiFoliageRole);
 `;
+/** A wall creeper's (FOLIAGE.vine) leaves thin out by whole patches of its atlas, so
+ *  a leaf goes rather than a scatter of its pixels; its brown stems never do. The
+ *  test is on the albedo before the season moved it. */
+const vineApply = (xz) => `
+  {
+    vec3 chiVineC = diffuseColor.rgb;
+    float chiVineGreen = clamp((chiVineC.g - max(chiVineC.r, chiVineC.b)) / max(chiVineC.g, 0.001) * 5.0, 0.0, 1.0);
+    #ifdef USE_MAP
+      float chiVineAt = chiSeasonNoise(vMapUv * vec2(520.0, 260.0)) * 0.75 + chiSeasonNoise(vMapUv * vec2(90.0, 45.0)) * 0.25;
+    #else
+      float chiVineAt = chiSeasonNoise(${xz} * 9.0);
+    #endif
+    if (chiVineGreen > 0.35 && chiVineAt > chiVineKeep()) discard;
+    diffuseColor.rgb = chiFoliage(chiVineC, ${xz}, uChiFoliageRole);
+  }
+`;
 
 /**
  * Wrap a plant material with chiFoliage, the way patchSeason wraps a building's:
@@ -295,7 +324,7 @@ const foliageApply = (xz) => `
  * own varying is added.
  */
 const foliagePatched = new WeakSet();
-export function patchFoliage(material, role = FOLIAGE.leaf, { xz = null } = {}) {
+export function patchFoliage(material, role = FOLIAGE.leaf, { xz = null, evergreenBelowV = null } = {}) {
   if (!material || foliagePatched.has(material)) return false;
   foliagePatched.add(material);
   const prior = material.onBeforeCompile;
@@ -303,6 +332,12 @@ export function patchFoliage(material, role = FOLIAGE.leaf, { xz = null } = {}) 
     ? String(material.customProgramCacheKey()) : String(prior);
   const roleU = { value: role };
   const at = xz ?? 'vChiSeasonXZ';
+  // T-3399: an atlas whose rows below `evergreenBelowV` (map v) hold evergreen leaf
+  // (the grown trees' cedar scale and pine needle) leaves those texels as they are.
+  const apply = role === FOLIAGE.vine ? vineApply(at)
+    : Number.isFinite(evergreenBelowV)
+      ? `\n  #ifdef USE_MAP\n  if (vMapUv.y >= ${evergreenBelowV.toFixed(3)})\n  #endif\n${foliageApply(at)}`
+      : foliageApply(at);
   material.onBeforeCompile = (shader, renderer) => {
     if (typeof prior === 'function') prior.call(material, shader, renderer);
     seasonShaderUniforms(shader);
@@ -313,9 +348,9 @@ export function patchFoliage(material, role = FOLIAGE.leaf, { xz = null } = {}) 
     }
     shader.fragmentShader = (xz ? '' : FOLIAGE_VERTEX_DECL)
       + SEASON_HEAD + FOLIAGE_HEAD + shader.fragmentShader.replace(
-        '#include <color_fragment>', '#include <color_fragment>' + foliageApply(at));
+        '#include <color_fragment>', '#include <color_fragment>' + apply);
   };
-  material.customProgramCacheKey = () => `${priorKey}|chicago4d-foliage-${role}`;
+  material.customProgramCacheKey = () => `${priorKey}|chicago4d-foliage-${role}${Number.isFinite(evergreenBelowV) ? `-ev${evergreenBelowV}` : ''}`;
   material.needsUpdate = true;
   return true;
 }

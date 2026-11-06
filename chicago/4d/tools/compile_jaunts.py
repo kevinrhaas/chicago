@@ -4,6 +4,7 @@ import argparse
 import datetime as dt
 import functools
 import json
+import math
 import operator
 import re
 from pathlib import Path
@@ -36,6 +37,87 @@ def time_names():
     js = (ROOT / 'renderers/web/js/time-of-day.js').read_text()
     block = js.split('export const TIME_NAMES = [', 1)[1].split('];', 1)[0]
     return frozenset(re.findall(r"id: '([a-z-]+)'", block))
+
+@functools.cache
+def time_at():
+    """T-3406: each named time's `at` ('09:00', 'rise', 'set', 'civil-dusk', 'scene')."""
+    js = (ROOT / 'renderers/web/js/time-of-day.js').read_text()
+    block = js.split('export const TIME_NAMES = [', 1)[1].split('];', 1)[0]
+    return dict(re.findall(r"id: '([a-z-]+)', label: '[^']*', at: '([^']+)'", block))
+
+# T-3406: THE STORY'S CLOCK. The owner, 2026-11-06: start each stop "with have like 6 months
+# later, or a few hours later, or 4 hours later, to give people a sense of what they just
+# left and how much time has past". A stop's `since` is that lead. It is checked against
+# the date and hour the two stops already show, so a stop whose date or hour moves without
+# its lead fails here instead of telling the visitor the wrong gap.
+CHICAGO_LAT = 41.8867  # world.js's sun station
+NUMBER_WORDS = {w: i for i, w in enumerate(
+    'zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen '
+    'fifteen sixteen seventeen eighteen nineteen twenty'.split())}
+NUMBER_WORDS.update(a=1, an=1, thirty=30, forty=40, fifty=50, sixty=60, seventy=70, eighty=80, ninety=90)
+UNIT_MIN = {'minute': 1, 'hour': 60, 'day': 1440, 'week': 10080, 'month': 43830, 'year': 525960}
+
+def sun_crossing(day, elevation, rising):
+    """Local mean solar minutes at which the sun's centre crosses `elevation` degrees on
+    `day`, from the low-precision almanac series (declination and equation of time). It
+    lands within a few minutes of world.js's solarPosition, which is all a lead rounded
+    to the nearest hour or minute-ten needs; the app itself never reads this."""
+    g = 2 * math.pi / 365 * (day.timetuple().tm_yday - 1)
+    decl = (0.006918 - 0.399912 * math.cos(g) + 0.070257 * math.sin(g) - 0.006758 * math.cos(2 * g)
+            + 0.000907 * math.sin(2 * g) - 0.002697 * math.cos(3 * g) + 0.00148 * math.sin(3 * g))
+    eot = 229.18 * (0.000075 + 0.001868 * math.cos(g) - 0.032077 * math.sin(g)
+                    - 0.014615 * math.cos(2 * g) - 0.040849 * math.sin(2 * g))
+    phi = math.radians(CHICAGO_LAT)
+    cos_h = (math.sin(math.radians(elevation)) - math.sin(phi) * math.sin(decl)) / (math.cos(phi) * math.cos(decl))
+    half = math.degrees(math.acos(max(-1, min(1, cos_h)))) * 4
+    return 720 - eot + (-half if rising else half)
+
+def stop_moment(stop):
+    """The clock a stop shows, as a datetime: its date plus its hour, a named time solved
+    and snapped the way time-of-day.js resolveTime snaps it (daybreak up, sunset down,
+    dusk to the nearest ten minutes)."""
+    require(stop.get('date') and stop.get('hour'), f'{stop["id"]}: a since needs this stop and the one before it to carry a date and an hour')
+    day, hour = dt.date.fromisoformat(stop['date']), stop['hour']
+    at = time_at().get(hour, hour)
+    require(at != 'scene', f'{stop["id"]}: a since cannot count from or to "daytime", which is the scene\'s own hour; give the stop a clock time')
+    if re.fullmatch(r'\d\d:\d\d', at):
+        minutes = int(at[:2]) * 60 + int(at[3:])
+    else:
+        event = sun_crossing(day, 1.0 if at in ('rise', 'set') else -6.0, at == 'rise')
+        minutes = (math.ceil(event / 10) if at == 'rise' else math.floor(event / 10) if at == 'set' else round(event / 10)) * 10
+    return dt.datetime.combine(day, dt.time()) + dt.timedelta(minutes=minutes)
+
+def since_fits(phrase, before, after):
+    """Whether a lead such as 'Four hours later' says the gap between two stop clocks.
+    The vocabulary is small on purpose: a count of minutes, hours, days, weeks, months or
+    years 'later' (within half a unit, or 15% of a long count), 'Within the hour',
+    'A few hours later', 'The next day', 'The next morning', 'That evening', 'That night'."""
+    gap = (after - before).total_seconds() / 60
+    days = (after.date() - before.date()).days
+    if gap <= 0: return False
+    said = phrase.strip().rstrip('.').lower()
+    fixed = {'within the hour': gap <= 60, 'a few hours later': 90 <= gap <= 390,
+             'the next day': days == 1, 'the next morning': days == 1 and after.hour < 12,
+             'that evening': days == 0 and after.hour >= 17, 'that night': days == 0 and after.hour >= 19}
+    if said in fixed: return fixed[said]
+    m = re.fullmatch(r'([a-z]+|\d+) (minute|hour|day|week|month|year)(s?) later', said)
+    if not m: return False
+    count = int(m[1]) if m[1].isdigit() else NUMBER_WORDS.get(m[1])
+    if count is None or (count == 1) == bool(m[3]): return False
+    return abs(gap / UNIT_MIN[m[2]] - count) <= max(0.5, 0.15 * count)
+
+def check_since(doc):
+    """T-3406: in a jaunt that tells its clock, every stop after the first says how long
+    since the one before, and says it truly; the first has nothing to count from."""
+    stops = doc['stops']
+    if not any('since' in s for s in stops): return
+    require('since' not in stops[0], f'{stops[0]["id"]}: the first stop has no stop before it to count a since from')
+    for before, stop in zip(stops, stops[1:]):
+        require('since' in stop, f'{stop["id"]}: this jaunt tells its clock, so every stop after the first needs a since')
+        require(before.get('next') == stop['id'], f'{stop["id"]}: a since counts from the stop before, which must lead straight here')
+        a, b = stop_moment(before), stop_moment(stop)
+        require(since_fits(stop['since'], a, b),
+                f'{stop["id"]}: since {stop["since"]!r} does not say the {(b - a).total_seconds() / 3600:.1f} hours from {before["id"]} ({a:%Y-%m-%d %H:%M}) to here ({b:%Y-%m-%d %H:%M})')
 
 def leg_mode(doc, i):
     """T-3355: the catalog row's stop i carries the mode of the authored leg that reaches it, if any."""
@@ -147,6 +229,7 @@ class Compiler:
             if 'not' in c: return not matches(c['not'], state, items)
             if 'has' in c: return c['has'] in items
             return OPS[c['op']](state[c['var']], c['value'])
+        check_since(doc)
         reasons = [doc['review_reason']] if doc['review_required'] and doc.get('review_reason') else []
         require(not doc['review_required'] or reasons, 'review_required needs reason')
         graph = {}

@@ -978,24 +978,24 @@
       "structure_id": "george_glessner_house_1706_prairie"
     },
     "glessner_house__as_built_1887.glb": {
-      "ao_occlusion_mean": 0.53815,
+      "ao_occlusion_mean": 0.540568,
       "archetype": "masonry_house",
       "baked_ao": true,
-      "bytes": 204004400,
-      "inputs_sha256": "1d13aeef9e01d9c173b426f8b29c48eb01ea0d6fe65e622e3331066364ea7b4c",
+      "bytes": 204043036,
+      "inputs_sha256": "605d615f018170de121ae473a9b3b22496c0f0a2cf2a77f519b8cca3d5f39d71",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "web_lods": {
         "light": {
           "asset": "glessner_house__as_built_1887.light.glb",
-          "master_sha256": "f0364fc468b9e25200f904ae0ec4d29eb83c6540cacb2cd48411038ca1c76dd8",
-          "output_sha256": "329cda7d1ee7350feadb74fd0a79448994649a7ca4602d68e63eb95b6b68445c",
-          "recipe_sha256": "33339b922cd9ac9d528d05ac9d2cf28ab290fe11a3681ad38b59defeaf9a96ef",
-          "triangles": 198230
+          "master_sha256": "78857b7fb778e8c658297fa3e5119c6281993144b816fb66943e3de8c80f0872",
+          "output_sha256": "bf33f00b2272d3aeb62f83ec06b1f2e4a36145ab29f4bc37fe5d996b383d3d5f",
+          "recipe_sha256": "817bd2a536da7e06ac98d6fea0a61e0f1561e741de35ec504c4ecbbd281e18c2",
+          "triangles": 198219
         }
       },
-      "web_master_sha256": "f0364fc468b9e25200f904ae0ec4d29eb83c6540cacb2cd48411038ca1c76dd8"
+      "web_master_sha256": "78857b7fb778e8c658297fa3e5119c6281993144b816fb66943e3de8c80f0872"
     },
     "glessner_lee_house_1700_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
@@ -2073,9 +2073,9 @@
     "house_1918_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 7948176,
+      "bytes": 8024516,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "6a68dce65076b09e333abfe8877f26a9c3869a94af580d5094545fde7b4d69f6",
+      "inputs_sha256": "3a003469e55c0d3aab1473aa50f7340783a5c363784580530c350c43c335cdd9",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1918_prairie"
@@ -3549,9 +3549,9 @@
     "lees_place_haystack_1812_a__lees_place_1812.glb": {
       "archetype": "haystack",
       "baked_ao": false,
-      "bytes": 26732,
+      "bytes": 422152,
       "generator": "generators/haystack_emit.py",
-      "inputs_sha256": "710c595cf7d35a4d85a6f933293325668fff87efad9b0526e1441f700e6556b8",
+      "inputs_sha256": "ce6875d622655056c03e000c5c27dd7827d9ac52579c04872f421ece56c14851",
       "kind": "generated",
       "phase_id": "lees_place_1812",
       "structure_id": "lees_place_haystack_1812_a"
@@ -3559,9 +3559,9 @@
     "lees_place_haystack_1812_b__lees_place_1812.glb": {
       "archetype": "haystack",
       "baked_ao": false,
-      "bytes": 26748,
+      "bytes": 422156,
       "generator": "generators/haystack_emit.py",
-      "inputs_sha256": "de0144a831bdbbadfb33e6d1f34bb9a66c9331489d6dfce1d110f0b7eeb0a685",
+      "inputs_sha256": "36669141e043dccd626c5daaed6854030df3d4bbe06106ffcd9f175686b06cd7",
       "kind": "generated",
       "phase_id": "lees_place_1812",
       "structure_id": "lees_place_haystack_1812_b"
@@ -3569,9 +3569,9 @@
     "lees_place_haystack_1812_c__lees_place_1812.glb": {
       "archetype": "haystack",
       "baked_ao": false,
-      "bytes": 26728,
+      "bytes": 470232,
       "generator": "generators/haystack_emit.py",
-      "inputs_sha256": "082d4e2775b975d2df1f8e4afd47f78de8eb99c812f0acb8c570f6df01692791",
+      "inputs_sha256": "b4c8faeb851f65125fdf5cb64c09c7d9cd1ba38a9743fd71b05d3d6bab85939e",
       "kind": "generated",
       "phase_id": "lees_place_1812",
       "structure_id": "lees_place_haystack_1812_c"
@@ -3579,9 +3579,9 @@
     "lees_place_haystack_1812_d__lees_place_1812.glb": {
       "archetype": "haystack",
       "baked_ao": false,
-      "bytes": 26732,
+      "bytes": 479092,
       "generator": "generators/haystack_emit.py",
-      "inputs_sha256": "05bb8c135fce12390928a3b7ca5c3064b1224fbe93d57aebc766270af47dfe17",
+      "inputs_sha256": "a4497f3090b071bbd66260674f0b92d79d6196660c4c1648019cb8ce54e17ce4",
       "kind": "generated",
       "phase_id": "lees_place_1812",
       "structure_id": "lees_place_haystack_1812_d"

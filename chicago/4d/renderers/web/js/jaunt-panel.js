@@ -1,4 +1,4 @@
-import { currentStop, choicesFor, canNext, choiceStatus, choiceConsequence, resourceSummary } from './jaunts.js';
+import { currentStop, choicesFor, canNext, choiceStatus, choiceConsequence, resourceSummary, shownMode } from './jaunts.js';
 import { claimPresentation } from './jaunt-context.js';
 import { PACES } from './travel-settings.js';
 import { formatEstimate } from './travel-estimate.js';
@@ -98,10 +98,13 @@ export function createJauntPanel({ destinations, actions }) {
     const el = document.getElementById(id);
     if (el) observer.observe(el, { attributes: true, attributeFilter: ['hidden'] });
   }
-  function prose(parent, text, ids = [], narrative = false, carried = []) {
+  function prose(parent, text, ids = [], narrative = false, carried = [], since = '') {
     const claims = [...ids.map(id => state.jaunt.evidence.find(c => c.id === id)), ...carried];
     const unsafe = claims.some(c => claimPresentation(c).text === 'Unverified attribution withheld.');
     const paragraph = node('p', unsafe ? 'Unverified attribution withheld.' : text, narrative ? 'jaunt-narrative' : '');
+    // T-3406: a story stop opens on how long since the one before ("Four hours later."),
+    // ahead of the date and hour its text starts with.
+    if (since && !unsafe) paragraph.prepend(node('strong', `${since}.`, 'jaunt-since'), ' ');
     paragraph.title = paragraph.textContent; parent.append(paragraph);
     if (!claims.length) return;
     // T-2120: the sourcing folds behind one quiet toggle per passage instead of a row of
@@ -145,7 +148,7 @@ export function createJauntPanel({ destinations, actions }) {
         const option = node('option', PACES[id].label); option.value = id; return option;
       }));
     }
-    mode.value = state.mode;
+    mode.value = shownMode(state);   // T-3405: the mode this leg really travels in
     straight.hidden = !['travelling', 'paused'].includes(state.phase);
     mode.classList.toggle('jaunt-mode-wide', straight.hidden);
     const scroll = same ? (overlayView?.scroll ?? body.scrollTop) : 0, focused = document.activeElement?.dataset.choice;
@@ -175,7 +178,7 @@ export function createJauntPanel({ destinations, actions }) {
         const about = node('details', ''); about.append(node('summary', 'About this outing'), ...String(state.jaunt.opening.text).split(/\n\s*\n/).map(text => node('p', text.trim()))); body.append(about);
       }
       const historicalClaims = stop.narrative ? stop.evidence.filter(id => state.jaunt.evidence.find(c => c.id === id)?.confidence !== 'reconstructed') : stop.evidence;
-      prose(body, stop.text, historicalClaims, historicalClaims?.every(id => state.jaunt.evidence.find(c => c.id === id)?.confidence === 'reconstructed'));
+      prose(body, stop.text, historicalClaims, historicalClaims?.every(id => state.jaunt.evidence.find(c => c.id === id)?.confidence === 'reconstructed'), [], stop.since);
       if (stop.narrative) prose(body, stop.narrative, stop.evidence.filter(id => state.jaunt.evidence.find(c => c.id === id)?.confidence === 'reconstructed'), true);
       if (state.context?.lines.length) {
         const notes = node('details', '', 'jaunt-road-history'); notes.append(node('summary', 'On the way')); contextLines(notes);

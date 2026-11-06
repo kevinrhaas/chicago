@@ -4235,6 +4235,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/human_wardrobe.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/identity_master_guard.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5678,6 +5682,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_driver_livery.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_enclosure_points.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5899,6 +5907,10 @@
       "wrote_ignored": []
     },
     "tools/test_human_inspection.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_life.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
