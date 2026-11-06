@@ -23,8 +23,8 @@ export const HAIR_CUTS = Object.freeze({
   // Of the 1830s: fuller all round, brushed forward from the crown toward the brow and
   // temples, over the tops of the ears.
   brushed_forward_1835: Object.freeze({
-    flow: 'forward', part_cm: 0, lengths_cm: Object.freeze({ top: 6.5, side: 4.6, back: 4.2 }),
-    lift_mm: Object.freeze({ root: 3, tip: 7 }), density: 1.1, curl: .3, hang: true,
+    flow: 'forward', part_cm: 0, lengths_cm: Object.freeze({ top: 5.4, side: 3.2, back: 3.4 }),
+    lift_mm: Object.freeze({ root: 1.6, tip: 4 }), density: 1.25, curl: .12, hang: true,
   }),
 });
 
@@ -37,7 +37,7 @@ export const FACIAL_HAIR = Object.freeze({
   // Side whiskers: down from the temple in front of the ear to about the line of the mouth.
   side_whiskers: Object.freeze({
     region_cm: Object.freeze({ x: [5.8, 8.6], y: [-5.2, 1.2], z_min: -7.6, z_max: -3.6 }), facing: 'side',
-    length_cm: 1.4, fall: 1, outward: 0, lift_mm: Object.freeze({ root: .8, tip: 2.4 }), width_mm: 4, cover: 6,
+    length_cm: .9, fall: 1, outward: 0, lift_mm: Object.freeze({ root: .6, tip: 1.4 }), width_mm: 3, cover: 8,
   }),
 });
 

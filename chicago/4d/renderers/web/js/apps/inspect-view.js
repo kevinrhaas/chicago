@@ -572,13 +572,14 @@ async function openPersonCard(pane, personId, ctx) {
   const scroller = pane.closest('.insp-panes')?.parentElement;
   if (scroller) scroller.scrollTop = 0;
   first.querySelector('[data-person-back]')?.focus?.({ preventScroll: true });
-  const [household, citations] = await Promise.all([
+  const [household, citations, likeness] = await Promise.all([
     Promise.resolve(ctx?.actions?.householdRecord?.(row.file)).catch(() => null),
     Promise.resolve(ctx?.actions?.residentCitations?.()).catch(() => null),
+    Promise.resolve(ctx?.actions?.personFace?.(personId)).catch(() => null),   // T-3413
   ]);
   if (pane.dataset.person !== personId) return false; // Back, or another person, in the meantime
   const person = (household?.persons ?? []).find((p) => p.id === personId) ?? null;
-  const card = draw(personModel({ row, person, household, citations, sceneYear }));
+  const card = draw(personModel({ row, person, household, citations, sceneYear, face: likeness?.face ?? null, assetBase: likeness?.base ?? null }));
   if (!person) card.querySelector('.insp-person-wait')?.replaceWith(el(doc, 'p', 'nav-sub', 'This person\u2019s household record could not be read.'));
   if (doc.activeElement === doc.body || !doc.activeElement) card.querySelector('[data-person-back]')?.focus?.({ preventScroll: true });
   return true;

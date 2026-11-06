@@ -82,6 +82,26 @@ const row = dir.people.find((r) => r.id === 'glessner_john_j');
 const early = personModel({ row, sceneYear: 1904 });
 if (early.name !== 'John J. Glessner' || early.read || early.back !== 'The Glessner household') fail('the card from a row alone is not John J. Glessner\'s');
 
+// T-3413: a face fitted to a portrait shows on the card: both pictures exist where publish.sh
+// serves them, the grade is the fit's, the source is joined, and what the model lacks is said.
+// Nobody without a fitted face gets a Likeness section.
+const persons = json('assets/humans/web/hm08_variation_persons.json').persons;
+let likenesses = 0;
+for (const r of dir.people) {
+  const face = persons[r.id]?.face ?? null;
+  const m = personModel({ row: r, sceneYear: 1904, face, assetBase: 'https://example.test/4d/data/' });
+  if (!face?.card) { if (m.likeness) fail(`${r.id}: a Likeness with no fitted face`); continue; }
+  likenesses++;
+  const L = m.likeness;
+  if (!L) { fail(`${r.id}: a fitted face but no Likeness`); continue; }
+  for (const k of ['portrait', 'model']) {
+    const rel = face.card[k];
+    if (!L[k].startsWith('https://example.test/4d/data/humans/web/') || !fs.existsSync(path.join(ROOT, 'assets', rel))) fail(`${r.id}: ${k} picture ${rel} is not where publish.sh serves it`);
+  }
+  if (L.grade !== face.grade || !L.sourceTitle || !/^https:/.test(L.sourceUrl) || !L.notModelled.length || !/\d+ mm/.test(L.fit)) fail(`${r.id}: Likeness lacks its grade, source, fit or what is not modelled`);
+}
+if (likenesses < 1) fail('no fitted face reached a card (Glessner\'s, T-3413)');
+
 if (cards !== dir.people.length || inferredCensus < 150 || leads < 150 || links < 150 || lived < 40) {
   fail(`too few read: ${cards} cards of ${dir.people.length}, ${inferredCensus} inferred census, ${leads} leads, ${links} page links`);
 }
@@ -89,4 +109,4 @@ if (failures.length) {
   console.log(`FAIL person cards (T-3265):\n  ${failures.join('\n  ')}`);
   process.exit(1);
 }
-console.log(`ok person cards (T-3265): ${cards} people, ${lived} children carded for their years here (T-3382), ${inferredCensus} inferred from the 1900 census, ${leads} census leads, ${links} page links`);
+console.log(`ok person cards (T-3265): ${cards} people, ${likenesses} with a portrait-fitted face (T-3413), ${lived} children carded for their years here (T-3382), ${inferredCensus} inferred from the 1900 census, ${leads} census leads, ${links} page links`);
