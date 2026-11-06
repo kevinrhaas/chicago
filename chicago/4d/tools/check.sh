@@ -570,6 +570,10 @@ step "Every person's skin has pores, blood and a glow, hair a strand sheen and e
   node tools/test_human_skin.mjs
 step "Every wardrobe file matches its recipe, each garment sourced or a liberty, clear of its seated body and vehicle, and is the one its row binds (T-3398, T-3409)" \
   python3 tools/human_wardrobe.py --check
+step "The shared body-and-face kit reproduces from its pinned MakeHuman targets, and each drawn person's age from their record (T-3412)" \
+  python3 tools/human_variation_kit.py --check
+step "Every person gets their own face, height and build: no two of 400 alike, a seated driver's face only, clothes outside the skin, LODs agree (T-3412)" \
+  node tools/test_human_variation.mjs
 step "Each driver's wardrobe binds to the real driver by bone name, skins where it was draped, and its spring tails lag and settle, LOD0 and LOD3 (T-3398, T-3409)" \
   node tools/test_driver_livery.mjs
 step "People are judged beside period pictures: reference sets cite their sources, the rig is 3 m and 10 m, and no verdict outlives its figure (T-3417)" \

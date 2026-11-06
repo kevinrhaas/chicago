@@ -1933,3 +1933,113 @@ Only the following four active LOD3 payloads replace the seated-looking parents 
 | `humans/web/bardwell_otis_1835.lod3.glb` | CC0-1.0; original creator notices retained | 564628 | `c5b1e37cc39b44e5dfb74496df957de7d93e5e0341f58e6d608f6fb09857bd88` |
 | `humans/anonymous_working_driver_1904.lod3.glb` | CC0-1.0; original creator notices retained | 7557312 | `0754da886b868ffe1f18d9d89a11174bbca6b9f330bf3a5ca45f7982dcb44a9a` |
 | `humans/web/anonymous_working_driver_1904.lod3.glb` | CC0-1.0; original creator notices retained | 551488 | `6c5182d709ce9de5be003a650c4f7f69b90ae9591d0865174d4303103bd97de4` |
+
+### Body and face variation kit — `humans/web/hm08_variation_kit.*` (T-3412)
+
+The MakeHuman graphical targets below are **CC0-1.0**, each carrying its own CC0 header, copied verbatim
+from the same pinned [MakeHuman commit a8bc2d54ff0ac92e78ff71431b1023eda42bf482](https://github.com/makehumancommunity/makehuman/tree/a8bc2d54ff0ac92e78ff71431b1023eda42bf482);
+`SOURCE-variation.json` records each one's upstream URL, size and SHA-256 (the macro age targets it also
+lists are the ones `SOURCE.json` already pins, unchanged). No MakeHuman program code is copied.
+`hm08_variation_kit.bin`, `.json` and `hm08_variation_persons.json` are generated from them by `tools/human_variation_kit.py` (original,
+GPL-3.0-or-later code) and are CC0-1.0, like `prepared.json` they are carried onto. Every value a person
+draws from the kit is a reconstruction (L-human-variation-3412), not a likeness.
+
+```text
+authored/humans/makehuman_hm08/SOURCE-variation.json
+authored/humans/makehuman_hm08/makehuman/data/targets/cheek/l-cheek-bones-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/cheek/l-cheek-bones-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/cheek/l-cheek-inner-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/cheek/l-cheek-inner-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/cheek/l-cheek-volume-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/cheek/l-cheek-volume-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/cheek/r-cheek-bones-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/cheek/r-cheek-bones-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/cheek/r-cheek-inner-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/cheek/r-cheek-inner-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/cheek/r-cheek-volume-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/cheek/r-cheek-volume-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/chin/chin-bones-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/chin/chin-bones-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/chin/chin-height-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/chin/chin-height-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/chin/chin-prognathism-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/chin/chin-prognathism-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/chin/chin-prominent-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/chin/chin-prominent-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/chin/chin-width-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/chin/chin-width-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/ears/l-ear-flap-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/ears/l-ear-flap-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/ears/l-ear-lobe-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/ears/l-ear-lobe-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/ears/l-ear-scale-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/ears/l-ear-scale-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/ears/r-ear-flap-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/ears/r-ear-flap-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/ears/r-ear-lobe-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/ears/r-ear-lobe-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/ears/r-ear-scale-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/ears/r-ear-scale-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-angle-down.target
+authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-angle-up.target
+authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-trans-backward.target
+authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-trans-down.target
+authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-trans-forward.target
+authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-trans-up.target
+authored/humans/makehuman_hm08/makehuman/data/targets/forehead/forehead-nubian-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/forehead/forehead-nubian-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/forehead/forehead-scale-vert-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/forehead/forehead-scale-vert-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/forehead/forehead-temple-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/forehead/forehead-temple-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/head/head-age-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/head/head-age-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/head/head-diamond.target
+authored/humans/makehuman_hm08/makehuman/data/targets/head/head-fat-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/head/head-fat-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/head/head-invertedtriangular.target
+authored/humans/makehuman_hm08/makehuman/data/targets/head/head-oval.target
+authored/humans/makehuman_hm08/makehuman/data/targets/head/head-rectangular.target
+authored/humans/makehuman_hm08/makehuman/data/targets/head/head-round.target
+authored/humans/makehuman_hm08/makehuman/data/targets/head/head-square.target
+authored/humans/makehuman_hm08/makehuman/data/targets/head/head-triangular.target
+authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-male-young-averagemuscle-maxweight.target
+authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-male-young-averagemuscle-minweight.target
+authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-male-young-maxmuscle-averageweight.target
+authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-male-young-minmuscle-averageweight.target
+authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-lowerlip-volume-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-lowerlip-volume-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-scale-horiz-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-scale-horiz-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-trans-down.target
+authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-trans-up.target
+authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-upperlip-volume-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-upperlip-volume-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/neck/neck-double-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/neck/neck-scale-horiz-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/neck/neck-scale-horiz-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/neck/neck-trans-backward.target
+authored/humans/makehuman_hm08/makehuman/data/targets/neck/neck-trans-forward.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-curve-concave.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-curve-convex.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-hump-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-hump-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-nostrils-width-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-nostrils-width-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-point-down.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-point-up.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-point-width-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-point-width-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-scale-depth-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-scale-depth-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-scale-horiz-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-scale-horiz-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-scale-vert-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-scale-vert-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-trans-down.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-trans-up.target
+authored/humans/makehuman_hm08/makehuman/data/targets/stomach/stomach-pregnant-incr.target
+humans/web/hm08_variation_kit.bin
+humans/web/hm08_variation_kit.json
+humans/web/hm08_variation_persons.json
+```
