@@ -1,15 +1,12 @@
 {
   "schema_version": 1,
+  "content_version": 3,
+  "category": "News and social life",
+  "review_required": false,
   "id": "gossip-or-notice",
-  "content_version": 2,
+  "scene": "1835",
   "title": "Gossip or Printed Notice?",
   "premise": "Two rumors are going round the forks. Carry them past the Exchange to the town's two printing offices, read what the papers actually said, and decide what you will carry back.",
-  "category": "News and social life",
-  "scene": "1835",
-  "opening": {
-    "text": "The talk at the forks this morning has two rumors in it: the land sale took in a million dollars, and a bank is opening in a brick house on the square. Both rumors are invented for this outing. The papers are real. Walk to the two printing offices and read what they printed before you repeat a word.",
-    "read_s": 20
-  },
   "default_mode": "horse",
   "allowed_modes": [
     "walk",
@@ -18,6 +15,15 @@
     "fly",
     "instantly"
   ],
+  "long_form": true,
+  "ambience": {
+    "hour": "morning",
+    "season": "summer"
+  },
+  "opening": {
+    "text": "JAUNT: GOSSIP OR PRINTED NOTICE? Morning at the forks, and two rumours are already going round: the land sale took in a million dollars, and a bank is opening in a brick house on the square. In a town this excited, rumours travel faster than the mail, which comes 'often irregular and long delayed'. When it does come, 'some one with a good voice would mount a dry goods box' and read the news aloud.\n\nThis summer there are two newspapers in town. Carry the rumours to both printing offices and read what the papers actually said before you repeat a word.",
+    "read_s": 28
+  },
   "variables": {
     "land": {
       "min": 0,
@@ -45,8 +51,8 @@
         "kind": "structure",
         "id": "wolf_point_tavern"
       },
-      "text": "Start at the forks, under the tavern's painted wolf sign, hung by about 1833. One account has William Walters keeping the house until 1836; another says it stopped taking guests in 1834. The talk is our invention: a million dollars at the land sale, and a bank opening on the square within weeks.",
-      "read_s": 30,
+      "text": "Start at the forks, under the Wolf Point Tavern's painted wolf sign, hung by about 1833. One account has William Walters keeping the house until 1836; another says it stopped taking guests in 1834. At the door the talk is all money: a million dollars taken at the land sale, and a bank opening on the square within weeks. Since the land office opened in May, nobody in town talks about anything else.",
+      "read_s": 22,
       "action_s": 5,
       "links": [
         {
@@ -63,10 +69,11 @@
       "evidence": [
         "wolf-sign",
         "wolf-dispute",
-        "gossip"
+        "gossip",
+        "mk-land-office"
       ],
       "next": "the-exchange",
-      "narrative": "Hear the rumors, and believe neither yet."
+      "narrative": "Hear the rumours, and believe neither yet."
     },
     {
       "id": "the-exchange",
@@ -74,8 +81,8 @@
         "kind": "structure",
         "id": "exchange_coffee_house"
       },
-      "text": "Over the river to the Exchange Coffee House, which Mark Beaubien built at Lake and Wells and Mr. and Mrs. Murphy have kept since August 1834. The rumors are here before you, and someone asks whether they are true: our invention, like the rumors.",
-      "read_s": 28,
+      "text": "Over the river to the Exchange Coffee House, which Mark Beaubien built at Lake and Wells and Mr. and Mrs. Murphy have kept since August 1834. The rumours have beaten you here, and they have grown on the way. Somebody at the door wants to know whether they are true.",
+      "read_s": 16,
       "action_s": 5,
       "links": [
         {
@@ -114,7 +121,7 @@
           "next": "the-democrat"
         }
       ],
-      "narrative": "Hear the rumors again, one river later."
+      "narrative": "Hear the rumours again, one river later."
     },
     {
       "id": "the-democrat",
@@ -122,8 +129,8 @@
         "kind": "structure",
         "id": "chicago_democrat_office"
       },
-      "text": "At South Water and Clark, the Democrat's first office; by 20 May it printed over Jones & King's hardware. Today's number cannot say what the Land Office took, and is only 'led to believe' it was between five and some hundred thousand dollars. Our copy loses the second figure.",
-      "read_s": 32,
+      "text": "At South Water and Clark, the Democrat's first office; by 20 May it printed over Jones & King's hardware. Today's number admits it cannot say what the Land Office took, and is only 'led to believe' it was between five and some hundred thousand dollars; the surviving copy loses the second figure. Either way, it is not a million.",
+      "read_s": 18,
       "action_s": 10,
       "links": [
         {
@@ -169,7 +176,7 @@
           "next": "the-american"
         }
       ],
-      "narrative": "Find the first rumor in print."
+      "narrative": "Find the first rumour in print."
     },
     {
       "id": "the-american",
@@ -177,8 +184,8 @@
         "kind": "structure",
         "id": "chicago_american_office"
       },
-      "text": "Near the drawbridge, the American is three weeks old. Its 27 June number reprints the Sangamon Journal: the State Bank's directors have decided on a branch at Chicago, but its officers are not yet known. The brick building on the square near the court house is read as Springfield's, not Chicago's.",
-      "read_s": 32,
+      "text": "Near the drawbridge, T. O. Davis's American is three weeks old. Its 27 June number reprints the Sangamon Journal: the State Bank's directors have decided on a branch at Chicago, but its officers are not yet known. The brick building on the square near the court house is Springfield's, not Chicago's. Half a rumour is true, which is the most dangerous kind.",
+      "read_s": 19,
       "action_s": 10,
       "links": [
         {
@@ -240,12 +247,12 @@
     {
       "from": "the-forks",
       "to": "the-exchange",
-      "note": "East over the river to Lake and Wells; no particular crossing is claimed, and the tavern's placement is the weakest in the town.",
+      "note": "East over the river to Lake and Wells.",
       "evidence": [
         "wolf-dispute",
         "exchange-house"
       ],
-      "story": "Two rumors, walking faster than you.",
+      "story": "Two rumours, walking faster than you.",
       "story_evidence": [
         "gossip"
       ]
@@ -258,7 +265,7 @@
         "exchange-house",
         "democrat-corner"
       ],
-      "story": "A paper to read each rumor against.",
+      "story": "A paper to read each rumour against.",
       "story_evidence": [
         "gossip"
       ]
@@ -276,8 +283,8 @@
   "endings": [
     {
       "id": "true-to-the-page",
-      "text": "You carry back both items as printed: a land-sale take the Democrat would only guess at, and a branch bank decided with no officers named and no house in Chicago yet. Less than the forks said, and true to the page. The careful note is the story's.",
-      "read_s": 12,
+      "text": "You carry back both items as printed: a land-sale take the Democrat would only guess at, and a branch bank decided with no officers named and no house in Chicago yet. Less than the forks said, and true to the page. Before the year is out the census will count one bank in town, 'a branch of the State bank'.",
+      "read_s": 17,
       "completion_eligible": true,
       "when": {
         "all": [
@@ -296,8 +303,8 @@
     },
     {
       "id": "one-checked",
-      "text": "You carry back the bank item as printed and leave the land sale alone, because you did not note it. Half a correction, honestly made. The careful note is the story's.",
-      "read_s": 10,
+      "text": "You carry back the bank item as printed and leave the land sale alone, because you did not note it. Half a correction, honestly made.",
+      "read_s": 8,
       "completion_eligible": true,
       "when": {
         "var": "told",
@@ -307,8 +314,8 @@
     },
     {
       "id": "not-yet-known",
-      "text": "You carry back that it is not settled: one paper would only guess, and the other names no officer and no house. Uncertainty is an answer too. The careful note is the story's.",
-      "read_s": 10,
+      "text": "You carry back that nothing is settled: one paper would only guess, and the other names no officer and no house. Uncertainty is an answer too.",
+      "read_s": 8,
       "completion_eligible": true,
       "when": {
         "var": "told",
@@ -318,8 +325,8 @@
     },
     {
       "id": "owed-an-answer",
-      "text": "You promised an answer at the Exchange and carry none back. The rumors will be repeated there without you, until Saturday's American or next week's Democrat prints more. The careful note is the story's.",
-      "read_s": 10,
+      "text": "You promised an answer at the Exchange and carry none back. The rumours will be repeated there without you until Saturday's American or next week's Democrat prints more.",
+      "read_s": 8,
       "completion_eligible": true,
       "when": {
         "var": "promised",
@@ -329,8 +336,8 @@
     },
     {
       "id": "held-tongue",
-      "text": "You say nothing, and the rumors go round without you. Saturday's American and next week's Democrat will print more; until then, holding your tongue is a fair way to read the news. The careful note is the story's.",
-      "read_s": 10,
+      "text": "You say nothing, and the rumours go round without you. Saturday's American and next week's Democrat will print more; until then, holding your tongue is a fair way to read the news.",
+      "read_s": 9,
       "completion_eligible": true,
       "default": true
     }
@@ -438,6 +445,33 @@
       "locator": "Andreas vol. 1, printed p. 633, the hotel chapter; the life of Mark Beaubien; DRLOIH hotel chronology, Exchange Coffee House entry."
     },
     {
+      "id": "mk-mail-box",
+      "text": "When the mail came, 'often irregular and long delayed', the town gathered at the post office, where 'some one with a good voice would mount a dry goods box' and read the news from Washington and New York; 'If politics ran high, two dry-goods boxes and two readers of opposite parties would be utilized.'",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 99-100, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13378-13395 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-land-office",
+      "text": "'The opening of a land office in May, 1835, added fuel to the already brilliant blaze of excitement'; crowds of buyers and speculators 'filled the streets and overflowed improvised camps on the adjacent prairies'. Sales of land 'to the amount of 370,043 acres were made in 1835'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 97-98, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13137-13162 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-bank",
+      "text": "The census of late 1835 counted 'one bank'; 'The bank referred to was a branch of the State bank, of which Wm. H. Brown was president'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 95, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12880-12888 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
       "id": "gossip",
       "text": "The tavern talk, both rumors and their figures (a million dollars, a bank opening on the square within weeks), the rumors reaching the Exchange, the person who asks there and the promise, the visitor's walk, what is noted or carried back, the endings, the timing inputs and the A Careful Reader keepsake are invented connective narrative. No real person is made to say either rumor, and no one named is met.",
       "confidence": "reconstructed",
@@ -445,8 +479,8 @@
       "liberty": "L-jaunt-gossip-or-notice"
     }
   ],
-  "review_required": false,
   "liberties": [
-    "L-jaunt-gossip-or-notice"
+    "L-jaunt-gossip-or-notice",
+    "L-jaunt-1835-light-and-stories"
   ]
 }

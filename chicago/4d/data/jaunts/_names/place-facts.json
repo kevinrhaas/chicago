@@ -1,0 +1,99 @@
+{
+  "_doc": "T-3379: the fact a jaunt's road note gives for a building it passes, where the house has a better story than tools/jaunt_place_facts.py composes from the residents layer. Keyed by scene, then structure id. Each text restates what its cited sources already say in this repository (a jaunt claim, a summary, a structure record or a household card); this file adds no claim of its own.",
+  "1904": {
+    "buckingham_house_2036_prairie": {
+      "text": "Clarence Buckingham's house in the 1904 Blue Book. In 1927 his sister Kate will give Chicago the Buckingham Fountain in his memory, its centre jet throwing water 150 feet up.",
+      "sources": [
+        "chicago_blue_book_1904",
+        "chicago_park_district_buckingham_fountain"
+      ]
+    },
+    "glessner_lee_house_1700_prairie": {
+      "text": "Built by the Glessners for their daughter Frances, who married Blewett Lee in 1898. Decades on she will build the Nutshell Studies of Unexplained Death, tiny crime scenes still used to train investigators.",
+      "sources": [
+        "chicago_blue_book_1904",
+        "glessner_house_family_page",
+        "nlm_visible_proofs_frances_glessner_lee"
+      ]
+    },
+    "george_glessner_house_1706_prairie": {
+      "text": "Home of George M. Glessner, son of the granite house at 1800; the Glessners built it beside his sister's house at 1700.",
+      "sources": [
+        "chicago_blue_book_1904",
+        "glessner_blog_1700_1706_construction_1901_photo"
+      ]
+    },
+    "goodman_house_1612_prairie": {
+      "text": "Joseph Goodman's stone Italianate of 1869, two years before the Great Fire: round-headed windows under long keystones, and an arched portico at the top of a high stoop.",
+      "sources": [
+        "chicagology_1612_prairie_photo",
+        "hmdb_prairie_lost_houses_1600_1700"
+      ]
+    },
+    "hibbard_house_1701_prairie": {
+      "text": "William G. Hibbard's house of 1869, by William Le Baron Jenney, who fifteen years later built the Home Insurance Building, called the first skyscraper.",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700",
+        "wikipedia_william_le_baron_jenney"
+      ]
+    },
+    "house_1608_prairie": {
+      "text": "The Frank household. Henrietta Greenebaum Frank and her sister Hannah Greenebaum Solomon became the first Jewish members of the Chicago Woman's Club in 1876.",
+      "sources": [
+        "chicago_blue_book_1904",
+        "encyclopedia_chicago_worlds_of_prairie_avenue",
+        "jwa_encyclopedia_hannah_greenebaum_solomon"
+      ]
+    },
+    "keith_house_1808_prairie": {
+      "text": "Osborn R. Keith's granite-fronted house of 1886 by Cobb and Frost, noticed that year at forty thousand dollars, going up as Richardson's granite house rose next door.",
+      "sources": [
+        "inland_architect_1886_09_keith_notice",
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ]
+    },
+    "law_house_1620_prairie": {
+      "text": "Robert Law's house, engraved in 1874 for a series on the homes of Chicago: two storeys over a raised basement under a slated mansard.",
+      "sources": [
+        "land_owner_1874_05_homes_of_chicago_1620_law",
+        "glessner_house_prairie_avenue_page"
+      ]
+    },
+    "marshall_field_house_1905_prairie": {
+      "text": "Marshall Field's house, by Richard Morris Hunt, the architect of the Statue of Liberty's pedestal. Field is the wealthiest businessman in Chicago, and the street's most famous neighbour.",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_east",
+        "wikipedia_richard_morris_hunt",
+        "wikipedia_marshall_field"
+      ]
+    },
+    "dexter_house_1721_prairie": {
+      "text": "Wirt Dexter's house of 1863, given a new front by Arthur Little in 1889. By 1904 the Blue Book lists Henry H. Walker here.",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700",
+        "inland_architect_1891_06_dexter_plate",
+        "chicago_blue_book_1904"
+      ]
+    },
+    "marsh_house_1824_prairie": {
+      "text": "Samuel B. Pomeroy's Italianate villa of 1857, one of the oldest houses on the street, hiding behind the stone front George B. Marsh gave it after 1880.",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west",
+        "glessner_blog_1824_pomeroy_italianate"
+      ]
+    },
+    "mayer_house_2009_prairie": {
+      "text": "Max A. Meyer's house of 1888, a French Gothic rowhouse by Burnham and Root.",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ]
+    },
+    "sears_meeker_house_1815_prairie": {
+      "text": "Built for Joseph Sears; by 1904 the Blue Book lists Arthur Meeker here.",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_east",
+        "chicago_blue_book_1904"
+      ]
+    }
+  }
+}

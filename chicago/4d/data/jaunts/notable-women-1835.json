@@ -1,16 +1,13 @@
 {
   "schema_version": 1,
+  "content_version": 2,
+  "category": "Residents",
+  "featured": false,
+  "review_required": false,
   "id": "notable-women-1835",
-  "content_version": 1,
+  "scene": "1835",
   "title": "Women of 1835 Chicago",
   "premise": "Ride from Wolf Point to the fort past the places of six women a source names in the town of 1835: an author, two hotel and boarding-house keepers, a teacher and the women of two founding families.",
-  "category": "Residents",
-  "scene": "1835",
-  "featured": false,
-  "opening": {
-    "text": "RIDE: WOMEN OF 1835. Seven stops, west to east, from the forks to the fort. Each names a woman a source puts in this town and why she still matters. Most sources of 1835 record men; these women are the ones they could not leave out. Exteriors only; nobody here speaks.",
-    "read_s": 18
-  },
   "default_mode": "horse",
   "allowed_modes": [
     "walk",
@@ -19,6 +16,15 @@
     "fly",
     "instantly"
   ],
+  "long_form": true,
+  "ambience": {
+    "hour": "afternoon",
+    "season": "summer"
+  },
+  "opening": {
+    "text": "RIDE: WOMEN OF 1835. A summer afternoon, west to east, from the forks to the fort. Most of what was written about this town in 1835 was written by men, about men: land sales, votes, harbours. But read closely and the women are everywhere. They ran the hotels, kept the boarding houses, taught the first classes, wrote the book that remembers half these buildings, and held families together across two worlds.\n\nSeven stops, seven lives. Each woman here is named by a source, and each one still matters.",
+    "read_s": 24
+  },
   "stops": [
     {
       "id": "robinson",
@@ -27,7 +33,7 @@
         "id": "forks"
       },
       "text": "Wolf Point. Across the water stand the log cabins Wau-Bun puts here in 1831 as the home of Alexander Robinson and his wife's family. Catherine Chevalier Robinson was Potawatomi, granddaughter of the leader Naunongee. Her sister Archange married Antoine Ouilmette, and the village of Wilmette carries their name. Robinson descendants kept their Des Plaines land into the mid-twentieth century.",
-      "read_s": 24,
+      "read_s": 16,
       "evidence": [
         "robinson-cabins",
         "robinson-catherine",
@@ -45,7 +51,7 @@
         "id": "jh_kinzie_forwarding_store"
       },
       "text": "John H. Kinzie's store. His wife Juliette Kinzie later wrote Wau-Bun (1856), and its memories of 1831 are the evidence for several buildings in this very scene. On 18 June 1835, thirteen days before this date, she gave birth in Chicago to Eleanor, whose daughter Juliette Gordon Low founded the Girl Scouts in 1912.",
-      "read_s": 22,
+      "read_s": 15,
       "evidence": [
         "kinzie-store",
         "kinzie-author",
@@ -62,7 +68,7 @@
         "id": "exchange_coffee_house"
       },
       "text": "The Exchange Coffee House, Mark Beaubien's second hotel. Andreas: 'Mr. and Mrs. Murphy took charge of this new hotel, which they christened the Exchange Coffee House.' Open under the Murphys from August 1834, it was a couple's business, and the history names Mrs. Murphy as its keeper beside her husband.",
-      "read_s": 18,
+      "read_s": 14,
       "evidence": [
         "murphy-keepers",
         "murphy-dates",
@@ -77,7 +83,7 @@
         "id": "brown_boarding_house"
       },
       "text": "Mrs. Rufus Brown's boarding house, behind Peck's store. 'Mrs. Rufus Brown kept one of the first-class boarding houses', Andreas writes, in a town whose houses 'were always full; and full meant three in a bed sometimes, with the floor covered besides.' She ran the business; the record keeps only her husband's name.",
-      "read_s": 20,
+      "read_s": 14,
       "evidence": [
         "brown-keeper",
         "brown-full",
@@ -92,7 +98,7 @@
         "id": "chappel_infant_school"
       },
       "text": "Eliza Chappel's school. She kept Chicago's first infant school, opened in 1833 in a small log house once used as a store; one account has some pupils paddling canoes across the river to class. Andreas wrote that Miss Eliza Chappel 'is entitled to especial distinction in this work.'",
-      "read_s": 18,
+      "read_s": 13,
       "evidence": [
         "chappel-school",
         "chappel-canoes",
@@ -108,7 +114,7 @@
         "id": "first_presbyterian_church"
       },
       "text": "First Presbyterian Church. Eliza Chappel was one of its twenty-six founding members in June 1833, and on 15 June 1835 she married its pastor, Jeremiah Porter. In the Civil War, as Eliza Chappel Porter, she directed the Chicago Sanitary Commission and nursed Union wounded beside Mary Ann Bickerdyke at Chattanooga.",
-      "read_s": 20,
+      "read_s": 14,
       "evidence": [
         "porter-founder",
         "porter-marriage",
@@ -124,7 +130,7 @@
         "id": "fort_dearborn"
       },
       "text": "Fort Dearborn, from the south-west; the Beaubien homestead stands just south. Josette LaFramboise Beaubien, wife of Jean Baptiste Beaubien, was the daughter of the trader Francois LaFramboise and Shawenoqua, a Potawatomi woman. In July 1834 a Josette Beaubien stood sponsor at a baptism at St Mary's, the town's first Catholic parish.",
-      "read_s": 22,
+      "read_s": 14,
       "evidence": [
         "beaubien-homestead",
         "beaubien-parents",
@@ -137,8 +143,8 @@
   "endings": [
     {
       "id": "finish",
-      "text": "End of the ride at the fort. These are the women whose places this scene holds. Others in the town's papers kept shops and schools of their own and wait for a source that places their rooms.",
-      "read_s": 12,
+      "text": "End of the ride at the fort. These are the women whose places this scene holds. Others in the town's papers kept shops and schools of their own; their rooms are waiting to be found.",
+      "read_s": 10,
       "completion_eligible": true
     }
   ],
@@ -359,8 +365,8 @@
       "liberty": "L-jaunt-women-1835"
     }
   ],
-  "review_required": false,
   "liberties": [
-    "L-jaunt-women-1835"
+    "L-jaunt-women-1835",
+    "L-jaunt-1835-light-and-stories"
   ]
 }

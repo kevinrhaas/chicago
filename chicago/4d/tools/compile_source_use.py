@@ -22,8 +22,9 @@ USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # women's jaunts' sources together read 209 289); 224 000 from T-2375's grouped early-picture
 # integration with canonical Blue Book sources (531 sources, 216 567 raw bytes); 228 000 from
 # T-2386's reviewed Wolf Point pictures integrated with the Allerton sources; 232 000 from
-# T-3342's two camp sources on dev's records — see outputs().
-INDEX_BUDGET = 232_000
+# T-3342's two camp sources on dev's records; 248 000 from T-3378/T-3379's fourteen jaunt
+# sources (the ghost legends and the famous names' biographies read 233 677) — see outputs().
+INDEX_BUDGET = 248_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
                  'unknown': 'reconstructed', 'not_1835_resident': 'reconstructed'}

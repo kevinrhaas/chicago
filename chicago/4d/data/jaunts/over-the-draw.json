@@ -1,15 +1,12 @@
 {
   "schema_version": 1,
+  "content_version": 2,
+  "category": "Town growth",
+  "review_required": false,
   "id": "over-the-draw",
-  "content_version": 1,
+  "scene": "1835",
   "title": "Over the Draw to the North Side",
   "premise": "Cross the town's first drawbridge into the North Side and see what stood on the far bank: a brickyard, the first house built for a school and a brick hotel going up. Nothing to count or carry.",
-  "category": "Town growth",
-  "scene": "1835",
-  "opening": {
-    "text": "Most of the town's trade is on the south bank. Start at the foot of the Dearborn Street drawbridge, cross it and look at three places on the North Side: a brickyard, a school-house and a hotel going up. Nothing to count or carry; you meet no one and open no door.",
-    "read_s": 17
-  },
   "default_mode": "horse",
   "allowed_modes": [
     "walk",
@@ -18,6 +15,15 @@
     "fly",
     "instantly"
   ],
+  "long_form": true,
+  "ambience": {
+    "hour": "afternoon",
+    "season": "fall"
+  },
+  "opening": {
+    "text": "JAUNT: OVER THE DRAW TO THE NORTH SIDE. An autumn afternoon. Most of the town's trade is on the south bank, but the North Side is where the money is going to live: by 1836 'The greater portion of the families of wealth, education and high social position' lived there, and the new Lake House was their 'fashionable headquarters'.\n\nCross the town's first drawbridge and watch the North Side being made: a brickyard, the first house ever built for a school, and a brick hotel going up.",
+    "read_s": 24
+  },
   "stops": [
     {
       "id": "the-draw",
@@ -25,8 +31,8 @@
         "kind": "structure",
         "id": "dearborn_street_drawbridge"
       },
-      "text": "Start at the foot of Dearborn Street, on South Water Street, at the town's first drawbridge, built in 1834 by the ship-carpenter Nelson R. Norton. Andreas: about three hundred feet long, a sixty-foot opening for craft, and gallows frames at either end of the draw. Cross to the north bank.",
-      "read_s": 26,
+      "text": "Start at the foot of Dearborn Street, at the town's first drawbridge, built in 1834 by the ship-carpenter Nelson R. Norton. Moses and Kirkland make it '300 feet in length, by sixteen in width', with 'a double draw'; Andreas gives a sixty-foot opening for craft and gallows frames at either end. When a schooner comes up the river, the draw goes up and everyone waits. Cross to the north bank.",
+      "read_s": 20,
       "links": [
         {
           "kind": "structure",
@@ -48,7 +54,8 @@
         "draw-built",
         "draw-size",
         "draw-place",
-        "outing"
+        "outing",
+        "mk-draw"
       ],
       "next": "the-brickyard",
       "narrative": "The way across."
@@ -59,8 +66,8 @@
         "kind": "structure",
         "id": "brickyard_north_side"
       },
-      "text": "Off the draw and a short way west along the bank, where Andreas puts Tyler K. Blodgett's brickyard of spring 1833, between Dearborn and Clark, with Henry S. Lampman the town's first brickmaker. Who worked it in July 1835 is not recorded; one drying shed stands for the whole yard.",
-      "read_s": 28,
+      "text": "Off the draw and a short way west along the bank, where Andreas puts Tyler K. Blodgett's brickyard of spring 1833, between Dearborn and Clark, with Henry S. Lampman the town's first brickmaker. The first brick building outside the fort went up that year, for John Noble, on the lot next to where the Lake House now rises. One drying shed stands for the whole yard.",
+      "read_s": 20,
       "links": [
         {
           "kind": "structure",
@@ -87,7 +94,8 @@
         "yard",
         "yard-place",
         "yard-survival",
-        "outing"
+        "outing",
+        "mk-first-brick"
       ],
       "next": "the-school-house",
       "narrative": "Where the town's brick began."
@@ -98,8 +106,8 @@
         "kind": "structure",
         "id": "north_side_school_1833"
       },
-      "text": "A few steps on, just east of Clark Street, Andreas says Hamilton and Owen built a school-house in 1833, the first house built for a school in Chicago, though Watkins did not remember it, and that in 1835 John Watkins taught the North Side's public school here. The year is attested; this July is not.",
-      "read_s": 28,
+      "text": "A few steps on, just east of Clark Street, Andreas says Hamilton and Owen built a school-house in 1833, the first house built for a school in Chicago, and that in 1835 John Watkins taught the North Side's public school here. Watkins himself did not remember the building, which happens in a town that changes this fast. His first class, in 1832, met 'in a log house about twelve feet square', with twelve pupils.",
+      "read_s": 22,
       "links": [
         {
           "kind": "structure",
@@ -121,7 +129,8 @@
         "north-school-built",
         "north-school-1835",
         "north-school-place",
-        "outing"
+        "outing",
+        "mk-watkins"
       ],
       "next": "the-lake-house",
       "narrative": "A school-house on the bank."
@@ -132,8 +141,8 @@
         "kind": "structure",
         "id": "lake_house_construction"
       },
-      "text": "East along the bank to Rush Street and the Lake House. Andreas describes the finished hotel: brick, three storeys and a basement, opened in autumn 1836. That ground was broken in 1835 rests on modern compilations, so this roofless shell is our reconstruction. Choose how to end the outing.",
-      "read_s": 26,
+      "text": "East along the bank to Rush Street and the Lake House. Andreas describes the finished hotel: brick, three storeys and a basement, opened in autumn 1836. It 'aimed to cater for only the highest class of guests', and it will be the North Side's 'fashionable headquarters, where were given select parties'. For now it is walls and scaffolding. Choose how to end the outing.",
+      "read_s": 21,
       "action_s": 10,
       "links": [
         {
@@ -156,7 +165,9 @@
         "lake-house",
         "lake-ground",
         "lake-shell",
-        "outing"
+        "outing",
+        "mk-lake-house",
+        "mk-north-side"
       ],
       "choices": [
         {
@@ -205,7 +216,7 @@
     {
       "from": "the-school-house",
       "to": "the-lake-house",
-      "note": "East along the north bank to Rush Street, about 0.5 km; the hotel's side of the street is our placement.",
+      "note": "East along the north bank to Rush Street, about 0.5 km.",
       "evidence": [
         "north-school-place",
         "lake-shell"
@@ -219,14 +230,14 @@
   "endings": [
     {
       "id": "on-the-north-side",
-      "text": "You end the outing on the North Side, at the Lake House site by Rush Street, having crossed by the draw and looked at a brickyard, a school-house and a hotel going up. No one was met; the outing is ours, the places are the town's.",
+      "text": "You end the outing on the North Side, at the Lake House by Rush Street, having crossed by the draw and seen a brickyard, a school-house and the town's grandest hotel going up. In a year this will be the best address in Chicago.",
       "read_s": 12,
       "completion_eligible": true
     },
     {
       "id": "back-on-south-water",
-      "text": "You walk back west along the bank and over the Dearborn Street draw to South Water Street, where the outing began: a brickyard, a school-house and a hotel going up, seen from the street. No one was met; the outing is ours, the places are the town's.",
-      "read_s": 12,
+      "text": "You walk back west along the bank and over the Dearborn Street draw to South Water Street, where the outing began. Behind you the North Side is filling in, one brick at a time.",
+      "read_s": 9,
       "default": true,
       "completion_eligible": true
     }
@@ -344,6 +355,51 @@
       "locator": "Chicagology prefire112, the uncredited paragraph beginning 'The Lake House hotel on the north side of the river', immediately after the Andreas paragraph (accessed 2026-08-11)."
     },
     {
+      "id": "mk-draw",
+      "text": "The first drawbridge, at Dearborn Street, built in 1834 with Nelson R. Norton as contractor, 'was 300 feet in length, by sixteen in width, and had a double draw'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 95, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12811-12817 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-first-brick",
+      "text": "In 1833 about 165 frame buildings went up, and one of brick, 'the first in the town outside the fort', built by Alanson Sweet and William Worthingham for John Noble on a lot next to the one the Lake House later took.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 90, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12240-12258 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-lake-house",
+      "text": "Before the Lake House was finished, the first Unitarian service in Chicago was held in it, conducted by the Rev. Dr. Follen, with Harriet Martineau in the congregation; the inn 'aimed to cater for only the highest class of guests'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 561, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 98826-98837 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-north-side",
+      "text": "'The greater portion of the families of wealth, education and high social position in 1836 resided on the north side', and the Lake House, 'the first hotel constructed of brick', was 'the fashionable headquarters, where were given select parties'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 101, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13538-13549 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-watkins",
+      "text": "In the fall of 1832 John Watkins, from New York, was employed to teach a subscription school on the North Side 'in a log house about twelve feet square'; in his first quarter he had only twelve pupils.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 90, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12159-12164 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
       "id": "lake-shell",
       "text": "On 1 July 1835 the scene draws the Lake House as a roofless brick shell one storey high, on the east side of Rush Street; the storey count, the plan and the side of the street are not documented.",
       "confidence": "inferred",
@@ -361,8 +417,8 @@
       "liberty": "L-jaunt-over-the-draw"
     }
   ],
-  "review_required": false,
   "liberties": [
-    "L-jaunt-over-the-draw"
+    "L-jaunt-over-the-draw",
+    "L-jaunt-1835-light-and-stories"
   ]
 }

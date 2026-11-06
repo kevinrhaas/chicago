@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 1,
+  "content_version": 2,
   "category": "Architectural style",
   "featured": false,
   "review_required": false,
@@ -14,9 +14,14 @@
     "fly",
     "instantly"
   ],
+  "long_form": true,
+  "ambience": {
+    "hour": "afternoon",
+    "season": "winter"
+  },
   "opening": {
-    "text": "STYLE WALK: ROMANESQUE. Look for heavy rough-faced stone, deep round arches and turrets. Four houses, 1800 to 2110 Prairie, on foot. Two are still first rough models, read from the district register.",
-    "read_s": 13
+    "text": "JAUNT: ROMANESQUE STYLE. A winter afternoon, 1904, the elms bare and the stone showing. In the 1880s one architect from Boston, Henry Hobson Richardson, made heavy stone fashionable again: rough-faced blocks, deep round arches like a castle gate, and towers. Chicago loved it, and for a few years its rich wanted fortresses.\n\nFour houses on foot, 1800 to 2110 Prairie. Look for rock-faced stone, arches that seem to sink into the wall, and turrets. Two of the four are still rough first models in this reconstruction.\n\nStart with the house that started it, the one its neighbours hated.",
+    "read_s": 27
   },
   "stops": [
     {
@@ -25,12 +30,16 @@
         "kind": "structure",
         "id": "glessner_house"
       },
-      "text": "1800 Prairie. The district marker calls Glessner's house Richardsonian Romanesque, after its architect, Henry Hobson Richardson. Look at its granite street walls and its roof of unglazed red tiles, and at how the house wraps around a courtyard behind them.",
-      "read_s": 17,
+      "text": "1800 Prairie, Glessner House, the street's Richardsonian Romanesque original. Its street walls are brick faced with alternate six- and eight-inch sheets of granite, cut deeper at the openings so the whole wall looks solid stone, under a roof of unglazed red tiles. Richardson, all 370 pounds of him, held that the windows of a city house were 'not to look out of', so the street side is nearly blank and the family rooms open on a courtyard behind. George Pullman, across the corner, complained about 'that thing staring me in the face'. Across the avenue and a little south, the style caught on.",
+      "read_s": 29,
       "evidence": [
         "glessner-marker",
         "glessner-fabric",
-        "tour"
+        "tour",
+        "big",
+        "not-to-look-out",
+        "granite-skin",
+        "pullman-glare"
       ],
       "next": "ames"
     },
@@ -40,8 +49,8 @@
         "kind": "structure",
         "id": "coleman_ames_house_1811_prairie"
       },
-      "text": "1811 Prairie. Cobb and Frost were known for Romanesque work and built this front in 1886 of rough-faced brown sandstone. The 1888 plate shows a deep round arch on clustered columns over a broad stair, with a corbelled oriel above it.",
-      "read_s": 17,
+      "text": "1811 Prairie, the Coleman house of 1886, by Cobb and Frost, who were well known for their Romanesque work. This front is rough-faced brown sandstone. The 1888 plate shows the style's signature: a deep round arch on clustered columns over a broad stair, and a corbelled oriel bulging out above it, like a lookout on a castle wall. Notice that the arch is the door: in this style, the entrance is a tunnel into the stone. Walk south past Twentieth Street for two smaller fortresses.",
+      "read_s": 24,
       "evidence": [
         "ames-marker",
         "ames-plate",
@@ -55,8 +64,8 @@
         "kind": "structure",
         "id": "house_2011_prairie"
       },
-      "text": "2011 Prairie. The district register reads this house, a neighbour of the Mayer house, as Romanesque: a rough ashlar front, a round-arched entrance and a rounded corner turret under a conical cap.",
-      "read_s": 13,
+      "text": "2011 Prairie, a neighbour of the Mayer house. The district register reads it as Romanesque: a rough ashlar front, a round-arched entrance, and a rounded corner turret under a conical cap. A turret on a city lot is pure theatre: a castle tower on a town house. Across the avenue and a block on, the last of the four squeezes the style onto one narrow lot.",
+      "read_s": 18,
       "evidence": [
         "r2011-draft",
         "tour"
@@ -69,8 +78,8 @@
         "kind": "structure",
         "id": "rees_house_2110_prairie"
       },
-      "text": "2110 Prairie. Harriet Rees's narrow house, read by the district register as Cobb and Frost's work of 1888 and as Romanesque: a limestone front under a tall gable that faces the avenue.",
-      "read_s": 13,
+      "text": "2110 Prairie, Harriet Rees's narrow house, read by the district register as Cobb and Frost's work of 1888 and as Romanesque: a limestone front under a tall gable facing the avenue. Two years after their Coleman house, the same architects did the style in pale stone for a woman's house. Compare the two: same firm, opposite colour.",
+      "read_s": 16,
       "evidence": [
         "rees-draft",
         "tour"
@@ -78,11 +87,40 @@
       "next": "finish"
     }
   ],
+  "legs": [
+    {
+      "story": "Across Prairie Avenue and south.",
+      "evidence": [
+        "ames-marker"
+      ],
+      "story_evidence": [
+        "ames-marker"
+      ]
+    },
+    {
+      "story": "South past Twentieth Street.",
+      "evidence": [
+        "r2011-draft"
+      ],
+      "story_evidence": [
+        "r2011-draft"
+      ]
+    },
+    {
+      "story": "Across the avenue and on to the 2100 block.",
+      "evidence": [
+        "rees-draft"
+      ],
+      "story_evidence": [
+        "rees-draft"
+      ]
+    }
+  ],
   "endings": [
     {
       "id": "finish",
-      "text": "End of the Romanesque walk. The style's marks are rough stone, round arches and towers; you can find them on other fronts along the avenue.",
-      "read_s": 10,
+      "text": "End of the Romanesque walk. Rough stone, round arches, towers: the fashion of the 1880s on this street.\n\nBut Richardson's fortress outlived nearly every house around it, and it is still standing. Walk back up to Eighteenth Street and look at it once more in the winter light.",
+      "read_s": 13,
       "completion_eligible": true
     }
   ],
@@ -145,10 +183,46 @@
     },
     {
       "id": "tour",
-      "text": "The route, its order, its reading times, its keepsake and its framing are modern interpretation; no historical visit, conversation or occupant on 1 July 1904 is asserted.",
+      "text": "The route, its order, its winter afternoon, its reading times, its keepsake and its framing are modern interpretation; no historical visit, conversation or occupant on a day in 1904 is asserted.",
       "confidence": "reconstructed",
       "sources": [],
       "liberty": "L-jaunt-prairie-walks"
+    },
+    {
+      "id": "big",
+      "text": "Glessner remembered Richardson weighing three hundred and seventy pounds: 'big-minded, big-bodied, big-hearted'.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 17."
+    },
+    {
+      "id": "not-to-look-out",
+      "text": "Richardson held that the windows of a city house were 'not to look out of', since people shroud them in shades and curtains.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 14."
+    },
+    {
+      "id": "granite-skin",
+      "text": "The street walls are brick faced with alternately six- and eight-inch sheets of granite, with deeper slabs returned at the openings to imply a wall entirely of stone.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "locator": "Data page 21, Part II.B.2, Wall construction."
+    },
+    {
+      "id": "pullman-glare",
+      "text": "George Pullman, across the street, complained of the Glessner house: 'I do not know what I have ever done to have that thing staring me in the face every time I go out of my door'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_glessner_house"
+      ],
+      "locator": "The design section."
     }
   ],
   "liberties": [

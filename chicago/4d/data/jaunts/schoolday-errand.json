@@ -1,15 +1,12 @@
 {
   "schema_version": 1,
+  "content_version": 3,
+  "category": "Education",
+  "review_required": false,
   "id": "schoolday-errand",
-  "content_version": 2,
+  "scene": "1835",
   "title": "A Schoolday Errand",
   "premise": "Ride past the places Chicago's first classes met, on both sides of the river, with an invented household's question about school, and finish with a notice in the Democrat dated today.",
-  "category": "Education",
-  "scene": "1835",
-  "opening": {
-    "text": "Your household has one question: where could a child learn? Ride past the places Chicago's first classes met, ending where the Democrat was printed. The household is invented; the schools are documented.",
-    "read_s": 11
-  },
   "default_mode": "horse",
   "allowed_modes": [
     "walk",
@@ -18,6 +15,15 @@
     "fly",
     "instantly"
   ],
+  "long_form": true,
+  "ambience": {
+    "hour": "morning",
+    "season": "summer"
+  },
+  "opening": {
+    "text": "JAUNT: A SCHOOLDAY ERRAND. Your household has one question: where could a child learn? In this town, getting to school is half the lesson. The schoolmaster Granville Sproat remembered carrying the smaller scholars on his back, 'not daring to trust them on the slippery plank', and once falling into the mire with a child in his arms.\n\nRide past the places Chicago's first classes met, on both sides of the river, and end where the Democrat is printed, with a notice dated today about building a real school house.",
+    "read_s": 25
+  },
   "variables": {
     "age": {
       "min": 0,
@@ -45,8 +51,8 @@
         "kind": "structure",
         "id": "watkins_school_house"
       },
-      "text": "On Michigan Street, between Cass and Rush, Andreas has John Watkins, hired in 1833, later teaching in a house; Moses and Kirkland make it Richard J. Hamilton's home. We read one house; no 1835 class is recorded.",
-      "read_s": 23,
+      "text": "On Michigan Street, between Cass and Rush, Andreas has John Watkins, hired in 1833, later teaching in a house; Moses and Kirkland make it Richard J. Hamilton's home. Watkins had started in 1832 'in a log house about twelve feet square', with only twelve pupils in his first quarter. Chicago's schools began very small.",
+      "read_s": 17,
       "action_s": 5,
       "links": [
         {
@@ -74,7 +80,8 @@
         "watkins-michigan",
         "hamilton-house",
         "one-house",
-        "errand"
+        "errand",
+        "mk-watkins"
       ],
       "choices": [
         {
@@ -112,8 +119,8 @@
         "kind": "structure",
         "id": "north_side_school_1833"
       },
-      "text": "Down to the bank east of Clark. Andreas says Hamilton and Owen built a school-house here in 1833, which Watkins did not remember, and that by 1835 it was the North Side's public school. This July is not attested.",
-      "read_s": 24,
+      "text": "Down to the bank east of Clark. Andreas says Hamilton and Owen built a school-house here in 1833, the first built for the purpose, though Watkins himself did not remember it, and that by 1835 it was the North Side's public school. South of the river, Sproat's school met upstairs in the Baptist church; he called it 'a very pleasant one, the pupils obedient and attentive'.",
+      "read_s": 20,
       "action_s": 10,
       "links": [
         {
@@ -141,7 +148,8 @@
         "north-school-built",
         "north-school-1835",
         "north-school-place",
-        "errand"
+        "errand",
+        "mk-sproat"
       ],
       "choices": [
         {
@@ -173,7 +181,7 @@
         "id": "chappel_infant_school"
       },
       "text": "Over the river to State Street, by the old military reservation. Andreas puts Eliza Chappel's infant school of 1833–34 in a log house here; other accounts differ. In 1834 it moved into the Presbyterian church.",
-      "read_s": 21,
+      "read_s": 12,
       "action_s": 10,
       "links": [
         {
@@ -208,8 +216,8 @@
         "kind": "structure",
         "id": "chicago_democrat_office"
       },
-      "text": "On to South Water and Clark, where the Democrat was printed from 1833. Today's number repeats: School District No. 4 meets in the Presbyterian Church on 7 July at six, to consider building a school house.",
-      "read_s": 23,
+      "text": "On to South Water and Clark, where the Democrat was printed from 1833. Today's number repeats: School District No. 4 meets in the Presbyterian Church on 7 July at six, to consider building a school house. Money is tight because the school section was sold in 1833 for $38,865. 'The sale was a great mistake': held twenty years, it would have brought a hundred times more.",
+      "read_s": 19,
       "action_s": 10,
       "links": [
         {
@@ -232,7 +240,8 @@
         "democrat-corner",
         "democrat-moved",
         "district-notice",
-        "errand"
+        "errand",
+        "mk-school-section"
       ],
       "choices": [
         {
@@ -262,12 +271,12 @@
     {
       "from": "michigan-street",
       "to": "north-bank",
-      "note": "South through Kinzie's Addition to the river bank just east of Clark; the house's lot is our placement, and another chapter of Andreas puts the school a block west.",
+      "note": "South through Kinzie's Addition to the river bank just east of Clark; another chapter of Andreas puts the school a block west.",
       "evidence": [
         "one-house",
         "north-school-place"
       ],
-      "story": "The household's question rides with you.",
+      "story": "The household's question rides with you, and so does the mud.",
       "story_evidence": [
         "errand"
       ]
@@ -275,7 +284,7 @@
     {
       "from": "north-bank",
       "to": "the-log-house",
-      "note": "Over the river to the west side of State Street; no particular crossing is claimed, and the log house's lot is our placement.",
+      "note": "Over the river to the west side of State Street.",
       "evidence": [
         "north-school-place",
         "chappel-place"
@@ -298,8 +307,8 @@
   "endings": [
     {
       "id": "two-answers",
-      "text": "The north-bank school written down, and the District No. 4 meeting copied out for 7 July. Two answers to one household question: a school already teaching, and one still to be argued over. The note is the story's.",
-      "read_s": 10,
+      "text": "The north-bank school written down, and the District No. 4 meeting copied out for 7 July. Two answers to one household question: a school already teaching, and one still to be argued over.",
+      "read_s": 9,
       "completion_eligible": true,
       "when": {
         "all": [
@@ -318,8 +327,8 @@
     },
     {
       "id": "the-meeting",
-      "text": "No school written down yet, but the notice is copied out: 7 July, six in the evening, the Presbyterian Church. Whether a school house is built is for the meeting to say. The note and the waiting are the story's.",
-      "read_s": 10,
+      "text": "No school written down yet, but the notice is copied out: 7 July, six in the evening, the Presbyterian Church. Whether a school house is built is for the meeting to say, and you mean to be there.",
+      "read_s": 11,
       "completion_eligible": true,
       "when": {
         "var": "kept",
@@ -329,8 +338,8 @@
     },
     {
       "id": "a-long-way",
-      "text": "The north-bank school is written down, but the river lies between it and the stores, and that is a long way each morning for a child of five. The question stays open for the youngest. The note is the story's.",
-      "read_s": 10,
+      "text": "The north-bank school is written down, but the river lies between it and the stores, and that is a long way each morning for a child of five. Somebody may have to carry the little one, as Sproat did.",
+      "read_s": 11,
       "completion_eligible": true,
       "when": {
         "all": [
@@ -349,7 +358,7 @@
     },
     {
       "id": "a-scholars-walk",
-      "text": "The north-bank school is written down: a walk and a river crossing each morning, no great thing for a child of ten. Whether there is room for one more scholar is a question for another day. The note is the story's.",
+      "text": "The north-bank school is written down: a walk and a river crossing each morning, no great thing for a child of ten. Whether there is room for one more scholar is a question for the schoolmaster.",
       "read_s": 10,
       "completion_eligible": true,
       "when": {
@@ -360,8 +369,8 @@
     },
     {
       "id": "still-asking",
-      "text": "Nothing written down and nothing copied: the question goes home as it came. The schools you passed are history, the meeting is next week, and the asking is the story's.",
-      "read_s": 10,
+      "text": "Nothing written down and nothing copied: the question goes home as it came. The schools you passed are real, the meeting is next week, and the asking goes on.",
+      "read_s": 8,
       "completion_eligible": true,
       "default": true
     }
@@ -494,6 +503,42 @@
       "locator": "1 July 1835, p. 3, col. 5 (extracted claim chicago_democrat_1835_07_01#c012); first printed 17 June 1835, p. 3, col. 3 (chicago_democrat_1835_06_17#c006). Transcription-mediated reading of a damaged column."
     },
     {
+      "id": "mk-mud",
+      "text": "Granville T. Sproat, the schoolmaster, remembered the village streets: 'It lay in many places half a leg deep, up to the hubs of the carts and wagons in the middle of the streets, and the only sidewalk we had was a single plank stretched from one building to another. The smaller scholars I used to bring to school and take home on my back, not daring to trust them on the slippery plank.' Once he fell into the mire with a child in his arms and lost 'both overshoes'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 94, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12682-12701 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-watkins",
+      "text": "In the fall of 1832 John Watkins, from New York, was employed to teach a subscription school on the North Side 'in a log house about twelve feet square'; in his first quarter he had only twelve pupils.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 90, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12159-12164 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-sproat",
+      "text": "Granville T. Sproat of Boston opened a school in 1833 in the second storey of the Baptist church, a frame building at South Water and Franklin; it 'was a very pleasant one, the pupils obedient and attentive'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 92-93, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12536-12551 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-school-section",
+      "text": "The school section, the square mile between State and Halsted, Madison and Twelfth, was sold in October 1833 for $38,865. 'The sale was a great mistake': the blocks would have brought 'a hundred times more had they been held twenty years'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 93, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12561-12580 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
       "id": "errand",
       "text": "The household, its question about a child of five or ten, the route, what is written down or copied, the endings, the timing inputs and the A Schooling Note keepsake are invented connective narrative. No pupil, teacher, fee or answer is documented, and no named person is met.",
       "confidence": "reconstructed",
@@ -501,8 +546,8 @@
       "liberty": "L-jaunt-schoolday-errand"
     }
   ],
-  "review_required": false,
   "liberties": [
-    "L-jaunt-schoolday-errand"
+    "L-jaunt-schoolday-errand",
+    "L-jaunt-1835-light-and-stories"
   ]
 }

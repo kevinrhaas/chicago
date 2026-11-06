@@ -1,0 +1,23 @@
+{
+  "id": "wikipedia_william_le_baron_jenney",
+  "type": "website",
+  "citation": "Wikipedia, 'William Le Baron Jenney'. Read 5 November 2026.",
+  "author": "Wikipedia contributors",
+  "date": "accessed 2026-11-05",
+  "describes_date": "1884-1891",
+  "url": "https://en.wikipedia.org/wiki/William_Le_Baron_Jenney",
+  "locator": "The paragraphs on the Home Insurance Building and on his office.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "Textual factual citation only (CC BY-SA text, nothing copied beyond short quoted fragments).",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-05 (T-3378/T-3379) through a fetch that returned the page's sentences in short quoted fragments and paraphrase; this record is cited only for what those fragments say.",
+  "note": "Fragments read: of the Home Insurance Building, 'The building was the first fully metal-framed building and is considered the first skyscraper', built 1884-1885; Louis Sullivan, Daniel Burnham, William Holabird and Martin Roche 'performed their architectural apprenticeships on Jenney's staff'.",
+  "what_it_supplies": [
+    "Jenney's Home Insurance Building and his office's pupils"
+  ],
+  "what_it_does_not_supply": [
+    "the Hibbard house"
+  ]
+}

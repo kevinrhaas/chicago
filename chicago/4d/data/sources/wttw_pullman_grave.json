@@ -1,0 +1,23 @@
+{
+  "id": "wttw_pullman_grave",
+  "type": "website",
+  "citation": "WTTW Chicago, 'The Mystery' (Chicago Tonight / Ask Geoffrey, on George Pullman's grave). Read 5 November 2026.",
+  "author": "WTTW",
+  "date": "accessed 2026-11-05",
+  "describes_date": "1897",
+  "url": "https://interactive.wttw.com/node/35444",
+  "locator": "The piece on Pullman's burial at Graceland Cemetery, quoting the New York Times of 1897 and the historian Adam Selzer.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "Cited in words only; nothing copied beyond short quoted fragments.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-05 (T-3378/T-3379) through a fetch that returned the page's sentences in short quoted fragments and paraphrase; this record is cited only for what those fragments say.",
+  "note": "Fragments read: an 1897 New York Times account of a 'concrete flooring of a pit of 13 feet long, 9 feet wide, and 8 feet deep'; the body in a 'lead-lined box wrapped in tar paper' with 'an inch of asphaltum'; the fears behind it, 'a lot of high-profile grave robberies lately', and that 'some of the employees weren't quite done getting revenge'; and Selzer's 'Whether it's true or not, we don't really know.'",
+  "what_it_supplies": [
+    "how the family sealed Pullman's grave in 1897, and why"
+  ],
+  "what_it_does_not_supply": [
+    "the 1904 house"
+  ]
+}

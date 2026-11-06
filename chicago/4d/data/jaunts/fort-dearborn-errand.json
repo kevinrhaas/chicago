@@ -1,16 +1,13 @@
 {
   "schema_version": 1,
+  "content_version": 3,
+  "category": "Fort Dearborn",
+  "featured": true,
+  "review_required": false,
   "id": "fort-dearborn-errand",
-  "content_version": 2,
+  "scene": "1835",
   "title": "Fort Dearborn Errand",
   "premise": "Carry a small supply request round the fort's everyday service buildings and out to its shop.",
-  "category": "Fort Dearborn",
-  "scene": "1835",
-  "featured": true,
-  "opening": {
-    "text": "You carry an imagined note: choose a small supply, check the parcel against it, and take it out to the fort's shop. The note, parcel and choices are reconstructed; no soldier or garrison routine is shown.",
-    "read_s": 13
-  },
   "default_mode": "walk",
   "allowed_modes": [
     "walk",
@@ -19,6 +16,15 @@
     "fly",
     "instantly"
   ],
+  "long_form": true,
+  "ambience": {
+    "hour": "morning",
+    "season": "winter"
+  },
+  "opening": {
+    "text": "JAUNT: FORT DEARBORN ERRAND. A winter morning at the river mouth. The lake is iron grey, the boats have stopped, and 'There was nothing coming in, and there was no means of sending anything out of the town.' Out on the prairie, 'Wolves were in great plenty all around the town'. Inside the pickets, the fort keeps its stores.\n\nYou carry a note: choose a small supply at the sutler's, check the parcel against the note at the store-house, and take it out to the fort's shop by the lake.",
+    "read_s": 25
+  },
   "variables": {
     "readiness": {
       "min": 0,
@@ -43,8 +49,8 @@
         "kind": "structure",
         "id": "fort_dearborn_guard_house"
       },
-      "text": "The fort's south gate, held by troops since June 1832. Juliette Kinzie, living inside in 1831, wrote of high pickets and large gates north and south. Hubbard put the guard-house and store-house either side of this gate in 1827 without saying which; this model puts the guard-house west. State your errand.",
-      "read_s": 22,
+      "text": "The fort's south gate, held by troops since June 1832. Juliette Kinzie, living inside in 1831, wrote of high pickets and large gates north and south. Hubbard put the guard-house and store-house either side of this gate in 1827 without saying which; this model puts the guard-house west. In a frozen season, what is in the stores is all there is until spring.",
+      "read_s": 20,
       "links": [
         {
           "kind": "structure",
@@ -62,10 +68,11 @@
         "garrisoned",
         "hubbard-plan",
         "which-side",
-        "errand"
+        "errand",
+        "mk-winter"
       ],
       "next": "supply",
-      "narrative": "Nobody replies; go on to the sutler's."
+      "narrative": "State your errand and go on to the sutler's."
     },
     {
       "id": "supply",
@@ -74,7 +81,7 @@
         "id": "fort_dearborn_sutlers_store"
       },
       "text": "East of the north gate stands the sutler's store, the post trader's shop, selling what the ration did not supply. Hubbard placed it here in 1827; an 1855 photograph key still letters it the Sutler's. Its 1835 keeper is not known.",
-      "read_s": 18,
+      "read_s": 14,
       "action_s": 4,
       "links": [
         {
@@ -135,7 +142,7 @@
         "id": "fort_dearborn_store_house"
       },
       "text": "East of the south gate is the store-house. The Army's 1834 beef notices call it the subsistence store house: fresh beef came in quarters, up to three times a week, probably 400 pounds weekly. Check your parcel against the note.",
-      "read_s": 18,
+      "read_s": 14,
       "action_s": 4,
       "links": [
         {
@@ -188,8 +195,8 @@
         "kind": "structure",
         "id": "fort_dearborn_shop"
       },
-      "text": "Outside the pickets toward the lake, the 1830 plan draws a building lettered Shop. No trade is named, so this is a workshop, not a smithy. Hubbard, describing the fort in 1827, never mentions it. Set the parcel down.",
-      "read_s": 17,
+      "text": "Outside the pickets toward the lake, the 1830 plan draws a building lettered Shop. No trade is named, so this is a workshop, not a smithy. Perhaps it was this one: Jeremiah Porter, 'the pioneer Protestant minister of Chicago', 'preached a sermon in the carpenter's shop of the garrison on the 19th of May, 1833'. Set the parcel down.",
+      "read_s": 20,
       "action_s": 4,
       "links": [
         {
@@ -206,7 +213,8 @@
       "evidence": [
         "shop-plan",
         "shop-continuity",
-        "errand"
+        "errand",
+        "mk-porter-sermon"
       ],
       "choices": [
         {
@@ -229,11 +237,49 @@
       "narrative": "Deliver what the note asked for, or carry back what is missing."
     }
   ],
+  "legs": [
+    {
+      "from": "errand",
+      "to": "supply",
+      "note": "Across the fort to the north-east range, east of the north gate.",
+      "evidence": [
+        "hubbard-plan"
+      ],
+      "story": "The first line of the note: one small supply from the sutler's.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "supply",
+      "to": "account",
+      "note": "Back to the south gate, to the building on its east side.",
+      "evidence": [
+        "which-side"
+      ],
+      "story": "Before the parcel leaves the fort, check it against the note.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "account",
+      "to": "deliver",
+      "note": "The longest leg: out past the south-east corner of the pickets toward the lake shore.",
+      "evidence": [
+        "shop-plan"
+      ],
+      "story": "The last line of the note: carry the parcel out to the shop.",
+      "story_evidence": [
+        "errand"
+      ]
+    }
+  ],
   "endings": [
     {
       "id": "accounted",
-      "text": "Supply chosen, parcel tallied and set down at the shop. In this imagined errand the fort is a working neighbour at the river mouth, with stores to keep and work to do.",
-      "read_s": 12,
+      "text": "Supply chosen, parcel tallied and set down at the shop. The fort is a working neighbour at the river mouth, with stores to keep and a long winter to keep them through.",
+      "read_s": 9,
       "when": {
         "var": "readiness",
         "op": ">=",
@@ -243,8 +289,8 @@
     },
     {
       "id": "unfinished",
-      "text": "Part of the note goes back with you. In this imagined errand the fort's service buildings will be here tomorrow, and so will the rest of the list.",
-      "read_s": 12,
+      "text": "Part of the note goes back with you. The fort's service buildings will be here tomorrow, and so will the rest of the list, and so will the snow.",
+      "read_s": 8,
       "default": true,
       "completion_eligible": true
     }
@@ -343,6 +389,33 @@
       "locator": "F. Harrison Jr., Map of the Mouth of Chicago River, approved 24 February 1830, as reproduced in Andreas vol. 1, p. 113: the building lettered 'Shop' south-east of the pickets; Hubbard's account at Andreas vol. 1, p. 264."
     },
     {
+      "id": "mk-winter",
+      "text": "With no railroads, canals or telegraphs, 'during the long six months of winter the inhabitants, were cut off from the rest of the world'. 'There was nothing coming in, and there was no means of sending anything out of the town. And yet these winter months were, perhaps, the most enjoyable of the entire year.'",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 99, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13364-13371 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-porter-sermon",
+      "text": "Jeremiah Porter, 'the pioneer Protestant minister of Chicago', came to Fort Dearborn with troops from Fort Brady and 'preached a sermon in the carpenter's shop of the garrison on the 19th of May, 1833'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 574, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 100186-100192 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-wolves",
+      "text": "Another pastime was wolf-hunting: two parties set out in the morning, one down the lake shore and one along the river, and drove the wolves to the river and out to the lake. 'Wolves were in great plenty all around the town', and the chase 'was as exciting as it was at times full of peril'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 100, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13395-13406 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
       "id": "shop-continuity",
       "text": "The shop is carried from the 1830 plan to the 1835 scene; whether it was a smithy, a carpenter's shop or something else is not known.",
       "confidence": "inferred",
@@ -359,46 +432,8 @@
       "liberty": "L-jaunt-fort-dearborn-errand"
     }
   ],
-  "review_required": false,
   "liberties": [
-    "L-jaunt-fort-dearborn-errand"
-  ],
-  "legs": [
-    {
-      "from": "errand",
-      "to": "supply",
-      "note": "Across the fort to the north-east range, east of the north gate.",
-      "evidence": [
-        "hubbard-plan"
-      ],
-      "story": "The first line of the note: one small supply from the sutler's.",
-      "story_evidence": [
-        "errand"
-      ]
-    },
-    {
-      "from": "supply",
-      "to": "account",
-      "note": "Back to the south gate, to the building on its east side.",
-      "evidence": [
-        "which-side"
-      ],
-      "story": "Before the parcel leaves the fort, check it against the note.",
-      "story_evidence": [
-        "errand"
-      ]
-    },
-    {
-      "from": "account",
-      "to": "deliver",
-      "note": "The longest leg: out past the south-east corner of the pickets toward the lake shore.",
-      "evidence": [
-        "shop-plan"
-      ],
-      "story": "The last line of the note: carry the parcel out to the shop.",
-      "story_evidence": [
-        "errand"
-      ]
-    }
+    "L-jaunt-fort-dearborn-errand",
+    "L-jaunt-1835-light-and-stories"
   ]
 }

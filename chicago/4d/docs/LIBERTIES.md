@@ -21234,6 +21234,18 @@ addition's two blocks and the ceiling on them), **L219**, **L263**, **T-1480** a
 
 **Recorded:** 2026-10-30 (T-3251).
 
+### L-jaunt-1835-light-and-stories — The 1835 jaunts retold: their own light and season, and stories told plainly
+
+**Decision:** The owner asked (2026-11-05, T-3380) that every 1835 jaunt be "more robust like we did in 1812", with "more story telling", context at the start, stops that lead into the next, and its own time of day and season. Each of the 27 jaunts now opens with a scene-setting paragraph, tells its stops as a story and sets an `ambience` (hour and season). The light is a viewing choice, like Settings > Time of day and Season, never a claim about the day: the scene stays 1 July 1835, so a winter morning at the fort or an autumn dusk on South Water Street is how the walk is shown, not when it is set. The stories add the colour of the town from Moses and Kirkland's History of Chicago, vol. 1 (1895) — Mark Beaubien's fiddle and lighthouse, the balloon frame, the land-office mania and its auction crier, the mud, the mail read aloud from a dry-goods box, the winter cut-off — each quoted from the OCR at the cited lines and page. The visitor, errands, purses, prices, choices and endings stay invented connective narrative under each jaunt's own liberty; the stop and ending texts no longer repeat that in every sentence, because the jaunt's errand claim and its own liberty already say it.
+
+**Bounds:** The approved 1 July 1835 scene and its records. Facts after the scene date (the Lake House's 1836 opening, the Green Tree's move in 1880, the Calumet Club fire of 1893, the panic after 1836) are told as later history. The Indigenous-history constraint holds: no invented voice uses an Indigenous term and the August 1835 gathering is not staged.
+
+**How to resolve:** Revise as interpretation; a page-image reading of a Moses and Kirkland passage would raise its claim from transcription-mediated.
+
+**Applies to:** `data/jaunts/a-decent-coat.json`, `data/jaunts/across-wolf-point.json`, `data/jaunts/along-the-harbor.json`, `data/jaunts/an-evening-stroll.json`, `data/jaunts/bed-for-the-night.json`, `data/jaunts/boots-and-leather.json`, `data/jaunts/calling-on-neighbors.json`, `data/jaunts/fort-dearborn-errand.json`, `data/jaunts/freight-for-the-store.json`, `data/jaunts/from-prairie-to-town.json`, `data/jaunts/gossip-or-notice.json`, `data/jaunts/household-provisions.json`, `data/jaunts/inspect-a-lot.json`, `data/jaunts/letter-home.json`, `data/jaunts/materials-for-a-roof.json`, `data/jaunts/mend-the-harness.json`, `data/jaunts/new-in-chicago.json`, `data/jaunts/news-before-breakfast.json`, `data/jaunts/notable-women-1835.json`, `data/jaunts/outfit-for-the-west.json`, `data/jaunts/over-the-draw.json`, `data/jaunts/schoolday-errand.json`, `data/jaunts/shopping-south-water.json`, `data/jaunts/soap-and-candles.json`, `data/jaunts/sunday-circuit.json`, `data/jaunts/taverns-of-chicago.json`, `data/jaunts/work-on-waterfront.json`.
+
+**Recorded:** 2026-11-05 (T-3380).
+
 ### L-plankwalk-far-top-retention — retaining existing footways beyond furniture reach
 
 **Decision:** When the selected detail tier hides a distant timber chunk, its emitted walk, crossing and decked-walk top triangles remain in one shared-material batch. Only visible-frustum, tier-eligible, reach-culled chunks contribute. Returning inside the reach removes the replacement before the detailed chunk draws. This is a rendering handover, not another frontage record.
@@ -31092,6 +31104,20 @@ says it.
 `data/jaunts/prairie-style-romanesque.json`, `data/jaunts/prairie-style-second-empire.json`,
 `data/jaunts/prairie-style-italianate.json`.
 **Recorded:** 2026-10-17 (T-2747).
+**Revised:** 2026-11-05 (T-3378, T-3379; the owner: "a nighttime spooky tour of prairie ave", "time of day
+settings included by default with the jaunt", "more story telling and character development"). The walks
+are now told as stories: openings that set the scene, people introduced on first mention, stops that lead
+into the next and leg lines about the houses passed, each fact cited. Each walk has its own light (a spring
+morning, a summer dusk, an autumn afternoon, a winter afternoon, a spring sunset), a viewing choice like
+Settings > Time of day and Season and never a claim about the day; the stories are still not set on a
+dated day in 1904. A seventh walk, `prairie-ghosts-at-night` ("Ghosts of Prairie Avenue", an autumn night),
+retells the street's ghost legends as legends: what modern ghost tours and the Glessner House Museum say is
+told of 1800, 1801, 1900 and 1919 Prairie, the Clarke House garden and the 1812 battle ground. The legends
+are cited to the tellers; that anything was ever seen is not asserted. The deaths behind them (Richardson
+1886, Edson Keith 1896, Pullman 1897, Kimball 1904, Field Jr. 1905, Field 1906) are cited as history. The
+stop on the battle ground is a scene anchor, `haunted_battle_ground`, a stand at Eighteenth Street chosen for
+the view, not a mapped place of the battle.
+**Applies also to:** `data/jaunts/prairie-notable-women.json`, `data/jaunts/prairie-ghosts-at-night.json`.
 
 ### L-jaunt-prairie-built-so-far — The built-so-far walk: detail levels, areas and order
 

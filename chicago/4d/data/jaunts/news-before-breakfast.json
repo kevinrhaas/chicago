@@ -1,15 +1,12 @@
 {
   "schema_version": 1,
+  "content_version": 3,
+  "category": "Newspapers",
+  "review_required": false,
   "id": "news-before-breakfast",
-  "content_version": 2,
+  "scene": "1835",
   "title": "News Before Breakfast",
   "premise": "Read both of the town's papers before breakfast, tell a report from an advertisement and keep one useful clipping.",
-  "category": "Newspapers",
-  "scene": "1835",
-  "opening": {
-    "text": "Chicago prints two weekly papers this summer, and one of them is three weeks old. Choose a question, ride from your lodging to both offices, decide which columns report and which ones sell, and carry one clipping to breakfast. The morning, the ride and the clipping are invented; the printed words are not.",
-    "read_s": 20
-  },
   "default_mode": "horse",
   "allowed_modes": [
     "walk",
@@ -18,6 +15,15 @@
     "fly",
     "instantly"
   ],
+  "long_form": true,
+  "ambience": {
+    "hour": "daybreak",
+    "season": "summer"
+  },
+  "opening": {
+    "text": "JAUNT: NEWS BEFORE BREAKFAST. Daybreak, 1 July 1835. Chicago prints two weekly papers this summer, and one of them is three weeks old. The cholera has been in the state, and everyone wants to know how close it is; the papers also want to sell you things. Learning to tell the two apart is the most useful thing a newcomer can do.\n\nChoose your question, ride from the Sauganash to both printing offices, decide which columns report and which ones sell, and carry one clipping to breakfast at the Tremont House.",
+    "read_s": 25
+  },
   "variables": {
     "question": {
       "min": 0,
@@ -45,9 +51,9 @@
         "kind": "structure",
         "id": "sauganash_hotel"
       },
-      "text": "Start at the Sauganash, the white two-storey house with bright-blue shutters that Juliette Kinzie remembered. The Chicago Democrat of 10 June 1835 reported it repaired, fitted up and furnished with neatness. Both of the town's weekly papers print a short ride east along the river.",
+      "text": "Start at the Sauganash, the white two-storey house with bright-blue shutters that Juliette Kinzie remembered; the Democrat of 10 June reported it repaired, fitted up and furnished with neatness. Both papers print a short ride east along the river. Before the town had a paper, news came with the mail, 'often irregular and long delayed', and somebody read it out standing on 'a dry goods box'. Now you can read it yourself.",
       "narrative": "Choose the question the papers should answer.",
-      "read_s": 30,
+      "read_s": 22,
       "action_s": 15,
       "links": [
         {
@@ -66,7 +72,8 @@
         "sauganash-refit",
         "two-weeklies",
         "continuity",
-        "morning"
+        "morning",
+        "mk-mail-box"
       ],
       "choices": [
         {
@@ -105,7 +112,7 @@
       },
       "text": "John Calhoun printed the Chicago Democrat at this corner from 1833; by 20 May its office was over Jones & King's hardware on South Water Street. The 24 June number, the last before today, gathers cholera reports from Alton and Springfield, cannot trace an Ottawa rumour, and calls Chicago uncommonly healthy.",
       "narrative": "Reporting, or an advertisement?",
-      "read_s": 32,
+      "read_s": 15,
       "action_s": 15,
       "links": [
         {
@@ -161,7 +168,7 @@
       },
       "text": "Near the drawbridge, T. O. Davis's Chicago American is three weeks old. Its 27 June number carries Frederick Thomas's Cholera Elixir, the Fire King's Specific, offered as a certain preventive and cure of the malignant disease, in a notice dated 24 June: the day the Democrat printed its paragraph.",
       "narrative": "Reporting, or an advertisement?",
-      "read_s": 32,
+      "read_s": 15,
       "action_s": 15,
       "links": [
         {
@@ -209,9 +216,9 @@
         "kind": "structure",
         "id": "tremont_house_1"
       },
-      "text": "Breakfast at the Tremont House, built in 1833 by Alanson Sweet at Lake and Dearborn and kept since 1834 by Ira Couch. The Democrat's third page also announces a new auction house on South Water Street, its first public sale set for the 1st of July: today.",
+      "text": "Breakfast at the Tremont House, Alanson Sweet's frame of 1833 at Lake and Dearborn, kept since 1834 by Ira Couch. Moses and Kirkland call it 'the nucleus of the present Tremont House': its brick successor of 1850 was thought so 'absurdly large' that people called it Couch's Folly. The Democrat's third page announces a new auction house on South Water Street, its first public sale set for the 1st of July: today.",
       "narrative": "Choose one clipping to carry back.",
-      "read_s": 30,
+      "read_s": 22,
       "action_s": 15,
       "links": [
         {
@@ -229,7 +236,8 @@
         "tremont-house",
         "auction-today",
         "continuity",
-        "morning"
+        "morning",
+        "mk-tremont"
       ],
       "choices": [
         {
@@ -278,7 +286,7 @@
     {
       "from": "question",
       "to": "democrat",
-      "note": "East from the forks along the south bank to the Clark Street corner; no particular path is claimed.",
+      "note": "East from the forks along the south bank to the Clark Street corner.",
       "evidence": [
         "continuity"
       ],
@@ -488,6 +496,24 @@
       "locator": "24 June 1835 (Vol. II No. 10), p. 3, col. 3 (transcription lines 2540–2559, interleaved; extracted claim chicago_democrat_1835_06_24#c008). Transcription-mediated reading; the auctioneer’s surname reads MONTGOMERY and his initials are lost. The American’s 27 June copy of the notice is ambiguous between the first and the last day of July, so only the Democrat’s reading is used."
     },
     {
+      "id": "mk-mail-box",
+      "text": "When the mail came, 'often irregular and long delayed', the town gathered at the post office, where 'some one with a good voice would mount a dry goods box' and read the news from Washington and New York; 'If politics ran high, two dry-goods boxes and two readers of opposite parties would be utilized.'",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 99-100, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13378-13395 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-tremont",
+      "text": "In the early 1830s Alanson Sweet opened a saloon and boarding house at the north-west corner of Lake and Dearborn, 'the nucleus of the present Tremont House'; its brick successor of 1850 was thought 'absurdly large', and people called it Couch's Folly.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 561, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 98839-98872 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
       "id": "continuity",
       "text": "The four places are exterior stops in the 1 July 1835 scene. The Democrat’s corner is visited as its former office, the American’s office is placed near the drawbridge, and no interior, front door, keeper on the morning or newsroom is claimed.",
       "confidence": "inferred",
@@ -506,8 +532,8 @@
       "liberty": "L-jaunt-news-breakfast"
     }
   ],
-  "review_required": false,
   "liberties": [
-    "L-jaunt-news-breakfast"
+    "L-jaunt-news-breakfast",
+    "L-jaunt-1835-light-and-stories"
   ]
 }

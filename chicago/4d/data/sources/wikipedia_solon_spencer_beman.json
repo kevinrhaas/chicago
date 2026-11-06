@@ -1,0 +1,23 @@
+{
+  "id": "wikipedia_solon_spencer_beman",
+  "type": "website",
+  "citation": "Wikipedia, 'Solon Spencer Beman'. Read 5 November 2026.",
+  "author": "Wikipedia contributors",
+  "date": "accessed 2026-11-05",
+  "describes_date": "1879-1906",
+  "url": "https://en.wikipedia.org/wiki/Solon_Spencer_Beman",
+  "locator": "The biography's paragraphs on the Pullman commission and his works.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "Textual factual citation only (CC BY-SA text, nothing copied beyond short quoted fragments).",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-05 (T-3378/T-3379) through a fetch that returned the page's sentences in short quoted fragments and paraphrase; this record is cited only for what those fragments say.",
+  "note": "Fragments read: born 1 October 1853; in 1879 he 'received a commission from George Pullman to design what would become the nation's first planned company town'; 'Beman designed several buildings for the World's Columbian Exposition of 1893'.",
+  "what_it_supplies": [
+    "Beman's town of Pullman"
+  ],
+  "what_it_does_not_supply": [
+    "the Kimball house"
+  ]
+}

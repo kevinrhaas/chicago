@@ -234,6 +234,9 @@ def build():
                id='prairie-built-so-far', scene=SCENE, title='Every building modelled so far',  # T-2944: the distinctive words first
                premise='Walk every building on Prairie Avenue modelled in detail so far, most detailed first, kept area by area. It grows as buildings are built out.',
                default_mode='walk', allowed_modes=['walk', 'fly', 'instantly'],
+               # T-3377: the build log is walked in the scene's own clear summer morning,
+               # whatever light the visitor has picked, so every model is seen as built.
+               ambience=dict(hour='daytime', season='summer'),
                opening=dict(text=opening, read_s=max(10, round(len(opening.split()) * 0.42))), stops=stops,
                endings=[dict(id='finish', text=ending, read_s=10, completion_eligible=True)],
                keepsake=dict(family='Wayfinding', id='prairie-build-log', title='Prairie Avenue build log',

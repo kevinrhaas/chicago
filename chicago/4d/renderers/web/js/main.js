@@ -2544,7 +2544,9 @@ async function boot() {
       return this.current;
     },
   };
-  const seasonState = { season: 'summer', treesShown: seasonPref.treesShown };
+  // T-3377: `own` is the visitor's Season; `held` is a jaunt's, set for the outing and
+  // given back by api.season.restore() (a choice made by hand ends the hold).
+  const seasonState = { season: 'summer', treesShown: seasonPref.treesShown, own: seasonPref.season, held: null };
   let structuresSeasoned = false;
   let seasonPlants = () => null;
   const applySeason = async (season) => {
@@ -2583,7 +2585,25 @@ async function boot() {
   if (seasonal && seasonPref.season !== 'summer') await applySeason(seasonPref.season);
   api.season = {
     get current() { return seasonState.season; },
-    set: (s) => applySeason(s),
+    /** The visitor's own Season, under any season a jaunt holds. */
+    get own() { return seasonState.own; },
+    /**
+     * Set the season. `transient` is a jaunt's (T-3377): not the visitor's choice, not
+     * stored, and `restore()` gives the visitor's own back.
+     */
+    set: (s, { transient = false } = {}) => {
+      if (transient) seasonState.held = s;
+      else { seasonState.own = s; seasonState.held = null; }
+      return applySeason(s);
+    },
+    async restore() {
+      if (!seasonState.held) return seasonState.season;
+      seasonState.held = null;
+      if (seasonState.season !== (SEASONS.includes(seasonState.own) && seasonal ? seasonState.own : 'summer'))
+        await applySeason(seasonState.own);
+      gateFrame.invalidate();
+      return seasonState.season;
+    },
     get sunDate() { return world.sunDate; },
   };
 
@@ -3834,7 +3854,8 @@ async function boot() {
       } else if (key === 'lookTagHold') {
         api.targetTag?.setHold(value);
       } else if (key === 'season') {
-        void applySeason(value).then(() => gateFrame.invalidate());
+        // T-3377: a Season picked by hand is the visitor's own and ends a jaunt's hold.
+        void api.season.set(value).then(() => gateFrame.invalidate());
       } else if (key === 'timeOfDay') {
         // T-3331. A choice made by hand ends a jaunt's hold on the hour.
         applyTime(value);
@@ -4874,6 +4895,8 @@ async function boot() {
         onComplete: state => jauntPreview.award(state),
         // T-3328: a stop's own hour, set for the stop and given back after (T-3331).
         hour: api.timeOfDay,
+        // T-3377: a jaunt's own season, held for the outing and given back after.
+        season: api.season,
         showMenu({ returnId }) { jauntReturnId = returnId; api.welcome.show({ focus: false }); api.welcome.enter('jaunts'); },
         closeDetail: jauntCards.close,
         openDetail: jauntCards.open, onError: jauntError,

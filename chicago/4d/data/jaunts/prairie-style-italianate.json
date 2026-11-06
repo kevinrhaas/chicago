@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 1,
+  "content_version": 2,
   "category": "Architectural style",
   "featured": false,
   "review_required": false,
@@ -14,9 +14,14 @@
     "fly",
     "instantly"
   ],
+  "long_form": true,
+  "ambience": {
+    "hour": "morning",
+    "season": "fall"
+  },
   "opening": {
-    "text": "STYLE WALK: ITALIANATE. Look for tall round-headed windows, deep bracketed cornices and eaves, and high stoops. Five houses, 1612 to 2031 Prairie, on foot. Three are still first rough models, read from the district register.",
-    "read_s": 14
+    "text": "JAUNT: ITALIANATE STYLE. An autumn morning, 1904. Before the mansards and the granite, Prairie Avenue was built Italianate: houses dressed like villas from a Tuscan hillside, the fashion of the 1860s, when the first big houses went up on this street.\n\nLook for three things: tall round-headed windows, deep cornices on carved brackets, and high stoops that lift the front door above the street. Five houses on foot, 1612 to 2031 Prairie, from the street's oldest generation. Three are still rough first models in this reconstruction.\n\nStart at 1612, with the best Italianate front on the street.",
+    "read_s": 27
   },
   "stops": [
     {
@@ -25,8 +30,8 @@
         "kind": "structure",
         "id": "goodman_house_1612_prairie"
       },
-      "text": "1612 Prairie. Joseph Goodman's house of 1869, read as Italianate. Its photograph shows a three-bay stone front, every window round-headed under a long keystone, a belt course at the principal floor, and an arched portico on columns at the head of a high stoop.",
-      "read_s": 18,
+      "text": "1612 Prairie, Joseph Goodman's house of 1869, two years before the Great Fire. Its photograph shows the Italianate formula done in stone: three bays, every window round-headed under a long keystone, a belt course marking the principal floor, and an arched portico on columns at the top of a high stoop. The stoop is the point: a caller climbs well above the street, and the dust of its carriages, before the door ever opens. Walk south a block and the same year's style gets a famous architect.",
+      "read_s": 24,
       "evidence": [
         "goodman-marker",
         "goodman-photo",
@@ -41,8 +46,8 @@
         "kind": "structure",
         "id": "hibbard_house_1701_prairie"
       },
-      "text": "1701 Prairie. William G. Hibbard's house of 1869, by William Le Baron Jenney, read by the district register as an Italianate mansion: a low hipped roof on bracketed eaves over a stone-based body, with a rear range added in 1874.",
-      "read_s": 17,
+      "text": "1701 Prairie, William G. Hibbard's house, also of 1869, designed by William Le Baron Jenney for the president of a large wholesale hardware firm. The district register reads it as Italianate: a low hipped roof on bracketed eaves over a stone-based body, with a rear range added in 1874. Jenney would go on to build the first skyscraper. Two doors south is a rarer thing on this street: an Italianate house of wood.",
+      "read_s": 20,
       "evidence": [
         "hibbard-marker",
         "hibbard-draft",
@@ -56,7 +61,7 @@
         "kind": "structure",
         "id": "walker_house_1720_prairie"
       },
-      "text": "1720 Prairie. The Tyrrell and Walker house, read by the district register as an Italianate house built of wood: a low hip on deep bracketed eaves, a central gable, a canted bay and a full-width porch. Compare it with the brick and stone fronts around it.",
+      "text": "1720 Prairie, the Tyrrell and Walker house, read by the district register as an Italianate house built of wood: a low hip on deep bracketed eaves, a central gable, a canted bay and a full-width porch. The brick and stone fronts crowding it show which way the street went. Compare its timber brackets with the stone ones around it. Cross Eighteenth Street to a house that changed its clothes.",
       "read_s": 19,
       "evidence": [
         "walker-draft",
@@ -70,11 +75,12 @@
         "kind": "structure",
         "id": "jones_house_1834_prairie"
       },
-      "text": "1834 Prairie. Fernando Jones's house of 1866, by John M. Van Osdel, which the district marker calls Italianate. In 1886 it was given a mansard addition to keep up with its neighbours, so here the Italianate house wears a newer roof.",
-      "read_s": 17,
+      "text": "1834 Prairie, Fernando Jones's house, by John M. Van Osdel, built in 1866 for 'one of Chicago's earliest pioneers - Fernando Jones'. It was built Italianate. Twenty years later the whole street had gone mansard, and in 1886 Jones gave his house a mansard addition 'to bring it into fashion with many of its neighbors'. So here is an Italianate house in a newer hat. Prairie Avenue was a competitive street. One more stop, past Twentieth.",
+      "read_s": 21,
       "evidence": [
         "jones-marker",
-        "tour"
+        "tour",
+        "vanosdel-first"
       ],
       "next": "tolman"
     },
@@ -84,8 +90,8 @@
         "kind": "structure",
         "id": "tolman_house_2031_prairie"
       },
-      "text": "2031 Prairie. The north house of a row of three built in 1869 with Lemont limestone fronts, read by the district register as Italianate: a flat roof behind a bracketed cornice over three storeys. The row shares one cornice line, but its doors differ.",
-      "read_s": 18,
+      "text": "2031 Prairie, the north house of a row of three built in 1869 with pale Lemont limestone fronts. The district register reads it as Italianate: a flat roof behind a bracketed cornice over three storeys. The three houses share one cornice line, like one palazzo, but each has its own door. Look for where the brackets stop and start again.",
+      "read_s": 17,
       "evidence": [
         "tolman-draft",
         "tour"
@@ -93,11 +99,49 @@
       "next": "finish"
     }
   ],
+  "legs": [
+    {
+      "story": "South through the 1600 block.",
+      "evidence": [
+        "hibbard-marker"
+      ],
+      "story_evidence": [
+        "hibbard-marker"
+      ]
+    },
+    {
+      "story": "Two doors south.",
+      "evidence": [
+        "walker-draft"
+      ],
+      "story_evidence": [
+        "walker-draft"
+      ]
+    },
+    {
+      "story": "Across Eighteenth Street, down the west walk.",
+      "evidence": [
+        "jones-marker"
+      ],
+      "story_evidence": [
+        "jones-marker"
+      ]
+    },
+    {
+      "story": "South past Twentieth Street.",
+      "evidence": [
+        "tolman-draft"
+      ],
+      "story_evidence": [
+        "tolman-draft"
+      ]
+    }
+  ],
   "endings": [
     {
       "id": "finish",
-      "text": "End of the Italianate walk. Brackets under the eaves and round-headed windows are the marks to look for on the older fronts of the avenue.",
-      "read_s": 10,
+      "text": "End of the Italianate walk. Count the brackets you passed: these are the street's oldest fronts, built before the fire and the fortunes that came after it.\n\nBy 1904 they already look old-fashioned beside the mansards and the granite. Walk the Second Empire or Romanesque routes to see what came next.",
+      "read_s": 14,
       "completion_eligible": true
     }
   ],
@@ -169,7 +213,7 @@
     },
     {
       "id": "tour",
-      "text": "The route, its order, its reading times, its keepsake and its framing are modern interpretation; no historical visit, conversation or occupant on 1 July 1904 is asserted.",
+      "text": "The route, its order, its autumn morning, its reading times, its keepsake and its framing are modern interpretation; no historical visit, conversation or occupant on a day in 1904 is asserted.",
       "confidence": "reconstructed",
       "sources": [],
       "liberty": "L-jaunt-prairie-walks"
@@ -180,6 +224,15 @@
       "confidence": "reconstructed",
       "sources": [],
       "liberty": "L-draft-prairie-16-18-west-2334"
+    },
+    {
+      "id": "vanosdel-first",
+      "text": "Van Osdel designed two houses on Prairie Avenue; 'The first of these, at 1834 S. Prairie Avenue, was built in 1866 for one of Chicago's earliest pioneers - Fernando Jones'.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_blog_2015_08_van_osdel"
+      ],
+      "locator": "The post on Van Osdel."
     }
   ],
   "liberties": [

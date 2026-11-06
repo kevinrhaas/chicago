@@ -98,8 +98,8 @@ export function createJauntPanel({ destinations, actions }) {
     const el = document.getElementById(id);
     if (el) observer.observe(el, { attributes: true, attributeFilter: ['hidden'] });
   }
-  function prose(parent, text, ids = [], narrative = false) {
-    const claims = ids.map(id => state.jaunt.evidence.find(c => c.id === id));
+  function prose(parent, text, ids = [], narrative = false, carried = []) {
+    const claims = [...ids.map(id => state.jaunt.evidence.find(c => c.id === id)), ...carried];
     const unsafe = claims.some(c => claimPresentation(c).text === 'Unverified attribution withheld.');
     const paragraph = node('p', unsafe ? 'Unverified attribution withheld.' : text, narrative ? 'jaunt-narrative' : '');
     paragraph.title = paragraph.textContent; parent.append(paragraph);
@@ -126,12 +126,11 @@ export function createJauntPanel({ destinations, actions }) {
     const lines = state.context?.lines || [];
     for (const line of lines) {
       if (line.generated) parent.append(node('p', line.text));
+      else if (line.claims) prose(parent, line.text, [], false, line.claims);
       else prose(parent, line.text, line.evidence, line.evidence?.every(id => state.jaunt.evidence.find(c => c.id === id)?.confidence === 'reconstructed'));
     }
-    // T-2956: a "Passing …" note is read off this model's map, not from a period source.
-    // Said once, in words; "[MAP] Reconstruction route" after every line read like a
-    // label missing its text.
-    if (lines.some(line => line.generated)) parent.append(node('p', '[MAP] From the model’s map, not a historical source.', 'jaunt-map-note'));
+    // T-3379: the owner found T-2956's "[MAP] From the model's map" line unnecessary; a
+    // passing note now names the house and, where one is known, gives its sourced fact.
   }
   function render(next) {
     const old = state;
