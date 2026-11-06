@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs04-hood-section",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "d419de6058cfc0d822bca63b60e203b80d5281023a4db9472a2a33560c7c9d49",
+  "glb_sha256": "6b9382e7139383eb51e3ead401494423d3d2b9c26e8ecc15a3996e41ea580ead",
   "camera_sha256": "1f76d223ece9f5501fd8d70d9e23282213d62971a12fb5efc6c65de2247ba249",
   "photo_sha256": "eaf3d363e02df67688c6c18cbc3653a9d291246a4c5fdc65bfba4109b088dd46",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-hood-section-side-by-side.jpg",
@@ -26,6 +26,26 @@
     },
     {
       "what": "Exact copper stock, sheet subdivision and1904 patina are reconstructed; the monochrome section cannot establish them.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3371: the north range's ridge (raised to 36.17 ft) and the alley gable are out of this view; re-rendered and reviewed, nothing in it changed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3372: the two courtyard service stacks moved onto HABS sheets 2-3's flues are out of this view; re-rendered and reviewed, nothing in it changed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3373: the hood now dies into the copper lean-to's flatter plane, not the tiles, so its back stops at the kink where sheet 4's section draws the hood meeting the steeper 27-degree run behind it; the lean-to itself lies behind the section plane.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "T-3374: the dining bay's corner stones and the two lintel courses on the north range's court face east of it are out of this view; re-rendered and reviewed, nothing visible in it changed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3376: the stable gables' verges are out of this view or hidden behind nearer fabric; re-rendered and reviewed, nothing visible in it changed.",
       "status": "not shown"
     }
   ],

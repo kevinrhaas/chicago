@@ -419,6 +419,56 @@
   {
    "face": "south",
    "record": "openings_court_north",
+   "what": "lintel course over the first-floor windows between the dining bay and the hall bow",
+   "at_ft": [
+    38.22,
+    60.9
+   ],
+   "z_ft": [
+    14.5,
+    15.49
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "band",
+   "style": "rough_course",
+   "sash": null,
+   "built_as": "carved stone (band)",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "openings_court_north",
+   "what": "lintel course over the second-floor windows between the dining bay and the hall bow",
+   "at_ft": [
+    38.22,
+    60.9
+   ],
+   "z_ft": [
+    24.0,
+    25.62
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "band",
+   "style": "rough_course",
+   "sash": null,
+   "built_as": "carved stone (band)",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "openings_court_north",
    "what": "garden-level north-court lights below the principal rooms",
    "at_ft": [
     40,
@@ -444,7 +494,7 @@
   {
    "face": "south",
    "record": "openings_court_north",
-   "what": "north range courtyard windows, first floor",
+   "what": "north range courtyard windows, first floor, between the dining bay and the hall bow",
    "at_ft": [
     40,
     44.5
@@ -469,7 +519,7 @@
   {
    "face": "south",
    "record": "openings_court_north",
-   "what": "north range courtyard windows, second floor",
+   "what": "north range courtyard windows, second floor, between the dining bay and the hall bow",
    "at_ft": [
     40,
     42
@@ -494,7 +544,7 @@
   {
    "face": "south",
    "record": "openings_court_north",
-   "what": "north range courtyard windows, second floor",
+   "what": "north range courtyard windows, second floor, between the dining bay and the hall bow",
    "at_ft": [
     44,
     48
@@ -544,7 +594,7 @@
   {
    "face": "south",
    "record": "openings_court_north",
-   "what": "north range courtyard windows, first floor",
+   "what": "north range courtyard windows, first floor, between the dining bay and the hall bow",
    "at_ft": [
     46,
     50
@@ -569,7 +619,7 @@
   {
    "face": "south",
    "record": "openings_court_north",
-   "what": "north range courtyard windows, second floor",
+   "what": "north range courtyard windows, second floor, between the dining bay and the hall bow",
    "at_ft": [
     50,
     54
@@ -619,7 +669,7 @@
   {
    "face": "south",
    "record": "openings_court_north",
-   "what": "north range courtyard windows, first floor",
+   "what": "north range courtyard windows, first floor, between the dining bay and the hall bow",
    "at_ft": [
     52,
     56

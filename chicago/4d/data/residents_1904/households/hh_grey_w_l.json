@@ -29,10 +29,11 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The four live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: Jessie Grey (one of two unmarried daughters in 1900; which one is the 1904 \"Miss Grey\" is not known, so both are named in that line's note); Walter Grey (a grown son the 1904 Blue Book does not list at the house); Florence Grey (one of two unmarried daughters in 1900; named in the note on \"Miss Grey\"). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The four live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: Jessie Grey (one of two unmarried daughters in 1900; which one is the 1904 \"Miss Grey\" is not known, so both are named in that line's note); Walter Grey (a grown son the 1904 Blue Book does not list at the house); Florence Grey (one of two unmarried daughters in 1900; named in the note on \"Miss Grey\"). The 1910 census (T624 roll 241, ED 166 and 167) was read for this card's children: the children it lists, and those the Blue Book lists at the number from 1890 to 1911, are on the card with the years each lived here, whether or not they were at home in 1904. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
-      "census_1900_chicago_t623_roll245"
+      "census_1900_chicago_t623_roll245",
+      "census_1910_chicago_t624_roll241"
     ]
   },
   "persons": [
@@ -88,6 +89,102 @@
       ],
       "printed_as": "2010 Mr. & Mrs. W. L. Grey & dr.",
       "note": "The Blue Book prints '& dr.' after the household's name: an unmarried daughter at home, not named. 'Miss Grey' is the book's own form of address, not a recorded name. The 1900 census lists the unmarried daughters at home as Jessie Grey (born May 1875, in Illinois, single; ED 40, sheet 9A, line 34, leaf n810); Florence Grey (born December 1880, in Illinois, single; ED 40, sheet 9A, line 36, leaf n810). Which of them the 1904 line stands for, the book does not say."
+    },
+    {
+      "id": "pa1904_grey_walter_c",
+      "name": "Walter C. Grey",
+      "relationship": "son",
+      "grade": "attested",
+      "sources": [
+        "census_1910_chicago_t624_roll241",
+        "chicago_blue_book_1891",
+        "chicago_blue_book_1892",
+        "chicago_blue_book_1893",
+        "chicago_blue_book_1894",
+        "chicago_blue_book_1895",
+        "chicago_blue_book_1897",
+        "chicago_blue_book_1898",
+        "chicago_blue_book_1901",
+        "chicago_blue_book_1909",
+        "chicago_blue_book_1910",
+        "chicago_blue_book_1911"
+      ],
+      "printed_as": "2010 Walter Grey",
+      "census_1910": {
+        "date": "1910-04-15",
+        "source": "census_1910_chicago_t624_roll241",
+        "locator": "ED 167, sheet 5B, line 72, leaf n1458",
+        "as_enumerated": "Grey, Walter C.",
+        "relation_as_enumerated": "Son"
+      },
+      "lived_here": {
+        "years": "1891-1901; 1909-1911",
+        "on_scene_date": "unknown"
+      },
+      "note": "Listed at 2010 under his parents from 1891 to 1901 and again from 1909; the 1910 census lists him there as son. The 1902 to 1908 editions do not list him, so whether he lived here in 1904 is not documented."
+    },
+    {
+      "id": "pa1904_grey_elizabeth_w",
+      "name": "Elizabeth W. Grey",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "census_1910_chicago_t624_roll241",
+        "chicago_blue_book_1910",
+        "chicago_blue_book_1911"
+      ],
+      "printed_as": "2010 Miss Elizabeth Grey",
+      "census_1910": {
+        "date": "1910-04-15",
+        "source": "census_1910_chicago_t624_roll241",
+        "locator": "ED 167, sheet 5B, line 73, leaf n1458",
+        "as_enumerated": "Grey, Elizabeth W.",
+        "relation_as_enumerated": "Daughter"
+      },
+      "lived_here": {
+        "years": "here in 1910-1911",
+        "on_scene_date": "unknown"
+      },
+      "note": "The 1910 census lists her at 2010 as William L. Grey's daughter; her age reads 14, but the figures on that line are hard to read and the Blue Book prints her as 'Miss' from 1910, so she may be older. She may be the unnamed '& dr.' of the 1904 listing, or her sister Florence may; the book does not say."
+    },
+    {
+      "id": "pa1904_grey_florence",
+      "name": "Florence Grey",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "chicago_blue_book_1907",
+        "chicago_blue_book_1908"
+      ],
+      "printed_as": "2010 Miss Florence Grey",
+      "lived_here": {
+        "years": "1907-1908",
+        "on_scene_date": "unknown"
+      },
+      "note": "Listed at 2010 with William L. Grey in the 1907 and 1908 editions. That she was a daughter of the house is read from the shared surname and 'Miss' at the number; the Blue Book does not print the relationship. The household printed '& drs.' from 1895 to 1902 and '& dr.' from 1903 to 1906, so she may be the daughter at home in 1904."
+    },
+    {
+      "id": "pa1904_grey_charles_g",
+      "name": "Charles G. Grey",
+      "relationship": "son",
+      "grade": "attested",
+      "sources": [
+        "census_1910_chicago_t624_roll241",
+        "chicago_blue_book_1911"
+      ],
+      "printed_as": "2010 Charles G. Grey",
+      "census_1910": {
+        "date": "1910-04-15",
+        "source": "census_1910_chicago_t624_roll241",
+        "locator": "ED 167, sheet 5B, line 74, leaf n1458",
+        "as_enumerated": "Grey, Charles G.",
+        "relation_as_enumerated": "Son"
+      },
+      "lived_here": {
+        "years": "here in 1910-1911",
+        "on_scene_date": "unknown"
+      },
+      "note": "The 1910 census lists him at 2010 as son (his age is not written); the Blue Book from 1911. Whether he lived here in 1904 is not documented."
     },
     {
       "id": "pa1904_grey_w_l_c1900_margaret_rourke",

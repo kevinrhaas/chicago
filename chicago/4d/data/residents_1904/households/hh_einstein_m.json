@@ -29,10 +29,11 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 36, T623 roll 245) was read for this card. The one live-in servant it lists at the house on 1 June 1900 is on the card, graded inferred because the count was taken four years before the scene. Left off: Benjamin Einstein (a grown son the 1904 Blue Book does not list at the house); Virginia Hoffman (a married daughter, the surname struck over on the sheet; the 1904 Blue Book does not list her); Anna B. Einstein (the one unmarried daughter in 1900, so very likely the Blue Book's \"& dr.\"; named in that line's note). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 36, T623 roll 245) was read for this card. The one live-in servant it lists at the house on 1 June 1900 is on the card, graded inferred because the count was taken four years before the scene. Left off: Benjamin Einstein (a grown son the 1904 Blue Book does not list at the house); Virginia Hoffman (a married daughter, the surname struck over on the sheet; the 1904 Blue Book does not list her); Anna B. Einstein (the one unmarried daughter in 1900, so very likely the Blue Book's \"& dr.\"; named in that line's note). The 1910 census (T624 roll 241, ED 166 and 167) was read for this card's children: the children it lists, and those the Blue Book lists at the number from 1890 to 1911, are on the card with the years each lived here, whether or not they were at home in 1904. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
-      "census_1900_chicago_t623_roll245"
+      "census_1900_chicago_t623_roll245",
+      "census_1910_chicago_t624_roll241"
     ]
   },
   "persons": [
@@ -84,10 +85,115 @@
       "sources": [
         "chicago_blue_book_1904",
         "chicago_blue_book_1905",
-        "census_1900_chicago_t623_roll245"
+        "census_1900_chicago_t623_roll245",
+        "census_1910_chicago_t624_roll241"
       ],
       "printed_as": "1628 Mr. & Mrs. M. Einstein & dr.",
-      "note": "The Blue Book prints '& dr.' after the household's name: an unmarried daughter at home, not named. 'Miss Einstein' is the book's own form of address, not a recorded name. The 1900 census lists the unmarried daughter at home as Anna B. Einstein (born February 1868, in Illinois, single; ED 36, sheet 2B, line 53, leaf n668). She is very likely the one the book means, but the book does not say."
+      "note": "The Blue Book prints '& dr.' after the household's name: an unmarried daughter at home, not named. 'Miss Einstein' is the book's own form of address, not a recorded name. The 1900 census lists the unmarried daughter at home as Anna B. Einstein (born February 1868, in Illinois, single; ED 36, sheet 2B, line 53, leaf n668). She is very likely the one the book means, but the book does not say. The 1894 Blue Book lists a Miss Anna B. Einstein at 1628, and the 1910 census lists Anna B. Einstein there as the unmarried daughter at home (ED 166, sheet 8B, line 92), so she is very likely the one the book means."
+    },
+    {
+      "id": "pa1904_einstein_benjamin",
+      "name": "Benjamin Einstein",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "chicago_blue_book_1890",
+        "chicago_blue_book_1891",
+        "chicago_blue_book_1892",
+        "chicago_blue_book_1893",
+        "chicago_blue_book_1894",
+        "chicago_blue_book_1895",
+        "chicago_blue_book_1897",
+        "chicago_blue_book_1898",
+        "chicago_blue_book_1899",
+        "chicago_blue_book_1901"
+      ],
+      "printed_as": "1628 Benjamin Einstein",
+      "lived_here": {
+        "years": "1890-1901",
+        "on_scene_date": "no"
+      },
+      "note": "Listed at 1628 under Mr. and Mrs. Morris Einstein in every edition read from 1890 to 1901, and not in 1902 or after. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship. The 1910 census has Julia Einstein the mother of seven children, six of them living (ED 166, sheet 8B, line 91, leaf n1444)."
+    },
+    {
+      "id": "pa1904_einstein_arthur",
+      "name": "Arthur Einstein",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "chicago_blue_book_1890"
+      ],
+      "printed_as": "1628 Arthur Einstein",
+      "lived_here": {
+        "years": "1890",
+        "on_scene_date": "no"
+      },
+      "note": "Listed at 1628 under Mr. and Mrs. Morris Einstein in the 1890 edition only. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship."
+    },
+    {
+      "id": "pa1904_einstein_jennie_shafner",
+      "name": "Jennie E. Shafner",
+      "relationship": "daughter",
+      "grade": "attested",
+      "sources": [
+        "census_1910_chicago_t624_roll241",
+        "chicago_blue_book_1902",
+        "chicago_blue_book_1910",
+        "chicago_blue_book_1911"
+      ],
+      "printed_as": "1628 Mrs. Jennie E. Shaffner",
+      "born": {
+        "value": "1854",
+        "confidence": "inferred",
+        "sources": [
+          "census_1910_chicago_t624_roll241"
+        ],
+        "note": "The 1910 census gives age 56 on 15 April 1910, so born about 1853-1854."
+      },
+      "census_1910": {
+        "date": "1910-04-15",
+        "source": "census_1910_chicago_t624_roll241",
+        "locator": "ED 166, sheet 8B, line 93, leaf n1444",
+        "as_enumerated": "Shafner, Jennie",
+        "relation_as_enumerated": "Daughter"
+      },
+      "lived_here": {
+        "years": "1902; 1910-1911",
+        "on_scene_date": "unknown"
+      },
+      "note": "The 1910 census lists her at 1628 as the Einsteins' daughter, divorced, aged 56 and born in West Virginia. The Blue Book lists Mrs. Jennie E. Shaffner at 1628 in the 1902 edition and again from 1910; it does not list her there in 1904 or 1905, so whether she was home that year is not documented."
+    },
+    {
+      "id": "pa1904_einstein_emma_biers",
+      "name": "Emma Biers",
+      "relationship": "daughter",
+      "grade": "attested",
+      "sources": [
+        "census_1910_chicago_t624_roll241",
+        "chicago_blue_book_1895",
+        "chicago_blue_book_1910"
+      ],
+      "printed_as": "1628 Mrs. Emma Beirs",
+      "born": {
+        "value": "1856",
+        "confidence": "inferred",
+        "sources": [
+          "census_1910_chicago_t624_roll241"
+        ],
+        "note": "The 1910 census gives age 54 on 15 April 1910, so born about 1855-1856."
+      },
+      "census_1910": {
+        "date": "1910-04-15",
+        "source": "census_1910_chicago_t624_roll241",
+        "locator": "ED 166, sheet 8B, line 94, leaf n1444",
+        "as_enumerated": "Biers, Emma",
+        "relation_as_enumerated": "Daughter"
+      },
+      "lived_here": {
+        "years": "1895; 1910",
+        "on_scene_date": "unknown"
+      },
+      "note": "The 1910 census lists her at 1628 as the Einsteins' daughter, a widow of 54, born in California. The Blue Book lists Mrs. Emma Beirs at 1628 in 1895 and 1910 only."
     },
     {
       "id": "pa1904_einstein_m_c1900_katy_bergin",

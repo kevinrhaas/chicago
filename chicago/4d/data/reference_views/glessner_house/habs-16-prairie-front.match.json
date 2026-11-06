@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-16-prairie-front",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "d419de6058cfc0d822bca63b60e203b80d5281023a4db9472a2a33560c7c9d49",
+  "glb_sha256": "6b9382e7139383eb51e3ead401494423d3d2b9c26e8ecc15a3996e41ea580ead",
   "camera_sha256": "a6cab11dcafff11f11d93e858c37ba17f45a1f59a8a82f28cf0431c025755e50",
   "photo_sha256": "c48a056ae87e4e31d21aa95956cf7c1b57b00df4ded49323f5daca424107f8d8",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-16-prairie-front-side-by-side.jpg",
@@ -55,6 +55,30 @@
     {
       "what": "T-3136, read on this side-by-side at 2-6x (GLB 6ba8c9f7): the first-floor pair over the porte-cochere reads its north light 37.5 px and its pier 21 px where the render draws 47.5 and 14 (the south light 40 against 41): about 2.2 and 1.25 ft at the plate's 17 px a foot, against the built 2.7 (S 63.5-66.2) and 0.8 (S 66.2-67.0). Taylor 2135 reads the same. Separately, the render's openings stand progressively north (right) of the print's away from the south corner, about 7 px at the pair, 14 at the next first-floor light and 18-20 at the door, where T-2857 fits their spacing camera-free to 3.3 px: this camera's scale against the rebuilt front. T-3141 owns both. T-3140, ruled within tolerance (T-3153): the pair is there with its two lights and pier. The north light reads 0.3-0.5 ft narrower and the pier 0.3-0.45 ft wider than built, both under the 1 ft bar, and the openings' 7-20 px northward drift is this camera's scale, since their spacing fits camera-free to 3.3 px (T-2857). T-3141 was withdrawn on this ground.",
       "status": "within tolerance"
+    },
+    {
+      "what": "T-3371: the north range's ridge (raised to 36.17 ft) and the alley gable are out of this view; re-rendered and reviewed, nothing in it changed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3372: the two courtyard service stacks moved onto HABS sheets 2-3's flues are out of this view; re-rendered and reviewed, nothing in it changed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3373: the northeast court corner's copper lean-to, raised wall, corner leader and small dormer east of the great chimney are out of this view or hidden behind nearer fabric; re-rendered and reviewed, nothing visible in it changed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3374: the dining bay's corner stones and the two lintel courses on the north range's court face east of it are out of this view; re-rendered and reviewed, nothing visible in it changed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3376: the stable gables' verges are out of this view or hidden behind nearer fabric; re-rendered and reviewed, nothing visible in it changed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3381: the door fan's tympanum rebuilt to the owner's close photographs; at this distance it reads as the photograph's carved half-disc.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -266,8 +266,15 @@ chiW = (modelMatrix * batchingMatrix * vec4(transformed, 1.0)).xyz;
 #endif
 float chiS = sin(uWind * 0.85 + chiW.x * 0.055 + chiW.z * 0.041) * 0.62
            + sin(uWind * 1.63 + chiW.x * 0.113 - chiW.z * 0.087) * 0.28;
-transformed.x += chiS * aFlex * 0.42;
-transformed.z += chiS * aFlex * 0.26;
+// T-3383: a wall vine's leaves carry their flex NEGATIVE (buildWallVineTemplate).
+// Its +x is out of the wall it is held flat on, 2-16 cm off the stone, and a
+// two-way sway of up to 19 cm carried the mat into the masonry on every gust.
+// So a wall vine's leaf is lifted off the wall and shifted along it, never pushed
+// in. Every other plant's flex is >= 0, so chiWall is 0 and its sway is unchanged.
+float chiWall = step(aFlex, -0.0001);
+float chiFlex = abs(aFlex);
+transformed.x += mix(chiS, abs(chiS) * 0.5, chiWall) * chiFlex * 0.42;
+transformed.z += chiS * chiFlex * mix(0.26, 0.13, chiWall);
 `);
     if (surface) {
       shader.vertexShader = 'attribute float aLeaf;\nvarying float vTreeLeaf;\n'

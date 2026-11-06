@@ -19,4 +19,13 @@ export default register('recall', {
   'lamp.lock': 'Lock',
   'lamp.scan': 'Scan',
   abort: 'Abort',
+  // T-3390: the same prompt before the Navigator's Jump leaves for another year.
+  'jump.eyebrow': 'Temporal jump',
+  'jump.code': '{from} › {to}',
+  'jump.code.plain': '› {to}',
+  'jump.title': 'Depart {from} for {to}?',
+  'jump.title.plain': 'Depart for {to}?',
+  'jump.body': 'This releases the lock on Chicago, {from}. Course set: {when}.',
+  'jump.body.plain': 'This releases the lock on this destination. Course set: {when}.',
+  'jump.confirm': 'Depart',
 });

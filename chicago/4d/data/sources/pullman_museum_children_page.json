@@ -1,0 +1,23 @@
+{
+  "id": "pullman_museum_children_page",
+  "type": "website",
+  "citation": "Pullman State Historic Site / Historic Pullman Foundation, 'The Children of George M. Pullman' and 'George, Jr. and Walter (Sanger) Pullman' (pullman-museum.org). Read 5 November 2026.",
+  "author": "Historic Pullman Foundation",
+  "url": "https://pullman-museum.org/theMan/theChildren.html",
+  "locator": "The children page: Florence (1868-1937), married Frank Lowden; Harriett (1869-1956), married Frank J. Carolan of San Francisco; the twins George Jr. and Walter Sanger (1875; died 1901 and 1905). The twins page (theTwins.html): 'As young boys, the twins were schooled at their home on Prairie Avenue.'",
+  "tier": 4,
+  "rights_status": "check_required",
+  "asset_use": "text_only",
+  "rights_note": "Textual factual citation only. No website text or images reused as an asset.",
+  "verified": true,
+  "access_notes": "Read 2026-11-05 (T-3382) through a fetch that summarised the pages; no archived snapshot verified.",
+  "note": "A museum's short biographies of the four Pullman children. It names them and their dates and puts the twins' schooling at the Prairie Avenue house; it gives no house number (the Blue Book supplies 1729) and no date any child left.",
+  "what_it_supplies": [
+    "the four children's names and birth and death years",
+    "that the twins were schooled at home on Prairie Avenue"
+  ],
+  "what_it_does_not_supply": [
+    "the house number",
+    "when each child left the house"
+  ]
+}

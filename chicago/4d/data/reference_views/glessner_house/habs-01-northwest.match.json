@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-01-northwest",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "d419de6058cfc0d822bca63b60e203b80d5281023a4db9472a2a33560c7c9d49",
+  "glb_sha256": "6b9382e7139383eb51e3ead401494423d3d2b9c26e8ecc15a3996e41ea580ead",
   "camera_sha256": "338f0d726e6c0e2d97069253e242a098ba4baae8344ce5a1fa224c2388e06bc0",
   "photo_sha256": "0db20640a9cd929e2df2db9895b6b824f7b59a58ca4fe99a51517ba3c3d9ffdc",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg",
@@ -102,6 +102,26 @@
     },
     {
       "what": "T-3343: the north pairs' colonnettes are rebuilt as the front's kind in the wall's granite; at this camera's distance they read as before, a stone mullion between two lights.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3371: the north range's ridge is raised to 36.17 ft, the stable cross ridge's height; its cresting now runs on one straight line from the east wing into the cupola, as this print draws it, where the 34.1-ft ridge stepped down. The alley gable's apex comes down onto the roof's (S 12.31, 36.17 ft) and its coping now stands about 20 px over the cresting at the right edge, against the print's coping at the cresting; that remaining height is the 1-ft coping lift (L-glessner-north-ridge-3371).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3372: the two courtyard service stacks moved onto HABS sheets 2-3's flues (W 102.5-105.5 over the court door, and the stable corner at W 121.5-125.25) stand on the courtyard slope behind the ridge from here; re-rendered and reviewed beside the picture, every other item reads as before.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "T-3373: the northeast court corner's copper lean-to, raised wall, corner leader and small dormer east of the great chimney are out of this view or hidden behind nearer fabric; re-rendered and reviewed, nothing visible in it changed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3374: the dining bay's corner stones and the two lintel courses on the north range's court face east of it are out of this view; re-rendered and reviewed, nothing visible in it changed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3376: the stable's gables carried a stone coping standing about 1 ft over the tiles with kneelers at their feet; the tiles now run over both rakes to a thin verge, as the photograph shows. Re-rendered and reviewed.",
       "status": "fixed"
     }
   ],

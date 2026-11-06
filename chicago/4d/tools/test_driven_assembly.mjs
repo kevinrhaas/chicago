@@ -264,7 +264,7 @@ async function controlledFactory(code, { syncFailure = null, wrongMetadata = fal
   }
   const dependencyKey = `__controlledDriverFactory${fixtureNumber++}`;
   globalThis[dependencyKey] = { THREE, GLTFLoader: FixtureLoader, cloneSkinned: root => root.clone(true),
-    HumanActor: FixtureActor, resolveHumanIdentity, createDrivenAssembly,
+    HumanActor: FixtureActor, resolveHumanIdentity, createDrivenAssembly, createDriverLife: () => null,
     fitHorseSupport: () => ({ height_m: 0, normal_local_xyz: [0, 1, 0] }), crypto: webcrypto,
     disposeLoadedAsset(value) {
       if (value === gltfVehicle) stats.vehicleDisposed++;
@@ -273,7 +273,7 @@ async function controlledFactory(code, { syncFailure = null, wrongMetadata = fal
     },
     fetch(url) { const kind = String(url).includes('/horse/') ? 'horse' : 'vehicle'; events.push(kind + '-start'); if (syncFailure === kind) throw failure; return io[kind].promise; },
   };
-  const injected = `const { THREE, GLTFLoader, cloneSkinned, HumanActor, resolveHumanIdentity, disposeLoadedAsset, createDrivenAssembly, fitHorseSupport, crypto, fetch } = globalThis[${JSON.stringify(dependencyKey)}];\n`
+  const injected = `const { THREE, GLTFLoader, cloneSkinned, HumanActor, resolveHumanIdentity, disposeLoadedAsset, createDrivenAssembly, createDriverLife, fitHorseSupport, crypto, fetch } = globalThis[${JSON.stringify(dependencyKey)}];\n`
     + code.replace(/^import .*;\n/gm, '');
   const module = await import('data:text/javascript;base64,' + Buffer.from(injected).toString('base64'));
   delete globalThis[dependencyKey];
@@ -360,7 +360,7 @@ const actualPeople1904 = JSON.parse(readFileSync(new URL('../data/sidecars/1904/
 const actualRoutes = JSON.parse(readFileSync(new URL('../data/transport/driven/loops.json', import.meta.url)));
 const actualDriverRow = actualRoutes.rows.find(r => r.scene === '1904');
 assert(!actualScene1904.layers.includes('residents') && !actualScene1904.layers.includes('humans'));
-assert.equal(actualPeople1904.people.length, 392); assert.equal(actualPeople1904.residents_root, 'data/residents_1904');
+assert.equal(actualPeople1904.people.length, 440); assert.equal(actualPeople1904.residents_root, 'data/residents_1904');
 assert.equal(actualDriverRow.person_id, 'pa1904_otis_f_r_c1900_hans_johnson');
 for (const id of ['1835', '1904', 1835, 1904]) assert(supportsTownTransport(id));
 for (const id of ['1812', '1880', '1905', null]) assert(!supportsTownTransport(id));
@@ -1023,7 +1023,7 @@ console.log('seated driver visual clock: stop, holds, range, Light restoration a
   assert.equal(actor.snapshot().total_distance_m,before.total_distance_m,'Continue consumes no pre-action interval');
   assert.deepEqual(actor.snapshot().wheel_rotation_rad,before.wheel_rotation_rad);
   assert.equal(phase,beforeContinuePhase+8,'Qualified independent look continues during a journey-only Stop/Continue');
-  frame(.5);assert(Math.abs(actor.snapshot().total_distance_m-row.speed_m_s*.5)<1e-9);
+  frame(.5);assert(Math.abs(actor.snapshot().total_distance_m-Math.min(row.speed_m_s*.5,.25))<1e-9); // one elapsed frame travels at most .25 m
   assert.equal(actor.state,'moving','Fulfilled/canceled Find intent cannot stop a resumed native journey again');
   town.dispose();console.log('composed motionV2+cold Find: actual assembly publication/visual admission, fulfilled Stop, native Continue zero and configured next-frame pace PASS');
 }

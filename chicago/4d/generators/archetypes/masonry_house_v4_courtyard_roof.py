@@ -34,6 +34,21 @@ def dining(params):
     return triangles,cut
 
 
+def connector_end(params):
+    """Where the dining cap's level tiled ridge meets the north range.
+
+    T-3371: the north ridge was raised to the stable's cross ridge, above the
+    cap's point, which T-2172 keeps at 34.1 ft. The connector keeps its level
+    ridge and dies into the courtyard slope short of the main ridge, rather
+    than climbing to it or lifting the owner-shortened cap with it.
+    """
+    bay=params.bays[0];n=north(params);ap=tuple(bay['apex'])
+    if ap[2]>=n['ridge_z']-1e-9:
+        return (ap[0],n['ridge_at'],n['ridge_z'])
+    y=n['y0']+(ap[2]-n['eave_lo_z'])*(n['ridge_at']-n['y0'])/(n['ridge_z']-n['eave_lo_z'])
+    return (ap[0],y,ap[2])
+
+
 def dining_connection(params):
     """A raised cross ridge, intersected with the unchanged north roof plane.
 
@@ -42,7 +57,7 @@ def dining_connection(params):
     rectangular hole cut down to the clerestory (T-2157).
     """
     bay=params.bays[0];n=north(params);ap=tuple(bay['apex'])
-    back=(ap[0],n['ridge_at'],n['ridge_z'])
+    back=connector_end(params)
     eave_y=n['y0']-n.get('eave_lo_overhang',.20);eave_z=north_height(params,eave_y)
     # T-2183: at the extended eave, the tile and copper have the same front
     # section (apex -> apron fold -> shoulder). Intersect BOTH pitches with
@@ -131,11 +146,15 @@ def add_dining_roof(b,params):
     for poly in dining_connection(params)[0]:
         legacy._two_sided_roof(b,poly,conf,roof)
     # Same cap radius, spacing and raised terracotta collars as the main ridge.
-    end=north(params)['ridge_at'];start=ap[1]+.30;step=.36
+    end=connector_end(params)[1];start=ap[1]+.30;step=.36
     if params.detail.get('roof_edges'):
         from archetypes.masonry_house_v4_roof_edges import ridge_chain
+        # A connector that meets the main ridge stops at its roll; one that dies
+        # into the slope (T-3371) runs its roll on into the rising tiles.
+        meets=end>=north(params)['ridge_at']-1e-9
+        tail=-params.detail['roof_edges']['cap_radius_m'] if meets else .20
         ridge_chain(b,params,{'axis':'y','ridge_at':ap[0],'ridge_z':ap[2]},start,
-                    end-params.detail['roof_edges']['cap_radius_m'],join_end=True)
+                    end+tail,join_end=True)
     else:
         for i in range(math.ceil((end-start)/step)):
             lo=start+i*step;hi=min(end,lo+step-.012)
@@ -173,9 +192,12 @@ def clip_host(pts,params):
             holes.extend([[(v[0],v[1]) for v in poly] for poly in dining(params)[0]])
         else:holes.append(dining(params)[1])
     if params.detail.get('continuous_copper_corner'):holes.extend(copper(params)[1])
-    if params.detail.get('north_copper_cladding'):
-        from archetypes.masonry_house_v4_copper import north_cladding
-        holes.extend([[(p[0],p[1]) for p in face] for face in north_cladding(params)])
+    if params.detail.get('north_copper_leanto'):
+        from archetypes.masonry_house_v4_copper import leanto_tile_holes
+        holes.extend(leanto_tile_holes(params))
+    if params.detail.get('north_court_dormer'):
+        from archetypes.masonry_house_v4_north_dormer import tile_holes
+        holes.extend(tile_holes(params))
     normal=_normal(pts);a=pts[0]
     def point(p):
         x,y=p
@@ -183,6 +205,15 @@ def clip_host(pts,params):
     poly=[(p[0],p[1]) for p in pts]
     if sum(a[0]*b[1]-b[0]*a[1] for a,b in zip(poly,poly[1:]+poly[:1]))<0:poly.reverse()
     return [[point(p) for p in f] for f in subtract(poly,holes)]
+
+
+def base_z(points,x):
+    """Height of a sorted (u, z) wall-top profile at u=x."""
+    q=sorted(points)
+    for a,c in zip(q,q[1:]):
+        if a[0]<=x<=c[0] and c[0]-a[0]>1e-12:
+            return a[1]+(c[1]-a[1])*(x-a[0])/(c[0]-a[0])
+    return q[0][1] if x<q[0][0] else q[-1][1]
 
 
 def wall_profile(params,lo,hi,z):
@@ -203,9 +234,16 @@ def wall_profile(params,lo,hi,z):
             if lo<join<hi:
                 points[0]=(lo,max(z,west['ridge_z']+pitch*(lo-west['ridge_at'])))
                 points.append((join,z))
+        leanto=params.detail.get('north_copper_leanto')
+        if leanto and lo<leanto['x_west']<hi:
+            # T-3373: east of the lean-to's hipped end the court wall stands
+            # up to the copper's eave (HABS sheet 4's section at W 51.3).
+            xw,top=leanto['x_west'],leanto['eave_z']
+            points=[q for q in points if q[0]<xw]+[(xw,base_z(points,xw)),(xw,top),(hi,top)]
         base=sorted(points)
         def base_height(x):
             for a,c in zip(base,base[1:]):
+                if c[0]-a[0]<1e-12:continue
                 if a[0]<=x<=c[0]:
                     return a[1]+(c[1]-a[1])*(x-a[0])/(c[0]-a[0])
             return z

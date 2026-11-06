@@ -186,6 +186,58 @@ function harness({ reduced = false, year = '1904' } = {}) {
   assert.doesNotMatch(text(find(h.doc, 'recall-confirm')), /null|undefined|\{/);
 }
 
+// ---- T-3390: a Jump to another year asks the same way: CANCEL / DEPART --------------
+{
+  const h = harness();
+  const leaving = [];
+  h.r.onReturn((href) => leaving.push(href));
+  let jumped = 0;
+  const opener = h.doc.createElement('a');
+  h.doc.activeElement = opener;
+  assert.equal(h.r.askJump({ year: 1835, when: '1 July 1835' }, () => { jumped += 1; }), true);
+  assert.equal(h.r.open, 'prompt');
+  const shade = find(h.doc, 'recall-confirm');
+  assert.equal(shade.getAttribute('role'), 'alertdialog');
+  assert.match(text(shade), /Temporal jump/);
+  assert.match(text(shade), /1904 › 1835/, 'the code reads from › to');
+  assert.match(text(shade), /Depart 1904 for 1835\?/, 'it says the year you leave and the one you go to');
+  assert.match(text(shade), /Chicago, 1904/);
+  assert.match(text(shade), /1\u00a0July\u00a01835/, 'and the destination\'s date, kept on one line');
+  assert.doesNotMatch(text(shade), /[a-z0-9]+_[a-z0-9]+|\{|\}|undefined|null/i, 'no id or unfilled placeholder');
+  const no = find(h.doc, 'recall-cancel'), yes = find(h.doc, 'recall-go');
+  assert.equal(no.textContent, 'Cancel');
+  assert.equal(yes.textContent, 'Depart');
+  assert.equal(h.doc.activeElement, no, 'the safe answer has the focus');
+  assert.equal(h.r.askJump({ year: 1812 }, () => { jumped += 1; }), false, 'one prompt at a time');
+  assert.equal(h.r.ask('../'), false, 'nor a recall over it');
+  h.win.key('Tab'); assert.equal(h.doc.activeElement, yes, 'Tab stays on its two keys');
+  h.win.key('Tab'); assert.equal(h.doc.activeElement, no);
+  assert.ok(h.win.key('d').stopped, 'a walk key does not reach the town under it');
+  no.click();
+  assert.equal(h.r.open, null);
+  assert.equal(h.doc.activeElement, opener, 'CANCEL puts focus back');
+  h.r.askJump({ year: 1835 }, () => { jumped += 1; });
+  assert.ok(h.win.key('Escape').prevented);
+  assert.equal(h.r.open, null, 'Esc is a no');
+  h.r.askJump({ year: 1835 }, () => { jumped += 1; });
+  const s2 = find(h.doc, 'recall-confirm');
+  s2.click(s2);
+  assert.equal(h.r.open, null, 'so is a tap outside the card');
+  assert.equal(jumped, 0, 'no answer but DEPART jumps');
+  assert.deepEqual(h.went, []);
+  assert.equal(h.timers.length, 0, 'and no recall ring started');
+  h.r.askJump({ year: 1835 }, () => { jumped += 1; });
+  find(h.doc, 'recall-go').click();
+  assert.equal(jumped, 1, 'DEPART runs the jump');
+  assert.equal(h.r.open, null, 'with the prompt gone, so the jump\'s own ring takes the keys');
+  assert.deepEqual(h.went, [], 'the jump goes by its own ring, not the recall\'s');
+  assert.deepEqual(leaving, [], 'and is not a recall: the journey is not told');
+  const n = harness({ year: null });
+  n.r.askJump({ year: 1812, when: '14 August 1812' }, () => {});
+  assert.match(text(find(n.doc, 'recall-confirm')), /Depart for 1812\?[^]*this destination/);
+  assert.doesNotMatch(text(find(n.doc, 'recall-confirm')), /null|undefined|\{/);
+}
+
 assert.equal(pageYear({ pathname: '/4d/1904/', search: '' }), '1904');
 assert.equal(pageYear({ pathname: '/4d/dev/1835/index.html', search: '' }), '1835');
 assert.equal(pageYear({ pathname: '/4d/walk/', search: '?year=1812' }), '1812');
@@ -209,4 +261,4 @@ assert.equal(pageYear({ pathname: '/4d/walk/', search: '' }), null);
   assert.match(skinJs, /chicago4d\.recall/);
 }
 
-console.log('RECALL PASS — All destinations and Recall ask first; Cancel, Esc or a tap outside stay put; Return runs the reverse ring, stamps the trip and goes; Esc aborts the ring; reduced motion asks and skips the ring');
+console.log('RECALL PASS — All destinations and Recall ask first; Cancel, Esc or a tap outside stay put; Return runs the reverse ring, stamps the trip and goes; Esc aborts the ring; reduced motion asks and skips the ring; a Jump asks CANCEL / DEPART first (T-3390)');
