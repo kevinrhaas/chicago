@@ -1,4 +1,20 @@
 export const CHANGELOG = [ // newest first
+  { v: 2731, ts: '2026-11-06T21:47:20.165Z', date: 'Nov 6, 2026, 3:47 PM CT', title: 'Following someone is smooth', kind: 'fix',
+    items: [
+      'Walking beside Hans Johnson\'s brougham no longer jitters: you keep the carriage\'s pace instead of standing still and lunging each frame, and your eyes stay on him without bobbing with his head.',
+    ] },
+  { v: 2730, ts: '2026-11-06T21:29:09.033Z', date: 'Nov 6, 2026, 3:29 PM CT', title: 'The Glessners\' cook in their courtyard: the first woman in 1904', kind: 'feature',
+    items: [
+      'In 1904, Mattie Williamson, the Glessners\' cook, now stands in the Glessner House courtyard. Tap her to open her card.',
+      'She wears a working woman\'s dress of the decade: a pale shirtwaist with a white standing collar, a dark skirt and a white bib apron, her hair drawn up to a knot.',
+      'The dress is cut after three 1903 stereographs of a cook and a maid at work. Its colours, and her face, are a marked reconstruction (liberty L-human-modular-dress-1789).',
+    ] },
+  { v: 2729, ts: '2026-11-06T21:29:09.033Z', date: 'Nov 6, 2026, 3:29 PM CT', title: '2009 Prairie\'s gable gets its carved crest, and its door its pinnacles', kind: 'improvement',
+    items: [
+      'In 1904, the tall pointed gable of 2009 Prairie Avenue now ends in a flat top with a carved stone block on it, as the old photograph shows, instead of a turned knob.',
+      'Its front door\'s two stone pilasters now run up past their capitals and through the carved panel over the door to small spires, with a third, budded pinnacle over the arch, again as the photograph shows.',
+      'The carving is drawn plainer than the photograph\'s foliage and is marked as our reconstruction. The chimney\'s place, the stone base\'s height and the window hoods are still to come.',
+    ] },
   { v: 2728, ts: '2026-11-06T20:47:02.317Z', date: 'Nov 6, 2026, 2:47 PM CT', title: 'Pullman house: three photo comparisons re-read against fresh renders', kind: 'change',
     items: [
       'Nothing you can see changed in the town. Three of the open differences between 1729 Prairie and its photographs were re-read against fresh renders.',
