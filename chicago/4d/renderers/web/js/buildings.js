@@ -42,6 +42,7 @@ import { CELL_M, MAX_PIXELS as FAR_SHADOW_MAX_PIXELS, shadowTwin, twinReachM, dr
 import { drawFarColourAsTwins, farColourFromSearch, MAX_PIXELS as FAR_COLOUR_MAX_PIXELS,
   CELL_M as FAR_COLOUR_CELL_M, KEEP_RATIO as FAR_COLOUR_KEEP_RATIO } from './far-colour.js';
 import { coalesceRuns, sortCellsByPiece, COALESCE_ON } from './batch-coalesce.js';
+import { skipSubPixelPieces, subPixelFromSearch, MAX_RADIUS_PIXELS as SUB_PIXEL_MAX_PIXELS } from './sub-pixel.js';
 import { rigidBoundsMaterial, installFrustumBoxCull } from './batch-frustum-box.js';
 import { backingTriangles } from './view-occlusion.js';
 import { planarCoverPlanes } from './planar-occluders.js';
@@ -649,6 +650,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   // a tier below `full`); drawn only while the tier says so (`farColourTier.on`).
   const farColour = { on: farColourFromSearch(globalThis.location?.search), maxPixels: FAR_COLOUR_MAX_PIXELS,
     control: false, batches: [], twinTriangles: 0, twinVertices: 0, buildMs: 0 };
+  // T-3426: at `light`, a piece whose whole bounding sphere lands within a pixel of its
+  // centre is not drawn in the colour pass (sub-pixel.js); every batch, whatever it holds.
+  const subPixel = { on: subPixelFromSearch(globalThis.location?.search), maxPixels: SUB_PIXEL_MAX_PIXELS,
+    batches: [], scratch: { m: new THREE.Matrix4(), sphere: new THREE.Sphere() } };
   /** structure id -> its footprint extent in its own local frame, so a building
    *  can be stood on the lowest ground UNDER it rather than under its origin.
    *  Filled in the load loop because placement needs it. */
@@ -1200,6 +1205,14 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       drawFarColourAsTwins(batch, state);
       farColour.batches.push({ batch, state });
     }
+    // T-3426: after far-colour (this one runs first, so a piece hidden here keeps its
+    // twin hidden there) and before the narrow phase below, which trusts only the hook it wrapped.
+    {
+      const state = { get on() { return subPixel.on && farColourTier?.subPixel === true; },
+        get maxPixels() { return subPixel.maxPixels; }, skipped: 0 };
+      skipSubPixelPieces(batch, state, subPixel.scratch);
+      subPixel.batches.push({ batch, state });
+    }
     batch.userData.batchIndex = [];
     // Each instance's dequantize scale, for a reader that needs the structure's
     // frame back off the batch (tools/drawn_placement_census.mjs).
@@ -1622,6 +1635,16 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     },
     // T-3312: the colour pass's far twins at `light` (far-colour.js), summed over the
     // batches as of the last colour render; `on = false` draws every piece whole.
+    // T-3426: the colour pass's sub-pixel pieces at `light` (sub-pixel.js), summed over
+    // the batches as of the last colour render; `on = false` draws every piece.
+    subPixel: {
+      get on() { return subPixel.on; },
+      set on(v) { subPixel.on = !!v; },
+      get active() { return subPixel.on && farColourTier?.subPixel === true; },
+      get maxPixels() { return subPixel.maxPixels; },
+      set maxPixels(v) { subPixel.maxPixels = Number.isFinite(v) && v >= 0 ? v : SUB_PIXEL_MAX_PIXELS; },
+      get skipped() { return subPixel.batches.reduce((n, b) => n + (b.state.skipped ?? 0), 0); },
+    },
     farColour: {
       get on() { return farColour.on; },
       set on(v) { farColour.on = !!v; },

@@ -274,6 +274,8 @@ step "A far structure piece casts from its clustered shadow twin only where the 
   node tools/test_far_shadow.mjs
 step "At light, a far structure piece draws in the colour pass from a clustered twin that never pools two normals, only where its edge moves under a pixel, and is put back after the pass (T-3312)" \
   node tools/test_far_colour.mjs
+step "At light, a structure piece whose whole bounding sphere lands within a pixel of its centre is not drawn in the colour pass, never in the sun's, and is put back after the pass (T-3426)" \
+  node tools/test_sub_pixel.mjs
 step "Draw budgets read the driver's draws: a BatchedMesh multi-draw counts one draw per kept entry, reset with renderer.info (T-2970)" \
   node tools/test_driver_draws.mjs
 step "Full active Ghost views use their measured envelope; ordinary and lower-tier ceilings restore unchanged (T-2981)" \
