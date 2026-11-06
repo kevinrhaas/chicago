@@ -642,6 +642,8 @@ step "Glessner service posts seat on stone and gate hinges connect to masonry (T
   python3 tools/test_glessner_service_access.py
 step "Glessner stacks meet both roof pitches and retain deep open flues (T-2222)" \
   python3 tools/test_glessner_chimneys.py
+step "Print export makes one closed, solid, standing piece from a leaky render soup (T-3395)" \
+  python3 tools/test_export_print_3mf.py
 step "Glessner's curved stone staggers, its eave clears the gable and its pipe meets the roof (T-2470)" \
   python3 tools/test_glessner_north_tower.py
 step "Glessner's service openings stay whole and the stable roof meets the north range (T-2219)" \
