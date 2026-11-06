@@ -40975,3 +40975,23 @@ excavation report.
 **Covers:** `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.period_brick`, `first_fort_dearborn_magazine.first_fort_1803.form.period_brick`, `first_fort_dearborn_north_range.first_fort_1803.form.period_brick`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.period_brick`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.period_brick`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.period_brick`, `fort_dearborn_barracks.log_1816.form.period_brick`, `fort_dearborn_commandants_quarters.brick_1816.form.period_brick`, `fort_dearborn_guard_house.log_1816.form.period_brick`, `fort_dearborn_magazine.brick_1816.form.period_brick`, `fort_dearborn_officers_quarters.log_1816.form.period_brick`, `fort_dearborn_sutlers_store.log_1816.form.period_brick`, `lake_house_construction.shell_1835.form.period_brick`.
 **Ticket:** T-3387.
 **Recorded:** 2026-11-05 (T-3387).
+
+### L-human-life-3402 — People on foot breathe, settle their weight, look about and blink
+
+**Decision:** every standing, talking, working, seated or walking figure drawn by `humans.js` carries a
+procedural life layer (`renderers/web/js/human-life.js`) over its clip, inside the animation range: breathing in
+the chest and shoulders (about 13-16 a minute standing, quicker walking), a slow postural sway, a weight shift
+every 4-11 s while standing (the hips carried about 3 cm over the loaded foot and tipped 3° to the free side, that
+knee softened, the spine countering so the shoulders stay level), looking about (eyes lead with saccades and
+fixational micro-saccades, head and neck follow, the torso joins a wide look) along the street, aside, at the
+ground and into the distance, a look at a visitor who comes within a few metres in front, and a blink every
+2-6 s, sometimes doubled, and with a large change of gaze. The owner, 2026-11-06: he "looks too smooth and not
+real ... set us on a path for all humans to look photographic realistic".
+**What is read.** Nothing about any person: this is ordinary human motion, bounded by common observation of
+standing posture, gaze and blink rates.
+**What is invented.** Every amplitude, interval, the choice of where a figure looks and when, and that it looks
+at the visitor. It is seeded from the person id, so it is the same on every load; it is not a witnessed action,
+gesture or likeness and does not change any person's grade.
+**How to resolve:** recorded motion capture of period-appropriate standing and walking, reviewed in the town.
+**Ticket:** T-3402.
+**Recorded:** 2026-11-06 (T-3402).
