@@ -2251,13 +2251,15 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 /* Starting at…: five one-tap places, then search, kinds and the full list. */
 #welcome-picker { display: flex; flex-direction: column; gap: 8px; }
 #welcome-picker[hidden] { display: none; }
-.welcome-quick { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; flex-shrink: 0; }
+/* T-3436: compact chips, three to a row: a glyph of its own and a one- or two-word name. */
+.welcome-quick { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; flex-shrink: 0; }
 .welcome-quick:empty { display: none; }
 .welcome-quick-start {
-  display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 5px;
-  min-width: 0; min-height: 74px; padding: 10px 3px 8px; font-size: 11.5px; line-height: 1.15; text-align: center;
+  display: flex; flex-direction: row; align-items: center; justify-content: flex-start; gap: 6px;
+  min-width: 0; min-height: 44px; padding: 6px 8px; font-size: 12px; line-height: 1.15; text-align: left;
   background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 13%, var(--panel)), var(--panel));
 }
+.welcome-quick-start > span { min-width: 0; overflow-wrap: anywhere; }
 .welcome-quick-start .menu-icon { color: var(--accent); flex: none; }
 .welcome-find, .jaunt-find { position: relative; flex: 1 1 auto; min-width: 0; }
 .welcome-find .menu-icon, .jaunt-find .menu-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--ink-faint, var(--ink-dim)); pointer-events: none; }
@@ -2267,7 +2269,7 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
   border: 1px solid var(--edge); border-radius: 999px;
 }
 .welcome-kinds { display: flex; flex-shrink: 0; overflow-x: auto; gap: 5px; scrollbar-width: none; }
-.welcome-kinds button { min-height: 34px; padding: 0 11px; font-size: 12px; min-width: 44px; flex: none; border-radius: 999px; color: var(--ink-dim); background: none; }
+.welcome-kinds button { min-height: 34px; padding: 0 9px; font-size: 12px; min-width: 40px; flex: none; border-radius: 999px; color: var(--ink-dim); background: none; }
 .welcome-kinds button[aria-pressed="true"] { border-color: var(--accent); color: var(--ink); background: color-mix(in srgb, var(--accent) 16%, transparent); }
 /* T-2740: the kinds scroll sideways; the order sits at the row's end, quiet, always in reach. */
 .welcome-filters { display: flex; align-items: center; gap: 6px; flex-shrink: 0; min-width: 0; }
@@ -2282,6 +2284,16 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
   border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-70%) rotate(45deg); }
 .welcome-sort select:hover, .welcome-sort select:focus-visible { border-color: var(--accent); color: var(--ink); outline: none; }
 .welcome-sort select option { color: var(--ink); background: var(--panel-solid); }
+/* On a phone the chips are one row that scrolls sideways, so the list keeps the sheet. */
+@media (max-width: 520px) {
+  .welcome-quick { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: max-content;
+    overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain; }
+  .welcome-quick::-webkit-scrollbar { display: none; }
+  .welcome-quick-start > span { white-space: nowrap; }
+  .welcome-kinds button { padding: 0 8px; }
+  .welcome-sort select { padding: 0 22px 0 9px; }
+  .welcome-sort::after { right: 10px; }
+}
 .welcome-results { overflow-y: auto; overscroll-behavior: contain; min-height: 96px; flex: 1 1 auto; }
 .welcome-destination { width: 100%; text-align: left; padding: 8px 10px; margin-bottom: 5px; min-height: 44px; }
 .welcome-destination strong, .welcome-destination span { display: block; }
@@ -2291,6 +2303,12 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .welcome-destination strong { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2;
   overflow: hidden; white-space: normal; overflow-wrap: anywhere; line-height: 1.25; }
 .welcome-destination .welcome-dest-text { min-width: 0; }
+/* T-3436: a photo view leads with its picture, a viewpoint with its glyph. */
+.welcome-destination.has-lead { grid-template-columns: auto minmax(0, 1fr) auto; }
+.welcome-destination .welcome-thumb { width: 52px; height: 40px; object-fit: cover; border-radius: 4px; display: block;
+  background: color-mix(in srgb, var(--accent) 10%, var(--panel)); }
+.welcome-destination .welcome-thumb.is-missing { visibility: hidden; }
+.welcome-destination .welcome-glyph { display: inline-grid; place-items: center; width: 24px; color: var(--accent); }
 .welcome-destination .welcome-dist { display: inline-flex; align-items: center; gap: 4px; font: 400 11px/1.2 var(--font-mono, ui-monospace, monospace);
   color: var(--ink-dim); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .welcome-destination .welcome-dist i { display: inline-grid; width: 14px; height: 14px; transform: rotate(var(--turn, 0deg)); }
@@ -2331,7 +2349,8 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .gate.welcome-compact[data-state="welcome"] .welcome-action > span { display: none; }
 .gate.welcome-compact[data-state="welcome"] .welcome-action .menu-icon { margin: 0; }
 .gate.welcome-compact[data-region] h1 { display: none; }
-.gate.welcome-compact .welcome-quick-start { min-height: 44px; padding: 6px 3px; }
+.gate.welcome-compact .welcome-quick { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); }
+.gate.welcome-compact .welcome-quick-start { min-height: 44px; padding: 6px 3px; justify-content: center; text-align: center; }
 .gate.welcome-compact .welcome-quick-start .menu-icon { display: none; }
 /* First entry must not shrink the menu on return and hide its restored focus. */
 .gate[data-region="jaunts"] #welcome-close[hidden] { display: block; visibility: hidden; }
