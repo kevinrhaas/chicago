@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_16554_from_south",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "1df1feeedb8007fd96c1a65f300a263369f33daf8068f6b1156beca070f0f493",
+  "glb_sha256": "60ffbd8ce96c0eee6d420b4fd463bb8c821c9f6e70923fc78353c7e11430a8b5",
   "camera_sha256": "568a603acd37c9549b21b76a5f24b692670a1c74a4abc57c3eaf1aaa48334598",
   "photo_sha256": "f1099e538ca42a2bf75bc3db892a8e73c172c22f866862b71fa38c27c464dbfa",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "1df1feeedb8007fd96c1a65f300a263369f33daf8068f6b1156beca070f0f493"
+      "glb_sha256": "60ffbd8ce96c0eee6d420b4fd463bb8c821c9f6e70923fc78353c7e11430a8b5"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "33753cacaa38e5035e8d72e0f568c4efa6c9770272b67ef2f03738313beeb916"
     }
   ],
-  "group_sha256": "aa696bbeb2d4d64e423acf6ba452fcb013e365a10d73beb51d466526bfbffe44",
+  "group_sha256": "f9a8970c3de91e99108a3f016aed23d4df3e0ce0763deb8db8112e60cdd51b18",
   "rendered_flora": {
     "season": "winter",
     "lots": [
@@ -111,7 +111,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "ecebd8c3fa044a2f7c23fe8dd4b8c0b79f0edeca5c4bd4ddde04885a437d38bc"
+      "sha256": "cac67fd26e677f5a848f1817b51d2a485835b09f09aa2c234efc1b3a5b3e3329"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -119,30 +119,30 @@
     },
     {
       "file": "renderers/web/js/tree-instances.js",
-      "sha256": "39ea6657e4a0799dd9241b69481e62f3a5ce64c250151b2828ca87a77c17b361"
+      "sha256": "a103f17c2d5a18b12a39126c62c539dd69ad9a118939254589b0b579d4cb9c61"
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "abf705150b8cbf9548ec963ce000d87822e618ef3387bef61d725a750d71ce24"
+      "sha256": "93bacc401201ba198809ca6edac57e33e85aa373d1a557b6344070cd2f24b38d"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
-      "sha256": "96fd05c1ef7de0a65f0d0966c6d418aa0b1a0391d19773a3382cc0b9ed04c909"
+      "sha256": "23dec0e5dda80547d8ee2ae86f1400fb1a4af2bd54ca0b53d7fe8d52f088cc84"
     },
     {
       "file": "renderers/web/js/season.js",
-      "sha256": "2c010c2598f57fe242361e18171d4919fc86b96691fa3282a59424554ea40e4e"
+      "sha256": "e44ebdadf8266909cd6e8676775a9decc3b7376ba245ad784118851e15b409cc"
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "a222fb6e6af97d1650b05940f9ca0a79874a53c60a688e1b7b49838a7a637c66"
+      "sha256": "bd022919ca052610595908f83128dfceea976790c5bf2eff63f381abaa3b89b5"
     },
     {
       "file": "renderers/web/js/street-furniture.js",
       "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "c028a6d3f536dc0f15d09c1160bbbfea5920361d74264b40a4e4a58bf0490dda",
+  "flora_sha256": "649d4ce4ce28f5f9f8d79b9f3a91cf0c8104e7c198b5bed997c58483b130c258",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "differs",
   "differences": [

@@ -41222,3 +41222,33 @@ architrave, which HABS 2 shows and the kit's flat-capped face does not yet build
 drawings if any were made), or a nearer photograph of the front's roof.
 **Ticket:** T-1890.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`, `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg`.
+
+### L-k01-1729-pullman-lantern-1881 — 1729 Prairie's hanging lantern beside the portico and the banded pier at the entrance's inner angle, read off the 1890 Albertype plate
+
+**Decision:** a hanging lantern on a wrought-iron arm is hung off the entrance part's south return
+(the 1.6 m face looking toward 18th Street, s 8.8), its axis 1.1 m out from the main wall and 0.42 m
+off the return, its arm at 6.15 m and its foot at 5.15 m: a bell cap widening down to a 0.66 m brim
+over a glazed body tapering in, a base and a drop finial, 1.0 m in all (`wall_lanterns`, a new K01
+option, k01_wall_lanterns). A banded pier, 0.61 m broad, is set on the main wall at the entrance's
+inner south angle (s 8.8-9.41, `street_front_pavilions`).
+**What is read, not invented.** The 1890 Albertype plate (Prairie library
+a16-albertype-1890-pullman-residence; it has no record in `data/sources`), through its solved camera
+(`data/reference_views/pullman_house_1729_prairie/albertype_1890.json`): a dark bell-shaped fitting
+just south of the portico under the belt course (x 1140-1153, y 473-497 px, about 0.7 m across and
+1 m tall at 22 px a metre) between two banded piers (x 1126-1138 and 1158-1168). The plate's pier, gap
+and pier, 17, 15 and 15 px, fall on the entrance part's south corner pilaster, its return and the
+main wall just south of the angle (16, 17 and 16 px as built), 20-26 px left of the plate as the
+camera reads everything on this front; so the gap is the return, the lantern hangs off it, and the
+second pier is at the inner angle.
+**What is invented.** The lantern's profile (how the bell curves, the glazing's taper, the base and
+the finial), its eight sides, its dark glass, and the arm's square section with a diagonal brace and
+an upturned end; how far out along the return the arm is fixed (read to about 0.3 m through a camera
+that sees the return at a steep angle); the pier's breadth (built at about the kit's least, 0.61 m,
+to clear the big principal-storey light's sill table, where the plate's 15 px would hold 0.8 m); and
+the lantern's standing in 1904, which the 1901 Detroit print neither shows nor rules out (the stretch
+is under ivy there).
+**How to resolve:** a nearer view of the portico's south side (the Beman-addition views, CHM i70232),
+or a close photograph of the entrance, which would draw the lantern's shape and its bracket.
+**Ticket:** T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg`, with its match record.
+**Recorded:** 2026-11-06 (T-1881).
