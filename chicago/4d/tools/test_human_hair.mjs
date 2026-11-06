@@ -201,7 +201,7 @@ assert.equal(hairFor(null, 1600), null, 'no era, no hair grown');
     if (r > .004) assert(tilt > .4 && (nn.getX(i) * px + nn.getY(i) * py) > 0, `the rim tilts outward: ${tilt}`);
   }
   dressSkin(root);
-  assert(iris.material.roughness < .05, 'the cornea is glossy');
+  assert(iris.material.roughness <= .1 && iris.material.envMapIntensity > 1, 'the cornea is glossy and mirrors the sky');
 }
 
 // 5. Every person: humans.js grows each near body's hair after it measures its height.

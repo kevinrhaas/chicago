@@ -114,5 +114,7 @@ assert.equal(a.vertexShader + a.fragmentShader, b.vertexShader + b.fragmentShade
 // Every person, not only drivers: humans.js dresses each body it builds.
 const humans = await fs.readFile(new URL('renderers/web/js/humans.js', here), 'utf8');
 assert(/import \{ dressSkin \} from '\.\/human-skin\.js';/.test(humans), 'humans.js imports dressSkin');
-assert(/const scene = cloneSkinned\(gltf\.scene\);[\s\S]{0,700}dressSkin\(scene\);/.test(humans), 'build() dresses the clone');
+// T-3412 put per-person variation between the clone and the dressing, so the window
+// allows build()'s whole preamble, not just the lines that were there first.
+assert(/const scene = cloneSkinned\(gltf\.scene\);[\s\S]{0,1500}dressSkin\(scene\);/.test(humans), 'build() dresses the clone');
 console.log('human-skin: skin, hair and eyes only, no texture, spliced at every anchor, chained key, rest pose in metres, every body: PASS');

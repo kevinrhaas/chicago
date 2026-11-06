@@ -6717,6 +6717,14 @@
     "{}": {
       "wrote": [],
       "wrote_ignored": []
+    },
+    "tools/human_variation_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_variation.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
     }
   }
 }

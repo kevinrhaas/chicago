@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 2706, ts: '2026-11-06T12:12:48.495Z', date: 'Nov 6, 2026, 6:12 AM CT', title: 'No two people alike: each has their own face, height and build', kind: 'improvement',
+    items: [
+      'Every person now has a face of their own: nose, mouth, chin, jaw, cheeks, brows and ears differ.',
+      'People on foot also differ in height, build, neck and head shape, and their clothes follow.',
+      'Age comes from a person\'s own record where it has one, so Hans the coachman looks 34.',
+      'Hans and Otis no longer share one face. All of it is a marked reconstruction (liberty L-human-variation-3412).',
+    ] },
+  { v: 2705, ts: '2026-11-06T12:08:49.039Z', date: 'Nov 6, 2026, 6:08 AM CT', title: 'People\'s skin, hair and eyes look real up close', kind: 'improvement',
+    items: [
+      'Skin has pores and fine lines that catch the light, uneven colour with redder and browner patches, and a few small marks.',
+      'Light sinks a little into skin, so faces are soft and warm at the shadow\'s edge instead of plastic.',
+      'Hair shines in a band across the strands instead of one round highlight, and eyes are wet enough to catch the sky.',
+      'Every person gets it, Hans in 1904 and Otis Bardwell in 1835 included. Drawn by the graphics card: no images to download, nothing added to phone memory.',
+    ] },
   { v: 2704, ts: '2026-11-06T11:25:15.108Z', date: 'Nov 6, 2026, 5:25 AM CT', title: 'A photo test for people: Hans beside period coachmen', kind: 'improvement',
     items: [
       'Nothing you can see changes in the town. People now get the test buildings have had: stills of a person sit beside period photographs of the same kind of person.',

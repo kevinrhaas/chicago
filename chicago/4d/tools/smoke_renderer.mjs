@@ -10008,7 +10008,9 @@ for (const [label, viewport, touch] of [
       && (tagShown.place === 'right'
         ? tagShown.docked === 'instrument-below' && tagShown.upper === 'none' && /Ahead/.test(tagShown.label)
         : tagShown.upper === 'uppercase')
-      && tagShown.buttons <= 2 && tagShown.visible.includes('btn-inspect') && tagShown.fly,
+      // Visible keys only: the column also holds keys that stay hidden until needed, like
+      // T-3404's Stop following.
+      && tagShown.visible.length <= 2 && tagShown.visible.includes('btn-inspect') && tagShown.fly,
       JSON.stringify(tagShown));
     if (tagShown.shown) {
       // T-2736: the tag holds 3 s, then fades and stays gone for that building. On a runner
