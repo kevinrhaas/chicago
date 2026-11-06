@@ -54,6 +54,13 @@ courses, the narrow seams and folds lying on them go, and the metal's other piec
 - **Dropped by material name**: lawn, turf, drive, paving, ground, water, vines, ivy,
   foliage, trees, people (`DEFAULT_EXCLUDE` in the tool). `--exclude 'glob'` drops
   more; `--include 'glob'` keeps a material a default would drop.
+- **Dropped with the vines, their stems**: Glessner's creepers draw their stems as
+  square tubes of the house's `oak`, 2-8 mm thick. With the leaves gone they were left
+  on the stone and printed as dots between the Prairie Avenue windows (the owner,
+  2026-11-06: *"please make sure the stone face is consistent"*). `--stem-material`
+  (default `oak`; `none` to keep them) drops pieces of that material under 2 cm across
+  that lie within `--stem-near-m` (0.5 m) of the `--leaf-material` (`*vine*`, `*ivy*`).
+  Doors and trim are wider and stay.
 - **Dropped as ground clutter**: anything under 0.6 m tall more than 1.5 m from a wall
   (walks, kerbs). Steps and stoops next to the walls stay.
 - **Dropped as loose**: any piece not joined to the house (the 3MF is one object).
