@@ -68168,6 +68168,8 @@
         "dent_house_1823_prairie",
         "dexter_house_1721_prairie",
         "edson_keith_house_1906_prairie",
+        "first_presbyterian_church",
+        "first_presbyterian_church_2029_indiana",
         "henderson_house_1816_prairie",
         "house_1600_prairie",
         "house_1604_prairie",
@@ -68216,6 +68218,12 @@
           "domain": "structure",
           "structure": "edson_keith_house_1906_prairie",
           "phase": "as_mapped_1904",
+          "aspect": "form.face_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "first_presbyterian_church_2029_indiana",
+          "phase": "draft_1904",
           "aspect": "form.face_brick"
         },
         {
@@ -68376,7 +68384,7 @@
         },
         {
           "label": "Covers",
-          "text": "`marshall_field_house_1905_prairie.as_mapped_1904.form.face_brick`, `henderson_house_1816_prairie.as_mapped_1904.form.face_brick`, `spalding_house_1637_prairie.as_mapped_1904.form.face_brick`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.face_brick`, `house_1600_prairie.as_mapped_1904.form.face_brick`, `house_1604_prairie.as_mapped_1904.form.face_brick`, `house_1608_prairie.as_mapped_1904.form.face_brick`, `house_1613_prairie.as_mapped_1904.form.face_brick`, `house_1615_prairie.as_mapped_1904.form.face_brick`, `house_1616_prairie.as_mapped_1904.form.face_brick`, `house_1626_prairie.as_mapped_1904.form.face_brick`, `house_1628_prairie.as_mapped_1904.form.face_brick`, `house_1726_prairie.as_mapped_1904.form.face_brick`, `house_1730_prairie.as_mapped_1904.form.face_brick`, `house_2003_prairie.as_mapped_1904.form.face_brick`, `house_2005_prairie.as_mapped_1904.form.face_brick`, `kellogg_house_1709_prairie.as_mapped_1904.form.face_brick`, `kellogg_house_1923_prairie.as_mapped_1904.form.face_brick`, `dexter_house_1721_prairie.as_mapped_1904.form.face_brick`, `dent_house_1823_prairie.as_mapped_1904.form.face_brick`, `edson_keith_house_1906_prairie.as_mapped_1904.form.face_brick`, `house_1619_prairie.as_mapped_1904.form.face_brick`, `house_1621_prairie.as_mapped_1904.form.face_brick`, `house_1623_prairie.as_mapped_1904.form.face_brick`, `house_1634_prairie.as_mapped_1904.form.face_brick`, `house_1636_prairie.as_mapped_1904.form.face_brick`, `house_1712_prairie.as_mapped_1904.form.face_brick`, `house_2001_prairie.as_mapped_1904.form.face_brick`."
+          "text": "`marshall_field_house_1905_prairie.as_mapped_1904.form.face_brick`, `henderson_house_1816_prairie.as_mapped_1904.form.face_brick`, `spalding_house_1637_prairie.as_mapped_1904.form.face_brick`, `armour_corwith_house_1945_prairie.as_mapped_1904.form.face_brick`, `house_1600_prairie.as_mapped_1904.form.face_brick`, `house_1604_prairie.as_mapped_1904.form.face_brick`, `house_1608_prairie.as_mapped_1904.form.face_brick`, `house_1613_prairie.as_mapped_1904.form.face_brick`, `house_1615_prairie.as_mapped_1904.form.face_brick`, `house_1616_prairie.as_mapped_1904.form.face_brick`, `house_1626_prairie.as_mapped_1904.form.face_brick`, `house_1628_prairie.as_mapped_1904.form.face_brick`, `house_1726_prairie.as_mapped_1904.form.face_brick`, `house_1730_prairie.as_mapped_1904.form.face_brick`, `house_2003_prairie.as_mapped_1904.form.face_brick`, `house_2005_prairie.as_mapped_1904.form.face_brick`, `kellogg_house_1709_prairie.as_mapped_1904.form.face_brick`, `kellogg_house_1923_prairie.as_mapped_1904.form.face_brick`, `dexter_house_1721_prairie.as_mapped_1904.form.face_brick`, `dent_house_1823_prairie.as_mapped_1904.form.face_brick`, `edson_keith_house_1906_prairie.as_mapped_1904.form.face_brick`, `house_1619_prairie.as_mapped_1904.form.face_brick`, `house_1621_prairie.as_mapped_1904.form.face_brick`, `house_1623_prairie.as_mapped_1904.form.face_brick`, `house_1634_prairie.as_mapped_1904.form.face_brick`, `house_1636_prairie.as_mapped_1904.form.face_brick`, `house_1712_prairie.as_mapped_1904.form.face_brick`, `house_2001_prairie.as_mapped_1904.form.face_brick`, `first_presbyterian_church_2029_indiana.draft_1904.form.face_brick`."
         },
         {
           "label": "Recorded",
@@ -68384,7 +68392,8 @@
         }
       ],
       "work_refs": [
-        "T-3385"
+        "T-3385",
+        "T-3386"
       ]
     },
     {

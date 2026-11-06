@@ -60,6 +60,14 @@ MATERIALS = {
 }
 ORDER = tuple(MATERIALS)
 
+#: T-3386: the one exception to "a draft carries no texture". A record whose walls are read
+#: as brick off its own photographs may name a K03 face-brick recipe
+#: (draft_elevation.brick_recipe, data/components/prairie_1904/k03_face_brick.json): its
+#: "brick" faces then wear that recipe's K03 panel (the very maps a K01 wall embeds, so the
+#: renderer's per-brick shuffle, brick-bond.js, finds it by its image name and a phone decodes
+#: the picture once for the street), under the recipe's colour factor, with K01's metre UVs.
+BRICK_UP = (0.0, 1.0, 0.0)
+
 
 def seed_rng(seed: int):
     """A small deterministic stream of floats in [0, 1) from the record's seed."""
@@ -2180,8 +2188,40 @@ def palette(params) -> dict:
     return out
 
 
+def brick_recipe(params) -> dict | None:
+    """T-3386: the K03 recipe a draft's brick walls wear, resolved, or None (flat brick)."""
+    rid = params.elevation.get("brick_recipe")
+    if not rid:
+        return None
+    from . import k03_brick
+    r = k03_brick.recipe(rid, "face")
+    fab = f"k03:{r['panel']}"
+    return {"id": rid, "fabric": fab, "tile": k03_brick.TILES[fab], "images": k03_brick.IMAGES[fab],
+            "color": r["tone"], "roughness": round(k03_brick.ROUGHNESS[fab] + r["roughness_delta"], 3)}
+
+
+def brick_uv(pos, nrm, tile) -> list:
+    """K01's scale_uv on a brick face (glTF coordinates): u along the course, horizontal and
+    to the right seen from outside, v down the image from a bed joint at grade (y = 0), both in
+    tiles; a level face (a wall top) takes the plan's x and z."""
+    tu, tv = tile
+    out = []
+    for p, n in zip(pos, nrm):
+        au = _cross(BRICK_UP, n)
+        if _dot(au, au) < 1e-6:
+            au, av = (1.0, 0.0, 0.0), (0.0, 0.0, -1.0)
+        else:
+            au = _unit(au)
+            av = _cross(n, au)
+        out.append((_dot(p, au) / tu, -_dot(p, av) / tv))
+    return out
+
+
 def to_glb(m: Mesh, params, structure_id: str, phase_id: str, scene_ids, facts: dict) -> bytes:
     mats = palette(params)
+    brick = brick_recipe(params)
+    if brick:
+        mats["brick"] = dict(mats["brick"], color=brick["color"], roughness=brick["roughness"])
     used = [k for k in ORDER if m.prims[k]["idx"]]
     bin_ = bytearray()
     views, accessors = [], []
@@ -2191,6 +2231,8 @@ def to_glb(m: Mesh, params, structure_id: str, phase_id: str, scene_ids, facts: 
         off = len(bin_)
         bin_ += _pad(blob)
         views.append({"buffer": 0, "byteOffset": off, "byteLength": len(blob), "target": target})
+        if target is None:   # T-3386: an image's view names no target
+            del views[-1]["target"]
         return len(views) - 1
 
     def accessor(values, ctype, typ, comps, target, minmax=False):
@@ -2205,15 +2247,27 @@ def to_glb(m: Mesh, params, structure_id: str, phase_id: str, scene_ids, facts: 
         return len(accessors) - 1
 
     materials_out, prims_out = [], []
+    images, textures = [], []
     for name in used:
         mm = mats[name]
-        materials_out.append({"name": f"draft_{name}", "pbrMetallicRoughness": {
+        mat = {"name": f"draft_{name}", "pbrMetallicRoughness": {
             "baseColorFactor": [*mm["color"], 1.0],
-            "metallicFactor": mm.get("metallic", 0.0), "roughnessFactor": mm["roughness"]}})
+            "metallicFactor": mm.get("metallic", 0.0), "roughnessFactor": mm["roughness"]}}
         pr = m.prims[name]
         pos = [tuple(round(c, 4) for c in p) for p in pr["pos"]]
         nrm = [tuple(round(c, 5) for c in p) for p in pr["nrm"]]
         uv = [tuple(round(c, 4) for c in p) for p in pr["uv"]]
+        if name == "brick" and brick:
+            # T-3386: K01's own image names (`<panel>_basecolor`), which brick-bond.js keys on
+            for role in ("basecolor", "normal"):
+                src = brick["images"][role]
+                images.append({"name": src.stem.removesuffix("_web"), "mimeType": "image/jpeg",
+                               "bufferView": view(src.read_bytes(), None)})
+                textures.append({"sampler": 0, "source": len(images) - 1})
+            mat["pbrMetallicRoughness"]["baseColorTexture"] = {"index": len(textures) - 2, "texCoord": 0}
+            mat["normalTexture"] = {"index": len(textures) - 1, "texCoord": 0}
+            uv = [tuple(round(c, 4) for c in q) for q in brick_uv(pr["pos"], pr["nrm"], brick["tile"])]
+        materials_out.append(mat)
         ctype = 5123 if len(pos) < 65536 else 5125
         prims_out.append({"attributes": {
             "POSITION": accessor(pos, 5126, "VEC3", 3, 34962, True),
@@ -2234,6 +2288,8 @@ def to_glb(m: Mesh, params, structure_id: str, phase_id: str, scene_ids, facts: 
             "family": "prairie_draft", "kind": params.kind, "draft": draft, "measured": facts}}],
         "meshes": [{"name": name, "primitives": prims_out}],
         "materials": materials_out,
+        **({"images": images, "textures": textures, "samplers": [
+            {"magFilter": 9729, "minFilter": 9987, "wrapS": 10497, "wrapT": 10497}]} if images else {}),
         "accessors": accessors,
         "bufferViews": views,
         "buffers": [{"byteLength": len(bin_)}],

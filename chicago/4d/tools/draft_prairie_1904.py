@@ -588,6 +588,9 @@ def site_record(rules, site, datum, grid) -> dict:
             "form": {
                 "stories": _attr(el["stories"], "reconstructed", notes["stories"]),
                 "construction": _attr(site["construction"], tier.get("construction", "attested"), notes["construction"], src),
+                # T-3386: the K03 recipe a site's brick walls wear (prairie_draft.brick_recipe), read off its pictures
+                **({"face_brick": _attr(site["face_brick"]["value"], "reconstructed", site["face_brick"]["note"],
+                                        site["face_brick"].get("sources"))} if site.get("face_brick") else {}),
                 "draft_plan": _attr(plan, tier.get("plan", "inferred"), notes["plan"], src),
                 "draft_elevation": _attr(elev, "reconstructed",
                                          f"RECONSTRUCTED by the site row: {notes['elevation']} The seed {seed} only "
