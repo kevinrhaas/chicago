@@ -38257,6 +38257,18 @@ pictures' heads vary by a couple of metres; that trees of the 1890s pictures are
 1904. The winter heads are the layer's bare sprays, coarser than the prints' fine twigs.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`,
 `taylor_1445_album-side-by-side.jpg`, `chm_clark_1905-side-by-side.jpg` and their match records.
+**Extended (T-1881, 2026-11-06, the Prairie corner):** the corner left out above is planted: one
+tree at 259.8 m along `prairie__prairie_ic_16_18`, in the grass plot where the Prairie and 18th Street
+parkways meet. **Read:** its place, from two pictures at once. The Detroit print's trunk at x 630 and
+Taylor's no. 1445's slender trunk at x 148, each carried to the planting line (u 48.0) through its own
+solved camera, land at v 29.18 and 29.22, 0.04 m apart, so the two are one tree; neither picture's ground
+is used (the print's reads 9-13 px low along this stretch, and Taylor's sees the parkway edge-on). The
+1890 Albertype plate and Clark's 1905 photograph each draw a trunk where it renders through their cameras.
+The stretch now runs to 261.0 m. **Chosen:** its size and habit, the Detroit print's (a mature trunk about
+0.38 m across, the parkway's `high_head`), though Taylor's earlier print draws it young and slender; and
+Taylor's no. 1445, read above as drawing this parkway clear, does draw this trunk.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`,
+`taylor_1445_album-side-by-side.jpg` and their match records.
 
 
 ### L-pullman-terrace-tubs-1934 — The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them
