@@ -28172,7 +28172,18 @@ the other seasons are a way of looking at them, never a claim about the town on 
 **How to resolve:** dated accounts of the river's freezing and the first snow in 1812 or 1835 would
 set winter's ground; per-species autumn colour drawn from the woods' own species records would
 replace the place-based colours.
-**Ticket:** T-2864.
+**Every plant (T-3399, 2026-11-06):** the owner saw 1904's yard shrubs and trees stay July green
+under fall's yellow elms. The 1904 front yards now take each species' own look for the day
+(`front-yards.js` SEASON_LOOK): lilac in full leaf in April and still dull olive in October,
+spiraea orange to wine red, hydrangea yellowing with its heads dried tan, rose with olive leaf and
+hips, the sugar maple orange-scarlet, the linden clear yellow, Boston ivy bronze in April, crimson
+in October and bare in winter, the arborvitae bronzed in winter; bedding geraniums and coleus are
+in the beds only from late May to the first frost, and the tubbed palms and standards under glass
+outside summer. Glessner's Boston ivy and Virginia creeper (L-glessner-vines-2225) turn crimson
+and scarlet and drop to bare stems the same way; 1812 and 1835's dooryard greens and garden beds
+brown and take the snow; the sand hills' red cedars and jack pines keep their crowns and colour.
+These are the general habits of the species in a Chicago yard, not a record of these plants.
+**Ticket:** T-2864, T-3399.
 **Review:** `renderers/web/js/season.js`.
 **Recorded:** 2026-10-19 (T-2864).
 
@@ -40218,6 +40229,8 @@ The 1835 Western Hotel yard horse's gentle head/neck look and body weight shifts
 **Walking-team supplement, 2026-11-05 (T-2803):** The owner: *"The carriage is moving very slowly, might be more realistic if it was at a slow carriage speed"*. The careful in-place walk covers 0.135 m a cycle, so both teams were held to 0.084 m/s to keep the hooves from sliding. `tools/horse_walk_v2.mjs` now authors a lateral-sequence walk (left hind, left fore, right hind, right fore, a quarter cycle apart) on the same current26 horse by two-link leg IK. Its parameters are authoring choices for this small model, not a measured gait of any horse: a 1.0 m cycle (the longest these legs reach without the hoof leaving the ground in stance), each foot loaded 58% of the cycle, the trunk carried 7 cm lower than the square stand with a 0.8 cm bob, swing lifts of 11 cm fore and 8.5 cm hind, and a small nod of neck and head. Stance hooves move back at exactly the travel speed, and the generator refuses slide or lift over 1 mm. Both teams now travel at 1.3 m/s, about 3 mph, a slow carriage walk. The hoof-support domain for the longer stride is measured from the skinned hoof vertices through the clip (0.35 x 0.89 m), and its ground plane may depart from flat by 2 mm instead of 1 mm, because the street crown under a 1.8 m-long domain reaches about 1.4 mm. No terrain contact, rendered route or photograph of a 1904 team is claimed for the gait.
 
 **Cloth supplement, 2026-11-05 (T-2804):** The owner: *"his clothing has no texture or anything"*. The drivers' garments are exported as flat colours, and the 1904 phone is at its memory ceiling, so `renderers/web/js/fabric.js` adds no texture. It patches the garment shader to draw, from each garment's own bind-pose position: a 2/2 twill on the wool waistcoat (8 mm repeat) and the trousers' cloth (7 mm), a plain weave with slubs on the linen shirt (5 mm), heathered dye of 8-16% of the colour, rubbed places a little shinier and greyer, rumples of a millimetre or two that tip the shading normal, and a sheen at grazing angles. The repeats are coarser than most period suiting, so that the weave shows at a few metres before it fades out to avoid aliasing. These are reconstructed authoring choices; no surviving garment, sample or photograph of these men's clothes is claimed.
+
+**Livery supplement, 2026-11-06 (T-3398):** The owner: *"his clothing is form fitting and he looks too smooth and not real"*. Hans now wears, over the unchanged donor shirt, waistcoat and pantaloons, a coachman's long double-breasted box coat with a turned-up collar and a shoulder cape, two rows of three brass buttons and a silk top hat; the donor's pale pantaloons are dyed a near-black livery cloth. `tools/human_driver_livery_1904.py` builds the coat's body by standing the shirt off by a wool's loft and smoothing the anatomy out of it, and hangs the skirt and cape as cloth dropped under gravity onto his seated body and the brougham's measured box, so the folds are where the cloth had to fall. **What is reconstructed.** All of it: that he wore livery on the box, the coat's cut, length, cape and colour, the buttons' number and metal, the hat's shape and size. Box coats, capes and top hats were common wear for a private brougham's coachman around 1900, but no photograph, inventory or record of the Otis household's livery or of Hans Johnson's clothes is claimed. **How to resolve:** a photograph of a Prairie Avenue coachman on the box, or the household's livery, would set the cut and colour.
 
 **Recorded:** 2026-11-02.
 

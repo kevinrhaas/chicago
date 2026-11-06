@@ -43835,6 +43835,10 @@
           "text": "dated accounts of the river's freezing and the first snow in 1812 or 1835 would set winter's ground; per-species autumn colour drawn from the woods' own species records would replace the place-based colours."
         },
         {
+          "label": "Every plant",
+          "text": "the owner saw 1904's yard shrubs and trees stay July green under fall's yellow elms. The 1904 front yards now take each species' own look for the day (the walkthrough's front yards code season look): lilac in full leaf in April and still dull olive in October, spiraea orange to wine red, hydrangea yellowing with its heads dried tan, rose with olive leaf and hips, the sugar maple orange-scarlet, the linden clear yellow, Boston ivy bronze in April, crimson in October and bare in winter, the arborvitae bronzed in winter; bedding geraniums and coleus are in the beds only from late May to the first frost, and the tubbed palms and standards under glass outside summer. Glessner's Boston ivy and Virginia creeper (“Selective July vines on the front and courtyard walls”) turn crimson and scarlet and drop to bare stems the same way; 1812 and 1835's dooryard greens and garden beds brown and take the snow; the sand hills' red cedars and jack pines keep their crowns and colour. These are the general habits of the species in a Chicago yard, not a record of these plants."
+        },
+        {
           "label": "Review",
           "text": "the walkthrough's season code."
         },
@@ -43844,6 +43848,7 @@
         }
       ],
       "work_refs": [
+        "T-3399",
         "T-2864"
       ]
     },
@@ -67172,6 +67177,14 @@
           "text": "The owner: *\"his clothing has no texture or anything\"*. The drivers' garments are exported as flat colours, and the 1904 phone is at its memory ceiling, so the walkthrough's fabric code adds no texture. It patches the garment shader to draw, from each garment's own bind-pose position: a 2/2 twill on the wool waistcoat (8 mm repeat) and the trousers' cloth (7 mm), a plain weave with slubs on the linen shirt (5 mm), heathered dye of 8-16% of the colour, rubbed places a little shinier and greyer, rumples of a millimetre or two that tip the shading normal, and a sheen at grazing angles. The repeats are coarser than most period suiting, so that the weave shows at a few metres before it fades out to avoid aliasing. These are reconstructed authoring choices; no surviving garment, sample or photograph of these men's clothes is claimed."
         },
         {
+          "label": "Livery supplement, 2026-11-06",
+          "text": "The owner: *\"his clothing is form fitting and he looks too smooth and not real\"*. Hans now wears, over the unchanged donor shirt, waistcoat and pantaloons, a coachman's long double-breasted box coat with a turned-up collar and a shoulder cape, two rows of three brass buttons and a silk top hat; the donor's pale pantaloons are dyed a near-black livery cloth. the human driver livery 1904 tool builds the coat's body by standing the shirt off by a wool's loft and smoothing the anatomy out of it, and hangs the skirt and cape as cloth dropped under gravity onto his seated body and the brougham's measured box, so the folds are where the cloth had to fall. **What is reconstructed.** All of it: that he wore livery on the box, the coat's cut, length, cape and colour, the buttons' number and metal, the hat's shape and size. Box coats, capes and top hats were common wear for a private brougham's coachman around 1900, but no photograph, inventory or record of the Otis household's livery or of Hans Johnson's clothes is claimed."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of a Prairie Avenue coachman on the box, or the household's livery, would set the cut and colour."
+        },
+        {
           "label": "Recorded",
           "text": "2026-11-02."
         }
@@ -67179,7 +67192,8 @@
       "work_refs": [
         "T-2804",
         "T-1790",
-        "T-2803"
+        "T-2803",
+        "T-3398"
       ]
     },
     {
