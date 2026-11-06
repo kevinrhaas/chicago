@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2686, ts: '2026-11-06T03:50:49.982Z', date: 'Nov 5, 2026, 9:50 PM CT', title: '1700–1706 Prairie\'s front curb', kind: 'fix',
+    items: [
+      'The low stone curb now runs along the street line across the middle of the Glessner-Lee pair, between the two gates, where both photographs show the lawn held back with no iron on it.',
+      'The spear railings still stand only beyond each house\'s walk, as photographed: south of 1706\'s toward 1708, and north of 1700\'s.',
+    ] },
   { v: 2685, ts: '2026-11-06T03:40:24.674Z', date: 'Nov 5, 2026, 9:40 PM CT', title: 'Every 1835 jaunt retold, each with its own light', kind: 'feature',
     items: [
       'All 27 jaunts of 1835 are retold as stories: an opening that sets the scene, stops that lead into the next, and the town\'s colour from Moses and Kirkland\'s History of Chicago, from Mark Beaubien\'s fiddle to the land-office crier on his white horse.',
