@@ -88,6 +88,10 @@ const STANDS = {
   lake_and_market: { kind: 'anchor', target: 'lake_market', label: 'Lake and Market' },
   sauganash_26: { kind: 'frame', target: 'sauganash_hotel', distance: 26,
     label: 'the Sauganash at 26 m' },
+  // T-3375: the stand the smoke's light-against-full ratio is read at since
+  // T-2970 moved the count to driver draws. Same pose as smoke_renderer.mjs.
+  prairie_west: { kind: 'pose', label: 'West prairie, east across the sward toward town',
+    pose: { local_e: -250, local_n: -150, yaw_deg: 90, pitch_deg: -8 } },
 };
 const stand = STANDS[STAND_ID];
 if (!stand) {
@@ -175,8 +179,14 @@ for (const vp of VIEWPORTS) {
     const read = () => { const s = a.stats(); return { tris: s.triangles, calls: s.drawCalls }; };
 
     const started = a.detail;
-    if (st.kind === 'frame') { a.setFly(false); a.frame(st.target, st.distance); }
-    else a.goTo(st.target);
+    const stand = () => {
+      if (st.kind === 'frame') { a.setFly(false); a.frame(st.target, st.distance); }
+      else if (st.kind === 'pose') {
+        a.setFly(typeof st.pose.altitude_m === 'number');
+        a.walker.teleport(st.pose);
+      } else a.goTo(st.target);
+    };
+    stand();
     await settle();
 
     const out = [];
@@ -185,8 +195,7 @@ for (const vp of VIEWPORTS) {
       await settle();
       // Re-stand: setDetail can rebuild layers, and a rebuilt layer wants the
       // camera put back exactly where the reading is taken.
-      if (st.kind === 'frame') { a.setFly(false); a.frame(st.target, st.distance); }
-      else a.goTo(st.target);
+      stand();
       await settle();
       const base = read();
       const rows = [];
