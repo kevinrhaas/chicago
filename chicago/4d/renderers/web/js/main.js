@@ -86,6 +86,8 @@ import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
 import { mountHumans } from './humans.js';
 import { createInteractions, createInteractKey } from './interact.js';
+import { createFollow } from './follow.js';
+import { createPeopleLook } from './people-look.js';
 import { supportsTownTransport } from './transport-scenes.js';
 import { createWells } from './wells.js';
 import { createTimeStream } from './time-stream.js';
@@ -3660,6 +3662,12 @@ async function boot() {
     hud.setPanel(true); hud.selectTab('people'); api.people.open?.(personId);
   });
   api.humans.on('role_open', ({ roleCard }) => showHumanRoleCard(roleCard));
+  // T-3404: a figure turns to a visitor who walks up to them (human-life.js, T-3402, where
+  // its rig carries the life layer), and looks a while before going back to the street.
+  api.humans.on('approach', ({ instanceId }) => {
+    const a = api.humans.actors.find((x) => x.id === instanceId);
+    a?.life?.attend?.(camera.getWorldPosition(new THREE.Vector3()), 4);
+  });
   scene3d.add(api.humans.group);
   // Read only the small route table at boot. Actual occupied assets and full
   // rendered-ground/collision readings begin after the visitor approaches a circuit.
@@ -4007,6 +4015,10 @@ async function boot() {
     dataBase: bases.dataBase,
     sceneId: loaded.scene.id ?? YEAR,
     onGoTo: (target) => { hud.setPanel(false); goToTarget(target); },
+    // T-3404: a person placed in town now (Otis Bardwell on his wagon) is found there and
+    // can be followed. Read when the card paints; the round is known before the model.
+    inTown: (id) => placedInTown(id),
+    onFollow: (id) => followPerson(id),
     // The drawer's head shows the person's name with a back control while a card is open.
     onTitle: (text, onBack) => hud.setTitle(text, onBack),
     // …and the firms the register puts them in, which the business layer knew
@@ -4688,7 +4700,10 @@ async function boot() {
       api.townTransport?.cancelDriverApproaches();
       return travel.go(target);
     }
-    const anchor = target?.kind === 'person' ? api.townTransport?.driverAnchorForPerson(target.id) : null;
+    // T-3404: a person asked for by name (Find this person) is found where they are in town;
+    // a card's "Go to where they lived/worked" names that place and goes there instead.
+    const findInTown = target?.kind === 'person' && target.lives_at == null && target.works_at == null;
+    const anchor = findInTown ? api.townTransport?.driverAnchorForPerson(target.id) : null;
     if (anchor) {
       const driver = api.humans?.external(target.id);
       const at = anchor.at, yaw = anchor.yaw_rad;
@@ -4701,8 +4716,11 @@ async function boot() {
         const approach = api.townTransport.requestDriverApproach(target.id);
         if (!approach) return false;
         try {
-          const started = travel.go({ kind: 'intersection', local_e: e, local_n: n,
-            label: target.label ?? driver?.person?.name ?? 'Driver' }, { onStop: () => approach.cancel() });
+          // Arrive facing the seat (T-3404), then whatever the asker wanted next (Follow).
+          const face = (Math.atan2(at[0] - e, at[1] - n) * 180 / Math.PI + 360) % 360;
+          const started = travel.go({ kind: 'intersection', local_e: e, local_n: n, yaw_deg: face,
+            label: target.label ?? driver?.person?.name ?? 'Driver' }, { onStop: () => approach.cancel(),
+            onArrive: () => { facePersonInTown(target.id); target.then?.(); } });
           if (!started) approach.cancel();
           return started;
         } catch (error) {
@@ -4711,6 +4729,23 @@ async function boot() {
         }
       }
       hud.say('No clear place beside this driver'); return false;
+    }
+    // T-3404: a standing or walking figure in town: set down a couple of metres in front of
+    // them, else beside or behind, on a stand the router calls clear, facing them.
+    const figure = findInTown ? api.humans?.get?.(target.id) : null;
+    if (figure && !figure.disposed && figure.root?.parent && !api.humans.external?.(target.id)) {
+      const { e: fe, n: fn } = figure.position;
+      const b = (figure.heading ?? 0) * Math.PI / 180;
+      for (const [ahead, side] of [[2.5, 0], [0, 2.5], [0, -2.5], [-2.5, 0]]) {
+        const e = fe + Math.sin(b) * ahead + Math.cos(b) * side;
+        const n = fn + Math.cos(b) * ahead - Math.sin(b) * side;
+        if (router.blockedAt(e, n)) continue;
+        const face = (Math.atan2(fe - e, fn - n) * 180 / Math.PI + 360) % 360;
+        return travel.go({ kind: 'intersection', local_e: e, local_n: n, yaw_deg: face,
+          label: target.label ?? figure.person?.name ?? 'Person' },
+        { onArrive: () => { facePersonInTown(target.id); target.then?.(); } });
+      }
+      hud.say('No clear place beside this person'); return false;
     }
     const resolved = destinations.resolve(target);
     if (!resolved) {
@@ -5026,10 +5061,61 @@ async function boot() {
     if (at) return !!openBuilding(at, { person: id });
     return navigatorUi?.select?.('people') ?? false;
   }
+  // ---- T-3404: the people placed in town, wherever they are now ------------------- //
+  // Kevin, 2026-11-06: "making them fully available to interact with". A driver on their
+  // round (town-transport) or a figure standing or walking (humans.js): where they are in
+  // local ENU metres, the compass heading they face, their head's height, and the actor.
+  const headAt = new THREE.Vector3();
+  function personInTown(id) {
+    if (!id) return null;
+    const driver = api.townTransport?.driverForPerson?.(id);
+    if (driver && !driver.disposed) {
+      if (!driver.visible) return null;
+      const body = api.humans?.external?.(id) ?? null;
+      const [e, n] = driver.at;
+      const head = body?.root ? body.root.getWorldPosition(headAt).y + (body.proxy?.scale.y ?? 1.5) * 0.93 : null;
+      return { e, n, heading_deg: driver.heading_deg, head_y: head, name: body?.person?.name ?? driver.name ?? null, driver, actor: body };
+    }
+    const a = api.humans?.get?.(id);
+    if (!a || a.disposed || !a.root?.parent) return null;
+    const p = a.position;
+    return { e: p.e, n: p.n, heading_deg: a.heading ?? 0, head_y: p.y + (a.proxy?.scale.y ?? 1.7) * 0.93,
+      name: a.person?.name ?? null, driver: null, actor: a };
+  }
+  /** Placed in town at all, loaded or not yet (a driver's round is known before its model). */
+  const placedInTown = (id) => !!(personInTown(id) || api.townTransport?.driverAnchorForPerson?.(id));
+  /** Turn the visitor, where they stand, to the person: the end of Find this person. */
+  function facePersonInTown(id) {
+    const p = personInTown(id);
+    const s = walker.state;
+    if (!p || s.flying) return false;
+    const yaw = (Math.atan2(p.e - s.e, p.n - s.n) * 180 / Math.PI + 360) % 360;
+    const over = Math.max(0.5, Math.hypot(p.e - s.e, p.n - s.n));
+    const pitch = p.head_y == null ? 0 : Math.max(-25, Math.min(25, Math.atan2(p.head_y - s.eyeY, over) * 180 / Math.PI));
+    walker.teleport({ local_e: s.e, local_n: s.n, yaw_deg: yaw, pitch_deg: pitch });
+    return true;
+  }
+  /** Walk alongside them (follow.js): at once when they are near, else Find them first. */
+  function followPerson(id) {
+    if (!placedInTown(id)) { hud.say('Not in town now'); return false; }
+    const name = personInTown(id)?.name ?? null;
+    const begin = () => {
+      const p = personInTown(id);
+      // Following means going with them: a carriage stopped for the visitor goes on.
+      if (p?.driver?.state === 'stopped' && p.driver.canResume?.()) p.driver.resume();
+      return follow.start(id, { name, wait: 20 });
+    };
+    popup.close(); if (handInspect) releaseInspect();
+    hud.setPanel(false);
+    const p = personInTown(id);
+    const s = walker.state;
+    if (p && Math.hypot(p.e - s.e, p.n - s.n) <= 30) return begin();
+    return goToTarget({ kind: 'person', id, label: name ?? undefined, then: begin });
+  }
   async function findSceneDirectoryPerson(id) {
     const row = (await peopleDirectory.load().catch(() => null))?.people?.find(r => r.id === id);
     if (!row) return false;
-    if (api.townTransport?.driverAnchorForPerson(id)) return goToTarget({ kind: 'person', id });
+    if (placedInTown(id)) return goToTarget({ kind: 'person', id });
     const at = [row.lives_at, row.works_at].find(s => s && loaded.registry.has(s));
     return at ? goToTarget({ kind: 'structure', id: at }) : false;
   }
@@ -5115,8 +5201,22 @@ async function boot() {
   // T-2627 (§10): the HUD's target tag and the quick column's Inspect key — the same probe,
   // within 40 m, after a 400 ms dwell. Both open Inspect through the Navigator's registry
   // (Inspect's own screen since T-2638/T-2639), handing it this target.
-  targetTag = createTargetTag({
+  // T-3404: the tag (and only the tag) also names a person under the crosshair — a driver
+  // on their box, a figure on the walk — nearer than the building behind them.
+  const peopleLook = createPeopleLook({
     target,
+    probe: () => {
+      if (gateOpen) return null;
+      let hit = api.humans?.pickAt?.(null, camera) ?? null;
+      const driver = api.townTransport?.pickDriverAt?.(null, camera) ?? null;
+      if (driver && (!hit || driver.distance < hit.distance)) hit = driver;
+      if (!hit?.personId) return null;
+      return { personId: hit.personId, distance: hit.distance, label: hit.person?.name ?? personInTown(hit.personId)?.name ?? null };
+    },
+  });
+  api.peopleLook = peopleLook;
+  targetTag = createTargetTag({
+    target: peopleLook,
     tagEl: document.getElementById('target-tag'),
     keyEl: document.getElementById('btn-inspect'),
     units: () => hud.settings.units,
@@ -5140,6 +5240,8 @@ async function boot() {
       return ['street-historic', 'street-modern'].map((id) => document.getElementById(id)?.textContent ?? '');
     },
     onInspect: (t) => {
+      // T-3404: a person's tag opens their own card, as a click on them does.
+      if (t?.kind === 'person') { popup.close(); api.humans?.select?.(t.personId); return; }
       // T-3022: as a click on the building does: Inspect, holding it until it is let go
       // (and a card left open on another building is put away first).
       if (t?.id && loaded.registry.get(t.id)) openBuilding(t.id);
@@ -5149,6 +5251,32 @@ async function boot() {
   });
   targetTag.setEnabled(!gateOpen);
   api.targetTag = targetTag;
+  // T-3404: Follow — the visitor walks alongside a person in town (follow.js). The key in
+  // the quick column names who and stops it; the visitor's own movement stops it too.
+  const followKey = document.getElementById('btn-follow');
+  const follow = createFollow({
+    walker, walk: WALK, locate: personInTown,
+    blockedAt: (e, n) => router.blockedAt(e, n),
+    busy: () => (travel?.state?.phase ?? 'idle') !== 'idle',
+    onChange: (state, why, was) => {
+      if (followKey) {
+        followKey.hidden = !state;
+        const words = followKey.querySelector('.fk-who');
+        if (state) {
+          const who = state.name ?? 'them';
+          if (words) words.textContent = who; else followKey.textContent = `Stop following ${who}`;
+          followKey.setAttribute('aria-label', `Stop following ${who}`);
+        }
+      }
+      if (state && why === 'start') hud.say(`Following ${state.name ?? 'them'}`);
+      else if (!state && why === 'gone') hud.say(`Lost sight of ${was?.name ?? 'them'}`);
+      else if (!state && why !== 'switched') hud.say(`Stopped following ${was?.name ?? 'them'}`);
+    },
+  });
+  followKey?.addEventListener('click', (ev) => { ev.preventDefault(); follow.stop('button'); });
+  api.follow = follow;
+  api.followPerson = followPerson;
+  api.personInTown = personInTown;
   const interactKey = createInteractKey({ interactions,
     keyEl: document.getElementById('btn-interact'),
     where: () => ({ e: walker.state.e, n: walker.state.n, bearing: walker.bearingDeg, flying: walker.state.flying }),
@@ -5339,6 +5467,9 @@ async function boot() {
         openPerson: (id) => openPersonCard(id),
         findPerson: supportsTownTransport(YEAR) && !draws('residents')
           ? (id) => findSceneDirectoryPerson(id) : null,
+        // T-3404: someone placed in town (a driver on their round) can be followed.
+        followPerson: (id) => followPerson(id),
+        inTown: (id) => placedInTown(id),
         // T-3265: a person's card reads their household's own record (the scene's
         // data/residents_<scene>/, published by publish.sh) and the citations it cites,
         // each once, when a card first asks.
@@ -5567,8 +5698,10 @@ async function boot() {
     if (!gateOpen) for (let i = 0; i < walkSteps; i++) {
       // Steering and movement consume the same time step. Reusing one steering
       // decision for five walker steps on a slow frame overshot street corners.
+      follow.steer(walkDt, intent);
       travel.update(walkDt, intent);
       walker.update(walkDt, intent);
+      follow.afterWalk(intent);
       travel.afterWalk(intent, walkDt);
     }
     // Before the render, after the walker: the near plane is a function of where
