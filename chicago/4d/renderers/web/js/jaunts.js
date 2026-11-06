@@ -4,7 +4,7 @@ import { authoredLeg } from './travel-estimate.js'; // T-3355: a leg's own mode
 export const SESSION_KEY = 'c4d.jaunt.session.v1';
 export const emptyState = () => ({ jaunt: null, session: null, leg: 0, stopIndex: 0,
   visited: [], vars: {}, inventory: [], events: [], eventSeq: 0, phase: 'menu', choice: null,
-  mode: null, estimate: null, notice: null, restored: false, context: null, contextDismissed: false });
+  mode: null, modeChosen: false, estimate: null, notice: null, restored: false, context: null, contextDismissed: false });
 export function matches(test, vars, inventory) {
   if (!test) return true;
   if (test.all) return test.all.every(t => matches(t, vars, inventory));
@@ -16,13 +16,27 @@ export function matches(test, vars, inventory) {
 }
 export const currentStop = s => s.jaunt?.stops.find(stop => stop.id === s.visited[s.stopIndex]?.id);
 // T-3355: the mode this leg travels in. An authored leg may name its own (a long ride
-// Instantly); it applies while the visitor is on the jaunt's default mode, so a mode the
-// visitor picked, and Straight there, still win.
+// Instantly); it applies until the visitor picks a mode, so a mode the visitor picked,
+// and Straight there, still win. T-3405: "picked" is `modeChosen`, not "differs from the
+// default": a visitor who chose Fly on a Fly jaunt was still sent Instantly on such legs.
+const ownLegMode = (s, fromId, toId) => {
+  if (!s.jaunt || s.modeChosen || s.mode !== s.jaunt.default_mode) return s.mode;
+  const own = authoredLeg(s.jaunt, fromId, toId)?.mode;
+  return own && (s.jaunt.allowed_modes || []).includes(own) ? own : s.mode;
+};
 export function legMode(s) {
   if (s.instant) return 'instantly';
-  if (!s.jaunt || s.mode !== s.jaunt.default_mode) return s.mode;
-  const own = authoredLeg(s.jaunt, s.fromStopId, currentStop(s)?.id)?.mode;
-  return own && (s.jaunt.allowed_modes || []).includes(own) ? own : s.mode;
+  return ownLegMode(s, s.fromStopId, currentStop(s)?.id);
+}
+/** T-3405: the mode the picker shows — the leg being travelled, or at a stop the leg to
+ *  its one next stop — so a leg that goes its own way says so, and can be changed. */
+export function shownMode(s) {
+  if (!s.jaunt) return s.mode;
+  const phase = s.phase === 'detail' ? s.detailPhase : s.phase;
+  if (['travelling', 'paused'].includes(phase)) return s.instant ? s.mode : legMode(s);
+  const stop = currentStop(s), next = s.visited[s.stopIndex + 1]?.id
+    ?? (stop?.choices?.length ? null : stop?.next);
+  return next && s.jaunt.stops.some(x => x.id === next) ? ownLegMode(s, stop.id, next) : s.mode;
 }
 const money = cents => Math.abs(cents) < 100 ? `${Math.abs(cents)} ¢` : `$${(Math.abs(cents) / 100).toFixed(2)}`;
 const label = name => name.replace(/[_-]+/g, ' ').replace(/^./, c => c.toUpperCase());
@@ -138,6 +152,7 @@ export function reduce(s, e) {
     if (!e.jaunt?.stops?.length || e.jaunt.review_required) throw new Error('Jaunt unavailable');
     return append({ ...emptyState(), jaunt: e.jaunt, session: e.session, leg: 1, phase: 'opening',
       visited: [{ id: e.jaunt.stops[0].id }], mode: e.jaunt.allowed_modes?.includes(e.mode) ? e.mode : e.jaunt.default_mode,
+      modeChosen: e.chosen === true && !!e.jaunt.allowed_modes?.includes(e.mode),
       ...initialResources(e.jaunt) }, 'start');
   }
   if (!s.jaunt) return s;
@@ -145,8 +160,12 @@ export function reduce(s, e) {
   if (e.type === 'CONTEXT' && s.phase === 'travelling') return { ...s, context: e.context };
   if (e.type === 'DISMISS_CONTEXT') return { ...s, contextDismissed: true };
   if (e.type === 'END') return emptyState();
-  if (e.type === 'MODE' && s.jaunt.allowed_modes?.includes(e.mode) && e.mode !== s.mode && s.phase !== 'outcome') {
-    const changed = append({ ...s, mode: e.mode }, 'mode', { mode: e.mode });
+  // T-3405: picking the mode the jaunt is already on still counts when the leg was going
+  // its own way (the picker showed that leg's mode): from then on every leg takes it.
+  if (e.type === 'MODE' && s.jaunt.allowed_modes?.includes(e.mode) && s.phase !== 'outcome'
+    && (e.mode !== s.mode || !s.modeChosen)) {
+    if (e.mode === s.mode && shownMode(s) === e.mode && legMode(s) === e.mode) return { ...s, modeChosen: true };
+    const changed = append({ ...s, mode: e.mode, modeChosen: true }, 'mode', { mode: e.mode });
     return ['travelling', 'paused'].includes(s.phase) ? move(changed, s.stopIndex) : changed;
   }
   if (e.type === 'INSTANT' && ['travelling', 'paused'].includes(s.phase))
@@ -195,8 +214,9 @@ export function replaySession(jaunt, saved, session = 1) {
     throw new Error('version');
   if (saved.events.length > 500 || saved.events.some(e => !e || typeof e.id !== 'string' || typeof e.type !== 'string'))
     throw new Error('corrupt');
-  const mode = [...saved.events].reverse().find(e => e.type === 'mode')?.mode || jaunt.default_mode;
-  let state = reduce(emptyState(), { type: 'START', jaunt, session, mode });
+  const picked = [...saved.events].reverse().find(e => e.type === 'mode')?.mode;
+  const mode = picked || jaunt.default_mode;
+  let state = reduce(emptyState(), { type: 'START', jaunt, session, mode, chosen: !!picked });
   state = reduce(state, { type: 'ARRIVE', session, leg: state.leg });
   for (const event of saved.events.filter(e => e.type === 'decision')) {
     if (state.phase === 'outcome' || currentStop(state)?.id !== event.stop) throw new Error('corrupt');
@@ -277,7 +297,7 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
       try { onComplete(state); } catch { /* the outing still ends */ }
     }
     if (old.phase === 'detail' && state.phase !== 'detail') dismissDetail();
-    if (state.jaunt && !['DETAIL', 'RETURN'].includes(event.type) && (state.leg !== old.leg || state.phase !== old.phase || state.mode !== old.mode))
+    if (state.jaunt && !['DETAIL', 'RETURN'].includes(event.type) && (state.leg !== old.leg || state.phase !== old.phase || state.mode !== old.mode || state.modeChosen !== old.modeChosen))
       state = { ...state, estimate: estimate(state) };
     render(state);
     if (state.phase === 'atStop' && (old.phase !== 'atStop' || old.stopIndex !== state.stopIndex || old.session !== state.session))
@@ -305,7 +325,7 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
     persist();
     return true;
   }
-  async function start(id, { mode } = {}) {
+  async function start(id, { mode, chosen } = {}) {
     const generation = ++serial; request?.abort(); request = new AbortController();
     state = emptyState(); clearSaved(); cancel(); dismissDetail(); restore(); restoreLight(); render(state);
     try {
@@ -315,7 +335,11 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
       const target = resolve(jaunt.stops[0].destination);
       if (!target || !enter(target) || !place(target)) throw new Error('Starting place unavailable');
       previousMode = travel.mode;
-      state = reduce(state, { type: 'START', jaunt, session: generation, mode: mode ?? preferredMode(jaunt) ?? undefined });
+      // T-3405: a mode handed in by the visitor's own switch (Move › Jaunts use my choice)
+      // is a pick; a restart keeps whether the outing's mode was picked.
+      const preferred = mode == null ? preferredMode(jaunt) : null;
+      state = reduce(state, { type: 'START', jaunt, session: generation, mode: mode ?? preferred ?? undefined,
+        chosen: chosen ?? preferred != null });
       dispatch({ type: 'ARRIVE', session: generation, leg: state.leg });
       countField('jauntStarted'); // T-2660
       return true;
@@ -356,7 +380,7 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
       if (state.restored && (!target || !enter(target) || !place(target))) return false;
       if (!state.restored && !enter(null, { resume: true })) return false;
       previousMode = travel.mode; state = { ...state, restored: false }; return dispatch({ type: 'RESUME' }); },
-    restart: () => state.jaunt && start(state.jaunt.id, { mode: state.mode }),
+    restart: () => state.jaunt && start(state.jaunt.id, { mode: state.mode, chosen: state.modeChosen }),
     detail(link) {
       if (!dispatch({ type: 'DETAIL' })) return false;
       detailRequest = new AbortController();

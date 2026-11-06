@@ -275,6 +275,29 @@ export function leafGeometry({ len, foot, head, back = 1 }) {
  * @param {object} [o.confidence]       createConfidenceView
  * @param {string[]} [o.problems]
  */
+/** Segments ab and cd cross (or touch). */
+function crosses(a, b, c, d) {
+  const side = (p, q, r) => Math.sign((q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0]));
+  return side(a, b, c) * side(a, b, d) <= 0 && side(c, d, a) * side(c, d, b) <= 0;
+}
+
+/**
+ * T-3405: the gates a ground route passes through, in the order it reaches them. The
+ * planner treats every gateway as open (route.js), so a walking ride (travel.js) opens
+ * the shut ones on its way, the way a visitor at the Interact key would.
+ * @param {Array<object>} gates  createFortGates().gates
+ * @param {number[][]} points    the route, [e, n] from where the walker stands
+ */
+export function gatesOnRoute(gates, points) {
+  const found = [];
+  for (let i = 1; i < (points?.length ?? 0); i++) {
+    for (const g of gates ?? []) {
+      if (g.span && !found.includes(g) && crosses(points[i - 1], points[i], g.span.a, g.span.b)) found.push(g);
+    }
+  }
+  return found;
+}
+
 export function createFortGates({ registry, buildings, footprints = [], confidence = null, problems = [] }) {
   const group = new THREE.Group();
   group.name = 'fort-gates';
@@ -361,9 +384,10 @@ export function createFortGates({ registry, buildings, footprints = [], confiden
       }
       setSwing(0);
       // The gateway's span stands across the way unless the gate is open and still.
-      walls.push({ a: toWorld([gate.centre[0] - gate.half * gate.along[0], gate.centre[1] - gate.half * gate.along[1]]),
-        b: toWorld([gate.centre[0] + gate.half * gate.along[0], gate.centre[1] + gate.half * gate.along[1]]),
-        half: 0.06, gate: thing.id, blocks: () => !(thing.state === 'open' && !thing.running) });
+      const span = { a: toWorld([gate.centre[0] - gate.half * gate.along[0], gate.centre[1] - gate.half * gate.along[1]]),
+        b: toWorld([gate.centre[0] + gate.half * gate.along[0], gate.centre[1] + gate.half * gate.along[1]]) };
+      thing.span = span;   // T-3405: where a route crosses this gateway (gatesOnRoute)
+      walls.push({ ...span, half: 0.06, gate: thing.id, span: true, blocks: () => !(thing.state === 'open' && !thing.running) });
       // And open, each leaf is a board standing out from its jamb.
       for (const { hinge, dir } of leafDirections(gate, 1)) {
         const len = gate.half;

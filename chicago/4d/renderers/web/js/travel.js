@@ -102,6 +102,8 @@ const BANNER_INTERVAL_S = 0.25; // ≤ 4 Hz repaints of the distance
 const GLIDE_TAN = Math.tan(18 * DEG); // descend once horizontal ≤ altitude / tan 18°
 const LAND_HORIZ_M = 2.5;
 const LAND_ALT_M = 4;
+const GATE_OPEN_M = 6;         // T-3405: a walking ride opens a shut gate from this far …
+const GATE_WAIT_M = 2.5;       // … and waits this far short of it until the leaves are still
 const DEFAULT_RADIUS_M = 6;    // half a footprint diagonal when no footprint is known
 const BOB_DECAY_M_PER_S = 0.35; // the gait dies within 0.3 s of stopping
 
@@ -112,6 +114,11 @@ export function createTravel({
   walker, intent, hud, settings = {}, router = null, terrain = null,
   focusPoint, structurePosition, footprints = null, standFor = null,
   frame, teleport, goToAnchor, setFly, onArrive,
+  // T-3405: the gates a ground route passes through, `along(points)` -> [{ at: [e, n],
+  // blocks(), open() }] (main.js, from fort-gates.js); a walking ride opens each shut one
+  // as it comes up to it and waits while it swings. `tickWorld(dt)` moves the world's
+  // own clocks (the swing) inside simulate(), which has no frame loop to do it.
+  gates = null, tickWorld = null,
 } = {}) {
   let mode = 'instantly';
   let headBob = settings.headBob !== false;
@@ -361,6 +368,7 @@ export function createTravel({
       if (route?.points?.length) {
         reportRoute(r.target, route.points, r.callbacks);
         r.points = route.points;
+        r.gates = gates?.along?.([[s.e, s.n], ...route.points]) ?? [];
         r.index = 0;
         r.from = { e: s.e, n: s.n };
         r.progressRef = remaining();
@@ -402,12 +410,32 @@ export function createTravel({
     // Turn on the spot, then take no more than the distance left on this leg.
     // This keeps even a fast horse on the planned sidewalk/street corner.
     intentNow.forward = Math.abs(diff) < 0.01 ? Math.min(1, distance / Math.max(WALK.speed * dt, 0.001)) : 0;
+    // T-3405: a shut gate on the way is opened from GATE_OPEN_M off, and the ride waits
+    // GATE_WAIT_M short of it while the leaves swing. Waiting is not a stall.
+    if (r.gates?.length && gateHold(r, s)) {
+      intentNow.forward = 0; intentNow.strafe = 0; intentNow.rise = 0; intentNow.sprint = false;
+      pitchTo(intentNow, 0, dt);
+      r.progressT = 0; r.progressRef = remaining(); r.blockedT = 0;
+      return;
+    }
     intentNow.strafe = 0;
     intentNow.rise = 0;
     intentNow.sprint = false;
     pitchTo(intentNow, 0, dt);
     if (intentNow.forward > 0) stallWatch(r, dt, remaining(), true);
     else { r.progressT = 0; r.progressRef = remaining(); }
+  }
+
+  /** True while a gate the ride is about to pass through is shut or still swinging. */
+  function gateHold(r, s) {
+    let hold = false;
+    for (const g of r.gates) {
+      if (!g.blocks()) continue;
+      const d = Math.hypot(g.at[0] - s.e, g.at[1] - s.n);
+      if (d <= GATE_OPEN_M) g.open();
+      if (d <= GATE_WAIT_M) hold = true;
+    }
+    return hold;
   }
 
   function steerFlight(intentNow, dt) {
@@ -425,11 +453,21 @@ export function createTravel({
     intentNow.strafe = 0;
     intentNow.sprint = false;
 
+    // T-3405: a flight to a raised view climbs to its height, slows over it and settles
+    // into the view itself; it never comes down.
+    if (r.aerial && phase !== 'ascending') {
+      intentNow.forward = clamp(horiz / 12, 0.12, 1);
+      intentNow.rise = clamp((r.cruise - alt) / 3, -1, 1);
+      pitchTo(intentNow, 0, dt);
+      if (horiz <= LAND_HORIZ_M && Math.abs(r.cruise - alt) < 2) { goToAnchor?.(r.id); r.done = true; return; }
+      stallWatch(r, dt, horiz + Math.abs(r.cruise - alt), false);
+      return;
+    }
     if (phase === 'ascending') {
       intentNow.forward = horiz > 30 ? 0.5 : 0.15;
       intentNow.rise = 1;
       pitchTo(intentNow, 12 * DEG, dt);
-      const inCone = horiz <= alt / GLIDE_TAN && alt >= r.cruise * 0.5;
+      const inCone = !r.aerial && horiz <= alt / GLIDE_TAN && alt >= r.cruise * 0.5;
       if (alt >= r.cruise - 0.5 || inCone) phase = inCone ? 'descending' : 'cruising';
     } else if (phase === 'cruising') {
       intentNow.forward = 1;
@@ -509,9 +547,10 @@ export function createTravel({
   function go(target, callbacks) {
     if (!target?.kind) return false;
     if (phase !== 'idle') stop('replaced');
-    // Aerial viewpoints are always a jump: a ride to the ground under a bird's-eye
-    // view is not the view. So is any anchor Go to did not hand coordinates for.
-    if (target.kind === 'anchor' && (isAerial(target) || mode === 'instantly' || !ownPoint(target))) {
+    // Aerial viewpoints are a jump on the ground: a ride to the ground under a bird's-eye
+    // view is not the view. So is any anchor Go to did not hand coordinates for. A flight
+    // goes there (T-3405): it climbs to the view's height and settles into it.
+    if (target.kind === 'anchor' && ((isAerial(target) && mode !== 'fly') || mode === 'instantly' || !ownPoint(target))) {
       return goInstantly(target, callbacks);
     }
     if (mode === 'instantly') return goInstantly(target, callbacks);
@@ -524,6 +563,7 @@ export function createTravel({
       setFly?.(true);
       ride = newRide(target, to, [[to.e, to.n]], 'fly', callbacks);
       ride.cruise = PACES.fly.cruise(d);
+      if (target.kind === 'anchor' && isAerial(target)) { ride.aerial = true; ride.cruise = target.altitude_m; }
       ride.progressRef = d;
       phase = 'ascending';
       paintBanner();
@@ -540,6 +580,7 @@ export function createTravel({
       return false;
     }
     ride = newRide(target, to, route.points, mode, callbacks);
+    ride.gates = gates?.along?.([[s.e, s.n], ...route.points]) ?? [];
     ride.progressRef = remaining();
     phase = 'travelling';
     applyPace();   // the ride's pace and seat, restored by finish()
@@ -588,6 +629,7 @@ export function createTravel({
     let maxAlt = s.altitude;
     const steps = Math.ceil(Math.max(0, seconds) / dt);
     for (let i = 0; i < steps && phase !== 'idle'; i++) {
+      tickWorld?.(dt);
       update(dt, intent);
       walker.update(dt, intent);
       afterWalk(intent, dt);
