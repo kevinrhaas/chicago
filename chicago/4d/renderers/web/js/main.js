@@ -5096,6 +5096,17 @@ async function boot() {
     }
     return householdRecords.get(file);
   }
+  // T-3413: a face fitted to a portrait of the person, for their card's Likeness section. The
+  // file is the one the humans layer reads (assets/humans/web/hm08_variation_persons.json), read once.
+  let humanPersons = null;
+  function personFace(id) {
+    // The asset base, as humans.js reads it: data/ when published, assets/ in the source tree.
+    const base = resolveBases().assetBase;
+    humanPersons ??= fetch(new URL('humans/web/hm08_variation_persons.json', base), { cache: 'no-cache' })
+      .then((res) => (res.ok ? res.json() : null))
+      .catch(() => { humanPersons = null; return null; });
+    return humanPersons.then((d) => { const face = d?.persons?.[id]?.face; return face ? { face, base: String(base) } : null; });
+  }
   // A nearby occupied driver can be inspected as soon as its model is ready.
   // Warm only the existing card code/metadata; never open Navigator or acquire a model.
   async function prepareSceneDirectoryPerson(id) {
@@ -5538,6 +5549,7 @@ async function boot() {
         // each once, when a card first asks.
         householdRecord: (file) => householdRecord(file),
         residentCitations: () => ensureResidentCitations(),
+        personFace: (id) => personFace(id),
         openPicture: (id, i) => openPictureViewer(popup.picturesDoc, id, i),
         holdInspect: (id) => { inspectHold = id ?? null; },
         closeCard: () => popup.close(),

@@ -578,6 +578,8 @@ step "The shared body-and-face kit reproduces from its pinned MakeHuman targets,
   python3 tools/human_variation_kit.py --check
 step "Every person gets their own face, height and build: no two of 400 alike, a seated driver's face only, clothes outside the skin, LODs agree (T-3412)" \
   node tools/test_human_variation.mjs
+step "A named resident's face fitted to a cited portrait reproduces from its marks, and the card's still is of this fit (T-3413)" \
+  python3 tools/fit_portrait_face.py --check
 step "Each driver's wardrobe binds to the real driver by bone name, skins where it was draped, and its spring tails lag and settle, LOD0 and LOD3 (T-3398, T-3409)" \
   node tools/test_driver_livery.mjs
 step "People are judged beside period pictures: reference sets cite their sources, the rig is 3 m and 10 m, and no verdict outlives its figure (T-3417)" \
@@ -1423,6 +1425,13 @@ step "a K01 house carries a two-level veranda on its rear wall, and a wing's wal
 # brick block gone; an over-high floor, a low eave, a run past the wall and an unknown key refused.
 step "a K01 house carries a raised terrace under a striped awning on its rear wall (T-1881)" \
   python3 tools/test_k01_rear_terrace.py
+
+# T-1881 (2026-11-06). A hanging lantern on a wrought-iron arm off a K01 house's street front
+# (k01_wall_lanterns), held on 1729 Prairie's record: off the entrance's south return beside the
+# portico, as the 1890 Albertype plate draws it, with the banded pier at the inner angle; a low
+# lantern, a short arm, an unknown face and an unknown key refused.
+step "a K01 house hangs a lantern on an iron arm off its street front (T-1881)" \
+  python3 tools/test_k01_wall_lantern.py
 
 # T-1881 (2026-11-02). A K01 house's mansarded K08 sections joined to its own mansard under one
 # rail (k08_bays._hip back_m/open, k01_mansard_deck.dress_joined), held on 1729 Prairie's
