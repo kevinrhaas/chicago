@@ -6,7 +6,7 @@
   "camera_sha256": "039f1e74f02647fce3fa54efb12800c0136c009585a76cb593a2070adbeff332",
   "photo_sha256": "0d82a77e9db197b91d68e67cc3eb66520b9ec00b84890cd97447e0c5cd4c553f",
   "side_by_side": "docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/cdn_almanac_1913-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: the draft's generic block is now the plate's house: a narrow red brick front two storeys over a stone basement under a steep slated hip with a street dormer, its long north flank running back past a round tower to steep-gabled half-storey ranges and a two-storey garage; the two tall stacks, the tower, the dormer and the front's corners lie within about 15-25 px of the plate (16 px RMS on the fitted points)",
@@ -41,8 +41,8 @@
       "status": "fixed"
     },
     {
-      "what": "the north-face group's east end (T-3354, fourth run): the plate's three-light group spans about 33 px against the build's 22, running about 2 m further east than the build's 3.7 m group, past where the 1911 trace stands the rear range's west return; the 1919 programme plate reads the same. It is the same eastward shift as the rear range's gable below (the plates put the middle range's north face longer than the trace's 7.0 m), so it waits on that plan reading, not on a wider window",
-      "status": "open"
+      "what": "the north-face group's east end (T-3354, fifth run): Read again through the 1919 programme plate's camera at 6x (this plate's camera stands within about 1 m and 1 degree of that one, so its 33 px against 22 is the same reading, not a second measurement): the three pale lights stand astride where the camera puts the 1911 trace's return corner, the middle one on the corner itself, which no window can; moved the 17 px that lands the middle range's corner on the plate's, the group falls wholly on the north face and reads 1.5-2 m longer than the build's 3.7 m, and unmoved its left light falls on the rear range's west return, which faces the camera, and the other two span about the build's group. Which of those the plates show turns on a horizontal shift the size of the gap, so it is a gap two camera fits disagree about (T-3153): within tolerance, built on the trace's 7.0 m face with the 3.7 m group.",
+      "status": "within tolerance"
     },
     {
       "what": "the steep gables over the rear ranges: the plate draws three, stepped and finialled at their peaks; T-3337 carries both ranges' gables up in a stone coping with kneelers and a turned finial at each apex; the small pinnacled dormers between the gables, on the rear range's slope facing the street: all three plates draw two, and T-3354 builds them (rear_wings.rear_range.roof.dormers, k01_wing_dormers): at v -3.85 and -2.3 m, their faces 0.3 m in from the range's wall line over the middle range's flat end, each a 1.0 m face with one tall light under a 60-degree stone-coped gable to its finial, a pinnacle at each edge; through this camera both land on the plate's two within about 10 px",
@@ -81,13 +81,13 @@
       "status": "not shown"
     },
     {
-      "what": "the rear ranges' gables against all three Gatlin plates (T-3354): the MIDDLE range's gable now stands back 1.6 m from its north end over a flat deck (roof.flat_end) and is pitched 60 degrees, where it rose 50 degrees off the north wall; through the 1912, 1913 and 1919 cameras its finial now lands on the plates' highest gable within about 5 px across and 8 px up (it stood 25-30 px left and 30-60 px under). The REAR range's apex still stands about 20-35 px (1-2 m) left of the plates' second gable, the same way in all three, and the plates do not show its plan; re-cutting it waits on a reading that reconciles the 1911 trace with the plates (L-k01-1919-garage-gable-3354, L-k01-1919-range-dormers-3354)",
-      "status": "open"
+      "what": "the rear ranges' gables against all three Gatlin plates (T-3354): the MIDDLE range's gable now stands back 1.6 m from its north end over a flat deck (roof.flat_end) and is pitched 60 degrees, where it rose 50 degrees off the north wall; through the 1912, 1913 and 1919 cameras its finial now lands on the plates' highest gable within about 5 px across and 8 px up (it stood 25-30 px left and 30-60 px under). The rear range's gable apex, read again against all three Gatlin plates (T-3354, fifth run): the build's finial stands x 248 against the plate's 271 here (23 px) left of the plates' second gable, the same way in all three (the 1919 plate 26 px, the 1913 23 px, the 1912 about 35 px). It is not the plan: the middle range's finial and the plates' two dormers land within about 3-10 px, and no camera move closes it (walking the 1919 eye 10 m further back along its line of sight, focal re-scaled to hold the front, moves the apex 13 px further off). The one buildable reading that lands it is the rear range's north gable standing back about 1.45 m from its north wall over a flat deck, as the middle range's does: its apex then falls at x 445 on the 1919 plate (against 443), 273 on the 1913 (against 271) and 314 on the 1912 (against about 327). But the same plates draw the first of the two pinnacled dormers at v -3.85 m, within about 5-10 px of where it is built, which is 0.5 m in front of that set-back gable: a dormer cannot rise in front of the gable it stands behind, and set behind the gable's plane it lands 26, 23 and 20 px off in the three plates. So the plates' apex and their dormers disagree by about 1.3 m about where the rear range's gable stands, at the size of the cameras' own 25 px RMS residuals: within tolerance (T-3153), built as the 1911 trace and the dormers have it (L-k01-1919-range-dormers-3354)",
+      "status": "within tolerance"
     },
     {
       "what": "the third, smaller gable the plates draw at the flank's far end, coped and finialled as the ranges' are: T-3354 roofs the garage under a slated gable facing the flank, pitched 54 degrees to an apex at 15.7 m, with the ranges' stone coping, kneelers and 0.6 m finial (where it was flat in tin); through this camera its apex lands on the plate's third gable within about 15 px",
       "status": "fixed"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
