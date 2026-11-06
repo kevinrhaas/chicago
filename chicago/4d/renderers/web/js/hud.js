@@ -521,13 +521,14 @@ export function createHud({
   // different claim about the town.
   wireRange('s-road-aid', 'v-road-aid', 'roadAid',
     (v) => (v <= 0 ? 'Off — the roads as recorded' : `+${Math.round(v * 100)}%`));
-  // K24. Stops, not percent, and the calibrated position is named on its face
-  // for the eye-height reason: this control brightens your screen, and the
-  // readout has to make it impossible to read the brighter end as a claim that
-  // the town was brighter. A stop is also the honest unit — it is what the
-  // ceiling is bounded in (world.js § BASE_EXPOSURE).
+  // K24. The calibrated position is named on its face for the eye-height reason:
+  // this control brightens your screen, and the readout has to make it impossible
+  // to read the brighter end as a claim that the town was brighter. T-3428: the
+  // slider still moves in stops (a stored value keeps its meaning) but reads as the
+  // multiple a wall in shade is lifted by, 1.2x to 4x, the unit the owner asked in
+  // (world.js § BASE_EXPOSURE).
   wireRange('s-brightness', 'v-brightness', 'brightness',
-    (v) => (v <= 0 ? 'Calibrated — the light as measured' : `+${v.toFixed(2)} stop`));
+    (v) => (v <= 0 ? 'Calibrated — the light as measured' : `${(2 ** v).toFixed(1)}×`));
 
   const units = $('s-units');
   if (units) {

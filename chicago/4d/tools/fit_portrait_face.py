@@ -201,6 +201,9 @@ def fit(person):
     for a in header['axes']:
         if a.get('drive') != 'age':
             continue
+        # Only the body's own sex's age blend (T-3423 added the female twin of each macro axis).
+        if a.get('sex', 'male') != portrait.get('sex', 'male'):
+            continue
         if a['kind'] == 'age_macro':
             v = float(np.clip((age - asset_age) * header['age']['per_year'], -0.5, 1))
         else:

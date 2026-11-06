@@ -36551,6 +36551,21 @@ gaits, tack, riders, teams and interactions retain their existing tickets.
 **Ticket:** T-1789.
 **Recorded:** 2026-10-26.
 
+**Woman on the shared rig supplement, 2026-11-06 (T-3423):** The dress study is now built, exported
+and stood in the 1835 town as Mary Flynn outside the D1 log dwelling her household was dealt
+(`hi_rc_flynn_mary_1835`). What is added is reconstructed, not read. **Walking and sitting:** below
+the waist each skirt and apron point is shared between the pelvis and the leg on its side (thigh
+above the knee, calf below; the front more than the back), an original engineering blend in place of
+cloth simulation, so a stepping or seated thigh carries the skirt over it. **Seated clip:** Otis
+Bardwell's reviewed W01 bench pose (`bardwell_otis_1835-triangle-corrected-pose.json`) is transferred
+by `tools/human_seated_transfer.py`: his bone rotations on her own rest chain, the pelvis re-seated
+by the two bodies' standing pelvis heights; no woman's seated posture is observed. **Hair:** a
+reconstructed bun (4.4 x 4.0 x 3.0 cm half-axes) is worn on the back of the cleared short04 cap,
+because women of 1835 wore their hair up; its size and place are chosen. **Build:** MakeHuman's
+female macro targets (pinned in `SOURCE-variation.json`) give her seeded weight, muscle and age under
+L-human-variation-3412, each sharing its male twin's draw. Her figure is not a likeness and her
+dress is not her outfit; the photo comparison and the 1904 woman remain open under T-3423.
+
 ### L-tremont-gale-envelope-2385 — two-storey default and picture alternative
 
 **Decision:** the default first Tremont follows Gale's retrospective, 1835-framed
@@ -38257,6 +38272,18 @@ pictures' heads vary by a couple of metres; that trees of the 1890s pictures are
 1904. The winter heads are the layer's bare sprays, coarser than the prints' fine twigs.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`,
 `taylor_1445_album-side-by-side.jpg`, `chm_clark_1905-side-by-side.jpg` and their match records.
+**Extended (T-1881, 2026-11-06, the Prairie corner):** the corner left out above is planted: one
+tree at 259.8 m along `prairie__prairie_ic_16_18`, in the grass plot where the Prairie and 18th Street
+parkways meet. **Read:** its place, from two pictures at once. The Detroit print's trunk at x 630 and
+Taylor's no. 1445's slender trunk at x 148, each carried to the planting line (u 48.0) through its own
+solved camera, land at v 29.18 and 29.22, 0.04 m apart, so the two are one tree; neither picture's ground
+is used (the print's reads 9-13 px low along this stretch, and Taylor's sees the parkway edge-on). The
+1890 Albertype plate and Clark's 1905 photograph each draw a trunk where it renders through their cameras.
+The stretch now runs to 261.0 m. **Chosen:** its size and habit, the Detroit print's (a mature trunk about
+0.38 m across, the parkway's `high_head`), though Taylor's earlier print draws it young and slender; and
+Taylor's no. 1445, read above as drawing this parkway clear, does draw this trunk.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`,
+`taylor_1445_album-side-by-side.jpg` and their match records.
 
 
 ### L-pullman-terrace-tubs-1934 — The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them
@@ -41223,3 +41250,31 @@ or a close photograph of the entrance, which would draw the lantern's shape and 
 **Ticket:** T-1881.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg`, with its match record.
 **Recorded:** 2026-11-06 (T-1881).
+
+### L-k01-1919-range-mullions-3354 — 1919 Prairie's middle range's street face lit by a two-light stone-mullioned window in each storey, off the Gatlin plates
+
+**Decision:** Through their solved cameras, the 1919 programme plate and the 1913 Almanac plate both draw
+a pair of pale lights either side of a dark mullion, in both storeys, in the 3.1 m street face the middle
+range stands out north of the front block, where the record had bare brick. K01 now cuts a rear wing's
+lights as a stone-mullioned group where the record names the side (`rear_wings[].mullioned`,
+`k01.opening.wing_mullioned`): the window kit's grouped flat-headed K06 variant, one hole to a light so the
+brick between them stands behind the mullion's stone, a dressed stone up the mullion from sill to head and
+one stone lintel over the group in place of K03's brick head. 1919's middle range
+(`marshall_field_jr_house_1919_prairie`) carries one such window
+in each storey at s 1.6 m along that face (the kit's paired flat sash, two 0.8 m lights either side of a
+0.2 m mullion, 1.8 m across): through the 1919 programme camera it lands within about 0.1 m of the plate's
+pair, and the 1913 plate draws the pair about 0.5 m nearer the north corner, which two fits disagree about.
+**What is read, not invented.** That the face is lit; that each storey's window is a pair of lights under one
+head with a mullion between; the pair's place along the face and its overall width (about 1.8-1.9 m).
+**What is invented.** The lights' 0.8 m width and one-over-one glazing (the plates resolve no glazing bar);
+their sill and head lines, which are the range's own storeys'; the mullion's 0.2 m; the 0.3 m lintel running
+0.1 m past the group; the stones' 0.03 m projection; that the head is a stone lintel and not a brick arch
+(the halftones draw the face pale and too soft to tell).
+**What is not built.** Any change to the middle range's north face: neither plate resolves a light in it
+(the 1919 plate draws it dark under ivy, the 1913 plate in shade), so its two single sashes stay the kit's;
+the narrow lights the 1913 plate draws just west of the corner block fall on the rear range's 1.7 m street
+face, where the record has bare brick and which its quoin and its junction leave 0.8 m to light; the rear
+range's own gable, still about 20-35 px (1-2 m) left of the plates' second gable in all three.
+**How to resolve:** a picture of the flank at closer range, or the plates at a finer screen.
+**Ticket:** T-3354 (piece 2 of T-3338).
+**Recorded:** 2026-11-06 (T-3354).

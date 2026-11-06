@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 2721, ts: '2026-11-06T18:52:49.246Z', date: 'Nov 6, 2026, 12:52 PM CT', title: 'The Pullman corner gets its tree back', kind: 'feature',
+    items: [
+      'In 1904, at Prairie Avenue and 18th Street, a tall tree stands in the grass corner in front of the Pullman house. Two old photographs taken from different spots both show it, and lining them up puts it in the same place to within a few centimetres.',
+    ] },
+  { v: 2720, ts: '2026-11-06T18:08:49.050Z', date: 'Nov 6, 2026, 12:08 PM CT', title: '1919 Prairie\'s corner block gets its two-light stone-mullioned windows', kind: 'improvement',
+    items: [
+      'The flat-topped block on 1919 Prairie\'s north flank now has a window in each storey of its street face. Each one is a pair of lights with a stone mullion between them and a stone lintel over the top, as the 1919 and 1913 Gatlin Institute plates draw it. That face used to be bare brick.',
+      'Measured against the block\'s own corner, both windows stand where the plates put them. Their glazing, the size of the stones and the lintel are our reconstruction, because the halftones are too soft to show them.',
+      'The plates also draw a three-light window in each storey of the block\'s north face. They don\'t show where it stands along the wall closely enough to build it, so the match record keeps it as an open difference.',
+    ] },
+  { v: 2719, ts: '2026-11-06T18:08:49.050Z', date: 'Nov 6, 2026, 12:08 PM CT', title: 'Brightness now goes up to 4x', kind: 'improvement',
+    items: [
+      'Settings › Display › Brightness now runs from the calibrated light up to 4x, in eight steps. It used to stop at 2x.',
+      'The extra light goes mostly into the shade. A front under the elms, like the Glessner house on the architects\' jaunt, gets the full lift. Sunlit roofs rise about half as much, and the sky only a little, so it stays blue instead of washing out white.',
+    ] },
   { v: 2718, ts: '2026-11-06T17:41:47.062Z', date: 'Nov 6, 2026, 11:41 AM CT', title: 'People is a directory: search anyone, open their household', kind: 'feature',
     items: [
       'People opens on a search box over every person and household: name, house number, street or work.',

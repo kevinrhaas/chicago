@@ -547,6 +547,8 @@ step "Every selected natural-standing derivative reproduces from its exact canon
   python3 tools/human_natural_idle.py --check
 step "Active seated drivers reproduce their bounded looking clip from exact parent exports (T-2804)" \
   python3 tools/human_seated_look.py --check
+step "The woman's seated draft reproduces from Otis Bardwell's reviewed pose on her own rest chain (T-3423)" \
+  python3 tools/human_seated_transfer.py --donor bardwell_otis_1835 --target flynn_mary_1835_dress_study --person rc_flynn_mary --body assets/authored/humans/makehuman_hm08/prepared_adult_female_25.json --check
 step "Natural standing derivative preserves canonical parents, old clips and planted lower-body channels (T-1790)" \
   python3 tools/test_human_natural_idle.py
 step "Selected terminal garments reproduce their exact installed payloads (T-2804)" \
@@ -1406,6 +1408,14 @@ step "a flat-topped projection stands on a K01 wing's gable end, and a wing's ga
 # ridge, crowding another or with a light that does not fit, refused.
 step "a K01 wing's gable stands back from a flat end, and pinnacled dormers stand on its street slope (T-3354)" \
   python3 tools/test_k01_wing_dormers.py
+
+# T-3354. ...and a brick wing's lights may be cut as stone-mullioned groups on the sides its
+# `mullioned` names: the window kit's grouped flat-headed K06 variant, one hole to a light, a
+# stone mullion and lintel proud of the brick (1919 Prairie's middle range's street face, the
+# 1919 and 1913 Gatlin plates' two-light windows). Held on 1919's record; a side with no windows
+# or round-headed, a kit naming no grouped variant, lights out of range and stray keys, refused.
+step "a K01 wing's lights may be cut as stone-mullioned groups (T-3354)" \
+  python3 tools/test_k01_wing_mullions.py
 
 # T-3353. ...and a brick wing may name stone `dressings`: belts on the walls it names, in place of
 # K03's brick string course there, and quoins up the corners it names (1919 Prairie's rear

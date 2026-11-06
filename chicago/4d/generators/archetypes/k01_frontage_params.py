@@ -352,6 +352,15 @@ ROUND_HOODED = "k01.opening.sash_round_hooded"
 #: T-2884: a side wall's round-headed light whose picture shows its head plain (1625's lower
 #: lights): K06's round sash in the same round hole, under no hood and no brick arch
 ROUND_PLAIN = "k01.opening.sash_round_plain"
+#: T-3354: a rear wing's light its picture draws as a stone-mullioned group (1919 Prairie's
+#: middle range, the Gatlin plates' two-light windows in its street face): the kit's flat-headed
+#: grouped K06 variant the record's window_kit names for it, cut one hole to a light, the stone
+#: mullion between them and a stone lintel over the group (`rear_wings[].mullioned`)
+WING_MULLIONED = "k01.opening.wing_mullioned"
+#: T-3354: how far the mullion's and the lintel's stones stand proud of the brick (the quoins'
+#: 0.03 m, T-3353), the lintel's height, and how far it runs past the group at each side; all
+#: RECONSTRUCTED, the plates being too soft to measure a stone
+WING_MULLION_PROUD_M, WING_LINTEL_M, WING_LINTEL_EAR_M = 0.03, 0.3, 0.1
 #: the K01 components whose hole the wall cuts round over the spring
 ROUND_CUT = (ROUND_HOODED, ROUND_PLAIN)
 ROUND_HEAD_HOOD = "k09.trim.lintel_cornice_hood"   # T-2960: the hood street_front_round_heads may name
@@ -4852,7 +4861,7 @@ def _wing_stacks(w: dict, entries, stone: bool) -> tuple:
     return tuple(out)
 
 
-def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, stone: bool = False):
+def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, stone: bool = False, kit=None):
     """Resolve the record's `rear_wings` (T-2343): the ranges a sheet draws behind the main
     body, each a rectangle in the footprint frame whose front stands on the main rear wall
     (u = 0) or on the rear wall of a wing listed before it, inside that wall's length.
@@ -4963,6 +4972,28 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
                                  f"lists, not {side!r}")
             if len(rows) != len(heights):
                 raise ParamError(f"rear_wings: {wid}'s windows_by_storey.{side} lists one row per storey")
+        # T-3354: the sides whose lights a picture draws as stone-mullioned groups (1919's middle
+        # range, the Gatlin plates' two-light windows in its street face): each light the group
+        # the window_kit's grouped variant for WING_MULLIONED makes of `light_m`-wide lights
+        mu, msides, group = e.get("mullioned"), (), 0.0
+        if mu is not None:
+            if not isinstance(mu, dict) or set(mu) != {"sides", "light_m"} or not mu["sides"]:
+                raise ParamError(f"rear_wings: {wid}'s mullioned takes sides (the walls whose lights are "
+                                 f"grouped) and light_m (each light's clear width), not {mu}")
+            msides = tuple(mu["sides"])
+            for side in msides:
+                if side not in (e.get("windows") or {}) or side in rheads or side in bls:
+                    raise ParamError(f"rear_wings: {wid}'s mullioned side {side!r} is one whose windows it "
+                                     f"lists, cuts square-headed and lights no basement under")
+            vid = ((kit or {}).get(WING_MULLIONED) or {}).get("variant")
+            v6 = next((x for x in json.loads(WINDOW_KIT.read_text())["variants"] if x["id"] == vid), None)
+            if v6 is None or v6["head"] != "flat" or int(v6.get("bays", 1)) < 2:
+                raise ParamError(f"rear_wings: {wid}'s mullioned lights need window_kit to name a flat-headed "
+                                 f"grouped K06 variant for {WING_MULLIONED} (not {vid})")
+            light = float(mu["light_m"])
+            _within(light, cw, f"rear_wings.{wid}.mullioned.light_m")
+            n6, m6 = int(v6["bays"]), float(v6.get("mullion_m", 0.0))
+            group = round(n6 * light + (n6 - 1) * m6, 4)
         for side, ss in sorted((e.get("windows") or {}).items()):
             if side not in walls:
                 raise ParamError(f"rear_wings: {wid} has no {side} wall ({', '.join(walls)})")
@@ -4984,12 +5015,16 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
                                          f"than 0.30 m to a corner of its {length:.3f} m wall")
                     ops.append(Opening(ROUND_PLAIN, f"k01.wall.wing.{wid}.{side}", s, round(bs, 4), bw, bh,
                                        False, plain=True, narrow=bw < cw[0]))
-            comp = ROUND_HOODED if side in rheads else "k01.opening.sash_flat"
+            comp = ROUND_HOODED if side in rheads else WING_MULLIONED if side in msides else "k01.opening.sash_flat"
             for k, row in enumerate(sash):
                 sill = floors[k] + float(row["sill_above_floor_m"])
                 w_, h_ = float(row["width_m"]), float(row["height_m"])
                 _within(w_, cw, f"rear_wings.{wid}.sash_by_storey[{k}].width_m")
                 _within(h_, ch, f"rear_wings.{wid}.sash_by_storey[{k}].height_m")
+                if comp == WING_MULLIONED:   # T-3354: the group's width, its lights the storey's height
+                    w_ = group
+                    if sill + h_ + WING_LINTEL_M + 0.15 > top:
+                        raise ParamError(f"rear_wings: {wid}'s storey {k} mullioned lintels run into its deck")
                 if sill + h_ + 0.30 > top:
                     raise ParamError(f"rear_wings: {wid}'s storey {k} heads run into its deck")
                 if comp == ROUND_HOODED and h_ < w_ / 2 + 0.3:
@@ -7510,7 +7545,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
 
     wings = _rear_wings(val("rear_wings"), depth, width, openings, cw,
                         opening["parameters"]["clear_height_m"]["range"], (record or {}).get("id", ""),
-                        stone=bool(val("stone_front")))
+                        stone=bool(val("stone_front")), kit=kit)
     if wing_towers:
         wings, more = _wing_towers(wing_towers, wings, (record or {}).get("id", ""), bool(val("stone_front")),
                                    float(val("eave_overhang_m")))

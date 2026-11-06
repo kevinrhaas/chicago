@@ -27,6 +27,9 @@
  *         still fails, a tickets clone this run has dirtied still fails, and in embedded
  *         mode (tickets inside the code repo, where they ARE in the diff) it is strict.
  *
+ *   16-18 `new` REFUSES an epic `check` does not list, the same way and for the same
+ *         reason (T-3431: three such filings stopped the settle workflow for three days).
+ *
  * Every assertion is run against a real clone of a real bare tickets repository, because
  * the whole distinction is about which repository a file lives in — a fixture folder
  * could not tell the two apart.
@@ -194,6 +197,36 @@ try {
   check('15. in embedded mode the tickets ARE in the diff, so the flag is strict',
     embedded.status === 1 && /ticket queue FAILED/.test(embedded.out) && /T-1585/.test(embedded.out),
     embedded.out.trim());
+
+  /* ------------------- 16-18. an epic the gate cannot read (T-3431) */
+  // 2026-11-03: `new --epic 1812` and `new --epic PRAIRIE` filed three tickets that
+  // `check` refused, and settle runs `check` before it publishes the board — so every
+  // settle run failed for three days. The filing is where it is caught now.
+  console.log('\n  a run filing a ticket under an epic `check` does not list (T-3431)');
+  const F = sandbox('f');
+  const fBefore = ticketFiles(F).length;
+  const year = tool(F, 'new', 'brick for the 1812 fort', '--epic', '1812', '--effort', 'S', '--after', 'T-1584');
+  check('16. `new --epic 1812` is REFUSED, naming the epics `check` reads',
+    year.status !== 0 && /REFUSED/.test(year.out) && /RENDERING\/TOWN/.test(year.out)
+    && /SOUTH_TIME/.test(year.out), year.out.trim().split('\n')[0] || `status ${year.status}`);
+  check('   …nothing is written and no id is minted',
+    ticketFiles(F).length === fBefore
+    && !readFileSync(path.join(F, 'tickets', 'QUEUE.md'), 'utf8').includes('1812 fort'),
+    `${fBefore} ticket file(s) before, ${ticketFiles(F).length} after`);
+  const pushed = tool(F, 'new', 'Glessner colonnettes', '--epic', 'PRAIRIE', '--effort', 'S',
+    '--after', 'T-1584', '--anyway', '--why', 'the owner named this epic');
+  check('17. `--anyway` cannot take it — the budget\'s override is not the gate\'s',
+    pushed.status !== 0 && /REFUSED/.test(pushed.out) && ticketFiles(F).length === fBefore,
+    pushed.out.trim().split('\n')[0] || `status ${pushed.status}`);
+  const town = tool(F, 'new', 'brick for the 1812 fort', '--epic', 'town', '--effort', 'S', '--after', 'T-1584');
+  const townId = /(T-\d{4})/.exec(town.out)?.[1];
+  const townFile = townId && ticketFiles(F).find((f) => f.startsWith(townId));
+  const townText = townFile ? readFileSync(path.join(F, 'tickets', 'T-1500-1749', townFile), 'utf8') : '';
+  check('18. …a listed epic still files, in any case, written as the gate reads it',
+    town.status === 0 && /^epic: TOWN$/m.test(townText), town.out.trim().split('\n')[0] || `status ${town.status}`);
+  const after = tool(F, 'check');
+  check('   …and the queue it leaves behind passes `check` on its epics',
+    !/is not one of/.test(after.out), after.out.trim());
 } finally {
   rmSync(root, { recursive: true, force: true });
 }
