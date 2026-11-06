@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2726, ts: '2026-11-06T19:28:30.111Z', date: 'Nov 6, 2026, 1:28 PM CT', title: 'Winter street elms are bare round branches, not brown fans', kind: 'fix',
+    items: [
+      'Past arm\'s reach a winter elm was flat painted twig cards and wedge-shaped spikes, which read as brown fans.',
+      'Its limbs, branches and twigs are now round wood with bark, each growing out of the one below it.',
+      'Phones get the same bare branching; summer, spring and fall trees are unchanged.',
+    ] },
   { v: 2725, ts: '2026-11-06T19:24:11.401Z', date: 'Nov 6, 2026, 1:24 PM CT', title: '1801 Prairie gains its third storey behind the bow\'s balcony', kind: 'improvement',
     items: [
       'The Kimball house\'s front now rises a storey of stone behind the round bay\'s balcony, with one window in it, where the roof\'s slate used to come down to the cornice. Both the 1895 photograph and the 1965 survey photograph show it.',
