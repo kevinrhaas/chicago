@@ -254,6 +254,9 @@
         "vehicle_binding": "studebaker_brougham_1893",
         "web_assets": true
       },
+      "driver_livery_file": "transport/driven/driver-livery-1904.json",
+      "driver_livery_sha256": "da7aa03a71014f2d8205e8a9610ec54900eec824b7d321d5270f8def3bed1e80",
+      "driver_livery_body_sha256": "c3b285d0305559ee5fbe13695985df86cde4c38ca8d7efd8419fcdd2d97bc4b8",
       "driver_palm_bindings_by_lod": {
         "0": {
           "l": {
