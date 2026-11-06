@@ -69167,14 +69167,7 @@
       "subjects": [
         "kimball_house_1801_prairie"
       ],
-      "covers": [
-        {
-          "domain": "structure",
-          "structure": "kimball_house_1801_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.mansard"
-        }
-      ],
+      "covers": [],
       "recorded": "2026-11-06",
       "revised": null,
       "fields": [
@@ -69189,10 +69182,6 @@
         {
           "label": "How to resolve",
           "text": "an elevation drawing of the Prairie front (Solon S. Beman's, or HABS measured drawings if any were made), or a nearer photograph of the front's roof."
-        },
-        {
-          "label": "Covers",
-          "text": "`kimball_house_1801_prairie.as_mapped_1904.form.mansard`"
         },
         {
           "label": "Review",

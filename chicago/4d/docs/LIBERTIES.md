@@ -41220,6 +41220,5 @@ as the cameras' error, since the light's head and sill run level in both); and t
 architrave, which HABS 2 shows and the kit's flat-capped face does not yet build (open in that record).
 **How to resolve:** an elevation drawing of the Prairie front (Solon S. Beman's, or HABS measured
 drawings if any were made), or a nearer photograph of the front's roof.
-**Covers:** `kimball_house_1801_prairie.as_mapped_1904.form.mansard`
 **Ticket:** T-1890.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`, `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg`.
