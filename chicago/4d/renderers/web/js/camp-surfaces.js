@@ -27,7 +27,8 @@
  * ## Only where a camp stands
  *
  * Nine sheets are not loaded into a scene with no camp in it: the caller says whether
- * one is drawn (`wanted`), and an unwanted load binds nothing and costs nothing.
+ * one is drawn (`wanted`), and an unwanted load binds nothing and costs nothing. The hay
+ * sheets (T-3401) follow the same rule on their own flag (`hay`).
  * The names are pinned in docs/GLB-CONTRACT.md § Camp coverings.
  */
 
@@ -40,6 +41,18 @@ export const CAMP_COVERINGS = {
   camp_cattail_mat: 'cattail_mat',
   camp_elm_bark: 'elm_bark',
   camp_boughs: 'bough_thatch',
+};
+
+/**
+ * T-3401: the hay of the stacks at Lee's Place (generators/archetypes/haystack.py), in
+ * the same library and bound the same way: combed stems on a stack's outside, the greyed
+ * thatch of its crown or of a stack that stood the winter, and the brighter heart where
+ * hay was pulled or eaten out of it. Loaded only where a haystack is drawn (`hay`).
+ */
+export const HAY_COVERINGS = {
+  stack_hay: 'hay_stack',
+  stack_hay_weathered: 'hay_weathered',
+  stack_hay_cut: 'hay_cut',
 };
 
 const LIBRARY = 'textures/camp_1812_pbr/';
@@ -59,18 +72,20 @@ async function sheet(loader, url, srgb) {
 }
 
 /**
- * Load the three coverings' sheets when `wanted`. Returns `{ problem, apply, bound }`;
- * `apply(material, geometry)` binds the covering a material names, if it names one, and
- * returns a warning string or null. It degrades rather than throws, like the roofs.
+ * Load the three coverings' sheets when `wanted`, and the three hay sheets when `hay`.
+ * Returns `{ problem, apply, bound }`; `apply(material, geometry)` binds the covering a
+ * material names, if it names one, and returns a warning string or null. It degrades
+ * rather than throws, like the roofs.
  */
-export async function loadCampSurfaces({ wanted = false, assetBase = resolveBases().assetBase } = {}) {
+export async function loadCampSurfaces({ wanted = false, hay = false, assetBase = resolveBases().assetBase } = {}) {
   const none = { problem: null, bound: 0, apply: () => null };
-  if (!wanted) return none;
+  const coverings = { ...(wanted ? CAMP_COVERINGS : {}), ...(hay ? HAY_COVERINGS : {}) };
+  if (!Object.keys(coverings).length) return none;
   const loader = new THREE.TextureLoader();
   const base = new URL(LIBRARY, assetBase);
   const sheets = new Map();
   try {
-    await Promise.all(Object.entries(CAMP_COVERINGS).map(async ([name, dir]) => {
+    await Promise.all(Object.entries(coverings).map(async ([name, dir]) => {
       const here = new URL(`${dir}/`, base);
       const res = await fetch(new URL('material.json', here), { cache: 'no-cache' });
       if (!res.ok) throw new Error(`${res.status} — ${new URL('material.json', here)}`);

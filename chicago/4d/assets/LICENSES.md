@@ -526,11 +526,13 @@ cat-tail mat, the elm-bark sheet and the cut boughs of an arbor — built by the
 inside it (`tools/generate_camp_1812_pbr.py`, deterministic, seeded per material) in the 1835
 library's map-for-map layout at 1024 px. Which lodge wears which, and on what evidence, is the camp
 records' to say; the look of every map is reconstructed (`docs/LIBERTIES.md`
-L-1812-potawatomi-camp-2515).
+L-1812-potawatomi-camp-2515). T-3401 added three hay sheets (`hay_stack`, `hay_weathered`,
+`hay_cut`) for the haystacks at Lee's Place, from the same generator and on the same terms
+(L-1812-lees-place-haystacks-2510).
 
 | item | licence | cleared for | NOT cleared for |
 |---|---|---|---|
-| `textures/camp_1812_pbr/**` — *1812 Potawatomi camp coverings PBR library v1.0.0*, original procedural output generated for this project. Full text at `textures/camp_1812_pbr/LICENSE.txt` | **Project-permissive, CC0-equivalent**, the 1835 library's terms. No third-party photograph or image is embedded, sampled or traced | **Use, modification and redistribution with the project**, including regenerated maps | **Stripping the confidence labels.** Each `material.json` says its appearance is reconstructed |
+| `textures/camp_1812_pbr/**` — *1812 Potawatomi camp coverings PBR library v1.1.0*, original procedural output generated for this project. Full text at `textures/camp_1812_pbr/LICENSE.txt` | **Project-permissive, CC0-equivalent**, the 1835 library's terms. No third-party photograph or image is embedded, sampled or traced | **Use, modification and redistribution with the project**, including regenerated maps | **Stripping the confidence labels.** Each `material.json` says its appearance is reconstructed |
 
 **Published in part.** `tools/publish.sh` ships each material's `material.json`, its three
 `*_web.jpg` maps and their `.ktx2` derivatives (`tools/ktx2_sheets.py`, KTX-Software 4.3.2) to
@@ -574,6 +576,39 @@ textures/camp_1812_pbr/elm_bark/elm_bark_orm.ktx2
 textures/camp_1812_pbr/elm_bark/elm_bark_orm.png
 textures/camp_1812_pbr/elm_bark/elm_bark_orm_web.jpg
 textures/camp_1812_pbr/elm_bark/material.json
+textures/camp_1812_pbr/hay_cut/hay_cut_basecolor.ktx2
+textures/camp_1812_pbr/hay_cut/hay_cut_basecolor.png
+textures/camp_1812_pbr/hay_cut/hay_cut_basecolor_web.jpg
+textures/camp_1812_pbr/hay_cut/hay_cut_height16.png
+textures/camp_1812_pbr/hay_cut/hay_cut_normal_gl.ktx2
+textures/camp_1812_pbr/hay_cut/hay_cut_normal_gl.png
+textures/camp_1812_pbr/hay_cut/hay_cut_normal_gl_web.jpg
+textures/camp_1812_pbr/hay_cut/hay_cut_orm.ktx2
+textures/camp_1812_pbr/hay_cut/hay_cut_orm.png
+textures/camp_1812_pbr/hay_cut/hay_cut_orm_web.jpg
+textures/camp_1812_pbr/hay_cut/material.json
+textures/camp_1812_pbr/hay_stack/hay_stack_basecolor.ktx2
+textures/camp_1812_pbr/hay_stack/hay_stack_basecolor.png
+textures/camp_1812_pbr/hay_stack/hay_stack_basecolor_web.jpg
+textures/camp_1812_pbr/hay_stack/hay_stack_height16.png
+textures/camp_1812_pbr/hay_stack/hay_stack_normal_gl.ktx2
+textures/camp_1812_pbr/hay_stack/hay_stack_normal_gl.png
+textures/camp_1812_pbr/hay_stack/hay_stack_normal_gl_web.jpg
+textures/camp_1812_pbr/hay_stack/hay_stack_orm.ktx2
+textures/camp_1812_pbr/hay_stack/hay_stack_orm.png
+textures/camp_1812_pbr/hay_stack/hay_stack_orm_web.jpg
+textures/camp_1812_pbr/hay_stack/material.json
+textures/camp_1812_pbr/hay_weathered/hay_weathered_basecolor.ktx2
+textures/camp_1812_pbr/hay_weathered/hay_weathered_basecolor.png
+textures/camp_1812_pbr/hay_weathered/hay_weathered_basecolor_web.jpg
+textures/camp_1812_pbr/hay_weathered/hay_weathered_height16.png
+textures/camp_1812_pbr/hay_weathered/hay_weathered_normal_gl.ktx2
+textures/camp_1812_pbr/hay_weathered/hay_weathered_normal_gl.png
+textures/camp_1812_pbr/hay_weathered/hay_weathered_normal_gl_web.jpg
+textures/camp_1812_pbr/hay_weathered/hay_weathered_orm.ktx2
+textures/camp_1812_pbr/hay_weathered/hay_weathered_orm.png
+textures/camp_1812_pbr/hay_weathered/hay_weathered_orm_web.jpg
+textures/camp_1812_pbr/hay_weathered/material.json
 textures/camp_1812_pbr/manifest.json
 textures/camp_1812_pbr/tools/generate_camp_1812_pbr.py
 ```

@@ -1,0 +1,26 @@
+{
+  "id": "hay_cut",
+  "group": "hay_1812",
+  "span_m": 0.9,
+  "mean_roughness": 0.9,
+  "resolution_px": 1024,
+  "web_resolution_px": 512,
+  "px_per_m": 1137.78,
+  "orientation": "image x = round the covering (u, horizontal); image y = up it (v)",
+  "note": "The inside of a stack where hay has been pulled or cut out of it for the stock: the packed hay of the heart, greener and brighter than the outside, stems every way in layers. Reconstructed.",
+  "confidence": "reconstructed appearance; the covering's material is inferred from the texts the record cites (L-1812-lees-place-haystacks-2510)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic",
+    "height16": "linear 16-bit"
+  },
+  "web": {
+    "basecolor": "hay_cut_basecolor_web.jpg",
+    "normal_gl": "hay_cut_normal_gl_web.jpg",
+    "orm": "hay_cut_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 18120408,
+  "generation_method": "deterministic procedural synthesis (tools/generate_camp_1812_pbr.py); no photograph sampled"
+}
