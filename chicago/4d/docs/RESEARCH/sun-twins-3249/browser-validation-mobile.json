@@ -1,0 +1,476 @@
+{
+  "method": "Actual published /1904/ app at 390x780, `light`; animation paused after readiness; each stand renders the same held frame with every structure piece casting whole (buildings.farShadow.on=false), whole again (control), with T-3286's screen bound alone (byTexel=false: dev before T-3249), with the texel bound (T-3249), and with no structure casting (the positive control; subtracted from each to give the structures' share of the sun's pass). Triangles from renderer.info, every pixel with gl.readPixels in the same task as the render.",
+  "viewport": {
+    "width": 390,
+    "height": 780
+  },
+  "detail": "light",
+  "boot": {
+    "scene": "1904",
+    "detail": "light",
+    "budget": {
+      "drawCalls": 7800,
+      "triangles": 1270000
+    },
+    "texelM": 0.234375,
+    "twins": 338,
+    "groups": 603,
+    "groupTriangles": 810535,
+    "groupIndices": 2431605,
+    "groupMs": 451,
+    "twinTriangles": 130591,
+    "twinVertices": 81172,
+    "buildMs": 196,
+    "readyMs": 29356
+  },
+  "errors": [],
+  "bad": [],
+  "stands": [
+    {
+      "name": "south-from-1801",
+      "pieces": 338,
+      "groups": 603,
+      "groupsSwapped": 86,
+      "swapMs": 1.8999999999068677,
+      "screenSwapped": 137,
+      "swapped": 119,
+      "saved": 643464,
+      "frame": {
+        "whole": 2193662,
+        "screen": 1962532,
+        "texel": 1677636,
+        "noStructureCasting": 1456655
+      },
+      "structureSunPass": {
+        "whole": 737007,
+        "screen": 505877,
+        "texel": 220981
+      },
+      "calls": {
+        "whole": 546,
+        "screen": 546,
+        "texel": 546
+      },
+      "withinBudget": false,
+      "pixels": 304200,
+      "wholeVsTexel": {
+        "differ": 301,
+        "over8": 35,
+        "maxDelta": 38,
+        "at": [
+          [
+            339,
+            407,
+            1
+          ],
+          [
+            341,
+            407,
+            1
+          ],
+          [
+            342,
+            406,
+            3
+          ],
+          [
+            343,
+            406,
+            6
+          ],
+          [
+            344,
+            406,
+            3
+          ],
+          [
+            345,
+            406,
+            1
+          ],
+          [
+            343,
+            405,
+            25
+          ],
+          [
+            344,
+            405,
+            13
+          ],
+          [
+            345,
+            405,
+            1
+          ],
+          [
+            345,
+            404,
+            1
+          ],
+          [
+            346,
+            404,
+            3
+          ],
+          [
+            347,
+            404,
+            5
+          ],
+          [
+            56,
+            403,
+            1
+          ],
+          [
+            57,
+            403,
+            2
+          ],
+          [
+            58,
+            403,
+            2
+          ],
+          [
+            60,
+            403,
+            1
+          ],
+          [
+            61,
+            403,
+            4
+          ],
+          [
+            62,
+            403,
+            1
+          ],
+          [
+            72,
+            401,
+            8
+          ],
+          [
+            73,
+            401,
+            11
+          ],
+          [
+            77,
+            400,
+            4
+          ],
+          [
+            78,
+            400,
+            13
+          ],
+          [
+            79,
+            400,
+            13
+          ],
+          [
+            80,
+            400,
+            9
+          ]
+        ]
+      },
+      "wholeVsScreen": {
+        "differ": 93,
+        "over8": 6,
+        "maxDelta": 16
+      },
+      "screenVsTexel": {
+        "differ": 343,
+        "over8": 30,
+        "maxDelta": 38
+      },
+      "controlWholeWholePixelsDiffering": 0,
+      "controlPixelsDifferingWithNoStructureCasting": 2370,
+      "problems": 0
+    },
+    {
+      "name": "prairie-and-18th",
+      "pieces": 338,
+      "groups": 603,
+      "groupsSwapped": 59,
+      "swapMs": 1.6000000019557774,
+      "screenSwapped": 152,
+      "swapped": 164,
+      "saved": 592678,
+      "frame": {
+        "whole": 1569992,
+        "screen": 1450673,
+        "texel": 1219735,
+        "noStructureCasting": 1037705
+      },
+      "structureSunPass": {
+        "whole": 532287,
+        "screen": 412968,
+        "texel": 182030
+      },
+      "calls": {
+        "whole": 338,
+        "screen": 338,
+        "texel": 338
+      },
+      "withinBudget": true,
+      "pixels": 304200,
+      "wholeVsTexel": {
+        "differ": 119,
+        "over8": 16,
+        "maxDelta": 48,
+        "at": [
+          [
+            93,
+            406,
+            1
+          ],
+          [
+            87,
+            398,
+            1
+          ],
+          [
+            74,
+            394,
+            1
+          ],
+          [
+            95,
+            394,
+            3
+          ],
+          [
+            74,
+            393,
+            1
+          ],
+          [
+            93,
+            393,
+            1
+          ],
+          [
+            94,
+            393,
+            2
+          ],
+          [
+            95,
+            393,
+            3
+          ],
+          [
+            96,
+            393,
+            6
+          ],
+          [
+            108,
+            393,
+            1
+          ],
+          [
+            109,
+            393,
+            7
+          ],
+          [
+            72,
+            392,
+            2
+          ],
+          [
+            73,
+            392,
+            2
+          ],
+          [
+            74,
+            392,
+            5
+          ],
+          [
+            95,
+            392,
+            3
+          ],
+          [
+            96,
+            392,
+            3
+          ],
+          [
+            73,
+            391,
+            1
+          ],
+          [
+            86,
+            391,
+            1
+          ],
+          [
+            96,
+            391,
+            1
+          ],
+          [
+            96,
+            390,
+            1
+          ],
+          [
+            62,
+            387,
+            1
+          ],
+          [
+            87,
+            382,
+            1
+          ],
+          [
+            61,
+            379,
+            1
+          ],
+          [
+            94,
+            372,
+            1
+          ]
+        ]
+      },
+      "wholeVsScreen": {
+        "differ": 2,
+        "over8": 0,
+        "maxDelta": 1
+      },
+      "screenVsTexel": {
+        "differ": 117,
+        "over8": 16,
+        "maxDelta": 48
+      },
+      "controlWholeWholePixelsDiffering": 0,
+      "controlPixelsDifferingWithNoStructureCasting": 6544,
+      "problems": 0
+    },
+    {
+      "name": "lakeside-south",
+      "pieces": 338,
+      "groups": 603,
+      "groupsSwapped": 41,
+      "swapMs": 0.9000000008381903,
+      "screenSwapped": 151,
+      "swapped": 151,
+      "saved": 508647,
+      "frame": {
+        "whole": 679791,
+        "screen": 679791,
+        "texel": 679791,
+        "noStructureCasting": 679791
+      },
+      "structureSunPass": {
+        "whole": 0,
+        "screen": 0,
+        "texel": 0
+      },
+      "calls": {
+        "whole": 146,
+        "screen": 146,
+        "texel": 146
+      },
+      "withinBudget": true,
+      "pixels": 304200,
+      "wholeVsTexel": {
+        "differ": 0,
+        "over8": 0,
+        "maxDelta": 0,
+        "at": []
+      },
+      "wholeVsScreen": {
+        "differ": 0,
+        "over8": 0,
+        "maxDelta": 0
+      },
+      "screenVsTexel": {
+        "differ": 0,
+        "over8": 0,
+        "maxDelta": 0
+      },
+      "controlWholeWholePixelsDiffering": 0,
+      "controlPixelsDifferingWithNoStructureCasting": 0,
+      "problems": 0
+    },
+    {
+      "name": "air-over-indiana",
+      "pieces": 338,
+      "groups": 603,
+      "groupsSwapped": 21,
+      "swapMs": 1.200000001117587,
+      "screenSwapped": 157,
+      "swapped": 177,
+      "saved": 361085,
+      "frame": {
+        "whole": 828965,
+        "screen": 828965,
+        "texel": 823980,
+        "noStructureCasting": 793546
+      },
+      "structureSunPass": {
+        "whole": 35419,
+        "screen": 35419,
+        "texel": 30434
+      },
+      "calls": {
+        "whole": 219,
+        "screen": 219,
+        "texel": 219
+      },
+      "withinBudget": true,
+      "pixels": 304200,
+      "wholeVsTexel": {
+        "differ": 3,
+        "over8": 0,
+        "maxDelta": 6,
+        "at": [
+          [
+            180,
+            697,
+            4
+          ],
+          [
+            181,
+            692,
+            4
+          ],
+          [
+            180,
+            690,
+            6
+          ]
+        ]
+      },
+      "wholeVsScreen": {
+        "differ": 0,
+        "over8": 0,
+        "maxDelta": 0
+      },
+      "screenVsTexel": {
+        "differ": 3,
+        "over8": 0,
+        "maxDelta": 6
+      },
+      "controlWholeWholePixelsDiffering": 0,
+      "controlPixelsDifferingWithNoStructureCasting": 5925,
+      "problems": 0
+    }
+  ]
+}
