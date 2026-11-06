@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2721, ts: '2026-11-06T18:52:49.246Z', date: 'Nov 6, 2026, 12:52 PM CT', title: 'The Pullman corner gets its tree back', kind: 'feature',
+    items: [
+      'In 1904, at Prairie Avenue and 18th Street, a tall tree stands in the grass corner in front of the Pullman house. Two old photographs taken from different spots both show it, and lining them up puts it in the same place to within a few centimetres.',
+    ] },
   { v: 2720, ts: '2026-11-06T18:08:49.050Z', date: 'Nov 6, 2026, 12:08 PM CT', title: '1919 Prairie\'s corner block gets its two-light stone-mullioned windows', kind: 'improvement',
     items: [
       'The flat-topped block on 1919 Prairie\'s north flank now has a window in each storey of its street face. Each one is a pair of lights with a stone mullion between them and a stone lintel over the top, as the 1919 and 1913 Gatlin Institute plates draw it. That face used to be bare brick.',
