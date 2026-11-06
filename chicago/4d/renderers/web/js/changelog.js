@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2715, ts: '2026-11-06T16:17:29.997Z', date: 'Nov 6, 2026, 10:17 AM CT', title: 'Otis\'s 1835 hair, neater', kind: 'fix',
+    items: [
+      'Otis Bardwell\'s hair sat as a shaggy mop and his whiskers hung over his cheek like a curtain. His cut is now shorter at the sides and lies closer to the head, and his side whiskers are short and dense in front of the ear.',
+    ] },
   { v: 2714, ts: '2026-11-06T16:07:06.248Z', date: 'Nov 6, 2026, 10:07 AM CT', title: 'John J. Glessner\'s face, fitted to his photograph', kind: 'feature',
     items: [
       'Glessner\'s card (1800 Prairie, People) has a Likeness section: his photograph from the Commercial Club\'s 1910 book beside the model\'s face, fitted to it.',
