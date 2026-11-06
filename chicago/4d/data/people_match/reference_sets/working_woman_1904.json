@@ -1,0 +1,69 @@
+{
+  "id": "working_woman_1904",
+  "role": "working woman (cook or maid)",
+  "label": "a cook or maid in her working dress, 1900s",
+  "years": [
+    1898,
+    1910
+  ],
+  "scenes": [
+    "1904"
+  ],
+  "evidence": {
+    "repo": "kevinrhaas/chicago-evidence",
+    "dir": "evidence/people-references-2026-11-06/working_woman_1904"
+  },
+  "note": "Gathered 2026-11-06 for T-3423, the first woman of the plan 'Photographic humans: the path'. Three C. L. Wasson studio stereographs of 1903 (a comic series set in a kitchen; LOC, no known restrictions). None is of Chicago, the Glessner household or Martha Williamson: a reference set says what a woman in this role and decade looked like, never who the subject was. The prints are monochrome and say nothing about colour.",
+  "pictures": [
+    {
+      "name": "wasson_1903_shirtwaist_near",
+      "band": "near",
+      "file": "wasson_1903_shirtwaist_near.jpg",
+      "sha256": "a32ed297251005b3f6685e2a6315b06a66648618448966ff7343f5de33fbf2e6",
+      "source_id": "loc_wasson_1903_new_french_cook_mr_mrs_stereograph",
+      "from": "master TIFF 1s44451u.tif (5881 x 3050), crop [900, 640, 1800, 2700] of the card's left frame, reduced to 699 x 1600",
+      "caption": "A young woman in shirtwaist and bib apron at a kitchen table, facing the camera at a few metres. C. L. Wasson stereograph, 1903 (LOC 2022631776)",
+      "shows": "Full length, facing the camera at about three metres: a pale shirtwaist with a white standing collar and a dark tie, sleeves pushed up; a dotted bib apron with ruffled edges over the chest and skirt front; a dark flounced skirt to the floor; low heeled shoes; hair swept up full round the face to a knot."
+    },
+    {
+      "name": "wasson_1903_maid_near",
+      "band": "near",
+      "file": "wasson_1903_maid_near.jpg",
+      "sha256": "946e3865f78b1815ab82b01b4c0ba2e581410e8efc2b37acb55c847b4691ca81",
+      "source_id": "loc_wasson_1903_charming_rogue_new_cook_stereograph",
+      "from": "master TIFF 1s44466u.tif (5843 x 3012), crop [760, 640, 1620, 2700] of the card's left frame, reduced to 668 x 1600",
+      "caption": "The same woman from her left front, holding up a pie, at a few metres. C. L. Wasson stereograph, 1903 (LOC 2022631791)",
+      "shows": "Three-quarter from the front left at about three metres: the shirtwaist's full shoulder and pushed-up sleeve, the bib apron's ruffled strap over the shoulder and its skirt falling below the knee, the long dark skirt behind, hair drawn up to a knot on the crown with a small white cap."
+    },
+    {
+      "name": "wasson_1903_cook_near",
+      "band": "near",
+      "file": "wasson_1903_cook_near.jpg",
+      "sha256": "f903dc2de9c8fe9c69b96ed727ff92d8538492f1f19eb8cda0d06dbca0ba6a5a",
+      "source_id": "loc_wasson_1903_new_french_cook_stereograph",
+      "from": "master TIFF 1s44450u.tif (5881 x 3050), crop [860, 300, 1960, 2560] of the card's left frame, reduced to 779 x 1600",
+      "caption": "An older cook at the kitchen table, facing the camera at a few metres. C. L. Wasson stereograph, 1903 (LOC 2022631775)",
+      "shows": "Facing the camera at about three metres: a dark long-sleeved blouse with a pale trimmed yoke, a checked bib apron, a dark spotted skirt to the floor, a cloth bound over the hair: a second working dress of the decade."
+    },
+    {
+      "name": "wasson_1903_maid_frame",
+      "band": "far",
+      "file": "wasson_1903_maid_frame.jpg",
+      "sha256": "78ac7b9966414bbe4332f53dcea799e2ca97a8f20b743efba3385096bd88b88e",
+      "source_id": "loc_wasson_1903_charming_rogue_new_cook_stereograph",
+      "from": "master TIFF 1s44466u.tif (5843 x 3012), the card's left frame [520, 150, 2910, 2720], reduced to 1488 x 1600",
+      "caption": "The whole kitchen frame: the woman at the table and a man in the doorway. C. L. Wasson stereograph, 1903 (LOC 2022631791)",
+      "shows": "The whole frame, the figures small in it: how a pale shirtwaist, a white apron and a dark skirt read as three bands of tone on a standing woman, against a man in dark evening dress."
+    },
+    {
+      "name": "wasson_1903_cook_frame",
+      "band": "far",
+      "file": "wasson_1903_cook_frame.jpg",
+      "sha256": "0bcf51b96818594e8d1bbaccf7ee4c0cb6860a80971529af7e249e5667d65e06",
+      "source_id": "loc_wasson_1903_new_french_cook_stereograph",
+      "from": "master TIFF 1s44450u.tif (5881 x 3050), the card's left frame [500, 150, 2920, 2720], reduced to 1507 x 1600",
+      "caption": "The whole kitchen frame with the older cook at the table. C. L. Wasson stereograph, 1903 (LOC 2022631775)",
+      "shows": "The whole frame: a dark-dressed cook with a pale apron and a cloth over her hair, the floor-length skirt reaching the floor all round, read small."
+    }
+  ]
+}

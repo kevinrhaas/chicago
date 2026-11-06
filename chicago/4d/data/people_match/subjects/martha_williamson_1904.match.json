@@ -1,0 +1,170 @@
+{
+  "subject": "martha_williamson_1904",
+  "reference_set": "working_woman_1904",
+  "shot": {
+    "date": "2026-11-06",
+    "target": "local published mirror",
+    "build": "build 0aa9fa5c2 \u00b7 Nov 6, 2026, 1:46 PM CT",
+    "out": "evidence/people-match-2026-11-06/martha_williamson_1904",
+    "evidence_repo": "kevinrhaas/chicago-evidence"
+  },
+  "bound": {
+    "appearance": {
+      "asset_id": "williamson_mattie_1904_cook_study"
+    },
+    "placement": {
+      "local_e": 1367.5,
+      "local_n": -3233,
+      "heading_deg": 95,
+      "anchor": "terrain"
+    },
+    "animation": {
+      "clip": "idle",
+      "loop": true,
+      "phase": 0
+    },
+    "asset_lod0_sha256": "0f8d5ffc4ab415a781646ec4bdbcada4b38886d3d19f4f0f75aa5359a9872b0d"
+  },
+  "stills": {
+    "near-desktop": {
+      "file": "evidence/people-match-2026-11-06/martha_williamson_1904/near-desktop.jpg",
+      "sha256": "eee01dce86dc97413ba16d56202eec4c6a35d5088cb1789077f2400f9fc95510",
+      "detail": "full",
+      "camera": {
+        "e": 1370.407,
+        "n": -3232.224,
+        "eye_y": 6.01,
+        "yaw_deg": 255,
+        "pitch_deg": -18.05,
+        "subject_heading_deg": 95,
+        "head_enu": [
+          1367.509,
+          -3233.001,
+          5.782
+        ]
+      },
+      "figure_box_px": [
+        499,
+        64,
+        282,
+        509
+      ]
+    },
+    "far-desktop": {
+      "file": "evidence/people-match-2026-11-06/martha_williamson_1904/far-desktop.jpg",
+      "sha256": "957a2a3441781b3e3d7b1a6f6951563a8689a81faf9beda4fa056e6dae4b821c",
+      "detail": "full",
+      "camera": {
+        "e": 1377.168,
+        "n": -3235.589,
+        "eye_y": 5.931,
+        "yaw_deg": 285,
+        "pitch_deg": -5.98,
+        "subject_heading_deg": 95,
+        "head_enu": [
+          1367.509,
+          -3233.001,
+          5.782
+        ]
+      },
+      "figure_box_px": [
+        596,
+        275,
+        88,
+        159
+      ]
+    },
+    "near-phone": {
+      "file": "evidence/people-match-2026-11-06/martha_williamson_1904/near-phone.jpg",
+      "sha256": "4d86d660545792ed84fe842bb0efe4eedea8c70428cb85fdaa2649f1841a5768",
+      "detail": "balanced",
+      "camera": {
+        "e": 1370.41,
+        "n": -3232.227,
+        "eye_y": 6.01,
+        "yaw_deg": 255,
+        "pitch_deg": -18.06,
+        "subject_heading_deg": 95,
+        "head_enu": [
+          1367.512,
+          -3233.004,
+          5.782
+        ]
+      },
+      "figure_box_px": [
+        128,
+        231,
+        133,
+        241
+      ]
+    },
+    "far-phone": {
+      "file": "evidence/people-match-2026-11-06/martha_williamson_1904/far-phone.jpg",
+      "sha256": "2a2509953df300d8efc6ca02f83f523dc26e25a75c797d90c57aa1380043d8fd",
+      "detail": "balanced",
+      "camera": {
+        "e": 1377.172,
+        "n": -3235.592,
+        "eye_y": 5.931,
+        "yaw_deg": 285,
+        "pitch_deg": -5.99,
+        "subject_heading_deg": 95,
+        "head_enu": [
+          1367.512,
+          -3233.004,
+          5.782
+        ]
+      },
+      "figure_box_px": [
+        174,
+        331,
+        42,
+        75
+      ]
+    }
+  },
+  "sheets": {
+    "near-side-by-side": "evidence/people-match-2026-11-06/martha_williamson_1904/near-side-by-side.jpg",
+    "far-side-by-side": "evidence/people-match-2026-11-06/martha_williamson_1904/far-side-by-side.jpg",
+    "motion-strip": "evidence/people-match-2026-11-06/martha_williamson_1904/motion-strip.jpg"
+  },
+  "verdict": "differs",
+  "checklist": {
+    "silhouette": {
+      "what": "Silhouette and fit of the clothes",
+      "status": "open",
+      "note": "The three bands read as the pictures do at 10 m: pale shirtwaist, white apron, dark skirt to the ground. At 3 m the shirtwaist is a close jersey over the body where the pictures show a full, bloused front and full sleeves, and the apron is a flat panel without the straps and ruffles over the shoulders."
+    },
+    "folds": {
+      "what": "Folds where cloth gathers",
+      "status": "open",
+      "note": "No folds: the shirtwaist and apron are smooth; the pictures gather at the sleeves, the bib and the skirt's flounces."
+    },
+    "hat_hair": {
+      "what": "Hat and hair",
+      "status": "open",
+      "note": "Hair is drawn up, but at 3 m it reads close to the head; the pictures show it full and swept up round the face to a high knot."
+    },
+    "skin": {
+      "what": "Skin at 3 m",
+      "status": "not shown",
+      "note": "Monochrome prints; face and hands only, and her complexion is not recorded."
+    },
+    "hands": {
+      "what": "Hands",
+      "status": "reads",
+      "note": "Hands hang at the sides, empty, as a standing figure's may; the pictures have them at work on the table."
+    },
+    "stance": {
+      "what": "How the figure stands or sits",
+      "status": "reads",
+      "note": "Upright, feet together under the skirt, as the women stand at the table."
+    },
+    "motion": {
+      "what": "How it moves (the 5-second strip)",
+      "status": "within tolerance",
+      "note": "A standing idle: small weight shifts and the head turning; she nods to a visitor rather than touching her brow. The pictures are stills."
+    }
+  },
+  "_how": "verdict is unreviewed | differs | matches, set by whoever laid the stills beside the pictures; each checklist item is {what, status, note} with status open | reads | not shown | within tolerance | owner ruling \u2014 open when a visitor would see the figure is not the pictures\u2019 kind of person in that respect. The first figure of each role is the owner\u2019s call (the plan\u2019s \"Your call\"); later figures of the role are held to the one he approved. A reshoot of a changed figure (bound) sets the verdict back to unreviewed."
+}

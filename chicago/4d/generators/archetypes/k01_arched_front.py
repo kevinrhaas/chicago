@@ -356,6 +356,45 @@ def _pilasters(a, frame, g, conf):
         gb, ga = PILASTER_BELL_GROW_M, PILASTER_ABACUS_GROW_M
         box(x0 - gb, x1 + gb, top - cap, top - ab, d + gb, True)
         box(x0 - ga, x1 + ga, top - ab, top, d + ga, True)
+    if pl.get("pinnacles"):
+        _door_pinnacles(a, frame, pl, ((s0 - ring - gap - w, s0 - ring - gap), (s1 + ring + gap, s1 + ring + gap + w)),
+                        (s0 + s1) / 2, top, seed, conf)
+
+
+PINNACLE_PROUD_M = 0.09      # T-3365: a door pinnacle's shaft before the wall, over the carved panel's face
+PINNACLE_CAP_M = 0.06        # the moulded cap a pinnacle's spire stands on, and how far it steps out
+CROWN_BUD = [(0.0, 0.5), (0.12, 0.5), (0.3, 1.0), (0.55, 0.85), (0.8, 0.35), (1.0, 0.02)]
+
+
+def _door_pinnacles(a, frame, pl, pilasters, cx, top, seed, conf):
+    """T-3365: each door pilaster carried up over its capital as a shaft `shaft_m` square to
+    `shaft_to_m`, through the carved panel over the door, under a cap and a four-sided spire to
+    `top_m`; and over the arch's crown a stem `crown.stem_m` broad from the keystone's top to the
+    same line under a turned bud `crown.width_m` across to `crown.top_m` (2009 Prairie's door,
+    Chicagology's photograph). The carving on the spires is finer than the bar: they are plain."""
+    from . import k01_wall_gable
+    pn = pl["pinnacles"]
+    sh, st, tp = pn["shaft_m"], pn["shaft_to_m"], pn["top_m"]
+    d, c = PINNACLE_PROUD_M, PINNACLE_CAP_M
+
+    def block(x0, x1, y0, y1, dd):
+        _face(a, "dress_stone", frame, [(x0, y0, dd), (x1, y0, dd), (x1, y1, dd), (x0, y1, dd)], (0, 0, 1), seed, conf)
+        for x, sg in ((x0, -1), (x1, 1)):
+            _face(a, "dress_stone", frame, [(x, y0, 0.0), (x, y0, dd), (x, y1, dd), (x, y1, 0.0)], (sg, 0, 0), seed, conf)
+        for y, sg in ((y0, -1), (y1, 1)):
+            _face(a, "dress_stone", frame, [(x0, y, 0.0), (x1, y, 0.0), (x1, y, dd), (x0, y, dd)], (0, sg, 0), seed, conf)
+    for x0, x1 in pilasters:
+        m = (x0 + x1) / 2
+        block(m - sh / 2, m + sh / 2, top, st, d)
+        block(m - sh / 2 - c / 2, m + sh / 2 + c / 2, st, st + c, d + c / 2)
+        hw = sh / 2 + c / 4
+        k01_wall_gable._pyramid(a, "dress_stone", frame, m, hw, st + c, hw, tp, seed, conf)
+    cr = pn["crown"]
+    block(cx - cr["stem_m"] / 2, cx + cr["stem_m"] / 2, top, st, d)
+    rb, hb = cr["width_m"] / 2, cr["top_m"] - st
+    pts = [(st + hb * f, rb * q) for f, q in CROWN_BUD]
+    for (y0, r0), (y1, r1) in zip(pts, pts[1:]):
+        _frustum(a, "dress_stone", frame, cx, rb, y0, y1, r0, r1, seed, conf)
 
 
 def _keystone(a, frame, k, seed, conf):

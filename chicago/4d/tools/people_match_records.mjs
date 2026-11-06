@@ -4,6 +4,7 @@
 // data/people_match/README.md is the page.
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 
 export const DIR = 'data/people_match';
 export const SETS = `${DIR}/reference_sets`;
@@ -52,6 +53,14 @@ export function listRecords(root) {
 export function boundValues(root, subject, doc = null) {
   const b = subject.bound;
   doc ??= readJSON(root, b.file);
+  if (subject.find?.kind === 'standing') {
+    // A standing figure (T-3423) is its instance record and the body it wears: the record's
+    // keys, and the sha256 of the asset's web LOD0 in this tree (a rebuilt body is a new figure).
+    const out = Object.fromEntries(b.keys.map(k => [k, doc[k] ?? null]));
+    const glb = path.join(root, 'assets/humans/web', `${doc.appearance?.asset_id}.lod0.glb`);
+    out.asset_lod0_sha256 = fs.existsSync(glb) ? crypto.createHash('sha256').update(fs.readFileSync(glb)).digest('hex') : null;
+    return out;
+  }
   const rows = Array.isArray(doc.rows) ? doc.rows : [];
   const row = rows.find(r => r.id === b.row);
   if (!row) throw Error(`${subject.id}: bound row ${b.row} is not in ${b.file}`);
@@ -97,9 +106,22 @@ export function checkSubject(root, subject, sets, rel = 'subject') {
   if (!set) e(`reference_set ${subject.reference_set} is not in ${SETS}/`);
   else if (!set.scenes?.includes(subject.scene)) e(`reference set ${set.id} does not judge scene ${subject.scene}`);
   if (typeof subject.person_id !== 'string' || !subject.person_id) e('person_id is required');
-  if (subject.find?.kind !== 'driven') e('find.kind must be "driven" (the only kind the rig can find yet)');
+  if (!['driven', 'standing'].includes(subject.find?.kind)) e('find.kind must be "driven" (a transport row) or "standing" (an instance record)');
   const b = subject.bound;
-  if (!b || typeof b.file !== 'string' || typeof b.row !== 'string' || !Array.isArray(b.keys) || !b.keys.length) e('bound must name {file, row, keys}');
+  if (subject.find?.kind === 'standing') {
+    // T-3423: a figure standing in the scene from data/humans/instances/<scene>/<id>.json.
+    const want = `data/humans/instances/${subject.scene}/${subject.find.instance}.json`;
+    if (!b || b.file !== want || !Array.isArray(b.keys) || !b.keys.length) e(`bound must name {file: ${want}, keys}`);
+    else {
+      try {
+        const rec = readJSON(root, b.file);
+        if (rec.id !== subject.find.instance) e(`bound record ${b.file} is not ${subject.find.instance}`);
+        if (rec.person_id !== subject.person_id) e(`bound record stands ${rec.person_id}, not ${subject.person_id}`);
+        if (rec.scene !== subject.scene) e(`bound record is in scene ${rec.scene}, not ${subject.scene}`);
+        for (const k of b.keys) if (!(k in rec)) e(`bound key ${k} is not on ${b.file}`);
+      } catch (x) { e(`bound file ${b.file}: ${x.message}`); }
+    }
+  } else if (!b || typeof b.file !== 'string' || typeof b.row !== 'string' || !Array.isArray(b.keys) || !b.keys.length) e('bound must name {file, row, keys}');
   else {
     try {
       const doc = readJSON(root, b.file);

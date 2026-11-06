@@ -1484,6 +1484,13 @@ step "a K01 door under a flat arch takes a fanlight over a transom bar (T-3364)"
 step "a K01 named-window front takes named basement lights, a corner stone and a carved panel (T-3365)" \
   python3 tools/test_k01_named_base_lights.py
 
+# T-3365 (T-1914). A shaped gable's crest (`finial.form: "crest"`: a carved block on a flat-topped
+# apex, not a turned finial) and a door's pilasters carried up to pinnacles, with a stem and bud
+# over the arch's crown (`arch.pilasters.pinnacles`), held on 2009 Prairie's record off the
+# Chicagology photograph; each refused out of its range.
+step "a K01 shaped gable takes a carved crest and a door's pilasters take pinnacles (T-3365)" \
+  python3 tools/test_k01_crest_pinnacles.py
+
 # T-3255. Eared and crested stone hoods over a K01 wall's round-headed lights, and the main
 # block's corner pilasters (k01_dressings), held on 1701 Prairie's record: every round light on
 # the named walls hooded and no other, a pair meeting ear to ear, every crest under the eave,

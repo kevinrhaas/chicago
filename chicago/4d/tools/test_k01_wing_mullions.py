@@ -9,6 +9,9 @@ out north of the front block. Held on the committed record:
     width the kit variant's two 0.8 m lights and 0.2 m mullion, and no other wall's lights move;
   * the wall is cut one hole to a light, so its brick stands between them, and a stone mullion
     from sill to head and a stone lintel over the group stand proud of that face;
+  * T-3354 (fourth run): the middle range's north face (K01's `south` wall) carries one
+    WING_MULLIONED_TRIPLE group in each storey at s 2.2 m, three 1.1 m lights on 0.2 m mullions
+    (`mullioned.triple`), the group of three the same plates draw there, cut one hole to a light;
   * refused: a mullioned side whose windows the wing does not list, or that it cuts round-headed,
     a window kit naming no grouped flat-headed variant for it, lights out of the ordinary width,
     and keys it does not take.
@@ -66,7 +69,15 @@ check(len(front) == 2 and all(o.component == KP.WING_MULLIONED for o in front),
 check(all(abs(o.s_m - 1.6) < 1e-9 and abs(o.width_m - 1.8) < 1e-9 for o in front),
       "each stands at s 1.6 m, two 0.8 m lights and a 0.2 m mullion across")
 others = [o for w in p.rear_wings for o in w["openings"] if o.wall != "k01.wall.wing.middle_range.front"]
-check(all(o.component != KP.WING_MULLIONED for o in others), "no other wing wall's lights are grouped")
+north = [o for o in mid["openings"] if o.wall == "k01.wall.wing.middle_range.south"]
+check(len(north) == 2 and all(o.component == KP.WING_MULLIONED_TRIPLE for o in north),
+      f"the middle range's north face carries one three-light group in each storey ({len(north)})")
+check(all(abs(o.s_m - 2.2) < 1e-9 and abs(o.width_m - 3.7) < 1e-9 for o in north),
+      "each stands at s 2.2 m, three 1.1 m lights and two 0.2 m mullions across")
+others = [o for o in others if o.wall != "k01.wall.wing.middle_range.south"]
+check(all(o.component not in KP.WING_GROUPED for o in others), "no other wing wall's lights are grouped")
+check(p.window_kit[KP.WING_MULLIONED_TRIPLE]["variant"] == "k06.opening.sash_triple_flat",
+      "the three-light group is the kit's triple flat sash")
 check(p.window_kit[KP.WING_MULLIONED]["variant"] == "k06.opening.sash_paired_flat",
       "the group is the kit's paired flat sash")
 
@@ -78,6 +89,13 @@ check(len(holes) == 4 and all(abs((h[1] - h[0]) - 0.8) < 1e-9 for h in holes),
       "the wall is cut one 0.8 m hole to each light")
 check(all(abs(holes[i + 1][0] - holes[i][1] - 0.2) < 1e-9 for i in (0, 2)),
       "the brick stands 0.2 m between each group's two holes")
+nholes = [h for o in north for h in a.group_holes(o)]
+check(len(nholes) == 6 and all(abs((h[1] - h[0]) - 1.1) < 1e-9 for h in nholes),
+      "the north face is cut one 1.1 m hole to each of the six lights")
+check(all(abs(nholes[i + 1][0] - nholes[i][1] - 0.2) < 1e-9 for i in (0, 1, 3, 4)),
+      "the brick stands 0.2 m between each three-light group's holes")
+check(len(a.components.get(KP.WING_MULLIONED_TRIPLE, {"instances": []})["instances"]) == 2,
+      "both three-light groups register their K06 opening")
 # the front's frame: O = (u1, 0, -v0), along -Z, so a point s along it is at z = -v0 - s, out at +X
 v0, u1 = mid["rect"][2], mid["rect"][1]
 stone = a.prims["limestone_trim"].pos
@@ -107,6 +125,12 @@ refused(lambda f: f["window_kit"]["value"].update({KP.WING_MULLIONED: "k06.openi
         "a single sash for the group", "grouped K06 variant")
 refused(lambda f: mr(f)["mullioned"].update(light_m=1.4), "lights wider than the ordinary sash",
         "mullioned.light_m")
+refused(lambda f: mr(f)["mullioned"]["triple"].update(sides=["front"]), "a side grouped both ways",
+        "none of mullioned's own")
+refused(lambda f: f["window_kit"]["value"].update({KP.WING_MULLIONED_TRIPLE: "k06.opening.sash_paired_flat"}),
+        "a two-light variant for the three-light group", "grouped K06 variant of 3 lights")
+refused(lambda f: mr(f)["mullioned"]["triple"].update(light_m=1.4), "three-light lights wider than the ordinary sash",
+        "mullioned.triple.light_m")
 refused(lambda f: mr(f)["mullioned"].update(head="arch"), "a key it does not take", "takes sides")
 
 print(f"test_k01_wing_mullions: {'all passed' if not failures else f'{len(failures)} FAILED'}")

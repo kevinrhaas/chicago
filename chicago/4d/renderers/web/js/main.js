@@ -3711,6 +3711,13 @@ async function boot() {
   api.humans = await mountHumans({
     dataBase: layerBase('humans'), assetBase: bases.assetBase, sceneId: loaded.scene.id ?? YEAR,
     people, terrain, tier: detailLevel, problems: layerProblems('humans'),
+    // T-3423: a scene without the eager `residents` directory reads it only for the people
+    // its standing figures name (1904's Martha Williamson).
+    getPeople: people ? null : async () => {
+      const res = await fetch(new URL(`sidecars/${loaded.scene.id ?? YEAR}/people.json`, bases.dataBase), { cache: 'no-cache' });
+      if (!res.ok) throw new Error(`sidecars/${loaded.scene.id ?? YEAR}/people.json ${res.status}`);
+      return res.json();
+    },
     groundHeight: (e, n) => profiledGroundHeight(terrain, decks, e, n),
   });
   api.humans.on('open', ({ personId }) => {

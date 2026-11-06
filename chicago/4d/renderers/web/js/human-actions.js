@@ -43,7 +43,7 @@ const NEEDED = ['pelvis', 'spine_03', 'head', 'thigh_l', 'thigh_r', 'foot_l', 'f
 /** The standing hand poses a person moves between; `rest` is no IK at all. */
 export const HAND_POSES = Object.freeze(['rest', 'hips', 'behind']);
 
-export function createHumanActions({ id = 'human', scene = null } = {}) {
+export function createHumanActions({ id = 'human', scene = null, greeting = 'brow' } = {}) {
   const rand = seededRandom(`actions:${id}`);
   const between = (a, b) => a + (b - a) * rand();
   let bones = {}, held = {}, bound = false, root = null, body = null;
@@ -214,7 +214,9 @@ export function createHumanActions({ id = 'human', scene = null } = {}) {
     /** Change the standing hand pose now (`rest`, `hips` or `behind`). */
     setPose(name) { if (HAND_POSES.includes(name) && name !== pose) { prevPose = pose; pose = name; poseW = 0; poseHold = between(10, 26); } return api; },
     /** Touch the brow in greeting now (the right hand), unless one is under way. */
-    greet() { if (greet < 0) { greet = 0; nodRequest = 1; } return api; },
+    // A woman in a dress (T-3423) greets with the nod alone: the touch of the brim or
+    // forelock is a man's.
+    greet() { if (greeting === 'nod') { nodRequest = 1; return api; } if (greet < 0) { greet = 0; nodRequest = 1; } return api; },
     /** One-shot: true once after a greeting starts, for the life layer to nod. */
     takeNod() { const n = nodRequest; nodRequest = 0; return n > 0; },
     apply(dt, { state = 'standing', root: r = null, viewer = null } = {}) {
