@@ -1,8 +1,0 @@
-{
-  "title": "Fort Dearborn story stops now say how much time has passed",
-  "kind": "improvement",
-  "items": [
-    "Every stop after the first in The Battle of Fort Dearborn and Chicago's First Murder now opens with how long it has been since the last one, ahead of its date and hour: \"Four months later.\", \"Forty minutes later.\", \"Four hours later.\"",
-    "The gaps come from each stop's own date and hour, sunset worked out for that day, and a check fails if a stop's time moves without its lead."
-  ]
-}

@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 2691, ts: '2026-11-06T06:27:15.713Z', date: 'Nov 6, 2026, 12:27 AM CT', title: 'Fort Dearborn story stops now say how much time has passed', kind: 'improvement',
+    items: [
+      'Every stop after the first in The Battle of Fort Dearborn and Chicago\'s First Murder now opens with how long it has been since the last one, ahead of its date and hour: "Four months later.", "Forty minutes later.", "Four hours later."',
+      'The gaps come from each stop\'s own date and hour, sunset worked out for that day, and a check fails if a stop\'s time moves without its lead.',
+    ] },
+  { v: 2690, ts: '2026-11-06T06:27:15.713Z', date: 'Nov 6, 2026, 12:27 AM CT', title: 'Every plant now follows the Season setting', kind: 'feature',
+    items: [
+      'In fall the 1904 yards turn too: maples orange-scarlet, lindens yellow, spiraea wine red, hydrangea heads dried tan, roses in hips, lilacs a late dull olive.',
+      'Boston ivy on the houses and Glessner\'s vines go crimson in fall, leaf out bronze in spring and drop to bare stems in winter.',
+      'Spring shows first leaf on every shrub and tree; winter leaves them bare and bronzes the arborvitae.',
+      'Bedding geraniums and coleus are out from summer to the first frost; the tubbed palms stand out only in summer.',
+      'In 1812 and 1835 the dooryard greens and garden beds brown and take snow, and the sand-hill cedars and jack pines stay green all year.',
+    ] },
   { v: 2689, ts: '2026-11-06T06:11:19.466Z', date: 'Nov 6, 2026, 12:11 AM CT', title: 'Hans dresses for the box: coat, cape and top hat', kind: 'improvement',
     items: [
       'Hans now wears a coachman\'s long box coat with a turned-up collar, a shoulder cape and two rows of brass buttons, over dark livery trousers.',
