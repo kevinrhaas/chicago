@@ -407,6 +407,28 @@ button.nav-person { cursor: pointer; min-height: 44px; }
 button.nav-person:hover { border-color: var(--accent); }
 button.nav-person:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .nav-person-name { font-size: 16px; font-weight: 600; }
+/* T-3430: People as a directory: a search box, a Households / People switch with counts,
+   the household in view pinned first, and a household's or person's card in place. */
+.ppl-dir, .ppl-card { display: flex; flex-direction: column; gap: 10px; }
+.ppl-dir[hidden], .ppl-card[hidden], .ppl-inview[hidden], .ppl-more[hidden] { display: none; }
+.ppl-find { position: relative; display: block; }
+.ppl-find svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--ink-faint, var(--ink-dim)); pointer-events: none; }
+.ppl-search { box-sizing: border-box; width: 100%; min-height: 44px; padding: 8px 12px 8px 36px; border: 1px solid var(--edge);
+  border-radius: 999px; background: var(--panel-solid, transparent); color: var(--ink); font: inherit; font-size: 16px; }
+.ppl-search:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 30%, transparent); }
+.nav-segments.ppl-segs { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 0; }
+.ppl-segs .nav-segment { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.ppl-seg-n { font-variant-numeric: tabular-nums; opacity: .75; }
+.ppl-status { margin: 0; }
+.ppl-results { display: flex; flex-direction: column; }
+.ppl-results > .ppl-row:first-child, .ppl-inview > .ppl-row { margin-top: 4px; }
+.ppl-row .nav-person-name { display: inline-flex; align-items: center; gap: 6px; }
+.ppl-inview { display: flex; flex-direction: column; }
+.ppl-more { width: 100%; border: 1px solid var(--edge); }
+.ppl-keys { display: flex; flex-wrap: wrap; gap: 8px; }
+.ppl-keys .nav-key { margin-top: 0; flex: 1 1 8rem; }
+.ppl-unbuilt { margin: 0; }
+.ppl-members .ppl-row:first-of-type { margin-top: 2px; }
 
 /* ---- T-2620: the drawer's sections inside a Navigator app ---------------------------
    The one #panel (head, section tabs, scroll column) moves into the open app's screen
