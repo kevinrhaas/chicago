@@ -4,6 +4,77 @@
  "generated_by": "tools/human_variation_kit.py",
  "_doc": "Each drawn person's age (from their own record: a birth date, else an age band) and any face fitted to a picture of them. renderers/web/js/human-variation.js seeds everything else from the person id. Regenerate; never edit by hand.",
  "persons": {
+  "glessner_john_j": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_glessner_john_j.json",
+   "drawn_as": [],
+   "age": {
+    "years": 61,
+    "grade": "attested",
+    "sources": [
+     "habs_glessner_house_il_1015_data_pages"
+    ],
+    "basis": "born 1843 (the person's record)"
+   },
+   "face": {
+    "grade": "attested",
+    "sources": [
+     "glessner_commercial_club_1910_presidents_plate"
+    ],
+    "basis": "Fitted to a photograph of him showing his whole face (the 1910 Commercial Club plate): the eye spacing, nose, mouth, chin and ear placement are read from it, as far as the shared MakeHuman face axes can express them. Depth is read from a single quarter view, so an axis the marks say little about stays near the town's average (listed as mostly_prior).",
+    "values": {
+     "nose_length": 0.0,
+     "nose_width": 0.0,
+     "nose_depth": -0.485,
+     "nose_hump": 0.072,
+     "nose_curve": -0.097,
+     "nose_tip": -0.2,
+     "nose_tip_width": -0.0,
+     "nostrils": -0.0,
+     "nose_height": -0.036,
+     "mouth_width": 0.0,
+     "lip_upper": -0.011,
+     "lip_lower": -0.054,
+     "mouth_height": -0.397,
+     "chin_prominence": 0.381,
+     "chin_width": -0.0,
+     "chin_height": 0.017,
+     "jaw": 0.067,
+     "prognathism": -0.079,
+     "cheekbones": -0.0,
+     "cheek_volume": -0.0,
+     "cheek_inner": -0.0,
+     "brow_height": 0.003,
+     "brow_angle": -0.218,
+     "brow_ridge": 0.014,
+     "forehead_slope": 0.02,
+     "temples": 0.0,
+     "ear_size": 0.029,
+     "ear_flap": 0.054,
+     "ear_lobe": 0.128,
+     "jowls": -0.0,
+     "head_shape": 0.342,
+     "forehead_height": -0.094,
+     "head_shape.option": 1
+    },
+    "liberty": "L-human-variation-3412",
+    "not_modelled": [
+     "round wire spectacles (worn in the photograph)",
+     "a full grey moustache",
+     "white hair at the sides and a bald crown",
+     "his colouring (the plate is a monochrome halftone)"
+    ],
+    "card": {
+     "source_citation": "[John J. Glessner], The Commercial Club of Chicago: Its Beginning and Something of Its Work (Chicago: privately printed for presentation to members of the Commercial Club, Binner-Wells Company, printers, 1910), p. 81, plate 'Former Presidents of the Commercial Club': the halftone portrait captioned 'John J. Glessner 1897'.",
+     "source_url": "https://archive.org/details/commercialclubof00gles/page/n94/mode/1up",
+     "rms_mm": 4.0,
+     "marks": 14,
+     "portrait": "humans/web/portraits/glessner_john_j_portrait.jpg",
+     "model": "humans/web/portraits/glessner_john_j_model.jpg"
+    },
+    "fit": "data/humans/variation/fits/glessner_john_j.json"
+   }
+  },
   "pa1904_otis_f_r_c1900_hans_johnson": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_otis_f_r.json",

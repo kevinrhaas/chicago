@@ -1,0 +1,151 @@
+{
+ "format": "chicago4d_human_face_fit_v1",
+ "ticket": "T-3413",
+ "person_id": "glessner_john_j",
+ "scene": "1904",
+ "generated_by": "tools/fit_portrait_face.py",
+ "_doc": "Regenerate with tools/fit_portrait_face.py from the portrait record; never edit by hand.",
+ "grade": "attested",
+ "sources": [
+  "glessner_commercial_club_1910_presidents_plate"
+ ],
+ "portrait": "data/humans/variation/portraits/glessner_john_j.json",
+ "basis": "Fitted to a photograph of him showing his whole face (the 1910 Commercial Club plate): the eye spacing, nose, mouth, chin and ear placement are read from it, as far as the shared MakeHuman face axes can express them. Depth is read from a single quarter view, so an axis the marks say little about stays near the town's average (listed as mostly_prior).",
+ "liberty": "L-human-variation-3412",
+ "values": {
+  "nose_length": 0.0,
+  "nose_width": 0.0,
+  "nose_depth": -0.485,
+  "nose_hump": 0.072,
+  "nose_curve": -0.097,
+  "nose_tip": -0.2,
+  "nose_tip_width": -0.0,
+  "nostrils": -0.0,
+  "nose_height": -0.036,
+  "mouth_width": 0.0,
+  "lip_upper": -0.011,
+  "lip_lower": -0.054,
+  "mouth_height": -0.397,
+  "chin_prominence": 0.381,
+  "chin_width": -0.0,
+  "chin_height": 0.017,
+  "jaw": 0.067,
+  "prognathism": -0.079,
+  "cheekbones": -0.0,
+  "cheek_volume": -0.0,
+  "cheek_inner": -0.0,
+  "brow_height": 0.003,
+  "brow_angle": -0.218,
+  "brow_ridge": 0.014,
+  "forehead_slope": 0.02,
+  "temples": 0.0,
+  "ear_size": 0.029,
+  "ear_flap": 0.054,
+  "ear_lobe": 0.128,
+  "jowls": -0.0,
+  "head_shape": 0.342,
+  "forehead_height": -0.094,
+  "head_shape.option": 1
+ },
+ "read_from_picture": [
+  "chin_height",
+  "ear_size",
+  "forehead_height",
+  "forehead_slope",
+  "head_shape",
+  "mouth_height",
+  "nose_hump",
+  "nose_tip"
+ ],
+ "mostly_prior": [
+  "brow_angle",
+  "brow_height",
+  "brow_ridge",
+  "cheek_inner",
+  "cheek_volume",
+  "cheekbones",
+  "chin_prominence",
+  "chin_width",
+  "ear_flap",
+  "ear_lobe",
+  "jaw",
+  "jowls",
+  "lip_lower",
+  "lip_upper",
+  "mouth_width",
+  "nose_curve",
+  "nose_depth",
+  "nose_height",
+  "nose_length",
+  "nose_tip_width",
+  "nose_width",
+  "nostrils",
+  "prognathism",
+  "temples"
+ ],
+ "fit": {
+  "rms_px": 8.9,
+  "per_mark_px": {
+   "pupil_r": 3.8,
+   "pupil_l": 4.0,
+   "eye_outer_r": 10.6,
+   "eye_inner_r": 4.0,
+   "eye_inner_l": 3.7,
+   "eye_outer_l": 4.6,
+   "nasion": 12.3,
+   "nose_tip": 6.9,
+   "subnasale": 12.5,
+   "stomion": 18.3,
+   "menton": 10.6,
+   "ear_top_r": 6.6,
+   "ear_lobe_r": 8.0,
+   "vertex": 2.1
+  },
+  "camera": {
+   "yaw_deg": 24.9,
+   "pitch_deg": 1.0,
+   "roll_deg": 3.1,
+   "px_per_m": 2204.4,
+   "shift_px": [
+    412.6,
+    422.5
+   ]
+  },
+  "landmark_vertices": {
+   "pupil_r": [
+    4868,
+    17
+   ],
+   "pupil_l": [
+    11486,
+    6801
+   ],
+   "eye_outer_r": 17,
+   "eye_inner_r": 4868,
+   "eye_inner_l": 11486,
+   "eye_outer_l": 6801,
+   "nasion": 132,
+   "nose_tip": 297,
+   "subnasale": 5072,
+   "stomion": 523,
+   "menton": 5225,
+   "ear_top_r": 5413,
+   "ear_lobe_r": 5732,
+   "vertex": 881
+  }
+ },
+ "not_modelled": [
+  "round wire spectacles (worn in the photograph)",
+  "a full grey moustache",
+  "white hair at the sides and a bald crown",
+  "his colouring (the plate is a monochrome halftone)"
+ ],
+ "card": {
+  "source_citation": "[John J. Glessner], The Commercial Club of Chicago: Its Beginning and Something of Its Work (Chicago: privately printed for presentation to members of the Commercial Club, Binner-Wells Company, printers, 1910), p. 81, plate 'Former Presidents of the Commercial Club': the halftone portrait captioned 'John J. Glessner 1897'.",
+  "source_url": "https://archive.org/details/commercialclubof00gles/page/n94/mode/1up",
+  "rms_mm": 4.0,
+  "marks": 14,
+  "portrait": "humans/web/portraits/glessner_john_j_portrait.jpg",
+  "model": "humans/web/portraits/glessner_john_j_model.jpg"
+ }
+}
