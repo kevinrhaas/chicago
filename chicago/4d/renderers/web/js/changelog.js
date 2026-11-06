@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2696, ts: '2026-11-06T07:51:47.069Z', date: 'Nov 6, 2026, 1:51 AM CT', title: 'The Glessner House print has even roof tiles', kind: 'improvement',
+    items: [
+      'Nothing you can see changed in the scene. The 3D-print export now gives every roof the same tile courses, evenly spaced, instead of a different ripple on each roof plane and the odd tile sticking up.',
+      'The beaded ridge rolls stay, and a print without the even courses is still one option away.',
+    ] },
   { v: 2695, ts: '2026-11-06T07:17:22.809Z', date: 'Nov 6, 2026, 1:17 AM CT', title: 'Capes that swing, and Otis dresses for the wagon', kind: 'improvement',
     items: [
       'Hans\'s shoulder cape and the hanging part of his coat skirt now swing with the carriage when it jolts, turns or stops, then settle back.',
