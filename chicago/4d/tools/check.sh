@@ -576,6 +576,8 @@ step "A person transfers to their driven vehicle without duplicate bodies or lif
   node tools/test_human_driver_transfer.mjs
 step "The shared interaction key and touch control stop and resume the existing transport actor (T-2804)" \
   node tools/test_transport_interactions.mjs
+step "Every person placed in town is named by the look tag, found, and followed beside them (T-3404)" \
+  node tools/test_person_interaction.mjs
 selftest "…incompatible skeletons, missing slots and morphs, duplicate clips, non-metric scale, missing provenance and L1 refused by name" \
   python3 tools/human_contract.py --self-test
 step "Every human GLB is the one the browser measured: sha256 and verdicts in data/humans/fixture.measure.json (T-1787)" \
