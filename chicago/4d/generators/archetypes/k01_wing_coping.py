@@ -29,6 +29,7 @@ from __future__ import annotations
 import math
 
 from .k01_dormer_coping import FINIAL_RADIUS, KNEELER_DROP_M, PROUD_M, SEAT_M
+from .k01_frontage_params import wing_gable_span as _wing_gable_span
 
 
 def _af():
@@ -53,7 +54,9 @@ def dress(a, w):
     kw = cp["kneeler_m"]
     mat = "limestone_trim"
     for end in cp["ends"]:
-        z, sg_end = (-v0, 1.0) if end == "south" else (-v1, -1.0)
+        # T-3354: a gable standing back from a flat end stands where its span starts
+        gv0, gv1 = _wing_gable_span(w)
+        z, sg_end = (-gv0, 1.0) if end == "south" else (-gv1, -1.0)
         R, N = (sg_end, 0.0, 0.0), (0.0, 0.0, sg_end)   # R x Y = N, out of the gable
         frame = ((wc, 0.0, z), R, N)
         seed = a.instance(f"k01.roof.wing_coping.{w['id']}.{end}", "roof",

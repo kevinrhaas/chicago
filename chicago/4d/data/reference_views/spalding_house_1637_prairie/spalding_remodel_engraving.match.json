@@ -2,7 +2,7 @@
   "structure_id": "spalding_house_1637_prairie",
   "view": "spalding_remodel_engraving",
   "glb": "assets/gltf/spalding_house_1637_prairie__as_mapped_1904.glb",
-  "glb_sha256": "58aaa7d90c97fac32de19a1c454182eb2e1faae97d4616144bbf5e2b3104aefa",
+  "glb_sha256": "1af0946376bb00f27498c4303bfb8eab3ef8b791b4e9181ef48f01a5875de897",
   "camera_sha256": "06623cf6f05d0dafcc01b75c32c2d59a8079f6b2df83342aa3e040e00f77e557",
   "photo_sha256": "623aefdf2d4fa77eba389efc6ab9970af93d7c20d0782a3d6994920ff82f89fa",
   "side_by_side": "docs/RESEARCH/photo-match/spalding_house_1637_prairie/spalding_remodel_engraving-side-by-side.jpg",
@@ -115,8 +115,8 @@
     },
     {
       "what": "the brick garden wall before the north flank, ending in a square pier before the swell bay (x 357 px), and the iron spear fence before the wing, both close before the house, the fence's top rail about 1.9 m over grade",
-      "status": "fixed",
-      "how": "T-2447: K11's front-garden layout on one line 3.5 m before the main front (the runs' feet, y 777-787 px, read on the camera's ground there): the kit's brick wall, 2.0 m with 2.25 m piers, its end pier at x 357 px as drawn; the kit's spear fence from the stoop's south cheek to the lot line, its top rail 1.9 m over grade"
+      "status": "owner ruling",
+      "how": "T-3394, ruled (the owner, 2026-11-05, of this front: \"and is that street fence right?  fix if not please that house seems to be missing it in the right position\"): the wall and the spear fence stand on the street line, 9.74 m before the main front, not on the 3.5 m line the engraving's ground plane gave (T-2447). The wall keeps its drawn run before the north flank and its end pier at s 0.87; the fence runs on from that pier to the south lot line, and the walk passes it through a pair of the kit's gates on piers, 1.9 m clear on the stoop's axis. Through this camera the wall and fence now stand close before the lens, nearer than the drawn ones."
     },
     {
       "what": "the garden wall runs on north past the frame's edge, about 3.5 m beyond the 1911 lot line through this camera, onto the unbuilt strip prairie_1625_1637_c",
@@ -136,7 +136,7 @@
     {
       "what": "the walk: the engraving draws a light walk at the stoop's foot, between the garden wall's end pier and the fence's first post, curving out toward the street; the build had none",
       "status": "within tolerance",
-      "how": "T-3221: a flagged walk laid from the stoop's foot, its 1.8 m width, out through the gap between the wall and the fence (s 0.87 to 7.55) to the public walk. It runs straight where the engraving curves it, a difference in the walk's line inside the garden's gap of well under a foot at the stoop and a few feet at the street: within tolerance for a reconstructed walk (L-k14-walks-1600-block-3215)"
+      "how": "T-3221: a flagged walk laid from the stoop's foot, its 1.8 m width, out through the gap between the wall and the fence (s 0.87 to 7.55) to the public walk. It runs straight where the engraving curves it, a difference in the walk's line inside the garden's gap of well under a foot at the stoop and a few feet at the street: within tolerance for a reconstructed walk (L-k14-walks-1600-block-3215) T-3394: with the garden's line out on the street line the walk runs straight from the stoop's foot through the gate (s 5.76-7.66) to the public walk."
     },
     {
       "what": "the door, the second-storey window over it and the street dormer over that: the engraving draws them in the middle of the front between the swell bay and the wing (the bay's edge at x 470 px, the window x 502-535 px, the wing's cheek from x 535-545 px), a little toward the wing if anything; the build stood them at s 6.25, 0.46 m north of the middle of that wall (5.12-8.3 m), which the owner saw from the house walk (2026-11-01)",
@@ -144,5 +144,5 @@
       "how": "T-3298: front_bays' middle bay and the street dormer at s 6.71, the middle of the wall between the bay's south end and the wing's north cheek; the stoop, its rails, the fence's first post (s 8.01) and the flagged walk moved with the door, and the walk's join to the public walk relaid. Through this far camera the door now reads at about x 533 px against the drawn door's 488-540 and window's 502-535: the camera draws the wing's 1.0 m cheek 21 px wide where the engraving draws it about 75 px (the draughtsman's perspective), so the camera's x 515 px reading of the door, 6.25 m, was the camera's and not the engraving's"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

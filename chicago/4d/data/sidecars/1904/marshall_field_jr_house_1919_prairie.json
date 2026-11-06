@@ -743,7 +743,7 @@
           "roof": {
             "kind": "gable",
             "gable_to": "south",
-            "pitch_deg": 50,
+            "pitch_deg": 60,
             "overhang_m": 0.3,
             "fascia_m": 0.3,
             "covering": "slate_pennsylvania",
@@ -756,6 +756,10 @@
                 "south",
                 "north"
               ]
+            },
+            "flat_end": {
+              "end": "south",
+              "depth_m": 1.6
             }
           },
           "dressings": {
@@ -844,7 +848,57 @@
                 "south",
                 "north"
               ]
-            }
+            },
+            "dormers": [
+              {
+                "v_m": -3.85,
+                "width_m": 1.0,
+                "setback_m": 0.3,
+                "eave_m": 12.0,
+                "pitch_deg": 60,
+                "light": {
+                  "width_m": 0.45,
+                  "height_m": 1.5,
+                  "sill_m": 10.3
+                },
+                "coping": {
+                  "width_m": 0.15,
+                  "proud_m": 0.06,
+                  "back_m": 0.25
+                },
+                "pinnacles": {
+                  "shaft_m": 0.16,
+                  "rise_m": 0.35,
+                  "cap_m": 0.06,
+                  "spire_m": 0.3
+                },
+                "finial_m": 0.4
+              },
+              {
+                "v_m": -2.3,
+                "width_m": 1.0,
+                "setback_m": 0.3,
+                "eave_m": 12.0,
+                "pitch_deg": 60,
+                "light": {
+                  "width_m": 0.45,
+                  "height_m": 1.5,
+                  "sill_m": 10.3
+                },
+                "coping": {
+                  "width_m": 0.15,
+                  "proud_m": 0.06,
+                  "back_m": 0.25
+                },
+                "pinnacles": {
+                  "shaft_m": 0.16,
+                  "rise_m": 0.35,
+                  "cap_m": 0.06,
+                  "spire_m": 0.3
+                },
+                "finial_m": 0.4
+              }
+            ]
           },
           "dressings": {
             "belts": [
@@ -944,7 +998,7 @@
         "gatlin_programme_1919_field_jr_plate",
         "chicago_blue_book_1912_gatlin_1919_plate"
       ],
-      "note": "The ranges the 1911 sheet draws behind the front block, read off its trace (s28fp-1919-b1) in this frame (v runs south, K01's 'south' wall is the real north flank): (1) MIDDLE_RANGE, u -7.0 to 0, v -3.1 to 10.85, '2½S.B.', stepping out 3.1 m north of the front block and to the south lot line; (2) REAR_RANGE, u -16.4 to -7.0, v -4.8 to 10.8, '2½S.B.', a further 1.7 m north (its canted north bay, about 1.4 m out from u -14.5 to -9.4 on the sheet, is not yet built); (3) GARAGE, u -28.2 to -16.4, the sheet's '2B' 'GARAGE CEMENT FL'R' to the alley, its floor near grade. The two half-storey ranges are built under slated gables facing north and south, the steep gables the 1913 plate shows along the north flank; their pitch, heights and windows are RECONSTRUCTED. Whether the garage stood by 1904 the sheet cannot say (it is 1911's); it is carried as part of the building the T-1841 census rules present_as_mapped. T-3337: the rear range's north-wall windows moved to s 1.0 and 8.2 m (RECONSTRUCTED), either side of the sheet's canted north bay (bays: north_bay), which covers the middle one. Both ranges' gables are carried up in a stone coping along each rake, a kneeler at each foot and a 0.6 m turned finial at each apex (roof.coping), as both Gatlin Institute plates draw the flank's gables with pale copings finialled at their peaks and as T-3301 coped the street dormer; the coping's section, kneelers and finial are RECONSTRUCTED at the dormer's sizes, and the south ends, which face 1923's north wall a metre off and no picture shows, are coped as the north ends are. T-3353: both ranges' street-facing corners (the north-east corner of each, where its north wall meets the face that steps out from the range in front of it) are quoined in pale stone, long and short in turn from grade to the wall top, and the main block's three stone courses (under the principal sills, at the second floor, under the chamber sills) are carried on across both ranges' north walls and their stepped-out faces, in place of K03's brick string course there (dressings), as the 1919 programme plate draws the rear ranges' corners and courses pale against the brick, plainest of all its walls, and as T-3305 carried the courses round the main block's flank. INFERRED: that the corners are quoined and the courses run on is the plate's; the stones' 0.55 and 0.3 m lengths, their 0.35 m courses and 0.03 m projection, and the courses' lines (the main block's, carried on) are RECONSTRUCTED, the plate being too soft to count stones. T-3354: the GARAGE is roofed under a slated gable facing the flank (gable_to south, as the ranges'), pitched 54 degrees to an apex at 15.7 m over its 7.55 m wall top, coped, kneelered and finialled at both ends as the ranges are, where the record had it flat in tin: all three Gatlin Institute plates (1912, 1913, 1919) draw a third gable at the flank's far end beyond the ranges' two, and through each plate's solved camera the garage's north gable lands where that gable stands (its apex within about 15 px across in all three; the 1912 and 1919 plates set it at about 15.7-15.9 m). INFERRED: the gable's place and height are the plates'; that it is the garage's own roof, its 54-degree pitch (the plates give the apex, not the span), the slate and the coping's sizes are RECONSTRUCTED (L-k01-1919-garage-gable-3354)."
+      "note": "The ranges the 1911 sheet draws behind the front block, read off its trace (s28fp-1919-b1) in this frame (v runs south, K01's 'south' wall is the real north flank): (1) MIDDLE_RANGE, u -7.0 to 0, v -3.1 to 10.85, '2½S.B.', stepping out 3.1 m north of the front block and to the south lot line; (2) REAR_RANGE, u -16.4 to -7.0, v -4.8 to 10.8, '2½S.B.', a further 1.7 m north (its canted north bay, about 1.4 m out from u -14.5 to -9.4 on the sheet, is not yet built); (3) GARAGE, u -28.2 to -16.4, the sheet's '2B' 'GARAGE CEMENT FL'R' to the alley, its floor near grade. The two half-storey ranges are built under slated gables facing north and south, the steep gables the 1913 plate shows along the north flank; their pitch, heights and windows are RECONSTRUCTED. Whether the garage stood by 1904 the sheet cannot say (it is 1911's); it is carried as part of the building the T-1841 census rules present_as_mapped. T-3337: the rear range's north-wall windows moved to s 1.0 and 8.2 m (RECONSTRUCTED), either side of the sheet's canted north bay (bays: north_bay), which covers the middle one. Both ranges' gables are carried up in a stone coping along each rake, a kneeler at each foot and a 0.6 m turned finial at each apex (roof.coping), as both Gatlin Institute plates draw the flank's gables with pale copings finialled at their peaks and as T-3301 coped the street dormer; the coping's section, kneelers and finial are RECONSTRUCTED at the dormer's sizes, and the south ends, which face 1923's north wall a metre off and no picture shows, are coped as the north ends are. T-3353: both ranges' street-facing corners (the north-east corner of each, where its north wall meets the face that steps out from the range in front of it) are quoined in pale stone, long and short in turn from grade to the wall top, and the main block's three stone courses (under the principal sills, at the second floor, under the chamber sills) are carried on across both ranges' north walls and their stepped-out faces, in place of K03's brick string course there (dressings), as the 1919 programme plate draws the rear ranges' corners and courses pale against the brick, plainest of all its walls, and as T-3305 carried the courses round the main block's flank. INFERRED: that the corners are quoined and the courses run on is the plate's; the stones' 0.55 and 0.3 m lengths, their 0.35 m courses and 0.03 m projection, and the courses' lines (the main block's, carried on) are RECONSTRUCTED, the plate being too soft to count stones. T-3354: the GARAGE is roofed under a slated gable facing the flank (gable_to south, as the ranges'), pitched 54 degrees to an apex at 15.7 m over its 7.55 m wall top, coped, kneelered and finialled at both ends as the ranges are, where the record had it flat in tin: all three Gatlin Institute plates (1912, 1913, 1919) draw a third gable at the flank's far end beyond the ranges' two, and through each plate's solved camera the garage's north gable lands where that gable stands (its apex within about 15 px across in all three; the 1912 and 1919 plates set it at about 15.7-15.9 m). INFERRED: the gable's place and height are the plates'; that it is the garage's own roof, its 54-degree pitch (the plates give the apex, not the span), the slate and the coping's sizes are RECONSTRUCTED (L-k01-1919-garage-gable-3354). T-3354 (second run): the three plates read together through their solved cameras put the flank's flat-topped two-storey blocks in front of the ranges' gables, not under them. The MIDDLE_RANGE's gable now stands back 1.6 m from its north end (roof.flat_end) over a flat tin deck at its wall top, so its north-west corner is the plates' flat-topped quoined block, and it is pitched 60 degrees where it was 50: set back and steepened, its apex lands within about 5 px across of the plates' in all three (it stood 25-30 px left) and about 13-20 px under them (it stood 30-60 px under); 60 degrees is K04's steepest slate, so the rest of the height stays open. INFERRED: the flat end and the gable's place are the plates'; the 1.6 m depth (the least that clears the second dormer) and the pitch at K04's limit are RECONSTRUCTED. The REAR_RANGE carries the two small pinnacled dormers all three plates draw on its slope facing the avenue (roof.dormers), at v -3.85 and -2.3 m, 0.3 m in from its wall line, where through each plate's camera both land on the plates' two within a few pixels: each a 1.0 m face with one tall light, its eave at 12.0 m under a 60-degree gable, a stone coping up its rakes, a pinnacle at each edge and a finial. INFERRED: their count, place, height and one tall light are the plates'; the face's 1.0 m width, the light's 0.45 by 1.5 m, the brick face, the stone dressings' sizes and the pinnacles' form are RECONSTRUCTED, the halftones being too soft to read them (L-k01-1919-range-dormers-3354)."
     },
     "boundary": {
       "value": {

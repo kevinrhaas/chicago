@@ -510,17 +510,34 @@
     },
     "boundary": {
       "value": {
-        "layout": "open",
+        "layout": "stone_coping_wall",
+        "street_line_m": 3.49,
         "lot_s_m": [
           -0.68,
           8.41
+        ],
+        "thickness_m": 0.35,
+        "chamfer_m": 0.05,
+        "runs": [
+          {
+            "to_s_m": 0.85,
+            "height_m": 0.35
+          },
+          {
+            "to_s_m": 2.95,
+            "opening": true
+          },
+          {
+            "to_s_m": 8.41,
+            "height_m": 0.35
+          }
         ]
       },
       "confidence": "reconstructed",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "T-3216: no boundary across the front, a STATED RECONSTRUCTION. No picture of this front is held; the east side of the block's pictured fronts are open to the walk: 1621's and 1623's 1886 Building Budget drawings and 1625's 1890 Inland Architect photograph draw no fence, wall, coping or gate across their front yards (T-3221), and only 1637's engraving, at the block's south end, closes a front garden close before its house. So this front is built open, as its three nearer pictured neighbours are. The lot's sides are parcel prairie_1619's street corners (data/street_grid/1904.json) in this frame, s -0.68 and 8.41. RECONSTRUCTED; liberty L-k11-fences-1600-block-3216."
+      "note": "T-3394. The owner, 2026-11-05, standing at 1625 looking north: \"the bulk of these in the 1600 block are missing their street fences/borders\" (T-3394). No picture of this front is held. Built as the district's own street border: a low squared stone coping on the street line, its street face on the public walk's inner edge, 0.35 m high and 0.35 m through with its arris chamfered 0.05 m, as the 1700 block's unpictured fronts are built (T-3205: 1700's Chicagology photograph, 1721's 1891 plate, 1736's c. 1890 photograph and its surviving curbstone), and as the lot-line coping read along the walk's inside edge in Views of Chicago (1905) and the Flinn view (docs/RESEARCH/prairie_1904_street_section.md); cut for the walk square to the stair, the opening the walk's (or the stoop's) width and 0.3 m either side. Here the line stands 3.49 m before the street front (3.8 m to the public walk, less the 0.31 m the district's copings stand inside it), open s 0.850-2.950 on the stair's axis (s 1.9). The lot's sides stay parcel s -0.68 and 8.41. RECONSTRUCTED: the coping, its line, height and section (liberty L-k11-coping-1600-east-3394). Replaces T-3215/T-3216's open front."
     },
     "yard": {
       "value": {

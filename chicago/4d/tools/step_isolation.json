@@ -5686,6 +5686,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_export_print_3mf.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_facade_board_faces.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6035,6 +6039,10 @@
       "wrote_ignored": []
     },
     "tools/test_k01_wing_coping.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_wing_dormers.py": {
       "wrote": [],
       "wrote_ignored": []
     },
