@@ -2406,6 +2406,8 @@ async function boot() {
   const gardens = await createGardens({
     dataBase: layerBase('gardens'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
     problems: layerProblems('gardens'), lowSpec: coarse, ...detailOpts(),
+    // A phone lays the garden only once it comes into view; its arrays then go as railway's do.
+    onGeometry: (group) => releaseAfterUpload(group),
   });
   scene3d.add(gardens.group);
   api.gardens = gardens;
