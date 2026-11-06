@@ -233,7 +233,8 @@ export function publishDaylight(state) {
  */
 const LEAF_SKY_DAY = 0.22;
 export const LEAF_SKY = { value: LEAF_SKY_DAY };
-onDaylight(({ grade }) => {
-  LEAF_SKY.value = grade.sunK === 1 && grade.fillK === 1 ? LEAF_SKY_DAY
-    : LEAF_SKY_DAY * grade.fillK * (0.3 + 0.7 * grade.sunK);
+onDaylight(({ grade, lift = 1 }) => {
+  // T-3428: `lift` is the brightness aid's fill lift (world.js), 1 when it is off.
+  LEAF_SKY.value = (grade.sunK === 1 && grade.fillK === 1 ? LEAF_SKY_DAY
+    : LEAF_SKY_DAY * grade.fillK * (0.3 + 0.7 * grade.sunK)) * lift;
 });

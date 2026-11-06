@@ -3885,8 +3885,8 @@ async function boot() {
         // the next frame carries it.
         streets.setLegibilityAid(value);
       } else if (key === 'brightness') {
-        // K24. One scalar on the tone mapper — no recompile, no relight, and
-        // the next frame carries it.
+        // K24 / T-3428. The exposure, the sky fill and the sky's hold — uniforms
+        // only, no recompile and no rebake, and the next frame carries it.
         world.setBrightness(value);
       } else if (key === 'quality') {
         crashGuard.chosen('quality');
