@@ -1351,6 +1351,13 @@ step "a mansard crown may stand over a stretch of the front and turn a canted co
 step "a K01 stone front may carry a moulded belt course round its projections, and a round dormer an eared hood (T-1881)" \
   python3 tools/test_k01_belt_eared_hood.py
 
+# T-1890. 1801 Prairie's third storey behind the bow's balcony (the Taylor print, HABS photograph
+# 2): a flat-capped stone wall dormer on the main mansard's street face, wider than its one light,
+# the light off its middle; a hipped head there, a face too wide or too narrow, a light off the
+# face, or a wide face on another head refused; the built face and glass where the record says.
+step "a main-mansard dormer may be a flat-capped stone wall wider than its light (T-1890)" \
+  python3 tools/test_k01_wall_dormer.py
+
 # T-1890. ...and a single light named by wall, place and storey (`street_front_trim.lights`)
 # wears its storey's K09 head on a side wall too, and its own transom tiers: 1801's two
 # lights over the loggia in the kit's surround on 0.8 m top lights; a bad name refused.

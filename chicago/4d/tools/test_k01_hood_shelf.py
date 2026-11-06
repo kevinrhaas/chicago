@@ -73,7 +73,8 @@ def geometry_checks():
 
 def record_checks():
     st, phase = record()
-    ds = KP.from_phase(phase, st).mansard["dormers"]
+    # T-1890 (2026-11-06): the hooded three; the flat-capped wall dormer beside them has no hood
+    ds = [d for d in KP.from_phase(phase, st).mansard["dormers"] if d["head"] == "hood"]
     check([d["hood"].get("shelf") for d in ds] == ["slate"] * 3, "1801's three hoods stand on slated shelves")
     check([d["hood"]["rise_m"] for d in ds] == [1.8, 1.8, 2.2], "the street hood rises 1.8 m (Taylor print)")
     st, phase = record()
