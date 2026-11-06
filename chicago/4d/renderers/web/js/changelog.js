@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2678, ts: '2026-11-06T00:41:28.881Z', date: 'Nov 5, 2026, 6:41 PM CT', title: 'Glessner House can be 3D printed', kind: 'feature',
+    items: [
+      'Nothing you can see changed in the scene. A new export turns a building\'s model into a 3D-printable file: one watertight solid on a flat base, ready for a home printer.',
+      'Glessner House is the first: about 21 cm long at 1:250, with no lawn, vines or paving, and every railing, finial and downpipe thickened to at least 1 mm so a printer can lay it.',
+    ] },
   { v: 2677, ts: '2026-11-06T00:27:37.722Z', date: 'Nov 5, 2026, 6:27 PM CT', title: 'Hans\'s clothes look like cloth', kind: 'improvement',
     items: [
       'His wool waistcoat and his trousers show a fine diagonal twill up close, his linen shirt a plain weave with the odd thick thread.',
