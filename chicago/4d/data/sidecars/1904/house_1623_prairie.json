@@ -576,18 +576,35 @@
     },
     "boundary": {
       "value": {
-        "layout": "open",
+        "layout": "stone_coping_wall",
+        "street_line_m": 3.49,
         "lot_s_m": [
           -1.16,
           6.161
+        ],
+        "thickness_m": 0.35,
+        "chamfer_m": 0.05,
+        "runs": [
+          {
+            "to_s_m": 2.35,
+            "height_m": 0.35
+          },
+          {
+            "to_s_m": 4.65,
+            "opening": true
+          },
+          {
+            "to_s_m": 6.161,
+            "height_m": 0.35
+          }
         ]
       },
-      "confidence": "inferred",
+      "confidence": "reconstructed",
       "sources": [
         "building_budget_1886_06_hamline_farwell_houses",
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "T-3215: no boundary across the front. Treat & Foltz's 1886 drawing of the Farwell house (data/reference_views/house_1623_prairie/building_budget_front.json) draws the stoop climbing straight up from the walk between its iron rails and the low railed terrace beside it, and no fence, wall, coping or gate across the front yard. Carried to 1904 on that drawing alone (the house as designed, eighteen years before the scene; no later picture of the front is held), so INFERRED. The stoop's rails, newels and the terrace's railing are the house's own and stay as built. The lot's sides are parcel prairie_1623's street corners (data/street_grid/1904.json) in this frame, s -1.16 and 6.161."
+      "note": "T-3394. The owner, 2026-11-05, standing at 1625 looking north: \"the bulk of these in the 1600 block are missing their street fences/borders\" (T-3394). 1623's 1886 Building Budget drawing draws the front open to the walk (the house as designed, eighteen years before the scene); the owner's ruling over it is recorded as `owner ruling` in data/reference_views/house_1623_prairie/building_budget_front.match.json. Built as the district's own street border: a low squared stone coping on the street line, its street face on the public walk's inner edge, 0.35 m high and 0.35 m through with its arris chamfered 0.05 m, as the 1700 block's unpictured fronts are built (T-3205: 1700's Chicagology photograph, 1721's 1891 plate, 1736's c. 1890 photograph and its surviving curbstone), and as the lot-line coping read along the walk's inside edge in Views of Chicago (1905) and the Flinn view (docs/RESEARCH/prairie_1904_street_section.md); cut for the walk square to the stair, the opening the walk's (or the stoop's) width and 0.3 m either side. Here the line stands 3.49 m before the street front (3.8 m to the public walk, less the 0.31 m the district's copings stand inside it), open s 2.350-4.650 on the stair's axis (s 3.5). The lot's sides stay parcel s -1.16 and 6.161. RECONSTRUCTED: the coping, its line, height and section (liberty L-k11-coping-1600-east-3394). Replaces T-3215/T-3216's open front."
     },
     "yard": {
       "value": {

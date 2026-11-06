@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2680, ts: '2026-11-06T01:41:35.140Z', date: 'Nov 5, 2026, 7:41 PM CT', title: 'Prairie\'s 1600 block closes its street fronts', kind: 'fix',
+    items: [
+      '1637 Prairie\'s brick wall and iron fence now stand on the street line, with a pair of gates where the walk comes in.',
+      'The nine open east fronts from 1601 to 1625 get a low stone coping along the sidewalk, cut where each walk comes through.',
+      '1621, 1623 and 1625 had been left open because their 1886-90 pictures show them that way; the coping is the owner\'s call, recorded as a liberty.',
+    ] },
   { v: 2679, ts: '2026-11-06T01:02:48.155Z', date: 'Nov 5, 2026, 7:02 PM CT', title: '1919 Prairie\'s rear roofs: two pinnacled dormers and a flat-topped corner', kind: 'improvement',
     items: [
       'The rear range now has the two small pinnacled dormers all three Gatlin Institute plates show on its street-side slope. Each has one tall light, a stone-coped gable, a finial and a pinnacle at each edge.',
