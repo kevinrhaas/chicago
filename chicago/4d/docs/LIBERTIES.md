@@ -40842,6 +40842,53 @@ permit drawing.
 **Ticket:** T-3384.
 **Recorded:** 2026-11-05 (T-3384).
 
+### L-k11-coping-1600-east-3394 — A low stone coping on the street line of the nine east fronts of the 1600 block of Prairie
+
+**Decision:** the east side of the 1600 block of Prairie Avenue, 1601, 1609, 1611, 1613, 1615,
+1619, 1621, 1623 and 1625, had been built with open fronts (T-3215, T-3216, T-3230): nothing on
+the street line, the lawn running out to the public walk. The owner, 2026-11-05, at 1625 looking
+north: "the bulk of these in the 1600 block are missing their street fences/borders". Each is now
+closed by a low squared stone coping on the street line, its street face 0.31 m inside the public
+walk's inner edge, 0.35 m high and 0.35 m through, its arris chamfered 0.05 m on the brick and stone
+houses (K11) and square on the three frame houses (K16), cut for the walk where it comes out from
+the stair: the walk's (or the stoop's) width and 0.3 m either side, or run on to the lot line where
+less than 0.3 m of coping would be left (1611's north end). **What is read, not invented.** Lot-line
+coping of this kind is read along the walk's inside edge in Views of Chicago (1905) and the Flinn
+view (docs/RESEARCH/prairie_1904_street_section.md), and the 1700 block's pictured copings (1700's
+photograph, 1721's 1891 plate, 1736's c. 1890 photograph and its surviving curbstone) give its
+section; the street and lot lines are the 1904 parcels' (data/street_grid/1904.json, from the 1911
+Sanborn sheet 20). **Against the pictures.** 1621's and 1623's 1886 drawings and 1625's January
+1890 photograph show those three fronts open, fourteen to eighteen years before the scene; the
+coping is built over them by the owner's ruling, recorded as `owner ruling` in each view's match
+record. **What is invented or held by the kit.** That any of the nine had a coping in 1904; its
+height, section and line; the openings' widths.
+**How to resolve:** a photograph of any of these fronts from about 1895-1910, or a survey plat that
+draws the street-line copings.
+**Covers:** `house_1601_prairie.as_mapped_1904.form.boundary`, `house_1609_prairie.as_mapped_1904.form.boundary`, `house_1611_prairie.as_mapped_1904.form.boundary`, `house_1613_prairie.as_mapped_1904.form.boundary`, `house_1615_prairie.as_mapped_1904.form.boundary`, `house_1619_prairie.as_mapped_1904.form.boundary`, `house_1621_prairie.as_mapped_1904.form.boundary`, `house_1623_prairie.as_mapped_1904.form.boundary`, `house_1625_prairie.as_mapped_1904.form.boundary`.
+**Ticket:** T-3394.
+**Recorded:** 2026-11-05 (T-3394).
+
+### L-k11-1637-street-line-3394 — 1637 Prairie's garden wall and iron fence moved out to the street line, gated at the walk
+
+**Decision:** 1637 Prairie's front garden, the brick wall before the north flank and the iron
+spear fence before the rest of the front, had been built on one line 3.5 m before the house, read
+off the remodel engraving's ground plane (T-2447, L-k01-1637-spalding-garden-2447). The owner,
+2026-11-05, of this front: "and is that street fence right?  fix if not please that house seems to
+be missing it in the right position". Both now stand on the street line, 9.74 m before the main
+front, their street face 0.31 m inside the public walk as every street-line front in the block
+stands. The wall keeps its drawn run (the north lot line to its end pier at s 0.87, 2.0 m high);
+the fence runs from that pier to the south lot line; and the walk crosses it through a pair of
+the K11 kit's walk gates on stone piers, 1.9 m clear, on the stoop's axis (the ruled centred
+door, s 6.71). **What is read, not invented.** The Grosvenor as-built photograph shows the
+house's earlier iron fence on its curb at the walk, across the frame's foot. **Against the
+picture.** The engraving's ground reads the garden's line close before the house; recorded as
+`owner ruling` in spalding_remodel_engraving.match.json. **What is invented or held by the kit.**
+The line's exact distance, the gates, their piers and the opening's width.
+**How to resolve:** a photograph of the front from about 1895-1910.
+**Covers:** `spalding_house_1637_prairie.as_mapped_1904.form.boundary`.
+**Ticket:** T-3394.
+**Recorded:** 2026-11-05 (T-3394).
+
 ### L-k01-1919-range-dormers-3354 — 1919 Prairie's middle range flat-topped at its north end under a set-back gable, and the rear range's two pinnacled dormers, off all three Gatlin plates
 
 **Decision:** Read together through their three solved cameras, the Gatlin Institute plates of 1919

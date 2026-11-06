@@ -2,7 +2,7 @@
   "structure_id": "house_1623_prairie",
   "view": "building_budget_front",
   "glb": "assets/gltf/house_1623_prairie__as_mapped_1904.glb",
-  "glb_sha256": "1a27e7ece0656abecbb207398a83b4d87050967724b7aeeb7be66b3dfa54afc8",
+  "glb_sha256": "f15bea6ffb2f4ef64280c09f1a96c68342b3415b218c3b8a43cb1f2714046eb1",
   "camera_sha256": "11659dfcf3ba97045918dcf86c57473f7866482a17b88095daed6d2224a7eee9",
   "photo_sha256": "42f335117613488291ef19d96ac74b083784672f18d333697cdef81b908c34f3",
   "side_by_side": "docs/RESEARCH/photo-match/house_1623_prairie/building_budget_front-side-by-side.jpg",
@@ -127,7 +127,12 @@
       "what": "the walk and the front boundary: the drawing's stoop rises straight up from the ground before the house between its rails, no fence, wall or gate across the front; the build had no walk",
       "status": "fixed",
       "how": "T-3221: the front built open (form.boundary layout open) and a flagged walk laid from the stoop's foot, its 1.7 m width, out to the public walk; the walk's flags and line are the K14 kit's, the drawing showing none (L-k14-walks-1600-block-3215)"
+    },
+    {
+      "what": "the street line: the 1886 drawing draws nothing across the front; the build had laid it open (T-3215/T-3221)",
+      "status": "owner ruling",
+      "how": "T-3394, ruled (the owner, 2026-11-05, at 1625 looking north: \"the bulk of these in the 1600 block are missing their street fences/borders\"): a low squared stone coping, 0.35 m, on the street line, opened at the walk, as the 1600 block's other east fronts and the 1700 block's unpictured fronts stand (L-k11-coping-1600-east-3394). The picture predates the scene by 14-18 years."
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
