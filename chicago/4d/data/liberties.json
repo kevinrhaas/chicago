@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1017,
+  "count": 1018,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -68203,6 +68203,61 @@
       ],
       "work_refs": [
         "T-3381"
+      ]
+    },
+    {
+      "id": "L-glessner-cross-ridge-line-3396",
+      "title": "Glessner's stable cross ridge back on the north range's ridge line, by the owner's ruling",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.gable_west_wing_west"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.v4_detail"
+        }
+      ],
+      "recorded": "2026-11-06",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the John J. Glessner House stable's E-W cross ridge west of the cupola, and the alley gable's apex with it, stand at S 14.6 on the north range's ridge line, at that ridge's 36.17 ft ng, so one straight crest runs from the east wing through the cupola to the alley gable. They stood at S 12.31. The owner, 2026-11-06, marking the line on the dev scene from over the alley: \"the west gable, the peak of the roof there should be a straight line with the rest of the north wing... we corrected this earlier\". That earlier correction is the owner's 2026-10-15 overhead ruling, which put this ridge and the cupola on S 14.6; earlier work (“Glessner's stable cross ridge brought down its own plane; the alley gable kept as a parapet”) moved the ridge 2.3 ft north down its own plane to fit the prints' course count, and earlier work kept it there. The owner's ruling governs, so this supersedes “Glessner's stable cross ridge brought down its own plane; the alley gable kept as a parapet”'s plan line. **What is read.** The owner's ruling and screenshots; the north range's ridge (S 14.6, 36.17 ft). **What is invented.** The cross roof's north slope is now the north range's own plane (41.8 degrees, from the 23.1 ft street eave), so it lays more courses between eave and crest than the c. 1887 Cornell print and HABS photograph 1 count (read 41-44); that departure is the owner's to make. The alley gable stays a verge and follows the roof to the new apex."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a measured section through the stable's alley end."
+        },
+        {
+          "label": "Covers",
+          "text": "`glessner_house.as_built_1887.form.v4_detail`, `glessner_house.as_built_1887.form.gable_west_wing_west`."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-06 (T-3396)."
+        }
+      ],
+      "work_refs": [
+        "T-2228",
+        "T-3371",
+        "T-3095",
+        "T-3376",
+        "T-3096",
+        "T-3148",
+        "T-3396"
       ]
     },
     {

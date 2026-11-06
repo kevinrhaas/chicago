@@ -40820,6 +40820,29 @@ places; a raking-light close-up would set the depths.
 **Review:** `docs/RESEARCH/photo-match/glessner_house/habs5-entry-side-by-side.jpg`.
 **Recorded:** 2026-11-05 (T-3381).
 
+### L-glessner-cross-ridge-line-3396 — Glessner's stable cross ridge back on the north range's ridge line, by the owner's ruling
+
+**Decision:** the `glessner_house` stable's E-W cross ridge west of the cupola, and the alley gable's
+apex with it, stand at S 14.6 on the north range's ridge line, at that ridge's 36.17 ft ng, so one
+straight crest runs from the east wing through the cupola to the alley gable. They stood at S 12.31.
+The owner, 2026-11-06, marking the line on the dev scene from over the alley: "the west gable, the
+peak of the roof there should be a straight line with the rest of the north wing ... we corrected
+this earlier". That earlier correction is the owner's 2026-10-15 overhead ruling (T-2228), which put
+this ridge and the cupola on S 14.6; T-3096 (L-glessner-alley-ridge-3096) moved the ridge 2.3 ft north
+down its own plane to fit the prints' course count, and T-3148 and T-3371 kept it there. The owner's
+ruling governs, so this supersedes L-glessner-alley-ridge-3096's plan line.
+**What is read.** The owner's ruling and screenshots; the north range's ridge (S 14.6, 36.17 ft, T-3371).
+**What is invented.** The cross roof's north slope is now the north range's own plane (41.8 degrees,
+from the 23.1 ft street eave), so it lays more courses between eave and crest than the c. 1887 Cornell
+print and HABS photograph 1 count (T-3095 read 41-44); that departure is the owner's to make. The alley
+gable stays a verge (T-3376) and follows the roof to the new apex.
+**How to resolve:** a measured section through the stable's alley end.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`, `glessner_house.as_built_1887.form.gable_west_wing_west`.
+**Ticket:** T-3396.
+**Review:** `docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg`.
+**Recorded:** 2026-11-06 (T-3396).
+
 ### L-k03-face-brick-3385 — Prairie Avenue's brick told house by house: a period face brick on each brick front, a common run on each house's flanks, as tints over the two K03 panels
 
 **Decision:** a palette of period bricks (`data/components/prairie_1904/k03_face_brick.json`): six face
