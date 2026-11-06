@@ -1,4 +1,35 @@
 export const CHANGELOG = [ // newest first
+  { v: 2691, ts: '2026-11-06T06:27:15.713Z', date: 'Nov 6, 2026, 12:27 AM CT', title: 'Fort Dearborn story stops now say how much time has passed', kind: 'improvement',
+    items: [
+      'Every stop after the first in The Battle of Fort Dearborn and Chicago\'s First Murder now opens with how long it has been since the last one, ahead of its date and hour: "Four months later.", "Forty minutes later.", "Four hours later."',
+      'The gaps come from each stop\'s own date and hour, sunset worked out for that day, and a check fails if a stop\'s time moves without its lead.',
+    ] },
+  { v: 2690, ts: '2026-11-06T06:27:15.713Z', date: 'Nov 6, 2026, 12:27 AM CT', title: 'Every plant now follows the Season setting', kind: 'feature',
+    items: [
+      'In fall the 1904 yards turn too: maples orange-scarlet, lindens yellow, spiraea wine red, hydrangea heads dried tan, roses in hips, lilacs a late dull olive.',
+      'Boston ivy on the houses and Glessner\'s vines go crimson in fall, leaf out bronze in spring and drop to bare stems in winter.',
+      'Spring shows first leaf on every shrub and tree; winter leaves them bare and bronzes the arborvitae.',
+      'Bedding geraniums and coleus are out from summer to the first frost; the tubbed palms stand out only in summer.',
+      'In 1812 and 1835 the dooryard greens and garden beds brown and take snow, and the sand-hill cedars and jack pines stay green all year.',
+    ] },
+  { v: 2689, ts: '2026-11-06T06:11:19.466Z', date: 'Nov 6, 2026, 12:11 AM CT', title: 'Hans dresses for the box: coat, cape and top hat', kind: 'improvement',
+    items: [
+      'Hans now wears a coachman\'s long box coat with a turned-up collar, a shoulder cape and two rows of brass buttons, over dark livery trousers.',
+      'The coat\'s skirt and cape were dropped as cloth onto him and his seat, so they fold over his lap, across the cushion and down past the box like real wool.',
+      'He wears a silk top hat.',
+      'No images to download; it adds well under a megabyte. The cut and colour are reconstructed (see Liberties).',
+    ] },
+  { v: 2688, ts: '2026-11-06T05:24:40.928Z', date: 'Nov 5, 2026, 11:24 PM CT', title: 'Glessner\'s stable ridge runs straight on from the 18th Street wing', kind: 'fix',
+    items: [
+      'The ridge over Glessner House\'s stable, west of its little cupola, had drifted about two feet north of the 18th Street wing\'s ridge. It is back on the same line, so one straight crest runs from the east wing through the cupola to the alley gable, and the alley gable now stands even about its peak.',
+    ] },
+  { v: 2687, ts: '2026-11-06T04:58:18.312Z', date: 'Nov 5, 2026, 10:58 PM CT', title: '1936 Prairie\'s belvedere tower now looks like its photograph', kind: 'fix',
+    items: [
+      'The tower is real: the 1869 Tribune says you entered the house through a 73 ft tower, and a winter photograph shows it.',
+      'Its top no longer reads as a pale flared slab. The cornice reaches 0.8 m, not 1.1 m, measured on the photograph.',
+      'The cap above the cornice is slate, the Tribune\'s roofing, and the house\'s cornices are dark brown, as the print shows them.',
+      'Each belvedere window sits in an arched stone frame, closer to the photograph\'s.',
+    ] },
   { v: 2686, ts: '2026-11-06T03:50:49.982Z', date: 'Nov 5, 2026, 9:50 PM CT', title: '1700–1706 Prairie\'s front curb', kind: 'fix',
     items: [
       'The low stone curb now runs along the street line across the middle of the Glessner-Lee pair, between the two gates, where both photographs show the lawn held back with no iron on it.',
