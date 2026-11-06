@@ -1,0 +1,27 @@
+{
+ "id": "loc_griffith_1905_roosevelt_escort_coachmen_stereograph",
+ "type": "photograph",
+ "citation": "Griffith & Griffith, publisher, 'President Roosevelt and Escort Leaving the Capitol, Washington, D.C.', stereograph no. 3101, copyright 1905 March 22. Library of Congress, Prints and Photographs Division, Stereograph Cards, LC-DIG-stereo-1s02210 (item 2010647610).",
+ "date": "1905",
+ "describes_date": "before 1905-03-22 (the copyright date)",
+ "repository": "Library of Congress, Prints and Photographs Division. Master TIFF 1s02210u.tif (5011 x 2577), read at tile.loc.gov; the left-hand frame and a crop of the two coachmen are kept in kevinrhaas/chicago-evidence evidence/people-references-2026-11-06/coachman_1904/.",
+ "url": "https://www.loc.gov/item/2010647610/",
+ "locator": "The left-hand frame of the card: Roosevelt's carriage and its four-horse team from the front quarter at about ten metres, two coachmen side by side on the box, Roosevelt raising his hat, two men in overcoats in the foreground.",
+ "tier": 1,
+ "rights_status": "no_known_restrictions",
+ "rights_note": "LOC rights advisory: 'No known restrictions on publication.' Published 1905. Used only as a reference picture people are judged against (T-3417); nothing is traced or sampled from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-06 (T-3417) from the master TIFF. Two coachmen on one box, seen from the front quarter in winter sun: dark double-breasted livery coats with two rows of bright buttons and a stand collar, white gloves, tall silk hats; they sit upright, high above the horses' backs, and at this distance read as dark upright blocks with pale gloves and faces. Not Chicago (Washington), but the same role and years as the 1904 scene's coachman.",
+ "note": "One of the 1904 coachman reference set's photographs (data/humans/reference_sets/coachman_1904.json).",
+ "what_it_supplies": [
+  "how a liveried coachman reads at about ten metres on a high box, in sun",
+  "the double-breasted livery coat with two rows of buttons, white gloves and silk hat seen from the front quarter",
+  "the coachman's scale against his horses and carriage"
+ ],
+ "what_it_does_not_supply": [
+  "colour (a monochrome print)",
+  "a closed brougham (this is a larger open carriage with a four-horse team)",
+  "anything about Chicago or Hans Johnson; no likeness is asserted"
+ ]
+}

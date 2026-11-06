@@ -270,6 +270,9 @@ const COVERAGE = [
   // renderers/ fetches them: they reach the browser only through what compile_pictures.py
   // (a picture's spot) and jaunt_built_so_far.py (the built-so-far walk) derive from them,
   // and those derived sidecars and jaunts are priced by their own rows.
+  // T-3417. The people match's reference sets, subjects and match records: read by
+  // tools/people_match.mjs and test_people_match.mjs, published and fetched by nothing.
+  ['data/people_match/', NONE, 'the people match\u2019s reference sets and match records \u2014 read by the rig and its gate, fetched by no renderer'],
   ['data/reference_views/', NONE, 'the image gate\u2019s cameras and match records \u2014 read by the gate\u2019s tools and two compilers, fetched by no renderer'],
   // T-1971. The housing deal's ledger reaches the scene only through the sidecars
   // compile_scene writes from it (`residents[]` on the building card), which are priced
