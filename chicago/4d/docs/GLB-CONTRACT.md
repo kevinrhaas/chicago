@@ -251,6 +251,7 @@ chimney, by its material name. Those names have no single writer and no pin, and
 | its map coordinate | the custom attribute `_UV` (VEC2 float, three's `_uv`), in tiles of the sheet's `material.json` `span_m`: u round the covering, v up it, every mat and sheet at its own offset. Not TEXCOORD_0, because no texture rides in the GLB and the web derivative's prune drops a TEXCOORD_0 nothing samples; `_UV` survives it as `_TONE` and `_CONFIDENCE` do. Only the three covering primitives carry it. |
 | what a renderer does with it | `renderers/web/js/camp-surfaces.js` binds the sheet's base colour, normal and ORM (as roughness and occlusion), copies `_uv` to `uv`, and whitens the material so the batch's instance colour leaves the sheet as drawn; a sheet that does not load leaves the GLB's colour, each sheet's mean. It loads the sheets only in a scene that draws a `lodge_camp`. |
 | what holds it | `python3 generators/lodge_camp_emit.py --check` (the bytes) and `python3 tools/ktx2_sheets.py --check` (the sheets). |
+| the haystacks' hay (T-3401) | the same convention, on three more names written only by `generators/archetypes/haystack.py`: `stack_hay`, `stack_hay_weathered` and `stack_hay_cut`, naming `hay_stack`, `hay_weathered` and `hay_cut` in the same library (`HAY_COVERINGS` in camp-surfaces.js), loaded only in a scene that draws a `haystack`. Their primitives carry a per-vertex `_TONE` too. Held by `python3 generators/haystack_emit.py --check`. |
 
 ### Brick panels — read from the base colour's image name (PROPOSED 2026-11-01, T-3295)
 

@@ -42,7 +42,7 @@ export function authoredLeg(jaunt, fromId, toId) {
 /** Catalog timing and full story documents share the same primary-path estimate.
  * `from` prices an in-progress leg from the visitor's current position. */
 export function estimateJaunt(jaunt, mode, { resolve = d => d, settings = {}, router,
-  startIndex = 0, from = null, includeOpening = true } = {}) {
+  startIndex = 0, from = null, includeOpening = true, chosen = false } = {}) {
   const stops = jaunt.stops || jaunt.destinations?.map((destination, i) => ({ destination, ...jaunt.timing?.stops?.[i] }));
   if (!stops?.length || !Object.hasOwn(PACES, mode)) return null;
   let total = includeOpening ? seconds(jaunt.opening?.read_s ?? jaunt.timing?.opening_read_s) : 0;
@@ -51,7 +51,7 @@ export function estimateJaunt(jaunt, mode, { resolve = d => d, settings = {}, ro
   // T-3355: a leg authored with its own mode (a long ride Instantly) is priced that way
   // while the jaunt runs on its default mode; a mode the visitor picked prices every leg.
   const ownMode = i => {
-    if (mode !== jaunt.default_mode || !i) return mode;
+    if (chosen || mode !== jaunt.default_mode || !i) return mode;   // T-3405: a picked mode prices every leg
     const m = stops[i].leg_mode ?? authoredLeg(jaunt, stops[i - 1].id, stops[i].id)?.mode;
     return m && Object.hasOwn(PACES, m) && (jaunt.allowed_modes || [m]).includes(m) ? m : mode;
   };

@@ -553,13 +553,15 @@ step "Driven assembly retains named drivers, vehicle ownership and exact current
   node tools/test_driven_assembly.mjs
 step "A seated driver breathes, looks round and holds his reins, bounded and deterministic, on the real 1904 driver (T-1790)" \
   node tools/test_driver_life.mjs
+step "People on foot breathe, shift weight with feet planted, look at a close visitor and blink irregularly, bounded and deterministic (T-3402)" \
+  node tools/test_human_life.mjs
 step "The driven team's generated walk and its hoof-support domain reproduce byte for byte, hooves planted without slide (T-2803)" \
   node tools/horse_walk_v2.mjs --check
 step "A driver's plain garments read as cloth: weave, heather and sheen by shader patch, no texture, one program (T-2804)" \
   node tools/test_fabric.mjs
-step "The 1904 coachman's draped livery stays clear of his seated body and box, and is the one his row binds (T-3398)" \
-  python3 tools/human_driver_livery_1904.py --check
-step "The coachman's livery binds to the real driver by bone name and skins where it was draped, LOD0 and LOD3 (T-3398)" \
+step "Every wardrobe file matches its recipe, each garment sourced or a liberty, clear of its seated body and vehicle, and is the one its row binds (T-3398, T-3409)" \
+  python3 tools/human_wardrobe.py --check
+step "Each driver's wardrobe binds to the real driver by bone name, skins where it was draped, and its spring tails lag and settle, LOD0 and LOD3 (T-3398, T-3409)" \
   node tools/test_driver_livery.mjs
 step "Driven-team clearance uses the complete occupied envelope and refuses blocked routes (T-2804)" \
   node tools/test_transport_clearance.mjs

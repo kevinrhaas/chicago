@@ -41,6 +41,7 @@
     },
     {
       "id": "lalime-house",
+      "since": "Seven years later",
       "destination": {
         "kind": "anchor",
         "id": "lalime_house_front"
@@ -61,6 +62,7 @@
     },
     {
       "id": "factory",
+      "since": "Nine months later",
       "destination": {
         "kind": "anchor",
         "id": "first_fort_factory_front"
@@ -80,6 +82,7 @@
     },
     {
       "id": "bad-blood",
+      "since": "Five weeks later",
       "destination": {
         "kind": "anchor",
         "id": "first_fort_officers_quarters"
@@ -100,6 +103,7 @@
     },
     {
       "id": "the-quarrel",
+      "since": "Two months later",
       "destination": {
         "kind": "anchor",
         "id": "first_fort_parade"
@@ -120,6 +124,7 @@
     },
     {
       "id": "the-gate",
+      "since": "An hour later",
       "destination": {
         "kind": "anchor",
         "id": "first_fort_gate"
@@ -141,6 +146,7 @@
     },
     {
       "id": "the-flight",
+      "since": "Four hours later",
       "destination": {
         "kind": "anchor",
         "id": "kinzie_house_across_river"
@@ -162,6 +168,7 @@
     },
     {
       "id": "the-grave",
+      "since": "Nine hours later",
       "destination": {
         "kind": "anchor",
         "id": "west_of_kinzie_house"

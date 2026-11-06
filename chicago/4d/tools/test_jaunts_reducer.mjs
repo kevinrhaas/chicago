@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { emptyState, reduce, createJaunts, canNext, legMode } from '../renderers/web/js/jaunts.js';
+import { emptyState, reduce, createJaunts, canNext, legMode, shownMode } from '../renderers/web/js/jaunts.js';
 const fixture = id => JSON.parse(fs.readFileSync(new URL(`../data/jaunts/_fixtures/fixture-${id}.json`, import.meta.url)));
 const branch = fixture('branch'), walk = fixture('walk');
 const arrive = s => reduce(s, { type: 'ARRIVE', session: s.session, leg: s.leg });
@@ -175,5 +175,30 @@ await test('T-3355: a leg with its own mode rides that way on the default mode; 
   d.end();
   assert.equal(legMode({ ...emptyState(), jaunt: walk, mode: 'walk', visited: [{ id: 'mail-corner' }], fromStopId: 'arrival' }), 'walk',
     'a jaunt with no leg modes rides its own mode');
+});
+await test('T-3405: picking the jaunt\'s own mode on a leg that goes its own way is honoured, then and after', async () => {
+  const doc = structuredClone(walk);
+  doc.legs = [{ note: 'A long ride.', evidence: [doc.stops[0].evidence[0]], mode: 'instantly' }];
+  let active;
+  const travel = { mode: 'walk', setMode(v) { this.mode = v; }, go(target, hooks) { active = hooks; return true; }, stop() { active = null; } };
+  const c = createJaunts({ load: async () => doc, resolve: x => x, place: () => true, enter: () => true, travel,
+    render() {}, showMenu() {}, openDetail() {}, closeDetail() {}, onError: e => { throw e; } });
+  await c.start('walk');
+  assert.equal(shownMode(c.state), 'instantly', 'at the stop, the picker names the next leg\'s own mode');
+  c.next();
+  assert.equal(travel.mode, 'instantly'); assert.equal(shownMode(c.state), 'instantly', 'the picker shows the leg as it travels');
+  assert.equal(c.setMode('walk'), true, 'choosing Walk on a Walk jaunt is not ignored');
+  assert.equal(travel.mode, 'walk', 'the leg is re-planned on foot');
+  assert.equal(c.state.modeChosen, true); assert.equal(shownMode(c.state), 'walk');
+  active.onArrive(active.token); c.prev();
+  assert.equal(travel.mode, 'walk', 'and every later leg takes the pick');
+  active.onArrive(active.token);
+  const restarted = c.restart(); await restarted;
+  assert.equal(c.state.modeChosen, true, 'a restart keeps the pick'); c.end();
+  const saved = reduce(reduce(emptyState(), { type: 'START', jaunt: doc, session: 1, mode: 'walk' }), { type: 'MODE', mode: 'fly' });
+  assert.equal(saved.modeChosen, true);
+  const plain = reduce(emptyState(), { type: 'START', jaunt: doc, session: 1, mode: 'walk' });
+  assert.equal(plain.modeChosen, false, 'a start on the default is not a pick');
+  assert.equal(reduce(plain, { type: 'MODE', mode: 'walk' }).modeChosen, true, 'nor is it ignored when picked at the stop');
 });
 console.log(`JAUNT REDUCER PASS — ${tests} cases`);

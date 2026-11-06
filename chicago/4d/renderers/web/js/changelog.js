@@ -1,4 +1,50 @@
 export const CHANGELOG = [ // newest first
+  { v: 2696, ts: '2026-11-06T07:51:47.069Z', date: 'Nov 6, 2026, 1:51 AM CT', title: 'The Glessner House print has even roof tiles', kind: 'improvement',
+    items: [
+      'Nothing you can see changed in the scene. The 3D-print export now gives every roof the same tile courses, evenly spaced, instead of a different ripple on each roof plane and the odd tile sticking up.',
+      'The beaded ridge rolls stay, and a print without the even courses is still one option away.',
+    ] },
+  { v: 2695, ts: '2026-11-06T07:17:22.809Z', date: 'Nov 6, 2026, 1:17 AM CT', title: 'Capes that swing, and Otis dresses for the wagon', kind: 'improvement',
+    items: [
+      'Hans\'s shoulder cape and the hanging part of his coat skirt now swing with the carriage when it jolts, turns or stops, then settle back.',
+      'Otis Bardwell, driving the 1835 wagon, now wears a drab wool round jacket with horn buttons and a broad-brimmed felt hat.',
+      'Drivers are now dressed by one wardrobe kit, and every garment lists its source or its liberty.',
+    ] },
+  { v: 2694, ts: '2026-11-06T07:17:22.809Z', date: 'Nov 6, 2026, 1:17 AM CT', title: 'Walk the Fort Dearborn tour, and Fly really flies', kind: 'fix',
+    items: [
+      'Fort Dearborn, Building by Building now walks by default. Its gates swing open as you reach them, and you walk through onto the parade.',
+      'Only the raised view of the covered way is a short flight. Fly and Instantly are still in the picker.',
+      'Picking Fly on a jaunt now flies every leg. Before, a leg set to go Instantly still jumped.',
+      'Fly reaches raised viewpoints by flying up to them instead of jumping.',
+      'The travel picker shows how the current leg will travel.',
+    ] },
+  { v: 2693, ts: '2026-11-06T07:17:22.809Z', date: 'Nov 6, 2026, 1:17 AM CT', title: 'Lee\'s Place haystacks in 1812 look like real hay', kind: 'improvement',
+    items: [
+      'The four stacks across the river from Lee\'s cabin are shaggy, combed prairie hay now, not smooth pale domes: wisps stand out of them and hang from the eaves, and trodden hay lies round their feet.',
+      'Each stands its own way: one fresh-pitched to a sharp peak, one settled and sagging, one the cattle have eaten into all round under an overhang, and the old winter stack with hay pulled out of one side and heaped at its foot.',
+      'The tops are greyed by weather, the pulled faces show the brighter heart of the stack, one is weighted with rider poles, and every stack leans a little.',
+      'All of it is reconstructed: Wau-Bun puts cattle among haystacks here in 1812, and no picture of them exists.',
+    ] },
+  { v: 2692, ts: '2026-11-06T07:14:30.749Z', date: 'Nov 6, 2026, 1:14 AM CT', title: 'People on foot breathe, shift their weight and look at you', kind: 'improvement',
+    items: [
+      'Standing figures breathe, sway a little and settle onto one leg, then the other, feet planted.',
+      'They look about the street, aside and at the ground, eyes leading the head.',
+      'Walk up close in front of someone and they look at you.',
+      'Blinks come at a natural, irregular pace instead of every four seconds.',
+    ] },
+  { v: 2691, ts: '2026-11-06T06:27:15.713Z', date: 'Nov 6, 2026, 12:27 AM CT', title: 'Fort Dearborn story stops now say how much time has passed', kind: 'improvement',
+    items: [
+      'Every stop after the first in The Battle of Fort Dearborn and Chicago\'s First Murder now opens with how long it has been since the last one, ahead of its date and hour: "Four months later.", "Forty minutes later.", "Four hours later."',
+      'The gaps come from each stop\'s own date and hour, sunset worked out for that day, and a check fails if a stop\'s time moves without its lead.',
+    ] },
+  { v: 2690, ts: '2026-11-06T06:27:15.713Z', date: 'Nov 6, 2026, 12:27 AM CT', title: 'Every plant now follows the Season setting', kind: 'feature',
+    items: [
+      'In fall the 1904 yards turn too: maples orange-scarlet, lindens yellow, spiraea wine red, hydrangea heads dried tan, roses in hips, lilacs a late dull olive.',
+      'Boston ivy on the houses and Glessner\'s vines go crimson in fall, leaf out bronze in spring and drop to bare stems in winter.',
+      'Spring shows first leaf on every shrub and tree; winter leaves them bare and bronzes the arborvitae.',
+      'Bedding geraniums and coleus are out from summer to the first frost; the tubbed palms stand out only in summer.',
+      'In 1812 and 1835 the dooryard greens and garden beds brown and take snow, and the sand-hill cedars and jack pines stay green all year.',
+    ] },
   { v: 2689, ts: '2026-11-06T06:11:19.466Z', date: 'Nov 6, 2026, 12:11 AM CT', title: 'Hans dresses for the box: coat, cape and top hat', kind: 'improvement',
     items: [
       'Hans now wears a coachman\'s long box coat with a turned-up collar, a shoulder cape and two rows of brass buttons, over dark livery trousers.',
