@@ -5674,6 +5674,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_fabric.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_driver_life.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5975,6 +5979,10 @@
       "wrote_ignored": []
     },
     "tools/test_k01_loggia_lights.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_named_base_lights.py": {
       "wrote": [],
       "wrote_ignored": []
     },

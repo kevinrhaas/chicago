@@ -553,6 +553,8 @@ step "A seated driver breathes, looks round and holds his reins, bounded and det
   node tools/test_driver_life.mjs
 step "The driven team's generated walk and its hoof-support domain reproduce byte for byte, hooves planted without slide (T-2803)" \
   node tools/horse_walk_v2.mjs --check
+step "A driver's plain garments read as cloth: weave, heather and sheen by shader patch, no texture, one program (T-2804)" \
+  node tools/test_fabric.mjs
 step "Driven-team clearance uses the complete occupied envelope and refuses blocked routes (T-2804)" \
   node tools/test_transport_clearance.mjs
 step "Driven-team support reads actual ground and preserves physical contact limits (T-2804)" \
@@ -1387,6 +1389,13 @@ step "a K01 house's named round-arched street lights stand in moulded architrave
 # out of range, three leaves and an unknown key refused.
 step "a K01 door under a flat arch takes a fanlight over a transom bar (T-3364)" \
   python3 tools/test_k01_fanlight_transom.py
+
+# T-3365 (T-1914). On a front that names its windows one by one: basement lights named by their
+# centres in the rusticated base (`basement_lights.at_m`), the low-s corner dressed in stone to the
+# wall head (`corner_stone`), and a carved band laid as a panel over its run alone (`panel`), held
+# on 2009 Prairie's record off the Chicagology photograph; each refused out of its range.
+step "a K01 named-window front takes named basement lights, a corner stone and a carved panel (T-3365)" \
+  python3 tools/test_k01_named_base_lights.py
 
 # T-3255. Eared and crested stone hoods over a K01 wall's round-headed lights, and the main
 # block's corner pilasters (k01_dressings), held on 1701 Prairie's record: every round light on
