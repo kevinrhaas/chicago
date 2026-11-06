@@ -181,7 +181,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
         const item = node('li', '');
         const place = destinations.byId(stop.destination.kind, stop.destination.id);
         // T-2946: the jaunt's own name for the stop, as its panel and road notes give it.
-        item.append(node('h4', content.places?.[stop.destination.id] || place?.label || stop.destination.id), node('p', stop.text));
+        item.append(node('h4', content.places?.[stop.destination.id] || place?.label || stop.destination.id), node('p', stop.since ? `${stop.since}. ${stop.text}` : stop.text));
         if (stop.choices?.length) item.append(node('p', `Optional preference: ${stop.choices.map(c => c.label).join(' / ')}. You may also skip it.`, 'jaunt-meta'));
         const evidence = node('div', '', 'jaunt-evidence'); evidence.hidden = true;
         for (const id of stop.evidence) {
