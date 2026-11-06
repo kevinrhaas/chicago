@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2692, ts: '2026-11-06T07:14:30.749Z', date: 'Nov 6, 2026, 1:14 AM CT', title: 'People on foot breathe, shift their weight and look at you', kind: 'improvement',
+    items: [
+      'Standing figures breathe, sway a little and settle onto one leg, then the other, feet planted.',
+      'They look about the street, aside and at the ground, eyes leading the head.',
+      'Walk up close in front of someone and they look at you.',
+      'Blinks come at a natural, irregular pace instead of every four seconds.',
+    ] },
   { v: 2691, ts: '2026-11-06T06:27:15.713Z', date: 'Nov 6, 2026, 12:27 AM CT', title: 'Fort Dearborn story stops now say how much time has passed', kind: 'improvement',
     items: [
       'Every stop after the first in The Battle of Fort Dearborn and Chicago\'s First Murder now opens with how long it has been since the last one, ahead of its date and hour: "Four months later.", "Forty minutes later.", "Four hours later."',
