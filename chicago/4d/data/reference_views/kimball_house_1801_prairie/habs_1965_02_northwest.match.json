@@ -2,11 +2,11 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_02_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "0f424de954346cc9481ebe11c34d41c48e251af28a0c198fdd68e3d0692cc2a4",
+  "glb_sha256": "0e37a492e8155ab0b20d1ce56904ca52358298e954fd9ed139311f19bb0dc301",
   "camera_sha256": "475749e1e90699915d11ebb50d92b46197e764f7d46d08a73a70e5fe6cdc6593",
   "photo_sha256": "c7398dc2aaa4756b623abf4f559ebd98d609dd89f45bec762ade94a7510ac606",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "the east range's frontispiece over its side door (T-3110): the print's stone frontispiece between pilaster strips from grade (x 345-398 px) carries a small round-arched light filled with an ornamental grille (x 362-382, y 1045-1070, about 2.4-3.1 m), a paired light in the upper storey (x 355-385, y 940-985, about 4.7-5.9 m) and, through the eave, a coped gable between pinnacles with a finial (apex x 372, y 835, about 8.65 m); the build's range wall ran plain under its hip with two rows of reconstructed sash. Built (bays.p_door): 3.0 m wide, 0.1 m proud, the grilled round-headed light and the mullioned pair on its axis, a coped gable of pitch 1.5 between pinnacles; its lights render within about 5 px of the print's rows",
@@ -161,7 +161,8 @@
     },
     {
       "what": "the third storey's light's frame (T-1890, 2026-11-06): this print shows the one light behind the bow's balcony in a moulded architrave with lugs at its head and a projecting sill (about x 1430-1485, y 525-575), where the build's light is a plain recess in the wall dormer's face; a visitor would see the frame. The kit's flat-capped wall dormer has no architrave yet (its surround is only the face's own stone)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-1890 (2026-11-06): the light now stands in a lugged architrave (mansard.dormers[3].architrave, K01's flat-capped wall dormer): a 0.18 m band 0.06 m proud of the face up both jambs and across the head, the head's ends carried 0.08 m past the jambs as lugs 0.26 m deep, and a sill 0.12 m deep standing 0.12 m out and 0.06 m past the band. Through this camera the frame now reads round the light as the print's does, its lugs at the head's top corners and its sill on the balustrade's line; the Taylor print of c. 1895 shows the same raised frame round the light, so it is 1904 fabric. The band's section and the lugs' drop are reconstructed (L-kimball-1801-third-storey-architrave-1890)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
