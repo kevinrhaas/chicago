@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2682, ts: '2026-11-06T02:24:34.472Z', date: 'Nov 5, 2026, 8:24 PM CT', title: 'First Presbyterian\'s walls are brick', kind: 'feature',
+    items: [
+      'First Presbyterian Church on Indiana Avenue in 1904 had flat, untextured walls. They are now laid in the same bonded brick as the Prairie Avenue houses, with each brick shuffled the same way.',
+      'The brick is red: both of the church\'s photographs read its walls darker than its slate spire, which is how a red brick prints, and the 1911 fire-insurance map colours the building brick. Which red it was is a reconstruction, listed under Liberties.',
+      'The church reuses the brick picture the houses already load, so phones pay nothing extra for it.',
+    ] },
   { v: 2681, ts: '2026-11-06T02:05:59.788Z', date: 'Nov 5, 2026, 8:05 PM CT', title: 'Glessner\'s carriage passage loses its floating stone strip', kind: 'fix',
     items: [
       'A grey stone strip hung across the mouth of Glessner House\'s carriage passage on Prairie Avenue, between the open oak doors and about a foot above the paving. It was the opening\'s old sill, left at street level when the passage floor was lowered to the 1963 survey\'s level. It is gone, and the paving runs straight in under the doors.',
