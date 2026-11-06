@@ -827,6 +827,26 @@ def split_sheet_roof(tris, seam_m=0.04, min_width_m=0.05):
     return sheet, seam
 
 
+def vine_stems(tris, leaves, near_m=0.5, max_width_m=0.02):
+    """Which of `tris` are a creeper's stems: pieces under `max_width_m` across lying
+    within `near_m` of its leaves. Glessner's vines draw their stems as little square
+    tubes of the house's oak; with the leaves dropped those stems were left stuck to
+    the stone, and at 1:250 a tube 2-8 mm thick rasterises into a line of one-voxel
+    nubs the thickener swells into beads, the "irregular dots" between the Prairie
+    Avenue windows. Oak doors and trim are wider than this and stand clear of the
+    leaves, so they stay."""
+    if not len(tris) or not len(leaves):
+        return np.zeros(len(tris), bool)
+    from scipy.spatial import cKDTree
+    a, b, c = tris[:, 0], tris[:, 1], tris[:, 2]
+    area2 = np.linalg.norm(np.cross(b - a, c - a), axis=1)
+    longest = np.max(np.stack([np.linalg.norm(b - a, axis=1), np.linalg.norm(c - b, axis=1),
+                               np.linalg.norm(a - c, axis=1)]), axis=0)
+    narrow = area2 / np.maximum(longest, 1e-12) < max_width_m
+    dist, _ = cKDTree(leaves.reshape(-1, 3)).query(tris.mean(axis=1), distance_upper_bound=near_m)
+    return narrow & np.isfinite(dist)
+
+
 def _z_up(tris):
     """glTF is Y-up; the print is Z-up. (x, y, z) -> (x, -z, y) is a rotation, so
     winding and handedness survive."""
@@ -873,6 +893,26 @@ def build(args):
             deck = _z_up(np.concatenate(decks))
         else:
             log("uniform roof: no tile and deck materials found by name; roof kept as modelled")
+    if args.stem_material:
+        names = {n for n, _t in parts}
+        leaf_names = {n for n in names if any(fnmatch.fnmatch(n.lower(), g.lower()) for g in args.leaf_material)
+                      and not any(fnmatch.fnmatch(n.lower(), g.lower()) for g in args.include)}
+        stem_names = {n for n in names if any(fnmatch.fnmatch(n.lower(), g.lower())
+                                              for g in args.stem_material)} - leaf_names
+        if leaf_names and stem_names:
+            leaves = np.concatenate([t for n, t in parts if n in leaf_names])
+            split = []
+            for n, t in parts:
+                if n in stem_names:
+                    stem = vine_stems(t, leaves, args.stem_near_m)
+                    if stem.any():
+                        split.append((f"{n} (vine stems)", t[stem]))
+                        log(f"vines: {int(stem.sum()):,} {n} stem triangles by the leaves dropped with them")
+                    split.append((n, t[~stem]))
+                else:
+                    split.append((n, t))
+            parts = split
+            exclude += tuple(f"{n} (vine stems)" for n in sorted(stem_names))
     kept, dropped = select(parts, exclude, tuple(args.include))
     if not kept:
         raise SystemExit("every material was excluded")
@@ -976,6 +1016,13 @@ def main(argv=None):
                    help="course spacing up the slope on the print (default 1.2)")
     p.add_argument("--course-depth-mm", type=float, default=0.4,
                    help="how far each course's butt stands proud on the print (default 0.4)")
+    p.add_argument("--stem-material", action="append", default=None,
+                   help="material glob of creeper stems drawn in a building material, dropped "
+                        "where they lie by the (dropped) leaves (default oak; 'none' for none)")
+    p.add_argument("--leaf-material", action="append", default=None,
+                   help="material glob of the creeper leaves the stems go with (default *vine*, *ivy*)")
+    p.add_argument("--stem-near-m", type=float, default=0.5,
+                   help="a stem lies within this (real m) of the leaves (default 0.5)")
     p.add_argument("--exclude", action="append", default=[], help="extra material glob to drop")
     p.add_argument("--include", action="append", default=[], help="material glob to keep despite the defaults")
     p.add_argument("--quiet", action="store_true")
@@ -983,6 +1030,8 @@ def main(argv=None):
     args.tile_material = args.tile_material or ["roof_plane_*"]
     args.deck_material = args.deck_material or ["roof_plane"]
     args.sheet_material = [] if args.sheet_material == ["none"] else (args.sheet_material or ["copper"])
+    args.stem_material = [] if args.stem_material == ["none"] else (args.stem_material or ["oak"])
+    args.leaf_material = args.leaf_material or ["*vine*", "*ivy*"]
     report = build(args)
     if args.quiet:
         print(json.dumps(report, indent=2))
