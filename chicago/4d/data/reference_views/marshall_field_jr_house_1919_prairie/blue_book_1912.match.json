@@ -2,7 +2,7 @@
   "structure_id": "marshall_field_jr_house_1919_prairie",
   "view": "blue_book_1912",
   "glb": "assets/gltf/marshall_field_jr_house_1919_prairie__as_mapped_1904.glb",
-  "glb_sha256": "7f6964a4a2309ee6d440ee670bf5a78896fdd686fcd5b536c5ce186ad1ebc642",
+  "glb_sha256": "6bf3dd7b26ffdca75fb6dafad2ccbf10306ce4c4cfd092b9ecbe73fc38960a46",
   "camera_sha256": "43f9767ba9b3148d7c572de09d0d2de25a4fc87fe0fe9d4c0df8edd01c25f689",
   "photo_sha256": "c3491ed0b74e34bb08921b79398d06efd3aefb00ff685b3d8fe3c54a332623c5",
   "side_by_side": "docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/blue_book_1912-side-by-side.jpg",
@@ -29,8 +29,8 @@
       "status": "open"
     },
     {
-      "what": "the north flank's two-storey flat-topped bays and their mullioned windows: the plate draws the flank's lower storeys in deep shade behind the parkway trees; it confirms a flat-topped two-storey block under the far gables and pale corners at the ranges' steps, as the 1919 plate does, which T-3354 now builds at the middle range's north-west corner (roof.flat_end); it resolves no window, no balustrade and none of the canted bay's own corners, so the mullioned windows the 1919 plate draws there stay that plate's open item",
-      "status": "open"
+      "what": "the north flank's two-storey flat-topped bays and their mullioned windows: the plate draws the flank's lower storeys in deep shade behind the parkway trees; it confirms a flat-topped two-storey block under the far gables and pale corners at the ranges' steps, as the 1919 plate does, which T-3354 builds at the middle range's north-west corner (roof.flat_end); it resolves no window, no balustrade and none of the canted bay's own corners. T-3354 (third run) builds the two-light stone-mullioned window the 1913 and 1919 plates draw in each storey of the block's street face (rear_wings.mullioned), which this plate neither shows nor contradicts; the three-light groups those plates draw in its north face stay their open item",
+      "status": "not shown"
     },
     {
       "what": "the street dormers: the broad three-light dormer and the small one-light dormer beside it, with the stack rising behind them at the front block's south side (T-3280, T-3301), stand over the plate's within about 30 px",

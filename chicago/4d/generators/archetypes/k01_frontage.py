@@ -151,6 +151,7 @@ from . import k11_frontage
 from . import k14_yard
 from . import k01_frontage_params
 from .k01_frontage_params import EAVE_FASCIA_M, ROUND_CUT, ROUND_HOODED, STREET_WINDOW, STRIP_FABRICS, wing_walls
+from .k01_frontage_params import WING_LINTEL_EAR_M, WING_LINTEL_M, WING_MULLION_PROUD_M, WING_MULLIONED
 
 ROOT = Path(__file__).resolve().parents[2]
 LIBRARY = ROOT / "assets" / "textures" / "glessner-v4"
@@ -1181,7 +1182,8 @@ class Assembly:
                 + [(*b["past_end"]["span_m"], 0.0, w["top_m"]) for b in p.bays
                    if (b.get("past_end") or {}).get("wall") == cid]   # T-1890: a face run onto it
             # T-3133: a round-headed light is cut on its head's curve, as the main walls cut it
-            hs = [hole(o) for o in ops] + cover
+            # T-3354: a mullioned group one hole to a light, the brick between them the mullion's core
+            hs = [h for o in ops for h in self.group_holes(o)] + cover
             if frame_wing:
                 frame, t = self.wall(cid, "bay_frame", O, R, length, w["top_m"], FRAME_WALL_M, hs,
                                      (w["top_m"],), construction="frame")
@@ -1221,6 +1223,32 @@ class Assembly:
             self.wing_deck(w)
         else:
             self.wing_roof(w)
+
+    def group_holes(self, o):
+        """T-3354: an opening's holes in its wall — one, or for a rear wing's stone-mullioned
+        group (WING_MULLIONED) one to each of its K06 variant's lights, as K06 cuts their
+        reveals, so the brick between them stands behind the mullion's stone."""
+        if o.component != WING_MULLIONED:
+            return [hole(o)]
+        v = self.kit_variant(o)
+        n, m = v.get("bays", 1), v.get("mullion_m", 0.0)
+        bw, s0 = (o.width_m - m * (n - 1)) / n, o.s_m - o.width_m / 2
+        return [(s0 + k * (bw + m), s0 + k * (bw + m) + bw, o.sill_m, o.head_m) for k in range(n)]
+
+    def wing_mullions(self, op, frame, stone_trim, seed, conf):
+        """T-3354: a rear wing's stone-mullioned group (1919 Prairie's middle range, the Gatlin
+        plates' two-light windows in its street face): a dressed stone up each mullion from the
+        sill to the head, and one stone lintel over the group running WING_LINTEL_EAR_M past it
+        at each side, each WING_MULLION_PROUD_M out of the brick, in place of K03's brick head."""
+        v = self.kit_variant(op)
+        n, m = v.get("bays", 1), v.get("mullion_m", 0.0)
+        bw, s0, s1 = (op.width_m - m * (n - 1)) / n, op.s_m - op.width_m / 2, op.s_m + op.width_m / 2
+        d = WING_MULLION_PROUD_M
+        for k in range(1, n):
+            m0 = s0 + k * bw + (k - 1) * m
+            self.proud_box(stone_trim, frame, m0, m0 + m, op.sill_m, op.head_m, d, seed, conf)
+        self.proud_box(stone_trim, frame, s0 - WING_LINTEL_EAR_M, s1 + WING_LINTEL_EAR_M,
+                       op.head_m, op.head_m + WING_LINTEL_M, d, seed, conf)
 
     def wing_quoins(self, w, walls):
         """T-3353: k01.wall.wing.<id>.quoins — dressed stones up a brick wing's corners
@@ -1578,6 +1606,9 @@ class Assembly:
                 # the arch band and key its round lights beside it carry, and no lintel
                 self.round_door_head(op, frame, stone_trim, seed, max(conf, p.conf("street_front_round_heads")))
                 return
+        if op.component == WING_MULLIONED:   # T-3354: its mullions and lintel in stone, no brick head
+            self.wing_mullions(op, frame, stone_trim, seed, conf)
+            return
         street_brick = p.street_front_trim.get("brick_heads") if op.wall == "k01.wall.street_front" else None
         brick_head = op.wall != "k01.wall.street_front" or street_brick in ("segmental", "flat")
         if MATERIALS[body_mat].get("courses") and not door and brick_head:
