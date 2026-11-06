@@ -50304,9 +50304,19 @@
         {
           "label": "Hair component update (2026-10-19)",
           "text": "Existing reconstructed residents rc bardwell otis, rc dufresne joseph and rc flynn martin retain their current identity, age-band, occupation and presence basis. Their referenced studies may share the cleared CC0 MakeHuman short04 component, fitted to each selected adult25/35 prepared body. Hair shape, dark color, parting, hairline, density and grooming are reconstructed appearance choices, not attested1835hairstyles or individual likenesses. This introduces no new person or biography and implies no ethnicity. Source license clearance is not historical style acceptance. The adaptation retains signed geometric proxy coefficients; normalized existing body skinweights clamp one negative interpolation row (maximum mass0.0000127) and keep at most4joints. The original Vmaximum1.0031 is remapped with a clearly labeled periodic-padded derivative:8toprows+1bottomrow, Vnew=(2048V+1)/2057. Measured unminified bilinear equivalence does not establish mipmap/aniso/export equivalence. PBR roughness.65, alpha threshold.4 and double-sided rendering are reconstructed shader choices, not the original legacy litsphere appearance. Source topology retained at every LOD pending measured reductions. Actual pinned exporter source statically recognizes the proposed 1-(Alpha<.4) node pattern as glTF MASK/.4; actual canonical BPy creation, packed image decode, exported material/UV/skin integrity and close/mobile hair-edge, scalp/ear/collar and animated-contact review still require CI. No photographic quality, historical haircut acceptance or independently validated resident depiction is claimed by this addendum."
+        },
+        {
+          "label": "Wagon driver's wardrobe supplement, 2026-11-06",
+          "text": "On the 1835 wagon circuit Otis Bardwell (rc bardwell otis) wears, over the unchanged workwear above, a waist-length wool round jacket stood off his shirt and waistcoat by a wool's loft, with a low standing collar and four dark horn buttons, and a low-crowned, broad-brimmed felt hat fitted to his head, all made by the wardrobe kit (the human wardrobe tool, recipe the bardwell otis 1835 data). **What is read, not invented.** Only the word: the transcription-mediated June/July 1835 The Chicago American. Vol. I, No. 1 (June 8, 1835) through Vol. I, No. 12… advertisements list round jackets among men's clothing. **What is invented.** That he wore one, its cut, length, colour, cloth and buttons, and the whole of the hat. No picture or record of what Otis Bardwell wore is claimed."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a dated 1835-1836 picture or inventory of a Chicago teamster's clothes would set the jacket and hat."
         }
       ],
-      "work_refs": []
+      "work_refs": [
+        "T-3409"
+      ]
     },
     {
       "id": "L-k01-1637-south-flank-2781",
@@ -67180,6 +67190,14 @@
           "text": "a photograph of a Prairie Avenue coachman on the box, or the household's livery, would set the cut and colour."
         },
         {
+          "label": "Wardrobe kit supplement, 2026-11-06",
+          "text": "The owner agreed a plan for photographic people that starts with clothes. the human driver livery 1904 tool is replaced by a kit (the wardrobe kit tool, run by the human wardrobe tool) that dresses any portable human from a recipe in the wardrobes data; it remade Hans's livery byte for byte before anything else changed. Every garment in a recipe now states its grade and its sources or this liberty, and the check refuses one with neither. **Spring tails.** Hans's cape and the part of his coat skirt that hangs below the cushion now share their weight with nine extra bones (five round the cape's collar, four on the thighs) that the renderer swings as damped springs behind the driver's motion, 1.1 to 1.5 swings a second, at most 6 to 12 degrees, settling back to the drape at a steady pace. Their number, placement, stiffness, damping and limits are reconstructed authoring choices, not a measurement of cloth. **Otis Bardwell on the 1835 wagon** now wears, over his unchanged shirt, waistcoat and trousers, a waist-length wool round jacket closed with four horn buttons and a low-crowned, broad-brimmed felt hat (recorded under “Resident workwear studies on a licensed human base”, his workwear liberty)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "as above; a measured cloth study would set the tails' stiffness and damping."
+        },
+        {
           "label": "Recorded",
           "text": "2026-11-02."
         }
@@ -67188,7 +67206,8 @@
         "T-2804",
         "T-1790",
         "T-2803",
-        "T-3398"
+        "T-3398",
+        "T-3409"
       ]
     },
     {

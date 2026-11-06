@@ -1,0 +1,208 @@
+{
+ "id": "otis_round_jacket_1835",
+ "tickets": [
+  "T-3409"
+ ],
+ "scene": "1835",
+ "asset_id": "bardwell_otis_1835",
+ "person": "Otis Bardwell, reconstructed 1835 resident (rc_bardwell_otis), driving the wagon circuit",
+ "body_master": "assets/humans/bardwell_otis_1835.lod0.glb",
+ "clip_posed": "sit_drive",
+ "vehicle": "renderers/web/transport/wagon-driver/wagon-w01.glb",
+ "output": "renderers/web/transport/driven/wardrobe-bardwell-otis-1835.json",
+ "grade": "reconstructed",
+ "liberty": "L418",
+ "basis": "A working man of 1835 on a wagon bench: a short drab-brown wool round jacket closed over his waistcoat with four horn buttons, and a low-crowned, broad-brimmed felt hat. Cut, colour and fit are reconstructed authoring choices; no surviving garment, picture or record of what Otis Bardwell wore is claimed.",
+ "collide_with_body_meshes": [
+  "body_0",
+  "trousers_0",
+  "closed_shoes",
+  "waistcoat_0",
+  "shirt_0"
+ ],
+ "vehicle_box_colliders_note": "The wagon's driver bench study measured off wagon-w01.glb (vehicle-local metres): the bench slab, the box's front board and the footboard.",
+ "vehicle_box_colliders": [
+  {
+   "name": "bench",
+   "lo": [
+    -0.59,
+    1.4,
+    0.5
+   ],
+   "hi": [
+    0.59,
+    1.58,
+    0.8
+   ]
+  },
+  {
+   "name": "front_board",
+   "lo": [
+    -0.6,
+    0.95,
+    1.37
+   ],
+   "hi": [
+    0.6,
+    1.53,
+    1.43
+   ]
+  },
+  {
+   "name": "footboard",
+   "lo": [
+    -0.425,
+    1.08,
+    1.12
+   ],
+   "hi": [
+    0.425,
+    1.12,
+    1.42
+   ]
+  }
+ ],
+ "drape_dynamics": {
+  "steps": 520,
+  "iterations": 10,
+  "dt_s": 0.008333333333333333,
+  "relax_passes": 6,
+  "clearance_m": 0.008
+ },
+ "check_tolerance_m": 0.008,
+ "check_tolerance_note": "The kit keeps 8 mm off a point-normal surface.",
+ "materials": {
+  "garment_outer__round_jacket_wool": {
+   "color": [
+    0.15,
+    0.115,
+    0.075
+   ],
+   "roughness": 0.9,
+   "metalness": 0,
+   "double_sided": true
+  },
+  "headwear__felt_round_hat": {
+   "color": [
+    0.05,
+    0.038,
+    0.026
+   ],
+   "roughness": 0.92,
+   "metalness": 0,
+   "double_sided": false
+  },
+  "headwear__hat_band_ribbon": {
+   "color": [
+    0.012,
+    0.011,
+    0.01
+   ],
+   "roughness": 0.7,
+   "metalness": 0,
+   "double_sided": false
+  },
+  "accessory__horn_buttons": {
+   "color": [
+    0.05,
+    0.036,
+    0.024
+   ],
+   "roughness": 0.5,
+   "metalness": 0,
+   "double_sided": false
+  }
+ },
+ "recolor_body_materials": {},
+ "garments": [
+  {
+   "name": "round_jacket",
+   "kind": "shell",
+   "material": "garment_outer__round_jacket_wool",
+   "from": "shirt_0",
+   "loft_m": 0.017,
+   "sleeve_loft_m": 0.013,
+   "cuff_flare_m": 0.008,
+   "collar_from_y_m": 2.19,
+   "collar_loft_m": 0.009,
+   "collar_flare": 0.2,
+   "smooth_iterations": 36,
+   "provenance": {
+    "grade": "reconstructed",
+    "source_ids": [
+     "chicago_american_1835"
+    ],
+    "source_scope": "Terminology only: transcription-mediated June/July 1835 advertisements list round jackets among men's clothing; no cut, colour, wearer or before-scene stock is attested.",
+    "liberty": "L418",
+    "note": "A waist-length round jacket stood off his shirt and waistcoat by a wool's loft, with a low standing collar."
+   }
+  },
+  {
+   "name": "jacket_buttons",
+   "kind": "buttons",
+   "material": "accessory__horn_buttons",
+   "on": "round_jacket",
+   "rows_x_m": [
+    0.0
+   ],
+   "y_range_m": [
+    1.84,
+    2.05
+   ],
+   "per_row": 4,
+   "radius_m": 0.0085,
+   "weights_from": [
+    "shirt_0"
+   ],
+   "provenance": {
+    "grade": "reconstructed",
+    "liberty": "L418",
+    "note": "Four dark horn buttons closing the jacket."
+   }
+  },
+  {
+   "name": "felt_hat",
+   "kind": "hat",
+   "material": "headwear__felt_round_hat",
+   "band_material": "headwear__hat_band_ribbon",
+   "base_y_m": 2.422,
+   "crown_height_m": 0.105,
+   "crown_profile": [
+    [
+     0,
+     1.0
+    ],
+    [
+     0.3,
+     0.992
+    ],
+    [
+     0.7,
+     0.978
+    ],
+    [
+     0.9,
+     0.955
+    ],
+    [
+     1.0,
+     0.9
+    ]
+   ],
+   "crown_dome_m": 0.004,
+   "brim_side_m": 0.066,
+   "brim_fore_m": 0.072,
+   "brim_curl_m": 0.006,
+   "brim_droop_m": 0.012,
+   "brim_thickness_m": 0.004,
+   "ease_m": 0.006,
+   "band_height_m": 0.026,
+   "band_follows_profile": true,
+   "provenance": {
+    "grade": "reconstructed",
+    "liberty": "L418",
+    "note": "A low-crowned, broad-brimmed wool felt hat, the brim drooping a little fore and aft."
+   }
+  }
+ ]
+}
