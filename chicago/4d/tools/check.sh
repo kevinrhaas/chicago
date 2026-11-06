@@ -1285,6 +1285,13 @@ step "a K08 finial may be turned on a crocketed collar and a hooded dormer's fac
 step "a K01 hooded dormer's hood may flare at its foot (T-1890)" \
   python3 tools/test_k01_hood_flare.py
 
+# T-1890. ...and its shelf may be slated, read as the hood's own dark flared eave rather than a
+# pale stone slab (1801 Prairie's three: no pale course at any hood's foot in the Taylor print or
+# HABS photographs 1 and 2): every face of a slated shelf slated, its geometry the stone one's;
+# a hood without `shelf` as before; any other fabric refused.
+step "a K01 hooded dormer's shelf may be slated as its hood is (T-1890)" \
+  python3 tools/test_k01_hood_shelf.py
+
 # T-1890. 1801 Prairie's cross roof ends under a slated hood with its finial on the apex
 # (HABS photograph 1; the Taylor print sets its rise through the finial's top).
 step "a K01 mansard deck's cross roof may end under a slated hood, its finial on the apex (T-1890)" \

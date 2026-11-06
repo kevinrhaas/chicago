@@ -2,11 +2,11 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_01_southwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "9c1366b83565ceb2f4e762938c48660b0761fdea4f1aa9442f7674cebe0b602f",
+  "glb_sha256": "e3b43b8664e9ebd032ee3065cdda0c749704c13918301bf63d7f3552a0700938",
   "camera_sha256": "25ae1017d8380392455b2c28a2f20f4bfb52043e60a5a6ce4cdb9575d3fdf9e9",
   "photo_sha256": "be2d21b595907011c7fe29c3e3765f754486cee1acdd321fed62f683ae6e0cbf",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg",
-  "verdict": "matches",
+  "verdict": "differs",
   "differences": [
     {
       "what": "the south wall's two tall stacks: the print's rise from the main cornice over the wall line in pale ashlar the walls' tone, the front one at about u 14.45 (shaft x 870-945 px) and the rear one at about u 3.2 (x 1122-1190); the build had one small reconstructed brick stack at u 3.0, v 10.0 (T-3107)",
@@ -156,7 +156,15 @@
     {
       "what": "the east range's stack and its steep 18th Street end (T-1890, HABS photograph 2): they stand at the range's north end, which this camera cannot see; the range's west slope it renders only re-phases its slate courses, and nothing this picture shows changed",
       "status": "not shown"
+    },
+    {
+      "what": "the south dormer's shelf (T-1890, 2026-11-06): the print shows the hood's slate run down to its flared foot with no pale course under it, where the build stood the hood on a pale stone shelf; now slated as the hood is (hood.shelf). Nothing else this picture shows changed (the street hood's 0.3 m more rise is behind the pavilion here)",
+      "status": "fixed"
+    },
+    {
+      "status": "open",
+      "what": "the front's roof north of the south pavilion (T-1890, 2026-11-06): left of the pavilion's gable the print shows a slate slope topping out at about x 462, y 475 (through this camera about 11 m at v 5.7, the height the Taylor print and HABS photograph 2 give the eave over the bow's third storey) and sky over it, where the build's front mansard rises on to its 15.3 m curb (about y 250-270 at x 380-465 here), a broad field of slate the picture does not have. The pavilion itself renders within about 20 px of the print's here, so this is not a framing error alone; it is the Taylor record's open curb-and-deck and third-storey items seen from the south-west"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
