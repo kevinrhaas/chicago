@@ -29077,6 +29077,22 @@ drawn a shade darker where it was raked to shed the rain, the pole standing clea
 picture of the stacks exists; the form is the hand-built round stack generally, not a reading of
 these.
 
+**How each stack stands now, and its hay (T-3401, 2026-11-06).** The owner, at the first stop of
+the Fort Dearborn jaunt, found the four "smooth pale onion domes" and asked for stacks that "look
+photographic real and varied enough they look real". So each record now says which of four ways it
+stands (`shape`): `a` pitched round and full, `b` settled and sagged, its top slumped toward its
+lean, `c` eaten into all round its foot by the cattle loose among the stacks, under an overhang,
+and weighted with two pairs of rider poles tied over its peak, `d` (the winter's stack) cut from on
+one side down to the ground, with heaps of pulled hay at its foot. Each leans a little
+(`lean_deg`, 1 to 4 degrees). The girth is lumped forkful by forkful from a seed fixed by the
+record's id; a thousand-odd wisps of hay stand out of every stack and hang from its girth; trodden
+hay lies round each foot. The surface is one of three procedural hay sheets
+(`assets/textures/camp_1812_pbr/hay_stack`, `hay_weathered`, `hay_cut`): combed cured stems, the
+greyed thatch of a crown or of a stack that stood the winter, and the brighter packed heart where
+hay was pulled or eaten out. All of it is the hand-built round stack and its keeping generally; the
+cattle's feeding is the source's (Wau-Bun's stack yard has the cattle "among the haystacks" and the
+soldier "pulled some hay for the cattle"), which stack shows it and how is ours.
+
 **The seat** is a ruling on T-2501's ruling: on the line through T-2501's station and the channel's
 centre, carried across the river along the bank's normal, 42 to 62 m from the centre (beyond the
 bank face T-2502's apron draws) and up to 14 m up or down the river from that line, 8 to 12 m apart.
@@ -29096,9 +29112,9 @@ summer are ours.
 
 **How to resolve:** any other account of Lee's Place that counts or places the stacks, sizes the
 meadow, or says whether the farm was worked between April and August 1812.
-**Ticket:** T-2510.
-**Recorded:** 2026-10-15 (T-2510).
-**Covers:** `lees_place_haystack_1812_a.lees_place_1812.documented_range`, `lees_place_haystack_1812_a.lees_place_1812.position`, `lees_place_haystack_1812_a.lees_place_1812.footprint`, `lees_place_haystack_1812_a.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_a.lees_place_1812.form.height_m`, `lees_place_haystack_1812_a.lees_place_1812.form.condition`, `lees_place_haystack_1812_a.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_b.lees_place_1812.documented_range`, `lees_place_haystack_1812_b.lees_place_1812.position`, `lees_place_haystack_1812_b.lees_place_1812.footprint`, `lees_place_haystack_1812_b.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_b.lees_place_1812.form.height_m`, `lees_place_haystack_1812_b.lees_place_1812.form.condition`, `lees_place_haystack_1812_b.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_c.lees_place_1812.documented_range`, `lees_place_haystack_1812_c.lees_place_1812.position`, `lees_place_haystack_1812_c.lees_place_1812.footprint`, `lees_place_haystack_1812_c.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_c.lees_place_1812.form.height_m`, `lees_place_haystack_1812_c.lees_place_1812.form.condition`, `lees_place_haystack_1812_c.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_d.lees_place_1812.documented_range`, `lees_place_haystack_1812_d.lees_place_1812.position`, `lees_place_haystack_1812_d.lees_place_1812.footprint`, `lees_place_haystack_1812_d.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_d.lees_place_1812.form.height_m`, `lees_place_haystack_1812_d.lees_place_1812.form.condition`, `lees_place_haystack_1812_d.lees_place_1812.form.stack_pole`
+**Ticket:** T-2510, T-3401.
+**Recorded:** 2026-10-15 (T-2510); shapes and hay 2026-11-06 (T-3401).
+**Covers:** `lees_place_haystack_1812_a.lees_place_1812.documented_range`, `lees_place_haystack_1812_a.lees_place_1812.position`, `lees_place_haystack_1812_a.lees_place_1812.footprint`, `lees_place_haystack_1812_a.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_a.lees_place_1812.form.height_m`, `lees_place_haystack_1812_a.lees_place_1812.form.condition`, `lees_place_haystack_1812_a.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_b.lees_place_1812.documented_range`, `lees_place_haystack_1812_b.lees_place_1812.position`, `lees_place_haystack_1812_b.lees_place_1812.footprint`, `lees_place_haystack_1812_b.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_b.lees_place_1812.form.height_m`, `lees_place_haystack_1812_b.lees_place_1812.form.condition`, `lees_place_haystack_1812_b.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_c.lees_place_1812.documented_range`, `lees_place_haystack_1812_c.lees_place_1812.position`, `lees_place_haystack_1812_c.lees_place_1812.footprint`, `lees_place_haystack_1812_c.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_c.lees_place_1812.form.height_m`, `lees_place_haystack_1812_c.lees_place_1812.form.condition`, `lees_place_haystack_1812_c.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_d.lees_place_1812.documented_range`, `lees_place_haystack_1812_d.lees_place_1812.position`, `lees_place_haystack_1812_d.lees_place_1812.footprint`, `lees_place_haystack_1812_d.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_d.lees_place_1812.form.height_m`, `lees_place_haystack_1812_d.lees_place_1812.form.condition`, `lees_place_haystack_1812_d.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_a.lees_place_1812.form.shape`, `lees_place_haystack_1812_a.lees_place_1812.form.lean_deg`, `lees_place_haystack_1812_a.lees_place_1812.form.rider_poles`, `lees_place_haystack_1812_b.lees_place_1812.form.shape`, `lees_place_haystack_1812_b.lees_place_1812.form.lean_deg`, `lees_place_haystack_1812_b.lees_place_1812.form.rider_poles`, `lees_place_haystack_1812_c.lees_place_1812.form.shape`, `lees_place_haystack_1812_c.lees_place_1812.form.lean_deg`, `lees_place_haystack_1812_c.lees_place_1812.form.rider_poles`, `lees_place_haystack_1812_d.lees_place_1812.form.shape`, `lees_place_haystack_1812_d.lees_place_1812.form.lean_deg`, `lees_place_haystack_1812_d.lees_place_1812.form.rider_poles`
 
 ### L-1812-potawatomi-camp-2515 — The Potawatomi camp of August 1812: its six grounds on the creek, its lodges, arbors, hearths, gear and horse ground, and every form's shape and size
 
@@ -31477,6 +31493,8 @@ need canonical export/render review. No skin upscaling is called 4K detail.
 The adaptation retains signed geometric proxy coefficients; normalized existing body skinweights clamp one negative interpolation row (maximum mass0.0000127) and keep at most4joints. The original Vmaximum1.0031 is remapped with a clearly labeled periodic-padded derivative:8toprows+1bottomrow, Vnew=(2048V+1)/2057. Measured unminified bilinear equivalence does not establish mipmap/aniso/export equivalence. PBR roughness.65, alpha threshold.4 and double-sided rendering are reconstructed shader choices, not the original legacy litsphere appearance. Source topology retained at every LOD pending measured reductions.
 
 Actual pinned exporter source statically recognizes the proposed 1-(Alpha<.4) node pattern as glTF MASK/.4; actual canonical BPy creation, packed image decode, exported material/UV/skin integrity and close/mobile hair-edge, scalp/ear/collar and animated-contact review still require CI. No photographic quality, historical haircut acceptance or independently validated resident depiction is claimed by this addendum.
+
+**Wagon driver's wardrobe supplement, 2026-11-06 (T-3409):** On the 1835 wagon circuit Otis Bardwell (`rc_bardwell_otis`) wears, over the unchanged workwear above, a waist-length wool round jacket stood off his shirt and waistcoat by a wool's loft, with a low standing collar and four dark horn buttons, and a low-crowned, broad-brimmed felt hat fitted to his head, all made by the wardrobe kit (`tools/human_wardrobe.py`, recipe `data/humans/wardrobes/bardwell_otis_1835.json`). **What is read, not invented.** Only the word: the transcription-mediated June/July 1835 `chicago_american_1835` advertisements list round jackets among men's clothing. **What is invented.** That he wore one, its cut, length, colour, cloth and buttons, and the whole of the hat. No picture or record of what Otis Bardwell wore is claimed. **How to resolve:** a dated 1835-1836 picture or inventory of a Chicago teamster's clothes would set the jacket and hat.
 
 **Skin and hair shader update (2026-11-06, T-3400):** The owner, of Hans on his brougham: *"he looks too smooth and not real ... set us on a path for all humans to look photographic realistic"*. The 1904 phone is at its memory ceiling, so `renderers/web/js/human-skin.js` adds no texture: it patches the skin, hair and eye shaders of every portable human, from each body's own bind pose in metres. Skin gets pits about half a millimetre across and two crossing families of shallow lines a millimetre or so apart, which tip the shading normal and fade out by their screen-space rate before they alias; blotches of a few percent toward red and toward brown at a few centimetres to a few millimetres, and sparse small dark spots; a roughness of 0.55 with oilier and matte places; diffuse light taken partly from the smooth normal and a warm wrap past the terminator, the usual cheap stand-in for light scattering inside skin; and a faint grazing bloom for the fine hair on a face. Hair loses its round highlight and gets two Kajiya-Kay strand lobes, a pale one and one tinted by the hair's colour, with strands taken to run out from the crown and down. Eyes are made glossy (roughness 0.08) and the sclera 22% darker than its exported near-white. Every value is a reconstructed rendering choice; no measurement of any person's skin, no complexion, likeness or hair of any resident, and no photograph is claimed.
 
@@ -39950,7 +39968,7 @@ surface, grass, gravel or bare earth.
 
 ### L-t3339-worn-ground-1812 — the 1812 settlement's worn trails and trodden yards, routed by rule
 
-**Decision:** 1812 gets fifteen worn trails and seventeen trodden yards, all written by
+**Decision:** 1812 gets fifteen worn trails and eighteen trodden yards, all written by
 `tools/generate_worn_ground_1812.py` into `data/enclosures/1812/` (`worn_trails_1812.json`, `worn_yard_1812_*.json`) and
 laid by `renderers/web/js/yards.js`: a trail is a strip of bare earth draped on the terrain whose cover fades to
 nothing at its edges, the sward and the trees kept off it. Three are attested in kind: the beaten Indian trail along
@@ -39965,9 +39983,11 @@ smoothed and given a seeded wander); every width (0.9 m tread to a 2.4 m two-tra
 0.9, by our guess at how much each way was used); the yards' extent (each house's footprint grown and ragged) and
 that they are bare earth. Nothing reached maps a path or a yard in 1812 Chicago. **How to resolve:** a survey or
 sketch of the 1812 ground that shows a path (the 1821 and 1830 surveys are the nearest), or a recollection that
-places one.
-**Ticket:** T-3339.
-**Recorded:** 2026-11-03 (T-3339).
+places one. The eighteenth yard (T-3401, 2026-11-06) is Lee's Place's stack yard, round the four haystacks: Wau-Bun
+puts the cattle "standing among the haystacks" and foddered there, so the ground round their feet is grazed and
+trodden rather than standing prairie; its extent (the stacks' squares grown 3 m) is ours, like the others'.
+**Ticket:** T-3339, T-3401.
+**Recorded:** 2026-11-03 (T-3339); the stack yard 2026-11-06 (T-3401).
 
 ### L-t3340-south-groves-1812 — 1812's timber south of the river: the South Branch belt carried east of Wells, and groves in the wet hollows
 
@@ -40233,6 +40253,7 @@ The 1835 Western Hotel yard horse's gentle head/neck look and body weight shifts
 **Cloth supplement, 2026-11-05 (T-2804):** The owner: *"his clothing has no texture or anything"*. The drivers' garments are exported as flat colours, and the 1904 phone is at its memory ceiling, so `renderers/web/js/fabric.js` adds no texture. It patches the garment shader to draw, from each garment's own bind-pose position: a 2/2 twill on the wool waistcoat (8 mm repeat) and the trousers' cloth (7 mm), a plain weave with slubs on the linen shirt (5 mm), heathered dye of 8-16% of the colour, rubbed places a little shinier and greyer, rumples of a millimetre or two that tip the shading normal, and a sheen at grazing angles. The repeats are coarser than most period suiting, so that the weave shows at a few metres before it fades out to avoid aliasing. These are reconstructed authoring choices; no surviving garment, sample or photograph of these men's clothes is claimed.
 
 **Livery supplement, 2026-11-06 (T-3398):** The owner: *"his clothing is form fitting and he looks too smooth and not real"*. Hans now wears, over the unchanged donor shirt, waistcoat and pantaloons, a coachman's long double-breasted box coat with a turned-up collar and a shoulder cape, two rows of three brass buttons and a silk top hat; the donor's pale pantaloons are dyed a near-black livery cloth. `tools/human_driver_livery_1904.py` builds the coat's body by standing the shirt off by a wool's loft and smoothing the anatomy out of it, and hangs the skirt and cape as cloth dropped under gravity onto his seated body and the brougham's measured box, so the folds are where the cloth had to fall. **What is reconstructed.** All of it: that he wore livery on the box, the coat's cut, length, cape and colour, the buttons' number and metal, the hat's shape and size. Box coats, capes and top hats were common wear for a private brougham's coachman around 1900, but no photograph, inventory or record of the Otis household's livery or of Hans Johnson's clothes is claimed. **How to resolve:** a photograph of a Prairie Avenue coachman on the box, or the household's livery, would set the cut and colour.
+**Wardrobe kit supplement, 2026-11-06 (T-3409):** The owner agreed a plan for photographic people that starts with clothes. `tools/human_driver_livery_1904.py` is replaced by a kit (`tools/wardrobe_kit.py`, run by `tools/human_wardrobe.py`) that dresses any portable human from a recipe in `data/humans/wardrobes/`; it remade Hans's livery byte for byte before anything else changed. Every garment in a recipe now states its grade and its sources or this liberty, and the check refuses one with neither. **Spring tails.** Hans's cape and the part of his coat skirt that hangs below the cushion now share their weight with nine extra bones (five round the cape's collar, four on the thighs) that the renderer swings as damped springs behind the driver's motion, 1.1 to 1.5 swings a second, at most 6 to 12 degrees, settling back to the drape at a steady pace. Their number, placement, stiffness, damping and limits are reconstructed authoring choices, not a measurement of cloth. **Otis Bardwell on the 1835 wagon** now wears, over his unchanged shirt, waistcoat and trousers, a waist-length wool round jacket closed with four horn buttons and a low-crowned, broad-brimmed felt hat (recorded under L418, his workwear liberty). **How to resolve:** as above; a measured cloth study would set the tails' stiffness and damping.
 
 **Recorded:** 2026-11-02.
 
@@ -41013,3 +41034,109 @@ excavation report.
 **Covers:** `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.period_brick`, `first_fort_dearborn_magazine.first_fort_1803.form.period_brick`, `first_fort_dearborn_north_range.first_fort_1803.form.period_brick`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.period_brick`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.period_brick`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.period_brick`, `fort_dearborn_barracks.log_1816.form.period_brick`, `fort_dearborn_commandants_quarters.brick_1816.form.period_brick`, `fort_dearborn_guard_house.log_1816.form.period_brick`, `fort_dearborn_magazine.brick_1816.form.period_brick`, `fort_dearborn_officers_quarters.log_1816.form.period_brick`, `fort_dearborn_sutlers_store.log_1816.form.period_brick`, `lake_house_construction.shell_1835.form.period_brick`.
 **Ticket:** T-3387.
 **Recorded:** 2026-11-05 (T-3387).
+
+### L-t3407-officers-garden — The commanding officer's garden of 1812 laid out in Whistler's beds, planted for mid-August, and gated with a paling wicket
+
+**Decision:** the paling of `first_fort_outer_officers_garden` encloses, from 14 August 1812, the beds and walks
+Whistler's 1808 draught draws in it and the crops of an August kitchen garden (T-3407). The layout is the draught's,
+measured off the pinned sheet at the garden's own lettered scale ('5o feete to the Inch', as the record reads it): two
+border beds along the north paling either side of the walk in from the fort, eight beds in two rows of four with
+clipped corners, a walk round them, a wider cross walk each way, and quarter-round beds in the two south corners. The
+beds are tilled earth crowned a hand high and the walks trodden earth. What is planted: musk-melons and water-melons
+with their fruit lying in the leaves, currant and gooseberry bushes, raspberry canes and strawberries along the north
+border, and cabbages and savoys, Indian corn in hills of two stalks, running beans on poles, potatoes earthed up,
+squashes and cucumbers, onions with their tops fallen over, beets, carrots, parsnips and lettuce in drills,
+asparagus in its summer fern, and sage and thyme in the corner beds. Every plant is grown in the browser from a
+painted leaf atlas and a few parts (`renderers/web/js/gardens.js`), placed by `tools/plant_gardens.py` at the
+period's hill and drill distances. The gate is a wicket: two posts and one leaf of the fence's pales on two rails
+with a brace, hung on the west post, swinging inward, opened and shut with the Interact key. **Why:** the owner,
+2026-11-06, at stop 9 of the Fort Dearborn jaunt: *"you describe this awesome garden for 1812 but nothing is in the
+garden"*, and *"cant seem to enter the garden"*.
+**What is recorded and what is not:** the garden, its name, its place south of the fort and its ruled beds are the
+draught's (the place by T-2062's rule, itself reconstructed); that melons and small fruit and vegetables were raised
+there is Quaife's ("in Cooper's time", the years before 1812 that Dr. John Cooper of the garrison described); that a soldier "worked hard all day in the Colonel's
+garden" in May 1811 is Quaife's account of a court martial. Nothing reached says which vegetables, which small fruit,
+how they stood in the beds, or how the garden looked on 14 August 1812, the day before the garrison marched out. The
+choice of crops and their places, the beds' crown and the corner beds' use, every leaf, fruit and pole, the fruit
+left on the bushes, the fallen onion tops, the wicket's make, its swing and a visitor's power to open it are ours,
+from M'Mahon's calendar of the August kitchen garden and its distances (read in the 1857 printing).
+**How to resolve:** a garrison account, order book or letter naming what the commanding officer grew, or a
+description of the garden in 1812, replaces the crops; a better reading of the draught's beds moves them.
+**Covers:** `first_fort_outer_officers_garden.first_fort_1803.form.gate_kind`
+**Ticket:** T-3407.
+**Recorded:** 2026-11-06 (T-3407).
+
+### L-t3403-battle-shore-1812 — The 1812 shore at the battle: the two surveys joined at Twelfth Street, Heald's high sand bank and ravine laid as one profile, and his small elevation placed
+
+**Decision:** three blocks of `data/terrain/epochs/e1830_natural/terrain_spec.json`, read by
+`generators/terrain_gen_e1830.py` after the 1812 field is built. `twelfth_street_shore_join_1812`: Wright's 1834
+shore is kept to N -2050 and Rees's 1849 shore from N -2420, and a cubic curve that leaves each on its own bearing
+joins them, so the foot of Wright's sheet no longer stands as a strip of beach running out into the lake and the
+48-110 m step Rees's post-pier erosion put at Twelfth Street is gone from 1812. `battle_bank_1812`: from N -1300 to
+-2700 (Heald's band, N -1456 to -2192, with room either side) the ground is one profile measured inland from the
+lake's edge: a 26 m beach rising to 2.6 ft, the bank's near face climbing at about 25 degrees to 13 ft at 38 m, its
+surface 14.5 ft from 44 m, the sand hills rising behind to Heald's high bank, a crest of 19 ft at 96 m, its back falling
+to a ravine 4.6 ft above the water at 144 m, and the 8.5 ft prairie by 200 m; hummocks of up to 3 ft over the hills,
+clipped at 20 ft. `heald_small_elevation_1812`: a rise 8 ft over the plain, its top 36 m across with a 34 m skirt,
+centred at E +960, N -1853, due west of Heald's mile and a half and 358 m from the water. The battle jaunt's ninth stop now stands at eye level on the beach with the bank on the left, and its tenth on the prairie just below the rise, looking up it toward the bank.
+**Why:** the owner, 2026-11-06, at the battle jaunt's ninth and tenth stops: *"there should be a larger sand bank
+closer to description ... there is a sharp cut in the lakeshore that does not seem right and you can barely see that
+whole sand bank"*, and *"where on the open prairie is the small elevation? you should attempt to cite it and place it
+based on history and geography and topology adjustments needed"*.
+**What is read.** Heald's report (1812): the beach, *"with the lake on our left, and a high sand bank on our right, at
+about 100 yards distance"*; the attackers *"behind the bank"*; his men *"to the top of the bank"*; and *"a small
+elevation in the open prarie, out of shot of the bank or any other cover"*. Wau-Bun ch. XIX: *"a range of sand-hills
+intervening between the prairie and the beach"*, *"charged up the bank"*, *"a sort of ravine, intervening between the
+sand-banks and the prairie"*, and the survivors *"gaining a rising ground, not far from the Oak Woods"*. Moses &
+Kirkland p. 60: the bank's surface *"a hundred feet or more back from the water"* and *"from ten to twenty feet in
+height above its level"*. Quaife 1913: *"a row of sand hills, or ridges ... about one hundred yards"* from the beach.
+Wentworth 1881 (in Moses & Kirkland p. 52): the attackers *"upon the bluff"*. That the piers of 1833-34 caused the
+erosion Rees's line records south of them is the 1834 terrain spec's own reading.
+**What is invented.** Every vertex of the join curve and where it leaves each survey; every width, height and place
+in the bank's profile, the hummocks, and the ravine's depth; the small elevation's place, height and size. Its
+distance inland, about 250 yards beyond the back of the bank, is our reading of "out of shot" for a smooth-bore
+musket and cites nothing; its place along the shore is Heald's own mile and a half, not the later Eighteenth Street
+tradition; no account locates Wau-Bun's Oak Woods.
+**How to resolve:** a survey or sketch of the shore south of the river before 1833, a measured description of the
+battle ground (the 1880s Eighteenth Street accounts are the nearest), or a reading that locates the Oak Woods.
+**Covers:** `terrain.e1830_natural.twelfth_street_shore_join_1812`, `terrain.e1830_natural.battle_bank_1812`, `terrain.e1830_natural.heald_small_elevation_1812`
+**Ticket:** T-3403.
+**Recorded:** 2026-11-06 (T-3403).
+
+### L-human-life-3402 — People on foot breathe, settle their weight, look about and blink
+
+**Decision:** every standing, talking, working, seated or walking figure drawn by `humans.js` carries a
+procedural life layer (`renderers/web/js/human-life.js`) over its clip, inside the animation range: breathing in
+the chest and shoulders (about 13-16 a minute standing, quicker walking), a slow postural sway, a weight shift
+every 4-11 s while standing (the hips carried about 3 cm over the loaded foot and tipped 3° to the free side, that
+knee softened, the spine countering so the shoulders stay level), looking about (eyes lead with saccades and
+fixational micro-saccades, head and neck follow, the torso joins a wide look) along the street, aside, at the
+ground and into the distance, a look at a visitor who comes within a few metres in front, and a blink every
+2-6 s, sometimes doubled, and with a large change of gaze. The owner, 2026-11-06: he "looks too smooth and not
+real ... set us on a path for all humans to look photographic realistic".
+**What is read.** Nothing about any person: this is ordinary human motion, bounded by common observation of
+standing posture, gaze and blink rates.
+**What is invented.** Every amplitude, interval, the choice of where a figure looks and when, and that it looks
+at the visitor. It is seeded from the person id, so it is the same on every load; it is not a witnessed action,
+gesture or likeness and does not change any person's grade.
+**How to resolve:** recorded motion capture of period-appropriate standing and walking, reviewed in the town.
+**Ticket:** T-3402.
+**Recorded:** 2026-11-06 (T-3402).
+
+### L-human-actions-3415 — People on foot rest their hands, change stance, touch their hat and swing their arms
+
+**Decision:** every figure drawn by `humans.js` carries an arm layer (`renderers/web/js/human-actions.js`) over
+its clip and the life layer. Standing, the arms hang in to the body with the elbows soft and the hands relaxed
+against the thigh, and every 8-26 s a figure may change how it holds its hands: at rest, on the hips, or clasped
+behind the back. A visitor who stops within a few metres in front gets a touch of the hat brim with the right
+hand and a small nod, at most once a minute or so. Walking, the arms swing opposite the legs, read from the
+feet so it follows any walk, and the chest counter-twists a little.
+**What is read.** Nothing about any person: these are ordinary everyday gestures of the period (a man's touch of
+the hat brim as a greeting), bounded by common observation.
+**What is invented.** Which stance a figure takes and when, every amplitude and timing, and that it greets the
+visitor. It is seeded from the person id, so it is the same on every load; it is not a witnessed action and does
+not change any person's grade.
+**How to resolve:** recorded motion capture of period-appropriate standing, greeting and walking, reviewed in
+the town.
+**Ticket:** T-3419 (a piece of T-3415).
+**Recorded:** 2026-11-06 (T-3419).

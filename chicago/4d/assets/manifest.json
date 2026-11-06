@@ -255,7 +255,7 @@
       "archetype": "palisade",
       "baked_ao": false,
       "bytes": 117672,
-      "inputs_sha256": "7ca9003a686324f8784502060b46bf0e2f1408b4f0f73ed753780eebcbb1f8ac",
+      "inputs_sha256": "2d5453c9a614ac7c34efd9faebed3ed3091a59af17714ab063836d8104e00ba6",
       "kind": "generated",
       "phase_id": "coursoll_1808",
       "structure_id": "coursoll_field_1812"
@@ -417,7 +417,7 @@
       "archetype": "palisade",
       "baked_ao": false,
       "bytes": 65396,
-      "inputs_sha256": "2da964de0452a105aed636cd1a5fc6359008a66b31c631e262636937f62cf869",
+      "inputs_sha256": "c4d40a7c7a29c2bd50b1784613dfb6b1a204e1d4efd7012437fed96717124648",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_covered_way_bank_lower"
@@ -426,7 +426,7 @@
       "archetype": "palisade",
       "baked_ao": false,
       "bytes": 65400,
-      "inputs_sha256": "b3b452797261fc5b675e0ed95f27853e4548e994e256bee89f68c62bf2b5c293",
+      "inputs_sha256": "c28ec26602d10bb356391a6caa8e57dc40d0632bfdc5e5b7f0f7700115e3805c",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_covered_way_bank_middle"
@@ -435,7 +435,7 @@
       "archetype": "palisade",
       "baked_ao": false,
       "bytes": 65396,
-      "inputs_sha256": "f0fbfc49c8e846d37a96961f0f3058228c6e778295fa8baf654d4731b16639d8",
+      "inputs_sha256": "f69394fd12ccc4e6c7b34e184dd7e682582952c600580a080d381e025dda31bb",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_covered_way_bank_upper"
@@ -444,7 +444,7 @@
       "archetype": "palisade",
       "baked_ao": false,
       "bytes": 265672,
-      "inputs_sha256": "effd1a8c01cfdef7be309620402cfbebb7eca12048a4a8ef2bf102b3ff3b808b",
+      "inputs_sha256": "3ddba67f3dfe815b6c07bd129190f0a231e908556b5ccbf7da74c2fcfa559031",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_covered_way_terrace"
@@ -525,7 +525,7 @@
       "archetype": "palisade",
       "baked_ao": false,
       "bytes": 666516,
-      "inputs_sha256": "f0dd168fe0f66cabcc59bfe3456f99c186001b3a846f4f4d5f552ea151c488bd",
+      "inputs_sha256": "f911cbe00b54da7fe588b1c56927be0eea466f72caa827776709450cb9aaed4f",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_dearborn_pickets_inner"
@@ -534,7 +534,7 @@
       "archetype": "palisade",
       "baked_ao": false,
       "bytes": 804188,
-      "inputs_sha256": "04d70c4255936b815e779311fb59af7ae4a06c1a239a2544a41ddf54e4aaa203",
+      "inputs_sha256": "b855fa2f0cff688f6701e20f7a693b626997e423faf556fa787aa9f2b4574dc8",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_dearborn_pickets_outer"
@@ -632,8 +632,8 @@
     "first_fort_outer_officers_garden__first_fort_1803.glb": {
       "archetype": "palisade",
       "baked_ao": false,
-      "bytes": 1880544,
-      "inputs_sha256": "13032730d7398dfca16a5e001f83f13112e04ec5ae1d6ba25ef3ae73dc45a27d",
+      "bytes": 1876252,
+      "inputs_sha256": "d4f5e97540f49515fae2e8846496c0fde73460a43406cbb76a0381f03741fc36",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_outer_officers_garden"
@@ -669,7 +669,7 @@
       "archetype": "palisade",
       "baked_ao": false,
       "bytes": 890828,
-      "inputs_sha256": "a35ef156bbbc5fde9bb35c74116ad5b669922fbe38f34972b512ed0ec1aec8f3",
+      "inputs_sha256": "44fde3d011968e5998d557872b99400b8887171ec39ee4f1cac81a6d558040f0",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_outer_sutlers_garden"
@@ -736,7 +736,7 @@
       "archetype": "palisade",
       "baked_ao": false,
       "bytes": 880924,
-      "inputs_sha256": "f0e642e751dea166d5b381b6969587e63e4300c58f232f06843564fcb0995e1c",
+      "inputs_sha256": "3ddeba93429c520701eaa3e8353d5e49797944d6b4f8f1d52d92827b5025f9db",
       "kind": "generated",
       "phase_id": "cornfield_1808",
       "structure_id": "forks_company_cornfield_1812"
@@ -827,7 +827,7 @@
       "archetype": "palisade",
       "baked_ao": false,
       "bytes": 294664,
-      "inputs_sha256": "7c9eb89a18fb889847475b72f976de502094b0a67b59c62424c2d02478e2bc67",
+      "inputs_sha256": "b0789f9e81ac534a4c494d48df1be68f06ab8a3bb60c3bc70477fd2f82334fd3",
       "kind": "generated",
       "phase_id": "fence_1816",
       "structure_id": "fort_dearborn_garrison_garden"
@@ -881,7 +881,7 @@
       "archetype": "palisade",
       "baked_ao": false,
       "bytes": 1415824,
-      "inputs_sha256": "e2940649b7b8f501fc889add4f471a20d287c056f79ef5355b54760b757472ae",
+      "inputs_sha256": "123a4434e9e539a74cb7534807e5c7dc6d38aef91717525e49028f6d77085235",
       "kind": "generated",
       "phase_id": "picket_1816",
       "structure_id": "fort_dearborn_palisade"
@@ -3386,7 +3386,7 @@
       "archetype": "palisade",
       "baked_ao": false,
       "bytes": 1106256,
-      "inputs_sha256": "73908f3e61b34aff13ec4a9ade7bacba86aa9a26ba179a62cafa99beca6f0836",
+      "inputs_sha256": "d233b20a90fe639acfcf4594c10804d9baa9d9ee6976510cf744f6677dbf2d49",
       "kind": "generated",
       "phase_id": "kinzie_1804",
       "structure_id": "kinzie_garden_1812"
@@ -3413,7 +3413,7 @@
       "archetype": "palisade",
       "baked_ao": false,
       "bytes": 1220712,
-      "inputs_sha256": "6427e9380fe30151afe2bf6b8a52a6e4d0ef8406d6e78f694251a8f138ed13fc",
+      "inputs_sha256": "7931d03ba2ee9eca9140ad259dda53eafe67bada1943f633f4a09c71afde97b2",
       "kind": "generated",
       "phase_id": "kinzie_1804",
       "structure_id": "kinzie_house_1812_green"
@@ -3541,7 +3541,7 @@
       "archetype": "palisade",
       "baked_ao": false,
       "bytes": 578512,
-      "inputs_sha256": "c5f2c51ef2766a18c2a82c1d437f23eb6a6f6cf5439f4ffa0101fb5d0800ac28",
+      "inputs_sha256": "4de425616f2868768318d0947ca44e37d249d45609fffba6e7f9850cd94e53d6",
       "kind": "generated",
       "phase_id": "lees_place_1812",
       "structure_id": "lees_place_field_fence_1812"
@@ -3549,9 +3549,9 @@
     "lees_place_haystack_1812_a__lees_place_1812.glb": {
       "archetype": "haystack",
       "baked_ao": false,
-      "bytes": 26732,
+      "bytes": 422152,
       "generator": "generators/haystack_emit.py",
-      "inputs_sha256": "710c595cf7d35a4d85a6f933293325668fff87efad9b0526e1441f700e6556b8",
+      "inputs_sha256": "ce6875d622655056c03e000c5c27dd7827d9ac52579c04872f421ece56c14851",
       "kind": "generated",
       "phase_id": "lees_place_1812",
       "structure_id": "lees_place_haystack_1812_a"
@@ -3559,9 +3559,9 @@
     "lees_place_haystack_1812_b__lees_place_1812.glb": {
       "archetype": "haystack",
       "baked_ao": false,
-      "bytes": 26748,
+      "bytes": 422156,
       "generator": "generators/haystack_emit.py",
-      "inputs_sha256": "de0144a831bdbbadfb33e6d1f34bb9a66c9331489d6dfce1d110f0b7eeb0a685",
+      "inputs_sha256": "36669141e043dccd626c5daaed6854030df3d4bbe06106ffcd9f175686b06cd7",
       "kind": "generated",
       "phase_id": "lees_place_1812",
       "structure_id": "lees_place_haystack_1812_b"
@@ -3569,9 +3569,9 @@
     "lees_place_haystack_1812_c__lees_place_1812.glb": {
       "archetype": "haystack",
       "baked_ao": false,
-      "bytes": 26728,
+      "bytes": 470232,
       "generator": "generators/haystack_emit.py",
-      "inputs_sha256": "082d4e2775b975d2df1f8e4afd47f78de8eb99c812f0acb8c570f6df01692791",
+      "inputs_sha256": "b4c8faeb851f65125fdf5cb64c09c7d9cd1ba38a9743fd71b05d3d6bab85939e",
       "kind": "generated",
       "phase_id": "lees_place_1812",
       "structure_id": "lees_place_haystack_1812_c"
@@ -3579,9 +3579,9 @@
     "lees_place_haystack_1812_d__lees_place_1812.glb": {
       "archetype": "haystack",
       "baked_ao": false,
-      "bytes": 26732,
+      "bytes": 479092,
       "generator": "generators/haystack_emit.py",
-      "inputs_sha256": "05bb8c135fce12390928a3b7ca5c3064b1224fbe93d57aebc766270af47dfe17",
+      "inputs_sha256": "a4497f3090b071bbd66260674f0b92d79d6196660c4c1648019cb8ce54e17ce4",
       "kind": "generated",
       "phase_id": "lees_place_1812",
       "structure_id": "lees_place_haystack_1812_d"
@@ -9322,19 +9322,19 @@
     },
     "terrain__e1830_natural.glb": {
       "baked_ao": false,
-      "bytes": 33792948,
+      "bytes": 30964940,
       "generator": "generators/terrain_gen_e1830.py",
-      "inputs_sha256": "8d9dc1e2ffa50ea09bfe2e4e50cf7b7783631eca9f3376656f3fd245d0b37541",
+      "inputs_sha256": "99e95b1dd88e6c4137d827c2f327c8337f82894cf29d3473650a1638924c3da9",
       "kind": "generated",
       "layer": "ground",
       "mesh_vs_heightfield": {
-        "max_m": 0.006,
+        "max_m": 0.004,
         "misses": 0,
-        "rms_m": 0.00018,
+        "rms_m": 0.00023,
         "samples": 210897
       },
       "terrain_epoch": "e1830_natural",
-      "triangles": 1298704
+      "triangles": 1189776
     },
     "terrain__e1834_harbor_cut.glb": {
       "baked_ao": false,
@@ -9496,7 +9496,7 @@
       "baked_ao": false,
       "bytes": 1368,
       "generator": "generators/terrain_gen_e1830.py",
-      "inputs_sha256": "8d9dc1e2ffa50ea09bfe2e4e50cf7b7783631eca9f3376656f3fd245d0b37541",
+      "inputs_sha256": "99e95b1dd88e6c4137d827c2f327c8337f82894cf29d3473650a1638924c3da9",
       "kind": "generated",
       "layer": "water",
       "terrain_epoch": "e1830_natural",

@@ -709,15 +709,29 @@ const STANDS = [
  * verified by the actual published stage 8 runs before this change can merge.
  */
 // T-3332 separates the original glass role before batching because its night
-// shader is different. Four relief groups and the lighthouse glass stay intact.
+// shader is different. The relief groups and the lighthouse glass stay intact.
+//
+// **7 -> 8 ON 2026-11-06 (T-3411), the brick.** T-3387 laid the 1816 fort's
+// commandant's quarters and magazine, the stacks of its four log buildings, and the
+// Lake House in the K03 common panel (map + normal, embedded in each of seven GLBs).
+// `shared-images.js` gave the seven one decoded copy of the panel, but each GLB
+// its own Texture clone, and the batch key read map uuids, so the town read 14
+// batches with 11 mapped (dev 20998e4d5, phone stage 8). Merging the brick into an
+// EXISTING group would mean dropping its bricks: the opaque town has no map at all
+// and the relief groups bind other pictures. So buildings.js now keys a map by its
+// source and sampler (`mapKey`), the seven collapse into ONE brick batch, and the
+// contract names it: `brick:common_buff_common_6`, mapped, +1 batch drawn once in
+// each pass where T-3387 had added seven.
+
 const STRUCTURE_BATCHES = STRUCTURE_BATCH_KEYS.length;
 /**
- * Four groups are the two roof coverings and two wall substrates. The
+ * Five groups are the two roof coverings, two wall substrates and the one brick
+ * panel (T-3411). The
  * total alone could pass after losing a relief map and splitting an unrelated
  * surface instead; this holds the mapped groups, while the live glass predicate
  * below holds the one separate translucent class; the exact keys also hold the night-window group.
  */
-const TEXTURED_STRUCTURE_BATCHES = 4; // two roof coverings (T-1488) + clapboard and log walls (T-1963)
+const TEXTURED_STRUCTURE_BATCHES = 5; // two roof coverings (T-1488) + clapboard and log walls (T-1963) + one brick panel (T-3411)
 /**
  * How many distinct roughness values the merged batch must still carry, and how
  * far the frame must move when they are flattened.
@@ -12248,12 +12262,22 @@ for (const [label, viewport, touch] of [
     // by THROWING ROUGHNESS AWAY — one batch, one finish, every wall the same
     // sheen — which is the failure that matters here and is not a crash.
     const batchCensus = await page.evaluate(() => {
-      const bs = window.__chicago4d.buildings.batches;
+      const laid = window.__chicago4d.buildings.batches;
+      // T-3408: a phone lays a material's bucket over 65,535 vertices as several
+      // 16-bit-indexed batches sharing that one material (short-index.js), so the
+      // contract is held per MATERIAL: one group, its owners the union of its batches'.
+      const byMaterial = new Map();
+      for (const b of laid) {
+        if (!byMaterial.has(b.material)) byMaterial.set(b.material, []);
+        byMaterial.get(b.material).push(b);
+      }
+      const bs = [...byMaterial.values()].map((list) => ({ material: list[0].material,
+        owners: [...new Set(list.flatMap((b) => b.userData.batchIndex ?? []).filter(Boolean))].sort() }));
       const seen = new Set();
       let min = Infinity, max = -Infinity;
       // T-2574: roughness is lane x of the packed scalars, a byte over 200
       // (compact-attributes.js SCALAR_CODES).
-      for (const b of bs) {
+      for (const b of laid) {
         const a = b.geometry.getAttribute('_chiScalars');
         if (!a) continue;
         for (let i = 0; i < a.array.length; i += 4) {
@@ -12267,30 +12291,35 @@ for (const [label, viewport, touch] of [
         groups: bs.map((b) => {
           const m = b.material, u = m.userData;
           const key = m.transparent ? 'lantern-glass' : u.chiRoofRelief ? `roof:${u.chiRoofRelief}`
-            : u.chiWallRelief ? `wall:${u.chiWallRelief}` : u.nightWindows ?? 'opaque';
+            : u.chiWallRelief ? `wall:${u.chiWallRelief}` : u.chiBrickBond ? `brick:${u.chiBrickBond}`
+            : u.nightWindows ?? 'opaque';
           const mapped = Boolean(m.normalMap);
-          return { key, mapped, owners: [...new Set((b.userData.batchIndex ?? []).filter(Boolean))].sort(),
+          // T-3411: a K03 brick panel carries its own base colour and normal (the
+          // bricks are in the picture) and no ao/roughness map: its roughness stays
+          // per vertex, as the opaque town's does.
+          const brick = Boolean(u.chiBrickBond);
+          return { key, mapped, owners: b.owners,
             validMaterial: m.type === 'MeshStandardMaterial' && m.side === 2 && m.metalness === 0
               && m.emissive?.getHex() === 0 && !m.flatShading && !m.polygonOffset
-              && !m.map && !m.alphaMap && !m.alphaTest && !m.transmission
-              && (mapped ? Boolean(m.aoMap && m.roughnessMap) : !m.aoMap && !m.roughnessMap)
+              && (brick ? Boolean(m.map && mapped) : !m.map) && !m.alphaMap && !m.alphaTest && !m.transmission
+              && (mapped && !brick ? Boolean(m.aoMap && m.roughnessMap) : !m.aoMap && !m.roughnessMap)
               && (!u.nightWindows || (u.nightWindows === 'night-windows-v2' && !mapped && !m.transparent))
               && !u.glassPanes
-              && [u.chiRoofRelief, u.chiWallRelief, u.nightWindows].filter(Boolean).length <= 1
+              && [u.chiRoofRelief, u.chiWallRelief, u.chiBrickBond, u.nightWindows].filter(Boolean).length <= 1
               && (m.transparent ? Math.abs(m.opacity - 0.18) <= 1e-6 : m.opacity === 1) };
         }),
-        batches: bs.length, values: seen.size, min, max,
+        batches: bs.length, laid: laid.length, values: seen.size, min, max,
         textured: bs.filter((b) => b.material?.normalMap).length,
         opaque: bs.filter((b) => !b.material?.transparent).length,
         normalMode: !window.__chicago4d.confidenceView,
         translucent: bs.filter((b) => b.material?.transparent).map((b) => ({
-          owners: [...new Set((b.userData.batchIndex ?? []).filter(Boolean))].sort(),
+          owners: b.owners,
           opacity: b.material.opacity,
           mapped: Boolean(b.material.normalMap),
         })),
       };
     });
-    check(`${label}: the opaque town stays merged beside its four relief groups and separate lantern glass`,
+    check(`${label}: the opaque town stays merged beside its five relief groups and separate lantern glass`,
       structureBatchContract(batchCensus.groups)
         && batchCensus.textured === TEXTURED_STRUCTURE_BATCHES,
       `${batchCensus.batches} structure batch(es), want ${STRUCTURE_BATCHES}, of which `
@@ -12317,17 +12346,20 @@ for (const [label, viewport, touch] of [
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
     const roughFull = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_GRID);
     await page.evaluate(() => {
-      const a = window.__chicago4d.buildings.batches[0].geometry.getAttribute('_chiScalars');
-      window.__chiRoughSaved = a.array.slice();
-      for (let i = 0; i < a.array.length; i += 4) a.array[i] = 4;   // 0.02 x 200
-      a.needsUpdate = true;
+      // T-3408: every batch laid with the first one's material (a phone lays a big one as several).
+      const bs = window.__chicago4d.buildings.batches;
+      window.__chiRoughSaved = bs.filter((b) => b.material === bs[0].material).map((b) => {
+        const a = b.geometry.getAttribute('_chiScalars');
+        const saved = a.array.slice();
+        for (let i = 0; i < a.array.length; i += 4) a.array[i] = 4;   // 0.02 x 200
+        a.needsUpdate = true;
+        return [a, saved];
+      });
     });
     const roughFlat = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_GRID);
     const dRough = signatureDistance(roughFull, roughFlat);
     await page.evaluate(() => {
-      const a = window.__chicago4d.buildings.batches[0].geometry.getAttribute('_chiScalars');
-      a.array.set(window.__chiRoughSaved);
-      a.needsUpdate = true;
+      for (const [a, saved] of window.__chiRoughSaved) { a.array.set(saved); a.needsUpdate = true; }
       delete window.__chiRoughSaved;
     });
     const roughBack = await page.evaluate((g) => window.__chicago4d.capture(g), ROAD_AID_GRID);
@@ -12341,7 +12373,7 @@ for (const [label, viewport, touch] of [
     check(`${label}: restoring the roughness channel restores the frame`,
       dRoughBack.mean <= 0.1 && dRoughBack.worst <= 3,
       `residual mean ${dRoughBack.mean?.toFixed(2)}, worst-cell delta ${dRoughBack.worst}`);
-    console.log(`        batches: ${batchCensus.batches} · roughness `
+    console.log(`        batches: ${batchCensus.batches} (${batchCensus.laid} laid) · roughness `
       + `${batchCensus.values} values ${batchCensus.min}–${batchCensus.max} · flattening moves `
       + `worst cell ${dRough.worst}, mean ${dRough.mean?.toFixed(2)}; restored worst `
       + `${dRoughBack.worst}`);

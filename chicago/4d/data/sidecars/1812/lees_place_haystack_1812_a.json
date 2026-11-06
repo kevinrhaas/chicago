@@ -23,7 +23,7 @@
     ],
     "note": "THE STACKS ARE DATED ONCE AND THE REST IS A BOUND THIS PROJECT CHOSE. Wau-Bun puts haystacks with the cattle on the bank opposite Lee's cabin on the afternoon the war party came, which it dates to the 7th of April 1812 (ch. XIX; Captain Heald's letter, cited on the cabin's record, gives the 6th) - the one day a source shows them. Those were the winter's stacks, fed from in April. The stacks standing on the 1812 scene's date are not the same hay: a farm that stacked on that bank in 1811 is taken to have cut and stacked there again in July 1812, and no source says whether anyone worked Lee's Place after April, so the stacks of the summer are reconstructed (L-1812-lees-place-haystacks-2510). They close on 16 August 1812, the day the post was burned: Charles Lee, his son and the rest of his household but his wife and infant fell on the 15th (Wau-Bun ch. XIX), and nothing was fed at Lee's Place after that."
   },
-  "change_note": "Built T-2510 (2026-10-15), piece 2 of T-2503: the haystacks at Lee's Place in the 1812 scene, on the bank opposite the cabin, on T-2502's apron ground.",
+  "change_note": "Built T-2510 (2026-10-15), piece 2 of T-2503: the haystacks at Lee's Place in the 1812 scene, on the bank opposite the cabin, on T-2502's apron ground. Rebuilt T-3401 (2026-11-06) on the owner's report that the stacks read as smooth pale domes: a lumpy hand-pitched body textured with hay, wisps standing out of it, trodden hay at the foot, and a `shape` of its own (pitched, settled, fed into by the cattle, or cut from).",
   "placement": {
     "local_e": -1604.84,
     "local_n": -4300.62,
@@ -82,6 +82,21 @@
       "value": true,
       "confidence": "reconstructed",
       "note": "Unattested. A round stack pitched by hand was built round a pole set in the ground, which stands clear of the peak."
+    },
+    "shape": {
+      "value": "pitched",
+      "confidence": "reconstructed",
+      "note": "Unattested (T-3401). Round and full, drawn in to its peak and lightly settled: a stack pitched this July and not yet touched. Which stack stands which way is this project's choice, so the four read as hay built and used by hand and not as one form four times (L-1812-lees-place-haystacks-2510)."
+    },
+    "lean_deg": {
+      "value": 1.5,
+      "confidence": "reconstructed",
+      "note": "Unattested (T-3401). How far the stack has tipped as it settled; a hand-built stack is never quite plumb, and none here leans so far it would need propping."
+    },
+    "rider_poles": {
+      "value": false,
+      "confidence": "reconstructed",
+      "note": "Unattested (T-3401). No poles tied over its top: of the four, one is drawn weighted with rider poles."
     },
     "function": {
       "value": "haystack",

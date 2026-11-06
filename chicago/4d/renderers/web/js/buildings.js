@@ -62,6 +62,7 @@ import { drawsLeaves as leavesHungElsewhere, paradeLaidAsGround, paradeGroundOwn
 import { cheapenGlass, DEFAULT_GLASS, writePaneAttributes } from './glass.js';
 import { patchNightWindows } from './night-lights.js';
 import { layerPick } from './gpu-pick.js';
+import { shortIndexRuns } from './short-index.js';
 import {
   compactPlan, compactGeometry, positionScale, quantizePositions, packScalars, compactConstantBatchScalars, toneScaleOf, unpackScalar, SCALARS, SCALARS_GLSL,
 } from './compact-attributes.js';
@@ -415,6 +416,49 @@ function perVertexScalars(material) {
  * shared texture pairs, two extra batches for 369 roofs — measured in
  * `tickets/T-1488-*.md` at the critic stations.
  */
+/**
+ * A map's part of the batch key: the decoded picture it samples and every sampler and
+ * transform setting it samples it with, never the Texture's own uuid. T-3411.
+ *
+ * Until T-3411 the key read `m.map?.uuid`. That was right while every mapped material
+ * in a merged town took ONE shared Texture object (the roof and wall relief pairs),
+ * and wrong the day an asset brought its own maps: T-3387 laid the 1816 fort's brick
+ * and its stacks, and the Lake House's, in the K03 common panel, embedded in each of
+ * seven GLBs. `shared-images.js` already hands every one of those GLBs a CLONE of one
+ * decoded panel (one `texture.source`, one upload), but a clone mints a new uuid, so
+ * the 1835 town split into seven brick batches drawing the same two pictures — seven
+ * more draws in the colour pass and seven in the shadow pass, and the merged-town
+ * contract (`tools/world_smoke_contracts.mjs`) red on dev. Keyed by source and
+ * sampler, the seven are one batch, which is exactly what a batch may share: the
+ * batch draws with its first material's Texture, and every other in the bucket
+ * samples the same bytes the same way. Base colour and roughness stay per vertex as
+ * before; an unmapped roughness is the only kind these brick materials carry.
+ *
+ * Not `batch-material.js` `textureKey`, which the inspection path uses: that one keeps
+ * every texture class but the plain `Texture` by identity, and the published panel is
+ * a KTX2 (`CompressedTexture`), each GLB's its own clone with its own copy of the mip
+ * descriptors (`ktx2.js` glbTextureLoader) over the one shared source. Anything else —
+ * a render target, a video, a texture that updates itself — keeps its identity here.
+ */
+const mapIds = new WeakMap();
+let nextMapId = 1;
+function mapId(value) {
+  if (!mapIds.has(value)) mapIds.set(value, nextMapId++);
+  return mapIds.get(value);
+}
+export function mapKey(t) {
+  if (!t) return '-';
+  const decoded = (t.constructor === THREE.Texture || t.constructor === THREE.CompressedTexture)
+    && t.source && !t.isRenderTargetTexture && !t.renderTarget && !t.onUpdate;
+  if (!decoded) return `texture:${mapId(t)}`;
+  return [`source:${mapId(t.source)}`, t.isCompressedTexture ? 'compressed' : 'image',
+    t.mipmaps?.length ?? 0, t.channel, t.mapping, t.wrapS, t.wrapT, t.magFilter, t.minFilter,
+    t.anisotropy, t.format, t.internalFormat, t.type, t.colorSpace, t.flipY, t.premultiplyAlpha,
+    t.generateMipmaps, t.unpackAlignment,
+    t.offset.x, t.offset.y, t.repeat.x, t.repeat.y, t.rotation, t.center.x, t.center.y,
+    t.matrixAutoUpdate ? 'auto' : t.matrix.elements.join('/')].join(',');
+}
+
 function materialKey(m) {
   const near = (v) => (typeof v === 'number' ? v.toFixed(3) : '-');
   const offset = m.polygonOffset ? `${m.polygonOffsetFactor}/${m.polygonOffsetUnits}` : '-';
@@ -422,8 +466,11 @@ function materialKey(m) {
     m.type,
     m.emissive?.getHexString() ?? '-',
     near(m.metalness),
-    m.map?.uuid ?? '-', m.normalMap?.uuid ?? '-', m.aoMap?.uuid ?? '-',
-    m.roughnessMap?.uuid ?? '-',
+    // T-3411: a map is keyed by the picture it samples and how, not by its Texture's
+    // uuid — see `mapKey`.
+    mapKey(m.map), mapKey(m.normalMap), m.normalMap ? m.normalScale.toArray().join('/') : '-',
+    mapKey(m.aoMap), m.aoMap ? near(m.aoMapIntensity) : '-',
+    mapKey(m.roughnessMap),
     m.userData.roofFilter ?? '-',
     m.userData.glassPanes ?? '-',
     m.userData.nightWindows ?? '-', // T-3332: a pane that glows by night is its own batch
@@ -552,6 +599,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    */
   const camp = await loadCampSurfaces({
     wanted: [...registry.values()].some((r) => r.gltf && r.sidecar?.archetype === 'lodge_camp'),
+    // T-3401: the haystacks at Lee's Place wear the library's hay sheets.
+    hay: [...registry.values()].some((r) => r.gltf && r.sidecar?.archetype === 'haystack'),
   });
   if (camp.problem) problems.push(camp.problem);
   /** T-3295: K03 brick panels shuffled per brick unless `?bricks=tiled` (brick-bond.js). */
@@ -986,6 +1035,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     });
   }
   geometriesOf.clear();
+  /** T-3408: what each batch is laid from — a bucket, or on a phone one run of it. */
+  const parts = [];
   for (const [, bucket] of groups) {
     // T-3272: each relief piece is followed by its hidden crests-only twin, laid
     // before the batch is sized so the twin's vertices are counted in it.
@@ -1035,8 +1086,6 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       }
       bucket.entries.push(...twins);
     }
-    const verts = bucket.entries.reduce((a, e) => a + e.geo.getAttribute('position').count, 0);
-    const idx = bucket.entries.reduce((a, e) => a + e.geo.getIndex().count, 0);
     // The normals and uvs stored compact, in one format across the batch, and
     // roughness, confidence, grain and the piece tone packed into one four-byte
     // attribute (T-2568, T-2574; compact-attributes.js). The tone's scale is the
@@ -1061,6 +1110,19 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // darken the batch, so it is turned off here for all of them.
     bucket.material.vertexColors = false;
     const depthMaterial = depthFor(bucket.material);
+    // T-3408: on a phone a bucket over 65,535 vertices is laid as several batches,
+    // each small enough to index in 16 bits, every piece with its twins and every
+    // structure whole where it fits (short-index.js); one material, plan and tone
+    // scale across them, decided above over the whole bucket.
+    for (const entries of lowSpec ? shortIndexRuns(bucket.entries) : [bucket.entries]) {
+      parts.push({ material: bucket.material, boundsRigid: bucket.boundsRigid, entries, plan, toneScale, depthMaterial });
+    }
+    bucket.entries = [];
+  }
+  for (const bucket of parts) {
+    const { plan, toneScale, depthMaterial } = bucket;
+    const verts = bucket.entries.reduce((a, e) => a + e.geo.getAttribute('position').count, 0);
+    const idx = bucket.entries.reduce((a, e) => a + e.geo.getIndex().count, 0);
     const batch = new THREE.BatchedMesh(bucket.entries.length, verts, idx, bucket.material);
     batch.name = `structures:${bucket.material.name || bucket.material.type}`;
     batch.castShadow = true;
@@ -1335,6 +1397,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // 50 MB of arrays and 25 MB of heap in 1904 on a phone.
     bucket.entries = [];
   }
+  parts.length = 0;
 
   // T-3152: each proven planar cover, in the world frame, for the view filter's
   // `planes`. It stands only while every piece of its source mesh passes the backing's

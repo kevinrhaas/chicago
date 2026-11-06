@@ -110,6 +110,11 @@ selftest "Scenes with no parked vehicles boot: update, retier and dispose withou
 step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
   node tools/check_spatial_batch.mjs
 
+# T-3411. The merged town keys a map by its picture and sampler, so seven GLBs' clones
+# of one brick panel (T-3387) draw as one batch, not seven.
+step "Mapped materials batch by the picture they sample, not their texture's uuid (T-3411)" \
+  node tools/check_batch_map_key.mjs
+
 # T-2604. A spread flora pass walks its lattice on a worker (jobs/lattice-kernel.js)
 # and a one-frame pass walks it in flora.js's own `scatter`; the two are separate
 # texts, so this slices flora.js and holds them to the same slots, bit for bit.
@@ -259,6 +264,8 @@ step "A pick draws only the building batches its ray meets, and a phone's look-a
   node tools/test_pick_boxes.mjs
 step "The drawn cells of one structure mesh join into one draw, drawing the same triangles with the same instance data (T-2927)" \
   node tools/test_batch_coalesce.mjs
+step "A phone lays a structure bucket over 65,535 vertices as 16-bit-indexed batches, every piece with its twins and every structure whole where it fits (T-3408)" \
+  node tools/test_short_index.mjs
 step "A grown wood draws every copy of one template as one instanced entry, drawing the same stems with the same instance data, culled as before (T-3363)" \
   node tools/test_batch_instance.mjs
 selftest "Directional shadow culling retains toward-view and filter-near casters, preserves colour lists, and fails open on unknown light, camera or map state" \
@@ -551,15 +558,19 @@ step "Driven assembly retains named drivers, vehicle ownership and exact current
   node tools/test_driven_assembly.mjs
 step "A seated driver breathes, looks round and holds his reins, bounded and deterministic, on the real 1904 driver (T-1790)" \
   node tools/test_driver_life.mjs
+step "People on foot breathe, shift weight with feet planted, look at a close visitor and blink irregularly, bounded and deterministic (T-3402)" \
+  node tools/test_human_life.mjs
+step "People on foot rest their hands in, change stance, touch the hat brim to a close visitor and swing their arms against their feet, deterministic (T-3419)" \
+  node tools/test_human_actions.mjs
 step "The driven team's generated walk and its hoof-support domain reproduce byte for byte, hooves planted without slide (T-2803)" \
   node tools/horse_walk_v2.mjs --check
 step "A driver's plain garments read as cloth: weave, heather and sheen by shader patch, no texture, one program (T-2804)" \
   node tools/test_fabric.mjs
 step "Every person's skin has pores, blood and a glow, hair a strand sheen and eyes a wet glint: shader patch, no texture (T-3400)" \
   node tools/test_human_skin.mjs
-step "The 1904 coachman's draped livery stays clear of his seated body and box, and is the one his row binds (T-3398)" \
-  python3 tools/human_driver_livery_1904.py --check
-step "The coachman's livery binds to the real driver by bone name and skins where it was draped, LOD0 and LOD3 (T-3398)" \
+step "Every wardrobe file matches its recipe, each garment sourced or a liberty, clear of its seated body and vehicle, and is the one its row binds (T-3398, T-3409)" \
+  python3 tools/human_wardrobe.py --check
+step "Each driver's wardrobe binds to the real driver by bone name, skins where it was draped, and its spring tails lag and settle, LOD0 and LOD3 (T-3398, T-3409)" \
   node tools/test_driver_livery.mjs
 step "Driven-team clearance uses the complete occupied envelope and refuses blocked routes (T-2804)" \
   node tools/test_transport_clearance.mjs
@@ -571,6 +582,8 @@ step "A person transfers to their driven vehicle without duplicate bodies or lif
   node tools/test_human_driver_transfer.mjs
 step "The shared interaction key and touch control stop and resume the existing transport actor (T-2804)" \
   node tools/test_transport_interactions.mjs
+step "Every person placed in town is named by the look tag, found, and followed beside them (T-3404)" \
+  node tools/test_person_interaction.mjs
 selftest "…incompatible skeletons, missing slots and morphs, duplicate clips, non-metric scale, missing provenance and L1 refused by name" \
   python3 tools/human_contract.py --self-test
 step "Every human GLB is the one the browser measured: sha256 and verdicts in data/humans/fixture.measure.json (T-1787)" \
@@ -1031,6 +1044,15 @@ step "the 1904 front yards stand clear of every house, stoop, walk and door (T-3
   python3 tools/plant_prairie_1904_front_yards.py --check
 selftest "the front-yard check refuses a shrub on a door's way, beside a door and in a house, and ivy beside a door (T-3223, T-3227)" \
   python3 tools/plant_prairie_1904_front_yards.py --self-test
+
+# T-3407. The 1812 commanding officer's garden: Whistler's beds and walks inside the paling,
+# and every plant inside a bed, re-derived byte for byte from the record and the draught.
+step "the 1812 officers' garden is laid in the draught's beds and planted inside them (T-3407)" \
+  python3 tools/plant_gardens.py --check
+selftest "the garden check refuses a plant off its bed, a bed past the paling and an unknown crop (T-3407)" \
+  python3 tools/plant_gardens.py --self-test
+step "the 1812 officers' garden grows every crop it plants, near to far, inside a phone's budget (T-3407)" \
+  node tools/test_gardens.mjs
 
 # T-1840. ...and what stands on that grid's sheet 20 lots in 1904: the sheet census
 # (prairie_1904_v1/data/sheet_census/sheet-20.json) assigns every 1911 frontage row and

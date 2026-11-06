@@ -1,11 +1,18 @@
 import assert from 'node:assert/strict';
-import { STRUCTURE_BATCH_KEYS, structureBatchContract, greenTreeYardMode } from './world_smoke_contracts.mjs';
+import { STRUCTURE_BATCH_KEYS, MAPPED_BATCH, structureBatchContract, greenTreeYardMode } from './world_smoke_contracts.mjs';
 const batches = STRUCTURE_BATCH_KEYS.map((key) => ({ key, owners: ['source-owner'],
-  mapped: /^(roof|wall):/.test(key), validMaterial: true }));
+  mapped: MAPPED_BATCH.test(key), validMaterial: true }));
 assert.ok(structureBatchContract(batches));
+// T-3411: the town's brick is ONE batch. Seven brick batches (one per GLB, as T-3387
+// shipped) or a brick group drawn without its relief both refute the contract.
+const brick = batches.find((b) => b.key.startsWith('brick:'));
+assert.ok(brick && brick.mapped);
+assert.equal(structureBatchContract([...batches, ...Array(6).fill(brick)]), false);
+assert.equal(structureBatchContract(batches.filter((b) => b !== brick)), false);
 for (const invalid of [batches.slice(1), [...batches, batches[0]],
   batches.map((b, i) => i === 0 ? { ...b, key: batches[1].key } : b),
   batches.map((b) => b.mapped ? { ...b, mapped: false } : b),
+  batches.map((b) => b === brick ? { ...b, mapped: false } : b),
   batches.map((b, i) => i === 0 ? { ...b, owners: [] } : b),
   batches.map((b, i) => i === 0 ? { ...b, validMaterial: false } : b)]) {
   assert.equal(structureBatchContract(invalid), false);

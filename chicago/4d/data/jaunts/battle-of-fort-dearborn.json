@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 2,
+  "content_version": 3,
   "category": "Fort Dearborn",
   "featured": true,
   "review_required": false,
@@ -210,12 +210,13 @@
       "since": "Fifty minutes later",
       "destination": {
         "kind": "anchor",
-        "id": "eighteenth_street_shore"
+        "id": "heald_small_elevation"
       },
-      "text": "About half past ten. Heald gathers his last men on 'a small elevation in the open prarie'. A Potawatomi leader called Black Bird comes out, shakes his hand and asks him to surrender, 'promising to spare the lives of all the prisoners.' Heald agrees. His count: 'twenty-six regulars and all the militia were killed in the action, with two women and twelve children.' Among them are Ensign Ronan, the young surgeon's mate Isaac Van Voorhis, and Captain Wells. Later Chicago remembered two cottonwoods near here as the place. The survivors are led back north, and at the Kinzie house the danger is not over.",
+      "text": "About half past ten. Heald gathers his last men on 'a small elevation in the open prarie'. A Potawatomi leader called Black Bird comes out, shakes his hand and asks him to surrender, 'promising to spare the lives of all the prisoners.' Heald agrees. His count: 'twenty-six regulars and all the militia were killed in the action, with two women and twelve children.' Among them are Ensign Ronan, the young surgeon's mate Isaac Van Voorhis, and Captain Wells. Later Chicago remembered two cottonwoods farther south, at what became Eighteenth Street, as the place. The survivors are led back north, and at the Kinzie house the danger is not over.",
       "read_s": 30,
       "evidence": [
         "surrender",
+        "stand-elevation",
         "cottonwoods",
         "surrender-hour",
         "officers"
@@ -352,14 +353,14 @@
       ]
     },
     {
-      "note": "Further south along the shore: this leg goes Instantly.",
-      "mode": "instantly",
-      "story": "Inland and south, toward the later Eighteenth Street.",
+      "note": "A quarter of a mile inland, over the bank and the ravine behind it.",
+      "story": "Back from the bank across the open prairie, 'out of shot of the bank or any other cover'.",
       "evidence": [
-        "cottonwoods"
+        "surrender",
+        "stand-elevation"
       ],
       "story_evidence": [
-        "cottonwoods"
+        "surrender"
       ]
     },
     {
@@ -543,7 +544,18 @@
         "quaife_1913",
         "moses_kirkland_history_of_chicago_v1"
       ],
-      "reasoning": "data/terrain/1812_evacuation_readings.json and the route tools/derive_evacuation_1812.py lays from it: the station 'About a mile and a half (Heald)' at local E 1318.0, N -1852.7, the middle of a band of 1.25 to 1.75 miles. The stand is 6 m inland of it. It is a reading of his distance, not a marked place, and the scene card 'Where the attack happened' says the same."
+      "reasoning": "data/terrain/1812_evacuation_readings.json and the route tools/derive_evacuation_1812.py lays from it: the station 'About a mile and a half (Heald)' at local E 1318.0, N -1852.7, the middle of a band of 1.25 to 1.75 miles. The stand is on the beach about 110 m south of it, looking north past it with the high sand bank of terrain_spec.json battle_bank_1812 on the left (T-3403). It is a reading of his distance, not a marked place, and the scene card 'Where the attack happened' says the same."
+    },
+    {
+      "id": "stand-elevation",
+      "text": "This stand is on the open prairie just below a rise placed for Heald's 'small elevation in the open prarie, out of shot of the bank or any other cover', due west of his mile and a half and about a quarter of a mile from the water; the accounts give no distance or size, so its place and height are this reconstruction's.",
+      "confidence": "inferred",
+      "sources": [
+        "quaife_1913",
+        "kinzie_waubun_1856",
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "reasoning": "data/terrain/epochs/e1830_natural/terrain_spec.json heald_small_elevation_1812: centred at local E 960, N -1853, 358 m inland of the station 'About a mile and a half (Heald)' at E 1318, N -1853, beyond the high bank and the ravine of battle_bank_1812; Wau-Bun's 'rising ground, not far from the Oak Woods' and Moses & Kirkland's 'far inland, out of gun-shot from the bank' agree on the direction. Admitted in docs/LIBERTIES.md L-t3403-battle-shore-1812."
     },
     {
       "id": "surrender",

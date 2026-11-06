@@ -73,6 +73,9 @@ export const RELEASE_KEEP = {
   railway: [],
   // Context streets have no triangle pick: context.js raycasts only its building meshes.
   'context:streets': [],
+  // T-3407: the 1812 officers' garden picks its beds on their planes (gardens.js pickAt) and
+  // swaps its plants' levels by geometry id, so no array is read back after upload.
+  gardens: [],
 };
 
 function dropArray() { this.array = null; }

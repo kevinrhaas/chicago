@@ -1,0 +1,25 @@
+{
+  "id": "mmahon_1857_american_gardeners_calendar",
+  "type": "book",
+  "citation": "M'Mahon, Bernard. The American Gardener's Calendar; Adapted to the Climate and Seasons of the United States. Eleventh edition, greatly enlarged. Philadelphia: J. B. Lippincott and Co., 1857. First published Philadelphia: B. Graves for the author, 1806.",
+  "author": "Bernard M'Mahon",
+  "date": "1857 (eleventh edition; first edition 1806)",
+  "describes_date": "1806 (the author's practice; he died in 1816)",
+  "url": "https://catalog.hathitrust.org/Record/100591010",
+  "archived_url": "https://distantreader.org/stacks/trust/uc2/uc2_ark+=13960=t7sn02j7s.txt",
+  "locator": "August, 'Work to be done in the Kitchen Garden' (about p. 485 of the 1857 printing); April and May, the sowing of cucumbers, squashes, musk and water-melons, running kidney-beans and Indian corn, with their hill and drill distances",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-06 (T-3407) in the plain text of HathiTrust's University of California copy (uc2.ark:/13960/t7sn02j7s) at the archived_url. The 1806 first edition is BHL title 24619 (doi:10.5962/bhl.title.24619), whose host refused automated retrieval; it was not read.",
+  "note": "THE AMERICAN KITCHEN-GARDEN CALENDAR OF FORT DEARBORN'S YEARS, READ IN A LATER PRINTING. M'Mahon's Calendar (1806) was the standard American gardening book of the first fort's decade; Jefferson bought his seeds from him. The edition read is the 1857 eleventh, whose preface says it was 'carefully read by one of our best practical gardeners', that 'the newer vegetables are carefully noted' and 'a very few passages that are not now relevant have been expunged'. So it is used only for the ordinary crops and the month's work that both printings carry: in August the melons and cucumbers 'in an advancing or fruiting state', cabbages and savoys, kidney-beans, celery earthed up, endive tied to blanch, lettuces, turnips and spinach sown, herbs cut; and the distances, musk-melons in hills 'six feet every way', water-melons 'nine or ten feet', pumpkins 'ten feet', running kidney-beans in drills 'four or five feet asunder' on poles, and garden Indian corn in drills 'six feet' apart, 'two feet and a half asunder, and two grains in each place'. Nothing here says what grew at Fort Dearborn: that is Quaife's 'melons and other small fruit and vegetables', and every other crop in the garden is our reconstruction from this calendar (docs/LIBERTIES.md L-t3407-officers-garden).",
+  "what_it_supplies": [
+    "the kitchen-garden crops of an American garden in August, and their state that month",
+    "the period's hill and drill distances for melons, squashes, pole beans and garden Indian corn"
+  ],
+  "what_it_does_not_supply": [
+    "anything about Fort Dearborn or Chicago",
+    "the 1806 first edition's own text: a newer vegetable the 1857 editor added must not be read back into 1812"
+  ]
+}

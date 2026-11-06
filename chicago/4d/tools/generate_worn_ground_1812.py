@@ -873,6 +873,13 @@ YARDS = [
     ("forks_house_clark", ["forks_house_clark_1812"], "trodden_earth", 2.5, 4.0, 0.35, "The house at the forks beside the cornfield."),
     ("forks_house_soldier", ["forks_house_soldier_1812"], "trodden_earth", 2.5, 4.0, 0.3, "The discharged soldier's house at the forks."),
     ("lees_place_cabin", ["lees_place_cabin_1812"], "trodden_earth", 3.5, 5.0, 0.45, "Lee's Place: the farm's cabin."),
+    # T-3401: Wau-Bun ch. XVIII has the cattle "standing among the haystacks" and the soldier
+    # pulling hay for them there, so the stack yard is ground the stock stood on, grazed and
+    # trodden down round the stacks' feet, and not the standing prairie.
+    ("lees_place_stack_yard", ["lees_place_haystack_1812_a", "lees_place_haystack_1812_b",
+                               "lees_place_haystack_1812_c", "lees_place_haystack_1812_d"],
+     "worn_earth", 3.0, 7.0, 0.5,
+     "Lee's Place's stack yard: the cattle stood among the haystacks and were foddered from them (Wau-Bun ch. XVIII)."),
 ]
 
 

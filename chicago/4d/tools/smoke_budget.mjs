@@ -455,6 +455,8 @@ const COVERAGE = [
   // --- PART 9: what the light does to the town
   ['renderers/web/js/facades.js', [9], 'T-0002, the facade tones'],
   ['renderers/web/js/buildings.js', [8, 9], 'the facades and the shadow reach they carry, and the merged batch part 8 reads the roughness channel out of'],
+  // T-3408: a phone's structure buckets laid as 16-bit-indexed batches; read wherever buildings.js lays batches.
+  ['renderers/web/js/short-index.js', [8, 9], 'the structure batches a phone lays small enough to index in 16 bits'],
   ['renderers/web/js/shadow-casters.js', [8, 9], 'T-2529, the sun\'s pass at `light` — it wraps every structure batch buildings.js makes, so it is read where the facades and their shadows are'],
   ['renderers/web/js/roof-relief.js', [8, 9], 'T-1488, the roof coverings\' relief maps — it binds them inside buildings.js\'s own load loop and adds two batches to the merge part 8 counts'],
   ['renderers/web/js/wall-relief.js', [8, 9], 'T-1963, the walls\' relief maps — bound inside buildings.js\'s load loop like the roofs\', and two more batches for the merge part 8 counts'],
@@ -560,6 +562,12 @@ const COVERAGE = [
   ['renderers/web/js/front-yards.js', [14], 'the 1904 front yards: grown shrubs, young trees, beds, ivy (T-3203, T-3223)'],
   ['data/front_yards/', [14], 'the 1904 front yards, generated from the grid and the houses'],
   ['tools/plant_prairie_1904_front_yards.py', NONE, 'the front-yard planter — read by no renderer: its own --check in check.sh'],
+  // T-3407. The 1812 commanding officer's garden: beds and crops inside its paling. main.js
+  // asks for the layer only where a scene lists it, and only 1812's does; no part boots 1812,
+  // so these are held by plant_gardens.py's --check and test_gardens.mjs in check.sh.
+  ['renderers/web/js/gardens.js', NONE, "the 1812 officers' garden: beds, soil and grown crops (T-3407) — no part boots 1812"],
+  ['data/gardens/', NONE, "the 1812 officers' garden's beds and plants — fetched only at /1812/, which no part boots"],
+  ['tools/plant_gardens.py', NONE, 'the garden planter — read by no renderer: its own --check in check.sh'],
   // T-1728. What that grid is paved with, and the maps it is paved in.
   ['data/street_section/', [14], 'the 1904 curb reveal and carriage walks (T-2474)'],
   ['data/street_surfaces/', [14], 'the 1904 street surfaces: materials, tiers and sources'],

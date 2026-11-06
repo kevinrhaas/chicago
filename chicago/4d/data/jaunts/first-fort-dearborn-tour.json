@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 2,
+  "content_version": 3,
   "category": "Fort Dearborn",
   "featured": true,
   "review_required": false,
@@ -8,8 +8,9 @@
   "scene": "1812",
   "title": "Fort Dearborn, Building by Building",
   "premise": "The last full day of the first Fort Dearborn, 14 August 1812, from daybreak to sunset: every building on Captain Whistler's 1808 draught, while the garrison packs to leave. Twelve stops.",
-  "default_mode": "fly",
+  "default_mode": "walk",
   "allowed_modes": [
+    "walk",
     "fly",
     "instantly"
   ],
@@ -46,7 +47,7 @@
         "kind": "anchor",
         "id": "first_fort_gate"
       },
-      "text": "Six in the morning, at the main gate, in the middle of the south side. A girl who lived here remembered that sunset was 'when they used to shut the gates of the fort'. Notice the two rows of pickets. An attacker who got over the first 'would only find himself within a narrow inclosure', swept by fire from the blockhouses at the corners. Whistler built this fort to stand a siege. No one is planning to stand one now: the order is to march out, and this is the gate they will use. The gates start shut. On foot, within five metres, press Interact (R) to swing them open, and step inside to where the soldiers live.",
+      "text": "Six in the morning, at the main gate, in the middle of the south side. A girl who lived here remembered that sunset was 'when they used to shut the gates of the fort'. Notice the two rows of pickets. An attacker who got over the first 'would only find himself within a narrow inclosure', swept by fire from the blockhouses at the corners. Whistler built this fort to stand a siege. No one is planning to stand one now: the order is to march out, and this is the gate they will use. The gates start shut. Walk on and they swing open ahead of you (on foot, Interact or R works them too), and step inside to where the soldiers live.",
       "read_s": 34,
       "evidence": [
         "plan",
@@ -284,9 +285,9 @@
       ]
     },
     {
-      "note": "Over both rows of pickets onto the parade.",
+      "note": "Through both gates, into the fort.",
       "evidence": [
-        "plan"
+        "inside"
       ]
     },
     {
@@ -317,10 +318,11 @@
       ]
     },
     {
-      "note": "Out of the pickets to the north-east corner, above the river.",
+      "note": "Up over the pickets to the north-east corner, above the river.",
       "evidence": [
         "covered-way"
-      ]
+      ],
+      "mode": "fly"
     },
     {
       "note": "Outside the pickets, round to the south-east.",

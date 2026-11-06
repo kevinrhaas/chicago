@@ -11,7 +11,10 @@
  *     parade (no longer a solid block) and the buildings inside still stop it; the curtain
  *     stops it everywhere else; and a gate shut on someone standing in it puts them out
  *     on the side they were on;
- *   - the Interact key offers the nearest gate in reach, on foot only, and R presses it.
+ *   - the Interact key offers the nearest gate in reach, on foot only, and R presses it;
+ *   - T-3407: the 1812 commanding officer's garden has one wicket leaf on its north side;
+ *     shut, it keeps a walker out; opened, the walk goes in onto the garden's walks, and
+ *     the paling holds everywhere else.
  *
  *   node tools/test_fort_gates.mjs
  */
@@ -28,7 +31,9 @@ register(`data:text/javascript,${encodeURIComponent(`export function resolve(s, 
 const THREE = await import('three');
 const { createWalker, footprintsFrom, WALK, segmentsCross } = await import('../renderers/web/js/walker.js');
 const { createIntent } = await import('../renderers/web/js/controls/intent.js');
-const { createFortGates, stockadePlan, drawsLeaves, leafDirections, FORT_GATES, SWING_S } = await import('../renderers/web/js/fort-gates.js');
+const { createFortGates, stockadePlan, drawsLeaves, leafDirections, wicketGeometry, FORT_GATES, SWING_S, gatesOnRoute } = await import('../renderers/web/js/fort-gates.js');
+const { createRouter } = await import('../renderers/web/js/route.js');
+const { createTravel } = await import('../renderers/web/js/travel.js');
 const { createInteractions, createInteractKey, INTERACT_KEY } = await import('../renderers/web/js/interact.js');
 
 const ROOT = new URL('../', import.meta.url);
@@ -70,6 +75,33 @@ const ok = (cond, msg) => { assert(cond, msg); checks += 1; };
 }
 
 // ---------------------------------------------------------------- the real forts
+// T-3405: a walking ride from `from` to `to` through the fort's gates, on the walker.
+function rideIn(year, footprints, layer, ix, router, from, to) {
+  const camera = new THREE.PerspectiveCamera();
+  const walker = createWalker({ camera, terrain: flat, footprints, spawn: { local_e: from.e, local_n: from.n, yaw_deg: 0 } });
+  const intent = createIntent();
+  let arrivals = 0, stops = 0, waited = 0;
+  const travel = createTravel({ walker, intent, router, terrain: flat,
+    gates: { along: (pts) => gatesOnRoute(layer.gates, pts).map((g) => ({ at: g.at,
+      blocks: () => !(g.state === 'open' && !g.running), open: () => { if (g.state !== 'open' && !g.running) ix.act(g, 'open'); } })) },
+    tickWorld: (dt) => ix.update(dt) });
+  travel.setMode('walk');
+  const through = gatesOnRoute(layer.gates, router.plan(from, to, { mode: 'walk' })?.points ?? []);
+  ok(through.length > 0 && through.every((g) => g.state === 'closed'), `${year}: the walk's gates start shut (${through.map((g) => g.id).join()})`);
+  ok(travel.go({ kind: 'anchor', id: 'in', local_e: to.e, local_n: to.n, yaw_deg: 0 },
+    { token: {}, onArrive: () => arrivals++, onStop: () => stops++ }), `${year}: the walk sets off`);
+  for (let i = 0; i < 3000 && travel.state.phase !== 'idle'; i++) {
+    const before = [walker.state.e, walker.state.n];
+    ix.update(1 / 30);
+    travel.update(1 / 30, intent); walker.update(1 / 30, intent); travel.afterWalk(intent, 1 / 30);
+    if (Math.hypot(walker.state.e - before[0], walker.state.n - before[1]) < 1e-4 && travel.state.phase === 'travelling') waited++;
+  }
+  ok(arrivals === 1 && stops === 0, `${year}: the walk arrives inside (arrivals ${arrivals}, stops ${stops})`);
+  ok(Math.hypot(walker.state.e - to.e, walker.state.n - to.n) < 0.2, `${year}: where it was sent (${walker.state.e.toFixed(1)}, ${walker.state.n.toFixed(1)})`);
+  ok(through.every((g) => g.state === 'open'), `${year}: it opened the gates on the way`);
+  ok(waited > 0, `${year}: and waited for the leaves to swing`);
+}
+
 function registryOf(year, match) {
   const dir = new URL(`data/sidecars/${year}/`, ROOT);
   const reg = new Map();
@@ -81,8 +113,8 @@ function registryOf(year, match) {
   return reg;
 }
 const identity = { matrixOf: () => new THREE.Matrix4() };
-function fort(year) {
-  const registry = registryOf(year, year === '1835' ? /^fort_dearborn_/ : /^first_fort_dearborn_/);
+function fort(year, match = null) {
+  const registry = registryOf(year, match ?? (year === '1835' ? /^fort_dearborn_/ : /^first_fort_dearborn_/));
   const footprints = footprintsFrom(registry);
   const problems = [];
   const layer = createFortGates({ registry, buildings: identity, footprints, problems });
@@ -212,6 +244,70 @@ try {
     ok(inside(into.end[0], into.end[1], fpOut.pts), 'inside both rows');
   }
 
+  // ---- 1812: the commanding officer's garden, its wicket on the walk from the fort (T-3407)
+  {
+    const { registry, footprints, layer, ix, problems } = fort('1812', /^first_fort_outer_officers_garden\.json$/);
+    ok(problems.length === 0, `the garden hangs its gate without complaint: ${problems.join('; ')}`);
+    ok(layer.gates.length === 1 && layer.gates[0].name === 'Garden gate', 'the garden has one gate, on its north side');
+    const sc = registry.get('first_fort_outer_officers_garden').sidecar;
+    const plan = stockadePlan(sc);
+    const g = plan.gates[0];
+    ok(g.kind === 'wicket' && g.side === 'n', 'a wicket in the north paling');
+    ok(Math.abs(g.centre[0] - plan.w / 2) < 1e-9, 'at the middle of the north side, where the draught brings the walk in');
+    const legs = leafDirections(g, 0);
+    ok(legs.length === 1 && Math.abs(legs[0].len - 2 * g.half) < 1e-9, 'one leaf, closing the whole way between the posts');
+    const open = leafDirections(g, 1)[0];
+    ok(open.dir[0] * g.inward[0] + open.dir[1] * g.inward[1] > 0.9, 'it swings inward, into the garden');
+    const geo = wicketGeometry({ len: 1.18, foot: g.foot, head: g.head, pale: g.pale });
+    ok(geo.getAttribute('uv') && geo.getAttribute('position').count > 300, 'its leaf is pales, rails and a brace, grained');
+    const fp = footprints.find((f) => f.id === 'first_fort_outer_officers_garden');
+    ok(Array.isArray(fp.walls), 'the garden is its paling, not a solid block');
+    const gate = layer.gates[0];
+    const start = [gate.at[0], gate.at[1] + 5];             // on the walk north of it, facing south
+    const shut = walkFrom(footprints, start, 180, 6);
+    ok(shut.end[1] > gate.at[1] + WALK.radius - 0.01, `shut, the walk stops outside the garden (${(shut.end[1] - gate.at[1]).toFixed(2)} m)`);
+    openAll(ix, [gate.id]);
+    ok(gate.state === 'open', 'Interact opens it');
+    const into = walkFrom(footprints, start, 180, 10);
+    ok(inside(into.end[0], into.end[1], fp.pts) && into.end[1] < gate.at[1] - 4, `opened, the walk goes in (${(gate.at[1] - into.end[1]).toFixed(1)} m in)`);
+    const east = walkFrom(footprints, into.end, 90, 40);
+    ok(inside(east.end[0], east.end[1], fp.pts), 'and walking on east, the paling holds');
+  }
+
+  // ---- T-3405: a WALKING RIDE (Go to, a jaunt on Walk) goes in through the gates: the
+  // planner reads the stockade as its walls with the gateways open and the parade as
+  // ground, holds the route to each gateway's middle, and the ride opens each shut gate
+  // as it comes up to it and waits while it swings.
+  {
+    const { footprints, layer, ix } = fort('1812');
+    const router = createRouter({ terrain: { ...flat, heightfield: { loaded: true, originE: 1050, originN: 120, widthM: 200, depthM: 160 } },
+      footprints, cell: 1, inflate: 0.1 });
+    const from = { e: 1148.5, n: 190 }, parade = { e: 1146, n: 220 };
+    const route = router.plan(from, parade, { mode: 'walk' });
+    ok(route?.points?.length, 'a walk is planned from outside the fort onto the parade');
+    const order = gatesOnRoute(layer.gates, route.points).map((g) => g.id);
+    ok(order.join() === 'first_fort_dearborn_pickets_outer:s,first_fort_dearborn_pickets_inner:s', `through the outer gate, then the inner (${order.join()})`);
+    for (const g of layer.gates) {
+      ok(route.points.some(([e, n]) => Math.abs(e - g.at[0]) < 0.01 && Math.abs(n - (g.at[1] - 1.5)) < 0.01)
+        && route.points.some(([e, n]) => Math.abs(e - g.at[0]) < 0.01 && Math.abs(n - (g.at[1] + 1.5)) < 0.01),
+      `${g.name}: the route is held to the gateway's middle, square to it`);
+    }
+    ok(router.plan({ e: 1146, n: 214 }, { e: 1157, n: 218 }, { mode: 'walk' })?.points.length, 'across the parade, which is ground, not a block');
+    const round = router.plan({ e: 1120, n: 220 }, { e: 1180, n: 220 }, { mode: 'walk' });
+    ok(round && round.length_m > 70 && gatesOnRoute(layer.gates, round.points).length === 0, `past the fort a walk goes round it, not through (${round?.length_m.toFixed(0)} m)`);
+
+    rideIn('1812', footprints, layer, ix, router, from, parade);
+  }
+
+  // ---- T-3405, 1835: in by the south gate, past the guard house's corner, onto the parade.
+  {
+    const { footprints, layer, ix } = fort('1835');
+    const router = createRouter({ terrain: { ...flat, heightfield: { loaded: true, originE: 1000, originN: 20, widthM: 260, depthM: 260 } },
+      footprints, cell: 1, inflate: 0.1 });
+    const south = layer.gates.find((g) => g.id.endsWith(':s'));
+    rideIn('1835', footprints, layer, ix, router, { e: south.at[0], n: south.at[1] - 8 }, { e: 1151, n: 212 });
+  }
+
   // ---- the walls' own rule: a segment crossing
   ok(segmentsCross([0, -1], [0, 1], [-1, 0], [1, 0]) && !segmentsCross([0, 1], [0, 2], [-1, 0], [1, 0]), 'crossing is crossing');
 
@@ -240,7 +336,7 @@ try {
     ok(south.state === 'open' && keyEl.textContent === 'Close gate', 'open, it offers to close');
     ok(said.at(-1) === 'South gate open', `and the status line says so (${said.at(-1)})`);
   }
-  ok(Object.keys(FORT_GATES).length === 3, 'three stockades carry gates a visitor works');
+  ok(Object.keys(FORT_GATES).length === 4, 'three stockades and the officers\' garden carry gates a visitor works');
 } finally {
   WALK.speed = speedWas;
 }

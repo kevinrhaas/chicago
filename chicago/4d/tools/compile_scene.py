@@ -651,6 +651,9 @@ GROUND_GROUPS = [
     ("isthmus_1812", "the spit's neck"),
     ("north_lake_shore_1812", "the lake shore north of the spit"),
     ("south_lake_sand_hills_1812", "the sand hills south of Twelfth Street"),
+    ("twelfth_street_shore_join_1812", "the lake shore at Twelfth Street"),
+    ("battle_bank_1812", "the high sand bank of the battle"),
+    ("heald_small_elevation_1812", "Heald's small elevation"),
 ]
 
 

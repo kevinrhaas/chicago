@@ -149,6 +149,8 @@ export function createTransportLoop({
   const out = {
     id, name, personId: person_id,
     get at() { return [...lastPose.driverAt]; },
+    /** T-3404: the compass bearing the team faces (forward is +z of the vehicle root). */
+    get heading_deg() { return ((180 - lastPose.yaw * 180 / Math.PI) % 360 + 360) % 360; },
     get state() { return state; },
     get visible() { return visible && !disposed; },
     get disposed() { return disposed; },
