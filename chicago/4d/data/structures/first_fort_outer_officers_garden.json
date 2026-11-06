@@ -100,6 +100,11 @@
           "value": 1.5,
           "confidence": "reconstructed",
           "note": "Unattested. A walk's width."
+        },
+        "gate_kind": {
+          "value": "wicket",
+          "confidence": "reconstructed",
+          "note": "Unattested (T-3407). A garden's gate in a paling: two hewn posts and one leaf of the fence's own pales on two rails with a brace, hung on the west post and opening inward, which is how a five-foot paling was gated; the fort's heavy jambs, lintel and paired leaves are a stockade's. The leaf is hung by renderers/web/js/fort-gates.js so a visitor can open it with Interact. docs/LIBERTIES.md L-t3407-officers-garden."
         }
       }
     }
@@ -114,6 +119,6 @@
     ],
     "note": "Lettered 'Comm'g Officers Garden' south of the fort, eight beds in two rows. The Chicago Magazine of 1857 on the first fort: 'the garden on the south side'. Quaife: melons and other small fruit and vegetables."
   },
-  "research_note": "THE GARDEN SOUTH OF THE FIRST FORT (T-2062). It is the one part outside the stockade that states a scale of its own, '5o feete to the Inch', read at T-2062. So its SIZE is a measurement at that inferred scale, and its PLACE is the reconstruction. ONLY THE PALING IS BUILT. The eight beds and the walks are ground, and the flora layer has no cultivated zone for them, so the plot inside is the prairie the 1812 cover lays (as with the 1830 garrison garden).",
+  "research_note": "THE GARDEN SOUTH OF THE FIRST FORT (T-2062). It is the one part outside the stockade that states a scale of its own, '5o feete to the Inch', read at T-2062. So its SIZE is a measurement at that inferred scale, and its PLACE is the reconstruction. THE PALING IS THIS RECORD'S; THE BEDS AND CROPS ARE THE GARDENS LAYER'S (T-3407). The draught's ten beds and their walks, and what grew in them on 14 August 1812, are data/gardens/1812.json, written by tools/plant_gardens.py from this record's box and the draught's bed lines, and drawn by renderers/web/js/gardens.js; until T-3407 the plot inside was the bare sward. The gate is a wicket (gate_kind) whose leaf a visitor opens.",
   "review_required": false
 }

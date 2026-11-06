@@ -119,6 +119,11 @@ PICKET_HEAD_K = 1.06
 RIBBAND_HALF_T = 0.05
 RIBBAND_H = 0.16
 RIBBAND_AT = (0.85, 0.80)   # metres above the ground, and below the head
+#: T-3407 — a garden wicket's two posts: half their squared side, and how much taller
+#: than the pales they stand. Reconstructed (docs/LIBERTIES.md L-t3407-officers-garden);
+#: renderers/web/js/fort-gates.js reads the same two numbers to hang the leaf between them.
+WICKET_POST_HALF_M = 0.08
+WICKET_POST_RISE_M = 0.18
 
 
 def build(params: PalisadeParams, name: str):
@@ -357,6 +362,21 @@ def _gate(b: MeshBuilder, p: PalisadeParams, side: str, conf: float) -> None:
         ux, uy = 0.0, 1.0
     nx, ny = -uy, ux
     half = p.gate_width_m / 2.0
+    if p.gate_kind == "wicket":
+        # T-3407 — A GARDEN WICKET: two hewn posts standing in the cut, a hand taller
+        # than the pales, and nothing between them. The leaf is a paling of the
+        # fence's own pales on two rails, hung by the renderer on the west post so a
+        # visitor can open it (fort-gates.js WICKET_*); a baked shut leaf would be a
+        # second, immovable one. The posts are the pickets' own split timber, so they
+        # take its texture: the heavy jamb-and-lintel frame below, in the flat gate
+        # colour, was what stood in this garden's gateway until now, and read as a
+        # grey box round a black hole (the owner, 2026-11-06).
+        for s in (-1.0, 1.0):
+            jx = cx + ux * (half - WICKET_POST_HALF_M) * s
+            jy = cy + uy * (half - WICKET_POST_HALF_M) * s
+            _post(b, jx, jy, ux, uy, nx, ny, WICKET_POST_HALF_M, WICKET_POST_HALF_M,
+                  p.picket_height_m + WICKET_POST_RISE_M, conf, M_PICKET)
+        return
     jamb = 0.20
     head = p.picket_height_m * 0.86
 
