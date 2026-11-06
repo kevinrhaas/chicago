@@ -75,6 +75,13 @@
     "fit": "data/humans/variation/fits/glessner_john_j.json"
    }
   },
+  "glessner_williamson_martha_l": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_glessner_john_j.json",
+   "drawn_as": [
+    "data/humans/instances/1904/hi_glessner_williamson_martha_l_1904.json"
+   ]
+  },
   "pa1904_otis_f_r_c1900_hans_johnson": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_otis_f_r.json",

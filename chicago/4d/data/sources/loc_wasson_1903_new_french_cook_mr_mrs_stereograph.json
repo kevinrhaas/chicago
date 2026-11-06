@@ -1,0 +1,25 @@
+{
+ "id": "loc_wasson_1903_new_french_cook_mr_mrs_stereograph",
+ "type": "photograph",
+ "citation": "C. L. Wasson, Mr. and Mrs. [unintelligable]'s new french cook (LOC's transcription of the caption), stereograph, copyright 1903 (the date in the handwritten caption). Library of Congress, Prints and Photographs Division, Stereograph Cards, LC-DIG-stereo-1s44451 (item 2022631776).",
+ "date": "1903",
+ "describes_date": "1903",
+ "repository": "Library of Congress, Prints and Photographs Division. Master TIFF 1s44451u.tif (5881 x 3050), read at tile.loc.gov; crops are kept in kevinrhaas/chicago-evidence evidence/people-references-2026-11-06/working_woman_1904/.",
+ "url": "https://www.loc.gov/item/2022631776/",
+ "locator": "The left-hand frame: the same young woman kneading dough at the kitchen table, facing the camera at about three metres.",
+ "tier": 1,
+ "rights_status": "no_known_restrictions",
+ "rights_note": "LOC rights advisory: 'No known restrictions on publication.' Published 1903. Used only as a reference picture people are judged against and as the cut of the 1904 working dress (T-3423); nothing is traced or sampled from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-06 (T-3423) from the master TIFF. Facing the camera: the pale shirtwaist with its white standing collar and dark tie, sleeves pushed up; the ruffled bib apron, dotted, covering the chest and the skirt front; the dark skirt flounced in rows below the table; low dark shoes with a heel. The same studio kitchen set as the card above. A staged studio photograph, not of Chicago or of any named servant.",
+ "note": "One of the 1904 working-woman reference set's photographs (data/people_match/reference_sets/working_woman_1904.json).",
+ "what_it_supplies": [
+  "the front of a shirtwaist, collar and bib apron at a few metres",
+  "how far a bib reaches up the chest and across it"
+ ],
+ "what_it_does_not_supply": [
+  "colour (a monochrome print)",
+  "anything about Chicago, the Glessner household or Martha Williamson; no likeness is asserted"
+ ]
+}

@@ -541,12 +541,12 @@
             16.0
           ],
           [
-            0.32,
-            16.25
+            0.38,
+            16.27
           ],
           [
-            0.0,
-            16.4
+            0,
+            16.3
           ]
         ],
         "foot_m": 11.5,
@@ -566,8 +566,10 @@
           "proud_m": 0.05
         },
         "finial": {
-          "height_m": 0.45,
-          "radius_m": 0.28
+          "form": "crest",
+          "height_m": 0.32,
+          "radius_m": 0.3,
+          "foot_m": 0.22
         },
         "ledge_m": 11.97
       },
@@ -576,7 +578,7 @@
         "chicagology_2009_prairie_meyer_photo",
         "monroe_1896_john_wellborn_root_meyer_plate"
       ],
-      "note": "The ogee gable, the front carried up past the side walls into a concave-sided spire, read off the photograph at 100 px a metre: its coped outline's half-width at ten heights (the average of its two sides, about 1.86 m at 12.65 m, 1.24 m at 13.65 m, 0.83 m at 14.65 m, 0.51 m at 15.65 m), widened about 0.15 m through its middle where the render laid over the print through its camera stood inside the print's outline on both sides, rising to a carved crest at about 16.4 m; it leaves the front's full width at the kneeler stone (11.4 m). Its two attic lights (a pair on a mullion, 0.62 m across, 13.75-14.57 m) under the apex. The north side's flare stops on the kneeler at 11.4 m where the south side runs on down to about 10.3 m over the party wall; the kit draws both sides alike (liberty). The crest is drawn as the kit's turned finial; its carving, and the carved pendant over the paired light, are T-1914's."
+      "note": "The ogee gable, the front carried up past the side walls into a concave-sided spire, read off the photograph at 100 px a metre: its coped outline's half-width at ten heights (the average of its two sides, about 1.86 m at 12.65 m, 1.24 m at 13.65 m, 0.83 m at 14.65 m, 0.51 m at 15.65 m), widened about 0.15 m through its middle where the render laid over the print through its camera stood inside the print's outline on both sides, rising to a flat top about 0.8 m across at about 16.3 m (the print's about 0.85 m) (the print's left shoulder at y 97 px, 16.30 m), on which the carved crest stands; it leaves the front's full width at the kneeler stone (11.4 m). Its two attic lights (a pair on a mullion, 0.62 m across, 13.75-14.57 m) under the apex. The north side's flare stops on the kneeler at 11.4 m where the south side runs on down to about 10.3 m over the party wall; the kit draws both sides alike (liberty). T-3365: the crest is the print's carved block, not a turned finial: read at 6x with its contrast stretched, a stone about 0.6 m across (x 765-826 px) standing from the coping's inner line at about 16.07 m (y 120 px) to about 16.39 m (y 88 px), its top scrolled in two lobes either side of a boss between; drawn as K01's crest form, its three lobes the envelope of its top and each lobe's eye a boss (the carving's foliage itself is not drawn: liberty). The carved pendant over the paired light stays T-1914's."
     },
     "roof_covering": {
       "value": {
@@ -684,7 +686,17 @@
               "proud_m": 0.06,
               "gap_m": 0.08,
               "capital_m": 0.2,
-              "abacus_m": 0.06
+              "abacus_m": 0.06,
+              "pinnacles": {
+                "shaft_m": 0.12,
+                "shaft_to_m": 5.25,
+                "top_m": 5.6,
+                "crown": {
+                  "width_m": 0.23,
+                  "stem_m": 0.08,
+                  "top_m": 5.7
+                }
+              }
             }
           },
           "fanlight_transom": {
@@ -718,7 +730,7 @@
       "sources": [
         "chicagology_2009_prairie_meyer_photo"
       ],
-      "note": "A panelled door up a straight stoop between stone cheek walls, as the photograph shows. T-1914 reads the entrance off the photograph at 100 px a metre from the north corner and the wall's foot: one dark leaf, 1.08 m across (x 957-1065 px, s 5.68-6.76 m), from the principal floor to a transom bar at about 3.8 m (y 1345 px); over the bar a fanlight of two lights parted by a mullion (the print's Y-tracery) in an elliptical head springing at about 4.05 m and rising to its crown at about 4.3 m (y 1295 px), so a rise of about 0.25 m, 0.23 of the span; a moulded stone ring round the head and down the jambs, about 0.23 m broad to its outer edge at about 4.53 m (y 1272 px); and a stone pilaster each side, about 0.25 m broad (x 917-942 and 1110-1135 px), under a capital. Built as K07's arched entrance in the record's elliptical head (entrance_kit.arch), hung with one leaf under a two-light fanlight on its bar 0.25 m under the spring (fanlight_transom), the leaf in a dark varnish as the print's reads near black. The pilasters' pinnacles over the carved panels, and the third pinnacle over the crown, are not built. The keystone is the kit's smallest: the print shows none under the moulding."
+      "note": "A panelled door up a straight stoop between stone cheek walls, as the photograph shows. T-1914 reads the entrance off the photograph at 100 px a metre from the north corner and the wall's foot: one dark leaf, 1.08 m across (x 957-1065 px, s 5.68-6.76 m), from the principal floor to a transom bar at about 3.8 m (y 1345 px); over the bar a fanlight of two lights parted by a mullion (the print's Y-tracery) in an elliptical head springing at about 4.05 m and rising to its crown at about 4.3 m (y 1295 px), so a rise of about 0.25 m, 0.23 of the span; a moulded stone ring round the head and down the jambs, about 0.23 m broad to its outer edge at about 4.53 m (y 1272 px); and a stone pilaster each side, about 0.25 m broad (x 917-942 and 1110-1135 px), under a capital. Built as K07's arched entrance in the record's elliptical head (entrance_kit.arch), hung with one leaf under a two-light fanlight on its bar 0.25 m under the spring (fanlight_transom), the leaf in a dark varnish as the print's reads near black. T-3365, read at 3x with its contrast stretched: each pilaster runs on over its capital as a slender shaft (about 0.12 m) up through the carved panel to the thin course at about 5.25 m (y 1200 px), under a small spire to about 5.6 m (y 1163-1167 px); over the arch's crown a stem (about 0.08 m) rises to the same course under a bud about 0.23 m across (x 1010-1033 px) to about 5.7 m (y 1155 px). Built as K01's door pinnacles (arch.pilasters.pinnacles): plain shafts, caps and four-sided spires, the crown a turned bud; the print's crockets and the shafts' tapering lower stage are not modelled (liberty). The keystone is the kit's smallest: the print shows none under the moulding."
     },
     "boundary": {
       "value": {

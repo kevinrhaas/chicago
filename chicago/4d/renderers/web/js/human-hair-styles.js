@@ -27,6 +27,13 @@ export const HAIR_CUTS = Object.freeze({
     knot_cm: Object.freeze({ up: 5, back: 12 }),
     lift_mm: Object.freeze({ root: .5, tip: 1.2 }), density: 1.3, curl: .03, hang: false,
   }),
+  // A woman's hair of the 1900s (T-3423): drawn up from the face all round, full over the
+  // brow and temples, to a knot high on the crown, as the 1903 Wasson stereographs show.
+  swept_up_knot_1904: Object.freeze({
+    flow: 'swept_up', part_cm: 0, lengths_cm: Object.freeze({ top: 8, side: 8, back: 7 }),
+    knot_cm: Object.freeze({ up: 9, back: 9 }),
+    lift_mm: Object.freeze({ root: 2.5, tip: 4 }), density: 1.3, curl: .05, hang: false,
+  }),
   // Of the 1830s: fuller all round, brushed forward from the crown toward the brow and
   // temples, over the tops of the ears.
   brushed_forward_1835: Object.freeze({
@@ -65,6 +72,10 @@ export const PEOPLE_HAIR = Object.freeze({
   pa1904_otis_f_r_c1900_hans_johnson: Object.freeze({
     cut: 'short_side_part_1904', facial: Object.freeze([]), colour: 'dark_brown', grade: 'reconstructed',
     basis: 'Clean-shaven, with short hair showing below the hat, as the liveried coachmen of the people-match reference set are (coachman_1904: Rau 1902, Griffith 1905); the cut and the colour are reconstructed. No picture of Hans Johnson is known.',
+  }),
+  glessner_williamson_martha_l: Object.freeze({
+    cut: 'swept_up_knot_1904', facial: Object.freeze([]), colour: 'dark_brown', grade: 'reconstructed',
+    basis: 'A reconstructed choice: a working woman of 1904 with her hair drawn up from the face to a knot on the crown, as the 1903 Wasson stereographs of a cook and a maid show. No picture of Martha Williamson has been read.',
   }),
   rc_flynn_mary: Object.freeze({
     cut: 'centre_part_knot_1835', facial: Object.freeze([]), colour: 'dark_brown', grade: 'reconstructed',

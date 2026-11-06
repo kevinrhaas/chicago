@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1028,
+  "count": 1029,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -61475,6 +61475,26 @@
         {
           "label": "Build",
           "text": "MakeHuman's female macro targets (pinned in the SOURCE variation data) give her seeded weight, muscle and age under “Every person drawn gets their own height, build and face”, each sharing its male twin's draw. Her figure is not a likeness and her dress is not her outfit; the photo comparison and the 1904 woman remain open under later work."
+        },
+        {
+          "label": "The 1904 working dress supplement, 2026-11-06",
+          "text": "a second outfit of the same dress components, the adult dress 1904 data, stood in the 1904 town as Martha (Mattie) Williamson, the Glessners' cook, in the Glessner courtyard (hi glessner williamson martha l 1904). Her place in the household is attested (the museum's account of her); everything drawn of her is reconstructed."
+        },
+        {
+          "label": "Cut",
+          "text": "a shirtwaist bodice whose neck cut rises 3.2 cm up the neck as a standing collar, with a white band over its top 2.2 cm; a dark skirt; the front apron with a bib laid over the bodice front from the waist to 21.5 cm above it, 23.6 cm wide at the bottom and 19.6 cm at the top. These follow the silhouette of the working dress in three 1903 C. L. Wasson studio stereographs (LOC, no known restrictions; loc wasson 1903_*), not a pattern: the bib's straps, the tie, the cap, the flounces and every fold are left out."
+        },
+        {
+          "label": "Colour",
+          "text": "the stereographs are monochrome, so the pale blue-grey shirtwaist, the near-black skirt and the white apron are chosen."
+        },
+        {
+          "label": "Hair",
+          "text": "the bun sits 10 cm over the head bone (5 cm in 1835) and the strand hair is combed up from the face to it, because the stereographs show hair drawn up to a knot on the crown."
+        },
+        {
+          "label": "Body",
+          "text": "the same female base as Mary Flynn; no birth year is recorded for her, so the variation kit draws her age, and her face, height, build and complexion are not hers."
         }
       ],
       "work_refs": [
@@ -69319,6 +69339,33 @@
       "work_refs": [
         "T-3354",
         "T-3338"
+      ]
+    },
+    {
+      "id": "L-k01-2009-meyer-crest-pinnacles-3365",
+      "title": "2009 Prairie's carved crest on a flat-topped gable, and the door's three pinnacles, read off its photograph",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-06",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Read off the undated Chicagology photograph ([2009 and 2011 S. Prairie Ave.] Photograph of the Max A. Meyer house's front…, rights check required: forms, places and sizes only) through its solved camera at 100 px a metre on the front's plane, the ogee gable now ends in a flat top about 0.8 m across at 16.3 m and carries the print's carved block on it in place of the kit's turned finial (shaped gable finial: \"crest\"): a stone 0.6 m across from about 16.08 to 16.40 m, its top the envelope of three scrolled lobes, each lobe's eye a boss. The door's two pilasters run on over their capitals as 0.12 m shafts through the carved panel to the thin course at 5.25 m, each under a cap and a four-sided spire to 5.6 m, and over the arch's crown a 0.08 m stem rises to the same line under a turned bud 0.23 m across to 5.7 m (entrance kit arch pilasters pinnacles). **What is read, not invented.** The flat top and its height; the crest's width, foot and top; that its top is scrolled; the three pinnacles' places, the shafts' breadth, the course they pass and their tops. **What is invented.** The crest's depth (through the slab, 0.06 m before the coping) and its three even lobes, where the print's foliage is unequal (the left scroll larger); the pinnacles' plain square shafts, caps and spires, where the print's spires are crocketed and the shafts taper in a lower stage beside the panel; the bud's turned profile. **What is not built.** The pilasters' capitals stay at the keystone's top (4.53 m), where the print puts them at the arch's springing (about 4.0 m). The near stack's place and corbelled cap, the base's top, the oriel's carved apron, the windows' hoods and the gable's pendant, and the gable's south foot are still as “2009 Prairie, the Max A. Meyer house, refined from the district draft onto K01: its ogee gable, oriel and storeys read off its photograph” and “2009 Prairie's entrance, the carved panels over it and the oriel's frieze, read off its photograph” left them."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a camera solved on Monroe's 1896 plate (Harriet Monroe, John Wellborn Root (Boston: Houghton, Mifflin, 1896), p. 155…) would check the crest and the pinnacles from a second picture."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-06 (T-3365)."
+        }
+      ],
+      "work_refs": [
+        "T-3365",
+        "T-1914"
       ]
     },
     {
