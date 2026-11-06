@@ -300,7 +300,7 @@ const COVERAGE = [
   ['renderers/web/js/apps/people-view.js', [14], 'the People app as a directory: search, household and person cards (T-3430)'],
   ['renderers/web/js/people-directory.js', [14], 'the People directory\u2019s households and search (T-3430)'],
   ['renderers/web/js/apps/former-residents.js', [14], 'Inspect\'s People tab: former residents of a 1904 house (T-3266)'],
-  ['renderers/web/js/inspect-sources.js', [4, 14], 'Inspect\'s Sources tab: facts by grade, Liberties, folded citations (T-2644)'],
+  ['renderers/web/js/inspect-sources.js', [4, 14], 'Inspect\'s Details and Sources tabs: facts by grade, by source (T-2644, T-3435)'],
   // T-2645: the Photos tab. Part 14 reads it on Glessner House (pictures, All N, From this
   // spot); part 4 opens every tab of an 1835 building, Photos included.
   ['renderers/web/js/photos-tab.js', [4, 14], 'Inspect\'s Photos tab (T-2645)'],
@@ -310,6 +310,8 @@ const COVERAGE = [
   // T-2641: Inspect's Design tab; part 14 reads Glessner's style card, hotspots and Show me,
   // part 4 an 1835 building with no record or module, which falls back to its own sidecar.
   ['renderers/web/js/inspect-design.js', [4, 14], 'Inspect\'s Design tab: the style card, On this house, Compare styles (T-2641)'],
+  // T-3435: the style guide every Design tab is written from; parts 4 (1835) and 14 (Glessner).
+  ['renderers/web/js/style-guide.js', [4, 14], 'Inspect\'s Design tab: the written style guide (T-3435)'],
   ['renderers/web/js/enclosures.js', [1], 'the enclosure layer (T-0038)'],
   ['renderers/web/js/yards.js', [1], "the town's lot-line yard fences (T-0068)"],
   ['renderers/web/js/signage.js', [1], 'the business signs (T-0039, T-0066)'],

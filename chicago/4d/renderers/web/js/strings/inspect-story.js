@@ -1,10 +1,10 @@
-/** T-2643 — Inspect's Story tab (design doc "Field Navigator Mk II" §08 "Story", §12): the
+/** T-2643 — Inspect's Timeline tab (Story until T-3435) (design doc "Field Navigator Mk II" §08 "Story", §12): the
  * timeline from design to today, with BUILT, YOU ARE HERE and TODAY marked on it. The kickers
  * are written in sentence case and drawn in capitals by the stylesheet. */
 import { register } from './index.js';
 
 export default register('inspect-story', {
-  title: 'Story',
+  title: 'Timeline',
   lead: 'From design to today. Your visit is {date}.',
   'lead.year': 'From design to today. Your visit is in {year}.',
   built: 'Built',

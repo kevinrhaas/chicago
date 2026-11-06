@@ -10176,14 +10176,18 @@ for (const [label, viewport, touch] of [
       // The tabs a visitor sees: Research is drawn for every building but shows only with
       // Settings › Expert research on (T-3022), checked below.
       const out = { tabs: [...root().querySelectorAll('.insp-tab')].filter((b) => b.checkVisibility()).map((b) => b.textContent.trim()), panes: {} };
-      for (const k of ['overview', 'people', 'design', 'story', 'photos', 'sources']) {
+      for (const k of ['overview', 'people', 'design', 'story', 'photos', 'details', 'sources']) {
         const r = await tab(k);
         out.panes[k] = { shown: r.shown, filled: r.filled, selected: r.selected, len: r.text.length };
       }
       const people = await tab('people');
       out.people = { households: (people.html.match(/class="res-hh"/g) ?? []).length,
         link: !!root().querySelector('[data-insp-pane="people"] [data-person]'), hogan: /John S\. C\. Hogan/.test(people.text) };
-      out.plumbing = /\bdata\/residents\/|[a-z]+_[a-z]+\.json/.test((await tab('sources')).text);
+      out.plumbing = /\bdata\/residents\/|[a-z]+_[a-z]+\.json/.test((await tab('sources')).text + (await tab('details')).text);
+      // T-3435: the tabs ride ONE row of icons over small labels, at a phone's width too.
+      const tabTops = [...root().querySelectorAll('.insp-tab')].filter((b) => b.checkVisibility()).map((b) => Math.round(b.getBoundingClientRect().top));
+      out.oneRow = tabTops.length > 0 && new Set(tabTops).size === 1;
+      out.icons = [...root().querySelectorAll('.insp-tab')].every((b) => !!b.querySelector('svg.insp-tab-icon'));
       await open('mckee_log_house');
       const held = await tab('people');
       out.held = /Historical review context\./.test(held.text);
@@ -10210,8 +10214,9 @@ for (const [label, viewport, touch] of [
       await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
       return out;
     });
-    check(`${label}: Inspect's six tabs open over the card's content, People lists the household and a held record's note (T-2639)`,
-      JSON.stringify(inspectTabs1835.tabs) === JSON.stringify(['Overview', 'People', 'Design', 'Story', 'Photos', 'Sources'])
+    check(`${label}: Inspect's seven tabs ride one row of icons and open over the card's content, People lists the household and a held record's note (T-2639, T-3435)`,
+      JSON.stringify(inspectTabs1835.tabs) === JSON.stringify(['Overview', 'People', 'Design', 'Timeline', 'Photos', 'Details', 'Sources'])
+      && inspectTabs1835.oneRow && inspectTabs1835.icons
       && Object.values(inspectTabs1835.panes).every((p) => p.shown && p.filled === 'yes' && p.selected === 'true' && p.len > 0)
       && inspectTabs1835.people.households > 0 && inspectTabs1835.people.hogan && inspectTabs1835.people.link
       && inspectTabs1835.held && !inspectTabs1835.plumbing,
@@ -10261,9 +10266,9 @@ for (const [label, viewport, touch] of [
     }
     // <<< T-2643
     // >>> T-2641: Inspect's Design tab on an 1835 building with no summary record and no style
-    // module. It says in one line that no style guide has been written (no card is composed) and
-    // lists the building's own recorded features as numbered hotspots, each with its grade dot,
-    // where the attribute table was; with no camera named, none is a button. Nothing overflows.
+    // module. T-3435: it is a style guide written from the building's own record (no style card is
+    // composed): a name, a lead, Shape · Walls · Roof · Windows and doors · Grounds, each line with
+    // its grade dot; with no camera named, nothing is a Show me button. Nothing overflows.
     const design1835 = await page.evaluate(async (id) => {
       const a = window.__chicago4d;
       const wait = (f, n = 150) => new Promise(async (res) => { for (let i = 0; i < n && !f(); i++) await new Promise((r) => setTimeout(r, 100)); res(f()); });
@@ -10276,23 +10281,27 @@ for (const [label, viewport, touch] of [
       const pane = () => root().querySelector('[data-insp-pane="design"]');
       await wait(() => ['yes', 'failed'].includes(pane()?.dataset.filled));
       const p = pane();
-      const items = [...p.querySelectorAll('.insp-hot')];
+      const lines = [...p.querySelectorAll('.sg-line, .sg-sentence')];
       const out = { filled: p.dataset.filled, shown: p.checkVisibility(),
-        none: p.querySelector('.insp-style-none')?.textContent.trim() ?? null, card: !!p.querySelector('.insp-style'),
-        source: p.querySelector('.insp-hot-sec')?.dataset.source ?? null,
-        heading: p.querySelector('.insp-hot-sec .insp-h')?.textContent.trim() ?? '',
-        items: items.length, numbered: items.every((li, i) => li.querySelector('.insp-hot-n')?.textContent === String(i + 1)),
-        undotted: items.filter((li) => li.querySelectorAll('.fact-dot').length !== 1).length,
+        name: p.querySelector('.sg-name')?.textContent.trim() ?? '', card: !!p.querySelector('.insp-style'),
+        parts: [...p.querySelectorAll('.sg-part')].map((x) => x.dataset.part),
+        lead: p.querySelectorAll('.sg-sentence').length, lines: lines.length,
+        undotted: lines.filter((li) => li.querySelectorAll('.fact-dot').length !== 1).length,
         buttons: p.querySelectorAll('button.insp-hot-row').length, table: !!p.querySelector('table'),
+        go: [...p.querySelectorAll('[data-insp-go]')].map((b) => b.dataset.inspGo),
         plumbing: /[a-z0-9]+_[a-z0-9]+|\.json\b|\btier\b|\bticket\b/i.test(p.textContent),
         overflow: p.scrollWidth > p.clientWidth + 1 || document.documentElement.scrollWidth > innerWidth };
+      // Its way on to Details opens that tab.
+      p.querySelector('[data-insp-go="details"]')?.click();
+      out.toDetails = root().querySelector('.insp-tab[aria-selected="true"]')?.dataset.inspTab ?? null;
       await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
       return out;
     }, 'hogan_store');
-    check(`${label}: Inspect's Design tab on an 1835 building says no style guide is written and numbers its own recorded features, each with its grade dot, in place of the attribute table (T-2641)`,
-      design1835.filled === 'yes' && design1835.shown && design1835.none === 'No style guide has been written for this building yet.'
-      && !design1835.card && design1835.source === 'sidecar' && design1835.heading === 'On this house'
-      && design1835.items > 1 && design1835.numbered && design1835.undotted === 0 && design1835.buttons === 0
+    check(`${label}: Inspect's Design tab on an 1835 building is a style guide written from its own record: a name, a lead, the five parts, each line with its grade dot (T-2641, T-3435)`,
+      design1835.filled === 'yes' && design1835.shown && design1835.name.length > 3
+      && !design1835.card && JSON.stringify(design1835.parts) === JSON.stringify(['shape', 'walls', 'roof', 'openings', 'grounds'])
+      && design1835.lead >= 1 && design1835.lines > 3 && design1835.undotted === 0 && design1835.buttons === 0
+      && JSON.stringify(design1835.go) === JSON.stringify(['details', 'sources']) && design1835.toDetails === 'details'
       && !design1835.table && !design1835.plumbing && !design1835.overflow,
       JSON.stringify(design1835).slice(0, 700));
     // <<< T-2641
@@ -20756,10 +20765,11 @@ for (const [label, viewport, touch] of [
           && peopleDir1904.person.name === 'Robert W. Roloson' && peopleDir1904.person.back === 'The Roloson household'
           && peopleDir1904.person.go && peopleDir1904.backToHousehold && peopleDir1904.backToList,
           JSON.stringify(peopleDir1904));
-        // >>> T-2644: Glessner's Sources tab groups every fact by grade with real counts (the
-        // same count the Overview's Confidence meter shows), a Liberties section with every
-        // liberty recorded against the house, each fact folded with its sources named by human
-        // titles and its full citation folded again beneath; no source id or tier label shows.
+        // >>> T-2644: Glessner's Details tab (Sources until T-3435) groups every fact by grade with
+        // real counts (the same count the Overview's Confidence meter shows, and the meter opens
+        // it), a Liberties section with every liberty recorded against the house, each fact folded
+        // with its sources named by human titles and its full citation folded again beneath; no
+        // source id or tier label shows. T-3435: Sources lists the same facts by source.
         const inspectSources = await page.evaluate(async (id) => {
           const a = window.__chicago4d;
           const wait = (f, n = 100) => new Promise(async (res) => { for (let i = 0; i < n && !f(); i++) await new Promise((r) => setTimeout(r, 100)); res(f()); });
@@ -20769,9 +20779,10 @@ for (const [label, viewport, touch] of [
           a.navigator.open(2);
           await wait(() => root()?.dataset.structure === id && !!root().querySelector('.insp-meter'));
           const meter = root().querySelector('.insp-meter')?.getAttribute('aria-label') ?? '';
-          root().querySelector('[data-insp-tab="sources"]')?.click();
-          await wait(() => root().querySelector('[data-insp-pane="sources"]')?.dataset.filled === 'yes');
-          const pane = root().querySelector('[data-insp-pane="sources"]');
+          root().querySelector('.insp-meter')?.click();
+          const meterOpens = root().querySelector('.insp-tab[aria-selected="true"]')?.dataset.inspTab ?? null;
+          await wait(() => root().querySelector('[data-insp-pane="details"]')?.dataset.filled === 'yes');
+          const pane = root().querySelector('[data-insp-pane="details"]');
           const pg = pane?.querySelector('.src-page');
           const count = (g) => Number(pane?.querySelector(`.src-grade[data-grade="${g}"] .src-count`)?.textContent ?? NaN);
           const rows = (g) => pane?.querySelectorAll(`.src-grade[data-grade="${g}"] .src-fact`).length ?? 0;
@@ -20792,7 +20803,20 @@ for (const [label, viewport, touch] of [
           const citeRows = cites?.querySelectorAll('.cites li').length ?? 0;
           const opened = pane?.innerText ?? '';
           const r = pane?.getBoundingClientRect();
-          const out = { lead: pane?.querySelector('.src-lead')?.textContent.trim() ?? '', facts: Number(pg?.dataset.facts ?? NaN),
+          // T-3435: Sources, by source — a row per source, each opened to the facts it gave.
+          root().querySelector('[data-insp-tab="sources"]')?.click();
+          await wait(() => root().querySelector('[data-insp-pane="sources"]')?.dataset.filled === 'yes');
+          const bp = root().querySelector('[data-insp-pane="sources"]');
+          const srcRows = [...(bp?.querySelectorAll('.src-source') ?? [])];
+          const srcShutAll = srcRows.every((d) => !d.open);
+          srcRows[0]?.querySelector('summary')?.click();
+          const bySource = { rows: srcRows.length, shut: srcShutAll, lead: bp?.querySelector('.src-lead')?.textContent.trim() ?? '',
+            firstGave: srcRows[0]?.querySelectorAll('.src-gave-row').length ?? 0,
+            firstN: srcRows[0]?.querySelector('.src-n')?.textContent.trim() ?? '',
+            idShown: [...ids].filter((x) => (bp?.innerText ?? '').includes(x)).slice(0, 3),
+            full: !!bp?.querySelector('[data-insp-full]') };
+          srcRows[0]?.removeAttribute('open');
+          const out = { meterOpens, bySource, lead: pane?.querySelector('.src-lead')?.textContent.trim() ?? '', facts: Number(pg?.dataset.facts ?? NaN),
             counts: ['attested', 'inferred', 'reconstructed'].map(count), rows: ['attested', 'inferred', 'reconstructed'].map(rows),
             allRows: pane?.querySelectorAll('.src-fact').length ?? 0, folded,
             meter, libs, libRows: pane?.querySelectorAll('.src-liberties:not(.src-questions) .src-lib').length ?? 0,
@@ -20809,16 +20833,21 @@ for (const [label, viewport, touch] of [
         {
           const s = inspectSources;
           const total = s.counts.reduce((x, y) => x + y, 0);
-          check(`${label}: Glessner's Sources tab groups every fact by grade with real counts, Liberties by name, and folded citations, with no source id or tier label (T-2644)`,
-            s.facts > 30 && total === s.facts && s.allRows === s.facts && JSON.stringify(s.rows) === JSON.stringify(s.counts)
+          check(`${label}: Glessner's Details tab groups every fact by grade with real counts, Liberties by name, and folded citations, with no source id or tier label; the meter opens it (T-2644, T-3435)`,
+            s.meterOpens === 'details' && s.facts > 30 && total === s.facts && s.allRows === s.facts && JSON.stringify(s.rows) === JSON.stringify(s.counts)
             && s.counts.every((n) => n > 0) && s.folded === 0
-            && s.lead === `${s.facts} facts. ${s.counts[0]} Attested, ${s.counts[1]} Inferred, ${s.counts[2]} Reconstructed. Tap any one to see its sources.`
+            && s.lead === `${s.facts} facts. ${s.counts[0]} Attested, ${s.counts[1]} Inferred, ${s.counts[2]} Reconstructed. Tap any one to see why, and its sources.`
             && new RegExp(`^${s.facts} facts`).test(s.meter)
             && s.libs > 0 && s.libRows === s.libs && /^Liberties/.test(s.libHead)
             && s.titles.length > 0 && s.titles.every((x) => x.length > 3) && s.whens.every((w) => ['from the time', 'first-hand', 'a witness remembering', 'gathered from witnesses', "a historian's account", 'a modern reconstruction', 'a popular map'].includes(w))
             && s.citesShut && s.citeRows > 0
             && s.idShown.length === 0 && !s.tierShown && !s.plumbing && !s.overflow,
             JSON.stringify(s).slice(0, 700));
+          const b = s.bySource;
+          check(`${label}: Glessner's Sources tab lists its sources, most-used first, each folded and opened to the facts it gave, with no source id (T-3435)`,
+            b.rows > 5 && b.shut && new RegExp(`^${b.rows} sources stand behind this building`).test(b.lead)
+            && b.firstGave > 1 && b.firstN === `${b.firstGave} facts` && b.idShown.length === 0 && b.full,
+            JSON.stringify(b));
         }
         // <<< T-2644
         // >>> T-2643 (QA-09): Glessner's Story runs from design (1885) to today, BUILT at 1887 and
@@ -20943,6 +20972,7 @@ for (const [label, viewport, touch] of [
             cuesDotted: [...p.querySelectorAll('.insp-cue, .insp-compare-item, .insp-style-desc')].every((n) => n.querySelector('.fact-dot')),
             compare: p.querySelectorAll('.insp-compare-item').length, wantCompare: (mod.compare ?? []).length,
             heads: [...p.querySelectorAll('.insp-h')].map((n) => n.textContent.trim()),
+            parts: [...p.querySelectorAll('.sg-part')].map((n) => n.dataset.part), guideName: p.querySelector('.sg-name')?.textContent.trim() ?? '',
             items: items.length, wantItems: (rec.onThisHouse ?? []).length,
             numbered: items.every((li, i) => li.querySelector('.insp-hot-n')?.textContent === String(i + 1)),
             undotted: items.filter((li) => li.querySelectorAll('.fact-dot').length !== 1).length,
@@ -20975,10 +21005,11 @@ for (const [label, viewport, touch] of [
         {
           const d = design1904;
           const nearYaw = (x, y) => Math.abs(((x - y + 540) % 360) - 180) <= 2;
-          check(`${label}: Glessner's Design tab shows the Richardsonian Romanesque card, numbered On this house hotspots each with its grade dot and no attribute table, and Compare styles; a tap turns the camera there (T-2641)`,
+          check(`${label}: Glessner's Design tab is its style guide: the Richardsonian Romanesque head and card, numbered Look for items each with its grade dot, the five parts, and Compare styles; a tap turns the camera there (T-2641, T-3435)`,
             d.filled === 'yes' && d.style === 'richardsonian_romanesque' && d.name === 'Richardsonian Romanesque'
             && d.cues === d.wantCues && d.cues >= 1 && d.cues <= 4 && d.compare === d.wantCompare && d.compare >= 1 && d.cuesDotted
-            && JSON.stringify(d.heads) === JSON.stringify(['How to spot it', 'On this house · tap to look', 'Compare styles'])
+            && JSON.stringify(d.heads) === JSON.stringify(['Look for · tap to see it', 'How to spot it', 'Compare styles'])
+            && JSON.stringify(d.parts) === JSON.stringify(['shape', 'walls', 'roof', 'openings', 'grounds']) && d.guideName === 'Richardsonian Romanesque'
             && d.items === d.wantItems && d.items >= 3 && d.numbered && d.undotted === 0 && d.liberty && !d.table
             && d.buttons === d.wantButtons && d.plate === d.plateWanted
             && d.turn && nearYaw(d.turn.yaw, d.turn.want.yaw) && Math.abs(d.turn.pitch - d.turn.want.pitch) <= 2
