@@ -12699,7 +12699,7 @@ for (const [label, viewport, touch] of [
 
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
     const brightOff = await page.evaluate((g) => window.__chicago4d.capture(g), BRIGHT_AID_GRID);
-    const brightSet = await page.evaluate(() => window.__chicago4d.setBrightness(1));
+    const brightSet = await page.evaluate(() => window.__chicago4d.setBrightness(2));
     const brightOn = await page.evaluate((g) => window.__chicago4d.capture(g), BRIGHT_AID_GRID);
     const exposureOn = await page.evaluate(() => window.__chicago4d.exposure);
     const dBright = signatureDistance(brightOff, brightOn);
@@ -12714,8 +12714,10 @@ for (const [label, viewport, touch] of [
     const exposureRestored = await page.evaluate(() => window.__chicago4d.exposure);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
 
+    // T-3428: the top is two stops, of which the exposure takes half (world.js
+    // § BASE_EXPOSURE) — so the exposure at the top is still the old one-stop 2x.
     check(`${label}: raising the brightness aid reaches the render`,
-      brightSet === 1 && brightClamped === 1
+      brightSet === 2 && brightClamped === 2
       && Math.abs(exposureOn - BASE_EXPOSURE * 2) < 1e-6
       && dBright.worst >= BRIGHT_AID_MIN_WORST && dBright.mean >= BRIGHT_AID_MIN_MEAN,
       `set to ${brightSet} stop (9 clamps to ${brightClamped}), exposure ${exposureOn}: `
@@ -12727,7 +12729,7 @@ for (const [label, viewport, touch] of [
       `brightness ${brightRestored} stops, exposure ${exposureRestored}, `
       + `residual mean ${dBrightBack.mean?.toFixed(2)}, worst-cell delta `
       + `${dBrightBack.worst}`);
-    console.log(`        brightness aid: +1 stop delta mean ${dBright.mean?.toFixed(2)} / worst `
+    console.log(`        brightness aid: 4x delta mean ${dBright.mean?.toFixed(2)} / worst `
       + `${dBright.worst} at ${BRIGHT_AID_GRID}²; restored residual mean `
       + `${dBrightBack.mean?.toFixed(2)} / worst ${dBrightBack.worst}`);
 
