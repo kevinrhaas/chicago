@@ -1,7 +1,0 @@
-{
-  "title": "Switching to Light no longer logs a hidden error",
-  "kind": "fix",
-  "items": [
-    "Dropping the town to the Light setting used to log a background error each time the carriages were cleared away, which turned the walkthrough's own health check red. The fix is now held by a test, so it cannot quietly come back."
-  ]
-}
