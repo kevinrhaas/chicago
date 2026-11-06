@@ -45861,6 +45861,24 @@
           "domain": "structure",
           "structure": "lees_place_haystack_1812_a",
           "phase": "lees_place_1812",
+          "aspect": "form.lean_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "lees_place_haystack_1812_a",
+          "phase": "lees_place_1812",
+          "aspect": "form.rider_poles"
+        },
+        {
+          "domain": "structure",
+          "structure": "lees_place_haystack_1812_a",
+          "phase": "lees_place_1812",
+          "aspect": "form.shape"
+        },
+        {
+          "domain": "structure",
+          "structure": "lees_place_haystack_1812_a",
+          "phase": "lees_place_1812",
           "aspect": "form.stack_pole"
         },
         {
@@ -45903,6 +45921,24 @@
           "domain": "structure",
           "structure": "lees_place_haystack_1812_b",
           "phase": "lees_place_1812",
+          "aspect": "form.lean_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "lees_place_haystack_1812_b",
+          "phase": "lees_place_1812",
+          "aspect": "form.rider_poles"
+        },
+        {
+          "domain": "structure",
+          "structure": "lees_place_haystack_1812_b",
+          "phase": "lees_place_1812",
+          "aspect": "form.shape"
+        },
+        {
+          "domain": "structure",
+          "structure": "lees_place_haystack_1812_b",
+          "phase": "lees_place_1812",
           "aspect": "form.stack_pole"
         },
         {
@@ -45945,6 +45981,24 @@
           "domain": "structure",
           "structure": "lees_place_haystack_1812_c",
           "phase": "lees_place_1812",
+          "aspect": "form.lean_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "lees_place_haystack_1812_c",
+          "phase": "lees_place_1812",
+          "aspect": "form.rider_poles"
+        },
+        {
+          "domain": "structure",
+          "structure": "lees_place_haystack_1812_c",
+          "phase": "lees_place_1812",
+          "aspect": "form.shape"
+        },
+        {
+          "domain": "structure",
+          "structure": "lees_place_haystack_1812_c",
+          "phase": "lees_place_1812",
           "aspect": "form.stack_pole"
         },
         {
@@ -45987,6 +46041,24 @@
           "domain": "structure",
           "structure": "lees_place_haystack_1812_d",
           "phase": "lees_place_1812",
+          "aspect": "form.lean_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "lees_place_haystack_1812_d",
+          "phase": "lees_place_1812",
+          "aspect": "form.rider_poles"
+        },
+        {
+          "domain": "structure",
+          "structure": "lees_place_haystack_1812_d",
+          "phase": "lees_place_1812",
+          "aspect": "form.shape"
+        },
+        {
+          "domain": "structure",
+          "structure": "lees_place_haystack_1812_d",
+          "phase": "lees_place_1812",
           "aspect": "form.stack_pole"
         },
         {
@@ -46001,7 +46073,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "four round haystacks stand in the 1812 scene on the South Branch's south-east bank, across the river from Lee's cabin, as Lee's Place (Hardscrabble): haystack 1 of 4, on the bank opposite the cabin to `_d` at a new `haystack` archetype (one stack to a record). **That there were haystacks, with cattle among them, on the bank opposite the cabin, with woods close behind them, is the source's**: Wau-Bun, ch. XVIII, telling the afternoon in April 1812 when the discharged soldier and Lee's son got away from the war party by crossing to fodder the cattle \"standing among the haystacks on the opposite bank\" and going round behind the stacks into the woods. **Their number, size, form, exact place and the season they stand in are this project's.Count and size.** Wau-Bun says \"haystacks\" and no more. Four is enough for cattle to stand among and for two people to go round them out of sight of the far bank. Each is a round stack about 3.5 to 3.9 m across and 4.2 to 4.5 m to the peak, two or three tons of loose hay pitched by hand round a stack pole: the scale a single farm stacks at, and big enough to hide a man, which a cock of hay is not. **Form.** The bottom drawn in, the body bellied, the top drawn in from the shoulder to a peak and drawn a shade darker where it was raked to shed the rain, the pole standing clear of the peak. No picture of the stacks exists; the form is the hand-built round stack generally, not a reading of these. **The seat** is a ruling on earlier work's ruling: on the line through earlier work's station and the channel's centre, carried across the river along the bank's normal, 42 to 62 m from the centre (beyond the bank face 's apron draws) and up to 14 m up or down the river from that line, 8 to 12 m apart. Wau-Bun gives the side and nothing else. **The season.** The source's stacks were the winter's, fed from in April. The scene stands in August, when a farm that stacked on that bank in 1811 is taken to have cut and stacked there again in July, so three of the four are this season's hay and one, lower and greyed, is the last of the winter's. Nobody records whether Lee's Place was worked at all after the April raid. The stacks close on 16 August 1812, the day the post was burned, after Lee and most of his household fell on the 15th."
+          "text": "four round haystacks stand in the 1812 scene on the South Branch's south-east bank, across the river from Lee's cabin, as Lee's Place (Hardscrabble): haystack 1 of 4, on the bank opposite the cabin to `_d` at a new `haystack` archetype (one stack to a record). **That there were haystacks, with cattle among them, on the bank opposite the cabin, with woods close behind them, is the source's**: Wau-Bun, ch. XVIII, telling the afternoon in April 1812 when the discharged soldier and Lee's son got away from the war party by crossing to fodder the cattle \"standing among the haystacks on the opposite bank\" and going round behind the stacks into the woods. **Their number, size, form, exact place and the season they stand in are this project's.Count and size.** Wau-Bun says \"haystacks\" and no more. Four is enough for cattle to stand among and for two people to go round them out of sight of the far bank. Each is a round stack about 3.5 to 3.9 m across and 4.2 to 4.5 m to the peak, two or three tons of loose hay pitched by hand round a stack pole: the scale a single farm stacks at, and big enough to hide a man, which a cock of hay is not. **Form.** The bottom drawn in, the body bellied, the top drawn in from the shoulder to a peak and drawn a shade darker where it was raked to shed the rain, the pole standing clear of the peak. No picture of the stacks exists; the form is the hand-built round stack generally, not a reading of these. **How each stack stands now, and its hay.** The owner, at the first stop of the Fort Dearborn jaunt, found the four \"smooth pale onion domes\" and asked for stacks that \"look photographic real and varied enough they look real\". So each record now says which of four ways it stands (`shape`): `a` pitched round and full, `b` settled and sagged, its top slumped toward its lean, `c` eaten into all round its foot by the cattle loose among the stacks, under an overhang, and weighted with two pairs of rider poles tied over its peak, `d` (the winter's stack) cut from on one side down to the ground, with heaps of pulled hay at its foot. Each leans a little (lean (deg), 1 to 4 degrees). The girth is lumped forkful by forkful from a seed fixed by the record's id; a thousand-odd wisps of hay stand out of every stack and hang from its girth; trodden hay lies round each foot. The surface is one of three procedural hay sheets (the hay stack model, hay weathered, hay cut): combed cured stems, the greyed thatch of a crown or of a stack that stood the winter, and the brighter packed heart where hay was pulled or eaten out. All of it is the hand-built round stack and its keeping generally; the cattle's feeding is the source's (Wau-Bun's stack yard has the cattle \"among the haystacks\" and the soldier \"pulled some hay for the cattle\"), which stack shows it and how is ours. **The seat** is a ruling on earlier work's ruling: on the line through earlier work's station and the channel's centre, carried across the river along the bank's normal, 42 to 62 m from the centre (beyond the bank face 's apron draws) and up to 14 m up or down the river from that line, 8 to 12 m apart. Wau-Bun gives the side and nothing else. **The season.** The source's stacks were the winter's, fed from in April. The scene stands in August, when a farm that stacked on that bank in 1811 is taken to have cut and stacked there again in July, so three of the four are this season's hay and one, lower and greyed, is the last of the winter's. Nobody records whether Lee's Place was worked at all after the April raid. The stacks close on 16 August 1812, the day the post was burned, after Lee and most of his household fell on the 15th."
         },
         {
           "label": "Not built",
@@ -46017,14 +46089,15 @@
         },
         {
           "label": "Recorded",
-          "text": "2026-10-15 (T-2510)."
+          "text": "2026-10-15 (T-2510); shapes and hay 2026-11-06 (T-3401)."
         },
         {
           "label": "Covers",
-          "text": "`lees_place_haystack_1812_a.lees_place_1812.documented_range`, `lees_place_haystack_1812_a.lees_place_1812.position`, `lees_place_haystack_1812_a.lees_place_1812.footprint`, `lees_place_haystack_1812_a.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_a.lees_place_1812.form.height_m`, `lees_place_haystack_1812_a.lees_place_1812.form.condition`, `lees_place_haystack_1812_a.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_b.lees_place_1812.documented_range`, `lees_place_haystack_1812_b.lees_place_1812.position`, `lees_place_haystack_1812_b.lees_place_1812.footprint`, `lees_place_haystack_1812_b.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_b.lees_place_1812.form.height_m`, `lees_place_haystack_1812_b.lees_place_1812.form.condition`, `lees_place_haystack_1812_b.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_c.lees_place_1812.documented_range`, `lees_place_haystack_1812_c.lees_place_1812.position`, `lees_place_haystack_1812_c.lees_place_1812.footprint`, `lees_place_haystack_1812_c.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_c.lees_place_1812.form.height_m`, `lees_place_haystack_1812_c.lees_place_1812.form.condition`, `lees_place_haystack_1812_c.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_d.lees_place_1812.documented_range`, `lees_place_haystack_1812_d.lees_place_1812.position`, `lees_place_haystack_1812_d.lees_place_1812.footprint`, `lees_place_haystack_1812_d.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_d.lees_place_1812.form.height_m`, `lees_place_haystack_1812_d.lees_place_1812.form.condition`, `lees_place_haystack_1812_d.lees_place_1812.form.stack_pole`"
+          "text": "`lees_place_haystack_1812_a.lees_place_1812.documented_range`, `lees_place_haystack_1812_a.lees_place_1812.position`, `lees_place_haystack_1812_a.lees_place_1812.footprint`, `lees_place_haystack_1812_a.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_a.lees_place_1812.form.height_m`, `lees_place_haystack_1812_a.lees_place_1812.form.condition`, `lees_place_haystack_1812_a.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_b.lees_place_1812.documented_range`, `lees_place_haystack_1812_b.lees_place_1812.position`, `lees_place_haystack_1812_b.lees_place_1812.footprint`, `lees_place_haystack_1812_b.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_b.lees_place_1812.form.height_m`, `lees_place_haystack_1812_b.lees_place_1812.form.condition`, `lees_place_haystack_1812_b.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_c.lees_place_1812.documented_range`, `lees_place_haystack_1812_c.lees_place_1812.position`, `lees_place_haystack_1812_c.lees_place_1812.footprint`, `lees_place_haystack_1812_c.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_c.lees_place_1812.form.height_m`, `lees_place_haystack_1812_c.lees_place_1812.form.condition`, `lees_place_haystack_1812_c.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_d.lees_place_1812.documented_range`, `lees_place_haystack_1812_d.lees_place_1812.position`, `lees_place_haystack_1812_d.lees_place_1812.footprint`, `lees_place_haystack_1812_d.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_d.lees_place_1812.form.height_m`, `lees_place_haystack_1812_d.lees_place_1812.form.condition`, `lees_place_haystack_1812_d.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_a.lees_place_1812.form.shape`, `lees_place_haystack_1812_a.lees_place_1812.form.lean_deg`, `lees_place_haystack_1812_a.lees_place_1812.form.rider_poles`, `lees_place_haystack_1812_b.lees_place_1812.form.shape`, `lees_place_haystack_1812_b.lees_place_1812.form.lean_deg`, `lees_place_haystack_1812_b.lees_place_1812.form.rider_poles`, `lees_place_haystack_1812_c.lees_place_1812.form.shape`, `lees_place_haystack_1812_c.lees_place_1812.form.lean_deg`, `lees_place_haystack_1812_c.lees_place_1812.form.rider_poles`, `lees_place_haystack_1812_d.lees_place_1812.form.shape`, `lees_place_haystack_1812_d.lees_place_1812.form.lean_deg`, `lees_place_haystack_1812_d.lees_place_1812.form.rider_poles`"
         }
       ],
       "work_refs": [
+        "T-3401",
         "T-2502",
         "T-2501",
         "T-2510"
@@ -66803,7 +66876,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "1812 gets fifteen worn trails and seventeen trodden yards, all written by the worn ground 1812 generator into the 1812 data (the worn trails 1812 data, worn yard 1812_*.json) and laid by the walkthrough's yards code: a trail is a strip of bare earth draped on the terrain whose cover fades to nothing at its edges, the sward and the trees kept off it. Three are attested in kind: the beaten Indian trail along the lake shore, the path from Lee's Place to the canoes, and the way along the river from Lee's Place to the fort (Andreas 1884; Currey 1912; Kinzie 1856). The Vincennes trace is inferred: Quaife 1923 has it as the Potawatomi trail to the Wabash that Heald rode up in 1811 and the Wabash bands came up in August 1812, and its line from 35th Street south follows the 1834 State road that he says followed it. The rest are ours: the cart road south from the gate, the paths along both banks and to the Clark and Lemai houses, the short faint paths from the fort to its wharf, stables, agency and gardens."
+          "text": "1812 gets fifteen worn trails and eighteen trodden yards, all written by the worn ground 1812 generator into the 1812 data (the worn trails 1812 data, worn yard 1812_*.json) and laid by the walkthrough's yards code: a trail is a strip of bare earth draped on the terrain whose cover fades to nothing at its edges, the sward and the trees kept off it. Three are attested in kind: the beaten Indian trail along the lake shore, the path from Lee's Place to the canoes, and the way along the river from Lee's Place to the fort (Andreas 1884; Currey 1912; Kinzie 1856). The Vincennes trace is inferred: Quaife 1923 has it as the Potawatomi trail to the Wabash that Heald rode up in 1811 and the Wabash bands came up in August 1812, and its line from 35th Street south follows the 1834 State road that he says followed it. The rest are ours: the cart road south from the gate, the paths along both banks and to the Clark and Lemai houses, the short faint paths from the fort to its wharf, stables, agency and gardens."
         },
         {
           "label": "What is ours throughout",
@@ -66811,14 +66884,15 @@
         },
         {
           "label": "How to resolve",
-          "text": "a survey or sketch of the 1812 ground that shows a path (the 1821 and 1830 surveys are the nearest), or a recollection that places one."
+          "text": "a survey or sketch of the 1812 ground that shows a path (the 1821 and 1830 surveys are the nearest), or a recollection that places one. The eighteenth yard is Lee's Place's stack yard, round the four haystacks: Wau-Bun puts the cattle \"standing among the haystacks\" and foddered there, so the ground round their feet is grazed and trodden rather than standing prairie; its extent (the stacks' squares grown 3 m) is ours, like the others'."
         },
         {
           "label": "Recorded",
-          "text": "2026-11-03 (T-3339)."
+          "text": "2026-11-03 (T-3339); the stack yard 2026-11-06 (T-3401)."
         }
       ],
       "work_refs": [
+        "T-3401",
         "T-3339"
       ]
     },

@@ -29077,6 +29077,22 @@ drawn a shade darker where it was raked to shed the rain, the pole standing clea
 picture of the stacks exists; the form is the hand-built round stack generally, not a reading of
 these.
 
+**How each stack stands now, and its hay (T-3401, 2026-11-06).** The owner, at the first stop of
+the Fort Dearborn jaunt, found the four "smooth pale onion domes" and asked for stacks that "look
+photographic real and varied enough they look real". So each record now says which of four ways it
+stands (`shape`): `a` pitched round and full, `b` settled and sagged, its top slumped toward its
+lean, `c` eaten into all round its foot by the cattle loose among the stacks, under an overhang,
+and weighted with two pairs of rider poles tied over its peak, `d` (the winter's stack) cut from on
+one side down to the ground, with heaps of pulled hay at its foot. Each leans a little
+(`lean_deg`, 1 to 4 degrees). The girth is lumped forkful by forkful from a seed fixed by the
+record's id; a thousand-odd wisps of hay stand out of every stack and hang from its girth; trodden
+hay lies round each foot. The surface is one of three procedural hay sheets
+(`assets/textures/camp_1812_pbr/hay_stack`, `hay_weathered`, `hay_cut`): combed cured stems, the
+greyed thatch of a crown or of a stack that stood the winter, and the brighter packed heart where
+hay was pulled or eaten out. All of it is the hand-built round stack and its keeping generally; the
+cattle's feeding is the source's (Wau-Bun's stack yard has the cattle "among the haystacks" and the
+soldier "pulled some hay for the cattle"), which stack shows it and how is ours.
+
 **The seat** is a ruling on T-2501's ruling: on the line through T-2501's station and the channel's
 centre, carried across the river along the bank's normal, 42 to 62 m from the centre (beyond the
 bank face T-2502's apron draws) and up to 14 m up or down the river from that line, 8 to 12 m apart.
@@ -29096,9 +29112,9 @@ summer are ours.
 
 **How to resolve:** any other account of Lee's Place that counts or places the stacks, sizes the
 meadow, or says whether the farm was worked between April and August 1812.
-**Ticket:** T-2510.
-**Recorded:** 2026-10-15 (T-2510).
-**Covers:** `lees_place_haystack_1812_a.lees_place_1812.documented_range`, `lees_place_haystack_1812_a.lees_place_1812.position`, `lees_place_haystack_1812_a.lees_place_1812.footprint`, `lees_place_haystack_1812_a.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_a.lees_place_1812.form.height_m`, `lees_place_haystack_1812_a.lees_place_1812.form.condition`, `lees_place_haystack_1812_a.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_b.lees_place_1812.documented_range`, `lees_place_haystack_1812_b.lees_place_1812.position`, `lees_place_haystack_1812_b.lees_place_1812.footprint`, `lees_place_haystack_1812_b.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_b.lees_place_1812.form.height_m`, `lees_place_haystack_1812_b.lees_place_1812.form.condition`, `lees_place_haystack_1812_b.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_c.lees_place_1812.documented_range`, `lees_place_haystack_1812_c.lees_place_1812.position`, `lees_place_haystack_1812_c.lees_place_1812.footprint`, `lees_place_haystack_1812_c.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_c.lees_place_1812.form.height_m`, `lees_place_haystack_1812_c.lees_place_1812.form.condition`, `lees_place_haystack_1812_c.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_d.lees_place_1812.documented_range`, `lees_place_haystack_1812_d.lees_place_1812.position`, `lees_place_haystack_1812_d.lees_place_1812.footprint`, `lees_place_haystack_1812_d.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_d.lees_place_1812.form.height_m`, `lees_place_haystack_1812_d.lees_place_1812.form.condition`, `lees_place_haystack_1812_d.lees_place_1812.form.stack_pole`
+**Ticket:** T-2510, T-3401.
+**Recorded:** 2026-10-15 (T-2510); shapes and hay 2026-11-06 (T-3401).
+**Covers:** `lees_place_haystack_1812_a.lees_place_1812.documented_range`, `lees_place_haystack_1812_a.lees_place_1812.position`, `lees_place_haystack_1812_a.lees_place_1812.footprint`, `lees_place_haystack_1812_a.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_a.lees_place_1812.form.height_m`, `lees_place_haystack_1812_a.lees_place_1812.form.condition`, `lees_place_haystack_1812_a.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_b.lees_place_1812.documented_range`, `lees_place_haystack_1812_b.lees_place_1812.position`, `lees_place_haystack_1812_b.lees_place_1812.footprint`, `lees_place_haystack_1812_b.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_b.lees_place_1812.form.height_m`, `lees_place_haystack_1812_b.lees_place_1812.form.condition`, `lees_place_haystack_1812_b.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_c.lees_place_1812.documented_range`, `lees_place_haystack_1812_c.lees_place_1812.position`, `lees_place_haystack_1812_c.lees_place_1812.footprint`, `lees_place_haystack_1812_c.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_c.lees_place_1812.form.height_m`, `lees_place_haystack_1812_c.lees_place_1812.form.condition`, `lees_place_haystack_1812_c.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_d.lees_place_1812.documented_range`, `lees_place_haystack_1812_d.lees_place_1812.position`, `lees_place_haystack_1812_d.lees_place_1812.footprint`, `lees_place_haystack_1812_d.lees_place_1812.form.diameter_m`, `lees_place_haystack_1812_d.lees_place_1812.form.height_m`, `lees_place_haystack_1812_d.lees_place_1812.form.condition`, `lees_place_haystack_1812_d.lees_place_1812.form.stack_pole`, `lees_place_haystack_1812_a.lees_place_1812.form.shape`, `lees_place_haystack_1812_a.lees_place_1812.form.lean_deg`, `lees_place_haystack_1812_a.lees_place_1812.form.rider_poles`, `lees_place_haystack_1812_b.lees_place_1812.form.shape`, `lees_place_haystack_1812_b.lees_place_1812.form.lean_deg`, `lees_place_haystack_1812_b.lees_place_1812.form.rider_poles`, `lees_place_haystack_1812_c.lees_place_1812.form.shape`, `lees_place_haystack_1812_c.lees_place_1812.form.lean_deg`, `lees_place_haystack_1812_c.lees_place_1812.form.rider_poles`, `lees_place_haystack_1812_d.lees_place_1812.form.shape`, `lees_place_haystack_1812_d.lees_place_1812.form.lean_deg`, `lees_place_haystack_1812_d.lees_place_1812.form.rider_poles`
 
 ### L-1812-potawatomi-camp-2515 — The Potawatomi camp of August 1812: its six grounds on the creek, its lodges, arbors, hearths, gear and horse ground, and every form's shape and size
 
@@ -39950,7 +39966,7 @@ surface, grass, gravel or bare earth.
 
 ### L-t3339-worn-ground-1812 — the 1812 settlement's worn trails and trodden yards, routed by rule
 
-**Decision:** 1812 gets fifteen worn trails and seventeen trodden yards, all written by
+**Decision:** 1812 gets fifteen worn trails and eighteen trodden yards, all written by
 `tools/generate_worn_ground_1812.py` into `data/enclosures/1812/` (`worn_trails_1812.json`, `worn_yard_1812_*.json`) and
 laid by `renderers/web/js/yards.js`: a trail is a strip of bare earth draped on the terrain whose cover fades to
 nothing at its edges, the sward and the trees kept off it. Three are attested in kind: the beaten Indian trail along
@@ -39965,9 +39981,11 @@ smoothed and given a seeded wander); every width (0.9 m tread to a 2.4 m two-tra
 0.9, by our guess at how much each way was used); the yards' extent (each house's footprint grown and ragged) and
 that they are bare earth. Nothing reached maps a path or a yard in 1812 Chicago. **How to resolve:** a survey or
 sketch of the 1812 ground that shows a path (the 1821 and 1830 surveys are the nearest), or a recollection that
-places one.
-**Ticket:** T-3339.
-**Recorded:** 2026-11-03 (T-3339).
+places one. The eighteenth yard (T-3401, 2026-11-06) is Lee's Place's stack yard, round the four haystacks: Wau-Bun
+puts the cattle "standing among the haystacks" and foddered there, so the ground round their feet is grazed and
+trodden rather than standing prairie; its extent (the stacks' squares grown 3 m) is ours, like the others'.
+**Ticket:** T-3339, T-3401.
+**Recorded:** 2026-11-03 (T-3339); the stack yard 2026-11-06 (T-3401).
 
 ### L-t3340-south-groves-1812 — 1812's timber south of the river: the South Branch belt carried east of Wells, and groves in the wet hollows
 

@@ -54,6 +54,24 @@ MATERIALS = [
     dict(id="bough_thatch", span_m=1.5, seed=18120816, mean_roughness=0.90,
          note="Cut leafy boughs laid over an arbor's poles, a few days wilted: green "
               "going to brown, twigs between. Skinner 1927's 'bough arbor'. Reconstructed."),
+    # T-3401: the hay of the stacks at Lee's Place (generators/archetypes/haystack.py).
+    dict(id="hay_stack", span_m=1.2, seed=18120406, mean_roughness=0.92, group="hay_1812",
+         liberty="L-1812-lees-place-haystacks-2510",
+         note="The outside of a round stack of prairie hay, pitched by fork and combed down "
+              "so it sheds the rain: cured stems and blades lying down the slope in "
+              "forkfuls, straw gold through tan to grey-green, dark gaps between. Image y "
+              "is UP the stack. Reconstructed (Wau-Bun ch. XVIII puts the stacks; no "
+              "picture of them exists)."),
+    dict(id="hay_weathered", span_m=1.2, seed=18120407, mean_roughness=0.95, group="hay_1812",
+         liberty="L-1812-lees-place-haystacks-2510",
+         note="The thatch of a stack that has stood through weather: the outer hay bleached "
+              "to silver-grey and brown, matted flat by rain, with dark damp streaks and "
+              "spots of mould. Image y is UP the stack. Reconstructed."),
+    dict(id="hay_cut", span_m=0.9, seed=18120408, mean_roughness=0.90, group="hay_1812",
+         liberty="L-1812-lees-place-haystacks-2510",
+         note="The inside of a stack where hay has been pulled or cut out of it for the "
+              "stock: the packed hay of the heart, greener and brighter than the outside, "
+              "stems every way in layers. Reconstructed."),
 ]
 
 
@@ -306,7 +324,168 @@ def bough_thatch(seed):
     return col, h, rough, 7.0
 
 
-BUILDERS = {"cattail_mat": cattail_mat, "elm_bark": elm_bark, "bough_thatch": bough_thatch}
+# ------------------------------------------------------------------ hay (T-3401)
+
+def _strands(rng, S, col, h, n, length_px, width_px, angle, palette, layer0, layer1,
+             tone_field=None, curl=0.0, ang_field=None):
+    """Paint `n` hay stems over (col, h), each a slightly bent round stem, wrapping.
+
+    `angle` is (mean, spread) in radians from straight DOWN the image (stems combed down
+    the stack); `palette` is a list of (rgb, weight); a stem lies on top of what is under
+    it only where it stands higher (the bough sheet's rule), so later stems overlay."""
+    cols = np.array([c for c, _ in palette], np.float32)
+    w = np.array([wt for _, wt in palette], np.float64)
+    w = w / w.sum()
+    for i in range(n):
+        L = rng.uniform(*length_px)
+        W = rng.uniform(*width_px)
+        x0, y0 = rng.uniform(0, S, 2)
+        a = rng.normal(angle[0], angle[1])
+        if ang_field is not None:
+            a += (ang_field[int(y0) % S, int(x0) % S] - 0.5) * 1.6
+        # direction: angle 0 points down the image (+row)
+        dx, dy = math.sin(a), math.cos(a)
+        bend = rng.normal(0.0, curl)
+        r = int(L / 2 + W + 3)
+        ys = (np.arange(-r, r + 1) + int(y0)) % S
+        xs = (np.arange(-r, r + 1) + int(x0)) % S
+        yy, xx = np.mgrid[-r:r + 1, -r:r + 1].astype(np.float32)
+        # coordinates along (u) and across (v) the stem, with a gentle bow
+        u = xx * dx + yy * dy
+        v = -xx * dy + yy * dx
+        un = u / (L / 2)
+        v = v - bend * (L / 2) * (un * un - 1.0) * -1.0 * 0.15
+        inside = (np.abs(un) <= 1.0)
+        # stems taper to a point at the head and are cut square at the butt
+        half = W * np.where(un > 0, np.clip(1.0 - un, 0.15, 1.0) ** 0.6, 1.0)
+        d = np.abs(v) / np.maximum(half, 1e-3)
+        m = inside & (d < 1.0)
+        if not m.any():
+            continue
+        round_ = np.sqrt(np.clip(1.0 - d * d, 0, 1))
+        c = cols[rng.choice(len(cols), p=w)] * rng.uniform(0.82, 1.15)
+        if tone_field is not None:
+            c = c * (0.80 + 0.40 * tone_field[int(y0) % S, int(x0) % S])
+        layer = layer0 + (layer1 - layer0) * (i / max(n - 1, 1))
+        lh = layer + 0.18 * round_
+        sub_h = h[np.ix_(ys, xs)]
+        m = m & (lh > sub_h)
+        if not m.any():
+            continue
+        # a stem is lit along its crown and darker at its flanks; a node or two darkens it
+        node = 1.0 - 0.25 * (np.abs(np.sin(un * rng.uniform(2.0, 5.0) + rng.uniform(0, 6))) < 0.06)
+        shade = (0.62 + 0.45 * round_) * node
+        sub_c = col[np.ix_(ys, xs)]
+        sub_c[m] = (c[None, None, :] * shade[..., None])[m]
+        sub_h[m] = lh[m]
+        col[np.ix_(ys, xs)] = sub_c
+        h[np.ix_(ys, xs)] = sub_h
+
+
+STRAW = (0.66, 0.55, 0.32)
+GOLD = (0.62, 0.48, 0.22)
+TAN = (0.52, 0.42, 0.27)
+SAGE = (0.46, 0.45, 0.28)     # grass cured green in the swath
+OLIVE = (0.38, 0.37, 0.20)
+RUSSET = (0.46, 0.32, 0.18)   # a sedge or a seed head among the grass
+SILVER = (0.58, 0.56, 0.50)
+GREYBROWN = (0.40, 0.36, 0.30)
+DUN = (0.30, 0.26, 0.20)
+
+
+def _hay(seed, palette, under, n_stems, angle_spread, clump_sigma, curl, mat=0.0):
+    rng = np.random.default_rng(seed)
+    S = SIZE
+    px_m = S / 1.2
+    col = np.zeros((S, S, 3), np.float32)
+    h = np.zeros((S, S), np.float32)
+    deep = fbm(rng, (S, S), (50, 12), (0.6, 0.4))
+    col[:] = np.array(under, np.float32) * (0.6 + 0.8 * deep[..., None])
+    h[:] = 0.10 * deep
+    # forkfuls: patches of the stack lie their own way and wear their own tone
+    ang = noise(rng, (S, S), clump_sigma)
+    tone = fbm(rng, (S, S), (clump_sigma * 1.5, clump_sigma * 0.5), (0.6, 0.4))
+    # the bulk, under: shorter, broken stems in every direction (the stack's body)
+    _strands(rng, S, col, h, n_stems // 3, (0.04 * px_m, 0.12 * px_m), (0.9, 1.8), (0.0, 1.2),
+             palette, 0.10, 0.45, tone, curl)
+    # the combed outer layer: long stems lying down the slope
+    _strands(rng, S, col, h, n_stems, (0.10 * px_m, 0.32 * px_m), (0.9, 2.2), (0.0, angle_spread),
+             palette, 0.40, 0.95, tone, curl, ang)
+    # a few broad blades among the stems
+    _strands(rng, S, col, h, n_stems // 12, (0.08 * px_m, 0.20 * px_m), (2.0, 3.4),
+             (0.0, angle_spread * 1.2), palette, 0.45, 0.98, tone, curl * 1.5, ang)
+    if mat:
+        # rain flattens the outside: the relief is lower and the gaps shallower
+        h = h * (1.0 - 0.35 * mat) + 0.35 * mat * ndimage.gaussian_filter(h, 3.0, mode="wrap")
+    big = fbm(rng, (S, S), (200, 80), (0.6, 0.4))
+    col = col * (0.86 + 0.26 * big[..., None])
+    h = norm01(ndimage.gaussian_filter(h, 0.5, mode="wrap"))
+    return rng, col, h, big
+
+
+def _cured(col, keep, lift):
+    """Cured hay is a muted colour: the sheet's saturation drawn toward its own grey by
+    (1 - keep), then lifted. Read against the owner's screenshot at sunset, where the first
+    sheets went a rusty orange that hay never is."""
+    grey = (0.30 * col[..., 0] + 0.55 * col[..., 1] + 0.15 * col[..., 2])[..., None]
+    return (grey + (col - grey) * keep) * lift
+
+
+def hay_stack(seed):
+    pal = [(STRAW, 3.0), (GOLD, 3.0), (TAN, 2.0), (SAGE, 2.0), (OLIVE, 1.0), (RUSSET, 0.6),
+           (GREYBROWN, 0.8)]
+    rng, col, h, big = _hay(seed, pal, (0.16, 0.12, 0.06), 5200, 0.30, 26, 0.35)
+    # the sun bleaches the very outside a little paler in places
+    bleach = np.clip((big - 0.55) * 2.5, 0, 1) * h
+    col = lerp(col, col * 0.85 + np.array([0.12, 0.11, 0.09]), bleach * 0.5)
+    col = _cured(col, 0.62, 1.06)
+    rough = np.clip(0.88 + 0.10 * (1 - h), 0, 1)
+    return col, h, rough, 9.0
+
+
+def hay_weathered(seed):
+    pal = [(SILVER, 3.0), (GREYBROWN, 3.5), (DUN, 2.0), (TAN, 1.2), (OLIVE, 0.5)]
+    rng, col, h, big = _hay(seed, pal, (0.10, 0.09, 0.07), 4600, 0.18, 34, 0.20, mat=1.0)
+    S = SIZE
+    # rain runs down the thatch: dark damp streaks, long and narrow, down the image
+    streak = noise(rng, (S, S), (60, 2.5))
+    col = col * (1.0 - 0.30 * np.clip((streak - 0.55) * 3.0, 0, 1)[..., None])
+    # mould: small dark spots where the wet sat longest
+    spot = noise(rng, (S, S), 2.5)
+    mould = np.clip((spot - 0.80) * 9.0, 0, 1) * np.clip((big - 0.4) * 2, 0, 1)
+    col = lerp(col, np.array([0.10, 0.10, 0.08]), mould * 0.7)
+    col = _cured(col, 0.80, 1.04)
+    rough = np.clip(0.92 + 0.07 * (1 - h), 0, 1)
+    return col, h, rough, 7.0
+
+
+def hay_cut(seed):
+    pal = [(GOLD, 3.0), (STRAW, 2.0), (SAGE, 3.0), (OLIVE, 2.0), (TAN, 1.0), (RUSSET, 0.4)]
+    rng = np.random.default_rng(seed)
+    S = SIZE
+    px_m = S / 0.9
+    col = np.zeros((S, S, 3), np.float32)
+    h = np.zeros((S, S), np.float32)
+    deep = fbm(rng, (S, S), (40, 10), (0.6, 0.4))
+    col[:] = np.array((0.20, 0.17, 0.08), np.float32) * (0.6 + 0.8 * deep[..., None])
+    h[:] = 0.10 * deep
+    tone = fbm(rng, (S, S), (30, 10), (0.6, 0.4))
+    # the heart of a stack: packed layers, stems mostly across (the stack was laid in
+    # rounds), cut or torn short where the hay was pulled
+    _strands(rng, S, col, h, 6000, (0.03 * px_m, 0.14 * px_m), (0.9, 2.0), (math.pi / 2, 0.55),
+             pal, 0.1, 0.95, tone, 0.4)
+    # the layers of each day's pitching show as faint bands across the face
+    yy = np.arange(S, dtype=np.float32)[:, None]
+    band = 0.5 + 0.5 * np.sin(yy * 2 * np.pi * 5 / S + 3 * noise(rng, (1, S), (0, 80))[0][None, :])
+    col = col * (0.88 + 0.16 * band[..., None])
+    col = _cured(col, 0.70, 1.12)
+    h = norm01(ndimage.gaussian_filter(h, 0.5, mode="wrap"))
+    rough = np.clip(0.86 + 0.10 * (1 - h), 0, 1)
+    return col, h, rough, 8.0
+
+
+BUILDERS = {"cattail_mat": cattail_mat, "elm_bark": elm_bark, "bough_thatch": bough_thatch,
+            "hay_stack": hay_stack, "hay_weathered": hay_weathered, "hay_cut": hay_cut}
 
 
 def write(mat: dict) -> None:
@@ -329,11 +508,17 @@ def write(mat: dict) -> None:
     for k, arr in (("basecolor", base), ("normal_gl", nrm), ("orm", orm)):
         im = Image.fromarray(arr, "RGB").resize((WEB, WEB), Image.LANCZOS)
         name = f"{sid}_{k}_web.jpg"
-        im.save(out / name, quality=90, optimize=True, subsampling=0 if k != "basecolor" else 2)
+        opts = dict(quality=90, subsampling=0 if k != "basecolor" else 2)
+        try:
+            im.save(out / name, optimize=True, **opts)
+        except OSError:
+            # some libjpeg builds refuse `optimize` on a 4:4:4 noisy sheet ("Suspension
+            # not allowed here"); the plain Huffman tables are a few per cent larger
+            im.save(out / name, **opts)
         web[k] = name
     sheet = {
         "id": sid,
-        "group": "camp_1812",
+        "group": mat.get("group", "camp_1812"),
         "span_m": mat["span_m"],
         "mean_roughness": mat["mean_roughness"],
         "resolution_px": SIZE,
@@ -342,7 +527,7 @@ def write(mat: dict) -> None:
         "orientation": "image x = round the covering (u, horizontal); image y = up it (v)",
         "note": mat["note"],
         "confidence": "reconstructed appearance; the covering's material is inferred from "
-                      "the texts the record cites (L-1812-potawatomi-camp-2515)",
+                      "the texts the record cites (%s)" % mat.get("liberty", "L-1812-potawatomi-camp-2515"),
         "color_space": {"basecolor": "sRGB", "normal_gl": "linear", "orm": "linear; R=AO G=Roughness B=Metallic",
                         "height16": "linear 16-bit"},
         "web": web,
@@ -355,10 +540,15 @@ def write(mat: dict) -> None:
     print(f"wrote {sid}")
 
 
-def main() -> None:
+def main(argv=None) -> None:
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--only", default="", help="comma list of material ids (default: all)")
+    only = set(filter(None, ap.parse_args(argv).only.split(",")))
     for m in MATERIALS:
-        write(m)
-    manifest = {"library": "camp_1812_pbr", "version": "1.0.0", "ticket": "T-3342",
+        if not only or m["id"] in only:
+            write(m)
+    manifest = {"library": "camp_1812_pbr", "version": "1.1.0", "ticket": "T-3342, T-3401",
                 "materials": [m["id"] for m in MATERIALS]}
     (LIB / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
 
