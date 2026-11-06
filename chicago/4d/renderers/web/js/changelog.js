@@ -1,4 +1,25 @@
 export const CHANGELOG = [ // newest first
+  { v: 2695, ts: '2026-11-06T07:17:22.809Z', date: 'Nov 6, 2026, 1:17 AM CT', title: 'Capes that swing, and Otis dresses for the wagon', kind: 'improvement',
+    items: [
+      'Hans\'s shoulder cape and the hanging part of his coat skirt now swing with the carriage when it jolts, turns or stops, then settle back.',
+      'Otis Bardwell, driving the 1835 wagon, now wears a drab wool round jacket with horn buttons and a broad-brimmed felt hat.',
+      'Drivers are now dressed by one wardrobe kit, and every garment lists its source or its liberty.',
+    ] },
+  { v: 2694, ts: '2026-11-06T07:17:22.809Z', date: 'Nov 6, 2026, 1:17 AM CT', title: 'Walk the Fort Dearborn tour, and Fly really flies', kind: 'fix',
+    items: [
+      'Fort Dearborn, Building by Building now walks by default. Its gates swing open as you reach them, and you walk through onto the parade.',
+      'Only the raised view of the covered way is a short flight. Fly and Instantly are still in the picker.',
+      'Picking Fly on a jaunt now flies every leg. Before, a leg set to go Instantly still jumped.',
+      'Fly reaches raised viewpoints by flying up to them instead of jumping.',
+      'The travel picker shows how the current leg will travel.',
+    ] },
+  { v: 2693, ts: '2026-11-06T07:17:22.809Z', date: 'Nov 6, 2026, 1:17 AM CT', title: 'Lee\'s Place haystacks in 1812 look like real hay', kind: 'improvement',
+    items: [
+      'The four stacks across the river from Lee\'s cabin are shaggy, combed prairie hay now, not smooth pale domes: wisps stand out of them and hang from the eaves, and trodden hay lies round their feet.',
+      'Each stands its own way: one fresh-pitched to a sharp peak, one settled and sagging, one the cattle have eaten into all round under an overhang, and the old winter stack with hay pulled out of one side and heaped at its foot.',
+      'The tops are greyed by weather, the pulled faces show the brighter heart of the stack, one is weighted with rider poles, and every stack leans a little.',
+      'All of it is reconstructed: Wau-Bun puts cattle among haystacks here in 1812, and no picture of them exists.',
+    ] },
   { v: 2692, ts: '2026-11-06T07:14:30.749Z', date: 'Nov 6, 2026, 1:14 AM CT', title: 'People on foot breathe, shift their weight and look at you', kind: 'improvement',
     items: [
       'Standing figures breathe, sway a little and settle onto one leg, then the other, feet planted.',
