@@ -5081,6 +5081,16 @@ async function boot() {
   // round (town-transport) or a figure standing or walking (humans.js): where they are in
   // local ENU metres, the compass heading they face, their head's height, and the actor.
   let headAt = null;
+  /** The height of a figure's head, world metres: the contract skeleton's `head` bone, else
+   * near the top of its pick box (seated or standing, the box is the body's own bounds). */
+  function headOf(actor) {
+    if (!actor?.root) return null;
+    headAt ??= new THREE.Vector3();
+    const bone = actor.body?.scene?.getObjectByName?.('head');
+    if (bone) return bone.getWorldPosition(headAt).y + 0.08;
+    actor.root.updateWorldMatrix(true, true);
+    return actor.proxy ? actor.proxy.localToWorld(headAt.set(0, 0.93, 0)).y : actor.root.getWorldPosition(headAt).y + 1.6;
+  }
   function personInTown(id) {
     if (!id) return null;
     const driver = api.townTransport?.driverForPerson?.(id);
@@ -5088,13 +5098,12 @@ async function boot() {
       if (!driver.visible) return null;
       const body = api.humans?.external?.(id) ?? null;
       const [e, n] = driver.at;
-      const head = body?.root ? body.root.getWorldPosition(headAt ??= new THREE.Vector3()).y + (body.proxy?.scale.y ?? 1.5) * 0.93 : null;
-      return { e, n, heading_deg: driver.heading_deg, head_y: head, name: body?.person?.name ?? driver.name ?? null, driver, actor: body };
+      return { e, n, heading_deg: driver.heading_deg, head_y: headOf(body), name: body?.person?.name ?? driver.name ?? null, driver, actor: body };
     }
     const a = api.humans?.get?.(id);
     if (!a || a.disposed || !a.root?.parent) return null;
     const p = a.position;
-    return { e: p.e, n: p.n, heading_deg: a.heading ?? 0, head_y: p.y + (a.proxy?.scale.y ?? 1.7) * 0.93,
+    return { e: p.e, n: p.n, heading_deg: a.heading ?? 0, head_y: headOf(a),
       name: a.person?.name ?? null, driver: null, actor: a };
   }
   /** Placed in town at all, loaded or not yet (a driver's round is known before its model). */
