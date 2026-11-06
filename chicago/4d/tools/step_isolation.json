@@ -4243,6 +4243,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/human_seated_transfer.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/human_variation_kit.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6491,6 +6495,10 @@
       "wrote_ignored": []
     },
     "tools/test_structure_versions.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_sub_pixel.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

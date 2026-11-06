@@ -1,0 +1,8 @@
+{
+  "title": "The ticket board publishes again",
+  "kind": "fix",
+  "items": [
+    "Nothing you can see changed in the town. Since 3 November the ticket board had stopped updating: three tickets were filed under epics the queue's own check does not know, and that check runs before the board is published.",
+    "Those three are re-filed under their proper epics, and a new ticket naming an unknown epic is now refused when it is filed, with the list to choose from."
+  ]
+}

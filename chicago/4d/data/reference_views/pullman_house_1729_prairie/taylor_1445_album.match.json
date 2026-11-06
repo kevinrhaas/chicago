@@ -16,7 +16,7 @@
         "creeper": 20
       }
     ],
-    "street_trees": 35,
+    "street_trees": 36,
     "street_trees_m": 70
   },
   "flora_anchor": {
@@ -65,7 +65,7 @@
       "sha256": "bd022919ca052610595908f83128dfceea976790c5bf2eff63f381abaa3b89b5"
     }
   ],
-  "flora_sha256": "1053dc759487714ad2336c63d32b6b5cc70c61918ac6059e84c3177601b50753",
+  "flora_sha256": "0d0c98c95e174645cc55ae28da380e16c299f9f5ce650e1034ab1797fb172f6b",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -212,12 +212,12 @@
       "how": "T-1881: seen while judging the pediment; the Detroit print, which sees the front squarely, lands the dormer within a few px, so this belongs with the camera disagreement along the front recorded above, and with the owner's item 4 (the front judged as a whole)"
     },
     {
-      "what": "the way under the porte-coch\u00e8re: the gap in the wall east of the house",
+      "what": "the way under the porte-cochère: the gap in the wall east of the house",
       "status": "fixed",
-      "how": "T-1934: a gravel drive (reconstructed) comes in through the gap and runs under the porte-coch\u00e8re's arches to a turning apron; the 18th Street shrub border starts east of the house, clear of both ways (L-pullman-carriage-ways-1934)"
+      "how": "T-1934: a gravel drive (reconstructed) comes in through the gap and runs under the porte-cochère's arches to a turning apron; the 18th Street shrub border starts east of the house, clear of both ways (L-pullman-carriage-ways-1934)"
     },
     {
-      "what": "the porte-coch\u00e8re's arches and their dressing (the owner, 2026-10-30: \"this part of the pullman house would have been balanced not off centered lop sided like that, and there is more detail you need on it on the corners and arches\"): the large round arch in the west end (x 660-715 px) and the narrower one in the south front (x 745-780) each framed by banded piers that run from grade to the entablature, a moulded impost at the springing, and a moulded ring round each head with a keystone at the crown",
+      "what": "the porte-cochère's arches and their dressing (the owner, 2026-10-30: \"this part of the pullman house would have been balanced not off centered lop sided like that, and there is more detail you need on it on the corners and arches\"): the large round arch in the west end (x 660-715 px) and the narrower one in the south front (x 745-780) each framed by banded piers that run from grade to the entablature, a moulded impost at the springing, and a moulded ring round each head with a keystone at the crown",
       "status": "fixed",
       "how": "T-1881: each arch centred on the face it shows, the ends' on the 3.5 m standing out before the 18th Street pavilion (back_m 2.47, the end arches at 4.22 m out, 2.5 m across) and the front's at s 10.5 (2.4 m); porte_cochere.dressing lays the banded piers (0.4 m courses, 0.1 m channels, the corner piers' bands turned round the corner), the 0.25 m impost and an eleven-voussoir ring with its keystone. Through this camera the west arch draws at about x 657-697 against the photograph's 660-715 and the front's about 15 px west of the photograph's, the disagreement between this camera and the Detroit print's along the flank already recorded here (the Detroit print reads the arches 2.37 and 2.27 m across, this photograph 2.8 and 2.46: the built 2.5 and 2.4 stand between them)"
     },
@@ -258,7 +258,12 @@
       "what": "the solid post in the middle of the 18th Street balustrade east of the third pier, from plinth to rail between the turned balusters (x 874-889 px, u 14.36-13.18 through this camera)",
       "status": "fixed",
       "how": "T-1881 (2026-11-03): built as a 0.9 m pier in the 18th Street return's pier list, rising to the rail's top (1.8 m, no cap), at u 13.05-13.95, between this print's reading and the Detroit print's (x 779.5-781.5 there, u 13.48-12.8); it renders at x 873-892 here, flush with the rail."
+    },
+    {
+      "what": "the slender young tree at x 148, its head over the north block's cornice, standing before the house's north-west corner as the view runs: a trunk on Prairie Avenue's parkway at the 18th Street corner, seen edge-on down the parkway",
+      "status": "fixed",
+      "how": "T-1881 (2026-11-06): planted at 259.8 m on the Prairie parkway's line, where this trunk's ray and the Detroit print's trunk at x 630 meet the line 0.04 m apart; it renders at x 143-150. It is built as the Detroit print's mature tree (about 0.38 m at its foot), the picture nearest 1904, so it draws thicker here than the 1880s-1890s print's young tree, as the rest of the parkway's trees do in this view. Its foot: the print loses it behind the corner's low coping at about y 650, where the line's foot falls at y 672; along this edge-on line 22 px is several metres, which the Detroit print's ray, square to it, does not leave room for, so the place stands on the pair of rays."
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

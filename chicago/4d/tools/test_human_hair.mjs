@@ -205,6 +205,24 @@ assert.equal(hairFor(null, 1600), null, 'no era, no hair grown');
   assert(iris.material.roughness <= .1 && iris.material.envMapIntensity > 1, 'the cornea is glossy and mirrors the sky');
 }
 
+// 4b. A worn-up bun shares the cap's material and comes first in the file (T-3423): the
+//     strands still grow from the scalp cap, the largest hair mesh, never from the bun.
+{
+  const { root, cap } = figure();
+  const bunGeom = new THREE.SphereGeometry(.035, 8, 6);
+  const n = bunGeom.attributes.position.count;
+  bunGeom.setAttribute('skinIndex', new THREE.Uint16BufferAttribute(new Array(4 * n).fill(0).map((_, i) => (i % 4 ? 0 : 1)), 4));
+  bunGeom.setAttribute('skinWeight', new THREE.Float32BufferAttribute(new Array(4 * n).fill(0).map((_, i) => (i % 4 ? 0 : 1)), 4));
+  const bun = new THREE.SkinnedMesh(bunGeom, new THREE.MeshStandardMaterial({ name: 'hair__makehuman_short04' }));
+  cap.parent.add(bun); cap.parent.children.splice(cap.parent.children.indexOf(bun), 1); cap.parent.children.unshift(bun);
+  bun.bind(cap.skeleton, new THREE.Matrix4());
+  const mary = dressHair(root, { lod: 0, person: 'rc_flynn_mary', year: 1835 });
+  assert(mary?.grown.scalp > 100, 'Mary\'s hair grows over her cap');
+  assert.equal(mary.mesh.skeleton, cap.skeleton);
+  assert.equal(cap.material.alphaTest, CARDS.cap_alpha_test, 'the cap, not the bun, is made solid beneath the cards');
+  assert.equal(hairFor('rc_flynn_mary', 1835).cut, 'centre_part_knot_1835', 'a woman\'s cut, not the era\'s man\'s');
+}
+
 // 5. Every person: humans.js grows each near body's hair after it measures its height.
 const humans = await fs.readFile(new URL('renderers/web/js/humans.js', here), 'utf8');
 assert(/import \{ dressHair \} from '\.\/human-hair\.js';/.test(humans));

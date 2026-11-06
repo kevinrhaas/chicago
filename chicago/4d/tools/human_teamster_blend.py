@@ -160,8 +160,8 @@ def build(args):
     if variant.get('component_assembly'):
         from human_dress_components import prepare_dress_assembly
         dress = prepare_dress_assembly(ROOT, recipe, variant, body)
-        if args.sit_drive_study:
-            raise ValueError('dress study has no qualified seated/driver assignment')
+        # T-3423: a dress study sits only on its own transferred binding, which load_study
+        # requires (tools/human_seated_transfer.py); no other seated draft is borrowed.
     skinpath = verify_skin_texture(recipe)
     from human_hair_short04 import fit as fit_short04
     hair, hairpath, hair_report = fit_short04(body, recipe['hair_component'], ROOT)
@@ -409,6 +409,12 @@ def build(args):
         col=bpy.data.collections.new('lod'+str(lod));scene.collection.children.link(col)
         # Preserve source hair topology pending measured lower-LOD adaptation.
         object_mesh(f'{asset}_short04_hair_lod{lod}',hair['positions_m'],hair['triangles'],hair['uvs'],hair['weights'],'hair__makehuman_short04',col)
+        if dress:
+            # T-3423: her hair is worn up: a reconstructed bun over the same cleared cap.
+            from human_dress_components import hair_bun
+            bun=hair_bun(hair,bones)
+            object_mesh(f'{asset}_hair_bun_lod{lod}',bun['positions_m'],bun['triangles'],bun['uvs'],bun['weights'],bun['material'],col,corner_uvs=bun['corner_uvs'])
+            if lod==0:print(json.dumps({'source_hair_bun':bun['receipt']}),flush=True)
         for mi,m in enumerate(body['meshes']):
             obj=object_mesh(f'{asset}_body_{mi}_lod{lod}',m['positions_m'],m['triangles'],m['uvs'],m['weights'],'skin',col,ratio,source_vertex_indices=m['source_vertex_indices'])
             if lod in contract['morphs']['required_lods']:morphs(obj)

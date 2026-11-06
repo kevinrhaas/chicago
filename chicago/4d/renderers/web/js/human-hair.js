@@ -187,6 +187,15 @@ function combed(cut, f, p, n) {
     const sides = down.clone().addScaledVector(f.z, -.45).normalize();
     return onTop.multiplyScalar(top).add(sides.multiplyScalar(1 - top));
   }
+  if (cut.flow === 'centre_part_back') {
+    // Parted in the middle and drawn smooth to either side, over the tops of the ears and
+    // back to a knot behind the head (T-3423): toward the knot everywhere off the parting.
+    const knot = f.o.clone().addScaledVector(f.y, cut.knot_cm.up / 100).addScaledVector(f.z, -cut.knot_cm.back / 100);
+    const toKnot = knot.sub(p).normalize();
+    const across = f.x.clone().multiplyScalar(lx >= 0 ? 1 : -1);
+    const onTop = across.addScaledVector(f.z, -.35).normalize();
+    return onTop.multiplyScalar(top).add(toKnot.multiplyScalar(1 - top)).normalize();
+  }
   // Brushed forward: out from a crown behind the top, toward the brow, and forward at the temples.
   const crown = f.o.clone().addScaledVector(f.y, .1).addScaledVector(f.z, -.075);
   const out = p.clone().sub(crown);
@@ -449,7 +458,11 @@ export function dressHair(root, { lod = 0, person = null, year = null, style: gi
   let hair = null, skin = null;
   root.traverse(o => {
     if (!o.isSkinnedMesh) return;
-    if (/^hair($|__)/.test(o.material?.name ?? '')) hair ??= o;
+    // The scalp cap is the largest hair mesh: a bun or other worn-up piece shares its
+    // material and is never the surface strands grow from (T-3423).
+    if (/^hair($|__)/.test(o.material?.name ?? '')) {
+      if (!hair || o.geometry.attributes.position.count > hair.geometry.attributes.position.count) hair = o;
+    }
     else if (/^skin($|__)/.test(o.material?.name ?? '')) skin ??= o;
   });
   if (!hair?.skeleton || !hair.parent) return null;

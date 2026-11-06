@@ -167,6 +167,28 @@ for (const lod of [0, 1, 2, 3]) for (const key of ['rc_bardwell_otis', 'crowd_3'
 }
 for (const [key, d] of Object.entries(summary)) assert(Math.max(...d) - Math.min(...d) < 0.015, `${key}: build agrees between LODs (${d.map(x => x.toFixed(4))})`);
 
+// T-3423: a woman on foot takes the female build axes, never the male ones, and a female
+// axis shares its male twin's draw: nobody's values move because the female targets exist.
+{ const female = kit.axes.filter(a => a.sex === 'female');
+  assert(female.length >= 3 && female.every(a => a.draw_as && kit.axes.some(b => b.id === a.draw_as && b.sex === 'male')), 'each female axis names its male twin');
+  const p = V.personVariation({ kit, key: 'crowd_3', assetId: 'flynn_mary_1835_dress_study' });
+  assert.equal(p.sex, 'female');
+  for (const a of female) if (!a.drive) assert.equal(p.values[a.id], p.values[a.draw_as], `${a.id} takes ${a.draw_as}'s draw`);
+  const dense = V.denseDelta(kit, p, 'full'), male = V.denseDelta(kit, { ...p, sex: 'male' }, 'full');
+  let differ = 0; for (let i = 0; i < dense.length; i++) if (Math.abs(dense[i] - male[i]) > 1e-6) differ++;
+  assert(differ > 1000, `the female build moves the body differently from the male (${differ} components)`);
+  for (const lod of [0, 3]) {
+    const scene = await figure('flynn_mary_1835_dress_study', lod), before = snapshot(scene);
+    const r = V.applyVariation(scene, kit, p, { scope: 'full' });
+    assert(r.meshes >= 4, `woman lod${lod}: body and dress varied`);
+    scene.scale.setScalar(1);
+    const after = snapshot(scene);
+    const minY = a => { let m = Infinity; for (let i = 1; i < a.length; i += 3) m = Math.min(m, a[i]); return m; };
+    const shoesB = [...before.values()].find(m => m.slot === 'footwear'), shoesA = [...after.values()].find(m => m.slot === 'footwear');
+    assert(Math.abs(minY(shoesA.pos) - minY(shoesB.pos)) < 0.005, `woman lod${lod}: soles stay down`);
+  }
+}
+
 // One variant per person and LOD: a second figure reuses it; freeing the source frees it.
 { const s1 = await figure('bardwell_otis_1835', 2);
   const clone = SK.clone(s1), sources = new Set(); clone.traverse(o => { if (o.isSkinnedMesh) sources.add(o.geometry); });

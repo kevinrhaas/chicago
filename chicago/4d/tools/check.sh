@@ -274,6 +274,8 @@ step "A far structure piece casts from its clustered shadow twin only where the 
   node tools/test_far_shadow.mjs
 step "At light, a far structure piece draws in the colour pass from a clustered twin that never pools two normals, only where its edge moves under a pixel, and is put back after the pass (T-3312)" \
   node tools/test_far_colour.mjs
+step "At light, a structure piece whose whole bounding sphere lands within a pixel of its centre is not drawn in the colour pass, never in the sun's, and is put back after the pass (T-3426)" \
+  node tools/test_sub_pixel.mjs
 step "Draw budgets read the driver's draws: a BatchedMesh multi-draw counts one draw per kept entry, reset with renderer.info (T-2970)" \
   node tools/test_driver_draws.mjs
 step "Full active Ghost views use their measured envelope; ordinary and lower-tier ceilings restore unchanged (T-2981)" \
@@ -545,6 +547,8 @@ step "Every selected natural-standing derivative reproduces from its exact canon
   python3 tools/human_natural_idle.py --check
 step "Active seated drivers reproduce their bounded looking clip from exact parent exports (T-2804)" \
   python3 tools/human_seated_look.py --check
+step "The woman's seated draft reproduces from Otis Bardwell's reviewed pose on her own rest chain (T-3423)" \
+  python3 tools/human_seated_transfer.py --donor bardwell_otis_1835 --target flynn_mary_1835_dress_study --person rc_flynn_mary --body assets/authored/humans/makehuman_hm08/prepared_adult_female_25.json --check
 step "Natural standing derivative preserves canonical parents, old clips and planted lower-body channels (T-1790)" \
   python3 tools/test_human_natural_idle.py
 step "Selected terminal garments reproduce their exact installed payloads (T-2804)" \

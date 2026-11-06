@@ -20,6 +20,13 @@ export const HAIR_CUTS = Object.freeze({
     flow: 'side_part', part_cm: 3.2, lengths_cm: Object.freeze({ top: 4.6, side: 1.5, back: 1.7 }),
     lift_mm: Object.freeze({ root: .8, tip: 2 }), density: 1.25, curl: .04, hang: false,
   }),
+  // A woman's hair of the 1830s (T-3423): parted in the middle, drawn smooth and close over
+  // the tops of the ears and back to a knot behind the head (the bun is in the body itself).
+  centre_part_knot_1835: Object.freeze({
+    flow: 'centre_part_back', part_cm: 0, lengths_cm: Object.freeze({ top: 7, side: 6, back: 5 }),
+    knot_cm: Object.freeze({ up: 5, back: 12 }),
+    lift_mm: Object.freeze({ root: .5, tip: 1.2 }), density: 1.3, curl: .03, hang: false,
+  }),
   // Of the 1830s: fuller all round, brushed forward from the crown toward the brow and
   // temples, over the tops of the ears.
   brushed_forward_1835: Object.freeze({
@@ -58,6 +65,10 @@ export const PEOPLE_HAIR = Object.freeze({
   pa1904_otis_f_r_c1900_hans_johnson: Object.freeze({
     cut: 'short_side_part_1904', facial: Object.freeze([]), colour: 'dark_brown', grade: 'reconstructed',
     basis: 'Clean-shaven, with short hair showing below the hat, as the liveried coachmen of the people-match reference set are (coachman_1904: Rau 1902, Griffith 1905); the cut and the colour are reconstructed. No picture of Hans Johnson is known.',
+  }),
+  rc_flynn_mary: Object.freeze({
+    cut: 'centre_part_knot_1835', facial: Object.freeze([]), colour: 'dark_brown', grade: 'reconstructed',
+    basis: 'A reconstructed choice for a working woman in the Chicago of 1835: hair parted in the middle, drawn smooth over the ears and pinned up in a knot behind, as women of the 1830s wore it. No picture of Mary Flynn is known.',
   }),
   rc_bardwell_otis: Object.freeze({
     cut: 'brushed_forward_1835', facial: Object.freeze(['side_whiskers']), colour: 'mid_brown', grade: 'reconstructed',

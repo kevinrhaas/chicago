@@ -36560,6 +36560,21 @@ gaits, tack, riders, teams and interactions retain their existing tickets.
 **Ticket:** T-1789.
 **Recorded:** 2026-10-26.
 
+**Woman on the shared rig supplement, 2026-11-06 (T-3423):** The dress study is now built, exported
+and stood in the 1835 town as Mary Flynn outside the D1 log dwelling her household was dealt
+(`hi_rc_flynn_mary_1835`). What is added is reconstructed, not read. **Walking and sitting:** below
+the waist each skirt and apron point is shared between the pelvis and the leg on its side (thigh
+above the knee, calf below; the front more than the back), an original engineering blend in place of
+cloth simulation, so a stepping or seated thigh carries the skirt over it. **Seated clip:** Otis
+Bardwell's reviewed W01 bench pose (`bardwell_otis_1835-triangle-corrected-pose.json`) is transferred
+by `tools/human_seated_transfer.py`: his bone rotations on her own rest chain, the pelvis re-seated
+by the two bodies' standing pelvis heights; no woman's seated posture is observed. **Hair:** a
+reconstructed bun (4.4 x 4.0 x 3.0 cm half-axes) is worn on the back of the cleared short04 cap,
+because women of 1835 wore their hair up; its size and place are chosen. **Build:** MakeHuman's
+female macro targets (pinned in `SOURCE-variation.json`) give her seeded weight, muscle and age under
+L-human-variation-3412, each sharing its male twin's draw. Her figure is not a likeness and her
+dress is not her outfit; the photo comparison and the 1904 woman remain open under T-3423.
+
 ### L-tremont-gale-envelope-2385 — two-storey default and picture alternative
 
 **Decision:** the default first Tremont follows Gale's retrospective, 1835-framed
@@ -38266,6 +38281,18 @@ pictures' heads vary by a couple of metres; that trees of the 1890s pictures are
 1904. The winter heads are the layer's bare sprays, coarser than the prints' fine twigs.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`,
 `taylor_1445_album-side-by-side.jpg`, `chm_clark_1905-side-by-side.jpg` and their match records.
+**Extended (T-1881, 2026-11-06, the Prairie corner):** the corner left out above is planted: one
+tree at 259.8 m along `prairie__prairie_ic_16_18`, in the grass plot where the Prairie and 18th Street
+parkways meet. **Read:** its place, from two pictures at once. The Detroit print's trunk at x 630 and
+Taylor's no. 1445's slender trunk at x 148, each carried to the planting line (u 48.0) through its own
+solved camera, land at v 29.18 and 29.22, 0.04 m apart, so the two are one tree; neither picture's ground
+is used (the print's reads 9-13 px low along this stretch, and Taylor's sees the parkway edge-on). The
+1890 Albertype plate and Clark's 1905 photograph each draw a trunk where it renders through their cameras.
+The stretch now runs to 261.0 m. **Chosen:** its size and habit, the Detroit print's (a mature trunk about
+0.38 m across, the parkway's `high_head`), though Taylor's earlier print draws it young and slender; and
+Taylor's no. 1445, read above as drawing this parkway clear, does draw this trunk.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`,
+`taylor_1445_album-side-by-side.jpg` and their match records.
 
 
 ### L-pullman-terrace-tubs-1934 — The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them

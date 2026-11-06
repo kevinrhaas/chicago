@@ -94,7 +94,10 @@ for (const file of files) {
   r.rest_height_m = +(box.max.y - box.min.y).toFixed(4);
   r.soles_y_m = +box.min.y.toFixed(4);
   r.span_m = +(box.max.x - box.min.x).toFixed(4);
-  r.facing = box.max.z > -box.min.z ? '+Z (toes forward)' : '-Z';
+  // Toes forward, read off the feet themselves: the ball of each foot ahead of its ankle. (The
+  // box's deeper side was the old reading; a bun or a bustle behind can outreach the toes, T-3423.)
+  const ahead = ['l', 'r'].map((s) => bone(`ball_${s}`).getWorldPosition(new THREE.Vector3()).z - bone(`foot_${s}`).getWorldPosition(new THREE.Vector3()).z);
+  r.facing = ahead.every((d) => d > 0) ? '+Z (toes forward)' : '-Z';
 
   // Skinning: raise the left upper arm 45 degrees and the hand must travel.
   const ua = bone('upperarm_l'); const q0 = ua.quaternion.clone();

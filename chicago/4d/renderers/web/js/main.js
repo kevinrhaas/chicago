@@ -1140,6 +1140,12 @@ const DETAIL_DECLARED = {
               // as well as far: detail under a texel costs the pass triangles and
               // changes no texel. `full` and `balanced` keep T-3286's screen bound.
               shadowTwinsByTexel: true,
+              // T-3426: and a structure piece whose whole bounding sphere lands within
+              // a pixel of its centre is not drawn in the colour pass at all
+              // (sub-pixel.js) — the twins' one-pixel rule taken to its limit. It is
+              // what keeps this rung materially cheaper than `full` at West prairie,
+              // where the town's colour pass was 2,974 draws at both tiers.
+              subPixelCull: true,
               furnitureReachM: FURNITURE_REACH_LIGHT_M,
               groundDetailReachM: GROUND_DETAIL_REACH_LIGHT_M,
               // T-1959: NO WOODPILES AT `light`. They are one mesh for the whole
@@ -2216,7 +2222,8 @@ async function boot() {
     light: () => world.light, fresh: () => detailLevel === 'full' && governor.shadowFresh };
   // T-3312: the same kind of switch for the colour pass's far twins (far-colour.js),
   // shared by every structure batch, old and rebuilt alike; applyShadowTier sets it.
-  const farColourTier = { on: false };
+  // T-3426: `subPixel` rides on the same switch (sub-pixel.js), set by the same tier.
+  const farColourTier = { on: false, subPixel: false };
   let buildings = await createBuildings({ registry: loaded.registry, confidence, terrain,
     shadowCasters,
     preserveMaterials: inspectionLod,
@@ -2950,6 +2957,7 @@ async function boot() {
     // twin wherever the twin's edge moves no more than one texel of this map.
     shadowCasters.sunTexelM = want.shadowTwinsByTexel === true ? rig.texelM : 0;
     farColourTier.on = want.farColourLod === true;
+    farColourTier.subPixel = want.subPixelCull === true;
     for (const name of FURNITURE_LAYERS) {
       const group = scene3d.getObjectByName(name);
       // A layer that drew nothing (a record that failed to load, a fence whose
@@ -2978,7 +2986,8 @@ async function boot() {
     }
     return { reachM: want.shadowReachM, furnitureCastsShadow: casts,
       castersTowardView: shadowCasters.on, farColourLod: farColourTier.on,
-      shadowTwinsByTexel: shadowCasters.sunTexelM > 0 };
+      shadowTwinsByTexel: shadowCasters.sunTexelM > 0,
+      subPixelCull: farColourTier.subPixel };
   }
   applyShadowTier(detailLevel);
 

@@ -1,0 +1,9 @@
+{
+  "title": "The Light setting draws the town far more cheaply from the prairie",
+  "kind": "improvement",
+  "items": [
+    "On the Light setting, building details smaller than a pixel on your screen are no longer drawn, so phones and weaker machines do much less work for the same picture.",
+    "Looking at the town from the west prairie, Light now draws 23% fewer pieces on a phone and 9% fewer on a laptop. In a held frame, 14 pixels of the phone's 304,200 change, and 1 of the laptop's 1,024,000.",
+    "Full and Balanced still draw every piece."
+  ]
+}
