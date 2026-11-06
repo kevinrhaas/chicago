@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2731, ts: '2026-11-06T21:47:20.165Z', date: 'Nov 6, 2026, 3:47 PM CT', title: 'Following someone is smooth', kind: 'fix',
+    items: [
+      'Walking beside Hans Johnson\'s brougham no longer jitters: you keep the carriage\'s pace instead of standing still and lunging each frame, and your eyes stay on him without bobbing with his head.',
+    ] },
   { v: 2730, ts: '2026-11-06T21:29:09.033Z', date: 'Nov 6, 2026, 3:29 PM CT', title: 'The Glessners\' cook in their courtyard: the first woman in 1904', kind: 'feature',
     items: [
       'In 1904, Mattie Williamson, the Glessners\' cook, now stands in the Glessner House courtyard. Tap her to open her card.',
