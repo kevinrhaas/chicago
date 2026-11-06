@@ -242,7 +242,8 @@ def drawn_people():
             out.setdefault(row['person_id'], {'scene': str(row['scene']), 'drawn_as': []})['drawn_as'].append(f"data/transport/driven/loops.json#{row['id']}")
     for path in sorted(FITS.glob('*.json')) if FITS.exists() else []:
         fit = json.loads(path.read_text())
-        out.setdefault(fit['person_id'], {'scene': str(fit['scene']), 'drawn_as': []})['drawn_as'].append(str(path.relative_to(ROOT)))
+        # A fitted face is carried for the person whether or not a figure draws them yet.
+        out.setdefault(fit['person_id'], {'scene': str(fit['scene']), 'drawn_as': []})
     return out
 
 
@@ -280,7 +281,7 @@ def persons():
         fit = FITS / f'{pid}.json'
         if fit.exists():
             f = json.loads(fit.read_text())
-            rec['face'] = {k: f[k] for k in ('grade', 'sources', 'basis', 'values', 'liberty') if k in f}
+            rec['face'] = {k: f[k] for k in ('grade', 'sources', 'basis', 'values', 'liberty', 'not_modelled', 'card') if f.get(k) is not None}
             rec['face']['fit'] = str(fit.relative_to(ROOT))
         out[pid] = rec
     return (json.dumps({'format': 'chicago4d_human_variation_persons_v1', 'ticket': 'T-3412',

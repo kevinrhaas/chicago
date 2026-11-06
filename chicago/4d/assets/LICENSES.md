@@ -2043,3 +2043,18 @@ humans/web/hm08_variation_kit.bin
 humans/web/hm08_variation_kit.json
 humans/web/hm08_variation_persons.json
 ```
+
+### A named resident's portrait and fitted face — `humans/web/portraits/` (T-3413)
+
+`glessner_john_j_portrait.jpg` is cut and scaled from the Internet Archive's scan of the Library of
+Congress copy of *The Commercial Club of Chicago* (1910), p. 81 (source record
+`glessner_commercial_club_1910_presidents_plate`): a US book of 1910, **public domain**. The crop box
+is recorded in `data/humans/variation/portraits/glessner_john_j.json`.
+`glessner_john_j_model.jpg` (and its `.json` sidecar) is rendered by `tools/portrait_still.mjs` from
+the CC0 MakeHuman-derived body and the fit in `data/humans/variation/fits/`, and is **CC0-1.0**.
+
+```text
+humans/web/portraits/glessner_john_j_model.jpg
+humans/web/portraits/glessner_john_j_model.json
+humans/web/portraits/glessner_john_j_portrait.jpg
+```

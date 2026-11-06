@@ -2295,6 +2295,13 @@
       "measured": "2026-11-06",
       "finding": "Reproduces: a bare write run on the committed tree rewrote assets/humans/web/hm08_variation_kit.bin, hm08_variation_kit.json and hm08_variation_persons.json with identical bytes; git status stayed clean (T-3412).",
       "placed": "not yet \u2014 measured to reproduce. It reads the vendored MakeHuman targets, prepared.json, axes.json, the humans instances, data/transport/driven/loops.json, the residents' household files and data/humans/variation/fits/; its slot must follow whatever writes loops.json and the household files, and the manifest's order is its own measured pass, so it is not appended blind (T-3412)."
+    },
+    "fit_portrait_face.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-06",
+      "finding": "Reproduces: a bare write run on the committed tree rewrote data/humans/variation/fits/glessner_john_j.json with identical bytes; git status stayed clean (T-3413). It does not write the card's still; tools/portrait_still.mjs does, and --check refuses a still whose sidecar names another fit.",
+      "placed": "not yet \u2014 measured to reproduce. It reads the portrait records, data/sources/, axes.json, the variation kit and base.obj; tools/human_variation_kit.py reads its output (persons.json carries the fitted face), so its slot precedes that tool's, and the manifest's order is its own measured pass, so it is not appended blind (T-3413)."
     }
   }
 }

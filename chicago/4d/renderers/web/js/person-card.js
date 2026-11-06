@@ -85,10 +85,32 @@ function leafLink(citation, locator) {
 }
 
 /**
+ * T-3413: a face fitted to a portrait of the person (assets/humans/web/hm08_variation_persons.json's `face`,
+ * from tools/fit_portrait_face.py). The card shows the portrait beside a still of the fitted face,
+ * the picture's grade, how close the fit came, and what the model cannot show yet. A face with
+ * no card block (or none at all) shows nothing.
+ */
+export function likenessOf(face, assetBase = null) {
+  const c = face?.card;
+  if (!c?.portrait || !c?.model) return null;
+  const url = (p) => { try { return assetBase ? new URL(p, assetBase).href : p; } catch { return p; } };
+  const notModelled = (face.not_modelled ?? []).map((t) => String(t).replace(/\s*\(.*\)$/, ''));
+  return {
+    grade: face.grade ?? 'reconstructed',
+    portrait: url(c.portrait),
+    model: url(c.model),
+    sourceTitle: sourceTitle(c.source_citation ?? '') || c.source_citation || '',
+    sourceUrl: c.source_url ?? '',
+    fit: Number.isFinite(c.rms_mm) ? `Fitted to ${c.marks ?? 'the'} points marked on the photograph; the model sits within about ${Math.round(c.rms_mm)} mm of them on average.` : '',
+    notModelled,
+  };
+}
+
+/**
  * The card, from the directory's row and (once it is read) the household record's own entry
  * for this person and the scene's citation join. Every part is optional but the row.
  */
-export function personModel({ row, person = null, household = null, citations = null, sceneYear = null } = {}) {
+export function personModel({ row, person = null, household = null, citations = null, sceneYear = null, face = null, assetBase = null } = {}) {
   const p = person ?? {};
   const grade = p.grade ?? row?.grade ?? null;
   const relationship = p.relationship ?? row?.relationship ?? '';
@@ -189,6 +211,7 @@ export function personModel({ row, person = null, household = null, citations = 
     sheetNotes,
     sources,
     ownCard,
+    likeness: likenessOf(face, assetBase),
     away: lived?.on_scene_date === 'no',
     read: !!person,
   };
@@ -341,6 +364,34 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), o
     card.append(el(doc, 'p', 'nav-sub insp-person-wait', 'Reading the household record…'));
   } else {
     card.append(el(doc, 'p', 'nav-sub', 'The record says no more about them yet than the listing below.'));
+  }
+
+  if (m.likeness) {
+    const L = m.likeness;
+    const sec = el(doc, 'section', 'insp-sec insp-person-likeness');
+    sec.dataset.grade = L.grade;
+    sec.append(el(doc, 'h3', 'insp-h', 'Likeness'));
+    const pair = el(doc, 'div', 'insp-person-pair');
+    for (const [src, cap, alt] of [[L.portrait, 'Photograph', `${m.name}, photograph`], [L.model, 'Model', `${m.name}, the model's face`]]) {
+      const fig = el(doc, 'figure', 'insp-person-face');
+      const img = el(doc, 'img');
+      img.src = src; img.alt = alt; img.loading = 'lazy'; img.decoding = 'async'; img.width = 360; img.height = 480;
+      fig.append(img, el(doc, 'figcaption', 'nav-k', cap));
+      pair.append(fig);
+    }
+    sec.append(pair);
+    const g = el(doc, 'p', 'insp-person-why-title', `Face ${String(GRADE_WORD[L.grade] ?? L.grade).toLowerCase()} by the photograph`);
+    g.prepend(dot(doc, L.grade));
+    sec.append(g);
+    if (L.fit) sec.append(el(doc, 'p', 'insp-person-note', L.fit));
+    if (L.notModelled.length) sec.append(el(doc, 'p', 'insp-person-note', `Not on the model yet: ${L.notModelled.join(', ')}.`));
+    if (L.sourceTitle) {
+      const p = el(doc, 'p', 'insp-person-note');
+      if (L.sourceUrl) { const a = el(doc, 'a', null, L.sourceTitle); a.href = L.sourceUrl; a.target = '_blank'; a.rel = 'noopener'; p.append(a); }
+      else p.append(L.sourceTitle);
+      sec.append(p);
+    }
+    card.append(sec);
   }
 
   const how = el(doc, 'section', 'insp-sec insp-person-how');
