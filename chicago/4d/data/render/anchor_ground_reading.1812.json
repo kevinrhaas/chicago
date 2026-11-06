@@ -302,15 +302,28 @@
     },
     {
       "id": "heald_mile_and_a_half",
-      "local_e": 1300,
-      "local_n": -1853,
+      "local_e": 1308,
+      "local_n": -1960,
       "aerial": true,
       "inside": true,
-      "ground_m": 2.608,
+      "ground_m": 0.388,
       "dry": true,
       "stands_on": null,
       "deck_m": null,
-      "margin_m": 20,
+      "margin_m": 12.5,
+      "inside_a_roof": null
+    },
+    {
+      "id": "heald_small_elevation",
+      "local_e": 905,
+      "local_n": -1905,
+      "aerial": true,
+      "inside": true,
+      "ground_m": 2.355,
+      "dry": true,
+      "stands_on": null,
+      "deck_m": null,
+      "margin_m": null,
       "inside_a_roof": null
     },
     {
@@ -367,7 +380,7 @@
     }
   ],
   "totals": {
-    "anchors": 26,
+    "anchors": 27,
     "outside_the_box": 0,
     "wet": 0,
     "in_a_roof": 0,
