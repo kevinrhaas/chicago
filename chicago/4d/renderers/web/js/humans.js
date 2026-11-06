@@ -275,7 +275,7 @@ export class HumanActor {
 
   build(gltf, lod, variation = null) {
     const scene = cloneSkinned(gltf.scene);
-    this.vary(scene, variation);
+    this.vary(scene, variation);   // before dressSkin, which reads the varied rest pose
     const meshes = [];
     scene.traverse((o) => {
       if (!o.isSkinnedMesh) return;
