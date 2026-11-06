@@ -59,7 +59,7 @@ const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
 /** The bones this layer moves. A rig missing any CORE bone is left alone (null). */
 const CORE = ['pelvis', 'spine_01', 'spine_02', 'spine_03', 'neck_01', 'head', 'clavicle_l', 'clavicle_r'];
 const LEGS = ['thigh_l', 'thigh_r', 'calf_l', 'calf_r', 'foot_l', 'foot_r'];
-const OPTIONAL = [...LEGS, 'eye_l', 'eye_r', 'upperarm_l', 'upperarm_r'];
+const OPTIONAL = [...LEGS, 'eye_l', 'eye_r'];
 
 /** What each behaviour state gets. `working` and `seated` keep their clip's body. */
 export const LIFE_MODES = Object.freeze({
@@ -168,6 +168,9 @@ export function createHumanLife({ id = 'human', scene = null } = {}) {
   const weight = { side: S(), soft: S(), yaw: S() };
   let weightTarget = { side: between(-1, 1), yaw: between(-2, 2) * DEG }, weightHold = between(2, 6);
   let blinkNext = between(1, 4), blinkT = -1, blinkDur = 0.2, lastBlinkYaw = 0;
+  let nodT = -1; // a small nod of greeting (T-3415), seconds into it
+  const walkTwist = S();
+  const vf = new THREE.Vector3();
   const v = new THREE.Vector3();
 
   const pickGaze = (mode, walking, seen) => {
@@ -193,6 +196,8 @@ export function createHumanLife({ id = 'human', scene = null } = {}) {
     get bound() { return bound; },
     get bones() { return Object.keys(bones); },
     bind,
+    /** A small nod, as with a greeting (human-actions.js asks for it). */
+    nod() { if (nodT < 0) nodT = 0; return life; },
     /** Look at `point` (a world Vector3) for `seconds`; null lets go. */
     attend(point, seconds = 3) {
       attention = point ? { point: point.clone(), left: Math.max(0, seconds) } : null;
@@ -288,16 +293,28 @@ export function createHumanLife({ id = 'human', scene = null } = {}) {
           turn(`foot_${s}`, 0, k, -lean);
         }
       }
+      // Walking, the shoulders turn against the hips (T-3415): the chest follows the arm
+      // that swings forward, which goes with the opposite leg. Read from where the feet
+      // were last frame, so it follows any walk clip's stride and stops when they stop.
+      let twistTarget = 0;
+      if (walking && bones.foot_l && bones.foot_r && root) {
+        const d = bones.foot_l.getWorldPosition(v).sub(bones.foot_r.getWorldPosition(vf))
+          .dot(vf.set(0, 0, 1).applyAxisAngle(THREE.Object3D.DEFAULT_UP, root.rotation.y));
+        twistTarget = clamp(d * 0.2, -0.09, 0.09); // about 4 deg at a 0.36 m lead
+      }
+      const twist = spring(walkTwist, twistTarget, 12, dt);
       // The spine counters the hips so the shoulders sit level; the chest breathes.
       turn('spine_01', -wYaw * 0.4, swayPitch * 0.4, -tip * 0.45 + swayRoll * 0.3);
-      turn('spine_02', torso * 0.35, breath * 0.9 * DEG * mode.breath + swayPitch * 0.4, -tip * 0.35 + swayRoll * 0.4);
-      turn('spine_03', torso * 0.65 - wYaw * 0.3, breath * 0.55 * DEG + swayPitch * 0.2, -tip * 0.2 + swayRoll * 0.3);
+      turn('spine_02', torso * 0.35 + twist * 0.4, breath * 0.9 * DEG * mode.breath + swayPitch * 0.4, -tip * 0.35 + swayRoll * 0.4);
+      turn('spine_03', torso * 0.65 - wYaw * 0.3 + twist * 0.6, breath * 0.55 * DEG + swayPitch * 0.2, -tip * 0.2 + swayRoll * 0.3);
+      let nod = 0;
+      if (nodT >= 0) { nodT += dt; nod = nodT < 0.9 ? Math.sin(nodT / 0.9 * Math.PI) * 9 * DEG : 0; if (nodT >= 0.9) nodT = -1; }
       // The head is held level against the chest's breath, the hips and the sway.
       const steadyRoll = -swayRoll * 0.6;
       const steadyPitch = -(breath * 1.1 * DEG + swayPitch);
-      const headTurn = headYaw - torso;
-      turn('neck_01', headTurn * 0.4, headPitch * 0.35 + steadyPitch * 0.5, steadyRoll * 0.5);
-      turn('head', headTurn * 0.6, headPitch * 0.65 + steadyPitch * 0.5, steadyRoll * 0.5 + headTurn * -0.05);
+      const headTurn = headYaw - torso - twist;
+      turn('neck_01', headTurn * 0.4, headPitch * 0.35 + steadyPitch * 0.5 - nod * 0.4, steadyRoll * 0.5);
+      turn('head', headTurn * 0.6, headPitch * 0.65 + steadyPitch * 0.5 - nod * 0.6, steadyRoll * 0.5 + headTurn * -0.05);
       // The eyes make what is left of the turn.
       const ey = clamp(eyeYaw - headYaw, -28 * DEG, 28 * DEG), ep = clamp(eyePitch - headPitch, -18 * DEG, 18 * DEG);
       turn('eye_l', ey, ep); turn('eye_r', ey, ep);

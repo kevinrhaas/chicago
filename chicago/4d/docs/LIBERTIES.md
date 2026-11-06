@@ -41089,3 +41089,21 @@ gesture or likeness and does not change any person's grade.
 **How to resolve:** recorded motion capture of period-appropriate standing and walking, reviewed in the town.
 **Ticket:** T-3402.
 **Recorded:** 2026-11-06 (T-3402).
+
+### L-human-actions-3415 — People on foot rest their hands, change stance, touch their hat and swing their arms
+
+**Decision:** every figure drawn by `humans.js` carries an arm layer (`renderers/web/js/human-actions.js`) over
+its clip and the life layer. Standing, the arms hang in to the body with the elbows soft and the hands relaxed
+against the thigh, and every 8-26 s a figure may change how it holds its hands: at rest, on the hips, or clasped
+behind the back. A visitor who stops within a few metres in front gets a touch of the hat brim with the right
+hand and a small nod, at most once a minute or so. Walking, the arms swing opposite the legs, read from the
+feet so it follows any walk, and the chest counter-twists a little.
+**What is read.** Nothing about any person: these are ordinary everyday gestures of the period (a man's touch of
+the hat brim as a greeting), bounded by common observation.
+**What is invented.** Which stance a figure takes and when, every amplitude and timing, and that it greets the
+visitor. It is seeded from the person id, so it is the same on every load; it is not a witnessed action and does
+not change any person's grade.
+**How to resolve:** recorded motion capture of period-appropriate standing, greeting and walking, reviewed in
+the town.
+**Ticket:** T-3419 (a piece of T-3415).
+**Recorded:** 2026-11-06 (T-3419).

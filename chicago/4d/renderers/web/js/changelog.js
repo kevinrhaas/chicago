@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2700, ts: '2026-11-06T08:53:07.998Z', date: 'Nov 6, 2026, 2:53 AM CT', title: 'People on foot rest their hands, touch their hat and swing their arms', kind: 'improvement',
+    items: [
+      'Standing figures let their arms hang in close with soft elbows, instead of a stiff A-pose.',
+      'Now and then they put their hands on their hips or clasp them behind the back.',
+      'Stop in front of someone and they touch their hat brim and nod.',
+      'Walkers swing their arms opposite their feet, with a little twist through the chest.',
+    ] },
   { v: 2699, ts: '2026-11-06T08:13:51.687Z', date: 'Nov 6, 2026, 2:13 AM CT', title: '1812 battle ground: Heald\'s high sand bank, the ravine, and his rise', kind: 'feature',
     items: [
       'The stray sand strip and islet off Twelfth Street are gone. They were the bottom edge of the 1834 survey sheet, read as a shore.',
