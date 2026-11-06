@@ -26,14 +26,14 @@ for (const asset of exports) {
   const root = new THREE.Group();
   for (const name of names) root.add(new THREE.Mesh(new THREE.BufferGeometry(), Object.assign(new THREE.MeshStandardMaterial(), { name })));
   const dressed = dressSkin(root);
-  const want = names.filter(n => /^(skin|hair|eyes)($|__)/.test(n) && !/__pupil$/.test(n)).sort();
+  const want = names.filter(n => /^(skin|hair|eyes)($|__)/.test(n)).sort();   // the pupil too, under its cornea (T-3414)
   assert.deepEqual(Object.keys(dressed).sort(), want, `${asset}: exactly its skin, hair and eyes`);
   assert(Object.values(dressed).includes('skin'), `${asset}: has skin`);
   root.traverse(o => { if (o.isMesh && !/^(skin|hair|eyes)/.test(o.material.name)) assert.equal(o.material.onBeforeCompile, THREE.Material.prototype.onBeforeCompile, `${o.material.name} untouched`); });
   console.log(`${asset}: ${Object.entries(dressed).map(([k, v]) => `${k}=${v}`).join(', ')}`);
 }
 for (const [name, surface] of [['skin', 'skin'], ['skin__dark', 'skin'], ['hair__makehuman_short04', 'hair'], ['eyes', 'eyes'], ['eyes__sclera', 'eyes'], ['eyes__iris', 'eyes'],
-  ['eyes__pupil', null], ['garment_upper__shirt_linen', null], ['footwear__closed_leather_shoes', null], ['skinny_tie', null], ['', null]]) assert.equal(surfaceFor({ name }), surface, name);
+  ['eyes__pupil', 'eyes'], ['eyes__lash', null], ['garment_upper__shirt_linen', null], ['footwear__closed_leather_shoes', null], ['skinny_tie', null], ['', null]]) assert.equal(surfaceFor({ name }), surface, name);
 assert.deepEqual(dressSkin(new THREE.Mesh(new THREE.BufferGeometry(), Object.assign(new THREE.MeshBasicMaterial(), { name: 'skin' }))), {}, 'an unlit material is left alone');
 
 // Eyes: wet, the sclera less paper-white, once however often a body is dressed.
@@ -42,6 +42,7 @@ const eyeRoot = new THREE.Mesh(new THREE.BufferGeometry(), sclera);
 const before = sclera.color.r;
 dressSkin(eyeRoot); dressSkin(eyeRoot);
 assert.equal(sclera.roughness, EYES.roughness);
+assert.equal(sclera.customProgramCacheKey(), '|chicago-sclera-v1', 'the white is shaded toward its corners');
 assert(Math.abs(sclera.color.r - before * EYES.sclera_value) < 1e-9, 'the sclera is toned once');
 
 // The bind pose in metres: a quantised export folds its scale into the inverse bind matrices.

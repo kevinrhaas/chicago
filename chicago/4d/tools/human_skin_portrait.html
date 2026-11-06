@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><title>human skin portrait (T-3400, never published)</title>
+<!doctype html><html><head><meta charset="utf-8"><title>human skin portrait (T-3400, T-3414, never published)</title>
 <style>html,body{margin:0;background:#8a8f96;overflow:hidden}canvas{display:block}</style>
 <script type="importmap">{"imports":{"three":"../renderers/web/vendor/three-0.185.1/three.module.js","three/addons/":"../renderers/web/vendor/three-0.185.1/addons/"}}</script>
 </head><body><script type="module">
@@ -9,6 +9,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { clone } from 'three/addons/utils/SkeletonUtils.js';
 import { dressSkin } from '../renderers/web/js/human-skin.js';
+import { dressHair } from '../renderers/web/js/human-hair.js';
 const q = new URLSearchParams(location.search);
 const asset = q.get('asset') ?? 'anonymous_working_driver_1904', lod = q.get('lod') ?? '0';
 const dist = Number(q.get('dist') ?? .55), yaw = Number(q.get('yaw') ?? 25) * Math.PI / 180, sunAz = Number(q.get('sun') ?? -40) * Math.PI / 180;
@@ -26,7 +27,7 @@ const pm = new THREE.PMREMGenerator(renderer); { // a sky above and warm ground 
   sky.add(new THREE.Mesh(g, new THREE.MeshBasicMaterial({ vertexColors: true, side: THREE.BackSide })));
   scene.environment = pm.fromScene(sky, .02).texture; scene.environmentIntensity = Number(q.get('env') ?? 1);
 }
-const sun = new THREE.DirectionalLight(0xfff2dc, 3.0); sun.position.set(Math.sin(sunAz) * 3, 3.2, Math.cos(sunAz) * 3); sun.castShadow = true;
+const sun = new THREE.DirectionalLight(0xfff2dc, 3.0); sun.position.set(Math.sin(sunAz) * 3, Number(q.get('sunup') ?? 3.2), Math.cos(sunAz) * 3); sun.castShadow = true;
 sun.shadow.mapSize.set(2048, 2048); Object.assign(sun.shadow.camera, { left: -1, right: 1, top: 1, bottom: -1, near: .1, far: 10 }); sun.shadow.bias = -.0004; sun.shadow.normalBias = .01;
 scene.add(sun, sun.target);
 const loader = new GLTFLoader(); loader.setMeshoptDecoder(MeshoptDecoder);
@@ -35,6 +36,10 @@ const body = clone(gltf.scene);
 body.traverse(o => { if (o.isMesh) { o.castShadow = o.receiveShadow = true; o.frustumCulled = false; } });
 scene.add(body);
 window.dressed = q.get('skin') === '0' ? {} : dressSkin(body);
+// T-3414: strand cards, as humans.js grows them for a near level (hair=0 leaves the cap alone).
+const cards = q.get('hair') === '0' ? null : dressHair(body, { lod: Number(lod), person: q.get('person'), year: Number(q.get('year') ?? 1904) });
+if (q.get('cap') === '0') body.traverse(o => { if (/^hair__/.test(o.material?.name ?? '')) o.visible = false; });
+window.hair = cards ? { grown: cards.grown, cut: cards.style.cut, vertices: cards.mesh.geometry.attributes.position.count } : null;
 body.updateMatrixWorld(true);
 let head = null; body.traverse(o => { if (o.isBone && /^head$/i.test(o.name)) head = o; });
 const hp = new THREE.Vector3(); (head ?? body).getWorldPosition(hp); hp.y += Number(q.get('dy') ?? .07);

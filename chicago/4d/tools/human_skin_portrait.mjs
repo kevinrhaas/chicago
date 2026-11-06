@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// T-3400: portraits of a portable human with and without renderers/web/js/human-skin.js.
+// T-3400, T-3414: portraits of a portable human with and without human-skin.js / human-hair.js.
 //   node tools/human_skin_portrait.mjs <out-dir> [asset] [query…]
 // Serves chicago/4d on a loopback port, opens tools/human_skin_portrait.html (never
 // published) and writes <asset>-before.png / <asset>-after.png. A page or shader error exits 1.
@@ -25,12 +25,15 @@ const page = await browser.newPage({ viewport: { width: Number(process.env.W ?? 
 const errors = [];
 page.on('pageerror', e => errors.push(String(e)));
 page.on('console', m => { if (process.env.DEBUG) console.log('console:', m.type(), m.text().slice(0, 300)); if (m.type() === 'error' || /THREE\.WebGLProgram/.test(m.text())) errors.push(m.text()); });
-for (const skin of ['0', '1']) {
-  await page.goto(`http://127.0.0.1:${port}/tools/human_skin_portrait.html?asset=${asset}&skin=${skin}&${extra}`);
+// Before and after: by default without and with the skin patch (T-3400); BEFORE / AFTER set either query.
+const modes = [process.env.BEFORE ?? 'skin=0&hair=0', process.env.AFTER ?? 'skin=1&hair=0'];
+for (const [i, mode] of modes.entries()) {
+  const skin = String(i);
+  await page.goto(`http://127.0.0.1:${port}/tools/human_skin_portrait.html?asset=${asset}&${mode}&${extra}`);
   await page.waitForFunction(() => window.ready, null, { timeout: 240000 }).catch(e => { console.error(errors.join('\n')); throw e; });
   const tag = (process.env.TAG ?? '') + (skin === '1' ? 'after' : 'before');
   await page.screenshot({ path: path.join(out, `${asset}-${tag}.png`) });
-  console.log(skin, JSON.stringify(await page.evaluate(() => ({ ready: window.ready, dressed: window.dressed }))));
+  console.log(mode, JSON.stringify(await page.evaluate(() => ({ ready: window.ready, dressed: window.dressed, hair: window.hair }))));
 }
 await browser.close(); server.close();
 if (errors.length) { console.error(errors.join('\n')); process.exit(1); }

@@ -40,6 +40,7 @@ import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
 import { loadMeshoptDecoder, disposeLoadedAsset } from './scene-loader.js';
 import { enuToWorld } from './terrain.js';
 import { dressSkin } from './human-skin.js';
+import { dressHair } from './human-hair.js';
 
 /** § 8: the LODs each scene-detail tier may draw. `light` stays the floor. */
 export const HUMAN_TIERS = Object.freeze({ full: [0, 1, 2, 3], balanced: [1, 2, 3], light: [2, 3] });
@@ -255,6 +256,9 @@ export class HumanActor {
     scene.updateMatrixWorld(true);
     const height = new THREE.Box3().setFromObject(scene).max.y;
     this.proxy.scale.y = height > 0.3 ? height : 1.7;
+    // T-3414: at the near levels, strand-card hair, beard and whiskers grown from this body's
+    // own scalp and face, by the person's cut (human-hair-styles.js). Not counted in its height.
+    this.hair = dressHair(scene, { lod, person: this.personId ?? null, year: Number(this.instance.scene) || null });
     const clips = new Map();
     for (const c of gltf.animations ?? []) clips.set(c.name, c);
     for (const c of this.libraryClips) if (!clips.has(c.name)) clips.set(c.name, c);
