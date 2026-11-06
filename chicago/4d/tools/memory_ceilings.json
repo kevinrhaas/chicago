@@ -195,48 +195,63 @@
           "gpu_textures": 97.7
         },
         "reread_by": {
-          "ticket": "T-3173",
-          "on": "2026-11-02T10:46:56.209Z",
-          "build": "3dc01941+T-3173 lap",
-          "reading": "docs/measurements/T-3173-memory.json",
-          "before": "docs/measurements/T-3173-memory-dev.json",
+          "ticket": "T-3408",
+          "on": "2026-11-06T06:59:53Z",
+          "build": "4610867c3+T-3408",
+          "reading": "docs/measurements/T-3408-memory.json",
+          "before": "docs/measurements/T-3408-memory-dev.json",
           "reading_mb": {
-            "total": 386.5,
-            "js_heap": 67.1,
-            "arraybuffers": 85.2,
-            "gpu_buffers": 176.0,
-            "gpu_textures": 58.3
+            "total": 375.1,
+            "js_heap": 71.5,
+            "arraybuffers": 72.4,
+            "gpu_buffers": 172.3,
+            "gpu_textures": 59.0
           },
-          "note": "Read again on the PR's second lap, because CI read the first lap's head at 404.0 (js heap 77.8 + arraybuffers 91.9; this machine read the same head at 396.4, its arraybuffers 7.5 MB lower), so a 3.4 MiB margin here was red there. Ceiling unchanged; nothing taken out of the scene, GPU bytes identical (176.0 / 58.3). The second lap takes the JS heap down again: a released row's GLB node tree collapses to one plain node carrying its materials for disposal (upload-release.js collapseScene); each view occluder shares its corners with its neighbours, and its normal and confidence range with its twins, and carries no area; and an occluding instance's placement is one float32 slot in a shared array rather than a Matrix4 in its closure, kept only when something holds the closure. js heap 77.7 -> 67.1, arraybuffers 84.4 -> 85.2, total 396.4 -> 386.5 MB on the same machine the same hour; 13.5 MiB of margin here, about 6 on CI's machine at its observed offset.",
+          "note": "the people pool (the photographic-humans plan, owner 2026-11-06): about 12 MB of this ceiling is set aside for people's shared skin, hair and cloth textures on a phone, so the phone had to come down first, with nothing on a desktop changed. Clean dev 4610867c3 read 390.9 MB here (CI reads ~7 MB higher, so it stood at the line); 188 MB of its GPU buffers were 151.5 MB of structure batches, and eight of those batches held 4.3 of the town's 6.6 million structure vertices with 32-bit indices. A phone (buildings.js lowSpec) now lays a bucket over 65,535 vertices as several 16-bit-indexed batches, every piece with its twins and every structure whole where it fits (short-index.js); the same geometries, instances and triangles. 390.9 -> 375.1 MB on the same machine the same hour (gpu buffers 187.9 -> 172.3); 1812 mobile 202.1 -> 201.3, 1835 mobile 489.7 -> 487.8; the three desktop rows unchanged (635.3, 1260.9 -> 1260.8, 1194.9). The rule would set 375.1 x 1.1 rounded up to 25 MiB = 425 MiB, above this line, so the ceiling stays at 400: the 25 MiB under it is the people pool (12 MB) plus CI's ~7 MB.",
           "previous": {
-            "ticket": "T-3213",
-            "on": "2026-10-28T00:18:00Z",
-            "build": "1f999039e+T-3213",
-            "reading": "docs/measurements/T-3213-memory.json",
-            "before": "docs/measurements/T-3213-memory-dev.json",
-            "reading_mb": {
-              "total": 377.5,
-              "js_heap": 99.3,
-              "arraybuffers": 81.8,
-              "gpu_buffers": 139.8,
-              "gpu_textures": 56.5
-            },
-            "note": "dev had drifted over this ceiling unseen (409.4 on 0fc818209 on 2026-10-27, CI 417.4; 412.1 on 1f999039e here) as the 1904 streetscape and parkway work landed, because this job does not run on dev pushes. Brought back under it, ceiling unchanged: the untextured structures batches no longer carry a uv nothing reads (gpu buffers 158.1 -> 139.8), the batches drop the update ranges every addGeometry left behind once three has uploaded them whole (js heap -12), and the view-occlusion backings share one identity and one scratch matrix (js heap -4). 412.1 -> 377.5 MB on the same machine the same hour; every other row fell or held (1904 desktop 1222.3 -> 1185.0, 1835 1301.9 -> 1294.3 and 512.8 -> 508.7, 1812 616.2 -> 615.6 and 192.3 -> 192.0). The rule would set 377.5 x 1.1 rounded up to 25 MiB = 425 MiB, above this line, so the ceiling stays at 400 and reading_bytes stays the reading it was set on."
-          },
-          "first_lap": {
             "ticket": "T-3173",
-            "on": "2026-11-02T09:05:03.763Z",
-            "build": "c4923d59+T-3173",
+            "on": "2026-11-02T10:46:56.209Z",
+            "build": "3dc01941+T-3173 lap",
             "reading": "docs/measurements/T-3173-memory.json",
             "before": "docs/measurements/T-3173-memory-dev.json",
             "reading_mb": {
-              "total": 396.9,
-              "js_heap": 78.3,
-              "arraybuffers": 84.4,
+              "total": 386.5,
+              "js_heap": 67.1,
+              "arraybuffers": 85.2,
               "gpu_buffers": 176.0,
               "gpu_textures": 58.3
             },
-            "note": "dev had drifted over this ceiling again (CI read main at 406.4 on 2026-11-02; dev c4923d59 read 421.9 here) as the 1904 Prairie Avenue houses and coach houses landed: structures went from 332 to 411 batches and their GPU geometry from 81.7 to 108.1 MB since T-3213. Geometry the owner asked for is not what moves at Light, so this is brought back under in the JS heap, ceiling unchanged: each BatchedMesh geometry's box and sphere kept as float32 figures in two typed arrays instead of a Box3 and a Sphere apiece, rounded outward so the cull stays conservative (batch-bounds.js; 82,927 rows, about 20 MB of objects for 3.4 MB of arrays); the street grid lets go of the plain arrays its attributes were copied from (about 6 MB, kept alive by the materials' hooks); one shared [lo, hi] per distinct confidence range instead of an array per instance (about 3 MB); and the buildings' tone rows kept as columns (about 3 MB). js heap 106.5 -> 78.3, arraybuffers 81.1 -> 84.4 (the bounds' arrays), GPU unchanged. 421.9 -> 396.9 MB on the same machine the same hour. The rule would set 396.9 x 1.1 rounded up to 25 MiB = 450 MiB, above this line, so the ceiling stays at 400 and reading_bytes stays the reading it was set on."
+            "note": "Read again on the PR's second lap, because CI read the first lap's head at 404.0 (js heap 77.8 + arraybuffers 91.9; this machine read the same head at 396.4, its arraybuffers 7.5 MB lower), so a 3.4 MiB margin here was red there. Ceiling unchanged; nothing taken out of the scene, GPU bytes identical (176.0 / 58.3). The second lap takes the JS heap down again: a released row's GLB node tree collapses to one plain node carrying its materials for disposal (upload-release.js collapseScene); each view occluder shares its corners with its neighbours, and its normal and confidence range with its twins, and carries no area; and an occluding instance's placement is one float32 slot in a shared array rather than a Matrix4 in its closure, kept only when something holds the closure. js heap 77.7 -> 67.1, arraybuffers 84.4 -> 85.2, total 396.4 -> 386.5 MB on the same machine the same hour; 13.5 MiB of margin here, about 6 on CI's machine at its observed offset.",
+            "previous": {
+              "ticket": "T-3213",
+              "on": "2026-10-28T00:18:00Z",
+              "build": "1f999039e+T-3213",
+              "reading": "docs/measurements/T-3213-memory.json",
+              "before": "docs/measurements/T-3213-memory-dev.json",
+              "reading_mb": {
+                "total": 377.5,
+                "js_heap": 99.3,
+                "arraybuffers": 81.8,
+                "gpu_buffers": 139.8,
+                "gpu_textures": 56.5
+              },
+              "note": "dev had drifted over this ceiling unseen (409.4 on 0fc818209 on 2026-10-27, CI 417.4; 412.1 on 1f999039e here) as the 1904 streetscape and parkway work landed, because this job does not run on dev pushes. Brought back under it, ceiling unchanged: the untextured structures batches no longer carry a uv nothing reads (gpu buffers 158.1 -> 139.8), the batches drop the update ranges every addGeometry left behind once three has uploaded them whole (js heap -12), and the view-occlusion backings share one identity and one scratch matrix (js heap -4). 412.1 -> 377.5 MB on the same machine the same hour; every other row fell or held (1904 desktop 1222.3 -> 1185.0, 1835 1301.9 -> 1294.3 and 512.8 -> 508.7, 1812 616.2 -> 615.6 and 192.3 -> 192.0). The rule would set 377.5 x 1.1 rounded up to 25 MiB = 425 MiB, above this line, so the ceiling stays at 400 and reading_bytes stays the reading it was set on."
+            },
+            "first_lap": {
+              "ticket": "T-3173",
+              "on": "2026-11-02T09:05:03.763Z",
+              "build": "c4923d59+T-3173",
+              "reading": "docs/measurements/T-3173-memory.json",
+              "before": "docs/measurements/T-3173-memory-dev.json",
+              "reading_mb": {
+                "total": 396.9,
+                "js_heap": 78.3,
+                "arraybuffers": 84.4,
+                "gpu_buffers": 176.0,
+                "gpu_textures": 58.3
+              },
+              "note": "dev had drifted over this ceiling again (CI read main at 406.4 on 2026-11-02; dev c4923d59 read 421.9 here) as the 1904 Prairie Avenue houses and coach houses landed: structures went from 332 to 411 batches and their GPU geometry from 81.7 to 108.1 MB since T-3213. Geometry the owner asked for is not what moves at Light, so this is brought back under in the JS heap, ceiling unchanged: each BatchedMesh geometry's box and sphere kept as float32 figures in two typed arrays instead of a Box3 and a Sphere apiece, rounded outward so the cull stays conservative (batch-bounds.js; 82,927 rows, about 20 MB of objects for 3.4 MB of arrays); the street grid lets go of the plain arrays its attributes were copied from (about 6 MB, kept alive by the materials' hooks); one shared [lo, hi] per distinct confidence range instead of an array per instance (about 3 MB); and the buildings' tone rows kept as columns (about 3 MB). js heap 106.5 -> 78.3, arraybuffers 81.1 -> 84.4 (the bounds' arrays), GPU unchanged. 421.9 -> 396.9 MB on the same machine the same hour. The rule would set 396.9 x 1.1 rounded up to 25 MiB = 450 MiB, above this line, so the ceiling stays at 400 and reading_bytes stays the reading it was set on."
+            }
           }
         },
         "lowered_by": {

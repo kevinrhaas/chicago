@@ -264,6 +264,8 @@ step "A pick draws only the building batches its ray meets, and a phone's look-a
   node tools/test_pick_boxes.mjs
 step "The drawn cells of one structure mesh join into one draw, drawing the same triangles with the same instance data (T-2927)" \
   node tools/test_batch_coalesce.mjs
+step "A phone lays a structure bucket over 65,535 vertices as 16-bit-indexed batches, every piece with its twins and every structure whole where it fits (T-3408)" \
+  node tools/test_short_index.mjs
 step "A grown wood draws every copy of one template as one instanced entry, drawing the same stems with the same instance data, culled as before (T-3363)" \
   node tools/test_batch_instance.mjs
 selftest "Directional shadow culling retains toward-view and filter-near casters, preserves colour lists, and fails open on unknown light, camera or map state" \
@@ -1042,6 +1044,15 @@ step "the 1904 front yards stand clear of every house, stoop, walk and door (T-3
   python3 tools/plant_prairie_1904_front_yards.py --check
 selftest "the front-yard check refuses a shrub on a door's way, beside a door and in a house, and ivy beside a door (T-3223, T-3227)" \
   python3 tools/plant_prairie_1904_front_yards.py --self-test
+
+# T-3407. The 1812 commanding officer's garden: Whistler's beds and walks inside the paling,
+# and every plant inside a bed, re-derived byte for byte from the record and the draught.
+step "the 1812 officers' garden is laid in the draught's beds and planted inside them (T-3407)" \
+  python3 tools/plant_gardens.py --check
+selftest "the garden check refuses a plant off its bed, a bed past the paling and an unknown crop (T-3407)" \
+  python3 tools/plant_gardens.py --self-test
+step "the 1812 officers' garden grows every crop it plants, near to far, inside a phone's budget (T-3407)" \
+  node tools/test_gardens.mjs
 
 # T-1840. ...and what stands on that grid's sheet 20 lots in 1904: the sheet census
 # (prairie_1904_v1/data/sheet_census/sheet-20.json) assigns every 1911 frontage row and

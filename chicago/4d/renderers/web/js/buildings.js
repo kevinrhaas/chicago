@@ -62,6 +62,7 @@ import { drawsLeaves as leavesHungElsewhere, paradeLaidAsGround, paradeGroundOwn
 import { cheapenGlass, DEFAULT_GLASS, writePaneAttributes } from './glass.js';
 import { patchNightWindows } from './night-lights.js';
 import { layerPick } from './gpu-pick.js';
+import { shortIndexRuns } from './short-index.js';
 import {
   compactPlan, compactGeometry, positionScale, quantizePositions, packScalars, compactConstantBatchScalars, toneScaleOf, unpackScalar, SCALARS, SCALARS_GLSL,
 } from './compact-attributes.js';
@@ -1034,6 +1035,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     });
   }
   geometriesOf.clear();
+  /** T-3408: what each batch is laid from — a bucket, or on a phone one run of it. */
+  const parts = [];
   for (const [, bucket] of groups) {
     // T-3272: each relief piece is followed by its hidden crests-only twin, laid
     // before the batch is sized so the twin's vertices are counted in it.
@@ -1083,8 +1086,6 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       }
       bucket.entries.push(...twins);
     }
-    const verts = bucket.entries.reduce((a, e) => a + e.geo.getAttribute('position').count, 0);
-    const idx = bucket.entries.reduce((a, e) => a + e.geo.getIndex().count, 0);
     // The normals and uvs stored compact, in one format across the batch, and
     // roughness, confidence, grain and the piece tone packed into one four-byte
     // attribute (T-2568, T-2574; compact-attributes.js). The tone's scale is the
@@ -1109,6 +1110,19 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // darken the batch, so it is turned off here for all of them.
     bucket.material.vertexColors = false;
     const depthMaterial = depthFor(bucket.material);
+    // T-3408: on a phone a bucket over 65,535 vertices is laid as several batches,
+    // each small enough to index in 16 bits, every piece with its twins and every
+    // structure whole where it fits (short-index.js); one material, plan and tone
+    // scale across them, decided above over the whole bucket.
+    for (const entries of lowSpec ? shortIndexRuns(bucket.entries) : [bucket.entries]) {
+      parts.push({ material: bucket.material, boundsRigid: bucket.boundsRigid, entries, plan, toneScale, depthMaterial });
+    }
+    bucket.entries = [];
+  }
+  for (const bucket of parts) {
+    const { plan, toneScale, depthMaterial } = bucket;
+    const verts = bucket.entries.reduce((a, e) => a + e.geo.getAttribute('position').count, 0);
+    const idx = bucket.entries.reduce((a, e) => a + e.geo.getIndex().count, 0);
     const batch = new THREE.BatchedMesh(bucket.entries.length, verts, idx, bucket.material);
     batch.name = `structures:${bucket.material.name || bucket.material.type}`;
     batch.castShadow = true;
@@ -1383,6 +1397,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // 50 MB of arrays and 25 MB of heap in 1904 on a phone.
     bucket.entries = [];
   }
+  parts.length = 0;
 
   // T-3152: each proven planar cover, in the world frame, for the view filter's
   // `planes`. It stands only while every piece of its source mesh passes the backing's
