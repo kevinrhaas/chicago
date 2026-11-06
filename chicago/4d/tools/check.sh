@@ -1026,6 +1026,15 @@ step "the 1904 front yards stand clear of every house, stoop, walk and door (T-3
 selftest "the front-yard check refuses a shrub on a door's way, beside a door and in a house, and ivy beside a door (T-3223, T-3227)" \
   python3 tools/plant_prairie_1904_front_yards.py --self-test
 
+# T-3407. The 1812 commanding officer's garden: Whistler's beds and walks inside the paling,
+# and every plant inside a bed, re-derived byte for byte from the record and the draught.
+step "the 1812 officers' garden is laid in the draught's beds and planted inside them (T-3407)" \
+  python3 tools/plant_gardens.py --check
+selftest "the garden check refuses a plant off its bed, a bed past the paling and an unknown crop (T-3407)" \
+  python3 tools/plant_gardens.py --self-test
+step "the 1812 officers' garden grows every crop it plants, near to far, inside a phone's budget (T-3407)" \
+  node tools/test_gardens.mjs
+
 # T-1840. ...and what stands on that grid's sheet 20 lots in 1904: the sheet census
 # (prairie_1904_v1/data/sheet_census/sheet-20.json) assigns every 1911 frontage row and
 # every named record on the sheet's ground exactly once, owns every traced parcel, keeps

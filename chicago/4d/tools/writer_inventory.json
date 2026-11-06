@@ -353,6 +353,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/front_yards/1904.json byte for byte, changed no committed byte; --check writes nothing in-tree.",
       "placed": "by layer, 2026-10-27 \u2014 a reader of committed originals after tools/trace_prairie_1904_grid.py, whose lots it plants, and of the committed 1904 sidecars and baked models, whose stoops, walks, fences and doors it keeps clear of (T-3203); see the manifest step"
     },
+    "plant_gardens.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-11-06",
+      "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/gardens/1812.json byte for byte, changed no committed byte; --check writes nothing in-tree.",
+      "placed": "by layer, 2026-11-06 \u2014 a reader of the committed structure record first_fort_outer_officers_garden and of its own bed and crop tables (T-3407); see the manifest step"
+    },
     "lay_prairie_1904_street_furniture.py": {
       "placement": "manifest",
       "write_mode": "(bare)",

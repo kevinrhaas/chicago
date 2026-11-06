@@ -101,6 +101,7 @@ import { jobsState } from './jobs/pool.js';
 import { createStreetTrees } from './street-trees.js';
 import { createStreetFurniture } from './street-furniture.js';
 import { createFrontYards } from './front-yards.js';
+import { createGardens } from './gardens.js';
 import { TIME_NAMES, isTimeValue, minutesOf } from './time-of-day.js';
 import { SEASONS, SEASON_TREE_MODE, SEASON_CROWN, FOLIAGE, seasonDate, applySeasonLook, patchSeason, patchFoliage }
   from './season.js';
@@ -2397,6 +2398,15 @@ async function boot() {
   });
   scene3d.add(frontYards.group);
   api.frontYards = frontYards;
+  // T-3407 — the kitchen gardens (data/gardens/<scene>.json): the 1812 commanding officer's
+  // garden laid out in Whistler's beds and walks and planted for mid-August, every plant
+  // grown here from a painted leaf atlas, in two draws. Only a scene listing `gardens`.
+  const gardens = await createGardens({
+    dataBase: layerBase('gardens'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
+    problems: layerProblems('gardens'), lowSpec: coarse, ...detailOpts(),
+  });
+  scene3d.add(gardens.group);
+  api.gardens = gardens;
 
 
   // T-2478 — the Illinois Central along the lake east of Prairie Avenue: the tracks
@@ -3358,6 +3368,7 @@ async function boot() {
       void streetTrees.setDetail(level);
       streetFurniture.setDetail(level);
       frontYards.setDetail(level);
+      gardens.setDetail(level);
       railway.setDetail(level);
       refreshGlessnerOcclusion();
       api.humans?.setTier(level);
@@ -3411,6 +3422,7 @@ async function boot() {
     void streetTrees.setDetail(level);
     streetFurniture.setDetail(level);
     frontYards.setDetail(level);
+    gardens.setDetail(level);
     // The road's: `light` keeps the refined grids, the two tiers above it lay
     // the panels that sag on the ground's ridge (streets.js, THE RIDGE DRAPE).
     // T-2600: cut on the job pool; awaited in the serialised run below, before
@@ -4390,6 +4402,11 @@ async function boot() {
     const yardHit = frontYards.pickAt(ndc, camera);
     if (yardHit && yardHit.record && (!hit || yardHit.distance < hit.distance)) {
       hit = { ...yardHit };
+    }
+    // And a kitchen garden's bed (T-3407): what grows in it and what that rests on.
+    const gardenHit = gardens.pickAt(ndc, camera);
+    if (gardenHit && gardenHit.record && (!hit || gardenHit.distance < hit.distance)) {
+      hit = { ...gardenHit };
     }
     // ...and a stand-in of the context city (T-2477) answers with what it is and what it
     // rests on: a sheet's outline or a projection, and the rule its height came from.
@@ -5593,6 +5610,7 @@ async function boot() {
     streetTrees.update(dt, camera);
     streetFurniture.update(dt, camera);
     frontYards.update(dt, camera);
+    gardens.update(dt, camera);
     railway.update(camera);
     flags.update(dt);
     parkedTransport.update(camera);

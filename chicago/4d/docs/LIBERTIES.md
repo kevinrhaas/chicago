@@ -40998,3 +40998,34 @@ excavation report.
 **Covers:** `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.period_brick`, `first_fort_dearborn_magazine.first_fort_1803.form.period_brick`, `first_fort_dearborn_north_range.first_fort_1803.form.period_brick`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.period_brick`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.period_brick`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.period_brick`, `fort_dearborn_barracks.log_1816.form.period_brick`, `fort_dearborn_commandants_quarters.brick_1816.form.period_brick`, `fort_dearborn_guard_house.log_1816.form.period_brick`, `fort_dearborn_magazine.brick_1816.form.period_brick`, `fort_dearborn_officers_quarters.log_1816.form.period_brick`, `fort_dearborn_sutlers_store.log_1816.form.period_brick`, `lake_house_construction.shell_1835.form.period_brick`.
 **Ticket:** T-3387.
 **Recorded:** 2026-11-05 (T-3387).
+
+### L-t3407-officers-garden — The commanding officer's garden of 1812 laid out in Whistler's beds, planted for mid-August, and gated with a paling wicket
+
+**Decision:** the paling of `first_fort_outer_officers_garden` encloses, from 14 August 1812, the beds and walks
+Whistler's 1808 draught draws in it and the crops of an August kitchen garden (T-3407). The layout is the draught's,
+measured off the pinned sheet at the garden's own lettered scale ('5o feete to the Inch', as the record reads it): two
+border beds along the north paling either side of the walk in from the fort, eight beds in two rows of four with
+clipped corners, a walk round them, a wider cross walk each way, and quarter-round beds in the two south corners. The
+beds are tilled earth crowned a hand high and the walks trodden earth. What is planted: musk-melons and water-melons
+with their fruit lying in the leaves, currant and gooseberry bushes, raspberry canes and strawberries along the north
+border, and cabbages and savoys, Indian corn in hills of two stalks, running beans on poles, potatoes earthed up,
+squashes and cucumbers, onions with their tops fallen over, beets, carrots, parsnips and lettuce in drills,
+asparagus in its summer fern, and sage and thyme in the corner beds. Every plant is grown in the browser from a
+painted leaf atlas and a few parts (`renderers/web/js/gardens.js`), placed by `tools/plant_gardens.py` at the
+period's hill and drill distances. The gate is a wicket: two posts and one leaf of the fence's pales on two rails
+with a brace, hung on the west post, swinging inward, opened and shut with the Interact key. **Why:** the owner,
+2026-11-06, at stop 9 of the Fort Dearborn jaunt: *"you describe this awesome garden for 1812 but nothing is in the
+garden"*, and *"cant seem to enter the garden"*.
+**What is recorded and what is not:** the garden, its name, its place south of the fort and its ruled beds are the
+draught's (the place by T-2062's rule, itself reconstructed); that melons and small fruit and vegetables were raised
+there is Quaife's ("in Cooper's time", the years before 1812 that Dr. John Cooper of the garrison described); that a soldier "worked hard all day in the Colonel's
+garden" in May 1811 is Quaife's account of a court martial. Nothing reached says which vegetables, which small fruit,
+how they stood in the beds, or how the garden looked on 14 August 1812, the day before the garrison marched out. The
+choice of crops and their places, the beds' crown and the corner beds' use, every leaf, fruit and pole, the fruit
+left on the bushes, the fallen onion tops, the wicket's make, its swing and a visitor's power to open it are ours,
+from M'Mahon's calendar of the August kitchen garden and its distances (read in the 1857 printing).
+**How to resolve:** a garrison account, order book or letter naming what the commanding officer grew, or a
+description of the garden in 1812, replaces the crops; a better reading of the draught's beds moves them.
+**Covers:** `first_fort_outer_officers_garden.first_fort_1803.form.gate_kind`
+**Ticket:** T-3407.
+**Recorded:** 2026-11-06 (T-3407).

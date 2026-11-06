@@ -27,6 +27,14 @@
  * planking, ledges and brace, that they swing inward, how far and how fast. The sources
  * say "large gates" (Kinzie, of the second fort) and "Main Gate" (Whistler's index no. 7,
  * of the first) and nothing about how they hung.
+ *
+ * T-3407 — A GARDEN'S WICKET. The commanding officer's garden south of the first fort
+ * (Whistler's "Comm'g Officers Garden") is a five-foot paling whose draught brings a
+ * walk in at the middle of its north side. Its record's `gate_kind` is `wicket`: the
+ * palisade bakes two posts and nothing between them, and this layer hangs ONE leaf of
+ * the fence's own pales on two rails with a brace, on the west post, opening inward into
+ * the garden. The owner, 2026-11-06: *"cant seem to enter the garden"*. The leaf and its
+ * swing are ours: docs/LIBERTIES.md L-t3407-officers-garden.
  */
 import * as THREE from 'three';
 import { footprintToWorld } from './walker.js';
@@ -39,6 +47,8 @@ export const FORT_GATES = Object.freeze({
   // 1812 — the first fort's main gate, through both rows of pickets (Whistler no. 7).
   first_fort_dearborn_pickets_outer: { s: 'Main gate, outer row' },
   first_fort_dearborn_pickets_inner: { s: 'Main gate, inner row' },
+  // 1812 — the commanding officer's garden, its walk in from the fort (T-3407).
+  first_fort_outer_officers_garden: { n: 'Garden gate' },
 });
 
 /** How far a leaf swings from shut, and how long it takes. Ours (the header). */
@@ -54,6 +64,17 @@ const JAMB_M = 0.20;          // _gate(): `jamb`
 const HEAD_FRAC = 0.86;       // _gate(): head = picket_height_m * 0.86
 const LEAF_FOOT_M = 0.02;     // the shut leaf's foot and head, as _gate() beamed them
 const LEAF_HEAD_GAP_M = 0.05;
+
+/** T-3407: palisade.py's WICKET_POST_HALF_M and WICKET_POST_RISE_M — a wicket's posts
+ * stand in the gateway's cut, so its leaf hangs between their inner faces. */
+const WICKET_POST_HALF_M = 0.08;
+/** The wicket leaf's pales stop this far under the fence's own heads, its foot this far
+ * over the ground (a leaf that dragged would not swing). */
+const WICKET_HEAD_DROP_M = 0.06;
+const WICKET_FOOT_M = 0.07;
+/** A wicket swings a little further than a fort's leaf: it is light and stands back
+ * against the paling inside. */
+const WICKET_OPEN_DEG = 100;
 
 /** Sawn plank weathered dark: the archetype's GATE_RGBA (0.38, 0.31, 0.24) under the
  * weather a gate takes standing out, in linear colour as the GLB carries its own. */
@@ -122,6 +143,7 @@ export function stockadePlan(sidecar) {
   const w = Math.max(...us) - Math.min(...us), d = Math.max(...vs) - Math.min(...vs);
   const sides = [].concat(val(sidecar, 'gate_sides', [])).map((s) => String(s).toLowerCase());
   const gw = Number(val(sidecar, 'gate_width_m', 3.6));
+  const kind = String(val(sidecar, 'gate_kind', 'gateway'));
   const off = Number(val(sidecar, 'gate_offset_m', 0));
   const height = Number(val(sidecar, 'picket_height_m', 3.7));
   const corners = [].concat(val(sidecar, 'bastion_corners', [])).map((c) => String(c).toLowerCase());
@@ -164,7 +186,13 @@ export function stockadePlan(sidecar) {
     const centre = ns ? [w / 2 + off, side === 'n' ? d : 0] : [side === 'e' ? w : 0, d / 2 + off];
     const along = ns ? [1, 0] : [0, 1];
     const inward = { s: [0, 1], n: [0, -1], w: [1, 0], e: [-1, 0] }[side];
-    return { side, centre, along, inward, half: gw / 2, foot: LEAF_FOOT_M, head: head - LEAF_HEAD_GAP_M };
+    if (kind === 'wicket') {
+      // One leaf between the posts' inner faces, as tall as the pales less a hand.
+      return { side, kind, centre, along, inward, half: gw / 2 - 2 * WICKET_POST_HALF_M,
+        foot: WICKET_FOOT_M, head: height - WICKET_HEAD_DROP_M,
+        pale: { width: Number(val(sidecar, 'picket_width_m', 0.12)), spacing: Number(val(sidecar, 'picket_spacing_m', 0.2)) } };
+    }
+    return { side, kind: 'gateway', centre, along, inward, half: gw / 2, foot: LEAF_FOOT_M, head: head - LEAF_HEAD_GAP_M };
   });
   return { w, d, walls, gates };
 }
@@ -187,13 +215,15 @@ function keepOutside(len, cuts) {
 /** The leaves' directions at swing fraction `t` (0 shut, 1 open), in the plan frame:
  * each runs from its hinge toward the gateway's middle when shut and turns inward. */
 export function leafDirections(gate, t) {
-  const a = (OPEN_DEG * Math.PI / 180) * Math.max(0, Math.min(1, t));
+  const wicket = gate.kind === 'wicket';
+  const a = ((wicket ? WICKET_OPEN_DEG : OPEN_DEG) * Math.PI / 180) * Math.max(0, Math.min(1, t));
   const c = Math.cos(a), s = Math.sin(a);
-  return [-1, 1].map((side) => {
+  // A wicket is one leaf, hung on the post at -along and closing across the whole way.
+  return (wicket ? [-1] : [-1, 1]).map((side) => {
     const shut = [-side * gate.along[0], -side * gate.along[1]];
     const dir = [c * shut[0] + s * gate.inward[0], c * shut[1] + s * gate.inward[1]];
     const hinge = [gate.centre[0] + side * gate.half * gate.along[0], gate.centre[1] + side * gate.half * gate.along[1]];
-    return { hinge, dir };
+    return { hinge, dir, len: wicket ? 2 * gate.half : gate.half };
   });
 }
 
@@ -265,6 +295,124 @@ export function leafGeometry({ len, foot, head, back = 1 }) {
   return geo;
 }
 
+/**
+ * T-3407 — a wicket leaf in its hinge's frame, as leafGeometry: +x from the hinge to
+ * `len`, up in y from `foot` to `head`, its rails and brace on the `back` side in z.
+ * Pales of the fence's own width and pitch, each with its riven point; two rails and a
+ * brace from the hinge's foot up to the free end's top rail, the way a light gate is
+ * kept from dropping at its latch. Every face carries a UV along its own length (u
+ * across, v along), so the grain runs up a pale and along a rail. About 250 triangles.
+ */
+export function wicketGeometry({ len, foot, head, back = 1, pale = { width: 0.12, spacing: 0.2 } }) {
+  const pos = [], nrm = [], uv = [], col = [];
+  let n = 0;
+  const T = 0.035;                                  // a riven pale's thickness
+  const quad = (a, b, c, d, nx, ny, nz, uvs, tone) => {
+    for (const [p, t] of [[a, uvs[0]], [b, uvs[1]], [c, uvs[2]], [a, uvs[0]], [c, uvs[2]], [d, uvs[3]]]) {
+      pos.push(...p); nrm.push(nx, ny, nz); uv.push(...t); col.push(tone, tone, tone);
+    }
+    n += 6;
+  };
+  // An upright with a pointed head: front, back, two sides, and the two slopes of the point.
+  const point = Math.min(0.14, (head - foot) * 0.1);
+  const count = Math.max(3, Math.round(len / pale.spacing));
+  const pitch = len / count;
+  const w = Math.min(pale.width, pitch * 0.85) / 2;
+  for (let i = 0; i < count; i += 1) {
+    const x = (i + 0.5) * pitch;
+    const tone = 0.86 + 0.28 * (((i * 2654435761) >>> 0) % 1000) / 1000;
+    const top = head - point - (((i * 40503) % 7) * 0.006);
+    const u0 = (i * 0.37) % 1;
+    for (const z of [-T / 2, T / 2]) {
+      const nz = z > 0 ? 1 : -1;
+      quad([x - w, foot, z], [x + w, foot, z], [x + w, top, z], [x - w, top, z], 0, 0, nz,
+        [[u0, 0], [u0 + 0.12, 0], [u0 + 0.12, 1], [u0, 1]], tone);
+      // the point: a triangle each face (written as a degenerate quad)
+      quad([x - w, top, z], [x + w, top, z], [x, top + point, z], [x, top + point, z], 0, 0, nz,
+        [[u0, 1], [u0 + 0.12, 1], [u0 + 0.06, 1.1], [u0 + 0.06, 1.1]], tone * 1.04);
+    }
+    for (const sx of [-1, 1]) {
+      const xe = x + sx * w;
+      quad([xe, foot, -T / 2], [xe, foot, T / 2], [xe, top, T / 2], [xe, top, -T / 2], sx, 0, 0,
+        [[u0, 0], [u0 + 0.03, 0], [u0 + 0.03, 1], [u0, 1]], tone * 0.9);
+      const l = Math.hypot(w, point) || 1;
+      quad([xe, top, -T / 2], [xe, top, T / 2], [x, top + point, T / 2], [x, top + point, -T / 2],
+        sx * point / l, w / l, 0, [[u0, 1], [u0 + 0.03, 1], [u0 + 0.03, 1.1], [u0, 1.1]], tone);
+    }
+  }
+  // rails and brace on the back
+  const zb = [back * T / 2, back * (T / 2 + 0.04)].sort((a, b) => a - b);
+  const bar = (a, b, half, tone) => {
+    const dx = b[0] - a[0], dy = b[1] - a[1], l = Math.hypot(dx, dy) || 1;
+    const px = (-dy / l) * half, py = (dx / l) * half;
+    const c = [[a[0] - px, a[1] - py], [b[0] - px, b[1] - py], [b[0] + px, b[1] + py], [a[0] + px, a[1] + py]];
+    const L = l / 1.2;
+    for (const z of zb) {
+      quad([c[0][0], c[0][1], z], [c[1][0], c[1][1], z], [c[2][0], c[2][1], z], [c[3][0], c[3][1], z], 0, 0, z === zb[1] ? back : -back,
+        [[0, 0], [0, L], [0.2, L], [0.2, 0]], tone);
+    }
+    for (const [e0, e1] of [[0, 1], [3, 2]]) {
+      const p0 = c[e0], p1 = c[e1];
+      const ex = -(p1[1] - p0[1]), ey = p1[0] - p0[0], el = Math.hypot(ex, ey) || 1;
+      const sgn = e0 === 0 ? 1 : -1;
+      quad([p0[0], p0[1], zb[0]], [p1[0], p1[1], zb[0]], [p1[0], p1[1], zb[1]], [p0[0], p0[1], zb[1]],
+        -sgn * ex / el, -sgn * ey / el, 0, [[0, 0], [0, L], [0.05, L], [0.05, 0]], tone * 0.9);
+    }
+  };
+  const yLow = foot + 0.22, yHigh = head - point - 0.32;
+  bar([0.03, yLow], [len - 0.03, yLow], 0.045, 0.8);
+  bar([0.03, yHigh], [len - 0.03, yHigh], 0.045, 0.8);
+  bar([0.08, yLow + 0.04], [len - 0.1, yHigh - 0.04], 0.04, 0.84);
+
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  geo.setAttribute('normal', new THREE.Float32BufferAttribute(nrm, 3));
+  geo.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
+  geo.setAttribute('color', new THREE.Float32BufferAttribute(col, 3));
+  geo.computeBoundingSphere();
+  return geo;
+}
+
+/** Weathered split oak, grain running up the pale: a small canvas painted once. Pales
+ * that stood out two summers go silver-grey over the brown (the paling's own log tone,
+ * HEWN_RGBA, under the weather). */
+let wicketMaterial = null;
+function wicketMaterialOf() {
+  if (wicketMaterial) return wicketMaterial;
+  let map = null;
+  try {
+    const S = 128;
+    const cv = typeof OffscreenCanvas !== 'undefined' ? new OffscreenCanvas(S, S * 2)
+      : Object.assign(document.createElement('canvas'), { width: S, height: S * 2 });
+    const ctx = cv.getContext('2d');
+    ctx.fillStyle = 'rgb(100,90,77)';
+    ctx.fillRect(0, 0, S, S * 2);
+    let seed = 7;
+    const r = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
+    for (let i = 0; i < 90; i += 1) {
+      const x = r() * S, k = r();
+      ctx.strokeStyle = k < 0.5 ? `rgba(52,45,37,${0.25 + r() * 0.35})` : `rgba(150,142,128,${0.15 + r() * 0.25})`;
+      ctx.lineWidth = 0.6 + r() * 1.8;
+      ctx.beginPath(); ctx.moveTo(x, 0);
+      ctx.bezierCurveTo(x + (r() - 0.5) * 6, S * 0.6, x + (r() - 0.5) * 6, S * 1.4, x + (r() - 0.5) * 4, S * 2);
+      ctx.stroke();
+    }
+    for (let i = 0; i < 6; i += 1) {                // checks where the wood split as it dried
+      const x = r() * S, y = r() * S * 2;
+      ctx.strokeStyle = 'rgba(40,32,26,0.55)'; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + (r() - 0.5) * 2, y + 12 + r() * 30); ctx.stroke();
+    }
+    map = new THREE.CanvasTexture(cv);
+    map.colorSpace = THREE.SRGBColorSpace;
+    map.wrapS = map.wrapT = THREE.RepeatWrapping;
+    map.name = 'garden-wicket-grain';
+  } catch { map = null; }
+  wicketMaterial = new THREE.MeshStandardMaterial({ map, vertexColors: true, roughness: 0.92, metalness: 0,
+    side: THREE.DoubleSide });
+  wicketMaterial.name = 'garden-wicket';
+  return wicketMaterial;
+}
+
 // ---------------------------------------------------------------- the layer
 
 /**
@@ -312,17 +460,25 @@ export function createFortGates({ registry, buildings, footprints = [], confiden
       if (!name) continue;
       // The leaves, each on a pivot at its hinge. Plan (x, y) is glTF (x, -z), so a plan
       // direction at angle phi from +x is a turn of phi about +y.
-      const leaves = leafDirections(gate, 0).map(({ hinge, dir }) => {
+      const wicket = gate.kind === 'wicket';
+      const leafMaterial = wicket ? wicketMaterialOf() : material;
+      if (wicket && confidence?.patch && !leafMaterial.userData.confidencePatched) {
+        confidence.patch(leafMaterial);
+        leafMaterial.userData.confidencePatched = true;
+      }
+      const leaves = leafDirections(gate, 0).map(({ hinge, dir, len }) => {
         const pivot = new THREE.Object3D();
         pivot.position.set(hinge[0], 0, -hinge[1]);
         // The fort's side of the leaf: +z of the pivot is the plan direction turned
         // clockwise; the ledges go on whichever of +z and -z faces the inward normal.
         const cw = [dir[1], -dir[0]];
         const back = cw[0] * gate.inward[0] + cw[1] * gate.inward[1] >= 0 ? 1 : -1;
-        const geo = leafGeometry({ len: gate.half - 0.004, foot: gate.foot, head: gate.head, back });
+        const geo = wicket
+          ? wicketGeometry({ len: len - 0.012, foot: gate.foot, head: gate.head, back, pale: gate.pale })
+          : leafGeometry({ len: gate.half - 0.004, foot: gate.foot, head: gate.head, back });
         const n = geo.getAttribute('position').count;
         geo.setAttribute('_confidence', new THREE.BufferAttribute(new Float32Array(n).fill(conf), 1));
-        const mesh = new THREE.Mesh(geo, material);
+        const mesh = new THREE.Mesh(geo, leafMaterial);
         mesh.name = `fort-gate-leaf:${id}:${gate.side}`;
         mesh.castShadow = true;
         mesh.receiveShadow = true;
@@ -365,8 +521,7 @@ export function createFortGates({ registry, buildings, footprints = [], confiden
         b: toWorld([gate.centre[0] + gate.half * gate.along[0], gate.centre[1] + gate.half * gate.along[1]]),
         half: 0.06, gate: thing.id, blocks: () => !(thing.state === 'open' && !thing.running) });
       // And open, each leaf is a board standing out from its jamb.
-      for (const { hinge, dir } of leafDirections(gate, 1)) {
-        const len = gate.half;
+      for (const { hinge, dir, len } of leafDirections(gate, 1)) {
         walls.push({ a: toWorld(hinge), b: toWorld([hinge[0] + dir[0] * len, hinge[1] + dir[1] * len]),
           half: 0.06, gate: thing.id, blocks: () => thing.state === 'open' && !thing.running });
       }

@@ -157,10 +157,10 @@
     },
     {
       "id": "first_fort_gardens",
-      "label": "South of the commanding officer's garden, looking north across it to the fort",
-      "local_e": 1150.0,
-      "local_n": 100.0,
-      "yaw_deg": 0.0
+      "label": "At the commanding officer's garden gate, looking south down its middle walk to the prairie",
+      "local_e": 1148.7,
+      "local_n": 146.5,
+      "yaw_deg": 180.0
     },
     {
       "id": "river_mouth_1812",
@@ -213,6 +213,7 @@
     "flora",
     "structures",
     "enclosures",
+    "gardens",
     "exclusions",
     "night_lights"
   ],
