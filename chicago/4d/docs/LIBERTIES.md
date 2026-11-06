@@ -40230,6 +40230,8 @@ The 1835 Western Hotel yard horse's gentle head/neck look and body weight shifts
 
 **Cloth supplement, 2026-11-05 (T-2804):** The owner: *"his clothing has no texture or anything"*. The drivers' garments are exported as flat colours, and the 1904 phone is at its memory ceiling, so `renderers/web/js/fabric.js` adds no texture. It patches the garment shader to draw, from each garment's own bind-pose position: a 2/2 twill on the wool waistcoat (8 mm repeat) and the trousers' cloth (7 mm), a plain weave with slubs on the linen shirt (5 mm), heathered dye of 8-16% of the colour, rubbed places a little shinier and greyer, rumples of a millimetre or two that tip the shading normal, and a sheen at grazing angles. The repeats are coarser than most period suiting, so that the weave shows at a few metres before it fades out to avoid aliasing. These are reconstructed authoring choices; no surviving garment, sample or photograph of these men's clothes is claimed.
 
+**Livery supplement, 2026-11-06 (T-3398):** The owner: *"his clothing is form fitting and he looks too smooth and not real"*. Hans now wears, over the unchanged donor shirt, waistcoat and pantaloons, a coachman's long double-breasted box coat with a turned-up collar and a shoulder cape, two rows of three brass buttons and a silk top hat; the donor's pale pantaloons are dyed a near-black livery cloth. `tools/human_driver_livery_1904.py` builds the coat's body by standing the shirt off by a wool's loft and smoothing the anatomy out of it, and hangs the skirt and cape as cloth dropped under gravity onto his seated body and the brougham's measured box, so the folds are where the cloth had to fall. **What is reconstructed.** All of it: that he wore livery on the box, the coat's cut, length, cape and colour, the buttons' number and metal, the hat's shape and size. Box coats, capes and top hats were common wear for a private brougham's coachman around 1900, but no photograph, inventory or record of the Otis household's livery or of Hans Johnson's clothes is claimed. **How to resolve:** a photograph of a Prairie Avenue coachman on the box, or the household's livery, would set the cut and colour.
+
 **Recorded:** 2026-11-02.
 
 ### L-working-driver-1904-2804 — Reconstructed appearance and seated work of Hans Johnson
@@ -40830,6 +40832,29 @@ places; a raking-light close-up would set the depths.
 **Ticket:** T-3381.
 **Review:** `docs/RESEARCH/photo-match/glessner_house/habs5-entry-side-by-side.jpg`.
 **Recorded:** 2026-11-05 (T-3381).
+
+### L-glessner-cross-ridge-line-3396 — Glessner's stable cross ridge back on the north range's ridge line, by the owner's ruling
+
+**Decision:** the `glessner_house` stable's E-W cross ridge west of the cupola, and the alley gable's
+apex with it, stand at S 14.6 on the north range's ridge line, at that ridge's 36.17 ft ng, so one
+straight crest runs from the east wing through the cupola to the alley gable. They stood at S 12.31.
+The owner, 2026-11-06, marking the line on the dev scene from over the alley: "the west gable, the
+peak of the roof there should be a straight line with the rest of the north wing ... we corrected
+this earlier". That earlier correction is the owner's 2026-10-15 overhead ruling (T-2228), which put
+this ridge and the cupola on S 14.6; T-3096 (L-glessner-alley-ridge-3096) moved the ridge 2.3 ft north
+down its own plane to fit the prints' course count, and T-3148 and T-3371 kept it there. The owner's
+ruling governs, so this supersedes L-glessner-alley-ridge-3096's plan line.
+**What is read.** The owner's ruling and screenshots; the north range's ridge (S 14.6, 36.17 ft, T-3371).
+**What is invented.** The cross roof's north slope is now the north range's own plane (41.8 degrees,
+from the 23.1 ft street eave), so it lays more courses between eave and crest than the c. 1887 Cornell
+print and HABS photograph 1 count (T-3095 read 41-44); that departure is the owner's to make. The alley
+gable stays a verge (T-3376) and follows the roof to the new apex.
+**How to resolve:** a measured section through the stable's alley end.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-3396.
+**Review:** `docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg`.
+**Recorded:** 2026-11-06 (T-3396).
 
 ### L-k03-face-brick-3385 — Prairie Avenue's brick told house by house: a period face brick on each brick front, a common run on each house's flanks, as tints over the two K03 panels
 
