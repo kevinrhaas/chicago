@@ -57,7 +57,7 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
     return new THREE.AnimationClip(clip.name, clip.duration_s, clip.tracks.map(t => t.type === 'quaternion'
       ? new THREE.QuaternionKeyframeTrack(t.name, t.times, t.values) : new THREE.VectorKeyframeTrack(t.name, t.times, t.values)));
   })().catch(error => { walkClip = null; throw error; }));
-  // T-3398: a driver's draped livery (tools/human_driver_livery_1904.py), bound by its bytes.
+  // T-3398/T-3409: a driver's draped wardrobe (tools/human_wardrobe.py), bound by its bytes.
   const liveries = new Map();
   const acquireLivery = row => {
     if (!row.driver_livery_file) return null;
@@ -194,7 +194,8 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
         },
       };
       if (Number.isFinite(row.initial_assembly_state?.driver?.time_s)) actor.body.mixer.setTime(row.initial_assembly_state.driver.time_s);
-      // T-3398: the coachman's coat, cape and hat, skinned to his own bones.
+      // T-3398/T-3409: the driver's loose garments, skinned to his own bones; their spring
+      // tails swing each frame after the clip and the driver-life layer have moved him.
       const livery = acquired[3].value;
       if (livery && (livery.asset_id !== row.driver_asset || livery.body_master_sha256 !== row.driver_livery_body_sha256)) throw Error('driven assembly: livery was draped on another body');
       const undress = livery && actor.body ? dressInLivery(actor.body, livery) : null;
@@ -207,7 +208,7 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
         faces: actor.body.faces ?? [], gaitCycle_m: horseSpecCopy.stride_m });
       let motion = { distance_m: null, curvature: 0, moving: false };
       const driver = { root: actor.root,
-        update(dt, viewer = null) { actor.body?.mixer.update(dt); life?.apply(dt, motion, viewer); },
+        update(dt, viewer = null) { actor.body?.mixer.update(dt); life?.apply(dt, motion, viewer); undress?.update?.(dt); },
         move(pose, moving) { motion = { distance_m: pose.totalDistance, curvature: pose.curvature ?? 0, moving }; },
         snapshot() { return { clip: driverClip, time_s: actor.body?.mixer.time ?? 0, life: life?.snapshot() ?? null }; },
         dispose() { undress?.(); actor.dispose(); } };
