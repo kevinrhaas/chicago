@@ -16,7 +16,7 @@
         "creeper": 20
       }
     ],
-    "street_trees": 35,
+    "street_trees": 36,
     "street_trees_m": 70,
     "street_furniture": [
       "hydrant.pictured.pullman",
@@ -82,7 +82,7 @@
       "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "8bd553d81b186ef1a74a0c6e49a72df9690b2670dddd569f30b39585eb940951",
+  "flora_sha256": "a3aed3d30bed613b145e458e0fe9781e5e52af442ed0d8a156c5093f301bbfc8",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/chm_clark_1905-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -114,7 +114,7 @@
     {
       "what": "the parkway and lawn trees: the print's are tall elms in full leaf with trunks clear to about the second storey (crowns from about y 30-100) and the house's walls visible between them; the render's summer trees carry broad, low crowns that cover the house down to its principal storey",
       "status": "fixed",
-      "how": "T-1881 (2026-11-02): as in the house's other four views (the trees' size and crowns); the street-tree layer's, not worked here T-1881 (2026-11-03): the house's own parkway trees (Prairie Avenue 232.0-256.0 m, 18th Street 3.7-24.65 m) grow on a new pictured form, `high_head` (street-trees.js FORMS, tree-model.js ARCH.ulmus_americana_high): one straight leader about 0.3 m across, clear to about the second storey, under a head about 6 m across on a tree 16-20 m tall, read off this print and Taylor's no. 1445. Through this camera the parkway trees before the house now stand on clear boles with their crowns from about the second storey, and the house's walls show between them from the mansard to the ground, as the print draws it; the crowns' extent in full leaf is read at a 375 px thumbnail, within its reach."
+      "how": "T-1881 (2026-11-02): as in the house's other four views (the trees' size and crowns); the street-tree layer's, not worked here T-1881 (2026-11-03): the house's own parkway trees (Prairie Avenue 232.0-256.0 m, 18th Street 3.7-24.65 m) grow on a new pictured form, `high_head` (street-trees.js FORMS, tree-model.js ARCH.ulmus_americana_high): one straight leader about 0.3 m across, clear to about the second storey, under a head about 6 m across on a tree 16-20 m tall, read off this print and Taylor's no. 1445. Through this camera the parkway trees before the house now stand on clear boles with their crowns from about the second storey, and the house's walls show between them from the mansard to the ground, as the print draws it; the crowns' extent in full leaf is read at a 375 px thumbnail, within its reach. T-1881 (2026-11-06): the tree planted at 259.8 m on the Prairie parkway (read off the Detroit print and Taylor's no. 1445) renders through this camera before the porte-cochere's arch, where the photograph draws a trunk at about x 240 of 387; within this thumbnail's few pixels"
     },
     {
       "what": "the hydrant: the print's stands at x 157 (foot y 177), the build's (hydrant.pictured.pullman, v 20.1 on the Prairie parkway) at x 192",
