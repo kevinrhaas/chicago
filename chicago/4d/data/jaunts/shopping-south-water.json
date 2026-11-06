@@ -1,16 +1,13 @@
 {
   "schema_version": 1,
+  "content_version": 3,
+  "category": "Commerce",
+  "featured": true,
+  "review_required": false,
   "id": "shopping-south-water",
-  "content_version": 2,
+  "scene": "1835",
   "title": "Shopping South Water Street",
   "premise": "Fill a small household list along the working riverfront without buying everything you see.",
-  "category": "Commerce",
-  "scene": "1835",
-  "featured": true,
-  "opening": {
-    "text": "You have an imagined three dollars and a short household list: something for a cough, a staple and tea. Three South Water Street stores sell them; a fourth, on Lake Street, is where you tally up. The list, purse and prices are reconstructed.",
-    "read_s": 16
-  },
   "default_mode": "wagon",
   "allowed_modes": [
     "walk",
@@ -19,6 +16,15 @@
     "fly",
     "instantly"
   ],
+  "long_form": true,
+  "ambience": {
+    "hour": "daytime",
+    "season": "summer"
+  },
+  "opening": {
+    "text": "JAUNT: SHOPPING SOUTH WATER STREET. This is the town's main street, and it is not a pretty one: the river on one side, plank walks and mud on the other, and every store crammed with goods off the boats. In 1833 the Democrat quoted tea at 87 cents to $1.25 a pound and calicos 'from 15 to 38 cents' a yard.\n\nYou have three dollars and a short household list: something for a cough, a staple and tea. Three stores on South Water sell them; tally up on Lake Street, where the town's business is heading next.",
+    "read_s": 27
+  },
   "variables": {
     "money": {
       "min": 0,
@@ -45,8 +51,8 @@
         "kind": "structure",
         "id": "carpenter_south_water_store"
       },
-      "text": "Start at Philo Carpenter's, the druggist at the Sign of the Golden Mortar. His June 1835 notice lists aloes, ipecac, liquorice ball and tooth powder. Andreas puts his small store on this block toward Wells; which lot is not recorded.",
-      "read_s": 24,
+      "text": "Start at Philo Carpenter's, the druggist at the Sign of the Golden Mortar. He landed in 1832 while cholera was at the fort, opened his drugs in a log house by the river, and built this store the next summer. He also 'prepared and circulated the first temperance pledge' in town. His June notice lists aloes, ipecac, liquorice ball and tooth powder.",
+      "read_s": 20,
       "action_s": 4,
       "links": [
         {
@@ -69,7 +75,9 @@
         "carpenter-trade",
         "carpenter-place",
         "continuity",
-        "errand"
+        "errand",
+        "mk-carpenter",
+        "mk-carpenter-pledge"
       ],
       "choices": [
         {
@@ -105,7 +113,7 @@
         "id": "peck_store"
       },
       "text": "A short way east, Peck's store holds the corner of LaSalle and South Water. His 1833 card lists dry goods, hardware, groceries and crockery, with fifty barrels of superfine flour on hand; an 1834 notice adds flannels, ginghams and calicoes.",
-      "read_s": 24,
+      "read_s": 15,
       "action_s": 4,
       "links": [
         {
@@ -184,8 +192,8 @@
         "kind": "structure",
         "id": "harmon_loomis_store"
       },
-      "text": "On east at Clark Street stands Harmon, Loomis and Company. Their June 1835 notice offers Young Hyson and Souchong tea, loaf sugar, crockery and glassware. Andreas gives the corner of Clark and South Water, not which corner.",
-      "read_s": 22,
+      "text": "On east at Clark Street stands Harmon, Loomis and Company. Their June 1835 notice offers Young Hyson and Souchong tea, loaf sugar, crockery and glassware. Andreas gives the corner of Clark and South Water, not which corner. Business is good: next year the firm will put up 'the Harmon and Loomis block of four-story brick stores on South Water street'.",
+      "read_s": 21,
       "action_s": 6,
       "links": [
         {
@@ -203,7 +211,8 @@
         "harmon-stock",
         "harmon-place",
         "continuity",
-        "errand"
+        "errand",
+        "mk-1836-blocks"
       ],
       "choices": [
         {
@@ -291,8 +300,8 @@
         "kind": "structure",
         "id": "thomas_church_store"
       },
-      "text": "Drive up to Lake Street. A modern note, the only one found, credits Thomas Church with the first store building on this street, a two-storey frame. It names no stock, so nothing is bought here. Where on Lake Street it stood is reconstructed. Tally your basket.",
-      "read_s": 24,
+      "text": "Drive up to Lake Street. In 1834, Moses and Kirkland write, business 'began to extend to Lake street', and Thomas Church was among that year's arrivals. A modern note credits him with the first store building on this street, a two-storey frame. It names no stock, so nothing is bought here. Tally your basket.",
+      "read_s": 18,
       "links": [
         {
           "kind": "structure",
@@ -308,17 +317,56 @@
       "evidence": [
         "church-store",
         "church-place",
-        "errand"
+        "errand",
+        "mk-lake-street"
       ],
       "next": "$end",
       "narrative": "Add up what the basket holds and what the purse has left."
     }
   ],
+  "legs": [
+    {
+      "from": "remedy",
+      "to": "staples",
+      "note": "A short drive east along the south side of South Water Street to Peck's corner at LaSalle.",
+      "evidence": [
+        "carpenter-place"
+      ],
+      "story": "With the cough seen to, choose the staple the house needs most.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "staples",
+      "to": "compare",
+      "note": "The long leg: on east along South Water Street to Clark.",
+      "evidence": [
+        "harmon-place"
+      ],
+      "story": "Tea is the last thing on the list, and the purse is lighter now.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "compare",
+      "to": "receipt",
+      "note": "South up Clark Street, away from the river, to Lake Street.",
+      "evidence": [
+        "church-place"
+      ],
+      "story": "Nothing left to buy: find a quiet spot and add up the basket.",
+      "story_evidence": [
+        "errand"
+      ]
+    }
+  ],
   "endings": [
     {
       "id": "list-filled",
-      "text": "A staple, a remedy and tea: the list is crossed off, and a few coins remain. In this imagined errand the household is provided for this week.",
-      "read_s": 12,
+      "text": "A staple, a remedy and tea: the list is crossed off, and a few coins remain. The household is provided for this week, and you know South Water Street better than most newcomers.",
+      "read_s": 9,
       "when": {
         "all": [
           {
@@ -343,8 +391,8 @@
     },
     {
       "id": "list-short",
-      "text": "Some of the list waits for another day. In this imagined errand you go home with what the purse allowed, and South Water Street will still be there.",
-      "read_s": 12,
+      "text": "Some of the list waits for another day. You go home with what the purse allowed, and South Water Street, mud and all, will still be there.",
+      "read_s": 8,
       "default": true,
       "completion_eligible": true
     }
@@ -413,6 +461,51 @@
       "locator": "Chicagology, early street maps gallery, the editorial addendum at the foot of the page: the Thomas Church sentence (accessed 2026-08-11)."
     },
     {
+      "id": "mk-carpenter",
+      "text": "Philo Carpenter landed at Chicago in July 1832, while cholera was at Fort Dearborn, and 'all ordinary intercourse had been suspended'; he leased 'a small log house standing near the river' and opened his store of drugs; the next summer he built a store on South Water Street between LaSalle and Wells and added salt, sugar and hardware.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 572-573, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 100036-100121 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-carpenter-pledge",
+      "text": "In 1832 Carpenter 'prepared and circulated the first temperance pledge among the convivial citizens of that early period'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 574, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 100255-100260 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-prices",
+      "text": "The first numbers of the Democrat, in 1833, quote flour at $6 a barrel, butter at 17 cents a pound, tea at 87 cents to $1.25 a pound, loaf sugar 20 cents, coffee 17, 'whiskey 40 cents a gallon', and calicos 'from 15 to 38 cents' a yard.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 93, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12620-12632 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-1836-blocks",
+      "text": "Among the buildings of 1836 were 'the Harmon and Loomis block of four-story brick stores on South Water street'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 97, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13078-13082 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-lake-street",
+      "text": "In 1834 'Business, which had heretofore been confined to South Water street on the South Side, began to extend to Lake street'; Thomas Church is among that year's arrivals who became leading citizens.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 95, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12802-12821 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
       "id": "church-place",
       "text": "The source names Lake Street and nothing narrower; the store's place on the north side between LaSalle and Clark is a reconstruction.",
       "confidence": "reconstructed",
@@ -437,46 +530,8 @@
       "liberty": "L-jaunt-shopping-south-water"
     }
   ],
-  "review_required": false,
   "liberties": [
-    "L-jaunt-shopping-south-water"
-  ],
-  "legs": [
-    {
-      "from": "remedy",
-      "to": "staples",
-      "note": "A short drive east along the south side of South Water Street to Peck's corner at LaSalle.",
-      "evidence": [
-        "carpenter-place"
-      ],
-      "story": "With the cough seen to, choose the staple the house needs most.",
-      "story_evidence": [
-        "errand"
-      ]
-    },
-    {
-      "from": "staples",
-      "to": "compare",
-      "note": "The long leg: on east along South Water Street to Clark.",
-      "evidence": [
-        "harmon-place"
-      ],
-      "story": "Tea is the last thing on the list, and the purse is lighter now.",
-      "story_evidence": [
-        "errand"
-      ]
-    },
-    {
-      "from": "compare",
-      "to": "receipt",
-      "note": "South up Clark Street, away from the river, to Lake Street.",
-      "evidence": [
-        "church-place"
-      ],
-      "story": "Nothing left to buy: find a quiet spot and add up the basket.",
-      "story_evidence": [
-        "errand"
-      ]
-    }
+    "L-jaunt-shopping-south-water",
+    "L-jaunt-1835-light-and-stories"
   ]
 }

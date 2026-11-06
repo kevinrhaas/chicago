@@ -1,0 +1,24 @@
+{
+  "id": "classic_chicago_2020_field_jr_death",
+  "type": "website",
+  "citation": "Classic Chicago Magazine, 'The Mysterious Death of Marshall Field Jr.'. Read 5 November 2026.",
+  "author": "Classic Chicago Magazine",
+  "date": "accessed 2026-11-05",
+  "describes_date": "1905",
+  "url": "https://classicchicagomagazine.com/the-mysterious-death-of-marshall-field-jr/",
+  "locator": "The account of the shooting at 1919 Prairie and the rumours after it.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "Cited in words only; nothing copied beyond short quoted fragments.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-05 (T-3378/T-3379) through a fetch that returned the page's sentences in short quoted fragments and paraphrase; this record is cited only for what those fragments say.",
+  "note": "Fragments read: the shooting on Wednesday 22 November 1905 at 1919 S. Prairie Avenue, his death at Mercy Hospital on Monday 27 November; his reported words, 'I shot myself with that revolver – accidentally'; the coroner's jury's verdict that he 'had shot himself unintentionally while examining a revolver'; the tip to two reporters that he had spent the evening at the Everleigh Club, 2131-33 S. Dearborn, which the sisters denied and nobody confirmed; his parents' house next door at 1905.",
+  "what_it_supplies": [
+    "the date, place and verdict of Field Jr.'s shooting",
+    "the Everleigh Club rumour"
+  ],
+  "what_it_does_not_supply": [
+    "the 1904 state of the house"
+  ]
+}

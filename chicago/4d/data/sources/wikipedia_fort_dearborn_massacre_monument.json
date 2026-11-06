@@ -1,0 +1,23 @@
+{
+  "id": "wikipedia_fort_dearborn_massacre_monument",
+  "type": "website",
+  "citation": "Wikipedia, 'The Fort Dearborn Massacre Monument'. Read 5 November 2026.",
+  "author": "Wikipedia contributors",
+  "date": "accessed 2026-11-05",
+  "describes_date": "1893-1931",
+  "url": "https://en.wikipedia.org/wiki/The_Fort_Dearborn_Massacre_Monument",
+  "locator": "The article's history of the monument.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "Textual factual citation only (CC BY-SA text, nothing copied beyond short quoted fragments).",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-05 (T-3378/T-3379) through a fetch that returned the page's sentences in short quoted fragments and paraphrase; this record is cited only for what those fragments say.",
+  "note": "Fragments read: the bronze by Carl Rohl-Smith (1848-1900), commissioned by George Pullman, placed in 1893 'near the intersection of Prairie Avenue and 18th Street', showing the Potawatomi chief Black Partridge saving Margaret Helm, the wife of an army officer, in the Battle of Fort Dearborn.",
+  "what_it_supplies": [
+    "the statue at 18th and Prairie in 1904, its sculptor and its subject"
+  ],
+  "what_it_does_not_supply": [
+    "the statue's exact stand"
+  ]
+}

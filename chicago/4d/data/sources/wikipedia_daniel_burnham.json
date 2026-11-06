@@ -1,0 +1,23 @@
+{
+  "id": "wikipedia_daniel_burnham",
+  "type": "website",
+  "citation": "Wikipedia, 'Daniel Burnham'. Read 5 November 2026.",
+  "author": "Wikipedia contributors",
+  "date": "accessed 2026-11-05",
+  "describes_date": "1876-1909",
+  "url": "https://en.wikipedia.org/wiki/Daniel_Burnham",
+  "locator": "The biography's paragraphs on the 1893 fair, the Plan of Chicago, the Flatiron and his marriage.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "Textual factual citation only (CC BY-SA text, nothing copied beyond short quoted fragments).",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-05 (T-3378/T-3379) through a fetch that returned the page's sentences in short quoted fragments and paraphrase; this record is cited only for what those fragments say.",
+  "note": "Fragments read: 'Make no little plans. They have no magic to stir men's blood and probably will not themselves be realized.'; Director of Works of the 1893 fair, the 'White City'; the 1909 Plan of Chicago, 'the first comprehensive plan for the controlled growth of an American city'; the Flatiron Building, New York, 1901; in 1876 he married Margaret, daughter of John B. Sherman.",
+  "what_it_supplies": [
+    "Burnham's fair, his plan and his slogan"
+  ],
+  "what_it_does_not_supply": [
+    "the Prairie Avenue houses"
+  ]
+}

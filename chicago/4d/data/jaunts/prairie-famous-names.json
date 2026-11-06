@@ -1,22 +1,27 @@
 {
   "schema_version": 1,
-  "content_version": 1,
+  "content_version": 2,
   "category": "Residents",
   "featured": true,
   "review_required": false,
   "id": "prairie-famous-names",
   "scene": "1904",
   "title": "Famous names of Prairie Avenue",
-  "premise": "Walk south past the houses of the names that made Prairie Avenue: Pullman, Glessner, Kimball, the two Marshall Fields and Armour.",
+  "premise": "A summer dusk on Millionaire's Row: Pullman, Glessner, Kimball, the two Marshall Fields and Armour, and how each made a fortune in one lifetime.",
   "default_mode": "walk",
   "allowed_modes": [
     "walk",
     "fly",
     "instantly"
   ],
+  "long_form": true,
+  "ambience": {
+    "hour": "dusk",
+    "season": "summer"
+  },
   "opening": {
-    "text": "WALK: FAMOUS NAMES. Six houses, 1729 to 2115 Prairie, north to south on foot. Each stop gives the family the district markers name for the house. Exteriors only; who was home on 1 July 1904 is not claimed.",
-    "read_s": 16
+    "text": "JAUNT: FAMOUS NAMES. A summer dusk on Prairie Avenue, 1904. The lamplighters have been round, the carriages are coming home from the Loop, and behind these walls sit some of the richest families in America. People call the street Millionaire's Row: at one point 'sixteen of the 60 members of the Commercial Club of Chicago lived on Prairie Avenue'.\n\nSix houses on foot, 1729 to 2115 Prairie, north to south: the man who put America to sleep on trains, a farm-machine maker in a granite fortress, the piano king, the merchant prince and his son, and the meatpacker who used everything but the squeal. Every one of these fortunes was made in Chicago in a single lifetime.\n\nStart at the corner of Eighteenth Street, with the biggest house on the block.",
+    "read_s": 36
   },
   "stops": [
     {
@@ -25,11 +30,14 @@
         "kind": "structure",
         "id": "pullman_house_1729_prairie"
       },
-      "text": "1729 Prairie. George M. Pullman's house, built 1870 to 1876. The district marker lists a theatre of about two hundred seats, a pipe organ and a bowling alley inside, and Solon S. Beman's later palm room and large conservatory.",
-      "read_s": 16,
+      "text": "1729 Prairie, the Pullman house, built 1870 to 1876: inside, a theatre of about two hundred seats, a pipe organ and a bowling alley, and later a palm room and a great conservatory. George M. Pullman got rich young by lifting Chicago out of its mud, jacking up whole buildings 'on average six feet without causing them any damage'. Then he built sleeping cars, and when Lincoln's body rode home to Springfield in one, 'hundreds of thousands of people lined the route in homage'. Pullman died in 1897, hated by the strikers of his company town, and his widow still keeps this house. He also hated one thing on this street. It is right behind you.",
+      "read_s": 32,
       "evidence": [
         "pullman-marker",
-        "tour"
+        "tour",
+        "pullman-raise",
+        "pullman-strike",
+        "pullman-widow"
       ],
       "next": "glessner"
     },
@@ -39,12 +47,15 @@
         "kind": "structure",
         "id": "glessner_house"
       },
-      "text": "1800 Prairie, south of Eighteenth Street. John J. Glessner's house, built in 1887 to the design of Henry Hobson Richardson and wrapped around a light-filled courtyard. The family moved in during December 1887.",
-      "read_s": 14,
+      "text": "1800 Prairie, John J. Glessner's house. Pullman complained, 'I do not know what I have ever done to have that thing staring me in the face every time I go out of my door'. Glessner made his money in farm machinery for the prairie farms, and two years ago his firm merged into the giant International Harvester, with him as vice president. His architect, Henry Hobson Richardson, died weeks before building began in 1886; the family moved in on 1 December 1887 and are still here. Sixty years from now the house will nearly be torn down, and saved in 1966 'for just $35,000'. Across the avenue, listen for pianos.",
+      "read_s": 31,
       "evidence": [
         "glessner-marker",
         "glessner-move",
-        "tour"
+        "tour",
+        "pullman-glare",
+        "glessner-firm",
+        "glessner-dates-fn"
       ],
       "next": "kimball"
     },
@@ -54,12 +65,13 @@
         "kind": "structure",
         "id": "kimball_house_1801_prairie"
       },
-      "text": "1801 Prairie, across the avenue. William W. Kimball's house, built in 1890 by Solon S. Beman for the Chicago piano and organ manufacturer, in the French Chateauesque style: a very steep slate roof and a round tower on the Eighteenth Street side.",
-      "read_s": 18,
+      "text": "1801 Prairie, the Kimball house of 1890, a French chateau by Solon S. Beman with a very steep slate roof and a round tower on Eighteenth Street. William W. Kimball came to Chicago in 1857, 'beginning with only four pianos', and by 1881 his factory was 'churning out around 100 pianos and organs every week'. This is his last summer: he 'died at his home in Chicago on December 16, 1904'. Now walk a block south to the richest man in the city.",
+      "read_s": 23,
       "evidence": [
         "kimball-marker",
         "kimball-photo",
-        "tour"
+        "tour",
+        "kimball-start"
       ],
       "next": "field"
     },
@@ -69,12 +81,13 @@
         "kind": "structure",
         "id": "marshall_field_house_1905_prairie"
       },
-      "text": "1905 Prairie. Marshall Field's house. The Glessner House Museum names Richard Morris Hunt of New York as the architect engaged for it, and notes that Field and George Pullman both bought property on the street.",
-      "read_s": 15,
+      "text": "1905 Prairie, Marshall Field's house, designed by Richard Morris Hunt of New York. Field came from Massachusetts and became 'the wealthiest and most powerful businessman in Chicago', worth $125 million by 1905. His store's rule was 'Give the lady what she wants', and the ladies made him rich. He and George Pullman both bought land on this street, and the rest of Chicago's rich followed them here. Next year his world will fall apart, and it starts two doors south.",
+      "read_s": 22,
       "evidence": [
         "field-caption",
         "field-museum",
-        "tour"
+        "tour",
+        "field-rich"
       ],
       "next": "field-jr"
     },
@@ -84,11 +97,13 @@
         "kind": "structure",
         "id": "marshall_field_jr_house_1919_prairie"
       },
-      "text": "1919 Prairie. Marshall Field Jr. acquired this house in 1890. It was enlarged several times, the last in 1902, when D. H. Burnham and Company built a huge addition for him, so in 1904 that addition is two years old.",
-      "read_s": 17,
+      "text": "1919 Prairie, Marshall Field Jr.'s house. He bought it in 1890 and kept growing it; in 1902 D. H. Burnham and Company built a huge addition, two years old tonight. Upstairs live his children, among them Marshall Field III, ten years old. In November 1905 the father will be shot in this house, and within two months the grandfather will be dead too, of pneumonia caught on a New Year's golf course. The boy will grow up in England. For now, the lights are on. One more house, at the far end of the walk.",
+      "read_s": 26,
       "evidence": [
         "fieldjr-marker",
-        "tour"
+        "tour",
+        "fieldjr-family",
+        "field-rich"
       ],
       "next": "armour"
     },
@@ -98,21 +113,70 @@
         "kind": "structure",
         "id": "armour_house_2115_prairie"
       },
-      "text": "2115 Prairie. Built in 1871 for the lumberman David Kelley, this Second Empire house was for nearly fifty years the home of the family of the meatpacker Philip D. Armour, who came to the street in 1877.",
-      "read_s": 16,
+      "text": "2115 Prairie, the Kelley-Armour house, built in 1871 and home to the Armour family for nearly fifty years. Philip D. Armour skipped the gold-rush shovels and 'started a business employing out-of-work miners to construct sluices'. Back in Chicago he built Armour & Co., 'the world's largest food processing and chemical manufacturing enterprise', boasting that he used 'everything but the squeal'. In 1893 he gave a million dollars to found the Armour Institute of Technology. He died in 1901; his widow still lives here, and she will outlast nearly everyone on the street.",
+      "read_s": 26,
       "evidence": [
         "armour-marker",
         "armour-museum",
-        "tour"
+        "tour",
+        "armour-life",
+        "armour-widow"
       ],
       "next": "finish"
+    }
+  ],
+  "legs": [
+    {
+      "story": "Across Eighteenth Street. The Battle of Fort Dearborn of 1812 was fought in the sand hills under this end of the street.",
+      "evidence": [
+        "battle-ground"
+      ],
+      "story_evidence": [
+        "battle-ground"
+      ]
+    },
+    {
+      "story": "Across the avenue to the turret: Kimball's chateau faces Glessner's fortress.",
+      "evidence": [
+        "kimball-marker"
+      ],
+      "story_evidence": [
+        "kimball-marker"
+      ]
+    },
+    {
+      "story": "South past the Coleman and Sears houses. By 1886 'the finest mansions in the city, each equipped with its own carriage house, stood on Prairie Avenue'.",
+      "evidence": [
+        "millionaires"
+      ],
+      "story_evidence": [
+        "millionaires"
+      ]
+    },
+    {
+      "story": "Two doors south: father and son lived side by side.",
+      "evidence": [
+        "fieldjr-marker"
+      ],
+      "story_evidence": [
+        "fieldjr-marker"
+      ]
+    },
+    {
+      "story": "On past Twentieth Street, down the long east walk to the last great house.",
+      "evidence": [
+        "armour-marker"
+      ],
+      "story_evidence": [
+        "armour-marker"
+      ]
     }
   ],
   "endings": [
     {
       "id": "finish",
-      "text": "End of the walk at 2115 Prairie. The houses between these stops were the neighbours of these families; explore them at your own pace.",
-      "read_s": 10,
+      "text": "End of the walk at 2115 Prairie. Mrs. Armour stayed: the district marker says she was among the last residents of the street, dying here in 1927. Most of the others had already gone. After Bertha Palmer built her castle on Lake Shore Drive, 'the elite residents began to move north', and one by one these houses became boarding houses, warehouses and parking lots.\n\nA few survived. Glessner's fortress is still standing, and so is Kimball's chateau. Come back after dark some night, when the street tells its ghost stories.",
+      "read_s": 25,
       "completion_eligible": true
     }
   ],
@@ -215,10 +279,158 @@
     },
     {
       "id": "tour",
-      "text": "The route, its order, its reading times, its keepsake and its framing are modern interpretation; no historical visit, conversation or occupant on 1 July 1904 is asserted.",
+      "text": "The route, its order, its dusk, its reading times, its keepsake and its framing are modern interpretation; no historical visit, conversation or occupant on a day in 1904 is asserted.",
       "confidence": "reconstructed",
       "sources": [],
       "liberty": "L-jaunt-prairie-walks"
+    },
+    {
+      "id": "millionaires",
+      "text": "Mansions for George Pullman, Marshall Field, John J. Glessner and Philip Armour made Prairie Avenue 'Millionaire's Row'; by 1886 'the finest mansions in the city, each equipped with its own carriage house, stood on Prairie Avenue'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_prairie_avenue"
+      ],
+      "locator": "The history section."
+    },
+    {
+      "id": "pullman-raise",
+      "text": "Pullman's firm raised Chicago buildings out of the mud 'on average six feet without causing them any damage'; his first sleeping car 'was finished in 1864'; Lincoln's body went home to Springfield in a sleeper while 'hundreds of thousands of people lined the route in homage'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_george_pullman"
+      ],
+      "locator": "The biography's paragraphs on building-raising, the sleeping car and Lincoln's funeral."
+    },
+    {
+      "id": "pullman-strike",
+      "text": "In 1894 Pullman cut his workers' wages, but 'he didn't reduce the rent in Pullman', his company town; he 'died of a heart attack' on 19 October 1897.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_george_pullman"
+      ],
+      "locator": "The biography's paragraphs on the strike and his death."
+    },
+    {
+      "id": "pullman-grave",
+      "text": "Fearing his body would be dug up, the family had him buried in a 'lead-lined mahogany coffin, which was then sealed inside a block of concrete', under steel rails 'bolted together at right angles', at Graceland Cemetery. An 1897 New York Times account gives a 'lead-lined box wrapped in tar paper' and 'an inch of asphaltum'; behind it, 'a lot of high-profile grave robberies lately' and the fear that 'some of the employees weren't quite done getting revenge'. The historian Adam Selzer: 'Whether it's true or not, we don't really know.'",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_george_pullman",
+        "wttw_pullman_grave"
+      ],
+      "locator": "The biography's paragraph on the burial; the WTTW piece on the grave."
+    },
+    {
+      "id": "pullman-widow",
+      "text": "The 1904 Blue Book lists Mrs. George M. Pullman at 1729 Prairie.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "locator": "The street-and-number list, PRAIRIE AV., printed pp. 186-187 (PDF pp. 188-189), as data/residents_1904/households/hh_pullman_mrs_george_m.json reads it."
+    },
+    {
+      "id": "pullman-glare",
+      "text": "George Pullman, across the street, complained of the Glessner house: 'I do not know what I have ever done to have that thing staring me in the face every time I go out of my door'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_glessner_house"
+      ],
+      "locator": "The design section."
+    },
+    {
+      "id": "kimball-start",
+      "text": "Kimball founded his piano business in Chicago in 1857, 'beginning with only four pianos'; in 1881 he opened his own factory 'churning out around 100 pianos and organs every week'; he 'died at his home in Chicago on December 16, 1904'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_william_wallace_kimball"
+      ],
+      "locator": "The biography: Chicago, the factory, his death."
+    },
+    {
+      "id": "field-rich",
+      "text": "Marshall Field: 'Give the lady what she wants'; 'the wealthiest and most powerful businessman in Chicago', his fortune valued at $125 million in 1905. His son Marshall Field Jr. was shot on 22 November 1905; Field himself died of pneumonia on 16 January 1906, caught after a New Year's Day golf game with, among others, Robert Todd Lincoln.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_marshall_field"
+      ],
+      "locator": "The biography's paragraphs on the store, his wealth, his son and his death."
+    },
+    {
+      "id": "battle-ground",
+      "text": "The Battle of Fort Dearborn occurred in the area that is now the northern section of the street.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_prairie_avenue"
+      ],
+      "locator": "The history section."
+    },
+    {
+      "id": "commercial-club",
+      "text": "At one point in the 1880s 'sixteen of the 60 members of the Commercial Club of Chicago lived on Prairie Avenue'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_prairie_avenue"
+      ],
+      "locator": "The history section."
+    },
+    {
+      "id": "glessner-firm",
+      "text": "Glessner was a partner in Warder, Bushnell & Glessner, farm machinery, of Springfield, Ohio; in 1902 the firm merged with four others to form International Harvester, and he became its vice president. In the 1960s 'the house was threatened with demolition', and it was bought in 1966 'for just $35,000'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_glessner_house"
+      ],
+      "locator": "The history section."
+    },
+    {
+      "id": "armour-life",
+      "text": "In the California gold rush Armour 'started a business employing out-of-work miners to construct sluices'; Armour & Co. 'became the world's largest food processing and chemical manufacturing enterprise'; he made use of 'everything but the squeal'; in 1893 he gave $1 million to found the Armour Institute of Technology, now the Illinois Institute of Technology; he died of pneumonia on 6 January 1901.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_philip_danforth_armour"
+      ],
+      "locator": "The biography."
+    },
+    {
+      "id": "armour-widow",
+      "text": "The 1904 Blue Book prints Mrs. Philip D. Armour at 2115; the district marker says Armour's widow was among the last residents of the street, dying there in 1927.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "hmdb_prairie_lost_houses_2000_2100"
+      ],
+      "locator": "The street-and-number list, PRAIRIE AV.; the marker's 2115 S. Prairie Avenue entry."
+    },
+    {
+      "id": "fieldjr-family",
+      "text": "The 1904 Blue Book lists Mr. and Mrs. Marshall Field jr. at 1919 Prairie; their son Marshall Field III, ten years old in 1904, was raised mainly in England after his father's death in 1905.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "wikipedia_marshall_field_iii"
+      ],
+      "locator": "The street list as hh_field_marshall_jr.json reads it; the Wikipedia biography of Marshall Field III."
+    },
+    {
+      "id": "glessner-dates-fn",
+      "text": "HABS dates the building from June 1, 1886 to December 1, 1887; the house museum gives Richardson's death as April 26, 1886.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages",
+        "glessner_house_richardson_page"
+      ],
+      "locator": "HABS data pages pp. 1-2; the museum's Richardson page."
+    },
+    {
+      "id": "move-north",
+      "text": "After Bertha Palmer built the Palmer Mansion on Lake Shore Drive 'the elite residents began to move north'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_prairie_avenue"
+      ],
+      "locator": "The history section."
     }
   ],
   "liberties": [

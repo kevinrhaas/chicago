@@ -1,15 +1,12 @@
 {
   "schema_version": 1,
+  "content_version": 2,
+  "category": "River transportation",
+  "review_required": false,
   "id": "along-the-harbor",
-  "content_version": 1,
+  "scene": "1835",
   "title": "Along the Working Harbor",
   "premise": "Follow freight back to the lake: a forwarding house on the river, the Dearborn Street draw, the light at the mouth, and the two piers still being pushed into the lake. Leave with a route note.",
-  "category": "River transportation",
-  "scene": "1835",
-  "opening": {
-    "text": "The lake reaches this town through a cut in a sand bar, past a light and under a drawbridge. Start where freight lands at a forwarding house, pass the Dearborn draw, walk out to the light at the river's mouth, and finish at the piers, both still being built. Your walk and your route note are invented; the harbour is documented.",
-    "read_s": 20
-  },
   "default_mode": "horse",
   "allowed_modes": [
     "walk",
@@ -18,6 +15,15 @@
     "fly",
     "instantly"
   ],
+  "long_form": true,
+  "ambience": {
+    "hour": "morning",
+    "season": "summer"
+  },
+  "opening": {
+    "text": "JAUNT: ALONG THE WORKING HARBOR. A summer morning, and the lake is the town's highway. Three years ago Chicago had no harbour at all, only a river choked by a sand bar. Then the army cut through the bar, the piers went out into the lake, and in 1834 'the schooner Illinois, the first large vessel to enter the river, sailed into the harbor amid the rejoicings of the people'. That year 180 vessels unloaded here.\n\nFollow the freight back the way it came: from a forwarding house on the river, under the Dearborn Street draw and past the lighthouse, out to the piers, both still pushing into the lake.",
+    "read_s": 31
+  },
   "variables": {
     "mark": {
       "min": 0,
@@ -33,8 +39,8 @@
         "kind": "structure",
         "id": "newberry_dole_warehouse"
       },
-      "text": "Start at Newberry & Dole's warehouse on the river. In the Democrat of 1 July 1835 they advertise storage, forwarding and commission, agents for the Merchants' Line: goods off the lake pass through houses like theirs. Follow the freight back the way it came. Which bank the warehouse stood on is disputed.",
-      "read_s": 26,
+      "text": "Start at Newberry & Dole's warehouse on the river. In the Democrat of 1 July 1835 they advertise storage, forwarding and commission, agents for the Merchants' Line: goods off the lake land at houses like theirs and go on to every store in town. When the schooner Illinois came up the new channel in July 1834, she was cheered at Newberry & Dole's wharf. Which bank the warehouse stood on is still argued; the trade is not.",
+      "read_s": 24,
       "action_s": 5,
       "links": [
         {
@@ -57,7 +63,8 @@
         "nd-notice",
         "by-lake",
         "nd-bank",
-        "errand"
+        "errand",
+        "illinois-wharf"
       ],
       "next": "the-draw",
       "narrative": "What the town cannot make, the lake brings."
@@ -68,8 +75,8 @@
         "kind": "structure",
         "id": "dearborn_street_drawbridge"
       },
-      "text": "East to Dearborn Street and the town's first drawbridge, built in 1834 by the ship-carpenter Nelson R. Norton. Andreas: about three hundred feet long, a sixty-foot opening for craft, and gallows frames at either end of the draw. It was struck and patched more than once. Stay on the south bank.",
-      "read_s": 28,
+      "text": "East to Dearborn Street and the town's first drawbridge, built in 1834 by the ship-carpenter Nelson R. Norton. Moses and Kirkland make it '300 feet in length, by sixteen in width', with 'a double draw'; Andreas gives a sixty-foot opening for craft and gallows frames at either end. Vessels kept striking it, and it was patched in 1834 and again this year. Stay on the south bank.",
+      "read_s": 21,
       "action_s": 10,
       "links": [
         {
@@ -93,7 +100,8 @@
         "draw-size",
         "draw-repairs",
         "draw-place",
-        "errand"
+        "errand",
+        "mk-draw"
       ],
       "next": "the-light",
       "narrative": "Where the river is crossed, and passed."
@@ -104,8 +112,8 @@
         "kind": "structure",
         "id": "chicago_lighthouse_1832"
       },
-      "text": "On along the south bank to the light at the river's mouth, the first on Lake Michigan. Andreas: another tower, forty feet high, finished by Mr. Jackson in 1832 after the first fell. A lantern topped it; its shape here is our reconstruction, and this summer's keeper is not recorded. Look from outside.",
-      "read_s": 28,
+      "text": "On along the south bank to the light at the river's mouth, the first on Lake Michigan. The first tower fell in 1831 before it was finished; Mr. Jackson put up this one, forty feet high, in 1832, with a fourteen-inch reflector in the lantern on top. Moses and Kirkland add a surprise: 'Samuel S. Lasby was the first, and Mark Beaubien the last keeper of the old light house.' The town's fiddler and tavern-keeper kept the lighthouse too.",
+      "read_s": 24,
       "action_s": 5,
       "links": [
         {
@@ -130,7 +138,8 @@
         "lh-role",
         "lh-form",
         "lh-keeper",
-        "errand"
+        "errand",
+        "mk-light-keepers"
       ],
       "next": "the-piers",
       "narrative": "A mark for vessels making the river."
@@ -141,8 +150,8 @@
         "kind": "structure",
         "id": "south_pier"
       },
-      "text": "Out to the south pier's root. Across the cut stands the north pier, the weather pier that keeps the sand out. The Democrat printed the federal report: 180 vessels discharged here in 1834, and $32,800 more voted in 1835. Both piers grow all summer; their lengths are our estimate. Choose your note's mark.",
-      "read_s": 28,
+      "text": "Out to the south pier's root. Across the cut stands the north pier, the weather pier that keeps the sand out. The Democrat printed the federal report: 180 vessels arrived and discharged here in 1834, and Congress has voted $32,800 more toward the harbour. Both piers grow all summer; by the season's end the north pier will reach 1,260 feet into the lake. Choose the mark for your route note.",
+      "read_s": 21,
       "action_s": 10,
       "links": [
         {
@@ -205,7 +214,7 @@
     {
       "from": "the-forwarding-house",
       "to": "the-draw",
-      "note": "East along the south bank to the foot of Dearborn Street; the warehouse's bank is our placement.",
+      "note": "East along the south bank to the foot of Dearborn Street.",
       "evidence": [
         "nd-bank",
         "draw-place"
@@ -218,7 +227,7 @@
     {
       "from": "the-draw",
       "to": "the-light",
-      "note": "On east along the south bank toward the fort; the light's ring is read off Wright's 1834 map and no particular path is claimed.",
+      "note": "On east along the south bank toward the fort.",
       "evidence": [
         "lh-place"
       ]
@@ -226,7 +235,7 @@
     {
       "from": "the-light",
       "to": "the-piers",
-      "note": "A short way east to the root of the south pier on the reservation shore; the north pier is seen across the cut, not walked to.",
+      "note": "A short way east to the root of the south pier; the north pier stands across the cut.",
       "evidence": [
         "sp-place"
       ],
@@ -239,8 +248,8 @@
   "endings": [
     {
       "id": "a-note-to-redraw",
-      "text": "Your note reads: in by the end of the north pier, past the light, up under the Dearborn draw. By the season's end Andreas has that pier 1,260 feet into the lake, so your mark will want redrawing. The walk and the note are the story's.",
-      "read_s": 12,
+      "text": "Your note reads: in by the end of the north pier, past the light, up under the Dearborn draw. By autumn that pier will be 1,260 feet into the lake, so your mark will want redrawing. A harbour that keeps growing is a good problem to have.",
+      "read_s": 13,
       "completion_eligible": true,
       "when": {
         "var": "mark",
@@ -250,8 +259,8 @@
     },
     {
       "id": "a-note-that-keeps",
-      "text": "Your note reads: in between the piers, past the light at the mouth, up under the Dearborn draw, to the forwarding houses. Of everything on it the light is the mark that stays put this summer. The walk and the note are the story's.",
-      "read_s": 12,
+      "text": "Your note reads: in between the piers, past the light at the mouth, up under the Dearborn draw to the forwarding houses. Of everything on it, the light is the one mark that stays put this summer.",
+      "read_s": 10,
       "completion_eligible": true,
       "default": true
     }
@@ -426,6 +435,42 @@
       "locator": "25 Mar 1835, p. 3, col. 3, 'Chicago Harbor.—We learn from a friend at Washington' (extracted claim chicago_democrat_1835_03_25#c002). Transcription-mediated reading; the paper reports it second-hand and says so."
     },
     {
+      "id": "mk-illinois",
+      "text": "In 1834 'the schooner Illinois, the first large vessel to enter the river, sailed into the harbor amid the rejoicings of the people'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 91, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12304-12307 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-draw",
+      "text": "The first drawbridge, at Dearborn Street, built in 1834 with Nelson R. Norton as contractor, 'was 300 feet in length, by sixteen in width, and had a double draw'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 95, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12811-12817 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-light-keepers",
+      "text": "The first lighthouse tower, fifty feet high, fell before it was completed; another, forty feet high, was put up in 1832 with a fourteen-inch reflector. 'Samuel S. Lasby was the first, and Mark Beaubien the last keeper of the old light house.'",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 91, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12275-12286 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "illinois-wharf",
+      "text": "On 12 July 1834 the schooner Illinois, the first vessel through the new harbour cut, was cheered at Newberry & Dole’s wharf.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Andreas vol. 1, scan p. 503, the opening of the harbour."
+    },
+    {
       "id": "pier-length",
       "text": "No source gives either pier's length on 1 July 1835. The north pier was about 700 feet at the end of 1834 and had been extended to 1,260 feet into the lake by the end of the 1835 season; Andreas has the south pier extended 500 feet in 1835, to 700 in all. The scene draws interpolations, about 900 and 400 feet.",
       "confidence": "inferred",
@@ -452,8 +497,8 @@
       "liberty": "L-jaunt-along-the-harbor"
     }
   ],
-  "review_required": false,
   "liberties": [
-    "L-jaunt-along-the-harbor"
+    "L-jaunt-along-the-harbor",
+    "L-jaunt-1835-light-and-stories"
   ]
 }

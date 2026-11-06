@@ -71,6 +71,18 @@ export function placeName(jaunt, id, sidecar, fallback) {
   return jaunt?.places?.[id] || (sidecar ? displayName(sidecar, id).title : '') || fallback || id;
 }
 
+/**
+ * T-3379: "Passing Dexter House, 1721 Prairie, on your left." is measured off the map; the
+ * fact after it is the house's own (`place_facts`, compiled by tools/jaunt_place_facts.py)
+ * and carries its sources like any sentence of a jaunt. A house with no fact is named only.
+ */
+export function passingLine(jaunt, p) {
+  const where = `Passing ${p.label}, ${p.side}.`, fact = jaunt?.place_facts?.[p.id];
+  if (!fact?.text) return { text: where, generated: true, place: p.id };
+  return { text: `${where} ${fact.text}`, place: p.id,
+    claims: [{ id: `place:${p.id}`, text: fact.text, confidence: fact.confidence || 'attested', sources: fact.sources || [] }] };
+}
+
 export function legContext(jaunt, fromId, toId, points, places, exclude = []) {
   const fromIndex = jaunt.stops.findIndex(s => s.id === fromId);
   const authored = (jaunt.legs || []).find((leg, i) =>
@@ -78,7 +90,7 @@ export function legContext(jaunt, fromId, toId, points, places, exclude = []) {
   const passed = passingPlaces(points, places, { exclude });
   const claims = authored?.evidence || [];
   const lines = authored?.note ? [{ text: authored.note, evidence: claims }] : passed.slice(0, authored?.story ? 1 : 2)
-    .map(p => ({ text: `Passing ${p.label}, ${p.side}.`, generated: true, place: p.id }));
+    .map(p => passingLine(jaunt, p));
   if (authored?.story) lines.push({ text: authored.story, evidence: authored.story_evidence || [] });
   return { from: fromId, to: toId, lines, passed, authored: !!authored, fromIndex };
 }

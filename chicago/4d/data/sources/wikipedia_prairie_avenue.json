@@ -1,0 +1,24 @@
+{
+  "id": "wikipedia_prairie_avenue",
+  "type": "website",
+  "citation": "Wikipedia, 'Prairie Avenue'. Read 5 November 2026.",
+  "author": "Wikipedia contributors",
+  "date": "accessed 2026-11-05",
+  "describes_date": "1812-1910",
+  "url": "https://en.wikipedia.org/wiki/Prairie_Avenue",
+  "locator": "The history section: Millionaire's Row, the Battle of Fort Dearborn, the move north, the Clarke House.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "Textual factual citation only (CC BY-SA text, nothing copied beyond short quoted fragments).",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-05 (T-3378/T-3379) through a fetch that returned the page's sentences in short quoted fragments and paraphrase; this record is cited only for what those fragments say.",
+  "note": "Fragments read: 'mansions for George Pullman, Marshall Field, John J. Glessner and Philip Armour' made it 'Millionaire's Row'; by 1886 'the finest mansions in the city, each equipped with its own carriage house, stood on Prairie Avenue'; at one point in the 1880s 'sixteen of the 60 members of the Commercial Club of Chicago lived on Prairie Avenue'; 'The Battle of Fort Dearborn occurred in the area that is now the northern section of the street'; after Bertha Palmer built on Lake Shore Drive 'the elite residents began to move north'; the Clarke House, 'purported to be the city's oldest standing house', 'twice relocated'.",
+  "what_it_supplies": [
+    "the street's nickname, its peak and its decline",
+    "the battle ground under its north end"
+  ],
+  "what_it_does_not_supply": [
+    "any one house's 1904 state"
+  ]
+}

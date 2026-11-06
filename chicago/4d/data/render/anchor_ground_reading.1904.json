@@ -158,10 +158,23 @@
       "deck_m": null,
       "margin_m": 220,
       "inside_a_roof": null
+    },
+    {
+      "id": "haunted_battle_ground",
+      "local_e": 1404,
+      "local_n": -3207,
+      "aerial": false,
+      "inside": true,
+      "ground_m": 4.337,
+      "dry": true,
+      "stands_on": null,
+      "deck_m": null,
+      "margin_m": 162.5,
+      "inside_a_roof": null
     }
   ],
   "totals": {
-    "anchors": 11,
+    "anchors": 12,
     "outside_the_box": 0,
     "wet": 0,
     "in_a_roof": 0,

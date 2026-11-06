@@ -1,22 +1,27 @@
 {
   "schema_version": 1,
-  "content_version": 1,
+  "content_version": 2,
   "category": "Architecture",
   "featured": true,
   "review_required": false,
   "id": "prairie-architects",
   "scene": "1904",
   "title": "Architects of Prairie Avenue",
-  "premise": "Walk south past houses by Jenney, Richardson, Cobb & Frost, Burnham & Root, Beman and Hunt, ending at the Burnham & Root house that started their run on the street.",
+  "premise": "An autumn afternoon with the architects who rebuilt Chicago: Jenney, Richardson, Cobb & Frost, Burnham & Root, Beman and Hunt, ending where Burnham met his wife.",
   "default_mode": "walk",
   "allowed_modes": [
     "walk",
     "fly",
     "instantly"
   ],
+  "long_form": true,
+  "ambience": {
+    "hour": "afternoon",
+    "season": "fall"
+  },
   "opening": {
-    "text": "WALK: ARCHITECTS. Seven houses, 1701 to 2100 Prairie, north to south on foot. Each stop names who designed the house, from the district markers and period notices. Exteriors only.",
-    "read_s": 12
+    "text": "JAUNT: ARCHITECTS. An autumn afternoon on Prairie Avenue, 1904, the low sun raking across stone. Thirty-three years ago Chicago burned; it rebuilt itself as a daring new city, and many of the architects who did it built houses on this street, for clients who could pay for anything.\n\nSeven houses on foot, 1701 to 2100 Prairie: the man who built the first skyscraper, a giant from Boston, the firm of Cobb and Frost, the young Burnham and Root, the designer of a whole company town, the architect of the Statue of Liberty's pedestal, and the house that started it all for Daniel Burnham. He married the client's daughter.\n\nBegin at 1701, with a modest Italianate front by a very immodest engineer.",
+    "read_s": 34
   },
   "stops": [
     {
@@ -25,12 +30,13 @@
         "kind": "structure",
         "id": "hibbard_house_1701_prairie"
       },
-      "text": "1701 Prairie. William G. Hibbard's house of 1869, designed by William Le Baron Jenney for the president of a large wholesale hardware firm. The district register reads it as Italianate: a low hipped roof on bracketed eaves.",
-      "read_s": 16,
+      "text": "1701 Prairie, William G. Hibbard's house of 1869, for the president of a big wholesale hardware firm. Its architect, William Le Baron Jenney, trained as an engineer, and fifteen years after this house he built the Home Insurance Building downtown: 'The building was the first fully metal-framed building and is considered the first skyscraper'. His drafting room was the school of a generation: Louis Sullivan, Daniel Burnham, William Holabird and Martin Roche 'performed their architectural apprenticeships on Jenney's staff'. Here he gave Hibbard a sober Italianate, a low hipped roof on bracketed eaves. South to the corner, and a very different kind of genius.",
+      "read_s": 29,
       "evidence": [
         "hibbard-marker",
         "hibbard-draft",
-        "tour"
+        "tour",
+        "jenney-skyscraper"
       ],
       "next": "richardson"
     },
@@ -40,12 +46,16 @@
         "kind": "structure",
         "id": "glessner_house"
       },
-      "text": "1800 Prairie. Henry Hobson Richardson's house for John J. Glessner. Richardson died on 26 April 1886; building began on 1 June 1886 and was finished on 1 December 1887, in his Romanesque manner.",
-      "read_s": 14,
+      "text": "1800 Prairie, Henry Hobson Richardson's house for John J. Glessner. Glessner remembered his architect weighing 370 pounds: 'big-minded, big-bodied, big-hearted'. Three weeks before he died, too ill to leave his bedroom, Richardson marked where the lights would go and said, 'There, Mr. Glessner if I were to live five years longer, that is the last thing I would do on your house, my part is finished.' He died on 26 April 1886; building began on 1 June, and Norcross Brothers built it for the contract price, not a dollar more. The neighbours were appalled. George Pullman grumbled about 'that thing staring me in the face'. Now look next door.",
+      "read_s": 30,
       "evidence": [
         "glessner-marker",
         "glessner-dates",
-        "tour"
+        "tour",
+        "big",
+        "last-thing",
+        "contract",
+        "pullman-glare"
       ],
       "next": "cobb-frost"
     },
@@ -55,8 +65,8 @@
         "kind": "structure",
         "id": "keith_house_1808_prairie"
       },
-      "text": "1808 Prairie, next door. Cobb and Frost's house for Osborn R. Keith, announced in 1886 as a three-storey dwelling, 38 by 80 feet, with a granite front, at a cost of forty thousand dollars.",
-      "read_s": 14,
+      "text": "1808 Prairie, next door, by Cobb and Frost for Osborn R. Keith. The notice of 1886 reads like a price tag: a three-storey dwelling, 38 by 80 feet, with a granite front, at a cost of forty thousand dollars. This house went up the same year Richardson's drawings next door were being built, granite answering granite. Two doors south is the firm that would outbuild them all.",
+      "read_s": 19,
       "evidence": [
         "keith-notice",
         "tour"
@@ -69,12 +79,13 @@
         "kind": "structure",
         "id": "wheeler_house_1812_prairie"
       },
-      "text": "1812 Prairie. George H. Wheeler's house of 1884 by Burnham and Root: a picturesque brick row house in the Dutch vernacular style, its front carried up as a tall shaped gable over a stone first storey.",
-      "read_s": 15,
+      "text": "1812 Prairie, George H. Wheeler's house of 1884 by Burnham and Root: a picturesque brick row house in the Dutch manner, its front carried up as a tall shaped gable over a stone first storey. Within a decade Burnham would run the building of the 1893 World's Fair, the 'White City'. His motto: 'Make no little plans. They have no magic to stir men's blood and probably will not themselves be realized.' Cross the avenue to a chateau by a man who once planned an entire town.",
+      "read_s": 24,
       "evidence": [
         "wheeler-marker",
         "wheeler-photo",
-        "tour"
+        "tour",
+        "burnham-plans"
       ],
       "next": "beman"
     },
@@ -84,12 +95,13 @@
         "kind": "structure",
         "id": "kimball_house_1801_prairie"
       },
-      "text": "1801 Prairie, across the avenue. Solon S. Beman designed this house for William W. Kimball in 1890 in the French Chateauesque style. Beman also added the palm room and conservatory to Pullman's house up the street.",
-      "read_s": 15,
+      "text": "1801 Prairie, Solon S. Beman's chateau of 1890 for the piano maker William W. Kimball, French Chateauesque, steep slate and a round tower. Beman was in his twenties when he 'received a commission from George Pullman to design what would become the nation's first planned company town', Pullman, south of the city. He also added the palm room and conservatory to Pullman's own house up the street. Walk south to the street's most famous name, and the most famous architect.",
+      "read_s": 22,
       "evidence": [
         "kimball-marker",
         "pullman-marker",
-        "tour"
+        "tour",
+        "beman-town"
       ],
       "next": "hunt"
     },
@@ -99,12 +111,13 @@
         "kind": "structure",
         "id": "marshall_field_house_1905_prairie"
       },
-      "text": "1905 Prairie. Marshall Field's house. The Glessner House Museum names Richard Morris Hunt of New York as the architect engaged for it, with Henry Hobson Richardson of Boston named in the same breath.",
-      "read_s": 14,
+      "text": "1905 Prairie, Marshall Field's house, by Richard Morris Hunt of New York. 'Hunt was the first American to be admitted to the school of architecture at the École des Beaux-Arts' in Paris, and he designed 'the pedestal of the Statue of Liberty' and Biltmore, 'America's largest private house'. For Chicago's richest man he built a broad brick and stone mansion under a mansard. One more stop, at 2100, where a young architect met his wife.",
+      "read_s": 21,
       "evidence": [
         "field-caption",
         "field-museum",
-        "tour"
+        "tour",
+        "hunt-works"
       ],
       "next": "sherman"
     },
@@ -114,21 +127,78 @@
         "kind": "structure",
         "id": "sherman_house_2100_prairie"
       },
-      "text": "2100 Prairie. John B. Sherman's house of 1874, the first of nearly a dozen Burnham and Root commissions here. Sherman managed the Union Stock Yards, his daughter Margaret married Daniel Burnham during construction, and he recommended the firm to his neighbours.",
-      "read_s": 17,
+      "text": "2100 Prairie, John B. Sherman's house of 1874, the first of nearly a dozen Burnham and Root commissions on this street. Sherman ran the Union Stock Yards. While the house was going up, his daughter Margaret married the young architect Daniel Burnham, in 1876, and Sherman started telling his neighbours whom to hire. That is how a firm gets a street: the client becomes your father-in-law, and the father-in-law becomes your salesman. Burnham and Root became the most prolific architects on Prairie Avenue.",
+      "read_s": 23,
       "evidence": [
         "sherman-marker",
         "burnham-museum",
-        "tour"
+        "tour",
+        "burnham-plans"
       ],
       "next": "finish"
+    }
+  ],
+  "legs": [
+    {
+      "story": "South to the corner of Eighteenth Street.",
+      "evidence": [
+        "glessner-marker"
+      ],
+      "story_evidence": [
+        "glessner-marker"
+      ]
+    },
+    {
+      "story": "Next door, past the granite.",
+      "evidence": [
+        "keith-notice"
+      ],
+      "story_evidence": [
+        "keith-notice"
+      ]
+    },
+    {
+      "story": "Two doors south.",
+      "evidence": [
+        "wheeler-marker"
+      ],
+      "story_evidence": [
+        "wheeler-marker"
+      ]
+    },
+    {
+      "story": "Across Prairie Avenue to the east side.",
+      "evidence": [
+        "kimball-marker"
+      ],
+      "story_evidence": [
+        "kimball-marker"
+      ]
+    },
+    {
+      "story": "South past the Coleman house: Cobb and Frost again, in rough brown sandstone.",
+      "evidence": [
+        "ames-marker"
+      ],
+      "story_evidence": [
+        "ames-marker"
+      ]
+    },
+    {
+      "story": "On past Twentieth Street to the last stop.",
+      "evidence": [
+        "sherman-marker"
+      ],
+      "story_evidence": [
+        "sherman-marker"
+      ]
     }
   ],
   "endings": [
     {
       "id": "finish",
-      "text": "End of the walk at 2100 Prairie. Burnham and Root became the street's most prolific architects; look for their other fronts as you explore.",
-      "read_s": 10,
+      "text": "End of the walk at 2100 Prairie. These seven houses are a sketchbook of the architects who rebuilt Chicago after the fire. A few years from now Burnham will take the lesson from this street to the whole city: his 1909 Plan of Chicago, 'the first comprehensive plan for the controlled growth of an American city'.\n\nLook for their other fronts as you explore. Every one of them is signed in stone.",
+      "read_s": 20,
       "completion_eligible": true
     }
   ],
@@ -239,7 +309,7 @@
     },
     {
       "id": "tour",
-      "text": "The route, its order, its reading times, its keepsake and its framing are modern interpretation; no historical visit, conversation or occupant on 1 July 1904 is asserted.",
+      "text": "The route, its order, its autumn afternoon, its reading times, its keepsake and its framing are modern interpretation; no historical visit, conversation or occupant on a day in 1904 is asserted.",
       "confidence": "reconstructed",
       "sources": [],
       "liberty": "L-jaunt-prairie-walks"
@@ -261,6 +331,96 @@
         "levy_1812_prairie_photo"
       ],
       "locator": "The whole print: the street front of 1812 from the walk to the gable's finial."
+    },
+    {
+      "id": "big",
+      "text": "Glessner remembered Richardson weighing three hundred and seventy pounds: 'big-minded, big-bodied, big-hearted'.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 17."
+    },
+    {
+      "id": "last-thing",
+      "text": "Three weeks before his death, too ill to leave his bedroom, Richardson marked the places for the lighting fixtures and said: 'There, Mr. Glessner if I were to live five years longer, that is the last thing I would do on your house, my part is finished.' Glessner was convinced it was the house Richardson would most have liked to live in himself.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 13."
+    },
+    {
+      "id": "contract",
+      "text": "Norcross Brothers of Worcester, Massachusetts, built the house for the contract price, with no bill of extras.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS data page 14."
+    },
+    {
+      "id": "pullman-glare",
+      "text": "George Pullman, across the street, complained of the Glessner house: 'I do not know what I have ever done to have that thing staring me in the face every time I go out of my door'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_glessner_house"
+      ],
+      "locator": "The design section."
+    },
+    {
+      "id": "jenney-skyscraper",
+      "text": "Of Jenney's Home Insurance Building, 1884-1885: 'The building was the first fully metal-framed building and is considered the first skyscraper'; Louis Sullivan, Daniel Burnham, William Holabird and Martin Roche 'performed their architectural apprenticeships on Jenney's staff'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_william_le_baron_jenney"
+      ],
+      "locator": "The paragraphs on the Home Insurance Building and his office."
+    },
+    {
+      "id": "beman-town",
+      "text": "In 1879 Solon S. Beman, born in 1853, 'received a commission from George Pullman to design what would become the nation's first planned company town'; he designed several buildings for the 1893 fair.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_solon_spencer_beman"
+      ],
+      "locator": "The biography."
+    },
+    {
+      "id": "burnham-plans",
+      "text": "Burnham: 'Make no little plans. They have no magic to stir men's blood and probably will not themselves be realized.' He was Director of Works of the 1893 fair, the 'White City', and co-wrote the 1909 Plan of Chicago; in 1876 he married Margaret, daughter of John B. Sherman.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_daniel_burnham"
+      ],
+      "locator": "The biography."
+    },
+    {
+      "id": "hunt-works",
+      "text": "'Hunt was the first American to be admitted to the school of architecture at the École des Beaux-Arts'; his works include 'the pedestal of the Statue of Liberty' and Biltmore, 'America's largest private house'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_richard_morris_hunt"
+      ],
+      "locator": "The biography."
+    },
+    {
+      "id": "ames-marker",
+      "text": "Joseph G. Coleman Residence. Built 1886; Cobb & Frost, architects. Cobb & Frost were well known for their designs in the Romanesque style, executed here in rough-faced brown sandstone.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "locator": "The 1811 S. Prairie Avenue entry."
+    },
+    {
+      "id": "burnham-plan-1909",
+      "text": "Burnham and Edward H. Bennett's 1909 Plan of Chicago, 'the first comprehensive plan for the controlled growth of an American city'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_daniel_burnham"
+      ],
+      "locator": "The biography."
     }
   ],
   "liberties": [

@@ -86,6 +86,41 @@
       "type": "boolean",
       "description": "T-3355: a story jaunt told in full; each stop's text may run 25-150 words instead of 25-60."
     },
+    "ambience": {
+      "description": "T-3377: the light a jaunt is walked in, a viewing choice like Settings > Time of day and Season, never a claim about the day: `hour` stands at every stop without an hour of its own, `season` for the whole outing; both are given back when it ends.",
+      "type": "object",
+      "properties": {
+        "hour": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+            },
+            {
+              "enum": [
+                "daybreak",
+                "morning",
+                "daytime",
+                "afternoon",
+                "sunset",
+                "dusk",
+                "night"
+              ]
+            }
+          ]
+        },
+        "season": {
+          "enum": [
+            "summer",
+            "spring",
+            "fall",
+            "winter"
+          ]
+        }
+      },
+      "minProperties": 1,
+      "additionalProperties": false
+    },
     "variables": {
       "type": "object",
       "propertyNames": {

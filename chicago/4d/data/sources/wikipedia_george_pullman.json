@@ -1,0 +1,23 @@
+{
+  "id": "wikipedia_george_pullman",
+  "type": "website",
+  "citation": "Wikipedia, 'George Pullman'. Read 5 November 2026.",
+  "author": "Wikipedia contributors",
+  "date": "accessed 2026-11-05",
+  "describes_date": "1859-1897",
+  "url": "https://en.wikipedia.org/wiki/George_Pullman",
+  "locator": "The biography: building-raising in Chicago, the sleeping car, Lincoln's funeral train, the town of Pullman, the 1894 strike, his death and burial.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "Textual factual citation only (CC BY-SA text, nothing copied beyond short quoted fragments).",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-05 (T-3378/T-3379) through a fetch that returned the page's sentences in short quoted fragments and paraphrase; this record is cited only for what those fragments say.",
+  "note": "Fragments read: his firm raised buildings 'on average six feet without causing them any damage' (the Matteson House, 1859; the Tremont House, 1861); his first sleeping car 'was finished in 1864'; Lincoln's body went home to Springfield in a sleeper and 'hundreds of thousands of people lined the route in homage'; in 1894 he cut wages but 'he didn't reduce the rent in Pullman'; he 'died of a heart attack' on 19 October 1897; his family had him buried in a 'lead-lined mahogany coffin, which was then sealed inside a block of concrete', under steel rails 'bolted together at right angles', at Graceland Cemetery.",
+  "what_it_supplies": [
+    "Pullman's life, death and burial"
+  ],
+  "what_it_does_not_supply": [
+    "the 1904 house"
+  ]
+}

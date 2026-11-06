@@ -1,16 +1,13 @@
 {
   "schema_version": 1,
+  "content_version": 2,
+  "category": "Taverns",
+  "featured": true,
+  "review_required": false,
   "id": "taverns-of-chicago",
-  "content_version": 1,
+  "scene": "1835",
   "title": "Taverns of Chicago",
   "premise": "Visit three taverns, collect local talk and decide where to finish the evening.",
-  "category": "Taverns",
-  "scene": "1835",
-  "featured": true,
-  "opening": {
-    "text": "Four public houses stand within a short ride of the forks. Choose a purse, hear some invented bar talk, compare two welcomes and pick where to end the evening. A glass is optional, and declining is as good an evening as accepting. Nothing said or bought here is history.",
-    "read_s": 20
-  },
   "default_mode": "horse",
   "allowed_modes": [
     "walk",
@@ -19,6 +16,15 @@
     "fly",
     "instantly"
   ],
+  "long_form": true,
+  "ambience": {
+    "hour": "night",
+    "season": "summer"
+  },
+  "opening": {
+    "text": "JAUNT: TAVERNS OF CHICAGO. A summer night in 1835, and the town is bursting at the seams. The land office opened in May and, as one history put it, 'added fuel to the already brilliant blaze of excitement'. Every bed is taken, the bar-rooms are loud, and the whole town is talking about lots, banks and boats.\n\nFour public houses stand within a short ride of the forks, kept by some of the best characters in town. Start at the Sauganash, where the landlord plays the fiddle, ride over to the west bank, and finish wherever you like. The county has fixed the price of a drink since 1831: '6¼ for a gill of whiskey'. Drink or don't. Either way, keep your ears open.\n\nFirst, decide how much money you are carrying.",
+    "read_s": 37
+  },
   "variables": {
     "money": {
       "min": 0,
@@ -40,9 +46,9 @@
         "kind": "structure",
         "id": "sauganash_hotel"
       },
-      "text": "Start outside the Sauganash, the white two-storey house with bright-blue shutters that Juliette Kinzie remembered. On 10 June 1835 the Chicago Democrat reported it repaired, fitted up and furnished with neatness.",
-      "narrative": "Before you ride on, decide how much of an imagined purse this evening may spend.",
-      "read_s": 30,
+      "text": "The Sauganash, at Lake and Market: the white two-storey house with bright-blue shutters that Juliette Kinzie remembered, and in June the Democrat found it repaired, fitted up and furnished with neatness. Moses and Kirkland call it 'the most attractive hostlery the city possessed', and its landlord, Mark Beaubien, 'with his merry fiddle, the most popular of hosts'. He was 'the fiddler par excellence of the town'. Judge Caton said Mark could 'lift the sluggard from his seat, and set him whirling over the floor like mad'.",
+      "narrative": "Before you ride on, decide how much of a purse this evening may spend.",
+      "read_s": 28,
       "action_s": 15,
       "links": [
         {
@@ -60,7 +66,9 @@
         "sauganash-house",
         "sauganash-refit",
         "continuity",
-        "evening"
+        "evening",
+        "mk-sauganash",
+        "mk-fiddle"
       ],
       "choices": [
         {
@@ -79,7 +87,7 @@
         {
           "id": "modest",
           "label": "A modest purse",
-          "consequence": "An imagined 25 cents for the evening.",
+          "consequence": "25 cents for the evening.",
           "effects": [
             {
               "op": "set",
@@ -92,7 +100,7 @@
         {
           "id": "fuller",
           "label": "A fuller purse",
-          "consequence": "An imagined 50 cents for the evening.",
+          "consequence": "50 cents for the evening.",
           "effects": [
             {
               "op": "set",
@@ -110,9 +118,9 @@
         "kind": "structure",
         "id": "wolf_point_tavern"
       },
-      "text": "Across the river stands the Wolf Point Tavern, its painted wolf sign hung by about 1833. William Walters is named its landlord until 1836, though one chronology says it closed as a public house in 1834.",
-      "narrative": "The bar talk here is invented, and kept to what the papers printed: a new Lake House is building north of the river.",
-      "read_s": 32,
+      "text": "Across the river at the forks stands the Wolf Point Tavern, with its painted wolf sign. William Walters is named its landlord until 1836, though one chronology says it stopped taking guests in 1834, so whether you get served depends on whom you believe. At the bar the talk is the papers' talk: no house in Chicago is big enough, and a grand new one, the Lake House, is going up across the river. It 'aimed to cater for only the highest class of guests'. Wolf Point never did.",
+      "narrative": "Listen in. A glass with the talk, or water?",
+      "read_s": 27,
       "action_s": 15,
       "links": [
         {
@@ -131,13 +139,14 @@
         "wolf-tenure",
         "lake-house",
         "continuity",
-        "evening"
+        "evening",
+        "mk-lake-house"
       ],
       "choices": [
         {
           "id": "glass",
           "label": "Take a glass with the talk",
-          "consequence": "Six imagined cents spent, and the talk runs on.",
+          "consequence": "Six cents for a gill, near enough the county's 6¼, and the talk runs on.",
           "when": {
             "all": [
               {
@@ -175,9 +184,9 @@
         "kind": "structure",
         "id": "green_tree_tavern"
       },
-      "text": "A short way south, the Green Tree was built by James Kinzie in 1833 for hotel purposes, and Chester Ingersoll is named landlord from 1834. Guests later recalled a bar-room, whitewashed board partitions and chambers about twelve feet square.",
+      "text": "A short way south, the Green Tree, which James Kinzie built in 1833, the first house here put up for hotel purposes, 'so called from an oak tree standing close by'. Chester Ingersoll keeps it. Guests remembered a bar-room, whitewashed board partitions and chambers about twelve feet square. It is a plain house and a lucky one: it will outlive every tavern in this town, moved to Milwaukee Avenue in 1880, 'the oldest memento of early taverns'.",
       "narrative": "Weigh its welcome against the Sauganash's.",
-      "read_s": 30,
+      "read_s": 23,
       "action_s": 15,
       "links": [
         {
@@ -195,13 +204,14 @@
         "green-tree",
         "green-tree-rooms",
         "continuity",
-        "evening"
+        "evening",
+        "mk-green-tree"
       ],
       "choices": [
         {
           "id": "glass",
           "label": "Another glass in the bar-room",
-          "consequence": "Six more imagined cents, and a slower ride on.",
+          "consequence": "Six more cents, and a slower ride on.",
           "when": {
             "all": [
               {
@@ -244,9 +254,9 @@
         "kind": "structure",
         "id": "western_hotel"
       },
-      "text": "End the circuit at W. H. Stow's Western Hotel, built in 1834 by his own account: a forty-foot front, a sixty-foot wing, a large stable and a yard the farmers' wagon trains drove into.",
-      "narrative": "Now choose the house where your imagined evening ends.",
-      "read_s": 30,
+      "text": "End the circuit a block south at W. H. Stow's Western Hotel, Randolph and Canal: a forty-foot front, a sixty-foot wing, a big stable and a yard the farmers' wagon trains drive into. Not everyone approves of all this drinking. In 1832 Philo Carpenter, the druggist, 'prepared and circulated the first temperance pledge among the convivial citizens' of the town. It has not caught on: the census at the end of this year will count eight taverns, and soon the trustees will ban 'the sale of liquors on Sunday'.",
+      "narrative": "Now choose the house where your evening ends.",
+      "read_s": 27,
       "action_s": 15,
       "links": [
         {
@@ -264,7 +274,10 @@
         "western",
         "western-date",
         "continuity",
-        "evening"
+        "evening",
+        "mk-carpenter-pledge",
+        "mk-census",
+        "mk-board-1835"
       ],
       "choices": [
         {
@@ -292,11 +305,11 @@
     {
       "from": "purse",
       "to": "wolf-point",
-      "note": "The route crosses to the west bank; no particular bridge or ferry is claimed for the crossing.",
+      "note": "West over the South Branch to the forks.",
       "evidence": [
         "continuity"
       ],
-      "story": "Ride to the west bank with your purse decided.",
+      "story": "Ride over with your purse decided. Behind you, the fiddle is tuning up.",
       "story_evidence": [
         "evening"
       ]
@@ -304,7 +317,7 @@
     {
       "from": "wolf-point",
       "to": "green-tree",
-      "note": "Both houses are placed on the west bank near the Lake Street crossing; the Wolf Point Tavern's position is the least certain in the town.",
+      "note": "A short way south down the west bank toward Lake Street.",
       "evidence": [
         "continuity"
       ]
@@ -312,7 +325,7 @@
     {
       "from": "green-tree",
       "to": "western",
-      "note": "The Western stands a block south of the Green Tree, at Randolph and Canal.",
+      "note": "A block south to Randolph and Canal.",
       "evidence": [
         "western",
         "continuity"
@@ -322,8 +335,8 @@
   "endings": [
     {
       "id": "talk-is-free",
-      "text": "You brought no purse and missed nothing. The talk cost you nothing, and you carry home every word of it.",
-      "read_s": 10,
+      "text": "You brought no purse and missed nothing. The talk was free, the fiddle was free, and you carry home every word of a boom town's night.",
+      "read_s": 8,
       "completion_eligible": true,
       "when": {
         "var": "money",
@@ -333,8 +346,8 @@
     },
     {
       "id": "clear-head",
-      "text": "You declined every glass and kept your purse whole. A clear head carries the evening's talk home intact.",
-      "read_s": 10,
+      "text": "You declined every glass and kept your purse whole. Philo Carpenter would have you sign his pledge on the spot. A clear head carries the night's talk home intact.",
+      "read_s": 8,
       "completion_eligible": true,
       "when": {
         "var": "sobriety",
@@ -344,8 +357,8 @@
     },
     {
       "id": "two-houses",
-      "text": "A glass in two bar-rooms, and still a modest evening. You let the gossip stay gossip and rode home slowly.",
-      "read_s": 10,
+      "text": "A gill in two bar-rooms, at about the county's price, and still a modest evening. You let the gossip stay gossip and ride home slowly under the stars.",
+      "read_s": 8,
       "completion_eligible": true,
       "when": {
         "var": "sobriety",
@@ -355,8 +368,8 @@
     },
     {
       "id": "a-sensible-evening",
-      "text": "One glass, a good deal of talk and a purse barely touched. A sensible evening, and an imagined one.",
-      "read_s": 10,
+      "text": "One glass, a great deal of talk and a purse barely touched. A sensible evening, in a town that has lost its head over land.",
+      "read_s": 8,
       "completion_eligible": true,
       "default": true
     }
@@ -444,6 +457,87 @@
       "locator": "chicagology pre-fire page 278, Town of Chicago: W. H. Stow’s account of the Western Hotel."
     },
     {
+      "id": "mk-sauganash",
+      "text": "Moses and Kirkland call the Sauganash 'the most attractive hostlery the city possessed', and its genial landlord, 'with his merry fiddle, the most popular of hosts'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 87, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 11879-11886 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-fiddle",
+      "text": "The life and soul of the town's dancing parties was Mark Beaubien, 'the fiddler par excellence of the town'. Judge Caton remembered: 'He used to play the fiddle at our dances in such a way as to set every heel and toe in the room in active motion. He would lift the sluggard from his seat, and set him whirling over the floor like mad.'",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 100, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13480-13495 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-tariff",
+      "text": "In 1831 the county authorities made a tariff of rates 'obligatory upon all inn-keepers': 25 cents for each breakfast and supper, 37½ for dinner, 25 for each horse feed, 50 for keeping a horse all night, 12½ for lodging for men, 25 for half a pint of wine, rum or brandy, 18¾ for gin, and 6¼ for a gill of whiskey.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 560, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 98764-98777 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-land-office",
+      "text": "'The opening of a land office in May, 1835, added fuel to the already brilliant blaze of excitement'; crowds of buyers and speculators 'filled the streets and overflowed improvised camps on the adjacent prairies'. Sales of land 'to the amount of 370,043 acres were made in 1835'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 97-98, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13137-13162 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-lake-house",
+      "text": "Before the Lake House was finished, the first Unitarian service in Chicago was held in it, conducted by the Rev. Dr. Follen, with Harriet Martineau in the congregation; the inn 'aimed to cater for only the highest class of guests'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 561, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 98826-98837 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-green-tree",
+      "text": "The Green Tree was 'so called from an oak tree standing close by', 'one of the most noted in those early days'; it stood until 1880, when it was moved to 33-37 Milwaukee Avenue, 'where it still stands, the oldest memento of early taverns'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 561, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 98792-98820 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-carpenter-pledge",
+      "text": "In 1832 Carpenter 'prepared and circulated the first temperance pledge among the convivial citizens of that early period'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 574, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 100255-100260 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-census",
+      "text": "The State census taken between September and December 1835 counted 3,297 people in Chicago, with forty-four stores, four druggists, two printing offices, two breweries, four storage and forwarding houses, eight taverns, five churches and seven schools.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 95, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12874-12890 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-board-1835",
+      "text": "The trustees elected in 1835 'prohibited gaming houses, and the sale of liquors on Sunday'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 96, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12917-12925 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
       "id": "western-date",
       "text": "Stow dates his hotel to 1834; the hotel chronology says it opened in 1835.",
       "confidence": "inferred",
@@ -473,8 +567,8 @@
       "liberty": "L-jaunt-taverns"
     }
   ],
-  "review_required": false,
   "liberties": [
-    "L-jaunt-taverns"
+    "L-jaunt-taverns",
+    "L-jaunt-1835-light-and-stories"
   ]
 }

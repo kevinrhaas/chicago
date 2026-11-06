@@ -1,15 +1,12 @@
 {
   "schema_version": 1,
+  "content_version": 2,
+  "category": "Household",
+  "review_required": false,
   "id": "household-provisions",
-  "content_version": 1,
+  "scene": "1835",
   "title": "Stock the Household",
   "premise": "Start a cupboard of your own from one block of South Water Street, with a short list and a small purse.",
-  "category": "Household",
-  "scene": "1835",
-  "opening": {
-    "text": "Suppose you have just found a share of a room at a boarding house behind Peck's store, and you have an imagined two dollars to begin a cupboard of your own. Four stops, all on one block. The room, the list, the purse and every price are reconstructed; the trades are documented.",
-    "read_s": 18
-  },
   "default_mode": "walk",
   "allowed_modes": [
     "walk",
@@ -18,6 +15,15 @@
     "fly",
     "instantly"
   ],
+  "long_form": true,
+  "ambience": {
+    "hour": "morning",
+    "season": "summer"
+  },
+  "opening": {
+    "text": "JAUNT: STOCK THE HOUSEHOLD. You have just found a share of a room at a boarding house behind Peck's store, and two dollars to begin a cupboard of your own. That does not go far. When the Democrat started in 1833, flour was $6 a barrel, butter 17 cents a pound, coffee 17 and loaf sugar 20.\n\nFour stops, all on one block of South Water Street: decide what the list is for, then fill it at the grocer's, the druggist's and Peck's corner.",
+    "read_s": 23
+  },
   "variables": {
     "money": {
       "min": 0,
@@ -51,8 +57,8 @@
         "kind": "structure",
         "id": "brown_boarding_house"
       },
-      "text": "Start behind Peck's store at Mrs Rufus Brown's log boarding house, where in this imagined errand you have a share of a room. Andreas names her as keeper of one of the first-class boarding houses; its exact spot is our placement. Decide what your short list is for.",
-      "read_s": 26,
+      "text": "Start behind Peck's store at Mrs Rufus Brown's log boarding house, where you have a share of a room. Andreas names her as keeper of one of the first-class boarding houses. A share of a room is not a kitchen, so whatever you keep must fit on a shelf. Decide what your short list is for.",
+      "read_s": 19,
       "links": [
         {
           "kind": "structure",
@@ -106,8 +112,8 @@
         "kind": "structure",
         "id": "h_jones_store"
       },
-      "text": "West along the block to Jones's grocery and provision store. His November 1833 advertisement keeps tea, coffee, sugar and most kinds of provisions on hand. No source says where the store stood, so this spot is reconstructed; even his initial, B or H, is disputed.",
-      "read_s": 28,
+      "text": "West along the block to Jones's grocery and provision store. His November 1833 advertisement keeps 'tea, coffee and sugar' and most kinds of provisions on hand. No source says where the store stood, and even his initial, B or H, is disputed. The Democrat's 1833 prices put coffee at 17 cents a pound and tea at 87 cents to $1.25.",
+      "read_s": 19,
       "action_s": 4,
       "links": [
         {
@@ -125,7 +131,8 @@
         "jones-trade",
         "jones-place",
         "continuity",
-        "errand"
+        "errand",
+        "mk-prices"
       ],
       "choices": [
         {
@@ -182,8 +189,8 @@
         "kind": "structure",
         "id": "carpenter_south_water_store"
       },
-      "text": "Back east to Philo Carpenter's, the druggist at the Sign of the Golden Mortar. His notice of 27 June 1835 lists cream of tartar, lemon syrup, black lead and tooth powder among his drugs. Andreas puts his small store on this block; which lot is not recorded.",
-      "read_s": 26,
+      "text": "Back east to Philo Carpenter's, the druggist at the Sign of the Golden Mortar. He opened his drugs in 1832 in 'a small log house standing near the river', then built here and added salt, sugar and hardware. His notice of 27 June 1835 lists cream of tartar, lemon syrup, black lead and tooth powder.",
+      "read_s": 19,
       "action_s": 4,
       "links": [
         {
@@ -206,7 +213,8 @@
         "carpenter-trade",
         "carpenter-place",
         "continuity",
-        "errand"
+        "errand",
+        "mk-carpenter"
       ],
       "choices": [
         {
@@ -263,8 +271,8 @@
         "kind": "structure",
         "id": "peck_store"
       },
-      "text": "End at Peck's corner of LaSalle and South Water, a few steps from where you began. His card lists dry goods, hardware, groceries and crockery, and a December 1834 notice adds flannels and calicoes. Choose one last thing, then carry the basket round to the boarding house.",
-      "read_s": 26,
+      "text": "End at Peck's corner of LaSalle and South Water, a few steps from where you began. His store was the village's first two-storey frame, of lumber 'brought from Detroit by a boat'. His card lists dry goods, hardware, groceries and crockery, and a December 1834 notice adds flannels and calicoes.",
+      "read_s": 18,
       "action_s": 4,
       "links": [
         {
@@ -286,7 +294,8 @@
       "evidence": [
         "peck-stock",
         "continuity",
-        "errand"
+        "errand",
+        "mk-peck-store"
       ],
       "choices": [
         {
@@ -335,14 +344,52 @@
         }
       ],
       "next": "$end",
-      "narrative": "Finish the basket, or keep what is left."
+      "narrative": "Finish the basket, or keep what is left, then carry it round to the boarding house."
+    }
+  ],
+  "legs": [
+    {
+      "from": "the-room",
+      "to": "provisions",
+      "note": "Round to South Water Street and west along its south side to the Wells end of the block; the whole outing keeps to this one block face.",
+      "evidence": [
+        "jones-place"
+      ],
+      "story": "Start with what the list needs most.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "provisions",
+      "to": "the-druggist",
+      "note": "Back east along the same block face to its middle.",
+      "evidence": [
+        "carpenter-place"
+      ],
+      "story": "Something small for the shelf or the washstand.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "the-druggist",
+      "to": "the-corner",
+      "note": "On east to Peck's corner at LaSalle, beside the boarding house where you began.",
+      "evidence": [
+        "brown-place"
+      ],
+      "story": "One last thing, and the basket is full enough to carry.",
+      "story_evidence": [
+        "errand"
+      ]
     }
   ],
   "endings": [
     {
       "id": "table-laid",
-      "text": "Something to drink and a cup of your own to drink it from. In this imagined errand your place at the boarding-house table is begun, and the cupboard with it.",
-      "read_s": 12,
+      "text": "Something to drink and a cup of your own to drink it from. Your place at the boarding-house table is begun, and the cupboard with it.",
+      "read_s": 8,
       "when": {
         "all": [
           {
@@ -369,8 +416,8 @@
     },
     {
       "id": "room-kept",
-      "text": "Flannel for the nights and tooth powder by the basin. In this imagined errand your share of the room is starting to feel like your own.",
-      "read_s": 12,
+      "text": "Flannel for the nights and tooth powder by the basin. Your share of the room is starting to feel like your own.",
+      "read_s": 8,
       "when": {
         "all": [
           {
@@ -390,8 +437,8 @@
     },
     {
       "id": "purse-kept",
-      "text": "You bought little and kept most of the purse. In this imagined errand a household can begin with patience, and the block's stores will be there tomorrow.",
-      "read_s": 12,
+      "text": "You bought little and kept most of the purse. A household can begin with patience, and the block's stores will be there tomorrow.",
+      "read_s": 8,
       "when": {
         "var": "money",
         "op": ">=",
@@ -401,8 +448,8 @@
     },
     {
       "id": "basket-begun",
-      "text": "A basket that is not quite the list you set out with, which is how most first days go. In this imagined errand the cupboard is begun, if not yet finished.",
-      "read_s": 12,
+      "text": "A basket that is not quite the list you set out with, which is how most first days go. The cupboard is begun, if not yet finished.",
+      "read_s": 8,
       "default": true,
       "completion_eligible": true
     }
@@ -478,6 +525,33 @@
       "locator": "3 Dec 1833, p. 3, col. 4 (Peck's card); 10 Dec 1834, p. 4, col. 4 ('New Goods!!', the dry-goods summary from flannels to calicoes). Transcription-mediated reading."
     },
     {
+      "id": "mk-prices",
+      "text": "The first numbers of the Democrat, in 1833, quote flour at $6 a barrel, butter at 17 cents a pound, tea at 87 cents to $1.25 a pound, loaf sugar 20 cents, coffee 17, 'whiskey 40 cents a gallon', and calicos 'from 15 to 38 cents' a yard.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 93, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12620-12632 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-carpenter",
+      "text": "Philo Carpenter landed at Chicago in July 1832, while cholera was at Fort Dearborn, and 'all ordinary intercourse had been suspended'; he leased 'a small log house standing near the river' and opened his store of drugs; the next summer he built a store on South Water Street between LaSalle and Wells and added salt, sugar and hardware.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 572-573, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 100036-100121 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-peck-store",
+      "text": "P. F. W. Peck's two-storey frame store, the first in the village, was built of lumber 'sawed from black walnut trees' and 'brought from Detroit by a boat'; his goods moved into it in the fall of 1831.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 570, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 99826-99842 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
       "id": "continuity",
       "text": "Each store's stock is carried to 1 July 1835 from advertisements printed before it; none records a sale, a price or a customer on that day.",
       "confidence": "inferred",
@@ -497,46 +571,8 @@
       "liberty": "L-jaunt-household-provisions"
     }
   ],
-  "review_required": false,
   "liberties": [
-    "L-jaunt-household-provisions"
-  ],
-  "legs": [
-    {
-      "from": "the-room",
-      "to": "provisions",
-      "note": "Round to South Water Street and west along its south side to the Wells end of the block; the whole outing keeps to this one block face.",
-      "evidence": [
-        "jones-place"
-      ],
-      "story": "Start with what the list needs most.",
-      "story_evidence": [
-        "errand"
-      ]
-    },
-    {
-      "from": "provisions",
-      "to": "the-druggist",
-      "note": "Back east along the same block face to its middle.",
-      "evidence": [
-        "carpenter-place"
-      ],
-      "story": "Something small for the shelf or the washstand.",
-      "story_evidence": [
-        "errand"
-      ]
-    },
-    {
-      "from": "the-druggist",
-      "to": "the-corner",
-      "note": "On east to Peck's corner at LaSalle, beside the boarding house where you began.",
-      "evidence": [
-        "brown-place"
-      ],
-      "story": "One last thing, and the basket is full enough to carry.",
-      "story_evidence": [
-        "errand"
-      ]
-    }
+    "L-jaunt-household-provisions",
+    "L-jaunt-1835-light-and-stories"
   ]
 }

@@ -1,0 +1,23 @@
+{
+  "id": "wikipedia_philip_danforth_armour",
+  "type": "website",
+  "citation": "Wikipedia, 'Philip Danforth Armour'. Read 5 November 2026.",
+  "author": "Wikipedia contributors",
+  "date": "accessed 2026-11-05",
+  "describes_date": "1849-1901",
+  "url": "https://en.wikipedia.org/wiki/Philip_Danforth_Armour",
+  "locator": "The biography: the gold rush, Armour & Co., the Armour Institute, his death.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "Textual factual citation only (CC BY-SA text, nothing copied beyond short quoted fragments).",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-05 (T-3378/T-3379) through a fetch that returned the page's sentences in short quoted fragments and paraphrase; this record is cited only for what those fragments say.",
+  "note": "Fragments read: in the California gold rush he 'started a business employing out-of-work miners to construct sluices'; Armour & Co. 'became the world's largest food processing and chemical manufacturing enterprise'; he 'famously declared that he made use of 'everything but the squeal''; in 1893 he gave $1 million to found the Armour Institute of Technology (Illinois Institute of Technology from 1940); he died of pneumonia on 6 January 1901, at his Chicago home.",
+  "what_it_supplies": [
+    "Armour's career and death"
+  ],
+  "what_it_does_not_supply": [
+    "the 1904 house"
+  ]
+}
