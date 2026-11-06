@@ -47,10 +47,11 @@ export function lowest(...gs) {
 }
 
 /** One sidecar attribute, as {v, g}: its value and its grade; null where absent or ungraded. */
+const entryOf = (table, key) => (table && typeof table === 'object' ? table[key] : undefined);
 function attr(sidecar, key) {
-  const a = sidecar?.attributes?.[key];
-  if (!a || typeof a !== 'object' || a.value === undefined || a.value === null) return null;
-  return { v: a.value, g: a.confidence in RANK ? a.confidence : 'reconstructed' };
+  const claim = entryOf(sidecar?.attributes, key);
+  if (!claim || typeof claim !== 'object' || claim.value === undefined || claim.value === null) return null;
+  return { v: claim.value, g: claim.confidence in RANK ? claim.confidence : 'reconstructed' };
 }
 
 // ---- vocabulary ---------------------------------------------------------------------------
