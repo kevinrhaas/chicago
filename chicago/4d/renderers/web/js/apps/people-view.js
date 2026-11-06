@@ -160,7 +160,9 @@ function personRow(doc, p, { withHousehold = true } = {}) {
   const b = button(doc, 'nav-person ppl-row', null);
   b.dataset.pplKind = 'person';
   b.dataset.pplOpen = p.id;
-  const sub = [workOf(p) || placeIn(p.relationship), away(p) ? `lived here ${yearsWords(p.lived_here)}`.trim() : '',
+  // Staff by their work; family by their place in the household, then any work.
+  const role = p.relationship === 'servant' ? [workOf(p) || placeIn(p.relationship)] : [placeIn(p.relationship), workOf(p)];
+  const sub = [...role, away(p) ? `lived here ${yearsWords(p.lived_here)}`.trim() : '',
     withHousehold ? p.short : ''].filter(Boolean);
   b.append(line(doc, 'span', 'nav-person-name', p.name, p.grade), el(doc, 'span', 'nav-sub', sub.join(' · ')));
   return b;
@@ -325,7 +327,8 @@ async function drawPerson(st, id) {
       hh.dataset.pplHousehold = h.id;
       keys.append(hh);
     }
-    card.querySelector('.insp-person-head')?.after(keys);
+    const head = card.querySelector('.insp-person-head');
+    if (head?.after) head.after(keys); else card.append(keys);
     const was = st.card.querySelector('.insp-person-card');
     if (was) was.replaceWith(card); else st.card.append(card);
     return card;

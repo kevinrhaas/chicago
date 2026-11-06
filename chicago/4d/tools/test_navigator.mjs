@@ -701,28 +701,41 @@ for (const phone of [true, false]) {
   const inspected = [];
   const nav4 = createNavigator({ root: dom4.root, scene: json('data/scenes/1904.json'), isPhone: () => false, storage: fakeStorage(),
     apps: APPS, context: () => ({ hasPeople: true, peopleSection: false,
-      actions: { peopleDirectory: async () => { reads++; return dir; }, inspect: (id) => inspected.push(id) } }) });
+      actions: { peopleDirectory: async () => { reads++; return dir; }, inspect: (id) => inspected.push(id),
+        record: (id) => (id === 'glessner_house' ? { id } : null) } }) });
   assert(nav4.apps.includes('people'), '1904: People shows for the Glessner household');
   assert.equal(reads, 0, 'the directory is not read before People opens');
   await nav4.select('people');
   const screen = dom4.byId.get('nav-app-people');
   assert(screen && !screen.hidden, '1904: People opens its own screen');
   assert.equal(reads, 1, 'read once, on first open');
-  // T-3253: every Blue Book household is a block of its own; the Glessners' is one of them.
-  assert(screen.children.length >= 60, `1904: ${screen.children.length} households`);
-  const block = screen.children.find((b) => b.children[1]?.textContent === 'The Glessner household at 1800 Prairie Avenue');
-  assert(block, 'the Glessner household has its block');
-  const people = block.children.filter((c) => c.classList.contains('nav-person'));
+  // T-3430: People is a directory: a search box, a Households / People switch with counts, the
+  // results; a household opens its own card in place, and its people open theirs.
+  const [list, cardHost] = screen.children;
+  assert(list?.classList.contains('ppl-dir') && cardHost?.classList.contains('ppl-card') && cardHost.hidden, '1904: the list, and a card host shut');
+  assert(list.querySelector('.ppl-search'), 'a search box');
+  assert.equal(list.querySelector('.ppl-status').textContent, '71 households \u00b7 440 people', 'the counts, read off the directory');
+  // T-3253: every Blue Book household is a row of its own; the Glessners' is one of them.
+  const rows = list.querySelectorAll('.ppl-results .ppl-row');
+  assert(rows.length >= 60, `1904: ${rows.length} household rows`);
+  const row = rows.find((b) => b.dataset.pplOpen === 'hh_glessner_john_j');
+  assert(row && row.children[0].textContent === 'The Glessner household', 'the Glessner household has its row');
+  list.dispatch('click', { target: row });
+  assert(list.hidden && !cardHost.hidden, 'a household opens its card over the list');
+  const hh = cardHost.querySelector('.ppl-hh-card');
+  const people = hh.querySelectorAll('.ppl-members .ppl-row');
   // T-3258: the family first, then the staff (Mattie Williamson and the five the 1900 census names), by name.
   // T-3382: their children, who lived here from 1887 until they married in 1898, after them.
-  assert.deepEqual(people.map((p) => p.children[0].textContent), ['John J. Glessner', 'Frances M. Glessner', 'Frances Glessner',
-    'George M. Glessner', 'August Billings', 'Charles Nelson', 'Christine Nelson', 'Kate Ryan', 'Martha L. (Mattie) Williamson',
-    'Mary Reynolds'], 'the head first, the staff last');
-  assert.deepEqual(people.map((p) => p.children[1].textContent).filter((s, i) => [0, 1, 2, 8, 9].includes(i)),
-    ['Head of the household · Attested', 'Wife · Attested', 'Daughter · lived here 1887\u20131898 · Attested', 'Servant · Attested',
-      'Servant · Inferred'], 'their place, their years here and the record\u2019s grade, in the locked terms');
-  people[0].dispatch('click');
-  assert.deepEqual(inspected, ['glessner_house'], 'a tap takes you to the house they live in');
+  assert.deepEqual(people.map((p) => p.children[0].textContent), ['John J. Glessner', 'Frances M. Glessner',
+    'August Billings', 'Charles Nelson', 'Christine Nelson', 'Kate Ryan', 'Martha L. (Mattie) Williamson',
+    'Mary Reynolds', 'Frances Glessner', 'George M. Glessner'], 'the family, then the staff, then the children of other years');
+  assert.deepEqual(people.map((p) => p.children[1].textContent).filter((s, i) => [0, 1, 6, 8].includes(i)),
+    ['Head of the household \u00b7 Farm machinery executive', 'Wife', 'Cook', 'Daughter \u00b7 lived here 1887\u20131898'],
+    'their place and work, and their years here');
+  cardHost.dispatch('click', { target: hh.querySelector('[data-ppl-inspect]') });
+  assert.deepEqual(inspected, ['glessner_house'], 'Inspect house takes you to the house they live in');
+  cardHost.dispatch('click', { target: hh.querySelector('[data-ppl-back]') });
+  assert(!list.hidden && cardHost.hidden, 'Back returns to the list');
   await nav4.select('home'); await nav4.select('people');
   assert.equal(reads, 1, 'and not read again');
 }
