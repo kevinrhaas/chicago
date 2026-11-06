@@ -28172,7 +28172,18 @@ the other seasons are a way of looking at them, never a claim about the town on 
 **How to resolve:** dated accounts of the river's freezing and the first snow in 1812 or 1835 would
 set winter's ground; per-species autumn colour drawn from the woods' own species records would
 replace the place-based colours.
-**Ticket:** T-2864.
+**Every plant (T-3399, 2026-11-06):** the owner saw 1904's yard shrubs and trees stay July green
+under fall's yellow elms. The 1904 front yards now take each species' own look for the day
+(`front-yards.js` SEASON_LOOK): lilac in full leaf in April and still dull olive in October,
+spiraea orange to wine red, hydrangea yellowing with its heads dried tan, rose with olive leaf and
+hips, the sugar maple orange-scarlet, the linden clear yellow, Boston ivy bronze in April, crimson
+in October and bare in winter, the arborvitae bronzed in winter; bedding geraniums and coleus are
+in the beds only from late May to the first frost, and the tubbed palms and standards under glass
+outside summer. Glessner's Boston ivy and Virginia creeper (L-glessner-vines-2225) turn crimson
+and scarlet and drop to bare stems the same way; 1812 and 1835's dooryard greens and garden beds
+brown and take the snow; the sand hills' red cedars and jack pines keep their crowns and colour.
+These are the general habits of the species in a Chicago yard, not a record of these plants.
+**Ticket:** T-2864, T-3399.
 **Review:** `renderers/web/js/season.js`.
 **Recorded:** 2026-10-19 (T-2864).
 
