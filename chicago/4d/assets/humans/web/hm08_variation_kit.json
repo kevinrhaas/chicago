@@ -11,7 +11,7 @@
  "bin": "hm08_variation_kit.bin",
  "bin_bytes": 920058,
  "bin_sha256": "50e39518792e37536aceb644c6e3fdcb9f1a67827b85d2d5f227d1ddade2035d",
- "axes_sha256": "6a4a780bcc205f865bafaf73180c95c60580dbc6bcb7c267c2a599ed33ff3301",
+ "axes_sha256": "c762336d1b45072b6ff1fa065fac07b58eef71091e250f012273b008bca33159",
  "manifest_sha256": "a100e3fa9826581a31fb318fbc4d8e48eca76da5b3510199a01508ec4389d6bb",
  "limit": 0.6,
  "height": {
@@ -37,6 +37,10 @@
    "sex": "male"
   },
   "flynn_mary_1835_dress_study": {
+   "base_age_years": 25,
+   "sex": "female"
+  },
+  "williamson_mattie_1904_cook_study": {
    "base_age_years": 25,
    "sex": "female"
   }
