@@ -2,7 +2,7 @@
   "structure_id": "pullman_glasshouse_1800_calumet_pavilion",
   "view": "inland_1894_conservatory",
   "glb": "assets/gltf/pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb",
-  "glb_sha256": "089240cbdd76a0a483f6d1b1d652508cef27d68187055a675db65f801470641b",
+  "glb_sha256": "f476f343a67a119d54c1ef7846b30ab52de3ab72ac1c4bfba5215fa0563a3d29",
   "camera_sha256": "0b98ce75bc0bae6f3756075a436a5eb833f6d0067506a9ab64089862dda8221e",
   "photo_sha256": "4dcf1768e3aeddceeaf2a981bb05904a6749caf83da21810f1265730d8c7b70a",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "089240cbdd76a0a483f6d1b1d652508cef27d68187055a675db65f801470641b"
+      "glb_sha256": "f476f343a67a119d54c1ef7846b30ab52de3ab72ac1c4bfba5215fa0563a3d29"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_north",
@@ -102,7 +102,7 @@
       "glb_sha256": "c5f942bfd3dc2f3177f94e3a116fc45db13cb2bcee68cde044c91e16296c6312"
     }
   ],
-  "group_sha256": "24da3fc95f8a1adb65bbfbc2674539348af0d0886de234116093512bf014a35a",
+  "group_sha256": "568d1c4452825bbec2ec49f411412b34c54fff5cb2933f9ae3d53dfa17d0afba",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -136,7 +136,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "ecebd8c3fa044a2f7c23fe8dd4b8c0b79f0edeca5c4bd4ddde04885a437d38bc"
+      "sha256": "cac67fd26e677f5a848f1817b51d2a485835b09f09aa2c234efc1b3a5b3e3329"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -144,26 +144,26 @@
     },
     {
       "file": "renderers/web/js/tree-instances.js",
-      "sha256": "39ea6657e4a0799dd9241b69481e62f3a5ce64c250151b2828ca87a77c17b361"
+      "sha256": "a103f17c2d5a18b12a39126c62c539dd69ad9a118939254589b0b579d4cb9c61"
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "cd404eba8da667728585833a369f14ffe3c7757799d2df960b2f77439ac151ed"
+      "sha256": "93bacc401201ba198809ca6edac57e33e85aa373d1a557b6344070cd2f24b38d"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
-      "sha256": "96fd05c1ef7de0a65f0d0966c6d418aa0b1a0391d19773a3382cc0b9ed04c909"
+      "sha256": "23dec0e5dda80547d8ee2ae86f1400fb1a4af2bd54ca0b53d7fe8d52f088cc84"
     },
     {
       "file": "renderers/web/js/season.js",
-      "sha256": "2c010c2598f57fe242361e18171d4919fc86b96691fa3282a59424554ea40e4e"
+      "sha256": "e44ebdadf8266909cd6e8676775a9decc3b7376ba245ad784118851e15b409cc"
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "a222fb6e6af97d1650b05940f9ca0a79874a53c60a688e1b7b49838a7a637c66"
+      "sha256": "bd022919ca052610595908f83128dfceea976790c5bf2eff63f381abaa3b89b5"
     }
   ],
-  "flora_sha256": "3cb6da0a42dba8970a7439ea167b89122f6ee78bf8568f0ba79ab6f92c9ae886",
+  "flora_sha256": "e04b4eb53ef17262fba69fe96ceab3387ab9538b6a1d3d02478ffe61a137a4c7",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -397,6 +397,18 @@
       "what": "the north arch's lower register (its springing to the first transom): both pictures read it dark with planting from side to side, where the render's fronds stand over the sky seen through the house's far glass, so the register reads a few tones lighter than the pictures [T-1934, 2026-11-01: twenty more palms in four rows across the nave (2.3, 2.9, 5.6 and 10 m in, their crowns 3.9-6.4 m, rising with depth as the sight lines through the register climb) and against both side walls; through this camera their fronds fill the register from the springing to the first transom and from one edge of the arch to the other, dark green over the frond shadows where the far glass showed, as the plate reads it dark with planting (L-pullman-pavilion-arch-planting-1934). Fixed.]",
       "status": "fixed",
       "how": "T-1934, 2026-11-01: left open; a shade behind the glass is what the owner called a black box (2026-10-31, T-3273), and planting the register solid would more than double the palms' triangles"
+    },
+    {
+      "what": "T-3273 re-review (2026-11-06): the gate's piers, stepped caps and swept wings print dark in the plate, a deep grey well under the podium's mid-grey stone and the lodge's front (the east pier at about x 1490-1600, y 840-1080), where the render drew them in the kit's pale buff stone, the podium's own, the palest thing in the foreground. Drawn in a stone of their own (the record's gate.color, a dark brown-grey; the hue reconstructed, L-pullman-gate-stone-3273): the gate now reads darker than the podium and the lodge, as the plate draws it",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3273 re-review (2026-11-06): the drive and the walk's turn print near white against a dark lawn in both pictures, where the review render draws them a mid grey on its one flat, unplanted ground plane (it lays no turf, so the lawn's contrast is not compared here). Built as the owner asked twice: on 2026-10-31 the app's walk read \"abnormally white\", and on 2026-11-03 he asked for the library's crushed gravel in its own tone, no tint (k13_conservatories.py materials 'gravel'); the picture's paler tone is left to his next look",
+      "status": "owner ruling"
+    },
+    {
+      "what": "T-3273 re-review (2026-11-06): re-rendered after the tree renderer's sources changed (front-yards, tree-instances, tree-model, tree-surface, season, trees); the render's buildings, planting and walks were compared again element by element with the picture and every difference above stands as recorded: the nave's pane grid and darker glass, the planted interior with no shaded block, the clipped standards in their boxes, the drive's smooth turn toward Calumet, the gate, the range, the colonnade and the lodge",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
