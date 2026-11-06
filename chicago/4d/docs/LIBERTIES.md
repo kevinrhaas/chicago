@@ -41152,7 +41152,7 @@ nothing he sits on, holds or wears does. The owner, 2026-11-06, agreeing the pla
 path" (T-3412): bodies and faces "that differ", "no two neighbours alike".
 **What is read.** A person's age where their own record states it (Hans Johnson, born 1870, is 34; the
 1900 census), or the age band their record holds (Otis Bardwell, 20-29, itself reconstructed), moves
-MakeHuman's own age targets. `data/humans/variation/persons.json` lists each drawn person, their age and its
+MakeHuman's own age targets. `assets/humans/web/hm08_variation_persons.json` lists each drawn person, their age and its
 source.
 **What is invented.** Every drawn value: the face, height and build of each person, seeded from their id
 so it is the same on every load and in every year file; the spread of each axis and its limit (60 % of

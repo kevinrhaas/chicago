@@ -2293,7 +2293,7 @@
       "placement": "pending",
       "write_mode": "(bare)",
       "measured": "2026-11-06",
-      "finding": "Reproduces: a bare write run on the committed tree rewrote assets/humans/web/hm08_variation_kit.bin, hm08_variation_kit.json and data/humans/variation/persons.json with identical bytes; git status stayed clean (T-3412).",
+      "finding": "Reproduces: a bare write run on the committed tree rewrote assets/humans/web/hm08_variation_kit.bin, hm08_variation_kit.json and hm08_variation_persons.json with identical bytes; git status stayed clean (T-3412).",
       "placed": "not yet \u2014 measured to reproduce. It reads the vendored MakeHuman targets, prepared.json, axes.json, the humans instances, data/transport/driven/loops.json, the residents' household files and data/humans/variation/fits/; its slot must follow whatever writes loops.json and the household files, and the manifest's order is its own measured pass, so it is not appended blind (T-3412)."
     }
   }

@@ -147,7 +147,7 @@ export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoa
     variation() {
       variation ??= Promise.all([
         loadVariationKit(new URL('humans/web/', assetBase), fetchImpl),
-        Promise.resolve(fetchImpl(new URL('humans/variation/persons.json', assetBase)))
+        Promise.resolve(fetchImpl(new URL('humans/web/hm08_variation_persons.json', assetBase)))
           .then((r) => (r.ok ? r.json() : null)).catch(() => null),
       ]).then(([kit, persons]) => (kit ? { kit, persons: persons?.persons ?? {} } : null), () => null);
       return variation;

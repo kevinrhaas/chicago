@@ -1940,7 +1940,7 @@ The MakeHuman graphical targets below are **CC0-1.0**, each carrying its own CC0
 from the same pinned [MakeHuman commit a8bc2d54ff0ac92e78ff71431b1023eda42bf482](https://github.com/makehumancommunity/makehuman/tree/a8bc2d54ff0ac92e78ff71431b1023eda42bf482);
 `SOURCE-variation.json` records each one's upstream URL, size and SHA-256 (the macro age targets it also
 lists are the ones `SOURCE.json` already pins, unchanged). No MakeHuman program code is copied.
-`hm08_variation_kit.bin` and `.json` are generated from them by `tools/human_variation_kit.py` (original,
+`hm08_variation_kit.bin`, `.json` and `hm08_variation_persons.json` are generated from them by `tools/human_variation_kit.py` (original,
 GPL-3.0-or-later code) and are CC0-1.0, like `prepared.json` they are carried onto. Every value a person
 draws from the kit is a reconstruction (L-human-variation-3412), not a likeness.
 
@@ -2041,4 +2041,5 @@ authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-trans-up.target
 authored/humans/makehuman_hm08/makehuman/data/targets/stomach/stomach-pregnant-incr.target
 humans/web/hm08_variation_kit.bin
 humans/web/hm08_variation_kit.json
+humans/web/hm08_variation_persons.json
 ```

@@ -43,7 +43,7 @@ function geometryOnly(bytes) {
 const header = JSON.parse(await fs.readFile(new URL('assets/humans/web/hm08_variation_kit.json', here)));
 const binBytes = await fs.readFile(new URL('assets/humans/web/hm08_variation_kit.bin', here));
 const kit = V.parseVariationKit(header, binBytes.buffer.slice(binBytes.byteOffset, binBytes.byteOffset + binBytes.byteLength));
-const persons = JSON.parse(await fs.readFile(new URL('data/humans/variation/persons.json', here))).persons;
+const persons = JSON.parse(await fs.readFile(new URL('assets/humans/web/hm08_variation_persons.json', here))).persons;
 const faceAxes = kit.axes.filter(a => a.scope === 'face' && !a.drive);
 
 // The PRNG and a person's values are pure functions of the id.
