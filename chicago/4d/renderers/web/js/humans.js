@@ -264,14 +264,18 @@ export class HumanActor {
     return job;
   }
 
+  /** T-3412: this person's own face, height and build, from the shared kit, on the clone. */
+  vary(scene, variation) {
+    if (!variation?.kit || this.variationScope === 'none') return;
+    const assetId = this.instance.appearance.asset_id;
+    this.variation ??= personVariation({ kit: variation.kit, key: this.personId ?? this.id,
+      record: variation.persons?.[this.personId] ?? null, assetId, sceneYear: Number(this.instance.scene) || null });
+    this.varied = applyVariation(scene, variation.kit, this.variation, { scope: this.variationScope });
+  }
+
   build(gltf, lod, variation = null) {
     const scene = cloneSkinned(gltf.scene);
-    if (variation?.kit && this.variationScope !== 'none') {
-      const assetId = this.instance.appearance.asset_id;
-      this.variation ??= personVariation({ kit: variation.kit, key: this.personId ?? this.id,
-        record: variation.persons?.[this.personId] ?? null, assetId, sceneYear: Number(this.instance.scene) || null });
-      this.varied = applyVariation(scene, variation.kit, this.variation, { scope: this.variationScope });
-    }
+    this.vary(scene, variation);
     const meshes = [];
     scene.traverse((o) => {
       if (!o.isSkinnedMesh) return;
