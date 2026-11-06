@@ -1,4 +1,34 @@
 export const CHANGELOG = [ // newest first
+  { v: 2736, ts: '2026-11-06T23:36:20.329Z', date: 'Nov 6, 2026, 5:36 PM CT', title: 'Go to: short viewpoint names, new 1904 views, and Photos', kind: 'feature',
+    items: [
+      '1904\'s Go to opens with six compact tiles, each with its own icon: From above, Glessner, Pullman, Field, Church and 1812 battle.',
+      'New 1904 viewpoints: the Pullman House, the W. W. Kimball House, the Marshall Field House, First Presbyterian\'s tower and spire, and Prairie Avenue from above. Each stand is clear of trees and lamps.',
+      'Viewpoints are listed by a short name with their own icon, not a long line under an eye. The full description still finds them in search.',
+      'A new Photos filter lists every old photograph you can stand in, with its picture, year and photographer. Sort them by distance or name, then walk, ride or fly to the spot where the camera stood, facing its way.',
+    ] },
+  { v: 2735, ts: '2026-11-06T23:36:20.329Z', date: 'Nov 6, 2026, 5:36 PM CT', title: 'Glessner\'s east wing roof is whole again over the court', kind: 'fix',
+    items: [
+      'A strip of the east wing\'s court-side roof, from the eave to the ridge beside the middle chimney, was missing: the cut made for the low copper roof in the court corner ran on past its end. The tiles there are back.',
+      'In the 3D-print export, the vines\' thin stems now go with their leaves, so the stone between the Prairie Avenue windows prints clean instead of dotted.',
+    ] },
+  { v: 2734, ts: '2026-11-06T23:36:20.329Z', date: 'Nov 6, 2026, 5:36 PM CT', title: 'Jaunts fly you to the start and open on a welcome', kind: 'improve',
+    items: [
+      'Starting a jaunt flies you to its first stop instead of jumping there. The flight takes 3 to 8 seconds, however far away the start is, and lands on the same view the jump gave. Any move of yours lands it at once. With reduced motion on, or the jaunt set to Instantly, it still jumps.',
+      'The first page is a welcome. It shows the jaunt\'s kind, title and premise, chips for its stops, length, light and travel mode, and its background story in full. Stop 1 follows below it, and the page is up while you fly in.',
+      'Road notes on the way are shown whole and never cut off mid-line. A leg shows only the notes there is time to read before you arrive. A leg too quick for that shows none, and they wait in the stop\'s On the way section.',
+      'The last stop says Final stop, on the page and on the folded bar, and its button reads Finish Jaunt.',
+      'Outing complete is now one small card above the jaunt list, so the list stays in view on a phone. The ending, the keepsake and the daybook counts open from it, and it can be closed.',
+    ] },
+  { v: 2733, ts: '2026-11-06T23:36:20.329Z', date: 'Nov 6, 2026, 5:36 PM CT', title: '2009 Prairie\'s stone basement now stands as tall as its photograph', kind: 'improvement',
+    items: [
+      'In 1904, the brownstone basement of 2009 Prairie Avenue now rises in three rough-faced courses over its three small windows, with a smooth stone band above them up to the ground-floor sill, as the old photograph shows. Before, the smooth band sat half a metre too low.',
+      'The chimney\'s place, the window hoods, the oriel\'s carved underside and the gable\'s south foot are still to come.',
+    ] },
+  { v: 2732, ts: '2026-11-06T22:50:49.260Z', date: 'Nov 6, 2026, 4:50 PM CT', title: '1936 Prairie\'s verandah, tower and chimneys stand where its photograph puts them', kind: 'fix',
+    items: [
+      'The Thompson/Allerton house at 1936 Prairie: the winter photograph\'s camera is solved afresh. Its south-east corner is where the cornice turns nearest the lens, at the verandah\'s end, so the front reads verandah, tower, porch, stoop, as the 1911 map and the 1886 engraving draw it.',
+      'Through that camera the verandah runs about 7.6 m from the corner on three wider arches, and the tower, its door and the stoop\'s landing stand 2 m further north. The two south chimneys move to where the photograph shows them.',
+    ] },
   { v: 2731, ts: '2026-11-06T21:47:20.165Z', date: 'Nov 6, 2026, 3:47 PM CT', title: 'Following someone is smooth', kind: 'fix',
     items: [
       'Walking beside Hans Johnson\'s brougham no longer jitters: you keep the carriage\'s pace instead of standing still and lunging each frame, and your eyes stay on him without bobbing with his head.',

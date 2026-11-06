@@ -4839,6 +4839,11 @@ async function boot() {
       return false;
     }
     api.townTransport?.cancelDriverApproaches();
+    // T-3436: a photo view is walked, ridden or flown to like any place, and its last turn is
+    // the Photos tab's From this spot: the camera's own spot and facing, the building outlined.
+    if (resolved.kind === 'photo') {
+      return travel.go(resolved, { onArrive: () => { void api.fromSpot?.(resolved.of, resolved.picture); } });
+    }
     return travel.go(resolved.structureId
       ? { kind: 'structure', id: resolved.structureId, label: resolved.label, person: resolved.kind === 'person' ? resolved.id : null }
       : resolved);
@@ -4955,6 +4960,7 @@ async function boot() {
       }, settings: hud.settings, router: travel.router });
       jauntPreview = preview.createJauntPreview({ root: jauntRoot, scene: YEAR, dataBase: bases.dataBase, destinations, api: api.jaunts,
         onStart: (id, options) => jauntRuntime.start(id, options), onResume: () => jauntRuntime.resume(), getSession: () => jauntRuntime?.state,
+        onDismiss: () => jauntRuntime?.end(), // T-3432: Close on Outing complete
         // T-2631: each card's plate, a credited picture of its stops (pictures.js § plateFor).
         plateFor: (row) => jauntPlate(jauntPictures, (row.destinations ?? [])
           .map((d) => (d.kind === 'structure' ? d.id : destinations.resolve(d)?.structureId)).filter(Boolean)),
@@ -4968,10 +4974,23 @@ async function boot() {
       const jauntCards = cards.createJauntCards({ registry: loaded.registry, popup, hud, api,
         sources: () => { openSources(); return sourcesPromise; }, onReturn: () => jauntRuntime.returnFromDetail() });
       actions.closeOverlay = jauntCards.close;
-      jauntPanel = panel.createJauntPanel({ destinations, actions });
+      jauntPanel = panel.createJauntPanel({ destinations, actions,
+        catalogRow: (id) => api.jaunts.catalog?.find((row) => row.id === id) ?? null }); // T-3432: the welcome's kind and premise
       jauntRuntime = runtime.createJaunts({ scene: YEAR, load: jauntPreview.load, travel,
         preferredMode: (jaunt) => jauntModeFor(hud.gettingThere, jaunt),
         resolve: resolveJaunt, place: spawnAtDestination,
+        // T-3432: the start is flown to (travel.glide, at most 8 s), from where the eye was;
+        // from Home, where it has not been anywhere yet, down onto it from behind and above.
+        approach: () => {
+          const w = walker.state;
+          const from = enteredWorld ? { e: w.e, n: w.n, altitude: w.eyeY - w.groundY, yaw: w.yaw, pitch: w.pitch } : null;
+          return { begin(callbacks) {
+            const eye = walker.state, to = { e: eye.e, n: eye.n, altitude: eye.eyeY - eye.groundY, yaw: eye.yaw, pitch: eye.pitch };
+            const start = from ?? { e: eye.e + Math.sin(eye.yaw) * 90, n: eye.n - Math.cos(eye.yaw) * 90,
+              altitude: 45, yaw: eye.yaw, pitch: -20 * DEG };
+            return travel.glide(start, to, callbacks, { label: callbacks.label });
+          } };
+        },
         contextForRoute(state, route) {
           const to = runtime.currentStop(state), from = state.jaunt.stops.find(s => s.id === state.fromStopId);
           // T-2946: measured to the building's walls and named as the jaunt names it.
@@ -5050,6 +5069,8 @@ async function boot() {
     } finally { root.removeAttribute('aria-busy'); }
   }
   api.welcome = createWelcome({ gate, scene: loaded.scene, destinations, isTouch: coarse,
+    // T-3436: Go to's Photos read the cards' pictures file the first time Go to shows.
+    photos: () => ensurePictures(),
     // T-2632: each Go to row's distance and bearing, from where the visitor stands.
     visitor: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg }),
     units: () => hud.settings.units,
