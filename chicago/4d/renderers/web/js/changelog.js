@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2727, ts: '2026-11-06T20:42:00.305Z', date: 'Nov 6, 2026, 2:42 PM CT', title: '1919 Prairie\'s north flank: one three-light window in each storey', kind: 'improvement',
+    items: [
+      'The Marshall Field Jr. house\'s middle range now shows its north side the way the 1913 and 1919 Gatlin plates draw it: one group of three lights under a stone lintel in each storey, divided by stone mullions, where two plain single windows stood.',
+    ] },
   { v: 2726, ts: '2026-11-06T19:28:30.111Z', date: 'Nov 6, 2026, 1:28 PM CT', title: 'Winter street elms are bare round branches, not brown fans', kind: 'fix',
     items: [
       'Past arm\'s reach a winter elm was flat painted twig cards and wedge-shaped spikes, which read as brown fans.',

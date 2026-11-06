@@ -2,7 +2,7 @@
   "structure_id": "marshall_field_jr_house_1919_prairie",
   "view": "blue_book_1912",
   "glb": "assets/gltf/marshall_field_jr_house_1919_prairie__as_mapped_1904.glb",
-  "glb_sha256": "6bf3dd7b26ffdca75fb6dafad2ccbf10306ce4c4cfd092b9ecbe73fc38960a46",
+  "glb_sha256": "634a1d1ed99a1c15016ef60393780ad118d8310767a3ddac417427d92af2ffee",
   "camera_sha256": "43f9767ba9b3148d7c572de09d0d2de25a4fc87fe0fe9d4c0df8edd01c25f689",
   "photo_sha256": "c3491ed0b74e34bb08921b79398d06efd3aefb00ff685b3d8fe3c54a332623c5",
   "side_by_side": "docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/blue_book_1912-side-by-side.jpg",
@@ -53,5 +53,5 @@
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
