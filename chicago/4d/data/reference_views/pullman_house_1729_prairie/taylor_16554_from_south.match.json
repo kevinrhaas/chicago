@@ -115,7 +115,7 @@
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "0910d1c4c92ae365a8e7bdc9eded2ca745cdcb5b564f6d9ed97028d76b8582ca"
+      "sha256": "90d02b3e6b6ac5d1ab27a0eb3088f72719a8c1f59a7624dd833db80b127268f2"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
@@ -123,7 +123,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "93bacc401201ba198809ca6edac57e33e85aa373d1a557b6344070cd2f24b38d"
+      "sha256": "516638c5cb53043e352359012564973fbaca844282e7809913d3f4709d8e5572"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -142,7 +142,7 @@
       "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "7fcb8ff014d121fe412976d29426d89338bca82ef33c6aca8ffc188246ddd36f",
+  "flora_sha256": "d299bb95c0b2705739ef2829906f0ef1e541ddfb51016547628b2d933f793412",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -191,6 +191,10 @@
       "what": "a stack rising behind the house's rear face, between its two dormers (x 512-523 px, its cap at about y 317, about 4 px over the cresting), which the build did not stand (seen first in the conservatory's record of this picture)",
       "status": "fixed",
       "how": "T-1934 (2026-11-03): built as the house's fourth stack (chimneys.stacks[3], u 1.4, v 10.0, top 18.4 m), placed against the rear face's dormers since this camera is not fitted on the house's rear: it now renders between the first and second rear dormers, about a fifth to a third of the way (x 486-494 against the dormers' 476 and 540), where the print sets it 0.35 of the way (512-523 against 500 and 543); the whole rear renders about 25 px left of the print's through this camera, as the house's other items here say. L-pullman-1729-rear-stack-1934"
+    },
+    {
+      "what": "T-3429 (2026-11-06): the parkway elms are bare round wood now, twig forking off twig, where T-1934's painted twig cards stood; read against the print again, the verdict is kept.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

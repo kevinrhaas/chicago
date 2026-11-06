@@ -4294,6 +4294,8 @@ class Assembly:
             for g in self.mansard_dormer_bodies(m, E):
                 solids.append(g["body"])
                 solids += g.get("hood", [])   # T-3000: a hooded dormer's shelf and hood
+                if g.get("roof"):   # T-1890: a flat-capped wall dormer's cap
+                    solids.append(g["roof"])
                 recesses += g["recesses"]
         if p.slope_dormers:   # T-2866: dormers on the hip's side slopes
             for g in self.slope_dormer_bodies(E, tp):
@@ -5042,6 +5044,9 @@ class Assembly:
         sill = ys + d["sill_m"]
         r = d["width_m"] / 2
         top = sill + d["head_m"]
+        # T-1890: a wall dormer's light may stand off the face's middle (`light_shift_m` along
+        # the face, in the record's along_m sense: the street face's along runs as -z)
+        lc = centre + (d.get("light_shift_m", 0.0) * (-1.0 if axis == "x" else 1.0))
         if d.get("head") == "gable":
             # T-2452: jambs to the surround's head over the square-headed sash, then the
             # pediment's two slopes to its apex, slated as the cheeks are
@@ -5084,7 +5089,7 @@ class Assembly:
         # first light cut, so the second stood glazed behind the solid face, the dormer reading
         # half shut; the face between the holes is the pair's mullion
         inner, outer = nf - sg * rev, nf + sg * 0.05
-        recesses = [k5.extrude([(centre + ra * q[0], sill + q[1]) for q in hole], min(inner, outer),
+        recesses = [k5.extrude([(lc + ra * q[0], sill + q[1]) for q in hole], min(inner, outer),
                                max(inner, outer), P, "reveal",
                                *(("window", "reveal") if sg > 0 else ("reveal", "window")))
                     for hole in o.holes]
@@ -5109,7 +5114,8 @@ class Assembly:
                                                  sill + d["sash_height_m"] - d["sash_width_m"] / 2)
         return {"body": body, "recesses": recesses, "roof": roof, **({"hood": hood} if hood else {}),
                 "geom": {"O": at(centre - ra * r, ys, nf), "R": R, "ys": ys, "sill": sill, "E": E,
-                         "sill_pt": at(centre, sill, nf), "top_pt": at(centre, top, nf),
+                         "sill_pt": at(lc, sill, nf), "top_pt": at(centre, top, nf),
+                         "light_s": round(r + (lc - centre) * ra, 6),
                          "width": 2 * r, "top": top, "variant": v, "d": d,
                          "face": (axis, sg, ra, centre, nf)}}   # T-3307: for a dressed pediment
 
@@ -5410,7 +5416,7 @@ class Assembly:
                                                        "construction": "masonry", "openings": 1, "head": head},
                       {"base": O, "top": g["top_pt"]})
         op = Opening("k01.opening.sash_round" if head == "round" else "k01.opening.sash_flat",
-                     "k01.wall.dormer_face", g["width"] / 2, g["sill"] - g["ys"],
+                     "k01.wall.dormer_face", g.get("light_s", g["width"] / 2), g["sill"] - g["ys"],
                      d["sash_width_m"], d["sash_height_m"])
         frame = (O, R, _cross(R, Y))
         seed = self.instance(op.component, "opening", {"clear_width_m": op.width_m, "clear_height_m": op.height_m,
