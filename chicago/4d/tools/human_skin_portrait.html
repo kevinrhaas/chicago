@@ -1,0 +1,47 @@
+<!doctype html><html><head><meta charset="utf-8"><title>human skin portrait (T-3400, never published)</title>
+<style>html,body{margin:0;background:#8a8f96;overflow:hidden}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"../renderers/web/vendor/three-0.185.1/three.module.js","three/addons/":"../renderers/web/vendor/three-0.185.1/addons/"}}</script>
+</head><body><script type="module">
+// tools/human_skin_portrait.mjs drives this: one portable human, its face close up, under a sun and a sky
+// fill like the town's (ACES, exposure .95, sun 3.0), with and without renderers/web/js/human-skin.js.
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
+import { clone } from 'three/addons/utils/SkeletonUtils.js';
+import { dressSkin } from '../renderers/web/js/human-skin.js';
+const q = new URLSearchParams(location.search);
+const asset = q.get('asset') ?? 'anonymous_working_driver_1904', lod = q.get('lod') ?? '0';
+const dist = Number(q.get('dist') ?? .55), yaw = Number(q.get('yaw') ?? 25) * Math.PI / 180, sunAz = Number(q.get('sun') ?? -40) * Math.PI / 180;
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(1); renderer.setSize(innerWidth, innerHeight);
+renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = .95;
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+document.body.append(renderer.domElement);
+const scene = new THREE.Scene(); scene.background = new THREE.Color(0x9aa7b4);
+const pm = new THREE.PMREMGenerator(renderer); { // a sky above and warm ground below, as the town's PMREM-from-sky fill
+  const sky = new THREE.Scene(), g = new THREE.SphereGeometry(10, 32, 16), col = [];
+  const top = new THREE.Color(0x7fa6d6), mid = new THREE.Color(0xd8dde2), low = new THREE.Color(0x6b5a44);
+  for (let i = 0; i < g.attributes.position.count; i++) { const y = g.attributes.position.getY(i) / 10; const c = y > 0 ? mid.clone().lerp(top, y) : mid.clone().lerp(low, Math.min(1, -y * 3)); col.push(c.r, c.g, c.b); }
+  g.setAttribute('color', new THREE.Float32BufferAttribute(col, 3));
+  sky.add(new THREE.Mesh(g, new THREE.MeshBasicMaterial({ vertexColors: true, side: THREE.BackSide })));
+  scene.environment = pm.fromScene(sky, .02).texture; scene.environmentIntensity = Number(q.get('env') ?? 1);
+}
+const sun = new THREE.DirectionalLight(0xfff2dc, 3.0); sun.position.set(Math.sin(sunAz) * 3, 3.2, Math.cos(sunAz) * 3); sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048); Object.assign(sun.shadow.camera, { left: -1, right: 1, top: 1, bottom: -1, near: .1, far: 10 }); sun.shadow.bias = -.0004; sun.shadow.normalBias = .01;
+scene.add(sun, sun.target);
+const loader = new GLTFLoader(); loader.setMeshoptDecoder(MeshoptDecoder);
+const gltf = await loader.loadAsync(`../assets/humans/web/${asset}.lod${lod}.glb`);
+const body = clone(gltf.scene);
+body.traverse(o => { if (o.isMesh) { o.castShadow = o.receiveShadow = true; o.frustumCulled = false; } });
+scene.add(body);
+window.dressed = q.get('skin') === '0' ? {} : dressSkin(body);
+body.updateMatrixWorld(true);
+let head = null; body.traverse(o => { if (o.isBone && /^head$/i.test(o.name)) head = o; });
+const hp = new THREE.Vector3(); (head ?? body).getWorldPosition(hp); hp.y += Number(q.get('dy') ?? .07);
+const cam = new THREE.PerspectiveCamera(Number(q.get('fov') ?? 30), innerWidth / innerHeight, .01, 50);
+cam.position.set(hp.x + Math.sin(yaw) * dist, hp.y + .02, hp.z + Math.cos(yaw) * dist); cam.lookAt(hp);
+sun.target.position.copy(hp);
+renderer.compile(scene, cam);
+renderer.render(scene, cam);
+window.ready = { errors: renderer.info.programs?.filter(p => p.diagnostics && !p.diagnostics.runnable).length ?? 0, programs: renderer.info.programs?.length };
+</script></body></html>
