@@ -296,6 +296,9 @@ const COVERAGE = [
   ['renderers/web/js/apps/inspect.js', [3, 4, 13, 14], 'the Inspect app: its rail entry and its lazy screen'],
   ['renderers/web/js/apps/inspect-view.js', [3, 4, 14], 'Inspect\'s Overview front page (M7) and its tabs (T-2639)'],
   // T-3266: the People tab's former residents of a 1904 house; part 14 reads the 1904 tabs.
+  // T-3430: the People app as a directory (1904's People screen); part 14 searches it and opens its cards.
+  ['renderers/web/js/apps/people-view.js', [14], 'the People app as a directory: search, household and person cards (T-3430)'],
+  ['renderers/web/js/people-directory.js', [14], 'the People directory\u2019s households and search (T-3430)'],
   ['renderers/web/js/apps/former-residents.js', [14], 'Inspect\'s People tab: former residents of a 1904 house (T-3266)'],
   ['renderers/web/js/inspect-sources.js', [4, 14], 'Inspect\'s Sources tab: facts by grade, Liberties, folded citations (T-2644)'],
   // T-2645: the Photos tab. Part 14 reads it on Glessner House (pictures, All N, From this
@@ -716,6 +719,7 @@ const COVERAGE = [
 const ANCHORS = [
   // T-2620: a section is reached through its Navigator app (`openSection(tab)` in the smoke).
   ['renderers/web/js/people.js', ["openSection('people')", 'people-filters', 'people-card']],
+  ['renderers/web/js/apps/people-view.js', ['ppl-search', 'ppl-hh-card']],
   ['renderers/web/js/businesses.js', ["openSection('businesses')"]],
   ['renderers/web/js/seat.js', ['people-seat']],
   // householdHtml is the body of the People directory's person card (13) and of the
