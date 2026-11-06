@@ -1,0 +1,162 @@
+{
+  "subject": "hans_johnson_1904",
+  "reference_set": "coachman_1904",
+  "shot": {
+    "date": "2026-11-06",
+    "target": "https://chicago.polecat.live/4d/dev/walk/?year=1904",
+    "build": "DEV PREVIEW · dev@0e85be38 · Nov 6, 2026, 1:38 AM CT",
+    "out": "evidence/people-match-2026-11-06/hans_johnson_1904",
+    "evidence_repo": "kevinrhaas/chicago-evidence"
+  },
+  "bound": {
+    "driver_asset": "anonymous_working_driver_1904",
+    "driver_clip": "sit_drive_look_v2",
+    "vehicle_file": "transport/parked-brougham/brougham-near.glb",
+    "driver_livery_file": "transport/driven/driver-livery-1904.json",
+    "driver_livery_sha256": "a0e5e98532b5aae2d6177e34a2b5e97373235567dddf768588640df671bf034a",
+    "driver_livery_body_sha256": "c3b285d0305559ee5fbe13695985df86cde4c38ca8d7efd8419fcdd2d97bc4b8"
+  },
+  "stills": {
+    "near-phone": {
+      "file": "evidence/people-match-2026-11-06/hans_johnson_1904/near-phone.jpg",
+      "sha256": "5727c4e9188f70b6d920207fd303240e5446c02e667444328dbf717428d94ded",
+      "detail": "balanced",
+      "camera": {
+        "e": 1287.29,
+        "n": -3479.165,
+        "eye_y": 5.802,
+        "yaw_deg": 344.38,
+        "pitch_deg": 11.38,
+        "subject_heading_deg": 89.38,
+        "head_enu": [
+          1286.482,
+          -3476.276,
+          6.706
+        ]
+      },
+      "figure_box_px": [
+        126,
+        323,
+        138,
+        249
+      ]
+    },
+    "far-phone": {
+      "file": "evidence/people-match-2026-11-06/hans_johnson_1904/far-phone.jpg",
+      "sha256": "96a3d883c6dc849a4bea242be2aecc8a032a59e3d2f17c9246f4807bfc60c128",
+      "detail": "balanced",
+      "camera": {
+        "e": 1294.735,
+        "n": -3481.922,
+        "eye_y": 5.981,
+        "yaw_deg": 304.38,
+        "pitch_deg": -2.72,
+        "subject_heading_deg": 89.38,
+        "head_enu": [
+          1286.482,
+          -3476.276,
+          6.706
+        ]
+      },
+      "figure_box_px": [
+        175,
+        333,
+        41,
+        74
+      ]
+    },
+    "near-desktop": {
+      "file": "evidence/people-match-2026-11-06/hans_johnson_1904/near-desktop.jpg",
+      "sha256": "4531ee8bc5dc7a88712934ee5cbb04506a0d8f22482e5747d2c6d682d7a5e99a",
+      "detail": "full",
+      "camera": {
+        "e": 1286.902,
+        "n": -3479.166,
+        "eye_y": 5.802,
+        "yaw_deg": 344.38,
+        "pitch_deg": 11.4,
+        "subject_heading_deg": 89.38,
+        "head_enu": [
+          1286.094,
+          -3476.277,
+          6.707
+        ]
+      },
+      "figure_box_px": [
+        494,
+        259,
+        292,
+        527
+      ]
+    },
+    "far-desktop": {
+      "file": "evidence/people-match-2026-11-06/hans_johnson_1904/far-desktop.jpg",
+      "sha256": "c1955765a548c010ad729f8251a6eea97716d8373daf7d2ecb6666a7792acb52",
+      "detail": "full",
+      "camera": {
+        "e": 1294.348,
+        "n": -3481.923,
+        "eye_y": 5.981,
+        "yaw_deg": 304.38,
+        "pitch_deg": -2.71,
+        "subject_heading_deg": 89.38,
+        "head_enu": [
+          1286.094,
+          -3476.277,
+          6.707
+        ]
+      },
+      "figure_box_px": [
+        597,
+        279,
+        86,
+        155
+      ]
+    }
+  },
+  "sheets": {
+    "near-side-by-side": "evidence/people-match-2026-11-06/hans_johnson_1904/near-side-by-side.jpg",
+    "far-side-by-side": "evidence/people-match-2026-11-06/hans_johnson_1904/far-side-by-side.jpg",
+    "motion-strip": "evidence/people-match-2026-11-06/hans_johnson_1904/motion-strip.jpg"
+  },
+  "verdict": "differs",
+  "checklist": {
+    "silhouette": {
+      "what": "Silhouette and fit of the clothes",
+      "status": "open",
+      "note": "Long dark box coat to below the knees, stand collar and buttons read as the role at both distances. At 3 m the coat's body still follows his chest, upper arms and waist; Rau 1902 and Griffith 1905 show a heavy wool coat standing off the body, square at the shoulder and full at the chest."
+    },
+    "folds": {
+      "what": "Folds where cloth gathers",
+      "status": "open",
+      "note": "The skirt hangs past the box in a few long folds as in Rau 1902. The lap shows none of the heavy gathered folds where the photographed coats bunch over the thighs and at the elbows."
+    },
+    "hat_hair": {
+      "what": "Hat and hair",
+      "status": "reads",
+      "note": "Tall silk hat with a curled brim, set level, hair dark below it: the same silhouette as all three pictures at 3 m and 10 m. The hat throws no shadow on his face (see skin)."
+    },
+    "skin": {
+      "what": "Skin at 3 m",
+      "status": "open",
+      "note": "At 3 m the face is one smooth even tone with no shadow under the hat brim; the photographed faces are modelled, shaded under the brim and darker at the jaw. Phone at Balanced shows the face softer still."
+    },
+    "hands": {
+      "what": "Hands",
+      "status": "open",
+      "note": "Bare hands held apart with open palms. Griffith 1905 shows white gloves and Penfield pale gloves, and all three gather reins (and Rau a whip) in a closed hand at the lap. No whip."
+    },
+    "stance": {
+      "what": "How the figure stands or sits",
+      "status": "reads",
+      "note": "Upright on the box with knees high and boots on the footboard, as Rau 1902 and Penfield show; at 10 m he reads as a dark upright block above the team, as Griffith 1905's coachmen do."
+    },
+    "motion": {
+      "what": "How it moves (the 5-second strip)",
+      "status": "not shown",
+      "note": "Five frames over 5 s of his own time at 3 m: small breathing and gaze changes, no jerks or pops. No photograph can show motion; judge it on dev."
+    }
+  },
+  "_how": "verdict is unreviewed | differs | matches, set by whoever laid the stills beside the pictures; each checklist item is {what, status, note} with status open | reads | not shown | within tolerance | owner ruling — open when a visitor would see the figure is not the pictures’ kind of person in that respect. The first figure of each role is the owner’s call (the plan’s \"Your call\"); later figures of the role are held to the one he approved. A reshoot of a changed figure (bound) sets the verdict back to unreviewed.",
+  "first_of_role": "The first coachman: the owner's call (the plan's 'Your call'). This record is the builder's reading, offered for his verdict."
+}
