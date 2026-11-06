@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2718, ts: '2026-11-06T17:41:47.062Z', date: 'Nov 6, 2026, 11:41 AM CT', title: 'People is a directory: search anyone, open their household', kind: 'feature',
+    items: [
+      'People opens on a search box over every person and household: name, house number, street or work.',
+      'A Households / People switch carries live counts; the household of the house in view sits first.',
+      'A household opens its own card: address, why it is placed here on the scene date, family, live-in staff, children of other years and former residents.',
+      'A person opens their full card, story and How we know, with Back to wherever you came from.',
+      'Both cards have Go to house and Inspect house; a person out in town also has Find and Follow.',
+    ] },
   { v: 2717, ts: '2026-11-06T17:01:40.704Z', date: 'Nov 6, 2026, 11:01 AM CT', title: 'Switching to Light no longer logs a hidden error', kind: 'fix',
     items: [
       'Dropping the town to the Light setting used to log a background error each time the carriages were cleared away, which turned the walkthrough\'s own health check red. The fix is now held by a test, so it cannot quietly come back.',
