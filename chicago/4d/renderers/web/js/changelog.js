@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2689, ts: '2026-11-06T06:11:19.466Z', date: 'Nov 6, 2026, 12:11 AM CT', title: 'Hans dresses for the box: coat, cape and top hat', kind: 'improvement',
+    items: [
+      'Hans now wears a coachman\'s long box coat with a turned-up collar, a shoulder cape and two rows of brass buttons, over dark livery trousers.',
+      'The coat\'s skirt and cape were dropped as cloth onto him and his seat, so they fold over his lap, across the cushion and down past the box like real wool.',
+      'He wears a silk top hat.',
+      'No images to download; it adds well under a megabyte. The cut and colour are reconstructed (see Liberties).',
+    ] },
   { v: 2688, ts: '2026-11-06T05:24:40.928Z', date: 'Nov 5, 2026, 11:24 PM CT', title: 'Glessner\'s stable ridge runs straight on from the 18th Street wing', kind: 'fix',
     items: [
       'The ridge over Glessner House\'s stable, west of its little cupola, had drifted about two feet north of the 18th Street wing\'s ridge. It is back on the same line, so one straight crest runs from the east wing through the cupola to the alley gable, and the alley gable now stands even about its peak.',
