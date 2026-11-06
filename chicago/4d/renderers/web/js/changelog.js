@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2688, ts: '2026-11-06T05:24:40.928Z', date: 'Nov 5, 2026, 11:24 PM CT', title: 'Glessner\'s stable ridge runs straight on from the 18th Street wing', kind: 'fix',
+    items: [
+      'The ridge over Glessner House\'s stable, west of its little cupola, had drifted about two feet north of the 18th Street wing\'s ridge. It is back on the same line, so one straight crest runs from the east wing through the cupola to the alley gable, and the alley gable now stands even about its peak.',
+    ] },
+  { v: 2687, ts: '2026-11-06T04:58:18.312Z', date: 'Nov 5, 2026, 10:58 PM CT', title: '1936 Prairie\'s belvedere tower now looks like its photograph', kind: 'fix',
+    items: [
+      'The tower is real: the 1869 Tribune says you entered the house through a 73 ft tower, and a winter photograph shows it.',
+      'Its top no longer reads as a pale flared slab. The cornice reaches 0.8 m, not 1.1 m, measured on the photograph.',
+      'The cap above the cornice is slate, the Tribune\'s roofing, and the house\'s cornices are dark brown, as the print shows them.',
+      'Each belvedere window sits in an arched stone frame, closer to the photograph\'s.',
+    ] },
   { v: 2686, ts: '2026-11-06T03:50:49.982Z', date: 'Nov 5, 2026, 9:50 PM CT', title: '1700–1706 Prairie\'s front curb', kind: 'fix',
     items: [
       'The low stone curb now runs along the street line across the middle of the Glessner-Lee pair, between the two gates, where both photographs show the lawn held back with no iron on it.',
