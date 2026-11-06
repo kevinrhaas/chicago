@@ -642,6 +642,8 @@ step "Glessner service posts seat on stone and gate hinges connect to masonry (T
   python3 tools/test_glessner_service_access.py
 step "Glessner stacks meet both roof pitches and retain deep open flues (T-2222)" \
   python3 tools/test_glessner_chimneys.py
+step "Print export makes one closed, solid, standing piece from a leaky render soup (T-3395)" \
+  python3 tools/test_export_print_3mf.py
 step "Glessner's curved stone staggers, its eave clears the gable and its pipe meets the roof (T-2470)" \
   python3 tools/test_glessner_north_tower.py
 step "Glessner's service openings stay whole and the stable roof meets the north range (T-2219)" \
@@ -1345,6 +1347,15 @@ step "a K08 tower stands on a K01 rear wing's wall past the wing's eave, closed 
 # of its bounds refused.
 step "a flat-topped projection stands on a K01 wing's gable end, and a wing's gables are stone-coped (T-3337)" \
   python3 tools/test_k01_wing_coping.py
+
+# T-3354. ...and a flank gable may stand back from one end over a flat deck (`roof.flat_end`), and a
+# flank-gabled wing may carry gabled, coped and pinnacled dormers on its street slope
+# (`roof.dormers`, k01_wing_dormers) — 1919 Prairie's middle range, flat-topped at its north-west
+# corner, and the rear range's two dormers, all three Gatlin plates. Held on 1919's record; a flat
+# end out of its bounds or on a rear gable, and a dormer out of its bounds, past its span, over the
+# ridge, crowding another or with a light that does not fit, refused.
+step "a K01 wing's gable stands back from a flat end, and pinnacled dormers stand on its street slope (T-3354)" \
+  python3 tools/test_k01_wing_dormers.py
 
 # T-3353. ...and a brick wing may name stone `dressings`: belts on the walls it names, in place of
 # K03's brick string course there, and quoins up the corners it names (1919 Prairie's rear

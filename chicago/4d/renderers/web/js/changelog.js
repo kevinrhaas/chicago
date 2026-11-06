@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2679, ts: '2026-11-06T01:02:48.155Z', date: 'Nov 5, 2026, 7:02 PM CT', title: '1919 Prairie\'s rear roofs: two pinnacled dormers and a flat-topped corner', kind: 'improvement',
+    items: [
+      'The rear range now has the two small pinnacled dormers all three Gatlin Institute plates show on its street-side slope. Each has one tall light, a stone-coped gable, a finial and a pinnacle at each edge.',
+      'The middle range\'s north-west corner is now the flat-topped block the plates show. Its gable stands 1.6 m back and steeper behind it, so it reaches the plates\' highest gable within a few pixels; before, it stood 1–3 m low and to one side.',
+    ] },
+  { v: 2678, ts: '2026-11-06T00:41:28.881Z', date: 'Nov 5, 2026, 6:41 PM CT', title: 'Glessner House can be 3D printed', kind: 'feature',
+    items: [
+      'Nothing you can see changed in the scene. A new export turns a building\'s model into a 3D-printable file: one watertight solid on a flat base, ready for a home printer.',
+      'Glessner House is the first: about 21 cm long at 1:250, with no lawn, vines or paving, and every railing, finial and downpipe thickened to at least 1 mm so a printer can lay it.',
+    ] },
   { v: 2677, ts: '2026-11-06T00:27:37.722Z', date: 'Nov 5, 2026, 6:27 PM CT', title: 'Hans\'s clothes look like cloth', kind: 'improvement',
     items: [
       'His wool waistcoat and his trousers show a fine diagonal twill up close, his linen shirt a plain weave with the odd thick thread.',
