@@ -104,7 +104,7 @@ selftest "Light GLB textures retain the device mip policy on initial decode and 
 selftest "Rail zones retain exact geometry, reach, upload callbacks and disposal across rebuilds (T-2380)" \
   node tools/test_rail_geometry_lifecycle.mjs --self-test
 
-selftest "Scenes with no parked vehicles boot: update, retier and dispose without a TDZ error (T-3311)" \
+selftest "Scenes with no parked vehicles boot: update, retier and dispose without a TDZ error (T-3311); a drop to Light hands Three no empty add (T-3427)" \
   node tools/test_parked_transport_empty_scene.mjs --self-test
 
 step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
@@ -1426,6 +1426,13 @@ step "a K01 house carries a two-level veranda on its rear wall, and a wing's wal
 # brick block gone; an over-high floor, a low eave, a run past the wall and an unknown key refused.
 step "a K01 house carries a raised terrace under a striped awning on its rear wall (T-1881)" \
   python3 tools/test_k01_rear_terrace.py
+
+# T-1881 (2026-11-06). A hanging lantern on a wrought-iron arm off a K01 house's street front
+# (k01_wall_lanterns), held on 1729 Prairie's record: off the entrance's south return beside the
+# portico, as the 1890 Albertype plate draws it, with the banded pier at the inner angle; a low
+# lantern, a short arm, an unknown face and an unknown key refused.
+step "a K01 house hangs a lantern on an iron arm off its street front (T-1881)" \
+  python3 tools/test_k01_wall_lantern.py
 
 # T-1881 (2026-11-02). A K01 house's mansarded K08 sections joined to its own mansard under one
 # rail (k08_bays._hip back_m/open, k01_mansard_deck.dress_joined), held on 1729 Prairie's
