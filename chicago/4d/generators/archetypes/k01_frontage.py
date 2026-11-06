@@ -3901,6 +3901,12 @@ class Assembly:
                    lambda role: (stair_seed, stair_conf) if role in self.STAIR_ROLES else (seed, conf))
 
     # -- the door's hood (T-2480) ---------------------------------------------------------
+    @staticmethod
+    def _bay_proud(b):
+        """T-1881: how far a square projection's face stands out of its wall, or None."""
+        pl = (b or {}).get("variant", {}).get("plan") or {}
+        return max(z for _, z in pl["points"]) if pl.get("kind") == "polyline" else None
+
     def door_hood(self, op, frame):
         """A timber hood over the door in a K08 bay hood's joinery: a fascia box `out_m` from
         the wall, a cornice slab over it standing `proud_m` past its front and ends, a row of
@@ -3940,9 +3946,18 @@ class Assembly:
         # before that block's face stands clear of it (k01_frontage_params._bays holds the step
         # less far out than the block it abuts)
         cut_in_block = any(x.get("entrance") and x["wall"] == op.wall for x in p.bays)
+        # T-1881: and a portico on columns may run on along the front before a forward block
+        # beside the step the door is cut in, when it stands out past the block's face by a
+        # column's plinth and more (1729's, its entablature and deck carried north across the
+        # north block in the Detroit print and Taylor's no. 1445); what of it is behind the
+        # block's face is inside the block
+        eb = p.entrance_block()
+        eb_out = self._bay_proud(eb) if eb and eb["wall"] == op.wall else 0.0
+        before = lambda b: bool(h.get("columns")) and b.get("block") and self._bay_proud(b) is not None \
+            and out - (self._bay_proud(b) - eb_out) >= h["columns"]["plinth_m"][0] + 0.3
         for b in p.bays:   # nor the pavilion's walls (a bay's hood it may run into, as drawn)
             if b["wall"] == op.wall and b["variant"]["kind"] != "bay" and not b.get("entrance") and \
-                    not (b.get("front_step") and cut_in_block) and \
+                    not (b.get("front_step") and cut_in_block) and not before(b) and \
                     b["span_m"][0] < S1 + 0.05 and b["span_m"][1] > S0:
                 raise ValueError(f"the door hood ({S0:.2f}-{S1:.2f} m) runs into {b['id']}")
         con, mod = h["consoles"], h["modillions"]

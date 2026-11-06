@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 527056064,
+  "content_version": 248145599,
   "category": "Build log",
   "featured": true,
   "review_required": false,
@@ -449,7 +449,7 @@
         "kind": "structure",
         "id": "coleman_ames_house_1811_prairie"
       },
-      "text": "Coleman-Ames House, 1811 Prairie. DETAIL 4/5: a kit build matched to its picture; 4 solved pictures, 4 matching. Pictured: 4 of the pictures on the Images tab show it. Next: Pullman House, 1729 Prairie.",
+      "text": "Coleman-Ames House, 1811 Prairie. DETAIL 4/5: a kit build matched to its picture; 4 solved pictures, 4 matching. Pictured: 4 of the pictures on the Images tab show it. Next: Pullman conservatory, 1729 Prairie.",
       "read_s": 14,
       "evidence": [
         "stood-21",
@@ -468,9 +468,9 @@
       "id": "stop-22",
       "destination": {
         "kind": "structure",
-        "id": "pullman_house_1729_prairie"
+        "id": "pullman_house_1729_prairie_conservatory"
       },
-      "text": "Pullman House, 1729 Prairie. DETAIL 4/5: a kit build matched to its picture; 5 solved pictures, 1 matching. Pictured: 21 of the pictures on the Images tab show it. Next: Pullman conservatory, 1729 Prairie.",
+      "text": "Pullman conservatory, 1729 Prairie. DETAIL 4/5: a kit build matched to its picture; 3 solved pictures, 2 matching. Pictured: 6 of the pictures on the Images tab show it. Next: Pullman House, 1729 Prairie.",
       "read_s": 14,
       "evidence": [
         "stood-22",
@@ -479,7 +479,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "pullman_house_1729_prairie",
+          "id": "pullman_house_1729_prairie_conservatory",
           "label": "About this building"
         }
       ],
@@ -489,9 +489,9 @@
       "id": "stop-23",
       "destination": {
         "kind": "structure",
-        "id": "pullman_house_1729_prairie_conservatory"
+        "id": "pullman_house_1729_prairie"
       },
-      "text": "Pullman conservatory, 1729 Prairie. DETAIL 4/5: a kit build matched to its picture; 3 solved pictures, 2 matching. Pictured: 6 of the pictures on the Images tab show it. Next: Dexter coach house, 1721 Prairie.",
+      "text": "Pullman House, 1729 Prairie. DETAIL 4/5: a kit build matched to its picture; 5 solved pictures, 2 matching. Pictured: 21 of the pictures on the Images tab show it. Next: Dexter coach house, 1721 Prairie.",
       "read_s": 15,
       "evidence": [
         "stood-23",
@@ -500,7 +500,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "pullman_house_1729_prairie_conservatory",
+          "id": "pullman_house_1729_prairie",
           "label": "About this building"
         }
       ],
@@ -1299,21 +1299,21 @@
     },
     {
       "id": "stood-22",
-      "text": "Pullman House, 1729 Prairie stood on 1 July 1904, as its structure record carries it.",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
-      ],
-      "confidence": "inferred",
-      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1840 census rules it present in 1904 (present_as_mapped), and the Detroit Publishing photograph (between 1890 and 1901; after 1893 by the monument it shows) shows the same main block. Its building and loss dates are not read here."
-    },
-    {
-      "id": "stood-23",
       "text": "Pullman conservatory, 1729 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
       "confidence": "inferred",
       "reasoning": "STANDING IN 1904 is what the scene needs, and it rests on sheet 20 of the 1911 Sanborn carried back seven years, the reading the Glessner and 1808 records and the 1904 parcels make of these sheets. FROM: the T-1837 building register reports an 1892 east addition to the Pullman house, and the wing toward the stable is read as part of it; the register is not a source record here, so the day is the 1st of January and the confidence inferred. TO: the register reports the house's loss in 1922; same footing, the year's last day."
+    },
+    {
+      "id": "stood-23",
+      "text": "Pullman House, 1729 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "confidence": "inferred",
+      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1840 census rules it present in 1904 (present_as_mapped), and the Detroit Publishing photograph (between 1890 and 1901; after 1893 by the monument it shows) shows the same main block. Its building and loss dates are not read here."
     },
     {
       "id": "stood-24",
