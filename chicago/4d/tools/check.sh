@@ -1348,6 +1348,15 @@ step "a K08 tower stands on a K01 rear wing's wall past the wing's eave, closed 
 step "a flat-topped projection stands on a K01 wing's gable end, and a wing's gables are stone-coped (T-3337)" \
   python3 tools/test_k01_wing_coping.py
 
+# T-3354. ...and a flank gable may stand back from one end over a flat deck (`roof.flat_end`), and a
+# flank-gabled wing may carry gabled, coped and pinnacled dormers on its street slope
+# (`roof.dormers`, k01_wing_dormers) — 1919 Prairie's middle range, flat-topped at its north-west
+# corner, and the rear range's two dormers, all three Gatlin plates. Held on 1919's record; a flat
+# end out of its bounds or on a rear gable, and a dormer out of its bounds, past its span, over the
+# ridge, crowding another or with a light that does not fit, refused.
+step "a K01 wing's gable stands back from a flat end, and pinnacled dormers stand on its street slope (T-3354)" \
+  python3 tools/test_k01_wing_dormers.py
+
 # T-3353. ...and a brick wing may name stone `dressings`: belts on the walls it names, in place of
 # K03's brick string course there, and quoins up the corners it names (1919 Prairie's rear
 # ranges, the 1919 programme plate's pale corners and courses). Held on 1919's record; a corner

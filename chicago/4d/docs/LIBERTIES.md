@@ -40841,3 +40841,83 @@ lower face are not seen in any picture; they follow the front's section.
 permit drawing.
 **Ticket:** T-3384.
 **Recorded:** 2026-11-05 (T-3384).
+
+### L-k11-coping-1600-east-3394 — A low stone coping on the street line of the nine east fronts of the 1600 block of Prairie
+
+**Decision:** the east side of the 1600 block of Prairie Avenue, 1601, 1609, 1611, 1613, 1615,
+1619, 1621, 1623 and 1625, had been built with open fronts (T-3215, T-3216, T-3230): nothing on
+the street line, the lawn running out to the public walk. The owner, 2026-11-05, at 1625 looking
+north: "the bulk of these in the 1600 block are missing their street fences/borders". Each is now
+closed by a low squared stone coping on the street line, its street face 0.31 m inside the public
+walk's inner edge, 0.35 m high and 0.35 m through, its arris chamfered 0.05 m on the brick and stone
+houses (K11) and square on the three frame houses (K16), cut for the walk where it comes out from
+the stair: the walk's (or the stoop's) width and 0.3 m either side, or run on to the lot line where
+less than 0.3 m of coping would be left (1611's north end). **What is read, not invented.** Lot-line
+coping of this kind is read along the walk's inside edge in Views of Chicago (1905) and the Flinn
+view (docs/RESEARCH/prairie_1904_street_section.md), and the 1700 block's pictured copings (1700's
+photograph, 1721's 1891 plate, 1736's c. 1890 photograph and its surviving curbstone) give its
+section; the street and lot lines are the 1904 parcels' (data/street_grid/1904.json, from the 1911
+Sanborn sheet 20). **Against the pictures.** 1621's and 1623's 1886 drawings and 1625's January
+1890 photograph show those three fronts open, fourteen to eighteen years before the scene; the
+coping is built over them by the owner's ruling, recorded as `owner ruling` in each view's match
+record. **What is invented or held by the kit.** That any of the nine had a coping in 1904; its
+height, section and line; the openings' widths.
+**How to resolve:** a photograph of any of these fronts from about 1895-1910, or a survey plat that
+draws the street-line copings.
+**Covers:** `house_1601_prairie.as_mapped_1904.form.boundary`, `house_1609_prairie.as_mapped_1904.form.boundary`, `house_1611_prairie.as_mapped_1904.form.boundary`, `house_1613_prairie.as_mapped_1904.form.boundary`, `house_1615_prairie.as_mapped_1904.form.boundary`, `house_1619_prairie.as_mapped_1904.form.boundary`, `house_1621_prairie.as_mapped_1904.form.boundary`, `house_1623_prairie.as_mapped_1904.form.boundary`, `house_1625_prairie.as_mapped_1904.form.boundary`.
+**Ticket:** T-3394.
+**Recorded:** 2026-11-05 (T-3394).
+
+### L-k11-1637-street-line-3394 — 1637 Prairie's garden wall and iron fence moved out to the street line, gated at the walk
+
+**Decision:** 1637 Prairie's front garden, the brick wall before the north flank and the iron
+spear fence before the rest of the front, had been built on one line 3.5 m before the house, read
+off the remodel engraving's ground plane (T-2447, L-k01-1637-spalding-garden-2447). The owner,
+2026-11-05, of this front: "and is that street fence right?  fix if not please that house seems to
+be missing it in the right position". Both now stand on the street line, 9.74 m before the main
+front, their street face 0.31 m inside the public walk as every street-line front in the block
+stands. The wall keeps its drawn run (the north lot line to its end pier at s 0.87, 2.0 m high);
+the fence runs from that pier to the south lot line; and the walk crosses it through a pair of
+the K11 kit's walk gates on stone piers, 1.9 m clear, on the stoop's axis (the ruled centred
+door, s 6.71). **What is read, not invented.** The Grosvenor as-built photograph shows the
+house's earlier iron fence on its curb at the walk, across the frame's foot. **Against the
+picture.** The engraving's ground reads the garden's line close before the house; recorded as
+`owner ruling` in spalding_remodel_engraving.match.json. **What is invented or held by the kit.**
+The line's exact distance, the gates, their piers and the opening's width.
+**How to resolve:** a photograph of the front from about 1895-1910.
+**Covers:** `spalding_house_1637_prairie.as_mapped_1904.form.boundary`.
+**Ticket:** T-3394.
+**Recorded:** 2026-11-05 (T-3394).
+
+### L-k01-1919-range-dormers-3354 — 1919 Prairie's middle range flat-topped at its north end under a set-back gable, and the rear range's two pinnacled dormers, off all three Gatlin plates
+
+**Decision:** Read together through their three solved cameras, the Gatlin Institute plates of 1919
+Prairie (the 1912 Blue Book's, the 1913 Almanac's and the 1919 programme's) stand the north flank's
+flat-topped two-storey blocks IN FRONT of the ranges' gables rather than under them: the middle range's
+north-west corner is a flat-topped quoined block under a cornice, and its gable rises behind it, higher
+than a 50-degree gable off the north wall reaches. K01 now builds a flank gable that stands back from one
+end over a flat tin deck at the wing's wall top (`rear_wings[].roof.flat_end`, k01_frontage.
+wing_flat_end_deck), and gabled dormers on a flank-gabled wing's street slope (`rear_wings[].roof.dormers`,
+k01_wing_dormers), neither of which it could before. The middle range's gable stands back 1.6 m and is
+pitched 60 degrees (it was 50): through all three cameras its finial now lands on the plates' highest gable
+within about 3-8 px (it stood 25-30 px left and 30-60 px under). The rear range carries the two small
+pinnacled dormers all three plates draw on its slope facing the avenue, at v -3.85 and -2.3 m, 0.3 m in
+from its wall line, where through all three cameras both land on the plates' two within about 5-10 px.
+**What is read, not invented.** That the middle range's north-west corner is flat-topped with its gable
+behind and higher; the gable's place (across) and its finial's height; the dormers' count, places and
+heights (eaves about 12.0 m, finials about 13.3 m), their single tall dark lights, their steep gables and
+the pinnacles at their shoulders.
+**What is invented.** The flat end's 1.6 m depth (the least that leaves the second dormer clear of the
+gable's verge; the plates do not show the deck's depth); the 60-degree pitch, K04's steepest slate, where the
+plates want the apex perhaps 0.3-0.6 m higher still; the dormers' 1.0 m faces, 0.45 by 1.5 m lights, brick
+faces and cheeks, 0.3 m setback, and the coping's, pinnacles' and finial's sizes and forms (the halftones are
+too soft to read them); that the dormers' faces stand on the rear range's slope rather than on a part of the
+roof the 1911 sheet does not separate.
+**What is not built.** The two-light stone-mullioned windows the 1919 plate draws in the flat-topped corner
+block's street and north faces; the rear range's own gable, still about 20-35 px (1-2 m) left of the plates'
+second gable in all three, whose plan the plates do not show.
+**How to resolve:** a picture of the rear or the flank at closer range, or a reading of the ranges' plan that
+reconciles the 1911 trace with the plates.
+**Ticket:** T-3354 (piece 2 of T-3338).
+**Review:** `docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/gatlin_programme_1919-side-by-side.jpg` and the other two views' side-by-sides.
+**Recorded:** 2026-11-05 (T-3354).

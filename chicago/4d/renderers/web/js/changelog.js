@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2680, ts: '2026-11-06T01:41:35.140Z', date: 'Nov 5, 2026, 7:41 PM CT', title: 'Prairie\'s 1600 block closes its street fronts', kind: 'fix',
+    items: [
+      '1637 Prairie\'s brick wall and iron fence now stand on the street line, with a pair of gates where the walk comes in.',
+      'The nine open east fronts from 1601 to 1625 get a low stone coping along the sidewalk, cut where each walk comes through.',
+      '1621, 1623 and 1625 had been left open because their 1886-90 pictures show them that way; the coping is the owner\'s call, recorded as a liberty.',
+    ] },
+  { v: 2679, ts: '2026-11-06T01:02:48.155Z', date: 'Nov 5, 2026, 7:02 PM CT', title: '1919 Prairie\'s rear roofs: two pinnacled dormers and a flat-topped corner', kind: 'improvement',
+    items: [
+      'The rear range now has the two small pinnacled dormers all three Gatlin Institute plates show on its street-side slope. Each has one tall light, a stone-coped gable, a finial and a pinnacle at each edge.',
+      'The middle range\'s north-west corner is now the flat-topped block the plates show. Its gable stands 1.6 m back and steeper behind it, so it reaches the plates\' highest gable within a few pixels; before, it stood 1–3 m low and to one side.',
+    ] },
   { v: 2678, ts: '2026-11-06T00:41:28.881Z', date: 'Nov 5, 2026, 6:41 PM CT', title: 'Glessner House can be 3D printed', kind: 'feature',
     items: [
       'Nothing you can see changed in the scene. A new export turns a building\'s model into a 3D-printable file: one watertight solid on a flat base, ready for a home printer.',
