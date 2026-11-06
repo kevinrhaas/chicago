@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2717, ts: '2026-11-06T17:01:40.704Z', date: 'Nov 6, 2026, 11:01 AM CT', title: 'Switching to Light no longer logs a hidden error', kind: 'fix',
+    items: [
+      'Dropping the town to the Light setting used to log a background error each time the carriages were cleared away, which turned the walkthrough\'s own health check red. The fix is now held by a test, so it cannot quietly come back.',
+    ] },
   { v: 2716, ts: '2026-11-06T16:43:10.507Z', date: 'Nov 6, 2026, 10:43 AM CT', title: 'A lantern hangs beside the Pullman house\'s portico', kind: 'improvement',
     items: [
       '1729 Prairie: an iron lantern now hangs on a wrought arm beside the portico, as the 1890 Albertype plate draws it, with a second banded stone pier at the corner behind it.',
