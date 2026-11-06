@@ -4219,6 +4219,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/human_driver_livery_1904.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/human_fixture.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5674,23 +5678,11 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/horse_walk_v2.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_fabric.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/human_driver_livery_1904.py": {
+    "tools/test_driver_life.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/test_driver_livery.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_driver_life.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5855,6 +5847,10 @@
       "wrote_ignored": []
     },
     "tools/test_house_front.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_actions.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

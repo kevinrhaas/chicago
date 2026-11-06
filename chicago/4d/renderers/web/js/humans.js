@@ -33,6 +33,7 @@
 import * as THREE from 'three';
 import { resolveHumanIdentity, humanRoleCard } from './human-identity.js';
 import { createHumanLife } from './human-life.js';
+import { createHumanActions } from './human-actions.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { registerKTX2 } from './ktx2.js';
 import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
@@ -173,6 +174,8 @@ export class HumanActor {
     // T-3402: breathing, weight shifts, gaze and blinks over the clip (human-life.js).
     // One per figure, rebound on a LOD swap; null until a contract-skeleton body loads.
     this.life = null;
+    // T-3415: what the arms and hands do (human-actions.js), after the life layer.
+    this.actions = null;
     this.body = null;           // { lod, scene, meshes, mixer, clips, actions, faces }
     this.pending = null;
     this.clipName = null;
@@ -223,6 +226,8 @@ export class HumanActor {
       this.play(this.clipName ?? this.defaultClip(), { fade: 0, time });
       if (this.life) this.life.bind(next.scene);
       else this.life = createHumanLife({ id: this.personId ?? this.id, scene: next.scene });
+      if (this.actions) this.actions.bind(next.scene);
+      else this.actions = createHumanActions({ id: this.personId ?? this.id, scene: next.scene });
       if (prev) { this.counters.swaps++; this.teardown(prev); }
       this.costs = '';
       this.applyCosts();
@@ -437,6 +442,10 @@ export class HumanActor {
       b.mixer.update(clipDt);
       // Life rides the clip's own clock, so a held clip holds it too.
       if (this.life?.bound && !b.oneShot) this.life.apply(clipDt, { state: this.state, root: this.root, viewer: cameraPosition });
+      if (this.actions?.bound && !b.oneShot) {
+        this.actions.apply(clipDt, { state: this.state, root: this.root, viewer: cameraPosition });
+        if (this.actions.takeNod()) this.life?.nod();
+      }
       this.visualIdleBody = naturalStanding ? b : null;
       this.counters.animated++;
     } else this.visualIdleBody = null;
