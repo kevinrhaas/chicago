@@ -325,10 +325,15 @@ function coverageMips(source) {
   return levels;
 }
 
-let ATLAS = null;
-/** The leaf atlas, painted once per page; a canvas texture with mips. */
-export function cropAtlas() {
-  if (ATLAS) return ATLAS;
+const ATLAS = new Map();
+/**
+ * The leaf atlas, painted once per page; a canvas texture with mips. `lowSpec` (a phone)
+ * gets it one level down, 512 x 256: a quarter of the bytes, and a leaf on a phone's
+ * screen is never drawn larger than that level holds (T-3407 follow-up, 1812 phone
+ * memory over its ceiling).
+ */
+export function cropAtlas(lowSpec = false) {
+  if (ATLAS.has(lowSpec)) return ATLAS.get(lowSpec);
   const canvas = typeof OffscreenCanvas !== 'undefined'
     ? new OffscreenCanvas(TILE * GRID[0], TILE * GRID[1])
     : Object.assign(document.createElement('canvas'), { width: TILE * GRID[0], height: TILE * GRID[1] });
@@ -343,14 +348,16 @@ export function cropAtlas() {
   paintFern(ctx, ...o(LEAF.fern), 16);
   paintPinnate(ctx, ...o(LEAF.potato), 17);
   paintPalmate(ctx, ...o(LEAF.berry), 'berry', 18);
-  const tex = new THREE.CanvasTexture(canvas);
+  const mips = coverageMips(canvas);
+  const levels = lowSpec ? mips.slice(1) : mips;
+  const tex = new THREE.CanvasTexture(levels[0]);
   tex.colorSpace = THREE.SRGBColorSpace;
-  tex.mipmaps = coverageMips(canvas);
+  tex.mipmaps = levels;
   tex.generateMipmaps = false;
   tex.minFilter = THREE.LinearMipmapLinearFilter;
   tex.anisotropy = 4;
   tex.name = 'garden-crop-atlas';
-  ATLAS = tex;
+  ATLAS.set(lowSpec, tex);
   return tex;
 }
 
@@ -365,7 +372,7 @@ function atlasUV(tile, u, v) {
 /* soil textures                                                               */
 /* -------------------------------------------------------------------------- */
 
-function soilCanvas(kind, seed) {
+function soilCanvas(kind, seed, lowSpec = false) {
   const S = 256;
   const canvas = typeof OffscreenCanvas !== 'undefined' ? new OffscreenCanvas(S, S)
     : Object.assign(document.createElement('canvas'), { width: S, height: S });
@@ -417,7 +424,14 @@ function soilCanvas(kind, seed) {
       ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + 18 + r() * 30, y + (r() - 0.5) * 4); ctx.stroke();
     }
   }
-  const tex = new THREE.CanvasTexture(canvas);
+  let image = canvas;
+  if (lowSpec) {
+    // a phone keeps the 128 px level: a quarter of the bytes, the same ground at its distance
+    image = typeof OffscreenCanvas !== 'undefined' ? new OffscreenCanvas(S / 2, S / 2)
+      : Object.assign(document.createElement('canvas'), { width: S / 2, height: S / 2 });
+    image.getContext('2d').drawImage(canvas, 0, 0, S / 2, S / 2);
+  }
+  const tex = new THREE.CanvasTexture(image);
   tex.colorSpace = THREE.SRGBColorSpace;
   tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
   tex.generateMipmaps = true;
@@ -1030,10 +1044,10 @@ function distToPoly(poly, x, y) {
  * vertex on the ground plus `lift`, and `crown` more where it is more than `shoulder`
  * metres in from the edge, so a bed stands as a low raised bed with a sloped side.
  */
-function drape(poly, toWorld, groundAt, { lift, crown = 0, shoulder = 0.35, conf, uvScale = 0.5, colorAt = null }) {
+function drape(poly, toWorld, groundAt, { lift, crown = 0, shoulder = 0.35, conf, uvScale = 0.5, colorAt = null, cell = CELL_M }) {
   const us = poly.map((p) => p[0]), vs = poly.map((p) => p[1]);
   const u0 = Math.min(...us), u1 = Math.max(...us), v0 = Math.min(...vs), v1 = Math.max(...vs);
-  const nu = Math.max(1, Math.ceil((u1 - u0) / CELL_M)), nv = Math.max(1, Math.ceil((v1 - v0) / CELL_M));
+  const nu = Math.max(1, Math.ceil((u1 - u0) / cell)), nv = Math.max(1, Math.ceil((v1 - v0) / cell));
   const b = new Buf();
   const ids = new Map();
   const vert = (i, j) => {
@@ -1126,7 +1140,7 @@ function bedCard(garden, bed, doc) {
  */
 export async function createGardens({
   dataBase, sceneId, terrain, confidence = null, problems = [], detail = 'full', levelAt = null,
-  lowSpec = false,
+  lowSpec = false, onGeometry = null,
 } = {}) {
   const group = new THREE.Group();
   group.name = 'gardens';
@@ -1149,137 +1163,188 @@ export async function createGardens({
   if (!gardens.length) return out;
   const groundAt = (e, n) => terrain.surfaceHeight(e, n) + (levelAt?.(e, n) ?? 0);
   const disposers = [];
+  // A phone (T-3407 follow-up, 1812 phone memory over its ceiling): the soil laid on a
+  // 1.2 m grid, not 0.6, and one grown variant of each crop, turned and sized per plant,
+  // not three. Desktop keeps both.
+  const cell = lowSpec ? CELL_M * 2 : CELL_M;
+  const variants = lowSpec ? 1 : VARIANTS;
 
-  /* ---- the ground: walks, then the beds over them ---- */
-  const walkTex = soilCanvas('walk', 7);
-  const bedTex = soilCanvas('bed', 9);
-  const walkMat = new THREE.MeshStandardMaterial({ map: walkTex, vertexColors: true, roughness: 0.97, metalness: 0,
-    polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 });
-  const bedMat = new THREE.MeshStandardMaterial({ map: bedTex, vertexColors: true, roughness: 0.95, metalness: 0,
-    polygonOffset: true, polygonOffsetFactor: -3, polygonOffsetUnits: -3 });
-  walkMat.name = 'garden-walks'; bedMat.name = 'garden-beds';
-  for (const m of [walkMat, bedMat]) confidence?.patch?.(m);
-  disposers.push(() => { walkMat.dispose(); bedMat.dispose(); walkTex.dispose(); bedTex.dispose(); });
+  // What build() lays and every later call reads.
   const bedsHit = [];
-  for (const g of gardens) {
-    const toWorld = frameOf(g);
-    const walkConf = CONF[g.walk_grade] ?? 0.5;
-    const inset = g.paling_inset_m ?? 0.15;
-    const [W, D] = g.size_m;
-    const plot = [[inset, inset], [W - inset, inset], [W - inset, D - inset], [inset, D - inset]];
-    const walk = new THREE.Mesh(drape(plot, toWorld, groundAt, { lift: SOIL_LIFT.walk, conf: walkConf, uvScale: 0.45,
-      // the trodden middle of each walk paler, its edges where the grass hangs on greener
-      colorAt: (u, v) => {
-        const nearBed = (g.beds ?? []).some((b) => distToPoly(b.poly, u, v) < 0.35);
-        return nearBed ? [0.82, 0.9, 0.7] : [1, 1, 1];
-      } }), walkMat);
-    walk.name = `garden-walks:${g.id}`;
-    walk.receiveShadow = true;
-    group.add(walk);
-    for (const bed of g.beds ?? []) {
-      const conf = CONF[bed.grade] ?? 0.5;
-      const r = rng(strSeed(bed.id));
-      const mesh = new THREE.Mesh(drape(bed.poly, toWorld, groundAt, { lift: SOIL_LIFT.bed, crown: SOIL_LIFT.crown,
-        conf, uvScale: 0.5, colorAt: () => tint([1, 1, 1], 0.92 + r() * 0.16) }), bedMat);
-      mesh.name = `garden-bed:${g.id}:${bed.id}`;
-      mesh.receiveShadow = true;
-      group.add(mesh);
-      const c = bed.poly.reduce((a, p) => [a[0] + p[0] / bed.poly.length, a[1] + p[1] / bed.poly.length], [0, 0]);
-      const [ce, cn] = toWorld(c);
-      bedsHit.push({ garden: g, bed, e: ce, n: cn, y: groundAt(ce, cn) + 0.15 });
-      stats.beds += 1;
-    }
-  }
-
-  /* ---- the crops: every plant one instance of its kind's variant ---- */
-  const atlas = cropAtlas();
-  const leafMat = new THREE.MeshStandardMaterial({ map: atlas, vertexColors: true, roughness: 0.82, metalness: 0,
-    side: THREE.DoubleSide, alphaTest: LEAF_CUTOFF });
-  leafMat.name = 'garden-leaves';
-  const solidMat = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.75, metalness: 0 });
-  solidMat.name = 'garden-solid';
-  confidence?.patch?.(leafMat);
-  confidence?.patch?.(solidMat);
-  const leafDepth = new THREE.MeshDepthMaterial({ map: atlas, alphaTest: LEAF_CUTOFF, side: THREE.DoubleSide,
-    depthPacking: THREE.RGBADepthPacking });
-  disposers.push(() => { leafMat.dispose(); solidMat.dispose(); leafDepth.dispose(); });
-
-  // every plant, in world space
   const plants = [];
-  for (const g of gardens) {
-    for (const [kind, list] of Object.entries(g.plants ?? {})) {
-      if (!KINDS[kind]) { problems.push(`gardens: ${g.id} plants an unknown kind "${kind}"`); continue; }
-      const conf = CONF[doc.crops?.[kind]?.grade] ?? 1;
-      for (const [e, n, yaw, scale, variant] of list) {
-        plants.push({ kind, e, n, y: groundAt(e, n) + SOIL_LIFT.bed, yaw: (yaw * Math.PI) / 180, scale,
-          variant: variant % VARIANTS, conf });
-      }
-    }
-  }
-  stats.plants = plants.length;
-
-  // the templates: per kind, per variant, per level; one grade per kind
-  const templates = new Map();
-  let leafV = 0, leafI = 0, solidV = 0, solidI = 0;
-  const kinds = [...new Set(plants.map((p) => p.kind))];
-  for (const kind of kinds) {
-    const conf = CONF[doc.crops?.[kind]?.grade] ?? 1;
-    for (let v = 0; v < VARIANTS; v += 1) {
-      for (const lod of LODS) {
-        const t = growTemplate(kind, v, lod, conf);
-        templates.set(`${kind}:${v}:${lod}`, t);
-        if (t.leaves) { leafV += t.leaves.attributes.position.count; leafI += t.leaves.index.count; }
-        if (t.solid) { solidV += t.solid.attributes.position.count; solidI += t.solid.index.count; }
-      }
-    }
-  }
-  const n = plants.length;
-  const leaves = new THREE.BatchedMesh(Math.max(1, n), Math.max(3, leafV), Math.max(3, leafI), leafMat);
-  const solids = new THREE.BatchedMesh(Math.max(1, n), Math.max(3, solidV), Math.max(3, solidI), solidMat);
-  leaves.name = 'garden-crops:leaves'; solids.name = 'garden-crops:solid';
-  leaves.customDepthMaterial = leafDepth;
-  for (const b of [leaves, solids]) { b.receiveShadow = true; b.perObjectFrustumCulled = true; b.sortObjects = false; }
   const geoIds = new Map();
-  for (const [key, t] of templates) {
-    geoIds.set(key, {
-      leaves: t.leaves ? leaves.addGeometry(t.leaves) : -1,
-      solid: t.solid ? solids.addGeometry(t.solid) : -1,
-      tris: t.tris,
-    });
-    t.leaves?.dispose(); t.solid?.dispose();
+  let leaves = null, solids = null, built = false;
+
+  /** Lay the walks and beds, grow the templates and plant every crop: once. */
+  function build() {
+    built = true;
+    /* ---- the ground: walks, then the beds over them ---- */
+    const walkTex = soilCanvas('walk', 7, lowSpec);
+    const bedTex = soilCanvas('bed', 9, lowSpec);
+    const walkMat = new THREE.MeshStandardMaterial({ map: walkTex, vertexColors: true, roughness: 0.97, metalness: 0,
+      polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 });
+    const bedMat = new THREE.MeshStandardMaterial({ map: bedTex, vertexColors: true, roughness: 0.95, metalness: 0,
+      polygonOffset: true, polygonOffsetFactor: -3, polygonOffsetUnits: -3 });
+    walkMat.name = 'garden-walks'; bedMat.name = 'garden-beds';
+    for (const m of [walkMat, bedMat]) confidence?.patch?.(m);
+    disposers.push(() => { walkMat.dispose(); bedMat.dispose(); walkTex.dispose(); bedTex.dispose(); });
+    for (const g of gardens) {
+      const toWorld = frameOf(g);
+      const walkConf = CONF[g.walk_grade] ?? 0.5;
+      const inset = g.paling_inset_m ?? 0.15;
+      const [W, D] = g.size_m;
+      const plot = [[inset, inset], [W - inset, inset], [W - inset, D - inset], [inset, D - inset]];
+      const walk = new THREE.Mesh(drape(plot, toWorld, groundAt, { lift: SOIL_LIFT.walk, conf: walkConf, uvScale: 0.45, cell,
+        // the trodden middle of each walk paler, its edges where the grass hangs on greener
+        colorAt: (u, v) => {
+          const nearBed = (g.beds ?? []).some((b) => distToPoly(b.poly, u, v) < 0.35);
+          return nearBed ? [0.82, 0.9, 0.7] : [1, 1, 1];
+        } }), walkMat);
+      walk.name = `garden-walks:${g.id}`;
+      walk.receiveShadow = true;
+      group.add(walk);
+      for (const bed of g.beds ?? []) {
+        const conf = CONF[bed.grade] ?? 0.5;
+        const r = rng(strSeed(bed.id));
+        const mesh = new THREE.Mesh(drape(bed.poly, toWorld, groundAt, { lift: SOIL_LIFT.bed, crown: SOIL_LIFT.crown,
+          conf, uvScale: 0.5, cell, colorAt: () => tint([1, 1, 1], 0.92 + r() * 0.16) }), bedMat);
+        mesh.name = `garden-bed:${g.id}:${bed.id}`;
+        mesh.receiveShadow = true;
+        group.add(mesh);
+        const c = bed.poly.reduce((a, p) => [a[0] + p[0] / bed.poly.length, a[1] + p[1] / bed.poly.length], [0, 0]);
+        const [ce, cn] = toWorld(c);
+        bedsHit.push({ garden: g, bed, e: ce, n: cn, y: groundAt(ce, cn) + 0.15 });
+        stats.beds += 1;
+      }
+    }
+
+    /* ---- the crops: every plant one instance of its kind's variant ---- */
+    const atlas = cropAtlas(lowSpec);
+    const leafMat = new THREE.MeshStandardMaterial({ map: atlas, vertexColors: true, roughness: 0.82, metalness: 0,
+      side: THREE.DoubleSide, alphaTest: LEAF_CUTOFF });
+    leafMat.name = 'garden-leaves';
+    const solidMat = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.75, metalness: 0 });
+    solidMat.name = 'garden-solid';
+    confidence?.patch?.(leafMat);
+    confidence?.patch?.(solidMat);
+    const leafDepth = new THREE.MeshDepthMaterial({ map: atlas, alphaTest: LEAF_CUTOFF, side: THREE.DoubleSide,
+      depthPacking: THREE.RGBADepthPacking });
+    disposers.push(() => { leafMat.dispose(); solidMat.dispose(); leafDepth.dispose(); });
+
+    // every plant, in world space
+    for (const g of gardens) {
+      for (const [kind, list] of Object.entries(g.plants ?? {})) {
+        if (!KINDS[kind]) { problems.push(`gardens: ${g.id} plants an unknown kind "${kind}"`); continue; }
+        const conf = CONF[doc.crops?.[kind]?.grade] ?? 1;
+        for (const [e, n, yaw, scale, variant] of list) {
+          plants.push({ kind, e, n, y: groundAt(e, n) + SOIL_LIFT.bed, yaw: (yaw * Math.PI) / 180, scale,
+            variant: variant % variants, conf });
+        }
+      }
+    }
+    stats.plants = plants.length;
+
+    // the templates: per kind, per variant, per level; one grade per kind
+    const templates = new Map();
+    // A phone builds no near level: its near ring is 8 m (`light`), and the near models are
+    // three quarters of the templates' bytes (T-3407 follow-up, 1812 phone memory).
+    const lods = lowSpec ? LODS.filter((l) => l !== 'near') : LODS;
+    let leafV = 0, leafI = 0, solidV = 0, solidI = 0;
+    const kinds = [...new Set(plants.map((p) => p.kind))];
+    for (const kind of kinds) {
+      const conf = CONF[doc.crops?.[kind]?.grade] ?? 1;
+      for (let v = 0; v < variants; v += 1) {
+        for (const lod of lods) {
+          const t = growTemplate(kind, v, lod, conf);
+          templates.set(`${kind}:${v}:${lod}`, t);
+          if (t.leaves) { leafV += t.leaves.attributes.position.count; leafI += t.leaves.index.count; }
+          if (t.solid) { solidV += t.solid.attributes.position.count; solidI += t.solid.index.count; }
+        }
+      }
+    }
+    const n = plants.length;
+    leaves = new THREE.BatchedMesh(Math.max(1, n), Math.max(3, leafV), Math.max(3, leafI), leafMat);
+    solids = new THREE.BatchedMesh(Math.max(1, n), Math.max(3, solidV), Math.max(3, solidI), solidMat);
+    leaves.name = 'garden-crops:leaves'; solids.name = 'garden-crops:solid';
+    leaves.customDepthMaterial = leafDepth;
+    for (const b of [leaves, solids]) { b.receiveShadow = true; b.perObjectFrustumCulled = true; b.sortObjects = false; }
+    for (const [key, t] of templates) {
+      geoIds.set(key, {
+        leaves: t.leaves ? leaves.addGeometry(t.leaves) : -1,
+        solid: t.solid ? solids.addGeometry(t.solid) : -1,
+        tris: t.tris,
+      });
+      t.leaves?.dispose(); t.solid?.dispose();
+    }
+    const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), s = new THREE.Vector3(), p = new THREE.Vector3();
+    const yAxis = new THREE.Vector3(0, 1, 0);
+    for (const pl of plants) {
+      const far = geoIds.get(`${pl.kind}:${pl.variant}:far`);
+      p.set(pl.e, pl.y, -pl.n);
+      q.setFromAxisAngle(yAxis, pl.yaw);
+      s.setScalar(pl.scale);
+      m4.compose(p, q, s);
+      pl.leafId = far.leaves >= 0 ? leaves.addInstance(far.leaves) : -1;
+      pl.solidId = far.solid >= 0 ? solids.addInstance(far.solid) : -1;
+      if (pl.leafId >= 0) leaves.setMatrixAt(pl.leafId, m4);
+      if (pl.solidId >= 0) solids.setMatrixAt(pl.solidId, m4);
+      pl.level = 'far';
+    }
+    group.add(leaves, solids);
+    stats.drawCalls = 2 + gardens.length + stats.beds;
+    disposers.push(() => { leaves.dispose(); solids.dispose(); });
   }
-  const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), s = new THREE.Vector3(), p = new THREE.Vector3();
-  const yAxis = new THREE.Vector3(0, 1, 0);
-  for (const pl of plants) {
-    const far = geoIds.get(`${pl.kind}:${pl.variant}:far`);
-    p.set(pl.e, pl.y, -pl.n);
-    q.setFromAxisAngle(yAxis, pl.yaw);
-    s.setScalar(pl.scale);
-    m4.compose(p, q, s);
-    pl.leafId = far.leaves >= 0 ? leaves.addInstance(far.leaves) : -1;
-    pl.solidId = far.solid >= 0 ? solids.addInstance(far.solid) : -1;
-    if (pl.leafId >= 0) leaves.setMatrixAt(pl.leafId, m4);
-    if (pl.solidId >= 0) solids.setMatrixAt(pl.solidId, m4);
-    pl.level = 'far';
-  }
-  group.add(leaves, solids);
-  stats.drawCalls = 2 + gardens.length + stats.beds;
-  disposers.push(() => { leaves.dispose(); solids.dispose(); });
 
   /* ---- levels by distance ---- */
   let current = LEVELS[detail] ? detail : 'full';
   let lastEye = null;
   const applyCast = () => {
+    if (!built) return;
     const cast = CAST[current] && !lowSpec;
     leaves.castShadow = cast; solids.castShadow = cast;
   };
+  // A desktop lays the garden at load. A phone (T-3407 follow-up, 1812 phone memory over its
+  // ceiling) lays it the first time the garden comes into the camera's view within its far
+  // ring: from the 1812 spawn it is behind the eye, so a phone that never turns to it never
+  // pays for it, and one that does pays about a megabyte, uploaded and released at once.
+  const ball = new THREE.Sphere();
+  {
+    const pts = [];
+    for (const g of gardens) {
+      const toWorld = frameOf(g);
+      const [W, D] = g.size_m;
+      for (const c of [[0, 0], [W, 0], [W, D], [0, D]]) {
+        const [e, n] = toWorld(c);
+        pts.push(new THREE.Vector3(e, groundAt(e, n) + 1, -n));
+      }
+    }
+    ball.setFromPoints(pts);
+    ball.radius += 3;
+  }
+  const frustum = new THREE.Frustum(), view = new THREE.Matrix4();
+  const comesIntoView = (camera) => {
+    if (camera.position.distanceTo(ball.center) - ball.radius > LEVELS[current].far) return false;
+    camera.updateMatrixWorld();
+    view.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse);
+    return frustum.setFromProjectionMatrix(view).intersectsSphere(ball);
+  };
+  const ensureBuilt = (camera) => {
+    if (built) return true;
+    if (!camera || !comesIntoView(camera)) return false;
+    build();
+    applyCast();
+    onGeometry?.(group);
+    return true;
+  };
+  if (!lowSpec) build();
   applyCast();
   const deal = (eye) => {
+    if (!built) return;
     const L = LEVELS[current];
     let near = 0, tris = 0;
     for (const pl of plants) {
       const d = Math.hypot(pl.e - eye.x, -pl.n - eye.z);
-      const level = d < L.near ? 'near' : d < L.mid ? 'mid' : d < L.far ? 'far' : 'none';
+      const level = d < L.near ? (lowSpec ? 'mid' : 'near') : d < L.mid ? 'mid' : d < L.far ? 'far' : 'none';
       if (level !== pl.level) {
         const ids = level === 'none' ? null : geoIds.get(`${pl.kind}:${pl.variant}:${level}`);
         if (pl.leafId >= 0) {
@@ -1301,11 +1366,17 @@ export async function createGardens({
   out.update = (dt, camera = null) => {
     if (!camera) return;
     const eye = camera.position;
+    if (!built) {
+      if (!ensureBuilt(camera)) return;
+      lastEye = null;
+    }
     if (lastEye && Math.hypot(eye.x - lastEye.x, eye.z - lastEye.z) < STEP_M) return;
     lastEye = eye.clone();
     deal(eye);
   };
-  out.settle = (camera) => { if (camera) { lastEye = camera.position.clone(); deal(camera.position); } };
+  out.settle = (camera) => {
+    if (camera && ensureBuilt(camera)) { lastEye = camera.position.clone(); deal(camera.position); }
+  };
   out.setDetail = (d) => {
     if (!LEVELS[d] || d === current) return;
     current = d; stats.detail = d;
