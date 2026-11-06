@@ -1658,6 +1658,14 @@ Generated bodice, skirt, apron and low-shoe arrays from `tools/human_dress_compo
 | `humans/web/flynn_mary_1835_dress_study.lod2.glb` | Original CC0-1.0 export of the canonical builder over the female base and the dress components above (T-3423); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
 | `humans/flynn_mary_1835_dress_study.lod3.glb` | Original CC0-1.0 export of the canonical builder over the female base and the dress components above (T-3423); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
 | `humans/web/flynn_mary_1835_dress_study.lod3.glb` | Original CC0-1.0 export of the canonical builder over the female base and the dress components above (T-3423); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/williamson_mattie_1904_cook_study.lod0.glb` | Original CC0-1.0 export of the canonical builder over the female base and the 1904 dress components above (T-3423); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/williamson_mattie_1904_cook_study.lod0.glb` | Original CC0-1.0 export of the canonical builder over the female base and the 1904 dress components above (T-3423); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/williamson_mattie_1904_cook_study.lod1.glb` | Original CC0-1.0 export of the canonical builder over the female base and the 1904 dress components above (T-3423); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/williamson_mattie_1904_cook_study.lod1.glb` | Original CC0-1.0 export of the canonical builder over the female base and the 1904 dress components above (T-3423); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/williamson_mattie_1904_cook_study.lod2.glb` | Original CC0-1.0 export of the canonical builder over the female base and the 1904 dress components above (T-3423); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/williamson_mattie_1904_cook_study.lod2.glb` | Original CC0-1.0 export of the canonical builder over the female base and the 1904 dress components above (T-3423); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/williamson_mattie_1904_cook_study.lod3.glb` | Original CC0-1.0 export of the canonical builder over the female base and the 1904 dress components above (T-3423); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/williamson_mattie_1904_cook_study.lod3.glb` | Original CC0-1.0 export of the canonical builder over the female base and the 1904 dress components above (T-3423); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
 
 
 ## Licensed Old Cart farm-box development master — T-2793

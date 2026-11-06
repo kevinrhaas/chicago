@@ -63,6 +63,7 @@
   "assets": {
     "bardwell_otis_1835": {"base_age_years": 35, "sex": "male", "basis": "data/humans/recipes/worker_1835.json: prepared_adult_35 engineering body (old 2/13)."},
     "anonymous_working_driver_1904": {"base_age_years": 35, "sex": "male", "basis": "data/humans/recipes/working_driver_1904.json: 'cleared generic adult35 engineering geometry'."},
-    "flynn_mary_1835_dress_study": {"base_age_years": 25, "sex": "female", "basis": "data/humans/recipes/adult_dress_1835.json: prepared_adult_female_25 engineering body (MakeHuman's female-young macros, 1.65 m), T-3423."}
+    "flynn_mary_1835_dress_study": {"base_age_years": 25, "sex": "female", "basis": "data/humans/recipes/adult_dress_1835.json: prepared_adult_female_25 engineering body (MakeHuman's female-young macros, 1.65 m), T-3423."},
+    "williamson_mattie_1904_cook_study": {"base_age_years": 25, "sex": "female", "basis": "data/humans/recipes/adult_dress_1904.json: prepared_adult_female_25 engineering body (MakeHuman's female-young macros, 1.65 m), T-3423."}
   }
 }

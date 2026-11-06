@@ -36575,6 +36575,22 @@ female macro targets (pinned in `SOURCE-variation.json`) give her seeded weight,
 L-human-variation-3412, each sharing its male twin's draw. Her figure is not a likeness and her
 dress is not her outfit; the photo comparison and the 1904 woman remain open under T-3423.
 
+**The 1904 working dress supplement, 2026-11-06 (T-3423):** a second outfit of the same dress
+components, `adult_dress_1904.json`, stood in the 1904 town as Martha (Mattie) Williamson, the
+Glessners' cook, in the Glessner courtyard (`hi_glessner_williamson_martha_l_1904`). Her place in
+the household is attested (the museum's account of her); everything drawn of her is reconstructed.
+**Cut:** a shirtwaist bodice whose neck cut rises 3.2 cm up the neck as a standing collar, with a white
+band over its top 2.2 cm; a dark skirt; the front apron with a bib laid over the bodice front from
+the waist to 21.5 cm above it, 23.6 cm wide at the bottom and 19.6 cm at the top. These follow the
+silhouette of the working dress in three 1903 C. L. Wasson studio stereographs (LOC, no known
+restrictions; `loc_wasson_1903_*`), not a pattern: the bib's straps, the tie, the cap, the flounces
+and every fold are left out. **Colour:** the stereographs are monochrome, so the pale blue-grey
+shirtwaist, the near-black skirt and the white apron are chosen. **Hair:** the bun sits 10 cm over
+the head bone (5 cm in 1835) and the strand hair is combed up from the face to it, because the
+stereographs show hair drawn up to a knot on the crown. **Body:** the same female base as Mary
+Flynn; no birth year is recorded for her, so the variation kit draws her age, and her face, height,
+build and complexion are not hers.
+
 ### L-tremont-gale-envelope-2385 — two-storey default and picture alternative
 
 **Decision:** the default first Tremont follows Gale's retrospective, 1835-framed
@@ -41316,3 +41332,62 @@ range's own gable, still about 20-35 px (1-2 m) left of the plates' second gable
 **How to resolve:** a picture of the flank at closer range, or the plates at a finer screen.
 **Ticket:** T-3354 (piece 2 of T-3338).
 **Recorded:** 2026-11-06 (T-3354).
+
+### L-k01-1919-north-face-triple-3354 — 1919 Prairie's middle range's north face lit by one three-light stone-mullioned group in each storey, off the Gatlin plates
+
+**Decision:** The 1919 programme plate, read at 8x (x 420-530, y 490-690 px), draws in each storey of the
+dark, ivy-hung face between the rear range's return and the middle range's pale quoined north-west corner
+a group of three narrow pale lights under one head, the dark mullions between them; the 1913 Almanac plate
+draws the same group (both third-run match records said so and left it unbuilt). K01's rear-wing groups
+now take `mullioned.triple` (the sides whose groups are three lights, each `light_m` across), cut as the
+window kit's new three-light flat sash (`k06.opening.sash_triple_flat`, three plate-glass sashes on two
+0.2 m stone mullions, `k01.opening.wing_mullioned_triple`) with the same stone mullions and lintel as the
+street face's pair. 1919's middle range (`marshall_field_jr_house_1919_prairie`) carries one such group in
+each storey of its north face (K01's `south` wall), three 1.1 m lights, 3.7 m across, centred at s 2.2 m
+from the face's east end, in place of the two single sashes at s 2.0 and 5.0 m that the earlier liberty
+(L-k01-1919-range-mullions-3354) left as the kit's. Through the 1919 camera, shifted the 17 px that lands its
+corner on the plate's (the 3.1 m street face is then 65 px against the plate's 64), the plate's group
+centres at s 2.2 m; its west end lands within about 5 px of the plate's in both plates.
+**What is read, not invented.** That the face is lit in both storeys; that each storey's lights are three
+under one head with mullions between; the group's west end, about 15 px short of the quoined corner in both
+plates.
+**What is invented.** The lights' 1.1 m width (the range's own sash) and one-over-one glazing; the 0.2 m
+mullions; the sill and head lines (the range's storeys'); the lintel and its stones, as the street pair's.
+That the group stands on the middle range's north face and not on the rear range's 1.7 m return beside it
+is a reading: the earlier liberty put the 1913 plate's narrow lights on that return, but the 1919 plate
+draws the group as one run of three under one head ending at the quoined corner, which the 1.7 m return
+cannot hold.
+**What is not built.** The group's east end: both plates run it about 1.5-2 m further east than the build's
+3.7 m group (the 1919 plate about 47 px against 27, the 1913 about 33 against 22), past where the 1911 trace
+stands the rear range's west return. That is the same eastward shift the plates give the rear range's gable
+(20-35 px left of the build's in all three), so it waits on a plan reading that reconciles the 1911 trace
+with the plates, not on a wider window.
+**How to resolve:** a picture of the flank at closer range, or the plates at a finer screen; with it, the
+rear range's return re-placed and the group's span read against it.
+**Ticket:** T-3354 (piece 2 of T-3338).
+**Recorded:** 2026-11-06 (T-3354).
+
+### L-k01-2009-meyer-crest-pinnacles-3365 — 2009 Prairie's carved crest on a flat-topped gable, and the door's three pinnacles, read off its photograph
+
+**Decision:** Read off the undated Chicagology photograph (`chicagology_2009_prairie_meyer_photo`, rights
+check_required: forms, places and sizes only) through its solved camera at 100 px a metre on the front's
+plane, the ogee gable now ends in a flat top about 0.8 m across at 16.3 m and carries the print's carved block
+on it in place of the kit's turned finial (`shaped_gable.finial.form: "crest"`): a stone 0.6 m across from
+about 16.08 to 16.40 m, its top the envelope of three scrolled lobes, each lobe's eye a boss. The door's two
+pilasters run on over their capitals as 0.12 m shafts through the carved panel to the thin course at 5.25 m,
+each under a cap and a four-sided spire to 5.6 m, and over the arch's crown a 0.08 m stem rises to the same
+line under a turned bud 0.23 m across to 5.7 m (`entrance_kit.arch.pilasters.pinnacles`).
+**What is read, not invented.** The flat top and its height; the crest's width, foot and top; that its top is
+scrolled; the three pinnacles' places, the shafts' breadth, the course they pass and their tops.
+**What is invented.** The crest's depth (through the slab, 0.06 m before the coping) and its three even lobes,
+where the print's foliage is unequal (the left scroll larger); the pinnacles' plain square shafts, caps and
+spires, where the print's spires are crocketed and the shafts taper in a lower stage beside the panel; the
+bud's turned profile.
+**What is not built.** The pilasters' capitals stay at the keystone's top (4.53 m), where the print puts them
+at the arch's springing (about 4.0 m). The near stack's place and corbelled cap, the base's top, the oriel's
+carved apron, the windows' hoods and the gable's pendant, and the gable's south foot are still as
+L-k01-2009-meyer-1913 and L-k01-2009-meyer-entrance-1914 left them.
+**How to resolve:** a camera solved on Monroe's 1896 plate (`monroe_1896_john_wellborn_root_meyer_plate`) would
+check the crest and the pinnacles from a second picture.
+**Ticket:** T-3365 (piece 2 of T-1914).
+**Recorded:** 2026-11-06 (T-3365).
