@@ -41064,6 +41064,43 @@ description of the garden in 1812, replaces the crops; a better reading of the d
 **Ticket:** T-3407.
 **Recorded:** 2026-11-06 (T-3407).
 
+### L-t3403-battle-shore-1812 — The 1812 shore at the battle: the two surveys joined at Twelfth Street, Heald's high sand bank and ravine laid as one profile, and his small elevation placed
+
+**Decision:** three blocks of `data/terrain/epochs/e1830_natural/terrain_spec.json`, read by
+`generators/terrain_gen_e1830.py` after the 1812 field is built. `twelfth_street_shore_join_1812`: Wright's 1834
+shore is kept to N -2050 and Rees's 1849 shore from N -2420, and a cubic curve that leaves each on its own bearing
+joins them, so the foot of Wright's sheet no longer stands as a strip of beach running out into the lake and the
+48-110 m step Rees's post-pier erosion put at Twelfth Street is gone from 1812. `battle_bank_1812`: from N -1300 to
+-2700 (Heald's band, N -1456 to -2192, with room either side) the ground is one profile measured inland from the
+lake's edge: a 26 m beach rising to 2.6 ft, the bank's near face climbing at about 25 degrees to 13 ft at 38 m, its
+surface 14.5 ft from 44 m, the sand hills rising behind to Heald's high bank, a crest of 19 ft at 96 m, its back falling
+to a ravine 4.6 ft above the water at 144 m, and the 8.5 ft prairie by 200 m; hummocks of up to 3 ft over the hills,
+clipped at 20 ft. `heald_small_elevation_1812`: a rise 8 ft over the plain, its top 36 m across with a 34 m skirt,
+centred at E +960, N -1853, due west of Heald's mile and a half and 358 m from the water. The battle jaunt's ninth stop now stands at eye level on the beach with the bank on the left, and its tenth on the prairie just below the rise, looking up it toward the bank.
+**Why:** the owner, 2026-11-06, at the battle jaunt's ninth and tenth stops: *"there should be a larger sand bank
+closer to description ... there is a sharp cut in the lakeshore that does not seem right and you can barely see that
+whole sand bank"*, and *"where on the open prairie is the small elevation? you should attempt to cite it and place it
+based on history and geography and topology adjustments needed"*.
+**What is read.** Heald's report (1812): the beach, *"with the lake on our left, and a high sand bank on our right, at
+about 100 yards distance"*; the attackers *"behind the bank"*; his men *"to the top of the bank"*; and *"a small
+elevation in the open prarie, out of shot of the bank or any other cover"*. Wau-Bun ch. XIX: *"a range of sand-hills
+intervening between the prairie and the beach"*, *"charged up the bank"*, *"a sort of ravine, intervening between the
+sand-banks and the prairie"*, and the survivors *"gaining a rising ground, not far from the Oak Woods"*. Moses &
+Kirkland p. 60: the bank's surface *"a hundred feet or more back from the water"* and *"from ten to twenty feet in
+height above its level"*. Quaife 1913: *"a row of sand hills, or ridges ... about one hundred yards"* from the beach.
+Wentworth 1881 (in Moses & Kirkland p. 52): the attackers *"upon the bluff"*. That the piers of 1833-34 caused the
+erosion Rees's line records south of them is the 1834 terrain spec's own reading.
+**What is invented.** Every vertex of the join curve and where it leaves each survey; every width, height and place
+in the bank's profile, the hummocks, and the ravine's depth; the small elevation's place, height and size. Its
+distance inland, about 250 yards beyond the back of the bank, is our reading of "out of shot" for a smooth-bore
+musket and cites nothing; its place along the shore is Heald's own mile and a half, not the later Eighteenth Street
+tradition; no account locates Wau-Bun's Oak Woods.
+**How to resolve:** a survey or sketch of the shore south of the river before 1833, a measured description of the
+battle ground (the 1880s Eighteenth Street accounts are the nearest), or a reading that locates the Oak Woods.
+**Covers:** `terrain.e1830_natural.twelfth_street_shore_join_1812`, `terrain.e1830_natural.battle_bank_1812`, `terrain.e1830_natural.heald_small_elevation_1812`
+**Ticket:** T-3403.
+**Recorded:** 2026-11-06 (T-3403).
+
 ### L-human-life-3402 — People on foot breathe, settle their weight, look about and blink
 
 **Decision:** every standing, talking, working, seated or walking figure drawn by `humans.js` carries a

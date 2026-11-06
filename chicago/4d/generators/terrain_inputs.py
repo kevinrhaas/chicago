@@ -179,6 +179,15 @@ CONSUMED = {
     "south_lake_sand_hills_1812": frozenset({"n_range", "end_fade_m", "ridges", "hollow",
                                              "wander_m", "wander_wavelength_m",
                                              "hummock_wavelength_m", "seed"}),
+    # T-3403: the battle shore, read by terrain_gen_e1830.py after the field is built.
+    "twelfth_street_shore_join_1812": frozenset({"north_run", "south_run", "north_from_n_m",
+                                                 "south_to_n_m", "step_m"}),
+    "battle_bank_1812": frozenset({"n_range", "end_fade_m", "beach_back_m", "profile_ft",
+                                   "hummock_ft", "hummock_wavelength_m", "hummock_envelope_m",
+                                   "crest_max_ft", "wander_m", "wander_wavelength_m",
+                                   "blend_back_m", "seed"}),
+    "heald_small_elevation_1812": frozenset({"centre_e", "centre_n", "rise_ft",
+                                             "flat_radius_m", "skirt_m", "aspect"}),
 }
 
 
