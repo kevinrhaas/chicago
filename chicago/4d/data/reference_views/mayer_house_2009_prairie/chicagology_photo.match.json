@@ -2,7 +2,7 @@
   "structure_id": "mayer_house_2009_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/mayer_house_2009_prairie__as_mapped_1904.glb",
-  "glb_sha256": "a07876a5a544e6efd26bf8e858b49536f977a8153d23e282d375d2c8f379b555",
+  "glb_sha256": "f60bc4542d3600c173f28a2c4eebb7b97b4d8a61c605259c5f2aad010235ab03",
   "camera_sha256": "78ec8f49f37566693a797fc7fa98ded24d4845ec40ef057129786224b8258d8a",
   "photo_sha256": "03db894ab10dff078b747f611eba3dd8d9bc3b1f35aae50435017dcd4640b4a2",
   "side_by_side": "docs/RESEARCH/photo-match/mayer_house_2009_prairie/chicagology_photo-side-by-side.jpg",
@@ -101,12 +101,16 @@
       "status": "within tolerance"
     },
     {
-      "what": "the basement's three square lights under the ground window: cut in the rusticated base at the print's centres (1.96, 3.02, 4.05 m), 0.74 m across, from 0.08 m to the base's top at 0.85 m, 0.08 m under the print's heads (T-3365)",
+      "what": "the basement's three square lights under the ground window: cut in the rusticated base at the print's centres (1.96, 3.02, 4.05 m), 0.74 m across, from 0.08 m to 0.85 m in the rusticated base's lowest two courses, 0.08 m under the print's heads (T-3365)",
       "status": "fixed"
     },
     {
-      "what": "the base's top: the print's rock-faced stone runs on over the lights to about 1.35 m under a smooth band to about 1.85 m, where the build's smooth coping is 0.85-1.25 m (about 0.4-0.5 m low, the T-1913 reading of the base, unchanged here)",
-      "status": "open"
+      "what": "the base's top: the print's rock-faced stone runs on over the lights to about 1.26 m (y 1599 px) under a smooth band to about 1.83 m (y 1542 px) and a thin ledge; laid as three rusticated courses of 0.46 m to 1.38 m under a 0.46 m smooth coping to 1.84 m, where the build's coping had been 0.85-1.25 m (T-3365)",
+      "status": "fixed"
+    },
+    {
+      "what": "the base's smooth band starts about 0.12 m over the print's (1.38 m against about 1.26 m): the coping is the dressed trim's deepest course (0.46 m), where the print's band is about 0.57 m",
+      "status": "within tolerance"
     },
     {
       "what": "the string course across the front at about 9.1 m and the stone sill course at the principal floor",

@@ -41,9 +41,12 @@ record = json.loads((ROOT / "data" / "structures" / f"{SID}.json").read_text())
 p = KP.from_phase(record["phases"][0], record)
 lights = sorted((o.s_m, o.sill_m, o.height_m) for o in p.openings if o.component == "k01.opening.area_light")
 check([s for s, _, _ in lights] == [1.96, 3.02, 4.05], f"three basement lights at the named centres ({lights})")
-check(all(abs(sill + h - (p.stone["coping_top_m"] - p.stone["coping_height_m"])) < 1e-6 for _, sill, h in lights),
-      "their heads on the rusticated base's top, under its coping")
-check(abs(p.stone["coping_top_m"] - 1.25) < 1e-6, f"the coping keeps the front's plinth line ({p.stone['coping_top_m']})")
+# T-3365: the print's rock-faced base runs on over the lights (three courses) under its smooth band
+check(all(sill + h <= p.stone["coping_top_m"] - p.stone["coping_height_m"] - p.stone["base_course_m"] + 1e-6
+          for _, sill, h in lights),
+      "their heads in the rusticated base, a course under its coping")
+check(abs(p.stone["coping_top_m"] - 1.84) < 1e-6 and p.stone["base_courses"] == 3,
+      f"the coping keeps the print's band top ({p.stone['coping_top_m']}) over three courses")
 check(all(b != (4.65, 5.25) for b in p.street_dress["belts"]), "the carved panel is not a belt across the front")
 
 a = K1.build(p, SID)
@@ -78,7 +81,7 @@ refused(lambda f: bl(f).pop("at_m"), "basement lights on a named-window front wi
 refused(lambda f: bl(f).update(at_m=[3.02, 1.96, 4.05]), "centres out of order")
 refused(lambda f: bl(f).update(at_m=[1.96, 2.5, 4.05]), "two lights with no pier between them")
 refused(lambda f: bl(f).update(at_m=[1.96, 3.02, 6.18]), "a light under the stoop")
-refused(lambda f: bl(f).update(height_m=0.9), "a light rising into the coping")
+refused(lambda f: bl(f).update(height_m=1.4), "a light rising into the coping")
 refused(lambda f: sfw(f)["corner_stone"].update(width_m=1.5), "a corner stone 1.5 m along the front")
 refused(lambda f: sfw(f)["corner_stone"].update(from_m=1.0), "a corner stone from under the principal floor")
 refused(lambda f: sfw(f)["corner_stone"].update(colour="red"), "an unknown corner_stone key")
