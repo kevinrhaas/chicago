@@ -2,7 +2,7 @@
   "structure_id": "marshall_field_jr_house_1919_prairie",
   "view": "cdn_almanac_1913",
   "glb": "assets/gltf/marshall_field_jr_house_1919_prairie__as_mapped_1904.glb",
-  "glb_sha256": "6bf3dd7b26ffdca75fb6dafad2ccbf10306ce4c4cfd092b9ecbe73fc38960a46",
+  "glb_sha256": "634a1d1ed99a1c15016ef60393780ad118d8310767a3ddac417427d92af2ffee",
   "camera_sha256": "039f1e74f02647fce3fa54efb12800c0136c009585a76cb593a2070adbeff332",
   "photo_sha256": "0d82a77e9db197b91d68e67cc3eb66520b9ec00b84890cd97447e0c5cd4c553f",
   "side_by_side": "docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/cdn_almanac_1913-side-by-side.jpg",
@@ -37,7 +37,11 @@
       "status": "fixed"
     },
     {
-      "what": "the corner block's north face (T-3354, third run, read again): in each storey this plate draws a group of three narrow pale lights under one head, mullioned, along the face west of the quoined corner, where the record has two single sashes at s 2.0 and 5.0 m; the face is about 45 px across here and the plate's corner stands about 17 px off the build's, so the group's place and span along it (about s 0-4 m by this camera) are not read closely enough to build; a three-light group is the plates' (the 1919 programme plate draws the same)",
+      "what": "the corner block's north face (T-3354, fourth run): the plate draws a group of three narrow pale lights under one head in each storey, mullioned, along the face west of the rear range's return; built as ONE three-light stone-mullioned group in each storey (k06.opening.sash_triple_flat, three 1.1 m lights on 0.2 m mullions under one stone lintel, centred at s 2.2 m), where the record had two single sashes at s 2.0 and 5.0 m. Read at 4x: the plate's group spans about x 284-317 px, its west end 15 px short of the pale quoined corner; the render's ends 13 px short of its own (the camera stands the corner about 15 px right of the plate's), so the count, the single head and the west end agree",
+      "status": "fixed"
+    },
+    {
+      "what": "the north-face group's east end (T-3354, fourth run): the plate's three-light group spans about 33 px against the build's 22, running about 2 m further east than the build's 3.7 m group, past where the 1911 trace stands the rear range's west return; the 1919 programme plate reads the same. It is the same eastward shift as the rear range's gable below (the plates put the middle range's north face longer than the trace's 7.0 m), so it waits on that plan reading, not on a wider window",
       "status": "open"
     },
     {
@@ -85,5 +89,5 @@
       "status": "fixed"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
