@@ -29,7 +29,8 @@ from archetypes.k01_frontage_params import CONFIDENCE_VALUE
 
 REQUIRED = ("stories", "construction", "draft_plan", "draft_elevation")
 #: The form attributes that reach the mesh; `draft` is the card's.
-CONSUMED = frozenset(REQUIRED)
+#: T-3386: `face_brick` (k01_frontage_params' key): the K03 recipe a draft's brick walls wear
+CONSUMED = frozenset(REQUIRED) | {"face_brick"}
 KINDS = ("house", "service")
 ROOFS = ("hip", "hip_steep", "hip_deck", "mansard", "shaped_gable", "flat", "gable")
 ROLES = ("main", "wing", "bay", "range", "porch", "stone_front")
@@ -91,6 +92,20 @@ def from_phase(phase: dict, record: dict | None = None) -> PrairieDraftParams:
     pitch = float(elev.get("roof_pitch_deg", 40))
     if not 10 <= pitch <= 65:
         raise ParamError(f"{sid}: roof pitch {pitch} is outside the study's 10-65 degrees")
+    fb = (form.get("face_brick") or {}).get("value")
+    if fb is not None:
+        # T-3386: a K03 face-brick recipe for the brick walls (prairie_draft.brick_recipe). A draft
+        # lays one brick on every brick face, so it names only the front's
+        if set(fb) != {"front"}:
+            raise ParamError(f"{sid}: a draft's face_brick names only `front` (it lays one brick), not {sorted(fb)}")
+        elev = dict(elev, brick_recipe=fb["front"])
+        if construction not in ("brick", "brick_with_stone_front", "stone_with_brick_rear"):
+            raise ParamError(f"{sid}: brick_recipe on a {construction} draft, which lays no brick wall")
+        from . import k03_brick
+        try:
+            k03_brick.recipe(elev["brick_recipe"], "face")
+        except ValueError as e:
+            raise ParamError(f"{sid}: face_brick.front: {e}") from e
     return PrairieDraftParams(
         kind=kind, stories=stories, construction=construction,
         plan={k: plan[k] for k in sorted(plan)}, elevation={k: elev[k] for k in sorted(elev)},

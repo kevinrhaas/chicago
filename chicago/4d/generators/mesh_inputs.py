@@ -172,6 +172,9 @@ def _code_shas(archetype: str, params=None) -> dict[str, str]:
             wanted += [gen / "archetypes" / "k06_windows.py", gen / "archetypes" / "k07_entrances.py"]
             # T-2308: a record's bays are built by the K08 kit, so its module moves vertices
             wanted += [gen / "archetypes" / "k08_bays.py"]
+        # T-3386: a draft laid in a K03 recipe resolves it through k03_brick
+        if archetype == "prairie_draft" and getattr(params, "elevation", {}).get("brick_recipe"):
+            wanted += [gen / "archetypes" / "k03_brick.py"]
         # T-3222: a K16 house with a yard has its walk routed by K14 and worn by the condition kit
         if archetype == "k16_timber" and getattr(params, "yard", None):
             wanted += [gen / "archetypes" / "k14_yard.py", gen / "archetypes" / "k14_condition.py"]
@@ -254,6 +257,12 @@ def structure_inputs_doc(structure: dict, phase: dict, archetype: str | None = N
     }
     if arch in PURE_PYTHON:
         del doc["blender_pin"]
+    if arch == "prairie_draft" and params.elevation.get("brick_recipe"):
+        # T-3386: a draft laid in a K03 recipe embeds its panel's maps and reads the palette
+        from archetypes import k03_brick
+        doc["textures"] = {p.relative_to(ROOT).as_posix(): _sha_file(p) for p in k03_brick.TEXTURE_FILES}
+        doc["component_data"] = {k03_brick.FACE_BRICK_FILE.relative_to(ROOT).as_posix():
+                                 _sha_file(k03_brick.FACE_BRICK_FILE)}
     if arch == "k01_frontage":
         # T-2291: the K03 maps a K01 wall embeds are inputs, like Glessner v4's below
         from archetypes import k03_brick
