@@ -138,7 +138,8 @@ export function createFollow({ walker, locate, blockedAt = () => false, walk, bu
       const eyeY = s.eyeY ?? 0;
       const headY = person.head_y ?? ((s.groundY ?? 0) + FOLLOW.HEAD_ABOVE_GROUND_M);
       const over = Math.hypot(person.e - s.e, person.n - s.n);
-      const wantPitch = clamp(Math.atan2(headY - eyeY, Math.max(over, 0.5)), -0.5, 0.5);
+      // Aimed at their chest, so the person and the street around them share the view.
+      const wantPitch = clamp(Math.atan2(headY - 0.45 - eyeY, Math.max(over, 0.5)), -0.5, 0.5);
       const pcap = FOLLOW.PITCH_DEG_S * DEG * dt;
       intent.pitchDelta = clamp(wantPitch - s.pitch, -pcap, pcap);
     }

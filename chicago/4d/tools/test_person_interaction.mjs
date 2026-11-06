@@ -233,7 +233,7 @@ const near = (a, b, eps = 1e-6) => Math.abs(a - b) <= eps;
   let followed = null;
   const yes = all(renderPersonCard(mkDoc(), m, { onFind() {}, onFollow: (id) => { followed = id; }, inTown: () => true }));
   const btn = yes.find((n) => n.className?.includes('insp-person-follow'));
-  assert(btn, 'Follow offered'); btn.listeners.click(); assert.equal(followed, 'hans');
+  assert(btn, 'Follow offered'); let stopped = false; btn.listeners.click({ stopPropagation() { stopped = true; } }); assert.equal(followed, 'hans'); assert(stopped, 'the click is not let up to the pane, which would reopen the card');
   const no = all(renderPersonCard(mkDoc(), m, { onFind() {}, onFollow() {}, inTown: () => false }));
   assert(!no.some((n) => n.className?.includes('insp-person-follow')), 'not in town: no Follow');
   console.log('person card: Follow only for someone placed in town PASS');

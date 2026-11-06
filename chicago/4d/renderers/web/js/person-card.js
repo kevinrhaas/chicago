@@ -305,7 +305,8 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), o
   if (typeof onFollow === 'function' && !m.away && typeof inTown === 'function' && inTown(m.id)) {
     const follow = el(doc, 'button', 'nav-tile insp-person-follow', 'Follow');
     follow.type = 'button'; follow.dataset.personFollow = m.id;
-    follow.addEventListener('click', () => onFollow(m.id)); card.append(follow);
+    // Its own: Inspect's pane carries data-person, and a click let up to it reopens the card.
+    follow.addEventListener('click', (e) => { e?.stopPropagation?.(); onFollow(m.id); }); card.append(follow);
   }
   if (m.ownCard) {
     // T-3382: a grown child with a house of their own in the scene year has a card there too.
