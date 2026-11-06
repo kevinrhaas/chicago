@@ -2,7 +2,7 @@
   "structure_id": "house_1918_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/house_1918_prairie__as_mapped_1904.glb",
-  "glb_sha256": "b5c6b573cf82e65de7b73ad5655083443c06aea6fd0a3a97fdf5d77b0fdeb521",
+  "glb_sha256": "fe29d34d214df013c359310df055704e4b5009482e8b73f390e0e74701f463c1",
   "camera_sha256": "08a023b25d98770a1eb2830d73d84583e1fbf3dc02414c9cd7c5cf057c201980",
   "photo_sha256": "7458a4902276cccdaa289b9767e8ab717b5dd0fcf06ba3969a97c4fa8d00e92a",
   "side_by_side": "docs/RESEARCH/photo-match/house_1918_prairie/chicagology_photo-side-by-side.jpg",
@@ -21,11 +21,11 @@
       "status": "open"
     },
     {
-      "what": "the tower: the photograph's is square, with the main cornice carried round it at the main cornice's level, a short blind stage, a balconied belvedere with arched lights and a deep bracketed cornice under a balustraded top (x 1440-1785, y 5-385 px). T-3318 built it square, T-3324 bracketed the belvedere and stood it back over its corbelled balcony, and T-3330 set its heights on the photograph's own vertical scale down the tower's front (39.6 px/m from the main cornice's top at y 380, the Tribune's 44 ft, which puts the top rail at y 30, the Tribune's 73 ft): the main cornice carried round the tower as a corbel table at 12.66-13.41 m (y 380-410), the stage 1.78 m and blind (y 310-380; the photograph shows no balcony at the cornice's level and no lights in the stage), the balcony's floor at 15.19 m (y 310), the belvedere's lights 16.07-17.87 m (y 205-275), its eaves at 20.39 m (T-3345: its wall head now 19.97 m under the deep cornice, y 120). Built; the earlier 'about 70 px taller' was the stage's 3.4 m with lights over a cornice that stood 1.2 m low",
+      "what": "the tower: the photograph's is square, with the main cornice carried round it at the main cornice's level, a short blind stage, a balconied belvedere with arched lights and a deep bracketed cornice under a balustraded top (x 1440-1785, y 5-385 px). T-3318 built it square, T-3324 bracketed the belvedere and stood it back over its corbelled balcony, and T-3330 set its heights on the photograph's own vertical scale down the tower's front (39.6 px/m from the main cornice's top at y 380, the Tribune's 44 ft, which puts the top rail at y 30, the Tribune's 73 ft): the main cornice carried round the tower as a corbel table at 12.66-13.41 m (y 380-410), the stage 1.78 m and blind (y 310-380; the photograph shows no balcony at the cornice's level and no lights in the stage), the balcony's floor at 15.19 m (y 310), the belvedere's lights 16.07-17.87 m (y 205-275), its eaves at 20.39 m (T-3345: its wall head now 19.97 m under the deep cornice, y 120). Built; the earlier 'about 70 px taller' was the stage's 3.4 m with lights over a cornice that stood 1.2 m low T-3397: the balcony at the belvedere's foot 0.4 m out, not 0.55 (x 1515-1770 px, 1.19 x the walls); the front's light framed in an arched architrave on imposts under a keystone, about 1.9 m across (the cheeks', 1.3 m deep, in a 0.15 m one), for the photograph's arched frame (x 1565-1645 px on a face x 1530-1680). The frame's columns and the belvedere's corner pilasters are not built (the kit's pilasters run every storey of a bay)",
       "status": "fixed"
     },
     {
-      "what": "the belvedere's cornice: the photograph's stands about 1 m deep over its brackets (y 80-120 px, 19.97-20.98 m on the tower's scale); the build's was the kit's thin bracketed eave, about 0.3 m. T-3345 built the belvedere's own deep cornice: the wall head at 19.97 m (y 120), the brackets hanging in the frieze under it, a soffit rising 0.27 m to a corona 1.1 m out and 0.51 m deep (20.30-20.81 m, y 107-87), a skirt of the hip rising 0.55 m to a flat deck (21.36 m, the balustrade's foot at y 62) and on it the balustrade 0.9 m high to the Tribune's 73 ft (22.25 m, y 30)",
+      "what": "the belvedere's cornice: the photograph's stands about 1 m deep over its brackets (y 80-120 px, 19.97-20.98 m on the tower's scale); the build's was the kit's thin bracketed eave, about 0.3 m. T-3345 built the belvedere's own deep cornice: the wall head at 19.97 m (y 120), the brackets hanging in the frieze under it, a soffit rising 0.27 m to a corona 1.1 m out and 0.51 m deep (20.30-20.81 m, y 107-87), a skirt of the hip rising 0.55 m to a flat deck (21.36 m, the balustrade's foot at y 62) and on it the balustrade 0.9 m high to the Tribune's 73 ft (22.25 m, y 30) T-3397 (the owner, 2026-11-06, from 58 ft up: 'the fanciful tower just cannot be a thing'): the 1.1 m corona stood a broad pale slab over the shaft. Re-measured on the photograph at y 200 px, ratios the oblique view foreshortens alike: the walls x 1530-1744 (214 px), the corona's tips x 1486-1787 (301 px, 1.41 x, so 0.8 m out on the 3.79 m face, as the house's own 0.75 m eave), the top balustrade on the walls' line (x 1532-1739), so the skirt's 0.55 m rise now runs 0.8 m in at a pitch of 0.69; the skirt laid in the Tribune's slate, not the kit's tan tin; the corona and every cornice painted dark brown, as the print's near-black corona (0-30 of 255) beside its red brick (96-120) asks (the wall head's note)",
       "status": "fixed"
     },
     {
@@ -35,6 +35,10 @@
     {
       "what": "the entrance porch at the tower's north-east foot and its stoop running north along the front (x 1655-1950, y 700-960 px): the build had a columned hood over a straight stoop toward the avenue, beside the tower rather than in it. T-3367 cuts the door in the tower's face, as the 1869 Tribune enters 'through a tower': under its north part, where the photograph draws the porch (x about 1690-1815 px) with the plain shaft south of it (x about 1600-1690 px), the columned hood over it and the dressing room's 'two windows over main entrance' paired above it (the photograph's two lights over the porch; the tower's principal-floor light the build had shown, which the photograph does not, taken out). The landing runs along the tower's face under the hood and the flight leaves its north end parallel to the front, down to the walk, as the photograph draws the flight. Where along the front the flight's foot lands waits on the camera",
       "status": "fixed"
+    },
+    {
+      "what": "the belvedere's corner pilasters and the columns of its arched frames (x 1530-1560 and 1690-1744 px; x 1565-1645): the kit's pilasters run the whole height of a bay, so the belvedere's alone are not built",
+      "status": "open"
     },
     {
       "what": "the window dressings: the photograph's pedimented and scrolled brownstone hoods, the paired principal windows and the round-headed chamber lights on the south flank; built as K09's corniced lintels over flat-headed sashes",

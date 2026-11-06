@@ -619,10 +619,13 @@ const ARCHETYPE_BY_ZONE = {
     juniperus_virginiana: { common: 'eastern red cedar (dune form)', dossier: 'ZONE 8c',
       form: 'columnar', h: [1.5, 6], dbh: [0.08, 0.26], spreadK: 0.55, boleK: 0.04, puffs: 6,
       dark: 0x3a5238, light: 0x5c7254, bark: 0x7a5c48,
+      // T-3399: an evergreen keeps its crown in every Season (tree-instances.js).
+      evergreen: true,
     },
     pinus_banksiana: { common: 'jack pine', dossier: 'ZONE 8c',
       form: 'open', h: [3, 9], dbh: [0.12, 0.30], spreadK: 0.62, boleK: 0.28, puffs: 6,
       dark: 0x4a6236, light: 0x7a8e56, bark: 0x4c4238,
+      evergreen: true,
     },
   },
   z10_settled_town: {
@@ -5181,7 +5184,13 @@ uniform float uBandUp;
      * shared season uniforms' (season.js chiFoliage), installed on first use.
      */
     async setSeason(crown = {}, { foliage = null } = {}) {
-      if (foliage) for (const [m, role] of [[grownMats?.leafMat, 0], [nearMat, 0], [farMat, 2]]) foliage(m, role);
+      // T-3399: the grown leaf atlas's fifth row is the conifers' scale and needle
+      // (tree-model.js LEAF_TILES), and an evergreen keeps its colour in every Season.
+      if (foliage) {
+        for (const [m, role, opts] of [[grownMats?.leafMat, 0, { evergreenBelowV: 0.2 }], [nearMat, 0], [farMat, 2]]) {
+          foliage(m, role, opts);
+        }
+      }
       const key = JSON.stringify(crown);
       if (!grownMats || key === crownNow) return;
       crownNow = key;

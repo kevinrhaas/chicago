@@ -557,6 +557,10 @@ step "A driver's plain garments read as cloth: weave, heather and sheen by shade
   node tools/test_fabric.mjs
 step "Every person's skin has pores, blood and a glow, hair a strand sheen and eyes a wet glint: shader patch, no texture (T-3400)" \
   node tools/test_human_skin.mjs
+step "The 1904 coachman's draped livery stays clear of his seated body and box, and is the one his row binds (T-3398)" \
+  python3 tools/human_driver_livery_1904.py --check
+step "The coachman's livery binds to the real driver by bone name and skins where it was draped, LOD0 and LOD3 (T-3398)" \
+  node tools/test_driver_livery.mjs
 step "Driven-team clearance uses the complete occupied envelope and refuses blocked routes (T-2804)" \
   node tools/test_transport_clearance.mjs
 step "Driven-team support reads actual ground and preserves physical contact limits (T-2804)" \
