@@ -338,14 +338,14 @@
       "phase_id": "as_mapped_1904",
       "structure_id": "edson_keith_house_1906_prairie"
     },
-    "edson_keith_house_1906_prairie_coach_house__draft_1904.glb": {
-      "archetype": "prairie_draft",
+    "edson_keith_house_1906_prairie_coach_house__as_standing_1904.glb": {
+      "archetype": "k12_coach_house",
       "baked_ao": false,
-      "bytes": 160988,
-      "generator": "generators/draft_emit.py",
-      "inputs_sha256": "672c34207f67d3e415f87b15e0ca0f0dda7263775b5bda710b8ce7833c03cbf1",
+      "bytes": 199616,
+      "generator": "generators/k12_emit.py",
+      "inputs_sha256": "120446675b0e95bef3236398be8019ee2032f1defb84ca470114c843bfdd7b42",
       "kind": "generated",
-      "phase_id": "draft_1904",
+      "phase_id": "as_standing_1904",
       "structure_id": "edson_keith_house_1906_prairie_coach_house"
     },
     "elbridge_keith_house_1900_prairie__as_mapped_1904.glb": {
