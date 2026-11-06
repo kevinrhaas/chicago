@@ -117,6 +117,28 @@ for (const [asset, lod, clip] of [['bardwell_otis_1835', 0, 'idle_natural_v1'], 
   console.log(`${asset} LOD${lod}: arms in ${clipX.toFixed(2)}→${restX.toFixed(2)} m, hips, behind, fingertips ${nearest.toFixed(3)} m from the brow: PASS`);
 }
 
+// A figure in the dress assembly (T-3423) greets with the nod alone: no hand to the brow.
+{
+  const r = await rig('flynn_mary_1835_dress_study', 0, 'idle');
+  const life = createHumanLife({ id: 'n', scene: r.scene }), acts = createHumanActions({ id: 'n', scene: r.scene, greeting: 'nod' });
+  const opts = { state: 'standing', root: r.root };
+  acts.setPose('rest');
+  for (let i = 0; i < 60; i++) step(r, life, acts, 1 / 30, opts);
+  const hand0 = world(r.bone('hand_r'));
+  const fwd = new THREE.Vector3(0, 0, 1).applyAxisAngle(new THREE.Vector3(0, 1, 0), r.root.rotation.y);
+  const viewer = world(r.bone('head')).addScaledVector(fwd, 2.5);
+  let greeted = false, nodded = false, rise = 0;
+  for (let i = 0; i < 90; i++) {
+    r.mixer.update(1 / 30); life.apply(1 / 30, { ...opts, viewer }); acts.apply(1 / 30, { ...opts, viewer });
+    if (acts.takeNod()) { nodded = true; life.nod(); }
+    r.root.updateMatrixWorld(true);
+    greeted ||= acts.snapshot().greeting;
+    rise = Math.max(rise, world(r.bone('hand_r')).y - hand0.y);
+  }
+  assert(nodded && !greeted && rise < 0.12, `a dressed figure nods without raising the hand (nod ${nodded}, arm greeting ${greeted}, hand rose ${rise.toFixed(3)} m)`);
+  console.log(`flynn_mary_1835_dress_study LOD0: nods, hand rose ${rise.toFixed(3)} m: PASS`);
+}
+
 // Walking: the arms swing opposite the legs, as far as the stride.
 {
   const r = await rig('bardwell_otis_1835', 1, 'walk');

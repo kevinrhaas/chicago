@@ -359,7 +359,9 @@ const actualScene1904 = JSON.parse(readFileSync(new URL('../data/scenes/1904.jso
 const actualPeople1904 = JSON.parse(readFileSync(new URL('../data/sidecars/1904/people.json', import.meta.url)));
 const actualRoutes = JSON.parse(readFileSync(new URL('../data/transport/driven/loops.json', import.meta.url)));
 const actualDriverRow = actualRoutes.rows.find(r => r.scene === '1904');
-assert(!actualScene1904.layers.includes('residents') && !actualScene1904.layers.includes('humans'));
+// T-3423: 1904 lists the standing-figure layer for its first woman (one instance record);
+// the drivers still come only through the transport rows, and no residents directory layer.
+assert(!actualScene1904.layers.includes('residents') && actualScene1904.layers.includes('humans'));
 assert.equal(actualPeople1904.people.length, 440); assert.equal(actualPeople1904.residents_root, 'data/residents_1904');
 assert.equal(actualDriverRow.person_id, 'pa1904_otis_f_r_c1900_hans_johnson');
 for (const id of ['1835', '1904', 1835, 1904]) assert(supportsTownTransport(id));

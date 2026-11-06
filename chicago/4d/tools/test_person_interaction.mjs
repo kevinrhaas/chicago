@@ -95,7 +95,9 @@ const near = (a, b, eps = 1e-6) => Math.abs(a - b) <= eps;
   walker.state.e += 500;
   follow.steer(dt, intent);
   const jump = followStand(person, -1);
-  assert(near(walker.state.e, jump.e) && near(walker.state.n, jump.n), 'jumped to the stand');
+  // Within what their pace carries them in a few frames: the stand is taken where they are
+  // now, and they stopped only 0.1 s ago (follow.js estimates their velocity).
+  assert(near(walker.state.e, jump.e, 0.4) && near(walker.state.n, jump.n, 0.4), `jumped to the stand: ${walker.state.e.toFixed(3)},${walker.state.n.toFixed(3)} vs ${jump.e.toFixed(3)},${jump.n.toFixed(3)}`);
   follow.afterWalk(intent);
 
   // A ride (Go to) takes over: follow ends.
@@ -134,6 +136,48 @@ const near = (a, b, eps = 1e-6) => Math.abs(a - b) <= eps;
   loaded = true; f2.start('hans'); w2.state.flying = true;
   assert.equal(f2.steer(dt, intent), false); assert.equal(f2.active, false);
   console.log('follow: stand beside, kept side / switched when blocked, look held, jump, wait, ride/input/fly/lost stop PASS');
+}
+
+// ---- follow.js is smooth beside a carriage ----------------------------------------------
+// Kevin, 2026-11-06: "when i follow hans it is very jittery along side him". The town moves
+// a carriage AFTER the walker, at 60 fps with dropped frames; the driver's head bobs and the
+// box sways. Before the fix the eye's speed swung by 1.8 m/s (standard deviation) round the
+// carriage's 1.5 and the look turned at 25°/s of noise.
+{
+  const walk = { speed: 4.47, sprintSpeed: 4.47 * 2.28 };   // travel-settings.js defaults
+  const state = { e: -1, n: -4, yaw: bearingToYaw(0), pitch: 0, eyeY: 1.6, groundY: 0, flying: false };
+  const walker = { state, teleport({ local_e, local_n }) { state.e = local_e; state.n = local_n; },
+    update(dt, intent) {
+      state.yaw += intent.yawDelta; state.pitch += intent.pitchDelta; intent.clearLook();
+      let f = intent.forward, r = intent.strafe; const m = Math.hypot(f, r); if (m > 1) { f /= m; r /= m; }
+      const sp = intent.sprint ? walk.sprintSpeed : walk.speed;
+      state.e += (-Math.sin(state.yaw) * f + Math.cos(state.yaw) * r) * sp * dt;
+      state.n += (Math.cos(state.yaw) * f + Math.sin(state.yaw) * r) * sp * dt;
+    } };
+  let t = 0, pe = 0;
+  const at = () => ({ e: pe, n: 0, heading_deg: 90 + Math.sin(t * 2 * Math.PI * 1.1) * 0.8,
+    head_y: 2.6 + 0.035 * Math.sin(t * 2 * Math.PI * 2.2) });
+  let seen = at();
+  const follow = createFollow({ walker, walk, locate: () => seen });
+  follow.start('hans');
+  const intent = createIntent();
+  let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const rows = [];
+  for (let i = 0; i < 1200; i++) {
+    const dt = rnd() < 0.12 ? 1 / 30 : 1 / 60 + (rnd() - 0.5) * 0.003;
+    const steps = Math.max(1, Math.ceil(dt / 0.05)), sdt = dt / steps;   // main.js's walk steps
+    for (let k = 0; k < steps; k++) { follow.steer(sdt, intent); walker.update(sdt, intent); follow.afterWalk(intent); }
+    t += dt; pe += 1.5 * dt; seen = at();   // then the town moves the carriage
+    if (i > 300) rows.push({ dt, e: state.e, rel: state.e - seen.e, yaw: state.yaw, pitch: state.pitch });
+  }
+  const sd = (a) => { const m = a.reduce((x, y) => x + y, 0) / a.length; return Math.sqrt(a.reduce((x, y) => x + (y - m) ** 2, 0) / a.length); };
+  const rate = (k, scale = 1) => rows.slice(1).map((r, i) => (r[k] - rows[i][k]) * scale / r.dt);
+  const speedSd = sd(rate('e')), yawSd = sd(rate('yaw', 180 / Math.PI)), pitchSd = sd(rate('pitch', 180 / Math.PI));
+  assert(speedSd < 0.15, `the eye keeps the carriage's pace: speed sd ${speedSd.toFixed(3)} m/s`);
+  assert(yawSd < 3, `the look turns smoothly: yaw rate sd ${yawSd.toFixed(2)} deg/s`);
+  assert(pitchSd < 1, `the head's bob is not followed: pitch rate sd ${pitchSd.toFixed(2)} deg/s`);
+  assert(Math.abs(rows.at(-1).rel + FOLLOW.BEHIND_M) < 0.3, `beside them, not trailing: ${rows.at(-1).rel.toFixed(2)} m along`);
+  console.log(`follow: smooth beside a carriage at 60 fps with dropped frames (speed sd ${speedSd.toFixed(3)} m/s, yaw ${yawSd.toFixed(2)}°/s, pitch ${pitchSd.toFixed(2)}°/s) PASS`);
 }
 
 // ---- people-look.js ----------------------------------------------------------------------

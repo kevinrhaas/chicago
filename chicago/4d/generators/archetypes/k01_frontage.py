@@ -151,7 +151,7 @@ from . import k11_frontage
 from . import k14_yard
 from . import k01_frontage_params
 from .k01_frontage_params import EAVE_FASCIA_M, ROUND_CUT, ROUND_HOODED, STREET_WINDOW, STRIP_FABRICS, wing_walls
-from .k01_frontage_params import WING_LINTEL_EAR_M, WING_LINTEL_M, WING_MULLION_PROUD_M, WING_MULLIONED
+from .k01_frontage_params import WING_LINTEL_EAR_M, WING_LINTEL_M, WING_MULLION_PROUD_M, WING_MULLIONED, WING_GROUPED
 
 ROOT = Path(__file__).resolve().parents[2]
 LIBRARY = ROOT / "assets" / "textures" / "glessner-v4"
@@ -1228,7 +1228,7 @@ class Assembly:
         """T-3354: an opening's holes in its wall — one, or for a rear wing's stone-mullioned
         group (WING_MULLIONED) one to each of its K06 variant's lights, as K06 cuts their
         reveals, so the brick between them stands behind the mullion's stone."""
-        if o.component != WING_MULLIONED:
+        if o.component not in WING_GROUPED:
             return [hole(o)]
         v = self.kit_variant(o)
         n, m = v.get("bays", 1), v.get("mullion_m", 0.0)
@@ -1606,7 +1606,7 @@ class Assembly:
                 # the arch band and key its round lights beside it carry, and no lintel
                 self.round_door_head(op, frame, stone_trim, seed, max(conf, p.conf("street_front_round_heads")))
                 return
-        if op.component == WING_MULLIONED:   # T-3354: its mullions and lintel in stone, no brick head
+        if op.component in WING_GROUPED:   # T-3354: its mullions and lintel in stone, no brick head
             self.wing_mullions(op, frame, stone_trim, seed, conf)
             return
         street_brick = p.street_front_trim.get("brick_heads") if op.wall == "k01.wall.street_front" else None

@@ -131,11 +131,40 @@ class DressComponents(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, message):
                 prepare_dress_assembly(ROOT, recipe, self.variant, self.body)
         variant = copy.deepcopy(self.variant); variant['person_reference_id'] = 'invented_new_person'
-        with self.assertRaisesRegex(ValueError, 'existing reconstructed Mary Flynn'):
+        with self.assertRaisesRegex(ValueError, 'bound person reference'):
             prepare_dress_assembly(ROOT, self.recipe, variant, self.body)
         body = copy.deepcopy(self.body); body['meshes'][0]['positions_m'][0][0] += .001
         with self.assertRaisesRegex(ValueError, 'anatomy'):
             prepare_dress_assembly(ROOT, self.recipe, self.variant, body)
+
+    def test_1904_working_dress(self):
+        # T-3423: the 1904 study is the same components in its own outfit, bound to its own
+        # person and pictures; the 1835 one gains no bib or collar.
+        recipe = json.loads((ROOT/'data/humans/recipes/adult_dress_1904.json').read_text())
+        variant = recipe['proof_variants'][0]
+        bundle = prepare_dress_assembly(ROOT, recipe, variant, self.body)
+        names = [m['name'] for m in bundle['meshes']]
+        self.assertIn('apron_bib', names); self.assertIn('standing_collar', names)
+        self.assertGreater(bundle['bun']['up'], .05)
+        old = prepare_dress_assembly(ROOT, self.recipe, self.variant, self.body)
+        self.assertNotIn('apron_bib', [m['name'] for m in old['meshes']])
+        bib = bundle['meshes'][names.index('apron_bib')]
+        bodice = bundle['meshes'][names.index('plain_closed_bodice')]
+        # The bib stands in front of the bodice it was dropped on, and bends with the spine.
+        self.assertGreater(min(p[2] for p in bib['positions_m']), 0)
+        self.assertTrue(all(set(w) <= {b['name'] for b in self.body['skeleton']} for w in bib['weights']))
+        self.assertGreater(bodice['receipt']['collar_m'], .02)
+        person = resolve_person_reference(variant, ROOT)
+        self.assertEqual((person['name'], person['occupation'], person['presence']), ('Martha L. (Mattie) Williamson', 'cook', 'present'))
+        swapped = copy.deepcopy(variant); swapped['person_reference_id'] = 'rc_flynn_mary'
+        with self.assertRaisesRegex(ValueError, 'bound person reference'):
+            prepare_dress_assembly(ROOT, recipe, swapped, self.body)
+        lowered = copy.deepcopy(variant); lowered['person_reference_grade'] = 'reconstructed'
+        with self.assertRaisesRegex(ValueError, 'bound person reference'):
+            prepare_dress_assembly(ROOT, recipe, lowered, self.body)
+        other = copy.deepcopy(recipe); other['sources'] = ['wild_1835_third_vine']
+        with self.assertRaisesRegex(ValueError, 'substitution'):
+            prepare_dress_assembly(ROOT, other, variant, self.body)
 
     def test_real_person_and_contract_source_bounds(self):
         contract = json.loads((ROOT/'data/humans/contract.json').read_text())

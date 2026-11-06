@@ -306,6 +306,42 @@ def _prism(a, mat, frame, poly, d0, d1, seed, conf):
     k01_wall_gable._prism(a, mat, frame, poly, d0, d1, seed, conf)
 
 
+# T-3365: the carved crest's top, three scrolled lobes across it as (centre along the block
+# as a fraction of its half-width, the lobe's radius as one of its half-width, its top under the
+# block's as a fraction of its height): the print's two scrolls either side and the boss between
+CREST_LOBES = [(-0.62, 0.38, 0.06), (0.0, 0.34, 0.0), (0.62, 0.38, 0.06)]
+CREST_SHOULDER = 0.55       # the block's square sides stand to this share of its height
+CREST_PROUD_M = 0.03        # the block before the coping's face
+CREST_EYE = 0.45            # each scroll's eye: a boss this share of the lobe's radius
+
+
+def _crest(a, frame, sg, g, W, seed, conf):
+    """T-3365: a carved block on the apex in place of a turned finial (2009 Prairie's): a stone
+    through the slab's thickness, its sides square to CREST_SHOULDER of its height and its top
+    the envelope of CREST_LOBES, each lobe's scroll eye a boss standing proud of its face."""
+    fn = sg["finial"]
+    r, h = fn["radius_m"], fn["height_m"]
+    yb = g["apex"] - fn["foot_m"]
+    ys = yb + CREST_SHOULDER * h
+    c0 = W / 2
+    lobes = [(c0 + f * r, yb + h * (1 - t) - q * r, q * r) for f, q, t in CREST_LOBES]
+    n = 24
+    top = []
+    for i in range(n + 1):
+        s = c0 + r - 2 * r * i / n
+        y = ys
+        for cx, cy, rr in lobes:
+            if abs(s - cx) < rr:
+                y = max(y, cy + math.sqrt(rr * rr - (s - cx) ** 2))
+        top.append((s, y))
+    cp = sg["coping"]["proud_m"]
+    poly = [(c0 - r, yb), (c0 + r, yb)] + top
+    _prism(a, "limestone_trim", frame, poly, -sg["thickness_m"], cp + CREST_PROUD_M, seed, conf)
+    for cx, cy, rr in lobes:
+        _prism(a, "limestone_trim", frame, _af()._disc(cx, cy, CREST_EYE * rr, CREST_EYE * rr, 10),
+               cp + CREST_PROUD_M, cp + 2 * CREST_PROUD_M, seed, conf)
+
+
 # T-3090: the urn finial's turned outline, bottom to top, as (fraction of its height,
 # fraction of the ball's radius): the carved ball, the neck and its ring, the urn's moulded
 # foot, its body swelling to its shoulder, the lid and the knob
@@ -486,6 +522,9 @@ def dress(a, roof_seed):
                        {"foot": (xm, round(ya, 4), g["zc"])})
     Ff = ((xm, 0.0, g["zc"]), R, N)
     rr, hgt = fn["radius_m"], fn["height_m"]
+    if fn.get("form") == "crest":
+        _crest(a, frame, sg, g, W, fseed, conf)
+        return
     if fn.get("form") == "urn":
         # T-3090: a carved ball on the apex's plinth and an urn over it on a moulded foot,
         # under a lid and a knob — the c. 1955 photograph's, which Levy's print cuts at the
