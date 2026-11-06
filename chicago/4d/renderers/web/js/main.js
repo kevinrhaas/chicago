@@ -5102,8 +5102,8 @@ async function boot() {
     }
     const a = api.humans?.get?.(id);
     if (!a || a.disposed || !a.root?.parent) return null;
-    const p = a.position;
-    return { e: p.e, n: p.n, heading_deg: a.heading ?? 0, head_y: headOf(a),
+    const at = a.position;
+    return { e: at.e, n: at.n, heading_deg: a.heading ?? 0, head_y: headOf(a),
       name: a.person?.name ?? null, driver: null, actor: a };
   }
   /** Placed in town at all, loaded or not yet (a driver's round is known before its model). */
@@ -5115,18 +5115,17 @@ async function boot() {
     const begin = () => {
       // A carriage Find asked to wait for the visitor is let go: Follow goes with it.
       api.townTransport?.cancelDriverApproaches();
-      const p = personInTown(id);
+      const driver = personInTown(id)?.driver;
       // Following means going with them: a carriage stopped for the visitor goes on.
-      if (p?.driver?.state === 'stopped' && p.driver.canResume?.()) p.driver.resume();
+      if (driver?.state === 'stopped' && driver.canResume?.()) driver.resume();
       return follow.start(id, { name, wait: 20 });
     };
     // The town is what to look at now: the card that offered Follow is put away.
     popup.close(); if (handInspect) releaseInspect();
     if (navigatorUi?.app === 'inspect') navigatorUi.closeApp?.();
     hud.setPanel(false);
-    const p = personInTown(id);
-    const s = walker.state;
-    if (p && Math.hypot(p.e - s.e, p.n - s.n) <= 30) return begin();
+    const there = personInTown(id), eye = walker.state;
+    if (there && Math.hypot(there.e - eye.e, there.n - eye.n) <= 30) return begin();
     return goToTarget({ kind: 'person', id, label: name ?? undefined, then: begin });
   }
   // T-2618: whether this scene has a people directory, without paying for it at boot.
@@ -5244,11 +5243,11 @@ async function boot() {
       return ['street-historic', 'street-modern'].map((id) => document.getElementById(id)?.textContent ?? '');
     },
     onInspect: (t) => {
-      // T-3404: a person's tag opens their own card, as a click on them does.
-      if (t?.kind === 'person') { popup.close(); api.humans?.select?.(t.personId); return; }
       // T-3022: as a click on the building does: Inspect, holding it until it is let go
       // (and a card left open on another building is put away first).
       if (t?.id && loaded.registry.get(t.id)) openBuilding(t.id);
+      // T-3404: a person's tag opens their own card, as a click on them does.
+      else if (t?.kind === 'person') { popup.close(); api.humans?.select?.(t.personId); }
       else if (navigatorUi?.select) void navigatorUi.select('inspect');
       else pick(t.id);
     },
