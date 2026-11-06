@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2681, ts: '2026-11-06T02:05:59.788Z', date: 'Nov 5, 2026, 8:05 PM CT', title: 'Glessner\'s carriage passage loses its floating stone strip', kind: 'fix',
+    items: [
+      'A grey stone strip hung across the mouth of Glessner House\'s carriage passage on Prairie Avenue, between the open oak doors and about a foot above the paving. It was the opening\'s old sill, left at street level when the passage floor was lowered to the 1963 survey\'s level. It is gone, and the paving runs straight in under the doors.',
+    ] },
   { v: 2680, ts: '2026-11-06T01:41:35.140Z', date: 'Nov 5, 2026, 7:41 PM CT', title: 'Prairie\'s 1600 block closes its street fronts', kind: 'fix',
     items: [
       '1637 Prairie\'s brick wall and iron fence now stand on the street line, with a pair of gates where the walk comes in.',
