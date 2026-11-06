@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2677, ts: '2026-11-06T00:27:37.722Z', date: 'Nov 5, 2026, 6:27 PM CT', title: 'Hans\'s clothes look like cloth', kind: 'improvement',
+    items: [
+      'His wool waistcoat and his trousers show a fine diagonal twill up close, his linen shirt a plain weave with the odd thick thread.',
+      'The cloth has the uneven colour of real dyed yarn, worn places, soft rumples that catch the light, and a faint sheen at the edges.',
+      'Drawn by the graphics card: no images to download, nothing added to phone memory. Otis Bardwell\'s clothes in 1835 get the same.',
+    ] },
+  { v: 2676, ts: '2026-11-06T00:27:37.722Z', date: 'Nov 5, 2026, 6:27 PM CT', title: '1906 Prairie\'s brick barn on the alley', kind: 'feature',
+    items: [
+      'The alley building behind 1906 Prairie Avenue, the Edson Keith house, is no longer a rough draft. It now stands as a two-storey brick barn, 19.9 m along the alley and 9.1 m deep, with a one-storey brick range running on 10.6 m south of it, both drawn from the 1911 fire-insurance map. The rough draft stood one block, 1 m off the alley.',
+      'Windows sit where the map marks one in each part, beside two carriage doors and a hay-loft hatch. A paved walk runs from the yard door to the house\'s two-storey back wing.',
+      'The doors, roof pitch and most windows are reconstructed, and they are listed on the building\'s card.',
+    ] },
   { v: 2675, ts: '2026-11-05T23:46:54.977Z', date: 'Nov 5, 2026, 5:46 PM CT', title: '2009 Prairie\'s basement lights, stone corner and carved door panel', kind: 'feature',
     items: [
       'The Meyer house\'s rusticated basement now has the three square lights its photograph shows under the ground-floor window.',
