@@ -558,6 +558,8 @@ step "A seated driver breathes, looks round and holds his reins, bounded and det
   node tools/test_driver_life.mjs
 step "People on foot breathe, shift weight with feet planted, look at a close visitor and blink irregularly, bounded and deterministic (T-3402)" \
   node tools/test_human_life.mjs
+step "People on foot rest their hands in, change stance, touch the hat brim to a close visitor and swing their arms against their feet, deterministic (T-3419)" \
+  node tools/test_human_actions.mjs
 step "The driven team's generated walk and its hoof-support domain reproduce byte for byte, hooves planted without slide (T-2803)" \
   node tools/horse_walk_v2.mjs --check
 step "A driver's plain garments read as cloth: weave, heather and sheen by shader patch, no texture, one program (T-2804)" \
