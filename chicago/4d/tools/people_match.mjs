@@ -126,6 +126,30 @@ for (const [vp, [w, h]] of viewports) {
   // Find the subject. A driven person is found where Find this person finds them (their route's
   // own reading), approached on foot until their assembly loads, and stopped as an approach
   // stops them: the stills are of a figure at rest on the box, as the photographs are.
+  // A standing person (T-3423) is found at their instance record's placement and approached
+  // until their body loads; they already stand still.
+  let figure, heading;
+  if (subject.find.kind === 'standing') {
+    const placed = await page.evaluate(id => {
+      const r = window.__chicago4d.humans?.records.find(x => x.id === id);
+      return r ? r.placement : null;
+    }, subject.find.instance);
+    if (!placed) throw Error(`${subject.find.instance}: the ${subject.scene} human layer has no such record (detail must be Full or Balanced)`);
+    await page.evaluate(p => { const api = window.__chicago4d; api.setFly(true); api.walker.teleport({ local_e: p.local_e + 4, local_n: p.local_n + 4, yaw_deg: 225, altitude_m: 1.68 }); }, placed);
+    await page.waitForFunction(id => {
+      const a = window.__chicago4d.humans?.get(id);
+      let head = false; a?.root.traverse(o => { if (o.isBone && o.name === 'head') head = true; });
+      return head && a.root.visible;
+    }, subject.find.instance, { timeout: 300_000, polling: 1000 });
+    await page.waitForTimeout(4000);
+    figure = await page.evaluate(({ id, bone }) => {
+      const a = window.__chicago4d.humans.get(id);
+      let head = null; a.root.traverse(o => { if (!head && o.isBone && o.name === bone) head = o.getWorldPosition(new o.position.constructor()); });
+      return { state: 'standing', head: head && [head.x, head.y, head.z] };
+    }, { id: subject.find.instance, bone: subject.aim_bone ?? 'head' });
+    if (!figure.head) throw Error(`${subject.find.instance}: could not find the figure's ${subject.aim_bone ?? 'head'}`);
+    heading = ((placed.heading_deg % 360) + 360) % 360;
+  } else {
   const anchor = await page.evaluate(pid => {
     const a = window.__chicago4d.townTransport?.driverAnchorForPerson(pid);
     return a ? { at: a.at, yaw: a.yaw_rad } : null;
@@ -140,7 +164,7 @@ for (const [vp, [w, h]] of viewports) {
   }, subject.person_id, { timeout: 300_000, polling: 1000 });
   await page.evaluate(pid => window.__chicago4d.townTransport.stopPerson(pid), subject.person_id);
   await page.waitForTimeout(4000);
-  const figure = await page.evaluate(({ pid, bone }) => {
+  figure = await page.evaluate(({ pid, bone }) => {
     const api = window.__chicago4d, tt = api.townTransport, d = tt.driverForPerson(pid);
     let head = null; tt.group.traverse(o => { if (!head && o.isBone && o.name === bone) head = o.getWorldPosition(new o.position.constructor()); });
     const a = tt.driverAnchorForPerson(pid);
@@ -149,7 +173,8 @@ for (const [vp, [w, h]] of viewports) {
   if (figure.state !== 'stopped' || !figure.head) throw Error(`${subject.person_id}: could not stop and find the figure (${JSON.stringify(figure)})`);
   // The route's yaw: forward is (sin yaw, -cos yaw) in (east, north), the same reading as
   // town-transport.js driverAnchorForPerson, so the heading is 180 - yaw as a compass bearing.
-  const heading = ((180 - figure.yaw * 180 / Math.PI) % 360 + 360) % 360;
+  heading = ((180 - figure.yaw * 180 / Math.PI) % 360 + 360) % 360;
+  }
   const [hx, hy, hz] = figure.head, headE = hx, headN = -hz;
 
   // Hide everything but the render surface (as critic_shots.mjs): the stills are of the town.
@@ -204,14 +229,21 @@ for (const [vp, [w, h]] of viewports) {
     await page.waitForTimeout(2500);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
     for (let i = 0; i < subject.clip.frames; i++) {
-      await page.evaluate(async ({ pid, dt, steps }) => {
-        const api = window.__chicago4d, actor = api.townTransport.driverForPerson(pid);
-        if (steps) {
-          actor.updateVisual(0, { paused: false, viewer: api.camera.position }); // clears the held frame's reset
-          for (let k = 0; k < steps; k++) actor.updateVisual(dt, { paused: false, viewer: api.camera.position });
+      await page.evaluate(async ({ pid, id, dt, steps }) => {
+        const api = window.__chicago4d;
+        if (id) {
+          // A standing figure advances by its own update, as the layer's frame loop calls it.
+          const actor = api.humans.get(id);
+          for (let k = 0; k < steps; k++) actor.update(dt, api.camera.position, dt);
+        } else {
+          const actor = api.townTransport.driverForPerson(pid);
+          if (steps) {
+            actor.updateVisual(0, { paused: false, viewer: api.camera.position }); // clears the held frame's reset
+            for (let k = 0; k < steps; k++) actor.updateVisual(dt, { paused: false, viewer: api.camera.position });
+          }
         }
         for (let k = 0; k < 3; k++) await api.capture(4);
-      }, { pid: subject.person_id, dt: 1 / 30, steps: i ? Math.round(subject.clip.interval_s * 30) : 0 });
+      }, { pid: subject.person_id, id: subject.find.kind === 'standing' ? subject.find.instance : null, dt: 1 / 30, steps: i ? Math.round(subject.clip.interval_s * 30) : 0 });
       clipFrames.push({ t: +(i * subject.clip.interval_s).toFixed(2), jpg: await page.screenshot({ type: 'jpeg', quality: 85, timeout: 300_000 }) });
     }
     console.log(`  ${vp}: ${clipFrames.length}-frame strip over ${clipFrames.at(-1).t} s of the figure's own time`);
@@ -272,7 +304,7 @@ for (const still of subject.stills) {
 if (clipFrames.length) {
   const figs = clipFrames.map(f => `<figure><img src="data:image/jpeg;base64,${f.jpg.toString('base64')}"><figcaption>t = ${f.t} s</figcaption></figure>`);
   sheets['motion-strip'] = await render(`<div class="sheet strip"><h1>${esc(subject.label)}: ${subject.clip.frames} frames over about ${(subject.clip.frames - 1) * subject.clip.interval_s} s, ${subject.clip.viewport}, ${subject.clip.still} still</h1>
-    <p class="sub">${esc(shotOn)}. Stopped as an approach stops him; what moves is the figure's own life.</p><div class="row">${figs.join('')}</div></div>`,
+    <p class="sub">${esc(shotOn)}. ${subject.find.kind === 'standing' ? 'Standing where the scene stands her' : 'Stopped as an approach stops him'}; what moves is the figure's own life.</p><div class="row">${figs.join('')}</div></div>`,
   path.join(out, 'motion-strip.jpg'), 300, 480);
 }
 await browser.close();

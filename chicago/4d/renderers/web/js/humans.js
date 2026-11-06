@@ -253,7 +253,11 @@ export class HumanActor {
       if (this.life) this.life.bind(next.scene);
       else this.life = createHumanLife({ id: this.personId ?? this.id, scene: next.scene });
       if (this.actions) this.actions.bind(next.scene);
-      else this.actions = createHumanActions({ id: this.personId ?? this.id, scene: next.scene });
+      else {
+        // The dress assembly's figures greet with a nod (T-3423); the GLB's scene extras name it.
+        const dressed = /adult_dress_v1/.test(next.scene.userData?.chicago4d_human?.wardrobe_assembly_json ?? '');
+        this.actions = createHumanActions({ id: this.personId ?? this.id, scene: next.scene, greeting: dressed ? 'nod' : 'brow' });
+      }
       if (prev) { this.counters.swaps++; this.teardown(prev); }
       this.costs = '';
       this.applyCosts();
@@ -712,7 +716,7 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
  * (which is what a record says when it wants nothing drawn) is a line in `problems`.
  */
 export async function mountHumans({
-  dataBase = null, assetBase, assets = null, sceneId, people = null, terrain = null, tier = 'full',
+  dataBase = null, assetBase, assets = null, sceneId, people = null, getPeople = null, terrain = null, tier = 'full',
   problems = [], fetchImpl = fetch, contract = null, groundHeight = null,
 } = {}) {
   const heightAt = groundHeight ?? (terrain ? (e, n) => terrain.surfaceHeight(e, n) : () => 0);
@@ -741,6 +745,16 @@ export async function mountHumans({
   const ids = Array.isArray(index.instances) ? index.instances : [];
   const records = await Promise.all(ids.map((id) => getJson(`humans/instances/${sceneId}/${id}.json`)
     .catch((err) => { problems.push(`humans: ${id} did not load (${err.message})`); return null; })));
+  // A scene whose directory loads lazily (1904 lists no `residents`, T-3423) passes `getPeople`:
+  // it is read only when a record names a person the eager list does not hold, and only the
+  // rows the records name are kept from it.
+  const wanted = new Set(records.filter(Boolean).map(r => r.person_id).filter(id => id && !byId.has(id)));
+  if (getPeople && wanted.size) {
+    try {
+      const directory = await getPeople();
+      for (const p of Array.isArray(directory?.people) ? directory.people : []) if (wanted.has(p.id)) byId.set(p.id, p);
+    } catch (err) { problems.push(`humans: the people directory did not load (${err.message})`); }
+  }
   const profiles = new Map();
   for (const id of new Set(records.filter(Boolean).map(r => r.anonymous_profile_id).filter(Boolean))) {
     if (!/^anonymous_[a-z0-9_]+$/.test(id)) continue;

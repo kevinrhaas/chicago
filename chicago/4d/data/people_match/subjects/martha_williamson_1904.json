@@ -1,0 +1,49 @@
+{
+  "id": "martha_williamson_1904",
+  "label": "Martha (Mattie) Williamson, the Glessners' cook, in the courtyard (1904)",
+  "person_id": "glessner_williamson_martha_l",
+  "scene": "1904",
+  "reference_set": "working_woman_1904",
+  "find": {
+    "kind": "standing",
+    "instance": "hi_glessner_williamson_martha_l_1904"
+  },
+  "bound": {
+    "file": "data/humans/instances/1904/hi_glessner_williamson_martha_l_1904.json",
+    "keys": [
+      "appearance",
+      "placement",
+      "animation"
+    ]
+  },
+  "aim_bone": "head",
+  "stills": [
+    {
+      "name": "near",
+      "distance_m": 3,
+      "bearing_off_heading_deg": -20,
+      "eye_m": 1.6,
+      "aim_below_head_m": 0.75,
+      "why": "Nearly facing her at three metres, a little to her right, as Wasson's camera faced the women at the kitchen table."
+    },
+    {
+      "name": "far",
+      "distance_m": 10,
+      "bearing_off_heading_deg": 10,
+      "eye_m": 1.6,
+      "aim_below_head_m": 0.9,
+      "why": "Facing her at ten metres from the courtyard, where the whole figure reads as bands of tone, as the full frames show."
+    }
+  ],
+  "clip": {
+    "still": "near",
+    "viewport": "desktop",
+    "frames": 5,
+    "interval_s": 1.25
+  },
+  "figure_below_head_m": 1.5,
+  "detail": {
+    "desktop": "full",
+    "phone": "balanced"
+  }
+}

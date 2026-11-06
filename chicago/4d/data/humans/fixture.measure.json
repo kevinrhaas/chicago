@@ -106,12 +106,12 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 149.9,
-        "mobile": 164.1
+        "desktop": 144.4,
+        "mobile": 137
       },
       "frame_ms_median": {
         "desktop": 0.2,
-        "mobile": 0.2
+        "mobile": 0.3
       },
       "verdicts": [
         {
@@ -255,8 +255,8 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 141.4,
-        "mobile": 153
+        "desktop": 134.1,
+        "mobile": 136.8
       },
       "frame_ms_median": {
         "desktop": 0.2,
@@ -400,12 +400,12 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 149.1,
-        "mobile": 172.6
+        "desktop": 142,
+        "mobile": 155.8
       },
       "frame_ms_median": {
         "desktop": 0.1,
-        "mobile": 0.1
+        "mobile": 0.2
       },
       "verdicts": [
         {
@@ -535,8 +535,8 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 4357.1,
-        "mobile": 2204.2
+        "desktop": 2356.9,
+        "mobile": 3746.8
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -679,8 +679,8 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 137.5,
-        "mobile": 154.1
+        "desktop": 127.4,
+        "mobile": 139.1
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -833,11 +833,11 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 166.6,
-        "mobile": 136.1
+        "desktop": 134.5,
+        "mobile": 143.6
       },
       "frame_ms_median": {
-        "desktop": 0.1,
+        "desktop": 0.2,
         "mobile": 0.1
       },
       "verdicts": [
@@ -983,8 +983,8 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 142.8,
-        "mobile": 139.9
+        "desktop": 130.7,
+        "mobile": 145.4
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -1123,8 +1123,8 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 143.2,
-        "mobile": 137.7
+        "desktop": 152.8,
+        "mobile": 130.7
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -1237,8 +1237,8 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 22.1,
-        "mobile": 21.9
+        "desktop": 19,
+        "mobile": 21.7
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -1366,12 +1366,12 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 22.6,
-        "mobile": 25.7
+        "desktop": 14.7,
+        "mobile": 15.9
       },
       "frame_ms_median": {
         "desktop": 0.1,
-        "mobile": 0
+        "mobile": 0.1
       },
       "verdicts": [
         {
@@ -1491,8 +1491,8 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 20,
-        "mobile": 45.7
+        "desktop": 9.3,
+        "mobile": 16.4
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -1601,8 +1601,8 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 19.5,
-        "mobile": 12.6
+        "desktop": 20,
+        "mobile": 9.1
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -1735,11 +1735,11 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 137.7,
-        "mobile": 164
+        "desktop": 167.4,
+        "mobile": 158.8
       },
       "frame_ms_median": {
-        "desktop": 0.1,
+        "desktop": 0.2,
         "mobile": 0.1
       },
       "verdicts": [
@@ -1884,8 +1884,8 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 211.3,
-        "mobile": 201.8
+        "desktop": 184.6,
+        "mobile": 161
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -2029,8 +2029,8 @@
       "rest_height_m": 1.6532,
       "soles_y_m": -0.0001,
       "load_ms": {
-        "desktop": 187.1,
-        "mobile": 156.7
+        "desktop": 176,
+        "mobile": 166.6
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -2159,11 +2159,11 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 154,
-        "mobile": 139.4
+        "desktop": 139,
+        "mobile": 121.4
       },
       "frame_ms_median": {
-        "desktop": 0.1,
+        "desktop": 0,
         "mobile": 0.1
       },
       "verdicts": [
@@ -2235,6 +2235,544 @@
       ]
     },
     {
+      "file": "assets/humans/williamson_mattie_1904_cook_study.lod0.glb",
+      "sha256": "464b9a9b433b8df1efbe32cc0a3d8d0c21d00c3e318f2d181d938f82dc8119db",
+      "lod": 0,
+      "derivative_of": null,
+      "bytes": 8828252,
+      "meshopt": false,
+      "triangles": 41564,
+      "vertices": 26768,
+      "draw_calls": 12,
+      "materials": 9,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__plain_dress",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "rest_height_m": 1.6531,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 154.4,
+        "mobile": 139.1
+      },
+      "frame_ms_median": {
+        "desktop": 0.1,
+        "mobile": 0.1
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "12 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4865 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8003 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8279 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.6
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "21.11 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "21.11 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.4 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "eyes__iris, eyes__pupil, eyes__sclera, footwear__plain_low_shoes, garment_lower__plain_dress, garment_outer__plain_apron, garment_upper__plain_dress, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__plain_dress 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6531 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "41564 tris, 12 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/williamson_mattie_1904_cook_study.lod1.glb",
+      "sha256": "07e0b933f8620f96e08e6e6dc1ce1ae0abcd1e0452c54d1828e21615156556e5",
+      "lod": 1,
+      "derivative_of": null,
+      "bytes": 8137896,
+      "meshopt": false,
+      "triangles": 25450,
+      "vertices": 17204,
+      "draw_calls": 12,
+      "materials": 9,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__plain_dress",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "rest_height_m": 1.6531,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 151.4,
+        "mobile": 130.6
+      },
+      "frame_ms_median": {
+        "desktop": 0.1,
+        "mobile": 0.1
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "12 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4865 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8003 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8279 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.6
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "20.88 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "20.88 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.4 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "eyes__iris, eyes__pupil, eyes__sclera, footwear__plain_low_shoes, garment_lower__plain_dress, garment_outer__plain_apron, garment_upper__plain_dress, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__plain_dress 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6531 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "25450 tris, 12 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/williamson_mattie_1904_cook_study.lod2.glb",
+      "sha256": "258fe0c744c4b0553ef36db243073d4090bd508991bdfe51f9e852e029a613bf",
+      "lod": 2,
+      "derivative_of": null,
+      "bytes": 7525836,
+      "meshopt": false,
+      "triangles": 12771,
+      "vertices": 9286,
+      "draw_calls": 12,
+      "materials": 9,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__plain_dress",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "rest_height_m": 1.6532,
+      "soles_y_m": -0.0001,
+      "load_ms": {
+        "desktop": 129.8,
+        "mobile": 143.1
+      },
+      "frame_ms_median": {
+        "desktop": 0.1,
+        "mobile": 0.1
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "12 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4864 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8274 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.6
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "eyes__iris, eyes__pupil, eyes__sclera, footwear__plain_low_shoes, garment_lower__plain_dress, garment_outer__plain_apron, garment_upper__plain_dress, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__plain_dress 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6532 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "-0.0001 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "12771 tris, 12 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/williamson_mattie_1904_cook_study.lod3.glb",
+      "sha256": "367c7e376841084def567528761fca25b6a2772e4eb8ac2c71263a3300d7c0b9",
+      "lod": 3,
+      "derivative_of": null,
+      "bytes": 7253328,
+      "meshopt": false,
+      "triangles": 6413,
+      "vertices": 4780,
+      "draw_calls": 12,
+      "materials": 9,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__plain_dress",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "rest_height_m": 1.6531,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 121.6,
+        "mobile": 132.3
+      },
+      "frame_ms_median": {
+        "desktop": 0.1,
+        "mobile": 0
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "12 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4856 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.7988 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8262 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.6
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "eyes__iris, eyes__pupil, eyes__sclera, footwear__plain_low_shoes, garment_lower__plain_dress, garment_outer__plain_apron, garment_upper__plain_dress, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__plain_dress 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6531 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "6413 tris, 12 draws"
+        }
+      ]
+    },
+    {
       "file": "assets/humans/web/anonymous_working_driver_1904.lod0.glb",
       "sha256": "49a84c1d858f67359ff33e56762336ade56db1dcbbb1cbe923846d95825c9547",
       "lod": 0,
@@ -2298,8 +2836,8 @@
       "rest_height_m": 1.7539,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 151.2,
-        "mobile": 130.4
+        "desktop": 112.9,
+        "mobile": 106.9
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -2457,8 +2995,8 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 52.6,
-        "mobile": 54.1
+        "desktop": 58.4,
+        "mobile": 56.2
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -2612,8 +3150,8 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 36,
-        "mobile": 35.5
+        "desktop": 42.2,
+        "mobile": 31.5
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -2757,12 +3295,12 @@
       "rest_height_m": 1.7537,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 20.8,
-        "mobile": 24.2
+        "desktop": 19.8,
+        "mobile": 27.8
       },
       "frame_ms_median": {
         "desktop": 0.1,
-        "mobile": 0
+        "mobile": 0.1
       },
       "verdicts": [
         {
@@ -2911,12 +3449,12 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 131.1,
-        "mobile": 124.9
+        "desktop": 111.6,
+        "mobile": 103.6
       },
       "frame_ms_median": {
         "desktop": 0.1,
-        "mobile": 0.1
+        "mobile": 0.2
       },
       "verdicts": [
         {
@@ -3075,12 +3613,12 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 51.8,
-        "mobile": 52.4
+        "desktop": 48.1,
+        "mobile": 49.5
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0,
+        "mobile": 0
       },
       "verdicts": [
         {
@@ -3235,12 +3773,12 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 42.5,
-        "mobile": 32.5
+        "desktop": 30.8,
+        "mobile": 33.3
       },
       "frame_ms_median": {
         "desktop": 0.1,
-        "mobile": 0.1
+        "mobile": 0
       },
       "verdicts": [
         {
@@ -3385,8 +3923,8 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 19.9,
-        "mobile": 24
+        "desktop": 22.5,
+        "mobile": 18.7
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -3509,8 +4047,8 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 11.9,
-        "mobile": 15
+        "desktop": 12.4,
+        "mobile": 11.8
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -3648,11 +4186,11 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 10.9,
-        "mobile": 11.3
+        "desktop": 9.4,
+        "mobile": 9.7
       },
       "frame_ms_median": {
-        "desktop": 0,
+        "desktop": 0.1,
         "mobile": 0.1
       },
       "verdicts": [
@@ -3783,12 +4321,12 @@
       "rest_height_m": 1.7032,
       "soles_y_m": 0.0018,
       "load_ms": {
-        "desktop": 15.2,
-        "mobile": 12.7
+        "desktop": 7.9,
+        "mobile": 9.5
       },
       "frame_ms_median": {
         "desktop": 0.1,
-        "mobile": 0.1
+        "mobile": 0
       },
       "verdicts": [
         {
@@ -3903,11 +4441,11 @@
       "rest_height_m": 1.7032,
       "soles_y_m": 0.0018,
       "load_ms": {
-        "desktop": 12,
-        "mobile": 11.2
+        "desktop": 11.2,
+        "mobile": 11.5
       },
       "frame_ms_median": {
-        "desktop": 0,
+        "desktop": 0.1,
         "mobile": 0
       },
       "verdicts": [
@@ -4047,11 +4585,11 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 105.3,
-        "mobile": 104.9
+        "desktop": 92.5,
+        "mobile": 96.7
       },
       "frame_ms_median": {
-        "desktop": 0.1,
+        "desktop": 0.2,
         "mobile": 0.1
       },
       "verdicts": [
@@ -4206,12 +4744,12 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 58.9,
-        "mobile": 50.2
+        "desktop": 52.8,
+        "mobile": 42.7
       },
       "frame_ms_median": {
         "desktop": 0.1,
-        "mobile": 0
+        "mobile": 0.1
       },
       "verdicts": [
         {
@@ -4361,8 +4899,8 @@
       "rest_height_m": 1.6532,
       "soles_y_m": -0.0001,
       "load_ms": {
-        "desktop": 39.3,
-        "mobile": 33.4
+        "desktop": 37.2,
+        "mobile": 30.2
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -4501,12 +5039,12 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 25.3,
-        "mobile": 28
+        "desktop": 21.1,
+        "mobile": 19.9
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0
+        "desktop": 0,
+        "mobile": 0.1
       },
       "verdicts": [
         {
@@ -4583,6 +5121,584 @@
           "check": "same triangles, joints, morphs and clips as its master",
           "ok": true,
           "got": "6247 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/williamson_mattie_1904_cook_study.lod0.glb",
+      "sha256": "0f8d5ffc4ab415a781646ec4bdbcada4b38886d3d19f4f0f75aa5359a9872b0d",
+      "lod": 0,
+      "derivative_of": "assets/humans/williamson_mattie_1904_cook_study.lod0.glb",
+      "bytes": 4475124,
+      "meshopt": true,
+      "triangles": 41564,
+      "vertices": 26768,
+      "draw_calls": 12,
+      "materials": 9,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2039,
+          "h": 2048
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__plain_dress",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "rest_height_m": 1.6531,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 99.7,
+        "mobile": 127.4
+      },
+      "frame_ms_median": {
+        "desktop": 0.1,
+        "mobile": 0.1
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "12 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4865 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8003 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8279 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.6
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "21.11 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "21.11 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.38 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "eyes__iris, eyes__pupil, eyes__sclera, footwear__plain_low_shoes, garment_lower__plain_dress, garment_outer__plain_apron, garment_upper__plain_dress, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2039x2048, skin 2048x2048, garment_upper__plain_dress 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6531 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "41564 tris, 12 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.00 mm from williamson_mattie_1904_cook_study.lod0.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "41564 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/williamson_mattie_1904_cook_study.lod1.glb",
+      "sha256": "63282ed2f01d6df9d8ddc58c4f575e7b5fc96bf85a242dc412088045e01ce193",
+      "lod": 1,
+      "derivative_of": "assets/humans/williamson_mattie_1904_cook_study.lod1.glb",
+      "bytes": 1584848,
+      "meshopt": true,
+      "triangles": 25450,
+      "vertices": 17204,
+      "draw_calls": 12,
+      "materials": 9,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 1020,
+          "h": 1024
+        },
+        {
+          "slot": "skin",
+          "w": 1024,
+          "h": 1024
+        },
+        {
+          "slot": "garment_upper__plain_dress",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "rest_height_m": 1.6531,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 51.8,
+        "mobile": 45
+      },
+      "frame_ms_median": {
+        "desktop": 0.1,
+        "mobile": 0
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "12 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4865 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8003 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8279 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.6
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "20.9 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "20.9 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.36 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "eyes__iris, eyes__pupil, eyes__sclera, footwear__plain_low_shoes, garment_lower__plain_dress, garment_outer__plain_apron, garment_upper__plain_dress, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 1020x1024, skin 1024x1024, garment_upper__plain_dress 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6531 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "25450 tris, 12 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.00 mm from williamson_mattie_1904_cook_study.lod1.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "25450 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/williamson_mattie_1904_cook_study.lod2.glb",
+      "sha256": "ccd855b0fda1714a721611b260400a53215d9dfb84121d919b2bcf1d68d61574",
+      "lod": 2,
+      "derivative_of": "assets/humans/williamson_mattie_1904_cook_study.lod2.glb",
+      "bytes": 631332,
+      "meshopt": true,
+      "triangles": 12771,
+      "vertices": 9286,
+      "draw_calls": 12,
+      "materials": 9,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 510,
+          "h": 512
+        },
+        {
+          "slot": "skin",
+          "w": 512,
+          "h": 512
+        },
+        {
+          "slot": "garment_upper__plain_dress",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "rest_height_m": 1.6532,
+      "soles_y_m": -0.0001,
+      "load_ms": {
+        "desktop": 27.1,
+        "mobile": 24.3
+      },
+      "frame_ms_median": {
+        "desktop": 0.1,
+        "mobile": 0.1
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "12 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4864 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8001 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8275 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.6
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "eyes__iris, eyes__pupil, eyes__sclera, footwear__plain_low_shoes, garment_lower__plain_dress, garment_outer__plain_apron, garment_upper__plain_dress, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 510x512, skin 512x512, garment_upper__plain_dress 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6532 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "-0.0001 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "12771 tris, 12 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.10 mm from williamson_mattie_1904_cook_study.lod2.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "12771 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/williamson_mattie_1904_cook_study.lod3.glb",
+      "sha256": "159c9bedd875f29a576e22c20ff2830e78522a573455087707c126e3514c5ad2",
+      "lod": 3,
+      "derivative_of": "assets/humans/williamson_mattie_1904_cook_study.lod3.glb",
+      "bytes": 309924,
+      "meshopt": true,
+      "triangles": 6413,
+      "vertices": 4780,
+      "draw_calls": 12,
+      "materials": 9,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 255,
+          "h": 256
+        },
+        {
+          "slot": "skin",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "garment_upper__plain_dress",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 256,
+          "h": 128
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "rest_height_m": 1.6531,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 21.1,
+        "mobile": 21.2
+      },
+      "frame_ms_median": {
+        "desktop": 0.1,
+        "mobile": 0
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "12 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4856 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.7988 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8261 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.6
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "eyes__iris, eyes__pupil, eyes__sclera, footwear__plain_low_shoes, garment_lower__plain_dress, garment_outer__plain_apron, garment_upper__plain_dress, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 255x256, skin 256x256, garment_upper__plain_dress 256x256, eyes__iris 256x128"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6531 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "6413 tris, 12 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.10 mm from williamson_mattie_1904_cook_study.lod3.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "6413 tris"
         }
       ]
     }

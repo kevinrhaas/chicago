@@ -196,6 +196,12 @@ function combed(cut, f, p, n) {
     const onTop = across.addScaledVector(f.z, -.35).normalize();
     return onTop.multiplyScalar(top).add(toKnot.multiplyScalar(1 - top)).normalize();
   }
+  if (cut.flow === 'swept_up') {
+    // Drawn up and back from the face all round to a knot high on the crown (the 1900s,
+    // T-3423): every strand runs toward the knot, with no parting.
+    const knot = f.o.clone().addScaledVector(f.y, cut.knot_cm.up / 100).addScaledVector(f.z, -cut.knot_cm.back / 100);
+    return knot.sub(p).normalize();
+  }
   // Brushed forward: out from a crown behind the top, toward the brow, and forward at the temples.
   const crown = f.o.clone().addScaledVector(f.y, .1).addScaledVector(f.z, -.075);
   const out = p.clone().sub(crown);

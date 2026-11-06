@@ -36566,6 +36566,22 @@ female macro targets (pinned in `SOURCE-variation.json`) give her seeded weight,
 L-human-variation-3412, each sharing its male twin's draw. Her figure is not a likeness and her
 dress is not her outfit; the photo comparison and the 1904 woman remain open under T-3423.
 
+**The 1904 working dress supplement, 2026-11-06 (T-3423):** a second outfit of the same dress
+components, `adult_dress_1904.json`, stood in the 1904 town as Martha (Mattie) Williamson, the
+Glessners' cook, in the Glessner courtyard (`hi_glessner_williamson_martha_l_1904`). Her place in
+the household is attested (the museum's account of her); everything drawn of her is reconstructed.
+**Cut:** a shirtwaist bodice whose neck cut rises 3.2 cm up the neck as a standing collar, with a white
+band over its top 2.2 cm; a dark skirt; the front apron with a bib laid over the bodice front from
+the waist to 21.5 cm above it, 23.6 cm wide at the bottom and 19.6 cm at the top. These follow the
+silhouette of the working dress in three 1903 C. L. Wasson studio stereographs (LOC, no known
+restrictions; `loc_wasson_1903_*`), not a pattern: the bib's straps, the tie, the cap, the flounces
+and every fold are left out. **Colour:** the stereographs are monochrome, so the pale blue-grey
+shirtwaist, the near-black skirt and the white apron are chosen. **Hair:** the bun sits 10 cm over
+the head bone (5 cm in 1835) and the strand hair is combed up from the face to it, because the
+stereographs show hair drawn up to a knot on the crown. **Body:** the same female base as Mary
+Flynn; no birth year is recorded for her, so the variation kit draws her age, and her face, height,
+build and complexion are not hers.
+
 ### L-tremont-gale-envelope-2385 — two-storey default and picture alternative
 
 **Decision:** the default first Tremont follows Gale's retrospective, 1835-framed
