@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2714, ts: '2026-11-06T16:07:06.248Z', date: 'Nov 6, 2026, 10:07 AM CT', title: 'John J. Glessner\'s face, fitted to his photograph', kind: 'feature',
+    items: [
+      'Glessner\'s card (1800 Prairie, People) has a Likeness section: his photograph from the Commercial Club\'s 1910 book beside the model\'s face, fitted to it.',
+      'The fit reads 14 points marked on the photograph (eyes, nose, mouth, chin, ear, crown) and lands within about 4 mm of them; it is graded attested, by the photograph.',
+      'What the model can\'t show yet is said on the card: his spectacles, moustache, white hair and colouring.',
+      'The first named likeness: any resident with a surviving portrait can be fitted the same way.',
+    ] },
   { v: 2713, ts: '2026-11-06T15:17:19.164Z', date: 'Nov 6, 2026, 9:17 AM CT', title: 'People have real hair, whiskers and wet eyes', kind: 'improvement',
     items: [
       'Up close, a person\'s hair is no longer one smooth cap: strands are grown over it at load, combed by the cut of their year, with broken edges and a sheen along the strands.',
