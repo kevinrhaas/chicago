@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1023,
+  "count": 1024,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -67287,6 +67287,14 @@
           "text": "as above; a measured cloth study would set the tails' stiffness and damping."
         },
         {
+          "label": "Photo-match supplement, 2026-11-06",
+          "text": "The people photo rig laid Hans beside three period pictures of coachmen on the box (the coachman 1904 reference set: W. H. Rau 1902, Griffith & Griffith 1905, Edward Penfield) and read him as differing: the coat followed his chest and arms, it showed no gathered folds over the lap, and his hands were bare where the pictures show gloves. The wardrobe kit now stands the box coat off him as a heavy coat would hang, fuller at the chest and square at the shoulder, its sleeves loose to the cuff with a few creases at the crook of the elbow; the coat's skirt is buttoned closed over his lap for its first 36 cm, so it lies across his thighs in gathered folds and parts only below the knees; and he wears pale driving gloves with a short gauntlet over the shirt cuff, his hands closed on the reins. **What is reconstructed.** All of it, as above: the amount of ease, the folds' size and spacing, how far the skirt is closed, and the gloves' colour and cut. Pale gloves and a coat buttoned over the lap are what the reference set's pictures show other coachmen wearing; nothing records Hans Johnson's own."
+        },
+        {
+          "label": "How to resolve",
+          "text": "as above."
+        },
+        {
           "label": "Recorded",
           "text": "2026-11-02."
         }
@@ -67296,7 +67304,9 @@
         "T-1790",
         "T-2803",
         "T-3398",
-        "T-3409"
+        "T-3409",
+        "T-3422",
+        "T-3417"
       ]
     },
     {
@@ -69105,6 +69115,49 @@
       "work_refs": [
         "T-3412",
         "T-3413"
+      ]
+    },
+    {
+      "id": "L-pullman-gate-stone-3273",
+      "title": "The Pullman glasshouse's 18th Street gate drawn in a dark stone of its own",
+      "section": "per_subject",
+      "subjects": [
+        "pullman_glasshouse_1800_calumet_pavilion"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "pullman_glasshouse_1800_calumet_pavilion",
+          "phase": "as_standing_1904",
+          "aspect": "form.conservatory"
+        }
+      ],
+      "recorded": "2026-11-06",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Recorded",
+          "text": "2026-11-06."
+        },
+        {
+          "label": "Decision",
+          "text": "re-reviewing both of the conservatory's match records, the 18th Street gate's two piers, their stepped caps and their swept wings read dark in both pictures: Lowe's c. 1897 print shows the east pier near black in open light, and the 1894 Inland plate a deep grey, each well under the podium's dressed stone and the lodge's front beside it. They had been drawn in the kit's pale buff stone, the podium's own, so the gate read as the palest thing in the foreground. The gate is now drawn in a stone of its own, a dark brown-grey (`gate.color` on the record), and nothing else on the house changes. **What is read, not invented.** That the gate prints much darker than the conservatory's podium and the lodge in both pictures, in shade and in light. **What is invented.** The stone and its hue: both pictures are monochrome, and a dark print can be a red granite, a brownstone or a weathered sandstone. A brown-grey was chosen as the tone that sits nearest every one of those; the house across the estate is recorded in a fawn sandstone, which the gate is not assumed to share."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a written description of the gate or the estate's walls, or a colour picture of them."
+        },
+        {
+          "label": "Covers",
+          "text": "`pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, an image in the research notes on photo match and their match records."
+        }
+      ],
+      "work_refs": [
+        "T-3273"
       ]
     },
     {

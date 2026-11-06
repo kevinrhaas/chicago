@@ -198,6 +198,27 @@ def main():
         expect(prof[:, 0].mean() > prof[:, -2].mean() + depth / 2,   # the last bin touches the next butt
                "each course is thickest at its butt and thins up the slope, like laid tiles")
 
+        # A copper roof: a 40-degree sheet with standing seams 2 cm wide and 1.6 cm
+        # proud, a finial over it and a gutter under its eave. The sheet takes the
+        # courses, the seams go, the finial and the gutter stay.
+        n = np.array([0.0, -math.sin(t), math.cos(t)])
+        sheet = quad((0, 0, 1), (2, 0, 1), (2, run, 1 + rise), (0, run, 1 + rise))
+        seams = []
+        for x in (0.5, 1.0, 1.5):
+            p = [np.add(q, n * 0.016) for q in ((x - 0.01, 0, 1), (x + 0.01, 0, 1),
+                                                 (x + 0.01, run, 1 + rise), (x - 0.01, run, 1 + rise))]
+            seams += quad(*p)
+        finial = box(0.9, run - 0.1, 1 + rise, 1.1, run + 0.1, 1 + rise + 0.6)
+        gutter = box(0, -0.15, 0.85, 2, 0, 0.95)
+        roof = np.array(sheet + seams + finial + gutter, dtype=float)
+        roof = np.stack([roof[..., 0], roof[..., 2], -roof[..., 1]], axis=-1)   # Z-up -> glTF Y-up
+        is_sheet, is_seam = ex.split_sheet_roof(roof)
+        groups = np.repeat(np.arange(4), [len(sheet), len(seams), len(finial), len(gutter)])
+        expect(is_sheet[groups == 0].all() and not is_sheet[groups == 1].any(),
+               "a copper roof's broad sheet takes the courses, its narrow seams do not")
+        expect(is_seam[groups == 1].all() and not is_seam[groups != 1].any(),
+               "its standing seams are dropped, and nothing else is: the finial and the gutter stay")
+
     if failures:
         print(f"\n{len(failures)} check(s) failed")
         return 1

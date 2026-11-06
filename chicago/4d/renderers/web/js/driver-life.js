@@ -251,15 +251,15 @@ export function createDriverLife({ root, scene, id = 'driver', faces = [], gaitC
         turn(`upperarm_${side}`, 0, (-10 + play * 1.3 + take * 7) * DEG, sgn * 9 * DEG);
         turn(`lowerarm_${side}`, sgn * 4 * DEG, (-8 - play * 1.6 - take * 9) * DEG, 0);
         turn(`hand_${side}`, 0, (6 + play * 2) * DEG, sgn * 22 * DEG);
-        // A closed hand on the rein.
+        // A closed hand on the rein (T-3422: the photographed coachmen hold theirs in a fist).
         for (const f of ['index', 'middle', 'ring', 'pinky']) {
-          const curl = (f === 'index' ? 52 : f === 'middle' ? 58 : f === 'ring' ? 62 : 66) * DEG;
-          turn(`${f}_01_${side}`, 0, -curl * 0.8, 0);
-          turn(`${f}_02_${side}`, 0, -curl, 0);
-          turn(`${f}_03_${side}`, 0, -curl * 0.6, 0);
+          const curl = (f === 'index' ? 72 : f === 'middle' ? 78 : f === 'ring' ? 82 : 86) * DEG;
+          turn(`${f}_01_${side}`, 0, -curl * 0.9, 0);
+          turn(`${f}_02_${side}`, 0, -curl * 1.15, 0);
+          turn(`${f}_03_${side}`, 0, -curl * 0.7, 0);
         }
-        turn(`thumb_01_${side}`, 0, 0, sgn * 10 * DEG);
-        turn(`thumb_02_${side}`, 0, -20 * DEG, 0);
+        turn(`thumb_01_${side}`, 0, 0, sgn * 18 * DEG);
+        turn(`thumb_02_${side}`, 0, -35 * DEG, 0);
       }
 
       // Blinks, where the LOD carries the eyelids; a quick double now and then.
