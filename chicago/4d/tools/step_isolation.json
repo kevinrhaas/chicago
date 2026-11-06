@@ -2720,6 +2720,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_batch_map_key.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_bay_kit.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -4219,10 +4223,6 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/human_driver_livery_1904.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
     "tools/human_fixture.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -4236,6 +4236,10 @@
       "wrote_ignored": []
     },
     "tools/human_seated_look.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/human_wardrobe.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5682,18 +5686,6 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/horse_walk_v2.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_fabric.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/human_wardrobe.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
     "tools/test_driver_livery.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6243,6 +6235,10 @@
       "wrote_ignored": []
     },
     "tools/test_person_card.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_person_interaction.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

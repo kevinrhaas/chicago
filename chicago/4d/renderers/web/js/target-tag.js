@@ -54,6 +54,8 @@ export const normalTagHold = (v) => (TAG_HOLDS.includes(v) ? v : TAG_HOLDS[0]);
 /** The building's name a visitor reads (never an id). */
 export function tagName(t) {
   if (!t) return '';
+  // T-3404: a person you look at names themselves (people-look.js), never their id.
+  if (t.kind === 'person') return t.label || 'A person';
   // A record with no name falls back to its id in displayName; a visitor never reads an id.
   const title = displayName(t.record?.sidecar ?? {}, t.id).title;
   return title && !/[a-z0-9]_[a-z0-9]/i.test(title) ? title : 'A building';

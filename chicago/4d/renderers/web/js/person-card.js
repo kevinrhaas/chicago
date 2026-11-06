@@ -275,7 +275,7 @@ function el(doc, tag, cls, text) {
 }
 
 /** Draw a model. `dot(doc, grade)` is Inspect's grade dot. */
-export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), onFind = null } = {}) {
+export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), onFind = null, onFollow = null, inTown = null } = {}) {
   const card = el(doc, 'article', 'insp-person-card');
   card.dataset.personId = m.id ?? '';
   const back = el(doc, 'button', 'insp-person-back');
@@ -300,6 +300,13 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), o
     const find = el(doc, 'button', 'nav-tile insp-person-find', 'Find this person');
     find.type = 'button'; find.dataset.personFind = m.id;
     find.addEventListener('click', () => onFind(m.id)); card.append(find);
+  }
+  // T-3404: someone placed in town now (Hans Johnson on his round) can be walked alongside.
+  if (typeof onFollow === 'function' && !m.away && typeof inTown === 'function' && inTown(m.id)) {
+    const follow = el(doc, 'button', 'nav-tile insp-person-follow', 'Follow');
+    follow.type = 'button'; follow.dataset.personFollow = m.id;
+    // Its own: Inspect's pane carries data-person, and a click let up to it reopens the card.
+    follow.addEventListener('click', (e) => { e?.stopPropagation?.(); onFollow(m.id); }); card.append(follow);
   }
   if (m.ownCard) {
     // T-3382: a grown child with a house of their own in the scene year has a card there too.
