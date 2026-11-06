@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2688, ts: '2026-11-06T05:24:40.928Z', date: 'Nov 5, 2026, 11:24 PM CT', title: 'Glessner\'s stable ridge runs straight on from the 18th Street wing', kind: 'fix',
+    items: [
+      'The ridge over Glessner House\'s stable, west of its little cupola, had drifted about two feet north of the 18th Street wing\'s ridge. It is back on the same line, so one straight crest runs from the east wing through the cupola to the alley gable, and the alley gable now stands even about its peak.',
+    ] },
   { v: 2687, ts: '2026-11-06T04:58:18.312Z', date: 'Nov 5, 2026, 10:58 PM CT', title: '1936 Prairie\'s belvedere tower now looks like its photograph', kind: 'fix',
     items: [
       'The tower is real: the 1869 Tribune says you entered the house through a 73 ft tower, and a winter photograph shows it.',
