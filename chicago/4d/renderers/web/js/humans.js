@@ -32,6 +32,7 @@
  */
 import * as THREE from 'three';
 import { resolveHumanIdentity, humanRoleCard } from './human-identity.js';
+import { createHumanLife } from './human-life.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { registerKTX2 } from './ktx2.js';
 import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
@@ -169,6 +170,9 @@ export class HumanActor {
     this.lod = -1;
     this.wanted = -1;
     this.visualIdleBody = null;
+    // T-3402: breathing, weight shifts, gaze and blinks over the clip (human-life.js).
+    // One per figure, rebound on a LOD swap; null until a contract-skeleton body loads.
+    this.life = null;
     this.body = null;           // { lod, scene, meshes, mixer, clips, actions, faces }
     this.pending = null;
     this.clipName = null;
@@ -217,6 +221,8 @@ export class HumanActor {
       this.lod = lod;
       this.root.add(next.scene);
       this.play(this.clipName ?? this.defaultClip(), { fade: 0, time });
+      if (this.life) this.life.bind(next.scene);
+      else this.life = createHumanLife({ id: this.personId ?? this.id, scene: next.scene });
       if (prev) { this.counters.swaps++; this.teardown(prev); }
       this.costs = '';
       this.applyCosts();
@@ -427,15 +433,19 @@ export class HumanActor {
     if (this.distance < ANIMATE_M) {
       const naturalStanding = this.state === 'standing' && this.clipName === 'idle_natural_v1' && !b.oneShot;
       const idleDt = Number.isFinite(visualDt) && visualDt >= 0 ? visualDt : 0;
-      b.mixer.update(naturalStanding ? (this.visualIdleBody === b ? idleDt : 0) : dt);
+      const clipDt = naturalStanding ? (this.visualIdleBody === b ? idleDt : 0) : dt;
+      b.mixer.update(clipDt);
+      // Life rides the clip's own clock, so a held clip holds it too.
+      if (this.life?.bound && !b.oneShot) this.life.apply(clipDt, { state: this.state, root: this.root, viewer: cameraPosition });
       this.visualIdleBody = naturalStanding ? b : null;
       this.counters.animated++;
     } else this.visualIdleBody = null;
     if (this.distance < FACE_M && b.faces.length) {
-      // A slow, deterministic blink, so a near face is alive and a still one is a choice.
+      // A deterministic blink, so a near face is alive and a still one is a choice: the
+      // life layer's irregular one (T-3402) where it is bound, else every 4 s.
       this.blinkClock += dt;
       const t = this.blinkClock % 4;
-      const w = t < 0.15 ? Math.sin((t / 0.15) * Math.PI) : 0;
+      const w = this.life?.bound ? this.life.blink : t < 0.15 ? Math.sin((t / 0.15) * Math.PI) : 0;
       this.applyFace({ ...this.expression, eyeBlinkLeft: w, eyeBlinkRight: w });
       this.counters.faced++;
     }
