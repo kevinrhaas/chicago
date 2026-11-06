@@ -1,0 +1,53 @@
+{
+  "id": "hans_johnson_1904",
+  "label": "Hans Johnson, coachman, on the brougham's box (1904)",
+  "person_id": "pa1904_otis_f_r_c1900_hans_johnson",
+  "scene": "1904",
+  "reference_set": "coachman_1904",
+  "find": {
+    "kind": "driven",
+    "row": "prairie_driven_brougham_loop_1904"
+  },
+  "bound": {
+    "file": "data/transport/driven/loops.json",
+    "row": "prairie_driven_brougham_loop_1904",
+    "keys": [
+      "driver_asset",
+      "driver_clip",
+      "vehicle_file",
+      "driver_livery_file",
+      "driver_livery_sha256",
+      "driver_livery_body_sha256"
+    ]
+  },
+  "aim_bone": "head",
+  "stills": [
+    {
+      "name": "near",
+      "distance_m": 3,
+      "bearing_off_heading_deg": 75,
+      "eye_m": 1.68,
+      "aim_below_head_m": 0.3,
+      "why": "From his right and a little ahead, standing in the street, as W. H. Rau stood to the 1902 coachman."
+    },
+    {
+      "name": "far",
+      "distance_m": 10,
+      "bearing_off_heading_deg": 35,
+      "eye_m": 1.68,
+      "aim_below_head_m": 1.2,
+      "why": "The front quarter at about ten metres, as Griffith's 1905 camera saw the President's coachmen."
+    }
+  ],
+  "clip": {
+    "still": "near",
+    "viewport": "desktop",
+    "frames": 5,
+    "interval_s": 1.25
+  },
+  "figure_below_head_m": 1.45,
+  "detail": {
+    "desktop": "full",
+    "phone": "balanced"
+  }
+}

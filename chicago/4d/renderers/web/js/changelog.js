@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2703, ts: '2026-11-06T11:18:51.459Z', date: 'Nov 6, 2026, 5:18 AM CT', title: '1812 phones load the officer\'s garden only when it comes into view', kind: 'fix',
+    items: [
+      'On a phone, the commanding officer\'s garden in 1812 is laid out the first time it comes into view, not at load, so 1812 starts in less memory.',
+      'Phones also draw the garden with lighter soil, leaf textures and plant models. Computers are unchanged.',
+    ] },
   { v: 2702, ts: '2026-11-06T09:24:20.189Z', date: 'Nov 6, 2026, 3:24 AM CT', title: 'Phones open 1904 with about 16 MB to spare', kind: 'fix',
     items: [
       'Nothing you can see changes. On a phone, 1904\'s buildings now take about 16 MB less graphics memory, which leaves room for the people coming next: their skin, hair and clothes.',
