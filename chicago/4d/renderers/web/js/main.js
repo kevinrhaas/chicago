@@ -4716,11 +4716,12 @@ async function boot() {
         const approach = api.townTransport.requestDriverApproach(target.id);
         if (!approach) return false;
         try {
-          // Arrive facing the seat (T-3404), then whatever the asker wanted next (Follow).
+          // Arrive facing the seat (T-3404: travel turns to yaw_deg), then whatever the asker
+          // wanted next (Follow).
           const face = (Math.atan2(at[0] - e, at[1] - n) * 180 / Math.PI + 360) % 360;
           const started = travel.go({ kind: 'intersection', local_e: e, local_n: n, yaw_deg: face,
             label: target.label ?? driver?.person?.name ?? 'Driver' }, { onStop: () => approach.cancel(),
-            onArrive: () => { facePersonInTown(target.id); target.then?.(); } });
+            onArrive: () => target.then?.() });
           if (!started) approach.cancel();
           return started;
         } catch (error) {
@@ -4743,7 +4744,7 @@ async function boot() {
         const face = (Math.atan2(fe - e, fn - n) * 180 / Math.PI + 360) % 360;
         return travel.go({ kind: 'intersection', local_e: e, local_n: n, yaw_deg: face,
           label: target.label ?? figure.person?.name ?? 'Person' },
-        { onArrive: () => { facePersonInTown(target.id); target.then?.(); } });
+        { onArrive: () => target.then?.() });
       }
       hud.say('No clear place beside this person'); return false;
     }
@@ -5061,11 +5062,25 @@ async function boot() {
     if (at) return !!openBuilding(at, { person: id });
     return navigatorUi?.select?.('people') ?? false;
   }
+  async function findSceneDirectoryPerson(id) {
+    const row = (await peopleDirectory.load().catch(() => null))?.people?.find(r => r.id === id);
+    if (!row) return false;
+    // T-3404: a driver on their round, or a figure standing or walking in town.
+    if (api.townTransport?.driverAnchorForPerson(id) || api.humans?.get?.(id)) return goToTarget({ kind: 'person', id });
+    const at = [row.lives_at, row.works_at].find(s => s && loaded.registry.has(s));
+    return at ? goToTarget({ kind: 'structure', id: at }) : false;
+  }
+  async function openPersonCard(id) {
+    if (api.people && !document.querySelector('.panel-tab[data-tab="people"]')?.hidden) {
+      hud.setPanel(true); hud.selectTab('people'); api.people.open?.(id); return true;
+    }
+    return openSceneDirectoryPerson(id);
+  }
   // ---- T-3404: the people placed in town, wherever they are now ------------------- //
   // Kevin, 2026-11-06: "making them fully available to interact with". A driver on their
   // round (town-transport) or a figure standing or walking (humans.js): where they are in
   // local ENU metres, the compass heading they face, their head's height, and the actor.
-  const headAt = new THREE.Vector3();
+  let headAt = null;
   function personInTown(id) {
     if (!id) return null;
     const driver = api.townTransport?.driverForPerson?.(id);
@@ -5073,7 +5088,7 @@ async function boot() {
       if (!driver.visible) return null;
       const body = api.humans?.external?.(id) ?? null;
       const [e, n] = driver.at;
-      const head = body?.root ? body.root.getWorldPosition(headAt).y + (body.proxy?.scale.y ?? 1.5) * 0.93 : null;
+      const head = body?.root ? body.root.getWorldPosition(headAt ??= new THREE.Vector3()).y + (body.proxy?.scale.y ?? 1.5) * 0.93 : null;
       return { e, n, heading_deg: driver.heading_deg, head_y: head, name: body?.person?.name ?? driver.name ?? null, driver, actor: body };
     }
     const a = api.humans?.get?.(id);
@@ -5084,46 +5099,26 @@ async function boot() {
   }
   /** Placed in town at all, loaded or not yet (a driver's round is known before its model). */
   const placedInTown = (id) => !!(personInTown(id) || api.townTransport?.driverAnchorForPerson?.(id));
-  /** Turn the visitor, where they stand, to the person: the end of Find this person. */
-  function facePersonInTown(id) {
-    const p = personInTown(id);
-    const s = walker.state;
-    if (!p || s.flying) return false;
-    const yaw = (Math.atan2(p.e - s.e, p.n - s.n) * 180 / Math.PI + 360) % 360;
-    const over = Math.max(0.5, Math.hypot(p.e - s.e, p.n - s.n));
-    const pitch = p.head_y == null ? 0 : Math.max(-25, Math.min(25, Math.atan2(p.head_y - s.eyeY, over) * 180 / Math.PI));
-    walker.teleport({ local_e: s.e, local_n: s.n, yaw_deg: yaw, pitch_deg: pitch });
-    return true;
-  }
   /** Walk alongside them (follow.js): at once when they are near, else Find them first. */
   function followPerson(id) {
     if (!placedInTown(id)) { hud.say('Not in town now'); return false; }
     const name = personInTown(id)?.name ?? null;
     const begin = () => {
+      // A carriage Find asked to wait for the visitor is let go: Follow goes with it.
+      api.townTransport?.cancelDriverApproaches();
       const p = personInTown(id);
       // Following means going with them: a carriage stopped for the visitor goes on.
       if (p?.driver?.state === 'stopped' && p.driver.canResume?.()) p.driver.resume();
       return follow.start(id, { name, wait: 20 });
     };
+    // The town is what to look at now: the card that offered Follow is put away.
     popup.close(); if (handInspect) releaseInspect();
+    if (navigatorUi?.app === 'inspect') navigatorUi.closeApp?.();
     hud.setPanel(false);
     const p = personInTown(id);
     const s = walker.state;
     if (p && Math.hypot(p.e - s.e, p.n - s.n) <= 30) return begin();
     return goToTarget({ kind: 'person', id, label: name ?? undefined, then: begin });
-  }
-  async function findSceneDirectoryPerson(id) {
-    const row = (await peopleDirectory.load().catch(() => null))?.people?.find(r => r.id === id);
-    if (!row) return false;
-    if (placedInTown(id)) return goToTarget({ kind: 'person', id });
-    const at = [row.lives_at, row.works_at].find(s => s && loaded.registry.has(s));
-    return at ? goToTarget({ kind: 'structure', id: at }) : false;
-  }
-  async function openPersonCard(id) {
-    if (api.people && !document.querySelector('.panel-tab[data-tab="people"]')?.hidden) {
-      hud.setPanel(true); hud.selectTab('people'); api.people.open?.(id); return true;
-    }
-    return openSceneDirectoryPerson(id);
   }
   // T-2618: whether this scene has a people directory, without paying for it at boot.
   const peopleDirectory = (() => {

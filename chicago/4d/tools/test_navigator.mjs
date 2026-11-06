@@ -1220,9 +1220,11 @@ for (const phone of [true, false]) {
   const quick = html.slice(html.indexOf('<div class="quick-column"'), html.indexOf('</div>', html.indexOf('<div class="quick-column"')));
   // T-3319: and the Interact key under it, there only while a gate is in reach — both
   // keep their places while hidden (walk.css), so neither appearing shifts the other.
-  assert.equal((quick.match(/<button\b/g) ?? []).length, 2, 'the quick column holds the Inspect key and the Interact key');
+  // T-3404: and Stop following, there only while the visitor walks alongside a person.
+  assert.equal((quick.match(/<button\b/g) ?? []).length, 3, 'the quick column holds the Inspect, Interact and Stop following keys');
   assert.match(quick, /id="btn-inspect"[^>]*hidden/);
   assert.match(quick, /id="btn-interact"[^>]*hidden/);
+  assert.match(quick, /id="btn-follow"[^>]*hidden/);
   assert(quick.indexOf('btn-inspect') < quick.indexOf('btn-interact'), 'Interact sits under Inspect');
   const row = html.slice(html.indexOf('<div class="compass-row">'), html.indexOf('<div id="compass"'));
   assert.match(row, /<button type="button" id="btn-fly" class="fly-key" aria-pressed="false"/, 'T-2977: Walk/Fly is the heading row\'s round key');
