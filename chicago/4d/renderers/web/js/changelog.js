@@ -1,4 +1,22 @@
 export const CHANGELOG = [ // newest first
+  { v: 2724, ts: '2026-11-06T18:54:57.073Z', date: 'Nov 6, 2026, 12:54 PM CT', title: 'The ticket board publishes again', kind: 'fix',
+    items: [
+      'Nothing you can see changed in the town. Since 3 November the ticket board had stopped updating: three tickets were filed under epics the queue\'s own check does not know, and that check runs before the board is published.',
+      'Those three are re-filed under their proper epics, and a new ticket naming an unknown epic is now refused when it is filed, with the list to choose from.',
+    ] },
+  { v: 2723, ts: '2026-11-06T18:54:57.073Z', date: 'Nov 6, 2026, 12:54 PM CT', title: 'The Light setting draws the town far more cheaply from the prairie', kind: 'improvement',
+    items: [
+      'On the Light setting, building details smaller than a pixel on your screen are no longer drawn, so phones and weaker machines do much less work for the same picture.',
+      'Looking at the town from the west prairie, Light now draws 23% fewer pieces on a phone and 9% fewer on a laptop. In a held frame, 14 pixels of the phone\'s 304,200 change, and 1 of the laptop\'s 1,024,000.',
+      'Full and Balanced still draw every piece.',
+    ] },
+  { v: 2722, ts: '2026-11-06T18:54:57.073Z', date: 'Nov 6, 2026, 12:54 PM CT', title: 'The first woman in town: Mary Flynn on South Water Street', kind: 'feature',
+    items: [
+      'In 1835, Mary Flynn now stands outside her log house on South Water Street. She is the first woman drawn in the town.',
+      'She wears a plain dark dress and apron, her hair parted in the middle and pinned up in a knot behind, and she has her own face, height and build.',
+      'Her skirt moves with her legs when she walks or sits, rather than standing stiff as a bell.',
+      'Like every figure, her look is a marked reconstruction, not a portrait (liberty L-human-modular-dress-1789).',
+    ] },
   { v: 2721, ts: '2026-11-06T18:52:49.246Z', date: 'Nov 6, 2026, 12:52 PM CT', title: 'The Pullman corner gets its tree back', kind: 'feature',
     items: [
       'In 1904, at Prairie Avenue and 18th Street, a tall tree stands in the grass corner in front of the Pullman house. Two old photographs taken from different spots both show it, and lining them up puts it in the same place to within a few centimetres.',
