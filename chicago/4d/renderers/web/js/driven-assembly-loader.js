@@ -9,6 +9,7 @@ import { createDrivenAssembly } from './town-transport.js';
 import { fitHorseSupport } from './transport-support.js';
 import { createDriverLife } from './driver-life.js';
 import { clothHuman } from './fabric.js';
+import { loadLivery, dressInLivery } from './driver-livery.js';
 
 /** Actual portable assets, never an identity/wardrobe or idle-only fallback. */
 export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], humanAssets,
@@ -56,6 +57,15 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
     return new THREE.AnimationClip(clip.name, clip.duration_s, clip.tracks.map(t => t.type === 'quaternion'
       ? new THREE.QuaternionKeyframeTrack(t.name, t.times, t.values) : new THREE.VectorKeyframeTrack(t.name, t.times, t.values)));
   })().catch(error => { walkClip = null; throw error; }));
+  // T-3398: a driver's draped livery (tools/human_driver_livery_1904.py), bound by its bytes.
+  const liveries = new Map();
+  const acquireLivery = row => {
+    if (!row.driver_livery_file) return null;
+    const key = `${row.driver_livery_file}|${row.driver_livery_sha256}`;
+    if (!liveries.has(key)) liveries.set(key, loadLivery(assetURL(row.driver_livery_file), row.driver_livery_sha256)
+      .catch(error => { liveries.delete(key); throw error; }));
+    return liveries.get(key);
+  };
   const releaseHorse = template => {
     horseLeases--;
     if (horseLeases === 0) { disposeLoadedAsset(template); horseAsset = null; }
@@ -91,6 +101,7 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
         })(),
         (async () => humanAssets.acquire(row.driver_asset, driverLod))(),
         acquireHorse(),
+        (async () => acquireLivery(row))(),
       ]);
       if (acquired[0].status === 'fulfilled') vehicle = acquired[0].value.vehicle;
       if (acquired[1].status === 'fulfilled') inspectionLease = true;
@@ -183,6 +194,10 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
         },
       };
       if (Number.isFinite(row.initial_assembly_state?.driver?.time_s)) actor.body.mixer.setTime(row.initial_assembly_state.driver.time_s);
+      // T-3398: the coachman's coat, cape and hat, skinned to his own bones.
+      const livery = acquired[3].value;
+      if (livery && (livery.asset_id !== row.driver_asset || livery.body_master_sha256 !== row.driver_livery_body_sha256)) throw Error('driven assembly: livery was draped on another body');
+      const undress = livery && actor.body ? dressInLivery(actor.body, livery) : null;
       // T-1790: breathing, the ride, weight shifts, looking around and hands on the
       // reins, layered over the seated clip each frame (driver-life.js). Bound to the
       // clip's first pose; a rig that is not the contract skeleton is left as it was.
@@ -195,7 +210,7 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
         update(dt, viewer = null) { actor.body?.mixer.update(dt); life?.apply(dt, motion, viewer); },
         move(pose, moving) { motion = { distance_m: pose.totalDistance, curvature: pose.curvature ?? 0, moving }; },
         snapshot() { return { clip: driverClip, time_s: actor.body?.mixer.time ?? 0, life: life?.snapshot() ?? null }; },
-        dispose() { actor.dispose(); } };
+        dispose() { undress?.(); actor.dispose(); } };
       if (driverClip === 'sit_drive_look_v2') driver.updateVisual = driver.update;
       const hitchRow = { ...row };
       const palmBindings = row.driver_palm_bindings_by_lod?.[String(driverLod)];
