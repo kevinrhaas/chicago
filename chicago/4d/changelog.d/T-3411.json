@@ -1,0 +1,7 @@
+{
+  "title": "The fort's brick costs one draw, not seven",
+  "kind": "fix",
+  "items": [
+    "The brick of the 1816 fort and the Lake House is now drawn as one group in 1835 instead of seven, one for each building. It looks exactly the same, with every brick still laid and shuffled, and the scene does less work each frame, which matters most on a phone."
+  ]
+}

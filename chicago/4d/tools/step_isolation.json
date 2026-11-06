@@ -2720,6 +2720,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_batch_map_key.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_bay_kit.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -4235,6 +4239,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/human_wardrobe.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/identity_master_guard.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5674,23 +5682,11 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/horse_walk_v2.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_fabric.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/human_wardrobe.py": {
+    "tools/test_driver_life.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/test_driver_livery.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_driver_life.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

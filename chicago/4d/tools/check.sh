@@ -110,6 +110,11 @@ selftest "Scenes with no parked vehicles boot: update, retier and dispose withou
 step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
   node tools/check_spatial_batch.mjs
 
+# T-3411. The merged town keys a map by its picture and sampler, so seven GLBs' clones
+# of one brick panel (T-3387) draw as one batch, not seven.
+step "Mapped materials batch by the picture they sample, not their texture's uuid (T-3411)" \
+  node tools/check_batch_map_key.mjs
+
 # T-2604. A spread flora pass walks its lattice on a worker (jobs/lattice-kernel.js)
 # and a one-frame pass walks it in flora.js's own `scatter`; the two are separate
 # texts, so this slices flora.js and holds them to the same slots, bit for bit.
