@@ -86,6 +86,16 @@
           "label": {
             "type": "string"
           },
+          "short": {
+            "type": "string",
+            "maxLength": 24,
+            "description": "T-3436: the name Go to lists this viewpoint by, one to three words ('Pullman House'); the label stays the full line and is searchable."
+          },
+          "glyph": {
+            "type": "string",
+            "pattern": "^[a-z]+$",
+            "description": "T-3436: the menu glyph (renderers/web/js/menu-icons.js) Go to draws beside this viewpoint; absent draws the eye."
+          },
           "local_e": {
             "type": "number"
           },
@@ -105,7 +115,7 @@
             "type": "number",
             "minimum": -85,
             "maximum": 85,
-            "description": "Look angle, negative is downward. Only meaningful alongside altitude_m \u2014 a standing viewpoint looks at the horizon."
+            "description": "Look angle, negative is downward. An aerial viewpoint looks down from altitude_m; a standing one looks level unless it names a tilt (T-3436: a church spire is looked up at)."
           }
         }
       }

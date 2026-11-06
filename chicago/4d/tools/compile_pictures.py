@@ -73,6 +73,7 @@ STRUCTURES = ROOT / "data" / "structures"
 SIDECARS = ROOT / "data" / "sidecars"
 VIEWS = ROOT / "data" / "reference_views"
 OUT = ROOT / "data" / "pictures"
+PLACE_NAMES = ROOT / "data" / "jaunts" / "_names" / "place-names.json"
 
 # Library kinds and views that are not pictures of a building.
 NOT_PICTURE_KINDS = {"document", "permit record", "fire insurance map", "atlas plate"}
@@ -500,6 +501,16 @@ def self_test():
     return 0
 
 
+def add_place_names(out, names):
+    """T-3436: Go to names each building the way the jaunts do ('Pullman House', from
+    data/jaunts/_names/place-names.json) once it has read this file: its Places rows and its
+    Photos. A building the file does not name keeps its record's title in the app."""
+    for scene, doc in out.items():
+        known = (names or {}).get(scene) or {}
+        doc["names"] = {sid: known[sid] for sid in sorted(known) if isinstance(known.get(sid), str)}
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--check", action="store_true")
@@ -507,7 +518,7 @@ def main():
     a = ap.parse_args()
     if a.self_test:
         return self_test()
-    out = derive(*read_tree())
+    out = add_place_names(derive(*read_tree()), load_json(PLACE_NAMES) if PLACE_NAMES.exists() else None)
     if not IMAGES.exists():
         print(f"   note: {IMAGES.relative_to(ROOT.parent)} is absent — 1904 has only its cited sources")
     if a.check:
