@@ -2,7 +2,7 @@
   "structure_id": "mayer_house_2009_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/mayer_house_2009_prairie__as_mapped_1904.glb",
-  "glb_sha256": "3223dfd25943b064c083bcdeeaa4006f02b4fe85126fe5bf17ebdc57efec680a",
+  "glb_sha256": "a07876a5a544e6efd26bf8e858b49536f977a8153d23e282d375d2c8f379b555",
   "camera_sha256": "78ec8f49f37566693a797fc7fa98ded24d4845ec40ef057129786224b8258d8a",
   "photo_sha256": "03db894ab10dff078b747f611eba3dd8d9bc3b1f35aae50435017dcd4640b4a2",
   "side_by_side": "docs/RESEARCH/photo-match/mayer_house_2009_prairie/chicagology_photo-side-by-side.jpg",
@@ -65,8 +65,12 @@
       "status": "within tolerance"
     },
     {
-      "what": "the door's pilasters stop under their capitals at about 4.5 m where the print carries them up through the carved panels to pinnacles at about 5.6 m, a third pinnacle over the arch's crown",
-      "status": "open"
+      "what": "the door's pilasters carried on over their capitals as slender shafts (0.12 m) up through the carved panel to the thin course at about 5.25 m (y 1200 px), each under a small spire to about 5.6 m (y 1163-1167 px), and a third over the arch's crown, a stem under a bud about 0.23 m across to about 5.7 m (y 1155 px), read at 3x with the contrast stretched (T-3365)",
+      "status": "fixed"
+    },
+    {
+      "what": "the door pinnacles' detail: the print's side spires are crocketed buds and the shafts taper in a lower stage beside the panel, where the build draws plain shafts and four-sided spires; the print's pilaster capitals sit at about 4.0 m (y 1323 px), at the arch's springing, where the build's stand at the keystone's top (4.53 m), about 0.5 m higher, the capital a stone block in both",
+      "status": "within tolerance"
     },
     {
       "what": "the carved panels over the door: a carved course of rings from 4.8 to 5.3 m over the door between its pilasters, on the print's place (T-1914)",
@@ -89,8 +93,12 @@
       "status": "fixed"
     },
     {
-      "what": "the gable's crest: a carved block on the apex in the print, a turned finial in the build (T-1914)",
-      "status": "open"
+      "what": "the gable's crest: the print's outline flattens to a top about 0.85 m across at about 16.3 m (y 97 px) with a carved block on it, about 0.6 m across (x 765-826 px) from about 16.07 to 16.39 m (y 120-88 px), its top scrolled in lobes; the build's outline now flattens to a 0.76 m top at 16.3 m and carries K01's crest form there (three lobes, their eyes bossed) in place of the turned finial (T-3365)",
+      "status": "fixed"
+    },
+    {
+      "what": "the crest's carving: the print's scrolls are foliage of unequal size (the left larger), the build's three even lobes; under the bar at 16 m",
+      "status": "within tolerance"
     },
     {
       "what": "the basement's three square lights under the ground window: cut in the rusticated base at the print's centres (1.96, 3.02, 4.05 m), 0.74 m across, from 0.08 m to the base's top at 0.85 m, 0.08 m under the print's heads (T-3365)",

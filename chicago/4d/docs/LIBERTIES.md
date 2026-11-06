@@ -41350,3 +41350,28 @@ with the plates, not on a wider window.
 rear range's return re-placed and the group's span read against it.
 **Ticket:** T-3354 (piece 2 of T-3338).
 **Recorded:** 2026-11-06 (T-3354).
+
+### L-k01-2009-meyer-crest-pinnacles-3365 — 2009 Prairie's carved crest on a flat-topped gable, and the door's three pinnacles, read off its photograph
+
+**Decision:** Read off the undated Chicagology photograph (`chicagology_2009_prairie_meyer_photo`, rights
+check_required: forms, places and sizes only) through its solved camera at 100 px a metre on the front's
+plane, the ogee gable now ends in a flat top about 0.8 m across at 16.3 m and carries the print's carved block
+on it in place of the kit's turned finial (`shaped_gable.finial.form: "crest"`): a stone 0.6 m across from
+about 16.08 to 16.40 m, its top the envelope of three scrolled lobes, each lobe's eye a boss. The door's two
+pilasters run on over their capitals as 0.12 m shafts through the carved panel to the thin course at 5.25 m,
+each under a cap and a four-sided spire to 5.6 m, and over the arch's crown a 0.08 m stem rises to the same
+line under a turned bud 0.23 m across to 5.7 m (`entrance_kit.arch.pilasters.pinnacles`).
+**What is read, not invented.** The flat top and its height; the crest's width, foot and top; that its top is
+scrolled; the three pinnacles' places, the shafts' breadth, the course they pass and their tops.
+**What is invented.** The crest's depth (through the slab, 0.06 m before the coping) and its three even lobes,
+where the print's foliage is unequal (the left scroll larger); the pinnacles' plain square shafts, caps and
+spires, where the print's spires are crocketed and the shafts taper in a lower stage beside the panel; the
+bud's turned profile.
+**What is not built.** The pilasters' capitals stay at the keystone's top (4.53 m), where the print puts them
+at the arch's springing (about 4.0 m). The near stack's place and corbelled cap, the base's top, the oriel's
+carved apron, the windows' hoods and the gable's pendant, and the gable's south foot are still as
+L-k01-2009-meyer-1913 and L-k01-2009-meyer-entrance-1914 left them.
+**How to resolve:** a camera solved on Monroe's 1896 plate (`monroe_1896_john_wellborn_root_meyer_plate`) would
+check the crest and the pinnacles from a second picture.
+**Ticket:** T-3365 (piece 2 of T-1914).
+**Recorded:** 2026-11-06 (T-3365).
