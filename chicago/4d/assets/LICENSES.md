@@ -1314,6 +1314,28 @@ humans/web/flynn_martin_1835.lod3.glb
 ```
 
 
+### Skin material component — `authored/humans/skin_toigo_bronze_female/`
+
+MargaretToigo, *young light-skinned female, bronze variation* (2017, changed 2019),
+**CC0-1.0** in the official MakeHuman pack metadata; source
+<https://files2.makehumancommunity.org/asset_packs/skins01/skins01_cc0.zip>,
+asset page <http://www.makehumancommunity.org/node/1133>. The unchanged 2048² PNG
+is SHA-256 `535535f30bacd42111590df4b03cf3b6bcdb7db18f336ce670665ec332ab3e0b`.
+The pack metadata, material and extraction checks are retained beside it; the
+original SOURCE/README are project-authored CC0. This component conveys no
+historical likeness (T-3434).
+
+Additional exact covered CC0 graphical/derived and documentary paths:
+
+```text
+authored/humans/skin_toigo_bronze_female/README.md
+authored/humans/skin_toigo_bronze_female/SOURCE.json
+authored/humans/skin_toigo_bronze_female/skins01.original.json
+authored/humans/skin_toigo_bronze_female/toigo_light_skin_female_bronze.mhmat
+authored/humans/skin_toigo_bronze_female/young_lightskinned_female_diffuse_Bronze.png
+```
+
+
 ### Skin material component — `authored/humans/skin_toigo_bronze/`
 
 MargaretToigo, *young light-skinned male, bronze variation* (2017, changed 2019),
@@ -2030,6 +2052,8 @@ authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-mal
 authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-male-young-averagemuscle-minweight.target
 authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-male-young-maxmuscle-averageweight.target
 authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-male-young-minmuscle-averageweight.target
+authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-angles-down.target
+authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-angles-up.target
 authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-lowerlip-volume-decr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-lowerlip-volume-incr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-scale-horiz-decr.target

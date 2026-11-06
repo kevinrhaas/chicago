@@ -9,10 +9,10 @@
  "ref_unit_m": 0.0001,
  "delta_unit_m": 1e-05,
  "bin": "hm08_variation_kit.bin",
- "bin_bytes": 920058,
- "bin_sha256": "50e39518792e37536aceb644c6e3fdcb9f1a67827b85d2d5f227d1ddade2035d",
- "axes_sha256": "c762336d1b45072b6ff1fa065fac07b58eef71091e250f012273b008bca33159",
- "manifest_sha256": "a100e3fa9826581a31fb318fbc4d8e48eca76da5b3510199a01508ec4389d6bb",
+ "bin_bytes": 927482,
+ "bin_sha256": "6eaa8ea253b2e7f63e0974318ef4f67a7558da4c985e33cd9c8264930782780b",
+ "axes_sha256": "cae42c42b32cbeb084c70fec831d03a7afcc012cc32d20eb43dca9c4b9709cb2",
+ "manifest_sha256": "80087621bf4d5b3185430dda3d8a08ed8c81a9286c91d4ad92a84d6a8d2847d1",
  "limit": 0.6,
  "height": {
   "spread": 0.035,
@@ -38,11 +38,39 @@
   },
   "flynn_mary_1835_dress_study": {
    "base_age_years": 25,
-   "sex": "female"
+   "sex": "female",
+   "face_bias": {
+    "jaw": -0.3,
+    "chin_width": -0.15,
+    "double_chin": -0.3,
+    "jowls": -0.25,
+    "brow_ridge": -0.25,
+    "brow_angle": 0.2,
+    "cheek_volume": 0.15,
+    "lip_upper": 0.12,
+    "lip_lower": 0.08,
+    "mouth_width": -0.12,
+    "prognathism": -0.1,
+    "mouth_corners": 0.35
+   }
   },
   "williamson_mattie_1904_cook_study": {
    "base_age_years": 25,
-   "sex": "female"
+   "sex": "female",
+   "face_bias": {
+    "jaw": -0.3,
+    "chin_width": -0.15,
+    "double_chin": -0.3,
+    "jowls": -0.25,
+    "brow_ridge": -0.25,
+    "brow_angle": 0.2,
+    "cheek_volume": 0.15,
+    "lip_upper": 0.12,
+    "lip_lower": 0.08,
+    "mouth_width": -0.12,
+    "prognathism": -0.1,
+    "mouth_corners": 0.35
+   }
   }
  },
  "refs": {
@@ -469,20 +497,39 @@
    }
   },
   {
+   "id": "mouth_corners",
+   "scope": "face",
+   "spread": 0,
+   "rest": true,
+   "kind": "signed",
+   "pos": {
+    "count": 438,
+    "index": 254986,
+    "delta": 255862,
+    "max_m": 0.00554
+   },
+   "neg": {
+    "count": 490,
+    "index": 258490,
+    "delta": 259470,
+    "max_m": 0.00449
+   }
+  },
+  {
    "id": "brow_ridge",
    "scope": "face",
    "spread": 0.227,
    "kind": "signed",
    "pos": {
     "count": 292,
-    "index": 254986,
-    "delta": 255570,
+    "index": 262410,
+    "delta": 262994,
     "max_m": 0.01714
    },
    "neg": {
     "count": 177,
-    "index": 257322,
-    "delta": 257676,
+    "index": 264746,
+    "delta": 265100,
     "max_m": 0.00471
    }
   },
@@ -493,14 +540,14 @@
    "kind": "signed",
    "pos": {
     "count": 290,
-    "index": 258738,
-    "delta": 259318,
+    "index": 266162,
+    "delta": 266742,
     "max_m": 0.06157
    },
    "neg": {
     "count": 280,
-    "index": 261058,
-    "delta": 261618,
+    "index": 268482,
+    "delta": 269042,
     "max_m": 0.04661
    }
   },
@@ -511,14 +558,14 @@
    "kind": "signed",
    "pos": {
     "count": 258,
-    "index": 263298,
-    "delta": 263814,
+    "index": 270722,
+    "delta": 271238,
     "max_m": 0.00679
    },
    "neg": {
     "count": 90,
-    "index": 265362,
-    "delta": 265542,
+    "index": 272786,
+    "delta": 272966,
     "max_m": 0.00846
    }
   },
@@ -529,14 +576,14 @@
    "kind": "signed",
    "pos": {
     "count": 1028,
-    "index": 266082,
-    "delta": 268138,
+    "index": 273506,
+    "delta": 275562,
     "max_m": 0.01133
    },
    "neg": {
     "count": 1022,
-    "index": 274306,
-    "delta": 276350,
+    "index": 281730,
+    "delta": 283774,
     "max_m": 0.01099
    }
   },
@@ -547,14 +594,14 @@
    "kind": "signed",
    "pos": {
     "count": 566,
-    "index": 282482,
-    "delta": 283614,
+    "index": 289906,
+    "delta": 291038,
     "max_m": 0.01734
    },
    "neg": {
     "count": 526,
-    "index": 287010,
-    "delta": 288062,
+    "index": 294434,
+    "delta": 295486,
     "max_m": 0.00721
    }
   },
@@ -565,14 +612,14 @@
    "kind": "signed",
    "pos": {
     "count": 52,
-    "index": 291218,
-    "delta": 291322,
+    "index": 298642,
+    "delta": 298746,
     "max_m": 0.01002
    },
    "neg": {
     "count": 78,
-    "index": 291634,
-    "delta": 291790,
+    "index": 299058,
+    "delta": 299214,
     "max_m": 0.00743
    }
   },
@@ -583,14 +630,14 @@
    "kind": "signed",
    "pos": {
     "count": 769,
-    "index": 292258,
-    "delta": 293796,
+    "index": 299682,
+    "delta": 301220,
     "max_m": 0.01487
    },
    "neg": {
     "count": 790,
-    "index": 298410,
-    "delta": 299990,
+    "index": 305834,
+    "delta": 307414,
     "max_m": 0.00776
    }
   },
@@ -601,14 +648,14 @@
    "kind": "signed",
    "pos": {
     "count": 2670,
-    "index": 304730,
-    "delta": 310070,
+    "index": 312154,
+    "delta": 317494,
     "max_m": 0.00342
    },
    "neg": {
     "count": 3451,
-    "index": 326090,
-    "delta": 332992,
+    "index": 333514,
+    "delta": 340416,
     "max_m": 0.0057
    }
   },
@@ -620,44 +667,44 @@
    "options": [
     {
      "count": 1942,
-     "index": 353698,
-     "delta": 357582,
+     "index": 361122,
+     "delta": 365006,
      "max_m": 0.01355
     },
     {
      "count": 1843,
-     "index": 369234,
-     "delta": 372920,
+     "index": 376658,
+     "delta": 380344,
      "max_m": 0.01259
     },
     {
      "count": 529,
-     "index": 383978,
-     "delta": 385036,
+     "index": 391402,
+     "delta": 392460,
      "max_m": 0.01153
     },
     {
      "count": 484,
-     "index": 388210,
-     "delta": 389178,
+     "index": 395634,
+     "delta": 396602,
      "max_m": 0.01525
     },
     {
      "count": 598,
-     "index": 392082,
-     "delta": 393278,
+     "index": 399506,
+     "delta": 400702,
      "max_m": 0.01384
     },
     {
      "count": 2021,
-     "index": 396866,
-     "delta": 400908,
+     "index": 404290,
+     "delta": 408332,
      "max_m": 0.00836
     },
     {
      "count": 550,
-     "index": 413034,
-     "delta": 414134,
+     "index": 420458,
+     "delta": 421558,
      "max_m": 0.01766
     }
    ]
@@ -669,14 +716,14 @@
    "kind": "signed",
    "pos": {
     "count": 146,
-    "index": 417434,
-    "delta": 417726,
+    "index": 424858,
+    "delta": 425150,
     "max_m": 0.03959
    },
    "neg": {
     "count": 146,
-    "index": 418602,
-    "delta": 418894,
+    "index": 426026,
+    "delta": 426318,
     "max_m": 0.02277
    }
   },
@@ -687,14 +734,14 @@
    "kind": "signed",
    "pos": {
     "count": 574,
-    "index": 419770,
-    "delta": 420918,
+    "index": 427194,
+    "delta": 428342,
     "max_m": 0.01232
    },
    "neg": {
     "count": 470,
-    "index": 424362,
-    "delta": 425302,
+    "index": 431786,
+    "delta": 432726,
     "max_m": 0.01034
    }
   },
@@ -705,8 +752,8 @@
    "kind": "positive",
    "pos": {
     "count": 209,
-    "index": 428122,
-    "delta": 428540,
+    "index": 435546,
+    "delta": 435964,
     "max_m": 0.01381
    }
   },
@@ -718,14 +765,14 @@
    "kind": "signed",
    "pos": {
     "count": 3941,
-    "index": 429794,
-    "delta": 437676,
+    "index": 437218,
+    "delta": 445100,
     "max_m": 0.02995
    },
    "neg": {
     "count": 3804,
-    "index": 461322,
-    "delta": 468930,
+    "index": 468746,
+    "delta": 476354,
     "max_m": 0.02655
    }
   },
@@ -738,14 +785,14 @@
    "kind": "signed",
    "pos": {
     "count": 3493,
-    "index": 491754,
-    "delta": 498740,
+    "index": 499178,
+    "delta": 506164,
     "max_m": 0.02217
    },
    "neg": {
     "count": 4312,
-    "index": 519698,
-    "delta": 528322,
+    "index": 527122,
+    "delta": 535746,
     "max_m": 0.03145
    }
   },
@@ -757,14 +804,14 @@
    "kind": "signed",
    "pos": {
     "count": 4156,
-    "index": 554194,
-    "delta": 562506,
+    "index": 561618,
+    "delta": 569930,
     "max_m": 0.04184
    },
    "neg": {
     "count": 3768,
-    "index": 587442,
-    "delta": 594978,
+    "index": 594866,
+    "delta": 602402,
     "max_m": 0.05221
    }
   },
@@ -777,14 +824,14 @@
    "kind": "signed",
    "pos": {
     "count": 4002,
-    "index": 617586,
-    "delta": 625590,
+    "index": 625010,
+    "delta": 633014,
     "max_m": 0.02843
    },
    "neg": {
     "count": 2871,
-    "index": 649602,
-    "delta": 655344,
+    "index": 657026,
+    "delta": 662768,
     "max_m": 0.03563
    }
   },
@@ -795,8 +842,8 @@
    "kind": "positive",
    "pos": {
     "count": 346,
-    "index": 672570,
-    "delta": 673262,
+    "index": 679994,
+    "delta": 680686,
     "max_m": 0.10239
    }
   },
@@ -807,14 +854,14 @@
    "kind": "signed",
    "pos": {
     "count": 679,
-    "index": 675338,
-    "delta": 676696,
+    "index": 682762,
+    "delta": 684120,
     "max_m": 0.02089
    },
    "neg": {
     "count": 877,
-    "index": 680770,
-    "delta": 682524,
+    "index": 688194,
+    "delta": 689948,
     "max_m": 0.02089
    }
   },
@@ -826,8 +873,8 @@
    "kind": "age_macro",
    "pos": {
     "count": 14517,
-    "index": 687786,
-    "delta": 716820,
+    "index": 695210,
+    "delta": 724244,
     "max_m": 0.07593
    }
   },
@@ -840,8 +887,8 @@
    "kind": "age_macro",
    "pos": {
     "count": 14517,
-    "index": 803922,
-    "delta": 832956,
+    "index": 811346,
+    "delta": 840380,
     "max_m": 0.0859
    }
   }
