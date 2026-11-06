@@ -15,7 +15,8 @@ dressed in, the vehicle or ground it sits on, and a list of garments. The kinds:
   drape_collar a cloth hung from round a shell's collar foot (a shoulder cape);
   hat          a hat fitted to the head's own cross-section: a crown profile, a brim
                that curls at the sides or droops fore and aft, and a band;
-  buttons      discs down a shell's front.
+  buttons      discs down a shell's front;
+  gloves       gloves cut from the body's own hands, a gauntlet riding over the cuff.
 
 Garments are skinned to the body's own skeleton (weights copied from the garment
 they were cut from, or taken from the nearest body points), unposed through the
@@ -196,21 +197,165 @@ def shell(S, col, g, clearance):
     X = W + N * loft[:, None]
     E = edges(G)
     boundary = boundary_vertices(G)
+    ease = g.get('ease')
+    if ease: X = eased(S, X, W, N, dom, sleeve, collar, ease)
+    floor = np.einsum('ij,ij->i', X - W, N)            # how far off the body each point stands
     for _ in range(g['smooth_iterations']):
         for f in (.5, -.53):              # Taubin: smooth without shrinking
             L = laplacian(X, E, len(X)); L[boundary] *= .35
             X = X + f * L
         col.push(X, clearance)
+    for _ in range(ease.get('hull_iterations', 0) if ease else 0):
+        # A heavy cloth bridges the body's hollows: smooth, but never back in toward
+        # the body past where the ease stood it.
+        L = laplacian(X, E, len(X)); L[boundary] *= .35; L[collar] = 0      # the collar keeps its fit
+        X = X + .5 * L
+        d = np.einsum('ij,ij->i', X - W, N)
+        X += N * np.maximum(floor - d, 0)[:, None]
+        col.push(X, clearance)
+    if g.get('elbow_creases'): X = sleeve_creases(S, X, vertex_normals(X, G), dom, g['elbow_creases'])
     for _ in range(4): col.push(X, clearance)
     return dict(posed=X, faces=G, joints=joints, weights=weights)
 
 
+def lap_folds(S, grid, faces, f, col, clearance):
+    """Gathered folds where a seated coat's skirt bunches over the lap: ridges that
+    radiate from a point between the hips and run down along the thighs, as the
+    cloth gathered at the waist spreads over them. Displaced along the cloth's own
+    normal on the rows that lie face-up on the thighs, then held clear of the body."""
+    R, C, _ = grid.shape
+    X = grid.reshape(-1, 3).copy()
+    n = vertex_normals(X, faces)
+    hub = (S['bones']['thigh_l'] + S['bones']['thigh_r']) / 2 + np.array(f.get('hub_offset_m', [0, 0, 0]))
+    th = np.arctan2(X[:, 0] - hub[0], X[:, 2] - hub[2])
+    k = 2 * np.pi * f['radius_m'] / f['wavelength_m']
+    rng = np.random.default_rng(f.get('seed', 1))
+    ph = rng.uniform(0, 2 * np.pi, 3)
+    wave = np.sin(k * th + ph[0] + .6 * np.sin(.37 * k * th + ph[1])) * (.75 + .25 * np.sin(.21 * k * th + ph[2]))
+    row = np.repeat(np.arange(R) * 1.0, C) / max(R - 1, 1)
+    s = row * (R - 1) * f['row_m']
+    a, b = f['rows_m']
+    env = np.clip((s - a) / .05, 0, 1) * np.clip((b - s) / .08, 0, 1)
+    up = np.clip((n[:, 1] - f.get('facing_up', .3)) / .3, 0, 1)
+    X += n * (f['amp_m'] * (.5 + .5 * wave) * env * up)[:, None]       # ridges stand up off the lap
+    for _ in range(3): col.push(X, clearance)
+    return X.reshape(R, C, 3)
+
+
+def sleeve_creases(S, X, N, dom, e):
+    """Creases round the crook of a bent elbow: a few ridges across the sleeve, deepest
+    on the inside of the bend."""
+    B = S['bones']; X = X.copy()
+    for side in ('l', 'r'):
+        el = B[f'lowerarm_{side}']; ua = el - B[f'upperarm_{side}']; fa = B[f'hand_{side}'] - el
+        ua /= np.linalg.norm(ua); fa /= np.linalg.norm(fa)
+        inside = fa - ua; inside /= np.linalg.norm(inside) + 1e-12     # toward the crook
+        m = np.array([d.endswith('_' + side) and d.startswith(('upperarm', 'lowerarm')) for d in dom])
+        V = X[m] - el
+        axis = np.where((V @ ua)[:, None] < 0, ua, fa)
+        along = np.einsum('ij,ij->i', V, axis)                            # signed distance from the elbow
+        rad = V - axis * along[:, None]; rad /= np.linalg.norm(rad, axis=1)[:, None] + 1e-12
+        crook = np.clip(np.einsum('ij,j->i', rad, inside), 0, 1) ** .7 * .8 + .2
+        env = np.clip(1 - np.abs(along) / e['reach_m'], 0, 1)
+        X[m] += N[m] * (e['amp_m'] * np.sin(2 * np.pi * along / e['wavelength_m']) * env * crook)[:, None]
+    return X
+
+
+def _nearest_on_chain(V, chain):
+    """Each point's nearest point on a polyline of bone heads, and that segment's direction."""
+    best = np.full(len(V), np.inf); P = np.zeros_like(V); T = np.zeros_like(V)
+    for a, b in zip(chain[:-1], chain[1:]):
+        ab = b - a; t = np.clip(((V - a) @ ab) / (ab @ ab), 0, 1)
+        Q = a + t[:, None] * ab; d = np.linalg.norm(V - Q, axis=1); m = d < best
+        best[m] = d[m]; P[m] = Q[m]; T[m] = ab / np.linalg.norm(ab)
+    return P, T
+
+
+def eased(S, X, W, N, dom, sleeve, collar, e):
+    """Stand a heavy coat off the figure: out from the spine by `chest_m` (fuller in front
+    by `front_bias`, over a band of heights), out from each arm's bones by `sleeve_m`
+    (armhole to cuff), and square at the shoulder by `shoulder_m`. The collar keeps its fit."""
+    B = S['bones']
+    X = X.copy()
+    torso = ~sleeve & ~collar
+    spine = np.array([B[k] for k in ('pelvis', 'spine_01', 'spine_02', 'spine_03', 'neck_01')])
+    P, T = _nearest_on_chain(W, spine)
+    R = W - P; R -= T * np.einsum('ij,ij->i', R, T)[:, None]
+    R /= np.linalg.norm(R, axis=1)[:, None] + 1e-12
+    lo, hi = e['chest_band_y_m']; fade = e.get('band_fade_m', .08)
+    band = np.clip((W[:, 1] - (lo - fade)) / fade, 0, 1) * np.clip(((hi + fade) - W[:, 1]) / fade, 0, 1)
+    fwd = np.clip(R[:, 2], 0, 1)                         # +z is the figure's front
+    amt = e['chest_m'] * band * (1 + e.get('front_bias', 0) * fwd)
+    X[torso] += R[torso] * amt[torso, None]
+    for side in ('l', 'r'):
+        arm = np.array([B[f'clavicle_{side}'] * .5 + B[f'upperarm_{side}'] * .5, B[f'upperarm_{side}'],
+                        B[f'lowerarm_{side}'], B[f'hand_{side}']])
+        m = sleeve & np.array([d.endswith('_' + side) for d in dom])
+        if not m.any(): continue
+        Pa, Ta = _nearest_on_chain(W[m], arm)
+        Ra = W[m] - Pa; Ra -= Ta * np.einsum('ij,ij->i', Ra, Ta)[:, None]
+        Ra /= np.linalg.norm(Ra, axis=1)[:, None] + 1e-12
+        along = np.linalg.norm(W[m] - B[f'upperarm_{side}'], axis=1)
+        reach = np.linalg.norm(B[f'hand_{side}'] - B[f'upperarm_{side}'])
+        s0, s1 = e['sleeve_m']
+        X[m] += Ra * (s0 + (s1 - s0) * np.clip(along / reach, 0, 1))[:, None]
+        # Square the shoulder: lift the top of the armhole outward and up.
+        sh = B[f'upperarm_{side}']
+        near = np.clip(1 - np.linalg.norm(W - sh, axis=1) / e.get('shoulder_reach_m', .11), 0, 1) * (W[:, 1] > sh[1] - .02) * ~collar
+        out = np.array([1. if side == 'l' else -1., .6, 0]); out /= np.linalg.norm(out)
+        X += out * (e.get('shoulder_m', 0) * near)[:, None]
+    return X
+
+
+# ---------------------------------------------------------------- gloves
+HAND_BONES = ('hand', 'thumb', 'index', 'middle', 'ring', 'pinky')
+
+
+def gloves(S, g):
+    """Gloves cut from the body's own hands: every face skinned to a hand or finger bone,
+    and the forearm for `gauntlet_m` above the wrist; stood off by `loft_m` (the leather or
+    cotton), the gauntlet flaring by `gauntlet_flare_m` so it rides over the shirt cuff,
+    smoothed so knuckles and nails no longer show."""
+    src = S['meshes'][g.get('from', 'body_0')]
+    W, G, idx, inv = weld(src['posed'], src['faces'])
+    joints = src['joints'][idx]; weights = src['weights'][idx]
+    name = S['joints']
+    dom = np.array([name[j[np.argmax(w)]] for j, w in zip(joints, weights)])
+    hand = np.array([d.startswith(HAND_BONES) for d in dom])
+    up = np.zeros(len(W))
+    keep = hand.copy()
+    for side in ('l', 'r'):
+        wrist = S['bones'][f'hand_{side}']; elbow = S['bones'][f'lowerarm_{side}']
+        ax = (elbow - wrist) / np.linalg.norm(elbow - wrist)
+        s = (W - wrist) @ ax
+        fore = dom == f'lowerarm_{side}'
+        m = fore & (s > -.02) & (s < g['gauntlet_m'])
+        keep |= m; up = np.where(m, np.clip(s / g['gauntlet_m'], 0, 1), up)
+    F = G[keep[G].all(1)]
+    used = np.unique(F); remap = -np.ones(len(W), int); remap[used] = np.arange(len(used))
+    F = remap[F]; W = W[used]; up = up[used]; joints = joints[used]; weights = weights[used]
+    N = vertex_normals(W, F)
+    X = W + N * (g['loft_m'] + g['gauntlet_flare_m'] * up ** 1.5)[:, None]
+    E = edges(F); boundary = boundary_vertices(F)
+    for _ in range(g.get('smooth_iterations', 6)):
+        for f in (.5, -.53):
+            L = laplacian(X, E, len(X)); L[boundary] *= .35
+            X = X + f * L
+    return dict(posed=X, faces=F, joints=joints, weights=weights)
+
+
 # ---------------------------------------------------------------- draped cloth
-def drape(top, centre, rows, row_m, fullness, col, dyn, lift=.25, bend_h=.12):
+def drape(top, centre, rows, row_m, fullness, col, dyn, lift=.25, bend_h=.12, init=None, friction=.25, closed_rows=0):
     """Hang a cloth from `top` (C x 3, ordered round `centre`, open at the front)
-    and let it fall. Returns (R x C x 3) positions and the triangle grid."""
+    and let it fall. `init` (C x 3), if given, is each column's starting direction
+    instead of straight out from the centre (a coat's front laid along the thighs);
+    `friction` is the share of its speed a cloth point keeps when it touches;
+    `closed_rows` joins the front edges for that many rows from the top (a coat
+    buttoned over the lap), so the cloth bridges the thighs instead of sliding off.
+    Returns (R x C x 3) positions and the triangle grid."""
     C = len(top); R = rows
     out = top - centre; out[:, 1] = 0; out /= np.linalg.norm(out, axis=1)[:, None]
+    if init is not None: out = init
     s = np.arange(R) * row_m
     X = top[None] + out[None] * (s[:, None, None] * .92) + np.array([0, 1, 0]) * (s[:, None, None] * lift)
     prev = X.copy()
@@ -218,6 +363,7 @@ def drape(top, centre, rows, row_m, fullness, col, dyn, lift=.25, bend_h=.12):
     grow = 1 + (fullness - 1) * (s / s[-1])
     Lh = top_len[None] * grow[:, None]                                   # (R, C-1)
     Lv = row_m
+    Lc = np.linalg.norm(top[0] - top[-1]) * grow[:closed_rows]
     inv_mass = np.ones((R, C)); inv_mass[0] = 0
     g = np.array([0, -9.81, 0]) * dyn['dt_s'] ** 2
     clearance = dyn['clearance_m']
@@ -239,12 +385,13 @@ def drape(top, centre, rows, row_m, fullness, col, dyn, lift=.25, bend_h=.12):
             link((slice(0, -1), slice(1, None)), (slice(1, None), slice(0, -1)), diag, .7)
             link((slice(0, -2), slice(None)), (slice(2, None), slice(None)), 2 * Lv, .25)    # bend
             link((slice(None), slice(0, -2)), (slice(None), slice(2, None)), Lh[:, :-1] + Lh[:, 1:], bend_h)
+            if closed_rows: link((slice(0, closed_rows), 0), (slice(0, closed_rows), C - 1), Lc)
             X = X + 1.5 * D / np.maximum(K, 1)[..., None] * inv_mass[..., None]
         flat = X.reshape(-1, 3)
         hit = col.push(flat, clearance)
         X = flat.reshape(R, C, 3)
         hp = hit.reshape(R, C)
-        prev[hp] = X[hp] - (X[hp] - prev[hp]) * .25               # contact friction
+        prev[hp] = X[hp] - (X[hp] - prev[hp]) * friction          # contact friction
         X[0] = top; prev[0] = top
     for _ in range(dyn['relax_passes']):
         for f in (.5, -.53):
@@ -258,6 +405,9 @@ def drape(top, centre, rows, row_m, fullness, col, dyn, lift=.25, bend_h=.12):
         for j in range(C - 1):
             a, b, c, d = i * C + j, i * C + j + 1, (i + 1) * C + j, (i + 1) * C + j + 1
             F += [[a, c, b], [b, c, d]]
+    for i in range(max(0, min(closed_rows, R) - 1)):          # the closed front's own strip
+        a, b, c, d = i * C + C - 1, i * C, (i + 1) * C + C - 1, (i + 1) * C
+        F += [[a, c, b], [b, c, d]]
     return X, np.array(F)
 
 
@@ -523,7 +673,10 @@ def build(recipe):
             else: top, centre = collar_ring(S, parent, g)
             c = col if not g.get('collide_with_parent') else Collider(body_parts + [(parent['posed'], parent['faces'])], boxes)
             grid, faces = drape(top, centre, int(round(g['length_m'] / g['row_m'])) + 1, g['row_m'], g['hem_fullness'], c, dyn,
-                                lift=g['lift'], bend_h=g['bend_h'])
+                                lift=g['lift'], bend_h=g['bend_h'], friction=g.get('friction', .25),
+                                closed_rows=int(round(g.get('closed_front_m', 0) / g['row_m'])))
+            if g.get('lap_folds'):
+                grid = lap_folds(S, grid, faces, dict(g['lap_folds'], row_m=g['row_m']), c, dyn['clearance_m'])
             X = grid.reshape(-1, 3)
             J, W = nearest_weights(S, X, g['weights_from'], remap=g.get('weights_remap'))
             if g.get('spring_tails'):
@@ -536,6 +689,9 @@ def build(recipe):
             fits[g['name']] = fit
             add(g['name'], g['material'], V, F, *rigid(S, len(V), 'head'))
             add(g['name'] + '_band', g['band_material'], BV, BF, *rigid(S, len(BV), 'head'))
+        elif kind == 'gloves':
+            gv = gloves(S, g)
+            add(g['name'], g['material'], gv['posed'], gv['faces'], gv['joints'], gv['weights'])
         elif kind == 'buttons':
             V, F = buttons(made[g['on']], g)
             add(g['name'], g['material'], V, F, *nearest_weights(S, V, g['weights_from'], k=3))
