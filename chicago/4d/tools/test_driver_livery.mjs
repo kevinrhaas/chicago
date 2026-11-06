@@ -1,11 +1,13 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
-// T-3398: the 1904 driver's draped livery (box coat, cape, buttons, top hat), as the
-// renderer binds it (renderers/web/js/driver-livery.js) to the REAL exported driver.
-// It must: be the file the driven row binds by sha256, draped on the body master the
-// row names; bind by bone name on the web LOD0 and LOD3 the town loads; reproduce,
-// through three's own skinning in the seated clip, the posed points the producer
-// recorded (tools/human_driver_livery_1904.py); dye only the garments it declares;
-// and undo cleanly, leaving the body exactly as it was.
+// T-3398, T-3409: each driver's wardrobe (the 1904 coachman's box coat, cape and top hat;
+// the 1835 wagon driver's round jacket and felt hat), as the renderer binds it
+// (renderers/web/js/driver-livery.js) to the REAL exported driver. Each must: be the
+// file its driven row binds by sha256, dressed on the body master the row names;
+// bind by bone name on the web LOD0 and LOD3 the town loads; reproduce, through
+// three's own skinning in the seated clip, the posed points the wardrobe kit
+// recorded (tools/human_wardrobe.py); dye only the garments it declares; swing its
+// spring tails behind the body's motion, within their limits, and settle back to the
+// drape at rest; and undo cleanly, leaving the body exactly as it was.
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
@@ -45,58 +47,107 @@ function geometryOnly(bytes) {
 }
 const sha = b => crypto.createHash('sha256').update(b).digest('hex');
 
-// The driven row binds this exact file, draped on this exact body master.
 const loops = JSON.parse(await fs.readFile(new URL('data/transport/driven/loops.json', here), 'utf8'));
-const row = loops.rows.find(r => r.driver_livery_file);
-assert(row, 'a driven row wears a livery');
-const file = new URL(`renderers/web/${row.driver_livery_file}`, here);
-const bytes = await fs.readFile(file);
-assert.equal(sha(bytes), row.driver_livery_sha256, 'the row binds the committed livery by its bytes');
-const master = await fs.readFile(new URL('assets/humans/anonymous_working_driver_1904.lod0.glb', here));
-const livery = parseLivery(bytes.toString('utf8'));
-assert.equal(livery.asset_id, row.driver_asset);
-assert.equal(livery.body_master_sha256, sha(master), 'draped on the committed body master');
-assert.equal(row.driver_livery_body_sha256, livery.body_master_sha256);
-// The renderer's fetch path refuses a file that is not the bound one.
-await assert.rejects(loadLivery('x', '0'.repeat(64), async () => ({ ok: true, arrayBuffer: async () => bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength) })), /differs from its binding/);
-assert.equal((await loadLivery('x', row.driver_livery_sha256, async () => ({ ok: true, arrayBuffer: async () => bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength) }))).parts.length, livery.parts.length);
+const rows = loops.rows.filter(r => r.driver_livery_file);
+assert(rows.length >= 2, 'both driven rows wear a wardrobe');
+let swung = 0;
+for (const row of rows) {
+  const tag = row.driver_asset;
+  // The driven row binds this exact file, dressed on this exact body master.
+  const bytes = await fs.readFile(new URL(`renderers/web/${row.driver_livery_file}`, here));
+  assert.equal(sha(bytes), row.driver_livery_sha256, `${tag}: the row binds the committed wardrobe by its bytes`);
+  const master = await fs.readFile(new URL(`assets/humans/${row.driver_asset}.lod0.glb`, here));
+  const livery = parseLivery(bytes.toString('utf8'));
+  assert.equal(livery.asset_id, row.driver_asset);
+  assert.equal(livery.body_master_sha256, sha(master), `${tag}: dressed on the committed body master`);
+  assert.equal(row.driver_livery_body_sha256, livery.body_master_sha256);
+  assert(livery.garments.length && livery.garments.every(g => g.liberty || g.source_ids?.length), `${tag}: every garment has its source or liberty`);
+  // The renderer's fetch path refuses a file that is not the bound one.
+  const fetched = async () => ({ ok: true, arrayBuffer: async () => bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength) });
+  await assert.rejects(loadLivery('x', '0'.repeat(64), fetched), /differs from its binding/);
+  assert.equal((await loadLivery('x', row.driver_livery_sha256, fetched)).parts.length, livery.parts.length);
+  // Draws: one per material.
+  assert.equal(new Set(livery.parts.map(p => p.material)).size, livery.parts.length, `${tag}: one mesh per material`);
+  assert(livery.parts.some(p => /wool/.test(p.material)), `${tag}: an outer garment is wool for fabric.js`);
+  const recolor = Object.keys(livery.recolor_body_materials ?? {});
 
-// Draws: one per material.
-assert.equal(new Set(livery.parts.map(p => p.material)).size, livery.parts.length, 'one mesh per material');
-const coat = livery.parts.find(p => p.material === 'garment_outer__box_coat_wool');
-assert(coat && /wool|coat/.test(coat.material), 'the coat is wool for fabric.js');
-
-for (const lod of [0, 3]) {
-  const glb = await fs.readFile(new URL(`assets/humans/web/anonymous_working_driver_1904.lod${lod}.glb`, here));
-  const gltf = await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).parseAsync(geometryOnly(glb), '');
-  const scene = gltf.scene;
-  const meshes = []; scene.traverse(o => { if (o.isSkinnedMesh) meshes.push(o); });
-  const body = { scene, meshes: [...meshes] };
-  const trousers = meshes.find(m => m.material.name === 'garment_lower__highwaist_pantaloons');
-  const before = trousers.material.color.clone(), others = meshes.filter(m => m !== trousers).map(m => [m.material, m.material.color.clone()]);
-  const mixer = new THREE.AnimationMixer(scene);
-  mixer.clipAction(gltf.animations.find(a => a.name === 'sit_drive')).play(); mixer.setTime(0);
-  scene.updateMatrixWorld(true);
-  const undo = dressInLivery(body, livery);
-  scene.updateMatrixWorld(true);
-  const added = body.meshes.slice(meshes.length);
-  assert.equal(added.length, livery.parts.length, `LOD${lod}: every piece added`);
-  assert(added.every(m => m.isSkinnedMesh && m.parent && m.skeleton.bones.every(b => b.isBone)), `LOD${lod}: skinned to the body's bones`);
-  assert(added.every(m => m.skeleton.bones.every(b => meshes[0].skeleton.bones.includes(b))), `LOD${lod}: the body's own bone objects`);
-  assert.notDeepEqual(trousers.material.color.toArray(), before.toArray(), `LOD${lod}: livery trousers dyed`);
-  for (const [m, c] of others) assert(m.color.equals(c), `LOD${lod}: no other garment dyed`);
-  let worst = 0;
-  for (const mesh of added) mesh.skeleton.update();
-  for (const probe of livery.probes) {
-    const mesh = added.find(m => m.name === `livery:${probe.part}`);
-    const v = mesh.getVertexPosition(probe.index, new THREE.Vector3()).applyMatrix4(mesh.matrixWorld);
-    worst = Math.max(worst, v.distanceTo(new THREE.Vector3(...probe.posed_m)));
+  for (const lod of [0, 3]) {
+    const glb = await fs.readFile(new URL(`assets/humans/web/${row.driver_asset}.lod${lod}.glb`, here));
+    const gltf = await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).parseAsync(geometryOnly(glb), '');
+    const scene = gltf.scene;
+    const meshes = []; scene.traverse(o => { if (o.isSkinnedMesh) meshes.push(o); });
+    const body = { scene, meshes: [...meshes] };
+    const colours = meshes.map(m => [m, m.material.color.clone()]);
+    const mixer = new THREE.AnimationMixer(scene);
+    mixer.clipAction(gltf.animations.find(a => a.name === livery.clip_posed)).play(); mixer.setTime(0);
+    scene.updateMatrixWorld(true);
+    const bonesBefore = []; scene.traverse(o => { if (o.isBone) bonesBefore.push(o); });
+    const undo = dressInLivery(body, livery);
+    scene.updateMatrixWorld(true);
+    const added = body.meshes.slice(meshes.length);
+    assert.equal(added.length, livery.parts.length, `${tag} LOD${lod}: every piece added`);
+    assert(added.every(m => m.isSkinnedMesh && m.parent && m.skeleton.bones.every(b => b.isBone)), `${tag} LOD${lod}: skinned to bones`);
+    const tailBones = new Set(undo.tails.map(t => t.bone));
+    assert.equal(undo.tails.length, (livery.tails ?? []).length, `${tag} LOD${lod}: every spring tail made`);
+    assert(added.every(m => m.skeleton.bones.every(b => meshes[0].skeleton.bones.includes(b) || tailBones.has(b))), `${tag} LOD${lod}: the body's own bone objects, or its tails`);
+    assert(undo.tails.every(t => meshes[0].skeleton.bones.includes(t.parent)), `${tag} LOD${lod}: each tail hangs from the body's own bone`);
+    for (const [m, c] of colours) {
+      if (recolor.includes(m.material.name)) assert(!m.material.color.equals(c), `${tag} LOD${lod}: ${m.material.name} dyed`);
+      else assert(m.material.color.equals(c), `${tag} LOD${lod}: ${m.material.name} not dyed`);
+    }
+    const worstProbe = () => {
+      let worst = 0;
+      scene.updateMatrixWorld(true);
+      for (const mesh of added) mesh.skeleton.update();
+      for (const probe of livery.probes) {
+        const mesh = added.find(m => m.name === `livery:${probe.part}`);
+        const v = mesh.getVertexPosition(probe.index, new THREE.Vector3()).applyMatrix4(mesh.matrixWorld);
+        worst = Math.max(worst, v.distanceTo(new THREE.Vector3(...probe.posed_m).applyMatrix4(scene.matrixWorld)));
+      }
+      return worst;
+    };
+    const worst = worstProbe();
+    assert(worst < 1e-3, `${tag} LOD${lod}: three's skinning puts the wardrobe where it was draped (worst ${(worst * 1000).toFixed(2)} mm)`);
+    let note = '';
+    if (undo.tails.length) {
+      // At rest the tails stay at rest, and so does the drape.
+      for (let i = 0; i < 30; i++) undo.update(1 / 60);
+      assert(undo.tails.every(t => t.angle < 1e-4), `${tag} LOD${lod}: tails at rest stay at rest`);
+      assert(worstProbe() < 1e-3, `${tag} LOD${lod}: resting tails leave the drape where it was`);
+      // Jolted sideways (+x, 5 m/s/s for 0.3 s, then held at speed) the tails lag behind, within their limits.
+      let v = 0, peak = 0, lag = 0;
+      for (let i = 0; i < 60; i++) {
+        const dt = 1 / 60; if (i < 18) v += 5 * dt;
+        scene.position.x += v * dt; undo.update(dt);
+        peak = Math.max(peak, ...undo.tails.map(t => t.angle));
+        if (i === 17) {
+          const t = undo.tails[0], W = new THREE.Matrix4().multiplyMatrices(t.parent.matrixWorld, t.rest);
+          const rest = t.tipLocal.clone().applyMatrix4(W).sub(new THREE.Vector3().setFromMatrixPosition(W));
+          lag = t.r.x - rest.x;
+        }
+      }
+      assert(peak > THREE.MathUtils.degToRad(.5), `${tag} LOD${lod}: a jolt swings the tails (peak ${THREE.MathUtils.radToDeg(peak).toFixed(2)} deg)`);
+      assert(undo.tails.every(t => t.angle <= t.max + 1e-6), `${tag} LOD${lod}: no tail past its limit`);
+      assert(lag < 0, `${tag} LOD${lod}: the cloth trails the jolt`);
+      // ...and settle back to the drape once the body moves steadily.
+      for (let i = 0; i < 600; i++) { scene.position.x += v / 60; undo.update(1 / 60); }
+      const settled = Math.max(...undo.tails.map(t => t.angle));
+      assert(settled < THREE.MathUtils.degToRad(.05), `${tag} LOD${lod}: tails settle (${THREE.MathUtils.radToDeg(settled).toFixed(3)} deg)`);
+      assert(worstProbe() < 1e-3, `${tag} LOD${lod}: settled tails give back the drape`);
+      // A teleport restarts the tails at rest instead of flinging them.
+      scene.position.x += 50; undo.update(1 / 60);
+      assert(undo.tails.every(t => t.angle < 1e-4), `${tag} LOD${lod}: a jump restarts the tails at rest`);
+      note = `, ${undo.tails.length} spring tails swing to ${THREE.MathUtils.radToDeg(peak).toFixed(1)} deg on a jolt and settle`;
+      swung++;
+    }
+    undo();
+    assert.equal(body.meshes.length, meshes.length, `${tag} LOD${lod}: undo removes every piece`);
+    assert(added.every(m => !m.parent), `${tag} LOD${lod}: undo detaches every piece`);
+    const bonesAfter = []; scene.traverse(o => { if (o.isBone) bonesAfter.push(o); });
+    assert.deepEqual(bonesAfter, bonesBefore, `${tag} LOD${lod}: undo removes every tail bone`);
+    for (const [m, c] of colours) assert(m.material.color.equals(c), `${tag} LOD${lod}: undo restores ${m.material.name}`);
+    console.log(`${tag} LOD${lod}: ${added.length} meshes bound by name, seated skinning within ${(worst * 1000).toFixed(2)} mm of the drape${note}`);
   }
-  assert(worst < 1e-3, `LOD${lod}: three's skinning puts the livery where it was draped (worst ${(worst * 1000).toFixed(2)} mm)`);
-  undo();
-  assert.equal(body.meshes.length, meshes.length, `LOD${lod}: undo removes every piece`);
-  assert(added.every(m => !m.parent), `LOD${lod}: undo detaches every piece`);
-  assert(trousers.material.color.equals(before), `LOD${lod}: undo restores the trousers`);
-  console.log(`LOD${lod}: ${added.length} livery meshes bound by name, seated skinning within ${(worst * 1000).toFixed(2)} mm of the drape`);
 }
-console.log('driver livery: bound by bytes and body, bound by bone name on LOD0 and LOD3, skinned where draped, dyes only the trousers, undoes cleanly: PASS');
+assert(swung > 0, 'a wardrobe swings spring tails');
+console.log('driver wardrobes: bound by bytes and body, every garment sourced or a liberty, bound by bone name on LOD0 and LOD3, skinned where draped, spring tails lag and settle, dye only what they declare, undo cleanly: PASS');
