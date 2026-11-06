@@ -40837,7 +40837,7 @@ from the 23.1 ft street eave), so it lays more courses between eave and crest th
 print and HABS photograph 1 count (T-3095 read 41-44); that departure is the owner's to make. The alley
 gable stays a verge (T-3376) and follows the roof to the new apex.
 **How to resolve:** a measured section through the stable's alley end.
-**Covers:** `glessner_house.as_built_1887.form.v4_detail`, `glessner_house.as_built_1887.form.gable_west_wing_west`.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
 **Ticket:** T-3396.
 **Review:** `docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg`,
 `docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg`.

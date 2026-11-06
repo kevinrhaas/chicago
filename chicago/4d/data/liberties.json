@@ -68218,12 +68218,6 @@
           "domain": "structure",
           "structure": "glessner_house",
           "phase": "as_built_1887",
-          "aspect": "form.gable_west_wing_west"
-        },
-        {
-          "domain": "structure",
-          "structure": "glessner_house",
-          "phase": "as_built_1887",
           "aspect": "form.v4_detail"
         }
       ],
@@ -68240,7 +68234,7 @@
         },
         {
           "label": "Covers",
-          "text": "`glessner_house.as_built_1887.form.v4_detail`, `glessner_house.as_built_1887.form.gable_west_wing_west`."
+          "text": "`glessner_house.as_built_1887.form.v4_detail`."
         },
         {
           "label": "Review",
