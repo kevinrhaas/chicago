@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs04-hood-section",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "7884c563d60a662407445a76ab2560c814377151c296bc2ed733bd659272136c",
+  "glb_sha256": "6b9382e7139383eb51e3ead401494423d3d2b9c26e8ecc15a3996e41ea580ead",
   "camera_sha256": "1f76d223ece9f5501fd8d70d9e23282213d62971a12fb5efc6c65de2247ba249",
   "photo_sha256": "eaf3d363e02df67688c6c18cbc3653a9d291246a4c5fdc65bfba4109b088dd46",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-hood-section-side-by-side.jpg",
@@ -49,5 +49,5 @@
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
