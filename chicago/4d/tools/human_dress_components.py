@@ -178,6 +178,35 @@ def bodice(body, bones, waist, ease=.010):
     return out
 
 
+def leg_follow(bones, waist):
+    """T-3423: skirt skinning that lets the cloth go with the legs (walking, sitting).
+
+    A pelvis-only skirt is a rigid bell: a stepping or seated thigh passes straight
+    through it. Below the waist each skirt point is shared between the pelvis and the
+    leg on its side (thigh above the knee, calf below it), more over the front than the
+    back, so a forward thigh carries the front of the skirt over it and the hem below
+    the knee hangs from the calf. Points between the legs split evenly between them.
+    An original engineering blend, not a measured cloth simulation.
+    """
+    knee = bones['calf_l']['head_m'][1]; half = abs(bones['thigh_l']['head_m'][0])
+    def weights(p):
+        t = min(1., max(0., (waist-p[1])/(.4*(waist-knee))))
+        t = t*(2-t)
+        r = math.hypot(p[0], p[2]) or 1.
+        front = p[2]/r
+        a = t*(.5+.5*max(0., front))
+        u = min(1., max(0., (knee+.06-p[1])/.2))
+        left = min(1., max(0., .5+p[0]/(2.2*half)))
+        w = {'pelvis': 1-a}
+        for side, share in (('l', left), ('r', 1-left)):
+            for bone, part in ((f'thigh_{side}', 1-u), (f'calf_{side}', u)):
+                if a*share*part > 1e-6: w[bone] = w.get(bone, 0.)+a*share*part
+        w = dict(sorted(w.items(), key=lambda kv: -kv[1])[:4])
+        total = math.fsum(w.values())
+        return {k: v/total for k, v in w.items()}
+    return weights
+
+
 def skirt(body, bones, waist, upper_garment=None, segments=96, rows=18, ease=.015, hem=.055):
     """Standing skirt with gathered radial folds around a proven convex core.
 
@@ -190,6 +219,7 @@ def skirt(body, bones, waist, upper_garment=None, segments=96, rows=18, ease=.01
     need(segments >= 48 and segments % 12 == 0 and rows >= 4 and .01 <= ease <= .03,
          'unsupported skirt discretization/ease')
     levels = [waist+(hem-waist)*i/(rows-1) for i in range(rows)]
+    follow = leg_follow(bones, waist)
     triangles = [[mesh['positions_m'][i] for i in face] for mesh in body['meshes'] for face in mesh['triangles']
                  if min(mesh['positions_m'][i][1] for i in face) <= waist and max(mesh['positions_m'][i][1] for i in face) >= hem]
     normals = [(math.sin(2*math.pi*(k+.5)/segments), math.cos(2*math.pi*(k+.5)/segments)) for k in range(segments)]
@@ -217,7 +247,7 @@ def skirt(body, bones, waist, upper_garment=None, segments=96, rows=18, ease=.01
             gather = (.003+.011*(i/(rows-1))**.6)*(1-math.cos(12*2*math.pi*k/segments))*.5
             r = math.hypot(x, z); factor = 1+gather/r
             out['positions_m'].append([factor*x, y, factor*z]); out['uvs'].append([k/segments, i/(rows-1)])
-            out['weights'].append({'pelvis': 1.})
+            out['weights'].append(follow([factor*x, y, factor*z]))
         core.append(ring)
     minimum_panel_margin = math.inf
     for i in range(rows-1):
@@ -288,7 +318,7 @@ def skirt(body, bones, waist, upper_garment=None, segments=96, rows=18, ease=.01
                           waist_closure=dict(actual_bodice_cross_section_y_m=join_y, radial_underlap_m=.0015,
                                              construction='Closed top annulus tucked1.5mm into actual bodice; no anatomy removed'),
                           source_body_mutated=False, walking_or_seated_accepted=False,
-                          skinning='All skirt vertices belong to pelvis; standing authoring only')
+                          skinning='Pelvis at the waist, shared with the thigh and calf of each side below it (leg_follow, T-3423)')
     return finish_edges(out, .0015), core
 
 
@@ -299,10 +329,10 @@ def apron(dress, core, rows=18, segments=96):
     for row in range(rows-3):
         for col in columns:
             k = col % segments; base = dress['positions_m'][row*segments+k]
-            r = math.hypot(base[0], base[2]); offset = .005
+            r = math.hypot(base[0], base[2]); offset = .008
             out['positions_m'].append([base[0]*(1+offset/r), base[1]+.001, base[2]*(1+offset/r)])
             out['uvs'].append([(col-columns[0])/(columns[-1]-columns[0]), row/(rows-4)])
-            out['weights'].append({'pelvis': 1.})
+            out['weights'].append(dict(dress['weights'][row*segments+k]))
     width = len(columns)
     for row in range(rows-4):
         for k in range(width-1):
@@ -310,6 +340,55 @@ def apron(dress, core, rows=18, segments=96):
             for face in ([a, c, b], [a, d, c]):
                 out['triangles'].append(face); out['corner_uvs'].append([out['uvs'][i] for i in face])
     return finish_edges(out, .0015)
+
+
+def hair_bun(hair, bones, rings=10, segments=20):
+    """T-3423: a gathered bun at the back of the head, over the fitted short04 cap.
+
+    Women of 1835 and 1904 wore their hair up; the cleared short04 cap alone reads as a
+    man's crop. The bun is an original ellipsoid (4.4 x 4.0 x 3.0 cm half-axes) seated
+    on the back of the cap a little above the ears and skinned to the head. It wears the
+    same cleared hair atlas through a 2 % window centred on the texture coordinate of the
+    cap vertex it sits on (opaque throughout in the padded atlas), mirrored six times round
+    and four times over so strand detail stays at the cap's scale. Size and placement are reconstructed, not measured.
+    """
+    P, U = hair['positions_m'], hair['uvs']
+    head = bones['head']['head_m']
+    y0 = head[1]+.05
+    band = [p for p in P if abs(p[1]-y0) < .015 and abs(p[0]) < .03]
+    need(bool(band), 'no back-of-head hair at the bun height')
+    back = min(p[2] for p in band)
+    rx, ry, rz = .044, .040, .030
+    c = [0., y0, back-.45*rz]
+    out = empty('gathered_bun', 'hair__makehuman_short04')
+    seat = min((j for j, p in enumerate(P) if abs(p[1]-y0) < .015 and abs(p[0]) < .03), key=lambda j: P[j][2])
+    u0, v0 = U[seat]
+    window = .02
+    tri = lambda x: 1-abs(2*(x % 1)-1)  # mirrored repeats: strand detail without leaving the window
+    def vertex(th, ph):
+        ridge = 1+.06*math.cos(5*ph+3*th)  # gentle twist ridges, not a smooth egg
+        x = c[0]+rx*ridge*math.sin(th)*math.cos(ph)
+        y = c[1]+ry*math.cos(th)
+        z = c[2]-rz*ridge*math.sin(th)*math.sin(ph)
+        out['positions_m'].append([x, y, z]); out['uvs'].append([u0+window*(tri(6*ph/(2*math.pi))-.5), v0+window*(tri(4*th/math.pi)-.5)])
+        out['weights'].append({'head': 1.})
+        return len(out['positions_m'])-1
+    top = vertex(0., 0.)
+    grid = [[vertex(math.pi*i/rings, 2*math.pi*k/segments) for k in range(segments)] for i in range(1, rings)]
+    bottom = vertex(math.pi, 0.)
+    faces = []
+    for k in range(segments):
+        n = (k+1) % segments
+        faces.append([top, grid[0][n], grid[0][k]])
+        faces.append([bottom, grid[-1][k], grid[-1][n]])
+    for i in range(rings-2):
+        for k in range(segments):
+            n = (k+1) % segments
+            faces += [[grid[i][k], grid[i][n], grid[i+1][n]], [grid[i][k], grid[i+1][n], grid[i+1][k]]]
+    for f in faces:
+        out['triangles'].append(f); out['corner_uvs'].append([out['uvs'][v] for v in f])
+    out['receipt'] = dict(centre_m=c, half_axes_m=[rx, ry, rz], back_of_cap_z_m=back, uv_window=[u0, v0, window], weights='head', basis='reconstructed')
+    return out
 
 
 def construct(body):
@@ -336,7 +415,7 @@ def construct(body):
                 limitations=['Unrendered original source construction, no dated cutting pattern or historical garment image used',
                              'Colours, proportions, folds, cloth thickness and outfit combination are conjectural',
                              'No resident model assignment, skin or hair choice; underlying female body is preserved',
-                             'Skirt/apron are pelvis-bound standing source; walking/seated cloth is unqualified',
+                             'Skirt/apron share pelvis and leg weights (T-3423); no cloth simulation, walking/seated fit judged by eye',
                              'No canonical Blender master/export, LOD, photo, clipping-all-pose or world-placement acceptance'])
 
 

@@ -35,6 +35,22 @@
     "basis": "age band 20-29 (the person's record); the year inside it is seeded"
    },
    "sex": "male"
+  },
+  "rc_flynn_mary": {
+   "scene": "1835",
+   "record": "data/residents/households/hh_rc_flynn_mary.json",
+   "drawn_as": [
+    "data/humans/instances/1835/hi_rc_flynn_mary_1835.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     29
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-29 (the person's record); the year inside it is seeded"
+   },
+   "sex": "female"
   }
  }
 }

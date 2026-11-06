@@ -542,6 +542,8 @@ step "Every selected natural-standing derivative reproduces from its exact canon
   python3 tools/human_natural_idle.py --check
 step "Active seated drivers reproduce their bounded looking clip from exact parent exports (T-2804)" \
   python3 tools/human_seated_look.py --check
+step "The woman's seated draft reproduces from Otis Bardwell's reviewed pose on her own rest chain (T-3423)" \
+  python3 tools/human_seated_transfer.py --donor bardwell_otis_1835 --target flynn_mary_1835_dress_study --person rc_flynn_mary --body assets/authored/humans/makehuman_hm08/prepared_adult_female_25.json --check
 step "Natural standing derivative preserves canonical parents, old clips and planted lower-body channels (T-1790)" \
   python3 tools/test_human_natural_idle.py
 step "Selected terminal garments reproduce their exact installed payloads (T-2804)" \
