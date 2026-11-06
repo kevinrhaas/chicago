@@ -516,10 +516,6 @@ export const BARK_TILES = {
   shaggy: 4, shaggy_strips: 4, smooth: 5, aspen: 5, sycamore: 6, corky: 7, warty: 7,
 };
 const LEAF_GRID = [4, 6];
-/** T-1934 — the bare winter elm's twig in the leaf atlas's sixth row: a branch end's twig
- *  (`spray`) and a tuft of them massed (`tuft`), painted near the elm's bark colour by
- *  tools/generate_tree_atlas.py (TWIG_TILES). */
-const TWIG_TILE = { spray: 20, tuft: 21 };
 /**
  * T-3017 — EACH LEAF TILE'S OPAQUE BOX: [u0, u1, v0, v1] in the tile's own units
  * (atlasUV's), measured from the committed atlas with 8 px to spare and printed
@@ -1228,7 +1224,7 @@ const CORE_SEGS = { near: [8, 8], mid: [6, 5], far: [5, 4] };
  */
 const BARE_TWIGS = { mid: { floor: 0.010, perClump: 1.0, segs: 2 }, far: { floor: 0.04, perClump: 0.04, segs: 1 } };
 
-function bareTwigs(buf, sk, { floor, perClump, segs, spike: spikeR = 0, budget: given }, drawn, barkTile, tint, flexOf, rnd) {
+function bareTwigs(buf, sk, { floor, perClump, segs, budget: given }, drawn, barkTile, tint, flexOf, rnd) {
   let budget = given ?? Math.floor(sk.clumps.length * perClump);
   const byOrder = [[], [], [], []];
   for (const b of sk.branches) if (b.order > 0 && !b.fringe && !drawn(b)) byOrder[Math.min(3, b.order)].push(b);
@@ -1245,13 +1241,6 @@ function bareTwigs(buf, sk, { floor, perClump, segs, spike: spikeR = 0, budget: 
   const rises = (b) => b.pts[b.pts.length - 1][1] >= b.pts[0][1];
   const twigs = [...shuffled(byOrder[3].filter(rises)), ...shuffled(byOrder[3].filter((b) => !rises(b)))];
   for (const b of [...byOrder[1], ...byOrder[2], ...twigs]) {
-    if (spikeR) {
-      // A winter elm's skipped wood (T-1934): one spike from its foot to its tip, as its fringe.
-      if (b.pts.length < 2 || budget < 3) continue;
-      spike(buf, b, Math.max(spikeR, b.rad[0]), barkTile, tint, flexOf);
-      budget -= 3;
-      continue;
-    }
     const n = Math.min(b.pts.length - 1, b.order >= 3 ? 1 : segs);
     if (n < 1 || budget < n * 6) continue;
     const pts = [];
@@ -1363,105 +1352,133 @@ function winterElm(sk, rnd) {
   return { ...sk, branches: [...kept, ...groups.flat()], fringe: groups };
 }
 
-/** The winter elm's fringe, sprout by sprout (a sprout is drawn whole or not at all, so no
- *  twig floats free of its fork), taken evenly round the crown within `budget` triangles:
- *  each twig as `segs` three-sided strokes, its forks to `depth`, held to `floor` metres.
- *
- *  T-1934 — `spike`: at the mid ring (10-44 m, where most of Taylor's 16554's parkway elms
- *  stand) a twig is under a pixel wide, and the stroke's six triangles bought it nothing a
- *  pyramid's three do not: so there each twig is one three-sided spike from its foot to its
- *  tip, its foot `spike` metres across at least (twice the stroke's floor, so a tapering
- *  twig covers about what the even stroke did), and the summer leaf's budget draws twice
- *  the twigs. The crowns at that ring had a few dozen strokes a tree against the print's
- *  hundreds.
- *
- *  T-1934 — at the far ring (past 44 m) the skipped wood spent the whole budget and no fringe
- *  twig was drawn at all: there `reserve` of the budget is kept for the fringe, each twig a
- *  spike at least `spike` metres across at its foot (a pixel near the ring's edge). */
-const ELM_FRINGE = { near: { segs: 2, depth: 3, floor: 0 }, mid: { segs: 1, depth: 1, floor: 0.010, spike: 0.020 },
-  far: { segs: 1, depth: 0, floor: 0.04, spike: 0.08, reserve: 0.5 } };
+/** The winter elm's fringe at the near ring, sprout by sprout (a sprout is drawn whole or
+ *  not at all, so no twig floats free of its fork), taken evenly round the crown within
+ *  `budget` triangles: each twig as `segs` three-sided strokes, its forks to `depth`, held
+ *  to `floor` metres. (T-1934 drew the mid and far rings' fringe as three-sided spikes;
+ *  T-3429 draws those rings as round wood, ELM_BARE_MID and ELM_BARE_FAR.) */
+const ELM_FRINGE = { near: { segs: 2, depth: 3, floor: 0 } };
 
 /**
- * T-1934 — THE BARE ELM'S TWIG CARDS. Spent as geometry, the summer leaf's budget buys a
- * grown parkway elm about 640 twigs at the mid ring and a dozen at the far, where Taylor's
- * winter 16554 prints hundreds of fine twigs at every crown's rim and the crowns grey in
- * against the sky. The leaf buys its density as a texture, and so now does the bare twig:
- * at the mid and far rings a bare elm spends `share` of that budget on cards of the twig
- * tile (TWIG_TILE.tuft, dozens of forking twigs a card), each rooted on the foot of one
- * of its winter skeleton's sprouts (winterElm's fringe, off a limb's tip or along a
- * branch, so a tuft grows out of drawn wood and never floats), rising the way the sprout
- * rises, faced out of the crown and `size` times the sprout's first twig long, in the
- * wood's own tone; the rest still draws its limbs, branches and fringe twigs as spikes. Two
- * triangles a card, in the leaf batch, so winter still costs no more than summer. The
- * tile is painted for the mip these rings sample it at (tools/generate_tree_atlas.py
- * twig_marks), so a twig comes through as a line and not a blot.
+ * T-3429 — THE BARE ELM IS ROUND WOOD AT THE MID RING. T-1934 spent part of a bare elm's
+ * budget at the mid and far rings on cards of a painted twig spray and drew the rest of its
+ * twig as three-sided spikes. The owner, walking 1904 Prairie in winter (2026-11-06), saw
+ * the cards as "odd brown fans", and asked for branches whose bases join, with bark on them,
+ * that are not flat. So no bare elm draws a twig card at any ring now. At the mid ring
+ * (10-44 m, and every elm on the phone's tier, whose crowns stand there from the foot of the
+ * walk) its winter wood is drawn as tubes: every kept limb and branch down to `minRad` in
+ * the main pass, so a branch stands on its limb and not on a gap the level left out, then
+ * the fringe twig, sprout by sprout and fork by fork, each a three-sided tube rooted on its
+ * parent's tip at the parent's own girth and tapering out, `floor` metres across at least
+ * so it still greys in against the sky. `perClump` is the template's whole triangle budget
+ * per summer clump: a grown parkway elm about 5,300 triangles against its summer crown's
+ * 2,558 at mid (winter only; street-trees.js WINTER_LEVELS shortens the far ring to pay for
+ * it), the phone's tier about 3,900 against 1,726.
+ * The far ring draws its branches seated on its limbs (ELM_BARE_FAR, below).
  */
-const ELM_TWIG_CARDS = { mid: { share: 0.10, size: 2.6, tile: 'spray' }, far: { share: 0.5, size: 3.0, tile: 'spray' } };
+const ELM_BARE_MID = { minRad: 0, floor: 0.009, segs: 1, perClump: 3.0, perClumpCoarse: 2.2 };
 
-function twigCards(leaves, sk, groups, cards, { size, tile }, tint, rnd) {
-  if (!cards || !groups.length) return 0;
-  const take = Math.min(1, cards / groups.length);
-  let drawn = 0;
-  for (const g of groups) {
-    if (drawn >= cards) break;
-    const t0 = g[0];
-    if (!t0 || rnd() > take) continue;
-    const foot = t0.pts[0];
-    const rise = norm(sub(t0.pts[t0.pts.length - 1], foot));
-    const out = norm([foot[0] - sk.off[0] + (rnd() - 0.5) * 0.5, 0, foot[2] - sk.off[2] + (rnd() - 0.5) * 0.5]);
-    const up = clamp01((foot[1] - sk.baseY) / sk.crownH);
-    // In the wood's own tone, a little lighter toward the crown's top: a twig is wood,
-    // and lit as a leaf is it read as a dead leaf's tan.
-    const k = 0.66 + 0.10 * up + (rnd() - 0.5) * 0.08;
-    const n = norm(add(out, [0, 0.8, 0]));
-    // The tuft's foot on the sprout's foot, its fan rising the way the sprout rises.
-    card(leaves, foot, rise, t0.L * size, TWIG_TILE[tile], mul(tint, k), n, 0.35 + 0.4 * up, rnd, out);
-    drawn++;
+/** T-3429: the winter elm's fringe as round twig, level by level: every sprout's first
+ *  twig (each rooted on drawn wood), then every fork of those, and so on, in an order taken
+ *  evenly round the crown, while `budget` triangles last. A twig is drawn only when the
+ *  twig it forks from was, so none floats; each tapers from its parent's tip radius. */
+function drawFringeTubes(buf, groups, budget, { floor, segs }, barkTile, tint, flexOf, rnd) {
+  // A twig's parent: the last twig one level up before it in its group (winterElm pushes
+  // a twig and then its forks, depth first).
+  const items = [];
+  groups.forEach((g, gi) => {
+    const last = [];
+    g.forEach((b, i) => {
+      last[b.level] = i;
+      items.push({ gi, i, b, parent: b.level > 0 ? last[b.level - 1] : -1, key: rnd() });
+    });
+  });
+  const drawn = groups.map(() => new Set());
+  const maxLevel = items.reduce((m, it) => Math.max(m, it.b.level), 0);
+  for (let level = 0; level <= maxLevel && budget > 0; level++) {
+    const row = items.filter((it) => it.b.level === level).sort((x, y) => x.key - y.key);
+    for (const it of row) {
+      if (level > 0 && !drawn[it.gi].has(it.parent)) continue;
+      const b = it.b;
+      const n = Math.min(segs, b.pts.length - 1);
+      if (n < 1 || budget < n * 6) continue;
+      const pts = [];
+      const rad = [];
+      for (let k = 0; k <= n; k++) {
+        const j = Math.round((k / n) * (b.pts.length - 1));
+        pts.push(b.pts[j]);
+        rad.push(Math.max(floor, b.rad[j]));
+      }
+      tube(buf, { ...b, pts, rad }, 3, barkTile, tint, flexOf);
+      budget -= n * 6;
+      drawn[it.gi].add(it.i);
+    }
   }
-  return drawn;
+  return budget;
 }
 
-/** T-1934 — one twig as a three-sided pyramid: a ring of three at its foot (`r` across at
- *  least its own radius) and its tip, each face lit by its own outward normal. Three
- *  triangles where `tube` spends six on one segment. */
-function spike(buf, b, r, barkTile, tint, flexOf) {
-  const a = b.pts[0];
-  const tip = b.pts[b.pts.length - 1];
-  const t = norm(sub(tip, a));
-  const u = norm(cross(t, Math.abs(t[1]) < 0.9 ? [0, 1, 0] : [1, 0, 0]));
-  const w = cross(t, u);
-  const at = (k) => add(mul(u, Math.cos((k / 3) * Math.PI * 2)), mul(w, Math.sin((k / 3) * Math.PI * 2)));
-  const ao = (p, nrm) => 0.72 + 0.28 * clamp01((p[1] + 1.5) / 6) * (0.80 + 0.20 * (nrm[1] * 0.5 + 0.5));
-  const base = buf.count;
-  for (let s = 0; s < 3; s++) {
-    const nrm = at(s);
-    const p = add(a, mul(nrm, r));
-    buf.vert(p, nrm, mul(tint, ao(p, nrm)), atlasUV(BARK_GRID, barkTile, s / 3, 0), flexOf(p));
+/** T-3429 — a bare elm at the far ring (44 m out to the ring's end, which winter draws in:
+ *  street-trees.js WINTER_LEVELS): its trunk and limbs as the main pass drew them, then the
+ *  kept run of each branch, stoutest first, then the first twig of each winter sprout, each
+ *  one three-sided stroke at least `floor` metres across, its foot moved onto the nearest wood
+ *  already drawn (the far limbs are a few strokes, so a true foot can stand off their chord)
+ *  and dropped when none is within `seat` metres, so no stroke floats. No card: the cards
+ *  T-1934 drew here read as fans. `perClump` (at least `min`) is the template's triangles. */
+const ELM_BARE_FAR = { minRad: 0.03, perClump: 0.36, min: 320, floor: 0.025, seat: 0.6 };
+
+function seatedBranches(buf, sk, drawnWood, budget, { floor, seat }, barkTile, tint, flexOf) {
+  const segs = [];
+  const addSegs = (w) => {
+    for (let i = 0; i < w.pts.length - 1; i++) segs.push({ a: w.pts[i], b: w.pts[i + 1], ra: w.rad[i], rb: w.rad[i + 1] });
+  };
+  for (const w of drawnWood) addSegs(w);
+  const nearestOn = (p) => {
+    let best = null;
+    let bestD = Infinity;
+    for (const g of segs) {
+      const ab = sub(g.b, g.a);
+      const t = clamp01(dot(sub(p, g.a), ab) / Math.max(1e-9, dot(ab, ab)));
+      const q = add(g.a, mul(ab, t));
+      const d = len(sub(p, q));
+      if (d < bestD) { bestD = d; best = { q, r: lerp(g.ra, g.rb, t) }; }
+    }
+    return bestD <= seat ? best : null;
+  };
+  const stroke = (b) => {
+    const at = nearestOn(b.pts[0]);
+    if (!at) return;
+    const tip = b.pts[b.pts.length - 1];
+    const w = { ...b, pts: [at.q, tip], rad: [Math.max(floor, Math.min(b.rad[0], at.r)), Math.max(floor * 0.6, b.rad[b.rad.length - 1])] };
+    tube(buf, w, 3, barkTile, tint, flexOf);
+    addSegs(w);
+    budget -= 6;
+  };
+  const runs = sk.branches.filter((b) => b.order === 2 && !b.fringe && b.pts.length > 1)
+    .sort((x, y) => y.rad[0] - x.rad[0]);
+  for (const b of runs) { if (budget < 6) return budget; stroke(b); }
+  for (const level of [0, 1]) {
+    for (const g of sk.fringe ?? []) {
+      for (const b of g) {
+        if (b.level !== level) continue;
+        if (budget < 6) return budget;
+        stroke(b);
+      }
+    }
   }
-  for (let s = 0; s < 3; s++) {
-    // The tip once per face, carrying that face's normal, so the faces stay apart in the light.
-    const nrm = at(s + 0.5);
-    buf.vert(tip, nrm, mul(tint, ao(tip, nrm)), atlasUV(BARK_GRID, barkTile, (s + 0.5) / 3, 1), flexOf(tip));
-  }
-  for (let s = 0; s < 3; s++) buf.tri(base + s, base + ((s + 1) % 3), base + 3 + s);
+  return budget;
 }
 
-function drawFringe(buf, groups, budget, { segs, depth, floor, spike: spikeR = 0 }, barkTile, tint, flexOf, rnd) {
+function drawFringe(buf, groups, budget, { segs, depth, floor }, barkTile, tint, flexOf, rnd) {
   const order = groups.map((g, i) => i);
   for (let i = order.length - 1; i > 0; i--) {
     const j = Math.floor(rnd() * (i + 1));
     [order[i], order[j]] = [order[j], order[i]];
   }
-  const drawn = [];
   for (const gi of order) {
     const twigs = groups[gi].filter((b) => b.level <= depth);
-    const cost = spikeR ? twigs.length * 3 : twigs.reduce((c, b) => c + Math.min(segs, b.pts.length - 1) * 6, 0);
+    const cost = twigs.reduce((c, b) => c + Math.min(segs, b.pts.length - 1) * 6, 0);
     if (cost > budget) continue;
     for (const b of twigs) {
-      if (spikeR) {
-        spike(buf, b, Math.max(spikeR, b.rad[0]), barkTile, tint, flexOf);
-        continue;
-      }
       const n = Math.min(segs, b.pts.length - 1);
       const pts = [];
       const rad = [];
@@ -1473,18 +1490,6 @@ function drawFringe(buf, groups, budget, { segs, depth, floor, spike: spikeR = 0
       tube(buf, { ...b, pts, rad }, 3, barkTile, tint, flexOf);
     }
     budget -= cost;
-    drawn.push(gi);
-  }
-  // T-1934: what is left once every sprout is drawn to `depth` goes on the next fork, sprout by
-  // sprout in the same order (spikes only), so a crown at the mid ring spends its summer leaf's
-  // budget and every new twig grows off a drawn one.
-  if (spikeR && drawn.length === groups.length) {
-    for (const gi of drawn) {
-      const next = groups[gi].filter((b) => b.level === depth + 1);
-      if (!next.length || next.length * 3 > budget) continue;
-      for (const b of next) spike(buf, b, Math.max(spikeR, b.rad[0]), barkTile, tint, flexOf);
-      budget -= next.length * 3;
-    }
   }
   return budget;
 }
@@ -1747,8 +1752,12 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
   // Coarser levels walk every second (mid) or fourth (far) node of a limb:
   // the same limb, in fewer, longer segments.
   const stride = lod === 'near' ? 1 : lod === 'mid' ? 2 : lod === 'far' ? 4 : 8;
-  const minRad = (coarse ? arch.minRadCoarse?.[lod] : null) ?? arch.minRad?.[lod]
+  let minRad = (coarse ? arch.minRadCoarse?.[lod] : null) ?? arch.minRad?.[lod]
     ?? (lod === 'near' ? 0 : lod === 'mid' ? 0.03 : 0.07);
+  // T-3429: a bare elm at the mid ring draws its winter wood whole, as tubes.
+  const bareMid = wintry && lod === 'mid';
+  if (bareMid) minRad = Math.min(minRad, ELM_BARE_MID.minRad);
+  if (wintry && lod === 'far') minRad = Math.min(minRad, ELM_BARE_FAR.minRad);
   // A shrub's stems are all thinner than that, which would leave its coarse
   // levels with no wood at all: a batch geometry of zero vertices, which the
   // drawn-timber census cannot read back. Its stoutest stem stays.
@@ -1763,14 +1772,19 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
     if (!s || b.fringe || (b.rad[0] < minRad && b !== keep)) return n;
     return n + (b.pts.length - 1) * s * 2;
   }, 0);
+  // T-3429: the wood as drawn (decimated), which a bare far elm's branches are seated on.
+  const drawnWood = [];
   for (const b of wsk.branches) {
     const s = sides[Math.min(3, b.order)];
     if (!s || b.fringe) continue;
     // Thin wood a far tree cannot resolve is not drawn at all.
     if (b.rad[0] < minRad && b !== keep) continue;
     // A far tree's limbs are a few strokes against the sky: twice the trunk's stride.
-    const k = (lod === 'far' || lod === 'distant') && b.order > 0 ? stride * 2 : stride;
-    tube(wood, k > 1 ? decimate(b, k) : b, s, barkTile, b.order === 0 ? barkTint : barkUpper, flexOf);
+    // (T-3429: a bare elm's far limbs keep the far stride, so its branches seat on them.)
+    const k = (lod === 'far' || lod === 'distant') && b.order > 0 && !(wintry && lod === 'far') ? stride * 2 : stride;
+    const drawnB = k > 1 ? decimate(b, k) : b;
+    tube(wood, drawnB, s, barkTile, b.order === 0 ? barkTint : barkUpper, flexOf);
+    drawnWood.push(drawnB);
   }
 
   const dark = linearRGB(spec.dark ?? 0x3d5a2c);
@@ -1796,30 +1810,28 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
     // bare: the wood alone, and at the coarse levels the twigs the leaf hid (T-1934)
     if (sk.clumps.length && !spec.dead && !arch.core && (BARE_TWIGS[lod] || (wintry && ELM_FRINGE[lod]))) {
       const brnd = mulberry32(seed ^ 0x1934);
-      // A winter elm's branches are cut to their rising run, so one stroke draws each and
-      // what that saves goes to the fringe.
-      // T-1934: a bare elm at mid and far spends what its own summer leaf there costs (one
-      // two-triangle card for each clump the level keeps, elmShare), never less than the bare
-      // crown's share, and draws its skipped wood as spikes (three triangles a stroke, not six);
-      // at far it keeps `reserve` of that budget back for its fringe, which the skipped wood
-      // otherwise spent to the last triangle (the far ring drew no fringe twig at all).
-      const F = wintry && lod !== 'near' ? ELM_FRINGE[lod] : null;
-      const total = F ? Math.floor(sk.clumps.length * Math.max(BARE_TWIGS[lod].perClump, sk.elm ? elmShare[lod] * 2 : 0)) : 0;
-      const kept = F ? Math.floor(total * (F.reserve ?? 0)) : 0;
-      // T-1934: a share of it as twig cards (ELM_TWIG_CARDS), the rest as below.
-      const C = F ? ELM_TWIG_CARDS[lod] : null;
-      const cards = C ? twigCards(leaves, sk, wsk.fringe, Math.floor((total * C.share) / 2), C, barkUpper,
-        mulberry32(seed ^ 0x1934c)) : 0;
-      let left = BARE_TWIGS[lod] ? bareTwigs(wood, wsk, F ? { ...BARE_TWIGS[lod], segs: 1, spike: F.spike, budget: total - kept - cards * 2 }
-        : wintry ? { ...BARE_TWIGS[lod], segs: 1 } : BARE_TWIGS[lod],
-        (b) => sides[Math.min(3, b.order)] && (b.rad[0] >= minRad || b === keep), barkTile, barkUpper, flexOf, brnd) + kept : 0;
-      // The winter elm's fringe: at mid and far, in what the bare twigs left of the summer
-      // leaf's budget; near, in the near leaf's own triangles (two sprays a clump) and the
-      // wood the winter skeleton gave up (the hanging twigs, the branches' tails).
-      if (wintry && ELM_FRINGE[lod]) {
-        // (less the one empty leaf triangle a bare template still carries)
-        if (lod === 'near') left = sk.clumps.length * 4 * elmShare.near + woodTris(sk.branches) - woodTris(wsk.branches) - 1;
-        drawFringe(wood, wsk.fringe, left, ELM_FRINGE[lod], barkTile, barkUpper, flexOf, brnd);
+      // T-1934 cut a winter elm's branches to their rising run (winterElm); T-3429 draws the
+      // bare elm at mid and far as round wood seated on round wood, with no twig card.
+      if (bareMid) {
+        // T-3429: the fringe in round twig, in what the template's budget leaves after the
+        // winter wood the main pass drew.
+        const budget = Math.floor(sk.clumps.length * (coarse ? ELM_BARE_MID.perClumpCoarse : ELM_BARE_MID.perClump))
+          - wood.idx.length / 3;
+        drawFringeTubes(wood, wsk.fringe, budget, ELM_BARE_MID, barkTile, barkUpper, flexOf, brnd);
+      } else if (wintry && lod === 'far') {
+        // T-3429: the branches seated on the limbs as drawn, stoutest first, no fringe.
+        const budget = Math.max(ELM_BARE_FAR.min, Math.floor(sk.clumps.length * ELM_BARE_FAR.perClump)) - wood.idx.length / 3;
+        seatedBranches(wood, wsk, drawnWood, budget, ELM_BARE_FAR, barkTile, barkUpper, flexOf);
+      } else {
+        let left = BARE_TWIGS[lod] ? bareTwigs(wood, wsk, wintry ? { ...BARE_TWIGS[lod], segs: 1 } : BARE_TWIGS[lod],
+          (b) => sides[Math.min(3, b.order)] && (b.rad[0] >= minRad || b === keep), barkTile, barkUpper, flexOf, brnd) : 0;
+        // The winter elm's fringe near, in the near leaf's own triangles (two sprays a clump)
+        // and the wood the winter skeleton gave up (the hanging twigs, the branches' tails).
+        if (wintry && ELM_FRINGE[lod]) {
+          // (less the one empty leaf triangle a bare template still carries)
+          if (lod === 'near') left = sk.clumps.length * 4 * elmShare.near + woodTris(sk.branches) - woodTris(wsk.branches) - 1;
+          drawFringe(wood, wsk.fringe, left, ELM_FRINGE[lod], barkTile, barkUpper, flexOf, brnd);
+        }
       }
     }
   } else if (sk.elm && lod === 'far') {

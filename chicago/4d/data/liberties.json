@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1026,
+  "count": 1027,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -49544,7 +49544,7 @@
         },
         {
           "label": "What is invented",
-          "text": "the shape of every tree. No source describes the limbs, crown or bark of any tree that stood in 1812, 1835 or 1904. The habits are the species' ordinary botanical ones (for example the cottonwood's few massive rising limbs, the bur oak's low crooked horizontals, the American elm's vase and the black willow's leaning stems), set by hand and judged by eye against how living trees of the species look. The atlases are painted from code; one photograph is sampled, a modern American elm leaf (Baskauf, Steven J. Ulmus americana (Ulmaceae) - leaf - whole upper surface, CC BY 4.0), whose veins and mottle fill the elm's painted blades since later work: it is the species' leaf surface, not evidence about any tree. Repeating a few variants makes neighbouring trees of a species siblings, not individuals. A bare winter crown at the `mid` and `far` detail levels draws the branches and twigs that those levels leave to the summer leaf, as single strokes held to at least 1.0 cm (`mid`) and 4 cm (`far`) of radius, and only as many as the leaf's own triangles would have cost. A twig is thinner than that, so these twigs are drawn thicker than they are, enough for a crown 15-70 m off to grey in round its limbs as the winter photographs print it (Taylor's 16554), rather than vanish under a pixel and leave a pole. A bare elm, the grown parkway elm and the young elm on its leader alike, is drawn on a winter skeleton of its own: each branch only as far as it rises (the drooping tail is where the summer leaf hung), none of the summer's hanging twigs, and off every limb's tip and along every branch a short sprout that forks up to three times into ascending twig (14-40 degrees off the vertical, each fork about two thirds of its parent's length). The habit is read off Taylor's winter 16554, whose elms fork again and again into fine rising twig; the angles, lengths and fork counts are this file's, and the summer and winter crowns of one tree therefore differ in their finest wood. Between about 10 and 44 m (the `mid` level) each of those winter twigs is drawn as a single three-sided spike from its foot to its tip, at least 0.02 m across at the foot, rather than an even stroke: a twig is under a pixel there, the spike costs half the stroke's triangles, and the same budget draws twice the twigs, so the crowns grey in more as Taylor's 16554 prints them; the width and the taper are this file's. A bare elm at `mid` and `far` spends what its own summer leaf at that level costs (a two-triangle card for each clump the level keeps) rather than the bare crown's general share, and draws its skipped limbs and branches as spikes too; at `far` (past about 44 m) it keeps half of that budget for its fringe, one spike off each limb tip it reaches, at least 0.08 m across at the foot (a pixel near the ring's edge), and at `mid` what is left once every sprout is drawn goes on the next fork; the split and the widths are this file's."
+          "text": "the shape of every tree. No source describes the limbs, crown or bark of any tree that stood in 1812, 1835 or 1904. The habits are the species' ordinary botanical ones (for example the cottonwood's few massive rising limbs, the bur oak's low crooked horizontals, the American elm's vase and the black willow's leaning stems), set by hand and judged by eye against how living trees of the species look. The atlases are painted from code; one photograph is sampled, a modern American elm leaf (Baskauf, Steven J. Ulmus americana (Ulmaceae) - leaf - whole upper surface, CC BY 4.0), whose veins and mottle fill the elm's painted blades since later work: it is the species' leaf surface, not evidence about any tree. Repeating a few variants makes neighbouring trees of a species siblings, not individuals. A bare winter crown at the `mid` and `far` detail levels draws the branches and twigs that those levels leave to the summer leaf, as single strokes held to at least 1.0 cm (`mid`) and 4 cm (`far`) of radius, and only as many as the leaf's own triangles would have cost. A twig is thinner than that, so these twigs are drawn thicker than they are, enough for a crown 15-70 m off to grey in round its limbs as the winter photographs print it (Taylor's 16554), rather than vanish under a pixel and leave a pole. A bare elm, the grown parkway elm and the young elm on its leader alike, is drawn on a winter skeleton of its own: each branch only as far as it rises (the drooping tail is where the summer leaf hung), none of the summer's hanging twigs, and off every limb's tip and along every branch a short sprout that forks up to three times into ascending twig (14-40 degrees off the vertical, each fork about two thirds of its parent's length). The habit is read off Taylor's winter 16554, whose elms fork again and again into fine rising twig; the angles, lengths and fork counts are this file's, and the summer and winter crowns of one tree therefore differ in their finest wood. Between about 10 and 44 m (the `mid` level) each of those winter twigs is drawn as a single three-sided spike from its foot to its tip, at least 0.02 m across at the foot, rather than an even stroke: a twig is under a pixel there, the spike costs half the stroke's triangles, and the same budget draws twice the twigs, so the crowns grey in more as Taylor's 16554 prints them; the width and the taper are this file's. A bare elm at `mid` and `far` spends what its own summer leaf at that level costs (a two-triangle card for each clump the level keeps) rather than the bare crown's general share, and draws its skipped limbs and branches as spikes too; at `far` (past about 44 m) it keeps half of that budget for its fringe, one spike off each limb tip it reaches, at least 0.08 m across at the foot (a pixel near the ring's edge), and at `mid` what is left once every sprout is drawn goes on the next fork; the split and the widths are this file's. Later work replaces those spikes and the twig cards earlier work also drew (the owner saw them as \"odd brown fans\" in 1904 winter, 2026-11-06): no bare elm draws a twig card at any level. At `mid` (and on the phone's grade, whose elms are all `mid`) every kept limb and branch is a round, bark-mapped tube, and the fringe is drawn fork by fork as three-sided tubes no finer than 0.9 cm in radius, each rooted on a drawn parent, within about three triangles per summer clump (2.2 on the phone's grade); at `far` each branch's rising run, then each sprout's first twig, is one stroke at least 2.5 cm in radius with its foot set on the nearest wood already drawn; in winter the `distant` level (the bole and its stoutest stems) starts at 160 m (120 m on the phone's grade) rather than the summer ring. The widths, budgets and rings are this file's."
         },
         {
           "label": "How to resolve",
@@ -49558,6 +49558,7 @@
       "work_refs": [
         "T-2743",
         "T-1934",
+        "T-3429",
         "T-3247"
       ]
     },
@@ -69215,6 +69216,38 @@
       ],
       "work_refs": [
         "T-3273"
+      ]
+    },
+    {
+      "id": "L-kimball-1801-third-storey-1890",
+      "title": "1801 Prairie's third storey behind the bow's balcony, as a flat-capped stone wall dormer",
+      "section": "per_subject",
+      "subjects": [
+        "kimball_house_1801_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-11-06",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Recorded",
+          "text": "2026-11-06."
+        },
+        {
+          "label": "Decision",
+          "text": "the W. W. Kimball house's street front is carried up a storey behind the bow's balcony (`mansard.dormers[3]`): a stone face 2.95 m across, from v 3.9 (0.4 m clear of the street's hooded dormer) to v 6.85 (the south pavilion's north side), standing 0.25 m in from the fascia, from the mansard's lower face up to an eave at 11.25 m, under the K05 hip at an 8 degree fall with the kit's dormer overhang and fascia; one light 1.1 m wide and 1.25 m high on a sill at about 9.75 m, its middle 0.42 m south of the face's (v 5.8). Over the eave the slate is the mansard's own lower face. **What is read, not invented.** J. W. Taylor's photograph of c. 1895 (J. W. Taylor (Chicago), 'Kimball, William W., Residence (1801 S. Prairie…) and Harold Allen's HABS photograph 2 of 1965 (Harold Allen for HABS, 'View: exterior - from NW, north (18th St.) and west…) both show the stone wall behind the balcony, its one light south of its middle (about 63-65 % of the way across in both), its eave and the slate over it; the eave's height is the two prints' triangulation (11.1-11.75 m, 's 2026-11-06 reading), and the light's head and sill were set by rendering through the Taylor camera until both stood within about 10 px (0.2 m) of the print's. **What is invented or held by the kit.** The face's setback (the prints show the pavilion's pilaster standing in front of the wall, so the face is put 0.07 m behind the pilaster's face; the lower face meets it at 9.55 m, under the balustrade's line of sight); the cap's fall and its eave's section, which the prints show only as a thin dark line; the light's glazing (the kit's two-over-two) and its width, between the Taylor print's about 1.0 m and HABS 2's about 1.27 m; the wall's level eave, where both prints draw the eave rising toward the pavilion more steeply than the front's other level lines (read as the cameras' error, since the light's head and sill run level in both); and the light's moulded architrave, which HABS 2 shows and the kit's flat-capped face does not yet build (open in that record)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "an elevation drawing of the Prairie front (Solon S. Beman's, or HABS measured drawings if any were made), or a nearer photograph of the front's roof."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, an image in the research notes on photo match."
+        }
+      ],
+      "work_refs": [
+        "T-1890"
       ]
     },
     {

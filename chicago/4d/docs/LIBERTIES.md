@@ -30857,6 +30857,15 @@ skipped limbs and branches as spikes too; at `far` (past about 44 m) it keeps ha
 for its fringe, one spike off each limb tip it reaches, at least 0.08 m across at the foot (a pixel
 near the ring's edge), and at `mid` what is left once every sprout is drawn goes on the next fork;
 the split and the widths are this file's (T-1934).
+T-3429 replaces those spikes and the twig cards T-1934 also drew (the owner saw them as "odd brown
+fans" in 1904 winter, 2026-11-06): no bare elm draws a twig card at any level. At `mid` (and on the
+phone's tier, whose elms are all `mid`) every kept limb and branch is a round, bark-mapped tube,
+and the fringe is drawn fork by fork as three-sided tubes no finer than 0.9 cm in radius, each rooted
+on a drawn parent, within about three triangles per summer clump (2.2 on the phone's tier); at `far`
+each branch's rising run, then each sprout's first twig, is one stroke at least 2.5 cm in radius
+with its foot set on the nearest wood already drawn; in winter the `distant` level (the bole and
+its stoutest stems) starts at 160 m (120 m on the phone's tier) rather than the summer ring. The widths,
+budgets and rings are this file's (T-3429).
 **How to resolve:** a period photograph or drawing of a particular tree, read for its own form (the
 Kinzie house cottonwoods in the 1831 and 1857 plates, the 18th Street cottonwood in its 1880s photographs).
 **Ticket:** T-2743.
@@ -41236,6 +41245,35 @@ recorded in a fawn sandstone, which the gate is not assumed to share.
 **Covers:** `pullman_glasshouse_1800_calumet_pavilion.as_standing_1904.form.conservatory`
 **Ticket:** T-3273.
 **Review:** `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory-side-by-side.jpg`, `docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg` and their match records.
+
+### L-kimball-1801-third-storey-1890 — 1801 Prairie's third storey behind the bow's balcony, as a flat-capped stone wall dormer
+**Recorded:** 2026-11-06.
+
+**Decision:** the W. W. Kimball house's street front is carried up a storey behind the bow's balcony
+(`mansard.dormers[3]`, T-1890): a stone face 2.95 m across, from v 3.9 (0.4 m clear of the street's
+hooded dormer) to v 6.85 (the south pavilion's north side), standing 0.25 m in from the fascia, from the
+mansard's lower face up to an eave at 11.25 m, under the K05 hip at an 8 degree fall with the kit's
+dormer overhang and fascia; one light 1.1 m wide and 1.25 m high on a sill at about 9.75 m, its middle
+0.42 m south of the face's (v 5.8). Over the eave the slate is the mansard's own lower face.
+**What is read, not invented.** J. W. Taylor's photograph of c. 1895
+(`taylor_c1895_kimball_residence_1801`) and Harold Allen's HABS photograph 2 of 1965
+(`habs_kimball_photo_02_nw_1965`) both show the stone wall behind the balcony, its one light south of
+its middle (about 63-65 % of the way across in both), its eave and the slate over it; the eave's height
+is the two prints' triangulation (11.1-11.75 m, T-1890's 2026-11-06 reading), and the light's head and
+sill were set by rendering through the Taylor camera until both stood within about 10 px (0.2 m) of the
+print's.
+**What is invented or held by the kit.** The face's setback (the prints show the pavilion's pilaster
+standing in front of the wall, so the face is put 0.07 m behind the pilaster's face; the lower face
+meets it at 9.55 m, under the balustrade's line of sight); the cap's fall and its eave's section, which
+the prints show only as a thin dark line; the light's glazing (the kit's two-over-two) and its width,
+between the Taylor print's about 1.0 m and HABS 2's about 1.27 m; the wall's level eave, where both
+prints draw the eave rising toward the pavilion more steeply than the front's other level lines (read
+as the cameras' error, since the light's head and sill run level in both); and the light's moulded
+architrave, which HABS 2 shows and the kit's flat-capped face does not yet build (open in that record).
+**How to resolve:** an elevation drawing of the Prairie front (Solon S. Beman's, or HABS measured
+drawings if any were made), or a nearer photograph of the front's roof.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`, `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg`.
 
 ### L-k01-1729-pullman-lantern-1881 — 1729 Prairie's hanging lantern beside the portico and the banded pier at the entrance's inner angle, read off the 1890 Albertype plate
 
