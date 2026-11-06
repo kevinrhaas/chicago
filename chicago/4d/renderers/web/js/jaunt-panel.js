@@ -1,4 +1,4 @@
-import { currentStop, choicesFor, canNext, choiceStatus, choiceConsequence, resourceSummary } from './jaunts.js';
+import { currentStop, choicesFor, canNext, choiceStatus, choiceConsequence, resourceSummary, shownMode } from './jaunts.js';
 import { claimPresentation } from './jaunt-context.js';
 import { PACES } from './travel-settings.js';
 import { formatEstimate } from './travel-estimate.js';
@@ -145,7 +145,7 @@ export function createJauntPanel({ destinations, actions }) {
         const option = node('option', PACES[id].label); option.value = id; return option;
       }));
     }
-    mode.value = state.mode;
+    mode.value = shownMode(state);   // T-3405: the mode this leg really travels in
     straight.hidden = !['travelling', 'paused'].includes(state.phase);
     mode.classList.toggle('jaunt-mode-wide', straight.hidden);
     const scroll = same ? (overlayView?.scroll ?? body.scrollTop) : 0, focused = document.activeElement?.dataset.choice;
