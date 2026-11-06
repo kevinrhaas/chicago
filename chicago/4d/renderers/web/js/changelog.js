@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2716, ts: '2026-11-06T16:43:10.507Z', date: 'Nov 6, 2026, 10:43 AM CT', title: 'A lantern hangs beside the Pullman house\'s portico', kind: 'improvement',
+    items: [
+      '1729 Prairie: an iron lantern now hangs on a wrought arm beside the portico, as the 1890 Albertype plate draws it, with a second banded stone pier at the corner behind it.',
+    ] },
   { v: 2715, ts: '2026-11-06T16:17:29.997Z', date: 'Nov 6, 2026, 10:17 AM CT', title: 'Otis\'s 1835 hair, neater', kind: 'fix',
     items: [
       'Otis Bardwell\'s hair sat as a shaggy mop and his whiskers hung over his cheek like a curtain. His cut is now shorter at the sides and lies closer to the head, and his side whiskers are short and dense in front of the ear.',
