@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2683, ts: '2026-11-06T03:10:28.605Z', date: 'Nov 5, 2026, 9:10 PM CT', title: 'Fort Dearborn and the Lake House in hand-made brick', kind: 'feature',
+    items: [
+      'The brick buildings of 1812 and 1835 now have real brick, laid in courses, instead of one flat colour. This covers both forts\' magazines, the commandant\'s quarters of 1816, and the chimneys of every fort building.',
+      'The fort\'s brick is a soft, hand-made red, struck in sanded moulds and burnt in a clamp. The Lake House of 1835 is Chicago\'s own first brick, from Blodgett\'s North Side yard, whose lake clay burns salmon rather than red.',
+      'Both use the same bonded brick, with each brick shuffled, as the 1904 houses. The shades are a reconstruction, listed under Liberties.',
+    ] },
   { v: 2682, ts: '2026-11-06T02:24:34.472Z', date: 'Nov 5, 2026, 8:24 PM CT', title: 'First Presbyterian\'s walls are brick', kind: 'feature',
     items: [
       'First Presbyterian Church on Indiana Avenue in 1904 had flat, untextured walls. They are now laid in the same bonded brick as the Prairie Avenue houses, with each brick shuffled the same way.',

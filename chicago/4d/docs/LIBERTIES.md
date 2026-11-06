@@ -40947,3 +40947,26 @@ reconciles the 1911 trace with the plates.
 **Ticket:** T-3354 (piece 2 of T-3338).
 **Review:** `docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/gatlin_programme_1919-side-by-side.jpg` and the other two views' side-by-sides.
 **Recorded:** 2026-11-05 (T-3354).
+
+### L-k03-period-brick-3387 — The garrison's brick and the Lake House's laid in hand-made period brick, as tints over the K03 panel
+
+**Decision:** two hand-made period bricks join the K03 palette (`data/components/prairie_1904/k03_face_brick.json`):
+`soft_mud_red_garrison`, a soft, sand-struck, clamp-burnt red, and `soft_mud_salmon_lake`, Chicago's own first
+brick from the lake clay. A `fort_structure` record names its pick as `period_brick` (`walls`, `stacks`), and the
+archetype lays the K03 common panel (the bonded picture the 1904 walls wear, each brick shuffled by the renderer)
+under the recipe's colour factor, in courses, where it used to paint one flat colour. The two forts' brick
+magazines, the 1816 commandant's quarters and the stacks of every fort building wear the garrison red; the Lake
+House's walls the lake-clay salmon. The owner, 2026-11-05: "lay any foundations to apply the appropriate brick to
+the few 1835 buildings with brick or 1812 maybe some of the chimneys", and, asked, to rebake them.
+**What is read.** That these walls and stacks are brick is each record's own (construction, attested or inferred
+there; the stacks by `fort_structure`'s argument from the interior flue). Blodgett's North Side brick-yard of
+1833 (Andreas) is the yard the Lake House record traces its brick to, and the lake clay's lime is why Chicago's
+later commons burnt salmon and buff.
+**What is invented.** That the garrison's brick was a hand-made soft-mud brick of this colour (the sheet's brick
+row, a shade darker so the factor stays under 1), that the Lake House's burnt salmon, the K03 panel's bond (an
+American common bond with a header course every sixth) and its joint, and the per-brick spread.
+**How to resolve:** a description of either fort's brick or of the Lake House's, a surviving brick, or an
+excavation report.
+**Covers:** `first_fort_dearborn_commanding_officers_barracks.first_fort_1803.form.period_brick`, `first_fort_dearborn_magazine.first_fort_1803.form.period_brick`, `first_fort_dearborn_north_range.first_fort_1803.form.period_brick`, `first_fort_dearborn_officers_barracks.first_fort_1803.form.period_brick`, `first_fort_dearborn_soldiers_barracks_se.first_fort_1803.form.period_brick`, `first_fort_dearborn_soldiers_barracks_sw.first_fort_1803.form.period_brick`, `fort_dearborn_barracks.log_1816.form.period_brick`, `fort_dearborn_commandants_quarters.brick_1816.form.period_brick`, `fort_dearborn_guard_house.log_1816.form.period_brick`, `fort_dearborn_magazine.brick_1816.form.period_brick`, `fort_dearborn_officers_quarters.log_1816.form.period_brick`, `fort_dearborn_sutlers_store.log_1816.form.period_brick`, `lake_house_construction.shell_1835.form.period_brick`.
+**Ticket:** T-3387.
+**Recorded:** 2026-11-05 (T-3387).
