@@ -439,12 +439,12 @@ const built = new WeakMap();   // source geometry -> Map(person key -> geometry)
 
 /**
  * Give one cloned figure its strand cards. Call after the body is cloned (and varied).
- * `person` keys the seed and the material; `year` picks an era default.
+ * `person` keys the seed and the material; `year` picks an era default; `style` overrides both (tests).
  * Returns { mesh, grown } or null where nothing is grown (a far level, no cap, no style).
  */
-export function dressHair(root, { lod = 0, person = null, year = null } = {}) {
+export function dressHair(root, { lod = 0, person = null, year = null, style: given = null } = {}) {
   if (!root || !CARDS.lods[lod]) return null;
-  const style = hairFor(person, year);
+  const style = given ?? hairFor(person, year);
   if (!style) return null;
   let hair = null, skin = null;
   root.traverse(o => {

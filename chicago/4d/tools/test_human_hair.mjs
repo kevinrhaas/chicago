@@ -98,7 +98,8 @@ function figure() {
 //    same world points the cap's own would be, the cap made solid beneath them.
 {
   const { root, cap, skin, skeleton } = figure();
-  const done = dressHair(root, { lod: 0, person: 'pa1904_otis_f_r_c1900_hans_johnson', year: 1904 });
+  // Hans is clean-shaven; a moustache is grown here through a style of the same table.
+  const done = dressHair(root, { lod: 0, person: 'pa1904_otis_f_r_c1900_hans_johnson', year: 1904, style: { ...PEOPLE_HAIR.pa1904_otis_f_r_c1900_hans_johnson, facial: ['moustache'] } });
   assert(done?.mesh?.isSkinnedMesh, 'a skinned card mesh');
   const mesh = done.mesh;
   assert.equal(mesh.parent, cap.parent, 'beside the cap');
@@ -107,7 +108,7 @@ function figure() {
   assert.equal(mesh.material.map, null, 'no texture');
   assert.equal(mesh.material.name, 'hair_cards');
   assert.equal(cap.material.alphaTest, CARDS.cap_alpha_test, 'the cap is solid beneath the cards');
-  assert(done.grown.facial.moustache > 0, 'Hans has his moustache');
+  assert(done.grown.facial.moustache > 0, 'a moustache is grown');
   // Pose the head; a card vertex moves exactly as a cap point there would.
   skeleton.bones[1].rotation.set(.3, -.4, .1); root.updateMatrixWorld(true); skeleton.update();
   const pos = mesh.geometry.attributes.position, v = new THREE.Vector3();

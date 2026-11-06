@@ -29,7 +29,7 @@ export const HAIR_CUTS = Object.freeze({
 });
 
 export const FACIAL_HAIR = Object.freeze({
-  // A full moustache over the upper lip, falling a little at its ends.
+  // A full moustache over the upper lip, falling a little at its ends (no one wears it yet).
   moustache: Object.freeze({
     region_cm: Object.freeze({ x: [0, 2.6], y: [-6.5, -5.3], z_min: .4, droop: .35 }), facing: 'front',
     length_cm: 1.05, fall: 1, outward: .3, lift_mm: Object.freeze({ root: 1.2, tip: 2.8 }), width_mm: 3, cover: 7, spread: .5,
@@ -56,8 +56,8 @@ export const ERA_DEFAULT = Object.freeze({
 /** Per person, by the id their actor carries. */
 export const PEOPLE_HAIR = Object.freeze({
   pa1904_otis_f_r_c1900_hans_johnson: Object.freeze({
-    cut: 'short_side_part_1904', facial: Object.freeze(['moustache']), colour: 'dark_brown', grade: 'reconstructed',
-    basis: 'A reconstructed choice for a private coachman of about 1904: short back and sides, a side part and a full moustache; the people-match record of him (T-3417) reads his hair as dark below the hat. No picture of Hans Johnson is known.',
+    cut: 'short_side_part_1904', facial: Object.freeze([]), colour: 'dark_brown', grade: 'reconstructed',
+    basis: 'Clean-shaven, with short hair showing below the hat, as the liveried coachmen of the people-match reference set are (coachman_1904: Rau 1902, Griffith 1905); the cut and the colour are reconstructed. No picture of Hans Johnson is known.',
   }),
   rc_bardwell_otis: Object.freeze({
     cut: 'brushed_forward_1835', facial: Object.freeze(['side_whiskers']), colour: 'mid_brown', grade: 'reconstructed',
