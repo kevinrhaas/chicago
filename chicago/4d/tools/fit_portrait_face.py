@@ -268,7 +268,7 @@ def fit(person):
     J = r.jac[:2 * len(names), 6:]
     info = (J ** 2).sum(0)
     constrained = {aid: bool(info[k] > 1 / spreads[k] ** 2) for k, aid in enumerate(fitted)}
-    values = {aid: round(float(v[k]), 3) for k, aid in enumerate(fitted)}
+    values = {aid: round(float(v[k]), 3) + 0.0 for k, aid in enumerate(fitted)}   # + 0.0: no -0.0
     if 'head_shape' in fitted:
         values['head_shape.option'] = int(option)
     per_mark = {n: round(float(np.hypot(*pix[i])), 1) for i, n in enumerate(names)}
@@ -337,6 +337,36 @@ def overlay(person, out, crop):
     print(json.dumps({k: f[k] for k in ('values', 'camera', 'rms_px', 'per_mark_px')}, indent=1))
 
 
+# How far a refit may land from the committed fit and still be the same fit: a tenth of the
+# smallest step anyone would read off a face (0.01 of an axis), a fifth of a degree, a pixel.
+FIT_TOLERANCE = (
+    ('values.', 0.01), ('fit.per_mark_px.', 0.5), ('fit.camera.yaw_deg', 0.2), ('fit.camera.pitch_deg', 0.2),
+    ('fit.camera.roll_deg', 0.2), ('fit.camera.px_per_m', 2.0), ('fit.camera.shift_px', 1.0), ('fit.rms_px', 0.1),
+)
+
+
+def differences(want, got, path=''):
+    """Where a refit differs from the committed fit beyond FIT_TOLERANCE (exact for everything else)."""
+    if isinstance(want, dict) and isinstance(got, dict):
+        out = [f'{path}{k}: missing or extra' for k in sorted(set(want) ^ set(got))]
+        for k in sorted(set(want) & set(got)):
+            out += differences(want[k], got[k], f'{path}{k}.' if isinstance(want[k], (dict, list)) else f'{path}{k}')
+        return out
+    if isinstance(want, list) and isinstance(got, list) and len(want) == len(got):
+        if all(isinstance(x, (int, float)) and not isinstance(x, bool) for x in want + got):
+            tol = next((t for pre, t in FIT_TOLERANCE if path.rstrip('.').startswith(pre.rstrip('.'))), 0)
+            return [f'{path.rstrip(".")}: {want} -> {got}'] if any(abs(a - b) > tol + 1e-9 for a, b in zip(want, got)) else []
+        out = []
+        for i, (a, b) in enumerate(zip(want, got)):
+            out += differences(a, b, f'{path}{i}.')
+        return out
+    if isinstance(want, (int, float)) and isinstance(got, (int, float)) and not isinstance(want, bool):
+        tol = next((t for pre, t in FIT_TOLERANCE if path.startswith(pre)), 0)
+        return [] if abs(want - got) <= tol + 1e-9 else [f'{path}: {want} -> {got}']
+    return [] if want == got else [f'{path.rstrip(".")}: {str(want)[:40]} -> {str(got)[:40]}']
+
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--check', action='store_true')
@@ -348,16 +378,21 @@ def main():
     bad = []
     for path in sorted(PORTRAITS.glob('*.json')):
         person = path.stem
-        text = json.dumps(record(person, fit(person)), indent=1) + '\n'
+        rec = record(person, fit(person))
+        text = json.dumps(rec, indent=1) + '\n'
         out = FITS / f'{person}.json'
         if args.check:
-            if not out.exists() or out.read_text() != text:
-                bad.append(out.relative_to(ROOT))
+            # The optimiser's last digits follow the numpy/scipy/BLAS build, so a refit is held to
+            # the committed fit within FIT_TOLERANCE, not byte for byte (CI and a local run differ).
+            committed = out.read_text() if out.exists() else None
+            drift = [] if committed is None else differences(json.loads(committed), rec)
+            if committed is None or drift:
+                bad.append(f"{out.relative_to(ROOT)}{' (' + '; '.join(drift[:6]) + ')' if drift else ''}")
             card = json.loads(path.read_text()).get('card')
-            if card:
+            if card and committed is not None:
                 side = ROOT / card['model'].replace('.jpg', '.json')
                 made = json.loads(side.read_text()).get('fit_sha256') if side.exists() else None
-                if not (ROOT / card['portrait']).exists() or made != hashlib.sha256(text.encode()).hexdigest():
+                if not (ROOT / card['portrait']).exists() or made != hashlib.sha256(committed.encode()).hexdigest():
                     bad.append(f"{card['model']} (not made from this fit: run node tools/portrait_still.mjs {person})")
         else:
             FITS.mkdir(parents=True, exist_ok=True)
