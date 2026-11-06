@@ -2,7 +2,7 @@
   "structure_id": "marshall_field_jr_house_1919_prairie",
   "view": "cdn_almanac_1913",
   "glb": "assets/gltf/marshall_field_jr_house_1919_prairie__as_mapped_1904.glb",
-  "glb_sha256": "7f6964a4a2309ee6d440ee670bf5a78896fdd686fcd5b536c5ce186ad1ebc642",
+  "glb_sha256": "6bf3dd7b26ffdca75fb6dafad2ccbf10306ce4c4cfd092b9ecbe73fc38960a46",
   "camera_sha256": "039f1e74f02647fce3fa54efb12800c0136c009585a76cb593a2070adbeff332",
   "photo_sha256": "0d82a77e9db197b91d68e67cc3eb66520b9ec00b84890cd97447e0c5cd4c553f",
   "side_by_side": "docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/cdn_almanac_1913-side-by-side.jpg",
@@ -33,7 +33,11 @@
       "status": "fixed"
     },
     {
-      "what": "the north flank's two-storey flat-topped blocks: T-3337 built the rear range's canted north bay flat-topped under its balustrade, and T-3354 makes the middle range's north-west corner the plate's flat-topped quoined block (its gable stands back 1.6 m over a flat deck at its wall top, roof.flat_end), its quoins and courses T-3353's; still not built: the two-light stone-mullioned windows the plate draws in that block's street face and north face, where the kit's single sash or bare brick stand",
+      "what": "the corner block's street face (T-3354, third run): the two-light stone-mullioned window this plate draws in each storey of the 3.1 m face the middle range stands out north of the front block, where the record had bare brick, is built (rear_wings.mullioned, the kit's paired flat sash under a stone lintel); through this camera the built pair lands about 17 px (about 0.5 m) right of the plate's, as the block's quoined corner itself does, so against the corner it stands where the plate puts it",
+      "status": "fixed"
+    },
+    {
+      "what": "the corner block's north face (T-3354, third run, read again): in each storey this plate draws a group of three narrow pale lights under one head, mullioned, along the face west of the quoined corner, where the record has two single sashes at s 2.0 and 5.0 m; the face is about 45 px across here and the plate's corner stands about 17 px off the build's, so the group's place and span along it (about s 0-4 m by this camera) are not read closely enough to build; a three-light group is the plates' (the 1919 programme plate draws the same)",
       "status": "open"
     },
     {
