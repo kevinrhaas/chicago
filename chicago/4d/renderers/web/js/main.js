@@ -93,7 +93,7 @@ import { createTelemetry } from './arrival-telemetry.js';
 import { t, applyStrings } from './strings/index.js';
 import './strings/arrival.js';
 import { createFlags } from './flags.js';
-import { createFortGates } from './fort-gates.js';
+import { createFortGates, gatesOnRoute } from './fort-gates.js';
 import { createNightLights } from './night-lights.js';
 import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
@@ -4207,6 +4207,13 @@ async function boot() {
     teleport: (where) => walker.teleport(where),
     goToAnchor: (id) => api.goTo(id),
     setFly: (on) => hud.setFly(on, { announce: false }),
+    // T-3405: a walk through the fort opens its gates as it reaches them.
+    gates: { along: (points) => gatesOnRoute(fortGates.gates, points).map((g) => ({
+      at: g.at,
+      blocks: () => !(g.state === 'open' && !g.running),
+      open: () => { if (g.state !== 'open' && !g.running) interactions.act(g, 'open'); },
+    })) },
+    tickWorld: (dt) => interactions.update(dt),
     // Arriving is what opens the card: the menu closes, the building's card opens.
     onArrive: (id) => { hud.setPanel(false); openBuilding(id); lastArrival = { id, e: walker.state.e, n: walker.state.n }; },
   });
@@ -4900,7 +4907,7 @@ async function boot() {
             [from && resolveJaunt(from.destination)?.id, resolveJaunt(to.destination)?.id]);
         },
         estimate: state => estimates.estimateJaunt(state.jaunt, state.mode, { ...estimateOptions(state.mode),
-          startIndex: state.stopIndex, includeOpening: state.stopIndex === 0,
+          startIndex: state.stopIndex, includeOpening: state.stopIndex === 0, chosen: state.modeChosen,
           from: ['travelling', 'paused'].includes(state.phase) ? { e: walker.state.e, n: walker.state.n, altitude: walker.state.altitude } : null }),
         enter(target, { resume = false } = {}) {
           jauntEntering = true;
