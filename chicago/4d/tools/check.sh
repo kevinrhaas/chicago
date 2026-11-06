@@ -333,6 +333,9 @@ step "Navigator Jaunts app: Jaunts · Go to · Free roam, the Welcome card's lis
 # T-2632: Go to cleanup.
 step "Go to offers All, Places, People, Shops & work and Viewpoints with no empty chip, names on two lines, and each row's distance and bearing (T-2632)" \
   node tools/test_goto_cleanup.mjs
+# T-3436: 1904's viewpoints by short name and glyph, and Go to's Photos.
+step "Go to lists 1904's viewpoints by short name with their own glyphs, features six, and offers Photos at their cameras, walked or flown to like any place (T-3436)" \
+  node tools/test_goto_photos_t3436.mjs
 # T-2633: Go to follows the Confidence view.
 step "Go to has no reconstructed-roofs checkbox; what the Confidence view hides is listed dimmed with its reason and restored when shown (T-2633)" \
   node tools/test_goto_confidence.mjs
@@ -1357,7 +1360,7 @@ step "a K01 stone front may carry a moulded belt course round its projections, a
 # 2): a flat-capped stone wall dormer on the main mansard's street face, wider than its one light,
 # the light off its middle; a hipped head there, a face too wide or too narrow, a light off the
 # face, or a wide face on another head refused; the built face and glass where the record says.
-step "a main-mansard dormer may be a flat-capped stone wall wider than its light (T-1890)" \
+step "a main-mansard dormer may be a flat-capped stone wall wider than its light, its light in a lugged architrave (T-1890)" \
   python3 tools/test_k01_wall_dormer.py
 
 # T-1890. ...and a single light named by wall, place and storey (`street_front_trim.lights`)

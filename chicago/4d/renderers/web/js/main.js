@@ -4839,6 +4839,11 @@ async function boot() {
       return false;
     }
     api.townTransport?.cancelDriverApproaches();
+    // T-3436: a photo view is walked, ridden or flown to like any place, and its last turn is
+    // the Photos tab's From this spot: the camera's own spot and facing, the building outlined.
+    if (resolved.kind === 'photo') {
+      return travel.go(resolved, { onArrive: () => { void api.fromSpot?.(resolved.of, resolved.picture); } });
+    }
     return travel.go(resolved.structureId
       ? { kind: 'structure', id: resolved.structureId, label: resolved.label, person: resolved.kind === 'person' ? resolved.id : null }
       : resolved);
@@ -5064,6 +5069,8 @@ async function boot() {
     } finally { root.removeAttribute('aria-busy'); }
   }
   api.welcome = createWelcome({ gate, scene: loaded.scene, destinations, isTouch: coarse,
+    // T-3436: Go to's Photos read the cards' pictures file the first time Go to shows.
+    photos: () => ensurePictures(),
     // T-2632: each Go to row's distance and bearing, from where the visitor stands.
     visitor: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg }),
     units: () => hud.settings.units,

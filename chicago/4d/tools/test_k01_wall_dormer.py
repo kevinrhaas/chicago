@@ -14,7 +14,11 @@ record to what the ticket built:
     stand `face_shift_m` off its middle; a face narrower than its light, one over 3.5 m, a shift
     that puts the light off the face, or either key on another head is refused;
   * 1801's record stands that wall dormer at v 3.9-6.85 with its light's middle at about v 5.8,
-    and the built face and glass are where the record says.
+    and the built face and glass are where the record says;
+  * (2026-11-06) the light may stand in a lugged `architrave` with a projecting sill, as HABS
+    photograph 2 shows 1801's: a head taller than the frieze, lugs or a sill off the face, a sill
+    less proud than the band, a missing key, or one on another head is refused, and the built
+    frame and sill stand where the record says.
 
     python3 tools/test_k01_wall_dormer.py
 """
@@ -77,12 +81,35 @@ with_wall(lambda d: d.update(face_shift_m=1.0), "a light shifted off its face is
 with_wall(lambda d: d.update(head="round", sash=dict(d["sash"], variant="k06.opening.sash_round_plain")),
           "a face wider than its light on a round head is refused")
 
+ar = w.get("architrave") or {}
+check(ar.get("band_m") == 0.18 and ar.get("lug_m") == 0.08 and ar.get("sill_proud_m") == 0.12,
+      "its light stands in a lugged architrave with a projecting sill (HABS photograph 2, the Taylor print)")
+with_wall(lambda d: d["architrave"].update(band_m=0.3), "an architrave head taller than the frieze under the cap is refused")
+with_wall(lambda d: d.update(face_width_m=2.5) or d["architrave"].update(lug_m=0.15),
+          "an architrave whose lugs or sill run off the face is refused")
+with_wall(lambda d: d["architrave"].update(sill_proud_m=0.03), "a sill standing out less than the band is refused")
+with_wall(lambda d: d["architrave"].pop("lug_m"), "an architrave missing a key is refused")
+with_wall(lambda d: d.update(head="round", sash=dict(d["sash"], variant="k06.opening.sash_round_plain"),
+                             face_width_m=None) or d.pop("face_width_m") or d.pop("face_shift_m"),
+          "an architrave on a round head is refused")
+
 asm = K1.build(p, SID)
 D, o = p.depth_m, p.eave_overhang_m
 face = [q for q in asm.prims["dormer_stone"].pos
         if abs(q[0] - (D + o - w["face_setback_m"])) < 1e-3 and 3.8 < -q[2] < 7.0 and 9.5 < q[1] < 11.3]
 check(face and abs(min(-q[2] for q in face) - 3.9) < 1e-3 and abs(max(-q[2] for q in face) - 6.85) < 1e-3,
       f"the built face stands {w['face_setback_m']} m in from the fascia from v 3.9 to 6.85 ({len(face)} vertices)")
+nf = D + o - w["face_setback_m"]
+lc = w["along_m"] + w["light_shift_m"]
+frame = [q for q in asm.prims["dormer_stone"].pos if abs(q[0] - (nf + ar["proud_m"])) < 1e-3
+         and 3.8 < -q[2] < 7.0 and 9.0 < q[1] < 11.3]
+sills = [q for q in asm.prims["dormer_stone"].pos if abs(q[0] - (nf + ar["sill_proud_m"])) < 1e-3
+         and 3.8 < -q[2] < 7.0 and 9.0 < q[1] < 11.3]
+reach = w["sash_width_m"] / 2 + ar["band_m"] + ar["lug_m"]
+check(frame and abs(max(abs(-q[2] - lc) for q in frame) - reach) < 1e-3,
+      f"the built architrave stands {ar['proud_m']} m proud, its lugs {reach:.2f} m either side of the light's middle")
+check(sills and abs(max(abs(-q[2] - lc) for q in sills) - (w["sash_width_m"] / 2 + ar["band_m"] + ar["sill_ext_m"])) < 1e-3,
+      f"the built sill stands {ar['sill_proud_m']} m proud and runs past the band")
 glass = [q for q in asm.prims["glass"].pos if q[0] > D - 0.5 and 3.8 < -q[2] < 7.0 and 9.5 < q[1] < 11.3]
 mid = (min(-q[2] for q in glass) + max(-q[2] for q in glass)) / 2 if glass else 0.0
 check(glass and abs(mid - 5.795) < 0.02, f"its glass stands where the record puts the light (middle v {mid:.3f})")

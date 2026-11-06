@@ -280,6 +280,11 @@ export function createTravel({
       teleport?.({ local_e: p.e, local_n: p.n, yaw_deg: target.yaw_deg ?? 0 });
       return arrived(true, callbacks);
     }
+    // T-3436: a photo view stands you where its camera stood, looking its way and its tilt.
+    if (target.kind === 'photo' && p) {
+      teleport?.({ local_e: p.e, local_n: p.n, yaw_deg: target.yaw_deg ?? 0, pitch_deg: target.pitch_deg ?? 0 });
+      return arrived(true, callbacks);
+    }
     return false;
   }
 
@@ -434,7 +439,10 @@ export function createTravel({
       yawOff = (f?.yawOffsetDeg ?? 0) * DEG;
       pitchOff = (f?.pitchOffsetDeg ?? 0) * DEG;
     } else if (Number.isFinite(r.target?.yaw_deg)) yaw = bearingToYaw(r.target.yaw_deg);
-    r.arrive = { point, yaw, yawOff, pitchOff, t: ARRIVE_TURN_S, startYaw: s.yaw };
+    // T-3436: a photo view settles to its camera's tilt, and a viewpoint to its own (a church
+    // spire is looked up at); every other arrival looks level.
+    const pitch = (r.kind === 'photo' || r.kind === 'anchor') && Number.isFinite(r.target?.pitch_deg) ? r.target.pitch_deg * DEG : 0;
+    r.arrive = { point, yaw, yawOff, pitchOff, pitch, t: ARRIVE_TURN_S, startYaw: s.yaw };
   }
 
   function steerGround(intentNow, dt) {
@@ -547,7 +555,7 @@ export function createTravel({
     intentNow.rise = 0;
     intentNow.sprint = false;
     let yawT = s.yaw;
-    let pitchT = 0;
+    let pitchT = r.arrive.pitch ?? 0;
     if (r.arrive.point) {
       const p = r.arrive.point;
       const de = p.x - s.e, dn = -p.z - s.n;
