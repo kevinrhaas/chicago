@@ -416,6 +416,49 @@ function perVertexScalars(material) {
  * shared texture pairs, two extra batches for 369 roofs — measured in
  * `tickets/T-1488-*.md` at the critic stations.
  */
+/**
+ * A map's part of the batch key: the decoded picture it samples and every sampler and
+ * transform setting it samples it with, never the Texture's own uuid. T-3411.
+ *
+ * Until T-3411 the key read `m.map?.uuid`. That was right while every mapped material
+ * in a merged town took ONE shared Texture object (the roof and wall relief pairs),
+ * and wrong the day an asset brought its own maps: T-3387 laid the 1816 fort's brick
+ * and its stacks, and the Lake House's, in the K03 common panel, embedded in each of
+ * seven GLBs. `shared-images.js` already hands every one of those GLBs a CLONE of one
+ * decoded panel (one `texture.source`, one upload), but a clone mints a new uuid, so
+ * the 1835 town split into seven brick batches drawing the same two pictures — seven
+ * more draws in the colour pass and seven in the shadow pass, and the merged-town
+ * contract (`tools/world_smoke_contracts.mjs`) red on dev. Keyed by source and
+ * sampler, the seven are one batch, which is exactly what a batch may share: the
+ * batch draws with its first material's Texture, and every other in the bucket
+ * samples the same bytes the same way. Base colour and roughness stay per vertex as
+ * before; an unmapped roughness is the only kind these brick materials carry.
+ *
+ * Not `batch-material.js` `textureKey`, which the inspection path uses: that one keeps
+ * every texture class but the plain `Texture` by identity, and the published panel is
+ * a KTX2 (`CompressedTexture`), each GLB's its own clone with its own copy of the mip
+ * descriptors (`ktx2.js` glbTextureLoader) over the one shared source. Anything else —
+ * a render target, a video, a texture that updates itself — keeps its identity here.
+ */
+const mapIds = new WeakMap();
+let nextMapId = 1;
+function mapId(value) {
+  if (!mapIds.has(value)) mapIds.set(value, nextMapId++);
+  return mapIds.get(value);
+}
+export function mapKey(t) {
+  if (!t) return '-';
+  const decoded = (t.constructor === THREE.Texture || t.constructor === THREE.CompressedTexture)
+    && t.source && !t.isRenderTargetTexture && !t.renderTarget && !t.onUpdate;
+  if (!decoded) return `texture:${mapId(t)}`;
+  return [`source:${mapId(t.source)}`, t.isCompressedTexture ? 'compressed' : 'image',
+    t.mipmaps?.length ?? 0, t.channel, t.mapping, t.wrapS, t.wrapT, t.magFilter, t.minFilter,
+    t.anisotropy, t.format, t.internalFormat, t.type, t.colorSpace, t.flipY, t.premultiplyAlpha,
+    t.generateMipmaps, t.unpackAlignment,
+    t.offset.x, t.offset.y, t.repeat.x, t.repeat.y, t.rotation, t.center.x, t.center.y,
+    t.matrixAutoUpdate ? 'auto' : t.matrix.elements.join('/')].join(',');
+}
+
 function materialKey(m) {
   const near = (v) => (typeof v === 'number' ? v.toFixed(3) : '-');
   const offset = m.polygonOffset ? `${m.polygonOffsetFactor}/${m.polygonOffsetUnits}` : '-';
@@ -423,8 +466,11 @@ function materialKey(m) {
     m.type,
     m.emissive?.getHexString() ?? '-',
     near(m.metalness),
-    m.map?.uuid ?? '-', m.normalMap?.uuid ?? '-', m.aoMap?.uuid ?? '-',
-    m.roughnessMap?.uuid ?? '-',
+    // T-3411: a map is keyed by the picture it samples and how, not by its Texture's
+    // uuid — see `mapKey`.
+    mapKey(m.map), mapKey(m.normalMap), m.normalMap ? m.normalScale.toArray().join('/') : '-',
+    mapKey(m.aoMap), m.aoMap ? near(m.aoMapIntensity) : '-',
+    mapKey(m.roughnessMap),
     m.userData.roofFilter ?? '-',
     m.userData.glassPanes ?? '-',
     m.userData.nightWindows ?? '-', // T-3332: a pane that glows by night is its own batch

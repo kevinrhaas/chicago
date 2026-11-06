@@ -1,4 +1,24 @@
 export const CHANGELOG = [ // newest first
+  { v: 2699, ts: '2026-11-06T08:13:51.687Z', date: 'Nov 6, 2026, 2:13 AM CT', title: '1812 battle ground: Heald\'s high sand bank, the ravine, and his rise', kind: 'feature',
+    items: [
+      'The stray sand strip and islet off Twelfth Street are gone. They were the bottom edge of the 1834 survey sheet, read as a shore.',
+      'The lake shore no longer steps at Twelfth Street. That 1849 step came from erosion after the 1830s piers, so 1812 gets one smooth shore.',
+      'Heald marched with \'a high sand bank on our right, at about 100 yards distance\'. It now rises from the beach to 19 ft, inside the 10-20 ft the sources give.',
+      'Behind the bank is Wau-Bun\'s \'sort of ravine\' where the attackers waited, before the ground opens onto the prairie.',
+      'Heald\'s \'small elevation in the open prarie, out of shot of the bank\' now rises 8 ft, a quarter mile inland of his mile and a half. Stop 10 of the battle jaunt stands just below it.',
+      'Stop 9 now stands on the beach at eye level, with the bank rising on your left. Its top carries the lakeshore\'s marram grass and scrub.',
+    ] },
+  { v: 2698, ts: '2026-11-06T08:07:07.592Z', date: 'Nov 6, 2026, 2:07 AM CT', title: 'Look at, find and follow the people in town', kind: 'feature',
+    items: [
+      'Look at someone in town, such as Hans Johnson on his brougham or Otis Bardwell on his wagon, and the tag names them. Tap the tag or Inspect to open their card.',
+      'A person\'s card has Follow. You walk beside them as they go, a few metres off and looking at them. Move, or press Stop following, to let them go.',
+      'Find this person sets you down facing them.',
+      'In 1835, Go to where they lived on a driver\'s card goes to the house again. Find this person goes to his wagon.',
+    ] },
+  { v: 2697, ts: '2026-11-06T08:07:07.592Z', date: 'Nov 6, 2026, 2:07 AM CT', title: 'The fort\'s brick costs one draw, not seven', kind: 'fix',
+    items: [
+      'The brick of the 1816 fort and the Lake House is now drawn as one group in 1835 instead of seven, one for each building. It looks exactly the same, with every brick still laid and shuffled, and the scene does less work each frame, which matters most on a phone.',
+    ] },
   { v: 2696, ts: '2026-11-06T07:51:47.069Z', date: 'Nov 6, 2026, 1:51 AM CT', title: 'The Glessner House print has even roof tiles', kind: 'improvement',
     items: [
       'Nothing you can see changed in the scene. The 3D-print export now gives every roof the same tile courses, evenly spaced, instead of a different ripple on each roof plane and the odd tile sticking up.',

@@ -431,6 +431,134 @@ def micro_relief(E, N, mr):
     return micro
 
 
+# ---------------------------------------------------------------------------
+# 4. the battle shore (T-3403): the join at Twelfth Street, the bank, the elevation
+# ---------------------------------------------------------------------------
+
+def _x_at_n(pts, n):
+    """Easting of a run where it first crosses the row `n`, walking from its start."""
+    for (x1, y1), (x2, y2) in zip(pts, pts[1:]):
+        if (y1 - n) * (y2 - n) <= 0 and y1 != y2:
+            t = (n - y1) / (y2 - y1)
+            return x1 + t * (x2 - x1), (x2 - x1) / (y2 - y1)
+    raise SystemExit(f"REFUSING: the run does not cross N {n}")
+
+
+def join_shore(feats, join, origin):
+    """twelfth_street_shore_join_1812: Wright's run ends on the foot of his sheet and Rees's
+    starts 49-110 m further west on the same row, the post-pier erosion of 1834-1849. In
+    1812 there was neither pier nor erosion, so the two are joined by one reconstructed
+    curve: Wright's pen line to `north_from_n_m`, a cubic Hermite with each run's own
+    bearing at its end, and Rees's line from `south_to_n_m`. Both runs are cut where the
+    curve leaves them, so neither the paper edge nor Rees's eroded reach stands as a
+    waterline in the 1812 field. In memory only: the committed traces are not edited."""
+    o_e, o_n = origin
+    nr, sr = join["north_run"], join["south_run"]
+    n0, n1 = float(join["north_from_n_m"]), float(join["south_to_n_m"])
+    north = to_local(feats[nr]["geometry"]["coordinates"], origin)
+    south = to_local(feats[sr]["geometry"]["coordinates"], origin)
+    x0, dx0 = _x_at_n(north, n0)
+    x1, dx1 = _x_at_n(south, n1)
+    # walk Wright's run from the north and stop at the row: the paper edge after it is gone
+    cut = []
+    for q in north:
+        if q[1] <= n0:
+            break
+        cut.append(q)
+    keep_s = [q for q in south if q[1] < n1]
+    span = n0 - n1
+    steps = max(4, int(round(span / float(join.get("step_m", 10.0)))))
+    curve = []
+    for i in range(steps + 1):
+        u = i / steps
+        h00, h10 = 2 * u ** 3 - 3 * u ** 2 + 1, u ** 3 - 2 * u ** 2 + u
+        h01, h11 = -2 * u ** 3 + 3 * u ** 2, u ** 3 - u ** 2
+        # dE/dN times the span gives the tangent in E per unit u (N falls with u)
+        e = h00 * x0 + h10 * (-dx0 * span) + h01 * x1 + h11 * (-dx1 * span)
+        curve.append((e, n0 - u * span))
+    feats[nr] = dict(feats[nr], geometry={"type": "LineString",
+                                          "coordinates": to_utm(cut + curve, origin)})
+    feats[sr] = dict(feats[sr], geometry={"type": "LineString",
+                                          "coordinates": to_utm([curve[-1]] + keep_s, origin)})
+    return cut + curve
+
+
+def lake_edge_rows(E, water, rws):
+    """The lake's edge per row, the way terrain_gen's dune pass reads it: the easternmost
+    land, then a running median and mean so the profile follows the shore and not each
+    cell of it."""
+    edge = np.full(E.shape[0], np.nan)
+    for r in rws:
+        land_cols = np.where(~water[r])[0]
+        if land_cols.size:
+            edge[r] = E[r, land_cols.max()]
+    span = 20
+    med = np.array([np.nanmedian(edge[max(0, r - span):r + span + 1]) for r in rws])
+    k = 8
+    pad = np.pad(med, k, mode="edge")
+    return np.convolve(pad, np.ones(2 * k + 1) / (2 * k + 1), mode="valid")
+
+
+def battle_bank(E, N, water, h_ft, bank):
+    """battle_bank_1812: the beach, the bank, the sand hills and the ravine behind them,
+    laid as one profile measured inland from the lake's edge, row by row. Returns the new
+    ground and the mask of cells it moved."""
+    rows = E.shape[0]
+    row_n = N[:, 0]
+    n_lo, n_hi = (float(v) for v in bank["n_range"])
+    fade = float(bank["end_fade_m"])
+    rws = np.where((row_n >= n_lo) & (row_n <= n_hi))[0]
+    out = h_ft.copy()
+    moved = np.zeros(E.shape, bool)
+    if not rws.size:
+        return out, moved
+    sm = lake_edge_rows(E, water, rws)
+    sub_E, sub_N = E[rws], N[rws]
+    seed = int(bank["seed"])
+    wander = float(bank["wander_m"]) * tg.value_noise(
+        np.zeros(sub_N.shape), sub_N, float(bank["wander_wavelength_m"]), seed + 11)
+    s = sm[:, None] - sub_E
+    knots = [(float(a), float(b)) for a, b in bank["profile_ft"]]
+    ks = np.array([k[0] for k in knots])
+    kh = np.array([k[1] for k in knots])
+    # the beach stays where the water is; the bank and everything behind it wanders
+    s_w = np.where(s <= float(bank["beach_back_m"]), s,
+                   float(bank["beach_back_m"]) + np.maximum(s - float(bank["beach_back_m"]) - wander, 0.0))
+    prof = np.interp(s_w, ks, kh)
+    # the hills 'varied from ten to twenty feet': one hummock field across the sand hills,
+    # held off the beach and the ravine by its own envelope
+    a0, a1, a2, a3 = (float(v) for v in bank["hummock_envelope_m"])
+    env = (tg.smoothstep(np.clip((s_w - a0) / max(1e-9, a1 - a0), 0, 1))
+           * tg.smoothstep(np.clip((a3 - s_w) / max(1e-9, a3 - a2), 0, 1)))
+    hl = float(bank["hummock_wavelength_m"])
+    hum = (tg.value_noise(sub_E, sub_N, hl, seed + 101)
+           + 0.5 * tg.value_noise(sub_E, sub_N, 0.45 * hl, seed + 211)) / 1.5
+    prof = prof + float(bank["hummock_ft"]) * hum * env
+    # M&K's 'ten to twenty feet' bounds every hill top; the profile's own knots hold the
+    # brow above the low figure, and a hummock trough may dip under it ('not continuous')
+    prof = np.minimum(prof, float(bank["crest_max_ft"]))
+    # into the ground already there, behind the ravine
+    b0, b1 = (float(v) for v in bank["blend_back_m"])
+    w_back = 1.0 - tg.smoothstep(np.clip((s_w - b0) / (b1 - b0), 0.0, 1.0))
+    w_end = tg.smoothstep(np.clip((sub_N - n_lo) / fade, 0, 1)) * tg.smoothstep(np.clip((n_hi - sub_N) / fade, 0, 1))
+    w = w_back * w_end * (s > 0)
+    sub = np.where(water[rws], h_ft[rws], w * prof + (1.0 - w) * h_ft[rws])
+    out[rws] = sub
+    moved[rws] = (w > 0.01) & ~water[rws]
+    return out, moved
+
+
+def small_elevation(E, N, water, h_ft, el):
+    """heald_small_elevation_1812: a low rise on the open prairie, its top flat enough for
+    the men Heald had left, its skirt eased into the plain."""
+    d = np.hypot(E - float(el["centre_e"]), (N - float(el["centre_n"])) * float(el.get("aspect", 1.0)))
+    flat, skirt = float(el["flat_radius_m"]), float(el["skirt_m"])
+    t = np.clip((d - flat) / skirt, 0.0, 1.0)
+    lift = float(el["rise_ft"]) * (1.0 - tg.smoothstep(t))
+    mask = (lift > 0.02) & ~water
+    return np.where(mask, h_ft + lift, h_ft), mask
+
+
 def build(spec, base):
     datum = load(ROOT / "data" / "datum.json")
     origin = (datum["origin_utm_e"], datum["origin_utm_n"])
@@ -451,6 +579,10 @@ def build(spec, base):
     feats["north_shore_pre_cut_1812"] = dict(
         feats["north_shore_pre_cut_1812"],
         geometry={"type": "LineString", "coordinates": to_utm(geo["bank_cut"], origin)})
+
+    join = spec.get("twelfth_street_shore_join_1812")
+    if join:
+        join_shore(feats, join, origin)
 
     eff = resolve(spec, base)
     fs = field_spec(spec, base, eff)
@@ -503,6 +635,18 @@ def build(spec, base):
                 & (E >= (bank_e - sep)[:, None]) & (E < spit_w[:, None]))
         conf = np.where(band, tg.CONF_CONJECTURAL, conf)
         geom["bands"]["channel_west_bank_ruling"] = band
+
+    # the battle shore (T-3403): the bank Heald's men charged up, and the rise he drew off to
+    bank = spec.get("battle_bank_1812")
+    if bank:
+        h_ft, moved = battle_bank(E, N, water, h_ft, bank)
+        conf = np.where(moved, tg.CONF_CONJECTURAL, conf)
+        geom["bands"]["battle_bank_1812"] = moved
+    rise = spec.get("heald_small_elevation_1812")
+    if rise:
+        h_ft, lifted = small_elevation(E, N, water, h_ft, rise)
+        conf = np.where(lifted, tg.CONF_CONJECTURAL, conf)
+        geom["bands"]["heald_small_elevation_1812"] = lifted
 
     h_m = h_ft * FT
     meta.update({

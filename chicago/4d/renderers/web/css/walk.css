@@ -1313,6 +1313,12 @@ body.is-touch .crosshair { display: none; }
 @media (max-width: 560px), (pointer: coarse) {
   .quick-interact .ik-verb, .quick-interact .ik-kbd { display: none; }
 }
+/* T-3404: Stop following, in the Interact key's place and look. The name is for a wide
+   screen; a phone keeps the verb, which is what the press does. */
+.quick-follow .fk-who { color: var(--ink); max-width: 16ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 560px), (pointer: coarse) {
+  .quick-follow .fk-who { display: none; }
+}
 /* T-2977 (owner, 2026-10-21: "that button overlaps on mobile landscape"): a phone on its side
    is too short for a key at mid-height — the instrument, its heading row and the street
    readout reach past the middle. So Inspect drops to the lower right corner, under the

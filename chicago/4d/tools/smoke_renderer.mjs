@@ -709,15 +709,29 @@ const STANDS = [
  * verified by the actual published stage 8 runs before this change can merge.
  */
 // T-3332 separates the original glass role before batching because its night
-// shader is different. Four relief groups and the lighthouse glass stay intact.
+// shader is different. The relief groups and the lighthouse glass stay intact.
+//
+// **7 -> 8 ON 2026-11-06 (T-3411), the brick.** T-3387 laid the 1816 fort's
+// commandant's quarters and magazine, the stacks of its four log buildings, and the
+// Lake House in the K03 common panel (map + normal, embedded in each of seven GLBs).
+// `shared-images.js` gave the seven one decoded copy of the panel, but each GLB
+// its own Texture clone, and the batch key read map uuids, so the town read 14
+// batches with 11 mapped (dev 20998e4d5, phone stage 8). Merging the brick into an
+// EXISTING group would mean dropping its bricks: the opaque town has no map at all
+// and the relief groups bind other pictures. So buildings.js now keys a map by its
+// source and sampler (`mapKey`), the seven collapse into ONE brick batch, and the
+// contract names it: `brick:common_buff_common_6`, mapped, +1 batch drawn once in
+// each pass where T-3387 had added seven.
+
 const STRUCTURE_BATCHES = STRUCTURE_BATCH_KEYS.length;
 /**
- * Four groups are the two roof coverings and two wall substrates. The
+ * Five groups are the two roof coverings, two wall substrates and the one brick
+ * panel (T-3411). The
  * total alone could pass after losing a relief map and splitting an unrelated
  * surface instead; this holds the mapped groups, while the live glass predicate
  * below holds the one separate translucent class; the exact keys also hold the night-window group.
  */
-const TEXTURED_STRUCTURE_BATCHES = 4; // two roof coverings (T-1488) + clapboard and log walls (T-1963)
+const TEXTURED_STRUCTURE_BATCHES = 5; // two roof coverings (T-1488) + clapboard and log walls (T-1963) + one brick panel (T-3411)
 /**
  * How many distinct roughness values the merged batch must still carry, and how
  * far the frame must move when they are flattened.
@@ -12277,16 +12291,21 @@ for (const [label, viewport, touch] of [
         groups: bs.map((b) => {
           const m = b.material, u = m.userData;
           const key = m.transparent ? 'lantern-glass' : u.chiRoofRelief ? `roof:${u.chiRoofRelief}`
-            : u.chiWallRelief ? `wall:${u.chiWallRelief}` : u.nightWindows ?? 'opaque';
+            : u.chiWallRelief ? `wall:${u.chiWallRelief}` : u.chiBrickBond ? `brick:${u.chiBrickBond}`
+            : u.nightWindows ?? 'opaque';
           const mapped = Boolean(m.normalMap);
+          // T-3411: a K03 brick panel carries its own base colour and normal (the
+          // bricks are in the picture) and no ao/roughness map: its roughness stays
+          // per vertex, as the opaque town's does.
+          const brick = Boolean(u.chiBrickBond);
           return { key, mapped, owners: b.owners,
             validMaterial: m.type === 'MeshStandardMaterial' && m.side === 2 && m.metalness === 0
               && m.emissive?.getHex() === 0 && !m.flatShading && !m.polygonOffset
-              && !m.map && !m.alphaMap && !m.alphaTest && !m.transmission
-              && (mapped ? Boolean(m.aoMap && m.roughnessMap) : !m.aoMap && !m.roughnessMap)
+              && (brick ? Boolean(m.map && mapped) : !m.map) && !m.alphaMap && !m.alphaTest && !m.transmission
+              && (mapped && !brick ? Boolean(m.aoMap && m.roughnessMap) : !m.aoMap && !m.roughnessMap)
               && (!u.nightWindows || (u.nightWindows === 'night-windows-v2' && !mapped && !m.transparent))
               && !u.glassPanes
-              && [u.chiRoofRelief, u.chiWallRelief, u.nightWindows].filter(Boolean).length <= 1
+              && [u.chiRoofRelief, u.chiWallRelief, u.chiBrickBond, u.nightWindows].filter(Boolean).length <= 1
               && (m.transparent ? Math.abs(m.opacity - 0.18) <= 1e-6 : m.opacity === 1) };
         }),
         batches: bs.length, laid: laid.length, values: seen.size, min, max,
@@ -12300,7 +12319,7 @@ for (const [label, viewport, touch] of [
         })),
       };
     });
-    check(`${label}: the opaque town stays merged beside its four relief groups and separate lantern glass`,
+    check(`${label}: the opaque town stays merged beside its five relief groups and separate lantern glass`,
       structureBatchContract(batchCensus.groups)
         && batchCensus.textured === TEXTURED_STRUCTURE_BATCHES,
       `${batchCensus.batches} structure batch(es), want ${STRUCTURE_BATCHES}, of which `
