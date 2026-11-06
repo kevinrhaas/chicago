@@ -104,7 +104,7 @@ selftest "Light GLB textures retain the device mip policy on initial decode and 
 selftest "Rail zones retain exact geometry, reach, upload callbacks and disposal across rebuilds (T-2380)" \
   node tools/test_rail_geometry_lifecycle.mjs --self-test
 
-selftest "Scenes with no parked vehicles boot: update, retier and dispose without a TDZ error (T-3311)" \
+selftest "Scenes with no parked vehicles boot: update, retier and dispose without a TDZ error (T-3311); a drop to Light hands Three no empty add (T-3427)" \
   node tools/test_parked_transport_empty_scene.mjs --self-test
 
 step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
