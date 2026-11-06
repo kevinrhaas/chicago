@@ -9,10 +9,10 @@
  "ref_unit_m": 0.0001,
  "delta_unit_m": 1e-05,
  "bin": "hm08_variation_kit.bin",
- "bin_bytes": 686498,
- "bin_sha256": "57343cc41176167fbf8bca7cce9fba0b77700ca3b857c5a503c51c59af2018fa",
- "axes_sha256": "a752d0af844bcfd82a2d57c25f34310b50019d8400539612afc70d3779ec00c9",
- "manifest_sha256": "f59b9e7b8a7cc585c3145f7c265a0d3d875a7f09d7671c86013b0afe22d1a124",
+ "bin_bytes": 920058,
+ "bin_sha256": "50e39518792e37536aceb644c6e3fdcb9f1a67827b85d2d5f227d1ddade2035d",
+ "axes_sha256": "6a4a780bcc205f865bafaf73180c95c60580dbc6bcb7c267c2a599ed33ff3301",
+ "manifest_sha256": "a100e3fa9826581a31fb318fbc4d8e48eca76da5b3510199a01508ec4389d6bb",
  "limit": 0.6,
  "height": {
   "spread": 0.035,
@@ -35,6 +35,10 @@
   "anonymous_working_driver_1904": {
    "base_age_years": 35,
    "sex": "male"
+  },
+  "flynn_mary_1835_dress_study": {
+   "base_age_years": 25,
+   "sex": "female"
   }
  },
  "refs": {
@@ -722,6 +726,26 @@
    }
   },
   {
+   "id": "weight_female",
+   "scope": "full",
+   "spread": 0.26,
+   "sex": "female",
+   "draw_as": "weight",
+   "kind": "signed",
+   "pos": {
+    "count": 3493,
+    "index": 491754,
+    "delta": 498740,
+    "max_m": 0.02217
+   },
+   "neg": {
+    "count": 4312,
+    "index": 519698,
+    "delta": 528322,
+    "max_m": 0.03145
+   }
+  },
+  {
    "id": "muscle",
    "scope": "full",
    "spread": 0.227,
@@ -729,15 +753,35 @@
    "kind": "signed",
    "pos": {
     "count": 4156,
-    "index": 491754,
-    "delta": 500066,
+    "index": 554194,
+    "delta": 562506,
     "max_m": 0.04184
    },
    "neg": {
     "count": 3768,
-    "index": 525002,
-    "delta": 532538,
+    "index": 587442,
+    "delta": 594978,
     "max_m": 0.05221
+   }
+  },
+  {
+   "id": "muscle_female",
+   "scope": "full",
+   "spread": 0.227,
+   "sex": "female",
+   "draw_as": "muscle",
+   "kind": "signed",
+   "pos": {
+    "count": 4002,
+    "index": 617586,
+    "delta": 625590,
+    "max_m": 0.02843
+   },
+   "neg": {
+    "count": 2871,
+    "index": 649602,
+    "delta": 655344,
+    "max_m": 0.03563
    }
   },
   {
@@ -747,8 +791,8 @@
    "kind": "positive",
    "pos": {
     "count": 346,
-    "index": 555146,
-    "delta": 555838,
+    "index": 672570,
+    "delta": 673262,
     "max_m": 0.10239
    }
   },
@@ -759,14 +803,14 @@
    "kind": "signed",
    "pos": {
     "count": 679,
-    "index": 557914,
-    "delta": 559272,
+    "index": 675338,
+    "delta": 676696,
     "max_m": 0.02089
    },
    "neg": {
     "count": 877,
-    "index": 563346,
-    "delta": 565100,
+    "index": 680770,
+    "delta": 682524,
     "max_m": 0.02089
    }
   },
@@ -778,9 +822,23 @@
    "kind": "age_macro",
    "pos": {
     "count": 14517,
-    "index": 570362,
-    "delta": 599396,
+    "index": 687786,
+    "delta": 716820,
     "max_m": 0.07593
+   }
+  },
+  {
+   "id": "body_age_female",
+   "scope": "full",
+   "drive": "age",
+   "sex": "female",
+   "draw_as": "body_age",
+   "kind": "age_macro",
+   "pos": {
+    "count": 14517,
+    "index": 803922,
+    "delta": 832956,
+    "max_m": 0.0859
    }
   }
  ]

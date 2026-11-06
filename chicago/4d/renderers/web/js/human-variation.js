@@ -87,12 +87,16 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
   const values = {}, option = {}, L = kit.header.limit ?? 0.6;
   // Every axis draws in order whatever the scope, so a person's face is the same seated or on foot.
   for (const a of kit.axes) {
+    // A sex's own targets for an axis another sex already draws (T-3423) take that axis's
+    // draw and consume none, so adding them moves nobody's face, build, height or age.
+    if (a.draw_as) continue;
     const g = gauss(rand), u = rand();
     if (a.drive) continue;
     if (a.kind === 'one_of') { option[a.id] = Math.min(a.options.length - 1, Math.floor(u * a.options.length)); values[a.id] = clip(Math.abs(g) * a.spread, 0, L); }
     else if (a.kind === 'positive') values[a.id] = clip(Math.abs(g) * a.spread, 0, L);
     else values[a.id] = clip(g * a.spread, -L, L);
   }
+  for (const a of kit.axes) if (a.draw_as && !a.drive && a.draw_as in values) values[a.id] = values[a.draw_as];
   const hs = kit.header.height;
   let height = 1 + clip(gauss(rand) * hs.spread, -hs.limit, hs.limit);
   const ageBand = record?.age?.band ?? kit.header.age.default_band_years;
