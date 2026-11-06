@@ -116,7 +116,8 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
         || study?.scene !== sceneId || study.person_reference_id !== instance.person_id
         || study.vehicle_sidecar_sha256 !== binding.vehicle_sidecar_sha256
         || (study.vehicle_glb_sha256 && study.vehicle_glb_sha256 !== sha256)) throw Error('driven assembly: actual exported driver identity/date/vehicle metadata differs');
-      actor = new HumanActor({ instance, identity, person: identity.person, assets: humanAssets, heightAt: () => 0, tier: 'full' });
+      // T-3412: a driver's own face; his body stays the one his seat, reins and livery were fitted to.
+      actor = new HumanActor({ instance, identity, person: identity.person, assets: humanAssets, heightAt: () => 0, tier: 'full', variation: 'face' });
       await actor.setLod(driverLod);
       humanAssets.release(row.driver_asset, driverLod); inspectionLease = false;
       if (!actor.body?.clips.has(driverClip) || !actor.play(driverClip, { fade: 0, time: 0 })) throw Error('driven assembly: real seated export absent');

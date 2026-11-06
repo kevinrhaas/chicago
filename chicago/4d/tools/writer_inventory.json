@@ -2288,6 +2288,13 @@
       "measured": "2026-11-04",
       "finding": "Reproduces: an actual fresh external output run after the MASTER EOF pin cleanup exited 0 in 3.982168124 seconds under the original 120 second cap. All eight selected MASTER/WEB LOD0/3 outputs and DERIVATION.json reproduce the active files byte for byte; all four admitted LOD3 hashes remain fixed. The staged index and all application payloads stayed unchanged through generation; source/resource guards and complete owned-child cleanup pass. Actual details are retained in data/humans/animations/driver-garment-retention-v2.native.json. This measures fresh-directory generation, not automatic active-file installation.",
       "placed": "Canonical human exports precede the original Otis-only standing stage and the original Otis/Hans seated stages; this explicit final garment stage must follow their exact immutable parent/donor reproduction and precede native fixture measurement and publication. Its write mode only accepts a fresh external directory. An explicit checked install owner and slot after those historical stages must be accepted before automatic rederive can install these assets or replace finite qualification records. Full town budgets, continuous fit and broad T-2804/T-1790 photographic/riding/boarding acceptance remain open."
+    },
+    "human_variation_kit.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-06",
+      "finding": "Reproduces: a bare write run on the committed tree rewrote assets/humans/web/hm08_variation_kit.bin, hm08_variation_kit.json and data/humans/variation/persons.json with identical bytes; git status stayed clean (T-3412).",
+      "placed": "not yet \u2014 measured to reproduce. It reads the vendored MakeHuman targets, prepared.json, axes.json, the humans instances, data/transport/driven/loops.json, the residents' household files and data/humans/variation/fits/; its slot must follow whatever writes loops.json and the household files, and the manifest's order is its own measured pass, so it is not appended blind (T-3412)."
     }
   }
 }

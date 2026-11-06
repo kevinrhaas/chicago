@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1022,
+  "count": 1023,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -69068,6 +69068,33 @@
       "work_refs": [
         "T-3419",
         "T-3415"
+      ]
+    },
+    {
+      "id": "L-human-variation-3412",
+      "title": "Every person drawn gets their own height, build and face",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-06",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "every figure drawn by the walkthrough's humans code takes its own shape from the shared body all figures wear, by seeded weights of 40 axes of pinned CC0 MakeHuman graphical targets (the axes data, built into the hm08 variation kit model by the human variation kit tool, applied by the walkthrough's human variation code): nose, mouth, lips, chin, jaw, cheeks, brows, forehead, ears and jowls for everyone; and, for a person on foot, head outline, neck, weight, muscle, a small paunch, how far forward the neck carries the head, and a height within 7 % of the 1.75 m engineering body. Clothes, hair and eyes are carried by the skin under them, so a coat follows the chest. A seated driver's face changes and nothing he sits on, holds or wears does. The owner, 2026-11-06, agreeing the plan \"Photographic humans: the path\": bodies and faces \"that differ\", \"no two neighbours alike\". **What is read.** A person's age where their own record states it (Hans Johnson, born 1870, is 34; the 1900 census), or the age band their record holds (Otis Bardwell, 20-29, itself reconstructed), moves MakeHuman's own age targets. the persons data lists each drawn person, their age and its source. **What is invented.** Every drawn value: the face, height and build of each person, seeded from their id so it is the same on every load and in every year file; the spread of each axis and its limit (60 % of MakeHuman's own slider, past which its targets read as caricature); the year inside an age band. No person's likeness, stature or build is claimed, and no person's grade changes. A face fitted to a picture of its person replaces the drawn face and carries the picture's grade instead."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a picture of the person (fit the face to it, as for John J. Glessner), or a record of their height or build."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-06 (T-3412)."
+        }
+      ],
+      "work_refs": [
+        "T-3412",
+        "T-3413"
       ]
     },
     {

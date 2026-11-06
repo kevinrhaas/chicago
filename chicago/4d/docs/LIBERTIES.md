@@ -41138,3 +41138,28 @@ not change any person's grade.
 the town.
 **Ticket:** T-3419 (a piece of T-3415).
 **Recorded:** 2026-11-06 (T-3419).
+
+### L-human-variation-3412 — Every person drawn gets their own height, build and face
+
+**Decision:** every figure drawn by `humans.js` takes its own shape from the shared body all figures wear,
+by seeded weights of 40 axes of pinned CC0 MakeHuman graphical targets (`data/humans/variation/axes.json`,
+built into `assets/humans/web/hm08_variation_kit.*` by `tools/human_variation_kit.py`, applied by
+`renderers/web/js/human-variation.js`): nose, mouth, lips, chin, jaw, cheeks, brows, forehead, ears and
+jowls for everyone; and, for a person on foot, head outline, neck, weight, muscle, a small paunch, how far
+forward the neck carries the head, and a height within 7 % of the 1.75 m engineering body. Clothes, hair and
+eyes are carried by the skin under them, so a coat follows the chest. A seated driver's face changes and
+nothing he sits on, holds or wears does. The owner, 2026-11-06, agreeing the plan "Photographic humans: the
+path" (T-3412): bodies and faces "that differ", "no two neighbours alike".
+**What is read.** A person's age where their own record states it (Hans Johnson, born 1870, is 34; the
+1900 census), or the age band their record holds (Otis Bardwell, 20-29, itself reconstructed), moves
+MakeHuman's own age targets. `data/humans/variation/persons.json` lists each drawn person, their age and its
+source.
+**What is invented.** Every drawn value: the face, height and build of each person, seeded from their id
+so it is the same on every load and in every year file; the spread of each axis and its limit (60 % of
+MakeHuman's own slider, past which its targets read as caricature); the year inside an age band. No
+person's likeness, stature or build is claimed, and no person's grade changes. A face fitted to a picture
+of its person replaces the drawn face and carries the picture's grade instead.
+**How to resolve:** a picture of the person (fit the face to it, as for John J. Glessner, T-3413), or a
+record of their height or build.
+**Ticket:** T-3412.
+**Recorded:** 2026-11-06 (T-3412).

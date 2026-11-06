@@ -1,0 +1,787 @@
+{
+ "format": "chicago4d_human_variation_kit_v1",
+ "ticket": "T-3412",
+ "liberty": "L-human-variation-3412",
+ "license": "CC0-1.0",
+ "generated_by": "tools/human_variation_kit.py",
+ "basis": "Deltas of pinned CC0 MakeHuman hm08 graphical targets carried onto the engineering T-pose of prepared.json; quantised and sparse. A depiction ingredient, not a measurement of any person.",
+ "vertex_count": 14517,
+ "ref_unit_m": 0.0001,
+ "delta_unit_m": 1e-05,
+ "bin": "hm08_variation_kit.bin",
+ "bin_bytes": 686498,
+ "bin_sha256": "57343cc41176167fbf8bca7cce9fba0b77700ca3b857c5a503c51c59af2018fa",
+ "axes_sha256": "4d1b60e6dd8dac795af14005713dc8bca53d422176d60bfd01cdbdec7c35c2fe",
+ "manifest_sha256": "f59b9e7b8a7cc585c3145f7c265a0d3d875a7f09d7671c86013b0afe22d1a124",
+ "limit": 0.6,
+ "height": {
+  "spread": 0.035,
+  "limit": 0.07,
+  "scope": "full",
+  "basis": "A seeded uniform scale of the figure about its feet, sd 3.5 % (about 6 cm on the 1.75 m engineering body), clipped at 7 %. Reconstructed: it spreads the town's adults about the body every figure shares; no measured stature of any resident is asserted."
+ },
+ "age": {
+  "per_year": 0.015384615384615385,
+  "default_band_years": [
+   22,
+   58
+  ]
+ },
+ "assets": {
+  "bardwell_otis_1835": {
+   "base_age_years": 35,
+   "sex": "male"
+  },
+  "anonymous_working_driver_1904": {
+   "base_age_years": 35,
+   "sex": "male"
+  }
+ },
+ "refs": {
+  "offset": 0,
+  "count": 14517
+ },
+ "uvs": {
+  "offset": 87102,
+  "count": 14517
+ },
+ "axes": [
+  {
+   "id": "nose_length",
+   "scope": "face",
+   "spread": 0.293,
+   "kind": "signed",
+   "pos": {
+    "count": 397,
+    "index": 145170,
+    "delta": 145964,
+    "max_m": 0.00574
+   },
+   "neg": {
+    "count": 335,
+    "index": 148346,
+    "delta": 149016,
+    "max_m": 0.00804
+   }
+  },
+  {
+   "id": "nose_width",
+   "scope": "face",
+   "spread": 0.293,
+   "kind": "signed",
+   "pos": {
+    "count": 448,
+    "index": 151026,
+    "delta": 151922,
+    "max_m": 0.00355
+   },
+   "neg": {
+    "count": 312,
+    "index": 154610,
+    "delta": 155234,
+    "max_m": 0.0048
+   }
+  },
+  {
+   "id": "nose_depth",
+   "scope": "face",
+   "spread": 0.26,
+   "kind": "signed",
+   "pos": {
+    "count": 366,
+    "index": 157106,
+    "delta": 157838,
+    "max_m": 0.00898
+   },
+   "neg": {
+    "count": 342,
+    "index": 160034,
+    "delta": 160718,
+    "max_m": 0.01232
+   }
+  },
+  {
+   "id": "nose_hump",
+   "scope": "face",
+   "spread": 0.293,
+   "kind": "signed",
+   "pos": {
+    "count": 406,
+    "index": 162770,
+    "delta": 163582,
+    "max_m": 0.00467
+   },
+   "neg": {
+    "count": 28,
+    "index": 166018,
+    "delta": 166074,
+    "max_m": 0.00348
+   }
+  },
+  {
+   "id": "nose_curve",
+   "scope": "face",
+   "spread": 0.227,
+   "kind": "signed",
+   "pos": {
+    "count": 52,
+    "index": 166242,
+    "delta": 166346,
+    "max_m": 0.00694
+   },
+   "neg": {
+    "count": 70,
+    "index": 166658,
+    "delta": 166798,
+    "max_m": 0.0055
+   }
+  },
+  {
+   "id": "nose_tip",
+   "scope": "face",
+   "spread": 0.227,
+   "kind": "signed",
+   "pos": {
+    "count": 77,
+    "index": 167218,
+    "delta": 167372,
+    "max_m": 0.00481
+   },
+   "neg": {
+    "count": 100,
+    "index": 167834,
+    "delta": 168034,
+    "max_m": 0.01608
+   }
+  },
+  {
+   "id": "nose_tip_width",
+   "scope": "face",
+   "spread": 0.26,
+   "kind": "signed",
+   "pos": {
+    "count": 42,
+    "index": 168634,
+    "delta": 168718,
+    "max_m": 0.0016
+   },
+   "neg": {
+    "count": 64,
+    "index": 168970,
+    "delta": 169098,
+    "max_m": 0.00252
+   }
+  },
+  {
+   "id": "nostrils",
+   "scope": "face",
+   "spread": 0.26,
+   "kind": "signed",
+   "pos": {
+    "count": 252,
+    "index": 169482,
+    "delta": 169986,
+    "max_m": 0.00522
+   },
+   "neg": {
+    "count": 198,
+    "index": 171498,
+    "delta": 171894,
+    "max_m": 0.00254
+   }
+  },
+  {
+   "id": "nose_height",
+   "scope": "face",
+   "spread": 0.195,
+   "kind": "signed",
+   "pos": {
+    "count": 526,
+    "index": 173082,
+    "delta": 174134,
+    "max_m": 0.00428
+   },
+   "neg": {
+    "count": 406,
+    "index": 177290,
+    "delta": 178102,
+    "max_m": 0.00386
+   }
+  },
+  {
+   "id": "mouth_width",
+   "scope": "face",
+   "spread": 0.26,
+   "kind": "signed",
+   "pos": {
+    "count": 870,
+    "index": 180538,
+    "delta": 182278,
+    "max_m": 0.00523
+   },
+   "neg": {
+    "count": 746,
+    "index": 187498,
+    "delta": 188990,
+    "max_m": 0.00574
+   }
+  },
+  {
+   "id": "lip_upper",
+   "scope": "face",
+   "spread": 0.26,
+   "kind": "signed",
+   "pos": {
+    "count": 145,
+    "index": 193466,
+    "delta": 193756,
+    "max_m": 0.0031
+   },
+   "neg": {
+    "count": 95,
+    "index": 194626,
+    "delta": 194816,
+    "max_m": 0.00241
+   }
+  },
+  {
+   "id": "lip_lower",
+   "scope": "face",
+   "spread": 0.26,
+   "kind": "signed",
+   "pos": {
+    "count": 135,
+    "index": 195386,
+    "delta": 195656,
+    "max_m": 0.005
+   },
+   "neg": {
+    "count": 64,
+    "index": 196466,
+    "delta": 196594,
+    "max_m": 0.00242
+   }
+  },
+  {
+   "id": "mouth_height",
+   "scope": "face",
+   "spread": 0.195,
+   "kind": "signed",
+   "pos": {
+    "count": 627,
+    "index": 196978,
+    "delta": 198232,
+    "max_m": 0.00677
+   },
+   "neg": {
+    "count": 708,
+    "index": 201994,
+    "delta": 203410,
+    "max_m": 0.00951
+   }
+  },
+  {
+   "id": "chin_prominence",
+   "scope": "face",
+   "spread": 0.293,
+   "kind": "signed",
+   "pos": {
+    "count": 108,
+    "index": 207658,
+    "delta": 207874,
+    "max_m": 0.01243
+   },
+   "neg": {
+    "count": 182,
+    "index": 208522,
+    "delta": 208886,
+    "max_m": 0.0095
+   }
+  },
+  {
+   "id": "chin_width",
+   "scope": "face",
+   "spread": 0.293,
+   "kind": "signed",
+   "pos": {
+    "count": 198,
+    "index": 209978,
+    "delta": 210374,
+    "max_m": 0.01243
+   },
+   "neg": {
+    "count": 142,
+    "index": 211562,
+    "delta": 211846,
+    "max_m": 0.00534
+   }
+  },
+  {
+   "id": "chin_height",
+   "scope": "face",
+   "spread": 0.26,
+   "kind": "signed",
+   "pos": {
+    "count": 533,
+    "index": 212698,
+    "delta": 213764,
+    "max_m": 0.02141
+   },
+   "neg": {
+    "count": 278,
+    "index": 216962,
+    "delta": 217518,
+    "max_m": 0.01034
+   }
+  },
+  {
+   "id": "jaw",
+   "scope": "face",
+   "spread": 0.293,
+   "kind": "signed",
+   "pos": {
+    "count": 597,
+    "index": 219186,
+    "delta": 220380,
+    "max_m": 0.01461
+   },
+   "neg": {
+    "count": 200,
+    "index": 223962,
+    "delta": 224362,
+    "max_m": 0.00889
+   }
+  },
+  {
+   "id": "prognathism",
+   "scope": "face",
+   "spread": 0.195,
+   "kind": "signed",
+   "pos": {
+    "count": 351,
+    "index": 225562,
+    "delta": 226264,
+    "max_m": 0.00731
+   },
+   "neg": {
+    "count": 483,
+    "index": 228370,
+    "delta": 229336,
+    "max_m": 0.00825
+   }
+  },
+  {
+   "id": "cheekbones",
+   "scope": "face",
+   "spread": 0.293,
+   "kind": "signed",
+   "pos": {
+    "count": 118,
+    "index": 232234,
+    "delta": 232470,
+    "max_m": 0.00846
+   },
+   "neg": {
+    "count": 168,
+    "index": 233178,
+    "delta": 233514,
+    "max_m": 0.0027
+   }
+  },
+  {
+   "id": "cheek_volume",
+   "scope": "face",
+   "spread": 0.293,
+   "kind": "signed",
+   "pos": {
+    "count": 424,
+    "index": 234522,
+    "delta": 235370,
+    "max_m": 0.00988
+   },
+   "neg": {
+    "count": 310,
+    "index": 237914,
+    "delta": 238534,
+    "max_m": 0.00723
+   }
+  },
+  {
+   "id": "cheek_inner",
+   "scope": "face",
+   "spread": 0.227,
+   "kind": "signed",
+   "pos": {
+    "count": 197,
+    "index": 240394,
+    "delta": 240788,
+    "max_m": 0.00857
+   },
+   "neg": {
+    "count": 82,
+    "index": 241970,
+    "delta": 242134,
+    "max_m": 0.00299
+   }
+  },
+  {
+   "id": "brow_height",
+   "scope": "face",
+   "spread": 0.26,
+   "kind": "signed",
+   "pos": {
+    "count": 449,
+    "index": 242626,
+    "delta": 243524,
+    "max_m": 0.00745
+   },
+   "neg": {
+    "count": 380,
+    "index": 246218,
+    "delta": 246978,
+    "max_m": 0.00877
+   }
+  },
+  {
+   "id": "brow_angle",
+   "scope": "face",
+   "spread": 0.26,
+   "kind": "signed",
+   "pos": {
+    "count": 270,
+    "index": 249258,
+    "delta": 249798,
+    "max_m": 0.00844
+   },
+   "neg": {
+    "count": 446,
+    "index": 251418,
+    "delta": 252310,
+    "max_m": 0.00961
+   }
+  },
+  {
+   "id": "brow_ridge",
+   "scope": "face",
+   "spread": 0.227,
+   "kind": "signed",
+   "pos": {
+    "count": 292,
+    "index": 254986,
+    "delta": 255570,
+    "max_m": 0.01714
+   },
+   "neg": {
+    "count": 177,
+    "index": 257322,
+    "delta": 257676,
+    "max_m": 0.00471
+   }
+  },
+  {
+   "id": "forehead_slope",
+   "scope": "face",
+   "spread": 0.227,
+   "kind": "signed",
+   "pos": {
+    "count": 290,
+    "index": 258738,
+    "delta": 259318,
+    "max_m": 0.06157
+   },
+   "neg": {
+    "count": 280,
+    "index": 261058,
+    "delta": 261618,
+    "max_m": 0.04661
+   }
+  },
+  {
+   "id": "temples",
+   "scope": "face",
+   "spread": 0.227,
+   "kind": "signed",
+   "pos": {
+    "count": 258,
+    "index": 263298,
+    "delta": 263814,
+    "max_m": 0.00679
+   },
+   "neg": {
+    "count": 90,
+    "index": 265362,
+    "delta": 265542,
+    "max_m": 0.00846
+   }
+  },
+  {
+   "id": "ear_size",
+   "scope": "face",
+   "spread": 0.26,
+   "kind": "signed",
+   "pos": {
+    "count": 1028,
+    "index": 266082,
+    "delta": 268138,
+    "max_m": 0.01133
+   },
+   "neg": {
+    "count": 1022,
+    "index": 274306,
+    "delta": 276350,
+    "max_m": 0.01099
+   }
+  },
+  {
+   "id": "ear_flap",
+   "scope": "face",
+   "spread": 0.26,
+   "kind": "signed",
+   "pos": {
+    "count": 566,
+    "index": 282482,
+    "delta": 283614,
+    "max_m": 0.01734
+   },
+   "neg": {
+    "count": 526,
+    "index": 287010,
+    "delta": 288062,
+    "max_m": 0.00721
+   }
+  },
+  {
+   "id": "ear_lobe",
+   "scope": "face",
+   "spread": 0.26,
+   "kind": "signed",
+   "pos": {
+    "count": 52,
+    "index": 291218,
+    "delta": 291322,
+    "max_m": 0.01002
+   },
+   "neg": {
+    "count": 78,
+    "index": 291634,
+    "delta": 291790,
+    "max_m": 0.00743
+   }
+  },
+  {
+   "id": "jowls",
+   "scope": "face",
+   "spread": 0.227,
+   "kind": "signed",
+   "pos": {
+    "count": 769,
+    "index": 292258,
+    "delta": 293796,
+    "max_m": 0.01487
+   },
+   "neg": {
+    "count": 790,
+    "index": 298410,
+    "delta": 299990,
+    "max_m": 0.00776
+   }
+  },
+  {
+   "id": "face_age",
+   "scope": "face",
+   "drive": "age",
+   "kind": "signed",
+   "pos": {
+    "count": 2670,
+    "index": 304730,
+    "delta": 310070,
+    "max_m": 0.00342
+   },
+   "neg": {
+    "count": 3451,
+    "index": 326090,
+    "delta": 332992,
+    "max_m": 0.0057
+   }
+  },
+  {
+   "id": "head_shape",
+   "scope": "full",
+   "spread": 0.293,
+   "kind": "one_of",
+   "options": [
+    {
+     "count": 1942,
+     "index": 353698,
+     "delta": 357582,
+     "max_m": 0.01355
+    },
+    {
+     "count": 1843,
+     "index": 369234,
+     "delta": 372920,
+     "max_m": 0.01259
+    },
+    {
+     "count": 529,
+     "index": 383978,
+     "delta": 385036,
+     "max_m": 0.01153
+    },
+    {
+     "count": 484,
+     "index": 388210,
+     "delta": 389178,
+     "max_m": 0.01525
+    },
+    {
+     "count": 598,
+     "index": 392082,
+     "delta": 393278,
+     "max_m": 0.01384
+    },
+    {
+     "count": 2021,
+     "index": 396866,
+     "delta": 400908,
+     "max_m": 0.00836
+    },
+    {
+     "count": 550,
+     "index": 413034,
+     "delta": 414134,
+     "max_m": 0.01766
+    }
+   ]
+  },
+  {
+   "id": "forehead_height",
+   "scope": "full",
+   "spread": 0.227,
+   "kind": "signed",
+   "pos": {
+    "count": 146,
+    "index": 417434,
+    "delta": 417726,
+    "max_m": 0.03959
+   },
+   "neg": {
+    "count": 146,
+    "index": 418602,
+    "delta": 418894,
+    "max_m": 0.02277
+   }
+  },
+  {
+   "id": "neck_width",
+   "scope": "full",
+   "spread": 0.227,
+   "kind": "signed",
+   "pos": {
+    "count": 574,
+    "index": 419770,
+    "delta": 420918,
+    "max_m": 0.01232
+   },
+   "neg": {
+    "count": 470,
+    "index": 424362,
+    "delta": 425302,
+    "max_m": 0.01034
+   }
+  },
+  {
+   "id": "double_chin",
+   "scope": "full",
+   "spread": 0.227,
+   "kind": "positive",
+   "pos": {
+    "count": 209,
+    "index": 428122,
+    "delta": 428540,
+    "max_m": 0.01381
+   }
+  },
+  {
+   "id": "weight",
+   "scope": "full",
+   "spread": 0.26,
+   "sex": "male",
+   "kind": "signed",
+   "pos": {
+    "count": 3941,
+    "index": 429794,
+    "delta": 437676,
+    "max_m": 0.02995
+   },
+   "neg": {
+    "count": 3804,
+    "index": 461322,
+    "delta": 468930,
+    "max_m": 0.02655
+   }
+  },
+  {
+   "id": "muscle",
+   "scope": "full",
+   "spread": 0.227,
+   "sex": "male",
+   "kind": "signed",
+   "pos": {
+    "count": 4156,
+    "index": 491754,
+    "delta": 500066,
+    "max_m": 0.04184
+   },
+   "neg": {
+    "count": 3768,
+    "index": 525002,
+    "delta": 532538,
+    "max_m": 0.05221
+   }
+  },
+  {
+   "id": "belly",
+   "scope": "full",
+   "spread": 0.117,
+   "kind": "positive",
+   "pos": {
+    "count": 346,
+    "index": 555146,
+    "delta": 555838,
+    "max_m": 0.10239
+   }
+  },
+  {
+   "id": "carriage",
+   "scope": "full",
+   "spread": 0.195,
+   "kind": "signed",
+   "pos": {
+    "count": 679,
+    "index": 557914,
+    "delta": 559272,
+    "max_m": 0.02089
+   },
+   "neg": {
+    "count": 877,
+    "index": 563346,
+    "delta": 565100,
+    "max_m": 0.02089
+   }
+  },
+  {
+   "id": "body_age",
+   "scope": "full",
+   "drive": "age",
+   "sex": "male",
+   "kind": "age_macro",
+   "pos": {
+    "count": 14517,
+    "index": 570362,
+    "delta": 599396,
+    "max_m": 0.07593
+   }
+  }
+ ]
+}
