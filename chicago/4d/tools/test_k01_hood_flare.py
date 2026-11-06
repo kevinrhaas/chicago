@@ -83,7 +83,8 @@ def geometry_checks():
 
 def record_checks():
     st, phase = record()
-    ds = KP.from_phase(phase, st).mansard["dormers"]
+    # T-1890 (2026-11-06): the hooded three; the flat-capped wall dormer beside them has no hood
+    ds = [d for d in KP.from_phase(phase, st).mansard["dormers"] if d["head"] == "hood"]
     check([d["hood"].get("flare_m") for d in ds] == [0.2, 0.2, 0.2], "1801's three hoods flare 0.2 m")
     check([d["hood"]["taper_m"] for d in ds] == [0.3, 0.3, 0.17], "the south hood's top eased to taper 0.17 (HABS 1)")
     for why, fl in (("a 0.02 m flare", 0.02), ("a 0.5 m flare", 0.5)):
