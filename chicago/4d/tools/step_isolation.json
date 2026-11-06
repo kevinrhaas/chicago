@@ -5994,6 +5994,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_jaunt_start_finish.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_jaunts_reducer.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6070,10 +6074,6 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/test_k01_wall_lantern.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
     "tools/test_k01_rear_veranda.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6098,6 +6098,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_k01_wall_lantern.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_k01_wheeler_signoff.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6110,11 +6114,11 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/test_k01_wing_mullions.py": {
+    "tools/test_k01_wing_dressings.py": {
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/test_k01_wing_dressings.py": {
+    "tools/test_k01_wing_mullions.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6278,6 +6282,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_people_directory.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_people_match.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6287,10 +6295,6 @@
       "wrote_ignored": []
     },
     "tools/test_person_card.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_people_directory.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

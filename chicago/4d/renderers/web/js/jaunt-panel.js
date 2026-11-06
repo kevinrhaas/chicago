@@ -1,10 +1,35 @@
-import { currentStop, choicesFor, canNext, choiceStatus, choiceConsequence, resourceSummary, shownMode } from './jaunts.js';
+import { currentStop, choicesFor, canNext, choiceStatus, choiceConsequence, resourceSummary, shownMode, isFinalStop } from './jaunts.js';
 import { claimPresentation } from './jaunt-context.js';
 import { PACES } from './travel-settings.js';
 import { formatEstimate } from './travel-estimate.js';
+import { FAMILIES, familySlot, icon } from './menu-icons.js';
+import { ambienceLabel } from './jaunt-menu.js';
+
+/** T-3432: a jaunt's opening, in paragraphs, without the "JAUNT: ITS TITLE." its welcome
+ *  already shows as a heading. */
+export function openingParagraphs(jaunt) {
+  const paragraphs = String(jaunt?.opening?.text ?? '').split(/\n\s*\n/).map(t => t.trim()).filter(Boolean);
+  if (paragraphs.length) paragraphs[0] = paragraphs[0].replace(/^JAUNT:\s*[^.!?]*[.!?]\s*/, '');
+  return paragraphs.filter(Boolean);
+}
+/** T-3432: road notes are read in the leg they belong to, or not at all: the lines of
+ *  `lines`, in order, that a visitor can read (about 3 words a second, after a second to
+ *  look up) before a leg of `seconds` ends. Unknown time keeps every line. */
+export const READ_WORDS_PER_S = 3;
+export function readableLines(lines = [], seconds) {
+  if (!Number.isFinite(seconds)) return lines;
+  let left = seconds - 1.5;
+  const kept = [];
+  for (const line of lines) {
+    const need = String(line.text ?? '').split(/\s+/).filter(Boolean).length / READ_WORDS_PER_S + 0.5;
+    if (need > left) break;
+    kept.push(line); left -= need;
+  }
+  return kept;
+}
 
 /** The scrollable story and persistent controls have separate layout ownership. */
-export function createJauntPanel({ destinations, actions }) {
+export function createJauntPanel({ destinations, actions, catalogRow = () => null }) {
   // T-2946: a stop is headed by the jaunt's own name for it, the one its road notes use.
   const stopName = (state, stop) => state.jaunt.places?.[stop.destination.id]
     || destinations.byId(stop.destination.kind, stop.destination.id)?.label || stop.destination.id;
@@ -125,8 +150,7 @@ export function createJauntPanel({ destinations, actions }) {
     }
     parent.append(chips);
   }
-  function contextLines(parent) {
-    const lines = state.context?.lines || [];
+  function contextLines(parent, lines = state.context?.lines || []) {
     for (const line of lines) {
       if (line.generated) parent.append(node('p', line.text));
       else if (line.claims) prose(parent, line.text, [], false, line.claims);
@@ -134,6 +158,41 @@ export function createJauntPanel({ destinations, actions }) {
     }
     // T-3379: the owner found T-2956's "[MAP] From the model's map" line unnecessary; a
     // passing note now names the house and, where one is known, gives its sourced fact.
+  }
+  /**
+   * T-3432 (owner, 2026-11-06: "for the first page of the jaunt make it a little more of a
+   * welcome and background on the jaunt ... and make those screens nice and with icons"): the
+   * first page opens on the jaunt itself — its kind, title and premise, what it takes, and its
+   * opening told in full — and stop 1 follows. It is up while the eye flies to the start. Back
+   * at stop 1 later in the outing, the opening folds away.
+   */
+  function welcome(opening) {
+    const row = catalogRow(state.jaunt.id) || {}, family = row.primary_family;
+    const hero = node('header', '', `jaunt-welcome jaunt-type-${familySlot(family)}`);
+    const badge = node('span', '', 'jaunt-welcome-badge'); badge.append(icon(FAMILIES.includes(family) ? family : 'jaunts', 26));
+    const words = node('div', '', 'jaunt-welcome-words');
+    words.append(node('p', `Jaunt · ${state.jaunt.scene}${family ? ` · ${family}` : ''}`, 'jaunt-welcome-k'), node('h2', state.jaunt.title, 'jaunt-welcome-title'));
+    hero.append(badge, words); body.append(hero);
+    const premise = state.jaunt.premise || row.premise;
+    if (premise) body.append(node('p', premise, 'jaunt-welcome-premise'));
+    const facts = node('ul', '', 'jaunt-welcome-facts'); facts.setAttribute('aria-label', 'This jaunt');
+    const fact = (name, text) => { if (!text) return null; const li = node('li', ''); li.append(icon(name, 16), node('span', text)); facts.append(li); return li; };
+    fact('start', `${state.jaunt.stops.length} stops`);
+    // The time it takes, as the remaining-time line gives it at every later stop.
+    const time = state.estimate && fact('clock', formatEstimate(state.estimate).replace(/^about /, '~'));
+    if (time) { time.dataset.jauntRemaining = ''; time.title = `${formatEstimate(state.estimate)} remaining`; }
+    const ambience = state.jaunt.ambience || row.ambience;
+    if (ambience) fact(['dusk', 'night'].includes(ambience.hour) ? 'night' : 'day', ambienceLabel(ambience));
+    const mode = shownMode(state);
+    if (PACES[mode]) fact(mode, PACES[mode].label);
+    body.append(facts);
+    const paragraphs = openingParagraphs(state.jaunt);
+    if (!paragraphs.length) return;
+    const fresh = opening || state.visited.length === 1;
+    const story = node(fresh ? 'section' : 'details', '', 'jaunt-welcome-story');
+    const head = node(fresh ? 'h3' : 'summary', '', 'jaunt-welcome-story-k'); head.append(icon('story', 16), node('span', 'Background'));
+    story.append(head, ...paragraphs.map(text => node('p', text)));
+    body.append(story);
   }
   function render(next) {
     const old = state;
@@ -152,31 +211,48 @@ export function createJauntPanel({ destinations, actions }) {
     straight.hidden = !['travelling', 'paused'].includes(state.phase);
     mode.classList.toggle('jaunt-mode-wide', straight.hidden);
     const scroll = same ? (overlayView?.scroll ?? body.scrollTop) : 0, focused = document.activeElement?.dataset.choice;
+    const opening = state.phase === 'opening' || (state.phase === 'detail' && state.detailPhase === 'opening');
+    const final = !opening && isFinalStop(state), count = state.jaunt.stops.length;
+    root.classList.toggle('jaunt-final', final);
     const heading = node('h2', stopName(state, stop));
     heading.tabIndex = -1;
-    const progress = node('p', `${state.jaunt.title} · Stop ${state.stopIndex + 1} of ${state.jaunt.stops.length}`, 'jaunt-progress');
-    progress.setAttribute('aria-live', 'polite'); body.replaceChildren(progress, heading);
+    const progress = node('p', '', 'jaunt-progress jaunt-stop-k');
+    progress.setAttribute('aria-live', 'polite');
+    // T-3432: the last stop says it is the last, on the page and on the bar.
+    if (final) { progress.classList.add('jaunt-final-k'); progress.append(icon('finish', 15)); }
+    if (state.stopIndex > 0) progress.append(node('span', state.jaunt.title, 'jaunt-progress-title'), ' · ');
+    progress.append(node('span', final ? `Final stop · ${state.stopIndex + 1} of ${count}` : `Stop ${state.stopIndex + 1} of ${count}`));
+    body.replaceChildren();
+    if (state.stopIndex === 0) welcome(opening);
+    if (!opening) body.append(progress, heading);
     const resources = resourceSummary(state);
     if (resources.length) {
       const strip = node('ul', '', 'jaunt-resources'); strip.setAttribute('aria-label', 'Outing resources');
       strip.replaceChildren(...resources.map(text => node('li', text))); body.append(strip);
     }
-    if (state.estimate) {
+    if (state.estimate && !(opening || state.stopIndex === 0)) {
       const eta = node('p', `${formatEstimate(state.estimate)} remaining`, 'jaunt-progress'); eta.dataset.jauntRemaining = ''; body.append(eta);
     }
     const travelling = ['travelling', 'paused'].includes(state.phase) || (state.phase === 'detail' && ['travelling', 'paused'].includes(state.detailPhase));
-    if (travelling) {
-      body.append(node('p', state.phase === 'paused' ? 'Ride paused. Explore here, or resume when you are ready.' : state.error || 'On the way to the next stop…'));
-      if (state.context?.lines.length && !state.contextDismissed) {
+    if (opening) {
+      const flying = node('p', '', 'jaunt-flying'); flying.setAttribute('aria-live', 'polite');
+      flying.append(icon('fly', 18), node('span', `Flying to the start · ${stopName(state, stop)}`));
+      body.append(flying);
+    } else if (travelling) {
+      body.append(node('p', state.phase === 'paused' ? 'Ride paused. Explore here, or resume when you are ready.'
+        : state.error || (final ? 'On the way to the final stop…' : 'On the way to the next stop…')));
+      // T-3432 (owner, 2026-11-06: "the text of your story along the way gets cut off or if it
+      // really fast between locations there is no time to read it so don't show it"): each
+      // line is shown whole, and only the lines this leg leaves time to read. The rest wait in
+      // the stop's own On the way fold.
+      const readable = readableLines(state.context?.lines || [], state.estimate?.legs?.[0]?.seconds);
+      if (readable.length && !state.contextDismissed) {
         const notes = node('aside', '', 'jaunt-leg-notes'); notes.setAttribute('aria-label', 'On the way');
-        contextLines(notes); notes.append(button('Dismiss road notes', actions.dismissContext)); body.append(notes);
+        contextLines(notes, readable); notes.append(button('Dismiss road notes', actions.dismissContext)); body.append(notes);
       }
       if (state.phase === 'paused') body.append(button('Resume ride', actions.resumeRide));
       if (state.error) body.append(button('Try this stop again', actions.retry));
     } else {
-      if (state.stopIndex === 0) {
-        const about = node('details', ''); about.append(node('summary', 'About this outing'), ...String(state.jaunt.opening.text).split(/\n\s*\n/).map(text => node('p', text.trim()))); body.append(about);
-      }
       const historicalClaims = stop.narrative ? stop.evidence.filter(id => state.jaunt.evidence.find(c => c.id === id)?.confidence !== 'reconstructed') : stop.evidence;
       prose(body, stop.text, historicalClaims, historicalClaims?.every(id => state.jaunt.evidence.find(c => c.id === id)?.confidence === 'reconstructed'), [], stop.since);
       if (stop.narrative) prose(body, stop.narrative, stop.evidence.filter(id => state.jaunt.evidence.find(c => c.id === id)?.confidence === 'reconstructed'), true);
@@ -212,11 +288,17 @@ export function createJauntPanel({ destinations, actions }) {
     const here = state.visited[state.stopIndex];
     needsChoice = state.phase === 'atStop' && !canNext(state) && !here.committed && choicesFor(state).length > 0;
     buttons.prev.disabled = state.stopIndex === 0; buttons.next.disabled = barNext.disabled = !canNext(state) && !needsChoice;
-    for (const b of [buttons.next, barNext]) { b.textContent = needsChoice ? 'Choose an Option' : 'Next Stop'; b.classList.toggle('jaunt-needs-choice', needsChoice); }
-    const place = stopName(state, stop);
-    barLabel.replaceChildren(node('span', `▴ ${['travelling', 'paused'].includes(state.phase) ? 'On the way to ' : ''}${place}`),
-      node('small', `Stop ${state.stopIndex + 1} of ${state.jaunt.stops.length}`));
-    barLabel.setAttribute('aria-label', `Open the outing panel: ${place}, stop ${state.stopIndex + 1} of ${state.jaunt.stops.length}`);
+    // T-3432: at the last stop the one way on is to finish.
+    const finish = final && canNext(state) && !needsChoice;
+    for (const b of [buttons.next, barNext]) {
+      b.textContent = needsChoice ? 'Choose an Option' : finish ? 'Finish Jaunt' : 'Next Stop';
+      b.classList.toggle('jaunt-needs-choice', needsChoice); b.classList.toggle('jaunt-finish', finish);
+    }
+    const place = stopName(state, stop), where = final ? `Final stop · ${state.stopIndex + 1} of ${count}` : `Stop ${state.stopIndex + 1} of ${count}`;
+    barLabel.replaceChildren(node('span', `▴ ${opening ? 'Flying to ' : ['travelling', 'paused'].includes(state.phase) ? 'On the way to ' : ''}${place}`),
+      node('small', where));
+    barLabel.classList.toggle('jaunt-final-k', final);
+    barLabel.setAttribute('aria-label', `Open the outing panel: ${place}, ${where.toLowerCase()}`);
     if (collapsed && state.phase === 'atStop' && old?.phase === 'travelling') setCollapsed(false, { focus: false });
     const open = overlayOpen() || state.phase === 'detail';
     if (open) setCollapsed(true, { focus: false });

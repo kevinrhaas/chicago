@@ -4948,6 +4948,7 @@ async function boot() {
       }, settings: hud.settings, router: travel.router });
       jauntPreview = preview.createJauntPreview({ root: jauntRoot, scene: YEAR, dataBase: bases.dataBase, destinations, api: api.jaunts,
         onStart: (id, options) => jauntRuntime.start(id, options), onResume: () => jauntRuntime.resume(), getSession: () => jauntRuntime?.state,
+        onDismiss: () => jauntRuntime?.end(), // T-3432: Close on Outing complete
         // T-2631: each card's plate, a credited picture of its stops (pictures.js § plateFor).
         plateFor: (row) => jauntPlate(jauntPictures, (row.destinations ?? [])
           .map((d) => (d.kind === 'structure' ? d.id : destinations.resolve(d)?.structureId)).filter(Boolean)),
@@ -4961,10 +4962,23 @@ async function boot() {
       const jauntCards = cards.createJauntCards({ registry: loaded.registry, popup, hud, api,
         sources: () => { openSources(); return sourcesPromise; }, onReturn: () => jauntRuntime.returnFromDetail() });
       actions.closeOverlay = jauntCards.close;
-      jauntPanel = panel.createJauntPanel({ destinations, actions });
+      jauntPanel = panel.createJauntPanel({ destinations, actions,
+        catalogRow: (id) => api.jaunts.catalog?.find((row) => row.id === id) ?? null }); // T-3432: the welcome's kind and premise
       jauntRuntime = runtime.createJaunts({ scene: YEAR, load: jauntPreview.load, travel,
         preferredMode: (jaunt) => jauntModeFor(hud.gettingThere, jaunt),
         resolve: resolveJaunt, place: spawnAtDestination,
+        // T-3432: the start is flown to (travel.glide, at most 8 s), from where the eye was;
+        // from Home, where it has not been anywhere yet, down onto it from behind and above.
+        approach: () => {
+          const w = walker.state;
+          const from = enteredWorld ? { e: w.e, n: w.n, altitude: w.eyeY - w.groundY, yaw: w.yaw, pitch: w.pitch } : null;
+          return { begin(callbacks) {
+            const s = walker.state, to = { e: s.e, n: s.n, altitude: s.eyeY - s.groundY, yaw: s.yaw, pitch: s.pitch };
+            const start = from ?? { e: s.e + Math.sin(s.yaw) * 90, n: s.n - Math.cos(s.yaw) * 90,
+              altitude: 45, yaw: s.yaw, pitch: -20 * DEG };
+            return travel.glide(start, to, callbacks, { label: callbacks.label });
+          } };
+        },
         contextForRoute(state, route) {
           const to = runtime.currentStop(state), from = state.jaunt.stops.find(s => s.id === state.fromStopId);
           // T-2946: measured to the building's walls and named as the jaunt names it.

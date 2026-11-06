@@ -1,0 +1,11 @@
+{
+  "title": "Jaunts fly you to the start and open on a welcome",
+  "kind": "improve",
+  "items": [
+    "Starting a jaunt flies you to its first stop instead of jumping there. The flight takes 3 to 8 seconds, however far away the start is, and lands on the same view the jump gave. Any move of yours lands it at once. With reduced motion on, or the jaunt set to Instantly, it still jumps.",
+    "The first page is a welcome. It shows the jaunt's kind, title and premise, chips for its stops, length, light and travel mode, and its background story in full. Stop 1 follows below it, and the page is up while you fly in.",
+    "Road notes on the way are shown whole and never cut off mid-line. A leg shows only the notes there is time to read before you arrive. A leg too quick for that shows none, and they wait in the stop's On the way section.",
+    "The last stop says Final stop, on the page and on the folded bar, and its button reads Finish Jaunt.",
+    "Outing complete is now one small card above the jaunt list, so the list stays in view on a phone. The ending, the keepsake and the daybook counts open from it, and it can be closed."
+  ]
+}

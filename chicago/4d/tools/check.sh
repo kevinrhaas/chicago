@@ -394,6 +394,8 @@ step "Jaunt session history, cancellation and replacement (T-1279)" \
   node tools/test_jaunts_reducer.mjs
 step "Jaunt optional context and route notes (T-1257)" \
   node tools/test_leg_notes.mjs
+step "Jaunt flies to its start, welcome, final stop and readable road notes (T-3432)" \
+  node tools/test_jaunt_start_finish.mjs
 step "Jaunt resources, Revise, endings and saved-session replay (T-1256)" \
   node tools/test_jaunt_mechanics.mjs
 step "Jaunt route and pace estimates (T-1280)" \

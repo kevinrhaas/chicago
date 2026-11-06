@@ -151,6 +151,10 @@ try {
     await page.screenshot({ path: path.join(out, `${viewport.width}-outcome.png`) });
     // T-1258: the outcome shows the keepsake earned and its family counter moving; the
     // Daybook opens from the outcome card, lists it, and the award is saved for a reload.
+    // T-3432: Outing complete is one compact card; the ending and the award open from it.
+    assert((await page.locator('.jaunt-outcome').boundingBox()).height < 220, 'Outing complete is a compact card');
+    assert(await page.locator('.jaunt-list [data-jaunt]').first().isVisible(), 'the jaunt list is in view under it');
+    await click(page.locator('.jaunt-outcome-more > summary'));
     await page.locator('.jaunt-award [data-keepsake="new-in-chicago:finding-your-feet"]').waitFor();
     assert.equal(await page.locator('.jaunt-award .jaunt-daybook-moved').getAttribute('data-family'), 'wayfinding');
     assert.match(await page.locator('.jaunt-award').innerText(), /Kept in your daybook[\s\S]*Route note/);
