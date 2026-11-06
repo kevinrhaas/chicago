@@ -651,7 +651,7 @@
              against a photograph. The ceiling is one stop — see world.js
              § BASE_EXPOSURE for why that is the bound. -->
         <label class="field"><span>Brightness <b id="v-brightness"></b></span>
-          <input type="range" id="s-brightness" min="0" max="1" step="0.05"></label>
+          <input type="range" id="s-brightness" min="0" max="2" step="0.25"></label>
         <!-- T-2658: a one-line hint and its "Why?" bubble (js/why-tips.js) for a visitor; the full
              essay under "Why this default" is Researcher mode's. -->
         <div class="why-line" data-visitor-only><span class="why-hint" data-str="research.hint.brightness">The light of a July photograph.</span>
@@ -662,8 +662,10 @@
             matched to a July photograph taken at this latitude, and the default position of this
             slider is that measured light — which is why it says "calibrated" rather than showing a
             number. Raise it if the scene is hard to see: a dim room, a bright window, a phone at
-            arm's length. It opens the exposure by up to one photographic stop and changes nothing
-            else — no wall, roof or street is a different colour underneath it, and the brighter
+            arm's length. It lifts the light in shade up to four times, half by opening the exposure
+            and half by raising the sky's fill, while the sky itself rises far less so it keeps
+            its blue. It changes nothing else — no wall, roof or street is a different colour
+            underneath it, and the brighter
             end is not a second reconstruction of how 1835 looked. All of this project's own
             measurements are taken at the calibrated position whatever you choose here.</p>
         </details>
