@@ -24454,7 +24454,7 @@ shows them. Across the verandah's three openings (T-3357) stands an iron rail, a
 column at 0.8 m over the floor on one standard in each opening's middle: the photograph's dark bar and the
 dark upright under it in its first two openings, a few pixels across, so the section and the standard's
 count are reconstructed and the iron is the dark tone's reading. The rear range is built to its second
-storey's head (9.45 m) under a flat roof, short of the Tribune's 37 ft cornice.
+storey's head (9.45 m) under a flat roof, short of the Tribune's 37 ft cornice. T-3370 moves the tower 2.0 m north of the sheet, to v 7.95-11.75 (the sheet's v 5.95-9.74), with the door (s 10.65) and its landing, and runs the verandah from the corner to it, s 0-7.6 with three 1.9 m openings on 2.3 m centres, where the sheet's porch strip gives 5.6 m: the photograph's camera, re-solved at 12 px rms once its south-east corner was read at the cornice's nearest vertex (x 1425 px), puts the tower 1.6-2.7 m north of the sheet across its variants and the verandah's two columns about 2.55 m apart. The image gate builds the photograph; the sheet's place is kept here. On the same camera the two south stacks stand at u 1.7 and 11.7 (from 6.0 and 12.5).
 
 **How to resolve:** T-1901's next piece re-solves the photograph's camera (its present fit is provisional:
 see `data/reference_views/house_1918_prairie/chicagology_photo.json`), settles the front's composition

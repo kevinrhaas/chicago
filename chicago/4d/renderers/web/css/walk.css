@@ -2407,6 +2407,27 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .jaunt-continue h3 { margin: 2px 0 0; }
 .jaunt-continue-next { margin: 2px 0 8px; color: var(--ink-dim); }
 .jaunt-continue [data-action="continue"] { min-height: 44px; font-weight: 600; }
+/* T-3432: Outing complete, one compact card over the list; the ending folds under it. */
+.jaunt-outcome { border-color: var(--accent); padding: 10px 10px 8px 12px; }
+.jaunt-outcome-head { display: grid; grid-template-columns: 36px minmax(0, 1fr) auto; gap: 10px; align-items: center; }
+.jaunt-outcome-mark { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%;
+  color: var(--accent-ink, var(--panel-solid)); background: var(--accent); }
+.jaunt-outcome-words { min-width: 0; }
+.jaunt-outcome h3 { margin: 0; font: 600 10px/1.4 var(--font-mono, ui-monospace, monospace); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.jaunt-outcome-title { margin: 1px 0 0; font-weight: 600; font-size: 14px; line-height: 1.25; }
+.jaunt-outcome-kept { display: flex; align-items: center; gap: 4px; margin: 2px 0 0; font-size: 12px; color: var(--ink-dim); }
+.jaunt-outcome-kept .menu-icon { flex: none; color: var(--accent); }
+.jaunt-outcome-close { width: 44px; height: 44px; display: grid; place-items: center; padding: 0; color: var(--ink-dim); }
+.jaunt-outcome-more { margin: 6px 0 0; }
+.jaunt-outcome-more > summary { display: flex; align-items: center; justify-content: space-between; min-height: 40px; padding-top: 2px;
+  list-style: none; cursor: pointer; font-size: 13px; color: var(--accent); border-top: 1px dashed var(--edge); }
+.jaunt-outcome-more > summary::-webkit-details-marker { display: none; }
+.jaunt-outcome-more > summary .menu-icon { transition: transform .15s ease; }
+.jaunt-outcome-more[open] > summary .menu-icon { transform: rotate(180deg); }
+.jaunt-outcome-more > p { margin: 6px 0; font-size: 13px; line-height: 1.5; }
+.jaunt-outcome-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.jaunt-outcome-actions .welcome-link { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 6px 12px; font-size: 13px; }
+.jaunt-outcome-actions .menu-icon { color: var(--accent); }
 .jaunt-actions { display: flex; align-items: center; gap: 4px; }
 .jaunt-start { width: 40px; height: 40px; display: grid; place-items: center; padding: 0 0 0 2px; cursor: pointer;
   color: var(--accent-ink, var(--panel-solid)); border: 0; border-radius: 50%; background: var(--accent);

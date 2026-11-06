@@ -31,6 +31,14 @@ const P = {
   // T-2561: keep a year on this device, and the year kept
   keep: '<path d="M12 3.5v11"/><path d="M7.5 10.5l4.5 4.5 4.5-4.5"/><path d="M4.5 15.5v4h15v-4"/>',
   kept: '<path d="M4.5 15.5v4h15v-4"/><path d="M7.5 9l3 3 6-6.5"/>',
+  // T-3432: the jaunt's welcome page, its last stop and its finish
+  clock: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/>',
+  day: '<circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M18.7 5.3l-1.8 1.8M7.1 16.9l-1.8 1.8"/>',
+  night: '<path d="M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z"/>',
+  story: '<path d="M12 6.5c-2.5-1.6-5.5-2-8.5-1.5v13c3-.5 6-.1 8.5 1.5 2.5-1.6 5.5-2 8.5-1.5V5c-3-.5-6-.1-8.5 1.5z"/><path d="M12 6.5v13"/>',
+  finish: '<path d="M5.5 21.5V3.5"/><path d="M5.5 4h13l-3 4 3 4h-13"/>',
+  close: '<path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>',
+  done: '<circle cx="12" cy="12" r="8.5"/><path d="M8 12.3l2.8 2.8L16.3 9"/>',
 };
 export function iconSvg(name, size = 20) {
   const body = P[name] || P.view;

@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2732, ts: '2026-11-06T22:50:49.260Z', date: 'Nov 6, 2026, 4:50 PM CT', title: '1936 Prairie\'s verandah, tower and chimneys stand where its photograph puts them', kind: 'fix',
+    items: [
+      'The Thompson/Allerton house at 1936 Prairie: the winter photograph\'s camera is solved afresh. Its south-east corner is where the cornice turns nearest the lens, at the verandah\'s end, so the front reads verandah, tower, porch, stoop, as the 1911 map and the 1886 engraving draw it.',
+      'Through that camera the verandah runs about 7.6 m from the corner on three wider arches, and the tower, its door and the stoop\'s landing stand 2 m further north. The two south chimneys move to where the photograph shows them.',
+    ] },
+  { v: 2731, ts: '2026-11-06T21:47:20.165Z', date: 'Nov 6, 2026, 3:47 PM CT', title: 'Following someone is smooth', kind: 'fix',
+    items: [
+      'Walking beside Hans Johnson\'s brougham no longer jitters: you keep the carriage\'s pace instead of standing still and lunging each frame, and your eyes stay on him without bobbing with his head.',
+    ] },
   { v: 2730, ts: '2026-11-06T21:29:09.033Z', date: 'Nov 6, 2026, 3:29 PM CT', title: 'The Glessners\' cook in their courtyard: the first woman in 1904', kind: 'feature',
     items: [
       'In 1904, Mattie Williamson, the Glessners\' cook, now stands in the Glessner House courtyard. Tap her to open her card.',
