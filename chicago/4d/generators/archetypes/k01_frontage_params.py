@@ -4667,11 +4667,119 @@ def _wing_pitched(wid, roof, kind, u0, u1, v0, v1, top) -> dict:
                 or set(ends) - {"south", "north"}:
             raise ParamError(f"rear_wings: {wid}'s coping.ends names its gable ends, south and/or north")
         coping["ends"] = tuple(sd for sd in ("south", "north") if sd in ends)
+    flat_end = _wing_flat_end(wid, roof.get("flat_end"), kind, axis, v0, v1)
+    dormers = _wing_dormers(wid, roof.get("dormers"), kind, axis, pitch, u0, u1, v0, v1, top, flat_end)
     return {"kind": kind, "pitch_deg": pitch, "covering": cov, "axis": axis,
             **({"coping": coping} if coping else {}),
+            **({"flat_end": flat_end} if flat_end else {}),
+            **({"dormers": dormers} if dormers else {}),
             **({"gable_to": gable_to} if kind == "gable" else {}),
             **({"end_pitch_deg": end_pitch} if end_pitch else {}),
             "ridge_m": ridge, "cover_m": ridge if axis == "u" else top}
+
+
+#: T-3354: how far a flank gable may stand back from its end over a flat deck, and how much
+#: of the wing it leaves gabled
+FLAT_END_M = (0.5, 4.0)
+FLAT_END_GABLED_M = 2.0
+
+
+def _wing_flat_end(wid, fe, kind, axis, v0, v1):
+    """T-3354: a flank-gabled wing whose gable stands back from one end over a flat deck
+    (`roof.flat_end`: {end, depth_m}) — 1919 Prairie's middle range, which all three Gatlin
+    plates draw flat-topped at its north-west corner with its gable rising behind. The deck
+    is the wing's own, at its wall top, on its walls; the gable, its coping and its eaves stand
+    `depth_m` in from that end."""
+    if fe is None:
+        return None
+    if kind != "gable" or axis != "v":
+        raise ParamError(f"rear_wings: {wid}'s flat_end sets back a gable facing a flank (south or north)")
+    if not isinstance(fe, dict) or set(fe) != {"end", "depth_m"} or fe["end"] not in ("south", "north"):
+        raise ParamError(f"rear_wings: {wid}'s flat_end takes end (south or north) and depth_m")
+    d = float(fe["depth_m"])
+    if not FLAT_END_M[0] <= d <= FLAT_END_M[1] or (v1 - v0) - d < FLAT_END_GABLED_M - 1e-9:
+        raise ParamError(f"rear_wings: {wid}'s flat_end is {d} m deep; it stands {FLAT_END_M[0]}-{FLAT_END_M[1]} m "
+                         f"and leaves {FLAT_END_GABLED_M} m of the wing gabled")
+    return {"end": fe["end"], "depth_m": d}
+
+
+def wing_gable_span(w: dict) -> tuple:
+    """T-3354: the v span a flank gable covers — the wing's, less a flat end's deck."""
+    u0, u1, v0, v1 = w["rect"]
+    fe = w["roof"].get("flat_end")
+    if fe:
+        return (v0 + fe["depth_m"], v1) if fe["end"] == "south" else (v0, v1 - fe["depth_m"])
+    return (v0, v1)
+
+
+#: T-3354: a wing dormer's bounds — the street dormer's family, kept narrow and steep
+WING_DORMER_KEYS = {"v_m", "width_m", "setback_m", "eave_m", "pitch_deg", "light", "coping", "pinnacles",
+                    "finial_m"}
+
+
+def _wing_dormers(wid, entries, kind, axis, pitch, u0, u1, v0, v1, top, flat_end):
+    """T-3354: gabled dormers on a flank-gabled wing's street slope (`roof.dormers`) — 1919
+    Prairie's rear range, where all three Gatlin plates draw two small pinnacled dormers on
+    the slope facing the avenue. Each stands its face `setback_m` in from the wall line
+    (u1), centred at `v_m`, its eave at `eave_m` over grade under a gable pitched `pitch_deg`,
+    with one light, a stone coping up its rakes, a pinnacle at each edge and a finial,
+    drawn by k01_wing_dormers. Bounded so the face rises at least 1 m off the slope, the
+    gable and finial stay under the wing's ridge, the light sits in the face, and the
+    dormers stand clear of the gable ends, a flat end's deck and one another."""
+    if not entries:
+        return ()
+    if kind != "gable" or axis != "v":
+        raise ParamError(f"rear_wings: {wid}'s dormers stand on a gable facing a flank (its street slope)")
+    t = math.tan(math.radians(pitch))
+    ridge = top + (u1 - u0) / 2 * t
+    g0, g1 = v0, v1
+    if flat_end:
+        g0, g1 = (v0 + flat_end["depth_m"], v1) if flat_end["end"] == "south" else (v0, v1 - flat_end["depth_m"])
+    out = []
+    for i, e in enumerate(entries):
+        where = f"rear_wings: {wid}'s dormers[{i}]"
+        if not isinstance(e, dict) or set(e) != WING_DORMER_KEYS:
+            raise ParamError(f"{where} takes {', '.join(sorted(WING_DORMER_KEYS))}")
+        v, w_, sb, ye, p = (float(e[k]) for k in ("v_m", "width_m", "setback_m", "eave_m", "pitch_deg"))
+        if not (0.6 <= w_ <= 1.6 and 0.1 <= sb <= 1.0 and 45.0 <= p <= 65.0):
+            raise ParamError(f"{where}: 0.6-1.6 m wide, its face 0.1-1.0 m in from the wall line, its gable 45-65 deg")
+        if not (g0 + w_ / 2 + 0.3 <= v <= g1 - w_ / 2 - 0.3):
+            raise ParamError(f"{where} at v {v} does not stand 0.3 m inside the gabled slope's {g0}..{g1}")
+        foot = top + sb * t
+        apex = ye + w_ / 2 * math.tan(math.radians(p))
+        lt, cp, pn, fh = e["light"], e["coping"], e["pinnacles"], float(e["finial_m"])
+        if not isinstance(lt, dict) or set(lt) != {"width_m", "height_m", "sill_m"}:
+            raise ParamError(f"{where}.light takes width_m, height_m and sill_m (over grade)")
+        lw, lh, ls = (float(lt[k]) for k in ("width_m", "height_m", "sill_m"))
+        if not isinstance(cp, dict) or set(cp) != {"width_m", "proud_m", "back_m"}:
+            raise ParamError(f"{where}.coping takes width_m, proud_m and back_m")
+        cw, cpr, cb = (float(cp[k]) for k in ("width_m", "proud_m", "back_m"))
+        if not isinstance(pn, dict) or set(pn) != {"shaft_m", "rise_m", "cap_m", "spire_m"}:
+            raise ParamError(f"{where}.pinnacles takes shaft_m, rise_m, cap_m and spire_m")
+        ps, pr, pc, psp = (float(pn[k]) for k in ("shaft_m", "rise_m", "cap_m", "spire_m"))
+        if ye - foot < 1.0:
+            raise ParamError(f"{where}: its eave at {ye} m stands under 1 m over the slope at its face ({foot:.3f} m)")
+        if apex + cw + fh > ridge + 1e-9 or ye + pr + pc + psp > ridge + 1e-9:
+            raise ParamError(f"{where}: its gable, finial or pinnacles rise past the wing's {ridge:.3f} m ridge")
+        if not (0.3 <= lw <= w_ - 0.3 and ls >= foot + 0.15 and ls + lh <= ye - 0.15 and lh >= lw):
+            raise ParamError(f"{where}.light: 0.3 m to the face's width less 0.3, its sill 0.15 m over the "
+                             f"slope ({foot:.3f} m) and its head 0.15 m under the eave, taller than wide")
+        if not (0.1 <= cw <= 0.3 and 0.0 <= cpr <= 0.15 and 0.1 <= cb <= 0.5):
+            raise ParamError(f"{where}.coping: 0.1-0.3 m wide, 0-0.15 m proud, 0.1-0.5 m back over the slate")
+        if not (0.12 <= ps <= 0.3 and 0.0 <= pr <= 0.8 and 0.04 <= pc <= 0.2 and 0.1 <= psp <= 0.6):
+            raise ParamError(f"{where}.pinnacles: a 0.12-0.3 m shaft rising 0-0.8 m past the eave, "
+                             f"a 0.04-0.2 m cap, a 0.1-0.6 m spire")
+        if not (fh == 0.0 or 0.2 <= fh <= 0.8):
+            raise ParamError(f"{where}.finial_m: 0.2-0.8 m, or 0 for none")
+        for j, o in enumerate(out):
+            if abs(o["v_m"] - v) < (o["width_m"] + w_) / 2 + 0.3:
+                raise ParamError(f"{where} stands within 0.3 m of dormers[{j}]")
+        out.append({"v_m": v, "width_m": w_, "setback_m": sb, "eave_m": ye, "pitch_deg": p,
+                    "light": {"width_m": lw, "height_m": lh, "sill_m": ls},
+                    "coping": {"width_m": cw, "proud_m": cpr, "back_m": cb},
+                    "pinnacles": {"shaft_m": ps, "rise_m": pr, "cap_m": pc, "spire_m": psp},
+                    "finial_m": fh})
+    return tuple(out)
 
 
 def wing_cover_m(w: dict, u: float, v: float) -> float:

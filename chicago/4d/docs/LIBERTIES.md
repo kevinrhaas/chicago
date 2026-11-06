@@ -40841,3 +40841,36 @@ lower face are not seen in any picture; they follow the front's section.
 permit drawing.
 **Ticket:** T-3384.
 **Recorded:** 2026-11-05 (T-3384).
+
+### L-k01-1919-range-dormers-3354 — 1919 Prairie's middle range flat-topped at its north end under a set-back gable, and the rear range's two pinnacled dormers, off all three Gatlin plates
+
+**Decision:** Read together through their three solved cameras, the Gatlin Institute plates of 1919
+Prairie (the 1912 Blue Book's, the 1913 Almanac's and the 1919 programme's) stand the north flank's
+flat-topped two-storey blocks IN FRONT of the ranges' gables rather than under them: the middle range's
+north-west corner is a flat-topped quoined block under a cornice, and its gable rises behind it, higher
+than a 50-degree gable off the north wall reaches. K01 now builds a flank gable that stands back from one
+end over a flat tin deck at the wing's wall top (`rear_wings[].roof.flat_end`, k01_frontage.
+wing_flat_end_deck), and gabled dormers on a flank-gabled wing's street slope (`rear_wings[].roof.dormers`,
+k01_wing_dormers), neither of which it could before. The middle range's gable stands back 1.6 m and is
+pitched 60 degrees (it was 50): through all three cameras its finial now lands on the plates' highest gable
+within about 3-8 px (it stood 25-30 px left and 30-60 px under). The rear range carries the two small
+pinnacled dormers all three plates draw on its slope facing the avenue, at v -3.85 and -2.3 m, 0.3 m in
+from its wall line, where through all three cameras both land on the plates' two within about 5-10 px.
+**What is read, not invented.** That the middle range's north-west corner is flat-topped with its gable
+behind and higher; the gable's place (across) and its finial's height; the dormers' count, places and
+heights (eaves about 12.0 m, finials about 13.3 m), their single tall dark lights, their steep gables and
+the pinnacles at their shoulders.
+**What is invented.** The flat end's 1.6 m depth (the least that leaves the second dormer clear of the
+gable's verge; the plates do not show the deck's depth); the 60-degree pitch, K04's steepest slate, where the
+plates want the apex perhaps 0.3-0.6 m higher still; the dormers' 1.0 m faces, 0.45 by 1.5 m lights, brick
+faces and cheeks, 0.3 m setback, and the coping's, pinnacles' and finial's sizes and forms (the halftones are
+too soft to read them); that the dormers' faces stand on the rear range's slope rather than on a part of the
+roof the 1911 sheet does not separate.
+**What is not built.** The two-light stone-mullioned windows the 1919 plate draws in the flat-topped corner
+block's street and north faces; the rear range's own gable, still about 20-35 px (1-2 m) left of the plates'
+second gable in all three, whose plan the plates do not show.
+**How to resolve:** a picture of the rear or the flank at closer range, or a reading of the ranges' plan that
+reconciles the 1911 trace with the plates.
+**Ticket:** T-3354 (piece 2 of T-3338).
+**Review:** `docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/gatlin_programme_1919-side-by-side.jpg` and the other two views' side-by-sides.
+**Recorded:** 2026-11-05 (T-3354).
