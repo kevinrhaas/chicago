@@ -37,6 +37,7 @@ import { createHumanActions } from './human-actions.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { registerKTX2 } from './ktx2.js';
 import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
+import { loadVariationKit, personVariation, applyVariation, disposeVariants } from './human-variation.js';
 import { loadMeshoptDecoder, disposeLoadedAsset } from './scene-loader.js';
 import { enuToWorld } from './terrain.js';
 import { dressSkin } from './human-skin.js';
@@ -101,6 +102,7 @@ function findClip(clips, want) {
 export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoader()), fetchImpl = fetch } = {}) {
   const entries = new Map();
   let decoder = null;
+  let variation = null;
   const url = (assetId, lod) => new URL(`humans/web/${assetId}.lod${lod}.glb`, assetBase);
 
   async function parse(href) {
@@ -132,7 +134,24 @@ export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoa
       const e = entries.get(key);
       if (!e || --e.refs > 0) return;
       entries.delete(key);
-      e.gltf.then(disposeLoadedAsset, () => {});
+      e.gltf.then((gltf) => {
+        const geometries = new Set();
+        gltf?.scene?.traverse((node) => { if (node.geometry) geometries.add(node.geometry); });
+        disposeVariants(geometries);
+        disposeLoadedAsset(gltf);
+      }, () => {});
+    },
+    /**
+     * T-3412: the shared body/face delta kit and each drawn person's record (age, a fitted
+     * face), fetched once. Never rejects: without them every figure is the asset as drawn.
+     */
+    variation() {
+      variation ??= Promise.all([
+        loadVariationKit(new URL('humans/web/', assetBase), fetchImpl),
+        Promise.resolve(fetchImpl(new URL('humans/web/hm08_variation_persons.json', assetBase)))
+          .then((r) => (r.ok ? r.json() : null)).catch(() => null),
+      ]).then(([kit, persons]) => (kit ? { kit, persons: persons?.persons ?? {} } : null), () => null);
+      return variation;
     },
     get loaded() { return [...entries.keys()]; },
   };
@@ -148,7 +167,7 @@ const PROXY_MATERIAL = new THREE.MeshBasicMaterial({ visible: false });
  * skeleton, § 7) adds clips the body's own file does not carry.
  */
 export class HumanActor {
-  constructor({ instance, person = null, identity = null, assets, heightAt = () => 0, clipLibrary = [], tier = 'full' }) {
+  constructor({ instance, person = null, identity = null, assets, heightAt = () => 0, clipLibrary = [], tier = 'full', variation = 'full' }) {
     this.instance = instance;
     this.person = person;
     this.identity = identity ?? { kind: 'person', personId: instance.person_id, person, profile: null, role: null };
@@ -169,6 +188,11 @@ export class HumanActor {
     this.proxy.userData.actor = this;
     this.root.add(this.proxy);
     this.libraryClips = clipLibrary;
+    // T-3412: this person's own height, build and face (human-variation.js). `face` keeps a
+    // seated driver's body as fitted to his seat and reins; `none` draws the asset as it is.
+    this.variationScope = variation;
+    this.variation = null;
+    this.varied = null;
     this.lod = -1;
     this.wanted = -1;
     this.visualIdleBody = null;
@@ -215,9 +239,9 @@ export class HumanActor {
     if (this.disposed || lod === this.lod || lod === this.wanted) return this.pending ?? this.body;
     this.wanted = lod;
     const assetId = this.instance.appearance.asset_id;
-    const job = this.assets.acquire(assetId, lod).then((gltf) => {
+    const job = Promise.all([this.assets.acquire(assetId, lod), this.assets.variation?.() ?? null]).then(([gltf, variation]) => {
       if (this.disposed || this.wanted !== lod) { this.assets.release(assetId, lod); return this.body; }
-      const next = this.build(gltf, lod);
+      const next = this.build(gltf, lod, variation);
       const prev = this.body;
       // The new LOD takes up the clip where the old one was, so a swap is not a stumble.
       const time = prev?.action ? prev.action.time : null;
@@ -240,8 +264,14 @@ export class HumanActor {
     return job;
   }
 
-  build(gltf, lod) {
+  build(gltf, lod, variation = null) {
     const scene = cloneSkinned(gltf.scene);
+    if (variation?.kit && this.variationScope !== 'none') {
+      const assetId = this.instance.appearance.asset_id;
+      this.variation ??= personVariation({ kit: variation.kit, key: this.personId ?? this.id,
+        record: variation.persons?.[this.personId] ?? null, assetId, sceneYear: Number(this.instance.scene) || null });
+      this.varied = applyVariation(scene, variation.kit, this.variation, { scope: this.variationScope });
+    }
     const meshes = [];
     scene.traverse((o) => {
       if (!o.isSkinnedMesh) return;

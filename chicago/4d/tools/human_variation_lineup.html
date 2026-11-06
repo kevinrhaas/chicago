@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Human variation lineup</title><link rel="icon" href="data:,">
+<!-- T-3412: a test page, served from chicago/4d and never published. It stands N people side by
+     side in one asset, each with their own seeded body and face from the shared MakeHuman delta
+     kit (renderers/web/js/human-variation.js), so a reviewer sees that no two are alike.
+     ?asset=bardwell_otis_1835&lod=0&n=6&scope=full&view=body|faces&keys=a,b,c&clip=idle_natural_v1
+     &fit=<person_id> adds that person's fitted face from assets/humans/web/hm08_variation_persons.json. -->
+<style>html,body{margin:0;height:100%;background:#d9d6cf;overflow:hidden;font:12px system-ui}canvas{display:block;width:100%;height:100%}
+#labels{position:fixed;left:0;right:0;bottom:6px;display:flex;justify-content:space-around;pointer-events:none;color:#333}</style>
+<script type="importmap">{"imports":{
+  "three":"../renderers/web/vendor/three-0.185.1/three.module.js",
+  "three/addons/":"../renderers/web/vendor/three-0.185.1/addons/"}}</script>
+</head><body><div id="labels"></div>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
+import { loadMeshoptDecoder } from '../renderers/web/js/scene-loader.js';
+import { loadVariationKit, personVariation, applyVariation } from '../renderers/web/js/human-variation.js';
+
+const q = new URLSearchParams(location.search);
+const asset = q.get('asset') ?? 'bardwell_otis_1835', lod = Number(q.get('lod') ?? 0);
+const scope = q.get('scope') ?? 'full', view = q.get('view') ?? 'body';
+const keys = q.get('keys')?.split(',') ?? Array.from({ length: Number(q.get('n') ?? 6) }, (_, i) => `lineup_${i + 1}`);
+const kit = await loadVariationKit(new URL('../assets/humans/web/', location.href));
+const persons = (await fetch('../assets/humans/web/hm08_variation_persons.json').then((r) => r.json())).persons;
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(devicePixelRatio);
+renderer.setSize(innerWidth, innerHeight);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.shadowMap.enabled = true;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xd9d6cf);
+scene.add(new THREE.HemisphereLight(0xf2efe8, 0x6b6253, 1.4));
+const sun = new THREE.DirectionalLight(0xfff4e2, 2.4); sun.position.set(2, 4, 5); scene.add(sun);
+const loader = new GLTFLoader().setMeshoptDecoder(await loadMeshoptDecoder());
+const gltf = await loader.loadAsync(`../assets/humans/web/${asset}.lod${lod}.glb`);
+const clipName = q.get('clip') ?? (gltf.animations.find((a) => /idle/.test(a.name)) ?? gltf.animations[0])?.name;
+const gap = view === 'faces' ? 0.36 : 0.75;
+const labels = document.getElementById('labels');
+const mixers = [];
+keys.forEach((key, i) => {
+  const fig = cloneSkinned(gltf.scene);
+  const record = key === 'base' ? null : persons[key] ?? null;
+  if (key !== 'base') {
+    const v = personVariation({ kit, key, record, assetId: asset });
+    const r = applyVariation(fig, kit, v, { scope });
+    window.__variations = [...(window.__variations ?? []), { key, ...v, applied: r }];
+  }
+  const holder = new THREE.Group(); holder.add(fig);
+  holder.position.x = (i - (keys.length - 1) / 2) * gap;
+  scene.add(holder);
+  const clip = gltf.animations.find((a) => a.name === clipName);
+  if (clip) { const m = new THREE.AnimationMixer(fig); m.clipAction(clip).play(); m.setTime(Number(q.get('t') ?? 1)); mixers.push(m); }
+  const label = document.createElement('div'); label.textContent = key; labels.appendChild(label);
+});
+const camera = new THREE.PerspectiveCamera(view === 'faces' ? 22 : 30, innerWidth / innerHeight, 0.05, 50);
+const span = keys.length * gap;
+if (view === 'faces') { camera.position.set(0, 1.64, Math.max(1.2, span * 1.35)); camera.lookAt(0, 1.6, 0); }
+else { camera.position.set(0, 1.0, Math.max(3.2, span * 1.6)); camera.lookAt(0, 0.92, 0); }
+const yaw = Number(q.get('yaw') ?? 0) * Math.PI / 180;
+scene.traverse((o) => { if (o.parent === scene && o.isGroup) o.rotation.y = yaw; });
+renderer.render(scene, camera);
+window.__lineupReady = true;
+</script></body></html>
