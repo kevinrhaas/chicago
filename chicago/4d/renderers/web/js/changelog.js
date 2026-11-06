@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 2702, ts: '2026-11-06T09:24:20.189Z', date: 'Nov 6, 2026, 3:24 AM CT', title: 'Phones open 1904 with about 16 MB to spare', kind: 'fix',
+    items: [
+      'Nothing you can see changes. On a phone, 1904\'s buildings now take about 16 MB less graphics memory, which leaves room for the people coming next: their skin, hair and clothes.',
+      'Desktops are unchanged.',
+    ] },
+  { v: 2701, ts: '2026-11-06T09:24:20.189Z', date: 'Nov 6, 2026, 3:24 AM CT', title: 'The commanding officer\'s 1812 garden is planted, and its gate opens', kind: 'feature',
+    items: [
+      'The garden south of Fort Dearborn is laid out in the beds and walks of Whistler\'s 1808 drawing and planted as it would stand in mid-August 1812.',
+      'Melons and small fruit, which Quaife records there, grow beside Indian corn, pole beans, cabbages, potatoes, squash, cucumbers, root rows, strawberries, raspberries, currants and asparagus, spaced as M\'Mahon\'s American Gardener\'s Calendar directs.',
+      'The garden\'s paling has a wicket gate. Walk up and press R or Interact to open it and walk in on the garden\'s walks.',
+      'Stop 9 of Fort Dearborn, Building by Building now stands at that gate, looking down the middle walk.',
+      'Tap a bed to see what grows in it, how it was spaced, and which part is recorded and which is reconstructed.',
+    ] },
   { v: 2700, ts: '2026-11-06T08:53:07.998Z', date: 'Nov 6, 2026, 2:53 AM CT', title: 'People on foot rest their hands, touch their hat and swing their arms', kind: 'improvement',
     items: [
       'Standing figures let their arms hang in close with soft elbows, instead of a stiff A-pose.',
