@@ -36613,7 +36613,7 @@ records. This supersedes the faces' stone in L-kimball-1801-deck-cresting-3000.
 **How to resolve:** a nearer photograph of a dormer, or a measured drawing of the roof.
 
 ### L-kimball-1801-hood-flare-1890 — 1801 Prairie's dormer hoods flared out at their feet
-**Recorded:** 2026-10-27.
+**Recorded:** 2026-10-27; amended 2026-11-06 when the shelves were slated and the street hood raised.
 
 **Decision:** the W. W. Kimball house's three hooded dormers (`mansard.dormers`, T-1890) stand their
 hoods' feet 0.2 m wider than the faces under them on each side and 0.2 m out in front of them, the
@@ -36626,7 +36626,13 @@ third wider than the face and its top about half the foot; HABS photograph 2
 the Taylor photograph of c. 1895 shows the street hood's cheek standing out of the slate at its foot.
 **What is invented or held by the kit.** The 0.2 m is one figure for all three, read off HABS 1 and the
 Taylor print; the prints' feet sweep out in a concave bell, which the build runs straight; the shelf
-stays the kit's stone slab where HABS 2 shows a slimmer moulding; the hoods' ridge cresting (HABS 2) is
+is the kit's 0.12 m slab, its section unchanged, but slated as the hood is since 2026-11-06
+(`hood.shelf`): the Taylor print and both HABS photographs show no pale course at any hood's foot, only
+the slate run down to a thin dark eave over the light's pale frame, where the stone slab read from the
+street as a pale shelf under a dark notch; HABS 2's thin pale edge along that eave (a flashing or a
+painted board) is not built. The street hood rises 1.8 m, the south one's figure, where it rose 1.5 m:
+through the Taylor print's camera its front's top stood about 18 px (0.33 m at that dormer's 55 px a
+metre) under the print's, and now stands within about 2 px of it; the hoods' ridge cresting (HABS 2) is
 not built. The 18th Street hood's cheek still reads shallower than the Taylor print's at its top, which
 goes with the mansard's lower face and stays open in that record.
 **How to resolve:** a nearer photograph of a dormer, or a measured drawing of the roof.

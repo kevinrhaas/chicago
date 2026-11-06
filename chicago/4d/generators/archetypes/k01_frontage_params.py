@@ -1392,6 +1392,13 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool
             out["hood"].update(face="slate", frame_m=fm)
         elif "frame_m" in hd:
             raise ParamError(f"{what}.hood.frame_m: a frame stands in a slated face only")
+        # T-1890 (2026-11-06): the SHELF under the hood may be SLATED as the hood is, so its foot
+        # reads as the hood's own dark flared eave rather than a pale stone slab (1801's, in the
+        # Taylor print and both HABS photographs: no pale course at any of the three hoods' feet)
+        if hd.get("shelf", "stone") not in ("stone", "slate"):
+            raise ParamError(f"{what}.hood.shelf {hd['shelf']!r}: stone or slate")
+        if hd.get("shelf") == "slate":
+            out["hood"]["shelf"] = "slate"
         out["head_m"] = round(sht + ring + sf + hr, 4)
     if "eared_hood" in d:
         # T-1881: an eared architrave and hood round a round head's face (1729's dormers in the
