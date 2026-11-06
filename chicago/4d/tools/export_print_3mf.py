@@ -14,6 +14,8 @@ construction, whatever the input looked like:
      materials: ground, planting and vegetation materials are dropped by name
      (`DEFAULT_EXCLUDE`, extend with --exclude, rescue with --include);
   2. rasterise every kept triangle into a voxel grid at --voxel-mm on the print;
+     the modelled roof tiles, far below what a nozzle can draw, are swapped for one
+     uniform course pattern laid on the roof deck (--roof-tiles uniform);
   3. flood-fill the air from outside: whatever the air cannot reach is solid, so
      a closed shell (walls + roofs + glass) prints as a solid house with recessed
      windows rather than a hollow box;
@@ -65,6 +67,8 @@ DEFAULT_EXCLUDE = (
     "*shrub*", "*hedge*", "*flower*", "*human*", "*skin*", "*hair*", "*cloth*",
     "*shadow*", "*decal*",
 )
+
+WRITE_DECIMALS = 5   # millimetres in the 3MF: 10 nm, far under any printer's step
 
 FDM_NOTES = {
     "nozzle_mm": 0.4,
@@ -204,6 +208,79 @@ def voxelize(tris, origin, h, shape, chunk_points=20_000_000):
     return grid
 
 
+def course_field(deck, origin, h, shape, pitch_m, depth_m, ground=0.0):
+    """One uniform course pattern on a roof deck, as an occupancy field (0..1 per voxel).
+
+    A roof's own tiles are far below what a nozzle can draw (a 25 cm tile is 1 mm at
+    1:250), and voxelized they come out as a different moire on every roof plane, with
+    the odd tile proud of the rest. So the tiles are left out and each sloped deck
+    triangle carries a shingle sawtooth instead: a course every `pitch_m` up the slope,
+    standing `depth_m` proud at its butt and thinning to the deck under the next butt.
+    The phase is counted along the slope from grade (z / sin(pitch)), so every roof,
+    dormer and turret cone gets the same courses at the same spacing, level wherever
+    the roof is. Flat (< 15 deg) and near-vertical (> 75 deg) faces are left plain.
+
+    The field holds a signed distance to the sawtooth, scaled to a voxel, rather than
+    a yes/no per voxel, so the contour puts every butt and every slope where it is to
+    a fraction of a voxel: a yes/no grid would alias the courses against its own
+    stair-steps and no two would come out alike.
+    """
+    field = np.zeros(shape, dtype=np.float32)
+    flat_field = field.reshape(-1)
+    a, b, c = deck[:, 0], deck[:, 1], deck[:, 2]
+    n = np.cross(b - a, c - a)
+    n /= np.maximum(np.linalg.norm(n, axis=1, keepdims=True), 1e-12)
+    n *= np.where(n[:, 2:3] < 0, -1.0, 1.0)         # single-sided deck: always point up
+    sloped = (n[:, 2] < math.cos(math.radians(15))) & (n[:, 2] > math.cos(math.radians(75)))
+    a, b, c, n = a[sloped], b[sloped], c[sloped], n[sloped]
+    sin_t = np.sqrt(np.maximum(1 - n[:, 2] ** 2, 1e-9))
+    longest = np.max(np.stack([np.linalg.norm(b - a, axis=1), np.linalg.norm(c - b, axis=1),
+                               np.linalg.norm(a - c, axis=1)]), axis=0)
+    steps = np.maximum(1, np.ceil(longest / (h / 2.0))).astype(np.int64)
+    offsets = np.arange(-1.0 * h, depth_m + 1.5 * h, h / 2.0)
+    limit = np.array(shape) - 1
+    strides = np.array([shape[1] * shape[2], shape[2], 1])
+    for k in np.unique(steps):
+        sel = np.nonzero(steps == k)[0]
+        i, j = np.meshgrid(np.arange(k + 1), np.arange(k + 1), indexing="ij")
+        keep = (i + j) <= k
+        u = (i[keep] / k)[None, :, None]
+        v = (j[keep] / k)[None, :, None]
+        batch = max(1, 3_000_000 // (u.shape[1] * len(offsets)))
+        for q in range(0, len(sel), batch):
+            t = sel[q:q + batch]
+            pts = a[t][:, None] + u * (b[t] - a[t])[:, None] + v * (c[t] - a[t])[:, None]
+            nt = np.repeat(n[t], u.shape[1], axis=0)
+            st = np.repeat(sin_t[t], u.shape[1])
+            pa = np.repeat(a[t], u.shape[1], axis=0)
+            pts = pts.reshape(-1, 3)
+            for o in offsets:
+                ijk = np.floor((pts + o * nt - origin) / h).astype(np.int64)
+                ok = np.all((ijk >= 0) & (ijk <= limit), axis=1)
+                ijk, nn, ss, aa = ijk[ok], nt[ok], st[ok], pa[ok]
+                centre = origin + (ijk + 0.5) * h
+                dn = np.einsum("ij,ij->i", centre - aa, nn)          # height above the deck
+                foot_z = centre[:, 2] - dn * nn[:, 2]
+                phase = np.mod((foot_z - ground) / ss / pitch_m, 1.0)
+                top = depth_m * (1.0 - phase)
+                inside = (dn >= 0) & (dn <= top)
+                d_in = np.minimum(np.minimum(top - dn, phase * pitch_m), dn + 0.5 * h)
+                up_face = np.where(dn < depth_m, (1.0 - phase) * pitch_m, np.inf)
+                d_out = np.where(dn < 0, -dn, np.minimum(dn - top, up_face))
+                occ = np.clip(0.5 + np.where(inside, d_in, -d_out) / h, 0.0, 1.0).astype(np.float32)
+                flat = ijk @ strides
+                occ = np.maximum(occ, flat_field[flat])
+                order = np.argsort(occ, kind="stable")            # last write wins: the max
+                flat_field[flat[order]] = occ[order]
+    return field, int(sloped.sum())
+
+
+def voxelize_courses(deck, origin, h, shape, pitch_m, depth_m, ground=0.0):
+    """The course field as a yes/no voxel grid (what the field's contour encloses)."""
+    field, used = course_field(deck, origin, h, shape, pitch_m, depth_m, ground)
+    return field >= 0.5, used
+
+
 def fill_enclosed(shell):
     """Solid = shell plus every air pocket the outside air cannot reach (6-connected)."""
     padded = np.pad(~shell, 1, constant_values=True)
@@ -307,7 +384,7 @@ def thicken_thin(solid, r):
 
 # ------------------------------------------------------------------------- mesh
 
-def mesh_solid(solid, h_mm, sigma=0.0):
+def mesh_solid(solid, h_mm, sigma=0.0, field=None):
     from skimage import measure
 
     vol = np.pad(solid, 2).astype(np.float32)
@@ -315,6 +392,8 @@ def mesh_solid(solid, h_mm, sigma=0.0):
         # A light blur before contouring turns voxel stairs into flat faces and
         # rounded arrises; walls stay where they are (level 0.5 is the voxel face).
         vol = ndimage.gaussian_filter(vol, sigma, output=np.float32)
+    if field is not None:                        # sub-voxel roof courses on top
+        np.maximum(vol, np.pad(field, 2), out=vol)
     verts, faces, _n, _v = measure.marching_cubes(vol, level=0.5, allow_degenerate=False)
     verts = (verts - 2.0) * h_mm  # undo the pad; voxel index -> mm on the print
     # skimage winds its triangles toward the low side of the field (the air is 0, the
@@ -338,7 +417,7 @@ def _part_coincident(verts, faces, nudge=2e-3):
     """Two vertices on one spot (a pinch where two sheets of the solid touch) read as
     one to a slicer that merges by position, which would make the edge non-manifold.
     Move each a hair toward its own neighbours, so they stay two."""
-    key = np.round(verts, 4)
+    key = np.round(verts, WRITE_DECIMALS - 1)
     _u, inv, counts = np.unique(key, axis=0, return_inverse=True, return_counts=True)
     shared = np.nonzero(counts[inv.ravel()] > 1)[0]
     if not len(shared):
@@ -363,7 +442,7 @@ def _flip_flat(verts, faces, passes=20):
     Only a handful of triangles take part, so this is a plain dictionary walk.
     """
     faces = faces.copy()
-    v = np.round(verts, 4)
+    v = verts
     edge = {}
     for fi, (a, b, c) in enumerate(faces.tolist()):
         edge[(a, b)] = fi
@@ -408,7 +487,7 @@ def _flip_flat(verts, faces, passes=20):
 
 def _flaws(verts, faces):
     """What a slicer would 'repair': coincident vertices and zero-area triangles, as written."""
-    v = np.round(verts, 4)
+    v = verts
     area = np.linalg.norm(np.cross(v[faces[:, 1]] - v[faces[:, 0]], v[faces[:, 2]] - v[faces[:, 0]]), axis=1) / 2
     _u, counts = np.unique(v, axis=0, return_counts=True)
     return int((counts > 1).sum()), int((area < 1e-8).sum())
@@ -441,6 +520,9 @@ def mesh_clean(verts, faces, tolerance_mm, log=lambda *m: None):
             man = pieces[0]
         v, f = _arrays(man)
         v, parted = _part_coincident(v, f)
+        # Snap to exactly what the 3MF will hold (origin at the bed corner, 5 decimals),
+        # so the flaws are counted on the written coordinates, not on finer ones.
+        v = np.round(v - v.min(axis=0), WRITE_DECIMALS)
         f, flips = _flip_flat(v, f)
         coincident, flat = _flaws(v, f)
         log(f"simplified at {tol:.4f} mm: {len(f):,} triangles, {flat} flat, {coincident} coincident"
@@ -534,7 +616,7 @@ def render_preview(verts, faces, path: Path, views=((210, 28), (30, 28), (300, 5
 def write_3mf(path: Path, verts, faces, title, description):
     """Minimal 3MF core package: one mesh object, millimetres, one build item."""
     path.parent.mkdir(parents=True, exist_ok=True)
-    vert_xml = "".join(f'<vertex x="{x:.4f}" y="{y:.4f}" z="{z:.4f}"/>' for x, y, z in verts)
+    vert_xml = "".join(f'<vertex x="{x:.5f}" y="{y:.5f}" z="{z:.5f}"/>' for x, y, z in verts)
     tri_xml = "".join(f'<triangle v1="{a}" v2="{b}" v3="{c}"/>' for a, b, c in faces)
 
     def esc(s):
@@ -575,7 +657,7 @@ def write_3mf(path: Path, verts, faces, title, description):
 
 # ------------------------------------------------------------------------ build
 
-def solidify(tris, args, log=lambda *m: None):
+def solidify(tris, args, log=lambda *m: None, deck=None):
     """Print-ready voxel solid from Z-up triangles in real metres; steps 2-6 of the docstring.
 
     Returns (solid bool grid, voxel index -> print mm by * voxel_mm; stats dict).
@@ -596,6 +678,13 @@ def solidify(tris, args, log=lambda *m: None):
 
     shell = voxelize(tris, origin, h, shape)
     log(f"rasterised: {int(shell.sum()):,} surface voxels")
+    course_faces, field = 0, None
+    if deck is not None and len(deck):
+        pitch_m = args.course_mm * scale / 1000.0
+        depth_m = args.course_depth_mm * scale / 1000.0
+        field, course_faces = course_field(deck, origin, h, shape, pitch_m, depth_m, ground)
+        log(f"roof courses: one {args.course_mm} mm course, {args.course_depth_mm} mm proud, "
+            f"laid on {course_faces:,} sloped deck triangles")
     solid = fill_enclosed(shell)
     del shell
     log(f"filled: {int(solid.sum()):,} solid voxels")
@@ -626,6 +715,8 @@ def solidify(tris, args, log=lambda *m: None):
         footprint = ndimage.binary_dilation(footprint, structure=np.ones((3, 3), bool),
                                             iterations=max(1, int(round(args.base_lip_mm / h_mm))))
         solid = np.concatenate([np.repeat(footprint[:, :, None], base_layers, axis=2), solid], axis=2)
+        if field is not None:
+            field = np.concatenate([np.zeros(field.shape[:2] + (base_layers,), np.float32), field], axis=2)
     labels, n = ndimage.label(solid, structure=ndimage.generate_binary_structure(3, 1))
     loose = 0
     if n > 1:
@@ -644,7 +735,11 @@ def solidify(tris, args, log=lambda *m: None):
         "thin_voxels_thickened": thin,
         "room_voxels_filled": rooms,
         "loose_voxels_dropped": loose,
+        "roof_course_deck_triangles": course_faces,
     }
+    if field is not None:
+        field[~ndimage.binary_dilation(solid, iterations=int(math.ceil(args.course_depth_mm / h_mm)) + 2)] = 0
+        stats["_course_field"] = field                # handed to mesh_solid, not reported
     return solid, stats
 
 
@@ -669,25 +764,76 @@ def resolve_glb(args):
     return path
 
 
+def _proud_of(tris, deck, min_m, step=0.05):
+    """Which triangles stand more than min_m off the deck (along its normal), or have no
+    deck under them at all: a ridge roll or hip cap, not a tile lying on the roof."""
+    from scipy.spatial import cKDTree
+
+    pts, nrm = [], []
+    longest = np.max(np.linalg.norm(deck - np.roll(deck, 1, axis=1), axis=2), axis=1)
+    steps = np.maximum(1, np.ceil(longest / step)).astype(int)
+    for k in np.unique(steps):
+        sel = deck[steps == k]
+        i, j = np.meshgrid(np.arange(k + 1), np.arange(k + 1), indexing="ij")
+        keep = (i + j) <= k
+        u, v = (i[keep] / k)[None, :, None], (j[keep] / k)[None, :, None]
+        a, b, c = sel[:, 0][:, None], sel[:, 1][:, None], sel[:, 2][:, None]
+        n = np.cross(sel[:, 1] - sel[:, 0], sel[:, 2] - sel[:, 0])
+        n /= np.maximum(np.linalg.norm(n, axis=1, keepdims=True), 1e-12)
+        n *= np.where(n[:, 1:2] < 0, -1.0, 1.0)      # glTF Y-up: the deck faces the sky
+        pts.append((a + u * (b - a) + v * (c - a)).reshape(-1, 3))
+        nrm.append(np.repeat(n, u.shape[1], axis=0))
+    pts, nrm = np.concatenate(pts), np.concatenate(nrm)
+    centre = tris.mean(axis=1)
+    dist, idx = cKDTree(pts).query(centre, distance_upper_bound=0.5)
+    far = ~np.isfinite(dist)
+    idx = np.where(far, 0, idx)
+    off = np.einsum("ij,ij->i", centre - pts[idx], nrm[idx])
+    return far | (off > min_m)
+
+
+def _z_up(tris):
+    """glTF is Y-up; the print is Z-up. (x, y, z) -> (x, -z, y) is a rotation, so
+    winding and handedness survive."""
+    return np.stack([tris[..., 0], -tris[..., 2], tris[..., 1]], axis=-1)
+
+
 def build(args):
     t0 = time.time()
     log = (lambda *m: print(f"[{time.time() - t0:6.1f}s]", *m, flush=True)) if not args.quiet else (lambda *m: None)
     glb = resolve_glb(args)
     parts = load_triangles(glb)
-    kept, dropped = select(parts, tuple(DEFAULT_EXCLUDE) + tuple(args.exclude), tuple(args.include))
+    exclude = tuple(DEFAULT_EXCLUDE) + tuple(args.exclude)
+    deck = None
+    if args.roof_tiles == "uniform":
+        names = {n for n, _t in parts}
+        tile_names = {n for n in names if any(fnmatch.fnmatch(n.lower(), g.lower()) for g in args.tile_material)}
+        deck_names = {n for n in names if any(fnmatch.fnmatch(n.lower(), g.lower()) for g in args.deck_material)}
+        if tile_names and deck_names:
+            exclude += tuple(sorted(tile_names))
+            deck_raw = np.concatenate([t for n, t in parts if n in deck_names])
+            deck = _z_up(deck_raw)
+            # Ridge and hip rolls are made of the same tile material: keep whatever
+            # stands well off the deck, so only the courses themselves are replaced.
+            rolls = [(f"{n} (ridge rolls)", t[m]) for n, t in parts if n in tile_names
+                     for m in [_proud_of(t, deck_raw, args.roll_m)] if m.any()]
+            parts = parts + rolls
+            log(f"uniform roof: tiles {sorted(tile_names)} replaced by courses on {sorted(deck_names)}; "
+                f"kept {sum(len(t) for _n, t in rolls):,} ridge/hip roll triangles standing over "
+                f"{args.roll_m} m off the deck")
+        else:
+            log("uniform roof: no tile and deck materials found by name; roof kept as modelled")
+    kept, dropped = select(parts, exclude, tuple(args.include))
     if not kept:
         raise SystemExit("every material was excluded")
-    tris = np.concatenate([t for _n, t in kept])
-    # glTF is Y-up; the print is Z-up. (x, y, z) -> (x, -z, y) is a rotation, so
-    # winding and handedness survive.
-    tris = np.stack([tris[..., 0], -tris[..., 2], tris[..., 1]], axis=-1)
+    tris = _z_up(np.concatenate([t for _n, t in kept]))
     log(f"{glb.name}: kept {len(tris):,} triangles in {len(kept)} material(s); "
         f"dropped {sum(dropped.values()):,} in {sorted(dropped)}")
 
-    solid, stats = solidify(tris, args, log)
+    solid, stats = solidify(tris, args, log, deck=deck)
     scale, h_mm = float(args.scale), float(args.voxel_mm)
 
-    verts, faces = mesh_solid(solid, h_mm, args.smooth)
+    verts, faces = mesh_solid(solid, h_mm, args.smooth, stats.pop("_course_field", None))
     log(f"marching cubes: {len(faces):,} triangles")
     man, verts, faces, mesh_stats = mesh_clean(verts, faces, args.simplify_mm, log)
     stats.update(mesh_stats)
@@ -763,10 +909,26 @@ def main(argv=None):
                    help="blur in voxels before contouring; 0 for raw voxel stairs (default 0.6)")
     p.add_argument("--simplify-mm", type=float, default=0.05,
                    help="simplification tolerance on the print, manifold kept (default 0.05)")
+    p.add_argument("--roof-tiles", choices=("uniform", "modelled"), default="uniform",
+                   help="uniform (default): replace the modelled tiles with one course pattern on "
+                        "every roof; modelled: voxelize the tiles as they are")
+    p.add_argument("--tile-material", action="append", default=None,
+                   help="material glob of the roof tiles to replace (default roof_plane_*)")
+    p.add_argument("--deck-material", action="append", default=None,
+                   help="material glob of the roof deck the courses are laid on (default roof_plane)")
+    p.add_argument("--roll-m", type=float, default=0.08,
+                   help="tile-material pieces standing more than this (real m) off the deck are "
+                        "ridge/hip rolls and are kept (default 0.08)")
+    p.add_argument("--course-mm", type=float, default=1.2,
+                   help="course spacing up the slope on the print (default 1.2)")
+    p.add_argument("--course-depth-mm", type=float, default=0.4,
+                   help="how far each course's butt stands proud on the print (default 0.4)")
     p.add_argument("--exclude", action="append", default=[], help="extra material glob to drop")
     p.add_argument("--include", action="append", default=[], help="material glob to keep despite the defaults")
     p.add_argument("--quiet", action="store_true")
     args = p.parse_args(argv)
+    args.tile_material = args.tile_material or ["roof_plane_*"]
+    args.deck_material = args.deck_material or ["roof_plane"]
     report = build(args)
     if args.quiet:
         print(json.dumps(report, indent=2))

@@ -40,6 +40,7 @@
     },
     {
       "id": "burns",
+      "since": "Forty minutes later",
       "destination": {
         "kind": "anchor",
         "id": "burns_house_from_river"
@@ -62,6 +63,7 @@
     },
     {
       "id": "the-order",
+      "since": "Four months later",
       "destination": {
         "kind": "anchor",
         "id": "first_fort_parade"
@@ -83,6 +85,7 @@
     },
     {
       "id": "council",
+      "since": "Two days later",
       "destination": {
         "kind": "anchor",
         "id": "first_fort_esplanade"
@@ -101,6 +104,7 @@
     },
     {
       "id": "factory",
+      "since": "The next day",
       "destination": {
         "kind": "anchor",
         "id": "first_fort_factory_front"
@@ -121,6 +125,7 @@
     },
     {
       "id": "covered-way",
+      "since": "A few hours later",
       "destination": {
         "kind": "anchor",
         "id": "first_fort_covered_way"
@@ -139,6 +144,7 @@
     },
     {
       "id": "the-gate",
+      "since": "A day later",
       "destination": {
         "kind": "anchor",
         "id": "first_fort_gate"
@@ -159,6 +165,7 @@
     },
     {
       "id": "river-mouth",
+      "since": "Fourteen hours later",
       "destination": {
         "kind": "anchor",
         "id": "river_mouth_1812"
@@ -178,6 +185,7 @@
     },
     {
       "id": "the-bank",
+      "since": "Forty minutes later",
       "destination": {
         "kind": "anchor",
         "id": "heald_mile_and_a_half"
@@ -199,6 +207,7 @@
     },
     {
       "id": "cottonwoods",
+      "since": "Fifty minutes later",
       "destination": {
         "kind": "anchor",
         "id": "eighteenth_street_shore"
@@ -220,6 +229,7 @@
     },
     {
       "id": "kinzie-house",
+      "since": "Eight hours later",
       "destination": {
         "kind": "anchor",
         "id": "kinzie_house_front"
@@ -240,6 +250,7 @@
     },
     {
       "id": "ouilmette",
+      "since": "Fourteen hours later",
       "destination": {
         "kind": "anchor",
         "id": "ouilmette_house_front"

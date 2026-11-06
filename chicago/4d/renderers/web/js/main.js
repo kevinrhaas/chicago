@@ -93,7 +93,7 @@ import { createTelemetry } from './arrival-telemetry.js';
 import { t, applyStrings } from './strings/index.js';
 import './strings/arrival.js';
 import { createFlags } from './flags.js';
-import { createFortGates } from './fort-gates.js';
+import { createFortGates, gatesOnRoute } from './fort-gates.js';
 import { createNightLights } from './night-lights.js';
 import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
@@ -2559,6 +2559,24 @@ async function boot() {
   const seasonState = { season: 'summer', treesShown: seasonPref.treesShown, own: seasonPref.season, held: null };
   let structuresSeasoned = false;
   let seasonPlants = () => null;
+  /**
+   * T-3399 — the 1812/1835 fenced ground (yards.js): a dooryard's green and a garden
+   * bed's crop drills brown and take the fall's leaves and the winter's snow as a
+   * lawn does; its worn, trodden and road earth take snow as an alley or a roadway
+   * does. Installed the first time a season other than summer is chosen.
+   */
+  const YARD_SEASON_KIND = { dooryard_green: 1, garden_bed: 1, worn_earth: 0.5, trodden_earth: 0.5, road_earth: 0.3 };
+  const seasonYardGround = (group) => group?.traverse((o) => {
+    if (!o.isMesh) return;
+    for (const m of [].concat(o.material)) {
+      const kind = YARD_SEASON_KIND[/^yard-(.+)$/.exec(m?.name ?? '')?.[1]];
+      if (kind !== undefined) patchSeason(m, kind);
+    }
+  });
+  /** T-3399: a GLB's wall creepers (Glessner's Boston ivy and Virginia creeper,
+   *  masonry_house_v4_vines.py) are batched under their own atlas; they take the
+   *  creeper's season (season.js FOLIAGE.vine), never the ground's. */
+  const isWallVine = (m) => /vines/.test(m?.userData?.texture_generator ?? '') || /vine/i.test(m?.map?.name ?? '');
   const applySeason = async (season) => {
     const s = seasonal && SEASONS.includes(season) ? season : 'summer';
     // The lawns, steps and roofs inside the building GLBs take the season too.
@@ -2568,8 +2586,13 @@ async function boot() {
       structuresSeasoned = true;
       scene3d.traverse((o) => {
         if (!o.isMesh) return;
-        for (const m of [].concat(o.material)) if (m?.name === 'merged') patchSeason(m);
+        for (const m of [].concat(o.material)) {
+          if (m?.name !== 'merged') continue;
+          if (isWallVine(m)) patchFoliage(m, FOLIAGE.vine);
+          else patchSeason(m);
+        }
       });
+      seasonYardGround(api.yards?.group);
       // The faded city's roofs and streets, and the railway's ballast, the same way.
       for (const g of [contextCity.group, railway.group]) g.traverse((o) => {
         if (!o.isMesh || /crowns/.test(o.name)) return;
@@ -2666,6 +2689,7 @@ async function boot() {
     supportRegions: draws('standing_horses') ? (loaded.scene.static_support_regions ?? []) : [],
   });
   performance.measure('yards', 'yards:start');
+  if (seasonState.season !== 'summer') seasonYardGround(yards.group);
   scene3d.add(yards.group);
   settleOnGpu(yards.group);
   api.yards = yards;
@@ -3200,7 +3224,7 @@ async function boot() {
         }
       });
     }
-    return trees.setSeason?.(SEASON_CROWN[s] ?? {}, { foliage: on ? (m, role) => patchFoliage(m, role) : null });
+    return trees.setSeason?.(SEASON_CROWN[s] ?? {}, { foliage: on ? (m, role, opts) => patchFoliage(m, role, opts) : null });
   };
   if (seasonState.season !== 'summer') await seasonPlants(seasonState.season);
   await flora.prepare?.(camera, bootCheckpoint, plantingProgress);
@@ -4195,6 +4219,13 @@ async function boot() {
     teleport: (where) => walker.teleport(where),
     goToAnchor: (id) => api.goTo(id),
     setFly: (on) => hud.setFly(on, { announce: false }),
+    // T-3405: a walk through the fort opens its gates as it reaches them.
+    gates: { along: (points) => gatesOnRoute(fortGates.gates, points).map((g) => ({
+      at: g.at,
+      blocks: () => !(g.state === 'open' && !g.running),
+      open: () => { if (g.state !== 'open' && !g.running) interactions.act(g, 'open'); },
+    })) },
+    tickWorld: (dt) => interactions.update(dt),
     // Arriving is what opens the card: the menu closes, the building's card opens.
     onArrive: (id) => { hud.setPanel(false); openBuilding(id); lastArrival = { id, e: walker.state.e, n: walker.state.n }; },
   });
@@ -4893,7 +4924,7 @@ async function boot() {
             [from && resolveJaunt(from.destination)?.id, resolveJaunt(to.destination)?.id]);
         },
         estimate: state => estimates.estimateJaunt(state.jaunt, state.mode, { ...estimateOptions(state.mode),
-          startIndex: state.stopIndex, includeOpening: state.stopIndex === 0,
+          startIndex: state.stopIndex, includeOpening: state.stopIndex === 0, chosen: state.modeChosen,
           from: ['travelling', 'paused'].includes(state.phase) ? { e: walker.state.e, n: walker.state.n, altitude: walker.state.altitude } : null }),
         enter(target, { resume = false } = {}) {
           jauntEntering = true;

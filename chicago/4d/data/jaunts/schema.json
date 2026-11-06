@@ -740,6 +740,13 @@
           "type": "string",
           "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
         },
+        "since": {
+          "description": "T-3406: how long since the stop before, the lead the stop opens with ('Four hours later', 'Four months later'). compile_jaunts.py checks it against the two stops' date and hour; in a jaunt that has one, every stop after the first has one.",
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 40,
+          "pattern": "^[A-Z0-9][A-Za-z0-9 ]*[a-z]$"
+        },
         "hour_evidence": {
           "description": "T-3328: the stop's own claims that give its hour; required with `hour`.",
           "type": "array",

@@ -552,6 +552,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    */
   const camp = await loadCampSurfaces({
     wanted: [...registry.values()].some((r) => r.gltf && r.sidecar?.archetype === 'lodge_camp'),
+    // T-3401: the haystacks at Lee's Place wear the library's hay sheets.
+    hay: [...registry.values()].some((r) => r.gltf && r.sidecar?.archetype === 'haystack'),
   });
   if (camp.problem) problems.push(camp.problem);
   /** T-3295: K03 brick panels shuffled per brick unless `?bricks=tiled` (brick-bond.js). */

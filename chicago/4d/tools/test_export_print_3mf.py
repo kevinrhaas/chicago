@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import math
 import struct
 import sys
 import tempfile
@@ -163,6 +164,39 @@ def main():
                    "the 3MF package has its three parts")
             expect('unit="millimeter"' in model and model.count("<triangle ") == len(faces),
                    "the model is in millimetres and carries every triangle")
+            import re
+            v = np.array(re.findall(r'<vertex x="([^"]+)" y="([^"]+)" z="([^"]+)"', model), float)
+            f = np.array(re.findall(r'<triangle v1="(\d+)" v2="(\d+)" v3="(\d+)"', model), int)
+            area = np.linalg.norm(np.cross(v[f[:, 1]] - v[f[:, 0]], v[f[:, 2]] - v[f[:, 0]]), axis=1)
+            expect(len(np.unique(v, axis=0)) == len(v) and not (area < 1e-8).any() and ex.verify(v, f)["edges_paired"],
+                   "read back as written, no two vertices share a spot and no triangle is flat (a slicer merges by position)")
+
+        # Uniform roof courses: a 40-degree deck 6 m up the slope gets one course
+        # every pitch, the same on any roof, standing `depth` proud at each butt.
+        h, pitch, depth = 0.02, 0.3, 0.1
+        t = math.radians(40)
+        run, rise = 6 * math.cos(t), 6 * math.sin(t)
+        deck = np.array(quad((0, 0, 1), (2, 0, 1), (2, run, 1 + rise), (0, run, 1 + rise)))
+        shape = (110, int(run / h) + 10, int((1 + rise + 0.5) / h) + 10)
+        grid, faces_used = ex.voxelize_courses(deck, np.array([-0.1, -0.1, 0.0]), h, shape, pitch, depth)
+        expect(faces_used == 2, "both sloped deck triangles take courses")
+        # thickness along the normal, sampled up the slope at x = 1 m
+        col = grid[55]
+        js, ks = np.nonzero(col)
+        y = js * h - 0.1 + h / 2
+        z = ks * h + h / 2
+        off = (z - 1 - y * math.tan(t)) * math.cos(t)           # height above the deck plane
+        s_up = (z - off * math.cos(t)) / math.sin(t)            # from grade, at the foot on the deck
+        bins = np.floor(s_up / (pitch / 6)).astype(int)
+        top = np.zeros(bins.max() + 1)                           # bins start well above 0
+        np.maximum.at(top, bins, off)
+        first = -(-bins.min() // 6) * 6                          # whole courses only
+        last = (bins.max() + 1) // 6 * 6
+        prof = top[first + 6:last - 6].reshape(-1, 6)           # one row per course
+        expect(prof.shape[0] >= 15 and np.allclose(prof.max(axis=1), prof.max(axis=1).mean(), atol=h),
+               f"{prof.shape[0]} courses up the slope, every one standing the same height proud")
+        expect(prof[:, 0].mean() > prof[:, -2].mean() + depth / 2,   # the last bin touches the next butt
+               "each course is thickest at its butt and thins up the slope, like laid tiles")
 
     if failures:
         print(f"\n{len(failures)} check(s) failed")

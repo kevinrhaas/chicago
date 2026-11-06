@@ -25,6 +25,22 @@ python3 tools/export_print_3mf.py --glb assets/gltf/<file>.glb --scale 150 --out
 | base | 1.6 mm slab | under the footprint plus a 1 mm lip, enclosed courts floored, so the print stands and has bed grip. `--base-mm 0` for none. |
 | smoothing / simplify | 0.6 voxel blur, 0.05 mm | flattens voxel stairs; the simplifier (manifold3d) never breaks the closed surface. |
 
+## Roofs: one course pattern everywhere
+
+The owner, 2026-11-06: *"make the roof surface a consistent version of the roof, all of
+the roofs have different patterns and some nubs, let make the tiles consistent in form
+across all the roof surface"*. A modelled tile is about 1 mm at 1:250, below what a
+nozzle draws, and voxelized it came out as a different moiré on each roof plane with
+the odd tile standing proud. So by default (`--roof-tiles uniform`) the tile materials
+(`--tile-material`, default `roof_plane_*`) are left out and the roof deck
+(`--deck-material`, default `roof_plane`) carries one shingle course every 1.2 mm up the
+slope, 0.4 mm proud at the butt (`--course-mm`, `--course-depth-mm`), counted from grade
+so every roof, dormer and cone has the same spacing. The courses are contoured from a
+sub-voxel distance field, so they come out even rather than aliased against the voxel
+grid. Ridge and hip rolls are tile material too; anything over 8 cm off the deck
+(`--roll-m`) is kept. `--roof-tiles modelled` prints the tiles as modelled. A structure
+with no tile/deck materials by those names keeps its roof as modelled.
+
 ## What it keeps and drops
 
 - **Dropped by material name**: lawn, turf, drive, paving, ground, water, vines, ivy,
