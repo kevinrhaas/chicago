@@ -67,8 +67,8 @@ function elmSpec(mode) {
     return { ...spec, puffScale: 0.82, dark: 0x9a7420, light: 0xe8c45a };
   }
   if (mode === 'winter') {
-    // Bare: the summer crown's sprays, drawn from the twig atlas in the grey
-    // brown of elm wood (the twig ink is about 0.44 grey, so these are lifted).
+    // Bare (T-1934, T-3429: wood only, no leaf or twig card); the leaf colours are
+    // kept for any card a caller might still draw.
     return { ...spec, dark: 0x8c8474, light: 0xb8b0a0 };
   }
   return spec;
@@ -127,6 +127,18 @@ const STREET_LEVELS = {
   full: { near: 10, mid: 44, distant: 420 },
   balanced: { near: 10, mid: 40, distant: 380 },
   light: { near: 0, mid: 32, distant: 220 },
+};
+/**
+ * T-3429 — WINTER'S RINGS. A bare elm's `far` level is round wood seated on its limbs
+ * (tree-model.js ELM_BARE_FAR, about 600 triangles a grown elm against summer's 90 of leaf
+ * cards), which past about 160 m (120 m on the phone's tier) is under a pixel a twig; so in
+ * winter the `distant` level, the bole and its limbs, comes in there instead of at the
+ * summer ring, and the many elms beyond it pay for the few nearer ones' branches.
+ */
+const WINTER_LEVELS = {
+  full: { near: 10, mid: 44, distant: 160 },
+  balanced: { near: 10, mid: 40, distant: 150 },
+  light: { near: 0, mid: 32, distant: 120 },
 };
 /**
  * T-2833 — THE CONTEXT CITY'S TREES. The faded city around the district
@@ -274,10 +286,11 @@ export async function createStreetTrees({
     // them at its record's smaller scale. Each variant is a megabyte and more of
     // geometry, and a parkway of one age is the case where siblings read true.
     const spec = elmSpec(wantMode);
-    const rings = STREET_LEVELS[wantDetail] ?? STREET_LEVELS.full;
+    const LV = wantMode === 'winter' ? WINTER_LEVELS : STREET_LEVELS;
+    const rings = LV[wantDetail] ?? LV.full;
     // T-3164: a form only one or two pictured trees name grows as many crowns as it has trees.
     const grown = new TreeInstances({ level: wantDetail, shadowM: rings.mid, name: 'street-trees',
-      variants: (count) => Math.max(1, Math.min(variants, 3, count)), levels: STREET_LEVELS, fadeS: FADE_S,
+      variants: (count) => Math.max(1, Math.min(variants, 3, count)), levels: LV, fadeS: FADE_S,
       castFar: true });
     for (const p of placed) {
       const sc = p.t.scale ?? 1;

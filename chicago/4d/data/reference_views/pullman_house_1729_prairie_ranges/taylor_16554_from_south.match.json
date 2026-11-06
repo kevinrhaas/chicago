@@ -110,38 +110,38 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "ecebd8c3fa044a2f7c23fe8dd4b8c0b79f0edeca5c4bd4ddde04885a437d38bc"
+      "sha256": "cac67fd26e677f5a848f1817b51d2a485835b09f09aa2c234efc1b3a5b3e3329"
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "0910d1c4c92ae365a8e7bdc9eded2ca745cdcb5b564f6d9ed97028d76b8582ca"
+      "sha256": "90d02b3e6b6ac5d1ab27a0eb3088f72719a8c1f59a7624dd833db80b127268f2"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
-      "sha256": "39ea6657e4a0799dd9241b69481e62f3a5ce64c250151b2828ca87a77c17b361"
+      "sha256": "a103f17c2d5a18b12a39126c62c539dd69ad9a118939254589b0b579d4cb9c61"
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "abf705150b8cbf9548ec963ce000d87822e618ef3387bef61d725a750d71ce24"
+      "sha256": "516638c5cb53043e352359012564973fbaca844282e7809913d3f4709d8e5572"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
-      "sha256": "96fd05c1ef7de0a65f0d0966c6d418aa0b1a0391d19773a3382cc0b9ed04c909"
+      "sha256": "23dec0e5dda80547d8ee2ae86f1400fb1a4af2bd54ca0b53d7fe8d52f088cc84"
     },
     {
       "file": "renderers/web/js/season.js",
-      "sha256": "2c010c2598f57fe242361e18171d4919fc86b96691fa3282a59424554ea40e4e"
+      "sha256": "e44ebdadf8266909cd6e8676775a9decc3b7376ba245ad784118851e15b409cc"
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "a222fb6e6af97d1650b05940f9ca0a79874a53c60a688e1b7b49838a7a637c66"
+      "sha256": "bd022919ca052610595908f83128dfceea976790c5bf2eff63f381abaa3b89b5"
     },
     {
       "file": "renderers/web/js/street-furniture.js",
       "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "a67f88a4b79581edb39646918c674c09b6648d9870befa6e344aa5b5466dfa55",
+  "flora_sha256": "d1471f7f93bd3c59e20ca65a5a37791f8d6b155233740b641e59ffd3054f67b6",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -186,7 +186,7 @@
       "how": "T-1934, 2026-10-30 (the owner on Taylor's 16554): each window a pair of lights divided by a stone mullion in a raised architrave on a projecting sill"
     },
     {
-      "what": "the 18th Street boundary: a low stone wall with square piers and a coping along the walk, a lamp post by the court, and the clipped shrubs and young trees behind it [T-1934, 2026-10-31: east of the third pier this is replaced for 1904 — the Detroit Publishing view of c. 1900 (loc_det_4a08066_pullman_residence), the picture nearest 1 July 1904, shows the wall from the stair's east pier (the third) to the Fort Dearborn monument as one level coping about 0.9 m high with a dense border of shrubs behind it: no pier over its top, no urn, no curved low wall (its x 485-740 px); the Chicago History Museum's ICHi-19208 (circa 1900, a check only) shows the same plain coping at the stable's end; the fourth, fifth and sixth piers, the fifth's urn and the curved low walls are withdrawn (L-pullman-18th-street-wall-c1900-1934).]",
+      "what": "the 18th Street boundary: a low stone wall with square piers and a coping along the walk, a lamp post by the court, and the clipped shrubs and young trees behind it [T-1934, 2026-10-31: east of the third pier this is replaced for 1904 \u2014 the Detroit Publishing view of c. 1900 (loc_det_4a08066_pullman_residence), the picture nearest 1 July 1904, shows the wall from the stair's east pier (the third) to the Fort Dearborn monument as one level coping about 0.9 m high with a dense border of shrubs behind it: no pier over its top, no urn, no curved low wall (its x 485-740 px); the Chicago History Museum's ICHi-19208 (circa 1900, a check only) shows the same plain coping at the stable's end; the fourth, fifth and sixth piers, the fifth's urn and the curved low walls are withdrawn (L-pullman-18th-street-wall-c1900-1934).]",
       "status": "fixed",
       "how": "the 18th Street wall built (T-1934): on the lot line from the house's east end to the stable's east wall, through the plate's camera rays from five pier bases put it, the 0.9 m wall with its chamfered coping, square piers 1.7-1.8 m high, the opening onto the terrace's west flight, the low wall falling steeply from the third pier and curving up again to the fourth, the opening onto the east flight, and the wall on low along the stable's front (pullman_house_1729_prairie form.boundary); its lamps, the planting and the trees are judged in their own lines below"
     },
@@ -285,7 +285,11 @@
       "what": "the nearest parkway elm's twig (top right, about 12 m from the eye) reads a little heavier in stroke than the print's fine twig",
       "status": "within tolerance",
       "how": "T-1934, 2026-11-01: the twig tile is painted to come through as a line at the mid ring's coarser mips, so at that ring's near edge its strokes are a pixel or two wider than the print's; the crown's density, habit and colour are the print's. Under the T-3153 bar a stroke's pixel width is not a difference a visitor would notice."
+    },
+    {
+      "what": "T-3429 (2026-11-06): the parkway elms are bare round wood now, twig forking off twig, where T-1934's painted twig cards stood; read against the print again, the verdict is kept.",
+      "status": "fixed"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

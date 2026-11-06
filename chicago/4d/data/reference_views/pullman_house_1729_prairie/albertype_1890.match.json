@@ -42,7 +42,7 @@
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "0910d1c4c92ae365a8e7bdc9eded2ca745cdcb5b564f6d9ed97028d76b8582ca"
+      "sha256": "90d02b3e6b6ac5d1ab27a0eb3088f72719a8c1f59a7624dd833db80b127268f2"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
@@ -50,7 +50,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "93bacc401201ba198809ca6edac57e33e85aa373d1a557b6344070cd2f24b38d"
+      "sha256": "516638c5cb53043e352359012564973fbaca844282e7809913d3f4709d8e5572"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -65,7 +65,7 @@
       "sha256": "bd022919ca052610595908f83128dfceea976790c5bf2eff63f381abaa3b89b5"
     }
   ],
-  "flora_sha256": "50c8bd2f1549cab244dd188d6507ab29bb3249dc65782d8f80605b76243aa2ba",
+  "flora_sha256": "6a886ce2e5c55aa011be0d9636a4936c79ffe4a37ea9a4bd39e96f57653dc5f4",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -212,6 +212,10 @@
       "what": "a dark bell-shaped fitting hanging on the Prairie front just south of the portico (x 1140-1153 px, y 473-497), between two banded piers (x 1126-1138 and 1158-1168) under the belt course: a cap widening downward over a small drop, about 0.7 m across and 0.9 m tall at the plate's 22 px a metre, read as a hanging lantern; the build has no lantern there, and draws one banded pier where the plate draws two",
       "status": "fixed",
       "how": "T-1881 (2026-11-05, sign-off pass): found while judging the view element by element on a fresh render. Through this camera the place is about v 9.5-10 on the front (46 px south of the portico's south column, less the camera's 20-26 px offset along this front), past the hood's south end (v 8.425), so it is a wall lantern, not one hung under the portico's soffit. No K01, K07 or K08 kit draws a lantern on a front yet. The Detroit print's ivy covers the same stretch, so it neither confirms nor refutes the fitting in 1901. T-1881 (2026-11-06): built. Through this camera the plate's pier, gap and pier (17, 15 and 15 px) fall on the entrance part's south corner pilaster, its 1.6 m south return and the main wall just south of the angle (16, 17 and 16 px as built), so the lantern hangs off the return, which faces 18th Street, and the plate's second pier is a pilaster at the inner angle. Both are built: a banded pier on the main wall at s 8.8-9.41 (street_front_pavilions) and a bell-capped lantern 0.66 m across and 1.0 m tall on a wrought-iron arm off the return, its axis 1.1 m out from the main wall, its arm at 6.15 m (wall_lanterns, a new K01 kit, k01_wall_lanterns). On a fresh render the lantern stands at x 1127-1138, y 474-496 px against the plate's 1140-1153 and 473-497, and the new pier at x 1137-1147 against 1158-1168: the 12-21 px the camera reads short everywhere along this front, so within tolerance as a camera fit (L-k01-1729-pullman-lantern-1881)."
+    },
+    {
+      "what": "T-3429 (2026-11-06): the parkway elms are bare round wood now, twig forking off twig, where T-1934's painted twig cards stood; read against the print again, the verdict is kept.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
