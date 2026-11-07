@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1036,
+  "count": 1037,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -69826,6 +69826,70 @@
       ],
       "work_refs": [
         "T-3442"
+      ]
+    },
+    {
+      "id": "L-first-fort-blockhouse-cupolas-3041",
+      "title": "cupolas on the first fort's two blockhouses",
+      "section": "per_subject",
+      "subjects": [
+        "first_fort_dearborn_blockhouse_nw",
+        "first_fort_dearborn_blockhouse_se",
+        "fort_dearborn_blockhouse"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "first_fort_dearborn_blockhouse_nw",
+          "phase": "first_fort_1803",
+          "aspect": "form.cupola"
+        },
+        {
+          "domain": "structure",
+          "structure": "first_fort_dearborn_blockhouse_se",
+          "phase": "first_fort_1803",
+          "aspect": "form.cupola"
+        }
+      ],
+      "recorded": "2026-11-07",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`first_fort_dearborn_blockhouse_nw.first_fort_1803.form.cupola`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.cupola`."
+        },
+        {
+          "label": "Decision",
+          "text": "Build a small square cupola under its own pyramid cap at the apex of both first-fort blockhouses (north-west and south-east), as the owner adopted from Currey's 1912 bird's-eye on 2026-11-03."
+        },
+        {
+          "label": "What the sources carry",
+          "text": "Whistler's 1808 draught lays cupolas down on both blockhouses and its index says they were \"not yet built... as laid down\", so they were planned and not standing in 1808. Kurz & Allison (1893) panel 1 draws a small roof lantern on each first-fort blockhouse, and Currey (1912), after the 1899 Tribune sketch of Van den Berghen's 1898 model, draws a square body under a pyramid cap on both. Intent plus two later depictions carries their OCCURRENCE by August 1812 at `inferred`. No source dates their completion, and both pictures are a modern reconstruction retrospectives."
+        },
+        {
+          "label": "What is invented",
+          "text": "Every dimension, reused unchanged from the second fort's cupola kit in the fort structure params generator (“the cupola on the second fort's blockhouse, and the stack it replaces”): the 1.8 m side, the 2.1 m body height from its seat to the cap's eave, the 0.22 m cap eave, the 36 degree cap pitch and the 0.12 m seat into the main roof. Plain boarded sides, no louvres, glazing or finial. Nothing in either picture measures them; they sit in the proportions both pictures show."
+        },
+        {
+          "label": "Supersedes",
+          "text": "The line in “Retire two reconstructed stacks” that the first-fort lanterns remain unbuilt. Its zero separate stacks stand, as do “The first Fort Dearborn's heights, roofs, stacks, pickets and two missing depths are ours”'s height, jetty and roof choices."
+        },
+        {
+          "label": "What is not changed",
+          "text": "The measured plans, surveyed seats and bearings, the 5.2 m walls, the jetty, the 30 degree main pyramid, and every other building of the fort. The blockhouses' tower proportions stay on Whistler's plan by the owner's ruling."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a garrison return, order or letter between 1808 and 1812 that reports the cupolas finished, or describes their size."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-07."
+        }
+      ],
+      "work_refs": [
+        "T-3335",
+        "T-3041"
       ]
     },
     {

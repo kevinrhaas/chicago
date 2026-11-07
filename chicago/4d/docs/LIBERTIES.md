@@ -41818,3 +41818,38 @@ visitor's camera. The grille's pane is drawn as a dark pane rather than transmis
 photograph of the open door or of the hall from the entrance for the swing and the finish.
 **Ticket:** T-3442.
 **Recorded:** 2026-11-07 (T-3442).
+
+### L-first-fort-blockhouse-cupolas-3041 — cupolas on the first fort's two blockhouses
+
+**Covers:** `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.cupola`,
+`first_fort_dearborn_blockhouse_se.first_fort_1803.form.cupola`.
+
+**Decision:** Build a small square cupola under its own pyramid cap at the apex of both first-fort
+blockhouses (north-west and south-east), as the owner adopted from Currey's 1912 bird's-eye on
+2026-11-03 (T-3335).
+
+**What the sources carry:** Whistler's 1808 draught lays cupolas down on both blockhouses and its index
+says they were "not yet built ... as laid down", so they were planned and not standing in 1808. Kurz &
+Allison (1893) panel 1 draws a small roof lantern on each first-fort blockhouse, and Currey (1912), after
+the 1899 Tribune sketch of Van den Berghen's 1898 model, draws a square body under a pyramid cap on both.
+Intent plus two later depictions carries their OCCURRENCE by August 1812 at `inferred`. No source dates
+their completion, and both pictures are tier-5 retrospectives.
+
+**What is invented:** Every dimension, reused unchanged from the second fort's cupola kit in
+`generators/archetypes/fort_structure_params.py` (L-second-fort-blockhouse-cupola-2388): the 1.8 m side,
+the 2.1 m body height from its seat to the cap's eave, the 0.22 m cap eave, the 36 degree cap pitch and the
+0.12 m seat into the main roof. Plain boarded sides, no louvres, glazing or finial. Nothing in either
+picture measures them; they sit in the proportions both pictures show.
+
+**Supersedes:** The line in L-first-fort-pictured-blockhouse-stacks-3041 that the first-fort lanterns
+remain unbuilt. Its zero separate stacks stand, as do L370's height, jetty and roof choices.
+
+**What is not changed:** The measured plans, surveyed seats and bearings, the 5.2 m walls, the jetty, the
+30 degree main pyramid, and every other building of the fort. The blockhouses' tower proportions stay on
+Whistler's plan by the owner's ruling.
+
+**How to resolve:** a garrison return, order or letter between 1808 and 1812 that reports the cupolas
+finished, or describes their size.
+
+**Ticket:** T-3041 (partial; the fort's full picture match stays open).
+**Recorded:** 2026-11-07.
