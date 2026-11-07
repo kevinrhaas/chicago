@@ -1,0 +1,39 @@
+{
+ "id": "stable_helper_1904",
+ "role": "stable helper",
+ "label": "a groom or stable hand at work, 1900s",
+ "years": [
+  1900,
+  1905
+ ],
+ "scenes": [
+  "1904"
+ ],
+ "evidence": {
+  "repo": "kevinrhaas/chicago-evidence",
+  "dir": "evidence/people-references-2026-11-07/stable_helper_1904"
+ },
+ "note": "Gathered 2026-11-07 for T-3484, August Billings's working dress. One photograph, near and far: a groom at a horse's head at Tuskegee about 1902. It is not of Chicago or of Billings: a reference set says what a man of this role and decade looked like, not what Billings wore. Monochrome; it says nothing about colour.",
+ "pictures": [
+  {
+   "name": "johnston_1902_groom",
+   "band": "near",
+   "file": "johnston_1902_groom_near.jpg",
+   "sha256": "90e04832ab32c73e39ecf597cb839c709025f5a532d97a4febe4e75dd0c70b0c",
+   "source_id": "loc_johnston_1902_tuskegee_horse_and_groom",
+   "from": "LOC reference image 17290v.jpg (1024 x 819), crop [640, 300, 900, 800]: the groom, at full resolution",
+   "caption": "Groom at a horse's head, full length. Frances Benjamin Johnston, Tuskegee, ca. 1902 (LOC 2024631576)",
+   "shows": "A young groom full length from his left front at about eight metres: striped shirt in shirt sleeves with the collar closed, braces, a belt, dark trousers long over his shoes, a light felt hat with a creased crown, the halter rope in his hands."
+  },
+  {
+   "name": "johnston_1902_frame",
+   "band": "far",
+   "file": "johnston_1902_frame_far.jpg",
+   "sha256": "99a6f5d7e8c0fc261f399689d45375b83524100989ede89de3bd2f4d32a8df3c",
+   "source_id": "loc_johnston_1902_tuskegee_horse_and_groom",
+   "from": "LOC reference image 17290v.jpg (1024 x 819), the whole frame",
+   "caption": "Horse and groom in a field. Frances Benjamin Johnston, Tuskegee, ca. 1902 (LOC 2024631576)",
+   "shows": "The horse broadside and the groom at its head, small in a field: how a man in pale shirt sleeves and dark trousers reads at street distance beside a horse."
+  }
+ ]
+}

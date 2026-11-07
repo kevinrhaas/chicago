@@ -1,0 +1,28 @@
+{
+ "id": "bhm_umfa53226_1855_hembitrade_anna_akerman",
+ "type": "photograph",
+ "citation": "Cabinet-card portrait of Anna Åkerman, Uddevalla; text on the back of the card: 'Hembiträde Anna Åkerman, Uddevalla. Född 1863' ('Housemaid Anna Åkerman, Uddevalla. Born 1863'). Photographer Ossian Berggren, Uddevalla, 1890-1895. Bohusläns museum, UMFA53226:1855.",
+ "author": "Ossian Berggren (photographer, Uddevalla; studio imprint on the card)",
+ "date": "1890-1895",
+ "describes_date": "1890-1895",
+ "repository": "Bohusläns museum, Uddevalla, Sweden, UMFA53226:1855 (DigitaltMuseum 011014307649; K-samsök http://kulturarvsdata.se/bhm/photo/UMFA53226:1855). The image server's largest size is 322 x 550 px; served as WebP and saved here as JPEG at the same size.",
+ "url": "https://digitaltmuseum.se/011014307649",
+ "locator": "The whole card; her face, a three-quarter view turned to her right, is at x 108-225, y 110-258 (about 117 px across and 148 px hairline to chin) - SMALLER than the 150 px asked for; this is the largest copy the museum serves.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "asset_use": "geometry",
+ "verified": true,
+ "rights_note": "Bohusläns museum marks the image Public Domain Mark 1.0 (K-samsök mediaLicense 'pdmark'; Europeana edmRights PDM 1.0). A studio photograph of about 1890-1895; under Swedish law the protection of a simple photographic picture made before 1969 has expired.",
+ "access_notes": "Found 2026-11-07 through the Europeana API (record /916105/bhm_photo_UMFA53226_1855) and the Swedish K-samsök API, which gives the date 1890-1895 and the photographer. Image fetched from ems.dimu.org at dimension=4000x4000, which returned the 322 x 550 original. digitaltmuseum.se answered 403 and was not read. A second card of the same sitter (UMFA53226:1856, Olga Rinman, Göteborg, 1898-1904, same caption, 330 x 550 px) exists and shows her at about 35-41.",
+ "note": "THIS IS NOT CHRISTINE NELSON. No photograph of Christine Nelson was found. Anna Åkerman stands in for her because she was a Swedish woman in domestic service (the card calls her 'hembiträde', a housemaid), born 1863, and photographed in 1890-1895, so between about 27 and 32 when the picture was taken - close to Christine Nelson's 31 in 1904 (born March 1873 in Sweden; parlor maid in the Glessner house, 1900 census). She was photographed in Sweden, not after emigrating. An oval-vignetted head-and-shoulders cabinet card of a young woman turned three-quarters to her right, looking past the camera: light hair centre-parted and drawn smoothly back, light eyes, straight brows, a straight nose, small mouth, round chin; a dark high-collared bodice with a pale lace edge and a round brooch at the throat. Studio imprint 'Ossian Berggren, Uddevalla'.",
+ "what_it_supplies": [
+  "the proportions of a young Swedish housemaid's face at about thirty, three-quarter view",
+  "the smooth drawn-back hair and high collar of a Swedish servant's best dress about 1890-1895"
+ ],
+ "what_it_does_not_supply": [
+  "Christine Nelson's face, her colouring, or anything about her",
+  "a parlor maid's uniform (this is her own best dress)",
+  "detail at the size asked for: the face is about 117 px across",
+  "the face's depth (one view only)"
+ ]
+}

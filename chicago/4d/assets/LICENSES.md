@@ -1875,6 +1875,22 @@ Generated bodice, skirt, apron and low-shoe arrays from `tools/human_dress_compo
 | `humans/web/reynolds_mary_1904_maid.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 house maid's components (`tools/human_maid_1904.py`, T-3448); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
 | `humans/reynolds_mary_1904_maid.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 house maid's components (`tools/human_maid_1904.py`, T-3448); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
 | `humans/web/reynolds_mary_1904_maid.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 house maid's components (`tools/human_maid_1904.py`, T-3448); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/ryan_kate_1904_cook.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 cook's working dress (`tools/human_cook_1904.py`, T-3479); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/ryan_kate_1904_cook.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 cook's working dress (`tools/human_cook_1904.py`, T-3479); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/ryan_kate_1904_cook.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 cook's working dress (`tools/human_cook_1904.py`, T-3479); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/ryan_kate_1904_cook.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 cook's working dress (`tools/human_cook_1904.py`, T-3479); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/ryan_kate_1904_cook.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 cook's working dress (`tools/human_cook_1904.py`, T-3479); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/ryan_kate_1904_cook.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 cook's working dress (`tools/human_cook_1904.py`, T-3479); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/ryan_kate_1904_cook.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 cook's working dress (`tools/human_cook_1904.py`, T-3479); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/ryan_kate_1904_cook.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 cook's working dress (`tools/human_cook_1904.py`, T-3479); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/nelson_christine_1904_errand.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 parlor maid's street dress and market basket (`tools/human_errand_1904.py`, T-3481); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/nelson_christine_1904_errand.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 parlor maid's street dress and market basket (`tools/human_errand_1904.py`, T-3481); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/nelson_christine_1904_errand.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 parlor maid's street dress and market basket (`tools/human_errand_1904.py`, T-3481); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/nelson_christine_1904_errand.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 parlor maid's street dress and market basket (`tools/human_errand_1904.py`, T-3481); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/nelson_christine_1904_errand.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 parlor maid's street dress and market basket (`tools/human_errand_1904.py`, T-3481); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/nelson_christine_1904_errand.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 parlor maid's street dress and market basket (`tools/human_errand_1904.py`, T-3481); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/nelson_christine_1904_errand.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 parlor maid's street dress and market basket (`tools/human_errand_1904.py`, T-3481); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/nelson_christine_1904_errand.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 parlor maid's street dress and market basket (`tools/human_errand_1904.py`, T-3481); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
 | `humans/peck_philip_1835.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1835 merchant's components (`tools/human_merchant_1835.py`, T-3449); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
 | `humans/web/peck_philip_1835.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1835 merchant's components (`tools/human_merchant_1835.py`, T-3449); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
 | `humans/peck_philip_1835.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1835 merchant's components (`tools/human_merchant_1835.py`, T-3449); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
@@ -1899,6 +1915,22 @@ Generated bodice, skirt, apron and low-shoe arrays from `tools/human_dress_compo
 | `humans/web/private_first_infantry_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 soldier's components (`tools/human_soldier_1812.py`, T-3451); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
 | `humans/private_first_infantry_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 soldier's components (`tools/human_soldier_1812.py`, T-3451); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
 | `humans/web/private_first_infantry_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 soldier's components (`tools/human_soldier_1812.py`, T-3451); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/nelson_charles_1904_coachman.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 coachman's standing livery (`tools/human_coachman_1904.py`, T-3483); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/nelson_charles_1904_coachman.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 coachman's standing livery (`tools/human_coachman_1904.py`, T-3483); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/nelson_charles_1904_coachman.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 coachman's standing livery (`tools/human_coachman_1904.py`, T-3483); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/nelson_charles_1904_coachman.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 coachman's standing livery (`tools/human_coachman_1904.py`, T-3483); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/nelson_charles_1904_coachman.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 coachman's standing livery (`tools/human_coachman_1904.py`, T-3483); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/nelson_charles_1904_coachman.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 coachman's standing livery (`tools/human_coachman_1904.py`, T-3483); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/nelson_charles_1904_coachman.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 coachman's standing livery (`tools/human_coachman_1904.py`, T-3483); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/nelson_charles_1904_coachman.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 coachman's standing livery (`tools/human_coachman_1904.py`, T-3483); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/billings_august_1904_stable_helper.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 stable helper's working dress (`tools/human_stable_helper_1904.py`, T-3484); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/billings_august_1904_stable_helper.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 stable helper's working dress (`tools/human_stable_helper_1904.py`, T-3484); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/billings_august_1904_stable_helper.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 stable helper's working dress (`tools/human_stable_helper_1904.py`, T-3484); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/billings_august_1904_stable_helper.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 stable helper's working dress (`tools/human_stable_helper_1904.py`, T-3484); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/billings_august_1904_stable_helper.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 stable helper's working dress (`tools/human_stable_helper_1904.py`, T-3484); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/billings_august_1904_stable_helper.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 stable helper's working dress (`tools/human_stable_helper_1904.py`, T-3484); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/billings_august_1904_stable_helper.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 stable helper's working dress (`tools/human_stable_helper_1904.py`, T-3484); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/billings_august_1904_stable_helper.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 stable helper's working dress (`tools/human_stable_helper_1904.py`, T-3484); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
 
 
 ## Licensed Old Cart farm-box development master — T-2793
@@ -2328,4 +2360,64 @@ States": **public domain**; credit Chicago History Museum, ICHi-061818. The crop
 humans/web/portraits/glessner_frances_m_model.jpg
 humans/web/portraits/glessner_frances_m_model.json
 humans/web/portraits/glessner_frances_m_portrait.jpg
+```
+
+`glessner_williamson_martha_l_portrait.jpg` (T-3486) is cut and scaled from the Glessner House Museum's blog copy of Mattie Williamson's 1890s portrait (source record `glessner_blog_mattie_williamson_portrait_1890s`), a photograph made before 1906: **public domain** in the United States; credit Glessner House Museum. The crop box is recorded in
+`data/humans/variation/portraits/glessner_williamson_martha_l.json`. `glessner_williamson_martha_l_model.jpg` (and its `.json` sidecar) is
+rendered by `tools/portrait_still.mjs` as above, and is **CC0-1.0**.
+
+```text
+humans/web/portraits/glessner_williamson_martha_l_model.jpg
+humans/web/portraits/glessner_williamson_martha_l_model.json
+humans/web/portraits/glessner_williamson_martha_l_portrait.jpg
+```
+
+`pa1904_glessner_john_j_c1900_mary_reynolds_portrait.jpg` (T-3486) is cut and scaled from the Library of Congress master of a 1908 General Electric photograph of a house maid (LC-USZ62-67635; source record `loc_cph_3b15107_ge_house_maid_ironing_1908`), a STAND-IN, not Mary Reynolds; the Library states no known restrictions on publication and a 1908 photograph is **public domain** in the United States. The stand-in label is burned on the picture. The crop box is recorded in
+`data/humans/variation/portraits/pa1904_glessner_john_j_c1900_mary_reynolds.json`. `pa1904_glessner_john_j_c1900_mary_reynolds_model.jpg` (and its `.json` sidecar) is
+rendered by `tools/portrait_still.mjs` as above, and is **CC0-1.0**.
+
+```text
+humans/web/portraits/pa1904_glessner_john_j_c1900_mary_reynolds_model.jpg
+humans/web/portraits/pa1904_glessner_john_j_c1900_mary_reynolds_model.json
+humans/web/portraits/pa1904_glessner_john_j_c1900_mary_reynolds_portrait.jpg
+```
+
+`pa1904_glessner_john_j_c1900_kate_ryan_portrait.jpg` (T-3479) is cut and scaled from the left frame of William H. Rau's 1903 Achill Island stereograph (LC-DIG-stereo-1s27248; source record `loc_stereo_1s27248_achill_spinning_wheel_1903`), a STAND-IN, not Kate Ryan; no known restrictions, **public domain** in the United States. The stand-in label is burned on the picture. The crop box is recorded in
+`data/humans/variation/portraits/pa1904_glessner_john_j_c1900_kate_ryan.json`. `pa1904_glessner_john_j_c1900_kate_ryan_model.jpg` (and its `.json` sidecar) is
+rendered by `tools/portrait_still.mjs` as above, and is **CC0-1.0**.
+
+```text
+humans/web/portraits/pa1904_glessner_john_j_c1900_kate_ryan_model.jpg
+humans/web/portraits/pa1904_glessner_john_j_c1900_kate_ryan_model.json
+humans/web/portraits/pa1904_glessner_john_j_c1900_kate_ryan_portrait.jpg
+```
+
+`pa1904_glessner_john_j_c1900_christine_nelson_portrait.jpg` (T-3481) is cut and scaled from Bohusläns museum's copy of Ossian Berggren's cabinet card of the housemaid Anna Åkerman, 1890-1895 (UMFA53226:1855; source record `bhm_umfa53226_1855_hembitrade_anna_akerman`), a STAND-IN, not Christine Nelson; the museum marks it Public Domain Mark 1.0: **public domain**. The stand-in label is burned on the picture. The crop box is recorded in
+`data/humans/variation/portraits/pa1904_glessner_john_j_c1900_christine_nelson.json`. `pa1904_glessner_john_j_c1900_christine_nelson_model.jpg` (and its `.json` sidecar) is
+rendered by `tools/portrait_still.mjs` as above, and is **CC0-1.0**.
+
+```text
+humans/web/portraits/pa1904_glessner_john_j_c1900_christine_nelson_model.jpg
+humans/web/portraits/pa1904_glessner_john_j_c1900_christine_nelson_model.json
+humans/web/portraits/pa1904_glessner_john_j_c1900_christine_nelson_portrait.jpg
+```
+
+`pa1904_glessner_john_j_c1900_charles_nelson_portrait.jpg` (T-3483) is cut and scaled from Västmanlands läns museum's copy of Ernst Blom's glass negative 'Kusken Kalén' (Vlm-Blom P 157; source record `vlm_blom_p157_kusken_kalen`), a STAND-IN, not Charles Nelson; the museum marks it Public Domain Mark 1.0: **public domain**. The stand-in label is burned on the picture. The crop box is recorded in
+`data/humans/variation/portraits/pa1904_glessner_john_j_c1900_charles_nelson.json`. `pa1904_glessner_john_j_c1900_charles_nelson_model.jpg` (and its `.json` sidecar) is
+rendered by `tools/portrait_still.mjs` as above, and is **CC0-1.0**.
+
+```text
+humans/web/portraits/pa1904_glessner_john_j_c1900_charles_nelson_model.jpg
+humans/web/portraits/pa1904_glessner_john_j_c1900_charles_nelson_model.json
+humans/web/portraits/pa1904_glessner_john_j_c1900_charles_nelson_portrait.jpg
+```
+
+`pa1904_glessner_john_j_c1900_august_billings_portrait.jpg` (T-3484) is cut and scaled from Vänersborgs museum's copy of K & A Vikner's 1903 glass negative 'Nordström, Kusk' (VMVP3391; source record `vbg_vmvp3391_nordstrom_kusk_1903`), a STAND-IN, not August Billings; K-samsök gives Public Domain Mark 1.0 (Europeana's older record says CC BY-SA 4.0; the conflict is recorded in the source record): **public domain**. The stand-in label is burned on the picture. The crop box is recorded in
+`data/humans/variation/portraits/pa1904_glessner_john_j_c1900_august_billings.json`. `pa1904_glessner_john_j_c1900_august_billings_model.jpg` (and its `.json` sidecar) is
+rendered by `tools/portrait_still.mjs` as above, and is **CC0-1.0**.
+
+```text
+humans/web/portraits/pa1904_glessner_john_j_c1900_august_billings_model.jpg
+humans/web/portraits/pa1904_glessner_john_j_c1900_august_billings_model.json
+humans/web/portraits/pa1904_glessner_john_j_c1900_august_billings_portrait.jpg
 ```

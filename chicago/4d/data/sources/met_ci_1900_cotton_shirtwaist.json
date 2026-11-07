@@ -1,0 +1,25 @@
+{
+ "id": "met_ci_1900_cotton_shirtwaist",
+ "type": "photograph",
+ "citation": "Shirtwaist, American, ca. 1900, cotton. The Metropolitan Museum of Art, The Costume Institute, C.I.57.22.15, Gift of Estate of Valerie Dreyfus, 1957; the museum's open-access object photograph CI57.22.15_F.",
+ "author": "The Metropolitan Museum of Art (object photograph)",
+ "date": "ca. 1900",
+ "describes_date": "ca. 1900",
+ "repository": "The Metropolitan Museum of Art, The Costume Institute; object 86051 in the museum's collection API (isPublicDomain: true), images at images.metmuseum.org.",
+ "url": "https://www.metmuseum.org/art/collection/search/86051",
+ "locator": "The front view on a dress form.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "The Met's Open Access images of public-domain works are released CC0. Used only as a reference picture for the cut of the 1904 parlor maid's shirtwaist (T-3481); nothing is traced or sampled from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (T-3481) from the museum's open-access image. A white cotton shirtwaist: a tall standing collar, a ruffled front, sleeves full above and gathered into narrow buttoned cuffs at the wrist, the body pouched forward over a tied waist. A real garment, American, in colour (white), on a form.",
+ "note": "A reference picture for the 1904 parlor maid's shirtwaist, Christine Nelson of the Glessner household (data/humans/recipes/errand_1904.json).",
+ "what_it_supplies": [
+  "the white of a cotton shirtwaist of about 1900, its tall collar, full sleeves, narrow cuffs and pouched front"
+ ],
+ "what_it_does_not_supply": [
+  "how it was worn by a working woman in the street",
+  "anything about Chicago, the Glessner household or Christine Nelson"
+ ]
+}

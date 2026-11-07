@@ -25,7 +25,10 @@ GLB under assets/humans/, in the kit's vertex order), at its base age, and centr
 the body's face_bias, which a fitted value replaces in the renderer. A record with `stand_in`
 (T-3478: no photograph of the person is known) is fitted to a stand-in's photograph, someone of
 their sex, age, heritage and work: it must be graded reconstructed, and its `card_note` goes on
-the card (tools/cut_portrait.py burns its `label` on the picture). The one_of
+the card (tools/cut_portrait.py burns its `label` on the picture). A record's `read_by_eye`
+(T-3493) gives values a reader sees in the picture on axes no mark measures (a full cheek, a
+jowl, a broad jaw), with its own `basis`: each centres that axis's prior instead of the body's
+face_bias, and the fit lists them as read_by_eye. The one_of
 head outline is tried option by option and the best kept.
 
 What it writes. The fitted values for every face axis the portrait can move (and the head
@@ -143,6 +146,10 @@ def landmarks():
     lobe = np.array([i for i, d in moved.items() if d > 0.5 * max(moved.values())])
     out['ear_lobe_r'] = int(lobe[np.argmin(V[lobe, 1])])
     out['vertex'] = int(head[np.argmax(P[:, 1])])
+    # The left ear, for a face turned the other way (T-3486): the right ear's points mirrored
+    # across the midline (base.obj is symmetric), each the nearest skin vertex to its mirror.
+    for k in ('ear_top', 'ear_lobe'):
+        out[f'{k}_l'] = nearest(V[out[f'{k}_r']] * np.array([-1.0, 1.0, 1.0]))
     return out
 
 
@@ -238,6 +245,14 @@ def fit(person):
         else:
             base += W @ delta_at(axes[a['id']], v, 0, rows)
     fitted = [a['id'] for a in header['axes'] if not a.get('drive') and a['id'] in portrait['axes']]
+    # What a reader sees in the picture that no mark measures (T-3493: Frances Glessner's full
+    # cheeks, jowls and broad jaw): `read_by_eye.values` replaces the body's face_bias as the
+    # prior on those axes, so a flat axis rests at what the picture shows, not at the body's lean.
+    eye = (portrait.get('read_by_eye') or {}).get('values', {})
+    for k in eye:
+        if k not in fitted:
+            sys.exit(f"{person}: read_by_eye names {k}, which is not one of the record's fitted axes")
+    prior = {**body.get('face_bias', {}), **eye}
     for k, b in body.get('face_bias', {}).items():
         if k not in fitted and k in axes:
             base += W @ delta_at(axes[k], max(-header['limit'], min(header['limit'], b)), 0, rows)
@@ -249,11 +264,13 @@ def fit(person):
             halves[aid] = [W @ delta_at(a, 1.0, o, rows) for o in range(len(a['opts_d']))]
         else:
             halves[aid] = (W @ delta_at(a, 1.0, 0, rows), W @ delta_at(a, -1.0, 0, rows))
-    spreads = np.array([spec[aid]['spread'] for aid in fitted]) * PRIOR_WIDEN
+    # A rest axis (never drawn, spread 0: the mouth's resting set) is fitted only where it is
+    # read by eye, held there as tightly as the narrowest drawn axis.
+    spreads = np.array([spec[aid]['spread'] or 0.1 for aid in fitted]) * PRIOR_WIDEN
     # A fitted value replaces the body's face_bias in the renderer, so an axis the picture says
     # little about is held towards the body's own lean (a woman's jaw), not towards the men's zero.
     lim = header.get('limit', 1.0)
-    centre = np.array([max(-lim, min(lim, body.get('face_bias', {}).get(aid, 0.0))) for aid in fitted])
+    centre = np.array([max(-lim, min(lim, prior.get(aid, 0.0))) for aid in fitted])
     limit = 1.0
 
     def shape(v, option):
@@ -344,6 +361,7 @@ def record(person, f):
         # prior: the value moved from the average only as far as weak evidence allows.
         'read_from_picture': sorted(k for k, c in f['constrained'].items() if c),
         'mostly_prior': sorted(k for k, c in f['constrained'].items() if not c),
+        **({'read_by_eye': sorted((p.get('read_by_eye') or {}).get('values', {}))} if p.get('read_by_eye') else {}),
         'fit': {'rms_px': f['rms_px'], 'per_mark_px': f['per_mark_px'], 'camera': f['camera'],
                 'landmark_vertices': f['landmarks']},
         'not_modelled': p['not_modelled'],

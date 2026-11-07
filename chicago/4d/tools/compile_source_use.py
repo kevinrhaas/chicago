@@ -25,8 +25,11 @@ USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # T-3342's two camp sources on dev's records; 248 000 from T-3378/T-3379's fourteen jaunt
 # sources (the ghost legends and the famous names' biographies read 233 677); 256 000 from
 # T-3449/T-3450/T-3451's ten period-wardrobe sources (the 1835 merchant's and labourer's Met
-# pictures, the 1812 soldier's laws, regulations and plates read 248 510) — see outputs().
-INDEX_BUDGET = 256_000
+# pictures, the 1812 soldier's laws, regulations and plates read 248 510); 264 000 from
+# T-3486's fourteen Glessner-household likeness and wardrobe sources (the stand-in portraits,
+# the coachman's and stable hand's references, the cook's and errand girl's dress read
+# 259 766) — see outputs().
+INDEX_BUDGET = 264_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
                  'unknown': 'reconstructed', 'not_1835_resident': 'reconstructed'}
@@ -478,6 +481,10 @@ class Compiler:
         # complete sources and 228 329 raw bytes; 53 198 gzip bytes for the index and 60 574
         # for index + sources.js + sources.css. Another conscious 4 000-byte raw increase
         # (+1.75%), inside the same 120 000-byte compressed first-open assertion; nothing cut.
+        # 264 000 SINCE 2026-11-07 (T-3486): the Glessner household's stand-in likeness and
+        # wardrobe sources produce 631 complete sources and 259 766 raw bytes; 60 598 gzip
+        # bytes for the index, inside the same 120 000-byte compressed first-open assertion;
+        # another conscious 8 000-byte raw increase (+3.1%), nothing cut.
         if size > INDEX_BUDGET:
             raise ValueError(f'source index {size} bytes exceeds {INDEX_BUDGET}-byte budget')
         return outputs

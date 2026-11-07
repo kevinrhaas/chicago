@@ -62,7 +62,7 @@ export const HAIR_CUTS = Object.freeze({
 });
 
 export const FACIAL_HAIR = Object.freeze({
-  // A full moustache over the upper lip, falling a little at its ends (no one wears it yet).
+  // A full moustache over the upper lip, falling a little at its ends (August Billings, T-3484).
   moustache: Object.freeze({
     region_cm: Object.freeze({ x: [0, 2.6], y: [-6.5, -5.3], z_min: .4, droop: .35 }), facing: 'front',
     length_cm: 1.05, fall: 1, outward: .3, lift_mm: Object.freeze({ root: 1.2, tip: 2.8 }), width_mm: 3, cover: 7, spread: .5,
@@ -84,16 +84,22 @@ export const FACIAL_HAIR = Object.freeze({
   // T-3456 (owner, 2026-11-07: "super clumpy bunchy"): roots kept point by point and spaced evenly, the hairs
   // turning from up at the nose to down at the tail and shorter toward it, wider soft cards
   // lifted clear of the skin, and a straighter lay, so the brow reads as one smooth band.
+  // T-3493 (owner, 2026-11-07, of Frances: "they are dark and dont look good"): sparser, finer
+  // and lying flatter to the skin, so the brow reads as a soft band, not a pen stroke.
   brows_fine: Object.freeze({
     region_cm: Object.freeze({ x: [1.3, 4.6], y: [1.5, 1.9], z_min: -1.5, droop: .55 }), facing: 'front',
-    length_cm: .5, fall: -.1, fall_ends: Object.freeze([-1, .35]), outward: 1, taper: .35, curl: .04, even: .7, exact: true,
-    lift_mm: Object.freeze({ root: .3, tip: .45 }), width_mm: .8, cover: 3.2, spread: .3,
+    length_cm: .45, fall: -.1, fall_ends: Object.freeze([-1, .35]), outward: 1, taper: .35, curl: .04, even: .7, exact: true,
+    lift_mm: Object.freeze({ root: .12, tip: .25 }), width_mm: .55, cover: 2.2, spread: .3,
   }),
   // Upper lashes (T-3434): a short dark fringe along the upper lid, swept out and up. At 3 m
   // it reads as the dark line that makes an eye look open and soft rather than bare.
+  // T-3493 (owner, 2026-11-07: "look like they are double eyebrows ... her eyelashes dont
+  // move"): rooted on the upper lid's own edge, `per_cm` of it, and standing free of the skin,
+  // out from the edge and curling `rise` radians up, swept out by `splay` toward the outer
+  // corner, rather than combed up over the lid (a dark band a few millimetres above the eye,
+  // read as a second brow). They shut with the lid (human-hair.js facialMorphs).
   lashes_upper: Object.freeze({
-    region_cm: Object.freeze({ x: [2.1, 4.4], y: [0.1, 0.4], z_min: .7, droop: .2 }), facing: 'front',
-    length_cm: .32, fall: -.5, outward: .5, lift_mm: Object.freeze({ root: .2, tip: 1.2 }), width_mm: .3, cover: 5, spread: .4,
+    lid: 'upper', per_cm: 70, length_cm: .55, width_mm: .3, rise: 1, splay: .35,
   }),
   // Side whiskers: down from the temple in front of the ear to about the line of the mouth.
   side_whiskers: Object.freeze({
@@ -106,8 +112,15 @@ export const FACIAL_HAIR = Object.freeze({
 export const HAIR_COLOURS = Object.freeze({
   dark_brown: Object.freeze([.042, .026, .016]),
   mid_brown: Object.freeze([.062, .036, .020]),
+  // A light brown (T-3493): brows a shade lighter than a cleared bun hair's own texture, as
+  // light brows read in a photograph of a fair-haired woman (Frances Glessner's, 1892).
+  light_brown: Object.freeze([.22, .145, .095]),
   // White going grey (T-3440): an old man's hair, a little warm, not paper white.
   white_grey: Object.freeze([.44, .41, .36]),
+  // Brown going grey at 56 (T-3483, Charles Nelson): mid brown with grey through it.
+  grey_brown: Object.freeze([.15, .12, .095]),
+  // Ash fair (T-3484, August Billings): a Swede's light brown-blond, cool rather than golden.
+  ash_blond: Object.freeze([.24, .18, .11]),
 });
 
 /** What each era's people wear when their row names nothing. */
@@ -132,12 +145,20 @@ export const PEOPLE_HAIR = Object.freeze({
     basis: 'A reconstructed choice: a working woman of 1904 with her hair drawn back from the face to a bun, as the 1903 Wasson stereographs of a cook and a maid show. No picture of Martha Williamson has been read.',
   }),
   glessner_frances_m: Object.freeze({
-    cut: 'drawn_back_bun_1904', facial: Object.freeze(['brows_fine', 'lashes_upper']), colour: 'mid_brown', grade: 'reconstructed',
-    basis: 'A reconstructed choice: a lady of 56 in 1904 with her hair drawn up from the face to a knot behind, under her hat, as the women of the 1905 Johnston photograph and the 1904 Easter crowd wear it (lady_1904 reference set). No portrait of Frances Glessner has been read; whether her hair was grey by then is not recorded, and the cleared bun hair keeps its brown.',
+    cut: 'drawn_back_bun_1904', facial: Object.freeze(['brows_fine', 'lashes_upper']), colour: 'mid_brown', brow_colour: 'light_brown', grade: 'reconstructed',
+    basis: 'A reconstructed choice: a lady of 56 in 1904 with her hair drawn up from the face to a knot behind, under her hat, as the women of the 1905 Johnston photograph and the 1904 Easter crowd wear it (lady_1904 reference set). Her 1892 conservatory photograph (Chicago History Museum, ICHi-061818) shows her hair drawn back from the face and her brows light and fine, barely darker than her skin; the brows are drawn a light brown for that (T-3493). Whether her hair was grey by 1904 is not recorded, and the cleared bun hair keeps its brown.',
   }),
   pa1904_glessner_john_j_c1900_mary_reynolds: Object.freeze({
     cut: 'drawn_back_bun_1904', facial: Object.freeze(['brows_fine', 'lashes_upper']), colour: 'dark_brown', grade: 'reconstructed',
     basis: 'A reconstructed choice: a house maid of 1904 with her hair drawn up from the face to a knot on the crown, under her cap, as the 1904 Kelley maid and the 1903 Wasson cook wear it (maid_1904 reference set). No picture of Mary Reynolds is known.',
+  }),
+  pa1904_glessner_john_j_c1900_kate_ryan: Object.freeze({
+    cut: 'drawn_back_bun_1904', facial: Object.freeze(['brows_fine', 'lashes_upper']), colour: 'grey_brown', grade: 'reconstructed',
+    basis: 'A reconstructed choice: an Irish cook of 54 in 1904 with her hair drawn up from the face and covered by a cloth bound over it, as the older cook of the 1903 Wasson stereograph wears hers (cook_1904). Her brows are drawn brown going grey for her age; the cleared bun hair under the cloth keeps its brown. No picture of Kate Ryan is known.',
+  }),
+  pa1904_glessner_john_j_c1900_christine_nelson: Object.freeze({
+    cut: 'drawn_back_bun_1904', facial: Object.freeze(['brows_fine', 'lashes_upper']), colour: 'mid_brown', grade: 'reconstructed',
+    basis: 'A reconstructed choice: a parlor maid of 31 in 1904 out on an errand, her hair drawn up from the face to a knot under a straw sailor hat, as the women of Shinn\'s 1904 drawing and the 1909 shirtwaist strikers wear theirs (errand_1904). She was born in Sweden, but no colour of her hair is recorded: the cleared bun hair keeps its brown and her brows match it. No picture of Christine Nelson is known.',
   }),
   rc_flynn_mary: Object.freeze({
     cut: 'centre_part_knot_1835', facial: Object.freeze(['brows_fine', 'lashes_upper']), colour: 'dark_brown', grade: 'reconstructed',
@@ -146,6 +167,14 @@ export const PEOPLE_HAIR = Object.freeze({
   rc_bardwell_otis: Object.freeze({
     cut: 'brushed_forward_1835', facial: Object.freeze(['side_whiskers']), colour: 'mid_brown', grade: 'reconstructed',
     basis: 'A reconstructed choice for a teamster in the Chicago of 1835: hair worn fuller and brushed forward, side whiskers, the chin shaved. No picture of Otis Bardwell is known.',
+  }),
+  pa1904_glessner_john_j_c1900_charles_nelson: Object.freeze({
+    cut: 'short_side_part_1904', facial: Object.freeze(['brows_full']), colour: 'grey_brown', grade: 'reconstructed',
+    basis: 'A reconstructed choice for a Swedish coachman of 56 in 1904: short hair parted at the side under his hat, brown going grey, full brows, and clean-shaven, as the liveried coachmen of the Seely plates (1902), the older man in mourning livery among them, and of the coachman_1904 set are. No picture of Charles Nelson is known.',
+  }),
+  pa1904_glessner_john_j_c1900_august_billings: Object.freeze({
+    cut: 'short_side_part_1904', facial: Object.freeze(['moustache']), colour: 'ash_blond', grade: 'reconstructed',
+    basis: 'A reconstructed choice for a Swedish stable helper of 29 in 1904: short hair parted at the side, ash fair, and a moustache, as working men of the decade commonly wore one; a stable hand was not held to the livery\'s clean shave. No picture of August Billings is known.',
   }),
   peck_philip: Object.freeze({
     cut: 'brushed_forward_1835', facial: Object.freeze(['side_whiskers']), colour: 'dark_brown', grade: 'reconstructed',

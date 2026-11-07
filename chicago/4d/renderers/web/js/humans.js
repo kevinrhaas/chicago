@@ -41,7 +41,7 @@ import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
 import { loadVariationKit, personVariation, applyVariation, disposeVariants } from './human-variation.js';
 import { loadMeshoptDecoder, disposeLoadedAsset } from './scene-loader.js';
 import { enuToWorld } from './terrain.js';
-import { dressSkin } from './human-skin.js';
+import { dressSkin, restingLid } from './human-skin.js';
 import { dressHair } from './human-hair.js';
 import { dressSpectacles } from './human-spectacles.js';
 
@@ -318,8 +318,12 @@ export class HumanActor {
     else {
       // The dress assembly's figures greet with a nod (T-3423); the GLB's scene extras name it.
       // A later woman's assembly says `"skirt": true` there itself (T-3447).
-      const dressed = /adult_dress_v1|"skirt":\s*true/.test(next.scene.userData?.chicago4d_human?.wardrobe_assembly_json ?? '');
-      this.actions = createHumanActions({ id: this.personId ?? this.id, scene: next.scene, greeting: dressed ? 'nod' : 'brow', skirt: dressed });
+      const wardrobe = next.scene.userData?.chicago4d_human?.wardrobe_assembly_json ?? '';
+      const dressed = /adult_dress_v1|"skirt":\s*true/.test(wardrobe);
+      // T-3481: a dress that carries something by the hand (a basket) names the hold there too.
+      let carry = null;
+      if (wardrobe.includes('"carry"')) { try { carry = JSON.parse(wardrobe).carry ?? null; } catch { carry = null; } }
+      this.actions = createHumanActions({ id: this.personId ?? this.id, scene: next.scene, greeting: dressed ? 'nod' : 'brow', skirt: dressed, carry });
     }
     if (prev) { this.counters.swaps++; this.park(prev); }
     this.costs = '';
@@ -372,7 +376,8 @@ export class HumanActor {
     });
     // T-3400: skin with pores, blood and a glow, hair with a strand sheen, wet eyes, on
     // every person (human-skin.js; a shader patch, no texture). Bound to the rest pose.
-    dressSkin(scene);
+    // T-3493: with the person's age and brows, for the lines and shade of their face.
+    dressSkin(scene, { age: this.variation?.age ?? null, person: this.personId ?? null, year: Number(this.instance.scene) || null });
     // Measured through the node transforms: a quantised derivative's positions are not metres.
     scene.updateMatrixWorld(true);
     const height = new THREE.Box3().setFromObject(scene).max.y;
@@ -387,6 +392,8 @@ export class HumanActor {
     for (const c of this.libraryClips) if (!clips.has(c.name)) clips.set(c.name, c);
     // § 6: the face, where this LOD carries one. lod2/lod3 may not, and then it holds still.
     const faces = meshes.filter((m) => m.morphTargetDictionary && Object.keys(m.morphTargetDictionary).length);
+    // T-3493: brows and lashes that move with the face (a lash shuts with its lid).
+    if (hair?.face?.morphTargetDictionary && Object.keys(hair.face.morphTargetDictionary).length) faces.push(hair.face);
     const mixer = new THREE.AnimationMixer(scene);
     mixer.addEventListener('finished', (ev) => { if (ev.action === this.body?.oneShot) this.endGesture(); });
     return { lod, scene, meshes, faces, mixer, clips, hair, action: null, oneShot: null, assetId: this.instance.appearance.asset_id };
@@ -512,7 +519,7 @@ export class HumanActor {
     this.costs = key;
     for (const m of b.meshes) { m.castShadow = shadow; m.receiveShadow = this.distance < SHADOW_M; }
     // A face out of reach holds still: the blink is let go, the set expression kept.
-    if (!face) this.applyFace({ ...this.expression, ...Object.fromEntries(BLINK.map((k) => [k, this.expression[k] ?? 0])) });
+    if (!face) this.applyFace({ ...this.expression, ...Object.fromEntries(BLINK.map((k) => [k, this.expression[k] ?? restingLid(this.variation?.age)])) });
   }
 
   /** What a far figure is spared, now: for the harness and T-1792's budgets. */
@@ -623,6 +630,7 @@ export class HumanActor {
     if (this.state !== 'walking' || !this.route || this.route.length < 2) return;
     const clip = this.body && findClip(this.body.clips, 'walk');
     const speed = clip?.userData?.speed_m_s ?? this.walkSpeed ?? 1.3;
+    if (clip?.userData?.speed_m_s) this.walkSpeed = speed; // kept for walking on unseen, body or none
     let left = speed * dt;
     while (left > 0) {
       const a = this.route[this.leg];
@@ -649,6 +657,9 @@ export class HumanActor {
     if (this.indoors) { this.root.visible = false; this.inRange = false; return false; }
     this.recheck -= dt;
     this.clock += dt;
+    // T-3481: a figure on a looped route walks it out of range too, so she comes round again.
+    const walkedAway = !this.inRange && !!this.route;
+    if (walkedAway) this.walk(dt);
     if (!this.inRange && this.recheck > 0) return false;
     this.distance = cameraPosition.distanceTo(this.root.position);
     const lod = chooseHumanLod(this.distance, this.tier, this.lod, this.instance.lod);
@@ -663,7 +674,7 @@ export class HumanActor {
     this.counters.updates++;
     this.root.visible = !!this.body;
     if (lod !== this.lod && lod !== this.wanted) this.setLod(lod).catch(() => {});
-    this.walk(dt);
+    if (!walkedAway) this.walk(dt);
     const b = this.body;
     if (!b) { this.visualIdleBody = null; return true; }
     if (this.distance < ANIMATE_M) {
@@ -685,7 +696,9 @@ export class HumanActor {
       // life layer's irregular one (T-3402) where it is bound, else every 4 s.
       this.blinkClock += dt;
       const t = this.blinkClock % 4;
-      const w = this.life?.bound ? this.life.blink : t < 0.15 ? Math.sin((t / 0.15) * Math.PI) : 0;
+      // T-3493: an older face's upper lids rest a little lower (restingLid), and blink from there.
+      const rest = restingLid(this.variation?.age);
+      const w = rest + (1 - rest) * (this.life?.bound ? this.life.blink : t < 0.15 ? Math.sin((t / 0.15) * Math.PI) : 0);
       this.applyFace({ ...this.expression, eyeBlinkLeft: w, eyeBlinkRight: w });
       this.counters.faced++;
     }
