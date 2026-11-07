@@ -1,25 +1,48 @@
 {
   "schema_version": 1,
-  "content_version": 3,
+  "content_version": 4,
   "category": "Fort Dearborn",
   "featured": true,
   "review_required": false,
   "id": "battle-of-fort-dearborn",
   "scene": "1812",
   "title": "The Battle of Fort Dearborn",
-  "premise": "6 April to 16 August 1812 in twelve stops: the killings at Hardscrabble, the order to leave, the march down the beach, the surrender, and the houses where the Kinzies and Mrs. Helm hid.",
+  "premise": "6 April to 16 August 1812 in thirteen stops: the fort, the killings at Hardscrabble, the order to leave, the march down the beach, the surrender, and the houses where the Kinzies and Mrs. Helm hid.",
   "default_mode": "fly",
   "allowed_modes": [
     "fly",
     "instantly"
   ],
   "opening": {
-    "text": "JAUNT: THE BATTLE OF FORT DEARBORN. Spring 1812, where the Chicago River meets Lake Michigan. This story begins with the fort. In the summer of 1803 Captain John Whistler's company marched in from Detroit and built it in logs: barracks round a small parade, 'Two blockhouses' and 'a double row of palisades'. It has stood for nine years. Since 1810 it has been commanded by Captain Nathan Heald, with fifty-four regular soldiers. Across the river lives John Kinzie, the trader who supplies the garrison, with his family and his clerks; his stepdaughter Margaret is married to the fort's lieutenant, Linai Helm. A handful of other families live along the banks: the Ouilmettes, the Burnses, and the hands at Charles Lee's farm. The nearest American post is Fort Wayne, far to the south-east; Detroit, where the general commands, is farther still. War with Britain is coming, and every report that reaches the fort makes it feel smaller and farther from help. \n\nTwelve stops in date order, with the time of day set for each. Long rides go Instantly; every place keeps its stop.\n\nThe situation is about to ignite, three miles up the river, a little before sunset on 6 April 1812.",
-    "read_s": 57
+    "text": "JAUNT: THE BATTLE OF FORT DEARBORN. Spring 1812, where the Chicago River meets Lake Michigan. The nearest American post is Fort Wayne, far to the south-east; Detroit, where the general commands, is farther still. War with Britain is coming, and every report that reaches the fort makes it feel smaller and farther from help.\n\nThirteen stops in date order, with the time of day and the season set for each. Long rides go Instantly; every place keeps its stop.\n\nThe story begins with the fort, on the afternoon of 6 April 1812.",
+    "read_s": 26
   },
   "stops": [
     {
+      "id": "the-fort",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_dearborn"
+      },
+      "text": "6 April 1812, afternoon, before the fort. This story begins here. In the summer of 1803 Captain John Whistler's company marched in from Detroit and built it in logs: barracks round a small parade, 'Two blockhouses' and 'a double row of palisades'. It has stood for nine years. Since 1810 it has been commanded by Captain Nathan Heald, with fifty-four regular soldiers. Across the river lives John Kinzie, the trader who supplies the garrison, with his family and his clerks; his stepdaughter Margaret is married to the fort's lieutenant, Linai Helm. A handful of other families live along the banks: the Ouilmettes, the Burnses, and the hands at Charles Lee's farm. The situation is about to ignite, three miles up the river, a little before sunset.",
+      "read_s": 36,
+      "evidence": [
+        "fort",
+        "kinzie",
+        "officers",
+        "heald-april",
+        "fort-afternoon"
+      ],
+      "next": "hardscrabble",
+      "hour": "afternoon",
+      "date": "1812-04-06",
+      "hour_evidence": [
+        "fort-afternoon"
+      ]
+    },
+    {
       "id": "hardscrabble",
+      "since": "A few hours later",
       "destination": {
         "kind": "anchor",
         "id": "lees_place_cabin"
@@ -272,6 +295,17 @@
     }
   ],
   "legs": [
+    {
+      "note": "Three miles up the river to Lee's Place: this leg goes Instantly.",
+      "mode": "instantly",
+      "story": "Up the South Branch, a little before sunset, eleven armed men walk toward a farmhouse.",
+      "evidence": [
+        "heald-april"
+      ],
+      "story_evidence": [
+        "heald-april"
+      ]
+    },
     {
       "note": "Three miles down the river to the fort: this leg goes Instantly.",
       "mode": "instantly",
@@ -613,6 +647,15 @@
         "quaife_1913"
       ],
       "locator": "Quaife 1913, the chapters on the building of the fort, the garrison of 1810 and the evacuation, Project Gutenberg eBook #69274 plain text"
+    },
+    {
+      "id": "fort-afternoon",
+      "text": "The story opens at the fort on the afternoon of 6 April 1812, the day Heald's letter puts the killings at Lee's Place 'a little before sunset'. The hour is not recorded; afternoon is the stop's setting.",
+      "confidence": "inferred",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "reasoning": "Heald's letter of 15 April 1812 dates the attack at the cabin to the 6th, a little before sunset. The opening scene at the fort is set earlier that day so that the story begins before it; nobody wrote down an hour for it."
     },
     {
       "id": "kinzie",
