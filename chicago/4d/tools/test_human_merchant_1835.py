@@ -47,7 +47,7 @@ class Merchant(unittest.TestCase):
         self.assertEqual(self.bundle['shoe_material'], 'footwear__black_boots_1835')
         self.assertEqual(self.mesh['tailcoat_buttons']['receipt']['count'], 6)
 
-    def test_he_is_philip_peck_as_recorded_and_not_placed_in_town(self):
+    def test_he_is_philip_peck_as_recorded_and_placed_once_in_town(self):
         v = self.variant
         self.assertEqual((v['person_reference_id'], v['component_assembly'], v['person_reference_grade']),
                          ('peck_philip', 'merchant_1835_v1', 'attested'))
@@ -59,8 +59,14 @@ class Merchant(unittest.TestCase):
         self.assertTrue(30 <= v['body_parameters']['engineering_age_years'] <= 39)
         from human_teamster_blend import resolve_person_reference
         self.assertEqual(resolve_person_reference(v)['name'], 'Philip F. W. Peck')
-        self.assertFalse([p for p in (ROOT/'data/humans/instances').rglob('*.json')
-                          if 'peck_philip' in p.read_text() or 'merchant_1835' in p.read_text()])
+        # He stands in the 1835 town once, in this dress, before his store (T-3452).
+        found = [p for p in (ROOT/'data/humans/instances').rglob('hi_*.json')
+                 if 'peck_philip' in p.read_text() or 'merchant_1835' in p.read_text()]
+        self.assertEqual([p.relative_to(ROOT).as_posix() for p in found], ['data/humans/instances/1835/hi_peck_philip_1835.json'])
+        inst = json.loads(found[0].read_text())
+        self.assertEqual((inst['scene'], inst['person_id'], inst['appearance']['asset_id'], inst['display']),
+                         ('1835', 'peck_philip', v['id'], 'shown'))
+        self.assertIn(inst['id'], json.loads((ROOT/'data/humans/instances/1835/index.json').read_text())['instances'])
 
     def test_every_garment_carries_provenance(self):
         garments = self.recipe['merchant_components']['garments']

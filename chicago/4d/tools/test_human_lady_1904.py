@@ -51,8 +51,14 @@ class Lady(unittest.TestCase):
         self.assertEqual((v['person_reference_id'], v['component_assembly']), ('glessner_frances_m', 'lady_1904_v1'))
         hh = json.loads((ROOT/v['person_reference_record']).read_text())
         self.assertIn('glessner_frances_m', {p['id'] for p in hh['persons']})
-        # No figure in the town draws her yet: the dress is built, not placed.
-        self.assertFalse(list((ROOT/'data/humans/instances').rglob('*glessner_frances_m*')))
+        # She stands in the 1904 town once, in this dress, in her courtyard (T-3452).
+        found = list((ROOT/'data/humans/instances').rglob('hi_*glessner_frances_m*.json'))
+        self.assertEqual([p.relative_to(ROOT).as_posix() for p in found],
+                         ['data/humans/instances/1904/hi_glessner_frances_m_1904.json'])
+        inst = json.loads(found[0].read_text())
+        self.assertEqual((inst['scene'], inst['person_id'], inst['appearance']['asset_id'], inst['display']),
+                         ('1904', 'glessner_frances_m', v['id'], 'shown'))
+        self.assertIn(inst['id'], json.loads((ROOT/'data/humans/instances/1904/index.json').read_text())['instances'])
 
     def test_every_garment_carries_provenance(self):
         garments = self.recipe['lady_components']['garments']

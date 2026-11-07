@@ -69,7 +69,14 @@ class Maid(unittest.TestCase):
         hh = json.loads((ROOT/v['person_reference_record']).read_text())
         person = next(p for p in hh['persons'] if p['id'] == v['person_reference_id'])
         self.assertEqual(person['occupation']['value'], 'house maid')
-        self.assertFalse(list((ROOT/'data/humans/instances').rglob('*mary_reynolds*')))
+        # She stands in the 1904 town once, in this dress, at the service arch (T-3452).
+        found = list((ROOT/'data/humans/instances').rglob('hi_*mary_reynolds*.json'))
+        self.assertEqual([p.relative_to(ROOT).as_posix() for p in found],
+                         ['data/humans/instances/1904/hi_pa1904_glessner_john_j_c1900_mary_reynolds_1904.json'])
+        inst = json.loads(found[0].read_text())
+        self.assertEqual((inst['scene'], inst['person_id'], inst['appearance']['asset_id'], inst['display']),
+                         ('1904', v['person_reference_id'], v['id'], 'shown'))
+        self.assertIn(inst['id'], json.loads((ROOT/'data/humans/instances/1904/index.json').read_text())['instances'])
 
     def test_every_garment_carries_provenance(self):
         garments = self.recipe['maid_components']['garments']

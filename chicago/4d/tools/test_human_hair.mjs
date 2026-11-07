@@ -181,6 +181,21 @@ for (const [year, row] of Object.entries(ERA_DEFAULT)) assert(HAIR_CUTS[row.cut]
 assert.equal(hairFor('rc_bardwell_otis', 1835).cut, 'brushed_forward_1835');
 assert.equal(hairFor('someone_else', 1904).cut, ERA_DEFAULT[1904].cut);
 assert.equal(hairFor(null, 1600), null, 'no era, no hair grown');
+// T-3452: the era defaults are men's cuts, so every woman a standing figure draws has her own
+// row; and the 1812 private (anonymous, no person id) grows no strands under his felt cap,
+// because no era cut is set for 1812 — the cleared short04 cap he was dressed over shows instead.
+{
+  const sexOf = JSON.parse(await fs.readFile(new URL('data/humans/variation/axes.json', here), 'utf8')).assets;
+  for (const year of ['1812', '1835', '1904']) {
+    let index;
+    try { index = JSON.parse(await fs.readFile(new URL(`data/humans/instances/${year}/index.json`, here), 'utf8')); } catch { continue; }
+    for (const id of index.instances) {
+      const rec = JSON.parse(await fs.readFile(new URL(`data/humans/instances/${year}/${id}.json`, here), 'utf8'));
+      if (sexOf[rec.appearance.asset_id]?.sex === 'female') assert(rec.person_id && PEOPLE_HAIR[rec.person_id], `${id}: a woman drawn in the town has her own hair row`);
+    }
+  }
+}
+assert.equal(hairFor(null, 1812), null, 'the 1812 private grows no strand hair under his cap');
 
 // 4. Eyes: the iris and pupil take a cornea's dome, each eye about its own disc, once.
 {

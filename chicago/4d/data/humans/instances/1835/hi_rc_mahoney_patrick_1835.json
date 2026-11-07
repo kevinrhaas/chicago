@@ -1,0 +1,45 @@
+{
+  "id": "hi_rc_mahoney_patrick_1835",
+  "contract_version": 1,
+  "scene": "1835",
+  "person_id": "rc_mahoney_patrick",
+  "appearance": {
+    "asset_id": "mahoney_patrick_1835"
+  },
+  "placement": {
+    "local_e": 440.5,
+    "local_n": 24.0,
+    "heading_deg": 200,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.3
+  },
+  "behaviour": {
+    "state": "standing"
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed standing depiction of existing reconstructed resident Patrick Mahoney (a labourer; his name, age band, trade and household are model records, T-1347) on the worked river bank on the north side of South Water Street, about four metres above the landing reconstructed for Peck's store, facing back across the street. The staffing model seats him as a porter on sale days at A. Garrett's auction and commission room, which the register puts on South Water Street and in no house, and he boards in a reconstructed shanty in the school section (1835 housing seats); neither gives a place to stand, so he is drawn where the street's goods came off the river. That he works this landing, or for Peck, is not claimed. His unbleached shirt, red neckerchief, braces, open green waistcoat, brown trousers and drab slouch hat are built after Mount's The Raffle (1837) and Cider Making (1841) and Weir's The Wood Sawyer (1842) (T-3450). The stand, the dress, the face and the hair are reconstructed.",
+    "sources": [
+      "met_mount_1837_the_raffle",
+      "met_mount_1841_cider_making",
+      "met_weir_1842_the_wood_sawyer"
+    ],
+    "liberty": "L418",
+    "seed": "rc_mahoney_patrick:1835:landing-bank-standing:20261107",
+    "replaceable_by": "A source naming where a labourer of his description worked in July 1835, or a better qualified depiction replacing this reconstructed resident slot; exact location/action has no documentary claim."
+  }
+}

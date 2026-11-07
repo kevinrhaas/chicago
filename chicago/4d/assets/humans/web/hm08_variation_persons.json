@@ -4,6 +4,21 @@
  "generated_by": "tools/human_variation_kit.py",
  "_doc": "Each drawn person's age (from their own record: a birth date, else an age band) and any face fitted to a picture of them. renderers/web/js/human-variation.js seeds everything else from the person id. Regenerate; never edit by hand.",
  "persons": {
+  "glessner_frances_m": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_glessner_john_j.json",
+   "drawn_as": [
+    "data/humans/instances/1904/hi_glessner_frances_m_1904.json"
+   ],
+   "age": {
+    "years": 56,
+    "grade": "attested",
+    "sources": [
+     "glessner_house_family_page"
+    ],
+    "basis": "born 1848-01-01 (the person's record)"
+   }
+  },
   "glessner_john_j": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_glessner_john_j.json",
@@ -81,6 +96,21 @@
     "data/humans/instances/1904/hi_glessner_williamson_martha_l_1904.json"
    ]
   },
+  "pa1904_glessner_john_j_c1900_mary_reynolds": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_glessner_john_j.json",
+   "drawn_as": [
+    "data/humans/instances/1904/hi_pa1904_glessner_john_j_c1900_mary_reynolds_1904.json"
+   ],
+   "age": {
+    "years": 33,
+    "grade": "inferred",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1871 (the person's record)"
+   }
+  },
   "pa1904_otis_f_r_c1900_hans_johnson": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_otis_f_r.json",
@@ -95,6 +125,22 @@
     ],
     "basis": "born 1870 (the person's record)"
    }
+  },
+  "peck_philip": {
+   "scene": "1835",
+   "record": "data/residents/households/hh_peck_philip.json",
+   "drawn_as": [
+    "data/humans/instances/1835/hi_peck_philip_1835.json"
+   ],
+   "age": {
+    "band": [
+     30,
+     39
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 30-39 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
   },
   "rc_bardwell_otis": {
    "scene": "1835",
@@ -128,6 +174,22 @@
     "basis": "age band 20-29 (the person's record); the year inside it is seeded"
    },
    "sex": "female"
+  },
+  "rc_mahoney_patrick": {
+   "scene": "1835",
+   "record": "data/residents/reconstructed_trades/hh_rc_mahoney_patrick.json",
+   "drawn_as": [
+    "data/humans/instances/1835/hi_rc_mahoney_patrick_1835.json"
+   ],
+   "age": {
+    "band": [
+     30,
+     39
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 30-39 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
   }
  }
 }
