@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2770, ts: '2026-11-07T10:24:17.933Z', date: 'Nov 7, 2026, 4:24 AM CT', title: '1801 Prairie\'s roof leans back from the street as its photographs show', kind: 'improvement',
+    items: [
+      'The Kimball house\'s slate roof on Prairie Avenue now leans back, its top edge about a metre further from the street and a little lower, as both photographs taken from the north-west show it.',
+      'The slate pyramid on the corner now stands clear above the roof\'s edge, where it used to merge into the corner.',
+      'The tall south chimney no longer shows above the roof from the street corner, matching the 1895 photograph.',
+      'All three pictures of the house that the model is measured against now match it, the Prairie Avenue front included.',
+    ] },
   { v: 2769, ts: '2026-11-07T09:50:31.681Z', date: 'Nov 7, 2026, 3:50 AM CT', title: 'A Glessner house maid has her 1904 working dress', kind: 'feature',
     items: [
       'Mary Reynolds, house maid at 1800 Prairie Avenue in 1900, wears a black long-sleeved dress to the floor with a white collar and cuffs.',
