@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08066",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "1413110d8060ba16a1a185405b1c01ef085b263efdb6565bc78c59c928e8e374",
+  "glb_sha256": "4fdacdfa3af6182c21fbe8726defe6c3d271465e6c05346efa3ce90a542abde8",
   "camera_sha256": "2782cfb7522dcbce06430cb36da1cc7ca371344a01271c28449ffb8942619cd9",
   "photo_sha256": "297e4d7b05312c70ddea6e5dbb24a74cffd0db743f3bb9cdcbb1f4c0edc5f4fb",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "1413110d8060ba16a1a185405b1c01ef085b263efdb6565bc78c59c928e8e374"
+      "glb_sha256": "4fdacdfa3af6182c21fbe8726defe6c3d271465e6c05346efa3ce90a542abde8"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "33753cacaa38e5035e8d72e0f568c4efa6c9770272b67ef2f03738313beeb916"
     }
   ],
-  "group_sha256": "b71c610006149e7686c1ba1bcbf5d9f033129832e378a86ee9a0a3546ecadbdc",
+  "group_sha256": "1ed1db05ac5cddb0864c3a533689ab16c449cf3f46c4083e73d9b4b3f8923c0e",
   "rendered_flora": {
     "season": "winter",
     "creeper_in_leaf": true,
@@ -74,7 +74,7 @@
         "shrubs": 26,
         "trees": 3,
         "beds": 0,
-        "creeper": 20
+        "creeper": 30
       }
     ],
     "street_trees": 36,
@@ -112,7 +112,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "cac67fd26e677f5a848f1817b51d2a485835b09f09aa2c234efc1b3a5b3e3329"
+      "sha256": "392731bfd19a5feee49ff99b0cad94653d3953628153e4f709c65741aa202c89"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -132,7 +132,7 @@
     },
     {
       "file": "renderers/web/js/season.js",
-      "sha256": "e44ebdadf8266909cd6e8676775a9decc3b7376ba245ad784118851e15b409cc"
+      "sha256": "8407ba119eef8e26e1bfb4bf1d9dd2c4786d2981165f2d232fe53d2347a9bda7"
     },
     {
       "file": "renderers/web/js/trees.js",
@@ -143,7 +143,7 @@
       "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "13dc0772aa9546c05554b725fbc8f49ee35e0293ec8e3ef62947c527295a83b9",
+  "flora_sha256": "e1b4f89ff35fe0497eb9c1b1c001752b132d05af180c63907f69659b2b7b84bd",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08066-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -184,12 +184,12 @@
       "status": "fixed"
     },
     {
-      "what": "the flank's ground storey east of the porte-cochere: two broad square-headed windows, glazed in several lights (x 297-315 and 350-372, y about 450-490), where the build has narrow round-headed lights (Taylor's no. 1445 sees this stretch only through the porte-cochere's arches, as a pair, and the build follows it)",
-      "status": "open"
+      "what": "the flank's ground storey east of the porte-cochere: two broad square-headed windows, glazed in several lights (x 297-315 and 350-372, y about 450-490), where the build has narrow round-headed lights (Taylor's no. 1445 sees this stretch only through the porte-cochere's arches, as a pair, and the build follows it). FIXED (T-1881, 2026-11-07): both built as broad square-headed windows, two plate lights under a transom (K06's casement pair under a transom), the pavilion's 2.6 m across under its triple and the east section's 2.8 m at s 22.95 (a new K01 side-window path, north_bays[].component), their heads about 4.8 m and their glass down to about 1.3 m over grade as the print reads them; checked square-on in a close render. Through this camera the pavilion's window stands behind the porte-cochere's east end, which the build places about 2 m east of the print's (the porte-cochere item, still open)",
+      "status": "fixed"
     },
     {
-      "what": "the ivy: a heavy mantle over the flank's east section's ground storey (x 290-390, up to the belt at about y 440) and over the porte-cochere's piers and arch, where the build clothes only the porte-cochere's corner pier",
-      "status": "open"
+      "what": "the ivy: a heavy mantle over the flank's east section's ground storey (x 290-390, up to the belt at about y 440) and over the porte-cochere's piers and arch, where the build clothes only the porte-cochere's corner pier. T-1881, 2026-11-07: the east section's ground storey and the pavilion's face east of its window are now clothed, and the porte-cochere's east end's two piers to the entablature; under the owner's ruling of 2026-11-02 for this house (\"pull back on the vine ... you can have some but it covers the windows\", as the flank's west part and the front), the mantle is held 0.4 m off the broad windows and stops at about the lights' heads (5.0-5.6 m), not at the belt the print shows it reaching",
+      "status": "owner ruling"
     },
     {
       "what": "18th Street's north parkway trees before the house: the print's trunks stand at x about 345, 435 and 540 (before the flank's east section, before the terrace's flight and at the rear face's north end), the render's at about 245, 305, 390 and 497, up to about 45 px (about 5 m) off; the trees were planted at Taylor's no. 1445's trunks (T-1881, 2026-10-30), which this print, of c. 1900, does not confirm",
@@ -206,6 +206,10 @@
     {
       "what": "the estate's other buildings, judged in their own records (T-1934): the raised terrace in the rear's south-east angle (the conservatory record's), which the print shows as a low balustraded terrace along the rear face from the corner to about x 495 with its flight descending to the 18th Street walk between two piers at x 435-470 and no awning, where the build lays a terrace with its awning and flights and urned piers reaching forward and west to the coping (x 350-570); the low east range with its balustrade and two stacks (x 545-640) and the conservatory's drum behind it (x 640-660, y 395); and the stable, whose south-east corner (x 930) the fit used, and whose south face the build draws long and tall across x 570-930, where the print shows the low range, a two-storey block (x 700-800) and the stable's hipped roof only from about x 860; the 18th Street coping and its piers",
       "status": "not shown"
+    },
+    {
+      "what": "the leaves over the porte-cochere's east arch: the print shows the ivy running over the arch's ring between the clothed piers (x 255-285, y 415-430); the build clothes the piers to the entablature and leaves the ring bare",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

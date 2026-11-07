@@ -373,6 +373,11 @@ ROUND_HEAD_HOOD = "k09.trim.lintel_cornice_hood"   # T-2960: the hood street_fro
 #: T-2752: the street windows a stone front read off a photograph names one by one
 #: (`street_front_windows`), each a component the record's window_kit glazes
 STREET_WINDOW = "k01.opening.street_"
+#: T-1881: a side or rear wall's window read off a picture as a broad, flat-headed group (1729's
+#: 18th Street flank east of its pavilion, the Detroit print det 4a08066: a pair of plate lights
+#: under a transom), each a component the record's window_kit glazes with a flat-headed K06
+#: variant, cut one hole under a plain head like the wall's other read windows
+SIDE_WINDOW = "k01.opening.side_"
 
 #: T-2358: the one condition kit a record may name (K14, T-2324)
 CONDITION_KIT = "data/components/prairie_1904/k14_condition.json"
@@ -6443,10 +6448,38 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             continue
         what = f"{attr}[{j}]"
         if not {"s_m", "sill_m", "width_m", "height_m"} <= set(e) <= {"s_m", "sill_m", "width_m", "height_m",
-                                                                     "head", "why_not_ordinary"}:
+                                                                     "head", "why_not_ordinary", "component"}:
             raise ParamError(f"{what}: a window read off a picture takes s_m, sill_m, width_m and height_m, "
-                             f"and may take head and why_not_ordinary")
+                             f"and may take head, why_not_ordinary and component")
         s, sill, wd, h = (float(e[x]) for x in ("s_m", "sill_m", "width_m", "height_m"))
+        # T-1881: or a broad flat-headed group its picture draws (1729's flank east of the pavilion,
+        # det 4a08066: a pair of plate lights under a transom), named as a SIDE_WINDOW component the
+        # window_kit glazes, under a plain head, its breadth the group's and saying why
+        comp = e.get("component")
+        if comp is not None:
+            kit_v = {v["id"]: v for v in json.loads(WINDOW_KIT.read_text())["variants"]}
+            entry = (val("window_kit") or {}).get(comp)
+            vid = entry if isinstance(entry, str) else (entry or {}).get("variant")
+            if not comp.startswith(SIDE_WINDOW) or vid not in kit_v or kit_v[vid]["head"] != "flat":
+                raise ParamError(f"{what}.component: {comp!r} is not a {SIDE_WINDOW}* component the window_kit "
+                                 f"glazes with a flat-headed K06 variant")
+            if e.get("head") != "plain" or not e.get("why_not_ordinary"):
+                raise ParamError(f"{what}: a grouped window read off a picture has its head plain and says "
+                                 f"why it is not the ordinary sash (why_not_ordinary)")
+            if not 1.0 <= wd <= 3.4 or not 1.0 <= h <= 3.6 or sill < 0.3:
+                raise ParamError(f"{what}: a grouped window read off a picture is 1.0-3.4 m across, "
+                                 f"1.0-3.6 m high, its sill at least 0.3 m up")
+            if sill + h + 0.30 > soffit - 0.05:
+                raise ParamError(f"{what}'s lintel runs into the soffit at {soffit:.2f} m")
+            if s - wd / 2 < 0.45 or s + wd / 2 > depth - 0.45:
+                raise ParamError(f"{what} stands within 0.45 m of the wall's ends")
+            for a0, a1, b0, b1 in read.setdefault(wall_id, []):
+                if s - wd / 2 < a1 + 0.3 and s + wd / 2 > a0 - 0.3 and sill < b1 + 0.45 and sill + h > b0 - 0.45:
+                    raise ParamError(f"{what} meets another read window, or its lintel")
+            read[wall_id].append((s - wd / 2, s + wd / 2, sill, sill + h))
+            openings.append(Opening(comp, wall_id, s, round(sill, 4), wd, h,
+                                    kit_v[vid]["operation"].startswith("double_hung"), plain=True))
+            continue
         # T-2884: its head as the picture draws it — `plain`, a square hole with nothing laid
         # over it, or `round`, a round-headed hole under no hood or arch (1625's lower lights);
         # absent, K01 lays the brick wall's own head. A light narrower than the ordinary sash
