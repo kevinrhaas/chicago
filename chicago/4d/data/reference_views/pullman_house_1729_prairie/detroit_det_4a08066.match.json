@@ -74,7 +74,7 @@
         "shrubs": 26,
         "trees": 3,
         "beds": 0,
-        "creeper": 30
+        "creeper": 53
       }
     ],
     "street_trees": 36,
@@ -112,7 +112,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "392731bfd19a5feee49ff99b0cad94653d3953628153e4f709c65741aa202c89"
+      "sha256": "7f4ba235f07a51d60ba052a507137919c58c6a0bfeeb45a6a9696e112ab092b3"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -124,7 +124,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "516638c5cb53043e352359012564973fbaca844282e7809913d3f4709d8e5572"
+      "sha256": "5225613ca5dd36a0e7577b2f0aed62e1a9cf15f4af2a39cd233b8d1cf97d40d2"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -143,7 +143,7 @@
       "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "e1b4f89ff35fe0497eb9c1b1c001752b132d05af180c63907f69659b2b7b84bd",
+  "flora_sha256": "d9aa94e4cfd9e95d65a5cbd359da5915fa786a4a1c37b00d11e926cf23153167",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08066-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -176,7 +176,7 @@
       "status": "fixed"
     },
     {
-      "what": "the porte-cochere on the flank: a one-storey block with a balustraded deck (its top at y 427) and a dark round arch facing the camera at x 247-285, the deck's balustrade running back to the flank; the render's block stands in place (deck within 9 px) but its arch toward the camera renders narrower and about 15-20 px right (x 270-295), about 2 m at this distance",
+      "what": "the porte-cochere on the flank: a one-storey block with a balustraded deck (its top at y 427) and a dark round arch facing the camera at x 247-285, the deck's balustrade running back to the flank; the render's block stands in place (deck within 9 px) but its arch toward the camera renders narrower and about 15-20 px right (x 270-295), about 2 m at this distance [Read again for T-1881, 2026-11-07, on the print at 4x: the arch facing the camera is x 250-285, its mouth's crown at y 447, under a deck whose balustrade runs x 241-288 at y 424-426; the build draws its east end's arch at x 291-319, crown y 431, under a deck at x 282-328, so the miss is about 35-40 px (about 4 m at this distance), not 15-20. The camera's porte-cochere point (290, 427) is the deck's back corner against the pavilion, not its south-east corner. A least-squares re-fit with the point re-read and the arch's jambs added (level, principal x at the centre) comes to 9.4 px rms with the stable's eave 22 px off, and with the porte-cochere taken horizontally only to 6.5 px, both against the solve's 3.9: no level camera fits the rear face, the stable and this end of the flank together, so the gap is not this camera's alone. The print also draws the arch wider than the build's 2.8 m (about 3.2 m on the deck's scale) and its crown about 2.0 m under the deck's top, against the build's 1.65 m. The camera is left as solved; this stays open for a re-solve beside Taylor's 16554 and no. 1445 and for the arch's size.]",
       "status": "open"
     },
     {
@@ -208,8 +208,8 @@
       "status": "not shown"
     },
     {
-      "what": "the leaves over the porte-cochere's east arch: the print shows the ivy running over the arch's ring between the clothed piers (x 255-285, y 415-430); the build clothes the piers to the entablature and leaves the ring bare",
-      "status": "open"
+      "what": "the leaves over the porte-cochere's east arch: the print shows the ivy running over the arch's ring between the clothed piers (x 255-285, y 415-430); the build clothes the piers to the entablature and leaves the ring bare [T-1881, 2026-11-07: fixed. The ring is now clothed by a run of narrow strips laid on the model's own arch (`creeper_arches` in the front-yard planter, a new `mantle_ring` form grown at its own half-metre width), each standing on the intrados and reaching to the entablature's soffit, so the leaves run over the ring and its spandrels between the clothed piers and the mouth stays clear; re-rendered here, the leaves close over the arch's head at x 290-300, y 425-437.]",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
