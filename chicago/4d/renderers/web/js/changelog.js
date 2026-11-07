@@ -1,4 +1,32 @@
 export const CHANGELOG = [ // newest first
+  { v: 2767, ts: '2026-11-07T09:10:31.747Z', date: 'Nov 7, 2026, 3:10 AM CT', title: 'Knock at the Glessners\' door and ask for him', kind: 'feature',
+    items: [
+      'Send Mr. Glessner home, then press Interact at his front door: Ask for John J. Glessner comes first.',
+      'He comes to the door, opens it, walks down to you, touches his hat and shuts the door behind him.',
+      'Out on the walk, Show me the courtyard takes you with him through the carriage passage into the court. Walk round to the arch goes by Eighteenth Street.',
+      'Go home works from anywhere. He walks back round by the sidewalk and up his steps.',
+    ] },
+  { v: 2766, ts: '2026-11-07T09:10:31.747Z', date: 'Nov 7, 2026, 3:10 AM CT', title: 'Meet John J. Glessner on his front walk', kind: 'feature',
+    items: [
+      'In 1904, Mr. Glessner stands on his front walk at 1800 Prairie Avenue, looking out at the street.',
+      'Walk up to him and press Interact. Greet (R) turns him to you; he touches his hat and his card opens.',
+      'Go home (2) sends him up his steps. He opens his front door, goes in, and it shuts behind him.',
+      'Where something offers more than one thing to do, each gets its own key under Interact, numbered 2, 3 and on.',
+    ] },
+  { v: 2765, ts: '2026-11-07T09:10:31.747Z', date: 'Nov 7, 2026, 3:10 AM CT', title: 'Glessner House\'s front door opens, and you can climb to it', kind: 'feature',
+    items: [
+      'Walk up the steps at 1800 Prairie Avenue to the front door. The walk eases you up each step.',
+      'On the top step, press Interact (R) to open the door. It swings in on its hinges, and there is a dark hall behind it.',
+      'With the door open, step inside, then walk back down to the sidewalk. The door won\'t close while you stand in the doorway.',
+      'The hinge side, the inward swing and the hall are liberties. The door itself is Richardson\'s drawing of it.',
+    ] },
+  { v: 2764, ts: '2026-11-07T09:10:31.747Z', date: 'Nov 7, 2026, 3:10 AM CT', title: 'John J. Glessner has his 1904 day clothes', kind: 'feature',
+    items: [
+      'A black frock coat to the knee over a high dark waistcoat, standing white collar and dark tie, as 1904 photographs of men of his standing show.',
+      'Grey trousers, black boots and a black derby, the hat Chicago men wore on State Street in 1903; the derby is a separate piece so he can lift it.',
+      'His skin is an older man\'s, with a bald crown to match his portrait.',
+      'He is dressed and can stand and walk, but does not appear in town yet.',
+    ] },
   { v: 2763, ts: '2026-11-07T08:43:18.487Z', date: 'Nov 7, 2026, 2:43 AM CT', title: 'Pullman house: two rear chimneys read off a second photograph', kind: 'improvement',
     items: [
       'A second Detroit Publishing photograph of about 1900, taken from 18th Street near Calumet Avenue, now checks the Pullman house\'s 18th Street side and rear.',
