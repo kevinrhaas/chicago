@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2775, ts: '2026-11-07T13:11:26.003Z', date: 'Nov 7, 2026, 7:11 AM CT', title: 'Ivy closes over the arch of Pullman\'s carriage porch', kind: 'improvement',
+    items: [
+      'At 1729 Prairie, the ivy on the 18th Street carriage porch\'s east piers now runs up over the arch between them to the cornice, as the c. 1900 Detroit photograph shows. The opening itself stays clear.',
+    ] },
   { v: 2774, ts: '2026-11-07T12:34:53.103Z', date: 'Nov 7, 2026, 6:34 AM CT', title: 'A private of the 1812 Fort Dearborn garrison has his uniform', kind: 'feature',
     items: [
       'An unnamed private of Captain Heald\'s company, First Infantry: a dark blue coat with red collar and cuffs and short tails, white crossbelts, cartridge box and bayonet.',
