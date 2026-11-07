@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2758, ts: '2026-11-07T06:39:04.720Z', date: 'Nov 7, 2026, 12:39 AM CT', title: 'No more freezes walking near people; hide people or carriages', kind: 'fix',
+    items: [
+      'Walking about Mattie Williamson in the Glessner courtyard no longer freezes the frame: a person keeps each distance level once drawn, so stepping back and forth swaps instantly instead of reloading her.',
+      'A person\'s own build and face are fitted to her clothes about nine times faster, with the same result.',
+      'Her shaders are compiled in the background before a nearer level shows.',
+      'Settings > Show has People and Carriages and horses, each Shown or Hidden. Hidden, they are not drawn or loaded at all.',
+      'Switching detail after the site was updated now says to reload the page.',
+    ] },
+  { v: 2757, ts: '2026-11-07T06:39:04.720Z', date: 'Nov 7, 2026, 12:39 AM CT', title: 'A 1922 photograph of the Pullman house joins its sources', kind: 'improvement',
+    items: [
+      'The Chicago Tribune\'s photograph of the Pullman house being pulled down in July 1922 is now one of the house\'s sources. With the roof already gone it shows the stonework close up: quoins, window frames and the door case. Which face it shows is not yet settled, so nothing in the 1904 house is built from it yet.',
+    ] },
   { v: 2756, ts: '2026-11-07T05:47:58.404Z', date: 'Nov 6, 2026, 11:47 PM CT', title: 'Go to › Photos opens the picture in the card', kind: 'feature',
     items: [
       'Arriving at a photo view from Go to › Photos opens the building\'s card on its Photos tab, with that picture large at the top, marked Taken from here.',
