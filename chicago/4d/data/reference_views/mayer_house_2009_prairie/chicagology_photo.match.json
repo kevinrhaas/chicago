@@ -2,7 +2,7 @@
   "structure_id": "mayer_house_2009_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/mayer_house_2009_prairie__as_mapped_1904.glb",
-  "glb_sha256": "ceebff1ed68c32e27f2dd81a109a55e27db80c20a4b71f0cef38e9f2c3cbe095",
+  "glb_sha256": "79e533edd65c1e6e4c4485220774634fc99b3ade128ec5c33531d35d5323f15a",
   "camera_sha256": "78ec8f49f37566693a797fc7fa98ded24d4845ec40ef057129786224b8258d8a",
   "photo_sha256": "03db894ab10dff078b747f611eba3dd8d9bc3b1f35aae50435017dcd4640b4a2",
   "side_by_side": "docs/RESEARCH/photo-match/mayer_house_2009_prairie/chicagology_photo-side-by-side.jpg",
@@ -17,8 +17,12 @@
       "status": "fixed"
     },
     {
-      "what": "the gable's south foot: the print's outline runs on down past the kneeler to about 10.3 m over the party wall, where the build leaves the front's width at the kneelers (11.97 m) on both sides and the hip's eave shows over the party wall",
-      "status": "open"
+      "what": "the gable's south foot: the print's outline runs on down past where the north side stops, its coping a near-straight concave sweep to the party wall at about 10.3 m (read row by row off the print at 99.9 px a metre: half-width 2.31 m at 12.34 m, 2.6 at 11.86, 3.0 at 11.26, 3.37 at 10.78, 3.62 at 10.46, the corner at 10.32), where the build had left the front's width at the kneeler (11.97 m) and the hip's eave over the party wall; laid as shaped_gable.run_on, the slab carried down that line on a 0.45 m band, the front and party wall cut down under it and the hip's eave over it, the cut closed by a brick cheek 0.9 m back over a slated floor; the render's coping meets the party line within about 0.15 m of the print's (T-3365)",
+      "status": "fixed"
+    },
+    {
+      "what": "behind the run-on: the print shows a dark, ivied face in shadow (2011's wall and roof beyond the party line, outside this render), where the render shows the cheek's buff brick in light; the cheek and the floor behind the coping are not seen by the print itself (reconstructed, L-k01-2009-meyer-gable-run-on-3365)",
+      "status": "not shown"
     },
     {
       "what": "the street lights: the ground floor's window (two lights on a mullion under a transom) under the oriel, the small light beside it, the third storey's paired light, each on the print's place and size",

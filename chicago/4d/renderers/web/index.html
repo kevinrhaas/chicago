@@ -355,39 +355,21 @@
         <input type="checkbox" id="s-jaunts-choice"></label>
       <!-- T-2652: one choice for every way of picking a place. The map's own Go (T-2654) goes
            by goToTarget like Go to, so it takes this choice too. -->
-      <p class="legend-note" id="arrive-note" data-str="hud.move.arrive.note">Go to and the map use this choice. Jaunts keep the way each recommends, unless Jaunts use my choice is on. Then they use yours where they can.</p>
-      <p class="legend-note">Walk, run, take a light wagon or a horse, and put on a burst of speed
-        with <kbd>Shift</kbd>. The slider sets the
-        speed of the mode you picked and names it. Ride there takes you to a place you choose
-        along the streets where they run; Fly over lifts you over the town and sets you down at
-        the door. Any movement of your own stops the ride; where no walkable route exists you are
-        taken straight there.</p>
+      <p class="legend-note" id="arrive-note" data-str="hud.move.arrive.note">Applies to Go to and the map.</p>
       <!-- Comfort (T-2653, DESIGN §07 "Move"): the head bob, the eye height and snap-turn,
            each a choice about the view and never about the town. -->
       <h3 class="legend-h" id="move-comfort">Comfort</h3>
-      <label class="field row check-field"><span>Rider's head moves with the horse's gait</span>
+      <label class="field row check-field"><span>Head bob on horseback</span>
         <input type="checkbox" id="s-head-bob"></label>
       <!-- Eye height is a CLAIM about 1835, so the default is the researched
            figure and the slider says where that figure sits. Raising it is a
            comfort choice about the view, not a correction. -->
       <label class="field"><span>Eye height <b id="v-eye"></b></span>
         <input type="range" id="s-eye" min="1.4" max="2.6" step="0.02"></label>
-      <!-- T-2658: a one-line hint and its "Why?" bubble (js/why-tips.js) for a visitor; the full
-           essay under "Why this default" is Researcher mode's. -->
-      <div class="why-line" data-visitor-only><span class="why-hint" data-str="research.hint.eye">Set to a man's height in the 1830s.</span>
-        <button type="button" class="why-btn" id="why-eye" data-why="why-eye-text" data-str="research.why.ask" data-str-label="research.why.ask.eye" aria-label="Why this eye height">Why?</button>
-        <span class="why-text" id="why-eye-text" hidden data-str="research.why.eye">The default, 1.68 m, is the average height of an American man in the 1830s. Raise it if the view feels low; it moves only the camera, never the town.</span></div>
-      <details class="why" data-researcher><summary>Why this default</summary>
-        <p class="legend-note why-full" id="eye-note" data-researcher>The default, 1.68 m, is the mean stature of an adult
-          man in the 1830s United States — this walkthrough puts your eye where a person of the
-          period had theirs, which is lower than a modern viewer expects and lower than the
-          prairie grass beside you, because both of those are true of the place. Raise it if the
-          view is uncomfortable; it changes only the camera, never the town.</p>
-      </details>
       <!-- Snap-turn: a drag to look on a touch screen turns the view in 30° steps instead
            of smoothly, which many people find easier on the stomach. Touch only: a mouse
            keeps its smooth look. -->
-      <label class="field row check-field"><span>Turn in steps when you drag to look (touch screens)</span>
+      <label class="field row check-field"><span>Snap turn (touch)</span>
         <input type="checkbox" id="s-snap-turn"></label>
     </section>
     <!-- Everyone the sources put in this town. js/people.js renders the directory;
@@ -614,9 +596,9 @@
         </div>
       </div>
     </section>
-    <!-- Grouped so the list scans: the value is the first thing on every row and
-         the reasoning behind a researched default is one line and a "Why?" bubble
-         (T-2658), with the full essay under "Why this default" in Researcher mode.
+    <!-- Grouped so the list scans: the value is the first thing on every row. T-3445 (the
+         owner, 2026-11-07) dropped the "Why?" lines and the essays under them: labels
+         and readouts stay terse; the reasoning lives in the source comments.
          Every id here is read by the smoke gate — keep them. -->
     <section class="panel-body" data-panel="settings" hidden>
       <!-- T-2657: Researcher mode (js/researcher.js), off by default, remembered per device.
@@ -627,7 +609,7 @@
         <h4 data-str="settings.research">Research</h4>
         <label class="field row check-field"><span data-str="research.switch">Expert research</span>
           <input type="checkbox" id="s-researcher"></label>
-        <p class="legend-note" id="s-researcher-note" data-str="research.switch.note">Adds a Research tab to every building: its evidence, liberties and full record. This device remembers it.</p>
+        <p class="legend-note" id="s-researcher-note" data-str="research.switch.note">Adds a Research tab to every building.</p>
       </div>
       <div class="settings-group" id="s-display">
         <h4 data-str="settings.display">Display</h4>
@@ -652,23 +634,6 @@
              § BASE_EXPOSURE for why that is the bound. -->
         <label class="field"><span>Brightness <b id="v-brightness"></b></span>
           <input type="range" id="s-brightness" min="0" max="2" step="0.25"></label>
-        <!-- T-2658: a one-line hint and its "Why?" bubble (js/why-tips.js) for a visitor; the full
-             essay under "Why this default" is Researcher mode's. -->
-        <div class="why-line" data-visitor-only><span class="why-hint" data-str="research.hint.brightness">The light of a July photograph.</span>
-          <button type="button" class="why-btn" id="why-brightness" data-why="why-brightness-text" data-str="research.why.ask" data-str-label="research.why.ask.brightness" aria-label="Why this brightness">Why?</button>
-          <span class="why-text" id="why-brightness-text" hidden data-str="research.why.brightness">The default is the light matched to a July photograph taken at this latitude. Raise it for a dim room or a bright window. It changes nothing else.</span></div>
-        <details class="why" data-researcher><summary>Why this default</summary>
-          <p class="legend-note why-full" id="brightness-note" data-researcher>The scene is lit by a sky whose colour was
-            matched to a July photograph taken at this latitude, and the default position of this
-            slider is that measured light — which is why it says "calibrated" rather than showing a
-            number. Raise it if the scene is hard to see: a dim room, a bright window, a phone at
-            arm's length. It lifts the light in shade up to four times, half by opening the exposure
-            and half by raising the sky's fill, while the sky itself rises far less so it keeps
-            its blue. It changes nothing else — no wall, roof or street is a different colour
-            underneath it, and the brighter
-            end is not a second reconstruction of how 1835 looked. All of this project's own
-            measurements are taken at the calibrated position whatever you choose here.</p>
-        </details>
         <label class="field"><span>Field of view <b id="v-fov"></b></span>
           <input type="range" id="s-fov" min="55" max="100" step="1"></label>
         <!-- R-A1. An accessibility aid layered on a default that was measured
@@ -676,19 +641,6 @@
              about how visible an 1835 street was — see streets.js § R-A1. -->
         <label class="field"><span>Road visibility <b id="v-road-aid"></b></span>
           <input type="range" id="s-road-aid" min="0" max="1" step="0.05"></label>
-        <!-- T-2658: a one-line hint and its "Why?" bubble (js/why-tips.js) for a visitor; the full
-             essay under "Why this default" is Researcher mode's. -->
-        <div class="why-line" data-visitor-only><span class="why-hint" data-str="research.hint.road">The tracks as the record describes them.</span>
-          <button type="button" class="why-btn" id="why-road" data-why="why-road-text" data-str="research.why.ask" data-str-label="research.why.ask.road" aria-label="Why this road visibility">Why?</button>
-          <span class="why-text" id="why-road-text" hidden data-str="research.why.road">The default paints the worn earth tracks as the record describes them. Raise it if they are hard to follow; it changes your screen, not the past.</span></div>
-        <details class="why" data-researcher><summary>Why this default</summary>
-          <p class="legend-note why-full" id="road-aid-note" data-researcher>These are worn earth tracks through prairie
-            grass, and how much bare earth shows is a modelled figure with its own evidence behind
-            it — so the default paints them exactly as the record describes. Raise this if they are
-            hard to follow: on a phone in daylight, or if faint contrast is difficult to see. It
-            changes nothing but how strongly the roads are painted on your screen, and it is not a
-            claim that 1835 Chicago's streets looked bolder than this.</p>
-        </details>
       </div>
       <div class="settings-group">
         <h4>Show</h4>
@@ -743,6 +695,17 @@
             <option value="hidden">Hidden</option>
             <option value="shown">Shown</option>
           </select></label>
+        <!-- T-3439: people, and carriages and horses, shown or hidden. -->
+        <label class="field row" id="row-people"><span>People</span>
+          <select id="s-people">
+            <option value="shown">Shown</option>
+            <option value="hidden">Hidden</option>
+          </select></label>
+        <label class="field row" id="row-vehicles"><span>Carriages and horses</span>
+          <select id="s-vehicles">
+            <option value="shown">Shown</option>
+            <option value="hidden">Hidden</option>
+          </select></label>
         <!-- T-2661: the controls are Guide's, in the Navigator; this opens it there. -->
         <div class="field row"><span>Guide</span>
           <button class="setting-button" id="s-show-control-help" type="button">Show the controls</button>
@@ -750,7 +713,7 @@
       </div>
       <div class="settings-group">
         <h4>Movement</h4>
-        <p class="legend-note"><span data-str="hud.move.note">The speeds for walking, running, a wagon and a horse, your eye height and the other comfort settings are under</span> <b data-str="hud.tab.move">Move</b>.</p>
+        <p class="legend-note"><span data-str="hud.move.note">Speeds, eye height and comfort:</span> <b data-str="hud.tab.move">Move</b>.</p>
       </div>
       <!-- T-2656: the four machines as preview tiles (js/skin.js fills them). -->
       <div class="settings-group" id="s-machine">
@@ -794,8 +757,7 @@
             <option value="15">15 s a mode — steadier</option>
             <option value="5">5 s a mode — quicker</option>
           </select></label>
-        <p class="legend-note" id="pacing-read-status" hidden>Walks, turns and flies for about
-          a minute and a half at Light, Fixed then Adaptive, and puts you back where you were.</p>
+        <p class="legend-note" id="pacing-read-status" hidden>Walks, turns and flies about 90 s at Light, Fixed, then Adaptive; puts you back.</p>
         <textarea class="pacing-read-out" id="pacing-read-out" readonly rows="12" hidden
           aria-label="Frame pacing reading"></textarea>
       </div>
@@ -809,7 +771,7 @@
           <input type="range" id="s-sound-effects" min="0" max="1" step="0.05"></label>
         <label class="field"><span><span data-str="settings.sound.ambience">Ambience</span> <b id="v-sound-ambience"></b></span>
           <input type="range" id="s-sound-ambience" min="0" max="1" step="0.05"></label>
-        <p class="legend-note" id="s-sound-note" data-str="settings.sound.note">Effects are the year ticker, the landing, and the Navigator's clicks and hum. Ambience is a quiet tone for each destination, made up for mood: it is not a recording of the past. Sound is off until you raise Master. It starts with your first tap, and Master at Off is silence.</p>
+        <p class="legend-note" id="s-sound-note" data-str="settings.sound.note">Off until you raise Master. Ambience is a mood tone, not a recording of the past.</p>
       </div>
       <div class="settings-group">
         <h4>Units</h4>
@@ -857,12 +819,14 @@
         <dt><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></dt><dd>walk</dd>
         <dt><kbd>Shift</kbd></dt><dd>run</dd>
         <dt>mouse</dt><dd>look around</dd>
-        <dt>click</dt><dd>inspect a building — its attributes and citations</dd>
+        <dt>click <kbd>E</kbd></dt><dd>inspect a building or a person</dd>
+        <dt><kbd>R</kbd></dt><dd>interact: open or shut a gate in reach</dd>
         <dt><kbd>C</kbd></dt><dd>confidence view</dd>
-        <dt><kbd>F</kbd></dt><dd>free-fly — rise above the town</dd>
+        <dt><kbd>F</kbd></dt><dd>free-fly: rise above the town</dd>
         <dt><kbd>Space</kbd> <kbd>Q</kbd></dt><dd>up / down <em>(while flying)</em></dd>
-        <dt><kbd>G</kbd></dt><dd>go to a viewpoint, a building or a street corner</dd>
-        <dt><kbd>M</kbd></dt><dd>the whole map — the small one shows the ground around you</dd>
+        <dt><kbd>G</kbd></dt><dd>go to a viewpoint, a building, a corner or a photo</dd>
+        <dt><kbd>M</kbd></dt><dd>the whole map</dd>
+        <dt><kbd>P</kbd></dt><dd>change your pace</dd>
         <dt><kbd>N</kbd></dt><dd>open or close the Navigator</dd>
         <dt><kbd>1</kbd>–<kbd>9</kbd></dt><dd>open a Navigator app, in the order of its rail</dd>
         <dt><kbd>H</kbd></dt><dd>the Navigator</dd>
@@ -872,10 +836,11 @@
         <dt>left stick</dt><dd>walk</dd>
         <dt>push it fully</dt><dd>run</dd>
         <dt>drag right</dt><dd>look around</dd>
-        <dt>tap</dt><dd>inspect a building</dd>
-        <dt>tap the map</dt><dd>the whole field — the small one shows the ground around you</dd>
-        <dt>Go to</dt><dd>the tab beside this one — every viewpoint, building and corner</dd>
-        <dt>Fly</dt><dd>rise above the town — ▲ ▼ appear bottom-right</dd>
+        <dt>tap</dt><dd>inspect a building or a person</dd>
+        <dt>Interact</dt><dd>open or shut a gate in reach</dd>
+        <dt>tap the map</dt><dd>the whole field</dd>
+        <dt>Go to</dt><dd>every viewpoint, building, corner and photo</dd>
+        <dt>Fly</dt><dd>rise above the town: ▲ ▼ appear bottom-right</dd>
       </dl>
     </section>
     <section class="panel-body" data-panel="whatsnew" hidden>

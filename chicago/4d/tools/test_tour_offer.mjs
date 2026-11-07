@@ -22,7 +22,9 @@ const words = (s) => s.split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).lengt
 
 // ---- the words ------------------------------------------------------------------------
 assert.equal(offerText(), 'First time? Take the 60-second tour', 'the offer in the design\'s words (M2)');
-assert.deepEqual(HINT_IDS, ['jaunt', 'jump', 'reconstructed'], 'three hints: first Jaunt, first Jump, first Reconstructed building');
+assert.deepEqual(HINT_IDS, ['jaunt', 'jump', 'reconstructed', 'interact', 'follow'], 'five hints: first Jaunt, first Jump, first Reconstructed building, first Interact key, first Follow (T-3445)');
+assert.match(hintText('interact'), /\bInteract\b.*\bR\b/, 'names the key and its letter');
+assert.match(hintText('follow'), /^Following\./, 'says what is happening');
 for (const id of HINT_IDS) {
   const s = hintText(id);
   assert.ok(s && words(s) <= 14, `${id}: a hint is 14 words or fewer, like a bubble (${words(s)}): "${s}"`);
@@ -154,4 +156,4 @@ assert(/\.welcome-tour-offer\[hidden\], \.gate\[data-region\] \.welcome-tour-off
 assert(/\.nav-hint \{[^}]*pointer-events: none;/.test(css), 'a hint never sits between the visitor and a control');
 assert(/prefers-reduced-motion: reduce\) \{ \.nav-hint \{ animation: none; \}/.test(css), 'still with reduced motion');
 
-console.log('test_tour_offer: the Field Check is offered once per device, declining never re-prompts, and each of three hints shows once');
+console.log('test_tour_offer: the Field Check is offered once per device, declining never re-prompts, and each of five hints shows once');

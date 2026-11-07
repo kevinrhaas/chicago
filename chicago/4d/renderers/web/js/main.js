@@ -129,7 +129,6 @@ import { parseNavLink, createNavHistory } from './nav-link.js';
 import { createNavigator } from './navigator.js';
 import { paintAbout } from './about.js';
 import { createResearcherMode } from './researcher.js';
-import { wireWhyTips } from './why-tips.js';
 import { createTour } from './tour.js';
 import { createTourOverlay } from './tour-overlay.js';
 import { markTerms } from './term-tips.js';
@@ -1763,8 +1762,6 @@ Object.defineProperty(api, 'audio', { get: () => gesture.audio, enumerable: true
 applyStrings(document);
 // T-2658: each researched setting's "Why?" opens its bubble of 40 words at most; Researcher
 // mode, which puts the button away for the full essay, closes an open one.
-api.whyTips = wireWhyTips(document);
-api.researcher?.onChange(() => api.whyTips.close());
 const arrival = createArrival({
   boot: bootController,
   journey,
@@ -3300,7 +3297,9 @@ async function boot() {
     if (failed) throw failed.reason;
     rows.forEach((row, i) => {
       if (!hasRequiredSourceTextures(row.gltf, got[i].value.gltf)) {
-        throw new Error(`${row.id}: reloaded source is missing a required texture`);
+        // T-3439: the usual cause is a newer build on the server: a deploy since this page
+        // loaded changed the model's materials. Say what fixes it.
+        throw new Error(`${row.id}: reloaded source is missing a required texture. If the site was updated since this page loaded, reload the page`);
       }
     });
     rows.forEach((row, i) => {
@@ -3730,6 +3729,9 @@ async function boot() {
       return res.json();
     },
     groundHeight: (e, n) => profiledGroundHeight(terrain, decks, e, n),
+    // T-3439: a figure's new distance level is compiled off the frame (parallel compile)
+    // before it is drawn, so walking up to someone is not a stall on her skin's programs.
+    prepare: (object) => renderer.compileAsync(object, camera, scene3d),
   });
   api.humans.on('open', ({ personId }) => {
     if (!api.people) return;
@@ -3744,6 +3746,25 @@ async function boot() {
     a?.life?.attend?.(camera.getWorldPosition(new THREE.Vector3()), 4);
   });
   scene3d.add(api.humans.group);
+  /**
+   * T-3439 (owner, 2026-11-07): Settings › Show › People and › Carriages and horses. A
+   * viewing choice, like Street trees: hidden, a layer is neither drawn nor advanced nor
+   * fetched nor picked. People covers the figures on foot and the drivers on their seats;
+   * Carriages and horses covers the driven teams, the parked vehicles (and the yard's old
+   * stand-ins for them) and the standing horses.
+   */
+  const shownLayers = { people: true, vehicles: true };
+  function setShownLayer(key, on) {
+    shownLayers[key] = on;
+    if (key === 'people') api.humans?.setShown?.(on);
+    else {
+      parkedTransport.setShown(on);
+      standingHorses.group.visible = on;
+      if (on) standingHorses.update(camera);
+      if (api.townTransport?.group) api.townTransport.group.visible = on;
+    }
+    gateFrame.invalidate();
+  }
   // Read only the small route table at boot. Actual occupied assets and full
   // rendered-ground/collision readings begin after the visitor approaches a circuit.
   api.townTransport = null;
@@ -3949,6 +3970,9 @@ async function boot() {
       } else if (key === 'lotLines') {
         streetGrid.setLotLines(value === 'shown');
         gateFrame.invalidate();
+      } else if (key === 'people' || key === 'vehicles') {
+        // T-3439: the people, and the carriages and horses, shown or hidden.
+        setShownLayer(key, value !== 'hidden');
       } else if (key === 'units') {
         navigation.setUnits(value);
       }
@@ -3969,6 +3993,9 @@ async function boot() {
     void sourcesPromise.then(view => { if (api.evidenceHub.topic === 'sources') view?.show(); });
   };
   hud.omitTabs(api.drawerOmitted.tabs);
+  // T-3439: the stored Show choices for people and vehicles, before the first frame.
+  if (hud.settings.people === 'hidden') setShownLayer('people', false);
+  if (hud.settings.vehicles === 'hidden') setShownLayer('vehicles', false);
   // T-3331: Settings' own copy, so a later save keeps an hour set from code; then paint.
   timeState.hudSettings = hud.settings;
   paintTime();
@@ -5409,7 +5436,7 @@ async function boot() {
           followKey.setAttribute('aria-label', `Stop following ${who}`);
         }
       }
-      if (state && why === 'start') hud.say(`Following ${state.name ?? 'them'}`);
+      if (state && why === 'start') { hud.say(`Following ${state.name ?? 'them'}`); hints.show('follow'); } // T-3445
       else if (!state && why === 'gone') hud.say(`Lost sight of ${was?.name ?? 'them'}`);
       else if (!state && why !== 'switched') hud.say(`Stopped following ${was?.name ?? 'them'}`);
     },
@@ -5427,6 +5454,7 @@ async function boot() {
   const transportReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   transportReducedMotion.addEventListener('change', resetVisualClock);
   let interactPaintAt = 0;
+  let interactHinted = false;
   window.addEventListener('pagehide', event => {
     if (event.persisted) return;
     // Driver leases and standing transfers finish before the human asset cache
@@ -5711,7 +5739,9 @@ async function boot() {
       return { yawDeg: walker.bearingDeg, e: walker.state.e, n: walker.state.n, opens: tourCounts.opens,
         apps: { ...tourCounts.apps }, touch: backends.name === 'touch', level,
         selected: !!popup.openId || (app === 'inspect' && level > 0), card: !!popup.openId,
-        scene: loaded.scene?.id ?? YEAR, front: navigatorUi?.snapshot?.()?.front?.name ?? null };
+        scene: loaded.scene?.id ?? YEAR, front: navigatorUi?.snapshot?.()?.front?.name ?? null,
+        // T-3445: the People step only where the rail carries a People app.
+        people: !!document.querySelector('#navigator .nav-app[data-app="people"]:not([hidden])') };
     },
     render: (v) => {
       tourOverlay.paint(v);
@@ -5873,19 +5903,22 @@ async function boot() {
     railway.update(camera);
     flags.update(dt);
     parkedTransport.update(camera);
-    api.townTransport?.ensureNear(camera.position, !gateOpen && !animationHold && !document.hidden && !confidence.hidden.reconstructed);
+    // T-3439: Settings › Show › Carriages and horses, hidden: nothing driven is fetched,
+    // and a team already on its round is hidden the way the Confidence view hides it.
+    api.townTransport?.ensureNear(camera.position, shownLayers.vehicles && !gateOpen && !animationHold && !document.hidden && !confidence.hidden.reconstructed);
     // The journey bounds travelled metres, then checks every <= .05s sweep.
     // The shared visible clock has already rejected held/document lifecycle time.
     api.townTransport?.update(visualDt, camera.position, {
       elapsedFrame: true,
       paused: animationHold || gateOpen || document.hidden,
       reducedMotion: transportReducedMotion.matches,
-      hidden: confidence.hidden.reconstructed,
+      hidden: confidence.hidden.reconstructed || !shownLayers.vehicles,
       visualDt,
     });
     api.townTransport?.refreshInteractions();
-    if ((interactPaintAt += elapsed) >= .25) { interactPaintAt = 0; interactKey.refresh(); }
-    standingHorses.update(camera, visualDt, { paused: animationHold || gateOpen, visualFrame: true });
+    // T-3445: the first time the key offers something, once per device, what it is.
+    if ((interactPaintAt += elapsed) >= .25) { interactPaintAt = 0; if (interactKey.refresh() && !interactHinted) interactHinted = hints.show('interact') || hints.seen('interact'); }
+    if (shownLayers.vehicles) standingHorses.update(camera, visualDt, { paused: animationHold || gateOpen, visualFrame: true });
     // T-2598: which house pictures are on the GPU, from where the eye ended up; at
     // most a frame's allowance of them is uploaded here, before the draw.
     residency?.tick(camera.position);

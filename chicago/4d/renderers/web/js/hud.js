@@ -72,6 +72,9 @@ const DEFAULT_SETTINGS = {
   streetTrees: 'shown',
   // T-2692: the 1904 parcel lines on the ground, 'hidden' or 'shown'.
   lotLines: 'hidden',
+  // T-3439: the people (on foot and on the drivers' seats), and the carriages and horses,
+  // 'shown' or 'hidden'. Viewing choices: hidden, a layer is neither drawn nor loaded.
+  people: 'shown', vehicles: 'shown',
   // '' = never chosen, so main.js's device guess stands (phone light, desktop full).
   detail: '',
   // The drawer's own choices. `pace` is how YOU move (walk, run, wagon, horse) and
@@ -512,7 +515,7 @@ export function createHud({
   // The readout names the researched default rather than only the number, so
   // moving off it is a visible choice instead of a silent drift.
   const paintEye = wireRange('s-eye', 'v-eye', 'eyeHeight',
-    (v) => `${formatStature(v, settings.units)}${Math.abs(v - 1.68) < 0.01 ? ' — period eye level' : ''}`);
+    (v) => `${formatStature(v, settings.units)}${Math.abs(v - 1.68) < 0.01 ? ' · 1830s average' : ''}`);
   wireRange('s-fov', 'v-fov', 'fov', (v) => `${Math.round(v)}°`);
   // R-A1, and it copies the eye-height precedent for the same reason: the
   // default position is the one the evidence and R-BUG3's measurement put
@@ -520,7 +523,7 @@ export function createHud({
   // it is then a visible choice about your screen, not a silent drift into a
   // different claim about the town.
   wireRange('s-road-aid', 'v-road-aid', 'roadAid',
-    (v) => (v <= 0 ? 'Off — the roads as recorded' : `+${Math.round(v * 100)}%`));
+    (v) => (v <= 0 ? 'Off · as recorded' : `+${Math.round(v * 100)}%`));
   // K24. The calibrated position is named on its face for the eye-height reason:
   // this control brightens your screen, and the readout has to make it impossible
   // to read the brighter end as a claim that the town was brighter. T-3428: the
@@ -528,7 +531,7 @@ export function createHud({
   // multiple a wall in shade is lifted by, 1.2x to 4x, the unit the owner asked in
   // (world.js § BASE_EXPOSURE).
   wireRange('s-brightness', 'v-brightness', 'brightness',
-    (v) => (v <= 0 ? 'Calibrated — the light as measured' : `${(2 ** v).toFixed(1)}×`));
+    (v) => (v <= 0 ? 'Calibrated' : `${(2 ** v).toFixed(1)}×`));
 
   const units = $('s-units');
   if (units) {
@@ -636,6 +639,8 @@ export function createHud({
   }
   wireSelect('s-street-trees', 'streetTrees', 'shown');
   wireSelect('s-lot-lines', 'lotLines', 'hidden');
+  wireSelect('s-people', 'people', 'shown');
+  wireSelect('s-vehicles', 'vehicles', 'shown');
   wireToggle('s-compass', 'compass');
   wireToggle('s-overview-map', 'overviewMap');
   wireToggle('s-street-names', 'streetNames');

@@ -156,6 +156,9 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
   const group = new THREE.Group(); group.name = 'parked-transport';
   const instances = [], assets = new Map(), replacementIds = new Set();
   let tier = detail, fallback = () => {}, lastCamera = null, disposed = false, loading = null;
+  // T-3439: Settings › Show › Carriages and horses. Hidden, no vehicle (nor the yard's old
+  // stand-in it replaces) is drawn, fetched or picked.
+  let shown = true;
   const ray = new THREE.Raycaster();
   const deferred = Number.isFinite(loadWithin) && loadWithin >= 0;
   const requested = new Set(), finished = new Set();
@@ -163,9 +166,19 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
     // Vehicles asked for and not yet placed (or refused): a scripted view waits on 0.
     get pending() { return requested.size - finished.size; },
     setFallback(callback) { fallback = callback; },
+    get shown() { return shown; },
+    setShown(on) {
+      shown = on !== false;
+      group.visible = shown;
+      // Shown again: every stand-in back, then each vehicle in reach takes its place again.
+      for (const id of replacementIds) fallback(id, !shown);
+      if (shown && lastCamera) out.update(lastCamera);
+      return shown;
+    },
     update(camera) {
       if (disposed) return;
       lastCamera = camera;
+      if (!shown) return;
       if (deferred && (REACH[tier] ?? REACH.full) > 0) {
         const within = (REACH[tier] ?? REACH.full) + loadWithin;
         void load(row => horizontalDistance(camera, row) < within);
