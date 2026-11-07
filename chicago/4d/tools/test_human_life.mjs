@@ -7,6 +7,9 @@
 // in front and never crane round at one behind; attend to a point when told; blink at an
 // irregular natural interval; hold a held frame (no accumulation through three's
 // skip-unchanged track writes); keep its state across a LOD swap; and be deterministic.
+// On the gait layer's walk (a stand-in `gait` that turns, rolls and bobs the pelvis): leave the
+// pelvis and legs to it, turn the thorax back against the pelvis, hold the head steady in the
+// world, lean into the speed; and standing with no gait, exactly as before.
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 const here = new URL('../', import.meta.url);
@@ -164,6 +167,110 @@ for (const [asset, lod, clip] of [['bardwell_otis_1835', 0, 'idle_natural_v1'], 
   assert(maxLeg < 0.003, `walking: legs are the gait's (${(maxLeg * 1000).toFixed(2)} mm)`);
   assert(maxTurn > 10 && maxTurn < 70, `walking: glances about (${maxTurn.toFixed(1)} deg)`);
   console.log(`walking: legs within ${(maxLeg * 1000).toFixed(2)} mm of the gait, head up to ${maxTurn.toFixed(1)} deg: PASS`);
+}
+
+// The gait layer's walk (human-gait.js passes `gait`). A stand-in for it turns, rolls and
+// bobs the pelvis over the cycle as the gait layer does (phase 0 the LEFT heel strike: the
+// left hip forward, the pelvis turned to the right), and the life layer must: leave the
+// pelvis and legs as the gait set them; turn the thorax back against the pelvis so it
+// turns much less in the world; hold the head steady in the world (its facing within a
+// degree or so of a twin whose pelvis does not move at all, and the same gaze); pitch the
+// head down as the body rises; lean the trunk forward a little more the faster the walk;
+// and do exactly what it did before when standing with no gait.
+const DEG = Math.PI / 180;
+function standInGait(r, { speed = 1.25, cadence = 1.8, weight = 1, yaw = 5, roll = 4, bob = 0.02, move = true } = {}) {
+  const pelvis = r.bone('pelvis');
+  const held = { q: pelvis.quaternion.clone(), qo: new THREE.Quaternion(NaN, NaN, NaN, NaN), p: pelvis.position.clone(), po: new THREE.Vector3(NaN, NaN, NaN) };
+  const g = { phase: 0, weight, speed, stride: 2 * speed / cadence, cadence, pelvisYaw: 0, pelvisRoll: 0, bob: 0 };
+  let t = 0;
+  return {
+    g,
+    step(dt) {
+      t += dt; g.phase = (t * cadence / 2) % 1;
+      const ph = 2 * Math.PI * g.phase;
+      if (!move) return; // a gait that leaves the pelvis where it is (and says so)
+      g.pelvisYaw = -yaw * DEG * Math.cos(ph); g.pelvisRoll = roll * DEG * Math.sin(ph); g.bob = -bob * Math.cos(2 * ph);
+      // Its own rebase, as every layer over three's skip-unchanged track writes needs.
+      if (pelvis.quaternion.equals(held.qo)) pelvis.quaternion.copy(held.q); else held.q.copy(pelvis.quaternion);
+      if (pelvis.position.equals(held.po)) pelvis.position.copy(held.p); else held.p.copy(pelvis.position);
+      r.root.updateMatrixWorld(true);
+      const inv = pelvis.getWorldQuaternion(new THREE.Quaternion()).invert();
+      const fwd = new THREE.Vector3(0, 0, 1).applyAxisAngle(new THREE.Vector3(0, 1, 0), r.root.rotation.y);
+      pelvis.quaternion.multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0).applyQuaternion(inv), g.pelvisYaw))
+        .multiply(new THREE.Quaternion().setFromAxisAngle(fwd.applyQuaternion(inv).applyAxisAngle(new THREE.Vector3(0, 1, 0).applyQuaternion(inv), -g.pelvisYaw), g.pelvisRoll));
+      const parentInv = pelvis.parent.getWorldQuaternion(new THREE.Quaternion()).invert();
+      pelvis.position.addScaledVector(new THREE.Vector3(0, 1, 0).applyQuaternion(parentInv), g.bob / pelvis.parent.getWorldScale(new THREE.Vector3()).y);
+      held.qo.copy(pelvis.quaternion); held.po.copy(pelvis.position);
+    },
+  };
+}
+/** A bone's own vector for the figure's forward, read now, to follow it through the walk. */
+const forwardOf = (r, b) => { r.root.updateMatrixWorld(true); return new THREE.Vector3(0, 0, 1).applyAxisAngle(new THREE.Vector3(0, 1, 0), r.root.rotation.y).applyQuaternion(b.getWorldQuaternion(new THREE.Quaternion()).invert()); };
+const facingOf = (r, b, local) => local.clone().applyQuaternion(b.getWorldQuaternion(new THREE.Quaternion())).applyAxisAngle(new THREE.Vector3(0, 1, 0), -r.root.rotation.y);
+const yawOf = (f) => Math.atan2(f.x, f.z) / DEG, pitchOf = (f) => Math.asin(Math.max(-1, Math.min(1, f.y))) / DEG;
+async function gaitRun({ speed = 1.25, move = true, pass = true, weight = 1, frames = 360, lifeOn = true, id = 'gait' } = {}) {
+  const r = await rig('bardwell_otis_1835', 1, 'walk');
+  const life = lifeOn ? createHumanLife({ id, scene: r.scene }) : null;
+  const gait = standInGait(r, { speed, move, weight });
+  const local = Object.fromEntries(['pelvis', 'spine_03', 'head'].map(n => [n, forwardOf(r, r.bone(n))]));
+  const headUp = new THREE.Vector3(0, 1, 0).applyQuaternion(r.bone('head').getWorldQuaternion(new THREE.Quaternion()).invert());
+  const rows = [];
+  for (let i = 0; i < frames; i++) {
+    r.mixer.update(1 / 60); gait.step(1 / 60);
+    life?.apply(1 / 60, { state: 'walking', root: r.root, gait: pass ? gait.g : null });
+    r.root.updateMatrixWorld(true);
+    if (i < 120) continue;
+    const row = { phase: gait.g.phase, yaw: gait.g.pelvisYaw / DEG, bob: gait.g.bob };
+    for (const n of ['pelvis', 'spine_03', 'head']) row[n] = facingOf(r, r.bone(n), local[n]);
+    row.headUp = facingOf(r, r.bone('head'), headUp);
+    row.legs = ['pelvis', 'thigh_l', 'calf_r', 'foot_l', 'ball_r'].map(n => world(r.bone(n)));
+    row.lean = -pitchOf(row.spine_03); // + the chest leaning forward
+    rows.push(row);
+  }
+  return rows;
+}
+{
+  const walk = await gaitRun(), still = await gaitRun({ move: false }), bare = await gaitRun({ lifeOn: false }), blind = await gaitRun({ pass: false });
+  const span = (v) => (Math.max(...v) - Math.min(...v)) / 2;
+  // The pelvis and the legs are the gait's: as the stand-in left them, life or none.
+  let maxLeg = 0;
+  walk.forEach((x, k) => x.legs.forEach((v, j) => { maxLeg = Math.max(maxLeg, v.distanceTo(bare[k].legs[j])); }));
+  assert(maxLeg < 1e-4, `gait: the pelvis and legs are the gait layer's (${(maxLeg * 1000).toFixed(3)} mm)`);
+  // The thorax turns back against the pelvis.
+  const pelvisYaw = span(walk.map(x => yawOf(x.pelvis))), thoraxYaw = span(walk.map((x, k) => yawOf(x.spine_03) - yawOf(still[k].spine_03)));
+  assert(pelvisYaw > 4 && thoraxYaw < pelvisYaw * 0.4, `gait: the thorax turns ±${thoraxYaw.toFixed(2)} deg in the world against the pelvis's ±${pelvisYaw.toFixed(2)}`);
+  // The head is steady in the world: as a twin's whose pelvis never moved (same gaze), and
+  // not as one's whose life was not told of the gait.
+  const off = walk.map((x, k) => ang(x.head, still[k].head)), blindOff = blind.map((x, k) => ang(x.head, still[k].head));
+  const steady = Math.max(...off), wobble = Math.max(...blindOff);
+  assert(steady < 1.5 && wobble > 3, `gait: the head is held steady in the world (${steady.toFixed(2)} deg off a still pelvis; ${wobble.toFixed(2)} deg untold)`);
+  const tilt = Math.max(...walk.map((x, k) => ang(x.headUp, still[k].headUp))), blindTilt = Math.max(...blind.map((x, k) => ang(x.headUp, still[k].headUp)));
+  assert(tilt < 1.5 && blindTilt > 2.5, `gait: the head is held level (${tilt.toFixed(2)} deg off a still pelvis; ${blindTilt.toFixed(2)} deg untold)`);
+  // It pitches down as the body rises, so the eyes keep their point on the way ahead.
+  const dp = walk.map((x, k) => pitchOf(x.head) - pitchOf(still[k].head));
+  const r = (() => { const b = walk.map(x => x.bob), n = b.length, mb = b.reduce((s, y) => s + y) / n, md = dp.reduce((s, y) => s + y) / n; let sab = 0, sa = 0, sb = 0; b.forEach((y, k) => { sab += (y - mb) * (dp[k] - md); sa += (y - mb) ** 2; sb += (dp[k] - md) ** 2; }); return sab / Math.sqrt(sa * sb); })();
+  assert(r < -0.5, `gait: the head pitches against the bob (r = ${r.toFixed(2)})`);
+  console.log(`gait: legs within ${(maxLeg * 1000).toFixed(3)} mm of the gait, thorax ±${thoraxYaw.toFixed(2)} deg vs pelvis ±${pelvisYaw.toFixed(2)} in the world, head within ${steady.toFixed(2)} deg (untold ${wobble.toFixed(2)}) and level within ${tilt.toFixed(2)} (untold ${blindTilt.toFixed(2)}), pitch vs bob r ${r.toFixed(2)}: PASS`);
+  // The trunk leans into the speed, a few degrees.
+  const mean = (rows) => rows.reduce((s, x) => s + x.lean, 0) / rows.length; // the upper chest's forward pitch
+  const none = mean(await gaitRun({ move: false, weight: 0 }));
+  const slow = mean(await gaitRun({ move: false, speed: 1.0 })) - none, fast = mean(await gaitRun({ move: false, speed: 1.5 })) - none;
+  assert(slow > 1.5 && slow < 2.6 && fast > slow + 1 && fast < 4.5, `gait: the trunk leans ${slow.toFixed(2)} deg at 1.0 m/s, ${fast.toFixed(2)} at 1.5`);
+  console.log(`gait: trunk lean ${slow.toFixed(2)} deg at 1.0 m/s, ${fast.toFixed(2)} at 1.5: PASS`);
+}
+{
+  // Standing with no gait, a null gait or one at weight 0: the same to the bit.
+  const out = [];
+  for (const gait of [undefined, null, { phase: 0.37, weight: 0, speed: 1.3, stride: 1.4, cadence: 1.85, pelvisYaw: 0.05, pelvisRoll: 0.03, bob: 0.01 }]) {
+    const r = await rig('bardwell_otis_1835', 3, 'idle');
+    const life = createHumanLife({ id: 'n', scene: r.scene });
+    for (let i = 0; i < 900; i++) { r.mixer.update(1 / 30); life.apply(1 / 30, gait === undefined ? { state: 'standing', root: r.root } : { state: 'standing', root: r.root, gait }); }
+    const q = []; r.scene.traverse(o => { if (o.isBone) q.push(...o.quaternion.toArray(), ...o.position.toArray()); });
+    out.push(q);
+  }
+  assert.deepEqual(out[1], out[0], 'standing: a null gait changes nothing');
+  assert.deepEqual(out[2], out[0], 'standing: a gait at weight 0 changes nothing');
+  console.log('gait: standing with a null gait or one at weight 0 is the same to the bit: PASS');
 }
 
 // A LOD swap keeps the life (where he looks, which leg he stands on).

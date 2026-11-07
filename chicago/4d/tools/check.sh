@@ -592,6 +592,10 @@ step "People on foot breathe, shift weight with feet planted, look at a close vi
   node tools/test_human_life.mjs
 step "People on foot rest their hands in, change stance, touch the hat brim to a close visitor and swing their arms against their feet, deterministic (T-3419)" \
   node tools/test_human_actions.mjs
+step "People on foot walk heel to toe at a real pace and stride, the stance foot planted, the pelvis turning and rising over it, deterministic across LOD swaps (T-3472)" \
+  node tools/test_human_gait.mjs
+step "A woman's skirt swings off her legs as she walks and never parts between them, the rest pose exact (T-3472)" \
+  node tools/test_human_skirt.mjs
 step "The driven team's generated walk and its hoof-support domain reproduce byte for byte, hooves planted without slide (T-2803)" \
   node tools/horse_walk_v2.mjs --check
 step "A driver's plain garments read as cloth: weave, heather and sheen by shader patch, no texture, one program (T-2804)" \
