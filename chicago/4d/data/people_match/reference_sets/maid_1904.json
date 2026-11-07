@@ -1,0 +1,49 @@
+{
+  "id": "maid_1904",
+  "role": "maid",
+  "label": "a house maid in her black dress, white apron and cap, 1900s",
+  "years": [
+    1903,
+    1906
+  ],
+  "scenes": [
+    "1904"
+  ],
+  "evidence": {
+    "repo": "kevinrhaas/chicago-evidence",
+    "dir": "evidence/people-references-2026-11-07/maid_1904"
+  },
+  "note": "Gathered 2026-11-07 for T-3448, the 1904 house maid's dress first worn by Mary Reynolds of the Glessner household. Both are staged comic stereographs, neither of Chicago, the Glessner house or Mary Reynolds, and both are monochrome. Kelley's 1904 maid at a front door gives the whole outfit; Graves's maid seen from behind gives the back of the apron and a lighter working shirtwaist. A reference set says what a woman of this role and decade looked like, never what Mary Reynolds wore on a given day.",
+  "pictures": [
+    {
+      "name": "kelley_1904_maid",
+      "band": "near",
+      "file": "mailman_1904_maid_near.jpg",
+      "sha256": "7badffd2e469529e34cdfebdac29b14097fedbe2548c9e654f9da769bd1d00b5",
+      "source_id": "loc_kelley_1904_mail_man_postage_due_stereograph",
+      "from": "LOC TIFF 1s42957u.tif (5898 x 3029), crop [1050, 420, 2100, 2350] of the left frame, the maid, reduced to 1600 high",
+      "caption": "A maid at the front door: the mail man collecting postage due. E. W. Kelley, stereograph, 1904 (LOC 2005694905)",
+      "shows": "A maid at about three metres, full length: dark long-sleeved dress to the floor, white collar, white bib apron nearly to the hem with broad frilled straps over the shoulders, a small white frilled cap on drawn-up hair."
+    },
+    {
+      "name": "graves_1905_maid_from_behind",
+      "band": "near",
+      "file": "jessie_1905_near.jpg",
+      "sha256": "9152587bab2712f42588c43b27220e9d8ce3aa3b02a3278e7e5220858c5c9ecf",
+      "source_id": "loc_graves_1905_jessie_furnace_man_stereograph",
+      "from": "LOC TIFF 1s42977u.tif (5860 x 3010), crop [1350, 600, 2560, 2690] of the left frame, the maid and her mistress, reduced to 1600 high",
+      "caption": "A maid seen from behind, her mistress beyond: Jessie, has the furnace man been here yet? C. H. Graves, stereograph, c1905 (LOC 2005694911)",
+      "shows": "A maid from behind at about three metres: light shirtwaist, dark gored skirt to the floor, a checked apron tied in a bow at the back of the waist, hair drawn up; her mistress in a wide trimmed hat and a high white collar."
+    },
+    {
+      "name": "kelley_1904_frame",
+      "band": "far",
+      "file": "mailman_1904_frame_far.jpg",
+      "sha256": "e2c626b5d630a336ac400bba26a4c008d091fd5036faf396874e01d4cda17195",
+      "source_id": "loc_kelley_1904_mail_man_postage_due_stereograph",
+      "from": "LOC TIFF 1s42957u.tif (5898 x 3029), crop [560, 160, 2960, 2680], the whole left frame, reduced to 1600 high",
+      "caption": "The whole frame: maid and postman at a front door on a porch. E. W. Kelley, stereograph, 1904 (LOC 2005694905)",
+      "shows": "The maid and the postman small in the frame with the porch, door and brick front around them: at this size she reads as a dark figure, a white apron front and straps, and a white cap."
+    }
+  ]
+}

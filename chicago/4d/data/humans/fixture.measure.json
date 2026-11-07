@@ -3311,6 +3311,544 @@
       ]
     },
     {
+      "file": "assets/humans/reynolds_mary_1904_maid.lod0.glb",
+      "sha256": "1bda876bd4246bde0529e3bf78131df107a19b25b286f23f32bb16cc0180e97f",
+      "lod": 0,
+      "derivative_of": null,
+      "bytes": 10593804,
+      "meshopt": false,
+      "triangles": 48332,
+      "vertices": 32356,
+      "draw_calls": 16,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_bun",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__maid_dress_black",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "rest_height_m": 1.6756,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 270.4,
+        "mobile": 203.3
+      },
+      "frame_ms_median": {
+        "desktop": 0.9,
+        "mobile": 0.5
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "16 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4865 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8003 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8279 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.6
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "21.11 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "21.11 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.4 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "eyes__iris, eyes__pupil, eyes__sclera, footwear__maid_shoes_black, garment_lower__maid_skirt_black, garment_outer__maid_apron_white, garment_upper__maid_dress_black, hair__makehuman_bun, headwear__maid_cap_white, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_bun 2048x2048, skin 2048x2048, garment_upper__maid_dress_black 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6756 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "48332 tris, 16 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/reynolds_mary_1904_maid.lod1.glb",
+      "sha256": "8abe0c8ae9ef4ec68e56c73335a356ffe1e62ff66ed6c20b321968c1bd456689",
+      "lod": 1,
+      "derivative_of": null,
+      "bytes": 9814520,
+      "meshopt": false,
+      "triangles": 30712,
+      "vertices": 21261,
+      "draw_calls": 16,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_bun",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__maid_dress_black",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "rest_height_m": 1.6756,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 263,
+        "mobile": 219.2
+      },
+      "frame_ms_median": {
+        "desktop": 0.1,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "16 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4865 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8003 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8279 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.6
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "20.88 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "20.88 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.4 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "eyes__iris, eyes__pupil, eyes__sclera, footwear__maid_shoes_black, garment_lower__maid_skirt_black, garment_outer__maid_apron_white, garment_upper__maid_dress_black, hair__makehuman_bun, headwear__maid_cap_white, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_bun 2048x2048, skin 2048x2048, garment_upper__maid_dress_black 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6756 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "30712 tris, 16 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/reynolds_mary_1904_maid.lod2.glb",
+      "sha256": "2e18262b2257b53cf6ceb09e106a9d86d6b5558d7410d7c1a5b4c554af3a20ec",
+      "lod": 2,
+      "derivative_of": null,
+      "bytes": 9122100,
+      "meshopt": false,
+      "triangles": 16837,
+      "vertices": 11938,
+      "draw_calls": 16,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_bun",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__maid_dress_black",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "rest_height_m": 1.6757,
+      "soles_y_m": -0.0001,
+      "load_ms": {
+        "desktop": 5396,
+        "mobile": 9443.8
+      },
+      "frame_ms_median": {
+        "desktop": 0.2,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "16 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4864 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8274 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.6
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "eyes__iris, eyes__pupil, eyes__sclera, footwear__maid_shoes_black, garment_lower__maid_skirt_black, garment_outer__maid_apron_white, garment_upper__maid_dress_black, hair__makehuman_bun, headwear__maid_cap_white, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_bun 2048x2048, skin 2048x2048, garment_upper__maid_dress_black 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6757 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "-0.0001 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "16837 tris, 16 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/reynolds_mary_1904_maid.lod3.glb",
+      "sha256": "4089e12315d24770dd4f7792dbe8de0e289031d1502baff454d9cf4a98d0aafd",
+      "lod": 3,
+      "derivative_of": null,
+      "bytes": 8812968,
+      "meshopt": false,
+      "triangles": 9883,
+      "vertices": 6797,
+      "draw_calls": 16,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_bun",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__maid_dress_black",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "rest_height_m": 1.6762,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 450.2,
+        "mobile": 262.6
+      },
+      "frame_ms_median": {
+        "desktop": 0.1,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "16 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4856 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.7988 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8262 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.6
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "eyes__iris, eyes__pupil, eyes__sclera, footwear__maid_shoes_black, garment_lower__maid_skirt_black, garment_outer__maid_apron_white, garment_upper__maid_dress_black, hair__makehuman_bun, headwear__maid_cap_white, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_bun 2048x2048, skin 2048x2048, garment_upper__maid_dress_black 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6762 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "9883 tris, 16 draws"
+        }
+      ]
+    },
+    {
       "file": "assets/humans/williamson_mattie_1904_cook_study.lod0.glb",
       "sha256": "8dbf8b749cf68aeb59ca71126b2e443d0c67a1e872ed45706cdc74932e6af5aa",
       "lod": 0,
@@ -7353,6 +7891,584 @@
           "check": "same triangles, joints, morphs and clips as its master",
           "ok": true,
           "got": "6994 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/reynolds_mary_1904_maid.lod0.glb",
+      "sha256": "17c96945ef40e3c47c1318fbfc61f4a91f72b1e7717514fcc51a2eaba511eb8d",
+      "lod": 0,
+      "derivative_of": "assets/humans/reynolds_mary_1904_maid.lod0.glb",
+      "bytes": 7135292,
+      "meshopt": true,
+      "triangles": 48332,
+      "vertices": 32356,
+      "draw_calls": 16,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_bun",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__maid_dress_black",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "rest_height_m": 1.6756,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 312,
+        "mobile": 207.8
+      },
+      "frame_ms_median": {
+        "desktop": 0.3,
+        "mobile": 0.1
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "16 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4866 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8003 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8279 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.6
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "21.07 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "21.07 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.36 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "eyes__iris, eyes__pupil, eyes__sclera, footwear__maid_shoes_black, garment_lower__maid_skirt_black, garment_outer__maid_apron_white, garment_upper__maid_dress_black, hair__makehuman_bun, headwear__maid_cap_white, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_bun 2048x2048, skin 2048x2048, garment_upper__maid_dress_black 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6756 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "48332 tris, 16 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.10 mm from reynolds_mary_1904_maid.lod0.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "48332 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/reynolds_mary_1904_maid.lod1.glb",
+      "sha256": "6cf719e98e372ed195929a9d161812e154babfe560a01bab3fb6c2b656ddf61b",
+      "lod": 1,
+      "derivative_of": "assets/humans/reynolds_mary_1904_maid.lod1.glb",
+      "bytes": 2354620,
+      "meshopt": true,
+      "triangles": 30712,
+      "vertices": 21261,
+      "draw_calls": 16,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_bun",
+          "w": 1024,
+          "h": 1024
+        },
+        {
+          "slot": "skin",
+          "w": 1024,
+          "h": 1024
+        },
+        {
+          "slot": "garment_upper__maid_dress_black",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "rest_height_m": 1.6755,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 176.1,
+        "mobile": 84.3
+      },
+      "frame_ms_median": {
+        "desktop": 0.2,
+        "mobile": 0.1
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "16 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4866 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8003 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8279 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.6
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "20.86 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "20.86 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.35 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "eyes__iris, eyes__pupil, eyes__sclera, footwear__maid_shoes_black, garment_lower__maid_skirt_black, garment_outer__maid_apron_white, garment_upper__maid_dress_black, hair__makehuman_bun, headwear__maid_cap_white, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_bun 1024x1024, skin 1024x1024, garment_upper__maid_dress_black 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6755 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "30712 tris, 16 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.10 mm from reynolds_mary_1904_maid.lod1.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "30712 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/reynolds_mary_1904_maid.lod2.glb",
+      "sha256": "2d506eb48c201796e10c049748b4442021ded08a3f28d245a98a608568c5c673",
+      "lod": 2,
+      "derivative_of": "assets/humans/reynolds_mary_1904_maid.lod2.glb",
+      "bytes": 856220,
+      "meshopt": true,
+      "triangles": 16837,
+      "vertices": 11938,
+      "draw_calls": 16,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_bun",
+          "w": 512,
+          "h": 512
+        },
+        {
+          "slot": "skin",
+          "w": 512,
+          "h": 512
+        },
+        {
+          "slot": "garment_upper__maid_dress_black",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "rest_height_m": 1.6757,
+      "soles_y_m": -0.0001,
+      "load_ms": {
+        "desktop": 37.2,
+        "mobile": 50.8
+      },
+      "frame_ms_median": {
+        "desktop": 0.1,
+        "mobile": 0.1
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "16 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4864 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8274 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.6
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "eyes__iris, eyes__pupil, eyes__sclera, footwear__maid_shoes_black, garment_lower__maid_skirt_black, garment_outer__maid_apron_white, garment_upper__maid_dress_black, hair__makehuman_bun, headwear__maid_cap_white, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_bun 512x512, skin 512x512, garment_upper__maid_dress_black 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6757 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "-0.0001 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "16837 tris, 16 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.00 mm from reynolds_mary_1904_maid.lod2.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "16837 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/reynolds_mary_1904_maid.lod3.glb",
+      "sha256": "e8cfa231b3c13c78922dc7e96befa5aec3de19e4c969a375135c4bcc0a4e79b6",
+      "lod": 3,
+      "derivative_of": "assets/humans/reynolds_mary_1904_maid.lod3.glb",
+      "bytes": 402308,
+      "meshopt": true,
+      "triangles": 9883,
+      "vertices": 6797,
+      "draw_calls": 16,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_bun",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "skin",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "garment_upper__maid_dress_black",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 256,
+          "h": 128
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "rest_height_m": 1.6762,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 32.9,
+        "mobile": 34.1
+      },
+      "frame_ms_median": {
+        "desktop": 0.1,
+        "mobile": 0.1
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "16 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4856 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.7988 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8262 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.6
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "eyes__iris, eyes__pupil, eyes__sclera, footwear__maid_shoes_black, garment_lower__maid_skirt_black, garment_outer__maid_apron_white, garment_upper__maid_dress_black, hair__makehuman_bun, headwear__maid_cap_white, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_bun 256x256, skin 256x256, garment_upper__maid_dress_black 256x256, eyes__iris 256x128"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6762 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "9883 tris, 16 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.00 mm from reynolds_mary_1904_maid.lod3.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "9883 tris"
         }
       ]
     },
