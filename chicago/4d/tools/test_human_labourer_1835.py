@@ -45,7 +45,7 @@ class Labourer(unittest.TestCase):
         self.assertLessEqual({'skin', 'eyes', 'garment_upper', 'garment_lower', 'footwear'}, slots)
         self.assertEqual(self.bundle['shoe_material'], 'footwear__brown_boots_1835')
 
-    def test_he_is_patrick_mahoney_as_recorded_and_not_placed_in_town(self):
+    def test_he_is_patrick_mahoney_as_recorded_and_placed_once_in_town(self):
         v = self.variant
         self.assertEqual((v['person_reference_id'], v['component_assembly'], v['person_reference_grade']),
                          ('rc_mahoney_patrick', 'labourer_1835_v1', 'reconstructed'))
@@ -56,8 +56,14 @@ class Labourer(unittest.TestCase):
         self.assertTrue(30 <= v['body_parameters']['engineering_age_years'] <= 39)
         from human_teamster_blend import resolve_person_reference
         self.assertEqual(resolve_person_reference(v)['name'], 'Patrick Mahoney')
-        self.assertFalse([p for p in (ROOT/'data/humans/instances').rglob('*.json')
-                          if 'mahoney_patrick' in p.read_text() or 'labourer_1835' in p.read_text()])
+        # He stands in the 1835 town once, in this dress, on the South Water bank (T-3452).
+        found = [p for p in (ROOT/'data/humans/instances').rglob('hi_*.json')
+                 if 'mahoney_patrick' in p.read_text() or 'labourer_1835' in p.read_text()]
+        self.assertEqual([p.relative_to(ROOT).as_posix() for p in found], ['data/humans/instances/1835/hi_rc_mahoney_patrick_1835.json'])
+        inst = json.loads(found[0].read_text())
+        self.assertEqual((inst['scene'], inst['person_id'], inst['appearance']['asset_id'], inst['display']),
+                         ('1835', 'rc_mahoney_patrick', v['id'], 'shown'))
+        self.assertIn(inst['id'], json.loads((ROOT/'data/humans/instances/1835/index.json').read_text())['instances'])
 
     def test_every_garment_carries_provenance(self):
         garments = self.recipe['labourer_components']['garments']
