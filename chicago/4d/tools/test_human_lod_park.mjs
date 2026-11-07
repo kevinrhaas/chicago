@@ -65,28 +65,39 @@ assert.equal(actor.body.scene.parent, actor.root);
 assert.equal(actor.root.children.filter((c) => /^lod/.test(c.name)).length, 1, 'one level drawn at a time');
 assert.ok(actor.body.action?.isRunning(), 'the reused level plays its clip again');
 
-// Two levels off the one drawn is let go.
+// Every level is kept while in range: a courtyard walk spans three bands.
 await actor.setLod(2);
-assert.deepEqual([...actor.parked.keys()].sort(), [1], 'level 0 is two off level 2 and let go; level 1 stays');
-assert.deepEqual(released, [0]);
+assert.deepEqual([...actor.parked.keys()].sort(), [0, 1], 'levels 0 and 1 both stay parked under level 2');
+await actor.setLod(0); await actor.setLod(2);
+assert.deepEqual(acquired, [1, 0, 2], 'a walk across three bands parses each level once');
+assert.deepEqual(released, []);
+
+// A tier that no longer allows a level lets it go (Light draws 2 and 3 only).
+actor.tier = 'light';
+actor.update(.05, new THREE.Vector3(0, 0, 30));
+assert.equal(actor.parked.size, 0, 'Light lets go of parked levels 0 and 1');
+assert.deepEqual(released.slice().sort(), [0, 1]);
+actor.tier = 'full';
 
 // Unused for PARK_S, a parked level is let go.
-actor.update(1, new THREE.Vector3(0, 0, 30));
+await actor.setLod(1);
+actor.update(1, new THREE.Vector3(0, 0, 15));
 assert.equal(actor.parked.size, 1);
 const PARK_S = Number(constants.match(/PARK_S = (\d+)/)[1]);
-actor.update(PARK_S + 1, new THREE.Vector3(0, 0, 30));
+actor.update(PARK_S + 1, new THREE.Vector3(0, 0, 15));
 assert.equal(actor.parked.size, 0, 'a level unused for PARK_S is let go');
-assert.deepEqual(released, [0, 1]);
+assert.deepEqual(released.slice().sort(), [0, 1, 2]);
 
 // Out of draw range, every parked level goes; dispose lets go of the rest.
-await actor.setLod(1);
+await actor.setLod(2);
 assert.equal(actor.parked.size, 1);
 actor.recheck = 0;
 actor.update(.05, new THREE.Vector3(0, 0, 500));
 assert.equal(actor.inRange, false);
 assert.equal(actor.parked.size, 0, 'out of range, parked levels are let go');
 actor.dispose();
-assert.deepEqual(released.slice().sort(), [0, 1, 1, 2], 'every level parsed is let go exactly once');
+assert.deepEqual(released.slice().sort(), acquired.slice().sort(), 'every level parsed is let go once per parse');
+assert.equal(acquired.length, released.length, 'every parse is let go');
 
 // Settings > Show > People, on the actual layer.
 const layerSource = slice('export function createHumanLayer(', '\n/**\n * THE SCENE PATH.');
@@ -123,4 +134,4 @@ assert.equal(layer.pickAt(null, camera), null, 'hidden, nobody is picked');
 layer.setShown(true);
 assert.equal(driver.root.visible && otherDriver.root.visible && layer.group.visible, true);
 layer.update(.05, camera); assert.equal(updates, 2);
-console.log('PASS: distance levels are parked and reused, let go two levels off, after PARK_S, out of range and on dispose; People hidden hides, stops and unpicks every figure and driver');
+console.log('PASS: distance levels are parked and reused, let go outside the tier, after PARK_S, out of range and on dispose; People hidden hides, stops and unpicks every figure and driver');

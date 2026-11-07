@@ -56,7 +56,7 @@ export const ANIMATE_M = 70;
 export const DRAW_M = 140;
 export const RECHECK_S = 0.5;
 /** T-3439: seconds a level drawn before is kept, parked, for a swap back to it. */
-export const PARK_S = 60;
+export const PARK_S = 180;
 
 /** § 7: the clip a state plays when the record names none the asset carries. */
 const STATE_CLIPS = {
@@ -253,7 +253,9 @@ export class HumanActor {
    * level's materials dropped the last user of her skin, hair and eye programs, compiled
    * those programs again on the next frame. That was the Glessner courtyard's freeze. A
    * parked level costs no draw and no update; it is let go when the figure goes out of
-   * range, when it is two levels off the one drawn, or after PARK_S unused.
+   * range, when the detail tier no longer allows it, or after PARK_S unused. Every level is
+   * kept, not only the neighbours: a courtyard walk spans three bands (2 to 25 m), and
+   * letting the far one go reloaded it on every lap.
    */
   async setLod(lod) {
     if (this.disposed || lod === this.lod || lod === this.wanted) return this.pending ?? this.body;
@@ -322,10 +324,11 @@ export class HumanActor {
     this.parked.set(body.lod, body);
   }
 
-  /** Let go of parked levels that are out of range, two levels off, or unused for PARK_S. */
+  /** Let go of parked levels when out of range, outside the tier, or unused for PARK_S. */
   prune(all = false) {
+    const allowed = HUMAN_TIERS[this.tier] ?? HUMAN_TIERS.full;
     for (const [lod, body] of this.parked) {
-      if (all || Math.abs(lod - this.lod) > 1 || this.clock - body.parkedAt > PARK_S) {
+      if (all || !allowed.includes(lod) || this.clock - body.parkedAt > PARK_S) {
         this.parked.delete(lod);
         this.teardown(body);
       }
