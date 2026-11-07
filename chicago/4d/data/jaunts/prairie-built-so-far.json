@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 179783352,
+  "content_version": 413981095,
   "category": "Build log",
   "featured": true,
   "review_required": false,
@@ -501,7 +501,7 @@
         "kind": "structure",
         "id": "kimball_house_1801_prairie"
       },
-      "text": "W. W. Kimball House, 1801 Prairie. DETAIL 4/5: a kit build matched to its picture; 3 solved pictures, 3 matching. Pictured: 9 of the pictures on the Images tab show it. Next: Pullman House, 1729 Prairie.",
+      "text": "W. W. Kimball House, 1801 Prairie. DETAIL 4/5: a kit build matched to its picture; 3 solved pictures, 3 matching. Pictured: 9 of the pictures on the Images tab show it. Next: Pullman conservatory, 1729 Prairie.",
       "read_s": 15,
       "evidence": [
         "stood-23",
@@ -520,19 +520,18 @@
       "id": "stop-24",
       "destination": {
         "kind": "structure",
-        "id": "pullman_house_1729_prairie"
+        "id": "pullman_house_1729_prairie_conservatory"
       },
-      "text": "Pullman House, 1729 Prairie. DETAIL 4/5: a kit build matched to its picture; 5 solved pictures, 1 matching. Pictured: 21 of the pictures on the Images tab show it. RAZED 1922. Next: Pullman conservatory, 1729 Prairie.",
-      "read_s": 15,
+      "text": "Pullman conservatory, 1729 Prairie. DETAIL 4/5: a kit build matched to its picture; 3 solved pictures, 2 matching. Pictured: 6 of the pictures on the Images tab show it. Next: Pullman House, 1729 Prairie.",
+      "read_s": 14,
       "evidence": [
         "stood-24",
-        "razed-24",
         "tour"
       ],
       "links": [
         {
           "kind": "structure",
-          "id": "pullman_house_1729_prairie",
+          "id": "pullman_house_1729_prairie_conservatory",
           "label": "About this building"
         }
       ],
@@ -542,18 +541,19 @@
       "id": "stop-25",
       "destination": {
         "kind": "structure",
-        "id": "pullman_house_1729_prairie_conservatory"
+        "id": "pullman_house_1729_prairie"
       },
-      "text": "Pullman conservatory, 1729 Prairie. DETAIL 4/5: a kit build matched to its picture; 3 solved pictures, 2 matching. Pictured: 6 of the pictures on the Images tab show it. Next: Dexter coach house, 1721 Prairie.",
-      "read_s": 15,
+      "text": "Pullman House, 1729 Prairie. DETAIL 4/5: a kit build matched to its picture; 6 solved pictures, 2 matching. Pictured: 21 of the pictures on the Images tab show it. RAZED 1922. Next: Dexter coach house, 1721 Prairie.",
+      "read_s": 16,
       "evidence": [
         "stood-25",
+        "razed-25",
         "tour"
       ],
       "links": [
         {
           "kind": "structure",
-          "id": "pullman_house_1729_prairie_conservatory",
+          "id": "pullman_house_1729_prairie",
           "label": "About this building"
         }
       ],
@@ -1425,6 +1425,15 @@
     },
     {
       "id": "stood-24",
+      "text": "Pullman conservatory, 1729 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "confidence": "inferred",
+      "reasoning": "STANDING IN 1904 is what the scene needs, and it rests on sheet 20 of the 1911 Sanborn carried back seven years, the reading the Glessner and 1808 records and the 1904 parcels make of these sheets. FROM: the T-1837 building register reports an 1892 east addition to the Pullman house, and the wing toward the stable is read as part of it; the register is not a source record here, so the day is the 1st of January and the confidence inferred. TO: the register reports the house's loss in 1922; same footing, the year's last day."
+    },
+    {
+      "id": "stood-25",
       "text": "Pullman House, 1729 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1433,22 +1442,13 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1840 census rules it present in 1904 (present_as_mapped), and the Detroit Publishing photograph (between 1890 and 1901; after 1893 by the monument it shows) shows the same main block. Its building and loss dates are not read here."
     },
     {
-      "id": "razed-24",
+      "id": "razed-25",
       "text": "George M. Pullman Residence, 1729 S. Prairie Avenue: razed 1922.",
       "confidence": "attested",
       "sources": [
         "hmdb_prairie_lost_houses_1600_1700"
       ],
       "locator": "The 1729 S. Prairie Avenue entry."
-    },
-    {
-      "id": "stood-25",
-      "text": "Pullman conservatory, 1729 Prairie stood on 1 July 1904, as its structure record carries it.",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
-      ],
-      "confidence": "inferred",
-      "reasoning": "STANDING IN 1904 is what the scene needs, and it rests on sheet 20 of the 1911 Sanborn carried back seven years, the reading the Glessner and 1808 records and the 1904 parcels make of these sheets. FROM: the T-1837 building register reports an 1892 east addition to the Pullman house, and the wing toward the stable is read as part of it; the register is not a source record here, so the day is the 1st of January and the confidence inferred. TO: the register reports the house's loss in 1922; same footing, the year's last day."
     },
     {
       "id": "stood-26",

@@ -19,6 +19,8 @@ traced mesh), and the copy is unaltered.
 |---|---|
 | `loc_det_4a08065_pullman_residence.jpg` | the photograph, 1024 x 804 px greyscale, sha256 `60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c` |
 | (camera) | `data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json`, solved from the photograph and the 1911 Sanborn sheet's plan; its `solve` field says how and how far |
+| `loc_det_4a08066_pullman_residence.jpg` | the companion photograph, Detroit Publishing Co. plate 012552, LC-D4-12552, LC-DIG-det-4a08066 (https://www.loc.gov/pictures/item/2016794585/; source record `data/sources/loc_det_4a08066_pullman_residence.json`, Prairie library `a16-pullman-det-4a08066`), c. 1900, taken from 18th Street near Calumet Avenue looking west-north-west at the flank's east section and the rear face: the image store's 1024 x 809 px greyscale copy, unaltered, sha256 `297e4d7b05312c70ddea6e5dbb24a74cffd0db743f3bb9cdcbb1f4c0edc5f4fb`; no known restrictions on publication; brought in by T-1881 (2026-11-07) for the image gate |
+| (camera) | `data/reference_views/pullman_house_1729_prairie/detroit_det_4a08066.json`, solved from the photograph on the house's corners, dormers and cresting; its `solve` field says how and how far |
 
 **How it is used.** `node tools/photo_match.mjs data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json`
 renders the committed GLB from that camera and writes it beside the photograph, with the match
