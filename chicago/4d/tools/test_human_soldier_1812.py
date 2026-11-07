@@ -59,19 +59,33 @@ class Soldier(unittest.TestCase):
         named = copy.deepcopy(v); named['person_reference_id'] = 'kinzie_john_elder'
         with self.assertRaises(ValueError):
             resolve_person_reference(named)
-        # He stands in the 1812 fort once (T-3452). Since T-3468 (owner, 2026-11-07: "assign this
-        # person to a reconstructed or documented person from 1812") the figure wearing this
-        # anonymous dress is Private Paul Grummo of the May 1812 muster-roll, whose card is his
-        # own record in the 1812 people directory; the dress itself still names no one.
+        # He stands in the 1812 fort as the parade figure (T-3452), named since T-3468 (owner,
+        # 2026-11-07: "assign this person to a reconstructed or documented person from 1812") as
+        # Private Paul Grummo of the May 1812 muster-roll; the dress itself still names no one.
+        # Every other enlisted man of Heald's company the 1812 people layer cards stands in the
+        # same dress as himself (T-3462).
         found = [p for p in (ROOT/'data/humans/instances').rglob('hi_*.json')
                  if 'private_first_infantry' in p.read_text() or 'soldier_1812' in p.read_text()]
-        self.assertEqual([p.relative_to(ROOT).as_posix() for p in found], ['data/humans/instances/1812/hi_heald_company_private_1812.json'])
-        inst = json.loads(found[0].read_text())
+        self.assertTrue(all(p.parent.name == '1812' for p in found), 'the 1812 private is worn only in 1812')
+        parade = ROOT/'data/humans/instances/1812/hi_heald_company_private_1812.json'
+        self.assertIn(parade, found)
+        inst = json.loads(parade.read_text())
         self.assertNotIn('anonymous_profile_id', inst)
-        self.assertEqual((inst['scene'], inst['person_id'], inst['appearance']['asset_id'],
-                          inst['interaction']['opens'], inst['provenance']['grade']),
-                         ('1812', 'grummo_paul', v['id'], 'resident_card', 'reconstructed'))
+        self.assertEqual(inst['person_id'], 'grummo_paul')
         self.assertIn('grummo_paul', {p['id'] for p in people})
+        company = {p['id'] for h in (ROOT/'data/residents_1812/households').glob('hh_*_1812.json')
+                   for p in json.loads(h.read_text())['persons']
+                   if "heald's company" in (p.get('occupation') or {}).get('value', '').lower()}
+        seen = []
+        for p in found:
+            rec = json.loads(p.read_text())
+            self.assertEqual(rec['scene'], '1812', p.name)
+            self.assertIn(rec.get('person_id'), company, p.name)
+            self.assertEqual((rec['appearance']['asset_id'], rec['interaction']['opens'], rec['provenance']['grade']),
+                             (v['id'], 'resident_card', 'reconstructed'), p.name)
+            seen.append(rec['person_id'])
+        self.assertEqual(len(seen), len(set(seen)), 'each man stands once')
+        self.assertGreaterEqual(len(found), 51, 'every enlisted man of the roll stands in the 1812 scene')
         profile = json.loads((ROOT/'data/humans/role_profiles/anonymous_adult_1812.json').read_text())
         self.assertEqual([a['asset_id'] for a in profile['eligible_assets']], [v['id']])
         self.assertIn(inst['id'], json.loads((ROOT/'data/humans/instances/1812/index.json').read_text())['instances'])
