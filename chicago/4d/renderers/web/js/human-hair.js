@@ -572,7 +572,8 @@ export function dressHair(root, { lod = 0, person = null, year = null, style: gi
   let frame = 0, seen = null;
   mesh.onBeforeRender = () => {
     if (frame++ % 30) return;
-    const hat = mesh.parent?.children.find(o => o.isSkinnedMesh && /^headwear/.test(o.material?.name ?? '') && !/band/.test(o.material.name)) ?? null;
+    // Only a hat that is worn: one left off (a bareheaded still, T-3440) cuts nothing.
+    const hat = mesh.parent?.children.find(o => o.isSkinnedMesh && o.visible && /^headwear/.test(o.material?.name ?? '') && !/band/.test(o.material.name)) ?? null;
     if (hat === seen) return;
     seen = hat;
     material.userData.chiCards.value.z = hat ? hatBand(hat, hair, root, entry.frame) : NO_CLIP;

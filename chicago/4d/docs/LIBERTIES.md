@@ -36614,6 +36614,30 @@ she stands with them loosely clasped in front at the waist, over the apron, or h
 as women in service stand in the photographs of the decade. All amounts are chosen by eye against the
 1903 stereographs; none is measured, and none says anything about how she looked.
 
+**The 1904 gentleman supplement, 2026-11-07 (T-3441):** a man's outfit on the same component path,
+`tools/human_gentleman_1904.py` with `data/humans/recipes/gentleman_1904.json`, built as the asset
+`glessner_john_j_1904` and first worn by John J. Glessner (attested; vice president of International
+Harvester in 1904); he is not placed in the town by this work. **Choice of coat:** the ticket allowed a
+frock coat, a morning coat or a sack suit. A 1904 Clinedinst print of Taft and Elihu Root
+(`loc_clinedinst_1904_taft_root_frock_coats`, LOC, no known restrictions) shows two public men in dark
+frock coats; an Underwood & Underwood stereograph of State Street, Chicago, at noon in 1903
+(`loc_underwood_1903_state_street_noonday_stereograph`) shows the city's men by day mostly in sack coats,
+one in a frock coat, nearly all in black derbies; Glessner's own plate
+(`glessner_commercial_club_1910_presidents_plate`) shows a tall standing collar, a dark four-in-hand tie and a
+high dark waistcoat under a dark coat. A frock coat with a derby joins the three; that he wore one on a
+given weekday is not recorded. **Cut:** a white shirt whose neck cut rises 4 cm up the neck as a standing
+collar; a waistcoat cut high, its V opening from 21.5 cm above the waist; a frock coat offset 2.4 cm from the
+body and smoothed so it spans the chest's hollows (pressed cloth, not skin), lapels rolled from 13 cm above
+the waist, skirts lofted round the body's own sections from the waist seam to the knee (0.49 m), widest
+over the front, the two front panels each going with their own leg and the back shared, in place of cloth
+simulation; straight mid-grey trousers on the shared workwear shell; closed black boots round the feet; a
+derby seated round the skull (crown 11.8 cm, brim 4 to 4.8 cm, curled 1.8 cm at the sides), rigid on the head
+bone and a mesh of its own so a renderer can lift it. **Colour:** the pictures are monochrome; the black,
+the white and the grey are chosen. **Skin:** MakeHuman's own CC0 older light-skinned male atlas, its painted
+scalp stubble blended to skin for his bald crown (`tools/human_skin_bald_scalp.py`). **Body:** the shared
+adult male base; his age (61), face (fitted to his plate), height and build are applied at runtime. Every
+amount is chosen by eye against the pictures; none is measured, and none says how he dressed.
+
 **Her own hair, 2026-11-06 (T-3434):** the owner still saw a man's head ("she still basically looks
 like Hans"): the raised short04 cap and a modelled knot were a man's crop underneath. Mattie now wears a
 cleared woman's hairstyle, RehmanPolanski's *hair bun brown* (MakeHuman hair01, CC0;

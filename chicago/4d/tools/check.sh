@@ -439,6 +439,8 @@ step "Resident hair preserves verified source pixels, fitted UVs and existing sk
   python3 tools/test_human_hair_short04.py
 step "A cleared woman's hairstyle (Mattie's bun) is pinned, CC0, fitted to her head and skinned; its red tie recoloured (T-3434)" \
   python3 tools/test_human_hair_proxy.py
+step "A 1904 gentleman's day dress is sourced, layered and skinned on the shared rig (T-3441)" \
+  python3 tools/test_human_gentleman_1904.py
 
 step "Resident body normals share exact source seams without welding geometry or UVs (T-1789)" \
   python3 tools/test_human_source_normals.py
