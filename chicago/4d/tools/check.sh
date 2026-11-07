@@ -1091,6 +1091,15 @@ step "the 1904 front yards stand clear of every house, stoop, walk and door (T-3
 selftest "the front-yard check refuses a shrub on a door's way, beside a door and in a house, and ivy beside a door (T-3223, T-3227)" \
   python3 tools/plant_prairie_1904_front_yards.py --self-test
 
+# T-3488. ...and the back and side yards behind them: a back door and its steps on each house's
+# rear wall, a paved terrace at their foot, walks to the coach house, the alley and the front, drying
+# yards, kitchen gardens and side-lawn planting. Nothing it lays may stand in a building, a fence or a
+# stoop, or leave its lot, on the models as they stand now; then the file is what the tool writes.
+step "the 1904 back yards lie clear of every building, fence and stoop, inside their lots (T-3488)" \
+  python3 tools/lay_prairie_1904_back_yards.py --check
+selftest "the back-yard check refuses a terrace in a house, a walk in the next lot, a material and a door's structure it does not know (T-3488)" \
+  python3 tools/lay_prairie_1904_back_yards.py --self-test
+
 # T-3407. The 1812 commanding officer's garden: Whistler's beds and walks inside the paling,
 # and every plant inside a bed, re-derived byte for byte from the record and the draught.
 step "the 1812 officers' garden is laid in the draught's beds and planted inside them (T-3407)" \
@@ -1099,6 +1108,13 @@ selftest "the garden check refuses a plant off its bed, a bed past the paling an
   python3 tools/plant_gardens.py --self-test
 step "the 1812 officers' garden grows every crop it plants, near to far, inside a phone's budget (T-3407)" \
   node tools/test_gardens.mjs
+
+# T-3488. The 1904 back yards' renderer, headless on a fixture (under a second): paving lies on the
+# field cut on its lattice as a ground decal under the roadways, merged per material and chunk,
+# stoops step from the ground to their sills, missing maps fall back to flat tones, the Season
+# snows them and replants the kitchen rows, and a pick names lot, kind, material, grade, liberty.
+step "the 1904 back yards drape as decals under the roads, step to their sills and say what they are (T-3488)" \
+  node tools/test_back_yards.mjs
 
 # T-1840. ...and what stands on that grid's sheet 20 lots in 1904: the sheet census
 # (prairie_1904_v1/data/sheet_census/sheet-20.json) assigns every 1911 frontage row and

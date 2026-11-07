@@ -571,6 +571,10 @@ const COVERAGE = [
   ['renderers/web/js/front-yards.js', [14], 'the 1904 front yards: grown shrubs, young trees, beds, ivy (T-3203, T-3223)'],
   ['data/front_yards/', [14], 'the 1904 front yards, generated from the grid and the houses'],
   ['tools/plant_prairie_1904_front_yards.py', NONE, 'the front-yard planter — read by no renderer: its own --check in check.sh'],
+  // T-3488. Their back and side yards: paving decals, back doors and stoops, posts, crop rows.
+  ['renderers/web/js/back-yards.js', [14], 'the 1904 back yards: terraces, walks, gangways, stoops, posts, crop rows (T-3488)'],
+  ['data/back_yards/', [14], 'the 1904 back yards, laid from the grid and the houses'],
+  ['tools/lay_prairie_1904_back_yards.py', NONE, 'the back-yard layout — read by no renderer: its own --check in check.sh'],
   // T-3407. The 1812 commanding officer's garden: beds and crops inside its paling. main.js
   // asks for the layer only where a scene lists it, and only 1812's does; no part boots 1812,
   // so these are held by plant_gardens.py's --check and test_gardens.mjs in check.sh.

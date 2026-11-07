@@ -1,6 +1,6 @@
 {
   "library": "Prairie Avenue 1904 street-surface PBR materials",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "ticket": "T-1728",
   "materials": [
     {
@@ -316,6 +316,236 @@
       },
       "seamless": true,
       "generator_seed": 19041307,
+      "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_pbr.py); no photograph sampled"
+    },
+    {
+      "id": "yard_brick_herringbone",
+      "directional": true,
+      "group": "yard",
+      "span_m": 1.782,
+      "kind": "herringbone",
+      "mean_roughness": 0.8,
+      "colors": [
+        [
+          138,
+          86,
+          68
+        ],
+        [
+          90,
+          60,
+          50
+        ]
+      ],
+      "note": "Hard-burned common brick laid flat in a 45-degree herringbone on sand, as in Chicago yards about 1900: a 4 x 8 in brick with its joint (0.105 x 0.21 m), red-brown with a few burnt and a few salmon bricks, sand joints sunk and gone to dirt and a little moss, a walked polish, a chipped corner and a cracked brick here and there. The brick, the bond and the wear are reconstructed (T-3488).",
+      "ticket": "T-3488",
+      "span_along_m": 1.782,
+      "span_across_m": 1.782,
+      "resolution_px": 512,
+      "px_per_m": 287.32,
+      "confidence": "reconstructed appearance; which yard surface carries it is the yard layout's to say, never this map's",
+      "orientation": "image x = along the path or court the yard layout lays it on (renderer u); image y = across it (v)",
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "web": {
+        "basecolor": "yard_brick_herringbone_basecolor_web.jpg",
+        "normal_gl": "yard_brick_herringbone_normal_gl_web.jpg",
+        "orm": "yard_brick_herringbone_orm_web.jpg"
+      },
+      "seamless": true,
+      "generator_seed": 19041408,
+      "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_pbr.py); no photograph sampled"
+    },
+    {
+      "id": "bluestone_flags",
+      "directional": true,
+      "group": "yard",
+      "span_m": 2.4,
+      "kind": "flagging",
+      "mean_roughness": 0.84,
+      "colors": [
+        [
+          142,
+          137,
+          125
+        ],
+        [
+          97,
+          93,
+          79
+        ]
+      ],
+      "note": "Random-rectangular stone flagging in three courses: buff-grey Joliet limestone and blue-grey flag, slabs 0.5-1.0 m with some split smaller, 10-15 mm soil joints with grass and moss creeping along some, slabs settled unevenly, weather, lichen and an iron stain or two. Stone, sizes and weathering are reconstructed (T-3488).",
+      "ticket": "T-3488",
+      "span_along_m": 2.4,
+      "span_across_m": 2.4,
+      "resolution_px": 512,
+      "px_per_m": 213.33,
+      "confidence": "reconstructed appearance; which yard surface carries it is the yard layout's to say, never this map's",
+      "orientation": "image x = along the path or court the yard layout lays it on (renderer u); image y = across it (v)",
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "web": {
+        "basecolor": "bluestone_flags_basecolor_web.jpg",
+        "normal_gl": "bluestone_flags_normal_gl_web.jpg",
+        "orm": "bluestone_flags_orm_web.jpg"
+      },
+      "seamless": true,
+      "generator_seed": 19041509,
+      "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_pbr.py); no photograph sampled"
+    },
+    {
+      "id": "pea_gravel",
+      "directional": false,
+      "group": "yard",
+      "span_m": 1.0,
+      "kind": "gravel",
+      "mean_roughness": 0.78,
+      "colors": [
+        [
+          184,
+          174,
+          156
+        ],
+        [
+          99,
+          89,
+          77
+        ]
+      ],
+      "note": "Raked pea gravel for a carriage court or garden path: rounded 5-15 mm stones, tan, grey, buff and a few white, over a dusty bed, the rake's tines leaving faint ridges along x. The mix and the raking are reconstructed (T-3488).",
+      "ticket": "T-3488",
+      "span_along_m": 1.0,
+      "span_across_m": 1.0,
+      "resolution_px": 512,
+      "px_per_m": 512.0,
+      "confidence": "reconstructed appearance; which yard surface carries it is the yard layout's to say, never this map's",
+      "orientation": "image x = along the path or court the yard layout lays it on (renderer u); image y = across it (v)",
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "web": {
+        "basecolor": "pea_gravel_basecolor_web.jpg",
+        "normal_gl": "pea_gravel_normal_gl_web.jpg",
+        "orm": "pea_gravel_orm_web.jpg"
+      },
+      "seamless": true,
+      "generator_seed": 19041610,
+      "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_pbr.py); no photograph sampled"
+    },
+    {
+      "id": "beaten_earth",
+      "directional": false,
+      "group": "yard",
+      "span_m": 3.0,
+      "kind": "earth",
+      "mean_roughness": 0.89,
+      "colors": [
+        [
+          126,
+          115,
+          98
+        ],
+        [
+          111,
+          101,
+          84
+        ]
+      ],
+      "note": "Trodden yard earth for a drying or service yard: compacted brown-grey soil, the walked ground paler and smoother, the untrodden darker and looser with thin grass at its margins, a scatter of cinders and pebbles. Reconstructed (T-3488).",
+      "ticket": "T-3488",
+      "span_along_m": 3.0,
+      "span_across_m": 3.0,
+      "resolution_px": 512,
+      "px_per_m": 170.67,
+      "confidence": "reconstructed appearance; which yard surface carries it is the yard layout's to say, never this map's",
+      "orientation": "image x = along the path or court the yard layout lays it on (renderer u); image y = across it (v)",
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "web": {
+        "basecolor": "beaten_earth_basecolor_web.jpg",
+        "normal_gl": "beaten_earth_normal_gl_web.jpg",
+        "orm": "beaten_earth_orm_web.jpg"
+      },
+      "seamless": true,
+      "generator_seed": 19041711,
+      "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_pbr.py); no photograph sampled"
+    },
+    {
+      "id": "garden_loam",
+      "directional": true,
+      "group": "yard",
+      "span_m": 2.0,
+      "kind": "loam",
+      "mean_roughness": 0.91,
+      "colors": [
+        [
+          86,
+          72,
+          58
+        ],
+        [
+          64,
+          53,
+          43
+        ]
+      ],
+      "note": "Freshly dug and raked garden loam: a dark crumb, the rake's tines drawn along x about 30 mm apart, clods and a few small stones on top, the furrow bottoms damper and darker. Reconstructed (T-3488).",
+      "ticket": "T-3488",
+      "span_along_m": 2.0,
+      "span_across_m": 2.0,
+      "resolution_px": 512,
+      "px_per_m": 256.0,
+      "confidence": "reconstructed appearance; which yard surface carries it is the yard layout's to say, never this map's",
+      "orientation": "image x = along the rows (renderer u); image y = across them (v)",
+      "color_space": {
+        "basecolor": "sRGB",
+        "normal_gl": "linear",
+        "normal_dx": "linear",
+        "roughness": "linear",
+        "height16": "linear 16-bit",
+        "ao": "linear",
+        "metallic": "linear",
+        "orm": "linear; R=AO G=Roughness B=Metallic"
+      },
+      "web": {
+        "basecolor": "garden_loam_basecolor_web.jpg",
+        "normal_gl": "garden_loam_normal_gl_web.jpg",
+        "orm": "garden_loam_orm_web.jpg"
+      },
+      "seamless": true,
+      "generator_seed": 19041812,
       "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_pbr.py); no photograph sampled"
     }
   ]
