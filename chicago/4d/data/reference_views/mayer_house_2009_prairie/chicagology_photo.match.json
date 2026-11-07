@@ -2,7 +2,7 @@
   "structure_id": "mayer_house_2009_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/mayer_house_2009_prairie__as_mapped_1904.glb",
-  "glb_sha256": "e364e184a44323f7158e1ec5028b7f94d770f964c8845a55fe065979766afc69",
+  "glb_sha256": "ceebff1ed68c32e27f2dd81a109a55e27db80c20a4b71f0cef38e9f2c3cbe095",
   "camera_sha256": "78ec8f49f37566693a797fc7fa98ded24d4845ec40ef057129786224b8258d8a",
   "photo_sha256": "03db894ab10dff078b747f611eba3dd8d9bc3b1f35aae50435017dcd4640b4a2",
   "side_by_side": "docs/RESEARCH/photo-match/mayer_house_2009_prairie/chicagology_photo-side-by-side.jpg",
@@ -129,7 +129,15 @@
       "status": "fixed"
     },
     {
-      "what": "the near tall stack on the north flank: about 0.6 m south of the print's place (K01 stands it inside the main body) and its corbelled cap plain",
+      "what": "the near tall stack on the north flank: built astride the north wall where the print centres it (the render's shaft x 327-410 px against the print's 331-409), its top within 0.1 m of the print's, and its head a thin band, a stage standing a little proud and a stone cap where the print's cap is weathered to a low point (about 0.1 m)",
+      "status": "fixed"
+    },
+    {
+      "what": "the near stack's breast under the eave, carried up the flank from the ground: neither picture shows it (the parkway tree in the print, the yard's tree in Monroe's plate)",
+      "status": "not shown"
+    },
+    {
+      "what": "the stacks' brick: the side walls' buff, where the print draws both as dark as the front's rough brick (a tone, not a colour: the print is monochrome, so the brick wants a source that gives its colour)",
       "status": "open"
     },
     {

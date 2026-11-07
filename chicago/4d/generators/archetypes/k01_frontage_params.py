@@ -7638,6 +7638,25 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                     raise ParamError(f"chimney at ({u}, {v}): an outside stack names its top_m, 0.6 m or more "
                                      f"over the parapet's {spp['top_m']} m")
                 base = 0.0
+            elif st_.get("astride_wall"):
+                # T-3365: a stack built astride a hip house's side wall (2009's near north stack:
+                # the Chicagology photograph centres its shaft on the north wall's line, and
+                # Monroe's 1896 plate draws it rising at the flank): the wall's line runs through
+                # its plan, and the part outside the wall is a breast carried up the wall's outer
+                # face from the ground, as the hip's 0.1-0.3 m eave cannot carry it. K01's south
+                # wall (v 0, where its side_bays stand) only; the stack covers none of its lights
+                if flat or mansard or gable:
+                    raise ParamError(f"chimney at ({u}, {v}): only a hip house's side wall carries a stack astride it")
+                if not (sx / 2 + 0.3 <= u <= depth - sx / 2 - 0.3):
+                    raise ParamError(f"chimney at ({u}, {v}) does not stand along the side wall")
+                if not -sz / 2 + 0.1 <= v <= sz / 2 - 0.1:
+                    raise ParamError(f"chimney at ({u}, {v}): a stack astride the south wall (v 0) has the "
+                                     f"wall's line 0.1 m or more inside each of its faces")
+                for op in openings:
+                    if op.wall == "k01.wall.side.south" and abs(op.s_m - u) < op.width_m / 2 + sx / 2 + 0.05:
+                        raise ParamError(f"chimney at ({u}, {v}): it stands over the south wall's light at "
+                                         f"{op.s_m} m, within 0.05 m of its reveal")
+                base = 0.0
             elif st_.get("in_parapet"):
                 # T-2459: a stack carried up in a gable roof's side-wall parapet (1619's south
                 # stack at the head of its crow steps, its drawing): its outer face is the
