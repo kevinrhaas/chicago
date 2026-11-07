@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2791, ts: '2026-11-07T19:42:36.337Z', date: 'Nov 7, 2026, 1:42 PM CT', title: 'Heald\'s company stands at Fort Dearborn, each man as himself', kind: 'feature',
+    items: [
+      '51 men of the 1812 garrison now stand in the scene: a guard at the main gate, a sentry at the magazine, men on the parade and at the barracks doors, at the garden, stables, bake house and armourer\'s shop, on the river bank and at the wharf, and three in the company\'s cornfield at the forks.',
+      'Each one opens his own card: his rank, his enlistment and what became of him after 14 August.',
+      'Every man has his own face, height and build, and an age that fits his rank.',
+    ] },
   { v: 2790, ts: '2026-11-07T19:36:28.974Z', date: 'Nov 7, 2026, 1:36 PM CT', title: '1812 blockhouse cupolas are log and lower', kind: 'improvement',
     items: [
       'The cupolas on the first fort\'s two blockhouses are now built of logs like the walls below them, and stand about 20% lower, closer to the fort\'s drawings.',
