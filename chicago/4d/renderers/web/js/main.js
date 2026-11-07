@@ -4543,7 +4543,7 @@ async function boot() {
   // it go, back to where the Navigator was (docked, if it was docked).
   let handInspect = null; // { id, wasLevel, opening } while Inspect shows a building the visitor opened
   let letting = null;     // one let go while still opening: Inspect closes as soon as it is up
-  function openBuilding(id, { person = null } = {}) {
+  function openBuilding(id, { person = null, photo = null } = {}) {
     const record = loaded.registry.get(id);
     if (!record?.sidecar || !navigatorUi?.has?.('inspect')) return pick(id);
     if (popup.openId) popup.close();
@@ -4556,7 +4556,9 @@ async function boot() {
     handInspect = hand;
     inspectHold = id;
     // T-3265: a person's own card, on the People tab of the house they lived in.
-    const link = person ? { app: 'inspect', id, tab: 'people', person } : { app: 'inspect', id };
+    // T-3436: a photo view gone to from Go to › Photos: its Photos tab, that picture large.
+    const link = person ? { app: 'inspect', id, tab: 'people', person }
+      : photo ? { app: 'inspect', id, tab: 'photos', photo } : { app: 'inspect', id };
     void Promise.resolve(navigatorUi.openLink(link)).finally(() => {
       hand.opening = false;
       if (hand.released) { letGo(hand); if (letting === hand) letting = null; } // let go before it was on screen
@@ -4860,8 +4862,15 @@ async function boot() {
     api.townTransport?.cancelDriverApproaches();
     // T-3436: a photo view is walked, ridden or flown to like any place, and its last turn is
     // the Photos tab's From this spot: the camera's own spot and facing, the building outlined.
+    // The building's card then opens on its Photos tab with that picture large (the owner,
+    // 2026-11-07: "pop open the photo in the card ... see the larger version and be able to
+    // open in new window").
     if (resolved.kind === 'photo') {
-      return travel.go(resolved, { onArrive: () => { void api.fromSpot?.(resolved.of, resolved.picture); } });
+      return travel.go(resolved, { onArrive: () => {
+        void api.fromSpot?.(resolved.of, resolved.picture);
+        hud.setPanel(false);
+        openBuilding(resolved.of, { photo: resolved.picture?.id ?? resolved.id });
+      } });
     }
     return travel.go(resolved.structureId
       ? { kind: 'structure', id: resolved.structureId, label: resolved.label, person: resolved.kind === 'person' ? resolved.id : null }

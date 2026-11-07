@@ -33,3 +33,20 @@
 .ph-link-list li { overflow-wrap: anywhere; }
 .ph-link-list a { color: var(--accent); }
 .ph-link-list .nav-sub { display: block; }
+
+/* T-3436: the picture a Go to › Photos ride arrived at, large at the head of the tab. */
+.ph-hero { margin: 8px 0 14px; padding: 0 0 12px; border-bottom: 1px solid var(--edge); }
+.ph-hero-open { position: relative; display: block; width: 100%; padding: 0; border: 1px solid var(--accent);
+  border-radius: 6px; overflow: hidden; background: var(--panel-solid, #000); cursor: zoom-in; }
+.ph-hero-open:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: 2px; }
+.ph-hero-img { display: block; width: 100%; max-height: 52vh; object-fit: contain; background: var(--panel-solid, #000);
+  filter: contrast(1.06) saturate(.88) sepia(.1); }
+.ph-hero-cap { display: flex; flex-direction: column; gap: 3px; margin: 8px 0 0; }
+.ph-hero-k { font: var(--label-weight, 400) 10px/1.3 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.ph-hero-full { align-self: flex-start; display: inline-flex; align-items: center; min-height: 36px; margin-top: 2px;
+  padding: 0 10px; border: 1px solid var(--edge); border-radius: var(--r-control, 4px); color: var(--accent);
+  text-decoration: none; font: var(--label-weight, 400) 10px/1 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .14em; text-transform: uppercase; }
+.ph-hero-full:hover { border-color: var(--accent); }
+.ph-hero-full:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
