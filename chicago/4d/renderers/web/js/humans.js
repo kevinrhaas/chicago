@@ -55,6 +55,8 @@ export const SHADOW_M = 30;
 export const ANIMATE_M = 70;
 export const DRAW_M = 140;
 export const RECHECK_S = 0.5;
+/** T-3439: seconds a level drawn before is kept, parked, for a swap back to it. */
+export const PARK_S = 60;
 
 /** § 7: the clip a state plays when the record names none the asset carries. */
 const STATE_CLIPS = {
@@ -168,7 +170,7 @@ const PROXY_MATERIAL = new THREE.MeshBasicMaterial({ visible: false });
  * skeleton, § 7) adds clips the body's own file does not carry.
  */
 export class HumanActor {
-  constructor({ instance, person = null, identity = null, assets, heightAt = () => 0, clipLibrary = [], tier = 'full', variation = 'full' }) {
+  constructor({ instance, person = null, identity = null, assets, heightAt = () => 0, clipLibrary = [], tier = 'full', variation = 'full', prepare = null }) {
     this.instance = instance;
     this.person = person;
     this.identity = identity ?? { kind: 'person', personId: instance.person_id, person, profile: null, role: null };
@@ -189,6 +191,9 @@ export class HumanActor {
     this.proxy.userData.actor = this;
     this.root.add(this.proxy);
     this.libraryClips = clipLibrary;
+    // T-3439: `prepare(object)` readies a new level's programs off the frame (main.js passes
+    // renderer.compileAsync) before it is drawn; without it the first draw compiles them.
+    this.prepare = prepare;
     // T-3412: this person's own height, build and face (human-variation.js). `face` keeps a
     // seated driver's body as fitted to his seat and reins; `none` draws the asset as it is.
     this.variationScope = variation;
@@ -203,11 +208,14 @@ export class HumanActor {
     // T-3415: what the arms and hands do (human-actions.js), after the life layer.
     this.actions = null;
     this.body = null;           // { lod, scene, meshes, mixer, clips, actions, faces }
+    // T-3439: levels drawn before and kept for a swap back (lod -> body), on this clock.
+    this.parked = new Map();
+    this.clock = 0;
     this.pending = null;
     this.clipName = null;
     this.phase = instance.animation?.phase ?? 0;
     this.costs = '';
-    this.counters = { updates: 0, animated: 0, faced: 0, swaps: 0 };
+    this.counters = { updates: 0, animated: 0, faced: 0, swaps: 0, reused: 0 };
     this.expression = {};
     this.blinkClock = hashPhase(instance.id) * 4;
     this.distance = Infinity;
@@ -235,38 +243,93 @@ export class HumanActor {
     this.root.rotation.y = headingToYaw(this.heading);
   }
 
-  /** Load (or switch to) `lod`. Resolves when it is drawn; the previous LOD stays up until then. */
+  /**
+   * Load (or switch to) `lod`. Resolves when it is drawn; the previous LOD stays up until then.
+   *
+   * T-3439: a level drawn before is kept, parked, and a swap back to it is a switch, not a
+   * load. Before, every swap let the old level go, and a visitor walking about a figure
+   * crossed her 8 m and 20 m bands again and again: each crossing parsed her GLB anew,
+   * uploaded its 2048 px pictures, regrew her strand hair and, because letting go of the old
+   * level's materials dropped the last user of her skin, hair and eye programs, compiled
+   * those programs again on the next frame. That was the Glessner courtyard's freeze. A
+   * parked level costs no draw and no update; it is let go when the figure goes out of
+   * range, when it is two levels off the one drawn, or after PARK_S unused.
+   */
   async setLod(lod) {
     if (this.disposed || lod === this.lod || lod === this.wanted) return this.pending ?? this.body;
+    const parked = this.parked.get(lod);
+    if (parked) {
+      this.parked.delete(lod);
+      this.wanted = lod;
+      this.counters.reused++;
+      return this.show(parked);
+    }
     this.wanted = lod;
     const assetId = this.instance.appearance.asset_id;
-    const job = Promise.all([this.assets.acquire(assetId, lod), this.assets.variation?.() ?? null]).then(([gltf, variation]) => {
+    const job = Promise.all([this.assets.acquire(assetId, lod), this.assets.variation?.() ?? null]).then(async ([gltf, variation]) => {
       if (this.disposed || this.wanted !== lod) { this.assets.release(assetId, lod); return this.body; }
       const next = this.build(gltf, lod, variation);
-      const prev = this.body;
-      // The new LOD takes up the clip where the old one was, so a swap is not a stumble.
-      const time = prev?.action ? prev.action.time : null;
-      this.body = next;
-      this.lod = lod;
-      this.root.add(next.scene);
-      this.play(this.clipName ?? this.defaultClip(), { fade: 0, time });
-      if (this.life) this.life.bind(next.scene);
-      else this.life = createHumanLife({ id: this.personId ?? this.id, scene: next.scene });
-      if (this.actions) this.actions.bind(next.scene);
-      else {
-        // The dress assembly's figures greet with a nod (T-3423); the GLB's scene extras name it.
-        const dressed = /adult_dress_v1/.test(next.scene.userData?.chicago4d_human?.wardrobe_assembly_json ?? '');
-        this.actions = createHumanActions({ id: this.personId ?? this.id, scene: next.scene, greeting: dressed ? 'nod' : 'brow', skirt: dressed });
+      if (this.prepare) {
+        // Shadows as the level will be drawn, so the programs compiled are the ones it uses.
+        for (const m of next.meshes) { m.castShadow = this.distance < SHADOW_M && lod <= 1; m.receiveShadow = this.distance < SHADOW_M; }
+        try { await this.prepare(next.scene); } catch { /* the first draw compiles them instead */ }
+        if (this.disposed) { this.teardown(next); return this.body; }
+        // Wanted elsewhere meanwhile: keep it for a swap back, as a level drawn before is kept.
+        if (this.wanted !== lod) { next.parkedAt = this.clock; if (this.parked.has(lod)) this.teardown(next); else this.parked.set(lod, next); this.prune(); return this.body; }
       }
-      if (prev) { this.counters.swaps++; this.teardown(prev); }
-      this.costs = '';
-      this.applyCosts();
-      this.applyFace(this.expression);
-      return next;
+      return this.show(next);
     }, (err) => { if (this.wanted === lod) this.wanted = this.lod; throw err; });
     this.pending = job;
     job.finally(() => { if (this.pending === job) this.pending = null; }).catch(() => {});
     return job;
+  }
+
+  /** Draw `next` in place of the body drawn now, which is parked, not let go. */
+  show(next) {
+    const prev = this.body;
+    // The new LOD takes up the clip where the old one was, so a swap is not a stumble.
+    const time = prev?.action ? prev.action.time : null;
+    this.body = next;
+    this.lod = next.lod;
+    this.hair = next.hair ?? null;
+    this.root.add(next.scene);
+    this.play(this.clipName ?? this.defaultClip(), { fade: 0, time });
+    if (this.life) this.life.bind(next.scene);
+    else this.life = createHumanLife({ id: this.personId ?? this.id, scene: next.scene });
+    if (this.actions) this.actions.bind(next.scene);
+    else {
+      // The dress assembly's figures greet with a nod (T-3423); the GLB's scene extras name it.
+      const dressed = /adult_dress_v1/.test(next.scene.userData?.chicago4d_human?.wardrobe_assembly_json ?? '');
+      this.actions = createHumanActions({ id: this.personId ?? this.id, scene: next.scene, greeting: dressed ? 'nod' : 'brow', skirt: dressed });
+    }
+    if (prev) { this.counters.swaps++; this.park(prev); }
+    this.costs = '';
+    this.applyCosts();
+    this.applyFace(this.expression);
+    this.prune();
+    return next;
+  }
+
+  /** Take `body` out of the scene and keep it for a swap back (T-3439). */
+  park(body) {
+    body.mixer.stopAllAction();
+    body.action = null;
+    body.oneShot = null;
+    body.scene.removeFromParent();
+    body.parkedAt = this.clock;
+    const old = this.parked.get(body.lod);
+    if (old && old !== body) this.teardown(old);
+    this.parked.set(body.lod, body);
+  }
+
+  /** Let go of parked levels that are out of range, two levels off, or unused for PARK_S. */
+  prune(all = false) {
+    for (const [lod, body] of this.parked) {
+      if (all || Math.abs(lod - this.lod) > 1 || this.clock - body.parkedAt > PARK_S) {
+        this.parked.delete(lod);
+        this.teardown(body);
+      }
+    }
   }
 
   /** T-3412: this person's own face, height and build, from the shared kit, on the clone. */
@@ -296,7 +359,7 @@ export class HumanActor {
     this.proxy.scale.y = height > 0.3 ? height : 1.7;
     // T-3414: at the near levels, strand-card hair, beard and whiskers grown from this body's
     // own scalp and face, by the person's cut (human-hair-styles.js). Not counted in its height.
-    this.hair = dressHair(scene, { lod, person: this.personId ?? null, year: Number(this.instance.scene) || null });
+    const hair = dressHair(scene, { lod, person: this.personId ?? null, year: Number(this.instance.scene) || null });
     const clips = new Map();
     for (const c of gltf.animations ?? []) clips.set(c.name, c);
     for (const c of this.libraryClips) if (!clips.has(c.name)) clips.set(c.name, c);
@@ -304,7 +367,7 @@ export class HumanActor {
     const faces = meshes.filter((m) => m.morphTargetDictionary && Object.keys(m.morphTargetDictionary).length);
     const mixer = new THREE.AnimationMixer(scene);
     mixer.addEventListener('finished', (ev) => { if (ev.action === this.body?.oneShot) this.endGesture(); });
-    return { lod, scene, meshes, faces, mixer, clips, action: null, oneShot: null, assetId: this.instance.appearance.asset_id };
+    return { lod, scene, meshes, faces, mixer, clips, hair, action: null, oneShot: null, assetId: this.instance.appearance.asset_id };
   }
 
   teardown(body) {
@@ -465,10 +528,12 @@ export class HumanActor {
   update(dt, cameraPosition, visualDt = dt) {
     if (this.disposed) return false;
     this.recheck -= dt;
+    this.clock += dt;
     if (!this.inRange && this.recheck > 0) return false;
     this.distance = cameraPosition.distanceTo(this.root.position);
     const lod = chooseHumanLod(this.distance, this.tier, this.lod, this.instance.lod);
     this.inRange = lod >= 0;
+    if (this.parked.size) this.prune(!this.inRange);
     if (!this.inRange) {
       this.root.visible = false;
       this.visualIdleBody = null;
@@ -513,6 +578,7 @@ export class HumanActor {
     this.disposed = true;
     this.wanted = -1;
     if (this.body) this.teardown(this.body);
+    this.prune(true);
     this.visualIdleBody = null;
     this.body = null;
     this.root.removeFromParent();
@@ -535,7 +601,7 @@ function hashPhase(id) {
  * resident_card`). Nothing here is a conversation: L1 allows no invented dialogue, and the
  * card is the person record's own.
  */
-export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0, tier = 'full', clipLibrary = [] } = {}) {
+export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0, tier = 'full', clipLibrary = [], prepare = null } = {}) {
   const group = new THREE.Group();
   group.name = 'humans';
   const events = new EventTarget();
@@ -547,6 +613,9 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
   const raycaster = new THREE.Raycaster();
   const near = new Set();
   let hovered = null;
+  // T-3439: Settings › Show › People. Hidden, nobody is drawn, updated, loaded or picked,
+  // a seated driver included (his vehicle owns him, so only his root is hidden).
+  let shown = true;
 
   const detail = (actor) => ({
     personId: actor.personId, instanceId: actor.id, state: actor.state,
@@ -568,6 +637,20 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
     // alone advances, places and chooses the LOD of the seated body.
     external(personId) { return withheld.get(personId)?.externalActor ?? null; },
 
+    get shown() { return shown; },
+    /** T-3439: show or hide every figure, drivers on their seats included. */
+    setShown(on) {
+      shown = on !== false;
+      group.visible = shown;
+      for (const token of withheld.values()) if (token.externalActor?.root) token.externalActor.root.visible = shown;
+      if (!shown) {
+        for (const a of near) emit('leave', a);
+        near.clear();
+        hovered = null;
+      }
+      return shown;
+    },
+
     /** Stand one figure in the group. Refuses a second instance of one person (§ 11). */
     add(instance, { person = null, profile = null, identity: validatedIdentity = null } = {}) {
       if (disposed || actors.has(instance.id) || (instance.person_id
@@ -577,7 +660,7 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
       const identity = validatedIdentity ?? (instance.anonymous_profile_id
         ? resolveHumanIdentity(instance, { profiles: profile ? [profile] : [] })
         : { kind: 'person', personId: instance.person_id, person, profile: null, role: null });
-      const actor = new HumanActor({ instance, person, identity, assets: store, heightAt, clipLibrary, tier });
+      const actor = new HumanActor({ instance, person, identity, assets: store, heightAt, clipLibrary, tier, prepare });
       actors.set(instance.id, actor);
       group.add(actor.root);
       return actor;
@@ -597,6 +680,7 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
       const visible = actor?.root.visible;
       const token = { actor, externalActor, release: null };
       withheld.set(personId, token);
+      if (externalActor?.root && !shown) externalActor.root.visible = false;
       if (actor) {
         actors.delete(actor.id); near.delete(actor);
         if (hovered === actor) hovered = null;
@@ -641,7 +725,7 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
      * interaction radius; it defaults to the camera's ground position.
      */
     update(dt, camera, visitor = null, visualDt = dt) {
-      if (!actors.size) return;
+      if (!actors.size || !shown) return;
       const eye = camera.getWorldPosition ? camera.getWorldPosition(new THREE.Vector3()) : camera.position;
       const ve = visitor ? visitor.e : eye.x;
       const vn = visitor ? visitor.n : -eye.z;
@@ -664,7 +748,7 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
 
     /** The selectable, drawn figure under `ndc` (the crosshair when null), nearest first. */
     pickAt(ndc, camera) {
-      if (!actors.size || !camera) return null;
+      if (!actors.size || !camera || !shown) return null;
       raycaster.setFromCamera(ndc ?? new THREE.Vector2(0, 0), camera);
       raycaster.far = DRAW_M + 10;
       const proxies = [];
@@ -717,10 +801,10 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
  */
 export async function mountHumans({
   dataBase = null, assetBase, assets = null, sceneId, people = null, getPeople = null, terrain = null, tier = 'full',
-  problems = [], fetchImpl = fetch, contract = null, groundHeight = null,
+  problems = [], fetchImpl = fetch, contract = null, groundHeight = null, prepare = null,
 } = {}) {
   const heightAt = groundHeight ?? (terrain ? (e, n) => terrain.surfaceHeight(e, n) : () => 0);
-  const layer = createHumanLayer({ assetBase, assets, heightAt, tier });
+  const layer = createHumanLayer({ assetBase, assets, heightAt, tier, prepare });
   const out = Object.assign(layer, { records: [], withheld: [], refused: [] });
   if (!dataBase) return out;
 
