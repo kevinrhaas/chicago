@@ -1,25 +1,46 @@
 {
   "schema_version": 1,
-  "content_version": 2,
+  "content_version": 3,
   "category": "Fort Dearborn",
   "featured": true,
   "review_required": false,
   "id": "killing-of-jean-lalime",
   "scene": "1812",
   "title": "Chicago's First Murder",
-  "premise": "17 June 1812, sunset, the fort gate: Chicago's first recorded murder. The victim, interpreter Jean Lalime. The killer, John Kinzie, 'The Father of Chicago'. Eight stops.",
+  "premise": "17 June 1812, sunset, the fort gate: Chicago's first recorded murder. The victim, interpreter Jean Lalime. The killer, John Kinzie, 'The Father of Chicago'. Nine stops.",
   "default_mode": "fly",
   "allowed_modes": [
     "fly",
     "instantly"
   ],
   "opening": {
-    "text": "JAUNT: CHICAGO'S FIRST MURDER. Sunset, 17 June 1812, outside the gate of Fort Dearborn. Jean Lalime, the fort's interpreter, lies dead in the dust, stabbed. The man walking away, bleeding from the shoulder, is John Kinzie, the trader who sells to the garrison, the man later histories would call 'The Father of Chicago'. Who did it has never been in doubt. Why, and whether it was murder, depends on whom you believe. \n\nChicago in 1812 is a small, crowded place: a garrison of about fifty soldiers under Captain Nathan Heald, a government trading house, and a few houses on the north bank. Everyone knows everyone, and the two men who will meet at the gate have been rivals for years: over a house, over the soldiers' trade, and over how to treat their neighbours as war with Britain comes closer. \n\nEight stops, from 1804 to the night of the killing and the morning after, with the time of day set for each. Three versions are told side by side: the Kinzie family's, told for a century; a girl's who watched from inside the fort; and the letters the factor and the surgeon's mate sent to Washington within weeks. \n\nThe story starts eight years earlier, with the house across the river.",
-    "read_s": 60
+    "text": "JAUNT: CHICAGO'S FIRST MURDER. Chicago in 1812 is a small, crowded place: a garrison of about fifty soldiers under Captain Nathan Heald, a government trading house, and a few houses on the north bank. Everyone knows everyone, and the two men who will meet at the gate have been rivals for years: over a house, over the soldiers' trade, and over how to treat their neighbours as war with Britain comes closer.\n\nNine stops: the killing first, then from 1804 to the night of the killing and the morning after, with the time of day and the season set for each. Three versions are told side by side: the Kinzie family's, told for a century; a girl's who watched from inside the fort; and the letters the factor and the surgeon's mate sent to Washington within weeks.\n\nThe story starts at the end: outside the gate of Fort Dearborn, at sunset on 17 June 1812.",
+    "read_s": 43
   },
   "stops": [
     {
+      "id": "cold-open",
+      "destination": {
+        "kind": "anchor",
+        "id": "first_fort_gate"
+      },
+      "text": "17 June 1812, sunset, outside the gate of Fort Dearborn. Jean Lalime, the fort's interpreter, lies dead in the dust, stabbed. The man walking away, bleeding from the shoulder, is John Kinzie, the trader who sells to the garrison, the man later histories would call 'The Father of Chicago'. Who did it has never been in doubt. Why, and whether it was murder, depends on whom you believe. To see how it came to this, go back eight years, across the river, to the best house in Chicago.",
+      "read_s": 25,
+      "evidence": [
+        "porthier",
+        "irwin-saw",
+        "father"
+      ],
+      "next": "du-sable-house",
+      "hour": "sunset",
+      "date": "1812-06-17",
+      "hour_evidence": [
+        "porthier"
+      ]
+    },
+    {
       "id": "du-sable-house",
+      "since": "Eight years earlier",
       "destination": {
         "kind": "anchor",
         "id": "kinzie_house_front"
@@ -129,7 +150,7 @@
         "kind": "anchor",
         "id": "first_fort_gate"
       },
-      "text": "17 June, sunset, outside the main gate. Victoire Porthier, a girl inside the fort, remembered: 'It was sunset, when they used to shut the gates of the fort.' She heard Helm call out to Kinzie to look out for Lalime, 'as he had a pistol.' 'We heard the pistol go off and saw the smoke. Then they fell down together.' Kinzie got up, bleeding from the shoulder. Lalime did not; he had been stabbed. Irwin, the factor, saw it all from twenty or thirty yards. Van Voorhis wrote that 'it was a perfect assassination and can be proven to be such'. The Kinzie family called it self-defence. A man is dead at the gate, the killer is the commander's sutler and the lieutenant's father-in-law, and the officers must decide what to do with him.",
+      "text": "17 June, sunset, back outside the main gate. Victoire Porthier, a girl inside the fort, remembered: 'It was sunset, when they used to shut the gates of the fort.' She heard Helm call out to Kinzie to look out for Lalime, 'as he had a pistol.' 'We heard the pistol go off and saw the smoke. Then they fell down together.' Kinzie got up, bleeding from the shoulder. Lalime did not; he had been stabbed. Irwin, the factor, saw it all from twenty or thirty yards. Van Voorhis wrote that 'it was a perfect assassination and can be proven to be such'. The Kinzie family called it self-defence. A man is dead at the gate, the killer is the commander's sutler and the lieutenant's father-in-law, and the officers must decide what to do with him.",
       "read_s": 38,
       "evidence": [
         "porthier",
@@ -190,6 +211,13 @@
     }
   ],
   "legs": [
+    {
+      "note": "Eight years back, and across the river: this leg goes Instantly.",
+      "mode": "instantly",
+      "evidence": [
+        "porthier"
+      ]
+    },
     {
       "story": "A few steps west along the bank, past Ouilmette's.",
       "evidence": [
