@@ -61,6 +61,7 @@ import { applyBrickBond, brickBondFromSearch } from './brick-bond.js';
 import { addFeet, feetPoints, packFeet } from './building-feet.js';
 import { buildingBodyBounds } from './building-body-bounds.js';
 import { drawsLeaves as leavesHungElsewhere, paradeLaidAsGround, paradeGroundOwner } from './fort-gates.js';
+import { takeDoorLeaf, doorLeafMaterial } from './house-doors.js';
 import { cheapenGlass, DEFAULT_GLASS, writePaneAttributes } from './glass.js';
 import { patchNightWindows } from './night-lights.js';
 import { layerPick } from './gpu-pick.js';
@@ -568,6 +569,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   let planarOn = true;
   /** structure id -> the facade tone applied to every one of its surfaces. */
   const tones = new Map();
+  // T-3442: door leaves lifted out of the batches, by door id (house-doors.js hangs them).
+  const doorLeaves = new Map();
   /**
    * T-0047. The tone is dealt for the WHOLE town before the load loop, because
    * a repulsion pass cannot be done a building at a time: it has to know what
@@ -745,6 +748,20 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // T-3320: a parade's ground is laid by the yards layer as trodden earth that
       // feathers into the grass; the archetype's flat slab under it is left out.
       if (bodyRole === 'earth' && paradeLaidAsGround(record)) continue;
+      // T-3442: a house door hung to swing (house-doors.js). Its baked leaf leaves the batch
+      // here, before the material is whitened, painted as the batch would have painted it,
+      // and house-doors.js draws it on its hinge.
+      for (const piece of takeDoorLeaf(record, mesh, matrix)) {
+        if (!piece.material) {
+          const c = sourceMaterial.color;
+          const base = [c ? c.r : 1, c ? c.g : 1, c ? c.b : 1];
+          piece.material = doorLeafMaterial(sourceMaterial,
+            albedoOf(base, toneFactors(base[0], base[1], base[2], tone ?? NEUTRAL_TONE)));
+        }
+        if (!doorLeaves.has(piece.doorId)) doorLeaves.set(piece.doorId, []);
+        doorLeaves.get(piece.doorId).push(piece);
+      }
+      if (mesh.geometry.getIndex()?.count === 0) continue;
       // A detail replacement rebuilds from the same source records. Never whiten
       // or shader-patch those source materials: each batch owns its own copy.
       let material = preserveMaterials ? sourceMaterial.clone() : sourceMaterial;
@@ -1805,6 +1822,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
      *  this one, a stored batch position through the instance matrix. */
     matrixOf(id) { return placements.get(id) ?? null; },
 
+    /** T-3442: each hung door's baked leaf, lifted out of its batch as the house loaded:
+     *  [{ doorId, geometry, material }] in the structure's frame. This layer owns them. */
+    doorLeaves,
+
     /** Where a structure's walls meet the ground, as [x, z] in its own frame
      *  (metres; y = 0 there) — the points groundUnder() stood it on, so a gate
      *  can measure the rendered base where a wall actually is (T-3029). */
@@ -1824,6 +1845,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       for (const [, bucket] of groups) bucket.material.dispose();
       for (const depth of depthMaterials.values()) depth.dispose();
       depthMaterials.clear();
+      for (const pieces of doorLeaves.values()) for (const p of pieces) { p.geometry.dispose(); p.material.dispose(); }
+      doorLeaves.clear();
     },
   };
 }

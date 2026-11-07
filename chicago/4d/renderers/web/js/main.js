@@ -96,6 +96,7 @@ import { t, applyStrings } from './strings/index.js';
 import './strings/arrival.js';
 import { createFlags } from './flags.js';
 import { createFortGates, gatesOnRoute } from './fort-gates.js';
+import { createHouseDoors } from './house-doors.js';
 import { createNightLights } from './night-lights.js';
 import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
@@ -2920,6 +2921,13 @@ async function boot() {
   // structure record to carry `placement.walk_surface_m`, and the height is the
   // one that layer drew the slab at (T-0058; see the header of `wharves.js`).
   decks.push(...wharves.decks);
+  // T-3442: Glessner's front door hung to swing, its two steps decks the walker climbs and
+  // its doorway cut into the footprint; Interact opens and closes it (house-doors.js). After
+  // `planting` is taken, like the wharf decks: its treads are paving the house already lays.
+  const houseDoors = createHouseDoors({ registry: loaded.registry, buildings, footprints, decks, interactions,
+    visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }), confidence, problems });
+  scene3d.add(houseDoors.group);
+  api.houseDoors = houseDoors;
   bootController.end('ground');
   bootController.start('flora');
   await yieldToPaint();
@@ -3378,6 +3386,8 @@ async function boot() {
         scene3d.remove(previous.group);
         api.buildings = buildings;
         api.roll = buildings.roll;
+        // T-3442: the door's leaf is the new house's (the old one's goes with it).
+        houseDoors.rebind(buildings);
         residency?.dispose();
         previous.dispose();
         disposeLoadedAsset(oldAsset);

@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1034,
+  "count": 1035,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -69596,6 +69596,42 @@
       "work_refs": [
         "T-3365",
         "T-1914"
+      ]
+    },
+    {
+      "id": "L-glessner-front-door-swing-3442",
+      "title": "Glessner's front door hung on its north jamb, swinging inward into a dark vestibule, and its steps walkable",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [],
+      "recorded": "2026-11-07",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the John J. Glessner House front door on Prairie Avenue (openings prairie \"front door\", the leaf “Glessner's Prairie Avenue door: sheet 95's leaf, with its depths, curls and figures reconstructed” draws) opens and closes with the Interact key. Its leaf is the baked one, lifted out of the house's batch at load and hung on a pivot (the walkthrough's house doors code): hung on the north (right-hand, seen from the street) jamb, it swings inward through 90 degrees in 1.6 s, eased at both ends. Behind it stands a dark vestibule 1.9 m deep, the doorway's width, its floor level with the sill and its ceiling 0.5 m over the head, unlit and shaded darker toward the back. The approach paving and the threshold are walkable steps at the heights the mesh draws them, and a drawn person can walk a path from the Prairie Avenue sidewalk up both to 0.6 m inside the door. The owner, 2026-11-07: *\"interacting at the front door of buildings would allow you to ask for someone to come to the door and then they can come to the door and open it... you will need to be able to handle steps\"*."
+        },
+        {
+          "label": "What it stands on",
+          "text": "The doorway, leaf, threshold and approach paving are the record's (frame (ft), openings prairie, prairie frontage, v4 detail prairie entry), read as the masonry house params tool frames them. The hinge side is INFERRED from sheet No. 95 ('Main Entrance Door. House for J. J. Glessner Esq. Chicago Ill.' Sheet No. 95…), which puts the latch plate and drop ring at the leaf's left end as seen from outside: a latch is on the free edge, so the hinges are on the right."
+        },
+        {
+          "label": "What is invented",
+          "text": "That the leaf swings inward (the ordinary way for a house's street door, not recorded for this one), how far and how fast; the vestibule, its depth, width, height, darkness and finish, which nothing read records (HABS draws the plan of the hall, not the space behind the leaf as a visitor would see it from the step, and its interior is not modelled); the riser ease of a walked path (0.12 m each side of a riser) and the step ease of the visitor's camera. The grille's pane is drawn as a dark pane rather than transmissive glass, and its dark backing 0.6 m behind the leaf is left out, since the vestibule is what lies behind it now."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the HABS first-floor plan (sheet 2) read for the vestibule's real depth, width and doors, and a photograph of the open door or of the hall from the entrance for the swing and the finish."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-07 (T-3442)."
+        }
+      ],
+      "work_refs": [
+        "T-3442"
       ]
     },
     {

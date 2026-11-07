@@ -413,6 +413,8 @@ step "a visitor walks through a building's modelled passage where it clears the 
   node tools/test_walker_passage.mjs
 step "a visitor walks into Fort Dearborn through a gate Interact opens, 1835 and 1812 (T-3319)" \
   node tools/test_fort_gates.mjs
+step "Glessner's front door swings open, and a visitor and a drawn person walk up its steps to it (T-3442)" \
+  node tools/test_house_doors.mjs
 step "Loaded parade ground delegates to its native owner; failed assets and sundial geometry remain required (T-3041)" \
   node tools/test_parade_presence.mjs
 step "Jaunt daybook: idempotent keepsakes, data ranks, honest recovery (T-1258)" \

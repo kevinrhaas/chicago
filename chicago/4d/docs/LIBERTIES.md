@@ -41596,3 +41596,29 @@ depth (0.45 m) is hidden in the wall.
 its frame reaches the south side.
 **Ticket:** T-3365 (piece 2 of T-1914).
 **Recorded:** 2026-11-07 (T-3365).
+
+### L-glessner-front-door-swing-3442 — Glessner's front door hung on its north jamb, swinging inward into a dark vestibule, and its steps walkable
+
+**Decision:** the `glessner_house` front door on Prairie Avenue (`openings_prairie` "front door", the leaf
+L-glessner-front-door-2216 draws) opens and closes with the Interact key. Its leaf is the baked one, lifted out of
+the house's batch at load and hung on a pivot (`renderers/web/js/house-doors.js`): hung on the north (right-hand,
+seen from the street) jamb, it swings inward through 90 degrees in 1.6 s, eased at both ends. Behind it stands a dark
+vestibule 1.9 m deep, the doorway's width, its floor level with the sill and its ceiling 0.5 m over the head, unlit
+and shaded darker toward the back. The approach paving and the threshold are walkable steps at the heights the mesh
+draws them, and a drawn person can walk a path from the Prairie Avenue sidewalk up both to 0.6 m inside the door.
+The owner, 2026-11-07: *"interacting at the front door of buildings would allow you to ask for someone to come to
+the door and then they can come to the door and open it ... you will need to be able to handle steps"*.
+**What it stands on:** The doorway, leaf, threshold and approach paving are the record's (`frame_ft`, `openings_prairie`,
+`prairie_frontage`, `v4_detail.prairie_entry`), read as `masonry_house_params.py` frames them. The hinge side is
+INFERRED from sheet No. 95 (`artic_glessner_sheet_95_main_entrance_door`), which puts the latch plate and drop ring
+at the leaf's left end as seen from outside: a latch is on the free edge, so the hinges are on the right.
+**What is invented:** That the leaf swings inward (the ordinary way for a house's street door, not recorded for this
+one), how far and how fast; the vestibule, its depth, width, height, darkness and finish, which nothing read records
+(HABS draws the plan of the hall, not the space behind the leaf as a visitor would see it from the step, and its
+interior is not modelled); the riser ease of a walked path (0.12 m each side of a riser) and the step ease of the
+visitor's camera. The grille's pane is drawn as a dark pane rather than transmissive glass, and its dark backing
+0.6 m behind the leaf is left out, since the vestibule is what lies behind it now.
+**How to resolve:** the HABS first-floor plan (sheet 2) read for the vestibule's real depth, width and doors, and a
+photograph of the open door or of the hall from the entrance for the swing and the finish.
+**Ticket:** T-3442.
+**Recorded:** 2026-11-07 (T-3442).

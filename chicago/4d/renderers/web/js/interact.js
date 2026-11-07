@@ -25,6 +25,10 @@
  * index, t, waiting }`) and its state is the one it started from; the state changes once,
  * when the last step ends.
  *
+ * An action may also carry `refuse()`, asked at each press before it starts: a reason
+ * (a string) stops it there and the key says it — a door will not close on someone
+ * standing in its swing (T-3442). Null or nothing lets it go.
+ *
  * The KEY sits in the quick column under Inspect (index.html `#btn-interact`). It shows
  * while the visitor stands on foot within reach of something, names what Interact will do
  * there ("Open gate"), and R presses it from the keyboard. Nothing here knows THREE or the
@@ -141,6 +145,9 @@ export function createInteractions({ onChange = () => {} } = {}) {
       const actions = actionsOf(thing);
       const action = actionId ? actions.find((a) => a.id === actionId) : actions[0];
       if (!action) return { ok: false, why: `nothing to do while ${thing.state}` };
+      // T-3442: an action that cannot be done just now says why, and nothing moves.
+      const refusal = typeof action.refuse === 'function' ? action.refuse(thing) : null;
+      if (refusal) { tell(thing, 'refused'); return { ok: false, refused: true, why: refusal }; }
       if (!Array.isArray(action.steps) || !action.steps.length) {
         thing.state = action.to ?? thing.state;
         tell(thing, 'done');
@@ -209,6 +216,7 @@ export function createInteractKey({ interactions, keyEl = null, where, say = () 
     const thing = refresh();
     if (!thing) return { ok: false, why: 'nothing in reach' };
     const res = interactions.act(thing);
+    if (res.refused) say(res.why);
     paint();
     return res;
   }
