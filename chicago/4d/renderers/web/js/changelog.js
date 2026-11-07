@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2780, ts: '2026-11-07T16:46:25.762Z', date: 'Nov 7, 2026, 10:46 AM CT', title: 'Mr. Glessner walks, stands and dresses right', kind: 'fix',
+    items: [
+      'People stand on raised walks and door steps. Mr. Glessner\'s feet no longer sink into his front walk.',
+      'The Glessner front walk now meets the public sidewalk. The green strip between them is paved.',
+      'His collar stands on his neck and clears his chin.',
+      'On Show me the courtyard he walks with his legs instead of sliding.',
+      'Resting hands hang thumbs forward, as yours do.',
+      'Women\'s eyebrows are a fine, smooth arch, not clumps.',
+    ] },
   { v: 2779, ts: '2026-11-07T16:41:56.607Z', date: 'Nov 7, 2026, 10:41 AM CT', title: '1812 fort blockhouses get their cupolas', kind: 'improvement',
     items: [
       'Both first-fort blockhouses, north-west and south-east, now carry a small square cupola under its own pyramid cap, as the fort\'s bird\'s-eye picture draws them.',
