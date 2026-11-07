@@ -559,11 +559,25 @@
                       "sill_m": 0.3,
                       "at": [
                         0.163,
-                        0.5,
                         0.837
                       ],
-                      "why_not_ordinary": "the automobile photograph's barred basement lights under the principal ones in the bay's south cheek (x 194-254 px) and its front (x 308-363), y 505-580 px: about 0.3-1.45 m over grade through its camera, as wide as the principal lights over them, iron uprights in their reveals (the ring at their heads reconstructed: K08's bar grille carries one); the bay's stone plinth lowered to 0.2 m so that it runs under them (its foot is behind the fence in both photographs)",
-                      "recess_m": 0.3,
+                      "why_not_ordinary": "the automobile photograph's barred basement lights under the principal ones in the bay's south cheek (x 194-254 px) and its front (x 308-363), y 505-580 px: about 0.3-1.45 m over grade through its camera, as wide as the principal lights over them, iron uprights in their reveals (the ring at their heads reconstructed: K08's bar grille carries one); the bay's stone plinth lowered to 0.15 m so that it runs under them (its foot is behind the fence in both photographs)",
+                      "grille": {
+                        "bars": 6,
+                        "set_back_m": 0.04,
+                        "ring_radius_m": 0.12
+                      },
+                      "recess_m": 0.4
+                    },
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.85,
+                      "clear_height_m": 1.15,
+                      "sill_m": 0.3,
+                      "at": [
+                        0.5
+                      ],
+                      "why_not_ordinary": "the automobile photograph's barred basement lights under the principal ones in the bay's south cheek (x 194-254 px) and its front (x 308-363), y 505-580 px: about 0.3-1.45 m over grade through its camera, as wide as the principal lights over them, iron uprights in their reveals (the ring at their heads reconstructed: K08's bar grille carries one); the bay's stone plinth lowered to 0.15 m so that it runs under them (its foot is behind the fence in both photographs)",
                       "grille": {
                         "bars": 6,
                         "set_back_m": 0.04,
@@ -608,7 +622,7 @@
                 "pitch": 0.25,
                 "covering": "slate_pennsylvania"
               },
-              "plinth_m": 0.2
+              "plinth_m": 0.15
             },
             {
               "id": "south_round",

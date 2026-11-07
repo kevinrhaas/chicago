@@ -2,7 +2,7 @@
   "structure_id": "house_1828_prairie",
   "view": "chicagology_automobile",
   "glb": "assets/gltf/house_1828_prairie__as_mapped_1904.glb",
-  "glb_sha256": "34b354ad5ccffd33ba1fe01ef97143d478e4c5a3a59a23ca43235f38d856570b",
+  "glb_sha256": "0e4dc9d12d64a45efb95fbf5c889a8d2d79074583cff249a9451e00949151062",
   "camera_sha256": "c5db781be13c8f38279e02b2deb16a970c6995b2397cc02e886addbafc8d281e",
   "photo_sha256": "c758e387f00acae0068286d86a69065154ee0f03e3edb234ab9ad936aba2e957",
   "side_by_side": "docs/RESEARCH/photo-match/house_1828_prairie/chicagology_automobile-side-by-side.jpg",
@@ -19,7 +19,7 @@
       "how": "T-3166: a K08 canted bay 4.54 m at the wall and 1.25 m out, its front 1.92 m, one window a storey in each cheek and in the front, 1.05 x 3.5 m on the principal storey, under K09's cornice-hood lintels; they render within about 10 px"
     },
     {
-      "what": "the basement windows under the principal ones, about y 505-580 px (about 0.3-1.45 m over grade): T-1887 cuts one under each of the bay's three principal lights, as wide as they are, iron uprights in their reveals, the bay's plinth lowered to 0.2 m so that it runs under them; they render in place and size through the fence",
+      "what": "the basement windows under the principal ones, about y 505-580 px (about 0.3-1.45 m over grade): T-1887 cuts one under each of the bay's three principal lights, as wide as they are, iron uprights in their reveals, the bay's plinth lowered to 0.15 m so that it runs under them; they render in place and size through the fence",
       "status": "fixed"
     },
     {
