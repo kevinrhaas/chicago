@@ -28,6 +28,7 @@
  *
  *   ground:  idle → travelling → arriving → idle
  *   fly:     idle → ascending → cruising → descending → landing → arriving → idle
+ *   glide:   idle → gliding → idle   (T-3432: a jaunt's start, flown to on a clock)
  *
  * `travelling` follows the router's waypoints; `arriving` eases the look onto
  * the building (focusPoint) over half a second and then opens its card
@@ -45,7 +46,7 @@
  * frame (see main.js goTo()).
  */
 
-import { bearingToYaw } from './angles.js';
+import { bearingToYaw, yawToBearing } from './angles.js';
 
 const DEG = Math.PI / 180;
 const TAU = Math.PI * 2;
@@ -106,6 +107,43 @@ const GATE_OPEN_M = 6;         // T-3405: a walking ride opens a shut gate from 
 const GATE_WAIT_M = 2.5;       // … and waits this far short of it until the leaves are still
 const DEFAULT_RADIUS_M = 6;    // half a footprint diagonal when no footprint is known
 const BOB_DECAY_M_PER_S = 0.35; // the gait dies within 0.3 s of stopping
+
+/**
+ * T-3432 (owner, 2026-11-06: "instead of jumping right into them, can you fly to the start
+ * instead as long as it's like maybe 5-10 seconds max"). A glide is a flight on a clock, not
+ * a steered ride: it takes `glideSeconds(d)` of wall time whatever the frame rate (a steered
+ * flight across 1904 at 14 m/s is over a minute, and under a software renderer far longer),
+ * climbs off the ground before it moves, looks along its way, and settles onto exactly the
+ * pose it was given. 3.5 s for a hop, 8 s for the far side of town, never more.
+ */
+export const GLIDE_MAX_S = 8;
+export const GLIDE_MIN_M = 8;   // nearer than this, there is nothing to fly
+export function glideSeconds(d) {
+  return Number.isFinite(d) && d >= GLIDE_MIN_M ? clamp(3 + d / 300, 3.5, GLIDE_MAX_S) : 0;
+}
+const smoother = (x) => x * x * x * (x * (x * 6 - 15) + 10);
+const lerp = (a, b, t) => a + (b - a) * t;
+const lerpAngle = (a, b, t) => a + wrapPi(b - a) * t;
+/** Where a glide is `t` (0..1) of the way: { e, n, altitude, yaw, pitch }. Pure. */
+export function glidePose(from, to, t) {
+  const k = clamp(t, 0, 1), d = Math.hypot(to.e - from.e, to.n - from.n);
+  // Up before along, down after: the eye leaves the ground before it crosses anything.
+  const u = smoother(clamp((k - 0.1) / 0.8, 0, 1));
+  const top = Math.max(from.altitude, to.altitude);
+  const arc = d < 30 ? 0 : Math.max(0, clamp(0.16 * d, 18, 90) - top);
+  const bump = k > 0 && k < 1 ? Math.pow(Math.sin(Math.PI * k), 0.6) : 0;
+  const altitude = lerp(from.altitude, to.altitude, smoother(k)) + arc * bump;
+  let yaw, pitch;
+  if (d < 30) { yaw = lerpAngle(from.yaw, to.yaw, smoother(k)); pitch = lerp(from.pitch, to.pitch, smoother(k)); }
+  else {
+    // Turn onto the way, look a little down over the town, then onto the framing.
+    const heading = bearingToYaw(Math.atan2(to.e - from.e, to.n - from.n) / DEG);
+    const a = smoother(clamp(k / 0.25, 0, 1)), b = smoother(clamp((k - 0.62) / 0.38, 0, 1));
+    yaw = lerpAngle(lerpAngle(from.yaw, heading, a), to.yaw, b);
+    pitch = lerp(lerp(from.pitch, -14 * DEG, a), to.pitch, b);
+  }
+  return { e: lerp(from.e, to.e, u), n: lerp(from.n, to.n, u), altitude, yaw, pitch };
+}
 
 function wrapPi(a) { return Math.atan2(Math.sin(a), Math.cos(a)); }
 function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
@@ -240,6 +278,11 @@ export function createTravel({
     const p = ownPoint(target);
     if (target.kind === 'intersection' && p) {
       teleport?.({ local_e: p.e, local_n: p.n, yaw_deg: target.yaw_deg ?? 0 });
+      return arrived(true, callbacks);
+    }
+    // T-3436: a photo view stands you where its camera stood, looking its way and its tilt.
+    if (target.kind === 'photo' && p) {
+      teleport?.({ local_e: p.e, local_n: p.n, yaw_deg: target.yaw_deg ?? 0, pitch_deg: target.pitch_deg ?? 0 });
       return arrived(true, callbacks);
     }
     return false;
@@ -396,7 +439,10 @@ export function createTravel({
       yawOff = (f?.yawOffsetDeg ?? 0) * DEG;
       pitchOff = (f?.pitchOffsetDeg ?? 0) * DEG;
     } else if (Number.isFinite(r.target?.yaw_deg)) yaw = bearingToYaw(r.target.yaw_deg);
-    r.arrive = { point, yaw, yawOff, pitchOff, t: ARRIVE_TURN_S, startYaw: s.yaw };
+    // T-3436: a photo view settles to its camera's tilt, and a viewpoint to its own (a church
+    // spire is looked up at); every other arrival looks level.
+    const pitch = (r.kind === 'photo' || r.kind === 'anchor') && Number.isFinite(r.target?.pitch_deg) ? r.target.pitch_deg * DEG : 0;
+    r.arrive = { point, yaw, yawOff, pitchOff, pitch, t: ARRIVE_TURN_S, startYaw: s.yaw };
   }
 
   function steerGround(intentNow, dt) {
@@ -509,7 +555,7 @@ export function createTravel({
     intentNow.rise = 0;
     intentNow.sprint = false;
     let yawT = s.yaw;
-    let pitchT = 0;
+    let pitchT = r.arrive.pitch ?? 0;
     if (r.arrive.point) {
       const p = r.arrive.point;
       const de = p.x - s.e, dn = -p.z - s.n;
@@ -538,6 +584,8 @@ export function createTravel({
 
   function stop(reason = 'button') {
     if (phase === 'idle') return;
+    // A glide stopped for any reason is landed, never left hanging in the air.
+    if (phase === 'gliding') landGlide(ride);
     const callbacks = ride?.callbacks;
     finish();
     callbacks?.onStop?.({ ...callbacks.token, reason });
@@ -588,10 +636,47 @@ export function createTravel({
     return true;
   }
 
+  const now = () => (typeof performance !== 'undefined' ? performance.now() : Date.now());
+  function poseGlide(p) {
+    teleport?.({ local_e: p.e, local_n: p.n, altitude_m: p.altitude,
+      yaw_deg: yawToBearing(p.yaw), pitch_deg: p.pitch / DEG });
+  }
+  function landGlide(r) {
+    const to = r?.glide?.to;
+    if (!to) return;
+    setFly?.(false);
+    teleport?.({ local_e: to.e, local_n: to.n, yaw_deg: yawToBearing(to.yaw), pitch_deg: to.pitch / DEG });
+  }
+  /**
+   * T-3432: fly from `from` to `to` ({ e, n, altitude, yaw, pitch }: the eye's height above
+   * the ground and the walker's own angles) in glideSeconds() of wall time, then land on
+   * `to` exactly. Returns false, and moves nothing, when there is nothing to fly or the
+   * visitor asked for reduced motion; the caller then simply stands at `to`.
+   */
+  function glide(from, to, callbacks = null, { label = null } = {}) {
+    const d = Math.hypot(to.e - from.e, to.n - from.n);
+    const seconds = glideSeconds(d);
+    if (!(seconds > 0) || reduceMotion?.matches) return false;
+    if (phase !== 'idle') stop('replaced');
+    setFly?.(true);
+    ride = newRide({ kind: 'glide', label: label ?? 'the start' }, { e: to.e, n: to.n }, [[to.e, to.n]], 'fly', callbacks);
+    ride.glide = { from, to, seconds, elapsed: 0, t0: now() };
+    phase = 'gliding';
+    poseGlide(glidePose(from, to, 0));
+    paintBanner();
+    return true;
+  }
+
   function update(dt, intentNow = intent) {
     updateBob(dt, intentNow);
     if (phase === 'idle' || !ride) return;
     ride.sinceGo += dt;
+    if (phase === 'gliding') {
+      // A glide is a cut, not a ride the visitor can stop halfway up: their first move
+      // lands it, and their input flows on from the start.
+      if (visitorInput(intentNow, ride)) { landGlide(ride); complete(); }
+      return;
+    }
     if (visitorInput(intentNow, ride)) { stop('input'); return; }
     wrote = true;
     if (phase === 'travelling') steerGround(intentNow, dt);
@@ -610,6 +695,14 @@ export function createTravel({
       wrote = false;
     }
     if (!ride) return;
+    if (phase === 'gliding') {
+      // After the walker, so the pose written here is the one this frame draws. The
+      // clock is the larger of the frames' dt and the wall's: simulate() has no wall.
+      const g = ride.glide;
+      g.elapsed = Math.max(g.elapsed + dt, (now() - g.t0) / 1000);
+      if (g.elapsed >= g.seconds) { landGlide(ride); complete(); return; }
+      poseGlide(glidePose(g.from, g.to, g.elapsed / g.seconds));
+    }
     if (ride.done) { complete(); return; }
     ride.bannerT += dt;
     if (ride.bannerT >= BANNER_INTERVAL_S) { ride.bannerT = 0; paintBanner(); }
@@ -647,6 +740,7 @@ export function createTravel({
     applyPace,
     setHeadBob(on) { headBob = !!on; if (!headBob) walker.state.bob = 0; return headBob; },
     go,
+    glide,
     stop,
     update,
     afterWalk,

@@ -108,8 +108,7 @@ def _minus(a, b):
 
 def _leanto_regions(params, visible):
     """Plan regions of the lean-to's two sheets. `visible` also trims them where
-    they pass under the east wing's slope; the tile cut does not, so no tile
-    survives above a sheet inside the wing's roof."""
+    they pass under the east wing's slope."""
     L = leanto(params)
     if not L:
         return []
@@ -152,9 +151,15 @@ def leanto_tile_holes(params):
     band = [(L['xw']-L['ov'], low), (L['x_far'], low), (L['x_far'], L['y0']-L['ov']),
             (L['xw']-L['ov'], L['y0']-L['ov'])]
     # Whole sheets, not their pieces round the hood: the hood's hull is a hole
-    # of its own, and overlapping holes cut the tiles once.
-    holes = list({id(whole): whole for _, _, _, whole in _leanto_regions(params, False)}.values())
-    return holes + [band]
+    # of its own, and overlapping holes cut the tiles once. Only where a sheet
+    # shows (T-3433): every host roof takes the same plan holes, and a sheet's
+    # plan runs on under the east wing's slope to its ridge, so cutting that
+    # whole plan left the wing's court slope open from eave to ridge beside the
+    # middle stack, 2.3 m wide, with no sheet over it.
+    holes = list({id(whole): whole for _, _, _, whole in _leanto_regions(params, True)}.values())
+    # The overhang band likewise stops where the wing's slope rises over the lean-to.
+    band = clip(band, _minus(L['lean'], L['wing']))
+    return holes + ([band] if band and abs(area(band)) > 1e-8 else [])
 
 
 def leanto_front_x(params):

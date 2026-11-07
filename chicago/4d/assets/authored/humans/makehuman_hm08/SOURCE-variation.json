@@ -472,6 +472,18 @@
    "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/macrodetails/universal-male-young-minmuscle-averageweight.target"
   },
   {
+   "path": "makehuman/data/targets/mouth/mouth-angles-down.target",
+   "sha256": "39181b6688e6f5ada15b47a82977c75379152434c61dafe8822afb3f551d4fa6",
+   "bytes": 7962,
+   "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/mouth/mouth-angles-down.target"
+  },
+  {
+   "path": "makehuman/data/targets/mouth/mouth-angles-up.target",
+   "sha256": "8ddc2f53f4264742f4e10ddafd128e059e09c6a4268a2722e9495bad0f274898",
+   "bytes": 6450,
+   "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/mouth/mouth-angles-up.target"
+  },
+  {
    "path": "makehuman/data/targets/mouth/mouth-lowerlip-volume-decr.target",
    "sha256": "45f1fe355546cdaa86581512810ee1cd2c6971ac67ffb46d3391ac438e539d15",
    "bytes": 1828,

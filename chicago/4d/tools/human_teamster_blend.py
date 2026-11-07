@@ -436,7 +436,13 @@ def build(args):
     for lod,ratio in enumerate(recipe['lod_ratios']):
         col=bpy.data.collections.new('lod'+str(lod));scene.collection.children.link(col)
         # Preserve source hair topology pending measured lower-LOD adaptation.
-        object_mesh(f'{asset}_short04_hair_lod{lod}',hair['positions_m'],hair['triangles'],hair['uvs'],hair['weights'],'hair__makehuman_short04',col)
+        cap=hair
+        if dress and dress.get('roll'):
+            # T-3434: the 1900s roll over the brow and temples, raised in the cap itself.
+            from human_dress_components import hair_roll
+            cap=hair_roll(hair,bones,**dress['roll'])
+            if lod==0:print(json.dumps({'source_hair_roll':cap['receipt']}),flush=True)
+        object_mesh(f'{asset}_short04_hair_lod{lod}',cap['positions_m'],cap['triangles'],cap['uvs'],cap['weights'],'hair__makehuman_short04',col)
         if dress:
             # T-3423: her hair is worn up: a reconstructed bun over the same cleared cap.
             from human_dress_components import hair_bun

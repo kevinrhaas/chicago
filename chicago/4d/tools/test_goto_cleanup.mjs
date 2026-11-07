@@ -16,7 +16,9 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
 
 // ---- the filters -------------------------------------------------------------------------
-assert.deepEqual(GO_TO_KINDS.map(([, l]) => l), ['All', 'Places', 'People', 'Shops & work', 'Viewpoints']);
+// T-3436 adds Photos, offered once the pictures file is read (test_goto_photos_t3436.mjs), and
+// Viewpoints is "Views", so the row keeps Photos in sight beside the order.
+assert.deepEqual(GO_TO_KINDS.map(([, l]) => l), ['All', 'Places', 'People', 'Shops & work', 'Views', 'Photos']);
 const terrain = { surfaceHeight: () => 2, isWater: () => false };
 const record = (name, fn, e, n) => ({ sidecar: { name, attributes: { function: { value: fn } }, documented_range: { confidence: 'attested' },
   placement: { local_e: e, local_n: n, position_confidence: 'attested' } } });
@@ -26,7 +28,7 @@ const houses = createDestinations({ terrain, router: null, people: null, index: 
   registry: new Map([['glessner_house', record('Glessner House', 'house', 30, 40)]]) });
 const offered = offeredKinds(houses).map(([, l]) => l);
 assert(!offered.includes('People') && !offered.includes('Shops & work'), `no chip for a kind with nothing in it: ${offered}`);
-assert(offered.includes('All') && offered.includes('Places') && offered.includes('Viewpoints'));
+assert(offered.includes('All') && offered.includes('Places') && offered.includes('Views'));
 assert(!GO_TO_KINDS.some(([, l]) => l === 'Corners'), 'no Corners chip at all; corners stay in All');
 // A town with everything offers all five.
 const town = createDestinations({ terrain, router: null, index: { intersections: [{ id: 'k', label: 'Kinzie & Canal', local_e: 1, local_n: 1 }] },

@@ -219,6 +219,22 @@ def main():
         expect(is_seam[groups == 1].all() and not is_seam[groups != 1].any(),
                "its standing seams are dropped, and nothing else is: the finial and the gutter stay")
 
+        # Creeper stems drawn as thin oak tubes go with the leaves; an oak door
+        # beside the creeper and a thin oak rail far from it stay.
+        wall_leaves = np.array([tri for x in np.arange(0, 3, 0.1) for z in np.arange(0, 3, 0.1)
+                                for tri in quad((x, -0.06, z), (x + 0.08, -0.06, z),
+                                                (x + 0.08, -0.06, z + 0.08), (x, -0.06, z + 0.08))], dtype=float)
+        stems = []
+        for x in (0.5, 1.5, 2.5):
+            stems += box(x - 0.003, -0.08, 0.2, x + 0.003, -0.074, 2.8)
+        door = box(3.2, -0.1, 0, 4.2, 0, 2.2)
+        rail = box(8, -0.1, 1, 8.01, 0, 3)
+        oak = np.array(stems + door + rail, dtype=float)
+        is_stem = ex.vine_stems(oak, wall_leaves)
+        groups = np.repeat(np.arange(3), [len(stems), len(door), len(rail)])
+        expect(is_stem[groups == 0].all() and not is_stem[groups != 0].any(),
+               "a creeper's thin oak stems go with its leaves; an oak door beside it and a thin rail far off stay")
+
     if failures:
         print(f"\n{len(failures)} check(s) failed")
         return 1
