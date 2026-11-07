@@ -401,6 +401,8 @@ step "Jaunt flies to its start, welcome, final stop and readable road notes (T-3
   node tools/test_jaunt_start_finish.mjs
 step "Jaunt resources, Revise, endings and saved-session replay (T-1256)" \
   node tools/test_jaunt_mechanics.mjs
+step "Jaunts hold the everyday people out but for those each stop calls for, and give them back (T-3495)" \
+  node tools/test_jaunt_crowd.mjs
 step "Jaunt route and pace estimates (T-1280)" \
   node tools/test_travel_estimate.mjs
 step "Street travel keeps each pace on its surface and clears buildings (T-2496)" \

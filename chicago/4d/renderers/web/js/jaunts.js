@@ -121,6 +121,16 @@ export function seasonOfDate(date) {
   if (!(month >= 1 && month <= 12)) return null;
   return ['winter', 'winter', 'spring', 'spring', 'spring', 'summer', 'summer', 'summer', 'fall', 'fall', 'fall', 'winter'][month - 1];
 }
+/**
+ * T-3495 (owner, 2026-11-07: "by default with the jaunts when going on them the people should
+ * be hidden so that they don't interfere ... I am concerned about all these soldiers around the
+ * fort hanging out 24 7"): the people a stop calls for, by person id: its own `people`, then
+ * the people its person cards link. Everyone else stays out of the scene while the jaunt is on.
+ */
+export function stopPeople(stop) {
+  const linked = (stop?.links || []).filter(l => l?.kind === 'person').map(l => l.id);
+  return [...new Set([...(Array.isArray(stop?.people) ? stop.people : []), ...linked].filter(id => typeof id === 'string' && id))];
+}
 /** T-3459: the season a stop is shown in: its date's, else the jaunt's ambience, else null. */
 export const stopSeason = (jaunt, stop) => seasonOfDate(stop?.date) || jaunt?.ambience?.season || null;
 /** T-3459: the light a jaunt opens in, for its menu row and welcome: its ambience, else the
@@ -285,7 +295,12 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
   // T-3377: a jaunt's `ambience` is the hour and season it opens in (a morning walk in
   // spring, a night walk in the fall): its hour stands at every stop without one of its
   // own, its season for the whole outing, and both are given back when it ends.
-  hour = null, season = null }) {
+  hour = null, season = null,
+  // T-3495: the everyday people. `crowd.hold(ids)` keeps only the people named (a stop's
+  // `stopPeople`) and holds everyone else out of the scene; `crowd.restore()` gives them all
+  // back. Held from the flight to the first stop until the jaunt ends, completes or goes to
+  // the menu. Optional: a harness without it plays the jaunt with whoever stands there.
+  crowd = null }) {
   const sessionKey = scene === '1835' ? SESSION_KEY : `${SESSION_KEY}.${scene}`;
   let state = emptyState(), serial = 0, request, detailRequest, destroyed = false, previousMode;
   let storage = suppliedStorage;
@@ -338,6 +353,21 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
     hourSet = true; hourHeld = key;
     queueLight(() => hour.set(value, { date, transient: true }));
   };
+  // T-3495: the key of the people held to ('' = nobody kept), or null when nobody is held.
+  let crowdHeld = null;
+  const restoreCrowd = () => {
+    if (!crowd || crowdHeld === null) return;
+    crowdHeld = null;
+    try { crowd.restore(); } catch { /* the people stay as they were; the outing goes on */ }
+  };
+  const syncCrowd = () => {
+    if (!crowd) return;
+    if (!state.jaunt || ['menu', 'outcome'].includes(state.phase)) { restoreCrowd(); return; }
+    const ids = stopPeople(currentStop(state)), key = ids.join(' ');
+    if (crowdHeld === key) return;
+    crowdHeld = key;
+    try { crowd.hold(ids); } catch { /* the people stay as they were; the outing goes on */ }
+  };
   const restore = () => { if (previousMode !== undefined) travel.setMode(previousMode); previousMode = undefined; };
   const cancel = (reason = 'jaunt') => travel.stop(reason);
   const dismissDetail = () => { detailRequest?.abort(); detailRequest = null; closeDetail(); };
@@ -354,6 +384,7 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
     if (state.jaunt && !['DETAIL', 'RETURN'].includes(event.type) && (state.leg !== old.leg || state.phase !== old.phase || state.mode !== old.mode || state.modeChosen !== old.modeChosen))
       state = { ...state, estimate: estimate(state) };
     render(state);
+    syncCrowd();
     if (state.phase === 'atStop' && (old.phase !== 'atStop' || old.stopIndex !== state.stopIndex || old.session !== state.session))
       applyHour(currentStop(state));
     if (old.phase === 'opening' && state.phase !== 'opening' && event.type !== 'ARRIVE') cancel('jaunt'); // T-3432: lands the flight
@@ -382,7 +413,7 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
   }
   async function start(id, { mode, chosen } = {}) {
     const generation = ++serial; request?.abort(); request = new AbortController();
-    state = emptyState(); clearSaved(); cancel(); dismissDetail(); restore(); restoreLight(); render(state);
+    state = emptyState(); clearSaved(); cancel(); dismissDetail(); restore(); restoreLight(); restoreCrowd(); render(state);
     try {
       const jaunt = await load(id, { signal: request.signal });
       if (destroyed || generation !== serial) return false;
@@ -402,7 +433,7 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
       const land = () => dispatch({ type: 'ARRIVE', ...token });
       if (state.mode !== 'instantly' && flight?.begin?.({ token, label: jaunt.places?.[jaunt.stops[0].destination.id] ?? target.label,
         onArrive: land, onStop: land })) {
-        state = { ...state, estimate: estimate(state) }; render(state); applyHour(currentStop(state)); persist();
+        state = { ...state, estimate: estimate(state) }; render(state); syncCrowd(); applyHour(currentStop(state)); persist();
       } else land();
       countField('jauntStarted'); // T-2660
       return true;
@@ -431,7 +462,7 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
       render(state); return false;
     }
   }
-  const explore = () => { ++serial; request?.abort(); state = emptyState(); clearSaved(); cancel(); dismissDetail(); restore(); restoreLight(); render(state); };
+  const explore = () => { ++serial; request?.abort(); state = emptyState(); clearSaved(); cancel(); dismissDetail(); restore(); restoreLight(); restoreCrowd(); render(state); };
   return { start, get state() { return state; }, next: () => dispatch({ type: 'NEXT' }), prev: () => dispatch({ type: 'PREV' }),
     choose: id => dispatch({ type: 'CHOOSE', id }), retry: () => dispatch({ type: 'RETRY' }),
     revise: () => dispatch({ type: 'REVISE' }), restore: restoreSession,
