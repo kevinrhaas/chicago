@@ -65,6 +65,10 @@ const STATE_CLIPS = {
   working: ['work', 'idle'], seated: ['sit', 'idle'],
 };
 const FADE_S = 0.25;
+/** T-3442: how fast a figure walking a path turns to its next leg, degrees a second; it
+ *  slows to a stand while it turns further than PATH_STAND_TURN_DEG, so it turns, then goes. */
+export const PATH_TURN_DEG_S = 220;
+const PATH_STAND_TURN_DEG = 75;
 const BLINK = ['eyeBlinkLeft', 'eyeBlinkRight'];
 
 /**
@@ -230,6 +234,11 @@ export class HumanActor {
     this.route = instance.behaviour?.route?.length ? [{ local_e: p.local_e, local_n: p.local_n }, ...instance.behaviour.route] : null;
     this.leg = 0;
     this.legT = 0;
+    // T-3442: a one-way walk (walkPath), and the height it last stood the figure at.
+    this.path = null;
+    this.standY = null;
+    // T-3443: gone indoors (house-errands.js): not drawn, not picked, met by nobody.
+    this.indoors = false;
     this.place();
   }
 
@@ -240,7 +249,8 @@ export class HumanActor {
   }
 
   place() {
-    enuToWorld(this.e, this.n, this.heightAt(this.e, this.n), this.root.position);
+    // T-3442: on a walked path the path says how high each point is (a tread, a sill).
+    enuToWorld(this.e, this.n, this.standY ?? this.heightAt(this.e, this.n), this.root.position);
     this.root.rotation.y = headingToYaw(this.heading);
   }
 
@@ -505,8 +515,101 @@ export class HumanActor {
     };
   }
 
+  /**
+   * T-3442: walk once along `points` — [{ e, n, y }] local ENU metres with the height to
+   * stand at each (house-doors.js `path()`: the sidewalk, up each tread, through a door) —
+   * at the walk clip's ground speed, turning to each leg as it goes, the feet at each
+   * point's height (a missing `y` is the ground's), and stand and idle at the end, turned
+   * to `endHeading` (compass degrees) if one is given. `onArrive(actor)` is called once,
+   * when it has stopped and turned. Returns false for a path of fewer than two points.
+   */
+  walkPath(points, { endHeading = null, onArrive = null, speed = null } = {}) {
+    const pts = (points ?? []).map((p) => ({ e: p.e ?? p.local_e ?? p[0], n: p.n ?? p.local_n ?? p[1], y: Number.isFinite(p.y) ? p.y : null }))
+      .filter((p) => Number.isFinite(p.e) && Number.isFinite(p.n));
+    if (pts.length < 2) return false;
+    this.path = { pts, leg: 0, t: 0, endHeading, onArrive, speed, arrived: false };
+    this.e = pts[0].e;
+    this.n = pts[0].n;
+    this.standY = pts[0].y;
+    this.setState('walking');
+    this.place();
+    return true;
+  }
+
+  /**
+   * T-3443: turn where it stands to face `heading` (compass degrees) at the walk's turn
+   * rate, then call `onArrive(actor)`. A walk under way is given up for it.
+   */
+  turnTo(heading, { onArrive = null } = {}) {
+    if (!Number.isFinite(heading)) return false;
+    this.path = { pts: [{ e: this.e, n: this.n, y: this.standY }], leg: 0, t: 0, endHeading: heading, onArrive, speed: null, arrived: true };
+    if (this.state === 'walking') this.setState('standing');
+    return true;
+  }
+
+  /** T-3443: in the house (not drawn, picked or met) or back out on its step. */
+  setIndoors(on) {
+    this.indoors = !!on;
+    if (this.indoors) { this.root.visible = false; this.inRange = false; }
+    else this.recheck = 0;
+    return this.indoors;
+  }
+
+  /** T-3442: stop a path where the figure is, standing. */
+  stopPath() {
+    if (!this.path) return false;
+    this.path = null;
+    this.setState('standing');
+    return true;
+  }
+
+  /** T-3442: one frame of a walkPath. */
+  followPath(dt) {
+    const p = this.path;
+    const turnToward = (want) => {
+      const diff = ((want - this.heading + 540) % 360) - 180;
+      const turn = Math.sign(diff) * Math.min(Math.abs(diff), PATH_TURN_DEG_S * dt);
+      this.heading = (this.heading + turn + 360) % 360;
+      return Math.abs(diff - turn);
+    };
+    if (p.arrived) {
+      // Stood at the end: turn to face where it was asked, then it is done.
+      const left = p.endHeading === null ? 0 : turnToward(p.endHeading);
+      if (left < 0.5) {
+        this.path = null;
+        p.onArrive?.(this);
+      }
+      this.place();
+      return;
+    }
+    const clip = this.body && findClip(this.body.clips, 'walk');
+    const speed = p.speed ?? clip?.userData?.speed_m_s ?? this.walkSpeed ?? 1.3;
+    const a0 = p.pts[p.leg], b0 = p.pts[p.leg + 1];
+    const off = turnToward((Math.atan2(b0.e - a0.e, b0.n - a0.n) * 180 / Math.PI + 360) % 360);
+    // A figure facing well away from its way turns before it walks on.
+    let left = speed * dt * Math.max(0, Math.cos(Math.min(90, off * 90 / PATH_STAND_TURN_DEG) * Math.PI / 180));
+    while (left > 0 && p.leg < p.pts.length - 1) {
+      const a = p.pts[p.leg], b = p.pts[p.leg + 1];
+      const len = Math.hypot(b.e - a.e, b.n - a.n);
+      const step = Math.min(left, len * (1 - p.t));
+      p.t = len > 1e-9 ? p.t + step / len : 1;
+      left -= step;
+      if (p.t >= 1 - 1e-9) { p.leg += 1; p.t = 0; if (step <= 0 && len > 1e-9) break; }
+    }
+    const a = p.pts[Math.min(p.leg, p.pts.length - 1)], b = p.pts[Math.min(p.leg + 1, p.pts.length - 1)];
+    this.e = a.e + (b.e - a.e) * p.t;
+    this.n = a.n + (b.n - a.n) * p.t;
+    this.standY = a.y !== null && b.y !== null ? a.y + (b.y - a.y) * p.t : null;
+    if (p.leg >= p.pts.length - 1) {
+      p.arrived = true;
+      this.setState('standing');
+    }
+    this.place();
+  }
+
   /** Advance along a walking route at the walk clip's stated ground speed (§ 7: in place). */
   walk(dt) {
+    if (this.path) { this.followPath(dt); return; }
     if (this.state !== 'walking' || !this.route || this.route.length < 2) return;
     const clip = this.body && findClip(this.body.clips, 'walk');
     const speed = clip?.userData?.speed_m_s ?? this.walkSpeed ?? 1.3;
@@ -533,6 +636,7 @@ export class HumanActor {
    */
   update(dt, cameraPosition, visualDt = dt) {
     if (this.disposed) return false;
+    if (this.indoors) { this.root.visible = false; this.inRange = false; return false; }
     this.recheck -= dt;
     this.clock += dt;
     if (!this.inRange && this.recheck > 0) return false;

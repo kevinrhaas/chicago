@@ -1,0 +1,45 @@
+{
+  "status": "selected ZIP entries fetched by HTTP range from the official pack, CRC-checked, then the atlas's scalp edited by tools/human_skin_bald_scalp.py (T-3441, 2026-11-07)",
+  "url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+  "pack_page": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/ (MakeHuman's own system assets, released CC0)",
+  "archive_bytes": 280737770,
+  "etag": "\"10bbb7ea-6160e7c0d7996\"",
+  "archive_sha256": null,
+  "entries": [
+    {
+      "path": "skins/old_caucasian_male/old_lightskinned_male_diffuse.png",
+      "compressed": 4301174,
+      "size": 4306141,
+      "method": 8,
+      "crc": 3588778234,
+      "offset": 71499936,
+      "entry_sha256": "dfb2310ed3e0ad024ea7a3ad321215e2e9e2994cca64043d9f3d07c6543ec847",
+      "entry_crc32_verified": true,
+      "image": {"width": 2048, "height": 2048, "mode": "RGB", "visually_inspected": true},
+      "kept_in_repo": false
+    },
+    {
+      "path": "skins/old_caucasian_male/old_caucasian_male.mhmat",
+      "size": 1449,
+      "crc": 2599349581,
+      "entry_sha256": "001eccec34180d4eb7369933360116a7ea1022c72674c1b012b988af65002600",
+      "entry_crc32_verified": true,
+      "kept_in_repo": "old_caucasian_male.mhmat (unchanged)"
+    }
+  ],
+  "license_evidence": {
+    "source": "old_caucasian_male.mhmat header (kept unchanged beside this file)",
+    "statement": "This asset was explicitly released as CC0 in september 2020. ... The copyright holders at the point of the release to CC0 were: Data Collection AB, Joel Palmius, Jonas Hauquier.",
+    "license": "CC0-1.0"
+  },
+  "derivative": {
+    "file": "old_lightskinned_male_bald_crown.png",
+    "sha256": "d97a3f236a1a4fd7cb846e5f8575a219c86e5947e1bbcf9c4d444ab293e344d8",
+    "producer": "python3 tools/human_skin_bald_scalp.py <the entry above> old_lightskinned_male_bald_crown.png",
+    "change": "The scalp's painted dark stubble blended into the atlas's own forehead tone (a bald crown); face, ears, body and hands unchanged. Same 2048 x 2048 size as the bronze atlas it replaces for this one asset.",
+    "why": "John J. Glessner was bald on the crown with white hair at the sides (his 1897 plate, glessner_commercial_club_1910_presidents_plate); the side hair is grown as strands at runtime, so a painted dark crop would contradict the photograph."
+  },
+  "uv_check": "The same hm08 base-mesh UV layout as the toigo atlases (MakeHuman system skin); checked on the built figure in the lineup viewer.",
+  "used_by": ["data/humans/recipes/gentleman_1904.json"],
+  "ticket": "T-3441"
+}

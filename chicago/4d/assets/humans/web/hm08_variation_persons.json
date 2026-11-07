@@ -7,7 +7,9 @@
   "glessner_john_j": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_glessner_john_j.json",
-   "drawn_as": [],
+   "drawn_as": [
+    "data/humans/instances/1904/hi_glessner_john_j_1904.json"
+   ],
    "age": {
     "years": 61,
     "grade": "attested",
@@ -59,8 +61,7 @@
     },
     "liberty": "L-human-variation-3412",
     "not_modelled": [
-     "his colouring (the plate is a monochrome halftone; the body's skin is a younger man's)",
-     "his clothes (the still's body is a coachman's, until his own figure)"
+     "his colouring (the plate is a monochrome halftone; skin, hair and cloth colours are chosen)"
     ],
     "card": {
      "source_citation": "[John J. Glessner], The Commercial Club of Chicago: Its Beginning and Something of Its Work (Chicago: privately printed for presentation to members of the Commercial Club, Binner-Wells Company, printers, 1910), p. 81, plate 'Former Presidents of the Commercial Club': the halftone portrait captioned 'John J. Glessner 1897'.",

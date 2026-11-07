@@ -5878,6 +5878,14 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_house_doors.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_house_errands.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_house_front.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5919,6 +5927,10 @@
       "wrote_ignored": []
     },
     "tools/test_human_garment_retention.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_gentleman_1904.py": {
       "wrote": [],
       "wrote_ignored": []
     },

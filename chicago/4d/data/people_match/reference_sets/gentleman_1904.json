@@ -1,0 +1,59 @@
+{
+  "id": "gentleman_1904",
+  "role": "gentleman",
+  "label": "a businessman in day dress on a Chicago street, 1900s",
+  "years": [
+    1897,
+    1910
+  ],
+  "scenes": [
+    "1904"
+  ],
+  "evidence": {
+    "repo": "kevinrhaas/chicago-evidence",
+    "dir": "evidence/people-references-2026-11-07/gentleman_1904"
+  },
+  "note": "Gathered 2026-11-07 for T-3441, John J. Glessner's day dress. Only the plate is of Glessner, and it shows his head and collar, not his coat or hat. The Clinedinst print shows the frock coat and high waistcoat on two men of his age and standing in 1904; the Underwood stereograph shows what Chicago businessmen wore on State Street, derbies above all. A reference set says what a man of this role and decade looked like, not what Glessner wore on a given day. All three are monochrome and say nothing about colour.",
+  "pictures": [
+    {
+      "name": "glessner_plate_head",
+      "band": "near",
+      "file": "glessner_plate_1897_near.jpg",
+      "sha256": "8abc0f7c8445e9ae6e1ae1b456ba05decd281a1f96056bd562da6766b1a68d1c",
+      "source_id": "glessner_commercial_club_1910_presidents_plate",
+      "from": "Internet Archive scan commercialclubof00gles, leaf 95 (page n94) at 2737 x 4555, crop [150, 2250, 1050, 3450], the lower-left portrait of the plate, at full resolution",
+      "caption": "John J. Glessner, head and shoulders. Halftone captioned 'John J. Glessner 1897', The Commercial Club of Chicago (1910), p. 81",
+      "shows": "Glessner himself, head and shoulders, three-quarter to his right: bald crown with white hair at the sides, grey moustache, round wire spectacles, tall standing collar, dark four-in-hand tie, dark high-cut waistcoat and coat."
+    },
+    {
+      "name": "clinedinst_1904_root",
+      "band": "near",
+      "file": "clinedinst_1904_root_near.jpg",
+      "sha256": "195b7b953f02f0ed01fd9742c5b3c6d31843ff5cbc24e1e8ba225a274c29aacf",
+      "source_id": "loc_clinedinst_1904_taft_root_frock_coats",
+      "from": "LOC TIFF 3a48890u.tif (1077 x 1536), crop [600, 250, 1020, 980], Root at the right of the print, at full resolution",
+      "caption": "Elihu Root standing at a desk, frock coat open. Clinedinst print, 1904 (LOC 2006685745)",
+      "shows": "Root from the front at about three metres: frock coat worn open with long lapels, high dark waistcoat, wing collar and dark tie, white cuffs just showing below the coat sleeves."
+    },
+    {
+      "name": "clinedinst_1904_taft",
+      "band": "near",
+      "file": "clinedinst_1904_taft_near.jpg",
+      "sha256": "914a7d532fd6ff3b56e672c0be26fe31a76816fa52cbcd1cf5af8c3e83a629d6",
+      "source_id": "loc_clinedinst_1904_taft_root_frock_coats",
+      "from": "LOC TIFF 3a48890u.tif (1077 x 1536), crop [120, 240, 600, 1500], Taft at the left of the print, at full resolution",
+      "caption": "William Howard Taft full length, frock coat buttoned. Clinedinst print, 1904 (LOC 2006685745)",
+      "shows": "Taft full length at about three metres: black frock coat buttoned high, skirts to the knee, striped grey trousers breaking over black boots, white cuffs."
+    },
+    {
+      "name": "underwood_1903_state_street",
+      "band": "far",
+      "file": "state_street_1903_far.jpg",
+      "sha256": "e59e29fef0148bd868e7181bdc6ab9544057a5eda883377e7fc991a9c96dc324",
+      "source_id": "loc_underwood_1903_state_street_noonday_stereograph",
+      "from": "LOC TIFF 1s12706u.tif (5860 x 3045), crop [1699, 1887, 2754, 2679] of the card's left frame, the east sidewalk below the C. D. Peacock sign, at full resolution",
+      "caption": "Men on State Street at noon, from above at eight to fifteen metres. Underwood & Underwood stereograph, 1903 (LOC 2014650313)",
+      "shows": "Chicago men walking towards and away from the camera at street distance: derbies on nearly all of them, dark coats, several to the knee, one frock-coated man in the middle of the walk; dark figures whose hats and faces are the only shapes that read."
+    }
+  ]
+}
