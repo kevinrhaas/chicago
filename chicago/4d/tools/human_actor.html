@@ -233,7 +233,9 @@ try {
     a.lod === 2 && a.counters.swaps > swaps0 && a.clipName === 'idle' && !mid.shadow && !mid.face, mid);
   check('a LOD with no face degrades cleanly: setExpression applies nothing and nothing throws', lod2.length === 0 && !a.body.faces.length, lod2);
   await Promise.resolve();
-  check('the LOD left behind is released', !assets.loaded.includes('c4d_fixture.lod0') && assets.loaded.includes('c4d_fixture.lod2'), assets.loaded);
+  // T-3439: a level left behind is parked for a swap back, not let go and reloaded.
+  check('the LOD left behind is parked, not released (a swap back reuses it)',
+    a.parked.has(0) && assets.loaded.includes('c4d_fixture.lod0') && assets.loaded.includes('c4d_fixture.lod2'), { parked: [...a.parked.keys()], loaded: assets.loaded });
   at(100);
   await step(2);
   const animated0 = a.counters.animated; const updates0 = a.counters.updates;
@@ -246,6 +248,9 @@ try {
   await step(12, 1 / 60);
   check('beyond DRAW_M: hidden, and no per-frame work (re-examined on a timer)',
     !a.root.visible && a.counters.updates === u1, { updates_in_12_frames: a.counters.updates - u1, visible: a.root.visible });
+  await Promise.resolve();
+  check('beyond DRAW_M, every parked level is released', a.parked.size === 0 && !assets.loaded.includes('c4d_fixture.lod0')
+    && !assets.loaded.includes('c4d_fixture.lod2'), { parked: [...a.parked.keys()], loaded: assets.loaded });
   at(4);
   await step(40, 1 / 60);
   check('coming back near returns it to lod0, face and shadow on', a.lod === 0 && a.costsNow.face && a.costsNow.shadow, a.costsNow);
