@@ -40276,8 +40276,12 @@ sketch of the 1812 ground that shows a path (the 1821 and 1830 surveys are the n
 places one. The eighteenth yard (T-3401, 2026-11-06) is Lee's Place's stack yard, round the four haystacks: Wau-Bun
 puts the cattle "standing among the haystacks" and foddered there, so the ground round their feet is grazed and
 trodden rather than standing prairie; its extent (the stacks' squares grown 3 m) is ours, like the others'.
-**Ticket:** T-3339, T-3401.
-**Recorded:** 2026-11-03 (T-3339); the stack yard 2026-11-06 (T-3401).
+T-3457 (2026-11-07, the owner: "minimize or eliminate the grass in the worn paths and areas") takes the standing
+grass off the worn ground harder than the earth shows: inside a yard and on a trail's core about 96 in 100 plants
+go whatever the wear, and round each yard the grass thins out over 1.8 times its earth's feather, never nearer than a
+fifth of that band to the yard, before it frays back to prairie. That share, that reach and that floor are ours.
+**Ticket:** T-3339, T-3401, T-3457.
+**Recorded:** 2026-11-03 (T-3339); the stack yard 2026-11-06 (T-3401); the grass 2026-11-07 (T-3457).
 
 ### L-t3340-south-groves-1812 — 1812's timber south of the river: the South Branch belt carried east of Wells, and groves in the wet hollows
 

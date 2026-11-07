@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2783, ts: '2026-11-07T17:39:11.857Z', date: 'Nov 7, 2026, 11:39 AM CT', title: '1812: the worn paths and yards are bare of grass', kind: 'fix',
+    items: [
+      'Round the 1812 houses, shops and stables the trodden ground is now clear of standing grass for a few metres before it frays back into the prairie.',
+      'The worn trails and the cart road south from the fort lose the tufts down their middles; a light path keeps a few.',
+      'How far the trampling reaches is our reconstruction (Liberty L-t3339-worn-ground-1812).',
+    ] },
   { v: 2782, ts: '2026-11-07T17:29:44.980Z', date: 'Nov 7, 2026, 11:29 AM CT', title: '1812: the commanding officer\'s garden follows the Season', kind: 'fix',
     items: [
       'Winter: the beds and walks lie under snow, with only bare currant and gooseberry bushes and raspberry canes above it.',
