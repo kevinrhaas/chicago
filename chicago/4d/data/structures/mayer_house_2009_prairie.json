@@ -698,21 +698,49 @@
             "cap_depth_m": 0.25,
             "stacks": [
               {
-                "u_m": 23.8,
-                "v_m": 0.7
+                "u_m": 23.6,
+                "v_m": 0.0,
+                "plan_m": [
+                  0.9,
+                  0.84
+                ],
+                "astride_wall": true
               },
               {
                 "u_m": 17.0,
                 "v_m": 0.7
               }
-            ]
+            ],
+            "k15": {
+              "kit": "data/components/prairie_1904/k15_chimneys.json",
+              "from": "k15.stack.ridge",
+              "flues": 2,
+              "corbels": [
+                [
+                  0.07,
+                  0.03
+                ],
+                [
+                  0.22,
+                  0.05
+                ],
+                [
+                  0.22,
+                  0.05
+                ]
+              ],
+              "cap": {
+                "thickness_m": 0.24,
+                "projection_m": 0.07
+              }
+            }
           },
           "confidence": "inferred",
           "sources": [
             "chicagology_2009_prairie_meyer_photo",
             "monroe_1896_john_wellborn_root_meyer_plate"
           ],
-          "note": "The register's 'tall chimneys': the photograph shows a tall brick stack with a corbelled cap rising from the north flank, which its camera puts on the north wall about 2.2 m behind the front, its top about 17.4 m up (1.7 m over the ridge); Monroe's plate draws a second, lower stack farther back on the same side, stood here in the north wall's projection. The far stack at the photograph's left edge (x 130-210 px) lies north of this lot through the camera and is read as 2005's. K01 stands a stack inside the main body (0.7 m in from the north wall), so the near stack stands about 0.6 m south of where the photograph puts it; both share one height."
+          "note": "The register's 'tall chimneys': the photograph shows a tall brick stack rising at the north flank, its shaft (x 336-412 px) centred on the north wall's line about 2.4 m behind the front, about 0.84 m across, its top about 1.7 m over the ridge (17.4 m), which the camera's render puts within 0.1 m of the print's (y 116 px); Monroe's plate, from the north-west, draws it at the flank beside the gable's kneeler. It is built astride the north wall (T-3365): the wall's line through its middle and its outer half a breast carried up the wall's face from the ground, since a 0.1 m eave cannot carry it; both pictures hide the flank below the eave behind trees, so the breast's lower part is reconstructed (docs/LIBERTIES.md). It stands 0.1 m clear of the tall light 1.4 m behind the front corner. Its head as the photograph draws it: a thin band, a plain stage about 0.45 m deep standing a little proud of the shaft, and a cap about 0.25 m deep (its weathered top drawn flat). Monroe's plate draws a second, lower stack farther back on the same side, stood here 0.7 m inside the north wall at the main body's ridge height plus 1.7 m, with the same head. The far stack at the photograph's left edge (x 130-210 px) lies north of this lot through the camera and is read as 2005's."
         },
         "rainwater": {
           "value": {

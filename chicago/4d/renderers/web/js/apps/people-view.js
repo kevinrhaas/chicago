@@ -16,6 +16,13 @@
  * and Inspect house; a person placed in town also has Find and Follow (T-3404). Back
  * returns through the cards to the list, its search and scroll kept.
  *
+ * T-3438 (the owner, 2026-11-07: "weird that the shorthalls at 1600 prairie are listed twice in
+ * households?" and "it shows in the people list too?"): the pinned household was ALSO the first
+ * row of the list under it, and on the People side a household row sat among the people. Now
+ * the pin is said once: on Households the household in view, then "Every other household"; on
+ * People that household's own people (never a household row), then "Everyone else". A search
+ * drops the pin and lists every match.
+ *
  * The pure half (households, search) is people-directory.js.
  */
 import { personModel, renderPersonCard } from '../person-card.js';
@@ -100,10 +107,12 @@ export async function mount(root, ctx = {}) {
   st.status.setAttribute('aria-live', 'polite');
   st.inView = el(doc, 'section', 'ppl-inview');
   st.inView.hidden = true;
+  st.rest = el(doc, 'span', 'nav-k ppl-rest');
+  st.rest.hidden = true;
   st.results = el(doc, 'div', 'ppl-results');
   st.more = button(doc, 'nav-segment ppl-more', '');
   st.more.addEventListener('click', () => { st.shown += PAGE; drawResults(st); });
-  list.append(find, segs, st.status, st.inView, st.results, st.more);
+  list.append(find, segs, st.status, st.inView, st.rest, st.results, st.more);
   st.card = el(doc, 'div', 'ppl-card');
   st.card.hidden = true;
   root.append(list, st.card);
@@ -122,7 +131,6 @@ export async function mount(root, ctx = {}) {
   });
   st.card.addEventListener('click', (e) => onCardClick(st, e));
   drawInView(st, ctx);
-  drawResults(st);
 }
 
 /** Every time People opens: the household of the building now in view, and a fresh ctx. */
@@ -139,12 +147,27 @@ export function unmount(root) {
 
 /** The household living in the building Inspect holds, or the tag names, pinned first. */
 function drawInView(st, ctx) {
-  const doc = st.root.ownerDocument;
-  const h = householdAt(st.model, ctx?.selected ?? ctx?.target?.id ?? null);
+  st.pinned = householdAt(st.model, ctx?.selected ?? ctx?.target?.id ?? null);
+  drawResults(st);
+}
+
+/**
+ * The pin, for this side of the switch: the household itself on Households; its people on
+ * People (a household is never a row among people). Returns the ids it shows, which the list
+ * under it leaves out, so nothing is said twice (T-3438).
+ */
+function pinFor(st, doc) {
+  const h = st.pinned;
   st.inView.replaceChildren();
-  st.inView.hidden = !h;
-  if (!h) return;
-  st.inView.append(el(doc, 'span', 'nav-k', 'In view'), householdRow(doc, h));
+  if (!h) return new Set();
+  if (st.seg === 'households') {
+    st.inView.append(el(doc, 'span', 'nav-k', 'In view'), householdRow(doc, h));
+    return new Set([h.id]);
+  }
+  const here = [...h.family, ...h.staff].map((p) => st.model.byId.get(p.id) ?? p);
+  if (!here.length) return new Set();
+  st.inView.append(el(doc, 'span', 'nav-k', `In view · ${h.short}`), ...here.map((p) => personRow(doc, p, { withHousehold: false })));
+  return new Set(here.map((p) => p.id));
 }
 
 function householdRow(doc, h) {
@@ -188,8 +211,13 @@ function drawResults(st, { auto = false } = {}) {
     ? (r.households.length + r.people.length
       ? `${counted(r.households.length, 'household')} · ${counted(r.people.length, 'person', 'people')} match` : 'No match')
     : `${counted(all.households, 'household')} · ${counted(all.people, 'person', 'people')}`;
-  st.inView.hidden = !!r.query || !st.inView.childElementCount;
-  const items = r[st.seg];
+  // The pin only on the whole list; a search lists every match, the household in view among them.
+  const pinned = r.query ? new Set() : pinFor(st, doc);
+  if (r.query) st.inView.replaceChildren();
+  st.inView.hidden = !pinned.size;
+  st.rest.hidden = !pinned.size;
+  st.rest.textContent = st.seg === 'households' ? 'Every other household' : 'Everyone else';
+  const items = pinned.size ? r[st.seg].filter((x) => !pinned.has(x.id)) : r[st.seg];
   st.results.replaceChildren(...items.slice(0, st.shown).map((x) => (st.seg === 'households' ? householdRow(doc, x) : personRow(doc, x))));
   const left = items.length - Math.min(items.length, st.shown);
   st.more.hidden = left <= 0;

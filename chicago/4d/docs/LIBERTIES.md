@@ -24454,7 +24454,7 @@ shows them. Across the verandah's three openings (T-3357) stands an iron rail, a
 column at 0.8 m over the floor on one standard in each opening's middle: the photograph's dark bar and the
 dark upright under it in its first two openings, a few pixels across, so the section and the standard's
 count are reconstructed and the iron is the dark tone's reading. The rear range is built to its second
-storey's head (9.45 m) under a flat roof, short of the Tribune's 37 ft cornice. T-3370 moves the tower 2.0 m north of the sheet, to v 7.95-11.75 (the sheet's v 5.95-9.74), with the door (s 10.65) and its landing, and runs the verandah from the corner to it, s 0-7.6 with three 1.9 m openings on 2.3 m centres, where the sheet's porch strip gives 5.6 m: the photograph's camera, re-solved at 12 px rms once its south-east corner was read at the cornice's nearest vertex (x 1425 px), puts the tower 1.6-2.7 m north of the sheet across its variants and the verandah's two columns about 2.55 m apart. The image gate builds the photograph; the sheet's place is kept here. On the same camera the two south stacks stand at u 1.7 and 11.7 (from 6.0 and 12.5). Their heads are read on the same camera at about 40 px a metre: the left stack stands at its own 17.35 m (the photograph's 17.33 m), under the kit's one height; all three are dressed from the K15 kit's panelled form (k15.stack.sherman less its corbel blocks), its two stone bands, a sunk panel 0.45 m wide where a stack's shaft has room for one (the right one's, the photograph's 15.43-16.29 m), and a head of three corbelled courses 0.15, 0.15 and 0.2 m high, out 0.06, 0.13 and 0.2 m, under a stone cap 0.35 m thick and 0.28 m out, for the photograph's moulded heads about 0.9 m tall and 0.3 m out; those courses, the cap and the panels' sizes are reconstructed, the moulded profiles the kit's square courses, and the north stack's dress is the south ones'. The right stack's narrower upper stage over its broad cap is not built.
+storey's head (9.45 m) under a flat roof, short of the Tribune's 37 ft cornice. T-3370 moves the tower 2.0 m north of the sheet, to v 7.95-11.75 (the sheet's v 5.95-9.74), with the door (s 10.65) and its landing, and runs the verandah from the corner to it, s 0-7.6 with three 1.9 m openings on 2.3 m centres, where the sheet's porch strip gives 5.6 m: the photograph's camera, re-solved at 12 px rms once its south-east corner was read at the cornice's nearest vertex (x 1425 px), puts the tower 1.6-2.7 m north of the sheet across its variants and the verandah's two columns about 2.55 m apart. The image gate builds the photograph; the sheet's place is kept here. On the same camera the two south stacks stand at u 1.7 and 11.7 (from 6.0 and 12.5). Their heads are read on the same camera at about 40 px a metre: the left stack stands at its own 17.35 m (the photograph's 17.33 m), under the kit's one height; all three are dressed from the K15 kit's panelled form (k15.stack.sherman less its corbel blocks), its two stone bands, a sunk panel 0.45 m wide where a stack's shaft has room for one (the right one's, the photograph's 15.43-16.29 m), and a head of three corbelled courses 0.15, 0.15 and 0.2 m high, out 0.06, 0.13 and 0.2 m, under a stone cap 0.35 m thick and 0.28 m out, for the photograph's moulded heads about 0.9 m tall and 0.3 m out; those courses, the cap and the panels' sizes are reconstructed, the moulded profiles the kit's square courses, and the north stack's dress is the south ones'. The right stack's narrower upper stage over its broad cap is not built. The dining range's south face is lit as the photograph draws it, a single, a single and a pair to each principal storey, placed at the fractions of the face the photograph's re-solved camera reads for them (0.24, 0.53 and 0.81, for a face it reads about 10.4 m long where the sheet gives 9.03 m); the pair is K06's paired sash at its least, two 0.75 m lights on a 0.3 m mullion, where the print's lights read about 0.55-0.6 m, so its sizes are reconstructed; the Tribune's 'two windows opening to the south' are read as the two singles and the pair's room is not named.
 
 **How to resolve:** T-1901's next piece re-solves the photograph's camera (its present fit is provisional:
 see `data/reference_views/house_1918_prairie/chicagology_photo.json`), settles the front's composition
@@ -35148,6 +35148,7 @@ bay's carry into the mansard; a placement ruling for the wall south of the bay.
 **Review:** `docs/RESEARCH/k01-1828-shipman-1887/README.md`.
 **Recorded:** 2026-10-26 (T-3166).
 **Revised 2026-10-26 (T-3168):** the partial view's camera is solved (`data/reference_views/house_1828_prairie/glessner_partial.json`, from the south-east, its copy read at a pixel aspect of 1.52 against the automobile print). Through it the mansard's face is raised from 3.6 to 4.5 m, the most a one-storey face takes, and still reads about 1 m short of the print's curb; the two street dormers' lights are 1.0 x 1.9 m in a 0.2 m surround (from 0.8 x 1.4 in 0.15), still round-headed where the print's are square under a curved hood; and iron cresting 0.5 m high runs along the curb. Still not built, as above: the porch's arches, carving and stone balustrade, the stoop's stone cheeks, the bay's pilasters, the bay carried into the mansard, the basement lights' full height (K02's Lemont base takes two courses of at most 0.41 m) and the print's front wall south of the bay. Both match records say `differs`.
+**Revised 2026-11-07 (T-1887):** the porch's round arches are turned on its front and its south side (K01's porch arcade, T-3210), springing at about 5.45 m and crowning at about 5.95 m, read off the automobile photograph through its camera; the bay's three basement lights are cut to the print's height, about 0.3-1.45 m over grade, with iron uprights in their reveals, the bay's stone plinth lowered to 0.15 m to run under them. Invented there: the arches' half-elliptical profile, the grilles' bar count and the small ring at their heads (K08's bar grille carries one; the print shows uprights only at its scale), and the plinth's height (its foot is behind the fence in both prints). Still not built: the porch's third column, which through the automobile camera stands against the bay's north cheek about 0.5 m south of the flat respond that carries the south arch; the bay carried into the mansard; the mansard's last metre; the front wall south of the bay.
 
 ### L-pullman-glasshouses-1800-calumet-3164 — Pullman's glasshouse ranges and lodge across 18th Street, read off the 1911 sheet and glazed from the K13 kit
 
@@ -41516,3 +41517,31 @@ the match record. The 1874 Land Owner engraving is not read.
 K01 door hood.
 **Ticket:** T-1886.
 **Recorded:** 2026-11-07 (T-1886).
+
+### L-k01-2009-meyer-north-stack-3365 — 2009 Prairie's near north stack built astride the north wall, its breast carried up the flank from the ground, and its head as its photograph draws it
+
+**Decision:** the tall stack the Chicagology photograph (`chicagology_2009_prairie_meyer_photo`, rights
+check_required: forms, places and sizes only) shows rising at 2009 Prairie's north flank no longer stands
+0.7 m inside the north wall, where K01 could stand it: K01 gains a hip house's stack astride a side wall
+(`chimneys.stacks[].astride_wall`, K01's south wall at v 0), and the stack stands with the wall's line
+through its middle at u 23.6 m. Its head is laid with the K15 kit (`chimneys.k15`, from `k15.stack.ridge`):
+a 0.07 m band 0.03 m proud, a stage of two 0.22 m courses 0.05 m proud, and a stone cap 0.24 m deep and
+0.07 m out. Monroe's farther stack takes the same head.
+**What is read, not invented.** The shaft's place across the flank and its width (x 336-412 px on the print,
+about 0.84 m, on the wall's line through the camera; the render's shaft lands at x 327-410 px); that Monroe's
+plate draws it at the flank beside the gable's kneeler; its top, about 1.7 m over the ridge (the render's
+within 0.1 m of the print's); the head's band, its proud stage and its cap, and their depths.
+**What is invented.** The stack's place back from the front (2.4 m, from the camera on the wall's line, then
+held 0.1 m clear of the tall light 1.4 m behind the front corner); its depth along the flank (0.9 m, the
+record's); everything below the eave: the part outside the wall is carried up the flank from the ground as a
+breast, because a 0.1 m eave cannot carry a stack standing 0.42 m out of the wall, and both pictures hide the
+flank there behind trees. The head's projections are read to about 0.02 m; the cap's weathered top is
+drawn flat; the farther stack's head is the near one's.
+**What is built otherwise than the evidence, and why.** The stacks keep the side walls' buff brick, where the
+print draws them as dark as the front's rough brick; the print is monochrome, and the brick is the house's
+own choice (the match record keeps it open).
+**What is not built.** The gable's south foot is still as L-k01-2009-meyer-1913 left it.
+**How to resolve:** a camera solved on Monroe's 1896 plate (`monroe_1896_john_wellborn_root_meyer_plate`),
+which sees the flank from the north-west, would place the stack along it and might show its breast.
+**Ticket:** T-3365 (piece 2 of T-1914).
+**Recorded:** 2026-11-07 (T-3365).
