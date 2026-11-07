@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_1445_album",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "60ffbd8ce96c0eee6d420b4fd463bb8c821c9f6e70923fc78353c7e11430a8b5",
+  "glb_sha256": "208c4b2a41000683a973af410b82636f71382855e2f031450b34198a3ee20520",
   "camera_sha256": "5e8bde918a9fc35598047bd2e50bbce98f4f9e93a2430ab3980ec94bfeda1ef5",
   "photo_sha256": "8e9acc6fe325b5e7d7aa04c68396fe02cfb8e31b10e55a1a8e9fb8e2b29df345",
   "rendered_flora": {
@@ -65,7 +65,7 @@
       "sha256": "bd022919ca052610595908f83128dfceea976790c5bf2eff63f381abaa3b89b5"
     }
   ],
-  "flora_sha256": "0d0c98c95e174645cc55ae28da380e16c299f9f5ce650e1034ab1797fb172f6b",
+  "flora_sha256": "fda955a583e036bf1f9b397b9a3579d28d1b5aafb502e40139ff109d2f5bbb22",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -263,6 +263,10 @@
       "what": "the slender young tree at x 148, its head over the north block's cornice, standing before the house's north-west corner as the view runs: a trunk on Prairie Avenue's parkway at the 18th Street corner, seen edge-on down the parkway",
       "status": "fixed",
       "how": "T-1881 (2026-11-06): planted at 259.8 m on the Prairie parkway's line, where this trunk's ray and the Detroit print's trunk at x 630 meet the line 0.04 m apart; it renders at x 143-150. It is built as the Detroit print's mature tree (about 0.38 m at its foot), the picture nearest 1904, so it draws thicker here than the 1880s-1890s print's young tree, as the rest of the parkway's trees do in this view. Its foot: the print loses it behind the corner's low coping at about y 650, where the line's foot falls at y 672; along this edge-on line 22 px is several metres, which the Detroit print's ray, square to it, does not leave room for, so the place stands on the pair of rays."
+    },
+    {
+      "what": "the Prairie front's third part, on the main wall south of the entry (v 8.8 to the south-west corner pier, v 16.8-17.93): the owner, 2026-11-06, his crop of the Detroit print beside the build: \"you have two windows at every level for this third part of the face, but in the image there is one window at every level, line and size them up correctly with the house\". Built (T-1881) with ONE column, the 1.2 x 3.25 m principal light, the 1.45 x 2.65 m second-storey light and the 1.1 x 1.9 m pedimented dormer, centred on the wall between the banded pier at v 8.8-9.41 and the corner pier, at v 13.1; the narrow column (v 15.45, its dormer at v 14.85) is taken off. On the Library of Congress master scan (det 4a08065u) the big light stands midway between the entry's banded corner and the next banded pier, at which the cornice turns and falls away with the flank, so the narrow light and smaller dormer beyond it are the 18th Street flank's first column (north_bays s 1.4), as Taylor's no. 1445 shows them. Through this camera the print's big column (x 357-382 px, v 12.8-14.2) and the build's at v 13.1 agree within about 0.4 m; the light and dormer past the corner (x 440-483) are the flank's.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
