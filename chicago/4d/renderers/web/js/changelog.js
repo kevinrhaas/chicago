@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2762, ts: '2026-11-07T08:18:24.258Z', date: 'Nov 7, 2026, 2:18 AM CT', title: 'John J. Glessner looks like his photograph', kind: 'feature',
+    items: [
+      'Round wire spectacles, a full grey moustache and grey brows, as his 1897 portrait shows.',
+      'Bald crown with short white hair at the sides and back.',
+      'His card\'s model picture is redrawn with them, lit like the town.',
+    ] },
   { v: 2761, ts: '2026-11-07T08:14:37.135Z', date: 'Nov 7, 2026, 2:14 AM CT', title: '1904 jaunts say when each lost house came down', kind: 'improvement',
     items: [
       'Every 1904 jaunt stop at a house later torn down now says when, in a line woven into the story: Pullman\'s house razed in 1922, Field\'s in 1955, Armour\'s in 1937.',
