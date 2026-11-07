@@ -3051,6 +3051,32 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                  f"and a guilloche of {sorted(gk)}, not {cb}")
             v["cap_band"] = {"height_m": float(cb["height_m"]), "proud_m": float(cb["proud_m"]),
                              "guilloche": {k: (int(g[k]) if k == "segments" else float(g[k])) for k in sorted(gk)}}
+        if "apron_band" in e:
+            # T-3365: a carved band round the bay under its lowest lights' sills, read off a
+            # picture (2009 Prairie's oriel, the Chicagology photograph: two staggered rows of
+            # small carved flowers over the moulded roll on its corbel)
+            ab = e["apron_band"]
+            ro = ab.get("rosettes") if isinstance(ab, dict) else None
+            rk = {"radius_m", "proud_m", "pitch_m", "rows", "segments"}
+            if not isinstance(ro, dict) or set(ab) != {"from_m", "to_m", "proud_m", "rosettes"} or set(ro) != rk \
+                    or not (0.0 <= float(ab["from_m"]) and 0.15 <= float(ab["to_m"]) - float(ab["from_m"]) <= 0.8
+                            and 0.01 <= float(ab["proud_m"]) <= 0.06) \
+                    or not (0.03 <= float(ro["radius_m"]) <= 0.2 and 0.0 < float(ro["proud_m"]) <= 0.04
+                            and 2 * float(ro["radius_m"]) < float(ro["pitch_m"]) <= 1.0
+                            and 1 <= int(ro["rows"]) <= 3 and 6 <= int(ro["segments"]) <= 16):
+                raise ParamError(f"bays: {e['id']}'s apron_band takes from_m and to_m over the bay's floor "
+                                 f"(a band 0.15-0.8 m deep), proud_m (0.01-0.06 m) and rosettes of "
+                                 f"{sorted(rk)} (radius 0.03-0.2 m, at most 0.04 m proud, 1-3 rows, a pitch "
+                                 f"over their width to 1 m, 6-16 segments), not {ab}")
+            k06 = float(json.loads(WINDOW_KIT.read_text())["parts"]["sill"]["height_m"])
+            low = min((float(w["sill_m"]) for w in v["storeys"][0].get("windows", [])), default=None)
+            if low is None or float(ab["to_m"]) > low - k06 + 1e-6:
+                raise ParamError(f"bays: {e['id']}'s apron_band stands under its lowest storey's lights, its "
+                                 f"top under their sill stones (at most {None if low is None else round(low - k06, 3)} m)")
+            v["apron_band"] = {"from_m": float(ab["from_m"]), "to_m": float(ab["to_m"]),
+                               "proud_m": float(ab["proud_m"]),
+                               "rosettes": {k: (int(ro[k]) if k in ("rows", "segments") else float(ro[k]))
+                                            for k in sorted(rk)}}
         # T-3197: a storey slated at its sides (1827's pavilion attic under its crown, the Doane
         # photograph): the front run's outer width_m at each end and every other run, in slate
         for st in v["storeys"]:
