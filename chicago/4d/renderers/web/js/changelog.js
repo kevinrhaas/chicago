@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2737, ts: '2026-11-06T23:59:27.558Z', date: 'Nov 6, 2026, 5:59 PM CT', title: '1801 Prairie\'s third-storey window gets its carved stone frame', kind: 'improvement',
+    items: [
+      'The one window in the Kimball house\'s third storey, behind the bow\'s balcony, now stands in a raised stone frame with lugs at its head\'s corners and a projecting sill, as the 1965 HABS photograph and the c. 1895 Taylor photograph show it.',
+    ] },
   { v: 2736, ts: '2026-11-06T23:36:20.329Z', date: 'Nov 6, 2026, 5:36 PM CT', title: 'Go to: short viewpoint names, new 1904 views, and Photos', kind: 'feature',
     items: [
       '1904\'s Go to opens with six compact tiles, each with its own icon: From above, Glessner, Pullman, Field, Church and 1812 battle.',
