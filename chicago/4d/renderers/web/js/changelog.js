@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2800, ts: '2026-11-07T22:54:15.123Z', date: 'Nov 7, 2026, 4:54 PM CT', title: 'People walk like people: real pace, heel to toe, swinging arms', kind: 'improvement',
+    items: [
+      'Everyone on foot walks at a real pace for their age and height, about twice as fast as before, with full-length steps.',
+      'Each foot lands on the heel, rolls flat and pushes off from the ball, and stays put on the ground while it carries the weight.',
+      'Knees bend as they take the weight and fold through the swing; hips rise, fall and turn with each step.',
+      'Arms swing in time with the legs, the shoulders turn against the hips and the head stays steady.',
+      'Stopping, a walker brings the trailing foot up beside the other.',
+    ] },
   { v: 2799, ts: '2026-11-07T22:24:13.673Z', date: 'Nov 7, 2026, 4:24 PM CT', title: '1812 blockhouse cupola lookouts and shingled roofs', kind: 'improvement',
     items: [
       'Each cupola cap on the first fort\'s two blockhouses now has a small hooded lookout opening on all four sides, as Currey\'s drawing shows.',
