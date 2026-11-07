@@ -41440,7 +41440,8 @@ check the crest and the pinnacles from a second picture.
 
 **Decision:** the W. W. Kimball house's mansard rises 5.76 m from its 8.9 m cornice to a curb at 14.66 m;
 its 18th Street, south and rear faces at 67.0 degrees (a run of 2.44 m, as before), its street face on
-Prairie Avenue running 3.42 m back to the curb (about 59 degrees, `mansard.street_run_m`). The deck, its
+Prairie Avenue running 3.42 m back to the curb (`mansard.street_run_m`): at the side faces' pitch up to a
+knee 2.9 m over the eave (`mansard.street_knee_m`), at about 53 degrees over it. The deck, its
 cresting, the corner hood and the street dormers stand on that line; the dormers' faces are set back so
 their lights keep their heights. The south wall's front stack is lowered from 18.0 to 17.3 m.
 **What is read, not invented.** J. W. Taylor's photograph of c. 1895 (`taylor_c1895_kimball_residence_1801`)
@@ -41453,8 +41454,12 @@ the south pavilion's cross roof, where the print shows sky.
 **What is inferred.** How the setback divides between the street face and the side face: the two cameras
 stand about 6 m apart and fix the corner well across their line of sight and poorly along it, so a longer
 side run with a shorter street run fits almost as well (a free fit: street 4.39 m, side 3.65 m, rise
-6.56 m). The side faces' run is held where the build stood it. The street face is a straight plane; the
-prints do not say whether it is bell-cast. The stack: HABS photograph 1 of 1965 reads its cap about 0.5 m
+6.56 m). The side faces' run is held where the build stood it. The knee is inferred, not seen: the prints show
+the hip leaning back evenly (the build's bends, about 0.35 m off the Taylor print's at its middle), but a face
+leaned from the eave would stand its slate about 0.5 m under the south cant's 11.65 m cornice, where HABS
+photograph 1 shows slate over the cornice and a light on the cant lights a room behind it; the knee's height
+is the lowest that keeps that slate over the cornice with some margin. A bell-cast street face would answer
+both readings and is not built. The stack: HABS photograph 1 of 1965 reads its cap about 0.5 m
 higher; the period print governs the 1904 phase, and the 1965 height may be a later raising.
 **How to resolve:** a picture of the front's roof from the south-west or from across the street square-on
 (the third bearing on the corner), or a section of the house.

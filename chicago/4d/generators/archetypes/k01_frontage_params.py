@@ -735,6 +735,27 @@ def _gable_roof(g: dict, depth: float, width: float, eave: float, pitch: float, 
 STREET_LEAN_DEG = 55.0
 
 
+def face_height(m: dict, face: str, setback: float) -> float:
+    """T-1890: how high a mansard's lower face `face` stands over its eave `setback` in from its
+    fascia's face: a leaned street face at the side faces' pitch up to its knee
+    (`street_knee_m`) and straight on from there to its curb, `street_run_m` in."""
+    if face == "street" and m.get("street_run_m"):
+        rise, sr, kn = m["lower_rise_m"], m["street_run_m"], m.get("street_knee_m") or 0.0
+        tk = kn / math.tan(math.radians(m["lower_pitch_deg"]))
+        if kn and setback <= tk:
+            return setback * kn / tk
+        return kn + (setback - tk) * (rise - kn) / (sr - tk) if setback <= sr else rise
+    return mansard_face_height(setback, m["lower_rise_m"], m["lower_pitch_deg"], m["bulge"], m["profile"])
+
+
+def face_pitch_at(m: dict, face: str, setback: float) -> float:
+    """T-1890: the straight chord's pitch that stands `face` at face_height over `setback` (what a
+    dormer's foot is read from), the mansard's own where the face is not leaned."""
+    if face == "street" and m.get("street_run_m") and setback > 1e-6:
+        return math.degrees(math.atan2(face_height(m, face, setback), setback))
+    return face_lower(m, face)[0]
+
+
 def face_lower(m: dict, face: str) -> tuple:
     """T-1890: a mansard lower face's (pitch_deg, run_m): the street face's own where the
     record leans it back (`street_run_m`), every other face's the mansard's."""
@@ -810,6 +831,18 @@ def _mansard_roof(m: dict, depth: float, width: float, eave: float, pitch: float
         if depth + 2 * overhang - sr - run < 1.5:
             raise ParamError(f"mansard.street_run_m {sr}: leaves the deck under 1.5 m deep")
         out["street_run_m"], out["street_pitch_deg"] = sr, round(street, 4)
+        if "street_knee_m" in m:
+            # T-1890: the street face may rise at the side faces' pitch up to a knee and lean
+            # back only over it (1801's: a light on its south cant under a cornice at 11.65 m
+            # wants the slate over that, which a face leaned from the eave would not give)
+            kn = float(m["street_knee_m"])
+            tk = kn / math.tan(math.radians(lower))
+            upper = math.degrees(math.atan2(rise - kn, sr - tk)) if sr > tk else 90.0
+            if bulge != 0.0 or not 0.5 <= kn <= rise - 0.5 or upper < 45.0:
+                raise ParamError(f"mansard.street_knee_m {kn}: on a straight face (bulge 0), 0.5 m over the eave "
+                                 f"to 0.5 m under the curb, leaving the face over it at 45 degrees or more")
+            out["street_knee_m"] = kn
+            out["street_pitch_deg"] = round(upper, 4)
     if m.get("side_parapet"):
         out["side_parapet"] = _mansard_side_parapet(m["side_parapet"], k5, out, eave, overhang, side_wall)
     # T-1881: the lower faces' dormers may be faced in the front's own stone (1729's read in the
@@ -1097,8 +1130,12 @@ def mansard_cover(m: dict, depth: float, width: float, eave: float, pitch: float
 
     sr = m.get("street_run_m")
 
+    tk = (m.get("street_knee_m") or 0.0) / math.tan(math.radians(lower))
+
     def street_s(d: float) -> float:   # T-1890: a leaned street face's inset, in the side faces' terms
-        return d if not sr else d * run / sr if d <= sr else d - (sr - run)
+        if not sr or d <= tk:
+            return d
+        return tk + (d - tk) * (run - tk) / (sr - tk) if d <= sr else d - (sr - run)
 
     def cover(u: float, v: float) -> float:
         s = min(u + overhang, street_s(depth + overhang - u), v + overhang, width + overhang - v)
@@ -2057,8 +2094,7 @@ def _mansard_dormers(entries, m: dict, depth: float, width: float, eave: float, 
                                                                       else run) - 0.3 - r
         if not lo <= c <= hi:
             raise ParamError(f"{what}.along_m {c}: its face stands clear of the hips only for {lo:.2f}-{hi:.2f} m")
-        foot = mansard_face_height(d["face_setback_m"], m["lower_rise_m"], fpitch, m["bulge"],
-                                   m["profile"])
+        foot = face_height(m, face, d["face_setback_m"])
         top = foot + d["sill_m"] + d["head_m"]
         if d["head"] == "flat":
             # T-1890: its cap is K05's hip at the flat's fall, its eaves the kit's dormer overhang
@@ -2073,13 +2109,13 @@ def _mansard_dormers(entries, m: dict, depth: float, width: float, eave: float, 
             # T-3000: the hood's top, fallen back by its lean, still stands 0.1 m proud of the
             # lower face behind it, so the front never sinks into the roof it projects from
             back = d["face_setback_m"] + d["hood"]["lean_m"] + 0.1
-            if mansard_face_height(back, m["lower_rise_m"], fpitch, m["bulge"], m["profile"]) > top:
+            if face_height(m, face, back) > top:
                 raise ParamError(f"{what}.hood: its top, {d['hood']['lean_m']} m back, meets the lower face")
         # its plan, face to back, in (u, v): the body runs `run + 0.3` in from the fascia
         if face == "street" and frun > run:
             # T-1890: a leaned street face's dormer body runs back the side faces' run + 0.3 m
             # (k01_frontage.mansard_dormer_bodies), so the face must already stand over its top there
-            if mansard_face_height(run + 0.3, m["lower_rise_m"], fpitch, m["bulge"], m["profile"]) < top + 0.1:
+            if face_height(m, face, run + 0.3) < top + 0.1:
                 raise ParamError(f"{what}: its body, run back {run + 0.3:.2f} m on the leaned street face, "
                                  f"comes out of the face over its {top:.2f} m top")
         fa, ba = {"street": (depth + overhang, depth + overhang - min(frun, run) - 0.3),

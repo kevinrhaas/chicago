@@ -2288,7 +2288,7 @@ class Bay:
         # the cheeks a centimetre inside the plan's corners, off the planes of the returns and a
         # chamfer's cheek that end there
         xl, xr = xl + BEHIND_CHEEK_IN_M, xr - BEHIND_CHEEK_IN_M
-        # T-1890: the return carried back in stone from the wall plane to the parapet's back, from
+        # T-1890: the return carried back in the parapet's stone from the wall plane to its back, from
         # the cheek's foot to the wall top, where the parapet stands on it; a host face leaning
         # back from the front (1801's street face) no longer hid the slot between the two, which
         # showed sky beside the gable from the Taylor camera. A chamfered corner closes its own
@@ -2296,7 +2296,7 @@ class Bay:
         cham = {(pl.get("chamfer") or {}).get("corner"), pl.get("side_end")}
         for xs, y0, side in zip((xl, xr), y0s, ("left", "right")):
             if side not in cham and zb < 0.0:
-                world.face("wall", [(xs, y0, 0.0), (xs, y_top, 0.0), (xs, y_top, zb), (xs, y0, zb)],
+                world.face("band", [(xs, y0, 0.0), (xs, y_top, 0.0), (xs, y_top, zb), (xs, y0, zb)],
                            (-1.0 if xs < xc else 1.0, 0.0, 0.0))
         for xs, y0 in zip((xl, xr), y0s):
             o = -1.0 if xs < xc else 1.0

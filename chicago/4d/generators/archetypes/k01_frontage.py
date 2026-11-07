@@ -4226,7 +4226,8 @@ class Assembly:
             mz0, mz1 = k01_mansard_walled.extend(p, -W, 0.0) if m.get("walled_ends") else (-W, 0.0)
             hip, hs, _ = k5.mansard_element(0.0, D, mz0, mz1, E, m["lower_pitch_deg"], p.roof_pitch_deg,
                                             m["lower_rise_m"], m["bulge"], m["segments"], m["profile"], o, f,
-                                            cut=cut, x1_run=m.get("street_run_m"))   # T-1890: a leaned street face
+                                            cut=cut, x1_run=m.get("street_run_m"),   # T-1890: a leaned street face
+                                            x1_knee=m.get("street_knee_m"))
         elif gb:   # T-2459: the parapets first, so the union keeps their faces on the walls' planes
             from . import k01_gable_roof
             solids, hs, _, self.gable_roof = k01_gable_roof.elements(p, k5, E, o, f)
@@ -5376,7 +5377,8 @@ class Assembly:
                 side_run = m["lower_rise_m"] / math.tan(math.radians(m["lower_pitch_deg"]))
                 back_at = fascia["street"] - self.DORMER_FACES["street"][1] * (side_run + 0.3)
             g = self.round_dormer_body(d, d["face"], fascia[d["face"]], centre, m["lower_rise_m"],
-                                       k01_frontage_params.face_lower(m, d["face"])[0], m["bulge"], E,
+                                       k01_frontage_params.face_pitch_at(m, d["face"], d["face_setback_m"]),
+                                       m["bulge"], E,
                                        back_at=back_at)
             self.round_dormers.append(g["geom"])
             out.append(g)
@@ -5674,7 +5676,14 @@ class Assembly:
                 break
             cur = min(nxt, key=lambda j: pts[j][1])
             chain.append(cur)
-        if chain[-1] != end:   # no edge path: the old reading, every vertex on the plane
+        if chain[-1] != end:
+            # T-1890: a hip that bends in plan (a street face leaned back over its knee, 1801's)
+            # leaves its vertical plane at the knee: walk the covering's creases instead, as a
+            # bent valley is walked, when that path climbs from A all the way to B
+            crease = Assembly._bent_valley(pts, tris, A, B)
+            if len(crease) > 1 and math.dist(crease[0][0], A) < 1e-3 and math.dist(crease[-1][1], B) < 1e-3:
+                return crease
+            # no edge path: the old reading, every vertex on the plane
             on = {snap(A), end} | {i for i in used if A[1] + 1e-4 < pts[i][1] < B[1] - 1e-4 and plane(pts[i])}
             chain = sorted(on, key=lambda i: pts[i][1])
         chain = [tuple(pts[i]) for i in chain]
