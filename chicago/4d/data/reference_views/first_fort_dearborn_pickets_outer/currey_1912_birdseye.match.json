@@ -42,7 +42,7 @@
         -29.19999999999999
       ],
       "rotation_y": 0,
-      "glb_sha256": "c11fe6f163dc4de57aec80b8ab12808a6fe910d0a650e2604022f66b8aa2bc74"
+      "glb_sha256": "353afec8304f96c56b1330f4f37203c01ddbbed677b9ea793abe9856e9b39504"
     },
     {
       "structure_id": "first_fort_dearborn_blockhouse_se",
@@ -61,7 +61,7 @@
         1
       ],
       "rotation_y": 0,
-      "glb_sha256": "c6cd7f6347d33a1924802d7fd13212359302c9957444039bb414c719ded4c6f8"
+      "glb_sha256": "79d78e99b560926e82a07123b47bd03b34a4e49f0eefcfeb70ac5365beabbb1f"
     },
     {
       "structure_id": "first_fort_dearborn_commanding_officers_barracks",
@@ -273,12 +273,12 @@
       "glb_sha256": "8e02cd7d24d42dec902435142aee5aad9650ca024af6e59422b16bae6dab9239"
     }
   ],
-  "group_sha256": "94e6b194464267381c031cf7f08a7164e4ae7eb58456722f346275327f5f9f02",
+  "group_sha256": "e9d2fbc4e1d9b0d380c1830a9204248cdd6d7a52ffbd9e568964919e948157cf",
   "side_by_side": "docs/RESEARCH/photo-match/first_fort_dearborn_pickets_outer/currey_1912_birdseye-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
     {
-      "what": "Blockhouses (4, 5): the drawing tops each with a small square cupola under its own pyramid cap, above a jettied upper storey; ours stop at a plain pyramid roof. Whistler's 1808 index says 'the Cupolas are not yet built on the Block Houses as laid down', so his plan drew them and they were still to come in February 1808; whether they stood by 1812 is unrecorded. Owner, 2026-11-03 (T-3335): adopt it; the fix belongs to T-3041. FIXED under T-3041 (2026-11-07): both blockhouses now carry a small square cupola at the apex of the pyramid, under its own four-sided cap, through the fort_structure archetype's existing cupola control; its occurrence is inferred (Whistler's plan laid them down, Kurz & Allison panel 1 and this drawing draw them) and every dimension is the second fort's reconstructed kit (L-first-fort-blockhouse-cupolas-3041). Confirmed by eye on this side-by-side: a cupola now stands on each blockhouse roof where the drawing's 4 and 5 stand. The drawing's cupola windows and the jetty under them are not built; its tall tower proportion stays on the owner-ruling row below.",
+      "what": "Blockhouses (4, 5): the drawing tops each with a small square cupola under its own pyramid cap, above a jettied upper storey; ours stop at a plain pyramid roof. Whistler's 1808 index says 'the Cupolas are not yet built on the Block Houses as laid down', so his plan drew them and they were still to come in February 1808; whether they stood by 1812 is unrecorded. Owner, 2026-11-03 (T-3335): adopt it; the fix belongs to T-3041. FIXED under T-3041 (2026-11-07): both blockhouses now carry a small square cupola at the apex of the pyramid, under its own four-sided cap, through the fort_structure archetype's existing cupola control; its occurrence is inferred (Whistler's plan laid them down, Kurz & Allison panel 1 and this drawing draw them) and every dimension is the second fort's reconstructed kit (L-first-fort-blockhouse-cupolas-3041). Confirmed by eye on this side-by-side: a cupola now stands on each blockhouse roof where the drawing's 4 and 5 stand. The drawing's cupola windows and the jetty under them are not built; its tall tower proportion stays on the owner-ruling row below. REVISED 2026-11-07 on the owner's reading of this drawing: the cupola bodies are now laid in the blockhouse's own coursed log rather than boarded, and the body is 1.6 m rather than 2.1 m, about 20% shorter overall; confirmed by eye on the new side-by-side.",
       "status": "fixed"
     },
     {

@@ -41898,5 +41898,16 @@ Whistler's plan by the owner's ruling.
 **How to resolve:** a garrison return, order or letter between 1808 and 1812 that reports the cupolas
 finished, or describes their size.
 
+**Amended 2026-11-07 — log, and lower.** The owner, looking at the fort's drawings beside the first build:
+the cupolas were logs at the top like the rest of the structure, and about 20% shorter. Both records now
+set `cupola_construction: log` (inferred from Currey's coursed bodies) and `cupola_height_m: 1.6`
+(reconstructed, the body from its seat to the cap's eave, down from the kit's 2.1 m), which the
+fort_structure archetype reads as opt-in controls; the second fort's boarded 2.1 m cupola is unchanged.
+The log courses, notching and chinking are the blockhouse's own coursed wall. The 1.6 m is a proportion
+read by eye off pictures that are not to scale.
+
+**Covers:** `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.cupola_height_m`,
+`first_fort_dearborn_blockhouse_se.first_fort_1803.form.cupola_height_m`.
+
 **Ticket:** T-3041 (partial; the fort's full picture match stays open).
 **Recorded:** 2026-11-07.
