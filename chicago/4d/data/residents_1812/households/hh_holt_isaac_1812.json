@@ -43,6 +43,14 @@
         "kinzie_waubun_1856",
         "quaife_1913"
       ],
+      "sex": "male",
+      "age_band": {
+        "value": "24-40",
+        "low": 24,
+        "high": 40,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A sergeant of the line was most often a man of some years' service; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
       "occupation": {
         "value": "sergeant, Heald's company, First Infantry",
         "confidence": "attested",

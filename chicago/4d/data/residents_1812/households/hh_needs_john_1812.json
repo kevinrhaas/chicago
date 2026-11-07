@@ -43,6 +43,14 @@
         "kirkland_1893_chicago_massacre",
         "quaife_1913"
       ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
       "occupation": {
         "value": "private, Heald's company, First Infantry",
         "confidence": "attested",

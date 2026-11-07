@@ -130,7 +130,8 @@ def year_of(v):
 
 class Card:
     def __init__(self, pid, name, relationship, refs, *, grade=None, note_lead='', home_note=None,
-                 occupation=None, born=None, presence=None, extra_sources=(), review=None, minted=None):
+                 occupation=None, born=None, presence=None, extra_sources=(), review=None, minted=None, sex=None, age_band=None, note=None):
+        self.sex, self.age_band, self.note_override = sex, age_band, note
         self.pid, self.name, self.relationship = pid, name, relationship
         self.refs = refs                       # [(dict, record), ...]
         self.grade, self.note_lead, self.home_note = grade, note_lead, home_note
@@ -197,7 +198,7 @@ class Card:
             parts.append(self.home_note)
         if self.grade == 'inferred' and self.pid in INFERRED:
             parts.append(INFERRED[self.pid])
-        note = ' '.join(sentence(p) for p in parts if p and str(p).strip())
+        note = self.note_override or ' '.join(sentence(p) for p in parts if p and str(p).strip())
         rec = {
             'id': self.pid,
             'name': self.name,
@@ -205,8 +206,12 @@ class Card:
             'grade': self.grade or ('inferred' if self.pid in INFERRED else 'attested'),
             'sources': self.sources(),
         }
+        if self.sex:
+            rec['sex'] = self.sex
         if self.born:
             rec['born'] = self.born
+        elif self.age_band:
+            rec['age_band'] = self.age_band
         if self.occupation:
             rec['occupation'] = self.occupation
         rec['present_on_scene_date'] = {
@@ -263,10 +268,56 @@ def rank_occ(r):
                f"His rank as {ROLL} prints it.")
 
 
+# T-3462 stands every enlisted man in the fort, and the variation kit draws a figure's age
+# from his record's birth year, else its age band, else a 22-58 default. The roll gives no
+# ages, so a man with no birth year is given a reconstructed band by his rank (liberty L418,
+# as the parade figure's band in T-3452 was).
+AGE_BANDS = {
+    'sergeant': (24, 40, "A sergeant of the line was most often a man of some years' service"),
+    'corporal': (22, 36, 'A corporal was most often a private of some service, promoted'),
+    'drummer': (16, 30, 'Drummers of the regular army were often enlisted young'),
+    'fifer': (16, 30, 'Fifers of the regular army were often enlisted young'),
+    'private': (20, 32, 'A private of a five-year enlistment is drawn as a young man'),
+}
+
+
+def age_band(r):
+    rank = (r.get('rank_role') or 'private').lower()
+    key = next((k for k in AGE_BANDS if k in rank), None)
+    if not key:
+        return None
+    lo, hi, why = AGE_BANDS[key]
+    return {'value': f'{lo}-{hi}', 'low': lo, 'high': hi, 'tier': 'reconstructed',
+            'note': f'No birth year of his is recorded. {why}; the band is a reconstructed choice for '
+                    'the figure (L418), not a claim about his age.'}
+
+
+# Paul Grummo's card prose is the T-3452 thread's reading of Quaife 1913, pp. 238-40 (PR 1837),
+# kept as written: it says plainly which parts are on the record and which are his own telling.
+GRUMMO_NOTE = (
+    "Paul Grummo signed on for five years on 1 October 1810, and by the spring of 1812 he was a private in "
+    "Captain Nathan Heald's company at Fort Dearborn, present when the company was mustered at the end of May. "
+    "Long afterwards he said he spent that summer as a scout, carrying dispatches through the woods between Fort "
+    "Dearborn and Fort Wayne. Taken in the fight on 15 August, he said a chief whose son he had killed adopted him, "
+    "and took him north-west across the Mississippi above the Falls of St. Anthony to bring the tribes into the war, "
+    "then sold him to the British near Detroit. He was one of the nine men of the garrison who came back from "
+    "captivity by way of Quebec and reached Plattsburg, New York, in May 1814. He settled at Maumee City near "
+    "Toledo, where he went by Paul De Garmo, a tall, well-built man who always insisted he had been at Fort "
+    "Dearborn. The War Department had set him down as a deserter, and though General Cass and General John E. "
+    "Hunt spoke for him he never got his pension. His story reaches us through a neighbour, Charles A. Lamb, who "
+    "wrote it down half a century after hearing it; Quaife (1913, pp. 238-40) calls many of its details "
+    "untrustworthy and says Grummo drew a long bow, as old soldiers do. His enlistment, his place on the May 1812 "
+    "roll and his return from captivity are on the record; the scouting, the adoption and the journey are his own "
+    "telling.")
+
+
 def soldier(gid, relationship='soldier', **kw):
     r = G[gid + '_1812']
     name = kw.pop('name', None) or r['name_as_printed']
-    return Card(gid, name, relationship, [('g', r)], occupation=rank_occ(r), born=born_g(r), **kw)
+    if gid == 'grummo_paul':
+        kw.setdefault('note', GRUMMO_NOTE)
+    return Card(gid, name, relationship, [('g', r)], occupation=rank_occ(r), born=born_g(r),
+                sex='male', age_band=age_band(r), **kw)
 
 
 FORT_HOME_NOTE = ("No source says which room of the fort any soldier or soldier's family lived in; the "

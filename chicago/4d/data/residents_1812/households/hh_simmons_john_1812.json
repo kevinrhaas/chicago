@@ -46,6 +46,14 @@
         "quaife_1913",
         "simmons_1896_heroes_and_heroines"
       ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
       "occupation": {
         "value": "private, Heald's company, First Infantry",
         "confidence": "attested",
