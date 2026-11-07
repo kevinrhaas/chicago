@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2803, ts: '2026-11-07T23:39:07.654Z', date: 'Nov 7, 2026, 5:39 PM CT', title: 'Battle of Fort Dearborn: the attack and surrender move to 18th Street', kind: 'change',
+    items: [
+      'Stops 9 and 10 of the battle jaunt now stand where the accounts that name a place put the fight: on the beach at 18th Street, looking up the shore at the bank and its cottonwoods, and on Heald\'s rise near 19th Street and Indiana Avenue.',
+      'The beach, the high sand bank, its ridges and the ravine behind them now run on south past 18th Street; the shore already built farther north is unchanged.',
+      'The attack is set at about ten, the hour Lieutenant Helm gives, and Heald\'s journal, the Kinzie family, Fernando Jones and the Roosevelt Road reading are weighed on the \'Where the attack happened\' card.',
+    ] },
   { v: 2802, ts: '2026-11-07T23:31:58.505Z', date: 'Nov 7, 2026, 5:31 PM CT', title: 'Jaunts clear the everyday crowd from each stop', kind: 'feature',
     items: [
       'On a jaunt, the people who stand about town are held out of the scene, so the garrison no longer stands about the fort through the 1812 battle.',
