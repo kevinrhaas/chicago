@@ -1,0 +1,314 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "liberty": "L418",
+  "height_scale": 1.0,
+  "lod_ratios": [
+    1.0,
+    0.6,
+    0.28,
+    0.12
+  ],
+  "skin_texture": {
+    "path": "assets/authored/humans/skin_toigo_bronze_female/young_lightskinned_female_diffuse_Bronze.png",
+    "sha256": "535535f30bacd42111590df4b03cf3b6bcdb7db18f336ce670665ec332ab3e0b",
+    "license": "CC0-1.0",
+    "color_space": "sRGB",
+    "base_color_factor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "roughness": 0.68,
+    "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
+    "identity_basis": "Cleared reusable generic skin atlas; not a likeness, attested complexion, or source identifying any named/reconstructed resident.",
+    "uv_status": "Source atlas and UV registration viewed in source diagnostics; final Blender export/LOD render validation remains outstanding.",
+    "female_appearance_status": "The same author's female bronze atlas (skins01, CC0), replacing the male one whose beard shadow read as a man's jaw at 3 m (T-3434); photographic qualification remains open."
+  },
+  "hair_component": {
+    "fitter": "mhclo_proxy",
+    "directory": "assets/authored/humans/hair_bun_brown",
+    "mhclo": "rehmanpolanski_hair_bun_brown.mhclo",
+    "obj": "hair_bun_brown.obj",
+    "texture": "hair_bun_brown_dark_tie.png",
+    "texture_size": [
+      2048,
+      2048
+    ],
+    "topology": [
+      2524,
+      4432
+    ],
+    "material": "hair__makehuman_bun",
+    "object": "bun",
+    "roughness": 0.65,
+    "alpha_cutoff": 0.4,
+    "appearance_basis": "Cleared CC0 bun hair (RehmanPolanski, from the MakeHuman ponytail01), the hair drawn back smooth from the face to a bun at the back of the head, as the 1903 Wasson stereographs show a working woman's hair drawn up; its red velvet tie recoloured dark (T-3434). No personal appearance or photographic qualification is asserted.",
+    "source_manifest_sha256": "1c4e95ace2160f24f37837e4ae8dd592c85f9c3cf0afd53bcf0ed5789ca30903"
+  },
+  "eye_components": {
+    "radius_m": 0.012,
+    "iris_radius_m": 0.0055,
+    "pupil_radius_m": 0.0022,
+    "corneal_bulge_m": 0,
+    "cornea_enabled": false,
+    "source_basis": "Actual helper centers/axes; original opaque sclera/iris/pupil, reconstructed dimensions and brown color, not resident facts",
+    "status": "No actual BPy/export/blink fit/photographic acceptance"
+  },
+  "label": "Reconstructed 1904 lady's day dress (white shirtwaist with a high collar and lace jabot, fitted black jacket with revers and basque, black gored skirt to the ground, black shoes, a wide black hat trimmed with plumes) on the shared portable female rig",
+  "scene_date": "1904-07-01",
+  "grade": "reconstructed",
+  "sources": [
+    "loc_johnston_1905_fairbanks_cornerstone_address",
+    "met_ci_1902_black_wool_suit",
+    "loc_detroit_1904_easter_crowds_fifth_avenue"
+  ],
+  "basis": "Original shirtwaist and jacket shells offset from the cleared adult female body's own surface, a gored skirt and the jacket's basque lofted round its sections, a jabot laid on the shirtwaist, a hat seated over the fitted bun hair and closed shoes round the feet, cut after the day dress the reference pictures show (T-3447). Seams, ease, lengths and every colour but the suit's black are reconstructed. Complete source anatomy remains unchanged beneath clothing.",
+  "source_scope": "A 1902 black wool suit in the Met (bodice, gored skirt and coat; open access) gives the cut and the black of a lady's day suit of the years; Frances Benjamin Johnston's photograph of Mrs. Fairbanks speaking at the Memorial Continental Hall cornerstone (LOC, no known restrictions; dated by the Library 1905-1908) shows women of fifty and more in dark coats and bodices, high white collars, lace jabots and trimmed hats; a Detroit Publishing plate of Easter crowds on Fifth Avenue in 1904 (LOC) shows how such dress and hats read on walking women at street distance. None is of Chicago or of Frances Glessner; no pixels or traced shapes enter the asset.",
+  "colors_linear_rgba": {
+    "skin": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "eyes": [
+      0.12,
+      0.09,
+      0.06,
+      1.0
+    ],
+    "garment_upper__lady_shirtwaist_white": [
+      0.78,
+      0.77,
+      0.73,
+      1
+    ],
+    "garment_outer__lady_jacket_black": [
+      0.016,
+      0.016,
+      0.019,
+      1
+    ],
+    "garment_lower__lady_skirt_black": [
+      0.018,
+      0.018,
+      0.021,
+      1
+    ],
+    "headwear__lady_hat_black": [
+      0.014,
+      0.013,
+      0.014,
+      1
+    ],
+    "accessory__lady_hat_plumes": [
+      0.2,
+      0.19,
+      0.2,
+      1
+    ],
+    "footwear__lady_shoes_black": [
+      0.012,
+      0.011,
+      0.011,
+      1
+    ]
+  },
+  "workwear_coverage": {
+    "shoe_clearance_m": 0.004
+  },
+  "proof_variants": [
+    {
+      "id": "glessner_frances_m_1904",
+      "component_assembly": "lady_1904_v1",
+      "person_reference_id": "glessner_frances_m",
+      "person_reference_scene": "1904",
+      "person_reference_grade": "attested",
+      "person_reference_record": "data/residents_1904/households/hh_glessner_john_j.json",
+      "reference_summary": {
+        "name": "Frances M. Glessner",
+        "occupation": "none_recorded",
+        "household": "hh_glessner_john_j",
+        "presence": "present"
+      },
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_adult_female_25.json",
+      "body_parameters": {
+        "chosen_height_m": 1.65,
+        "height_basis": "The shared female engineering body; the variation kit draws height and build at runtime. Not a recorded height.",
+        "engineering_age_years": 25,
+        "age_basis": "Engineering body at the female kit base age 25. human-variation.js ages a person drawn in the town from their own record (hm08_variation_persons.json); she is not drawn yet, so no age is applied until she is placed (born 1 January 1848, 56 in 1904).",
+        "shape_basis": "Equal cleared upstream female-young software-category blend, not inferred ancestry or a portrait"
+      },
+      "body_basis": "CC0 adult-female graphical body and the generic cleared female skin are reconstructed authoring choices. Frances M. Glessner is an attested person (the museum's family page); no portrait of her has been read, and no complexion, height or outfit of hers is asserted.",
+      "recipe_path": "data/humans/recipes/lady_1904.json"
+    }
+  ],
+  "lady_components": {
+    "version": 1,
+    "generator": "tools/human_lady_1904.py",
+    "liberty": "L-human-modular-dress-1789",
+    "body_sha256": "3060ee86957ff7c2d70c89e70fe95ff3bc2294a0d7f6a5716b5a2f3f8dd84c72",
+    "standing_source_only": false,
+    "production_eligible": false,
+    "photo_accepted": false,
+    "evidence_choice": "The brief allowed an afternoon or walking dress: a high-necked bodice or shirtwaist with a standing collar, a gored skirt to the ground, a fitted dark jacket or bodice, a trimmed hat. The Met's 1902 suit is exactly that in black wool, a coat to the upper thigh over a lace-collared bodice and a gored skirt; Mrs. Fairbanks and the older women beside her (1905) wear dark coats and bodices with white collars and jabots and hats heaped with trimming; the 1904 Easter crowd shows the same dark bell, pale collar and broad trimmed hat in the street. A black suit with a white high collar, a jabot and a plumed hat joins the three for a woman of 56 walking out by day.",
+    "tailoring": {
+      "shirtwaist": {
+        "ease": 0.007,
+        "collar": 0.046,
+        "front_margin": 0.032
+      },
+      "jabot": {
+        "top_below_collar": 0.012,
+        "length": 0.13,
+        "width_top": 0.034,
+        "width_bottom": 0.05,
+        "pleats": 7,
+        "depth": 0.006,
+        "standoff": 0.003
+      },
+      "jacket": {
+        "ease": 0.021,
+        "smooth_iterations": 40,
+        "armpit_extra": 0.016,
+        "waist_below_spine02": 0.018,
+        "collar_above_neck": 0.01,
+        "sleeve_short_of_wrist": 0.022,
+        "roll_above_spine02": 0.15,
+        "v_half_width_top": 0.046,
+        "revers_width": 0.036,
+        "revers_notch": 0.78
+      },
+      "basque": {
+        "length": 0.17,
+        "ease": 0.009,
+        "flare": 0.022,
+        "front_gap_deg": 1.0,
+        "segments": 84,
+        "rows": 8
+      },
+      "skirt": {
+        "hem_y": 0.03,
+        "ease": 0.01,
+        "flare_from_y": 0.7,
+        "hem_rx": 0.36,
+        "hem_rz_front": 0.3,
+        "hem_rz_back": 0.36,
+        "gores": 7,
+        "gore_depth": 0.011,
+        "segments": 84,
+        "rows": 24
+      },
+      "hat": {
+        "seat_below_hair_top": 0.045,
+        "tilt_deg": 9.0,
+        "ease": 0.006,
+        "crown_height": 0.085,
+        "crown_taper": 0.8,
+        "brim_front": 0.075,
+        "brim_side": 0.07,
+        "brim_back": 0.05,
+        "brim_droop": 0.012,
+        "thickness": 0.004
+      },
+      "plumes": {
+        "count": 4,
+        "width": 0.06,
+        "rise": 0.04,
+        "sweep_deg": 80.0
+      }
+    },
+    "garments": [
+      {
+        "id": "lady_shirtwaist_collar",
+        "material": "garment_upper__lady_shirtwaist_white",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "loc_johnston_1905_fairbanks_cornerstone_address",
+            "met_ci_1902_black_wool_suit"
+          ],
+          "source_scope": "A white or cream high standing collar close up the neck and a pale front under a dark coat, as the 1902 suit's lace bodice and the women of the 1905 photograph wear them; its height, the white and the plain cloth (no lace modelled) are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "lace_jabot",
+        "material": "garment_upper__lady_shirtwaist_white",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "loc_johnston_1905_fairbanks_cornerstone_address"
+          ],
+          "source_scope": "A frill of lace falling from the collar down the front, as Mrs. Fairbanks wears in 1905; its pleats, length and white are reconstructed (lace is drawn as plain pleated cloth).",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "lady_jacket",
+        "material": "garment_outer__lady_jacket_black",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_ci_1902_black_wool_suit",
+            "loc_johnston_1905_fairbanks_cornerstone_address"
+          ],
+          "source_scope": "A fitted black wool coat closed below the bust, open above with narrow revers, its basque to the upper thigh, as the 1902 suit's coat is (black in the garment itself); Mrs. Fairbanks wears a dark coat open over her front. That Frances Glessner wore such a suit on a day in 1904 is not recorded; ease, lengths and the narrowness of the revers are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "gored_skirt",
+        "material": "garment_lower__lady_skirt_black",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_ci_1902_black_wool_suit",
+            "loc_detroit_1904_easter_crowds_fifth_avenue"
+          ],
+          "source_scope": "A black skirt of gores, close over the hips and flaring from the knee to a hem just clear of the ground, as the 1902 suit's skirt is and as the women on Fifth Avenue at Easter 1904 wear them; seven gores, the flare and the hem's height are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "black_shoes",
+        "material": "footwear__lady_shoes_black",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "loc_detroit_1904_easter_crowds_fifth_avenue"
+          ],
+          "source_scope": "Closed dark shoes under the hem; the pictures show only the toes, if that. Shoes rather than boots, and the black, are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "trimmed_hat",
+        "material": "headwear__lady_hat_black",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "loc_johnston_1905_fairbanks_cornerstone_address",
+            "loc_detroit_1904_easter_crowds_fifth_avenue"
+          ],
+          "source_scope": "A wide hat perched over drawn-up hair, worn by every woman out of doors in the 1905 photograph and the 1904 Easter crowd; its black, brim, crown and tilt are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "hat_plumes",
+        "material": "accessory__lady_hat_plumes",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "loc_johnston_1905_fairbanks_cornerstone_address"
+          ],
+          "source_scope": "Plumes round the crown, as the hats of 1905 are heaped with feathers and flowers; their number, shape and grey are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      }
+    ]
+  }
+}

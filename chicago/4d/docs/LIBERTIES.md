@@ -36661,6 +36661,35 @@ among them, so no one else's choice moves), damp the seeded face and head outlin
 (`face_draw_scale`) before their bias, and lean the jaw a little further (-0.45) and the chin a little
 shorter. A choice of depiction, like the rest of the bias; nothing records her face.
 
+**The 1904 lady supplement, 2026-11-07 (T-3447):** a lady's day dress on the same component path,
+`tools/human_lady_1904.py` with `data/humans/recipes/lady_1904.json`, built as the asset
+`glessner_frances_m_1904` on the shared female body and first worn by Frances M. Glessner (attested; 56 in
+1904); she is not placed in the town by this work. **Choice of dress:** the piece of work asked for an
+afternoon or walking dress of 1900-1905. A black wool suit of 1902 in the Met (`met_ci_1902_black_wool_suit`;
+bodice, gored skirt and coat) gives the cut and its black; Frances Benjamin Johnston's photograph of
+Mrs. Fairbanks speaking at the Memorial Continental Hall cornerstone (`loc_johnston_1905_fairbanks_cornerstone_address`,
+dated by the Library 1905-1908) shows women of fifty and more in dark coats and bodices, high white collars,
+lace jabots and hats heaped with plumes; Easter crowds on Fifth Avenue in 1904
+(`loc_detroit_1904_easter_crowds_fifth_avenue`) show the same dress and hats in the street. The suit, a
+white collar and jabot and a plumed hat join the three; that she dressed so on a given day is not
+recorded, and none of the pictures is of Chicago. **Cut:** a white shirtwaist made only where it shows,
+its collar standing 4.6 cm up the neck and its front inside the jacket's V; a pleated jabot 13 cm long
+laid on it; a jacket offset 2.1 cm from the body and smoothed across the bust and the hollow beneath it,
+closed from the waist to 15 cm above it and open above in a V with narrow revers, eased under the arms;
+its basque lofted 0.9 cm outside the skirt from the waist seam 17 cm down; a skirt of seven gores lofted
+round the body's own sections from the waist to 3 cm above the ground, flaring below 0.70 m to an
+elliptical hem fuller behind, skirt and basque sharing the leg-following skirt weights of T-3423 in place
+of cloth simulation; closed shoes round the feet; a hat perched over the fitted bun hair, its crown
+seated round the hair's and scalp's own section and tilted 9 degrees forward, its brim 5 to 7.5 cm, with four grey
+plumes swept back round the crown (each two skins 3 mm apart), hat and plumes rigid on the head bone and meshes of their own.
+**Colour:** the suit's black is the Met garment's own; the white, the grey of the plumes and the shoes
+are chosen (the photographs are monochrome). **Skin and hair:** Mattie Williamson's cleared female skin and
+bun hair, shared; the hair keeps its brown, and nothing records whether Frances Glessner's was grey in
+1904. **Body:** the shared female base at its engineering age; the town's variation kit would age her
+(56, from her record) and draw her height and build at runtime once she is placed, and no portrait of
+her has been read. Every amount is chosen by eye against the pictures; none
+is measured, and none says how she dressed.
+
 ### L-tremont-gale-envelope-2385 — two-storey default and picture alternative
 
 **Decision:** the default first Tremont follows Gale's retrospective, 1835-framed

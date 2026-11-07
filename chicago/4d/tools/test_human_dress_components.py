@@ -205,6 +205,9 @@ class DressComponents(unittest.TestCase):
         # every recipe field that path reads too.
         gentleman = json.loads((ROOT/'data/humans/recipes/gentleman_1904.json').read_text())
         self.assertEqual(absent_recipe_paths(source, gentleman, True), [])
+        # T-3447: and the lady's.
+        lady = json.loads((ROOT/'data/humans/recipes/lady_1904.json').read_text())
+        self.assertEqual(absent_recipe_paths(source, lady, True), [])
         # Put the actual obsolete pre-LOD reads back into the real builder source.
         # The dress recipe must catch both, while the original male recipe still
         # satisfies them. This is not an assertion that those names are banned.
