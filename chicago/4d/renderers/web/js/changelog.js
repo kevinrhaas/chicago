@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2754, ts: '2026-11-07T05:20:51.651Z', date: 'Nov 6, 2026, 11:20 PM CT', title: 'People lists each household once', kind: 'fix',
+    items: [
+      'The household of the building in view is pinned once on Households, with every other household under it, instead of again as the list\'s first row.',
+      'On People, the pin shows that household\'s own people rather than a household row, with everyone else under it.',
+    ] },
   { v: 2753, ts: '2026-11-07T05:13:17.209Z', date: 'Nov 6, 2026, 11:13 PM CT', title: '1936 Prairie\'s dining-room side gets the windows its photograph shows', kind: 'fix',
     items: [
       'The Thompson/Allerton house at 1936 Prairie: the dining room\'s south side now has the windows its winter photograph shows on each floor, a single, a single and a pair, where it had two evenly spaced singles. The pair stands on a stone mullion, and all three line up with the photograph from its own viewpoint.',
