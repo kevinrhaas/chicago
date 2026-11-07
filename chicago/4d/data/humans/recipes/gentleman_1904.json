@@ -150,6 +150,8 @@
       "shirt": {
         "ease": 0.006,
         "collar": 0.04,
+        "collar_front_dip": 0.024,
+        "collar_dip_depth": 0.06,
         "waist_below_spine02": 0.115
       },
       "waistcoat": {
@@ -212,7 +214,7 @@
             "glessner_commercial_club_1910_presidents_plate",
             "loc_clinedinst_1904_taft_root_frock_coats"
           ],
-          "source_scope": "Glessner's own plate shows a white shirt with a tall standing collar reaching nearly to the jaw; Root (1904) wears a tall wing collar. Height, ease and the white are read from the monochrome pictures; the linen is reconstructed.",
+          "source_scope": "Glessner's own plate shows a white shirt with a tall standing collar reaching nearly to the jaw; Root (1904) wears a tall wing collar. The collar's top falls 24 mm toward the throat so it stands on the neck and clears the chin (owner, 2026-11-07, T-3456). Height, ease and the white are read from the monochrome pictures; the linen is reconstructed.",
           "liberty": "L-human-modular-dress-1789"
         }
       },

@@ -405,8 +405,12 @@ export class HumanActor {
   get clips() { return this.body ? [...this.body.clips.keys()] : []; }
 
   defaultClip() {
+    // T-3456 (owner, 2026-11-07: "he does not walk he slides and doesnt move his legs"): the
+    // record's own clip is what it plays in the state it was placed in. Walking a path (a
+    // stroll, the way home) plays the walk, not the record's idle.
     const named = this.instance.animation?.clip;
-    if (named && this.body && findClip(this.body.clips, named)) return named;
+    const placed = this.instance.behaviour?.state ?? 'standing';
+    if (named && this.state === placed && this.body && findClip(this.body.clips, named)) return named;
     for (const want of STATE_CLIPS[this.state] ?? ['idle']) {
       const c = this.body && findClip(this.body.clips, want);
       if (c) return c.name;

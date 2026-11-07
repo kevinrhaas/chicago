@@ -47,7 +47,7 @@ import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
 import { createWalker, footprintsFrom, decksFrom, WALK, HEADROOM_MARGIN_M } from './walker.js';
-import { profiledGroundHeight } from './deck-surface.js';
+import { profiledGroundHeight, deckGroundHeight } from './deck-surface.js';
 import { passageGroundFrom } from './passage-ground.js';
 import { createFlora } from './flora.js';
 import { createTrees } from './trees.js';
@@ -2060,6 +2060,8 @@ async function boot() {
     // only, so keep encoded recovery bytes only for the images that can need them.
     // Desktop regular images remain decoded and can be restored directly.
     keepEncodedImages: RESIDENCY_ON ? (coarse ? true : 'compressed') : false,
+    // T-3454: and a phone keeps them as Blobs, whose bytes are held outside the tab.
+    encodedImagesAsBlobs: coarse,
     // T-2597: every structure at once unless `?boot-pool=N` asks for a pool (BOOT_POOL).
     pool: bootPoolFromSearch(location.search),
   });
@@ -2416,9 +2418,10 @@ async function boot() {
   // T-3407 — the kitchen gardens (data/gardens/<scene>.json): the 1812 commanding officer's
   // garden laid out in Whistler's beds and walks and planted for mid-August, every plant
   // grown here from a painted leaf atlas, in two draws. Only a scene listing `gardens`.
+  // T-3460: planted for the visitor's Season (applySeason keeps it so).
   const gardens = await createGardens({
     dataBase: layerBase('gardens'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
-    problems: layerProblems('gardens'), lowSpec: coarse, ...detailOpts(),
+    problems: layerProblems('gardens'), lowSpec: coarse, ...detailOpts(), season: seasonPref.season,
     // A phone lays the garden only once it comes into view; its arrays then go as railway's do.
     onGeometry: (group) => releaseAfterUpload(group),
   });
@@ -2638,6 +2641,8 @@ async function boot() {
     paintChipDay(timeState.transient?.date);
     paintTime();
     contextCity.setSeason?.(s);
+    // T-3460: the kitchen garden's crops and its snow.
+    gardens.setSeason?.(s);
     await seasonPlants(s);
     await frontYards.setSeason?.(SEASON_TREE_MODE[s] ?? 'summer');
     return streetTrees.setMode(streetTreeMode(s, seasonState.treesShown));
@@ -3740,7 +3745,9 @@ async function boot() {
       if (!res.ok) throw new Error(`sidecars/${loaded.scene.id ?? YEAR}/people.json ${res.status}`);
       return res.json();
     },
-    groundHeight: (e, n) => profiledGroundHeight(terrain, decks, e, n),
+    // T-3456: a figure stands on the decks the walker climbs (a front walk's paving, a door's
+    // threshold), not on the heightfield under them.
+    groundHeight: (e, n) => deckGroundHeight(terrain, decks, e, n),
     // T-3439: a figure's new distance level is compiled off the frame (parallel compile)
     // before it is drawn, so walking up to someone is not a stall on her skin's programs.
     prepare: (object) => renderer.compileAsync(object, camera, scene3d),
@@ -3793,7 +3800,7 @@ async function boot() {
       if (on) api.follow?.start(actor.personId, { name: actor.person?.name ?? null });
       else if (api.follow?.personId === actor.personId) api.follow.stop('arrived');
     },
-    groundAt: (e, n) => profiledGroundHeight(terrain, decks, e, n), problems: layerProblems('humans') });
+    groundAt: (e, n) => deckGroundHeight(terrain, decks, e, n), problems: layerProblems('humans') });
   // Read only the small route table at boot. Actual occupied assets and full
   // rendered-ground/collision readings begin after the visitor approaches a circuit.
   api.townTransport = null;
