@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2760, ts: '2026-11-07T07:44:06.363Z', date: 'Nov 7, 2026, 1:44 AM CT', title: 'The first-time tour and the controls lists catch up with the town', kind: 'change',
+    items: [
+      'The tour gains a People step: find anyone, visit their house, or follow them in 1904. Where a destination has no People, the step is skipped and not counted.',
+      'Selecting a building now says what its card holds: Design, Timeline, Photos, Sources. The last step names Go to by photo.',
+      'Guide\'s controls list R for Interact, P for pace, tapping a person, and Go to\'s photos.',
+      'Two new one-time tips: the first time the Interact key appears, and the first time you follow someone.',
+      'Settings and Move drop the Why? lines and their paragraphs. Readouts say the default instead: eye height reads 1830s average, brightness Calibrated.',
+    ] },
   { v: 2759, ts: '2026-11-07T07:05:31.620Z', date: 'Nov 7, 2026, 1:05 AM CT', title: '2009 Prairie\'s gable sweeps down to its neighbour, as photographed', kind: 'improvement',
     items: [
       'In 1904, the tall shaped gable of 2009 Prairie Avenue no longer stops short on its south side: its stone coping now sweeps on down past the roof\'s edge to the wall it shares with 2011, about 10 m up, as the old photograph shows, and the brick corner and eave that stood above that line are gone.',
