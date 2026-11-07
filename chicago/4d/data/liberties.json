@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1039,
+  "count": 1040,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -69958,6 +69958,41 @@
       "work_refs": [
         "T-3335",
         "T-3041"
+      ]
+    },
+    {
+      "id": "L-1812-garrison-stations-3462",
+      "title": "Where each man of Heald's company stands on the afternoon of 14 August 1812",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-07",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "every enlisted man of Heald's company that the sweep cards stands in the 1812 scene as himself (the hi <person> 1812 data, written by the research notes on people 1812), in the company private's dress and with the face, height and build the variation kit seeds from his own id. Paul Grummo keeps the parade figure. Three things are ours. (1) **The stations.** No reconstruction plan, guard report or morning report of the post survives for the date, so each man's place is reconstructed from what a small frontier post of the period kept by day: a sergeant's guard of three at the main gate, a sentry at the magazine, men on the parade and at the barracks doors, the four married men near the quarters earlier work gives their families, men at the garden, the stables, the bake house, the armourer's shop and the merchant's shop, on the river bank and at the wharf, two on the roads to the garden, and three at the company's cornfield at the forks. Which man stands where follows the roll's order within a rank. Nothing of that day's events is acted out: no council, no giving out of the goods, no breaking of the casks or the arms. (2) **One dress for every rank.** Sergeants', corporals' and musicians' distinctions (epaulettes, sashes, the musicians' reversed coats) are not drawn; every man wears the private's dress, and his card gives his rank. (3) **Ages.** The muster-roll gives no ages. A man with no birth year in the readings carries a reconstructed age band on his card, by rank: privates 20-32, corporals 22-36, sergeants 24-40, drummers and fifers 16-30. The variation kit draws his age inside it (“Resident workwear studies on a licensed human base”)."
+        },
+        {
+          "label": "Not invented",
+          "text": "any man's name, rank, enlistment, family or fate; those are on his card with their sources."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a guard roster, reconstruction plan or morning report of Fort Dearborn for August 1812; a description of the post's daily duties in 1811-12; the 1812 dress for the company's sergeants, corporals and musicians."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-07."
+        }
+      ],
+      "work_refs": [
+        "T-3451",
+        "T-3452",
+        "T-3468",
+        "T-3461",
+        "T-3463",
+        "T-3462"
       ]
     },
     {

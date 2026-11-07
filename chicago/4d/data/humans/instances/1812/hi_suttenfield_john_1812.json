@@ -1,0 +1,62 @@
+{
+  "id": "hi_suttenfield_john_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "suttenfield_john",
+  "appearance": {
+    "asset_id": "private_first_infantry_1812"
+  },
+  "placement": {
+    "local_e": 1138.0,
+    "local_n": 243.0,
+    "heading_deg": 0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "walk",
+    "loop": true,
+    "phase": 0.701
+  },
+  "behaviour": {
+    "state": "walking",
+    "route": [
+      {
+        "local_e": 1158.0,
+        "local_n": 243.5
+      },
+      {
+        "local_e": 1162.0,
+        "local_n": 241.5
+      },
+      {
+        "local_e": 1140.0,
+        "local_n": 241.0
+      }
+    ]
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of John Suttenfield, private of Captain Nathan Heald's company of the First Infantry (on the company's muster-roll to 31 May 1812, Quaife 1913 App. VIII), walking the river bank, on the afternoon of 14 August 1812. Where he stands and what he is doing are ours (liberty L-1812-garrison-stations-3462): no guard report or order book of the post survives for that day, and nothing of it is acted out. He wears the company private's dress (T-3451). His face, height and build are seeded from his own name; no picture of him is known.",
+    "sources": [
+      "loc_ogden_1888_infantry_artillery_1802_1810",
+      "met_krimmel_1813_philadelphia_soldiery",
+      "quaife_1913",
+      "us_1812_rules_and_articles_albany",
+      "us_1814_military_laws_and_regulations",
+      "whistler_1808_fort_dearborn_draught"
+    ],
+    "liberty": "L418",
+    "seed": "suttenfield_john:1812:river_walk:20261107",
+    "replaceable_by": "A guard report, order book or morning report of the post for August 1812, which would put him at his own duty."
+  }
+}
