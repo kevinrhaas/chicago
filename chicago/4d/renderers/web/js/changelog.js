@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2797, ts: '2026-11-07T21:46:59.050Z', date: 'Nov 7, 2026, 3:46 PM CT', title: 'Prairie district back yards: back doors, terraces, walks and gardens', kind: 'feature',
+    items: [
+      '121 houses gain a back door with its steps, and 103 a paved terrace at their foot, in herringbone brick or stone flags.',
+      'Walks run from the terrace to the coach house, to the alley, and down the side passage to the service walk or the front steps.',
+      '59 drying yards with clothes posts; where the 1900 census lists a laundress the yard is inferred, otherwise reconstructed.',
+      '23 small kitchen gardens on Indiana and Calumet lots, side-lawn shade trees and shrub borders, and creeper on some coach houses.',
+      'Glessner\'s court, Pullman\'s grounds and Field\'s south lawn are left as their sources draw them.',
+      'No picture shows these yards, so all of it is a liberty, and the confidence view and each card say so.',
+    ] },
   { v: 2796, ts: '2026-11-07T21:25:39.781Z', date: 'Nov 7, 2026, 3:25 PM CT', title: 'Woodpiles in real wood', kind: 'improvement',
     items: [
       'Woodpiles, chopping blocks, log heaps and loose billets now wear a photographic wood surface: split ends with rings, bark rinds and checks, bark along the sticks, sawn rounds with axe scores.',
