@@ -34,6 +34,8 @@ import * as THREE from 'three';
 import { resolveHumanIdentity, humanRoleCard } from './human-identity.js';
 import { createHumanLife } from './human-life.js';
 import { createHumanActions } from './human-actions.js';
+import { createHumanGait } from './human-gait.js';
+import { createHumanSkirt } from './human-skirt.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { registerKTX2 } from './ktx2.js';
 import { shareImageSources } from './shared-images.js';
@@ -217,6 +219,11 @@ export class HumanActor {
     this.life = null;
     // T-3415: what the arms and hands do (human-actions.js), after the life layer.
     this.actions = null;
+    // T-3472: the walk itself (human-gait.js): pelvis, legs and feet while walking, before
+    // the life and arm layers, which read its phase.
+    this.gait = null;
+    // T-3472: a woman's skirt hangs as one bell over the legs (human-skirt.js); null for men.
+    this.skirt = null;
     this.body = null;           // { lod, scene, meshes, mixer, clips, actions, faces }
     // T-3439: levels drawn before and kept for a swap back (lod -> body), on this clock.
     this.parked = new Map();
@@ -314,17 +321,24 @@ export class HumanActor {
     this.play(this.clipName ?? this.defaultClip(), { fade: 0, time });
     if (this.life) this.life.bind(next.scene);
     else this.life = createHumanLife({ id: this.personId ?? this.id, scene: next.scene });
+    // The dress assembly's figures greet with a nod (T-3423); the GLB's scene extras name it.
+    // A later woman's assembly says `"skirt": true` there itself (T-3447).
+    const wardrobe = next.scene.userData?.chicago4d_human?.wardrobe_assembly_json ?? '';
+    const dressed = /adult_dress_v1|"skirt":\s*true/.test(wardrobe);
+    // T-3481: a dress that carries something by the hand (a basket) names the hold there too.
+    let carry = null;
+    if (wardrobe.includes('"carry"')) { try { carry = JSON.parse(wardrobe).carry ?? null; } catch { carry = null; } }
     if (this.actions) this.actions.bind(next.scene);
+    else this.actions = createHumanActions({ id: this.personId ?? this.id, scene: next.scene, greeting: dressed ? 'nod' : 'brow', skirt: dressed, carry });
+    if (this.gait) this.gait.bind(next.scene);
     else {
-      // The dress assembly's figures greet with a nod (T-3423); the GLB's scene extras name it.
-      // A later woman's assembly says `"skirt": true` there itself (T-3447).
-      const wardrobe = next.scene.userData?.chicago4d_human?.wardrobe_assembly_json ?? '';
-      const dressed = /adult_dress_v1|"skirt":\s*true/.test(wardrobe);
-      // T-3481: a dress that carries something by the hand (a basket) names the hold there too.
-      let carry = null;
-      if (wardrobe.includes('"carry"')) { try { carry = JSON.parse(wardrobe).carry ?? null; } catch { carry = null; } }
-      this.actions = createHumanActions({ id: this.personId ?? this.id, scene: next.scene, greeting: dressed ? 'nod' : 'brow', skirt: dressed, carry });
+      // Who walks: this person's sex and age where the variation kit drew them (T-3412).
+      const v = this.variation;
+      this.gait = createHumanGait({ id: this.personId ?? this.id, scene: next.scene,
+        profile: { sex: v?.sex ?? (dressed ? 'female' : 'male'), age: Number.isFinite(v?.age) ? v.age : 35, skirt: dressed } });
     }
+    if (this.skirt) this.skirt.bind(next.scene);
+    else this.skirt = createHumanSkirt({ id: this.personId ?? this.id, scene: next.scene });
     if (prev) { this.counters.swaps++; this.park(prev); }
     this.costs = '';
     this.applyCosts();
@@ -600,7 +614,8 @@ export class HumanActor {
       return;
     }
     const clip = this.body && findClip(this.body.clips, 'walk');
-    const speed = p.speed ?? clip?.userData?.speed_m_s ?? this.walkSpeed ?? 1.3;
+    // T-3472: at the person's own pace (human-gait.js), gathered over the first step.
+    const speed = p.speed ?? (this.gait?.bound ? this.gait.speed * this.gait.pace : clip?.userData?.speed_m_s ?? this.walkSpeed ?? 1.3);
     const a0 = p.pts[p.leg], b0 = p.pts[p.leg + 1];
     const off = turnToward((Math.atan2(b0.e - a0.e, b0.n - a0.n) * 180 / Math.PI + 360) % 360);
     // A figure facing well away from its way turns before it walks on.
@@ -629,8 +644,8 @@ export class HumanActor {
     if (this.path) { this.followPath(dt); return; }
     if (this.state !== 'walking' || !this.route || this.route.length < 2) return;
     const clip = this.body && findClip(this.body.clips, 'walk');
-    const speed = clip?.userData?.speed_m_s ?? this.walkSpeed ?? 1.3;
-    if (clip?.userData?.speed_m_s) this.walkSpeed = speed; // kept for walking on unseen, body or none
+    const speed = this.gait?.bound ? this.gait.speed * this.gait.pace : clip?.userData?.speed_m_s ?? this.walkSpeed ?? 1.3;
+    if (this.gait?.bound || clip?.userData?.speed_m_s) this.walkSpeed = speed; // kept for walking on unseen, body or none
     let left = speed * dt;
     while (left > 0) {
       const a = this.route[this.leg];
@@ -674,7 +689,10 @@ export class HumanActor {
     this.counters.updates++;
     this.root.visible = !!this.body;
     if (lod !== this.lod && lod !== this.wanted) this.setLod(lod).catch(() => {});
+    const e0 = this.e, n0 = this.n;
     if (!walkedAway) this.walk(dt);
+    // T-3472: the ground covered this frame, which is what the gait's phase advances by.
+    const moved = Math.hypot(this.e - e0, this.n - n0);
     const b = this.body;
     if (!b) { this.visualIdleBody = null; return true; }
     if (this.distance < ANIMATE_M) {
@@ -682,12 +700,17 @@ export class HumanActor {
       const idleDt = Number.isFinite(visualDt) && visualDt >= 0 ? visualDt : 0;
       const clipDt = naturalStanding ? (this.visualIdleBody === b ? idleDt : 0) : dt;
       b.mixer.update(clipDt);
+      // The walk first (pelvis and legs), then life and the arms over it, reading its phase.
+      const gait = this.gait?.bound && !b.oneShot ? this.gait : null;
+      if (gait) gait.apply(clipDt, { state: this.state, root: this.root, moved });
       // Life rides the clip's own clock, so a held clip holds it too.
-      if (this.life?.bound && !b.oneShot) this.life.apply(clipDt, { state: this.state, root: this.root, viewer: cameraPosition });
+      if (this.life?.bound && !b.oneShot) this.life.apply(clipDt, { state: this.state, root: this.root, viewer: cameraPosition, gait });
       if (this.actions?.bound && !b.oneShot) {
-        this.actions.apply(clipDt, { state: this.state, root: this.root, viewer: cameraPosition });
+        this.actions.apply(clipDt, { state: this.state, root: this.root, viewer: cameraPosition, gait });
         if (this.actions.takeNod()) this.life?.nod();
       }
+      // Last, the skirt over wherever the legs went.
+      if (this.skirt?.bound) this.skirt.apply(clipDt, { state: this.state, root: this.root, gait });
       this.visualIdleBody = naturalStanding ? b : null;
       this.counters.animated++;
     } else this.visualIdleBody = null;
@@ -712,6 +735,8 @@ export class HumanActor {
     this.wanted = -1;
     if (this.body) this.teardown(this.body);
     this.prune(true);
+    this.skirt?.dispose?.();
+    this.skirt = null;
     this.visualIdleBody = null;
     this.body = null;
     this.root.removeFromParent();

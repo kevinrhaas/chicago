@@ -25,8 +25,10 @@ const stubActions = () => ({ bound: true, bind() { return true; }, apply() {}, t
 const skin = fs.readFileSync(new URL('../renderers/web/js/human-skin.js', import.meta.url), 'utf8');
 const lidSource = skin.match(/export const AGE = [^;]+;/)[0] + '\n' + skin.match(/export function restingLid\([\s\S]*?\n\}/)[0];
 const restingLid = new Function(`${lidSource.replace(/^export /gm, '')}\nreturn restingLid;`)();
-const HumanActor = new Function('THREE', 'createHumanLife', 'createHumanActions', 'enuToWorld', 'restingLid',
-  `${constants}\n${actorSource}\nreturn HumanActor;`)(THREE, stubLife, stubActions,
+const stubGait = () => ({ bound: true, bind() { return true; }, apply() {}, speed: 1.3, pace: 1 });
+const stubSkirt = () => null;
+const HumanActor = new Function('THREE', 'createHumanLife', 'createHumanActions', 'createHumanGait', 'createHumanSkirt', 'enuToWorld', 'restingLid',
+  `${constants}\n${actorSource}\nreturn HumanActor;`)(THREE, stubLife, stubActions, stubGait, stubSkirt,
   (e, n, h, out) => out.set(e, h, -n), restingLid);
 
 // The asset store, counting what is parsed and let go.

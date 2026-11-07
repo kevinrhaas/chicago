@@ -14584,6 +14584,17 @@ other roof on that row. The commitment itself is unchanged — 0.14 m of exposur
 and the scope is counted off the records' own `roof_type` so that a release restates it rather
 than leaving the entry claiming a population it no longer has.
 
+**Amended 2026-11-07 — the shingles' widths and tones (T-3041).** The owner asked for the roofs of
+Fort Dearborn's blockhouses in "correct photographic textures", and the shingle sheet could not give
+them: it was a regular grid of 0.28 m shingles whose colour followed a wavy grain that knew nothing
+of the grid, so every roof read as one brown plane. The sheet is now drawn as a riven roof is laid:
+each course a run of shingles of their own width, joints broken against the course below, ragged
+butts, each shingle its own weathering, and roof-relief.js shows that tone the way wall-relief.js
+shows a log's. **The widths are RECONSTRUCTED** — 8 to 30 cm, unsorted, which is what split stock
+gives, but no source in this project measures a Chicago shingle's width — and so are the per-shingle
+tones. The exposure is unchanged at 0.14 m, the tile at 4.48 m, and no record moves. The discharge
+condition above now reaches the width too: a source that sizes a period shingle settles both.
+
 ### L264 — The brick course is set from a period common brick, because the rhythm of a brick wall cannot be drawn without one and this project holds no Chicago brick
 
 **Scope:** `structures.records[brick_fabric]` — 186 structures (187 until T-1886, 2026-11-07, whose refinement of the Henderson house at 1816 Prairie reads its pale stone basement off Chicagology's photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 188 until T-1913, 2026-11-03, whose refinement of the Max A. Meyer house at 2009 Prairie reads its rock-faced stone basement off its photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 189 until T-1901, 2026-11-02, whose refinement of the Thompson/Allerton house at 1936 Prairie reads its Portland brownstone basement off the Chicago Tribune of 30 October 1869 and the photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 190 until T-3305, 2026-11-02, whose work on Marshall Field Jr.'s house at 1919 Prairie reads its stone basement off the 1911 sheet's 'S.B.' and the Gatlin Institute plates and lays it under the brick, so it says brick with a stone front and leaves this count; 191 until T-3271, 2026-11-01, whose sign-off of Marshall Field's house at 1905 Prairie reads its pale stone basement off the 1893 plate, the 923 Prairie photograph, the engraving and the Daily News negative and lays it under the brick, so it says brick with a stone front and leaves this count; 192 until T-3254, 2026-10-30, whose refinement of the Hibbard house at 1701 Prairie reads its light stone basement off Chicagology's photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 193 until T-3164's re-entry, 2026-10-28, which reads the lodge between Pullman's glasshouse ranges at 1800 Calumet Avenue as stone off the 1894 Inland plate, so it says stone and leaves this count; 194 until T-3188, 2026-10-27, whose refinement of the 1708 Prairie draft reads a stone string course off the Christmas print of the Glessner townhouses and lays it with a stone basement under the brick, so it says brick with a stone front and leaves this count; 195 until T-3162, 2026-10-26, whose refinement of the 1823 Prairie draft reads a stone street front off the Dent house's engraving and its 1883 album vignette, so it says brick with a stone front and leaves this count; 194 until T-3164, 2026-10-26, whose lodge between Pullman's glasshouse ranges at 1800 Calumet Avenue says brick because the 1911 Sanborn sheet colours it brick, and takes no course from this substrate either: `generators/archetypes/prairie_draft.py` draws it in a flat colour; 174 until T-3151, 2026-10-25, whose twenty-one brick drafts of Indiana Avenue's east frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (nine say brick with a stone front and five frame, so they leave this count), while T-3011's background row, which they replace, leaves it; 173 until T-3011, 2026-10-25, whose one background row on Indiana Avenue's east frontage, 18th to 20th Street, says brick as a reconstruction (sheet 27, which would colour it, is not in hand), and takes no course from this substrate either; 172 until T-3130, 2026-10-25, whose draft of the ice-cream works rising at 1605-1613 Indiana says brick because the 1911 sheet colours it brick and the Tribune of November 1903 calls it a brick building, and takes no course from this substrate either; 171 until T-3013, 2026-10-25, whose draft of Bane Brothers' livery at 2129-2131 Indiana Avenue says brick because the 1911 Sanborn sheet colours the building brick, and takes no course from this substrate either; 168 until T-3068, 2026-10-24, whose three brick drafts on Indiana Avenue's east frontage, 16th to 18th Street (1601's corner row and 1637's house from Robinson 1886, which colours them brick, and 1619's from the 1911 sheet, which does), say brick and take no course from this substrate either (1641's says brick with a stone front, so it leaves this count, and 1727's and 1735's say frame); 159 until T-3019, 2026-10-23, whose nine brick drafts of the background on Indiana Avenue's east frontage, 16th to 18th Street, and the row at 209-217 East Sixteenth Street say brick because the 1911 Sanborn sheet colours them brick and Robinson 1886 agrees, and take no course from this substrate either (1615-1617's and 1703's say brick with a stone front, so they leave this count); 143 until T-3018, 2026-10-22, whose sixteen brick drafts of the background on Calumet Avenue's west frontage, 20th to 22nd Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (2004's and 2016's say brick with a stone front, 2128's stone over a brick rear, and 2032's yard building frame, so they leave this count); 125 until T-3009, 2026-10-22, whose eighteen drafts of the background on Indiana Avenue's east frontage, 20th to 22nd Street, the First Presbyterian Church among them, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 110 until T-3008, 2026-10-22, whose fifteen drafts of the background on Calumet Avenue's west frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 104 until T-2982, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour; 105 until T-2543, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until T-2440, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until T-2443, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until T-2432, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until T-2433, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until T-2351, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until T-2352, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in
@@ -42111,6 +42122,17 @@ fort_structure archetype reads as opt-in controls; the second fort's boarded 2.1
 The log courses, notching and chinking are the blockhouse's own coursed wall. The 1.6 m is a proportion
 read by eye off pictures that are not to scale.
 
+**Amended 2026-11-07 — a lookout opening in each face of the cap.** The owner, on Currey's blockhouse
+5: "a window type dormer or some kind of opening on all 4 sides of the roof … To see far away", and
+then "not necessarily round, they are so small in this image". Currey draws a small dark mark in the
+middle of each visible face of both cupola caps; no other source shows the caps close enough to say.
+Both records now set `cupola_ports: true` (inferred, from Currey), and `first_fort_dearborn_blockhouse_nw`
+and `first_fort_dearborn_blockhouse_se` each carry four small hooded openings, one per face of the cap.
+**Their shape and size are reconstructed**: a square-headed opening 0.32 m wide and 0.22 m high, framed,
+under a shallow shed hood, set 0.40 m in from the cap's eave (fort_structure_params.py CUPOLA_PORT_*), which
+is a size a man can look out of and the drawing's marks do not contradict. Nothing in the record states
+these numbers, so they are the kit's constants and no record attribute holds them.
+
 **Covers:** `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.cupola_height_m`,
 `first_fort_dearborn_blockhouse_se.first_fort_1803.form.cupola_height_m`.
 
@@ -42125,3 +42147,38 @@ read by eye off pictures that are not to scale.
 **Re-opens on:** a guard roster, order book or morning report of Fort Dearborn for August 1812; a description of the post's daily duties in 1811-12; the 1812 dress for the company's sergeants, corporals and musicians (T-3463).
 **Ticket:** T-3462.
 **Recorded:** 2026-11-07.
+
+### L-human-gait-3472 — People on foot walk at a real pace, heel to toe, with the arms, trunk and skirts moving with the legs
+
+**Decision:** every figure drawn by `humans.js` walks by a runtime gait layer (`renderers/web/js/human-gait.js`)
+in place of the baked `walk` clip's pelvis and legs, which was a mechanical flat-foot study at 0.6 m/s with
+0.36 m steps (`tools/human_grounded_gait.py`, a pose fixture by its own account). Kevin, 2026-11-07, of Frances
+Glessner followed across her court: "their walking is not very natural". Each person walks at a comfortable
+pace for their sex and age and a stride in proportion to their height (men about 1.35 m/s and 0.83 of their
+height, women about 1.25 m/s and 0.78, less past fifty; a woman in a floor-length skirt about 8 % slower with a
+5 % shorter step), so 105-120 steps a minute. The phase of the cycle advances by the ground covered, so a
+figure that slows to turn takes slower steps and its feet never slide. The stance foot is planted where the
+swing set it down: it lands on the heel toes-up, rolls flat, then rises over the ball with the toes flat until
+toe-off. The swing follows the measured hip, knee and ankle curves (the knee folds to about 60 degrees),
+corrected to leave and land exactly. The pelvis rides as low as the leading knee's measured bend allows (2-3 cm
+of bob, lowest in double support), shifts 2 cm over the stance foot, turns about 5 degrees with the leading
+leg and dips about 4 on the swing side (a third less in a skirt); stopping takes a closing step. The arm layer (human-actions.js) swings the
+arms from the gait's phase, opposite the legs and a little after the other heel strikes, about 22 degrees at
+1.25 m/s with the elbow bending more at the front (half that in a full skirt); the life layer
+(human-life.js) turns the chest back against the pelvis, leans the trunk forward 2-4 degrees with speed and
+keeps the head steady in the world.
+**What is read.** Nothing about any person's own walk. The shape of the cycle and its events are the means of
+the young adults walking at 1.24 m/s in the public gait dataset of Fukuchi, Fukuchi & Duarte (2018, *PeerJ*
+6:e4640), the shoulder line against the pelvis from Horst et al. (2019); speeds, steps and cadence by sex and
+age from Oberg, Karsznia & Oberg (1993) and Bohannon & Andrews (2011). A lady's restraint in swinging her arms
+is period advice (Hill's Manual, Chicago, 1887), and the shortened step of a long skirt is a period complaint
+(Galbraith, quoted by Macfadden, 1901). Tables, sources and period street films to judge by are in
+`data/humans/gait/` (`normative_gait.json`, `README.md`).
+**What is invented.** That any person of 1812, 1835 or 1904 walked so: modern laboratory means stand in for
+period walking. The skirt factors (no measured study of a 1900s walking skirt over a corset was found), the
+per-person seeded variation of pace (±3 %) and stride, the start and closing steps, and every amplitude
+within the published ranges.
+**How to resolve:** motion capture of walkers in reproduction period dress, or measurement of walking from
+period street films (Lumière and Edison/AM&B street scenes of 1896-1906), reviewed in the town.
+**Ticket:** T-3472.
+**Recorded:** 2026-11-07 (T-3472).

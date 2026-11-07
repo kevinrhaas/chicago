@@ -1,0 +1,2306 @@
+{
+ "schema": "normative_gait/1",
+ "title": "Normative human walking reference for the procedural gait layer",
+ "cycle_convention": "Percent of gait cycle, 0 = heel strike (initial contact) of the reference foot, 100 = its next heel strike; 21 samples at 0,5,...,100. Same-side conventions: every table is for the reference side (left and right averaged after each was normalised to its own cycle).",
+ "percent": [
+  0,
+  5,
+  10,
+  15,
+  20,
+  25,
+  30,
+  35,
+  40,
+  45,
+  50,
+  55,
+  60,
+  65,
+  70,
+  75,
+  80,
+  85,
+  90,
+  95,
+  100
+ ],
+ "provenance_note": "Numbers marked basis \"dataset mean\" were computed here from the downloaded open datasets (scripts not in repo; method described per table). Numbers marked \"tabulated\" are copied from the cited table. Nothing here is read from a figure unless it says so. Inferences are in modifiers[*].inference and are not evidence.",
+ "sources": [
+  {
+   "id": "fukuchi2018_wbds",
+   "citation": "Fukuchi CA, Fukuchi RK, Duarte M (2018). A public dataset of overground and treadmill walking kinematics and kinetics in healthy individuals. PeerJ 6:e4640. Data: figshare doi:10.6084/m9.figshare.5722711 (version 6 files WBDSascii.zip, WBDSinfo.csv).",
+   "url": "https://doi.org/10.7717/peerj.4640",
+   "data_url": "https://doi.org/10.6084/m9.figshare.5722711",
+   "what": "USED. 42 adults with overground comfortable-speed data (24 young 21-37 y: 14 M, 10 F; 18 older 50-84 y: 10 M, 8 F). Processed *walkOCang.txt (Visual3D, per-subject ensemble mean, 101 points; Z component = sagittal) for pelvis/hip/knee/ankle/foot angles; *walkOCknt.txt vertical GRF for toe-off; raw *walkO??[SCF]mkr.txt marker trajectories (150 Hz) for spatiotemporal values, heel/MT1 heights, pelvis-centre excursions."
+  },
+  {
+   "id": "horst2019",
+   "citation": "Horst F, Lapuschkin S, Samek W, Mueller K-R, Schoellhorn WI (2019). A public dataset of overground walking kinetics and full-body kinematics in healthy adult individuals. Mendeley Data v3, doi:10.17632/svx74xcrjr.3; article: Explaining the unique nature of individual gait patterns with deep learning. Scientific Reports 9:2391, doi:10.1038/s41598-019-38748-8.",
+   "url": "https://data.mendeley.com/datasets/svx74xcrjr",
+   "data_url": "https://data.mendeley.com/datasets/svx74xcrjr",
+   "what": "USED. 57 young adults (29 F, 28 M; mean age 23.1 y), self-selected overground walking, 54-marker full-body set at 250 Hz (Gait_rawdata_tsv.zip). Used for shoulder-line and pelvis rotation, arm (shoulder) sagittal swing, elbow flexion, trunk lean. 1123 strides."
+  },
+  {
+   "id": "zeni2008",
+   "citation": "Zeni JA Jr, Richards JG, Higginson JS (2008). Two simple methods for determining gait events during treadmill and overground walking using kinematic data. Gait & Posture (2008). Volume/pages not verified here (PMC page was behind a browser check); the method is as widely described.",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2384115",
+   "what": "Method used here to detect heel strike (heel marker most anterior to pelvis centre/sacrum) and kinematic toe-off in raw marker trials."
+  },
+  {
+   "id": "oberg1993",
+   "citation": "Oberg T, Karsznia A, Oberg K (1993). Basic gait parameters: reference data for normal subjects, 10-79 years of age. Journal of Rehabilitation Research and Development 30(2):210-223.",
+   "url": "https://scispace.com/pdf/basic-gait-parameters-reference-data-for-normal-subjects-10-3ruln650r8.pdf",
+   "what": "Tabulated speed, step length, step frequency at normal speed by sex and decade (15 per cell, Swedish adults). Tables 2a/b, 5a/b, 8a/b."
+  },
+  {
+   "id": "bohannon_andrews2011",
+   "citation": "Bohannon RW, Andrews AW (2011). Normal walking speed: a descriptive meta-analysis. Physiotherapy 97(3):182-189.",
+   "url": "https://pubmed.ncbi.nlm.nih.gov/21820535/",
+   "what": "Meta-analytic normal walking speed by decade and sex. Values taken from the University of Toronto Physical Therapy handout that reproduces them: https://www.physicaltherapy.utoronto.ca/sites/default/files/assets/files/11walking-speed-age-and-sex-specific-normative-values-final.pdf"
+  },
+  {
+   "id": "perry_burnfield2010",
+   "citation": "Perry J, Burnfield JM (2010). Gait Analysis: Normal and Pathological Function, 2nd ed. SLACK Inc.",
+   "url": "https://now.aapmr.org/biomechanics-normal-gait/",
+   "what": "Gait phase boundaries (loading response 0-12 %, midstance 12-31 %, terminal stance 31-50 % starting at heel rise, pre-swing 50-62 %, initial swing 62-75 %, mid swing 75-87 %, terminal swing 87-100 %), as reproduced by the AAPM&R PM&R KnowledgeNow page citing Perry & Burnfield. Book not consulted directly."
+  },
+  {
+   "id": "alexander1976",
+   "citation": "Alexander RMcN (1976). Estimation of speeds of dinosaurs. Nature (volume/pages not verified here; cited as Alexander 1976 Nature by the secondary source read).",
+   "url": "https://www.originalwisdom.com/wp-content/uploads/bsk-pdf-manager/2019/03/Ruiz-and-Torices_2013_Humans-running-at-stadiums-and-beaches-and-the-accuracy-of-speed-estimation-from-fossil-trackways.pdf",
+   "what": "Dynamic-similarity stride relation lambda/h = 2.3 (v^2/(g h))^0.3, h = hip (leg) height; as quoted (eq. 1) by Ruiz & Torices 2013, which is the copy actually read."
+  },
+  {
+   "id": "winter1992",
+   "citation": "Winter DA (1992). Foot trajectory in human gait: a precise and multifactorial motor control task. Physical Therapy 72:45-56 (page range as given by the citing source).",
+   "url": "https://core.ac.uk/download/231056939.pdf",
+   "what": "Minimum toe clearance 1.29 cm at mid-swing, variability 0.45 cm, 11 subjects; as quoted by the citing paper (core.ac.uk PDF). Original not read."
+  },
+  {
+   "id": "collins2009",
+   "citation": "Collins SH, Adamczyk PG, Kuo AD (2009). Dynamic arm swinging in human walking. Proceedings of the Royal Society B, doi:10.1098/rspb.2009.0664.",
+   "url": "https://www.andrew.cmu.edu/user/shc17/Arm_Swinging/Collins_2009_PRSB.pdf",
+   "what": "Arms swing in opposite phase to the ipsilateral leg in normal walking (1.25 m/s); shoulder amplitudes only in a figure, not used numerically."
+  },
+  {
+   "id": "murray1967",
+   "citation": "Murray MP, Sepic SB, Barnard EJ (1967). Patterns of sagittal rotation of the upper limbs in walking. Physical Therapy 47(4):272-284. doi:10.1093/ptj/47.4.272",
+   "url": "https://doi.org/10.1093/ptj/47.4.272",
+   "what": "Classic shoulder/elbow sagittal arm-swing study. Cited for orientation only; values not retrieved."
+  },
+  {
+   "id": "murray1964",
+   "citation": "Murray MP, Drought AB, Kory RC (1964). Walking patterns of normal men. Journal of Bone and Joint Surgery (1964); volume/pages not verified here.",
+   "url": "https://scilit.com/publications/92b441e251efec945b78f2eab90dfab7",
+   "what": "Classic reference; not read, no values used. (URL is the scilit record of the companion 1967 paper that lists it; no direct open copy found.)"
+  },
+  {
+   "id": "murray1970",
+   "citation": "Murray MP, Kory RC, Sepic SB (1970). Walking patterns of normal women. Archives of Physical Medicine and Rehabilitation 51(11):637-650.",
+   "url": "https://scispace.com/papers/walking-patterns-of-normal-women-4efv5gdxby",
+   "what": "Classic reference; abstract not available to us, no values used."
+  },
+  {
+   "id": "saunders1953",
+   "citation": "Saunders JB, Inman VT, Eberhart HD (1953). The major determinants in normal and pathological gait. Journal of Bone and Joint Surgery 35-A:543-558.",
+   "url": "https://ouhsc.edu/bserdac/dthompso/web/gait/knmatics/saunders.htm",
+   "what": "Conceptual: pelvic rotation, pelvic list, stance knee flexion, foot/ankle and knee mechanisms, lateral pelvic displacement smooth the COM path. No numbers used."
+  },
+  {
+   "id": "kadaba1990",
+   "citation": "Kadaba MP, Ramakrishnan HK, Wootten ME (1990). Measurement of lower extremity kinematics during level walking. Journal of Orthopaedic Research, doi:10.1002/jor.1100080310 (volume/pages not verified here)",
+   "url": "https://zendy.io/title/10.1002/jor.1100080310",
+   "what": "Classic normative lower-limb kinematics; not read, no values used (cross-check target)."
+  },
+  {
+   "id": "bruijn2008",
+   "citation": "Bruijn SM et al. (2008). Coordination of leg swing, thorax rotations, and pelvis rotations during gait: the organisation of total body angular momentum. Gait & Posture (PMID 17669652).",
+   "url": "https://read.qxmd.com/read/17669652/coordination-of-leg-swing-thorax-rotations-and-pelvis-rotations-during-gait-the-organisation-of-total-body-angular-momentum",
+   "what": "Pelvis-thorax coordination shifts from in-phase toward out-of-phase as speed rises (2.0-5.2 km/h, 9 men). Qualitative only. Title, journal, year and PMID from the record page; co-authors not verified here."
+  },
+  {
+   "id": "mirelman2015",
+   "citation": "Mirelman A, Bernad-Elazari H, Nobel T, Thaler A, Peruzzi A, Plotnik M, Giladi N, Hausdorff JM (2015). Effects of aging on arm swing during gait: the role of gait speed and dual tasking. PLoS ONE 10(8):e0136043.",
+   "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0136043",
+   "what": "Arm-swing amplitude decreases with age (groups 30-40, 41-50, 51-60, 61-77; p = 0.04), increases at fast speed. Group values are in Table 2 (image) and were NOT extracted."
+  },
+  {
+   "id": "vancriekinge2018",
+   "citation": "Van Criekinge T, Truijen S, Hallemans A, Saeys W (2018). The influence of a thoracolumbosacral orthosis on gait performance in healthy adults during walking. Acta of Bioengineering and Biomechanics 20(4). doi:10.5277/ABB-01201-2018-02",
+   "url": "https://yadda.icm.edu.pl/baztech/element/bwmeta1.element.baztech-619ad0db-7ef5-4044-8276-cf4611dafc58/c/criekinge_influence_acta_4_2018.pdf",
+   "what": "Rigid trunk orthosis (modern), 14 healthy adults: speed 1.219 -> 1.237 m/s (ns), cadence 107.9 -> 113.3 steps/min (p = 0.004), normalised stride 1.459 -> 1.432 (ns), pelvic ROM reduced in all planes (transverse about 29 %), thorax ROM changed only sagittally."
+  },
+  {
+   "id": "nakahara2008",
+   "citation": "Nakahara K, Miyazawa Y, Yuasa M, Minamitani N, Shinmyo T, Yamamoto H (2008). Motion analysis of trunk with lumbar corset during walking in young women. ISBS 2008 conference proceedings.",
+   "url": "https://ojs.ub.uni-konstanz.de/cpa/article/view/2102",
+   "what": "Modern lumbar corset, 6 young women, 2-D sagittal: no significant change in stride length, step frequency, speed; trunk more extended. No numbers reported."
+  },
+  {
+   "id": "trunkstiff2014",
+   "citation": "Effects of experimentally increased trunk stiffness on thorax and pelvis rotations during walking. Human Movement Science, 2014 (PMID 24290610; authors not shown on the record page).",
+   "url": "https://read.qxmd.com/read/24290610/effects-of-experimentally-increased-trunk-stiffness-on-thorax-and-pelvis-rotations-during-walking",
+   "what": "Brace-stiffened trunk: reduced thorax-relative-to-pelvis rotation amplitude and lower thorax-pelvis relative phase. Abstract only, no numbers."
+  },
+  {
+   "id": "chiba1991",
+   "citation": "Chiba K, Higuchi Y (1991). The swinging properties of flared skirts in walk. Journal of Home Economics of Japan 42(7):643-653. doi:10.11428/jhej1987.42.643",
+   "url": "https://www.jstage.jst.go.jp/article/jhej1987/42/7/42_7_643/_article/-char/en",
+   "what": "Flared skirts 42/55/68 cm long, treadmill 3.5 km/h, 3 subjects: long skirts swing periodically and largely independently of the body. Useful for the skirt agent; no gait-parameter numbers."
+  },
+  {
+   "id": "park1992",
+   "citation": "Park Y (1992). A study on the moving fitness of the tight skirt. Journal of the Ergonomics Society of Korea 11(2):57-67.",
+   "url": "https://koreascience.or.kr/article/JAKO199211919572170.page",
+   "what": "Tight skirts in five lengths, 120 women; step and stride length measured but values not in the abstract. Long tight skirt restricts more than mini."
+  },
+  {
+   "id": "hill1887",
+   "citation": "Hill TE. Hill's Manual of Social and Business Forms: a guide to correct writing. Chicago: Hill Standard Book Co., 1887 edition (section 'Etiquette in the street').",
+   "url": "https://archive.org/details/hillsmanualofsoc00hill",
+   "what": "PERIOD ADVICE, Chicago-published: \"Ladies should avoid walking rapidly upon the street, as it is ungraceful and unbecoming.\"; \"Swinging the arms when walking ... [is among the] evidences of ill-breeding in ladies.\"; \"Allowing a dress to trail on the street is in exceedingly bad taste.\" (quotations from the archive.org OCR text; ellipsis and bracket ours)."
+  },
+  {
+   "id": "hall1902",
+   "citation": "Hall FH. The Correct Thing in Good Society. Boston: Dana Estes & Co., 1902.",
+   "url": "https://archive.org/details/correctthingingo00hall",
+   "what": "PERIOD ADVICE: \"a woman who is pinched in at the waist with tight corsets, throttled around the neck with a tight collar, and cramped as to her feet with tight, high-heeled shoes, will walk about as gracefully as a swan on a turnpike-road.\""
+  },
+  {
+   "id": "macfadden1901",
+   "citation": "Macfadden B. The Power and Beauty of Superb Womanhood. New York: Physical Culture Publishing Co., 1901, pp. 106-110 (quoting Anna M. Galbraith, M.D.).",
+   "url": "https://archive.org/details/powerbeautyofsup00macf",
+   "what": "PERIOD OPINION (dress reformer): long skirts \"interfere[s] with every step\"; Galbraith: skirt weight and length cause an \"artificial shortening of the step\" plus \"resisting friction of the skirts\"."
+  }
+ ],
+ "cycle_tables": {
+  "hip_flexion_deg": {
+   "values": [
+    30.1,
+    29.3,
+    28.1,
+    23.5,
+    18.1,
+    12.7,
+    7.3,
+    2.8,
+    -1.0,
+    -4.3,
+    -6.7,
+    -7.6,
+    -4.2,
+    3.9,
+    13.7,
+    22.1,
+    27.6,
+    30.8,
+    31.5,
+    30.3,
+    29.8
+   ],
+   "sd": [
+    6.4,
+    6.8,
+    7.3,
+    7.2,
+    7.3,
+    7.0,
+    6.8,
+    6.8,
+    6.9,
+    6.8,
+    6.8,
+    7.0,
+    7.4,
+    7.4,
+    7.0,
+    6.6,
+    6.3,
+    6.3,
+    6.1,
+    5.8,
+    6.1
+   ],
+   "unit": "deg, + flexion",
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean",
+   "speed_m_s": 1.24,
+   "note": "Hip angle of thigh relative to pelvis (Visual3D). Pelvis itself is ~10 deg anteriorly tilted, so thigh-vs-vertical is roughly hip minus tilt. Young adults; older-adult curve in alt.older.",
+   "n_subjects": 24
+  },
+  "knee_flexion_deg": {
+   "values": [
+    -0.4,
+    5.7,
+    12.8,
+    13.7,
+    11.4,
+    8.4,
+    5.6,
+    3.8,
+    3.1,
+    4.0,
+    7.8,
+    15.0,
+    29.0,
+    46.8,
+    59.1,
+    61.1,
+    53.6,
+    38.7,
+    19.2,
+    2.0,
+    -0.8
+   ],
+   "sd": [
+    3.8,
+    4.2,
+    5.3,
+    5.3,
+    5.2,
+    4.8,
+    4.4,
+    4.1,
+    4.2,
+    4.2,
+    4.2,
+    4.8,
+    5.7,
+    5.2,
+    3.6,
+    3.5,
+    5.4,
+    7.0,
+    6.5,
+    3.8,
+    3.8
+   ],
+   "unit": "deg, + flexion",
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean",
+   "speed_m_s": 1.24,
+   "note": "Loading-response peak ~13.7 deg at ~13-15 %; swing peak 62.0 deg at 73 % (per-subject mean).",
+   "n_subjects": 24
+  },
+  "ankle_dorsiflexion_deg": {
+   "values": [
+    1.1,
+    -4.1,
+    -2.0,
+    2.4,
+    5.2,
+    7.0,
+    8.5,
+    10.2,
+    12.0,
+    13.0,
+    12.0,
+    6.5,
+    -6.3,
+    -13.3,
+    -7.1,
+    0.4,
+    5.0,
+    6.5,
+    4.4,
+    1.4,
+    1.2
+   ],
+   "sd": [
+    2.6,
+    2.8,
+    3.1,
+    3.2,
+    3.1,
+    2.8,
+    2.7,
+    2.8,
+    3.0,
+    3.2,
+    3.4,
+    4.1,
+    4.8,
+    4.9,
+    5.9,
+    4.9,
+    3.7,
+    2.6,
+    1.9,
+    2.5,
+    2.7
+   ],
+   "unit": "deg, + dorsiflexion",
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean",
+   "speed_m_s": 1.24,
+   "note": "Foot relative to shank, zeroed by the Visual3D model to the static standing trial. Plantarflexion peak -13.3 deg at 65 % (ensemble mean; individual peaks are larger and sharper).",
+   "n_subjects": 24
+  },
+  "foot_floor_angle_deg": {
+   "values": [
+    22.5,
+    9.4,
+    1.9,
+    0.7,
+    0.3,
+    -0.1,
+    -0.7,
+    -1.6,
+    -3.0,
+    -5.9,
+    -11.8,
+    -23.8,
+    -46.5,
+    -65.2,
+    -62.3,
+    -48.8,
+    -30.7,
+    -11.4,
+    6.6,
+    20.0,
+    22.4
+   ],
+   "sd": [
+    2.7,
+    2.5,
+    1.2,
+    0.6,
+    0.6,
+    0.7,
+    0.9,
+    1.1,
+    1.4,
+    1.9,
+    3.1,
+    5.2,
+    6.5,
+    4.9,
+    6.0,
+    6.6,
+    7.1,
+    7.0,
+    5.7,
+    3.8,
+    3.1
+   ],
+   "unit": "deg, + toes up",
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean",
+   "speed_m_s": 1.24,
+   "note": "WBDS FootAngleZ: foot segment vs laboratory, sagittal; zero ~= foot flat on the floor (it reads 0.3 to -0.7 deg over 15-30 %). +22.5 deg at heel strike, flat by ~15 %, heel rise from ~40 %, about -53 deg at toe-off (61.7 %, linearly interpolated between 60 % -46.5 and 65 % -65.2), most plantarflexed -66 deg at 66 %, back to horizontal by ~88 %.",
+   "n_subjects": 24
+  },
+  "pelvis_tilt_deg": {
+   "values": [
+    11.0,
+    10.8,
+    10.2,
+    9.8,
+    9.8,
+    10.0,
+    9.9,
+    10.2,
+    10.7,
+    11.0,
+    11.1,
+    10.9,
+    10.4,
+    9.9,
+    9.8,
+    10.0,
+    9.9,
+    10.2,
+    10.7,
+    11.1,
+    11.1
+   ],
+   "sd": [
+    4.9,
+    5.0,
+    5.3,
+    5.3,
+    5.3,
+    5.1,
+    5.0,
+    4.9,
+    4.9,
+    4.7,
+    4.8,
+    5.0,
+    5.2,
+    5.3,
+    5.2,
+    5.0,
+    4.9,
+    4.8,
+    4.8,
+    4.6,
+    4.8
+   ],
+   "unit": "deg, + anterior",
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean",
+   "speed_m_s": 1.24,
+   "note": "Absolute pelvis vs lab (marker-defined pelvis, ~10 deg offset is the ASIS-PSIS plane, not a posture). Use only the oscillation: about 2.4 deg peak-to-peak, two cycles per stride.",
+   "n_subjects": 24
+  },
+  "pelvis_obliquity_deg": {
+   "values": [
+    1.3,
+    2.6,
+    4.6,
+    5.5,
+    4.8,
+    2.9,
+    1.1,
+    -0.2,
+    -0.7,
+    -0.8,
+    -1.2,
+    -2.5,
+    -4.5,
+    -5.5,
+    -4.8,
+    -3.0,
+    -1.1,
+    0.2,
+    0.8,
+    0.9,
+    1.2
+   ],
+   "sd": [
+    1.4,
+    1.4,
+    1.5,
+    1.8,
+    1.6,
+    1.5,
+    1.2,
+    1.0,
+    1.0,
+    1.1,
+    1.4,
+    1.4,
+    1.5,
+    1.7,
+    1.5,
+    1.4,
+    1.2,
+    1.0,
+    1.1,
+    1.2,
+    1.5
+   ],
+   "unit": "deg, + reference side up",
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean",
+   "speed_m_s": 1.24,
+   "note": "Sign deduced, not stated by the dataset: the positive peak (+5.5 deg at 15 %) falls in reference-side loading response, when the swing-side hip drops, so + = reference (stance) side up. Mean ROM per subject 11.3 deg.",
+   "n_subjects": 24
+  },
+  "pelvis_rotation_deg": {
+   "values": [
+    6.4,
+    6.5,
+    4.9,
+    4.1,
+    4.2,
+    3.4,
+    1.5,
+    -0.5,
+    -2.4,
+    -4.4,
+    -6.0,
+    -6.2,
+    -4.8,
+    -4.0,
+    -4.2,
+    -3.4,
+    -1.5,
+    0.6,
+    2.6,
+    4.6,
+    6.1
+   ],
+   "sd": [
+    2.6,
+    2.2,
+    1.7,
+    1.5,
+    1.3,
+    1.3,
+    1.4,
+    1.6,
+    1.9,
+    2.4,
+    2.4,
+    1.9,
+    1.5,
+    1.5,
+    1.3,
+    1.2,
+    1.4,
+    1.7,
+    2.1,
+    2.4,
+    2.4
+   ],
+   "unit": "deg, + reference side forward",
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean",
+   "speed_m_s": 1.24,
+   "note": "Sign deduced: maximal (+6.7 deg) at 3 % when the reference limb is in front. Mean ROM per subject 13.8 deg. Horst (1.45 m/s, iliac-crest line) gives the same shape: +6.1 at 0 %, -5.8 at 53 %.",
+   "n_subjects": 24
+  },
+  "thorax_rotation_deg": {
+   "values": [
+    -2.0,
+    -1.9,
+    -1.7,
+    -1.3,
+    0.3,
+    1.9,
+    2.9,
+    3.4,
+    3.8,
+    4.1,
+    4.2,
+    4.0,
+    3.8,
+    3.3,
+    1.9,
+    0.4,
+    -0.4,
+    -0.9,
+    -1.2,
+    -1.4,
+    -1.3
+   ],
+   "sd": [
+    2.9,
+    2.9,
+    3.0,
+    3.1,
+    3.1,
+    2.9,
+    2.9,
+    2.8,
+    2.9,
+    3.1,
+    3.1,
+    3.0,
+    2.8,
+    2.7,
+    2.6,
+    2.5,
+    2.5,
+    2.5,
+    2.6,
+    2.7,
+    2.8
+   ],
+   "unit": "deg, + reference-side shoulder forward, VS LAB",
+   "ref": "horst2019",
+   "basis": "dataset mean",
+   "speed_m_s": 1.44,
+   "note": "Computed from the acromion-to-acromion line (shoulder girdle, includes scapular motion; the dataset has no clean thorax markers for rotation). It is in antiphase to the pelvis: -2.0 deg at reference heel strike, +4.2 deg at 50 %. Mean ROM per subject 8.2 +/- 2.6 deg. Relative to pelvis see alt.thorax_minus_pelvis.",
+   "n_subjects": 57
+  },
+  "shoulder_flexion_deg": {
+   "values": [
+    -14.0,
+    -14.8,
+    -14.1,
+    -11.9,
+    -8.7,
+    -4.7,
+    -0.5,
+    3.5,
+    7.1,
+    9.7,
+    11.0,
+    9.8,
+    6.9,
+    3.7,
+    1.6,
+    -0.8,
+    -4.0,
+    -7.3,
+    -10.4,
+    -12.9,
+    -14.6
+   ],
+   "sd": [
+    4.5,
+    4.7,
+    4.5,
+    4.0,
+    3.4,
+    3.1,
+    3.4,
+    4.1,
+    5.1,
+    6.0,
+    6.7,
+    6.8,
+    6.3,
+    5.4,
+    4.4,
+    3.7,
+    3.2,
+    3.0,
+    3.3,
+    4.1,
+    4.8
+   ],
+   "unit": "deg, + arm forward (flexion), same side as reference foot",
+   "ref": "horst2019",
+   "basis": "dataset mean",
+   "speed_m_s": 1.44,
+   "note": "Upper arm (acromion to elbow-epicondyle midpoint) vs the trunk line (sacrum to C7) in the sagittal plane of travel. Most extended -14.9 deg at ~6 % (just after same-side heel strike), most flexed +11.0 deg at 50 %. Mean ROM per subject 26.9 +/- 10.0 deg; women 31.2, men 22.4. Arm-vs-vertical in alt.",
+   "n_subjects": 57
+  },
+  "elbow_flexion_deg": {
+   "values": [
+    22.6,
+    21.3,
+    20.4,
+    21.3,
+    23.9,
+    27.4,
+    32.4,
+    38.1,
+    43.8,
+    48.4,
+    51.0,
+    51.5,
+    49.8,
+    45.6,
+    39.6,
+    33.8,
+    29.9,
+    27.5,
+    25.9,
+    24.6,
+    23.2
+   ],
+   "sd": [
+    7.3,
+    7.0,
+    6.6,
+    6.6,
+    6.6,
+    6.6,
+    6.5,
+    6.4,
+    6.6,
+    7.1,
+    7.8,
+    8.2,
+    8.5,
+    8.4,
+    7.4,
+    6.2,
+    6.2,
+    6.9,
+    7.3,
+    7.3,
+    7.1
+   ],
+   "unit": "deg, 0 = straight arm",
+   "ref": "horst2019",
+   "basis": "dataset mean",
+   "speed_m_s": 1.44,
+   "note": "Angle between upper-arm (acromion-elbow) and forearm (elbow-wrist midpoint) vectors. Least flexed 20 deg at ~11 % (arm back), most flexed 51.5 deg at ~54 % (arm forward). Acromion is not the joint centre, so absolute offset is approximate; the 30 deg swing in phase with shoulder flexion is the robust part.",
+   "n_subjects": 57
+  },
+  "com_vertical_m": {
+   "values": [
+    -0.013,
+    -0.019,
+    -0.016,
+    -0.007,
+    0.0,
+    0.009,
+    0.015,
+    0.014,
+    0.008,
+    -0.001,
+    -0.011,
+    -0.017,
+    -0.014,
+    -0.006,
+    0.002,
+    0.011,
+    0.017,
+    0.016,
+    0.01,
+    0.001,
+    -0.009
+   ],
+   "sd": [
+    0.003,
+    0.004,
+    0.004,
+    0.004,
+    0.003,
+    0.003,
+    0.004,
+    0.004,
+    0.004,
+    0.003,
+    0.003,
+    0.003,
+    0.004,
+    0.004,
+    0.003,
+    0.003,
+    0.004,
+    0.004,
+    0.004,
+    0.003,
+    0.003
+   ],
+   "unit": "m, relative to stride mean, + up",
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean",
+   "speed_m_s": 1.24,
+   "note": "PROXY: centre of the four pelvis markers (R/L ASIS, R/L PSIS), not whole-body COM. Peak-to-peak 0.037 m; lowest at ~6 % and ~56 % (double support), highest at ~31 % and ~81 % (mid single support).",
+   "n_subjects": 24
+  },
+  "com_lateral_m": {
+   "values": [
+    -0.011,
+    -0.006,
+    -0.001,
+    0.005,
+    0.011,
+    0.015,
+    0.018,
+    0.019,
+    0.018,
+    0.015,
+    0.011,
+    0.006,
+    0.001,
+    -0.005,
+    -0.011,
+    -0.015,
+    -0.018,
+    -0.019,
+    -0.017,
+    -0.015,
+    -0.011
+   ],
+   "sd": [
+    0.005,
+    0.004,
+    0.004,
+    0.004,
+    0.005,
+    0.005,
+    0.005,
+    0.005,
+    0.005,
+    0.006,
+    0.005,
+    0.004,
+    0.004,
+    0.004,
+    0.005,
+    0.005,
+    0.005,
+    0.005,
+    0.005,
+    0.005,
+    0.005
+   ],
+   "unit": "m, + toward reference side",
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean",
+   "speed_m_s": 1.24,
+   "note": "PROXY: pelvis-marker centre, linear drift removed per stride. Peak-to-peak 0.037 m; farthest over the reference foot at ~34 %.",
+   "n_subjects": 24
+  },
+  "heel_height_m": {
+   "values": [
+    -0.002,
+    -0.012,
+    -0.005,
+    -0.003,
+    -0.003,
+    -0.002,
+    0.0,
+    0.003,
+    0.006,
+    0.013,
+    0.028,
+    0.055,
+    0.103,
+    0.162,
+    0.201,
+    0.195,
+    0.15,
+    0.083,
+    0.024,
+    0.002,
+    0.001
+   ],
+   "sd": [
+    0.004,
+    0.003,
+    0.002,
+    0.002,
+    0.002,
+    0.001,
+    0.0,
+    0.002,
+    0.003,
+    0.005,
+    0.008,
+    0.012,
+    0.017,
+    0.019,
+    0.019,
+    0.021,
+    0.022,
+    0.019,
+    0.011,
+    0.004,
+    0.005
+   ],
+   "unit": "m above the same marker in foot-flat (20-40 % median)",
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean",
+   "speed_m_s": 1.24,
+   "note": "Posterior calcaneus marker. Below 1 cm until ~44 %; peak 0.204 m at ~72 % (early swing, knee flexed); down again by ~95 %.",
+   "n_subjects": 24
+  },
+  "toe_height_m": {
+   "values": [
+    0.077,
+    0.04,
+    0.01,
+    0.002,
+    0.001,
+    0.0,
+    -0.0,
+    -0.0,
+    -0.001,
+    -0.001,
+    -0.001,
+    -0.001,
+    -0.002,
+    0.01,
+    0.037,
+    0.045,
+    0.034,
+    0.02,
+    0.021,
+    0.053,
+    0.08
+   ],
+   "sd": [
+    0.009,
+    0.009,
+    0.005,
+    0.002,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.006,
+    0.009,
+    0.011,
+    0.01,
+    0.006,
+    0.005,
+    0.009,
+    0.01
+   ],
+   "unit": "m above the same marker in foot-flat",
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean",
+   "speed_m_s": 1.24,
+   "note": "First-metatarsal-head marker (dorsum), not the toe tip. 0.077 m up at heel strike (foot toes-up), on the floor 15-60 %, swing bump 0.045 m at ~75 %, swing minimum (MTC proxy) see events.",
+   "n_subjects": 24
+  }
+ },
+ "alt": {
+  "older": {
+   "hip_flexion_deg": {
+    "values": [
+     31.6,
+     30.6,
+     29.4,
+     24.7,
+     19.6,
+     14.3,
+     8.6,
+     3.5,
+     -1.0,
+     -5.3,
+     -8.6,
+     -10.0,
+     -7.2,
+     1.0,
+     11.6,
+     20.8,
+     27.4,
+     31.4,
+     32.5,
+     31.4,
+     31.2
+    ],
+    "sd": [
+     7.7,
+     7.8,
+     8.6,
+     8.8,
+     8.9,
+     8.7,
+     8.3,
+     8.2,
+     8.1,
+     8.0,
+     7.9,
+     7.8,
+     8.1,
+     8.3,
+     7.9,
+     7.3,
+     7.0,
+     7.2,
+     7.5,
+     7.5,
+     7.7
+    ],
+    "unit": "same as main table",
+    "ref": "fukuchi2018_wbds",
+    "basis": "dataset mean",
+    "speed_m_s": 1.25,
+    "note": "WBDS older group 50-84 y (mean 62.7)",
+    "n_subjects": 18
+   },
+   "knee_flexion_deg": {
+    "values": [
+     2.6,
+     8.4,
+     16.5,
+     17.4,
+     15.2,
+     12.2,
+     8.6,
+     5.8,
+     4.2,
+     4.1,
+     7.0,
+     13.8,
+     27.5,
+     46.4,
+     60.2,
+     62.9,
+     56.2,
+     42.0,
+     22.5,
+     5.0,
+     2.2
+    ],
+    "sd": [
+     4.1,
+     5.6,
+     7.4,
+     8.2,
+     8.5,
+     7.8,
+     7.1,
+     6.3,
+     5.5,
+     5.2,
+     5.3,
+     6.0,
+     7.2,
+     7.0,
+     5.0,
+     4.0,
+     4.6,
+     5.8,
+     6.0,
+     4.5,
+     4.4
+    ],
+    "unit": "same as main table",
+    "ref": "fukuchi2018_wbds",
+    "basis": "dataset mean",
+    "speed_m_s": 1.25,
+    "note": "WBDS older group 50-84 y (mean 62.7)",
+    "n_subjects": 18
+   },
+   "ankle_dorsiflexion_deg": {
+    "values": [
+     2.6,
+     -3.5,
+     -1.0,
+     3.6,
+     6.5,
+     8.3,
+     9.8,
+     11.3,
+     13.0,
+     14.0,
+     13.4,
+     9.1,
+     -2.6,
+     -9.8,
+     -4.7,
+     1.7,
+     6.2,
+     7.6,
+     5.6,
+     2.6,
+     2.7
+    ],
+    "sd": [
+     3.1,
+     3.4,
+     3.1,
+     3.3,
+     3.3,
+     3.1,
+     2.7,
+     2.5,
+     2.4,
+     2.5,
+     2.7,
+     3.3,
+     4.7,
+     4.4,
+     3.9,
+     2.9,
+     2.4,
+     1.9,
+     1.9,
+     2.6,
+     2.8
+    ],
+    "unit": "same as main table",
+    "ref": "fukuchi2018_wbds",
+    "basis": "dataset mean",
+    "speed_m_s": 1.25,
+    "note": "WBDS older group 50-84 y (mean 62.7)",
+    "n_subjects": 18
+   },
+   "foot_floor_angle_deg": {
+    "values": [
+     23.4,
+     9.8,
+     2.1,
+     0.9,
+     0.5,
+     0.2,
+     -0.2,
+     -1.0,
+     -2.3,
+     -5.1,
+     -10.6,
+     -21.7,
+     -43.2,
+     -62.2,
+     -61.2,
+     -48.7,
+     -30.8,
+     -11.4,
+     6.8,
+     20.6,
+     23.5
+    ],
+    "sd": [
+     2.9,
+     2.2,
+     0.9,
+     0.8,
+     0.7,
+     0.7,
+     0.7,
+     0.8,
+     1.1,
+     1.7,
+     2.8,
+     5.1,
+     8.4,
+     6.2,
+     4.2,
+     4.4,
+     5.0,
+     5.0,
+     4.0,
+     2.6,
+     2.8
+    ],
+    "unit": "same as main table",
+    "ref": "fukuchi2018_wbds",
+    "basis": "dataset mean",
+    "speed_m_s": 1.25,
+    "note": "WBDS older group 50-84 y (mean 62.7)",
+    "n_subjects": 18
+   },
+   "pelvis_tilt_deg": {
+    "values": [
+     9.6,
+     9.3,
+     8.4,
+     8.0,
+     8.3,
+     8.7,
+     8.9,
+     9.2,
+     9.6,
+     9.8,
+     9.6,
+     9.3,
+     8.5,
+     8.0,
+     8.2,
+     8.5,
+     8.7,
+     9.0,
+     9.5,
+     9.7,
+     9.5
+    ],
+    "sd": [
+     6.7,
+     6.5,
+     6.4,
+     6.4,
+     6.4,
+     6.4,
+     6.3,
+     6.2,
+     6.3,
+     6.5,
+     6.6,
+     6.4,
+     6.3,
+     6.3,
+     6.4,
+     6.5,
+     6.3,
+     6.3,
+     6.4,
+     6.6,
+     6.8
+    ],
+    "unit": "same as main table",
+    "ref": "fukuchi2018_wbds",
+    "basis": "dataset mean",
+    "speed_m_s": 1.25,
+    "note": "WBDS older group 50-84 y (mean 62.7)",
+    "n_subjects": 18
+   },
+   "pelvis_obliquity_deg": {
+    "values": [
+     -0.4,
+     0.7,
+     3.0,
+     4.6,
+     4.4,
+     2.9,
+     1.6,
+     0.6,
+     0.2,
+     0.4,
+     0.4,
+     -0.7,
+     -2.8,
+     -4.6,
+     -4.5,
+     -3.0,
+     -1.6,
+     -0.6,
+     -0.3,
+     -0.4,
+     -0.4
+    ],
+    "sd": [
+     1.3,
+     1.5,
+     1.9,
+     2.3,
+     2.0,
+     1.5,
+     1.1,
+     0.9,
+     1.2,
+     1.3,
+     1.4,
+     1.5,
+     1.8,
+     2.2,
+     2.0,
+     1.4,
+     0.9,
+     0.8,
+     1.1,
+     1.3,
+     1.3
+    ],
+    "unit": "same as main table",
+    "ref": "fukuchi2018_wbds",
+    "basis": "dataset mean",
+    "speed_m_s": 1.25,
+    "note": "WBDS older group 50-84 y (mean 62.7)",
+    "n_subjects": 18
+   },
+   "pelvis_rotation_deg": {
+    "values": [
+     5.1,
+     5.4,
+     3.9,
+     3.1,
+     3.1,
+     2.2,
+     0.6,
+     -0.9,
+     -2.3,
+     -3.8,
+     -5.1,
+     -5.4,
+     -4.2,
+     -3.3,
+     -3.1,
+     -2.2,
+     -0.5,
+     1.0,
+     2.4,
+     3.8,
+     5.0
+    ],
+    "sd": [
+     2.3,
+     2.3,
+     1.9,
+     1.4,
+     1.5,
+     2.1,
+     2.3,
+     2.1,
+     2.0,
+     2.1,
+     2.3,
+     2.2,
+     1.8,
+     1.3,
+     1.3,
+     2.0,
+     2.3,
+     2.2,
+     2.1,
+     2.1,
+     2.2
+    ],
+    "unit": "same as main table",
+    "ref": "fukuchi2018_wbds",
+    "basis": "dataset mean",
+    "speed_m_s": 1.25,
+    "note": "WBDS older group 50-84 y (mean 62.7)",
+    "n_subjects": 18
+   }
+  },
+  "thorax_minus_pelvis_deg": {
+   "values": [
+    -8.2,
+    -7.8,
+    -5.9,
+    -4.7,
+    -4.5,
+    -2.4,
+    0.0,
+    2.3,
+    4.6,
+    7.2,
+    9.6,
+    9.6,
+    7.9,
+    6.6,
+    6.4,
+    4.2,
+    1.7,
+    -0.7,
+    -3.1,
+    -5.8,
+    -8.2
+   ],
+   "sd": [
+    4.2,
+    4.3,
+    4.0,
+    3.8,
+    3.5,
+    3.5,
+    3.5,
+    3.5,
+    3.7,
+    4.0,
+    4.2,
+    4.1,
+    3.8,
+    3.8,
+    3.8,
+    3.6,
+    3.4,
+    3.4,
+    3.5,
+    3.8,
+    4.2
+   ],
+   "unit": "deg, + reference-side shoulder forward relative to pelvis",
+   "ref": "horst2019",
+   "basis": "dataset mean",
+   "speed_m_s": 1.44,
+   "note": "Shoulder line minus iliac line. ROM 19.3 deg (women 22.0, men 16.6).",
+   "n_subjects": 57
+  },
+  "pelvis_rotation_horst_deg": {
+   "values": [
+    6.1,
+    5.9,
+    4.2,
+    3.4,
+    4.8,
+    4.3,
+    2.8,
+    1.1,
+    -0.8,
+    -3.1,
+    -5.4,
+    -5.6,
+    -4.2,
+    -3.3,
+    -4.4,
+    -3.8,
+    -2.1,
+    -0.2,
+    1.9,
+    4.4,
+    6.9
+   ],
+   "sd": [
+    3.4,
+    3.7,
+    3.7,
+    3.7,
+    3.3,
+    3.1,
+    3.1,
+    3.2,
+    3.6,
+    4.0,
+    4.3,
+    4.3,
+    3.8,
+    3.6,
+    3.5,
+    3.1,
+    3.0,
+    3.0,
+    3.0,
+    3.3,
+    3.8
+   ],
+   "unit": "deg, + reference side forward",
+   "ref": "horst2019",
+   "basis": "dataset mean",
+   "speed_m_s": 1.44,
+   "note": "Iliac-marker line vs lab.",
+   "n_subjects": 57
+  },
+  "arm_vs_vertical_deg": {
+   "values": [
+    -19.4,
+    -19.4,
+    -18.0,
+    -15.7,
+    -12.8,
+    -9.0,
+    -5.0,
+    -1.3,
+    1.9,
+    4.4,
+    5.8,
+    5.5,
+    3.4,
+    0.4,
+    -2.1,
+    -4.7,
+    -8.1,
+    -11.7,
+    -15.0,
+    -17.6,
+    -19.0
+   ],
+   "sd": [
+    4.4,
+    4.6,
+    4.4,
+    4.0,
+    3.7,
+    3.7,
+    4.3,
+    5.2,
+    6.2,
+    7.2,
+    7.9,
+    8.1,
+    7.6,
+    6.6,
+    5.6,
+    4.8,
+    4.2,
+    3.8,
+    3.8,
+    4.2,
+    4.6
+   ],
+   "unit": "deg, + elbow ahead of shoulder",
+   "ref": "horst2019",
+   "basis": "dataset mean",
+   "speed_m_s": 1.44,
+   "note": "Upper arm vs lab vertical (no trunk correction). Hangs ~6-7 deg behind vertical on average because the trunk leans ~4.5 deg forward.",
+   "n_subjects": 57
+  },
+  "trunk_lean_deg": {
+   "values": [
+    5.3,
+    4.6,
+    3.9,
+    3.8,
+    4.1,
+    4.3,
+    4.5,
+    4.8,
+    5.1,
+    5.3,
+    5.2,
+    4.3,
+    3.5,
+    3.4,
+    3.7,
+    3.9,
+    4.1,
+    4.4,
+    4.6,
+    4.7,
+    4.4
+   ],
+   "sd": [
+    2.5,
+    2.6,
+    2.7,
+    2.7,
+    2.6,
+    2.5,
+    2.5,
+    2.5,
+    2.5,
+    2.5,
+    2.6,
+    2.7,
+    2.9,
+    2.8,
+    2.7,
+    2.6,
+    2.6,
+    2.6,
+    2.5,
+    2.5,
+    2.6
+   ],
+   "unit": "deg, + forward",
+   "ref": "horst2019",
+   "basis": "dataset mean",
+   "speed_m_s": 1.44,
+   "note": "Sacrum-to-C7 line vs vertical; mean ~4.5 deg forward, ~1.5 deg oscillation twice per stride.",
+   "n_subjects": 57
+  },
+  "shoulder_flexion_women_deg": {
+   "values": [
+    -15.8,
+    -16.9,
+    -16.4,
+    -13.9,
+    -10.2,
+    -5.6,
+    -0.9,
+    3.8,
+    8.1,
+    11.4,
+    13.2,
+    12.2,
+    9.1,
+    5.6,
+    3.0,
+    0.2,
+    -3.5,
+    -7.3,
+    -11.0,
+    -14.2,
+    -16.4
+   ],
+   "sd": [
+    4.4,
+    4.4,
+    4.0,
+    3.5,
+    3.0,
+    2.8,
+    3.4,
+    4.2,
+    5.2,
+    6.1,
+    6.7,
+    7.0,
+    6.6,
+    5.6,
+    4.6,
+    3.7,
+    3.3,
+    3.1,
+    3.4,
+    4.0,
+    4.5
+   ],
+   "unit": "deg",
+   "ref": "horst2019",
+   "basis": "dataset mean",
+   "speed_m_s": 1.49,
+   "note": "Horst women",
+   "n_subjects": 29
+  },
+  "shoulder_flexion_men_deg": {
+   "values": [
+    -12.2,
+    -12.6,
+    -11.8,
+    -9.9,
+    -7.1,
+    -3.6,
+    -0.2,
+    3.2,
+    6.0,
+    8.0,
+    8.7,
+    7.3,
+    4.5,
+    1.8,
+    0.1,
+    -1.8,
+    -4.5,
+    -7.3,
+    -9.7,
+    -11.6,
+    -12.6
+   ],
+   "sd": [
+    4.0,
+    4.1,
+    3.8,
+    3.4,
+    3.1,
+    3.2,
+    3.5,
+    4.1,
+    4.9,
+    5.6,
+    5.9,
+    5.7,
+    5.1,
+    4.4,
+    3.9,
+    3.4,
+    3.0,
+    2.9,
+    3.2,
+    3.9,
+    4.3
+   ],
+   "unit": "deg",
+   "ref": "horst2019",
+   "basis": "dataset mean",
+   "speed_m_s": 1.4,
+   "note": "Horst men",
+   "n_subjects": 28
+  },
+  "heel_height_older_m": {
+   "values": [
+    -0.002,
+    -0.011,
+    -0.004,
+    -0.002,
+    -0.002,
+    -0.001,
+    0.0,
+    0.002,
+    0.005,
+    0.012,
+    0.026,
+    0.052,
+    0.097,
+    0.154,
+    0.192,
+    0.185,
+    0.14,
+    0.075,
+    0.02,
+    0.001,
+    -0.001
+   ],
+   "sd": [
+    0.003,
+    0.002,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.0,
+    0.001,
+    0.002,
+    0.004,
+    0.007,
+    0.01,
+    0.015,
+    0.019,
+    0.018,
+    0.017,
+    0.013,
+    0.01,
+    0.005,
+    0.002,
+    0.003
+   ],
+   "unit": "m",
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean",
+   "speed_m_s": 1.25,
+   "note": "older group",
+   "n_subjects": 18
+  },
+  "toe_height_older_m": {
+   "values": [
+    0.075,
+    0.037,
+    0.008,
+    0.002,
+    0.001,
+    0.0,
+    -0.0,
+    -0.0,
+    -0.001,
+    -0.001,
+    -0.001,
+    -0.001,
+    -0.001,
+    0.01,
+    0.036,
+    0.042,
+    0.03,
+    0.018,
+    0.022,
+    0.054,
+    0.076
+   ],
+   "sd": [
+    0.009,
+    0.007,
+    0.003,
+    0.001,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.001,
+    0.007,
+    0.011,
+    0.01,
+    0.007,
+    0.004,
+    0.005,
+    0.009,
+    0.01
+   ],
+   "unit": "m",
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean",
+   "speed_m_s": 1.25,
+   "note": "older group",
+   "n_subjects": 18
+  }
+ },
+ "events": {
+  "toe_off_pct": {
+   "value": 61.7,
+   "sd": 0.8,
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean",
+   "note": "Vertical GRF below 2 % of its peak in the cycle-normalised kinetic file, young adults. Older: 62.3. Perry & Burnfield: 62 %. The marker (Zeni) method gives a later 65.6 %, a known kinematic bias."
+  },
+  "opposite_toe_off_pct": {
+   "value": 11.7,
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean",
+   "note": "Derived: own toe-off minus 50 % (symmetry; opposite heel strike measured at 50.0 %). Perry & Burnfield: 12 %."
+  },
+  "opposite_heel_strike_pct": {
+   "value": 50.0,
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean",
+   "note": "Marker method, 50.05 +/- 0.2 %."
+  },
+  "heel_off_pct": {
+   "value": 40.2,
+   "sd": 3.2,
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean",
+   "note": "First frame after 20 % where foot-floor angle falls 3 deg below its midstance value. Heel marker 10 mm above flat: 43.6 %. Perry & Burnfield put the onset of heel rise (start of terminal stance) at 31 %; visible heel rise is gradual, so pick 31-40 % for the animation and keep the heel within ~1 cm until ~44 %."
+  },
+  "foot_flat_pct": {
+   "value": 15,
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean",
+   "note": "Foot-floor angle reaches ~1 deg by 15 % (9.4 deg at 5 %, 1.9 at 10 %, 0.7 at 15 %). Opposite toe-off is ~12 %."
+  },
+  "double_support_fraction": {
+   "value": 0.234,
+   "ref": "fukuchi2018_wbds",
+   "basis": "derived",
+   "note": "Two double-support periods each = toe-off minus 50 %. Perry & Burnfield ~0.20-0.24."
+  },
+  "stance_fraction": {
+   "value": 0.617,
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean"
+  },
+  "knee_peak_swing_flexion": {
+   "pct": 73.5,
+   "pct_sd": 1.4,
+   "deg": 62.0,
+   "deg_sd": 3.2,
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean",
+   "note": "Per-subject peaks. Older: 63.5 deg at 73.9 %."
+  },
+  "knee_loading_peak_flexion": {
+   "pct": 13,
+   "deg": 14.2,
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean"
+  },
+  "min_toe_clearance": {
+   "mt1_marker_m": 0.0159,
+   "pct": 87.2,
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean",
+   "note": "MT1 marker swing minimum above its stance height, young. Toe-tip MTC literature value: 1.29 cm (variability 0.45 cm) at mid-swing, winter1992 (tabulated, via citing source)."
+  },
+  "phase_boundaries_pct": {
+   "loading_response": [
+    0,
+    12
+   ],
+   "mid_stance": [
+    12,
+    31
+   ],
+   "terminal_stance": [
+    31,
+    50
+   ],
+   "pre_swing": [
+    50,
+    62
+   ],
+   "initial_swing": [
+    62,
+    75
+   ],
+   "mid_swing": [
+    75,
+    87
+   ],
+   "terminal_swing": [
+    87,
+    100
+   ],
+   "ref": "perry_burnfield2010",
+   "basis": "tabulated (secondary)"
+  },
+  "arm_phase": {
+   "note": "Same-side arm is most extended just after same-side heel strike (~6 %) and most flexed at opposite heel strike (~50 %): arms in antiphase with the ipsilateral leg.",
+   "ref": "horst2019",
+   "also": "collins2009",
+   "basis": "dataset mean"
+  }
+ },
+ "spatiotemporal": {
+  "wbds_measured": {
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean (per-subject medians, then group mean +/- SD)",
+   "method": "Zeni events on raw markers; stride = heel-marker displacement HS to HS; step width = lateral heel separation at successive heel strikes; foot progression = heel to MT1/MT5 midpoint vs travel direction at 25-35 % (+ toe-out). speed_lab is the dataset's own speed column; speed_stride = stride/stride-time, ~5 % lower; use speed_stride for self-consistent animation.",
+   "groups": {
+    "young_men_21_37": {
+     "n": 14,
+     "age_years": [
+      28.8,
+      4.7
+     ],
+     "height_m": [
+      1.769,
+      0.088
+     ],
+     "speed_lab_m_s": [
+      1.234,
+      0.153
+     ],
+     "speed_stride_m_s": [
+      1.161,
+      null
+     ],
+     "cadence_steps_min": [
+      105.4,
+      6.7
+     ],
+     "stride_length_m": [
+      1.32,
+      0.124
+     ],
+     "step_length_m": [
+      0.662,
+      0.064
+     ],
+     "step_width_m": [
+      0.095,
+      0.018
+     ],
+     "foot_progression_toe_out_deg": [
+      12.5,
+      3.8
+     ],
+     "stride_over_height": [
+      0.745,
+      0.049
+     ]
+    },
+    "young_women_21_37": {
+     "n": 10,
+     "age_years": [
+      25.9,
+      3.5
+     ],
+     "height_m": [
+      1.629,
+      0.066
+     ],
+     "speed_lab_m_s": [
+      1.252,
+      0.139
+     ],
+     "speed_stride_m_s": [
+      1.178,
+      null
+     ],
+     "cadence_steps_min": [
+      111.5,
+      7.9
+     ],
+     "stride_length_m": [
+      1.266,
+      0.085
+     ],
+     "step_length_m": [
+      0.632,
+      0.043
+     ],
+     "step_width_m": [
+      0.083,
+      0.018
+     ],
+     "foot_progression_toe_out_deg": [
+      9.0,
+      4.6
+     ],
+     "stride_over_height": [
+      0.777,
+      0.045
+     ]
+    },
+    "older_men_50_84": {
+     "n": 10,
+     "age_years": [
+      64.8,
+      9.7
+     ],
+     "height_m": [
+      1.675,
+      0.057
+     ],
+     "speed_lab_m_s": [
+      1.281,
+      0.195
+     ],
+     "speed_stride_m_s": [
+      1.207,
+      null
+     ],
+     "cadence_steps_min": [
+      110.3,
+      9.1
+     ],
+     "stride_length_m": [
+      1.311,
+      0.138
+     ],
+     "step_length_m": [
+      0.66,
+      0.071
+     ],
+     "step_width_m": [
+      0.073,
+      0.022
+     ],
+     "foot_progression_toe_out_deg": [
+      13.4,
+      2.9
+     ],
+     "stride_over_height": [
+      0.781,
+      0.06
+     ]
+    },
+    "older_women_50_84": {
+     "n": 8,
+     "age_years": [
+      60.1,
+      4.4
+     ],
+     "height_m": [
+      1.548,
+      0.087
+     ],
+     "speed_lab_m_s": [
+      1.248,
+      0.189
+     ],
+     "speed_stride_m_s": [
+      1.168,
+      null
+     ],
+     "cadence_steps_min": [
+      116.2,
+      11.7
+     ],
+     "stride_length_m": [
+      1.206,
+      0.144
+     ],
+     "step_length_m": [
+      0.608,
+      0.07
+     ],
+     "step_width_m": [
+      0.075,
+      0.025
+     ],
+     "foot_progression_toe_out_deg": [
+      10.5,
+      4.6
+     ],
+     "stride_over_height": [
+      0.779,
+      0.074
+     ]
+    },
+    "all_55_65": {
+     "n": 12,
+     "age_years": [
+      59.6,
+      3.3
+     ],
+     "height_m": [
+      1.613,
+      0.097
+     ],
+     "speed_lab_m_s": [
+      1.253,
+      0.186
+     ],
+     "speed_stride_m_s": [
+      1.175,
+      null
+     ],
+     "cadence_steps_min": [
+      110.9,
+      11.2
+     ],
+     "stride_length_m": [
+      1.272,
+      0.157
+     ],
+     "step_length_m": [
+      0.641,
+      0.077
+     ],
+     "step_width_m": [
+      0.074,
+      0.022
+     ],
+     "foot_progression_toe_out_deg": [
+      11.7,
+      4.4
+     ],
+     "stride_over_height": [
+      0.787,
+      0.068
+     ]
+    }
+   },
+   "caveat": "Older WBDS volunteers were healthy and active and walked as fast as the young; they are not a typical 1900s 60-year-old."
+  },
+  "oberg1993_normal_speed": {
+   "ref": "oberg1993",
+   "basis": "tabulated",
+   "n_per_cell": 15,
+   "men": {
+    "20-29": {
+     "speed_m_s": 1.227,
+     "step_length_m": 0.616,
+     "cadence_steps_min": 118.8
+    },
+    "40-49": {
+     "speed_m_s": 1.328,
+     "step_length_m": 0.647,
+     "cadence_steps_min": 120.6
+    },
+    "60-69": {
+     "speed_m_s": 1.277,
+     "step_length_m": 0.65,
+     "cadence_steps_min": 117.0
+    }
+   },
+   "women": {
+    "20-29": {
+     "speed_m_s": 1.241,
+     "step_length_m": 0.591,
+     "cadence_steps_min": 124.8
+    },
+    "40-49": {
+     "speed_m_s": 1.247,
+     "step_length_m": 0.571,
+     "cadence_steps_min": 129.6
+    },
+    "60-69": {
+     "speed_m_s": 1.157,
+     "step_length_m": 0.553,
+     "cadence_steps_min": 123.6
+    }
+   },
+   "note": "Cadence = tabulated step frequency (steps/s) x 60. SDs: speed 0.10-0.17 m/s, step 0.035-0.063 m."
+  },
+  "bohannon_andrews2011_speed_m_s": {
+   "ref": "bohannon_andrews2011",
+   "basis": "tabulated (secondary handout)",
+   "men": {
+    "20-29": 1.36,
+    "30-39": 1.43,
+    "40-49": 1.43,
+    "50-59": 1.43,
+    "60-69": 1.34,
+    "70-79": 1.26
+   },
+   "women": {
+    "20-29": 1.34,
+    "30-39": 1.34,
+    "40-49": 1.39,
+    "50-59": 1.31,
+    "60-69": 1.24,
+    "70-79": 1.13
+   }
+  },
+  "horst_young_measured": {
+   "ref": "horst2019",
+   "basis": "dataset mean",
+   "speed_m_s": [
+    1.445,
+    0.107
+   ],
+   "cadence_steps_min": 114.9,
+   "women": {
+    "speed_m_s": 1.491,
+    "cadence": 119.2
+   },
+   "men": {
+    "speed_m_s": 1.397,
+    "cadence": 110.4
+   },
+   "note": "Speed from sacrum displacement over the capture volume; German sport-science students, faster than population norms."
+  },
+  "step_width_m": {
+   "value": 0.095,
+   "women": 0.083,
+   "older": 0.074,
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean",
+   "note": "Heel-marker lateral separation."
+  },
+  "foot_progression_toe_out_deg": {
+   "value": 11.5,
+   "sd": 4.2,
+   "ref": "fukuchi2018_wbds",
+   "basis": "dataset mean",
+   "note": "All 42 subjects; heel->forefoot-midpoint marker axis, so includes marker-placement offset; young women 9.0, young men 12.5."
+  },
+  "speed_relations": {
+   "ref": "fukuchi2018_wbds",
+   "basis": "regression on dataset (42 subjects x slow/comfortable/fast overground, 126 points, 0.59-1.82 m/s)",
+   "stride_over_height_linear": {
+    "formula": "stride_m / height_m = a + b * v",
+    "a": 0.3852,
+    "b": 0.3267,
+    "r": 0.947
+   },
+   "froude_power_law": {
+    "formula": "stride_m / leg_m = C * (v / sqrt(9.81 * leg_m))^k  (leg = ASIS to medial malleolus, ~0.53 x height)",
+    "C": 2.3052,
+    "k": 0.4707,
+    "r": 0.946
+   },
+   "cadence_linear": {
+    "formula": "cadence_steps_min = a + b * (v / height_m)",
+    "a": 51.37,
+    "b": 80.7,
+    "r": 0.945
+   },
+   "alexander1976": {
+    "formula": "stride / h = 2.3 * (v^2 / (9.81 * h))^0.3, h = hip height",
+    "ref": "alexander1976",
+    "basis": "tabulated (secondary)"
+   },
+   "use": "Given speed v and figure height H: stride = H * (a + b v); cadence = 120 v / stride. Check: H = 1.70 m, v = 1.25 m/s -> stride ~1.35 m, cadence ~111 steps/min."
+  }
+ },
+ "modifiers": {
+  "legend": "measured = numbers from a study or dataset; period_advice = what period books told people to do (evidence of an ideal, not of behaviour); inference = our reasoning for the animation, NOT evidence; record any use in docs/LIBERTIES.md as reconstructed.",
+  "women_long_skirts_corsets_1890_1910": {
+   "measured": [
+    {
+     "ref": "nakahara2008",
+     "finding": "Modern lumbar corset (6 young women): no significant change in stride length, step frequency or speed; trunk held more extended."
+    },
+    {
+     "ref": "vancriekinge2018",
+     "finding": "Rigid thoraco-lumbo-sacral orthosis (14 adults): speed unchanged (1.219 vs 1.237 m/s), cadence +5 % (107.9 -> 113.3 steps/min), normalised stride -2 % (ns), pelvic ROM down in all planes, transverse about -29 %; thorax ROM changed only in the sagittal plane."
+    },
+    {
+     "ref": "trunkstiff2014",
+     "finding": "Brace-stiffened trunk: smaller thorax-relative-to-pelvis rotation and more in-phase thorax-pelvis coupling (no numbers in abstract)."
+    },
+    {
+     "ref": "chiba1991",
+     "finding": "Long flared skirts swing periodically and largely independently of the legs (for the skirt layer, not the gait)."
+    },
+    {
+     "ref": "park1992",
+     "finding": "Long tight skirts restrict movement more than short ones; step-length values not available to us."
+    }
+   ],
+   "not_found": "No motion-capture study of gait in a period (1890-1910) steel-boned corset with a floor-length skirt was found. All period-dress numbers below are inference.",
+   "period_advice": [
+    {
+     "ref": "hill1887",
+     "quote": "Ladies should avoid walking rapidly upon the street, as it is ungraceful and unbecoming."
+    },
+    {
+     "ref": "hill1887",
+     "quote": "Swinging the arms when walking ... [is among the] evidences of ill-breeding in ladies."
+    },
+    {
+     "ref": "hill1887",
+     "quote": "Allowing a dress to trail on the street is in exceedingly bad taste."
+    },
+    {
+     "ref": "hall1902",
+     "quote": "... tight corsets ... tight, high-heeled shoes, will walk about as gracefully as a swan on a turnpike-road."
+    },
+    {
+     "ref": "macfadden1901",
+     "quote": "Galbraith: the weight and length of skirts cause an \"artificial shortening of the step\" plus \"resisting friction of the skirts\"."
+    }
+   ],
+   "inference": {
+    "speed_scale": 0.92,
+    "step_length_scale": 0.92,
+    "cadence": "keep the modern female cadence (do not raise it); speed falls with step length",
+    "arm_swing_scale": 0.4,
+    "elbow_flexion_offset_deg": 10,
+    "pelvis_rotation_scale": 0.7,
+    "thorax_minus_pelvis_scale": 0.6,
+    "trunk_lean_deg": 1.0,
+    "why": "Step: Galbraith/Macfadden name a shorter step, Hill advises against walking fast; 0.92 is a guess within one SD of Oberg female step length. Arms: Hill calls arm-swinging ill-bred, and hands were often holding skirt, bag or parasol, so a small swing with more bent elbows. Pelvis: the -29 % transverse pelvic ROM under a rigid trunk brace (vancriekinge2018) stands in for a boned corset; thorax-pelvis counter-rotation reduced (trunkstiff2014). Trunk: upright, near 1 deg lean rather than the modern 3-4 deg (nakahara2008 found a more extended trunk). These are reconstruction choices, not measurements."
+   }
+  },
+  "older_adults_55_65": {
+   "measured": [
+    {
+     "ref": "fukuchi2018_wbds",
+     "finding": "Healthy, active older group (50-84 y, mean 62.7) against young (21-37 y): same comfortable speed (1.27 vs 1.24 m/s), cadence +5 (113 vs 108 steps/min), knee 3 deg more flexed at heel strike (2.6 vs -0.4), plantarflexion peak at push-off 9.8 vs 13.3 deg, pelvic rotation ROM 11.6 vs 13.8 deg (-16 %), obliquity ROM 9.8 vs 11.3 deg, step width 7.4 vs 9.0 cm, lateral pelvis sway 3.2 vs 3.7 cm."
+    },
+    {
+     "ref": "oberg1993",
+     "finding": "Women 60-69 against 20-29: speed 1.157 vs 1.241 m/s (-7 %), step 0.553 vs 0.591 m (-6 %). Men 60-69: speed 1.277 vs 1.227 m/s, step 0.650 vs 0.616 m (no decline in this sample)."
+    },
+    {
+     "ref": "bohannon_andrews2011",
+     "finding": "Normal speed 60-69 against 40-49: men 1.34 vs 1.43 m/s (-6 %), women 1.24 vs 1.39 m/s (-11 %)."
+    },
+    {
+     "ref": "mirelman2015",
+     "finding": "Arm-swing amplitude falls with age (p = 0.04); values in a table image, not extracted."
+    }
+   ],
+   "inference": {
+    "speed_scale": 0.92,
+    "step_length_scale": 0.94,
+    "arm_swing_scale": 0.8,
+    "knee_flexion_heel_strike_offset_deg": 3,
+    "plantarflexion_pushoff_scale": 0.75,
+    "pelvis_rotation_scale": 0.85,
+    "why": "Speed/step from Bohannon & Andrews and Oberg; ankle, knee and pelvis scales from the WBDS older-young ratios; arm swing 0.8 is a guess, because Mirelman reports a decline but we have no number. A labouring 1900s 60-year-old was probably slower than these screened volunteers; that is not sourced."
+   }
+  },
+  "men_1900s_street_dress": {
+   "measured": [],
+   "not_found": "No study of walking in 1900s men's dress (wool three-piece suit, leather heeled boots, hat) was found.",
+   "period_advice": [
+    {
+     "ref": "hill1887",
+     "quote": "Upon the narrow walk, for her protection, the gentleman should generally give the lady the inside of the walk"
+    }
+   ],
+   "inference": {
+    "speed_scale": 1.0,
+    "step_length_scale": 1.0,
+    "arm_swing_scale": 0.85,
+    "why": "Shod adult men in boots walk much like today's shod men; we keep modern male norms. The 0.85 arm swing stands for coats, a cane, umbrella or parcel, or hands in pockets, and is a guess. The Chicago 1897 Edison film (README) is the way to check this."
+   }
+  }
+ }
+}

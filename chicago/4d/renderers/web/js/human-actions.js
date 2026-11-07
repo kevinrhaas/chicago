@@ -14,8 +14,10 @@
  *     on the hips, hands clasped behind the back, or just hanging;
  *   - a visitor who comes up in front is greeted with a hand to the brow (the working
  *     man's touch of the hat brim or forelock) and a small nod;
- *   - walking, the arms swing opposite to the legs, read from where the feet are, so the
- *     swing follows any walk clip's stride and stops when the feet stop.
+ *   - walking, the arms swing opposite to the legs. With the gait layer (human-gait.js,
+ *     passed in as `gait`) the swing is driven from its phase and speed, no lag (see
+ *     ARM_SWING below); without it, read from where the feet are, so the swing follows
+ *     any walk clip's stride and stops when the feet stop.
  *
  * Hand placements are solved by two-bone IK in the figure's own frame, from landmarks
  * read off the body (the hips, the small of the back, the brow), so they fit any body
@@ -49,6 +51,29 @@ export const HAND_POSES = Object.freeze(['rest', 'hips', 'behind', 'clasp']);
 // both the hand sinks into the skirt's bell. She stands with them clasped in front at the
 // waist, over the apron, or held at the waist behind.
 export const SKIRT_POSES = Object.freeze(['clasp', 'behind']);
+
+/**
+ * The arm swing on the gait layer's walk. Each arm swings with the opposite leg, a pendulum
+ * driven a little from the shoulder (Collins, Adamczyk & Kuo 2009; Meyns, Bruijn & Duysens
+ * 2013), so the shoulder's flexion peaks just after the other foot's heel strike (`lag`, a
+ * fraction of the cycle: the arm trails the leg a little). At an ordinary 1.2-1.3 m/s the
+ * upper arm swings about +/-11 deg about a mean held a little back (`mean`), some 22 deg
+ * in all, and the elbow bends from about 15 deg at the back of the swing to about 33 at
+ * the front, the forearm a touch ahead of the upper arm (`elbowLead`), so the hand goes
+ * further forward than back (the sagittal shoulder and elbow rotations Murray, Sepic &
+ * Barnard 1967 measured; the numbers here are reconstructed inside them). The swing grows
+ * with speed (`nominal_m_s` gives the amplitudes above), the hand relaxed, its path a
+ * little inward in front of the thigh (`inward`, radians of adduction per radian of
+ * flexion). A woman in a full skirt swings about half as far (a lady's arm-swinging was
+ * "ill-breeding" to Hill's Manual, Chicago 1887; data/humans/gait/README.md) and carries the arm out over
+ * the skirt's bell, a little outward as it comes forward, never in toward it.
+ */
+export const ARM_SWING = Object.freeze({
+  nominal_m_s: 1.25, shoulder_deg: 11, mean_deg: -2, lag: 0.05,
+  elbowBack_deg: 16, elbowFront_deg: 33, elbowLead: 0.03, wrist_deg: 6, curl: 0.3,
+  inward: 0.25, skirt: { scale: 0.5, inward: -0.2 },
+});
+const fin = (x, d = 0) => (Number.isFinite(x) ? x : d);
 
 export function createHumanActions({ id = 'human', scene = null, greeting = 'brow', skirt = false, carry = null } = {}) {
   const rand = seededRandom(`actions:${id}`);
@@ -204,6 +229,9 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
   let pose = skirt ? 'clasp' : 'rest', poseW = 1, prevPose = pose, poseHold = between(6, 14);
   let greet = -1, greetCool = 0, nodRequest = 0;
   const swing = { l: 0, r: 0 };
+  const gaitArm = { l: 0, r: 0 }; // the gait-driven shoulder swing now, radians, forward +
+  const upDir = new THREE.Vector3(), foreDir = new THREE.Vector3(), bend = new THREE.Vector3();
+  const wdir = new THREE.Vector3(), handDir = new THREE.Vector3(), palmDir = new THREE.Vector3();
   let lastState = null;
 
   function choosePose() {
@@ -249,7 +277,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
     greet() { if (greeting === 'nod') { nodRequest = 1; return api; } if (greet < 0) { greet = 0; nodRequest = 1; } return api; },
     /** One-shot: true once after a greeting starts, for the life layer to nod. */
     takeNod() { const n = nodRequest; nodRequest = 0; return n > 0; },
-    apply(dt, { state = 'standing', root: r = null, viewer = null } = {}) {
+    apply(dt, { state = 'standing', root: r = null, viewer = null, gait = null } = {}) {
       if (!bound) return;
       root = r;
       dt = Number.isFinite(dt) && dt > 0 ? Math.min(dt, 0.1) : 0;
@@ -280,20 +308,26 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
       }
 
       // Walking: each arm swings opposite its own side's leg, as far as the stride is long.
+      // Read from the feet when there is no gait layer; with one, this fades out as the
+      // gait's own swing (below) fades in.
+      const gw = gait ? clamp(fin(gait.weight), 0, 1) : 0;
       if (walking) {
+        const keep = gait ? 1 - gw : 1;
         const fL = bones.foot_l.getWorldPosition(new THREE.Vector3()), fR = bones.foot_r.getWorldPosition(new THREE.Vector3());
         const d = fL.sub(fR).dot(toWorldDir(fig.fwd)); // + when the left foot leads (last frame's pose)
         for (const s of SIDES) {
           if (s === hold?.side) { swing[s] = 0; continue; }
           const target = clamp((s === 'l' ? -d : d) * 0.6, -0.3, 0.3); // radians of swing, forward +
           swing[s] += (target - swing[s]) * (1 - Math.exp(-14 * dt));
-          const fwdSwing = Math.max(0, swing[s]);
+          const amt = swing[s] * keep;
+          if (keep === 0) continue;
+          const fwdSwing = Math.max(0, amt);
           const up = bones[`upperarm_${s}`];
           up.parent.updateWorldMatrix(true, false);
           const axis = toWorldDir(fig.left).multiplyScalar(-1); // about the figure's right: + swings a hanging arm forward
           const pq = up.parent.getWorldQuaternion(new THREE.Quaternion());
           const wq = pq.clone().multiply(up.quaternion);
-          wq.premultiply(new THREE.Quaternion().setFromAxisAngle(axis, swing[s]));
+          wq.premultiply(new THREE.Quaternion().setFromAxisAngle(axis, amt));
           up.quaternion.copy(pq.invert().multiply(wq));
           up.updateMatrixWorld(true);
           // The elbow bends more as the arm comes forward, and the forearm swings past it.
@@ -303,6 +337,47 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
           lo.quaternion.copy(lq.invert().multiply(lw));
         }
       } else { swing.l = 0; swing.r = 0; }
+      // The gait layer's walk: the swing from its phase (ARM_SWING above), blended by its
+      // weight. Each arm is aimed outright in the figure's frame, the upper arm, then the
+      // forearm from the elbow, then the hand along it, so the swing does not depend on
+      // what the clip did with the arm.
+      if (gait && gw > 1e-4) {
+        const A = ARM_SWING, phase = fin(gait.phase), sk = skirt ? A.skirt.scale : 1;
+        const f = clamp(fin(gait.speed, A.nominal_m_s) / A.nominal_m_s, 0.3, 1.5) * sk;
+        const abd = skirt ? 0.16 : 0.075, carry = skirt ? 0.12 : 0.03, inK = skirt ? A.skirt.inward : A.inward;
+        for (const s of SIDES) {
+          if (s === hold?.side) { gaitArm[s] = 0; continue; } // T-3481: the carrying arm is held, not swung
+          const sx = s === 'l' ? 1 : -1;
+          // The left arm comes forward with the right leg, whose heel strikes at phase 0.5.
+          const peak = (s === 'l' ? 0.5 : 0) + A.lag;
+          const th = (A.mean_deg + A.shoulder_deg * f * Math.cos(2 * Math.PI * (phase - peak))) * DEG;
+          const front = 0.5 + 0.5 * Math.cos(2 * Math.PI * (phase - peak + A.elbowLead)); // 0 back .. 1 front
+          const elbow = (A.elbowBack_deg + (A.elbowFront_deg - A.elbowBack_deg) * f * front) * DEG;
+          gaitArm[s] = th;
+          // The upper arm: down, swung about the figure's right, a little out from the side
+          // (in a skirt, out over the bell), and in toward the front of the thigh as it comes forward.
+          upDir.copy(fig.up).multiplyScalar(-Math.cos(th)).addScaledVector(fig.fwd, Math.sin(th))
+            .addScaledVector(fig.left, sx * (abd - inK * Math.max(0, th))).normalize();
+          // The elbow bends about the figure's right, square to the upper arm.
+          bend.copy(fig.left).negate().addScaledVector(upDir, upDir.dot(fig.left)).normalize();
+          foreDir.copy(upDir).applyAxisAngle(bend, elbow).addScaledVector(fig.left, sx * carry).normalize();
+          aim(`upperarm_${s}`, wdir.copy(upDir).applyQuaternion(sceneQ), gw);
+          bones[`upperarm_${s}`].updateMatrixWorld(true);
+          aim(`lowerarm_${s}`, wdir.copy(foreDir).applyQuaternion(sceneQ), gw);
+          bones[`lowerarm_${s}`].updateMatrixWorld(true);
+          // The hand hangs on from the forearm, the wrist a touch flexed, palm to the thigh.
+          handDir.copy(foreDir).applyAxisAngle(bend, A.wrist_deg * DEG).applyQuaternion(sceneQ);
+          palmDir.copy(fig.left).multiplyScalar(-sx).addScaledVector(fig.fwd, -0.25).applyQuaternion(sceneQ);
+          orientHand(s, handDir, palmDir, gw);
+          // Fingers loosely closed and the thumb in along the index, as a walking hand is
+          // carried (the clip holds them open, which reads as a hand held out).
+          curl(s, A.curl * gw);
+          for (const [seg, k] of [['01', 0.35], ['02', 0.5]]) {
+            const b = bones[`thumb_${seg}_${s}`];
+            if (b) b.quaternion.multiply(qa.setFromAxisAngle(new THREE.Vector3(1, 0, 0), local[`curl_${s}`] * k * A.curl * gw * 60 * DEG));
+          }
+        }
+      } else { gaitArm.l = 0; gaitArm.r = 0; }
 
       // Standing: what the hands are doing.
       if (standing) {
@@ -358,7 +433,8 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
       settle();
     },
     snapshot() {
-      return { pose, blend: +poseW.toFixed(3), greeting: greet >= 0, carrying: hold?.side ?? null, swing_l_deg: +(swing.l / DEG).toFixed(2), swing_r_deg: +(swing.r / DEG).toFixed(2) };
+      return { pose, blend: +poseW.toFixed(3), greeting: greet >= 0, carrying: hold?.side ?? null, swing_l_deg: +(swing.l / DEG).toFixed(2), swing_r_deg: +(swing.r / DEG).toFixed(2),
+        gait_l_deg: +(gaitArm.l / DEG).toFixed(2), gait_r_deg: +(gaitArm.r / DEG).toFixed(2) };
     },
   };
   if (scene && !bind(scene)) return null;
