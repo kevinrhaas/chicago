@@ -1502,6 +1502,13 @@ step "a K01 shaped gable takes a carved crest and a door's pilasters take pinnac
 step "a K08 oriel takes a carved apron band of rosettes under its lights (T-3365)" \
   python3 tools/test_k08_apron_band.py
 
+# T-3365. The moulded hoods of a K01 named-window front's lights (2009 Prairie, the Chicagology
+# photograph): a drip band with label stops and a carved pendant over the paired light, standing
+# proud of the shaped gable's slab; consoles under the oriel; a splayed key in place of the small
+# light's lintel. Held on the committed record; each part refused out of its range.
+step "a K01 named-window front takes moulded hoods, consoles, a key and a pendant (T-3365)" \
+  python3 tools/test_k01_window_hoods.py
+
 # T-3255. Eared and crested stone hoods over a K01 wall's round-headed lights, and the main
 # block's corner pilasters (k01_dressings), held on 1701 Prairie's record: every round light on
 # the named walls hooded and no other, a pair meeting ear to ear, every crest under the eave,

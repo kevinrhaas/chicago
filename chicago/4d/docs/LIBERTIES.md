@@ -41455,6 +41455,35 @@ check the crest and the pinnacles from a second picture.
 **Ticket:** T-3365 (piece 2 of T-1914).
 **Recorded:** 2026-11-06 (T-3365).
 
+### L-k01-2009-meyer-hoods-3365 — 2009 Prairie's window hoods, the consoles under its oriel and the carved pendant in its gable, read off its photograph
+
+**Decision:** Read off the undated Chicagology photograph (`chicagology_2009_prairie_meyer_photo`, rights
+check_required: forms, places and sizes only) at 2-4x with its contrast stretched, at 100 px a metre on the
+front's plane, each part measured against its own light's head (the print leans about 0.07 across the paired
+light), the plain lintels give way to the print's hoods (`street_front_windows.hoods`, K01's
+`k01.wall.window_hood`): over the third storey's paired light a stone drip mould from s 2.47 to 5.57 m, stone
+from the light's head (11.45 m) to 11.85 m, its ends turned down to 11.3 m as label stops 0.18 m wide, and off
+its crown a carved pendant climbing to 12.96 m — a stem under two pairs of arms (0.62 m across at 12.18-12.32 m,
+0.48 m at 12.52-12.62 m) and a bud 0.26 m across; under the oriel either side of the ground window two consoles
+(centres 1.54 and 4.31 m) from 4.2 m up into the corbel, 0.12 m across at the foot widening to 0.22 m; over the
+small light a splayed block 0.40 m across at its foot and 0.51 m at its top, 7.35-7.73 m, standing for the
+surround's lintel course. The street gutter that ran across the gable's foot is taken off
+(`shaped_gable.takes_gutter`, as 1812's): the print's front runs up into its gable with none across it.
+**What is read, not invented.** Every part's place, width and height; the stops' drop; the pendant's tiers;
+that the consoles widen upward; that the small light's block is splayed; that no gutter crosses the front.
+**What is invented.** Every part's depth (the camera is square to the front): the mould 0.08 m proud of the
+gable's slab (0.2 m out of the wall, the slab standing 0.12 m out from 11.5 m up), the pendant 0.1 m, the
+consoles 0.15 m, the block 0.03 m; the carving itself — the pendant's foliage drawn as stepped square blocks
+and the hood's ogee rise into it as a short wider block, the consoles' scrolls as plain tapered blocks.
+**What is built otherwise than the evidence, and why.** The consoles stop under the build's oriel corbel at
+4.72 m, about 0.4 m short of the print's (about 5.1 m), whose corbel is shallower; the corbel is
+L-k01-2009-meyer-1913's.
+**What is not built.** The near stack's place and corbelled cap and the gable's south foot are still as
+L-k01-2009-meyer-1913 left them.
+**How to resolve:** a camera solved on Monroe's 1896 plate (`monroe_1896_john_wellborn_root_meyer_plate`) would
+check the hoods from a second picture and might read their projection.
+**Ticket:** T-3365 (piece 2 of T-1914).
+**Recorded:** 2026-11-07 (T-3365).
 ### L-k01-1816-henderson-1886 — 1816 Prairie's brick stood on a pale stone basement round its front, bays and south flank, and its two crowns slated as the house with a dormer in each, read off its photograph
 
 **Decision:** 1816 Prairie's photograph (`chicagology_1816_henderson_photo`) shows the house's brick on a
