@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_16554_from_south",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "4fdacdfa3af6182c21fbe8726defe6c3d271465e6c05346efa3ce90a542abde8",
+  "glb_sha256": "d9d4b45c8ab5da47cc304d1945f2ee3c1865d1f2f9b261fcd3190704d86304b7",
   "camera_sha256": "568a603acd37c9549b21b76a5f24b692670a1c74a4abc57c3eaf1aaa48334598",
   "photo_sha256": "f1099e538ca42a2bf75bc3db892a8e73c172c22f866862b71fa38c27c464dbfa",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "4fdacdfa3af6182c21fbe8726defe6c3d271465e6c05346efa3ce90a542abde8"
+      "glb_sha256": "d9d4b45c8ab5da47cc304d1945f2ee3c1865d1f2f9b261fcd3190704d86304b7"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "33753cacaa38e5035e8d72e0f568c4efa6c9770272b67ef2f03738313beeb916"
     }
   ],
-  "group_sha256": "1ed1db05ac5cddb0864c3a533689ab16c449cf3f46c4083e73d9b4b3f8923c0e",
+  "group_sha256": "a78a478ff5e09bafd1a3213344cbb2e73136c111894887327738739f740bffbd",
   "rendered_flora": {
     "season": "winter",
     "lots": [
@@ -189,7 +189,7 @@
       "status": "within tolerance"
     },
     {
-      "what": "a stack rising behind the house's rear face, between its two dormers (x 512-523 px, its cap at about y 317, about 4 px over the cresting), which the build did not stand (seen first in the conservatory's record of this picture) [T-1881, 2026-11-07: placed through the Detroit print det 4a08066, whose camera is fitted on the rear face's corners and dormers: the stack now stands on the deck at v 4.6, between the rear step's two dormers (v 8.04 and 3.44), where T-1934 had set it at v 10.0 against this print's dormers. Through this camera, which draws the rear about 20-30 px right of the print's, it renders at x about 528-538 over the step's south dormer against the print's 512-523: the camera's offset, not the stack's place]",
+      "what": "a stack rising behind the house's rear face, between its two dormers (x 512-523 px, its cap at about y 317, about 4 px over the cresting), which the build did not stand (seen first in the conservatory's record of this picture) [T-1881, 2026-11-07: placed through the Detroit print det 4a08066, whose camera is fitted on the rear face's corners and dormers: the stack now stands on the deck at v 4.6, between the rear step's two dormers (v 8.04 and 3.44), where T-1934 had set it at v 10.0 against this print's dormers. Through this camera, which draws the rear about 20-30 px right of the print's, it renders at x about 528-538 over the step's south dormer against the print's 512-523: the camera's offset, not the stack's place] [T-1881, 2026-11-07: the stack now stands on the rear step's cornice, carried up its mansard face at v 5.9 as the Detroit print det 4a08066 draws it; through this camera it renders between the step's two dormers at x 549-568 against the dormers at 541 and 575, half way, where the print draws it a third of the way (v about 6.7 on the face): the two pictures disagree by about 0.8 m along the face, and the Detroit camera, fitted on the rear, is taken; within tolerance under T-3153]",
       "status": "fixed",
       "how": "T-1934 (2026-11-03): built as the house's fourth stack (chimneys.stacks[3], u 1.4, v 10.0, top 18.4 m), placed against the rear face's dormers since this camera is not fitted on the house's rear: it now renders between the first and second rear dormers, about a fifth to a third of the way (x 486-494 against the dormers' 476 and 540), where the print sets it 0.35 of the way (512-523 against 500 and 543); the whole rear renders about 25 px left of the print's through this camera, as the house's other items here say. L-pullman-1729-rear-stack-1934"
     },

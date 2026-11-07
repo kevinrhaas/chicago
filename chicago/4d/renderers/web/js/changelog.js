@@ -1,4 +1,20 @@
 export const CHANGELOG = [ // newest first
+  { v: 2778, ts: '2026-11-07T15:08:16.379Z', date: 'Nov 7, 2026, 9:08 AM CT', title: 'Pullman house: the rear chimney climbs the back wing\'s roof', kind: 'improvement',
+    items: [
+      'The chimney between the Pullman house\'s two rear dormers now stands on the back wing\'s cornice and rises up the face of its slate roof, as the c. 1900 Detroit Publishing photograph from 18th Street shows it, instead of standing on the flat roof behind.',
+    ] },
+  { v: 2777, ts: '2026-11-07T15:03:56.857Z', date: 'Nov 7, 2026, 9:03 AM CT', title: 'People\'s pictures load once', kind: 'change',
+    items: [
+      'Every person shares the same hair, skin and eye pictures. Each now downloads once, not once per person.',
+      'Each picture is also decoded once on your device, however many people wear it, so more people fit in a phone\'s memory.',
+    ] },
+  { v: 2776, ts: '2026-11-07T15:03:56.857Z', date: 'Nov 7, 2026, 9:03 AM CT', title: 'Five more people in town: the Glessners, Peck, Mahoney and a soldier', kind: 'feature',
+    items: [
+      'In 1904, Frances Glessner stands in her courtyard, and the house maid Mary Reynolds waits at the great arch on Eighteenth Street, the house\'s service door.',
+      'In 1835, the merchant Philip Peck stands before his store at South Water and LaSalle, and the labourer Patrick Mahoney on the river bank across the street, by the landing.',
+      'In 1812, a private of Captain Heald\'s company stands at ease on Fort Dearborn\'s parade. He is anonymous: no soldier of the company has a record here.',
+      'Tap any of them to open their card. Where each stands is a marked reconstruction (liberty L418); nothing of 14 August 1812 is acted out.',
+    ] },
   { v: 2775, ts: '2026-11-07T13:11:26.003Z', date: 'Nov 7, 2026, 7:11 AM CT', title: 'Ivy closes over the arch of Pullman\'s carriage porch', kind: 'improvement',
     items: [
       'At 1729 Prairie, the ivy on the 18th Street carriage porch\'s east piers now runs up over the arch between them to the cornice, as the c. 1900 Detroit photograph shows. The opening itself stays clear.',

@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08066",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "4fdacdfa3af6182c21fbe8726defe6c3d271465e6c05346efa3ce90a542abde8",
+  "glb_sha256": "d9d4b45c8ab5da47cc304d1945f2ee3c1865d1f2f9b261fcd3190704d86304b7",
   "camera_sha256": "2782cfb7522dcbce06430cb36da1cc7ca371344a01271c28449ffb8942619cd9",
   "photo_sha256": "297e4d7b05312c70ddea6e5dbb24a74cffd0db743f3bb9cdcbb1f4c0edc5f4fb",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "4fdacdfa3af6182c21fbe8726defe6c3d271465e6c05346efa3ce90a542abde8"
+      "glb_sha256": "d9d4b45c8ab5da47cc304d1945f2ee3c1865d1f2f9b261fcd3190704d86304b7"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "33753cacaa38e5035e8d72e0f568c4efa6c9770272b67ef2f03738313beeb916"
     }
   ],
-  "group_sha256": "1ed1db05ac5cddb0864c3a533689ab16c449cf3f46c4083e73d9b4b3f8923c0e",
+  "group_sha256": "a78a478ff5e09bafd1a3213344cbb2e73136c111894887327738739f740bffbd",
   "rendered_flora": {
     "season": "winter",
     "creeper_in_leaf": true,
@@ -160,7 +160,7 @@
       "status": "fixed"
     },
     {
-      "what": "a capped stone stack between the step's two dormers (x 495-506, its cap at y 295), where the build stood the deck's stack at v 10.0 (x about 459 through this camera, over the south section's dormer) [T-1881, 2026-11-07: moved to v 4.6, 1.4 m behind the face, between the dormers at v 8.04 and 3.44; a tree in the render's foreground covers it through this camera]",
+      "what": "a capped stone stack between the step's two dormers (x 495-506, its cap at y 295), where the build stood the deck's stack at v 10.0 (x about 459 through this camera, over the south section's dormer) [T-1881, 2026-11-07: moved to v 4.6, 1.4 m behind the face, between the dormers at v 8.04 and 3.44; a tree in the render's foreground covers it through this camera] [T-1881, 2026-11-07: no longer on the deck; on the step's cornice at v 5.9, the item below]",
       "status": "fixed"
     },
     {
@@ -169,7 +169,8 @@
     },
     {
       "what": "the step's stack is carried up the mansard's face from the cornice (x 495-508, y 295-365), in front of the slope, where the build stands it on the deck 1.4 m behind the face: the K15 kit stands a cornice stack only on a side wall, so carrying it on the rear face needs a kit change",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-1881 (2026-11-07): the stack now stands on the rear step's cornice and is carried up the step's mansard face in front of the slope (a new K01 chimney key, on_step: its outer face 0.47 m past the step's face, inside the cornice, as the flank's cornice stack stands; its foot buried in the step's roof, a tail joining it to the house's). Placed at v 5.9, read against the step's two dormers (the print's stack centre x 500.5 lies 0.47 of the way from the south dormer at x 480 to the north at 524, which on the face is v 5.88); 1.1 m along the face and 0.8 m deep, the flank stack's plan, with its cap. It renders at x 498-511 between the dormers at x 488 and 522; its top, 18.0 m, puts its cap just over the cresting behind it as the print draws it (this camera reads the whole deck about 20 px low here, the disagreement the stack's liberty records). L-pullman-1729-rear-stack-1934."
     },
     {
       "what": "the deck's cresting and its finials over the south-east corner, the cresting's top at y 293 (the render's 296)",
