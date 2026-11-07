@@ -652,6 +652,19 @@ for sheet in assets/textures/camp_1812_pbr/*/material.json; do
         "$SITE/data/$rel/"
 done
 
+# The yard woodpiles' wood (T-3474): one atlas of six cells yard.js binds on the woodpile
+# mesh, the same six web files and its material.json, under the same data/ rename.
+for sheet in assets/textures/yard_wood_pbr/*/material.json; do
+  [ -f "$sheet" ] || continue
+  src="$(dirname "$sheet")"
+  rel="${src#assets/}"
+  id="$(basename "$src")"
+  mkdir -p "$SITE/data/$rel"
+  cp -f "$sheet" "$src/${id}_basecolor_web.jpg" "$src/${id}_normal_gl_web.jpg" "$src/${id}_orm_web.jpg" \
+        "$src/${id}_basecolor.ktx2" "$src/${id}_normal_gl.ktx2" "$src/${id}_orm.ktx2" \
+        "$SITE/data/$rel/"
+done
+
 # The 1904 lakefront railway (T-2478): the traced tracks and the spec they carry,
 # drawn by renderers/web/js/railway.js, and its maps — the same three web files
 # per surface as the street library above, plus the grass tuft's one alpha card.
