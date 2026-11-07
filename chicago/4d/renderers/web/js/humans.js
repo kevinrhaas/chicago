@@ -237,6 +237,8 @@ export class HumanActor {
     // T-3442: a one-way walk (walkPath), and the height it last stood the figure at.
     this.path = null;
     this.standY = null;
+    // T-3443: gone indoors (house-errands.js): not drawn, not picked, met by nobody.
+    this.indoors = false;
     this.place();
   }
 
@@ -534,6 +536,25 @@ export class HumanActor {
     return true;
   }
 
+  /**
+   * T-3443: turn where it stands to face `heading` (compass degrees) at the walk's turn
+   * rate, then call `onArrive(actor)`. A walk under way is given up for it.
+   */
+  turnTo(heading, { onArrive = null } = {}) {
+    if (!Number.isFinite(heading)) return false;
+    this.path = { pts: [{ e: this.e, n: this.n, y: this.standY }], leg: 0, t: 0, endHeading: heading, onArrive, speed: null, arrived: true };
+    if (this.state === 'walking') this.setState('standing');
+    return true;
+  }
+
+  /** T-3443: in the house (not drawn, picked or met) or back out on its step. */
+  setIndoors(on) {
+    this.indoors = !!on;
+    if (this.indoors) { this.root.visible = false; this.inRange = false; }
+    else this.recheck = 0;
+    return this.indoors;
+  }
+
   /** T-3442: stop a path where the figure is, standing. */
   stopPath() {
     if (!this.path) return false;
@@ -615,6 +636,7 @@ export class HumanActor {
    */
   update(dt, cameraPosition, visualDt = dt) {
     if (this.disposed) return false;
+    if (this.indoors) { this.root.visible = false; this.inRange = false; return false; }
     this.recheck -= dt;
     this.clock += dt;
     if (!this.inRange && this.recheck > 0) return false;

@@ -1313,6 +1313,13 @@ body.is-touch .crosshair { display: none; }
 @media (max-width: 560px), (pointer: coarse) {
   .quick-interact .ik-verb, .quick-interact .ik-kbd { display: none; }
 }
+/* T-3443: a person's other actions (Go home), each a key like Interact's, under it. A
+   phone keeps their words and drops the number hint, as it does the R. */
+.interact-more { display: grid; gap: 8px; justify-items: end; pointer-events: none; }
+.interact-more[hidden] { display: none; }
+.interact-more > .quick-interact { animation: ik-more-in .2s ease-out; }
+@keyframes ik-more-in { from { opacity: 0; transform: translateX(8px); } }
+@media (prefers-reduced-motion: reduce) { .interact-more > .quick-interact { animation: none; } }
 /* T-3404: Stop following, in the Interact key's place and look. The name is for a wide
    screen; a phone keeps the verb, which is what the press does. */
 .quick-follow .fk-who { color: var(--ink); max-width: 16ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

@@ -865,6 +865,9 @@
     <!-- T-3319: the Interact key — while something to work (a fort gate) is in reach on
          foot: what it will do ("Open gate"), and R from the keyboard (js/interact.js). -->
     <button id="btn-interact" class="chip quick-interact" type="button" hidden><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M11 10.5V4a1.5 1.5 0 0 1 3 0v6.5"/><path d="M14 10.5V5.5a1.5 1.5 0 0 1 3 0V12"/><path d="M17 11a1.5 1.5 0 0 1 3 0v3.5a6.5 6.5 0 0 1-6.5 6.5h-1a6 6 0 0 1-4.6-2.2L4.6 15.6a1.5 1.5 0 0 1 2.3-1.9L8 15"/></svg> <span class="ik-verb">Interact ·</span> <span class="ik-what">Open gate</span><kbd class="ik-kbd" aria-hidden="true">R</kbd></button>
+    <!-- T-3443: a thing with more than one thing to do (a person: Greet, Go home) — the
+         first is the Interact key above, the rest are keys here, 2, 3 … (js/interact.js). -->
+    <div id="interact-more" class="interact-more" role="group" aria-label="More to do here" hidden></div>
     <!-- T-3404: while the visitor walks alongside a person (js/follow.js): who, and a press
          stops it. Their own movement stops it too. -->
     <button id="btn-follow" class="chip quick-interact quick-follow" type="button" hidden><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg> <span class="fk-verb">Stop following</span> <span class="fk-who"></span></button>

@@ -97,6 +97,7 @@ import './strings/arrival.js';
 import { createFlags } from './flags.js';
 import { createFortGates, gatesOnRoute } from './fort-gates.js';
 import { createHouseDoors } from './house-doors.js';
+import { createHouseErrands } from './house-errands.js';
 import { createNightLights } from './night-lights.js';
 import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
@@ -3776,6 +3777,13 @@ async function boot() {
     }
     gateFrame.invalidate();
   }
+  // T-3443: a person whose house has a working front door (John J. Glessner, by 1800
+  // Prairie's) is an Interact thing too: Greet him, or send him home up his steps and in.
+  api.houseErrands = createHouseErrands({ humans: api.humans, houseDoors, interactions,
+    visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }),
+    eye: () => camera.getWorldPosition(new THREE.Vector3()),
+    openCard: (actor) => api.humans.select(actor.id),
+    groundAt: (e, n) => profiledGroundHeight(terrain, decks, e, n), problems: layerProblems('humans') });
   // Read only the small route table at boot. Actual occupied assets and full
   // rendered-ground/collision readings begin after the visitor approaches a circuit.
   api.townTransport = null;
@@ -5458,6 +5466,7 @@ async function boot() {
   api.personInTown = personInTown;
   const interactKey = createInteractKey({ interactions,
     keyEl: document.getElementById('btn-interact'),
+    moreEl: document.getElementById('interact-more'),
     where: () => ({ e: walker.state.e, n: walker.state.n, bearing: walker.bearingDeg, flying: walker.state.flying }),
     say: text => hud.say(text), enabled: () => !gateOpen, keys: window, isTyping,
   });
