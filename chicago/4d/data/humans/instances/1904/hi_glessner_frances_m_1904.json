@@ -1,0 +1,46 @@
+{
+  "id": "hi_glessner_frances_m_1904",
+  "contract_version": 1,
+  "scene": "1904",
+  "person_id": "glessner_frances_m",
+  "appearance": {
+    "asset_id": "glessner_frances_m_1904"
+  },
+  "placement": {
+    "local_e": 1359.5,
+    "local_n": -3230.5,
+    "heading_deg": 110,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.7
+  },
+  "behaviour": {
+    "state": "standing"
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed standing depiction of Frances M. Glessner (attested wife in the household at 1800 Prairie Avenue in 1904, the people directory's own row; born 1 January 1848, so 56 on the scene date) in her house's courtyard, in its north-west part about 4.7 m off the north range and the hall bay, facing across the court toward the carriage passage. She stands clear of the carriage way along the court's south side, of the walk from the passage to the hall-bay stand that John J. Glessner takes a caller on, and 8.4 m from the cook, Mattie Williamson. Her day dress, a white shirtwaist with a standing collar and jabot, a black jacket with revers and basque, a gored black skirt and a wide plumed hat, is built after the 1905 Johnston photograph, the Met's 1902 black wool suit and the 1904 Detroit Easter crowds (T-3447). Where she stands and when is ours: no photograph shows her in the court, and no portrait of her has been read, so her face, hair and complexion are reconstructed too.",
+    "sources": [
+      "glessner_house_family_page",
+      "loc_detroit_1904_easter_crowds_fifth_avenue",
+      "loc_johnston_1905_fairbanks_cornerstone_address",
+      "met_ci_1902_black_wool_suit"
+    ],
+    "liberty": "L418",
+    "seed": "glessner_frances_m:1904:court-standing:20261107",
+    "replaceable_by": "A photograph of Frances M. Glessner, replacing the reconstructed face, hair and dress; her place in the court and her standing have no documentary claim."
+  }
+}

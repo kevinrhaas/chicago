@@ -1,0 +1,246 @@
+{
+  "ticket": "T-3452",
+  "measured": {
+    "on": "2026-11-07T14:44:11.557Z",
+    "build": "8c5bd0a08",
+    "machine": "Intel(R) Xeon(R) Processor @ 2.10GHz \u00d74",
+    "seconds": 46,
+    "method": "published year door, welcome entered at spawn, 3 frames + 1 s, texture residency let finish its uploads, two forced GCs; heap and backing store from Runtime.getHeapUsage; GPU from a WebGL allocation meter"
+  },
+  "rows": [
+    {
+      "year": "1812",
+      "viewport": "mobile",
+      "label": "phone 390x780 dpr3",
+      "tier": "light",
+      "pixelRatio": 1,
+      "keepGeometry": false,
+      "totals": {
+        "jsHeap": 32481784,
+        "arrayBuffers": 84290121,
+        "gpuBuffers": 58224455,
+        "gpuTextures": 44405061,
+        "gpuRenderbuffers": 3145728,
+        "total": 219401421
+      },
+      "gl": {
+        "gpuBuffers": 58224455,
+        "gpuTextures": 41259333,
+        "gpuRenderbuffers": 3145728,
+        "liveBuffers": 631,
+        "liveTextures": 200,
+        "liveRenderbuffers": 1,
+        "liveFramebuffers": 7,
+        "livePrograms": 46
+      },
+      "heapTotal": 34299904,
+      "shadowMapBytes": 8388608,
+      "textures": {
+        "distinct": 38,
+        "images": 38
+      },
+      "layers": [
+        {
+          "name": "terrain",
+          "cpuKept": 28047366,
+          "gpuGeometry": 5748242,
+          "textureBytes": 87381,
+          "textures": 1,
+          "geometries": 228,
+          "cpuNeverUploaded": 28047366
+        },
+        {
+          "name": "trees",
+          "cpuKept": 151200,
+          "gpuGeometry": 20177943,
+          "textureBytes": 4194304,
+          "textures": 3,
+          "geometries": 6,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "structures",
+          "cpuKept": 12,
+          "gpuGeometry": 10224468,
+          "textureBytes": 3845472,
+          "textures": 26,
+          "geometries": 20,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "yard-ground",
+          "cpuKept": 0,
+          "gpuGeometry": 10527348,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 2,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "flora",
+          "cpuKept": 4443980,
+          "gpuGeometry": 4443980,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 19,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "humans",
+          "cpuKept": 163282,
+          "gpuGeometry": 163282,
+          "textureBytes": 1221973,
+          "textures": 4,
+          "geometries": 19,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "flags",
+          "cpuKept": 40332,
+          "gpuGeometry": 40332,
+          "textureBytes": 756395,
+          "textures": 1,
+          "geometries": 2,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "fort-gates",
+          "cpuKept": 41472,
+          "gpuGeometry": 41472,
+          "textureBytes": 174763,
+          "textures": 1,
+          "geometries": 5,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "night-lights",
+          "cpuKept": 232,
+          "gpuGeometry": 232,
+          "textureBytes": 43690,
+          "textures": 2,
+          "geometries": 2,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "sky",
+          "cpuKept": 840,
+          "gpuGeometry": 840,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 1,
+          "cpuNeverUploaded": 0
+        }
+      ],
+      "layerSum": {
+        "cpuKept": 32888716,
+        "gpuGeometry": 51368139,
+        "textureBytes": 10323978,
+        "cpuNeverUploaded": 28047366
+      },
+      "uploadRelease": {
+        "geometries": 255,
+        "attributes": 1049,
+        "bytes": 81531419,
+        "keptForHarness": false,
+        "sources": 59,
+        "sourceBytes": 8837628,
+        "images": 0,
+        "imageBytes": 0,
+        "compressed": 2,
+        "compressedBytes": 174816,
+        "boundsRows": 18469,
+        "boundsBytes": 749879
+      },
+      "residency": {
+        "pendingAtRead": 0,
+        "settleMs": 6,
+        "resident": 2,
+        "sources": 2,
+        "residentBytes": 174816,
+        "budgetBytes": 268435456,
+        "wantedBytes": 174816,
+        "pending": 0,
+        "uploads": 0,
+        "evictions": 0,
+        "overBudget": 0
+      },
+      "ktx2": {
+        "enabled": true,
+        "reason": "on",
+        "dropTopMip": true,
+        "glb": "shared",
+        "formats": [
+          "dxt",
+          "bptc"
+        ],
+        "sheets": {
+          "ktx2": 28,
+          "fallback": 0,
+          "gpuBytes": 7166032,
+          "failed": []
+        }
+      },
+      "errors": [],
+      "seconds": {
+        "boot": 40,
+        "snapshot": 6
+      },
+      "snapshot": {
+        "arrayBufferBytes": 92194435,
+        "arrayBuffers": 3546
+      },
+      "retainers": [
+        {
+          "path": "Memory.[] \u2190 Object.memory \u2190 Instance.exports \u2190 system.(scope).instance",
+          "bytes": 15728640,
+          "count": 1
+        },
+        {
+          "path": "BufferAttribute.array \u2190 Object.normal \u2190 BufferGeometry.attributes \u2190 BatchedMesh.geometry  [in 'terrain']",
+          "bytes": 7811052,
+          "count": 203
+        },
+        {
+          "path": "BufferAttribute.array \u2190 Object.position \u2190 BufferGeometry.attributes \u2190 BatchedMesh.geometry  [in 'terrain']",
+          "bytes": 7811052,
+          "count": 203
+        },
+        {
+          "path": "system.(scope).dw \u2190 trunks.context \u2190 Object.trunks \u2190 Object.trees",
+          "bytes": 7584588,
+          "count": 1
+        },
+        {
+          "path": "Heightfield.data \u2190 Object.heightfield \u2190 Object.terrain \u2190 Window.__chicago4d",
+          "bytes": 7584588,
+          "count": 1
+        },
+        {
+          "path": "BufferAttribute.array \u2190 BufferGeometry.index \u2190 BatchedMesh.geometry \u2190 Array.[]  [in 'terrain']",
+          "bytes": 6201984,
+          "count": 203
+        },
+        {
+          "path": "Object.height \u2190 system.(scope).carryUploaded \u2190 get.context \u2190 InstancedMesh.get count  [in 'flora' \u203a 'flora-near']",
+          "bytes": 2985984,
+          "count": 1
+        },
+        {
+          "path": "Object.toWater \u2190 Object.held \u2190 system.(scope).water \u2190 zoneAt.context",
+          "bytes": 2969172,
+          "count": 1
+        },
+        {
+          "path": "Object.toLand \u2190 Object.held \u2190 system.(scope).water \u2190 zoneAt.context",
+          "bytes": 2969172,
+          "count": 1
+        },
+        {
+          "path": "BufferAttribute.array \u2190 Object._confidence \u2190 BufferGeometry.attributes \u2190 BatchedMesh.geometry  [in 'terrain']",
+          "bytes": 2603684,
+          "count": 203
+        }
+      ]
+    }
+  ]
+}

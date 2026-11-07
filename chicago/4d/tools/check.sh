@@ -4753,6 +4753,10 @@ selftest "shared sheets: one copy, the repack exact, a changed sheet or byte ref
 step "the published GLBs read back to their sources through their shared sheets (T-3232)" \
   node tools/share_glb_sheets.mjs ../../site/4d --check
 
+# T-3453: the people's GLBs share their pictures the same way, under data/humans/web/sheets/.
+step "the published human GLBs read back to their sources through their shared pictures (T-3453)" \
+  node tools/share_glb_sheets.mjs ../../site/4d --dir data/humans/web --source assets/humans/web --check
+
 # The frontage's timber ships prebuilt (T-2677): publish.sh builds it in Node with the
 # page's own createFrontage and the page uploads it. This refuses a prebuild whose
 # inputs — the records, the heightfield, every module the build loaded — have moved

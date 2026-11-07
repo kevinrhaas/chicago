@@ -44,23 +44,42 @@
         }
       },
       "mobile": {
-        "total_bytes": 235929600,
-        "reading_bytes": 201028180,
+        "total_bytes": 262144000,
+        "reading_bytes": 219401421,
         "tier": "light",
         "reading_mb": {
-          "total": 191.7,
-          "js_heap": 26.5,
-          "arraybuffers": 92.4,
-          "gpu_buffers": 37.0,
-          "gpu_textures": 35.8
+          "total": 209.2,
+          "js_heap": 31.0,
+          "arraybuffers": 80.4,
+          "gpu_buffers": 55.5,
+          "gpu_textures": 42.3
         },
-        "lowered_by": {
-          "ticket": "T-2786",
-          "on": "2026-10-18T16:43:05.218Z",
-          "build": "a71a7a3e+T-2786",
-          "reading": "docs/measurements/T-2786-memory.json",
-          "note": "the buildings' source geometries let go once batched, and (1904) the railway's strip scratch emptied once laid; one invocation, all six rows. 245.7 -> 191.7 MB; x 1.1 rounded up to 25 MiB = 225 MiB.",
-          "before": null
+        "raised_by": {
+          "ticket": "T-3452",
+          "on": "2026-11-07T14:44:11.557Z",
+          "build": "70ef8216d+T-3452",
+          "reading": "docs/measurements/T-3452-memory-1812.json",
+          "note": "1812's first drawn person: one anonymous private of Heald's company at ease on the parade (Kevin, 2026-11-07: \"Place all of them\"). Before it 1812 loaded no human layer; now its spawn pays for the layer's code and clips (js heap and ArrayBuffers) and the private at the light tier's LOD3 (0.2 MB of geometry, 1.2 MB of four textures). CI read the branch before the figure (3d4a760) at 224.0 MB against 225 and this build (70ef821) at 230.2: +6.2 MB, of which js heap 2.8, arraybuffers 2.1, the human layer 1.4. This machine reads 209.2 MB (CI reads this row about 21 MB higher, in ArrayBuffers: 101.6 against 80.4). 209.2 x 1.1 rounded up to 25 MiB = 250 MiB; a 1904 phone runs at 400 MiB.",
+          "before": {
+            "total_bytes": 235929600,
+            "reading_bytes": 201028180,
+            "tier": "light",
+            "reading_mb": {
+              "total": 191.7,
+              "js_heap": 26.5,
+              "arraybuffers": 92.4,
+              "gpu_buffers": 37.0,
+              "gpu_textures": 35.8
+            },
+            "lowered_by": {
+              "ticket": "T-2786",
+              "on": "2026-10-18T16:43:05.218Z",
+              "build": "a71a7a3e+T-2786",
+              "reading": "docs/measurements/T-2786-memory.json",
+              "note": "the buildings' source geometries let go once batched, and (1904) the railway's strip scratch emptied once laid; one invocation, all six rows. 245.7 -> 191.7 MB; x 1.1 rounded up to 25 MiB = 225 MiB.",
+              "before": null
+            }
+          }
         }
       }
     },
@@ -304,6 +323,21 @@
             },
             "humans_layer_mb": 1.3,
             "note": "The first figure drawn from the people pool: Martha Williamson standing in the Glessner courtyard, about 45 m from the spawn, drawn at the light tier's LOD3 (0.1 MB of geometry, 1.2 MB of four 256 px textures). The total sits under the 400 MiB line; CI reads about 7 MB higher. Dev has moved on since T-3408 read 375.1 MB; of this reading the human layer is 1.3 MB. The ceiling is unchanged."
+          },
+          {
+            "ticket": "T-3452",
+            "on": "2026-11-07T14:22:15Z",
+            "build": "70ef8216d+T-3453",
+            "reading": "docs/measurements/T-3452-memory.json",
+            "reading_mb": {
+              "total": 400.0,
+              "js_heap": 77.5,
+              "arraybuffers": 80.5,
+              "gpu_buffers": 178.4,
+              "gpu_textures": 63.5
+            },
+            "humans_layer_mb": 8.5,
+            "note": "Four figures drawn from the people pool: John Glessner and Martha Williamson, with Frances Glessner in the courtyard and the maid Mary Reynolds at the 18th Street arch, at the light tier's LOD2/LOD3 (1.0 MB of geometry, 7.2 MB of sixteen textures, their pictures decoded once across figures since T-3453). The human layer stays inside its 12 MB. The total reads 11 KB under the 400 MiB line here; CI read 408.4 MB on this build (70ef821) against 399.3 on the branch before it (3d4a760, Martha alone), so the 400 MiB line is crossed on CI: the rest of 1904 grew about 16 MB on a phone since T-3408's 375.1 (without the two new figures this build read 395.9). The ceiling is unchanged."
           }
         ]
       }

@@ -46,7 +46,7 @@ class Soldier(unittest.TestCase):
         self.assertLessEqual({'skin', 'eyes', 'garment_upper', 'garment_lower', 'footwear'}, slots)
         self.assertEqual(self.mesh['coat_buttons']['receipt']['count'], 8)
 
-    def test_he_is_anonymous_and_not_placed_in_town(self):
+    def test_he_is_anonymous_and_placed_once_as_a_role(self):
         v = self.variant
         self.assertEqual((v['person_reference_id'], v['person_reference_scene'], v['person_reference_grade']),
                          (S.PERSON, '1812', 'reconstructed'))
@@ -59,8 +59,19 @@ class Soldier(unittest.TestCase):
         named = copy.deepcopy(v); named['person_reference_id'] = 'kinzie_john_elder'
         with self.assertRaises(ValueError):
             resolve_person_reference(named)
-        self.assertFalse([p for p in (ROOT/'data/humans/instances').rglob('*.json')
-                          if 'private_first_infantry' in p.read_text() or 'soldier_1812' in p.read_text()])
+        # He stands in the 1812 fort once, as an anonymous role figure who mints no one (T-3452).
+        found = [p for p in (ROOT/'data/humans/instances').rglob('hi_*.json')
+                 if 'private_first_infantry' in p.read_text() or 'soldier_1812' in p.read_text()]
+        self.assertEqual([p.relative_to(ROOT).as_posix() for p in found], ['data/humans/instances/1812/hi_heald_company_private_1812.json'])
+        inst = json.loads(found[0].read_text())
+        self.assertNotIn('person_id', inst)
+        self.assertEqual((inst['scene'], inst['anonymous_profile_id'], inst['role'], inst['appearance']['asset_id'],
+                          inst['interaction']['opens'], inst['provenance']['grade']),
+                         ('1812', 'anonymous_adult_1812', 'standing', v['id'], 'role_card', 'reconstructed'))
+        profile = json.loads((ROOT/'data/humans/role_profiles/anonymous_adult_1812.json').read_text())
+        self.assertEqual([a['asset_id'] for a in profile['eligible_assets']], [v['id']])
+        self.assertIn(inst['id'], json.loads((ROOT/'data/humans/instances/1812/index.json').read_text())['instances'])
+        self.assertIn('humans', json.loads((ROOT/'data/scenes/1812.json').read_text())['layers'])
 
     def test_every_garment_carries_provenance_and_the_dating_is_kept(self):
         garments = self.recipe['soldier_components']['garments']
