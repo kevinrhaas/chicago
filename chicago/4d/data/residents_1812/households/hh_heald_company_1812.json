@@ -1,0 +1,70 @@
+{
+  "id": "hh_heald_company_1812",
+  "scene": "1812",
+  "name": "Captain Nathan Heald's company of the First Infantry, the garrison of Fort Dearborn",
+  "head": "grummo_paul",
+  "division": "south",
+  "arrival": {
+    "value": "1812",
+    "confidence": "inferred",
+    "precision": "year",
+    "sources": [
+      "quaife_1913"
+    ],
+    "note": "The company's muster-roll from 20 April to 31 May 1812 (Quaife 1913, Appendix VIII, pp. 425-27, printed from the manuscript in the Heald Papers, Draper Collection) lists its men present at Fort Dearborn; the roll does not say when each man came to Chicago. The year is the roll's, not an arrival date."
+  },
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "quaife_1913"
+    ],
+    "note": "The garrison held the fort until it marched out on the morning of 15 August 1812. Each man carried here is on the May 1812 roll as present, and on Quaife's table of the company's fates (Appendix IX, pp. 428-36), so his presence on the afternoon of 14 August is inferred from those two, not read from a roll of that day."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "first_fort_dearborn_soldiers_barracks_sw",
+      "resolves_to": "structure",
+      "from": "1812",
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "quaife_1913",
+      "note": "The privates of the garrison lodged in the soldiers' barracks of Whistler's 1808 plan, which has two, east and west of the main gate. Which of the two any man slept in is not recorded; the west one, nearer where the figure stands on the parade, is a reconstructed choice."
+    }
+  ],
+  "persons": [
+    {
+      "id": "grummo_paul",
+      "name": "Paul Grummo",
+      "relationship": "household_member",
+      "grade": "inferred",
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private in the second year of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "sources": [
+        "quaife_1913"
+      ],
+      "occupation": {
+        "value": "private, First Regiment of Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "Number 13 among the privates of Heald's company on the roll of 31 May 1812, enlisted 1 October 1810 for five years, to 1 October 1815, and present at the muster (Quaife 1913, Appendix VIII, p. 426)."
+      },
+      "note": "Paul Grummo signed on for five years on 1 October 1810, and by the spring of 1812 he was a private in Captain Nathan Heald's company at Fort Dearborn, present when the company was mustered at the end of May. Long afterwards he said he spent that summer as a scout, carrying dispatches through the woods between Fort Dearborn and Fort Wayne. Taken in the fight on 15 August, he said a chief whose son he had killed adopted him, and took him north-west across the Mississippi above the Falls of St. Anthony to bring the tribes into the war, then sold him to the British near Detroit. He was one of the nine men of the garrison who came back from captivity by way of Quebec and reached Plattsburg, New York, in May 1814. He settled at Maumee City near Toledo, where he went by Paul De Garmo, a tall, well-built man who always insisted he had been at Fort Dearborn. The War Department had set him down as a deserter, and though General Cass and General John E. Hunt spoke for him he never got his pension. His story reaches us through a neighbour, Charles A. Lamb, who wrote it down half a century after hearing it; Quaife (1913, pp. 238-40) calls many of its details untrustworthy and says Grummo drew a long bow, as old soldiers do. His enlistment, his place on the May 1812 roll and his return from captivity are on the record; the scouting, the adoption and the journey are his own telling."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "Only Paul Grummo is carried so far. The rest of the company on the May 1812 roll (Quaife 1913, Appendix VIII), its officers and the soldiers' wives and children are not yet carded; their omission is not evidence they were absent.",
+    "sources": [
+      "quaife_1913"
+    ]
+  }
+}

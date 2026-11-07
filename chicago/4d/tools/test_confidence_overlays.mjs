@@ -93,12 +93,14 @@ await check('people pins: one per address in the directory, absent people left o
   assert.equal(gl.people.length, scenes['1904'].people.people.filter((r) => r.lives_at === 'glessner_house' && r.present !== 'absent').length);
   assert.ok(!gl.people.some((x) => x.id === 'pa1904_glessner_frances_at_1800'), 'Frances Glessner, married in 1898, is not pinned at 1800 in 1904');
   assert.ok(gl.people.some((x) => x.id === 'glessner_john_j'), 'John J. Glessner is on his own pin');
+  // T-3468: the parade private is Paul Grummo of Heald's company, carded at the west
+  // soldiers' barracks beside John Kinzie the elder at his house across the river.
   const p12 = O.pinPlaces(scenes['1812'].people.people, scenes['1812'].where);
-  assert.equal(p12.people, 1);
-  assert.equal(p12.places.length, 1);
-  assert.equal(p12.places[0].id, 'kinzie_house_1812');
-  assert.deepEqual(p12.places[0].people.map((p) => p.id), ['kinzie_john_elder']);
-  assert.equal(scenes['1812'].people.people[0].grade, 'inferred');
+  assert.ok(p12.people >= 2 && p12.places.length >= 2, `1812: ${p12.places.length} places, ${p12.people} people`);
+  const kinzie = p12.places.find((pl) => pl.id === 'kinzie_house_1812');
+  assert.ok(kinzie?.people.some((p) => p.id === 'kinzie_john_elder'), 'John Kinzie the elder is on his own pin');
+  assert.ok(p12.places.some((pl) => pl.people.some((p) => p.id === 'grummo_paul')), 'Paul Grummo carries a pin');
+  assert.equal(scenes['1812'].people.people.find((r) => r.id === 'kinzie_john_elder').grade, 'inferred');
   const none = O.pinPlaces([{ id: 'a', name: 'A. Nobody', lives_at: 'not_drawn' }], () => null);
   assert.equal(none.places.length, 0);
   console.log(`       pins: 1835 ${p35.places.length} addresses for ${p35.people} people, 1904 ${p04.places.length} for ${p04.people}, 1812 ${p12.places.length} for ${p12.people}`);
