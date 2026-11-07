@@ -11,7 +11,7 @@
  "bin": "hm08_variation_kit.bin",
  "bin_bytes": 927482,
  "bin_sha256": "6eaa8ea253b2e7f63e0974318ef4f67a7558da4c985e33cd9c8264930782780b",
- "axes_sha256": "cae42c42b32cbeb084c70fec831d03a7afcc012cc32d20eb43dca9c4b9709cb2",
+ "axes_sha256": "822287775777441ca915252017ce5e9f6669ea5bb86987cd780a07552233f5d6",
  "manifest_sha256": "80087621bf4d5b3185430dda3d8a08ed8c81a9286c91d4ad92a84d6a8d2847d1",
  "limit": 0.6,
  "height": {
@@ -51,7 +51,13 @@
     "lip_lower": 0.08,
     "mouth_width": -0.12,
     "prognathism": -0.1,
-    "mouth_corners": 0.35
+    "mouth_corners": 0.35,
+    "nose_width": -0.25,
+    "nose_length": -0.15,
+    "nose_hump": -0.2,
+    "nose_tip": 0.15,
+    "nostrils": -0.2,
+    "cheekbones": 0.2
    }
   },
   "williamson_mattie_1904_cook_study": {
@@ -69,7 +75,13 @@
     "lip_lower": 0.08,
     "mouth_width": -0.12,
     "prognathism": -0.1,
-    "mouth_corners": 0.35
+    "mouth_corners": 0.35,
+    "nose_width": -0.25,
+    "nose_length": -0.15,
+    "nose_hump": -0.2,
+    "nose_tip": 0.15,
+    "nostrils": -0.2,
+    "cheekbones": 0.2
    }
   }
  },

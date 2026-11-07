@@ -437,6 +437,8 @@ step "Modular adult dress consumes cleared source and preserves existing residen
 
 step "Resident hair preserves verified source pixels, fitted UVs and existing skin bindings (T-1789)" \
   python3 tools/test_human_hair_short04.py
+step "A cleared woman's hairstyle (Mattie's bun) is pinned, CC0, fitted to her head and skinned; its red tie recoloured (T-3434)" \
+  python3 tools/test_human_hair_proxy.py
 
 step "Resident body normals share exact source seams without welding geometry or UVs (T-1789)" \
   python3 tools/test_human_source_normals.py

@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2741, ts: '2026-11-07T01:17:31.125Z', date: 'Nov 6, 2026, 7:17 PM CT', title: 'Mattie Williamson wears her hair in a bun', kind: 'improvement',
+    items: [
+      'The Glessners\' cook had a man\'s short haircut under a modelled knot. She now wears a real woman\'s hairstyle: drawn back smooth from the face to a round bun at the back of the head.',
+      'Both women in town (Mattie in 1904, Mary Flynn in 1835) now have upper eyelashes, finer eyebrows, a narrower, straighter nose and higher cheekbones.',
+    ] },
+  { v: 2740, ts: '2026-11-07T00:57:27.872Z', date: 'Nov 6, 2026, 6:57 PM CT', title: 'Pullman house: one window a storey south of the entrance', kind: 'fix',
+    items: [
+      'On the Prairie Avenue front of 1729 Prairie, the part between the entrance and the 18th Street corner now has one window on each storey and one dormer above them, all on one line in the middle of the wall, as the photographs show it.',
+      'The narrow second window and its small dormer are gone from that face. The full-size Library of Congress scan shows them just around the corner, on the 18th Street side, where the house already has them.',
+    ] },
   { v: 2739, ts: '2026-11-07T00:02:46.579Z', date: 'Nov 6, 2026, 6:02 PM CT', title: 'Building cards: a style guide for every building, and tidier tabs', kind: 'improvement',
     items: [
       'Every building\'s Design tab is now a style guide: what it is, its roof and front, what to look for, then Shape, Walls, Roof, Windows and doors, and Grounds, each line with its grade dot.',

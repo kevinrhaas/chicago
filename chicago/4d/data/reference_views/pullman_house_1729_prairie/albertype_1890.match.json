@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "albertype_1890",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "095e7054a5050526df269c1edf3cb55ef9c0ee3928cbbb533514dcc4a379816c",
+  "glb_sha256": "d54e1abf6756083ae09754152d3ba30da5610aa563bada2024cb8ac0d94f4935",
   "camera_sha256": "ba9172fcab4191960cd5e108be9a1f82aff81603657b64df2e03511f7a2f1e57",
   "photo_sha256": "c7498f322ab0c1524dc09b963105fe53b0685a82557fb239e7a1217f0f803dca",
   "rendered_flora": {
@@ -65,7 +65,7 @@
       "sha256": "bd022919ca052610595908f83128dfceea976790c5bf2eff63f381abaa3b89b5"
     }
   ],
-  "flora_sha256": "6a886ce2e5c55aa011be0d9636a4936c79ffe4a37ea9a4bd39e96f57653dc5f4",
+  "flora_sha256": "758982ba36b859eaa2002c3b994b03b9370a4103553b994bfb2d8deb6fbb183f",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -215,6 +215,10 @@
     },
     {
       "what": "T-3429 (2026-11-06): the parkway elms are bare round wood now, twig forking off twig, where T-1934's painted twig cards stood; read against the print again, the verdict is kept.",
+      "status": "fixed"
+    },
+    {
+      "what": "the Prairie front's third part, on the main wall south of the entry (v 8.8 to the south-west corner pier, v 16.8-17.93): the owner, 2026-11-06, his crop of the Detroit print beside the build: \"you have two windows at every level for this third part of the face, but in the image there is one window at every level, line and size them up correctly with the house\". Built (T-1881) with ONE column, the 1.2 x 3.25 m principal light, the 1.45 x 2.65 m second-storey light and the 1.1 x 1.9 m pedimented dormer, centred on the wall between the banded pier at v 8.8-9.41 and the corner pier, at v 13.1; the narrow column (v 15.45, its dormer at v 14.85) is taken off. On the Library of Congress master scan (det 4a08065u) the big light stands midway between the entry's banded corner and the next banded pier, at which the cornice turns and falls away with the flank, so the narrow light and smaller dormer beyond it are the 18th Street flank's first column (north_bays s 1.4), as Taylor's no. 1445 shows them. The plate draws the same: one round-arched light a storey and one dormer between the entry's piers and the corner pier, centred, which the render now shows.",
       "status": "fixed"
     },
     {
