@@ -11,7 +11,7 @@
  "bin": "hm08_variation_kit.bin",
  "bin_bytes": 927482,
  "bin_sha256": "6eaa8ea253b2e7f63e0974318ef4f67a7558da4c985e33cd9c8264930782780b",
- "axes_sha256": "822287775777441ca915252017ce5e9f6669ea5bb86987cd780a07552233f5d6",
+ "axes_sha256": "7df6d058493d885998086b8d506c8f67a57ae03ad6c5c7a6d81eef3a5abac26a",
  "manifest_sha256": "80087621bf4d5b3185430dda3d8a08ed8c81a9286c91d4ad92a84d6a8d2847d1",
  "limit": 0.6,
  "height": {
@@ -39,8 +39,18 @@
   "flynn_mary_1835_dress_study": {
    "base_age_years": 25,
    "sex": "female",
+   "one_of_allow": {
+    "head_shape": [
+     0,
+     1,
+     5,
+     6
+    ]
+   },
+   "face_draw_scale": 0.5,
    "face_bias": {
-    "jaw": -0.3,
+    "jaw": -0.45,
+    "chin_height": -0.15,
     "chin_width": -0.15,
     "double_chin": -0.3,
     "jowls": -0.25,
@@ -63,8 +73,18 @@
   "williamson_mattie_1904_cook_study": {
    "base_age_years": 25,
    "sex": "female",
+   "one_of_allow": {
+    "head_shape": [
+     0,
+     1,
+     5,
+     6
+    ]
+   },
+   "face_draw_scale": 0.5,
    "face_bias": {
-    "jaw": -0.3,
+    "jaw": -0.45,
+    "chin_height": -0.15,
     "chin_width": -0.15,
     "double_chin": -0.3,
     "jowls": -0.25,
