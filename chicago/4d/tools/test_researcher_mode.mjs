@@ -98,21 +98,9 @@ function fakeStorage() {
   assert.doesNotMatch(group, /id="s-researcher"[^>]*checked/, 'and is not checked in the markup');
   assert.match(page, /<span class="research-badge" id="research-badge" data-researcher data-str="research.badge">RESEARCHER<\/span>/,
     'a small RESEARCHER label, shown only while it is on');
-  // T-2658: each essay's fold is Researcher mode's, and a visitor's one line and "Why?"
-  // bubble (its own test, test_short_why.mjs) stand directly before it.
-  const whys = [...page.matchAll(/<div class="why-line" data-visitor-only>([\s\S]*?)<\/div>\s*<details class="why" data-researcher>([\s\S]*?)<\/details>/g)]
-    .map((m) => m[1] + m[2]);
-  assert.equal(whys.length, 3, 'three "Why this default" essays');
-  assert.equal(page.split('<details class="why"').length - 1, 3, 'and no other');
-  for (const w of whys) {
-    const short = w.match(/<span class="why-text" id="[\w-]+" hidden data-str="(research\.why\.\w+)">/);
-    assert.ok(short, 'each has a short visitor hint');
-    const words = t(short[1]).split(/\s+/).length;
-    assert.ok(words <= 40, `${short[1]} is ${words} words (40 at most)`);
-    const full = w.match(/<p class="legend-note why-full" id="[\w-]+" data-researcher>([\s\S]*?)<\/p>/);
-    assert.ok(full && full[1].split(/\s+/).length > 40, 'and the full essay, for Researcher mode');
-    assert.deepEqual(visitorTextProblems(full[1]), [], 'which carries no id, path or ticket number');
-  }
+  // T-3445 (the owner, 2026-11-07): the "Why this default" essays and their "Why?" lines are
+  // gone in both modes; test_short_why.mjs holds that.
+  assert.equal(page.split('<details class="why"').length - 1, 0, 'no "Why this default" essays');
   const css = fs.readFileSync(path.join(WEB, 'css', 'skins.css'), 'utf8');
   assert.match(css, /html:not\(\[data-researcher-mode\]\) \[data-researcher\] \{ display: none !important; \}/, 'off, research is hidden');
   assert.match(css, /html\[data-researcher-mode\] \[data-visitor-only\] \{ display: none !important; \}/, 'on, its stand-ins are');

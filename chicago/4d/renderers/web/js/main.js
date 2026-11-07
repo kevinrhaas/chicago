@@ -129,7 +129,6 @@ import { parseNavLink, createNavHistory } from './nav-link.js';
 import { createNavigator } from './navigator.js';
 import { paintAbout } from './about.js';
 import { createResearcherMode } from './researcher.js';
-import { wireWhyTips } from './why-tips.js';
 import { createTour } from './tour.js';
 import { createTourOverlay } from './tour-overlay.js';
 import { markTerms } from './term-tips.js';
@@ -1763,8 +1762,6 @@ Object.defineProperty(api, 'audio', { get: () => gesture.audio, enumerable: true
 applyStrings(document);
 // T-2658: each researched setting's "Why?" opens its bubble of 40 words at most; Researcher
 // mode, which puts the button away for the full essay, closes an open one.
-api.whyTips = wireWhyTips(document);
-api.researcher?.onChange(() => api.whyTips.close());
 const arrival = createArrival({
   boot: bootController,
   journey,
@@ -5439,7 +5436,7 @@ async function boot() {
           followKey.setAttribute('aria-label', `Stop following ${who}`);
         }
       }
-      if (state && why === 'start') hud.say(`Following ${state.name ?? 'them'}`);
+      if (state && why === 'start') { hud.say(`Following ${state.name ?? 'them'}`); hints.show('follow'); } // T-3445
       else if (!state && why === 'gone') hud.say(`Lost sight of ${was?.name ?? 'them'}`);
       else if (!state && why !== 'switched') hud.say(`Stopped following ${was?.name ?? 'them'}`);
     },
@@ -5457,6 +5454,7 @@ async function boot() {
   const transportReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   transportReducedMotion.addEventListener('change', resetVisualClock);
   let interactPaintAt = 0;
+  let interactHinted = false;
   window.addEventListener('pagehide', event => {
     if (event.persisted) return;
     // Driver leases and standing transfers finish before the human asset cache
@@ -5741,7 +5739,9 @@ async function boot() {
       return { yawDeg: walker.bearingDeg, e: walker.state.e, n: walker.state.n, opens: tourCounts.opens,
         apps: { ...tourCounts.apps }, touch: backends.name === 'touch', level,
         selected: !!popup.openId || (app === 'inspect' && level > 0), card: !!popup.openId,
-        scene: loaded.scene?.id ?? YEAR, front: navigatorUi?.snapshot?.()?.front?.name ?? null };
+        scene: loaded.scene?.id ?? YEAR, front: navigatorUi?.snapshot?.()?.front?.name ?? null,
+        // T-3445: the People step only where the rail carries a People app.
+        people: !!document.querySelector('#navigator .nav-app[data-app="people"]:not([hidden])') };
     },
     render: (v) => {
       tourOverlay.paint(v);
@@ -5916,7 +5916,8 @@ async function boot() {
       visualDt,
     });
     api.townTransport?.refreshInteractions();
-    if ((interactPaintAt += elapsed) >= .25) { interactPaintAt = 0; interactKey.refresh(); }
+    // T-3445: the first time the key offers something, once per device, what it is.
+    if ((interactPaintAt += elapsed) >= .25) { interactPaintAt = 0; if (interactKey.refresh() && !interactHinted) interactHinted = hints.show('interact') || hints.seen('interact'); }
     if (shownLayers.vehicles) standingHorses.update(camera, visualDt, { paused: animationHold || gateOpen, visualFrame: true });
     // T-2598: which house pictures are on the GPU, from where the eye ended up; at
     // most a frame's allowance of them is uploaded here, before the draw.

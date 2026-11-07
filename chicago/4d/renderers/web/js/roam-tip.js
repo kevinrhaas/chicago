@@ -1,6 +1,7 @@
 /**
  * Free roam's one-time tip (T-2634, DESIGN §07 "Jaunts": "Free roam: docks the Navigator
- * and shows a one-time tip: 'Tap any building to inspect it.'").
+ * and shows a one-time tip: 'Tap any building to inspect it.'"). T-3445: people open a
+ * card too, so the tip names them.
  *
  * Once per device: the first Free roam remembers it in localStorage, inside try/catch —
  * where storage is refused the tip shows once per page instead, never an error. The words
@@ -9,7 +10,7 @@
 export const ROAM_TIP_KEY = 'chicago4d.roamTipSeen';
 export const ROAM_TIP_MS = 6000;
 
-export const tipText = (touch) => (touch ? 'Tap any building to inspect it.' : 'Click any building, or press E, to inspect it.');
+export const tipText = (touch) => (touch ? 'Tap any building or person to inspect it.' : 'Click any building or person, or press E, to inspect it.');
 
 export function createRoamTip({ el, storage = (() => { try { return globalThis.localStorage; } catch { return null; } })(),
   wait = (fn, ms) => setTimeout(fn, ms), cancel = (id) => clearTimeout(id) } = {}) {

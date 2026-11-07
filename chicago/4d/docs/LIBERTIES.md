@@ -31511,6 +31511,8 @@ Actual pinned exporter source statically recognizes the proposed 1-(Alpha<.4) no
 
 **Strand hair, beards and eyes (2026-11-06, T-3414):** From the plan "Photographic humans: the path" the owner approved (*"Agreed on your recommendations, proceed"*). `renderers/web/js/human-hair.js` grows strand cards at load over each body's own hair cap and face, at the near levels only (LOD0, LOD1), with no texture and no file: narrow ribbons combed by a cut, a millimetre or two off the cap, cut into strands of uneven length by their shader, lit by the cap's two strand lobes, and skinned to the body's own bones; roots are kept where the cap's own texture is hair, and strands above the band of a hat put on later are cut away. The cuts and facial hair are a table, `renderers/web/js/human-hair-styles.js`, each choice graded: Hans Johnson (1904) wears a short back and sides with a side part, dark brown, and is clean-shaven, as the liveried coachmen in the people-match reference set (coachman_1904: Rau 1902, Griffith 1905) are; Otis Bardwell (1835) wears his hair fuller and brushed forward, with side whiskers, mid brown; anyone else takes their era's cut with no facial hair. No picture of either man is known: the cuts, the whiskers, every length, the colours and the density are reconstructed choices for a working man of each year, not evidence of what either wore. The iris and pupil now take the normals of a dome about 7.8 mm in radius centred behind each eye's own disc (roughness 0.1, the sky's reflection on them 2.5 times three's default), so a light makes one small sharp highlight on them and the sky a catchlight, and the white is shaded up to 45% toward the corners the lids cover; both are reconstructed rendering choices.
 
+**John J. Glessner's hair, moustache and spectacles (2026-11-07, T-3440):** The owner, of the card's model: *"his likeness is still not right"*. His 1897 portrait plate (`glessner_commercial_club_1910_presidents_plate`) shows a bald crown with short white hair at the sides and back, a full moustache over the upper lip, full brows, and round wire spectacles, and he is drawn so (`human-hair-styles.js` row `glessner_john_j`, graded attested; `human-spectacles.js`, attested). What the plate cannot give is reconstructed: the colour (white going grey, linear RGB 0.44, 0.41, 0.36, read from the plate's light tone and his age, the plate being a monochrome halftone), every length, the density and how far the fringe rises (3.6 cm above the eyes at the temples, 3.9 cm behind), the moustache's reach and droop, the spectacles' 38 mm lenses, 0.9 mm gold wire and their 12 mm set in front of the cornea, and the bald crown's undercoat (the cap's own triangles where the fringe grows, in a darker shade of the hair's colour, under the cards so the fringe reads as one band of hair). He is drawn in 1904 as the plate shows him seven years before.
+
 
 ## T-2793 — W01 original wheel/edge refinement (2026-10-19)
 
@@ -41576,5 +41578,28 @@ own choice (the match record keeps it open).
 **What is not built.** The gable's south foot is still as L-k01-2009-meyer-1913 left it.
 **How to resolve:** a camera solved on Monroe's 1896 plate (`monroe_1896_john_wellborn_root_meyer_plate`),
 which sees the flank from the north-west, would place the stack along it and might show its breast.
+**Ticket:** T-3365 (piece 2 of T-1914).
+**Recorded:** 2026-11-07 (T-3365).
+
+### L-k01-2009-meyer-gable-run-on-3365 — 2009 Prairie's gable carried on down to the party wall on its south side, and the corner cut down under it
+
+**Decision:** the Chicagology photograph (`chicagology_2009_prairie_meyer_photo`, rights check_required:
+forms, places and sizes only) shows the ogee gable's south side running on past the height where its north
+side stops, down over the party wall with 2011 to about 10.3 m. K01's shaped gable gains a `run_on`
+(`shaped_gable.run_on`, the front's high-s end, K01's side.north): the slab is carried down the print's line
+on a 0.45 m band under its coping, the street front and the party wall are cut down under the line, the hip's
+eave, soffit, gutter and covering over it are taken off in front of a cheek 0.9 m behind the front, and the
+cut is closed by that cheek (the side walls' brick) over a slated floor along the line. This retires the
+"the kit draws both sides alike" liberty in the record's note.
+**What is read, not invented.** The line itself, read row by row off the print at 99.9 px a metre: the coping's
+outer edge at half-width 2.31 m at 12.34 m, 2.6 at 11.86, 3.0 at 11.26, 3.37 at 10.78 and 3.62 at 10.46,
+meeting the party line at about 10.32 m; the render's coping lands within about 0.15 m of the print's along
+its length.
+**What is invented.** Everything behind the coping: the print sees only a dark face in shadow there (2011's
+wall and roof beyond the party line), so how deep the cut runs back (0.9 m), the cheek's brick and the
+slated floor sloping to the party wall are this build's, as is the gutter stopped at the cheek. The band's
+depth (0.45 m) is hidden in the wall.
+**How to resolve:** a picture of the roof from the south or above, or a camera on Monroe's 1896 plate if
+its frame reaches the south side.
 **Ticket:** T-3365 (piece 2 of T-1914).
 **Recorded:** 2026-11-07 (T-3365).

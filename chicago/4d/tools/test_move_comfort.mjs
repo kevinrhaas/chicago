@@ -65,17 +65,17 @@ const a = html.indexOf('data-panel="travel"');
 const move = html.slice(a, html.indexOf('</section>', a));
 const comfort = move.slice(move.indexOf('id="move-comfort"'));
 assert(move.includes('id="move-comfort">Comfort<'), 'Move has a Comfort group');
-for (const id of ['s-head-bob', 's-eye', 'v-eye', 'eye-note', 's-snap-turn']) {
+for (const id of ['s-head-bob', 's-eye', 'v-eye', 's-snap-turn']) {
   assert(comfort.includes(`id="${id}"`), `#${id} is in Move › Comfort`);
   assert.equal(html.split(`id="${id}"`).length, 2, `#${id} is on the page once`);
 }
-// T-2657 / T-2658: a one-line hint and its "Why?" bubble for a visitor, and the full essay
-// (#eye-note) for Researcher mode.
-assert(/<div class="why-line" data-visitor-only>[\s\S]*?<span class="why-text" id="why-eye-text" hidden data-str="research\.why\.eye">The default, 1\.68 m[\s\S]*?<details class="why" data-researcher><summary>Why this default<\/summary>\s*<p class="legend-note why-full" id="eye-note" data-researcher>The default, 1\.68 m/.test(comfort),
-  'the eye height keeps its "Why this default", naming the researched figure');
+// T-3445 (the owner, 2026-11-07): no "Why?" line or essay under it; the readout names the
+// researched default instead (hud.js).
+assert(!/why-line|class="why"|id="eye-note"/.test(comfort), 'the eye height carries no "Why this default"');
+assert(/1830s average/.test(read('renderers/web/js/hud.js')), 'its readout names the researched figure at the default');
 const settingsPanel = html.slice(html.indexOf('data-panel="settings"'), html.indexOf('</section>', html.indexOf('data-panel="settings"')));
 assert(!settingsPanel.includes('id="s-eye"'), 'eye height has left Settings');
-assert(/your eye height and the other comfort settings are under<\/span> <b[^>]*>Move<\/b>/.test(settingsPanel), 'Settings says where it went');
+assert(/Speeds, eye height and comfort:<\/span> <b[^>]*>Move<\/b>/.test(settingsPanel), 'Settings says where it went');
 const hud = read('renderers/web/js/hud.js');
 assert(/eyeHeight: 1\.68\b/.test(hud), 'eye height defaults to the researched 1.68 m');
 assert(/headBob: true\b/.test(hud), 'the head bob is on by default');
@@ -87,4 +87,4 @@ assert(/snapTurn: \(\) => !!hud\.settings\.snapTurn/.test(read('renderers/web/js
 const words = comfort.replace(/<!--[\s\S]*?-->/g, '').replace(/<[^>]+>/g, ' ');
 assert(!/[a-z]+_[a-z]+|\.js\b/.test(words), words);
 
-console.log('test_move_comfort: head bob, eye height (1.68 m, with its Why) and snap-turn on touch, in Move › Comfort');
+console.log('test_move_comfort: head bob, eye height (1.68 m, named on its readout) and snap-turn on touch, in Move › Comfort');

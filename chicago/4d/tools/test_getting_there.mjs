@@ -83,8 +83,8 @@ for (const [style, want] of [[on('instantly'), 'instantly'], [on('fly'), 'fly'],
 
 // ---- the page: one choice, said to be everyone's; Go to and the Map use travel.go -----------------
 const html = read('renderers/web/index.html');
-assert(/id="arrive-note" data-str="hud\.move\.arrive\.note">Go to and the map use this choice\. Jaunts keep the way each recommends, unless Jaunts use my choice is on/.test(html),
-  'Move says plainly what the choice and the switch do');
+assert(/id="arrive-note" data-str="hud\.move\.arrive\.note">Applies to Go to and the map\.</.test(html),
+  'Move says, in one line, what the choice covers (T-3445)');
 assert(/<span data-str="hud\.move\.jaunts">Jaunts use my choice<\/span>\s*<input type="checkbox" id="s-jaunts-choice">/.test(html),
   'Move › When you pick a place carries the switch');
 const main = read('renderers/web/js/main.js');

@@ -45,13 +45,14 @@
         "kind": "structure",
         "id": "pullman_house_1729_prairie"
       },
-      "text": "1729 Prairie, George Pullman's house of 1870 to 1876, read by the district register as a brownstone block under a mansard with dormers and iron cresting, entered by a portico on Prairie Avenue. Inside: a theatre of about two hundred seats, a pipe organ and a bowling alley, and later a palm room and a large conservatory by Solon S. Beman. Pullman died in 1897; his widow still keeps it. Across Eighteenth Street, a smaller house that refused to be left behind.",
-      "read_s": 23,
+      "text": "1729 Prairie, George Pullman's house of 1870 to 1876, read by the district register as a brownstone block under a mansard with dormers and iron cresting, entered by a portico on Prairie Avenue. Inside: a theatre of about two hundred seats, a pipe organ and a bowling alley, and later a palm room and a large conservatory by Solon S. Beman. Pullman died in 1897; his widow still keeps it. It is razed in 1922. Across Eighteenth Street, a smaller house that refused to be left behind.",
+      "read_s": 24,
       "evidence": [
         "pullman-marker",
         "pullman-draft",
         "tour",
-        "pullman-widow"
+        "pullman-widow",
+        "pullman-razed"
       ],
       "next": "jones"
     },
@@ -61,10 +62,11 @@
         "kind": "structure",
         "id": "jones_house_1834_prairie"
       },
-      "text": "1834 Prairie, Fernando Jones's house, built in 1866 as an Italianate house with a low roof. Twenty years later his neighbours all had mansards. In 1886 the house 'received a mansard addition to bring it into fashion with many of its neighbors': a whole new top storey, bought to keep up. That is how a style takes over a street. Two doors south stands the one Second Empire house that will outlive them all.",
-      "read_s": 21,
+      "text": "1834 Prairie, Fernando Jones's house, built in 1866 as an Italianate house with a low roof. Twenty years later his neighbours all had mansards. In 1886 the house 'received a mansard addition to bring it into fashion with many of its neighbors': a whole new top storey, bought to keep up. That is how a style takes over a street. The hat comes off for good in 1942, when the house is razed. Two doors south stands the one Second Empire house that will outlive them all.",
+      "read_s": 25,
       "evidence": [
         "jones-marker",
+        "jones-razed",
         "tour"
       ],
       "next": "e-keith"
@@ -91,14 +93,15 @@
         "kind": "structure",
         "id": "marshall_field_house_1905_prairie"
       },
-      "text": "1905 Prairie, Marshall Field's house, by Richard Morris Hunt, read by the district register as a broad brick and stone mansion under a mansard, with an angular corner bay, dormers and a central portico. Field, 'the wealthiest and most powerful businessman in Chicago', lived here. Picture his carriage turning in at sunset. One more mansard, at the far end of the row.",
-      "read_s": 17,
+      "text": "1905 Prairie, Marshall Field's house, by Richard Morris Hunt, read by the district register as a broad brick and stone mansion under a mansard, with an angular corner bay, dormers and a central portico. Field, 'the wealthiest and most powerful businessman in Chicago', lived here. Picture his carriage turning in at sunset; the house will be razed in 1955. One more mansard, at the far end of the row.",
+      "read_s": 19,
       "evidence": [
         "field-caption",
         "field-museum",
         "field-draft",
         "tour",
-        "field-rich"
+        "field-rich",
+        "field-razed"
       ],
       "next": "armour"
     },
@@ -108,14 +111,15 @@
         "kind": "structure",
         "id": "armour_house_2115_prairie"
       },
-      "text": "2115 Prairie, the Kelley-Armour house of 1871, which the district marker calls a stately Second Empire residence: a patterned slate mansard with cresting over a central arched doorway under a pediment. Built for the lumberman David Kelley, it became the home of the meatpacker Philip D. Armour, who boasted of using 'everything but the squeal'. His widow still lives here, and will be among the street's last residents.",
-      "read_s": 19,
+      "text": "2115 Prairie, the Kelley-Armour house of 1871, which the district marker calls a stately Second Empire residence: a patterned slate mansard with cresting over a central arched doorway under a pediment. Built for the lumberman David Kelley, it became the home of the meatpacker Philip D. Armour, who boasted of using 'everything but the squeal'. His widow still lives here, and will be among the street's last residents. The house is razed ten years after her death, in 1937.",
+      "read_s": 22,
       "evidence": [
         "armour-marker",
         "armour-draft",
         "tour",
         "armour-squeal",
-        "armour-widow"
+        "armour-widow",
+        "armour-razed"
       ],
       "next": "finish"
     }
@@ -334,6 +338,42 @@
         "hmdb_prairie_lost_houses_2000_2100"
       ],
       "locator": "The street-and-number list, PRAIRIE AV.; the marker's 2115 S. Prairie Avenue entry."
+    },
+    {
+      "id": "pullman-razed",
+      "text": "George M. Pullman Residence, 1729 S. Prairie Avenue: razed 1922.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "locator": "The 1729 S. Prairie Avenue entry."
+    },
+    {
+      "id": "jones-razed",
+      "text": "Fernando Jones Residence, 1834 S. Prairie Avenue: razed 1942.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "locator": "The 1834 S. Prairie Avenue entry."
+    },
+    {
+      "id": "field-razed",
+      "text": "Marshall Field Residence, 1905 S. Prairie Avenue: later converted to an aeronautical university. Razed 1955.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_east"
+      ],
+      "locator": "The 1905 S. Prairie Avenue entry."
+    },
+    {
+      "id": "armour-razed",
+      "text": "David Kelley-Philip D. Armour Residence, 2115 S. Prairie Avenue: razed 1937.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ],
+      "locator": "The 2115 S. Prairie Avenue entry."
     }
   ],
   "liberties": [

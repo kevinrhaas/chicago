@@ -2213,6 +2213,10 @@ class Assembly:
         if (p.round_corner or {}).get("to_eave") and beds is None:   # T-3314: and at a round carried up
             c0, c1 = k01_frontage_params.round_corner_spans(p.round_corner, p.depth_m, p.width_m)["walls"][cid]
             s_lo, s_hi = (max(s_lo, c1), s_hi) if c0 <= 1e-9 else (s_lo, min(s_hi, c0))
+        if cid == "k01.wall.street_front" and (p.shaped_gable or {}).get("run_on"):
+            # T-3365: and stopped where the gable's run-on cuts the front down under it
+            from . import k01_shaped_gable
+            s_hi = min(s_hi, k01_shaped_gable.run_on_wall_holes(p)["k01.wall.street_front"][0][0])
         if E - yf > 1e-6:
             if brick is not None:   # T-2914: brick up to the eave
                 self.prim(self.front_brick).face([P(s_lo, yf, 0.0), P(s_hi, yf, 0.0), P(s_hi, E, 0.0), P(s_lo, E, 0.0)], N, bb, conf)
@@ -4487,6 +4491,10 @@ class Assembly:
             from . import k01_shaped_gable
             solids.append(k01_shaped_gable.element(self, k5, ye))
             recesses += k01_shaped_gable.cutters(self, k5)
+            if p.shaped_gable.get("run_on"):   # T-3365: the corner cut down to the run-on
+                more, cut = k01_shaped_gable.run_on_solids(self, k5)
+                solids += more
+                recesses += cut
         # T-2302's plain stacks, for a record that names no K15 variant (1612 Goodman)
         self.stone_stack_boxes = []
         plain_stacks = []
@@ -6093,7 +6101,13 @@ class Assembly:
             # T-2889: no gutter across a front carried up as a shaped gable: the street run is
             # not built and each side run dies into the gable's base at its back (k01_shaped_gable)
             xb = self.shaped_gable_geom["xb"]
-            dead += [(starts[3] + xb + A, P), (0.0, starts[1] + D + A - xb)]
+            run_on = p.shaped_gable.get("run_on")
+            if run_on:   # T-3365: the high-s side run stops at the run-on's cheek, closed there
+                d1 = starts[1] + A + run_on["back_m"]
+                dead += [(starts[3] + xb + A, P), (0.0, d1)]
+                stop_ends.append((d1 % P, -1.0))
+            else:
+                dead += [(starts[3] + xb + A, P), (0.0, starts[1] + D + A - xb)]
         # T-3384: and none along a wall carried up through the mansard, the same way
         for spp in [x for x in [(p.mansard or {}).get("side_parapet")] if x] + k01_mansard_walled.wall_ends(p):
             # T-3061: no gutter along a side wall carried up as a parapet: the runs beside it
@@ -6513,6 +6527,9 @@ def build(params, structure_id: str):
     # T-3186: a canted corner cuts the front and its side wall back to its face, to the wall head
     cant = k01_frontage_params.cant_corner_plan(p.cant_corner, D, W) if p.cant_corner else None
     cant_cut = {w: (*sp, 0.0, E) for w, sp in cant["walls"].items()} if cant else {}
+    # T-3365: the shaped gable's side run on down to the corner: the walls cut down under it
+    from . import k01_shaped_gable
+    run_on_cut = k01_shaped_gable.run_on_wall_holes(p) if p.shaped_gable else {}
     y_round = p.arched_front["stone_top_m"] if p.arched_front else yf
     # T-3314: a round carried to the eave replaces the square corner up to the wall head
     round_eave = bool((p.round_corner or {}).get("to_eave"))
@@ -6533,6 +6550,8 @@ def build(params, structure_id: str):
             finish_gap = finish_gap + [(*rounded[wall_id], 0.0, y_round)]
         if wall_id in cant_cut:
             finish_gap = finish_gap + [cant_cut[wall_id]]
+        if wall_id in run_on_cut:   # T-3365: the party wall cut down under the gable's run-on
+            finish_gap = finish_gap + run_on_cut[wall_id]
         # T-3112: the side wall beside the pier stepped down under its weathering's slope
         if p.front_pier and wall_id == "k01.wall.side.south":
             L, step = a.pier_slope(), 0.1
@@ -6624,6 +6643,7 @@ def build(params, structure_id: str):
                                       extra=([(*rounded["k01.wall.street_front"], 0.0, y_round)] if rounded else [])
                                       + ([(0.0, p.front_pier["to_m"], 0.0, E)] if p.front_pier else [])
                                       + ([cant_cut["k01.wall.street_front"]] if cant else [])
+                                      + run_on_cut.get("k01.wall.street_front", [])
                                       + a.bay_holes.get("k01.wall.street_front", []))
         if p.round_corner:
             a.round_corner(t)

@@ -14,7 +14,8 @@ const here = new URL('../', import.meta.url);
 const threeURL = new URL('renderers/web/vendor/three-0.185.1/three.module.js', here).href;
 const hooks = registerHooks({ resolve: (specifier, context, next) => (specifier === 'three' ? { url: threeURL, shortCircuit: true } : next(specifier, context)) });
 const THREE = await import(threeURL);
-const { dressHair, growHair, CARDS, headFrame } = await import(new URL('renderers/web/js/human-hair.js', here));
+const { dressHair, growHair, CARDS, headFrame, keepsHair } = await import(new URL('renderers/web/js/human-hair.js', here));
+const { dressSpectacles, fitSpectacles, PEOPLE_SPECTACLES, spectaclesFor } = await import(new URL('renderers/web/js/human-spectacles.js', here));
 const { HAIR_CUTS, FACIAL_HAIR, HAIR_COLOURS, PEOPLE_HAIR, ERA_DEFAULT, hairFor } = await import(new URL('renderers/web/js/human-hair-styles.js', here));
 const { dressSkin, domeCornea } = await import(new URL('renderers/web/js/human-skin.js', here));
 
@@ -236,12 +237,83 @@ assert.equal(hairFor(null, 1600), null, 'no era, no hair grown');
   assert(FACIAL_HAIR.lashes_upper && hairFor('rc_flynn_mary', 1835).facial.includes('lashes_upper'), 'both women grow lashes');
 }
 
+// 4d. A bald crown (T-3440, Glessner): cards root only below the bald line, the cap (a full
+//     head of hair in its texture) is never drawn, near or far, and an undercoat in the hair's
+//     colour lies on the cap's own triangles where the fringe grows, skinned with the cap.
+{
+  // A cap that comes down the sides and back, as a real one does, below the bald line.
+  const lowCap = () => {
+    const fig = figure(), g = fig.cap.geometry, pos = g.attributes.position, kept = [];
+    const full = new THREE.SphereGeometry(R_HEAD, 48, 32).index.array;
+    for (let t = 0; t < full.length; t += 3) {
+      const ys = [full[t], full[t + 1], full[t + 2]].map(i => pos.getY(i) * UNIT - C.y), zs = [full[t], full[t + 1], full[t + 2]].map(i => pos.getZ(i) * UNIT - C.z);
+      if (Math.min(...ys) > -.06 && Math.max(...zs) < .06) kept.push(full[t], full[t + 1], full[t + 2]);
+    }
+    g.setIndex(kept);
+    return fig;
+  };
+  const { root, cap, skin } = lowCap();
+  const row = hairFor('glessner_john_j', 1904), cut = HAIR_CUTS[row.cut];
+  assert(cut.bald && row.grade === 'attested' && row.source_id, 'his fringe is read from his portrait');
+  const g = growHair({ hair: cap, skin, root, style: { ...row, facial: [] }, lod: 0, seed: 'glessner_john_j' });
+  assert(g.grown.scalp > 100, `a fringe grows: ${g.grown.scalp}`);
+  const f = headFrame(cap, root), v = new THREE.Vector3();
+  // Every card's root (its first two vertices) is on the fringe.
+  for (let i = 0; i < g.card.length / 4; i++) {
+    if (g.card[4 * i + 1] !== 0) continue;
+    assert(keepsHair(cut, f, v.fromArray(g.position, 3 * i).addScaledVector(f.y, -.003)), 'no card roots on the bald crown');
+  }
+  assert(g.undercoat?.length > 30, 'an undercoat where the fringe grows');
+  for (const i of g.undercoat) assert(!g.scalp.bare?.[i], 'the undercoat is never on the bald crown');
+  const done = dressHair(root, { lod: 0, person: 'glessner_john_j', year: 1904 });
+  assert(done && cap.visible === false, 'the cap is not drawn over a bald crown');
+  const under = cap.parent.children.find(o => o.name === 'hair_undercoat');
+  assert(under?.isSkinnedMesh && under.skeleton === cap.skeleton && !under.material.map, 'the undercoat is skinned with the cap, no texture');
+  const far = lowCap();
+  assert.equal(dressHair(far.root, { lod: 2, person: 'glessner_john_j', year: 1904 }), null);
+  assert.equal(far.cap.visible, false, 'far off, the head reads bare, not capped in dark hair');
+  for (const piece of row.facial) assert(FACIAL_HAIR[piece], piece);
+}
+
+// 4e. Spectacles (T-3440): only for a person whose portrait shows them, with its source;
+//     round rims centred in front of each eye, a bridge, temples back to the ears, all skinned
+//     to the head bone; none at the far levels.
+{
+  for (const [id, sp] of Object.entries(PEOPLE_SPECTACLES)) {
+    assert(sp.grade === 'attested' && sp.sources.length && sp.basis.length >= 60, `${id}: spectacles sourced`);
+    assert(people[id], `${id} is a person`);
+  }
+  assert.equal(spectaclesFor('pa1904_otis_f_r_c1900_hans_johnson'), null);
+  const { root, skin } = figure();
+  const fit = fitSpectacles(skin, root, PEOPLE_SPECTACLES.glessner_john_j);
+  assert(fit, 'fitted');
+  const f = fit.frame, P = fit.lens.position;
+  // The two lens centres: in front of the eyes, one either side of the nose.
+  const c1 = new THREE.Vector3().fromArray(P, 0), c2 = new THREE.Vector3().fromArray(P, 3 * (P.length / 6));
+  for (const c of [c1, c2]) {
+    const l = c.clone().sub(f.o);
+    assert(l.dot(f.z) > .005 && Math.abs(l.dot(f.y)) < .01, `a lens in front of an eye: ${l.toArray().map(x => x.toFixed(3))}`);
+  }
+  assert(Math.sign(c1.clone().sub(f.o).dot(f.x)) !== Math.sign(c2.clone().sub(f.o).dot(f.x)), 'one lens either side');
+  const done = dressSpectacles(root, { lod: 0, person: 'glessner_john_j' });
+  assert.equal(done?.meshes.length, 2, 'wire and lenses');
+  const head = skin.skeleton.bones.findIndex(b => b.name === 'head');
+  for (const m of done.meshes) {
+    assert(m.isSkinnedMesh && m.skeleton === skin.skeleton, 'skinned to the face\'s skeleton');
+    const si = m.geometry.attributes.skinIndex, sw = m.geometry.attributes.skinWeight;
+    for (let i = 0; i < si.count; i++) assert(si.getX(i) === head && sw.getX(i) === 1, 'wholly on the head bone');
+  }
+  assert.equal(dressSpectacles(figure().root, { lod: 2, person: 'glessner_john_j' }), null, 'none far off');
+  assert.equal(dressSpectacles(figure().root, { lod: 0, person: 'rc_flynn_mary' }), null, 'none for someone without');
+}
+
 // 5. Every person: humans.js grows each near body's hair after it measures its height.
 const humans = await fs.readFile(new URL('renderers/web/js/humans.js', here), 'utf8');
 assert(/import \{ dressHair \} from '\.\/human-hair\.js';/.test(humans));
 assert(/this\.proxy\.scale\.y = [^\n]*\n[\s\S]{0,400}dressHair\(scene, \{ lod,/.test(humans), 'build() grows the hair, after the height is measured');
+assert(/dressHair\(scene[^\n]*\n[\s\S]{0,200}dressSpectacles\(scene, \{ lod,/.test(humans), 'build() puts on spectacles after the hair (T-3440)');
 // Liberty: the hair supplement under L418 names this ticket.
 const liberties = await fs.readFile(new URL('docs/LIBERTIES.md', here), 'utf8');
 assert(/\*\*Strand hair, beards and eyes \(2026-11-06, T-3414\):\*\*/.test(liberties), 'L418 carries the hair supplement');
 hooks.deregister();
-console.log('human-hair: cards hug the cap and skin with it, seeded per person, near levels only, facial hair in its region, no texture, spliced once, cut under a hat, table graded, cornea domed, every body: PASS');
+console.log('human-hair: cards hug the cap and skin with it, seeded per person, near levels only, facial hair in its region, no texture, spliced once, cut under a hat, table graded, cornea domed, bald crown and spectacles (T-3440), every body: PASS');

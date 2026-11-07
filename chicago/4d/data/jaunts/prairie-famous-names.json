@@ -30,14 +30,15 @@
         "kind": "structure",
         "id": "pullman_house_1729_prairie"
       },
-      "text": "1729 Prairie, the Pullman house, built 1870 to 1876: inside, a theatre of about two hundred seats, a pipe organ and a bowling alley, and later a palm room and a great conservatory. George M. Pullman got rich young by lifting Chicago out of its mud, jacking up whole buildings 'on average six feet without causing them any damage'. Then he built sleeping cars, and when Lincoln's body rode home to Springfield in one, 'hundreds of thousands of people lined the route in homage'. Pullman died in 1897, hated by the strikers of his company town, and his widow still keeps this house. He also hated one thing on this street. It is right behind you.",
-      "read_s": 32,
+      "text": "1729 Prairie, the Pullman house, built 1870 to 1876: inside, a theatre of about two hundred seats, a pipe organ and a bowling alley, and later a palm room and a great conservatory. George M. Pullman got rich young by lifting Chicago out of its mud, jacking up whole buildings 'on average six feet without causing them any damage'. Then he built sleeping cars, and when Lincoln's body rode home to Springfield in one, 'hundreds of thousands of people lined the route in homage'. Pullman died in 1897, hated by the strikers of his company town, and his widow still keeps this house, which will be razed in 1922. He also hated one thing on this street. It is right behind you.",
+      "read_s": 34,
       "evidence": [
         "pullman-marker",
         "tour",
         "pullman-raise",
         "pullman-strike",
-        "pullman-widow"
+        "pullman-widow",
+        "pullman-razed"
       ],
       "next": "glessner"
     },
@@ -81,13 +82,14 @@
         "kind": "structure",
         "id": "marshall_field_house_1905_prairie"
       },
-      "text": "1905 Prairie, Marshall Field's house, designed by Richard Morris Hunt of New York. Field came from Massachusetts and became 'the wealthiest and most powerful businessman in Chicago', worth $125 million by 1905. His store's rule was 'Give the lady what she wants', and the ladies made him rich. He and George Pullman both bought land on this street, and the rest of Chicago's rich followed them here. Next year his world will fall apart, and it starts two doors south.",
-      "read_s": 22,
+      "text": "1905 Prairie, Marshall Field's house, designed by Richard Morris Hunt of New York. Field came from Massachusetts and became 'the wealthiest and most powerful businessman in Chicago', worth $125 million by 1905. His store's rule was 'Give the lady what she wants', and the ladies made him rich. He and George Pullman both bought land on this street, and the rest of Chicago's rich followed them here. His house will stand until 1955, when it is razed. Next year his world will fall apart, and it starts two doors south.",
+      "read_s": 25,
       "evidence": [
         "field-caption",
         "field-museum",
         "tour",
-        "field-rich"
+        "field-rich",
+        "field-razed"
       ],
       "next": "field-jr"
     },
@@ -113,14 +115,15 @@
         "kind": "structure",
         "id": "armour_house_2115_prairie"
       },
-      "text": "2115 Prairie, the Kelley-Armour house, built in 1871 and home to the Armour family for nearly fifty years. Philip D. Armour skipped the gold-rush shovels and 'started a business employing out-of-work miners to construct sluices'. Back in Chicago he built Armour & Co., 'the world's largest food processing and chemical manufacturing enterprise', boasting that he used 'everything but the squeal'. In 1893 he gave a million dollars to found the Armour Institute of Technology. He died in 1901; his widow still lives here, and she will outlast nearly everyone on the street.",
-      "read_s": 26,
+      "text": "2115 Prairie, the Kelley-Armour house, built in 1871 and home to the Armour family for nearly fifty years. Philip D. Armour skipped the gold-rush shovels and 'started a business employing out-of-work miners to construct sluices'. Back in Chicago he built Armour & Co., 'the world's largest food processing and chemical manufacturing enterprise', boasting that he used 'everything but the squeal'. In 1893 he gave a million dollars to found the Armour Institute of Technology. He died in 1901; his widow still lives here, and she will outlast nearly everyone on the street. The house itself is razed in 1937.",
+      "read_s": 28,
       "evidence": [
         "armour-marker",
         "armour-museum",
         "tour",
         "armour-life",
-        "armour-widow"
+        "armour-widow",
+        "armour-razed"
       ],
       "next": "finish"
     }
@@ -431,6 +434,33 @@
         "wikipedia_prairie_avenue"
       ],
       "locator": "The history section."
+    },
+    {
+      "id": "pullman-razed",
+      "text": "George M. Pullman Residence, 1729 S. Prairie Avenue: razed 1922.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "locator": "The 1729 S. Prairie Avenue entry."
+    },
+    {
+      "id": "field-razed",
+      "text": "Marshall Field Residence, 1905 S. Prairie Avenue: later converted to an aeronautical university. Razed 1955.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_east"
+      ],
+      "locator": "The 1905 S. Prairie Avenue entry."
+    },
+    {
+      "id": "armour-razed",
+      "text": "David Kelley-Philip D. Armour Residence, 2115 S. Prairie Avenue: razed 1937.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ],
+      "locator": "The 2115 S. Prairie Avenue entry."
     }
   ],
   "liberties": [

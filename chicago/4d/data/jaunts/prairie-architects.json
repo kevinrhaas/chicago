@@ -30,13 +30,14 @@
         "kind": "structure",
         "id": "hibbard_house_1701_prairie"
       },
-      "text": "1701 Prairie, William G. Hibbard's house of 1869, for the president of a big wholesale hardware firm. Its architect, William Le Baron Jenney, trained as an engineer, and fifteen years after this house he built the Home Insurance Building downtown: 'The building was the first fully metal-framed building and is considered the first skyscraper'. His drafting room was the school of a generation: Louis Sullivan, Daniel Burnham, William Holabird and Martin Roche 'performed their architectural apprenticeships on Jenney's staff'. Here he gave Hibbard a sober Italianate, a low hipped roof on bracketed eaves. South to the corner, and a very different kind of genius.",
-      "read_s": 29,
+      "text": "1701 Prairie, William G. Hibbard's house of 1869, for the president of a big wholesale hardware firm. Its architect, William Le Baron Jenney, trained as an engineer, and fifteen years after this house he built the Home Insurance Building downtown: 'The building was the first fully metal-framed building and is considered the first skyscraper'. His drafting room was the school of a generation: Louis Sullivan, Daniel Burnham, William Holabird and Martin Roche 'performed their architectural apprenticeships on Jenney's staff'. Here he gave Hibbard a sober Italianate, a low hipped roof on bracketed eaves. The house will end with a fitting tenant: from 1921 its owners give Sullivan a free office here until his death in 1924, and in 1932 it is razed. South to the corner, and a very different kind of genius.",
+      "read_s": 37,
       "evidence": [
         "hibbard-marker",
         "hibbard-draft",
         "tour",
-        "jenney-skyscraper"
+        "jenney-skyscraper",
+        "hibbard-razed"
       ],
       "next": "richardson"
     },
@@ -65,10 +66,11 @@
         "kind": "structure",
         "id": "keith_house_1808_prairie"
       },
-      "text": "1808 Prairie, next door, by Cobb and Frost for Osborn R. Keith. The notice of 1886 reads like a price tag: a three-storey dwelling, 38 by 80 feet, with a granite front, at a cost of forty thousand dollars. This house went up the same year Richardson's drawings next door were being built, granite answering granite. Two doors south is the firm that would outbuild them all.",
-      "read_s": 19,
+      "text": "1808 Prairie, next door, by Cobb and Frost for Osborn R. Keith. The notice of 1886 reads like a price tag: a three-storey dwelling, 38 by 80 feet, with a granite front, at a cost of forty thousand dollars. This house went up the same year Richardson's drawings next door were being built, granite answering granite. When it is razed in 1968, its north wall will be left standing to keep the Glessner courtyard private. Two doors south is the firm that would outbuild them all.",
+      "read_s": 24,
       "evidence": [
         "keith-notice",
+        "keith-razed",
         "tour"
       ],
       "next": "burnham-root"
@@ -79,13 +81,14 @@
         "kind": "structure",
         "id": "wheeler_house_1812_prairie"
       },
-      "text": "1812 Prairie, George H. Wheeler's house of 1884 by Burnham and Root: a picturesque brick row house in the Dutch manner, its front carried up as a tall shaped gable over a stone first storey. Within a decade Burnham would run the building of the 1893 World's Fair, the 'White City'. His motto: 'Make no little plans. They have no magic to stir men's blood and probably will not themselves be realized.' Cross the avenue to a chateau by a man who once planned an entire town.",
-      "read_s": 24,
+      "text": "1812 Prairie, George H. Wheeler's house of 1884 by Burnham and Root: a picturesque brick row house in the Dutch manner, its front carried up as a tall shaped gable over a stone first storey. It will be razed in 1968. Within a decade Burnham would run the building of the 1893 World's Fair, the 'White City'. His motto: 'Make no little plans. They have no magic to stir men's blood and probably will not themselves be realized.' Cross the avenue to a chateau by a man who once planned an entire town.",
+      "read_s": 25,
       "evidence": [
         "wheeler-marker",
         "wheeler-photo",
         "tour",
-        "burnham-plans"
+        "burnham-plans",
+        "wheeler-razed"
       ],
       "next": "beman"
     },
@@ -111,13 +114,14 @@
         "kind": "structure",
         "id": "marshall_field_house_1905_prairie"
       },
-      "text": "1905 Prairie, Marshall Field's house, by Richard Morris Hunt of New York. 'Hunt was the first American to be admitted to the school of architecture at the École des Beaux-Arts' in Paris, and he designed 'the pedestal of the Statue of Liberty' and Biltmore, 'America's largest private house'. For Chicago's richest man he built a broad brick and stone mansion under a mansard. One more stop, at 2100, where a young architect met his wife.",
-      "read_s": 21,
+      "text": "1905 Prairie, Marshall Field's house, by Richard Morris Hunt of New York. 'Hunt was the first American to be admitted to the school of architecture at the École des Beaux-Arts' in Paris, and he designed 'the pedestal of the Statue of Liberty' and Biltmore, 'America's largest private house'. For Chicago's richest man he built a broad brick and stone mansion under a mansard; it ends as an aeronautical university and is razed in 1955. One more stop, at 2100, where a young architect met his wife.",
+      "read_s": 24,
       "evidence": [
         "field-caption",
         "field-museum",
         "tour",
-        "hunt-works"
+        "hunt-works",
+        "field-razed"
       ],
       "next": "sherman"
     },
@@ -127,13 +131,14 @@
         "kind": "structure",
         "id": "sherman_house_2100_prairie"
       },
-      "text": "2100 Prairie, John B. Sherman's house of 1874, the first of nearly a dozen Burnham and Root commissions on this street. Sherman ran the Union Stock Yards. While the house was going up, his daughter Margaret married the young architect Daniel Burnham, in 1876, and Sherman started telling his neighbours whom to hire. That is how a firm gets a street: the client becomes your father-in-law, and the father-in-law becomes your salesman. Burnham and Root became the most prolific architects on Prairie Avenue.",
-      "read_s": 23,
+      "text": "2100 Prairie, John B. Sherman's house of 1874, the first of nearly a dozen Burnham and Root commissions on this street. Sherman ran the Union Stock Yards. While the house was going up, his daughter Margaret married the young architect Daniel Burnham, in 1876, and Sherman started telling his neighbours whom to hire. That is how a firm gets a street: the client becomes your father-in-law, and the father-in-law becomes your salesman. Burnham and Root became the most prolific architects on Prairie Avenue. The house where it started is razed in 1936.",
+      "read_s": 26,
       "evidence": [
         "sherman-marker",
         "burnham-museum",
         "tour",
-        "burnham-plans"
+        "burnham-plans",
+        "sherman-razed"
       ],
       "next": "finish"
     }
@@ -421,6 +426,51 @@
         "wikipedia_daniel_burnham"
       ],
       "locator": "The biography."
+    },
+    {
+      "id": "hibbard-razed",
+      "text": "William G. Hibbard Residence, 1701 S. Prairie Avenue: in 1921 the house was bought by the American Terra Cotta & Ceramic Co., which gave the architect Louis Sullivan free office space there until his death in 1924. Razed 1932.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "locator": "The 1701 S. Prairie Avenue entry."
+    },
+    {
+      "id": "keith-razed",
+      "text": "Osborn R. Keith Residence, 1808 S. Prairie Avenue: the north wall was retained during demolition in 1968 to preserve the private courtyard of the adjacent Glessner house.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "locator": "The 1808 S. Prairie Avenue entry."
+    },
+    {
+      "id": "wheeler-razed",
+      "text": "George H. Wheeler Residence, 1812 S. Prairie Avenue: razed 1968.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "locator": "The 1812 S. Prairie Avenue entry."
+    },
+    {
+      "id": "field-razed",
+      "text": "Marshall Field Residence, 1905 S. Prairie Avenue: later converted to an aeronautical university. Razed 1955.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_east"
+      ],
+      "locator": "The 1905 S. Prairie Avenue entry."
+    },
+    {
+      "id": "sherman-razed",
+      "text": "John B. Sherman Residence, 2100 S. Prairie Avenue: razed 1936.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ],
+      "locator": "The 2100 S. Prairie Avenue entry."
     }
   ],
   "liberties": [

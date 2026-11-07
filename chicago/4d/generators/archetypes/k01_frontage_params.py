@@ -2059,8 +2059,38 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
                 or kne["at_m"] + kne["shaft_m"] / 2 > base_in + 1e-9:
             raise ParamError("shaped_gable.base_ledge_half_m: wider than the outline at the ledge, inside the "
                              "front, and wide enough to carry the kneelers' pinnacles")
+    ro = {}
+    if sg.get("run_on"):
+        # T-3365: one side's outline carried on down past the ledge to the front's corner, as
+        # 2009 Prairie's south side runs on down over the party wall to about 10.3 m where its
+        # north side stops on the kneeler: `profile_m`, [half-width, height] pairs FALLING from
+        # where it leaves the outline to the corner (the last at the front's half-width); a
+        # `band_m` of slab under it (the coping's bed, carried down the corner); `back_m`, how
+        # far behind the front the corner is cut down to it (the cheek that closes the cut).
+        # The front's high-s end (K01's side.north) alone: the party wall it runs down to.
+        r_ = sg["run_on"]
+        if r_.get("wall") != "k01.wall.side.north":
+            raise ParamError("shaped_gable.run_on.wall: k01.wall.side.north (the front's high-s end)")
+        rp = [(float(w), float(y)) for w, y in r_["profile_m"]]
+        band, back = float(r_["band_m"]), float(r_["back_m"])
+        if len(rp) < 2 or any(y1 >= y0 or w1 <= w0 for (w0, y0), (w1, y1) in zip(rp, rp[1:])):
+            raise ParamError("shaped_gable.run_on.profile_m: two or more points, falling and widening point by point")
+        if abs(rp[-1][0] - width / 2) > 1e-6:
+            raise ParamError(f"shaped_gable.run_on.profile_m: its last point on the front's corner ({width / 2} m)")
+        above = [y for _, y in pr if y > rp[0][1] + 1e-6]
+        if not above or abs(rp[0][0] - ksg.half_width(q, rp[0][1])) > 0.3 or rp[0][1] < ledge - 0.5:
+            raise ParamError("shaped_gable.run_on.profile_m: it leaves the outline (within 0.3 m of it, under a "
+                             "profile point, no more than 0.5 m under the ledge)")
+        if not 0.2 <= band <= 0.8 or not 0.6 <= back <= 2.0:
+            raise ParamError("shaped_gable.run_on: a 0.2-0.8 m band under it, cut back 0.6-2.0 m behind the front")
+        if rp[-1][1] - band < foot - 2.5 or rp[-1][1] >= foot:
+            raise ParamError("shaped_gable.run_on: its foot under the slab's, its band within 2.5 m of it")
+        if kne:
+            raise ParamError("shaped_gable.run_on: a side carried on down past the ledge carries no kneeler")
+        ro = {"wall": r_["wall"], "profile_m": rp, "band_m": band, "back_m": back}
     return {"profile_m": pr, "foot_m": foot, "thickness_m": t, "proud_m": proud,
             **({"takes_gutter": True} if tg else {}),
+            **({"run_on": ro} if ro else {}),
             "lights": {"variant": li["variant"], "sill_m": sill, "width_m": lw, "height_m": lh, "at_m": at,
                        **({"rows": rows, "transom_m": tr} if rows > 1 else {}),
                        **({"panes": [int(n) for n in panes]} if panes is not None else {}),
