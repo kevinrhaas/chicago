@@ -1,4 +1,33 @@
 export const CHANGELOG = [ // newest first
+  { v: 2756, ts: '2026-11-07T05:47:58.404Z', date: 'Nov 6, 2026, 11:47 PM CT', title: 'Go to › Photos opens the picture in the card', kind: 'feature',
+    items: [
+      'Arriving at a photo view from Go to › Photos opens the building\'s card on its Photos tab, with that picture large at the top, marked Taken from here.',
+      'Tap the picture for the viewer, or Full size ↗ to open it in a new window.',
+    ] },
+  { v: 2755, ts: '2026-11-07T05:47:58.404Z', date: 'Nov 6, 2026, 11:47 PM CT', title: 'The date by the year follows the Season', kind: 'fix',
+    items: [
+      'The date beside the year at the top of the screen now names the Season\'s day, not always the scene\'s own: spring reads 15 April, fall 15 October and winter 15 February (February, so a winter view is never Christmas). Summer keeps the scene\'s own day, 1 July in 1835 and 1904 and 14 August in 1812.',
+      'The sun is lit for that same day, the Navigator\'s date matches, and Settings › Season names each season\'s day. A jaunt that sets its own season shows that season\'s day while it runs.',
+    ] },
+  { v: 2754, ts: '2026-11-07T05:20:51.651Z', date: 'Nov 6, 2026, 11:20 PM CT', title: 'People lists each household once', kind: 'fix',
+    items: [
+      'The household of the building in view is pinned once on Households, with every other household under it, instead of again as the list\'s first row.',
+      'On People, the pin shows that household\'s own people rather than a household row, with everyone else under it.',
+    ] },
+  { v: 2753, ts: '2026-11-07T05:13:17.209Z', date: 'Nov 6, 2026, 11:13 PM CT', title: '1936 Prairie\'s dining-room side gets the windows its photograph shows', kind: 'fix',
+    items: [
+      'The Thompson/Allerton house at 1936 Prairie: the dining room\'s south side now has the windows its winter photograph shows on each floor, a single, a single and a pair, where it had two evenly spaced singles. The pair stands on a stone mullion, and all three line up with the photograph from its own viewpoint.',
+    ] },
+  { v: 2752, ts: '2026-11-07T05:06:36.036Z', date: 'Nov 6, 2026, 11:06 PM CT', title: '2009 Prairie\'s tall chimney moves to the wall its photograph shows', kind: 'improvement',
+    items: [
+      'In 1904, the tall chimney of 2009 Prairie Avenue now rises astride the north wall, where the old photograph puts it, instead of standing inside the roof; its head is laid in courses that step out under a stone cap, as the photograph draws it, and the chimney farther back gets the same head.',
+      'The gable\'s south foot is still to come.',
+    ] },
+  { v: 2751, ts: '2026-11-07T05:06:36.036Z', date: 'Nov 6, 2026, 11:06 PM CT', title: '1828 Prairie\'s porch gets its arches, and its bay its basement lights', kind: 'feature',
+    items: [
+      'The Shipman house at 1828 Prairie: round arches on the porch\'s front and south side, springing from its columns\' capitals under the carved entablature, as the c. 1900 photograph with the automobile shows them.',
+      'Under the canted bay\'s three tall windows, barred basement lights as tall and wide as the photograph\'s, where the bay\'s base stood blank.',
+    ] },
   { v: 2750, ts: '2026-11-07T04:23:18.977Z', date: 'Nov 6, 2026, 10:23 PM CT', title: 'Mattie Williamson passes the people photo test', kind: 'fix',
     items: [
       'The Glessners\' cook is the first approved figure for the 1904 working woman; later women of that role are held to her.',

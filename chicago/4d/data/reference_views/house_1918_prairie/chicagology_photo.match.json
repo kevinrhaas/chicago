@@ -2,7 +2,7 @@
   "structure_id": "house_1918_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/house_1918_prairie__as_mapped_1904.glb",
-  "glb_sha256": "637d6e4f11f25f5a74985184727eab46113e0be2c0660fde0a116e6ec3c4842b",
+  "glb_sha256": "fbe97e547329070ec49f1fc15f32d293559b9176759a528708588980b8ae9a7b",
   "camera_sha256": "c5c49af27eec1d98bff1ffde086b8c22674806b06a0ed68eafa2bfba3072f1db",
   "photo_sha256": "7458a4902276cccdaa289b9767e8ab717b5dd0fcf06ba3969a97c4fa8d00e92a",
   "side_by_side": "docs/RESEARCH/photo-match/house_1918_prairie/chicagology_photo-side-by-side.jpg",
@@ -49,8 +49,8 @@
       "status": "open"
     },
     {
-      "what": "the dining range's south windows (T-3370): the photograph shows a single, a single and a pair to each storey on its south face (x 880-910, 965-995, 1040-1095 px), the build two singles",
-      "status": "open"
+      "what": "the dining range's south windows (T-3370): the photograph shows a single, a single and a pair to each storey on its south face (x 880-910, 965-995, 1040-1095 px), the build two singles; T-3370 (third pass): built as the print shows, a single, a single and a pair to each storey (the pair K06's paired sash, two 0.75 m lights on a 0.3 m mullion), at the print's fractions of the face (0.24, 0.53, 0.81), so the pair stands its own width short of the range's east corner as the print's does; they render at centres x 892, 965 and 1037 px for the print's 899, 983 and 1067, the face being shorter in the build (the item below)",
+      "status": "fixed"
     },
     {
       "what": "the chimney stacks: the photograph's tall panelled stacks with heavy caps, the left one over the flank (x 905-995, top y 267 px) and the right one over the front part (x 1215-1300, top y 185 px). T-3370 placed them through the re-solved camera (the left at u 1.7, the right at u 11.7 on the line v 0.9). T-3370's second pass: the left one's top, read at y 270 px (17.33 m), stood about 35 px high at the kit's one height (18.22 m) and now stands at its own 17.35 m (its render's top y 263); both carry the K15 kit's panelled dress (k15.stack.sherman less its corbel blocks): a stone band about 1.75 m over the roof under each (the print's y 318 and 267 px, 16.09 and 16.29 m; built 16.12), the sunk panel on the right one's east face (the print's y 267-303, 15.43-16.29 m; built 15.37-16.29) and on neither of the left one's faces (none shows), and a heavy head of three corbelled courses under a stone cap, 0.85 m tall and 0.28 m out (the left one's print y 270-305, 0.9 m, about 0.3 m out)",
@@ -83,6 +83,10 @@
     {
       "what": "the street trees, lamp and hydrant before the house",
       "status": "not shown"
+    },
+    {
+      "what": "the dining range's south face's length (T-3370, third pass): through the re-solved camera the photograph's face runs from x 833 px to its dark east return at x 1125-1170, about 10.4 m, where the build's (the 1911 sheet's u 0-9.03) ends at x 1084 with its return to 1129; so the return, and the wall east of it, stand about 40 px (1.3 m) west of the print's, and the windows on the face, placed at the print's fractions of it, 7-30 px west of the print's. Either the range is longer than the sheet draws it or the camera's depth along the flank is off (its RESIDUAL TENSION at the south-east corner is the same sense); not settled here",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

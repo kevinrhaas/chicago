@@ -38,7 +38,7 @@ export const QUICK_STARTS = {
     ['pullman_house', 'Pullman', 'mansion'], ['field_house', 'Field', 'mansard'],
     ['first_presbyterian', 'Church', 'church'], ['haunted_battle_ground', '1812 battle', 'ghost']],
 };
-export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-07-01' }, destinations, enter, resume, pause, hasEntered, onJaunts = () => {}, onExplore = () => {}, isTouch = false,
+export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-07-01' }, sceneDate = () => scene.target_date, destinations, enter, resume, pause, hasEntered, onJaunts = () => {}, onExplore = () => {}, isTouch = false,
   // T-2630: told before the card shows, so the Navigator's Jaunts app hands back the
   // Jaunts list and the Go to search it borrowed.
   onShow = () => {},
@@ -235,7 +235,7 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
     body.hidden = false; picker.hidden = true; jaunts.hidden = true;
     $('welcome-explore').setAttribute('aria-expanded', 'false');
     $('welcome-jaunts').setAttribute('aria-expanded', 'false');
-    const presentation = scenePresentation(scene.id, scene.target_date);
+    const presentation = scenePresentation(scene.id, sceneDate() || scene.target_date);
     title.textContent = presentation.welcomeTitle;
     gate.querySelector('.welcome-intro').textContent = presentation.intro;
     // T-2662: the intro is where Reconstructed and Sources first appear: tap either for its line.

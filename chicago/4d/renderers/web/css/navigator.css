@@ -410,7 +410,7 @@ button.nav-person:focus-visible { outline: 2px solid var(--accent); outline-offs
 /* T-3430: People as a directory: a search box, a Households / People switch with counts,
    the household in view pinned first, and a household's or person's card in place. */
 .ppl-dir, .ppl-card { display: flex; flex-direction: column; gap: 10px; }
-.ppl-dir[hidden], .ppl-card[hidden], .ppl-inview[hidden], .ppl-more[hidden] { display: none; }
+.ppl-dir[hidden], .ppl-card[hidden], .ppl-inview[hidden], .ppl-rest[hidden], .ppl-more[hidden] { display: none; }
 .ppl-find { position: relative; display: block; }
 .ppl-find svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--ink-faint, var(--ink-dim)); pointer-events: none; }
 .ppl-search { box-sizing: border-box; width: 100%; min-height: 44px; padding: 8px 12px 8px 36px; border: 1px solid var(--edge);
@@ -421,7 +421,9 @@ button.nav-person:focus-visible { outline: 2px solid var(--accent); outline-offs
 .ppl-seg-n { font-variant-numeric: tabular-nums; opacity: .75; }
 .ppl-status { margin: 0; }
 .ppl-results { display: flex; flex-direction: column; }
-.ppl-results > .ppl-row:first-child, .ppl-inview > .ppl-row { margin-top: 4px; }
+.ppl-results > .ppl-row:first-child, .ppl-inview > .ppl-row:first-of-type { margin-top: 4px; }
+/* T-3438: the list under the pin says it is the rest, so the pin is never read as its first row. */
+.ppl-rest { margin: 6px 0 -6px; }
 .ppl-row .nav-person-name { display: inline-flex; align-items: center; gap: 6px; }
 .ppl-inview { display: flex; flex-direction: column; }
 .ppl-more { width: 100%; border: 1px solid var(--edge); }

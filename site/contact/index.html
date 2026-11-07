@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact — 4D Chicago</title>
+<meta name="description" content="Write to the 4D Chicago project: a building with a photograph, a family in a census line, an archive, a classroom or a museum.">
+<meta name="theme-color" content="#07090f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%2307090f'/%3E%3Cpath fill='%23ff3b4f' d='M24 7l3.4 10.4L38.2 15l-7.3 8.2 7.3 8.2-10.8-2.3L24 39.5l-3.4-10.4L9.8 31.4l7.3-8.2-7.3-8.2 10.8 2.4z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="../css/home.css">
+<script>
+(function () { var r = document.documentElement, t = null; r.classList.add('js');
+  try { t = localStorage.getItem('chicago.theme'); } catch (e) {}
+  r.setAttribute('data-theme', t === 'light' ? 'light' : 'dark'); })();
+</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 48 48"><path d="M24 4l4.2 12.7L41.3 14l-8.9 10 8.9 10-13.1-2.7L24 44l-4.2-12.7L6.7 34l8.9-10-8.9-10 13.1 2.7z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 13.4A8.5 8.5 0 1 1 10.6 3.5a6.6 6.6 0 0 0 9.9 9.9z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><path d="M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
+  </defs>
+</svg>
+
+<nav class="nav scrolled" id="nav" aria-label="Primary">
+  <div class="wrap nav-in">
+    <a class="brand" href="../" aria-label="4D Chicago, home"><svg class="ic fill brand-mark" aria-hidden="true"><use href="#i-star"/></svg><b>4D Chicago</b></a>
+    <div class="nav-links">
+      <a href="../#films">Films</a>
+      <a href="../#matched">Photo-matched</a>
+      <a href="../#how">How it’s made</a>
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch between light and dark">
+        <svg class="ic theme-moon" aria-hidden="true"><use href="#i-moon"/></svg><svg class="ic theme-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+      <a class="btn btn-light" href="../4d/">Enter <span class="long">4D Chicago</span><svg class="ic go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</nav>
+
+<main class="contact-page">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="kick">Contact</div>
+      <h1>Bring us <em>a place.</em></h1>
+      <p class="lead">4D Chicago grows one source at a time. If you hold a piece of the city’s record — or want to put
+      the city to work — write to us. We read every message.</p>
+      <ul class="reasons">
+        <li><b>i</b><span>A photograph, a letter, a deed or a family story about a building in 1812, 1835 or 1904.</span></li>
+        <li><b>ii</b><span>Archives, libraries and historical societies with collections we should be citing.</span></li>
+        <li><b>iii</b><span>Classrooms, museums and exhibits that want to walk the city with their visitors.</span></li>
+        <li><b>iv</b><span>A correction. If the record says otherwise, so will the model.</span></li>
+      </ul>
+    </div>
+
+    <div class="form-wrap" id="formWrap">
+      <form class="form" id="contactForm" action="https://formsubmit.co/kevin.haas@polecat.live" method="POST" novalidate>
+        <div class="row2">
+          <label>Your name<input name="name" autocomplete="name" required maxlength="120"></label>
+          <label>Email<input name="email" type="email" autocomplete="email" required maxlength="200"></label>
+        </div>
+        <label>About
+          <select name="topic">
+            <option>A building, photo or source</option>
+            <option>Archive or collection</option>
+            <option>School, museum or exhibit</option>
+            <option>A correction</option>
+            <option>Press</option>
+            <option>Something else</option>
+          </select>
+        </label>
+        <label>Message<textarea name="message" required maxlength="5000" placeholder="Tell us about it — a link to a scan is perfect."></textarea></label>
+        <div class="hp" aria-hidden="true"><label>Leave this empty<input name="_honey" tabindex="-1" autocomplete="off"></label></div>
+        <input type="hidden" name="_subject" value="4D Chicago — a message from the contact page">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://chicago.polecat.live/contact/?sent=1">
+        <button class="btn btn-solid" type="submit" id="sendBtn">Send message <svg class="ic go" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+        <p class="fine">Your message is delivered to us by email through FormSubmit; we use your address only to reply.</p>
+      </form>
+      <div class="sent" id="sent" tabindex="-1">
+        <h2>Thank you — <em>it’s on its way.</em></h2>
+        <p>We’ll read it and write back to the address you gave. In the meantime, <a href="../4d/" style="text-decoration:underline">step into 1835</a>.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div>
+      <a class="brand" href="../"><svg class="ic fill brand-mark" aria-hidden="true"><use href="#i-star"/></svg><b>4D Chicago</b></a>
+      <p class="foot-meta">A source-cited reconstruction of early Chicago.</p>
+    </div>
+    <div class="foot-cols">
+      <div><h5>Walk</h5><ul><li><a href="../4d/1904/">1904 · Prairie Avenue</a></li><li><a href="../4d/1835/">1835 · The river town</a></li><li><a href="../4d/1812/">1812 · Fort Dearborn</a></li></ul></div>
+      <div><h5>Atlas</h5><ul><li><a href="../pre-fire/viewer/">Before the Fire</a></li><li><a href="../rebuilding-1870s/viewer/">Chicago Rebuilds</a></li><li><a href="../prairie-1904/viewer/">Prairie Avenue library</a></li></ul></div>
+      <div><h5>More</h5><ul><li><a href="../">Home</a></li><li><a href="https://custom.polecat.live/">Custom workshop</a></li><li><a href="https://polecat.live/">polecat.live</a></li></ul></div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/contact.js" defer></script>
+</body>
+</html>

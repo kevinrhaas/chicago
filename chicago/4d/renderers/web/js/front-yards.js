@@ -135,13 +135,13 @@ const SEASON = {
  * T-3399 — EACH PLANT'S OWN SEASON. The owner (2026-11-06) set the Season to fall and
  * saw the elms turn while the yards' lilacs, maples and lindens stayed July green.
  * Each plant now takes its own leaf for the day the Season shows (season.js
- * SEASON_DAY: 25 April, 20 October, 21 December), as the species generally looks
+ * SEASON_DAY: 15 April, 15 October, 15 February since T-3437), as the species generally looks
  * in a Chicago yard then: `dark`/`light` its leaf, `crown` how much of it is out
  * (tree-model.js leafCover/leafScale; the SEASON row above when absent), `bloom`
  * what flowers or fruit it carries (null: none). Winter is the SEASON row's bare
  * crown for every deciduous plant. A viewing choice under liberty L-season-view-2864,
  * like the rest of the Season; no record of these yards on those days stands behind it.
- *   lilac       in full leaf by late April (it leafs early), and in October still a
+ *   lilac       leafing by mid-April (it leafs early), and in October still a
  *               dull olive green: a lilac drops its leaves late and barely turns
  *   spiraea     small fresh leaves in April; orange to wine red in October
  *   hydrangea   cut back in winter, so in April only low new shoots; yellowing in
@@ -153,7 +153,7 @@ const SEASON = {
  *   ivy         Boston ivy: small bronze leaves in April, crimson in October, bare in
  *               winter (the stems stay on the wall)
  *   bedding     geraniums and coleus are set out after the frosts, late May, and come
- *               up at the first frost; on 20 October they are still in the beds
+ *               up at the first frost; on 15 October they are still in the beds
  * The tubbed plants are under glass from the first frost to late May, so only the
  * summer Season stands them out (the tubs with them).
  */
@@ -466,8 +466,8 @@ export async function createFrontYards({
 
   /* ---- the tubs: one mesh, each a staved tub a little wider at its rim ---- */
   // Tub plants were wintered under glass and set out for the summer, so only the
-  // summer Season draws the tubs and what grows in them (T-3399: 25 April is before
-  // the last frost and 20 October after the first).
+  // summer Season draws the tubs and what grows in them (T-3399: 15 April is before
+  // the last frost, and by 15 October the tubs are going in under glass).
   let tubMesh = null;
   stats.tubs = tubs.length;
   if (tubs.length) {
