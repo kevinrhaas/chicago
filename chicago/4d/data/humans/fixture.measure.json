@@ -106,11 +106,11 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 144.4,
-        "mobile": 137
+        "desktop": 219.4,
+        "mobile": 235.2
       },
       "frame_ms_median": {
-        "desktop": 0.2,
+        "desktop": 0.5,
         "mobile": 0.3
       },
       "verdicts": [
@@ -255,12 +255,12 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 134.1,
-        "mobile": 136.8
+        "desktop": 187,
+        "mobile": 213.8
       },
       "frame_ms_median": {
         "desktop": 0.2,
-        "mobile": 0.2
+        "mobile": 0.3
       },
       "verdicts": [
         {
@@ -400,8 +400,8 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 142,
-        "mobile": 155.8
+        "desktop": 8162.1,
+        "mobile": 8202.5
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -535,11 +535,11 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 2356.9,
-        "mobile": 3746.8
+        "desktop": 197,
+        "mobile": 314.2
       },
       "frame_ms_median": {
-        "desktop": 0.1,
+        "desktop": 0.2,
         "mobile": 0.1
       },
       "verdicts": [
@@ -679,8 +679,8 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 127.4,
-        "mobile": 139.1
+        "desktop": 595.7,
+        "mobile": 262.3
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -833,11 +833,11 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 134.5,
-        "mobile": 143.6
+        "desktop": 220.5,
+        "mobile": 352.8
       },
       "frame_ms_median": {
-        "desktop": 0.2,
+        "desktop": 0.1,
         "mobile": 0.1
       },
       "verdicts": [
@@ -983,8 +983,8 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 130.7,
-        "mobile": 145.4
+        "desktop": 268.4,
+        "mobile": 210.3
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -1123,12 +1123,12 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 152.8,
-        "mobile": 130.7
+        "desktop": 245.8,
+        "mobile": 332.4
       },
       "frame_ms_median": {
         "desktop": 0.1,
-        "mobile": 0.1
+        "mobile": 0.3
       },
       "verdicts": [
         {
@@ -1237,8 +1237,8 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 19,
-        "mobile": 21.7
+        "desktop": 47.7,
+        "mobile": 84.4
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -1366,8 +1366,8 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 14.7,
-        "mobile": 15.9
+        "desktop": 35.6,
+        "mobile": 23.6
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -1491,11 +1491,11 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 9.3,
-        "mobile": 16.4
+        "desktop": 73.6,
+        "mobile": 27.5
       },
       "frame_ms_median": {
-        "desktop": 0.1,
+        "desktop": 0,
         "mobile": 0.1
       },
       "verdicts": [
@@ -1601,8 +1601,8 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 20,
-        "mobile": 9.1
+        "desktop": 26.4,
+        "mobile": 19.6
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -1735,11 +1735,11 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 167.4,
-        "mobile": 158.8
+        "desktop": 305.4,
+        "mobile": 222.9
       },
       "frame_ms_median": {
-        "desktop": 0.2,
+        "desktop": 0.1,
         "mobile": 0.1
       },
       "verdicts": [
@@ -1884,8 +1884,8 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 184.6,
-        "mobile": 161
+        "desktop": 192.7,
+        "mobile": 174.3
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -2029,12 +2029,12 @@
       "rest_height_m": 1.6532,
       "soles_y_m": -0.0001,
       "load_ms": {
-        "desktop": 176,
-        "mobile": 166.6
+        "desktop": 272.1,
+        "mobile": 221.2
       },
       "frame_ms_median": {
         "desktop": 0.1,
-        "mobile": 0.1
+        "mobile": 0.2
       },
       "verdicts": [
         {
@@ -2159,11 +2159,11 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 139,
-        "mobile": 121.4
+        "desktop": 414.7,
+        "mobile": 195.1
       },
       "frame_ms_median": {
-        "desktop": 0,
+        "desktop": 0.1,
         "mobile": 0.1
       },
       "verdicts": [
@@ -2236,14 +2236,14 @@
     },
     {
       "file": "assets/humans/williamson_mattie_1904_cook_study.lod0.glb",
-      "sha256": "464b9a9b433b8df1efbe32cc0a3d8d0c21d00c3e318f2d181d938f82dc8119db",
+      "sha256": "ad22e4e12ea3938d0489d7352c1d4780a352f01ec281f3b3f37396aec318a289",
       "lod": 0,
       "derivative_of": null,
-      "bytes": 8828252,
+      "bytes": 8723672,
       "meshopt": false,
-      "triangles": 41564,
-      "vertices": 26768,
-      "draw_calls": 12,
+      "triangles": 42040,
+      "vertices": 27887,
+      "draw_calls": 13,
       "materials": 9,
       "textures": [
         {
@@ -2288,8 +2288,8 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 154.4,
-        "mobile": 139.1
+        "desktop": 207.9,
+        "mobile": 347.6
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -2299,7 +2299,7 @@
         {
           "check": "one skeleton under every primitive",
           "ok": true,
-          "got": "12 skinned primitive(s), 1 skeleton(s)"
+          "got": "13 skinned primitive(s), 1 skeleton(s)"
         },
         {
           "check": "the whole contract skeleton",
@@ -2374,20 +2374,20 @@
         {
           "check": "the same at 390x780",
           "ok": true,
-          "got": "41564 tris, 12 draws"
+          "got": "42040 tris, 13 draws"
         }
       ]
     },
     {
       "file": "assets/humans/williamson_mattie_1904_cook_study.lod1.glb",
-      "sha256": "07e0b933f8620f96e08e6e6dc1ce1ae0abcd1e0452c54d1828e21615156556e5",
+      "sha256": "7f0ca35cfa4dca660693e8d397790359b1e0e20cbb10e8a6fd49c9f2ac9e5bdc",
       "lod": 1,
       "derivative_of": null,
-      "bytes": 8137896,
+      "bytes": 8006736,
       "meshopt": false,
-      "triangles": 25450,
-      "vertices": 17204,
-      "draw_calls": 12,
+      "triangles": 25735,
+      "vertices": 17834,
+      "draw_calls": 13,
       "materials": 9,
       "textures": [
         {
@@ -2432,8 +2432,8 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 151.4,
-        "mobile": 130.6
+        "desktop": 226,
+        "mobile": 201
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -2443,7 +2443,7 @@
         {
           "check": "one skeleton under every primitive",
           "ok": true,
-          "got": "12 skinned primitive(s), 1 skeleton(s)"
+          "got": "13 skinned primitive(s), 1 skeleton(s)"
         },
         {
           "check": "the whole contract skeleton",
@@ -2518,20 +2518,20 @@
         {
           "check": "the same at 390x780",
           "ok": true,
-          "got": "25450 tris, 12 draws"
+          "got": "25735 tris, 13 draws"
         }
       ]
     },
     {
       "file": "assets/humans/williamson_mattie_1904_cook_study.lod2.glb",
-      "sha256": "258fe0c744c4b0553ef36db243073d4090bd508991bdfe51f9e852e029a613bf",
+      "sha256": "84435be8dfa8d6d2df5db4db5aba81b1e074d22eb4f5a2e23db8e1377fc70789",
       "lod": 2,
       "derivative_of": null,
-      "bytes": 7525836,
+      "bytes": 7370868,
       "meshopt": false,
-      "triangles": 12771,
-      "vertices": 9286,
-      "draw_calls": 12,
+      "triangles": 12903,
+      "vertices": 9476,
+      "draw_calls": 13,
       "materials": 9,
       "textures": [
         {
@@ -2572,8 +2572,8 @@
       "rest_height_m": 1.6532,
       "soles_y_m": -0.0001,
       "load_ms": {
-        "desktop": 129.8,
-        "mobile": 143.1
+        "desktop": 194.5,
+        "mobile": 184.6
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -2583,7 +2583,7 @@
         {
           "check": "one skeleton under every primitive",
           "ok": true,
-          "got": "12 skinned primitive(s), 1 skeleton(s)"
+          "got": "13 skinned primitive(s), 1 skeleton(s)"
         },
         {
           "check": "the whole contract skeleton",
@@ -2643,20 +2643,20 @@
         {
           "check": "the same at 390x780",
           "ok": true,
-          "got": "12771 tris, 12 draws"
+          "got": "12903 tris, 13 draws"
         }
       ]
     },
     {
       "file": "assets/humans/williamson_mattie_1904_cook_study.lod3.glb",
-      "sha256": "367c7e376841084def567528761fca25b6a2772e4eb8ac2c71263a3300d7c0b9",
+      "sha256": "20dbe647221ecccc12c030ee0a8864b6a3d495fbc3b945510bb53eb15267a971",
       "lod": 3,
       "derivative_of": null,
-      "bytes": 7253328,
+      "bytes": 7089624,
       "meshopt": false,
-      "triangles": 6413,
-      "vertices": 4780,
-      "draw_calls": 12,
+      "triangles": 6469,
+      "vertices": 4811,
+      "draw_calls": 13,
       "materials": 9,
       "textures": [
         {
@@ -2697,18 +2697,18 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 121.6,
-        "mobile": 132.3
+        "desktop": 174.3,
+        "mobile": 257.3
       },
       "frame_ms_median": {
-        "desktop": 0.1,
+        "desktop": 0.2,
         "mobile": 0
       },
       "verdicts": [
         {
           "check": "one skeleton under every primitive",
           "ok": true,
-          "got": "12 skinned primitive(s), 1 skeleton(s)"
+          "got": "13 skinned primitive(s), 1 skeleton(s)"
         },
         {
           "check": "the whole contract skeleton",
@@ -2768,7 +2768,7 @@
         {
           "check": "the same at 390x780",
           "ok": true,
-          "got": "6413 tris, 12 draws"
+          "got": "6469 tris, 13 draws"
         }
       ]
     },
@@ -2836,11 +2836,11 @@
       "rest_height_m": 1.7539,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 112.9,
-        "mobile": 106.9
+        "desktop": 192.4,
+        "mobile": 171.7
       },
       "frame_ms_median": {
-        "desktop": 0.1,
+        "desktop": 0.2,
         "mobile": 0.1
       },
       "verdicts": [
@@ -2995,8 +2995,8 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 58.4,
-        "mobile": 56.2
+        "desktop": 78,
+        "mobile": 70.2
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -3150,8 +3150,8 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 42.2,
-        "mobile": 31.5
+        "desktop": 61.9,
+        "mobile": 47.2
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -3295,8 +3295,8 @@
       "rest_height_m": 1.7537,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 19.8,
-        "mobile": 27.8
+        "desktop": 31.7,
+        "mobile": 36
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -3449,12 +3449,12 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 111.6,
-        "mobile": 103.6
+        "desktop": 122.8,
+        "mobile": 125.2
       },
       "frame_ms_median": {
         "desktop": 0.1,
-        "mobile": 0.2
+        "mobile": 0.1
       },
       "verdicts": [
         {
@@ -3613,12 +3613,12 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 48.1,
-        "mobile": 49.5
+        "desktop": 56,
+        "mobile": 90.8
       },
       "frame_ms_median": {
         "desktop": 0,
-        "mobile": 0
+        "mobile": 0.1
       },
       "verdicts": [
         {
@@ -3773,12 +3773,12 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 30.8,
-        "mobile": 33.3
+        "desktop": 50.7,
+        "mobile": 52.3
       },
       "frame_ms_median": {
         "desktop": 0.1,
-        "mobile": 0
+        "mobile": 0.1
       },
       "verdicts": [
         {
@@ -3923,12 +3923,12 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 22.5,
-        "mobile": 18.7
+        "desktop": 24.7,
+        "mobile": 54.7
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0,
+        "mobile": 0
       },
       "verdicts": [
         {
@@ -4047,8 +4047,8 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 12.4,
-        "mobile": 11.8
+        "desktop": 31.1,
+        "mobile": 338.9
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -4186,12 +4186,12 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 9.4,
-        "mobile": 9.7
+        "desktop": 18.6,
+        "mobile": 27.9
       },
       "frame_ms_median": {
         "desktop": 0.1,
-        "mobile": 0.1
+        "mobile": 0
       },
       "verdicts": [
         {
@@ -4321,8 +4321,8 @@
       "rest_height_m": 1.7032,
       "soles_y_m": 0.0018,
       "load_ms": {
-        "desktop": 7.9,
-        "mobile": 9.5
+        "desktop": 11.6,
+        "mobile": 16.2
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -4441,8 +4441,8 @@
       "rest_height_m": 1.7032,
       "soles_y_m": 0.0018,
       "load_ms": {
-        "desktop": 11.2,
-        "mobile": 11.5
+        "desktop": 9.8,
+        "mobile": 15.3
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -4585,11 +4585,11 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 92.5,
-        "mobile": 96.7
+        "desktop": 116.8,
+        "mobile": 154.5
       },
       "frame_ms_median": {
-        "desktop": 0.2,
+        "desktop": 0.1,
         "mobile": 0.1
       },
       "verdicts": [
@@ -4744,8 +4744,8 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 52.8,
-        "mobile": 42.7
+        "desktop": 73.5,
+        "mobile": 86.9
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -4899,12 +4899,12 @@
       "rest_height_m": 1.6532,
       "soles_y_m": -0.0001,
       "load_ms": {
-        "desktop": 37.2,
-        "mobile": 30.2
+        "desktop": 34.8,
+        "mobile": 36.7
       },
       "frame_ms_median": {
         "desktop": 0.1,
-        "mobile": 0
+        "mobile": 0.1
       },
       "verdicts": [
         {
@@ -5039,12 +5039,12 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 21.1,
-        "mobile": 19.9
+        "desktop": 157.6,
+        "mobile": 35.3
       },
       "frame_ms_median": {
         "desktop": 0,
-        "mobile": 0.1
+        "mobile": 0
       },
       "verdicts": [
         {
@@ -5126,14 +5126,14 @@
     },
     {
       "file": "assets/humans/web/williamson_mattie_1904_cook_study.lod0.glb",
-      "sha256": "0f8d5ffc4ab415a781646ec4bdbcada4b38886d3d19f4f0f75aa5359a9872b0d",
+      "sha256": "9e5db2392847d3dafee635a8b84b7d67a4995fb2e90c5929fab8e2b96e45e298",
       "lod": 0,
       "derivative_of": "assets/humans/williamson_mattie_1904_cook_study.lod0.glb",
-      "bytes": 4475124,
+      "bytes": 4357124,
       "meshopt": true,
-      "triangles": 41564,
-      "vertices": 26768,
-      "draw_calls": 12,
+      "triangles": 42040,
+      "vertices": 27887,
+      "draw_calls": 13,
       "materials": 9,
       "textures": [
         {
@@ -5178,8 +5178,8 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 99.7,
-        "mobile": 127.4
+        "desktop": 181.4,
+        "mobile": 177.5
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -5189,7 +5189,7 @@
         {
           "check": "one skeleton under every primitive",
           "ok": true,
-          "got": "12 skinned primitive(s), 1 skeleton(s)"
+          "got": "13 skinned primitive(s), 1 skeleton(s)"
         },
         {
           "check": "the whole contract skeleton",
@@ -5264,7 +5264,7 @@
         {
           "check": "the same at 390x780",
           "ok": true,
-          "got": "41564 tris, 12 draws"
+          "got": "42040 tris, 13 draws"
         },
         {
           "check": "decoded frame matches its master",
@@ -5274,20 +5274,20 @@
         {
           "check": "same triangles, joints, morphs and clips as its master",
           "ok": true,
-          "got": "41564 tris"
+          "got": "42040 tris"
         }
       ]
     },
     {
       "file": "assets/humans/web/williamson_mattie_1904_cook_study.lod1.glb",
-      "sha256": "63282ed2f01d6df9d8ddc58c4f575e7b5fc96bf85a242dc412088045e01ce193",
+      "sha256": "10c05cab75b14e490c23a6f486f65417c46a71add4b05f4a289e0ad3dafb72e6",
       "lod": 1,
       "derivative_of": "assets/humans/williamson_mattie_1904_cook_study.lod1.glb",
-      "bytes": 1584848,
+      "bytes": 1564320,
       "meshopt": true,
-      "triangles": 25450,
-      "vertices": 17204,
-      "draw_calls": 12,
+      "triangles": 25735,
+      "vertices": 17834,
+      "draw_calls": 13,
       "materials": 9,
       "textures": [
         {
@@ -5332,8 +5332,8 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 51.8,
-        "mobile": 45
+        "desktop": 69.1,
+        "mobile": 61.2
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -5343,7 +5343,7 @@
         {
           "check": "one skeleton under every primitive",
           "ok": true,
-          "got": "12 skinned primitive(s), 1 skeleton(s)"
+          "got": "13 skinned primitive(s), 1 skeleton(s)"
         },
         {
           "check": "the whole contract skeleton",
@@ -5418,7 +5418,7 @@
         {
           "check": "the same at 390x780",
           "ok": true,
-          "got": "25450 tris, 12 draws"
+          "got": "25735 tris, 13 draws"
         },
         {
           "check": "decoded frame matches its master",
@@ -5428,20 +5428,20 @@
         {
           "check": "same triangles, joints, morphs and clips as its master",
           "ok": true,
-          "got": "25450 tris"
+          "got": "25735 tris"
         }
       ]
     },
     {
       "file": "assets/humans/web/williamson_mattie_1904_cook_study.lod2.glb",
-      "sha256": "ccd855b0fda1714a721611b260400a53215d9dfb84121d919b2bcf1d68d61574",
+      "sha256": "99b27b85c1baaae39c062d3fa922009fba8f664d50391a432871b4efe0cef5c5",
       "lod": 2,
       "derivative_of": "assets/humans/williamson_mattie_1904_cook_study.lod2.glb",
-      "bytes": 631332,
+      "bytes": 630816,
       "meshopt": true,
-      "triangles": 12771,
-      "vertices": 9286,
-      "draw_calls": 12,
+      "triangles": 12903,
+      "vertices": 9476,
+      "draw_calls": 13,
       "materials": 9,
       "textures": [
         {
@@ -5482,18 +5482,18 @@
       "rest_height_m": 1.6532,
       "soles_y_m": -0.0001,
       "load_ms": {
-        "desktop": 27.1,
-        "mobile": 24.3
+        "desktop": 48,
+        "mobile": 34.9
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0,
+        "mobile": 0
       },
       "verdicts": [
         {
           "check": "one skeleton under every primitive",
           "ok": true,
-          "got": "12 skinned primitive(s), 1 skeleton(s)"
+          "got": "13 skinned primitive(s), 1 skeleton(s)"
         },
         {
           "check": "the whole contract skeleton",
@@ -5553,7 +5553,7 @@
         {
           "check": "the same at 390x780",
           "ok": true,
-          "got": "12771 tris, 12 draws"
+          "got": "12903 tris, 13 draws"
         },
         {
           "check": "decoded frame matches its master",
@@ -5563,20 +5563,20 @@
         {
           "check": "same triangles, joints, morphs and clips as its master",
           "ok": true,
-          "got": "12771 tris"
+          "got": "12903 tris"
         }
       ]
     },
     {
       "file": "assets/humans/web/williamson_mattie_1904_cook_study.lod3.glb",
-      "sha256": "159c9bedd875f29a576e22c20ff2830e78522a573455087707c126e3514c5ad2",
+      "sha256": "6dda65ddd5e4f1114d746604481e23f63322424147fdf101fcdb30b0f17bb7b4",
       "lod": 3,
       "derivative_of": "assets/humans/williamson_mattie_1904_cook_study.lod3.glb",
-      "bytes": 309924,
+      "bytes": 312664,
       "meshopt": true,
-      "triangles": 6413,
-      "vertices": 4780,
-      "draw_calls": 12,
+      "triangles": 6469,
+      "vertices": 4811,
+      "draw_calls": 13,
       "materials": 9,
       "textures": [
         {
@@ -5617,18 +5617,18 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 21.1,
-        "mobile": 21.2
+        "desktop": 42.3,
+        "mobile": 50.5
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0
+        "desktop": 0,
+        "mobile": 0.1
       },
       "verdicts": [
         {
           "check": "one skeleton under every primitive",
           "ok": true,
-          "got": "12 skinned primitive(s), 1 skeleton(s)"
+          "got": "13 skinned primitive(s), 1 skeleton(s)"
         },
         {
           "check": "the whole contract skeleton",
@@ -5688,7 +5688,7 @@
         {
           "check": "the same at 390x780",
           "ok": true,
-          "got": "6413 tris, 12 draws"
+          "got": "6469 tris, 13 draws"
         },
         {
           "check": "decoded frame matches its master",
@@ -5698,7 +5698,7 @@
         {
           "check": "same triangles, joints, morphs and clips as its master",
           "ok": true,
-          "got": "6413 tris"
+          "got": "6469 tris"
         }
       ]
     }

@@ -24454,7 +24454,7 @@ shows them. Across the verandah's three openings (T-3357) stands an iron rail, a
 column at 0.8 m over the floor on one standard in each opening's middle: the photograph's dark bar and the
 dark upright under it in its first two openings, a few pixels across, so the section and the standard's
 count are reconstructed and the iron is the dark tone's reading. The rear range is built to its second
-storey's head (9.45 m) under a flat roof, short of the Tribune's 37 ft cornice.
+storey's head (9.45 m) under a flat roof, short of the Tribune's 37 ft cornice. T-3370 moves the tower 2.0 m north of the sheet, to v 7.95-11.75 (the sheet's v 5.95-9.74), with the door (s 10.65) and its landing, and runs the verandah from the corner to it, s 0-7.6 with three 1.9 m openings on 2.3 m centres, where the sheet's porch strip gives 5.6 m: the photograph's camera, re-solved at 12 px rms once its south-east corner was read at the cornice's nearest vertex (x 1425 px), puts the tower 1.6-2.7 m north of the sheet across its variants and the verandah's two columns about 2.55 m apart. The image gate builds the photograph; the sheet's place is kept here. On the same camera the two south stacks stand at u 1.7 and 11.7 (from 6.0 and 12.5).
 
 **How to resolve:** T-1901's next piece re-solves the photograph's camera (its present fit is provisional:
 see `data/reference_views/house_1918_prairie/chicagology_photo.json`), settles the front's composition
@@ -36590,6 +36590,24 @@ the head bone (5 cm in 1835) and the strand hair is combed up from the face to i
 stereographs show hair drawn up to a knot on the crown. **Body:** the same female base as Mary
 Flynn; no birth year is recorded for her, so the variation kit draws her age, and her face, height,
 build and complexion are not hers.
+**The softer woman, 2026-11-06 (T-3434):** the owner read her as neither feminine nor kind. Four
+causes are changed. **Skin:** she wore the male Toigo bronze atlas, whose beard shadow made a man's jaw;
+she now wears the same author's female bronze atlas (MakeHuman skins01, CC0;
+`assets/authored/humans/skin_toigo_bronze_female/`). **Face:** each women's body (Mary's and hers) carries a
+`face_bias` in `data/humans/variation/axes.json` that leans every seeded face toward MakeHuman's own
+feminine proportions (a lighter jaw, chin and jowl, a smaller brow ridge, fuller lips, brows raised a
+little) and sets the mouth's corners a little up at rest (the new `mouth_corners` axis, from MakeHuman's
+CC0 mouth-angles targets, which is never drawn, so no one else's face moves). Fine arched eyebrows
+(`brows_fine`) are grown on both women. **Cut:** the shirtwaist pouches forward over the waist band by up
+to 1.8 cm, most 8 cm above the waist and nothing from 25 cm up, and its upper sleeves stand 1.2 cm off
+the arm, gathered to nothing at the shoulder and the elbow; the bib carries two 3 cm shoulder straps up
+over the shoulders and down the back to the waist. **Hair:** the cleared short04 cap itself is raised into a roll,
+up to 2.8 cm over the brow and 1.8 cm at the temples, rising from nothing at the cap's edge and fading to
+nothing toward the back and below the temples; the strand hair grows on it, so it follows. **Hands:** a woman in the full skirt never
+lets her hands hang or sets them on her hips, where they sank into the skirt's bell (the owner saw it);
+she stands with them loosely clasped in front at the waist, over the apron, or held at the waist behind,
+as women in service stand in the photographs of the decade. All amounts are chosen by eye against the
+1903 stereographs; none is measured, and none says anything about how she looked.
 
 ### L-tremont-gale-envelope-2385 — two-storey default and picture alternative
 
@@ -41275,6 +41293,30 @@ architrave, which HABS 2 shows and the kit's flat-capped face does not yet build
 drawings if any were made), or a nearer photograph of the front's roof.
 **Ticket:** T-1890.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`, `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg`.
+
+### L-kimball-1801-third-storey-architrave-1890 — the moulded architrave round 1801 Prairie's third-storey light
+**Recorded:** 2026-11-06.
+
+**Decision:** the one light in the stone third storey behind the bow's balcony
+(`mansard.dormers[3]`, L-kimball-1801-third-storey-1890) stands in a lugged architrave
+(`architrave`, K01's flat-capped wall dormer, T-1890): a plain stone band 0.18 m broad standing
+0.06 m out of the face up both jambs and across the head, the head's ends carried 0.08 m past the
+jambs as lugs 0.26 m deep from the head's top, and a sill 0.12 m deep standing 0.12 m out and
+running 0.06 m past the band.
+**What is read, not invented.** Harold Allen's HABS photograph 2 of 1965
+(`habs_kimball_photo_02_nw_1965`) shows the frame plainly: a moulded architrave round the light with
+lugs at its head's corners and a projecting sill, pale stone against the face. J. W. Taylor's
+photograph of c. 1895 (`taylor_c1895_kimball_residence_1801`) shows a raised frame round the same
+light, so it is fabric of 1904 and not a later change. The frame's outer edges were set by
+rendering through both cameras until they stood on the prints'.
+**What is invented or held by the kit.** Neither print is near enough to read the mouldings, so the
+band is laid flat-faced, and its breadth, projection, the lugs' reach and drop and the sill's
+section are proportions read off the prints' few pixels, not measured. This entry supersedes the
+older entry's statement that the architrave is not built.
+**How to resolve:** an elevation drawing of the Prairie front (Solon S. Beman's), or a nearer
+photograph of the third storey.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg`, `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
 
 ### L-k01-1729-pullman-lantern-1881 — 1729 Prairie's hanging lantern beside the portico and the banded pier at the entrance's inner angle, read off the 1890 Albertype plate
 

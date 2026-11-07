@@ -1,6 +1,7 @@
 // T-2641 — Inspect's Design tab (js/inspect-design.js): the style card from the building's style
-// module, the numbered "On this house" hotspots with their grades in place of the attribute table,
-// and Compare styles; a building with no module or record degrades honestly to its own sidecar.
+// module, the numbered "On this house" hotspots with their grades, and Compare styles. T-3435: the
+// tab is a written style guide for every building (js/style-guide.js) — the same head, lead,
+// Look for and five parts on every card, each line graded and filled from the record.
 //
 //   node tools/test_nav_design.mjs
 import assert from 'node:assert/strict';
@@ -8,6 +9,9 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { designModel, renderDesign, hotspots, plateOf, styleFor, labelOf, valueOf, compareCard } from '../renderers/web/js/inspect-design.js';
+import { styleGuide, PART_KEYS, GRADES as SG_GRADES, lowest } from '../renderers/web/js/style-guide.js';
+import { clean } from '../renderers/web/js/fallback-summary.js';
+import { readdirSync } from 'node:fs';
 import { t } from '../renderers/web/js/strings/index.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -52,6 +56,7 @@ const pictures = {
     years: [1888, 1888], held: { f: 'plate.jpg' } }] },
 };
 const S1904 = { id: '1904' };
+const library = Object.fromEntries(['richardsonian_romanesque', 'second_empire', 'italianate'].map((id) => [id, read(`styles/${id}.json`)]));
 
 ok('labels and values read as words, with their units', () => {
   assert.equal(labelOf('roof_pitch_deg'), 'Roof pitch');
@@ -131,9 +136,12 @@ ok('the Design tab draws the card, the numbered hotspots (no table) and Compare 
   assert.deepEqual(items.map((li) => cls(li, 'insp-hot-n')[0].textContent), items.map((_, i) => String(i + 1)));
   assert.equal(all(root).filter((e) => e.tagName === 'TABLE').length, 0, 'no attribute table remains');
   const heads = cls(root, 'insp-h').map((e) => e.textContent);
-  assert.deepEqual(heads, [t('inspect-design.cues'), t('inspect-design.hotspots.tap'), t('inspect-design.compare')]);
+  assert.deepEqual(heads, [t('inspect-design.look.tap'), t('inspect-design.cues'), t('inspect-design.compare')]);
   assert.match(root.textContent, /Listed in Liberties\./);
-  const buttons = all(root).filter((e) => e.tagName === 'BUTTON');
+  assert.deepEqual(cls(root, 'sg-part').map((e) => e.dataset.part), PART_KEYS, 'the five parts, in order');
+  assert.equal(cls(root, 'sg-name')[0].textContent, 'Richardsonian Romanesque', 'the guide is headed by the style');
+  assert.deepEqual(cls(root, 'sg-go').map((e) => e.dataset.inspGo), ['details', 'sources'], 'and ends with the ways to Details and Sources');
+  const buttons = all(root).filter((e) => e.tagName === 'BUTTON' && e.className === 'insp-hot-row');
   assert.equal(buttons.length, sum.onThisHouse.filter((x) => x.camera).length, 'a button exactly where the record names a camera');
   buttons[0].click();
   assert.deepEqual(looked[0].camera, sum.onThisHouse[0].camera);
@@ -143,45 +151,96 @@ ok('the Design tab draws the card, the numbered hotspots (no table) and Compare 
   assert.ok(!/\b(attested|inferred|reconstructed|tier|ticket)\b/i.test(text), 'grades appear only as dots; no tier or ticket');
   // Without Show me, the same hotspots draw and none is a button.
   const still = renderDesign(fakeDoc(), m, { dot });
-  assert.equal(all(still).filter((e) => e.tagName === 'BUTTON').length, 0);
-  assert.equal(cls(still, 'insp-h')[1].textContent, t('inspect-design.hotspots'));
+  assert.equal(cls(still, 'insp-hot-row').filter((e) => e.tagName === 'BUTTON').length, 0);
+  assert.equal(cls(still, 'insp-h')[0].textContent, t('inspect-design.look'));
 });
 
-ok('an 1835 building with no record and no module: an honest line, and its own sidecar as graded hotspots', () => {
+ok('an 1835 building with no record and no module: a guide written from its own record, the same five parts', () => {
   const s = read('sidecars/1835/hogan_store.json');
   const m = designModel({ sum: null, sidecar: s, styles, pictures, scene: { id: '1835' } });
   assert.equal(m.style, null);
-  assert.equal(m.hot.source, 'sidecar');
-  const graded = Object.values(s.attributes).filter((a) => ['attested', 'inferred', 'reconstructed'].includes(a.confidence)).length;
-  assert.equal(m.hot.items.length, graded + (s.footprint?.confidence ? 1 : 0));
-  assert.equal(m.hot.items[0].text, t('inspect-design.shape'));
-  assert.equal(m.hot.items[0].grade, s.footprint.confidence);
-  assert.equal(m.hot.tap, false);
+  assert.equal(m.hot.source, 'guide', 'the sidecar\'s attribute list is the Details tab\'s now');
+  assert.equal(m.hot.items.length, 0);
   const doc = fakeDoc();
+  dots.length = 0;
   const root = renderDesign(doc, m, { dot, onLook: () => assert.fail('no camera, no Show me') });
-  assert.equal(cls(root, 'insp-style-none')[0].textContent, t('inspect-design.style.none'));
-  assert.equal(cls(root, 'insp-style').length, 0, 'no card is composed');
+  assert.equal(cls(root, 'insp-style').length, 0, 'no style card is composed');
   assert.equal(cls(root, 'insp-compare').length, 0);
-  assert.equal(all(root).filter((e) => e.tagName === 'BUTTON').length, 0);
-  assert.equal(cls(root, 'insp-h')[0].textContent, t('inspect-design.hotspots'));
-  const items = cls(root, 'insp-hot');
-  assert.ok(items.length > 1 && items.every((li) => cls(li, 'fact-dot').length === 1));
-  assert.match(root.textContent, /Built of/);
+  assert.equal(cls(root, 'insp-hot-row').filter((e) => e.tagName === 'BUTTON').length, 0);
+  assert.deepEqual(cls(root, 'sg-part').map((e) => e.dataset.part), PART_KEYS);
+  assert.ok(cls(root, 'sg-name')[0].textContent.length > 3, 'a name: what the building is');
+  assert.ok(cls(root, 'sg-sentence').length >= 1, 'a lead');
+  assert.ok(cls(root, 'sg-line').every((li) => cls(li, 'fact-dot').length === 1), 'every line keeps its grade dot');
+  assert.ok(cls(root, 'sg-line').length >= 3);
   assert.ok(!/[a-z0-9]+_[a-z0-9]+/i.test(root.textContent));
+  assert.ok(!/\b(attested|inferred|tier|ticket)\b/i.test(root.textContent));
 });
 
 ok('a style id with no module, and a building with nothing graded, degrade honestly', () => {
   assert.equal(styleFor({ style: 'no_such_style' }, styles), null);
   assert.equal(styleFor({ style: null }, styles), null);
   const m = designModel({ sum: null, sidecar: { attributes: { roof_type: { value: 'gable' } } }, styles: null });
-  assert.equal(m.hot.items.length, 0, 'an ungraded attribute is not listed: every hotspot has a dot');
+  assert.equal(m.hot.items.length, 0, 'an ungraded attribute is not listed: every line has a dot');
   const root = renderDesign(fakeDoc(), m, { dot });
   assert.equal(cls(root, 'insp-hot').length, 0);
-  assert.match(root.textContent, new RegExp(t('inspect-design.hotspots.none').replace(/[.]/g, '\\.')));
+  assert.equal(cls(root, 'sg-part').length, 5, 'all five parts still show');
+  // An attribute with no grade is counted as Details counts it (and the card): Reconstructed.
+  assert.equal(cls(root, 'sg-none').length, 4, 'each empty part says the records do not say');
+  assert.equal(cls(root, 'sg-line')[0].textContent, 'Two slopes meeting at a ridge, with gable ends');
+  assert.equal(cls(root, 'sg-none')[0].textContent, t('inspect-design.part.none'));
+});
+
+// ---- T-3435: the style guide, over every structure in every scene ---------------------------
+ok('every structure in every scene gets the same guide: a name, a lead, the five parts, every line graded and clean', () => {
+  let count = 0;
+  const firstLine = new Map();
+  for (const scene of ['1812', '1835', '1904']) {
+    const dir = path.join(data, 'sidecars', scene);
+    for (const f of readdirSync(dir).filter((x) => x.endsWith('.json'))) {
+      const sc = JSON.parse(readFileSync(path.join(dir, f), 'utf8'));
+      if (!sc || typeof sc !== 'object' || !sc.attributes || !sc.id) continue;
+      let summary = null;
+      try { summary = read(`summaries/${sc.id}.json`); } catch { summary = null; }
+      const g = styleGuide({ sidecar: sc, sum: summary, mod: summary?.style ? library[summary.style] ?? null : null });
+      const where = `${scene}/${sc.id}`;
+      assert.ok(clean(g.name.text) && g.name.text.length > 2, `${where}: a name`);
+      assert.deepEqual(g.parts.map((p) => p.key), PART_KEYS, `${where}: the five parts, in order`);
+      assert.ok(g.lead.length <= 3 && g.look.length <= 4, `${where}: at most three sentences and four highlights`);
+      const lines = [...g.lead, ...g.look, ...g.parts.flatMap((p) => p.lines)];
+      for (const l of lines) {
+        assert.ok(SG_GRADES.includes(l.grade), `${where}: "${l.text}" carries a grade`);
+        assert.ok(clean(l.text), `${where}: "${l.text}" is clean`);
+        assert.ok(!/\b(undefined|null|NaN)\b|_/.test(l.text), `${where}: "${l.text}" reads as words`);
+        assert.ok(l.text.split(/\s+/).length <= 32, `${where}: "${l.text}" is one short line`);
+      }
+      if (sc.attributes.construction) assert.ok(g.parts[1].lines.length > 0, `${where}: its walls are described`);
+      if (g.basis) assert.ok(SG_GRADES.includes(g.basis.grade) && clean(g.basis.text), `${where}: what it was built from`);
+      firstLine.set(where, g.lead[0]?.text ?? '');
+      count += 1;
+    }
+  }
+  assert.ok(count > 900, `the guide covers the town (${count} structures)`);
+  assert.ok([...firstLine.values()].filter(Boolean).length / count > 0.9, 'nine in ten open on a sentence');
+});
+
+ok('a sentence is as sure as its least sure part', () => {
+  assert.equal(lowest('attested', 'inferred'), 'inferred');
+  assert.equal(lowest('attested', null, 'reconstructed', 'inferred'), 'reconstructed');
+  assert.equal(lowest(), null);
+  const g = styleGuide({ sidecar: { attributes: {
+    stories: { value: 2, confidence: 'attested' }, construction: { value: 'brick', confidence: 'attested' },
+    function: { value: 'residence', confidence: 'inferred' }, roof_form: { value: 'mansard', confidence: 'reconstructed' },
+    roof_covering: { value: { fabric: 'slate_pennsylvania' }, confidence: 'inferred' },
+  } } });
+  assert.equal(g.name.text, 'Brick house');
+  assert.deepEqual(g.lead.map((l) => [l.text, l.grade]), [
+    ['A two-storey brick house.', 'inferred'],
+    ['Its roof is a mansard roof of Pennsylvania slate.', 'reconstructed'],
+  ]);
+  assert.ok(g.look.some((h) => h.text === 'Mansard roof'));
 });
 
 // ---- T-2642: the style library -------------------------------------------------------------
-const library = Object.fromEntries(['richardsonian_romanesque', 'second_empire', 'italianate'].map((id) => [id, read(`styles/${id}.json`)]));
 const images = JSON.parse(readFileSync(path.join(here, '../../prairie_1904_v1/data/images.json'), 'utf8'));
 const imageById = new Map((Array.isArray(images.images) ? images.images : Object.values(images.images)).map((r) => [r.id, r]));
 
@@ -244,7 +303,7 @@ ok('a Compare line that points at another module opens that style\'s card in pla
   assert.equal(cls(opened, 'insp-compare-cue').length, library.italianate.cues.length);
   assert.ok(cls(opened, 'insp-compare-cue').every((li) => cls(li, 'fact-dot').length === 1), 'every opened cue keeps its grade dot');
   assert.equal(cls(root, 'insp-cue').length, library.second_empire.cues.length, 'the opened cards do not count as this card\'s cues');
-  assert.equal(cls(root, 'insp-h').length, 3, 'the opened cards add no section heading');
+  assert.ok(more.every((d) => cls(d, 'insp-h').length === 0), 'the opened cards add no section heading');
   // Glessner's Chateauesque line names no module: it stays a line.
   const g = designModel({ sum, sidecar, styles: library, pictures, scene: S1904 });
   assert.equal(g.style.compare.find((c) => c.style === 'chateauesque').card, null);

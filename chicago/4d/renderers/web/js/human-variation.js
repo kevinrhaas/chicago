@@ -89,6 +89,8 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
   for (const a of kit.axes) {
     // A sex's own targets for an axis another sex already draws (T-3423) take that axis's
     // draw and consume none, so adding them moves nobody's face, build, height or age.
+    // A `rest` axis is never drawn (T-3434): it takes only its body's face_bias, below.
+    if (a.rest) { values[a.id] = 0; continue; }
     if (a.draw_as) continue;
     const g = gauss(rand), u = rand();
     if (a.drive) continue;
@@ -97,6 +99,12 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
     else values[a.id] = clip(g * a.spread, -L, L);
   }
   for (const a of kit.axes) if (a.draw_as && !a.drive && a.draw_as in values) values[a.id] = values[a.draw_as];
+  // The body's own lean (T-3434: the women's bodies toward MakeHuman's feminine face and a
+  // resting mouth), added to the draw; a fitted face below still overrides it.
+  for (const [k, v] of Object.entries(asset.face_bias ?? {})) {
+    values[k] = clip((values[k] ?? 0) + v, -L, L);
+    for (const a of kit.axes) if (a.draw_as === k && !a.drive) values[a.id] = values[k];
+  }
   const hs = kit.header.height;
   let height = 1 + clip(gauss(rand) * hs.spread, -hs.limit, hs.limit);
   const ageBand = record?.age?.band ?? kit.header.age.default_band_years;

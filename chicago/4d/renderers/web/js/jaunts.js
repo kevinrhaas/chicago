@@ -105,6 +105,21 @@ export function resourceSummary(s) {
   if (s.jaunt?.inventory) rows.push(`Basket ${s.inventory.length}/${s.jaunt.inventory.capacity}`);
   return rows;
 }
+/**
+ * T-3432 (owner, 2026-11-06: "the last stop screen should be more obvious that you are at
+ * the last stop"): this stop is where the outing ends. A stop whose next is an ending, or whose
+ * every choice goes to one; a stop that goes on, or that may (one choice continues), is not.
+ */
+export function isFinalStop(s) {
+  const stop = currentStop(s);
+  if (!stop || s.stopIndex < s.visited.length - 1) return false;
+  const ends = next => next === '$end' || (s.jaunt.endings || []).some(x => x.id === next);
+  const choices = stop.choices || [];
+  const chosen = choices.find(c => c.id === s.choice);
+  if (chosen) return ends(chosen.next ?? stop.next);
+  if (choices.length && choices.some(c => c.next)) return choices.every(c => ends(c.next ?? stop.next));
+  return stop.next != null ? ends(stop.next) : s.stopIndex === s.jaunt.stops.length - 1;
+}
 export const canNext = s => (s.phase === 'atStop' || (s.phase === 'detail' && s.detailPhase === 'atStop'))
   && !!(s.stopIndex < s.visited.length - 1 || currentStop(s)?.next || s.choice);
 const append = (s, type, data = {}, eventId = null) => {
@@ -178,7 +193,9 @@ export function reduce(s, e) {
     return append({ ...s, phase: 'paused', leg: s.leg + 1, error: null }, 'pause', { reason: e.reason });
   if (e.type === 'MENU') {
     if (['menu', 'outcome'].includes(s.phase)) return s;
-    return append({ ...s, phase: 'menu', resumePhase: s.phase === 'detail' ? s.detailPhase || 'atStop' : s.phase === 'paused' ? 'travelling' : s.phase, leg: s.leg + 1 }, 'pause');
+    // T-3432: the flight to the start is landed when the menu opens, so it resumes at the stop.
+    return append({ ...s, phase: 'menu', resumePhase: s.phase === 'detail' ? s.detailPhase || 'atStop' : s.phase === 'paused' ? 'travelling'
+      : s.phase === 'opening' ? 'atStop' : s.phase, leg: s.leg + 1 }, 'pause');
   }
   if (e.type === 'RESUME' && s.phase === 'menu') {
     const resumed = append({ ...s, phase: s.resumePhase || 'atStop' }, 'resume');
@@ -237,6 +254,11 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
   estimate = () => null, contextForRoute = () => null, onComplete = () => {}, storage: suppliedStorage,
   // T-2652: the mode the visitor's getting-there choice asks of this Jaunt, or null for its own.
   preferredMode = () => null,
+  // T-3432: the flight to the first stop. `approach(target)` is asked before the visitor is
+  // set down (it reads where they are), and returns { begin(callbacks) -> bool } or null;
+  // `begin` is called once they stand at the start, and flies there from where they were.
+  // Without it, or when it declines (reduced motion, nothing to fly), the start is a jump.
+  approach = null,
   // T-3328: the scene's hour (api.timeOfDay, T-3331). A stop with an `hour` sets it on
   // arrival, transiently; a stop without one, and the end of the jaunt, give the visitor's
   // own hour back. Optional: a harness without it plays the jaunt in the hour it has.
@@ -302,6 +324,7 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
     render(state);
     if (state.phase === 'atStop' && (old.phase !== 'atStop' || old.stopIndex !== state.stopIndex || old.session !== state.session))
       applyHour(currentStop(state));
+    if (old.phase === 'opening' && state.phase !== 'opening' && event.type !== 'ARRIVE') cancel('jaunt'); // T-3432: lands the flight
     if (state.phase === 'travelling' && (old.leg !== state.leg || old.phase !== state.phase)) {
       cancel(['MODE', 'INSTANT'].includes(event.type) ? 'replan' : 'jaunt'); dismissDetail();
       if (previousMode === undefined) previousMode = travel.mode;
@@ -333,6 +356,7 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
       if (destroyed || generation !== serial) return false;
       if (!jaunt?.stops?.length || jaunt.review_required) throw new Error('Jaunt unavailable');
       const target = resolve(jaunt.stops[0].destination);
+      const flight = target ? approach?.(target) ?? null : null;   // T-3432: before the visitor is set down
       if (!target || !enter(target) || !place(target)) throw new Error('Starting place unavailable');
       previousMode = travel.mode;
       // T-3405: a mode handed in by the visitor's own switch (Move › Jaunts use my choice)
@@ -340,7 +364,14 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
       const preferred = mode == null ? preferredMode(jaunt) : null;
       state = reduce(state, { type: 'START', jaunt, session: generation, mode: mode ?? preferred ?? undefined,
         chosen: chosen ?? preferred != null });
-      dispatch({ type: 'ARRIVE', session: generation, leg: state.leg });
+      // T-3432: fly to the first stop, the welcome page open on the way; a visitor who asked
+      // for Instantly still jumps. A landing for any reason is the arrival.
+      const token = { session: generation, leg: state.leg };
+      const land = () => dispatch({ type: 'ARRIVE', ...token });
+      if (state.mode !== 'instantly' && flight?.begin?.({ token, label: jaunt.places?.[jaunt.stops[0].destination.id] ?? target.label,
+        onArrive: land, onStop: land })) {
+        state = { ...state, estimate: estimate(state) }; render(state); applyHour(currentStop(state)); persist();
+      } else land();
       countField('jauntStarted'); // T-2660
       return true;
     } catch (error) { if (generation === serial && error.name !== 'AbortError') onError(error); return false; }

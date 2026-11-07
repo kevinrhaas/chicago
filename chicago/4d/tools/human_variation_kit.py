@@ -201,7 +201,7 @@ def build():
 
     out_axes = []
     for a in axes['axes']:
-        row = {k: a[k] for k in ('id', 'scope', 'spread', 'drive', 'sex', 'draw_as') if k in a}
+        row = {k: a[k] for k in ('id', 'scope', 'spread', 'drive', 'sex', 'draw_as', 'rest') if k in a}
         row['kind'] = a.get('kind', 'signed')
         if row['kind'] == 'one_of':
             row['options'] = [half(delta(o)) for o in a['options']]

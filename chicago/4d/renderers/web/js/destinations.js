@@ -4,13 +4,15 @@
  */
 import { displayName, searchTerms } from './display-name.js';
 import { KINDS, placeKind, structureGrade } from './place-kinds.js';
+import { spotTarget, yearLabel, captionOf, creditOf } from './photos-tab.js';
 
 export const normal = value => String(value ?? '').toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 const words = value => String(value ?? '').replace(/_/g, ' ').replace(/\s+/g, ' ').trim();
 const idOf = field => (field && typeof field === 'object' ? field.value : field) || null;
 const positioned = p => Number.isFinite(p?.e) && Number.isFinite(p?.n);
 const CARDINALS = ['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'];
-export const DESTINATION_GROUPS = [...KINDS.slice(0, 3), { id: 'businesses', label: 'Businesses' }, ...KINDS.slice(3)];
+export const DESTINATION_GROUPS = [...KINDS.slice(0, 3), { id: 'businesses', label: 'Businesses' }, ...KINDS.slice(3),
+  { id: 'photos', label: 'Photos' }];
 const labels = Object.fromEntries(DESTINATION_GROUPS.map(k => [k.id, k.label]));
 const order = Object.fromEntries(DESTINATION_GROUPS.map((k, i) => [k.id, i]));
 const tradeFunction = /(?:^|_)(?:store|shop|warehouse|manufactory|tannery|brickyard)(?:_|$)|tavern_inn|auction_room|printing_office|boarding_house|hotel_stable/;
@@ -120,6 +122,33 @@ export function sortRows(rows, sort = 'near', visitor = null) {
   return [...rows].sort((a, b) => placed(a, b) || order(a, b));
 }
 
+/** T-3436: a building's short name from its title, for a picture row the place-names file
+ *  does not name: "2029-2035 Indiana Avenue — First Presbyterian Church (…)" → "First
+ *  Presbyterian Church"; a title with no name after its address keeps the address. */
+export function shortTitle(title) {
+  const t = String(title ?? '').trim();
+  const [head, ...rest] = t.split(/\s+—\s+/);
+  const named = rest.join(' — ').replace(/\s*\(.*$/, '').replace(/^the\s+/i, '').trim();
+  const pick = named && named.length <= 40 && /^[A-Z0-9]/.test(named) ? named : head;
+  return pick.replace(/\s*\(.*$/, '').trim() || t;
+}
+/** A photographer or holder, short enough for a row: "Glessner House Museum (reproduced on
+ *  its blog …)" → "Glessner House Museum". The viewer keeps the full credit. */
+export function shortCredit(credit) {
+  const c = String(credit ?? '').replace(/\s*[(\[].*$/, '').split(/\s*[;—]\s*|,\s+(?=[a-z])/)[0].trim();
+  const up = c.charAt(0).toUpperCase() + c.slice(1);
+  return up.length > 40 ? `${up.slice(0, 39).replace(/\s+\S*$/, '')}…` : up;
+}
+/** How surely a picture shared by several buildings is this one's: its title names the
+ *  building (2), or its street number (1), or neither (0). */
+function ownsPicture(p, sid, name) {
+  const title = normal(`${p.title ?? ''} ${p.id ?? ''}`);
+  const word = normal(name).replace(/\s*house$/, '').split(/[\s-]+/).filter((w) => w.length > 3);
+  if (word.length && word.some((w) => title.includes(w))) return 2;
+  const num = /_(\d{3,4})_/.exec(sid)?.[1] ?? (sid === 'glessner_house' ? '1800' : null);
+  return num && title.includes(num) ? 1 : 0;
+}
+
 export function createDestinations({ scene, index, registry, people, positionOf, businesses = null,
   standFor = null, router = null, terrain = null } = {}) {
   const targets = [];
@@ -133,8 +162,10 @@ export function createDestinations({ scene, index, registry, people, positionOf,
   };
   for (const a of scene?.anchors ?? []) {
     const facing = Number.isFinite(a.yaw_deg) ? `Viewpoint · looking ${CARDINALS[Math.round(((a.yaw_deg % 360 + 360) % 360) / 22.5) % 16]}` : 'Viewpoint';
-    targets.push({ ...a, kind: 'anchor', group: 'viewpoints', label: a.label || a.id, sub: facing,
-      e: a.local_e, n: a.local_n, search: normal([a.id, a.label, 'viewpoint'].filter(Boolean).join(' ')) });
+    // T-3436: a viewpoint is listed by its short name ("Pullman House"); its full line stays
+    // searchable and is the row's tooltip.
+    targets.push({ ...a, kind: 'anchor', group: 'viewpoints', label: a.short || a.label || a.id, title: a.label || null, sub: facing,
+      glyph: a.glyph || null, e: a.local_e, n: a.local_n, search: normal([a.id, a.short, a.label, 'viewpoint'].filter(Boolean).join(' ')) });
   }
   for (const i of index?.intersections ?? []) {
     targets.push({ ...i, kind: 'intersection', group: 'corners', label: i.label || i.id,
@@ -198,13 +229,63 @@ export function createDestinations({ scene, index, registry, people, positionOf,
   }
   const keyed = new Map(targets.map(t => [`${t.kind}:${t.id}`, t]));
   const byId = (kind, id) => keyed.get(`${kind}:${id}`) ?? null;
+  /**
+   * T-3436: Go to's Photos — every picture a solved camera stands in the town (the Photos
+   * tab's From this spot, photos-tab.js), one row each, at the camera's spot and facing its
+   * way, so Go to walks, rides or flies there like any place. Read from the scene's pictures
+   * file the first time Go to wants it (`pictures`, compiled at publish); a picture that two
+   * buildings share is listed once, under the building its own title names. Not in All.
+   */
+  let photosAdded = false;
+  function addPhotos(doc) {
+    if (photosAdded || !doc?.by_structure) return 0;
+    photosAdded = true;
+    const base = doc.image_store?.base_url;
+    const thumb = (file) => { try { return base && file ? new URL(file, base).href : null; } catch { return null; } };
+    const found = new Map();
+    for (const [sid, list] of Object.entries(doc.by_structure)) {
+      const place = structureAt(sid);
+      const placement = registry?.get(sid)?.sidecar?.placement;
+      if (!place || !placement) continue;
+      const name = doc.names?.[sid] || shortTitle(place.label);
+      for (const p of Array.isArray(list) ? list : []) {
+        if (!p?.held || !creditOf(p)) continue;
+        const spot = spotTarget(p, placement);
+        if (!spot) continue;
+        const own = ownsPicture(p, sid, name);
+        const was = found.get(p.id);
+        if (was && (was.own >= own)) continue;
+        found.set(p.id, { p, sid, place, name, spot, own });
+      }
+    }
+    // The Places rows take the same short names: "W. W. Kimball House", its address under it.
+    for (const t of structures.values()) {
+      const name = doc.names?.[t.id];
+      if (!name || name === t.label) continue;
+      t.title = t.label;
+      t.label = name;
+      t.sub = [t.address?.text, t.sub].filter(Boolean).join(' · ');
+      t.search += ` ${normal(name)}`;
+    }
+    let n = 0;
+    for (const { p, sid, place, name, spot } of found.values()) {
+      const year = yearLabel(p), caption = captionOf(p).replace(/\.$/, '');
+      const row = { kind: 'photo', group: 'photos', id: p.id, of: sid, label: `${name} · ${year}`,
+        sub: caption, credit: shortCredit(creditOf(p)), thumb: thumb(p.held.t), picture: p,
+        address: place.address, owner: place.owner, presence: null,
+        e: spot.e, n: spot.n, local_e: spot.e, local_n: spot.n, yaw_deg: spot.yaw, pitch_deg: spot.pitch,
+        search: normal([name, place.label, year, caption, creditOf(p), p.title, 'photo view'].filter(Boolean).join(' ')) };
+      targets.push(row); keyed.set(`photo:${p.id}`, row); n++;
+    }
+    return n;
+  }
   // `sort` (T-2740) is one of SORTS: the rows come back as one list in that order. Without
   // it, the grouped order the in-town panel's kind headings read.
   function search(q = '', { kind = 'all', includeReconstructed = false, visitor = null, sort = null } = {}) {
     const terms = normal(q).trim().split(/\s+/).filter(Boolean);
     const distance = t => positioned(visitor) && positioned(t) ? Math.hypot(t.e - visitor.e, t.n - visitor.n) : Infinity;
     const found = targets.filter(t => (includeReconstructed || !['structure', 'business'].includes(t.kind) || t.presence !== 'reconstructed')
-      && (kind === 'all' || t.group === kind || t.kind === kind) && terms.every(w => t.search.includes(w)));
+      && (kind === 'all' ? t.kind !== 'photo' : (t.group === kind || t.kind === kind)) && terms.every(w => t.search.includes(w)));
     if (sort) return sortRows(found, sort, visitor);
     return found.sort((a, b) => order[a.group] - order[b.group] || (terms.length ? 0 : distance(a) - distance(b)) || a.label.localeCompare(b.label));
   }
@@ -220,5 +301,6 @@ export function createDestinations({ scene, index, registry, people, positionOf,
   // An order the scene has nothing to sort on is not offered: 1835 had no house numbers yet.
   const sorts = SORTS.filter(s => (s.id !== 'address' || targets.some(t => t.address)) && (s.id !== 'owner' || targets.some(t => t.owner)));
   return { sorts, targets, kinds: ['anchor', 'intersection', 'structure', 'business', 'person'], groups: DESTINATION_GROUPS,
-    search, byId, resolve, get count() { return targets.length; }, peopleAvailable: people !== null && people !== undefined };
+    search, byId, resolve, addPhotos, get photosAdded() { return photosAdded; },
+    get count() { return targets.length; }, peopleAvailable: people !== null && people !== undefined };
 }

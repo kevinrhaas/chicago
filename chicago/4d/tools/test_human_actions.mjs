@@ -139,6 +139,47 @@ for (const [asset, lod, clip] of [['bardwell_otis_1835', 0, 'idle_natural_v1'], 
   console.log(`flynn_mary_1835_dress_study LOD0: nods, hand rose ${rise.toFixed(3)} m: PASS`);
 }
 
+// A woman in a full skirt (T-3434): her hands never hang into the skirt's bell. Kevin saw a
+// hand sink into Mattie's skirt; every skirt pose keeps the hand and fingertips outside the
+// skirt and apron (posed, skinned), and 'rest' is refused.
+{
+  const { SKIRT_POSES } = await import(data((await js('human-actions.js')).replace("from './driver-life.js'", `from '${driverLife}'`)));
+  const r = await rig('williamson_mattie_1904_cook_study', 0, 'idle');
+  const life = createHumanLife({ id: 'skirt', scene: r.scene }), acts = createHumanActions({ id: 'skirt', scene: r.scene, greeting: 'nod', skirt: true });
+  assert(acts, 'the 1904 woman binds');
+  assert.equal(acts.pose, 'clasp', 'a woman in a skirt starts with her hands clasped, not hanging');
+  acts.setPose('rest'); acts.setPose('hips');
+  assert.equal(acts.pose, 'clasp', 'a woman in a skirt never lets her hands hang or sets them on her hips');
+  const cloth = [];
+  r.scene.traverse(o => { if (o.isSkinnedMesh && /^garment_(lower|outer)/.test(o.material?.name ?? '')) cloth.push(o); });
+  assert(cloth.length >= 2, 'the skirt and apron are found');
+  const pelvis = () => world(r.bone('pelvis'));
+  const probes = ['hand', 'index_03', 'middle_03', 'ring_03', 'pinky_03', 'thumb_03'];
+  for (const name of SKIRT_POSES) {
+    acts.setPose(name);
+    for (let i = 0; i < 75; i++) step(r, life, acts, 1 / 30, { state: 'standing', root: r.root });
+    const axis = pelvis(), pts = [];
+    for (const m of cloth) {
+      const pos = m.geometry.attributes.position, v = new THREE.Vector3();
+      for (let i = 0; i < pos.count; i += 1) { m.getVertexPosition(i, v); pts.push(v.clone().applyMatrix4(m.matrixWorld)); }
+    }
+    let worst = Infinity, at = '';
+    for (const s of ['l', 'r']) for (const pr of probes) {
+      const b = r.bone(`${pr}_${s}`);
+      if (!b) continue;
+      const p = world(b);
+      let best = null, bd = Infinity;
+      for (const q of pts) { const d = q.distanceToSquared(p); if (d < bd) { bd = d; best = q; } }
+      if (!best || Math.sqrt(bd) > 0.08) continue;
+      const out = best.clone().sub(axis).setY(0).normalize();
+      const depth = p.clone().sub(best).dot(out);
+      if (depth < worst) { worst = depth; at = `${pr}_${s}`; }
+    }
+    assert(worst > -0.012, `${name}: ${at} is ${(-worst * 100).toFixed(1)} cm inside the skirt`);
+    console.log(`skirt pose ${name}: hands outside the skirt (closest ${Number.isFinite(worst) ? (worst * 100).toFixed(1) + ' cm' : 'clear'}): PASS`);
+  }
+}
+
 // Walking: the arms swing opposite the legs, as far as the stride.
 {
   const r = await rig('bardwell_otis_1835', 1, 'walk');
