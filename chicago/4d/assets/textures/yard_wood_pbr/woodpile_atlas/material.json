@@ -1,0 +1,76 @@
+{
+  "id": "woodpile_atlas",
+  "group": "yard_wood",
+  "span_m": 0.85,
+  "cell_m": 0.85,
+  "mean_roughness": 0.917,
+  "resolution_px": [
+    1536,
+    1024
+  ],
+  "web_resolution_px": [
+    1536,
+    1024
+  ],
+  "drawn_px": [
+    3072,
+    2048
+  ],
+  "px_per_m": 564.71,
+  "cells": {
+    "rick_ends_a": [
+      16,
+      16,
+      480,
+      480
+    ],
+    "rick_ends_b": [
+      528,
+      16,
+      480,
+      480
+    ],
+    "rick_sides": [
+      1040,
+      16,
+      480,
+      480
+    ],
+    "round_end": [
+      16,
+      528,
+      480,
+      480
+    ],
+    "log_bark": [
+      528,
+      528,
+      480,
+      480
+    ],
+    "split_face": [
+      1040,
+      528,
+      480,
+      480
+    ]
+  },
+  "cells_note": "[x, y, w, h] in image pixels, origin top left, of the part of each cell a face may sample (the inner 480 px; a 16 px gutter of the same picture round it). Each is cell_m of wood square.",
+  "orientation": "rick_sides, log_bark and split_face: the grain along image x; rick_ends and round_end: end grain, no axis",
+  "note": "The yard woodpiles' wood: split billet ends racked in a rick (two cells), the sticks along their length, a sawn round's end, oak/hickory log bark, and a split face along the grain. Woods of the 1812 groves (oak, hickory, ash, elm), most a season stacked and greying. Reconstructed appearance.",
+  "confidence": "reconstructed appearance (L-t3474-yard-wood-surfaces)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic",
+    "height16": "linear 16-bit"
+  },
+  "web": {
+    "basecolor": "woodpile_atlas_basecolor_web.jpg",
+    "normal_gl": "woodpile_atlas_normal_gl_web.jpg",
+    "orm": "woodpile_atlas_orm_web.jpg"
+  },
+  "seamless": false,
+  "generator_seed": 18120808,
+  "generation_method": "deterministic procedural synthesis (tools/generate_yard_wood_pbr.py); no photograph sampled"
+}

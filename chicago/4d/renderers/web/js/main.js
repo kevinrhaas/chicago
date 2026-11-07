@@ -2207,7 +2207,7 @@ async function boot() {
     layer.updateWorldMatrix(true, true);
     uploadLayerNow(renderer, scene3d, camera, layer, {
       hide: (o) => (want.crossStreetWalks === false && !!o.userData.crossStreet)
-        || (want.woodpiles === false && !!o.userData.woodpiles) || beyond(o),
+        || (want.woodpiles === false && !!o.userData.woodpiles && !o.userData.woodpilesLight) || beyond(o),
     });
   };
   // T-1154 — the ground's reach, set from the fog the world just made rather
@@ -3116,7 +3116,8 @@ async function boot() {
     // T-1959: the woodpiles' group is shown or hidden by the tier, BEFORE the
     // furniture is banked, so a hidden one is never banked (see `light.woodpiles`).
     scene3d.getObjectByName('yard')?.traverse((o) => {
-      if (o.userData.woodpiles) o.visible = want.woodpiles !== false;
+      // T-3474: a town with few enough piles (1812's 17) draws them at `light` too.
+      if (o.userData.woodpiles) o.visible = want.woodpiles !== false || !!o.userData.woodpilesLight;
     });
     // T-0192: the cross streets' plank walks, by the same mechanism and for the
     // same reason — hidden BEFORE the furniture is banked, so the reach and the

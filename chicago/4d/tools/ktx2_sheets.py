@@ -185,6 +185,11 @@ def drop_in_sheets():
         sheet = json.loads((d / 'material.json').read_text())
         for k in ('basecolor', 'normal_gl', 'orm'):
             out.append((d, sheet['id'], k, sheet['web'][k]))
+    # yard.js's woodpiles (T-3474): one atlas of six wood cells, its `web` maps.
+    d = ASSETS / 'yard_wood_pbr' / 'woodpile_atlas'
+    sheet = json.loads((d / 'material.json').read_text())
+    for k in ('basecolor', 'normal_gl', 'orm'):
+        out.append((d, sheet['id'], k, sheet['web'][k]))
     return out
 
 
