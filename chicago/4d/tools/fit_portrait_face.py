@@ -321,12 +321,14 @@ def fit(person):
     J = r.jac[:2 * len(names), 6:]
     info = (J ** 2).sum(0)
     constrained = {aid: bool(info[k] > 1 / spreads[k] ** 2) for k, aid in enumerate(fitted)}
+    # The same reading as a ratio (1 is the line); --check lets an axis near it change sides.
+    info_ratio = {aid: float(info[k] * spreads[k] ** 2) for k, aid in enumerate(fitted)}
     values = {aid: round(float(v[k]), 3) + 0.0 for k, aid in enumerate(fitted)}   # + 0.0: no -0.0
     if 'head_shape' in fitted:
         values['head_shape.option'] = int(option)
     per_mark = {n: round(float(np.hypot(*pix[i])), 1) for i, n in enumerate(names)}
     return {
-        'portrait': portrait, 'values': values, 'constrained': constrained,
+        'portrait': portrait, 'values': values, 'constrained': constrained, 'info_ratio': info_ratio,
         'camera': {'yaw_deg': round(float(np.degrees(cam[0])), 1), 'pitch_deg': round(float(np.degrees(cam[1])), 1),
                    'roll_deg': round(float(np.degrees(cam[2])), 1), 'px_per_m': round(float(cam[3]), 1),
                    'shift_px': [round(float(cam[4]), 1), round(float(cam[5]), 1)]},
@@ -407,6 +409,20 @@ FIT_TOLERANCE = (
 # solver stops in it follows the build (CI landed brow_ridge at 0.0 where a local run had 0.014).
 # Its tolerance is the width it was never pinned to, still far inside its prior's spread.
 LOOSE_AXIS_TOLERANCE = 0.05
+# Whether the picture decides an axis is its data information against the prior's (a ratio, 1 the
+# line). An axis whose ratio is within this band of the line can read either way on another build
+# (CI moved one of Mary Reynolds' axes across it, T-3486), so --check lets such an axis sit in
+# either `read_from_picture` or `mostly_prior`, and holds its value to LOOSE_AXIS_TOLERANCE.
+BORDERLINE_RATIO = (0.5, 2.0)
+
+
+def sides(rec, borderline):
+    """The record with its borderline axes taken out of both reading lists, for comparison only."""
+    out = dict(rec)
+    for key in ('read_from_picture', 'mostly_prior'):
+        if isinstance(out.get(key), list):
+            out[key] = [a for a in out[key] if a not in borderline]
+    return out
 
 
 def differences(want, got, path='', loose=frozenset()):
@@ -445,14 +461,18 @@ def main():
     bad = []
     for path in sorted(PORTRAITS.glob('*.json')):
         person = path.stem
-        rec = record(person, fit(person))
+        f = fit(person)
+        rec = record(person, f)
         text = json.dumps(rec, indent=1) + '\n'
         out = FITS / f'{person}.json'
         if args.check:
             # The optimiser's last digits follow the numpy/scipy/BLAS build, so a refit is held to
             # the committed fit within FIT_TOLERANCE, not byte for byte (CI and a local run differ).
             committed = out.read_text() if out.exists() else None
-            drift = [] if committed is None else differences(json.loads(committed), rec, loose=set(rec.get('mostly_prior', [])))
+            borderline = {a for a, r in f['info_ratio'].items() if BORDERLINE_RATIO[0] < r < BORDERLINE_RATIO[1]}
+            drift = [] if committed is None else differences(
+                *(sides(x, borderline) for x in (json.loads(committed), rec)),
+                loose=set(rec.get('mostly_prior', [])) | borderline)
             if committed is None or drift:
                 bad.append(f"{out.relative_to(ROOT)}{' (' + '; '.join(drift[:6]) + ')' if drift else ''}")
             card = json.loads(path.read_text()).get('card')
