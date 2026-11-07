@@ -210,6 +210,43 @@ function tile(doc, pics, p, { onSpot }) {
   return li;
 }
 
+// T-3436: the picture a Go to › Photos ride arrived at, large at the head of the tab: the
+// thumbnail at once, the full copy over it once it has come, a tap opening the viewer, and
+// the full copy a link away in its own window.
+function hero(doc, pics, p) {
+  const fig = el(doc, 'figure', 'ph-hero');
+  fig.dataset.photo = p.id;
+  const caption = captionOf(p);
+  const year = yearLabel(p);
+  const open = el(doc, 'button', 'ph-hero-open');
+  open.type = 'button';
+  open.dataset.pic = String(p.at);
+  open.setAttribute('aria-label', t('photos.open', { caption: `${year}. ${caption}` }));
+  const img = el(doc, 'img', 'ph-hero-img');
+  img.alt = caption;
+  img.decoding = 'async';
+  const thumb = storeUrl(pics, p.held.t);
+  const full = storeUrl(pics, p.held.f) ?? thumb;
+  img.src = thumb;
+  if (full !== thumb && typeof Image === 'function') {
+    const pre = new Image();
+    pre.decoding = 'async';
+    pre.onload = () => { if (img.isConnected) img.src = full; };
+    pre.src = full;
+  }
+  open.append(img, el(doc, 'span', 'ph-year', year));
+  const cap = el(doc, 'figcaption', 'ph-hero-cap');
+  cap.append(el(doc, 'span', 'ph-hero-k', t('photos.here')), el(doc, 'p', 'ph-cap', caption), el(doc, 'p', 'ph-credit', creditOf(p)));
+  const a = el(doc, 'a', 'ph-hero-full', t('photos.full'));
+  a.href = full;
+  a.target = '_blank';
+  a.rel = 'noopener';
+  a.setAttribute('aria-label', t('photos.full.label', { caption }));
+  cap.append(a);
+  fig.append(open, cap);
+  return fig;
+}
+
 /**
  * Fill a Photos pane. Returns false (and leaves the pane alone) when the pictures file is
  * not in hand, so the caller can fall back to the card's own Images pane.
@@ -220,8 +257,9 @@ function tile(doc, pics, p, { onSpot }) {
  * @param {string} o.id  the structure
  * @param {number|string} o.sceneYear
  * @param {(p: object) => void} [o.onSpot]  From this spot, for a picture with a spot
+ * @param {string|null} [o.featured]  a picture's id to show large at the head (T-3436)
  */
-export function renderPhotos(pane, { doc: pics, id, sceneYear, onSpot = null }) {
+export function renderPhotos(pane, { doc: pics, id, sceneYear, onSpot = null, featured = null }) {
   const tab = photosTab(pics, id, sceneYear);
   if (!tab) return false;
   const doc = pane.ownerDocument;
@@ -232,6 +270,11 @@ export function renderPhotos(pane, { doc: pics, id, sceneYear, onSpot = null }) 
     sec.append(el(doc, 'p', 'nav-sub', t('photos.none')));
     pane.append(sec);
     return true;
+  }
+  const lead = featured ? tab.all.find((p) => p.id === featured) : null;
+  if (lead) {
+    sec.dataset.featured = lead.id;
+    sec.append(hero(doc, pics, lead));
   }
   if (tab.count) {
     const status = el(doc, 'p', 'nav-sub ph-status');

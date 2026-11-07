@@ -105,13 +105,47 @@ const main = read('renderers/web/js/main.js');
 assert(/photos: \(\) => ensurePictures\(\)/.test(main), 'Go to reads the cards\' pictures file');
 // The owner, 2026-11-06: "you already have from this spot so that should be doing most of the
 // work on that with the highlighted photo yellow rim at the end".
-assert(/resolved\.kind === 'photo'\) \{\s*return travel\.go\(resolved, \{ onArrive: \(\) => \{ void api\.fromSpot\?\.\(resolved\.of, resolved\.picture\); \} \}\);/.test(main),
+assert(/resolved\.kind === 'photo'\) \{\s*return travel\.go\(resolved, \{ onArrive: \(\) => \{\s*void api\.fromSpot\?\.\(resolved\.of, resolved\.picture\);/.test(main),
   'arriving at a photo view ends in From this spot, the building outlined');
+// The owner, 2026-11-07: "pop open the photo in the card that you are navigating to so you can
+// see the larger version and be able to open in new window".
+assert(/openBuilding\(resolved\.of, \{ photo: resolved\.picture\?\.id \?\? resolved\.id \}\)/.test(main), 'and the building\'s card opens on that photo');
+assert(/photo \? \{ app: 'inspect', id, tab: 'photos', photo \}/.test(main), 'a photo link opens the Photos tab');
+const inspect = read('renderers/web/js/apps/inspect-view.js');
+assert(/if \(next\.photo\) link\.photo = next\.photo;/.test(read('renderers/web/js/navigator.js')), 'the Navigator carries the photo to Inspect');
+assert(/if \(photo\) \{ photoLinked = ctx\.link; tab = 'photos'; \}/.test(inspect) && /featured: photo \}/.test(inspect), 'the card shows that photo first');
 const walk = read('renderers/web/css/walk.css');
 assert(/\.welcome-quick \{ display: grid; grid-template-columns: repeat\(3, minmax\(0, 1fr\)\);/.test(walk), 'the featured tiles are compact, three to a row');
 assert(/\.welcome-destination \.welcome-thumb \{/.test(walk), 'a photo row shows its picture');
+assert(/\.nav-screen \.welcome-results \{ overflow-y: visible; overscroll-behavior: auto;/.test(walk), 'in the Navigator the list leaves the mouse wheel to the screen');
 // A phone keeps the chips three to a row, icon over name, rather than one row scrolling
 // sideways: the T-2656 reflow check at 140 % text finds a sideways strip a fault.
 const phone = walk.match(/On a phone the chips stay three to a row[\s\S]*?\n\}/)?.[0] ?? '';
 assert(/\.welcome-quick-start \{ flex-direction: column;/.test(phone) && !/overflow-x|grid-auto-flow: column/.test(phone), 'phone chips stack, no sideways strip');
+// The featured picture: large at the head of the Photos tab, a tap opening the viewer on it,
+// and the full-size copy a link away in its own window.
+{
+  const { renderPhotos } = await import('../renderers/web/js/photos-tab.js');
+  const mk = (tag) => ({ tagName: tag.toUpperCase(), children: [], dataset: {}, attrs: {}, className: '', textContent: '',
+    append(...k) { this.children.push(...k); }, replaceChildren(...k) { this.children = [...k]; }, addEventListener() {},
+    setAttribute(k, v) { this.attrs[k] = v; }, get isConnected() { return true; } });
+  const fake = { createElement: mk };
+  const pane = { ownerDocument: fake, children: [], append(...k) { this.children.push(...k); } };
+  const find = (n, pred) => (pred(n) ? n : (n.children ?? []).map((c) => find(c, pred)).find(Boolean) ?? null);
+  const pics = { image_store: { base_url: 'https://example.test/files/' }, by_structure: { pullman_house_1729_prairie: [shared, { id: 'other', kind: 'PHOTO', creator: 'Z', years: [1899, 1899], held: held('o') }] } };
+  assert(renderPhotos(pane, { doc: pics, id: 'pullman_house_1729_prairie', sceneYear: 1904, featured: 'det-pullman-from-sw' }));
+  const sec = pane.children[0];
+  const fig = find(sec, (n) => n.className === 'ph-hero');
+  assert(fig && sec.children.indexOf(fig) === 1, 'the arrived-at picture heads the tab, under its title');
+  assert.equal(fig.dataset.photo, 'det-pullman-from-sw');
+  const open = find(fig, (n) => n.className === 'ph-hero-open');
+  assert.equal(open.dataset.pic, '0', 'a tap opens the viewer on it');
+  assert.equal(find(fig, (n) => n.className === 'ph-hero-img').src, 'https://example.test/files/det-thumb.jpg', 'the thumbnail shows at once');
+  const a = find(fig, (n) => n.className === 'ph-hero-full');
+  assert.equal(a.href, 'https://example.test/files/det.jpg');
+  assert.equal(a.target, '_blank', 'the full size opens in a new window');
+  const plain = { ownerDocument: fake, children: [], append(...k) { this.children.push(...k); } };
+  renderPhotos(plain, { doc: pics, id: 'pullman_house_1729_prairie', sceneYear: 1904 });
+  assert(!find(plain.children[0], (n) => n.className === 'ph-hero'), 'no picture is featured unless one was gone to');
+}
 console.log('test_goto_photos_t3436: 1904 viewpoints by short name and glyph, six featured, Photos listed at their cameras and gone to like any place');
