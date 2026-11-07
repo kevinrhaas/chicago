@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2796, ts: '2026-11-07T21:25:39.781Z', date: 'Nov 7, 2026, 3:25 PM CT', title: 'Woodpiles in real wood', kind: 'improvement',
+    items: [
+      'Woodpiles, chopping blocks, log heaps and loose billets now wear a photographic wood surface: split ends with rings, bark rinds and checks, bark along the sticks, sawn rounds with axe scores.',
+      '1812 water casks and trade casks carry the same wood grain as the town\'s other casks.',
+      '1812 woodpiles now show on phones too.',
+    ] },
   { v: 2795, ts: '2026-11-07T20:24:41.594Z', date: 'Nov 7, 2026, 2:24 PM CT', title: 'The 1904 checks stop waiting on pictures too', kind: 'fix',
     items: [
       'Nothing you can see changes. The last of the town\'s checks, the one that opens Prairie Avenue in 1904 and reads the Glessner House\'s card, its Inspect tabs, its photographs and the People directory, still waited for the scene to be drawn at every step, so it ran past its time limit on the test machines. It now pauses the drawing while it reads those panels, and the camera still turns when Show me or From this spot asks it to. The 1904 checks now finish in about a third of the time on a phone-sized screen and inside the limit on a desktop one.',
