@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "4fdacdfa3af6182c21fbe8726defe6c3d271465e6c05346efa3ce90a542abde8"
+      "glb_sha256": "d9d4b45c8ab5da47cc304d1945f2ee3c1865d1f2f9b261fcd3190704d86304b7"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "f165d4af7461c032c7c7fb87ba3af9e83c3b64a4b7946bea9b402993baa40cdf"
     }
   ],
-  "group_sha256": "19d69c0654b2e335f6d42892c9ccecb8bdcc43559d014173ff375af9bdadc931",
+  "group_sha256": "e200d5682a005b8cba2d69766b051c65be663ba50ca7c3f197f1cde7a3066424",
   "rendered_flora": {
     "season": "winter",
     "lots": [
@@ -138,7 +138,7 @@
       "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "9239feb045c8d7daa01fcea9a0c776737fbdb458dcef16bf9253285c4b9fa3cc",
+  "flora_sha256": "a97bf05c93e1e4962d6977daa5f2f5eaa907e4f0bcd36fd76223b12b237f437a",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -299,6 +299,10 @@
     },
     {
       "what": "T-3429 (2026-11-06): the parkway elms are bare round wood now, twig forking off twig, where T-1934's painted twig cards stood; read against the print again, the verdict is kept.",
+      "status": "fixed"
+    },
+    {
+      "what": "[T-1881, 2026-11-07] the print's stout trunk at x 417 (base y 595), forking about 8 m up into a narrow, sparse head about 3 m across and 13 m to its top, is 18th Street's tree at 58.8 m: the build drew the grown elm's forked fountain there, about 6 m across and 19 m high over the house's south-east corner, and now draws a straight leader under a narrow head (high_head, scale 0.65). It renders about 46 px east of the print's trunk, as this camera draws the trees at 43.7 and 51.3 m (33 and 45 px; 2.3-2.8 m along the parkway), a camera-fit disagreement. Re-read on this render, which also carries the house's rear-step stack as #1828 moved it: no new difference.",
       "status": "fixed"
     }
   ],

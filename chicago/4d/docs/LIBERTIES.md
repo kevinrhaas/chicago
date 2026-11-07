@@ -38546,6 +38546,19 @@ Taylor's no. 1445, read above as drawing this parkway clear, does draw this trun
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`,
 `taylor_1445_album-side-by-side.jpg` and their match records.
 
+**Extended (T-1881, 2026-11-07, the tree at 58.8 m):** the plate's living tree on 18th Street's north
+parkway, before the house's south-east corner, was the last pictured tree on the parkway before the house
+still drawn as the rule's grown elm, its low fork a V about 3 m up and its fountain about 6 m across and
+19 m high over the house's corner and terrace through Taylor's 16554. It now grows on `high_head` at
+scale 0.65. **Read:** Taylor's 16554 (winter, f 1181 px, the trunk about 53 m off at x 417) draws one
+stout leader, about 12 px (0.5 m) across, forking about 8 m up into a narrow, sparse head about 3 m
+across, the tree about 13 m to its top; the Detroit print det 4a08066 (c. 1900) draws the trees of this
+stretch as slender leaders under heads from about the second storey; the 1894 plate draws a single
+straight trunk under a high head in leaf. The place stays the plate's: 16554 reads it 2.6 m west, as its
+camera reads the trees at 43.7 and 51.3 m 2.3-2.8 m west. **Chosen (reconstructed):** the habit's numbers
+(the form's, above) and the height off 16554's top; its bole draws about 0.3 m, slighter than the 0.5 m
+16554 prints. **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_16554_from_south-side-by-side.jpg`,
+`pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg`, `detroit_det_4a08066-side-by-side.jpg` and their match records.
 
 ### L-pullman-terrace-tubs-1934 — The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them
 
