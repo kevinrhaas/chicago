@@ -493,8 +493,20 @@ def survey(overrides: dict | None = None, layers: dict | None = None) -> list[di
         if scene == "1835":
             out += findings(scene, blds, runs_1835(layers), props_1835(layers))
             out += ways_1835(blds)
+        elif scene == "1812":
+            # T-3458: the settlement's yard goods (data/yard/1812/) are props too.
+            out += findings(scene, blds, (), props_1835(layers_1812()))
         else:
             out += findings(scene, blds)
+    return out
+
+
+def layers_1812() -> dict:
+    """The 1812 yard layer's records, in the shape `props_1835` walks (T-3458)."""
+    out = {}
+    for f in sorted((DATA / "yard" / "1812").glob("*.json")):
+        if f.name != "index.json":
+            out[f"yard/1812/{f.name}"] = load(f)
     return out
 
 
