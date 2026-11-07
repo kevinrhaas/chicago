@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2795, ts: '2026-11-07T20:24:41.594Z', date: 'Nov 7, 2026, 2:24 PM CT', title: 'The 1904 checks stop waiting on pictures too', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The last of the town\'s checks, the one that opens Prairie Avenue in 1904 and reads the Glessner House\'s card, its Inspect tabs, its photographs and the People directory, still waited for the scene to be drawn at every step, so it ran past its time limit on the test machines. It now pauses the drawing while it reads those panels, and the camera still turns when Show me or From this spot asks it to. The 1904 checks now finish in about a third of the time on a phone-sized screen and inside the limit on a desktop one.',
+    ] },
   { v: 2794, ts: '2026-11-07T20:22:57.337Z', date: 'Nov 7, 2026, 2:22 PM CT', title: 'Step back lets the carriage pass', kind: 'fix',
     items: [
       'Standing in a carriage\'s or wagon\'s road stops it, and Interact offers Step back to let it pass. Pressing it used to do nothing.',
