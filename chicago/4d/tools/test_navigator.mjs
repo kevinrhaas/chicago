@@ -738,6 +738,29 @@ for (const phone of [true, false]) {
   assert(!list.hidden && cardHost.hidden, 'Back returns to the list');
   await nav4.select('home'); await nav4.select('people');
   assert.equal(reads, 1, 'and not read again');
+
+  // T-3438 (the owner, 2026-11-07: "weird that the shorthalls at 1600 prairie are listed twice in
+  // households?"): the household in view is pinned once, never again as the list's first row, and
+  // the People side pins that household's people, never a household row among the people.
+  const dom5 = miniDom();
+  const nav5 = createNavigator({ root: dom5.root, scene: json('data/scenes/1904.json'), isPhone: () => false, storage: fakeStorage(),
+    apps: APPS, context: () => ({ hasPeople: true, peopleSection: false, selected: 'house_1600_prairie',
+      actions: { peopleDirectory: async () => dir, record: () => null } }) });
+  await nav5.select('people');
+  const list5 = dom5.byId.get('nav-app-people').children[0];
+  const pin = list5.querySelector('.ppl-inview');
+  const pinned = pin.querySelectorAll('.ppl-row');
+  assert(!pin.hidden && pinned.length === 1 && pinned[0].dataset.pplOpen === 'hh_shortall_john_g', 'Households: the Shortalls of 1600 pinned once');
+  const hhRows = list5.querySelectorAll('.ppl-results .ppl-row').map((b) => b.dataset.pplOpen);
+  assert(!hhRows.includes('hh_shortall_john_g') && hhRows.includes('hh_shortall_john_l'), 'and not again under the pin; the Shortalls of 1604 keep their row');
+  assert.equal(list5.querySelector('.ppl-rest').textContent, 'Every other household');
+  list5.querySelector('[data-ppl-seg="people"]').dispatch('click', { target: list5.querySelector('[data-ppl-seg="people"]') });
+  const pinPeople = pin.querySelectorAll('.ppl-row');
+  assert(!pinPeople.some((b) => b.dataset.pplKind === 'household'), 'People: no household row among the people');
+  assert.deepEqual(pinPeople.map((b) => b.children[0].textContent), ['John G. Shortall', 'Jessie McKay'], 'People: the household in view pins its own people');
+  const pplRows = list5.querySelectorAll('.ppl-results .ppl-row').map((b) => b.dataset.pplOpen);
+  assert(!pplRows.includes('pa1904_shortall_john_g') && pplRows.every((id) => !id.startsWith('hh_')), 'and they are not listed again under it');
+  assert.equal(list5.querySelector('.ppl-rest').textContent, 'Everyone else');
 }
 
 // ---- T-2627: the HUD's target tag — 400 ms of rest on a building, then its name and distance;
