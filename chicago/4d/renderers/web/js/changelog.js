@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2744, ts: '2026-11-07T02:08:45.776Z', date: 'Nov 6, 2026, 8:08 PM CT', title: '2009 Prairie\'s bay window now sits on a band of carved flowers', kind: 'improvement',
+    items: [
+      'In 1904, the stone bay window over the front door of 2009 Prairie Avenue now carries a carved band under its three windows: two staggered rows of small four-petalled flowers, seventeen in all, where the old photograph shows them. Before, the stone under the windows was plain.',
+      'The chimney\'s place, the window hoods and the gable\'s south foot are still to come.',
+    ] },
   { v: 2743, ts: '2026-11-07T02:07:04.011Z', date: 'Nov 6, 2026, 8:07 PM CT', title: 'Go to: phone tiles stay on screen', kind: 'fix',
     items: [
       'On a phone, Go to\'s six featured tiles sit three to a row with the icon over the name, so nothing scrolls sideways or runs off the edge at a larger text size.',
