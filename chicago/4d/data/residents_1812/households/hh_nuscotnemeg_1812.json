@@ -1,0 +1,95 @@
+{
+  "id": "hh_nuscotnemeg_1812",
+  "scene": "1812",
+  "name": "Nuscotnemeg, at the gathering of August 1812",
+  "head": "nuscotnemeg",
+  "division": "camp",
+  "review_required": true,
+  "touches_removal": true,
+  "review_note": "review_required: a Potawatomi person of the gathering at Chicago in August 1812, the eve of the battle in which the garrison and its families were attacked. The card states only what the named sources say, says where a story is Kinzie family tradition rather than a contemporary account, and stages no speech or ceremony.",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "kinzie_waubun_1856",
+      "quaife_1913"
+    ],
+    "note": "Each person's own card says how their presence on 14 August is known."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "potawatomi_camp_1812_south_reach",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "kinzie_waubun_1856",
+      "also_sources": [],
+      "note": "No source places his lodge in the camp; the card is put at one of the camp's grounds on the creek (the 1812 camp records) so it can be found, a reconstructed choice (liberty L-1812-people-3461)."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "No source names his family or places his lodge in the camp.",
+    "sources": [
+      "kinzie_waubun_1856",
+      "quaife_1913"
+    ]
+  },
+  "persons": [
+    {
+      "id": "nuscotnemeg",
+      "name": "Nuscotnemeg",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "Fought and was badly wounded on the 15th (Wau-Bun); named a leader by Quaife and the Encyclopedia. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Mad Sturgeon",
+        "Nee-scot-nee-meg",
+        "Nescotnemeg"
+      ],
+      "note": "Hostile leader; implicated in 1810 Illinois murders. Potawatomi. 15 and 16 August: Badly wounded; carried off toward the Des Plaines by the 16th (Wau-Bun). Afterwards: Alive 1817, when Storrow met him at Chicago (Quaife). His daughter was Billy Caldwell's wife (Wau-Bun ch. XVII; Andreas p. 109).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a Potawatomi person of the gathering at Chicago in August 1812, the eve of the battle in which the garrison and its families were attacked. The card states only what the named sources say, says where a story is Kinzie family tradition rather than a contemporary account, and stages no speech or ceremony.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. X, lines 9036-9037",
+          "quote": "Nuscotnemeg, or the Mad Sturgeon, already guilty of many murders committed against the whites.",
+          "claim": "Hostile leader",
+          "tier": "secondary history (1884-1913), cite as compiler's statement"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, lines 5856-5858",
+          "quote": "a party of their friends having with them their chief Nee-scot-nee-meg, badly wounded",
+          "claim": "Wounded, met at the Aux Plaines by the Wabash party",
+          "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. XII area, lines 11293-11294",
+          "quote": "Storrow encountered one of the \"principal perpetrators,\" Nuscotnemeg, or the Mad Sturgeon.",
+          "claim": "Met at Chicago in 1817",
+          "tier": "secondary history (1884-1913), cite as compiler's statement"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XVII, lines 4676-4679",
+          "quote": "his wife, who was a daughter of Nee-scot-nee-meg, one of the most famous chiefs of the nation.",
+          "claim": "Father-in-law of Billy Caldwell",
+          "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+        }
+      ]
+    }
+  ]
+}

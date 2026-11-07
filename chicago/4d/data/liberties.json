@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1038,
+  "count": 1041,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -61608,6 +61608,10 @@
           "text": "the shared female base at its engineering age; the town's variation kit would age her (56, from her record) and draw her height and build at runtime once she is placed, and no portrait of her has been read. Every amount is chosen by eye against the pictures; none is measured, and none says how she dressed."
         },
         {
+          "label": "Her face, 2026-11-07",
+          "text": "her face's proportions are now fitted to a photograph of her, the Chicago History Museum's conservatory portrait of 4 March 1892 (ICHi-061818, at 44), read against her own female body's face rather than the men's base; what the one three-quarter view does not settle stays at her body's own lean. Her hair as she wore it (drawn up to a crown of braids in Hartley's 1897 multigraph) and her colouring are still chosen: the town's bun and the shared skin."
+        },
+        {
           "label": "The 1904 house maid supplement, 2026-11-07",
           "text": "a house maid's working dress on the same component path, the human maid 1904 tool with the maid 1904 data, built as the asset reynolds mary 1904 maid on the shared female body and first worn by Mary Reynolds, house maid in the Glessner household in the 1900 census (inferred; whether she was still there in July 1904 is not recorded); she is not placed in the town by this work."
         },
@@ -61710,6 +61714,7 @@
         "T-3434",
         "T-3441",
         "T-3447",
+        "T-3473",
         "T-3448",
         "T-3449",
         "T-3450",
@@ -67201,6 +67206,36 @@
       ]
     },
     {
+      "id": "L-t3458-yard-goods-1812",
+      "title": "the wood, casks and carts round the 1812 houses, placed by rule",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-07",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1812 scene gets the yard goods a frontier household and a garrison post could not do without, written by the yard goods 1812 generator into the yard goods 1812 data and drawn by the walkthrough's yard code with the 1835 town's own woodpile, block, cask, case, cart and wagon: at every house (the Kinzie house and its men's lodging house, Ouilmette, Lalime, Lemai, Burns, the Lees' town house, the two houses at the forks, Lee's Place, the agent's and the interpreter's houses) a rick of split wood against the back wall, a chopping block in front of it and a water cask at a corner; an oven's heap of unsplit lengths at the garrison's and the Kinzies' bake houses; casks and cases along a gable of the government factory and the merchant's shop; a slack tub and a heap of slabs at the armourer's; a two-wheeled cart at the garrison's stables, the Kinzie stable and Lee's Place, and a four-wheeled wagon in the garrison's stable yard. What bounds it: every fire in 1812 Chicago burned wood; the factory's goods were given out on the scene date; the evacuation of the 15th went out with wagons (Quaife 1913)."
+        },
+        {
+          "label": "What is ours throughout",
+          "text": "that any one of these objects stood at any one place, every position (a rule off the building's own walls: back wall first, a hand's gap off it, never on wet ground, in or against a footprint, on a fence or in a garden, on a worn trail or under a planted stem), every size and every count. No source places a woodpile, cask or cart at any 1812 house."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a recollection, inventory or claim naming one at a particular house; the factory's returns for 1812; a view of the post's out-buildings."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-07 (T-3458)."
+        }
+      ],
+      "work_refs": [
+        "T-3458"
+      ]
+    },
+    {
       "id": "L-t3340-south-groves-1812",
       "title": "1812's timber south of the river: the South Branch belt carried east of Wells, and groves in the wet hollows",
       "section": "per_subject",
@@ -69869,6 +69904,37 @@
       ]
     },
     {
+      "id": "L-1812-people-3461",
+      "title": "The people of Chicago on 14 August 1812: who is carded, which roof each family is given, and the counted people nobody names",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-07",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1812 scene's people layer (the households data) carries everyone a four-part research sweep (the research notes on people 1812) found at the post on the afternoon of 14 August 1812: the 55 regulars of Heald's company on its muster-roll to 31 May 1812 (Quaife 1913, App. VIII), the women and children of the garrison and the militia families, the Kinzie, Ouilmette, Burns and Lee households, William Wells, and the Potawatomi people the sources name. Three things on those cards are ours. (1) **Which roof.** No source says which room of the fort any soldier or soldier's family lived in; only the commanding officer's quarters are named in an account of 1812. The four married privates' families are put in the two small houses and the two soldiers' barracks of Whistler's 1808 index, the single men in the barracks and the north range, and the junior officers in the officers' barracks, each association graded `reconstructed`. (2) **Presence that afternoon.** No roll was called on 14 August. Every man on the 31 May roll is taken as present, as Quaife takes him (App. IX: \"no reason to suppose that there was any alteration in this number\"); a person no account of the battle or its captives names is marked `probably present` on their own card. (3) **The counted and unnamed.** Quaife counts twelve militia and eighteen children with the evacuation; at least six militiamen and seven children have no name in any source. Each has a card graded `reconstructed`, standing for one of the counted, with nothing about him or her but the count. Wells's Miami escort (about thirty, named by no source) and the families of the Potawatomi camp (Helm's 500 warriors and 179 women and children on 12 August) are left to later work, which cards them when it places them."
+        },
+        {
+          "label": "Not invented",
+          "text": "any name, birth year, rank, family tie or fate. Each of those is a field of the reading, with its source, locator and quote on the person's `evidence`. Wau-Bun's dialogue is not quoted as speech; where a story is Kinzie family tradition the card says so."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a quartering return or reconstruction plan of the 1812 garrison; a name for any counted person, which retires one reconstructed card."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-07."
+        }
+      ],
+      "work_refs": [
+        "T-3461",
+        "T-3467"
+      ]
+    },
+    {
       "id": "L-first-fort-blockhouse-cupolas-3041",
       "title": "cupolas on the first fort's two blockhouses",
       "section": "per_subject",
@@ -69877,7 +69943,20 @@
         "first_fort_dearborn_blockhouse_se",
         "fort_dearborn_blockhouse"
       ],
-      "covers": [],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "first_fort_dearborn_blockhouse_nw",
+          "phase": "first_fort_1803",
+          "aspect": "form.cupola_height_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "first_fort_dearborn_blockhouse_se",
+          "phase": "first_fort_1803",
+          "aspect": "form.cupola_height_m"
+        }
+      ],
       "recorded": "2026-11-07",
       "revised": null,
       "fields": [
@@ -69903,7 +69982,11 @@
         },
         {
           "label": "How to resolve",
-          "text": "a garrison return, order or letter between 1808 and 1812 that reports the cupolas finished, or describes their size."
+          "text": "a garrison return, order or letter between 1808 and 1812 that reports the cupolas finished, or describes their size. **Amended 2026-11-07 — log, and lower.** The owner, looking at the fort's drawings beside the first build: the cupolas were logs at the top like the rest of the structure, and about 20% shorter. Both records now set cupola construction: log (inferred from Currey's coursed bodies) and cupola height (m): 1.6 (reconstructed, the body from its seat to the cap's eave, down from the kit's 2.1 m), which the fort structure archetype reads as opt-in controls; the second fort's boarded 2.1 m cupola is unchanged. The log courses, notching and chinking are the blockhouse's own coursed wall. The 1.6 m is a proportion read by eye off pictures that are not to scale."
+        },
+        {
+          "label": "Covers",
+          "text": "`first_fort_dearborn_blockhouse_nw.first_fort_1803.form.cupola_height_m`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.cupola_height_m`."
         },
         {
           "label": "Recorded",
@@ -69913,6 +69996,41 @@
       "work_refs": [
         "T-3335",
         "T-3041"
+      ]
+    },
+    {
+      "id": "L-1812-garrison-stations-3462",
+      "title": "Where each man of Heald's company stands on the afternoon of 14 August 1812",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-07",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "every enlisted man of Heald's company that the sweep cards stands in the 1812 scene as himself (the hi <person> 1812 data, written by the research notes on people 1812), in the company private's dress and with the face, height and build the variation kit seeds from his own id. Paul Grummo keeps the parade figure. Three things are ours. (1) **The stations.** No reconstruction plan, guard report or morning report of the post survives for the date, so each man's place is reconstructed from what a small frontier post of the period kept by day: a sergeant's guard of three at the main gate, a sentry at the magazine, men on the parade and at the barracks doors, the four married men near the quarters earlier work gives their families, men at the garden, the stables, the bake house, the armourer's shop and the merchant's shop, on the river bank and at the wharf, two on the roads to the garden, and three at the company's cornfield at the forks. Which man stands where follows the roll's order within a rank. Nothing of that day's events is acted out: no council, no giving out of the goods, no breaking of the casks or the arms. (2) **One dress for every rank.** Sergeants', corporals' and musicians' distinctions (epaulettes, sashes, the musicians' reversed coats) are not drawn; every man wears the private's dress, and his card gives his rank. (3) **Ages.** The muster-roll gives no ages. A man with no birth year in the readings carries a reconstructed age band on his card, by rank: privates 20-32, corporals 22-36, sergeants 24-40, drummers and fifers 16-30. The variation kit draws his age inside it (“Resident workwear studies on a licensed human base”)."
+        },
+        {
+          "label": "Not invented",
+          "text": "any man's name, rank, enlistment, family or fate; those are on his card with their sources."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a guard roster, reconstruction plan or morning report of Fort Dearborn for August 1812; a description of the post's daily duties in 1811-12; the 1812 dress for the company's sergeants, corporals and musicians."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-07."
+        }
+      ],
+      "work_refs": [
+        "T-3451",
+        "T-3452",
+        "T-3468",
+        "T-3461",
+        "T-3463",
+        "T-3462"
       ]
     },
     {

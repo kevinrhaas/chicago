@@ -1,0 +1,13 @@
+{
+  "_doc": "Manifest for the 1812 yard layer (T-3458): the yard goods round the 1812 houses. A static host cannot be globbed, so the renderer fetches this file and then exactly the records it names. data/scenes/1812.json names `yard_dir: yard/1812/`; the 1835 town reads data/yard/index.json.",
+  "version": 1,
+  "scene": "1812",
+  "scene_date": "1812-08-14",
+  "coordinates": "Local East-North-Up metres from data/datum.json's origin.",
+  "yard": [
+    {
+      "id": "yard_goods_1812",
+      "file": "yard_goods_1812.json"
+    }
+  ]
+}

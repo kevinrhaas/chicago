@@ -1,0 +1,161 @@
+{
+  "id": "hh_needs_john_1812",
+  "scene": "1812",
+  "name": "The Needs family of Heald's company, in the fort",
+  "head": "needs_john",
+  "division": "fort",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913"
+    ],
+    "note": "The family's men, women and children are on Helm's and Heald's lists of 1812-1814 (Quaife App. IV, VI)."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "first_fort_dearborn_soldiers_barracks_se",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "whistler_1808_fort_dearborn_draught",
+      "also_sources": [],
+      "note": "No source says which room of the fort any soldier or soldier's family lived in; the barracks named here is the reconstructed choice (liberty L-1812-people-3461)."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "A child the counts of 18 do not name may have been of this family; those children have their own reconstructed cards (hh_garrison_children_unnamed_1812).",
+    "sources": [
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913"
+    ]
+  },
+  "persons": [
+    {
+      "id": "needs_john",
+      "name": "John Needs",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "John Neads (Niles; 1810 roll)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 5 Jul 1808 for five years, to 5 Jul 1813. After 14 August: Formerly of Virginia; died among the Indians 15-20 Jan 1813 (Niles); wife and child also died in captivity.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17002; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "John Needs \" 5 July 1808 5 July 1813 John Needs",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17409; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "John Needs Private Died in captivity",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16798; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's tabular list of survivors, Appendix VI (pp. 415-21)",
+          "quote": "John Needs 20",
+          "claim": "Listed by Lt. Helm among the garrison survivors of the battle (pencil list with his 1814 narrative)."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 3776-3777; Part II, ch. VII (begins p. 113)",
+          "quote": "John Neads, who was one of the prisoners, formerly of Virginia, died among the Indians between the 15th and 20th of January, 1813.",
+          "claim": "Niles 1814."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4836; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*John Neads \" 5 July 1808 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "needs_mrs",
+      "name": "Mrs. Needs",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Helm's and Woodward's lists of women prisoners. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Mrs. Neads (Niles; Kirkland)"
+      ],
+      "note": "Wife of Private John Needs. After 14 August: Perished from hunger and cold in captivity (Niles).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16820; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's women list, Appendix VI",
+          "quote": "Mrs. Needs }",
+          "claim": "Helm's women list."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 3789-3790; Part II, ch. VII (begins p. 113)",
+          "quote": "Mrs.. Neads perished from hunger and cold.",
+          "claim": "Niles 1814."
+        }
+      ]
+    },
+    {
+      "id": "needs_child",
+      "name": "The Needs child",
+      "relationship": "child",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Niles 1814 (from the Plattsburg survivors): survived the battle, died in captivity. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "Child of Private John Needs and Mrs. Needs. After 14 August: Tied to a tree by its captors and left to die.",
+      "evidence": [
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 3788-3789; Part II, ch. VII (begins p. 113)",
+          "quote": "A child of Mrs. Neads, the wife of John Neads, was tied to a tree to prevent its following and crying after its mother",
+          "claim": "Niles 1814."
+        }
+      ]
+    }
+  ]
+}

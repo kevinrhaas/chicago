@@ -143,6 +143,20 @@
       ],
       "note": "PLANNED IN 1808 AND PICTURED AFTER; NEVER DATED (T-3041, owner adoption 2026-11-03, T-3335). Whistler's 1808 draught lays the cupolas down on both blockhouses and its index says they were 'not yet built ... as laid down', so they were intended and not yet standing then. Kurz & Allison (1893) panel 1 draws a small roof lantern on each first-fort blockhouse and no stack, and Currey's 1912 bird's-eye (after the 1899 Tribune sketch of Van den Berghen's 1898 model) draws a small square body under its own pyramid cap on both. Intent plus two later depictions is what carries INFERRED that they were finished before the fort burned in August 1812; no source dates their completion, both pictures are tier-5 retrospectives, and Whistler's note is kept as the counter-evidence for the years before. EVERY DIMENSION IS RECONSTRUCTED and none is in this record: the side, the height, the cap's pitch and eave and the plain boarded sides are the fort_structure archetype's cupola kit (the second fort's, T-2388), reused at the proportions both pictures show, and docs/LIBERTIES.md L-first-fort-blockhouse-cupolas-3041 owns them. No louvres, glazing or finial is built."
     },
+    "cupola_construction": {
+      "value": "log",
+      "confidence": "inferred",
+      "sources": [
+        "currey_1912_first_fort_birdseye",
+        "kurz_allison_1893"
+      ],
+      "note": "T-3041, the owner's reading of the pictures (2026-11-07): the cupola is laid in log like the rest of the blockhouse, not boarded. Currey's bird's-eye draws the cupola bodies with the same horizontal courses as the walls below them, and a garrison building its blockhouses in log would raise the lookout on top the same way. Course height, notching and chinking are the blockhouse's own (coursed log wall, L370); nothing in the pictures measures them."
+    },
+    "cupola_height_m": {
+      "value": 1.6,
+      "confidence": "reconstructed",
+      "note": "T-3041: the body from its seat in the main roof to the cap's eave. The owner (2026-11-07), comparing the first build with the fort's drawings: the cupolas read about 20% too tall. The kit's 2.1 m body is cut to 1.6 m, which makes the whole cupola (body above the roof plus cap) about 20% shorter. Neither picture is to scale; this is a proportion read by eye, recorded in docs/LIBERTIES.md L-first-fort-blockhouse-cupolas-3041."
+    },
     "function": {
       "value": "block_house",
       "confidence": "attested",
