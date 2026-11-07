@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2785, ts: '2026-11-07T18:03:13.440Z', date: 'Nov 7, 2026, 12:03 PM CT', title: 'Mr. Glessner\'s collar, again', kind: 'fix',
+    items: [
+      'His collar is now a stiff white band that stands off his neck, with the tie knotted at its foot.',
+      'His waistcoat closes higher, so only a little shirt shows, as in his photograph.',
+      'The model picture on his card\'s Likeness section is redrawn with the new collar.',
+    ] },
+  { v: 2784, ts: '2026-11-07T18:03:13.440Z', date: 'Nov 7, 2026, 12:03 PM CT', title: 'The soldier at Fort Dearborn has a name', kind: 'change',
+    items: [
+      'The private on the 1812 parade is now Paul Grummo of Captain Heald\'s company, from the company\'s May 1812 muster roll.',
+      'Click him and his own card opens in Inspect with his story: dispatches to Fort Wayne, captivity after the battle, and a long road home.',
+      '1812\'s people now open the same person card as 1904\'s, with Find and Follow.',
+    ] },
   { v: 2783, ts: '2026-11-07T17:39:11.857Z', date: 'Nov 7, 2026, 11:39 AM CT', title: '1812: the worn paths and yards are bare of grass', kind: 'fix',
     items: [
       'Round the 1812 houses, shops and stables the trodden ground is now clear of standing grass for a few metres before it frays back into the prairie.',
