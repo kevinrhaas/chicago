@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2763, ts: '2026-11-07T08:43:18.487Z', date: 'Nov 7, 2026, 2:43 AM CT', title: 'Pullman house: two rear chimneys read off a second photograph', kind: 'improvement',
+    items: [
+      'A second Detroit Publishing photograph of about 1900, taken from 18th Street near Calumet Avenue, now checks the Pullman house\'s 18th Street side and rear.',
+      'Read off it, the rear chimney moves to stand between the back wing\'s two dormers, and a second chimney rises behind the south dormer.',
+    ] },
   { v: 2762, ts: '2026-11-07T08:18:24.258Z', date: 'Nov 7, 2026, 2:18 AM CT', title: 'John J. Glessner looks like his photograph', kind: 'feature',
     items: [
       'Round wire spectacles, a full grey moustache and grey brows, as his 1897 portrait shows.',
