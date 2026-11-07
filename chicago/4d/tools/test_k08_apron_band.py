@@ -41,13 +41,13 @@ record = json.loads((ROOT / "data" / "structures" / f"{SID}.json").read_text())
 p = KP.from_phase(record["phases"][0], record)
 oriel = next(b for b in p.bays if b["id"] == "front_oriel")
 ab = oriel["variant"]["apron_band"]
-check(ab["from_m"] == 0.26 and ab["to_m"] == 0.6 and ab["rosettes"]["rows"] == 2,
+check(ab["from_m"] == 0.25 and ab["to_m"] == 0.59 and ab["rosettes"]["rows"] == 2,
       f"the oriel's apron band resolves ({ab})")
 
 a = K1.build(p, SID)
 inst = a.components["k08.oriel"]["instances"][0]["params"]
 m = inst.get("apron_band") or {}
-check(m.get("y_m") == [5.56, 5.9], f"the band stands 5.56-5.9 m, under the lights' sills at 6.0 m ({m})")
+check(m.get("y_m") == [5.55, 5.89], f"the band stands 5.55-5.89 m, under the lights' sills at 6.0 m ({m})")
 check(m.get("rosettes") == 17, f"17 rosettes: 8 and 7 across the front, one on each cant ({m})")
 
 light = K8.Bay(oriel["variant"], K8.load(), "light").build(board=False)
@@ -66,6 +66,7 @@ def refused(mutate, what):
 
 
 refused(lambda b: b["apron_band"].update(to_m=0.65), "a band reaching into the lights' sill stones")
+refused(lambda b: b["apron_band"].update(to_m=0.6), "a band whose top is the sill stones' bed (one plane drawn twice)")
 refused(lambda b: b["apron_band"].update(from_m=0.5), "a band under 0.15 m deep")
 refused(lambda b: b["apron_band"].update(proud_m=0.1), "a band 0.1 m proud")
 refused(lambda b: b["apron_band"]["rosettes"].update(radius_m=0.25), "a rosette over 0.2 m in radius")

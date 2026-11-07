@@ -2669,7 +2669,8 @@ class Bay:
         if gap < 2 * R:
             raise ValueError(f"{self.v['id']}: an apron band {hi - lo:.2f} m high holds no {rows} rows of "
                              f"{R} m rosettes")
-        petal, off = R * 0.45, R * 0.55
+        # four petals to the outline, each clear of its neighbours (they share one depth)
+        petal, off = R * 0.4, R * 0.6
         n0 = math.floor((run.L - 2 * R - 2 * margin) / pitch + 1e-9) + 1
         if n0 < 1:
             return

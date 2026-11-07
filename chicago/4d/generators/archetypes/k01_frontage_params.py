@@ -3070,9 +3070,11 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                  f"over their width to 1 m, 6-16 segments), not {ab}")
             k06 = float(json.loads(WINDOW_KIT.read_text())["parts"]["sill"]["height_m"])
             low = min((float(w["sill_m"]) for w in v["storeys"][0].get("windows", [])), default=None)
-            if low is None or float(ab["to_m"]) > low - k06 + 1e-6:
+            # its top clear of the sill stones' bed: on it, the two faces would be one plane drawn twice
+            if low is None or float(ab["to_m"]) > low - k06 - 0.005 + 1e-6:
                 raise ParamError(f"bays: {e['id']}'s apron_band stands under its lowest storey's lights, its "
-                                 f"top under their sill stones (at most {None if low is None else round(low - k06, 3)} m)")
+                                 f"top 5 mm or more under their sill stones (at most "
+                                 f"{None if low is None else round(low - k06 - 0.005, 3)} m)")
             v["apron_band"] = {"from_m": float(ab["from_m"]), "to_m": float(ab["to_m"]),
                                "proud_m": float(ab["proud_m"]),
                                "rosettes": {k: (int(ro[k]) if k in ("rows", "segments") else float(ro[k]))
