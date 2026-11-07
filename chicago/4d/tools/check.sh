@@ -4327,6 +4327,13 @@ step "Jaunt content refusals across the library (T-2040)" \
 selftest "…and each refusal still fires when broken (T-2040)" \
   python3 tools/audit_jaunt_refusals.py --self-test
 
+# The owner, 2026-11-07: a 1904 jaunt stop at a house later torn down says when, with a
+# claim, from data/jaunts/_names/demolished.json.
+step "1904 jaunt stops at torn-down houses say when (demolition notes)" \
+  python3 tools/check_jaunt_demolitions.py
+selftest "…and the demolition gate still fires on a stop stripped of its year" \
+  python3 tools/check_jaunt_demolitions.py --self-test
+
 step "Source-use backlinks match authored claims (T-1248)" \
   python3 tools/compile_source_use.py --check
 
