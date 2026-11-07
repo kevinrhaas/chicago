@@ -51,17 +51,23 @@ export const FOLLOW = Object.freeze({
   // T-3471 (Kevin, 2026-11-07: "when i follow someone like frances, i get stuck on walls,
   // maybe when we follow we should go right behind them by default instead of along side?").
   // On foot: BEHIND_M straight back along their way, no side offset. A driver sits on a
-  // box with the carriage behind him (the measured envelope runs ~2.6 m back of the box),
-  // so a follower stands DRIVER_BEHIND_M back and DRIVER_SIDE_M off the carriage's line,
-  // where the driver shows past its side and the carriage never has the visitor in its way.
+  // box with the carriage behind him (the measured envelope runs 2.6 m back of the box and
+  // 1.2 m either side of its line), so a follower stands DRIVER_BEHIND_M back and
+  // DRIVER_SIDE_M off the line: 2.4 m behind its rear, and the eye's line to the box clears
+  // the body's back corner (at 1 m of a 2.1 m roof straight behind, all but his hat was
+  // hidden), with the carriage never having the visitor in its way.
   BEHIND_M: 2.4, MIN_BEHIND_M: 0.9,
-  DRIVER_BEHIND_M: 6, DRIVER_SIDE_M: 1.5, DRIVER_MIN_BEHIND_M: 3.8,
+  DRIVER_BEHIND_M: 5, DRIVER_SIDE_M: 2.6, DRIVER_MIN_BEHIND_M: 3.6,
   // Where a wall is in the way the stand is pulled in toward the person, or swung round
   // them (degrees, both ways); a swing costs as much as SWING_COST_M of pulled-in distance
   // per 45 degrees. The line is tested from START_M out from the person (they may be in a
   // doorway, nearer a wall than a visitor's shoulders allow).
   SWINGS_DEG: [25, 50, 80, 115, 150, 180], SWING_COST_M: 1.2, START_M: 0.5,
   RESOLVE_S: 0.15, ROUTE_S: 0.2,
+  // A resolve stops looking round once it has spent this long (a capsule test is ~0.5 ms
+  // on a laptop in software; walled in, the whole search is ~70 of them): the best found
+  // so far stands, or the last stand is kept, and a held follower looks again less often.
+  RESOLVE_BUDGET_MS: 6, HELD_RESOLVE_S: 0.6,
   // Not closing on the stand for STUCK_S while further than STUCK_M from it: held by a
   // wall the trail does not get round; set down at the stand.
   STUCK_S: 1.2, STUCK_M: 1.2,
@@ -109,6 +115,8 @@ export function followStand(person, { back = backOf(person), side = 0, t = 1 } =
 }
 
 /** A wall-free line by sampling a point test every 0.25 m, when no exact one is given. */
+const now = () => (globalThis.performance?.now?.() ?? Date.now());
+
 const sampledClear = (blockedAt) => (ae, an, be, bn) => {
   const steps = Math.max(1, Math.ceil(Math.hypot(be - ae, bn - an) / 0.25));
   for (let i = 0; i <= steps; i++) if (blockedAt(ae + (be - ae) * i / steps, an + (bn - an) * i / steps)) return false;
@@ -212,7 +220,7 @@ export function createFollow({ walker, locate, blockedAt = () => false, clearBet
     const reach = (back, side) => {
       // From the full stand inward: the first whose line to the person is clear.
       const from = { e: person.e + back.e * FOLLOW.START_M, n: person.n + back.n * FOLLOW.START_M };
-      for (const t of [1, 0.8, 0.62, 0.48, 0.37]) {
+      for (const t of [1, 0.75, 0.55]) {
         if (t < least - 1e-9) break;
         const st = followStand(person, { back, side, t });
         if (clear(from.e, from.n, st.e, st.n)) return { t, st };
@@ -221,13 +229,16 @@ export function createFollow({ walker, locate, blockedAt = () => false, clearBet
       return clear(from.e, from.n, st.e, st.n) ? { t: least, st } : null;
     };
     const sides = driver ? [current.side || 1, -(current.side || 1)] : [0];
-    let best = null;
+    const t0 = now();
+    let best = null, spent = false;
     for (const side of sides) {
+      if (spent) break;
       const penalty = side === sides[0] ? 0 : 0.5;   // a driver: the visitor's own side first
       for (const deg of [0, ...FOLLOW.SWINGS_DEG.flatMap((d) => (d === 180 ? [d] : [d, -d]))]) {
         const cost = (Math.abs(deg) / 45) * FOLLOW.SWING_COST_M + penalty;
         // Nothing further round can beat what is found: at best its full distance, less more.
         if (best && best.score >= full - cost) break;
+        if (deg !== 0 && now() - t0 > FOLLOW.RESOLVE_BUDGET_MS) { spent = true; break; }
         const a = deg * DEG, c = Math.cos(a), sn = Math.sin(a);
         const back = { e: back0.e * c - back0.n * sn, n: back0.e * sn + back0.n * c };
         const r = reach(back, side);
@@ -237,7 +248,7 @@ export function createFollow({ walker, locate, blockedAt = () => false, clearBet
       }
       if (best && best.side === side && best.score >= full - 1e-9) break;
     }
-    if (!best) return null;
+    if (!best) return spent && current.offset ? current.offset : null;
     if (driver) current.side = best.side;
     return { e: best.st.e - person.e, n: best.st.n - person.n };
   }
@@ -290,9 +301,9 @@ export function createFollow({ walker, locate, blockedAt = () => false, clearBet
     // the person in between, so it moves at their pace.
     current.resolveLeft -= dt;
     if (current.resolveLeft <= 0) {
-      current.resolveLeft = FOLLOW.RESOLVE_S;
       current.offset = resolveStand(person);
       current.held = !current.offset;
+      current.resolveLeft = current.held ? FOLLOW.HELD_RESOLVE_S : FOLLOW.RESOLVE_S;
     }
     const off = current.offset;
     const stand = off ? { e: person.e + off.e, n: person.n + off.n } : { e: s.e, n: s.n };

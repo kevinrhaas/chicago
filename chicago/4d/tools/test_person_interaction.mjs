@@ -125,8 +125,9 @@ const angleOff = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
   assert.equal(follow.state.held, true, 'nowhere clear: held');
   blocked = () => false;
 
-  // Far away (a teleport elsewhere): set down at the stand at once.
-  for (let i = 0; i < 10; i++) { follow.steer(dt, intent); walker.update(dt, intent); follow.afterWalk(intent); }
+  // Far away (a teleport elsewhere): set down at the stand at once. (Held, it looks again
+  // every HELD_RESOLVE_S.)
+  for (let i = 0; i < 30; i++) { follow.steer(dt, intent); walker.update(dt, intent); follow.afterWalk(intent); }
   walker.state.e += 500;
   follow.steer(dt, intent);
   assert(near(walker.state.e, person.e, 0.4) && near(walker.state.n, person.n - FOLLOW.BEHIND_M, 0.4), `jumped to the stand: ${walker.state.e.toFixed(3)},${walker.state.n.toFixed(3)}`);
