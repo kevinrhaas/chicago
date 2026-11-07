@@ -1,4 +1,33 @@
 export const CHANGELOG = [ // newest first
+  { v: 2796, ts: '2026-11-07T21:25:39.781Z', date: 'Nov 7, 2026, 3:25 PM CT', title: 'Woodpiles in real wood', kind: 'improvement',
+    items: [
+      'Woodpiles, chopping blocks, log heaps and loose billets now wear a photographic wood surface: split ends with rings, bark rinds and checks, bark along the sticks, sawn rounds with axe scores.',
+      '1812 water casks and trade casks carry the same wood grain as the town\'s other casks.',
+      '1812 woodpiles now show on phones too.',
+    ] },
+  { v: 2795, ts: '2026-11-07T20:24:41.594Z', date: 'Nov 7, 2026, 2:24 PM CT', title: 'The 1904 checks stop waiting on pictures too', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The last of the town\'s checks, the one that opens Prairie Avenue in 1904 and reads the Glessner House\'s card, its Inspect tabs, its photographs and the People directory, still waited for the scene to be drawn at every step, so it ran past its time limit on the test machines. It now pauses the drawing while it reads those panels, and the camera still turns when Show me or From this spot asks it to. The 1904 checks now finish in about a third of the time on a phone-sized screen and inside the limit on a desktop one.',
+    ] },
+  { v: 2794, ts: '2026-11-07T20:22:57.337Z', date: 'Nov 7, 2026, 2:22 PM CT', title: 'Step back lets the carriage pass', kind: 'fix',
+    items: [
+      'Standing in a carriage\'s or wagon\'s road stops it, and Interact offers Step back to let it pass. Pressing it used to do nothing.',
+      'Now you step aside to the nearest clear spot beside the road, and the driver goes on.',
+      'Where there is no room to step aside, the key says so.',
+    ] },
+  { v: 2793, ts: '2026-11-07T19:57:20.144Z', date: 'Nov 7, 2026, 1:57 PM CT', title: 'Frances Glessner\'s face, from her 1892 photograph', kind: 'feature',
+    items: [
+      'Mrs. Glessner\'s face is now fitted to a photograph of her: the Chicago History Museum\'s 1892 picture of her in a conservatory. Her card\'s Likeness shows the photograph beside the model, as her husband\'s does.',
+      'Her face is read against a woman\'s face, not the men\'s base, so what the picture doesn\'t settle keeps her own build.',
+      'Both of the owner\'s photographs of her are now in the evidence corpus with source records: the 1892 conservatory portrait and Hartley\'s 1897 multigraph, five views of her at once.',
+    ] },
+  { v: 2792, ts: '2026-11-07T19:57:20.144Z', date: 'Nov 7, 2026, 1:57 PM CT', title: 'Follow walks right behind the person', kind: 'change',
+    items: [
+      'Follow now keeps you right behind the person you follow, looking down the way they are going, instead of a few metres off to one side.',
+      'A wall, fence or house behind them pulls you in closer, or round to one side, so you are never pressed into stone looking through it.',
+      'Round a corner you go the way they went. If a wall still holds you, you are set down behind them.',
+      'Behind a carriage you keep back past its rear and a little to one side, so you can see the driver on the box.',
+    ] },
   { v: 2791, ts: '2026-11-07T19:42:36.337Z', date: 'Nov 7, 2026, 1:42 PM CT', title: 'Heald\'s company stands at Fort Dearborn, each man as himself', kind: 'feature',
     items: [
       '51 men of the 1812 garrison now stand in the scene: a guard at the main gate, a sentry at the magazine, men on the parade and at the barracks doors, at the garden, stables, bake house and armourer\'s shop, on the river bank and at the wharf, and three in the company\'s cornfield at the forks.',

@@ -615,6 +615,42 @@ textures/camp_1812_pbr/manifest.json
 textures/camp_1812_pbr/tools/generate_camp_1812_pbr.py
 ```
 
+### The yard woodpiles' wood library — `textures/yard_wood_pbr/`
+
+T-3474. One procedural atlas of six wood cells — two rick faces of split billet ends, the sticks
+along their length, a sawn round's end, oak/hickory log bark and a split face — built by the
+generator that ships inside it (`tools/generate_yard_wood_pbr.py`, deterministic, seeded), drawn at
+1024 px a cell and shipped at 512. `renderers/web/js/yard.js` binds it on the woodpile mesh. The
+look of every map is reconstructed (`docs/LIBERTIES.md` L-t3474-yard-wood-surfaces).
+
+| item | licence | cleared for | NOT cleared for |
+|---|---|---|---|
+| `textures/yard_wood_pbr/**` — *Yard woodpile wood PBR library v1.0.0*, original procedural output generated for this project. Full text at `textures/yard_wood_pbr/LICENSE.txt` | **Project-permissive, CC0-equivalent**, the 1835 library's terms. No third-party photograph or image is embedded, sampled or traced | **Use, modification and redistribution with the project**, including regenerated maps | **Stripping the confidence labels.** `material.json` says its appearance is reconstructed |
+
+**Published in part.** `tools/publish.sh` ships the atlas's `material.json`, its three `*_web.jpg`
+maps and their `.ktx2` derivatives to `data/textures/yard_wood_pbr/`; the PNG masters and the
+16-bit height stay in the repository.
+
+Every file, as the checker matches them one by one:
+
+```
+textures/yard_wood_pbr/LICENSE.txt
+textures/yard_wood_pbr/README.md
+textures/yard_wood_pbr/manifest.json
+textures/yard_wood_pbr/tools/generate_yard_wood_pbr.py
+textures/yard_wood_pbr/woodpile_atlas/material.json
+textures/yard_wood_pbr/woodpile_atlas/woodpile_atlas_basecolor.ktx2
+textures/yard_wood_pbr/woodpile_atlas/woodpile_atlas_basecolor.png
+textures/yard_wood_pbr/woodpile_atlas/woodpile_atlas_basecolor_web.jpg
+textures/yard_wood_pbr/woodpile_atlas/woodpile_atlas_height16.png
+textures/yard_wood_pbr/woodpile_atlas/woodpile_atlas_normal_gl.ktx2
+textures/yard_wood_pbr/woodpile_atlas/woodpile_atlas_normal_gl.png
+textures/yard_wood_pbr/woodpile_atlas/woodpile_atlas_normal_gl_web.jpg
+textures/yard_wood_pbr/woodpile_atlas/woodpile_atlas_orm.ktx2
+textures/yard_wood_pbr/woodpile_atlas/woodpile_atlas_orm.png
+textures/yard_wood_pbr/woodpile_atlas/woodpile_atlas_orm_web.jpg
+```
+
 
 ### The Prairie Avenue 1904 lakefront railway library — `textures/prairie_1904_rail/`
 
@@ -2202,4 +2238,17 @@ the CC0 MakeHuman-derived body and the fit in `data/humans/variation/fits/`, and
 humans/web/portraits/glessner_john_j_model.jpg
 humans/web/portraits/glessner_john_j_model.json
 humans/web/portraits/glessner_john_j_portrait.jpg
+```
+
+`glessner_frances_m_portrait.jpg` (T-3473) is cut and scaled from the copy the owner supplied of the
+Chicago History Museum's photograph ICHi-061818 of 4 March 1892 (source record
+`chm_ichi_061818_frances_glessner_conservatory_1892`), which the museum marks "No Copyright - United
+States": **public domain**; credit Chicago History Museum, ICHi-061818. The crop box is recorded in
+`data/humans/variation/portraits/glessner_frances_m.json`. `glessner_frances_m_model.jpg` (and its
+`.json` sidecar) is rendered by `tools/portrait_still.mjs` as above, and is **CC0-1.0**.
+
+```text
+humans/web/portraits/glessner_frances_m_model.jpg
+humans/web/portraits/glessner_frances_m_model.json
+humans/web/portraits/glessner_frances_m_portrait.jpg
 ```

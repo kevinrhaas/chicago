@@ -2207,7 +2207,7 @@ async function boot() {
     layer.updateWorldMatrix(true, true);
     uploadLayerNow(renderer, scene3d, camera, layer, {
       hide: (o) => (want.crossStreetWalks === false && !!o.userData.crossStreet)
-        || (want.woodpiles === false && !!o.userData.woodpiles) || beyond(o),
+        || (want.woodpiles === false && !!o.userData.woodpiles && !o.userData.woodpilesLight) || beyond(o),
     });
   };
   // T-1154 — the ground's reach, set from the fog the world just made rather
@@ -3116,7 +3116,8 @@ async function boot() {
     // T-1959: the woodpiles' group is shown or hidden by the tier, BEFORE the
     // furniture is banked, so a hidden one is never banked (see `light.woodpiles`).
     scene3d.getObjectByName('yard')?.traverse((o) => {
-      if (o.userData.woodpiles) o.visible = want.woodpiles !== false;
+      // T-3474: a town with few enough piles (1812's 17) draws them at `light` too.
+      if (o.userData.woodpiles) o.visible = want.woodpiles !== false || !!o.userData.woodpilesLight;
     });
     // T-0192: the cross streets' plank walks, by the same mechanism and for the
     // same reason — hidden BEFORE the furniture is banked, so the reach and the
@@ -3823,6 +3824,10 @@ async function boot() {
           : (e, n) => profiledGroundHeight(terrain, decks, e, n),
         footprints: () => footprints, visitor: () => walker.state,
         interactions, detail: detailLevel, coarse, problems,
+        // T-3475: Step back to let it pass walks the visitor to a clear stand, looking where they looked.
+        blockedAt: (e, n) => api.router?.blockedAt(e, n) ?? false,
+        placeVisitor: (e, n) => { if (!walker.state.flying) walker.teleport({ local_e: e, local_n: n,
+          yaw_deg: walker.bearingDeg, pitch_deg: walker.state.pitch / DEG }); },
       });
       if (api.townTransport) scene3d.add(api.townTransport.group);
     } catch (error) { problems.push(`town transport: ${error.message}`); }
@@ -5464,12 +5469,16 @@ async function boot() {
   });
   targetTag.setEnabled(!gateOpen);
   api.targetTag = targetTag;
-  // T-3404: Follow — the visitor walks alongside a person in town (follow.js). The key in
-  // the quick column names who and stops it; the visitor's own movement stops it too.
+  // T-3404: Follow — the visitor walks with a person in town, right behind them since
+  // T-3471 (follow.js). The key in the quick column names who and stops it; the visitor's
+  // own movement stops it too.
   const followKey = document.getElementById('btn-follow');
   const follow = createFollow({
     walker, walk: WALK, locate: personInTown,
     blockedAt: (e, n) => router.blockedAt(e, n),
+    // T-3471: the stand right behind them is pulled in short of any wall in the line, by
+    // the same capsule test the walker's own steps meet (houses, enclosure walls, steps).
+    clearBetween: (ae, an, be, bn) => router.clearSegment(ae, an, be, bn),
     busy: () => (travel?.state?.phase ?? 'idle') !== 'idle',
     onChange: (state, why, was) => {
       if (followKey) {
