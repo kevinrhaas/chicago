@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1030,
+  "count": 1031,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -69446,6 +69446,33 @@
         {
           "label": "Recorded",
           "text": "2026-11-06 (T-3365)."
+        }
+      ],
+      "work_refs": [
+        "T-3365",
+        "T-1914"
+      ]
+    },
+    {
+      "id": "L-k01-2009-meyer-hoods-3365",
+      "title": "2009 Prairie's window hoods, the consoles under its oriel and the carved pendant in its gable, read off its photograph",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-07",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Read off the undated Chicagology photograph ([2009 and 2011 S. Prairie Ave.] Photograph of the Max A. Meyer house's front…, rights check required: forms, places and sizes only) at 2-4x with its contrast stretched, at 100 px a metre on the front's plane, each part measured against its own light's head (the print leans about 0.07 across the paired light), the plain lintels give way to the print's hoods (street front windows hoods, K01's k01.wall.window hood): over the third storey's paired light a stone drip mould from s 2.47 to 5.57 m, stone from the light's head (11.45 m) to 11.85 m, its ends turned down to 11.3 m as label stops 0.18 m wide, and off its crown a carved pendant climbing to 12.96 m — a stem under two pairs of arms (0.62 m across at 12.18-12.32 m, 0.48 m at 12.52-12.62 m) and a bud 0.26 m across; under the oriel either side of the ground window two consoles (centres 1.54 and 4.31 m) from 4.2 m up into the corbel, 0.12 m across at the foot widening to 0.22 m; over the small light a splayed block 0.40 m across at its foot and 0.51 m at its top, 7.35-7.73 m, standing for the surround's lintel course. The street gutter that ran across the gable's foot is taken off (shaped gable takes gutter, as 1812's): the print's front runs up into its gable with none across it. **What is read, not invented.** Every part's place, width and height; the stops' drop; the pendant's rows; that the consoles widen upward; that the small light's block is splayed; that no gutter crosses the front. **What is invented.** Every part's depth (the camera is square to the front): the mould 0.08 m proud of the gable's slab (0.2 m out of the wall, the slab standing 0.12 m out from 11.5 m up), the pendant 0.1 m, the consoles 0.15 m, the block 0.03 m; the carving itself — the pendant's foliage drawn as stepped square blocks and the hood's ogee rise into it as a short wider block, the consoles' scrolls as plain tapered blocks. **What is built otherwise than the evidence, and why.** The consoles stop under the build's oriel corbel at 4.72 m, about 0.4 m short of the print's (about 5.1 m), whose corbel is shallower; the corbel is “2009 Prairie, the Max A. Meyer house, refined from the district draft onto K01: its ogee gable, oriel and storeys read off its photograph”'s. **What is not built.** The near stack's place and corbelled cap and the gable's south foot are still as “2009 Prairie, the Max A. Meyer house, refined from the district draft onto K01: its ogee gable, oriel and storeys read off its photograph” left them."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a camera solved on Monroe's 1896 plate (Harriet Monroe, John Wellborn Root (Boston: Houghton, Mifflin, 1896), p. 155…) would check the hoods from a second picture and might read their projection."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-07 (T-3365)."
         }
       ],
       "work_refs": [
