@@ -1,0 +1,312 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "liberty": "L418",
+  "height_scale": 1.0,
+  "lod_ratios": [
+    1.0,
+    0.6,
+    0.28,
+    0.12
+  ],
+  "skin_texture": {
+    "path": "assets/authored/humans/skin_toigo_bronze_female/young_lightskinned_female_diffuse_Bronze.png",
+    "sha256": "535535f30bacd42111590df4b03cf3b6bcdb7db18f336ce670665ec332ab3e0b",
+    "license": "CC0-1.0",
+    "color_space": "sRGB",
+    "base_color_factor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "roughness": 0.68,
+    "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
+    "identity_basis": "Cleared reusable generic skin atlas; not a likeness, attested complexion, or source identifying any named/reconstructed resident.",
+    "uv_status": "Source atlas and UV registration viewed in source diagnostics; final Blender export/LOD render validation remains outstanding.",
+    "female_appearance_status": "The same author's female bronze atlas (skins01, CC0), replacing the male one whose beard shadow read as a man's jaw at 3 m (T-3434); photographic qualification remains open."
+  },
+  "hair_component": {
+    "fitter": "mhclo_proxy",
+    "directory": "assets/authored/humans/hair_bun_brown",
+    "mhclo": "rehmanpolanski_hair_bun_brown.mhclo",
+    "obj": "hair_bun_brown.obj",
+    "texture": "hair_bun_brown_dark_tie.png",
+    "texture_size": [
+      2048,
+      2048
+    ],
+    "topology": [
+      2524,
+      4432
+    ],
+    "material": "hair__makehuman_bun",
+    "object": "bun",
+    "roughness": 0.65,
+    "alpha_cutoff": 0.4,
+    "appearance_basis": "Cleared CC0 bun hair (RehmanPolanski, from the MakeHuman ponytail01), the hair drawn back smooth from the face to a bun at the back of the head, as the 1903 Wasson stereographs show a working woman's hair drawn up; its red velvet tie recoloured dark (T-3434). No personal appearance or photographic qualification is asserted.",
+    "source_manifest_sha256": "1c4e95ace2160f24f37837e4ae8dd592c85f9c3cf0afd53bcf0ed5789ca30903"
+  },
+  "eye_components": {
+    "radius_m": 0.012,
+    "iris_radius_m": 0.0055,
+    "pupil_radius_m": 0.0022,
+    "corneal_bulge_m": 0,
+    "cornea_enabled": false,
+    "source_basis": "Actual helper centers/axes; original opaque sclera/iris/pupil, reconstructed dimensions and brown color, not resident facts",
+    "status": "No actual BPy/export/blink fit/photographic acceptance"
+  },
+  "label": "Reconstructed 1904 house maid's dress (a black long-sleeved work dress with a high neck and a full skirt to the floor, white collar and cuffs, a white bib apron with frilled straps tied in a bow behind, black shoes, a small white frilled cap) on the shared portable female rig",
+  "scene_date": "1904-07-01",
+  "grade": "reconstructed",
+  "sources": [
+    "loc_kelley_1904_mail_man_postage_due_stereograph",
+    "loc_graves_1905_jessie_furnace_man_stereograph",
+    "loc_wasson_1903_charming_rogue_new_cook_stereograph"
+  ],
+  "basis": "The T-3423 dress components (bodice and blouse fullness, gathered skirt, bib and straps) re-cut and re-coloured as a maid's black dress, with a white collar band and cuffs copied off the bodice, an apron skirt laid on the dress skirt, broad frills on the straps, a bow of the apron ties at the back of the waist, a small frilled cap laid over the fitted bun hair and closed shoes round the feet, cut after the house maids the reference photographs show. Every amount and colour is reconstructed (tools/human_maid_1904.py, T-3448).",
+  "source_scope": "E. W. Kelley's 1904 stereograph of a maid answering the front door to the postman (LOC, no known restrictions) gives the whole outfit at three metres: dark long-sleeved dress to the floor, white collar, white bib apron nearly to the hem with broad frilled straps over the shoulders, white frilled cap. C. H. Graves's c1905 stereograph of a maid seen from behind (LOC) gives the apron ties' bow at the back of the waist and the skirt to the floor; C. L. Wasson's 1903 stereograph (LOC) the small white cap pinned on the drawn-up hair and the bib apron's ruffled straps. All three are staged comic scenes, none of Chicago or of Mary Reynolds, and all are monochrome: black and white are the usual reading, not measurements.",
+  "colors_linear_rgba": {
+    "skin": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "eyes": [
+      0.12,
+      0.09,
+      0.06,
+      1.0
+    ],
+    "garment_upper__maid_dress_black": [
+      0.022,
+      0.022,
+      0.026,
+      1
+    ],
+    "garment_lower__maid_skirt_black": [
+      0.022,
+      0.022,
+      0.026,
+      1
+    ],
+    "garment_outer__maid_apron_white": [
+      0.74,
+      0.74,
+      0.71,
+      1
+    ],
+    "headwear__maid_cap_white": [
+      0.76,
+      0.76,
+      0.73,
+      1
+    ],
+    "footwear__maid_shoes_black": [
+      0.014,
+      0.013,
+      0.012,
+      1
+    ]
+  },
+  "workwear_coverage": {
+    "shoe_clearance_m": 0.004
+  },
+  "proof_variants": [
+    {
+      "id": "reynolds_mary_1904_maid",
+      "component_assembly": "maid_1904_v1",
+      "person_reference_id": "pa1904_glessner_john_j_c1900_mary_reynolds",
+      "person_reference_scene": "1904",
+      "person_reference_grade": "inferred",
+      "person_reference_record": "data/residents_1904/households/hh_glessner_john_j.json",
+      "reference_summary": {
+        "name": "Mary Reynolds",
+        "occupation": "house maid",
+        "household": "hh_glessner_john_j",
+        "presence": "present"
+      },
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_adult_female_25.json",
+      "body_parameters": {
+        "chosen_height_m": 1.65,
+        "height_basis": "The shared female engineering body; the variation kit draws height and build at runtime. Not a recorded height.",
+        "engineering_age_years": 25,
+        "age_basis": "Engineering body at the female kit base age 25. human-variation.js ages a person drawn in the town from their own record (hm08_variation_persons.json); she is not drawn yet, so no age is applied until she is placed (born June 1871 by the 1900 census, 33 in 1904).",
+        "shape_basis": "Equal cleared upstream female-young software-category blend, not inferred ancestry or a portrait"
+      },
+      "body_basis": "CC0 adult-female graphical body and the generic cleared female skin are reconstructed authoring choices. Mary Reynolds is an inferred person of the 1904 house (a house maid there in the 1900 census; no source read says she was still there in July 1904); no picture of her is known, and no complexion, height or outfit of hers is asserted.",
+      "recipe_path": "data/humans/recipes/maid_1904.json"
+    }
+  ],
+  "maid_components": {
+    "version": 1,
+    "generator": "tools/human_maid_1904.py",
+    "liberty": "L-human-modular-dress-1789",
+    "body_sha256": "3060ee86957ff7c2d70c89e70fe95ff3bc2294a0d7f6a5716b5a2f3f8dd84c72",
+    "standing_source_only": false,
+    "production_eligible": false,
+    "photo_accepted": false,
+    "evidence_choice": "The brief asked for a plain black (or print) work dress to the floor with long sleeves, a white bib apron and a white cap. E. W. Kelley's 1904 maid at a front door wears exactly that, with a white collar and broad frilled apron straps; the 1905 maid seen from behind gives the bow of the apron ties at the waist; the 1903 Wasson cook the small cap and ruffled bib straps. The black afternoon dress, not the morning print, is chosen because the 1904 maid answers the front door in it, as a house maid would.",
+    "tailoring": {
+      "bodice": {
+        "ease": 0.016,
+        "collar": 0.026,
+        "waist_below_spine02": 0.018,
+        "pouch": 0.012,
+        "sleeve": 0.01
+      },
+      "collar": {
+        "below": 0.012,
+        "lift": 0.0022
+      },
+      "cuffs": {
+        "length": 0.055,
+        "lift": 0.0022
+      },
+      "skirt": {
+        "hem_y": 0.04,
+        "ease": 0.015,
+        "segments": 96,
+        "rows": 18
+      },
+      "apron": {
+        "columns_each_side": 17,
+        "last_row_from_hem": 2,
+        "offset": 0.008
+      },
+      "bib": {
+        "top": 0.205,
+        "half_width": [
+          0.112,
+          0.094
+        ],
+        "offset": 0.007
+      },
+      "straps": {
+        "centre_x": 0.08,
+        "width": 0.034,
+        "offset": 0.0055,
+        "steps": 40,
+        "frill": 0.044,
+        "frill_waves": 9
+      },
+      "bow": {
+        "loop_length": 0.075,
+        "loop_height": 0.035,
+        "tail_length": 0.24,
+        "tail_width": 0.045,
+        "standoff": 0.012
+      },
+      "cap": {
+        "radius": 0.052,
+        "frill": 0.02,
+        "frill_waves": 14,
+        "forward_of_crown": 0.03,
+        "lift": 0.004
+      }
+    },
+    "garments": [
+      {
+        "id": "maid_dress_bodice",
+        "material": "garment_upper__maid_dress_black",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "loc_kelley_1904_mail_man_postage_due_stereograph",
+            "loc_graves_1905_jessie_furnace_man_stereograph"
+          ],
+          "source_scope": "A dark long-sleeved bodice with a high neck, a little full in front, as the 1904 maid at the door wears it; black (a monochrome print), the fullness and the ease are reconstructed. The 1905 maid's light shirtwaist shows a lighter choice was also worn for rough work.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "maid_dress_skirt",
+        "material": "garment_lower__maid_skirt_black",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "loc_kelley_1904_mail_man_postage_due_stereograph",
+            "loc_graves_1905_jessie_furnace_man_stereograph"
+          ],
+          "source_scope": "A full dark skirt to the floor, as both maids wear it; black, the fullness and the hem height are reconstructed, and the 1904 maid's tucks near the hem are not modelled.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "white_collar",
+        "material": "garment_outer__maid_apron_white",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "loc_kelley_1904_mail_man_postage_due_stereograph"
+          ],
+          "source_scope": "A white collar at the top of the high neck, as the 1904 maid wears it; drawn as a plain band, not the turned-down collar of the photograph; its width is reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "white_cuffs",
+        "material": "garment_outer__maid_apron_white",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "loc_kelley_1904_mail_man_postage_due_stereograph"
+          ],
+          "source_scope": "White cuffs at the wrists are not made out in the photograph at its size; they are reconstructed to match the collar, a common uniform of the years but not read from a source.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "bib_apron",
+        "material": "garment_outer__maid_apron_white",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "loc_kelley_1904_mail_man_postage_due_stereograph",
+            "loc_wasson_1903_charming_rogue_new_cook_stereograph"
+          ],
+          "source_scope": "A white bib apron nearly to the hem, round the sides of the skirt, with broad frilled straps standing out over the shoulders, as the 1904 maid and the 1903 Wasson cook wear it; the bib's size, the frill's width and fluting and the white are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "apron_bow",
+        "material": "garment_outer__maid_apron_white",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "loc_graves_1905_jessie_furnace_man_stereograph"
+          ],
+          "source_scope": "The apron ties knotted in a bow at the back of the waist, as the 1905 maid's apron is tied (hers is a checked apron); its loops and tails are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "maid_cap",
+        "material": "headwear__maid_cap_white",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "loc_kelley_1904_mail_man_postage_due_stereograph",
+            "loc_wasson_1903_charming_rogue_new_cook_stereograph"
+          ],
+          "source_scope": "A small white frilled cap on the crown of the drawn-up hair, as the 1904 maid and the 1903 Wasson cook wear one; its size and frill are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "black_shoes",
+        "material": "footwear__maid_shoes_black",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "loc_kelley_1904_mail_man_postage_due_stereograph"
+          ],
+          "source_scope": "The shoes are hidden under the skirt in the photograph; closed black shoes are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      }
+    ]
+  }
+}

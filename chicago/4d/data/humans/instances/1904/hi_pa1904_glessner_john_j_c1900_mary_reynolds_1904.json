@@ -1,0 +1,47 @@
+{
+  "id": "hi_pa1904_glessner_john_j_c1900_mary_reynolds_1904",
+  "contract_version": 1,
+  "scene": "1904",
+  "person_id": "pa1904_glessner_john_j_c1900_mary_reynolds",
+  "appearance": {
+    "asset_id": "reynolds_mary_1904_maid"
+  },
+  "placement": {
+    "local_e": 1356.3,
+    "local_n": -3216.7,
+    "heading_deg": 20,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.15
+  },
+  "behaviour": {
+    "state": "standing"
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed standing depiction of Mary Reynolds, house maid in the Glessner household (inferred: the 1900 census enumerates her in the house as a servant, \"House maid\", born June 1871; no source read says she was still there on 1 July 1904), standing on the Eighteenth Street walk at the mouth of the great arch, about a metre out from the wall and facing the street. The arch is the house's service entrance (\"through the great arch on Eighteenth Street\", John J. Glessner's The Story of a House, 1923), so she stands at the staff's door and never at the family's on Prairie Avenue. Her black work dress with white collar and cuffs, white bib apron and small frilled cap are built after the 1904 Kelley and 1905 Graves stereographs and the 1903 Wasson cook (T-3448). Where she stands and when, her face, hair and complexion are reconstructed: no picture of her is known.",
+    "sources": [
+      "census_1900_chicago_t623_roll245",
+      "glessner_story_of_a_house_1923",
+      "loc_graves_1905_jessie_furnace_man_stereograph",
+      "loc_kelley_1904_mail_man_postage_due_stereograph",
+      "loc_wasson_1903_charming_rogue_new_cook_stereograph"
+    ],
+    "liberty": "L418",
+    "seed": "pa1904_glessner_john_j_c1900_mary_reynolds:1904:service-arch-standing:20261107",
+    "replaceable_by": "A photograph of Mary Reynolds or of the Glessner staff, or a record that she was or was not in the house in 1904; her place at the arch and her standing have no documentary claim."
+  }
+}

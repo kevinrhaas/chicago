@@ -31511,6 +31511,14 @@ Actual pinned exporter source statically recognizes the proposed 1-(Alpha<.4) no
 
 **Strand hair, beards and eyes (2026-11-06, T-3414):** From the plan "Photographic humans: the path" the owner approved (*"Agreed on your recommendations, proceed"*). `renderers/web/js/human-hair.js` grows strand cards at load over each body's own hair cap and face, at the near levels only (LOD0, LOD1), with no texture and no file: narrow ribbons combed by a cut, a millimetre or two off the cap, cut into strands of uneven length by their shader, lit by the cap's two strand lobes, and skinned to the body's own bones; roots are kept where the cap's own texture is hair, and strands above the band of a hat put on later are cut away. The cuts and facial hair are a table, `renderers/web/js/human-hair-styles.js`, each choice graded: Hans Johnson (1904) wears a short back and sides with a side part, dark brown, and is clean-shaven, as the liveried coachmen in the people-match reference set (coachman_1904: Rau 1902, Griffith 1905) are; Otis Bardwell (1835) wears his hair fuller and brushed forward, with side whiskers, mid brown; anyone else takes their era's cut with no facial hair. No picture of either man is known: the cuts, the whiskers, every length, the colours and the density are reconstructed choices for a working man of each year, not evidence of what either wore. The iris and pupil now take the normals of a dome about 7.8 mm in radius centred behind each eye's own disc (roughness 0.1, the sky's reflection on them 2.5 times three's default), so a light makes one small sharp highlight on them and the sky a catchlight, and the white is shaded up to 45% toward the corners the lids cover; both are reconstructed rendering choices.
 
+**John J. Glessner's hair, moustache and spectacles (2026-11-07, T-3440):** The owner, of the card's model: *"his likeness is still not right"*. His 1897 portrait plate (`glessner_commercial_club_1910_presidents_plate`) shows a bald crown with short white hair at the sides and back, a full moustache over the upper lip, full brows, and round wire spectacles, and he is drawn so (`human-hair-styles.js` row `glessner_john_j`, graded attested; `human-spectacles.js`, attested). What the plate cannot give is reconstructed: the colour (white going grey, linear RGB 0.44, 0.41, 0.36, read from the plate's light tone and his age, the plate being a monochrome halftone), every length, the density and how far the fringe rises (3.6 cm above the eyes at the temples, 3.9 cm behind), the moustache's reach and droop, the spectacles' 38 mm lenses, 0.9 mm gold wire and their 12 mm set in front of the cornea, and the bald crown's undercoat (the cap's own triangles where the fringe grows, in a darker shade of the hair's colour, under the cards so the fringe reads as one band of hair). He is drawn in 1904 as the plate shows him seven years before.
+
+**John J. Glessner on his front walk, and going home (2026-11-07, T-3443):** The owner: *"I suppose he needs to be somewhere, sitting or standing near the house? ... tell them to go home into their house"*. He is drawn standing on his own front walk at 1800 Prairie Avenue, about 3.4 m out from the door and facing the street (`data/humans/instances/1904/hi_glessner_john_j_1904.json`); that he stands there, and when, is reconstructed: no photograph shows him on his walk. Sent home, he walks up the walk and the threshold, waits while the door swings, goes in and the door is shut behind him (`house-errands.js`); his pace is the walk clip's, the wait 0.3 m clear of the leaf, and the moment he is indoors (1.2 m past it) are ours. That the family went in by the Prairie Avenue door and the staff by the service entrance off the court is the house's plan (Richardson's front door, the court's service door), not a recorded habit, so the cook is never sent through the front door. Greeting him turns him to the visitor and touches his hat brim (T-3419's gesture) and opens his own card; nothing is said, since no words of his are recorded for it.
+
+**John J. Glessner at his door, and walking a caller round (2026-11-07, T-3444):** The owner: *"interacting at the front door of buildings would allow you to ask for someone to come to the door and then they can come to the door and open it and interact with you, they could open the door and then walk down and around the house ... or like glessner maybe into the back courtyard"*. Asked for at his front door, he answers it himself; in 1904 a house of this size had a butler or parlour maid to answer the door (the household's 1900 census rows list a parlor maid), so his answering it is ours, done because the owner asked for the person to come. The wait before he comes (2.5 s), where he stands while the door swings (1.6 m inside the leaf, clear of its sweep), how far down the walk he comes (1.3 m short of the caller, the sidewalk at most), and the two walks he offers (into the court by the carriage passage to the Meet the Glessner House hall-bay stand, and round by Eighteenth Street to the great-arch stand, by the router's ways) are reconstructed. No record has him walking a caller anywhere.
+
+**Five figures placed in three scenes (2026-11-07, T-3452):** The five people dressed by T-3447 to T-3451 now stand in the town, each graded reconstructed: where each stands, facing where, standing still, and when, is ours, and no picture of any of them standing there exists. **Frances M. Glessner** (`hi_glessner_frances_m_1904`, E 1359.5, N -3230.5, facing 110) stands in her house's courtyard, in its north-west part about 4.7 m off the north range and the hall bay, facing across the court to the carriage passage; she is kept clear of the carriage way along the court's south side and of John J. Glessner's walks (up his front walk and steps, and through the carriage passage to the hall-bay stand), and 8.4 m from the cook. That she was at home at all on 1 July 1904 is the people directory's, not a record of that day. **Mary Reynolds** (`hi_pa1904_glessner_john_j_c1900_mary_reynolds_1904`, E 1356.3, N -3216.7, facing 20) stands on the Eighteenth Street walk at the mouth of the great arch, about a metre out from the wall and clear of the porch steps inside it. Glessner's own account (`glessner_story_of_a_house_1923`) names the arch as the service entrance; that is the read part. That a maid would wait there, rather than inside or in the court, is ours, and so is her presence in 1904: the 1900 census is the last record of her in the house. **Philip F. W. Peck** (`hi_peck_philip_1835`, E 437.5, N -1.2, facing 290) stands on the South Water Street verge before his own store (`peck_store`, the corner Andreas gives), a metre off the plank walk so his feet stand on the ground and not in the boards, east of its stoop and clear of the hitching post, turned west down the street. **Patrick Mahoney** (`hi_rc_mahoney_patrick_1835`, E 440.5, N 24.0, facing 200), a reconstructed labourer whose seat is a porter's at A. Garrett's auction room (on South Water Street, no house named) and whose roof is a boarder's in the school section, stands on the worked bank above the landing reconstructed for Peck's store, 7.5 m from the water; that he works that landing, or for Peck, is not claimed. **An anonymous private of Heald's company** (`hi_heald_company_private_1812`, E 1147.5, N 219.5, facing 190) stands at ease on the first fort's parade, about four metres west of the line from the main gate to the flagstaff and five metres off the officers' barracks, facing the gate. He is the first anonymous role figure: the 1812 profile `anonymous_adult_1812` now accepts the private's dress for 1812 and no other asset, because no soldier of the company is a person of the 1812 people layer (whose one person is John Kinzie the elder). He acts out nothing of 14 August 1812, and the scene's cards that said no one is drawn now say who is. The body kit draws an anonymous figure's age by its instance id from its 22-58 default band; the id `hi_heald_company_private_1812` was chosen because its draw (about 26) keeps the young private the dress was built for. No strand hair is grown for him: no era cut is set for 1812, so the cleared short04 cap the dress was fitted over shows below the felt cap and nothing can show through it. Every spot was checked against the placed building footprints (`tools/check_structure_clearance.py`'s own shapes), the street-edge walks, posts and fittings, the yard props, the trees and street furniture, the driven circuits and the other figures, and against the heightfield (dry, on ground, no step over 2 cm within a metre). **How to resolve:** a photograph or record that puts any of them somewhere on the day replaces that stand; a person record for a soldier of Heald's company replaces the anonymous private.
+
 
 ## T-2793 — W01 original wheel/edge refinement (2026-10-19)
 
@@ -36612,6 +36620,30 @@ she stands with them loosely clasped in front at the waist, over the apron, or h
 as women in service stand in the photographs of the decade. All amounts are chosen by eye against the
 1903 stereographs; none is measured, and none says anything about how she looked.
 
+**The 1904 gentleman supplement, 2026-11-07 (T-3441):** a man's outfit on the same component path,
+`tools/human_gentleman_1904.py` with `data/humans/recipes/gentleman_1904.json`, built as the asset
+`glessner_john_j_1904` and first worn by John J. Glessner (attested; vice president of International
+Harvester in 1904); he is not placed in the town by this work. **Choice of coat:** the ticket allowed a
+frock coat, a morning coat or a sack suit. A 1904 Clinedinst print of Taft and Elihu Root
+(`loc_clinedinst_1904_taft_root_frock_coats`, LOC, no known restrictions) shows two public men in dark
+frock coats; an Underwood & Underwood stereograph of State Street, Chicago, at noon in 1903
+(`loc_underwood_1903_state_street_noonday_stereograph`) shows the city's men by day mostly in sack coats,
+one in a frock coat, nearly all in black derbies; Glessner's own plate
+(`glessner_commercial_club_1910_presidents_plate`) shows a tall standing collar, a dark four-in-hand tie and a
+high dark waistcoat under a dark coat. A frock coat with a derby joins the three; that he wore one on a
+given weekday is not recorded. **Cut:** a white shirt whose neck cut rises 4 cm up the neck as a standing
+collar; a waistcoat cut high, its V opening from 21.5 cm above the waist; a frock coat offset 2.4 cm from the
+body and smoothed so it spans the chest's hollows (pressed cloth, not skin), lapels rolled from 13 cm above
+the waist, skirts lofted round the body's own sections from the waist seam to the knee (0.49 m), widest
+over the front, the two front panels each going with their own leg and the back shared, in place of cloth
+simulation; straight mid-grey trousers on the shared workwear shell; closed black boots round the feet; a
+derby seated round the skull (crown 11.8 cm, brim 4 to 4.8 cm, curled 1.8 cm at the sides), rigid on the head
+bone and a mesh of its own so a renderer can lift it. **Colour:** the pictures are monochrome; the black,
+the white and the grey are chosen. **Skin:** MakeHuman's own CC0 older light-skinned male atlas, its painted
+scalp stubble blended to skin for his bald crown (`tools/human_skin_bald_scalp.py`). **Body:** the shared
+adult male base; his age (61), face (fitted to his plate), height and build are applied at runtime. Every
+amount is chosen by eye against the pictures; none is measured, and none says how he dressed.
+
 **Her own hair, 2026-11-06 (T-3434):** the owner still saw a man's head ("she still basically looks
 like Hans"): the raised short04 cap and a modelled knot were a man's crop underneath. Mattie now wears a
 cleared woman's hairstyle, RehmanPolanski's *hair bun brown* (MakeHuman hair01, CC0;
@@ -36630,6 +36662,162 @@ only the oval, round, inverted-triangular and diamond outlines (`one_of_allow`; 
 among them, so no one else's choice moves), damp the seeded face and head outline to half spread
 (`face_draw_scale`) before their bias, and lean the jaw a little further (-0.45) and the chin a little
 shorter. A choice of depiction, like the rest of the bias; nothing records her face.
+
+**The 1904 lady supplement, 2026-11-07 (T-3447):** a lady's day dress on the same component path,
+`tools/human_lady_1904.py` with `data/humans/recipes/lady_1904.json`, built as the asset
+`glessner_frances_m_1904` on the shared female body and first worn by Frances M. Glessner (attested; 56 in
+1904); she is not placed in the town by this work. **Choice of dress:** the piece of work asked for an
+afternoon or walking dress of 1900-1905. A black wool suit of 1902 in the Met (`met_ci_1902_black_wool_suit`;
+bodice, gored skirt and coat) gives the cut and its black; Frances Benjamin Johnston's photograph of
+Mrs. Fairbanks speaking at the Memorial Continental Hall cornerstone (`loc_johnston_1905_fairbanks_cornerstone_address`,
+dated by the Library 1905-1908) shows women of fifty and more in dark coats and bodices, high white collars,
+lace jabots and hats heaped with plumes; Easter crowds on Fifth Avenue in 1904
+(`loc_detroit_1904_easter_crowds_fifth_avenue`) show the same dress and hats in the street. The suit, a
+white collar and jabot and a plumed hat join the three; that she dressed so on a given day is not
+recorded, and none of the pictures is of Chicago. **Cut:** a white shirtwaist made only where it shows,
+its collar standing 4.6 cm up the neck and its front inside the jacket's V; a pleated jabot 13 cm long
+laid on it; a jacket offset 2.1 cm from the body and smoothed across the bust and the hollow beneath it,
+closed from the waist to 15 cm above it and open above in a V with narrow revers, eased under the arms;
+its basque lofted 0.9 cm outside the skirt from the waist seam 17 cm down; a skirt of seven gores lofted
+round the body's own sections from the waist to 3 cm above the ground, flaring below 0.70 m to an
+elliptical hem fuller behind, skirt and basque sharing the leg-following skirt weights of T-3423 in place
+of cloth simulation; closed shoes round the feet; a hat perched over the fitted bun hair, its crown
+seated round the hair's and scalp's own section and tilted 9 degrees forward, its brim 5 to 7.5 cm, with four grey
+plumes swept back round the crown (each two skins 3 mm apart), hat and plumes rigid on the head bone and meshes of their own.
+**Colour:** the suit's black is the Met garment's own; the white, the grey of the plumes and the shoes
+are chosen (the photographs are monochrome). **Skin and hair:** Mattie Williamson's cleared female skin and
+bun hair, shared; the hair keeps its brown, and nothing records whether Frances Glessner's was grey in
+1904. **Body:** the shared female base at its engineering age; the town's variation kit would age her
+(56, from her record) and draw her height and build at runtime once she is placed, and no portrait of
+her has been read. Every amount is chosen by eye against the pictures; none
+is measured, and none says how she dressed.
+
+**The 1904 house maid supplement, 2026-11-07 (T-3448):** a house maid's working dress on the same
+component path, `tools/human_maid_1904.py` with `data/humans/recipes/maid_1904.json`, built as the asset
+`reynolds_mary_1904_maid` on the shared female body and first worn by Mary Reynolds, house maid in the
+Glessner household in the 1900 census (inferred; whether she was still there in July 1904 is not
+recorded); she is not placed in the town by this work. **Choice of dress:** the piece of work asked for a
+plain black or print work dress to the floor with long sleeves, a white bib apron and a white cap.
+E. W. Kelley's 1904 stereograph of a maid answering the front door to the postman
+(`loc_kelley_1904_mail_man_postage_due_stereograph`) shows exactly that, with a white collar and broad
+frilled apron straps; C. H. Graves's maid seen from behind (`loc_graves_1905_jessie_furnace_man_stereograph`,
+c1905) gives the apron ties' bow at the back of the waist; the 1903 Wasson cook
+(`loc_wasson_1903_charming_rogue_new_cook_stereograph`) the small cap and ruffled bib straps. The black
+dress, not a morning print, is chosen because the 1904 maid answers the door in it; all three are staged
+comic scenes, none of Chicago. **Cut:** the T-3423 bodice with its fullness (ease 1.6 cm, a 1.2 cm pouch,
+1 cm at the upper sleeve) and a high neck 2.6 cm up it; the T-3423 gathered skirt to 4 cm above the
+ground; a white collar band and cuffs 5.5 cm long copied 2 mm off the bodice (the cuffs are not made out
+in the photograph and are reconstructed to match the collar); an apron skirt laid 8 mm out on the dress
+skirt across 35 of its 96 columns, from the waist to two rows above the hem; the T-3423 bib, its top 20.5 cm above
+the waist, and straps 3.4 cm wide, with frills up to 4.4 cm standing up and out from the straps' outer edges over the
+shoulders and fading 24 cm down the front and the back; a bow of two loops and two tails at the back of
+the waist; a small cap 5.2 cm across laid on the crown of the fitted bun hair, its height smoothed round
+it and pinned no more than 2 mm into the hair, ringed by a fluted frill 2 cm wide. Skirt and apron share
+the leg-following skirt weights of T-3423 in place of cloth simulation; frills, bow and cap are two
+skins 0.6 mm apart; the cap is rigid on the head bone, a mesh of its own. The skirt's tucks near the hem,
+the lace edging of the straps and the turned-down shape of the collar are not modelled. **Colour:** black
+and white are the usual reading of the photographs, which are monochrome; none is measured. **Skin and
+hair:** Mattie Williamson's cleared female skin and bun hair, shared. **Body:** the shared female base at
+its engineering age; the town's variation kit would age her (33, from the census) and draw her height and
+build at runtime once she is placed. No picture of Mary Reynolds is known; every amount is chosen by eye
+against the pictures, and none says how she dressed.
+
+**The 1835 merchant supplement, 2026-11-07 (T-3449):** a merchant's day dress on the same component
+path, `tools/human_merchant_1835.py` with `data/humans/recipes/merchant_1835.json`, built as the asset
+`peck_philip_1835` on the shared male body and first worn by Philip F. W. Peck (attested; merchant at South
+Water and LaSalle, age band 30-39); he is not placed in the town by this work. **Choice of dress:** the piece
+of work asked for a frock or tail coat, waistcoat, stock, trousers, top hat and boots. A British coat and
+trousers of about 1833 dressed with a buff waistcoat and a black stock in the Met
+(`met_ci_1833_tailcoat_and_trousers`, in colour) give a cutaway tailcoat; Asher B. Durand's 1835 portrait of
+the New York merchant Luman Reed (`met_durand_1835_luman_reed`) gives the high black stock, the shirt collar
+points at the cheeks and the side whiskers; Thomas Hornor's 1836 Broadway (`met_hornor_1836_broadway_new_york`)
+shows men in tailcoats and top hats on an American street. A tailcoat over a buff waistcoat joins the three;
+that Peck dressed so is not recorded, none of the pictures is of Chicago, and the Met's garments are British.
+**Cut:** a shirt made only where it shows (its front in the waistcoat's opening, 1.2 cm of cuff); a stock
+lofted round the neck's own sections 8 mm out, from 4.2 cm below the neck joint in front (0.4 cm behind) to
+just under the jaw in front and 6.2 cm above the joint behind; two collar points 4 cm high standing out of it
+at the jaw, two skins; a waistcoat made only in front (its back would only poke through the coat), offset
+1.6 cm, cut straight 9.8 cm below spine_02 and opening in a V from 24.5 cm above it, with a rolled collar;
+a tailcoat body offset 2.2 cm and smoothed, double-breasted to a roll 12 cm above spine_02, broad lapels,
+its collar standing 4.2 cm above the neck joint behind, sleeves to 2.4 cm short of the wrist; tails lofted
+round the body's sections from the waist seam to 0.53 m, cut away in front (their front edges sloping from
+74 to 124 degrees round from the front) with a 3-degree vent, each tail skinned to its own thigh and calf in
+place of cloth simulation; six gilt buttons; full trousers on the shared workwear shell to the instep; a top
+hat 16 cm tall flaring to 1.08 of its band at a flat top, brim curled at the sides, rigid on the head bone and
+a mesh of its own. The Met coat's velvet collar and covered buttons, the stock's bow and the trousers' pleats
+and foot straps are not modelled. **Colour:** the dark blue of the coat and the buff of the waistcoat are the
+1833 garments'; the gilt buttons (the 1833 coat's are covered) and the stone of the trousers are chosen.
+**Skin and hair:** the shared young light-skinned generic skin and short04 hair of the 1835 studies; a hair
+row (brushed forward, side whiskers) after Reed's portrait. **Body:** the shared male base at its
+engineering age 35, inside Peck's recorded band, so the variation kit is asked for no ageing; no picture of
+Peck has been read. Every amount is chosen by eye against the pictures; none is measured, and none says how
+he dressed.
+
+**The 1835 labourer supplement, 2026-11-07 (T-3450):** a labourer's working dress on the same component
+path, `tools/human_labourer_1835.py` with `data/humans/recipes/labourer_1835.json`, built as the asset
+`mahoney_patrick_1835` on the shared male body and first worn by Patrick Mahoney (reconstructed; a labourer of
+the South Division, age band 30-39, from the 1835 order book); he is not placed in the town by this work.
+**Choice of dress:** the piece of work asked for shirt, trousers, braces, waistcoat, a cap or slouch hat and
+boots. No picture of 1835 itself was found in an open collection that could be read: William Sidney Mount's
+Raffle (1837, `met_mount_1837_the_raffle`) gives a working man in full shirtsleeves, waistcoat, knotted red
+neckerchief and broad soft felt hat; Mount's Cider Making (1840-41, `met_mount_1841_cider_making`) working
+men whole in shirtsleeves, braces, a dark green waistcoat and full brown trousers; Charles E. Weir's Wood
+Sawyer (1842, `met_weir_1842_the_wood_sawyer`) a town labourer at work with his waistcoat open. All three are
+of rural or eastern New York, two to seven years after the scene, none of Chicago. A slouch hat (not a cap)
+and an open waistcoat, so the braces show, are chosen among them. **Cut:** a whole shirt offset 8 mm, tucked
+14 cm below spine_02 into the trousers, a collar band 1.4 cm above the neck joint, open in a V 10 cm deep at
+the throat, its sleeves smoothed over the arm's muscles and standing up to 2.4 cm further off the arm,
+gathered back over the last 6 cm to a cuff 1.4 cm short of the wrist; a neckerchief 3.4 cm deep lofted round
+the neck 1.4 cm out, lower in front, without a knot; braces 2.4 cm wide offset 1.5 cm, from 3 cm below the
+trousers' waist, diverging from 6 to 8.6 cm off the centre line up the chest, then straight over the shoulders
+and down the back (an H; Cider Making's cross behind, an X); a waistcoat offset 2.2 cm, back and two fronts,
+cut straight 10.5 cm below spine_02, its fronts falling open 8.8 cm each side of the centre at the hem and
+10.2 cm at the top; full trousers on the shared workwear shell a little short of the merchant's; a slouch hat
+with a crown 9.8 cm high rounding to its top and a 6.6 cm brim drooping 2 cm fore and aft, rigid on the head
+bone and a mesh of its own. No knot, buttons or buckles are modelled. **Colour:** the waistcoat's dark green and
+the trousers' brown follow Cider Making; the unbleached shirt, the red of the neckerchief, the brown braces,
+the drab hat and the brown boots are chosen. **Skin, hair and body:** the shared young light-skinned generic
+skin and short04 hair of the 1835 studies and the 1835 era's hair default (no row of his own); the shared
+male base at its engineering age 35, inside his band, not aged. Every amount is chosen by eye against the
+pictures; none is measured, and none says how he dressed.
+
+**The 1812 soldier supplement, 2026-11-07 (T-3451):** a private's dress of the First Regiment of Infantry on
+the same component path, `tools/human_soldier_1812.py` with `data/humans/recipes/soldier_1812.json`, built as
+the asset `private_first_infantry_1812` on the shared male body at its engineering age 25. **Who:** an
+anonymous private of Captain Nathan Heald's company, the garrison of the first Fort Dearborn, whose
+muster-roll of April-May 1812 Quaife prints (`quaife_1913`, Appendix VIII). No soldier of the company is a
+person of the 1812 people layer, so the figure is anonymous by necessity, not by choice: he names no one, is
+graded reconstructed, and is not placed in the town or in any event of August 1812. **Dating:** the scene is
+1812-08-14. The private's issue is the 1802 act's (`us_1812_rules_and_articles_albany`, Sec. 8: hat, coat,
+vest, woollen and linen overalls, shoes, stock and clasp, half gaiters). The uniform change printed in 1813
+and 1814 (`us_1814_military_laws_and_regulations`; earliest printing read follows an order of 27 April 1813)
+made the infantry coat "uniformly blue, no red collars or cuffs", took away lace, put all rank and file in
+coatees and substituted leather caps for felt and pompons for feathers. It is taken to postdate August 1812
+and read backwards: the coat here keeps a red standing collar and red cuffs, the cap is felt with a feather,
+and the 1813 leather cap and plain coatee are not used. That reading is an inference from a change, not a
+description of the earlier uniform; its cut, the tails' length, the buttons and the cap's shape are not
+given by anything read. **The frontier:** a one-company post far from supply may well have worn older, mixed
+or worn-out clothing, even the 1802-1810 pattern of long-skirted coats and crested round hats that Ogden's
+1888 plate reconstructs (`loc_ogden_1888_infantry_artillery_1802_1810`); that is recorded here as a
+possibility, not modelled. Krimmel's watercolour of Philadelphia soldiery, 1811-13
+(`met_krimmel_1813_philadelphia_soldiery`), shows volunteers, not regulars: short blue coats faced
+orange-red, dark leather crossbelts, gaiters and tall caps. **Cut:** a closed single-breasted coat offset 2 cm
+from the body and smoothed, its seam 2.4 cm below spine_02, sleeves to 2.2 cm short of the wrist, the last
+6.5 cm red; tails lofted round the body's sections, cut away in front (front edges from 96 to 138 degrees
+round from the front) to mid-thigh at 0.70 m, each skinned to its own leg; a red standing collar lofted round
+the neck, open 26 degrees either side of the front where the stock shows, its top 1 cm under the stock's; the
+merchant's stock loft in black leather; eight white metal buttons; two white crossbelts 5.2 cm wide cut from
+the coat's own surface and stood 3 and 4 mm off it, from the shoulders at 9.2 cm off the centre line to the
+hips at 15 cm, crossing on the breast and running over the shoulders and down the back; a black cartridge box
+behind the right hip and a bayonet scabbard at the left, rigid on the pelvis; white linen overalls on the
+shared workwear shell with a band of the body's own surface carrying them up under the coat's seam; a black
+felt cylinder cap 17.5 cm tall with a 5 cm leather peak and a white feather 13 cm tall at the front, rigid
+on the head bone. Not modelled: musket, lace on the coat front, cap plate or cockade, belt plate, knapsack,
+turnbacks. **Colour:** the coat's dark blue and the red of collar and cuffs follow the 1813 change read
+backwards; the white of the belts follows Ogden (Krimmel's are dark); the feather's white, the buttons' white
+metal and the overalls' white linen are chosen. **Skin and hair:** the shared young light-skinned generic skin
+and short04 hair of the period studies; no hair row (1812 has no era default). Every amount is chosen by eye;
+none is measured, and none says what the garrison wore.
 
 ### L-tremont-gale-envelope-2385 — two-storey default and picture alternative
 
@@ -40443,6 +40631,9 @@ or the CHM 1905 views from the east, would place the stack on the deck.
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16554_from_south-side-by-side.jpg`.
 **Recorded:** 2026-11-03 (T-1934).
+**Revised 2026-11-07 (T-1881):** the stack's place along the rear face is read, and a second rear stack is added. The Detroit print LC-D4-12552 (det 4a08066, c. 1900) now has a camera (`data/reference_views/pullman_house_1729_prairie/detroit_det_4a08066.json`) fitted on the house's south-east corner, the rear face's north end, the porte-cochere, the rear dormers and the cresting, the fit this entry asked for. It draws Taylor's stack at x 495-506 px between the rear step's two dormers (x 476-484 and 520-528), so it moves from v 10.0 to v 4.6, between the dormers at v 8.04 and 3.44, still 1.4 m behind the face (`chimneys.stacks[3]`). The same print shows a second capped stone stack over the south section's dormer (x 423-434, its cap at y 288), which 16554 also shows at x 428-442 once its camera's 20-30 px offset along the rear is allowed; it is built at (1.4, 13.5) (`chimneys.stacks[4]`). **Still invented:** both stacks' depth behind the face (1.4 m, the first's), their tops (18.4 m, 16554's reading; the Detroit camera reads the deck about 2 m higher there) and their plans and caps (the house's other deck stacks'). The Detroit print draws the step's stack carried up the mansard's face from the cornice, in front of the slope; the K15 kit stands a cornice stack only on a side wall, so it stays on the deck and the print's record holds that open.
+**Revised 2026-11-07, later (T-1881):** the step's stack is carried up the step's face. A new K01 chimney key, `on_step`, stands a stack on the cornice of a K08 step on the rear wall: its outer face on the cornice, no further out than the house's 0.6 m cornice reaches past the step's face, its foot buried in the step's roof and joined to the house's. The step's stack (`chimneys.stacks[3]`) now stands there at (-0.97, 5.9): its place along the face read against the step's two dormers (the print's stack 0.47 of the way from the south dormer to the north; 16554 puts it a third of the way, about v 6.7, through a camera not fitted on the rear), its 0.47 m standing past the step's face the flank stack's, and it renders at x 498-511 px against the print's 495-506. **Still invented:** its depth (0.8 m) and face (1.1 m), the flank stack's; its top, 18.0 m, chosen so that its cap stands just over the cresting behind it as both pictures draw it, since the Detroit camera reads the deck about 2 m high there; and the fifth stack's depth, top (18.4 m) and plan, as before.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08066-side-by-side.jpg`.
 
 ### L-green-tree-closed-shoulder-working-2376 — the enclosed shoulder as a working reading
 
@@ -41458,6 +41649,37 @@ check the crest and the pinnacles from a second picture.
 **Ticket:** T-3365 (piece 2 of T-1914).
 **Recorded:** 2026-11-06 (T-3365).
 
+### L-kimball-1801-street-lean-1890 — 1801 Prairie's street face leaning back further than its side faces, and its front stack lowered to 17.3 m
+**Recorded:** 2026-11-07.
+
+**Decision:** the W. W. Kimball house's mansard rises 5.76 m from its 8.9 m cornice to a curb at 14.66 m;
+its 18th Street, south and rear faces at 67.0 degrees (a run of 2.44 m, as before), its street face on
+Prairie Avenue running 3.42 m back to the curb (`mansard.street_run_m`): at the side faces' pitch up to a
+knee 2.9 m over the eave (`mansard.street_knee_m`), at about 53 degrees over it. The deck, its
+cresting, the corner hood and the street dormers stand on that line; the dormers' faces are set back so
+their lights keep their heights. The south wall's front stack is lowered from 18.0 to 17.3 m.
+**What is read, not invented.** J. W. Taylor's photograph of c. 1895 (`taylor_c1895_kimball_residence_1801`)
+and HABS photograph 2 of 1965 (`habs_kimball_photo_02_nw_1965`), through their solved cameras: the curb's
+north-west corner (x 948, y 318 on the print; x 1203, y 320 on HABS 2) and the corner hood's top, which
+both put lower and further east than a mansard of one pitch could stand them, and the print's corner hip,
+which leans back as it rises; the front's curb line on both. HABS photograph 1 (`habs_kimball_photo_01_sw_1965`)
+holds the south curb at the new height. The stack's height is where the Taylor print's eye loses it behind
+the south pavilion's cross roof, where the print shows sky.
+**What is inferred.** How the setback divides between the street face and the side face: the two cameras
+stand about 6 m apart and fix the corner well across their line of sight and poorly along it, so a longer
+side run with a shorter street run fits almost as well (a free fit: street 4.39 m, side 3.65 m, rise
+6.56 m). The side faces' run is held where the build stood it. The knee is inferred, not seen: the prints show
+the hip leaning back evenly (the build's bends, about 0.35 m off the Taylor print's at its middle), but a face
+leaned from the eave would stand its slate about 0.5 m under the south cant's 11.65 m cornice, where HABS
+photograph 1 shows slate over the cornice and a light on the cant lights a room behind it; the knee's height
+is the lowest that keeps that slate over the cornice with some margin. A bell-cast street face would answer
+both readings and is not built. The stack: HABS photograph 1 of 1965 reads its cap about 0.5 m
+higher; the period print governs the 1904 phase, and the 1965 height may be a later raising.
+**How to resolve:** a picture of the front's roof from the south-west or from across the street square-on
+(the third bearing on the corner), or a section of the house.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`, `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg`, `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg`.
+
 ### L-k01-2009-meyer-hoods-3365 — 2009 Prairie's window hoods, the consoles under its oriel and the carved pendant in its gable, read off its photograph
 
 **Decision:** Read off the undated Chicagology photograph (`chicagology_2009_prairie_meyer_photo`, rights
@@ -41547,3 +41769,85 @@ own choice (the match record keeps it open).
 which sees the flank from the north-west, would place the stack along it and might show its breast.
 **Ticket:** T-3365 (piece 2 of T-1914).
 **Recorded:** 2026-11-07 (T-3365).
+
+### L-k01-2009-meyer-gable-run-on-3365 — 2009 Prairie's gable carried on down to the party wall on its south side, and the corner cut down under it
+
+**Decision:** the Chicagology photograph (`chicagology_2009_prairie_meyer_photo`, rights check_required:
+forms, places and sizes only) shows the ogee gable's south side running on past the height where its north
+side stops, down over the party wall with 2011 to about 10.3 m. K01's shaped gable gains a `run_on`
+(`shaped_gable.run_on`, the front's high-s end, K01's side.north): the slab is carried down the print's line
+on a 0.45 m band under its coping, the street front and the party wall are cut down under the line, the hip's
+eave, soffit, gutter and covering over it are taken off in front of a cheek 0.9 m behind the front, and the
+cut is closed by that cheek (the side walls' brick) over a slated floor along the line. This retires the
+"the kit draws both sides alike" liberty in the record's note.
+**What is read, not invented.** The line itself, read row by row off the print at 99.9 px a metre: the coping's
+outer edge at half-width 2.31 m at 12.34 m, 2.6 at 11.86, 3.0 at 11.26, 3.37 at 10.78 and 3.62 at 10.46,
+meeting the party line at about 10.32 m; the render's coping lands within about 0.15 m of the print's along
+its length.
+**What is invented.** Everything behind the coping: the print sees only a dark face in shadow there (2011's
+wall and roof beyond the party line), so how deep the cut runs back (0.9 m), the cheek's brick and the
+slated floor sloping to the party wall are this build's, as is the gutter stopped at the cheek. The band's
+depth (0.45 m) is hidden in the wall.
+**How to resolve:** a picture of the roof from the south or above, or a camera on Monroe's 1896 plate if
+its frame reaches the south side.
+**Ticket:** T-3365 (piece 2 of T-1914).
+**Recorded:** 2026-11-07 (T-3365).
+
+### L-glessner-front-door-swing-3442 — Glessner's front door hung on its north jamb, swinging inward into a dark vestibule, and its steps walkable
+
+**Decision:** the `glessner_house` front door on Prairie Avenue (`openings_prairie` "front door", the leaf
+L-glessner-front-door-2216 draws) opens and closes with the Interact key. Its leaf is the baked one, lifted out of
+the house's batch at load and hung on a pivot (`renderers/web/js/house-doors.js`): hung on the north (right-hand,
+seen from the street) jamb, it swings inward through 90 degrees in 1.6 s, eased at both ends. Behind it stands a dark
+vestibule 1.9 m deep, the doorway's width, its floor level with the sill and its ceiling 0.5 m over the head, unlit
+and shaded darker toward the back. The approach paving and the threshold are walkable steps at the heights the mesh
+draws them, and a drawn person can walk a path from the Prairie Avenue sidewalk up both to 0.6 m inside the door.
+The owner, 2026-11-07: *"interacting at the front door of buildings would allow you to ask for someone to come to
+the door and then they can come to the door and open it ... you will need to be able to handle steps"*.
+**What it stands on:** The doorway, leaf, threshold and approach paving are the record's (`frame_ft`, `openings_prairie`,
+`prairie_frontage`, `v4_detail.prairie_entry`), read as `masonry_house_params.py` frames them. The hinge side is
+INFERRED from sheet No. 95 (`artic_glessner_sheet_95_main_entrance_door`), which puts the latch plate and drop ring
+at the leaf's left end as seen from outside: a latch is on the free edge, so the hinges are on the right.
+**What is invented:** That the leaf swings inward (the ordinary way for a house's street door, not recorded for this
+one), how far and how fast; the vestibule, its depth, width, height, darkness and finish, which nothing read records
+(HABS draws the plan of the hall, not the space behind the leaf as a visitor would see it from the step, and its
+interior is not modelled); the riser ease of a walked path (0.12 m each side of a riser) and the step ease of the
+visitor's camera. The grille's pane is drawn as a dark pane rather than transmissive glass, and its dark backing
+0.6 m behind the leaf is left out, since the vestibule is what lies behind it now.
+**How to resolve:** the HABS first-floor plan (sheet 2) read for the vestibule's real depth, width and doors, and a
+photograph of the open door or of the hall from the entrance for the swing and the finish.
+**Ticket:** T-3442.
+**Recorded:** 2026-11-07 (T-3442).
+
+### L-first-fort-blockhouse-cupolas-3041 — cupolas on the first fort's two blockhouses
+
+**Decision:** Build a small square cupola under its own pyramid cap at the apex of both first-fort
+blockhouses, `first_fort_dearborn_blockhouse_nw` and `first_fort_dearborn_blockhouse_se`, as the owner adopted from Currey's 1912 bird's-eye on
+2026-11-03 (T-3335).
+
+**What the sources carry:** Whistler's 1808 draught lays cupolas down on both blockhouses and its index
+says they were "not yet built ... as laid down", so they were planned and not standing in 1808. Kurz &
+Allison (1893) panel 1 draws a small roof lantern on each first-fort blockhouse, and Currey (1912), after
+the 1899 Tribune sketch of Van den Berghen's 1898 model, draws a square body under a pyramid cap on both.
+Intent plus two later depictions carries their OCCURRENCE by August 1812 at `inferred`. No source dates
+their completion, and both pictures are tier-5 retrospectives. The occurrence is in each record's
+`form.cupola`; this entry admits what that attribute does not carry, the size.
+
+**What is invented:** Every dimension, reused unchanged from the second fort's cupola kit in
+`generators/archetypes/fort_structure_params.py` (L-second-fort-blockhouse-cupola-2388): the 1.8 m side,
+the 2.1 m body height from its seat to the cap's eave, the 0.22 m cap eave, the 36 degree cap pitch and the
+0.12 m seat into the main roof. Plain boarded sides, no louvres, glazing or finial. Nothing in either
+picture measures them; they sit in the proportions both pictures show.
+
+**Supersedes:** The line in L-first-fort-pictured-blockhouse-stacks-3041 that the first-fort lanterns
+remain unbuilt. Its zero separate stacks stand, as do L370's height, jetty and roof choices.
+
+**What is not changed:** The measured plans, surveyed seats and bearings, the 5.2 m walls, the jetty, the
+30 degree main pyramid, and every other building of the fort. The blockhouses' tower proportions stay on
+Whistler's plan by the owner's ruling.
+
+**How to resolve:** a garrison return, order or letter between 1808 and 1812 that reports the cupolas
+finished, or describes their size.
+
+**Ticket:** T-3041 (partial; the fort's full picture match stays open).
+**Recorded:** 2026-11-07.

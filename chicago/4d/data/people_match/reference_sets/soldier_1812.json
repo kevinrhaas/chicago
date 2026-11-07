@@ -1,0 +1,49 @@
+{
+  "id": "soldier_1812",
+  "role": "soldier",
+  "label": "an American infantryman of the War of 1812 years, and the pattern before it",
+  "years": [
+    1811,
+    1813
+  ],
+  "scenes": [
+    "1812"
+  ],
+  "evidence": {
+    "repo": "kevinrhaas/chicago-evidence",
+    "dir": "evidence/people-references-2026-11-07/soldier_1812"
+  },
+  "note": "Gathered 2026-11-07 for T-3451, the 1812 private of the First Infantry (anonymous; Heald's company). None shows the Fort Dearborn garrison or a regular of the First: Krimmel's Philadelphia volunteers (1811-13) near and far, and Ogden's 1888 reconstruction of the 1802-1810 pattern a frontier company may still have worn. A reference set says what a soldier of the time looked like, never what the garrison wore.",
+  "pictures": [
+    {
+      "name": "krimmel_1813_soldiery",
+      "band": "near",
+      "file": "krimmel_1813_soldiery_near.jpg",
+      "sha256": "c11a3c079848444b232f78612b047d6df573e49b25250beb9acf44c5605ba51e",
+      "source_id": "met_krimmel_1813_philadelphia_soldiery",
+      "from": "Met open-access image DT1810 (3032 x 3717), crop [1758, 929, 2971, 3605], the two men at the right, at full resolution",
+      "caption": "John Lewis Krimmel, Members of the City Troop and Other Philadelphia Soldiery, 1811-ca. 1813, the right-hand men. The Met 42.95.21",
+      "shows": "Two volunteers at a metre or two, whole: short blue coats faced orange-red, dark crossbelts crossing on the breast, cartridge box and bayonet, blue pantaloons, black gaiters, bearskin caps."
+    },
+    {
+      "name": "ogden_1888_infantry_1802_1810",
+      "band": "near",
+      "file": "ogden_1888_infantry_1802_1810_near.jpg",
+      "sha256": "79ebcc48de06648bedd4a8d2270c25a26fee12c4deeed0db9454b5259731a389",
+      "source_id": "loc_ogden_1888_infantry_artillery_1802_1810",
+      "from": "Library of Congress reference image 3a06516r (488 x 640, black and white), the whole plate",
+      "caption": "H. A. Ogden, Infantry, Artillery, 1802-1810, Pl. XI, 1888 (a later reconstruction). Library of Congress 2021654575",
+      "shows": "Two infantrymen of the older pattern, whole: long-skirted dark coats with facings, white crossbelts, white waistcoats, crested round hats with a feather, gaiters."
+    },
+    {
+      "name": "krimmel_1813_soldiery_whole",
+      "band": "far",
+      "file": "krimmel_1813_soldiery_far.jpg",
+      "sha256": "d148378963ceb27421506d162136814a9fefedaf0e50effd676664283ddccea8",
+      "source_id": "met_krimmel_1813_philadelphia_soldiery",
+      "from": "Met open-access image DT1810 (3032 x 3717), the whole sheet, reduced to 1000 high",
+      "caption": "John Lewis Krimmel, Members of the City Troop and Other Philadelphia Soldiery, 1811-ca. 1813, the whole sheet. The Met 42.95.21",
+      "shows": "A crowd of soldiers at a few metres: blue coats with red or orange facings, tall black caps and bearskins, white and blue legs; a soldier reads as a dark body and a tall dark cap."
+    }
+  ]
+}

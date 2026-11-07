@@ -43,6 +43,16 @@ export const HAIR_CUTS = Object.freeze({
     knot_cm: Object.freeze({ up: 5.5, back: 17 }), scalp_cards: false,
     lift_mm: Object.freeze({ root: .6, tip: 1.4 }), density: 1, curl: .04, hang: false,
   }),
+  // An older man's fringe of about 1900 (T-3440, John J. Glessner): the crown bald from the
+  // brow back over the top; short hair left at the sides and around the back, brushed back and
+  // a little full over the ears, as his 1897 portrait plate shows it. `bald` keeps hair only
+  // below a line `side_cm` above the eyes at the temples, rising to `back_cm` behind, and
+  // none forward of `front_z_cm` (centimetres in the face's frame, as the facial regions).
+  bald_crown_fringe_1904: Object.freeze({
+    flow: 'side_part', part_cm: 3, lengths_cm: Object.freeze({ top: 1.4, side: 1.8, back: 1.5 }),
+    bald: Object.freeze({ side_cm: 3.6, back_cm: 3.9, front_z_cm: -2.8 }), card_mm: 2.6,
+    lift_mm: Object.freeze({ root: .5, tip: 1.4 }), density: 3.2, curl: .06, hang: false,
+  }),
   // Of the 1830s: fuller all round, brushed forward from the crown toward the brow and
   // temples, over the tops of the ears.
   brushed_forward_1835: Object.freeze({
@@ -56,6 +66,17 @@ export const FACIAL_HAIR = Object.freeze({
   moustache: Object.freeze({
     region_cm: Object.freeze({ x: [0, 2.6], y: [-6.5, -5.3], z_min: .4, droop: .35 }), facing: 'front',
     length_cm: 1.05, fall: 1, outward: .3, lift_mm: Object.freeze({ root: 1.2, tip: 2.8 }), width_mm: 3, cover: 7, spread: .5,
+  }),
+  // A full moustache (T-3440, Glessner's in his 1897 plate): thick over the whole upper lip
+  // and down over its edge, its ends drooping past the corners of the mouth.
+  moustache_full: Object.freeze({
+    region_cm: Object.freeze({ x: [0, 3.7], y: [-8.6, -6.8], z_min: .1, droop: .9 }), facing: 'front',
+    length_cm: 1.6, fall: 1, outward: .5, lift_mm: Object.freeze({ root: 1.8, tip: 4 }), width_mm: 3, cover: 13, spread: .5,
+  }),
+  // An older man's brows (T-3440): fuller and coarser than brows_fine, a few hairs straying.
+  brows_full: Object.freeze({
+    region_cm: Object.freeze({ x: [1.1, 5], y: [1.45, 2.2], z_min: -1.8, droop: .6 }), facing: 'front',
+    length_cm: .75, fall: -.05, outward: 1, lift_mm: Object.freeze({ root: .3, tip: .9 }), width_mm: .5, cover: 4.5, spread: .7,
   }),
   // Fine arched eyebrows (T-3434): short hairs combed out from the nose along the brow
   // bone, a little up at the inner end, the tail falling toward the temple. Without them a
@@ -81,6 +102,8 @@ export const FACIAL_HAIR = Object.freeze({
 export const HAIR_COLOURS = Object.freeze({
   dark_brown: Object.freeze([.042, .026, .016]),
   mid_brown: Object.freeze([.062, .036, .020]),
+  // White going grey (T-3440): an old man's hair, a little warm, not paper white.
+  white_grey: Object.freeze([.44, .41, .36]),
 });
 
 /** What each era's people wear when their row names nothing. */
@@ -95,9 +118,22 @@ export const PEOPLE_HAIR = Object.freeze({
     cut: 'short_side_part_1904', facial: Object.freeze([]), colour: 'dark_brown', grade: 'reconstructed',
     basis: 'Clean-shaven, with short hair showing below the hat, as the liveried coachmen of the people-match reference set are (coachman_1904: Rau 1902, Griffith 1905); the cut and the colour are reconstructed. No picture of Hans Johnson is known.',
   }),
+  glessner_john_j: Object.freeze({
+    cut: 'bald_crown_fringe_1904', facial: Object.freeze(['moustache_full', 'brows_full']), colour: 'white_grey', grade: 'attested',
+    source_id: 'glessner_commercial_club_1910_presidents_plate',
+    basis: 'His 1897 portrait plate (The Commercial Club of Chicago, 1910, p. 81) shows the crown bald, short white hair at the sides and back, a full moustache over the upper lip and full brows. The colour, white going grey, is read from the plate\'s light tone (a monochrome halftone) and his age; lengths and fullness are fitted to the plate by eye. Seven years on, in 1904, he is drawn as the plate shows him.',
+  }),
   glessner_williamson_martha_l: Object.freeze({
     cut: 'drawn_back_bun_1904', facial: Object.freeze(['brows_fine', 'lashes_upper']), colour: 'mid_brown', grade: 'reconstructed',
     basis: 'A reconstructed choice: a working woman of 1904 with her hair drawn back from the face to a bun, as the 1903 Wasson stereographs of a cook and a maid show. No picture of Martha Williamson has been read.',
+  }),
+  glessner_frances_m: Object.freeze({
+    cut: 'drawn_back_bun_1904', facial: Object.freeze(['brows_fine', 'lashes_upper']), colour: 'mid_brown', grade: 'reconstructed',
+    basis: 'A reconstructed choice: a lady of 56 in 1904 with her hair drawn up from the face to a knot behind, under her hat, as the women of the 1905 Johnston photograph and the 1904 Easter crowd wear it (lady_1904 reference set). No portrait of Frances Glessner has been read; whether her hair was grey by then is not recorded, and the cleared bun hair keeps its brown.',
+  }),
+  pa1904_glessner_john_j_c1900_mary_reynolds: Object.freeze({
+    cut: 'drawn_back_bun_1904', facial: Object.freeze(['brows_fine', 'lashes_upper']), colour: 'dark_brown', grade: 'reconstructed',
+    basis: 'A reconstructed choice: a house maid of 1904 with her hair drawn up from the face to a knot on the crown, under her cap, as the 1904 Kelley maid and the 1903 Wasson cook wear it (maid_1904 reference set). No picture of Mary Reynolds is known.',
   }),
   rc_flynn_mary: Object.freeze({
     cut: 'centre_part_knot_1835', facial: Object.freeze(['brows_fine', 'lashes_upper']), colour: 'dark_brown', grade: 'reconstructed',
@@ -106,6 +142,10 @@ export const PEOPLE_HAIR = Object.freeze({
   rc_bardwell_otis: Object.freeze({
     cut: 'brushed_forward_1835', facial: Object.freeze(['side_whiskers']), colour: 'mid_brown', grade: 'reconstructed',
     basis: 'A reconstructed choice for a teamster in the Chicago of 1835: hair worn fuller and brushed forward, side whiskers, the chin shaved. No picture of Otis Bardwell is known.',
+  }),
+  peck_philip: Object.freeze({
+    cut: 'brushed_forward_1835', facial: Object.freeze(['side_whiskers']), colour: 'dark_brown', grade: 'reconstructed',
+    basis: 'A reconstructed choice for a merchant of 1835: hair brushed forward at the temples and short side whiskers, the chin shaved, as Durand painted the New York merchant Luman Reed that year (merchant_1835 reference set). No picture of Philip F. W. Peck has been read.',
   }),
 });
 

@@ -1,0 +1,45 @@
+{
+  "id": "hi_glessner_john_j_1904",
+  "contract_version": 1,
+  "scene": "1904",
+  "person_id": "glessner_john_j",
+  "appearance": {
+    "asset_id": "glessner_john_j_1904"
+  },
+  "placement": {
+    "local_e": 1390.9,
+    "local_n": -3226.7,
+    "heading_deg": 100,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.4
+  },
+  "behaviour": {
+    "state": "standing"
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 1.5,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed standing depiction of John J. Glessner (attested head of the household at 1800 Prairie Avenue in 1904, the people directory's own row) on his own front walk, about 3.4 m out from his Prairie Avenue door and facing the street. His face is fitted to the 1910 Commercial Club presidents' plate and his hair, moustache and spectacles read from it (T-3413, T-3440); his day dress, frock coat, linen, tie, derby and boots, is built after the 1903-1904 street and portrait photographs of men of his age and standing (T-3441). Where he stands and when is ours: no photograph shows him on his walk.",
+    "sources": [
+      "glessner_commercial_club_1910_presidents_plate",
+      "loc_clinedinst_1904_taft_root_frock_coats",
+      "loc_underwood_1903_state_street_noonday_stereograph"
+    ],
+    "liberty": "L418",
+    "seed": "glessner_john_j:1904:front-walk-standing:20261107",
+    "replaceable_by": "A photograph of John J. Glessner at 1800 Prairie Avenue; his place on the walk and his standing have no documentary claim."
+  }
+}

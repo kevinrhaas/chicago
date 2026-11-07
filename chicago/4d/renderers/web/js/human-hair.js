@@ -136,6 +136,20 @@ export function capMask(material) {
   return mask;
 }
 
+/**
+ * Where a cut with a bald crown (`cut.bald`, T-3440) keeps hair: below a line `side_cm` above
+ * the eyes at the temples, rising to `back_cm` behind the head, and nothing forward of
+ * `front_z_cm`. Centimetres in the face's frame. True everywhere for a cut with no `bald`.
+ */
+export function keepsHair(cut, f, p) {
+  const b = cut?.bald;
+  if (!b) return true;
+  const l = p.clone().sub(f.o), y = l.dot(f.y) * 100, z = l.dot(f.z) * 100;
+  if (z > b.front_z_cm) return false;
+  const behind = Math.min(1, Math.max(0, (-z - 4) / 8));
+  return y < b.side_cm + (b.back_cm - b.side_cm) * behind;
+}
+
 /** Area-weighted random points over the triangles `keep` lets through. */
 function sampler(surface, keep, rand) {
   const { P, N, index } = surface, tris = [], cum = [];
@@ -287,9 +301,16 @@ export function growHair({ hair, skin = null, root, style, lod, seed = 'person' 
     for (const i of tri) { u += uv.getX(i) / 3; v += uv.getY(i) / 3; }
     return mask(u, v) > .5;
   } : null;
-  const area = sampler(scalp, onHair, rand);
+  const bald = cut.bald ? (c) => keepsHair(cut, f, c) : null;
+  const area = sampler(scalp, bald ? (c, n, tri) => bald(c) && (!onHair || onHair(c, n, tri)) : onHair, rand);
   // Cap vertices over bare skin: a strand combed onto them ends there (a long one hangs).
   if (mask && uv) scalp.bare = Uint8Array.from({ length: scalp.count }, (_, i) => mask(uv.getX(i), uv.getY(i)) < .25 ? 1 : 0);
+  // A bald crown (T-3440) is bare skin too: a strand combed up onto it ends there.
+  if (bald) {
+    scalp.bare ??= new Uint8Array(scalp.count);
+    const q = new THREE.Vector3();
+    for (let i = 0; i < scalp.count; i++) if (!bald(q.fromArray(scalp.P, 3 * i))) scalp.bare[i] = 1;
+  }
   // Cards until they cover the cap `cover` times over (or the level's most): short cards at the
   // sides take more of them than the long ones on top.
   // A cut whose cap carries its own fine strands (a cleared bun hair, T-3434) grows none here.
@@ -303,7 +324,8 @@ export function growHair({ hair, skin = null, root, style, lod, seed = 'person' 
     const side = Math.max(0, 1 - top - back);
     const len = Math.max(.006, (cut.lengths_cm.top * top + cut.lengths_cm.back * back + cut.lengths_cm.side * side) / 100 * (.8 + .35 * rand()));
     // A card is a stroke: never wider than about a third of its length.
-    const width = Math.max(.003, Math.min(level.width_mm / 1000, len * .35)) * (.8 + .4 * rand());
+    // A cut may ask for finer cards (`card_mm`, T-3440: an old man's thin, soft fringe).
+    const width = Math.max(.002, Math.min((cut.card_mm ?? level.width_mm) / 1000, level.width_mm / 1000, len * .35)) * (.8 + .4 * rand());
     laid += len * width * .8;
     layCard(out, {
       start: s.p, n0: s.n, length: len, segments: Math.max(2, Math.min(level.segments, Math.round(len / .01) + 1)), width,
@@ -348,7 +370,23 @@ export function growHair({ hair, skin = null, root, style, lod, seed = 'person' 
       }
     }
   }
-  return { ...out, grown, frame: f, scalp };
+  // Where a bald cut's fringe grows (T-3440): the cap's triangles wholly on hair and below the
+  // bald line, for the undercoat dressHair lays beneath the cards.
+  let undercoat = null;
+  if (bald) {
+    undercoat = [];
+    const q = new THREE.Vector3(), I = scalp.index;
+    for (let t = 0; t < I.length; t += 3) {
+      const tri = [I[t], I[t + 1], I[t + 2]];
+      if (tri.some(i => scalp.bare?.[i])) continue;
+      const c = q.set(0, 0, 0);
+      for (const i of tri) c.add(new THREE.Vector3().fromArray(scalp.P, 3 * i));
+      c.divideScalar(3);
+      if (onHair && !onHair(c, null, tri)) continue;
+      undercoat.push(...tri);
+    }
+  }
+  return { ...out, grown, frame: f, scalp, undercoat };
 }
 
 const STRAND_VERTEX_DECLARE = `
@@ -459,9 +497,13 @@ const built = new WeakMap();   // source geometry -> Map(person key -> geometry)
  * Returns { mesh, grown } or null where nothing is grown (a far level, no cap, no style).
  */
 export function dressHair(root, { lod = 0, person = null, year = null, style: given = null } = {}) {
-  if (!root || !CARDS.lods[lod]) return null;
+  if (!root) return null;
   const style = given ?? hairFor(person, year);
   if (!style) return null;
+  // A bald crown (T-3440): the cap, a full head of hair in its own texture, is never drawn;
+  // the fringe is cards over the skin (near levels), and far off the head reads bare.
+  if (HAIR_CUTS[style.cut]?.bald) root.traverse(o => { if (o.isMesh && /^hair($|__)/.test(o.material?.name ?? '')) o.visible = false; });
+  if (!CARDS.lods[lod]) return null;
   let hair = null, skin = null;
   root.traverse(o => {
     if (!o.isSkinnedMesh) return;
@@ -493,7 +535,25 @@ export function dressHair(root, { lod = 0, person = null, year = null, style: gi
     g.setAttribute('skinWeight', new THREE.Float32BufferAttribute(grown.skinWeight, 4));
     g.setIndex(grown.index);
     entry = { geometry: g, grown: grown.grown, frame: grown.frame, R: grown.scalp.R };
+    // A bald crown's undercoat (T-3440): the cap's own triangles where the fringe grows, in the
+    // hair's colour, so the fringe reads as one band of hair rather than flakes over skin.
+    if (grown.undercoat?.length) {
+      const u = new THREE.BufferGeometry(), src = hair.geometry.attributes;
+      for (const name of ['position', 'normal', 'skinIndex', 'skinWeight']) if (src[name]) u.setAttribute(name, src[name]);
+      u.setIndex(grown.undercoat);
+      entry.undercoat = u;
+    }
     cache.set(key, entry);
+  }
+  if (entry.undercoat) {
+    const c = HAIR_COLOURS[style.colour] ?? HAIR_COLOURS.dark_brown;
+    const under = new THREE.SkinnedMesh(entry.undercoat, new THREE.MeshStandardMaterial({ name: 'hair_undercoat',
+      color: new THREE.Color().setRGB(c[0] * .62, c[1] * .6, c[2] * .58, THREE.LinearSRGBColorSpace), roughness: .85, metalness: 0 }));
+    under.name = 'hair_undercoat';
+    under.frustumCulled = false;
+    under.receiveShadow = hair.receiveShadow;
+    under.bind(hair.skeleton, hair.bindMatrix);
+    hair.parent.add(under);
   }
   const material = strandMaterial(HAIR_COLOURS[style.colour] ?? HAIR_COLOURS.dark_brown, person ?? 'anon');
   const mesh = new THREE.SkinnedMesh(entry.geometry, material);
@@ -512,7 +572,8 @@ export function dressHair(root, { lod = 0, person = null, year = null, style: gi
   let frame = 0, seen = null;
   mesh.onBeforeRender = () => {
     if (frame++ % 30) return;
-    const hat = mesh.parent?.children.find(o => o.isSkinnedMesh && /^headwear/.test(o.material?.name ?? '') && !/band/.test(o.material.name)) ?? null;
+    // Only a hat that is worn: one left off (a bareheaded still, T-3440) cuts nothing.
+    const hat = mesh.parent?.children.find(o => o.isSkinnedMesh && o.visible && /^headwear/.test(o.material?.name ?? '') && !/band/.test(o.material.name)) ?? null;
     if (hat === seen) return;
     seen = hat;
     material.userData.chiCards.value.z = hat ? hatBand(hat, hair, root, entry.frame) : NO_CLIP;

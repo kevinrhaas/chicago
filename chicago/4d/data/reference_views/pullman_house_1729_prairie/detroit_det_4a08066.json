@@ -1,0 +1,42 @@
+{
+ "structure_id": "pullman_house_1729_prairie",
+ "source_id": "loc_det_4a08066_pullman_residence",
+ "library_image": "a16-pullman-det-4a08066",
+ "photo": "../../sources/assets/pullman_1729_photo_t1880/loc_det_4a08066_pullman_residence.jpg",
+ "image_px": [
+  1024,
+  809
+ ],
+ "principal_px": [
+  512,
+  454.5
+ ],
+ "focal_px": 478.8,
+ "near_m": 5,
+ "scene": "1904",
+ "also_render": [
+  "pullman_house_1729_prairie_ranges",
+  "pullman_house_1729_prairie_conservatory"
+ ],
+ "flora": {
+  "front_yards": [
+   "prairie_1729"
+  ],
+  "street_trees_m": 70,
+  "street_furniture_m": 70,
+  "season": "winter",
+  "creeper_in_leaf": true
+ },
+ "eye": [
+  -39.79,
+  36.62,
+  3.79
+ ],
+ "yaw_deg": 129.23,
+ "solve": "Fitted by T-1881 (2026-11-07) to the photograph alone, the image store's 1024 x 809 px copy of LC-D4-12552 (det 4a08066, c. 1900), in the house's footprint frame (u 0 at the rear wall, rising west to the Prairie front at 27.75; v 0 at the north wall, rising south to the 18th Street flank at 17.93). The print is the companion of LC-D4-12551 (detroit_det_4a08065), taken from the other end of the 18th Street front, near Calumet Avenue beside the 1893 monument, looking west-north-west: the flank's east section lit, the rear (east) face in shade with its raised terrace, the low east range and the conservatory's drum beyond it, and the stable's south-east corner nearest at the right. READ OFF THE PRINT: the main block's south-east corner, a sharp lit/shade edge at x 393 with the cornice's top at y 352 there and the cresting's top over the deck's south-east corner at (398, 293); the rear face's north end at x 545, its cornice at y 367; the rear step's return at x 458; the rear dormers at x 427 (south section), 480 and 524 (the step's two); the porte-cochere's south-east corner at its deck balustrade's top, (290, 427); the stable's south-east corner at its eave, (930, 385). FITTED (level, principal x at the centre; the eye's height free): least squares over those 14 coordinates, rms 3.9 px, the largest residuals the porte-cochere's height (9 px) and the step's south dormer (8 px). The eye stands 3.8 m over the house's grade at u -39.8, v 36.6 (in 18th Street's roadway, a little north of its middle, about 50 m from the south-east corner; a view camera raised on a stand or a wagon, or the street's grade over the lot's), heading 129.2 degrees, focal 479 px, horizon y 454.5. With the eye held at 1.6 m the same points fit only at 6.8 px rms and the cresting and the deck's stacks fall about 20-30 px low, so the raised eye is kept. CHECKS NOT IN THE FIT: the flank's south-west corner's cornice falls at x 301 behind the trees, where the print shows the flank running on past the porte-cochere; the rear face's three window columns render at x 427, 487 and 522 against the print's lit heads at 422, 477 and 522; the step's stack, read at x 495-506, lies between the step's dormers as Taylor's 16554 draws it. UNCERTAINTY: the stable's corner is another structure's place, so the fit leans on the estate's 1904 placements; the eye's distance and height trade against the focal length (a 10% change in f moves the eye about 5 m). The reviewer stands every member on one grade plane, so the street's ground and the coping's foot in the foreground are not compared. LIGHT: the flank is lit and the rear face in shade, as in the companion print, so the sun stands in the south-west (sun_uvy, the companion's). SEASON: the elms are bare but for a few last leaves and the ivy on the house still holds its leaves, as in the companion print, so the review's trees stay in winter and the ivy is drawn in leaf.",
+ "sun_uvy": [
+  1.0,
+  0.8,
+  1.0
+ ]
+}

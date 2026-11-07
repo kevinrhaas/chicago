@@ -2213,6 +2213,10 @@ class Assembly:
         if (p.round_corner or {}).get("to_eave") and beds is None:   # T-3314: and at a round carried up
             c0, c1 = k01_frontage_params.round_corner_spans(p.round_corner, p.depth_m, p.width_m)["walls"][cid]
             s_lo, s_hi = (max(s_lo, c1), s_hi) if c0 <= 1e-9 else (s_lo, min(s_hi, c0))
+        if cid == "k01.wall.street_front" and (p.shaped_gable or {}).get("run_on"):
+            # T-3365: and stopped where the gable's run-on cuts the front down under it
+            from . import k01_shaped_gable
+            s_hi = min(s_hi, k01_shaped_gable.run_on_wall_holes(p)["k01.wall.street_front"][0][0])
         if E - yf > 1e-6:
             if brick is not None:   # T-2914: brick up to the eave
                 self.prim(self.front_brick).face([P(s_lo, yf, 0.0), P(s_hi, yf, 0.0), P(s_hi, E, 0.0), P(s_lo, E, 0.0)], N, bb, conf)
@@ -4341,7 +4345,8 @@ class Assembly:
             mz0, mz1 = k01_mansard_walled.extend(p, -W, 0.0) if m.get("walled_ends") else (-W, 0.0)
             hip, hs, _ = k5.mansard_element(0.0, D, mz0, mz1, E, m["lower_pitch_deg"], p.roof_pitch_deg,
                                             m["lower_rise_m"], m["bulge"], m["segments"], m["profile"], o, f,
-                                            cut=cut)
+                                            cut=cut, x1_run=m.get("street_run_m"),   # T-1890: a leaned street face
+                                            x1_knee=m.get("street_knee_m"))
         elif gb:   # T-2459: the parapets first, so the union keeps their faces on the walls' planes
             from . import k01_gable_roof
             solids, hs, _, self.gable_roof = k01_gable_roof.elements(p, k5, E, o, f)
@@ -4486,6 +4491,10 @@ class Assembly:
             from . import k01_shaped_gable
             solids.append(k01_shaped_gable.element(self, k5, ye))
             recesses += k01_shaped_gable.cutters(self, k5)
+            if p.shaped_gable.get("run_on"):   # T-3365: the corner cut down to the run-on
+                more, cut = k01_shaped_gable.run_on_solids(self, k5)
+                solids += more
+                recesses += cut
         # T-2302's plain stacks, for a record that names no K15 variant (1612 Goodman)
         self.stone_stack_boxes = []
         plain_stacks = []
@@ -4510,10 +4519,18 @@ class Assembly:
                                      lambda i, p_, q_: "chimney" if i != 2 else "hidden", "chimney", "chimney"))
             if c.get("stone"):   # T-3003: its shaft in the walls' stone (_emit_shell reads the box)
                 self.stone_stack_boxes.append((u - sx / 2 - 1e-3, u + sx / 2 + 1e-3, z - sz / 2 - 1e-3, z + sz / 2 + 1e-3))
+            if c.get("on_step"):
+                # T-1881: a step's stack stands in front of the house's rear wall, so a tail
+                # runs from its inner face back through the wall line to join the house's roof,
+                # low enough (1 m over the soffit) to stay inside the step's own mansard; its
+                # faces are the shaft's, buried in the step's roof as the shaft's foot is
+                solids.append(k5.extrude([(u + sx / 2 - 0.05, y0), (0.3, y0), (0.3, hs + 1.0),
+                                          (u + sx / 2 - 0.05, hs + 1.0)], z - sz / 2 + 0.05, z + sz / 2 - 0.05, P,
+                                         "chimney", "chimney", "chimney"))
             solids.append(k5.extrude([(u - sx / 2 - cp, top - cd), (u + sx / 2 + cp, top - cd),
                                       (u + sx / 2 + cp, top), (u - sx / 2 - cp, top)],
                                      z - sz / 2 - cp, z + sz / 2 + cp, P, "coping", "coping", "coping"))
-            plain_stacks += solids[-2:]
+            plain_stacks += solids[-3:] if c.get("on_step") else solids[-2:]
         polys = k5.union_all(k5._snap(solids))
         # T-2313: each stack from the K15 kit, built in this roof as the kit builds its
         # specimen's (k15_chimneys.build_variant): its parts joined and its flues cut on
@@ -5483,8 +5500,17 @@ class Assembly:
                 out.append(g)
                 continue
             centre = d["along_m"] if self.DORMER_FACES[d["face"]][0] == "z" else -d["along_m"]
+            # T-1890: on a leaned street face the body runs back only the side faces' run + 0.3 m,
+            # where the face already stands over its head (k01_frontage_params checks it), so it
+            # does not reach across the corner's hip into the next face's dormer
+            back_at = None
+            if d["face"] == "street" and m.get("street_run_m"):
+                side_run = m["lower_rise_m"] / math.tan(math.radians(m["lower_pitch_deg"]))
+                back_at = fascia["street"] - self.DORMER_FACES["street"][1] * (side_run + 0.3)
             g = self.round_dormer_body(d, d["face"], fascia[d["face"]], centre, m["lower_rise_m"],
-                                       m["lower_pitch_deg"], m["bulge"], E)
+                                       k01_frontage_params.face_pitch_at(m, d["face"], d["face_setback_m"]),
+                                       m["bulge"], E,
+                                       back_at=back_at)
             self.round_dormers.append(g["geom"])
             out.append(g)
         return out
@@ -5781,7 +5807,14 @@ class Assembly:
                 break
             cur = min(nxt, key=lambda j: pts[j][1])
             chain.append(cur)
-        if chain[-1] != end:   # no edge path: the old reading, every vertex on the plane
+        if chain[-1] != end:
+            # T-1890: a hip that bends in plan (a street face leaned back over its knee, 1801's)
+            # leaves its vertical plane at the knee: walk the covering's creases instead, as a
+            # bent valley is walked, when that path climbs from A all the way to B
+            crease = Assembly._bent_valley(pts, tris, A, B)
+            if len(crease) > 1 and math.dist(crease[0][0], A) < 1e-3 and math.dist(crease[-1][1], B) < 1e-3:
+                return crease
+            # no edge path: the old reading, every vertex on the plane
             on = {snap(A), end} | {i for i in used if A[1] + 1e-4 < pts[i][1] < B[1] - 1e-4 and plane(pts[i])}
             chain = sorted(on, key=lambda i: pts[i][1])
         chain = [tuple(pts[i]) for i in chain]
@@ -6076,7 +6109,13 @@ class Assembly:
             # T-2889: no gutter across a front carried up as a shaped gable: the street run is
             # not built and each side run dies into the gable's base at its back (k01_shaped_gable)
             xb = self.shaped_gable_geom["xb"]
-            dead += [(starts[3] + xb + A, P), (0.0, starts[1] + D + A - xb)]
+            run_on = p.shaped_gable.get("run_on")
+            if run_on:   # T-3365: the high-s side run stops at the run-on's cheek, closed there
+                d1 = starts[1] + A + run_on["back_m"]
+                dead += [(starts[3] + xb + A, P), (0.0, d1)]
+                stop_ends.append((d1 % P, -1.0))
+            else:
+                dead += [(starts[3] + xb + A, P), (0.0, starts[1] + D + A - xb)]
         # T-3384: and none along a wall carried up through the mansard, the same way
         for spp in [x for x in [(p.mansard or {}).get("side_parapet")] if x] + k01_mansard_walled.wall_ends(p):
             # T-3061: no gutter along a side wall carried up as a parapet: the runs beside it
@@ -6496,6 +6535,9 @@ def build(params, structure_id: str):
     # T-3186: a canted corner cuts the front and its side wall back to its face, to the wall head
     cant = k01_frontage_params.cant_corner_plan(p.cant_corner, D, W) if p.cant_corner else None
     cant_cut = {w: (*sp, 0.0, E) for w, sp in cant["walls"].items()} if cant else {}
+    # T-3365: the shaped gable's side run on down to the corner: the walls cut down under it
+    from . import k01_shaped_gable
+    run_on_cut = k01_shaped_gable.run_on_wall_holes(p) if p.shaped_gable else {}
     y_round = p.arched_front["stone_top_m"] if p.arched_front else yf
     # T-3314: a round carried to the eave replaces the square corner up to the wall head
     round_eave = bool((p.round_corner or {}).get("to_eave"))
@@ -6516,6 +6558,8 @@ def build(params, structure_id: str):
             finish_gap = finish_gap + [(*rounded[wall_id], 0.0, y_round)]
         if wall_id in cant_cut:
             finish_gap = finish_gap + [cant_cut[wall_id]]
+        if wall_id in run_on_cut:   # T-3365: the party wall cut down under the gable's run-on
+            finish_gap = finish_gap + run_on_cut[wall_id]
         # T-3112: the side wall beside the pier stepped down under its weathering's slope
         if p.front_pier and wall_id == "k01.wall.side.south":
             L, step = a.pier_slope(), 0.1
@@ -6607,6 +6651,7 @@ def build(params, structure_id: str):
                                       extra=([(*rounded["k01.wall.street_front"], 0.0, y_round)] if rounded else [])
                                       + ([(0.0, p.front_pier["to_m"], 0.0, E)] if p.front_pier else [])
                                       + ([cant_cut["k01.wall.street_front"]] if cant else [])
+                                      + run_on_cut.get("k01.wall.street_front", [])
                                       + a.bay_holes.get("k01.wall.street_front", []))
         if p.round_corner:
             a.round_corner(t)

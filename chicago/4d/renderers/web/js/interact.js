@@ -25,6 +25,19 @@
  * index, t, waiting }`) and its state is the one it started from; the state changes once,
  * when the last step ends.
  *
+ * An action may also carry `refuse()`, asked at each press before it starts: a reason
+ * (a string) stops it there and the key says it — a door will not close on someone
+ * standing in its swing (T-3442). Null or nothing lets it go.
+ *
+ * T-3443 (a person who walks home): a step may wait on the world instead of a clock. One
+ * with `until()` runs `run(0)` when it starts, is asked `until()` every frame, and ends
+ * (with `run(1)`) once it answers true — a figure reaching his door, the door swung open —
+ * or after `timeout` seconds (60 when unsaid), so nothing waits forever. An action's
+ * `said` is what the key says when it ends (a string, or a function of the thing; '' says
+ * nothing); unsaid, it is the thing's name and new state ("South gate open"). A thing with
+ * more than one action in its state offers them all: the first on the key (R, or 1), the
+ * rest on keys beside it (2, 3 …).
+ *
  * The KEY sits in the quick column under Inspect (index.html `#btn-interact`). It shows
  * while the visitor stands on foot within reach of something, names what Interact will do
  * there ("Open gate"), and R presses it from the keyboard. Nothing here knows THREE or the
@@ -56,14 +69,15 @@ export function createInteractions({ onChange = () => {} } = {}) {
         ? { label: step.prompt, action: r.action, waiting: true, busy: false }
         : { label: `${step.label ?? r.action.label}…`, action: r.action, waiting: false, busy: true };
     }
-    const action = actionsOf(thing)[0];
-    return action ? { label: action.label, action, waiting: false, busy: false } : null;
+    const [action, ...more] = actionsOf(thing);
+    return action ? { label: action.label, action, more, waiting: false, busy: false } : null;
   }
 
   function begin(thing, index) {
     const step = thing.running.action.steps[index];
     thing.running.index = index;
     thing.running.t = 0;
+    thing.running.elapsed = 0;
     thing.running.waiting = !!step.prompt;
     if (!step.prompt) step.run?.(0);
     tell(thing, step.prompt ? 'waiting' : 'step');
@@ -73,6 +87,7 @@ export function createInteractions({ onChange = () => {} } = {}) {
     const { action } = thing.running;
     thing.running = null;
     thing.state = action.to ?? thing.state;
+    thing.last = action;
     tell(thing, 'done');
   }
 
@@ -81,10 +96,18 @@ export function createInteractions({ onChange = () => {} } = {}) {
     const r = thing.running;
     if (!r || r.waiting) return;
     const step = r.action.steps[r.index];
-    const seconds = Math.max(0, Number(step.seconds) || 0);
-    r.t = seconds > 0 ? Math.min(1, r.t + dt / seconds) : 1;
-    step.run?.(r.t);
-    if (r.t < 1) return;
+    if (typeof step.until === 'function') {
+      // T-3443: a step that waits on the world, not the clock.
+      r.elapsed += dt;
+      if (!step.until(thing) && r.elapsed < (Number(step.timeout) || 60)) return;
+      r.t = 1;
+      step.run?.(1);
+    } else {
+      const seconds = Math.max(0, Number(step.seconds) || 0);
+      r.t = seconds > 0 ? Math.min(1, r.t + dt / seconds) : 1;
+      step.run?.(r.t);
+      if (r.t < 1) return;
+    }
     if (r.index + 1 < r.action.steps.length) begin(thing, r.index + 1);
     else finish(thing);
   }
@@ -141,12 +164,16 @@ export function createInteractions({ onChange = () => {} } = {}) {
       const actions = actionsOf(thing);
       const action = actionId ? actions.find((a) => a.id === actionId) : actions[0];
       if (!action) return { ok: false, why: `nothing to do while ${thing.state}` };
+      // T-3442: an action that cannot be done just now says why, and nothing moves.
+      const refusal = typeof action.refuse === 'function' ? action.refuse(thing) : null;
+      if (refusal) { tell(thing, 'refused'); return { ok: false, refused: true, why: refusal }; }
       if (!Array.isArray(action.steps) || !action.steps.length) {
         thing.state = action.to ?? thing.state;
+        thing.last = action;
         tell(thing, 'done');
         return { ok: true, started: action.id };
       }
-      thing.running = { action, index: 0, t: 0, waiting: false };
+      thing.running = { action, index: 0, t: 0, elapsed: 0, waiting: false };
       begin(thing, 0);
       tell(thing, 'start');
       return { ok: true, started: action.id };
@@ -175,14 +202,44 @@ export function createInteractions({ onChange = () => {} } = {}) {
  * @param {() => boolean} [o.enabled]    false while the visitor is not in the town
  * @param {EventTarget} [o.keys]         where R is listened for (window)
  * @param {(target: EventTarget) => boolean} [o.isTyping]
+ * @param {HTMLElement} [o.moreEl]       T-3443: where a thing's other actions get keys of
+ *                                       their own (#interact-more), under the first
+ * @param {Document} [o.doc]             makes those keys (document)
  */
 export function createInteractKey({ interactions, keyEl = null, where, say = () => {}, enabled = () => true,
-  keys = null, isTyping = () => false } = {}) {
+  keys = null, isTyping = () => false, moreEl = null, doc = globalThis.document ?? null } = {}) {
   let near = null;
+  let shown = [];             // the actions the keys offer now, in order: [first, ...more]
   const words = keyEl?.querySelector?.('.ik-what') ?? null;
+
+  /** T-3443: a key per further action, each naming its number (2, 3 …). */
+  function paintMore(o) {
+    if (!moreEl) return;
+    const more = o && !o.busy && !o.waiting ? o.more ?? [] : [];
+    const want = more.map((a) => a.id).join('|');
+    if (moreEl.dataset?.actions === want && moreEl.hidden === !more.length) return;
+    if (moreEl.dataset) moreEl.dataset.actions = want;
+    moreEl.hidden = !more.length;
+    moreEl.replaceChildren?.();
+    if (!doc) return;
+    more.forEach((a, i) => {
+      const b = doc.createElement('button');
+      b.type = 'button';
+      b.className = 'chip quick-interact ik-more';
+      b.dataset.action = a.id;
+      const w = doc.createElement('span'); w.className = 'ik-what'; w.textContent = a.label;
+      const k = doc.createElement('kbd'); k.className = 'ik-kbd'; k.setAttribute('aria-hidden', 'true'); k.textContent = String(i + 2);
+      b.append(w, k);
+      b.setAttribute('aria-label', `Interact: ${a.label} — ${near.name}`);
+      b.title = `Interact (${i + 2}): ${a.label} — ${near.name}`;
+      b.addEventListener('click', (e) => { e?.preventDefault?.(); press(a.id); });
+      moreEl.appendChild(b);
+    });
+  }
 
   function paint() {
     const o = near ? interactions.offer(near) : null;
+    shown = o && !o.busy && !o.waiting ? [o.action, ...(o.more ?? [])] : [];
     if (keyEl) {
       keyEl.hidden = !o;
       if (o) {
@@ -194,6 +251,7 @@ export function createInteractKey({ interactions, keyEl = null, where, say = () 
         if (keyEl.dataset) keyEl.dataset.thing = near.id;
       }
     }
+    paintMore(o);
   }
 
   /** Re-read who is in reach. Cheap: a handful of things, a distance each. */
@@ -205,36 +263,56 @@ export function createInteractKey({ interactions, keyEl = null, where, say = () 
     return near;
   }
 
-  function press() {
+  /** Press Interact: the first action, or (T-3443) the one named. */
+  function press(actionId = null) {
     const thing = refresh();
     if (!thing) return { ok: false, why: 'nothing in reach' };
-    const res = interactions.act(thing);
+    const res = interactions.act(thing, actionId);
+    if (res.refused) say(res.why);
     paint();
     return res;
   }
 
   const off = interactions.on((thing, event) => {
     if (thing === near) paint();
-    if (event === 'done') say(`${thing.name} ${thing.state}`);
+    if (event !== 'done') return;
+    const said = thing.last?.said;
+    const text = typeof said === 'function' ? said(thing) : said ?? `${thing.name} ${thing.state}`;
+    if (text) say(text);
   });
   const onClick = (e) => { e?.preventDefault?.(); press(); };
   keyEl?.addEventListener?.('click', onClick);
   const onKey = (e) => {
-    if (e.code !== INTERACT_KEY || e.repeat || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.repeat || e.metaKey || e.ctrlKey || e.altKey) return;
+    const digit = /^Digit([1-9])$/.exec(e.code ?? '');
+    if (e.code !== INTERACT_KEY && !digit) return;
     if (isTyping(e.target)) return;
     if (!enabled()) return;
-    if (refresh()) { e.preventDefault?.(); press(); }
+    if (!refresh()) return;
+    if (digit) {
+      // 1 is the first action, 2 the next …; a number nothing answers to is left alone.
+      const action = shown[Number(digit[1]) - 1];
+      if (!action || shown.length < 2) return;
+      e.preventDefault?.();
+      press(action.id);
+      return;
+    }
+    e.preventDefault?.();
+    press();
   };
   keys?.addEventListener?.('keydown', onKey);
 
   return {
     get current() { return near; },
+    /** The actions the keys offer now (T-3443): ids, first on the main key. */
+    get choices() { return shown.map((a) => a.id); },
     refresh,
     press,
     dispose() {
       off();
       keyEl?.removeEventListener?.('click', onClick);
       keys?.removeEventListener?.('keydown', onKey);
+      moreEl?.replaceChildren?.();
     },
   };
 }

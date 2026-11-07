@@ -50,8 +50,10 @@
   .handout-print .handout-head { border-bottom: 1.5pt solid #000; padding-bottom: 5pt; margin-bottom: 4pt; }
   .handout-print .handout-h { font: 700 8pt/1.3 ui-monospace, Menlo, Consolas, monospace; margin: 7pt 0 3pt; letter-spacing: .14em; color: #000; }
   .handout-print .handout-steps { gap: 3pt; }
-  .handout-print .handout-step { grid-template-columns: 2.2em minmax(0, 1fr); border-bottom: .5pt solid #bbb; padding-bottom: 3pt; }
-  .handout-print .handout-n { font: 700 11pt/1.2 ui-monospace, Menlo, Consolas, monospace; }
+  /* T-3445: nine steps, each on ONE line (task, then its bubble), so the sheet still fits
+     one Letter page beside nine Jaunts. */
+  .handout-print .handout-step { grid-template-columns: 2.2em max-content minmax(0, 1fr); column-gap: 6pt; align-items: baseline; border-bottom: .5pt solid #bbb; padding-bottom: 3pt; }
+  .handout-print .handout-n { grid-row: auto; font: 700 11pt/1.2 ui-monospace, Menlo, Consolas, monospace; }
   .handout-print .handout-dests { gap: 6pt; }
   .handout-print .handout-dest { break-inside: avoid; page-break-inside: avoid; }
   .handout-print .handout-dest-name { font-size: 11pt; margin-bottom: 2pt; }

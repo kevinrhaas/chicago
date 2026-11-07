@@ -1,0 +1,46 @@
+{
+  "id": "hi_peck_philip_1835",
+  "contract_version": 1,
+  "scene": "1835",
+  "person_id": "peck_philip",
+  "appearance": {
+    "asset_id": "peck_philip_1835"
+  },
+  "placement": {
+    "local_e": 437.5,
+    "local_n": -1.2,
+    "heading_deg": 290,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.55
+  },
+  "behaviour": {
+    "state": "standing"
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed standing depiction of Philip F. W. Peck (attested merchant, who kept his store and lived in it at the south-west corner of South Water and LaSalle streets, Andreas 1884; the store is the record peck_store) on the South Water Street verge before his own store, just off the plank walk and a little east of its stoop, turned west down the street. His dark blue tailcoat, buff waistcoat, black stock, pale trousers and top hat are built after Durand's 1835 Luman Reed, the Met's c. 1833 tailcoat and trousers and Hornor's 1836 Broadway (T-3449). That he stands there, and when, is ours, and so are his face, hair and build: no picture of him has been read.",
+    "sources": [
+      "andreas_1884_v1",
+      "met_ci_1833_tailcoat_and_trousers",
+      "met_durand_1835_luman_reed",
+      "met_hornor_1836_broadway_new_york"
+    ],
+    "liberty": "L418",
+    "seed": "peck_philip:1835:store-front-standing:20261107",
+    "replaceable_by": "A picture of Philip F. W. Peck, replacing the reconstructed face and dress; his place before the store and his standing have no documentary claim."
+  }
+}

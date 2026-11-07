@@ -1,0 +1,26 @@
+{
+ "id": "met_ci_1902_black_wool_suit",
+ "type": "photograph",
+ "citation": "Suit, French, 1902, wool and silk: bodice, skirt and coat. The Metropolitan Museum of Art, The Costume Institute, C.I.50.108a-c, Gift of Mrs. Lincoln Cromwell, 1950; the museum's open-access object photographs CI50.108a_F, CI50.108b_F and CI50.108c_F.",
+ "author": "The Metropolitan Museum of Art (object photographs)",
+ "date": "1902",
+ "describes_date": "1902",
+ "repository": "The Metropolitan Museum of Art, The Costume Institute; object 106505 in the museum's collection API (isPublicDomain: true), images at images.metmuseum.org.",
+ "url": "https://www.metmuseum.org/art/collection/search/106505",
+ "locator": "The three front views on a dress form: the bodice (a), the skirt (b) and the coat (c).",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "The Met's Open Access images of public-domain works are released CC0. Used only as a reference picture the 1904 lady is judged against and for the cut of her day dress (T-3447); nothing is traced or sampled from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (T-3447) from the museum's open-access images. A black wool suit of 1902: a black bodice with a cream lace yoke and a tall lace standing collar, the front pouched; a black skirt of several gores, close at the hips and flaring to a wide hem with braid at the foot of each seam; a black coat to the upper thigh with lapels, buttoned below the bust over the front of the bodice. A real garment in colour, French, not American and not of the Glessners.",
+ "note": "One of the 1904 lady reference set's pictures (data/people_match/reference_sets/lady_1904.json): the cut, and the black, of a day suit of the years.",
+ "what_it_supplies": [
+  "the black of a lady's wool day suit of the decade, and its cream lace collar",
+  "a gored skirt close at the hips and flaring to the hem; a coat to the upper thigh, closed below the bust, with lapels above"
+ ],
+ "what_it_does_not_supply": [
+  "how the suit sat on a living woman, or a hat",
+  "anything about Chicago, the Glessner household or Frances M. Glessner"
+ ]
+}

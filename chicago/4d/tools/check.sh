@@ -318,8 +318,8 @@ step "Settings › About's field log counts landings, first inspects, tabs, Show
 # T-2657: Researcher mode, the Settings › About switch.
 step "Researcher mode is off by default and remembered per device, and shows research prose in place while on (T-2657)" \
   node tools/test_researcher_mode.mjs
-# T-2658: Short "Why?" — a one-line hint and a bubble of 40 words at most per researched setting.
-step "Every 'Why this default' is one line and a 'Why?' bubble of 40 words at most that opens by tap, click or key and closes on Escape or an outside tap; the full essay is Researcher mode's (T-2658)" \
+# T-3445 (was T-2658's short "Why?"): the owner dropped the "Why this setting" lines and essays.
+step "Settings and Move carry no 'Why?' lines or essays, every note there is one short line, and the researched defaults are named on their readouts (T-3445)" \
   node tools/test_short_why.mjs
 step "Navigator Jump: three era cards with HERE, the in-world ring and transfer stamp, Escape aborts, RECALL the one signal-red key (T-2655)" \
   node tools/test_nav_jump.mjs
@@ -413,6 +413,10 @@ step "a visitor walks through a building's modelled passage where it clears the 
   node tools/test_walker_passage.mjs
 step "a visitor walks into Fort Dearborn through a gate Interact opens, 1835 and 1812 (T-3319)" \
   node tools/test_fort_gates.mjs
+step "Glessner's front door swings open, and a visitor and a drawn person walk up its steps to it (T-3442)" \
+  node tools/test_house_doors.mjs
+step "John J. Glessner on his front walk is greeted, and goes home up his steps, through his door and in (T-3443)" \
+  node tools/test_house_errands.mjs
 step "Loaded parade ground delegates to its native owner; failed assets and sundial geometry remain required (T-3041)" \
   node tools/test_parade_presence.mjs
 step "Jaunt daybook: idempotent keepsakes, data ranks, honest recovery (T-1258)" \
@@ -439,6 +443,18 @@ step "Resident hair preserves verified source pixels, fitted UVs and existing sk
   python3 tools/test_human_hair_short04.py
 step "A cleared woman's hairstyle (Mattie's bun) is pinned, CC0, fitted to her head and skinned; its red tie recoloured (T-3434)" \
   python3 tools/test_human_hair_proxy.py
+step "A 1904 gentleman's day dress is sourced, layered and skinned on the shared rig (T-3441)" \
+  python3 tools/test_human_gentleman_1904.py
+step "A 1904 lady's day dress is sourced, layered and skinned on the shared rig (T-3447)" \
+  python3 tools/test_human_lady_1904.py
+step "A 1904 house maid's dress is sourced, layered and skinned on the shared rig (T-3448)" \
+  python3 tools/test_human_maid_1904.py
+step "An 1835 merchant's day dress is sourced, layered and skinned on the shared rig (T-3449)" \
+  python3 tools/test_human_merchant_1835.py
+step "An 1835 labourer's working dress is sourced, layered and skinned on the shared rig (T-3450)" \
+  python3 tools/test_human_labourer_1835.py
+step "An 1812 First Infantry private's dress is sourced, dated, layered and skinned on the shared rig (T-3451)" \
+  python3 tools/test_human_soldier_1812.py
 
 step "Resident body normals share exact source seams without welding geometry or UVs (T-1789)" \
   python3 tools/test_human_source_normals.py
@@ -604,6 +620,8 @@ step "All named1904 driver LODs retain their native contract and seated geometry
   node tools/test_working_driver_1904.mjs
 step "A person transfers to their driven vehicle without duplicate bodies or lifetime ownership (T-2804)" \
   node tools/test_human_driver_transfer.mjs
+step "A figure's distance levels are parked and reused, not reloaded; People hidden stops every figure (T-3439)" \
+  node tools/test_human_lod_park.mjs
 step "The shared interaction key and touch control stop and resume the existing transport actor (T-2804)" \
   node tools/test_transport_interactions.mjs
 step "Every person placed in town is named by the look tag, found, and followed beside them (T-3404)" \
@@ -1350,6 +1368,14 @@ step "a canted bay's own mansard may carry dormers on its front run (T-3283)" \
 # cut, too short, across a hip, over the cut, with a stack in it.
 step "a mansard crown may stand over a stretch of the front and turn a canted corner (T-3283)" \
   python3 tools/test_k01_front_crown.py
+
+# T-1890. 1801 Prairie's street face leans back further than its side faces (the Taylor print
+# and HABS photograph 2 put its curb's north-west corner about 1 m further back): the K05 ring
+# stack's street rings scaled to their own run, every face planar, no other mansard moved; the
+# deck, the covering and the street dormers on the street face's own pitch; refused when no
+# longer than the side run, shallower than 55 degrees, or leaving the deck under 1.5 m.
+step "a K01 mansard's street face may lean back on its own run (T-1890)" \
+  python3 tools/test_k01_street_lean.py
 
 # T-1881. 1729 Prairie's belt course under its second storey's sills (Taylor's photograph no.
 # 1445, the 1890 Albertype), swept round its runs and their projections, and its dormers' eared
@@ -4325,6 +4351,13 @@ step "Jaunt content refusals across the library (T-2040)" \
 selftest "…and each refusal still fires when broken (T-2040)" \
   python3 tools/audit_jaunt_refusals.py --self-test
 
+# The owner, 2026-11-07: a 1904 jaunt stop at a house later torn down says when, with a
+# claim, from data/jaunts/_names/demolished.json.
+step "1904 jaunt stops at torn-down houses say when (demolition notes)" \
+  python3 tools/check_jaunt_demolitions.py
+selftest "…and the demolition gate still fires on a stop stripped of its year" \
+  python3 tools/check_jaunt_demolitions.py --self-test
+
 step "Source-use backlinks match authored claims (T-1248)" \
   python3 tools/compile_source_use.py --check
 
@@ -4719,6 +4752,10 @@ selftest "shared sheets: one copy, the repack exact, a changed sheet or byte ref
 
 step "the published GLBs read back to their sources through their shared sheets (T-3232)" \
   node tools/share_glb_sheets.mjs ../../site/4d --check
+
+# T-3453: the people's GLBs share their pictures the same way, under data/humans/web/sheets/.
+step "the published human GLBs read back to their sources through their shared pictures (T-3453)" \
+  node tools/share_glb_sheets.mjs ../../site/4d --dir data/humans/web --source assets/humans/web --check
 
 # The frontage's timber ships prebuilt (T-2677): publish.sh builds it in Node with the
 # page's own createFrontage and the page uploads it. This refuses a prebuild whose

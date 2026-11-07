@@ -1,0 +1,26 @@
+{
+ "id": "met_ci_1833_tailcoat_and_trousers",
+ "type": "photograph",
+ "citation": "Coat, British, ca. 1833, silk (1981.210.4), and trousers, British, ca. 1833, flax (1982.316.11), shown together on a form with waistcoat and stock. The Metropolitan Museum of Art, The Costume Institute; open-access photograph DT412.",
+ "author": "The Metropolitan Museum of Art (object photograph)",
+ "date": "ca. 1833",
+ "describes_date": "1833",
+ "repository": "The Metropolitan Museum of Art, The Costume Institute; objects 81107 and 83180 in the museum's collection API (isPublicDomain: true), image at images.metmuseum.org.",
+ "url": "https://www.metmuseum.org/art/collection/search/81107",
+ "locator": "The single front view DT412 (2867 x 3722): the coat, waistcoat, stock and trousers dressed on a form.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "The Met's Open Access images of public-domain works are released CC0. Used only as a reference picture the 1835 merchant is judged against and for the cut of his coat, waistcoat and trousers (T-3449); nothing is traced or sampled from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (T-3449) from the museum's open-access image. A blue tailcoat cut square at the waist, its tails to the back of the knee, a collar standing high behind the neck, long sleeves full at the shoulder; a buff waistcoat showing in the coat's opening; a black stock at the neck; full pale trousers to the instep strapped under black shoes. Real garments in colour, British, not American and not of Chicago.",
+ "note": "One of the 1835 merchant reference set's pictures (data/people_match/reference_sets/merchant_1835.json); the companion trousers are object 83180 (https://www.metmuseum.org/art/collection/search/83180).",
+ "what_it_supplies": [
+  "the cut of a fashionable man's day dress of about 1833: a cutaway tailcoat, a waistcoat showing at its opening, a stock and full pale trousers",
+  "the coat's blue and the trousers' pale linen, in colour"
+ ],
+ "what_it_does_not_supply": [
+  "how the clothes sat on a living man, or a hat",
+  "anything about Chicago or Philip F. W. Peck: British garments, dressed on a form"
+ ]
+}

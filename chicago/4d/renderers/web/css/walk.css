@@ -1313,6 +1313,13 @@ body.is-touch .crosshair { display: none; }
 @media (max-width: 560px), (pointer: coarse) {
   .quick-interact .ik-verb, .quick-interact .ik-kbd { display: none; }
 }
+/* T-3443: a person's other actions (Go home), each a key like Interact's, under it. A
+   phone keeps their words and drops the number hint, as it does the R. */
+.interact-more { display: grid; gap: 8px; justify-items: end; pointer-events: none; }
+.interact-more[hidden] { display: none; }
+.interact-more > .quick-interact { animation: ik-more-in .2s ease-out; }
+@keyframes ik-more-in { from { opacity: 0; transform: translateX(8px); } }
+@media (prefers-reduced-motion: reduce) { .interact-more > .quick-interact { animation: none; } }
 /* T-3404: Stop following, in the Interact key's place and look. The name is for a wide
    screen; a phone keeps the verb, which is what the press does. */
 .quick-follow .fk-who { color: var(--ink); max-width: 16ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -2490,21 +2497,6 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
   color: var(--ink); background: var(--panel-solid); border: 1px solid var(--accent); border-radius: 10px; box-shadow: var(--shadow); }
 .term-tip[hidden] { display: none; }
 .term-tip strong { margin-right: 4px; }
-/* T-2658: the bubble a setting's "Why?" opens (js/why-tips.js) — one element on <body>,
-   placed beside its button and kept 16 px inside the window; the skin's own panel, ink,
-   accent and corner. It scales with Settings › Text size, scrolls if it ever outgrows the
-   window, and fades in only when motion is welcome. */
-.why-tip { position: fixed; z-index: 60; box-sizing: border-box; overflow: auto; pointer-events: auto;
-  padding: 10px 12px; font: 400 calc(13px * var(--text-scale, 1))/1.45 var(--font-body, inherit);
-  color: var(--ink); background: var(--panel-solid); border: 1px solid var(--accent);
-  border-radius: var(--r-screen, 10px); box-shadow: var(--shadow); overflow-wrap: anywhere;
-  animation: why-tip-in .14s var(--ease-machine, ease-out); }
-.why-tip[hidden] { display: none; }
-@keyframes why-tip-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
-.why-tip[data-side="above"] { animation-name: why-tip-up; }
-@keyframes why-tip-up { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
-@media (prefers-reduced-motion: reduce) { .why-tip { animation: none; } }
-
 /* T-2629 (NAV-305): Settings › About — the build stamp, and on a dev build the DEV mark
    in the preview banner's own amber. On a phone the dev chrome is not drawn on the town:
    the preview's banner and DEV pill (injected into the dev tree only) covered the HUD's
@@ -2548,5 +2540,4 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
   color: var(--accent); background: var(--panel, rgba(16, 32, 58, .94));
   border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
 }
-.why-full { border-left: 2px dashed color-mix(in srgb, var(--accent) 70%, transparent); padding-left: 8px; }
 .research-link { color: var(--accent); }

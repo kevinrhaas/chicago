@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_02_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "0e37a492e8155ab0b20d1ce56904ca52358298e954fd9ed139311f19bb0dc301",
+  "glb_sha256": "8c8be60f77ab5f71ee79c4ca6e4e16a4af35c353ecd8e4a22ac09b7b65fca82c",
   "camera_sha256": "475749e1e90699915d11ebb50d92b46197e764f7d46d08a73a70e5fe6cdc6593",
   "photo_sha256": "c7398dc2aaa4756b623abf4f559ebd98d609dd89f45bec762ade94a7510ac606",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg",
@@ -163,6 +163,10 @@
       "what": "the third storey's light's frame (T-1890, 2026-11-06): this print shows the one light behind the bow's balcony in a moulded architrave with lugs at its head and a projecting sill (about x 1430-1485, y 525-575), where the build's light is a plain recess in the wall dormer's face; a visitor would see the frame. The kit's flat-capped wall dormer has no architrave yet (its surround is only the face's own stone)",
       "status": "fixed",
       "how": "T-1890 (2026-11-06): the light now stands in a lugged architrave (mansard.dormers[3].architrave, K01's flat-capped wall dormer): a 0.18 m band 0.06 m proud of the face up both jambs and across the head, the head's ends carried 0.08 m past the jambs as lugs 0.26 m deep, and a sill 0.12 m deep standing 0.12 m out and 0.06 m past the band. Through this camera the frame now reads round the light as the print's does, its lugs at the head's top corners and its sill on the balustrade's line; the Taylor print of c. 1895 shows the same raised frame round the light, so it is 1904 fabric. The band's section and the lugs' drop are reconstructed (L-kimball-1801-third-storey-architrave-1890)"
+    },
+    {
+      "what": "the curb and the corner hood, re-read on the leaned street face (T-1890 (2026-11-07)): this print's slate top at the north-west corner (x 1203, y 320) and the hood's top (x 1195, y 260) were two of the readings the lean was triangulated from; the hood's top now renders within about 8 px of the print's and the cresting's foot along the front about 15 px under it (about 0.3 m); the finial over the hood stands taller than this 1965 print's, as the Taylor print's does (the 1965 finial is the shorter one already recorded)",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -1,0 +1,357 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "liberty": "L418",
+  "height_scale": 1.0,
+  "lod_ratios": [
+    1.0,
+    0.6,
+    0.28,
+    0.12
+  ],
+  "skin_texture": {
+    "path": "assets/authored/humans/skin_toigo_bronze/young_lightskinned_male_diffuse_Bronze.png",
+    "sha256": "5a53213f061bfa97ee0afd6b40650ffbc089a479c144e63f3c39acceca5853c0",
+    "license": "CC0-1.0",
+    "color_space": "sRGB",
+    "base_color_factor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "roughness": 0.68,
+    "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
+    "identity_basis": "Cleared reusable generic skin atlas; not a likeness, attested complexion, or source identifying any named/reconstructed resident.",
+    "uv_status": "Source atlas and UV registration viewed in source diagnostics; final Blender export/LOD render validation remains outstanding."
+  },
+  "hair_component": {
+    "directory": "assets/authored/humans/hair_short04",
+    "texture": "short04_diffuse_periodic_pad_draft.png",
+    "uv_transform": {
+      "source_height": 2048,
+      "top_rows": 8,
+      "bottom_rows": 1
+    },
+    "roughness": 0.65,
+    "alpha_cutoff": 0.4,
+    "appearance_basis": "Shared cleared CC0 short04 source fitted to existing Otis/Joseph/Martin bodies; hair/part/color are reconstructed choices, no period hairstyle attestation or individual likeness.",
+    "source_manifest_sha256": "68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99"
+  },
+  "eye_components": {
+    "radius_m": 0.012,
+    "iris_radius_m": 0.0055,
+    "pupil_radius_m": 0.0022,
+    "corneal_bulge_m": 0,
+    "cornea_enabled": false,
+    "source_basis": "Actual helper centers/axes; original opaque sclera/iris/pupil, reconstructed dimensions and brown color, not resident facts",
+    "status": "No actual BPy/export/blink fit/photographic acceptance"
+  },
+  "label": "Reconstructed 1812 private of the First Infantry (blue coat faced red, black leather stock, white crossbelts with cartridge box and bayonet scabbard, white linen overalls, black shoes and half gaiters, tall black felt cap with a white feather) on the shared portable male rig",
+  "scene_date": "1812-08-14",
+  "grade": "reconstructed",
+  "sources": [
+    "us_1812_rules_and_articles_albany",
+    "us_1814_military_laws_and_regulations",
+    "met_krimmel_1813_philadelphia_soldiery",
+    "loc_ogden_1888_infantry_artillery_1802_1810",
+    "quaife_1913"
+  ],
+  "basis": "Original coat shell offset from the cleared adult body's own surface, tails lofted round its sections, a stock and standing collar lofted round its neck, crossbelts cut from the coat's own surface, a cartridge box and scabbard on the pelvis, overalls on the shared workwear shell, a cap seated round the skull and closed boots round the feet, after the 1802 act's issue, the 1813 change read backwards and the period pictures (T-3451). Seams, ease, lengths and colours are reconstructed. Complete source anatomy remains unchanged beneath clothing.",
+  "source_scope": "The 1802 act fixing the military peace establishment (in an 1812 compilation) lists a private's yearly issue; the uniform change printed in 1813 and 1814 (no red collars or cuffs, no lace, leather caps for felt, pompons for feathers) is read backwards for what came before it; Krimmel's Philadelphia soldiery of 1811-13 (Met) shows blue coats faced orange-red, crossbelts and tall caps drawn at the time; Ogden's 1888 plate of 1802-1810 shows the older pattern; Quaife (1913) prints the muster-roll of Heald's company of the First Infantry. None shows the Fort Dearborn garrison; no pixels or traced shapes enter the asset.",
+  "colors_linear_rgba": {
+    "skin": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "eyes": [
+      0.12,
+      0.09,
+      0.06,
+      1.0
+    ],
+    "garment_upper__coat_blue_1812": [
+      0.014,
+      0.019,
+      0.055,
+      1
+    ],
+    "garment_upper__facings_red_1812": [
+      0.34,
+      0.022,
+      0.018,
+      1
+    ],
+    "garment_lower__overalls_linen_1812": [
+      0.7,
+      0.68,
+      0.62,
+      1
+    ],
+    "accessory__leather_stock_black": [
+      0.01,
+      0.01,
+      0.011,
+      1
+    ],
+    "accessory__crossbelts_white": [
+      0.74,
+      0.72,
+      0.66,
+      1
+    ],
+    "accessory__cartridge_box_black": [
+      0.012,
+      0.011,
+      0.01,
+      1
+    ],
+    "accessory__white_metal_buttons": [
+      0.52,
+      0.52,
+      0.5,
+      1
+    ],
+    "headwear__felt_cap_black": [
+      0.013,
+      0.012,
+      0.012,
+      1
+    ],
+    "headwear__plume_white": [
+      0.8,
+      0.79,
+      0.75,
+      1
+    ],
+    "footwear__shoes_gaiters_black_1812": [
+      0.012,
+      0.011,
+      0.011,
+      1
+    ]
+  },
+  "workwear_coverage": {
+    "shoe_clearance_m": 0.004
+  },
+  "proof_variants": [
+    {
+      "id": "private_first_infantry_1812",
+      "component_assembly": "soldier_1812_v1",
+      "person_reference_id": "anonymous_private_heald_company_1812",
+      "person_reference_scene": "1812",
+      "person_reference_grade": "reconstructed",
+      "person_reference_record": "data/sources/quaife_1913.json",
+      "reference_summary": {
+        "name": "a private of Captain Nathan Heald's company, First Infantry",
+        "named": false,
+        "unit": "First Regiment of Infantry",
+        "post": "Fort Dearborn",
+        "presence": "garrison"
+      },
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_adult_25.json",
+      "body_parameters": {
+        "chosen_height_m": 1.75,
+        "height_basis": "The shared engineering body; not a recorded height.",
+        "engineering_age_years": 25,
+        "age_basis": "Engineering body at age 25, a young private; no soldier of the company is named, and no age is read.",
+        "shape_basis": "CC0 male macro targets; equal software-category blend is engineering only, not inferred ancestry or a portrait."
+      },
+      "body_basis": "CC0 adult-male graphical body and the shared young light-skinned generic skin of the period studies are reconstructed authoring choices. The soldier is anonymous: a private of the company whose muster-roll Quaife prints, not any man on it; no complexion, height, face or outfit of anyone is asserted.",
+      "recipe_path": "data/humans/recipes/soldier_1812.json"
+    }
+  ],
+  "soldier_components": {
+    "version": 1,
+    "generator": "tools/human_soldier_1812.py",
+    "liberty": "L-human-modular-dress-1789",
+    "body_sha256": "e7b088b88ea18bb309ca990ef6c0cafea9420ac152d42d1351c1a9795daa9269",
+    "standing_source_only": false,
+    "production_eligible": false,
+    "photo_accepted": false,
+    "evidence_choice": "The brief asked for coat, trousers, cap and crossbelts for a private of the First Infantry in August 1812, careful of dating. The 1802 act names his issue; the change printed in 1813 says the infantry coat lost red collars and cuffs and lace, and the cap went from felt to leather and from feathers to pompons, so the coat here keeps red collar and cuffs, the cap is felt with a feather, and the 1813 leather cap and plain coatee are not used. A frontier company may well have worn an older or worn-out pattern (Ogden's 1802-1810 plate); that is a possibility recorded in the liberty, not modelled.",
+    "tailoring": {
+      "coat": {
+        "ease": 0.02,
+        "armpit_extra": 0.02,
+        "sleeve_short_of_wrist": 0.022,
+        "top_below_neck": 0.008,
+        "waist_below_spine02": 0.024,
+        "cuff_depth": 0.065,
+        "smoothing": 60,
+        "smoothing_min_ease": 0.018
+      },
+      "collar": {
+        "ease": 0.018,
+        "bottom_below_neck": 0.034,
+        "back_above_neck": 0.05,
+        "below_stock_top": 0.01,
+        "front_gap_deg": 26.0,
+        "segments": 40,
+        "rows": 5
+      },
+      "tails": {
+        "hem_y": 0.7,
+        "ease": 0.02,
+        "edge_top_deg": 96.0,
+        "edge_hem_deg": 138.0,
+        "vent_deg": 3.0,
+        "segments": 20,
+        "rows": 10
+      },
+      "buttons": {
+        "radius": 0.0075,
+        "count": 8,
+        "below_collar": 0.03,
+        "above_waist": 0.022,
+        "standoff": 0.0025,
+        "sides": 10
+      },
+      "crossbelts": {
+        "width": 0.052,
+        "shoulder_x": 0.092,
+        "hip_x": 0.15,
+        "top_below_neck": 0.02,
+        "offsets": [
+          0.0028,
+          0.0042
+        ]
+      },
+      "cartridge_box": {
+        "width": 0.17,
+        "height": 0.11,
+        "depth": 0.055,
+        "x": -0.105,
+        "below_waist": 0.045,
+        "off_back": 0.012
+      },
+      "scabbard": {
+        "width": 0.034,
+        "thickness": 0.012,
+        "length": 0.34,
+        "below_waist": 0.012,
+        "off_side": 0.02,
+        "back_z": -0.045,
+        "tilt_deg": 14.0
+      },
+      "overalls": {
+        "ease": 0.012,
+        "waist_height_fraction": 0.585,
+        "band_ease": 0.013,
+        "band_below_waist": 0.03,
+        "band_above_coat_seam": 0.016,
+        "cuff_radius_ratio": 0.92,
+        "added_section_ease": 0.012,
+        "thigh_transition_fraction": 0.65,
+        "hem_front_y": 0.064,
+        "hem_back_y": 0.032
+      },
+      "cap": {
+        "seat_below_top": 0.078,
+        "ease": 0.007,
+        "height": 0.175,
+        "flare": 1.03,
+        "peak": 0.05,
+        "peak_droop": 0.016,
+        "plume_height": 0.13,
+        "plume_radius": 0.019,
+        "plume_deg": -24.0,
+        "thickness": 0.004
+      }
+    },
+    "garments": [
+      {
+        "id": "coat_blue_faced_red",
+        "material": "garment_upper__coat_blue_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "us_1814_military_laws_and_regulations",
+            "met_krimmel_1813_philadelphia_soldiery",
+            "us_1812_rules_and_articles_albany"
+          ],
+          "source_scope": "Blue with red collar and cuffs: inferred from the 1813 change, which took the red facings away, and Krimmel's volunteers wear blue faced orange-red; the 1802 act issues one coat a year. Single-breasted and closed, the button row, the white metal and the lack of lace are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "coat_tails",
+        "material": "garment_upper__coat_blue_1812",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "us_1814_military_laws_and_regulations",
+            "loc_ogden_1888_infantry_artillery_1802_1810"
+          ],
+          "source_scope": "Cut away in front to short tails behind, to mid-thigh: the 1813 change put all rank and file in coatees, so the earlier coat may have been longer (Ogden's 1802-1810 coats reach the knee). The length is reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "black_leather_stock",
+        "material": "accessory__leather_stock_black",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "us_1812_rules_and_articles_albany"
+          ],
+          "source_scope": "The 1802 act issues \"one stock and clasp\" a year; black leather and the height are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "crossbelts_box_and_scabbard",
+        "material": "accessory__crossbelts_white",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_krimmel_1813_philadelphia_soldiery",
+            "loc_ogden_1888_infantry_artillery_1802_1810"
+          ],
+          "source_scope": "Crossbelts crossing on the breast, a cartridge box behind and a bayonet at the hip on Krimmel's volunteers (1811-13, dark leather) and in Ogden's 1888 plate (white); neither is the First Infantry. The white follows Ogden; widths and placing are reconstructed; no breast plate.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "linen_overalls",
+        "material": "garment_lower__overalls_linen_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "us_1812_rules_and_articles_albany"
+          ],
+          "source_scope": "The 1802 act issues two pair of linen overalls and two of woollen a year; linen is chosen for August. Cut on the shared workwear shell; full length and white are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "shoes_and_half_gaiters",
+        "material": "footwear__shoes_gaiters_black_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "us_1812_rules_and_articles_albany",
+            "met_krimmel_1813_philadelphia_soldiery"
+          ],
+          "source_scope": "Four pair of shoes and one pair of half gaiters a year (1802 act); black gaiters on Krimmel's volunteers. The shared closed boot stands for both.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "felt_cap_with_feather",
+        "material": "headwear__felt_cap_black",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "us_1814_military_laws_and_regulations",
+            "met_krimmel_1813_philadelphia_soldiery"
+          ],
+          "source_scope": "The 1813 change substituted leather caps for felt and pompons for feathers, so a felt cap with a feather is inferred for 1812; its tall cylinder, the peak and the feather's colour and place are reconstructed (Krimmel shows tall black caps).",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "met_hornor_1836_broadway_new_york",
+ "type": "illustration",
+ "citation": "Thomas Hornor, Broadway, New-York, Shewing Each Building from the Hygeian Depot Corner of Canal Street to beyond Niblo's Garden, 1836, aquatint and etching with hand colouring (published by Joseph Stanley). The Metropolitan Museum of Art, 54.90.703.",
+ "author": "Thomas Hornor",
+ "date": "1836",
+ "describes_date": "1836",
+ "repository": "The Metropolitan Museum of Art, Drawings and Prints; object 339878 in the museum's collection API (isPublicDomain: true), image at images.metmuseum.org.",
+ "url": "https://www.metmuseum.org/art/collection/search/339878",
+ "locator": "The west sidewalk at lower left (open-access image 49H_116R3, 3337 x 2475, about x 150-1000, y 1450-1980).",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "The Met's Open Access images of public-domain works are released CC0. Used only as a reference picture the 1835 merchant is judged against at street distance (T-3449); nothing is traced or sampled from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (T-3449). Men walking Broadway among women and carts: a man in a blue tailcoat, black top hat and white trousers in the middle of the walk, others in tailcoats and top hats, working men in round jackets and caps. Published 1836, a year after the scene date, and of New York.",
+ "note": "One of the 1835 merchant reference set's pictures (data/people_match/reference_sets/merchant_1835.json).",
+ "what_it_supplies": [
+  "what a man in a tailcoat and top hat looked like at street distance in an American city of the mid 1830s"
+ ],
+ "what_it_does_not_supply": [
+  "detail of cut at this size; a hand-coloured print's colours are the colourist's",
+  "anything about Chicago or Philip F. W. Peck"
+ ]
+}

@@ -1,0 +1,27 @@
+{
+ "id": "chicago_tribune_1922_07_06_pullman_wrecked",
+ "type": "newspaper",
+ "citation": "'PULLMAN HOME BEING WRECKED.' Chicago Tribune, 6 July 1922: a halftone photograph of the George M. Pullman house, 1729 Prairie Avenue, part pulled down. Staff photographer. Reproduced on chicagology.com, Prairie Avenue, 1729 S. Prairie.",
+ "author": "Chicago Tribune staff photographer",
+ "date": "1922-07-06",
+ "describes_date": "1922-07 (the house being demolished, 18 years after the scene date): the mansard and the portico already down, the walls standing to the cornice",
+ "repository": "Chicago Tribune; reproduced on chicagology.com. Prairie library image a16-cgy-tribune-1922-pullman-wrecked, its original (3247 x 2056 px) and display file in the image store. The owner's cleaner crop of the picture is committed at data/sources/assets/pullman_1729_tribune_1922_t1881/.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/1729prairie/",
+ "locator": "The photograph's house: one face nearly square on, a stepped-out middle block between two narrower parts with a further, recessed part to the right, rubble heaped before it, a low boundary wall along the foot, a street tree before the right-hand parts. Which face it shows is not settled (2026-11-07): the owner first read it as the Prairie front, then as the 18th Street side; its window pattern matches neither as the earlier photographs show them (see note).",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "A US newspaper photograph published in 1922, in the public domain. Read for forms, planes, places and proportions; no texture or mesh is derived from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-07 (T-1881). The owner uploaded a cleaner copy, 715 x 429 px (sha256 c40232f935d8200c50e3e49ced532b692c990d0ae9eb417ac83e9f7df74eff86), committed byte for byte. The library's original, https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/chicagotribunegraphic6july1922pullmanhome.jpg, was fetched and checked: 3247 x 2056 px, sha256 4ddae76c952c996e1d6b2c24298ba562389bf071509df86ef3e8fd39a17812ee, the library's original_sha256; it carries the headline and caption the owner's copy crops away.",
+ "note": "The one picture of the house with the mansard and the portico or porte-cochere already down, so the walls' planes and quoins show plainly. Face not yet placed. Read against the owner's south-west photograph and Taylor's no. 1445: each side part has one light a storey and the stepped-out block one big round-arched light over a pilastered, round-arched door, quoined at every corner. The 18th Street side shows two lights a storey beside the Prairie corner and a pair and a triple over the porte-cochere; the Prairie front's portico part shows two lights a storey over the portico. No camera is solved on it and nothing in the build is read from it until the face is settled.",
+ "what_it_supplies": [
+  "the house's stone detail at close range: quoins, window architraves with colonettes, a pilastered door case, belt and cornice",
+  "the planes of one face, once the face is placed"
+ ],
+ "what_it_does_not_supply": [
+  "which face it shows (not settled)",
+  "the mansard, its dormers and cresting, and the portico or porte-cochere, all already down",
+  "colour"
+ ]
+}

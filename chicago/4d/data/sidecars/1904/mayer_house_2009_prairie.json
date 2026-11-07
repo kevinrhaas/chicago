@@ -658,14 +658,45 @@
           "foot_m": 0.22
         },
         "ledge_m": 11.97,
-        "takes_gutter": true
+        "takes_gutter": true,
+        "run_on": {
+          "wall": "k01.wall.side.north",
+          "profile_m": [
+            [
+              2.31,
+              12.34
+            ],
+            [
+              2.6,
+              11.86
+            ],
+            [
+              3.0,
+              11.26
+            ],
+            [
+              3.37,
+              10.78
+            ],
+            [
+              3.62,
+              10.46
+            ],
+            [
+              3.78,
+              10.32
+            ]
+          ],
+          "band_m": 0.45,
+          "back_m": 0.9
+        }
       },
       "confidence": "inferred",
       "sources": [
         "chicagology_2009_prairie_meyer_photo",
         "monroe_1896_john_wellborn_root_meyer_plate"
       ],
-      "note": "The ogee gable, the front carried up past the side walls into a concave-sided spire, read off the photograph at 100 px a metre: its coped outline's half-width at ten heights (the average of its two sides, about 1.86 m at 12.65 m, 1.24 m at 13.65 m, 0.83 m at 14.65 m, 0.51 m at 15.65 m), widened about 0.15 m through its middle where the render laid over the print through its camera stood inside the print's outline on both sides, rising to a flat top about 0.8 m across at about 16.3 m (the print's about 0.85 m) (the print's left shoulder at y 97 px, 16.30 m), on which the carved crest stands; it leaves the front's full width at the kneeler stone (11.4 m). Its two attic lights (a pair on a mullion, 0.62 m across, 13.75-14.57 m) under the apex. The north side's flare stops on the kneeler at 11.4 m where the south side runs on down to about 10.3 m over the party wall; the kit draws both sides alike (liberty). T-3365: the crest is the print's carved block, not a turned finial: read at 6x with its contrast stretched, a stone about 0.6 m across (x 765-826 px) standing from the coping's inner line at about 16.07 m (y 120 px) to about 16.39 m (y 88 px), its top scrolled in two lobes either side of a boss between; drawn as K01's crest form, its three lobes the envelope of its top and each lobe's eye a boss (the carving's foliage itself is not drawn: liberty). The carved pendant over the paired light is street_front_windows.hoods' (T-3365). T-3365: takes_gutter — the print's front runs up into its gable with no gutter across it at the gable's foot (the hood over the paired light stands where K01's street gutter had run), so the street run is not built and the side runs die into the slab's base, as 1812's."
+      "note": "The ogee gable, the front carried up past the side walls into a concave-sided spire, read off the photograph at 100 px a metre: its coped outline's half-width at ten heights (the average of its two sides, about 1.86 m at 12.65 m, 1.24 m at 13.65 m, 0.83 m at 14.65 m, 0.51 m at 15.65 m), widened about 0.15 m through its middle where the render laid over the print through its camera stood inside the print's outline on both sides, rising to a flat top about 0.8 m across at about 16.3 m (the print's about 0.85 m) (the print's left shoulder at y 97 px, 16.30 m), on which the carved crest stands; it leaves the front's full width at the kneeler stone (11.4 m). Its two attic lights (a pair on a mullion, 0.62 m across, 13.75-14.57 m) under the apex. The north side's flare stops on the kneeler at 11.4 m; T-3365: the south side runs on down over the party wall (run_on), its coping's outer edge read row by row off the print at 99.9 px a metre (half-width 2.31 m at 12.34 m, 2.6 at 11.86, 3.0 at 11.26, 3.37 at 10.78, 3.62 at 10.46, the corner at 10.32 m), on a 0.45 m band, the corner cut down under it 0.9 m back to a brick cheek (what stands behind the coping is not in the print: L-k01-2009-meyer-gable-run-on-3365). T-3365: the crest is the print's carved block, not a turned finial: read at 6x with its contrast stretched, a stone about 0.6 m across (x 765-826 px) standing from the coping's inner line at about 16.07 m (y 120 px) to about 16.39 m (y 88 px), its top scrolled in two lobes either side of a boss between; drawn as K01's crest form, its three lobes the envelope of its top and each lobe's eye a boss (the carving's foliage itself is not drawn: liberty). The carved pendant over the paired light is street_front_windows.hoods' (T-3365). T-3365: takes_gutter — the print's front runs up into its gable with no gutter across it at the gable's foot (the hood over the paired light stands where K01's street gutter had run), so the street run is not built and the side runs die into the slab's base, as 1812's."
     },
     "roof_covering": {
       "value": {
@@ -1008,7 +1039,8 @@
       "tier": 4,
       "tier_label": "later scholarship",
       "what_it_supplies": [
-        "year built, architect, style and owners as the marker states them for 2009, 2100, 2115, 2126 and 2140 Prairie"
+        "year built, architect, style and owners as the marker states them for 2009, 2100, 2115, 2126 and 2140 Prairie",
+        "the year each house was razed, as the marker gives it"
       ],
       "what_it_does_not_supply": [
         "measurements or appearance beyond the style named"

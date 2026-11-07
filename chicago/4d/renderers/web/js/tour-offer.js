@@ -10,7 +10,8 @@
  *
  * THE HINTS. One line each, once per device, for the first Jaunt (at its first stop), the
  * first Jump (on the far year's way into the town) and the first Reconstructed building
- * (when its card or Inspect opens). None shows while the Field Check is running: the tour
+ * (when its card or Inspect opens). T-3445 adds two: the first time the Interact key offers
+ * something in reach (a fort gate), and the first Follow. None shows while the Field Check is running: the tour
  * has the screen, and a hint held back is still owed. A hint takes no pointer events and
  * goes after a few seconds, or at the visitor's next move.
  *
@@ -25,7 +26,7 @@ export const HINTS_KEY = 'chicago4d.hintsSeen';
 /** Written (session storage) by the Navigator's Jump as the page goes (apps/jump-view.js),
  * read once by the far year: an arrival from the Observatory is not a Jump. */
 export const JUMPED_KEY = 'chicago4d.jumped';
-export const HINT_IDS = ['jaunt', 'jump', 'reconstructed'];
+export const HINT_IDS = ['jaunt', 'jump', 'reconstructed', 'interact', 'follow'];
 export const HINT_MS = 6000;
 const TOUR_KEY = 'chicago4d.tour'; // js/tour.js
 

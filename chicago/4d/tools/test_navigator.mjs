@@ -1258,6 +1258,9 @@ for (const phone of [true, false]) {
   // keep their places while hidden (walk.css), so neither appearing shifts the other.
   // T-3404: and Stop following, there only while the visitor walks alongside a person.
   assert.equal((quick.match(/<button\b/g) ?? []).length, 3, 'the quick column holds the Inspect, Interact and Stop following keys');
+  // T-3443: and after them, the holder for a person's further actions (Go home, 2 …), filled by interact.js.
+  assert.match(html.slice(html.indexOf('<div class="quick-column"')), /^<div class="quick-column"[\s\S]*?id="btn-follow"[\s\S]*?<div id="interact-more"[^>]*hidden><\/div>\s*<\/div>/,
+    'the further actions\' holder closes the quick column, empty and hidden');
   assert.match(quick, /id="btn-inspect"[^>]*hidden/);
   assert.match(quick, /id="btn-interact"[^>]*hidden/);
   assert.match(quick, /id="btn-follow"[^>]*hidden/);

@@ -1,5 +1,5 @@
 /**
- * The Field Check's face (T-2663, section 11, M10): a card that says which step of seven,
+ * The Field Check's face (T-2663, section 11, M10): a card that says which step of how many,
  * the task, the bubble and WAITING FOR INPUT, with Skip always there; and, when a step has
  * a target, a spotlight ring around it with the rest of the screen dimmed to 55 %. The
  * overlay takes no pointer events but its card's, so the visitor acts on the real page.
