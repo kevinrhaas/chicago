@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2771, ts: '2026-11-07T11:39:51.974Z', date: 'Nov 7, 2026, 5:39 AM CT', title: 'Pullman\'s 18th Street flank gets its broad ivy-hung windows', kind: 'improvement',
+    items: [
+      '1729 Prairie\'s 18th Street face, east of the carriage porch, now has the two broad square-headed windows under transoms that the c. 1900 Detroit photograph shows, in place of narrow round-headed lights.',
+      'Ivy now clothes that stretch of wall and the carriage porch\'s east piers, kept clear of the windows as the house\'s other ivy is.',
+    ] },
   { v: 2770, ts: '2026-11-07T10:24:17.933Z', date: 'Nov 7, 2026, 4:24 AM CT', title: '1801 Prairie\'s roof leans back from the street as its photographs show', kind: 'improvement',
     items: [
       'The Kimball house\'s slate roof on Prairie Avenue now leans back, its top edge about a metre further from the street and a little lower, as both photographs taken from the north-west show it.',
