@@ -2,7 +2,7 @@
   "structure_id": "mayer_house_2009_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/mayer_house_2009_prairie__as_mapped_1904.glb",
-  "glb_sha256": "f60bc4542d3600c173f28a2c4eebb7b97b4d8a61c605259c5f2aad010235ab03",
+  "glb_sha256": "0a0ace75fe14099f101c2005d57ae5a61746f20da83bb820e9be72b5ce2afb0c",
   "camera_sha256": "78ec8f49f37566693a797fc7fa98ded24d4845ec40ef057129786224b8258d8a",
   "photo_sha256": "03db894ab10dff078b747f611eba3dd8d9bc3b1f35aae50435017dcd4640b4a2",
   "side_by_side": "docs/RESEARCH/photo-match/mayer_house_2009_prairie/chicagology_photo-side-by-side.jpg",
@@ -45,8 +45,12 @@
       "status": "within tolerance"
     },
     {
-      "what": "the oriel's carved apron under its lights (5.05-5.9 m): the build's corbel courses are plain stone",
-      "status": "open"
+      "what": "the oriel's carved apron under its lights: the print, read at 3x with its contrast stretched, carves a band from about 5.56 m to the lights' sill course at about 5.94 m with small four-lobed flowers about 0.15 m across in two staggered rows at about 0.38 m (nine along the top row across the front and its cants), over a moulded roll on the corbel; laid as the oriel's apron_band, 5.55-5.89 m under the sill stones, rosettes of a boss and four petals 0.136 m across at 0.38 m in two staggered rows, 17 of them (T-3365)",
+      "status": "fixed"
+    },
+    {
+      "what": "the apron's rosettes stand 0.02-0.04 m proud, so they read fainter than the print's deep-cut flowers; and the moulded roll the print shows between the band and the corbel (about 5.27-5.55 m) is the build's plain oriel face over its top corbel course",
+      "status": "within tolerance"
     },
     {
       "what": "the street lights' stone surrounds of long and short blocks, round the ground window, the small light and the paired light",

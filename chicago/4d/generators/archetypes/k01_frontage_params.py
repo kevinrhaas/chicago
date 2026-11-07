@@ -1098,6 +1098,24 @@ def _k15_heads(k: dict, stacks: list, chimneys: list, cover) -> None:
     omit = set(k.get("omit", []))
     if omit - {"bands", "dentils", "panels"}:
         raise ParamError(f"chimneys.k15.omit {sorted(omit)}: bands, dentils or panels")
+    # T-3370: a picture may draw a heavier head than the variant's: its own corbel courses
+    # ([height, projection beyond the shaft], each out over the one below) and cap
+    # ({thickness_m, projection_m}, out over the last course), read off the picture
+    head_over = {}
+    if "corbels" in k:
+        cb = [(float(h), float(pr)) for h, pr in k["corbels"]]
+        if not cb or any(not (0.05 <= h <= 0.3 and 0.0 <= pr <= 0.4) for h, pr in cb) \
+                or any(b[1] < a[1] for a, b in zip(cb, cb[1:])):
+            raise ParamError("chimneys.k15.corbels: courses 0.05-0.3 m high, 0-0.4 m out, each out over the one below")
+        head_over["corbels"] = [list(c) for c in cb]
+    if "cap" in k:
+        cp_ = k["cap"]
+        if set(cp_) - {"thickness_m", "projection_m"} or not {"thickness_m", "projection_m"} <= set(cp_):
+            raise ParamError("chimneys.k15.cap takes thickness_m and projection_m")
+        last = head_over.get("corbels", [[0, 0]])[-1][1]
+        if not (0.05 <= float(cp_["thickness_m"]) <= 0.45 and last <= float(cp_["projection_m"]) <= 0.5):
+            raise ParamError(f"chimneys.k15.cap: 0.05-0.45 m thick, {last}-0.5 m out")
+        head_over["cap"] = {"thickness_m": float(cp_["thickness_m"]), "projection_m": float(cp_["projection_m"])}
     base, so, fl = var["stacks"][0], kit["soot"], kit["parts"]["flashing"]
     nfl, fo = int(k.get("flues", len(base["flues"]))), kit["parts"]["flue"]["opening_m"]
     pn = k.get("panels")
@@ -1114,6 +1132,10 @@ def _k15_heads(k: dict, stacks: list, chimneys: list, cover) -> None:
             raise ParamError(f"chimney at ({u}, {v}): {nfl} flues of {fo} m do not fit its {sz} m face")
         spec = {key: copy.deepcopy(x) for key, x in base.items()
                 if key not in ("x", "z", "width_m", "depth_m", "top_m", "flues", "panels") and key not in omit}
+        if "corbels" in head_over:
+            spec["corbels"] = copy.deepcopy(head_over["corbels"])
+        if "cap" in head_over:
+            spec["cap"] = dict(spec["cap"], **head_over["cap"])
         spec.update(width_m=sz, depth_m=sx, across="z", top_m=top,
                     flues=[{"at": round((i + 0.5) * sz / nfl - sz / 2, 4), **({"pot": pot} if pot else {})}
                            for i in range(nfl)])
@@ -3051,6 +3073,34 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                  f"and a guilloche of {sorted(gk)}, not {cb}")
             v["cap_band"] = {"height_m": float(cb["height_m"]), "proud_m": float(cb["proud_m"]),
                              "guilloche": {k: (int(g[k]) if k == "segments" else float(g[k])) for k in sorted(gk)}}
+        if "apron_band" in e:
+            # T-3365: a carved band round the bay under its lowest lights' sills, read off a
+            # picture (2009 Prairie's oriel, the Chicagology photograph: two staggered rows of
+            # small carved flowers over the moulded roll on its corbel)
+            ab = e["apron_band"]
+            ro = ab.get("rosettes") if isinstance(ab, dict) else None
+            rk = {"radius_m", "proud_m", "pitch_m", "rows", "segments"}
+            if not isinstance(ro, dict) or set(ab) != {"from_m", "to_m", "proud_m", "rosettes"} or set(ro) != rk \
+                    or not (0.0 <= float(ab["from_m"]) and 0.15 <= float(ab["to_m"]) - float(ab["from_m"]) <= 0.8
+                            and 0.01 <= float(ab["proud_m"]) <= 0.06) \
+                    or not (0.03 <= float(ro["radius_m"]) <= 0.2 and 0.0 < float(ro["proud_m"]) <= 0.04
+                            and 2 * float(ro["radius_m"]) < float(ro["pitch_m"]) <= 1.0
+                            and 1 <= int(ro["rows"]) <= 3 and 6 <= int(ro["segments"]) <= 16):
+                raise ParamError(f"bays: {e['id']}'s apron_band takes from_m and to_m over the bay's floor "
+                                 f"(a band 0.15-0.8 m deep), proud_m (0.01-0.06 m) and rosettes of "
+                                 f"{sorted(rk)} (radius 0.03-0.2 m, at most 0.04 m proud, 1-3 rows, a pitch "
+                                 f"over their width to 1 m, 6-16 segments), not {ab}")
+            k06 = float(json.loads(WINDOW_KIT.read_text())["parts"]["sill"]["height_m"])
+            low = min((float(w["sill_m"]) for w in v["storeys"][0].get("windows", [])), default=None)
+            # its top clear of the sill stones' bed: on it, the two faces would be one plane drawn twice
+            if low is None or float(ab["to_m"]) > low - k06 - 0.005 + 1e-6:
+                raise ParamError(f"bays: {e['id']}'s apron_band stands under its lowest storey's lights, its "
+                                 f"top 5 mm or more under their sill stones (at most "
+                                 f"{None if low is None else round(low - k06 - 0.005, 3)} m)")
+            v["apron_band"] = {"from_m": float(ab["from_m"]), "to_m": float(ab["to_m"]),
+                               "proud_m": float(ab["proud_m"]),
+                               "rosettes": {k: (int(ro[k]) if k in ("rows", "segments") else float(ro[k]))
+                                            for k in sorted(rk)}}
         # T-3197: a storey slated at its sides (1827's pavilion attic under its crown, the Doane
         # photograph): the front run's outer width_m at each end and every other run, in slate
         for st in v["storeys"]:
@@ -7340,6 +7390,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                  else gable_roof["ridge_m"] if gable
                  else float(val("hip_deck")["deck_m"]) if val("hip_deck")   # T-3241: over its deck
                  else (round(pf + sum(heights), 4) + width / 2 * tp))
+        hip_deck_m = float(val("hip_deck")["deck_m"]) if val("hip_deck") else math.inf
+
+        def hip_cover(u_, v_):   # T-3370: a hip's covering over a plan point, cut off at its deck
+            return min(round(pf + sum(heights), 4) + tp * max(0.0, min(u_, depth - u_, v_, width - v_)), hip_deck_m)
         for st_ in ch["stacks"]:
             u, v = float(st_["u_m"]), float(st_["v_m"])
             sx, sz = (float(x) for x in st_.get("plan_m", ch["plan_m"]))
@@ -7448,6 +7502,15 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                     if top < gable_roof["ridge_m"] + 0.6 - 1e-9:
                         raise ParamError(f"chimney at ({u}, {v}) tops at {top} m, under the ridge's "
                                          f"{gable_roof['ridge_m']} m + 0.6")
+                elif not (flat or mansard or gable):
+                    # T-3370: a hip's stack read off a picture stands at its own top (1936's
+                    # south flank stack, under its neighbour, the Chicagology photograph): it
+                    # clears the hip's covering under its own plan, and its deck where one cuts
+                    # the hip off, by the same 0.6 m a ridge stack clears its ridge
+                    hi = max(hip_cover(u + sx / 2 * a, v + sz / 2 * b) for a in (-1, 0, 1) for b in (-1, 0, 1))
+                    if top < hi + 0.6 - 1e-9:
+                        raise ParamError(f"chimney at ({u}, {v}) tops at {top} m, under the hip's covering "
+                                         f"{hi:.3f} m + 0.6 over its plan")
                 elif not mansard:
                     raise ParamError(f"chimney at ({u}, {v}): a top_m of its own is a mansard, a flat "
                                      "roof's or a gable parapet's stack")
@@ -7603,12 +7666,14 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                      f"hipped crown's ridge {cr['ridge_m']} m + 0.6")
     if ch and ch.get("k15"):
         # T-2466: the K15 kit's head (its sunk panels, corbelled courses and cap) on T-2302's
-        # plain stacks, read against the mansard's own covering
-        if not mansard or "plan_m" not in ch:
-            raise ParamError("chimneys.k15 dresses a mansard's plain stacks (plan_m); a hip's stacks "
-                             "name their K15 variant in chimney_positions")
+        # plain stacks, read against the mansard's own covering; T-3370: or a hip's, cut off
+        # at its deck where one stands (1936's two south stacks, the Chicagology photograph)
+        if not (mansard or roof_form == "hip") or "plan_m" not in ch:
+            raise ParamError("chimneys.k15 dresses a mansard's or a hip's plain stacks (plan_m); a hip's "
+                             "K15 specimens may instead name their variant in chimney_positions")
         _k15_heads(ch["k15"], ch["stacks"], chimneys,
-                   mansard_cover(mansard_roof, depth, width, eave, pitch, float(val("eave_overhang_m"))))
+                   mansard_cover(mansard_roof, depth, width, eave, pitch, float(val("eave_overhang_m")))
+                   if mansard else hip_cover)
     spp = (mansard_roof or {}).get("side_parapet")
     if spp:
         # T-3061: no eave gutter runs along a wall carried up as a parapet, so no pipe falls from one
