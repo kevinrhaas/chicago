@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2739, ts: '2026-11-07T00:02:46.579Z', date: 'Nov 6, 2026, 6:02 PM CT', title: 'Building cards: a style guide for every building, and tidier tabs', kind: 'improvement',
+    items: [
+      'Every building\'s Design tab is now a style guide: what it is, its roof and front, what to look for, then Shape, Walls, Roof, Windows and doors, and Grounds, each line with its grade dot.',
+      'Story is now called Timeline.',
+      'Sources lists each source once, the most-used first; tap one to see every fact it gave.',
+      'A new Details tab, before Sources, holds every fact grouped by grade, with Liberties. The Confidence meter opens it.',
+      'The tabs sit on one row of icons with small labels, on a phone too.',
+    ] },
   { v: 2738, ts: '2026-11-07T00:00:42.369Z', date: 'Nov 6, 2026, 6:00 PM CT', title: 'Mattie Williamson looks like a woman of 1904', kind: 'improvement',
     items: [
       'The Glessners\' cook had been given a man\'s skin texture, with a beard shadow along her jaw. She now has a woman\'s skin texture from the same set.',
