@@ -7,7 +7,9 @@
   "glessner_john_j": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_glessner_john_j.json",
-   "drawn_as": [],
+   "drawn_as": [
+    "data/humans/instances/1904/hi_glessner_john_j_1904.json"
+   ],
    "age": {
     "years": 61,
     "grade": "attested",
