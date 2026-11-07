@@ -36694,6 +36694,12 @@ bun hair, shared; the hair keeps its brown, and nothing records whether Frances 
 her has been read. Every amount is chosen by eye against the pictures; none
 is measured, and none says how she dressed.
 
+**Her face, 2026-11-07 (T-3473):** her face's proportions are now fitted to a photograph of her, the
+Chicago History Museum's conservatory portrait of 4 March 1892 (ICHi-061818, at 44), read against
+her own female body's face rather than the men's base; what the one three-quarter view does not
+settle stays at her body's own lean. Her hair as she wore it (drawn up to a crown of braids in
+Hartley's 1897 multigraph) and her colouring are still chosen: the town's bun and the shared skin.
+
 **The 1904 house maid supplement, 2026-11-07 (T-3448):** a house maid's working dress on the same
 component path, `tools/human_maid_1904.py` with `data/humans/recipes/maid_1904.json`, built as the asset
 `reynolds_mary_1904_maid` on the shared female body and first worn by Mary Reynolds, house maid in the

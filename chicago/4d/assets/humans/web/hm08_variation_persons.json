@@ -289,6 +289,62 @@
      "glessner_house_family_page"
     ],
     "basis": "born 1848-01-01 (the person's record)"
+   },
+   "face": {
+    "grade": "attested",
+    "sources": [
+     "chm_ichi_061818_frances_glessner_conservatory_1892"
+    ],
+    "basis": "Fitted to a photograph of her showing her whole face (the Chicago History Museum's 1892 conservatory photograph, ICHi-061818): the eye spacing, nose, mouth, chin and ear placement are read from it, against her own body's face, as far as the shared MakeHuman face axes can express them. Depth is read from a single three-quarter view, so an axis the marks say little about stays near her body's own (listed as mostly_prior). Her 1897 multigraph (five views at once, two in profile) is held as a cross-check, not fitted: its heads are too small in the copy held.",
+    "values": {
+     "nose_length": -0.172,
+     "nose_width": -0.25,
+     "nose_depth": 0.152,
+     "nose_hump": -0.2,
+     "nose_curve": -0.013,
+     "nose_tip": 0.159,
+     "nose_tip_width": 0.0,
+     "nostrils": -0.2,
+     "nose_height": 0.175,
+     "mouth_width": -0.12,
+     "lip_upper": 0.12,
+     "lip_lower": 0.129,
+     "mouth_height": 0.218,
+     "chin_prominence": 0.403,
+     "chin_width": -0.149,
+     "chin_height": -0.265,
+     "jaw": -0.449,
+     "prognathism": 0.02,
+     "cheekbones": 0.2,
+     "cheek_volume": 0.15,
+     "cheek_inner": 0.0,
+     "brow_height": -0.041,
+     "brow_angle": 0.37,
+     "brow_ridge": -0.25,
+     "forehead_slope": 0.0,
+     "temples": 0.0,
+     "ear_size": -0.204,
+     "ear_flap": 0.0,
+     "ear_lobe": -0.312,
+     "jowls": -0.25,
+     "head_shape": 0.254,
+     "forehead_height": 0.0,
+     "head_shape.option": 0
+    },
+    "liberty": "L-human-variation-3412",
+    "not_modelled": [
+     "her colouring (the photographs are monochrome; skin and hair colours are chosen)",
+     "her hair as she wore it (drawn up to a crown of braids in 1897; the model wears the town's bun)"
+    ],
+    "card": {
+     "source_citation": "Photograph of Frances Macbeth Glessner standing in a conservatory among potted plants, full length, in a high-necked gown with puffed sleeves and a ruffled collar, 4 March 1892. Chicago History Museum, ICHi-061818.",
+     "source_url": "https://images.chicagohistory.org/asset/25064",
+     "rms_mm": 5.3,
+     "marks": 13,
+     "portrait": "humans/web/portraits/glessner_frances_m_portrait.jpg",
+     "model": "humans/web/portraits/glessner_frances_m_model.jpg"
+    },
+    "fit": "data/humans/variation/fits/glessner_frances_m.json"
    }
   },
   "glessner_john_j": {
