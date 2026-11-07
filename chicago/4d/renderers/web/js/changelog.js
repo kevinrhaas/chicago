@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 2769, ts: '2026-11-07T09:50:31.681Z', date: 'Nov 7, 2026, 3:50 AM CT', title: 'A Glessner house maid has her 1904 working dress', kind: 'feature',
+    items: [
+      'Mary Reynolds, house maid at 1800 Prairie Avenue in 1900, wears a black long-sleeved dress to the floor with a white collar and cuffs.',
+      'A white bib apron nearly to the hem, its straps frilled over the shoulders and its ties in a bow behind, as a 1904 photograph of a maid at a front door shows.',
+      'A small white frilled cap on her drawn-up hair.',
+      'She is dressed and can stand and walk, but does not appear in town yet.',
+    ] },
+  { v: 2768, ts: '2026-11-07T09:50:31.681Z', date: 'Nov 7, 2026, 3:50 AM CT', title: 'Frances Glessner has her 1904 day clothes', kind: 'feature',
+    items: [
+      'A black fitted jacket with narrow revers over a white shirtwaist, its standing collar high under the chin and a lace jabot down the front.',
+      'A black gored skirt to the ground that sways with her legs as she walks.',
+      'A wide black hat with plumes, perched over her drawn-up hair, as 1904 street photographs show.',
+      'She is dressed and can stand and walk, but does not appear in town yet.',
+    ] },
   { v: 2767, ts: '2026-11-07T09:10:31.747Z', date: 'Nov 7, 2026, 3:10 AM CT', title: 'Knock at the Glessners\' door and ask for him', kind: 'feature',
     items: [
       'Send Mr. Glessner home, then press Interact at his front door: Ask for John J. Glessner comes first.',
