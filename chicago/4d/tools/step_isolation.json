@@ -4287,6 +4287,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/lay_prairie_1904_back_yards.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/lay_prairie_1904_street_furniture.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5582,6 +5586,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_back_yards.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_batch_coalesce.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5934,26 +5942,6 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/test_human_lady_1904.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_human_maid_1904.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_human_merchant_1835.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_human_labourer_1835.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_human_soldier_1812.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
     "tools/test_human_grounded_gait.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5986,11 +5974,27 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_human_labourer_1835.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_lady_1904.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_human_life.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/test_human_lod_park.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_maid_1904.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_merchant_1835.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6019,6 +6023,10 @@
       "wrote_ignored": []
     },
     "tools/test_human_skin_canonicalize.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_soldier_1812.py": {
       "wrote": [],
       "wrote_ignored": []
     },

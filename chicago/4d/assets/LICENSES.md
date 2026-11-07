@@ -393,10 +393,14 @@ parkways, built by the generator that ships inside it (`tools/generate_prairie_1
 deterministic, seeded per material) in the 1835 library's map-for-map layout at 512 px. Which
 surface wears which material, and on what evidence, is `data/street_surfaces/1904.json`'s to
 say; the look of every map is reconstructed (`docs/LIBERTIES.md` L296).
+T-3488 added a `yard/` group of five back- and side-yard grounds (`yard_brick_herringbone`,
+`bluestone_flags`, `pea_gravel`, `beaten_earth`, `garden_loam`) from the same generator and on the
+same terms; which yard surface wears which is the back-yard layout's to say, and their look is
+reconstructed too.
 
 | item | licence | cleared for | NOT cleared for |
 |---|---|---|---|
-| `textures/prairie_1904_pbr/**` — *Prairie Avenue 1904 street-surface PBR library v1.0.0*, original procedural output generated for this project. Full text at `textures/prairie_1904_pbr/LICENSE.txt` | **Project-permissive, CC0-equivalent**, the 1835 library's terms. No third-party photograph or image is embedded, sampled or traced | **Use, modification and redistribution with the project**, including regenerated maps | **Stripping the confidence labels.** Each `material.json` says its appearance is reconstructed and that the surfaces file, not the map, carries the evidence |
+| `textures/prairie_1904_pbr/**` — *Prairie Avenue 1904 street-surface PBR library v1.1.0*, original procedural output generated for this project. Full text at `textures/prairie_1904_pbr/LICENSE.txt` | **Project-permissive, CC0-equivalent**, the 1835 library's terms. No third-party photograph or image is embedded, sampled or traced | **Use, modification and redistribution with the project**, including regenerated maps | **Stripping the confidence labels.** Each `material.json` says its appearance is reconstructed and that the surfaces file, not the map, carries the evidence |
 
 **Published in part.** `tools/publish.sh` ships each material's `material.json` and its three
 `*_web.jpg` maps to `data/textures/prairie_1904_pbr/`; the PNG masters, the DirectX normal and the
@@ -517,6 +521,81 @@ textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_orm.ktx
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_orm.png
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_orm_web.jpg
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_roughness.png
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_ao.png
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_basecolor.ktx2
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_basecolor.png
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_basecolor_web.jpg
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_height16.png
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_metallic.png
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_normal_dx.png
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_normal_gl.ktx2
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_normal_gl.png
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_normal_gl_web.jpg
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_orm.ktx2
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_orm.png
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_orm_web.jpg
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_roughness.png
+textures/prairie_1904_pbr/yard/beaten_earth/material.json
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_ao.png
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_basecolor.ktx2
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_basecolor.png
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_basecolor_web.jpg
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_height16.png
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_metallic.png
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_normal_dx.png
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_normal_gl.ktx2
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_normal_gl.png
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_normal_gl_web.jpg
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_orm.ktx2
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_orm.png
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_orm_web.jpg
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_roughness.png
+textures/prairie_1904_pbr/yard/bluestone_flags/material.json
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_ao.png
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_basecolor.ktx2
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_basecolor.png
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_basecolor_web.jpg
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_height16.png
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_metallic.png
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_normal_dx.png
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_normal_gl.ktx2
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_normal_gl.png
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_normal_gl_web.jpg
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_orm.ktx2
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_orm.png
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_orm_web.jpg
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_roughness.png
+textures/prairie_1904_pbr/yard/garden_loam/material.json
+textures/prairie_1904_pbr/yard/pea_gravel/material.json
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_ao.png
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_basecolor.ktx2
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_basecolor.png
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_basecolor_web.jpg
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_height16.png
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_metallic.png
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_normal_dx.png
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_normal_gl.ktx2
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_normal_gl.png
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_normal_gl_web.jpg
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_orm.ktx2
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_orm.png
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_orm_web.jpg
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_roughness.png
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/material.json
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_ao.png
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_basecolor.ktx2
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_basecolor.png
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_basecolor_web.jpg
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_height16.png
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_metallic.png
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_normal_dx.png
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_normal_gl.ktx2
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_normal_gl.png
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_normal_gl_web.jpg
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_orm.ktx2
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_orm.png
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_orm_web.jpg
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_roughness.png
 ```
 
 ### The 1812 Potawatomi camp coverings library — `textures/camp_1812_pbr/`
