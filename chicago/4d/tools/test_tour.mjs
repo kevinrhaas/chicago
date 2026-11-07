@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 // T-2663 (NAV-801): Tour mode, the Field Check. Drives the real engine (js/tour.js) over a
-// fake page: each of the eight steps completes only on its own action, taken during it;
+// fake page: each of the nine steps completes only on its own action, taken during it;
 // progress survives a reload (QA-16: resume at 4, skip at 6, replay); bubbles are 14 words
 // or fewer. T-2954 made it the basics: select a building and release it, open Move, open
-// Settings; no Confidence view step. The smoke (part 13) runs it in a page by touch and by
+// Settings; no Confidence view step. T-3445 added People (skipped where the rail has no
+// People app) and the card's tabs, and the count names only the steps that apply. The smoke (part 13) runs it in a page by touch and by
 // mouse.
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -23,9 +24,9 @@ const storage = store();
 const make = () => createTour({ probe: () => ({ ...page, apps: { ...page.apps } }), render: (v) => views.push(v), onFinish: () => finished++, storage });
 const openApp = (id) => { page.apps[id] = (page.apps[id] ?? 0) + 1; page.level = 1; };
 
-// ---- the eight steps, and their words -----------------------------------------------------
-assert.equal(STEPS.length, 8);
-assert.deepEqual(STEPS.map((s) => s.task), ['Your device', 'Look around', 'Walk', 'Select a building', 'Release it', 'Move', 'Settings', 'Ready']);
+// ---- the nine steps, and their words -----------------------------------------------------
+assert.equal(STEPS.length, 9);
+assert.deepEqual(STEPS.map((s) => s.task), ['Your device', 'Look around', 'Walk', 'Select a building', 'Release it', 'Move', 'People', 'Settings', 'Ready']);
 assert(!STEPS.some((s) => /confidence/i.test(s.task + s.bubble({}))), 'no Confidence view step (T-2954)');
 const words = (s) => s.split(/\s+/).filter(Boolean).length;
 for (const scene of ['1904', '1835', '1812']) {
@@ -39,9 +40,9 @@ for (const scene of ['1904', '1835', '1812']) {
     }
   }
 }
-assert.equal(STEPS[3].bubble({ scene: '1904' }), 'Click the Glessner House. Its file opens.', 'step 04 in 1904, with a mouse');
-assert.equal(STEPS[3].bubble({ scene: '1904', touch: true }), 'Tap the Glessner House. Its file opens.', 'and on touch');
-assert.equal(STEPS[3].bubble({ scene: '1835', front: 'Sauganash Hotel', touch: true }), 'Tap the Sauganash Hotel. Its file opens.', 'in 1835, the building in front of you');
+assert.equal(STEPS[3].bubble({ scene: '1904' }), 'Click the Glessner House. Its card opens: Design, Timeline, Photos, Sources.', 'step 04 in 1904, with a mouse');
+assert.equal(STEPS[3].bubble({ scene: '1904', touch: true }), 'Tap the Glessner House. Its card opens: Design, Timeline, Photos, Sources.', 'and on touch');
+assert.equal(STEPS[3].bubble({ scene: '1835', front: 'Sauganash Hotel', touch: true }), 'Tap the Sauganash Hotel. Its card opens: Design, Timeline, Photos, Sources.', 'in 1835, the building in front of you');
 assert.match(STEPS[4].bubble({}), /Esc/, 'release names Esc on a keyboard');
 assert.match(STEPS[4].bubble({ touch: true, card: true }), /Tap Close/, 'and the card\'s Close on touch');
 assert.match(STEPS[4].bubble({ touch: true }), /Tap Back/, 'and Inspect\'s Back where the building opened in Inspect (T-3022)');
@@ -50,8 +51,14 @@ assert.equal(STEPS[4].target({ card: true }), '#popup:not([hidden]) .pop-close',
 assert.equal(STEPS[4].target({}), '#nav-app-inspect .insp-back', 'or Inspect\'s Back (T-3022)');
 assert.equal(STEPS[5].target({ touch: true, level: 0 }), '#navigator', 'on a docked phone, Move rings the dock first');
 assert.equal(STEPS[5].target({ touch: true, level: 1 }), '#navigator .nav-app[data-app="move"]', 'then the rail key');
-assert.equal(STEPS[6].target({ touch: false, level: 0 }), '#navigator .nav-app[data-app="settings"]', 'the desktop rail is always out');
-assert.match(STEPS[6].bubble({ touch: true, level: 0 }), /^Open the Navigator, then Settings/);
+assert.equal(STEPS[6].target({ touch: true, level: 1 }), '#navigator .nav-app[data-app="people"]', 'People rings its rail key');
+assert.match(STEPS[6].bubble({ scene: '1904' }), /^Open People on the rail: .*follow them\.$/, 'in 1904 People says Follow (T-3404)');
+assert.doesNotMatch(STEPS[6].bubble({ scene: '1835' }), /follow/i, 'and nowhere a person cannot be followed');
+assert.equal(STEPS[6].when({ people: false }), false, 'People applies only where the rail has it');
+assert.equal(STEPS[6].when({}), true, '…and wherever the page does not say');
+assert.equal(STEPS[7].target({ touch: false, level: 0 }), '#navigator .nav-app[data-app="settings"]', 'the desktop rail is always out');
+assert.match(STEPS[7].bubble({ touch: true, level: 0 }), /^Open the Navigator, then Settings/);
+assert.match(STEPS[8].bubble({}), /photo/, 'Ready names Go to by photo (T-3436)');
 
 // ---- each step waits for its own action -----------------------------------------------------
 let tour = make();
@@ -77,7 +84,7 @@ page.e = 4; page.n = 4; tour.tick(); assert.equal(tour.step, 3, 'walked five met
 // 04: Inspect or a card opening on a structure, during the step.
 page.yawDeg = 120; page.e = 40; tour.tick(); assert.equal(tour.step, 3, 'turning and walking do not select');
 page.touch = true; tour.tick();
-assert.equal(views.at(-1).bubble, 'Tap the Glessner House. Its file opens.', 'a finger on the glass repaints the bubble');
+assert.equal(views.at(-1).bubble, 'Tap the Glessner House. Its card opens: Design, Timeline, Photos, Sources.', 'a finger on the glass repaints the bubble');
 page.opens++; page.selected = true; tour.tick(); assert.equal(tour.step, 4, 'a record opened');
 
 // Reload at step 4 (QA-16): a fresh engine over the same storage resumes there.
@@ -99,12 +106,18 @@ assert.equal(tour.step, 5, 'opening the Navigator is not opening Move');
 assert.equal(views.at(-1).target, '#navigator .nav-app[data-app="move"]', 'the ring moves to the Move key');
 openApp('move'); tour.tick(); assert.equal(tour.step, 6, 'Move opened');
 
-// 07: Settings, opened during the step (Move already open does not count).
-openApp('move'); tour.tick(); assert.equal(tour.step, 6, 'another app is not Settings');
-openApp('settings'); tour.tick(); assert.equal(tour.step, 7, 'Settings opened');
+// 07: People (T-3445), opened during the step.
+assert.equal(views.at(-1).target, '#navigator .nav-app[data-app="people"]');
+assert.equal(views.at(-1).of, 9, 'nine steps where the rail has People');
+openApp('move'); tour.tick(); assert.equal(tour.step, 6, 'another app is not People');
+openApp('people'); tour.tick(); assert.equal(tour.step, 7, 'People opened');
 
-// 08: Finish.
-tour.tick(); assert.equal(tour.step, 7, 'step 08 waits for Finish');
+// 08: Settings, opened during the step (People already open does not count).
+openApp('people'); tour.tick(); assert.equal(tour.step, 7, 'another app is not Settings');
+openApp('settings'); tour.tick(); assert.equal(tour.step, 8, 'Settings opened');
+
+// 09: Finish.
+tour.tick(); assert.equal(tour.step, 8, 'step 09 waits for Finish');
 assert.equal(views.at(-1).action, 'finish');
 tour.press();
 assert.equal(tour.running, false); assert.equal(finished, 1, 'Finish ends the tour');
@@ -125,6 +138,21 @@ assert.equal(tour.running, false);
 assert.equal(views.at(-1), null);
 assert.equal(make().resume(), false, 'a skipped tour does not come back on reload');
 assert.equal(make().start(), true, 'Replay starts it again from 01');
+
+// Where the rail has no People app, the step is passed over and not counted.
+{
+  const noPeople = { ...page, people: false, apps: {} };
+  const seen = [];
+  const t2 = createTour({ probe: () => ({ ...noPeople, apps: { ...noPeople.apps } }), render: (v) => seen.push(v), storage: store() });
+  t2.start();
+  assert.equal(seen.at(-1).of, 8, 'eight steps count where People does not apply');
+  t2.press(); noPeople.yawDeg += 90; t2.tick(); noPeople.e += 10; t2.tick(); noPeople.opens++; noPeople.selected = true; t2.tick();
+  noPeople.selected = false; t2.tick();
+  noPeople.apps.move = 1; t2.tick();
+  assert.equal(t2.step, 7, 'Move done, People passed over, straight to Settings');
+  assert.equal(seen.at(-1).task, 'Settings');
+  assert.equal(seen.at(-1).n, 7, 'and Settings is numbered seventh of eight');
+}
 
 // Storage refused: the tour still runs, for this page.
 const refusing = { getItem() { throw new Error('no'); }, setItem() { throw new Error('no'); } };
@@ -149,4 +177,4 @@ assert(/rgb\(0 0 0 \/ 55%\)/.test(css), 'the rest of the screen dims to 55 %');
 assert(/prefers-reduced-motion: reduce/.test(css), 'and keeps still with reduced motion');
 assert(/\.tour \{[^}]*pointer-events: none/.test(css) && /\.tour-card \{[^}]*pointer-events: auto/.test(css), 'only the card takes the pointer');
 
-console.log('test_tour: eight steps, each on its own action (select, release, Move, Settings); resume at 4, skip at 6, replay; bubbles of 14 words or fewer');
+console.log('test_tour: nine steps, each on its own action (select, release, Move, People, Settings), People passed over where absent; resume at 4, skip at 6, replay; bubbles of 14 words or fewer');

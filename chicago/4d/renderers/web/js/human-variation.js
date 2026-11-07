@@ -163,41 +163,90 @@ export function denseDelta(kit, variation, scope = 'full') {
   return D;
 }
 
+/**
+ * Cell coordinates to one number (T-3439): a cell is at most 32,767 cells from the origin on
+ * any axis, which at the 1 cm and 3 cm cells used here is hundreds of metres. A string key
+ * (`c.join(',')`) cost a garment's first fit seconds of the main thread.
+ */
+const KEY_SPAN = 65536, KEY_MID = 32768;
+function cellKey(c) {
+  let k = 0;
+  for (let d = 0; d < c.length; d++) k = k * KEY_SPAN + (c[d] + KEY_MID);
+  return k;
+}
+
 /** A uniform hash grid over `dim`-dimensional points, for nearest-point queries. */
 export function pointGrid(points, dim, cell) {
   const map = new Map(), n = points.length / dim;
-  const key = (c) => c.join(',');
+  const c = new Array(dim);
   for (let i = 0; i < n; i++) {
-    const c = []; for (let d = 0; d < dim; d++) c.push(Math.floor(points[i * dim + d] / cell));
-    const k = key(c); let list = map.get(k); if (!list) map.set(k, (list = [])); list.push(i);
+    for (let d = 0; d < dim; d++) c[d] = Math.floor(points[i * dim + d] / cell);
+    const k = cellKey(c); let list = map.get(k); if (!list) map.set(k, (list = [])); list.push(i);
   }
-  return { points, dim, cell, map, key };
+  return { points, dim, cell, map, key: cellKey };
 }
 
-/** Index of the nearest grid point to each query point (the search widens until it finds one). */
+/**
+ * Index of the nearest grid point to each query point (the search widens until it finds one).
+ *
+ * T-3439: the shells are walked in the same order as ever (the cube of each ring in
+ * lexicographic order, only its surface read; strictly nearer wins, so ties go to the first
+ * seen), with numeric keys and no allocation per cell. It used to build a key string and two
+ * arrays for every cell of the cube, surface or not: 2.2 of a 1904 cook's 3.7 s first fit.
+ */
 export function nearest(grid, query) {
-  const { points, dim, cell, map, key } = grid, n = query.length / dim;
+  const { points, dim, cell, map } = grid, n = query.length / dim;
   const out = new Uint32Array(n), c = new Array(dim), o = new Array(dim);
-  for (let p = 0; p < n; p++) {
-    for (let d = 0; d < dim; d++) c[d] = Math.floor(query[p * dim + d] / cell);
-    let best = -1, bd = Infinity;
-    for (let ring = 0; ring <= 6 && (best < 0 || (ring - 1) * cell <= Math.sqrt(bd)); ring++) {
-      // every cell on the shell at Chebyshev distance `ring`
-      const visit = (d) => {
-        if (d === dim) {
-          if (Math.max(...o.map(Math.abs)) !== ring) return;
-          const list = map.get(key(o.map((x, i) => x + c[i])));
-          if (!list) return;
-          for (const v of list) {
-            let s = 0; for (let e = 0; e < dim; e++) { const z = points[v * dim + e] - query[p * dim + e]; s += z * z; }
-            if (s < bd) { bd = s; best = v; }
-          }
-          return;
-        }
-        for (let x = -ring; x <= ring; x++) { o[d] = x; visit(d + 1); }
-      };
-      visit(0);
+  let p = 0, best = -1, bd = Infinity;
+  const read = (k) => {
+    const list = map.get(k);
+    if (!list) return;
+    for (let li = 0; li < list.length; li++) {
+      const v = list[li];
+      let s = 0; for (let e = 0; e < dim; e++) { const z = points[v * dim + e] - query[p * dim + e]; s += z * z; }
+      if (s < bd) { bd = s; best = v; }
     }
+  };
+  // The cube of side 2 ring + 1 about cell c, lexicographic, reading only the cells on its surface.
+  const shell = (ring) => {
+    if (dim === 2) {
+      for (let x = -ring; x <= ring; x++) {
+        const edge = x === -ring || x === ring, kx = (c[0] + x + KEY_MID) * KEY_SPAN;
+        for (let y = -ring; y <= ring; y++) {
+          if (!edge && y !== -ring && y !== ring) continue;
+          read(kx + (c[1] + y + KEY_MID));
+        }
+      }
+      return;
+    }
+    if (dim === 3) {
+      for (let x = -ring; x <= ring; x++) {
+        const ex = x === -ring || x === ring, kx = (c[0] + x + KEY_MID) * KEY_SPAN;
+        for (let y = -ring; y <= ring; y++) {
+          const exy = ex || y === -ring || y === ring, kxy = (kx + (c[1] + y + KEY_MID)) * KEY_SPAN;
+          if (exy) { for (let z = -ring; z <= ring; z++) read(kxy + (c[2] + z + KEY_MID)); }
+          else { read(kxy + (c[2] - ring + KEY_MID)); if (ring) read(kxy + (c[2] + ring + KEY_MID)); }
+        }
+      }
+      return;
+    }
+    const visit = (d) => {
+      if (d === dim) {
+        let m = 0; for (let e = 0; e < dim; e++) m = Math.max(m, Math.abs(o[e]));
+        if (m !== ring) return;
+        for (let e = 0; e < dim; e++) o[e] += c[e];
+        read(cellKey(o));
+        for (let e = 0; e < dim; e++) o[e] -= c[e];
+        return;
+      }
+      for (let x = -ring; x <= ring; x++) { o[d] = x; visit(d + 1); }
+    };
+    visit(0);
+  };
+  for (p = 0; p < n; p++) {
+    for (let d = 0; d < dim; d++) c[d] = Math.floor(query[p * dim + d] / cell);
+    best = -1; bd = Infinity;
+    for (let ring = 0; ring <= 6 && (best < 0 || (ring - 1) * cell <= Math.sqrt(bd)); ring++) shell(ring);
     if (best < 0) {
       // Nothing within six cells: look at every point (rare, and never in a loop of shells).
       for (let v = 0; v < points.length / dim; v++) {
@@ -342,12 +391,12 @@ const CLEAR_MIN_M = 0.0015, CLEAR_MAX_M = 0.03, CARRY_M = 0.025;
 
 /** The body's delta under a point, weighted over the skin within CARRY_M (a cloth hem does not ripple with the vertices it happens to sit nearest). */
 function carriedDelta(grid, ref, d, x, y, z, nearestIdx, out) {
-  const { points, cell, map, key } = grid, r = Math.ceil(CARRY_M / cell);
+  const { points, cell, map } = grid, r = Math.ceil(CARRY_M / cell);
   const cx = Math.floor(x / cell), cy = Math.floor(y / cell), cz = Math.floor(z / cell);
   const sig2 = (CARRY_M / 2) ** 2;
   let w = 0; out[0] = out[1] = out[2] = 0;
   for (let i = -r; i <= r; i++) for (let j = -r; j <= r; j++) for (let k = -r; k <= r; k++) {
-    const list = map.get(key([cx + i, cy + j, cz + k]));
+    const list = map.get(((cx + i + KEY_MID) * KEY_SPAN + (cy + j + KEY_MID)) * KEY_SPAN + (cz + k + KEY_MID));
     if (!list) continue;
     for (const v of list) {
       const dx = points[v * 3] - x, dy = points[v * 3 + 1] - y, dz = points[v * 3 + 2] - z, s = dx * dx + dy * dy + dz * dz;

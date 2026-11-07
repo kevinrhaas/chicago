@@ -110,6 +110,26 @@ export function resourceSummary(s) {
  * the last stop"): this stop is where the outing ends. A stop whose next is an ending, or whose
  * every choice goes to one; a stop that goes on, or that may (one choice continues), is not.
  */
+/**
+ * T-3459: the season a dated stop stands in, by its month (March to May spring, June to
+ * August summer, September to November fall, December to February winter), or null for
+ * a stop with no date. The owner, 2026-11-07: a jaunt that says spring 1812 opened in his
+ * own Winter, because a stop's date moved the sun and never the Season.
+ */
+export function seasonOfDate(date) {
+  const month = Number(/^\d{4}-(\d{2})-\d{2}$/.exec(date ?? '')?.[1]);
+  if (!(month >= 1 && month <= 12)) return null;
+  return ['winter', 'winter', 'spring', 'spring', 'spring', 'summer', 'summer', 'summer', 'fall', 'fall', 'fall', 'winter'][month - 1];
+}
+/** T-3459: the season a stop is shown in: its date's, else the jaunt's ambience, else null. */
+export const stopSeason = (jaunt, stop) => seasonOfDate(stop?.date) || jaunt?.ambience?.season || null;
+/** T-3459: the light a jaunt opens in, for its menu row and welcome: its ambience, else the
+ *  first stop's own hour and its date's season. */
+export function openingLight(jaunt) {
+  const first = jaunt?.stops?.[0];
+  const hour = first?.hour || jaunt?.ambience?.hour, season = stopSeason(jaunt, first);
+  return hour || season ? { ...(hour ? { hour } : {}), ...(season ? { season } : {}) } : null;
+}
 export function isFinalStop(s) {
   const stop = currentStop(s);
   if (!stop || s.stopIndex < s.visited.length - 1) return false;
@@ -278,8 +298,20 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
   };
   // One queue for the light, so a season (which moves the sun's day) lands before the
   // hour solved on it, and a give-back never overtakes the set it undoes.
-  let hourSet = false, hourHeld = '', seasonHeld = false, lightQueue = Promise.resolve();
+  // T-3459: `seasonHeld` is the season the outing holds ('' when none): a dated stop's own,
+  // else the jaunt's ambience; it changes only when a stop asks for another. Seasons run on
+  // their own queue, and the hour waits only for a season to BEGIN (its day moves at once;
+  // its woods re-grow after, seconds on a slow device): an hour held back behind the
+  // re-growing left a stop in the last stop's light and date.
+  let hourSet = false, hourHeld = '', seasonHeld = '', lightQueue = Promise.resolve(), seasonQueue = Promise.resolve();
   const queueLight = fn => { lightQueue = lightQueue.then(fn).catch(() => { /* the light stays; the outing goes on */ }); };
+  const queueSeason = fn => {
+    let begun;
+    const begin = new Promise(resolve => { begun = resolve; });
+    seasonQueue = seasonQueue.then(() => { try { return fn(); } finally { begun(); } })
+      .catch(() => { /* the season stays; the outing goes on */ });
+    queueLight(() => begin);
+  };
   const restoreHour = () => {
     if (!hour || !hourSet) return;
     hourSet = false; hourHeld = '';
@@ -288,14 +320,14 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
   const restoreLight = () => {
     restoreHour();
     if (!season || !seasonHeld) return;
-    seasonHeld = false;
-    queueLight(() => season.restore());
+    seasonHeld = '';
+    queueSeason(() => season.restore());
   };
   const applyHour = stop => {
-    const ambience = state.jaunt?.ambience;
-    if (season && ambience?.season && !seasonHeld) {
-      seasonHeld = true;
-      queueLight(() => season.set(ambience.season, { transient: true }));
+    const ambience = state.jaunt?.ambience, wanted = stopSeason(state.jaunt, stop);
+    if (season && wanted && wanted !== seasonHeld) {
+      seasonHeld = wanted;
+      queueSeason(() => season.set(wanted, { transient: true }));
     }
     if (!hour) return;
     const value = stop?.hour || ambience?.hour;

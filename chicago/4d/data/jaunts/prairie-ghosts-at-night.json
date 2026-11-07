@@ -47,16 +47,17 @@
         "kind": "structure",
         "id": "pullman_house_1729_prairie"
       },
-      "text": "1729 Prairie, the Pullman house. George Pullman made his first fortune lifting Chicago out of its own mud, jacking up whole buildings 'on average six feet without causing them any damage'. Then came the sleeping car, and Lincoln's body rode home to Springfield in one while 'hundreds of thousands of people lined the route in homage'. In 1894 he cut his workers' pay but 'he didn't reduce the rent in Pullman', his company town, and his workers struck. When he died in 1897 his family feared he would be dug up. So, the story goes, he went into a 'lead-lined mahogany coffin, which was then sealed inside a block of concrete', with steel rails 'bolted together at right angles' on top. Mrs. Pullman still lives here. And her husband hated the house across the street.",
+      "text": "1729 Prairie, the Pullman house. George Pullman made his first fortune lifting Chicago out of its own mud, jacking up whole buildings 'on average six feet without causing them any damage'. Then came the sleeping car, and Lincoln's body rode home to Springfield in one while 'hundreds of thousands of people lined the route in homage'. In 1894 he cut his workers' pay but 'he didn't reduce the rent in Pullman', his company town, and his workers struck. When he died in 1897 his family feared he would be dug up. So, the story goes, he went into a 'lead-lined mahogany coffin, which was then sealed inside a block of concrete', with steel rails 'bolted together at right angles' on top. Mrs. Pullman still lives here; the house is razed in 1922. And her husband hated the house across the street.",
       "evidence": [
         "pullman-raise",
         "pullman-strike",
         "pullman-grave",
         "pullman-widow",
+        "pullman-razed",
         "tour"
       ],
       "next": "glessner",
-      "read_s": 38
+      "read_s": 40
     },
     {
       "id": "glessner",
@@ -116,14 +117,15 @@
         "kind": "structure",
         "id": "marshall_field_house_1905_prairie"
       },
-      "text": "1905 Prairie, Marshall Field's house. 'Give the lady what she wants', said the merchant, and the ladies made him 'the wealthiest and most powerful businessman in Chicago', worth $125 million by 1905. Tonight it all looks safe. It is not. In thirteen months his son, next door, will be shot. Six weeks after that, Field plays golf on New Year's Day 1906 with Robert Todd Lincoln, Abraham's son, catches pneumonia and dies on 16 January. Father and son, both gone in one winter. Walk on to the son's house, the one with the footsteps.",
+      "text": "1905 Prairie, Marshall Field's house. 'Give the lady what she wants', said the merchant, and the ladies made him 'the wealthiest and most powerful businessman in Chicago', worth $125 million by 1905. Tonight it all looks safe. It is not. In thirteen months his son, next door, will be shot. Six weeks after that, Field plays golf on New Year's Day 1906 with Robert Todd Lincoln, Abraham's son, catches pneumonia and dies on 16 January. Father and son, both gone in one winter. The house lasts until 1955, then it is razed too. Walk on to the son's house, the one with the footsteps.",
       "evidence": [
         "field-house",
         "field-rich",
+        "field-razed",
         "tour"
       ],
       "next": "field-jr",
-      "read_s": 26
+      "read_s": 29
     },
     {
       "id": "field-jr",
@@ -510,6 +512,24 @@
         "taylor_c1895_kimball_residence_1801"
       ],
       "locator": "The whole photograph."
+    },
+    {
+      "id": "pullman-razed",
+      "text": "George M. Pullman Residence, 1729 S. Prairie Avenue: razed 1922.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "locator": "The 1729 S. Prairie Avenue entry."
+    },
+    {
+      "id": "field-razed",
+      "text": "Marshall Field Residence, 1905 S. Prairie Avenue: later converted to an aeronautical university. Razed 1955.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_east"
+      ],
+      "locator": "The 1905 S. Prairie Avenue entry."
     }
   ],
   "liberties": [

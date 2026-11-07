@@ -4,10 +4,27 @@
  "generated_by": "tools/human_variation_kit.py",
  "_doc": "Each drawn person's age (from their own record: a birth date, else an age band) and any face fitted to a picture of them. renderers/web/js/human-variation.js seeds everything else from the person id. Regenerate; never edit by hand.",
  "persons": {
+  "glessner_frances_m": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_glessner_john_j.json",
+   "drawn_as": [
+    "data/humans/instances/1904/hi_glessner_frances_m_1904.json"
+   ],
+   "age": {
+    "years": 56,
+    "grade": "attested",
+    "sources": [
+     "glessner_house_family_page"
+    ],
+    "basis": "born 1848-01-01 (the person's record)"
+   }
+  },
   "glessner_john_j": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_glessner_john_j.json",
-   "drawn_as": [],
+   "drawn_as": [
+    "data/humans/instances/1904/hi_glessner_john_j_1904.json"
+   ],
    "age": {
     "years": 61,
     "grade": "attested",
@@ -59,10 +76,7 @@
     },
     "liberty": "L-human-variation-3412",
     "not_modelled": [
-     "round wire spectacles (worn in the photograph)",
-     "a full grey moustache",
-     "white hair at the sides and a bald crown",
-     "his colouring (the plate is a monochrome halftone)"
+     "his colouring (the plate is a monochrome halftone; skin, hair and cloth colours are chosen)"
     ],
     "card": {
      "source_citation": "[John J. Glessner], The Commercial Club of Chicago: Its Beginning and Something of Its Work (Chicago: privately printed for presentation to members of the Commercial Club, Binner-Wells Company, printers, 1910), p. 81, plate 'Former Presidents of the Commercial Club': the halftone portrait captioned 'John J. Glessner 1897'.",
@@ -82,6 +96,37 @@
     "data/humans/instances/1904/hi_glessner_williamson_martha_l_1904.json"
    ]
   },
+  "grummo_paul": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_heald_company_private_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "pa1904_glessner_john_j_c1900_mary_reynolds": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_glessner_john_j.json",
+   "drawn_as": [
+    "data/humans/instances/1904/hi_pa1904_glessner_john_j_c1900_mary_reynolds_1904.json"
+   ],
+   "age": {
+    "years": 33,
+    "grade": "inferred",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1871 (the person's record)"
+   }
+  },
   "pa1904_otis_f_r_c1900_hans_johnson": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_otis_f_r.json",
@@ -96,6 +141,22 @@
     ],
     "basis": "born 1870 (the person's record)"
    }
+  },
+  "peck_philip": {
+   "scene": "1835",
+   "record": "data/residents/households/hh_peck_philip.json",
+   "drawn_as": [
+    "data/humans/instances/1835/hi_peck_philip_1835.json"
+   ],
+   "age": {
+    "band": [
+     30,
+     39
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 30-39 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
   },
   "rc_bardwell_otis": {
    "scene": "1835",
@@ -129,6 +190,22 @@
     "basis": "age band 20-29 (the person's record); the year inside it is seeded"
    },
    "sex": "female"
+  },
+  "rc_mahoney_patrick": {
+   "scene": "1835",
+   "record": "data/residents/reconstructed_trades/hh_rc_mahoney_patrick.json",
+   "drawn_as": [
+    "data/humans/instances/1835/hi_rc_mahoney_patrick_1835.json"
+   ],
+   "age": {
+    "band": [
+     30,
+     39
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 30-39 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
   }
  }
 }

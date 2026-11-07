@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_16554_from_south",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "d54e1abf6756083ae09754152d3ba30da5610aa563bada2024cb8ac0d94f4935",
+  "glb_sha256": "d9d4b45c8ab5da47cc304d1945f2ee3c1865d1f2f9b261fcd3190704d86304b7",
   "camera_sha256": "568a603acd37c9549b21b76a5f24b692670a1c74a4abc57c3eaf1aaa48334598",
   "photo_sha256": "f1099e538ca42a2bf75bc3db892a8e73c172c22f866862b71fa38c27c464dbfa",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "d54e1abf6756083ae09754152d3ba30da5610aa563bada2024cb8ac0d94f4935"
+      "glb_sha256": "d9d4b45c8ab5da47cc304d1945f2ee3c1865d1f2f9b261fcd3190704d86304b7"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "33753cacaa38e5035e8d72e0f568c4efa6c9770272b67ef2f03738313beeb916"
     }
   ],
-  "group_sha256": "cf83fae8602b0b4f80f909c8f1c019c6277497bca3844ecd2c61e80546634f3e",
+  "group_sha256": "a78a478ff5e09bafd1a3213344cbb2e73136c111894887327738739f740bffbd",
   "rendered_flora": {
     "season": "winter",
     "lots": [
@@ -73,7 +73,7 @@
         "shrubs": 26,
         "trees": 3,
         "beds": 0,
-        "creeper": 20
+        "creeper": 53
       }
     ],
     "street_trees": 36,
@@ -111,7 +111,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "cac67fd26e677f5a848f1817b51d2a485835b09f09aa2c234efc1b3a5b3e3329"
+      "sha256": "7f4ba235f07a51d60ba052a507137919c58c6a0bfeeb45a6a9696e112ab092b3"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -123,7 +123,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "516638c5cb53043e352359012564973fbaca844282e7809913d3f4709d8e5572"
+      "sha256": "5225613ca5dd36a0e7577b2f0aed62e1a9cf15f4af2a39cd233b8d1cf97d40d2"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -131,7 +131,7 @@
     },
     {
       "file": "renderers/web/js/season.js",
-      "sha256": "e44ebdadf8266909cd6e8676775a9decc3b7376ba245ad784118851e15b409cc"
+      "sha256": "8407ba119eef8e26e1bfb4bf1d9dd2c4786d2981165f2d232fe53d2347a9bda7"
     },
     {
       "file": "renderers/web/js/trees.js",
@@ -142,7 +142,7 @@
       "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "8474993efb2116f903f7573922871d7756f35f804524226393e2197d9dc56615",
+  "flora_sha256": "663f54afb48b5d3c9da8a234e4746c64c4ccc8c98bc5c4cbca0e852e979a816b",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -189,13 +189,21 @@
       "status": "within tolerance"
     },
     {
-      "what": "a stack rising behind the house's rear face, between its two dormers (x 512-523 px, its cap at about y 317, about 4 px over the cresting), which the build did not stand (seen first in the conservatory's record of this picture)",
+      "what": "a stack rising behind the house's rear face, between its two dormers (x 512-523 px, its cap at about y 317, about 4 px over the cresting), which the build did not stand (seen first in the conservatory's record of this picture) [T-1881, 2026-11-07: placed through the Detroit print det 4a08066, whose camera is fitted on the rear face's corners and dormers: the stack now stands on the deck at v 4.6, between the rear step's two dormers (v 8.04 and 3.44), where T-1934 had set it at v 10.0 against this print's dormers. Through this camera, which draws the rear about 20-30 px right of the print's, it renders at x about 528-538 over the step's south dormer against the print's 512-523: the camera's offset, not the stack's place] [T-1881, 2026-11-07: the stack now stands on the rear step's cornice, carried up its mansard face at v 5.9 as the Detroit print det 4a08066 draws it; through this camera it renders between the step's two dormers at x 549-568 against the dormers at 541 and 575, half way, where the print draws it a third of the way (v about 6.7 on the face): the two pictures disagree by about 0.8 m along the face, and the Detroit camera, fitted on the rear, is taken; within tolerance under T-3153]",
       "status": "fixed",
       "how": "T-1934 (2026-11-03): built as the house's fourth stack (chimneys.stacks[3], u 1.4, v 10.0, top 18.4 m), placed against the rear face's dormers since this camera is not fitted on the house's rear: it now renders between the first and second rear dormers, about a fifth to a third of the way (x 486-494 against the dormers' 476 and 540), where the print sets it 0.35 of the way (512-523 against 500 and 543); the whole rear renders about 25 px left of the print's through this camera, as the house's other items here say. L-pullman-1729-rear-stack-1934"
     },
     {
       "what": "T-3429 (2026-11-06): the parkway elms are bare round wood now, twig forking off twig, where T-1934's painted twig cards stood; read against the print again, the verdict is kept.",
       "status": "fixed"
+    },
+    {
+      "what": "[T-1881, 2026-11-07] a second dark, capped stack behind the cresting at x about 428-442 px (its top near y 305), left of the south section's dormer: the Detroit print det 4a08066 shows the same stack over the south section's dormer, and it is built from that print at (1.4, 13.5), top 18.4 m; through this camera it renders at x about 455-465, the camera's 20-30 px offset along the rear",
+      "status": "fixed"
+    },
+    {
+      "what": "the 18th Street flank's ground-storey lights east of the porte-cochere: this winter print, of the early 1890s, draws narrow round-headed lights under the pavilion's triple and in the east section, where the build now has two broad square-headed windows under transoms, read off the Detroit print det 4a08066 of c. 1900 (T-1881, 2026-11-07); two dated pictures disagree and the later one governs a 1904 build, so the earlier lights are read as altered before c. 1900",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

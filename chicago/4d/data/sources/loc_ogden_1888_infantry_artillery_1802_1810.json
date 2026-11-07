@@ -1,0 +1,26 @@
+{
+ "id": "loc_ogden_1888_infantry_artillery_1802_1810",
+ "type": "illustration",
+ "citation": "H. A. Ogden, [Uniforms] Infantry, Artillery, 1802-1810, Pl. XI, lithograph, 1888 (published by G. H. Boek; copyright Gen. S. B. Holabird). Library of Congress Prints and Photographs Division, item 2021654575.",
+ "author": "Henry Alexander Ogden",
+ "date": "1888",
+ "describes_date": "1802-1810",
+ "repository": "Library of Congress Prints and Photographs Division, item 2021654575 (reproduction cph 3a06516).",
+ "url": "https://www.loc.gov/pictures/item/2021654575/",
+ "locator": "The plate, two infantrymen in the foreground.",
+ "tier": 4,
+ "rights_status": "public_domain",
+ "rights_note": "Published in the United States in 1888; public domain by date (the Library records \"rights status not evaluated\"). Used only as a reference picture for the older pattern a frontier post may still have worn (T-3451); nothing is traced or sampled from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (T-3451) in the Library's 488 x 640 reference image (black and white). A late-nineteenth-century reconstruction, not a period picture: infantrymen of 1802-1810 in long-skirted dark coats with facings, white crossbelts, white waistcoats, round hats crested with bearskin and a feather, gaiters.",
+ "note": "One of the 1812 soldier reference set's pictures (data/people_match/reference_sets/soldier_1812.json); an 1888 reconstruction, graded as later scholarship.",
+ "what_it_supplies": [
+  "an 1888 reconstruction of the infantry pattern before 1810, which a frontier company may still have worn in 1812"
+ ],
+ "what_it_does_not_supply": [
+  "period evidence: it was drawn some eighty years later",
+  "colour (the reference image is black and white)",
+  "anything about Fort Dearborn"
+ ]
+}

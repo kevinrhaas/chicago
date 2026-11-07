@@ -83,7 +83,7 @@ mount(laptop, ctxFor('pointerlock', false));
 dl = sheetOf(laptop);
 assert.equal(dl.dataset.scheme, 'keyboard', 'a laptop shows the keyboard controls');
 const kbds = find(dl, (e) => e.tagName === 'KBD').map((k) => k.textContent);
-for (const key of ['W', 'A', 'S', 'D', 'Shift', 'E', 'F', 'C', 'G', 'M', 'N', 'H', 'Esc']) assert(kbds.includes(key), `the keyboard sheet shows ${key}`);
+for (const key of ['W', 'A', 'S', 'D', 'Shift', 'E', 'R', 'F', 'C', 'G', 'M', 'P', 'N', 'H', 'Esc']) assert(kbds.includes(key), `the keyboard sheet shows ${key}`);
 assert.match(laptop.textContent, /N\s*open or close the Navigator/, 'N opens the Navigator, as T-2622 binds it');
 assert.match(laptop.textContent, /1–9\s*open a Navigator app/);
 // Words kept apart: a row's keys and its meaning never run together (the T-2655 lesson).

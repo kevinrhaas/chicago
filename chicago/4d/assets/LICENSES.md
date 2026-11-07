@@ -1340,6 +1340,28 @@ shader code is included. This component conveys no historical likeness (T-3434).
 | authored/humans/hair_bun_brown/rehmanpolanski_hair_bun_brown.mhclo | CC0 original graphical/source metadata | `54f136555d516f940268881e75453305789ff430be85032f25864d773ebe9676` |
 
 
+### Skin material component — `authored/humans/skin_mh_old_lightskinned_male/`
+
+MakeHuman's own system skin *old_caucasian_male* (`old_lightskinned_male_diffuse.png`),
+**CC0-1.0** by the statement in its material file ("explicitly released as CC0 in
+september 2020"; Data Collection AB, Joel Palmius, Jonas Hauquier), kept unchanged here;
+source <https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip>.
+The original 2048² atlas (SHA-256 `dfb2310ed3e0ad024ea7a3ad321215e2e9e2994cca64043d9f3d07c6543ec847`)
+is pinned in SOURCE.json and not kept; `old_lightskinned_male_bald_crown.png` is its CC0
+derivative with the scalp stubble blended to skin by `tools/human_skin_bald_scalp.py`
+(SHA-256 `d97a3f236a1a4fd7cb846e5f8575a219c86e5947e1bbcf9c4d444ab293e344d8`). SOURCE/README
+are project-authored CC0. This component conveys no historical likeness (T-3441).
+
+Additional exact covered CC0 graphical/derived and documentary paths:
+
+```text
+authored/humans/skin_mh_old_lightskinned_male/README.md
+authored/humans/skin_mh_old_lightskinned_male/SOURCE.json
+authored/humans/skin_mh_old_lightskinned_male/old_caucasian_male.mhmat
+authored/humans/skin_mh_old_lightskinned_male/old_lightskinned_male_bald_crown.png
+```
+
+
 ### Skin material component — `authored/humans/skin_toigo_bronze_female/`
 
 MargaretToigo, *young light-skinned female, bronze variation* (2017, changed 2019),
@@ -1714,6 +1736,54 @@ Generated bodice, skirt, apron and low-shoe arrays from `tools/human_dress_compo
 | `humans/web/williamson_mattie_1904_cook_study.lod2.glb` | Original CC0-1.0 export of the canonical builder over the female base and the 1904 dress components above (T-3423); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
 | `humans/williamson_mattie_1904_cook_study.lod3.glb` | Original CC0-1.0 export of the canonical builder over the female base and the 1904 dress components above (T-3423); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
 | `humans/web/williamson_mattie_1904_cook_study.lod3.glb` | Original CC0-1.0 export of the canonical builder over the female base and the 1904 dress components above (T-3423); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/glessner_john_j_1904.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 gentleman's components (`tools/human_gentleman_1904.py`, T-3441); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/glessner_john_j_1904.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 gentleman's components (`tools/human_gentleman_1904.py`, T-3441); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/glessner_john_j_1904.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 gentleman's components (`tools/human_gentleman_1904.py`, T-3441); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/glessner_john_j_1904.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 gentleman's components (`tools/human_gentleman_1904.py`, T-3441); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/glessner_john_j_1904.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 gentleman's components (`tools/human_gentleman_1904.py`, T-3441); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/glessner_john_j_1904.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 gentleman's components (`tools/human_gentleman_1904.py`, T-3441); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/glessner_john_j_1904.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 gentleman's components (`tools/human_gentleman_1904.py`, T-3441); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/glessner_john_j_1904.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 gentleman's components (`tools/human_gentleman_1904.py`, T-3441); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/glessner_frances_m_1904.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 lady's components (`tools/human_lady_1904.py`, T-3447); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/glessner_frances_m_1904.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 lady's components (`tools/human_lady_1904.py`, T-3447); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/glessner_frances_m_1904.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 lady's components (`tools/human_lady_1904.py`, T-3447); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/glessner_frances_m_1904.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 lady's components (`tools/human_lady_1904.py`, T-3447); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/glessner_frances_m_1904.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 lady's components (`tools/human_lady_1904.py`, T-3447); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/glessner_frances_m_1904.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 lady's components (`tools/human_lady_1904.py`, T-3447); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/glessner_frances_m_1904.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 lady's components (`tools/human_lady_1904.py`, T-3447); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/glessner_frances_m_1904.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 lady's components (`tools/human_lady_1904.py`, T-3447); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/reynolds_mary_1904_maid.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 house maid's components (`tools/human_maid_1904.py`, T-3448); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/reynolds_mary_1904_maid.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 house maid's components (`tools/human_maid_1904.py`, T-3448); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/reynolds_mary_1904_maid.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 house maid's components (`tools/human_maid_1904.py`, T-3448); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/reynolds_mary_1904_maid.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 house maid's components (`tools/human_maid_1904.py`, T-3448); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/reynolds_mary_1904_maid.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 house maid's components (`tools/human_maid_1904.py`, T-3448); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/reynolds_mary_1904_maid.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 house maid's components (`tools/human_maid_1904.py`, T-3448); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/reynolds_mary_1904_maid.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 house maid's components (`tools/human_maid_1904.py`, T-3448); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/reynolds_mary_1904_maid.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 house maid's components (`tools/human_maid_1904.py`, T-3448); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/peck_philip_1835.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1835 merchant's components (`tools/human_merchant_1835.py`, T-3449); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/peck_philip_1835.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1835 merchant's components (`tools/human_merchant_1835.py`, T-3449); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/peck_philip_1835.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1835 merchant's components (`tools/human_merchant_1835.py`, T-3449); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/peck_philip_1835.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1835 merchant's components (`tools/human_merchant_1835.py`, T-3449); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/peck_philip_1835.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1835 merchant's components (`tools/human_merchant_1835.py`, T-3449); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/peck_philip_1835.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1835 merchant's components (`tools/human_merchant_1835.py`, T-3449); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/peck_philip_1835.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1835 merchant's components (`tools/human_merchant_1835.py`, T-3449); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/peck_philip_1835.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1835 merchant's components (`tools/human_merchant_1835.py`, T-3449); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/mahoney_patrick_1835.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1835 labourer's components (`tools/human_labourer_1835.py`, T-3450); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/mahoney_patrick_1835.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1835 labourer's components (`tools/human_labourer_1835.py`, T-3450); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/mahoney_patrick_1835.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1835 labourer's components (`tools/human_labourer_1835.py`, T-3450); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/mahoney_patrick_1835.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1835 labourer's components (`tools/human_labourer_1835.py`, T-3450); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/mahoney_patrick_1835.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1835 labourer's components (`tools/human_labourer_1835.py`, T-3450); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/mahoney_patrick_1835.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1835 labourer's components (`tools/human_labourer_1835.py`, T-3450); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/mahoney_patrick_1835.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1835 labourer's components (`tools/human_labourer_1835.py`, T-3450); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/mahoney_patrick_1835.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1835 labourer's components (`tools/human_labourer_1835.py`, T-3450); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/private_first_infantry_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 soldier's components (`tools/human_soldier_1812.py`, T-3451); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/private_first_infantry_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 soldier's components (`tools/human_soldier_1812.py`, T-3451); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/private_first_infantry_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 soldier's components (`tools/human_soldier_1812.py`, T-3451); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/private_first_infantry_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 soldier's components (`tools/human_soldier_1812.py`, T-3451); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/private_first_infantry_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 soldier's components (`tools/human_soldier_1812.py`, T-3451); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/private_first_infantry_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 soldier's components (`tools/human_soldier_1812.py`, T-3451); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/private_first_infantry_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 soldier's components (`tools/human_soldier_1812.py`, T-3451); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/private_first_infantry_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 soldier's components (`tools/human_soldier_1812.py`, T-3451); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
 
 
 ## Licensed Old Cart farm-box development master — T-2793

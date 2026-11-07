@@ -1,0 +1,25 @@
+{
+ "id": "met_krimmel_1813_philadelphia_soldiery",
+ "type": "illustration",
+ "citation": "John Lewis Krimmel, Members of the City Troop and Other Philadelphia Soldiery, 1811-ca. 1813, watercolor. The Metropolitan Museum of Art, 42.95.21.",
+ "author": "John Lewis Krimmel",
+ "date": "1811-1813",
+ "describes_date": "1812",
+ "repository": "The Metropolitan Museum of Art, The American Wing; object 12727 in the museum's collection API (isPublicDomain: true), image at images.metmuseum.org.",
+ "url": "https://www.metmuseum.org/art/collection/search/12727",
+ "locator": "The open-access image DT1810 (3032 x 3717): the whole sheet, and the two men with crossbelts at the right.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "The Met's Open Access images of public-domain works are released CC0. Used only as a reference picture the 1812 soldier is judged against and for his crossbelts, facings and cap (T-3451); nothing is traced or sampled from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (T-3451). Philadelphia volunteer companies drawn by an eyewitness in the war years. The two men at the right: short blue coats faced orange-red, dark leather crossbelts with buckles crossing on the breast, a cartridge box and a bayonet at the hips, blue pantaloons and black gaiters to the knee, tall bearskin caps; behind them tall black cylindrical caps with a cockade, and a drummer with a white belt. Volunteers and militia of Philadelphia, not the regular First Infantry and not Chicago.",
+ "note": "One of the 1812 soldier reference set's pictures (data/people_match/reference_sets/soldier_1812.json).",
+ "what_it_supplies": [
+  "blue coats faced orange-red, crossbelts crossing on the breast, cartridge boxes, gaiters and tall black caps on American soldiers of 1811-1813, drawn at the time"
+ ],
+ "what_it_does_not_supply": [
+  "the regular infantry's own pattern: these are volunteer companies",
+  "anything about Fort Dearborn"
+ ]
+}

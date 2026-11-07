@@ -256,6 +256,16 @@ const TRANSFORMED = [
     gate: 'share_glb_sheets.mjs --check (here and in check.sh) reads every rewritten GLB back through its '
         + 'sheets and asserts its JSON, bufferViews and meshopt streams are its assets/web source\'s, each '
         + 'sheet is named by its own hash, and each is held by two or more GLBs.' },
+  // T-3453: the people's web GLBs get the same treatment. Every figure embeds the same hair,
+  // skin and eye pictures (about 50 MB of copies across eleven figures on 2026-11-07).
+  { re: /^data\/humans\/web\/[^/]+\.lod[0-3]\.glb$/,
+    what: 'a human web GLB whose pictures another figure also carries, rewritten by '
+        + 'tools/share_glb_sheets.mjs --dir data/humans/web (run by publish.sh) to name them as external buffers',
+    gate: 'share_glb_sheets.mjs --dir data/humans/web --source assets/humans/web --check (check.sh) reads '
+        + 'every rewrite back through its sheets to its assets/humans/web source, view for view (T-3453).' },
+  { re: /^data\/humans\/web\/sheets\/[0-9a-f]{16}\.(?:ktx2|png|jpg|webp)$/,
+    what: 'a picture two or more published human GLBs embed, written once by tools/share_glb_sheets.mjs (T-3453)',
+    gate: 'share_glb_sheets.mjs --dir data/humans/web --check: named by its own hash, held by two or more GLBs.' },
 ];
 
 const walk = (dir, base = '') => {

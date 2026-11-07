@@ -1,0 +1,26 @@
+{
+ "id": "met_durand_1835_luman_reed",
+ "type": "illustration",
+ "citation": "Asher Brown Durand, Luman Reed, 1835, oil on canvas. The Metropolitan Museum of Art, 63.36, Bequest of Mary Fuller Wilson, 1962.",
+ "author": "Asher Brown Durand",
+ "date": "1835",
+ "describes_date": "1835",
+ "repository": "The Metropolitan Museum of Art, The American Wing; object 10794 in the museum's collection API (isPublicDomain: true), image at images.metmuseum.org.",
+ "url": "https://www.metmuseum.org/art/collection/search/10794",
+ "locator": "The whole portrait (open-access image ap63.36, 1879 x 2320): head and shoulders to the waist.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "The Met's Open Access images of public-domain works are released CC0. Used only as a reference picture the 1835 merchant is judged against and for his collar and stock (T-3449); nothing is traced or sampled from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (T-3449). Luman Reed (1785-1836), a New York wholesale grocer, painted in 1835: a black coat with a high rolled collar, a wide black stock wound high under the jaw, the white points of his shirt collar standing up at the cheeks, a white shirt front, short side whiskers. A merchant of the scene year, in New York, not Chicago.",
+ "note": "One of the 1835 merchant reference set's pictures (data/people_match/reference_sets/merchant_1835.json).",
+ "what_it_supplies": [
+  "a merchant's stock, collar points, shirt front and coat collar in the scene year",
+  "side whiskers worn with them"
+ ],
+ "what_it_does_not_supply": [
+  "anything below the waist, or a hat",
+  "anything about Chicago or Philip F. W. Peck"
+ ]
+}

@@ -1,0 +1,26 @@
+{
+ "id": "loc_graves_1905_jessie_furnace_man_stereograph",
+ "type": "photograph",
+ "citation": "C. H. Graves, publisher, \"1. Jessie, has the furnace man been here yet? Yes Ma'am I think about five minutes ago.\", The Art Nouveau (Platino) Stereograph, c1905. Library of Congress, Prints and Photographs Division, Stereograph Cards, LOT 3531-3, LC-USZ62-61418, LC-DIG-stereo-1s42977 (item 2005694911).",
+ "author": "C. H. Graves (publisher)",
+ "date": "c1905",
+ "describes_date": "1905",
+ "repository": "Library of Congress, Prints and Photographs Division. Master TIFF 1s42977u.tif (5860 x 3010), read at tile.loc.gov.",
+ "url": "https://www.loc.gov/item/2005694911/",
+ "locator": "The left-hand frame: a maid seen from behind at a kitchen range, full length at about three metres, her mistress facing the camera beyond her.",
+ "tier": 1,
+ "rights_status": "no_known_restrictions",
+ "rights_note": "LOC rights advisory: 'No known restrictions on publication.' Used only as a reference picture the 1904 house maid is judged against and for the back of her apron (T-3448); nothing is traced or sampled from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (T-3448) from the master TIFF. The maid, seen from behind, wears a light shirtwaist (sooty handprints on its back are part of the joke), a dark gored skirt to the floor and a checked apron whose ties are knotted in a bow at the back of the waist; her hair is drawn up. Her mistress wears a wide trimmed hat and a high-collared white shirtwaist. A staged comic scene, not Chicago and not of any named servant; the date (c1905) is the catalogue's, which marks its caption-card data 'unverified, old data'; the publisher is read from the mount, lettered 'The Art Nouveau (Platino) Stereograph, C. H. Graves, Publisher, Phila., U.S.A.', which the catalogue does not name.",
+ "note": "One of the 1904 house maid reference set's photographs (data/people_match/reference_sets/maid_1904.json).",
+ "what_it_supplies": [
+  "the back of a maid's working dress: the apron ties' bow at the waist and the skirt falling to the floor",
+  "that a print or checked apron and a light shirtwaist were also worn for rough work"
+ ],
+ "what_it_does_not_supply": [
+  "colour (a monochrome print)",
+  "anything about Chicago, the Glessner household or Mary Reynolds; no likeness is asserted"
+ ]
+}

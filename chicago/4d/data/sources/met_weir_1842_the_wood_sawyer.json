@@ -1,0 +1,26 @@
+{
+ "id": "met_weir_1842_the_wood_sawyer",
+ "type": "illustration",
+ "citation": "Charles E. Weir, The Wood Sawyer, 1842, oil on board. The Metropolitan Museum of Art, 2018.6, Maria DeWitt Jesup Fund, 2018.",
+ "author": "Charles E. Weir",
+ "date": "1842",
+ "describes_date": "1842",
+ "repository": "The Metropolitan Museum of Art, The American Wing; object 768547 in the museum's collection API (isPublicDomain: true), image at images.metmuseum.org.",
+ "url": "https://www.metmuseum.org/art/collection/search/768547",
+ "locator": "The open-access image (1092 x 1316): the sawyer, whole figure.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "The Met's Open Access images of public-domain works are released CC0. Used only as a reference picture the 1835 labourer is judged against and for his open waistcoat (T-3450); nothing is traced or sampled from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (T-3450). A Black wood sawyer at work in a town street, 1842: a white shirt over a red flannel one, its sleeves pushed up, a brown waistcoat worn open, dark trousers, boots and a battered black hat. Seven years after the scene, an eastern town, not Chicago.",
+ "note": "One of the 1835 labourer reference set's pictures (data/people_match/reference_sets/labourer_1835.json).",
+ "what_it_supplies": [
+  "a town labourer at work in shirtsleeves with his waistcoat worn open",
+  "trousers and boots of a working man, whole figure"
+ ],
+ "what_it_does_not_supply": [
+  "the scene year: it was painted seven years later",
+  "anything about Chicago or Patrick Mahoney"
+ ]
+}

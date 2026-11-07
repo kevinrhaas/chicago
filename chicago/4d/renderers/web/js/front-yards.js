@@ -48,7 +48,10 @@ import { patchSeason } from './season.js';
 const CONF = { attested: 0, inferred: 0.5, reconstructed: 1 };
 // The level-topped ivy of a stretch a picture shows wholly clothed (T-1881): the mantle itself,
 // the low patch under a window's sill and the patch standing on a window's head.
-const MANTLES = new Set(['mantle', 'mantle_sill', 'mantle_head']);
+const MANTLES = new Set(['mantle', 'mantle_sill', 'mantle_head', 'mantle_ring']);
+// T-1881: a `mantle_ring` strip over an arch's ring is half a metre wide; its mat is grown at
+// that width, where the wall's 2.4 m mat narrowed to it would squeeze every leaf to a sliver.
+const RING_W_M = 0.5;
 const BED_LIFT_M = 0.07;
 const LOAM = 0x3b2c1f;
 /** A planting tub: a round staved tub painted the period's dark garden green (T-1934). */
@@ -443,7 +446,8 @@ export async function createFrontYards({
     }
     const cg = lot.pictured_notes?.creeper?.grade ?? 'reconstructed';
     for (const [i, c] of (lot.creeper ?? []).entries()) {
-      // T-1881: a `mantle_head` patch stands on a window's head (`base`, metres over the ground)
+      // T-1881: a `mantle_head` patch stands on a window's head (`base`, metres over the ground),
+      // a `mantle_ring` strip on an arch's ring
       const [e, n, facing, w, h, form, base = 0] = c;
       placed.push({ x: e, z: -n, y: groundAt(e, n) + base, h, w, facing, plant: 'ivy', grade: cg, conf: CONF[cg] ?? 1,
         lot, kind: 'creeper', index: i, mantle: MANTLES.has(form) ? form : null });
@@ -556,7 +560,8 @@ export async function createFrontYards({
         // Its +x out of the wall: a compass bearing turned into the batches' yaw.
         // a pictured stretch wholly clothed keeps its own level-topped variants, and the low
         // patches under its windows theirs, so neither is grown at the other's height (T-1881)
-        const spec = { ...seasonSpec('ivy', ivySpec(2.4, 6, p.conf), wantMode), ...(p.mantle ? { arch: p.mantle } : {}) };
+        const spec = { ...seasonSpec('ivy', ivySpec(p.mantle === 'mantle_ring' ? RING_W_M : 2.4, 6, p.conf), wantMode),
+          ...(p.mantle ? { arch: p.mantle } : {}) };
         grown.add({ ...spec, h: [p.h, p.h] }, p.x, p.y, p.z, 1,
           { yaw: Math.PI / 2 - (p.facing * Math.PI) / 180, crownW: p.w });
         continue;

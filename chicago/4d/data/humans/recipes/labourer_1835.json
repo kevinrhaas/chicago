@@ -1,0 +1,305 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "liberty": "L418",
+  "height_scale": 1.0,
+  "lod_ratios": [
+    1.0,
+    0.6,
+    0.28,
+    0.12
+  ],
+  "skin_texture": {
+    "path": "assets/authored/humans/skin_toigo_bronze/young_lightskinned_male_diffuse_Bronze.png",
+    "sha256": "5a53213f061bfa97ee0afd6b40650ffbc089a479c144e63f3c39acceca5853c0",
+    "license": "CC0-1.0",
+    "color_space": "sRGB",
+    "base_color_factor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "roughness": 0.68,
+    "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
+    "identity_basis": "Cleared reusable generic skin atlas; not a likeness, attested complexion, or source identifying any named/reconstructed resident.",
+    "uv_status": "Source atlas and UV registration viewed in source diagnostics; final Blender export/LOD render validation remains outstanding."
+  },
+  "hair_component": {
+    "directory": "assets/authored/humans/hair_short04",
+    "texture": "short04_diffuse_periodic_pad_draft.png",
+    "uv_transform": {
+      "source_height": 2048,
+      "top_rows": 8,
+      "bottom_rows": 1
+    },
+    "roughness": 0.65,
+    "alpha_cutoff": 0.4,
+    "appearance_basis": "Shared cleared CC0 short04 source fitted to existing Otis/Joseph/Martin bodies; hair/part/color are reconstructed choices, no period hairstyle attestation or individual likeness.",
+    "source_manifest_sha256": "68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99"
+  },
+  "eye_components": {
+    "radius_m": 0.012,
+    "iris_radius_m": 0.0055,
+    "pupil_radius_m": 0.0022,
+    "corneal_bulge_m": 0,
+    "cornea_enabled": false,
+    "source_basis": "Actual helper centers/axes; original opaque sclera/iris/pupil, reconstructed dimensions and brown color, not resident facts",
+    "status": "No actual BPy/export/blink fit/photographic acceptance"
+  },
+  "label": "Reconstructed 1835 labourer's working dress (unbleached shirt with full sleeves, red neckerchief, braces, green waistcoat worn open, brown trousers, brown boots, drab felt slouch hat) on the shared portable male rig",
+  "scene_date": "1835-07-01",
+  "grade": "reconstructed",
+  "sources": [
+    "met_mount_1837_the_raffle",
+    "met_mount_1841_cider_making",
+    "met_weir_1842_the_wood_sawyer"
+  ],
+  "basis": "Original shirt, braces and waistcoat shells offset from the cleared adult body's own surface, a neckerchief lofted round its neck, trousers on the shared workwear shell, a slouch hat seated round the skull and closed boots round the feet, cut after the working dress the reference pictures show (T-3450). Seams, ease, lengths and colours are reconstructed. Complete source anatomy remains unchanged beneath clothing.",
+  "source_scope": "William Sidney Mount's Raffle (1837, Met) shows a young working man in his shirtsleeves, waistcoat, knotted neckerchief and broad soft felt hat; Mount's Cider Making (1840-41, Met) shows working men whole in shirtsleeves, waistcoats, braces and full brown trousers; Charles E. Weir's Wood Sawyer (1842, Met) a town labourer at work with his waistcoat open. None is of Chicago or of Mahoney, two are from the early 1840s; no pixels or traced shapes enter the asset.",
+  "colors_linear_rgba": {
+    "skin": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "eyes": [
+      0.12,
+      0.09,
+      0.06,
+      1.0
+    ],
+    "garment_upper__shirt_unbleached_1835": [
+      0.62,
+      0.58,
+      0.49,
+      1
+    ],
+    "garment_outer__waistcoat_green_1835": [
+      0.03,
+      0.052,
+      0.036,
+      1
+    ],
+    "garment_lower__trousers_brown_1835": [
+      0.15,
+      0.1,
+      0.058,
+      1
+    ],
+    "accessory__neckerchief_red": [
+      0.36,
+      0.045,
+      0.03,
+      1
+    ],
+    "accessory__braces_brown": [
+      0.085,
+      0.055,
+      0.032,
+      1
+    ],
+    "headwear__slouch_hat_drab": [
+      0.3,
+      0.24,
+      0.15,
+      1
+    ],
+    "footwear__brown_boots_1835": [
+      0.04,
+      0.025,
+      0.015,
+      1
+    ]
+  },
+  "workwear_coverage": {
+    "shoe_clearance_m": 0.004
+  },
+  "proof_variants": [
+    {
+      "id": "mahoney_patrick_1835",
+      "component_assembly": "labourer_1835_v1",
+      "person_reference_id": "rc_mahoney_patrick",
+      "person_reference_scene": "1835",
+      "person_reference_grade": "reconstructed",
+      "person_reference_record": "data/residents/reconstructed_trades/hh_rc_mahoney_patrick.json",
+      "reference_summary": {
+        "name": "Patrick Mahoney",
+        "age_band": "30-39",
+        "occupation": "labourer",
+        "division": "south",
+        "presence": "present"
+      },
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_adult_35.json",
+      "body_parameters": {
+        "chosen_height_m": 1.75,
+        "height_basis": "The shared engineering body; the variation kit draws height and build at runtime. Not a recorded height.",
+        "engineering_age_years": 35,
+        "age_basis": "Engineering body at the kit base age 35, inside his reconstructed age band 30-39; not aged, since he is not placed in the town by this work and the kit draws age for the people it places.",
+        "shape_basis": "CC0 male macro targets; equal software-category blend is engineering only, not inferred ancestry or a portrait."
+      },
+      "body_basis": "CC0 adult-male graphical body and the shared young light-skinned generic skin of the 1835 studies are reconstructed authoring choices. Patrick Mahoney is a reconstructed labourer of the 1835 order book; no picture of him exists, and no complexion, height, face or outfit of his is asserted.",
+      "recipe_path": "data/humans/recipes/labourer_1835.json"
+    }
+  ],
+  "labourer_components": {
+    "version": 1,
+    "generator": "tools/human_labourer_1835.py",
+    "liberty": "L-human-modular-dress-1789",
+    "body_sha256": "ef5eb3ca282b29c482a67af4e3e50d1ed29a8055eed0230ee2a58ec36dddbba9",
+    "standing_source_only": false,
+    "production_eligible": false,
+    "photo_accepted": false,
+    "evidence_choice": "The brief asked for shirt, trousers, braces, waistcoat, a cap or slouch hat and boots. Working men in all three pictures go without a coat in warm weather, in a shirt with full sleeves and a waistcoat; Cider Making shows braces over the shirt; the Raffle a knotted neckerchief and a broad soft felt hat; the Wood Sawyer a waistcoat worn open at work. A slouch hat (not a cap) and an open waistcoat, so the braces show, join them for a labourer in July 1835.",
+    "tailoring": {
+      "shirt": {
+        "ease": 0.008,
+        "waist_below_spine02": 0.14,
+        "collar_above_neck": 0.014,
+        "throat_v_below_neck": 0.1,
+        "throat_v_half_width": 0.034,
+        "cuff_short_of_wrist": 0.014,
+        "sleeve_fullness": 0.024,
+        "smoothing": 90,
+        "sleeve_gather": 0.06,
+        "armpit_extra": 0.004
+      },
+      "neckerchief": {
+        "ease": 0.014,
+        "bottom_below_neck": 0.03,
+        "back_bottom_below_neck": 0.004,
+        "height": 0.034,
+        "segments": 36,
+        "rows": 4
+      },
+      "braces": {
+        "ease": 0.015,
+        "width": 0.024,
+        "x_at_waist": 0.06,
+        "x_at_top": 0.086,
+        "below_trouser_waist": 0.03,
+        "straight_above_below_neck": 0.035,
+        "over_shoulder_above_neck": 0.06
+      },
+      "waistcoat": {
+        "ease": 0.022,
+        "armpit_extra": 0.008,
+        "hem_below_spine02": 0.105,
+        "top_below_neck": 0.02,
+        "opening_half_width_hem": 0.088,
+        "opening_half_width_top": 0.102
+      },
+      "trousers": {
+        "ease": 0.013,
+        "waist_height_fraction": 0.585,
+        "cuff_radius_ratio": 0.92,
+        "added_section_ease": 0.014,
+        "thigh_transition_fraction": 0.65,
+        "hem_front_y": 0.068,
+        "hem_back_y": 0.036
+      },
+      "slouch_hat": {
+        "seat_below_top": 0.072,
+        "ease": 0.008,
+        "crown_height": 0.098,
+        "brim": 0.066,
+        "droop": 0.02,
+        "side_lift": 0.006,
+        "thickness": 0.005
+      }
+    },
+    "garments": [
+      {
+        "id": "shirt_full_sleeves",
+        "material": "garment_upper__shirt_unbleached_1835",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_mount_1837_the_raffle",
+            "met_mount_1841_cider_making",
+            "met_weir_1842_the_wood_sawyer"
+          ],
+          "source_scope": "All three pictures show working men in shirts with full sleeves and no coat; the Raffle gathers them at the wrist. The unbleached colour, the open throat and the fullness are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "neckerchief_red",
+        "material": "accessory__neckerchief_red",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_mount_1837_the_raffle",
+            "met_mount_1841_cider_making"
+          ],
+          "source_scope": "The Raffle and Cider Making each show a working man with a red kerchief knotted at the throat. The band is a plain loft without a knot; its height and red are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "braces",
+        "material": "accessory__braces_brown",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_mount_1841_cider_making"
+          ],
+          "source_scope": "Cider Making shows braces worn over the shirt. Straight down the back (an H, not the X Cider Making shows); the width, the brown webbing colour and the straps' line are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "waistcoat_open",
+        "material": "garment_outer__waistcoat_green_1835",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_mount_1837_the_raffle",
+            "met_mount_1841_cider_making",
+            "met_weir_1842_the_wood_sawyer"
+          ],
+          "source_scope": "Waistcoats over shirtsleeves in all three; Cider Making's is dark green, the Wood Sawyer wears his open. Worn open here; cut, length and the green are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "full_trousers",
+        "material": "garment_lower__trousers_brown_1835",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_mount_1841_cider_making",
+            "met_weir_1842_the_wood_sawyer"
+          ],
+          "source_scope": "Cider Making shows full brown trousers to the instep on working men; the Wood Sawyer dark ones. Cut on the shared workwear shell; length and colour reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "brown_boots",
+        "material": "footwear__brown_boots_1835",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "met_weir_1842_the_wood_sawyer"
+          ],
+          "source_scope": "The Wood Sawyer's feet are shod in dark boots; the shared closed boot round the body's feet, brown, is a reconstructed choice.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "slouch_hat",
+        "material": "headwear__slouch_hat_drab",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "met_mount_1837_the_raffle"
+          ],
+          "source_scope": "The Raffle's working man wears a pale felt hat with a low crown and a broad soft brim; Cider Making shows straw hats, the Wood Sawyer a battered tall one. The drab felt slouch hat is a choice among them.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      }
+    ]
+  }
+}

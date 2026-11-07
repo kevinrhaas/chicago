@@ -13,10 +13,19 @@
     "earliest_year": 1812,
     "latest_year": 1812
   },
-  "eligible_assets": [],
+  "eligible_assets": [
+    {
+      "asset_id": "private_first_infantry_1812",
+      "period": {
+        "earliest_year": 1812,
+        "latest_year": 1812
+      },
+      "wardrobe_basis": "A private's dress of the First Infantry for August 1812: the issue the 1802 act lists, and the uniform change of 1813 read backwards, so a blue coat faced red and a felt cap with a feather. The cut, the colours and the fit are reconstructed. Accepted only for an anonymous private of the first Fort Dearborn's garrison, because none of its soldiers is a person in this project's records."
+    }
+  ],
   "provenance": {
     "grade": "reconstructed",
-    "basis": "Fallback only: prefer existing attested, inferred or reconstructed people as model references. Owner requested anonymous adult role figures. This 1812 profile identifies no resident, ancestry, likeness or attested individual. No wardrobe/body asset is accepted yet; the empty eligibility list refuses display until an explicitly period-qualified asset is registered.",
+    "basis": "Fallback only: prefer existing attested, inferred or reconstructed people as model references. Owner requested anonymous adult role figures. This 1812 profile identifies no resident, ancestry, likeness or attested individual. One wardrobe/body asset is accepted (T-3452): the First Infantry private, period-qualified for 1812 by its recipe; any other asset is refused until it is registered here with its own basis.",
     "liberty": "L418"
   },
   "fallback_only": true

@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "d54e1abf6756083ae09754152d3ba30da5610aa563bada2024cb8ac0d94f4935",
+  "glb_sha256": "d9d4b45c8ab5da47cc304d1945f2ee3c1865d1f2f9b261fcd3190704d86304b7",
   "camera_sha256": "9899de4e97306a9d591d77b9ef34cf6387660f6973574193e6da723d78e179a8",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_flora": {
@@ -14,7 +14,7 @@
         "shrubs": 26,
         "trees": 3,
         "beds": 0,
-        "creeper": 20
+        "creeper": 53
       }
     ],
     "street_trees": 36,
@@ -39,7 +39,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "cac67fd26e677f5a848f1817b51d2a485835b09f09aa2c234efc1b3a5b3e3329"
+      "sha256": "7f4ba235f07a51d60ba052a507137919c58c6a0bfeeb45a6a9696e112ab092b3"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -51,7 +51,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "516638c5cb53043e352359012564973fbaca844282e7809913d3f4709d8e5572"
+      "sha256": "5225613ca5dd36a0e7577b2f0aed62e1a9cf15f4af2a39cd233b8d1cf97d40d2"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -59,14 +59,14 @@
     },
     {
       "file": "renderers/web/js/season.js",
-      "sha256": "e44ebdadf8266909cd6e8676775a9decc3b7376ba245ad784118851e15b409cc"
+      "sha256": "8407ba119eef8e26e1bfb4bf1d9dd2c4786d2981165f2d232fe53d2347a9bda7"
     },
     {
       "file": "renderers/web/js/trees.js",
       "sha256": "bd022919ca052610595908f83128dfceea976790c5bf2eff63f381abaa3b89b5"
     }
   ],
-  "flora_sha256": "6a1ee608ad13fa319f12e6ab10483691b9fb4b32511b3b7cbb02b2c5f0444bbe",
+  "flora_sha256": "94253d1b1f750f257c323523a66638f0a3cb67267ecd16f1c47866157ca127ba",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "differs",
   "differences": [

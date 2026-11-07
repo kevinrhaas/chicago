@@ -1,0 +1,26 @@
+{
+ "id": "met_mount_1837_the_raffle",
+ "type": "illustration",
+ "citation": "William Sidney Mount, The Raffle (Raffling for the Goose), 1837, oil on mahogany. The Metropolitan Museum of Art, 97.36, Gift of John D. Crimmins, 1897.",
+ "author": "William Sidney Mount",
+ "date": "1837",
+ "describes_date": "1837",
+ "repository": "The Metropolitan Museum of Art, The American Wing; object 11627 in the museum's collection API (isPublicDomain: true), image at images.metmuseum.org.",
+ "url": "https://www.metmuseum.org/art/collection/search/11627",
+ "locator": "The open-access image DT1511 (3811 x 2812): the young man in his shirtsleeves at the centre right, leaning over the table.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "The Met's Open Access images of public-domain works are released CC0. Used only as a reference picture the 1835 labourer is judged against and for his shirt, waistcoat, neckerchief and hat (T-3450); nothing is traced or sampled from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (T-3450). Long Island men round a raffle table, 1837. The young man at the centre right wears no coat: a full white shirt with full sleeves gathered at the wrist, a buff waistcoat open at the chest, a red neckerchief knotted loosely at the throat and a pale felt hat with a low crown and a broad soft brim. Rural New York, two years after the scene, not Chicago.",
+ "note": "One of the 1835 labourer reference set's pictures (data/people_match/reference_sets/labourer_1835.json).",
+ "what_it_supplies": [
+  "a working man in his shirtsleeves and waistcoat, two years after the scene",
+  "a knotted neckerchief and a broad-brimmed soft felt hat worn with them"
+ ],
+ "what_it_does_not_supply": [
+  "the man's trade, or his legs and feet (the table hides them)",
+  "anything about Chicago or Patrick Mahoney"
+ ]
+}

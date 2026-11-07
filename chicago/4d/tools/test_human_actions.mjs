@@ -75,6 +75,13 @@ for (const [asset, lod, clip] of [['bardwell_otis_1835', 0, 'idle_natural_v1'], 
   twin.root.updateMatrixWorld(true);
   const restX = Math.abs(figure(r, world(r.bone('hand_l'))).x), clipX = Math.abs(figure(twin, world(twin.bone('hand_l'))).x);
   assert(restX < clipX - 0.03 && restX > hipHalf + 0.05, `${asset} LOD${lod}: arms hang in (${clipX.toFixed(3)} → ${restX.toFixed(3)} m from the midline)`);
+  // T-3456 (owner, 2026-11-07: "my thumbs point forward"): a hanging hand's thumb is ahead of
+  // its little finger, and its palm (index knuckle side) faces the thigh, on both sides.
+  for (const s of ['l', 'r']) {
+    if (!r.bone(`thumb_02_${s}`) || !r.bone(`pinky_01_${s}`)) continue;
+    const thumbZ = figure(r, world(r.bone(`thumb_02_${s}`))).z, pinkyZ = figure(r, world(r.bone(`pinky_01_${s}`))).z;
+    assert(thumbZ > pinkyZ + 0.02, `${asset} LOD${lod}: the ${s} hand hangs thumb forward (thumb z ${thumbZ.toFixed(3)}, little finger z ${pinkyZ.toFixed(3)})`);
+  }
   const feet0 = ['foot_l', 'foot_r'].map(n => world(r.bone(n)));
   // Hands on the hips.
   acts.setPose('hips');

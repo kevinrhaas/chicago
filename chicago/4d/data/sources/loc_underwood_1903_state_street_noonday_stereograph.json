@@ -1,0 +1,26 @@
+{
+ "id": "loc_underwood_1903_state_street_noonday_stereograph",
+ "type": "photograph",
+ "citation": "Underwood & Underwood, State St., Chicago, Ill. (N. from Adams): noonday crowds on a thoroughfare 18 miles long, stereograph, copyright 1903 Mar. 26. Library of Congress, Prints and Photographs Division, Stereograph Cards, LC-DIG-stereo-1s12706 (item 2014650313).",
+ "author": "Underwood & Underwood",
+ "date": "1903",
+ "describes_date": "1903",
+ "repository": "Library of Congress, Prints and Photographs Division. Master TIFF 1s12706u.tif (5860 x 3045), read at tile.loc.gov.",
+ "url": "https://www.loc.gov/item/2014650313/",
+ "locator": "The left-hand frame, the east sidewalk below the C. D. Peacock sign: men walking towards and away from the camera at roughly eight to fifteen metres.",
+ "tier": 1,
+ "rights_status": "no_known_restrictions",
+ "rights_note": "LOC rights advisory: 'No known restrictions on publication.' Published 1903. Used only as a reference picture people are judged against and for what men wore on a Chicago street (T-3441); nothing is traced or sampled from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (T-3441) from the master TIFF. Noon on State Street at Adams, looking north, from above. Nearly every man wears a black derby; their coats are dark, most of them sack coats and overcoats, one in the centre a knee-length frock coat with a pale bow tie; trousers are mid to dark grey. The figures read as dark columns with pale faces and collars, the way a figure in the town reads at ten metres.",
+ "note": "The far picture of the 1904 gentleman reference set (data/people_match/reference_sets/gentleman_1904.json): Chicago in the scene's decade.",
+ "what_it_supplies": [
+  "that a Chicago businessman of 1903 wore a black derby by day, with a frock coat as well as with a sack coat",
+  "how dark coats, grey trousers and a white collar read on walking men at ten metres and more"
+ ],
+ "what_it_does_not_supply": [
+  "colour (a monochrome print)",
+  "the cut of any garment in detail; any named person; no likeness is asserted"
+ ]
+}

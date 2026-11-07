@@ -201,6 +201,25 @@ class DressComponents(unittest.TestCase):
         male = json.loads((ROOT/'data/humans/recipes/worker_1835.json').read_text())
         self.assertEqual(absent_recipe_paths(source, self.recipe, True), [])
         self.assertEqual(absent_recipe_paths(source, male, False), [])
+        # T-3441: the gentleman's recipe goes through the same dress path; it must carry
+        # every recipe field that path reads too.
+        gentleman = json.loads((ROOT/'data/humans/recipes/gentleman_1904.json').read_text())
+        self.assertEqual(absent_recipe_paths(source, gentleman, True), [])
+        # T-3447: and the lady's.
+        lady = json.loads((ROOT/'data/humans/recipes/lady_1904.json').read_text())
+        self.assertEqual(absent_recipe_paths(source, lady, True), [])
+        # T-3448: and the maid's.
+        maid = json.loads((ROOT/'data/humans/recipes/maid_1904.json').read_text())
+        self.assertEqual(absent_recipe_paths(source, maid, True), [])
+        # T-3449: and the 1835 merchant's.
+        merchant = json.loads((ROOT/'data/humans/recipes/merchant_1835.json').read_text())
+        self.assertEqual(absent_recipe_paths(source, merchant, True), [])
+        # T-3450: and the 1835 labourer's.
+        labourer = json.loads((ROOT/'data/humans/recipes/labourer_1835.json').read_text())
+        self.assertEqual(absent_recipe_paths(source, labourer, True), [])
+        # T-3451: and the 1812 soldier's.
+        soldier = json.loads((ROOT/'data/humans/recipes/soldier_1812.json').read_text())
+        self.assertEqual(absent_recipe_paths(source, soldier, True), [])
         # Put the actual obsolete pre-LOD reads back into the real builder source.
         # The dress recipe must catch both, while the original male recipe still
         # satisfies them. This is not an assertion that those names are banned.

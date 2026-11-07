@@ -47,7 +47,7 @@ import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
 import { createWalker, footprintsFrom, decksFrom, WALK, HEADROOM_MARGIN_M } from './walker.js';
-import { profiledGroundHeight } from './deck-surface.js';
+import { profiledGroundHeight, deckGroundHeight } from './deck-surface.js';
 import { passageGroundFrom } from './passage-ground.js';
 import { createFlora } from './flora.js';
 import { createTrees } from './trees.js';
@@ -96,6 +96,8 @@ import { t, applyStrings } from './strings/index.js';
 import './strings/arrival.js';
 import { createFlags } from './flags.js';
 import { createFortGates, gatesOnRoute } from './fort-gates.js';
+import { createHouseDoors } from './house-doors.js';
+import { createHouseErrands } from './house-errands.js';
 import { createNightLights } from './night-lights.js';
 import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
@@ -129,7 +131,6 @@ import { parseNavLink, createNavHistory } from './nav-link.js';
 import { createNavigator } from './navigator.js';
 import { paintAbout } from './about.js';
 import { createResearcherMode } from './researcher.js';
-import { wireWhyTips } from './why-tips.js';
 import { createTour } from './tour.js';
 import { createTourOverlay } from './tour-overlay.js';
 import { markTerms } from './term-tips.js';
@@ -1763,8 +1764,6 @@ Object.defineProperty(api, 'audio', { get: () => gesture.audio, enumerable: true
 applyStrings(document);
 // T-2658: each researched setting's "Why?" opens its bubble of 40 words at most; Researcher
 // mode, which puts the button away for the full essay, closes an open one.
-api.whyTips = wireWhyTips(document);
-api.researcher?.onChange(() => api.whyTips.close());
 const arrival = createArrival({
   boot: bootController,
   journey,
@@ -2061,6 +2060,8 @@ async function boot() {
     // only, so keep encoded recovery bytes only for the images that can need them.
     // Desktop regular images remain decoded and can be restored directly.
     keepEncodedImages: RESIDENCY_ON ? (coarse ? true : 'compressed') : false,
+    // T-3454: and a phone keeps them as Blobs, whose bytes are held outside the tab.
+    encodedImagesAsBlobs: coarse,
     // T-2597: every structure at once unless `?boot-pool=N` asks for a pool (BOOT_POOL).
     pool: bootPoolFromSearch(location.search),
   });
@@ -2417,9 +2418,10 @@ async function boot() {
   // T-3407 — the kitchen gardens (data/gardens/<scene>.json): the 1812 commanding officer's
   // garden laid out in Whistler's beds and walks and planted for mid-August, every plant
   // grown here from a painted leaf atlas, in two draws. Only a scene listing `gardens`.
+  // T-3460: planted for the visitor's Season (applySeason keeps it so).
   const gardens = await createGardens({
     dataBase: layerBase('gardens'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
-    problems: layerProblems('gardens'), lowSpec: coarse, ...detailOpts(),
+    problems: layerProblems('gardens'), lowSpec: coarse, ...detailOpts(), season: seasonPref.season,
     // A phone lays the garden only once it comes into view; its arrays then go as railway's do.
     onGeometry: (group) => releaseAfterUpload(group),
   });
@@ -2509,13 +2511,18 @@ async function boot() {
   // names the day the sun is lit for: the chip, its spoken label and the Navigator's date.
   function paintChipDay(iso) {
     const shown = iso || world.sunDate || loaded.scene.target_date || '';
-    const m = /^\d{4}-(\d{2})-(\d{2})/.exec(shown);
+    const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(shown);
     if (!m) return;
     const sub = document.querySelector('#year-badge .badge-sub');
-    if (sub) sub.textContent = `${m[1]}.${m[2]}`;
+    if (sub) sub.textContent = `${m[2]}.${m[3]}`;
+    // T-3459: a jaunt stop dated in another year (20 May 1804, told in the 1812 town)
+    // shows that year on the chip, not the town's; the town's comes back after.
+    const year = iso ? m[1] : String(loaded.scene.id ?? m[1]);
+    const yearEl = document.querySelector('#year-badge .badge-year');
+    if (yearEl && yearEl.textContent !== year) yearEl.textContent = year;
     const badge = document.getElementById('year-badge');
     const label = badge?.getAttribute('aria-label');
-    if (label) badge.setAttribute('aria-label', label.replace(/^\d{1,2} [A-Z][a-z]+/, spokenDay(shown)));
+    if (label) badge.setAttribute('aria-label', label.replace(/^\d{1,2} [A-Z][a-z]+( \d{4})?/, (_, y) => `${spokenDay(shown)}${y ? ` ${year}` : ''}`));
     const navDate = document.getElementById('nav-date');
     if (navDate) navDate.textContent = screenDate(shown);
   }
@@ -2639,6 +2646,8 @@ async function boot() {
     paintChipDay(timeState.transient?.date);
     paintTime();
     contextCity.setSeason?.(s);
+    // T-3460: the kitchen garden's crops and its snow.
+    gardens.setSeason?.(s);
     await seasonPlants(s);
     await frontYards.setSeason?.(SEASON_TREE_MODE[s] ?? 'summer');
     return streetTrees.setMode(streetTreeMode(s, seasonState.treesShown));
@@ -2923,6 +2932,14 @@ async function boot() {
   // structure record to carry `placement.walk_surface_m`, and the height is the
   // one that layer drew the slab at (T-0058; see the header of `wharves.js`).
   decks.push(...wharves.decks);
+  // T-3442: Glessner's front door hung to swing, its two steps decks the walker climbs and
+  // its doorway cut into the footprint; Interact opens and closes it (house-doors.js). After
+  // `planting` is taken, like the wharf decks: its treads are paving the house already lays.
+  const houseDoors = createHouseDoors({ registry: loaded.registry, buildings, footprints, decks, interactions,
+    visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }),
+    groundAt: (e, n) => profiledGroundHeight(terrain, decks, e, n), confidence, problems });
+  scene3d.add(houseDoors.group);
+  api.houseDoors = houseDoors;
   bootController.end('ground');
   bootController.start('flora');
   await yieldToPaint();
@@ -3300,7 +3317,9 @@ async function boot() {
     if (failed) throw failed.reason;
     rows.forEach((row, i) => {
       if (!hasRequiredSourceTextures(row.gltf, got[i].value.gltf)) {
-        throw new Error(`${row.id}: reloaded source is missing a required texture`);
+        // T-3439: the usual cause is a newer build on the server: a deploy since this page
+        // loaded changed the model's materials. Say what fixes it.
+        throw new Error(`${row.id}: reloaded source is missing a required texture. If the site was updated since this page loaded, reload the page`);
       }
     });
     rows.forEach((row, i) => {
@@ -3379,6 +3398,8 @@ async function boot() {
         scene3d.remove(previous.group);
         api.buildings = buildings;
         api.roll = buildings.roll;
+        // T-3442: the door's leaf is the new house's (the old one's goes with it).
+        houseDoors.rebind(buildings);
         residency?.dispose();
         previous.dispose();
         disposeLoadedAsset(oldAsset);
@@ -3729,11 +3750,16 @@ async function boot() {
       if (!res.ok) throw new Error(`sidecars/${loaded.scene.id ?? YEAR}/people.json ${res.status}`);
       return res.json();
     },
-    groundHeight: (e, n) => profiledGroundHeight(terrain, decks, e, n),
+    // T-3456: a figure stands on the decks the walker climbs (a front walk's paving, a door's
+    // threshold), not on the heightfield under them.
+    groundHeight: (e, n) => deckGroundHeight(terrain, decks, e, n),
+    // T-3439: a figure's new distance level is compiled off the frame (parallel compile)
+    // before it is drawn, so walking up to someone is not a stall on her skin's programs.
+    prepare: (object) => renderer.compileAsync(object, camera, scene3d),
   });
   api.humans.on('open', ({ personId }) => {
     if (!api.people) return;
-    if (supportsTownTransport(YEAR) && !draws('residents')) { void openPersonCard(personId); return; }
+    if (!draws('residents')) { void openPersonCard(personId); return; }
     hud.setPanel(true); hud.selectTab('people'); api.people.open?.(personId);
   });
   api.humans.on('role_open', ({ roleCard }) => showHumanRoleCard(roleCard));
@@ -3744,6 +3770,42 @@ async function boot() {
     a?.life?.attend?.(camera.getWorldPosition(new THREE.Vector3()), 4);
   });
   scene3d.add(api.humans.group);
+  /**
+   * T-3439 (owner, 2026-11-07): Settings › Show › People and › Carriages and horses. A
+   * viewing choice, like Street trees: hidden, a layer is neither drawn nor advanced nor
+   * fetched nor picked. People covers the figures on foot and the drivers on their seats;
+   * Carriages and horses covers the driven teams, the parked vehicles (and the yard's old
+   * stand-ins for them) and the standing horses.
+   */
+  const shownLayers = { people: true, vehicles: true };
+  function setShownLayer(key, on) {
+    shownLayers[key] = on;
+    if (key === 'people') api.humans?.setShown?.(on);
+    else {
+      parkedTransport.setShown(on);
+      standingHorses.group.visible = on;
+      if (on) standingHorses.update(camera);
+      if (api.townTransport?.group) api.townTransport.group.visible = on;
+    }
+    gateFrame.invalidate();
+  }
+  // T-3443: a person whose house has a working front door (John J. Glessner, by 1800
+  // Prairie's) is an Interact thing too: Greet him, or send him home up his steps and in;
+  // and (T-3444) his door offers Ask for him while he is in.
+  api.houseErrands = createHouseErrands({ humans: api.humans, houseDoors, interactions,
+    visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }),
+    eye: () => camera.getWorldPosition(new THREE.Vector3()),
+    openCard: (actor) => api.humans.select(actor.id),
+    // T-3444: asked for at his door, he can walk the visitor round the house or into the
+    // court — by the router's ways (made below), to the Meet the Glessner House stands —
+    // the visitor walking with him (follow.js, made later still).
+    router: { plan: (...args) => api.router?.plan(...args) ?? null },
+    anchorAt: (id) => (Array.isArray(loaded.scene.anchors) ? loaded.scene.anchors.find((a) => a.id === id) : null) ?? null,
+    walkWith: (actor, on) => {
+      if (on) api.follow?.start(actor.personId, { name: actor.person?.name ?? null });
+      else if (api.follow?.personId === actor.personId) api.follow.stop('arrived');
+    },
+    groundAt: (e, n) => deckGroundHeight(terrain, decks, e, n), problems: layerProblems('humans') });
   // Read only the small route table at boot. Actual occupied assets and full
   // rendered-ground/collision readings begin after the visitor approaches a circuit.
   api.townTransport = null;
@@ -3949,6 +4011,9 @@ async function boot() {
       } else if (key === 'lotLines') {
         streetGrid.setLotLines(value === 'shown');
         gateFrame.invalidate();
+      } else if (key === 'people' || key === 'vehicles') {
+        // T-3439: the people, and the carriages and horses, shown or hidden.
+        setShownLayer(key, value !== 'hidden');
       } else if (key === 'units') {
         navigation.setUnits(value);
       }
@@ -3969,6 +4034,9 @@ async function boot() {
     void sourcesPromise.then(view => { if (api.evidenceHub.topic === 'sources') view?.show(); });
   };
   hud.omitTabs(api.drawerOmitted.tabs);
+  // T-3439: the stored Show choices for people and vehicles, before the first frame.
+  if (hud.settings.people === 'hidden') setShownLayer('people', false);
+  if (hud.settings.vehicles === 'hidden') setShownLayer('vehicles', false);
   // T-3331: Settings' own copy, so a later save keeps an hour set from code; then paint.
   timeState.hudSettings = hud.settings;
   paintTime();
@@ -4116,7 +4184,9 @@ async function boot() {
     bootController.end('people');
     // 1904 uses its existing scene-aware Navigator household card, never the
     // 1835 drawer/research joins. This does not populate a human scene layer.
-    if (supportsTownTransport(YEAR)) api.people = { open: openSceneDirectoryPerson };
+    // T-3468 (owner, 2026-11-07: "all of the years should be consistent with the inspect
+    // card"): 1812 too, whose people directory names its own residents_root as 1904's does.
+    api.people = { open: openSceneDirectoryPerson };
   }
 
   // …and the town's FIRMS, which until now reached a visitor only through the
@@ -4139,7 +4209,7 @@ async function boot() {
     // A proprietor the town holds a card for is one tap from their firm: the
     // People view already knows how to open them, so this only has to ask.
     onPerson: (personId) => {
-      if (supportsTownTransport(YEAR) && !draws('residents')) { void openPersonCard(personId); return; }
+      if (!draws('residents')) { void openPersonCard(personId); return; }
       hud.selectTab('people');
       api.people?.open?.(personId);
     },
@@ -4849,7 +4919,7 @@ async function boot() {
     if (!resolved) {
       const row = target && destinations.byId(target.kind, target.id);
       if (row?.kind === 'person') {
-        if (supportsTownTransport(YEAR) && !draws('residents')) { void openPersonCard(row.id); return true; }
+        if (!draws('residents')) { void openPersonCard(row.id); return true; }
         hud.setPanel(true); hud.selectTab('people'); api.people?.open?.(row.id); return true;
       }
       if (row?.kind === 'business' && !row.derived_from) { openBusiness(row.id); return true; }
@@ -5409,7 +5479,7 @@ async function boot() {
           followKey.setAttribute('aria-label', `Stop following ${who}`);
         }
       }
-      if (state && why === 'start') hud.say(`Following ${state.name ?? 'them'}`);
+      if (state && why === 'start') { hud.say(`Following ${state.name ?? 'them'}`); hints.show('follow'); } // T-3445
       else if (!state && why === 'gone') hud.say(`Lost sight of ${was?.name ?? 'them'}`);
       else if (!state && why !== 'switched') hud.say(`Stopped following ${was?.name ?? 'them'}`);
     },
@@ -5420,6 +5490,7 @@ async function boot() {
   api.personInTown = personInTown;
   const interactKey = createInteractKey({ interactions,
     keyEl: document.getElementById('btn-interact'),
+    moreEl: document.getElementById('interact-more'),
     where: () => ({ e: walker.state.e, n: walker.state.n, bearing: walker.bearingDeg, flying: walker.state.flying }),
     say: text => hud.say(text), enabled: () => !gateOpen, keys: window, isTyping,
   });
@@ -5427,6 +5498,7 @@ async function boot() {
   const transportReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   transportReducedMotion.addEventListener('change', resetVisualClock);
   let interactPaintAt = 0;
+  let interactHinted = false;
   window.addEventListener('pagehide', event => {
     if (event.persisted) return;
     // Driver leases and standing transfers finish before the human asset cache
@@ -5606,7 +5678,7 @@ async function boot() {
         // (1835), else their own card in Inspect on the house they lived or worked in
         // (T-3265), else the Navigator's People screen (1904, T-1740).
         openPerson: (id) => openPersonCard(id),
-        findPerson: supportsTownTransport(YEAR) && !draws('residents')
+        findPerson: !draws('residents')
           ? (id) => findSceneDirectoryPerson(id) : null,
         // T-3404: someone placed in town (a driver on their round) can be followed.
         followPerson: (id) => followPerson(id),
@@ -5711,7 +5783,9 @@ async function boot() {
       return { yawDeg: walker.bearingDeg, e: walker.state.e, n: walker.state.n, opens: tourCounts.opens,
         apps: { ...tourCounts.apps }, touch: backends.name === 'touch', level,
         selected: !!popup.openId || (app === 'inspect' && level > 0), card: !!popup.openId,
-        scene: loaded.scene?.id ?? YEAR, front: navigatorUi?.snapshot?.()?.front?.name ?? null };
+        scene: loaded.scene?.id ?? YEAR, front: navigatorUi?.snapshot?.()?.front?.name ?? null,
+        // T-3445: the People step only where the rail carries a People app.
+        people: !!document.querySelector('#navigator .nav-app[data-app="people"]:not([hidden])') };
     },
     render: (v) => {
       tourOverlay.paint(v);
@@ -5873,19 +5947,22 @@ async function boot() {
     railway.update(camera);
     flags.update(dt);
     parkedTransport.update(camera);
-    api.townTransport?.ensureNear(camera.position, !gateOpen && !animationHold && !document.hidden && !confidence.hidden.reconstructed);
+    // T-3439: Settings › Show › Carriages and horses, hidden: nothing driven is fetched,
+    // and a team already on its round is hidden the way the Confidence view hides it.
+    api.townTransport?.ensureNear(camera.position, shownLayers.vehicles && !gateOpen && !animationHold && !document.hidden && !confidence.hidden.reconstructed);
     // The journey bounds travelled metres, then checks every <= .05s sweep.
     // The shared visible clock has already rejected held/document lifecycle time.
     api.townTransport?.update(visualDt, camera.position, {
       elapsedFrame: true,
       paused: animationHold || gateOpen || document.hidden,
       reducedMotion: transportReducedMotion.matches,
-      hidden: confidence.hidden.reconstructed,
+      hidden: confidence.hidden.reconstructed || !shownLayers.vehicles,
       visualDt,
     });
     api.townTransport?.refreshInteractions();
-    if ((interactPaintAt += elapsed) >= .25) { interactPaintAt = 0; interactKey.refresh(); }
-    standingHorses.update(camera, visualDt, { paused: animationHold || gateOpen, visualFrame: true });
+    // T-3445: the first time the key offers something, once per device, what it is.
+    if ((interactPaintAt += elapsed) >= .25) { interactPaintAt = 0; if (interactKey.refresh() && !interactHinted) interactHinted = hints.show('interact') || hints.seen('interact'); }
+    if (shownLayers.vehicles) standingHorses.update(camera, visualDt, { paused: animationHold || gateOpen, visualFrame: true });
     // T-2598: which house pictures are on the GPU, from where the eye ended up; at
     // most a frame's allowance of them is uploaded here, before the draw.
     residency?.tick(camera.position);

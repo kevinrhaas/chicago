@@ -1,0 +1,48 @@
+{
+  "id": "hi_heald_company_private_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "grummo_paul",
+  "appearance": {
+    "asset_id": "private_first_infantry_1812"
+  },
+  "placement": {
+    "local_e": 1147.5,
+    "local_n": 219.5,
+    "heading_deg": 190,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.85
+  },
+  "behaviour": {
+    "state": "standing"
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed standing depiction of Paul Grummo, a private of Captain Nathan Heald's company of the First Regiment of Infantry, the garrison of the first Fort Dearborn: on the company's muster-roll of 31 May 1812 as present, enlisted 1 October 1810, and one of the nine men of the garrison who came back from captivity in 1814 (Quaife 1913, Appendix VIII and pp. 238-40). He stands at ease on the parade, the open square of Whistler's plan of the fort (1808), a few metres west of the way from the main gate to the flagstaff, facing the gate, on the afternoon of 14 August 1812. Nothing of that day is acted out: not the order to leave, the council, the giving out of the goods, the march or the attack. His blue coat faced red, black leather stock, white crossbelts, white linen overalls, half gaiters and tall felt cap with a white feather follow the issue the 1802 act lists and the uniform change of 1813 read backwards. Where he stands, his face, his build and his age are reconstructed: no likeness or birth year of his is known, and his neighbour remembered him only as tall and well-built.",
+    "sources": [
+      "loc_ogden_1888_infantry_artillery_1802_1810",
+      "met_krimmel_1813_philadelphia_soldiery",
+      "quaife_1913",
+      "us_1812_rules_and_articles_albany",
+      "us_1814_military_laws_and_regulations",
+      "whistler_1808_fort_dearborn_draught"
+    ],
+    "liberty": "L418",
+    "seed": "hi_heald_company_private_1812:1812:parade-standing:20261107",
+    "replaceable_by": "A likeness or a recorded age of Paul Grummo, replacing the reconstructed face, build and age; his place on the parade and his standing have no documentary claim."
+  }
+}

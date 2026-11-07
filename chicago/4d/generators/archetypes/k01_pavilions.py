@@ -138,7 +138,7 @@ def resolve(spec, *, width, stone, openings, mansard, eave, wall_head, depth=Non
         w, rp = float(rb["width_m"]), float(rb["proud_m"])
         if not (0.2 <= w <= 0.8 and 0.04 <= rp <= 0.2):
             raise ParamError("street_front_pavilions.mansard_ribs: 0.2-0.8 m wide, 0.04-0.2 m proud")
-        inset = mansard["lower_rise_m"] / math.tan(math.radians(mansard["lower_pitch_deg"]))
+        inset = mansard["lower_rise_m"] / math.tan(math.radians(mansard["lower_pitch_deg"]))   # the side faces' run
         ss = tuple(float(x) for x in rb["s_m"])
         for c in ss:
             if not inset + w < c < width - inset - w:
@@ -399,7 +399,7 @@ def dress(a):
     if rb:
         m = p.mansard
         E, o = p.eave_m, p.eave_overhang_m
-        pitch = math.radians(m["lower_pitch_deg"])
+        pitch = math.radians(m.get("street_pitch_deg", m["lower_pitch_deg"]))   # T-1890: the street face's own
         t = (-math.cos(pitch), math.sin(pitch), 0.0)       # up the street face
         nrm = (math.sin(pitch), math.cos(pitch), 0.0)      # out of it
         L = m["lower_rise_m"] / math.sin(pitch) - RIB_CURB_CLEAR_M / math.sin(pitch)

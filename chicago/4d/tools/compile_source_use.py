@@ -23,8 +23,10 @@ USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # integration with canonical Blue Book sources (531 sources, 216 567 raw bytes); 228 000 from
 # T-2386's reviewed Wolf Point pictures integrated with the Allerton sources; 232 000 from
 # T-3342's two camp sources on dev's records; 248 000 from T-3378/T-3379's fourteen jaunt
-# sources (the ghost legends and the famous names' biographies read 233 677) — see outputs().
-INDEX_BUDGET = 248_000
+# sources (the ghost legends and the famous names' biographies read 233 677); 256 000 from
+# T-3449/T-3450/T-3451's ten period-wardrobe sources (the 1835 merchant's and labourer's Met
+# pictures, the 1812 soldier's laws, regulations and plates read 248 510) — see outputs().
+INDEX_BUDGET = 256_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
                  'unknown': 'reconstructed', 'not_1835_resident': 'reconstructed'}

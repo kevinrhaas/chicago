@@ -119,7 +119,10 @@ PICTURED = {
                             "over the whole ground storey of the front south of the portico and of the 18th "
                             "Street flank west of the porte-cochere, up to the balcony's belt course, "
                             "and the porte-cochere's corner pier clothed to its entablature "
-                            "(LC-D4-12551)."},
+                            "(LC-D4-12551); the flank's east section east of the pavilion under the "
+                            "same mantle, and the porte-cochere's east end clothed to its entablature, "
+                            "the leaves running over its arch's ring between the piers "
+                            "(LC-D4-12552)."},
         # T-1881: the stretches a picture shows wholly clothed, each read through the Detroit print's
         # solved camera (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json),
         # which lays the lot's s/d metres on the print's x: the front's face (d 16.8) from s 25 at
@@ -146,6 +149,18 @@ PICTURED = {
             {"face": "high_s", "span_m": [16.6, 23.9], "height_m": [5.0, 5.6], "over_heads": False,
              "clear_windows": {"sidecar": "pullman_house_1729_prairie", "attribute": "north_bays",
                                "under_m": 4.6, "face_u_m": 27.75, "face_v_m": 17.93, "margin_m": 0.4}},
+            # T-1881 (2026-11-07): the flank's east section, from the 18th Street pavilion's east
+            # return (s 20.6, d 37.4) to the south-east corner (s 27.75, d 44.55), which the Detroit
+            # print det 4a08066 shows under a heavy mantle up to the belt (x 342-390, y 430-497);
+            # held, by the same owner ruling, clear of its broad ground-storey window and to the lights'
+            # heads rather than the belt
+            # ...and the pavilion's own face between its broad ground-storey window (s 15.6-18.2,
+            # d 32.4-35.0) and its east return (d 37.4), clothed in the same print (x 316-326); held
+            # 0.4 m off the window as the owner ruled
+            {"face": "high_s", "span_m": [35.4, 37.2], "height_m": [5.0, 5.6], "over_heads": False},
+            {"face": "high_s", "span_m": [37.7, 44.3], "height_m": [5.0, 5.6], "over_heads": False,
+             "clear_windows": {"sidecar": "pullman_house_1729_prairie", "attribute": "north_bays",
+                               "under_m": 4.6, "face_u_m": 27.75, "face_v_m": 17.93, "margin_m": 0.4}},
         ],
         # T-1881: the porte-cochere's corner pier, clothed from the ground to the entablature's
         # soffit (6.85 m) in the Detroit print: its west face, seen square through the solved
@@ -158,6 +173,22 @@ PICTURED = {
              "proud_m": 0.05, "height_m": [6.55, 6.85]},
             {"sidecar": "pullman_house_1729_prairie", "face": "front", "pier": "low",
              "proud_m": 0.05, "height_m": [6.55, 6.85]},
+            # T-1881 (2026-11-07): the east end's two piers, either side of its arch, which the
+            # Detroit print det 4a08066 sees square from near Calumet Avenue clothed to the
+            # entablature (x 240-295, the arch's dark mouth between them)
+            {"sidecar": "pullman_house_1729_prairie", "face": "high_end", "pier": "inner",
+             "proud_m": 0.05, "height_m": [6.55, 6.85]},
+            {"sidecar": "pullman_house_1729_prairie", "face": "high_end", "pier": "outer",
+             "proud_m": 0.05, "height_m": [6.55, 6.85]},
+        ],
+        # T-1881 (2026-11-07): the same print shows the leaves running on over that arch's ring
+        # between the two clothed piers, to the entablature (x 255-285, the arch's mouth dark
+        # under them), where the piers alone left the ring and the spandrel over it bare. Laid
+        # on the model's own arch, strip by strip down to its springing (porte_arch_strips). The
+        # south arch's ring, which LC-D4-12551 shows leaved over only its west foot (under a
+        # foot, item 47 of that record), and the west end's arch are left as they were.
+        "creeper_arches": [
+            {"sidecar": "pullman_house_1729_prairie", "face": "high_end"},
         ],
         # T-1934 (the owner, 2026-10-30: the carriage ways with "no plants blocking it"): the border
         # starts at the house's east wall (d 45.5), where the print shows it, not along the house's
@@ -818,6 +849,58 @@ def porte_pier_face(cp):
     return [world(*q) for q in ends], math.degrees(math.atan2(de, dn)) % 360
 
 
+ARCH_STRIP_W_M = 0.5       # T-1881: the width of one ivy strip over an arch's ring (the
+                            # renderer grows `mantle_ring` at this width, so none is squashed)
+ARCH_STRIP_STEP_M = 0.15    # ...and how far apart their centres stand round the ring
+
+
+def porte_arch_strips(ca):
+    """The ivy over one arch of a K01 porte-cochere, as `mantle_ring` patches: [e, n, facing,
+    width, height, base] each. T-1881: the Detroit print det 4a08066 shows the leaves running
+    over the east end's arch ring between its clothed piers, which `creeper_piers` clothes only
+    to the jambs. The arch is the model's own (semicircular, springing at `spring_m`, its span
+    between the two piers' jambs as porte_pier_face reads them), so the strips can never drift
+    off it. Each strip is ARCH_STRIP_W_M wide and reaches to the entablature's soffit; it
+    stands on the intrados at its edge nearer the crown, lifted HEAD_LEAF_HANG_M as a window's
+    head patch is, so no leaf hangs into the arch's mouth. They overlap, their centres
+    ARCH_STRIP_STEP_M apart from the crown out, so the next strip out reaches lower and the
+    ring is clothed down its haunches to the impost, where the last strips, wholly beyond the
+    jamb, stand on the springing. They stand on the archivolt's face (the rustication's and
+    the ring's projections, read off the porte-cochere's `dressing`), not the piers': a mat
+    laid on the piers' plane is hidden behind the ring, which stands proud of it."""
+    sc = json.loads((SIDECARS / f"{ca['sidecar']}.json").read_text())
+    pc = sc["attributes"]["porte_cochere"]["value"]
+    arch = next(a for a in pc["arches"] if a["face"] == ca["face"])
+    lo, hi = ("low", "high") if ca["face"] == "front" else ("inner", "outer")
+    dr = pc.get("dressing", {})
+    ring = dr.get("archivolt", {}).get("band_m", 0.0)
+    proud = ca.get("proud_m", dr.get("rustication", {}).get("proud_m", 0.0)
+                   + dr.get("archivolt", {}).get("proud_m", 0.0))
+    base_cp = {"sidecar": ca["sidecar"], "face": ca["face"], "proud_m": proud}
+    (_, (ea, na)), facing = porte_pier_face({**base_cp, "pier": lo})
+    ((eb, nb), _), _ = porte_pier_face({**base_cp, "pier": hi})
+    r, half = arch["span_m"] / 2, ARCH_STRIP_W_M / 2
+    top = float(ca.get("top_m", pc["head_m"]))
+    intrados = lambda x: pc["spring_m"] + math.sqrt(max(0.0, r * r - x * x))
+    # centres from the crown out, until a strip stands wholly beyond the jamb, over the ring's foot
+    centres = [0.0]
+    while centres[-1] - half < r - 1e-9:
+        centres.append(max(half, centres[-1] + ARCH_STRIP_STEP_M) if centres[-1] == 0.0
+                       else centres[-1] + ARCH_STRIP_STEP_M)
+    centres[-1] = r + half if ring > 0 else centres[-1]
+    out = []
+    for c in centres:
+        inner = max(0.0, c - half)
+        base = intrados(inner) + HEAD_LEAF_HANG_M if inner < r - 1e-9 else pc["spring_m"]
+        if top - base < 0.2:
+            continue
+        for side in ((1,) if c == 0.0 else (-1, 1)):
+            t = 0.5 + side * c / (2 * r)     # 0 at jamb a, 1 at jamb b
+            out.append([r2(ea + (eb - ea) * t), r2(na + (nb - na) * t), r2(facing), ARCH_STRIP_W_M,
+                        r2(top - base), r2(base)])
+    return out
+
+
 def plant_lot(p, plan: Plan, house, sids):
     y = Yard(p, plan, house, sids)
     if not y.ok:
@@ -1133,6 +1216,10 @@ def plant_lot(p, plan: Plan, house, sids):
                 w = r2(min(prng.uniform(1.4, 1.9), step * 1.3))
                 creeper.append([r2(ea + (eb - ea) * t), r2(na + (nb - na) * t), facing, w,
                                 r2(prng.uniform(*cp["height_m"])), "mantle"])
+        # ...and the rings over the arches between such piers (T-1881), strip by strip, no rng
+        for ca in pic.get("creeper_arches", []):
+            for e, n, facing, w, h, base in porte_arch_strips(ca):
+                creeper.append([e, n, facing, w, h, "mantle_ring", base])
 
     out = {
         "parcel": p["id"], "street": p["street"], "side": p.get("side"),
@@ -1234,7 +1321,8 @@ def build(laid=None):
                 "over the ground and the tub's height, (vessel: \"box\", a square planting box on legs, or \"over\", grown over the box at its spot, its foot tub_m up)))]; beds: [e, n, half_length_m, half_width_m, "
                 "heading_deg, kind, scheme]; creeper: [e, n, facing_deg, width_m, height_m, (\"mantle\" on a "
                 "stretch a picture shows wholly clothed, \"mantle_sill\" under a window in it: its top drawn level, "
-                "\"mantle_head\" over a window's head in it, (base_m: how far over the ground it stands, on the head)))]. The lawn is "
+                "\"mantle_head\" over a window's head in it, \"mantle_ring\" a narrow strip over an arch's ring, "
+                "(base_m: how far over the ground it stands, on the head or the ring)))]. The lawn is "
                 "the ground's own sward.",
         "scene": "1904", "target_date": "1904-07-01", "ticket": "T-3223",
         "generated_by": "tools/plant_prairie_1904_front_yards.py",

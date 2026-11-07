@@ -38,6 +38,20 @@
  * ordinary ground. And a footprint marked `ground` (a fort's parade, six centimetres of
  * trodden earth) is no obstruction at all. Both stay in the array whole, so the planters,
  * the router and the framing read the same polygon they always did.
+ *
+ * The one hole in a façade: **a doorway** (T-3442). A footprint may carry `doorways` —
+ * a hung door's zone (a small polygon round it, house-doors.js) and two outlines of the
+ * footprint with its reveal cut into the face: `shut`, to the leaf, and `open`, on into
+ * the vestibule. Inside the zone the capsule is pushed out of whichever outline the door's
+ * `isOpen()` names instead of the plain polygon, so a visitor stands on the threshold at
+ * the leaf and walks through it once it is open. The outlines agree with the polygon
+ * everywhere outside the notch, and the zone reaches past the notch by more than the
+ * capsule's radius, so walking past a door along the façade feels nothing.
+ *
+ * And a step is a step, not a jolt (T-3442): where the floor jumps between two frames (a
+ * stair tread, a threshold, a deck's edge — anything within the step-up rule) the camera
+ * eases the jump out over STEP_EASE_S. `eyeY` stays the honest standing height the eye
+ * smoke reads; the ease rides beside `bob`, in apply() only, and is never on in the air.
  */
 
 import * as THREE from 'three';
@@ -197,6 +211,20 @@ export function segmentsCross(p0, p1, a, b) {
     && !(d1 === 0 && d2 === 0 && d3 === 0 && d4 === 0);
 }
 
+/** T-3442: a floor jump the camera eases out (more than this, within the step-up rule),
+ *  and how fast: the time constant of the ease, seconds (most of a step in ~0.2 s). */
+export const STEP_EASE_MIN_M = 0.02;
+export const STEP_EASE_S = 0.07;
+
+/** T-3442: the outline the walker keeps a capsule out of at (e, n): a doorway's notched
+ *  footprint inside its zone (open or shut as its door is), else the footprint's own. */
+export function outlineAt(fp, e, n) {
+  if (fp.doorways) {
+    for (const d of fp.doorways) if (inside(e, n, d.zone)) return d.isOpen?.() ? d.open : d.shut;
+  }
+  return fp.pts;
+}
+
 /** T-3319: whether an enclosure's wall stands in the way now (a gate may be open). */
 export const wallBlocks = (w) => (typeof w.blocks === 'function' ? w.blocks() !== false : true);
 
@@ -274,6 +302,8 @@ export function createWalker({ camera, terrain, footprints = [], decks = [], spa
      * a change of stature. Zero on foot, in the air, and under reduced motion.
      */
     bob: 0,
+    /** T-3442: what is left of the last floor jump, metres, eased out in apply() only. */
+    stepEase: 0,
   };
   const euler = new THREE.Euler(0, 0, 0, 'YXZ');
   const world = new THREE.Vector3();
@@ -391,9 +421,11 @@ export function createWalker({ camera, terrain, footprints = [], decks = [], spa
       if (fp.walls) { ({ e, n } = keepOffWalls(fp.walls, e, n)); continue; }
       const lane = laneAt(fp, e, n);
       if (lane) { ({ e, n } = keepInLane(lane, e, n)); continue; }
-      const near = nearestOnBoundary(e, n, fp.pts);
+      // T-3442: at a hung door the façade has its doorway cut in.
+      const pts = outlineAt(fp, e, n);
+      const near = nearestOnBoundary(e, n, pts);
       if (!near) continue;
-      const within = inside(e, n, fp.pts);
+      const within = inside(e, n, pts);
       if (!within && near.d >= WALK.radius) continue;
 
       let dx = e - near.e;
@@ -459,6 +491,7 @@ export function createWalker({ camera, terrain, footprints = [], decks = [], spa
         state.pitch = 0;
       }
       state.groundY = surfaceAt(state.e, state.n);
+      state.stepEase = 0;
       if (altitude_m !== null) {
         this.setFlying(true);
         state.eyeY = state.groundY + Math.max(FLY.minClearance, altitude_m);
@@ -484,6 +517,7 @@ export function createWalker({ camera, terrain, footprints = [], decks = [], spa
       if (state.flying) return false;
       state.groundY = surfaceAt(state.e, state.n);
       state.eyeY = state.groundY + WALK.eyeHeight;
+      state.stepEase = 0;
       this.apply();
       return true;
     },
@@ -495,6 +529,7 @@ export function createWalker({ camera, terrain, footprints = [], decks = [], spa
       const rad = bearing * DEG;
       state.e = te + Math.sin(rad) * distance;
       state.n = tn + Math.cos(rad) * distance;
+      state.stepEase = 0;
       state.groundY = surfaceAt(state.e, state.n);
       state.eyeY = state.groundY + WALK.eyeHeight;
 
@@ -523,6 +558,7 @@ export function createWalker({ camera, terrain, footprints = [], decks = [], spa
       if (next === state.flying) return next;
       state.flying = next;
       state.blocked = false;
+      state.stepEase = 0;
       if (!next) {
         // Landing inside a building is possible — nothing pushed you out while
         // you were in the air — so clear the footprints before settling.
@@ -583,7 +619,7 @@ export function createWalker({ camera, terrain, footprints = [], decks = [], spa
 
     /** Write the camera. The ONLY place the camera transform is authored. */
     apply() {
-      enuToWorld(state.e, state.n, state.eyeY + state.bob, world);
+      enuToWorld(state.e, state.n, state.eyeY + state.bob + (state.flying ? 0 : state.stepEase), world);
       camera.position.copy(world);
       euler.set(state.pitch, state.yaw, 0, 'YXZ');
       camera.quaternion.setFromEuler(euler);
@@ -639,9 +675,15 @@ export function createWalker({ camera, terrain, footprints = [], decks = [], spa
       // visitor visibly entered a bank while climbing and floated while coming
       // down.  Bilinear sampling already makes ordinary terrain continuous;
       // the 0.35 m step rule above is the only place an actual step may occur.
+      const wasGround = state.groundY;
       state.groundY = surfaceAt(state.e, state.n);
       state.eyeY = state.groundY + WALK.eyeHeight;
       state.altitude = 0;
+      // T-3442: and where one does, the camera takes it over STEP_EASE_S, not in a frame.
+      const jump = state.groundY - wasGround;
+      if (Math.abs(jump) > STEP_EASE_MIN_M && Math.abs(jump) <= WALK.stepUp + 0.05) state.stepEase -= jump;
+      state.stepEase = Math.abs(state.stepEase) < 1e-4 ? 0
+        : Math.max(-0.5, Math.min(0.5, state.stepEase * Math.exp(-Math.max(0, dt) / STEP_EASE_S)));
 
       this.apply();
     },

@@ -87,7 +87,7 @@
       "description": "T-3355: a story jaunt told in full; each stop's text may run 25-150 words instead of 25-60."
     },
     "ambience": {
-      "description": "T-3377: the light a jaunt is walked in, a viewing choice like Settings > Time of day and Season, never a claim about the day: `hour` stands at every stop without an hour of its own, `season` for the whole outing; both are given back when it ends.",
+      "description": "T-3377: the light a jaunt is walked in, a viewing choice like Settings > Time of day and Season, never a claim about the day: `hour` stands at every stop without an hour of its own, `season` at every stop without a date of its own (a dated stop is shown in its date's season, T-3459); both are given back when it ends.",
       "type": "object",
       "properties": {
         "hour": {
