@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 2752, ts: '2026-11-07T05:06:36.036Z', date: 'Nov 6, 2026, 11:06 PM CT', title: '2009 Prairie\'s tall chimney moves to the wall its photograph shows', kind: 'improvement',
+    items: [
+      'In 1904, the tall chimney of 2009 Prairie Avenue now rises astride the north wall, where the old photograph puts it, instead of standing inside the roof; its head is laid in courses that step out under a stone cap, as the photograph draws it, and the chimney farther back gets the same head.',
+      'The gable\'s south foot is still to come.',
+    ] },
+  { v: 2751, ts: '2026-11-07T05:06:36.036Z', date: 'Nov 6, 2026, 11:06 PM CT', title: '1828 Prairie\'s porch gets its arches, and its bay its basement lights', kind: 'feature',
+    items: [
+      'The Shipman house at 1828 Prairie: round arches on the porch\'s front and south side, springing from its columns\' capitals under the carved entablature, as the c. 1900 photograph with the automobile shows them.',
+      'Under the canted bay\'s three tall windows, barred basement lights as tall and wide as the photograph\'s, where the bay\'s base stood blank.',
+    ] },
+  { v: 2750, ts: '2026-11-07T04:23:18.977Z', date: 'Nov 6, 2026, 10:23 PM CT', title: 'Mattie Williamson passes the people photo test', kind: 'fix',
+    items: [
+      'The Glessners\' cook is the first approved figure for the 1904 working woman; later women of that role are held to her.',
+    ] },
   { v: 2749, ts: '2026-11-07T04:03:21.806Z', date: 'Nov 6, 2026, 10:03 PM CT', title: '1816 Prairie stands on its pale stone basement', kind: 'improvement',
     items: [
       'The Henderson house at 1816 Prairie now stands on the pale stone basement its old photograph shows. The stone runs from the ground up to the main floor, around the front, both bay windows and the south side, with barred cellar windows under the bays.',

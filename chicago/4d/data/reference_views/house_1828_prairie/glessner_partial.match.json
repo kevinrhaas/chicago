@@ -2,7 +2,7 @@
   "structure_id": "house_1828_prairie",
   "view": "glessner_partial",
   "glb": "assets/gltf/house_1828_prairie__as_mapped_1904.glb",
-  "glb_sha256": "726b4e7058c911874f2e725f44544513b22f6d523816f2daa7cd9e55c11073a0",
+  "glb_sha256": "0e4dc9d12d64a45efb95fbf5c889a8d2d79074583cff249a9451e00949151062",
   "camera_sha256": "8f9167ca5a55f920dd6ede2b7a979f0e261e05fbd0e457e4d755c1c6d41d17a5",
   "photo_sha256": "c2b23da61891304ec9e26a3793b1ee7875a59cd816b51873e5cb684a28333334",
   "side_by_side": "docs/RESEARCH/photo-match/house_1828_prairie/glessner_partial-side-by-side.jpg",
@@ -54,9 +54,16 @@
       "how": "built as K10's moulded stone cornice at the print's height and projection within about 10 px; the brackets' relief is under a foot"
     },
     {
-      "what": "the porch's round arch on its front and its south side, the carved spandrels and capitals, and the third column",
-      "status": "open",
-      "how": "built as a flat soffit on two columns, now in the front's stone (T-3168); the arches and the third column are kit work K01's door hood does not carry, and the carving is within tolerance (the automobile view's record)"
+      "what": "the porch's round arch on its front and its south side (y 365-395 px, from the capitals to the crown under the entablature): T-1887 turns them, and the front's renders in place between the two columns (x 108, 185)",
+      "status": "fixed"
+    },
+    {
+      "what": "the porch's carved spandrels and capitals: relief under a foot, as the automobile photograph's record reads them",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the third column at the porch's south-rear corner, against the canted bay's north cheek (the automobile photograph's record): the build carries the south arch on a flat respond on the recessed wall",
+      "status": "open"
     },
     {
       "what": "the porch's balustrade: solid stone panels, heavier than the build's joinery railing",
@@ -89,5 +96,5 @@
       "how": "this print reads as a low solid stone wall where chicagology_automobile shows an iron fence on a curb; the fence is kept (L-k14-walks-1800-block-3206)"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
