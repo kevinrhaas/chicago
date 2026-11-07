@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "albertype_1890",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "208c4b2a41000683a973af410b82636f71382855e2f031450b34198a3ee20520",
+  "glb_sha256": "d54e1abf6756083ae09754152d3ba30da5610aa563bada2024cb8ac0d94f4935",
   "camera_sha256": "ba9172fcab4191960cd5e108be9a1f82aff81603657b64df2e03511f7a2f1e57",
   "photo_sha256": "c7498f322ab0c1524dc09b963105fe53b0685a82557fb239e7a1217f0f803dca",
   "rendered_flora": {
@@ -220,6 +220,11 @@
     {
       "what": "the Prairie front's third part, on the main wall south of the entry (v 8.8 to the south-west corner pier, v 16.8-17.93): the owner, 2026-11-06, his crop of the Detroit print beside the build: \"you have two windows at every level for this third part of the face, but in the image there is one window at every level, line and size them up correctly with the house\". Built (T-1881) with ONE column, the 1.2 x 3.25 m principal light, the 1.45 x 2.65 m second-storey light and the 1.1 x 1.9 m pedimented dormer, centred on the wall between the banded pier at v 8.8-9.41 and the corner pier, at v 13.1; the narrow column (v 15.45, its dormer at v 14.85) is taken off. On the Library of Congress master scan (det 4a08065u) the big light stands midway between the entry's banded corner and the next banded pier, at which the cornice turns and falls away with the flank, so the narrow light and smaller dormer beyond it are the 18th Street flank's first column (north_bays s 1.4), as Taylor's no. 1445 shows them. The plate draws the same: one round-arched light a storey and one dormer between the entry's piers and the corner pier, centred, which the render now shows.",
       "status": "fixed"
+    },
+    {
+      "what": "the portico's entablature and deck: the plate runs the entablature from the north block's banded corner pier across to the column south of the door, its balustraded deck over the columns either side of the door",
+      "status": "fixed",
+      "how": "T-1881 (2026-11-06): the portico now runs v 1.6-8.425, before the north block as well as the entry (L-pullman-1729-three-part-front-1881); aligned on the north-west corner, its two columns either side of the door render within about 3-7 px of the plate's, and its entablature now starts at the corner pier as the plate's does. Its north column stands about 15 px inside the plate's corner pier, which the vignette draws banded: within tolerance at this scale (about 1 px a 10 cm), and the deck's balustrade north of the door, which the vignette's tree and branches cover, is not shown."
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

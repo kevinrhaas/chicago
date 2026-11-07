@@ -42,7 +42,7 @@
         29.06916609324027
       ],
       "rotation_y": -3.1416624667598727,
-      "glb_sha256": "2cac97eef92a6a91d18853d1fbce5206d4d5fa48dda37cc7c7efa466d9567f38"
+      "glb_sha256": "d54e1abf6756083ae09754152d3ba30da5610aa563bada2024cb8ac0d94f4935"
     },
     {
       "structure_id": "dexter_house_1721_prairie",
@@ -61,10 +61,10 @@
         -6.460499170403904
       ],
       "rotation_y": -3.141592653589793,
-      "glb_sha256": "7fd31b1da5606084d7ee8532130e27ebfbd8b23e601c4a299d147c74d081b2f5"
+      "glb_sha256": "332de0a1f9049ae44860bebc0ad5acb970bfcab916d27f56cc148bea871f257f"
     }
   ],
-  "group_sha256": "5cb119cdb98eaeb10578cfcfff9485a1e76b935f9a539841ed97515f467a5272",
+  "group_sha256": "3042e353341c85892c67660bcfedd568f5868194e0477447b53c5daf2164014c",
   "side_by_side": "docs/RESEARCH/photo-match/dexter_house_1721_prairie_coach_house/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "matches",
   "differences": [

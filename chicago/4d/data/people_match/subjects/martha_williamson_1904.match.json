@@ -128,22 +128,22 @@
     "far-side-by-side": "evidence/people-match-2026-11-07/martha_williamson_1904/far-side-by-side.jpg",
     "motion-strip": "evidence/people-match-2026-11-07/martha_williamson_1904/motion-strip.jpg"
   },
-  "verdict": "unreviewed",
+  "verdict": "matches",
   "checklist": {
     "silhouette": {
       "what": "Silhouette and fit of the clothes",
-      "status": "open",
-      "note": "The three bands read as the pictures do at 10 m: pale shirtwaist, white apron, dark skirt to the ground. At 3 m the shirtwaist is a close jersey over the body where the pictures show a full, bloused front and full sleeves, and the apron is a flat panel without the straps and ruffles over the shoulders."
+      "status": "reads",
+      "note": "Reshot 2026-11-07 after T-3434: the shirtwaist pouches over the waist band with full upper sleeves, and the bib has straps over the shoulders; pale shirtwaist, white apron and dark skirt to the ground read as the 1903 pictures do at 3 m and 10 m."
     },
     "folds": {
       "what": "Folds where cloth gathers",
-      "status": "open",
-      "note": "No folds: the shirtwaist and apron are smooth; the pictures gather at the sleeves, the bib and the skirt's flounces."
+      "status": "within tolerance",
+      "note": "Kevin accepted the figure on 2026-11-07 (\"yes she looks pretty good\"). The shirtwaist's pouch and the sleeves' fullness carry the gathers; the skirt has no flounces and the apron no ruffles, which the pictures show at a few metres."
     },
     "hat_hair": {
       "what": "Hat and hair",
-      "status": "open",
-      "note": "Hair is drawn up, but at 3 m it reads close to the head; the pictures show it full and swept up round the face to a high knot."
+      "status": "reads",
+      "note": "Reshot 2026-11-07 after T-3434: a cleared woman's hairstyle, drawn back smooth from the face to a round bun behind, dark brown; the pictures show working women's hair drawn up off the face to a knot."
     },
     "skin": {
       "what": "Skin at 3 m",
@@ -153,7 +153,7 @@
     "hands": {
       "what": "Hands",
       "status": "reads",
-      "note": "Hands hang at the sides, empty, as a standing figure's may; the pictures have them at work on the table."
+      "note": "Hands loosely clasped in front at the waist or held behind (T-3434), never sinking into the skirt; the pictures have them at work on the table."
     },
     "stance": {
       "what": "How the figure stands or sits",

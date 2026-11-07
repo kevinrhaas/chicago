@@ -119,6 +119,9 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
   k01.wall.corner_stone     T-3365: the front's low-s corner dressed in stone from a height
                             to the wall head over a brick front, returned on the south wall
                             (street_front_windows.corner_stone; 2009's, off its photograph)
+  k01.wall.window_hood      T-3365: a named street light's moulded hood: a drip band with
+                            label stops, consoles, a splayed key block in place of its
+                            lintel, a carved pendant off its crown (street_front_windows.hoods)
   k01.opening.flat_arch     voussoirs over every front opening K09 leaves a flat
                             head (the area lights, the third floor), their joints
                             radiating and each stone's bed turned along its joint
@@ -158,6 +161,7 @@ LIBRARY = ROOT / "assets" / "textures" / "glessner-v4"
 ROOFS = ROOT / "assets" / "textures" / "prairie_1904_roofs"   # K04, T-2292
 STONE = ROOT / "assets" / "textures" / "prairie_1904_stone"   # K02, T-2288
 GENERATOR = "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)"
+PENDANT_BED_M = 0.02   # T-3365: a hood's pendant is let this far down into the band it stands on
 # T-2358: where a gutter outlet's trail starts, and how far a vertex may lie off a wall's
 # plane and still weather as that wall. Reconstructed (L-k14-1808-walls-2358): the swan neck
 # meets the wall just under the soffit and wets it either side of the pipe; a K08 bay stands
@@ -1071,6 +1075,36 @@ class Assembly:
         pr.face([P(s0, y0, 0), P(s0, y0, d), P(s0, y1, d), P(s0, y1, 0)], _mul(R, -1), be, conf)
         pr.face([P(s1, y0, 0), P(s1, y0, d), P(s1, y1, d), P(s1, y1, 0)], R, be, conf)
 
+    def proud_rects(self, mat, frame, rects, d, seed, conf):
+        """T-3365: one solid `d` proud of a wall whose face is the union of `rects` (s0, s1, y0,
+        y1), overlapping or abutting: cut on the grid of their edges, a front face per filled
+        cell and a side face on every cell edge between filled and empty, so two pieces of one
+        stone (a hood's band and its stops, a pendant's stem and its tiers) share no face."""
+        O, R, N = frame
+        P = lambda u, y, dd: _add(_add(_add(O, _mul(R, u)), _mul(Y, y)), _mul(N, dd))
+        us = sorted({round(v, 6) for r in rects for v in r[:2]})
+        ys = sorted({round(v, 6) for r in rects for v in r[2:]})
+        fill = [[any(r[0] - 1e-9 <= (us[i] + us[i + 1]) / 2 <= r[1] + 1e-9 and
+                     r[2] - 1e-9 <= (ys[j] + ys[j + 1]) / 2 <= r[3] + 1e-9 for r in rects)
+                 for j in range(len(ys) - 1)] for i in range(len(us) - 1)]
+        on = lambda i, j: 0 <= i < len(us) - 1 and 0 <= j < len(ys) - 1 and fill[i][j]
+        pr, bf = self.prim(mat), self.basis(mat, O, R, Y, seed)
+        bh, be = self.basis(mat, O, R, N, seed), self.basis(mat, O, N, Y, seed)
+        for i in range(len(us) - 1):
+            for j in range(len(ys) - 1):
+                if not fill[i][j]:
+                    continue
+                u0, u1, y0, y1 = us[i], us[i + 1], ys[j], ys[j + 1]
+                pr.face([P(u0, y0, d), P(u1, y0, d), P(u1, y1, d), P(u0, y1, d)], N, bf, conf)
+                if not on(i, j + 1):
+                    pr.face([P(u0, y1, 0), P(u1, y1, 0), P(u1, y1, d), P(u0, y1, d)], Y, bh, conf)
+                if not on(i, j - 1):
+                    pr.face([P(u0, y0, 0), P(u1, y0, 0), P(u1, y0, d), P(u0, y0, d)], _mul(Y, -1), bh, conf)
+                if not on(i - 1, j):
+                    pr.face([P(u0, y0, 0), P(u0, y0, d), P(u0, y1, d), P(u0, y1, 0)], _mul(R, -1), be, conf)
+                if not on(i + 1, j):
+                    pr.face([P(u1, y0, 0), P(u1, y0, d), P(u1, y1, d), P(u1, y1, 0)], R, be, conf)
+
     def key_block(self, mat, frame, s, y0, k, seed, conf):
         """T-3297: a tapered stone key standing `proud_m` out of the wall, its foot `foot_m`
         across on y0, widening to `top_m` at its top `height_m` up, its top corners cut
@@ -1299,6 +1333,67 @@ class Assembly:
             ya, yb = y0 + k * ch, y0 + (k + 1) * ch
             self.proud_box("limestone_trim", front, -d, cs["width_m"], ya, yb, d, seed, conf)
             self.proud_box("limestone_trim", side, side_len - cs["return_m"], side_len, ya, yb, d, seed, conf)
+
+    def window_hoods(self, front):
+        """T-3365: k01.wall.window_hood — the moulded hoods of a named-window front's lights
+        (street_front_windows.hoods; 2009 Prairie's, off the Chicagology photograph): a stone
+        drip `band` over the head, its two ends hanging lower as label stops; two `consoles`
+        widening upward either side of the light; a splayed `key` block standing for the
+        lintel; and a carved `pendant`, a stem up off the head's centre line carved out in
+        tiers. Each part a dressed stone box (or K01's tapered key) proud of the front."""
+        p = self.p
+        conf = p.worst_conf("footprint", "stories", "storey_heights_m", "construction", "street_front_windows")
+        sg = p.shaped_gable
+
+        def face(y):
+            """How far proud of the wall the face is that a part reaching up to `y` stands on: a
+            shaped gable's slab stands out by the eave and its own proud from its foot up, so a
+            part rising past that foot stands proud of the slab's face, its back run on to the
+            wall (and under the foot it stands that far out of the brick)."""
+            return p.eave_overhang_m + sg["proud_m"] if sg and y > sg["foot_m"] + 1e-6 else 0.0
+
+        for h in p.street_dress["hoods"]:
+            s = h["s_m"]
+            params = {"window": h["window"], "parts": sorted(set(h) & {"band", "consoles", "key", "pendant"})}
+            if "pendant" in h:
+                params["pendant_tiers"] = len(h["pendant"]["tiers"])
+            seed = self.instance("k01.wall.window_hood", "wall", params,
+                                 {"head": _add(front[0], _add(_mul(front[1], s), _mul(Y, h["head_m"])))})
+            pts = []
+            if "band" in h:
+                b = h["band"]
+                (s0, s1), y0, y1 = b["s_m"], b["bed_m"], b["top_m"]
+                d = face(y1) + b["proud_m"]
+                sw, ys = b["stops"]["width_m"], y1 - b["stops"]["drop_m"]
+                self.proud_rects("limestone_trim", front, [(s0, s1, y0, y1), (s0, s0 + sw, ys, y1),
+                                                           (s1 - sw, s1, ys, y1)], d, seed, conf)
+                pts += [(s0, ys, 0.0), (s1, y1, d)]
+            if "consoles" in h:
+                c = h["consoles"]
+                k = {"foot_m": c["width_m"][0], "top_m": c["width_m"][1], "height_m": c["to_m"] - c["from_m"],
+                     "proud_m": c["proud_m"], "chamfer_m": 0.0}
+                for at in c["at_m"]:
+                    self.key_block("limestone_trim", front, at, c["from_m"], k, seed, conf)
+                    pts += [(at - k["top_m"] / 2, c["from_m"], 0.0), (at + k["top_m"] / 2, c["to_m"], k["proud_m"])]
+            if "key" in h:
+                ky = h["key"]
+                k = {"foot_m": ky["width_m"][0], "top_m": ky["width_m"][1], "height_m": ky["height_m"],
+                     "proud_m": ky["proud_m"], "chamfer_m": 0.0}
+                self.key_block("limestone_trim", front, s, ky["from_m"], k, seed, conf)
+                pts += [(s - k["top_m"] / 2, ky["from_m"], 0.0), (s + k["top_m"] / 2, ky["from_m"] + k["height_m"],
+                                                                   k["proud_m"])]
+            if "pendant" in h:
+                pd = h["pendant"]
+                d, st = face(pd["top_m"]) + pd["proud_m"], pd["stem_m"] / 2
+                # one stepped outline: the stem up its whole height and each tier across it, its
+                # foot let PENDANT_BED_M down into the band it stands on so no face lies on another's
+                y0 = pd["from_m"] - (PENDANT_BED_M if "band" in h else 0.0)
+                self.proud_rects("limestone_trim", front,
+                                 [(s - st, s + st, y0, pd["top_m"])]
+                                 + [(s - w / 2, s + w / 2, a, b) for a, b, w in pd["tiers"]], d, seed, conf)
+                wmax = max(t[2] for t in pd["tiers"])
+                pts += [(s - wmax / 2, pd["from_m"], 0.0), (s + wmax / 2, pd["top_m"], d)]
+            self.seat(front, pts, "k01.window_hood")
 
     def wing_deck(self, w):
         """The wing's flat deck: a slab from its wall top to the fascia's top, run out over
@@ -2324,6 +2419,9 @@ class Assembly:
                     out += [(max(s0 - ret, 0.0), s0, o.sill_m, o.head_m, "K01.surround"),
                             (s1, min(s1 + ret, length), o.sill_m, o.head_m, "K01.surround")]
                 lo = su["returns_m"][0]   # the lintel runs the short return past each jamb
+                if any("key" in h and abs(h["s_m"] - o.s_m) < 1e-6 and abs(h["sill_m"] - o.sill_m) < 1e-6
+                       for h in p.street_dress.get("hoods", ())):
+                    continue   # T-3365: a splayed key block is this light's lintel
                 out.append((max(s0 - lo, 0.0), min(s1 + lo, length), o.head_m, o.head_m + su["lintel_m"], "K01.surround"))
         if fp:
             bed, q = fp["hood"]["bed_m"], fp["quoins_m"][ci % 2]
@@ -3903,6 +4001,12 @@ class Assembly:
                    lambda role: (stair_seed, stair_conf) if role in self.STAIR_ROLES else (seed, conf))
 
     # -- the door's hood (T-2480) ---------------------------------------------------------
+    @staticmethod
+    def _bay_proud(b):
+        """T-1881: how far a square projection's face stands out of its wall, or None."""
+        pl = (b or {}).get("variant", {}).get("plan") or {}
+        return max(z for _, z in pl["points"]) if pl.get("kind") == "polyline" else None
+
     def door_hood(self, op, frame):
         """A timber hood over the door in a K08 bay hood's joinery: a fascia box `out_m` from
         the wall, a cornice slab over it standing `proud_m` past its front and ends, a row of
@@ -3942,9 +4046,18 @@ class Assembly:
         # before that block's face stands clear of it (k01_frontage_params._bays holds the step
         # less far out than the block it abuts)
         cut_in_block = any(x.get("entrance") and x["wall"] == op.wall for x in p.bays)
+        # T-1881: and a portico on columns may run on along the front before a forward block
+        # beside the step the door is cut in, when it stands out past the block's face by a
+        # column's plinth and more (1729's, its entablature and deck carried north across the
+        # north block in the Detroit print and Taylor's no. 1445); what of it is behind the
+        # block's face is inside the block
+        eb = p.entrance_block()
+        eb_out = self._bay_proud(eb) if eb and eb["wall"] == op.wall else 0.0
+        before = lambda b: bool(h.get("columns")) and b.get("block") and self._bay_proud(b) is not None \
+            and out - (self._bay_proud(b) - eb_out) >= h["columns"]["plinth_m"][0] + 0.3
         for b in p.bays:   # nor the pavilion's walls (a bay's hood it may run into, as drawn)
             if b["wall"] == op.wall and b["variant"]["kind"] != "bay" and not b.get("entrance") and \
-                    not (b.get("front_step") and cut_in_block) and \
+                    not (b.get("front_step") and cut_in_block) and not before(b) and \
                     b["span_m"][0] < S1 + 0.05 and b["span_m"][1] > S0:
                 raise ValueError(f"the door hood ({S0:.2f}-{S1:.2f} m) runs into {b['id']}")
         con, mod = h["consoles"], h["modillions"]
@@ -6524,6 +6637,8 @@ def build(params, structure_id: str):
             a.quoins(frames["k01.wall.side.south"][0][0], D, quoins)
         if p.street_dress.get("corner_stone"):   # T-3365
             a.corner_stone(frame, frames["k01.wall.side.south"][0][0], D)
+        if p.street_dress.get("hoods"):   # T-3365
+            a.window_hoods(frame)
     for cid, (mat, O, R, length, t, bands) in walls.items():
         if cid in frames:
             continue

@@ -79,13 +79,13 @@
       "note": "Two storeys of brick over a raised stone basement, under a mansard: the photograph's walls stop at a bracketed cornice over the second storey and the roof's lower faces rise over it with dormers in them. The 1911 sheet's '3S.B.' counts the mansard's attic as its third storey, as it does at 1620 and 1736."
     },
     "construction": {
-      "value": "brick",
-      "confidence": "attested",
+      "value": "brick_with_stone_front",
+      "confidence": "inferred",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_28",
-        "chicagology_1816_henderson_photo"
+        "chicagology_1816_henderson_photo",
+        "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "The 1911 sheet: '3S.B.; rear2B brick dwelling (D)'; the photograph's walls are laid brick over a rusticated stone basement."
+      "note": "The 1911 sheet: '3S.B.; rear2B brick dwelling (D)'; the photograph shows what its brick stands on: a basement of smooth light ashlar from grade to a projecting water table at the principal floor, run round the street front, both canted bays and the south flank, with the brick only over it. T-1886: built as K01's stone front stopped at the principal floor (stone_front.brick_above_m), as 1834's and 1708's are; the sheet's 'brick' is the walls over it."
     },
     "principal_floor_m": {
       "value": 2.0,
@@ -420,7 +420,7 @@
           "variant": "k08.bay.canted",
           "wall": "k01.wall.street_front",
           "s_m": 3.76,
-          "fabric": "brick",
+          "fabric": "front_stone",
           "plan": {
             "kind": "polyline",
             "points": [
@@ -444,13 +444,50 @@
           },
           "storeys": [
             {
-              "height_m": 6.8,
+              "height_m": 2.0,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.95,
+                  "clear_height_m": 0.9,
+                  "sill_m": 0.45,
+                  "at": [
+                    0.174,
+                    0.826
+                  ],
+                  "grille": {
+                    "bars": 6,
+                    "set_back_m": 0.05,
+                    "ring_radius_m": 0.15
+                  },
+                  "why_not_ordinary": "T-1886: the photograph's barred basement lights under the bay's windows, one in each face it shows (x 615-680 and 730-780 px), about as wide as the windows over them and about 0.9 m high from about 0.45 m over grade in the stone under the water table (sill y 975 and head y 925 px at 53.6 px/m, grade at about 997)",
+                  "recess_m": 0.4
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.05,
+                  "clear_height_m": 0.9,
+                  "sill_m": 0.45,
+                  "at": [
+                    0.5
+                  ],
+                  "grille": {
+                    "bars": 6,
+                    "set_back_m": 0.05,
+                    "ring_radius_m": 0.15
+                  },
+                  "why_not_ordinary": "T-1886: the photograph's barred basement lights under the bay's windows, one in each face it shows (x 615-680 and 730-780 px), about as wide as the windows over them and about 0.9 m high from about 0.45 m over grade in the stone under the water table (sill y 975 and head y 925 px at 53.6 px/m, grade at about 997)"
+                }
+              ]
+            },
+            {
+              "height_m": 4.8,
               "windows": [
                 {
                   "opening": "k06.opening.sash_2over2_flat",
                   "clear_width_m": 0.95,
                   "clear_height_m": 3.15,
-                  "sill_m": 2.6,
+                  "sill_m": 0.6,
                   "at": [
                     0.174,
                     0.826
@@ -461,7 +498,7 @@
                 {
                   "opening": "k06.opening.sash_2over2_flat",
                   "clear_width_m": 1.05,
-                  "sill_m": 2.6,
+                  "sill_m": 0.6,
                   "at": [
                     0.5
                   ],
@@ -512,15 +549,33 @@
                 "height_m": 0.6,
                 "inset_m": 0.1
               }
+            },
+            "slated_as_house": true
+          },
+          "brick_above_m": 2.0,
+          "mansard_dormers": [
+            {
+              "head": "gable",
+              "gable_pitch_deg": 40,
+              "sash": {
+                "variant": "k06.opening.sash_2over2_flat",
+                "width_m": 0.7,
+                "height_m": 1.4,
+                "sill_m": 0.15
+              },
+              "surround_m": 0.15,
+              "face_setback_m": 0.15,
+              "at_m": 0.0
             }
-          }
+          ],
+          "plinth_m": 0.1
         },
         {
           "id": "south_canted",
           "variant": "k08.bay.canted",
           "wall": "k01.wall.side.south",
           "s_m": 2.75,
-          "fabric": "brick",
+          "fabric": "front_stone",
           "plan": {
             "kind": "polyline",
             "points": [
@@ -544,13 +599,50 @@
           },
           "storeys": [
             {
-              "height_m": 6.8,
+              "height_m": 2.0,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.6,
+                  "clear_height_m": 0.9,
+                  "sill_m": 0.45,
+                  "at": [
+                    0.131,
+                    0.869
+                  ],
+                  "grille": {
+                    "bars": 6,
+                    "set_back_m": 0.05,
+                    "ring_radius_m": 0.15
+                  },
+                  "why_not_ordinary": "T-1886: the photograph's barred basement lights under the flank bay's windows, one in each face it shows (x 210-230 and 260-310 px), as wide as the windows over them and about 0.9 m high from about 0.45 m over grade in the stone under the water table (sill y 975 and head y 925 px at 53.6 px/m, grade at about 997)",
+                  "recess_m": 0.4
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.05,
+                  "clear_height_m": 0.9,
+                  "sill_m": 0.45,
+                  "at": [
+                    0.5
+                  ],
+                  "grille": {
+                    "bars": 6,
+                    "set_back_m": 0.05,
+                    "ring_radius_m": 0.15
+                  },
+                  "why_not_ordinary": "T-1886: the photograph's barred basement lights under the flank bay's windows, one in each face it shows (x 210-230 and 260-310 px), as wide as the windows over them and about 0.9 m high from about 0.45 m over grade in the stone under the water table (sill y 975 and head y 925 px at 53.6 px/m, grade at about 997)"
+                }
+              ]
+            },
+            {
+              "height_m": 4.8,
               "windows": [
                 {
                   "opening": "k06.opening.sash_2over2_flat",
                   "clear_width_m": 0.6,
                   "clear_height_m": 3.15,
-                  "sill_m": 2.6,
+                  "sill_m": 0.6,
                   "at": [
                     0.131,
                     0.869
@@ -561,7 +653,7 @@
                 {
                   "opening": "k06.opening.sash_2over2_flat",
                   "clear_width_m": 1.05,
-                  "sill_m": 2.6,
+                  "sill_m": 0.6,
                   "at": [
                     0.5
                   ],
@@ -609,11 +701,29 @@
                 "height_m": 0.6,
                 "inset_m": 0.1
               }
-            }
+            },
+            "slated_as_house": true
           },
           "eaves": {
             "cornice": "k10.cornice.bracketed_timber"
-          }
+          },
+          "brick_above_m": 2.0,
+          "mansard_dormers": [
+            {
+              "head": "gable",
+              "gable_pitch_deg": 40,
+              "sash": {
+                "variant": "k06.opening.sash_2over2_flat",
+                "width_m": 0.7,
+                "height_m": 1.4,
+                "sill_m": 0.15
+              },
+              "surround_m": 0.15,
+              "face_setback_m": 0.15,
+              "at_m": 0.0
+            }
+          ],
+          "plinth_m": 0.1
         }
       ],
       "confidence": "inferred",
@@ -621,7 +731,7 @@
         "sanborn_1911_chicago_v3_sheet_28",
         "chicagology_1816_henderson_photo"
       ],
-      "note": "Two canted bays, each on the 1911 sheet's plan (s28fp-1816-b1 p2) and in the photograph: the street front's at its south corner, 6.87 m at the wall and 1.65 m out with 2.4 m of front, and the south flank's near its rear, 4.85 m at the wall and 1.0 m out with 2.68 m of front, each two storeys over the basement with a window in each face. T-2964: in the photograph both are carried up past the cornice, the bracketed cornice run round each, into a mansard of their own: the front's a raised crown whose deck stands over the main curb, the flank's lower; each under its own iron cresting. K08's mansard bay roof (roof.mansard) builds them: 4.4 m of lower face on the front's and 4.0 m on the flank's at 76 degrees, then a deck at a tenth. The rises are read through the photograph's camera as fractions of the wall under them (the front's crown about a third of the corner's height from grade to cornice, the flank's about two-fifths), so the crown's deck stands 0.4 m over the main curb, and are good to about half a metre; the pitch is the main mansard's near enough. The dormers in the bays' own faces are not built (the match record)."
+      "note": "Two canted bays, each on the 1911 sheet's plan (s28fp-1816-b1 p2) and in the photograph: the street front's at its south corner, 6.87 m at the wall and 1.65 m out with 2.4 m of front, and the south flank's near its rear, 4.85 m at the wall and 1.0 m out with 2.68 m of front, each two storeys over the basement with a window in each face. T-2964: in the photograph both are carried up past the cornice, the bracketed cornice run round each, into a mansard of their own: the front's a raised crown whose deck stands over the main curb, the flank's lower; each under its own iron cresting. K08's mansard bay roof (roof.mansard) builds them: 4.4 m of lower face on the front's and 4.0 m on the flank's at 76 degrees, then a deck at a tenth. The rises are read through the photograph's camera as fractions of the wall under them (the front's crown about a third of the corner's height from grade to cornice, the flank's about two-fifths), so the crown's deck stands 0.4 m over the main curb, and are good to about half a metre; the pitch is the main mansard's near enough. The dormers in the bays' own faces are not built (the match record). T-1886: both bays stand on the house's stone basement, as the photograph shows them (the pale ashlar run round their faces to the water table at 2.0 m, a barred light under each window it sees): laid in the front's stone with brick over a 2.0 m basement storey (fabric front_stone, brick_above_m 2.0, T-2914), their principal-storey sash unmoved (sills 0.6 m over the floor). Both crowns' lower faces in the main mansard's slate (roof.slated_as_house), as the print draws all three alike, and one pedimented dormer on each crown's front face (mansard_dormers): the front crown's on its street face, the flank crown's on its south face, where the print shows them (x 600-690 and 175-240 px). The flank crown's second dormer, in its south-east canted face, is not built: K08 lays a bay's dormers on its front face only (open on the match record; L-k01-1816-henderson-1886)."
     },
     "mansard": {
       "value": {
@@ -772,6 +882,37 @@
         "sanborn_1911_chicago_v3_sheet_28"
       ],
       "note": "T-3206 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stoop's foot through the entrance gate to the public walk, the gate's width; the cinder service walk from the side gate back along the south lot line to the house's rear corner, the gate's width (the south yard is 6.6 m wide and the rest of it is left to the ground). RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1800-block-3206. T-3233: the lawn is the app's own ground (`lawn: none`), not the kit's turf sheet, which met the ground beside it in a straight line of another green; the yard's grass now runs on to the side yards' and the margin's with no seam."
+    },
+    "stone_front": {
+      "value": {
+        "fabric": "limestone_bedford",
+        "dressing": "smooth",
+        "trim_fabric": "dressed_trim",
+        "rusticated_base_courses": 3,
+        "coping_height_m": 0.28,
+        "corner_bond": [],
+        "brick_above_m": 2.0,
+        "belts": []
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1816_henderson_photo"
+      ],
+      "note": "T-1886: the photograph's basement is smooth pale ashlar in level courses about a third of a metre high (joints about 17-18 px apart at the camera's 53.6 px/m), from grade to a projecting water table about 0.28 m deep (y 885-900 px at the south-east corner) at the principal floor, 2.0 m over grade; the brick stands on it. Built as K02's smooth limestone stopped at the principal floor (brick_above_m 2.0): three base courses of about 0.41 m up to the basement lights' heads under a 0.28 m coping (K01 lays the rusticated base to the lights' heads, so three courses, which only the Bedford profile allows at that height), and no stone belt across the brick (belts: []), which the print does not show at the second floor. The print is monochrome and does not name the stone; the limestone is reconstructed (L-k01-1816-henderson-1886)."
+    },
+    "side_base": {
+      "value": [
+        {
+          "wall": "k01.wall.side.south",
+          "to_m": 2.0,
+          "proud_m": 0.03
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1816_henderson_photo"
+      ],
+      "note": "T-1886: the photograph shows the south flank's basement, between its canted bay and the front's, in the same pale ashlar as the front's, up to the water table run round from the corner (y 885-900 px at x 588), with the brick only over it."
     },
     "function": {
       "value": "residence",

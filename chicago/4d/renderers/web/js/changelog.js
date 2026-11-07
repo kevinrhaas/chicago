@@ -1,4 +1,23 @@
 export const CHANGELOG = [ // newest first
+  { v: 2750, ts: '2026-11-07T04:23:18.977Z', date: 'Nov 6, 2026, 10:23 PM CT', title: 'Mattie Williamson passes the people photo test', kind: 'fix',
+    items: [
+      'The Glessners\' cook is the first approved figure for the 1904 working woman; later women of that role are held to her.',
+    ] },
+  { v: 2749, ts: '2026-11-07T04:03:21.806Z', date: 'Nov 6, 2026, 10:03 PM CT', title: '1816 Prairie stands on its pale stone basement', kind: 'improvement',
+    items: [
+      'The Henderson house at 1816 Prairie now stands on the pale stone basement its old photograph shows. The stone runs from the ground up to the main floor, around the front, both bay windows and the south side, with barred cellar windows under the bays.',
+      'The two raised roofs over its bay windows are now slated like the rest of the roof, not plain grey, and each has a dormer window where the photograph shows one.',
+      'Still to do: a second dormer on the side roof, the carved window hoods and the taller iron balcony over the door.',
+    ] },
+  { v: 2748, ts: '2026-11-07T03:33:36.219Z', date: 'Nov 6, 2026, 9:33 PM CT', title: '2009 Prairie\'s windows get their carved stone hoods', kind: 'improvement',
+    items: [
+      'In 1904, the top window of 2009 Prairie Avenue now sits under a stone hood whose ends turn down, with a carved stone pendant rising off it into the gable; two stone brackets hang under the bay window either side of the window below, and the small window has a splayed stone block over it, all where the old photograph shows them. The gutter that ran across the foot of the gable, which the photograph does not show, is gone.',
+      'The chimney\'s place and the gable\'s south foot are still to come.',
+    ] },
+  { v: 2747, ts: '2026-11-07T03:15:06.640Z', date: 'Nov 6, 2026, 9:15 PM CT', title: 'The Pullman portico runs the length of the front', kind: 'feature',
+    items: [
+      'In 1904, the Pullman house\'s stone portico on Prairie Avenue no longer stops at the door. As the old photographs show it, its columns, entablature and balustraded balcony now run north across the front block to its corner, standing well out from the wall on three columns.',
+    ] },
   { v: 2746, ts: '2026-11-07T02:51:28.029Z', date: 'Nov 6, 2026, 8:51 PM CT', title: '1936 Prairie\'s chimneys take their photograph\'s heights and heavy heads', kind: 'fix',
     items: [
       'The Thompson/Allerton house at 1936 Prairie: the left chimney over the south flank comes down about 0.9 m to the height its winter photograph shows, and both south chimneys now wear what the photograph draws on them: a stone band, a sunk panel on the taller one, and a heavy corbelled head under a broad stone cap in place of a thin slab.',
