@@ -1,0 +1,48 @@
+{
+  "id": "hi_bowen_joseph_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "bowen_joseph",
+  "appearance": {
+    "asset_id": "private_first_infantry_1812"
+  },
+  "placement": {
+    "local_e": 1151.8,
+    "local_n": 202.7,
+    "heading_deg": 180,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.227
+  },
+  "behaviour": {
+    "state": "standing"
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Joseph Bowen, corporal of Captain Nathan Heald's company of the First Infantry (on the company's muster-roll to 31 May 1812, Quaife 1913 App. VIII), on guard at the main gate, east of the passage, on the afternoon of 14 August 1812. Where he stands and what he is doing are ours (liberty L-1812-garrison-stations-3462): no guard report or order book of the post survives for that day, and nothing of it is acted out. He wears the company private's dress (T-3451); the marks of a corporal are not drawn. His face, height and build are seeded from his own name; no picture of him is known.",
+    "sources": [
+      "loc_ogden_1888_infantry_artillery_1802_1810",
+      "met_krimmel_1813_philadelphia_soldiery",
+      "quaife_1913",
+      "us_1812_rules_and_articles_albany",
+      "us_1814_military_laws_and_regulations",
+      "whistler_1808_fort_dearborn_draught"
+    ],
+    "liberty": "L418",
+    "seed": "bowen_joseph:1812:gate_east:20261107",
+    "replaceable_by": "A guard report, order book or morning report of the post for August 1812, which would put him at his own duty."
+  }
+}

@@ -4,6 +4,278 @@
  "generated_by": "tools/human_variation_kit.py",
  "_doc": "Each drawn person's age (from their own record: a birth date, else an age band) and any face fitted to a picture of them. renderers/web/js/human-variation.js seeds everything else from the person id. Regenerate; never edit by hand.",
  "persons": {
+  "adams_george": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_adams_george_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "allin_john": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_allin_john_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "andrews_prestly": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_andrews_prestly_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "bowen_joseph": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_bowen_joseph_1812.json"
+   ],
+   "age": {
+    "band": [
+     22,
+     36
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 22-36 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "burnett_george": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_burnett_george_1812.json"
+   ],
+   "age": {
+    "band": [
+     16,
+     30
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 16-30 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "campbell_asa": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_campbell_asa_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "corbin_fielding": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_corbin_fielding_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_corbin_fielding_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "corbin_james": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_corbin_james_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "crozier_john": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_crozier_john_1812.json"
+   ],
+   "age": {
+    "band": [
+     24,
+     40
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 24-40 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "daugherty_daniel": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_daugherty_daniel_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "denison_micajah": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_denison_micajah_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "draper_stephen": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_draper_stephen_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "dyer_dyson": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_dyer_dyson_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "edson_nathan": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_edson_nathan_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "forth_thomas": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_forth_thomas_1812.json"
+   ],
+   "age": {
+    "band": [
+     22,
+     36
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 22-36 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "fury_john": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_fury_john_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "garner_richard": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_garner_richard_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
   "glessner_frances_m": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_glessner_john_j.json",
@@ -96,11 +368,379 @@
     "data/humans/instances/1904/hi_glessner_williamson_martha_l_1904.json"
    ]
   },
+  "griffith_william": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_griffith_william_1812.json"
+   ],
+   "age": {
+    "band": [
+     24,
+     40
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 24-40 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
   "grummo_paul": {
    "scene": "1812",
    "record": "data/residents_1812/households/hh_heald_company_1812.json",
    "drawn_as": [
     "data/humans/instances/1812/hi_heald_company_private_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "hamilton_john": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_hamilton_john_1812.json"
+   ],
+   "age": {
+    "band": [
+     16,
+     30
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 16-30 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "hays_otho": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_hays_otho_1812.json"
+   ],
+   "age": {
+    "band": [
+     24,
+     40
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 24-40 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "holt_isaac": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_holt_isaac_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_holt_isaac_1812.json"
+   ],
+   "age": {
+    "band": [
+     24,
+     40
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 24-40 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "hunt_william_n": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_hunt_william_n_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "hurtt_nathan_a": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_hurtt_nathan_a_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "jones_rodias": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_jones_rodias_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "kelso_john": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_kelso_john_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "kennison_david": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_kennison_david_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "kilpatrick_samuel": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_kilpatrick_samuel_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "landon_jacob": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_landon_jacob_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "latta_james": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_latta_james_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "locker_frederick": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_locker_frederick_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "logan_hugh": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_logan_hugh_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "lynch_michael": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_lynch_michael_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "mccarty_duncan": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_mccarty_duncan_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "mcpherson_hugh": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_mcpherson_hugh_1812.json"
+   ],
+   "age": {
+    "band": [
+     16,
+     30
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 16-30 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "miller_peter": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_miller_peter_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "mills_elias": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_mills_elias_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "moffett_william": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_moffett_william_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "mortt_august": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_mortt_august_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "needs_john": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_needs_john_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_needs_john_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "noles_joseph": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_noles_joseph_1812.json"
    ],
    "age": {
     "band": [
@@ -158,6 +798,54 @@
    },
    "sex": "male"
   },
+  "peterson_frederick": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_peterson_frederick_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "poindexter_thomas": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_poindexter_thomas_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "prickett_william": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_prickett_william_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
   "rc_bardwell_otis": {
    "scene": "1835",
    "record": "data/residents/reconstructed_trades/hh_rc_bardwell_otis.json",
@@ -204,6 +892,118 @@
     ],
     "grade": "reconstructed",
     "basis": "age band 30-39 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "sherror_david": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_sherror_david_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "simmons_john": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_simmons_john_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_simmons_john_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "smith_john_jr": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_smith_john_jr_1812.json"
+   ],
+   "age": {
+    "band": [
+     16,
+     30
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 16-30 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "smith_john_sr": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_smith_john_sr_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "starr_james": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_starr_james_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "suttenfield_john": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_suttenfield_john_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
+  "vanhorn_james": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_vanhorn_james_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
    "sex": "male"
   }
