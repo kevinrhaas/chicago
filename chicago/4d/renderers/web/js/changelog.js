@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2750, ts: '2026-11-07T04:23:18.977Z', date: 'Nov 6, 2026, 10:23 PM CT', title: 'Mattie Williamson passes the people photo test', kind: 'fix',
+    items: [
+      'The Glessners\' cook is the first approved figure for the 1904 working woman; later women of that role are held to her.',
+    ] },
   { v: 2749, ts: '2026-11-07T04:03:21.806Z', date: 'Nov 6, 2026, 10:03 PM CT', title: '1816 Prairie stands on its pale stone basement', kind: 'improvement',
     items: [
       'The Henderson house at 1816 Prairie now stands on the pale stone basement its old photograph shows. The stone runs from the ground up to the main floor, around the front, both bay windows and the south side, with barred cellar windows under the bays.',
