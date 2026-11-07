@@ -97,3 +97,22 @@ export function profiledGroundHeight(terrain, decks, e, n) {
   if (height === null) return terrain.surfaceHeight(e, n);
   return terrain.isWater(e, n) ? height : Math.max(height, terrain.surfaceHeight(e, n));
 }
+
+/**
+ * T-3456 (owner, 2026-11-07: "mr glessners feet are sinking into the walk"). Where a person
+ * stands: the highest deck under the point, scalar or profiled, over the terrain. The
+ * walker climbs every deck (walker.js surfaceAt), so a figure on 1800 Prairie's approach
+ * paving or threshold (house-doors.js treads) stands on it rather than on the lawn's
+ * heightfield under it. Over water a deck wins; with no deck the terrain's own surface
+ * answers (not walkHeight's wading barrier: nobody is placed standing in the river).
+ */
+export function deckGroundHeight(terrain, decks, e, n) {
+  let height = null;
+  for (const d of decks) {
+    if (!insideDeck(e, n, d.pts)) continue;
+    const y = deckHeightAt(d, e, n);
+    if (typeof y === 'number' && (height === null || y > height)) height = y;
+  }
+  if (height === null) return terrain.surfaceHeight(e, n);
+  return terrain.isWater(e, n) ? height : Math.max(height, terrain.surfaceHeight(e, n));
+}

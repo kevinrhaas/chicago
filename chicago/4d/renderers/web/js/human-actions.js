@@ -75,15 +75,19 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
         local[n] = { along: child.position.clone().normalize() };
       }
       // A hand: along to the middle finger's knuckle, and its palm's normal, from the
-      // knuckles' order: index to pinky across the hand, palm = across x along on the right
-      // hand and along x across on the left (the mirror; checked by eye in the town). Read
-      // from the skeleton, so it holds whatever pose the clip has the hand in.
+      // knuckles' order: index to pinky across the hand, palm = along x across on the right
+      // hand and across x along on the left (the mirror). Read from the skeleton, so it
+      // holds whatever pose the clip has the hand in. T-3456 (owner, 2026-11-07: "are his
+      // hands backwards? ... when i stand and let my hands loose, my thumbs point forward"):
+      // the two products were the other way round, which is the BACK of the hand (in the
+      // bind pose, palm down, they gave +Y), so every placed hand showed its back where its
+      // palm was asked for: a hanging hand turned palm out, thumb back.
       const knuckle = found[`middle_01_${s}`];
       const along = knuckle ? knuckle.position.clone().normalize() : new THREE.Vector3(0, 1, 0);
       let palm = new THREE.Vector3(1, 0, 0);
       if (found[`index_01_${s}`] && found[`pinky_01_${s}`]) {
         const across = found[`pinky_01_${s}`].position.clone().sub(found[`index_01_${s}`].position);
-        palm = s === 'r' ? across.cross(along) : along.clone().cross(across);
+        palm = s === 'r' ? along.clone().cross(across) : across.cross(along);
         if (palm.lengthSq() < 1e-10) palm.set(1, 0, 0);
         palm.addScaledVector(along, -palm.dot(along)).normalize();
       }

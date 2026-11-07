@@ -47,7 +47,7 @@ LIBERTY = 'L-human-modular-dress-1789'
 # Every dimension of the outfit, in metres; the recipe repeats them for review and the
 # builder refuses a recipe that disagrees. All are reconstructed choices.
 TAILORING = dict(
-    shirt=dict(ease=.006, collar=.040, waist_below_spine02=.115),
+    shirt=dict(ease=.006, collar=.040, collar_front_dip=.024, collar_dip_depth=.060, waist_below_spine02=.115),
     waistcoat=dict(ease=.013, armpit_extra=.008, hem_below_spine02=.115, top_below_neck=.022,
                    v_bottom_above_spine02=.215, v_half_width_top=.050),
     coat=dict(ease=.024, armpit_extra=.022, sleeve_short_of_wrist=.030, collar_above_neck=.016, waist_below_spine02=.020,
@@ -253,7 +253,13 @@ def shirt(body, bones):
     neck = bones['neck_01']['head_m'][1]
     lo = bones['spine_02']['head_m'][1]-t['waist_below_spine02']; hi = neck+t['collar']
     cuff = abs(bones['hand_l']['head_m'][0])-.012
-    fields = [lambda v: v['p'][1]-lo, lambda v: hi-v['p'][1], lambda v: cuff-v['p'][0], lambda v: cuff+v['p'][0]]
+    # T-3456 (owner, 2026-11-07: "his collar looks like it wraps around his chin"): the
+    # collar's top falls toward the throat, `collar_front_dip` lower at the front than at
+    # the back, so a level cut through the body no longer takes in the underside of the jaw.
+    neck_z = bones['neck_01']['head_m'][2]
+    def top(v):
+        return hi-t['collar_front_dip']*min(1., max(0., (v['p'][2]-neck_z)/t['collar_dip_depth']))-v['p'][1]
+    fields = [lambda v: v['p'][1]-lo, top, lambda v: cuff-v['p'][0], lambda v: cuff+v['p'][0]]
     # Only what can be seen is made: the collar all round, the front between the
     # waistcoat's and the coat's openings, and the cuffs beyond the coat sleeves. A whole
     # shirt under a closed coat only pokes through it at the armpits when the arms come down.
