@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2759, ts: '2026-11-07T07:05:31.620Z', date: 'Nov 7, 2026, 1:05 AM CT', title: '2009 Prairie\'s gable sweeps down to its neighbour, as photographed', kind: 'improvement',
+    items: [
+      'In 1904, the tall shaped gable of 2009 Prairie Avenue no longer stops short on its south side: its stone coping now sweeps on down past the roof\'s edge to the wall it shares with 2011, about 10 m up, as the old photograph shows, and the brick corner and eave that stood above that line are gone.',
+    ] },
   { v: 2758, ts: '2026-11-07T06:39:04.720Z', date: 'Nov 7, 2026, 12:39 AM CT', title: 'No more freezes walking near people; hide people or carriages', kind: 'fix',
     items: [
       'Walking about Mattie Williamson in the Glessner courtyard no longer freezes the frame: a person keeps each distance level once drawn, so stepping back and forth swaps instantly instead of reloading her.',
