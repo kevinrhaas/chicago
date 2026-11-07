@@ -1,4 +1,25 @@
 export const CHANGELOG = [ // newest first
+  { v: 2774, ts: '2026-11-07T12:34:53.103Z', date: 'Nov 7, 2026, 6:34 AM CT', title: 'A private of the 1812 Fort Dearborn garrison has his uniform', kind: 'feature',
+    items: [
+      'An unnamed private of Captain Heald\'s company, First Infantry: a dark blue coat with red collar and cuffs and short tails, white crossbelts, cartridge box and bayonet.',
+      'White linen overalls for August, black shoes and gaiters, a tall black felt cap with a white feather.',
+      'The red facings and felt cap come from reading the Army\'s 1813 uniform change backwards; the plain coat and leather cap it brought in are left out.',
+      'He is dressed and can stand and walk, but does not appear in the 1812 scene yet.',
+    ] },
+  { v: 2773, ts: '2026-11-07T12:34:53.103Z', date: 'Nov 7, 2026, 6:34 AM CT', title: 'An 1835 labourer has his working clothes', kind: 'feature',
+    items: [
+      'Patrick Mahoney, a labourer of the South Division, works in his shirtsleeves: an unbleached shirt with full sleeves, open at the throat.',
+      'A red neckerchief, brown braces over the shoulders and a dark green waistcoat worn open, after Mount\'s working men of 1837 and 1840.',
+      'Full brown trousers, brown boots and a drab felt slouch hat with a broad brim.',
+      'He is dressed and can stand and walk, but does not appear in town yet.',
+    ] },
+  { v: 2772, ts: '2026-11-07T12:34:53.103Z', date: 'Nov 7, 2026, 6:34 AM CT', title: 'An 1835 merchant has his day clothes', kind: 'feature',
+    items: [
+      'Philip F. W. Peck, merchant at South Water and LaSalle, wears a dark blue tailcoat cut away at the waist, its tails to the back of the knee, over a buff waistcoat.',
+      'A high black stock with his shirt collar points standing at the cheeks, as an 1835 portrait of a New York merchant shows.',
+      'Pale trousers to the instep, black boots and a tall black top hat.',
+      'He is dressed and can stand and walk, but does not appear in town yet.',
+    ] },
   { v: 2771, ts: '2026-11-07T11:39:51.974Z', date: 'Nov 7, 2026, 5:39 AM CT', title: 'Pullman\'s 18th Street flank gets its broad ivy-hung windows', kind: 'improvement',
     items: [
       '1729 Prairie\'s 18th Street face, east of the carriage porch, now has the two broad square-headed windows under transoms that the c. 1900 Detroit photograph shows, in place of narrow round-headed lights.',
