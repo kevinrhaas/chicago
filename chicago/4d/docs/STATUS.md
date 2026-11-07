@@ -1,3 +1,15 @@
+## T-3445 — the first-time tour and in-app help brought up to date (2026-11-07)
+
+The owner asked whether the first-time tour was current and to drop the wordy "why this
+setting" text. The Field Check (js/tour.js) is nine steps: a People step after Move (the
+directory, and Follow in 1904), passed over and not counted where the rail has no People
+app; the select step names the card's tabs; Ready names Go to by photo. Guide's controls
+sheet and the drawer's key list add R (Interact), P (pace), tapping a person and Go to's
+photos; two one-time hints cover the first Interact key and the first Follow. T-2658's
+"Why?" lines, bubbles (js/why-tips.js, removed) and Researcher-mode "Why this default"
+essays are gone; Settings and Move notes are one short line each, held by
+tools/test_short_why.mjs, and the three researched defaults are named on their readouts.
+
 ## T-2379 — Lake House proposal distinguished from a measurement (2026-11-04)
 
 The visitor Record and admitted June 10, 1835 Chicago Democrat c001 interpretation now

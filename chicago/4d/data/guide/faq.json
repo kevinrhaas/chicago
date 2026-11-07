@@ -3,10 +3,11 @@
   "questions": [
     {
       "q": "Is this real?",
-      "a": "Partly, and we show you which parts. Every building you tap lists its facts with a grade. Attested means a source says so. Inferred means we worked it out from clues. Reconstructed means we built it so the street makes sense. Tap any fact to see where it comes from.",
+      "a": "Partly, and we show you which parts. Tap a building and its Details tab grades every fact. Attested means a source says so. Inferred means we worked it out from clues. Reconstructed means we built it so the street makes sense. Its Sources tab names where each fact comes from.",
       "rests_on": [
         "AGENTS.md",
         "renderers/web/js/popup.js",
+        "renderers/web/js/apps/inspect-view.js",
         "data/sources"
       ]
     },

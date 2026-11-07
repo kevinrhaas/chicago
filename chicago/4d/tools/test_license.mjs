@@ -32,7 +32,7 @@ assert.equal(issuedOn('not a date'), null);
 assert.equal(issuedOn(null), null);
 
 // ---- finishing the Field Check awards it once; Skip never does ---------------------------
-// Runs the real tour to its end: Next on 01, each waiting step's action, Finish on 08.
+// Runs the real tour to its end: Next on 01, each waiting step's action, Finish on the last.
 function runTour(tour, probe) {
   tour.start();
   assert.equal(tour.press(), true);
@@ -41,8 +41,9 @@ function runTour(tour, probe) {
   probe.opens += 1; probe.selected = true; tour.tick();
   probe.selected = false; tour.tick();
   probe.apps = { ...probe.apps, move: (probe.apps.move ?? 0) + 1 }; tour.tick();
+  probe.apps = { ...probe.apps, people: (probe.apps.people ?? 0) + 1 }; tour.tick(); // T-3445
   probe.apps = { ...probe.apps, settings: (probe.apps.settings ?? 0) + 1 }; tour.tick();
-  assert.equal(tour.step, STEPS.length - 1, 'on step 08');
+  assert.equal(tour.step, STEPS.length - 1, 'on the last step');
 }
 {
   const s = store();
