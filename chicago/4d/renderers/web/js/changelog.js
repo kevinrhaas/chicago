@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 2780, ts: '2026-11-07T16:46:25.762Z', date: 'Nov 7, 2026, 10:46 AM CT', title: 'Mr. Glessner walks, stands and dresses right', kind: 'fix',
+    items: [
+      'People stand on raised walks and door steps. Mr. Glessner\'s feet no longer sink into his front walk.',
+      'The Glessner front walk now meets the public sidewalk. The green strip between them is paved.',
+      'His collar stands on his neck and clears his chin.',
+      'On Show me the courtyard he walks with his legs instead of sliding.',
+      'Resting hands hang thumbs forward, as yours do.',
+      'Women\'s eyebrows are a fine, smooth arch, not clumps.',
+    ] },
+  { v: 2779, ts: '2026-11-07T16:41:56.607Z', date: 'Nov 7, 2026, 10:41 AM CT', title: '1812 fort blockhouses get their cupolas', kind: 'improvement',
+    items: [
+      'Both first-fort blockhouses, north-west and south-east, now carry a small square cupola under its own pyramid cap, as the fort\'s bird\'s-eye picture draws them.',
+      'Whistler\'s 1808 plan laid them down but said they were not yet built; their size is a reconstruction, listed in Liberties.',
+    ] },
   { v: 2778, ts: '2026-11-07T15:08:16.379Z', date: 'Nov 7, 2026, 9:08 AM CT', title: 'Pullman house: the rear chimney climbs the back wing\'s roof', kind: 'improvement',
     items: [
       'The chimney between the Pullman house\'s two rear dormers now stands on the back wing\'s cornice and rises up the face of its slate roof, as the c. 1900 Detroit Publishing photograph from 18th Street shows it, instead of standing on the flat roof behind.',

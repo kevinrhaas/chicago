@@ -47,7 +47,7 @@ import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
 import { createWalker, footprintsFrom, decksFrom, WALK, HEADROOM_MARGIN_M } from './walker.js';
-import { profiledGroundHeight } from './deck-surface.js';
+import { profiledGroundHeight, deckGroundHeight } from './deck-surface.js';
 import { passageGroundFrom } from './passage-ground.js';
 import { createFlora } from './flora.js';
 import { createTrees } from './trees.js';
@@ -3743,7 +3743,9 @@ async function boot() {
       if (!res.ok) throw new Error(`sidecars/${loaded.scene.id ?? YEAR}/people.json ${res.status}`);
       return res.json();
     },
-    groundHeight: (e, n) => profiledGroundHeight(terrain, decks, e, n),
+    // T-3456: a figure stands on the decks the walker climbs (a front walk's paving, a door's
+    // threshold), not on the heightfield under them.
+    groundHeight: (e, n) => deckGroundHeight(terrain, decks, e, n),
     // T-3439: a figure's new distance level is compiled off the frame (parallel compile)
     // before it is drawn, so walking up to someone is not a stall on her skin's programs.
     prepare: (object) => renderer.compileAsync(object, camera, scene3d),
@@ -3796,7 +3798,7 @@ async function boot() {
       if (on) api.follow?.start(actor.personId, { name: actor.person?.name ?? null });
       else if (api.follow?.personId === actor.personId) api.follow.stop('arrived');
     },
-    groundAt: (e, n) => profiledGroundHeight(terrain, decks, e, n), problems: layerProblems('humans') });
+    groundAt: (e, n) => deckGroundHeight(terrain, decks, e, n), problems: layerProblems('humans') });
   // Read only the small route table at boot. Actual occupied assets and full
   // rendered-ground/collision readings begin after the visitor approaches a circuit.
   api.townTransport = null;
