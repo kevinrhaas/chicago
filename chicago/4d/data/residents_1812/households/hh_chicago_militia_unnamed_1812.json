@@ -1,0 +1,168 @@
+{
+  "id": "hh_chicago_militia_unnamed_1812",
+  "scene": "1812",
+  "name": "The unnamed men of the Chicago militia",
+  "head": "chicago_militia_unnamed_1",
+  "division": "fort",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "quaife_1913"
+    ],
+    "note": "Counted in the twelve militia of 15 August (Quaife App. IX)."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "first_fort_outer_agents_house",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "inferred",
+      "source_id": "quaife_1913",
+      "also_sources": [],
+      "note": "After the April murders the settlers 'fortified themselves in the house formerly occupied by Jouett, the Indian agent' (Quaife ch. X); which of them were still there in August is not said."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "A name found for any of these men retires one card.",
+    "sources": [
+      "quaife_1913"
+    ]
+  },
+  "persons": [
+    {
+      "id": "chicago_militia_unnamed_1",
+      "name": "A man of the Chicago militia, name not recorded (1 of 6)",
+      "relationship": "militiaman",
+      "grade": "reconstructed",
+      "sources": [
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "Heald enrolled fifteen men of the settlement as militia after the April murders and three deserted; twelve marched on 15 August (Quaife, App. IX). Burns, Cooper, Lee and Lee's son are named, and Fettle and Le Clerc only by Quaife's guess, so at least six of the twelve have no name in any source. This card stands for one of them: that he lived, served and was at the post is the count's; everything else about him is reconstructed.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3461",
+        "liberty": "L-1812-people-3461"
+      },
+      "evidence": []
+    },
+    {
+      "id": "chicago_militia_unnamed_2",
+      "name": "A man of the Chicago militia, name not recorded (2 of 6)",
+      "relationship": "militiaman",
+      "grade": "reconstructed",
+      "sources": [
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "Heald enrolled fifteen men of the settlement as militia after the April murders and three deserted; twelve marched on 15 August (Quaife, App. IX). Burns, Cooper, Lee and Lee's son are named, and Fettle and Le Clerc only by Quaife's guess, so at least six of the twelve have no name in any source. This card stands for one of them: that he lived, served and was at the post is the count's; everything else about him is reconstructed.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3461",
+        "liberty": "L-1812-people-3461"
+      },
+      "evidence": []
+    },
+    {
+      "id": "chicago_militia_unnamed_3",
+      "name": "A man of the Chicago militia, name not recorded (3 of 6)",
+      "relationship": "militiaman",
+      "grade": "reconstructed",
+      "sources": [
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "Heald enrolled fifteen men of the settlement as militia after the April murders and three deserted; twelve marched on 15 August (Quaife, App. IX). Burns, Cooper, Lee and Lee's son are named, and Fettle and Le Clerc only by Quaife's guess, so at least six of the twelve have no name in any source. This card stands for one of them: that he lived, served and was at the post is the count's; everything else about him is reconstructed.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3461",
+        "liberty": "L-1812-people-3461"
+      },
+      "evidence": []
+    },
+    {
+      "id": "chicago_militia_unnamed_4",
+      "name": "A man of the Chicago militia, name not recorded (4 of 6)",
+      "relationship": "militiaman",
+      "grade": "reconstructed",
+      "sources": [
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "Heald enrolled fifteen men of the settlement as militia after the April murders and three deserted; twelve marched on 15 August (Quaife, App. IX). Burns, Cooper, Lee and Lee's son are named, and Fettle and Le Clerc only by Quaife's guess, so at least six of the twelve have no name in any source. This card stands for one of them: that he lived, served and was at the post is the count's; everything else about him is reconstructed.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3461",
+        "liberty": "L-1812-people-3461"
+      },
+      "evidence": []
+    },
+    {
+      "id": "chicago_militia_unnamed_5",
+      "name": "A man of the Chicago militia, name not recorded (5 of 6)",
+      "relationship": "militiaman",
+      "grade": "reconstructed",
+      "sources": [
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "Heald enrolled fifteen men of the settlement as militia after the April murders and three deserted; twelve marched on 15 August (Quaife, App. IX). Burns, Cooper, Lee and Lee's son are named, and Fettle and Le Clerc only by Quaife's guess, so at least six of the twelve have no name in any source. This card stands for one of them: that he lived, served and was at the post is the count's; everything else about him is reconstructed.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3461",
+        "liberty": "L-1812-people-3461"
+      },
+      "evidence": []
+    },
+    {
+      "id": "chicago_militia_unnamed_6",
+      "name": "A man of the Chicago militia, name not recorded (6 of 6)",
+      "relationship": "militiaman",
+      "grade": "reconstructed",
+      "sources": [
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "Heald enrolled fifteen men of the settlement as militia after the April murders and three deserted; twelve marched on 15 August (Quaife, App. IX). Burns, Cooper, Lee and Lee's son are named, and Fettle and Le Clerc only by Quaife's guess, so at least six of the twelve have no name in any source. This card stands for one of them: that he lived, served and was at the post is the count's; everything else about him is reconstructed.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3461",
+        "liberty": "L-1812-people-3461"
+      },
+      "evidence": []
+    }
+  ]
+}

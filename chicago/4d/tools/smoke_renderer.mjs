@@ -15477,9 +15477,18 @@ for (const [label, viewport, touch] of [
       && flight.instant.dist <= 40 && flight.instant.bannerHidden,
       JSON.stringify(flight.instant));
 
-    // T-0708/T-0709: the People directory — every person, searched, narrowed,
-    // opened, and walked to. `open()` is awaited: under swiftshader the record
-    // body settles in seconds, and a fixed wait would measure the machine.
+    // T-3455: from here to the drawer's close below, every reading is the
+    // Navigator's own DOM — the People and Businesses directories, a person's
+    // card, the Evidence hub and its Sources — and none reads a pixel, a program
+    // or `renderer.info`, so the draws are HELD (`holdDraws`, T-2337). Measured
+    // on the steward runner on 2026-11-07, a frame of the 1835 town at 1280x800
+    // costs 7.75 s in software, and every `await` a reading makes — a 50 ms
+    // `setTimeout`, a fetch landing, a lazy body settling — waits behind at
+    // least one of them: `setTimeout(r, 50)` took 7.8-15.5 s here and 50 ms
+    // with the draw held. That is why these six sections cost about 13 minutes
+    // of desktop part 13 on CI against a 40-minute leg cap. The tick keeps
+    // running, so a walk or a ride still moves the walker.
+    await holdDraws(true);
     await openSection('people');
     const people = await page.evaluate(async () => {
       const api = window.__chicago4d;
@@ -16367,6 +16376,7 @@ for (const [label, viewport, touch] of [
     check(`${label}: Back returns to the hub`,
       hub.back.hubShown && hub.back.title === 'About this destination' && hub.back.topic === null && hub.back.backHidden,
       JSON.stringify(hub.back));
+    await holdDraws(false); // T-3455: the draws come back before the drawer closes
     // The chrome as the next block expects it: drawer closed.
     await clickChrome('#panel-close');
 
@@ -18358,6 +18368,17 @@ for (const [label, viewport, touch] of [
     if (stageOn(14)) {
     inStageWork = true;
     await enterTown();
+    // T-3455: the Evidence panel is DOM from here to its close before free-fly —
+    // the liberties, the people, the wildlife, the plants, the eight mounts'
+    // wrapping, what is not here and the ground's claims — and none of it reads a
+    // pixel, a program or `renderer.info`, so the draws are HELD (`holdDraws`,
+    // T-2337). A frame of the 1835 town at 1280x800 measured 7.75 s in software
+    // on the steward runner on 2026-11-07, and every `await` here waits behind at
+    // least one: the people reading opens six households and polls each body
+    // every 50 ms, which is a frame a poll, and took 408 s of this part on CI
+    // (run 42384650539) and never returned inside 580 s on the runner. With the
+    // draw held the same 50 ms wait took 50 ms. The tick keeps running.
+    await holdDraws(true);
     // --- the liberties, in the Evidence panel ------------------------------
     // The claim this project makes is that a visitor can tell which parts we
     // made up. The confidence view covers attributes; these are the decisions
@@ -19675,6 +19696,7 @@ for (const [label, viewport, touch] of [
       marking.unbuilt.slice(0, 140));
     check(`${label}: the Evidence panel still does not overflow with the ground on it`,
       ground.overflow);
+    await holdDraws(false); // T-3455: free-fly below is drawn, so the draws come back first
     // T-0210, and it was the LAST frame-bound chrome click in the file. This one
     // close timed out at ninety seconds on an unmodified tree and took the desktop
     // half of part 13 down with it, which read as a broken control and was not one.
