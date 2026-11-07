@@ -140,7 +140,8 @@ function makeStandIn(texture) {
 /** Decode a source again from the bytes its GLB carried, with that GLB's own loader. */
 function redecode(encoded) {
   return new Promise((resolve, reject) => {
-    const url = URL.createObjectURL(new Blob([encoded.view], { type: encoded.mimeType }));
+    // T-3454: a phone keeps the bytes as a Blob already (shared-images.js encodedRecord).
+    const url = URL.createObjectURL(encoded.blob ?? new Blob([encoded.view], { type: encoded.mimeType }));
     const done = (fn) => (value) => { URL.revokeObjectURL(url); fn(value); };
     // A KTX2 comes back as the texture its loader transcoded: the caller takes its levels.
     encoded.imageLoader.load(url, done((got) => resolve(got?.isCompressedTexture ? got
@@ -273,7 +274,7 @@ export function createTextureResidency({ group, renderer, tier = 'full', closeIm
   };
   for (const entry of entries.values()) {
     state.allBytes += entry.bytes;
-    if (entry.encoded) state.encodedBytes += entry.encoded.view.byteLength;
+    if (entry.encoded) state.encodedBytes += entry.encoded.byteLength;
   }
 
   // Prepare a stand-in before releasing its source: every decoded image on a

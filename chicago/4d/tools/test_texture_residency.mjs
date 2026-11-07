@@ -142,11 +142,11 @@ globalThis.document = { createElement(kind) {
     assert(image.width > 0 && image.height > 0, 'Stand-in must be drawn from a live decoded image'); canvasDraws++;
   } }; } };
 } };
-async function retainedSource(mode, compressed = false) {
+async function retainedSource(mode, compressed = false, asBlobs = false) {
   const original = compressed ? texture() : new THREE.Texture(new ImageBitmapDouble());
-  let decodes = 0;
+  let decodes = 0; const urls = [];
   const imageLoader = { load(url, onLoad) {
-    decodes++; queueMicrotask(() => onLoad(compressed ? texture() : new ImageBitmapDouble()));
+    decodes++; urls.push(url); queueMicrotask(() => onLoad(compressed ? texture() : new ImageBitmapDouble()));
   } };
   class Parser {
     constructor() { this.json = { images: [{ bufferView: 0, mimeType: compressed ? 'image/ktx2' : 'image/png' }] }; this.sourceCache = {}; }
@@ -154,10 +154,10 @@ async function retainedSource(mode, compressed = false) {
     loadImageSource() { return Promise.resolve(original); }
   }
   const loader = { plugins: [], register(fn) { this.plugins.push(fn); } };
-  shareImageSources(loader, { keepEncoded: mode });
+  shareImageSources(loader, { keepEncoded: mode, encodedAsBlobs: asBlobs });
   const parser = new Parser(); for (const plugin of loader.plugins) plugin(parser);
   const delivered = await parser.loadImageSource(0, imageLoader);
-  return { original, delivered, record: glbImageSource(delivered.source), decodes: () => decodes };
+  return { original, delivered, record: glbImageSource(delivered.source), decodes: () => decodes, urls };
 }
 for (const [mode, expectRegular, expectCompressed] of [[false, false, false], [true, true, true], ['compressed', false, true]]) {
   const regular = await retainedSource(mode, false), compressed = await retainedSource(mode, true);
@@ -166,8 +166,8 @@ for (const [mode, expectRegular, expectCompressed] of [[false, false, false], [t
   check(`${mode}: compressed encoded retention matches the explicit mode`, !!compressed.record.encoded === expectCompressed);
 }
 const { closeUploadedImages } = await moduleFor('upload-release.js');
-async function lifecycleImage({ mode = 'compressed', compressed = false, close = false, uploaded = true } = {}) {
-  const item = await retainedSource(mode, compressed), material = new THREE.MeshBasicMaterial({ map: item.delivered });
+async function lifecycleImage({ mode = 'compressed', compressed = false, close = false, uploaded = true, asBlobs = false } = {}) {
+  const item = await retainedSource(mode, compressed, asBlobs), material = new THREE.MeshBasicMaterial({ map: item.delivered });
   const group = new THREE.Group(); group.add(new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), material));
   const props = new WeakMap(); const get = (key) => { if (!props.has(key)) props.set(key, {}); return props.get(key); };
   let uploads = 0;
@@ -215,6 +215,30 @@ await new Promise((resolve) => setTimeout(resolve, 0)); phone.residency.tick(new
 check('phone true/all mode decodes, uploads and closes returning image', phone.decodes() === 1 && phone.material.map === phone.delivered
   && phone.delivered.image.closed && phone.residency.state.redecodes === 1 && phone.residency.state.pending === 0
   && phone.residency.state.problems.length === 0);
+// T-3454: a phone keeps the recovery bytes as a Blob, out of the page, and decodes from it.
+{
+  const { resolveObjectURL } = await import('node:buffer');
+  const blobPhone = await lifecycleImage({ mode: true, close: true, asBlobs: true });
+  const rec = blobPhone.record.encoded;
+  check('phone blob mode keeps a Blob and no page view of the bytes', rec?.blob instanceof Blob && rec.view === undefined
+    && rec.byteLength === rec.blob.size && rec.blob.size === 'retention-true-false'.length && rec.mimeType === 'image/png');
+  check('residency counts a blob record\'s bytes', blobPhone.residency.state.encodedBytes === rec.byteLength);
+  let decodedFrom = null;
+  const load = blobPhone.decodes;
+  blobPhone.residency.prime(new THREE.Vector3()); closeUploadedImages(blobPhone.group, blobPhone.renderer);
+  blobPhone.residency.tick(new THREE.Vector3(1000, 0, 0)); blobPhone.residency.tick(new THREE.Vector3());
+  const url = blobPhone.urls.at(-1);
+  decodedFrom = url && resolveObjectURL(url);
+  const text = decodedFrom ? await decodedFrom.text() : null;
+  await new Promise((resolve) => setTimeout(resolve, 0)); blobPhone.residency.tick(new THREE.Vector3());
+  check('phone blob mode decodes again from the Blob\'s own bytes', load() === 1 && text === 'retention-true-false');
+  check('phone blob mode uploads and closes the returning image like the view mode', blobPhone.material.map === blobPhone.delivered
+    && blobPhone.delivered.image.closed && blobPhone.residency.state.redecodes === 1 && blobPhone.residency.state.pending === 0
+    && blobPhone.residency.state.problems.length === 0);
+  const viewDesk = await retainedSource('compressed', true);
+  check('without blob mode a record keeps its view (desktop unchanged)', viewDesk.record.encoded.view instanceof ArrayBuffer
+    && viewDesk.record.encoded.blob === undefined && viewDesk.record.encoded.byteLength === viewDesk.record.encoded.view.byteLength);
+}
 if (hadDocument) globalThis.document = oldDocument; else delete globalThis.document;
 if (hadBitmap) globalThis.ImageBitmap = oldBitmap; else delete globalThis.ImageBitmap;
 

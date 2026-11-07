@@ -2060,6 +2060,8 @@ async function boot() {
     // only, so keep encoded recovery bytes only for the images that can need them.
     // Desktop regular images remain decoded and can be restored directly.
     keepEncodedImages: RESIDENCY_ON ? (coarse ? true : 'compressed') : false,
+    // T-3454: and a phone keeps them as Blobs, whose bytes are held outside the tab.
+    encodedImagesAsBlobs: coarse,
     // T-2597: every structure at once unless `?boot-pool=N` asks for a pool (BOOT_POOL).
     pool: bootPoolFromSearch(location.search),
   });
