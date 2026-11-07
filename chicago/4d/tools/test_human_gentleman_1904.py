@@ -65,8 +65,10 @@ class Gentleman(unittest.TestCase):
         spine = self.bones['spine_02']['head_m'][1]
         vb = spine+G.TAILORING['waistcoat']['v_bottom_above_spine02']
         three = two = 0
-        for x in (.06, .08, .1, .12, -.08):
-            for y in (spine+.02, spine+.08, spine+.14, vb, vb+.05, vb+.1):
+        # T-3470: the shirt front is only as wide as the waistcoat's opening shows it, so the
+        # three layers are sampled near the middle (x = +-.04) as well.
+        for x in (.04, -.04, .06, .08, .1, .12, -.08):
+            for y in (spine+.02, spine+.08, spine+.14, vb-.02, vb, vb+.05, vb+.1):
                 zs, zv, zc = front_z(shirt, x, y), front_z(vest, x, y), front_z(coat, x, y)
                 if zv is None or zc is None:
                     continue

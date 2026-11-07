@@ -59,15 +59,19 @@ class Soldier(unittest.TestCase):
         named = copy.deepcopy(v); named['person_reference_id'] = 'kinzie_john_elder'
         with self.assertRaises(ValueError):
             resolve_person_reference(named)
-        # He stands in the 1812 fort once, as an anonymous role figure who mints no one (T-3452).
+        # He stands in the 1812 fort once (T-3452). Since T-3468 (owner, 2026-11-07: "assign this
+        # person to a reconstructed or documented person from 1812") the figure wearing this
+        # anonymous dress is Private Paul Grummo of the May 1812 muster-roll, whose card is his
+        # own record in the 1812 people directory; the dress itself still names no one.
         found = [p for p in (ROOT/'data/humans/instances').rglob('hi_*.json')
                  if 'private_first_infantry' in p.read_text() or 'soldier_1812' in p.read_text()]
         self.assertEqual([p.relative_to(ROOT).as_posix() for p in found], ['data/humans/instances/1812/hi_heald_company_private_1812.json'])
         inst = json.loads(found[0].read_text())
-        self.assertNotIn('person_id', inst)
-        self.assertEqual((inst['scene'], inst['anonymous_profile_id'], inst['role'], inst['appearance']['asset_id'],
+        self.assertNotIn('anonymous_profile_id', inst)
+        self.assertEqual((inst['scene'], inst['person_id'], inst['appearance']['asset_id'],
                           inst['interaction']['opens'], inst['provenance']['grade']),
-                         ('1812', 'anonymous_adult_1812', 'standing', v['id'], 'role_card', 'reconstructed'))
+                         ('1812', 'grummo_paul', v['id'], 'resident_card', 'reconstructed'))
+        self.assertIn('grummo_paul', {p['id'] for p in people})
         profile = json.loads((ROOT/'data/humans/role_profiles/anonymous_adult_1812.json').read_text())
         self.assertEqual([a['asset_id'] for a in profile['eligible_assets']], [v['id']])
         self.assertIn(inst['id'], json.loads((ROOT/'data/humans/instances/1812/index.json').read_text())['instances'])

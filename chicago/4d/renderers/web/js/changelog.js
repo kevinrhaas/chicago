@@ -1,4 +1,31 @@
 export const CHANGELOG = [ // newest first
+  { v: 2786, ts: '2026-11-07T18:16:42.716Z', date: 'Nov 7, 2026, 12:16 PM CT', title: 'Jaunts open in their own season, hour and date', kind: 'fix',
+    items: [
+      'A story jaunt\'s dated stops now set the season too, not only the sun: April 1812 is spring and August 1812 is summer, whatever your own Season is. Your Season comes back when the jaunt ends.',
+      'The season takes hold on the way to the first stop, and the stop\'s hour no longer waits for the trees to re-grow, so no stop shows the last stop\'s light.',
+      'The year chip shows a stop\'s own year: Chicago\'s First Murder\'s 20 May 1804 reads 1804 · 05.20.',
+      'The Battle of Fort Dearborn now opens at the fort on the afternoon of 6 April 1812, then goes up the river to Lee\'s Place. Thirteen stops.',
+      'Chicago\'s First Murder now opens on the killing, at sunset at the fort gate, then goes back eight years to the Kinzie house. Nine stops.',
+      'The 1812 jaunts\' cards name the light their first scene opens in.',
+    ] },
+  { v: 2785, ts: '2026-11-07T18:03:13.440Z', date: 'Nov 7, 2026, 12:03 PM CT', title: 'Mr. Glessner\'s collar, again', kind: 'fix',
+    items: [
+      'His collar is now a stiff white band that stands off his neck, with the tie knotted at its foot.',
+      'His waistcoat closes higher, so only a little shirt shows, as in his photograph.',
+      'The model picture on his card\'s Likeness section is redrawn with the new collar.',
+    ] },
+  { v: 2784, ts: '2026-11-07T18:03:13.440Z', date: 'Nov 7, 2026, 12:03 PM CT', title: 'The soldier at Fort Dearborn has a name', kind: 'change',
+    items: [
+      'The private on the 1812 parade is now Paul Grummo of Captain Heald\'s company, from the company\'s May 1812 muster roll.',
+      'Click him and his own card opens in Inspect with his story: dispatches to Fort Wayne, captivity after the battle, and a long road home.',
+      '1812\'s people now open the same person card as 1904\'s, with Find and Follow.',
+    ] },
+  { v: 2783, ts: '2026-11-07T17:39:11.857Z', date: 'Nov 7, 2026, 11:39 AM CT', title: '1812: the worn paths and yards are bare of grass', kind: 'fix',
+    items: [
+      'Round the 1812 houses, shops and stables the trodden ground is now clear of standing grass for a few metres before it frays back into the prairie.',
+      'The worn trails and the cart road south from the fort lose the tufts down their middles; a light path keeps a few.',
+      'How far the trampling reaches is our reconstruction (Liberty L-t3339-worn-ground-1812).',
+    ] },
   { v: 2782, ts: '2026-11-07T17:29:44.980Z', date: 'Nov 7, 2026, 11:29 AM CT', title: '1812: the commanding officer\'s garden follows the Season', kind: 'fix',
     items: [
       'Winter: the beds and walks lie under snow, with only bare currant and gooseberry bushes and raspberry canes above it.',

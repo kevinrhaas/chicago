@@ -21,6 +21,19 @@ DAYBOOK_STYLES = {'receipt', 'chit', 'note', 'clipping', 'card'}
 OPS = dict(zip(('<', '<=', '==', '>=', '>', '!='),
                (operator.lt, operator.le, operator.eq, operator.ge, operator.gt, operator.ne)))
 
+# T-3459: a dated stop's season by its month, as jaunts.js seasonOfDate gives it.
+MONTH_SEASON = ['winter', 'winter', 'spring', 'spring', 'spring', 'summer', 'summer', 'summer', 'fall', 'fall', 'fall', 'winter']
+
+def season_of_date(date):
+    m = re.fullmatch(r'\d{4}-(\d{2})-\d{2}', date or '')
+    return MONTH_SEASON[int(m.group(1)) - 1] if m and 1 <= int(m.group(1)) <= 12 else None
+
+def opening_light(doc):
+    """T-3459: the hour and season a jaunt's first scene is shown in (jaunts.js openingLight)."""
+    first, amb = (doc.get('stops') or [{}])[0], doc.get('ambience') or {}
+    hour, season = first.get('hour') or amb.get('hour'), season_of_date(first.get('date')) or amb.get('season')
+    return {k: v for k, v in (('hour', hour), ('season', season)) if v} or None
+
 def read(path, default=None):
     return json.loads(path.read_text()) if path.exists() else default
 
@@ -91,11 +104,18 @@ def since_fits(phrase, before, after):
     """Whether a lead such as 'Four hours later' says the gap between two stop clocks.
     The vocabulary is small on purpose: a count of minutes, hours, days, weeks, months or
     years 'later' (within half a unit, or 15% of a long count), 'Within the hour',
-    'A few hours later', 'The next day', 'The next morning', 'That evening', 'That night'."""
+    'A few hours later', 'The next day', 'The next morning', 'That evening', 'That night'.
+    T-3459: a story that opens on its ending (a cold open) goes back with a count of
+    days, weeks, months or years 'earlier', checked the same way against the gap back."""
     gap = (after - before).total_seconds() / 60
     days = (after.date() - before.date()).days
-    if gap <= 0: return False
     said = phrase.strip().rstrip('.').lower()
+    back = re.fullmatch(r'([a-z]+|\d+) (day|week|month|year)(s?) earlier', said)
+    if back:
+        count = int(back[1]) if back[1].isdigit() else NUMBER_WORDS.get(back[1])
+        if gap >= 0 or count is None or (count == 1) == bool(back[3]): return False
+        return abs(-gap / UNIT_MIN[back[2]] - count) <= max(0.5, 0.15 * count)
+    if gap <= 0: return False
     fixed = {'within the hour': gap <= 60, 'a few hours later': 90 <= gap <= 390,
              'the next day': days == 1, 'the next morning': days == 1 and after.hour < 12,
              'that evening': days == 0 and after.hour >= 17, 'that night': days == 0 and after.hour >= 19}
@@ -348,7 +368,10 @@ class Compiler:
                 require(path.stem == doc['id'], 'filename must match jaunt id')
                 ids.add(doc['id'])
                 row = {k: doc[k] for k in ('id', 'title', 'premise', 'category', 'content_version', 'default_mode', 'allowed_modes')}
-                if doc.get('ambience'): row['ambience'] = doc['ambience']  # T-3377: the light it is walked in
+                # T-3377: the light it is walked in; T-3459: the light it opens in (jaunts.js
+                # openingLight), so a story jaunt of dated stops says its first scene's season.
+                light = opening_light(doc)
+                if light: row['ambience'] = light
                 row.update(featured=doc.get('featured', False), stop_count=len(doc['stops']), primary_family=doc['keepsake']['family'], secondary_family=doc.get('secondary_family'),
                            timing={'opening_read_s': doc['opening']['read_s'], 'stops': [{'read_s': s['read_s'], 'action_s': s.get('action_s', 0), **leg_mode(doc, i)} for i, s in enumerate(doc['stops'])], 'endings_read_s': [e['read_s'] for e in doc['endings']]},
                            destinations=[s['destination'] for s in doc['stops']], availability='unavailable' if reasons else 'available', reason='; '.join(reasons) or None)

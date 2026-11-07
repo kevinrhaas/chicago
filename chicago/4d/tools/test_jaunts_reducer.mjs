@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { emptyState, reduce, createJaunts, canNext, legMode, shownMode } from '../renderers/web/js/jaunts.js';
+import { emptyState, reduce, createJaunts, canNext, legMode, shownMode, seasonOfDate, stopSeason, openingLight } from '../renderers/web/js/jaunts.js';
 const fixture = id => JSON.parse(fs.readFileSync(new URL(`../data/jaunts/_fixtures/fixture-${id}.json`, import.meta.url)));
 const branch = fixture('branch'), walk = fixture('walk');
 const arrive = s => reduce(s, { type: 'ARRIVE', session: s.session, leg: s.leg });
@@ -156,6 +156,58 @@ await test('T-3377: a jaunt\'s ambience holds its season for the outing and its 
     render() {}, showMenu() {}, openDetail() {}, closeDetail() {}, onError: e => { throw e; } });
   await plain.start('walk'); plain.next(); active.onArrive(active.token); plain.end(); await settle();
   assert.deepEqual(calls, [], 'a jaunt with no ambience never touches the visitor\'s light');
+});
+await test('T-3459: a dated stop holds its date\'s season from the first scene, and a later date in another season changes it', async () => {
+  assert.deepEqual(['1812-01-02', '1812-03-10', '1812-04-06', '1812-05-31', '1812-06-17', '1812-08-15', '1812-09-01', '1812-11-30', '1812-12-25']
+    .map(seasonOfDate), ['winter', 'spring', 'spring', 'spring', 'summer', 'summer', 'fall', 'fall', 'winter']);
+  assert.equal(seasonOfDate(undefined), null); assert.equal(seasonOfDate('1812-13-01'), null);
+  const doc = structuredClone(walk);
+  doc.stops[0] = { ...doc.stops[0], hour: 'sunset', date: '1812-04-06', hour_evidence: [doc.stops[0].evidence[0]] };
+  doc.stops[1] = { ...doc.stops[1], hour: 'morning', date: '1812-08-10', hour_evidence: [doc.stops[1].evidence[0]] };
+  assert.equal(stopSeason(doc, doc.stops[0]), 'spring');
+  assert.deepEqual(openingLight(doc), { hour: 'sunset', season: 'spring' }, 'the menu and welcome name the first scene\'s light');
+  assert.deepEqual(openingLight({ ...walk, ambience: { hour: 'dusk', season: 'fall' } }), { hour: 'dusk', season: 'fall' });
+  assert.equal(openingLight(walk), null);
+  const calls = [];
+  const hour = { set: (v, o) => { calls.push(['hour', v, o.date, o.transient]); }, restore: () => { calls.push(['hour-back']); } };
+  const season = { set: (v, o) => { calls.push(['season', v, o.transient]); }, restore: () => { calls.push(['season-back']); } };
+  let active, flight;
+  const travel = { mode: 'walk', setMode(v) { this.mode = v; }, go(target, hooks) { active = hooks; return true; }, stop() { active = null; } };
+  const settle = () => new Promise(r => setTimeout(r, 0));
+  // The visitor's own Winter stands; the start flies in (T-3432), and the first scene is spring before it lands.
+  const controller = createJaunts({ load: async () => doc, resolve: x => x, place: () => true, enter: () => true, travel, hour, season,
+    approach: () => ({ begin: cb => { flight = cb; return true; } }),
+    render() {}, showMenu() {}, openDetail() {}, closeDetail() {}, onError: e => { throw e; } });
+  await controller.start('walk'); await settle();
+  assert.equal(controller.state.phase, 'opening', 'still flying in');
+  assert.deepEqual(calls, [['season', 'spring', true], ['hour', 'sunset', '1812-04-06', true]], 'spring and the stop\'s hour, on the way in');
+  flight.onArrive(flight.token); await settle();
+  assert.equal(calls.filter(c => c[0] === 'season').length, 1, 'landing does not set it again');
+  controller.next(); active.onArrive(active.token); await settle();
+  assert.deepEqual(calls.slice(-2), [['season', 'summer', true], ['hour', 'morning', '1812-08-10', true]], 'August is summer');
+  controller.prev(); active.onArrive(active.token); await settle();
+  assert.deepEqual(calls.slice(-2), [['season', 'spring', true], ['hour', 'sunset', '1812-04-06', true]], 'Previous takes April back');
+  controller.end(); await settle();
+  assert.deepEqual(calls.slice(-2), [['hour-back'], ['season-back']], 'ending gives the visitor\'s own light back');
+  // An undated stop under an ambience keeps the jaunt's season; a dated one outranks it.
+  calls.length = 0;
+  const mixed = structuredClone(doc); mixed.ambience = { season: 'fall' }; delete mixed.stops[0].date;
+  const c2 = createJaunts({ load: async () => mixed, resolve: x => x, place: () => true, enter: () => true, travel, hour, season,
+    render() {}, showMenu() {}, openDetail() {}, closeDetail() {}, onError: e => { throw e; } });
+  await c2.start('walk'); await settle();
+  assert.deepEqual(calls[0], ['season', 'fall', true]);
+  c2.next(); active.onArrive(active.token); await settle();
+  assert.deepEqual(calls.filter(c => c[0] === 'season').at(-1), ['season', 'summer', true]);
+  c2.end(); await settle();
+  // The hour does not wait for a season's woods to re-grow: a season that never finishes
+  // still lets the stop's own hour and date land (the date moves when the season begins).
+  calls.length = 0;
+  const slow = { set: (v, o) => { calls.push(['season', v, o.transient]); return new Promise(() => {}); }, restore: () => { calls.push(['season-back']); } };
+  const c3 = createJaunts({ load: async () => doc, resolve: x => x, place: () => true, enter: () => true, travel, hour, season: slow,
+    render() {}, showMenu() {}, openDetail() {}, closeDetail() {}, onError: e => { throw e; } });
+  await c3.start('walk'); await settle();
+  assert.deepEqual(calls, [['season', 'spring', true], ['hour', 'sunset', '1812-04-06', true]], 'the hour lands while spring is still growing');
+  c3.end(); await settle();
 });
 await test('T-3355: a leg with its own mode rides that way on the default mode; a picked mode wins', async () => {
   const doc = structuredClone(walk);
