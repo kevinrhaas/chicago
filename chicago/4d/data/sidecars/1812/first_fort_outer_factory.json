@@ -42,7 +42,20 @@
     "uncertainty_m": 20,
     "placement_provisional": false,
     "vertical_anchor": "terrain",
-    "walk_surface_m": null
+    "walk_surface_m": null,
+    "underpinning": {
+      "kind": "fieldstone",
+      "sill_clear_m": 0.2,
+      "confidence": "reconstructed",
+      "note": "T-3492, the owner, 2026-11-07, of this house from the west: \"this house looks sunken in 1812\". T-2062's rule puts the factory on the top of the river bank, and the committed e1830_natural ground falls 0.93 m across its walls, from 2.46 m at the south-east corner to 1.53 m at the north-west one, 8 m from the 1812 water. Bedded at its lowest corner, as every building is, the east front stood half a metre to nine-tenths of a metre in the ground, over the foot of the door and the ground-floor sash. A builder on that bank would have carried the sill level on an underpinning, high on the river side and a course or two on the fort side, and stepped up to the door. That is what is built: the sill 0.20 m over the highest ground under the walls, field and lake stone laid up in lime from below the lowest ground to the sill under every wall and both stacks, about 1.1 m of it showing at the river corner, and a stone step up to the door. NO SOURCE describes the factory's foundation, its fabric, its height or a step: every part of it is reconstructed (L-t3492-underpinnings-1812). What would settle it: a description of the factory's cellar or underpinning, or a plan of the post giving its floor level.",
+      "doors": [
+        [
+          6.6885,
+          7.7285
+        ]
+      ],
+      "front_v_m": 8.504
+    }
   },
   "footprint": {
     "polygon": [

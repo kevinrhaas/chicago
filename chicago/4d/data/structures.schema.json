@@ -1272,6 +1272,19 @@
             }
           }
         },
+        "underpinning": {
+          "type": "object",
+          "description": "T-3492. The structure stands on an underpinning that carries its sill clear of the HIGHEST ground under its walls. The renderer (renderers/web/js/underpinning.js) raises the building to that sill, builds the underpinning down from it under every wall and stack foot to below the lowest ground, and lays a doorstep up to each front door from the ground before it; tools/check_sunken_sills.py refuses a building in a checked scene whose walls stand on more relief than a door can take without one. A structure with an underpinning reaches the ground, so it declares no ground_contact. A reconstructed one owes docs/LIBERTIES.md a `Covers: <id>.<phase>.underpinning` token.",
+          "additionalProperties": false,
+          "required": ["kind", "sill_clear_m", "confidence", "note"],
+          "properties": {
+            "kind": {"enum": ["fieldstone"], "description": "What it is built of. fieldstone: field and lake stone laid up in lime, the one fabric the renderer has a sheet for."},
+            "sill_clear_m": {"type": "number", "minimum": 0.05, "maximum": 0.6, "description": "How far the sill stands above the highest ground under the walls, in metres."},
+            "confidence": {"$ref": "#/$defs/confidence"},
+            "sources": {"type": "array", "items": {"type": "string"}},
+            "note": {"type": "string", "minLength": 1}
+          }
+        },
         "change_note": {
           "type": "string",
           "description": "What changed at the start of this phase, and on what evidence."
