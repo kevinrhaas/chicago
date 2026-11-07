@@ -1,4 +1,46 @@
 export const CHANGELOG = [ // newest first
+  { v: 2793, ts: '2026-11-07T19:57:20.144Z', date: 'Nov 7, 2026, 1:57 PM CT', title: 'Frances Glessner\'s face, from her 1892 photograph', kind: 'feature',
+    items: [
+      'Mrs. Glessner\'s face is now fitted to a photograph of her: the Chicago History Museum\'s 1892 picture of her in a conservatory. Her card\'s Likeness shows the photograph beside the model, as her husband\'s does.',
+      'Her face is read against a woman\'s face, not the men\'s base, so what the picture doesn\'t settle keeps her own build.',
+      'Both of the owner\'s photographs of her are now in the evidence corpus with source records: the 1892 conservatory portrait and Hartley\'s 1897 multigraph, five views of her at once.',
+    ] },
+  { v: 2792, ts: '2026-11-07T19:57:20.144Z', date: 'Nov 7, 2026, 1:57 PM CT', title: 'Follow walks right behind the person', kind: 'change',
+    items: [
+      'Follow now keeps you right behind the person you follow, looking down the way they are going, instead of a few metres off to one side.',
+      'A wall, fence or house behind them pulls you in closer, or round to one side, so you are never pressed into stone looking through it.',
+      'Round a corner you go the way they went. If a wall still holds you, you are set down behind them.',
+      'Behind a carriage you keep back past its rear and a little to one side, so you can see the driver on the box.',
+    ] },
+  { v: 2791, ts: '2026-11-07T19:42:36.337Z', date: 'Nov 7, 2026, 1:42 PM CT', title: 'Heald\'s company stands at Fort Dearborn, each man as himself', kind: 'feature',
+    items: [
+      '51 men of the 1812 garrison now stand in the scene: a guard at the main gate, a sentry at the magazine, men on the parade and at the barracks doors, at the garden, stables, bake house and armourer\'s shop, on the river bank and at the wharf, and three in the company\'s cornfield at the forks.',
+      'Each one opens his own card: his rank, his enlistment and what became of him after 14 August.',
+      'Every man has his own face, height and build, and an age that fits his rank.',
+    ] },
+  { v: 2790, ts: '2026-11-07T19:36:28.974Z', date: 'Nov 7, 2026, 1:36 PM CT', title: '1812 blockhouse cupolas are log and lower', kind: 'improvement',
+    items: [
+      'The cupolas on the first fort\'s two blockhouses are now built of logs like the walls below them, and stand about 20% lower, closer to the fort\'s drawings.',
+    ] },
+  { v: 2789, ts: '2026-11-07T19:23:20.309Z', date: 'Nov 7, 2026, 1:23 PM CT', title: 'The town\'s own checks stop waiting on pictures nobody looks at', kind: 'fix',
+    items: [
+      'Nothing you can see changes. Two of the checks run on every change were timing out. They read the Evidence panel and the People and Businesses lists, but each step also waited for the whole 3D town to be drawn, and on the test machines one picture of the town takes nearly eight seconds. Those checks now pause the drawing while they read the panels, which is how the other picture-free checks already work. The town is drawn again before anything that looks at it.',
+    ] },
+  { v: 2788, ts: '2026-11-07T19:02:19.313Z', date: 'Nov 7, 2026, 1:02 PM CT', title: 'Everyone at Fort Dearborn on 14 August 1812 now has a card', kind: 'feature',
+    items: [
+      '120 people of 1812 are in People: all 55 men on Heald\'s muster-roll, the militia, the officers\' and soldiers\' wives and children, Cicely and her son.',
+      'The Kinzie household gains Eleanor, the four children, Josette LaFramboise, Chandonnai, Le Clerc and Black Jim; the Ouilmette, Burns and Lee families have their own cards.',
+      'William Wells and the Potawatomi leaders the sources name (Black Partridge, Waubansee, Topenebe, Winnemeg and others) are carded with what the records say of them.',
+      'Six militiamen and seven children who are counted but never named have reconstructed cards of their own.',
+      'Each card tells what happened to the person after 14 August, with the source behind every fact.',
+    ] },
+  { v: 2787, ts: '2026-11-07T19:02:19.313Z', date: 'Nov 7, 2026, 1:02 PM CT', title: '1812: woodpiles, casks and carts round every house', kind: 'feature',
+    items: [
+      'Every 1812 house has a rick of split wood stacked against its back wall, a chopping block with the split billets lying round it, and a water cask at a corner.',
+      'Both bake houses have extra unsplit logs for their ovens. The government trading house and the merchant\'s shop have casks and crates of trade goods stacked by a gable.',
+      'The armourer\'s smithy has a water tub by its door and a heap of wood scraps. Carts stand at the garrison stables, the Kinzie stable and Lee\'s Place, and the post\'s wagon stands in its stable yard.',
+      'All of it is our reconstruction, kept off the paths, fences and gardens (Liberty L-t3458-yard-goods-1812).',
+    ] },
   { v: 2786, ts: '2026-11-07T18:16:42.716Z', date: 'Nov 7, 2026, 12:16 PM CT', title: 'Jaunts open in their own season, hour and date', kind: 'fix',
     items: [
       'A story jaunt\'s dated stops now set the season too, not only the sun: April 1812 is spring and August 1812 is summer, whatever your own Season is. Your Season comes back when the jaunt ends.',

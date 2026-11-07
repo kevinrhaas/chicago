@@ -36694,6 +36694,12 @@ bun hair, shared; the hair keeps its brown, and nothing records whether Frances 
 her has been read. Every amount is chosen by eye against the pictures; none
 is measured, and none says how she dressed.
 
+**Her face, 2026-11-07 (T-3473):** her face's proportions are now fitted to a photograph of her, the
+Chicago History Museum's conservatory portrait of 4 March 1892 (ICHi-061818, at 44), read against
+her own female body's face rather than the men's base; what the one three-quarter view does not
+settle stays at her body's own lean. Her hair as she wore it (drawn up to a crown of braids in
+Hartley's 1897 multigraph) and her colouring are still chosen: the town's bun and the shared skin.
+
 **The 1904 house maid supplement, 2026-11-07 (T-3448):** a house maid's working dress on the same
 component path, `tools/human_maid_1904.py` with `data/humans/recipes/maid_1904.json`, built as the asset
 `reynolds_mary_1904_maid` on the shared female body and first worn by Mary Reynolds, house maid in the
@@ -41881,6 +41887,15 @@ photograph of the open door or of the hall from the entrance for the swing and t
 **Ticket:** T-3442.
 **Recorded:** 2026-11-07 (T-3442).
 
+### L-1812-people-3461 — The people of Chicago on 14 August 1812: who is carded, which roof each family is given, and the counted people nobody names
+
+**Decision:** the 1812 scene's people layer (`data/residents_1812/households/`) carries everyone a four-part research sweep (T-3461, `docs/RESEARCH/people-1812-3461/`) found at the post on the afternoon of 14 August 1812: the 55 regulars of Heald's company on its muster-roll to 31 May 1812 (Quaife 1913, App. VIII), the women and children of the garrison and the militia families, the Kinzie, Ouilmette, Burns and Lee households, William Wells, and the Potawatomi people the sources name. Three things on those cards are ours. (1) **Which roof.** No source says which room of the fort any soldier or soldier's family lived in; only the commanding officer's quarters are named in an account of 1812. The four married privates' families are put in the two small houses and the two soldiers' barracks of Whistler's 1808 index, the single men in the barracks and the north range, and the junior officers in the officers' barracks, each association graded `reconstructed`. (2) **Presence that afternoon.** No roll was called on 14 August. Every man on the 31 May roll is taken as present, as Quaife takes him (App. IX: "no reason to suppose that there was any alteration in this number"); a person no account of the battle or its captives names is marked `probably present` on their own card. (3) **The counted and unnamed.** Quaife counts twelve militia and eighteen children with the evacuation; at least six militiamen and seven children have no name in any source. Each has a card graded `reconstructed`, standing for one of the counted, with nothing about him or her but the count. Wells's Miami escort (about thirty, named by no source) and the families of the Potawatomi camp (Helm's 500 warriors and 179 women and children on 12 August) are left to T-3467, which cards them when it places them.
+
+**Not invented:** any name, birth year, rank, family tie or fate. Each of those is a field of the reading, with its source, locator and quote on the person's `evidence`. Wau-Bun's dialogue is not quoted as speech; where a story is Kinzie family tradition the card says so.
+**Re-opens on:** a quartering return or order book of the 1812 garrison; a name for any counted person, which retires one reconstructed card.
+**Ticket:** T-3461.
+**Recorded:** 2026-11-07.
+
 ### L-first-fort-blockhouse-cupolas-3041 — cupolas on the first fort's two blockhouses
 
 **Decision:** Build a small square cupola under its own pyramid cap at the apex of both first-fort
@@ -41911,5 +41926,25 @@ Whistler's plan by the owner's ruling.
 **How to resolve:** a garrison return, order or letter between 1808 and 1812 that reports the cupolas
 finished, or describes their size.
 
+**Amended 2026-11-07 — log, and lower.** The owner, looking at the fort's drawings beside the first build:
+the cupolas were logs at the top like the rest of the structure, and about 20% shorter. Both records now
+set `cupola_construction: log` (inferred from Currey's coursed bodies) and `cupola_height_m: 1.6`
+(reconstructed, the body from its seat to the cap's eave, down from the kit's 2.1 m), which the
+fort_structure archetype reads as opt-in controls; the second fort's boarded 2.1 m cupola is unchanged.
+The log courses, notching and chinking are the blockhouse's own coursed wall. The 1.6 m is a proportion
+read by eye off pictures that are not to scale.
+
+**Covers:** `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.cupola_height_m`,
+`first_fort_dearborn_blockhouse_se.first_fort_1803.form.cupola_height_m`.
+
 **Ticket:** T-3041 (partial; the fort's full picture match stays open).
+**Recorded:** 2026-11-07.
+
+### L-1812-garrison-stations-3462 — Where each man of Heald's company stands on the afternoon of 14 August 1812
+
+**Decision:** every enlisted man of Heald's company that the T-3461 sweep cards stands in the 1812 scene as himself (`data/humans/instances/1812/hi_<person>_1812.json`, written by `docs/RESEARCH/people-1812-3462/place.py`), in the company private's dress (T-3451) and with the face, height and build the variation kit seeds from his own id. Paul Grummo keeps the parade figure (T-3452, T-3468). Three things are ours. (1) **The stations.** No order book, guard report or morning report of the post survives for the date, so each man's place is reconstructed from what a small frontier post of the period kept by day: a sergeant's guard of three at the main gate, a sentry at the magazine, men on the parade and at the barracks doors, the four married men near the quarters T-3461 gives their families, men at the garden, the stables, the bake house, the armourer's shop and the merchant's shop, on the river bank and at the wharf, two on the roads to the garden, and three at the company's cornfield at the forks. Which man stands where follows the roll's order within a rank. Nothing of that day's events is acted out: no council, no giving out of the goods, no breaking of the casks or the arms. (2) **One dress for every rank.** Sergeants', corporals' and musicians' distinctions (epaulettes, sashes, the musicians' reversed coats) are not drawn; every man wears the private's dress, and his card gives his rank. (3) **Ages.** The muster-roll gives no ages. A man with no birth year in the readings carries a reconstructed age band on his card, by rank: privates 20-32, corporals 22-36, sergeants 24-40, drummers and fifers 16-30. The variation kit draws his age inside it (L418).
+
+**Not invented:** any man's name, rank, enlistment, family or fate; those are on his card with their sources.
+**Re-opens on:** a guard roster, order book or morning report of Fort Dearborn for August 1812; a description of the post's daily duties in 1811-12; the 1812 dress for the company's sergeants, corporals and musicians (T-3463).
+**Ticket:** T-3462.
 **Recorded:** 2026-11-07.

@@ -1,0 +1,94 @@
+{
+  "id": "hh_wells_william_1812",
+  "scene": "1812",
+  "name": "Captain William Wells, come from Fort Wayne with a Miami escort",
+  "head": "wells_william",
+  "division": "fort",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "kinzie_waubun_1856",
+      "quaife_1913"
+    ],
+    "note": "He reached the post on 12, 13 or 14 August depending on the source (native.json); every account has him there for the evacuation."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "first_fort_dearborn_commanding_officers_barracks",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "quaife_1913",
+      "also_sources": [],
+      "note": "Where he slept at the post is not recorded; he is put with his niece and Captain Heald in the commanding officer's quarters, a reconstructed choice."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "His Miami escort of about thirty men is named by no source; T-3467 gives them reconstructed cards when it places them.",
+    "sources": [
+      "kinzie_waubun_1856",
+      "quaife_1913"
+    ]
+  },
+  "persons": [
+    {
+      "id": "wells_william",
+      "name": "William Wells",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Arrived 13 Aug (Heald 1812), 12 Aug (Helm 1814), or 14 Aug (Wau-Bun). Heald's dating preferred. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Ep-i-con-yare (what the Indians called a Wells, per the Heald family)"
+      ],
+      "note": "Rebekah Heald's uncle, Indian agent and interpreter at Fort Wayne. Indian agent/interpreter from Fort Wayne leading the Miami escort; uncle of Rebekah Heald. Kentucky-born, adopted by the Miami; son-in-law of Little Turtle. 15 and 16 August: Led the advance with blackened face; killed; heart eaten (Quaife). Afterwards: Killed 15 Aug 1812.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Appendix IV, Heald's report, lines 16229-16231",
+          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
+          "claim": "Arrival with about 30 Miamis on the 13th",
+          "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Appendix VI, lines 16634-16635",
+          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
+          "claim": "Helm: 12th, 27 Miamis",
+          "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XVIII, lines 5446-5448",
+          "quote": "the arrival, on the 14th of August, of Captain Wells[33] with fifteen friendly Miamis.",
+          "claim": "Wau-Bun: 14th, fifteen Miamis",
+          "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Appendix V (Darius Heald to Draper, 1868), lines 16395-16396",
+          "quote": "readily recognized him, though painted black & dressed like an Indian",
+          "claim": "Painted and dressed like an Indian",
+          "tier": "late recollection (participant or family, told 1868-1876)"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Appendix V, lines 16412-16413",
+          "quote": "the Indians charged her with being an _Ep-i-con-yare--a_ Wells.",
+          "claim": "Name Epiconyare",
+          "tier": "late recollection (participant or family, told 1868-1876)"
+        }
+      ]
+    }
+  ]
+}

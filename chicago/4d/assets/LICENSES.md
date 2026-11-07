@@ -2237,3 +2237,16 @@ humans/web/portraits/glessner_john_j_model.jpg
 humans/web/portraits/glessner_john_j_model.json
 humans/web/portraits/glessner_john_j_portrait.jpg
 ```
+
+`glessner_frances_m_portrait.jpg` (T-3473) is cut and scaled from the copy the owner supplied of the
+Chicago History Museum's photograph ICHi-061818 of 4 March 1892 (source record
+`chm_ichi_061818_frances_glessner_conservatory_1892`), which the museum marks "No Copyright - United
+States": **public domain**; credit Chicago History Museum, ICHi-061818. The crop box is recorded in
+`data/humans/variation/portraits/glessner_frances_m.json`. `glessner_frances_m_model.jpg` (and its
+`.json` sidecar) is rendered by `tools/portrait_still.mjs` as above, and is **CC0-1.0**.
+
+```text
+humans/web/portraits/glessner_frances_m_model.jpg
+humans/web/portraits/glessner_frances_m_model.json
+humans/web/portraits/glessner_frances_m_portrait.jpg
+```

@@ -1,0 +1,2152 @@
+{
+ "persons": [
+  {
+   "id": "kinzie_john_elder",
+   "name": "John Kinzie",
+   "other_spellings": [
+    "Kenzie",
+    "Kinsie",
+    "Shaw-nee-aw-kee"
+   ],
+   "household": "kinzie",
+   "relationship": "head",
+   "sex": "m",
+   "birth": {
+    "value": 1763,
+    "grade": "attested (family tradition)"
+   },
+   "ancestry": null,
+   "occupation": "trader; sutler to the garrison; silversmith",
+   "present_14aug": {
+    "status": "present",
+    "grade": "attested",
+    "summary": "Living inside the fort with his family since the April murders; marched with the column on 15 Aug and survived."
+   },
+   "home": "kinzie_house_1812",
+   "location_14aug": {
+    "structure_id": null,
+    "place": "inside first Fort Dearborn (building not stated)",
+    "grade": "attested"
+   },
+   "fate": "Survived the battle as a neutral; family taken to St Joseph on 18 Aug; later prisoner at Detroit; returned to Chicago 1816; died 6 Jan 1828.",
+   "facts": [
+    {
+     "claim": "born Quebec 1763 (family tradition)",
+     "source": "quaife_1913",
+     "locator": "ch. VI, PG 69274 lines 5820-5821",
+     "quote": "According to Mrs. Kinzie, the family historian, he was born at Quebec in 1763."
+    },
+    {
+     "claim": "sutler",
+     "source": "andreas_1884_v1",
+     "locator": "p. 73",
+     "quote": "Mr. Kinzie was sutler for the garrison at the fort in addition to his Indian trade"
+    },
+    {
+     "claim": "in the fort from April 1812",
+     "source": "andreas_1884_v1",
+     "locator": "p. 74",
+     "quote": "Mr. Kinzie removed his family to the fort for protection, at the time of the Indian outrage of April 7"
+    },
+    {
+     "claim": "still in the fort at the evacuation",
+     "source": "andreas_1884_v1",
+     "locator": "p. 74 (IA full-text OCR; quote cleaned of OCR noise, match 0.99)",
+     "quote": "and they were yet living there when it was evacuated on the 15th of August"
+    },
+    {
+     "claim": "residence in the fort when Winnemeg came",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XVIII, PG 51737 lines 5843-5844 (1856 text as reprinted in the 1901 Caxton Club edition)",
+     "quote": "Mr. Kinzie, who had taken up his residence in the fort"
+    },
+    {
+     "claim": "treated as neutrals",
+     "source": "quaife_1913",
+     "locator": "ch. XI, PG 69274 lines 9348-9349",
+     "quote": "Kinzie, the trader, and the members of his family, who were regarded as neutrals"
+    },
+    {
+     "claim": "only male civilian to survive (Helm narrative)",
+     "source": "quaife_1913",
+     "locator": "app. VI, PG 69274 lines 16772-16773",
+     "quote": "they Butchered every male citizen but Kenzie"
+    },
+    {
+     "claim": "Heald survivor list",
+     "source": "quaife_1913",
+     "locator": "app. VI, PG 69274 lines 16834-16834",
+     "quote": "John Kinzie taken but not considered as a Prisoner of War"
+    },
+    {
+     "claim": "Forsyth with the family at Chicago after the battle",
+     "source": "quaife_1913",
+     "locator": "ch. XI, PG 69274 lines 9982-9983",
+     "quote": "I remained four days with Kinsie and his family"
+    },
+    {
+     "claim": "fate",
+     "source": "quaife_1913",
+     "locator": "ch. XI, PG 69274 lines 9931-9932",
+     "quote": "Mrs. Kinzie and her children journeyed to Detroit under the escort of Chandonnai, while John Kinzie remained behind"
+    },
+    {
+     "claim": "no portrait",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "app. D, PG 59624 lines 5417-5418",
+     "quote": "No portrait of John Kinzie has ever been found."
+    }
+   ]
+  },
+  {
+   "id": "kinzie_eleanor",
+   "name": "Eleanor Kinzie",
+   "other_spellings": [
+    "Eleanor (Lytle) McKillip",
+    "Mrs. McKillip",
+    "Mrs. John Kinzie"
+   ],
+   "household": "kinzie",
+   "relationship": "wife of head",
+   "sex": "f",
+   "birth": null,
+   "ancestry": null,
+   "occupation": null,
+   "present_14aug": {
+    "status": "present",
+    "grade": "inferred",
+    "summary": "In the fort with the family from April (Andreas p. 74); in the boat at the river mouth on 15 Aug."
+   },
+   "home": "kinzie_house_1812",
+   "location_14aug": {
+    "structure_id": null,
+    "place": "inside first Fort Dearborn",
+    "grade": "inferred"
+   },
+   "fate": "Watched the battle from the boat; back at the Kinzie house 15-18 Aug; St Joseph, then Detroit as a prisoner of war.",
+   "facts": [
+    {
+     "claim": "marriage (Kirkland: 1800; Quaife gives 1798)",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "app. D, PG 59624 lines 5273-5274",
+     "quote": "In 1800 John Kinzie married Eleanor (Lytle) McKillip, widow of a British officer, who had one daughter, Margaret"
+    },
+    {
+     "claim": "in the boat 15 Aug",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, PG 51737 lines 6134-6136 (1856 text as reprinted in the 1901 Caxton Club edition)",
+     "quote": "Mrs. Kinzie and her four younger children, their nurse Grutte, a clerk of Mr. Kinzie's, two servants and the boatmen"
+    },
+    {
+     "claim": "her eldest child (Margaret Helm) marched with the column",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, PG 51737 lines 6146-6147 (1856 text as reprinted in the 1901 Caxton Club edition)",
+     "quote": "gazed upon the march of her husband and eldest child to certain destruction"
+    }
+   ]
+  },
+  {
+   "id": "kinzie_john_h",
+   "name": "John Harris Kinzie",
+   "other_spellings": [],
+   "household": "kinzie",
+   "relationship": "child of head and Eleanor",
+   "sex": "m",
+   "birth": {
+    "value": "1803-07-07",
+    "grade": "attested"
+   },
+   "ancestry": null,
+   "occupation": null,
+   "present_14aug": {
+    "status": "present",
+    "grade": "inferred",
+    "summary": "With the family in the fort; in the boat on 15 Aug."
+   },
+   "home": "kinzie_house_1812",
+   "location_14aug": {
+    "structure_id": null,
+    "place": "inside first Fort Dearborn",
+    "grade": "inferred"
+   },
+   "fate": "Survived with the family; St Joseph, then Detroit.",
+   "facts": [
+    {
+     "claim": "birth",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "pt. 1, PG 59624 lines 678-679",
+     "quote": "her son, John H., born at Sandwich, Canada, July 7, 1803"
+    },
+    {
+     "claim": "in the boat, 15 Aug",
+     "source": "currey_1912_story_of_old_fort_dearborn",
+     "locator": "pt. III \"The Tragedy\", PG 52346 lines 2379-2381",
+     "quote": "consisted of Mrs. Kinzie and her four children, the eldest of whom by her second marriage was John Harris, then nine years old"
+    },
+    {
+     "claim": "in the family in the fort",
+     "source": "andreas_1884_v1",
+     "locator": "p. 74",
+     "quote": "he entrusted his family—now consisting of wife and four children, John H., nine years of age, and Ellen, Maria and Robert, younger"
+    },
+    {
+     "claim": "portrait (1827 miniature)",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "app. D, PG 59624 lines 5367-5369",
+     "quote": "JOHN HARRIS KINZIE (1827). From a miniature in possession of the Kinzie family."
+    }
+   ]
+  },
+  {
+   "id": "kinzie_ellen_marion",
+   "name": "Ellen Marion Kinzie",
+   "other_spellings": [],
+   "household": "kinzie",
+   "relationship": "child of head and Eleanor",
+   "sex": "f",
+   "birth": {
+    "value": "1805-12",
+    "grade": "attested"
+   },
+   "ancestry": null,
+   "occupation": null,
+   "present_14aug": {
+    "status": "present",
+    "grade": "inferred",
+    "summary": "With the family in the fort; in the boat on 15 Aug."
+   },
+   "home": "kinzie_house_1812",
+   "location_14aug": {
+    "structure_id": null,
+    "place": "inside first Fort Dearborn",
+    "grade": "inferred"
+   },
+   "fate": "Survived with the family; St Joseph, then Detroit.",
+   "facts": [
+    {
+     "claim": "birth",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "pt. 1, PG 59624 lines 679-680",
+     "quote": "Ellen Marion (later Mrs. Alexander Wolcott), born in Chicago, December, 1805"
+    },
+    {
+     "claim": "in the boat, 15 Aug",
+     "source": "currey_1912_story_of_old_fort_dearborn",
+     "locator": "pt. III \"The Tragedy\", PG 52346 lines 2379-2381",
+     "quote": "consisted of Mrs. Kinzie and her four children, the eldest of whom by her second marriage was John Harris, then nine years old"
+    },
+    {
+     "claim": "in the family in the fort",
+     "source": "andreas_1884_v1",
+     "locator": "p. 74",
+     "quote": "he entrusted his family—now consisting of wife and four children, John H., nine years of age, and Ellen, Maria and Robert, younger"
+    },
+    {
+     "claim": "ages at the massacre (Currey)",
+     "source": "currey_1912_story_of_old_fort_dearborn",
+     "locator": "pt. III \"The Tragedy\", PG 52346 lines 2381-2383",
+     "quote": "Ellen Marion, six and a half years old; Maria Indiana, four years old, and Robert Allen, two and a half years old"
+    }
+   ]
+  },
+  {
+   "id": "kinzie_maria_indiana",
+   "name": "Maria Indiana Kinzie",
+   "other_spellings": [],
+   "household": "kinzie",
+   "relationship": "child of head and Eleanor",
+   "sex": "f",
+   "birth": {
+    "value": "1807",
+    "grade": "attested"
+   },
+   "ancestry": null,
+   "occupation": null,
+   "present_14aug": {
+    "status": "present",
+    "grade": "inferred",
+    "summary": "With the family in the fort; in the boat on 15 Aug."
+   },
+   "home": "kinzie_house_1812",
+   "location_14aug": {
+    "structure_id": null,
+    "place": "inside first Fort Dearborn",
+    "grade": "inferred"
+   },
+   "fate": "Survived with the family; St Joseph, then Detroit.",
+   "facts": [
+    {
+     "claim": "birth",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "pt. 1, PG 59624 lines 680-681",
+     "quote": "Maria Indiana (later Mrs. General Hunter), born in Chicago, in 1807"
+    },
+    {
+     "claim": "in the boat, 15 Aug",
+     "source": "currey_1912_story_of_old_fort_dearborn",
+     "locator": "pt. III \"The Tragedy\", PG 52346 lines 2379-2381",
+     "quote": "consisted of Mrs. Kinzie and her four children, the eldest of whom by her second marriage was John Harris, then nine years old"
+    },
+    {
+     "claim": "in the family in the fort",
+     "source": "andreas_1884_v1",
+     "locator": "p. 74",
+     "quote": "he entrusted his family—now consisting of wife and four children, John H., nine years of age, and Ellen, Maria and Robert, younger"
+    }
+   ]
+  },
+  {
+   "id": "kinzie_robert_allen",
+   "name": "Robert Allen Kinzie",
+   "other_spellings": [],
+   "household": "kinzie",
+   "relationship": "child of head and Eleanor",
+   "sex": "m",
+   "birth": {
+    "value": "1810-02-08",
+    "grade": "attested"
+   },
+   "ancestry": null,
+   "occupation": null,
+   "present_14aug": {
+    "status": "present",
+    "grade": "inferred",
+    "summary": "With the family in the fort; in the boat on 15 Aug."
+   },
+   "home": "kinzie_house_1812",
+   "location_14aug": {
+    "structure_id": null,
+    "place": "inside first Fort Dearborn",
+    "grade": "inferred"
+   },
+   "fate": "Survived with the family; St Joseph, then Detroit.",
+   "facts": [
+    {
+     "claim": "birth",
+     "source": "andreas_1884_v1",
+     "locator": "p. 73 (IA full-text OCR; quote cleaned of OCR noise, match 0.93)",
+     "quote": "Ellen Marion, in December, 1805; Maria Indiana in 1807; and Robert Allen, February 8, 1810"
+    },
+    {
+     "claim": "in the boat, 15 Aug",
+     "source": "currey_1912_story_of_old_fort_dearborn",
+     "locator": "pt. III \"The Tragedy\", PG 52346 lines 2379-2381",
+     "quote": "consisted of Mrs. Kinzie and her four children, the eldest of whom by her second marriage was John Harris, then nine years old"
+    },
+    {
+     "claim": "in the family in the fort",
+     "source": "andreas_1884_v1",
+     "locator": "p. 74",
+     "quote": "he entrusted his family—now consisting of wife and four children, John H., nine years of age, and Ellen, Maria and Robert, younger"
+    }
+   ]
+  },
+  {
+   "id": "helm_margaret",
+   "name": "Margaret Helm",
+   "other_spellings": [
+    "Margaret McKillip",
+    "Mrs. Helm"
+   ],
+   "household": "kinzie (stepdaughter; married into the garrison)",
+   "relationship": "stepdaughter of head; wife of Lt. Linai Helm",
+   "sex": "f",
+   "birth": {
+    "value": "about 1795 (aged seventeen in Aug 1812)",
+    "grade": "inferred"
+   },
+   "ancestry": null,
+   "occupation": null,
+   "present_14aug": {
+    "status": "present",
+    "grade": "attested",
+    "summary": "Officer's wife at the post; rode out with the column on 15 Aug. Overlaps the garrison census: one record only."
+   },
+   "home": null,
+   "location_14aug": {
+    "structure_id": null,
+    "place": "first Fort Dearborn (officers' quarters not stated)",
+    "grade": "inferred"
+   },
+   "fate": "Wounded, captured, sheltered (by tradition) in Ouilmette's house; went with her mother's family to St Joseph and Detroit; rejoined Helm 1813.",
+   "facts": [
+    {
+     "claim": "relationship",
+     "source": "andreas_1884_v1",
+     "locator": "p. 73",
+     "quote": "Margaret McKillip, Mr. Kinzie's step-daughter, who married Lieutenant Linai Helm of Fort Dearborn"
+    },
+    {
+     "claim": "age",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, PG 51737 lines 6646-6646 (1856 text as reprinted in the 1901 Caxton Club edition)",
+     "quote": "a delicate woman of seventeen years"
+    },
+    {
+     "claim": "age",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "pt. 1, PG 59624 lines 831-832",
+     "quote": "Mrs. Helm, on the dreadful day, was a mere girl-wife of seventeen years"
+    },
+    {
+     "claim": "Ouilmette refuge judged plausible",
+     "source": "quaife_1913",
+     "locator": "ch. XI, PG 69274 lines 9943-9944",
+     "quote": "That Mrs. Helm may have sought refuge with Ouilmette's family is equally consonant with probability"
+    },
+    {
+     "claim": "fate",
+     "source": "quaife_1913",
+     "locator": "ch. XI, PG 69274 lines 10014-10015",
+     "quote": "Mrs. Helm shared the fortunes of her mother's family as far as Detroit."
+    }
+   ]
+  },
+  {
+   "id": "laframboise_josette",
+   "name": "Josette LaFramboise",
+   "other_spellings": [
+    "Grutte (Wau-Bun misprint)",
+    "Josette La Framboise",
+    "Mrs. Jean Baptiste Beaubien"
+   ],
+   "household": "kinzie",
+   "relationship": "nurse / servant",
+   "sex": "f",
+   "birth": null,
+   "ancestry": {
+    "value": "French-Ottawa",
+    "source_note": "Currey"
+   },
+   "occupation": "nurse to the Kinzie children",
+   "present_14aug": {
+    "status": "present",
+    "grade": "attested",
+    "summary": "Named in the boat party of 15 Aug."
+   },
+   "home": "kinzie_house_1812",
+   "location_14aug": {
+    "structure_id": null,
+    "place": "with the Kinzie family in the fort",
+    "grade": "inferred"
+   },
+   "fate": "Married Jean Baptiste Beaubien: in 1812 according to Andreas, in 1814 according to Quaife (conflict).",
+   "facts": [
+    {
+     "claim": "identity",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "pt. 1, PG 59624 lines 685-687",
+     "quote": "the nurse, Josette (misprinted in Wau-Bun, \"Grutte\") Laframboise (afterward Mrs. Jean Baptiste Beaubien)"
+    },
+    {
+     "claim": "Wau-Bun footnote AG on Grutte",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, PG 51737 lines 6142-6142 (1856 text as reprinted in the 1901 Caxton Club edition)",
+     "quote": "Afterwards Mrs. Jean Baptiste Beaubien."
+    },
+    {
+     "claim": "ancestry and role",
+     "source": "currey_1912_story_of_old_fort_dearborn",
+     "locator": "pt. III \"The Tragedy\", PG 52346 lines 2383-2384",
+     "quote": "Josette La Framboise, a French-Ottawa half-breed, a nurse in the family"
+    },
+    {
+     "claim": "servant at massacre; marriage 1814",
+     "source": "quaife_1913",
+     "locator": "ch. XII, PG 69274 lines 11213-11214",
+     "quote": "In 1814 he married Josette La Framboise, who was a servant in the family of John Kinzie at the time of the massacre."
+    },
+    {
+     "claim": "marriage in 1812 (Andreas) - conflicts",
+     "source": "andreas_1884_v1",
+     "locator": "p. 84",
+     "quote": "During that year he married, for his second wife, Josette LaFramboise, daughter of Francis LaFramboise"
+    }
+   ]
+  },
+  {
+   "id": "chandonnai_jean_baptiste",
+   "name": "Jean Baptiste Chandonnai",
+   "other_spellings": [
+    "Chandonnais",
+    "Chandonnait",
+    "John Baptiste Chandonnait"
+   ],
+   "household": "kinzie",
+   "relationship": "clerk",
+   "sex": "m",
+   "birth": null,
+   "ancestry": {
+    "value": "described as \"half-breed\" (Quaife)"
+   },
+   "occupation": "clerk to Kinzie; later fur trader",
+   "present_14aug": {
+    "status": "present",
+    "grade": "attested",
+    "summary": "Kinzie entrusted the family to him for the boat; ransomed Mrs. Heald on 15 Aug."
+   },
+   "home": "kinzie_house_1812",
+   "location_14aug": {
+    "structure_id": null,
+    "place": "with the Kinzie family (fort or Kinzie house)",
+    "grade": "inferred"
+   },
+   "fate": "Escorted Mrs. Kinzie to Detroit; in Kinzie's employ again from about 1816-17; granted two sections at the 1821 treaty.",
+   "facts": [
+    {
+     "claim": "clerk; boat escort",
+     "source": "andreas_1884_v1",
+     "locator": "p. 74 (IA full-text OCR; quote cleaned of OCR noise, match 0.97)",
+     "quote": "to the care of his clerk, John Baptiste Chandonnait, and two friendly Indians"
+    },
+    {
+     "claim": "clerk; ransom of Mrs. Heald",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, PG 51737 lines 6380-6380 (1856 text as reprinted in the 1901 Caxton Club edition)",
+     "quote": "Run, Chandonnai,' to one of Mr. Kinzie's clerks"
+    },
+    {
+     "claim": "ancestry as described",
+     "source": "quaife_1913",
+     "locator": "ch. X, PG 69274 lines 9028-9029",
+     "quote": "Chandonnai, the half-breed, staunch friend of the Americans"
+    },
+    {
+     "claim": "fate 1821",
+     "source": "quaife_1913",
+     "locator": "ch. XV, PG 69274 lines 13886-13888",
+     "quote": "Jean Baptiste Chandonnai, whose activities as a trader at Chicago and elsewhere have already received our attention, was granted two sections of land."
+    }
+   ]
+  },
+  {
+   "id": "black_jim",
+   "name": "Black Jim",
+   "other_spellings": [
+    "black Jim"
+   ],
+   "household": "kinzie",
+   "relationship": "servant",
+   "sex": "m",
+   "birth": null,
+   "ancestry": {
+    "value": "Black (implied by the name only)",
+    "grade": "inferred"
+   },
+   "occupation": "servant",
+   "present_14aug": {
+    "status": "present",
+    "grade": "attested (Wau-Bun only)",
+    "summary": "In the bow of the boat on 15 Aug. Whether he was free, indentured or enslaved is not stated in any source read."
+   },
+   "home": "kinzie_house_1812",
+   "location_14aug": {
+    "structure_id": null,
+    "place": "with the Kinzie household",
+    "grade": "inferred"
+   },
+   "fate": "With the family at Detroit in the winter of 1812-13.",
+   "facts": [
+    {
+     "claim": "in the boat",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, PG 51737 lines 6409-6411 (1856 text as reprinted in the 1901 Caxton Club edition)",
+     "quote": "Black Jim, one of the servants who stood in the bow of the boat, seized an axe"
+    },
+    {
+     "claim": "at Detroit, winter 1812-13",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XX, PG 51737 lines 6834-6834 (1856 text as reprinted in the 1901 Caxton Club edition)",
+     "quote": "The last bargain made was by black Jim, and one of children"
+    },
+    {
+     "claim": "possible link; ambiguous",
+     "source": "quaife_1913",
+     "locator": "app. VI, PG 69274 lines 16753-16754",
+     "quote": "Captain Heald through Kenzie sending his two Negroes got put on board a Indean boat going to St. Joseph",
+     "note": "Helm narrative. Grammar unclear: may mean Heald sent two Black servants via Kinzie; does not name Jim. Not used for status."
+    }
+   ]
+  },
+  {
+   "id": "kinzie_servant_second",
+   "name": "(unnamed second servant)",
+   "other_spellings": [],
+   "household": "kinzie",
+   "relationship": "servant",
+   "sex": null,
+   "birth": null,
+   "ancestry": null,
+   "occupation": "servant",
+   "present_14aug": {
+    "status": "present",
+    "grade": "attested (count only)",
+    "summary": "Wau-Bun and Kirkland count two servants in the boat; only Black Jim is named."
+   },
+   "home": "kinzie_house_1812",
+   "location_14aug": null,
+   "fate": "Unknown.",
+   "facts": [
+    {
+     "claim": "count of servants",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "pt. 1, PG 59624 lines 687-688",
+     "quote": "a clerk of Mr. Kinzie's, two servants, the boatman, and two Indians as guard"
+    }
+   ]
+  },
+  {
+   "id": "kinzie_boatmen",
+   "name": "(boatmen and engagés, unnamed group)",
+   "other_spellings": [],
+   "household": "kinzie",
+   "relationship": "employees",
+   "sex": "m",
+   "birth": null,
+   "ancestry": null,
+   "occupation": "boatmen; Canadian engagés",
+   "present_14aug": {
+    "status": "probably_present",
+    "grade": "inferred",
+    "summary": "Wau-Bun \"the boatmen\"; Kirkland and Currey say one boatman. Number unknown. Kirkland names engagé families only generically."
+   },
+   "home": "kinzie_lodging_house_1812",
+   "location_14aug": null,
+   "fate": "Unknown.",
+   "facts": [
+    {
+     "claim": "lodging house (describes the house as Mrs. Kinzie knew it, 1831; projected back)",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XVII, PG 51737 lines 5141-5142 (1856 text as reprinted in the 1901 Caxton Club edition)",
+     "quote": "establishment--dairy, bake-house, lodging-house for the Frenchmen, and stables."
+    },
+    {
+     "claim": "engagés",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "app. D, PG 59624 lines 5474-5475",
+     "quote": "rooms for \"the Frenchmen,\" the Canadian engages who were then the chief subordinates in fur-trading"
+    },
+    {
+     "claim": "count: one boatman (Currey)",
+     "source": "currey_1912_story_of_old_fort_dearborn",
+     "locator": "pt. III \"The Tragedy\", PG 52346 lines 2385-2386",
+     "quote": "two servants, a boatman, and the two Indians who had brought the message from Topenebe"
+    }
+   ]
+  },
+  {
+   "id": "leclerc_pierre",
+   "name": "Pierre Le Clerc",
+   "other_spellings": [
+    "Peresh Leclerc",
+    "Pierre Le Claire",
+    "LeClaire"
+   ],
+   "household": "kinzie",
+   "relationship": "employee",
+   "sex": "m",
+   "birth": {
+    "value": null,
+    "note": "Wau-Bun calls him a \"boy\" in 1812"
+   },
+   "ancestry": {
+    "value": "described as \"half-breed\" (Wau-Bun, Quaife)"
+   },
+   "occupation": "in Kinzie's service; interpreter at the surrender",
+   "present_14aug": {
+    "status": "present",
+    "grade": "inferred",
+    "summary": "Marched with the detachment on 15 Aug; by tradition brought the war news in July. Quaife conjectures he was one of the twelve militia."
+   },
+   "home": null,
+   "location_14aug": null,
+   "fate": "Survived; negotiated the surrender; granted a section on the Elkhart at the 1821 treaty.",
+   "facts": [
+    {
+     "claim": "role 15 Aug",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, PG 51737 lines 6305-6306 (1856 text as reprinted in the 1901 Caxton Club edition)",
+     "quote": "Peresh Leclerc, a half-breed boy in the service of Mr. Kinzie, who had accompanied the detachment and fought manfully on their side"
+    },
+    {
+     "claim": "tradition of the war news",
+     "source": "quaife_1913",
+     "locator": "ch. X, PG 69274 lines 8688-8689",
+     "quote": "the news was brought by Pierre Le Claire, a half-breed who figured in the negotiations for the surrender"
+    },
+    {
+     "claim": "possible militiaman",
+     "source": "quaife_1913",
+     "locator": "app. IX, PG 69274 lines 17160-17161",
+     "quote": "the conjecture may be hazarded that Pierre LeClaire, the half-breed interpreter, was one of the twelve"
+    },
+    {
+     "claim": "fate 1821",
+     "source": "quaife_1913",
+     "locator": "ch. XV, PG 69274 lines 13883-13884",
+     "quote": "now received a section of land on the Elkhart"
+    }
+   ]
+  },
+  {
+   "id": "francois_interpreter",
+   "name": "François (surname not recorded)",
+   "other_spellings": [],
+   "household": "kinzie (associate)",
+   "relationship": "interpreter",
+   "sex": "m",
+   "birth": null,
+   "ancestry": {
+    "value": "described as \"half-breed\" (Wau-Bun)"
+   },
+   "occupation": "interpreter",
+   "present_14aug": {
+    "status": "unknown",
+    "grade": "unknown",
+    "summary": "In charge of the Kinzie boat on 18 Aug; no evidence for 14 Aug."
+   },
+   "home": null,
+   "location_14aug": null,
+   "fate": "Took the family to St Joseph.",
+   "facts": [
+    {
+     "claim": "boat of 18 Aug",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, PG 51737 lines 6608-6609 (1856 text as reprinted in the 1901 Caxton Club edition)",
+     "quote": "under the care of François, a half-breed interpreter, and conveyed to St. Joseph's"
+    }
+   ]
+  },
+  {
+   "id": "ouilmette_antoine",
+   "name": "Antoine Ouilmette",
+   "other_spellings": [
+    "Ouillemette",
+    "Wilmette"
+   ],
+   "household": "ouilmette",
+   "relationship": "head",
+   "sex": "m",
+   "birth": null,
+   "ancestry": {
+    "value": "French (Canadian), per Wau-Bun and Quaife"
+   },
+   "occupation": "portage carrier; employee of Kinzie",
+   "present_14aug": {
+    "status": "present",
+    "grade": "attested",
+    "summary": "Stayed in his own house through the evacuation; the only white resident left after 18 Aug. Not enrolled in the militia."
+   },
+   "home": "ouilmette_house_1812",
+   "location_14aug": {
+    "structure_id": "ouilmette_house_1812",
+    "grade": "inferred"
+   },
+   "fate": "Remained at Chicago through the war; found there by the 1816 garrison; Gros Point (Wilmette) reservation 1829; died at Council Bluffs.",
+   "facts": [
+    {
+     "claim": "arrival claim",
+     "source": "quaife_1913",
+     "locator": "ch. VI, PG 69274 lines 5720-5720",
+     "quote": "Ouilmette claimed to have come to Chicago in 1790."
+    },
+    {
+     "claim": "1803 residence",
+     "source": "quaife_1913",
+     "locator": "ch. VI, PG 69274 lines 5723-5724",
+     "quote": "he was living with his Indian wife in one of the four huts which they found here"
+    },
+    {
+     "claim": "not militia",
+     "source": "quaife_1913",
+     "locator": "ch. VII, PG 69274 lines 6810-6812",
+     "quote": "three of the long-time residents of Chicago, La Lime, Ouilmette, and Kinzie, were not included in this number"
+    },
+    {
+     "claim": "house and employment",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, PG 51737 lines 6477-6479 (1856 text as reprinted in the 1901 Caxton Club edition)",
+     "quote": "the house of Ouilmette, a Frenchman with a half-breed wife, who formed a part of the establishment of Mr. Kinzie"
+    },
+    {
+     "claim": "house position (conflicts with repo structure)",
+     "source": "andreas_1884_v1",
+     "locator": "p. 92 (IA full-text OCR; quote cleaned of OCR noise, match 0.96)",
+     "quote": "Ouilmette's house was just north, and within a very short distance of Mr. Kinzie's."
+    },
+    {
+     "claim": "stayed",
+     "source": "currey_1912_story_of_old_fort_dearborn",
+     "locator": "pt. III \"The Tragedy\", PG 52346 lines 2400-2401",
+     "quote": "Antoine Ouilmette and his family did not abandon their dwelling as did all the other residents of the village."
+    },
+    {
+     "claim": "after 18 Aug",
+     "source": "andreas_1884_v1",
+     "locator": "p. 92 (IA full-text OCR; quote cleaned of OCR noise, match 0.99)",
+     "quote": "After the departure of the boat containing his employer's family, Ouilmette was left the sole white inhabitant of Chicago."
+    },
+    {
+     "claim": "fate 1816",
+     "source": "quaife_1913",
+     "locator": "ch. VI, PG 69274 lines 5781-5782",
+     "quote": "the new garrison which came in 1816 found him living here in serene possession"
+    },
+    {
+     "claim": "death",
+     "source": "andreas_1884_v1",
+     "locator": "p. 92 (IA full-text OCR; quote cleaned of OCR noise, match 0.97)",
+     "quote": "both himself and wife died at Council Bluffs, Iowa"
+    },
+    {
+     "claim": "1829 compensation",
+     "source": "quaife_1913",
+     "locator": "ch. XV, PG 69274 lines 14341-14342",
+     "quote": "he had been given eight hundred dollars for losses sustained at the time of the Chicago massacre"
+    }
+   ]
+  },
+  {
+   "id": "ouilmette_archange",
+   "name": "Archange Ouilmette",
+   "other_spellings": [
+    "Okra (Head Papers, via Quaife)",
+    "Mrs. Ouilmette"
+   ],
+   "household": "ouilmette",
+   "relationship": "wife of head",
+   "sex": "f",
+   "birth": null,
+   "ancestry": {
+    "value": "Potawatomi per Currey; \"half-breed\" per Wau-Bun",
+    "grade": "attested, sources differ"
+   },
+   "occupation": null,
+   "present_14aug": {
+    "status": "probably_present",
+    "grade": "inferred",
+    "summary": "Watched the troops leave from the north side (Head Papers account); the household stayed."
+   },
+   "home": "ouilmette_house_1812",
+   "location_14aug": {
+    "structure_id": "ouilmette_house_1812",
+    "grade": "inferred"
+   },
+   "fate": "Granted land with her children at Prairie du Chien 1829; died at Council Bluffs.",
+   "facts": [
+    {
+     "claim": "name Okra; witness",
+     "source": "quaife_1913",
+     "locator": "app. II, PG 69274 lines 16013-16014",
+     "quote": "One account was obtained by a soldier's wife from Okra, Ouilmette's wife, and a half-breed French woman."
+    },
+    {
+     "claim": "present 15 Aug",
+     "source": "quaife_1913",
+     "locator": "app. II, PG 69274 lines 16015-16017",
+     "quote": "From a favorable vantage point on the north side of the river where Ouilmette's hut stood they had watched the troops march out"
+    },
+    {
+     "claim": "ancestry; land",
+     "source": "currey_1912_story_of_old_fort_dearborn",
+     "locator": "pt. II \"Fortifying The Frontier\", PG 52346 lines 695-697",
+     "quote": "His wife, being a member of the Potawatami tribe, was awarded, at one of the Indian treaties many years later, a tract of land"
+    }
+   ],
+   "name_note": "The given name Archange (born Chevalier, sister of Catherine Chevalier Robinson) comes from the existing source indigenous_chicago_alexander_robinson. I did not re-open that page in this pass, so it carries no quote here. The four printed works I read call her \"Okra\", \"Mrs. Ouilmette\" or \"Ouilmette's wife\"."
+  },
+  {
+   "id": "bisson_mrs",
+   "name": "Mrs. Bisson (given name not recorded)",
+   "other_spellings": [],
+   "household": "ouilmette",
+   "relationship": "sister of Ouilmette's wife",
+   "sex": "f",
+   "birth": null,
+   "ancestry": null,
+   "occupation": null,
+   "present_14aug": {
+    "status": "probably_present",
+    "grade": "inferred",
+    "summary": "A member of the Ouilmette household on 15-16 Aug in Wau-Bun, Currey and Andreas; the Helm-concealment story itself is doubted by Quaife."
+   },
+   "home": "ouilmette_house_1812",
+   "location_14aug": {
+    "structure_id": "ouilmette_house_1812",
+    "grade": "inferred"
+   },
+   "fate": "Unknown.",
+   "facts": [
+    {
+     "claim": "present 15-16 Aug",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, PG 51737 lines 6485-6487 (1856 text as reprinted in the 1901 Caxton Club edition)",
+     "quote": "Mrs. Bisson, the sister of Ouilmette's wife, then seated herself with her sewing upon the front of the bed."
+    },
+    {
+     "claim": "household member",
+     "source": "currey_1912_story_of_old_fort_dearborn",
+     "locator": "pt. III \"The Tragedy\", PG 52346 lines 2401-2402",
+     "quote": "A sister of his wife, known in the accounts as Mrs. Bisson, was a member of this same household."
+    }
+   ]
+  },
+  {
+   "id": "ouilmette_children_1812",
+   "name": "(Ouilmette children, number and names unknown for 1812)",
+   "other_spellings": [],
+   "household": "ouilmette",
+   "relationship": "children of head",
+   "sex": null,
+   "birth": null,
+   "ancestry": null,
+   "occupation": null,
+   "present_14aug": {
+    "status": "probably_present",
+    "grade": "inferred",
+    "summary": "Currey counts \"half-breed children of Ouilmette\" in the winter of 1812-13. Andreas names Elizabeth, Josette, Michell, Lewis, Francis, Sophie and Joseph, but gives no birth years; Josette was a child in 1831, so she was not yet born. Do not render named individuals."
+   },
+   "home": "ouilmette_house_1812",
+   "location_14aug": {
+    "structure_id": "ouilmette_house_1812",
+    "grade": "inferred"
+   },
+   "fate": "Later to Kansas with the Potawatomi (Andreas).",
+   "facts": [
+    {
+     "claim": "winter 1812-13",
+     "source": "currey_1912_story_of_old_fort_dearborn",
+     "locator": "pt. III \"The Tragedy\", PG 52346 lines 3225-3226",
+     "quote": "including the half-breed children of Ouilmette and the engagés and helpers in the employ of Du Pin"
+    },
+    {
+     "claim": "names of the children (no dates)",
+     "source": "andreas_1884_v1",
+     "locator": "p. 92",
+     "quote": "Michell, Lewis, Francis, Sophie and Joseph"
+    }
+   ]
+  },
+  {
+   "id": "burns_thomas",
+   "name": "Thomas Burns",
+   "other_spellings": [
+    "John Burns (Kirkland, Currey)",
+    "Jos. Burns (Heald's list in the Helm narrative)"
+   ],
+   "household": "burns",
+   "relationship": "head",
+   "sex": "m",
+   "birth": null,
+   "ancestry": null,
+   "occupation": "discharged soldier; sergeant of the Chicago militia",
+   "present_14aug": {
+    "status": "probably_present",
+    "grade": "inferred",
+    "summary": "Enrolled as militia sergeant in April; the civilians had fortified the Agency House; marched with the wagons 15 Aug."
+   },
+   "home": "burns_house_1812",
+   "location_14aug": {
+    "structure_id": "first_fort_outer_agents_house",
+    "alt": "first Fort Dearborn",
+    "grade": "inferred"
+   },
+   "fate": "Badly wounded at the wagons on 15 Aug; killed by a woman about an hour after the surrender.",
+   "facts": [
+    {
+     "claim": "name Thomas",
+     "source": "quaife_1913",
+     "locator": "ch. XI, PG 69274 lines 10221-10222",
+     "quote": "The killing of the husband, Thomas Burns, an hour after the surrender has already been described."
+    },
+    {
+     "claim": "militia sergeant",
+     "source": "quaife_1913",
+     "locator": "ch. XI, PG 69274 lines 9419-9420",
+     "quote": "he was a sergeant in the Chicago militia, enrolled by Heald after the murders at the Lee farm"
+    },
+    {
+     "claim": "discharged soldier",
+     "source": "quaife_1913",
+     "locator": "ch. XI, PG 69274 lines 9428-9429",
+     "quote": "Apparently Burns was a discharged soldier who had made Chicago his permanent home"
+    },
+    {
+     "claim": "house; name John",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "pt. 2 ch. IV, PG 59624 lines 2904-2905",
+     "quote": "Just west of Kinzie's house is Ouillemette's cabin, and still further that of John Burns."
+    },
+    {
+     "claim": "house site",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XVIII, PG 51737 lines 5735-5736 (1856 text as reprinted in the 1901 Caxton Club edition)",
+     "quote": "Burns' house stood near the spot where the Agency building, or \"Cobweb Castle,\" was afterwards erected."
+    },
+    {
+     "claim": "fate",
+     "source": "quaife_1913",
+     "locator": "ch. X, PG 69274 lines 9188-9189",
+     "quote": "But one, Sergeant Burns, escaped instant death, and he, grievously wounded, was slaughtered an hour after the surrender"
+    },
+    {
+     "claim": "Heald list, \"Citizens\"",
+     "source": "quaife_1913",
+     "locator": "app. VI, PG 69274 lines 16808-16808",
+     "quote": "Jos. Burns 28 { since killed"
+    }
+   ]
+  },
+  {
+   "id": "burns_mrs",
+   "name": "Mrs. Burns (given name not recorded)",
+   "other_spellings": [
+    "formerly Mrs. Cooper"
+   ],
+   "household": "burns",
+   "relationship": "wife of head",
+   "sex": "f",
+   "birth": null,
+   "ancestry": null,
+   "occupation": null,
+   "present_14aug": {
+    "status": "present",
+    "grade": "attested",
+    "summary": "In the wagons 15 Aug with her infant; listed among the women taken prisoner."
+   },
+   "home": "burns_house_1812",
+   "location_14aug": {
+    "structure_id": "first_fort_outer_agents_house",
+    "alt": "first Fort Dearborn",
+    "grade": "inferred"
+   },
+   "fate": "Captive about two years; via Mackinac to Detroit; widow supporting three children there in 1820; died at Detroit about 1823 (Edwards via Wentworth) or about 1832 (Edwards letter in Kirkland).",
+   "facts": [
+    {
+     "claim": "brought to the fort in April",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XVIII, PG 51737 lines 5744-5745 (1856 text as reprinted in the 1901 Caxton Club edition)",
+     "quote": "took the mother, with her infant of scarcely a day old, upon her bed to the boat"
+    },
+    {
+     "claim": "infant at evacuation",
+     "source": "quaife_1913",
+     "locator": "ch. X, PG 69274 lines 9068-9069",
+     "quote": "What of Mrs. Burns and Mrs. Simmons with their babes of a few months"
+    },
+    {
+     "claim": "children",
+     "source": "quaife_1913",
+     "locator": "app. IX, PG 69274 lines 17138-17138",
+     "quote": "Mrs. Burns had several, some of whom bore her former name of Cooper"
+    },
+    {
+     "claim": "fate 1820",
+     "source": "quaife_1913",
+     "locator": "ch. XI, PG 69274 lines 10277-10279",
+     "quote": "She was then living in Detroit, supporting herself and her three surviving children by her own labor."
+    },
+    {
+     "claim": "death (one version)",
+     "source": "quaife_1913",
+     "locator": "ch. XI, PG 69274 lines 10287-10288",
+     "quote": "Edwards records that Mrs. Burns died at Detroit about the year 1823."
+    },
+    {
+     "claim": "death (other version)",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "app. G, PG 59624 lines 6691-6692",
+     "quote": "Her mother died there about the year 1832."
+    }
+   ]
+  },
+  {
+   "id": "cooper_joseph",
+   "name": "Joseph or James Cooper",
+   "other_spellings": [],
+   "household": "burns",
+   "relationship": "stepson of head",
+   "sex": "m",
+   "birth": null,
+   "ancestry": null,
+   "occupation": "militiaman",
+   "present_14aug": {
+    "status": "probably_present",
+    "grade": "inferred",
+    "summary": "Militiaman killed 15 Aug."
+   },
+   "home": "burns_house_1812",
+   "location_14aug": {
+    "structure_id": "first_fort_outer_agents_house",
+    "grade": "inferred"
+   },
+   "fate": "Killed 15 Aug.",
+   "facts": [
+    {
+     "claim": "identity",
+     "source": "quaife_1913",
+     "locator": "ch. XI, PG 69274 lines 10222-10224",
+     "quote": "A son of Mrs. Burns by a former marriage, Joseph or James Cooper, was also a member of the slaughtered militia."
+    },
+    {
+     "claim": "conflict: Edwards makes the killed Cooper Isabella's father",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "app. G, PG 59624 lines 6681-6682",
+     "quote": "was a daughter of Cooper, one of the soldiers who was killed in the fight",
+     "note": "Edwards (1881) makes the killed Cooper Isabella's father; Quaife makes him her half-brother. Unresolved."
+    }
+   ]
+  },
+  {
+   "id": "cooper_isabella",
+   "name": "Isabella Cooper",
+   "other_spellings": [
+    "later Mrs. Farnum"
+   ],
+   "household": "burns",
+   "relationship": "stepdaughter of head",
+   "sex": "f",
+   "birth": {
+    "value": "about 1803 (about nine in 1812)",
+    "grade": "inferred"
+   },
+   "ancestry": {
+    "value": "said to be Scotch (Edwards letter)",
+    "grade": "attested, hearsay"
+   },
+   "occupation": null,
+   "present_14aug": {
+    "status": "present",
+    "grade": "attested",
+    "summary": "In the wagon with her mother and sister on 15 Aug."
+   },
+   "home": "burns_house_1812",
+   "location_14aug": {
+    "structure_id": "first_fort_outer_agents_house",
+    "grade": "inferred"
+   },
+   "fate": "Scalped but saved by an older woman; captive two years; via Mackinac to Detroit; married Farnum.",
+   "facts": [
+    {
+     "claim": "name",
+     "source": "quaife_1913",
+     "locator": "ch. XI, PG 69274 lines 10256-10257",
+     "quote": "Her daughter, Isabella Cooper, became an inmate of the Edwards home"
+    },
+    {
+     "claim": "age",
+     "source": "quaife_1913",
+     "locator": "ch. XI, PG 69274 lines 10261-10262",
+     "quote": "the child, though only about nine years of age, fought him to the best of her ability"
+    },
+    {
+     "claim": "fate",
+     "source": "quaife_1913",
+     "locator": "ch. XI, PG 69274 lines 10267-10269",
+     "quote": "She and her mother and sister remained among the Indians two years, when they were taken to Mackinac, purchased by some traders"
+    },
+    {
+     "claim": "marriage",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "app. G, PG 59624 lines 6690-6691",
+     "quote": "I think she married a man by the name of Farnum and lived many years in Detroit."
+    }
+   ]
+  },
+  {
+   "id": "burns_infant",
+   "name": "(Burns infant daughter, born about 6-7 April 1812)",
+   "other_spellings": [],
+   "household": "burns",
+   "relationship": "child of head",
+   "sex": "f",
+   "birth": {
+    "value": "1812-04 (a day old on 7 April 1812)",
+    "grade": "attested (Wau-Bun)"
+   },
+   "ancestry": null,
+   "occupation": null,
+   "present_14aug": {
+    "status": "present",
+    "grade": "attested",
+    "summary": "Captive with her mother after the battle; Wau-Bun's footnote says Mrs. Kinzie met her 22 years later. Isabella's \"sister\" in Quaife may be this child or another."
+   },
+   "home": "burns_house_1812",
+   "location_14aug": {
+    "structure_id": "first_fort_outer_agents_house",
+    "grade": "inferred"
+   },
+   "fate": "Survived a tomahawk blow in captivity; met by Mrs. Kinzie about 1834.",
+   "facts": [
+    {
+     "claim": "birth April 1812",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "pt. 2 ch. II, PG 59624 lines 2233-2234",
+     "quote": "Burns, living at about where is now the crossing of Kinzie and State Streets, had just been delivered of a child."
+    },
+    {
+     "claim": "captivity",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, PG 51737 lines 6690-6691 (1856 text as reprinted in the 1901 Caxton Club edition)",
+     "quote": "Mrs. Burns, with her infant, became the prisoners of a chief, who carried her to his village"
+    },
+    {
+     "claim": "fate; sex female",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, PG 51737 lines 6700-6702 (1856 text as reprinted in the 1901 Caxton Club edition)",
+     "quote": "a young woman, hearing my name, introduced herself to me, and raising the hair from her forehead, showed me the mark of the tomahawk"
+    },
+    {
+     "claim": "Heald list: children yet in captivity",
+     "source": "quaife_1913",
+     "locator": "app. VI, PG 69274 lines 16829-16829",
+     "quote": "Mrs. Burns 2"
+    }
+   ]
+  },
+  {
+   "id": "burns_children_killed",
+   "name": "(two Burns/Cooper children killed 15 Aug, unnamed)",
+   "other_spellings": [],
+   "household": "burns",
+   "relationship": "children of Mrs. Burns",
+   "sex": null,
+   "birth": null,
+   "ancestry": null,
+   "occupation": null,
+   "present_14aug": {
+    "status": "probably_present",
+    "grade": "inferred",
+    "summary": "Count only."
+   },
+   "home": "burns_house_1812",
+   "location_14aug": {
+    "structure_id": "first_fort_outer_agents_house",
+    "grade": "inferred"
+   },
+   "fate": "Killed 15 Aug.",
+   "facts": [
+    {
+     "claim": "count",
+     "source": "quaife_1913",
+     "locator": "ch. XI, PG 69274 lines 10225-10226",
+     "quote": "her two children next in age perished in the massacre"
+    }
+   ]
+  },
+  {
+   "id": "lee_charles",
+   "name": "Charles Lee",
+   "other_spellings": [
+    "Lee",
+    "Leigh",
+    "See (Heald's letter)"
+   ],
+   "household": "lee",
+   "relationship": "head",
+   "sex": "m",
+   "birth": null,
+   "ancestry": null,
+   "occupation": "farmer (Lee's Place); said to have held the provision contract",
+   "present_14aug": {
+    "status": "probably_present",
+    "grade": "inferred",
+    "summary": "Quaife thinks he was one of the twelve militia; killed 15 Aug. The given name Charles is in Currey only."
+   },
+   "home": "lee_house_1812",
+   "location_14aug": {
+    "structure_id": "first_fort_outer_agents_house",
+    "alt": "lee_house_1812",
+    "grade": "inferred"
+   },
+   "fate": "Killed 15 Aug.",
+   "facts": [
+    {
+     "claim": "name Charles; house at river mouth",
+     "source": "currey_1912_story_of_old_fort_dearborn",
+     "locator": "pt. III \"The Tragedy\", PG 52346 lines 2243-2244",
+     "quote": "stood the house of Charles Lee, the owner of \"Lee's Place,\""
+    },
+    {
+     "claim": "arrival; contract (unverified tradition)",
+     "source": "quaife_1913",
+     "locator": "ch. X, PG 69274 lines 8577-8579",
+     "quote": "Lee is said to have settled at Chicago about the year 1805, having received the contract to supply the garrison with provisions."
+    },
+    {
+     "claim": "house (conflicts with Wau-Bun \"Lake shore\")",
+     "source": "quaife_1913",
+     "locator": "ch. X, PG 69274 lines 8579-8580",
+     "quote": "He lived with his family a short distance southwest of the fort"
+    },
+    {
+     "claim": "house",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, PG 51737 lines 6705-6706 (1856 text as reprinted in the 1901 Caxton Club edition)",
+     "quote": "The family of Mr. Lee had resided in a house on the Lake shore, not far from the fort."
+    },
+    {
+     "claim": "spellings",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "pt. 2 ch. II, PG 59624 lines 2216-2216",
+     "quote": "This name I find sometimes spelled \"Lee,\" and sometimes \"See.\""
+    },
+    {
+     "claim": "militia (conjecture)",
+     "source": "quaife_1913",
+     "locator": "app. IX, PG 69274 lines 17154-17155",
+     "quote": "Lee, the farmer, must have been another although there is no positive record to this effect"
+    }
+   ]
+  },
+  {
+   "id": "lee_mrs",
+   "name": "Mrs. Lee (given name not recorded)",
+   "other_spellings": [
+    "Mrs. Leigh",
+    "Madame Du Pin"
+   ],
+   "household": "lee",
+   "relationship": "wife of head",
+   "sex": "f",
+   "birth": null,
+   "ancestry": null,
+   "occupation": null,
+   "present_14aug": {
+    "status": "present",
+    "grade": "attested",
+    "summary": "Taken prisoner 15 Aug (Heald list; Woodward)."
+   },
+   "home": "lee_house_1812",
+   "location_14aug": {
+    "structure_id": "first_fort_outer_agents_house",
+    "alt": "lee_house_1812",
+    "grade": "inferred"
+   },
+   "fate": "Captive of Black Partridge; ransomed at Chicago in the winter of 1812-13 by Du Pin (and Buisson), whom she married; said to have sold the Lee house to Beaubien.",
+   "facts": [
+    {
+     "claim": "ransom 1812-13 (Forsyth letter)",
+     "source": "quaife_1913",
+     "locator": "ch. XI, PG 69274 lines 9542-9543",
+     "quote": "they have bought of[f] Mrs. Leigh and her younger child"
+    },
+    {
+     "claim": "marriage",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, PG 51737 lines 6762-6762 (1856 text as reprinted in the 1901 Caxton Club edition)",
+     "quote": "in process of time Mrs. Lee became Madame Du Pin"
+    },
+    {
+     "claim": "house sold",
+     "source": "andreas_1884_v1",
+     "locator": "p. 84",
+     "quote": "the house of Mr. Lee near the fort, on the lake shore, was evidently sold by his widow to Jean Baptiste Beaubien"
+    }
+   ]
+  },
+  {
+   "id": "lee_son",
+   "name": "(Lee son, unnamed)",
+   "other_spellings": [],
+   "household": "lee",
+   "relationship": "son of head",
+   "sex": "m",
+   "birth": null,
+   "ancestry": null,
+   "occupation": "farm hand; possibly militiaman",
+   "present_14aug": {
+    "status": "probably_present",
+    "grade": "inferred",
+    "summary": "Escaped the April attack at Lee's Place; killed 15 Aug. Quaife's April account has the boy unnamed and does not call him Lee's son."
+   },
+   "home": "lee_house_1812",
+   "location_14aug": {
+    "structure_id": "first_fort_outer_agents_house",
+    "grade": "inferred"
+   },
+   "fate": "Killed 15 Aug.",
+   "facts": [
+    {
+     "claim": "April escape",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, PG 51737 lines 6707-6708 (1856 text as reprinted in the 1901 Caxton Club edition)",
+     "quote": "It was his son who ran down with the discharged soldier to give the alarm"
+    },
+    {
+     "claim": "fate",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "pt. 2 ch. V, PG 59624 lines 3304-3306",
+     "quote": "His son escaped from the murderers at \"Hardscrabble\" in spring, only to perish, with his father, during the massacre"
+    }
+   ]
+  },
+  {
+   "id": "lee_daughter",
+   "name": "(Lee daughter, about twelve, unnamed)",
+   "other_spellings": [
+    "\"Lillian Lee\" (Matson; distrusted)"
+   ],
+   "household": "lee",
+   "relationship": "daughter of head",
+   "sex": "f",
+   "birth": {
+    "value": "about 1800 (about twelve in 1812)",
+    "grade": "inferred"
+   },
+   "ancestry": null,
+   "occupation": null,
+   "present_14aug": {
+    "status": "present",
+    "grade": "attested (Wau-Bun)",
+    "summary": "On horseback with the column 15 Aug."
+   },
+   "home": "lee_house_1812",
+   "location_14aug": {
+    "structure_id": "first_fort_outer_agents_house",
+    "grade": "inferred"
+   },
+   "fate": "Wounded; killed by Black Partridge to end her suffering (Wau-Bun).",
+   "facts": [
+    {
+     "claim": "age",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, PG 51737 lines 6712-6713 (1856 text as reprinted in the 1901 Caxton Club edition)",
+     "quote": "a little girl of Mrs. Lee's, about twelve years of age"
+    },
+    {
+     "claim": "Matson variant (distrusted)",
+     "source": "quaife_1913",
+     "locator": "ch. XI, PG 69274 lines 10353-10355",
+     "quote": "He avers that the child who was dragged by the horse and afterward tomahawked was Lillian Lee, ten years of age"
+    }
+   ]
+  },
+  {
+   "id": "lee_infant",
+   "name": "(Lee infant, unnamed)",
+   "other_spellings": [],
+   "household": "lee",
+   "relationship": "child of head",
+   "sex": null,
+   "birth": null,
+   "ancestry": null,
+   "occupation": null,
+   "present_14aug": {
+    "status": "present",
+    "grade": "attested",
+    "summary": "Survived with the mother. Heald's list counts two Lee children in captivity, one since dead."
+   },
+   "home": "lee_house_1812",
+   "location_14aug": {
+    "structure_id": "first_fort_outer_agents_house",
+    "grade": "inferred"
+   },
+   "fate": "Fell ill in captivity; ransomed with the mother.",
+   "facts": [
+    {
+     "claim": "survived",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, PG 51737 lines 6710-6711 (1856 text as reprinted in the 1901 Caxton Club edition)",
+     "quote": "except Mrs. Lee and her young infant"
+    },
+    {
+     "claim": "Heald list",
+     "source": "quaife_1913",
+     "locator": "app. VI, PG 69274 lines 16828-16828",
+     "quote": "Mrs. Leigh's 2 one Since Dead"
+    }
+   ]
+  },
+  {
+   "id": "russell_unknown",
+   "name": "Russell (given name unknown)",
+   "other_spellings": [],
+   "household": "lee (business partner)",
+   "relationship": "partner of Lee",
+   "sex": "m",
+   "birth": null,
+   "ancestry": null,
+   "occupation": "farmer",
+   "present_14aug": {
+    "status": "unknown",
+    "grade": "unknown",
+    "summary": "Named only as co-owner of the farm. Kirkland guesses he was in the militia."
+   },
+   "home": null,
+   "location_14aug": null,
+   "fate": "Unknown.",
+   "facts": [
+    {
+     "claim": "identity",
+     "source": "quaife_1913",
+     "locator": "ch. X, PG 69274 lines 8581-8583",
+     "quote": "Russell was evidently the partner of Lee, but aside from this fact nothing is known about him."
+    },
+    {
+     "claim": "militia (Kirkland guess)",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "pt. 2 ch. III, PG 59624 lines 2449-2449",
+     "quote": "perhaps included Lee, Pettell, Burns, Russell"
+    }
+   ]
+  },
+  {
+   "id": "fettle_louis",
+   "name": "Louis Fettle",
+   "other_spellings": [
+    "Pettell",
+    "Pettle"
+   ],
+   "household": "fettle",
+   "relationship": "head",
+   "sex": "m",
+   "birth": null,
+   "ancestry": {
+    "value": "French-Canadian"
+   },
+   "occupation": "fur hunter or trader",
+   "present_14aug": {
+    "status": "unknown",
+    "grade": "inferred-weak",
+    "summary": "In Kinzie's books down to 1812; Quaife conjectures he died in the militia. Lean probably_present only if the militia count must be filled."
+   },
+   "home": null,
+   "location_14aug": null,
+   "fate": "Disappears after 1812.",
+   "facts": [
+    {
+     "claim": "ancestry; wife",
+     "source": "quaife_1913",
+     "locator": "ch. VI, PG 69274 lines 5706-5707",
+     "quote": "he was a French-Canadian living here with an Indian wife when the garrison came in 1803"
+    },
+    {
+     "claim": "1812",
+     "source": "quaife_1913",
+     "locator": "ch. VI, PG 69274 lines 5709-5710",
+     "quote": "His name occurs at intervals down to 1812, showing that he was a resident of Chicago during the entire period."
+    },
+    {
+     "claim": "militia conjecture",
+     "source": "quaife_1913",
+     "locator": "app. IX, PG 69274 lines 17158-17159",
+     "quote": "Probably Louis Fettle, who lived at Chicago from 1803 to 1812 and then disappeared from recorded history, was still another."
+    },
+    {
+     "claim": "cabin (no structure id exists)",
+     "source": "currey_1912_story_of_old_fort_dearborn",
+     "locator": "pt. II \"Fortifying The Frontier\", PG 52346 lines 707-707",
+     "quote": "A man named Pettell also had a small cabin near the Kinzie house."
+    }
+   ]
+  },
+  {
+   "id": "lemai_unknown",
+   "name": "Le Mai (given name not in sources read)",
+   "other_spellings": [
+    "LeMai",
+    "Lemai"
+   ],
+   "household": "lemai",
+   "relationship": "head",
+   "sex": "m",
+   "birth": null,
+   "ancestry": {
+    "value": "French per Hurlbut and Andreas; \"half-breed\" per Cooper via Quaife"
+   },
+   "occupation": "trader",
+   "present_14aug": {
+    "status": "unknown",
+    "grade": "unknown",
+    "summary": "Cooper (1808-11) lists his house; nothing places him at Chicago in 1812. Andreas does not include a Le Mai house in its five houses of 1812."
+   },
+   "home": "lemai_house_1812",
+   "location_14aug": null,
+   "fate": "Unknown.",
+   "facts": [
+    {
+     "claim": "ancestry; wife (Cooper)",
+     "source": "quaife_1913",
+     "locator": "ch. VII, PG 69274 lines 6752-6752",
+     "quote": "Le Mai was a half-breed, married to a Pottawatomie squaw."
+    },
+    {
+     "claim": "not in the 1812 house list",
+     "source": "andreas_1884_v1",
+     "locator": "p. 84 (IA full-text OCR; quote cleaned of OCR noise, match 0.99)",
+     "quote": "four were occupied by the families of Kinzie, Ouilmette, Burns and Lee. The fifth was on the Lee farm"
+    }
+   ]
+  },
+  {
+   "id": "coursoll_unknown",
+   "name": "Coursoll (one of two Courselles)",
+   "other_spellings": [
+    "Courselle",
+    "Coursolle"
+   ],
+   "household": "coursoll",
+   "relationship": "owner",
+   "sex": "m",
+   "birth": null,
+   "ancestry": null,
+   "occupation": "trader",
+   "present_14aug": {
+    "status": "unknown",
+    "grade": "unknown",
+    "summary": "Owner of a house and field on Whistler's 1808 draught. No 1812 evidence."
+   },
+   "home": "coursoll_field_1812",
+   "location_14aug": null,
+   "fate": "Unknown.",
+   "facts": [
+    {
+     "claim": "evidence thin",
+     "source": "quaife_1913",
+     "locator": "ch. VII, PG 69274 lines 6799-6800",
+     "quote": "the only other record of either of them being at Chicago is the recurrence of their names in Kinzie's account books"
+    }
+   ]
+  },
+  {
+   "id": "clark_unknown",
+   "name": "Clark (given name unknown)",
+   "other_spellings": [],
+   "household": "clark",
+   "relationship": "head",
+   "sex": "m",
+   "birth": null,
+   "ancestry": null,
+   "occupation": "cattle dealer",
+   "present_14aug": {
+    "status": "unknown",
+    "grade": "unknown",
+    "summary": "Recalled by Cooper (at the post 1808-11). Not in the 1812 house lists. Not to be confused with John K. Clark, who later married Madeline Mirandeau."
+   },
+   "home": "forks_house_clark_1812",
+   "location_14aug": null,
+   "fate": "Unknown.",
+   "facts": [
+    {
+     "claim": "identity",
+     "source": "quaife_1913",
+     "locator": "ch. VII, PG 69274 lines 6794-6795",
+     "quote": "one near the forks of the river occupied by a man named Clark who was a cattle dealer"
+    }
+   ]
+  },
+  {
+   "id": "forks_discharged_soldier",
+   "name": "(discharged soldier at the forks, unnamed)",
+   "other_spellings": [],
+   "household": "forks",
+   "relationship": "head",
+   "sex": "m",
+   "birth": null,
+   "ancestry": null,
+   "occupation": "discharged soldier",
+   "present_14aug": {
+    "status": "unknown",
+    "grade": "unknown",
+    "summary": "From the 1808 draught only. He could be one of the twelve militia, but no source says so."
+   },
+   "home": "forks_house_soldier_1812",
+   "location_14aug": null,
+   "fate": "Unknown.",
+   "facts": [
+    {
+     "claim": "identity",
+     "source": "quaife_1913",
+     "locator": "ch. VII, PG 69274 lines 6795-6797",
+     "quote": "Whistler's drawing represents two houses at the forks, one occupied by a discharged soldier"
+    }
+   ]
+  },
+  {
+   "id": "lalime_john",
+   "name": "John Lalime",
+   "other_spellings": [
+    "La Lime",
+    "Lalime"
+   ],
+   "household": "lalime",
+   "relationship": "head",
+   "sex": "m",
+   "birth": null,
+   "ancestry": {
+    "value": "Frenchman (Cooper via Quaife)"
+   },
+   "occupation": "Indian interpreter at Fort Dearborn",
+   "present_14aug": {
+    "status": "dead_before",
+    "grade": "attested",
+    "summary": "Killed by Kinzie in spring 1812, about five months before the massacre (Kirkland); after 13 April (Quaife fn 367)."
+   },
+   "home": "lalime_house_1812",
+   "location_14aug": null,
+   "fate": "Dead before the scene date.",
+   "facts": [
+    {
+     "claim": "date",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "app. F, PG 59624 lines 6224-6225",
+     "quote": "his violent death in the spring of 1812, about five months before the massacre"
+    },
+    {
+     "claim": "killing",
+     "source": "andreas_1884_v1",
+     "locator": "p. 73 (IA full-text OCR; quote cleaned of OCR noise, match 0.99)",
+     "quote": "In the spring of 1812, Mr. Kinzie had an encounter with John Lalime, Indian interpreter at Fort Dearborn, which proved fatal to the latter."
+    },
+    {
+     "claim": "killing",
+     "source": "quaife_1913",
+     "locator": "ch. VI, PG 69274 lines 6048-6049",
+     "quote": "The fact of La Lime's death at the hands of Kinzie is clear"
+    }
+   ]
+  },
+  {
+   "id": "nokenoqua",
+   "name": "Noke-no-qua",
+   "other_spellings": [
+    "Nokenoqua"
+   ],
+   "household": "lalime",
+   "relationship": "mother of Lalime's son",
+   "sex": "f",
+   "birth": null,
+   "ancestry": null,
+   "occupation": null,
+   "present_14aug": {
+    "status": "unknown",
+    "grade": "unknown",
+    "summary": "Known only from the 1821 treaty clause. Neither her marriage to Lalime nor her presence in 1812 is stated."
+   },
+   "home": null,
+   "location_14aug": null,
+   "fate": "Unknown.",
+   "facts": [
+    {
+     "claim": "evidence thin",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "app. F, PG 59624 lines 6222-6222",
+     "quote": "Miss Noke-no-qua is not otherwise known to history."
+    }
+   ]
+  },
+  {
+   "id": "lalime_john_b",
+   "name": "John B. Lalime",
+   "other_spellings": [
+    "John La Lime"
+   ],
+   "household": "lalime",
+   "relationship": "son of Lalime (presumed) and Noke-no-qua",
+   "sex": "m",
+   "birth": null,
+   "ancestry": null,
+   "occupation": null,
+   "present_14aug": {
+    "status": "unknown",
+    "grade": "unknown",
+    "summary": "Known only from the 1821 treaty grant."
+   },
+   "home": null,
+   "location_14aug": null,
+   "fate": "Granted a half-section at the 1821 treaty.",
+   "facts": [
+    {
+     "claim": "identity",
+     "source": "quaife_1913",
+     "locator": "ch. XV, PG 69274 lines 13927-13929",
+     "quote": "To John La Lime, son of Nokenoqua, a half-section of land was granted. Presumably he was the son of the Fort Dearborn interpreter"
+    }
+   ]
+  },
+  {
+   "id": "robinson_alexander",
+   "name": "Alexander Robinson",
+   "other_spellings": [
+    "Che-che-pin-qua",
+    "Alec Robinson"
+   ],
+   "household": null,
+   "relationship": "visitor / trader from St Joseph",
+   "sex": "m",
+   "birth": {
+    "value": "1762 (popular belief; Andreas calls it doubtful)",
+    "grade": "attested-weak"
+   },
+   "ancestry": {
+    "value": "Scottish father, Ottawa mother (Andreas)"
+   },
+   "occupation": "trader; later Potawatomi chief",
+   "present_14aug": {
+    "status": "unknown",
+    "grade": "conflicting",
+    "summary": "Andreas: arrived too late, yet \"a witness\". Hurlbut: perhaps not there, came immediately after. Neither puts him at Chicago on 14 Aug."
+   },
+   "home": null,
+   "location_14aug": null,
+   "fate": "Sheltered the Kinzies at St Joseph and paddled the Healds to Mackinac; settled at Chicago about 1814; died 1872.",
+   "facts": [
+    {
+     "claim": "arrival",
+     "source": "andreas_1884_v1",
+     "locator": "p. 108",
+     "quote": "He arrived on the scene too late to do anything to prevent the massacre, of which he was a witness"
+    },
+    {
+     "claim": "arrival",
+     "source": "hurlbut_chicago_antiquities",
+     "locator": "p. 452 (IA full-text OCR; quote cleaned of OCR noise, match 0.98)",
+     "quote": "If Alec Robinson was not here at the time of the evacuation and battle of 1812, it is yet told that he came here immediately"
+    },
+    {
+     "claim": "ancestry",
+     "source": "andreas_1884_v1",
+     "locator": "p. 108 (IA full-text OCR; quote cleaned of OCR noise, match 0.99)",
+     "quote": "His father was a Scotch trader who had been an officer in the British army, and his mother was an Ottawa woman."
+    },
+    {
+     "claim": "fate",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, PG 51737 lines 6674-6675 (1856 text as reprinted in the 1901 Caxton Club edition)",
+     "quote": "paddled by Robinson and his wife a distance of three hundred miles along the coast of Michigan"
+    },
+    {
+     "claim": "portrait plate",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "pt. 2 ch. V, PG 59624 lines 3141-3143",
+     "quote": "ALEXANDER ROBINSON (in old age). Chief of the Pottowatomies, Chippewas, and others."
+    }
+   ]
+  },
+  {
+   "id": "white_liberty",
+   "name": "Liberty White",
+   "other_spellings": [],
+   "household": "lee (Lee's Place)",
+   "relationship": "farm superintendent",
+   "sex": "m",
+   "birth": null,
+   "ancestry": {
+    "value": "\"an American\""
+   },
+   "occupation": "farm superintendent",
+   "present_14aug": {
+    "status": "dead_before",
+    "grade": "attested",
+    "summary": "Murdered at Lee's Place, 6 April 1812."
+   },
+   "home": "lees_place_cabin_1812",
+   "location_14aug": null,
+   "fate": "Dead before the scene date.",
+   "facts": [
+    {
+     "claim": "death (Heald letter)",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "pt. 2 ch. II, PG 59624 lines 2310-2311",
+     "quote": "murdered two men; one by the name of Liberty White, an American, and the other a Canadian Frenchman whose name I do not know."
+    }
+   ]
+  },
+  {
+   "id": "cardin_john_b",
+   "name": "John B. Cardin",
+   "other_spellings": [
+    "Debou (Kirkland, Currey)"
+   ],
+   "household": "lee (Lee's Place)",
+   "relationship": "farm hand",
+   "sex": "m",
+   "birth": null,
+   "ancestry": {
+    "value": "Canadian Frenchman"
+   },
+   "occupation": null,
+   "present_14aug": {
+    "status": "dead_before",
+    "grade": "attested",
+    "summary": "Murdered with White, April 1812. Quaife names him Cardin; Kirkland brackets \"Debou\"."
+   },
+   "home": "lees_place_cabin_1812",
+   "location_14aug": null,
+   "fate": "Dead before the scene date.",
+   "facts": [
+    {
+     "claim": "identity",
+     "source": "quaife_1913",
+     "locator": "ch. X, PG 69274 lines 8588-8589",
+     "quote": "a Canadian Frenchman, John B. Cardin, who had but recently come to Chicago"
+    },
+    {
+     "claim": "death",
+     "source": "quaife_1913",
+     "locator": "ch. X, PG 69274 lines 8616-8618",
+     "quote": "White and Cardin, less apprehensive of a hostile disposition on the part of the Indians, remained and were shortly murdered."
+    }
+   ]
+  }
+ ],
+ "new_sources": [],
+ "excluded": [
+  {
+   "name": "Matthew Irwin (U.S. factor and garrison contractor)",
+   "why": "Left Chicago on 5 July 1812, after closing the factory. Absent on 14 Aug.",
+   "evidence": [
+    {
+     "claim": "departure",
+     "source": "quaife_1913",
+     "locator": "ch. XIII, PG 69274 lines 12031-12032",
+     "quote": "On July 5 Irwin left Chicago, having closed the storehouse and delivered the keys to Doctor Van Voorhis."
+    },
+    {
+     "claim": "also contractor",
+     "source": "quaife_1913",
+     "locator": "ch. VII, PG 69274 lines 7025-7027",
+     "quote": "He seems also to have held, as did Varnum, the former factor, the appointment of Government contractor"
+    }
+   ]
+  },
+  {
+   "name": "Charles Jouett (Indian agent)",
+   "why": "Resigned in 1811; the civilians had taken over his former house by April 1812.",
+   "evidence": [
+    {
+     "claim": "resignation",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "pt. 2 ch. I, PG 59624 lines 1933-1933",
+     "quote": "latter post he resigned in 1811, only to be reappointed in 1817"
+    },
+    {
+     "claim": "house reused",
+     "source": "quaife_1913",
+     "locator": "ch. X, PG 69274 lines 8635-8636",
+     "quote": "fortified themselves in the house formerly occupied by Jouett, the Indian agent"
+    }
+   ]
+  },
+  {
+   "name": "Mirandeau family (Jean Baptiste Sr., his Ottawa wife, Victoire, Madeline and others)",
+   "why": "They lived at Chicago in 1811 into spring 1812 (Victoire saw the Lalime killing), but by her own statement had gone back to Milwaukee before the fort was burned.",
+   "evidence": [
+    {
+     "claim": "absent",
+     "source": "andreas_1884_v1",
+     "locator": "p. 105",
+     "quote": "We were not there when the fort was burned—we had gone back to Milwaukee."
+    },
+    {
+     "claim": "earlier residence",
+     "source": "andreas_1884_v1",
+     "locator": "p. 105",
+     "quote": "some of us lived in the Ouilmette house, across the river from the fort"
+    }
+   ]
+  },
+  {
+   "name": "Jeffrey Nash",
+   "why": "Indentured to Kinzie and Forsyth in 1804; Quaife places him later at Peoria. No 1812 Chicago presence.",
+   "evidence": [
+    {
+     "claim": "identity",
+     "source": "quaife_1913",
+     "locator": "ch. VI, PG 69274 lines 6078-6079",
+     "quote": "bound Jeffrey Nash, a \"Negro man,\" to serve John Kinzie and Thomas Forsyth"
+    }
+   ]
+  },
+  {
+   "name": "Billy Caldwell (Sauganash)",
+   "why": "Arrived the day after the battle (Andreas p. 108-109).",
+   "evidence": [
+    {
+     "claim": "absent",
+     "source": "andreas_1884_v1",
+     "locator": "p. 108 (IA full-text OCR; quote cleaned of OCR noise, match 0.94)",
+     "quote": "do not appear to have been present at Fort Dearborn before or at the time of the massacre"
+    }
+   ]
+  },
+  {
+   "name": "Joseph Bailly",
+   "why": "No source read places him at Chicago in 1812. Andreas mentions him only as a St Joseph associate of Robinson.",
+   "evidence": [
+    {
+     "claim": "only mention",
+     "source": "andreas_1884_v1",
+     "locator": "p. 108",
+     "quote": "an associate of Joseph Bailly"
+    }
+   ]
+  },
+  {
+   "name": "Henry and Pero (named in the brief as Kinzie servants or enslaved people)",
+   "why": "Not found in any of the six works searched. Unsourced, so they are not rendered.",
+   "evidence": []
+  },
+  {
+   "name": "Three militia deserters (two \"half-breeds\" and a Frenchman)",
+   "why": "Deserted a few days after the April murders, toward Milwaukee.",
+   "evidence": [
+    {
+     "claim": "desertion",
+     "source": "quaife_1913",
+     "locator": "ch. X, PG 69274 lines 8641-8642",
+     "quote": "three of the militia, two half-breeds and a Frenchman, deserted, thus reducing the membership of the company to twelve"
+    }
+   ]
+  },
+  {
+   "name": "M. Du Pin (Depain) and Buisson",
+   "why": "Traders who arrived after the massacre and wintered at Chicago in 1812-13.",
+   "evidence": [
+    {
+     "claim": "after",
+     "source": "quaife_1913",
+     "locator": "ch. XI, PG 69274 lines 9541-9542",
+     "quote": "Depain and Buisson wintered at Chicago last winter with goods from Mackinaw"
+    }
+   ]
+  },
+  {
+   "name": "Josette Ouilmette",
+   "why": "A \"mere child\" in 1831, so not yet born in 1812.",
+   "evidence": [
+    {
+     "claim": "age",
+     "source": "quaife_1913",
+     "locator": "ch. XV, PG 69274 lines 14479-14480",
+     "quote": "Josette, the daughter of Antoine Ouilmette. Like \"Tomah\" she was a mere child."
+    }
+   ]
+  },
+  {
+   "name": "Robert Forsyth (Kinzie's nephew, tutor)",
+   "why": "Andreas says only that he was \"at times\" in the family. No 1812 evidence.",
+   "evidence": [
+    {
+     "claim": "thin",
+     "source": "andreas_1884_v1",
+     "locator": "p. 73",
+     "quote": "and also Robert Forsyth, nephew of Mr. Kinzie, were at times members of his family"
+    }
+   ]
+  },
+  {
+   "name": "John Kelso (soldier at Lee's Place in April)",
+   "why": "A garrison soldier, not a civilian; left to the garrison researcher.",
+   "evidence": [
+    {
+     "claim": "identity",
+     "source": "quaife_1913",
+     "locator": "ch. X, PG 69274 lines 8586-8587",
+     "quote": "a soldier of the garrison named John Kelso"
+    }
+   ]
+  }
+ ],
+ "portraits": [
+  {
+   "person_id": "kinzie_john_elder",
+   "status": "none known",
+   "evidence": [
+    {
+     "claim": "no portrait",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "app. D, PG 59624 lines 5596-5596",
+     "quote": "Unfortunately there exists no portrait of John Kinzie."
+    },
+    {
+     "claim": "no portrait",
+     "source": "currey_1912_story_of_old_fort_dearborn",
+     "locator": "pt. II \"Fortifying The Frontier\", PG 52346 lines 961-961",
+     "quote": "There are no pictures of John Kinzie, the pioneer, in existence."
+    }
+   ]
+  },
+  {
+   "person_id": "kinzie_john_h",
+   "status": "exists",
+   "items": [
+    {
+     "what": "1827 miniature, reproduced as a plate in Kirkland 1893",
+     "repository": "original \"in possession of the Kinzie family\" (1893); current location not traced",
+     "rights": "the 1893 printed plate is public domain (US, pre-1929)"
+    },
+    {
+     "what": "\"JOHN HARRIS KINZIE IN LATER LIFE\" plate, Kirkland 1893 (PG 59624 line 5454)",
+     "repository": "Project Gutenberg #59624 illustration",
+     "rights": "public domain (pre-1929 publication)"
+    },
+    {
+     "what": "Wikimedia Commons file title \"File:John H Kinzie c1850s.png\" (seen in search results only)",
+     "repository": "Wikimedia Commons",
+     "rights": "check_required (metadata page not opened; API rate-limited)"
+    }
+   ]
+  },
+  {
+   "person_id": "kinzie_robert_allen",
+   "status": "exists (adult)",
+   "items": [
+    {
+     "what": "\"ROBERT ALLEN KINZIE\" plate, Kirkland 1893 (PG 59624 line 5493)",
+     "repository": "Project Gutenberg #59624",
+     "rights": "public domain (pre-1929 publication)"
+    }
+   ]
+  },
+  {
+   "person_id": "robinson_alexander",
+   "status": "exists (old age)",
+   "items": [
+    {
+     "what": "\"ALEXANDER ROBINSON (in old age)\" plate, Kirkland 1893 (PG 59624 lines 3141-3143)",
+     "repository": "Project Gutenberg #59624",
+     "rights": "public domain (pre-1929 publication)"
+    },
+    {
+     "what": "Wikimedia Commons file title \"File:Chief Alexander Robinson.jpg\" (seen in search results only)",
+     "repository": "Wikimedia Commons",
+     "rights": "check_required"
+    }
+   ]
+  },
+  {
+   "person_id": "(excluded) Billy Caldwell",
+   "status": "signature only in Kirkland; a Commons image title was seen",
+   "items": [
+    {
+     "what": "signature facsimile, Kirkland 1893 (PG 59624 line 6787)",
+     "repository": "Project Gutenberg #59624",
+     "rights": "public domain"
+    },
+    {
+     "what": "Commons title \"File:Billy Caldwell (1780-1841) Chicago and the Great Lakes Trail.jpg\" (search result only)",
+     "repository": "Wikimedia Commons",
+     "rights": "check_required"
+    }
+   ]
+  },
+  {
+   "person_id": "(excluded) Victoire Mirandeau Porthier",
+   "status": "exists (old age)",
+   "items": [
+    {
+     "what": "engraved portrait \"MRS. VICTOIRE (MIRANDEAU) PORTHIER\", Andreas 1884 v.1 p. 105, from an August 1883 photograph",
+     "repository": "Internet Archive historyofchicago01andr",
+     "rights": "public domain (1884)"
+    }
+   ]
+  },
+  {
+   "person_id": "kinzie_eleanor, helm_margaret, ouilmette_antoine, ouilmette_archange, chandonnai_jean_baptiste, laframboise_josette",
+   "status": "none found in the works read"
+  }
+ ],
+ "notes": "Scope: civilians outside the garrison at Chicago on 14 Aug 1812. Status values are present / probably_present / absent / dead_before, plus \"unknown\" where no source decides; absent people are listed under excluded.\n\nTotals: Helm's narrative (Quaife app. VI) gives \"14 Citizens 15 children and 9 women\" at the evacuation. Kirkland says the whole civilian body was \"probably about thirty\". Quaife (ch. X) says the twelve militia were all the able-bodied civilian men. Only Burns, Cooper and (conjecturally) Lee, the Lee son, Fettle and LeClaire are named, so about six militiamen stay anonymous. Do not invent names for them.\n\nLocations on 14 Aug: Kinzie's family was inside the fort (Andreas p. 74; Wau-Bun ch. XVIII). The other civilian families had fortified the former agency house after April (Quaife ch. X lines 8633-8636; Wau-Bun ch. XVIII lines 5790-5792): first_fort_outer_agents_house, graded inferred for 14 Aug. The Ouilmette household stayed in its own house.\n\nConflicts:\n(1) Ouilmette's house: Andreas p. 92 says \"just north\" of Kinzie's; Currey says \"close in the rear\" (PG 52346 lines 693-694); Kirkland says \"Just west\" (PG 59624 line 2904). The repo's ouilmette_house_1812 follows the draught/Cooper reading, the easternmost of three houses west of Kinzie. Flag this for review.\n(2) Burns's given name: Thomas (Quaife, from Griffith's 1820 letter), John (Kirkland, Currey), Jos. (Heald's list in the Helm narrative). Prefer Thomas.\n(3) Mrs. Burns's death: about 1823 (Edwards via Wentworth, Quaife) or about 1832 (Edwards letter, Kirkland app. G).\n(4) Cooper: Quaife makes Joseph/James Cooper Mrs. Burns's son; Edwards (Kirkland app. G) makes the killed Cooper Isabella's father.\n(5) Josette LaFramboise married Beaubien in 1812 (Andreas p. 84) or 1814 (Quaife).\n(6) The Lee house: on the lake shore (Wau-Bun), at the river mouth (Currey), or southwest of the fort (Quaife).\n(7) Wells arrived on 12 Aug (Helm), 13 Aug (Heald, Quaife ch. X line 8908) or 14 Aug (Wau-Bun ch. XVIII lines 6032-6034). Winnemeg's arrival is given as 7, 8 or 9 Aug. Notes only: the Miami men are another researcher's scope.\n\nSource weight: Quaife (ch. XI fn 631) judges Wau-Bun's rescue stories largely literary. The Helm concealment and Black Jim's axe rest on Wau-Bun alone. Andreas and Hurlbut quotes come from Internet Archive OCR, cleaned of OCR noise and matched fuzzily against the OCR text; checking the page scan is recommended before display.\n\nHelm's \"Captain Heald through Kenzie sending his two Negroes\" (Quaife app. VI) is ambiguous and is not used to identify Kinzie servants. No source read calls any Kinzie servant enslaved in 1812. Nash's 1804 indenture is the only documented unfree status, and Nash was not at Chicago.\n\nWau-Bun quotes are from the 1856 text as reprinted in PG 51737 (1901 Caxton Club edition). No Thwaites note is cited, so no new source is proposed."
+}

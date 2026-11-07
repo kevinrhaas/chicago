@@ -19,7 +19,10 @@ are chosen to put the projected landmarks where the reader marked them, each res
 by its uncertainty, while every axis is held towards zero by its own seeded spread from
 axes.json (a Gaussian prior: an axis the picture says nothing about stays at the town's
 average instead of wandering). The person's age at the picture drives the ageing pair, as it
-does in the renderer, so the fitted values are the face's shape, not its years. The one_of
+does in the renderer, so the fitted values are the face's shape, not its years. A record naming
+`base_body` (T-3473, a woman's portrait) fits against that body's own rest face (its unoptimised
+GLB under assets/humans/, in the kit's vertex order), at its base age, and centres each prior on
+the body's face_bias, which a fitted value replaces in the renderer. The one_of
 head outline is tried option by option and the best kept.
 
 What it writes. The fitted values for every face axis the portrait can move (and the head
@@ -140,6 +143,20 @@ def landmarks():
     return out
 
 
+def body_rest(asset):
+    """The rest positions of a body's skin, in the kit's vertex order (the unoptimised GLB under
+    assets/humans/ keeps base.obj's prepared order; the web copies are meshopt-reordered)."""
+    import struct
+    blob = (ROOT / 'assets/humans' / f'{asset}.lod0.glb').read_bytes()
+    n = struct.unpack('<I', blob[12:16])[0]
+    gltf, binary = json.loads(blob[20:20 + n]), blob[28 + n:]
+    mesh = next(m for m in gltf['meshes'] if '_body_' in m['name'])
+    acc = gltf['accessors'][mesh['primitives'][0]['attributes']['POSITION']]
+    view = gltf['bufferViews'][acc['bufferView']]
+    off = view.get('byteOffset', 0) + acc.get('byteOffset', 0)
+    return np.frombuffer(binary, dtype='<f4', count=acc['count'] * 3, offset=off).reshape(-1, 3).astype(float)
+
+
 def kit_index():
     prepared = json.loads((MH / 'prepared.json').read_text())['meshes'][0]
     first = {}
@@ -194,10 +211,15 @@ def fit(person):
             W[k, list(rows).index(kidx[v])] += 1 / len(m)
     obs = np.array([[m['x'], m['y']] for m in portrait['marks']], float)
     sig = np.array([m['sigma_px'] for m in portrait['marks']], float)
-    base = W @ refs[rows]
+    # The face the deltas land on. By default the kit's own reference mesh (the men's base);
+    # a record naming `base_body` (T-3473) fits against that body's own rest shape instead, so
+    # a woman's face is read as departures from a woman's face, not from a man's, with the body's
+    # base age and its face_bias (on the axes the picture does not move) as the renderer adds them.
+    body = header['assets'].get(portrait['base_body'], {}) if portrait.get('base_body') else {}
+    base = W @ (body_rest(portrait['base_body'])[rows] if portrait.get('base_body') else refs[rows])
     # The ageing the renderer drives from the person's age at the picture (human-variation.js).
     age = portrait['age_at_picture_years']
-    asset_age = 35
+    asset_age = body.get('base_age_years', 35)
     for a in header['axes']:
         if a.get('drive') != 'age':
             continue
@@ -213,6 +235,9 @@ def fit(person):
         else:
             base += W @ delta_at(axes[a['id']], v, 0, rows)
     fitted = [a['id'] for a in header['axes'] if not a.get('drive') and a['id'] in portrait['axes']]
+    for k, b in body.get('face_bias', {}).items():
+        if k not in fitted and k in axes:
+            base += W @ delta_at(axes[k], max(-header['limit'], min(header['limit'], b)), 0, rows)
     # Each signed axis is piecewise linear; precompute its two halves at +-1 on the landmark rows.
     halves = {}
     for aid in fitted:
@@ -222,6 +247,10 @@ def fit(person):
         else:
             halves[aid] = (W @ delta_at(a, 1.0, 0, rows), W @ delta_at(a, -1.0, 0, rows))
     spreads = np.array([spec[aid]['spread'] for aid in fitted]) * PRIOR_WIDEN
+    # A fitted value replaces the body's face_bias in the renderer, so an axis the picture says
+    # little about is held towards the body's own lean (a woman's jaw), not towards the men's zero.
+    lim = header.get('limit', 1.0)
+    centre = np.array([max(-lim, min(lim, body.get('face_bias', {}).get(aid, 0.0))) for aid in fitted])
     limit = 1.0
 
     def shape(v, option):
@@ -245,7 +274,7 @@ def fit(person):
     def residuals(p, option):
         cam, v = p[:6], p[6:]
         r = ((project(shape(v, option), cam) - obs) / sig[:, None]).ravel()
-        return np.concatenate([r, v / spreads])
+        return np.concatenate([r, (v - centre) / spreads])
 
     # A starting camera from the two eyes' midpoints and spacing.
     e = [names.index(n) for n in ('pupil_r', 'pupil_l')]
@@ -255,7 +284,7 @@ def fit(person):
     options = range(len(axes['head_shape']['opts_d'])) if 'head_shape' in fitted else [0]
     for option in options:
         for yaw0 in (-0.6, -0.3, 0.0, 0.3, 0.6):
-            p0 = np.concatenate([[yaw0, 0.0, 0.0, s0, *t0], np.zeros(len(fitted))])
+            p0 = np.concatenate([[yaw0, 0.0, 0.0, s0, *t0], centre])
             lo = np.concatenate([[-1.4, -0.8, -0.6, s0 * 0.5, -1e5, -1e5], -limit * np.ones(len(fitted))])
             hi = np.concatenate([[1.4, 0.8, 0.6, s0 * 2, 1e5, 1e5], limit * np.ones(len(fitted))])
             if 'head_shape' in fitted:
