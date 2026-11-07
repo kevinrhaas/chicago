@@ -183,8 +183,8 @@ function listGlbs(dir, rel = '') {
 }
 
 /** publish.sh's step. Returns what it did, for its one line of output. */
-export function shareSheets(site) {
-  const dir = path.join(site, GLTF_DIR);
+export function shareSheets(site, glbDir = GLTF_DIR) {
+  const dir = path.join(site, glbDir);
   const files = listGlbs(dir);
   const read = new Map();
   const holders = new Map();
@@ -256,8 +256,9 @@ function placementFree(json) {
  * are its source's exactly. Every sheet is named by its own hash, held by at least
  * two GLBs, and nothing names a sheet that is not there.
  */
-export function checkSheets(site, sourceDir = path.join(REPO, 'assets/web')) {
-  const dir = path.join(site, GLTF_DIR);
+export function checkSheets(site, sourceDir = path.join(REPO, 'assets/web'), glbDir = GLTF_DIR) {
+  const dir = path.join(site, glbDir);
+  const srcRel = path.relative(REPO, sourceDir);
   const problems = [];
   const held = new Map();
   let rewritten = 0;
@@ -273,7 +274,7 @@ export function checkSheets(site, sourceDir = path.join(REPO, 'assets/web')) {
       const src = readGlb(srcBytes);
       const readUri = (uri) => {
         const resolved = path.posix.normalize(path.posix.join(path.posix.dirname(rel), uri));
-        if (!resolved.startsWith(`${SHEETS}/`)) throw new Error(`names ${uri}, outside ${GLTF_DIR}/${SHEETS}/`);
+        if (!resolved.startsWith(`${SHEETS}/`)) throw new Error(`names ${uri}, outside ${glbDir}/${SHEETS}/`);
         const file = path.join(dir, resolved);
         if (!existsSync(file)) throw new Error(`names ${uri}, which is not published`);
         (held.get(resolved) || held.set(resolved, new Set()).get(resolved)).add(rel);
@@ -292,7 +293,7 @@ export function checkSheets(site, sourceDir = path.join(REPO, 'assets/web')) {
         if (b.uri !== undefined && readUri(b.uri).length !== b.byteLength) throw new Error(`${b.uri} is not ${b.byteLength} bytes`);
       }
     } catch (err) {
-      problems.push(`${GLTF_DIR}/${rel} is not its source assets/web/${rel} with sheets shared: ${err.message}`);
+      problems.push(`${glbDir}/${rel} is not its source ${srcRel}/${rel} with sheets shared: ${err.message}`);
     }
   }
   const sheetDir = path.join(dir, SHEETS);
@@ -300,9 +301,9 @@ export function checkSheets(site, sourceDir = path.join(REPO, 'assets/web')) {
   for (const name of sheets) {
     const bytes = readFileSync(path.join(sheetDir, name));
     const mime = Object.keys(EXT).find((m) => name.endsWith(`.${EXT[m]}`));
-    if (!mime || sheetName(bytes, mime) !== name) problems.push(`${GLTF_DIR}/${SHEETS}/${name} is not named by its own hash`);
+    if (!mime || sheetName(bytes, mime) !== name) problems.push(`${glbDir}/${SHEETS}/${name} is not named by its own hash`);
     const by = held.get(`${SHEETS}/${name}`)?.size ?? 0;
-    if (by < 2) problems.push(`${GLTF_DIR}/${SHEETS}/${name} is held by ${by} GLB(s); a sheet ships only when two or more share it`);
+    if (by < 2) problems.push(`${glbDir}/${SHEETS}/${name} is held by ${by} GLB(s); a sheet ships only when two or more share it`);
   }
   return { problems, rewritten, sheets: sheets.length };
 }
@@ -394,6 +395,21 @@ function selfTest() {
     writeFileSync(path.join(site, GLTF_DIR, SHEETS, sheetName(own(9), 'image/ktx2')), own(9));
     r = checkSheets(site, src);
     ok(r.problems.some((p) => /held by 0 GLB/.test(p)), 'a sheet nothing names is refused');
+
+    // T-3453: the people's directory is shared on its own, beside the houses'.
+    const HUMANS = 'data/humans/web';
+    const hsrc = path.join(root, 'humans');
+    mkdirSync(path.join(site, HUMANS), { recursive: true });
+    mkdirSync(hsrc, { recursive: true });
+    for (const [rel, n] of [['p.lod0.glb', 4], ['q.lod0.glb', 5]]) {
+      writeFileSync(path.join(site, HUMANS, rel), make(n));
+      writeFileSync(path.join(hsrc, rel), make(n));
+    }
+    const hd = shareSheets(site, HUMANS);
+    ok(hd.glbs === 2 && hd.sheets === 1 && existsSync(path.join(site, HUMANS, SHEETS, sheetName(sheet, 'image/ktx2'))),
+      `another directory's GLBs share their own sheet beside them (${hd.glbs} GLBs, ${hd.sheets} sheet)`);
+    r = checkSheets(site, hsrc, HUMANS);
+    ok(!r.problems.length && r.rewritten === 2, `and read back to their own sources (${r.problems.join('; ') || 'clean'})`);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
@@ -404,22 +420,27 @@ function selfTest() {
 if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(new URL(import.meta.url).pathname)) {
   const args = process.argv.slice(2);
   if (args.includes('--self-test')) process.exit(selfTest());
-  const site = args.find((a) => !a.startsWith('--'));
+  const site = args.find((a, i) => !a.startsWith('--') && !['--dir', '--source'].includes(args[i - 1]));
+  // T-3453: `--dir data/humans/web --source assets/humans/web` shares the people's
+  // pictures the same way: every figure embeds the same hair, skin and eye maps.
+  const opt = (name) => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] : undefined; };
+  const glbDir = opt('--dir') ?? GLTF_DIR;
+  const sourceDir = path.join(REPO, opt('--source') ?? 'assets/web');
   if (!site || !statSync(site, { throwIfNoEntry: false })?.isDirectory()) {
-    console.error('usage: share_glb_sheets.mjs SITE [--check] | --self-test');
+    console.error('usage: share_glb_sheets.mjs SITE [--dir D --source S] [--check] | --self-test');
     process.exit(2);
   }
   if (args.includes('--check')) {
-    const r = checkSheets(site);
+    const r = checkSheets(site, sourceDir, glbDir);
     if (r.problems.length) {
       console.error(`shared sheets FAILED (${r.problems.length}):`);
       for (const p of r.problems.slice(0, 20)) console.error(`  - ${p}`);
       process.exit(1);
     }
-    console.log(`shared sheets: ${r.rewritten} GLB(s) read back to their sources through ${r.sheets} sheet(s)`);
+    console.log(`shared sheets (${glbDir}): ${r.rewritten} GLB(s) read back to their sources through ${r.sheets} sheet(s)`);
   } else {
-    const r = shareSheets(site);
+    const r = shareSheets(site, glbDir);
     const mib = (n) => (n / 1048576).toFixed(3);
-    console.log(`   sheets: ${r.sheets} shared by ${r.glbs} GLB(s), ${mib(r.before)} -> ${mib(r.after)} MiB`);
+    console.log(`   sheets (${glbDir}): ${r.sheets} shared by ${r.glbs} GLB(s), ${mib(r.before)} -> ${mib(r.after)} MiB`);
   }
 }

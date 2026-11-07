@@ -726,6 +726,11 @@ if [ -d assets/humans/web ]; then
       echo "   humans: $stem not drawn in town, not published"
     fi
   done
+  # T-3453: every figure embeds the same hair, skin and eye pictures; each ships once,
+  # under data/humans/web/sheets/, and the GLBs name it as an external buffer. The
+  # renderer still decodes it once (shared-images.js); check.sh reads every rewrite
+  # back to its assets/humans/web source.
+  node tools/share_glb_sheets.mjs "$SITE" --dir data/humans/web --source assets/humans/web
 fi
 
 # The animal layer (ROADMAP K51). Same argument as the residents above, and it

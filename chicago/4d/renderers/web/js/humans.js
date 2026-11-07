@@ -36,6 +36,7 @@ import { createHumanLife } from './human-life.js';
 import { createHumanActions } from './human-actions.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { registerKTX2 } from './ktx2.js';
+import { shareImageSources } from './shared-images.js';
 import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
 import { loadVariationKit, personVariation, applyVariation, disposeVariants } from './human-variation.js';
 import { loadMeshoptDecoder, disposeLoadedAsset } from './scene-loader.js';
@@ -108,6 +109,10 @@ function findClip(clips, want) {
  * it; the parsed source is disposed when the last actor wearing it lets it go.
  */
 export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoader()), fetchImpl = fetch } = {}) {
+  // T-3453: every figure carries the same hair, skin and eye pictures (published once under
+  // humans/web/sheets/, T-3453); decode each once and hand every figure a clone of it, as
+  // the houses do (T-2464). disposeLoadedAsset closes a bitmap only when its last user goes.
+  if (typeof loader?.register === 'function') shareImageSources(loader);
   const entries = new Map();
   let decoder = null;
   let variation = null;
