@@ -46,7 +46,7 @@
         "quaife_1913"
       ],
       "occupation": {
-        "value": "second lieutenant, Captain Nathan Heald's company of the First Regiment of Infantry",
+        "value": "second lieutenant, Heald's company, First Infantry",
         "confidence": "attested",
         "sources": [
           "quaife_1913"
@@ -56,13 +56,13 @@
       "present_on_scene_date": {
         "value": "present",
         "confidence": "inferred",
-        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+        "note": "Heald's official report and Journal name the four officers in the action. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
       },
       "also_written": [
         "Linah T. Helm (Woodward)",
         "L. T. Helm"
       ],
-      "note": "Heald's official report and Journal name the four officers in the action. After 14 August: Wounded in the right foot; taken down the Illinois River, ransomed by Thomas Forsyth (two mares and a keg), reached St Louis 14 Oct 1812; rejoined his wife at his father's in New York, March 1813.",
+      "note": "After 14 August: Wounded in the right foot; taken down the Illinois River, ransomed by Thomas Forsyth (two mares and a keg), reached St Louis 14 Oct 1812; rejoined his wife at his father's in New York, March 1813.",
       "evidence": [
         {
           "source_id": "quaife_1913",
@@ -114,19 +114,19 @@
         "sources": [
           "andreas_1884_v1"
         ],
-        "note": "As the source gives it."
+        "note": "The date as the cited source prints it."
       },
       "present_on_scene_date": {
         "value": "present",
         "confidence": "inferred",
-        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+        "note": "Helm's narrative and Wau-Bun (her own account) put her on horseback in the march and battle. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
       },
       "also_written": [
         "Margaret McKillip Helm",
         "Margaret McKillip",
         "Mrs. Helm"
       ],
-      "note": "Eleanor Kinzie's daughter by her first marriage (to McKillip), married to Lieutenant Helm. Helm's narrative and Wau-Bun (her own account) put her on horseback in the march and battle. Wau-Bun's massacre narrative is \"represented as being quoted directly from her\" (Quaife App. II), told ~20 years later; Quaife doubts its details. No children. After 14 August: Saved (Wau-Bun: by Black Partridge); taken across to the Kinzie house; with the Kinzies to St Joseph and Detroit; reached Helm's father's home in New York a week before her husband, March 1813.",
+      "note": "Eleanor Kinzie's daughter by her first marriage (to McKillip), married to Lieutenant Helm. Wau-Bun's massacre narrative is \"represented as being quoted directly from her\" (Quaife App. II), told ~20 years later; Quaife doubts its details. No children. After 14 August: Saved (Wau-Bun: by Black Partridge); taken across to the Kinzie house; with the Kinzies to St Joseph and Detroit; reached Helm's father's home in New York a week before her husband, March 1813.",
       "evidence": [
         {
           "source_id": "quaife_1913",

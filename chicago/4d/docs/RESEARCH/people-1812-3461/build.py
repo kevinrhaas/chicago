@@ -63,6 +63,27 @@ PRESENCE = {
 }
 
 
+KIN = {'son_of': 'Son of', 'daughter_of': 'Daughter of', 'child_of': 'Child of', 'wife_of': 'Wife of',
+       'stepson_of': 'Stepson of', 'stepdaughter_of': 'Stepdaughter of'}
+
+
+def kin_lead(r):
+    """'Son of John Simmons and Susan Millhouse Simmons.' from the reading's own family links."""
+    by = {}
+    for f in r.get('family') or []:
+        other = G.get(str(f.get('id')))
+        if f.get('relation') in KIN and other:
+            rank = (other.get('rank_role') or '').split(';')[0].split('(')[0].strip()
+            soldier = other.get('group') == 'garrison_regular' and rank and not rank.lower().startswith(('capt', 'second', 'ensign', 'surgeon'))
+            nm = other.get('name_as_printed') or ''
+            if other['id'] == 'burns_thomas_1812':
+                nm = 'Thomas Burns'
+            if other['id'] == 'simmons_susan_millhouse_1812':
+                nm = 'Susan Millhouse Simmons'
+            by.setdefault(KIN[f['relation']], []).append((rank + ' ' if soldier else '') + nm)
+    return ' '.join(f"{k} {' and '.join(v)}." for k, v in by.items())
+
+
 def fact_list(p):
     out = []
     for f in p.get('facts') or []:
@@ -135,6 +156,7 @@ class Card:
         first = self.refs[0][1] if self.refs else {}
         parts = [self.note_lead]
         status = self.presence
+        presence_basis = None
         for i, (kind, r) in enumerate(self.refs):
             if i and kind == 'n':
                 parts.append(r.get('part_15_16_aug') and ('15 and 16 August: ' + re.sub(r'^15th: ', '', r['part_15_16_aug'])))
@@ -142,11 +164,13 @@ class Card:
             if i:
                 continue          # a second reading of the same person adds its evidence, not its prose
             if kind == 'g':
+                if not self.note_lead:
+                    parts.append(kin_lead(r))
                 if (r.get('enlistment') or {}).get('date'):
                     en = r['enlistment']
                     parts.append(f"On {ROLL}, enlisted {en['date']} for five years, to {en['term_to']}"
                                  + (f"; the roll remarks: {en['roll_remark']}" if en.get('roll_remark') else '') + '.')
-                parts.append(r.get('presence_basis'))
+                presence_basis = clean(r.get('presence_basis'))
                 parts.append(r.get('notes'))
                 if r.get('fate'):
                     parts.append('After 14 August: ' + r['fate'])
@@ -164,7 +188,7 @@ class Card:
             elif kind == 'n':
                 parts.append(sentence(r.get('role')))
                 parts.append(sentence(r.get('nation_band')))
-                parts.append(r.get('presence_evidence'))
+                presence_basis = clean(r.get('presence_evidence'))
                 parts.append(r.get('part_15_16_aug') and ('15 and 16 August: ' + re.sub(r'^15th: ', '', r['part_15_16_aug'])))
                 if r.get('fate'):
                     parts.append('Afterwards: ' + r['fate'])
@@ -188,7 +212,7 @@ class Card:
         rec['present_on_scene_date'] = {
             'value': PRESENCE.get(status, 'not documented'),
             'confidence': 'inferred',
-            'note': 'Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon.',
+            'note': ((presence_basis + ' ') if presence_basis else '') + 'No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below.',
         }
         aka = []
         for kind, r in self.refs:
@@ -215,7 +239,7 @@ def born_g(r):
         return None
     srcs = sorted({f['source_id'] for f in r['facts'] if str(y) in (f.get('quote') or '') or 'orn' in (f.get('claim') or '')}) or ['quaife_1913']
     return {'value': str(y), 'confidence': 'inferred', 'sources': srcs,
-            'note': f"{a.get('basis') or 'As the source gives it'}{'; born in ' + a['place'] if a.get('place') else ''}. A year from a later family account, not a register."}
+            'note': (f"From {a['basis']}" if a.get('basis') else 'From a later family account') + (f"; born in {a['place']}" if a.get('place') else '') + '. Not a register entry.'}
 
 
 def born_c(r):
@@ -226,7 +250,7 @@ def born_c(r):
     srcs = sorted({f['source'] for f in r.get('facts') or [] if 'born' in (f.get('claim') or '').lower() or y in (f.get('quote') or '')})
     return {'value': str(b['value']), 'confidence': 'attested' if str(b.get('grade', '')).startswith('attested') and srcs else 'inferred',
             'sources': srcs or sorted({f['source'] for f in r.get('facts') or []})[:1],
-            'note': b.get('note') or 'As the source gives it.'}
+            'note': b.get('note') or 'The date as the cited source prints it.'}
 
 
 def occ(value, sources, note, confidence='attested'):
@@ -235,7 +259,7 @@ def occ(value, sources, note, confidence='attested'):
 
 def rank_occ(r):
     rank = re.sub(r'\s*\(.*?\)', '', (r.get('rank_role') or 'Private').split(';')[0]).replace(', commanding', ' commanding the post')
-    return occ(f"{rank.lower()}, {COMPANY}", ['quaife_1913'],
+    return occ(f"{rank.lower()}, Heald's company, First Infantry", ['quaife_1913'],
                f"His rank as {ROLL} prints it.")
 
 
@@ -270,7 +294,7 @@ def households():
         Card('cicely', 'Cicely', 'enslaved', [('g', G['cicely_1812'])],
              note_lead="Enslaved by the Healds; the sources call her Mrs. Heald's servant or slave and give her no other name.",
              review={'note': 'review_required: ' + G['cicely_1812']['review_reason']}),
-        Card('cicely_son', "Cicely's son", 'son', [('g', G['cicely_son_1812'])],
+        Card('cicely_son', "Cicely's son", 'enslaved', [('g', G['cicely_son_1812'])],
              note_lead="Cicely's infant son; no source names him.",
              review={'note': 'review_required: an enslaved child, named by no source; see his mother\'s card.'})],
        [('first_fort_dearborn_commanding_officers_barracks', 'inferred', ['whistler_1808_fort_dearborn_draught', 'quaife_1913'],

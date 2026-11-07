@@ -53,10 +53,10 @@
         "sources": [
           "quaife_1913"
         ],
-        "note": "As the source gives it. A year from a later family account, not a register."
+        "note": "From a later family account. Not a register entry."
       },
       "occupation": {
-        "value": "captain commanding the post, Captain Nathan Heald's company of the First Regiment of Infantry",
+        "value": "captain commanding the post, Heald's company, First Infantry",
         "confidence": "attested",
         "sources": [
           "quaife_1913"
@@ -66,13 +66,13 @@
       "present_on_scene_date": {
         "value": "present",
         "confidence": "inferred",
-        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+        "note": "Heald's official report and Journal name the four officers in the action. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
       },
       "also_written": [
         "Nat. Heald (Hull's order)",
         "N. Heald"
       ],
-      "note": "Heald's official report and Journal name the four officers in the action. Currey says 37 in 1812; the Journal birth date makes him 36 on 14 Aug 1812. After 14 August: Wounded (thigh and right forearm per Darius Heald); taken to St Joseph, by canoe to Mackinac, paroled; Detroit, Buffalo, Pittsburgh (report 23 Oct 1812), Louisville 19 Nov 1812; major from 26 Aug 1812; disbanded 1814; St Charles Co., Missouri; died 1832.",
+      "note": "Currey says 37 in 1812; the Journal birth date makes him 36 on 14 Aug 1812. After 14 August: Wounded (thigh and right forearm per Darius Heald); taken to St Joseph, by canoe to Mackinac, paroled; Detroit, Buffalo, Pittsburgh (report 23 Oct 1812), Louisville 19 Nov 1812; major from 26 Aug 1812; disbanded 1814; St Charles Co., Missouri; died 1832.",
       "evidence": [
         {
           "source_id": "quaife_1913",
@@ -138,18 +138,18 @@
         "sources": [
           "quaife_1913"
         ],
-        "note": "Darius Heald to Draper 1868; born in Jefferson Co., Kentucky. A year from a later family account, not a register."
+        "note": "From Darius Heald to Draper 1868; born in Jefferson Co., Kentucky. Not a register entry."
       },
       "present_on_scene_date": {
         "value": "present",
         "confidence": "inferred",
-        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+        "note": "Heald's report: she was wounded and taken with him to St Joseph. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
       },
       "also_written": [
         "Rebecca Wells (Heald Journal)",
         "Rebekah Heald"
       ],
-      "note": "Heald's report: she was wounded and taken with him to St Joseph. Lost her first-born son, stillborn 4 May 1812. After 14 August: Mounted in the march; six or seven wounds; ransomed (Chandonnai) and escaped with her husband via Mackinac to Louisville; died about 1857 in Missouri.",
+      "note": "Wife of Nathan Heald. Lost her first-born son, stillborn 4 May 1812. After 14 August: Mounted in the march; six or seven wounds; ransomed (Chandonnai) and escaped with her husband via Mackinac to Louisville; died about 1857 in Missouri.",
       "evidence": [
         {
           "source_id": "quaife_1913",
@@ -189,13 +189,13 @@
       "present_on_scene_date": {
         "value": "present",
         "confidence": "inferred",
-        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+        "note": "Helm lists 'Mrs. Heald's Negro woman' among women killed in the action; Quaife: an inmate of the fort from June 1811 until the massacre. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
       },
       "also_written": [
         "Mrs. Heald's Negro woman (Helm)",
         "black Cicely"
       ],
-      "note": "Enslaved by the Healds; the sources call her Mrs. Heald's servant or slave and give her no other name. Helm lists 'Mrs. Heald's Negro woman' among women killed in the action; Quaife: an inmate of the fort from June 1811 until the massacre. Came from Louisville with the Healds on horseback, June 1811. Rebekah Heald's 1855 memorandum for the property claim says Kinzie had offered $600 for her, and lists 'the loss of the two slaves'. After 14 August: Killed in the battle with her infant son.",
+      "note": "Enslaved by the Healds; the sources call her Mrs. Heald's servant or slave and give her no other name. Came from Louisville with the Healds on horseback, June 1811. Rebekah Heald's 1855 memorandum for the property claim says Kinzie had offered $600 for her, and lists 'the loss of the two slaves'. After 14 August: Killed in the battle with her infant son.",
       "review_required": true,
       "touches_removal": false,
       "review_note": "review_required: Enslaved people held by the commanding officer's wife. Sources name the woman only as Cicely and the child not at all; every surviving description is by the enslavers' family (Rebekah and Darius Heald) or by Helm. Depict and caption with care, never invent a surname, age or speech; the property-claim memorandum treats them as lost property, which is evidence of their status, not a description of them.",
@@ -235,7 +235,7 @@
     {
       "id": "cicely_son",
       "name": "Cicely's son",
-      "relationship": "son",
+      "relationship": "enslaved",
       "grade": "attested",
       "sources": [
         "quaife_1913"
@@ -243,9 +243,9 @@
       "present_on_scene_date": {
         "value": "present",
         "confidence": "inferred",
-        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+        "note": "Rebekah Heald's memorandum: killed in the battle. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
       },
-      "note": "Cicely's infant son; no source names him. Rebekah Heald's memorandum: killed in the battle. Father not recorded. Name not recorded. After 14 August: Killed in the battle (counted among the 12 children killed).",
+      "note": "Cicely's infant son; no source names him. Father not recorded. Name not recorded. After 14 August: Killed in the battle (counted among the 12 children killed).",
       "review_required": true,
       "touches_removal": false,
       "review_note": "review_required: an enslaved child, named by no source; see his mother's card.",

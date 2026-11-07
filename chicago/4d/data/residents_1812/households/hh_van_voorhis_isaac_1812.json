@@ -46,10 +46,10 @@
         "sources": [
           "quaife_1913"
         ],
-        "note": "aged 22 when writing in Oct 1811 (Quaife App. II). A year from a later family account, not a register."
+        "note": "From aged 22 when writing in Oct 1811 (Quaife App. II). Not a register entry."
       },
       "occupation": {
-        "value": "surgeon's mate, Captain Nathan Heald's company of the First Regiment of Infantry",
+        "value": "surgeon's mate, Heald's company, First Infantry",
         "confidence": "attested",
         "sources": [
           "quaife_1913"
@@ -59,14 +59,14 @@
       "present_on_scene_date": {
         "value": "present",
         "confidence": "inferred",
-        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+        "note": "Heald's official report and Journal name the four officers in the action. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
       },
       "also_written": [
         "Isaac V Van Voorhis (Heald report)",
         "Dr. Van Voorhees (Wau-Bun)",
         "Van Vorees (Helm)"
       ],
-      "note": "Heald's official report and Journal name the four officers in the action. After Irwin left on 5 July 1812 Van Voorhis held the keys of the factory (first_fort_outer_factory), whose goods Heald distributed on 14 Aug. After 14 August: Killed in battle near the baggage wagons; Wau-Bun's portrait of his cowardice is rejected by Quaife.",
+      "note": "After Irwin left on 5 July 1812 Van Voorhis held the keys of the factory (first_fort_outer_factory), whose goods Heald distributed on 14 Aug. After 14 August: Killed in battle near the baggage wagons; Wau-Bun's portrait of his cowardice is rejected by Quaife.",
       "evidence": [
         {
           "source_id": "quaife_1913",

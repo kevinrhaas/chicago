@@ -47,7 +47,7 @@
         "simmons_1896_heroes_and_heroines"
       ],
       "occupation": {
-        "value": "private, Captain Nathan Heald's company of the First Regiment of Infantry",
+        "value": "private, Heald's company, First Infantry",
         "confidence": "attested",
         "sources": [
           "quaife_1913"
@@ -57,13 +57,13 @@
       "present_on_scene_date": {
         "value": "present",
         "confidence": "inferred",
-        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+        "note": "On the 31 May roll; his widow's captivity is in Woodward's and Helm's lists, and the family narrative (via Quaife) places him at the wagons. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
       },
       "also_written": [
         "John Simmonds (Present column of the 1812 roll)",
         "Corporal John Simmons (family narrative, N. Simmons 1896; Quaife says only a private)"
       ],
-      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 14 Mar 1810 for five years, to 14 Mar 1815. On the 31 May roll; his widow's captivity is in Woodward's and Helm's lists, and the family narrative (via Quaife) places him at the wagons. After 14 August: Killed defending the baggage wagons; his son David was killed in the children's wagon.",
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 14 Mar 1810 for five years, to 14 Mar 1815. After 14 August: Killed defending the baggage wagons; his son David was killed in the children's wagon.",
       "evidence": [
         {
           "source_id": "quaife_1913",
@@ -115,12 +115,12 @@
       "present_on_scene_date": {
         "value": "present",
         "confidence": "inferred",
-        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+        "note": "Helm's and Woodward's lists of women prisoners. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
       },
       "also_written": [
         "Susan Millhouse Simmons (family narrative)"
       ],
-      "note": "Helm's and Woodward's lists of women prisoners. Maiden name only from the 1896 family narrative, which Quaife says \"must be used with great caution\". After 14 August: Walked with her infant to Green Bay, back via Chicago to Mackinac, then Detroit; reached her parents near Piqua, Ohio, mid-April 1813; died Springville, Iowa, 1857.",
+      "note": "Wife of Private John Simmons. Maiden name only from the 1896 family narrative, which Quaife says \"must be used with great caution\". After 14 August: Walked with her infant to Green Bay, back via Chicago to Mackinac, then Detroit; reached her parents near Piqua, Ohio, mid-April 1813; died Springville, Iowa, 1857.",
       "evidence": [
         {
           "source_id": "quaife_1913",
@@ -157,17 +157,17 @@
         "sources": [
           "quaife_1913"
         ],
-        "note": "As the source gives it. A year from a later family account, not a register."
+        "note": "From a later family account. Not a register entry."
       },
       "present_on_scene_date": {
         "value": "present",
         "confidence": "inferred",
-        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+        "note": "Quaife from the family narrative; Simmons 1896. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
       },
       "also_written": [
         "\"the little curly headed corporal\" (family narrative)"
       ],
-      "note": "Quaife from the family narrative; Simmons 1896. After 14 August: Killed in the children's wagon.",
+      "note": "Son of Private John Simmons and Susan Millhouse Simmons. After 14 August: Killed in the children's wagon.",
       "evidence": [
         {
           "source_id": "quaife_1913",
@@ -198,17 +198,17 @@
         "sources": [
           "quaife_1913"
         ],
-        "note": "As the source gives it. A year from a later family account, not a register."
+        "note": "From a later family account. Not a register entry."
       },
       "present_on_scene_date": {
         "value": "present",
         "confidence": "inferred",
-        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+        "note": "Helm: 'Mrs. Simmon[s] 1' child in captivity. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
       },
       "also_written": [
         "Susan Simmons Winans (married Moses Winans 1828)"
       ],
-      "note": "Helm: 'Mrs. Simmon[s] 1' child in captivity. After 14 August: Carried through captivity by her mother; died Santa Ana, California, 27 Apr 1900, the last known survivor.",
+      "note": "Daughter of Private John Simmons and Susan Millhouse Simmons. After 14 August: Carried through captivity by her mother; died Santa Ana, California, 27 Apr 1900, the last known survivor.",
       "evidence": [
         {
           "source_id": "quaife_1913",

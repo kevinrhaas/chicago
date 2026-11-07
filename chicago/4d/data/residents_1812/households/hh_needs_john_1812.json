@@ -44,7 +44,7 @@
         "quaife_1913"
       ],
       "occupation": {
-        "value": "private, Captain Nathan Heald's company of the First Regiment of Infantry",
+        "value": "private, Heald's company, First Infantry",
         "confidence": "attested",
         "sources": [
           "quaife_1913"
@@ -54,12 +54,12 @@
       "present_on_scene_date": {
         "value": "present",
         "confidence": "inferred",
-        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
       },
       "also_written": [
         "John Neads (Niles; 1810 roll)"
       ],
-      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 5 Jul 1808 for five years, to 5 Jul 1813. An account of the battle or of its captives names him, so he was with the garrison when it marched. After 14 August: Formerly of Virginia; died among the Indians 15-20 Jan 1813 (Niles); wife and child also died in captivity.",
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 5 Jul 1808 for five years, to 5 Jul 1813. After 14 August: Formerly of Virginia; died among the Indians 15-20 Jan 1813 (Niles); wife and child also died in captivity.",
       "evidence": [
         {
           "source_id": "quaife_1913",
@@ -105,12 +105,12 @@
       "present_on_scene_date": {
         "value": "present",
         "confidence": "inferred",
-        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+        "note": "Helm's and Woodward's lists of women prisoners. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
       },
       "also_written": [
         "Mrs. Neads (Niles; Kirkland)"
       ],
-      "note": "Helm's and Woodward's lists of women prisoners. After 14 August: Perished from hunger and cold in captivity (Niles).",
+      "note": "Wife of Private John Needs. After 14 August: Perished from hunger and cold in captivity (Niles).",
       "evidence": [
         {
           "source_id": "quaife_1913",
@@ -137,9 +137,9 @@
       "present_on_scene_date": {
         "value": "present",
         "confidence": "inferred",
-        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+        "note": "Niles 1814 (from the Plattsburg survivors): survived the battle, died in captivity. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
       },
-      "note": "Niles 1814 (from the Plattsburg survivors): survived the battle, died in captivity. After 14 August: Tied to a tree by its captors and left to die.",
+      "note": "Child of Private John Needs and Mrs. Needs. After 14 August: Tied to a tree by its captors and left to die.",
       "evidence": [
         {
           "source_id": "kirkland_1893_chicago_massacre",
