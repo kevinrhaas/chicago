@@ -4231,6 +4231,9 @@ def _street_dress(sfw, openings, floors, width) -> dict:
                     and o.head_m > cs["from_m"]:
                 raise ParamError(f"street_front_windows.corner_stone runs into {o.component} at s {o.s_m}")
         out["corner_stone"] = cs
+    hoods = _street_hoods(sfw.get("hoods"), sfw["windows"], openings, floors, width)
+    if hoods:
+        out["hoods"] = hoods
     cbs = []
     for j, cb in enumerate(sfw.get("carved_bands") or ()):
         # T-2915: a carved belt on a named-window front (1812's photograph: a carved interlace
@@ -4302,6 +4305,136 @@ def _street_dress(sfw, openings, floors, width) -> dict:
         # each is a belt course of the front's, laid with the rest, but a panel (T-3365)
         out["belts"] = tuple(sorted(out.get("belts", ()) + tuple(
             (b["bed_m"], b["top_m"]) for b in cbs if not b.get("panel"))))
+    return out
+
+
+HOOD_PARTS = {"band", "consoles", "key", "pendant"}
+
+
+def _street_hoods(hoods, windows, openings, floors, width) -> tuple:
+    """T-3365: the moulded hoods of a named-window front's lights (2009 Prairie's photograph:
+    a drip mould over the third storey's paired light, its ends turned down as label stops and
+    a carved pendant standing up off its crown; two consoles hanging under the oriel either side
+    of the ground window; a splayed stone block over the small light). Each is
+    {window: k, and any of band, consoles, key, pendant}:
+
+      band      {s_m: [from, to], bed_m, top_m, proud_m, stops: {width_m, drop_m}} — a stone
+                drip over the head, past both jambs, its ends hanging `drop_m` under its top
+      consoles  {at_m: [s, s], from_m, to_m, width_m: [foot, top], proud_m} — two blocks
+                widening upward from `from_m` to `to_m`, one each side of the light
+      key       {from_m, height_m, width_m: [foot, top], proud_m} — a splayed block over the
+                head, in place of the surround's lintel course
+      pendant   {from_m, top_m, stem_m, proud_m, tiers: [[y0, y1, width], ...]} — a carved
+                stem up off the head's centre line, carved out in tiers (its arms and bud)
+
+    Every height is the front's, every s along it; each part is checked against its light."""
+    if not hoods:
+        return ()
+    out = []
+    for j, hd in enumerate(hoods):
+        what = f"street_front_windows.hoods[{j}]"
+        parts = set(hd) - {"window"}
+        if "window" not in hd or not parts or not parts <= HOOD_PARTS:
+            raise ParamError(f"{what} takes window (its index) and any of band, consoles, key and pendant")
+        k = hd["window"]
+        if not isinstance(k, int) or not 0 <= k < len(windows):
+            raise ParamError(f"{what}.window {k!r} is not one of the front's {len(windows)} named windows")
+        w = windows[k]
+        s, half = float(w["s_m"]), float(w["width_m"]) / 2
+        sill, head = float(w["sill_m"]), float(w["sill_m"]) + float(w["height_m"])
+        h = {"window": k, "s_m": s, "half_m": half, "sill_m": sill, "head_m": head}
+        if any(x["window"] == k for x in out):
+            raise ParamError(f"{what}: window {k} is hooded twice")
+        if "band" in hd:
+            b = hd["band"]
+            if set(b) != {"s_m", "bed_m", "top_m", "proud_m", "stops"} \
+                    or set(b["stops"]) != {"width_m", "drop_m"}:
+                raise ParamError(f"{what}.band takes s_m [from, to], bed_m, top_m, proud_m and stops "
+                                 f"{{width_m, drop_m}}")
+            s0, s1 = (float(x) for x in b["s_m"])
+            b0, b1, pr = float(b["bed_m"]), float(b["top_m"]), float(b["proud_m"])
+            sw, sd = float(b["stops"]["width_m"]), float(b["stops"]["drop_m"])
+            if not (0.0 <= s0 < s - half - 0.05 and s + half + 0.05 < s1 <= width) or not head <= b0 < b1 \
+                    or not 0.1 <= b1 - b0 <= 0.5 or b0 > head + 0.6 or not 0.01 <= pr <= 0.15 \
+                    or not 0.08 <= sw <= 0.4 or not b1 - b0 < sd <= b1 - b0 + 0.6 \
+                    or s0 + sw > s - half or s1 - sw < s + half:
+                raise ParamError(f"{what}.band: past both jambs inside the front, a 0.1-0.5 m mould bedded "
+                                 f"0-0.6 m over the head, 0.01-0.15 m proud, stops 0.08-0.4 m wide, outside "
+                                 f"the jambs, hanging past the mould's soffit by at most 0.6 m")
+            h["band"] = {"s_m": (s0, s1), "bed_m": b0, "top_m": b1, "proud_m": pr,
+                         "stops": {"width_m": sw, "drop_m": sd}}
+        if "consoles" in hd:
+            c = hd["consoles"]
+            if set(c) != {"at_m", "from_m", "to_m", "width_m", "proud_m"} or len(c["at_m"]) != 2 \
+                    or len(c["width_m"]) != 2:
+                raise ParamError(f"{what}.consoles takes at_m [s, s], from_m, to_m, width_m [foot, top] and proud_m")
+            at = tuple(float(x) for x in c["at_m"])
+            c0, c1, pr = float(c["from_m"]), float(c["to_m"]), float(c["proud_m"])
+            fw, tw = (float(x) for x in c["width_m"])
+            if not (0.0 <= at[0] - tw / 2 and at[0] + tw / 2 <= s - half <= s + half <= at[1] - tw / 2
+                    and at[1] + tw / 2 <= width) or not sill < c0 < c1 or not 0.2 <= c1 - c0 <= 1.5 \
+                    or c0 > head or not 0.05 <= fw <= tw <= 0.5 or not 0.02 <= pr <= 0.3:
+                raise ParamError(f"{what}.consoles: one outside each jamb inside the front, 0.2-1.5 m tall "
+                                 f"from over the sill to no lower than the head, 0.05-0.5 m wide widening "
+                                 f"upward, 0.02-0.3 m proud")
+            h["consoles"] = {"at_m": at, "from_m": c0, "to_m": c1, "width_m": (fw, tw), "proud_m": pr}
+        if "key" in hd:
+            ky = hd["key"]
+            if set(ky) != {"from_m", "height_m", "width_m", "proud_m"} or len(ky["width_m"]) != 2:
+                raise ParamError(f"{what}.key takes from_m, height_m, width_m [foot, top] and proud_m")
+            y0, kh, pr = float(ky["from_m"]), float(ky["height_m"]), float(ky["proud_m"])
+            fw, tw = (float(x) for x in ky["width_m"])
+            if not head - 1e-6 <= y0 <= head + 0.1 or not 0.15 <= kh <= 0.6 or not 0.1 <= fw <= tw <= 1.2 \
+                    or fw < 2 * half - 0.1 or not 0.0 < pr <= 0.08 or "band" in hd:
+                raise ParamError(f"{what}.key: a 0.15-0.6 m block on the head (within 0.1 m), its foot about the "
+                                 f"light's width or wider, widening upward to at most 1.2 m, at most 0.08 m "
+                                 f"proud; a light takes a key or a band, not both")
+            h["key"] = {"from_m": y0, "height_m": kh, "width_m": (fw, tw), "proud_m": pr}
+        if "pendant" in hd:
+            pd = hd["pendant"]
+            if set(pd) != {"from_m", "top_m", "stem_m", "proud_m", "tiers"} or not pd["tiers"]:
+                raise ParamError(f"{what}.pendant takes from_m, top_m, stem_m, proud_m and tiers [[y0, y1, width], ...]")
+            p0, p1, st, pr = float(pd["from_m"]), float(pd["top_m"]), float(pd["stem_m"]), float(pd["proud_m"])
+            tiers = tuple(tuple(float(x) for x in t) for t in pd["tiers"])
+            if not head < p0 < p1 <= p0 + 2.0 or not 0.05 <= st <= 0.4 or not 0.02 <= pr <= 0.2 \
+                    or any(len(t) != 3 or not p0 - 1e-6 <= t[0] < t[1] <= p1 + 1e-6 or not st < t[2] <= 2 * half
+                           for t in tiers) \
+                    or any(a[1] > b[0] + 1e-6 for a, b in zip(tiers, tiers[1:])):
+                raise ParamError(f"{what}.pendant: a stem 0.05-0.4 m wide up to 2 m over the head, 0.02-0.2 m "
+                                 f"proud, its tiers in order inside it, each wider than the stem and no wider "
+                                 f"than the light")
+            if "band" in h and abs(p0 - h["band"]["top_m"]) > 1e-6:
+                raise ParamError(f"{what}.pendant stands on its band's top ({h['band']['top_m']} m)")
+            h["pendant"] = {"from_m": p0, "top_m": p1, "stem_m": st, "proud_m": pr, "tiers": tiers}
+        for o in openings:   # nothing laid over another light of the front
+            if o.wall != "k01.wall.street_front" or (abs(o.s_m - s) < 1e-6 and abs(o.sill_m - sill) < 1e-6):
+                continue
+            o0, o1 = o.s_m - o.width_m / 2, o.s_m + o.width_m / 2
+            for part, (a0, a1, y0, y1) in _hood_extents(h).items():
+                if a0 < o1 and o0 < a1 and y0 < o.head_m and o.sill_m < y1:
+                    raise ParamError(f"{what}.{part} runs into {o.component} at s {o.s_m}")
+        out.append(h)
+    return tuple(out)
+
+
+def _hood_extents(h) -> dict:
+    """The (s0, s1, y0, y1) box each part of a resolved hood takes on the front."""
+    out = {}
+    if "band" in h:
+        b = h["band"]
+        out["band"] = (*b["s_m"], b["top_m"] - b["stops"]["drop_m"], b["top_m"])
+    if "consoles" in h:
+        c = h["consoles"]
+        out["consoles"] = (c["at_m"][0] - c["width_m"][1] / 2, c["at_m"][1] + c["width_m"][1] / 2,
+                           c["from_m"], c["to_m"])
+    if "key" in h:
+        k = h["key"]
+        out["key"] = (h["s_m"] - k["width_m"][1] / 2, h["s_m"] + k["width_m"][1] / 2, k["from_m"],
+                      k["from_m"] + k["height_m"])
+    if "pendant" in h:
+        pd = h["pendant"]
+        wmax = max(t[2] for t in pd["tiers"])
+        out["pendant"] = (h["s_m"] - wmax / 2, h["s_m"] + wmax / 2, pd["from_m"], pd["top_m"])
     return out
 
 
@@ -6049,12 +6182,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if not val("stone_front") or sfo or val("front_bays_by_storey") or val("street_front_round_heads"):
             raise ParamError("street_front_windows names every window of a K02 stone front, and takes "
                              "no street_front_openings, front_bays_by_storey or street_front_round_heads")
-        if not {"windows", "base_top_m", "belts", "surrounds", "carved_bands", "corner_stone"} >= set(sfw) \
+        if not {"windows", "base_top_m", "belts", "surrounds", "carved_bands", "corner_stone", "hoods"} >= set(sfw) \
                 >= {"windows", "base_top_m"} \
                 or not sfw["windows"]:
             raise ParamError("street_front_windows takes windows: [{component, storey, s_m, width_m, sill_m, "
                              "height_m}, ...] and base_top_m, the plain plinth's top where no area light sets it "
-                             "(and, T-2753, belts and surrounds; T-2915, carved_bands; T-3365, corner_stone)")
+                             "(and, T-2753, belts and surrounds; T-2915, carved_bands; T-3365, corner_stone and hoods)")
     # T-2410: a brick front's storeys whose street windows are round-headed under hoods
     # T-2960: or segmental-headed (`head`), under K09's cornice hood on its consoles (`hood`)
     # in place of the arch band and its key block
