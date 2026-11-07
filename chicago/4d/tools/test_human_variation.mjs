@@ -44,7 +44,7 @@ const header = JSON.parse(await fs.readFile(new URL('assets/humans/web/hm08_vari
 const binBytes = await fs.readFile(new URL('assets/humans/web/hm08_variation_kit.bin', here));
 const kit = V.parseVariationKit(header, binBytes.buffer.slice(binBytes.byteOffset, binBytes.byteOffset + binBytes.byteLength));
 const persons = JSON.parse(await fs.readFile(new URL('assets/humans/web/hm08_variation_persons.json', here))).persons;
-const faceAxes = kit.axes.filter(a => a.scope === 'face' && !a.drive);
+const faceAxes = kit.axes.filter(a => a.scope === 'face' && !a.drive && !a.rest);   // a rest axis is never drawn (T-3434)
 
 // The PRNG and a person's values are pure functions of the id.
 { const a = V.seededRandom('x'), b = V.seededRandom('x'), c = V.seededRandom('y');
@@ -54,6 +54,19 @@ const faceAxes = kit.axes.filter(a => a.scope === 'face' && !a.drive);
   assert.equal(p.grade, 'reconstructed');
   for (const a of kit.axes) if (!a.drive) assert(Math.abs(p.values[a.id]) <= header.limit + 1e-12, `${a.id} within the limit`);
   assert(Math.abs(p.height - 1) <= header.height.limit + 1e-12); }
+
+// A body's face_bias (T-3434) leans every draw of a person wearing it, and a rest axis takes only
+// the bias: the women's bodies get a resting mouth, a man's none, and nobody else's draws move.
+{ const bias = header.assets.williamson_mattie_1904_cook_study.face_bias;
+  assert(bias && bias.mouth_corners > 0, 'the 1904 woman carries a face bias with a resting mouth');
+  const woman = V.personVariation({ kit, key: 'someone', assetId: 'williamson_mattie_1904_cook_study' });
+  const man = V.personVariation({ kit, key: 'someone', assetId: 'bardwell_otis_1835' });
+  assert.equal(man.values.mouth_corners, 0, 'a man draws no resting mouth');
+  assert.equal(woman.values.mouth_corners, bias.mouth_corners);
+  for (const [k, v] of Object.entries(bias)) if (k !== 'mouth_corners')
+    assert(Math.abs(woman.values[k] - Math.max(-header.limit, Math.min(header.limit, man.values[k] + v))) < 1e-12, `${k} leans by its bias`);
+  for (const a of kit.axes) if (!a.drive && !(a.id in bias) && !(a.draw_as in bias) && a.sex !== 'female' && a.sex !== 'male')
+    assert.equal(woman.values[a.id], man.values[a.id], `${a.id} unmoved by the bias`); }
 
 // No two alike: across a crowd of 400 ids, the closest pair of faces still differ by at least
 // one axis's own spread, measured in units of each axis's spread.

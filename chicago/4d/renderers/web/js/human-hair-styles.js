@@ -48,6 +48,13 @@ export const FACIAL_HAIR = Object.freeze({
     region_cm: Object.freeze({ x: [0, 2.6], y: [-6.5, -5.3], z_min: .4, droop: .35 }), facing: 'front',
     length_cm: 1.05, fall: 1, outward: .3, lift_mm: Object.freeze({ root: 1.2, tip: 2.8 }), width_mm: 3, cover: 7, spread: .5,
   }),
+  // Fine arched eyebrows (T-3434): short hairs combed out from the nose along the brow
+  // bone, a little up at the inner end, the tail falling toward the temple. Without them a
+  // face reads bare and hard at 3 m.
+  brows_fine: Object.freeze({
+    region_cm: Object.freeze({ x: [1.3, 4.6], y: [1.58, 1.86], z_min: -1.5, droop: .5 }), facing: 'front',
+    length_cm: .55, fall: -.1, outward: 1, lift_mm: Object.freeze({ root: .15, tip: .3 }), width_mm: .55, cover: 7, spread: .5,
+  }),
   // Side whiskers: down from the temple in front of the ear to about the line of the mouth.
   side_whiskers: Object.freeze({
     region_cm: Object.freeze({ x: [5.8, 8.6], y: [-5.2, 1.2], z_min: -7.6, z_max: -3.6 }), facing: 'side',
@@ -74,11 +81,11 @@ export const PEOPLE_HAIR = Object.freeze({
     basis: 'Clean-shaven, with short hair showing below the hat, as the liveried coachmen of the people-match reference set are (coachman_1904: Rau 1902, Griffith 1905); the cut and the colour are reconstructed. No picture of Hans Johnson is known.',
   }),
   glessner_williamson_martha_l: Object.freeze({
-    cut: 'swept_up_knot_1904', facial: Object.freeze([]), colour: 'dark_brown', grade: 'reconstructed',
+    cut: 'swept_up_knot_1904', facial: Object.freeze(['brows_fine']), colour: 'dark_brown', grade: 'reconstructed',
     basis: 'A reconstructed choice: a working woman of 1904 with her hair drawn up from the face to a knot on the crown, as the 1903 Wasson stereographs of a cook and a maid show. No picture of Martha Williamson has been read.',
   }),
   rc_flynn_mary: Object.freeze({
-    cut: 'centre_part_knot_1835', facial: Object.freeze([]), colour: 'dark_brown', grade: 'reconstructed',
+    cut: 'centre_part_knot_1835', facial: Object.freeze(['brows_fine']), colour: 'dark_brown', grade: 'reconstructed',
     basis: 'A reconstructed choice for a working woman in the Chicago of 1835: hair parted in the middle, drawn smooth over the ears and pinned up in a knot behind, as women of the 1830s wore it. No picture of Mary Flynn is known.',
   }),
   rc_bardwell_otis: Object.freeze({

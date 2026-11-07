@@ -1,4 +1,23 @@
 export const CHANGELOG = [ // newest first
+  { v: 2739, ts: '2026-11-07T00:02:46.579Z', date: 'Nov 6, 2026, 6:02 PM CT', title: 'Building cards: a style guide for every building, and tidier tabs', kind: 'improvement',
+    items: [
+      'Every building\'s Design tab is now a style guide: what it is, its roof and front, what to look for, then Shape, Walls, Roof, Windows and doors, and Grounds, each line with its grade dot.',
+      'Story is now called Timeline.',
+      'Sources lists each source once, the most-used first; tap one to see every fact it gave.',
+      'A new Details tab, before Sources, holds every fact grouped by grade, with Liberties. The Confidence meter opens it.',
+      'The tabs sit on one row of icons with small labels, on a phone too.',
+    ] },
+  { v: 2738, ts: '2026-11-07T00:00:42.369Z', date: 'Nov 6, 2026, 6:00 PM CT', title: 'Mattie Williamson looks like a woman of 1904', kind: 'improvement',
+    items: [
+      'The Glessners\' cook had been given a man\'s skin texture, with a beard shadow along her jaw. She now has a woman\'s skin texture from the same set.',
+      'The women in town (Mattie in 1904, Mary Flynn in 1835) now have fine eyebrows, a lighter jaw and fuller lips, and a mouth that rests a little up instead of set hard.',
+      'Mattie\'s shirtwaist is cut full: it pouches over the waist band, its upper sleeves are full, and her apron bib has straps over the shoulders. Her hair is fuller over the brow and at the temples before it is drawn up to the knot.',
+      'Her hands no longer sink into her skirt: a woman in a full skirt stands with her hands clasped in front at the waist or held behind her, never hanging at her sides.',
+    ] },
+  { v: 2737, ts: '2026-11-06T23:59:27.558Z', date: 'Nov 6, 2026, 5:59 PM CT', title: '1801 Prairie\'s third-storey window gets its carved stone frame', kind: 'improvement',
+    items: [
+      'The one window in the Kimball house\'s third storey, behind the bow\'s balcony, now stands in a raised stone frame with lugs at its head\'s corners and a projecting sill, as the 1965 HABS photograph and the c. 1895 Taylor photograph show it.',
+    ] },
   { v: 2736, ts: '2026-11-06T23:36:20.329Z', date: 'Nov 6, 2026, 5:36 PM CT', title: 'Go to: short viewpoint names, new 1904 views, and Photos', kind: 'feature',
     items: [
       '1904\'s Go to opens with six compact tiles, each with its own icon: From above, Glessner, Pullman, Field, Church and 1812 battle.',
