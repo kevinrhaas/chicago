@@ -2508,13 +2508,18 @@ async function boot() {
   // names the day the sun is lit for: the chip, its spoken label and the Navigator's date.
   function paintChipDay(iso) {
     const shown = iso || world.sunDate || loaded.scene.target_date || '';
-    const m = /^\d{4}-(\d{2})-(\d{2})/.exec(shown);
+    const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(shown);
     if (!m) return;
     const sub = document.querySelector('#year-badge .badge-sub');
-    if (sub) sub.textContent = `${m[1]}.${m[2]}`;
+    if (sub) sub.textContent = `${m[2]}.${m[3]}`;
+    // T-3459: a jaunt stop dated in another year (20 May 1804, told in the 1812 town)
+    // shows that year on the chip, not the town's; the town's comes back after.
+    const year = iso ? m[1] : String(loaded.scene.id ?? m[1]);
+    const yearEl = document.querySelector('#year-badge .badge-year');
+    if (yearEl && yearEl.textContent !== year) yearEl.textContent = year;
     const badge = document.getElementById('year-badge');
     const label = badge?.getAttribute('aria-label');
-    if (label) badge.setAttribute('aria-label', label.replace(/^\d{1,2} [A-Z][a-z]+/, spokenDay(shown)));
+    if (label) badge.setAttribute('aria-label', label.replace(/^\d{1,2} [A-Z][a-z]+( \d{4})?/, (_, y) => `${spokenDay(shown)}${y ? ` ${year}` : ''}`));
     const navDate = document.getElementById('nav-date');
     if (navDate) navDate.textContent = screenDate(shown);
   }

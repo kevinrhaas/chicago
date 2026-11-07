@@ -105,31 +105,37 @@ class JauntTests(unittest.TestCase):
         doc = json.loads((ROOT / 'data/jaunts/killing-of-jean-lalime.json').read_text())
         compiler = Compiler(scene_id='1812')
         compiler.validate(doc)
-        gate, flight = doc['stops'][5], doc['stops'][6]
+        gate, flight = doc['stops'][6], doc['stops'][7]
         self.assertEqual((gate['hour'], flight['hour'], flight['since']), ('sunset', '23:20', 'Four hours later'))
         def bad(text):
             with self.assertRaisesRegex(ValueError, text): compiler.validate(doc)
         # A stop's hour moves and its lead does not: refused, naming the real gap.
-        flight['hour'] = '21:20'; doc['stops'][7]['since'] = 'Eleven hours later'
+        flight['hour'] = '21:20'; doc['stops'][8]['since'] = 'Eleven hours later'
         bad(r"since 'Four hours later' does not say the 2\.0 hours from the-gate")
         for said in ('Two hours later', 'A few hours later', 'That night', '2 hours later'):
             flight['since'] = said; compiler.validate(doc)
         for said in ('Two hour later', 'An hours later', 'Six months later', 'The next morning', 'Soon after'):
             flight['since'] = said; bad('does not say')
-        flight['hour'] = '23:20'; flight['since'] = 'Four hours later'; doc['stops'][7]['since'] = 'Nine hours later'
+        flight['hour'] = '23:20'; flight['since'] = 'Four hours later'; doc['stops'][8]['since'] = 'Nine hours later'
         # Sunset is solved on the stop's own day: 17 June 1812 at Chicago is 19:20 on the grid,
         # eighty minutes after the quarrel's 18:00.
         gate['since'] = 'Eighty minutes later'; compiler.validate(doc)
         gate['since'] = 'Twenty minutes later'; bad('does not say the 1.3 hours')
         gate['since'] = 'An hour later'
+        # T-3459: the cold open (the killing at sunset) goes back to 1804 'earlier', truly.
+        back = doc['stops'][1]
+        self.assertEqual((doc['stops'][0]['id'], back['since']), ('cold-open', 'Eight years earlier'))
+        for said in ('Two years earlier', 'Eight years later', 'Eight year earlier', 'Eight hours earlier'):
+            back['since'] = said; bad('does not say')
+        back['since'] = 'Eight years earlier'
         # Every stop after the first carries one, the first none; both ends need a clock.
-        del doc['stops'][2]['since']; bad('every stop after the first needs a since')
-        doc['stops'][2]['since'] = 'Nine months later'
+        del doc['stops'][3]['since']; bad('every stop after the first needs a since')
+        doc['stops'][3]['since'] = 'Nine months later'
         doc['stops'][0]['since'] = 'Long before'; bad('the first stop has no stop before it')
         del doc['stops'][0]['since']
-        doc['stops'][3]['hour'] = 'daytime'; bad('cannot count from or to "daytime"')
-        doc['stops'][3]['hour'] = 'afternoon'
-        doc['stops'][3]['since'] = 'five weeks later!'; bad('schema')
+        doc['stops'][4]['hour'] = 'daytime'; bad('cannot count from or to "daytime"')
+        doc['stops'][4]['hour'] = 'afternoon'
+        doc['stops'][4]['since'] = 'five weeks later!'; bad('schema')
 
     def test_long_form_and_leg_mode(self):
         """T-3355: long-form stops run to 150 words; a leg's own mode is one the jaunt allows."""
