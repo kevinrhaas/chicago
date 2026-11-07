@@ -14584,6 +14584,17 @@ other roof on that row. The commitment itself is unchanged — 0.14 m of exposur
 and the scope is counted off the records' own `roof_type` so that a release restates it rather
 than leaving the entry claiming a population it no longer has.
 
+**Amended 2026-11-07 — the shingles' widths and tones (T-3041).** The owner asked for the roofs of
+Fort Dearborn's blockhouses in "correct photographic textures", and the shingle sheet could not give
+them: it was a regular grid of 0.28 m shingles whose colour followed a wavy grain that knew nothing
+of the grid, so every roof read as one brown plane. The sheet is now drawn as a riven roof is laid:
+each course a run of shingles of their own width, joints broken against the course below, ragged
+butts, each shingle its own weathering, and roof-relief.js shows that tone the way wall-relief.js
+shows a log's. **The widths are RECONSTRUCTED** — 8 to 30 cm, unsorted, which is what split stock
+gives, but no source in this project measures a Chicago shingle's width — and so are the per-shingle
+tones. The exposure is unchanged at 0.14 m, the tile at 4.48 m, and no record moves. The discharge
+condition above now reaches the width too: a source that sizes a period shingle settles both.
+
 ### L264 — The brick course is set from a period common brick, because the rhythm of a brick wall cannot be drawn without one and this project holds no Chicago brick
 
 **Scope:** `structures.records[brick_fabric]` — 186 structures (187 until T-1886, 2026-11-07, whose refinement of the Henderson house at 1816 Prairie reads its pale stone basement off Chicagology's photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 188 until T-1913, 2026-11-03, whose refinement of the Max A. Meyer house at 2009 Prairie reads its rock-faced stone basement off its photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 189 until T-1901, 2026-11-02, whose refinement of the Thompson/Allerton house at 1936 Prairie reads its Portland brownstone basement off the Chicago Tribune of 30 October 1869 and the photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 190 until T-3305, 2026-11-02, whose work on Marshall Field Jr.'s house at 1919 Prairie reads its stone basement off the 1911 sheet's 'S.B.' and the Gatlin Institute plates and lays it under the brick, so it says brick with a stone front and leaves this count; 191 until T-3271, 2026-11-01, whose sign-off of Marshall Field's house at 1905 Prairie reads its pale stone basement off the 1893 plate, the 923 Prairie photograph, the engraving and the Daily News negative and lays it under the brick, so it says brick with a stone front and leaves this count; 192 until T-3254, 2026-10-30, whose refinement of the Hibbard house at 1701 Prairie reads its light stone basement off Chicagology's photograph and lays it under the brick, so it says brick with a stone front and leaves this count; 193 until T-3164's re-entry, 2026-10-28, which reads the lodge between Pullman's glasshouse ranges at 1800 Calumet Avenue as stone off the 1894 Inland plate, so it says stone and leaves this count; 194 until T-3188, 2026-10-27, whose refinement of the 1708 Prairie draft reads a stone string course off the Christmas print of the Glessner townhouses and lays it with a stone basement under the brick, so it says brick with a stone front and leaves this count; 195 until T-3162, 2026-10-26, whose refinement of the 1823 Prairie draft reads a stone street front off the Dent house's engraving and its 1883 album vignette, so it says brick with a stone front and leaves this count; 194 until T-3164, 2026-10-26, whose lodge between Pullman's glasshouse ranges at 1800 Calumet Avenue says brick because the 1911 Sanborn sheet colours it brick, and takes no course from this substrate either: `generators/archetypes/prairie_draft.py` draws it in a flat colour; 174 until T-3151, 2026-10-25, whose twenty-one brick drafts of Indiana Avenue's east frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (nine say brick with a stone front and five frame, so they leave this count), while T-3011's background row, which they replace, leaves it; 173 until T-3011, 2026-10-25, whose one background row on Indiana Avenue's east frontage, 18th to 20th Street, says brick as a reconstruction (sheet 27, which would colour it, is not in hand), and takes no course from this substrate either; 172 until T-3130, 2026-10-25, whose draft of the ice-cream works rising at 1605-1613 Indiana says brick because the 1911 sheet colours it brick and the Tribune of November 1903 calls it a brick building, and takes no course from this substrate either; 171 until T-3013, 2026-10-25, whose draft of Bane Brothers' livery at 2129-2131 Indiana Avenue says brick because the 1911 Sanborn sheet colours the building brick, and takes no course from this substrate either; 168 until T-3068, 2026-10-24, whose three brick drafts on Indiana Avenue's east frontage, 16th to 18th Street (1601's corner row and 1637's house from Robinson 1886, which colours them brick, and 1619's from the 1911 sheet, which does), say brick and take no course from this substrate either (1641's says brick with a stone front, so it leaves this count, and 1727's and 1735's say frame); 159 until T-3019, 2026-10-23, whose nine brick drafts of the background on Indiana Avenue's east frontage, 16th to 18th Street, and the row at 209-217 East Sixteenth Street say brick because the 1911 Sanborn sheet colours them brick and Robinson 1886 agrees, and take no course from this substrate either (1615-1617's and 1703's say brick with a stone front, so they leave this count); 143 until T-3018, 2026-10-22, whose sixteen brick drafts of the background on Calumet Avenue's west frontage, 20th to 22nd Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (2004's and 2016's say brick with a stone front, 2128's stone over a brick rear, and 2032's yard building frame, so they leave this count); 125 until T-3009, 2026-10-22, whose eighteen drafts of the background on Indiana Avenue's east frontage, 20th to 22nd Street, the First Presbyterian Church among them, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 110 until T-3008, 2026-10-22, whose fifteen drafts of the background on Calumet Avenue's west frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 104 until T-2982, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour; 105 until T-2543, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until T-2440, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until T-2443, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until T-2432, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until T-2433, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until T-2351, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until T-2352, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in
@@ -28102,6 +28113,45 @@ tool follows it.
 **Review:** `docs/RESEARCH/prairie_1904_street_section.md`.
 **Recorded:** 2026-10-31 (T-3274).
 
+### L-prairie-back-yards-3488 — The 1904 back and side yards: back doors, terraces, walks, gangways, drying yards and kitchen gardens
+
+**Decision:** behind and beside the 1904 district's houses, `tools/lay_prairie_1904_back_yards.py`
+lays out each lot's yard (`data/back_yards/1904.json`, drawn by `renderers/web/js/back-yards.js`):
+a back door on the main house's rear wall where its model has none, on a stretch of wall with no
+window in its way, its sill at the house's first floor (1.5 m at most) or, where the first floor's
+windows or a shallow yard leave no room, at grade a step up; its steps and landing; a paved terrace
+at their foot (brick laid herringbone, or stone flags on a stone front), larger where a double lot
+gives the house a side yard; walks from it, laid straight on the lot's free ground, to the coach
+house's yard door or its K12 workyard paving, to the alley where no stable stands, and down the side
+passage to the K14 service walk or to the front walk by the stoop; a drying yard of trodden earth
+with two clothes posts; on some of the modest Indiana and Calumet lots a kitchen garden of a few dug
+rows against the sunny fence; and on a worked house's side lawn one to three shade trees and a shrub
+border, creeper on a third of the coach houses' yard walls, a lilac at the back fence of a lot with
+no stable. Every lot is seeded by its parcel id. Glessner's court, the Pullman house lot and
+glasshouse ground, and Field's south lawn are left as their own records draw them.
+**What it stands on:** the research note `docs/RESEARCH/prairie_1904_back_yards.md`: the Sanborn
+sheets of 1911 put the stables on the alley with 5-18 m of yard between them and the houses; the
+1900 census (`census_1900_chicago_t623_roll245`) enumerates coachmen over the stables and a laundress
+in many households, so the back yard was the kitchen's and the stable's working court and the wash
+was hung at home; the side lawns and shade trees of the double lots are in `sheldon_artistic_houses_1884_field_house`
+("a spacious lawn and scattered shade-trees"), `inter_ocean_1887_01_02_prairie_avenue_homes` and the
+1883 album; and every house of the period had a kitchen door. The owner, 2026-11-07: "patios and
+entertaining space near the rear doors and walkways to the carriage houses and to the front steps and
+maybe in gangways ... dont wildly invent things".
+**What is invented:** every piece's place, size and paving: no picture shows the rear of any house
+or the back yard of any lot here but Hibbard's (1701), Glessner's court (c. 1923) and Pullman's. The
+drying yard of a household whose laundress the 1900 census names is inferred from that enumeration
+(its place and size are still reconstructed); every other drying yard, all kitchen gardens (no
+source names one on any lot of the district), the terraces, the walks, the back doors and their
+steps, and the side-lawn trees, borders, creeper and lilacs are reconstructed.
+**How to resolve:** a photograph, a plan or an insurance drawing of a lot's rear (the Houghton
+courtyard elevations, a Sanborn porch or areaway, a later HABS sheet) replaces that lot's rule; a
+rebaked house whose rear gains its own door or porch takes this file's door away (the tool keeps a
+model's door and draws only its steps).
+**Ticket:** T-3488.
+**Review:** `docs/RESEARCH/prairie_1904_back_yards.md`.
+**Recorded:** 2026-11-07 (T-3488).
+
 ### L-prairie-paving-seams-2475 — Where two 1904 pavings meet: one roadway per crossing, the other worn into it over 1.6 m
 
 **Decision:** where two 1904 roadways cross or meet, only one is drawn: the one with the higher
@@ -38547,6 +38597,19 @@ Taylor's no. 1445, read above as drawing this parkway clear, does draw this trun
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`,
 `taylor_1445_album-side-by-side.jpg` and their match records.
 
+**Extended (T-1881, 2026-11-07, the tree at 58.8 m):** the plate's living tree on 18th Street's north
+parkway, before the house's south-east corner, was the last pictured tree on the parkway before the house
+still drawn as the rule's grown elm, its low fork a V about 3 m up and its fountain about 6 m across and
+19 m high over the house's corner and terrace through Taylor's 16554. It now grows on `high_head` at
+scale 0.65. **Read:** Taylor's 16554 (winter, f 1181 px, the trunk about 53 m off at x 417) draws one
+stout leader, about 12 px (0.5 m) across, forking about 8 m up into a narrow, sparse head about 3 m
+across, the tree about 13 m to its top; the Detroit print det 4a08066 (c. 1900) draws the trees of this
+stretch as slender leaders under heads from about the second storey; the 1894 plate draws a single
+straight trunk under a high head in leaf. The place stays the plate's: 16554 reads it 2.6 m west, as its
+camera reads the trees at 43.7 and 51.3 m 2.3-2.8 m west. **Chosen (reconstructed):** the habit's numbers
+(the form's, above) and the height off 16554's top; its bole draws about 0.3 m, slighter than the 0.5 m
+16554 prints. **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_16554_from_south-side-by-side.jpg`,
+`pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg`, `detroit_det_4a08066-side-by-side.jpg` and their match records.
 
 ### L-pullman-terrace-tubs-1934 — The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them
 
@@ -40335,6 +40398,28 @@ the factory's returns for 1812; a view of the post's out-buildings.
 **Ticket:** T-3458.
 **Recorded:** 2026-11-07 (T-3458).
 
+### L-t3474-yard-wood-surfaces — the woodpiles' wood: a procedural atlas of split ends, bark and sawn rounds
+
+**Decision:** the yard layer's woodpiles (`renderers/web/js/yard.js`, every year that has them: 1812's 17 and
+1835's 399) are drawn in a physically scaled PBR wood atlas, `assets/textures/yard_wood_pbr/woodpile_atlas/`
+(base colour, OpenGL normal, packed ORM; 1129 px to the metre), written by
+`assets/textures/yard_wood_pbr/tools/generate_yard_wood_pbr.py`: two rick faces of split billet ends (quarters,
+eighths, halves, slabs and small rounds racked in courses, each with its growth rings round its own pith, oak's
+rays, a heartwood/sapwood break, a bark rind on its outer arc, rim and heart checks, axe facets, and its own
+weathering, most a season stacked and greying); the sticks along their length; a sawn round's end with checks,
+kerf and axe scores (the chopping block's top and a log's end); oak/hickory log bark; and a split face along the
+grain. Where the atlas loads it replaces T-1959's painted cells, which stay as the fallback. The 1812 casks and
+cases standing in those yards move out of the woodpile mesh into the goods' chunks, where they wear the board
+face's grain the town's other casks wear; and the 1812 woodpiles show at the phone (`light`) tier, which keeps
+hiding the 1835 town's 399 (`WOOD_LIGHT_MAX_LOTS`). **Why:** the owner, 2026-11-07, on the T-3458 screenshots:
+*"those are a nice start make the next round of them photographic, improve the surface textures"*. **What is
+ours throughout:** the whole look: the mix of woods (oak, hickory, ash and elm, the trees of the 1812 groves),
+the split shapes, ring widths, colours, checks and weathering. No photograph is embedded, sampled or traced; no
+source shows any 1812 or 1835 Chicago woodpile. **How to resolve:** a period view or description of a Chicago
+woodpile, or of the wood the post and the households burned.
+**Ticket:** T-3474.
+**Recorded:** 2026-11-07 (T-3474).
+
 ### L-t3340-south-groves-1812 — 1812's timber south of the river: the South Branch belt carried east of Wells, and groves in the wet hollows
 
 **Decision:** in the 1812 scene only, `renderers/web/js/trees.js` (`SOUTH_GROVES`) deals two kinds of grove on the
@@ -41934,6 +42019,17 @@ set `cupola_construction: log` (inferred from Currey's coursed bodies) and `cupo
 fort_structure archetype reads as opt-in controls; the second fort's boarded 2.1 m cupola is unchanged.
 The log courses, notching and chinking are the blockhouse's own coursed wall. The 1.6 m is a proportion
 read by eye off pictures that are not to scale.
+
+**Amended 2026-11-07 — a lookout opening in each face of the cap.** The owner, on Currey's blockhouse
+5: "a window type dormer or some kind of opening on all 4 sides of the roof … To see far away", and
+then "not necessarily round, they are so small in this image". Currey draws a small dark mark in the
+middle of each visible face of both cupola caps; no other source shows the caps close enough to say.
+Both records now set `cupola_ports: true` (inferred, from Currey), and `first_fort_dearborn_blockhouse_nw`
+and `first_fort_dearborn_blockhouse_se` each carry four small hooded openings, one per face of the cap.
+**Their shape and size are reconstructed**: a square-headed opening 0.32 m wide and 0.22 m high, framed,
+under a shallow shed hood, set 0.40 m in from the cap's eave (fort_structure_params.py CUPOLA_PORT_*), which
+is a size a man can look out of and the drawing's marks do not contradict. Nothing in the record states
+these numbers, so they are the kit's constants and no record attribute holds them.
 
 **Covers:** `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.cupola_height_m`,
 `first_fort_dearborn_blockhouse_se.first_fort_1803.form.cupola_height_m`.

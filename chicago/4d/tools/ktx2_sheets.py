@@ -119,7 +119,9 @@ ETC1S_DATA = ['--encode', 'basis-lz', '--clevel', '4', '--qlevel', '255']
 OTHER_WRITERS = tuple(ASSETS / 'trees' / f'{m}.ktx2' for m in ('leaf_atlas', 'bark_basecolor', 'bark_normal'))
 
 # wall-relief.js SUBSTRATES (T-2588): the normal as it stands, and the packed `orl`.
-WALL_SUBSTRATES = ('walls/clapboard_board_face', 'walls/hewn_log_face')
+# roof-relief.js's shingle (T-3041) takes the same pair by the same recipe: its riven
+# shingles each carry their own tone, which only an albedo ratio can show.
+WALL_SUBSTRATES = ('walls/clapboard_board_face', 'walls/hewn_log_face', 'roofs/wood_shingles_weathered')
 
 
 def wall_sheets():
@@ -158,8 +160,9 @@ def sheets():
 def drop_in_sheets():
     """(directory, id, map, web file) for every drop-in sheet the renderer loads by URL."""
     out = []
-    # roof-relief.js COVERINGS: normal_gl + orm, each beside a `.webp`.
-    for d in ('roofs/wood_shingles_weathered', 'roofs/roof_boards_weathered'):
+    # roof-relief.js COVERINGS: normal_gl + orm, each beside a `.webp`. The shingle is a
+    # wall-style pair since T-3041 (WALL_SUBSTRATES above).
+    for d in ('roofs/roof_boards_weathered',):
         sid = d.split('/')[-1]
         for m in ('normal_gl', 'orm'):
             out.append((ASSETS / 'chicago_1835_pbr' / d, sid, m, f'{sid}_{m}.webp'))
@@ -178,6 +181,15 @@ def drop_in_sheets():
             sheet = json.loads((d / 'material.json').read_text())
             for k in ('basecolor', 'normal_gl', 'orm'):
                 out.append((d, sheet['id'], k, sheet['web'][k]))
+    # The same library's yard grounds (T-3488), which no street names: publish.sh ships
+    # every material of the library with its three KTX2s, so each carries them too.
+    lib = ASSETS / 'prairie_1904_pbr'
+    for sheet in json.loads((lib / 'manifest.json').read_text())['materials']:
+        if sheet['group'] != 'yard' or sheet['id'] in {p.name for p in map(Path, seen)}:
+            continue
+        d = lib / sheet['group'] / sheet['id']
+        for k in ('basecolor', 'normal_gl', 'orm'):
+            out.append((d, sheet['id'], k, sheet['web'][k]))
     # camp-surfaces.js CAMP_COVERINGS (T-3342): the 1812 camp's three coverings, their `web` maps.
     # T-3401: and the haystacks' three hay sheets (HAY_COVERINGS).
     for sid in ('cattail_mat', 'elm_bark', 'bough_thatch', 'hay_stack', 'hay_weathered', 'hay_cut'):
@@ -185,6 +197,11 @@ def drop_in_sheets():
         sheet = json.loads((d / 'material.json').read_text())
         for k in ('basecolor', 'normal_gl', 'orm'):
             out.append((d, sheet['id'], k, sheet['web'][k]))
+    # yard.js's woodpiles (T-3474): one atlas of six wood cells, its `web` maps.
+    d = ASSETS / 'yard_wood_pbr' / 'woodpile_atlas'
+    sheet = json.loads((d / 'material.json').read_text())
+    for k in ('basecolor', 'normal_gl', 'orm'):
+        out.append((d, sheet['id'], k, sheet['web'][k]))
     return out
 
 
@@ -312,7 +329,7 @@ def masters_of(d: Path, sid: str, m: str):
 def statement(d: Path, sid: str, m: str, mean_rough: float, size) -> dict:
     return {
         'sheet': f'{sid}_{m}.ktx2',
-        'what': 'the wall relief\'s packed map: R = AO, G = roughness, B = 0.5 * L / mean(L) '
+        'what': 'the wall (or shingle roof) relief\'s packed map: R = AO, G = roughness, B = 0.5 * L / mean(L) '
                 '(relief-pack.js packOrl), written bottom row first (tools/ktx2_sheets.py)',
         'px': list(size),
         'mean_roughness': round(mean_rough, 6),
