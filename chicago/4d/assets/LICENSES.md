@@ -1314,6 +1314,32 @@ humans/web/flynn_martin_1835.lod3.glb
 ```
 
 
+### Hair component — `authored/humans/hair_bun_brown/` (CC0-1.0)
+
+RehmanPolanski, *hair bun brown* (2020; UUID `9bf96086-aaa0-4a13-9d83-71b6c4b4732a`),
+adapted by its author from the MakeHuman system ponytail01. **CC0** in the official
+MakeHuman pack: <https://files2.makehumancommunity.org/asset_packs/hair01/hair01_cc0.zip>
+(ETag `"d93956d-6160e7894ff24"`), whose pack page and `packs/hair01.json` list it as CC0;
+that record is retained as `hair01.original.json`. The OBJ and MHCLO headers keep the
+MakeClothes default export stamp ("license AGPL3 (see also … external_tools_license)");
+the author's CC0 listing in the official pack is the release relied on, and both are
+recorded in SOURCE.json. The OBJ, MHCLO, MHMAT and PNG are unchanged archive entries,
+each checked against the archive's CRC-32. `hair_bun_brown_dark_tie.png` is a project
+CC0 derivative (the red velvet tie recoloured dark brown). No MakeHuman program or
+shader code is included. This component conveys no historical likeness (T-3434).
+
+| Path relative to assets/ | Kind | SHA-256 |
+|---|---|---|
+| authored/humans/hair_bun_brown/Hair_bun_brown.png | CC0 original graphical source | `ebcf2d58a5f8dfe11db376e559d0308e57da00170cde1c1304871bab10d251fa` |
+| authored/humans/hair_bun_brown/README.md | CC0 original project documentary | `9e1dbb82b77985dc3da97a25aad5cc3456a58d317ea58bc4fb54f67e8d283b7e` |
+| authored/humans/hair_bun_brown/SOURCE.json | CC0 original project documentary | `1c4e95ace2160f24f37837e4ae8dd592c85f9c3cf0afd53bcf0ed5789ca30903` |
+| authored/humans/hair_bun_brown/hair01.original.json | CC0 pack metadata record | `34f0f557598a989cf94b00eef7cf7147c37b8b31007013fa08bbc2d22374085b` |
+| authored/humans/hair_bun_brown/hair_bun_brown.mhmat | CC0 original graphical/source metadata | `4f5c86a531b73707505632b36507c30f8759cea2f001de06d794aa1c4e1be716` |
+| authored/humans/hair_bun_brown/hair_bun_brown.obj | CC0 original graphical/source metadata | `87620ef37e13235c103415db778ae583b4f1abab21323ac1180bce57bef64856` |
+| authored/humans/hair_bun_brown/hair_bun_brown_dark_tie.png | CC0 derived texture (tie recoloured) | `15339830ff1143c171ee83b807948d7a7989c108df3088fd03777b3c5adde340` |
+| authored/humans/hair_bun_brown/rehmanpolanski_hair_bun_brown.mhclo | CC0 original graphical/source metadata | `54f136555d516f940268881e75453305789ff430be85032f25864d773ebe9676` |
+
+
 ### Skin material component — `authored/humans/skin_toigo_bronze_female/`
 
 MargaretToigo, *young light-skinned female, bronze variation* (2017, changed 2019),

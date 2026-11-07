@@ -2284,12 +2284,13 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
   border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-70%) rotate(45deg); }
 .welcome-sort select:hover, .welcome-sort select:focus-visible { border-color: var(--accent); color: var(--ink); outline: none; }
 .welcome-sort select option { color: var(--ink); background: var(--panel-solid); }
-/* On a phone the chips are one row that scrolls sideways, so the list keeps the sheet. */
+/* On a phone the chips stay three to a row, icon over name, the name breaking only between
+   words: two short rows, nothing scrolling sideways or past the edge at a larger text size
+   (T-2656 reflow). */
 @media (max-width: 520px) {
-  .welcome-quick { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: max-content;
-    overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain; }
-  .welcome-quick::-webkit-scrollbar { display: none; }
-  .welcome-quick-start > span { white-space: nowrap; }
+  .welcome-quick { gap: 5px; }
+  .welcome-quick-start { flex-direction: column; justify-content: center; gap: 3px; padding: 6px 4px; text-align: center; }
+  .welcome-quick-start > span { overflow-wrap: normal; }
   .welcome-kinds button { padding: 0 8px; }
   .welcome-sort select { padding: 0 22px 0 9px; }
   .welcome-sort::after { right: 10px; }

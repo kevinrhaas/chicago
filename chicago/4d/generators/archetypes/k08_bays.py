@@ -1502,6 +1502,8 @@ class Bay:
                 hf = v["storeys"][k].get("head_frieze")
                 if hf and i == hf["run"]:
                     self._head_frieze(flat, run, levels[k], hf)
+                if k == 0 and v.get("apron_band"):
+                    self._apron_band(flat, run, levels[0], v["apron_band"])
                 sp = v["storeys"][k].get("pier")
                 if sp and i == sp["run"]:
                     self._pier(flat, run, levels[k], hi, sp)
@@ -2652,6 +2654,51 @@ class Bay:
         if self.tier == "light":
             return
         m["rings"] += self._guilloche(flat, 0.0, run.L, lo, hi, cb["guilloche"], pr)
+
+    def _apron_band(self, flat, run, y_floor, ab):
+        """T-3365: a carved band round the bay under its lowest lights (2009 Prairie's oriel on
+        the Chicagology photograph: a band of small carved flowers between the lights' sills and
+        the moulded roll over its corbel): a dressed strip from `from_m` to `to_m` over the
+        bay's floor, `proud_m` out along the whole run, and on it ROSETTES in `rows` staggered
+        rows at `pitch_m` along the run (each row after the first moved half a pitch): each a
+        centre boss and four petals round it, `radius_m` across their outline, standing
+        `proud_m` past the band. The light tier keeps the strip and drops the rosettes."""
+        pr = float(ab["proud_m"])
+        lo, hi = y_floor + float(ab["from_m"]), y_floor + float(ab["to_m"])
+        rect_ = rect(0.0, run.L, lo, hi)
+        flat.plane("band", rect_, -pr)
+        flat.tube("band", rect_, 0.0, -pr, inward=False)
+        m = self.meta.setdefault("apron_band", {"y_m": [round(lo, 4), round(hi, 4)], "rosettes": 0})
+        if self.tier == "light":
+            return
+        ro = ab["rosettes"]
+        R, rp, pitch, rows, k = (float(ro["radius_m"]), float(ro["proud_m"]), float(ro["pitch_m"]),
+                                 int(ro["rows"]), int(ro["segments"]))
+        margin = 0.03
+        gap = (hi - lo - 2 * margin) / rows
+        if gap < 2 * R:
+            raise ValueError(f"{self.v['id']}: an apron band {hi - lo:.2f} m high holds no {rows} rows of "
+                             f"{R} m rosettes")
+        # four petals to the outline, each clear of its neighbours (they share one depth)
+        petal, off = R * 0.4, R * 0.6
+        n0 = math.floor((run.L - 2 * R - 2 * margin) / pitch + 1e-9) + 1
+        if n0 < 1:
+            return
+        s0 = (run.L - (n0 - 1) * pitch) / 2
+        for j in range(rows):
+            yc = hi - margin - gap * (j + 0.5)
+            # every other row sits between the first row's rosettes, one fewer of them
+            n, sc = (n0 - 1, s0 + pitch / 2) if j % 2 else (n0, s0)
+            for t in range(n):
+                cs = sc + t * pitch
+                for dx, dy, r_ in ((0.0, 0.0, R * 0.32), (off, 0.0, petal), (-off, 0.0, petal),
+                                   (0.0, off, petal), (0.0, -off, petal)):
+                    disc = [(cs + dx + r_ * math.cos(2 * math.pi * q / k), yc + dy + r_ * math.sin(2 * math.pi * q / k))
+                            for q in range(k)]
+                    d1 = -pr - (rp if dx == dy == 0.0 else rp * 0.6)
+                    flat.plane("band", disc, d1)
+                    flat.tube("band", disc, -pr, d1, inward=False)
+                m["rosettes"] += 1
 
     def _guilloche(self, flat, s0, s1, lo, hi, g, pr):
         """Rings of `ring_width_m` laid along a panel's middle at `pitch` of their radius,

@@ -2,10 +2,10 @@
   "subject": "martha_williamson_1904",
   "reference_set": "working_woman_1904",
   "shot": {
-    "date": "2026-11-06",
+    "date": "2026-11-07",
     "target": "local published mirror",
-    "build": "build 0bb3c0e11 · Nov 6, 2026, 4:39 PM CT",
-    "out": "evidence/people-match-2026-11-06/martha_williamson_1904",
+    "build": "build 32ef34806 · Nov 6, 2026, 7:53 PM CT",
+    "out": "evidence/people-match-2026-11-07/martha_williamson_1904",
     "evidence_repo": "kevinrhaas/chicago-evidence"
   },
   "bound": {
@@ -23,24 +23,24 @@
       "loop": true,
       "phase": 0
     },
-    "asset_lod0_sha256": "9e5db2392847d3dafee635a8b84b7d67a4995fb2e90c5929fab8e2b96e45e298"
+    "asset_lod0_sha256": "6a56f7b60fe6281e9b588ffd64f99548f21d740caae97e5dc4b1a27467191835"
   },
   "stills": {
     "near-desktop": {
-      "file": "evidence/people-match-2026-11-06/martha_williamson_1904/near-desktop.jpg",
-      "sha256": "1e4b8e1f0a0615867d2e0cd6cc3b369428394c9b7644b0d24893ffbd98375324",
+      "file": "evidence/people-match-2026-11-07/martha_williamson_1904/near-desktop.jpg",
+      "sha256": "97fa92a2d48168f504d1a8d09b0384ab6d17e4abc4c759aad94309c1faaf9aec",
       "detail": "full",
       "camera": {
-        "e": 1370.404,
+        "e": 1370.408,
         "n": -3232.224,
         "eye_y": 6.01,
         "yaw_deg": 255,
-        "pitch_deg": -18.04,
+        "pitch_deg": -18.05,
         "subject_heading_deg": 95,
         "head_enu": [
-          1367.506,
+          1367.51,
           -3233.001,
-          5.783
+          5.782
         ]
       },
       "figure_box_px": [
@@ -51,20 +51,20 @@
       ]
     },
     "far-desktop": {
-      "file": "evidence/people-match-2026-11-06/martha_williamson_1904/far-desktop.jpg",
-      "sha256": "1c608cba6c53a7785194f5edc1369c59f07f512d953cbbe69bd7059ee9bfb357",
+      "file": "evidence/people-match-2026-11-07/martha_williamson_1904/far-desktop.jpg",
+      "sha256": "cace3b38220586ff8f92a373e6710c17e8838a152e27c4928a8df4bd071cbc6b",
       "detail": "full",
       "camera": {
-        "e": 1377.165,
+        "e": 1377.17,
         "n": -3235.589,
         "eye_y": 5.931,
         "yaw_deg": 285,
         "pitch_deg": -5.98,
         "subject_heading_deg": 95,
         "head_enu": [
-          1367.506,
+          1367.51,
           -3233.001,
-          5.783
+          5.782
         ]
       },
       "figure_box_px": [
@@ -75,20 +75,20 @@
       ]
     },
     "near-phone": {
-      "file": "evidence/people-match-2026-11-06/martha_williamson_1904/near-phone.jpg",
-      "sha256": "c83d201eedf09dd66a01bad3e0bc19894b018a940b03e8e74137c4f0fc24aecd",
+      "file": "evidence/people-match-2026-11-07/martha_williamson_1904/near-phone.jpg",
+      "sha256": "c4098ff7a7a16d0fe5018e81dfcde8766ea16f5de58aeee4bee8005474dd8392",
       "detail": "balanced",
       "camera": {
-        "e": 1370.407,
+        "e": 1370.411,
         "n": -3232.227,
         "eye_y": 6.01,
         "yaw_deg": 255,
         "pitch_deg": -18.06,
         "subject_heading_deg": 95,
         "head_enu": [
-          1367.509,
+          1367.513,
           -3233.004,
-          5.782
+          5.781
         ]
       },
       "figure_box_px": [
@@ -99,20 +99,20 @@
       ]
     },
     "far-phone": {
-      "file": "evidence/people-match-2026-11-06/martha_williamson_1904/far-phone.jpg",
-      "sha256": "58de8a8b9930ad5414d1809bef38ab3a92c71be718eea1255aa2c472efc3cfc6",
+      "file": "evidence/people-match-2026-11-07/martha_williamson_1904/far-phone.jpg",
+      "sha256": "874960f7cef892352eede990e595faa16cea824233349d74bfa8e6e1e8ddde40",
       "detail": "balanced",
       "camera": {
-        "e": 1377.168,
+        "e": 1377.173,
         "n": -3235.592,
         "eye_y": 5.931,
         "yaw_deg": 285,
         "pitch_deg": -5.99,
         "subject_heading_deg": 95,
         "head_enu": [
-          1367.509,
+          1367.513,
           -3233.004,
-          5.782
+          5.781
         ]
       },
       "figure_box_px": [
@@ -124,9 +124,9 @@
     }
   },
   "sheets": {
-    "near-side-by-side": "evidence/people-match-2026-11-06/martha_williamson_1904/near-side-by-side.jpg",
-    "far-side-by-side": "evidence/people-match-2026-11-06/martha_williamson_1904/far-side-by-side.jpg",
-    "motion-strip": "evidence/people-match-2026-11-06/martha_williamson_1904/motion-strip.jpg"
+    "near-side-by-side": "evidence/people-match-2026-11-07/martha_williamson_1904/near-side-by-side.jpg",
+    "far-side-by-side": "evidence/people-match-2026-11-07/martha_williamson_1904/far-side-by-side.jpg",
+    "motion-strip": "evidence/people-match-2026-11-07/martha_williamson_1904/motion-strip.jpg"
   },
   "verdict": "unreviewed",
   "checklist": {

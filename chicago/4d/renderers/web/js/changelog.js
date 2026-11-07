@@ -1,4 +1,53 @@
 export const CHANGELOG = [ // newest first
+  { v: 2749, ts: '2026-11-07T04:03:21.806Z', date: 'Nov 6, 2026, 10:03 PM CT', title: '1816 Prairie stands on its pale stone basement', kind: 'improvement',
+    items: [
+      'The Henderson house at 1816 Prairie now stands on the pale stone basement its old photograph shows. The stone runs from the ground up to the main floor, around the front, both bay windows and the south side, with barred cellar windows under the bays.',
+      'The two raised roofs over its bay windows are now slated like the rest of the roof, not plain grey, and each has a dormer window where the photograph shows one.',
+      'Still to do: a second dormer on the side roof, the carved window hoods and the taller iron balcony over the door.',
+    ] },
+  { v: 2748, ts: '2026-11-07T03:33:36.219Z', date: 'Nov 6, 2026, 9:33 PM CT', title: '2009 Prairie\'s windows get their carved stone hoods', kind: 'improvement',
+    items: [
+      'In 1904, the top window of 2009 Prairie Avenue now sits under a stone hood whose ends turn down, with a carved stone pendant rising off it into the gable; two stone brackets hang under the bay window either side of the window below, and the small window has a splayed stone block over it, all where the old photograph shows them. The gutter that ran across the foot of the gable, which the photograph does not show, is gone.',
+      'The chimney\'s place and the gable\'s south foot are still to come.',
+    ] },
+  { v: 2747, ts: '2026-11-07T03:15:06.640Z', date: 'Nov 6, 2026, 9:15 PM CT', title: 'The Pullman portico runs the length of the front', kind: 'feature',
+    items: [
+      'In 1904, the Pullman house\'s stone portico on Prairie Avenue no longer stops at the door. As the old photographs show it, its columns, entablature and balustraded balcony now run north across the front block to its corner, standing well out from the wall on three columns.',
+    ] },
+  { v: 2746, ts: '2026-11-07T02:51:28.029Z', date: 'Nov 6, 2026, 8:51 PM CT', title: '1936 Prairie\'s chimneys take their photograph\'s heights and heavy heads', kind: 'fix',
+    items: [
+      'The Thompson/Allerton house at 1936 Prairie: the left chimney over the south flank comes down about 0.9 m to the height its winter photograph shows, and both south chimneys now wear what the photograph draws on them: a stone band, a sunk panel on the taller one, and a heavy corbelled head under a broad stone cap in place of a thin slab.',
+    ] },
+  { v: 2745, ts: '2026-11-07T02:43:18.075Z', date: 'Nov 6, 2026, 8:43 PM CT', title: 'Softer faces for the women in town', kind: 'improvement',
+    items: [
+      'Mattie Williamson\'s face no longer comes out long and square-jawed: the women\'s faces now keep to oval, round or heart-shaped outlines, with a lighter jaw and a shorter chin.',
+    ] },
+  { v: 2744, ts: '2026-11-07T02:08:45.776Z', date: 'Nov 6, 2026, 8:08 PM CT', title: '2009 Prairie\'s bay window now sits on a band of carved flowers', kind: 'improvement',
+    items: [
+      'In 1904, the stone bay window over the front door of 2009 Prairie Avenue now carries a carved band under its three windows: two staggered rows of small four-petalled flowers, seventeen in all, where the old photograph shows them. Before, the stone under the windows was plain.',
+      'The chimney\'s place, the window hoods and the gable\'s south foot are still to come.',
+    ] },
+  { v: 2743, ts: '2026-11-07T02:07:04.011Z', date: 'Nov 6, 2026, 8:07 PM CT', title: 'Go to: phone tiles stay on screen', kind: 'fix',
+    items: [
+      'On a phone, Go to\'s six featured tiles sit three to a row with the icon over the name, so nothing scrolls sideways or runs off the edge at a larger text size.',
+    ] },
+  { v: 2742, ts: '2026-11-07T01:46:07.203Z', date: 'Nov 6, 2026, 7:46 PM CT', title: '1919 Prairie\'s north flank: its last two photo gaps re-read and settled', kind: 'change',
+    items: [
+      'Nothing you can see changed in the town. The last two differences between 1919 Prairie\'s back wings and its three old advertising plates were measured again.',
+      'The back wing\'s gable reads about a metre off in the plates, but the same plates put its two pinnacled dormers where it would have to stand in front of them. The two cannot both be right, so the house keeps the plan the 1911 map draws.',
+      'The three-light window on the flank sits right on a corner in the plates, at about the plates\' own measuring error, so it stays as built.',
+      'All three plates now count as matching the house, so the Built so far walk lists 1919 Prairie among the houses matched to their pictures.',
+    ] },
+  { v: 2741, ts: '2026-11-07T01:17:31.125Z', date: 'Nov 6, 2026, 7:17 PM CT', title: 'Mattie Williamson wears her hair in a bun', kind: 'improvement',
+    items: [
+      'The Glessners\' cook had a man\'s short haircut under a modelled knot. She now wears a real woman\'s hairstyle: drawn back smooth from the face to a round bun at the back of the head.',
+      'Both women in town (Mattie in 1904, Mary Flynn in 1835) now have upper eyelashes, finer eyebrows, a narrower, straighter nose and higher cheekbones.',
+    ] },
+  { v: 2740, ts: '2026-11-07T00:57:27.872Z', date: 'Nov 6, 2026, 6:57 PM CT', title: 'Pullman house: one window a storey south of the entrance', kind: 'fix',
+    items: [
+      'On the Prairie Avenue front of 1729 Prairie, the part between the entrance and the 18th Street corner now has one window on each storey and one dormer above them, all on one line in the middle of the wall, as the photographs show it.',
+      'The narrow second window and its small dormer are gone from that face. The full-size Library of Congress scan shows them just around the corner, on the 18th Street side, where the house already has them.',
+    ] },
   { v: 2739, ts: '2026-11-07T00:02:46.579Z', date: 'Nov 6, 2026, 6:02 PM CT', title: 'Building cards: a style guide for every building, and tidier tabs', kind: 'improvement',
     items: [
       'Every building\'s Design tab is now a style guide: what it is, its roof and front, what to look for, then Shape, Walls, Roof, Windows and doors, and Grounds, each line with its grade dot.',

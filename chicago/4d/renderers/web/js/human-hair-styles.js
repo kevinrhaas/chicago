@@ -34,6 +34,15 @@ export const HAIR_CUTS = Object.freeze({
     knot_cm: Object.freeze({ up: 9, back: 9 }),
     lift_mm: Object.freeze({ root: 2.5, tip: 4 }), density: 1.3, curl: .05, hang: false,
   }),
+  // A woman's hair of the 1900s worn as a real bun (T-3434): her cap is a cleared bun hair
+  // (hair_bun_brown) drawn back from the face to a bun at the back of the head, whose own
+  // painted strands read finer than cards would, so it grows no scalp cards (brows and lashes
+  // still grow from her face).
+  drawn_back_bun_1904: Object.freeze({
+    flow: 'swept_up', part_cm: 0, lengths_cm: Object.freeze({ top: 6, side: 5, back: 4 }),
+    knot_cm: Object.freeze({ up: 5.5, back: 17 }), scalp_cards: false,
+    lift_mm: Object.freeze({ root: .6, tip: 1.4 }), density: 1, curl: .04, hang: false,
+  }),
   // Of the 1830s: fuller all round, brushed forward from the crown toward the brow and
   // temples, over the tops of the ears.
   brushed_forward_1835: Object.freeze({
@@ -53,7 +62,13 @@ export const FACIAL_HAIR = Object.freeze({
   // face reads bare and hard at 3 m.
   brows_fine: Object.freeze({
     region_cm: Object.freeze({ x: [1.3, 4.6], y: [1.58, 1.86], z_min: -1.5, droop: .5 }), facing: 'front',
-    length_cm: .55, fall: -.1, outward: 1, lift_mm: Object.freeze({ root: .15, tip: .3 }), width_mm: .55, cover: 7, spread: .5,
+    length_cm: .55, fall: -.1, outward: 1, lift_mm: Object.freeze({ root: .15, tip: .3 }), width_mm: .4, cover: 5.5, spread: .5,
+  }),
+  // Upper lashes (T-3434): a short dark fringe along the upper lid, swept out and up. At 3 m
+  // it reads as the dark line that makes an eye look open and soft rather than bare.
+  lashes_upper: Object.freeze({
+    region_cm: Object.freeze({ x: [2.1, 4.4], y: [0.1, 0.4], z_min: .7, droop: .2 }), facing: 'front',
+    length_cm: .32, fall: -.5, outward: .5, lift_mm: Object.freeze({ root: .2, tip: 1.2 }), width_mm: .3, cover: 5, spread: .4,
   }),
   // Side whiskers: down from the temple in front of the ear to about the line of the mouth.
   side_whiskers: Object.freeze({
@@ -81,11 +96,11 @@ export const PEOPLE_HAIR = Object.freeze({
     basis: 'Clean-shaven, with short hair showing below the hat, as the liveried coachmen of the people-match reference set are (coachman_1904: Rau 1902, Griffith 1905); the cut and the colour are reconstructed. No picture of Hans Johnson is known.',
   }),
   glessner_williamson_martha_l: Object.freeze({
-    cut: 'swept_up_knot_1904', facial: Object.freeze(['brows_fine']), colour: 'dark_brown', grade: 'reconstructed',
-    basis: 'A reconstructed choice: a working woman of 1904 with her hair drawn up from the face to a knot on the crown, as the 1903 Wasson stereographs of a cook and a maid show. No picture of Martha Williamson has been read.',
+    cut: 'drawn_back_bun_1904', facial: Object.freeze(['brows_fine', 'lashes_upper']), colour: 'mid_brown', grade: 'reconstructed',
+    basis: 'A reconstructed choice: a working woman of 1904 with her hair drawn back from the face to a bun, as the 1903 Wasson stereographs of a cook and a maid show. No picture of Martha Williamson has been read.',
   }),
   rc_flynn_mary: Object.freeze({
-    cut: 'centre_part_knot_1835', facial: Object.freeze(['brows_fine']), colour: 'dark_brown', grade: 'reconstructed',
+    cut: 'centre_part_knot_1835', facial: Object.freeze(['brows_fine', 'lashes_upper']), colour: 'dark_brown', grade: 'reconstructed',
     basis: 'A reconstructed choice for a working woman in the Chicago of 1835: hair parted in the middle, drawn smooth over the ears and pinned up in a knot behind, as women of the 1830s wore it. No picture of Mary Flynn is known.',
   }),
   rc_bardwell_otis: Object.freeze({

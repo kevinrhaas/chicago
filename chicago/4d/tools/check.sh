@@ -437,6 +437,8 @@ step "Modular adult dress consumes cleared source and preserves existing residen
 
 step "Resident hair preserves verified source pixels, fitted UVs and existing skin bindings (T-1789)" \
   python3 tools/test_human_hair_short04.py
+step "A cleared woman's hairstyle (Mattie's bun) is pinned, CC0, fitted to her head and skinned; its red tie recoloured (T-3434)" \
+  python3 tools/test_human_hair_proxy.py
 
 step "Resident body normals share exact source seams without welding geometry or UVs (T-1789)" \
   python3 tools/test_human_source_normals.py
@@ -1501,6 +1503,19 @@ step "a K01 named-window front takes named basement lights, a corner stone and a
 # Chicagology photograph; each refused out of its range.
 step "a K01 shaped gable takes a carved crest and a door's pilasters take pinnacles (T-3365)" \
   python3 tools/test_k01_crest_pinnacles.py
+
+# T-3365. A K08 bay's carved apron band under its lowest lights (2009 Prairie's oriel, the
+# Chicagology photograph): held on the committed record, its rosettes counted, the light tier
+# dropping them; each key refused out of its range, and a band into the sill stones refused.
+step "a K08 oriel takes a carved apron band of rosettes under its lights (T-3365)" \
+  python3 tools/test_k08_apron_band.py
+
+# T-3365. The moulded hoods of a K01 named-window front's lights (2009 Prairie, the Chicagology
+# photograph): a drip band with label stops and a carved pendant over the paired light, standing
+# proud of the shaped gable's slab; consoles under the oriel; a splayed key in place of the small
+# light's lintel. Held on the committed record; each part refused out of its range.
+step "a K01 named-window front takes moulded hoods, consoles, a key and a pendant (T-3365)" \
+  python3 tools/test_k01_window_hoods.py
 
 # T-3255. Eared and crested stone hoods over a K01 wall's round-headed lights, and the main
 # block's corner pilasters (k01_dressings), held on 1701 Prairie's record: every round light on

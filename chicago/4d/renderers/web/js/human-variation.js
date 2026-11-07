@@ -94,10 +94,20 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
     if (a.draw_as) continue;
     const g = gauss(rand), u = rand();
     if (a.drive) continue;
-    if (a.kind === 'one_of') { option[a.id] = Math.min(a.options.length - 1, Math.floor(u * a.options.length)); values[a.id] = clip(Math.abs(g) * a.spread, 0, L); }
+    if (a.kind === 'one_of') {
+      // A body may allow only some of the options (T-3434: the women's heads are never square
+      // or rectangular); the same draw picks among those, so no one else's choice moves.
+      const allow = asset.one_of_allow?.[a.id];
+      option[a.id] = allow ? allow[Math.min(allow.length - 1, Math.floor(u * allow.length))] : Math.min(a.options.length - 1, Math.floor(u * a.options.length));
+      values[a.id] = clip(Math.abs(g) * a.spread, 0, L);
+    }
     else if (a.kind === 'positive') values[a.id] = clip(Math.abs(g) * a.spread, 0, L);
     else values[a.id] = clip(g * a.spread, -L, L);
   }
+  // A body may damp the seeded face (T-3434: a woman's draw at full spread can land a long,
+  // square, heavy-chinned face that reads as a man's): its face axes and head outline only.
+  const damp = asset.face_draw_scale;
+  if (damp != null) for (const a of kit.axes) if ((a.scope === 'face' || a.id === 'head_shape') && !a.drive && !a.draw_as && a.id in values) values[a.id] *= damp;
   for (const a of kit.axes) if (a.draw_as && !a.drive && a.draw_as in values) values[a.id] = values[a.draw_as];
   // The body's own lean (T-3434: the women's bodies toward MakeHuman's feminine face and a
   // resting mouth), added to the draw; a fitted face below still overrides it.
