@@ -708,13 +708,11 @@ mkdir -p "$SITE/data/humans/web"
 cp -a data/humans/. "$SITE/data/humans/"
 if [ -d assets/humans/web ]; then
   cp -a assets/humans/web/. "$SITE/data/humans/web/"
-  # T-3451: a wardrobe-catalogue figure that nothing in the town draws yet (the
-  # 1904 lady and maid, the 1835 merchant and labourer, the 1812 private: each
-  # test asserts it has no instance) stays in the repository until a record
-  # places it. Five of them are 36 MB of web GLB the published tree, held to its
-  # budget twice over by Pages (validate.py SITE_BUDGET_MB), has no reader for.
-  # A figure is published once any runtime file names its asset: an instance,
-  # a pose binding, an animation, or the renderer itself.
+  # T-3451: a figure that nothing in the town draws (no instance, pose binding,
+  # animation or renderer line names its asset) stays in the repository; a record
+  # that places it publishes it. The wardrobe catalogue was built before any of its
+  # figures was placed (T-3447..T-3451), and the published tree is held to its
+  # budget twice over by Pages (validate.py SITE_BUDGET_MB).
   for lod0 in "$SITE"/data/humans/web/*.lod0.glb; do
     [ -e "$lod0" ] || continue
     stem=$(basename "$lod0" .lod0.glb)
