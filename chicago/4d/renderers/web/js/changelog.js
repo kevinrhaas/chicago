@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2790, ts: '2026-11-07T19:36:28.974Z', date: 'Nov 7, 2026, 1:36 PM CT', title: '1812 blockhouse cupolas are log and lower', kind: 'improvement',
+    items: [
+      'The cupolas on the first fort\'s two blockhouses are now built of logs like the walls below them, and stand about 20% lower, closer to the fort\'s drawings.',
+    ] },
   { v: 2789, ts: '2026-11-07T19:23:20.309Z', date: 'Nov 7, 2026, 1:23 PM CT', title: 'The town\'s own checks stop waiting on pictures nobody looks at', kind: 'fix',
     items: [
       'Nothing you can see changes. Two of the checks run on every change were timing out. They read the Evidence panel and the People and Businesses lists, but each step also waited for the whole 3D town to be drawn, and on the test machines one picture of the town takes nearly eight seconds. Those checks now pause the drawing while they read the panels, which is how the other picture-free checks already work. The town is drawn again before anything that looks at it.',
