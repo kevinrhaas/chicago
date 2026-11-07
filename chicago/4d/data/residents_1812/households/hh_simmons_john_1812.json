@@ -1,0 +1,248 @@
+{
+  "id": "hh_simmons_john_1812",
+  "scene": "1812",
+  "name": "The Simmons family of Heald's company, in the fort",
+  "head": "simmons_john",
+  "division": "fort",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913",
+      "simmons_1896_heroes_and_heroines"
+    ],
+    "note": "The family's men, women and children are on Helm's and Heald's lists of 1812-1814 (Quaife App. IV, VI)."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "first_fort_dearborn_small_house_ne",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "whistler_1808_fort_dearborn_draught",
+      "also_sources": [],
+      "note": "No source says which room of the fort any soldier or soldier's family lived in; the barracks named here is the reconstructed choice (liberty L-1812-people-3461)."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "A child the counts of 18 do not name may have been of this family; those children have their own reconstructed cards (hh_garrison_children_unnamed_1812).",
+    "sources": [
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913",
+      "simmons_1896_heroes_and_heroines"
+    ]
+  },
+  "persons": [
+    {
+      "id": "simmons_john",
+      "name": "John Simmons",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913",
+        "simmons_1896_heroes_and_heroines"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "On the 31 May roll; his widow's captivity is in Woodward's and Helm's lists, and the family narrative (via Quaife) places him at the wagons. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "John Simmonds (Present column of the 1812 roll)",
+        "Corporal John Simmons (family narrative, N. Simmons 1896; Quaife says only a private)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 14 Mar 1810 for five years, to 14 Mar 1815. After 14 August: Killed defending the baggage wagons; his son David was killed in the children's wagon.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17011; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "John Simmons \" 14 March 1810 14 March 1815 John Simmonds",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17420; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "John Simmons Private Killed in battle",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 10057-10058; ch. XI 'The Fate of the Survivors' (begins p. 232)",
+          "quote": "Her husband was one of the little band of soldiers who died fighting in defense of the wagons.",
+          "claim": "Quaife ch. XI."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 10078-10079; ch. XI 'The Fate of the Survivors' (begins p. 232); footnote 635",
+          "quote": "The Fort Dearborn muster-roll for May, 1812, shows that Simmons was not a corporal as stated, but only a private.",
+          "claim": "Quaife: not a corporal."
+        },
+        {
+          "source_id": "simmons_1896_heroes_and_heroines",
+          "locator": "Internet Archive heroesheroinesof00simm, OCR text heroesheroinesof00simm_djvu.txt, line 370-371; ch. II; p. 14",
+          "quote": "John Simmons, Jr., and Susan Millhouse were married",
+          "claim": "Family narrative: married Susan Millhouse; enlisted 14 March 1810."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4846; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*John Simmons \" 14 March 1810 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "simmons_susan_millhouse",
+      "name": "Susan Millhouse Simmons",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "quaife_1913",
+        "simmons_1896_heroes_and_heroines"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Helm's and Woodward's lists of women prisoners. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Susan Millhouse Simmons (family narrative)"
+      ],
+      "note": "Wife of Private John Simmons. Maiden name only from the 1896 family narrative, which Quaife says \"must be used with great caution\". After 14 August: Walked with her infant to Green Bay, back via Chicago to Mackinac, then Detroit; reached her parents near Piqua, Ohio, mid-April 1813; died Springville, Iowa, 1857.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16819; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's women list, Appendix VI",
+          "quote": "Mrs. Simmons }",
+          "claim": "Helm's women list."
+        },
+        {
+          "source_id": "simmons_1896_heroes_and_heroines",
+          "locator": "Internet Archive heroesheroinesof00simm, OCR text heroesheroinesof00simm_djvu.txt, line 2286; ch. XII; p. 69",
+          "quote": "married Miss Susan Millhouse, also a Pennsylvanian.",
+          "claim": "Family narrative (Kimball 1893 quoted)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 10206-10207; ch. XI 'The Fate of the Survivors' (begins p. 232)",
+          "quote": "removed with them to Iowa, and died at Springville in 1857.",
+          "claim": "Death (Quaife)."
+        }
+      ]
+    },
+    {
+      "id": "simmons_david",
+      "name": "David Simmons",
+      "relationship": "son",
+      "grade": "attested",
+      "sources": [
+        "quaife_1913",
+        "simmons_1896_heroes_and_heroines"
+      ],
+      "born": {
+        "value": "late 1809 (family narrative)",
+        "confidence": "inferred",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "From a later family account. Not a register entry."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Quaife from the family narrative; Simmons 1896. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "\"the little curly headed corporal\" (family narrative)"
+      ],
+      "note": "Son of Private John Simmons and Susan Millhouse Simmons. After 14 August: Killed in the children's wagon.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 10058-10059; ch. XI 'The Fate of the Survivors' (begins p. 232)",
+          "quote": "Among the children in the wagon was his son, David, two years of age,",
+          "claim": "Quaife ch. XI."
+        },
+        {
+          "source_id": "simmons_1896_heroes_and_heroines",
+          "locator": "Internet Archive heroesheroinesof00simm, OCR text heroesheroinesof00simm_djvu.txt, line 371-372; ch. II; p. 14",
+          "quote": "in the latter part of 1809 David Simmons was born.",
+          "claim": "Family narrative."
+        }
+      ]
+    },
+    {
+      "id": "simmons_susan",
+      "name": "Susan Simmons",
+      "relationship": "daughter",
+      "grade": "attested",
+      "sources": [
+        "quaife_1913",
+        "simmons_1896_heroes_and_heroines"
+      ],
+      "born": {
+        "value": "1812-02-12 (Simmons 1896 p. 26) or 1812-02-13 (Kimball, quoted p. 70); Quaife: February 1812",
+        "confidence": "inferred",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "From a later family account. Not a register entry."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Helm: 'Mrs. Simmon[s] 1' child in captivity. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Susan Simmons Winans (married Moses Winans 1828)"
+      ],
+      "note": "Daughter of Private John Simmons and Susan Millhouse Simmons. After 14 August: Carried through captivity by her mother; died Santa Ana, California, 27 Apr 1900, the last known survivor.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 10162-10163; ch. XI 'The Fate of the Survivors' (begins p. 232)",
+          "quote": "but with another child, who had been born at Fort Dearborn in February, 1812.",
+          "claim": "Born at the fort (Quaife)."
+        },
+        {
+          "source_id": "simmons_1896_heroes_and_heroines",
+          "locator": "Internet Archive heroesheroinesof00simm, OCR text heroesheroinesof00simm_djvu.txt, line 776-777; ch. V; p. 26; OCR \"I2th\" = 12th",
+          "quote": "On the I2th day of February, 1812, a daughter was born to Corporal Simmons,",
+          "claim": "Birth date (family narrative)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16830; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's list, Appendix VI",
+          "quote": "Mrs. Simmon[s] 1",
+          "claim": "Helm's children list."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 10209-10210; ch. XI 'The Fate of the Survivors' (begins p. 232)",
+          "quote": "She lived to become the last survivor of the Fort Dearborn massacre, dying at Santa Ana, April 27, 1900.",
+          "claim": "Death (Quaife)."
+        }
+      ]
+    }
+  ]
+}
