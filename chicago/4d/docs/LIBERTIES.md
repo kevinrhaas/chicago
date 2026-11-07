@@ -36621,6 +36621,13 @@ Short upper lashes (`lashes_upper`) are grown on both women, the brows are made 
 higher cheekbones. A drawn-back bun is what the 1903 stereographs show of a working woman's hair; the
 hairstyle, its colour and every amount are reconstructed choices, and nothing says how she wore hers.
 
+**A softer face, 2026-11-07 (T-3434):** with the bun on, her face still read as a man's. Her seeded draw
+had given her MakeHuman's rectangular head outline and a long, heavy chin. The women's bodies now allow
+only the oval, round, inverted-triangular and diamond outlines (`one_of_allow`; the same draw picks
+among them, so no one else's choice moves), damp the seeded face and head outline to half spread
+(`face_draw_scale`) before their bias, and lean the jaw a little further (-0.45) and the chin a little
+shorter. A choice of depiction, like the rest of the bias; nothing records her face.
+
 ### L-tremont-gale-envelope-2385 — two-storey default and picture alternative
 
 **Decision:** the default first Tremont follows Gale's retrospective, 1835-framed
