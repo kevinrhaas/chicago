@@ -37,6 +37,13 @@
  *
  * A scene that does not list `front_yards` hands this no data base and it draws nothing; a
  * failed fetch draws nothing and records a problem.
+ *
+ * T-3488 — THE BACK YARDS' PLANTS. data/back_yards/<scene>.json (back-yards.js draws its paving,
+ * doors, posts and crop rows) writes its shrubs, trees, creeper and beds in this file's row
+ * formats; main.js hands that file here as `back`, and its lots grow on this same engine, after
+ * the front yards' own, with the same Season, detail and picks. Their cards say "back yard" and
+ * cite that file and its liberty; their ids carry `<parcel>.back`, so a lot's front and back
+ * plants never share one. Without `back` this draws exactly what it drew before.
  */
 
 import * as THREE from 'three';
@@ -243,8 +250,15 @@ function lotWhere(lot) {
   return `${a}${street}`;
 }
 
-function plantCard(hit, doc) {
+/** A lot's key in a card id: its parcel, or `<parcel>.back` for a back-yard lot (T-3488). */
+const lotKey = (lot) => (lot._back ? `${lot.parcel}.back` : lot.parcel);
+
+function plantCard(hit, frontDoc, backDoc = null) {
   const { lot, kind, grade } = hit;
+  const back = !!lot._back;
+  // a back-yard lot reads its own file's words where it has them, the front yards' otherwise
+  const doc = back ? { ...frontDoc, ...backDoc, plants: { ...(frontDoc?.plants ?? {}), ...(backDoc?.plants ?? {}) },
+    beds: { ...(frontDoc?.beds ?? {}), ...(backDoc?.beds ?? {}) } } : frontDoc;
   const where = lotWhere(lot);
   const pictured = lot.pictured_notes ?? {};
   const note = kind === 'creeper' ? pictured.creeper?.note
@@ -255,22 +269,25 @@ function plantCard(hit, doc) {
   const name = {
     shrub: hit.tub ? `${/^[aeiou]/i.test(plant?.common ?? '') ? 'An' : 'A'} ${plant?.common ?? 'shrub'}, `
       + (hit.vessel === 'box' || hit.vessel === 'over' ? 'in a planting box' : 'in a tub')
-      : `A ${plant?.common ?? 'shrub'} in the front yard`,
-    tree: `A ${plant?.common ?? 'young tree'} in the front lawn`,
-    bed: 'A flower bed in the front lawn',
-    creeper: 'Ivy on the house front',
+      : `A ${plant?.common ?? 'shrub'} in the ${back ? 'back' : 'front'} yard`,
+    tree: `A ${plant?.common ?? 'young tree'} in the ${back ? 'back yard' : 'front lawn'}`,
+    bed: `A flower bed in the ${back ? 'back yard' : 'front lawn'}`,
+    creeper: back ? "Ivy on the house's back wall" : 'Ivy on the house front',
   }[kind];
   const what = kind === 'shrub' || kind === 'tree' ? (doc.plants?.[hit.plant]?.name ?? plant?.common ?? '')
     : kind === 'bed' ? (doc.beds?.[hit.bedKind] ?? '') : 'Boston ivy on the wall';
   return {
-    id: `front-yard.${lot.parcel}.${kind}.${hit.index}`,
+    id: `front-yard.${lotKey(lot)}.${kind}.${hit.index}`,
     sidecar: {
       name,
       phase: null,
       change_note: grade === 'reconstructed'
-        ? `The front yard at ${where}: a mown lawn and a few plants of the period. The pictures of the `
+        ? (back
+          ? `The yard behind ${where}${lot.note ? `: ${lot.note}` : ''}`.replace(/[.\s]*$/, '. ')
+            + 'Nothing records what grew in this yard, so this planting is our reconstruction.'
+          : `The front yard at ${where}: a mown lawn and a few plants of the period. The pictures of the `
           + 'district show kept lawns, some shrubs by the steps and the house, and young trees; nothing '
-          + 'records what grew on this lot, so this planting is our reconstruction.'
+          + 'records what grew on this lot, so this planting is our reconstruction.')
         : `${note ?? ''}`.trim(),
       placement: {
         symbolic_location: where,
@@ -285,8 +302,10 @@ function plantCard(hit, doc) {
         },
       },
       citations: [],
-      research_doc: 'docs/RESEARCH/prairie_1904_front_yards.md',
-      research_note: `Lot ${lot.parcel} of data/front_yards/1904.json (T-3203, T-3223). ${doc.liberty ?? ''}`.trim(),
+      research_doc: back ? 'docs/RESEARCH/prairie_1904_back_yards.md' : 'docs/RESEARCH/prairie_1904_front_yards.md',
+      research_note: back
+        ? `Lot ${lot.parcel} of data/back_yards/${backDoc?.scene ?? '1904'}.json (${backDoc?.ticket ?? 'T-3488'}). ${backDoc?.liberty ?? ''}`.trim()
+        : `Lot ${lot.parcel} of data/front_yards/1904.json (T-3203, T-3223). ${doc.liberty ?? ''}`.trim(),
     },
   };
 }
@@ -341,11 +360,12 @@ function bedPlanting(b) {
  * @param {object} o dataBase (data/ root, or null when the scene does not list the layer) ·
  *   sceneId · terrain · confidence · problems · detail · lowSpec · mode (the Season's tree
  *   mode) · levelAt (the street grid's drop below the field at a point) · grownMaterials (the
- *   parkway elms' materials, so the leaf and bark atlases are loaded once) · checkpoint
+ *   parkway elms' materials, so the leaf and bark atlases are loaded once) · checkpoint ·
+ *   back (T-3488: data/back_yards/<scene>.json, already read, whose lots' plants grow here too)
  */
 export async function createFrontYards({
   dataBase, sceneId, terrain, confidence = null, problems = [], detail = 'full', levelAt = null,
-  lowSpec = false, mode = 'summer', grownMaterials = null, checkpoint = () => null,
+  lowSpec = false, mode = 'summer', grownMaterials = null, checkpoint = () => null, back = null,
 } = {}) {
   const group = new THREE.Group();
   group.name = 'front-yards';
@@ -356,15 +376,20 @@ export async function createFrontYards({
     pickAt: () => null, update() {}, setDetail: async () => {}, setSeason: async () => {}, settle() {},
     cardFor: () => null, dispose() {},
   };
-  if (!dataBase || !terrain) return out;
-  let doc;
-  try {
-    doc = await getJSON(new URL(`front_yards/${sceneId}.json`, dataBase));
-  } catch (err) {
-    problems.push(`front yards: ${err.message} — no front-yard planting is drawn`);
-    return out;
+  // T-3488: the back yards' lots, marked, after the front yards' own
+  const backLots = (back?.lots ?? []).map((lot) => ({ ...lot, _back: true }));
+  if ((!dataBase && !backLots.length) || !terrain) return out;
+  let doc = {};
+  if (dataBase) {
+    try {
+      doc = await getJSON(new URL(`front_yards/${sceneId}.json`, dataBase));
+    } catch (err) {
+      problems.push(`front yards: ${err.message} — no front-yard planting is drawn`);
+      if (!backLots.length) return out;
+      doc = {};
+    }
   }
-  const lots = doc.lots ?? [];
+  const lots = backLots.length ? [...(doc.lots ?? []), ...backLots] : (doc.lots ?? []);
   out.records = lots;
   stats.lots = lots.length;
   if (!lots.length) return out;
@@ -635,13 +660,13 @@ export async function createFrontYards({
       }
     }
     if (!best) return null;
-    const record = plantCard(best.hit, doc);
+    const record = plantCard(best.hit, doc, back);
     return { id: record.id, record, point: best.point, distance: best.distance };
   };
   out.cardFor = (id) => {
     const m = /^front-yard\.(.+)\.(shrub|tree|bed|creeper)\.(\d+)$/.exec(id ?? '');
     if (!m) return null;
-    const lot = lots.find((l) => l.parcel === m[1]);
+    const lot = lots.find((l) => lotKey(l) === m[1]);
     if (!lot) return null;
     const i = Number(m[3]);
     const list = { shrub: lot.shrubs, tree: lot.trees, bed: lot.beds, creeper: lot.creeper }[m[2]] ?? [];
@@ -650,7 +675,7 @@ export async function createFrontYards({
     const hit = m[2] === 'bed' ? { lot, kind: 'bed', index: i, bedKind: r[5], grade: lot.grade }
       : m[2] === 'creeper' ? { lot, kind: 'creeper', index: i, grade: lot.pictured_notes?.creeper?.grade ?? lot.grade }
         : { lot, kind: m[2], index: i, plant: r[2], grade: r[5] ?? lot.grade, tub: (r[7] ?? 0) > 0, vessel: r[8] ?? 'tub' };
-    return plantCard(hit, doc);
+    return plantCard(hit, doc, back);
   };
   out.dispose = () => {
     if (forest) { group.remove(forest.group); forest.dispose(); }

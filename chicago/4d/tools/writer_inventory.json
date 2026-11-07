@@ -367,6 +367,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/street_furniture/1904.json byte for byte, changed no committed byte; --check writes nothing in-tree.",
       "placed": "by layer, 2026-10-27 \u2014 a reader of committed originals after tools/trace_prairie_1904_grid.py, whose faces it lays on, tools/lay_prairie_1904_street_section.py, whose carriage walks it keeps clear of, and tools/plant_prairie_1904_street_trees.py, whose elms it keeps clear of (T-3199); see the manifest step"
     },
+    "lay_prairie_1904_back_yards.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-07",
+      "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/back_yards/1904.json byte for byte, changed no committed byte; --check and --self-test write nothing in-tree.",
+      "placed": "A reader of BUILT assets as well as committed originals: every 1904 sidecar's baked GLB (walls, glass, doors, K14 lawns), the traced footprints, data/street_grid/1904.json, the 1904 household cards and data/front_yards/1904.json (tools/plant_prairie_1904_front_yards.py). Its manifest place must follow those emits, the scene compile and the front-yard planter (T-3488)."
+    },
     "lay_prairie_1904_walk_joins.py": {
       "placement": "pending",
       "write_mode": "(bare)",

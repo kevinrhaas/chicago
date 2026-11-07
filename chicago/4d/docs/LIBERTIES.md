@@ -28112,6 +28112,45 @@ tool follows it.
 **Review:** `docs/RESEARCH/prairie_1904_street_section.md`.
 **Recorded:** 2026-10-31 (T-3274).
 
+### L-prairie-back-yards-3488 — The 1904 back and side yards: back doors, terraces, walks, gangways, drying yards and kitchen gardens
+
+**Decision:** behind and beside the 1904 district's houses, `tools/lay_prairie_1904_back_yards.py`
+lays out each lot's yard (`data/back_yards/1904.json`, drawn by `renderers/web/js/back-yards.js`):
+a back door on the main house's rear wall where its model has none, on a stretch of wall with no
+window in its way, its sill at the house's first floor (1.5 m at most) or, where the first floor's
+windows or a shallow yard leave no room, at grade a step up; its steps and landing; a paved terrace
+at their foot (brick laid herringbone, or stone flags on a stone front), larger where a double lot
+gives the house a side yard; walks from it, laid straight on the lot's free ground, to the coach
+house's yard door or its K12 workyard paving, to the alley where no stable stands, and down the side
+passage to the K14 service walk or to the front walk by the stoop; a drying yard of trodden earth
+with two clothes posts; on some of the modest Indiana and Calumet lots a kitchen garden of a few dug
+rows against the sunny fence; and on a worked house's side lawn one to three shade trees and a shrub
+border, creeper on a third of the coach houses' yard walls, a lilac at the back fence of a lot with
+no stable. Every lot is seeded by its parcel id. Glessner's court, the Pullman house lot and
+glasshouse ground, and Field's south lawn are left as their own records draw them.
+**What it stands on:** the research note `docs/RESEARCH/prairie_1904_back_yards.md`: the Sanborn
+sheets of 1911 put the stables on the alley with 5-18 m of yard between them and the houses; the
+1900 census (`census_1900_chicago_t623_roll245`) enumerates coachmen over the stables and a laundress
+in many households, so the back yard was the kitchen's and the stable's working court and the wash
+was hung at home; the side lawns and shade trees of the double lots are in `sheldon_artistic_houses_1884_field_house`
+("a spacious lawn and scattered shade-trees"), `inter_ocean_1887_01_02_prairie_avenue_homes` and the
+1883 album; and every house of the period had a kitchen door. The owner, 2026-11-07: "patios and
+entertaining space near the rear doors and walkways to the carriage houses and to the front steps and
+maybe in gangways ... dont wildly invent things".
+**What is invented:** every piece's place, size and paving: no picture shows the rear of any house
+or the back yard of any lot here but Hibbard's (1701), Glessner's court (c. 1923) and Pullman's. The
+drying yard of a household whose laundress the 1900 census names is inferred from that enumeration
+(its place and size are still reconstructed); every other drying yard, all kitchen gardens (no
+source names one on any lot of the district), the terraces, the walks, the back doors and their
+steps, and the side-lawn trees, borders, creeper and lilacs are reconstructed.
+**How to resolve:** a photograph, a plan or an insurance drawing of a lot's rear (the Houghton
+courtyard elevations, a Sanborn porch or areaway, a later HABS sheet) replaces that lot's rule; a
+rebaked house whose rear gains its own door or porch takes this file's door away (the tool keeps a
+model's door and draws only its steps).
+**Ticket:** T-3488.
+**Review:** `docs/RESEARCH/prairie_1904_back_yards.md`.
+**Recorded:** 2026-11-07 (T-3488).
+
 ### L-prairie-paving-seams-2475 — Where two 1904 pavings meet: one roadway per crossing, the other worn into it over 1.6 m
 
 **Decision:** where two 1904 roadways cross or meet, only one is drawn: the one with the higher
@@ -38557,6 +38596,19 @@ Taylor's no. 1445, read above as drawing this parkway clear, does draw this trun
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg`,
 `taylor_1445_album-side-by-side.jpg` and their match records.
 
+**Extended (T-1881, 2026-11-07, the tree at 58.8 m):** the plate's living tree on 18th Street's north
+parkway, before the house's south-east corner, was the last pictured tree on the parkway before the house
+still drawn as the rule's grown elm, its low fork a V about 3 m up and its fountain about 6 m across and
+19 m high over the house's corner and terrace through Taylor's 16554. It now grows on `high_head` at
+scale 0.65. **Read:** Taylor's 16554 (winter, f 1181 px, the trunk about 53 m off at x 417) draws one
+stout leader, about 12 px (0.5 m) across, forking about 8 m up into a narrow, sparse head about 3 m
+across, the tree about 13 m to its top; the Detroit print det 4a08066 (c. 1900) draws the trees of this
+stretch as slender leaders under heads from about the second storey; the 1894 plate draws a single
+straight trunk under a high head in leaf. The place stays the plate's: 16554 reads it 2.6 m west, as its
+camera reads the trees at 43.7 and 51.3 m 2.3-2.8 m west. **Chosen (reconstructed):** the habit's numbers
+(the form's, above) and the height off 16554's top; its bole draws about 0.3 m, slighter than the 0.5 m
+16554 prints. **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_16554_from_south-side-by-side.jpg`,
+`pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg`, `detroit_det_4a08066-side-by-side.jpg` and their match records.
 
 ### L-pullman-terrace-tubs-1934 — The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them
 

@@ -1,0 +1,46 @@
+{
+  "id": "pea_gravel",
+  "directional": false,
+  "group": "yard",
+  "span_m": 1.0,
+  "kind": "gravel",
+  "mean_roughness": 0.78,
+  "colors": [
+    [
+      184,
+      174,
+      156
+    ],
+    [
+      99,
+      89,
+      77
+    ]
+  ],
+  "note": "Raked pea gravel for a carriage court or garden path: rounded 5-15 mm stones, tan, grey, buff and a few white, over a dusty bed, the rake's tines leaving faint ridges along x. The mix and the raking are reconstructed (T-3488).",
+  "ticket": "T-3488",
+  "span_along_m": 1.0,
+  "span_across_m": 1.0,
+  "resolution_px": 512,
+  "px_per_m": 512.0,
+  "confidence": "reconstructed appearance; which yard surface carries it is the yard layout's to say, never this map's",
+  "orientation": "image x = along the path or court the yard layout lays it on (renderer u); image y = across it (v)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "normal_dx": "linear",
+    "roughness": "linear",
+    "height16": "linear 16-bit",
+    "ao": "linear",
+    "metallic": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "pea_gravel_basecolor_web.jpg",
+    "normal_gl": "pea_gravel_normal_gl_web.jpg",
+    "orm": "pea_gravel_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 19041610,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_pbr.py); no photograph sampled"
+}

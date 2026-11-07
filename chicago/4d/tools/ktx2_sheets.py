@@ -181,6 +181,15 @@ def drop_in_sheets():
             sheet = json.loads((d / 'material.json').read_text())
             for k in ('basecolor', 'normal_gl', 'orm'):
                 out.append((d, sheet['id'], k, sheet['web'][k]))
+    # The same library's yard grounds (T-3488), which no street names: publish.sh ships
+    # every material of the library with its three KTX2s, so each carries them too.
+    lib = ASSETS / 'prairie_1904_pbr'
+    for sheet in json.loads((lib / 'manifest.json').read_text())['materials']:
+        if sheet['group'] != 'yard' or sheet['id'] in {p.name for p in map(Path, seen)}:
+            continue
+        d = lib / sheet['group'] / sheet['id']
+        for k in ('basecolor', 'normal_gl', 'orm'):
+            out.append((d, sheet['id'], k, sheet['web'][k]))
     # camp-surfaces.js CAMP_COVERINGS (T-3342): the 1812 camp's three coverings, their `web` maps.
     # T-3401: and the haystacks' three hay sheets (HAY_COVERINGS).
     for sid in ('cattail_mat', 'elm_bark', 'bough_thatch', 'hay_stack', 'hay_weathered', 'hay_cut'):

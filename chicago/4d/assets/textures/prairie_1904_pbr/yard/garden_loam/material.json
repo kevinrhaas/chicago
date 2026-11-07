@@ -1,0 +1,46 @@
+{
+  "id": "garden_loam",
+  "directional": true,
+  "group": "yard",
+  "span_m": 2.0,
+  "kind": "loam",
+  "mean_roughness": 0.91,
+  "colors": [
+    [
+      86,
+      72,
+      58
+    ],
+    [
+      64,
+      53,
+      43
+    ]
+  ],
+  "note": "Freshly dug and raked garden loam: a dark crumb, the rake's tines drawn along x about 30 mm apart, clods and a few small stones on top, the furrow bottoms damper and darker. Reconstructed (T-3488).",
+  "ticket": "T-3488",
+  "span_along_m": 2.0,
+  "span_across_m": 2.0,
+  "resolution_px": 512,
+  "px_per_m": 256.0,
+  "confidence": "reconstructed appearance; which yard surface carries it is the yard layout's to say, never this map's",
+  "orientation": "image x = along the rows (renderer u); image y = across them (v)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "normal_dx": "linear",
+    "roughness": "linear",
+    "height16": "linear 16-bit",
+    "ao": "linear",
+    "metallic": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "garden_loam_basecolor_web.jpg",
+    "normal_gl": "garden_loam_normal_gl_web.jpg",
+    "orm": "garden_loam_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 19041812,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_pbr.py); no photograph sampled"
+}
