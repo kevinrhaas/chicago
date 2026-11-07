@@ -13,7 +13,19 @@
     ],
     "note": "He reached the post on 12, 13 or 14 August depending on the source (native.json); every account has him there for the evacuation."
   },
-  "associated_with": [],
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "first_fort_dearborn_commanding_officers_barracks",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "quaife_1913",
+      "also_sources": [],
+      "note": "Where he slept at the post is not recorded; he is put with his niece and Captain Heald in the commanding officer's quarters, a reconstructed choice."
+    }
+  ],
   "not_in_this_household": {
     "note": "His Miami escort of about thirty men is named by no source; T-3467 gives them reconstructed cards when it places them.",
     "sources": [

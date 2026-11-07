@@ -12,7 +12,19 @@
     ],
     "note": "Counted with the eighteen children of 15 August (Quaife App. IX)."
   },
-  "associated_with": [],
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "first_fort_outer_agents_house",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "inferred",
+      "source_id": "quaife_1913",
+      "also_sources": [],
+      "note": "After the April murders the settlers 'fortified themselves in the house formerly occupied by Jouett, the Indian agent' (Quaife ch. X); which of them were still there in August is not said."
+    }
+  ],
   "not_in_this_household": {
     "note": "A name or family found for any child retires one card.",
     "sources": [

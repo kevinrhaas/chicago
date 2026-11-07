@@ -387,17 +387,22 @@ def households():
     hh('hh_wells_william_1812', 'Captain William Wells, come from Fort Wayne with a Miami escort', 'wells_william', 'fort',
        [Card('wells_william', 'William Wells', 'head', [('n', N['william_wells_1812'])],
              note_lead="Rebekah Heald's uncle, Indian agent and interpreter at Fort Wayne.")],
-       [], "His Miami escort of about thirty men is named by no source; T-3467 gives them reconstructed cards when it places them.",
+       [('first_fort_dearborn_commanding_officers_barracks', 'reconstructed', ['quaife_1913'],
+         "Where he slept at the post is not recorded; he is put with his niece and Captain Heald in the commanding officer's quarters, a reconstructed choice.")], "His Miami escort of about thirty men is named by no source; T-3467 gives them reconstructed cards when it places them.",
        'He reached the post on 12, 13 or 14 August depending on the source (native.json); every account has him there for the evacuation.')
 
     # --- Potawatomi people the sources name
+    CAMP = {'black_partridge': 'potawatomi_camp_1812_middle', 'winnemeg': 'potawatomi_camp_1812_upper', 'waubansee': 'potawatomi_camp_1812_west_bank', 'topenebe': 'potawatomi_camp_1812_mouth', 'blackbird': 'potawatomi_camp_1812_south_reach', 'nuscotnemeg': 'potawatomi_camp_1812_south_reach', 'keepotah': 'potawatomi_camp_1812_west_bank', 'peesotum': 'potawatomi_camp_1812_upper', 'naunongee': 'potawatomi_camp_1812_middle'}
+    CAMP_NOTE = ("No source places his lodge in the camp; the card is put at one of the camp's grounds on the creek "
+                 "(the 1812 camp records) so it can be found, a reconstructed choice (liberty L-1812-people-3461).")
     named = ['black_partridge', 'winnemeg', 'waubansee', 'topenebe', 'blackbird', 'nuscotnemeg', 'keepotah',
              'peesotum', 'naunongee']
     for nid in named:
         r = N[nid + '_1812']
         hh(f'hh_{nid}_1812', f"{r['names'][0]}, at the gathering of August 1812", nid, 'camp',
            [Card(nid, r['names'][0], 'head', [('n', r)], review={'note': REVIEW_NATIVE, 'touches_removal': True})],
-           [], 'No source names his family or places his lodge in the camp.', '', review=REVIEW_NATIVE)
+           [(CAMP[nid], 'reconstructed', ['kinzie_waubun_1856'], CAMP_NOTE)],
+           'No source names his family or places his lodge in the camp.', '', review=REVIEW_NATIVE)
     r, w = N['waubeeneemah_1812'], N['wife_of_waubeeneemah_1812']
     hh('hh_waubeeneemah_1812', "Wau-bee-nee-mah's lodge by the creek", 'waubeeneemah', 'camp',
        [Card('waubeeneemah', 'Wau-bee-nee-mah', 'head', [('n', r)], review={'note': REVIEW_NATIVE, 'touches_removal': True}),
@@ -409,7 +414,7 @@ def households():
     hh('hh_main_poc_runner_1812', "A runner from Main Poc", 'main_poc_runner', 'camp',
        [Card('main_poc_runner', 'A runner from Main Poc, name not recorded', 'head', [('n', N['main_poc_runner_1812'])],
              review={'note': REVIEW_NATIVE, 'touches_removal': True})],
-       [], '', '', review=REVIEW_NATIVE)
+       [('potawatomi_camp_1812_mouth', 'reconstructed', ['quaife_1913'], CAMP_NOTE.replace('his lodge', 'him'))], '', '', review=REVIEW_NATIVE)
 
     # --- people a source counts and nobody names: reconstructed rows
     mil = []
@@ -422,7 +427,8 @@ def households():
                                    "for one of them: that he lived, served and was at the post is the count's; everything else about him is reconstructed."),
                         minted={'stage': 'counted_unnamed', 'counted_by': 'quaife_1913', 'ticket': 'T-3461', 'liberty': 'L-1812-people-3461'},
                         presence='present'))
-    hh('hh_chicago_militia_unnamed_1812', 'The unnamed men of the Chicago militia', mil[0].pid, 'fort', mil, [],
+    hh('hh_chicago_militia_unnamed_1812', 'The unnamed men of the Chicago militia', mil[0].pid, 'fort', mil, [('first_fort_outer_agents_house', 'inferred', ['quaife_1913'],
+         "After the April murders the settlers 'fortified themselves in the house formerly occupied by Jouett, the Indian agent' (Quaife ch. X); which of them were still there in August is not said.")],
        'A name found for any of these men retires one card.', 'Counted in the twelve militia of 15 August (Quaife App. IX).')
 
     kids = []
@@ -435,7 +441,8 @@ def households():
                                     "name are not known."),
                          minted={'stage': 'counted_unnamed', 'counted_by': 'quaife_1913', 'ticket': 'T-3461', 'liberty': 'L-1812-people-3461'},
                          presence='present'))
-    hh('hh_garrison_children_unnamed_1812', "The children of the post whom no source names", kids[0].pid, 'fort', kids, [],
+    hh('hh_garrison_children_unnamed_1812', "The children of the post whom no source names", kids[0].pid, 'fort', kids, [('first_fort_outer_agents_house', 'inferred', ['quaife_1913'],
+         "After the April murders the settlers 'fortified themselves in the house formerly occupied by Jouett, the Indian agent' (Quaife ch. X); which of them were still there in August is not said.")],
        'A name or family found for any child retires one card.', 'Counted with the eighteen children of 15 August (Quaife App. IX).')
     return H
 

@@ -15,7 +15,19 @@
     ],
     "note": "Each person's own card says how their presence on 14 August is known."
   },
-  "associated_with": [],
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "potawatomi_camp_1812_west_bank",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "kinzie_waubun_1856",
+      "also_sources": [],
+      "note": "No source places his lodge in the camp; the card is put at one of the camp's grounds on the creek (the 1812 camp records) so it can be found, a reconstructed choice (liberty L-1812-people-3461)."
+    }
+  ],
   "not_in_this_household": {
     "note": "No source names his family or places his lodge in the camp.",
     "sources": [
