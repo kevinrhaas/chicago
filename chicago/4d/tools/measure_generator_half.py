@@ -675,13 +675,28 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # them on `prairie_draft` (generators/draft_emit.py), all pure Python, restaling on none of the
 # shared rows above.
 #
+# 1030 -> 1031 on 2026-10-31 (T-3269): the Field house's conservatory at 1905 Prairie stood as its
+# own glass on `k13_conservatories` (generators/k13_emit.py), pure Python, restaling on none of the
+# shared rows above.
+#
+# 1031 -> 1034, 744 -> 741 and 738 -> 735 on 2026-11-03 (T-3342): the 1812 Potawatomi camp's
+# three groups moved off the `camp` archetype (emit.py and the common modules) onto the new
+# pure-Python `lodge_camp` (generators/lodge_camp_emit.py), and three more grounds joined them
+# (_west_bank, _south_reach, _horse_ground): six assets restaling on none of the shared rows.
+#
+# 1034 -> 1035, 741 -> 742 and 735 -> 736 on 2026-11-03 (T-2380): John Beach's house beside
+# the log jail, one `frame_dwelling` asset on the Blender path (emit.py and the common
+# modules), so it restales on both shared rows. The opt-in `picture_layout` the record
+# turns on moves no vertex of the other 271 frame-family assets — all 271 masters rebuilt
+# byte-identical on the pinned Blender — but their input signatures were refreshed with it.
+#
 STATED = {
-    "assets": 1030,
+    "assets": 1035,
     "restales": {
-        "generators/common/*.py": 744,
+        "generators/common/*.py": 742,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 738,
+        "generators/emit.py": 736,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 3,

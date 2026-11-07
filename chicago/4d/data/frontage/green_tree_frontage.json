@@ -79,7 +79,7 @@
     {
       "structure_id": "green_tree_tavern",
       "wall": "rear",
-      "why": "the inn's rear ell is built against this wall (form.rear_ell), so a walk laid off it would run through the wing — no walk is laid."
+      "why": "the nearest street outward of this wall is West Water Street, and it lies BESIDE the wall rather than in front of it — 2.68 m of its 5.73 m stands outward, where a frontage needs 50%. A walk laid here would run down the inn's flank and call it a frontage — no walk is laid."
     },
     {
       "structure_id": "green_tree_tavern",

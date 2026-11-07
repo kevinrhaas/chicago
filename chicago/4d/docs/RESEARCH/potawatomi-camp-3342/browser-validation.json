@@ -1,0 +1,567 @@
+{
+  "method": "Published /1812/ app, normal boot; animation paused after readiness for fixed review stands. T-3342: the Potawatomi camp of August 1812 rebuilt as a working camp.",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1812"
+      },
+      "errors": [],
+      "bad": [],
+      "stands": [
+        {
+          "name": "above-the-mouth",
+          "detail": "full",
+          "campCoverings": [
+            "camp_boughs",
+            "camp_cattail_mat",
+            "camp_elm_bark"
+          ],
+          "problems": [
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release",
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release",
+            "1 of 59 structures drew no geometry — first_fort_dearborn_parade"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 945123,
+            "drawCalls": 763
+          },
+          "camera": [
+            812,
+            -6,
+            25.301999950408934
+          ],
+          "target": [
+            730,
+            -150,
+            0.8050000071525574
+          ]
+        },
+        {
+          "name": "landing-yard",
+          "detail": "full",
+          "campCoverings": [
+            "camp_boughs",
+            "camp_cattail_mat",
+            "camp_elm_bark"
+          ],
+          "problems": [
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release",
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release",
+            "1 of 59 structures drew no geometry — first_fort_dearborn_parade"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 819475,
+            "drawCalls": 4992
+          },
+          "camera": [
+            784,
+            -47,
+            2.53400001525879
+          ],
+          "target": [
+            776,
+            -37,
+            1.6649999856948852
+          ]
+        },
+        {
+          "name": "landing-canoes",
+          "detail": "full",
+          "campCoverings": [
+            "camp_boughs",
+            "camp_cattail_mat",
+            "camp_elm_bark"
+          ],
+          "problems": [
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release",
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release",
+            "1 of 59 structures drew no geometry — first_fort_dearborn_parade"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 455695,
+            "drawCalls": 220
+          },
+          "camera": [
+            770,
+            -20,
+            2.459999990463257
+          ],
+          "target": [
+            782,
+            -27,
+            1.0970000028610212
+          ]
+        },
+        {
+          "name": "middle-group",
+          "detail": "full",
+          "campCoverings": [
+            "camp_boughs",
+            "camp_cattail_mat",
+            "camp_elm_bark"
+          ],
+          "problems": [
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release",
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release",
+            "1 of 59 structures drew no geometry — first_fort_dearborn_parade"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 790072,
+            "drawCalls": 4218
+          },
+          "camera": [
+            770,
+            -199,
+            3.4450000286102296
+          ],
+          "target": [
+            770,
+            -176,
+            2.0299999833106996
+          ]
+        },
+        {
+          "name": "west-bank",
+          "detail": "full",
+          "campCoverings": [
+            "camp_boughs",
+            "camp_cattail_mat",
+            "camp_elm_bark"
+          ],
+          "problems": [
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release",
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release",
+            "1 of 59 structures drew no geometry — first_fort_dearborn_parade"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 732305,
+            "drawCalls": 608
+          },
+          "camera": [
+            657,
+            -160,
+            3.410000002384186
+          ],
+          "target": [
+            680,
+            -154,
+            1.8030000090599057
+          ]
+        },
+        {
+          "name": "horse-ground",
+          "detail": "full",
+          "campCoverings": [
+            "camp_boughs",
+            "camp_cattail_mat",
+            "camp_elm_bark"
+          ],
+          "problems": [
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release",
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release",
+            "1 of 59 structures drew no geometry — first_fort_dearborn_parade"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 785064,
+            "drawCalls": 1258
+          },
+          "camera": [
+            700,
+            -147,
+            4.000000011920929
+          ],
+          "target": [
+            722,
+            -126,
+            1.1950000166893004
+          ]
+        }
+      ]
+    },
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1812"
+      },
+      "errors": [],
+      "bad": [],
+      "stands": [
+        {
+          "name": "above-the-mouth",
+          "detail": "light",
+          "campCoverings": [
+            "camp_boughs",
+            "camp_cattail_mat",
+            "camp_elm_bark"
+          ],
+          "problems": [
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release",
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release",
+            "1 of 59 structures drew no geometry — first_fort_dearborn_parade"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 263386,
+            "drawCalls": 408
+          },
+          "camera": [
+            812,
+            -6,
+            25.301999950408934
+          ],
+          "target": [
+            730,
+            -150,
+            0.8050000071525574
+          ]
+        },
+        {
+          "name": "landing-yard",
+          "detail": "light",
+          "campCoverings": [
+            "camp_boughs",
+            "camp_cattail_mat",
+            "camp_elm_bark"
+          ],
+          "problems": [
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release",
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release",
+            "1 of 59 structures drew no geometry — first_fort_dearborn_parade"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 175749,
+            "drawCalls": 1657
+          },
+          "camera": [
+            784,
+            -47,
+            2.53400001525879
+          ],
+          "target": [
+            776,
+            -37,
+            1.6649999856948852
+          ]
+        },
+        {
+          "name": "landing-canoes",
+          "detail": "light",
+          "campCoverings": [
+            "camp_boughs",
+            "camp_cattail_mat",
+            "camp_elm_bark"
+          ],
+          "problems": [
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release",
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release",
+            "1 of 59 structures drew no geometry — first_fort_dearborn_parade"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 99463,
+            "drawCalls": 112
+          },
+          "camera": [
+            770,
+            -20,
+            2.459999990463257
+          ],
+          "target": [
+            782,
+            -27,
+            1.0970000028610212
+          ]
+        },
+        {
+          "name": "middle-group",
+          "detail": "light",
+          "campCoverings": [
+            "camp_boughs",
+            "camp_cattail_mat",
+            "camp_elm_bark"
+          ],
+          "problems": [
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release",
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release",
+            "1 of 59 structures drew no geometry — first_fort_dearborn_parade"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 190001,
+            "drawCalls": 1301
+          },
+          "camera": [
+            770,
+            -199,
+            3.4450000286102296
+          ],
+          "target": [
+            770,
+            -176,
+            2.0299999833106996
+          ]
+        },
+        {
+          "name": "west-bank",
+          "detail": "light",
+          "campCoverings": [
+            "camp_boughs",
+            "camp_cattail_mat",
+            "camp_elm_bark"
+          ],
+          "problems": [
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release",
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release",
+            "1 of 59 structures drew no geometry — first_fort_dearborn_parade"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 230593,
+            "drawCalls": 353
+          },
+          "camera": [
+            657,
+            -160,
+            3.410000002384186
+          ],
+          "target": [
+            680,
+            -154,
+            1.8030000090599057
+          ]
+        },
+        {
+          "name": "horse-ground",
+          "detail": "light",
+          "campCoverings": [
+            "camp_boughs",
+            "camp_cattail_mat",
+            "camp_elm_bark"
+          ],
+          "problems": [
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release",
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release",
+            "1 of 59 structures drew no geometry — first_fort_dearborn_parade"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 242059,
+            "drawCalls": 524
+          },
+          "camera": [
+            700,
+            -147,
+            4.000000011920929
+          ],
+          "target": [
+            722,
+            -126,
+            1.1950000166893004
+          ]
+        }
+      ]
+    }
+  ]
+}

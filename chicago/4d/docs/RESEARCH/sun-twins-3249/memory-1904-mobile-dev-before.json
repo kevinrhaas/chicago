@@ -1,0 +1,180 @@
+{
+  "ticket": "T-2546",
+  "measured": {
+    "on": "2026-11-06T13:17:44.339Z",
+    "build": "98542a3f5",
+    "machine": "AMD EPYC 9V45 96-Core Processor ×4",
+    "seconds": 57,
+    "method": "published year door, welcome entered at spawn, 3 frames + 1 s, texture residency let finish its uploads, two forced GCs; heap and backing store from Runtime.getHeapUsage; GPU from a WebGL allocation meter"
+  },
+  "rows": [
+    {
+      "year": "1904",
+      "viewport": "mobile",
+      "label": "phone 390x780 dpr3",
+      "tier": "light",
+      "pixelRatio": 1,
+      "keepGeometry": false,
+      "totals": {
+        "jsHeap": 74946404,
+        "arrayBuffers": 76126268,
+        "gpuBuffers": 180873080,
+        "gpuTextures": 61888417,
+        "gpuRenderbuffers": 3145728,
+        "total": 393834169
+      },
+      "gl": {
+        "gpuBuffers": 180873080,
+        "gpuTextures": 58742689,
+        "gpuRenderbuffers": 3145728,
+        "liveBuffers": 2954,
+        "liveTextures": 1795,
+        "liveRenderbuffers": 1,
+        "liveFramebuffers": 5,
+        "livePrograms": 55
+      },
+      "heapTotal": 78098432,
+      "shadowMapBytes": 8388608,
+      "textures": {
+        "distinct": 786,
+        "images": 122
+      },
+      "layers": [
+        {
+          "name": "structures",
+          "cpuKept": 1140,
+          "gpuGeometry": 120723944,
+          "textureBytes": 209931408,
+          "textures": 735,
+          "geometries": 530,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "railway",
+          "cpuKept": 344580,
+          "gpuGeometry": 19375520,
+          "textureBytes": 8912888,
+          "textures": 26,
+          "geometries": 22,
+          "cpuNeverUploaded": 159552
+        },
+        {
+          "name": "terrain",
+          "cpuKept": 8892948,
+          "gpuGeometry": 1775716,
+          "textureBytes": 87381,
+          "textures": 1,
+          "geometries": 111,
+          "cpuNeverUploaded": 8892948
+        },
+        {
+          "name": "street-grid",
+          "cpuKept": 2081628,
+          "gpuGeometry": 4334808,
+          "textureBytes": 1835568,
+          "textures": 21,
+          "geometries": 19,
+          "cpuNeverUploaded": 337104
+        },
+        {
+          "name": "context",
+          "cpuKept": 1040504,
+          "gpuGeometry": 2886656,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 6,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "front-yards",
+          "cpuKept": 780132,
+          "gpuGeometry": 2187316,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 6,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "street-trees",
+          "cpuKept": 0,
+          "gpuGeometry": 913062,
+          "textureBytes": 0,
+          "textures": 2,
+          "geometries": 4,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "street-furniture",
+          "cpuKept": 325888,
+          "gpuGeometry": 325888,
+          "textureBytes": 21845,
+          "textures": 1,
+          "geometries": 18,
+          "cpuNeverUploaded": 0
+        },
+        {
+          "name": "sky",
+          "cpuKept": 840,
+          "gpuGeometry": 840,
+          "textureBytes": 0,
+          "textures": 0,
+          "geometries": 1,
+          "cpuNeverUploaded": 0
+        }
+      ],
+      "layerSum": {
+        "cpuKept": 13467660,
+        "gpuGeometry": 152523750,
+        "textureBytes": 220789090,
+        "cpuNeverUploaded": 9389604
+      },
+      "uploadRelease": {
+        "geometries": 687,
+        "attributes": 2938,
+        "bytes": 186807840,
+        "keptForHarness": false,
+        "sources": 284,
+        "sourceBytes": 145380614,
+        "images": 0,
+        "imageBytes": 0,
+        "compressed": 69,
+        "compressedBytes": 20449072,
+        "boundsRows": 87545,
+        "boundsBytes": 1728587
+      },
+      "residency": {
+        "pendingAtRead": 0,
+        "settleMs": 48,
+        "resident": 68,
+        "sources": 69,
+        "residentBytes": 20099520,
+        "budgetBytes": 268435456,
+        "wantedBytes": 20099520,
+        "pending": 0,
+        "uploads": 0,
+        "evictions": 1,
+        "overBudget": 0
+      },
+      "ktx2": {
+        "enabled": true,
+        "reason": "on",
+        "dropTopMip": true,
+        "glb": "shared",
+        "formats": [
+          "dxt",
+          "bptc"
+        ],
+        "sheets": {
+          "ktx2": 31,
+          "fallback": 0,
+          "gpuBytes": 7428256,
+          "failed": []
+        }
+      },
+      "errors": [],
+      "seconds": {
+        "boot": 57
+      }
+    }
+  ]
+}

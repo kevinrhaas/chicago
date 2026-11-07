@@ -1,0 +1,93 @@
+{
+ "structure_id": "marshall_field_house_1905_prairie_coach_house",
+ "view": "daily_news_dn0003324",
+ "glb": "assets/gltf/marshall_field_house_1905_prairie_coach_house__draft_1904.glb",
+ "glb_sha256": "c6f3b008737a57782c29abbe9ae2e50658c7439cb78771c5fdcc2566b890ca38",
+ "camera_sha256": "bc190438db77909e45be49279ea4664eb3f91c907a3784f04fec5d251b63b2f1",
+ "photo_sha256": "69af6f6f8fab65746096090d5f81ca7bc486515bf769ca00690bc01f3b292423",
+ "rendered_members": [
+  {
+   "structure_id": "marshall_field_house_1905_prairie_coach_house",
+   "glb": "assets/gltf/marshall_field_house_1905_prairie_coach_house__draft_1904.glb",
+   "placement": {
+    "local_e": 1466.825,
+    "local_n": -3345.871,
+    "rotation_deg": 179.444,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "draft_1904"
+   },
+   "position": [
+    0,
+    0,
+    0
+   ],
+   "rotation_y": 0,
+   "glb_sha256": "c6f3b008737a57782c29abbe9ae2e50658c7439cb78771c5fdcc2566b890ca38"
+  },
+  {
+   "structure_id": "marshall_field_house_1905_prairie",
+   "glb": "assets/gltf/marshall_field_house_1905_prairie__as_mapped_1904.glb",
+   "placement": {
+    "local_e": 1443.678,
+    "local_n": -3356.596,
+    "rotation_deg": 179.444,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "as_mapped_1904"
+   },
+   "position": [
+    23.249984247961887,
+    0,
+    -10.499879354998278
+   ],
+   "rotation_y": 0,
+   "glb_sha256": "95862ab3dd00167c768dad224dae45c747362b3d8d416e9a73e6547f689b12c2"
+  },
+  {
+   "structure_id": "marshall_field_house_1905_prairie_conservatory",
+   "glb": "assets/gltf/marshall_field_house_1905_prairie_conservatory__as_mapped_1904.glb",
+   "placement": {
+    "local_e": 1431.842,
+    "local_n": -3373.512,
+    "rotation_deg": 359.444,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "as_mapped_1904"
+   },
+   "position": [
+    35.2495777708627,
+    0,
+    -27.300227782491167
+   ],
+   "rotation_y": -3.141592653589794,
+   "glb_sha256": "14f854e7e58de5534ca29a6512cc2bcd646b50be483b509ecc3f4934f873b11f"
+  }
+ ],
+ "group_sha256": "4bcdfa1c579ced7863e1a24fdd2a54b89df47fef04d08e9acc188a80e9fb1918",
+ "side_by_side": "docs/RESEARCH/photo-match/marshall_field_house_1905_prairie_coach_house/daily_news_dn0003324-side-by-side.jpg",
+ "verdict": "matches",
+ "differences": [
+  {
+   "what": "behind the conservatory, c. 1905: a snow-covered mansard with small dormers and stacks (x about 480-600 px)",
+   "status": "fixed",
+   "how": "T-1936: the barn's mansard and dormers; the nearest picture to 1904 shows the mansard the 1870s photograph shows, so the barn had not lost it"
+  },
+  {
+   "what": "its place: the negative's at x about 480-600, the render's at about 550-640",
+   "status": "within tolerance",
+   "how": "this camera runs the house's own rear about 70 px right at this depth (the house's side-by-side shows the same offset); read for forms, not place"
+  },
+  {
+   "what": "the ventilator and the spirelets, not legible in the 640 px scan",
+   "status": "not shown",
+   "how": "the scan's resolution, about 0.5 m a pixel here"
+  },
+  {
+   "what": "the walls and their colour, under the fence and snow",
+   "status": "not shown",
+   "how": "monochrome, and hidden"
+  }
+ ],
+ "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

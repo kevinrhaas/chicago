@@ -93,24 +93,6 @@ LAMP = {
     "footing_m": {"w": 0.8, "h": 0.02},
 }
 
-# T-1934: the one lamp no 1811-type post stands for, Pullman's at the 18th Street walk's turn into
-# Calumet Avenue, as Taylor's no. 16554 shows it: a plain post about 4.9 m to its cap, painted pale
-# (it prints lighter than the sunlit stone behind it), a small bar a third of the way down, a slim
-# neck, a wide shallow globe with its top lit and its underside dark, and a small dark cap. Read
-# off the print's column at x 795 (its foot at y 605, the cap's top at y 503, the globe y 507-515
-# and 13 px wide, the bar at y 537), scaled by the district post's render at the same place
-# (65 px for 3.12 m).
-GLOBE_LAMP = {
-    "height_m": 4.9,
-    "base_m": {"r": 0.1, "to": 0.5},
-    "shaft_r_m": [0.075, 0.06],
-    "ladder_bar_m": {"at": 3.3, "w": 0.3},
-    "neck_m": {"from": 3.95, "to": 4.33, "r": 0.04},
-    "globe_m": {"centre": 4.52, "r": 0.29, "ry": 0.19},
-    "cap_m": {"from": 4.7, "r": 0.08},
-}
-LAMP_BY_CLASS = {"globe_post": GLOBE_LAMP}
-
 # The pictured corner lamps: (streets, the corner's quadrant of the crossing) -> what shows it.
 ATTESTED_CORNERS = {
     (frozenset({"prairie", "e18th"}), "SW"): {
@@ -171,16 +153,20 @@ ATTESTED_MIDBLOCK = [
      "sources": ["chicagology_2140_photo_b"],
      "note": "The second 2140 photograph shows the lamp on the parkway beside the walk at the Prairie "
              "Avenue porch."},
-    {"key": "pullman_court", "face": "calumet__prairie_ic_16_18", "at_m": 3.1, "parcel": "prairie_1729",
-     "class": "globe_post",
+    {"key": "pullman_court", "face": "calumet__prairie_calumet_18_20", "at_m": 249.2, "parcel": "calumet_1800",
      "sources": ["aic_taylor_16554_pullman_from_sw"],
-     "note": "J. W. Taylor's photograph no. 16554 (1890s), from the yard across 18th Street, shows the post at "
-             "the street edge of the walk before Pullman's palm-house wing, where the curb turns into Calumet "
-             "Avenue (x 795, its foot at y 607: u 10.0 m east of the palm house's centre through the print's "
-             "solved camera, data/reference_views/pullman_house_1729_prairie_conservatory/"
-             "taylor_16554_from_south.json). Its form is read from the same print: a pale-painted post about "
-             "4.9 m to its cap, taller than the district's, with a shallow globe for its head (the globe_post "
-             "class, T-1934)."},
+     "note": "J. W. Taylor's photograph no. 16554 (1890s), taken from the lawn of the corner lot across 18th "
+             "Street, shows the post on the near side of the street, on Calumet Avenue's west parkway where its "
+             "walk curves into 18th Street, opposite Pullman's palm-house wing (x 797, its foot at y 607-608, "
+             "carried along its ray to the mid-block lamp's line through the print's camera, "
+             "data/reference_views/pullman_house_1729_prairie_conservatory/taylor_16554_from_south.json). "
+             "T-1934 first stood it on the north walk, through a camera that drew the street's ground 25-45 px "
+             "high; re-solved with that ground in its fit (2026-10-31), a post on the north walk would stand "
+             "its foot at y 580, above the stable wall's foot (y 585), and the print's stands 22 px below it. "
+             "Its form is the district's post (T-3267, the owner, 2026-10-30): "
+             "the print's head, 13 px across, is the 1811 photograph's lantern seen small, a ladder bar under a "
+             "narrow foot that flares to a wide glazed top, lit by the sky, under a small dark roof; it is not "
+             "a globe."},
 ]
 
 # Stretches of a face that pictures see whole and show no lamp on: the rule stands none there
@@ -192,7 +178,7 @@ PICTURED_EMPTY = [
      "why": "Taylor's no. 16554 (1890s) sees 18th Street's north walk whole from the house's 18th Street "
             "porch to its turn into Calumet Avenue, and the Detroit Publishing view of c. 1900 sees it from "
             "the Prairie Avenue corner past the palm house: neither shows a post on it. The one lamp 16554 "
-            "shows stands where the walk turns (lamp.pictured.pullman_court); the rule's mid-block lamp "
+            "shows stands across the street, on Calumet Avenue's west parkway (lamp.pictured.pullman_court); the rule's mid-block lamp "
             "would have rendered before the porch's arch (16554 x 206), where the print shows none."},
 ]
 
@@ -223,6 +209,16 @@ ATTESTED_HYDRANTS = [
               "the corner lamp at 18th Street. Read off the owner's crop of the Detroit view: a barrel on a "
               "flared foot, a band under a domed bonnet with an operating nut, side nozzle caps. Not a "
               "hitching post: none is shown at Pullman's.")},
+    {"key": "pullman_stable", "face": "calumet__prairie_ic_16_18", "end": None, "along_m": 19.2, "side": "walk",
+     "sources": ["aic_taylor_16554_pullman_from_sw"],
+     "note": ("Pullman's stable: J. W. Taylor's no. 16554 (1890s) shows a post hydrant on the walk at the foot "
+              "of the low wall before the stable, about 3.7 m short of the stable's east end, where 18th "
+              "Street's north walk turns into Calumet Avenue. Placed along its ray through the print's solved "
+              "camera (x 1063 px, its foot at y 587), on the walk's street edge (T-1934, the owner, 2026-10-30: "
+              "'there is a hydrant in that photo'); moved 5.0 m east along it when the camera was re-solved "
+              "with the street's ground in its fit (T-1934, 2026-10-31). Its form is the district's post hydrant; the print is too small to "
+              "read its parts. Calumet Avenue curves into 18th Street here, so there is no corner: "
+              "`end: None` measures from the face's own start, where 18th Street's face ends.")},
     {"key": "tucker", "face": "prairie__indiana_prairie_21_22", "end": "e22nd", "along_m": 6.0, "side": "curb",
      "sources": ["chicagology_2140_photo_b"],
      "note": ("Tucker's: the second 2140 photograph has a post hydrant of the same type in its left foreground, "
@@ -475,18 +471,13 @@ def lay_lamps(grid, section, trees_doc):
         if s2 is None:
             raise SystemExit(f"street furniture: no clear spot for the pictured lamp {m['key']}")
         P, t = face.at(s2, across)
-        item = {
+        items.append({
             "id": f"lamp.pictured.{m['key']}", "kind": "gas_lamp", "e": r2(P[0]), "n": r2(P[1]),
             "heading_deg": round(bearing(t), 1), "footing": False,
             "place": "mid-block", "face": face.id, "parcel": p["id"],
             "grade": "attested", "sources": m["sources"], "note": m["note"],
             "moved_m": r2(abs(s2 - s)),
-        }
-        if "class" in m:
-            if m["class"] not in LAMP_BY_CLASS:
-                raise SystemExit(f"street furniture: the pictured lamp {m['key']} names no lamp class {m['class']}")
-            item["class"] = m["class"]
-        items.append(item)
+        })
         pinned.setdefault(face.id, []).append(s2)
 
     # 3. The rest of each face, at the reconstructed spacing, staggered across the street.
@@ -612,18 +603,24 @@ def lay_hydrants(grid, section, trees_doc, lamps):
     # 1. The pictured ones.
     for h in ATTESTED_HYDRANTS:
         face = faces[h["face"]]
-        c = next(c for c in cs if face in c["faces"] and h["end"] in c["streets"])
-        s0, sign = face_end_s(face, c)
+        if h["end"] is None:
+            # a face with no corner at this end (a street curving into the next): from its start
+            c, s0, sign = None, 0.0, 1.0
+        else:
+            c = next(c for c in cs if face in c["faces"] and h["end"] in c["streets"])
+            s0, sign = face_end_s(face, c)
         across = (face.walk_to + HYDRANT_WALK_OFFSET_M) if h["side"] == "walk" else (face.park_to - HYDRANT_CURB_INSET_M)
         blocked = blocked_intervals(face, walks, alleys)
         s = clear(face, s0 + sign * h["along_m"], across, blocked, 0.0, face.length)
         if s is None:
             raise SystemExit(f"street furniture: no clear spot for the pictured hydrant {h['key']}")
-        items.append(item(f"hydrant.pictured.{h['key']}", face, s, across, place="corner",
-                          streets=c["streets"], corner=c["quadrant"], face=face.id, grade="attested",
+        where = {"place": "corner", "streets": c["streets"], "corner": c["quadrant"]} if c else \
+            {"place": "mid-block"}
+        items.append(item(f"hydrant.pictured.{h['key']}", face, s, across, **where, face=face.id, grade="attested",
                           sources=h["sources"], note=h["note"],
                           moved_m=r2(abs(s - (s0 + sign * h["along_m"])))))
-        taken.add(frozenset(c["streets"]))
+        if c:
+            taken.add(frozenset(c["streets"]))
     # 2. One per intersection, at a corner taken in turn, along the avenue's face.
     by_x = {}
     for c in cs:
@@ -1015,15 +1012,32 @@ def lay_built(grid):
     if CONTEXT.exists():
         ctx = json.loads(CONTEXT.read_text())
         at = {k: i for i, k in enumerate(ctx["fields"]["buildings"])}
+
+        def gives_way(b):
+            # the renderer drops a block that touches a placed structure's footprint, grown 1 m
+            e, n, w, d, brg = (b[at["e"]], b[at["n"]], b[at["width_m"]], b[at["depth_m"]], b[at["bearing_deg"]])
+            rect = context_box(e, n, w, d, brg, 1.0)
+            return any(in_poly((e, n), fp) or any(in_poly(c, fp) for c in rect) or any(in_poly(c, rect) for c in fp)
+                       for fp in footprints)
+        # ...and (T-3388) a drawn building's parts give way together, as one `group`, once the
+        # touched parts hold half its plan (context.js GIVE_WAY_SHARE)
+        group_at = at.get("group")
+        touched = {k for k, b in enumerate(ctx["buildings"]) if group_at is not None and b[group_at] and gives_way(b)}
+        g_all, g_hit = {}, {}
+        for k, b in enumerate(ctx["buildings"]):
+            gid = b[group_at] if group_at is not None else 0
+            if gid:
+                a = b[at["width_m"]] * b[at["depth_m"]]
+                g_all[gid] = g_all.get(gid, 0.0) + a
+                g_hit[gid] = g_hit.get(gid, 0.0) + (a if k in touched else 0.0)
+        gone = {gid for gid in g_all if g_hit[gid] >= 0.5 * g_all[gid]}
         for k, b in enumerate(ctx["buildings"]):
             e, n, w, d, brg = (b[at["e"]], b[at["n"]], b[at["width_m"]], b[at["depth_m"]], b[at["bearing_deg"]])
             R = math.hypot(w, d) / 2 + 1.0
             if not built.touches(e - R, n - R, e + R, n + R):
                 continue
-            # the renderer drops a block that touches a placed structure's footprint, grown 1 m
-            rect = context_box(e, n, w, d, brg, 1.0)
-            if any(in_poly((e, n), fp) or any(in_poly(c, fp) for c in rect) or any(in_poly(c, rect) for c in fp)
-                   for fp in footprints):
+            gid = b[group_at] if group_at is not None else 0
+            if (k in touched or gid in gone) if gid else gives_way(b):
                 continue
             built.lay_prism(f"context block {k} ({ctx['enums']['rule'][b[at['rule']]]})",
                             context_box(e, n, w, d, brg), b[at["eave_m"]] + b[at["rise_m"]], 0.0)
@@ -1459,25 +1473,7 @@ def build(built=None):
                               "is gas: electric standards appear only in pictures dated after it. The scene is a "
                               "July morning with no night, so no lamp is lit."),
                 "model_m": LAMP,
-                "model_by_class": LAMP_BY_CLASS,
-                "name_by_class": {"globe_post": "globe lamp post"},
-                "form_by_class": {
-                    "globe_post": ("A plain post about 4.9 m to its cap, painted pale, on a plain base, with a small "
-                                   "bar a third of the way down, a slim neck and a wide shallow globe under a small "
-                                   "dark cap."),
-                },
-                "form_sources_by_class": {"globe_post": ["aic_taylor_16554_pullman_from_sw"]},
-                "form_note_by_class": {
-                    "globe_post": ("Read off Taylor's no. 16554 (1890s), the one picture that shows it: its heights "
-                                   "from the print's column scaled by the district post at the same place, its "
-                                   "paint from its tone (it prints lighter than the sunlit stone behind it; the "
-                                   "print is monochrome, so the pale is a tone, not a colour). The print cannot say "
-                                   "whether it burned gas or electricity, nor what its base and globe are made of "
-                                   "at this size; it is kept with the gas lamps for its place. Not lit: the scene "
-                                   "is a July morning."),
-                },
                 "what": "A cast-iron gas lamp post",
-                "what_by_class": {"globe_post": "A pale-painted lamp post with a globe head"},
                 "ticket": "T-3199",
                 "rule_note": "The pictures show such lamps at the district's corners and along its parkways",
             },

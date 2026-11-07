@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-# The per-commit gate. About four minutes on four cores, no Blender, runs in every
-# agent sandbox — and has to keep fitting the 600 s that is all a steward run's
-# single foreground command gets (T-1578).
+# The per-commit gate. No Blender, runs in every agent sandbox. Whole, it is about
+# nineteen minutes of pool on four cores (2026-11-01); a steward run's single
+# foreground command gets 600 s (T-1578), so a run takes it in four parts,
+# `--part 1/4` … `--part 4/4`, five to eight minutes each (T-3299, below).
 #
 # A gate that takes four minutes gets skipped, so this one deliberately does not
 # build geometry. Content builds live in tools/bake.sh and run on demand.
@@ -30,8 +31,35 @@
 # transcript is unchanged byte for byte. Measured on four cores: 484 s, 1,906
 # CPU-seconds. Each step's time sits in CHECK_TIMINGS. Read it before adding to the tail.
 #
-#   tools/check.sh            the gate
-#   tools/check.sh --strict   warnings are errors (used before a release)
+# THE THIRD TIME, IT WAS NOT A TAIL, SO THE GATE CAME IN PARTS (T-3299). On 2026-11-01
+# a four-core steward runner reached the publish at about 515 s and was cut off at
+# 585 s (rc 124), and CI's own `Run the gate` took 25.5 minutes on dev. Measured with
+# CHECK_TIMINGS across three capped calls: 1,111 steps, 4,593 CPU-seconds, so about
+# 1,150 s of pool, against T-2117's 1,906 four weeks earlier. That growth is not one
+# step to make cheaper. The slowest twenty steps are a third of it (each K-kit's
+# `--check` rebuilds every house it covers through k05_roofs' CSG, about 110 s apiece,
+# and some thirty test_k01_* files are 15-50 s each), and the remaining two-thirds are
+# spread across hundreds of tools. So the budget is re-argued here, as this header
+# asks: THE 600 s CEILING NOW BINDS A PART, NOT THE WHOLE GATE.
+#
+#   tools/check.sh --part k/N   runs every N-th step from the k-th, in declared order,
+#                               plus the `every_part` prerequisites (merge drivers,
+#                               tickets, publish). The N parts are a partition: all N
+#                               green is the gate green, and nothing less is.
+#
+# Four parts, measured on the same four-core runner the day they landed, each one
+# green: 305 s, 316 s, 473 s and 402 s, each including the ~57 s publish it pays for
+# itself (1,006 / 1,052 / 1,615 / 1,270 CPU-seconds; part 3 drew the 104 s block-infill
+# check and the 116 s entrance-kit self-test). The gate more than doubled in a month,
+# so that headroom will not last. When a part passes about 540 s, raise N; do not
+# lower the bar. CI still runs the gate whole, and the
+# harness's own check (tools/test_check_harness.sh) proves the parts are a partition.
+# Making the K-kit checks share their builds is the cut that would bring the WHOLE
+# gate back down, and it is a ticket of its own.
+#
+#   tools/check.sh                the gate, whole (CI runs it this way)
+#   tools/check.sh --part k/N     every N-th step from the k-th; all N parts are the gate
+#   tools/check.sh --strict       warnings are errors (used before a release)
 #
 #   CHECK_JOBS=1              serial, for reproducing a step's red on a quiet tree
 #   CHECK_TIMINGS=<path>      append "<seconds>\t<kind>\t<command>\t<label>" per step
@@ -40,7 +68,16 @@ _check_tools="$(cd "$(dirname "$0")" && pwd)"
 cd "$_check_tools/.."
 
 STRICT=""
-[ "${1:-}" = "--strict" ] && STRICT="--strict"
+CHECK_PART="${CHECK_PART:-}"
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    --strict) STRICT="--strict" ;;
+    --part) CHECK_PART="${2:-}"; shift ;;
+    --part=*) CHECK_PART="${1#--part=}" ;;
+    *) printf 'check: unknown argument "%s" (usage: tools/check.sh [--strict] [--part k/N])\n' "$1" >&2; exit 2 ;;
+  esac
+  shift
+done
 
 # The step harness — `step`, `selftest` and the end-of-run roll-up — lives in its own
 # file so that tools/test_check_harness.sh can source and exercise it (T-0763).
@@ -67,8 +104,16 @@ selftest "Light GLB textures retain the device mip policy on initial decode and 
 selftest "Rail zones retain exact geometry, reach, upload callbacks and disposal across rebuilds (T-2380)" \
   node tools/test_rail_geometry_lifecycle.mjs --self-test
 
+selftest "Scenes with no parked vehicles boot: update, retier and dispose without a TDZ error (T-3311); a drop to Light hands Three no empty add (T-3427)" \
+  node tools/test_parked_transport_empty_scene.mjs --self-test
+
 step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
   node tools/check_spatial_batch.mjs
+
+# T-3411. The merged town keys a map by its picture and sampler, so seven GLBs' clones
+# of one brick panel (T-3387) draw as one batch, not seven.
+step "Mapped materials batch by the picture they sample, not their texture's uuid (T-3411)" \
+  node tools/check_batch_map_key.mjs
 
 # T-2604. A spread flora pass walks its lattice on a worker (jobs/lattice-kernel.js)
 # and a one-frame pass walks it in flora.js's own `scatter`; the two are separate
@@ -78,6 +123,10 @@ step "The flora lattice walk on a worker hands the deal the slots the in-frame w
 
 selftest "the flora walk's parity gate refuses a kernel one ulp, one slot or one row off" \
   node tools/check_lattice_kernel.mjs --self-test
+
+# Costly continuous subreach travel must commit rather than repeatedly restart a jump.
+step "Nearby plants keep up during continuous horseback travel" \
+  node tools/test_flora_travel_commit.mjs
 
 # T-2697. The same walk as GLSL (flora-gpu-lattice.js), the first piece of T-2557's
 # GPU near grass. This step needs no browser: it holds the shader's constants to
@@ -114,6 +163,14 @@ selftest "the kept-tile gate refuses a texel centre off, a wrap off and a strip 
 
 step "The structures batch stores normals, uvs and tones compact and aligned, each within its format's bound (T-2568)" \
   node tools/check_compact_attributes.mjs
+
+# T-3173. A phone keeps each BatchedMesh geometry's box and sphere as float32 figures,
+# not a Box3 and a Sphere apiece (batch-bounds.js): about 20 MB of /1904/'s heap.
+step "A batch's compact bounds hold three's own, rounded outward, and answer every reader with the positions gone (T-3173)" \
+  node tools/check_batch_bounds.mjs
+
+selftest "the compact-bounds gate refuses bounds rounded to nearest" \
+  node tools/check_batch_bounds.mjs --self-test
 
 step "Plankwalk subpixel gaps preserve geometry and material contracts (T-2037)" \
   node tools/check_plank_gap_filter.mjs
@@ -160,6 +217,12 @@ step "A coursed wall's mortar floor is drawn behind the stone faces lying on it,
 selftest "The joint-floor check refuses a missing seat, a forward offset and a batch key blind to the offset (T-3226)" \
   node tools/check_joint_floor.mjs --self-test
 
+step "A K03 brick wall's per-brick shuffle reads the library's own bonds, and every shipped brick panel is shuffled (T-3295)" \
+  node tools/check_brick_bond.mjs
+
+selftest "The brick-bond check refuses a bond with a course moved and a load loop that never binds the shuffle (T-3295)" \
+  node tools/check_brick_bond.mjs --self-test
+
 step "A cheaper glass replaces only transmissive panes, and only when asked (T-2109)" \
   node tools/check_glass_modes.mjs
 
@@ -201,8 +264,18 @@ step "A pick draws only the building batches its ray meets, and a phone's look-a
   node tools/test_pick_boxes.mjs
 step "The drawn cells of one structure mesh join into one draw, drawing the same triangles with the same instance data (T-2927)" \
   node tools/test_batch_coalesce.mjs
+step "A phone lays a structure bucket over 65,535 vertices as 16-bit-indexed batches, every piece with its twins and every structure whole where it fits (T-3408)" \
+  node tools/test_short_index.mjs
+step "A grown wood draws every copy of one template as one instanced entry, drawing the same stems with the same instance data, culled as before (T-3363)" \
+  node tools/test_batch_instance.mjs
 selftest "Directional shadow culling retains toward-view and filter-near casters, preserves colour lists, and fails open on unknown light, camera or map state" \
   node tools/test_batch_shadow_cull.mjs
+step "A far structure piece casts from its clustered shadow twin only where the twin's edge moves under a pixel, never pools two confidences, and is put back after the sun's pass (T-3286)" \
+  node tools/test_far_shadow.mjs
+step "At light, a far structure piece draws in the colour pass from a clustered twin that never pools two normals, only where its edge moves under a pixel, and is put back after the pass (T-3312)" \
+  node tools/test_far_colour.mjs
+step "At light, a structure piece whose whole bounding sphere lands within a pixel of its centre is not drawn in the colour pass, never in the sun's, and is put back after the pass (T-3426)" \
+  node tools/test_sub_pixel.mjs
 step "Draw budgets read the driver's draws: a BatchedMesh multi-draw counts one draw per kept entry, reset with renderer.info (T-2970)" \
   node tools/test_driver_draws.mjs
 step "Full active Ghost views use their measured envelope; ordinary and lower-tier ceilings restore unchanged (T-2981)" \
@@ -260,6 +333,9 @@ step "Navigator Jaunts app: Jaunts · Go to · Free roam, the Welcome card's lis
 # T-2632: Go to cleanup.
 step "Go to offers All, Places, People, Shops & work and Viewpoints with no empty chip, names on two lines, and each row's distance and bearing (T-2632)" \
   node tools/test_goto_cleanup.mjs
+# T-3436: 1904's viewpoints by short name and glyph, and Go to's Photos.
+step "Go to lists 1904's viewpoints by short name with their own glyphs, features six, and offers Photos at their cameras, walked or flown to like any place (T-3436)" \
+  node tools/test_goto_photos_t3436.mjs
 # T-2633: Go to follows the Confidence view.
 step "Go to has no reconstructed-roofs checkbox; what the Confidence view hides is listed dimmed with its reason and restored when shown (T-2633)" \
   node tools/test_goto_confidence.mjs
@@ -321,6 +397,8 @@ step "Jaunt session history, cancellation and replacement (T-1279)" \
   node tools/test_jaunts_reducer.mjs
 step "Jaunt optional context and route notes (T-1257)" \
   node tools/test_leg_notes.mjs
+step "Jaunt flies to its start, welcome, final stop and readable road notes (T-3432)" \
+  node tools/test_jaunt_start_finish.mjs
 step "Jaunt resources, Revise, endings and saved-session replay (T-1256)" \
   node tools/test_jaunt_mechanics.mjs
 step "Jaunt route and pace estimates (T-1280)" \
@@ -333,6 +411,10 @@ selftest "The jaunt-view gate sees a stop behind a trunk when the stand-off rule
   node tools/check_jaunt_views.mjs --self-test
 step "a visitor walks through a building's modelled passage where it clears the eye (T-2943)" \
   node tools/test_walker_passage.mjs
+step "a visitor walks into Fort Dearborn through a gate Interact opens, 1835 and 1812 (T-3319)" \
+  node tools/test_fort_gates.mjs
+step "Loaded parade ground delegates to its native owner; failed assets and sundial geometry remain required (T-3041)" \
+  node tools/test_parade_presence.mjs
 step "Jaunt daybook: idempotent keepsakes, data ranks, honest recovery (T-1258)" \
   node tools/test_daybook.mjs
 step "loading library: 160 sourced, phase-local cards (T-1275)" \
@@ -355,6 +437,8 @@ step "Modular adult dress consumes cleared source and preserves existing residen
 
 step "Resident hair preserves verified source pixels, fitted UVs and existing skin bindings (T-1789)" \
   python3 tools/test_human_hair_short04.py
+step "A cleared woman's hairstyle (Mattie's bun) is pinned, CC0, fitted to her head and skinned; its red tie recoloured (T-3434)" \
+  python3 tools/test_human_hair_proxy.py
 
 step "Resident body normals share exact source seams without welding geometry or UVs (T-1789)" \
   python3 tools/test_human_source_normals.py
@@ -391,6 +475,9 @@ step "Catalogue Brougham preserves physical masters, exact optical delivery, lam
 step "A person's own card from a building's People tab: their story, why attested or inferred, the census line, Back to the household (T-3265)" \
   node tools/test_person_card.mjs
 
+step "People screen as a directory: households and people, search, a household's own card, Go to house (T-3430)" \
+  node tools/test_people_directory.mjs
+
 step "Brougham card and actual near/mid selection preserve catalogue scope, current/historical card contracts, active picking and disposal (T-2794)" \
   node tools/test_brougham_card.mjs
 
@@ -404,11 +491,28 @@ step "Horse eye-UV derivative preserves original geometry, rig, clip, materials 
 step "Selected horse anatomy reproduces the authored source and protects rig, eye maps and skin ancestry (T-3088)" \
   python3 tools/test_standing_horse_anatomy_v2.py
 
+# Exact-source derivation/static socket controls; no browser and no physical129 rerun.
+step "Selected upper-lid source preserves925/eyeUV/hoof ownership and qualifies the fixed socket interface (T-3088)" \
+  python3 tools/test_standing_horse_upper_lid.py
+# Explicit ten-row BODY transition with recorded exact-source129 qualification.
+step "Selected upper-orbital source preserves frozen5a and qualifies its declared BODY transition (T-3088)" \
+  python3 tools/test_standing_horse_upper_orbital.py
+
+# New NORMAL-only child remains pending until its own canonical native129 proof.
+step "Pending horse eye-normal child protects all parent source data and admits no old certificate (T-3088)" \
+  python3 tools/test_standing_horse_eye_smooth_normals.py
+
+# New selected quiet15 has its own finite proof; original qualifier source remains immutable.
+step "Quiet horse head/neck selection binds actual new finite129 proof and preserves prior selected metadata (T-2803)" \
+  python3 tools/test_standing_horse_quiet_head_neck.py
+
 step "Parked vehicles keep their exact wagon stands and cannot cross era boundaries (T-2979)" \
   python3 tools/transport/check_parked_placements.py
 # Fresh original W01 geometry plus authored project charts and CC0 maps; about 13 s, no browser.
 step "Parked W01 fine timber regenerates exact original geometry and reviewed surface binding (T-2793)" \
   python3 tools/check_parked_wagon_fine_wood.py
+step "Licensed farm-box master preserves credited sources, actual articulated geometry and compressed LOD contracts (T-2793)" \
+  python3 tools/check_farm_box_master.py
 step "Selected empty covered wagons reproduce original reviewed sources" \
   python3 tools/transport/generate_covered_wagons.py --verify
 step "Covered identity rejects kind, yoke, era and stand substitutions" \
@@ -446,6 +550,64 @@ step "Hierarchy control refuses nonidentity frames and object animation before m
 
 step "Portable human contract holds; every human GLB and instance is held to it (T-1786)" \
   python3 tools/human_contract.py --check
+step "Every selected natural-standing derivative reproduces from its exact canonical parent (T-1790)" \
+  python3 tools/human_natural_idle.py --check
+step "Active seated drivers reproduce their bounded looking clip from exact parent exports (T-2804)" \
+  python3 tools/human_seated_look.py --check
+step "The woman's seated draft reproduces from Otis Bardwell's reviewed pose on her own rest chain (T-3423)" \
+  python3 tools/human_seated_transfer.py --donor bardwell_otis_1835 --target flynn_mary_1835_dress_study --person rc_flynn_mary --body assets/authored/humans/makehuman_hm08/prepared_adult_female_25.json --check
+step "Natural standing derivative preserves canonical parents, old clips and planted lower-body channels (T-1790)" \
+  python3 tools/test_human_natural_idle.py
+step "Selected terminal garments reproduce their exact installed payloads (T-2804)" \
+  python3 tools/human_garment_retention.py --check
+step "Terminal garments reproduce the real parent chain and refuse malformed or repeated derivation (T-2804)" \
+  python3 tools/test_human_garment_retention.py
+step "Human animation consumes native elapsed time through slow frames, holds and route corners (T-1790)" \
+  node tools/test_human_frame_time.mjs
+step "BODY ray broad phase preserves native ray hits at faces, edges and grid boundaries (T-1790)" \
+  node tools/test_human_body_ray_grid.mjs
+step "Current in-place horse travel keeps route, wheel, stop and culled-motion contracts (T-2804)" \
+  node tools/test_transport_loop.mjs
+step "Driven assembly retains named drivers, vehicle ownership and exact current horse travel (T-2804)" \
+  node tools/test_driven_assembly.mjs
+step "A seated driver breathes, looks round and holds his reins, bounded and deterministic, on the real 1904 driver (T-1790)" \
+  node tools/test_driver_life.mjs
+step "People on foot breathe, shift weight with feet planted, look at a close visitor and blink irregularly, bounded and deterministic (T-3402)" \
+  node tools/test_human_life.mjs
+step "People on foot rest their hands in, change stance, touch the hat brim to a close visitor and swing their arms against their feet, deterministic (T-3419)" \
+  node tools/test_human_actions.mjs
+step "The driven team's generated walk and its hoof-support domain reproduce byte for byte, hooves planted without slide (T-2803)" \
+  node tools/horse_walk_v2.mjs --check
+step "A driver's plain garments read as cloth: weave, heather and sheen by shader patch, no texture, one program (T-2804)" \
+  node tools/test_fabric.mjs
+step "Every person's skin has pores, blood and a glow, hair a strand sheen and eyes a wet glint: shader patch, no texture (T-3400)" \
+  node tools/test_human_skin.mjs
+step "Near people grow strand-card hair, beards and whiskers from their own scalp and face, cut under a hat, and their eyes a cornea: no texture (T-3414)" \
+  node tools/test_human_hair.mjs
+step "Every wardrobe file matches its recipe, each garment sourced or a liberty, clear of its seated body and vehicle, and is the one its row binds (T-3398, T-3409)" \
+  python3 tools/human_wardrobe.py --check
+step "The shared body-and-face kit reproduces from its pinned MakeHuman targets, and each drawn person's age from their record (T-3412)" \
+  python3 tools/human_variation_kit.py --check
+step "Every person gets their own face, height and build: no two of 400 alike, a seated driver's face only, clothes outside the skin, LODs agree (T-3412)" \
+  node tools/test_human_variation.mjs
+step "A named resident's face fitted to a cited portrait reproduces from its marks, and the card's still is of this fit (T-3413)" \
+  python3 tools/fit_portrait_face.py --check
+step "Each driver's wardrobe binds to the real driver by bone name, skins where it was draped, and its spring tails lag and settle, LOD0 and LOD3 (T-3398, T-3409)" \
+  node tools/test_driver_livery.mjs
+step "People are judged beside period pictures: reference sets cite their sources, the rig is 3 m and 10 m, and no verdict outlives its figure (T-3417)" \
+  node tools/test_people_match.mjs
+step "Driven-team clearance uses the complete occupied envelope and refuses blocked routes (T-2804)" \
+  node tools/test_transport_clearance.mjs
+step "Driven-team support reads actual ground and preserves physical contact limits (T-2804)" \
+  node tools/test_transport_support.mjs
+step "All named1904 driver LODs retain their native contract and seated geometry (T-2804)" \
+  node tools/test_working_driver_1904.mjs
+step "A person transfers to their driven vehicle without duplicate bodies or lifetime ownership (T-2804)" \
+  node tools/test_human_driver_transfer.mjs
+step "The shared interaction key and touch control stop and resume the existing transport actor (T-2804)" \
+  node tools/test_transport_interactions.mjs
+step "Every person placed in town is named by the look tag, found, and followed beside them (T-3404)" \
+  node tools/test_person_interaction.mjs
 selftest "…incompatible skeletons, missing slots and morphs, duplicate clips, non-metric scale, missing provenance and L1 refused by name" \
   python3 tools/human_contract.py --self-test
 step "Every human GLB is the one the browser measured: sha256 and verdicts in data/humans/fixture.measure.json (T-1787)" \
@@ -477,14 +639,14 @@ step "Every human GLB is the one the browser measured: sha256 and verdicts in da
 # in .git/config, so they cannot be committed and a fresh clone starts without them.
 # Unregistered they cost a hand-resolved changelog conflict per branch — four of them
 # in one session on 2026-09-24 — and nothing anywhere says so. This says so.
-step "the merge drivers this clone needs are registered (T-1548)" \
+every_part step "the merge drivers this clone needs are registered (T-1548)" \
   bash tools/check-merge-drivers.sh
 
-step "the tickets are here (kevinrhaas/chicago-tickets, cloned at tickets/)" \
+every_part step "the tickets are here (kevinrhaas/chicago-tickets, cloned at tickets/)" \
   bash tools/tickets.sh
 check_flush   # the publish below reads the clone; never race it under CHECK_JOBS>1
 
-step "publish the mirror the gate measures (site/4d/ is generated, T-0938)" \
+every_part step "publish the mirror the gate measures (site/4d/ is generated, T-0938)" \
   bash tools/publish.sh
 
 # THE ONE ORDERING THIS GATE HAS, and under CHECK_JOBS>1 it has to be said out loud.
@@ -523,6 +685,8 @@ step "Glessner service posts seat on stone and gate hinges connect to masonry (T
   python3 tools/test_glessner_service_access.py
 step "Glessner stacks meet both roof pitches and retain deep open flues (T-2222)" \
   python3 tools/test_glessner_chimneys.py
+step "Print export makes one closed, solid, standing piece from a leaky render soup (T-3395)" \
+  python3 tools/test_export_print_3mf.py
 step "Glessner's curved stone staggers, its eave clears the gable and its pipe meets the roof (T-2470)" \
   python3 tools/test_glessner_north_tower.py
 step "Glessner's service openings stay whole and the stable roof meets the north range (T-2219)" \
@@ -559,6 +723,8 @@ step "the Prairie district draft's houses are the bytes their records build (T-2
   python3 generators/draft_emit.py --check
 step "the haystacks are the bytes their records build (T-2510)" \
   python3 generators/haystack_emit.py --check
+step "the Potawatomi camp's groups are the bytes their records build (T-3342)" \
+  python3 generators/lodge_camp_emit.py --check
 
 # T-0763. The gate's own OUTPUT is a gate. 114 of the steps below prove a derivation by
 # breaking it and require its assertions to fire, so a green run prints dozens of lines
@@ -866,6 +1032,16 @@ step "the 1904 street section and carriage walks re-lay from the street grid (T-
 step "the 1904 parkway elms re-plant from the street grid (T-2473)" \
   python3 tools/plant_prairie_1904_street_trees.py --check
 
+# T-3274. ...and every house walk carried on to the public walk: the code lays the public walk a
+# foot outside the lot line the yards are built to, so each walk's street end, read off its built
+# GLB (or a K13 record's grounds) and its placement, is joined across that foot. A house lane that
+# moves its walk or its placement reruns the tool.
+step "every 1904 house walk meets the public walk: the walk joins re-lay from the built walks (T-3274)" \
+  python3 tools/lay_prairie_1904_walk_joins.py --check
+
+selftest "…and a walk a foot short is joined, one that meets or is no street end is not, at a turned walk's, a gated service walk's, a drive's and a K13 ground's end" \
+  python3 tools/lay_prairie_1904_walk_joins.py --self-test
+
 # T-3199. ...and the street furniture on those parkways (the gas lamps at every corner and along
 # the faces, the pictured ones at their lots; T-3201 the fire hydrants, Pullman's and Tucker's where
 # their pictures put them; T-3202 the poles and wires on 18th Street, the alleys and 22nd Street's
@@ -892,6 +1068,15 @@ step "the 1904 front yards stand clear of every house, stoop, walk and door (T-3
   python3 tools/plant_prairie_1904_front_yards.py --check
 selftest "the front-yard check refuses a shrub on a door's way, beside a door and in a house, and ivy beside a door (T-3223, T-3227)" \
   python3 tools/plant_prairie_1904_front_yards.py --self-test
+
+# T-3407. The 1812 commanding officer's garden: Whistler's beds and walks inside the paling,
+# and every plant inside a bed, re-derived byte for byte from the record and the draught.
+step "the 1812 officers' garden is laid in the draught's beds and planted inside them (T-3407)" \
+  python3 tools/plant_gardens.py --check
+selftest "the garden check refuses a plant off its bed, a bed past the paling and an unknown crop (T-3407)" \
+  python3 tools/plant_gardens.py --self-test
+step "the 1812 officers' garden grows every crop it plants, near to far, inside a phone's budget (T-3407)" \
+  node tools/test_gardens.mjs
 
 # T-1840. ...and what stands on that grid's sheet 20 lots in 1904: the sheet census
 # (prairie_1904_v1/data/sheet_census/sheet-20.json) assigns every 1911 frontage row and
@@ -1118,12 +1303,67 @@ step "a K08 finial may be turned on a crocketed collar and a hooded dormer's fac
 step "a K01 hooded dormer's hood may flare at its foot (T-1890)" \
   python3 tools/test_k01_hood_flare.py
 
+# T-1890. ...and its shelf may be slated, read as the hood's own dark flared eave rather than a
+# pale stone slab (1801 Prairie's three: no pale course at any hood's foot in the Taylor print or
+# HABS photographs 1 and 2): every face of a slated shelf slated, its geometry the stone one's;
+# a hood without `shelf` as before; any other fabric refused.
+step "a K01 hooded dormer's shelf may be slated as its hood is (T-1890)" \
+  python3 tools/test_k01_hood_shelf.py
+
+# T-1890. 1801 Prairie's cross roof ends under a slated hood with its finial on the apex
+# (HABS photograph 1; the Taylor print sets its rise through the finial's top).
+step "a K01 mansard deck's cross roof may end under a slated hood, its finial on the apex (T-1890)" \
+  python3 tools/test_k01_cross_roof_hood.py
+
+# T-1890. 1801 Prairie's east range (HABS photograph 2): its 18th Street end pitched steeper
+# than its sides to an apex 2.7 m back, and a stone stack standing on that apex — the first a
+# K01 wing carries: bad ends, a stack outside the wall line or under the slate refused; an end
+# at the sides' own pitch builds K05's hip exactly; a wing without either as before.
+step "a K01 wing's hip may pitch its ends steeper, and a wing may carry its own stacks (T-1890)" \
+  python3 tools/test_k01_wing_stack.py
+
+# T-1890. 1801 Prairie's east range frontispiece (HABS photograph 2) straddles the 1911 sheet's
+# junction of two ranges on one wall line: a wing's shallow projection may run past its wall's
+# end onto the next wing's wall (`past_end`), that wall cut behind it; refused on a deep bay,
+# onto a wing on other floors, past 1.5 m, or near the other wall's lights and bays.
+step "a wing's shallow projection may run past its wall's end onto the next wing's wall (T-1890)" \
+  python3 tools/test_k01_past_end.py
+
+# T-3283. 1945 Prairie's door under its round arch (the Tribune's 1928 photograph): a brick
+# front's principal door may be cut round-headed (`street_front_round_heads.door`) on the round
+# lights' curve, under their arch band and key, with K07's round-headed entrance in it; refused
+# on a stone front, with no key, on a segmental head or with a flat-headed K07 variant.
+step "a K01 brick front's door may be cut round-headed under its round lights' arch band (T-3283)" \
+  python3 tools/test_k01_round_door.py
+
+# T-3283. 1945 Prairie's north bay under its own mansard with two dormers (the Tribune's 1928
+# photograph): a symmetrical canted bay's mansard may carry dormers on its front run, clear of
+# hips that leave its corners at half the cant's turn; refused across a hip, meeting, under the
+# curb, hooded, with no mansard or on an unsymmetrical cant; a square projection's rule unchanged.
+step "a canted bay's own mansard may carry dormers on its front run (T-3283)" \
+  python3 tools/test_k08_canted_bay_dormers.py
+
+# T-3283. 1945 Prairie's corner block under a mansard about a storey over the rest (the Tribune's
+# 1928 photograph): a crown over a stretch of the street front with no projection under it, cut
+# on a canted corner's line when it runs onto it, carrying its own street and cant dormers; the
+# cut that eats a narrow crown's end side closes it at one point at its own ring; refused on the
+# cut, too short, across a hip, over the cut, with a stack in it.
+step "a mansard crown may stand over a stretch of the front and turn a canted corner (T-3283)" \
+  python3 tools/test_k01_front_crown.py
+
 # T-1881. 1729 Prairie's belt course under its second storey's sills (Taylor's photograph no.
 # 1445, the 1890 Albertype), swept round its runs and their projections, and its dormers' eared
 # architraves and hoods: a bad profile, a belt through a window or an ear out of bounds refused;
 # the path round a projection and on round a flush corner; the hood one closed solid.
 step "a K01 stone front may carry a moulded belt course round its projections, and a round dormer an eared hood (T-1881)" \
   python3 tools/test_k01_belt_eared_hood.py
+
+# T-1890. 1801 Prairie's third storey behind the bow's balcony (the Taylor print, HABS photograph
+# 2): a flat-capped stone wall dormer on the main mansard's street face, wider than its one light,
+# the light off its middle; a hipped head there, a face too wide or too narrow, a light off the
+# face, or a wide face on another head refused; the built face and glass where the record says.
+step "a main-mansard dormer may be a flat-capped stone wall wider than its light, its light in a lugged architrave (T-1890)" \
+  python3 tools/test_k01_wall_dormer.py
 
 # T-1890. ...and a single light named by wall, place and storey (`street_front_trim.lights`)
 # wears its storey's K09 head on a side wall too, and its own transom tiers: 1801's two
@@ -1165,12 +1405,109 @@ step "a swept stoop's cheek drawn in to its newel and pierced under its top (T-3
 step "a K08 tower stands on a K01 rear wing's wall past the wing's eave, closed over its wall top (T-2842)" \
   python3 tools/test_k01_wing_tower.py
 
+# T-3337. ...and a FLAT-TOPPED full-height projection stands on a wing's gable end, the gable
+# rising behind its top (1919 Prairie's canted north bay on its rear range, the 1911 sheet and
+# both Gatlin plates), and a flank-gabled wing's gables carry a stone coping, kneelers and
+# finials (k01_wing_coping). Held on 1919's record; a pitched projection, a tower and a
+# projection run past its end on a gable end, and a coping on a hip, a deck, a rear end or out
+# of its bounds refused.
+step "a flat-topped projection stands on a K01 wing's gable end, and a wing's gables are stone-coped (T-3337)" \
+  python3 tools/test_k01_wing_coping.py
+
+# T-3354. ...and a flank gable may stand back from one end over a flat deck (`roof.flat_end`), and a
+# flank-gabled wing may carry gabled, coped and pinnacled dormers on its street slope
+# (`roof.dormers`, k01_wing_dormers) — 1919 Prairie's middle range, flat-topped at its north-west
+# corner, and the rear range's two dormers, all three Gatlin plates. Held on 1919's record; a flat
+# end out of its bounds or on a rear gable, and a dormer out of its bounds, past its span, over the
+# ridge, crowding another or with a light that does not fit, refused.
+step "a K01 wing's gable stands back from a flat end, and pinnacled dormers stand on its street slope (T-3354)" \
+  python3 tools/test_k01_wing_dormers.py
+
+# T-3354. ...and a brick wing's lights may be cut as stone-mullioned groups on the sides its
+# `mullioned` names: the window kit's grouped flat-headed K06 variant, one hole to a light, a
+# stone mullion and lintel proud of the brick (1919 Prairie's middle range's street face, the
+# 1919 and 1913 Gatlin plates' two-light windows). Held on 1919's record; a side with no windows
+# or round-headed, a kit naming no grouped variant, lights out of range and stray keys, refused.
+step "a K01 wing's lights may be cut as stone-mullioned groups (T-3354)" \
+  python3 tools/test_k01_wing_mullions.py
+
+# T-3353. ...and a brick wing may name stone `dressings`: belts on the walls it names, in place of
+# K03's brick string course there, and quoins up the corners it names (1919 Prairie's rear
+# ranges, the 1919 programme plate's pale corners and courses). Held on 1919's record; a corner
+# the wing has not got, a stone or a belt through a light, a belt on a missing wall, an unknown
+# dressing, a frame wing's and stones out of bounds refused.
+step "a K01 brick wing's stone belts and corner quoins (T-3353)" \
+  python3 tools/test_k01_wing_dressings.py
+
 # T-3242. A two-level timber veranda on a K01 house's rear wall (k01_rear_veranda), held on
 # 1701 Prairie's record: its decks, paired posts, balusters, frieze and flight built where
 # the record puts them, nothing inside the main block; a wing's wall left standing behind an
 # oriel; a veranda into a wing, a flight into a post and an over-high lower deck refused.
 step "a K01 house carries a two-level veranda on its rear wall, and a wing's wall stands behind its oriel (T-3242)" \
   python3 tools/test_k01_rear_veranda.py
+
+# T-1881. A raised stone terrace under a striped awning on a K01 house's rear wall
+# (k01_rear_terrace), held on 1729 Prairie's record: its podium, balustrade, posts and
+# striped canvas built where the record puts them, nothing inside the main block, the old
+# brick block gone; an over-high floor, a low eave, a run past the wall and an unknown key refused.
+step "a K01 house carries a raised terrace under a striped awning on its rear wall (T-1881)" \
+  python3 tools/test_k01_rear_terrace.py
+
+# T-1881 (2026-11-06). A hanging lantern on a wrought-iron arm off a K01 house's street front
+# (k01_wall_lanterns), held on 1729 Prairie's record: off the entrance's south return beside the
+# portico, as the 1890 Albertype plate draws it, with the banded pier at the inner angle; a low
+# lantern, a short arm, an unknown face and an unknown key refused.
+step "a K01 house hangs a lantern on an iron arm off its street front (T-1881)" \
+  python3 tools/test_k01_wall_lantern.py
+
+# T-1881 (2026-11-02). A K01 house's mansarded K08 sections joined to its own mansard under one
+# rail (k08_bays._hip back_m/open, k01_mansard_deck.dress_joined), held on 1729 Prairie's
+# record: every section joined at the house's curb, no rail of its own, the rail closing round
+# the joined curb, the entry's deck meeting the north block's; bad reaches and curbs refused.
+step "a K01 house's mansarded sections join its mansard under one rail of cresting (T-1881)" \
+  python3 tools/test_k01_joined_mansard.py
+
+# T-1881. A K01 named street window's round head framed by a moulded architrave (jambs, arch,
+# impost and keystone), held on 1729 Prairie's record off the 1890 Albertype plate: the four
+# lights the front shows framed, the one behind the forward block left in its voussoirs, every
+# band springing with its head and clear of the piers; voussoirs with an architrave, a band out
+# of range, a low keystone, an unknown key and two architraves run together refused.
+step "a K01 house's named round-arched street lights stand in moulded architraves (T-1881)" \
+  python3 tools/test_k01_architrave.py
+
+# T-3364 (T-1914). A K01 door under a flat (elliptical or segmental) arch glazed as a fanlight
+# over a transom bar, hung with its own count of leaves (`fanlight_transom`), held on 2009
+# Prairie's record off the Chicagology photograph; a round head, a side light, a bar or a leaf
+# out of range, three leaves and an unknown key refused.
+step "a K01 door under a flat arch takes a fanlight over a transom bar (T-3364)" \
+  python3 tools/test_k01_fanlight_transom.py
+
+# T-3365 (T-1914). On a front that names its windows one by one: basement lights named by their
+# centres in the rusticated base (`basement_lights.at_m`), the low-s corner dressed in stone to the
+# wall head (`corner_stone`), and a carved band laid as a panel over its run alone (`panel`), held
+# on 2009 Prairie's record off the Chicagology photograph; each refused out of its range.
+step "a K01 named-window front takes named basement lights, a corner stone and a carved panel (T-3365)" \
+  python3 tools/test_k01_named_base_lights.py
+
+# T-3365 (T-1914). A shaped gable's crest (`finial.form: "crest"`: a carved block on a flat-topped
+# apex, not a turned finial) and a door's pilasters carried up to pinnacles, with a stem and bud
+# over the arch's crown (`arch.pilasters.pinnacles`), held on 2009 Prairie's record off the
+# Chicagology photograph; each refused out of its range.
+step "a K01 shaped gable takes a carved crest and a door's pilasters take pinnacles (T-3365)" \
+  python3 tools/test_k01_crest_pinnacles.py
+
+# T-3365. A K08 bay's carved apron band under its lowest lights (2009 Prairie's oriel, the
+# Chicagology photograph): held on the committed record, its rosettes counted, the light tier
+# dropping them; each key refused out of its range, and a band into the sill stones refused.
+step "a K08 oriel takes a carved apron band of rosettes under its lights (T-3365)" \
+  python3 tools/test_k08_apron_band.py
+
+# T-3365. The moulded hoods of a K01 named-window front's lights (2009 Prairie, the Chicagology
+# photograph): a drip band with label stops and a carved pendant over the paired light, standing
+# proud of the shaped gable's slab; consoles under the oriel; a splayed key in place of the small
+# light's lintel. Held on the committed record; each part refused out of its range.
+step "a K01 named-window front takes moulded hoods, consoles, a key and a pendant (T-3365)" \
+  python3 tools/test_k01_window_hoods.py
 
 # T-3255. Eared and crested stone hoods over a K01 wall's round-headed lights, and the main
 # block's corner pilasters (k01_dressings), held on 1701 Prairie's record: every round light on
@@ -2458,6 +2795,26 @@ step "the 1835 company-garden and Harmon orchard plantings re-derive from their 
 step "the business signboards re-derive from the rule that chose their frontages" \
   python3 tools/generate_business_signboards.py --check
 
+# ...AND NO FLAT BOARD HANGS ACROSS A LOG FRONT'S MID-WALL NOTCHES (T-3268). The T-2381
+# Miller House front joins a log core to a two-storey range mid-wall, and its board was
+# hung across the junction's notched log ends: dev's desktop smoke part 1 found 4 of 35
+# lettering rays behind them. The front-wall reader now names the notch; this holds that
+# reading to the module that lays the notches, and every committed board clear of it.
+step "no flat signboard hangs across a log front's mid-wall corner notches (T-3268)" \
+  python3 tools/test_log_notch_front.py
+
+# ...AND A STATED COMPOUND APERTURE SET STAYS INSIDE ITS OWN WALL AND RAKE (T-2374). The
+# Agency House's picture draws two upright marks on the ground and a small one above
+# them, which the one-opening-per-room compound rule could not say. The opt-in that says
+# it is bounded here: its gable geometry tracks the builder's own overhang, its set
+# OVERRIDES the room's centre opening rather than standing beside it, the entrance reader
+# still finds exactly one grounded way in, and every other log_dwelling record resolves
+# with the set absent and its legacy front unchanged.
+step "a stated compound aperture set is read once, overrides its room's opening and leaves every other log front alone (T-2374)" \
+  python3 tools/test_log_compound_apertures.py
+selftest "a stated compound aperture set is refused outside its room's wall, through its own rake, with two ways in or on the bounded elbow" \
+  python3 tools/test_log_compound_apertures.py --self-test
+
 # ...AND THE RULE IS LOCAL (T-0405). "Re-derives" only says the committed file matches the
 # rule; it says nothing about how far one frontage reaches. Until T-0405 the mounting was
 # dealt from a counter walked down the town in id order, so admitting one frontage in the
@@ -2568,6 +2925,24 @@ selftest "…and two shops on one corner, a fence through a turned house, a wood
 # for, which fail this gate rather than a reviewer's attention (T-0097).
 step "the fort apron re-derives from the palisade it is measured off" \
   python3 tools/generate_fort_apron.py --check
+
+# And the ground INSIDE the walls (T-3320): each fort's parade is trodden earth feathered
+# into the sward, derived from the parade record's own footprint, with the feather asserted
+# to finish inside the walls; 1812's lives in its own enclosure folder.
+step "the forts' parade grounds re-derive from their parade records" \
+  python3 tools/generate_fort_parade_ground.py --check
+# T-3342: the 1812 Potawatomi camp's grounds are worn earth, one rounded patch inside each
+# lodge_camp footprint, derived from the camp's sidecars and listed in the 1812 manifest.
+step "the 1812 camp's worn ground re-derives from its camp records (T-3342)" \
+  python3 tools/generate_camp_ground_1812.py --check
+
+# And the ground BETWEEN the 1812 buildings (T-3339): the worn trails (the beaten lake-shore
+# trail, the Vincennes trace, the cart road south from the gate, the paths along both banks)
+# and the trodden yards round each house. Every line is routed by a fixed rule over the
+# committed terrain and footprints, so it re-derives here with its assertions: no trail on
+# water, none through a building or a garden, every yard on dry ground.
+step "the 1812 worn trails and yards re-derive from the terrain and the footprints" \
+  python3 tools/generate_worn_ground_1812.py --check
 
 # And the layer above that ground: the wood p4_0 draws outside the same walls (T-0098). Same
 # shape again — the plate attests a tree mass and places nothing, so which ground carries a
@@ -2697,6 +3072,13 @@ selftest "…and that agreement still fires when the frames drift off the holes"
 # T-2376/T-2383/T-2385: pictured frame controls on the real accumulator.
 step "pictured frame taverns preserve defaults and build their opt-in details" \
   python3 tools/test_frame_tavern_picture_features.py
+
+# T-3359: the tavern front reader the 1835 flat signs stand clear of copies the
+# builder's literals (it cannot import Blender); hold the two together.
+step "frame_tavern_params.front_wall matches frame_tavern.py's frontage literals" \
+  python3 tools/check_tavern_front_reader.py
+selftest "the tavern front reader's check refuses a sash moved in the builder alone" \
+  python3 tools/check_tavern_front_reader.py --self-test
 
 # T-3105: gallery supports must clear the declared pictured front.
 step "first-fort explicit fronts preserve positional defaults and keep supports off apertures" \
@@ -4459,7 +4841,7 @@ selftest "the bake is skipped only when the freshness register says nothing stal
 # to install chromium there, so all eighteen content-build smoke legs died in
 # `Install Playwright` and no bake could open its PR. A job that installs Playwright
 # names an exact image — the one its timings and ceilings were measured on.
-step "every workflow job that installs Playwright runs on a pinned image (T-3169)" \
+step "every workflow job that installs Playwright or runs Blender runs on a pinned image (T-3169, T-3296)" \
   python3 tools/check_runner_images.py --gate
 
 selftest "…and a job on a moving label is refused, read per job and not from prose" \
@@ -6069,6 +6451,17 @@ step "the 1904 street ground draws no hard straight line: no turf margin, no dro
   node tools/test_street_ground_seams.mjs
 selftest "the 1904 street-ground check fires on each of its five causes put back (T-3233)" \
   node tools/test_street_ground_seams.mjs --self-test
+
+# T-3389. The owner, on Prairie at 18th and 20th: "pixely flashy transitions" where the asphalt
+# meets the macadam. T-3088 had put every roadway and the seam overlay on one surface, ranked by
+# polygon offset only; differently triangulated over the 5 mm field they differ by up to 1.7 mm,
+# and fought in moving blocks. Lifting them apart broke the horses' 1 mm footing, so the roadways
+# are ground decals now: no depth written, drawn in their stacking order, fades after. This holds
+# that on the shipped grid and checks the order at every 0.1 m where two pavings overlap.
+step "the 1904 roadways are ground decals drawn in their stacking order, fades over them (T-3389)" \
+  node tools/test_street_paving_order.mjs
+selftest "the 1904 paving-order check fires with the roadways' depthWrite or draw order taken out (T-3389)" \
+  node tools/test_street_paving_order.mjs --self-test
 
 # T-3231. A corner ramp's head corners lie exactly on its edge; where the parity test
 # put one outside the ramp and outside the face's bands it took the roadway's level
@@ -7958,6 +8351,12 @@ step "the 1904 people directory is its own, and the drawer still offers no Peopl
 selftest "…and a card with no source, no grade, a home not in the scene or a late arrival is refused" \
   python3 tools/test_people_scene.py --self-test
 
+# T-3266. The 1904 houses' former residents (data/residents_1904/former_residents.json),
+# built from the Blue Book readings, the 1900 census reading and the district markers, and
+# carried into people.json for Inspect's People tab: the committed file is the build's own.
+step "the 1904 houses' former residents re-derive from the Blue Book and census readings (T-3266)" \
+  python3 tools/build_former_residents_1904.py --check
+
 # T-2611. The arrival's time-stream decks: data/timestream/<scene>.json, 8 to 12 landmark
 # years each, captioned as the ticker passes them (design doc section 05). The page shows
 # the strings as written, so this refuses a caption with no grade, no source, a source
@@ -8114,6 +8513,11 @@ step "the walkthrough's tier reader agrees with the published table" \
 
 selftest "…and its own derivation still answers each case" \
   node tools/check_attribute_tiers.mjs --self-test
+
+step "World smoke keeps exact structure batches and both source-owned Green Tree yard readings (T-1790)" \
+  node tools/test_world_smoke_contracts.mjs
+step "Green Tree yard generator preserves enclosed, open and blocked source readings (T-1790)" \
+  python3 tools/test_green_tree_yard_modes.py
 
 check_summary
 exit $CHECK_FAILED

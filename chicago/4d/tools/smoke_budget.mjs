@@ -270,6 +270,9 @@ const COVERAGE = [
   // renderers/ fetches them: they reach the browser only through what compile_pictures.py
   // (a picture's spot) and jaunt_built_so_far.py (the built-so-far walk) derive from them,
   // and those derived sidecars and jaunts are priced by their own rows.
+  // T-3417. The people match's reference sets, subjects and match records: read by
+  // tools/people_match.mjs and test_people_match.mjs, published and fetched by nothing.
+  ['data/people_match/', NONE, 'the people match\u2019s reference sets and match records \u2014 read by the rig and its gate, fetched by no renderer'],
   ['data/reference_views/', NONE, 'the image gate\u2019s cameras and match records \u2014 read by the gate\u2019s tools and two compilers, fetched by no renderer'],
   // T-1971. The housing deal's ledger reaches the scene only through the sidecars
   // compile_scene writes from it (`residents[]` on the building card), which are priced
@@ -292,7 +295,12 @@ const COVERAGE = [
   // the 1835 tabs once in the town (T-2639); part 13 the rail.
   ['renderers/web/js/apps/inspect.js', [3, 4, 13, 14], 'the Inspect app: its rail entry and its lazy screen'],
   ['renderers/web/js/apps/inspect-view.js', [3, 4, 14], 'Inspect\'s Overview front page (M7) and its tabs (T-2639)'],
-  ['renderers/web/js/inspect-sources.js', [4, 14], 'Inspect\'s Sources tab: facts by grade, Liberties, folded citations (T-2644)'],
+  // T-3266: the People tab's former residents of a 1904 house; part 14 reads the 1904 tabs.
+  // T-3430: the People app as a directory (1904's People screen); part 14 searches it and opens its cards.
+  ['renderers/web/js/apps/people-view.js', [14], 'the People app as a directory: search, household and person cards (T-3430)'],
+  ['renderers/web/js/people-directory.js', [14], 'the People directory\u2019s households and search (T-3430)'],
+  ['renderers/web/js/apps/former-residents.js', [14], 'Inspect\'s People tab: former residents of a 1904 house (T-3266)'],
+  ['renderers/web/js/inspect-sources.js', [4, 14], 'Inspect\'s Details and Sources tabs: facts by grade, by source (T-2644, T-3435)'],
   // T-2645: the Photos tab. Part 14 reads it on Glessner House (pictures, All N, From this
   // spot); part 4 opens every tab of an 1835 building, Photos included.
   ['renderers/web/js/photos-tab.js', [4, 14], 'Inspect\'s Photos tab (T-2645)'],
@@ -302,6 +310,8 @@ const COVERAGE = [
   // T-2641: Inspect's Design tab; part 14 reads Glessner's style card, hotspots and Show me,
   // part 4 an 1835 building with no record or module, which falls back to its own sidecar.
   ['renderers/web/js/inspect-design.js', [4, 14], 'Inspect\'s Design tab: the style card, On this house, Compare styles (T-2641)'],
+  // T-3435: the style guide every Design tab is written from; parts 4 (1835) and 14 (Glessner).
+  ['renderers/web/js/style-guide.js', [4, 14], 'Inspect\'s Design tab: the written style guide (T-3435)'],
   ['renderers/web/js/enclosures.js', [1], 'the enclosure layer (T-0038)'],
   ['renderers/web/js/yards.js', [1], "the town's lot-line yard fences (T-0068)"],
   ['renderers/web/js/signage.js', [1], 'the business signs (T-0039, T-0066)'],
@@ -378,7 +388,7 @@ const COVERAGE = [
   // `api.people?.close?.()` that asserts nothing. A run that trusted the old row ran
   // part 13 and never opened the directory it had changed. ANCHORS below now holds it.
   ['renderers/web/js/agencies.js', [3, 14], 'the agency on the card, and on the person'],
-  ['renderers/web/js/people.js', [13], 'the directory of everyone in the town'],
+  ['renderers/web/js/people.js', [13, 14], 'the directory of everyone in the town and the later scene’s no-directory mount controls'],
   // T-0438. The reader the cohort's rows go through once the mirror ships them packed:
   // a letter-list person opened from the directory (13) and a row of the Evidence
   // panel's letter-list group, whose body the smoke reads (14). No building card holds
@@ -453,9 +463,16 @@ const COVERAGE = [
   // --- PART 9: what the light does to the town
   ['renderers/web/js/facades.js', [9], 'T-0002, the facade tones'],
   ['renderers/web/js/buildings.js', [8, 9], 'the facades and the shadow reach they carry, and the merged batch part 8 reads the roughness channel out of'],
+  // T-3408: a phone's structure buckets laid as 16-bit-indexed batches; read wherever buildings.js lays batches.
+  ['renderers/web/js/short-index.js', [8, 9], 'the structure batches a phone lays small enough to index in 16 bits'],
   ['renderers/web/js/shadow-casters.js', [8, 9], 'T-2529, the sun\'s pass at `light` — it wraps every structure batch buildings.js makes, so it is read where the facades and their shadows are'],
   ['renderers/web/js/roof-relief.js', [8, 9], 'T-1488, the roof coverings\' relief maps — it binds them inside buildings.js\'s own load loop and adds two batches to the merge part 8 counts'],
   ['renderers/web/js/wall-relief.js', [8, 9], 'T-1963, the walls\' relief maps — bound inside buildings.js\'s load loop like the roofs\', and two more batches for the merge part 8 counts'],
+  ['renderers/web/js/batch-bounds.js', [8, 9, 14], 'T-3173, a phone\'s BatchedMesh bounds kept as float32 figures once upload-release.js has computed them — read by every cull, sort and pick of the structures (8-9) and of the 1904 street grid it was measured on (14)'],
+  ['renderers/web/js/far-shadow.js', [8, 9], 'T-3286, the far structure pieces\' clustered shadow twins — swapped in for buildings.js\'s pieces inside the sun\'s pass, so it is read where the facades and their shadows are'],
+  ['renderers/web/js/far-colour.js', [8, 9], 'T-3312, the far structure pieces\' colour twins at light — swapped in for buildings.js\'s pieces inside the colour pass, so it is read where the facades are'],
+  ['renderers/web/js/sub-pixel.js', [5, 8, 9], 'T-3426, the structure pieces under a pixel left out of the colour pass at light — it wraps every structure batch buildings.js makes, so it is read where the facades are (8, 9) and where light is held against full (5)'],
+  ['renderers/web/js/far-roof-relief.js', [8, 9], 'T-3284, the roof relief\'s far twins — swapped in for roof-relief.js\'s pieces inside buildings.js\'s colour pass, so it is read where those batches are'],
   ['renderers/web/js/relief-pack.js', [2, 8, 9], 'T-2300, the orl and board grain both relief layers pack at load — the walls (8, 9) and the frontage walks (2)'],
   ['renderers/web/js/wall-grain.js', [8, 9], 'T-1963, which walls take the relief and how much grain their finish shows'],
 
@@ -501,6 +518,8 @@ const COVERAGE = [
   // T-2743: every tree in 1812, 1835 and the 1904 parkway is grown and instanced by these two.
   ['renderers/web/js/tree-model.js', [10, 11, 14], 'the grown species trees: the timber parts and the 1904 parkway elms'],
   ['renderers/web/js/tree-instances.js', [10, 11, 14], 'the grown trees\' instancing, levels and shadow ring: the timber parts and the 1904 elms'],
+  // T-3363: every grown wood's batches draw through it, so it is read where tree-instances.js is.
+  ['renderers/web/js/batch-instance.js', [10, 11, 14], 'the grown trees\' copies of one template drawn as one instanced draw'],
   ['assets/textures/trees/', [10, 11, 14], 'the grown trees\' leaf and bark atlases'],
   ['tools/generate_tree_atlas.py', NONE, 'writes assets/textures/trees/, read by no renderer itself'],
   ['renderers/web/js/shrub-grain.js', [10, 11, 12], 'the sward\'s grain'],
@@ -552,6 +571,12 @@ const COVERAGE = [
   ['renderers/web/js/front-yards.js', [14], 'the 1904 front yards: grown shrubs, young trees, beds, ivy (T-3203, T-3223)'],
   ['data/front_yards/', [14], 'the 1904 front yards, generated from the grid and the houses'],
   ['tools/plant_prairie_1904_front_yards.py', NONE, 'the front-yard planter — read by no renderer: its own --check in check.sh'],
+  // T-3407. The 1812 commanding officer's garden: beds and crops inside its paling. main.js
+  // asks for the layer only where a scene lists it, and only 1812's does; no part boots 1812,
+  // so these are held by plant_gardens.py's --check and test_gardens.mjs in check.sh.
+  ['renderers/web/js/gardens.js', NONE, "the 1812 officers' garden: beds, soil and grown crops (T-3407) — no part boots 1812"],
+  ['data/gardens/', NONE, "the 1812 officers' garden's beds and plants — fetched only at /1812/, which no part boots"],
+  ['tools/plant_gardens.py', NONE, 'the garden planter — read by no renderer: its own --check in check.sh'],
   // T-1728. What that grid is paved with, and the maps it is paved in.
   ['data/street_section/', [14], 'the 1904 curb reveal and carriage walks (T-2474)'],
   ['data/street_surfaces/', [14], 'the 1904 street surfaces: materials, tiers and sources'],
@@ -696,6 +721,7 @@ const COVERAGE = [
 const ANCHORS = [
   // T-2620: a section is reached through its Navigator app (`openSection(tab)` in the smoke).
   ['renderers/web/js/people.js', ["openSection('people')", 'people-filters', 'people-card']],
+  ['renderers/web/js/apps/people-view.js', ['ppl-search', 'ppl-hh-card']],
   ['renderers/web/js/businesses.js', ["openSection('businesses')"]],
   ['renderers/web/js/seat.js', ['people-seat']],
   // householdHtml is the body of the People directory's person card (13) and of the

@@ -1,0 +1,88 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+/** Whole-horse rigid ground-plane support. Limits match the standing development
+ * support: <=2 degrees, no sampled penetration and <=1mm sampled contact spread
+ * (a model certificate may allow up to 2mm across a longer walking domain, T-2803).
+ * This is a ground-provider check; the actual posed hoof surfaces are read separately. */
+export function fitHorseSupport({ e, n, yaw, heightAt, half_width_m = .4, half_length_m = 1, plane_residual_limit_m = .001 }) {
+  if (![e, n, yaw, half_width_m, half_length_m, plane_residual_limit_m].every(Number.isFinite)
+    || half_width_m <= 0 || half_length_m <= 0 || plane_residual_limit_m <= 0 || plane_residual_limit_m > .002
+    || typeof heightAt !== 'function') throw Error('transport support: finite placement, dimensions and rendered ground reader required');
+  const c = Math.cos(yaw), s = Math.sin(yaw), samples = [];
+  for (const x of [-half_width_m, 0, half_width_m]) for (const z of [-half_length_m, 0, half_length_m]) {
+    const east = e + c * x + s * z, north = n + s * x - c * z;
+    const height = heightAt(east, north);
+    if (!Number.isFinite(height)) throw Error('transport support: no rendered ground across the hoof-support region');
+    samples.push({ x, z, height });
+  }
+  const mean = samples.reduce((sum, p) => sum + p.height, 0) / samples.length;
+  const a = samples.reduce((sum, p) => sum + p.x * (p.height - mean), 0) / samples.reduce((sum, p) => sum + p.x * p.x, 0);
+  const b = samples.reduce((sum, p) => sum + p.z * (p.height - mean), 0) / samples.reduce((sum, p) => sum + p.z * p.z, 0);
+  const tilt = Math.atan(Math.hypot(a, b));
+  if (tilt > 2 * Math.PI / 180 + 1e-12) throw Error('transport support: horse support exceeds 2-degree standing bound');
+  const residuals = samples.map(p => p.height - (mean + a * p.x + b * p.z));
+  const minimum = Math.min(...residuals), maximum = Math.max(...residuals);
+  if (maximum - minimum > plane_residual_limit_m + 1e-12) throw Error(`transport support: hoof-region plane residual exceeds ${plane_residual_limit_m * 1000}mm standing bound`);
+  const length = Math.hypot(a, 1, b);
+  return { height_m: mean + maximum, normal_local_xyz: [-a / length, 1 / length, -b / length],
+    tilt_rad: tilt, sampled_minimum_clearance_m: 0, sampled_maximum_clearance_m: maximum - minimum,
+    sample_count: samples.length, field: { a, b }, actual_posed_hoof_surface_acceptance: false };
+}
+
+/** Same team-centre and tangent calculation used by the real renderer adapter. */
+export function teamSupportAt(row, pose, heightAt, domain = {}) {
+  if (!Array.isArray(row.horse_offset_m) || row.horse_offset_m.length !== 3
+    || !row.horse_offset_m.every(Number.isFinite) || !Number.isFinite(row.team_half_spacing_m)) throw Error('transport support: exact fitted team row required');
+  return [-1, 1].map(side => {
+    const x = row.horse_offset_m[0] + side * row.team_half_spacing_m, z = row.horse_offset_m[2];
+    const c = Math.cos(pose.yaw), s = Math.sin(pose.yaw);
+    const e = pose.e + c * x + s * z, n = pose.n + s * x - c * z;
+    const yaw = pose.yaw + Math.atan2(pose.curvature * (pose.rootAhead + z), 1 - pose.curvature * x);
+    return fitHorseSupport({ e, n, yaw, heightAt, ...domain });
+  });
+}
+
+/** A model-specific source certificate never changes generic support defaults. */
+export function certifiedHorseSupportDomain(spec, certificate) {
+  const d = spec?.support_domain;
+  if (certificate?.schema === 'generated_walk_hoof_domain_v1') return generatedWalkDomain(spec, d, certificate);
+  if (!d || !certificate || certificate.schema !== 'actual_native_complete_hoof_finite_domain_v1'
+    || !/^[a-f0-9]{64}$/.test(spec.sha256 ?? '') || d.model_sha256 !== spec.sha256
+    || certificate.asset_sha256 !== spec.sha256
+    || certificate.classifier?.assetSHA256 !== spec.sha256
+    || certificate.classifier?.vertex_rows !== 1196 || certificate.classifier?.complete_triangles !== 2048
+    || certificate.walk_frames !== 1025 || certificate.quiet_frames !== 129
+    || certificate.maximum_support_tilt_deg !== 2
+    || certificate.original_ground_plane_spread_limit_m !== .001
+    || certificate.original_wheel_gap_limit_m !== .03
+    || certificate.extra_domain_numerical_allowance_m !== 1e-5
+    || ![d.half_width_m, d.half_length_m, certificate.measured_required_centered_half_width_m,
+      certificate.measured_required_centered_half_length_m].every(n => Number.isFinite(n) && n > 0)
+    || d.half_width_m !== certificate.half_width_m || d.half_length_m !== certificate.half_length_m
+    || d.half_width_m < certificate.measured_required_centered_half_width_m
+    || d.half_length_m < certificate.measured_required_centered_half_length_m) {
+    throw Error('transport support: invalid or stale model-bound complete-hoof certificate');
+  }
+  return Object.freeze({ half_width_m: d.half_width_m, half_length_m: d.half_length_m });
+}
+
+/** T-2803: a walk generated by tools/horse_walk_v2.mjs carries its own hoof-domain
+ * certificate, bound to the same horse GLB and to the exact clip bytes it measured. */
+function generatedWalkDomain(spec, d, certificate) {
+  const limit = certificate.plane_residual_limit_m;
+  if (!d || !/^[a-f0-9]{64}$/.test(spec.sha256 ?? '') || d.model_sha256 !== spec.sha256
+    || certificate.asset_sha256 !== spec.sha256
+    || !spec.walk_clip_file || !/^[a-f0-9]{64}$/.test(spec.walk_clip_sha256 ?? '')
+    || certificate.clip_sha256 !== spec.walk_clip_sha256
+    || certificate.maximum_support_tilt_deg !== 2
+    || certificate.extra_domain_numerical_allowance_m !== 1e-5
+    || !(limit > 0 && limit <= .002)
+    || !(certificate.stance?.maximum_hoof_slip_m <= 1e-3) || !(certificate.stance?.maximum_hoof_lift_m <= 1e-3)
+    || ![d.half_width_m, d.half_length_m, certificate.measured_required_centered_half_width_m,
+      certificate.measured_required_centered_half_length_m].every(n => Number.isFinite(n) && n > 0)
+    || d.half_width_m !== certificate.half_width_m || d.half_length_m !== certificate.half_length_m
+    || d.half_width_m < certificate.measured_required_centered_half_width_m
+    || d.half_length_m < certificate.measured_required_centered_half_length_m) {
+    throw Error('transport support: invalid or stale generated-walk hoof certificate');
+  }
+  return Object.freeze({ half_width_m: d.half_width_m, half_length_m: d.half_length_m, plane_residual_limit_m: limit });
+}

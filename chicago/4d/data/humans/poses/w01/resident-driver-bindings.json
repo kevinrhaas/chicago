@@ -102,6 +102,38 @@
         ]
       },
       "grip_status": "wrist heads, not yet palm grip sockets; finger closure unimplemented"
+    },
+    {
+      "asset_id": "flynn_mary_1835_dress_study",
+      "person_reference_id": "rc_flynn_mary",
+      "person_reference_grade": "reconstructed",
+      "body_sha256": "3060ee86957ff7c2d70c89e70fe95ff3bc2294a0d7f6a5716b5a2f3f8dd84c72",
+      "pose_draft_file": "flynn_mary_1835_dress_study-transferred-pose.json",
+      "pose_draft_sha256": "2de0896363834bb1d49fb1c2b29d8de392d06f13c6039b45293a0ad7691e6eec",
+      "pelvis_head_m": [
+        0.0,
+        1.6621952709275238,
+        0.65
+      ],
+      "seat_surface_m": [
+        0,
+        1.58,
+        0.65
+      ],
+      "wrist_targets_m": {
+        "l": [
+          0.18660845268801057,
+          1.921861642078712,
+          0.9693167266071075
+        ],
+        "r": [
+          -0.18660845268801057,
+          1.921861642078712,
+          0.9693167266071075
+        ]
+      },
+      "grip_status": "transferred from bardwell_otis_1835; wrist heads only, no grip sockets",
+      "transferred_from": "bardwell_otis_1835"
     }
   ],
   "open_gates": [

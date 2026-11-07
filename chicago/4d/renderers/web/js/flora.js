@@ -47,6 +47,7 @@
  */
 
 import * as THREE from 'three';
+import { onDaylight } from './time-of-day.js';
 // The shrub archetype's LAYOUT, in a module that imports nothing, so
 // `tools/measure_spray_grain.mjs` can measure the grain without a browser and
 // without a second copy of the corner arithmetic. See K57.
@@ -1339,6 +1340,8 @@ export async function createFlora({
   };
   /** Resolved once, from the scene graph, at the first update. */
   let sunFound = false;
+  // T-3331: a new hour moves the sun, its colour and the fill; find them again.
+  onDaylight(() => { sunFound = false; });
 
   // One procedural atlas for every understory family; no network texture or
   // extra draw call. Alpha is clipped before lighting and still writes depth.
@@ -1646,7 +1649,7 @@ export async function createFlora({
     const passMat = new THREE.RawShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: pass,
       ...nearPassShaders({ lattice: LATTICE_GLSL, field: FIELD_GLSL, deal: DEAL_GLSL }) });
     const passGeo = new THREE.BufferGeometry();
-    passGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(max * 3), 3));
+    passGeo.setAttribute('position', new THREE.BufferAttribute(new Uint8Array(max * 3), 3));
     const points = new THREE.Points(passGeo, passMat);
     points.frustumCulled = false;
     const passScene = new THREE.Scene();
@@ -1709,7 +1712,7 @@ export async function createFlora({
     const midMat = new THREE.RawShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: midPass,
       ...midPassShaders({ lattice: LATTICE_GLSL, field: FIELD_GLSL, deal: DEAL_GLSL, ring: NEAR_RING_GLSL }) });
     const midGeo = new THREE.BufferGeometry();
-    midGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(midMax * 3), 3));
+    midGeo.setAttribute('position', new THREE.BufferAttribute(new Uint8Array(midMax * 3), 3));
     const midPoints = new THREE.Points(midGeo, midMat);
     midPoints.frustumCulled = false;
     const midScene = new THREE.Scene();
@@ -1734,7 +1737,7 @@ export async function createFlora({
       };
       const mat = new THREE.RawShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: u, ...forbShaders });
       const geo = new THREE.BufferGeometry();
-      geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(forbMax * 3), 3));
+      geo.setAttribute('position', new THREE.BufferAttribute(new Uint8Array(forbMax * 3), 3));
       const points = new THREE.Points(geo, mat);
       points.frustumCulled = false;
       midScene.add(points);
@@ -1767,7 +1770,7 @@ export async function createFlora({
       };
       const mat = new THREE.RawShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: u, ...farShaders });
       const geo = new THREE.BufferGeometry();
-      geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(fb.max * 3), 3));
+      geo.setAttribute('position', new THREE.BufferAttribute(new Uint8Array(fb.max * 3), 3));
       geo.setDrawRange(0, 0);
       const points = new THREE.Points(geo, mat);
       points.frustumCulled = false;
@@ -1814,7 +1817,7 @@ export async function createFlora({
       };
       const mat = new THREE.RawShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: u, ...carryShaders });
       const geo = new THREE.BufferGeometry();
-      geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(carryMax[i] * 3), 3));
+      geo.setAttribute('position', new THREE.BufferAttribute(new Uint8Array(carryMax[i] * 3), 3));
       const points = new THREE.Points(geo, mat);
       points.frustumCulled = false;
       carryScene.add(points);
@@ -1844,7 +1847,7 @@ export async function createFlora({
         ...farShrubPassShaders({ lattice: LATTICE_GLSL, field: FIELD_GLSL, deal: DEAL_GLSL,
           slot: FAR_SLOT_GLSL, unasked: FAR_UNASKED }) });
       fsGeo = new THREE.BufferGeometry();
-      fsGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(fsRoom.texels * 3), 3));
+      fsGeo.setAttribute('position', new THREE.BufferAttribute(new Uint8Array(fsRoom.texels * 3), 3));
       fsGeo.setDrawRange(0, 0);
       const points = new THREE.Points(fsGeo, fsMat);
       points.frustumCulled = false;
@@ -4540,7 +4543,7 @@ export async function createFlora({
     if (!p.pending) {
       if (!spread) {
         if (!due) return false;
-        if (f.spread && costly) {
+        if (f.spread && costly && (f.pace > p.reach || f.turnRate > CONE_YAW_STEP)) {
           begin(p, f, true);
           stats.spread.jumps++;
           return advance(p, f, jumpSlice(p, f));

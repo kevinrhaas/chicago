@@ -31,22 +31,37 @@ export function estimateLeg({ from, to, mode, settings = {}, router }) {
   return { seconds: length_m / paceSpeed(mode, settings) + ARRIVAL_SETTLE_S, length_m, approx: !routed };
 }
 
+/** T-3355: the authored leg between two stops, in either direction, or null. */
+export function authoredLeg(jaunt, fromId, toId) {
+  if (!fromId || !toId) return null;
+  const ends = (leg, i) => [leg.from ?? jaunt.stops?.[i]?.id, leg.to ?? jaunt.stops?.[i + 1]?.id];
+  return (jaunt?.legs || []).find((leg, i) => { const [a, b] = ends(leg, i); return a === fromId && b === toId; })
+    || (jaunt?.legs || []).find((leg, i) => { const [a, b] = ends(leg, i); return a === toId && b === fromId; }) || null;
+}
+
 /** Catalog timing and full story documents share the same primary-path estimate.
  * `from` prices an in-progress leg from the visitor's current position. */
 export function estimateJaunt(jaunt, mode, { resolve = d => d, settings = {}, router,
-  startIndex = 0, from = null, includeOpening = true } = {}) {
+  startIndex = 0, from = null, includeOpening = true, chosen = false } = {}) {
   const stops = jaunt.stops || jaunt.destinations?.map((destination, i) => ({ destination, ...jaunt.timing?.stops?.[i] }));
   if (!stops?.length || !Object.hasOwn(PACES, mode)) return null;
   let total = includeOpening ? seconds(jaunt.opening?.read_s ?? jaunt.timing?.opening_read_s) : 0;
   let approx = false;
   const legs = [], first = Math.max(0, Math.min(startIndex, stops.length - 1));
+  // T-3355: a leg authored with its own mode (a long ride Instantly) is priced that way
+  // while the jaunt runs on its default mode; a mode the visitor picked prices every leg.
+  const ownMode = i => {
+    if (chosen || mode !== jaunt.default_mode || !i) return mode;   // T-3405: a picked mode prices every leg
+    const m = stops[i].leg_mode ?? authoredLeg(jaunt, stops[i - 1].id, stops[i].id)?.mode;
+    return m && Object.hasOwn(PACES, m) && (jaunt.allowed_modes || [m]).includes(m) ? m : mode;
+  };
   let previous = from || resolve(stops[first].destination);
   if (!point(previous)) return null;
   for (let i = first; i < stops.length; i++) {
     const stop = stops[i], target = resolve(stop.destination);
     if (!point(target)) return null;
     if (i > first || from) {
-      const leg = estimateLeg({ from: previous, to: target, mode, settings, router });
+      const leg = estimateLeg({ from: previous, to: target, mode: ownMode(i), settings, router });
       if (!leg) return null;
       legs.push(leg); total += leg.seconds; approx ||= leg.approx;
     }

@@ -125,13 +125,17 @@ def cloth_torso(mesh, bones, waist):
     return mesh
 
 
-def bodice(body, bones, waist, ease=.010):
-    """Closed long-sleeve source-fitted bodice with linear neck/waist/cuff cuts."""
+def bodice(body, bones, waist, ease=.010, collar=0.):
+    """Closed long-sleeve source-fitted bodice with linear neck/waist/cuff cuts.
+
+    `collar` raises the neck cut up the neck by that many metres (a 1904 shirtwaist's
+    standing collar, T-3423); what lies above the neck bone's head follows the neck."""
     out = empty('plain_closed_bodice', 'garment_upper__plain_dress')
     source = body['meshes'][0]
     positions = source['positions_m']
     normals = source_shared_normals(positions, source['triangles'], source['source_vertex_indices'])
-    neck = bones['neck_01']['head_m'][1]
+    neck_base = bones['neck_01']['head_m'][1]
+    neck = neck_base+collar
     cuff = abs(bones['hand_l']['head_m'][0])-.012
     cache = {}
     for face in source['triangles']:
@@ -151,7 +155,7 @@ def bodice(body, bones, waist, ease=.010):
             x_gain = min(1., max(0., cuff-abs(v['p'][0]))/(2*ease))
             p = [v['p'][a]+ease*n[a]*({0: x_gain, 1: y_gain}.get(a, 1.)) for a in range(3)]
             mapping = dict(v['w'])
-            if abs(v['p'][1]-neck) < 1e-12:
+            if v['p'][1] >= neck_base-1e-12:
                 transfer = math.fsum(mapping.pop(k, 0.) for k in ('head', 'jaw'))
                 mapping['neck_01'] = mapping.get('neck_01', 0.)+transfer
             weights = skin(mapping)
@@ -174,8 +178,38 @@ def bodice(body, bones, waist, ease=.010):
     out = finish_edges(cloth_torso(out, bones, waist), .0015)
     out['receipt'].update(source_body_mutated=False, nominal_normal_ease_m=ease,
                           source_body_uvs_reused=True, neckline_y_m=neck, waist_y_m=waist,
+                          collar_m=collar,
                           construction='Long sleeves and closed torso; reconstructed cut, no historical personal outfit')
     return out
+
+
+def leg_follow(bones, waist):
+    """T-3423: skirt skinning that lets the cloth go with the legs (walking, sitting).
+
+    A pelvis-only skirt is a rigid bell: a stepping or seated thigh passes straight
+    through it. Below the waist each skirt point is shared between the pelvis and the
+    leg on its side (thigh above the knee, calf below it), more over the front than the
+    back, so a forward thigh carries the front of the skirt over it and the hem below
+    the knee hangs from the calf. Points between the legs split evenly between them.
+    An original engineering blend, not a measured cloth simulation.
+    """
+    knee = bones['calf_l']['head_m'][1]; half = abs(bones['thigh_l']['head_m'][0])
+    def weights(p):
+        t = min(1., max(0., (waist-p[1])/(.4*(waist-knee))))
+        t = t*(2-t)
+        r = math.hypot(p[0], p[2]) or 1.
+        front = p[2]/r
+        a = t*(.5+.5*max(0., front))
+        u = min(1., max(0., (knee+.06-p[1])/.2))
+        left = min(1., max(0., .5+p[0]/(2.2*half)))
+        w = {'pelvis': 1-a}
+        for side, share in (('l', left), ('r', 1-left)):
+            for bone, part in ((f'thigh_{side}', 1-u), (f'calf_{side}', u)):
+                if a*share*part > 1e-6: w[bone] = w.get(bone, 0.)+a*share*part
+        w = dict(sorted(w.items(), key=lambda kv: -kv[1])[:4])
+        total = math.fsum(w.values())
+        return {k: v/total for k, v in w.items()}
+    return weights
 
 
 def skirt(body, bones, waist, upper_garment=None, segments=96, rows=18, ease=.015, hem=.055):
@@ -190,6 +224,7 @@ def skirt(body, bones, waist, upper_garment=None, segments=96, rows=18, ease=.01
     need(segments >= 48 and segments % 12 == 0 and rows >= 4 and .01 <= ease <= .03,
          'unsupported skirt discretization/ease')
     levels = [waist+(hem-waist)*i/(rows-1) for i in range(rows)]
+    follow = leg_follow(bones, waist)
     triangles = [[mesh['positions_m'][i] for i in face] for mesh in body['meshes'] for face in mesh['triangles']
                  if min(mesh['positions_m'][i][1] for i in face) <= waist and max(mesh['positions_m'][i][1] for i in face) >= hem]
     normals = [(math.sin(2*math.pi*(k+.5)/segments), math.cos(2*math.pi*(k+.5)/segments)) for k in range(segments)]
@@ -217,7 +252,7 @@ def skirt(body, bones, waist, upper_garment=None, segments=96, rows=18, ease=.01
             gather = (.003+.011*(i/(rows-1))**.6)*(1-math.cos(12*2*math.pi*k/segments))*.5
             r = math.hypot(x, z); factor = 1+gather/r
             out['positions_m'].append([factor*x, y, factor*z]); out['uvs'].append([k/segments, i/(rows-1)])
-            out['weights'].append({'pelvis': 1.})
+            out['weights'].append(follow([factor*x, y, factor*z]))
         core.append(ring)
     minimum_panel_margin = math.inf
     for i in range(rows-1):
@@ -288,7 +323,7 @@ def skirt(body, bones, waist, upper_garment=None, segments=96, rows=18, ease=.01
                           waist_closure=dict(actual_bodice_cross_section_y_m=join_y, radial_underlap_m=.0015,
                                              construction='Closed top annulus tucked1.5mm into actual bodice; no anatomy removed'),
                           source_body_mutated=False, walking_or_seated_accepted=False,
-                          skinning='All skirt vertices belong to pelvis; standing authoring only')
+                          skinning='Pelvis at the waist, shared with the thigh and calf of each side below it (leg_follow, T-3423)')
     return finish_edges(out, .0015), core
 
 
@@ -299,10 +334,10 @@ def apron(dress, core, rows=18, segments=96):
     for row in range(rows-3):
         for col in columns:
             k = col % segments; base = dress['positions_m'][row*segments+k]
-            r = math.hypot(base[0], base[2]); offset = .005
+            r = math.hypot(base[0], base[2]); offset = .008
             out['positions_m'].append([base[0]*(1+offset/r), base[1]+.001, base[2]*(1+offset/r)])
             out['uvs'].append([(col-columns[0])/(columns[-1]-columns[0]), row/(rows-4)])
-            out['weights'].append({'pelvis': 1.})
+            out['weights'].append(dict(dress['weights'][row*segments+k]))
     width = len(columns)
     for row in range(rows-4):
         for k in range(width-1):
@@ -312,15 +347,326 @@ def apron(dress, core, rows=18, segments=96):
     return finish_edges(out, .0015)
 
 
-def construct(body):
+def collar_band(upper, bones, below=.010, lift=.0018):
+    """T-3423: a 1904 shirtwaist's white standing collar: the bodice's own triangles above
+    `below` over the neck bone's head, copied a little out from the neck's axis, skinned as
+    the bodice is there. A reconstructed construction, not a measured collar."""
+    out = empty('standing_collar', 'garment_outer__plain_apron')
+    P = upper['positions_m']; base = bones['neck_01']['head_m']
+    keep = [f for f in upper['triangles'] if min(P[i][1] for i in f) >= base[1]+below]
+    need(bool(keep), 'no bodice above the collar line')
+    index = {}
+    for f, corner in zip(upper['triangles'], upper['corner_uvs']):
+        if f not in keep:
+            continue
+        ids = []
+        for i in f:
+            if i not in index:
+                p = P[i]; dx, dz = p[0]-base[0], p[2]-base[2]; r = math.hypot(dx, dz)
+                need(r > .01, 'collar point on the neck axis')
+                index[i] = len(out['positions_m'])
+                out['positions_m'].append([p[0]+lift*dx/r, p[1], p[2]+lift*dz/r])
+                out['uvs'].append(list(upper['uvs'][i])); out['weights'].append(dict(upper['weights'][i]))
+            ids.append(index[i])
+        out['triangles'].append(ids); out['corner_uvs'].append([list(c) for c in corner])
+    out = finish_edges(out, .0012)
+    out['receipt'] = dict(collar_from_y_m=base[1]+below, lift_m=lift, triangles=len(keep), basis='reconstructed')
+    return out
+
+
+def bib(upper, bones, waist, top=.215, half_width=(.118, .098), rows=15, cols=15, offset=.007):
+    """T-3423: the bib of a 1904 apron, laid over the actual bodice front.
+
+    A grid from just under the skirt's waist to `top` above the bodice's waist, narrowing from the bottom
+    half-width to the top one, each point dropped onto the front-most bodice triangle
+    along the body's depth axis and stood `offset` off it. Each point takes the skin of
+    the bodice point under it, so the bib bends with the torso. Shape and size are
+    reconstructed from the 1903 Wasson stereographs' bib aprons, not measured."""
+    out = empty('apron_bib', 'garment_outer__plain_apron')
+    P = upper['positions_m']; W = upper['weights']
+    tris = [f for f in upper['triangles']
+            if max(P[i][1] for i in f) >= waist-.02 and min(P[i][1] for i in f) <= waist+top+.01
+            and min(P[i][2] for i in f) > bones['spine_02']['head_m'][2]]
+    def drop(x, y):
+        best = None
+        for f in tris:
+            a, b, c = (P[i] for i in f)
+            d = (b[1]-c[1])*(a[0]-c[0])+(c[0]-b[0])*(a[1]-c[1])
+            if abs(d) < 1e-14:
+                continue
+            l0 = ((b[1]-c[1])*(x-c[0])+(c[0]-b[0])*(y-c[1]))/d
+            l1 = ((c[1]-a[1])*(x-c[0])+(a[0]-c[0])*(y-c[1]))/d
+            l2 = 1-l0-l1
+            if min(l0, l1, l2) < -1e-9:
+                continue
+            z = l0*a[2]+l1*b[2]+l2*c[2]
+            if best is None or z > best[0]:
+                best = (z, f, (l0, l1, l2))
+        need(best is not None, 'apron bib point finds no bodice front')
+        z, f, ls = best
+        mix = collections.Counter()
+        for i, l in zip(f, ls):
+            for bone, w in W[i].items():
+                mix[bone] += max(0., l)*w
+        return z, skin(dict(mix))
+    bottom = waist+.012   # just under the skirt's waist, so the apron's skirt overlaps it
+    for r in range(rows):
+        t = r/(rows-1); y = bottom+(waist+top-bottom)*t
+        hw = half_width[0]+(half_width[1]-half_width[0])*t
+        for k in range(cols):
+            u = k/(cols-1); x = -hw+2*hw*u
+            z, w = drop(x, y)
+            out['positions_m'].append([x, y, z+offset]); out['uvs'].append([u, t]); out['weights'].append(w)
+    for r in range(rows-1):
+        for k in range(cols-1):
+            a = r*cols+k; b = a+1; c = a+cols+1; d = a+cols
+            for face in ([a, b, c], [a, c, d]):
+                out['triangles'].append(face); out['corner_uvs'].append([out['uvs'][i] for i in face])
+    out = finish_edges(out, .0015)
+    out['receipt'] = dict(bib_bottom_y_m=bottom, bib_top_y_m=waist+top, half_width_m=list(half_width),
+                          offset_m=offset, skinning='bodice point beneath', basis='reconstructed')
+    return out
+
+
+def blouse(upper, bones, waist, pouch=.018, pouch_height=.08, pouch_top=.25, sleeve=.012):
+    """T-3434: the fullness of a 1904 shirtwaist, over the source-fitted bodice.
+
+    The front blouses forward over the waist band (most `pouch` at `pouch_height` above
+    the bodice's waist, nothing at the waist cut itself or from `pouch_top` up), and the
+    upper sleeve stands `sleeve` off the arm, gathered to nothing at the shoulder seam and
+    the elbow. Shirtwaists of the decade, as the 1903 Wasson stereographs show, were cut
+    full and pouched; amounts are reconstructed, not measured. Skin weights and UVs are
+    kept, so the fullness moves with the torso and the arm."""
+    P = upper['positions_m']; W = upper['weights']
+    centre = bones['spine_02']['head_m'][2]
+    smooth = lambda t: (lambda c: c*c*(3-2*c))(min(1., max(0., t)))
+    moved = 0; front_max = 0.; sleeve_max = 0.
+    for i, (p, w) in enumerate(zip(P, W)):
+        arm = math.fsum(v for b, v in w.items() if b.startswith(('upperarm', 'lowerarm', 'hand')))
+        h = p[1]-waist
+        # Front pouch: rises from the waist, holds through the pouch, eases off to the bust.
+        rise = smooth(h/pouch_height) if h < pouch_height else 1-smooth((h-pouch_height)/(pouch_top-pouch_height))
+        front = smooth((p[2]-centre)/.06)*(1-smooth(arm/.4))*(1-smooth((abs(p[0])-.10)/.06))
+        dz = pouch*rise*front
+        # Upper sleeve: out from the upper arm's own axis, zero at the shoulder seam and elbow.
+        dx = dy = dzs = 0.
+        upper_arm = math.fsum(v for b, v in w.items() if b.startswith('upperarm'))
+        if upper_arm > .05:
+            side = 'l' if p[0] > 0 else 'r'
+            a, b = bones[f'upperarm_{side}']['head_m'], bones[f'lowerarm_{side}']['head_m']
+            axis = [b[k]-a[k] for k in range(3)]; length = math.sqrt(sum(x*x for x in axis))
+            t = sum((p[k]-a[k])*axis[k] for k in range(3))/(length*length)
+            q = [a[k]+t*axis[k] for k in range(3)]; r = [p[k]-q[k] for k in range(3)]
+            rl = math.sqrt(sum(x*x for x in r))
+            if rl > 1e-6 and 0. < t < 1.:
+                g = sleeve*math.sin(math.pi*t)**.8*smooth((upper_arm-.05)/.45)
+                dx, dy, dzs = (g*r[k]/rl for k in range(3))
+                sleeve_max = max(sleeve_max, g)
+        if dz or dx or dy or dzs:
+            P[i] = [p[0]+dx, p[1]+dy, p[2]+dz+dzs]; moved += 1; front_max = max(front_max, dz)
+    upper['receipt'].update(blouse=dict(pouch_m=pouch, pouch_height_m=pouch_height, pouch_top_m=pouch_top,
+                                        sleeve_m=sleeve, moved_vertices=moved, front_max_m=front_max,
+                                        sleeve_max_m=sleeve_max, basis='reconstructed'))
+    return upper
+
+
+def straps(upper, bones, waist, top=.215, centre_x=.080, width=.030, offset=.0055, steps=40):
+    """T-3434: the bib's two shoulder straps, from the bib's top corners up over the
+    shoulders and down the back to the waist, laid on the bodice as it is (pouch and
+    all). Each strap edge is the bodice's outline in a plane across the body at that x,
+    found by casting from a point inside the chest out at each angle and taking the
+    outermost bodice crossing; the strap stands `offset` off it and takes the bodice's
+    skin there. Width and placement are reconstructed from the 1903 stereographs."""
+    out = empty('apron_straps', 'garment_outer__plain_apron')
+    P = upper['positions_m']; W = upper['weights']
+    neck = bones['neck_01']['head_m']
+    hub = (neck[1]-.13, bones['spine_02']['head_m'][2])   # (y, z) inside the chest
+    def outline(x, angles):
+        segs = []
+        for f in upper['triangles']:
+            vs = [P[i] for i in f]
+            side = [v[0]-x for v in vs]
+            if min(side) > 0 or max(side) < 0:
+                continue
+            cut = []
+            for j in range(3):
+                a, b = j, (j+1) % 3
+                if (side[a] <= 0) != (side[b] <= 0):
+                    t = side[a]/(side[a]-side[b])
+                    pt = (vs[a][1]+t*(vs[b][1]-vs[a][1]), vs[a][2]+t*(vs[b][2]-vs[a][2]))
+                    mix = collections.Counter()
+                    for bone, w in W[f[a]].items(): mix[bone] += (1-t)*w
+                    for bone, w in W[f[b]].items(): mix[bone] += t*w
+                    cut.append((pt, mix))
+            if len(cut) == 2:
+                segs.append(cut)
+        need(bool(segs), 'no bodice under an apron strap')
+        result = []
+        for ang in angles:
+            d = (math.sin(ang), math.cos(ang))   # (y, z): 0 = forward, pi/2 = up, pi = back
+            best = None
+            for (p0, m0), (p1, m1) in segs:
+                e = (p1[0]-p0[0], p1[1]-p0[1]); o = (p0[0]-hub[0], p0[1]-hub[1])
+                den = d[0]*e[1]-d[1]*e[0]
+                if abs(den) < 1e-14:
+                    continue
+                s = (o[0]*e[1]-o[1]*e[0])/den; u = (o[0]*d[1]-o[1]*d[0])/den
+                if s > 0 and 0 <= u <= 1 and (best is None or s > best[0]):
+                    mix = collections.Counter()
+                    for bone, w in m0.items(): mix[bone] += (1-u)*w
+                    for bone, w in m1.items(): mix[bone] += u*w
+                    best = (s, mix)
+            need(best is not None, 'apron strap angle finds no bodice')
+            s, mix = best
+            result.append(([x, hub[0]+(s+offset)*d[0], hub[1]+(s+offset)*d[1]], skin(dict(mix))))
+        return result
+    # Angles from the bib's top corner over the shoulder to the back at the waist.
+    def angle_to(y, z):
+        return math.atan2(y-hub[0], z-hub[1])
+    front_z = max(P[i][2] for f in upper['triangles'] for i in f if abs(P[i][1]-(waist+top)) < .01 and abs(P[i][0]-centre_x) < .02)
+    back_z = min(P[i][2] for f in upper['triangles'] for i in f if abs(P[i][1]-(waist+.03)) < .015 and abs(P[i][0]-centre_x) < .03)
+    a0, a1 = angle_to(waist+top, front_z), angle_to(waist+.03, back_z)
+    if a1 < a0:
+        a1 += 2*math.pi
+    angles = [a0+(a1-a0)*k/(steps-1) for k in range(steps)]
+    rows = []
+    for sign in (1, -1):
+        edges = [outline(sign*(centre_x+e*width/2), angles) for e in (-1, 1)]
+        base = len(out['positions_m'])
+        for k in range(steps):
+            for e in range(2):
+                p, w = edges[e][k]
+                out['positions_m'].append(p); out['uvs'].append([e, k/(steps-1)]); out['weights'].append(w)
+        for k in range(steps-1):
+            a = base+2*k; b = a+1; c = a+3; d = a+2
+            for face in (([a, b, c], [a, c, d]) if sign > 0 else ([a, c, b], [a, d, c])):
+                out['triangles'].append(face); out['corner_uvs'].append([out['uvs'][i] for i in face])
+        rows.append(len(out['positions_m'])-base)
+    out = finish_edges(out, .0012)
+    out['receipt'] = dict(centre_x_m=centre_x, width_m=width, offset_m=offset, steps=steps,
+                          from_y_m=waist+top, to_y_m=waist+.03, skinning='bodice outline beneath', basis='reconstructed')
+    return out
+
+
+def hair_roll(hair, bones, front=.016, side=.010, rise=.025):
+    """T-3434: the full roll of a 1900s coiffure, raised in the cleared short04 cap itself.
+
+    Each cap vertex stands out from the head's centre by up to `front` over the brow and
+    `side` at the temples, rising from nothing at the cap's own edge over `rise` and fading
+    to nothing toward the back, where the bun sits. The strand hair grows on the cap, so it
+    follows the roll. Amounts are reconstructed from the 1903 stereographs, not measured.
+    Returns a copy of the cap; skin weights and UVs are unchanged."""
+    P = hair['positions_m']
+    head = bones['head']['head_m']
+    c = [head[0], head[1]+.075, head[2]-.01]
+    count = collections.Counter()
+    for f in hair['triangles']:
+        for a, b in ((f[0], f[1]), (f[1], f[2]), (f[2], f[0])):
+            count[(min(a, b), max(a, b))] += 1
+    edge = sorted({i for e, n in count.items() if n == 1 for i in e})
+    need(bool(edge), 'hair cap has no open edge to rise from')
+    smooth = lambda a, b, x: (lambda t: t*t*(3-2*t))(min(1., max(0., (x-a)/(b-a))))
+    out = copy.deepcopy(hair); Q = out['positions_m']; most = 0.
+    for i, p in enumerate(P):
+        d = [p[k]-c[k] for k in range(3)]; r = math.sqrt(sum(x*x for x in d))
+        need(r > .01, 'hair cap point at the head centre')
+        u = [x/r for x in d]
+        to_edge = min(math.dist(p, P[j]) for j in edge)
+        f = smooth(-.1, .6, u[2])
+        # Nothing below the temples: the roll is over the brow and above the ears, never a wing.
+        amount = (front*f+side*(1-f))*smooth(-.6, -.1, u[2])*smooth(0., rise, to_edge)*smooth(-.62, -.22, u[1])
+        Q[i] = [p[k]+amount*u[k] for k in range(3)]; most = max(most, amount)
+    out['receipt'] = dict(front_m=front, side_m=side, rise_m=rise, centre_m=c, open_edge_vertices=len(edge),
+                          most_m=most, weights_and_uvs_unchanged=True, basis='reconstructed')
+    return out
+
+
+def hair_bun(hair, bones, rings=10, segments=20, up=.05, half_axes=(.044, .040, .030)):
+    """T-3423: a gathered bun at the back of the head, over the fitted short04 cap.
+
+    Women of 1835 and 1904 wore their hair up; the cleared short04 cap alone reads as a
+    man's crop. The bun is an original ellipsoid (4.4 x 4.0 x 3.0 cm half-axes) seated
+    on the back of the cap a little above the ears and skinned to the head. It wears the
+    same cleared hair atlas through a 2 % window centred on the texture coordinate of the
+    cap vertex it sits on (opaque throughout in the padded atlas), mirrored six times round
+    and four times over so strand detail stays at the cap's scale. Size and placement are reconstructed, not measured.
+    """
+    P, U = hair['positions_m'], hair['uvs']
+    head = bones['head']['head_m']
+    y0 = head[1]+up
+    band = [p for p in P if abs(p[1]-y0) < .015 and abs(p[0]) < .03]
+    need(bool(band), 'no back-of-head hair at the bun height')
+    back = min(p[2] for p in band)
+    rx, ry, rz = half_axes
+    c = [0., y0, back-.45*rz]
+    out = empty('gathered_bun', 'hair__makehuman_short04')
+    seat = min((j for j, p in enumerate(P) if abs(p[1]-y0) < .015 and abs(p[0]) < .03), key=lambda j: P[j][2])
+    u0, v0 = U[seat]
+    window = .02
+    tri = lambda x: 1-abs(2*(x % 1)-1)  # mirrored repeats: strand detail without leaving the window
+    def vertex(th, ph):
+        ridge = 1+.06*math.cos(5*ph+3*th)  # gentle twist ridges, not a smooth egg
+        x = c[0]+rx*ridge*math.sin(th)*math.cos(ph)
+        y = c[1]+ry*math.cos(th)
+        z = c[2]-rz*ridge*math.sin(th)*math.sin(ph)
+        out['positions_m'].append([x, y, z]); out['uvs'].append([u0+window*(tri(6*ph/(2*math.pi))-.5), v0+window*(tri(4*th/math.pi)-.5)])
+        out['weights'].append({'head': 1.})
+        return len(out['positions_m'])-1
+    top = vertex(0., 0.)
+    grid = [[vertex(math.pi*i/rings, 2*math.pi*k/segments) for k in range(segments)] for i in range(1, rings)]
+    bottom = vertex(math.pi, 0.)
+    faces = []
+    for k in range(segments):
+        n = (k+1) % segments
+        faces.append([top, grid[0][n], grid[0][k]])
+        faces.append([bottom, grid[-1][k], grid[-1][n]])
+    for i in range(rings-2):
+        for k in range(segments):
+            n = (k+1) % segments
+            faces += [[grid[i][k], grid[i][n], grid[i+1][n]], [grid[i][k], grid[i+1][n], grid[i+1][k]]]
+    for f in faces:
+        out['triangles'].append(f); out['corner_uvs'].append([out['uvs'][v] for v in f])
+    out['receipt'] = dict(centre_m=c, half_axes_m=[rx, ry, rz], back_of_cap_z_m=back, uv_window=[u0, v0, window], weights='head', basis='reconstructed')
+    return out
+
+
+# The two outfits (T-3423). 1835: a plain dark dress and a tan apron. 1904: a working
+# woman's pale shirtwaist with a standing collar, a dark skirt and a white bib apron, as
+# the 1903 Wasson stereographs show cooks and maids; colours are reconstructed (the
+# photographs are monochrome). The bun sits higher in 1904, where hair was drawn up.
+OUTFITS = {
+    '1835': dict(collar=0., ease=.010, bib=False, bun=dict(up=.05, half_axes=(.044, .040, .030)),
+                 materials={'garment_upper__plain_dress': {'base_color_linear': [.095, .12, .15, 1], 'roughness': .9},
+                            'garment_lower__plain_dress': {'base_color_linear': [.095, .12, .15, 1], 'roughness': .9},
+                            'garment_outer__plain_apron': {'base_color_linear': [.46, .42, .34, 1], 'roughness': .92},
+                            'footwear__plain_low_shoes': {'base_color_linear': [.045, .031, .022, 1], 'roughness': .6}}),
+    '1904': dict(collar=.032, ease=.016, bib=True, blouse=True, roll=dict(front=.028, side=.018, rise=.03),
+                 bun=dict(up=.10, half_axes=(.040, .030, .032)),
+                 materials={'garment_upper__plain_dress': {'base_color_linear': [.56, .59, .64, 1], 'roughness': .85},
+                            'garment_lower__plain_dress': {'base_color_linear': [.028, .030, .036, 1], 'roughness': .9},
+                            'garment_outer__plain_apron': {'base_color_linear': [.72, .71, .67, 1], 'roughness': .88},
+                            'footwear__plain_low_shoes': {'base_color_linear': [.02, .018, .016, 1], 'roughness': .5}}),
+}
+
+
+def construct(body, outfit='1835'):
+    need(outfit in OUTFITS, f'unknown dress outfit {outfit!r}')
+    look = OUTFITS[outfit]
     before = digest(body)
     bones = {b['name']: b for b in body['skeleton']}
     # Original engineering choice near the actual source waist. This is not a
     # measurement of an1835 garment or a statement about a named resident.
     waist = bones['spine_02']['head_m'][1]
-    bodice_mesh = bodice(body, bones, waist-.018)
+    bodice_mesh = bodice(body, bones, waist-.018, ease=look['ease'], collar=look['collar'])
+    if look.get('blouse'):
+        bodice_mesh = blouse(bodice_mesh, bones, waist-.018)
     skirt_mesh, core = skirt(body, bones, waist, bodice_mesh)
     parts = [bodice_mesh, skirt_mesh, apron(skirt_mesh, core)]
+    if look['bib']:
+        parts.append(bib(bodice_mesh, bones, waist-.018))
+        parts.append(straps(bodice_mesh, bones, waist-.018))
+    if look['collar']:
+        parts.append(collar_band(bodice_mesh, bones))
     shoes = fitted_shoes(body, bones, 0, clearance_m=.004)
     shoes['name'] = 'closed_low_shoes'; shoes['material'] = 'footwear__plain_low_shoes'
     parts.append(shoes)
@@ -329,15 +675,29 @@ def construct(body):
                 units='m', up_axis='+Y', forward_axis='+Z', grade='reconstructed',
                 body_sha256=BODY_SHA256, body_semantic_sha256=before,
                 source_body_unchanged=True, skeleton=copy.deepcopy(body['skeleton']), meshes=parts,
-                materials={'garment_upper__plain_dress': {'base_color_linear': [.095, .12, .15, 1], 'roughness': .9},
-                           'garment_lower__plain_dress': {'base_color_linear': [.095, .12, .15, 1], 'roughness': .9},
-                           'garment_outer__plain_apron': {'base_color_linear': [.46, .42, .34, 1], 'roughness': .92},
-                           'footwear__plain_low_shoes': {'base_color_linear': [.045, .031, .022, 1], 'roughness': .6}},
+                outfit=outfit, bun=dict(look['bun']), roll=dict(look['roll']) if look.get('roll') else None,
+                materials=copy.deepcopy(look['materials']),
                 limitations=['Unrendered original source construction, no dated cutting pattern or historical garment image used',
                              'Colours, proportions, folds, cloth thickness and outfit combination are conjectural',
                              'No resident model assignment, skin or hair choice; underlying female body is preserved',
-                             'Skirt/apron are pelvis-bound standing source; walking/seated cloth is unqualified',
+                             'Skirt/apron share pelvis and leg weights (T-3423); no cloth simulation, walking/seated fit judged by eye',
                              'No canonical Blender master/export, LOD, photo, clipping-all-pose or world-placement acceptance'])
+
+
+# The dress studies the builder may make, each bound to its recipe, scene, person and
+# reference pictures (T-3423 added the 1904 one).
+DRESS_STUDIES = {
+    'data/humans/recipes/adult_dress_1835.json': dict(
+        outfit='1835', scene_date='1835-07-01', person='rc_flynn_mary', grade='reconstructed',
+        record='data/residents/households/hh_rc_flynn_mary.json', sources=['wild_1835_third_vine'],
+        rights=('public_domain',)),
+    'data/humans/recipes/adult_dress_1904.json': dict(
+        outfit='1904', scene_date='1904-07-01', person='glessner_williamson_martha_l', grade='attested',
+        record='data/residents_1904/households/hh_glessner_john_j.json',
+        sources=['loc_wasson_1903_charming_rogue_new_cook_stereograph', 'loc_wasson_1903_new_french_cook_mr_mrs_stereograph',
+                 'loc_wasson_1903_new_french_cook_stereograph'],
+        rights=('public_domain', 'no_known_restrictions')),
+}
 
 
 def prepare_dress_assembly(root, recipe, variant, body):
@@ -346,16 +706,18 @@ def prepare_dress_assembly(root, recipe, variant, body):
     spec = recipe.get('dress_components', {})
     need(spec.get('version') == 1 and spec.get('generator') == 'tools/human_dress_components.py',
          'unsupported dress component generator')
-    need(recipe.get('scene_date') == '1835-07-01' and recipe.get('grade') == 'reconstructed',
+    study = DRESS_STUDIES.get(variant.get('recipe_path'))
+    need(study is not None, 'dress study recipe is not one of the bound studies')
+    need(spec.get('outfit', '1835') == study['outfit'], 'dress study outfit differs from its recipe binding')
+    need(recipe.get('scene_date') == study['scene_date'] and recipe.get('grade') == 'reconstructed',
          'dress study scene/appearance grade changed')
     need(spec.get('standing_source_only') is True and spec.get('production_eligible') is False
          and spec.get('walking_seated_or_photo_accepted') is False, 'unqualified dress production or pose promotion')
     need(variant.get('component_assembly') == 'adult_dress_v1'
-         and variant.get('person_reference_id') == 'rc_flynn_mary'
-         and variant.get('person_reference_grade') == 'reconstructed'
-         and variant.get('recipe_path') == 'data/humans/recipes/adult_dress_1835.json'
-         and variant.get('person_reference_record') == 'data/residents/households/hh_rc_flynn_mary.json',
-         'dress study must retain the existing reconstructed Mary Flynn reference')
+         and variant.get('person_reference_id') == study['person']
+         and variant.get('person_reference_grade') == study['grade']
+         and variant.get('person_reference_record') == study['record'],
+         'dress study must retain its bound person reference')
     relative = Path(variant['body_input'])
     need(not relative.is_absolute() and '..' not in relative.parts, 'unsafe dress body path')
     source = (root/relative).resolve()
@@ -366,12 +728,12 @@ def prepare_dress_assembly(root, recipe, variant, body):
     liberty = 'L-human-modular-dress-1789'
     need(spec.get('liberty') == liberty and ('### '+liberty+' ') in (root/'docs/LIBERTIES.md').read_text(),
          'dress components require the actual declared liberty')
-    source_id = 'wild_1835_third_vine'
-    need(recipe.get('sources') == [source_id], 'unexpected dress reference substitution')
-    record = json.loads((root/'data/sources'/f'{source_id}.json').read_text())
-    need(record.get('id') == source_id and record.get('rights_status') == 'public_domain'
-         and record.get('asset_use') == 'cross_check', 'dress reference is not the cleared bounded cross-check')
-    bundle = construct(body)
+    need(recipe.get('sources') == study['sources'], 'unexpected dress reference substitution')
+    for source_id in study['sources']:
+        record = json.loads((root/'data/sources'/f'{source_id}.json').read_text())
+        need(record.get('id') == source_id and record.get('rights_status') in study['rights']
+             and record.get('asset_use') == 'cross_check', 'dress reference is not a cleared bounded cross-check')
+    bundle = construct(body, study['outfit'])
     for material, spec in bundle['materials'].items():
         need(recipe['colors_linear_rgba'].get(material) == spec['base_color_linear'], 'dress material recipe/source disagree')
     names = {b['name'] for b in body['skeleton']}

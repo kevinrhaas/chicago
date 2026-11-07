@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "cornell-northwest-west-windows",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "ad7c9ce42259c10402987bffd680e1c957a13dd807fc0b9a1d1643e28bd76203",
+  "glb_sha256": "78857b7fb778e8c658297fa3e5119c6281993144b816fb66943e3de8c80f0872",
   "camera_sha256": "98341850e0c29a9e5841d5ef17833ecdc7c3c14a11ff76aa740c3aa84f82f4f4",
   "photo_sha256": "5fe13212fd1a893382c2b02c5be1cd2c1feb5d17b1e32f13a1a734fc90dbbca5",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg",
@@ -79,7 +79,31 @@
     {
       "what": "T-3140, the window over the great arch: this print, taken as the house was finished, shows it as one wide unglazed opening under one lintel, with no stone pier in it, where the build had three lights between two piers. HABS 01 (1963) and HABS 15 (1965) show the same single opening, so the form is attested by three pictures across 78 years. Rebuilt as one opening on its old span (W 97.7-110.1) and heights; re-rendered, it reads as one opening here, standing about 40 px off the print's as the rest of the range east of the stable does through this camera (the stable-end-cameras row). docs/RESEARCH/glessner-signoff-T-3140/.",
       "status": "fixed"
+    },
+    {
+      "what": "T-3371: the alley (right-hand) gable no longer stands over its roof as a fin; its apex now sits on the cresting line running from the cupola, as this print draws it, with its coping just proud. The north range's roof at the left edge rises with its raised ridge (L-glessner-north-ridge-3371).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3372: the two courtyard service stacks moved onto HABS sheets 2-3's flues (W 102.5-105.5 over the court door, and the stable corner at W 121.5-125.25) stand on the courtyard slope behind the ridge from here; re-rendered and reviewed beside the picture, every other item reads as before.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "T-3373: the northeast court corner's copper lean-to, raised wall, corner leader and small dormer east of the great chimney are out of this view or hidden behind nearer fabric; re-rendered and reviewed, nothing visible in it changed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3374: the dining bay's corner stones and the two lintel courses on the north range's court face east of it are out of this view; re-rendered and reviewed, nothing visible in it changed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3376: the stable's gables carried a stone coping standing about 1 ft over the tiles with kneelers at their feet; the tiles now run over both rakes to a thin verge, as the photograph shows. Re-rendered and reviewed.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3396, by the owner's ruling (2026-11-06, and 2026-10-15's T-2228): the stable's cross ridge and the alley gable's apex stand on the north range's ridge line at S 14.6, 36.17 ft, one straight crest through the cupola. The prints' course count (T-3095) put the ridge 2.3 ft further north; the owner's line governs (L-glessner-cross-ridge-line-3396).",
+      "status": "owner ruling"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 """Compile declarative jaunts; exhaustively validate reachable finite story states."""
 import argparse
+import datetime as dt
+import functools
 import json
+import math
 import operator
 import re
 from pathlib import Path
 from jsonschema import Draft202012Validator
 from compile_scene import cite
 import jaunt_names
+import jaunt_place_facts
 
 ROOT = Path(__file__).resolve().parents[1]
 # Not jaunts: the content schema, and the visitor's daybook (T-1258), which every scene's
@@ -26,6 +30,104 @@ def packed(value):
 def require(ok, message):
     if not ok:
         raise ValueError(message)
+
+@functools.cache
+def time_names():
+    """T-3328: the setting's named times, read from the one list the app uses (T-3331)."""
+    js = (ROOT / 'renderers/web/js/time-of-day.js').read_text()
+    block = js.split('export const TIME_NAMES = [', 1)[1].split('];', 1)[0]
+    return frozenset(re.findall(r"id: '([a-z-]+)'", block))
+
+@functools.cache
+def time_at():
+    """T-3406: each named time's `at` ('09:00', 'rise', 'set', 'civil-dusk', 'scene')."""
+    js = (ROOT / 'renderers/web/js/time-of-day.js').read_text()
+    block = js.split('export const TIME_NAMES = [', 1)[1].split('];', 1)[0]
+    return dict(re.findall(r"id: '([a-z-]+)', label: '[^']*', at: '([^']+)'", block))
+
+# T-3406: THE STORY'S CLOCK. The owner, 2026-11-06: start each stop "with have like 6 months
+# later, or a few hours later, or 4 hours later, to give people a sense of what they just
+# left and how much time has past". A stop's `since` is that lead. It is checked against
+# the date and hour the two stops already show, so a stop whose date or hour moves without
+# its lead fails here instead of telling the visitor the wrong gap.
+CHICAGO_LAT = 41.8867  # world.js's sun station
+NUMBER_WORDS = {w: i for i, w in enumerate(
+    'zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen '
+    'fifteen sixteen seventeen eighteen nineteen twenty'.split())}
+NUMBER_WORDS.update(a=1, an=1, thirty=30, forty=40, fifty=50, sixty=60, seventy=70, eighty=80, ninety=90)
+UNIT_MIN = {'minute': 1, 'hour': 60, 'day': 1440, 'week': 10080, 'month': 43830, 'year': 525960}
+
+def sun_crossing(day, elevation, rising):
+    """Local mean solar minutes at which the sun's centre crosses `elevation` degrees on
+    `day`, from the low-precision almanac series (declination and equation of time). It
+    lands within a few minutes of world.js's solarPosition, which is all a lead rounded
+    to the nearest hour or minute-ten needs; the app itself never reads this."""
+    g = 2 * math.pi / 365 * (day.timetuple().tm_yday - 1)
+    decl = (0.006918 - 0.399912 * math.cos(g) + 0.070257 * math.sin(g) - 0.006758 * math.cos(2 * g)
+            + 0.000907 * math.sin(2 * g) - 0.002697 * math.cos(3 * g) + 0.00148 * math.sin(3 * g))
+    eot = 229.18 * (0.000075 + 0.001868 * math.cos(g) - 0.032077 * math.sin(g)
+                    - 0.014615 * math.cos(2 * g) - 0.040849 * math.sin(2 * g))
+    phi = math.radians(CHICAGO_LAT)
+    cos_h = (math.sin(math.radians(elevation)) - math.sin(phi) * math.sin(decl)) / (math.cos(phi) * math.cos(decl))
+    half = math.degrees(math.acos(max(-1, min(1, cos_h)))) * 4
+    return 720 - eot + (-half if rising else half)
+
+def stop_moment(stop):
+    """The clock a stop shows, as a datetime: its date plus its hour, a named time solved
+    and snapped the way time-of-day.js resolveTime snaps it (daybreak up, sunset down,
+    dusk to the nearest ten minutes)."""
+    require(stop.get('date') and stop.get('hour'), f'{stop["id"]}: a since needs this stop and the one before it to carry a date and an hour')
+    day, hour = dt.date.fromisoformat(stop['date']), stop['hour']
+    at = time_at().get(hour, hour)
+    require(at != 'scene', f'{stop["id"]}: a since cannot count from or to "daytime", which is the scene\'s own hour; give the stop a clock time')
+    if re.fullmatch(r'\d\d:\d\d', at):
+        minutes = int(at[:2]) * 60 + int(at[3:])
+    else:
+        event = sun_crossing(day, 1.0 if at in ('rise', 'set') else -6.0, at == 'rise')
+        minutes = (math.ceil(event / 10) if at == 'rise' else math.floor(event / 10) if at == 'set' else round(event / 10)) * 10
+    return dt.datetime.combine(day, dt.time()) + dt.timedelta(minutes=minutes)
+
+def since_fits(phrase, before, after):
+    """Whether a lead such as 'Four hours later' says the gap between two stop clocks.
+    The vocabulary is small on purpose: a count of minutes, hours, days, weeks, months or
+    years 'later' (within half a unit, or 15% of a long count), 'Within the hour',
+    'A few hours later', 'The next day', 'The next morning', 'That evening', 'That night'."""
+    gap = (after - before).total_seconds() / 60
+    days = (after.date() - before.date()).days
+    if gap <= 0: return False
+    said = phrase.strip().rstrip('.').lower()
+    fixed = {'within the hour': gap <= 60, 'a few hours later': 90 <= gap <= 390,
+             'the next day': days == 1, 'the next morning': days == 1 and after.hour < 12,
+             'that evening': days == 0 and after.hour >= 17, 'that night': days == 0 and after.hour >= 19}
+    if said in fixed: return fixed[said]
+    m = re.fullmatch(r'([a-z]+|\d+) (minute|hour|day|week|month|year)(s?) later', said)
+    if not m: return False
+    count = int(m[1]) if m[1].isdigit() else NUMBER_WORDS.get(m[1])
+    if count is None or (count == 1) == bool(m[3]): return False
+    return abs(gap / UNIT_MIN[m[2]] - count) <= max(0.5, 0.15 * count)
+
+def check_since(doc):
+    """T-3406: in a jaunt that tells its clock, every stop after the first says how long
+    since the one before, and says it truly; the first has nothing to count from."""
+    stops = doc['stops']
+    if not any('since' in s for s in stops): return
+    require('since' not in stops[0], f'{stops[0]["id"]}: the first stop has no stop before it to count a since from')
+    for before, stop in zip(stops, stops[1:]):
+        require('since' in stop, f'{stop["id"]}: this jaunt tells its clock, so every stop after the first needs a since')
+        require(before.get('next') == stop['id'], f'{stop["id"]}: a since counts from the stop before, which must lead straight here')
+        a, b = stop_moment(before), stop_moment(stop)
+        require(since_fits(stop['since'], a, b),
+                f'{stop["id"]}: since {stop["since"]!r} does not say the {(b - a).total_seconds() / 3600:.1f} hours from {before["id"]} ({a:%Y-%m-%d %H:%M}) to here ({b:%Y-%m-%d %H:%M})')
+
+def leg_mode(doc, i):
+    """T-3355: the catalog row's stop i carries the mode of the authored leg that reaches it, if any."""
+    if not i: return {}
+    frm, to = doc['stops'][i - 1]['id'], doc['stops'][i]['id']
+    for j, leg in enumerate(doc.get('legs', [])):
+        if leg.get('mode') and leg.get('from', doc['stops'][j]['id'] if j < len(doc['stops']) else None) == frm \
+                and leg.get('to', doc['stops'][j + 1]['id'] if j + 1 < len(doc['stops']) else None) == to:
+            return {'leg_mode': leg['mode']}
+    return {}
 
 def unique(rows, label):
     result = {r['id']: r for r in rows}
@@ -127,12 +229,24 @@ class Compiler:
             if 'not' in c: return not matches(c['not'], state, items)
             if 'has' in c: return c['has'] in items
             return OPS[c['op']](state[c['var']], c['value'])
+        check_since(doc)
         reasons = [doc['review_reason']] if doc['review_required'] and doc.get('review_reason') else []
         require(not doc['review_required'] or reasons, 'review_required needs reason')
         graph = {}
         for i, stop in enumerate(doc['stops']):
-            require(25 <= len((stop['text'] + ' ' + stop.get('narrative', '')).split()) <= 60, f'{stop["id"]}: text needs 25–60 words')
+            # T-3355: a long-form story jaunt tells each stop in full, up to 150 words.
+            most = 150 if doc.get('long_form') else 60
+            require(25 <= len((stop['text'] + ' ' + stop.get('narrative', '')).split()) <= most, f'{stop["id"]}: text needs 25–{most} words')
             require(set(stop['evidence']) <= set(claims), 'dangling evidence id')
+            # T-3328: a stop's hour rests on its own claims, and names only a time the setting knows.
+            if 'hour' in stop or 'date' in stop or 'hour_evidence' in stop:
+                require('hour' in stop and stop.get('hour_evidence'), f'{stop["id"]}: an hour needs hour_evidence, and a date or hour_evidence needs an hour')
+                require(set(stop['hour_evidence']) <= set(stop['evidence']), f'{stop["id"]}: hour_evidence must be among the stop\'s own evidence')
+                require(stop['hour'] in time_names() or re.fullmatch(r'([01][0-9]|2[0-3]):[0-5][0-9]', stop['hour']),
+                        f'{stop["id"]}: hour {stop["hour"]!r} is neither HH:MM nor a named time in time-of-day.js')
+                if 'date' in stop:
+                    try: dt.date.fromisoformat(stop['date'])
+                    except ValueError: require(False, f'{stop["id"]}: date {stop["date"]!r} is not a day')
             reason = self.resolve(stop['destination'], True)
             if reason: reasons.append(reason)
             for link in stop.get('links', []): self.resolve(link)
@@ -165,6 +279,8 @@ class Compiler:
             require((frm, to) not in leg_edges, 'duplicate leg')
             leg_edges.add((frm, to))
             require(leg.get('note') or leg.get('story'), 'empty leg')
+            # T-3355: a leg's own mode (a long ride Instantly) is one the jaunt allows.
+            require('mode' not in leg or leg['mode'] in doc['allowed_modes'], 'leg mode not allowed')
             require(set(leg['evidence']) <= set(claims), 'dangling leg evidence')
             require(set(leg.get('story_evidence', [])) <= set(claims), 'dangling story evidence')
         require(sum(bool(e.get('default')) for e in ends.values()) <= 1, 'multiple default endings')
@@ -219,6 +335,9 @@ class Compiler:
         catalog, files, errors, ids = [], {}, [], set()
         # T-2946: one name per building for a stop's heading and its road notes, in every jaunt.
         places = jaunt_names.names(self.scene_id, list(self.refs['structure'].values()))
+        # T-3379: a sourced fact for each building a road note passes, cited like any claim.
+        facts = jaunt_place_facts.facts(self.scene_id, list(self.refs['structure'].values()))
+        errors_facts = jaunt_place_facts.check(self.scene_id, list(self.refs['structure'].values()), self.refs['source'])
         for path in sorted(source.glob('*.json')):
             if path.name in NOT_JAUNTS or path.name == 'catalog-55.json': continue  # Harness catalog, not a story.
             try:
@@ -229,14 +348,17 @@ class Compiler:
                 require(path.stem == doc['id'], 'filename must match jaunt id')
                 ids.add(doc['id'])
                 row = {k: doc[k] for k in ('id', 'title', 'premise', 'category', 'content_version', 'default_mode', 'allowed_modes')}
+                if doc.get('ambience'): row['ambience'] = doc['ambience']  # T-3377: the light it is walked in
                 row.update(featured=doc.get('featured', False), stop_count=len(doc['stops']), primary_family=doc['keepsake']['family'], secondary_family=doc.get('secondary_family'),
-                           timing={'opening_read_s': doc['opening']['read_s'], 'stops': [{'read_s': s['read_s'], 'action_s': s.get('action_s', 0)} for s in doc['stops']], 'endings_read_s': [e['read_s'] for e in doc['endings']]},
+                           timing={'opening_read_s': doc['opening']['read_s'], 'stops': [{'read_s': s['read_s'], 'action_s': s.get('action_s', 0), **leg_mode(doc, i)} for i, s in enumerate(doc['stops'])], 'endings_read_s': [e['read_s'] for e in doc['endings']]},
                            destinations=[s['destination'] for s in doc['stops']], availability='unavailable' if reasons else 'available', reason='; '.join(reasons) or None)
                 catalog.append(row)
                 citations = cite({sid for claim in doc['evidence'] for sid in claim['sources']}, self.refs['source'])
-                files[doc['id'] + '.json'] = packed({**doc, 'citations': citations, **({'places': places} if places else {})})
+                files[doc['id'] + '.json'] = packed({**doc, 'citations': citations, **({'places': places} if places else {}),
+                                                     **({'place_facts': facts} if facts else {})})
             except (ValueError, KeyError, TypeError) as error:
                 errors.append(f'{path.name}: {error}')
+        errors.extend(errors_facts)
         files['catalog.json'] = packed({'schema_version': 1, 'scene': self.scene_id, 'jaunts': catalog})
         files['daybook.json'] = packed(self.daybook())
         return files, errors

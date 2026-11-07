@@ -105,6 +105,18 @@
           ],
           "note": "Brick: the sheet colours it pink."
         },
+        "face_brick": {
+          "value": {
+            "front": "pressed_red"
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "otis_1913_first_presbyterian_21st_indiana_1887",
+            "otis_1913_first_presbyterian_21st_indiana_1912",
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "T-3386: the walls are brick (the sheet's pink), and both Otis plates read it red: through T-3066's camera the 1887 plate's wall brick prints at 0.53-0.60 of its slate spire's reflectance (a red brick reads under about 0.8 of slate, a buff over 1.2), and the 1912 plate's flank at 0.51-0.57, by T-3244's print model on a blue-sensitive or an orthochromatic plate. So the draft's brick wears K03's pressed red recipe (data/components/prairie_1904/k03_face_brick.json) on the common panel, every brick face alike; which red, and that it was a pressed brick and not a red common, is the reconstruction (L-k03-face-brick-3385)."
+        },
         "draft_plan": {
           "value": {
             "parts": [

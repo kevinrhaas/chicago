@@ -74,6 +74,7 @@
  */
 
 import * as THREE from 'three';
+import { onDaylight } from './time-of-day.js';
 import { floraInScene } from './flora.js';
 import { createTreeAtlasSliced, leafFamily, treeAtlasUV, TREE_ALPHA_CUTOFF, patchTreeWind } from './tree-surface.js';
 import { TreeInstances, createGrownTreeMaterials, isGrownForm } from './tree-instances.js';
@@ -618,10 +619,13 @@ const ARCHETYPE_BY_ZONE = {
     juniperus_virginiana: { common: 'eastern red cedar (dune form)', dossier: 'ZONE 8c',
       form: 'columnar', h: [1.5, 6], dbh: [0.08, 0.26], spreadK: 0.55, boleK: 0.04, puffs: 6,
       dark: 0x3a5238, light: 0x5c7254, bark: 0x7a5c48,
+      // T-3399: an evergreen keeps its crown in every Season (tree-instances.js).
+      evergreen: true,
     },
     pinus_banksiana: { common: 'jack pine', dossier: 'ZONE 8c',
       form: 'open', h: [3, 9], dbh: [0.12, 0.30], spreadK: 0.62, boleK: 0.28, puffs: 6,
       dark: 0x4a6236, light: 0x7a8e56, bark: 0x4c4238,
+      evergreen: true,
     },
   },
   z10_settled_town: {
@@ -1121,6 +1125,64 @@ const PRAIRIE_WOODY = {
   smallM: 1.3, smallLodK: 1.35,
   confidence: 'reconstructed',
   sources: ['mcbride_bowles_2007', 'andreas_1884_v1'],
+};
+
+/**
+ * T-3340 — THE TIMBER SOUTH OF THE RIVER IN 1812. The owner, 2026-11-03: *"I
+ * also think there should be more trees south of the river it was well
+ * documented from before that there were cottonwoods and other occasional
+ * groves of trees along the water and in patchy water areas throughout the
+ * prairie, the south part should not look so desolate."* Two kinds of grove,
+ * each its own dealer, in 1812 only (`scene`):
+ *
+ *   belt    the South Branch. Andreas: the South Side timber "follow[ed] the
+ *           bend of the river ... and extend[ed] south two or three miles"
+ *           (`chicagology_prefire273`, the sentence `south_branch_belt` already
+ *           draws on the horizon). Inside the modelled ground `communityAt`
+ *           gives the bank a gallery 30-74 m deep, the low half of ZONE 5's
+ *           30-120 m because in 1835 the town was cutting there, and stops it
+ *           at the Wells Street line, the east limit Andreas gives the MAIN
+ *           STEM's belt, which the South Branch crosses for about a mile south
+ *           of N -2000. In 1812 nobody was cutting. So wherever no wood
+ *           stands already, the east bank south of the forks (`fromN`) carries
+ *           ZONE 5's own trees out to `bankM[1]` from the water: near-continuous
+ *           within `solidM` of it, then in groves (`groveM` field, `cut` its
+ *           threshold) thinning with distance.
+ *   hollow  the low ground of the south prairie, the owner's "patchy water
+ *           areas". The PLS surveyors' willow thickets and swamp margins of Cook
+ *           County (McBride and Bowles, the flora dossier's ZONE 6) are the
+ *           evidence; a wet hollow is ground the fire that kept the plain open
+ *           ran round. Where the ground sits low (`wetY`, metres above the
+ *           summer water, the scale PRAIRIE_WOODY's `wetY` uses) and more than
+ *           `minBankM` from the river, a coarse field picks the few hollows
+ *           that carry a grove: black and peach-leaved willow, cottonwood and
+ *           green ash.
+ *
+ * Currey's "scanty growth of cottonwoods and pines" on the dunes south of the
+ * mouth is already drawn by the sand-hill scrub (T-2768), in 1812 too, and is
+ * not dealt again here. Every stem is dealt from a generator seeded by where it
+ * stands, off the shared stream, so no other tree moves and 1835 is untouched;
+ * each keeps off the water, every footprint and the trails' trodden cores
+ * (`blocked`). Every density, distance and field here is invented and none is
+ * a count: docs/LIBERTIES.md L-t3340-south-groves-1812. What they assert is
+ * that timber stood there, in groves, in those trees.
+ */
+const SOUTH_GROVES = {
+  label: 'The groves south of the river, 1812: the South Branch belt and the wet hollows',
+  scene: '1812',
+  belt: { fromN: -160, toE: 1000, bankM: [6, 230], solidM: [40, 95], groveM: 120, cut: 0.48,
+    perHa: [30, 72], zone: 'z05_riverbank_timber',
+    mix: [['populus_deltoides', 24], ['fraxinus_pennsylvanica', 18], ['ulmus_americana', 18],
+      ['acer_saccharinum', 14], ['salix_nigra', 12], ['quercus_bicolor', 8], ['celtis_occidentalis', 6]] },
+  hollow: { fromN: -260, toE: 1100, wetY: [1.32, 0.96], minBankM: 230, groveM: 110, cut: 0.60,
+    perHa: [20, 56], zone: 'z05_riverbank_timber',
+    mix: [['salix_nigra', 30], ['populus_deltoides', 30], ['salix_amygdaloides', 22],
+      ['fraxinus_pennsylvanica', 18]] },
+  scale: [0.66, 1.0],
+  keepK: { full: 1, balanced: 0.75, light: 0.45 },
+  cap: { full: 4600, balanced: 3500, light: 2200 },
+  confidence: 'reconstructed',
+  sources: ['chicagology_prefire273', 'mcbride_bowles_2007'],
 };
 
 /**
@@ -1902,6 +1964,31 @@ class MeshBuf {
   }
 }
 
+/** Exact final timber draw scalars; source chunks must remain Float32 while batching. */
+export function compactTimberFlags(geometry) {
+  let saved = 0;
+  for (const [name, allowed] of [['aLeaf', [0, 1]], ['_confidence', [0, 0.5, 1]]]) {
+    const attr = geometry.getAttribute(name);
+    if (!attr || !(attr.array instanceof Float32Array) || attr.itemSize !== 1 || attr.normalized
+      || attr.isInterleavedBufferAttribute || attr.isInstancedBufferAttribute
+      || attr.usage !== THREE.StaticDrawUsage || attr.gpuType !== THREE.FloatType) continue;
+    let exact = true;
+    for (let i = 0; i < attr.count; i++) {
+      if (!allowed.includes(attr.getX(i)) || Object.is(attr.getX(i), -0)) { exact = false; break; }
+    }
+    if (!exact) continue;
+    const packed = name === 'aLeaf'
+      ? new THREE.Uint8BufferAttribute(attr.array, 1, false)
+      : new THREE.Float16BufferAttribute(Uint16Array.from(attr.array, THREE.DataUtils.toHalfFloat), 1, false);
+    packed.name = attr.name;
+    packed.setUsage(attr.usage);
+    if (attr.userData) packed.userData = { ...attr.userData };
+    saved += attr.array.byteLength - packed.array.byteLength;
+    geometry.setAttribute(name, packed);
+  }
+  return saved;
+}
+
 /* -------------------------------------------------------------------------- */
 /* building one tree                                                           */
 /* -------------------------------------------------------------------------- */
@@ -2574,6 +2661,8 @@ export async function createTrees({
       /** Where a few of each stand, spread along the sweep, for a shot or a check. */
       samples: { dry: [], wet: [], lone: [] } },
     sandWood: { offered: 0, planted: 0, mesic: 0 },
+    /** T-3340: the 1812 groves south of the river. */
+    groves: { belt: 0, hollow: 0, planted: 0, species: {}, samples: [] },
     paths: { lines: {}, cleared: 0, shrubs: 0 },
     /** T-2807: stems the clump field set in an opening, grown young. */
     youngInOpenings: 0,
@@ -2834,7 +2923,7 @@ export async function createTrees({
   let divideFloorRow = 0;
   // One stack for every flood: it is scratch, and a fresh one per flood was
   // ~8 MB a time, a dozen times over, while the phone was mid-load (T-2158).
-  const st = new Int32Array(cells);
+  let st = new Int32Array(cells);
   const floodSeparates = (cutRow) => {
     const d = new Int8Array(cells).fill(-1);
     let lab = 0;
@@ -2872,6 +2961,9 @@ export async function createTrees({
       divideFloorRow = lo;
     }
   }
+  // Flood search is complete. Returned tree closures share this context, but
+  // must not retain its per-cell stack after the last synchronous flood.
+  st = null;
   const divisible = (s) => ((s - (s % cols)) / cols) >= divideFloorRow;
   const div = new Int8Array(cells).fill(-1);
   const stack = new Int32Array(cells);
@@ -3908,6 +4000,107 @@ export async function createTrees({
     sampleStand('lone', id, le, ln);
   };
 
+  /* ---- T-3340: the groves south of the river, 1812 ----------------------- */
+
+  const SG = SOUTH_GROVES;
+  const groving = String(sceneId) === SG.scene;
+  const groveSpecs = { belt: {}, hollow: {} };
+  if (groving) {
+    for (const kind of ['belt', 'hollow']) {
+      for (const [id] of SG[kind].mix) {
+        const rec = records.byZone?.[SG[kind].zone]?.[id];
+        if (rec) groveSpecs[kind][id] = rec;
+        else {
+          problems.push(`trees: the 1812 groves take ${id} from ${SG[kind].zone} and that record `
+            + 'did not load — the groves are drawn without it');
+        }
+      }
+    }
+  }
+  const groveKeep = SG.keepK[level] ?? 1;
+  const maxGroves = SG.cap[level] ?? SG.cap.full;
+  const groveRollMax = (Math.max(SG.belt.perHa[1], SG.hollow.perHa[1]) * cellArea * groveKeep) / 10000;
+  /** The easting of the South Branch's east bank on heightfield row `r`: the
+   *  easternmost water cell west of the groves' `toE`, or null for a row with
+   *  none. Read once per row, off the planter's own distance-to-water field. */
+  const riverEastRow = new Map();
+  const riverEastAt = (i) => {
+    const r = (i - (i % cols)) / cols;
+    if (riverEastRow.has(r)) return riverEastRow.get(r);
+    let out = null;
+    const cMax = Math.min(cols - 1, Math.floor((SG.belt.toE - originE) / cellM));
+    for (let c = cMax; c >= 0; c--) {
+      if (dw[r * cols + c] === 0) { out = originE + c * cellM; break; }
+    }
+    riverEastRow.set(r, out);
+    return out;
+  };
+  /** One cell of the sweep's lattice offered to the groves, on its own generator. */
+  const plantSouthGroves = (e0, n0) => {
+    if (!groving || stats.groves.planted >= maxGroves) return;
+    const sr = seededAt(e0, n0, 0x3340);
+    const roll = sr();
+    if (roll >= groveRollMax) return;
+    const qe = e0 + (sr() - 0.5) * step * 0.92;
+    const qn = n0 + (sr() - 0.5) * step * 0.92;
+    const i = cellAt(qe, qn);
+    if (i < 0 || div[i] === WEST || div[i] === NORTH) return;
+    // East of the South Branch. The divisions cannot answer it south of the
+    // heightfield's evidence floor (`divideFloorRow`), where the West and South
+    // labels are not separated, so the grove asks the river itself: the
+    // easternmost water west of `toE` on the point's own row.
+    const rE = riverEastAt(i);
+    if (rE === null || qe <= rE) return;
+    const bank = dw[i];
+    let kind = null;
+    let perHa = 0;
+    const B = SG.belt;
+    const H = SG.hollow;
+    if (qn <= B.fromN && qe <= B.toE && bank >= B.bankM[0] && bank <= B.bankM[1]) {
+      const solid = 1 - smoothstep(B.solidM[0], B.solidM[1], bank);
+      const grove = smoothstep(B.cut, B.cut + 0.12, noise2(qe, qn, B.groveM, 53));
+      const reach = 1 - 0.55 * smoothstep(B.solidM[0], B.bankM[1], bank);
+      perHa = lerp(B.perHa[0], B.perHa[1], noise2(qe, qn, 40, 57)) * Math.max(solid, grove) * reach;
+      kind = 'belt';
+    } else if (qn <= H.fromN && qe <= H.toE && bank >= H.minBankM) {
+      const grove = smoothstep(H.cut, H.cut + 0.10, noise2(qe, qn, H.groveM, 61));
+      if (grove <= 0) return;
+      perHa = lerp(H.perHa[0], H.perHa[1], noise2(qe, qn, 36, 67)) * grove;
+      kind = 'hollow';
+    }
+    if (!kind || roll >= (perHa * cellArea * groveKeep) / 10000) return;
+    if (terrain.isWater(qe, qn)) return;
+    const gy = terrain.surfaceHeight(qe, qn);
+    if (gy < dryFloorY) return;
+    let p = perHa;
+    if (kind === 'hollow') {
+      const wet = smoothstep(H.wetY[0], H.wetY[1], gy);
+      if (wet <= 0) return;
+      p *= wet;
+    }
+    if (communityAt(qe, qn) !== null) return;   // a wood already stands here
+    if (blocked(qe, qn) || inClearedPlot(qe, qn)) return;
+    const cleared = clearedFactor(qe, qn);
+    p *= cleared * cleared;
+    if (roll >= (p * cellArea * groveKeep) / 10000) return;
+    const mix = SG[kind].mix.filter(([id]) => groveSpecs[kind][id]);
+    let total = 0;
+    for (const [, w] of mix) total += w;
+    let a = sr() * total;
+    let id = null;
+    for (const [k, w] of mix) { a -= w; if (a < 0) { id = k; break; } }
+    const spec = id && groveSpecs[kind][id];
+    if (!spec) return;
+    grown.add(spec, qe, gy, worldZ(qn), lerp(SG.scale[0], SG.scale[1], sr()));
+    noteStation(qe, qn, gy);
+    stats.groves[kind]++;
+    stats.groves.planted++;
+    bump(stats.groves.species, id);
+    if (stats.groves.samples.length < 16 && stats.groves.planted % 97 === 1) {
+      stats.groves.samples.push({ kind, id, e: Math.round(qe * 10) / 10, n: Math.round(qn * 10) / 10 });
+    }
+  };
+
   const sweepE0 = originE + step;
   const sweepE1 = originE + (cols - 1) * cellM - step;
   const sweepN0 = originN + step;
@@ -3921,6 +4114,8 @@ export async function createTrees({
     for (let e = sweepE0; e <= sweepE1; e += step) {
       // T-2784: the open plain's woody plants, off the shared stream entirely.
       plantPrairie(e, n);
+      // T-3340: the 1812 groves south of the river, likewise off the stream.
+      plantSouthGroves(e, n);
       const px = e + (rnd() - 0.5) * step * 0.92;
       const pz = n + (rnd() - 0.5) * step * 0.92;
       if (terrain.isWater(px, pz)) continue;
@@ -4218,6 +4413,10 @@ export async function createTrees({
     problems.push(`trees: the ${level} open-plain budget bound at ${maxPrairie} stems, so the `
       + 'prairie shrubs stop partway north rather than thinning — raise the budget');
   }
+  if (groving && stats.groves.planted >= maxGroves) {
+    problems.push(`trees: the ${level} 1812 grove budget bound at ${maxGroves} stems, so the `
+      + 'groves south of the river stop partway north rather than thinning — raise the budget');
+  }
   if (stats.edgeThicket.planted >= maxShrubs) {
     problems.push(`trees: the ${level} edge-thicket budget bound at ${maxShrubs} shrubs, so `
       + 'the woods\' edge stops partway north rather than thinning — raise the budget');
@@ -4312,6 +4511,7 @@ export async function createTrees({
       geo.dispose();
       b.release();
     }
+    compactTimberFlags(batch.geometry);
     batch.computeBoundingSphere();
     group.add(batch);
     disposables.push(batch);
@@ -4444,13 +4644,17 @@ uniform float uBandUp;
     farMat.needsUpdate = true;
   }
   confidence?.patch(farMat);
+  // T-3331: the band is unlit and authored against the daytime sky, so by twilight
+  // and night it is told how dark the frame has gone (time-of-day.js onDaylight);
+  // 1 by day, which leaves the band exactly as it was.
+  const unhookDaylight = onDaylight(({ display }) => farMat.color.setScalar(display));
   const hMesh = new THREE.Mesh(hGeo, farMat);
   hMesh.name = 'horizon-timber';
   hMesh.frustumCulled = false;
   hMesh.renderOrder = -1;
   horizon.add(hMesh);
   group.add(horizon);
-  disposables.push(hGeo, farMat);
+  disposables.push(hGeo, farMat, { dispose: unhookDaylight });
 
   // The band's hazed end, in the renderer's linear working space. NOT a const
   // since T-1631: `world.js` turns the scene's haze with the view, and this
@@ -4980,7 +5184,13 @@ uniform float uBandUp;
      * shared season uniforms' (season.js chiFoliage), installed on first use.
      */
     async setSeason(crown = {}, { foliage = null } = {}) {
-      if (foliage) for (const [m, role] of [[grownMats?.leafMat, 0], [nearMat, 0], [farMat, 2]]) foliage(m, role);
+      // T-3399: the grown leaf atlas's fifth row is the conifers' scale and needle
+      // (tree-model.js LEAF_TILES), and an evergreen keeps its colour in every Season.
+      if (foliage) {
+        for (const [m, role, opts] of [[grownMats?.leafMat, 0, { evergreenBelowV: 0.2 }], [nearMat, 0], [farMat, 2]]) {
+          foliage(m, role, opts);
+        }
+      }
       const key = JSON.stringify(crown);
       if (!grownMats || key === crownNow) return;
       crownNow = key;

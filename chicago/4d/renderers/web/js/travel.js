@@ -28,6 +28,7 @@
  *
  *   ground:  idle → travelling → arriving → idle
  *   fly:     idle → ascending → cruising → descending → landing → arriving → idle
+ *   glide:   idle → gliding → idle   (T-3432: a jaunt's start, flown to on a clock)
  *
  * `travelling` follows the router's waypoints; `arriving` eases the look onto
  * the building (focusPoint) over half a second and then opens its card
@@ -45,7 +46,7 @@
  * frame (see main.js goTo()).
  */
 
-import { bearingToYaw } from './angles.js';
+import { bearingToYaw, yawToBearing } from './angles.js';
 
 const DEG = Math.PI / 180;
 const TAU = Math.PI * 2;
@@ -102,8 +103,47 @@ const BANNER_INTERVAL_S = 0.25; // ≤ 4 Hz repaints of the distance
 const GLIDE_TAN = Math.tan(18 * DEG); // descend once horizontal ≤ altitude / tan 18°
 const LAND_HORIZ_M = 2.5;
 const LAND_ALT_M = 4;
+const GATE_OPEN_M = 6;         // T-3405: a walking ride opens a shut gate from this far …
+const GATE_WAIT_M = 2.5;       // … and waits this far short of it until the leaves are still
 const DEFAULT_RADIUS_M = 6;    // half a footprint diagonal when no footprint is known
 const BOB_DECAY_M_PER_S = 0.35; // the gait dies within 0.3 s of stopping
+
+/**
+ * T-3432 (owner, 2026-11-06: "instead of jumping right into them, can you fly to the start
+ * instead as long as it's like maybe 5-10 seconds max"). A glide is a flight on a clock, not
+ * a steered ride: it takes `glideSeconds(d)` of wall time whatever the frame rate (a steered
+ * flight across 1904 at 14 m/s is over a minute, and under a software renderer far longer),
+ * climbs off the ground before it moves, looks along its way, and settles onto exactly the
+ * pose it was given. 3.5 s for a hop, 8 s for the far side of town, never more.
+ */
+export const GLIDE_MAX_S = 8;
+export const GLIDE_MIN_M = 8;   // nearer than this, there is nothing to fly
+export function glideSeconds(d) {
+  return Number.isFinite(d) && d >= GLIDE_MIN_M ? clamp(3 + d / 300, 3.5, GLIDE_MAX_S) : 0;
+}
+const smoother = (x) => x * x * x * (x * (x * 6 - 15) + 10);
+const lerp = (a, b, t) => a + (b - a) * t;
+const lerpAngle = (a, b, t) => a + wrapPi(b - a) * t;
+/** Where a glide is `t` (0..1) of the way: { e, n, altitude, yaw, pitch }. Pure. */
+export function glidePose(from, to, t) {
+  const k = clamp(t, 0, 1), d = Math.hypot(to.e - from.e, to.n - from.n);
+  // Up before along, down after: the eye leaves the ground before it crosses anything.
+  const u = smoother(clamp((k - 0.1) / 0.8, 0, 1));
+  const top = Math.max(from.altitude, to.altitude);
+  const arc = d < 30 ? 0 : Math.max(0, clamp(0.16 * d, 18, 90) - top);
+  const bump = k > 0 && k < 1 ? Math.pow(Math.sin(Math.PI * k), 0.6) : 0;
+  const altitude = lerp(from.altitude, to.altitude, smoother(k)) + arc * bump;
+  let yaw, pitch;
+  if (d < 30) { yaw = lerpAngle(from.yaw, to.yaw, smoother(k)); pitch = lerp(from.pitch, to.pitch, smoother(k)); }
+  else {
+    // Turn onto the way, look a little down over the town, then onto the framing.
+    const heading = bearingToYaw(Math.atan2(to.e - from.e, to.n - from.n) / DEG);
+    const a = smoother(clamp(k / 0.25, 0, 1)), b = smoother(clamp((k - 0.62) / 0.38, 0, 1));
+    yaw = lerpAngle(lerpAngle(from.yaw, heading, a), to.yaw, b);
+    pitch = lerp(lerp(from.pitch, -14 * DEG, a), to.pitch, b);
+  }
+  return { e: lerp(from.e, to.e, u), n: lerp(from.n, to.n, u), altitude, yaw, pitch };
+}
 
 function wrapPi(a) { return Math.atan2(Math.sin(a), Math.cos(a)); }
 function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
@@ -112,6 +152,11 @@ export function createTravel({
   walker, intent, hud, settings = {}, router = null, terrain = null,
   focusPoint, structurePosition, footprints = null, standFor = null,
   frame, teleport, goToAnchor, setFly, onArrive,
+  // T-3405: the gates a ground route passes through, `along(points)` -> [{ at: [e, n],
+  // blocks(), open() }] (main.js, from fort-gates.js); a walking ride opens each shut one
+  // as it comes up to it and waits while it swings. `tickWorld(dt)` moves the world's
+  // own clocks (the swing) inside simulate(), which has no frame loop to do it.
+  gates = null, tickWorld = null,
 } = {}) {
   let mode = 'instantly';
   let headBob = settings.headBob !== false;
@@ -233,6 +278,11 @@ export function createTravel({
     const p = ownPoint(target);
     if (target.kind === 'intersection' && p) {
       teleport?.({ local_e: p.e, local_n: p.n, yaw_deg: target.yaw_deg ?? 0 });
+      return arrived(true, callbacks);
+    }
+    // T-3436: a photo view stands you where its camera stood, looking its way and its tilt.
+    if (target.kind === 'photo' && p) {
+      teleport?.({ local_e: p.e, local_n: p.n, yaw_deg: target.yaw_deg ?? 0, pitch_deg: target.pitch_deg ?? 0 });
       return arrived(true, callbacks);
     }
     return false;
@@ -361,6 +411,7 @@ export function createTravel({
       if (route?.points?.length) {
         reportRoute(r.target, route.points, r.callbacks);
         r.points = route.points;
+        r.gates = gates?.along?.([[s.e, s.n], ...route.points]) ?? [];
         r.index = 0;
         r.from = { e: s.e, n: s.n };
         r.progressRef = remaining();
@@ -388,7 +439,10 @@ export function createTravel({
       yawOff = (f?.yawOffsetDeg ?? 0) * DEG;
       pitchOff = (f?.pitchOffsetDeg ?? 0) * DEG;
     } else if (Number.isFinite(r.target?.yaw_deg)) yaw = bearingToYaw(r.target.yaw_deg);
-    r.arrive = { point, yaw, yawOff, pitchOff, t: ARRIVE_TURN_S, startYaw: s.yaw };
+    // T-3436: a photo view settles to its camera's tilt, and a viewpoint to its own (a church
+    // spire is looked up at); every other arrival looks level.
+    const pitch = (r.kind === 'photo' || r.kind === 'anchor') && Number.isFinite(r.target?.pitch_deg) ? r.target.pitch_deg * DEG : 0;
+    r.arrive = { point, yaw, yawOff, pitchOff, pitch, t: ARRIVE_TURN_S, startYaw: s.yaw };
   }
 
   function steerGround(intentNow, dt) {
@@ -402,12 +456,32 @@ export function createTravel({
     // Turn on the spot, then take no more than the distance left on this leg.
     // This keeps even a fast horse on the planned sidewalk/street corner.
     intentNow.forward = Math.abs(diff) < 0.01 ? Math.min(1, distance / Math.max(WALK.speed * dt, 0.001)) : 0;
+    // T-3405: a shut gate on the way is opened from GATE_OPEN_M off, and the ride waits
+    // GATE_WAIT_M short of it while the leaves swing. Waiting is not a stall.
+    if (r.gates?.length && gateHold(r, s)) {
+      intentNow.forward = 0; intentNow.strafe = 0; intentNow.rise = 0; intentNow.sprint = false;
+      pitchTo(intentNow, 0, dt);
+      r.progressT = 0; r.progressRef = remaining(); r.blockedT = 0;
+      return;
+    }
     intentNow.strafe = 0;
     intentNow.rise = 0;
     intentNow.sprint = false;
     pitchTo(intentNow, 0, dt);
     if (intentNow.forward > 0) stallWatch(r, dt, remaining(), true);
     else { r.progressT = 0; r.progressRef = remaining(); }
+  }
+
+  /** True while a gate the ride is about to pass through is shut or still swinging. */
+  function gateHold(r, s) {
+    let hold = false;
+    for (const g of r.gates) {
+      if (!g.blocks()) continue;
+      const d = Math.hypot(g.at[0] - s.e, g.at[1] - s.n);
+      if (d <= GATE_OPEN_M) g.open();
+      if (d <= GATE_WAIT_M) hold = true;
+    }
+    return hold;
   }
 
   function steerFlight(intentNow, dt) {
@@ -425,11 +499,21 @@ export function createTravel({
     intentNow.strafe = 0;
     intentNow.sprint = false;
 
+    // T-3405: a flight to a raised view climbs to its height, slows over it and settles
+    // into the view itself; it never comes down.
+    if (r.aerial && phase !== 'ascending') {
+      intentNow.forward = clamp(horiz / 12, 0.12, 1);
+      intentNow.rise = clamp((r.cruise - alt) / 3, -1, 1);
+      pitchTo(intentNow, 0, dt);
+      if (horiz <= LAND_HORIZ_M && Math.abs(r.cruise - alt) < 2) { goToAnchor?.(r.id); r.done = true; return; }
+      stallWatch(r, dt, horiz + Math.abs(r.cruise - alt), false);
+      return;
+    }
     if (phase === 'ascending') {
       intentNow.forward = horiz > 30 ? 0.5 : 0.15;
       intentNow.rise = 1;
       pitchTo(intentNow, 12 * DEG, dt);
-      const inCone = horiz <= alt / GLIDE_TAN && alt >= r.cruise * 0.5;
+      const inCone = !r.aerial && horiz <= alt / GLIDE_TAN && alt >= r.cruise * 0.5;
       if (alt >= r.cruise - 0.5 || inCone) phase = inCone ? 'descending' : 'cruising';
     } else if (phase === 'cruising') {
       intentNow.forward = 1;
@@ -471,7 +555,7 @@ export function createTravel({
     intentNow.rise = 0;
     intentNow.sprint = false;
     let yawT = s.yaw;
-    let pitchT = 0;
+    let pitchT = r.arrive.pitch ?? 0;
     if (r.arrive.point) {
       const p = r.arrive.point;
       const de = p.x - s.e, dn = -p.z - s.n;
@@ -500,6 +584,8 @@ export function createTravel({
 
   function stop(reason = 'button') {
     if (phase === 'idle') return;
+    // A glide stopped for any reason is landed, never left hanging in the air.
+    if (phase === 'gliding') landGlide(ride);
     const callbacks = ride?.callbacks;
     finish();
     callbacks?.onStop?.({ ...callbacks.token, reason });
@@ -509,9 +595,10 @@ export function createTravel({
   function go(target, callbacks) {
     if (!target?.kind) return false;
     if (phase !== 'idle') stop('replaced');
-    // Aerial viewpoints are always a jump: a ride to the ground under a bird's-eye
-    // view is not the view. So is any anchor Go to did not hand coordinates for.
-    if (target.kind === 'anchor' && (isAerial(target) || mode === 'instantly' || !ownPoint(target))) {
+    // Aerial viewpoints are a jump on the ground: a ride to the ground under a bird's-eye
+    // view is not the view. So is any anchor Go to did not hand coordinates for. A flight
+    // goes there (T-3405): it climbs to the view's height and settles into it.
+    if (target.kind === 'anchor' && ((isAerial(target) && mode !== 'fly') || mode === 'instantly' || !ownPoint(target))) {
       return goInstantly(target, callbacks);
     }
     if (mode === 'instantly') return goInstantly(target, callbacks);
@@ -524,6 +611,7 @@ export function createTravel({
       setFly?.(true);
       ride = newRide(target, to, [[to.e, to.n]], 'fly', callbacks);
       ride.cruise = PACES.fly.cruise(d);
+      if (target.kind === 'anchor' && isAerial(target)) { ride.aerial = true; ride.cruise = target.altitude_m; }
       ride.progressRef = d;
       phase = 'ascending';
       paintBanner();
@@ -540,9 +628,41 @@ export function createTravel({
       return false;
     }
     ride = newRide(target, to, route.points, mode, callbacks);
+    ride.gates = gates?.along?.([[s.e, s.n], ...route.points]) ?? [];
     ride.progressRef = remaining();
     phase = 'travelling';
     applyPace();   // the ride's pace and seat, restored by finish()
+    paintBanner();
+    return true;
+  }
+
+  const now = () => (typeof performance !== 'undefined' ? performance.now() : Date.now());
+  function poseGlide(p) {
+    teleport?.({ local_e: p.e, local_n: p.n, altitude_m: p.altitude,
+      yaw_deg: yawToBearing(p.yaw), pitch_deg: p.pitch / DEG });
+  }
+  function landGlide(r) {
+    const to = r?.glide?.to;
+    if (!to) return;
+    setFly?.(false);
+    teleport?.({ local_e: to.e, local_n: to.n, yaw_deg: yawToBearing(to.yaw), pitch_deg: to.pitch / DEG });
+  }
+  /**
+   * T-3432: fly from `from` to `to` ({ e, n, altitude, yaw, pitch }: the eye's height above
+   * the ground and the walker's own angles) in glideSeconds() of wall time, then land on
+   * `to` exactly. Returns false, and moves nothing, when there is nothing to fly or the
+   * visitor asked for reduced motion; the caller then simply stands at `to`.
+   */
+  function glide(from, to, callbacks = null, { label = null } = {}) {
+    const d = Math.hypot(to.e - from.e, to.n - from.n);
+    const seconds = glideSeconds(d);
+    if (!(seconds > 0) || reduceMotion?.matches) return false;
+    if (phase !== 'idle') stop('replaced');
+    setFly?.(true);
+    ride = newRide({ kind: 'glide', label: label ?? 'the start' }, { e: to.e, n: to.n }, [[to.e, to.n]], 'fly', callbacks);
+    ride.glide = { from, to, seconds, elapsed: 0, t0: now() };
+    phase = 'gliding';
+    poseGlide(glidePose(from, to, 0));
     paintBanner();
     return true;
   }
@@ -551,6 +671,12 @@ export function createTravel({
     updateBob(dt, intentNow);
     if (phase === 'idle' || !ride) return;
     ride.sinceGo += dt;
+    if (phase === 'gliding') {
+      // A glide is a cut, not a ride the visitor can stop halfway up: their first move
+      // lands it, and their input flows on from the start.
+      if (visitorInput(intentNow, ride)) { landGlide(ride); complete(); }
+      return;
+    }
     if (visitorInput(intentNow, ride)) { stop('input'); return; }
     wrote = true;
     if (phase === 'travelling') steerGround(intentNow, dt);
@@ -569,6 +695,14 @@ export function createTravel({
       wrote = false;
     }
     if (!ride) return;
+    if (phase === 'gliding') {
+      // After the walker, so the pose written here is the one this frame draws. The
+      // clock is the larger of the frames' dt and the wall's: simulate() has no wall.
+      const g = ride.glide;
+      g.elapsed = Math.max(g.elapsed + dt, (now() - g.t0) / 1000);
+      if (g.elapsed >= g.seconds) { landGlide(ride); complete(); return; }
+      poseGlide(glidePose(g.from, g.to, g.elapsed / g.seconds));
+    }
     if (ride.done) { complete(); return; }
     ride.bannerT += dt;
     if (ride.bannerT >= BANNER_INTERVAL_S) { ride.bannerT = 0; paintBanner(); }
@@ -588,6 +722,7 @@ export function createTravel({
     let maxAlt = s.altitude;
     const steps = Math.ceil(Math.max(0, seconds) / dt);
     for (let i = 0; i < steps && phase !== 'idle'; i++) {
+      tickWorld?.(dt);
       update(dt, intent);
       walker.update(dt, intent);
       afterWalk(intent, dt);
@@ -605,6 +740,7 @@ export function createTravel({
     applyPace,
     setHeadBob(on) { headBob = !!on; if (!headBob) walker.state.bob = 0; return headBob; },
     go,
+    glide,
     stop,
     update,
     afterWalk,

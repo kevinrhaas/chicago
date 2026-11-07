@@ -28,6 +28,10 @@ WHAT JOINS A PICTURE TO A BUILDING, and nothing else does:
   - every scene: a photograph or illustration record in data/sources/ that the
     structure record names, and the picture named by a reference view's camera
     (data/reference_views/<id>/<view>.json, the image gate).
+  - a group camera's `card_members` (T-3335): the `also_render` members that camera's
+    picture actually shows, named one by one. A whole-fort bird's-eye is a picture of each
+    blockhouse and range in it, not only of the anchor its camera hangs on; a member left out
+    (hidden behind another, or not drawn) gets nothing. Members never get the camera's spot.
   - an accessory (coach house, conservatory, rear or alley building, shed) shows only the
     pictures whose title names that kind of building.
 
@@ -69,6 +73,7 @@ STRUCTURES = ROOT / "data" / "structures"
 SIDECARS = ROOT / "data" / "sidecars"
 VIEWS = ROOT / "data" / "reference_views"
 OUT = ROOT / "data" / "pictures"
+PLACE_NAMES = ROOT / "data" / "jaunts" / "_names" / "place-names.json"
 
 # Library kinds and views that are not pictures of a building.
 NOT_PICTURE_KINDS = {"document", "permit record", "fire insurance map", "atlas plate"}
@@ -292,6 +297,15 @@ def derive(images, tsv_text, sources, structure_texts, scenes, views):
                          + r')(?![A-Za-z0-9_])') \
         if picture_sources else None
 
+    # T-3335: a group camera lends its picture to the members it names in `card_members`.
+    member_views = {}
+    for anchor, cams in views.items():
+        for cam in cams:
+            rendered = set(cam.get("also_render") or [])
+            for m in cam.get("card_members") or []:
+                if m in rendered and m != anchor:
+                    member_views.setdefault(m, []).append(cam)
+
     out = {}
     for scene, sids in sorted(scenes.items()):
         by_structure = {}
@@ -303,8 +317,8 @@ def derive(images, tsv_text, sources, structure_texts, scenes, views):
                 lib_ids.update(by_parcel.get(f"prairie_{number}", []))
                 for pa in pas_at.get(number, ()):
                     lib_ids.update(by_building.get(pa, []))
-            for cam in views.get(sid, []):
-                if cam.get("library_image"):
+            for cam in views.get(sid, []) + member_views.get(sid, []):
+                if cam.get("library_image") and (not cam.get("scene") or cam["scene"] == scene):
                     lib_ids.add(cam["library_image"])
             for iid in lib_ids:
                 r = recs.get(iid)
@@ -324,6 +338,8 @@ def derive(images, tsv_text, sources, structure_texts, scenes, views):
                     seen_urls.add(e["url"])
             cited = set(src_pat.findall(structure_texts.get(sid, ""))) if src_pat else set()
             cited.update(c["source_id"] for c in views.get(sid, []) if c.get("source_id") in picture_sources)
+            cited.update(c["source_id"] for c in member_views.get(sid, [])
+                         if c.get("source_id") in picture_sources and (not c.get("scene") or c["scene"] == scene))
             for s_id in sorted(cited):
                 d = sources[s_id]
                 if s_id in entries or (d.get("url") and d.get("url") in seen_urls):
@@ -459,6 +475,22 @@ def self_test():
            ["goodman_house_1612_prairie_coach_house"][0], "a picture no camera names has no spot")
     expect(source_years("1963 (sheets 1-5); 1965 (sheet 6)") == [1963, 1965] and source_years("n.d.") is None,
            "a source's years are the ones its date names, and none where it names none")
+    # T-3335: a group camera's picture reaches the members it names, and only those.
+    group_images = dict(images, images=images["images"] + [img("fort", view="aerial", local=held)])
+    group_views = {"goodman_house_1612_prairie": [{"library_image": "fort", "scene": "1904", "eye": [0, 90, 60],
+                                                   "yaw_deg": 200, "also_render": ["kellogg_house_1709_prairie",
+                                                   "goodman_house_1612_prairie_coach_house"],
+                                                   "card_members": ["kellogg_house_1709_prairie", "nowhere"]}]}
+    group = derive(group_images, tsv, sources, texts, scenes, group_views)["1904"]["by_structure"]
+    kg = {e["id"]: e for e in group.get("kellogg_house_1709_prairie", [])}
+    expect("fort" in kg and kg["fort"].get("held") and "spot" not in kg["fort"],
+           f"a card member shows the group picture, held, with no spot ({sorted(kg)})")
+    expect("fort" in {e["id"] for e in group.get("goodman_house_1612_prairie", [])},
+           "the group camera's anchor keeps its picture")
+    unnamed = {k: [dict(c, card_members=[]) for c in v] for k, v in group_views.items()}
+    ug = derive(group_images, tsv, sources, texts, scenes, unnamed)["1904"]["by_structure"]
+    expect("fort" not in {e["id"] for e in ug.get("kellogg_house_1709_prairie", [])},
+           "a rendered member the camera does not name in card_members gets no picture")
     tilt = camera_spot({"eye": [0, 0, 2], "basis_right_up_forward": [[1, 0, 0], [0, 0, 1], [0, -0.9950042, 0.0998334]]})
     expect(tilt and tilt["bearing"] == 180.0 and tilt["pitch"] == 5.7, f"a basis camera's bearing and pitch ({tilt})")
     for fail in fails:
@@ -469,6 +501,16 @@ def self_test():
     return 0
 
 
+def add_place_names(out, names):
+    """T-3436: Go to names each building the way the jaunts do ('Pullman House', from
+    data/jaunts/_names/place-names.json) once it has read this file: its Places rows and its
+    Photos. A building the file does not name keeps its record's title in the app."""
+    for scene, doc in out.items():
+        known = (names or {}).get(scene) or {}
+        doc["names"] = {sid: known[sid] for sid in sorted(known) if isinstance(known.get(sid), str)}
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--check", action="store_true")
@@ -476,7 +518,7 @@ def main():
     a = ap.parse_args()
     if a.self_test:
         return self_test()
-    out = derive(*read_tree())
+    out = add_place_names(derive(*read_tree()), load_json(PLACE_NAMES) if PLACE_NAMES.exists() else None)
     if not IMAGES.exists():
         print(f"   note: {IMAGES.relative_to(ROOT.parent)} is absent — 1904 has only its cited sources")
     if a.check:

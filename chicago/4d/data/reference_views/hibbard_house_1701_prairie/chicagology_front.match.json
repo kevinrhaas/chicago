@@ -2,11 +2,11 @@
   "structure_id": "hibbard_house_1701_prairie",
   "view": "chicagology_front",
   "glb": "assets/gltf/hibbard_house_1701_prairie__as_mapped_1904.glb",
-  "glb_sha256": "3f73ef678cad54cfa880f8e4b88bde0c6aa857298bb9001f349dbf07d7c5c896",
+  "glb_sha256": "ac96640c4fd88e68936105ca0e42566af1e15f5fb63858e6605c7db6ce633e32",
   "camera_sha256": "5bcea4405c1164b7e9fff546437f40cf36c73523f836cf55a7b96505ae7e57fd",
   "photo_sha256": "9906bb5ba57ac1a698bcf9686d7be726c469e33561ecccf2c72874cbb95a6fa6",
   "side_by_side": "docs/RESEARCH/photo-match/hibbard_house_1701_prairie/chicagology_front-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: the main block's two brick storeys over a stone basement, its south-west corner and its south-east corner where the photograph has them",
@@ -60,8 +60,8 @@
     },
     {
       "what": "the entrance arch's south half and the stone pier between it and the bay: the photograph shows the whole arch and a pier about 1 m broad before the bay, where the render's bay hides the arch south of about v 7.3",
-      "status": "open",
-      "how": "T-3256: the arch is laid where the photograph has it (v about 5.9-8.1); the bay is laid between the 1911 sheet's place (v 8.3-11.0) and the photograph's (v 9.1-13.7), as the record's bays note says (T-3240), so its front face stands about 0.8 m north of the picture's and covers the arch's south half from this camera. Moving the bay is the bay's own question, not the entrance's."
+      "status": "fixed",
+      "how": "T-3257: the bay is laid on the photograph's centre (bays.front_bay s 11.4, its junctions at v 9.6 and 13.2 inside the photograph's 9.1-13.7) instead of between that and the 1911 sheet's: the arch renders whole, its leaves seen, with a stone pier before the bay's north cheek"
     },
     {
       "what": "the entrance arch's mouth: the photograph's is black, its leaves lost in shadow; the render's reads as the reveal's lit stone",
@@ -95,8 +95,8 @@
     },
     {
       "what": "the round-headed basement lights showing over the fence under the bay's pair of lights and in the lower south range's south face, and the porch podium's roundels",
-      "status": "open",
-      "how": "T-3254 left these: they stand in K08 faces (the bay, the range) and the porch's podium, which lay no basement light; the front's own basement lights stand behind the porch and the bay. No ticket owns them; they wait in this record (AGENTS.md rule 11)."
+      "status": "fixed",
+      "how": "T-3257: the porch podium's four roundels (corner_porch.roundels) all render clear now that the stoop stands under them. The basement lights are K08's in_plinth lights, cut through each projection's stone basement: a pair under the bay's pair (its plinth carried to the water table at 2.0 m) and one under the lower south range's narrow south light, K06's round-headed basement light 0.6 m across on a 1.0 m sill; their heads render at y about 1010 px on the photograph's 1006-1012, each under the light over it. Their feet are behind the fence in both."
     },
     {
       "what": "the rear veranda's south end, seen past the south flank's rear corner",
@@ -112,6 +112,11 @@
       "what": "the light shafts at the stone bay's angles",
       "status": "within tolerance",
       "how": "T-3255: the bay is light stone throughout, so its angles read as the arrises they are; K08's carved pilasters there would cost the bay's light tier past its 0.55 budget (check_bay_kit) for a shaft about 0.05 m proud of the same stone."
+    },
+    {
+      "what": "the stoop's flight: in the render it stands over the fence before the porch's podium, from about the middle of the porch to the arch, where the photograph shows the podium and two of its roundels clear and only pale stone under the arch's mouth",
+      "status": "fixed",
+      "how": "T-3257: the stoop's landing taken to 0.4 m, its going to 0.27 m, and its stone cheeks off (entrance_kit cheeks: false), so the flight stays under the sightline to the podium's roundels: it now shows only as pale stone under the arch's mouth, the steps' ends a stepped edge a riser (0.17 m) deep against the photograph's plain stone there, and the podium and all four roundels stand clear over the fence as the photograph shows them."
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

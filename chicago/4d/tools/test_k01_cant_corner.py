@@ -105,7 +105,8 @@ def variant(edit):
     return r
 
 
-refused(variant(lambda f: f["cant_corner"]["value"].update(cut_m=3.0)), "a cut past 2.5 m", "cut_m 3.0")
+refused(variant(lambda f: f["cant_corner"]["value"].update(cut_m=3.6)), "a cut past 3.5 m", "cut_m 3.6")
+refused(variant(lambda f: f["cant_corner"]["value"].update(blank=False)), "blank other than true", "blank: true")
 refused(variant(lambda f: f["cant_corner"]["value"].update(radius_m=1.0)), "a stray key", "takes corner")
 refused(variant(lambda f: f["north_bays"].update(value=[2.4, 5.6])), "a flank window within the pier of the cut",
         "within 0.2 m of the cut")
@@ -117,8 +118,89 @@ refused(variant(lambda f: (f["mansard"]["value"]["dormers"][-1].update(surround_
                            f["mansard"]["value"]["dormers"][-1]["sash"].update(width_m=1.2))),
         "a cant dormer too wide for the face's hips", "leaves the canted face's hips")
 
+# T-3261: 1905 Prairie's south-west corner (K01's 'north'), the 1893 plate's: a brick house's
+# canted face, blank in both storeys, under the bracketed timber cornice carried round it, its
+# largest dormer standing on it
+SID5 = "marshall_field_house_1905_prairie"
+st5 = json.loads((ROOT / "data" / "structures" / f"{SID5}.json").read_text())
+p5 = KP.from_phase(st5["phases"][0], st5)
+cc5 = p5.cant_corner
+# T-3271: Hunt's plan of the principal floor and the 923 photograph's camera re-read the cut to
+# 2.15 m each way (it was 3.2 m, the 1893 plate's camera's reading with its heights held)
+check(cc5.get("corner") == "north" and cc5.get("cut_m") == 2.15 and cc5.get("blank") is True,
+      f"1905's record cuts K01's north corner 2.15 m each way, the face blank ({cc5})")
+check(not [o for o in p5.openings if o.wall == KP.CANT_WALL], "1905's canted face carries no window column")
+a5 = K1.build(p5, SID5)
+w5 = a5.components.get(KP.CANT_WALL)
+face5 = KP.cant_corner_plan(cc5, p5.depth_m, p5.width_m)
+(fu, fv), (gu, gv) = face5["ends"]
+belt5 = p5.floors_m[1]   # the stone belt at the chamber floor (6.1 m since T-3271's lower walls)
+on_face = lambda q: (abs(face5["normal"][0] * (q[0] - fu) + face5["normal"][1] * (-q[2] - fv)) < 0.01
+                     and 3.0 < q[1] < belt5 - 0.3
+                     and fv + 0.3 < -q[2] < gv - 0.3 and gu + 0.3 < q[0] < fu - 0.3)   # inside the face, clear of its two ends and the belt
+# (T-3271: bounded at both ends, so the south flank's balcony consoles, on the face's plane
+# carried on past its far end, are not read as on it)
+# the face's brick is one quad between its ends (its vertices stand at them), so it is looked
+# for across the whole face; the stone is refused inside it, clear of the two strips
+in_face = lambda q: (abs(face5["normal"][0] * (q[0] - fu) + face5["normal"][1] * (-q[2] - fv)) < 0.01
+                     and 3.0 < q[1] < belt5 - 0.3 and fv - 0.01 <= -q[2] <= gv + 0.01 and gu - 0.01 <= q[0] <= fu + 0.01)
+check(w5 is not None and len(w5["instances"]) == 1 and any(in_face(q) for q in a5.prims["brick"].pos)
+      and not any(on_face(q) for q in a5.prims["limestone_trim"].pos),
+      "the build lays 1905's k01.wall.cant in its brick, blank between the belts")
+br = a5.wall_head["bracket_runs"]
+check(len(br.get(KP.CANT_WALL, ())) >= 2, f"the timber cornice's pairs turn onto the canted face ({br.get(KP.CANT_WALL)})")
+check(max(br["k01.wall.street_front"]) < face5["walls"]["k01.wall.street_front"][0]
+      and min(br["k01.wall.side.north"]) > face5["walls"]["k01.wall.side.north"][1],
+      "and stop on the front and the flank where the cut begins, in each wall's own s")
+check([d["face"] for d in p5.mansard["dormers"]].count("cant") == 1, "1905's large dormer stands on the canted face")
+plan5 = face5
+(u5, v5), _ = plan5["ends"]
+n5u, n5v = plan5["normal"]
+k5 = n5u * u5 + n5v * v5
+past5 = lambda q: n5u * q[0] + n5v * -q[2] - k5
+reach5 = max((past5(q) for pr in a5.prims.values() for q in pr.pos if q[1] > 3.0), default=-9.0)
+check(reach5 < p5.eave_overhang_m + 0.25, f"nothing over 3 m stands past the face by more than the eave's reach ({reach5:.3f} m)")
+
+
+def variant5(edit):
+    r = copy.deepcopy(st5)
+    edit(r["phases"][0]["form"])
+    return r
+
+
+def refused5(rec, why, needle):
+    refused(rec, why, needle)
+
+
+cut_s5 = face5["walls"]["k01.wall.street_front"][0]   # where the front's cut begins (14.65 m)
+front_bal5 = max(j for j, b in enumerate(st5["phases"][0]["form"]["street_front_iron"]["value"]["balconettes"])
+                 if b.get("wall", "k01.wall.street_front") == "k01.wall.street_front")
+refused5(variant5(lambda f: f["street_front_iron"]["value"]["balconettes"][front_bal5].update(to_s_m=round(cut_s5 + 0.15, 2))),
+         "a balcony run onto the cut", "runs onto the cut")
+# T-3271: the south flank's balconies (K01's north wall) hang on their own wall, and the flank's
+# cut refuses them as the front's does
+side_bals5 = [b for b in p5.street_iron.get("balconettes", ()) if b.get("wall") == "k01.wall.side.north"]
+check(len(side_bals5) == 2 and all(b["from_s_m"] > face5["walls"]["k01.wall.side.north"][1] for b in side_bals5),
+      f"1905's two south-flank balconies stand on K01's north wall, clear of its cut ({[(b['from_s_m'], b['to_s_m']) for b in side_bals5]})")
+side_j5 = next(j for j, b in enumerate(st5["phases"][0]["form"]["street_front_iron"]["value"]["balconettes"])
+               if b.get("wall") == "k01.wall.side.north")
+refused5(variant5(lambda f: f["street_front_iron"]["value"]["balconettes"][side_j5].update(from_s_m=2.0)),
+         "a flank balcony run onto the flank's cut", "runs onto the cut")
+refused5(variant5(lambda f: f["street_front_iron"]["value"]["balconettes"][side_j5].update(wall="k01.wall.rear_service")),
+         "a balcony on the rear wall", "a side wall")
+# T-3271: the light stone strips at the face's two angles, and only on a blank face
+strips5 = a5.components.get("k01.wall.cant_strip")
+check(strips5 is not None and len(strips5["instances"]) == 2,
+      "1905's canted face carries its two light stone strips (k01.wall.cant_strip)")
+refused5(variant5(lambda f: f["cant_corner"]["value"]["strips"].update(width_m=1.5)),
+         "a strip wider than a third of the face", "strips")
+refused5(variant5(lambda f: f["cant_corner"]["value"]["strips"].update(colour="pale")),
+         "a strip naming a field it does not take", "strips takes")
+refused5(variant5(lambda f: f["wall_head"]["value"].update(walls=["k01.wall.street_front"])),
+         "a timber cornice on named walls", "bracketed timber")
+
 print()
 if failures:
     print(f"FAIL — {len(failures)} check(s)")
     sys.exit(1)
-print("OK — K01's canted corner holds on 1901 Prairie")
+print("OK — K01's canted corner holds on 1901 Prairie and 1905 Prairie")

@@ -1,0 +1,24 @@
+{
+  "structure_id": "dearborn_street_drawbridge",
+  "source_id": "andreas_1884_dearborn_drawbridge_plate",
+  "photo": "../../../../reference/images/chicago/chicago_dearborn_drawbridge_1834.png",
+  "image_px": [
+    1920,
+    1346
+  ],
+  "principal_px": [
+    -2499.9999999999927,
+    982.8990931004574
+  ],
+  "focal_px": 3458.984107748889,
+  "eye": [
+    93.1210600547891,
+    -96.970724463654,
+    1.0084409747925287
+  ],
+  "yaw_deg": -71.24331574953473,
+  "sky": "overcast",
+  "solve": "RECONSTRUCTED DIAGNOSTIC FRAMING. Numeric pose/focal/principal retained from the actual V5 Andreas comparison accepted under T3153. Its original provisional fit used eight approximate upright centres, not surveyed controls. The later V5 model supplies the peaked closed deck, high rakers, sixteen-foot width and piled caps; older flat-deck preview prose is superseded. Drawing perspective differences are not a measurement or a reason to move the independently mapped bridge origin, bearing or banks. No authentic historical From-this-spot location follows. Fresh canonical metadata-bound capture and explicit review are required before a current matches verdict.",
+  "diagnostic_only": true,
+  "library_image": "early-dearborn-andreas-1884"
+}

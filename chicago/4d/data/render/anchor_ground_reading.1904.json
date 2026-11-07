@@ -158,14 +158,92 @@
       "deck_m": null,
       "margin_m": 220,
       "inside_a_roof": null
+    },
+    {
+      "id": "haunted_battle_ground",
+      "local_e": 1404,
+      "local_n": -3207,
+      "aerial": false,
+      "inside": true,
+      "ground_m": 4.337,
+      "dry": true,
+      "stands_on": null,
+      "deck_m": null,
+      "margin_m": 162.5,
+      "inside_a_roof": null
+    },
+    {
+      "id": "prairie_from_above",
+      "local_e": 1380,
+      "local_n": -3430,
+      "aerial": true,
+      "inside": true,
+      "ground_m": 4.485,
+      "dry": true,
+      "stands_on": null,
+      "deck_m": null,
+      "margin_m": 252.5,
+      "inside_a_roof": null
+    },
+    {
+      "id": "pullman_house",
+      "local_e": 1406,
+      "local_n": -3154,
+      "aerial": false,
+      "inside": true,
+      "ground_m": 4.194,
+      "dry": true,
+      "stands_on": null,
+      "deck_m": null,
+      "margin_m": 145,
+      "inside_a_roof": null
+    },
+    {
+      "id": "kimball_house",
+      "local_e": 1398,
+      "local_n": -3242,
+      "aerial": false,
+      "inside": true,
+      "ground_m": 4.334,
+      "dry": true,
+      "stands_on": null,
+      "deck_m": null,
+      "margin_m": 180,
+      "inside_a_roof": null
+    },
+    {
+      "id": "field_house",
+      "local_e": 1407,
+      "local_n": -3328,
+      "aerial": false,
+      "inside": true,
+      "ground_m": 4.585,
+      "dry": true,
+      "stands_on": null,
+      "deck_m": null,
+      "margin_m": 195,
+      "inside_a_roof": null
+    },
+    {
+      "id": "first_presbyterian",
+      "local_e": 1262,
+      "local_n": -3635,
+      "aerial": false,
+      "inside": true,
+      "ground_m": 4.445,
+      "dry": true,
+      "stands_on": null,
+      "deck_m": null,
+      "margin_m": 162.5,
+      "inside_a_roof": null
     }
   ],
   "totals": {
-    "anchors": 11,
+    "anchors": 17,
     "outside_the_box": 0,
     "wet": 0,
     "in_a_roof": 0,
     "on_a_deck": 0,
-    "southernmost_n": -3238.96
+    "southernmost_n": -3635
   }
 }

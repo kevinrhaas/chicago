@@ -65,6 +65,9 @@ const DEFAULT_SETTINGS = {
   // T-2481: the 1904 Season — 'summer' (1 July, the scene's own date and the
   // default), 'spring', 'fall' or 'winter': ground, trees and sun. A viewing choice.
   season: 'summer',
+  // T-3331: Time of day — a name (daybreak, morning, daytime, afternoon, sunset, dusk,
+  // night) or 'HH:MM' local solar time. 'daytime' is the scene's own hour and the default.
+  timeOfDay: 'daytime',
   // T-2473: the 1904 parkway elms, 'shown' or 'hidden'.
   streetTrees: 'shown',
   // T-2692: the 1904 parcel lines on the ground, 'hidden' or 'shown'.
@@ -518,13 +521,14 @@ export function createHud({
   // different claim about the town.
   wireRange('s-road-aid', 'v-road-aid', 'roadAid',
     (v) => (v <= 0 ? 'Off — the roads as recorded' : `+${Math.round(v * 100)}%`));
-  // K24. Stops, not percent, and the calibrated position is named on its face
-  // for the eye-height reason: this control brightens your screen, and the
-  // readout has to make it impossible to read the brighter end as a claim that
-  // the town was brighter. A stop is also the honest unit — it is what the
-  // ceiling is bounded in (world.js § BASE_EXPOSURE).
+  // K24. The calibrated position is named on its face for the eye-height reason:
+  // this control brightens your screen, and the readout has to make it impossible
+  // to read the brighter end as a claim that the town was brighter. T-3428: the
+  // slider still moves in stops (a stored value keeps its meaning) but reads as the
+  // multiple a wall in shade is lifted by, 1.2x to 4x, the unit the owner asked in
+  // (world.js § BASE_EXPOSURE).
   wireRange('s-brightness', 'v-brightness', 'brightness',
-    (v) => (v <= 0 ? 'Calibrated — the light as measured' : `+${v.toFixed(2)} stop`));
+    (v) => (v <= 0 ? 'Calibrated — the light as measured' : `${(2 ** v).toFixed(1)}×`));
 
   const units = $('s-units');
   if (units) {
@@ -601,6 +605,35 @@ export function createHud({
   };
   wireSelect('s-governor', 'governor', 'adaptive');
   wireSelect('s-season', 'season', 'summer');
+  // T-3331: Time of day — the named times, and the slider over the day in 10-minute
+  // steps. main.js paints both from the hour in force (a name is solved on the date).
+  {
+    const sel = $('s-time-of-day');
+    const range = $('s-time');
+    const choose = (v) => {
+      settings.timeOfDay = v;
+      onSetting?.('timeOfDay', v);
+      store(SET_KEY, JSON.stringify(settings));
+    };
+    sel?.addEventListener('change', () => { if (sel.value !== 'custom') choose(sel.value); });
+    if (range) {
+      const asTime = () => {
+        const m = Number(range.value);
+        return `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`;
+      };
+      // A relight is a sky bake, so a drag relights at most every 200 ms and once
+      // more where it lets go.
+      let last = 0; let timer = 0;
+      range.addEventListener('input', () => {
+        const out = $('v-time');
+        if (out) out.textContent = asTime();
+        const now = performance.now();
+        clearTimeout(timer);
+        if (now - last > 200) { last = now; choose(asTime()); } else timer = setTimeout(() => { last = performance.now(); choose(asTime()); }, 200);
+      });
+      range.addEventListener('change', () => { clearTimeout(timer); choose(asTime()); });
+    }
+  }
   wireSelect('s-street-trees', 'streetTrees', 'shown');
   wireSelect('s-lot-lines', 'lotLines', 'hidden');
   wireToggle('s-compass', 'compass');

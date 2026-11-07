@@ -1,0 +1,25 @@
+{
+  "id": "wikipedia_glessner_house",
+  "type": "website",
+  "citation": "Wikipedia, 'John J. Glessner House'. Read 5 November 2026.",
+  "author": "Wikipedia contributors",
+  "date": "accessed 2026-11-05",
+  "describes_date": "1885-1971",
+  "url": "https://en.wikipedia.org/wiki/John_J._Glessner_House",
+  "locator": "The history and design sections.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "Textual factual citation only (CC BY-SA text, nothing copied beyond short quoted fragments).",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-05 (T-3378/T-3379) through a fetch that returned the page's sentences in short quoted fragments and paraphrase; this record is cited only for what those fragments say.",
+  "note": "Fragments read: 'many neighbors did not understand it'; George Pullman, across the street, complained 'I do not know what I have ever done to have that thing staring me in the face every time I go out of my door'; 'The courtyard allowed abundant natural light to enter the main rooms of the house through south-facing windows'; Glessner's firm, Warder, Bushnell & Glessner, farm machinery, merged in 1902 into International Harvester; in the 1960s 'the house was threatened with demolition' and was bought in 1966 'for just $35,000'.",
+  "what_it_supplies": [
+    "Pullman's complaint about the house",
+    "Glessner's firm and International Harvester",
+    "the 1966 rescue"
+  ],
+  "what_it_does_not_supply": [
+    "the dates of Richardson's death (the museum's are used)"
+  ]
+}

@@ -49,6 +49,7 @@
  */
 
 import * as THREE from 'three';
+import { createLazyRoadTriangleHeight } from './road-triangle-height.js';
 import { ktx2Beside, loadSheet } from './ktx2.js';
 import {
   SEASON_HEAD, SEASON_VERTEX_DECL, SEASON_VERTEX_ASSIGN, SEASON_FRAGMENT_DECL, SEASON_FRAGMENT_APPLY,
@@ -66,7 +67,8 @@ const LIBRARY = 'textures/prairie_1904_pbr/';
  * The draw order is the stacking order: each class a few centimetres above the one
  * it overlaps, plus a polygon offset, so a band laid over a carriageway (the
  * carriageways run through their intersections and under the corner bands) always
- * wins. A carriageway also rises by its `priority` (street_surfaces), and since
+ * wins. Carriageway `priority` orders paving without a physical step (T-3088), and the
+ * roadways draw as ground decals in that order (T-3389, ROAD_RENDER_ORDER); since
  * T-2475 the lower of two crossing roadways is cut out from under the higher one, so
  * the avenue's surface is the only one drawn at the crossing (L297) and the cross
  * street's wears into it across a fading seam.
@@ -103,8 +105,26 @@ const CURB_FACE_COLOUR = 0xcfcabe;
 const CARRIAGE_POST_COLOUR = 0xe4e0d6;
 /** T-2475: how far one paving fades into the next where two roadways meet, metres. */
 const SEAM_M = 1.6;
-/** The fade overlay's height above the highest roadway, so it never fights one. */
-const SEAM_LIFT_M = 0.004;
+/**
+ * T-3389 — the roadways are ground decals. T-3088 laid every roadway and the seam overlay
+ * on one surface (vehicles and horses stand on the drawn triangles, and a horse's four
+ * hooves must meet within 1 mm) and ranked them by polygon offset alone. But two pavings
+ * are triangulated differently over the 5 mm-quantized field, so between their vertices
+ * they differ by up to 1.7 mm, far past any offset in depth units: the fade dipped under
+ * the roadway it lies on and the strip a lower roadway runs on under a higher one's edge
+ * (TUCK_M) lay in it, and they fought in moving blocks at every crossing. So the roadways
+ * write no depth and are drawn in their stacking order, after every other opaque surface
+ * (which therefore holds the depth buffer over them: a curb, a walk, a wheel), each over
+ * the one below it; the fades follow first in the transparent list. Nothing here depends
+ * on the depth buffer telling two pavings apart. LAST, because a decal that writes no
+ * depth is painted over by anything opaque drawn after it, however far below: the
+ * terrain's water plane (order 1) lies under the whole district at the datum, and the
+ * ground is cut away under the roadways, so at any order under 1 the water showed through
+ * every street. Nothing opaque is ordered past 2 (the yards' garden beds).
+ */
+const ROAD_RENDER_ORDER = 10;
+const ROAD_LEVEL_ORDER = 0.01;
+const SEAM_RENDER_ORDER = -1;
 // T-3233: and `seamEnd`, metres along the edge from each END of the run of fade (where the
 // lower roadway's own side lines cross the higher one), negative past it: the fade runs on
 // past each end over the higher roadway and wears out there too.
@@ -640,6 +660,39 @@ function carriageWalkCard(w, face, grid, section) {
   };
 }
 
+/** T-3274: the paving that carries a house walk on across the one-foot margin to the public walk. */
+function walkJoinCard(j, face, grid, joins) {
+  const street = grid.streets?.[face.street] ?? {};
+  const what = { front_walk: 'front walk', service_walk: 'service walk', drive: 'carriage drive' }[j.kind]
+    ?? (j.kind.startsWith('grounds_') ? j.kind.slice(8).replace(/_/g, ' ') : j.kind);
+  return {
+    id: j.id,
+    sidecar: {
+      name: `${street.name_1904 ?? face.street} — a house walk meets the public walk`,
+      phase: null,
+      change_note: `The ${what} of ${j.house.replace(/_/g, ' ')} carried on ${j.gap_m} m from where it was laid to the `
+        + 'public walk, which the city laid a foot outside the lot line. The pictures show the walks meeting; this paving is our reconstruction.',
+      placement: {
+        symbolic_location: face.where ?? face.street,
+        position_confidence: joins?.tier ?? 'reconstructed',
+        position_sources: [],
+        position_note: 'From the house walk\'s end, square across to the public walk\'s inner edge.',
+      },
+      attributes: {
+        kind: {
+          value: 'walk join', confidence: 'inferred', sources: joins?.sources ?? [],
+          note: '1905 code sec. 2062: "All walks to be laid on a line one foot from and parallel with the lot line"; '
+            + 'a house walk ran on across that foot to meet the public walk, as every picture of these avenues shows.',
+        },
+        width: { value: `${j.width_m} m`, confidence: 'reconstructed', sources: [], note: 'The house walk\'s own width at its end.' },
+      },
+      citations: [],
+      research_doc: 'docs/RESEARCH/prairie_1904_street_section.md',
+      research_note: `Walk join ${j.id} of data/street_section/walk_joins_1904.json (T-3274). ${joins?.liberty ?? ''}`.trim(),
+    },
+  };
+}
+
 /** T-3198: a stone post at the curb, stood only where a picture shows one. */
 function carriagePostCard(post, face, grid, section) {
   const cp = section?.carriage_posts ?? {};
@@ -762,6 +815,17 @@ export async function createStreetGrid({
     problems.push(`street section: ${err.message} — the street is drawn level with its lots`);
   }
   out.section = section;
+  // T-3274 — the joins from every house walk across the one-foot margin to the public walk.
+  // Missing, the walks stop at the lot line as before.
+  let walkJoins = null;
+  if (section) {
+    try {
+      walkJoins = await getJSON(new URL(`street_section/walk_joins_${sceneId}.json`, dataBase));
+    } catch (err) {
+      problems.push(`walk joins: ${err.message} — the house walks stop at the lot line`);
+    }
+  }
+  out.walkJoins = walkJoins;
   let library = new Map();
   if (surfaces && assetBase) {
     try {
@@ -809,7 +873,7 @@ export async function createStreetGrid({
   });
   /** A ramp's foot, as an offset the walk's own lift is then added to: flush with the
    *  highest roadway's top, so the slab meets the paving without a lip. */
-  const rampFoot = () => ROAD + CLASSES.carriageway.lift + MAX_PRIORITY * PRIORITY_LIFT_M + 0.002 - CLASSES.walk.lift;
+  const rampFoot = () => ROAD + CLASSES.carriageway.lift + 0.002 - CLASSES.walk.lift;
   const acrossIn = (x, e, n) => (e - x.origin[0]) * x.out[0] + (n - x.origin[1]) * x.out[1];
   /** Across distance from a face's street line: to the nearest segment's own line,
    *  so a point in the corner square past the line's end still measures across. */
@@ -852,15 +916,18 @@ export async function createStreetGrid({
   for (const xs of Object.values(grid.cross_sections ?? {})) for (const b of xs.bands ?? []) tierOf[b.band] = b.tier;
 
   const MAX_PRIORITY = Math.max(0, ...Object.values(surfaces?.carriageways ?? {}).map((x) => x?.priority ?? 0));
-  const bufFor = (cls, surface, priority, seam = false) => {
+  const bufFor = (cls, surface, priority, seam = false, depth = 0, level = 0) => {
     const c = CLASSES[cls];
     // A seam overlay is one draw per paving, whatever its priority: it lies over
-    // the highest roadway there is.
-    const key = seam ? `${cls}|${surface?.material ?? 'none'}|seam` : `${cls}|${surface?.material ?? 'none'}|${priority}`;
+    // the highest roadway there is. T-3389: a roadway stacked over another of its own
+    // priority (`depth`) is its own draw, so it can be drawn after that one.
+    const key = seam ? `${cls}|${surface?.material ?? 'none'}|seam`
+      : `${cls}|${surface?.material ?? 'none'}|${priority}${depth ? `|d${depth}` : ''}`;
     if (!bufs.has(key)) {
       bufs.set(key, {
         key, cls, material: surface?.material ?? null, priority: seam ? 0 : priority,
-        lift: seam ? c.lift + MAX_PRIORITY * PRIORITY_LIFT_M + SEAM_LIFT_M : c.lift + priority * PRIORITY_LIFT_M,
+        depth: seam ? 0 : depth, level: seam ? null : level,
+        lift: cls === 'carriageway' ? c.lift : c.lift + priority * PRIORITY_LIFT_M,
         offset: c.offset - priority * 0.3,
         pos: [], uv: [], conf: [], spans: [], seam: seam ? [] : null, seamEnd: seam ? [] : null,
       });
@@ -873,8 +940,8 @@ export async function createStreetGrid({
    * number (the band width, for a walk or a curb tile that spans its band) or null
    * for flat-tone surfaces with no maps.
    */
-  const push = (cls, id, quads, geometryTier, surface, { priority = 0, tileAcross = null, tileAlong = null, pieceOf = null, seam = null, seamEnds = null, polys = [] } = {}) => {
-    const buf = bufFor(cls, surface, priority, !!seam);
+  const push = (cls, id, quads, geometryTier, surface, { priority = 0, tileAcross = null, tileAlong = null, pieceOf = null, seam = null, seamEnds = null, polys = [], depth = 0, roadLevel = 0 } = {}) => {
+    const buf = bufFor(cls, surface, priority, !!seam, depth, roadLevel);
     // A seam overlay's vertices carry how far into the fade they stand, 0 on the
     // edge of the roadway it runs under, 1 SEAM_M on.
     let seamAt = null; let seamEndAt = null;
@@ -1098,15 +1165,40 @@ export async function createStreetGrid({
       }
     }
   }
-  const roadStandSurfaces = [];
+  /*
+   * T-3389 — the order the roadways are drawn in (ROAD_RENDER_ORDER). Where two still
+   * overlap after the cuts (the strip a lower one runs on under a higher one's edge,
+   * TUCK_M; the stub where two of one priority meet, brick and asphalt at Indiana and
+   * 18th, Calumet's two pavings at 21st) the higher must be drawn after: a roadway's level
+   * is its priority, then, among the roadways of that priority it overlaps, one more than
+   * the highest it is stacked over (`depth`). Two of one level never overlap.
+   */
+  const finalPolys = (w) => [...w.items.map((it) => it.poly ?? it.quad),
+    ...w.extra.flatMap((x) => (x.sliver ? x.sliver.polys : [x.poly]))]
+    .filter((q) => q && q.length >= 3).map(ccwOf).map((q) => ({ q, box: bboxOf(q) }));
+  const overlapping = (as, bs) => as.some((a) => bs.some((b) => {
+    if (a.box[2] < b.box[0] || a.box[0] > b.box[2] || a.box[3] < b.box[1] || a.box[1] > b.box[3]) return false;
+    const { covered } = minusConvex(a.q, b.q);
+    return !!covered && Math.abs(area2(covered)) / 2 > PIECE_EPS_M2;
+  }));
+  const stacked = [...ways].sort((a, b) => a.stacking - b.stacking);
+  const plans = new Map(stacked.map((w) => [w, finalPolys(w)]));
+  for (const [i, w] of stacked.entries()) {
+    w.depth = 0;
+    for (const o of stacked.slice(0, i)) {
+      if (o.priority === w.priority && o.depth + 1 > w.depth && overlapping(plans.get(w), plans.get(o))) w.depth = o.depth + 1;
+    }
+  }
+  const levels = [...new Set(ways.map((w) => `${w.priority}|${w.depth}`))]
+    .sort((a, b) => { const [pa, da] = a.split('|').map(Number); const [pb, db] = b.split('|').map(Number); return pa - pb || da - db; });
+  for (const w of ways) w.level = levels.indexOf(`${w.priority}|${w.depth}`);
+  out.census.roadLevels = levels.length;
   for (const w of ways) {
     const quads = w.items.filter((it) => it.quad).map((it) => it.quad);
     const polys = [...w.items.filter((it) => it.poly),
       ...w.extra.flatMap((x) => (x.sliver ? x.sliver.polys.map((poly) => ({ poly, frame: x.frame })) : [x]))];
     if (quads.length || polys.length) {
-      push('carriageway', w.id, quads, w.tier, w.surface, { priority: w.priority, pieceOf: w.pieceOf, polys });
-      roadStandSurfaces.push({ polygons: [...quads, ...polys.map(p => p.poly)],
-        lift: CLASSES.carriageway.lift + w.priority * PRIORITY_LIFT_M });
+      push('carriageway', w.id, quads, w.tier, w.surface, { priority: w.priority, pieceOf: w.pieceOf, polys, depth: w.depth, roadLevel: w.level });
     }
     // T-3233: the run each margin belongs to along its edge — the margins of one edge that
     // touch, merged — and past each of its two ends, SEAM_M more of the fade laid over the
@@ -1149,18 +1241,10 @@ export async function createStreetGrid({
       out.census.seams += 1;
     }
   }
-  // Vehicles stand on the same clipped carriageway and display lift we just drew,
-  // not the uncut heightfield above the depressed road (T-2979).
-  out.carriagewayHeight = (e, n) => {
-    let lift = null;
-    for (const surface of roadStandSurfaces) {
-      if (surface.polygons.some(poly => pointInPolygon(e, n, poly))) {
-        lift = Math.max(lift ?? -Infinity, surface.lift);
-      }
-    }
-    const ground = terrain.surfaceHeight(e, n);
-    return lift === null || !Number.isFinite(ground) ? null : ground + ROAD + lift;
-  };
+  // Filled from actual Float32 draw geometry below. No bilinear approximation or
+  // outside-road fallback is permitted for parked/moving vehicle support.
+  let carriagewaySurface = null;
+  out.carriagewayHeight = (e, n) => carriagewaySurface?.heightAt(e, n) ?? null;
   for (const a of grid.alleys ?? []) {
     const s = surfaceOf(surfaces, 'alley', a.id);
     push('alley', a.id, a.quads_local_m ?? [], a.geometry_tier, s);
@@ -1226,11 +1310,22 @@ export async function createStreetGrid({
     if (!face) continue;
     const half = (w.width_ft * FT) / 2;
     const at = (s, k) => [w.at[0] + w.out[0] * s + w.along[0] * k, w.at[1] + w.out[1] * s + w.along[1] * k];
-    const s0 = w.from_ft * FT; const s1 = w.to_ft * FT;
+    // T-1881: from a hair under the public walk (`tuck_m`), so no line of parkway shows between
+    const s0 = w.from_ft * FT - (w.tuck_m ?? 0); const s1 = w.to_ft * FT;
     const quad = [at(s0, -half), at(s0, half), at(s1, half), at(s1, -half)];
     push('walk', `cw:${w.id}`, [quad], 'reconstructed', surfaceOf(surfaces, 'band', null, 'walk', face.id), { priority: 1 });
     walkById.set(w.id, { w, face });
   }
+  // T-3274 — the walk joins: each house walk carried on to the public walk, in its paving.
+  const joinById = new Map();
+  for (const j of walkJoins?.joins ?? []) {
+    const face = faceById.get(j.face);
+    if (!face || j.polygon_local_m?.length !== 4) continue;
+    push('walk', `wj:${j.id}`, [j.polygon_local_m], walkJoins.tier ?? 'reconstructed',
+      surfaceOf(surfaces, 'band', null, 'walk', face.id), { priority: 1 });
+    joinById.set(j.id, { j, face });
+  }
+  out.census.walkJoins = joinById.size;
   // T-3200 — the corner crossings: the walk on across the parkway, then the ramp.
   const crossingById = new Map();
   for (const { x } of crossings) {
@@ -1248,6 +1343,8 @@ export async function createStreetGrid({
   const materials = [];
   for (const buf of bufs.values()) {
     const c = CLASSES[buf.cls];
+    // T-3173: the hooks below outlive this loop; they read this, not `buf.seam`.
+    const seam = !!buf.seam;
     const geo = new THREE.BufferGeometry();
     geo.setAttribute('position', new THREE.Float32BufferAttribute(buf.pos, 3));
     geo.setAttribute('uv', new THREE.Float32BufferAttribute(buf.uv, 2));
@@ -1257,13 +1354,14 @@ export async function createStreetGrid({
     const lib = buf.material ? library.get(buf.material) : null;
     const mat = new THREE.MeshStandardMaterial({
       color: lib ? 0xffffff : new THREE.Color(c.colour), roughness: 1.0, metalness: 0.0,
-      // T-1805: these surfaces already stand 30–60 mm above the sampled
-      // terrain, with priority expressed in their actual lift. A large negative
-      // slope bias (-11 for walks) pulls a grazing sidewalk THROUGH nearby walls,
-      // producing the apparent projecting slab at Glessner's corner. Retain only
-      // a one-unit numerical tie-break; do not displace depth by screen-space slope.
-      // The seam overlay (T-2475) takes four, to stay over the roadway it fades onto.
-      polygonOffset: true, polygonOffsetFactor: 0, polygonOffsetUnits: buf.seam ? -4 : -1,
+      // T-1805: never use a slope bias: it pulls a grazing sidewalk through walls.
+      // Roads and their wear overlay share one physical surface. Express paving
+      // priority with numerical depth units only, beyond the roadway for a seam.
+      // Walk/alley/curb physical levels and their one-unit tie-break are retained.
+      // T-3389: the roads' units no longer rank them against each other (they write
+      // no depth and are drawn in order, ROAD_RENDER_ORDER); they are kept as T-3088 set them.
+      polygonOffset: true, polygonOffsetFactor: 0,
+      polygonOffsetUnits: seam ? -(MAX_PRIORITY + 2) : buf.cls === 'carriageway' ? -1 - buf.priority : -1,
     });
     if (buf.seam) {
       // T-2475: the seam overlay fades out across its margin, raggedly, as a worn
@@ -1279,11 +1377,11 @@ export async function createStreetGrid({
     mat.onBeforeCompile = (shader) => {
       seasonShaderUniforms(shader);
       shader.uniforms.uChiSeasonKind = seasonKind;
-      shader.vertexShader = SEASON_VERTEX_DECL + (buf.seam ? SEAM_VERTEX_DECL : '') + shader.vertexShader.replace(
-        '#include <begin_vertex>', '#include <begin_vertex>' + SEASON_VERTEX_ASSIGN + (buf.seam ? SEAM_VERTEX_ASSIGN : ''));
-      let f = SEASON_FRAGMENT_DECL + SEASON_HEAD + (buf.seam ? SEAM_FRAGMENT_DECL : '') + shader.fragmentShader.replace(
+      shader.vertexShader = SEASON_VERTEX_DECL + (seam ? SEAM_VERTEX_DECL : '') + shader.vertexShader.replace(
+        '#include <begin_vertex>', '#include <begin_vertex>' + SEASON_VERTEX_ASSIGN + (seam ? SEAM_VERTEX_ASSIGN : ''));
+      let f = SEASON_FRAGMENT_DECL + SEASON_HEAD + (seam ? SEAM_FRAGMENT_DECL : '') + shader.fragmentShader.replace(
         '#include <color_fragment>', '#include <color_fragment>' + SEASON_FRAGMENT_APPLY);
-      if (buf.seam) f = f.replace('#include <alphamap_fragment>', '#include <alphamap_fragment>' + SEAM_FRAGMENT_ALPHA);
+      if (seam) f = f.replace('#include <alphamap_fragment>', '#include <alphamap_fragment>' + SEAM_FRAGMENT_ALPHA);
       shader.fragmentShader = f;
     };
     if (lib) {
@@ -1298,9 +1396,18 @@ export async function createStreetGrid({
     }
     mat.name = `street-grid-${buf.cls}${buf.material ? `-${buf.material}` : ''}`;
     confidence?.patch(mat);
-    mat.customProgramCacheKey = () => `chicago4d-street-grid-${buf.seam ? 'seam-' : ''}${lib ? 'mapped' : 'flat'}`;
+    mat.customProgramCacheKey = () => `chicago4d-street-grid-${seam ? 'seam-' : ''}${lib ? 'mapped' : 'flat'}`;
     const mesh = new THREE.Mesh(geo, mat);
-    mesh.name = `street-grid-${buf.cls}${buf.material ? `-${buf.material}` : ''}${buf.priority ? `-p${buf.priority}` : ''}`;
+    mesh.name = `street-grid-${buf.cls}${buf.material ? `-${buf.material}` : ''}${buf.priority ? `-p${buf.priority}` : ''}${buf.depth ? `-d${buf.depth}` : ''}`;
+    // T-3389: a roadway is a ground decal drawn in its level's order (ROAD_RENDER_ORDER);
+    // the fades come first in the transparent list, in a fixed order among themselves.
+    if (seam) {
+      mesh.renderOrder = SEAM_RENDER_ORDER + overlays.length * 0.001;
+    } else if (buf.cls === 'carriageway') {
+      mat.depthWrite = false;
+      mesh.renderOrder = ROAD_RENDER_ORDER + buf.level * ROAD_LEVEL_ORDER;
+      mesh.userData.roadLevel = buf.level;
+    }
     mesh.userData.cls = buf.cls;
     mesh.userData.material = buf.material;
     mesh.userData.spans = buf.spans;
@@ -1311,6 +1418,16 @@ export async function createStreetGrid({
     (buf.seam ? overlays : meshes).push(mesh);
     materials.push(mat);
     out.census.triangles += buf.pos.length / 9;
+    // Float32BufferAttribute owns copies. Material hooks retain this buffer for
+    // its seam flag, so release the finished numeric scratch without changing
+    // that flag or the span ranges used by picking.
+    buf.pos.length = 0;
+    buf.uv.length = 0;
+    buf.conf.length = 0;
+    if (buf.seam) {
+      buf.seam.length = 0;
+      buf.seamEnd.length = 0;
+    }
   }
 
   /* ---- T-2474: the curb's face, the district's open edges; T-3198: the carriage posts ---- */
@@ -1573,6 +1690,10 @@ export async function createStreetGrid({
       const hit = walkById.get(spanId.slice(3));
       return hit ? carriageWalkCard(hit.w, hit.face, grid, section) : null;
     }
+    if (spanId.startsWith('wj:')) {
+      const hit = joinById.get(spanId.slice(3));
+      return hit ? walkJoinCard(hit.j, hit.face, grid, walkJoins) : null;
+    }
     if (spanId.startsWith('xf:') || spanId.startsWith('xr:')) {
       const hit = crossingById.get(spanId.slice(3));
       return hit ? cornerCrossingCard(hit.x, hit.face, grid, section) : null;
@@ -1624,7 +1745,12 @@ export async function createStreetGrid({
     return null;
   };
 
+  // Worn fade geometry is cosmetic. Its maximum is a conservative bound over
+  // the actual drawn base+overlay triangles; posed contact checks read both.
+  carriagewaySurface = createLazyRoadTriangleHeight(() => [...meshes, ...overlays]
+    .filter(mesh => mesh.userData.cls === 'carriageway'));
   out.dispose = () => {
+    carriagewaySurface?.dispose(); carriagewaySurface = null;
     if (out.groundCut) { terrain.setGroundCut?.({}); out.groundCut.mask.dispose(); }
     for (const m of [...meshes, ...overlays]) m.geometry.dispose();
     for (const m of materials) m.dispose();

@@ -52,7 +52,7 @@
       "body_toward_street": false,
       "category": "furniture",
       "centroid_in": [],
-      "depth_m": 7.13,
+      "depth_m": 7.18,
       "layer": "research",
       "phase": "draw_1834",
       "position_confidence": "inferred",
@@ -269,6 +269,55 @@
       "street": "lake",
       "structure": "philo_carpenter_log_shop"
     },
+    "potawatomi_camp_1812_horse_ground:camp_1812": {
+      "anchor_in": [
+        "dearborn"
+      ],
+      "anchor_offset_m": 6.02,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [
+        "dearborn",
+        "lake"
+      ],
+      "depth_m": 12.17,
+      "layer": "research",
+      "phase": "camp_1812",
+      "position_confidence": "inferred",
+      "street": "dearborn",
+      "structure": "potawatomi_camp_1812_horse_ground"
+    },
+    "potawatomi_camp_1812_south_reach:camp_1812": {
+      "anchor_in": [
+        "dearborn",
+        "randolph"
+      ],
+      "anchor_offset_m": 9.35,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [
+        "dearborn"
+      ],
+      "depth_m": 12.17,
+      "layer": "research",
+      "phase": "camp_1812",
+      "position_confidence": "inferred",
+      "street": "dearborn",
+      "structure": "potawatomi_camp_1812_south_reach"
+    },
+    "potawatomi_camp_1812_west_bank:camp_1812": {
+      "anchor_in": [],
+      "anchor_offset_m": 33.83,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [],
+      "depth_m": 12.19,
+      "layer": "research",
+      "phase": "camp_1812",
+      "position_confidence": "inferred",
+      "street": "dearborn",
+      "structure": "potawatomi_camp_1812_west_bank"
+    },
     "sauganash_hotel:frame_1831": {
       "anchor_in": [],
       "anchor_offset_m": 20.1,
@@ -363,16 +412,6 @@
   "measured": "2026-10-15",
   "placed_phases": 875,
   "refused": {
-    "forks_company_cornfield_1812:cornfield_1808": {
-      "depth_m": 12.15,
-      "escape_bearing_deg": 180.47,
-      "escape_m": 77.743,
-      "escape_vs_facade": "across",
-      "on": "2026-10-15",
-      "street": "lake",
-      "ticket": "T-2512",
-      "why": "T-2512. A FIELD OF 1808-1812 IN THE GROUND THE 1830 PLAT LATER CUT INTO STREETS. The first fort's company cornfield ('Company Garden & public Cornfield Eight acres', Whistler's draught; 'close to the forks on the south side of the main river', Quaife 1913) closed with the fort on 16 August 1812, eighteen years before Thompson's plat laid out Lake Street, so the fence and the corridor never stand in one scene. Eight acres by the forks cannot be laid here without crossing the later plat's streets: its only escape from Lake clears it 77.7 m south and then laps Franklin, and every further escape walks it away from the forks the source puts it beside. Argued in full in the record's own position.note."
-    },
     "first_fort_wharf:first_fort_1803": {
       "depth_m": 5.15,
       "escape_bearing_deg": 180.46,
@@ -382,6 +421,16 @@
       "street": "kinzie",
       "ticket": "T-2508",
       "why": "T-2508. THE STREET IS EIGHTEEN YEARS YOUNGER THAN THE WHARF. The corridor is the platted Kinzie Street, and no plat of Chicago existed before James Thompson's of 4 August 1830 (thompson_plat_1830); the wharf's one phase is the first fort's, closing on 16 August 1812, so no date resolves the wharf and the street together. It is seated on the committed 1812 river by the drafter's own '122 feet to River' (data/traces/whistler_1808_fort_dearborn.json index no. 27 seat), and the only translation that clears the corridor runs 10.4 m due south onto the bank's crest, which would take a wharf away from its water to satisfy a street that did not exist. Refused rather than repaired; argued in the record's own position.note."
+    },
+    "forks_company_cornfield_1812:cornfield_1808": {
+      "depth_m": 12.15,
+      "escape_bearing_deg": 180.47,
+      "escape_m": 77.743,
+      "escape_vs_facade": "across",
+      "on": "2026-10-15",
+      "street": "lake",
+      "ticket": "T-2512",
+      "why": "T-2512. A FIELD OF 1808-1812 IN THE GROUND THE 1830 PLAT LATER CUT INTO STREETS. The first fort's company cornfield ('Company Garden & public Cornfield Eight acres', Whistler's draught; 'close to the forks on the south side of the main river', Quaife 1913) closed with the fort on 16 August 1812, eighteen years before Thompson's plat laid out Lake Street, so the fence and the corridor never stand in one scene. Eight acres by the forks cannot be laid here without crossing the later plat's streets: its only escape from Lake clears it 77.7 m south and then laps Franklin, and every further escape walks it away from the forks the source puts it beside. Argued in full in the record's own position.note."
     },
     "harmon_loomis_store:frame_1833": {
       "depth_m": 0.21,
@@ -422,6 +471,36 @@
       "street": "lasalle",
       "ticket": "T-0195",
       "why": "T-0195. THE ONLY TRANSLATION THAT CLEARS THIS CORRIDOR RUNS SIDEWAYS ACROSS THE RECORD'S OWN FRONT, so it moves where along South Water Street the building stands \u2014 and the corner is the one part of this placement a source argues. The setback was re-derived against this project's committed South Water centreline by T-0127's method (T-0198, T-0199); the cross-street half of the same offset was left on the OpenStreetMap junction centre, and this residual IS that disagreement. It is refused rather than repaired because the repair would spend a source-argued coordinate on a derived number two orders of magnitude below the placement's own working uncertainty (about 20 m, on a datum with 17.5 m RMS). Argued in full in the record's own position.note; reproduce the geometry with tools/measure_corridor_intrusion.py --escape."
+    },
+    "potawatomi_camp_1812_horse_ground:camp_1812": {
+      "depth_m": 12.17,
+      "escape_bearing_deg": 90.36,
+      "escape_m": 18.371,
+      "escape_vs_facade": "along",
+      "on": "2026-11-03",
+      "street": "dearborn",
+      "ticket": "T-3342",
+      "why": "T-3342. A CAMP OF AUGUST 1812 ON GROUND THE 1830 PLAT LATER CUT INTO STREETS. The corridor is the platted Dearborn Street, and no plat of Chicago existed before James Thompson's of 4 August 1830 (thompson_plat_1830); the camp's one phase is August 1812, so the ground and the street never stand in one scene. The camp's grounds are laid between the fort and the creek Currey names as the Potawatomi's camping place, and clearing an eighteen-years-later street (18.4 m along its own front) would walk a ground away from that place to satisfy a road that did not exist. Refused rather than repaired, as the first fort's cornfield and wharf are (T-2512, T-2508); argued in the record's own position.note."
+    },
+    "potawatomi_camp_1812_south_reach:camp_1812": {
+      "depth_m": 12.17,
+      "escape_bearing_deg": 90.36,
+      "escape_m": 21.711,
+      "escape_vs_facade": "along",
+      "on": "2026-11-03",
+      "street": "dearborn",
+      "ticket": "T-3342",
+      "why": "T-3342. A CAMP OF AUGUST 1812 ON GROUND THE 1830 PLAT LATER CUT INTO STREETS. The corridor is the platted Dearborn Street, and no plat of Chicago existed before James Thompson's of 4 August 1830 (thompson_plat_1830); the camp's one phase is August 1812, so the ground and the street never stand in one scene. The camp's grounds are laid between the fort and the creek Currey names as the Potawatomi's camping place, and clearing an eighteen-years-later street (21.7 m along its own front) would walk a ground away from that place to satisfy a road that did not exist. Refused rather than repaired, as the first fort's cornfield and wharf are (T-2512, T-2508); argued in the record's own position.note."
+    },
+    "potawatomi_camp_1812_west_bank:camp_1812": {
+      "depth_m": 12.19,
+      "escape_bearing_deg": 270.36,
+      "escape_m": 14.361,
+      "escape_vs_facade": "along",
+      "on": "2026-11-03",
+      "street": "dearborn",
+      "ticket": "T-3342",
+      "why": "T-3342. A CAMP OF AUGUST 1812 ON GROUND THE 1830 PLAT LATER CUT INTO STREETS. The corridor is the platted Dearborn Street, and no plat of Chicago existed before James Thompson's of 4 August 1830 (thompson_plat_1830); the camp's one phase is August 1812, so the ground and the street never stand in one scene. The camp's grounds are laid between the fort and the creek Currey names as the Potawatomi's camping place, and clearing an eighteen-years-later street (14.4 m along its own front) would walk a ground away from that place to satisfy a road that did not exist. Refused rather than repaired, as the first fort's cornfield and wharf are (T-2512, T-2508); argued in the record's own position.note."
     }
   }
 }

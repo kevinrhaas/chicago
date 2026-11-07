@@ -1,0 +1,32 @@
+{
+ "structure_id": "marshall_field_house_1905_prairie",
+ "scene": "1904",
+ "also_render": [
+  "marshall_field_house_1905_prairie_conservatory"
+ ],
+ "source_id": "cdn_dn0003324_field_residence",
+ "library_image": "a19-field-cdn-dn0003324",
+ "photo": "../../sources/assets/field_1905_pictures_t3271/field_daily_news_dn0003324.jpg",
+ "image_px": [
+  640,
+  457
+ ],
+ "principal_px": [
+  320.0,
+  290.0
+ ],
+ "focal_px": 1332.5,
+ "eye": [
+  68.35,
+  80.77,
+  1.0
+ ],
+ "yaw_deg": 217.39,
+ "sky": "overcast",
+ "sun_uvy": [
+  0.6,
+  0.8,
+  1.2
+ ],
+ "solve": "Fitted by T-3271 to the Chicago Daily News negative DN-0003324, c. 1905 (the image store's 640 x 457 px copy of the Commons scan), against Hunt's own plan of the principal floor (Library of Congress, LC-DIG-ppmsca-58353; source hunt_field_1905_principal_floor_plan), whose written dimensions give the street front 55 ft 0 in (16.8 m) over all, the south flank 75 ft 9 in (23.1 m) from the front to the rear stair block, and the south-west corner cut on the library octagon's diagonal about 6 ft 3 in (1.9 m) back each way, with the front's north window column about 3.2 m from the north end, the door about 7.8 m and the library's window about 13.3 m, with the heights the 923 Prairie photograph's camera (chicagology_923_photo.json) read through the same plan held: the water table 2.0 m, the chamber belt 6.09 m and the frieze's foot 9.57 m over the house's grade, and the cut 2.41 m along the front and 1.90 m along the flank. The frame is the record's, the plan laid with the front's north end at v 0. The camera is LEVEL (the verticals stand parallel); its principal point's x is held at the frame's centre, since the scan shows the negative's whole border, and its height is free (a rising front). Eleven observations: the water table and the frieze's foot at the front's north end (x 157; y 278 and 166 px), at the canted corner's start (273; 272 and 151) and end (327; 271 and 150), the chamber belt at the wide column (267, 208), and the columns' x: north column 180, door 215, library window 267, the flank's first window 341. It closes at 1.6 px RMS, worst 3.2 px, on a picture where a pixel is about 0.15 m at the house. With the heights left free instead, the same eleven give 6.9 m of brick between the water table and the frieze's foot, against the 923 photograph's 7.3 m: two photographs agree, through Hunt's plan, that the walls are about 2 m lower than the record's. The eye's height is held at 1.0 m over the house's grade, as the 923 photograph's (left free it goes to grade, which the long lens leaves loose). The flank's far end is not read: the mansard's last few metres stand behind the tree at x 450 px, and a fit that takes the visible roof's end (x 440) for the main body's rear wall does not close (a 90-degree lens, 16 px off at the north end), so the camera says nothing about the flank beyond the conservatory. PLACE: the eye about 47 m before the front and 64 m south of the plan's south wall, down the avenue's far side, heading 217 degrees: a long lens (focal 1332 px on a 640 px frame). LIGHT: winter, snow on the roadway and no cast shadow on the house: overcast, the soft key high in the south-west."
+}

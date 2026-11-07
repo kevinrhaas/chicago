@@ -28,10 +28,10 @@
     ],
     "confidence": "derived",
     "counts": {
-      "runs_joined_to_a_household": 66,
-      "runs_bounding_structures_only": 580,
-      "households_that_gained_a_fence": 28,
-      "lots_named": 252,
+      "runs_joined_to_a_household": 76,
+      "runs_bounding_structures_only": 573,
+      "households_that_gained_a_fence": 30,
+      "lots_named": 253,
       "households": [
         "hh_bates_john_jr",
         "hh_beaubien_madore",
@@ -40,6 +40,7 @@
         "hh_carpenter_philo",
         "hh_caton_john_dean",
         "hh_church_thomas",
+        "hh_couch_ira",
         "hh_davis_t_o",
         "hh_democrat_printers",
         "hh_haddock_edward",
@@ -51,6 +52,7 @@
         "hh_kimberly_edmund_s",
         "hh_kinzie_john_h",
         "hh_mason_matthias",
+        "hh_murphy_john",
         "hh_peck_philip",
         "hh_pierce_asahel",
         "hh_porter_jeremiah",
@@ -488,8 +490,8 @@
       "id": "side_blk_south_water_dearborn_lot6_e",
       "path_local_enu_m": [
         [
-          814.47,
-          -46.83
+          814.46,
+          -49.57
         ],
         [
           814.72,
@@ -791,8 +793,8 @@
       "id": "rear_blk_south_water_dearborn_lot6",
       "path_local_enu_m": [
         [
-          810.69,
-          -53.48
+          814.43,
+          -53.55
         ],
         [
           788.52,
@@ -1684,8 +1686,8 @@
           -184.95
         ],
         [
-          813.89,
-          -137.73
+          813.95,
+          -128.49
         ]
       ],
       "belongs_to": [
@@ -1976,8 +1978,8 @@
           -189.59
         ],
         [
-          718.62,
-          -189.66
+          720.11,
+          -189.68
         ]
       ],
       "belongs_to": [
@@ -2025,11 +2027,11 @@
       "note": "THE REAR LOT LINE of blk_lake_dearborn_lot0, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds dole_warehouse_south, mason_blacksmith_shop, recon_1835_south_d3_017 — and the yard behind those buildings is 12.19 m deep by 25.92 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
-      "id": "rear_blk_lake_dearborn_lot2_1",
+      "id": "rear_blk_lake_dearborn_lot2",
       "path_local_enu_m": [
         [
-          747.81,
-          -184.42
+          761.76,
+          -184.53
         ],
         [
           735.85,
@@ -2052,7 +2054,7 @@
       "id": "rear_blk_lake_dearborn_lot1_1",
       "path_local_enu_m": [
         [
-          724.1,
+          723.6,
           -189.71
         ],
         [
@@ -2074,35 +2076,11 @@
       "note": "THE REAR LOT LINE of blk_lake_dearborn_lot1, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_south_c3_040, recon_1835_south_d1_033 — and the yard behind those buildings is 12.19 m deep by 25.91 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
-      "id": "rear_blk_lake_dearborn_lot2",
+      "id": "rear_blk_lake_dearborn_lot4",
       "path_local_enu_m": [
         [
-          761.76,
-          -184.53
-        ],
-        [
-          755.28,
-          -184.48
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_lake_dearborn_lot2",
-          "structures": [
-            "recon_1835_south_d1_018"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "THE REAR LOT LINE of blk_lake_dearborn_lot2, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_south_d1_018 — and the yard behind those buildings is 12.19 m deep by 25.91 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
-    },
-    {
-      "id": "rear_blk_lake_dearborn_lot4_1",
-      "path_local_enu_m": [
-        [
-          782.45,
-          -184.7
+          787.68,
+          -184.74
         ],
         [
           761.76,
@@ -2129,8 +2107,8 @@
           -190.02
         ],
         [
-          779.92,
-          -190.17
+          782.41,
+          -190.19
         ]
       ],
       "belongs_to": [
@@ -2145,30 +2123,6 @@
         }
       ],
       "note": "THE REAR LOT LINE of blk_lake_dearborn_lot5, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_south_a4_048, recon_1835_south_d7_035 — and the yard behind those buildings is 12.19 m deep by 25.91 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
-    },
-    {
-      "id": "rear_blk_lake_dearborn_lot4",
-      "path_local_enu_m": [
-        [
-          787.68,
-          -184.74
-        ],
-        [
-          784.44,
-          -184.71
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_lake_dearborn_lot4",
-          "structures": [
-            "recon_1835_south_d4_019"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "THE REAR LOT LINE of blk_lake_dearborn_lot4, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_south_d4_019 — and the yard behind those buildings is 12.19 m deep by 25.92 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "rear_blk_lake_dearborn_lot6",
@@ -2210,6 +2164,31 @@
         }
       ],
       "note": "THE REAR LOT LINE of blk_lake_dearborn_lot6, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_south_a3_045, recon_1835_south_d6_020, st_marys_church — and the yard behind those buildings is 12.19 m deep by 25.91 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+    },
+    {
+      "id": "rear_blk_lake_dearborn_lot5_1",
+      "path_local_enu_m": [
+        [
+          784.4,
+          -190.2
+        ],
+        [
+          787.64,
+          -190.23
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_lake_dearborn_lot5",
+          "structures": [
+            "recon_1835_south_a4_048",
+            "recon_1835_south_d7_035"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "THE REAR LOT LINE of blk_lake_dearborn_lot5, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_south_a4_048, recon_1835_south_d7_035 — and the yard behind those buildings is 12.19 m deep by 25.91 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "side_blk_lake_clinton_lot3_blk_lake_clinton_lot4_s",
@@ -2255,8 +2234,8 @@
           -238.16
         ],
         [
-          -227.47,
-          -238.43
+          -222.22,
+          -238.47
         ]
       ],
       "belongs_to": [
@@ -2280,8 +2259,8 @@
           -214.79
         ],
         [
-          -222.53,
-          -229.75
+          -222.54,
+          -229.5
         ]
       ],
       "belongs_to": [
@@ -2320,6 +2299,31 @@
         }
       ],
       "note": "THE REAR LOT LINE of blk_lake_clinton_lot9, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds inf_teamster_stable_west — and the yard behind those buildings is 12.19 m deep by 23.71 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+    },
+    {
+      "id": "rear_blk_lake_clinton_lot4_1",
+      "path_local_enu_m": [
+        [
+          -222.51,
+          -230.24
+        ],
+        [
+          -222.22,
+          -238.47
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_lake_clinton_lot4",
+          "structures": [
+            "recon_1835_west_023",
+            "recon_1835_west_024"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "THE REAR LOT LINE of blk_lake_clinton_lot4, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_west_023, recon_1835_west_024 — and the yard behind those buildings is 12.19 m deep by 23.69 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "side_blk_lake_clinton_lot8_blk_lake_clinton_lot9_s",
@@ -10234,7 +10238,7 @@
       "id": "rear_blk_lake_dearborn_lot1_gate",
       "on": "alley",
       "at_local_enu_m": [
-        729.96,
+        729.71,
         -189.76
       ],
       "width_m": 3.048,
@@ -10254,8 +10258,8 @@
       "id": "rear_blk_lake_dearborn_lot2_gate",
       "on": "alley",
       "at_local_enu_m": [
-        741.83,
-        -184.37
+        748.81,
+        -184.43
       ],
       "width_m": 3.048,
       "gate": {
@@ -12949,17 +12953,17 @@
       "blk_west_washington_canal_lot8"
     ],
     "runs": 352,
-    "note": "252 of the 262 improved platted lots in this town carry a yard fence after this record and its two companions — every one the rule reaches, on every block of the plat. The other 10 are refused for want of room behind their buildings and each is named in `refused` below with the measurement that refused it. THE REMAINDER OF THE OWNER'S ASK IS NOT HERE AND IS NOT PRETENDED TO BE: the continuous street-lining fences at the road edge are T-0069's half of it, and ground outside the 65 platted blocks that carry lot lines — the reservation, Kinzie's Addition, the West Division blocks whose own sheet prints no dimension to divide them by, the country places outside the plat — has no committed lot geometry to derive a line from at all."
+    "note": "253 of the 263 improved platted lots in this town carry a yard fence after this record and its two companions — every one the rule reaches, on every block of the plat. The other 10 are refused for want of room behind their buildings and each is named in `refused` below with the measurement that refused it. THE REMAINDER OF THE OWNER'S ASK IS NOT HERE AND IS NOT PRETENDED TO BE: the continuous street-lining fences at the road edge are T-0069's half of it, and ground outside the 65 platted blocks that carry lot lines — the reservation, Kinzie's Addition, the West Division blocks whose own sheet prints no dimension to divide them by, the country places outside the plat — has no committed lot geometry to derive a line from at all."
   },
   "refused": [
-    "blk_lake_clark_lot3 (recon_1835_south_d6_031): the committed buildings reach 4.69 m past the lot's own rear line",
-    "blk_lake_clark_lot5 (recon_1835_south_d1_032): the committed buildings reach 1.86 m past the lot's own rear line",
-    "blk_lake_dearborn_lot3 (recon_1835_south_d5_034): the committed buildings reach 6.44 m past the lot's own rear line",
+    "blk_lake_clark_lot3 (recon_1835_south_d6_031): only 0.00 m of lot is left behind them",
+    "blk_lake_clark_lot5 (recon_1835_south_d1_032): only 0.00 m of lot is left behind them",
+    "blk_lake_dearborn_lot3 (recon_1835_south_d5_034): only 0.00 m of lot is left behind them",
     "blk_lake_franklin_lot3 (recon_1835_south_d3_022): only 0.00 m of lot is left behind them",
-    "blk_lake_lasalle_lot3 (recon_1835_south_d5_028): the committed buildings reach 2.07 m past the lot's own rear line",
-    "blk_lake_wells_lot3 (recon_1835_south_d4_025): the committed buildings reach 0.56 m past the lot's own rear line",
-    "blk_lake_wells_lot5 (recon_1835_south_d4_026): the committed buildings reach 0.85 m past the lot's own rear line",
-    "blk_south_water_clark_lot7 (tremont_house_1_stable): only 0.00 m of lot is left behind them",
+    "blk_lake_lasalle_lot3 (recon_1835_south_d5_028): only 0.00 m of lot is left behind them",
+    "blk_lake_wells_lot3 (recon_1835_south_d4_025): only 0.00 m of lot is left behind them",
+    "blk_lake_wells_lot5 (recon_1835_south_d4_026): only 0.00 m of lot is left behind them",
+    "blk_randolph_clinton_lot5 (recon_1835_west_018): only 0.00 m of lot is left behind them",
     "blk_south_water_market_lot0 (inf_sawpit_shed): the committed buildings reach 2.82 m past the lot's own rear line",
     "blk_south_water_market_lot3 (newberry_dole_warehouse): the committed buildings reach 5.05 m past the lot's own rear line"
   ],

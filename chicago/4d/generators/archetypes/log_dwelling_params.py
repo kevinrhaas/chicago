@@ -93,6 +93,12 @@ WIN_AT_FRAC = 0.28
 #: The frame addition's own half-width: a sawn-frame wall takes a larger light than a
 #: log one, and the gable end the builder pierces takes the same window as the facade.
 ADDITION_WIN_HALF_M = 0.36
+#: T-3268: how far a corner's notched log ends reach along the wall from the corner
+#: (`common/logwork.py` NOTCH_D) and how far they stand proud of it (NOTCH_OUT). Copied
+#: rather than imported because logwork pulls in bpy through `common.mesh`, and this
+#: module must not; `tools/test_log_notch_front.py` holds the two copies equal.
+NOTCH_REACH_M = 0.20
+NOTCH_OUT_M = 0.24
 
 # How a signboard is displayed. `bracket` is an arm off the wall; `sapling_pole` is
 # a slender trunk set in the ground with a cross-arm at its head, which is what the
@@ -110,6 +116,24 @@ GABLE_ENDS = ("+x", "-x")
 END_OPENING_KINDS = ("door", "window", "light", "hatch")
 LIGHT_HALF_W_M = 0.35   # an end wall's or gable's small light (T-2516): 0.7 x 0.8 m
 LIGHT_HALF_H_M = 0.40
+
+# T-2374 — the explicit compound aperture set's bounds. The overhang mirrors
+# `MeshBuilder.add_gable_roof`'s default, which `log_dwelling._compound` takes by
+# not passing one: the gable a compound room closes stands that far outboard of its
+# roof rectangle, and an aperture on it has to be measured against THAT triangle
+# rather than the wall below. `tools/test_log_compound_apertures.py` holds the two
+# in step, so the constant cannot drift away from the builder that draws it.
+COMPOUND_ROOF_OVERHANG_M = 0.25
+APERTURE_FACES = ("+y",)
+APERTURE_ZONES = ("wall", "gable")
+#: `aperture` claims only a hole: a dark exterior recess in a surround, with no
+#: function, glazing or closure asserted. `door` additionally claims a reconstructed
+#: way in, which is a design inference and never a reading of a picture.
+APERTURE_KINDS = ("aperture", "door")
+APERTURE_EDGE_M = 0.15      # least wall left at a corner, a head or a sill
+APERTURE_GAP_M = 0.15       # least wall between two apertures on one face
+APERTURE_RAKE_CLEAR_M = 0.12  # the casing's reach, held off the rake
+APERTURE_GROUND_Z_M = 0.30  # a way in stands on the ground, not above it
 
 # The form attributes whose VALUE this archetype reads. See the same set in
 # frame_tavern_params for the argument; the short version is that an attribute
@@ -149,6 +173,7 @@ CONSUMED = frozenset({
     "ridge_stack_w_m", "ridge_stack_head_m", "ridge_stack_cap_m", "hip_end", "hip_inset_m",
     "lean_to_length_m", "lean_to_width_m", "lean_to_wall_m", "lean_to_pitch_deg", "log_finish",
     "roof_condition", "roof_colour", "compound_parts", "front_door_state", "compound_joint", "roof_pipe", "compound_wall_cladding", "compound_roof_overhang_m", "sign_pole_set_out", "compound_door_state", "compound_log_profile",
+    "compound_apertures",
 })
 
 #: The coatings a log wall can be stated to wear (T-2511). Whitewash is the one a
@@ -204,6 +229,17 @@ class LogDwellingParams:
     compound_door_state: str | None = field(default=None, kw_only=True)
     compound_log_profile: str | None = field(default=None, kw_only=True)
     compound_roof_overhang_m: float = field(default=0.0, kw_only=True)
+    # T-2374: an opt-in EXPLICIT aperture set on one stated compound room's own
+    # outward face, for a building whose picture shows a front this archetype's
+    # one-opening-per-room rule cannot express. Each entry is
+    # (room index, face, zone, kind, u0, u1, z0, z1): `zone` is "wall" (in the log
+    # wall, below the eave) or "gable" (on the closed gable this room's roof
+    # carries above that wall). A room named here has its own singular
+    # `front_opening` OVERRIDDEN, so the old centre opening cannot survive as a
+    # phantom among the new ones. Empty — the default everywhere else — leaves
+    # every existing compound and the bounded elbow resolving and building
+    # identically.
+    compound_apertures: tuple = field(default=(), kw_only=True)
     # (baseXY,headXYZ,armXYZ,boardWH,hangerDrop), local reconstructed set-out.
     sign_pole_set_out: tuple | None = field(default=None, kw_only=True)
     # (fraction along elbow core ridge, diameter, head above ridge), reconstructed.
@@ -494,6 +530,8 @@ class LogDwellingParams:
             raise ParamError("elbow addition needs the bounded joined compound")
         if self.compound_parts:
             _validate_compound(self)
+        if self.compound_apertures:
+            _validate_compound_apertures(self)
         if not 2.0 <= self.width_m <= 40.0:
             raise ParamError(f"width_m {self.width_m} outside plausible range 2-40 m "
                              f"for a log building")
@@ -892,6 +930,7 @@ def from_phase(phase: dict, record: dict | None = None) -> LogDwellingParams:
         compound_door_state=val("compound_door_state"),
         compound_log_profile=val("compound_log_profile"),
         compound_roof_overhang_m=val("compound_roof_overhang_m",0.0),
+        compound_apertures=_read_compound_apertures(val("compound_apertures")),
         sign_pole_set_out=_read_sign_pole_set_out(val("sign_pole_set_out")),
         roof_pipe=(None if val("roof_pipe") is None else tuple(val("roof_pipe"))),
         roof_ridge_axis=(None if val("roof_ridge_axis") is None
@@ -1200,6 +1239,18 @@ def front_wall(p: "LogDwellingParams") -> dict:
         if p.frame_addition and p.frame_addition_side == "end":
             rects += addition_front_rects(p)
             u1 = p.width_m
+            # T-3268: where the end addition meets the core, mid-front, the core's
+            # notched log ends stand NOTCH_OUT_M proud of the wall every other course
+            # (and the addition's own beside them where its lower storey is log). A
+            # corner at a wall's END is the end clearance's to keep a board off; this
+            # one is in the middle of the front, so it is named like an opening — not
+            # a hole (HOLE_KINDS), so no builder or entrance reader cuts it. A wall
+            # board hung across it had its lettering behind the log heads (the T-2381
+            # Miller House, 4 of 35 rays).
+            log_lower = p.frame_addition_cladding == "log_lower_vertical_upper"
+            notch_top = max(p.wall_height_m, p.addition_height_m / 2.0 if log_lower else 0.0)
+            rects.append(("log_notch", cx1 - NOTCH_REACH_M,
+                          cx1 + (NOTCH_REACH_M if log_lower else 0.04), 0.0, notch_top))
             if p.frame_addition_front_set_out is not None:
                 # Bounding envelope of the explicitly mixed-height front.
                 top = max(top, p.addition_height_m)
@@ -1222,15 +1273,193 @@ def front_openings(p: "LogDwellingParams") -> list[dict]:
     return front_wall(p)["openings"]
 
 
+# ---------------------------------------------------------------------------
+# THE EXPLICIT COMPOUND APERTURE SET (T-2374).
+#
+# The compound path states ONE opening per room — `front_opening`, a door or a
+# window on the middle of that room's own front wall — and that is all the front
+# of a five-room agency house could say. The Wau-Bun panorama of 1831 draws its
+# Agency House with TWO dark upright marks low on the gable face and ONE small
+# dark mark above them, which no arrangement of the singular rule can express:
+# two openings on one room is not sayable, and splitting the room to get a second
+# one would change the roof and the walls the rest of the record states.
+#
+# So a record may state the apertures of ONE of its rooms outright. What the
+# picture establishes is the COUNT and the arrangement along the face; every
+# coordinate here is reconstructed from this model's own wall and rake, bounded
+# below, and recorded as a liberty. `kind` is deliberately thin: `aperture` says
+# a hole and nothing else — no sash, no glass, no leaf, no closure — because the
+# engraving shows dark marks and not joinery. One aperture in a set may be a
+# `door`, which is a stated reconstruction of where a person goes in and is never
+# read off the picture; the set replaces the room's `front_opening`, so the old
+# centre door cannot survive among the new marks as a phantom.
+# ---------------------------------------------------------------------------
+
+
+def _read_compound_apertures(raw):
+    """`compound_apertures` from a record, as ordered engine-neutral tuples."""
+    if raw is None:
+        return ()
+    if not isinstance(raw, (list, tuple)):
+        raise ParamError("compound_apertures is a list of stated apertures")
+    if not raw:
+        # Stating an empty set says nothing, and an attribute that says nothing
+        # would resolve to the legacy centre opening while reading as an override.
+        raise ParamError("compound_apertures states at least one aperture; "
+                         "omit the attribute to state none")
+    out = []
+    for item in raw:
+        if not isinstance(item, dict) or set(item) != {
+                "room", "face", "zone", "kind", "u0", "u1", "z0", "z1"}:
+            raise ParamError("a compound aperture needs exactly "
+                             "room,face,zone,kind,u0,u1,z0,z1")
+        out.append((item["room"], item["face"], item["zone"], item["kind"],
+                    item["u0"], item["u1"], item["z0"], item["z1"]))
+    return tuple(out)
+
+
+def _finite(v) -> bool:
+    return (not isinstance(v, bool) and isinstance(v, (int, float))
+            and math.isfinite(v))
+
+
+def compound_gable_face(p: "LogDwellingParams", index: int) -> tuple:
+    """The +Y gable a compound room's own roof closes, as
+    `(plane, u0, u1, apex_u, eave_z, ridge_z)`.
+
+    `log_dwelling._compound` roofs each room with `add_gable_roof(*roof_rect, ...)`
+    and passes no overhang, so the triangle stands `COMPOUND_ROOF_OVERHANG_M`
+    outboard of the roof rectangle on every side and is that much wider than it.
+    A room whose ridge runs along x closes its gables on the x ends and has no +Y
+    gable at all, which is why this refuses rather than returning an empty one.
+    """
+    wall, roof, axis, _opening = p.compound_parts[index]
+    if axis != "y":
+        raise ParamError("a +y compound gable needs a room whose ridge runs along y")
+    oh = COMPOUND_ROOF_OVERHANG_M
+    u0, u1 = roof[0] - oh, roof[2] + oh
+    rise = ((u1 - u0) / 2.0) * math.tan(math.radians(p.roof_pitch_deg))
+    return (roof[3] + oh, u0, u1, (u0 + u1) / 2.0,
+            p.wall_height_m, p.wall_height_m + rise)
+
+
+def _rake_z(u0: float, u1: float, apex_u: float, eave_z: float,
+            ridge_z: float, u: float) -> float:
+    """How high the gable's own rake stands over `u`. Outside the triangle this
+    goes negative, which is what refuses an aperture hanging off the end of it."""
+    half = apex_u - u0
+    if half <= 0:
+        return -1.0
+    return eave_z + (min(u - u0, u1 - u) / half) * (ridge_z - eave_z)
+
+
+def _validate_compound_apertures(p: "LogDwellingParams") -> None:
+    """The explicit set: supported room, face and kind, finite bounded
+    coordinates, inside the wall or under the rake, and clear of each other."""
+    if not p.compound_parts:
+        raise ParamError("compound_apertures needs compound_parts")
+    if p.compound_joint is not None:
+        raise ParamError("compound_apertures is not supported on the bounded elbow")
+    if not 1 <= len(p.compound_apertures) <= 6:
+        raise ParamError("compound_apertures states 1..6 apertures")
+    front = max(r[3] for r, *_ in p.compound_parts)
+    doors = 0
+    for item in p.compound_apertures:
+        if len(item) != 8:
+            raise ParamError("a compound aperture needs room,face,zone,kind and four coordinates")
+        room, face, zone, kind, u0, u1, z0, z1 = item
+        if isinstance(room, bool) or not isinstance(room, int) \
+                or not 0 <= room < len(p.compound_parts):
+            raise ParamError("compound aperture names no stated room")
+        if face not in APERTURE_FACES:
+            raise ParamError("compound aperture face is one of " + ",".join(APERTURE_FACES))
+        if zone not in APERTURE_ZONES:
+            raise ParamError("compound aperture zone is wall or gable")
+        if kind not in APERTURE_KINDS:
+            raise ParamError("compound aperture kind is aperture or door")
+        if not all(_finite(v) for v in (u0, u1, z0, z1)):
+            raise ParamError("compound aperture needs four finite coordinates")
+        if not (u0 < u1 and z0 < z1):
+            raise ParamError("compound aperture needs positive width and height")
+        wall = p.compound_parts[room][0]
+        # The face has to be OUTWARD. +y is only outward on the front plane: a
+        # room further back has another room's wall against it.
+        if wall[3] != front:
+            raise ParamError("compound aperture face is not an outward face of its room")
+        if zone == "wall":
+            if not (wall[0] + APERTURE_EDGE_M <= u0 and u1 <= wall[2] - APERTURE_EDGE_M):
+                raise ParamError("compound wall aperture outside its own room's wall")
+            if not (0 <= z0 and z1 <= p.wall_height_m - APERTURE_EDGE_M):
+                raise ParamError("compound wall aperture outside the wall's height")
+        else:
+            _plane, g0, g1, apex, eave, ridge = compound_gable_face(p, room)
+            if z0 < p.wall_height_m:
+                raise ParamError("compound gable aperture reaches below the eave")
+            c = APERTURE_RAKE_CLEAR_M
+            for u in (u0 - c, u1 + c):
+                if z1 + c > _rake_z(g0, g1, apex, eave, ridge, u) + 1e-9:
+                    raise ParamError("compound gable aperture stands through its own rake")
+        if kind == "door":
+            doors += 1
+            if zone != "wall" or z0 >= APERTURE_GROUND_Z_M:
+                raise ParamError("a compound aperture door stands on the ground, in the wall")
+    if doors > 1:
+        raise ParamError("a compound aperture set states at most one way in")
+    for i, a in enumerate(p.compound_apertures):
+        for b in p.compound_apertures[i + 1:]:
+            if a[0] != b[0] or a[1] != b[1]:
+                continue
+            if a[7] <= b[6] or b[7] <= a[6]:
+                continue
+            if max(b[4] - a[5], a[4] - b[5]) < APERTURE_GAP_M - 1e-9:
+                raise ParamError("compound apertures overlap or leave no wall between them")
+
+
+def compound_aperture_rooms(p: "LogDwellingParams") -> frozenset:
+    """The rooms whose own `front_opening` an explicit set overrides."""
+    return frozenset(item[0] for item in p.compound_apertures if item[1] == "+y")
+
+
+def compound_aperture_rects(p: "LogDwellingParams") -> list[tuple]:
+    """Every stated aperture as `(plane, zone, kind, u0, u1, z0, z1)`, in the
+    order the record writes them.
+
+    A `wall` entry is exactly the rectangle `compound_front_rects` emits for its
+    room, so the builder, the facade reader and the entrance reader share one
+    set-out and no opening can be drawn in two places (T-0520). A `gable` entry
+    stands on the closed gable ABOVE the wall head and outboard of it, which is
+    not part of the front WALL a signboard or an entrance reads, so it is
+    reported here and not there.
+    """
+    out = []
+    for room, _face, zone, kind, u0, u1, z0, z1 in p.compound_apertures:
+        plane = (compound_gable_face(p, room)[0] if zone == "gable"
+                 else p.compound_parts[room][0][3])
+        out.append((plane, zone, kind, u0, u1, z0, z1))
+    return out
+
+
 def compound_front_rects(p: LogDwellingParams) -> list[tuple]:
-    """Each stepped front opening as (plane,kind,u0,u1,z0,z1)."""
+    """Each stepped front opening as (plane,kind,u0,u1,z0,z1).
+
+    T-2374: a room named by `compound_apertures` on its +y face states its own
+    openings instead, in the order the record writes them, and its singular
+    `front_opening` is NOT also emitted — a stated set replaces the centre
+    opening rather than standing beside it.
+    """
     result=[]
-    for (x0,y0,x1,y1),_roof,_axis,opening in p.compound_parts:
+    stated=compound_aperture_rooms(p)
+    for index,((x0,y0,x1,y1),_roof,_axis,opening) in enumerate(p.compound_parts):
         if p.compound_joint == "elbow":
             # The front-wall API means +Y only: never flatten a +X side entry here.
             for item in opening or ():
                 face,kind,u0,u1,z0,z1=item
                 if face == "+y":result.append((y1,kind,u0,u1,z0,z1))
+            continue
+        if index in stated:
+            for room,_face,zone,kind,u0,u1,z0,z1 in p.compound_apertures:
+                if room == index and zone == "wall":
+                    result.append((y1,kind,u0,u1,z0,z1))
             continue
         if opening:
             u=(x0+x1)/2

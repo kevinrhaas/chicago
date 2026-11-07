@@ -6,9 +6,9 @@ import { t } from './strings/index.js';
 import './strings/license.js';
 import { loadReaderText, readerCopy } from './reader-text.js';
 
-export function createJauntPreview({ root, scene = '1835', dataBase, destinations, api, fetcher = fetch, onStart, onResume, getSession = () => null, estimate = () => null, storage, plateFor = () => null, preferredMode = () => null, modeNote = () => '', license = null }) {
+export function createJauntPreview({ root, scene = '1835', dataBase, destinations, api, fetcher = fetch, onStart, onResume, onDismiss = () => {}, getSession = () => null, estimate = () => null, storage, plateFor = () => null, preferredMode = () => null, modeNote = () => '', license = null }) {
   const base = new URL(`sidecars/${encodeURIComponent(scene)}/jaunts/`, dataBase);
-  let catalogPromise, daybookPromise, journal = null, serial = 0;
+  let catalogPromise, daybookPromise, journal = null, serial = 0, outcomeSeen = null;
   const contents = new Map();
   const menu = createJauntMenu({ root, estimate, onStart, onPreview: select, plateFor,
     kept: row => !!journal?.keepsakes.some(e => e.jaunt === row.id), preferredMode, modeNote });
@@ -129,11 +129,39 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
     if (session?.jaunt && ['menu', 'outcome'].includes(session.phase)) {
       const note = node('section', '', 'jaunt-session-note');
       if (session.phase === 'outcome') {
-        note.append(node('h3', session.outcome.fallback ? 'Outing interrupted' : 'Outing complete'), node('p', session.outcome.text));
-        const awarded = !session.outcome.fallback && awardNote(session);
-        if (awarded) note.append(awarded);
-        else if (!session.outcome.fallback) note.append(node('h4', session.jaunt.keepsake.title), node('p', session.jaunt.keepsake.text));
-        if (journal) note.append(button('Open your daybook', () => showDaybook(session.jaunt.id)));
+        // T-3432 (owner, 2026-11-06: "outing complete that screen takes up the whole view and
+        // you can't see the list of jaunts so make that "finish" screen outing complete much more
+        // concise and expandable"): one compact card above the list — done, which jaunt, the
+        // keepsake kept — with the ending, the keepsake and the counters behind one toggle.
+        const fallback = session.outcome.fallback;
+        note.classList.add('jaunt-outcome'); note.dataset.outcome = session.jaunt.id;
+        const head = node('div', '', 'jaunt-outcome-head'), mark = node('span', '', 'jaunt-outcome-mark');
+        mark.append(icon(fallback ? 'finish' : 'done', 22));
+        const words = node('div', '', 'jaunt-outcome-words');
+        words.append(node('h3', fallback ? 'Outing interrupted' : 'Outing complete'), node('p', session.jaunt.title, 'jaunt-outcome-title'));
+        if (!fallback && session.jaunt.keepsake?.title) {
+          const kept = node('p', '', 'jaunt-outcome-kept'); kept.append(icon('kept', 14), node('span', session.jaunt.keepsake.title)); words.append(kept);
+        }
+        head.append(mark, words);
+        const clear = button('', () => { onDismiss(); list(api.catalog, session.jaunt.id); });
+        clear.classList.add('jaunt-outcome-close'); clear.append(icon('close', 16)); clear.setAttribute('aria-label', 'Close the finished outing');
+        clear.title = 'Close'; clear.dataset.action = 'outcome-close'; head.append(clear);
+        const more = node('details', '', 'jaunt-outcome-more');
+        const summary = node('summary', ''); summary.append(node('span', fallback ? 'What happened' : 'The ending and keepsake'), icon('more', 16));
+        // T-3355: a long ending is told in paragraphs, split at blank lines.
+        more.append(summary, ...String(session.outcome.text).split(/\n\s*\n/).map(text => node('p', text.trim())));
+        const awarded = !fallback && awardNote(session);
+        if (awarded) more.append(awarded);
+        else if (!fallback) more.append(node('h4', session.jaunt.keepsake.title), node('p', session.jaunt.keepsake.text));
+        note.append(head, more);
+        const row = node('div', '', 'jaunt-outcome-actions');
+        if (journal) {
+          const book = button('Daybook', () => showDaybook(session.jaunt.id)); book.prepend(icon('News & Knowledge', 15));
+          book.setAttribute('aria-label', 'Open your daybook'); row.append(book);
+        }
+        const again = button('Replay', () => { menu.capture(); onStart(session.jaunt.id, { mode: session.mode }); });
+        again.prepend(icon('play', 14)); again.setAttribute('aria-label', 'Restart Jaunt'); again.dataset.action = 'restart';
+        row.append(again); note.append(row);
       } else {
         // T-2631: the outing in progress, pinned on top — where you are and what comes next.
         const stops = session.jaunt.stops ?? [], at = session.stopIndex, next = stops[at + 1];
@@ -143,11 +171,15 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
         note.append(node('p', `Continue · Stop ${at + 1} of ${stops.length || at + 1}`, 'jaunt-continue-k'), node('h3', session.jaunt.title),
           node('p', next ? `Next: ${label(next)}` : 'Next: the end of the outing', 'jaunt-continue-next'), go);
       }
-      note.append(button('Restart Jaunt', () => { menu.capture(); onStart(session.jaunt.id, { mode: session.mode }); }));
+      if (session.phase === 'menu') note.append(button('Restart Jaunt', () => { menu.capture(); onStart(session.jaunt.id, { mode: session.mode }); }));
       // In progress, it leads the list; an outcome follows the daybook chip as before.
       if (session.phase === 'menu') prefix.unshift(note); else prefix.push(note);
     }
     menu.show(rows, prefix, returnId, focusStart);
+    // T-3432: a fresh Outing complete is seen at the top, with the list right under it.
+    if (session?.phase === 'outcome' && outcomeSeen !== session.session) {
+      outcomeSeen = session.session; const scroller = root.closest('.welcome-region') || root; scroller.scrollTop = 0;
+    }
   }
 
   async function load(id, options) {
@@ -173,13 +205,13 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
       if (request !== serial) return;
       const title = node('h3', content.title);
       root.replaceChildren(backButton(() => { ++serial; list(api.catalog, row.id); }), title,
-        node('p', 'Route preview', 'jaunt-meta'), node('p', content.opening.text));
+        node('p', 'Route preview', 'jaunt-meta'), ...String(content.opening.text).split(/\n\s*\n/).map(text => node('p', text.trim())));
       const stops = node('ol', '', 'jaunt-stops');
       for (const stop of content.stops) {
         const item = node('li', '');
         const place = destinations.byId(stop.destination.kind, stop.destination.id);
         // T-2946: the jaunt's own name for the stop, as its panel and road notes give it.
-        item.append(node('h4', content.places?.[stop.destination.id] || place?.label || stop.destination.id), node('p', stop.text));
+        item.append(node('h4', content.places?.[stop.destination.id] || place?.label || stop.destination.id), node('p', stop.since ? `${stop.since}. ${stop.text}` : stop.text));
         if (stop.choices?.length) item.append(node('p', `Optional preference: ${stop.choices.map(c => c.label).join(' / ')}. You may also skip it.`, 'jaunt-meta'));
         const evidence = node('div', '', 'jaunt-evidence'); evidence.hidden = true;
         for (const id of stop.evidence) {

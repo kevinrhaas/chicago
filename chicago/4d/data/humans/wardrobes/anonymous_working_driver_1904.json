@@ -1,0 +1,437 @@
+{
+ "id": "hans_box_livery_1904",
+ "tickets": [
+  "T-3398",
+  "T-3409",
+  "T-3422"
+ ],
+ "scene": "1904",
+ "asset_id": "anonymous_working_driver_1904",
+ "person": "Hans Johnson, inferred 1904 coachman (pa1904_otis_f_r_c1900_hans_johnson)",
+ "body_master": "assets/humans/anonymous_working_driver_1904.lod0.glb",
+ "clip_posed": "sit_drive",
+ "vehicle": "renderers/web/transport/parked-brougham/brougham-near.glb",
+ "output": "renderers/web/transport/driven/driver-livery-1904.json",
+ "grade": "reconstructed",
+ "liberty": "L-driven-town-circuits-2804",
+ "basis": "A private brougham coachman of about 1904 dressed for the box: a long double-breasted box coat with a shoulder cape and turned-up collar, brass livery buttons and a silk top hat. Cut, length, colour and fit are reconstructed authoring choices; no surviving garment, photograph or record of what Hans Johnson wore is claimed.",
+ "collide_with_body_meshes": [
+  "body_0",
+  "trousers_0",
+  "closed_shoes",
+  "waistcoat_0",
+  "shirt_0"
+ ],
+ "vehicle_box_colliders_note": "The brougham's driving box measured off brougham-near.glb (vehicle-local metres): the cushion's top, the seat back's face and the box front.",
+ "vehicle_box_colliders": [
+  {
+   "name": "cushion_and_box",
+   "lo": [
+    -0.545,
+    0.95,
+    0.555
+   ],
+   "hi": [
+    0.545,
+    1.7655,
+    0.955
+   ]
+  },
+  {
+   "name": "seat_back",
+   "lo": [
+    -0.545,
+    1.7,
+    0.3
+   ],
+   "hi": [
+    0.545,
+    2.002,
+    0.587
+   ]
+  },
+  {
+   "name": "side_rail_l",
+   "lo": [
+    0.515,
+    1.7,
+    0.579
+   ],
+   "hi": [
+    0.545,
+    1.93,
+    0.94
+   ]
+  },
+  {
+   "name": "side_rail_r",
+   "lo": [
+    -0.545,
+    1.7,
+    0.579
+   ],
+   "hi": [
+    -0.515,
+    1.93,
+    0.94
+   ]
+  }
+ ],
+ "drape_dynamics": {
+  "steps": 520,
+  "iterations": 10,
+  "dt_s": 0.008333333333333333,
+  "relax_passes": 6,
+  "clearance_m": 0.008
+ },
+ "check_tolerance_m": 0.008,
+ "check_tolerance_note": "The drape keeps 8 mm off a point-normal surface; a cloth squeezed between the thighs may give some of that back, never more.",
+ "materials": {
+  "garment_outer__box_coat_wool": {
+   "color": [
+    0.034,
+    0.038,
+    0.048
+   ],
+   "roughness": 0.9,
+   "metalness": 0,
+   "double_sided": true
+  },
+  "headwear__silk_top_hat": {
+   "color": [
+    0.018,
+    0.018,
+    0.02
+   ],
+   "roughness": 0.42,
+   "metalness": 0,
+   "double_sided": false
+  },
+  "headwear__hat_band_grosgrain": {
+   "color": [
+    0.01,
+    0.01,
+    0.011
+   ],
+   "roughness": 0.7,
+   "metalness": 0,
+   "double_sided": false
+  },
+  "accessory__brass_livery_buttons": {
+   "color": [
+    0.78,
+    0.6,
+    0.31
+   ],
+   "roughness": 0.35,
+   "metalness": 0.9,
+   "double_sided": false
+  },
+  "accessory__pale_driving_gloves": {
+   "color": [
+    0.64,
+    0.62,
+    0.56
+   ],
+   "roughness": 0.85,
+   "metalness": 0,
+   "double_sided": false
+  }
+ },
+ "recolor_body_materials": {
+  "garment_lower__highwaist_pantaloons": [
+   0.04,
+   0.04,
+   0.046
+  ]
+ },
+ "garments": [
+  {
+   "name": "box_coat_body",
+   "kind": "shell",
+   "material": "garment_outer__box_coat_wool",
+   "from": "shirt_0",
+   "loft_m": 0.022,
+   "sleeve_loft_m": 0.017,
+   "cuff_flare_m": 0.012,
+   "collar_from_y_m": 2.42,
+   "collar_loft_m": 0.012,
+   "collar_flare": 0.3,
+   "smooth_iterations": 40,
+   "provenance": {
+    "grade": "reconstructed",
+    "liberty": "L-driven-town-circuits-2804",
+    "note": "A coachman's long box coat, its body and sleeves stood off the shirt by a wool's loft, with a turned-up collar."
+   },
+   "ease": {
+    "chest_m": 0.03,
+    "front_bias": 0.6,
+    "chest_band_y_m": [
+     1.98,
+     2.3
+    ],
+    "band_fade_m": 0.08,
+    "sleeve_m": [
+     0.018,
+     0.01
+    ],
+    "shoulder_m": 0.018,
+    "shoulder_reach_m": 0.08,
+    "hull_iterations": 40
+   },
+   "elbow_creases": {
+    "amp_m": 0.006,
+    "wavelength_m": 0.045,
+    "reach_m": 0.09
+   }
+  },
+  {
+   "name": "box_coat_skirt",
+   "kind": "drape_hem",
+   "material": "garment_outer__box_coat_wool",
+   "hang_from": "box_coat_body",
+   "ring_count": 97,
+   "inset_m": 0.006,
+   "rise_m": 0.03,
+   "length_m": 0.76,
+   "row_m": 0.03,
+   "hem_fullness": 1.9,
+   "lift": 0.25,
+   "bend_h": 0.12,
+   "weights_from": [
+    "trousers_0",
+    "body_0"
+   ],
+   "weights_remap": {
+    "calf_l": "thigh_l",
+    "calf_r": "thigh_r",
+    "foot_l": "thigh_l",
+    "foot_r": "thigh_r",
+    "ball_l": "thigh_l",
+    "ball_r": "thigh_r"
+   },
+   "provenance": {
+    "grade": "reconstructed",
+    "liberty": "L-driven-town-circuits-2804",
+    "note": "The coat's skirt, draped onto his lap, the cushion and the box front."
+   },
+   "spring_tails": {
+    "note": "Only the skirt that hangs below the cushion's top is free: from 2 cm under it, over 35 cm, it takes up to 55% of its weight from four tails on the thighs, pivoting where each panel leaves the seat.",
+    "share": {
+     "by": "below_y",
+     "y_m": 1.745,
+     "fall_m": 0.35,
+     "max": 0.55
+    },
+    "tails": [
+     {
+      "name": "tail_skirt_front_l",
+      "parent": "thigh_l",
+      "angle_deg": 30,
+      "frequency_hz": 1.2,
+      "damping_ratio": 0.32,
+      "max_deg": 6
+     },
+     {
+      "name": "tail_skirt_l",
+      "parent": "thigh_l",
+      "angle_deg": 100,
+      "frequency_hz": 1.1,
+      "damping_ratio": 0.3,
+      "max_deg": 8
+     },
+     {
+      "name": "tail_skirt_r",
+      "parent": "thigh_r",
+      "angle_deg": 260,
+      "frequency_hz": 1.1,
+      "damping_ratio": 0.3,
+      "max_deg": 8
+     },
+     {
+      "name": "tail_skirt_front_r",
+      "parent": "thigh_r",
+      "angle_deg": 330,
+      "frequency_hz": 1.2,
+      "damping_ratio": 0.32,
+      "max_deg": 6
+     }
+    ]
+   },
+   "closed_front_m": 0.36,
+   "lap_folds": {
+    "amp_m": 0.02,
+    "wavelength_m": 0.075,
+    "radius_m": 0.3,
+    "rows_m": [
+     0.05,
+     0.55
+    ],
+    "facing_up": 0.0,
+    "seed": 3
+   }
+  },
+  {
+   "name": "box_coat_cape",
+   "kind": "drape_collar",
+   "material": "garment_outer__box_coat_wool",
+   "hang_from": "box_coat_body",
+   "collide_with_parent": true,
+   "band_y_m": [
+    2.395,
+    2.45
+   ],
+   "band_radius_m": 0.105,
+   "ring_half_count": 37,
+   "angular_window_rad": 0.5,
+   "outset_m": 0.006,
+   "rise_m": 0.004,
+   "length_m": 0.27,
+   "row_m": 0.025,
+   "hem_fullness": 1.8,
+   "lift": 0.05,
+   "bend_h": 0.3,
+   "weights_from": [
+    "shirt_0"
+   ],
+   "provenance": {
+    "grade": "reconstructed",
+    "liberty": "L-driven-town-circuits-2804",
+    "note": "A shoulder cape hung from the collar's foot."
+   },
+   "spring_tails": {
+    "note": "The cape hangs free from the shoulders: its lower rows take up to 65% of their weight from five tails round the collar, so it swings behind his shoulders as the carriage moves.",
+    "share": {
+     "by": "row",
+     "max": 0.65,
+     "power": 1.0
+    },
+    "tails": [
+     {
+      "name": "tail_cape_front_l",
+      "parent": "clavicle_l",
+      "angle_deg": 25,
+      "frequency_hz": 1.5,
+      "damping_ratio": 0.28,
+      "max_deg": 10
+     },
+     {
+      "name": "tail_cape_l",
+      "parent": "clavicle_l",
+      "angle_deg": 95,
+      "frequency_hz": 1.4,
+      "damping_ratio": 0.25,
+      "max_deg": 12
+     },
+     {
+      "name": "tail_cape_back",
+      "parent": "spine_03",
+      "angle_deg": 180,
+      "frequency_hz": 1.3,
+      "damping_ratio": 0.25,
+      "max_deg": 12
+     },
+     {
+      "name": "tail_cape_r",
+      "parent": "clavicle_r",
+      "angle_deg": 265,
+      "frequency_hz": 1.4,
+      "damping_ratio": 0.25,
+      "max_deg": 12
+     },
+     {
+      "name": "tail_cape_front_r",
+      "parent": "clavicle_r",
+      "angle_deg": 335,
+      "frequency_hz": 1.5,
+      "damping_ratio": 0.28,
+      "max_deg": 10
+     }
+    ]
+   }
+  },
+  {
+   "name": "top_hat",
+   "kind": "hat",
+   "material": "headwear__silk_top_hat",
+   "band_material": "headwear__hat_band_grosgrain",
+   "base_y_m": 2.65,
+   "crown_height_m": 0.152,
+   "crown_profile": [
+    [
+     0,
+     1.0
+    ],
+    [
+     0.1,
+     0.985
+    ],
+    [
+     0.33,
+     0.97
+    ],
+    [
+     0.66,
+     0.985
+    ],
+    [
+     0.9,
+     1.02
+    ],
+    [
+     1.0,
+     1.025
+    ]
+   ],
+   "brim_side_m": 0.04,
+   "brim_fore_m": 0.05,
+   "brim_curl_m": 0.016,
+   "ease_m": 0.006,
+   "band_height_m": 0.04,
+   "provenance": {
+    "grade": "reconstructed",
+    "liberty": "L-driven-town-circuits-2804",
+    "note": "A silk top hat, its crown waisted a third of the way up and its brim curled at the sides."
+   }
+  },
+  {
+   "name": "livery_buttons",
+   "kind": "buttons",
+   "material": "accessory__brass_livery_buttons",
+   "on": "box_coat_body",
+   "rows_x_m": [
+    -0.062,
+    0.062
+   ],
+   "y_range_m": [
+    2.06,
+    2.27
+   ],
+   "per_row": 3,
+   "radius_m": 0.011,
+   "weights_from": [
+    "shirt_0"
+   ],
+   "provenance": {
+    "grade": "reconstructed",
+    "liberty": "L-driven-town-circuits-2804",
+    "note": "Two rows of three brass livery buttons."
+   }
+  },
+  {
+   "name": "driving_gloves",
+   "kind": "gloves",
+   "material": "accessory__pale_driving_gloves",
+   "from": "body_0",
+   "loft_m": 0.0025,
+   "gauntlet_m": 0.12,
+   "gauntlet_flare_m": 0.014,
+   "smooth_iterations": 6,
+   "provenance": {
+    "grade": "reconstructed",
+    "liberty": "L-driven-town-circuits-2804",
+    "note": "Pale driving gloves with a short gauntlet over the shirt cuff."
+   }
+  }
+ ]
+}

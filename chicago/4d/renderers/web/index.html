@@ -651,7 +651,7 @@
              against a photograph. The ceiling is one stop — see world.js
              § BASE_EXPOSURE for why that is the bound. -->
         <label class="field"><span>Brightness <b id="v-brightness"></b></span>
-          <input type="range" id="s-brightness" min="0" max="1" step="0.05"></label>
+          <input type="range" id="s-brightness" min="0" max="2" step="0.25"></label>
         <!-- T-2658: a one-line hint and its "Why?" bubble (js/why-tips.js) for a visitor; the full
              essay under "Why this default" is Researcher mode's. -->
         <div class="why-line" data-visitor-only><span class="why-hint" data-str="research.hint.brightness">The light of a July photograph.</span>
@@ -662,8 +662,10 @@
             matched to a July photograph taken at this latitude, and the default position of this
             slider is that measured light — which is why it says "calibrated" rather than showing a
             number. Raise it if the scene is hard to see: a dim room, a bright window, a phone at
-            arm's length. It opens the exposure by up to one photographic stop and changes nothing
-            else — no wall, roof or street is a different colour underneath it, and the brighter
+            arm's length. It lifts the light in shade up to four times, half by opening the exposure
+            and half by raising the sky's fill, while the sky itself rises far less so it keeps
+            its blue. It changes nothing else — no wall, roof or street is a different colour
+            underneath it, and the brighter
             end is not a second reconstruction of how 1835 looked. All of this project's own
             measurements are taken at the calibrated position whatever you choose here.</p>
         </details>
@@ -717,6 +719,20 @@
             <option value="fall">Fall — turned leaves, tawny grass</option>
             <option value="winter">Winter — snow, bare limbs</option>
           </select></label>
+        <!-- T-3331: Time of day. Named times, and any time of the day in 10-minute steps. -->
+        <label class="field row" id="row-time-of-day"><span>Time of day</span>
+          <select id="s-time-of-day" title="A viewing choice: local solar time, on the scene's date">
+            <option value="daybreak">Daybreak — sunrise</option>
+            <option value="morning">Morning — 9:00</option>
+            <option value="daytime">Daytime — the scene's own hour</option>
+            <option value="afternoon">Afternoon — 16:00</option>
+            <option value="sunset">Sunset</option>
+            <option value="dusk">Dusk — end of twilight</option>
+            <option value="night">Night — 22:00</option>
+            <option value="custom">Set by the slider</option>
+          </select></label>
+        <label class="field" id="row-time"><span>Hour <b id="v-time"></b></span>
+          <input type="range" id="s-time" min="0" max="1430" step="10" aria-label="Hour of the day"></label>
         <label class="field row" id="row-street-trees" hidden><span>Street trees</span>
           <select id="s-street-trees">
             <option value="shown">Shown</option>
@@ -881,6 +897,12 @@
        fades in and out (css/walk.css) rather than popping; nothing beside it moves. -->
   <div class="quick-column" id="quick-column" role="group" aria-label="Quick controls">
     <button id="btn-inspect" class="chip quick-inspect" type="button" hidden><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5.5 5.5"/></svg> <span class="chip-label">Inspect</span></button>
+    <!-- T-3319: the Interact key — while something to work (a fort gate) is in reach on
+         foot: what it will do ("Open gate"), and R from the keyboard (js/interact.js). -->
+    <button id="btn-interact" class="chip quick-interact" type="button" hidden><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M11 10.5V4a1.5 1.5 0 0 1 3 0v6.5"/><path d="M14 10.5V5.5a1.5 1.5 0 0 1 3 0V12"/><path d="M17 11a1.5 1.5 0 0 1 3 0v3.5a6.5 6.5 0 0 1-6.5 6.5h-1a6 6 0 0 1-4.6-2.2L4.6 15.6a1.5 1.5 0 0 1 2.3-1.9L8 15"/></svg> <span class="ik-verb">Interact ·</span> <span class="ik-what">Open gate</span><kbd class="ik-kbd" aria-hidden="true">R</kbd></button>
+    <!-- T-3404: while the visitor walks alongside a person (js/follow.js): who, and a press
+         stops it. Their own movement stops it too. -->
+    <button id="btn-follow" class="chip quick-interact quick-follow" type="button" hidden><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg> <span class="fk-verb">Stop following</span> <span class="fk-who"></span></button>
   </div>
   <!-- T-2640: Show me pulses this outline on the building for 2 s. -->
   <div class="show-me-outline" id="show-me-outline" aria-hidden="true" hidden></div>

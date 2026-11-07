@@ -93,6 +93,7 @@ def validate_input(body, contract):
 def resolve_person_reference(variant, root=ROOT):
     """Resolve existing person and scene; never mint a name or upgrade its grade."""
     scene=str(variant['person_reference_scene'])
+    if scene=='1904':return resolve_dress_reference_1904(variant,root)
     if scene!='1835':raise ValueError('this wardrobe recipe is bounded to the 1835 scene')
     pid=variant['person_reference_id']
     scene_path=root/'data/sidecars'/scene/'people.json'
@@ -116,6 +117,33 @@ def resolve_person_reference(variant, root=ROOT):
         raise ValueError('resident reference changed; review recipe rather than retaining stale identity facts')
     if snapshot['presence']!='present':raise ValueError('resident is not present in this scene record')
     return {**snapshot, 'review_required':bool(person.get('review_required') or person.get('reconstruction',{}).get('review_required') or household.get('review_required') or people[pid].get('review_required')), 'touches_removal':bool(person.get('touches_removal') or household.get('touches_removal') or people[pid].get('touches_removal'))}
+
+
+def resolve_dress_reference_1904(variant, root=ROOT):
+    """T-3423: the one 1904 dress study, bound to an existing person of the 1904 people layer.
+
+    Her grade is copied as recorded (attested), never raised or lowered; her look stays
+    reconstructed (the asset's own grade)."""
+    if variant.get('component_assembly')!='adult_dress_v1' or variant.get('recipe_path')!='data/humans/recipes/adult_dress_1904.json':
+        raise ValueError('only the bound 1904 dress study may reference a 1904 person')
+    pid=variant['person_reference_id']
+    scene_path=root/'data/sidecars/1904/people.json'
+    if not scene_path.exists():raise ValueError('compile the 1904 scene first; its people layer is required for identity validation')
+    people={p['id']:p for p in json.loads(scene_path.read_text())['people']}
+    if pid not in people:raise ValueError(f'{pid}: absent from the existing 1904 people layer')
+    record=root/variant['person_reference_record']
+    if not record.is_relative_to(root/'data/residents_1904/households'):raise ValueError('1904 person reference must resolve under residents_1904')
+    household=json.loads(record.read_text())
+    person=next((p for p in household['persons'] if p['id']==pid),None)
+    if person is None:raise ValueError(f'{pid}: missing in referenced household')
+    grade=variant['person_reference_grade']
+    if people[pid].get('grade')!=grade or person.get('grade')!=grade:
+        raise ValueError('person reference grade differs; never silently change an identity grade')
+    snapshot={'name':person['name'],'occupation':person['occupation']['value'],'household':household['id'],'presence':household['present_on_scene_date']['value']}
+    if snapshot!=variant['reference_summary']:
+        raise ValueError('resident reference changed; review recipe rather than retaining stale identity facts')
+    if snapshot['presence']!='present':raise ValueError('resident is not present in this scene record')
+    return {**snapshot,'review_required':bool(person.get('review_required') or household.get('review_required') or people[pid].get('review_required')),'touches_removal':bool(person.get('touches_removal') or household.get('touches_removal') or people[pid].get('touches_removal'))}
 
 
 def verify_skin_texture(recipe, root=ROOT):
@@ -160,11 +188,15 @@ def build(args):
     if variant.get('component_assembly'):
         from human_dress_components import prepare_dress_assembly
         dress = prepare_dress_assembly(ROOT, recipe, variant, body)
-        if args.sit_drive_study:
-            raise ValueError('dress study has no qualified seated/driver assignment')
+        # T-3423: a dress study sits only on its own transferred binding, which load_study
+        # requires (tools/human_seated_transfer.py); no other seated draft is borrowed.
     skinpath = verify_skin_texture(recipe)
-    from human_hair_short04 import fit as fit_short04
-    hair, hairpath, hair_report = fit_short04(body, recipe['hair_component'], ROOT)
+    if recipe['hair_component'].get('fitter') == 'mhclo_proxy':
+        # T-3434: a named cleared hm08 hair proxy (the 1904 cook's bun) in place of short04.
+        from human_hair_proxy import fit as fit_hair
+    else:
+        from human_hair_short04 import fit as fit_hair
+    hair, hairpath, hair_report = fit_hair(body, recipe['hair_component'], ROOT)
     colors = {**recipe['colors_linear_rgba'], **variant.get('color_overrides',{})}
     if wardrobe:
         colors.update(wardrobe['colors'])
@@ -262,7 +294,10 @@ def build(args):
     # padded derivative preserves source repeat samples at base-level bilinear only;
     # mip/aniso and actual glTF alpha-mode behavior must be reviewed after export.
     hair_config=recipe['hair_component']
-    hair_mat=bpy.data.materials.new('hair__makehuman_short04');hair_mat.use_nodes=True
+    hair_proxy=hair_config.get('fitter')=='mhclo_proxy'
+    hair_name=hair_config['material'] if hair_proxy else 'hair__makehuman_short04'
+    if not hair_name.startswith('hair__'):raise ValueError('hair material must be named hair__*')
+    hair_mat=bpy.data.materials.new(hair_name);hair_mat.use_nodes=True
     hair_mat.use_backface_culling=False
     if hasattr(hair_mat,'surface_render_method'):hair_mat.surface_render_method='DITHERED'
     hair_nodes=hair_mat.node_tree.nodes;hair_links=hair_mat.node_tree.links
@@ -270,7 +305,7 @@ def build(args):
     hair_bsdf.inputs['Base Color'].default_value=(1,1,1,1)
     hair_bsdf.inputs['Roughness'].default_value=hair_config['roughness']
     hair_image=bpy.data.images.load(str(hairpath.resolve()),check_existing=True)
-    if tuple(hair_image.size)!=(2048,2057):raise ValueError('unexpected padded hair atlas dimensions')
+    if tuple(hair_image.size)!=(tuple(hair_config['texture_size']) if hair_proxy else (2048,2057)):raise ValueError('unexpected hair atlas dimensions')
     hair_image.colorspace_settings.name='sRGB';hair_image.pack()
     hair_tex=hair_nodes.new('ShaderNodeTexImage');hair_tex.image=hair_image
     hair_tex.extension='EXTEND';hair_tex.interpolation='Linear'
@@ -284,7 +319,7 @@ def build(args):
     inverse.inputs[0].default_value=1
     hair_links.new(clip.outputs[0],inverse.inputs[1])
     hair_links.new(inverse.outputs[0],hair_bsdf.inputs['Alpha'])
-    materials['hair__makehuman_short04']=hair_mat
+    materials[hair_name]=hair_mat
     # Incoming source UVs are retained per loop, including source-seam duplicates.
     def object_mesh(name,points,faces,uvs,weights,material,col,ratio=1,source_vertex_indices=None,corner_uvs=None,flat_face_indices=()):
         mesh = bpy.data.meshes.new(name)
@@ -408,7 +443,19 @@ def build(args):
     for lod,ratio in enumerate(recipe['lod_ratios']):
         col=bpy.data.collections.new('lod'+str(lod));scene.collection.children.link(col)
         # Preserve source hair topology pending measured lower-LOD adaptation.
-        object_mesh(f'{asset}_short04_hair_lod{lod}',hair['positions_m'],hair['triangles'],hair['uvs'],hair['weights'],'hair__makehuman_short04',col)
+        cap=hair
+        if dress and dress.get('roll') and not hair_proxy:
+            # T-3434: the 1900s roll over the brow and temples, raised in the cap itself.
+            from human_dress_components import hair_roll
+            cap=hair_roll(hair,bones,**dress['roll'])
+            if lod==0:print(json.dumps({'source_hair_roll':cap['receipt']}),flush=True)
+        object_mesh(f"{asset}_{hair_config.get('object','short04')}_hair_lod{lod}",cap['positions_m'],cap['triangles'],cap['uvs'],cap['weights'],hair_name,col)
+        if dress and not hair_proxy:
+            # T-3423: her hair is worn up: a reconstructed bun over the same cleared cap.
+            from human_dress_components import hair_bun
+            bun=hair_bun(hair,bones,**dress['bun'])
+            object_mesh(f'{asset}_hair_bun_lod{lod}',bun['positions_m'],bun['triangles'],bun['uvs'],bun['weights'],bun['material'],col,corner_uvs=bun['corner_uvs'])
+            if lod==0:print(json.dumps({'source_hair_bun':bun['receipt']}),flush=True)
         for mi,m in enumerate(body['meshes']):
             obj=object_mesh(f'{asset}_body_{mi}_lod{lod}',m['positions_m'],m['triangles'],m['uvs'],m['weights'],'skin',col,ratio,source_vertex_indices=m['source_vertex_indices'])
             if lod in contract['morphs']['required_lods']:morphs(obj)
@@ -529,7 +576,7 @@ def build(args):
     for pose in rig.pose.bones:
         pose.location=(0,0,0)
         pose.rotation_mode='QUATERNION';pose.rotation_quaternion=(1,0,0,0)
-    scene['chicago4d_human']={'contract_version':contract['version'],'rigid_bone_frame_export':True,'kind':'body','asset_id':asset,'lod':0,'skeleton':contract['skeleton']['id'],'grade':'reconstructed','basis':recipe['basis']+' '+recipe['source_scope']+' Existing resident reference '+variant['person_reference_id']+' has reconstructed identity/presence/age/occupation. '+variant.get('body_basis','Age-bounded CC0 male macro body and cleared generic skin atlas are provisional authoring choices; height/complexion are not record facts, and no photographic likeness or individually validated anatomy is claimed.'),'sources':recipe['sources'],'liberty':liberty,'license':recipe['license'],'master':str(args.output),'authored_by':'Chicago4D original workwear authoring (T-1789)','recipe':variant.get('recipe_path','data/humans/recipes/worker_1835.json'),'person_reference_id':variant['person_reference_id'],'person_reference_scene':variant['person_reference_scene'],'person_reference_grade':variant['person_reference_grade'],'review_required':reference['review_required'],'touches_removal':reference['touches_removal'],'person_reference_summary_json':json.dumps(reference,sort_keys=True),'body_input':variant['body_input'],'body_target_blend_json':json.dumps(body.get('target_blend',{}),sort_keys=True),'body_parameters_json':json.dumps(variant['body_parameters'],sort_keys=True),'skin_source_json':json.dumps(recipe['skin_texture'],sort_keys=True),'body_source_json':json.dumps(body.get('source',body.get('provenance',{})),sort_keys=True)}
+    scene['chicago4d_human']={'contract_version':contract['version'],'rigid_bone_frame_export':True,'kind':'body','asset_id':asset,'lod':0,'skeleton':contract['skeleton']['id'],'grade':'reconstructed','basis':recipe['basis']+' '+recipe['source_scope']+' Existing resident reference '+variant['person_reference_id']+' has '+variant['person_reference_grade']+' identity/presence/age/occupation. '+variant.get('body_basis','Age-bounded CC0 male macro body and cleared generic skin atlas are provisional authoring choices; height/complexion are not record facts, and no photographic likeness or individually validated anatomy is claimed.'),'sources':recipe['sources'],'liberty':liberty,'license':recipe['license'],'master':str(args.output),'authored_by':'Chicago4D original workwear authoring (T-1789)','recipe':variant.get('recipe_path','data/humans/recipes/worker_1835.json'),'person_reference_id':variant['person_reference_id'],'person_reference_scene':variant['person_reference_scene'],'person_reference_grade':variant['person_reference_grade'],'review_required':reference['review_required'],'touches_removal':reference['touches_removal'],'person_reference_summary_json':json.dumps(reference,sort_keys=True),'body_input':variant['body_input'],'body_target_blend_json':json.dumps(body.get('target_blend',{}),sort_keys=True),'body_parameters_json':json.dumps(variant['body_parameters'],sort_keys=True),'skin_source_json':json.dumps(recipe['skin_texture'],sort_keys=True),'body_source_json':json.dumps(body.get('source',body.get('provenance',{})),sort_keys=True)}
     scene['chicago4d_human']['hair_source_json']=json.dumps(hair_report,sort_keys=True)
     if wardrobe:
         scene['chicago4d_human']['wardrobe_assembly_json']=json.dumps({

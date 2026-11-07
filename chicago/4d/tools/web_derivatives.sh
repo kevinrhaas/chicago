@@ -598,6 +598,12 @@ PY
     # Measurement/remaining submillimetre loss: docs/RESEARCH/glessner_v4_web_precision.json.
     # This exact relative path changes no canonical, older-version or other mesh.
     [ "$rel" != "$GLESSNER_V4" ] || bits=16
+    # T-3321: 1808 Prairie's alley wall (HABS IL-1015 sheet 2's return) carries its plan
+    # 31 m back to the alley, so the house's own sub-millimetre carving (the corner boss's
+    # dress stone, the bay's stone) shares a grid two and a half times coarser: at 14 bits
+    # 10 of its triangles collapsed and the K01 contract refused the tier. 16 bits keeps
+    # every one (k01_contract --measure-asset keith_house_1808_prairie), at the same size.
+    [ "$rel" != "keith_house_1808_prairie__as_built_1886.glb" ] || bits=16
     tmp="$(mktemp -t gltfopt.XXXXXX.glb)"
     # A textured master goes to KTX2 (T-2595): `optimize` leaves its images alone
     # (its default re-encodes every JPEG through sharp, and the KTX2 encode should

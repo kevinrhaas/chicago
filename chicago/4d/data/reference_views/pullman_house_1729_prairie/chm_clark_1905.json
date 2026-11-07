@@ -1,0 +1,37 @@
+{
+  "structure_id": "pullman_house_1729_prairie",
+  "source_id": "chm_clark_i71913_pullman_1905",
+  "library_image": "a16-chm-clark-ichi-071913-pullman-1905",
+  "photo": "../../sources/assets/pullman_1729_chm_clark_t1881/chm_clark_i71913_pullman_1905_thumb.jpg",
+  "image_px": [
+    375,
+    358
+  ],
+  "principal_px": [
+    186,
+    161.6
+  ],
+  "focal_px": 420,
+  "near_m": 10,
+  "scene": "1904",
+  "flora": {
+    "front_yards": [
+      "prairie_1729"
+    ],
+    "street_trees_m": 70,
+    "street_furniture_m": 70,
+    "season": "summer"
+  },
+  "eye": [
+    92.8,
+    31.47,
+    1.6
+  ],
+  "yaw_deg": 255.1,
+  "sun_uvy": [
+    1.0,
+    0.8,
+    1.0
+  ],
+  "solve": "Fitted by T-1881 (2026-11-02) to the only copy online, the 375 x 358 px thumbnail of negative i71913.tif in CARLI's PDF of the Charles R. Clark collection's Scrapbook Volume 2 (chm_pp id 245, p. 27), committed unaltered beside its source record; the print fills about x 32-340, y 20-257 of it, the rest is the mount. Same frame as the Detroit camera: u toward Prairie Avenue (west), v SOUTH from the main block's north wall, the main block u 0-27.75, v 0-17.93. The camera stands at the south-west of the Prairie Avenue / 18th Street crossing looking north-east, as the library says; it is LEVEL (the verticals stand vertical), so the principal point's y is the horizon and its x is set at the print's centre (186). FOCAL LENGTH from the negative, not the picture: four points cannot separate focal length from distance at this size (a free fit runs off to an orthographic camera), so f is set from the format, a 3 1/4 x 4 1/4 in. plate (the collection's) on a 5-6 1/2 in. lens, 360-470 px across the 308 px print; 420 px is used, and the fit was repeated at 380 and 460. POSITION AND HEADING fitted by least squares to four points read at 4x: the south-west corner at its cornice (u 27.9, v 18.1, y 12.6; x 210, y 91), at grade (x 210, y 171, the boundary wall's foot) and at the mansard's top (y 17.2; x 207, y 64), and the porte-cochere's west arch (u 18.45, v 21.57, y 3.5; x 240, y 152). Residual 0.57 px rms; eye u 92.8, v 31.5, yaw 255.1, horizon y 161.6. At f 380 and 460 the eye moves along the same line (u 86.5-99.1, v 30.6-32.4) and nothing below changes by more than 0.4 px. The big dormer was NOT used in the fit, because its place is what is in question: the print's pedimented dormer and the round-arched lights under it stand at x 166-168, which is v 11.0-11.45 on the front, in all three fits; the build's (v 14.45) render at x 187-188. The Detroit print's camera, fitted by T-1880 on other points, reads the same dormer at x 460-466 against the build's 509, which is v 11.0-11.45 again. Scale at the house about 6.4 px a metre: a reading here is good to about 0.3 m across the view and a few metres in depth (a foot on the ground at 40 m moves about 3 m a pixel). Light: the Prairie front lit, the 18th Street flank in shade; sun_uvy is the Detroit camera's. Season: elms in full leaf (summer)."
+}

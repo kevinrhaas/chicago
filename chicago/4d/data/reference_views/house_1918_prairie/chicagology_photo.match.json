@@ -1,0 +1,93 @@
+{
+  "structure_id": "house_1918_prairie",
+  "view": "chicagology_photo",
+  "glb": "assets/gltf/house_1918_prairie__as_mapped_1904.glb",
+  "glb_sha256": "fbe97e547329070ec49f1fc15f32d293559b9176759a528708588980b8ae9a7b",
+  "camera_sha256": "c5c49af27eec1d98bff1ffde086b8c22674806b06a0ed68eafa2bfba3072f1db",
+  "photo_sha256": "7458a4902276cccdaa289b9767e8ab717b5dd0fcf06ba3969a97c4fa8d00e92a",
+  "side_by_side": "docs/RESEARCH/photo-match/house_1918_prairie/chicagology_photo-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: the draft's generic hipped block with a corner turret is now the photograph's Italianate villa: two tall storeys and a frieze-lit attic over a raised brownstone basement under a deep bracketed cornice and a low hipped roof cut off at a railed deck, the long south flank at the left, the front receding to the north at the right",
+      "status": "fixed"
+    },
+    {
+      "what": "the main cornice's height: its crown stood at 12.19 m, 1.2 m under the Tribune's 44 ft to the top of the cornice, which the photograph's tower confirms (the main cornice's top at 0.60 of the tower's height); T-3330 raised the attic to 3.32 m, the crown to 13.39 m, the frieze lights with it under the brackets, and the dining range's top storey to the same eaves",
+      "status": "fixed"
+    },
+    {
+      "what": "the camera (T-3370): T-1901's eye fit left its points 15-154 px off and put the photograph's verandah and tower 2.5-4 m north of the sheet, with a 'bay of windows between the south-east corner and the verandah' (x 1172-1395 px) the build had no room for. Re-solved by least squares at 11 px rms (see the camera's solve). The main cornice, read along its run, turns at its nearest vertex at x 1425 px, over the verandah's south end: that is the house's south-east corner; the dark band at x 1125-1170 is the dining range's east-facing return, and the two-window face is on the south side. So the photograph's front reads in the 1911 sheet's order (verandah, tower, porch, stoop running north), as the 1886 Andreas engraving and its etching draw it; it differs in measure, the tower standing 1.6-2.7 m further north than the sheet across the camera's variants (built 2.0 m north). The cornice's south-east corner and the verandah's south end stand at one x in the photograph where the build's set-back south part puts them about 0.8 m apart: a gap the camera's variants disagree about",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the tower: the photograph's is square, with the main cornice carried round it at the main cornice's level, a short blind stage, a balconied belvedere with arched lights and a deep bracketed cornice under a balustraded top (x 1440-1785, y 5-385 px). T-3318 built it square, T-3324 bracketed the belvedere and stood it back over its corbelled balcony, and T-3330 set its heights on the photograph's own vertical scale down the tower's front (39.6 px/m from the main cornice's top at y 380, the Tribune's 44 ft, which puts the top rail at y 30, the Tribune's 73 ft): the main cornice carried round the tower as a corbel table at 12.66-13.41 m (y 380-410), the stage 1.78 m and blind (y 310-380; the photograph shows no balcony at the cornice's level and no lights in the stage), the balcony's floor at 15.19 m (y 310), the belvedere's lights 16.07-17.87 m (y 205-275), its eaves at 20.39 m (T-3345: its wall head now 19.97 m under the deep cornice, y 120). Built; the earlier 'about 70 px taller' was the stage's 3.4 m with lights over a cornice that stood 1.2 m low T-3397: the balcony at the belvedere's foot 0.4 m out, not 0.55 (x 1515-1770 px, 1.19 x the walls); the front's light framed in an arched architrave on imposts under a keystone, about 1.9 m across (the cheeks', 1.3 m deep, in a 0.15 m one), for the photograph's arched frame (x 1565-1645 px on a face x 1530-1680). The frame's columns and the belvedere's corner pilasters are not built (the kit's pilasters run every storey of a bay)",
+      "status": "fixed"
+    },
+    {
+      "what": "the belvedere's cornice: the photograph's stands about 1 m deep over its brackets (y 80-120 px, 19.97-20.98 m on the tower's scale); the build's was the kit's thin bracketed eave, about 0.3 m. T-3345 built the belvedere's own deep cornice: the wall head at 19.97 m (y 120), the brackets hanging in the frieze under it, a soffit rising 0.27 m to a corona 1.1 m out and 0.51 m deep (20.30-20.81 m, y 107-87), a skirt of the hip rising 0.55 m to a flat deck (21.36 m, the balustrade's foot at y 62) and on it the balustrade 0.9 m high to the Tribune's 73 ft (22.25 m, y 30) T-3397 (the owner, 2026-11-06, from 58 ft up: 'the fanciful tower just cannot be a thing'): the 1.1 m corona stood a broad pale slab over the shaft. Re-measured on the photograph at y 200 px, ratios the oblique view foreshortens alike: the walls x 1530-1744 (214 px), the corona's tips x 1486-1787 (301 px, 1.41 x, so 0.8 m out on the 3.79 m face, as the house's own 0.75 m eave), the top balustrade on the walls' line (x 1532-1739), so the skirt's 0.55 m rise now runs 0.8 m in at a pitch of 0.69; the skirt laid in the Tribune's slate, not the kit's tan tin; the corona and every cornice painted dark brown, as the print's near-black corona (0-30 of 255) beside its red brick (96-120) asks (the wall head's note)",
+      "status": "fixed"
+    },
+    {
+      "what": "the verandah south of the tower: the photograph's three arched openings on columns under a balustraded balcony (x 1395-1600, y 640-870 px). Its columns are built (T-3356): the two piers between the arches stand as fluted Corinthian shafts (x 1487-1505 and 1555-1568 px, capitals at y 708-722) on the solid end piers' line, so the openings read as an arcade on columns, not as holes in a wall. The dark rail across the openings' feet (y 822 px, about 0.8 m over the floor) is built (T-3357): a 0.06 m iron bar from jamb to column across each opening at 0.8 m, on one standard in its middle, as the photograph's first two openings show it (x about 1460 and 1527 px). T-3370 sets its place along the front through the re-solved camera: from the house's corner (x 1421 px) to the tower (x 1643 px), its columns at x 1493 and 1557 px about 2.55 m apart, so three 1.9 m openings on 2.3 m centres, s 0-7.6 (was 1.2 m openings, s 0-5.6), the tower moved 2.0 m north to v 7.95-11.75 behind it; the photograph's openings now land on the render's within about 10-15 px",
+      "status": "fixed"
+    },
+    {
+      "what": "the entrance porch at the tower's north-east foot and its stoop running north along the front (x 1655-1950, y 700-960 px): the build had a columned hood over a straight stoop toward the avenue, beside the tower rather than in it. T-3367 cuts the door in the tower's face, as the 1869 Tribune enters 'through a tower': under its north part, where the photograph draws the porch (x about 1690-1815 px) with the plain shaft south of it (x about 1600-1690 px), the columned hood over it and the dressing room's 'two windows over main entrance' paired above it (the photograph's two lights over the porch; the tower's principal-floor light the build had shown, which the photograph does not, taken out). The landing runs along the tower's face under the hood and the flight leaves its north end parallel to the front, down to the walk, as the photograph draws the flight. T-3370 moves door, hood and landing 2.0 m north with the tower (the door at s 10.65): through the re-solved camera the photograph's hood spans about v 8.6-11.9 and the render's lands on it (x 1693-1821 px)",
+      "status": "fixed"
+    },
+    {
+      "what": "the belvedere's corner pilasters and the columns of its arched frames (x 1530-1560 and 1690-1744 px; x 1565-1645): the kit's pilasters run the whole height of a bay, so the belvedere's alone are not built",
+      "status": "open"
+    },
+    {
+      "what": "the window dressings: the photograph's pedimented and scrolled brownstone hoods, the paired principal windows and the round-headed chamber lights on the south flank; built as K09's corniced lintels over flat-headed sashes",
+      "status": "open"
+    },
+    {
+      "what": "the south side east of the dining range (T-3370, seen through the re-solved camera): the photograph's face between the dining range's dark east return (x 1125-1170 px) and the south-east corner (x 1425) runs full height to the main cornice with a pair of windows to each storey (x 1220-1315 px); the build has the reception room's half-octagonal bay there, two storeys under its own low roof, standing before a wall the cornice crosses higher up",
+      "status": "open"
+    },
+    {
+      "what": "the dining range's south windows (T-3370): the photograph shows a single, a single and a pair to each storey on its south face (x 880-910, 965-995, 1040-1095 px), the build two singles; T-3370 (third pass): built as the print shows, a single, a single and a pair to each storey (the pair K06's paired sash, two 0.75 m lights on a 0.3 m mullion), at the print's fractions of the face (0.24, 0.53, 0.81), so the pair stands its own width short of the range's east corner as the print's does; they render at centres x 892, 965 and 1037 px for the print's 899, 983 and 1067, the face being shorter in the build (the item below)",
+      "status": "fixed"
+    },
+    {
+      "what": "the chimney stacks: the photograph's tall panelled stacks with heavy caps, the left one over the flank (x 905-995, top y 267 px) and the right one over the front part (x 1215-1300, top y 185 px). T-3370 placed them through the re-solved camera (the left at u 1.7, the right at u 11.7 on the line v 0.9). T-3370's second pass: the left one's top, read at y 270 px (17.33 m), stood about 35 px high at the kit's one height (18.22 m) and now stands at its own 17.35 m (its render's top y 263); both carry the K15 kit's panelled dress (k15.stack.sherman less its corbel blocks): a stone band about 1.75 m over the roof under each (the print's y 318 and 267 px, 16.09 and 16.29 m; built 16.12), the sunk panel on the right one's east face (the print's y 267-303, 15.43-16.29 m; built 15.37-16.29) and on neither of the left one's faces (none shows), and a heavy head of three corbelled courses under a stone cap, 0.85 m tall and 0.28 m out (the left one's print y 270-305, 0.9 m, about 0.3 m out)",
+      "status": "fixed"
+    },
+    {
+      "what": "the right stack's head (T-3370): the print's is two-staged, a broad moulded cap at y 225-248 px (16.75-17.30 m) with a narrower stage on it to the top at y 185 (18.26 m), a dark opening in its east side; the build's one 0.85 m head stands at the top (17.37-18.22 m). Its shaft also stands about 20 px west of the print's, the 0.6 m spread between the camera's fits (u 11.7 built, 12.3 in the final fit)",
+      "status": "open"
+    },
+    {
+      "what": "the left stack's shaft (T-3370): about 65 px across in the print, where the build's 1.1 by 0.8 m stack spans 52 px through the camera, so about 0.25 m broader, inside the print's blur at that size",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the roof's deck: T-3370 reads the rail's top over its south-east corner (x 1345, y 257 px) at about 17.0 m through the re-solved camera, the build's height (deck 16.22 m, rail 0.8 m), so the height is within tolerance; still open: the photograph shows no rail west of the right stack (x 1150-1215 px, where only a low dark curb shows at y 335), and the build's rail runs on there, its corner about 0.5-1 m from the photograph's: the deck is smaller, or stands further east, than the build's",
+      "status": "open"
+    },
+    {
+      "what": "the iron fence on its stone curb along the walk",
+      "status": "fixed"
+    },
+    {
+      "what": "colour: the brick's red and the brownstone's tone (the print is monochrome; the Tribune of 1898 calls it 'his big red brick house')",
+      "status": "not shown"
+    },
+    {
+      "what": "the barn on the alley at the far left (x 0-700 px) and its cupola: T-1935's (the coach house record), not this house",
+      "status": "not shown"
+    },
+    {
+      "what": "the street trees, lamp and hydrant before the house",
+      "status": "not shown"
+    },
+    {
+      "what": "the dining range's south face's length (T-3370, third pass): through the re-solved camera the photograph's face runs from x 833 px to its dark east return at x 1125-1170, about 10.4 m, where the build's (the 1911 sheet's u 0-9.03) ends at x 1084 with its return to 1129; so the return, and the wall east of it, stand about 40 px (1.3 m) west of the print's, and the windows on the face, placed at the print's fractions of it, 7-30 px west of the print's. Either the range is longer than the sheet draws it or the camera's depth along the flank is off (its RESIDUAL TENSION at the south-east corner is the same sense); not settled here",
+      "status": "open"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

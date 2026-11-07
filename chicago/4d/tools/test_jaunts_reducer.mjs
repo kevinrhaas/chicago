@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { emptyState, reduce, createJaunts, canNext } from '../renderers/web/js/jaunts.js';
+import { emptyState, reduce, createJaunts, canNext, legMode, shownMode } from '../renderers/web/js/jaunts.js';
 const fixture = id => JSON.parse(fs.readFileSync(new URL(`../data/jaunts/_fixtures/fixture-${id}.json`, import.meta.url)));
 const branch = fixture('branch'), walk = fixture('walk');
 const arrive = s => reduce(s, { type: 'ARRIVE', session: s.session, leg: s.leg });
@@ -104,5 +104,101 @@ await test('live mode changes invalidate old travel without replaying choices', 
   r.controller.straight(); assert.equal(r.travel.mode, 'instantly'); assert.equal(r.controller.state.mode, 'fly');
   r.active.onArrive(r.active.token); assert.equal(r.controller.state.phase, 'atStop');
   r.controller.end(); assert.equal(r.travel.mode, 'horse');
+});
+await test('T-3328: a stop with an hour sets it on arrival; a stop without, and the end, give it back', async () => {
+  const doc = structuredClone(walk);
+  doc.stops[0] = { ...doc.stops[0], hour: 'sunset', date: '1812-06-17', hour_evidence: [doc.stops[0].evidence[0]] };
+  const calls = [];
+  const hour = { set: (v, o) => { calls.push(['set', v, o.date, o.transient]); }, restore: () => { calls.push(['restore']); } };
+  let active;
+  const travel = { mode: 'walk', setMode(v) { this.mode = v; }, go(target, hooks) { active = hooks; return true; }, stop() { active = null; } };
+  const settle = () => new Promise(r => setTimeout(r, 0));
+  const controller = createJaunts({ load: async () => doc, resolve: x => x, place: () => true, enter: () => true, travel, hour,
+    render() {}, showMenu() {}, openDetail() {}, closeDetail() {}, onError: e => { throw e; } });
+  await controller.start('walk'); await settle();
+  assert.deepEqual(calls, [['set', 'sunset', '1812-06-17', true]], 'the first stop sets its hour, transiently');
+  controller.next(); active.onArrive(active.token); await settle();
+  assert.deepEqual(calls.at(-1), ['restore'], 'a stop with no hour gives the visitor\'s own back');
+  const n = calls.length; controller.prev(); active.onArrive(active.token); await settle();
+  assert.deepEqual(calls.at(-1), ['set', 'sunset', '1812-06-17', true], 'Previous sets it again');
+  controller.end(); await settle();
+  assert.deepEqual(calls.at(-1), ['restore'], 'ending the jaunt gives it back');
+  assert.equal(calls.length, n + 2);
+  const quiet = createJaunts({ load: async () => walk, resolve: x => x, place: () => true, enter: () => true, travel, hour,
+    render() {}, showMenu() {}, openDetail() {}, closeDetail() {}, onError: e => { throw e; } });
+  calls.length = 0; await quiet.start('walk'); quiet.next(); active.onArrive(active.token); quiet.end(); await settle();
+  assert.deepEqual(calls, [], 'a jaunt with no hours never touches the visitor\'s');
+});
+await test('T-3377: a jaunt\'s ambience holds its season for the outing and its hour at every stop without one', async () => {
+  const doc = structuredClone(walk);
+  doc.ambience = { hour: 'dusk', season: 'fall' };
+  doc.stops[1] = { ...doc.stops[1], hour: 'night', hour_evidence: [doc.stops[1].evidence[0]] };
+  const calls = [];
+  const hour = { set: (v, o) => { calls.push(['hour', v, o.date, o.transient]); }, restore: () => { calls.push(['hour-back']); } };
+  const season = { set: (v, o) => { calls.push(['season', v, o.transient]); }, restore: () => { calls.push(['season-back']); } };
+  let active;
+  const travel = { mode: 'walk', setMode(v) { this.mode = v; }, go(target, hooks) { active = hooks; return true; }, stop() { active = null; } };
+  const settle = () => new Promise(r => setTimeout(r, 0));
+  const controller = createJaunts({ load: async () => doc, resolve: x => x, place: () => true, enter: () => true, travel, hour, season,
+    render() {}, showMenu() {}, openDetail() {}, closeDetail() {}, onError: e => { throw e; } });
+  await controller.start('walk'); await settle();
+  assert.deepEqual(calls, [['season', 'fall', true], ['hour', 'dusk', undefined, true]], 'the season first, then the hour solved on its day');
+  controller.next(); active.onArrive(active.token); await settle();
+  assert.deepEqual(calls.at(-1), ['hour', 'night', undefined, true], 'a stop\'s own hour outranks the jaunt\'s');
+  controller.next(); if (active) { active.onArrive(active.token); await settle(); }
+  if (controller.state.phase === 'atStop') assert.deepEqual(calls.at(-1), ['hour', 'dusk', undefined, true], 'the jaunt\'s hour comes back after');
+  const sets = calls.filter(c => c[0] === 'season').length;
+  controller.end(); await settle();
+  assert.deepEqual(calls.slice(-2), [['hour-back'], ['season-back']], 'ending gives back the hour, then the season');
+  assert.equal(sets, 1, 'the season is set once for the whole outing');
+  calls.length = 0;
+  const plain = createJaunts({ load: async () => walk, resolve: x => x, place: () => true, enter: () => true, travel, hour, season,
+    render() {}, showMenu() {}, openDetail() {}, closeDetail() {}, onError: e => { throw e; } });
+  await plain.start('walk'); plain.next(); active.onArrive(active.token); plain.end(); await settle();
+  assert.deepEqual(calls, [], 'a jaunt with no ambience never touches the visitor\'s light');
+});
+await test('T-3355: a leg with its own mode rides that way on the default mode; a picked mode wins', async () => {
+  const doc = structuredClone(walk);
+  doc.legs = [{ note: 'A long ride.', evidence: [doc.stops[0].evidence[0]], mode: 'instantly' }];
+  let active;
+  const travel = { mode: 'walk', setMode(v) { this.mode = v; }, go(target, hooks) { active = hooks; return true; }, stop() { active = null; } };
+  const make = () => createJaunts({ load: async () => doc, resolve: x => x, place: () => true, enter: () => true, travel,
+    render() {}, showMenu() {}, openDetail() {}, closeDetail() {}, onError: e => { throw e; } });
+  const c = make(); await c.start('walk'); c.next();
+  assert.equal(travel.mode, 'instantly', 'the authored leg goes Instantly');
+  assert.equal(legMode(c.state), 'instantly'); assert.equal(c.state.mode, 'walk', 'the visitor\'s mode is untouched');
+  active.onArrive(active.token); c.prev();
+  assert.equal(travel.mode, 'instantly', 'going back over the same leg goes the same way');
+  active.onArrive(active.token); c.end();
+  const d = make(); await d.start('walk', { mode: 'horse' }); d.next();
+  assert.equal(travel.mode, 'horse', 'a mode the visitor picked rides every leg');
+  d.end();
+  assert.equal(legMode({ ...emptyState(), jaunt: walk, mode: 'walk', visited: [{ id: 'mail-corner' }], fromStopId: 'arrival' }), 'walk',
+    'a jaunt with no leg modes rides its own mode');
+});
+await test('T-3405: picking the jaunt\'s own mode on a leg that goes its own way is honoured, then and after', async () => {
+  const doc = structuredClone(walk);
+  doc.legs = [{ note: 'A long ride.', evidence: [doc.stops[0].evidence[0]], mode: 'instantly' }];
+  let active;
+  const travel = { mode: 'walk', setMode(v) { this.mode = v; }, go(target, hooks) { active = hooks; return true; }, stop() { active = null; } };
+  const c = createJaunts({ load: async () => doc, resolve: x => x, place: () => true, enter: () => true, travel,
+    render() {}, showMenu() {}, openDetail() {}, closeDetail() {}, onError: e => { throw e; } });
+  await c.start('walk');
+  assert.equal(shownMode(c.state), 'instantly', 'at the stop, the picker names the next leg\'s own mode');
+  c.next();
+  assert.equal(travel.mode, 'instantly'); assert.equal(shownMode(c.state), 'instantly', 'the picker shows the leg as it travels');
+  assert.equal(c.setMode('walk'), true, 'choosing Walk on a Walk jaunt is not ignored');
+  assert.equal(travel.mode, 'walk', 'the leg is re-planned on foot');
+  assert.equal(c.state.modeChosen, true); assert.equal(shownMode(c.state), 'walk');
+  active.onArrive(active.token); c.prev();
+  assert.equal(travel.mode, 'walk', 'and every later leg takes the pick');
+  active.onArrive(active.token);
+  const restarted = c.restart(); await restarted;
+  assert.equal(c.state.modeChosen, true, 'a restart keeps the pick'); c.end();
+  const saved = reduce(reduce(emptyState(), { type: 'START', jaunt: doc, session: 1, mode: 'walk' }), { type: 'MODE', mode: 'fly' });
+  assert.equal(saved.modeChosen, true);
+  const plain = reduce(emptyState(), { type: 'START', jaunt: doc, session: 1, mode: 'walk' });
+  assert.equal(plain.modeChosen, false, 'a start on the default is not a pick');
+  assert.equal(reduce(plain, { type: 'MODE', mode: 'walk' }).modeChosen, true, 'nor is it ignored when picked at the stop');
 });
 console.log(`JAUNT REDUCER PASS — ${tests} cases`);

@@ -1,3 +1,4 @@
+import { deckHeightAt } from './deck-surface.js';
 /**
  * route.js — the route planner behind auto-travel: "walk me to that building".
  *
@@ -40,6 +41,54 @@
  * `radius` / `stepUp` default to WALK.radius / WALK.stepUp and main.js may pass
  * the live values.
  */
+
+/** T-3405: how far either side of a fort gateway its lane is reopened (route.js 4c). */
+const GATE_LANE_M = 12;
+/** A gateway's span `{a, b}` as a passage lane: the strip GATE_LANE_M either side of it,
+ *  its two long sides as walls (the shape lanesOf() gives inLane()), and the line through
+ *  it a route is held to: `offset` metres along the span from its middle (gateLine). */
+function gateLane({ a, b }, offset = 0) {
+  const len = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1;
+  const ne = -(b[1] - a[1]) / len * GATE_LANE_M, nn = (b[0] - a[0]) / len * GATE_LANE_M;
+  const p = (q, k) => [q[0] + ne * k, q[1] + nn * k];
+  const lane = [p(a, -1), p(b, -1), p(b, 1), p(a, 1)];
+  const u = [(b[0] - a[0]) / len, (b[1] - a[1]) / len];
+  return { lane, walls: [[lane[0], lane[3]], [lane[1], lane[2]]], u,
+    mid: [(a[0] + b[0]) / 2 + u[0] * offset, (a[1] + b[1]) / 2 + u[1] * offset],
+    normal: [ne / GATE_LANE_M, nn / GATE_LANE_M] };
+}
+/** T-3405: how far before and after a gateway a route is held to its middle. */
+const GATE_APPROACH_M = 1.5;
+/** Clearance at which a gateway's line is out in the open (gateLine). */
+const OPEN_CLEAR_M = 2.5;
+/** Segments ab and cd cross: the parameter t along ab where they do, else null. */
+function crossAt(a, b, c, d) {
+  const rx = b[0] - a[0], ry = b[1] - a[1], sx = d[0] - c[0], sy = d[1] - c[1];
+  const den = rx * sy - ry * sx;
+  if (Math.abs(den) < 1e-12) return null;
+  const t = ((c[0] - a[0]) * sy - (c[1] - a[1]) * sx) / den, u = ((c[0] - a[0]) * ry - (c[1] - a[1]) * rx) / den;
+  return t >= 0 && t <= 1 && u >= 0 && u <= 1 ? t : null;
+}
+/** A route through a gateway goes straight through it, square to it, on its line. */
+function throughGates(points, spans, laneOf) {
+  if (!spans.length) return points;
+  const out = [points[0]];
+  for (let i = 1; i < points.length; i++) {
+    const a = points[i - 1], b = points[i];
+    const hits = [];
+    for (const g of spans) { const t = crossAt(a, b, g.a, g.b); if (t !== null) hits.push({ t, g }); }
+    hits.sort((x, y) => x.t - y.t);
+    for (const { g } of hits) {
+      const lane = laneOf(g);
+      if (!lane) continue;
+      const side = Math.sign((b[0] - a[0]) * lane.normal[0] + (b[1] - a[1]) * lane.normal[1]) || 1;
+      const at = k => [lane.mid[0] + lane.normal[0] * k * side, lane.mid[1] + lane.normal[1] * k * side];
+      out.push(at(-GATE_APPROACH_M), at(GATE_APPROACH_M));
+    }
+    out.push(b);
+  }
+  return out;
+}
 
 /** Cost classes stored per cell. Kept small so the field is a Uint8Array. */
 const CLS_OPEN = 0;
@@ -434,7 +483,7 @@ export function createRouter({
     for (const d of decks) {
       if (!(d?.pts?.length >= 3) || typeof d.y !== 'number') continue;
       const bb = bboxOf(d.pts);
-      deckBoxes.push({ pts: d.pts, y: d.y, ...bb });
+      deckBoxes.push({ ...d, ...bb });
       const s = span(bb, 0);
       for (let j = s.j0; j <= s.j1; j++) {
         const n = cN(j);
@@ -447,9 +496,9 @@ export function createRouter({
           if (surfaceAt) {
             hgt[k] = surfaceAt(e, n);
           } else if (cls[k] === CLS_BLOCKED) {
-            hgt[k] = d.y;               // over water: the deck wins outright
+            hgt[k] = deckHeightAt(d, e, n); // over water: the sampled deck wins
           } else {
-            hgt[k] = Math.max(hgt[k], d.y);
+            hgt[k] = Math.max(hgt[k], deckHeightAt(d, e, n));
           }
           if (cls[k] === CLS_BLOCKED) cls[k] = CLS_DECK;
           else lower(k, CLS_DECK);
@@ -522,6 +571,27 @@ export function createRouter({
     const R = radius + inflate + cell * Math.SQRT1_2;
     for (const fp of footprints) {
       if (!(fp?.pts?.length >= 3)) continue;
+      // T-3405: what the walker meets is what the planner refuses (walker.js pushOut).
+      // A parade is ground; an enclosure (a fort's stockade, fort-gates.js) is its walls,
+      // not its plan, and a gateway's span is planned as open: a walking ride opens a
+      // shut gate as it comes to it (travel.js), the way a visitor would. The leaves of
+      // an open gate stand out from their jambs and are walls like any other.
+      if (fp.ground) continue;
+      if (Array.isArray(fp.walls)) {
+        for (const w of fp.walls) {
+          if (w.span) continue;
+          const r = R + (w.half ?? 0);
+          const s = span(bboxOf([w.a, w.b]), r);
+          for (let j = s.j0; j <= s.j1; j++) {
+            const n = cN(j);
+            for (let i = s.i0; i <= s.i1; i++) {
+              const e = cE(i);
+              if (segDist(e, n, w.a[0], w.a[1], w.b[0], w.b[1]) < r) cls[j * cols + i] = CLS_BLOCKED;
+            }
+          }
+        }
+        continue;
+      }
       const s = span(bboxOf(fp.pts), R);
       for (let j = s.j0; j <= s.j1; j++) {
         const n = cN(j);
@@ -542,6 +612,41 @@ export function createRouter({
           for (let i = s.i0; i <= s.i1; i++) {
             const e = cE(i), k = j * cols + i;
             if (fine[k] || !inLane(lane, e, n, radius + inflate)) continue;
+            cls[k] = CLS_OPEN;
+          }
+        }
+      }
+    }
+    // 4c. T-3405: a fort's gateway (fort-gates.js) is often no wider than the walker's
+    //    capsule plus the margins step 4 adds, and the 1812 fort's runs on between its
+    //    two barracks (1.89 m). So each gateway is reopened as a channel about a cell wide
+    //    down its middle, GATE_LANE_M either side of its span, wherever the cell is
+    //    outside every other footprint; plan() then walks a route that uses it through
+    //    the gateway's middle (throughGates), where the capsule clears both jambs.
+    for (const fp of footprints) {
+      for (const w of Array.isArray(fp.walls) ? fp.walls : []) {
+        if (!w.span) continue;
+        const lane = gateLine(w);
+        if (!lane) continue;
+        const box = bboxOf(lane.lane);
+        const near = footprints.filter(f => {
+          if (f.ground) return false;
+          const b = bboxOf(f.pts);
+          return b.e1 >= box.e0 && b.e0 <= box.e1 && b.n1 >= box.n0 && b.n0 <= box.n1;
+        });
+        const s = span(box, 0);
+        for (let j = s.j0; j <= s.j1; j++) {
+          const n = cN(j);
+          for (let i = s.i0; i <= s.i1; i++) {
+            const e = cE(i), k = j * cols + i;
+            if (fine[k] || cls[k] !== CLS_BLOCKED || !inside(e, n, lane.lane)) continue;
+            // Within half a cell's diagonal of the line, so a gateway askew to the grid
+            // still makes a channel joined edge to edge, not corner to corner.
+            if (Math.abs((e - lane.mid[0]) * lane.u[0] + (n - lane.mid[1]) * lane.u[1]) > cell * Math.SQRT1_2 + 1e-6) continue;
+            // Never inside a building, nor inside a wall's own thickness.
+            if (near.some(f => Array.isArray(f.walls)
+              ? f.walls.some(x => !x.span && segDist(e, n, x.a[0], x.a[1], x.b[0], x.b[1]) < (x.half ?? 0))
+              : inside(e, n, f.pts))) continue;
             cls[k] = CLS_OPEN;
           }
         }
@@ -655,8 +760,9 @@ export function createRouter({
     let deckY = null;
     for (const d of grid.deckBoxes) {
       if (e < d.e0 || e > d.e1 || n < d.n0 || n > d.n1) continue;
-      if ((deckY !== null && d.y <= deckY) || !inside(e, n, d.pts)) continue;
-      deckY = d.y;
+      if (!inside(e, n, d.pts)) continue;
+      const y = deckHeightAt(d, e, n);
+      if (typeof y === 'number' && (deckY === null || y > deckY)) deckY = y;
     }
     const ground = grid.surf(e, n);
     const water = grid.waterOf(e, n, ground);
@@ -789,6 +895,57 @@ export function createRouter({
    * @param {{e:number,n:number}} to
    * @returns {{points:number[][], length_m:number}|null}
    */
+  /**
+   * T-3405: the line a route takes through a gateway, as a gateLane(): the offset along
+   * the span whose line, out either side until it is in the open, stands furthest from
+   * every other footprint and wall (the 1835 south gate's west half is behind the guard
+   * house's corner, and the way on runs between it and the store house). Null when no
+   * line clears the capsule; cached per span.
+   */
+  const gateLines = new Map();
+  function gateLine(w) {
+    if (gateLines.has(w)) return gateLines.get(w);
+    const half = Math.hypot(w.b[0] - w.a[0], w.b[1] - w.a[1]) / 2;
+    const reach = GATE_APPROACH_M + 0.5;
+    const probe = gateLane(w);
+    const box = bboxOf(probe.lane);
+    const near = footprints.filter(f => {
+      if (f.ground) return false;
+      const b = bboxOf(f.pts);
+      return b.e1 + 2 >= box.e0 && b.e0 - 2 <= box.e1 && b.n1 + 2 >= box.n0 && b.n0 - 2 <= box.n1;
+    });
+    const clearance = (e, n) => {
+      let d = Infinity;
+      for (const f of near) {
+        if (Array.isArray(f.walls)) {
+          for (const x of f.walls) if (!x.span && !(x.gate && x.blocks)) d = Math.min(d, segDist(e, n, x.a[0], x.a[1], x.b[0], x.b[1]) - (x.half ?? 0));
+        } else d = Math.min(d, inside(e, n, f.pts) ? -1 : boundaryDist(e, n, f.pts));
+      }
+      return d;
+    };
+    let best = null, score = -Infinity;
+    for (let o = -half + radius; o <= half - radius + 1e-9; o += 0.05) {
+      const lane = gateLane(w, o);
+      // Out from the span both ways, until the line is in the open (or the lane ends):
+      // through a second row of pickets, or a passage between buildings, it must clear too.
+      let worst = Infinity;
+      for (const side of [1, -1]) {
+        for (let t = 0; t <= GATE_LANE_M + 1e-9; t += 0.25) {
+          const c = clearance(lane.mid[0] + lane.normal[0] * t * side, lane.mid[1] + lane.normal[1] * t * side);
+          worst = Math.min(worst, c);
+          if (c > OPEN_CLEAR_M && t > reach) break;
+        }
+      }
+      // Ties go to the middle: the same clearance nearer the centre is the better line.
+      if (worst > score + 0.02 || (Math.abs(worst - score) <= 0.02 && Math.abs(o) < Math.abs(best?.o ?? Infinity))) {
+        score = Math.max(score, worst); best = { o, lane };
+      }
+    }
+    const lane = best && score >= radius ? best.lane : null;
+    gateLines.set(w, lane);
+    return lane;
+  }
+
   function plan(from, to, { mode = null } = {}) {
     if (![from?.e, from?.n, to?.e, to?.n].every(Number.isFinite)) return null;
     ensure();
@@ -857,12 +1014,13 @@ export function createRouter({
       if (last && Math.abs(last[0] - p.e) < 1e-6 && Math.abs(last[1] - p.n) < 1e-6) continue;
       points.push([p.e, p.n]);
     }
+    const walked = throughGates(points, footprints.flatMap(f => Array.isArray(f.walls) ? f.walls.filter(w => w.span) : []), gateLine);
     let length = 0;
-    for (let i = 1; i < points.length; i++) {
-      length += Math.hypot(points[i][0] - points[i - 1][0], points[i][1] - points[i - 1][1]);
+    for (let i = 1; i < walked.length; i++) {
+      length += Math.hypot(walked[i][0] - walked[i - 1][0], walked[i][1] - walked[i - 1][1]);
     }
     stats.lastPlanMs = now() - t0;
-    return { points, length_m: length };
+    return { points: walked, length_m: length };
   }
 
   /** T-3264: the passages of a footprint that clear `passageNeed` (walker.js laneAt). */
@@ -889,8 +1047,11 @@ export function createRouter({
     if (prev === null) return false;
     for (let i = 0; i <= steps; i++) {
       const e = ae + (be - ae) * i / steps, n = an + (bn - an) * i / steps;
-      if (near.some(f => (inside(e, n, f.pts) || boundaryDist(e, n, f.pts) < radius)
-        && !lanesOf(f).some(l => inLane(l, e, n, radius)))) return false;
+      if (near.some(f => !f.ground && (Array.isArray(f.walls)
+        // T-3405: an enclosure blocks at its walls, its gateways open (see build()).
+        ? f.walls.some(w => !w.span && segDist(e, n, w.a[0], w.a[1], w.b[0], w.b[1]) < radius + (w.half ?? 0))
+        : (inside(e, n, f.pts) || boundaryDist(e, n, f.pts) < radius)
+          && !lanesOf(f).some(l => inLane(l, e, n, radius))))) return false;
       const h = exactHeight(e, n);
       if (h === null || h - prev > stepUp) return false;
       prev = h;
@@ -1065,7 +1226,7 @@ export function createRouter({
     return k < 0 ? NaN : grid.hgt[k];
   }
 
-  function invalidate() { grid = null; fronts.clear(); stands.clear(); }
+  function invalidate() { grid = null; fronts.clear(); stands.clear(); gateLines.clear(); }
 
   return {
     plan,
@@ -1077,6 +1238,8 @@ export function createRouter({
     classAt,
     heightAt,
     invalidate,
+    /** T-3405 harness aid: the line a route takes through a gateway span, or null. */
+    gateLine,
     /** Build the grid now rather than on the first plan (harness convenience). */
     warm() { ensure(); return stats; },
     stats,

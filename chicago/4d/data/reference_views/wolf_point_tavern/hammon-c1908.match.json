@@ -1,0 +1,37 @@
+{
+  "structure_id": "wolf_point_tavern",
+  "view": "hammon-c1908",
+  "glb": "assets/gltf/wolf_point_tavern__log_frame_1828.glb",
+  "glb_sha256": "225f3e1041d02cdaa627d3d73c5f6448aff9b12c66f4a545462db45bbf8e0d59",
+  "camera_sha256": "ddb0a293177f2eb33d68f42a3e9057e2a3de2b0f6336847f96dda368faea3adf",
+  "photo_sha256": "0d2736cb8af414e70d8c8d79456269aeb3db184a982a19b6b17d442a02d5bd7f",
+  "side_by_side": "docs/RESEARCH/photo-match/wolf_point_tavern/hammon-c1908-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "Low left-bank Wolf with sign, one clear front gable/door and right small light, and a roof receding left are the subject. The tall two-storey building at right is Miller House, outside this anchor.",
+      "status": "fixed"
+    },
+    {
+      "what": "The left partner facade is obscured by the actual source foliage. The neutral render omits that foliage and exposes the partner; the image cannot establish its opening count or absence. This is occlusion, not a claim that the partner is uniformly cropped in every source.",
+      "status": "not shown"
+    },
+    {
+      "what": "Current sign head z=10.3 m is an explicit reconstructed pose governed by NYPL, whose conditional 9.743–10.557 m pixel-envelope interval contains it. Hammon gives 6.991–8.409 m and the two Colbert cameras give materially different intervals (8.962–9.980 and 8.080–8.939 m). These inversions hold native XY and provisional camera fixed and are not surveys or statistical confidence intervals. Conflicting drawings/camera families warrant within tolerance under T-3153; no universal pole delta is supported.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Warm postcard colouring, roof weathering and illustrative log/door/stack outlines are late reproduction choices and disagree with other sources. NYPL governs the retained low form and roof-head-plus-pipe categories. No new wrong count, material or shape defect is established.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Neutral single-anchor photo_match does not show the application roof normal/ORM treatment, terrain, riverbank, trees, figures, neighbours or authentic historic pigment. Those absent scene elements do not validate app finish or surveyed placement.",
+      "status": "not shown"
+    },
+    {
+      "what": "The illustration is retrospective and depicts its stated earlier date. Exact 5 m compartments, plan, dimensions, hidden fabric and metric sign pose remain reconstructed; unchanged appearance on 1 July 1835 is not directly attested.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

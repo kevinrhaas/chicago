@@ -1,0 +1,33 @@
+{
+ "structure_id": "marshall_field_house_1905_prairie_coach_house",
+ "scene": "1904",
+ "also_render": [
+  "marshall_field_house_1905_prairie",
+  "marshall_field_house_1905_prairie_conservatory"
+ ],
+ "source_id": "cdn_dn0003324_field_residence",
+ "library_image": "a19-field-cdn-dn0003324",
+ "photo": "../../sources/assets/field_1905_pictures_t3271/field_daily_news_dn0003324.jpg",
+ "image_px": [
+  640,
+  457
+ ],
+ "principal_px": [
+  320.0,
+  290.0
+ ],
+ "focal_px": 1332.5,
+ "eye": [
+  91.6,
+  91.27,
+  1.0
+ ],
+ "yaw_deg": 217.39,
+ "sky": "overcast",
+ "sun_uvy": [
+  0.6,
+  0.8,
+  1.2
+ ],
+ "solve": "T-1936: the house's own camera on this negative (data/reference_views/marshall_field_house_1905_prairie/daily_news_dn0003324.json), moved into the coach house's footprint frame and nothing else: both records stand at rotation 179.444 in the 1904 scene, and the house's origin lies at u +23.25, v +10.5 in this frame (their sidecar placements, local e/n 1443.678/-3356.596 against 1466.825/-3345.871), so the eye moves by that much at the same height, the heading and the light unchanged. The house is drawn with it (also_render) because it hides the coach house's north part in every picture of it. The coach house stands at the scan's right edge behind the conservatory (x about 480-600 px of 640): a snow-covered mansard with small dormers and stacks, c. 1905, the nearest picture to the 1904 target. This camera runs the house's own rear about 70 px right of the negative at this depth (the house's side-by-side shows it), so the coach house is read here for its forms and not its place."
+}

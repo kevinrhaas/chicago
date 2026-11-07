@@ -13,7 +13,7 @@ const sortStore = (() => { try { return globalThis.sessionStorage ?? null; } cat
 /** Go to's filters (T-2632, DESIGN §07): All, then Places · People · Shops & work ·
  *  Viewpoints. A kind the scene has none of is not offered. Corners stay in All's search. */
 export const GO_TO_KINDS = [['all', 'All'], ['structure', 'Places'], ['person', 'People'],
-  ['business', 'Shops & work'], ['anchor', 'Viewpoints']];
+  ['business', 'Shops & work'], ['anchor', 'Views'], ['photo', 'Photos']];
 /** The filters a scene offers: All, and each kind it has at least one of. */
 export const offeredKinds = (destinations) => GO_TO_KINDS
   .filter(([id]) => id === 'all' || destinations.search('', { kind: id, includeReconstructed: true }).length > 0);
@@ -32,8 +32,13 @@ export const QUICK_STARTS = {
   1835: [['from_above', 'Town from above', 'aerial'], ['fort_dearborn', 'Fort Dearborn', 'fort'],
     ['forks', 'The forks', 'forks'], ['south_water', 'South Water St.', 'street'],
     ['newberry_dole_wharf', 'The wharf', 'wharf']],
+  // T-3436: the owner, 2026-11-06: "they are all eyes and a long text that takes up too much
+  // space and we have new interesting viewpoints like pullman and the church".
+  1904: [['prairie_from_above', 'From above', 'aerial'], ['glessner_house', 'Glessner', 'arch'],
+    ['pullman_house', 'Pullman', 'mansion'], ['field_house', 'Field', 'mansard'],
+    ['first_presbyterian', 'Church', 'church'], ['haunted_battle_ground', '1812 battle', 'ghost']],
 };
-export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-07-01' }, destinations, enter, resume, pause, hasEntered, onJaunts = () => {}, onExplore = () => {}, isTouch = false,
+export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-07-01' }, sceneDate = () => scene.target_date, destinations, enter, resume, pause, hasEntered, onJaunts = () => {}, onExplore = () => {}, isTouch = false,
   // T-2630: told before the card shows, so the Navigator's Jaunts app hands back the
   // Jaunts list and the Go to search it borrowed.
   onShow = () => {},
@@ -44,7 +49,9 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
   hiddenGrades = () => [],
   // T-2664: the Field Check's offer (js/tour-offer.js: due(), spend(how)) and what taking
   // it does; any other way into the town while it shows declines it, for good.
-  offer = null, onTour = () => false }) {
+  offer = null, onTour = () => false,
+  // T-3436: the scene's pictures file (a promise), read the first time Go to shows, for Photos.
+  photos = null }) {
   const $ = id => document.getElementById(id);
   const title = $('gate-title'), body = $('welcome'), close = $('welcome-close');
   const picker = $('welcome-picker'), jaunts = $('welcome-jaunts-region');
@@ -61,18 +68,18 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
   roam.setAttribute('aria-label', isTouch ? 'Free roam: tap to enter Chicago' : 'Free roam: enter Chicago');
   back.innerHTML = iconSvg('back', 20);
   search.insertAdjacentHTML('beforebegin', iconSvg('search', 16));
-  const listed = QUICK_STARTS[scene.id] || (scene.anchors || []).slice(0, 5).map(a => [a.id, a.label || a.id, 'view']);
+  const listed = QUICK_STARTS[scene.id] || (scene.anchors || []).slice(0, 6).map(a => [a.id, a.short || a.label || a.id, a.glyph || 'view']);
   for (const [id, label, glyph] of listed) {
     if (!destinations.byId('anchor', id)) continue;
     const button = document.createElement('button');
     button.type = 'button'; button.className = 'welcome-quick-start'; button.dataset.id = id;
-    button.innerHTML = iconSvg(glyph, 24);
+    button.innerHTML = iconSvg(glyph, 20);
     const name = document.createElement('span'); name.textContent = label; button.appendChild(name);
     button.title = destinations.byId('anchor', id).label;
     button.addEventListener('click', () => choose('anchor', id));
     $('welcome-quick').appendChild(button);
   }
-  const offered = new Set(offeredKinds(destinations).map(([id]) => id));
+  let offered = new Set(offeredKinds(destinations).map(([id]) => id));
   for (const [id, label] of GO_TO_KINDS) {
     const button = document.createElement('button');
     button.type = 'button'; button.textContent = label; button.dataset.kind = id;
@@ -96,7 +103,20 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
       render(); list.scrollTop = 0;
     });
   }
+  // T-3436: Photos is offered once the pictures file is read; the first Go to reads it.
+  let photosAsked = false;
+  function askPhotos() {
+    if (photosAsked || !photos || destinations.photosAdded) return;
+    photosAsked = true;
+    Promise.resolve().then(() => photos()).then((doc) => {
+      if (!destinations.addPhotos?.(doc)) return;
+      offered = new Set(offeredKinds(destinations).map(([id]) => id));
+      for (const b of $('welcome-kinds').children) b.hidden = !offered.has(b.dataset.kind) && b.dataset.kind !== kind;
+      if (!picker.hidden) render();
+    }).catch(() => { /* Go to works without its Photos */ });
+  }
   function render() {
+    askPhotos();
     let here = null; try { here = visitor(); } catch { here = null; }
     const rows = destinations.search(search.value, { kind, includeReconstructed: true, sort, visitor: here });
     list.replaceChildren(); message.textContent = '';
@@ -106,9 +126,21 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
       button.dataset.kind = row.kind; button.dataset.id = row.id;
       const name = document.createElement('strong'), detail = document.createElement('span');
       name.textContent = row.label;
+      if (row.title) button.title = row.title;
+      // T-3436: a photo view shows its picture; a viewpoint its own glyph.
+      if (row.kind === 'photo' && row.thumb) {
+        const img = document.createElement('img');
+        img.className = 'welcome-thumb'; img.alt = ''; img.loading = 'lazy'; img.decoding = 'async'; img.src = row.thumb;
+        img.addEventListener('error', () => img.classList.add('is-missing'), { once: true });
+        button.classList.add('has-lead'); button.append(img);
+      } else if (row.kind === 'anchor') {
+        const lead = document.createElement('i'); lead.className = 'welcome-glyph'; lead.innerHTML = iconSvg(row.glyph || 'view', 18);
+        button.classList.add('has-lead'); button.append(lead);
+      }
       const located = Number.isFinite(row.e) && Number.isFinite(row.n);
       // No invented destination for a person or firm whose address is unknown.
       detail.textContent = located ? row.sub : `${row.label} — no known starting place`;
+      if (row.kind === 'photo' && row.credit) detail.textContent += ` · ${row.credit}`;
       // T-2740: the line says what the list is ordered by when the title does not.
       const by = sort === 'owner' ? row.owner : sort === 'address' ? row.address?.text : null;
       if (by && !normal(row.label).includes(normal(sort === 'address' ? String(row.address.number) : by))) detail.textContent += ` · ${by}`;
@@ -203,7 +235,7 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
     body.hidden = false; picker.hidden = true; jaunts.hidden = true;
     $('welcome-explore').setAttribute('aria-expanded', 'false');
     $('welcome-jaunts').setAttribute('aria-expanded', 'false');
-    const presentation = scenePresentation(scene.id, scene.target_date);
+    const presentation = scenePresentation(scene.id, sceneDate() || scene.target_date);
     title.textContent = presentation.welcomeTitle;
     gate.querySelector('.welcome-intro').textContent = presentation.intro;
     // T-2662: the intro is where Reconstructed and Sources first appear: tap either for its line.

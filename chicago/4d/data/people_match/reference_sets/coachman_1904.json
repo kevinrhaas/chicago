@@ -1,0 +1,69 @@
+{
+  "id": "coachman_1904",
+  "role": "coachman",
+  "label": "a private coachman on the box, 1900s",
+  "years": [
+    1898,
+    1910
+  ],
+  "scenes": [
+    "1904"
+  ],
+  "evidence": {
+    "repo": "kevinrhaas/chicago-evidence",
+    "dir": "evidence/people-references-2026-11-06/coachman_1904"
+  },
+  "note": "Gathered 2026-11-06 for T-3417, the first role of the plan 'Photographic humans: the path'. None is of Chicago or of Hans Johnson: a reference set says what a person in this role and decade looked like, never who the subject was. Monochrome photographs say nothing about colour; the one colour picture is a drawing.",
+  "pictures": [
+    {
+      "name": "rau_1902_coachman",
+      "band": "near",
+      "file": "rau_1902_coachman.jpg",
+      "sha256": "45485e3807507d47edc735473a5d28b56d37d5631431021b23bd96bbec9eb6c8",
+      "source_id": "loc_rau_1902_roosevelt_carriage_coachman_stereograph",
+      "from": "master TIFF 1s01985u.tif (5034 x 2572), crop [1622, 221, 2532, 1869] of the card's left frame, reduced to 773 x 1400",
+      "caption": "Coachman on the box, from his right at a few metres. W. H. Rau stereograph, 1902 (LOC 2010647266)",
+      "shows": "The coachman alone from his right side at a few metres: box coat falling over the lap and down past the seat in heavy folds, stand collar and white stock, silk hat, reins and whip in the right hand, knees high, boots on the footboard."
+    },
+    {
+      "name": "griffith_1905_coachmen",
+      "band": "near",
+      "file": "griffith_1905_coachmen.jpg",
+      "sha256": "82fedfaa4f5ebfdca373d735b5b259d56a844fcdba2e7aec8f3195feb8331b4f",
+      "source_id": "loc_griffith_1905_roosevelt_escort_coachmen_stereograph",
+      "from": "master TIFF 1s02210u.tif (5011 x 2577), crop [930, 660, 1688, 1271] of the card's left frame, at full resolution",
+      "caption": "Two coachmen on one box, front quarter, in sun. Griffith & Griffith stereograph, 1905 (LOC 2010647610)",
+      "shows": "Two coachmen side by side from the front quarter, enlarged from a ten-metre view: double-breasted coats with two rows of bright buttons, stand collars, white gloves, silk hats; faces and gloves are the only pale things."
+    },
+    {
+      "name": "griffith_1905_frame",
+      "band": "far",
+      "file": "griffith_1905_frame.jpg",
+      "sha256": "764bb250247a57755c93a509e50bbc4374d535bdc8235e39217a295b89ca595e",
+      "source_id": "loc_griffith_1905_roosevelt_escort_coachmen_stereograph",
+      "from": "master TIFF 1s02210u.tif (5011 x 2577), the card's left frame [391, 122, 2471, 2200], reduced to 1600 x 1598",
+      "caption": "The same carriage at about 10 m, front quarter. Griffith & Griffith stereograph, 1905 (LOC 2010647610)",
+      "shows": "Carriage, four-horse team and two coachmen from the front quarter at about ten metres in winter sun: the coachmen read as dark upright blocks high above the horses' backs, with pale faces and gloves."
+    },
+    {
+      "name": "rau_1902_frame",
+      "band": "far",
+      "file": "rau_1902_frame.jpg",
+      "sha256": "5eda6224ce57cd8c14522b99a4083a50dd97ee657fa3e7be6fbf9224b2b336b2",
+      "source_id": "loc_rau_1902_roosevelt_carriage_coachman_stereograph",
+      "from": "master TIFF 1s01985u.tif (5034 x 2572), the card's left frame [433, 123, 2483, 2262], reduced to 1533 x 1600",
+      "caption": "Closed carriage at the kerb, coachman on the box. W. H. Rau stereograph, 1902 (LOC 2010647266)",
+      "shows": "The whole closed carriage from its right side at a few metres, coachman on the box above the lamps and passengers within: how high the coachman sits and how his coat covers the box."
+    },
+    {
+      "name": "penfield_coachman_drawing",
+      "band": "far",
+      "file": "penfield_coachman_drawing.jpg",
+      "sha256": "6707735e9a4920e3e9b8e76287e4cea58f22b45db3eefab6ec0561796f09f276",
+      "source_id": "loc_penfield_coachman_brougham_drawing",
+      "from": "master TIFF 2a14077u.tif (836 x 1024), [152, 0, 836, 1024]: the drawing without the transparency's colour bar",
+      "caption": "Brougham coachman, front quarter, in colour (a drawing). Edward Penfield, 1884-1925 (LOC 2010717341)",
+      "shows": "A brougham, its horse and its coachman whole from the front quarter in colour: upright seat with knees high, double-breasted coat, dark collar, white stock, tall hat, pale gloves, whip held upright."
+    }
+  ]
+}

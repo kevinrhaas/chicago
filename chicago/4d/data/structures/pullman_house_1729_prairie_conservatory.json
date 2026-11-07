@@ -125,9 +125,9 @@
             "base_course_m": 0.0,
             "coping_m": 0.3,
             "color": [
-              0.332,
-              0.299,
-              0.241
+              0.37,
+              0.293,
+              0.201
             ],
             "parapet": {
               "height_m": 0.9,
@@ -163,7 +163,17 @@
                   "sides": 8
                 }
               },
-              "west_m": 11.2
+              "west_m": 11.2,
+              "runs_m": [
+                [
+                  -4.64,
+                  -3.0
+                ],
+                [
+                  4.98,
+                  9.68
+                ]
+              ]
             },
             "openings": [
               {
@@ -200,6 +210,435 @@
               "height_m": 0.38,
               "out_m": 0.3,
               "clear_of_drum_m": 3.9
+            },
+            "court": {
+              "platforms": [
+                {
+                  "id": "house_terrace",
+                  "rects_m": [
+                    [
+                      -11.16,
+                      19.7,
+                      -4.66,
+                      6.9
+                    ],
+                    [
+                      -11.16,
+                      6.9,
+                      -6.2,
+                      5.98
+                    ],
+                    [
+                      -4.66,
+                      19.7,
+                      -2.15,
+                      17.85
+                    ]
+                  ],
+                  "top_m": 2.0,
+                  "lights": [
+                    {
+                      "centre_m": -7.25,
+                      "width_m": 1.25,
+                      "sill_m": 0.55,
+                      "height_m": 0.9,
+                      "z_m": 19.7
+                    }
+                  ]
+                },
+                {
+                  "id": "east_terrace",
+                  "rects_m": [
+                    [
+                      3.18,
+                      18.8,
+                      5.58,
+                      6.0
+                    ]
+                  ],
+                  "top_m": 1.4,
+                  "open_at": [
+                    [
+                      "z",
+                      6.0
+                    ]
+                  ]
+                },
+                {
+                  "id": "west_landing",
+                  "rects_m": [
+                    [
+                      -5.55,
+                      22.9,
+                      -2.15,
+                      21.5
+                    ]
+                  ],
+                  "top_m": 1.0
+                }
+              ],
+              "flights": [
+                {
+                  "id": "west_lower",
+                  "x_m": [
+                    -3.95,
+                    -2.64
+                  ],
+                  "z_m": [
+                    24.5,
+                    22.9
+                  ],
+                  "from_m": 0.0,
+                  "to_m": 1.0,
+                  "risers": 6,
+                  "cheeks": false
+                },
+                {
+                  "id": "west_upper",
+                  "x_m": [
+                    -5.1,
+                    -2.86
+                  ],
+                  "z_m": [
+                    21.5,
+                    19.7
+                  ],
+                  "from_m": 1.0,
+                  "to_m": 2.0,
+                  "risers": 6,
+                  "base": true,
+                  "cheeks": false
+                },
+                {
+                  "id": "east",
+                  "x_m": [
+                    3.78,
+                    4.98
+                  ],
+                  "z_m": [
+                    21.5,
+                    18.8
+                  ],
+                  "from_m": 0.0,
+                  "to_m": 1.4,
+                  "risers": 9
+                },
+                {
+                  "id": "terrace_link",
+                  "x_m": [
+                    -6.18,
+                    -4.68
+                  ],
+                  "z_m": [
+                    6.0,
+                    6.9
+                  ],
+                  "from_m": 1.4,
+                  "to_m": 2.0,
+                  "risers": 4,
+                  "base": true,
+                  "cheeks": false
+                }
+              ],
+              "paving": [
+                {
+                  "id": "court",
+                  "rects_m": [
+                    [
+                      -4.64,
+                      17.83,
+                      3.16,
+                      8.58
+                    ],
+                    [
+                      -4.64,
+                      8.58,
+                      -3.02,
+                      6.02
+                    ],
+                    [
+                      3.02,
+                      8.58,
+                      3.16,
+                      6.02
+                    ],
+                    [
+                      -2.13,
+                      27.63,
+                      3.16,
+                      17.83
+                    ],
+                    [
+                      -2.84,
+                      24.52,
+                      -2.13,
+                      19.72
+                    ],
+                    [
+                      -3.95,
+                      27.63,
+                      -2.13,
+                      24.52
+                    ]
+                  ],
+                  "top_m": 0.05
+                },
+                {
+                  "id": "east_gate_walk",
+                  "rects_m": [
+                    [
+                      3.82,
+                      28.03,
+                      4.71,
+                      27.63
+                    ],
+                    [
+                      3.82,
+                      27.63,
+                      4.94,
+                      21.52
+                    ]
+                  ],
+                  "top_m": 0.05
+                }
+              ],
+              "cheeks": {
+                "thickness_m": 0.25,
+                "over_m": 0.45
+              },
+              "balustrade": {
+                "height_m": 0.9,
+                "thickness_m": 0.25,
+                "pitch_m": 0.3,
+                "radius_m": 0.075,
+                "plinth_m": 0.15,
+                "rail_m": 0.14
+              },
+              "pedestal": {
+                "width_m": 0.6,
+                "height_m": 1.0,
+                "urn": {
+                  "radius_m": 0.3,
+                  "height_m": 0.75,
+                  "sides": 8
+                }
+              },
+              "balustrades": [
+                {
+                  "a": [
+                    -8.98,
+                    19.4
+                  ],
+                  "b": [
+                    -5.98,
+                    19.4
+                  ],
+                  "base_m": 2
+                },
+                {
+                  "a": [
+                    -2.33,
+                    19.12
+                  ],
+                  "b": [
+                    -2.33,
+                    18.19
+                  ],
+                  "base_m": 2
+                },
+                {
+                  "a": [
+                    -2.49,
+                    18.03
+                  ],
+                  "b": [
+                    -4.68,
+                    18.03
+                  ],
+                  "base_m": 2
+                },
+                {
+                  "a": [
+                    -4.84,
+                    17.87
+                  ],
+                  "b": [
+                    -4.84,
+                    7.48
+                  ],
+                  "base_m": 2
+                },
+                {
+                  "a": [
+                    -11.14,
+                    6.2
+                  ],
+                  "b": [
+                    -6.22,
+                    6.2
+                  ],
+                  "base_m": 2.0
+                },
+                {
+                  "a": [
+                    3.36,
+                    5.98
+                  ],
+                  "b": [
+                    3.36,
+                    18.22
+                  ],
+                  "base_m": 1.4
+                },
+                {
+                  "a": [
+                    5.4,
+                    5.98
+                  ],
+                  "b": [
+                    5.4,
+                    18.22
+                  ],
+                  "base_m": 1.4
+                }
+              ],
+              "pedestals": [
+                {
+                  "base_m": 2,
+                  "urn": true,
+                  "width_m": 0.8,
+                  "at": [
+                    -5.6,
+                    19.4
+                  ]
+                },
+                {
+                  "base_m": 2,
+                  "urn": true,
+                  "at": [
+                    -2.45,
+                    19.4
+                  ]
+                },
+                {
+                  "base_m": 2,
+                  "width_m": 0.8,
+                  "at": [
+                    -9.36,
+                    19.4
+                  ]
+                },
+                {
+                  "base_m": 2,
+                  "width_m": 0.36,
+                  "at": [
+                    -2.33,
+                    18.03
+                  ]
+                },
+                {
+                  "base_m": 2,
+                  "width_m": 0.36,
+                  "at": [
+                    -4.84,
+                    18.03
+                  ]
+                },
+                {
+                  "base_m": 2.0,
+                  "urn": true,
+                  "at": [
+                    -4.96,
+                    7.2
+                  ]
+                },
+                {
+                  "base_m": 1.4,
+                  "urn": true,
+                  "at": [
+                    3.3,
+                    5.7
+                  ]
+                },
+                {
+                  "base_m": 1.4,
+                  "urn": true,
+                  "at": [
+                    3.48,
+                    18.5
+                  ]
+                },
+                {
+                  "base_m": 1.4,
+                  "urn": true,
+                  "at": [
+                    5.28,
+                    18.5
+                  ]
+                },
+                {
+                  "base_m": 0.0,
+                  "height_m": 1.75,
+                  "urn": true,
+                  "at": [
+                    3.48,
+                    21.82
+                  ]
+                },
+                {
+                  "base_m": 0.0,
+                  "height_m": 1.75,
+                  "urn": true,
+                  "at": [
+                    5.28,
+                    21.82
+                  ]
+                }
+              ],
+              "benches": [
+                {
+                  "base_m": 1.0,
+                  "length_m": 1.3,
+                  "depth_m": 0.45,
+                  "at": [
+                    -5.05,
+                    22.2
+                  ]
+                }
+              ],
+              "awning": {
+                "x_m": [
+                  -11.18,
+                  -6.8
+                ],
+                "z_m": [
+                  7.0,
+                  12.5
+                ],
+                "high_m": 6.5,
+                "eave_m": 4.2,
+                "valance_m": 0.3,
+                "stripe_m": 0.22,
+                "post_m": 0.07,
+                "floor_m": 2.0,
+                "end_panel": true,
+                "eave_posts_m": [
+                  [
+                    -6.95,
+                    7.2
+                  ],
+                  [
+                    -6.95,
+                    9.85
+                  ],
+                  [
+                    -6.95,
+                    12.35
+                  ]
+                ],
+                "high_posts_m": []
+              },
+              "area_m2": 272.7
             }
           },
           "confidence": "reconstructed",
@@ -207,7 +646,7 @@
             "sanborn_1911_chicago_v3_sheet_20",
             "aic_taylor_16555_pullman_west_front"
           ],
-          "note": "The range the palm house stands in: its plan the sheet's (one storey and a basement, stone, 4.42 m deep), its run, height and dress read off Taylor's photograph through its camera: 7.1 m to the parapet's foot and a 0.9 m parapet, in a light stone tone (the 1894 Inland plate shows the range light; colour is not shown), an arched door 6.8 m east of the drum's centre and an arched window 7.3 m west of it, and a terrace 1.4 m high and 6.0 m deep with a 0.9 m balustrade either side of a central flight of eight risers. T-1934 dressed the south face as the Inland plate and Taylor's 16555 show it: banded rustication from the terrace to a moulded cornice, a broad pilaster 4.4 m either side of the drum's centre, the parapet and the terrace's balustrades open balusters between dies and piers, and an urn on each terrace pier. Their sizes and the baluster's shape are reconstructed (L-pullman-palm-house-1934). T-1934 (2026-10-30): the range's stone darkened from (0.66, 0.62, 0.54) to the stable's, linear (0.332, 0.299, 0.241), and its rustication, pilasters and cornice with it (K13 `host_stone`): in Taylor's winter print 16554 the range prints 126-143, with the stable (141-148), not lighter (docs/RESEARCH/colour-pullman-stable-T-1934/); the plate's lit walls are clipped at the paper's white and cannot say."
+          "note": "The range the palm house stands in: its plan the sheet's (one storey and a basement, stone, 4.42 m deep), its run, height and dress read off Taylor's photograph through its camera: 7.1 m to the parapet's foot and a 0.9 m parapet, in a light stone tone (the 1894 Inland plate shows the range light; colour is not shown), an arched door 6.8 m east of the drum's centre and an arched window 7.3 m west of it, and a terrace 1.4 m high and 6.0 m deep with a 0.9 m balustrade either side of a central flight of eight risers. T-1934 dressed the south face as the Inland plate and Taylor's 16555 show it: banded rustication from the terrace to a moulded cornice, a broad pilaster 4.4 m either side of the drum's centre, the parapet and the terrace's balustrades open balusters between dies and piers, and an urn on each terrace pier. Their sizes and the baluster's shape are reconstructed (L-pullman-palm-house-1934). T-1934 (2026-10-30): the range's stone darkened from (0.66, 0.62, 0.54) to the stable's, linear (0.332, 0.299, 0.241), and its rustication, pilasters and cornice with it (K13 `host_stone`): in Taylor's winter print 16554 the range prints 126-143, with the stable (141-148), not lighter (docs/RESEARCH/colour-pullman-stable-T-1934/); the plate's lit walls are clipped at the paper's white and cannot say. T-1934 (the owner, 2026-11-02: \"is that building and the stable the same material facing as the main building? ... it seems to be the same facing also\"): yes, on the evidence. The 1911 sheet letters the house, the range and the stable alike as stone, and every picture prints the three in one family of tone; only their lightness differs. So the hue is now the house's own sandstone_fawn (mean linear 0.287, 0.227, 0.156), not the draft's greyer stone, and the tone stays where Taylor's winter print 16554 puts it, a step lighter than the house's walls (docs/RESEARCH/colour-pullman-stable-T-1934/: the stable prints 1.37-1.47 times the house's wall, which through the print's tone curve is about 1.3 times its reflectance): the range's walls linear (0.370, 0.293, 0.201), the palm house's columns, entablature, balustrades and the court's stone a shade over them (0.414, 0.328, 0.225). Same stone, cleaner or better lit faces; whether the stable's 1891 permit 'brick' is a brick backing behind the stone face no picture can say. T-1934 (the owner, 2026-11-02: the terraced steps, walkways and landings round the conservatory \"per the photo\", and a top-down plan with all the levels): `court` builds what Taylor's 16555 and the 1894 plate show between the palm terrace and 18th Street, read through their cameras (16555's re-solved on the wall's piers) and triangulated within about 0.5 m: the house's east terrace at the principal floor (+2.0) out to u -4.66 and south to v -19.7 with its arched light (T-1934, 2026-11-02: moved 3.35 m north from v -23.05, where 16555 alone had put it, onto the place the plate's and 16555's urn pedestal, its edge and the light's jamb cross; the west gate's flights, landing and bench with it, and 0.55 m west, a walk from the gate to the flight's foot; L-pullman-court-1934); the west gate's flight in two runs (0 to +1.0, +1.0 to +2.0) about a half landing with a bench, urn pedestals at its head; the east gate's flight of nine risers to a +1.4 terrace walk (u 3.18-5.58) along to the palm terrace, cheek walls and urn pedestals at foot and head; the sunken flagged court at grade; balustrades round the open edges; and the striped awning, a lean-to off the house's east wall from 6.5 m to a 4.2 m eave 4.4 m out, its south end at v -12.5 closed by a striped side curtain (16555). The palm terrace's front is balustraded only where no stair or walk meets it (`terrace.runs_m`). Plan points are (x east, z south of the wing's face). The sections, the unseen link flight up from the palm terrace, the bench, the awning's north end and posts and the colours are reconstructed (L-pullman-court-1934; the plan in docs/RESEARCH/pullman-court-T-1934/)."
         },
         "conservatory": {
           "value": {
@@ -242,18 +681,58 @@
                 "pitch_m": 0.3,
                 "radius_m": 0.075,
                 "plinth_m": 0.15,
-                "rail_m": 0.14
+                "rail_m": 0.14,
+                "die_m": 0.45
               },
               "dome": {
                 "radius_m": 2.3,
                 "segments": 24,
                 "rings": 4,
                 "spring_m": 7.9,
-                "rise_m": 2.3,
+                "rise_m": 2.1,
                 "rib_m": 0.08,
-                "finial_m": 0.5,
                 "rib_every": 1,
-                "role": "sky_glass"
+                "role": "sky_glass",
+                "fullness": 0.8,
+                "crown": {
+                  "radius_m": 0.85,
+                  "curb_m": 0.15,
+                  "sides": 8,
+                  "ornament": [
+                    [
+                      0.24,
+                      0.0
+                    ],
+                    [
+                      0.24,
+                      0.06
+                    ],
+                    [
+                      0.12,
+                      0.12
+                    ],
+                    [
+                      0.26,
+                      0.26
+                    ],
+                    [
+                      0.22,
+                      0.38
+                    ],
+                    [
+                      0.09,
+                      0.45
+                    ],
+                    [
+                      0.11,
+                      0.5
+                    ],
+                    [
+                      0.0,
+                      0.58
+                    ]
+                  ]
+                }
               },
               "column": {
                 "sides": 12,
@@ -263,7 +742,19 @@
                 "abacus_m": 0.15
               },
               "arc_per_facet": 4,
-              "interior_dark": true
+              "interior_dark": true,
+              "color": [
+                0.414,
+                0.328,
+                0.225
+              ],
+              "glazing_bars": {
+                "every_m": 0.55,
+                "bar_m": 0.045,
+                "out_m": 0.03,
+                "transom_m": 5.2,
+                "transom_bar_m": 0.1
+              }
             }
           },
           "confidence": "reconstructed",
@@ -271,7 +762,7 @@
             "aic_taylor_16555_pullman_west_front",
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "Beman's 1892 palm house as J. W. Taylor's photograph shows it, read through its solved camera (taylor_16555_west_front): a drum of glass between seven stone columns on a stone base 2.75 m high (above the terrace's 1.4 m), its eave at 6.25 m, a 0.9 m entablature and a 0.9 m balustrade round its flat top, and a ribbed dome (2.3 m in radius since T-1934) springing at 7.9 m, rising 2.3 m to a 0.5 m finial; each height within about 0.3 m of the print. The glass, frame, plinth and planting are the K13 kit's (L-k13-conservatory-kit-2305), the drum in six facets (form segmental_bay, roof flat). T-1934 dressed it as the 1894 Inland plate and Taylor's 16555 both show it: round columns with bases and capitals, dark glazing between them, an architrave and frieze under a cornice, an open balustrade and a broad, light, close-ribbed dome 4.6 m across, which both pictures read wider than the 3.8 m it had. RECONSTRUCTED: the dome's covering (light, opaque, so no line of sight crosses two glass envelopes), the columns' mouldings, the baluster's shape, the 24 ribs and the rotunda's north half inside the wing (L-pullman-palm-house-3165, L-pullman-palm-house-1934). No gutter is drawn: the drum sheds behind its balustrade."
+          "note": "Beman's 1892 palm house as J. W. Taylor's photograph shows it, read through its solved camera (taylor_16555_west_front): a drum of glass between seven stone columns on a stone base 2.75 m high (above the terrace's 1.4 m), its eave at 6.25 m, a 0.9 m entablature and a 0.9 m balustrade round its flat top, and a ribbed dome (2.3 m in radius since T-1934) springing at 7.9 m, rising 2.3 m to a 0.5 m finial; each height within about 0.3 m of the print. The glass, frame, plinth and planting are the K13 kit's (L-k13-conservatory-kit-2305), the drum in six facets (form segmental_bay, roof flat). T-1934 dressed it as the 1894 Inland plate and Taylor's 16555 both show it: round columns with bases and capitals, dark glazing between them, an architrave and frieze under a cornice, an open balustrade and a broad, light, close-ribbed dome 4.6 m across, which both pictures read wider than the 3.8 m it had. RECONSTRUCTED: the dome's covering (light, opaque, so no line of sight crosses two glass envelopes), the columns' mouldings, the baluster's shape, the 24 ribs and the rotunda's north half inside the wing (L-pullman-palm-house-3165, L-pullman-palm-house-1934). No gutter is drawn: the drum sheds behind its balustrade. T-1934 (the owner, 2026-10-30, on Taylor's 16554: \"the center white area currently is probably more like the color of the rest of the house\" and \"a fair amount of detail work to do on the glass atrium\"): the palm house's stone (podium, columns, entablature, balustrade, dome collar, and the terrace and its flight) takes the stable's dressed-stone shade (0.372, 0.335, 0.27), a shade over the walls', where the kit's pale stone (0.74, 0.70, 0.62) had read white; every picture prints the drum's stone in the walls' tone (16554 and 16555 in the same light as the house, the stable and the wing). Each bay of glass between the columns is crossed by light horizontal bars about 0.55 m apart and a deeper transom at 5.2 m, as 16554 and the 1894 plate show a grid of panes. The bars' spacing and the transom's height are reconstructed (L-pullman-palm-house-1934). T-1934 (the owner, 2026-11-02: \"the conservatory top needs some work\"): the drum's balustrade takes a solid die over every column, the two at the wall included, as both pictures show; the dome rises 2.1 m from 7.9 m to a crown ring 1.7 m across under a low curb and a turned ornament (top 10.73 m), its shoulders full, where it had closed to a point under a plain finial: 16555 shows the ribs stopping on the ring and the ornament on it (its curb at about 10.1 m, the ornament's top about 10.7 m through the re-solved camera); the plate's is lost in a tree. The ring's count, the ornament's profile and the dies' width are reconstructed (L-pullman-court-1934)."
         }
       }
     }

@@ -171,6 +171,8 @@ def build(params: FrameTavernParams, name: str):
         _fenestration(b, params, w, d, wall_z, c_fen)
         if params.end_windows:
             _end_windows(b, params, w, d, wall_z)
+        if params.main_gable_cornice is not None:
+            _main_gable_cornice(b, params, w, d, wall_z, ridge_z)
 
     if params.log_wing:
         _log_wing(b, params, d)
@@ -178,6 +180,8 @@ def build(params: FrameTavernParams, name: str):
         _rear_ell(b, params, w)
     if params.cross_wing:
         _cross_wing(b, params, w, d, wall_z, ridge_z)
+    if params.enclosed_left_annex is not None:
+        _enclosed_left_annex(b, params, w, d)
 
     # chimneys — as many stacks as the record counts. "frontage" spaces them
     # across the frontage at the depth midline (the original arrangement, kept
@@ -518,6 +522,102 @@ def _wall_clad_gable_roof(b: MeshBuilder, params: FrameTavernParams,
             if outward>0: pts.reverse()
             poly(pts,1.0,M_WALL)
     return ridge
+
+
+def _face(b: MeshBuilder, pts, outward, conf: float, mat: int = M_WALL) -> None:
+    """One planar face wound so its normal runs with `outward`.
+
+    The cornice below is written in plain (x, y, z) at either gable end, so the
+    handedness of its quads flips with the end. Deciding the winding from the
+    geometry rather than from a sign the caller remembers to pass is what keeps
+    a mirrored copy from coming out inside-out.
+    """
+    (ax, ay, az), (bx, by, bz), (cx, cy, cz) = pts[0], pts[1], pts[2]
+    ux, uy, uz = bx - ax, by - ay, bz - az
+    vx, vy, vz = cx - ax, cy - ay, cz - az
+    n = (uy * vz - uz * vy, uz * vx - ux * vz, ux * vy - uy * vx)
+    if sum(a * b_ for a, b_ in zip(n, outward)) < 0:
+        pts = list(reversed(pts))
+    b.add_poly(pts, conf, mat)
+
+
+def _main_gable_cornice(b: MeshBuilder, params: FrameTavernParams, w: float,
+                        d: float, wall_z: float, ridge_z: float) -> None:
+    """A boxed rake cornice with short horizontal returns on ONE gable end.
+
+    THE PICTURE SHOWS THE ELEMENT; THE PICTURE DOES NOT GIVE ITS SIZE. The
+    Andreas/Braunhold plate of the Sauganash draws a boxed band following both
+    rakes of the visible gable and a short horizontal return turning the corner
+    at each eaves end — a thing the archetype has never built, so the gable has
+    been standing with a bare rake the plate does not draw. What the plate
+    cannot give is a dimension: it is a retrospective engraving and its own
+    scale datum is a standing man, so the three sections here are the record's
+    and are RECONSTRUCTED. docs/LIBERTIES.md L-sauganash-main-gable-cornice-2383
+    states what bounded them.
+
+    The band is drawn in the wall's own finish, which is what the plate shows:
+    a painted boxed cornice, not a shingled one. It hangs UNDER the rake line
+    rather than raising it, so the roof planes, the ridge, the eave and the
+    silhouette of every other mass are untouched — a building that does not
+    select this control comes out byte-for-byte as it did.
+
+    Geometry, at the selected end's roof plane (the gable triangle's own plane,
+    one eave overhang proud of the wall):
+
+      - two rake prisms, from each eaves corner up to the apex, their top in
+        the rake plane and their soffit `section_m` below it, standing
+        `projection_m` proud of the gable;
+      - two returns, `return_m` long, running inward from each eaves corner at
+        the eave line, closing the assembly with their own end faces.
+
+    The rakes and the returns interpenetrate at the corners, which is the
+    mitre a cornice is actually built with; neither floats and neither opens a
+    hole. The face against the gable is left off — it is coincident with the
+    gable triangle, so drawing it would only z-fight.
+    """
+    g = params.main_gable_cornice
+    section = float(g["section_m"])
+    projection = float(g["projection_m"])
+    run = float(g["return_m"])
+
+    y0, y1 = -ROOF_OVERHANG, d + ROOF_OVERHANG
+    mid = d / 2.0
+    outward = 1 if g["end"] == "+x" else -1
+    plane = (w + ROOF_OVERHANG) if outward > 0 else -ROOF_OVERHANG
+    face = plane + outward * projection
+    out_x = (float(outward), 0.0, 0.0)
+
+    # Every section is a working choice, so the whole assembly is painted at
+    # the reconstructed tier — 1.0 in _CONFIDENCE, the same value the wall-clad
+    # gable triangles take.
+    conf = 1.0
+
+    for eave_y in (y0, y1):
+        # top (in the rake plane), soffit, and the fascia that faces the street
+        _face(b, [(plane, eave_y, wall_z), (face, eave_y, wall_z),
+                  (face, mid, ridge_z), (plane, mid, ridge_z)],
+              (0.0, 0.0, 1.0), conf)
+        _face(b, [(plane, eave_y, wall_z - section), (face, eave_y, wall_z - section),
+                  (face, mid, ridge_z - section), (plane, mid, ridge_z - section)],
+              (0.0, 0.0, -1.0), conf)
+        _face(b, [(face, eave_y, wall_z), (face, eave_y, wall_z - section),
+                  (face, mid, ridge_z - section), (face, mid, ridge_z)],
+              out_x, conf)
+
+    for eave_y, inward in ((y0, 1.0), (y1, -1.0)):
+        stop = eave_y + inward * run
+        lo, hi = wall_z - section, wall_z
+        # five faces, not six: the one against the gable is coincident with the
+        # gable triangle, so drawing it would only z-fight with it.
+        _face(b, [(plane, eave_y, hi), (face, eave_y, hi),
+                  (face, stop, hi), (plane, stop, hi)], (0.0, 0.0, 1.0), conf)
+        _face(b, [(plane, eave_y, lo), (face, eave_y, lo),
+                  (face, stop, lo), (plane, stop, lo)], (0.0, 0.0, -1.0), conf)
+        _face(b, [(face, eave_y, lo), (face, eave_y, hi),
+                  (face, stop, hi), (face, stop, lo)], out_x, conf)
+        for y, away in ((eave_y, -inward), (stop, inward)):
+            _face(b, [(plane, y, lo), (face, y, lo), (face, y, hi), (plane, y, hi)],
+                  (0.0, away, 0.0), conf)
 
 
 def _corner_wall_box(b: MeshBuilder, axis: str, plane: float, outward: int,
@@ -904,26 +1004,35 @@ def _fenestration(b: MeshBuilder, params: FrameTavernParams, w: float, d: float,
             # entrance is on the FACADE, which is the +y face in Blender and
             # therefore faces north once exported — bearing 0 per the contract.
             if story == 0 and i == bays // 2:
-                _door(b, params, "y", d, 1, cx - 0.6, cx + 0.6, 0.0, 2.1, conf)
-                if params.entrance_frontispiece:
-                    _frontispiece(b, params, cx, d)
+                if params.front_opening_details is not None:
+                    _pictured_front_entrance(b, params, cx, d)
+                else:
+                    _door(b, params, "y", d, 1, cx - 0.6, cx + 0.6, 0.0, 2.1, conf)
+                    if params.entrance_frontispiece:
+                        _frontispiece(b, params, cx, d)
                 continue
             for y, sgn in ((0.0, -1.0), (d, 1.0)):
-                _win(b, params, "y", y, int(sgn), cx - win_w / 2, cx + win_w / 2, z0,
-                     z0 + win_h, conf)
+                # Only the pictured lower facade opts in; rear and upper stock stay exact.
+                sash = params.front_lower_sash if story == 0 and sgn > 0 else None
+                sash_w = sash["width_m"] if sash else win_w
+                sash_h = sash["height_m"] if sash else win_h
+                sash_z = sash["sill_m"] if sash else z0
+                sash_conf = params.conf("front_lower_sash", "reconstructed") if sash else conf
+                _win(b, params, "y", y, int(sgn), cx - sash_w / 2, cx + sash_w / 2, sash_z,
+                     sash_z + sash_h, sash_conf)
                 if params.shutters:
                     for side in (-1, 1):
                         # hung on the casing's outer edge (T-2278)
-                        x0 = cx + side * (win_w / 2 + openings.CASING_W_M + 0.01)
-                        x1 = x0 + side * (win_w * 0.42)
+                        x0 = cx + side * (sash_w / 2 + openings.CASING_W_M + 0.01)
+                        x1 = x0 + side * (sash_w * 0.42)
                         yl = y + sgn * (depth * 0.4)
                         lo, hi = min(x0, x1), max(x0, x1)
                         a_, b_ = (lo, hi) if sgn < 0 else (hi, lo)
-                        b.add_poly([(a_, yl, z0), (b_, yl, z0),
-                                    (b_, yl, z0 + win_h), (a_, yl, z0 + win_h)],
+                        b.add_poly([(a_, yl, sash_z), (b_, yl, sash_z),
+                                    (b_, yl, sash_z + sash_h), (a_, yl, sash_z + sash_h)],
                                    c_shut, M_SHUTTER)
                         if params.shutter_type == "louvred":
-                            _louvres(b, params, lo, hi, yl, sgn, z0, win_h)
+                            _louvres(b, params, lo, hi, yl, sgn, sash_z, sash_h)
 
 
 def _end_windows(b: MeshBuilder, params: FrameTavernParams, w: float,
@@ -943,6 +1052,54 @@ def _end_windows(b: MeshBuilder, params: FrameTavernParams, w: float,
         _win(b, params, "x", plane, out, uc - width / 2, uc + width / 2,
              bottom, top, c, skin=0.0 if attic else LIP_M)
 
+
+
+def _pictured_front_entrance(b: MeshBuilder, params: FrameTavernParams,
+                            cx: float, d: float) -> None:
+    """Andreas's broad high case, transom and side lights, front face only.
+
+    This is a closed dark field in front of the existing wall, not a hole or a
+    reconstructed hotel interior. Exact sections and light divisions are liberties.
+    The default path never calls this or adds its one dark material.
+    """
+    g = params.front_opening_details
+    c = params.conf("front_opening_details", "reconstructed")
+    kit = _kit(b, params)
+    wall = openings.Wall("y", d, 1, LIP_M)
+    dark = b.named_mat("front_entrance_dark_recess", (.018, .017, .015, 1.), .97)
+    outer = g["jamb_outer_width_m"] / 2
+    inner = outer - .14
+    leaf_top, transom_top = g["leaf_head_m"], g["transom_top_m"]
+    openings.face(b, wall, LIP_M + .005, cx-inner, cx+inner,
+                  .04, transom_top, c, dark)
+    # Tall casing legs, with a broader shallow crown above the neighbouring sash.
+    for side in (-1, 1):
+        lo, hi = sorted((cx + side * inner, cx + side * outer))
+        b.add_box(lo, d + .035, .0, hi, d + .15, transom_top,
+                  c, kit.casing, skip=("bottom", "front"))
+    half = g["case_width_m"] / 2
+    crown = g["cornice_top_m"]
+    b.add_box(cx-half+.05, d+.035, transom_top,
+              cx+half-.05, d+.30, crown-.06, c, kit.casing, skip=("front",))
+    b.add_box(cx-half, d+.025, crown-.06,
+              cx+half, d+.36, crown, c, kit.casing, skip=("front",))
+    # The narrow side lights flank a dark central leaf/aperture. A single
+    # reconstructed mullion section separates them; no pane count is attested.
+    leaf_half, light_w = g["leaf_width_m"] / 2, g["sidelights_each_width_m"]
+    gap = (inner - leaf_half - light_w) / 2
+    for side in (-1, 1):
+        lo, hi = sorted((cx + side * leaf_half, cx + side * (leaf_half + .05)))
+        openings.face(b, wall, LIP_M + .065, lo, hi, .055, leaf_top,
+                      c, kit.casing)
+    for side in (-1, 1):
+        mid = cx + side * (leaf_half + gap + light_w / 2)
+        openings.window(b, wall, mid-light_w/2, mid+light_w/2,
+                        .45, leaf_top, c, kit, 1, (2, 1),
+                        cap=False, casing_w=.045, head_w=.045)
+    openings.transom_light(b, wall, cx-inner, cx+inner,
+                           leaf_top, transom_top, c, kit)
+    b.add_box(cx-outer, d+.02, .0, cx+outer, d+.28, .055,
+              c, kit.casing, skip=("bottom", "front"))
 
 
 def _frontispiece(b: MeshBuilder, params: FrameTavernParams, cx: float,
@@ -1079,3 +1236,93 @@ def _log_wing(b: MeshBuilder, params: FrameTavernParams, main_d: float) -> None:
         for x in (x0h + 0.06, x1h - 0.06):
             b.add_box(x - 0.045, yo - 0.135, 0, x + 0.045, yo - 0.045,
                       zo - thk2, c_h, M_LOG, skip=("bottom", "top"))
+
+
+def _enclosed_left_annex(b: MeshBuilder, p: FrameTavernParams, w: float, d: float) -> None:
+    """Optional undated enclosed shoulder, low link and left gabled range.
+
+    Pictured occurrence is inferred; every numeric layout/section and hidden face
+    is reconstructed. An open shoulder leaves the independent yard bay visible;
+    the closed reading never suppresses props or invents an alteration date.
+    """
+    g=p.enclosed_left_annex
+    c=p.conf("enclosed_left_annex", "reconstructed")
+    for part in p.left_annex_parts:
+        if not part["occupied"]:
+            continue
+        name=part["id"];v=g[name]
+        x0,x1,y0,front=part["x0"],part["x1"],part["back"],part["front"]
+        h=v["wall_m"]
+        first_vertex=len(b.verts)
+        b.add_box(x0,y0,0,x1,front,h,c,M_WALL,skip=("bottom",))
+        _annex_courses(b,p,x0,y0,x1,front,h,c)
+        if name=="boarding_range":
+            _annex_gable_roof(b,p,x0,y0,x1,front,h,v["roof_pitch_deg"],c)
+        else:
+            # Shoulder falls away from the main block. The low connector rises
+            # toward the farther boarding range, a declared diagnostic first fit.
+            z0,z1=((v["roof_high_m"],v["roof_low_m"]) if name=="shoulder"
+                   else (v["roof_low_m"],v["roof_high_m"]))
+            _annex_shed_roof(b,x0,y0,x1,front,h,z0,z1,c)
+        if name != "connector":
+            f,z,ww,hh=v["front_window"];cx=x0+f*v["span_m"]
+            _win(b,p,"y",front,+1,cx-ww/2,cx+ww/2,z,z+hh,c)
+            f,z,ww,hh=v["front_gable_light"];cx=x0+f*v["span_m"]
+            if name=="shoulder":
+                # A small closed dormer proxy over this lower roof. Its unseen
+                # depth and 250mm side cheeks remain reconstructed.
+                a0,a1=cx-ww/2-.25,cx+ww/2+.25
+                yf=front+ROOF_OVERHANG+.02;yb=yf-.9;head=z+hh+.15
+                b.add_box(a0,yb,v["roof_low_m"],a1,yf,head,c,M_WALL,skip=("bottom",))
+                pitch=math.degrees(math.atan((v["front_gable_peak_m"]-head)/((a1-a0+.1)/2)))
+                _annex_gable_roof(b,p,a0,yb,a1,yf,head,pitch,c,overhang=.05)
+                _win(b,p,"y",yf,+1,cx-ww/2,cx+ww/2,z,z+hh,c,skin=0.)
+            else:
+                _win(b,p,"y",front+ROOF_OVERHANG,+1,cx-ww/2,cx+ww/2,z,z+hh,c,skin=0.)
+                f,ww,hh=v["front_door"];cx=x0+f*v["span_m"]
+                _door(b,p,"y",front,+1,cx-ww/2,cx+ww/2,0.,hh,c,kind="back")
+        if part["rotated"]:
+            # A separate pictured gabled range need not share the main block's
+            # heading. Turn the actual envelope, courses and openings together
+            # about its connector-side rear corner, retaining the attachment.
+            cs,sn=part["cos"],part["sin"]
+            for i in range(first_vertex,len(b.verts)):
+                px,py,pz=b.verts[i];dx,dy=px-x0,py-y0
+                b.verts[i]=(x0+dx*cs-dy*sn,y0+dx*sn+dy*cs,pz)
+
+
+def _annex_courses(b,p,x0,y0,x1,y1,wall_z,c):
+    """The existing frame stock and material, translated onto bounded annex walls."""
+    lip=.018
+    for z in materials.course_lines(0.,wall_z,p.siding_exposure_m,p.siding_lay_m,p.siding_seed):
+        for y,out in ((y0,-1),(y1,+1)):
+            pts=[(x0,y,z),(x1,y,z),(x1,y+out*lip,z-.02),(x0,y+out*lip,z-.02)]
+            b.add_poly(list(reversed(pts)) if out<0 else pts,c,M_WALL)
+        for x,out in ((x0,-1),(x1,+1)):
+            pts=[(x,y0,z),(x,y1,z),(x+out*lip,y1,z-.02),(x+out*lip,y0,z-.02)]
+            b.add_poly(list(reversed(pts)) if out>0 else pts,c,M_WALL)
+
+
+def _annex_shed_roof(b,x0,y0,x1,y1,wall_z,z0,z1,c):
+    """Closed shallow roof and upper wall infill, fixed +X slope topology."""
+    slope=(z1-z0)/(x1-x0);o=ROOF_OVERHANG
+    b.add_poly([(x0-o,y0-o,z0-o*slope),(x1+o,y0-o,z1+o*slope),
+                (x1+o,y1+o,z1+o*slope),(x0-o,y1+o,z0-o*slope)],c,M_ROOF)
+    b.add_poly([(x0,y0,wall_z),(x1,y0,wall_z),(x1,y0,z1),(x0,y0,z0)],c,M_WALL)
+    b.add_poly([(x1,y1,wall_z),(x0,y1,wall_z),(x0,y1,z0),(x1,y1,z1)],c,M_WALL)
+    b.add_poly([(x0,y1,wall_z),(x0,y0,wall_z),(x0,y0,z0),(x0,y1,z0)],c,M_WALL)
+    b.add_poly([(x1,y0,wall_z),(x1,y1,wall_z),(x1,y1,z1),(x1,y0,z1)],c,M_WALL)
+
+
+def _annex_gable_roof(b,p,x0,y0,x1,y1,eave,pitch,c,overhang=ROOF_OVERHANG):
+    """Native roof envelope; end triangles use the existing framed wall material."""
+    ridge=b.add_gable_roof(x0,y0,x1,y1,eave,pitch,c,M_ROOF,overhang=overhang,ridge_along_x=False)
+    b.mat_index[-2:]=[M_WALL,M_WALL]
+    # Same stock course rhythm, clipped to the two triangular wall faces.
+    mid=(x0+x1)/2;half=(x1-x0+2*overhang)/2
+    for z in materials.course_lines(eave,ridge,p.siding_exposure_m,p.siding_lay_m,p.siding_seed):
+        zlow=max(eave,z-.02);a=half*(1-(zlow-eave)/(ridge-eave));q=half*(1-(z-eave)/(ridge-eave))
+        for y,out in ((y0-overhang,-1),(y1+overhang,+1)):
+            pts=[(mid-a,y,zlow),(mid+a,y,zlow),(mid+q,y+out*.018,z),(mid-q,y+out*.018,z)]
+            b.add_poly(list(reversed(pts)) if out>0 else pts,c,M_WALL)
+    return ridge

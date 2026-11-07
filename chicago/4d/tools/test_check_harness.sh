@@ -15,6 +15,10 @@
 #      tickets were misfiled for want of, and it is one `step` away from returning.
 set -uo pipefail
 cd "$(dirname "$0")/.."
+# T-3299: the fixtures below are whole gates of their own. A part asked of the outer
+# gate is unset by the harness before any step starts, so this never sees one, and
+# unsetting it here says so where a reader of this file will look.
+unset CHECK_PART
 
 PASS=0
 FAILN=0
@@ -78,6 +82,65 @@ case "$plain_rollup" in
   *) bad "a failing step is named at the end, not only inline" ;;
 esac
 
+# T-3299. THE GATE IN PARTS. The N parts must be a partition of the same steps: every
+# step in exactly one part, the prerequisites (`every_part`) in all of them, and a part
+# that says, in words, that its pass is not the gate's.
+_part_fixture='
+  every_part step "prerequisite" bash -c "echo ran prerequisite"
+  for i in 1 2 3 4 5 6 7; do step "gate $i" bash -c "echo ran gate $i"; done
+  selftest "gate 8" bash -c "echo ran gate 8"
+  check_summary
+'
+_part_ran() { # <k/N> <jobs> -> the labels that ran, one per line
+  CHECK_PART="$1" CHECK_JOBS="$2" bash -c '
+    set -uo pipefail
+    source tools/check_harness.sh
+    '"$_part_fixture" 2>&1 | sed 's/\x1b\[[0-9;]*m//g' | sed -n 's/^.*ran \(.*\)$/\1/p'
+}
+whole="$(_part_ran "" 1 | sort)"
+for jobs in 1 4; do
+  union="$( { _part_ran 1/3 "$jobs"; _part_ran 2/3 "$jobs"; _part_ran 3/3 "$jobs"; } \
+            | grep -v '^prerequisite$' | sort)"
+  want "$union" "$(printf '%s\n' "$whole" | grep -v '^prerequisite$')" \
+       "three parts run every step of the whole gate exactly once (CHECK_JOBS=$jobs)"
+  pre="$( { _part_ran 1/3 "$jobs"; _part_ran 2/3 "$jobs"; _part_ran 3/3 "$jobs"; } \
+          | grep -c '^prerequisite$' || true)"
+  want "$pre" "3" "an every_part step runs in each part (CHECK_JOBS=$jobs)"
+done
+want "$(_part_ran 2/3 4 | tr '\n' ' ')" "prerequisite gate 1 gate 4 gate 7 " \
+     "a part deals the steps out in declared order, every N-th from its own (the prerequisite holds ordinal 1)"
+want "$(_part_ran 1/1 4 | sort)" "$whole" "--part 1/1 is the whole gate"
+
+part_out="$(CHECK_PART=2/3 bash -c '
+  set -uo pipefail
+  source tools/check_harness.sh
+  '"$_part_fixture" 2>&1 | sed 's/\x1b\[[0-9;]*m//g')"
+case "$part_out" in
+  *"CHECK PASS — part 2/3: 4 steps, none red."*"This is part 2 of 3; the other 5 steps are in the other parts."*"--part 1/3 through --part 3/3"*)
+    ok "a part's pass names its part and the steps it left to the others" ;;
+  *) bad "a part's pass names its part and the steps it left to the others — got: $(printf '%s' "$part_out" | tail -c 300)" ;;
+esac
+part_red="$(CHECK_PART=1/2 CHECK_JOBS=1 bash -c '
+  set -uo pipefail
+  source tools/check_harness.sh
+  step "red in part one" false
+  step "green in part two" true
+  check_summary
+' 2>&1)"
+want "$?" "1" "a red step fails the part it is in"
+case "$(printf '%s' "$part_red" | sed 's/\x1b\[[0-9;]*m//g')" in
+  *"CHECK FAIL — part 1/2: 1 of 1 steps failed:"*) ok "a part's failure names its part" ;;
+  *) bad "a part's failure names its part — got: $(printf '%s' "$part_red" | tail -c 200)" ;;
+esac
+CHECK_PART=2/2 bash -c 'source tools/check_harness.sh; step "red in part one" false; step "green in part two" true; check_summary' >/dev/null 2>&1
+want "$?" "0" "…and only that part: the other part is green"
+for spec in 0/3 4/3 3 a/b 1/17 -1/2; do
+  CHECK_PART="$spec" bash -c 'source tools/check_harness.sh; echo started' >/dev/null 2>&1
+  want "$?" "2" "a malformed part \"$spec\" stops the gate before any step runs"
+done
+leaked="$(CHECK_PART=1/2 bash -c 'source tools/check_harness.sh; step "child" bash -c "printf %s \"\${CHECK_PART:-unset}\""; check_summary' 2>&1 | sed -n 's/^\(unset\|1\/2\)$/&/p')"
+want "$leaked" "unset" "a step started in a part cannot see the part, so it cannot inherit it"
+
 # ------------------------------------------------------- B. the gate uses it
 
 # A step is written either on one line (`step "label" check_js`) or on two, with the
@@ -86,8 +149,8 @@ esac
 scan_check() { # <file> -> offending "line: reason" rows on stdout
   awk '
     BEGIN { selftest_commands["  node tools/test_batch_shadow_cull.mjs"] = 1 }
-    /^step "/ || /^selftest "/ {
-      n = NR; kind = ($0 ~ /^selftest "/) ? "selftest" : "step"
+    /^(every_part )?(step|selftest) "/ {
+      n = NR; kind = ($0 ~ /^(every_part )?selftest "/) ? "selftest" : "step"
       if ($0 ~ /\\$/) { getline cmd } else { cmd = $0 }
       looks = (cmd ~ /self-?test/ || cmd in selftest_commands)
       if (kind == "step" && looks)
@@ -141,7 +204,7 @@ fi
 # is the fix, and it is how a label names a verb without running it.
 scan_labels() { # <file> -> offending "line: reason" rows on stdout
   awk '
-    /^step "/ || /^selftest "/ {
+    /^(every_part )?(step|selftest) "/ {
       for (i = 1; i <= length($0); i++) {
         c = substr($0, i, 1)
         if (c == "\\") { i++; continue }
@@ -353,6 +416,72 @@ one_core_jobs="$(bash -c 'unset CHECK_JOBS; nproc() { printf "1\n"; }; source to
 want "$one_core_jobs" "1" "a single available fixture core legitimately defaults to one job"
 want "$(CHECK_JOBS=1 bash -c 'source tools/check_harness.sh; printf "%s" "$CHECK_JOBS"')" "1" \
      "…and an explicit CHECK_JOBS still wins, which is the escape hatch"
+
+# The CI partition keeps the same required gate and refuses incomplete verdicts.
+if python3 - ../../.github/workflows/chicago-4d-check.yml <<'PY_GATE_PARTITION'
+from pathlib import Path
+import json, re, sys
+source = Path(sys.argv[1]).read_text()
+def valid(text):
+    text = '\n'.join(line for line in text.splitlines() if not line.lstrip().startswith('#'))
+    if '\njobs:\n' not in text: return False
+    text = text.split('\njobs:\n', 1)[1]
+    jobs = {}
+    for match in re.finditer(r'^  ([a-z][a-z0-9-]*):\s*$', text, re.M):
+        start = match.end(); following = re.search(r'^  [a-z][a-z0-9-]*:\s*$', text[start:], re.M)
+        jobs[match.group(1)] = text[start:start + following.start()] if following else text[start:]
+    if set(jobs) != {'check-part', 'gate'}: return False
+    part, gate = jobs['check-part'], jobs['gate']
+    if re.search(r'^\s+(?:include|exclude):', part, re.M): return False
+    if re.findall(r'^\s+if:\s*(.+)$', gate, re.M) != ['${{ always() }}']: return False
+    required = [
+        '    name: gate part ${{ matrix.part }}/8',
+        '    runs-on: ubuntu-latest', '      fail-fast: false', '      max-parallel: 8',
+        '          fetch-depth: 0', '          filter: blob:none',
+        "          C4D_GATE_REQUIRE_READERS: '1'", "          C4D_GATE_REQUIRE_BASE: '1'",
+        '          CHECK_JOBS: ${{ steps.jobs.outputs.n }}',
+        '        run: timeout --kill-after=5s 600s ./tools/check.sh --part "${{ matrix.part }}/8"',
+        '          node chicago/4d/tools/check-changelog-entry.mjs',
+        '          "${{ github.event.pull_request.base.sha }}"',
+        '          "${{ github.event.pull_request.head.sha }}"',
+    ]
+    if any(line not in part.splitlines() for line in required): return False
+    matrix = re.search(r'^        part: (\[[^\n]+\])$', part, re.M)
+    if not matrix or json.loads(matrix.group(1)) != list(range(1, 9)): return False
+    if re.findall(r'^\s+if:\s*(.+)$', part, re.M) != ["github.event_name == 'pull_request'"]: return False
+    if 'continue-on-error:' in text: return False
+    for line in ['    name: gate', '    needs: check-part', '    if: ${{ always() }}',
+                 '    runs-on: ubuntu-latest', '          PARTS_RESULT: ${{ needs.check-part.result }}',
+                 '        run: test "$PARTS_RESULT" = success']:
+        if line not in gate.splitlines(): return False
+    if len(re.findall(r'^\s+run:', gate, re.M)) != 1: return False
+    return True
+assert valid(source), 'native CI partition or final required gate changed'
+controls = [
+    source.replace('part: [1, 2, 3, 4, 5, 6, 7, 8]', 'part: [1, 2, 3, 4, 5, 6, 7]'),
+    source.replace('600s ./tools/check.sh', '601s ./tools/check.sh'),
+    source.replace('/8"', '/4"'),
+    source.replace('timeout --kill-after=5s 600s ./tools/check.sh --part "${{ matrix.part }}/8"', 'true'),
+    source.replace("C4D_GATE_REQUIRE_READERS: '1'", "C4D_GATE_REQUIRE_READERS: '0'"),
+    source.replace("C4D_GATE_REQUIRE_BASE: '1'", "C4D_GATE_REQUIRE_BASE: '0'"),
+    source.replace('fetch-depth: 0', 'fetch-depth: 1'),
+    source.replace('    steps:\n', '    if: false\n    steps:\n', 1),
+    source.replace('    if: ${{ always() }}\n', ''),
+    source.replace('test "$PARTS_RESULT" = success', 'test "$PARTS_RESULT" != failure'),
+    source.replace('    name: gate\n', '    name: different-check\n'),
+    source.replace('        part: [1, 2, 3, 4, 5, 6, 7, 8]', '        part: [1, 2, 3, 4, 5, 6, 7, 8]\n        exclude:\n          - part: 8'),
+    source.replace('        part: [1, 2, 3, 4, 5, 6, 7, 8]', '        part: [1, 2, 3, 4, 5, 6, 7, 8]\n        include:\n          - part: 1'),
+    source.replace('    if: ${{ always() }}\n', '    if: ${{ always() }}\n    if: false\n'),
+]
+for i, broken in enumerate(controls, 1):
+    assert not valid(broken), f'unsafe CI shape control {i} passed'
+print(f'CI partition: required gate and all eight native parts; {len(controls)} refusal controls pass')
+PY_GATE_PARTITION
+then
+  ok "CI requires every native part before the required gate can pass"
+else
+  bad "CI can hide an incomplete native partition or changed required check"
+fi
 
 printf '\n%d passed, %d failed\n' "$PASS" "$FAILN"
 [ "$FAILN" -eq 0 ]

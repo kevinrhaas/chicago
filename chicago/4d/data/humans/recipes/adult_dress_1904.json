@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "liberty": "L418",
+  "height_scale": 1.0,
+  "lod_ratios": [
+    1.0,
+    0.6,
+    0.28,
+    0.12
+  ],
+  "skin_texture": {
+    "path": "assets/authored/humans/skin_toigo_bronze_female/young_lightskinned_female_diffuse_Bronze.png",
+    "sha256": "535535f30bacd42111590df4b03cf3b6bcdb7db18f336ce670665ec332ab3e0b",
+    "license": "CC0-1.0",
+    "color_space": "sRGB",
+    "base_color_factor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "roughness": 0.68,
+    "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
+    "identity_basis": "Cleared reusable generic skin atlas; not a likeness, attested complexion, or source identifying any named/reconstructed resident.",
+    "uv_status": "Source atlas and UV registration viewed in source diagnostics; final Blender export/LOD render validation remains outstanding.",
+    "female_appearance_status": "The same author's female bronze atlas (skins01, CC0), replacing the male one whose beard shadow read as a man's jaw at 3 m (T-3434); photographic qualification remains open."
+  },
+  "hair_component": {
+    "fitter": "mhclo_proxy",
+    "directory": "assets/authored/humans/hair_bun_brown",
+    "mhclo": "rehmanpolanski_hair_bun_brown.mhclo",
+    "obj": "hair_bun_brown.obj",
+    "texture": "hair_bun_brown_dark_tie.png",
+    "texture_size": [
+      2048,
+      2048
+    ],
+    "topology": [
+      2524,
+      4432
+    ],
+    "material": "hair__makehuman_bun",
+    "object": "bun",
+    "roughness": 0.65,
+    "alpha_cutoff": 0.4,
+    "appearance_basis": "Cleared CC0 bun hair (RehmanPolanski, from the MakeHuman ponytail01), the hair drawn back smooth from the face to a bun at the back of the head, as the 1903 Wasson stereographs show a working woman's hair drawn up; its red velvet tie recoloured dark (T-3434). No personal appearance or photographic qualification is asserted.",
+    "source_manifest_sha256": "1c4e95ace2160f24f37837e4ae8dd592c85f9c3cf0afd53bcf0ed5789ca30903"
+  },
+  "eye_components": {
+    "radius_m": 0.012,
+    "iris_radius_m": 0.0055,
+    "pupil_radius_m": 0.0022,
+    "corneal_bulge_m": 0,
+    "cornea_enabled": false,
+    "source_basis": "Actual helper centers/axes; original opaque sclera/iris/pupil, reconstructed dimensions and brown color, not resident facts",
+    "status": "No actual BPy/export/blink fit/photographic acceptance"
+  },
+  "label": "Opt-in reconstructed 1904 working dress (shirtwaist, dark skirt, white bib apron) on the shared portable rig",
+  "scene_date": "1904-07-01",
+  "grade": "reconstructed",
+  "sources": [
+    "loc_wasson_1903_charming_rogue_new_cook_stereograph",
+    "loc_wasson_1903_new_french_cook_mr_mrs_stereograph",
+    "loc_wasson_1903_new_french_cook_stereograph"
+  ],
+  "basis": "Original reusable shirtwaist bodice with a standing collar, gathered dark skirt, front apron with a bib laid over the bodice, and source-fitted closed shoes, cut after the working dress the 1903 Wasson stereographs show (T-3423). Seams, proportions and colours are conjectural. Complete source anatomy remains unchanged beneath clothing. No accepted photographic or historical personal likeness.",
+  "source_scope": "Three actually viewed 1903 C. L. Wasson studio stereographs (LOC, no known restrictions) supply the silhouette of a working woman's pale shirtwaist and standing collar, a bib apron and a long dark skirt, and the swept-up hair of the decade. They are not Chicago and not of the Glessner household; no image pixels or traced garment shapes enter the asset.",
+  "colors_linear_rgba": {
+    "skin": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "eyes": [
+      0.12,
+      0.09,
+      0.06,
+      1.0
+    ],
+    "garment_upper__plain_dress": [
+      0.56,
+      0.59,
+      0.64,
+      1.0
+    ],
+    "garment_lower__plain_dress": [
+      0.028,
+      0.03,
+      0.036,
+      1.0
+    ],
+    "garment_outer__plain_apron": [
+      0.72,
+      0.71,
+      0.67,
+      1.0
+    ],
+    "footwear__plain_low_shoes": [
+      0.02,
+      0.018,
+      0.016,
+      1.0
+    ]
+  },
+  "workwear_coverage": {
+    "shoe_clearance_m": 0.004
+  },
+  "proof_variants": [
+    {
+      "id": "williamson_mattie_1904_cook_study",
+      "component_assembly": "adult_dress_v1",
+      "person_reference_id": "glessner_williamson_martha_l",
+      "person_reference_scene": "1904",
+      "person_reference_grade": "attested",
+      "person_reference_record": "data/residents_1904/households/hh_glessner_john_j.json",
+      "reference_summary": {
+        "name": "Martha L. (Mattie) Williamson",
+        "occupation": "cook",
+        "household": "hh_glessner_john_j",
+        "presence": "present"
+      },
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_adult_female_25.json",
+      "body_parameters": {
+        "chosen_height_m": 1.65,
+        "height_basis": "Reconstructed authoring choice; not a recorded resident height",
+        "engineering_age_years": 25,
+        "age_basis": "Engineering body only; no birth year is recorded for her, and the variation kit draws her age",
+        "shape_basis": "Equal cleared upstream female-young software-category blend, not inferred ancestry or a portrait"
+      },
+      "body_basis": "CC0 adult-female graphical target body and generic cleared skin are reconstructed authoring choices. Martha Williamson is an attested person (the museum's account of her); no portrait, actual personal outfit, complexion, biological age or height is asserted.",
+      "recipe_path": "data/humans/recipes/adult_dress_1904.json"
+    }
+  ],
+  "dress_components": {
+    "version": 1,
+    "liberty": "L-human-modular-dress-1789",
+    "body_sha256": "3060ee86957ff7c2d70c89e70fe95ff3bc2294a0d7f6a5716b5a2f3f8dd84c72",
+    "standing_source_only": true,
+    "production_eligible": false,
+    "walking_seated_or_photo_accepted": false,
+    "generator": "tools/human_dress_components.py",
+    "outfit": "1904"
+  }
+}

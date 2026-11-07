@@ -93,6 +93,8 @@ from block_faces import face_frame, project
 # the table is imported from where it is argued, and there is one answer in this
 # repository rather than two that can drift apart.
 from generate_business_signboards import PUBLIC_TRADES, TRADE_GRADES, WORKS_TRADES
+from occupied_footprints import additional_world_polygons
+
 import generate_entrances as entrances  # noqa: E402
 import gate_kinds  # noqa: E402
 
@@ -702,12 +704,22 @@ FRONTAGE_BY_BUSINESS = {
     "store": {"walk": "board", "posts": (HITCH_ALONG[0],), "stoop": True},
     "forwarding": {"walk": "decked", "posts": (HITCH_ALONG[0],), "wagon_apron": True},
     "works": {"walk": "bare", "posts": (), "tie_rail": True},
+    # T-3360 — A CHURCH TAKES ITS STOOP AND NOTHING ELSE. The owner, 2026-11-03, over St.
+    # Mary's at Lake and State: "provide an entrance for st marys". A congregation came on
+    # foot off the walk, so its door takes the same landing and step a store's does, and
+    # no post: nobody tied a horse in front of a church door for a sale.
+    "church": {"walk": "board", "posts": (), "stoop": True},
 }
+
+CHURCH_TRADES = {"church"}
 
 
 def business_class(trade):
     """Which row of FRONTAGE_BY_BUSINESS a trade's front takes, or None for a
-    dwelling, an outbuilding or a church — nothing a stranger came to do business at."""
+    dwelling or an outbuilding — nothing a stranger came to do business at. A church
+    is its own row (T-3360): a stoop at its door, and no post."""
+    if trade in CHURCH_TRADES:
+        return "church"
     if trade in INN_TRADES:
         return "inn"
     if trade in FORWARDING_TRADES:
@@ -2565,12 +2577,15 @@ def _placed_footprints() -> list[dict]:
         pts = [_to_enu(u, v, place) for u, v in poly]
         ce = sum(p[0] for p in pts) / len(pts)
         cn = sum(p[1] for p in pts) / len(pts)
-        r = max(math.hypot(p[0] - ce, p[1] - cn) for p in pts)
+        extras = additional_world_polygons(sc)
+        occupied = [pts, *extras]
+        r = max(math.hypot(p[0] - ce, p[1] - cn) for ring in occupied for p in ring)
         # The trade rides along with the footprint (T-0194). It is the sidecar's
         # own `attributes.function`, which is the field the signboard rule reads,
         # so the two layers ask the same record the same question.
         fn = (sc.get("attributes") or {}).get("function") or {}
         out.append({"id": sc.get("id") or path.stem, "pts": pts,
+                    **({"occupied_parts": occupied} if extras else {}),
                     "e": ce, "n": cn, "r": r,
                     "name": sc.get("name") or "",
                     "trade": fn.get("value"),
@@ -2641,16 +2656,16 @@ def _stands_on(building, lot) -> bool:
     building standing on them at all.
     """
     poly = lot["polygon"]
-    pts = building["pts"]
-    if any(_inside(p, poly) for p in pts):
-        return True
-    if any(_inside(p, pts) for p in poly):
-        return True
-    for i in range(len(pts)):
-        for j in range(len(poly)):
-            if _segments_cross(pts[i], pts[(i + 1) % len(pts)],
-                               poly[j], poly[(j + 1) % len(poly)]):
-                return True
+    for pts in building.get("occupied_parts", [building["pts"]]):
+        if any(_inside(p, poly) for p in pts):
+            return True
+        if any(_inside(p, pts) for p in poly):
+            return True
+        for i in range(len(pts)):
+            for j in range(len(poly)):
+                if _segments_cross(pts[i], pts[(i + 1) % len(pts)],
+                                   poly[j], poly[(j + 1) % len(poly)]):
+                    return True
     return False
 
 
@@ -2666,7 +2681,7 @@ def _wall_on(point, half_w, outward, buildings) -> str | None:
             continue
         for off in (-half_w, 0.0, half_w):
             probe = (point[0] + outward[0] * off, point[1] + outward[1] * off)
-            if _inside(probe, b["pts"]):
+            if any(_inside(probe, ring) for ring in b.get("occupied_parts", [b["pts"]])):
                 return b["id"]
     return None
 
@@ -3027,8 +3042,8 @@ def _edge_hitching(entry, laid, chunks, buildings, hf, streets, refused, decked=
                 "frontages the layer was built from.")})
             continue
         cls = business_class(trade)
-        if cls is None:
-            continue          # a dwelling, a privy, a stable — nothing to refuse
+        if cls is None or cls == "church":
+            continue          # a dwelling, a privy, a stable, a church — no post to refuse
         alongs = FRONTAGE_BY_BUSINESS[cls]["posts"]
         if trade in WORKS_TRADES or not alongs or trade not in (
                 *PUBLIC_TRADES, *COUNTER_TRADES):
@@ -3356,6 +3371,29 @@ def _business_fronts(entry, buildings, walk_kind) -> list:
         spans = [project(frame, tuple(p))[0] for p in b["pts"]]
         out.append((b, where, cls, min(spans), max(spans)))
     return out
+
+
+# T-3360 — A CHURCH DOOR IS REACHED OFF THE WALK. St. Mary's stands at Lake and State,
+# where the ground climbs 0.08 m over every 5.2 m march step toward State Street — 0.01 m
+# past the EDGE_FLAT_M one deck may carry — so the Lake Street walk stopped 40 m short of
+# its door and the owner found a church with no way in (2026-11-03: "provide an entrance
+# for st marys"). The steps in front of a church's own frontage are laid
+# — every step its frontage reaches into, so the run is a sidewalk and not a landing —
+# when flatness is the ONLY thing that refused them and the ground under each rolls no more
+# than CHURCH_FLAT_M: one deck then floats at most that far over its low end, against the
+# 0.07 m everywhere else. Water, a wall and a stringer bay's roll still refuse as before.
+CHURCH_FLAT_M = 0.10
+
+
+def _church_front_cut(entry, spans, buildings) -> None:
+    for _b, _where, _cls, f0, f1 in [q for q in _business_fronts(entry, buildings, "board")
+                                     if q[2] == "church"]:
+        for sp in spans:
+            if (sp["lo"] < f1 and sp["hi"] > f0 and sp["why"]
+                    and "one walking deck may carry" in sp["why"]
+                    and sp["roll"] <= EDGE_STRINGER_ROLL_M
+                    and sp["high"] - sp["low"] <= CHURCH_FLAT_M):
+                sp["why"] = None
 
 
 def _bare_cut(entry, spans, buildings, refused) -> list:
@@ -3901,6 +3939,7 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
             continue
         spans = _march(frame, EDGE_OFFSET_M, half_w, hf, buildings)
         bare_fronts = _bare_cut(entry, spans, buildings, refused)
+        _church_front_cut(entry, spans, buildings)
         if entry.get("fronts_only"):
             _fronts_only_cut(entry, spans, buildings)
         census["bare_fronts"] += len(bare_fronts)
@@ -4511,7 +4550,8 @@ def street_edge_record(walks: list, fences: list, posts: list, fittings: list,
                 "front, a stoop at the door, a mounting block in the verge between "
                 "the posts), a STORE (one post and a stoop), a FORWARDING house or "
                 "warehouse (a wagon apron of heavy plank across the verge; the "
-                "counting room keeps its post) or a WORKS (a tie rail in the verge). "
+                "counting room keeps its post), a WORKS (a tie rail in the verge) or a "
+                "CHURCH (a stoop at its door and no post, T-3360). "
                 "A stoop needs the front wall at the door to stand at least "
                 f"{STOOP_MIN_GAP_M} m and under {EDGE_FENCE_SETBACK_M} m back of the "
                 "walk; an apron needs "

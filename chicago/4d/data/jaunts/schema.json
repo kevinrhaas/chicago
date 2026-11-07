@@ -82,6 +82,45 @@
       "minItems": 1,
       "uniqueItems": true
     },
+    "long_form": {
+      "type": "boolean",
+      "description": "T-3355: a story jaunt told in full; each stop's text may run 25-150 words instead of 25-60."
+    },
+    "ambience": {
+      "description": "T-3377: the light a jaunt is walked in, a viewing choice like Settings > Time of day and Season, never a claim about the day: `hour` stands at every stop without an hour of its own, `season` for the whole outing; both are given back when it ends.",
+      "type": "object",
+      "properties": {
+        "hour": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+            },
+            {
+              "enum": [
+                "daybreak",
+                "morning",
+                "daytime",
+                "afternoon",
+                "sunset",
+                "dusk",
+                "night"
+              ]
+            }
+          ]
+        },
+        "season": {
+          "enum": [
+            "summer",
+            "spring",
+            "fall",
+            "winter"
+          ]
+        }
+      },
+      "minProperties": 1,
+      "additionalProperties": false
+    },
     "variables": {
       "type": "object",
       "propertyNames": {
@@ -199,6 +238,16 @@
             "items": {
               "type": "string"
             }
+          },
+          "mode": {
+            "enum": [
+              "walk",
+              "wagon",
+              "horse",
+              "fly",
+              "instantly"
+            ],
+            "description": "T-3355: how this leg travels while the visitor is on the jaunt's default mode (a long ride Instantly). Must be one of the jaunt's allowed_modes."
           }
         },
         "required": [
@@ -665,6 +714,49 @@
           "minLength": 1,
           "maxLength": 2000,
           "pattern": "^[^<>]*$"
+        },
+        "hour": {
+          "description": "T-3328: the hour the scene shows at this stop, set on arrival through api.timeOfDay (T-3331) and given back when the jaunt ends: 'HH:MM' local mean solar time, or one of the setting's named times (renderers/web/js/time-of-day.js TIME_NAMES).",
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+            },
+            {
+              "enum": [
+                "daybreak",
+                "morning",
+                "daytime",
+                "afternoon",
+                "sunset",
+                "dusk",
+                "night"
+              ]
+            }
+          ]
+        },
+        "date": {
+          "description": "T-3328: the day the stop's hour falls on ('YYYY-MM-DD'), so a named time is solved on that day's sun.",
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "since": {
+          "description": "T-3406: how long since the stop before, the lead the stop opens with ('Four hours later', 'Four months later'). compile_jaunts.py checks it against the two stops' date and hour; in a jaunt that has one, every stop after the first has one.",
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 40,
+          "pattern": "^[A-Z0-9][A-Za-z0-9 ]*[a-z]$"
+        },
+        "hour_evidence": {
+          "description": "T-3328: the stop's own claims that give its hour; required with `hour`.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+            "maxLength": 90
+          },
+          "minItems": 1,
+          "uniqueItems": true
         }
       },
       "required": [

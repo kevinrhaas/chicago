@@ -1,0 +1,93 @@
+{
+  "structure_id": "marshall_field_jr_house_1919_prairie",
+  "view": "gatlin_programme_1919",
+  "glb": "assets/gltf/marshall_field_jr_house_1919_prairie__as_mapped_1904.glb",
+  "glb_sha256": "634a1d1ed99a1c15016ef60393780ad118d8310767a3ddac417427d92af2ffee",
+  "camera_sha256": "5761231c09122f5ce6c9fd950c12b502e4ff369c817aedbdd46f780f691c9a20",
+  "photo_sha256": "ea845bca0465b8b2d11fc97efe3f9b21ac4b569ee9a9b1c8743d605bf00b8f5e",
+  "side_by_side": "docs/RESEARCH/photo-match/marshall_field_jr_house_1919_prairie/gatlin_programme_1919-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "massing: the long north flank, the round tower close behind the front, the two very tall stacks and the front block's steep street hip stand where the plate draws them, the stacks' tops and the tower's top within about 10-25 px through this view's camera (fitted to them, the hip's apex and the front's north eave)",
+      "status": "fixed"
+    },
+    {
+      "what": "the street hip's pitch: the plate's front hip rises to its finial at about 15.9 m, 6.4 m over the 9.5 m eave; built at 52 degrees (T-3280), where T-3279 had 45",
+      "status": "fixed"
+    },
+    {
+      "what": "the round tower's top: the plate carries the tower past its third tier of windows as a plain band to a flat top with a heavy edge; built as a fourth, windowless 1.9 m storey under K08's nearly flat tin cap (T-3280), where T-3279 had a slated cone and finial",
+      "status": "fixed"
+    },
+    {
+      "what": "the broad street dormer of three lights under its gable: built 3.3 m wide with three lights (T-3280)",
+      "status": "fixed"
+    },
+    {
+      "what": "where the broad dormer stands along the front: through this camera its face lies about 1.6 m south of the front's centre, where the 2004 photograph shows it about 1 m north of it; built on the centre, between the two readings",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the smaller one-light street dormer near the front's south end, under its own steep gable, and the stack rising behind the street dormers at the front block's south side: T-3301 built the dormer 1.6 m wide at v 8.05 m with one light (K01's `dormer.also`) and the stack at u 14.5 m, v 7.5 m; through this camera the small dormer stands beside the broad one where the plate draws it, and the stack rises behind the broad dormer's gable within about 1 m of the plate's, just north of where the plate draws it at the gable's south slope",
+      "status": "fixed"
+    },
+    {
+      "what": "the broad dormer's stone-coped gable with kneelers and finial: T-3301 built a stone coping along each rake over the slate, a kneeler block at each foot and a small turned finial at the apex (K01's `dormer.coping`), the small dormer coped the same way; the plate's gable reads a little steeper than the built 45 degrees (about 0.5 m higher at the apex), which the 2004 photograph does not bear out, so it stays",
+      "status": "fixed"
+    },
+    {
+      "what": "the rear ranges' roofs: the plate draws a broad gable over the rear range, steep gables stepping down the flank, each carried up in a pale stone coping finialled at its peak; T-3337 carries both ranges' gables up in coping, kneelers and a 0.6 m finial; the small pinnacled dormers between the gables, on the rear range's slope facing the street: all three plates draw two, and T-3354 builds them (rear_wings.rear_range.roof.dormers, k01_wing_dormers): at v -3.85 and -2.3 m, their faces 0.3 m in from the range's wall line over the middle range's flat end, each a 1.0 m face with one tall light under a 60-degree stone-coped gable to its finial, a pinnacle at each edge; through this camera both land on the plate's two within about 5 px",
+      "status": "fixed"
+    },
+    {
+      "what": "the corner block's street face (T-3354, third run): the two-light stone-mullioned window this plate draws in each storey of the 3.1 m face the middle range stands out north of the front block, where the record had bare brick, is built (rear_wings.mullioned, the kit's paired flat sash under a stone lintel, its meeting rails where the plate draws a bar across each pair); through this camera the built pair lands about 13 px (about 0.4 m) right of the plate's, as the block's quoined corner itself does, so against the corner it stands where the plate puts it",
+      "status": "fixed"
+    },
+    {
+      "what": "the corner block's north face (T-3354, fourth run): the plate draws a group of three narrow pale lights under one head in each storey, mullioned, along the dark face west of the rear range's return; built as ONE three-light stone-mullioned group in each storey (k06.opening.sash_triple_flat, three 1.1 m lights on 0.2 m mullions under one stone lintel, centred at s 2.2 m), where the record had two single sashes at s 2.0 and 5.0 m. Read at 8x (x 420-530, y 490-690 px): the plate's group spans x 457-498, its west end 15 px short of the quoined corner; the render's ends 20 px short of its own corner (the camera stands the corner 15-17 px right of the plate's), so the count, the single head and the west end agree",
+      "status": "fixed"
+    },
+    {
+      "what": "the north-face group's east end (T-3354, fifth run): Read again at 6x through this camera, the plate's three pale lights stand at x 463, 477 and 493 in the upper storey, and the camera stands the 1911 trace's return corner (u -7.0, v -3.1) at x 478: the middle light falls on the corner itself, which no window can, so the camera is off here by about the light pitch. Moved 17 px to land the middle range's pale north-west corner on the plate's (the fourth run's shift), the corner falls at 461 and all three lights on the north face, the group reading 1.5-2 m longer than the build's 3.7 m; unmoved, the left light falls on the rear range's west return, which faces the camera (its 1.7 m spans 34 px against the north face's 7.4 px a metre), and the two to its right span about the build's group. Which of those the plate shows turns on a horizontal shift the size of the gap, so it is a gap two camera fits disagree about (T-3153): within tolerance, built on the trace's 7.0 m face with the 3.7 m group. The 1913 plate's group (33 px against 22) is the same reading through a camera within about 1 m and 1 degree of this one, not a second measurement.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "stone belts and dressings on the front block: the plate shows pale stone courses across the brick and a pale basement; T-3305 lays the basement to the principal floor under the front, the bow, the tower and the north flank, and three stone courses on the front carried round the main block's north flank (under the principal sills, at the second floor, under the chamber sills) in place of K03's brick string course. Through this camera the main block's flank stands mostly behind the lamp and the ivy, so the courses' lines there are judged by eye against the pale bands the plate shows on the front block, not measured; the plainest stone in the plate, on the rear ranges' bays, is the next item's",
+      "status": "fixed"
+    },
+    {
+      "what": "the main cornice over the front's north part: the plate runs the eave level across the front and round onto the flank over the trees, with no break where the bow stands below; T-3313 carries the bow up to the eave and the cornice's bed moulding, soffit and fascia round it, where T-3279's bow stopped under the bed with its own low cap",
+      "status": "fixed"
+    },
+    {
+      "what": "the front's lower storeys, its bow and the stoop: the parkway trees hide them",
+      "status": "not shown"
+    },
+    {
+      "what": "colour: the plate is monochrome",
+      "status": "not shown"
+    },
+    {
+      "what": "the electric street lamp, the automobile, the parkway trees and the fence's pattern: not part of this record",
+      "status": "not shown"
+    },
+    {
+      "what": "the rear ranges' stone: the plate draws pale quoins up the corners of the north flank's stepped-out ranges and pale courses across them, plainest of all its walls; T-3353 quoins both ranges' north-east corners (where each range's north wall meets the face it steps out on), long and short stones in turn from grade to the wall top, and carries the main block's three stone courses (under the principal sills, at the second floor, under the chamber sills) across both ranges' north walls and stepped-out faces in place of K03's brick course; through this camera the pale corners and bands stand where the plate's do, the stones themselves too fine in the halftone to count",
+      "status": "fixed"
+    },
+    {
+      "what": "the rear range's canted north bay's own corners: the plate draws the bay dark (brick or ivy) between the range's pale corners and does not resolve its own; T-3354 read it again in the 1912 Blue Book plate, whose coarser halftone draws it in deep shade among the trees and resolves no corner either, and the 1913 plate sees it under trees. No plate shows whether its corners are quoined, so it is built in brick with its stone-mullioned groups (T-3337) and no quoins of its own",
+      "status": "not shown"
+    },
+    {
+      "what": "the rear ranges' gables against all three Gatlin plates (T-3354): the MIDDLE range's gable now stands back 1.6 m from its north end over a flat deck (roof.flat_end) and is pitched 60 degrees, where it rose 50 degrees off the north wall; through the 1912, 1913 and 1919 cameras its finial now lands on the plates' highest gable within about 5 px across and 5 px up (it stood 25-30 px left and 30-60 px under). The rear range's gable apex, read again against all three Gatlin plates (T-3354, fifth run): the build's finial stands x 417 against the plate's 443 here (26 px) left of the plates' second gable, the same way in all three (the 1919 plate 26 px, the 1913 23 px, the 1912 about 35 px). It is not the plan: the middle range's finial and the plates' two dormers land within about 3-10 px, and no camera move closes it (walking the 1919 eye 10 m further back along its line of sight, focal re-scaled to hold the front, moves the apex 13 px further off). The one buildable reading that lands it is the rear range's north gable standing back about 1.45 m from its north wall over a flat deck, as the middle range's does: its apex then falls at x 445 on the 1919 plate (against 443), 273 on the 1913 (against 271) and 314 on the 1912 (against about 327). But the same plates draw the first of the two pinnacled dormers at v -3.85 m, within about 5-10 px of where it is built, which is 0.5 m in front of that set-back gable: a dormer cannot rise in front of the gable it stands behind, and set behind the gable's plane it lands 26, 23 and 20 px off in the three plates. So the plates' apex and their dormers disagree by about 1.3 m about where the rear range's gable stands, at the size of the cameras' own 25 px RMS residuals: within tolerance (T-3153), built as the 1911 trace and the dormers have it (L-k01-1919-range-dormers-3354)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the third, smaller gable the plates draw at the flank's far end, coped and finialled as the ranges' are: T-3354 roofs the garage under a slated gable facing the flank, pitched 54 degrees to an apex at 15.7 m, with the ranges' stone coping, kneelers and 0.6 m finial (where it was flat in tin); through this camera its apex lands on the plate's third gable within about 15 px",
+      "status": "fixed"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

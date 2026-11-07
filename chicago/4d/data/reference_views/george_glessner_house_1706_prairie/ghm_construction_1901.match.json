@@ -2,7 +2,7 @@
   "structure_id": "george_glessner_house_1706_prairie",
   "view": "ghm_construction_1901",
   "glb": "assets/gltf/george_glessner_house_1706_prairie__as_mapped_1904.glb",
-  "glb_sha256": "5a747ab9e9ad634071b9a69d4f8edc135fffe78cbcd85837ec6c0dddffaeaa57",
+  "glb_sha256": "5bb910a2881446389c7774abc0e6e6dc64acb13733bf95fdeec416f646b5601f",
   "camera_sha256": "d7e05311b1304078449f5b22e531ef5286302740d4e7d8e3fa4161fea21603be",
   "photo_sha256": "1ff92f1791176a4903d03470860b37f47871e6cca149297be8248f40c98f081b",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "5a747ab9e9ad634071b9a69d4f8edc135fffe78cbcd85837ec6c0dddffaeaa57"
+      "glb_sha256": "5bb910a2881446389c7774abc0e6e6dc64acb13733bf95fdeec416f646b5601f"
     },
     {
       "structure_id": "glessner_lee_house_1700_prairie",
@@ -37,12 +37,12 @@
         "phase": "as_mapped_1904"
       },
       "position": [
-        0.000054848602107582245,
+        5.4848602107582245e-05,
         0,
         -11.05056758709686
       ],
       "rotation_y": 0,
-      "glb_sha256": "35207868edd6434300bb3e60832a0577c1935cff74c0cdf78c0d977747b12e63"
+      "glb_sha256": "2725eb0c8a2b654dc6d1aaaa9fb53b16dc0f5551b1372f0e7f42622c86d73e81"
     },
     {
       "structure_id": "house_1708_prairie",
@@ -64,7 +64,7 @@
       "glb_sha256": "b2c0aa9da2efb90f7ca21650ff7ef4b048e4fe49933bd63cb762d1244c7c949a"
     }
   ],
-  "group_sha256": "cec984fb0dcd97598d9a0fc1a4efdad3ee217fb1c973e19da630ecc65ededc02",
+  "group_sha256": "1f6dbbe35e72b306405340fa0aebd1dcf80066facedf7df18f88154b12304d27",
   "side_by_side": "docs/RESEARCH/photo-match/george_glessner_house_1706_prairie/ghm_construction_1901-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -86,7 +86,7 @@
     {
       "what": "the cornice, the slate mansard, its pedimented dormers and the stacks",
       "status": "within tolerance",
-      "how": "in place in 1901; dormers, stacks and the cornice's line render where the print draws them to within the dormers' cases' width, as T-3211 left them in the later views"
+      "how": "in place in 1901; dormers, stacks and the cornice's line render where the print draws them to within the dormers' cases' width, as T-3211 left them in the later views T-3384 (the owner, 2026-11-05): the mansard now runs on unbroken across the pair with the party wall carried up through it, and the print's stack on the party wall at the front of the deck and the one on 1700's north end both render where it draws them"
     },
     {
       "what": "the porches, the balconettes, the balcony railings and the glazing",

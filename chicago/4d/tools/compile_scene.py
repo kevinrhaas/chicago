@@ -33,6 +33,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 
 sys.path.insert(0, str(ROOT / "tools"))
+from occupied_footprints import additional_parts  # noqa: E402
 from review_constraint import record_reason  # noqa: E402
 from tiers import tier_ladder, tier_label  # noqa: E402
 from exclusion_scope import ruled_for  # noqa: E402
@@ -260,11 +261,37 @@ def walk_surface_m(structure: dict, phase: dict):
         sys.path.insert(0, gen)
     try:
         mod = __import__(f"archetypes.{arch}_params", fromlist=["from_phase"])
-        value = getattr(mod.from_phase(phase), "deck_height_m", None)
+        params = mod.from_phase(phase)
+        value = getattr(params, "deck_height_m", None)
+        reader = getattr(mod, "walk_surface_profile", None)
+        if callable(reader):
+            profile = reader(params)
+            if profile is not None:
+                # A declared profile follows the mesh's exact parameter heights.
+                # Rounding only its scalar base would contradict its endpoints.
+                return float(profile["stations_m"][0][1])
     except Exception:  # noqa: BLE001
         return None
+    # Preserve the historical four-decimal scalar contract for every flat deck.
     return round(float(value), 4) if value is not None else None
 
+
+def walk_surface_profile(structure: dict, phase: dict):
+    """Optional archetype-owned local-span profile; omit for every flat default."""
+    arch = structure.get("archetype")
+    if not arch:
+        return None
+    gen = str(ROOT / "generators")
+    if gen not in sys.path:
+        sys.path.insert(0, gen)
+    try:
+        mod = __import__(f"archetypes.{arch}_params", fromlist=["from_phase"])
+    except ImportError:
+        return None
+    reader = getattr(mod, "walk_surface_profile", None)
+    if not callable(reader):
+        return None
+    return reader(mod.from_phase(phase, structure))
 
 def walk_passages(structure: dict, phase: dict):
     """T-2943: the passages a visitor may walk THROUGH a building's footprint, or `None`.
@@ -624,6 +651,9 @@ GROUND_GROUPS = [
     ("isthmus_1812", "the spit's neck"),
     ("north_lake_shore_1812", "the lake shore north of the spit"),
     ("south_lake_sand_hills_1812", "the sand hills south of Twelfth Street"),
+    ("twelfth_street_shore_join_1812", "the lake shore at Twelfth Street"),
+    ("battle_bank_1812", "the high sand bank of the battle"),
+    ("heald_small_elevation_1812", "Heald's small elevation"),
 ]
 
 
@@ -1337,6 +1367,20 @@ def compile_people(scene_id: str, outdir: Path) -> int:
             "works_at": first_place(links, "works_at"),
             **role_row_view(person),
         }
+        lived = person.get("lived_here")
+        if lived:
+            # A CHILD OF THE HOUSE WHO LIVED HERE IN OTHER YEARS (T-3382). The card names the
+            # years and whether that span reaches the scene date; a child gone before it (or
+            # born after it) reads absent, one the sources do not place either way uncertain,
+            # so the pins and the 'Here on 1 July' filter never put them in the house in 1904.
+            row["lived_here"] = {k: lived.get(k) for k in ("years", "on_scene_date") if lived.get(k)}
+            on = lived.get("on_scene_date")
+            if on == "no":
+                row["present"] = "absent"
+            elif on == "unknown" and row["present"] == "present":
+                row["present"] = "uncertain"
+        if person.get("own_card"):
+            row["own_card"] = person["own_card"]
         seat = seat_for.get(person.get("id"))
         if seat is not None and not row["lives_at"]:
             # THE SEAT IS THE ONLY PLACE THIS PERSON IS GIVEN A ROOF, and it is written
@@ -1657,6 +1701,7 @@ def compile_people(scene_id: str, outdir: Path) -> int:
         stage_vocab.append({"value": k, "label": stage_label(k), "title": "",
                             "count": stage_counts[k]})
 
+    former = scene_former_residents(scene_id, root)
     emit(outdir / "people.json", {
         "scene": scene_id,
         # T-2702. A later scene's rows point into its own records, so the `file` a row
@@ -1782,8 +1827,33 @@ def compile_people(scene_id: str, outdir: Path) -> int:
             "evidence_kinds": [label for _, label in PERSON_EVIDENCE_KINDS],
         },
         "people": rows,
+        **({"former_residents": former} if former else {}),
     }, compact=True)
     return len(rows)
+
+
+def scene_former_residents(scene_id: str, root: Path) -> dict:
+    """T-3266: who lived in each house before the scene date (and, for a house nobody is
+    listed in on that day, after), keyed by structure id — `former_residents.json` beside
+    a later scene's households, built by tools/build_former_residents_1904.py. Carried
+    into people.json so the People tab of a building needs no second fetch. A house the
+    scene does not stand, or a source that does not resolve, stops the compile."""
+    path = root / "former_residents.json"
+    if scene_id == LEGACY_RESIDENTS_SCENE or not path.exists():
+        return {}
+    doc = json.loads(path.read_text(encoding="utf-8"))
+    known_sources = {p.stem for p in (DATA / "sources").glob("*.json")}
+    faults = []
+    for sid, house in doc.get("houses", {}).items():
+        if not (DATA / "structures" / f"{sid}.json").exists():
+            faults.append(f"{path.name}: `{sid}` is not a structure")
+        blocks = house.get("former", []) + house.get("later", [])
+        cited = [s for b in blocks for s in b.get("sources", [])]
+        cited += (house.get("unlisted_on_scene_date") or {}).get("sources", [])
+        faults += [f"{path.name}: {sid}: source `{s}` does not resolve" for s in cited if s not in known_sources]
+    if faults:
+        raise SystemExit("former residents:\n  " + "\n  ".join(faults))
+    return doc.get("houses", {})
 
 
 def compile_fauna_sources(scene_id: str, sources: dict, outdir: Path) -> int:
@@ -3071,6 +3141,8 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                 # for a building, whose walkable surface is the ground the walker
                 # is already standing on.
                 "walk_surface_m": walk_surface_m(st, phase),
+                **({"walk_surface_profile": profile}
+                   if (profile := walk_surface_profile(st, phase)) is not None else {}),
             },
             # Carry the footprint's own confidence, not just its geometry — a bare
             # polygon loses precisely the thing the confidence view exists to show.
@@ -3092,6 +3164,8 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                 "confidence": phase.get("footprint", {}).get("confidence", "reconstructed"),
                 "sources": phase.get("footprint", {}).get("sources", []),
                 "note": phase.get("footprint", {}).get("note", ""),
+                **({"additional_polygons": occupied}
+                   if (occupied := additional_parts(st, phase)) else {}),
                 # T-2943: openings a visitor may walk through (walker.js), only where one exists.
                 **({"passages": passages} if (passages := walk_passages(st, phase)) else {}),
             },

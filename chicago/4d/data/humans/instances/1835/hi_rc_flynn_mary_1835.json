@@ -1,0 +1,43 @@
+{
+  "id": "hi_rc_flynn_mary_1835",
+  "contract_version": 1,
+  "scene": "1835",
+  "person_id": "rc_flynn_mary",
+  "appearance": {
+    "asset_id": "flynn_mary_1835_dress_study"
+  },
+  "placement": {
+    "local_e": 522.3,
+    "local_n": -3.6,
+    "heading_deg": 20,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0
+  },
+  "behaviour": {
+    "state": "standing"
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Initial reconstructed standing depiction of existing reconstructed resident Mary Flynn (a domestic keeping her own house in the south division) outside the reconstructed D1 log dwelling recon_1835_blk_south_water_lasalle_d1_04, the roof the 1835 housing programme dealt her household, on its South Water Street front. She is the first woman on the shared hm08 rig (T-3423): MakeHuman's female-young macros, a plain dress and apron, hair worn up. Her name, age band and occupation are model records, not documentary identity or likeness; the stand, the dress and the hair are reconstructed, not observed.",
+    "sources": [
+      "wild_1835_third_vine"
+    ],
+    "liberty": "L418",
+    "seed": "rc_flynn_mary:1835:initial-standing:20261106",
+    "replaceable_by": "A better qualified depiction or evidence replacing this reconstructed resident slot; exact location/action has no documentary claim."
+  }
+}

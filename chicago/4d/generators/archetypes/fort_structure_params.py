@@ -56,21 +56,48 @@ CONFIDENCE_VALUE = {"attested": 0.0, "inferred": 0.5, "reconstructed": 1.0}
 
 KINDS = ("quarters", "barracks", "blockhouse", "magazine", "store", "guard",
          "sutler", "artillery", "parade", "root_house", "tower", "flagstaff")
-ROOF_TYPES = ("gable", "hip", "pyramid", "shed", "flat", "none")
+ROOF_TYPES = ("gable", "hip", "pyramid", "shed", "flat", "none", "barrel_vault")
+# Existing roof projection, reused only by the explicit magazine vault.
+BARREL_EAVE_M = 0.30
 CONSTRUCTIONS = ("log", "hewn_log", "braced_frame", "brick", "stone", "earth")
 PAINTS = ("unpainted", "whitewash", "white", "brick", "earth", "stone")
 LANTERN_PROFILES = ("legacy", "birdcage_dome")
+
+# THE CUPOLA ON THE SECOND FORT'S BLOCKHOUSE (T-2388), every number RECONSTRUCTED.
+# The pictures carry its OCCURRENCE and nothing else: panel 5 of the Kurz & Allison
+# sheet draws a small square body under its own four-sided cap at the apex, and the
+# two Wau-Bun reproductions of the 1831 view draw the same thing. A printed drawing
+# at that scale measures nothing, so these are a defensible working size in the
+# proportions the panel shows, and docs/LIBERTIES.md says so. They live here, beside
+# the vocabularies, so `validate` can bound them without importing the builder.
+#: The square body's side.
+CUPOLA_SIDE_M = 1.8
+#: Its height, from its seat inside the main roof to the cupola cap's eave. The body
+#: is sunk into the pyramid (see CUPOLA_SEAT_M), so rather less than this stands clear.
+CUPOLA_HEIGHT_M = 2.1
+#: How far the cupola's own cap reaches past the body, which the panel draws plainly.
+CUPOLA_EAVE_M = 0.22
+#: The pitch of that cap. Steeper than the main pyramid's, as the panel draws it.
+CUPOLA_CAP_PITCH_DEG = 36.0
+#: How far the body's foot is sunk BELOW the main roof's surface under its own
+#: corners, which is the lowest the roof gets under the body's footprint. The point
+#: is that the body meets all four sloping planes instead of balancing on the apex:
+#: a box started at the apex floats clear of the roof at its corners, which is a
+#: strip of sky and a hidden stack, and neither is an acceptable thing to ship.
+CUPOLA_SEAT_M = 0.12
 
 # The form attributes whose VALUE this archetype reads. See the same set in
 # frame_tavern_params for the argument; the short version is that an attribute
 # outside it cannot move a vertex, so the record states something the mesh does
 # not contain and tools/validate.py makes the record say which.
 CONSUMED = frozenset({
-    "kind", "stories", "wall_height_m", "roof_type", "roof_pitch_deg",
+    "kind", "stories", "wall_height_m", "roof_type", "roof_pitch_deg", "barrel_rise_m",
     "construction", "paint", "chimneys", "gallery", "loopholes", "sun_dial",
     "upper_overhang_m", "lantern", "gallery_storeys", "face_openings",
     "lantern_profile", "tower_diameter_m", "tower_openings", "tower_profile",
-    "tower_lantern_detail", "tower_masonry",
+    "tower_lantern_detail", "tower_masonry", "cupola",
+    # T-3387: the hand-made period brick a brick wall and the stacks are laid in
+    "period_brick",
 })
 
 # Where this archetype touches the ground: the whole footprint outline, at the
@@ -100,6 +127,8 @@ class FortStructureParams:
     wall_height_m: float = 2.8
     roof_type: str = "gable"
     roof_pitch_deg: float = 34.0
+    # T-3041: rise ABOVE the unchanged wall top, not a uniform curved-roof pitch.
+    barrel_rise_m: float | None = field(default=None, kw_only=True)
     construction: str = "log"
     paint: str = "unpainted"
 
@@ -131,6 +160,17 @@ class FortStructureParams:
 
     # per-attribute confidence, keyed by the attribute name in the record
     # Opt-in first-fort details; preserve every legacy positional argument.
+    # A little square cupola at the apex of a blockhouse's pyramid cap, under its
+    # own four-sided cap (T-2388). Keyword-only and OFF unless a record turns it on,
+    # so every other record of this archetype keeps exactly the semantics it had.
+    #
+    # This is NOT `lantern`: that switch is the lighthouse's and only `_tower`
+    # reads it, so setting it on a blockhouse adds nothing at all. Nor does it route
+    # a blockhouse through the tower builder. The geometry is `fort_structure._cupola`
+    # and its dimensions are the archetype's, RECONSTRUCTED — a record states that the
+    # cupola was THERE, which is what its pictures can carry, and nothing about how
+    # big it was. docs/LIBERTIES.md owns the size.
+    cupola: bool = field(default=False, kw_only=True)
     gallery_storeys: int = field(default=1, kw_only=True)
     face_openings: list | None = field(default=None, kw_only=True)
 
@@ -143,6 +183,10 @@ class FortStructureParams:
     tower_profile: dict | None = field(default=None, kw_only=True)
     tower_lantern_detail: dict | None = field(default=None, kw_only=True)
     tower_masonry: dict | None = field(default=None, kw_only=True)
+    # T-3387: {"walls"?, "stacks"?} -> a resolved K03 period recipe (period_brick_of), laid
+    # by fort_structure._lay_period_brick on the brick walls and on the stacks. None (every
+    # record that names none) leaves the flat sheet colours exactly as they were.
+    period_brick: dict | None = field(default=None, kw_only=True)
 
     confidence: dict = field(default_factory=dict)
 
@@ -346,6 +390,48 @@ class FortStructureParams:
                 raise ParamError("a double gallery requires gallery=true on quarters or barracks")
             if self.stories != 2:
                 raise ParamError("a double gallery requires a two-storey range")
+        if not isinstance(self.cupola, bool):
+            raise ParamError("cupola is a yes or no, not a count or a size")
+        if self.cupola:
+            # Only the combination that is actually built. A cupola on anything but a
+            # blockhouse's pyramid cap, or over a record that also counts a stack,
+            # would be geometry this module does not draw — and the stack case is
+            # worse than unsupported: `_chimneys` stands its single stack at exactly
+            # the centre of the plan, which is where the cupola stands.
+            if self.kind != "blockhouse":
+                raise ParamError(f"a cupola is built on a blockhouse, not on a "
+                                 f"'{self.kind}'")
+            if self.roof_type != "pyramid":
+                raise ParamError(f"the cupola is seated into a pyramid cap; this "
+                                 f"record's roof is '{self.roof_type}'")
+            if self.chimneys:
+                raise ParamError(f"a cupola and this archetype's {self.chimneys} "
+                                 f"stack(s) both stand on the centre of the plan; a "
+                                 f"record cannot ask for both")
+            sizes = {"CUPOLA_SIDE_M": CUPOLA_SIDE_M, "CUPOLA_HEIGHT_M": CUPOLA_HEIGHT_M,
+                     "CUPOLA_EAVE_M": CUPOLA_EAVE_M, "CUPOLA_SEAT_M": CUPOLA_SEAT_M,
+                     "CUPOLA_CAP_PITCH_DEG": CUPOLA_CAP_PITCH_DEG}
+            for key, value in sizes.items():
+                if (isinstance(value, bool) or not isinstance(value, (int, float))
+                        or not math.isfinite(value)):
+                    raise ParamError(f"{key} must be a finite number")
+            if not 1.0 <= CUPOLA_SIDE_M <= 3.0:
+                raise ParamError("CUPOLA_SIDE_M outside the 1-3 m a little square "
+                                 "cupola can reconstructed-ly be")
+            if not 0.6 <= CUPOLA_HEIGHT_M <= 4.0:
+                raise ParamError("CUPOLA_HEIGHT_M outside 0.6-4 m")
+            if not 0.0 <= CUPOLA_EAVE_M <= 0.6:
+                raise ParamError("CUPOLA_EAVE_M outside 0-0.6 m")
+            if not 8.0 <= CUPOLA_CAP_PITCH_DEG <= 60.0:
+                raise ParamError("CUPOLA_CAP_PITCH_DEG outside 8-60 deg")
+            if not 0.02 <= CUPOLA_SEAT_M <= 0.6:
+                raise ParamError("CUPOLA_SEAT_M outside 0.02-0.6 m — the body has to "
+                                 "be sunk into the roof, and not through it")
+            if (CUPOLA_SIDE_M + 2 * CUPOLA_EAVE_M
+                    >= min(self.width_m, self.depth_m) / 2.0):
+                raise ParamError(f"a {CUPOLA_SIDE_M} m cupola and its eaves take more "
+                                 f"than half the short span of a {self.width_m} x "
+                                 f"{self.depth_m} m roof; that is not a cupola")
         if self.kind not in KINDS:
             raise ParamError(f"kind '{self.kind}' not in {KINDS}")
         if not 0.5 <= self.width_m <= 120.0:
@@ -358,6 +444,20 @@ class FortStructureParams:
             raise ParamError(f"paint '{self.paint}' not in {PAINTS}")
         if self.roof_type not in ROOF_TYPES:
             raise ParamError(f"roof_type '{self.roof_type}' not in {ROOF_TYPES}")
+        if self.roof_type == "barrel_vault":
+            if (self.kind != "magazine" or self.stories != 1 or self.chimneys or
+                    self.gallery or self.cupola or self.loopholes or self.lantern):
+                raise ParamError("barrel_vault is a one-storey magazine without roof fittings")
+            h = self.barrel_rise_m
+            a = self.width_m / 2.0
+            if (isinstance(h, bool) or not isinstance(h, (int, float)) or
+                    not math.isfinite(h) or not 0.0 < h < a):
+                raise ParamError("barrel_rise_m must be finite, positive and below half the width")
+            radius = (a * a + h * h) / (2.0 * h)
+            if not math.isfinite(radius) or radius <= a + BARREL_EAVE_M:
+                raise ParamError("barrel rise leaves no real same-circle 0.30 m side eave")
+        elif self.barrel_rise_m is not None:
+            raise ParamError("barrel_rise_m requires roof_type barrel_vault")
         for k, v in self.confidence.items():
             if v not in CONFIDENCE_VALUE:
                 raise ParamError(f"confidence['{k}'] = '{v}' is not a confidence level")
@@ -409,7 +509,7 @@ class FortStructureParams:
         if self.stories == 1 and self.wall_height_m > 4.2:
             raise ParamError(f"wall_height_m {self.wall_height_m} is two storeys' worth of "
                              f"wall on a one-storey record; set stories or the height")
-        if self.roof_type not in ("flat", "none") and not 8.0 <= self.roof_pitch_deg <= 60.0:
+        if self.roof_type not in ("flat", "none", "barrel_vault") and not 8.0 <= self.roof_pitch_deg <= 60.0:
             raise ParamError(f"roof_pitch_deg {self.roof_pitch_deg} outside 8-60 deg")
         if self.loopholes and self.kind != "blockhouse":
             raise ParamError(f"loopholes on a '{self.kind}' would be a claim about how this "
@@ -423,6 +523,35 @@ class FortStructureParams:
         if self.gallery and self.depth_m < 3.0:
             raise ParamError(f"a gallery in front of a {self.depth_m} m deep building leaves "
                              f"no building behind it")
+
+
+def period_brick_of(value, construction: str, chimneys: int) -> dict | None:
+    """T-3387: a record's `period_brick` ({"walls"?, "stacks"?}: K03 period recipe ids,
+    data/components/prairie_1904/k03_face_brick.json) resolved to what the builder lays: the
+    panel, its colour factor and roughness shift, its tile and its two web maps (repo-relative)."""
+    if value is None:
+        return None
+    if not isinstance(value, dict) or not value or set(value) - {"walls", "stacks"}:
+        raise ParamError(f"period_brick {value!r}: a map of `walls` and/or `stacks` to a recipe id")
+    if "walls" in value and construction != "brick":
+        raise ParamError(f"period_brick.walls on a {construction} building, which lays no brick wall")
+    if "stacks" in value and not chimneys:
+        raise ParamError("period_brick.stacks on a building with no chimneys")
+    from archetypes import k03_brick
+    out = {}
+    for part, rid in sorted(value.items()):
+        try:
+            r = k03_brick.recipe(rid, "period")
+        except ValueError as e:
+            raise ParamError(f"period_brick.{part}: {e}") from e
+        fab = f"k03:{r['panel']}"
+        rel = lambda q: q.relative_to(k03_brick.ROOT).as_posix()  # noqa: E731
+        out[part] = {"recipe": rid, "panel": r["panel"], "tone": list(r["tone"]),
+                     "roughness_delta": r["roughness_delta"],
+                     "tile_m": list(k03_brick.TILES[fab]),
+                     "basecolor": rel(k03_brick.IMAGES[fab]["basecolor"]),
+                     "normal": rel(k03_brick.IMAGES[fab]["normal"])}
+    return out
 
 
 def from_phase(phase: dict, record: dict | None = None) -> FortStructureParams:
@@ -475,6 +604,7 @@ def from_phase(phase: dict, record: dict | None = None) -> FortStructureParams:
         wall_height_m=float(val("wall_height_m", 5.0 if stories == 2 else 2.8)),
         roof_type=str(val("roof_type", "gable")),
         roof_pitch_deg=float(val("roof_pitch_deg", 34.0)),
+        barrel_rise_m=val("barrel_rise_m", None),
         construction=str(val("construction", "log")),
         paint=str(val("paint", "unpainted")),
         chimneys=int(val("chimneys", 0)),
@@ -482,6 +612,7 @@ def from_phase(phase: dict, record: dict | None = None) -> FortStructureParams:
         gallery_storeys=val("gallery_storeys", 1),
         face_openings=val("face_openings", None),
         loopholes=bool(val("loopholes", False)),
+        cupola=bool(val("cupola", False)),
         upper_overhang_m=float(val("upper_overhang_m", 0.45)),
         sun_dial=bool(val("sun_dial", False)),
         lantern=bool(val("lantern", False)),
@@ -493,6 +624,8 @@ def from_phase(phase: dict, record: dict | None = None) -> FortStructureParams:
         tower_profile=val("tower_profile", None),
         tower_lantern_detail=val("tower_lantern_detail", None),
         tower_masonry=val("tower_masonry", None),
+        period_brick=period_brick_of(val("period_brick", None), str(val("construction", "log")),
+                                     int(val("chimneys", 0))),
         confidence=confidences,
     )
     p.validate()

@@ -1,0 +1,24 @@
+{
+  "structure_id": "dearborn_street_drawbridge",
+  "source_id": "earle_chicago_national_bank_1902_dearborn_bridge",
+  "photo": "../../../../reference/images/chicago/chicago_first_swing_bridge_1849_earle.jpg",
+  "image_px": [
+    1800,
+    1238
+  ],
+  "principal_px": [
+    286.0354722394839,
+    605.3409090909091
+  ],
+  "focal_px": 1000.0,
+  "eye": [
+    53.28974410751023,
+    -17.50243170485808,
+    2.656363636363637
+  ],
+  "yaw_deg": -55.40706430590429,
+  "sky": "overcast",
+  "diagnostic_only": true,
+  "solve": "RECONSTRUCTED DIAGNOSTIC FRAMING. Numeric corrected camera retained from the actual accepted 2026-10-29 V5 Earle comparison. Approximate controls: far post deck/head (300,620)/(300,405), near post deck/head (1020,635)/(1020,200), roughly20px picking uncertainty. Corrected native capture actually completed in4.624s; the first lower-head-pick capture remains historical evidence of a camera error. Weakly constrained four-point fitting and nearzero residual do not establish a surveyed camera or metric geometry. Preserve the independently mapped origin/bearing/water gap, the separately sourced16ft width and reconstructed profile/piles/rakers. Andreas/Earle projection and tone differences remain within tolerance under T3153. Fresh canonical metadata-bound capture and explicit review are required before a current matches verdict.",
+  "library_image": "early-dearborn-earle-1902"
+}

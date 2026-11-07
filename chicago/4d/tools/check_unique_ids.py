@@ -158,18 +158,42 @@ MULTISETS: dict[tuple[str, str], str] = {
         "one K09 head per storey, principal storey first: both storeys wear the same surround (T-3187)",
     ("data/sidecars/1904/house_1712_prairie.json", "by_storey"):
         "the record's by_storey compiled onto its card: one K09 head per storey (T-3187)",
+    ("data/structures/house_2001_prairie.json", "by_storey"):
+        "one K09 head per storey, principal storey first: both storeys wear the same surround (T-3347)",
+    ("data/sidecars/1904/house_2001_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-3347)",
     ("data/structures/kellogg_house_1709_prairie.json", "by_storey"):
         "one K09 head per storey, principal storey first: both storeys wear the same hood (T-1877)",
     ("data/sidecars/1904/kellogg_house_1709_prairie.json", "by_storey"):
         "the record's by_storey compiled onto its card: one K09 head per storey (T-1877)",
+    ("data/structures/marshall_field_jr_house_1919_prairie.json", "by_storey"):
+        "one K01 head per storey of a brick front (T-3279); both storeys wear the stone flat lintel",
+    ("data/sidecars/1904/marshall_field_jr_house_1919_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one head per storey (T-3279)",
     ("data/structures/elbridge_keith_house_1900_prairie.json", "by_storey"):
         "one K09 head per storey of a K01 front (T-3207); both storeys wear the cornice-hood lintel",
     ("data/sidecars/1904/elbridge_keith_house_1900_prairie.json", "by_storey"):
         "the record's by_storey compiled onto its card: one K09 head per storey (T-3207)",
+    ("data/structures/armour_corwith_house_1945_prairie.json", "by_storey"):
+        "one K01 head per storey of a brick front (T-3281); both storeys wear the flat lintel",
+    ("data/sidecars/1904/armour_corwith_house_1945_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one head per storey (T-3281)",
     ("data/structures/marshall_field_house_1905_prairie.json", "by_storey"):
         "one K09 head per storey of a K01 front (T-3260); both storeys wear the cornice-hood lintel",
     ("data/sidecars/1904/marshall_field_house_1905_prairie.json", "by_storey"):
         "the record's by_storey compiled onto its card: one K09 head per storey (T-3260)",
+    ("data/structures/kellogg_house_1923_prairie.json", "by_storey"):
+        "one K09 head per storey of a K01 front (T-3282); both storeys wear the cornice-hood lintel",
+    ("data/sidecars/1904/kellogg_house_1923_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-3282)",
+    ("data/structures/house_1918_prairie.json", "by_storey"):
+        "one K09 head per storey of a K01 front (T-3317); the principal and chamber storeys both wear the cornice-hood lintel",
+    ("data/sidecars/1904/house_1918_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-3317)",
+    ("data/structures/moulton_lowden_house_1912_prairie.json", "by_storey"):
+        "one K09 head per storey of a K01 front (T-3277); the principal and chamber storeys both wear the cornice-hood lintel",
+    ("data/sidecars/1904/moulton_lowden_house_1912_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-3277)",
     ("data/structures/ream_house_1901_prairie.json", "by_storey"):
         "one K09 head per storey of a K01 front (T-3185); both storeys wear the cornice-hood lintel",
     ("data/sidecars/1904/ream_house_1901_prairie.json", "by_storey"):
@@ -206,6 +230,18 @@ MULTISETS: dict[tuple[str, str], str] = {
         "one K09 head per storey of a K01 front (T-2417); two storeys may take the same head",
     ("data/sidecars/1904/house_1613_prairie.json", "by_storey"):
         "the record's by_storey compiled onto its card: one K09 head per storey (T-2417)",
+    ("data/structures/mayer_house_2009_prairie.json", "by_storey"):
+        "one K09 head per storey of a K01 front (T-1913); two storeys may take the same head",
+    ("data/sidecars/1904/mayer_house_2009_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-1913)",
+    ("data/structures/house_2003_prairie.json", "by_storey"):
+        "one K09 head per storey of a K01 front (T-3346); two storeys may take the same head",
+    ("data/sidecars/1904/house_2003_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-3346)",
+    ("data/structures/house_2005_prairie.json", "by_storey"):
+        "one K09 head per storey of a K01 front (T-3346); two storeys may take the same head",
+    ("data/sidecars/1904/house_2005_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one K09 head per storey (T-3346)",
     ("data/structures/coleman_ames_house_1811_prairie.json", "by_storey"):
         "one K09 head per storey of a K01 front (T-2541); two storeys may take the same head",
     ("data/sidecars/1904/coleman_ames_house_1811_prairie.json", "by_storey"):

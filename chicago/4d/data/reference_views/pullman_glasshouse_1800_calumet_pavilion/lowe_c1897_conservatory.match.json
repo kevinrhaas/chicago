@@ -2,7 +2,7 @@
   "structure_id": "pullman_glasshouse_1800_calumet_pavilion",
   "view": "lowe_c1897_conservatory",
   "glb": "assets/gltf/pullman_glasshouse_1800_calumet_pavilion__as_standing_1904.glb",
-  "glb_sha256": "03d44b56578250454a70f7a6a099110ba42c4fb67bd7a8646232f54c55e187a2",
+  "glb_sha256": "f476f343a67a119d54c1ef7846b30ab52de3ab72ac1c4bfba5215fa0563a3d29",
   "camera_sha256": "f72dc5d5006a4cbd513abe0b1afc875d574b75a8fce011cb6e2fe1d1c19dff69",
   "photo_sha256": "0a6e2f7ba24d148be89aea3a50e1b39b527d38023b13d9a5f5370a1ff6441560",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "03d44b56578250454a70f7a6a099110ba42c4fb67bd7a8646232f54c55e187a2"
+      "glb_sha256": "f476f343a67a119d54c1ef7846b30ab52de3ab72ac1c4bfba5215fa0563a3d29"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_north",
@@ -61,7 +61,7 @@
         -1.010127527884292
       ],
       "rotation_y": 1.5707963267948966,
-      "glb_sha256": "f77f5d1842e4bc3f63912f273b7c26a9752a531ffc73c119fbfdc9969fd1d73f"
+      "glb_sha256": "db614e8e41bfd2daa49bb19f9a250355d0acc501be59d1c2df4afee6275955d1"
     },
     {
       "structure_id": "pullman_glasshouse_1800_calumet_east_end",
@@ -80,7 +80,7 @@
         -17.846242297674625
       ],
       "rotation_y": 1.5707963267948966,
-      "glb_sha256": "1c2a7af790259c15729e46ff417b053c235a96c06536b5d93207ee53531f7729"
+      "glb_sha256": "cee0d6fea152eb04e9fc91bfb82b38157fb7749831b6e460e18d2c3adb2c009c"
     },
     {
       "structure_id": "pullman_lodge_1800_calumet",
@@ -99,10 +99,10 @@
         -1.0108724267342746
       ],
       "rotation_y": -1.5707963267948963,
-      "glb_sha256": "dc1c4e59b8e257d2fd34c2ce925c2ccaa837148bf255939c8ed6a5d3171257ae"
+      "glb_sha256": "c5f942bfd3dc2f3177f94e3a116fc45db13cb2bcee68cde044c91e16296c6312"
     }
   ],
-  "group_sha256": "795938d78d389b7f2cda2b90d30050e240f5f14c6336aea242883cb233729cee",
+  "group_sha256": "568d1c4452825bbec2ec49f411412b34c54fff5cb2933f9ae3d53dfa17d0afba",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -128,44 +128,44 @@
   "flora_renderer_sources": [
     {
       "file": "tools/photo_match.mjs",
-      "sha256": "41e54b2f4e62c0a7906dd981e949c31c4094454a9aa82d76f15734ea176321ce"
+      "sha256": "75e452b467c22fc5d00cd4b512706c364c942d181869e504f7218ea25167a79c"
     },
     {
       "file": "tools/photo_match_flora.mjs",
-      "sha256": "a672387ea8bd3b50c0ae330884c315448a00549915cd72d22351ec72e0964197"
+      "sha256": "c973a45041a77a11ea32e30302cdc3eda3dc5516ad715fb0b1e14060f08b5c87"
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "3e18c4e1c43ccc45ef37357fc41aed48ee518e63b423fc0ad2cfed88d4007cc4"
+      "sha256": "cac67fd26e677f5a848f1817b51d2a485835b09f09aa2c234efc1b3a5b3e3329"
     },
     {
       "file": "renderers/web/js/street-trees.js",
-      "sha256": "ef5c73955a6115626351f540aba6748c412bba66ea021b2ef5ad44019cc15cc6"
+      "sha256": "90d02b3e6b6ac5d1ab27a0eb3088f72719a8c1f59a7624dd833db80b127268f2"
     },
     {
       "file": "renderers/web/js/tree-instances.js",
-      "sha256": "3ef0eacee9a7ed5fa3542cee6f11f1b6732f3c96f196b8253a7d68a8f225beb1"
+      "sha256": "a103f17c2d5a18b12a39126c62c539dd69ad9a118939254589b0b579d4cb9c61"
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "a4c65d2651f6949687567dd73cc4ae319eb7ecb99f577b5fd34899c493316113"
+      "sha256": "516638c5cb53043e352359012564973fbaca844282e7809913d3f4709d8e5572"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
-      "sha256": "85b0e2f0c4f51bca2aec26a037ee649d7844785b1a51408280b16727523826fb"
+      "sha256": "23dec0e5dda80547d8ee2ae86f1400fb1a4af2bd54ca0b53d7fe8d52f088cc84"
     },
     {
       "file": "renderers/web/js/season.js",
-      "sha256": "2c010c2598f57fe242361e18171d4919fc86b96691fa3282a59424554ea40e4e"
+      "sha256": "e44ebdadf8266909cd6e8676775a9decc3b7376ba245ad784118851e15b409cc"
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "7648a990d3093538e33dd5abd15313fed549656541b2fe5294df724b913491ed"
+      "sha256": "bd022919ca052610595908f83128dfceea976790c5bf2eff63f381abaa3b89b5"
     }
   ],
-  "flora_sha256": "240af0be21559dcaef3e1eea959af2b61d2d4ad598c0e0fe7d9227282a76fa90",
+  "flora_sha256": "7cb842302870bb624a85cc167c63446598a6fc0144a1c5b8e5e2cdd5f06b3335",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "the east range's eight windows glazed in small panes, a sunk panel under each, a sill course, a base course under the panels, a band over the heads and a cornice line under the coping; the windows narrower than built and set closer to the lodge, with a broad pier at the round end",
@@ -260,8 +260,8 @@
       "how": "the camera stands north-east of them; the sheet's glass roof is built low behind the parapet"
     },
     {
-      "what": "the lodge shows no east face or east slope over the east range's coping (sky and a railing there), where the render, on the 1911 sheet's 11.6 m-deep two-storey outline, stands its east face and slope",
-      "status": "open",
+      "what": "the lodge shows no east face or east slope over the east range's coping (sky and a railing there), where the render, on the 1911 sheet's 11.6 m-deep two-storey outline, stands its east face and slope [FIXED (T-3164, east face pass, 2026-10-31): the lodge's two-storey body behind its front now stands 1.6 m in from the east wall's line over a one-storey strip (5.5 m) under the east range's 6.15 m coping, and only the front 2.2 m keeps the east wall's line, so from this camera nothing of the lodge rises over the coping east of the bowed corner. Read on the 1894 plate at the corner: the render's east face and receding eave, which stood about 34 px east of the bowed corner (9.6 m of wall seen from 10.7 m east of its line), are gone; the roof's east edge now runs from the bowed eave up the hip to the deck as the plate's does, within about 10 px (0.4 m) once this camera's existing 19 px offset at the corner (wall corner x 930 rendered, 949 in the plate) is taken out, and the deck's east side recedes about 17 px behind it as the plate's dark block at x 1013-1050 does. Lowe's print reads the same within about 6 px at its scale. The east wall's short return at the corner no longer carries the draft's door and sash.]",
+      "status": "fixed",
       "how": "T-3164: unresolved between the sheet's plan and the two solved cameras, which both stand east of the lodge; either the two-storey block was shallower in 1894-97 (the north range was lengthened between about 1897 and 1911, and the lodge may have been too) or the cameras stand further west than solved. Not read yet, so open. T-3164 (west part pass): re-read, and unchanged by it: setting the loggia block 2 m back moves the receding east eave by about 7 px, and both pictures still show sky over the range's coping where any depth over about 1.5 m would stand stone, so this stays open."
     },
     {
@@ -321,8 +321,8 @@
     },
     {
       "what": "the drive, the walks and the lawn's edges",
-      "status": "open",
-      "how": "T-3164: no walk, drive or lawn edge is built on the 1800 Calumet ground."
+      "status": "fixed",
+      "how": "T-3164 (grounds pass, 2026-10-30): built on the conservatory's record (grounds), each edge read off this plate and Lowe's print through their solved cameras and laid on the ground those cameras put under it: the gravel drive from between the wings' ends (v 5.24-9.34) straight back past the conservatory's flank, about 4.3 m wide, to u 16, where the planting hides it in both pictures; the turf wedge between it and the walk, narrowing to the east wing, in which the two boxed standards stand; the walk 1.8 m wide entering east of the east pier and running to the forecourt along the conservatory's north front (u -3.2 to its podium); and west of the gate a stone coping on the lot line, 0.32 m to a cap course at 0.4 m, round the Calumet Avenue corner. Through this print the drive, the wedge, the walk and the coping fall where the print draws them, about 10 px low with the gate they are laid against (the same offset the gate's wings carry in this camera); the coping's top at y 681 against the print's 670, its foot at 711 against 700. Its stone is the gate's, which the plate reads dark on its faces as it does the wings'."
     },
     {
       "what": "the parkway tree left of the gate (the print's x 394, foot y 739) is not drawn",
@@ -336,8 +336,8 @@
     },
     {
       "what": "the parkway trees' heads: Lowe's print's tree left of the gate carries a broad, low, leafy head from about 2.6 m, its leaves over the walk across the picture's top left, where the renderer's vase-formed elm shows two bare limbs up to the frame's top",
-      "status": "open",
-      "how": "T-3164 (parkway pass, 2026-10-30): the street-tree layer grows one tree, the American elm (renderers/web/js/street-trees.js, its crown high on arching limbs); this head is not an elm's vase and no other parkway form is drawn, so the shape stays open."
+      "status": "fixed",
+      "how": "T-3164 (parkway pass, 2026-10-30): the street-tree layer grows one tree, the American elm (renderers/web/js/street-trees.js, its crown high on arching limbs); this head is not an elm's vase and no other parkway form is drawn, so the shape stays open. T-3164 (parkway head pass, 2026-10-31): the tree now grows on its own habit, a young elm still on its leader (street-trees.js FORMS.broad_head, tree-model.js ARCH.ulmus_americana_young), named by its record in data/street_trees/pictured_1904.json: one straight stem through the crown, the head broad and low from about 3 m. Read on the re-render: its head is broad and low over the walk as Lowe's is; the print's head is denser than the plate's three years earlier, and the build sits between the two pictures, which disagree on it, so that is within tolerance (T-3153)."
     },
     {
       "what": "the owner's report, 2026-10-28: the greenhouse ground south of 18th Street is way off the photograph; the long range renders as a blank wall with square holes and the lodge in red brick, where the print shows a glazed range on a stone base and a stone lodge, and the pavilion's great arched glass front renders as an opaque gable over a black opening",
@@ -348,6 +348,57 @@
       "what": "the north front's band: the plate and Lowe draw each light as a short round head over a transom over a tall light, where it is built as one tall pane with a pointed head",
       "status": "within tolerance",
       "how": "T-3164, 2026-10-29: the lights' count, width and place match; the transom bar (about 0.05 m) and the head's curve over a 0.6 m light are under the T-3153 bar from the street, and drawing them would take the house past its triangle budget again; the transept's band is drawn with them"
+    },
+    {
+      "what": "the pale line along the far side of the lawn west of the drive (the plate's y 936-942 from x 320 to the drive at x 800; Lowe's y 586-590), a walk or the drive's turn toward Calumet Avenue in front of the planting, is not built: the drive is laid to u 16 and stops there, and both pictures put this line about 60 px under their horizons, where neither camera fixes its depth to better than a few metres [FIXED (T-3164, 2026-10-31): built as the drive's turn toward Calumet Avenue (pullman_glasshouse_1800_calumet_pavilion grounds.gravel 'turn' and 'cross'): through the plate's camera the line's edges fall on the ground at u 23-31 (pavilion frame) from the drive's east edge at v 7.5 to the frame's edge at v 23, so a gravel band 4 m wide at u 25-29 runs from the drive to the Calumet line, with a wedge joining it to the drive's east edge clear of the pictured lilacs. It renders as a pale line along the lawn's far side from the frame's edge to the gate pier, 3-4 px nearer the horizon than the plate's (y 935-938 against 936-942): a pixel offset, since the review render stands the gravel 0.1 m over its common grade plane. In Lowe's print it falls 5-6 px under the range's foot as the print's does, Lowe's whole ground standing about 20 px high through its diagnostic camera. Its width and depth are reconstructed (L-pullman-grounds-1800-calumet-3164).]",
+      "status": "fixed",
+      "how": "T-3164 (grounds pass, 2026-10-30): read, not built; it wants a nearer picture of the lawn's far side or a plan of the grounds."
+    },
+    {
+      "what": "owner's report, 2026-10-31: \"there looks like a black box inside the greenhouse\": the shaded block (to 5.2 m) that stood for the planted interior read as a box through the nave's glass from the garden",
+      "status": "fixed",
+      "how": "T-3273: interior_planting replaces interior_dark_m: a soil bed 0.4 m and six palms on ringed trunks (4.4-7.2 m) crowned with eleven arching fronds, the tallest under the dome, as Lowe's print shows fronds behind the north front; reconstructed (the planting is not described plant by plant)"
+    },
+    {
+      "what": "owner's report, 2026-10-31: \"the opaque glass is too white and there are no panes and no detail at the top or the sides\": the transept, drum and dome read as pale smooth shells",
+      "status": "fixed",
+      "how": "T-3273: the transept's ribs at 0.45 m (Lowe's count) with a level bar at every joint of its section and across its hipped ends; the dome a rib on each of 28 meridians and a bar at every ring; the drum a mullion at each angle, two between and three rails; the opaque glass a step darker so the white bars read over it"
+    },
+    {
+      "what": "owner's report, 2026-10-31: \"the path walk here is abnormally white ... there is a sharp line avoiding trees\": the drive's turn toward Calumet was a ruled wedge stepping round the pictured lilacs and a band meeting it at a corner",
+      "status": "fixed",
+      "how": "T-3273: one walk on a smooth curve leaving the drive at u 10 (its invented straight run now stops there, not at u 16) and sweeping well north of the lilacs to the band at u 25-29 and on to the Calumet line, 4.33 to 4.0 m wide with a 0.35 m worn margin each side; the gravel a step darker (0.66, 0.62, 0.54 -> 0.45, 0.42, 0.35)"
+    },
+    {
+      "what": "the north front's arched glass: both pictures draw heavy white mullions and transoms over a dark, densely planted interior; the render draws the kit's lighter bars over six palms, so the lower arch reads lighter and sparser than the pictures",
+      "status": "fixed",
+      "how": "T-1934, 2026-11-01: the arch's two transoms drawn, heavy white rails (0.12 m, the frame's paint) across its glass at 1.5 and 3.0 m over the springing (Lowe's print draws its strong rail about 1.45 m over the springing), and three low palms 1.3 m inside the north glass (4.0-4.4 m) carry the planting into the lower register; the register's tone is the item below (L-pullman-pavilion-arch-transoms-1934)"
+    },
+    {
+      "what": "a third clipped standard with a boxed mass before the lodge's loggia (Lowe x 640, about 38 m out; the plate's tall shrub before the loggia)",
+      "status": "not shown",
+      "how": "it stood where the 1911 sheet's north range (built after the pictures) has its base wall in 1904; the two standards and boxed masses before the conservatory's front are drawn (data/front_yards/1904.json, calumet_1800)"
+    },
+    {
+      "what": "the north arch's lower register (its springing to the first transom): both pictures read it dark with planting from side to side, where the render's fronds stand over the sky seen through the house's far glass, so the register reads a few tones lighter than the pictures [T-1934, 2026-11-01: twenty more palms in four rows across the nave and against both side walls (L-pullman-pavilion-arch-planting-1934); through this camera the fronds fill the register from its east edge across the entrance's axis to the west, where the far glass showed between six crowns. Fixed; the strip left at the west edge is the next item.]",
+      "status": "fixed",
+      "how": "T-1934, 2026-11-01: left open; a shade behind the glass is what the owner called a black box (2026-10-31, T-3273), and planting the register solid would more than double the palms' triangles"
+    },
+    {
+      "what": "the north arch's lower register at its west edge (T-1934, 2026-11-01): a strip about 35 px (about 1 m at the front's 34 px a metre) inside the arch's west frame, from the springing to the first transom, still shows the side glass, where the print reads it dark. Through this camera, standing east of the nave's axis, the sight lines through that strip leave the house by its west flank's glass within about a metre of the front, so only a plant standing in the glass could fill it. This camera is diagnostic only: the cropped print fixes a line of solutions (u -30 to -50) rather than one, and where its sight lines cross the west flank moves along it. The Inland plate, the solved camera, shows the register filled to both edges. Within tolerance: two camera fits disagree",
+      "status": "within tolerance"
+    },
+    {
+      "what": "T-3273 re-review (2026-11-06): the gate's piers, stepped caps and swept wings print dark in Lowe's print, the east pier near black in open light and the west pier in the tree's shade, well under the podium's stone and the lodge's front, where the render drew them in the kit's pale buff stone, the podium's own, the palest thing in the foreground. Drawn in a stone of their own (the record's gate.color, a dark brown-grey; the hue reconstructed, L-pullman-gate-stone-3273): the gate now reads darker than the podium and the lodge, as the print draws it",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3273 re-review (2026-11-06): the drive and the walk's turn print near white against a dark lawn in both pictures, where the review render draws them a mid grey on its one flat, unplanted ground plane (it lays no turf, so the lawn's contrast is not compared here). Built as the owner asked twice: on 2026-10-31 the app's walk read \"abnormally white\", and on 2026-11-03 he asked for the library's crushed gravel in its own tone, no tint (k13_conservatories.py materials 'gravel'); the picture's paler tone is left to his next look",
+      "status": "owner ruling"
+    },
+    {
+      "what": "T-3273 re-review (2026-11-06): re-rendered after the tree renderer's sources changed (front-yards, tree-instances, tree-model, tree-surface, season, trees); the render's buildings, planting and walks were compared again element by element with the picture and every difference above stands as recorded: the nave's pane grid and darker glass, the planted interior with no shaded block, the clipped standards in their boxes, the drive's smooth turn toward Calumet, the gate, the range, the colonnade and the lodge",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

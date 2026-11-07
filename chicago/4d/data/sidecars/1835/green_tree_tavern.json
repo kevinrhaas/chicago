@@ -31,7 +31,7 @@
     "from_is": "began",
     "to_is": "ended"
   },
-  "change_note": "Built 1833 as the first building in Chicago put up specifically to be a hotel. The phase carries the two-storey core as built; the low one-storey side additions attested by 1838-41 are recorded on the record but not in the geometry, because nothing dates them.",
+  "change_note": "Prepared T-2376 incremental appearance: keep the already-adopted front ground layout and replace the old rear ell with the source-qualified open wagon bay, connector and turned boarding range. The closed-shoulder alternative remains in a separate proposal, not a version enrolled by this minimal package. Dates, geographic placement and whole-picture acceptance remain qualified.",
   "placement": {
     "local_e": -24.7,
     "local_n": -96.19,
@@ -74,7 +74,93 @@
     "sources": [
       "chicagology_prefire127"
     ],
-    "note": "DERIVED FROM THE ATTESTED INTERIOR, not invented and not measured. This is the only footprint in the parcel with a textual basis. The arithmetic, in the original units: guest chambers 'about 12x12' feet, so a depth of two 12 ft ranks plus board partitions gives about 25 ft = 7.62 m; a hall 'divided the house' with the entrance 'about the middle of the long side', so the length is two end blocks either side of a hall of about 8 ft, and each end block must hold a 12 ft room plus partitions, giving about 40 ft = 12.19 m. The bar-room occupied one whole end, which is consistent. WHAT IS ATTESTED IS THE MODULE, NOT THE COUNT: no source gives the building's overall length or width, and a plan with three rooms rather than two on one side would make it about 52 ft. Treat the length as plus or minus about 20 per cent and the depth as firmer. The polygon is the two-storey core only — the 'low one-story addition to the right, the same as on the left' that John Gray recalls is NOT included, because its size is unattested and its date is unknown. The c. 1859 photograph (chm_green_tree_1859) would settle the overall dimensions from the proportions of a known-height building; it has not been seen."
+    "note": "DERIVED FROM THE ATTESTED INTERIOR, not invented and not measured. This is the only footprint in the parcel with a textual basis. The arithmetic, in the original units: guest chambers 'about 12x12' feet, so a depth of two 12 ft ranks plus board partitions gives about 25 ft = 7.62 m; a hall 'divided the house' with the entrance 'about the middle of the long side', so the length is two end blocks either side of a hall of about 8 ft, and each end block must hold a 12 ft room plus partitions, giving about 40 ft = 12.19 m. The bar-room occupied one whole end, which is consistent. WHAT IS ATTESTED IS THE MODULE, NOT THE COUNT: no source gives the building's overall length or width, and a plan with three rooms rather than two on one side would make it about 52 ft. Treat the length as plus or minus about 20 per cent and the depth as firmer. The polygon is the two-storey core only — the 'low one-story addition to the right, the same as on the left' that John Gray recalls is NOT included, because its size is unattested and its date is unknown. The c. 1859 photograph (chm_green_tree_1859) would settle the overall dimensions from the proportions of a known-height building; it has not been seen.\n\nT-2376: this polygon remains the main block's dimension/coordinate reference. The separately reconstructed left connector and gabled range are described by form.enclosed_left_annex. Their exact resolved occupied polygons are carried separately to physical consumers; the open wagon bay is not silently filled by a bounding rectangle. This does not add an archival dimension or date to the core. This model-only preparation does not yet qualify additional occupied solids or navigation/ground consumers; the main-body footprint stays unchanged until the separate compound-consumer work is verified.",
+    "additional_polygons": [
+      {
+        "id": "shoulder",
+        "polygon": [
+          [
+            7.62,
+            5.589999999999999
+          ],
+          [
+            11.22,
+            5.589999999999999
+          ],
+          [
+            11.22,
+            12.389999999999999
+          ],
+          [
+            7.62,
+            12.389999999999999
+          ]
+        ],
+        "confidence": "reconstructed",
+        "sources": [
+          "andreas_1884_green_tree_hotel_plate",
+          "kurz_allison_1893",
+          "trowbridge_green_tree_1902"
+        ],
+        "note": "Occupied ground of this reconstructed annex component; its exact resolved frame also builds the walls and door. The open yard bay is not a solid connecting polygon."
+      },
+      {
+        "id": "connector",
+        "polygon": [
+          [
+            11.22,
+            7.889999999999999
+          ],
+          [
+            14.22,
+            7.889999999999999
+          ],
+          [
+            14.22,
+            12.389999999999999
+          ],
+          [
+            11.22,
+            12.389999999999999
+          ]
+        ],
+        "confidence": "reconstructed",
+        "sources": [
+          "andreas_1884_green_tree_hotel_plate",
+          "kurz_allison_1893",
+          "trowbridge_green_tree_1902"
+        ],
+        "note": "Occupied ground of this reconstructed annex component; its exact resolved frame also builds the walls and door. The open yard bay is not a solid connecting polygon."
+      },
+      {
+        "id": "boarding_range",
+        "polygon": [
+          [
+            14.22,
+            10.389999999999999
+          ],
+          [
+            17.8452311481466,
+            12.080473046962796
+          ],
+          [
+            16.5773763629245,
+            14.799396408072745
+          ],
+          [
+            12.952145214777902,
+            13.108923361109948
+          ]
+        ],
+        "confidence": "reconstructed",
+        "sources": [
+          "andreas_1884_green_tree_hotel_plate",
+          "kurz_allison_1893",
+          "trowbridge_green_tree_1902"
+        ],
+        "note": "Occupied ground of this reconstructed annex component; its exact resolved frame also builds the walls and door. The open yard bay is not a solid connecting polygon."
+      }
+    ]
   },
   "attributes": {
     "stories": {
@@ -172,12 +258,14 @@
       "note": "END CHIMNEYS AT BOTH GABLES. Plate '11' of the owner's 2026-08-11 reference set (committed at data/sources/assets/prefire_views_kevin_2026_08/p6_0.png, and its sibling Braunhold view written up as image 6 of data/sources/assets/owner_brief_2026_08_18/README.md) draws one stack at each end of the ridge — a tier-5 retrospective view driving massing as inferred. The plates are not yet held as source records (T-0075), so the citation is a committed path. This replaces the archetype's frontage-fraction arrangement, which on this deeper-than-wide footprint had left both stacks standing OFF the ridge on the roof slopes — the before frame of T-0083 shows it. The COUNT stays the chimneys attribute's own inference; docs/LIBERTIES.md L21 (the town chimney arrangement) and L152 say what is invented here."
     },
     "rear_ell": {
-      "value": true,
+      "value": false,
       "confidence": "reconstructed",
       "sources": [
-        "chicagology_prefire127"
+        "chicagology_prefire127",
+        "andreas_1884_green_tree_hotel_plate",
+        "trowbridge_green_tree_1902"
       ],
-      "note": "THE LOW ADDITION, BUILT AT THE REAR AND DECLARED. John Gray, landlord 1838-41, attests 'a low one-story addition to the right, the same as on the left'; the 1838 Braunhold engraving (owner_brief_2026_08_18 README, image 6) draws 'a lower gabled wing at the left with a wide (carriage) door', and plate '11' (prefire_views_kevin_2026_08/p6_0.png) draws the low gabled wing with the ship masts behind it. WHETHER A WING STOOD ON 1835-07-01 IS NOT ATTESTED — Gray describes the house three to six years after the scene date — so this is a reconstruction under the owner's 2026-08-18 standing ruling, sized by the views and claimed at docs/LIBERTIES.md L152. WHY THE REAR END AND ONLY THE REAR: Gray names additions at BOTH ends, but this record's committed placement puts the west face ON Canal Street's east frontage with zero offset, so the street end has no ground to build on — only the east (rear, yard) end does. That asymmetry is itself evidence worth recording: a west wing fits the ground only under the 'Lake and West Water' placement reading the position note carries as this record's largest residual uncertainty. If that reading ever wins, the second wing goes up with the move. The wing the views draw beside masts is consistent with either."
+      "note": "T-2376 retires the old rear ell as a July-1835 depiction choice. Its original position was a reconstruction made under the obsolete Canal placement, using the pictured lower wing and Gray's later testimony without a dated rear plan. The governing drawings do not resolve or show that projecting right/rear form. Gray explicitly recalls a right addition 'the same as on the left' during his 1838–41 tenancy, and the historical note promised a second wing if the Lake-and-West-Water placement won; that later bilateral testimony and the promise remain counterevidence, not proof that either addition was absent in 1835 or that both were the same pictured building. The revised model builds the pictured left connector/range, keeps the competing shoulder readings, and leaves an unverified 1835 rear/bilateral stage unmodeled rather than presenting the old placement proxy as another established wing. No historic absence, alteration date, tenant identity or room count is asserted.\n\nHISTORICAL PRE-RETIREMENT NOTE:\nTHE LOW ADDITION, BUILT AT THE REAR AND DECLARED. John Gray, landlord 1838-41, attests 'a low one-story addition to the right, the same as on the left'; the 1838 Braunhold engraving (owner_brief_2026_08_18 README, image 6) draws 'a lower gabled wing at the left with a wide (carriage) door', and plate '11' (prefire_views_kevin_2026_08/p6_0.png) draws the low gabled wing with the ship masts behind it. WHETHER A WING STOOD ON 1835-07-01 IS NOT ATTESTED — Gray describes the house three to six years after the scene date — so this is a reconstruction under the owner's 2026-08-18 standing ruling, sized by the views and claimed at docs/LIBERTIES.md L152. WHY THE REAR END AND ONLY THE REAR: Gray names additions at BOTH ends, but this record's committed placement puts the west face ON Canal Street's east frontage with zero offset, so the street end has no ground to build on — only the east (rear, yard) end does. That asymmetry is itself evidence worth recording: a west wing fits the ground only under the 'Lake and West Water' placement reading the position note carries as this record's largest residual uncertainty. If that reading ever wins, the second wing goes up with the move. The wing the views draw beside masts is consistent with either."
     },
     "gallery": {
       "value": false,
@@ -234,6 +322,77 @@
         "kurz_allison_1893"
       ],
       "note": "Two sash left of a rightmost front-gable entrance agree in the actually viewed Andreas 1884 p634/n1301 plate, Trowbridge/Gale 1902 plate facing p35/n55, and Kurz & Allison 1893 panel11. This is retrospective form agreement, not independent contemporaneous proof of 1 July 1835; Kurz may derive from Andreas and Trowbridge may rely on later material. The ascending LOCAL-u fractions are door .20, sash .50, sash .78: exterior +y viewers see higher u toward screen left, so this yields two screen-left sash and a screen-right entrance. Exact centre fractions .20/.50/.78 across the existing 7.62 m wall, equal existing .85x1.35 m sash and 1.20x2.10 m door stock, sill bands, sections and hidden joinery are RECONSTRUCTED, not measured or attested by those pictures. Only the +y front ground floor opts in. The current two upper sash versus Trowbridge's three, attic light, text-attested south-side door, disputed additions, roof, geographic placement and all existing source/camera uncertainties stay unresolved. The held-rights/unverified 1859 source is excluded as a geometry witness. Original T-2376 remains open/differs; this is not a solved camera or picture match. The same pure resolved_front_ground_stations dataclass property (whose actual values are covered by the existing native mesh recipe) is consumed by the mesh and the native entrance/apron/clearance reader after resolving exactly the sidecar-selected source phase; no renderer facade API or bearing is changed."
+    },
+    "enclosed_left_annex": {
+      "value": {
+        "attach_face": "x_max",
+        "front_setback_m": -0.2,
+        "shoulder": {
+          "span_m": 3.6,
+          "depth_m": 6.8,
+          "wall_m": 2.8,
+          "roof": "shed_with_front_gable",
+          "roof_high_m": 4.0,
+          "roof_low_m": 3.2,
+          "front_window": [
+            0.5,
+            0.7,
+            0.8,
+            1.5
+          ],
+          "front_gable_light": [
+            0.5,
+            3.35,
+            0.65,
+            0.7
+          ],
+          "front_gable_peak_m": 4.85
+        },
+        "connector": {
+          "span_m": 3.0,
+          "depth_m": 4.5,
+          "wall_m": 2.1,
+          "roof": "shed",
+          "roof_low_m": 2.25,
+          "roof_high_m": 2.85,
+          "front_openings": []
+        },
+        "boarding_range": {
+          "span_m": 4.0,
+          "depth_m": 3.0,
+          "wall_m": 2.6,
+          "roof": "gable",
+          "roof_pitch_deg": 37.0,
+          "ridge_axis": "y",
+          "front_door": [
+            0.2,
+            1.0,
+            2.0
+          ],
+          "front_window": [
+            0.65,
+            0.8,
+            0.75,
+            1.2
+          ],
+          "front_gable_light": [
+            0.5,
+            3.1,
+            0.65,
+            0.7
+          ],
+          "front_set_out_m": 1.0,
+          "plan_rotation_deg": 25.0
+        },
+        "shoulder_enclosed": true
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_green_tree_hotel_plate",
+        "kurz_allison_1893",
+        "trowbridge_green_tree_1902"
+      ],
+      "note": "CURRENT CLOSED-SHOULDER WORKING READING: Andreas's detailed retrospective engraving supplies a closed clapboard shoulder with a lower sash and small front-gable light, followed by a low connector and farther turned gabled range. The existing shoulder_enclosed option is now true. Trowbridge/Gale's captioned1835 drawing instead shows an open post-and-roof wagon bay. That remains explicit counterevidence, not a demonstrated conversion year; the current choice is an evidence-bounded reconstruction of the July1835 scene. The independently drawn open shed/posts and its covered wagon are declined together by the yard source owner while this same canonical attribute is true, rather than drawn inside the closed shoulder.\n\n Every metric span, hidden depth, height, slope, opening station/section, local placement, plan turn, timber and colour choice remains exactly the existing reconstructed group. No new number, measured plan, surveyed coordinate, historical interior, occupant or extra lodging capacity is inferred. The main footprint and world placement are unchanged. The actual fixed-camera comparison now includes the closed wall, sash and dormer; left-cluster roof silhouette and relative proportions still differ. Original T-2376 remains open/differs. The earlier open-bay model rationale is preserved verbatim in docs/RESEARCH/green-tree-annex-T-2376/previous-open-reading-20261103.md.\n\n SHOULDER DORMER CAP, 2026-11-04: front_gable_peak_m is raised 4.50 to 4.85 m so the little front-gable light over the closed shoulder reads as the sharply pointed cap Andreas draws, rather than the blunt, nearly flat cap the 4.50 m value produced. Against the builder's existing 4.20 m dormer head and its 0.625 m roof half-span that turns the cap from about 25.6 to about 46.1 degrees. 4.85 m is a RECONSTRUCTED working control chosen for the drawn triangular shape; it is not a measurement off the retrospective plate, which carries no scale, dimension or camera, and it dates nothing. Nothing else moves: the peak stays below the unchanged 5.0 m main-wall head, and the dormer plan extent, the light, the lower sash, the connector, the turned range, the main block, the footprint and the world placement are untouched. The shoulder roof silhouette and the left group's relative proportions remain OPEN on T-2376."
     },
     "function": {
       "value": "tavern_inn",
@@ -447,7 +606,7 @@
         "panel 12: PICKET-FENCED garden plots at the house — close-set vertical pales, the treatment data/enclosures/town_dooryard_pickets.json deals to the town's house lots",
         "panel 12: the fenced green between house and water that Wau-Bun describes in words, drawn",
         "panel 11: the Green Tree Hotel as a two-storey clapboard block with end chimneys and even sash, with ship masts behind it",
-        "panel 5: Fort Dearborn as rebuilt 1835 — picket palisade, galleried barracks range, blockhouse",
+        "panel 5: Fort Dearborn as rebuilt 1835 — picket palisade, galleried barracks range, blockhouse; the blockhouse's four-sided cap carries a small square cupola at its centre, under a little cap of its own, and the panel draws no separate stack anywhere on that roof (T-2388). FORM ONLY, as every line of this sheet is: the cupola's size, height and detail are not in it, and the absence of a stack in a retrospective chromolithograph is not testimony that the building had no flue",
         "panel 14: the Sauganash Hotel as a two-storey clapboard block with an attached single-storey log wing and no full-width gallery",
         "the sheet's printed key, which names each panel and dates several of the buildings"
       ],
@@ -511,7 +670,7 @@
       ]
     }
   ],
-  "research_note": "VERIFIED 1902 PICTURE SOURCE: trowbridge_green_tree_1902 is W. E. S. Trowbridge’s \"The Green Tree Tavern in 1835\", independently verified in Edwin O. Gale’s 1902 book, facing printed p. 35. The artwork’s earlier rights hold is superseded by the actual title/copyright publication evidence. Its 1835 caption is retrospective and does not date every feature to 1 July 1835. Original picture comparisons remain open; no dimensions, placement, geometry or confidence values change with this source verification.\n\nPRIOR RESEARCH RECORD:\nTHE BEST-DOCUMENTED BUILDING IN THIS DATASET, and it is documented from the inside out — which is the opposite of the usual situation here and is worth understanding. The Green Tree survived until 1902, long enough for people who had slept in it to be asked what it was like in print: John Gray, who kept it 1838-41, Edwin O. Gale, who was put up in a chamber 'about 12x12, with two windows 6x8', and F. H. Taylor, who fixed which street the front was on. From them come the room module, the 7 1/2 ft ceilings, the board partitions, the interior whitewash, the dividing hall and its stairway, the bar-room at one end, the attic used for lodging, the gable-end attic window and the low one-storey additions at each end. What none of them gives is an overall dimension, so even here the footprint is a derivation from the room module rather than a measurement. IT ALSO SURVIVED LONG ENOUGH TO BE PHOTOGRAPHED, about 1859, at its original corner — the closest thing to direct visual evidence for any Wolf Point building. Note the caveat carefully, because the version in circulation is wrong: the 1859 plate PREDATES the 1880 move and shows the tavern where it was built, so what stands between it and the scene date is twenty-six years of alteration, not forty-seven years and a move. That plate has not been seen for this record and it is the single highest-value open lead in the parcel: it would settle the overall dimensions, the exterior finish and the gallery in one look. CONFLICTS RECORDED: frame throughout versus a log core weatherboarded later, a claim attributable to W. H. Stow personally; the carpenter, Philo Cobb versus Silas B. Cobb; the move dated 1880 versus 1881; and, the largest in metres, whether 'Lake and Canal' or 'Lake and West Water' names the corner, which are a full block apart. See docs/RESEARCH/green_tree_tavern.md.",
+  "research_note": "CURRENT PICTURE-LED WORKING READING: The closed shoulder, lower sash and small front-gable light in Andreas's detailed Green Tree engraving now supply the model's enclosed left shoulder, beside the existing low connector and farther gabled range. Trowbridge's independently verified1902 book illustration, retrospectively captioned1835, shows an open post-and-roof wagon bay instead. Both remain cited. Choosing the enclosed form establishes neither a conversion date nor the exact1July1835 condition; every metric annex choice and July continuity stays reconstructed.\n\n The native yard producer follows that same canonical building attribute: its competing open shed/posts and coupled covered wagon are not drawn inside the closed shoulder. The two separate farm-wagon stands, frontage goods and bench keep their existing rules. No source footprint, coordinate, date, confidence, source list, historic identity or lodging count changes. The retained genuine native closed model is reused because its complete current resolved input document is identical, not because an old proxy was relabelled.\n\n The actual unchanged-camera/source comparison shows the added wall, lower sash and dormer, but the left-group roof silhouette and relative proportions still differ. This is useful partial progress on original T-2376, not a complete picture match or accepted published-app result. The current comparison and source disagreements are in docs/RESEARCH/green-tree-annex-T-2376/README.md; prior research and the earlier open-bay rationale are retained verbatim in docs/RESEARCH/green-tree-annex-T-2376/previous-open-reading-20261103.md. The held-rights/unverified1859 catalogue photograph remains cross-check context, supplying no new geometry or cleared asset.",
   "research_doc": "docs/RESEARCH/green_tree_tavern.md",
   "review_required": false,
   "lodging": {

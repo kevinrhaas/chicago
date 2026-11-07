@@ -1,0 +1,13 @@
+{
+  "library": "camp_1812_pbr",
+  "version": "1.1.0",
+  "ticket": "T-3342, T-3401",
+  "materials": [
+    "cattail_mat",
+    "elm_bark",
+    "bough_thatch",
+    "hay_stack",
+    "hay_weathered",
+    "hay_cut"
+  ]
+}

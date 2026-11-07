@@ -1,0 +1,23 @@
+{
+ "structure_id": "house_1918_prairie",
+ "source_id": "chicagology_1936_prairie_exterior_photo",
+ "library_image": "a19-cgy-1936-thompson-photo",
+ "photo": "../../sources/assets/allerton_1936_photo_t1901/allerton_1936_chicagology.jpg",
+ "image_px": [
+  1955,
+  1080
+ ],
+ "principal_px": [
+  977.5,
+  880.45
+ ],
+ "focal_px": 3962.0,
+ "eye": [
+  75.64,
+  -69.49,
+  1.6
+ ],
+ "yaw_deg": 314.02,
+ "sky": "overcast",
+ "solve": "RE-SOLVED by T-3370 by least squares, replacing T-1901's eye fit (which left its six points 15-154 px off, 120 px rms). THE CORNER: the main cornice's crown, read along its whole run, rises from the flank's west end (x 790, y 410 px) to a kink at x 1170, keeps rising to its nearest vertex at x 1421-1430 (y 350) and only then falls away northward (x 1500, y 367; x 1580, y 394; past the tower x 1800, y 420; its north end x 1865, y 447). A level camera draws a straight cornice as a straight line, so the turn at x 1425 is a corner and the nearest one: the house's south-east corner is there, at the verandah's south end (x 1421), not at x 1140 as T-1901 read it. The dark band at x 1125-1170 is an east-facing return (dark as the front is, the south faces lit pale under the grey sky): the dining range's end, standing 1.5 m south of the wall east of it, as the 1911 sheet draws the south side. So the 'bay of windows between the corner and the verandah' (x 1172-1395) is on the SOUTH side, and the photograph's front reads in the 1911 sheet's order: the verandah from the corner, the tower, the porch and the stoop running north. The 1886 Andreas engraving (a19-andreas-1886-prairie-20th) and its etching (a19-cgy-1936-thompson-etching) draw the same: a lit south face, a dark brick return, a lit south face with a pair of windows, then the front behind a tree. THE FIT: eye height held at 1.6 m and the principal point's x at the image's middle (977.5 px); free the eye's place, the heading, the focal length and the principal point's height (a rising front). Fitted to four fixed points (the cornice crowns over the flank's south-west corner, x 790 y 410, and the south-east corner, x 1425 y 350, at the Tribune's 44 ft and 0.75 m out; the north-east crown, x 1865 y 447; the verandah's floor at its south end, x 1421 y 861, at the Tribune's 6 ft and 1.2 m before the wall) and six samples along the cornice and the verandah's floor held to their lines, with the tower's three points (the top rail's corners x 1675 y 22 and x 1735 y 35 at the Tribune's 73 ft, the corbel table's south-east corner x 1690 y 378) free to move along the front: 12 px rms. A camera on a long lens about 90 m south-east of the house's corner, beyond the corner of Prairie Avenue and Twentieth Street (focal 3962 px on this copy, which is a crop of a larger plate), looking north-west (yaw 314.0). Variants (the north-east crown freed, or the cornice taken to the north block's line at the corner) move the eye 6-10 m and the focal 3170-3970 px at 8-12 px rms; every one puts the tower 1.6-2.7 m further north along the front than the 1911 sheet (T-3370 built it 2.0 m north), the verandah's north end at v 7.4-9.2 and its two columns about 2.55 m apart. THROUGH IT: the left stack (x 905-995 px) at u 1.7, the right one (x 1215-1300 px) at u 11.7-12.3 on the line v 0.9 (this fit 12.3, built 11.7); the deck's rail top at its south-east corner (x 1345, y 257 px) at about 17.0 m, the build's height. RESIDUAL TENSION: the cornice's south-east corner and the verandah's south end stand at one x in the photograph, where the build, its verandah 1.2 m before the wall, puts them about 0.85 m apart along the line of sight (about 20 px each way here). LIGHT: a grey winter sky, no cast shadows: overcast."
+}

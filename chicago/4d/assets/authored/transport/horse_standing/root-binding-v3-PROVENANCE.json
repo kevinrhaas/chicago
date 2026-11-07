@@ -1,0 +1,20 @@
+{
+  "schema": "natural_planted_root_binding_v3_change_notice",
+  "original_author": "sevketkabatas",
+  "original_title": "Horse",
+  "model_license": "CC-BY-4.0",
+  "original_credit_lineage": "SOURCE.json unchanged acquisition/source/author/license notices; every old GLB notice remains.",
+  "parent_v2_sha256": "0ced8a09e27da047ad404c902e9d032e43654393027199db8dfd9c315be17929",
+  "parent_paired925_v2_sha256": "a3eca1a164e2adf13d7d5f6699ff43de66d48dde0e3220f4aae90591dcaf4cb3",
+  "candidate_sha256": "014ab3b117e0ab4462b41df7dde8c507ad58606eb461a1a8f2b9e89bc55fed63",
+  "paired925_sha256": "b1367d44c91bf2772110f6d1091c0cf4c2df85c8b74d5aba7f45ec50356c8716",
+  "recipe_sha256": "be7aa1c9e00859f1a22d7906bb2dedb8b73393d630c406270b5ef07c231ea0f6",
+  "new_work": "Project-authored reconstructed mane-root binding guide sampled from8actualcentraldorsalcrest source points. Head/mane tuples vary by crest attachment rather than falling tip height.1119HAIR rows changed; BODY/EYE/969tail/geometry/rig/images/UV/old13+new17clips exactV2.",
+  "source_limits": "Anatomical source geometry/profile inspection, not calibrated groom simulation, photographic completion, historical individual or source-native animation.",
+  "prior_v2_actual": "Old13all129parity/physicalPASS; new17BODY/EYE/footPASS butHAIRarea1.225623>1.2failed. OldV2 assets/36implementationpins/verdicts remain unchanged.",
+  "old13_native129": "UNRUN",
+  "new17_physical129": "UNRUN",
+  "paired925_socket129": "UNRUN",
+  "runtime_adoption": false,
+  "old_certificate_transferred": false
+}

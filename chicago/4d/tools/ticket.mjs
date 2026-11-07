@@ -3028,6 +3028,23 @@ switch (cmd) {
       console.error('and reported hours later in the gate of a pull request that cannot fix it.');
       process.exit(1);
     }
+    // The epic is read by the same gate, and filed the same way (T-3431). On 2026-11-03
+    // `new --epic 1812` and `new --epic PRAIRIE` were written as asked, `check` refused all
+    // three tickets they made, and that is the step the tickets repo's settle workflow runs
+    // before it publishes the board: every settle run failed for three days, so BOARD.md
+    // and tickets.json stopped moving and merged PRs read `review`. Refused here, before an
+    // id is minted, where the person filing it can pick the right one in one command.
+    const epic = String(flag('epic') ?? 'META').toUpperCase();
+    if (!EPICS.includes(epic)) {
+      console.error(`ticket.mjs new: REFUSED — epic "${flag('epic') === true ? '' : flag('epic')}" is not one of `
+        + `${EPICS.join('/')}.\n`);
+      console.error('`check` refuses a ticket whose epic is not on that list, and the tickets repo\'s settle');
+      console.error('workflow runs `check` before it publishes the board — one such ticket stops the board');
+      console.error('for everyone. A scene year is not an epic: 1812 and 1835 work is TOWN, the 1904');
+      console.error('Prairie Avenue programme is SOUTH_TIME. A genuinely new epic is added to EPICS in');
+      console.error('tools/ticket.mjs, in a code PR, before the first ticket carries it.');
+      process.exit(1);
+    }
     if (effort === 'L') {
       console.error(`ticket.mjs new: REFUSED — effort L is ${EFFORT.L}.\n`);
       console.error('A queue line is a promise that whoever takes it can finish it. Size it before');
@@ -3100,7 +3117,7 @@ switch (cmd) {
     const t = {
       file: ticketPath(id, title),
       id, title, state: 'open',
-      epic: (flag('epic') ?? 'META').toUpperCase(),
+      epic,
       requested_by: flag('by') ?? 'steward',
       seen: has('seen'), effort,
       legacy_id: flag('legacy') ?? null,

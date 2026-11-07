@@ -357,5 +357,5 @@ def elements(a, k5, f: float):
                                 0.0, E, profile=m["profile"])
         a.round_dormers.append(g["geom"])
         bodies += [g["body"], g["roof"]] if g["roof"] else [g["body"]]
-        recesses.append(g["recess"])
+        recesses += g["recesses"]
     return solids + bodies, recesses

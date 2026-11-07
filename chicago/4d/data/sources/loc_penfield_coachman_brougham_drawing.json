@@ -1,0 +1,27 @@
+{
+ "id": "loc_penfield_coachman_brougham_drawing",
+ "type": "illustration",
+ "citation": "Edward Penfield, [Driver with horse and carriage], drawing, between 1884 and 1925. Library of Congress, Prints and Photographs Division, Cabinet of American Illustration, CAI - Penfield, no. 6 (B size), LC-USZC4-14077 (item 2010717341).",
+ "date": "between 1884 and 1925",
+ "describes_date": "between 1884 and 1925",
+ "repository": "Library of Congress, Prints and Photographs Division. Master TIFF 2a14077u.tif (836 x 1024, a colour transparency of the drawing with its colour bar), read at tile.loc.gov; the drawing without the colour bar is kept in kevinrhaas/chicago-evidence evidence/people-references-2026-11-06/coachman_1904/.",
+ "url": "https://www.loc.gov/item/2010717341/",
+ "locator": "The whole drawing: a coachman on the box of a closed brougham behind one horse, from the front quarter, a second carriage sketched behind.",
+ "tier": 1,
+ "rights_status": "no_known_restrictions",
+ "rights_note": "LOC rights advisory: 'No known restrictions on publication.' Used only as a reference picture people are judged against (T-3417); nothing is traced or sampled from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-06 (T-3417). A period illustrator's drawing of a brougham coachman: a pale blue double-breasted livery coat with two rows of buttons, a dark collar, a white stock, a tall hat with a cockade band, pale gloves holding reins and a long whip upright, light breeches and top boots, sitting upright with knees high on the box cushion. Undated within Penfield's working life; it is a drawing, so its folds and colours are the artist's, not a camera's.",
+ "note": "One of the 1904 coachman reference set's pictures (data/humans/reference_sets/coachman_1904.json). The only colour picture in the set; its blue livery is one household's choice, not a rule.",
+ "what_it_supplies": [
+  "a brougham coachman's whole figure, box and horse from the front quarter",
+  "how the coat, hat and gloves sit together in colour",
+  "the upright, high-kneed seat on a brougham box"
+ ],
+ "what_it_does_not_supply": [
+  "photographic texture (it is a drawing)",
+  "a firm date",
+  "anything about Chicago or Hans Johnson; no likeness is asserted"
+ ]
+}

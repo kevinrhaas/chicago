@@ -243,6 +243,25 @@ chimney, by its material name. Those names have no single writer and no pin, and
 | what a renderer must do with it | draw it behind whatever face lies in its plane. `buildings.js` gives it a depth offset away from the eye (`JOINT_FLOOR`, polygon offset factor 1, units 4): depth only, no vertex, colour or light moves. Without it, the 14-bit web lattice (2.8 mm a rung on a 46 m house) rounds the recess onto the face, and past about 50 m a 24-bit depth buffer cannot part 5 mm anyway, so floor and face fight: the owner's "speckled" flanks on 1827 and 1801 Prairie. |
 | what it is NOT a licence for | finding any other part of a wall by name. `tools/check_joint_floor.mjs` holds the offset and refuses a `mortar` material in any shipped file but the K02 houses and Glessner. |
 
+### Camp coverings — three pinned material names and a `_UV` channel (PROPOSED 2026-11-03, T-3342)
+
+| thing | convention |
+|---|---|
+| which material is a camp covering | a material named `camp_cattail_mat`, `camp_elm_bark` or `camp_boughs`, written only by `generators/archetypes/lodge_camp.py` (the 1812 Potawatomi camp). Each names its sheet in `assets/textures/camp_1812_pbr/` (`cattail_mat`, `elm_bark`, `bough_thatch`). |
+| its map coordinate | the custom attribute `_UV` (VEC2 float, three's `_uv`), in tiles of the sheet's `material.json` `span_m`: u round the covering, v up it, every mat and sheet at its own offset. Not TEXCOORD_0, because no texture rides in the GLB and the web derivative's prune drops a TEXCOORD_0 nothing samples; `_UV` survives it as `_TONE` and `_CONFIDENCE` do. Only the three covering primitives carry it. |
+| what a renderer does with it | `renderers/web/js/camp-surfaces.js` binds the sheet's base colour, normal and ORM (as roughness and occlusion), copies `_uv` to `uv`, and whitens the material so the batch's instance colour leaves the sheet as drawn; a sheet that does not load leaves the GLB's colour, each sheet's mean. It loads the sheets only in a scene that draws a `lodge_camp`. |
+| what holds it | `python3 generators/lodge_camp_emit.py --check` (the bytes) and `python3 tools/ktx2_sheets.py --check` (the sheets). |
+| the haystacks' hay (T-3401) | the same convention, on three more names written only by `generators/archetypes/haystack.py`: `stack_hay`, `stack_hay_weathered` and `stack_hay_cut`, naming `hay_stack`, `hay_weathered` and `hay_cut` in the same library (`HAY_COVERINGS` in camp-surfaces.js), loaded only in a scene that draws a `haystack`. Their primitives carry a per-vertex `_TONE` too. Held by `python3 generators/haystack_emit.py --check`. |
+
+### Brick panels — read from the base colour's image name (PROPOSED 2026-11-01, T-3295)
+
+| thing | convention |
+|---|---|
+| which material is a K03 brick panel | any material whose `baseColorTexture` image is named `<panel id>_basecolor`, `<panel id>` one of `assets/textures/prairie_1904_brick/profiles.json` `panels`. `k01_frontage.to_glb` names each embedded image from its source file's stem, and the web derivative keeps the name (KTX2 included). The material's own name (`brick`, `bay_brick`, `area_brick`, `k11_wall_brick`, …) is NOT read. |
+| what a renderer may assume of its map coordinate | the panel's own layout, in the panel's own UV: v = 0 on a bed joint at the panel's foot, courses up the wall as v falls (glTF's v runs down the image), units along a course starting at `-offset + k * unit` modules (the generator's `course_layout`). It is the texture's space, so it holds whatever offset or phase a wall is mapped at. |
+| what a renderer does with it | `renderers/web/js/brick-bond.js` draws each brick's face from another brick of its own length in the panel, picked by a hash of its place and its building, and gives it a small mean-neutral colour spread (L-k03-brick-shuffle-3295), so the 0.86 m tile stops showing. `?bricks=tiled` draws the panel as laid. |
+| what holds the two in step | `tools/check_brick_bond.mjs`, a `check.sh` step: the renderer's bonds, repeats and joints against `profiles.json` and each panel's `material.json`, and every panel a shipped GLB wears against the shuffled set. |
+
 ### Wall substrates — read from the record (PROPOSED 2026-10-02, T-1963)
 
 The paragraph above refuses a wall's material name as a licence, and this section does not
@@ -562,3 +581,39 @@ GLB that satisfies this contract exactly — correct node name, `extras`, and a 
 attribute exercising all three confidence levels. `generators/placeholder.py` emits one. A placeholder
 that does not satisfy the contract is worse than none, because it lets the renderer develop
 against a fiction.
+
+
+## Optional span walk-surface profile (T-2375)
+
+A water-anchored bridge may carry `placement.walk_surface_profile =
+{"version":1,"axis":"local_x","stations_m":[[x,z],...]}`. The pure archetype
+function that displaces the closed-draw mesh writes the same local-span stations
+and heights above its water anchor. Existing scalar-only sidecars and flat
+defaults omit this field and retain their old behavior.
+
+Version1 stations increase strictly from x=0 to the footprint's maximum x.
+Their first/last heights equal `walk_surface_m`; all values/transforms are finite.
+This bounded closed-rise profile permits heights from the base through base+3m.
+Malformed declarations refuse instead of silently flattening. The sampler
+returns null outside the local span; callers retain polygon-covering, highest
+deck, water and land rules. Walker, router grid/exact queries, offered-anchor
+readings and human root placement consume this same numeric sampler.
+
+The Dearborn profile is a nominal plank-top proxy: it bridges 8mm board gaps and
+omits 55mm proud thresholds. It is not a topmost-any-mesh raycast, continuous
+wood coverage, shoe/IK/wheel or whole-body contact certificate. Geometry and
+profile choices are reconstructed display form, not an operating historic draw.
+
+This contract alone grants no static prop, vehicle or horse placement on a
+sloped span. Before adoption, verify current whole emitted yard/asset extents
+clear the changed polygon and bind those finite scene inputs. Future overlapping
+placements require a qualified contact model. No horse, parked-transport or
+yard runtime architecture changes are included by this profile feature.
+
+### Separate occupied components beside the core footprint (T-2376)
+
+A compiled sidecar may carry `footprint.additional_polygons`, a list of `{id, polygon, confidence, sources, note}` objects in the same local metre frame as `footprint.polygon`. The core polygon remains the dimensional/coordinate and main-facade reference. Extra rings describe actual occupied solids; the space between rings is not filled. All rings retain the same structure owner id.
+
+The compiler derives these rings from the pure archetype's resolved component frames; the builder uses those same frames for the walls and door. Renderers consume the JSON rings without importing generator code or reconstructing the layout. Walking/routing/vegetation keep-outs and map outlines read all rings. Native physical clearance and ground readers do likewise. A record without extra components emits no additional key and preserves its previous footprint bytes.
+
+An open yard bay is not a solid component. Its separate roof/posts/vehicle geometry remains owned by its yard layer. Alternate structure versions carry the occupied rings of their own selected record.

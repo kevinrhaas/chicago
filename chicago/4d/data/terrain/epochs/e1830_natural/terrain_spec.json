@@ -321,6 +321,223 @@
       "dossier_zone": "record_only"
     }
   },
+  "twelfth_street_shore_join_1812": {
+    "id": "twelfth_street_shore_join_1812",
+    "label": "The 1812 lake shore at Twelfth Street, where Wright's sheet ends and Rees's line begins",
+    "north_run": "lake_shore_south_of_outlet_1812",
+    "south_run": "lake_shore_below_twelfth",
+    "north_from_n_m": -2050.0,
+    "south_to_n_m": -2420.0,
+    "step_m": 10.0,
+    "confidence": "reconstructed",
+    "sources": [
+      "wright_1834",
+      "rees_rucker_1849"
+    ],
+    "note": "T-3403, on the owner's report (2026-11-06) of 'a sharp cut in the lakeshore' and 'some land bridge standing out there' at stop 9 of the battle jaunt. Two traces meet on the row N -2159.9. Wright's 1834 run reaches it and then follows the dark foot of his sheet back east to E +1458.9 (the note on lake_shore_south_of_outlet_1812 says so: 'the last 200 m of the 1834 run follows the sheet's dark bottom edge rather than a pen line'), and the field read that paper edge as a waterline, so a one-row causeway of beach ran 110 m out into the lake with an islet beside it. Rees & Rucker 1849 starts on the same row 48-110 m further west: terrain_gen.py's own note calls that step 'this shore's documented post-pier erosion', and the piers were built in 1833-1834, so in 1812 neither the step nor the erosion behind it existed. The 1812 shore is therefore Wright's pen line to N -2050, Rees's line from N -2420, and between them a cubic Hermite curve that leaves each run on that run's own bearing. Both runs are cut in memory where the curve leaves them (generators/terrain_gen_e1830.py join_shore); the committed traces, the 1835 ground and the evacuation route's measurements are not edited. WHAT IS RECONSTRUCTED: every vertex of the curve; no survey of 1812 draws this shore. Admitted in docs/LIBERTIES.md L-t3403-battle-shore-1812."
+  },
+  "battle_bank_1812": {
+    "id": "battle_bank_1812",
+    "label": "The beach, the high sand bank and the ravine behind it, along Heald's mile and a half",
+    "n_range": [
+      -2700.0,
+      -1300.0
+    ],
+    "end_fade_m": 220.0,
+    "beach_back_m": 26.0,
+    "profile_ft": [
+      [
+        0,
+        0.0
+      ],
+      [
+        6,
+        1.0
+      ],
+      [
+        26,
+        2.6
+      ],
+      [
+        30,
+        5.0
+      ],
+      [
+        34,
+        9.5
+      ],
+      [
+        38,
+        13.0
+      ],
+      [
+        44,
+        14.5
+      ],
+      [
+        58,
+        14.0
+      ],
+      [
+        72,
+        15.5
+      ],
+      [
+        84,
+        18.0
+      ],
+      [
+        96,
+        19.0
+      ],
+      [
+        108,
+        17.5
+      ],
+      [
+        120,
+        12.5
+      ],
+      [
+        132,
+        7.0
+      ],
+      [
+        144,
+        4.6
+      ],
+      [
+        158,
+        5.0
+      ],
+      [
+        175,
+        7.0
+      ],
+      [
+        200,
+        8.5
+      ]
+    ],
+    "hummock_ft": 3.0,
+    "hummock_wavelength_m": 38.0,
+    "hummock_envelope_m": [
+      32.0,
+      44.0,
+      112.0,
+      124.0
+    ],
+    "crest_max_ft": 20.0,
+    "wander_m": 6.0,
+    "wander_wavelength_m": 170.0,
+    "blend_back_m": [
+      185.0,
+      215.0
+    ],
+    "seed": 18120815,
+    "dossier_zone": 5,
+    "confidence": "reconstructed",
+    "sources": [
+      "moses_kirkland_history_of_chicago_v1",
+      "kinzie_waubun_1856",
+      "quaife_1913"
+    ],
+    "readings": [
+      {
+        "source_id": "quaife_1913",
+        "locator": "Appendix IV, Captain Heald's official report, Pittsburg, 23 October 1812 (from Brannan, Official Military and Naval Letters, 1823, p. 84)",
+        "quote": "The situation of the country rendered it necessary for us to take the beach, with the lake on our left, and a high sand bank on our right, at about 100 yards distance."
+      },
+      {
+        "source_id": "moses_kirkland_history_of_chicago_v1",
+        "locator": "p. 50, Heald's letter of 23 October 1812 as printed, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 7586-7600",
+        "quote": "it was discovered that the Indians were preparing to attack us from behind the bank. I immediately marched up, with the company, to the top of the bank"
+      },
+      {
+        "source_id": "kinzie_waubun_1856",
+        "locator": "ch. XIX, 'Narrative of the Massacre, Continued'",
+        "quote": "a range of sand-hills intervening between the prairie and the beach"
+      },
+      {
+        "source_id": "kinzie_waubun_1856",
+        "locator": "ch. XIX",
+        "quote": "The troops were hastily brought into line, and charged up the bank."
+      },
+      {
+        "source_id": "kinzie_waubun_1856",
+        "locator": "ch. XIX",
+        "quote": "charged upon those who had concealed themselves in a sort of ravine, intervening between the sand-banks and the prairie"
+      },
+      {
+        "source_id": "kinzie_waubun_1856",
+        "locator": "ch. XIX, Mrs. Helm's narrative",
+        "quote": "conducted me up the sand-banks. It was a burning August morning, and walking through the sand in my drenched condition was inexpressibly painful and fatiguing"
+      },
+      {
+        "source_id": "moses_kirkland_history_of_chicago_v1",
+        "locator": "p. 60, lines 8878-8884",
+        "quote": "The surface of the bank, a hundred feet or more back from the water, varied from ten to twenty feet in height above its level."
+      },
+      {
+        "source_id": "moses_kirkland_history_of_chicago_v1",
+        "locator": "p. 52, quoting Wentworth's Fort Dearborn (Fergus' Historical Series No. 16, 1881), lines 7845-7858",
+        "quote": "surrounded by about 600 Indians who had formed in a horse-shoe or semi-circular shape upon the bluff"
+      },
+      {
+        "source_id": "quaife_1913",
+        "locator": "p. 226",
+        "quote": "a row of sand hills, or ridges, which ran between the prairie and the beach, parallel to the latter and distant from it about one hundred yards"
+      }
+    ],
+    "mesh": {
+      "dossier_zone": "record_only",
+      "readings": "record_only"
+    },
+    "note": "T-3403, on the owner's report (2026-11-06) that the bank the accounts describe 'does not really seem to show here from the land' and should be 'much more significant and accurate'. T-2066's sand hills south of Twelfth and the carried 1834 dunes north of it stood +2 to +9 ft on the 9 ft plain, broken into hummocks, behind a 20 m ramp from the water: from the beach, nothing to charge up. Heald's report gives the shape and the distance: the column took 'the beach, with the lake on our left, and a high sand bank on our right, at about 100 yards distance', the attackers waited 'behind the bank', and his men 'marched up ... to the top of the bank'. Wau-Bun has 'a range of sand-hills intervening between the prairie and the beach', 'charged up the bank', and behind it 'a sort of ravine, intervening between the sand-banks and the prairie' in which the attackers 'had concealed themselves'; Mrs. Helm was led 'up the sand-banks' through deep sand; Wentworth's Heald family account has a 'bluff'. Moses & Kirkland give the height: the bank's surface 'a hundred feet or more back from the water' and 'ten to twenty feet' above it. Quaife, from Heald, puts 'a row of sand hills, or ridges' 'about one hundred yards' from the beach. So the ground along Heald's band is laid as one profile measured inland from the lake's edge, row by row: a beach of 26 m rising to 2.6 ft, the column's road and wide enough for its wagons; the bank's near face, climbing from 2.6 ft at 26 m to 13 ft at 38 m, about 25 degrees, under the angle at which dry sand stands, so the bank's surface stands 14.5 ft high from 44 m (M&K's 'a hundred feet or more' is 30.5 m); the sand hills rising behind it to Heald's high bank, a crest of 19 ft at 96 m, his hundred yards being 91.44 m; their back falling through 12.5 ft at 120 m into the ravine, 4.6 ft at 144 m, four feet under the prairie it opens onto; and the plain's own 8.5 ft by 200 m, where the ground already there takes over across 185-215 m. Hummocks of up to 3 ft play across the hills only (32-124 m), clipped at M&K's 20 ft, so the tops range across their ten to twenty and the troughs between them let the line down ('not continuous'). The block runs N -1300 to -2700 with 220 m fades, covering Heald's band (data/terrain/1812_evacuation_route.geojson, N -1456 to -2192 along the shore) and the reach where the accounts' sand hills begin, and replaces the hummock fields of south_lake_dunes and south_lake_sand_hills_1812 where it stands. WHAT IS RECONSTRUCTED: every width, height and place in the profile, the hummocks, and the ravine's depth; the readings fix that a beach, a high bank of sand hills and a ravine stood in that order, how far back and how high the bank stood, and nothing places one hill. Where the sand hills BEGAN is still disagreed (Quaife: at the river mouth; M&K: about Twelfth Street) and this block does not settle it. Admitted in docs/LIBERTIES.md L-t3403-battle-shore-1812."
+  },
+  "heald_small_elevation_1812": {
+    "id": "heald_small_elevation_1812",
+    "label": "Heald's 'small elevation in the open prarie'",
+    "centre_e": 960.0,
+    "centre_n": -1853.0,
+    "rise_ft": 8.0,
+    "flat_radius_m": 18.0,
+    "skirt_m": 34.0,
+    "dossier_zone": 8,
+    "confidence": "reconstructed",
+    "sources": [
+      "moses_kirkland_history_of_chicago_v1",
+      "kinzie_waubun_1856",
+      "quaife_1913"
+    ],
+    "readings": [
+      {
+        "source_id": "moses_kirkland_history_of_chicago_v1",
+        "locator": "p. 50, Heald's letter as printed, lines 7594-7600",
+        "quote": "I drew off the few men I had left and took possession of a small elevation in the open prairie, out of shot of the bank or any other cover. The Indians did not follow me, but assembled in a body on the top of the bank"
+      },
+      {
+        "source_id": "kinzie_waubun_1856",
+        "locator": "ch. XIX",
+        "quote": "this little band succeeded in breaking through the enemy, and gaining a rising ground, not far from the Oak Woods"
+      },
+      {
+        "source_id": "moses_kirkland_history_of_chicago_v1",
+        "locator": "p. 51, lines 7780-7784",
+        "quote": "Captain Heald was drawing together the remainder of his force far inland, out of gun-shot from the bank"
+      },
+      {
+        "source_id": "quaife_1913",
+        "locator": "ch. on the massacre",
+        "quote": "a slight elevation on the open prairie, out of shot of the bank or any other cover"
+      }
+    ],
+    "mesh": {
+      "dossier_zone": "record_only",
+      "readings": "record_only"
+    },
+    "note": "T-3403, on the owner's question at stop 10 (2026-11-06): 'where on the open prairie is the small elevation? you should attempt to cite it and place it'. Heald names it, in the report written ten weeks after: 'a small elevation in the open prarie, out of shot of the bank or any other cover', with the attackers left 'on the top of the bank' and Heald walking out to them alone. Wau-Bun's account (Mrs. Helm, from memory) has the survivors 'gaining a rising ground, not far from the Oak Woods'; Quaife repeats Heald; Moses & Kirkland read it as 'far inland, out of gun-shot from the bank'. No account gives a distance or a size and none locates the Oak Woods, so it is placed by the three things they do say. (1) Along the march: at Heald's own 'about a mile and a half', the station data/terrain/1812_evacuation_route.geojson derives at E +1318, N -1853, because the withdrawal was out of the fight at the bank and Heald was not followed. (2) Inland, due west of it on the same row, the direction away from the lake. (3) Out of shot: the high bank's crest stands at Heald's hundred yards and its back falls to the ravine by about 125 m from the water (battle_bank_1812), and the rise's centre is put 358 m from the water, about 230 m (250 yards) beyond the back of the bank, past the range at which a smooth-bore musket of 1812 could be aimed at a man; that range is this project's reasoning and cites nothing. Its size is 'small': a top 36 m across, room for the 'few men' left, standing 8 ft over the plain, with a 34 m skirt, so it is a rise on the plain and not a hill. WHAT IS RECONSTRUCTED: its place, its height and its size; its existence is attested by the commander who stood on it. Admitted in docs/LIBERTIES.md L-t3403-battle-shore-1812."
+  },
   "spit_1812": {
     "feature": "baymouth_bar_1812",
     "crest_ft": 4.0,

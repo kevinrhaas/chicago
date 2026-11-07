@@ -29,10 +29,11 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The three live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: Joseph E. Otis (the head in 1900; by 1904 the Blue Book lists his widow, Mrs. Joseph E. Otis); Ralph C. Otis (a married son the 1904 Blue Book does not list at the house); Louise Otis (his wife; not listed in 1904 either). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The three live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: Joseph E. Otis (the head in 1900; by 1904 the Blue Book lists his widow, Mrs. Joseph E. Otis); Ralph C. Otis (a married son the 1904 Blue Book does not list at the house); Louise Otis (his wife; not listed in 1904 either). The 1910 census (T624 roll 241, ED 166 and 167) was read for this card's children: the children it lists, and those the Blue Book lists at the number from 1890 to 1911, are on the card with the years each lived here, whether or not they were at home in 1904. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
-      "census_1900_chicago_t623_roll245"
+      "census_1900_chicago_t623_roll245",
+      "census_1910_chicago_t624_roll241"
     ]
   },
   "persons": [
@@ -57,6 +58,61 @@
       "note": "The 1900 census lists Marie P. Otis here as wife, born August 1837, in Ohio (as read), married (ED 40, sheet 1B, line 55, leaf n795)."
     },
     {
+      "id": "pa1904_otis_joseph_e_jr",
+      "name": "Joseph E. Otis jr.",
+      "relationship": "son",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1890",
+        "chicago_blue_book_1891"
+      ],
+      "printed_as": "1730 Joseph E. Otis jr.",
+      "lived_here": {
+        "years": "1890-1891",
+        "on_scene_date": "no"
+      },
+      "note": "Listed at 1730 under Mr. and Mrs. Joseph E. Otis in the 1890 and 1891 editions; the 'jr.' names him the son of the house. The 1910 census has his mother the mother of eight children, four of them living (ED 166, sheet 6A, line 6, leaf n1439)."
+    },
+    {
+      "id": "pa1904_otis_ralph_c",
+      "name": "Ralph C. Otis",
+      "relationship": "son",
+      "grade": "attested",
+      "sources": [
+        "census_1910_chicago_t624_roll241",
+        "chicago_blue_book_1890",
+        "chicago_blue_book_1891",
+        "chicago_blue_book_1892",
+        "chicago_blue_book_1893",
+        "chicago_blue_book_1894",
+        "chicago_blue_book_1895",
+        "chicago_blue_book_1897",
+        "chicago_blue_book_1898",
+        "chicago_blue_book_1901"
+      ],
+      "printed_as": "1730 Ralph C. Otis",
+      "born": {
+        "value": "1870",
+        "confidence": "inferred",
+        "sources": [
+          "census_1910_chicago_t624_roll241"
+        ],
+        "note": "The 1910 census gives age 40 on 15 April 1910, so born about 1869-1870."
+      },
+      "census_1910": {
+        "date": "1910-04-15",
+        "source": "census_1910_chicago_t624_roll241",
+        "locator": "ED 166, sheet 6A, line 7, leaf n1439",
+        "as_enumerated": "Otis, Ralph C.",
+        "relation_as_enumerated": "Son"
+      },
+      "lived_here": {
+        "years": "1890-1901; 1910",
+        "on_scene_date": "unknown"
+      },
+      "note": "Listed at 1730 under his parents from 1890, with his wife in 1901, and not in the 1902 to 1910 editions; the 1910 census finds him at home again, as son, aged 40, with his wife Evaleen. Whether he lived here in 1904 is not documented."
+    },
+    {
       "id": "pa1904_jenkins_john_e",
       "name": "John E. Jenkins",
       "relationship": "household_member",
@@ -70,13 +126,21 @@
     {
       "id": "pa1904_jenkins_mrs_john_e",
       "name": "Mrs. John E. Jenkins",
-      "relationship": "household_member",
+      "relationship": "daughter",
       "grade": "attested",
       "sources": [
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "census_1910_chicago_t624_roll241"
       ],
       "printed_as": "1730 Mr. & Mrs. John E. Jenkins",
-      "note": "First listed at 1730 in the 1905 edition, with her husband; see his note."
+      "note": "First listed at 1730 in the 1905 edition, with her husband; see his note. The 1910 census names her Lillian Jenkins and lists her as Mrs. Otis's daughter, aged 49, with her husband and their son Elliott, 19 (ED 166, sheet 6A, lines 9-11).",
+      "census_1910": {
+        "date": "1910-04-15",
+        "source": "census_1910_chicago_t624_roll241",
+        "locator": "ED 166, sheet 6A, line 10, leaf n1439",
+        "as_enumerated": "Jenkins, Lillian",
+        "relation_as_enumerated": "Daughter"
+      }
     },
     {
       "id": "pa1904_otis_mrs_joseph_e_c1900_amelia_sanz",

@@ -58,13 +58,20 @@ on:
   workflow_dispatch:
 
 jobs:
-  gate:
+  check-part:
+    name: gate part ${{ matrix.part }}/8
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        part: [1, 2, 3, 4, 5, 6, 7, 8]
     steps:
       - uses: actions/checkout@v4
         with:
           # T-0409's gate needs the merge base to ask what this PR changed.
           fetch-depth: 0
+          filter: blob:none
 
       - uses: actions/setup-python@v5
         with:
@@ -112,7 +119,9 @@ jobs:
           # number because the runner decides, and CHECK_JOBS=1 anywhere restores the
           # old path exactly if a step ever turns out to share state with another.
           CHECK_JOBS: ${{ steps.jobs.outputs.n }}
-        run: ./tools/check.sh
+        # The existing native partition retains every assertion. A timed-out
+        # part fails; only the complete eight-part matrix can satisfy gate.
+        run: timeout --kill-after=5s 600s ./tools/check.sh --part "${{ matrix.part }}/8"
 
       # T-0409 — deliberately NOT inside check.sh. The nightly bake regenerates
       # data/ and correctly ships no entry, so a gate in check.sh would fail
@@ -124,3 +133,16 @@ jobs:
           node chicago/4d/tools/check-changelog-entry.mjs
           "${{ github.event.pull_request.base.sha }}"
           "${{ github.event.pull_request.head.sha }}"
+
+  # Preserve the required check context. A failed, cancelled or skipped matrix
+  # must fail this job rather than leave a skipped check looking mergeable.
+  gate:
+    name: gate
+    needs: check-part
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require every native part to pass
+        env:
+          PARTS_RESULT: ${{ needs.check-part.result }}
+        run: test "$PARTS_RESULT" = success

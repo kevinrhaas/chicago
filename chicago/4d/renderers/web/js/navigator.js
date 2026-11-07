@@ -221,6 +221,7 @@ export function createNavigator({
     const max = names().length - 1;
     const was = level;
     level = Math.max(0, Math.min(max, next));
+    if (level === 0) registry.dockPending();
     paintLevel();
     listen(level > 0);
     listenNear();
@@ -407,12 +408,15 @@ export function createNavigator({
     unregister: (id) => registry.unregister(id),
     /** Open an app by id: the device opens to show it (or, for a stub, runs it and docks). */
     select: (id) => registry.select(id, { by: 'code' }),
+    /** Prepare an app's module without opening the device or mounting its screen. */
+    preload: (id) => registry.preload(id),
     has: (id) => registry.has(id),
     /** T-2621: open what a deep link names; an app the rail does not have is ignored. */
     openLink(next) {
       if (!next?.app || !registry.has(next.app)) return Promise.resolve(false);
       link = { app: next.app, id: next.id ?? null, tab: next.tab ?? null };
       if (next.person) link.person = next.person; // T-3265: Inspect opens People on this person's card
+      if (next.photo) link.photo = next.photo;    // T-3436: Inspect opens Photos on this picture
       return registry.select(next.app, { by: 'link' });
     },
     get link() { return link; },

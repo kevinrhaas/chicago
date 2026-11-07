@@ -1,0 +1,518 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Legends",
+  "featured": true,
+  "review_required": false,
+  "id": "prairie-ghosts-at-night",
+  "scene": "1904",
+  "title": "Ghosts of Prairie Avenue",
+  "premise": "A night walk down Millionaire's Row: a battlefield underfoot, a tycoon in concrete, a rattling widow, a drowned brother and the gunshot at 1919.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "long_form": true,
+  "ambience": {
+    "hour": "night",
+    "season": "fall"
+  },
+  "opening": {
+    "text": "JAUNT: GHOSTS OF PRAIRIE AVENUE. An autumn night in 1904. The gas lamps are lit and the carriages are home. This is Millionaire's Row, where mansions for George Pullman, Marshall Field, John J. Glessner and Philip Armour stand shoulder to shoulder, and where the richest families in Chicago lock their doors at night against everyone but their ghosts.\n\nSeven stops, on foot, from the corner of Eighteenth Street south to 1919 Prairie. You will meet a battlefield under the pavement, a tycoon sealed in concrete, an architect who never saw his masterpiece, a widow who rattles the windows, a man who walked into the lake, and a gunshot nobody has explained. The stories are legends, told by ghost tours and by the Glessner House Museum itself. The deaths behind them are real.\n\nMind the shadows. Start where the street starts: on the battle ground of 1812.",
+    "read_s": 41
+  },
+  "stops": [
+    {
+      "id": "battle-ground",
+      "destination": {
+        "kind": "anchor",
+        "id": "haunted_battle_ground"
+      },
+      "text": "Prairie at Eighteenth, after dark. Before the mansions there were sand hills here, and on 15 August 1812 the Battle of Fort Dearborn was fought across them. The dead 'lay in the sand, half buried where they were killed, until 1816', and for a century a big cottonwood marked the spot. A Tribune writer swore in 1900 that the Pullman house in front of you 'stands about where the massacre took place'. George Pullman knew it: in 1893 he set up a bronze of the Potawatomi chief Black Partridge saving Margaret Helm near this corner. According to legend the fallen still walk here on clear, cold nights. 'The Americans go searching for their families and friends while the Natives continue to patrol their land.' The man who put up that statue is not walking anywhere. His family made sure of it.",
+      "evidence": [
+        "battle-ground",
+        "battle-bones",
+        "battle-statue",
+        "battle-legend",
+        "tour"
+      ],
+      "next": "pullman",
+      "read_s": 39
+    },
+    {
+      "id": "pullman",
+      "destination": {
+        "kind": "structure",
+        "id": "pullman_house_1729_prairie"
+      },
+      "text": "1729 Prairie, the Pullman house. George Pullman made his first fortune lifting Chicago out of its own mud, jacking up whole buildings 'on average six feet without causing them any damage'. Then came the sleeping car, and Lincoln's body rode home to Springfield in one while 'hundreds of thousands of people lined the route in homage'. In 1894 he cut his workers' pay but 'he didn't reduce the rent in Pullman', his company town, and his workers struck. When he died in 1897 his family feared he would be dug up. So, the story goes, he went into a 'lead-lined mahogany coffin, which was then sealed inside a block of concrete', with steel rails 'bolted together at right angles' on top. Mrs. Pullman still lives here. And her husband hated the house across the street.",
+      "evidence": [
+        "pullman-raise",
+        "pullman-strike",
+        "pullman-grave",
+        "pullman-widow",
+        "tour"
+      ],
+      "next": "glessner",
+      "read_s": 38
+    },
+    {
+      "id": "glessner",
+      "destination": {
+        "kind": "structure",
+        "id": "glessner_house"
+      },
+      "text": "1800 Prairie, Glessner House, the granite fortress Pullman meant when he grumbled, 'I do not know what I have ever done to have that thing staring me in the face every time I go out of my door'. Its architect, Henry Hobson Richardson, died on 26 April 1886, five weeks before building began on 1 June. He never saw it built. According to legend he came to see it anyway. The family felt a presence; cold spots creep into warm rooms; 'If you're lucky, you might catch the man's spirit standing on that same staircase.' One later visitor called it a 'pleasant presence'. Pleasant is not a word for the Glessners' daughter Frances's hobby: she grew up to build tiny, perfect dollhouses of real deaths, the Nutshell Studies of Unexplained Death, still used to train detectives. Now turn around. The house across the avenue is rattling.",
+      "evidence": [
+        "pullman-glare",
+        "richardson-dates",
+        "richardson-legend",
+        "lee-nutshell",
+        "tour"
+      ],
+      "next": "kimball",
+      "read_s": 41
+    },
+    {
+      "id": "kimball",
+      "destination": {
+        "kind": "structure",
+        "id": "kimball_house_1801_prairie"
+      },
+      "text": "1801 Prairie, the Kimball house, all steep slate and turret. William W. Kimball started in 1857 'beginning with only four pianos' and built a factory 'churning out around 100 pianos and organs every week'. He and his wife Evaline filled the entry hall with Old Master paintings. This winter the music stops: he 'died at his home in Chicago on December 16, 1904'. Evaline lived on here until 1921, and in her last years, it is said, she held receptions for 'empty rooms she thought were full of visitors'. Today the paintings hang in the Art Institute, and the big north windows shake and rattle when there is no wind at all. The house museum itself asks, 'Could it be that the spirit of Evaline Kimball has returned to the house'. Looking for her pictures, maybe. Next, a family with a sadder story.",
+      "evidence": [
+        "kimball-photo",
+        "kimball-start",
+        "kimball-legend",
+        "kimball-legend-2",
+        "tour"
+      ],
+      "next": "keith",
+      "read_s": 40
+    },
+    {
+      "id": "keith",
+      "destination": {
+        "kind": "structure",
+        "id": "elbridge_keith_house_1900_prairie"
+      },
+      "text": "1900 Prairie, Elbridge G. Keith's house, its mansard roof black against the sky. A few doors south, at 1906, lives the widow of his brother Edson, the merchant. Edson Keith had not slept properly in ten years. Early on Monday 21 September 1896 he slipped out of his house, walked to the lake at the foot of 16th Street, and walked in; the papers reported that he 'committed suicide Monday morning by drowning himself in Lake Michigan'. He never came home. Or did he? Ghost hunters say 'his ghost has been seen at his brother's house, where he sometimes appears in the windows.' Look up at the dark panes as you pass. Across the avenue, the richest man in Chicago is asleep.",
+      "evidence": [
+        "keith-houses",
+        "ekeith-marker",
+        "keith-death",
+        "keith-same",
+        "keith-legend",
+        "tour"
+      ],
+      "next": "field",
+      "read_s": 34
+    },
+    {
+      "id": "field",
+      "destination": {
+        "kind": "structure",
+        "id": "marshall_field_house_1905_prairie"
+      },
+      "text": "1905 Prairie, Marshall Field's house. 'Give the lady what she wants', said the merchant, and the ladies made him 'the wealthiest and most powerful businessman in Chicago', worth $125 million by 1905. Tonight it all looks safe. It is not. In thirteen months his son, next door, will be shot. Six weeks after that, Field plays golf on New Year's Day 1906 with Robert Todd Lincoln, Abraham's son, catches pneumonia and dies on 16 January. Father and son, both gone in one winter. Walk on to the son's house, the one with the footsteps.",
+      "evidence": [
+        "field-house",
+        "field-rich",
+        "tour"
+      ],
+      "next": "field-jr",
+      "read_s": 26
+    },
+    {
+      "id": "field-jr",
+      "destination": {
+        "kind": "structure",
+        "id": "marshall_field_jr_house_1919_prairie"
+      },
+      "text": "1919 Prairie, Marshall Field Jr.'s house, with its huge new Burnham addition. On Wednesday 22 November 1905 a shot goes off upstairs. He dies five days later at Mercy Hospital, saying 'I shot myself with that revolver – accidentally', and the coroner agrees. Chicago does not. Reporters are tipped that he spent the evening at the Everleigh Club, a brothel a few blocks west on Dearborn Street; 'The most popular story is that he was in fact shot at the Everleigh Club' and carried home to make it look like an accident. Nobody ever proved it. But later owners heard footsteps echo through empty halls and 'strange cries in the dead of night'. One family reportedly called in an exorcist to clear a spirit that 'sours the air around it'. Some houses keep their secrets. This one keeps its ghost.",
+      "evidence": [
+        "fieldjr-listing",
+        "fieldjr-marker",
+        "fieldjr-shot",
+        "fieldjr-rumour",
+        "fieldjr-legend",
+        "tour"
+      ],
+      "next": "finish",
+      "read_s": 39
+    }
+  ],
+  "legs": [
+    {
+      "story": "Across the corner to the Pullman house, the biggest pile on this block, its windows gaslit.",
+      "evidence": [
+        "battle-bones"
+      ],
+      "story_evidence": [
+        "pullman-widow"
+      ]
+    },
+    {
+      "story": "Over Eighteenth Street to the south-west corner, and the rough granite wall that faces Pullman's door.",
+      "evidence": [
+        "pullman-glare"
+      ],
+      "story_evidence": [
+        "pullman-glare"
+      ]
+    },
+    {
+      "story": "Back across Prairie Avenue to the corner turret of the Kimball house.",
+      "evidence": [
+        "kimball-start"
+      ],
+      "story_evidence": [
+        "kimball-start"
+      ]
+    },
+    {
+      "story": "South down the west walk. This was Millionaire's Row: by 1886 'the finest mansions in the city, each equipped with its own carriage house, stood on Prairie Avenue'.",
+      "evidence": [
+        "millionaires"
+      ],
+      "story_evidence": [
+        "millionaires"
+      ]
+    },
+    {
+      "story": "Cross to the east side. Field's house is the broad one with the corner bay.",
+      "evidence": [
+        "field-house"
+      ],
+      "story_evidence": [
+        "field-house"
+      ]
+    },
+    {
+      "story": "Two doors south: father and son lived side by side.",
+      "evidence": [
+        "fieldjr-shot"
+      ],
+      "story_evidence": [
+        "fieldjr-shot"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "finish",
+      "text": "End of the walk at 1919 Prairie. One more ghost, for the road. Years later the Clarke House, 'purported to be the city's oldest standing house' and 'twice relocated', will come back to this neighbourhood, and in the park beside it, they say, a woman in a settler's dress drifts among the bushes after dark, while carriage horses clip past that 'always seem to have their bits, but never their harnesses'.\n\nSleep well, Prairie Avenue.",
+      "read_s": 21,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Neighbors",
+    "id": "prairie-ghosts-at-night-card",
+    "title": "Prairie Avenue ghost card",
+    "text": "A modern card of the street's legends and the people behind them, not a period document."
+  },
+  "evidence": [
+    {
+      "id": "battle-ground",
+      "text": "The Battle of Fort Dearborn occurred in the area that is now the northern section of the street.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_prairie_avenue"
+      ],
+      "locator": "The history section."
+    },
+    {
+      "id": "battle-bones",
+      "text": "The dead of 15 August 1812 'lay in the sand, half buried where they were killed, until 1816'; the site, in the sand hills of the lake shore between 16th and 18th streets near the north-east corner of 18th and Prairie (accounts differ), 'was marked by for over a century by a large cottonwood tree'. A Tribune article of 1900 says the Pullman house 'stands about where the massacre took place'.",
+      "confidence": "attested",
+      "sources": [
+        "chicagoandcook_2017_1812_massacre_site"
+      ],
+      "locator": "The post's paragraphs on the site, its tree and the Tribune of 1900."
+    },
+    {
+      "id": "battle-statue",
+      "text": "George Pullman commissioned Carl Rohl-Smith's bronze of the Potawatomi chief Black Partridge saving Margaret Helm, the wife of an army officer, placed in 1893 'near the intersection of Prairie Avenue and 18th Street'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_fort_dearborn_massacre_monument",
+        "chicagoandcook_2017_1812_massacre_site"
+      ],
+      "locator": "The monument article's history; the cemetery post's paragraph on the 1893 statue, removed in 1931."
+    },
+    {
+      "id": "battle-legend",
+      "text": "Ghost City Tours says spirits of the slain garrison and of the Potawatomi are seen walking on clear, cold nights: 'The Americans go searching for their families and friends while the Natives continue to patrol their land.'",
+      "confidence": "attested",
+      "sources": [
+        "ghost_city_tours_prairie_avenue"
+      ],
+      "locator": "The section on Battle of Fort Dearborn Park."
+    },
+    {
+      "id": "pullman-raise",
+      "text": "Pullman's firm raised Chicago buildings out of the mud 'on average six feet without causing them any damage'; his first sleeping car 'was finished in 1864'; Lincoln's body went home to Springfield in a sleeper while 'hundreds of thousands of people lined the route in homage'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_george_pullman"
+      ],
+      "locator": "The biography's paragraphs on building-raising, the sleeping car and Lincoln's funeral."
+    },
+    {
+      "id": "pullman-strike",
+      "text": "In 1894 Pullman cut his workers' wages, but 'he didn't reduce the rent in Pullman', his company town; he 'died of a heart attack' on 19 October 1897.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_george_pullman"
+      ],
+      "locator": "The biography's paragraphs on the strike and his death."
+    },
+    {
+      "id": "pullman-grave",
+      "text": "Fearing his body would be dug up, the family had him buried in a 'lead-lined mahogany coffin, which was then sealed inside a block of concrete', under steel rails 'bolted together at right angles', at Graceland Cemetery. An 1897 New York Times account gives a 'lead-lined box wrapped in tar paper' and 'an inch of asphaltum'; behind it, 'a lot of high-profile grave robberies lately' and the fear that 'some of the employees weren't quite done getting revenge'. The historian Adam Selzer: 'Whether it's true or not, we don't really know.'",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_george_pullman",
+        "wttw_pullman_grave"
+      ],
+      "locator": "The biography's paragraph on the burial; the WTTW piece on the grave."
+    },
+    {
+      "id": "pullman-widow",
+      "text": "The 1904 Blue Book lists Mrs. George M. Pullman at 1729 Prairie.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "locator": "The street-and-number list, PRAIRIE AV., printed pp. 186-187 (PDF pp. 188-189), as data/residents_1904/households/hh_pullman_mrs_george_m.json reads it."
+    },
+    {
+      "id": "pullman-glare",
+      "text": "George Pullman, across the street, complained of the Glessner house: 'I do not know what I have ever done to have that thing staring me in the face every time I go out of my door'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_glessner_house"
+      ],
+      "locator": "The design section."
+    },
+    {
+      "id": "richardson-dates",
+      "text": "HABS dates the building from June 1, 1886 to December 1, 1887; the house museum gives Richardson's death as April 26, 1886.",
+      "confidence": "attested",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages",
+        "glessner_house_richardson_page"
+      ],
+      "locator": "HABS data pages pp. 1-2; the museum's Richardson page."
+    },
+    {
+      "id": "richardson-legend",
+      "text": "Ghost City Tours says the architect H. H. Richardson, who died before the house was finished, is felt by the family and seen on the staircase: 'If you're lucky, you might catch the man's spirit standing on that same staircase.' A visitor on a later tour felt a 'pleasant presence', and a cold that sometimes fills a warm room before the mood lightens.",
+      "confidence": "attested",
+      "sources": [
+        "ghost_city_tours_prairie_avenue",
+        "horror_obsessive_2023_glessner_ghosts"
+      ],
+      "locator": "The Glessner House sections of both pages."
+    },
+    {
+      "id": "lee-nutshell",
+      "text": "Frances Glessner Lee, the Glessners' daughter, later built eighteen miniature crime-scene dioramas, the Nutshell Studies of Unexplained Death, still used in training investigators.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_house_family_page",
+        "nlm_visible_proofs_frances_glessner_lee"
+      ],
+      "locator": "The family page's biography of Frances Glessner Lee; the NLM biography paragraph."
+    },
+    {
+      "id": "kimball-start",
+      "text": "Kimball founded his piano business in Chicago in 1857, 'beginning with only four pianos'; in 1881 he opened his own factory 'churning out around 100 pianos and organs every week'; he 'died at his home in Chicago on December 16, 1904'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_william_wallace_kimball"
+      ],
+      "locator": "The biography: Chicago, the factory, his death."
+    },
+    {
+      "id": "kimball-legend",
+      "text": "Rumours say the Kimball house's large north-side windows shake with no outside cause. The house museum asks: 'Could it be that the spirit of Evaline Kimball has returned to the house', perhaps searching for the Old Master paintings that hung in the entry hall and are now at the Art Institute of Chicago. She died in 1921.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_blog_2012_10_shadows_on_the_street"
+      ],
+      "locator": "The post's paragraph on the William W. Kimball house."
+    },
+    {
+      "id": "kimball-legend-2",
+      "text": "Ghost-tour writers add shutters that shake when the air is still, her figure at the front windows, and, late in life, Evalyne Kimball 'entertaining empty rooms she thought were full of visitors'.",
+      "confidence": "attested",
+      "sources": [
+        "horror_obsessive_2023_glessner_ghosts",
+        "ghost_city_tours_prairie_avenue"
+      ],
+      "locator": "The Kimball house sections of both pages."
+    },
+    {
+      "id": "keith-houses",
+      "text": "The 1904 Blue Book lists Elbridge G. Keith at 1900 Prairie and Mrs. Edson Keith at 1906; the 1900 census gives Mrs. Edson Keith as widowed.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_blue_book_1904",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "locator": "The street-and-number list, PRAIRIE AV., as data/residents_1904/households/hh_keith_elbridge_g.json and hh_keith_mrs_edson.json read it; ED 40, sheet 4B, line 95."
+    },
+    {
+      "id": "keith-death",
+      "text": "Edson Keith, merchant, sleepless and ill for at least a decade, left his house early on Monday 21 September 1896, walked to the lake at the foot of 16th Street and drowned; the papers said he 'committed suicide Monday morning by drowning himself in Lake Michigan'.",
+      "confidence": "attested",
+      "sources": [
+        "postcardhistory_2023_edson_keith"
+      ],
+      "locator": "The account of his death, from the Tribune and Chronicle of September 1896."
+    },
+    {
+      "id": "keith-same",
+      "text": "The Edson Keith who drowned in 1896 is the late husband of the Mrs. Edson Keith at 1906 Prairie.",
+      "confidence": "inferred",
+      "sources": [
+        "postcardhistory_2023_edson_keith",
+        "chicago_blue_book_1904",
+        "census_1900_chicago_t623_roll245"
+      ],
+      "reasoning": "A Chicago merchant Edson Keith died in 1896, leaving a widow; in 1900 and 1904 a widowed Mrs. Edson Keith keeps house at 1906 Prairie, beside Elbridge G. Keith at 1900, and the ghost tours call the drowned man Elbridge's brother. No source read here states the identity in one sentence."
+    },
+    {
+      "id": "keith-legend",
+      "text": "Ghost City Tours: 'his ghost has been seen at his brother's house, where he sometimes appears in the windows.'",
+      "confidence": "attested",
+      "sources": [
+        "ghost_city_tours_prairie_avenue"
+      ],
+      "locator": "The Keith House section."
+    },
+    {
+      "id": "field-rich",
+      "text": "Marshall Field: 'Give the lady what she wants'; 'the wealthiest and most powerful businessman in Chicago', his fortune valued at $125 million in 1905. His son Marshall Field Jr. was shot on 22 November 1905; Field himself died of pneumonia on 16 January 1906, caught after a New Year's Day golf game with, among others, Robert Todd Lincoln.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_marshall_field"
+      ],
+      "locator": "The biography's paragraphs on the store, his wealth, his son and his death."
+    },
+    {
+      "id": "field-house",
+      "text": "Marshall Field Sr. residence at 1905 S. Prairie.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_east"
+      ],
+      "locator": "The photograph caption on the marker."
+    },
+    {
+      "id": "fieldjr-shot",
+      "text": "On Wednesday 22 November 1905 Marshall Field Jr. was shot at 1919 Prairie, his parents' house next door at 1905; he died at Mercy Hospital on Monday 27 November, saying 'I shot myself with that revolver – accidentally', and the coroner's jury found he 'had shot himself unintentionally while examining a revolver'. Two reporters were tipped that he had spent the evening at the Everleigh Club, 2131-33 S. Dearborn; the sisters denied it and nobody confirmed it.",
+      "confidence": "attested",
+      "sources": [
+        "classic_chicago_2020_field_jr_death"
+      ],
+      "locator": "The account of the shooting and the rumours."
+    },
+    {
+      "id": "fieldjr-rumour",
+      "text": "'The most popular story is that he was in fact shot at the Everleigh Club', a brothel, and brought home to look like an accident; other accounts say suicide.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_blog_2012_10_shadows_on_the_street"
+      ],
+      "locator": "The post's paragraph on the Marshall Field Jr. house."
+    },
+    {
+      "id": "fieldjr-legend",
+      "text": "The legends of 1919 Prairie: footsteps echoing through the house and 'strange cries in the dead of night'; later owners who reportedly had an exorcism; a spirit that 'sours the air around it'.",
+      "confidence": "attested",
+      "sources": [
+        "ghost_city_tours_prairie_avenue",
+        "horror_obsessive_2023_glessner_ghosts"
+      ],
+      "locator": "The Marshall Field Jr. sections of both pages."
+    },
+    {
+      "id": "fieldjr-listing",
+      "text": "The 1904 Blue Book lists Mr. and Mrs. Marshall Field jr. at 1919 Prairie.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_blue_book_1904"
+      ],
+      "locator": "The street-and-number list, PRAIRIE AV., as data/residents_1904/households/hh_field_marshall_jr.json reads it."
+    },
+    {
+      "id": "clarke-legend",
+      "text": "In the Chicago Women's Park and Garden beside the Clarke House, a woman in a settler's dress is seen at night among the bushes, and carriage horses are heard, or seen trotting: they 'always seem to have their bits, but never their harnesses'.",
+      "confidence": "attested",
+      "sources": [
+        "ghost_city_tours_prairie_avenue"
+      ],
+      "locator": "The sections on the Chicago Women's Park and Garden."
+    },
+    {
+      "id": "clarke-house",
+      "text": "The Henry B. Clarke House is 'purported to be the city's oldest standing house', though 'twice relocated'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_prairie_avenue"
+      ],
+      "locator": "The history section."
+    },
+    {
+      "id": "millionaires",
+      "text": "Mansions for George Pullman, Marshall Field, John J. Glessner and Philip Armour made Prairie Avenue 'Millionaire's Row'; by 1886 'the finest mansions in the city, each equipped with its own carriage house, stood on Prairie Avenue'.",
+      "confidence": "attested",
+      "sources": [
+        "wikipedia_prairie_avenue"
+      ],
+      "locator": "The history section."
+    },
+    {
+      "id": "tour",
+      "text": "The route, its order, its night, its season, its reading times, its keepsake and its framing are modern interpretation; the ghosts are legends told by modern tours and the house museum, reported as legends; no historical visit, sighting or occupant on any night in 1904 is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-prairie-walks"
+    },
+    {
+      "id": "fieldjr-marker",
+      "text": "Marshall Field Jr. Residence: enlarged and improved several times, the last in 1902, when D. H. Burnham & Company built a huge addition for Marshall Field Jr., who had acquired the property in 1890.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "locator": "The 1919 S. Prairie Avenue entry."
+    },
+    {
+      "id": "ekeith-marker",
+      "text": "Elbridge G. Keith Residence. Built 1870; John W. Roberts, architect. The last surviving example of the popular Second Empire style, which dominated the street by the 1880s.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "locator": "The 1900 S. Prairie Avenue entry."
+    },
+    {
+      "id": "kimball-photo",
+      "text": "J. W. Taylor's photograph of about 1895 shows a very steep slate roof over the main block and a round tower on the 18th Street flank under a slate cone.",
+      "confidence": "attested",
+      "sources": [
+        "taylor_c1895_kimball_residence_1801"
+      ],
+      "locator": "The whole photograph."
+    }
+  ],
+  "liberties": [
+    "L-jaunt-prairie-walks"
+  ]
+}

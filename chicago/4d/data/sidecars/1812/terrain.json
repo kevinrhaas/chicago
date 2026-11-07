@@ -7,7 +7,7 @@
   "context": [
     {
       "label": "Measured relief",
-      "text": "Land in the modelled box runs -3.556 to 18.493 ft above the water surface, and the channel floor reaches -17.409 ft below it. Measured from the committed heightfield, not asserted."
+      "text": "Land in the modelled box runs -3.556 to 20.0 ft above the water surface, and the channel floor reaches -17.409 ft below it. Measured from the committed heightfield, not asserted."
     }
   ],
   "claims": [
@@ -705,7 +705,7 @@
       "citations": [
         {
           "source_id": "moses_kirkland_history_of_chicago_v1",
-          "citation": "John Moses and Joseph Kirkland (eds.), History of Chicago, Illinois, vol. 1 (Chicago and New York: Munsell & Co., 1895). Read here for the town before 1836: the immigration chapter 'From Village to City - 1830 to 1837 - the Balloon Age' at printed pages 78-79 and 87-98, the 'Real Estate and Insurance' chapter at pages 541-542, the packing trade at page 389, the fire department at pages 207-208, the Kinzie-Clybourn genealogy quoted from Blanchard at page 35, and the Biographical sketches of P. F. W. Peck, Philo Carpenter, John Dean Caton and Alexander N. Fullerton at pages 570-577 and 584; and, for the shore of 1812, the chapter 'The Massacre' at pages 49-50, 54 and 60-61 - the low, discontinuous sand-hills south of Twelfth Street, the scattered cottonwoods on the bank's lower reaches, and the two 'Massacre trees' of Eighteenth Street with Mrs. Kinzie's word that they were saplings in 1812.",
+          "citation": "John Moses and Joseph Kirkland (eds.), History of Chicago, Illinois, vol. 1 (Chicago and New York: Munsell & Co., 1895). Read here for the town before 1836: the immigration chapter 'From Village to City - 1830 to 1837 - the Balloon Age' at printed pages 78-79 and 87-101, the early taverns and hotels at pages 560-561, the 'Real Estate and Insurance' chapter at pages 541-542, the packing trade at page 389, the fire department at pages 207-208, the Kinzie-Clybourn genealogy quoted from Blanchard at page 35, and the Biographical sketches of P. F. W. Peck, Philo Carpenter, John Dean Caton and Alexander N. Fullerton at pages 570-577 and 584; and, for the shore of 1812, the chapter 'The Massacre' at pages 49-50, 54 and 60-61 - the low, discontinuous sand-hills south of Twelfth Street, the scattered cottonwoods on the bank's lower reaches, and the two 'Massacre trees' of Eighteenth Street with Mrs. Kinzie's word that they were saplings in 1812.",
           "url": "https://archive.org/details/historyofchicago01mose",
           "archived_url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
           "tier": 3,
@@ -759,6 +759,322 @@
       ],
       "work_refs": [
         "T-2066",
+        "T-0471"
+      ]
+    },
+    {
+      "id": "twelfth_street_shore_join_1812",
+      "group": "the lake shore at Twelfth Street",
+      "label": "The 1812 lake shore at Twelfth Street, where Wright's sheet ends and Rees's line begins",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "north_run",
+          "value": "lake shore south of outlet 1812"
+        },
+        {
+          "key": "south_run",
+          "value": "lake shore below twelfth"
+        },
+        {
+          "key": "north_from_n_m",
+          "value": -2050.0
+        },
+        {
+          "key": "south_to_n_m",
+          "value": -2420.0
+        },
+        {
+          "key": "step_m",
+          "value": 10.0
+        }
+      ],
+      "sources": [
+        "wright_1834",
+        "rees_rucker_1849"
+      ],
+      "citations": [
+        {
+          "source_id": "rees_rucker_1849",
+          "citation": "Rees & Rucker, land agents. Map of Chicago and Vicinity. Drawn by Wm. Clogher. Chicago, 1849. Scale 1000 feet to one inch.",
+          "url": "https://commons.wikimedia.org/wiki/File:1849_Rees_%26_Rucker_Map_of_Chicago_and_Vicinity.jpg",
+          "archived_url": "",
+          "tier": 2,
+          "tier_label": "near-primary recollection"
+        },
+        {
+          "source_id": "wright_1834",
+          "citation": "Wright, J. S. Chicago, drawn by J. S. Wright according to survey. New York: P. A. Mesier's Lith., 1834.",
+          "url": "https://collections.leventhalmap.org/search/commonwealth:js9577436",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "street geometry",
+            "block and lot subdivision",
+            "shoreline",
+            "river channel and the 1834 cut",
+            "survey-date colouring"
+          ],
+          "what_it_does_not_supply": [
+            "building footprints",
+            "building locations"
+          ]
+        }
+      ],
+      "notes": [
+        "Other work, on the owner's report (2026-11-06) of 'a sharp cut in the lakeshore' and 'some land bridge standing out there' at stop 9 of the battle jaunt. Two traces meet on the row N -2159.9. Wright's 1834 run reaches it and then follows the dark foot of his sheet back east to E +1458.9 (the note on lake shore south of outlet 1812 says so: 'the last 200 m of the 1834 run follows the sheet's dark bottom edge rather than a pen line'), and the field read that paper edge as a waterline, so a one-row causeway of beach ran 110 m out into the lake with an islet beside it. Rees & Rucker 1849 starts on the same row 48-110 m further west: the terrain gen tool's own note calls that step 'this shore's documented post-pier erosion', and the piers were built in 1833-1834, so in 1812 neither the step nor the erosion behind it existed. The 1812 shore is therefore Wright's pen line to N -2050, Rees's line from N -2420, and between them a cubic Hermite curve that leaves each run on that run's own bearing. Both runs are cut in memory where the curve leaves them (the terrain gen e1830 generator join shore); the committed traces, the 1835 ground and the evacuation route's measurements are not edited. WHAT IS RECONSTRUCTED: every vertex of the curve; no survey of 1812 draws this shore. Admitted in the liberties register L-other work-battle-shore-1812."
+      ],
+      "work_refs": [
+        "T-3403"
+      ]
+    },
+    {
+      "id": "battle_bank_1812",
+      "group": "the high sand bank of the battle",
+      "label": "The beach, the high sand bank and the ravine behind it, along Heald's mile and a half",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "n_range",
+          "value": [
+            -2700.0,
+            -1300.0
+          ]
+        },
+        {
+          "key": "end_fade_m",
+          "value": 220.0
+        },
+        {
+          "key": "beach_back_m",
+          "value": 26.0
+        },
+        {
+          "key": "hummock_ft",
+          "value": 3.0
+        },
+        {
+          "key": "hummock_wavelength_m",
+          "value": 38.0
+        },
+        {
+          "key": "hummock_envelope_m",
+          "value": [
+            32.0,
+            44.0,
+            112.0,
+            124.0
+          ]
+        },
+        {
+          "key": "crest_max_ft",
+          "value": 20.0
+        },
+        {
+          "key": "wander_m",
+          "value": 6.0
+        },
+        {
+          "key": "wander_wavelength_m",
+          "value": 170.0
+        },
+        {
+          "key": "blend_back_m",
+          "value": [
+            185.0,
+            215.0
+          ]
+        },
+        {
+          "key": "seed",
+          "value": 18120815
+        },
+        {
+          "key": "dossier_zone",
+          "value": 5,
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1",
+        "kinzie_waubun_1856",
+        "quaife_1913"
+      ],
+      "citations": [
+        {
+          "source_id": "kinzie_waubun_1856",
+          "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+          "url": "https://www.authorama.com/wau-bun-19.html",
+          "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+          "tier": 2,
+          "tier_label": "near-primary recollection"
+        },
+        {
+          "source_id": "moses_kirkland_history_of_chicago_v1",
+          "citation": "John Moses and Joseph Kirkland (eds.), History of Chicago, Illinois, vol. 1 (Chicago and New York: Munsell & Co., 1895). Read here for the town before 1836: the immigration chapter 'From Village to City - 1830 to 1837 - the Balloon Age' at printed pages 78-79 and 87-101, the early taverns and hotels at pages 560-561, the 'Real Estate and Insurance' chapter at pages 541-542, the packing trade at page 389, the fire department at pages 207-208, the Kinzie-Clybourn genealogy quoted from Blanchard at page 35, and the Biographical sketches of P. F. W. Peck, Philo Carpenter, John Dean Caton and Alexander N. Fullerton at pages 570-577 and 584; and, for the shore of 1812, the chapter 'The Massacre' at pages 49-50, 54 and 60-61 - the low, discontinuous sand-hills south of Twelfth Street, the scattered cottonwoods on the bank's lower reaches, and the two 'Massacre trees' of Eighteenth Street with Mrs. Kinzie's word that they were saplings in 1812.",
+          "url": "https://archive.org/details/historyofchicago01mose",
+          "archived_url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)",
+          "transcribes": [
+            {
+              "work": "Rufus Blanchard, Discovery of the Northwest and History of Chicago (Wheaton, Ill.: R. Blanchard & Co., 1881)",
+              "date": "1881",
+              "tier": 3,
+              "note": "PRINTED AT LENGTH AND NOT MERELY CITED. At pages 34-35 the volume introduces the Kinzie and Clybourn genealogy as 'best told by Rufus Blanchard ... He says:' and sets the whole passage as a block quotation, which is why bk_mose1_019 - Benjamin Hall's 1830 arrival and the town's first tannery - is a reading of Blanchard through Moses and Kirkland and not of Moses and Kirkland. This project does not hold Blanchard and cannot check the transcription. Blanchard in turn credits Benjamin Hall himself for the detail, so the chain to the fact is three deep and the claim says so."
+            }
+          ],
+          "what_it_supplies": [
+            "A TRADE CENSUS OF THE WHOLE TOWN, at page 95: the State census taken between 1 September and December 1835 counted 3,297 people, forty-four stores, two book stores, four druggists, two silversmiths and jewellers, two tin and copper manufactories, two printing offices, two breweries, one steam saw-mill, one iron foundry, four storage and forwarding houses, eight taverns, one lottery office, one bank, five churches, seven schools, twenty-two lawyers, fourteen physicians, and a lyceum and reading room. The project had no denominator for its business layer and this is one - for December 1835 and not for July.",
+            "A BUILDING WITH FOUR OF THE FIVE FIELDS the structures data WANTS, at page 90: John S. C. Hogan's story-and-a-half log storehouse, 45 by 18 feet, at the angle where Lake and South Water streets meet, with the post office partitioned off inside it from 2 November 1832.",
+            "TWO RESIDENCES STATED AS SUCH, which is the field the town is thinnest in: Rev. Jeremiah Porter lodging and keeping his study in the second storey of Peck's store from May 1833 (page 571), and John Dean Caton renting the back room and attic of Dr Temple's Temple Building from December 1833, sleeping in the attic and practising law in the back room, and sub-letting desk-room in it to his competitor Spring (page 577).",
+            "BUSINESSES GIVEN BY CORNER, LOT OR LANDMARK: Dole's and Peck's first frame business buildings at the south-east corners of South Water and Dearborn and of South Water and La Salle (page 89); Peck's two-storey frame store of black walnut brought from Detroit, occupied in the fall of 1831 (page 570); Sylvester Marsh killing beef under an old elm on the open prairie at what became Monroe Street from the winter of 1833-4 (page 389); William Jones's lots 2 and 7 in block 17 fronting Water and Lake (page 542).",
+            "OCCUPATIONS AND ARRIVALS for men this project already holds: Philo Carpenter as the town's first druggist, arriving within a month before 19 August 1832; Benjamin Hall as proprietor of the first tannery ever established there, arriving 1830; Dole, Clybourn, the Noble brothers and Gurdon S. Hubbard beginning the slaughtering and packing trade in 1832; the 1833 spring arrivals including Caton, Kimball and Asahel Pierce; and Hubbard's permanent residence dated to 1832 by the compiler's own reason for leaving him off a list.",
+            "TWO PRESENCE LISTS: the twenty-two men who signed the Pioneer Hook and Ladder Company roll on 7 October 1835 (pages 207-208), and, unread and left for its own piece of work, the 'LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830' at pages 78-79, about thirty rows with nativity, year and remarks columns.",
+            "ONE STATEMENT ABOUT THE GROUND OF THE SCENE, at page 79: the winter of 1834-5 was open, with little snow, front doors standing open all winter, and cattle living on grass on the river bank."
+          ],
+          "what_it_does_not_supply": [
+            "MOST OF WHAT IT WAS FETCHED FOR. Of the forty-nine lead surnames the Newberry index flagged against this work, thirteen earned a claim, twenty-one appear only outside the pre-1836 window, eight appear early and say nothing usable, one (`black`) is only ever the adjective, four are unresolved because the volume carries a surname one character from the index card's spelling, and two are absent outright. The full row-by-row result is committed at the moses kirkland v1 lead surnames data so the next run does not pay for the search twice.",
+            "VOLUME 2, WHICH IS HALF THE WORK. Only volume 1 is read. The Newberry cards do not say which volume they cite, so an absence recorded here may simply be in the other book, and every ABSENT verdict in the lookup file says so on itself.",
+            "AN INDEPENDENT VOICE. It is a compilation of 1895 and it names its own authorities on the pages read: Andreas for Garrett's $1,800,000 of auction sales, Bross's History of Chicago page 38 for the earliest deeds, the Story of Chicago page 130 for Caton's election tally, Hurlbut's Chicago Antiquities pages 37-8 for the pre-1830 settler list, S. R. Beggs's West and Northwest page 95 for the Black Hawk alarm, and Rufus Blanchard's Discovery of the Northwest and History of Chicago (1881) quoted at length for the Kinzie-Clybourn genealogy. Where the sentence itself credits another work, the claim says so and the citation must go to that work and not to this one.",
+            "A SINGLE ADDRESS IN THE MODERN SENSE, and no street numbers. Positions here are corners, lots, blocks, a river bank and a tree.",
+            "ANY DATE FINER THAN THE YEAR for two things this project wanted finer: Caton's marriage, which is given as '1835' with the scene date sitting in the middle of it, and the Hubbard-Marsh packing partnership, which is 'later'.",
+            "CONSISTENCY WITH ITSELF. Page 89 dates Dole's and Peck's first frame business buildings to 1832 while page 570 has Peck's occupied in the fall of 1831; page 207 forms the Pioneer Hook and Ladder Company on 7 October 1835 while page 570 has it organised on 20 October 1835. Both readings of each are recorded and neither is adopted."
+          ]
+        },
+        {
+          "source_id": "quaife_1913",
+          "citation": "Quaife, Milo Milton. Chicago and the Old Northwest, 1673-1835: A Study of the Evolution of the Northwestern Frontier, together with a History of Fort Dearborn. Chicago: University of Chicago Press, 1913.",
+          "url": "https://www.gutenberg.org/ebooks/69274",
+          "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "the 1808 Whistler draught index for the FIRST fort, with its scale and its distances",
+            "Major Long's 1816 report on the second fort under construction",
+            "a scholarly negative: no dimension of the second fort's stockade"
+          ],
+          "what_it_does_not_supply": [
+            "any plan or dimension of the 1816 fort",
+            "anything about the fort after 1835"
+          ]
+        }
+      ],
+      "notes": [
+        "Other work, on the owner's report (2026-11-06) that the bank the accounts describe 'does not really seem to show here from the land' and should be 'much more significant and accurate'. Other work's sand hills south of Twelfth and the carried 1834 dunes north of it stood +2 to +9 ft on the 9 ft plain, broken into hummocks, behind a 20 m ramp from the water: from the beach, nothing to charge up. Heald's report gives the shape and the distance: the column took 'the beach, with the lake on our left, and a high sand bank on our right, at about 100 yards distance', the attackers waited 'behind the bank', and his men 'marched up... to the top of the bank'. Wau-Bun has 'a range of sand-hills intervening between the prairie and the beach', 'charged up the bank', and behind it 'a sort of ravine, intervening between the sand-banks and the prairie' in which the attackers 'had concealed themselves'; Mrs. Helm was led 'up the sand-banks' through deep sand; Wentworth's Heald family account has a 'bluff'. Moses & Kirkland give the height: the bank's surface 'a hundred feet or more back from the water' and 'ten to twenty feet' above it. Quaife, from Heald, puts 'a row of sand hills, or ridges' 'about one hundred yards' from the beach. So the ground along Heald's band is laid as one profile measured inland from the lake's edge, row by row: a beach of 26 m rising to 2.6 ft, the column's road and wide enough for its wagons; the bank's near face, climbing from 2.6 ft at 26 m to 13 ft at 38 m, about 25 degrees, under the angle at which dry sand stands, so the bank's surface stands 14.5 ft high from 44 m (M&K's 'a hundred feet or more' is 30.5 m); the sand hills rising behind it to Heald's high bank, a crest of 19 ft at 96 m, his hundred yards being 91.44 m; their back falling through 12.5 ft at 120 m into the ravine, 4.6 ft at 144 m, four feet under the prairie it opens onto; and the plain's own 8.5 ft by 200 m, where the ground already there takes over across 185-215 m. Hummocks of up to 3 ft play across the hills only (32-124 m), clipped at M&K's 20 ft, so the tops range across their ten to twenty and the troughs between them let the line down ('not continuous'). The block runs N -1300 to -2700 with 220 m fades, covering Heald's band (the 1812 evacuation route data, N -1456 to -2192 along the shore) and the reach where the accounts' sand hills begin, and replaces the hummock fields of south lake dunes and south lake sand hills 1812 where it stands. WHAT IS RECONSTRUCTED: every width, height and place in the profile, the hummocks, and the ravine's depth; the readings fix that a beach, a high bank of sand hills and a ravine stood in that order, how far back and how high the bank stood, and nothing places one hill. Where the sand hills BEGAN is still disagreed (Quaife: at the river mouth; M&K: about Twelfth Street) and this block does not settle it. Admitted in the liberties register L-other work-battle-shore-1812."
+      ],
+      "work_refs": [
+        "T-3403",
+        "T-2066",
+        "T-0471"
+      ]
+    },
+    {
+      "id": "heald_small_elevation_1812",
+      "group": "Heald's small elevation",
+      "label": "Heald's 'small elevation in the open prarie'",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "centre_e",
+          "value": 960.0
+        },
+        {
+          "key": "centre_n",
+          "value": -1853.0
+        },
+        {
+          "key": "rise_ft",
+          "value": 8.0
+        },
+        {
+          "key": "flat_radius_m",
+          "value": 18.0
+        },
+        {
+          "key": "skirt_m",
+          "value": 34.0
+        },
+        {
+          "key": "dossier_zone",
+          "value": 8,
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1",
+        "kinzie_waubun_1856",
+        "quaife_1913"
+      ],
+      "citations": [
+        {
+          "source_id": "kinzie_waubun_1856",
+          "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+          "url": "https://www.authorama.com/wau-bun-19.html",
+          "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+          "tier": 2,
+          "tier_label": "near-primary recollection"
+        },
+        {
+          "source_id": "moses_kirkland_history_of_chicago_v1",
+          "citation": "John Moses and Joseph Kirkland (eds.), History of Chicago, Illinois, vol. 1 (Chicago and New York: Munsell & Co., 1895). Read here for the town before 1836: the immigration chapter 'From Village to City - 1830 to 1837 - the Balloon Age' at printed pages 78-79 and 87-101, the early taverns and hotels at pages 560-561, the 'Real Estate and Insurance' chapter at pages 541-542, the packing trade at page 389, the fire department at pages 207-208, the Kinzie-Clybourn genealogy quoted from Blanchard at page 35, and the Biographical sketches of P. F. W. Peck, Philo Carpenter, John Dean Caton and Alexander N. Fullerton at pages 570-577 and 584; and, for the shore of 1812, the chapter 'The Massacre' at pages 49-50, 54 and 60-61 - the low, discontinuous sand-hills south of Twelfth Street, the scattered cottonwoods on the bank's lower reaches, and the two 'Massacre trees' of Eighteenth Street with Mrs. Kinzie's word that they were saplings in 1812.",
+          "url": "https://archive.org/details/historyofchicago01mose",
+          "archived_url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)",
+          "transcribes": [
+            {
+              "work": "Rufus Blanchard, Discovery of the Northwest and History of Chicago (Wheaton, Ill.: R. Blanchard & Co., 1881)",
+              "date": "1881",
+              "tier": 3,
+              "note": "PRINTED AT LENGTH AND NOT MERELY CITED. At pages 34-35 the volume introduces the Kinzie and Clybourn genealogy as 'best told by Rufus Blanchard ... He says:' and sets the whole passage as a block quotation, which is why bk_mose1_019 - Benjamin Hall's 1830 arrival and the town's first tannery - is a reading of Blanchard through Moses and Kirkland and not of Moses and Kirkland. This project does not hold Blanchard and cannot check the transcription. Blanchard in turn credits Benjamin Hall himself for the detail, so the chain to the fact is three deep and the claim says so."
+            }
+          ],
+          "what_it_supplies": [
+            "A TRADE CENSUS OF THE WHOLE TOWN, at page 95: the State census taken between 1 September and December 1835 counted 3,297 people, forty-four stores, two book stores, four druggists, two silversmiths and jewellers, two tin and copper manufactories, two printing offices, two breweries, one steam saw-mill, one iron foundry, four storage and forwarding houses, eight taverns, one lottery office, one bank, five churches, seven schools, twenty-two lawyers, fourteen physicians, and a lyceum and reading room. The project had no denominator for its business layer and this is one - for December 1835 and not for July.",
+            "A BUILDING WITH FOUR OF THE FIVE FIELDS the structures data WANTS, at page 90: John S. C. Hogan's story-and-a-half log storehouse, 45 by 18 feet, at the angle where Lake and South Water streets meet, with the post office partitioned off inside it from 2 November 1832.",
+            "TWO RESIDENCES STATED AS SUCH, which is the field the town is thinnest in: Rev. Jeremiah Porter lodging and keeping his study in the second storey of Peck's store from May 1833 (page 571), and John Dean Caton renting the back room and attic of Dr Temple's Temple Building from December 1833, sleeping in the attic and practising law in the back room, and sub-letting desk-room in it to his competitor Spring (page 577).",
+            "BUSINESSES GIVEN BY CORNER, LOT OR LANDMARK: Dole's and Peck's first frame business buildings at the south-east corners of South Water and Dearborn and of South Water and La Salle (page 89); Peck's two-storey frame store of black walnut brought from Detroit, occupied in the fall of 1831 (page 570); Sylvester Marsh killing beef under an old elm on the open prairie at what became Monroe Street from the winter of 1833-4 (page 389); William Jones's lots 2 and 7 in block 17 fronting Water and Lake (page 542).",
+            "OCCUPATIONS AND ARRIVALS for men this project already holds: Philo Carpenter as the town's first druggist, arriving within a month before 19 August 1832; Benjamin Hall as proprietor of the first tannery ever established there, arriving 1830; Dole, Clybourn, the Noble brothers and Gurdon S. Hubbard beginning the slaughtering and packing trade in 1832; the 1833 spring arrivals including Caton, Kimball and Asahel Pierce; and Hubbard's permanent residence dated to 1832 by the compiler's own reason for leaving him off a list.",
+            "TWO PRESENCE LISTS: the twenty-two men who signed the Pioneer Hook and Ladder Company roll on 7 October 1835 (pages 207-208), and, unread and left for its own piece of work, the 'LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830' at pages 78-79, about thirty rows with nativity, year and remarks columns.",
+            "ONE STATEMENT ABOUT THE GROUND OF THE SCENE, at page 79: the winter of 1834-5 was open, with little snow, front doors standing open all winter, and cattle living on grass on the river bank."
+          ],
+          "what_it_does_not_supply": [
+            "MOST OF WHAT IT WAS FETCHED FOR. Of the forty-nine lead surnames the Newberry index flagged against this work, thirteen earned a claim, twenty-one appear only outside the pre-1836 window, eight appear early and say nothing usable, one (`black`) is only ever the adjective, four are unresolved because the volume carries a surname one character from the index card's spelling, and two are absent outright. The full row-by-row result is committed at the moses kirkland v1 lead surnames data so the next run does not pay for the search twice.",
+            "VOLUME 2, WHICH IS HALF THE WORK. Only volume 1 is read. The Newberry cards do not say which volume they cite, so an absence recorded here may simply be in the other book, and every ABSENT verdict in the lookup file says so on itself.",
+            "AN INDEPENDENT VOICE. It is a compilation of 1895 and it names its own authorities on the pages read: Andreas for Garrett's $1,800,000 of auction sales, Bross's History of Chicago page 38 for the earliest deeds, the Story of Chicago page 130 for Caton's election tally, Hurlbut's Chicago Antiquities pages 37-8 for the pre-1830 settler list, S. R. Beggs's West and Northwest page 95 for the Black Hawk alarm, and Rufus Blanchard's Discovery of the Northwest and History of Chicago (1881) quoted at length for the Kinzie-Clybourn genealogy. Where the sentence itself credits another work, the claim says so and the citation must go to that work and not to this one.",
+            "A SINGLE ADDRESS IN THE MODERN SENSE, and no street numbers. Positions here are corners, lots, blocks, a river bank and a tree.",
+            "ANY DATE FINER THAN THE YEAR for two things this project wanted finer: Caton's marriage, which is given as '1835' with the scene date sitting in the middle of it, and the Hubbard-Marsh packing partnership, which is 'later'.",
+            "CONSISTENCY WITH ITSELF. Page 89 dates Dole's and Peck's first frame business buildings to 1832 while page 570 has Peck's occupied in the fall of 1831; page 207 forms the Pioneer Hook and Ladder Company on 7 October 1835 while page 570 has it organised on 20 October 1835. Both readings of each are recorded and neither is adopted."
+          ]
+        },
+        {
+          "source_id": "quaife_1913",
+          "citation": "Quaife, Milo Milton. Chicago and the Old Northwest, 1673-1835: A Study of the Evolution of the Northwestern Frontier, together with a History of Fort Dearborn. Chicago: University of Chicago Press, 1913.",
+          "url": "https://www.gutenberg.org/ebooks/69274",
+          "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+          "tier": 4,
+          "tier_label": "later scholarship",
+          "what_it_supplies": [
+            "the 1808 Whistler draught index for the FIRST fort, with its scale and its distances",
+            "Major Long's 1816 report on the second fort under construction",
+            "a scholarly negative: no dimension of the second fort's stockade"
+          ],
+          "what_it_does_not_supply": [
+            "any plan or dimension of the 1816 fort",
+            "anything about the fort after 1835"
+          ]
+        }
+      ],
+      "notes": [
+        "Other work, on the owner's question at stop 10 (2026-11-06): 'where on the open prairie is the small elevation? you should attempt to cite it and place it'. Heald names it, in the report written ten weeks after: 'a small elevation in the open prarie, out of shot of the bank or any other cover', with the attackers left 'on the top of the bank' and Heald walking out to them alone. Wau-Bun's account (Mrs. Helm, from memory) has the survivors 'gaining a rising ground, not far from the Oak Woods'; Quaife repeats Heald; Moses & Kirkland read it as 'far inland, out of gun-shot from the bank'. No account gives a distance or a size and none locates the Oak Woods, so it is placed by the three things they do say. (1) Along the march: at Heald's own 'about a mile and a half', the station the 1812 evacuation route data derives at E +1318, N -1853, because the withdrawal was out of the fight at the bank and Heald was not followed. (2) Inland, due west of it on the same row, the direction away from the lake. (3) Out of shot: the high bank's crest stands at Heald's hundred yards and its back falls to the ravine by about 125 m from the water (battle bank 1812), and the rise's centre is put 358 m from the water, about 230 m (250 yards) beyond the back of the bank, past the range at which a smooth-bore musket of 1812 could be aimed at a man; that range is this project's reasoning and cites nothing. Its size is 'small': a top 36 m across, room for the 'few men' left, standing 8 ft over the plain, with a 34 m skirt, so it is a rise on the plain and not a hill. WHAT IS RECONSTRUCTED: its place, its height and its size; its existence is attested by the commander who stood on it. Admitted in the liberties register L-other work-battle-shore-1812."
+      ],
+      "work_refs": [
+        "T-3403",
         "T-0471"
       ]
     },

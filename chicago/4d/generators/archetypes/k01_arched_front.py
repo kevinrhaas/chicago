@@ -322,6 +322,81 @@ def _moulding(a, frame, g, mo, conf):
                   (0, -1, 0), seed, conf)
 
 
+PILASTER_BELL_GROW_M = 0.04     # T-3294: how far a door pilaster's bell steps out past its shaft
+PILASTER_ABACUS_GROW_M = 0.07   # and its abacus
+
+
+def _pilasters(a, frame, g, conf):
+    """T-3294: a plain stone pilaster each side of a door's arch (1912's, the photograph): its
+    shaft `width_m` broad and `proud_m` before the wall, `gap_m` outside the arch's moulded ring
+    (or its voussoir block's cut), from the floor to the keystone's top, under a capital in two
+    tiers, a bell `capital_m - abacus_m` tall and an abacus `abacus_m` tall, each stepping out past
+    the one under it on its three faces. The photograph's carved leafage is finer than the bar and
+    is not modelled: the capital is its block. Boxes on the wall, so no back is drawn."""
+    pl = g["pilasters"]
+    (s0, s1, spring, rise, floor), = g["lights"][:1]
+    mo = g.get("moulding")
+    ring = sum(mo["steps_m"]) if mo else (s0 - g["cuts"][0])
+    w, d, gap, cap, ab = pl["width_m"], pl["proud_m"], pl["gap_m"], pl["capital_m"], pl["abacus_m"]
+    top = g["keystone"]["top_m"]
+    seed = a.instance("k01.opening.door_pilaster", "opening",
+                      {"of": g["component"], "width_m": w, "proud_m": d, "capital_m": cap},
+                      {"foot": _P(frame, s0 - ring - gap - w, floor, d)})
+
+    def box(x0, x1, y0, y1, dd, under):
+        _face(a, "dress_stone", frame, [(x0, y0, dd), (x1, y0, dd), (x1, y1, dd), (x0, y1, dd)], (0, 0, 1), seed, conf)
+        for x, sg in ((x0, -1), (x1, 1)):
+            _face(a, "dress_stone", frame, [(x, y0, 0.0), (x, y0, dd), (x, y1, dd), (x, y1, 0.0)], (sg, 0, 0), seed, conf)
+        _face(a, "dress_stone", frame, [(x0, y1, 0.0), (x1, y1, 0.0), (x1, y1, dd), (x0, y1, dd)], (0, 1, 0), seed, conf)
+        if under:
+            _face(a, "dress_stone", frame, [(x0, y0, 0.0), (x1, y0, 0.0), (x1, y0, dd), (x0, y0, dd)], (0, -1, 0),
+                  seed, conf)
+    for x0, x1 in ((s0 - ring - gap - w, s0 - ring - gap), (s1 + ring + gap, s1 + ring + gap + w)):
+        box(x0, x1, floor, top - cap, d, False)
+        gb, ga = PILASTER_BELL_GROW_M, PILASTER_ABACUS_GROW_M
+        box(x0 - gb, x1 + gb, top - cap, top - ab, d + gb, True)
+        box(x0 - ga, x1 + ga, top - ab, top, d + ga, True)
+    if pl.get("pinnacles"):
+        _door_pinnacles(a, frame, pl, ((s0 - ring - gap - w, s0 - ring - gap), (s1 + ring + gap, s1 + ring + gap + w)),
+                        (s0 + s1) / 2, top, seed, conf)
+
+
+PINNACLE_PROUD_M = 0.09      # T-3365: a door pinnacle's shaft before the wall, over the carved panel's face
+PINNACLE_CAP_M = 0.06        # the moulded cap a pinnacle's spire stands on, and how far it steps out
+CROWN_BUD = [(0.0, 0.5), (0.12, 0.5), (0.3, 1.0), (0.55, 0.85), (0.8, 0.35), (1.0, 0.02)]
+
+
+def _door_pinnacles(a, frame, pl, pilasters, cx, top, seed, conf):
+    """T-3365: each door pilaster carried up over its capital as a shaft `shaft_m` square to
+    `shaft_to_m`, through the carved panel over the door, under a cap and a four-sided spire to
+    `top_m`; and over the arch's crown a stem `crown.stem_m` broad from the keystone's top to the
+    same line under a turned bud `crown.width_m` across to `crown.top_m` (2009 Prairie's door,
+    Chicagology's photograph). The carving on the spires is finer than the bar: they are plain."""
+    from . import k01_wall_gable
+    pn = pl["pinnacles"]
+    sh, st, tp = pn["shaft_m"], pn["shaft_to_m"], pn["top_m"]
+    d, c = PINNACLE_PROUD_M, PINNACLE_CAP_M
+
+    def block(x0, x1, y0, y1, dd):
+        _face(a, "dress_stone", frame, [(x0, y0, dd), (x1, y0, dd), (x1, y1, dd), (x0, y1, dd)], (0, 0, 1), seed, conf)
+        for x, sg in ((x0, -1), (x1, 1)):
+            _face(a, "dress_stone", frame, [(x, y0, 0.0), (x, y0, dd), (x, y1, dd), (x, y1, 0.0)], (sg, 0, 0), seed, conf)
+        for y, sg in ((y0, -1), (y1, 1)):
+            _face(a, "dress_stone", frame, [(x0, y, 0.0), (x1, y, 0.0), (x1, y, dd), (x0, y, dd)], (0, sg, 0), seed, conf)
+    for x0, x1 in pilasters:
+        m = (x0 + x1) / 2
+        block(m - sh / 2, m + sh / 2, top, st, d)
+        block(m - sh / 2 - c / 2, m + sh / 2 + c / 2, st, st + c, d + c / 2)
+        hw = sh / 2 + c / 4
+        k01_wall_gable._pyramid(a, "dress_stone", frame, m, hw, st + c, hw, tp, seed, conf)
+    cr = pn["crown"]
+    block(cx - cr["stem_m"] / 2, cx + cr["stem_m"] / 2, top, st, d)
+    rb, hb = cr["width_m"] / 2, cr["top_m"] - st
+    pts = [(st + hb * f, rb * q) for f, q in CROWN_BUD]
+    for (y0, r0), (y1, r1) in zip(pts, pts[1:]):
+        _frustum(a, "dress_stone", frame, cx, rb, y0, y1, r0, r1, seed, conf)
+
+
 def _keystone(a, frame, k, seed, conf):
     s, y0, y1 = k["s_m"], k["bed_m"], k["top_m"]
     w0, w1 = (x / 2 for x in k["width_m"])
@@ -398,6 +473,8 @@ def _voussoirs(a, frame, g, conf, recess):
         a.stone(frame, [(p0, g["sill_m"]), (p1, g["sill_m"]), (p1, g["spring_m"]), (p0, g["spring_m"])], [hj] * 4,
                 "rough_stone_trim", a._stone_seed(cid, inst, j), conf, recess=recess, bevel=wk["bevel_m"], F=0.0)
         j += 1
+    if g.get("pilasters"):   # T-3294: a pilaster each side of the arch, under its capital
+        _pilasters(a, frame, g, conf)
     cl = loggia_columns(a.p, g)
     if cl:   # T-2918: the arch springs from clustered shafts in its jambs
         _jamb_columns(a, frame, g, cl, conf)
@@ -1103,8 +1180,13 @@ def street_carved_bands(a, frame, bands, conf):
         s0, s1 = cb["s_m"]
         kind = next(k for k in ("guilloche", "interlace", "panels") if k in cb)
         seed = a.instance("k01.wall.carved_band", "wall",
-                          {"bed_m": b0, "top_m": b1, "from_s_m": s0, "to_s_m": s1, "carving": kind},
+                          {"bed_m": b0, "top_m": b1, "from_s_m": s0, "to_s_m": s1, "carving": kind,
+                           **({"panel": True} if cb.get("panel") else {})},
                           {"bed": _P(frame, s0, b0, 0.0), "top": _P(frame, s1, b1, 0.0)})
+        if cb.get("panel"):
+            # T-3365: no course under it: its own dressed stone, as proud as a belt's face, so
+            # the carving stands on it as on a belt
+            a.proud_box("limestone_trim", frame, s0, s1, b0, b1, BELT_PROUD_M, seed, conf)
         if kind == "guilloche":
             n = _guilloche_run(a, frame, s0, s1, b0, b1, cb["guilloche"], seed, conf)
             a.components["k01.wall.carved_band"]["instances"][-1]["params"]["rings"] = n
@@ -1148,7 +1230,7 @@ def _balconette(a, frame, bc, conf):
                       {"floor": _P(frame, (s0 + s1) / 2, fl, 0.0)})
     _box(a, "limestone_trim", frame, s0, s1, fl - sl, fl, 0.0, d, seed, conf, skip=("back",))
     # the consoles: a scrolled block under the slab, deep at its head and dying into the wall
-    cw, drop = 0.16, min(0.55, 2.4 * d)
+    cw, drop = 0.16, bc.get("console_drop_m") or min(0.55, 2.4 * d)   # T-3270: or a tall pair
     for i in range(n):
         x = s0 + 0.12 + (s1 - s0 - 0.24) * i / max(1, n - 1)
         steps = 5

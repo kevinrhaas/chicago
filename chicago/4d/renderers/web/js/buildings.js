@@ -35,7 +35,14 @@
 import * as THREE from 'three';
 import { spatialPiecesAsync } from './spatial-batch.js';
 import { castOnlyTowardView } from './shadow-casters.js';
-import { coalesceRuns, COALESCE_ON } from './batch-coalesce.js';
+import { crestTwin, drawFarReliefAsCrests, farReliefFromSearch } from './far-roof-relief.js';
+import { CELL_M, MAX_PIXELS as FAR_SHADOW_MAX_PIXELS, shadowTwin, twinReachM, drawFarShadowAsTwins,
+  SUN_CELL_M, groupTwin, rebaseGroupTwin,
+  farShadowFromSearch } from './far-shadow.js';
+import { drawFarColourAsTwins, farColourFromSearch, MAX_PIXELS as FAR_COLOUR_MAX_PIXELS,
+  CELL_M as FAR_COLOUR_CELL_M, KEEP_RATIO as FAR_COLOUR_KEEP_RATIO } from './far-colour.js';
+import { coalesceRuns, sortCellsByPiece, COALESCE_ON } from './batch-coalesce.js';
+import { skipSubPixelPieces, subPixelFromSearch, MAX_RADIUS_PIXELS as SUB_PIXEL_MAX_PIXELS } from './sub-pixel.js';
 import { rigidBoundsMaterial, installFrustumBoxCull } from './batch-frustum-box.js';
 import { backingTriangles } from './view-occlusion.js';
 import { planarCoverPlanes } from './planar-occluders.js';
@@ -49,12 +56,17 @@ import { filterGlessnerRoof } from './glessner-roof-filter.js';
 import { tintGlessnerGranite } from './glessner-stone.js';
 import {tintKeithStone} from './keith-stone.js';
 import { loadWallRelief } from './wall-relief.js';
+import { loadCampSurfaces } from './camp-surfaces.js';
+import { applyBrickBond, brickBondFromSearch } from './brick-bond.js';
 import { addFeet, feetPoints, packFeet } from './building-feet.js';
 import { buildingBodyBounds } from './building-body-bounds.js';
+import { drawsLeaves as leavesHungElsewhere, paradeLaidAsGround, paradeGroundOwner } from './fort-gates.js';
 import { cheapenGlass, DEFAULT_GLASS, writePaneAttributes } from './glass.js';
+import { patchNightWindows } from './night-lights.js';
 import { layerPick } from './gpu-pick.js';
+import { shortIndexRuns } from './short-index.js';
 import {
-  compactPlan, compactGeometry, positionScale, quantizePositions, packScalars, toneScaleOf, unpackScalar, SCALARS, SCALARS_GLSL,
+  compactPlan, compactGeometry, positionScale, quantizePositions, packScalars, compactConstantBatchScalars, toneScaleOf, unpackScalar, SCALARS, SCALARS_GLSL,
 } from './compact-attributes.js';
 
 /** Readers own their short-lived closure scopes. A retained occlusion predicate in
@@ -406,6 +418,49 @@ function perVertexScalars(material) {
  * shared texture pairs, two extra batches for 369 roofs — measured in
  * `tickets/T-1488-*.md` at the critic stations.
  */
+/**
+ * A map's part of the batch key: the decoded picture it samples and every sampler and
+ * transform setting it samples it with, never the Texture's own uuid. T-3411.
+ *
+ * Until T-3411 the key read `m.map?.uuid`. That was right while every mapped material
+ * in a merged town took ONE shared Texture object (the roof and wall relief pairs),
+ * and wrong the day an asset brought its own maps: T-3387 laid the 1816 fort's brick
+ * and its stacks, and the Lake House's, in the K03 common panel, embedded in each of
+ * seven GLBs. `shared-images.js` already hands every one of those GLBs a CLONE of one
+ * decoded panel (one `texture.source`, one upload), but a clone mints a new uuid, so
+ * the 1835 town split into seven brick batches drawing the same two pictures — seven
+ * more draws in the colour pass and seven in the shadow pass, and the merged-town
+ * contract (`tools/world_smoke_contracts.mjs`) red on dev. Keyed by source and
+ * sampler, the seven are one batch, which is exactly what a batch may share: the
+ * batch draws with its first material's Texture, and every other in the bucket
+ * samples the same bytes the same way. Base colour and roughness stay per vertex as
+ * before; an unmapped roughness is the only kind these brick materials carry.
+ *
+ * Not `batch-material.js` `textureKey`, which the inspection path uses: that one keeps
+ * every texture class but the plain `Texture` by identity, and the published panel is
+ * a KTX2 (`CompressedTexture`), each GLB's its own clone with its own copy of the mip
+ * descriptors (`ktx2.js` glbTextureLoader) over the one shared source. Anything else —
+ * a render target, a video, a texture that updates itself — keeps its identity here.
+ */
+const mapIds = new WeakMap();
+let nextMapId = 1;
+function mapId(value) {
+  if (!mapIds.has(value)) mapIds.set(value, nextMapId++);
+  return mapIds.get(value);
+}
+export function mapKey(t) {
+  if (!t) return '-';
+  const decoded = (t.constructor === THREE.Texture || t.constructor === THREE.CompressedTexture)
+    && t.source && !t.isRenderTargetTexture && !t.renderTarget && !t.onUpdate;
+  if (!decoded) return `texture:${mapId(t)}`;
+  return [`source:${mapId(t.source)}`, t.isCompressedTexture ? 'compressed' : 'image',
+    t.mipmaps?.length ?? 0, t.channel, t.mapping, t.wrapS, t.wrapT, t.magFilter, t.minFilter,
+    t.anisotropy, t.format, t.internalFormat, t.type, t.colorSpace, t.flipY, t.premultiplyAlpha,
+    t.generateMipmaps, t.unpackAlignment,
+    t.offset.x, t.offset.y, t.repeat.x, t.repeat.y, t.rotation, t.center.x, t.center.y,
+    t.matrixAutoUpdate ? 'auto' : t.matrix.elements.join('/')].join(',');
+}
+
 function materialKey(m) {
   const near = (v) => (typeof v === 'number' ? v.toFixed(3) : '-');
   const offset = m.polygonOffset ? `${m.polygonOffsetFactor}/${m.polygonOffsetUnits}` : '-';
@@ -413,10 +468,14 @@ function materialKey(m) {
     m.type,
     m.emissive?.getHexString() ?? '-',
     near(m.metalness),
-    m.map?.uuid ?? '-', m.normalMap?.uuid ?? '-', m.aoMap?.uuid ?? '-',
-    m.roughnessMap?.uuid ?? '-',
+    // T-3411: a map is keyed by the picture it samples and how, not by its Texture's
+    // uuid — see `mapKey`.
+    mapKey(m.map), mapKey(m.normalMap), m.normalMap ? m.normalScale.toArray().join('/') : '-',
+    mapKey(m.aoMap), m.aoMap ? near(m.aoMapIntensity) : '-',
+    mapKey(m.roughnessMap),
     m.userData.roofFilter ?? '-',
     m.userData.glassPanes ?? '-',
+    m.userData.nightWindows ?? '-', // T-3332: a pane that glows by night is its own batch
     m.side, m.transparent ? 't' : 'o', m.alphaTest ?? 0, m.flatShading ? 'f' : 's', offset,
   ].join('|');
 }
@@ -459,7 +518,8 @@ export function seatJointFloor(material) {
  */
 export async function createBuildings({ registry, confidence, terrain, checkpoint = () => null,
   onProgress = () => {}, preserveMaterials = false, lowSpec = false, glass = DEFAULT_GLASS,
-  spatialCells = null, collectViewBackings = false, shadowCasters = null }) {
+  spatialCells = null, collectViewBackings = false, shadowCasters = null,
+  colourTwins = false, farColourTier = null }) {
   const group = new THREE.Group();
   group.name = 'structures';
   const problems = [];
@@ -467,6 +527,12 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   // material key -> { material, entries: [{ record, geo, factors }] }
   const groups = new Map();
   const sourceRoles = new WeakMap();
+  const originalRole = (material) => {
+    if (!sourceRoles.has(material)) sourceRoles.set(material, material.name);
+    return sourceRoles.get(material);
+  };
+  /** Loaded ground-only assets fulfilled by the named native yards owner (T-3320). */
+  const delegatedGround = new Map();
   const viewOccluders = [];
   /**
    * T-3213: what every backing's `active()` compares against — identity is read
@@ -475,6 +541,28 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    * 4 MB of a 1904 phone's heap.
    */
   const OCCLUDER_IDENTITY = new THREE.Matrix4(), occluderScratch = new THREE.Matrix4();
+  const occluderPlacementScratch = new THREE.Matrix4();
+  // T-3173: each occluding instance's placement, as the 16 float32 figures the batch's
+  // matrices texture holds it at (`getMatrixAt` reads that Float32Array, so they are
+  // exact), one slot apiece in one array: not a Matrix4 (an object, a 16-double
+  // array and their headers) in each of 12,632 closures on the /1904/ phone. Grown
+  // by doubling while the layer builds and trimmed to its slots once it is built.
+  let occluderPlacements = new Float32Array(16 * 256), occluderPlacementCount = 0;
+  const keepOccluderPlacement = (matrix) => {
+    if ((occluderPlacementCount + 1) * 16 > occluderPlacements.length) {
+      const grown = new Float32Array(occluderPlacements.length * 2);
+      grown.set(occluderPlacements);
+      occluderPlacements = grown;
+    }
+    occluderPlacements.set(matrix.elements, occluderPlacementCount * 16);
+    return occluderPlacementCount++;
+  };
+  /** `Matrix4.equals` against a kept slot: the same element-by-element `!==`. */
+  const sameOccluderPlacement = (matrix, slot) => {
+    const e = matrix.elements, at = slot * 16;
+    for (let k = 0; k < 16; k++) if (e[k] !== occluderPlacements[at + k]) return false;
+    return true;
+  };
   /** T-3152: one row per source mesh with proven planar cover — see the load loop. */
   const planarSources = [];
   let planarOn = true;
@@ -506,6 +594,21 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    */
   const walls = await loadWallRelief({ lowSpec });
   if (walls.problem) problems.push(walls.problem);
+  /**
+   * T-3342: the 1812 camp's mat, bark and bough coverings, bound by material name with
+   * their sheets (camp-surfaces.js). Before the loop for the roofs' reason, and loaded
+   * only when a camp is drawn, so no other scene pays for nine sheets it never shows.
+   */
+  const camp = await loadCampSurfaces({
+    wanted: [...registry.values()].some((r) => r.gltf && r.sidecar?.archetype === 'lodge_camp'),
+    // T-3401: the haystacks at Lee's Place wear the library's hay sheets.
+    hay: [...registry.values()].some((r) => r.gltf && r.sidecar?.archetype === 'haystack'),
+  });
+  if (camp.problem) problems.push(camp.problem);
+  /** T-3295: K03 brick panels shuffled per brick unless `?bricks=tiled` (brick-bond.js). */
+  const brickBonds = brickBondFromSearch(globalThis.location?.search);
+  /** panel id -> source materials bound, for `stats().brickBond`. */
+  const brickBound = {};
 
   const dealt = dealTones([...registry.values()]
     // Only what will actually be drawn: a record with no GLB stands in nobody's
@@ -513,8 +616,44 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // visitor can see away from one they cannot.
     .filter((r) => r.gltf)
     .map((r) => r.sidecar));
-  /** The instance colours `setWeathering` rewrites: one row per source mesh. */
-  const toneRanges = [];
+  /** The instance colours `setWeathering` rewrites: one row per source mesh.
+   *  T-3173: kept as columns, not an object a row: some 75,000 rows on /1904/, each
+   *  with two boxed doubles, were about 4.5 MB of a phone's heap; the tone columns
+   *  are plain arrays of doubles, which the engine stores unboxed. Row k is
+   *  `batch[k]`, `id[k]` … `toneFirst[k]`. */
+  const toneRanges = { batch: [], id: [], instanceId: [], count: [], base: [], factors: [],
+    toneSum: [], toneFirst: [] };
+  /** T-3173: one `[lo, hi]` array per distinct confidence range, shared by every
+   *  instance that has it. The values are decoded from a packed byte (T-2574), so a
+   *  town of some 78,000 pieces has a handful of ranges, and an array apiece was
+   *  about 3 MB of a phone's heap. Read-only to everything that reads them
+   *  (confidence.js); a twin shares its piece's. */
+  const sharedRanges = new Map();
+  const rangeOf = (lo, hi) => {
+    const key = `${lo},${hi}`;
+    let r = sharedRanges.get(key);
+    if (!r) { r = [lo, hi]; sharedRanges.set(key, r); }
+    return r;
+  };
+  /** T-3272: a relief roof piece past its last visible pixel draws its crests only
+   *  (far-roof-relief.js). One state for the layer; each batch fills its own pairs. */
+  // T-3285: `sun` lets the sun's pass keep the relief whole while the colour pass swaps.
+  const farRelief = { on: farReliefFromSearch(globalThis.location?.search), sun: true, batches: [] };
+  // T-3286: far pieces cast from a clustered twin (far-shadow.js); one state per batch.
+  // T-3249: `byTexel` lets the tier's texel bound swap a structure's group twin at any
+  // distance; the group twins are cut only for a tier below `full` on a low-spec device.
+  const farShadow = { on: farShadowFromSearch(globalThis.location?.search), maxPixels: FAR_SHADOW_MAX_PIXELS,
+    byTexel: true, batches: [], twinTriangles: 0, twinVertices: 0, buildMs: 0,
+    groups: 0, groupTriangles: 0, groupIndices: 0, groupMs: 0 };
+  // T-3312: at `light`, far pieces draw in the colour pass from a clustered twin that
+  // keeps each face's normal (far-colour.js). Cut only when `colourTwins` (a build for
+  // a tier below `full`); drawn only while the tier says so (`farColourTier.on`).
+  const farColour = { on: farColourFromSearch(globalThis.location?.search), maxPixels: FAR_COLOUR_MAX_PIXELS,
+    control: false, batches: [], twinTriangles: 0, twinVertices: 0, buildMs: 0 };
+  // T-3426: at `light`, a piece whose whole bounding sphere lands within a pixel of its
+  // centre is not drawn in the colour pass (sub-pixel.js); every batch, whatever it holds.
+  const subPixel = { on: subPixelFromSearch(globalThis.location?.search), maxPixels: SUB_PIXEL_MAX_PIXELS,
+    batches: [], scratch: { m: new THREE.Matrix4(), sphere: new THREE.Sphere() } };
   /** structure id -> its footprint extent in its own local frame, so a building
    *  can be stood on the lowest ground UNDER it rather than under its origin.
    *  Filled in the load loop because placement needs it. */
@@ -554,6 +693,39 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       continue;
     }
 
+    // A successfully loaded parade may contain only the earth slab T-3320 leaves
+    // to yards. It has no building batch or box; account for the actual delegation
+    // separately. A failed/empty asset, or any remaining non-earth mesh (the second
+    // fort's sundial), must still pass the ordinary batched-geometry roll below.
+    const groundOwner = paradeGroundOwner(record);
+    const identifiedGround = groundOwner && node.userData?.structure_id === record.id
+      && (!node.userData.phase_id || node.userData.phase_id === record.sidecar.phase);
+    if (identifiedGround && meshes.every(({ mesh, matrix }) => {
+      if (!matrix.elements.every(Number.isFinite)) return false;
+      const materials = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
+      if (!materials.length || !materials.every((material) => material && originalRole(material) === 'earth')) return false;
+      const positions = mesh.geometry.getAttribute('position');
+      const indices = mesh.geometry.getIndex();
+      const count = indices ? indices.count : positions?.count;
+      if (!positions || positions.count < 3 || !(count >= 3) || count % 3) return false;
+      for (let i = 0; i < positions.count; i += 1) {
+        if (![positions.getX(i), positions.getY(i), positions.getZ(i)].every(Number.isFinite)) return false;
+      }
+      if (indices) for (let i = 0; i < indices.count; i += 1) {
+        const index = indices.getX(i);
+        if (!Number.isInteger(index) || index < 0 || index >= positions.count) return false;
+      }
+      const a = new THREE.Vector3(), b = new THREE.Vector3(), c = new THREE.Vector3();
+      for (let i = 0; i < count; i += 3) {
+        a.fromBufferAttribute(positions, indices ? indices.getX(i) : i);
+        b.fromBufferAttribute(positions, indices ? indices.getX(i + 1) : i + 1);
+        c.fromBufferAttribute(positions, indices ? indices.getX(i + 2) : i + 2);
+        const area = b.sub(a).cross(c.sub(a)).lengthSq();
+        if (Number.isFinite(area) && area > 0) return true;
+      }
+      return false;
+    })) delegatedGround.set(record.id, groundOwner);
+
     // T-0002. One tone per STRUCTURE, resolved once and multiplied into every
     // surface the structure owns — walls, roof, trim, stack alike. Per
     // structure rather than per material because on 38 of the shipped assets
@@ -565,8 +737,14 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     for (const { mesh, matrix } of meshes) {
       const label = `${record.id}/${mesh.name || 'mesh'}`;
       const sourceMaterial = Array.isArray(mesh.material) ? mesh.material[0] : mesh.material;
-      if (!sourceRoles.has(sourceMaterial)) sourceRoles.set(sourceMaterial, sourceMaterial.name);
-      const bodyRole = sourceRoles.get(sourceMaterial); // before batching whitens/names it
+      const bodyRole = originalRole(sourceMaterial); // before batching whitens/names it
+      // T-3319: a fort gate's leaves are hung by fort-gates.js so they can swing; the
+      // shut pair the palisade baked (its `dark` primitive, the leaves and nothing else)
+      // is left out for those stockades only.
+      if (bodyRole === 'dark' && leavesHungElsewhere(record)) continue;
+      // T-3320: a parade's ground is laid by the yards layer as trodden earth that
+      // feathers into the grass; the archetype's flat slab under it is left out.
+      if (bodyRole === 'earth' && paradeLaidAsGround(record)) continue;
       // A detail replacement rebuilds from the same source records. Never whiten
       // or shader-patch those source materials: each batch owns its own copy.
       let material = preserveMaterials ? sourceMaterial.clone() : sourceMaterial;
@@ -578,13 +756,21 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         if (preserveMaterials) material.dispose();
         material = cheaper;
       }
+      // T-3332: a window pane glows by night (night-lights.js); 0 by day, to the bit.
+      if (bodyRole === 'glass') patchNightWindows(material);
       // Before the key is taken, and only ever by name — T-1488 and
       // docs/GLB-CONTRACT.md § Roof coverings.
       const reliefWarning = relief.apply(material);
       if (reliefWarning) problems.push(`${label}: ${reliefWarning}`);
+      const campWarning = camp.apply(material, mesh.geometry);
+      if (campWarning) problems.push(`${label}: ${campWarning}`);
       // A number when this is a bound wall: how much of the wood's figure its
       // finish lets through, written per vertex below (wall-grain.js).
       const grain = walls.apply(material, record.sidecar);
+      // T-3295: a K03 brick panel draws each brick from another of its kind, so the
+      // 0.86 m tile stops showing; by the base colour's image name (brick-bond.js).
+      const brickPanel = applyBrickBond(material, { on: brickBonds });
+      if (brickPanel) brickBound[brickPanel] = (brickBound[brickPanel] ?? 0) + 1;
       filterGlessnerRoof(material, record, mesh.geometry);
       // T-2446/T-2469: Glessner's granite to grey-greige; it rides the albedo multiply.
       tintGlessnerGranite(material, record);
@@ -801,9 +987,33 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   // cast a solid shadow. The same patch on a depth material dithers the shadow
   // exactly as it dithers the surface, and the depth shader has the same
   // `<clipping_planes_fragment>` anchor to hang the discard on.
-  const depthMaterial = confidence.patch(new THREE.MeshDepthMaterial({
-    depthPacking: THREE.RGBADepthPacking,
-  }), { packed: PACKED_CONFIDENCE });
+  // A depth owner belongs to one live colour material. Sharing it across
+  // unrelated batches lets Three retain a previous map in its cached depth
+  // uniforms when the next batch has no map. Residency must capture these
+  // actual shadow texture slots before its first upload/release as well.
+  const depthMaterials = new Map();
+  const depthFor = (material) => {
+    let depth = depthMaterials.get(material);
+    if (!depth) {
+      depth = confidence.patch(new THREE.MeshDepthMaterial({
+        depthPacking: THREE.RGBADepthPacking,
+      }), { packed: PACKED_CONFIDENCE });
+      Object.assign(depth, {
+        visible: material.visible, wireframe: material.wireframe,
+        // Native getDepthMaterial still chooses PCF/VSM shadow sidedness.
+        side: material.shadowSide !== null ? material.shadowSide : material.side,
+        map: material.map, alphaMap: material.alphaMap,
+        alphaTest: material.alphaToCoverage === true ? 0.5 : material.alphaTest,
+        clipShadows: material.clipShadows, clippingPlanes: material.clippingPlanes,
+        clipIntersection: material.clipIntersection,
+        displacementMap: material.displacementMap,
+        displacementScale: material.displacementScale, displacementBias: material.displacementBias,
+        wireframeLinewidth: material.wireframeLinewidth, linewidth: material.linewidth,
+      });
+      depthMaterials.set(material, depth);
+    }
+    return depth;
+  };
 
   const batches = [];
   /** structure id -> its union bounding box, in the structure's own frame. */
@@ -834,9 +1044,57 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     });
   }
   geometriesOf.clear();
+  /** T-3408: what each batch is laid from — a bucket, or on a phone one run of it. */
+  const parts = [];
   for (const [, bucket] of groups) {
-    const verts = bucket.entries.reduce((a, e) => a + e.geo.getAttribute('position').count, 0);
-    const idx = bucket.entries.reduce((a, e) => a + e.geo.getIndex().count, 0);
+    // T-3272: each relief piece is followed by its hidden crests-only twin, laid
+    // before the batch is sized so the twin's vertices are counted in it.
+    if (bucket.material.userData.roofFilter === 'course-pixels-v1') {
+      bucket.entries = bucket.entries.flatMap((e) => {
+        const twin = crestTwin(e.geo);
+        return twin ? [e, { ...e, geo: twin.geo, twinOf: e, maxCourse: twin.maxCourse,
+          occludesView: false, planar: null }] : [e];
+      });
+    }
+    // T-3286: each heavy piece's clustered shadow twin, appended after every piece so
+    // the pieces keep their order (and their coalesced runs) in the colour pass.
+    if (shadowCasters) {
+      const twins = [];
+      for (const e of bucket.entries) {
+        if (e.twinOf) continue;
+        const pause = checkpoint(); if (pause) await pause;
+        const scale = placements.get(e.record.id)?.getMaxScaleOnAxis?.() ?? 1;
+        const t0 = performance.now();
+        const twin = shadowTwin(e.geo, CELL_M / (scale > 0 ? scale : 1));
+        farShadow.buildMs += performance.now() - t0;
+        if (!twin) continue;
+        farShadow.twinTriangles += twin.twinTriangles;
+        farShadow.twinVertices += twin.geo.getAttribute('position').count;
+        twins.push({ ...e, geo: twin.geo, shadowOf: e, saved: twin.triangles - twin.twinTriangles,
+          occludesView: false, planar: null });
+      }
+      bucket.entries.push(...twins);
+    }
+    // T-3312: and each heavy piece's colour twin, cut by pools that never mix two
+    // normals, after the shadow twins so the pieces keep their order. Not for a relief
+    // roof (far-roof-relief.js owns its far draw) nor a transparent batch (sorted by sphere).
+    if (colourTwins && bucket.material.userData.roofFilter !== 'course-pixels-v1' && !bucket.material.transparent) {
+      const twins = [];
+      for (const e of bucket.entries) {
+        if (e.twinOf || e.shadowOf) continue;
+        const pause = checkpoint(); if (pause) await pause;
+        const scale = placements.get(e.record.id)?.getMaxScaleOnAxis?.() ?? 1;
+        const t0 = performance.now();
+        const twin = shadowTwin(e.geo, FAR_COLOUR_CELL_M / (scale > 0 ? scale : 1), { byNormal: true, keepRatio: FAR_COLOUR_KEEP_RATIO });
+        farColour.buildMs += performance.now() - t0;
+        if (!twin) continue;
+        farColour.twinTriangles += twin.twinTriangles;
+        farColour.twinVertices += twin.geo.getAttribute('position').count;
+        twins.push({ ...e, geo: twin.geo, colourOf: e, saved: twin.triangles - twin.twinTriangles,
+          occludesView: false, planar: null });
+      }
+      bucket.entries.push(...twins);
+    }
     // The normals and uvs stored compact, in one format across the batch, and
     // roughness, confidence, grain and the piece tone packed into one four-byte
     // attribute (T-2568, T-2574; compact-attributes.js). The tone's scale is the
@@ -860,6 +1118,50 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // arrive from GLTFLoader asking for one, and an unbound `color` would then
     // darken the batch, so it is turned off here for all of them.
     bucket.material.vertexColors = false;
+    const depthMaterial = depthFor(bucket.material);
+    // T-3408: on a phone a bucket over 65,535 vertices is laid as several batches,
+    // each small enough to index in 16 bits, every piece with its twins and every
+    // structure whole where it fits (short-index.js); one material, plan and tone
+    // scale across them, decided above over the whole bucket.
+    for (const entries of lowSpec ? shortIndexRuns(bucket.entries) : [bucket.entries]) {
+      // T-3249: each structure's texel twin, one per run it lies in (a twin indexes its
+      // pieces' vertices, so it must share their batch), after every piece and twin. Cut
+      // only where it can ever be swapped: a build for a tier below `full` on a low-spec
+      // device, whose `light` map is 1024 over +/-120 m (world.js) and so 23.4 cm a texel.
+      // A desktop's `light` map is 11.7 cm, under the twin's 0.208 m reach, so it never
+      // would be, and a desktop carries none.
+      if (shadowCasters && colourTwins && lowSpec) {
+        const of = new Map();
+        for (const e of entries) {
+          if (e.twinOf || e.shadowOf || e.colourOf) continue;
+          const list = of.get(e.record.id);
+          if (list) list.push(e); else of.set(e.record.id, [e]);
+        }
+        const twins = [];
+        for (const [id, pieces] of of) {
+          const pause = checkpoint(); if (pause) await pause;
+          const scale = placements.get(id)?.getMaxScaleOnAxis?.() ?? 1;
+          const t0 = performance.now();
+          const twin = groupTwin(pieces.map((e) => e.geo), SUN_CELL_M / (scale > 0 ? scale : 1));
+          farShadow.groupMs += performance.now() - t0;
+          if (!twin) continue;
+          farShadow.groups += 1;
+          farShadow.groupTriangles += twin.twinTriangles;
+          farShadow.groupIndices += twin.geo.getIndex().count;
+          twins.push({ ...pieces[0], geo: twin.geo, groupOf: pieces, segments: twin.segments,
+            twinTriangles: twin.twinTriangles, saved: twin.triangles - twin.twinTriangles,
+            occludesView: false, planar: null });
+        }
+        entries.push(...twins);
+      }
+      parts.push({ material: bucket.material, boundsRigid: bucket.boundsRigid, entries, plan, toneScale, depthMaterial });
+    }
+    bucket.entries = [];
+  }
+  for (const bucket of parts) {
+    const { plan, toneScale, depthMaterial } = bucket;
+    const verts = bucket.entries.reduce((a, e) => a + e.geo.getAttribute('position').count, 0);
+    const idx = bucket.entries.reduce((a, e) => a + e.geo.getIndex().count, 0);
     const batch = new THREE.BatchedMesh(bucket.entries.length, verts, idx, bucket.material);
     batch.name = `structures:${bucket.material.name || bucket.material.type}`;
     batch.castShadow = true;
@@ -868,6 +1170,49 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // T-2529: at `light`, a piece whose shadow cannot reach the view is left
     // out of the sun's pass (shadow-casters.js); the colour pass is untouched.
     if (shadowCasters) castOnlyTowardView(batch, shadowCasters);
+    // T-3272: before the narrow phase below, which trusts only the hook it wrapped.
+    let farPairs = null;
+    if (bucket.entries.some((e) => e.twinOf)) {
+      farPairs = [];
+      drawFarReliefAsCrests(batch, { get on() { return farRelief.on; },
+        get sun() { return farRelief.sun; }, pairs: farPairs,
+        set swapped(n) { farRelief.swapped = n; }, set sunSwapped(n) { farRelief.sunSwapped = n; } });
+      farRelief.batches.push({ batch, pairs: farPairs });
+    }
+    // T-3286: after the relief swap (a piece hidden here is passed over there) and
+    // before the narrow phase below, which trusts only the hook it wrapped.
+    let shadowPairs = null, shadowGroups = null;
+    const pairSaved = new Map();
+    if (bucket.entries.some((e) => e.shadowOf || e.groupOf)) {
+      shadowPairs = [];
+      shadowGroups = [];
+      // T-3249: `texelM` is the sun map's texel where the tier swaps the group twins by
+      // the map's own bound (main.js applyShadowTier sets `shadowCasters.sunTexelM`).
+      const state = { get on() { return farShadow.on; }, sun: shadowCasters.sun, pairs: shadowPairs,
+        groups: shadowGroups, get texelM() { return farShadow.byTexel ? (shadowCasters.sunTexelM ?? 0) : 0; },
+        get maxPixels() { return farShadow.maxPixels; }, swapped: 0, saved: 0, groupsSwapped: 0, swapMs: 0 };
+      drawFarShadowAsTwins(batch, state);
+      farShadow.batches.push({ batch, state });
+    }
+    // T-3312: after the relief swap (this one runs first, and the relief passes over a
+    // piece hidden here) and before the narrow phase below, which trusts only the hook it wrapped.
+    let colourPairs = null;
+    if (bucket.entries.some((e) => e.colourOf)) {
+      colourPairs = [];
+      const state = { get on() { return farColour.on && farColourTier?.on === true; }, pairs: colourPairs,
+        get maxPixels() { return farColour.maxPixels; }, get control() { return farColour.control; },
+        swapped: 0, saved: 0 };
+      drawFarColourAsTwins(batch, state);
+      farColour.batches.push({ batch, state });
+    }
+    // T-3426: after far-colour (this one runs first, so a piece hidden here keeps its
+    // twin hidden there) and before the narrow phase below, which trusts only the hook it wrapped.
+    {
+      const state = { get on() { return subPixel.on && farColourTier?.subPixel === true; },
+        get maxPixels() { return subPixel.maxPixels; }, skipped: 0 };
+      skipSubPixelPieces(batch, state, subPixel.scratch);
+      subPixel.batches.push({ batch, state });
+    }
     batch.userData.batchIndex = [];
     // Each instance's dequantize scale, for a reader that needs the structure's
     // frame back off the batch (tools/drawn_placement_census.mjs).
@@ -878,7 +1223,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     batch.userData.confidenceRanges = [];
     let backingPositionVersion, backingIndexVersion, backingConfidenceVersion;
 
-    for (const { record, geo, base, factors, occludesView, bodyRole, planar } of bucket.entries) {
+    for (const entry of bucket.entries) {
+      const { record, geo, base, factors, occludesView, bodyRole, planar } = entry;
       const pause = checkpoint(); if (pause) await pause;
       compactGeometry(geo, plan);
       const frame = instanceFrames.get(record.id);
@@ -893,20 +1239,114 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       for (let i = 0; i < scalars.count; i += 1) toneSum += scalar('_tone', i);
       const geometryId = batch.addGeometry(geo);
       const instanceId = batch.addInstance(geometryId);
+      entry.instanceId = instanceId;
+      if (entry.groupOf) {
+        // T-3249: a structure's texel twin is drawn only in the sun's pass, in place of
+        // all its pieces here, and is an index into their vertices (far-shadow.js).
+        const pieces = entry.groupOf.map((e) => e.instanceId);
+        rebaseGroupTwin(batch, geometryId, pieces.map((p) => batch.getGeometryIdAt(p)), entry.segments);
+        batch.setMatrixAt(instanceId, frame.matrix);
+        batch.userData.positionScale[instanceId] = frame.scale;
+        batch.userData.batchIndex[instanceId] = record.id;
+        const pieceRange = batch.userData.confidenceRanges[pieces[0]];
+        if (pieceRange) batch.userData.confidenceRanges[instanceId] = pieceRange;
+        batch.setVisibleAt(instanceId, false);
+        // culled by the union of its pieces' spheres, which holds it
+        const twinInfo = batch._geometryInfo?.[geometryId];
+        if (twinInfo && 'boundingSphere' in twinInfo) {
+          const box = new THREE.Box3(), sphere = new THREE.Sphere();
+          for (const p of pieces) box.union(batch.getBoundingSphereAt(batch.getGeometryIdAt(p), sphere).getBoundingBox(new THREE.Box3()));
+          twinInfo.boundingSphere = box.getBoundingSphere(new THREE.Sphere());
+        }
+        // the fewest triangles each piece can cast with: its own, less its far twin's saving
+        const pieceTriangles = pieces.map((p) => batch.getGeometryRangeAt(batch.getGeometryIdAt(p)).count / 3
+          - (pairSaved.get(p) ?? 0));
+        shadowGroups.push({ pieces, pieceTriangles, allTriangles: pieceTriangles.reduce((a, b) => a + b, 0),
+          twin: instanceId, twinTriangles: entry.twinTriangles,
+          reachM: twinReachM(SUN_CELL_M), saved: entry.saved });
+        geo.dispose();
+        continue;
+      }
+      if (entry.shadowOf) {
+        // T-3286: a shadow twin is drawn only in the sun's pass, in its piece's place.
+        const piece = entry.shadowOf.instanceId;
+        batch.setMatrixAt(instanceId, frame.matrix);
+        batch.userData.positionScale[instanceId] = frame.scale;
+        batch.userData.batchIndex[instanceId] = record.id;
+        const pieceRange = batch.userData.confidenceRanges[piece];
+        if (pieceRange) batch.userData.confidenceRanges[instanceId] = pieceRange;
+        batch.setVisibleAt(instanceId, false);
+        // culled by its piece's sphere, larger than its own, so the cull stays conservative
+        const twinInfo = batch._geometryInfo?.[geometryId];
+        if (twinInfo && 'boundingSphere' in twinInfo) {
+          twinInfo.boundingSphere = batch.getBoundingSphereAt(batch.getGeometryIdAt(piece), new THREE.Sphere());
+        }
+        shadowPairs.push({ piece, twin: instanceId, reachM: twinReachM(), saved: entry.saved });
+        pairSaved.set(piece, entry.saved);
+        geo.dispose();
+        continue;
+      }
+      if (entry.colourOf) {
+        // T-3312: a colour twin is drawn only in the colour pass, in its piece's place,
+        // wearing its piece's paint (far-colour.js copies it at the swap, as weathering
+        // repaints the piece only). No tone row, roll or channel of its own.
+        const piece = entry.colourOf.instanceId;
+        batch.setColorAt(instanceId, batch.getColorAt(piece, new THREE.Color()));
+        batch.setMatrixAt(instanceId, frame.matrix);
+        batch.userData.positionScale[instanceId] = frame.scale;
+        batch.userData.batchIndex[instanceId] = record.id;
+        const pieceRange = batch.userData.confidenceRanges[piece];
+        if (pieceRange) batch.userData.confidenceRanges[instanceId] = pieceRange;
+        batch.setVisibleAt(instanceId, false);
+        // culled and sorted by its piece's sphere, which holds it, so the cull stays conservative
+        const twinInfo = batch._geometryInfo?.[geometryId];
+        if (twinInfo && 'boundingSphere' in twinInfo) {
+          twinInfo.boundingSphere = batch.getBoundingSphereAt(batch.getGeometryIdAt(piece), new THREE.Sphere());
+        }
+        colourPairs.push({ piece, twin: instanceId, reachM: twinReachM(FAR_COLOUR_CELL_M), saved: entry.saved });
+        geo.dispose();
+        continue;
+      }
+      if (entry.twinOf) {
+        // T-3272: a twin is the piece's own triangles, drawn only in its place. It
+        // keeps no tone row, roll or channel of its own: it is not another surface.
+        batch.setColorAt(instanceId, batch.getColorAt(entry.twinOf.instanceId, new THREE.Color()));
+        batch.setMatrixAt(instanceId, frame.matrix);
+        batch.userData.positionScale[instanceId] = frame.scale;
+        batch.userData.batchIndex[instanceId] = record.id;
+        const pieceRange = batch.userData.confidenceRanges[entry.twinOf.instanceId];
+        if (pieceRange) batch.userData.confidenceRanges[instanceId] = pieceRange;
+        batch.setVisibleAt(instanceId, false);
+        // The twin sorts and sphere-culls as its piece does: a transparent batch draws its
+        // instances back to front by their spheres, and the relief's three pieces meet at
+        // the ridge, so a twin keyed by its own (smaller) sphere could change who draws
+        // last there. Larger than the twin's own, so the cull stays conservative.
+        const pieceInfo = batch._geometryInfo?.[batch.getGeometryIdAt(entry.twinOf.instanceId)];
+        const twinInfo = batch._geometryInfo?.[geometryId];
+        if (pieceInfo && twinInfo && 'boundingSphere' in twinInfo) {
+          twinInfo.boundingSphere = batch.getBoundingSphereAt(
+            batch.getGeometryIdAt(entry.twinOf.instanceId), new THREE.Sphere());
+        }
+        // The bound is read off the bytes the shader decodes (the packed piece), not the
+        // floats the twin was cut from: every vertex of the piece, so never below a relief one.
+        const course = entry.twinOf.geo.getAttribute('_roof_detail');
+        let maxCourse = entry.maxCourse;
+        for (let i = 0; course && i < course.count; i++) maxCourse = Math.max(maxCourse, course.getX(i));
+        farPairs.push({ piece: entry.twinOf.instanceId, twin: instanceId, maxCourse });
+        geo.dispose();
+        continue;
+      }
       // T-0002. The mesh's paint is its instance's colour, so the tone can be
       // wound back and forth at runtime — see setWeathering.
       const count = geo.getAttribute('position').count;
-      const row = {
-        batch,
-        id: record.id,
-        instanceId,
-        count,
-        base,
-        factors,
-        toneSum,
-        toneFirst: count ? scalar('_tone', 0) : 1,
-      };
-      toneRanges.push(row);
+      toneRanges.batch.push(batch);
+      toneRanges.id.push(record.id);
+      toneRanges.instanceId.push(instanceId);
+      toneRanges.count.push(count);
+      toneRanges.base.push(base);
+      toneRanges.factors.push(factors);
+      toneRanges.toneSum.push(+toneSum);
+      toneRanges.toneFirst.push(count ? +scalar('_tone', 0) : 1);
       batch.setColorAt(instanceId, new THREE.Color(...albedoOf(base, factors)));
       batch.setMatrixAt(instanceId, frame.matrix);
       batch.userData.positionScale[instanceId] = frame.scale;
@@ -915,7 +1355,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       if (occludesView) {
         // T-3213: `identity` and `current` are the layer's one pair (below the
         // occluder list), not two more matrices in every backing's closure.
-        const placement=batch.getMatrixAt(instanceId,new THREE.Matrix4()), current=occluderScratch;
+        const placement=batch.getMatrixAt(instanceId,occluderPlacementScratch), current=occluderScratch;
+        // Kept only once something holds `active` (a triangle below, or the planar
+        // cover): most occluding instances keep no triangle, and their test is let go.
+        let placementSlot=-1;
         const identity=OCCLUDER_IDENTITY, m=batch.material;
         const hooks=[m.onBeforeCompile,m.onBeforeRender,m.customProgramCacheKey], side=m.side;
         // Only the existing opaque, aperture-cut backing, under its known
@@ -924,7 +1367,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
           for(let o=batch;o;o=o.parent)if(!o.visible)return false;
           return batch.getVisibleAt(instanceId) && batch.getGeometryIdAt(instanceId)===geometryId
             && batch.material===m && m.side===side && batch.matrixWorld.equals(identity)
-            && batch.getMatrixAt(instanceId,current).equals(placement)
+            && sameOccluderPlacement(batch.getMatrixAt(instanceId,current),placementSlot)
             && batch.geometry.attributes.position.version===backingPositionVersion
             && batch.geometry.index.version===backingIndexVersion
             && batch.geometry.attributes[SCALARS].version===backingConfidenceVersion
@@ -937,18 +1380,30 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
             && (m.depthFunc===THREE.LessDepth || m.depthFunc===THREE.LessEqualDepth)
             && !m.clippingPlanes?.length;
         };
-        const ranges=new Map();
+        // T-3173: one [lo, hi] and one test per distinct confidence range, and one
+        // normal per distinct (unnormalised) normal — a rectangle's two halves have
+        // the same one — rather than an array and a Vector3 in every triangle; and
+        // no `area`, which nothing reads past the cut below. All read-only downstream.
+        const ranges=new Map(), normals=new Map();
         for(const triangle of backingTriangles(geo,placement,m.side,packedConfidenceReader(scalar))) {
           // Small distant facade details are expensive candidates with little
           // coverage; the inspected house keeps its finer backing faces.
           if(record.id!=='glessner_house' && triangle.area<4)continue;
           const key=JSON.stringify(triangle.confidenceRange);
-          if(!ranges.has(key))ranges.set(key,()=>active()
-            && opaqueConfidenceRange(triangle.confidenceRange,confidence));
-          viewOccluders.push({...triangle,active:ranges.get(key)});
+          if(!ranges.has(key)){
+            const confidenceRange=triangle.confidenceRange;
+            ranges.set(key,{confidenceRange,active:()=>active()
+              && opaqueConfidenceRange(confidenceRange,confidence)});
+          }
+          const n=triangle.normal, normalKey=`${n.x},${n.y},${n.z}`;
+          if(!normals.has(normalKey))normals.set(normalKey,n);
+          const shared=ranges.get(key);
+          viewOccluders.push({points:triangle.points,normal:normals.get(normalKey),side:triangle.side,
+            confidenceRange:shared.confidenceRange,active:shared.active});
         }
         // Every piece of the source mesh has to stand as the backing's does.
         if (planar) planar.actives.push(active);
+        if (planar || ranges.size) placementSlot=keepOccluderPlacement(placement);
       }
       batch.userData.batchIndex[instanceId] = record.id;
       record.instanceId = instanceId;
@@ -987,19 +1442,22 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         }
         seen.min = Math.min(seen.min, lo);
         seen.max = Math.max(seen.max, hi);
-        if (count) batch.userData.confidenceRanges[instanceId] = [lo, hi];
+        if (count) batch.userData.confidenceRanges[instanceId] = rangeOf(lo, hi);
         // The pieces' decoded range, as a whole: a rectangle stands only where all of
         // its source mesh is opaque, a superset of the triangles that cover it.
         if (planar && count) { planar.range[0] = Math.min(planar.range[0], lo); planar.range[1] = Math.max(planar.range[1], hi); }
       }
       geo.dispose();
     }
+    compactConstantBatchScalars(batch);
     backingPositionVersion=batch.geometry.attributes.position.version;
     backingIndexVersion=batch.geometry.index.version;
     backingConfidenceVersion=batch.geometry.attributes[SCALARS].version;
     // Narrow phase sees native whole-instance entries before existing coalescing.
     const narrow = installFrustumBoxCull(batch, bucket.boundsRigid, depthMaterial, seasonPreservesSurface, coalesce, shadowCasters);
     if (cutsCells) coalesceRuns(batch, coalesce);
+    // T-3363: a blended batch's cells sorted by their piece, so its glass joins up.
+    if (cutsCells && batch.material.transparent) sortCellsByPiece(batch);
     narrow?.seal();
     batch.computeBoundingBox();
     batch.computeBoundingSphere();
@@ -1019,6 +1477,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // 50 MB of arrays and 25 MB of heap in 1904 on a phone.
     bucket.entries = [];
   }
+  parts.length = 0;
 
   // T-3152: each proven planar cover, in the world frame, for the view filter's
   // `planes`. It stands only while every piece of its source mesh passes the backing's
@@ -1067,8 +1526,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     const t = Math.max(0, Math.min(1, Number(value)));
     if (!Number.isFinite(t) || t === weathering) return weathering;
     const colour = new THREE.Color();
-    for (const row of toneRanges) {
-      row.batch.setColorAt(row.instanceId, colour.setRGB(...albedoOf(row.base, row.factors, t)));
+    const { batch: rowBatch, instanceId: rowInstance, base: rowBase, factors: rowFactors } = toneRanges;
+    for (let k = 0; k < rowBatch.length; k += 1) {
+      rowBatch[k].setColorAt(rowInstance[k], colour.setRGB(...albedoOf(rowBase[k], rowFactors[k], t)));
     }
     weathering = t;
     return weathering;
@@ -1078,8 +1538,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    * THE TOWN'S ROLL CALL — T-1126. Which structures actually put geometry into
    * a batch, and which were supposed to and did not.
    *
-   * `localBoxes` is the honest answer to "is this building standing" and the
-   * only one in this file: it is filled where a mesh enters a batch, so a
+   * `localBoxes` is the honest answer to "is this building standing": it is
+   * filled where a mesh enters a batch, so a
    * record that has a sidecar, a placement matrix and a manifest entry but
    * whose GLB never arrived is simply not in it. `placements` is NOT that
    * answer — it is filled for every record in the registry before a single
@@ -1106,6 +1566,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // A record with no asset is drawn by another layer (the estray pen's fence)
     // and the loader has already reported it if it names no layer at all.
     if (!record.sidecar?.asset) continue;
+    // Like the no-asset delegated layer above, a proven loaded earth-only parade
+    // is ground rather than a building batch. Keep it visible in a separate roll;
+    // never manufacture a box or count it as a standing building.
+    if (delegatedGround.has(record.id)) continue;
     expected.push(record.id);
     if (!localBoxes.has(record.id)) missing.add(record.id);
   }
@@ -1131,11 +1595,81 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     return { id, record: registry.get(id), point: hit.point, distance: hit.distance };
   });
 
+  occluderPlacements = occluderPlacements.slice(0, occluderPlacementCount * 16);
   return {
     group,
     batches,
     coalesce,
     viewOccluders,
+    /** T-3272: far relief pieces drawn as their crests, on or off, for the on/off pixel
+     *  proof; `swapped` is how many the last colour pass swapped. T-3285: `sun` takes
+     *  the sun's pass alone back to the whole relief; `sunSwapped` is its count. */
+    // T-3286: the sun's far shadow twins (far-shadow.js), summed over the batches
+    // as of the last shadow render; `on = false` casts every piece whole.
+    farShadow: {
+      get on() { return farShadow.on; },
+      set on(v) { farShadow.on = !!v; },
+      get maxPixels() { return farShadow.maxPixels; },
+      set maxPixels(v) { farShadow.maxPixels = Number.isFinite(v) && v >= 0 ? v : FAR_SHADOW_MAX_PIXELS; },
+      /** T-3249: whether the tier's texel bound may swap the structures' group twins (the
+       *  on/off proof turns it off); `texelM` is the bound in use, 0 where the tier has none. */
+      get byTexel() { return farShadow.byTexel; },
+      set byTexel(v) { farShadow.byTexel = !!v; },
+      get texelM() { return farShadow.byTexel ? (shadowCasters?.sunTexelM ?? 0) : 0; },
+      /** T-3249: the group twins cut, the triangles they draw, the index entries they add
+       *  (they add no vertex), and the main-thread time spent cutting them */
+      get groups() { return farShadow.groups; },
+      get groupTriangles() { return farShadow.groupTriangles; },
+      get groupIndices() { return farShadow.groupIndices; },
+      get groupMs() { return farShadow.groupMs; },
+      /** as of the last shadow render: group twins swapped, and the hooks' own time in ms */
+      get groupsSwapped() { return farShadow.batches.reduce((n, b) => n + (b.state.groupsSwapped ?? 0), 0); },
+      get swapMs() { return farShadow.batches.reduce((n, b) => n + (b.state.swapMs ?? 0), 0); },
+      get pieces() { return farShadow.batches.reduce((n, b) => n + b.state.pairs.length, 0); },
+      get swapped() { return farShadow.batches.reduce((n, b) => n + (b.state.swapped ?? 0), 0); },
+      get saved() { return farShadow.batches.reduce((n, b) => n + (b.state.saved ?? 0), 0); },
+      get twinTriangles() { return farShadow.twinTriangles; },
+      get twinVertices() { return farShadow.twinVertices; },
+      /** main-thread time spent cutting the twins at load */
+      get buildMs() { return farShadow.buildMs; },
+    },
+    // T-3312: the colour pass's far twins at `light` (far-colour.js), summed over the
+    // batches as of the last colour render; `on = false` draws every piece whole.
+    // T-3426: the colour pass's sub-pixel pieces at `light` (sub-pixel.js), summed over
+    // the batches as of the last colour render; `on = false` draws every piece.
+    subPixel: {
+      get on() { return subPixel.on; },
+      set on(v) { subPixel.on = !!v; },
+      get active() { return subPixel.on && farColourTier?.subPixel === true; },
+      get maxPixels() { return subPixel.maxPixels; },
+      set maxPixels(v) { subPixel.maxPixels = Number.isFinite(v) && v >= 0 ? v : SUB_PIXEL_MAX_PIXELS; },
+      get skipped() { return subPixel.batches.reduce((n, b) => n + (b.state.skipped ?? 0), 0); },
+    },
+    farColour: {
+      get on() { return farColour.on; },
+      set on(v) { farColour.on = !!v; },
+      get active() { return farColour.on && farColourTier?.on === true; },
+      get maxPixels() { return farColour.maxPixels; },
+      set maxPixels(v) { farColour.maxPixels = Number.isFinite(v) && v >= 0 ? v : FAR_COLOUR_MAX_PIXELS; },
+      get pieces() { return farColour.batches.reduce((n, b) => n + b.state.pairs.length, 0); },
+      get swapped() { return farColour.batches.reduce((n, b) => n + (b.state.swapped ?? 0), 0); },
+      get saved() { return farColour.batches.reduce((n, b) => n + (b.state.saved ?? 0), 0); },
+      get twinTriangles() { return farColour.twinTriangles; },
+      get twinVertices() { return farColour.twinVertices; },
+      get buildMs() { return farColour.buildMs; },
+      /** the on/off proof's positive control: the swapped pieces hidden, no twin drawn */
+      get control() { return farColour.control; },
+      set control(v) { farColour.control = !!v; },
+    },
+    farRelief: {
+      get on() { return farRelief.on; },
+      set on(v) { farRelief.on = !!v; },
+      get sun() { return farRelief.sun; },
+      set sun(v) { farRelief.sun = !!v; },
+      get swapped() { return farRelief.swapped ?? 0; },
+      get sunSwapped() { return farRelief.sunSwapped ?? 0; },
+      get pieces() { return farRelief.batches.reduce((n, b) => n + b.pairs.length, 0); },
+    },
     /** T-3152: the proven planar backings on or off, for the on/off pixel proof. */
     setPlanarCovers(on) { planarOn = !!on; return planarOn; },
     planarCovers,
@@ -1160,12 +1694,15 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       expected: expected.length,
       standing: expected.length - missing.size,
       missing: [...missing],
+      delegatedGround: Object.fromEntries(delegatedGround),
     },
     /**
      * What the walls were bound with (T-1963): `off` under `?walls=flat`, else
      * each substrate's library id, map size, tile and mean roughness.
      */
     wallRelief: walls.off ? { off: true } : { off: false, substrates: walls.sets ?? null },
+    // T-3295: the K03 panels drawn brick by brick, or `{ off: true }` under ?bricks=tiled.
+    brickBond: brickBonds ? { off: false, panels: brickBound } : { off: true },
     /** Draw calls these buildings cost in the colour pass. */
     get drawCalls() { return batches.length; },
 
@@ -1189,16 +1726,18 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // tone (1 where it has none), read back from the batch's own colours.
       const sums = new Map();
       const colour = new THREE.Color();
-      for (const row of toneRanges) {
-        const c = row.batch.getColorAt(row.instanceId, colour);
-        let seen = sums.get(row.id);
-        if (!seen) { seen = { sum: [0, 0, 0], n: 0, surfaces: new Set() }; sums.set(row.id, seen); }
-        seen.sum[0] += c.r * row.toneSum;
-        seen.sum[1] += c.g * row.toneSum;
-        seen.sum[2] += c.b * row.toneSum;
-        seen.n += row.count;
-        if (row.count) {
-          seen.surfaces.add([c.r * row.toneFirst, c.g * row.toneFirst, c.b * row.toneFirst]
+      const rows = toneRanges;
+      for (let k = 0; k < rows.batch.length; k += 1) {
+        const c = rows.batch[k].getColorAt(rows.instanceId[k], colour);
+        const id = rows.id[k], toneSum = rows.toneSum[k], count = rows.count[k], toneFirst = rows.toneFirst[k];
+        let seen = sums.get(id);
+        if (!seen) { seen = { sum: [0, 0, 0], n: 0, surfaces: new Set() }; sums.set(id, seen); }
+        seen.sum[0] += c.r * toneSum;
+        seen.sum[1] += c.g * toneSum;
+        seen.sum[2] += c.b * toneSum;
+        seen.n += count;
+        if (count) {
+          seen.surfaces.add([c.r * toneFirst, c.g * toneFirst, c.b * toneFirst]
             .map((v) => v.toFixed(6)).join(','));
         }
       }
@@ -1283,7 +1822,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         b.geometry.dispose();
       }
       for (const [, bucket] of groups) bucket.material.dispose();
-      depthMaterial.dispose();
+      for (const depth of depthMaterials.values()) depth.dispose();
+      depthMaterials.clear();
     },
   };
 }

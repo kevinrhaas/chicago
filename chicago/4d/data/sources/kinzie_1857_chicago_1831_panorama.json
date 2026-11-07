@@ -1,29 +1,32 @@
 {
   "id": "kinzie_1857_chicago_1831_panorama",
   "type": "illustration",
-  "citation": "[Unresolved Beaubien-group identification] \"Fort Dearborn and Chicago in 1831.\" Labeled wood-engraved panorama after a sketch attributed to Juliette A. Kinzie; the local reproduction credits Wau-Bun, Chicago, 1857.",
+  "citation": "[Unresolved Beaubien-group identification, preferred working residence] “Fort Dearborn and Chicago in 1831.” Keyed cut in Wentworth, Fort Dearborn (1881), p. 86; credits Kinzie’s Wau-Bun (1857).",
   "author": "Engraver not established; after a sketch attributed to Juliette A. Kinzie",
-  "date": "1857 as credited by the local caption; the date of this labeled reproduction is not established",
+  "date": "1881 (verified keyed reproduction)",
   "describes_date": "1831",
-  "repository": "Wikimedia Commons",
+  "repository": "Wikimedia Commons — keyed reproduction of John Wentworth, Fort Dearborn (Fergus Historical Series, 1881), digitized by Internet Archive",
   "url": "https://commons.wikimedia.org/wiki/File:Fort_Dearborn_%26_Chicago_in_1831.jpg",
-  "locator": "The committed 1920 by 1042 pixel reproduction chicago/reference/images/chicago/chicago_fort_dearborn_1831_1.jpg, with the printed upper credit and lower keys including Dean House, Gen. J. B. Beaubien’s, Fort, Wash-house, Agency-House and John-Kinzie House.",
+  "locator": "John Wentworth, Fort Dearborn (Fergus Historical Series No. 16, 1881), printed pp. 86–87: the exact keyed panorama, its explanatory corner annotation, and G. S. Hubbard’s letter dated 20 July 1881. Actual downloaded page images were visually read. The local 1920 by 1042 reproduction is chicago/reference/images/chicago/chicago_fort_dearborn_1831_1.jpg.",
   "rights_status": "public_domain",
   "rights_note": "The committed inventory chicago/reference/images/IMAGE_SOURCES.md identifies the image as public domain by pre-1930 publication. The underlying Wau-Bun illustration is nineteenth-century. The separately advertised Getty/Alamy reproductions are not acquired or licensed by this record.",
   "asset_use": "cross_check",
   "tier": 5,
   "verified": true,
-  "access_notes": "The existing local image and its printed caption/key were opened and read; the inventory entry was checked. No fresh remote Commons or museum catalogue retrieval was performed for this record, and the precise original edition and later reproduction date remain unestablished.",
-  "note": "The key identifies a Beaubien group in a scene captioned 1831. It does not by itself identify that pictured building with the current sale-located homestead record. That residence, the older U.S. Factor’s House and the Dean house must remain separate candidates. Wau-Bun’s text places Jean Baptiste Beaubien’s residence between the gardens and river-bank, with Dean’s tenement farther south, but supplies no dimensions or fabric for the house. This small panorama is held as an explicitly unresolved contextual picture, not an accepted appearance reference or a solved camera. Its relationship to the other 1831 Wau-Bun-derived lithograph has not been proven independent, so it must not be counted as a second eyewitness.",
+  "access_notes": "Fresh Commons imageinfo metadata identifies Wentworth’s pamphlet as the source. Internet Archive metadata, OCR and printed pp. 86–87 were retrieved on 23 October 2026; both actual page images were visually opened. Page 86 repeats the same keyed cut and adds the corner annotation quoted in the note. Page 87 carries Hubbard’s criticism. The archive download/page/n95.jpg and n96.jpg endpoints were checked against their printed numerals; page-number JSON leaf numbers did not map directly to that endpoint. The exact original Wau-Bun edition remains unestablished: this verifies the 1881 keyed reproduction, not an 1857 first appearance. The original Wikimedia Commons catalogue URL is retained for the unresolved-identity context link; archived_url records the independently inspected 1881 publication. These two catalogue/publication links concern the same keyed cut, not two independent witnesses.",
+  "note": "PREFERRED WORKING IDENTIFICATION, INFERRED FROM THE SAME RETROSPECTIVE WITNESS. Immediately beneath the exact keyed cut, Wentworth’s printed p. 86 states: “Gen. Beaubien’s house was near the N.-E. cor. Michigan Avenue and South-Water Street.” This explicitly associates the pictured house with the retrospective corner used by the sale-located homestead record and makes that record the preferred working identification over the separately modeled Factory House. It is Wentworth 1881, the same witness as the sale narrative, not independent corroboration or an 1831 survey. It does not establish whether the corner dwelling was a new residence or an earlier building, nor transfer the Factory House’s squared-log fabric or two storeys. HUBBARD’S CRITICISM IS PART OF THIS SAME PUBLICATION: his letter of 20 July 1881, pp. 86–87, says the cut is “certainly unlike the Fort and surroundings, as I recollect them.” He corrects the fort’s high ground, sharp point and river bends, blockhouse height and missing circa 1824–25 brick building. His suggestion that the sketch was engraved without Kinzie’s correction is explicitly probable, not proven. Do not distort surveyed positions or terrain to force this drawing. The credited 1831 view remains retrospective tier-5 form evidence, with survival to July 1835 unproved. No form measurements, camera, pictured-grade ruling or match verdict are added. The Wau-Bun-derived 1831 pair are not independent eyewitnesses. T-2378 GRAPHIC USE QUALIFICATION,2026-10-30: this conditional identity supported a diagnostic appearance comparison; a two-level mass, two main roof stacks, low front projection and small visible-gable light were accepted as bounded working proxies. This does not turn the drawing into a metric survey, attest paint/construction/pane counts, establish historical camera bearing or prove unchanged survival to July1835. The printed1857 credit and depicted1831 remain recorded separately from the verified1881 reproduction date.",
   "what_it_supplies": [
-    "a panorama labeled Chicago in 1831, with a keyed Gen. J. B. Beaubien’s group",
-    "the drawn order of the separately keyed Dean, Beaubien, fort and north-bank groups",
-    "an existing credited contextual image to investigate before assigning facade details"
+    "the exact keyed 1831 panorama in an independently inspected 1881 publication",
+    "Wentworth’s explicit annotation placing the keyed Beaubien house near Michigan Avenue and South Water Street’s northeast corner",
+    "a preferred, inferred identification with the sale-located homestead, subject to the same-witness and drawing-accuracy limits",
+    "Hubbard’s contemporary-to-publication criticism of this drawing’s geography and fort buildings"
   ],
   "what_it_does_not_supply": [
-    "which of the currently modeled Beaubien buildings the keyed group depicts",
-    "a surveyed coordinate, a metric dimension or a camera calibration",
-    "independent proof of the pictured buildings’ material, storey count, openings or chimney count on 1 July 1835",
-    "proof that two reproductions of the Wau-Bun composition are independent witnesses"
-  ]
+    "independent corroboration of Wentworth’s sale narrative or an 1831 surveyed position",
+    "which earlier or later Beaubien building stood at that corner",
+    "the Factory House’s separately documented squared-log fabric or two storeys for this dwelling",
+    "a calibrated camera, metric dimensions, accepted form or proof of unchanged appearance in July 1835",
+    "an accepted image match or independent eyewitness status for two Wau-Bun-derived reproductions"
+  ],
+  "archived_url": "https://archive.org/stream/earlychicagofort00wentiala#page/86/mode/1up"
 }

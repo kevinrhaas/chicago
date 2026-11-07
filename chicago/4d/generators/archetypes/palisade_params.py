@@ -59,9 +59,12 @@ CORNERS = ("nw", "ne", "se", "sw")
 CONSUMED = frozenset({
     "wall_kind", "construction", "picket_height_m", "picket_width_m",
     "picket_spacing_m", "picket_head_m", "gate_sides", "gate_width_m",
-    "bastion_corners", "bastion_length_m", "bastion_projection_m",
+    "gate_offset_m", "gate_kind", "bastion_corners", "bastion_length_m", "bastion_projection_m",
     "rail_courses", "panel_length_m", "panel_offset_m", "fence_height_m",
 })
+
+# T-3407: the two things a gateway in this archetype can hold.
+GATE_KINDS = ("gateway", "wicket")
 
 # How short a head may get before the wall stops reading as a stockade. The same
 # number, for the same reason, as `tools/measure_picket_plate.py`'s
@@ -134,6 +137,17 @@ class PalisadeParams:
     # describes them: "large gates opened to the north and south".
     gate_sides: tuple = ()
     gate_width_m: float = 3.6
+    # T-3319: where along its side a gate stands. 0 is the middle of the side (the
+    # archetype's old and only answer); otherwise metres toward +u (east at rotation
+    # 0) for a gate in the north or south wall, toward +v for one in the east or west.
+    # Fort Dearborn's first fort needs it: Whistler's draught puts the main gate's
+    # passage about 8.6-9.3 ft west of the middle of both picket rows.
+    gate_offset_m: float = 0.0
+    # T-3407: what hangs in the gateway. "gateway" (the archetype's old and only answer)
+    # is a fort's: two heavy jambs, a lintel and two shut leaves. "wicket" is a garden
+    # paling's: two posts and an opening, its single leaf hung by the renderer
+    # (fort-gates.js) so a visitor can open it.
+    gate_kind: str = "gateway"
 
     # corner works. A bastion here is a re-entrant of the picket line: it leaves
     # the wall `bastion_length_m` from the corner on each face, projects
@@ -257,6 +271,13 @@ class PalisadeParams:
             if self.gate_width_m > run * 0.5:
                 raise ParamError(f"a {self.gate_width_m} m gate takes more than half of the "
                                  f"{run} m {s} wall")
+            # The gate and its jambs stay on the wall with a picket's width to spare.
+            room = run / 2.0 - self.gate_width_m / 2.0 - 0.5
+            if abs(self.gate_offset_m) > room:
+                raise ParamError(f"gate_offset_m {self.gate_offset_m} puts the {s} gate off "
+                                 f"its {run} m wall (at most {room:.2f} m either way)")
+        if self.gate_kind not in GATE_KINDS:
+            raise ParamError(f"gate_kind '{self.gate_kind}' not in {GATE_KINDS}")
         if not 1.5 <= self.gate_width_m <= 8.0:
             raise ParamError(f"gate_width_m {self.gate_width_m} outside 1.5-8 m")
         for c in self.bastion_corners:
@@ -341,6 +362,8 @@ def from_phase(phase: dict, record: dict | None = None) -> PalisadeParams:
                        else float(val("picket_head_m"))),
         gate_sides=_seq(val("gate_sides"), SIDES, "gate side"),
         gate_width_m=float(val("gate_width_m", 3.6)),
+        gate_offset_m=float(val("gate_offset_m", 0.0)),
+        gate_kind=str(val("gate_kind", "gateway")),
         bastion_corners=_seq(val("bastion_corners"), CORNERS, "bastion corner"),
         bastion_length_m=float(val("bastion_length_m", 7.0)),
         bastion_projection_m=float(val("bastion_projection_m", 3.0)),

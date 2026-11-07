@@ -1,15 +1,12 @@
 {
   "schema_version": 1,
+  "content_version": 2,
+  "category": "Household and trades",
+  "review_required": false,
   "id": "soap-and-candles",
-  "content_version": 1,
+  "scene": "1835",
   "title": "Soap and Candles",
   "premise": "See from Wolf Point what Daniel Elston & Co.'s works up the North Branch made, make a short list on South Water Street, choose what to carry, and bring it home to a boarding house behind Peck's store.",
-  "category": "Household and trades",
-  "scene": "1835",
-  "opening": {
-    "text": "You board in the log house behind Peck's store, and the evenings are long. See from across the water what a soap and candle works on the North Branch made, make a short list at a grocer's on South Water Street, choose what to carry and bring it home by Lake Street. A quiet outing: the errand is invented; the trades are documented.",
-    "read_s": 20
-  },
   "default_mode": "horse",
   "allowed_modes": [
     "walk",
@@ -18,6 +15,15 @@
     "fly",
     "instantly"
   ],
+  "long_form": true,
+  "ambience": {
+    "hour": "dusk",
+    "season": "fall"
+  },
+  "opening": {
+    "text": "JAUNT: SOAP AND CANDLES. Dusk comes early now. Autumn means the long dark is close: once the lake freezes, 'during the long six months of winter the inhabitants, were cut off from the rest of the world'. Light and soap are what get a crowded boarding house through it.\n\nYou board in the log house behind Peck's store. Look up the North Branch at the soap and candle works, make a short list on South Water Street, choose what to carry, and bring it home before full dark.",
+    "read_s": 24
+  },
   "variables": {
     "want": {
       "min": 0,
@@ -39,8 +45,8 @@
         "kind": "anchor",
         "id": "forks"
       },
-      "text": "Start at Wolf Point and look up the North Branch to its east bank, where we place Daniel Elston & Co.'s works; no source gives the site. Their notice, printed 1833–34, offered hard and soft soap, wax and other candles, and paid cash for tallow and house ashes. No counter is recorded.",
-      "read_s": 33,
+      "text": "Start at Wolf Point and look up the North Branch to its east bank, where the scene sets Daniel Elston & Co.'s works; no source gives the site. Their notice, printed 1833–34, offered hard and soft soap, wax and other candles, and paid cash for tallow and house ashes. Every household's kitchen scraps and fire ashes come back to it as soap and light.",
+      "read_s": 20,
       "action_s": 10,
       "links": [
         {
@@ -108,8 +114,8 @@
         "kind": "structure",
         "id": "h_jones_store"
       },
-      "text": "Over the river to Jones's grocery on South Water Street. His November 1833 notice offered sugar and most kinds of provisions at the lowest prices; whether he kept soap or candles it does not say. Only the street is evidence; the block is our placement.",
-      "read_s": 30,
+      "text": "Over the river to Jones's grocery on South Water Street. His November 1833 notice offered sugar and most kinds of provisions at the lowest prices; whether he kept soap or candles it does not say. Only the street is evidence. Candles mean fire, and the town knows it: since 1833 a stovepipe through a roof must be 'guarded by tin or sheet iron'.",
+      "read_s": 20,
       "action_s": 10,
       "links": [
         {
@@ -131,13 +137,14 @@
       "evidence": [
         "jones-ad",
         "jones-place",
-        "errand"
+        "errand",
+        "mk-stovepipe"
       ],
       "choices": [
         {
           "id": "candles",
           "label": "Carry candles home",
-          "consequence": "A bundle of candles. Where the story's bundle came from is not recorded.",
+          "consequence": "A bundle of candles, tallow-dipped and tied with string.",
           "effects": [
             {
               "op": "set",
@@ -150,7 +157,7 @@
         {
           "id": "soap",
           "label": "Carry a cake of hard soap",
-          "consequence": "One cake of soap. No sale of it anywhere is recorded.",
+          "consequence": "One cake of hard soap, heavy as a brick.",
           "effects": [
             {
               "op": "set",
@@ -182,8 +189,8 @@
         "kind": "structure",
         "id": "thomas_church_store"
       },
-      "text": "Up to Lake Street and the two-storey frame store Thomas Church built, said to be the first store building on the street. One undated sentence is all the evidence, and it names no stock, so nothing is bought here.",
-      "read_s": 28,
+      "text": "Up to Lake Street and the two-storey frame store Thomas Church built, said to be the first store building on the street. Church came in 1834, the year business 'began to extend to Lake street'. One undated sentence is all the evidence, and it names no stock, so nothing is bought here.",
+      "read_s": 17,
       "action_s": 5,
       "links": [
         {
@@ -205,7 +212,8 @@
       "evidence": [
         "church-store",
         "church-place",
-        "errand"
+        "errand",
+        "mk-lake-street"
       ],
       "next": "home",
       "narrative": "Shift the bundle and count what you carry."
@@ -216,8 +224,8 @@
         "kind": "structure",
         "id": "brown_boarding_house"
       },
-      "text": "Home to the log house behind Peck's store, which Andreas names as Mrs Rufus Brown's, one of the first-class boarding houses; its exact spot is our placement. In 1834, he writes, such houses were always full, three in a bed sometimes.",
-      "read_s": 30,
+      "text": "Home to the log house behind Peck's store, which Andreas names as Mrs Rufus Brown's, one of the first-class boarding houses. In 1834, he writes, such houses were always full, three in a bed sometimes. Yet Moses and Kirkland insist the snowed-in months were 'perhaps, the most enjoyable of the entire year'.",
+      "read_s": 17,
       "action_s": 5,
       "links": [
         {
@@ -240,7 +248,8 @@
         "brown",
         "brown-place",
         "full",
-        "errand"
+        "errand",
+        "mk-winter"
       ],
       "next": "$end",
       "narrative": "A candle goes a long way in a crowded room."
@@ -250,7 +259,7 @@
     {
       "from": "the-works",
       "to": "the-list",
-      "note": "Over the South Branch by a bridge and east to South Water Street; no particular path is claimed, and the works' site is our placement.",
+      "note": "Over the South Branch by a bridge and east to South Water Street.",
       "evidence": [
         "wolf-point-view",
         "elston-place",
@@ -264,7 +273,7 @@
     {
       "from": "the-list",
       "to": "lake-street",
-      "note": "A block south to Lake Street; Church's block is not attested.",
+      "note": "A block south to Lake Street.",
       "evidence": [
         "church-place"
       ]
@@ -285,8 +294,8 @@
   "endings": [
     {
       "id": "an-armful",
-      "text": "Soap and candles both, carried home to the log house behind Peck's. The whole list is done, whichever thing stood at the top of it. The armful and the evening are the story's.",
-      "read_s": 10,
+      "text": "Soap and candles both, carried home to the log house behind Peck's. The whole list is done, whichever thing stood at the top of it. Let the winter come.",
+      "read_s": 8,
       "completion_eligible": true,
       "when": {
         "var": "carry",
@@ -296,8 +305,8 @@
     },
     {
       "id": "candle-lit",
-      "text": "Candles at the top of the list, and candles carried home. Tonight the crowded room behind Peck's has light to read and mend by. The bundle and the evening are the story's.",
-      "read_s": 10,
+      "text": "Candles at the top of the list, and candles carried home. Tonight the crowded room behind Peck's has light to read and mend by, and the dark comes a little later.",
+      "read_s": 9,
       "completion_eligible": true,
       "when": {
         "all": [
@@ -316,8 +325,8 @@
     },
     {
       "id": "washing-day",
-      "text": "Soap at the top of the list, and soap carried home. The shirts can wait no longer, and now they need not. The cake of soap and the washing day are the story's.",
-      "read_s": 10,
+      "text": "Soap at the top of the list, and soap carried home. The shirts can wait no longer, and now they need not.",
+      "read_s": 8,
       "completion_eligible": true,
       "when": {
         "all": [
@@ -336,8 +345,8 @@
     },
     {
       "id": "the-other-errand",
-      "text": "You set out for one thing and carried home the other. It will be wanted soon enough, and the list keeps until next time. The errand and its muddle are the story's.",
-      "read_s": 10,
+      "text": "You set out for one thing and carried home the other. It will be wanted soon enough, and the list keeps until next time.",
+      "read_s": 8,
       "completion_eligible": true,
       "default": true
     }
@@ -441,6 +450,33 @@
       "locator": "Vol. 1, printed p. 132, boarding-house paragraph; p. 303, Jeremiah Porter biography."
     },
     {
+      "id": "mk-winter",
+      "text": "With no railroads, canals or telegraphs, 'during the long six months of winter the inhabitants, were cut off from the rest of the world'. 'There was nothing coming in, and there was no means of sending anything out of the town. And yet these winter months were, perhaps, the most enjoyable of the entire year.'",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 99, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13364-13371 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-stovepipe",
+      "text": "The trustees' first ordinance, of 6 November 1833, 'prohibited the passing of stove-pipes through the roof, partition or side of any building, unless guarded by tin or sheet iron, under penalty of $5'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 93, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12641-12646 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-lake-street",
+      "text": "In 1834 'Business, which had heretofore been confined to South Water street on the South Side, began to extend to Lake street'; Thomas Church is among that year's arrivals who became leading citizens.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 95, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 12802-12821 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
       "id": "brown-place",
       "text": "The boarding house is placed directly behind Peck's store at the south-west corner of South Water and LaSalle; its distance behind the store is not documented.",
       "confidence": "inferred",
@@ -466,8 +502,8 @@
       "liberty": "L-jaunt-soap-and-candles"
     }
   ],
-  "review_required": false,
   "liberties": [
-    "L-jaunt-soap-and-candles"
+    "L-jaunt-soap-and-candles",
+    "L-jaunt-1835-light-and-stories"
   ]
 }

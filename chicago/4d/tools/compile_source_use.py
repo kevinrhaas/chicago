@@ -19,8 +19,12 @@ USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # 168 000 from T-2792/T-2799; 176 000 from T-3055/T-3056; 184 000 from T-3013; 192 000 from
 # T-2385 (dev's new Prairie sources and the Tremont's Gale record together read 184 255);
 # 200 000 from T-3188; 208 000 from T-3161; 216 000 from T-3251 (dev's new sources and the
-# women's jaunts' sources together read 209 289) — see outputs().
-INDEX_BUDGET = 216_000
+# women's jaunts' sources together read 209 289); 224 000 from T-2375's grouped early-picture
+# integration with canonical Blue Book sources (531 sources, 216 567 raw bytes); 228 000 from
+# T-2386's reviewed Wolf Point pictures integrated with the Allerton sources; 232 000 from
+# T-3342's two camp sources on dev's records; 248 000 from T-3378/T-3379's fourteen jaunt
+# sources (the ghost legends and the famous names' biographies read 233 677) — see outputs().
+INDEX_BUDGET = 248_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
                  'unknown': 'reconstructed', 'not_1835_resident': 'reconstructed'}
@@ -454,6 +458,24 @@ class Compiler:
         # 216 000 SINCE 2026-10-30 (T-3251): the women's jaunts' sources (T-3250, T-3251) merged
         # onto dev's new records took the index to 209 289 raw bytes with every citation whole.
         # Same bargain again.
+        # 224 000 SINCE 2026-10-31 (T-2375, grouped with T-2372/T-2378/T-2382): the two
+        # bridge attribution records plus canonical dev's fifteen Blue Book records produce
+        # 531 complete sources and 216 567 raw bytes. Native read-only pricing measured
+        # 49 928 gzip bytes for the index and 57 337 for index + sources.js + sources.css
+        # at Node's default gzip level. This is another 8 000-byte raw increment (+3.70%),
+        # not a wire-budget increase: the existing 120 000-byte compressed first-open
+        # assertion remains. No citation, schema field, grade/count or source edge is cut.
+        # 228 000 SINCE 2026-11-02 (T-2386): the reviewed Wolf Point pictures combined
+        # with dev's two Allerton records produce 547 complete sources and 224 556 raw
+        # bytes. Native read-only output pricing measured 51 974 gzip bytes for the index
+        # and 59 383 for index + sources.js + sources.css at Node's default gzip level.
+        # This conscious 4 000-byte raw increase (+1.79%) preserves the 120 000-byte
+        # compressed first-open assertion and every citation, field, count and source edge.
+        # 232 000 SINCE 2026-11-03 (T-3342): the Potawatomi camp's two new sources (Forsyth
+        # c. 1827 in Blair 1912, Skinner 1927) merged onto dev's new records produce 556
+        # complete sources and 228 329 raw bytes; 53 198 gzip bytes for the index and 60 574
+        # for index + sources.js + sources.css. Another conscious 4 000-byte raw increase
+        # (+1.75%), inside the same 120 000-byte compressed first-open assertion; nothing cut.
         if size > INDEX_BUDGET:
             raise ValueError(f'source index {size} bytes exceeds {INDEX_BUDGET}-byte budget')
         return outputs

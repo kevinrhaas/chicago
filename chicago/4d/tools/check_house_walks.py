@@ -9,7 +9,8 @@ future" half. It reads what was BUILT, not what a record says: the component ins
 `k01_frontage.to_glb` writes into each GLB's node extras (the K14 front walk's sockets and legs,
 the K11 boundary's runs, gates and coping), and the sidecars the walker turns into solid
 footprints (renderers/web/js/walker.js footprintsFrom). For every worked house — a
-`k01_frontage` or `k16_timber` record with a phase in the 1904 scene; a `prairie_draft` is not
+`k01_frontage` or `k16_timber` record with a phase in the 1904 scene (a dwelling: an alley
+outbuilding built from the same kit, T-1932, has no front walk to require); a `prairie_draft` is not
 worked, and Glessner (`masonry_house`, its own pipeline and bake notes) is not one of these —
 it requires:
 
@@ -51,7 +52,7 @@ MARGIN = 0.05       # a leg must clear a laid run's end by this much to pass bes
 # The houses worked before this gate, which fail it today, each with the lane that fixes it.
 # Those lanes take their entries out as they fix them; a passing entry fails the gate.
 PENDING = {
-    "elbridge_keith_house_1900_prairie": "T-3207",   # onto K01 by T-3207 (#1385) after this gate was written; its walk is that lane's
+    # empty since T-3322: 1900 Prairie, the last house in it, has its walk
 }
 
 
@@ -193,7 +194,7 @@ def solid_footprints(sidecars: dict) -> list[tuple[str, list]]:
         if not isinstance(poly, list) or len(poly) < 3:
             continue
         pl = sc.get("placement") or {}
-        if pl.get("vertical_anchor") == "water" or sc.get("drawn_by") or sc.get("archetype") == "camp":
+        if pl.get("vertical_anchor") == "water" or sc.get("drawn_by") or sc.get("archetype") in ("camp", "lodge_camp"):
             continue
         w = to_world(pl)
         out.append((sid, [w(u, v) for u, v in poly]))
@@ -268,6 +269,8 @@ def worked_houses():
             continue
         if not isinstance(st, dict) or st.get("archetype") not in WORKED:
             continue
+        if (st.get("function") or {}).get("value", "residence") != "residence":
+            continue     # T-1932: an alley outbuilding built from a house kit has no front door to walk to
         for ph in st.get("phases", []):
             if _covers(ph):
                 yield st["id"], ph["id"], _front_yard(ph)

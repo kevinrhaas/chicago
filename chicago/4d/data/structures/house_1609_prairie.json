@@ -260,18 +260,33 @@
         },
         "boundary": {
           "value": {
-            "layout": "open",
+            "layout": "stone_coping_wall",
             "street_u_m": 14.51,
             "lot_s_m": [
               -5.56,
               4.775
+            ],
+            "thickness_m": 0.35,
+            "runs": [
+              {
+                "to_s_m": 0.1,
+                "height_m": 0.35
+              },
+              {
+                "to_s_m": 1.9,
+                "opening": true
+              },
+              {
+                "to_s_m": 4.775,
+                "height_m": 0.35
+              }
             ]
           },
           "confidence": "reconstructed",
           "sources": [
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "T-3230 (piece 2 of T-3216; the owner, 2026-10-27: every worked house's walk to its door and its front boundaries, and where no picture shows them a stated reconstruction consistent with the block). No picture of this front is held. The east side of the 1600 block is drawn open where it is drawn at all: 1621's and 1623's 1886 drawings and 1625's 1890 photograph show no fence or kerb on the street line (T-3221), and 1613, 1615 and 1619, unpictured, were laid open on that reading (T-3229). So this front is laid open too (`layout: open`, archetypes/k16_yard.py): nothing on the street line, the whole front between the lot lines the opening. The 1911 sheet draws 1609 and its party-wall twin 1611 on one parcel, prairie_1607 (data/street_grid/1904.json), carried into the house's plan frame by the placement its sidecar holds (the transform that puts 1720's recorded street line, u 31.2, back on its parcel to the centimetre): the street line runs u 14.55 at the parcel's north line (s -5.56) to 14.46 at its south, taken as u 14.51 where the walk meets it, on the porch stair's axis (s 1.0). The lot's south side is the party wall with 1611 (s 4.775, between the two houses' walls). RECONSTRUCTED: that the front stood open in 1904 (liberty L-k16-walks-1600-block-3230)."
+          "note": "T-3394. The owner, 2026-11-05, standing at 1625 looking north: \"the bulk of these in the 1600 block are missing their street fences/borders\" (T-3394). No picture of this front is held. Built as the district's own street border: a low squared stone coping on the street line, its street face on the public walk's inner edge, 0.35 m high and 0.35 m through with its arris chamfered 0.05 m, as the 1700 block's unpictured fronts are built (T-3205: 1700's Chicagology photograph, 1721's 1891 plate, 1736's c. 1890 photograph and its surviving curbstone), and as the lot-line coping read along the walk's inside edge in Views of Chicago (1905) and the Flinn view (docs/RESEARCH/prairie_1904_street_section.md); cut for the walk square to the stair, the opening the walk's (or the stoop's) width and 0.3 m either side. Here its street face stands on the street line T-3230 read off the 1911 sheet's parcel (u 14.51, where the walk meets it), open s 0.100-1.900 on the porch stair's axis (s 1.0), the 1.2 m walk's width and 0.3 m either side; the lot's sides stay s -5.56 and 4.775. RECONSTRUCTED: the coping, its line, height and section (liberty L-k11-coping-1600-east-3394). Replaces T-3230's open front."
         },
         "yard": {
           "value": {

@@ -1,0 +1,53 @@
+{
+ "structure_id": "armour_corwith_house_1945_prairie",
+ "view": "tribune_1928_famous_homes",
+ "glb": "assets/gltf/armour_corwith_house_1945_prairie__as_mapped_1904.glb",
+ "glb_sha256": "6aa73fa88398761901b71ccd061b4a8ec86f47bfc4489726b34a1462afcdcf66",
+ "camera_sha256": "96fb4a4225823778273b8b66a19b3ea22002232080f294f96ff395f109497cce",
+ "photo_sha256": "de40c9e5304e2c321c60d06deec224f38ef217fb583375142223a6ac0fd1756e",
+ "side_by_side": "docs/RESEARCH/photo-match/armour_corwith_house_1945_prairie/tribune_1928_famous_homes-side-by-side.jpg",
+ "verdict": "matches",
+ "differences": [
+  {
+   "what": "massing: the draft's hipped block is now the photograph's house, two storeys of brick over a high basement under a dormered mansard, filling about the same part of the frame (the photograph's house x 190-850 px of the side-by-side's left half, the render's about x 240-845)",
+   "status": "fixed"
+  },
+  {
+   "what": "the front's composition from the north: a canted bay with two lights a storey, the door's column over a straight stoop, then the corner block's two lights a storey, round-headed in the principal storey",
+   "status": "fixed"
+  },
+  {
+   "what": "a dormer over each column of the front and on the 20th Street face, and the canted south-west corner with the flank's bay behind it",
+   "status": "fixed"
+  },
+  {
+   "what": "the corner block's mansard stands about a storey higher than the rest in the photograph (its dormers' heads at y 230-330 px against the north bay's at y 330-400); the build carried the whole mansard at one height. T-3283 (2026-11-02): K01's crown may now stand over a stretch of the front (mansard.crown.over_front) and turn the canted corner; 1945's rises over s 6.95-13.25 m, 3.8 m deep, its curb 1.4 m over the house's at 80 degrees, the corner block's two dormers and the cant's on it, their faces 0.27 m up the steeper face. Read on the halftone at x 150-1000, y 150-900 of the box: the crown's top about y 210 against the photograph's 220, its lights y 280-365 against the photograph's 285-360, the main roof's top and the door's dormer where they were (y about 300 and 350-430, the photograph's north bay and door dormer at 300 and 350-420); the crown's north end renders about 50 px south of the photograph's step, the same shift as the north half's in the camera item below",
+   "status": "fixed"
+  },
+  {
+   "what": "the north bay rises under its own curved mansard with two dormers in the photograph (its crown's top about y 300-330 px of the box, its two lit dormer lights at x 300 and 395 px, square-headed under a dark cap, over the bay's pair of lights); T-3283 carries the bay up through the cornice under a mansard of its own, the house's moulded stone cornice carried round its three faces, its lower faces 3.0 m at 80 degrees to a curb about level with the house's, and its two dormers on its front face 0.6 m either side of its middle, gabled as the house's are; the two dormers that stood on the house's mansard behind it are gone. The render's crown reads as the photograph's, a separate dark mass over the bay with a step down to the house's roof, its dormers within about 0.15 m of the lights' columns. Its faces are planes where the halftone's crown looks slightly curved (the house's own mansard is laid straight too, bulge 0): a street visitor would not notice the difference",
+   "status": "fixed"
+  },
+  {
+   "what": "the door stands under a round arch in the photograph (its ring x 462-535 px, its crown about y 695, level with the corner block's round heads); T-3283 cuts it round-headed in the brick, 1.3 m across and 3.4 m to the crown, a pair of leaves under a fanlight in a deep reveal, under the round lights' own arch band and key, and the render's crown stands within a few px of the photograph's",
+   "status": "fixed"
+  },
+  {
+   "what": "the camera sees the 20th Street flank more openly than the render (the flank's bay at x 1050-1200 px of the box); the eye is held at a chosen stand (26.6 px RMS) and the flank's depth of view is not fitted; and the front's north half is drawn narrower than the photograph's: the north bay's lights and the door both stand about 55-60 px south of the photograph's while the corner block's lights land on theirs, so the door's column agrees with the picture relative to the bay and the gap is the camera's, not the door's (T-3283) [T-3283, 2026-11-02: a camera fit, not a difference in the house. Swept the stand over the solve's own band and past it (u 40-55, v 18-25), fitting heading and focal length at each to the corner block's two lights and the canted corner's two edges (x only, about 24-28 px RMS): every stand puts the door's column 60-100 px south of the photograph's x 507, so no stand closes the gap, and the stands that open the flank more (larger v) widen it. Moving the door and the north bay about 1.2 m north to meet the picture would carry the bay (s 0.3-4.6 m) past the north wall of the 1911 sheet's 13.25 m front. The halftone cannot fix the eye (the solve's own words: good for which element stands where, not for a dimension read off it alone), so this is the gap two camera fits disagree about, T-3153's within tolerance.]",
+   "status": "within tolerance"
+  },
+  {
+   "what": "the chamber storey's corner lights read slightly arched in the halftone; the build's are flat-headed",
+   "status": "within tolerance"
+  },
+  {
+   "what": "the walls are under a heavy creeper in 1928; its 1904 extent is not known, and the build shows the brick bare",
+   "status": "not shown"
+  },
+  {
+   "what": "colour: a monochrome halftone, and the walls are under creeper",
+   "status": "not shown"
+  }
+ ],
+ "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

@@ -1,0 +1,24 @@
+{
+ "structure_id": "armour_corwith_house_1945_prairie",
+ "scene": "1904",
+ "source_id": "chicago_tribune_1928_07_29_famous_homes_corwith",
+ "library_image": "nps-1945-tribune-1928-07-29-famous-homes-corwith-photo",
+ "photo": "../../sources/assets/corwith_1945_pictures_t3281/tribune_1928_07_29_famous_homes_corwith.jpg",
+ "image_px": [
+  1227,
+  1400
+ ],
+ "principal_px": [
+  613.5,
+  864.2
+ ],
+ "focal_px": 1748.5,
+ "eye": [
+  50.0,
+  20.0,
+  1.6
+ ],
+ "yaw_deg": 249.3,
+ "sky": "overcast",
+ "solve": "Fitted by T-3281 (piece 1 of T-1908) to the Chicago Tribune's 'Famous Homes' halftone of 29 July 1928 (the image store's copy of the whole box, caption included, 1227 x 1400 px), against the 1911 sheet's plan (s28fp-1945-b1). The footprint frame's u runs toward Prairie Avenue (west) from the main body's rear wall and v south from its north wall; the front stands at u 15.75 and the 20th Street flank at v 13.25, the corner cut 2.2 m back each way. The halftone is dark and the walls are under creeper, so only lit glass and a few edges read. Twelve observations: the corner block's two lights in each storey (sill and head, x 657-749 px, y 490-836), the door's sill under its arch (x 507, y 840), and the canted corner's edges (its front edge at the water table and the cornice, x 838, y 841 and 461; its flank edge at the cornice, x 901, y 465). A free fit of eye, heading, focal length and horizon does not converge on a place the flank can be seen from: the points are nearly all on the front's one plane and trade distance against focal length along one valley. So the eye is HELD at a stand chosen, not fitted: on Prairie Avenue's far side south-west of the corner, u 50, v 20, 1.6 m over the house's grade, and the heading, focal length and horizon are fitted to it: heading 249.3 degrees, f 1748.5 px, the horizon at y 864 px, the principal point's x the frame's centre, a level camera. RESIDUALS: 26.6 px RMS, 43 at most (about 0.2 and 0.35 m at the house); the worst are the door's sill and the canted corner's edges, where the halftone's shadow swallows the line. UNCERTAINTY: large. The stand is a choice among stands within about 5 px RMS of each other (u 40-55, v 18-25); the camera is good for which element stands where in the front, not for a dimension read off it alone. LIGHT: no cast shadow reads anywhere in the halftone, so it is rendered overcast; the comparison is of silhouettes and openings."
+}

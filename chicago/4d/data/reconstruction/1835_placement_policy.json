@@ -1054,7 +1054,7 @@
         },
         "fronting_no_street": 0,
         "on_the_street_line": 4,
-        "setback_m_min": -0.97,
+        "setback_m_min": 0.03,
         "setback_m_max": 1.5
       }
     },
@@ -1258,7 +1258,7 @@
         },
         "fronting_no_street": 0,
         "on_the_street_line": 1,
-        "setback_m_min": -1.98,
+        "setback_m_min": 1.5,
         "setback_m_max": 24.18
       }
     },
@@ -1306,7 +1306,7 @@
         },
         "fronting_no_street": 0,
         "on_the_street_line": 7,
-        "setback_m_min": -1.75,
+        "setback_m_min": -0.85,
         "setback_m_max": 42.15
       }
     },

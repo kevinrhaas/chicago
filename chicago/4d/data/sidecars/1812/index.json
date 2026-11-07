@@ -421,6 +421,12 @@
       "asset": "gltf/ouilmette_house_1812__ouilmette_1812.glb"
     },
     {
+      "id": "potawatomi_camp_1812_horse_ground",
+      "name": "The Potawatomi camp of August 1812: the horse ground",
+      "sidecar": "sidecars/1812/potawatomi_camp_1812_horse_ground.json",
+      "asset": "gltf/potawatomi_camp_1812_horse_ground__camp_1812.glb"
+    },
+    {
       "id": "potawatomi_camp_1812_middle",
       "name": "The Potawatomi camp of August 1812: the lodges at the creek's middle reach",
       "sidecar": "sidecars/1812/potawatomi_camp_1812_middle.json",
@@ -433,10 +439,22 @@
       "asset": "gltf/potawatomi_camp_1812_mouth__camp_1812.glb"
     },
     {
+      "id": "potawatomi_camp_1812_south_reach",
+      "name": "The Potawatomi camp of August 1812: the lodges south of the creek's bend",
+      "sidecar": "sidecars/1812/potawatomi_camp_1812_south_reach.json",
+      "asset": "gltf/potawatomi_camp_1812_south_reach__camp_1812.glb"
+    },
+    {
       "id": "potawatomi_camp_1812_upper",
       "name": "The Potawatomi camp of August 1812: the lodges up the creek",
       "sidecar": "sidecars/1812/potawatomi_camp_1812_upper.json",
       "asset": "gltf/potawatomi_camp_1812_upper__camp_1812.glb"
+    },
+    {
+      "id": "potawatomi_camp_1812_west_bank",
+      "name": "The Potawatomi camp of August 1812: the lodges on the creek's west bank",
+      "sidecar": "sidecars/1812/potawatomi_camp_1812_west_bank.json",
+      "asset": "gltf/potawatomi_camp_1812_west_bank__camp_1812.glb"
     }
   ],
   "excluded_by_date": [
@@ -766,6 +784,7 @@
     "livery_2123_indiana",
     "livery_2129_indiana",
     "log_jail",
+    "log_jail_keeper_house",
     "madore_beaubien_house",
     "mansion_house",
     "mansion_house_stable",
@@ -775,6 +794,7 @@
     "marsh_house_1824_prairie_coach_house",
     "marshall_field_house_1905_prairie",
     "marshall_field_house_1905_prairie_coach_house",
+    "marshall_field_house_1905_prairie_conservatory",
     "marshall_field_jr_house_1919_prairie",
     "mason_blacksmith_shop",
     "mayer_house_2009_prairie",

@@ -275,6 +275,45 @@
       ],
       "note": "T-2374 first massing increment: Wau-Bun's centre, two wings and two rear tails now become five connected log rooms. Wall rectangles exactly partition the already reconstructed footprint; every dimension remains invented. Wing roofs extend to the centre ridge to conceal internal gable ends, giving intersecting roof planes. All five eaves inherit the inferred 2.6 m wall height. Roof directions, extensions, junctions, one central front door, one window on each wing, and both outer-wing stack positions are reconstructed, not read from the small retrospective panorama. No pictured opening count, roof pitch, valley detail, finish or 1835 continuation is established. This does not settle the agency-house identification in the panorama or constitute an image match. See L-cobweb-compound-2374."
     },
+    "compound_apertures": {
+      "value": [
+        {
+          "room": 0,
+          "face": "+y",
+          "zone": "wall",
+          "kind": "aperture",
+          "u0": 4.26,
+          "u1": 5.16,
+          "z0": 0.02,
+          "z1": 1.95
+        },
+        {
+          "room": 0,
+          "face": "+y",
+          "zone": "wall",
+          "kind": "door",
+          "u0": 6.22,
+          "u1": 7.12,
+          "z0": 0.02,
+          "z1": 1.95
+        },
+        {
+          "room": 0,
+          "face": "+y",
+          "zone": "gable",
+          "kind": "aperture",
+          "u0": 5.57,
+          "u1": 6.27,
+          "z0": 2.74,
+          "z1": 3.54
+        }
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "kinzie_1857_chicago_1831_panorama"
+      ],
+      "note": "T-2374 FRONT APERTURE INCREMENT, AND THE COUNT IS THE ONLY THING THE PICTURE GIVES. The keyed panorama 'Fort Dearborn and Chicago in 1831', read here at full resolution on its Agency-House subject (chicago/reference/images/chicago/chicago_fort_dearborn_1831_1.jpg, sha256 624d8f1f52a75bf30653e8cbf37a388478b0ddf5a02f1fadf727cf2144b84c3f), draws the front gable with THREE dark marks: TWO upright ones standing on the ground line, and ONE small one high on the face at the head of the wall. The archetype's compound path states one opening per room, so that front could not be expressed at all and every data-only attempt at it was refused by the archetype's own validation; this attribute is the opt-in that lets one room state its own set, and it OVERRIDES the centre door that room's `front_opening` would otherwise put here, so the old opening does not survive among the new marks. WHAT IS READ AND WHAT IS INVENTED. Read from the picture: that there are two lower marks and one upper one; that the lower pair stand on the ground; and roughly where the three fall along the face, the lower pair in its left and middle leaving the right-hand stretch blank, the upper mark a little left of the apex. Invented: every dimension, every band, the depth and section of the recesses, and which of the two lower marks is the way in. The marks are a few pixels across a thirty-pixel gable in a retrospective engraving whose proportions are not this model's, so no fraction of them is carried across as a measurement: the coordinates here are set out from this record's own 5 m central wall and the rake of its own roof, inside the bounds the archetype validates. The face is drawn slightly oblique, which compresses its right-hand side, so even the arrangement is read with that caution. THE ENTRY ROLE IS A DESIGN INFERENCE AND NOT A READING. The picture does not say which mark was a door, or that either was. The right-hand one carries `kind: door` because it stands where this record's previous single centre door stood, so the town's entrance, apron and doorway clearance keep the ground they already held; the other is `kind: aperture`, which claims a hole and nothing else. No glazing, closure, interior, attic room, white paint or historic function is claimed by any of the three, and the white of the engraving's paper is not evidence of paint. WHAT THIS DOES NOT SETTLE. The source is retrospective 1831 context printed in 1881, not proof of the building as it stood on 1835-07-01; the camera on it remains unsolved and is not enrolled in data/reference_views/. The compound's overall width, the wing and sub-roof silhouettes, the roof junctions, the text-attested partial clapboarding and the building's finish and tone are all unchanged and still open. T-2374's image gate stays open. See L-cobweb-apertures-2374."
+    },
     "chimney_head_m": {
       "value": 5.05,
       "confidence": "reconstructed",
@@ -408,6 +447,27 @@
       ]
     },
     {
+      "source_id": "kinzie_1857_chicago_1831_panorama",
+      "citation": "[Unresolved Beaubien-group identification, preferred working residence] “Fort Dearborn and Chicago in 1831.” Keyed cut in Wentworth, Fort Dearborn (1881), p. 86; credits Kinzie’s Wau-Bun (1857).",
+      "url": "https://commons.wikimedia.org/wiki/File:Fort_Dearborn_%26_Chicago_in_1831.jpg",
+      "archived_url": "https://archive.org/stream/earlychicagofort00wentiala#page/86/mode/1up",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "the exact keyed 1831 panorama in an independently inspected 1881 publication",
+        "Wentworth’s explicit annotation placing the keyed Beaubien house near Michigan Avenue and South Water Street’s northeast corner",
+        "a preferred, inferred identification with the sale-located homestead, subject to the same-witness and drawing-accuracy limits",
+        "Hubbard’s contemporary-to-publication criticism of this drawing’s geography and fort buildings"
+      ],
+      "what_it_does_not_supply": [
+        "independent corroboration of Wentworth’s sale narrative or an 1831 surveyed position",
+        "which earlier or later Beaubien building stood at that corner",
+        "the Factory House’s separately documented squared-log fabric or two storeys for this dwelling",
+        "a calibrated camera, metric dimensions, accepted form or proof of unchanged appearance in July 1835",
+        "an accepted image match or independent eyewitness status for two Wau-Bun-derived reproductions"
+      ]
+    },
+    {
       "source_id": "kinzie_waubun_1856",
       "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
       "url": "https://www.authorama.com/wau-bun-19.html",
@@ -443,7 +503,7 @@
       ]
     }
   ],
-  "research_note": "THE OLDEST BUILDING STANDING ON THE NORTH BANK IN THIS SCENE, if it was standing: begun under Charles Jouett's agency (1816-18), finished and lived in by Dr. Alexander Wolcott from about 1820, nicknamed Cobweb Castle during his bachelor years, and described once — in Wau-Bun, of 1831 — in the sentence that gives this record its shape. TWO SOURCES AGREE ON THE CORNER and neither gives a dimension. WHAT WRITING THIS RECORD ADDED TO THE PROJECT'S DOSSIER, all from Andreas vol. 1 read at full text rather than through the index: the footnote at p. 103 citing Wau-Bun for the corner; McKee's 'the agency-house being afterward clapboarded part way up'; Mrs. Callis's 'a log building of two large rooms, about twenty steps from the river bank, on the north side' for the Jouett-era house; and the 1830 recollection that 'the Government agency-house, known as \"Cobweb Castle,\" was left unoccupied by the death of Dr. Wolcott. In its vicinity were small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell' — which is the corroboration for Wau-Bun's ring of employees' log residences and for this project's blacksmith_shop_state_st record. THE RECORD IS FLAGGED review_required BECAUSE OF WHAT THIS BUILDING WAS: the United States Indian Agency at Chicago, the administrative seat of the process that ended in the removal of the Potawatomi in August 1835, six weeks after the scene date. AGENTS.md places that subject under a standing constraint: nothing here depicts, stages or narrates it, and any interpretive text hung on this building needs review before a scene carrying it is released. See docs/RESEARCH/cobweb_castle.md.",
+  "research_note": "PICTURE CONTEXT: The Images tab links kinzie_1857_chicago_1831_panorama, the keyed “Fort Dearborn and Chicago in 1831” cut whose caption names “Agency-House.” The verified reproduction is in John Wentworth’s 1881 Fort Dearborn, printed p. 86; its heading credits Kinzie’s Wau-Bun, 1857, without establishing the illustration’s first edition. This is one retrospective panorama, not an independent second witness to Wau-Bun’s written description. Its small agency-house subject supplies context, not measured dimensions, a solved camera, an accepted image match or proof of unchanged survival to 1 July 1835. The building’s centre, wings, tails, partial siding and scene-date survival retain their stated evidence limits.\n\nTHE OLDEST BUILDING STANDING ON THE NORTH BANK IN THIS SCENE, if it was standing: begun under Charles Jouett's agency (1816-18), finished and lived in by Dr. Alexander Wolcott from about 1820, nicknamed Cobweb Castle during his bachelor years, and described once — in Wau-Bun, of 1831 — in the sentence that gives this record its shape. TWO SOURCES AGREE ON THE CORNER and neither gives a dimension. WHAT WRITING THIS RECORD ADDED TO THE PROJECT'S DOSSIER, all from Andreas vol. 1 read at full text rather than through the index: the footnote at p. 103 citing Wau-Bun for the corner; McKee's 'the agency-house being afterward clapboarded part way up'; Mrs. Callis's 'a log building of two large rooms, about twenty steps from the river bank, on the north side' for the Jouett-era house; and the 1830 recollection that 'the Government agency-house, known as \"Cobweb Castle,\" was left unoccupied by the death of Dr. Wolcott. In its vicinity were small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell' — which is the corroboration for Wau-Bun's ring of employees' log residences and for this project's blacksmith_shop_state_st record. THE RECORD IS FLAGGED review_required BECAUSE OF WHAT THIS BUILDING WAS: the United States Indian Agency at Chicago, the administrative seat of the process that ended in the removal of the Potawatomi in August 1835, six weeks after the scene date. AGENTS.md places that subject under a standing constraint: nothing here depicts, stages or narrates it, and any interpretive text hung on this building needs review before a scene carrying it is released. See docs/RESEARCH/cobweb_castle.md.",
   "research_doc": "docs/RESEARCH/cobweb_castle.md",
   "review_required": true,
   "review_reason": "THE RECORD IS FLAGGED review_required BECAUSE OF WHAT THIS BUILDING WAS: the United States Indian Agency at Chicago, the administrative seat of the process that ended in the removal of the Potawatomi in August 1835, six weeks after the scene date."

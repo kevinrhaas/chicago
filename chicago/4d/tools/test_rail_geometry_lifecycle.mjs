@@ -1,7 +1,11 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {pathToFileURL,fileURLToPath} from 'node:url';
-if(process.argv.slice(2).some(v=>v!=='--self-test'))throw Error('Only --self-test is supported');
+const args=process.argv.slice(2),phases=args.filter(v=>v.startsWith('--phase='));
+if(args.some(v=>!['--self-test','--phase=legacy','--phase=cache-words'].includes(v))||phases.length>1)throw Error('Only --self-test and one native CPU phase are supported');
+// The default still runs EVERY control. Two explicit partitions let a short CPU
+// qualification keep the existing 269k producer controls and the new word codec.
+const phase=phases[0]?.slice('--phase='.length);
 import {createHash} from 'node:crypto';
 const root=fileURLToPath(new URL('../',import.meta.url)).replace(/\/$/,''),base=await fs.readFile(`${root}/renderers/web/js/railway.js`,'utf8'),proposed=base;
 const THREE=await import(pathToFileURL(`${root}/renderers/web/vendor/three-0.185.1/three.module.js`).href);
@@ -12,7 +16,9 @@ const producer=s=>s.slice(s.indexOf('function railProfile('),s.indexOf('/* -----
 const producerWith=pack=>Function('THREE','compactNormals','GROUND','STEEL','RUST','HEAD_SIDE','wx','wz',producer(base)+';return {railProfile,laySection,railMesh};')(THREE,pack,{bed:{lift:.024}},new THREE.Color(0xa3a4a6),new THREE.Color(0x4f3527),new THREE.Color(0x6b5546),e=>e,n=>-n);
 const funcs=producerWith(compactNormals),legacy=producerWith(src=>new THREE.Float32BufferAttribute(src,3));
 const tieHelpers=base.slice(base.indexOf('const TIE_MATRIX_LANES ='),base.indexOf('function railMesh('));
-const tieFunctions=Function('THREE',tieHelpers+';return {packTieCache,installTieCache,packTuftCache,installTuftCache};')(THREE);
+const tieFunctions=Function('THREE',tieHelpers+';return {packTieCache,installTieCache,packTuftCache,installTuftCache,packRailCacheWords,unpackRailCacheWords};')(THREE);
+const rngCode=base.slice(base.indexOf('function rng('),base.indexOf('\n/* ---',base.indexOf('function rng(')));
+const rockHelpers=Function('THREE',rngCode+tieHelpers+';return {rng,packRockValues,packRockCache,replayRockMatrices,installRockCache};')(THREE);
 const trackCode=base.slice(base.indexOf('function trackPath('),base.indexOf('/* -------------------------------------------------------------------------- */\n/* draped ribbons'));
 const trackPath=Function(trackCode+';return trackPath;')();
 const spec={gauge_m:1.435,rail:{base_m:.125,base_depth_m:.018,web_m:.013,head_width_m:.065,height_m:.145,head_depth_m:.034},ties:{exposed_m:.025}};
@@ -25,8 +31,8 @@ const dispose=proposed.slice(proposed.indexOf('  out.dispose = () => {'),propose
 const detailSource=proposed.slice(proposed.indexOf('  const applyDetail = () => {'),proposed.indexOf('  /** T-3247: a piece shown or hidden'));
 const reach={full:{near:130,ties:650,tufts:240,rocks:110},balanced:{near:100,ties:480,tufts:170,rocks:85},light:{near:60,ties:220,tufts:100,rocks:50}};
 const releaseSource=await fs.readFile(`${root}/renderers/web/js/upload-release.js`,'utf8');
-const release=await import('data:text/javascript;base64,'+Buffer.from(releaseSource.replace("import * as THREE from 'three';",`import * as THREE from '${pathToFileURL(`${root}/renderers/web/vendor/three-0.185.1/three.module.js`).href}';`).replace("import { isSharedImage, retireSharedImage } from './shared-images.js';",'const isSharedImage=()=>false,retireSharedImage=()=>{};')).toString('base64'));
-function make(dens={full:4,balanced:2,light:1}){const group=new THREE.Group();group.name='railway';let marks=0;const zone={index:0,nHi:0,nLo:-110,centre:new THREE.Vector3(0,0,55),level:.5,sections:[[0,0,70],[1,10,100]]};const zones=[zone];const out=Function('dens','installTuftCache','installTieCache','THREE','group','paths','profNear','profFar','spec','railMat','onGeometry','laySection','railMesh','zones','REACH',`const out={census:{nearZones:0}},ZONE_M=110;let level='light';const capPile=null,pileSpots=[],groundPairs=[],geometries=[],materials=[],maps=new Map();${detailSource}${headers}${update}${dispose}return {...out,zone:zones[0],farRails,dropFarRails,nearRails,dropNearRails,setLevel:(v)=>{level=v;}};`)(dens,tieFunctions.installTuftCache,tieFunctions.installTieCache,THREE,group,paths,profNear,profFar,spec,mat,g=>{marks++;release.releaseAfterUpload(g);},funcs.laySection,funcs.railMesh,zones,reach);return{...out,group,get marks(){return marks;}};}
+const release=await import('data:text/javascript;base64,'+Buffer.from(releaseSource.replace("import * as THREE from 'three';",`import * as THREE from '${pathToFileURL(`${root}/renderers/web/vendor/three-0.185.1/three.module.js`).href}';`).replace("from './shared-images.js'",`from '${pathToFileURL(`${root}/renderers/web/js/shared-images.js`).href}'`).replace("from './batch-bounds.js'",`from 'data:text/javascript;base64,${Buffer.from((await fs.readFile(`${root}/renderers/web/js/batch-bounds.js`,'utf8')).replace("from 'three'",`from '${pathToFileURL(`${root}/renderers/web/vendor/three-0.185.1/three.module.js`).href}'`)).toString('base64')}'`)).toString('base64'));
+function make(dens={full:4,balanced:2,light:1}){const group=new THREE.Group();group.name='railway';let marks=0;const zone={index:0,nHi:0,nLo:-110,centre:new THREE.Vector3(0,0,55),level:.5,sections:[[0,0,70],[1,10,100]]};const zones=[zone];const out=Function('rockShare','installRockCache','dens','installTuftCache','installTieCache','THREE','group','paths','profNear','profFar','spec','railMat','onGeometry','laySection','railMesh','zones','REACH',`const out={census:{nearZones:0}},ZONE_M=110;let level='light';const capPile=null,pileSpots=[],groundPairs=[],geometries=[],materials=[],maps=new Map();${detailSource}${headers}${update}${dispose}return {...out,zone:zones[0],farRails,dropFarRails,nearRails,dropNearRails,setLevel:(v)=>{level=v;}};`)({full:1,balanced:.6,light:.3},rockHelpers.installRockCache,dens,tieFunctions.installTuftCache,tieFunctions.installTieCache,THREE,group,paths,profNear,profFar,spec,mat,g=>{marks++;release.releaseAfterUpload(g);},funcs.laySection,funcs.railMesh,zones,reach);return{...out,group,get marks(){return marks;}};}
 const hashMesh=m=>createHash('sha256').update(Buffer.concat([...Object.entries(m.geometry.attributes).map(([k,a])=>Buffer.concat([Buffer.from(k),Buffer.from(a.array.buffer,a.array.byteOffset,a.array.byteLength)])),Buffer.from(m.geometry.index.array.buffer,m.geometry.index.array.byteOffset,m.geometry.index.array.byteLength)])).digest('hex');
 function eager(implementation=funcs){const b={pos:[],nrm:[],col:[],idx:[]};for(const[i,s0,s1]of [[0,0,70],[1,10,100]])funcs.laySection(paths[i],s0,s1,profFar,spec,b);return implementation.railMesh('railway-rails-far-z0',b,.5,mat,false);}
 const expected=eager(),expectedHash=hashMesh(expected),legacyExpected=eager(legacy);
@@ -73,7 +79,7 @@ const eye=n=>({position:new THREE.Vector3(0,1,-n)});
  f.dispose();assert.equal(f.group.children.length,0);assert.equal(f.zone.railsNear,null);assert.equal(f.zone.railsFar,null);checks+=3;
 }
 assert.ok(!proposed.includes('z0.railFar'));assert.ok(!proposed.includes('geometries.push(z.railsFar.geometry)'));checks+=2;
-const main=await fs.readFile(`${root}/renderers/web/js/main.js`,'utf8');assert.ok(main.includes('onGeometry: coarse ? (group) => releaseAfterUpload(group) : undefined'));checks++;
+const main=await fs.readFile(`${root}/renderers/web/js/main.js`,'utf8');assert.ok(main.includes('onGeometry: (group) => releaseAfterUpload(group)'));assert.ok(!main.includes('onGeometry: coarse ? (group) => releaseAfterUpload(group) : undefined'));checks+=2;
 console.log(JSON.stringify({geometrySHA256:expectedHash,fixtureFarBytes:[...Object.values(expected.geometry.attributes),expected.geometry.index].reduce((s,a)=>s+a.array.byteLength,0),goldenFixtureGeometryByteExact:true,nearFarVisibilityAcrossTiers:true,dropRebuildGeometryByteExact:true,markedBeforeDraw:true,noDisposedReferenceInGroup:true}));
 
 // T-3262: final Float32 tie payloads are cached until their existing reach.
@@ -216,3 +222,313 @@ for(const level of ['full','balanced','light']){
 console.log(JSON.stringify({tuftCacheUniformBytesPerInstance:32,uprightFallbackBytes:44,fullFallbackBytes:76,originalHDRFloat32ColorsAndPoseBytesExact:true,emptySphereAndCachedBoxHandled:true,wantedDensityCountBeforeFirstReach:true,firstEntryReentryAllTiersAndZeroDensityPromotion:true,unreachedAndReachedDisposal:true,trackSamplingScratchClearedAfterGradeOnly:true,trackPositionGradeTangentParity:true,noGpuMemoryPixelOr400GateClaim:true}));
 
 console.log(`PASS ${checks} bounded actual-producer geometry/lifecycle/upload-mark/visibility checks. Browser memory, pixels, complete walk and timing still required.`);
+
+// Explicit railway STATIC matrix release. Actual Three upload callback and bounds;
+// no GPU/memory-budget verdict is inferred from these CPU lifecycle controls.
+async function matrixReleaseModule(code=releaseSource, keep=false) {
+ const previous=globalThis.window;globalThis.window={location:{search:keep?'?keep-geometry=1':''}};
+ try {
+  const nativeThree=pathToFileURL(`${root}/renderers/web/vendor/three-0.185.1/three.module.js`).href;
+  const batch=Buffer.from((await fs.readFile(`${root}/renderers/web/js/batch-bounds.js`,'utf8')).replace("from 'three'",`from '${nativeThree}'`)).toString('base64');
+  const module=code.replace("import * as THREE from 'three';",`import * as THREE from '${nativeThree}';`)
+   .replace("from './shared-images.js'",`from '${pathToFileURL(`${root}/renderers/web/js/shared-images.js`).href}'`)
+   .replace("from './batch-bounds.js'",`from 'data:text/javascript;base64,${batch}'`);
+  return await import('data:text/javascript;base64,'+Buffer.from(module+`\n// matrix-keep=${keep}`).toString('base64'));
+ } finally {if(previous===undefined)delete globalThis.window;else globalThis.window=previous;}
+}
+function staticMatrixPair(api,{dynamic=false,unmarked=false,layer='railway',keep=false}={}) {
+ const group=new THREE.Group();group.name=layer;const geometry=new THREE.BoxGeometry(1,1,1),material=new THREE.MeshBasicMaterial();
+ const near=new THREE.InstancedMesh(geometry,material,3),far=new THREE.InstancedMesh(new THREE.PlaneGeometry(1,1),material,3);
+ for(let i=0;i<3;i++)near.setMatrixAt(i,new THREE.Matrix4().makeTranslation(i*100,0,0));
+ near.instanceColor=new THREE.InstancedBufferAttribute(new Float32Array(9).fill(.7),3);
+ far.instanceMatrix=near.instanceMatrix;far.instanceColor=near.instanceColor;
+ near.count=1;far.count=0;near.computeBoundingSphere();far.boundingSphere=near.boundingSphere;
+ near.userData.railwayStaticMatrix=true;far.userData.railwayStaticMatrix=!unmarked;
+ if(dynamic)near.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+ group.add(near,far);const matrix=near.instanceMatrix,before=matrix.array.slice();
+ api.releaseAfterUpload(group);assert.deepEqual(matrix.array,before,'No preupload release');
+ matrix.onUploadCallback.call(matrix);
+ return{group,near,far,matrix,before,geometry,keep};
+}
+function fullCapacityBounds(f) {
+ assert.equal(f.matrix.array,null);assert.equal(f.near.count,1);assert.equal(f.far.count,0);
+ assert.equal(f.matrix.userData.uploadBytes,3*16*4);
+ assert.equal(f.near.instanceMatrix,f.far.instanceMatrix);assert.equal(f.near.boundingSphere,f.far.boundingSphere);
+ assert(f.near.boundingBox.containsPoint(new THREE.Vector3(200.5,.5,.5)),'Full-capacity future instance must remain in cached box');
+ assert(f.near.boundingSphere.containsPoint(new THREE.Vector3(200.5,.5,.5)),'Full-capacity future instance must remain in cached sphere');
+ assert(f.geometry.attributes.position.array,'Ordinary railway geometry retained');assert(f.near.instanceColor.array,'Colors retained');
+}
+{
+ const f=staticMatrixPair(release);fullCapacityBounds(f);checks+=11;
+ const frustum=new THREE.Frustum().setFromProjectionMatrix(new THREE.Matrix4().makeOrthographic(190,210,10,-10,-10,10));
+ for(const m of[f.near,f.far])m.getMatrixAt=()=>{throw Error('CPU matrix read after upload release');};
+ for(const count of[0,1,3,2,0,3]){f.near.count=f.far.count=count;assert.doesNotThrow(()=>frustum.intersectsObject(f.near));assert.doesNotThrow(()=>release.releaseAfterUpload(f.group));checks+=2;}
+ let disposed=0;f.near.addEventListener('dispose',()=>disposed++);f.far.addEventListener('dispose',()=>disposed++);f.near.dispose();f.far.dispose();assert.equal(disposed,2);checks++;
+ for(const opts of[{dynamic:true},{unmarked:true},{layer:'flora'}]){const g=staticMatrixPair(release,opts);assert(g.matrix.array,'Dynamic/unmarked shared/nonrail data must remain');checks++;}
+ const kept=staticMatrixPair(await matrixReleaseModule(releaseSource,true));assert(kept.matrix.array);checks++;
+ const broken=releaseSource.replace('mesh.count = this.count; mesh.boundingBox = null;','mesh.count = count; mesh.boundingBox = null;');assert.notEqual(broken,releaseSource);
+ const brokenRelease=await matrixReleaseModule(broken);
+ assert.throws(()=>fullCapacityBounds(staticMatrixPair(brokenRelease)),/Full-capacity/);checks++;
+}
+{
+ const f=withTufts();f.setDetail('light');f.update(eye(-160));const m=f.zone.tuftMesh,a=m.instanceMatrix;assert(a.userData.uploadReleased,'New late-installed tuft marked in same update');
+ a.onUploadCallback.call(a);assert.equal(a.array,null);m.getMatrixAt=()=>{throw Error('Tuft matrix reread after upload');};
+ for(const level of['full','balanced','light'])for(const n of[-50,-210,-350,-900,-160]){assert.doesNotThrow(()=>{f.setDetail(level);f.update(eye(n));new THREE.Frustum().intersectsObject(m);});checks++;}
+ assert(m.instanceColor.array);f.dispose();checks+=2;
+ const fresh=withTufts();fresh.setDetail('full');fresh.update(eye(-50));assert(fresh.zone.tuftMesh.instanceMatrix.userData.uploadReleased,'Next zone/new attribute marked independently');fresh.dispose();checks++;
+}
+const actualPick=base.slice(base.indexOf('  const raycaster = new THREE.Raycaster();'),base.indexOf('  out.dispose = () => {'));
+assert(!/getMatrixAt|instanceMatrix|intersectObject|\.raycast\(/.test(actualPick),'Actual railway pick reads strips/terrain, never matrices');checks++;
+console.log(JSON.stringify({railwayStaticMatrixUploadDrop:true,allSharedUsersOptedIn:true,fullCapacityBoundsBeforeDrop:true,sharedNearFarSphereRetained:true,countsRestored:true,dynamicAndUnmarkedAndOtherLayersRetained:true,keepGeometryHonored:true,actualLateTuftAllTierRangeAndDisposalPass:true,actualPickAnalyticNoMatrixRead:true,fixtureReleasedBytes:192,officialMemoryAndGPU:'UNRUN'}));
+
+// Execute the unmodified analytic picker after every matrix read is poisoned.
+{
+ const out={},track={id:'actual-picker-track',centreline_local_m:[[0,0],[0,-110]]};
+ const pick=Function('THREE','tracks','data','edgeMeshes','lake','row','terrain','GROUND','railwayCard','edgeCard','halfBed','out',actualPick+';return out;')(
+  THREE,[track],{},[],{}, {cinders:[[-1,0,1,0],[-1,-110,1,-110]],verges:[]},
+  {surfaceHeight:()=>0},{face:{lift:0}},(_data,near)=>({id:near.track.id}),()=>({id:'edge'}),1,out);
+ const camera=new THREE.PerspectiveCamera(60,1,.1,100);camera.position.set(0,5,50);camera.lookAt(0,0,50);camera.updateMatrixWorld();
+ const hit=pick.pickAt(new THREE.Vector2(),camera);assert.equal(hit?.id,track.id);assert(hit.distance>0);checks+=2;
+ camera.position.x=50;camera.lookAt(50,0,50);camera.updateMatrixWorld();assert.equal(pick.pickAt(new THREE.Vector2(),camera),null);checks++;
+}
+console.log(`PASS ${checks} total native CPU checks, including actual analytic pick; browser upload, memory and pixels UNRUN.`);
+
+// Original actual rock producers are the oracle, including underwater RNG draws.
+const eagerRockScatter="  if (stones && lake && edgeMeshes.length) {\n    const rockRand = rng(19040713);\n    const [smin, smax] = stones.size_m ?? [0.35, 0.85];\n    const per = stones.per_m2?.full ?? 1.5;\n    const wetBelow = edgeSpec.face?.wet_below_m ?? 0.35;\n    const faceSt = lake.face;\n    for (let i = 0; i + 1 < faceSt.length; i += 1) {\n      const [ae0, an0, be0, bn0] = faceSt[i];\n      const [ae1, an1, be1, bn1] = faceSt[i + 1];\n      const along = Math.hypot(ae1 - ae0, an1 - an0);\n      const across = Math.hypot(be0 - ae0, bn0 - an0);\n      // the face is steep: its true area is the plan's over the slope's cosine\n      let count = Math.round(along * across * 1.2 * per);\n      while (count-- > 0) {\n        const u = rockRand(); const v = 0.08 + rockRand() * 0.86;\n        const e = (ae0 + (ae1 - ae0) * u) * (1 - v) + (be0 + (be1 - be0) * u) * v;\n        const n = (an0 + (an1 - an0) * u) * (1 - v) + (bn0 + (bn1 - bn0) * u) * v;\n        const size = smin + (smax - smin) * rockRand() ** 1.6;\n        const rr = size * 0.4;\n        const y = terrain.surfaceHeight(e, n);\n        const low = Math.min(y, terrain.surfaceHeight(e + rr, n), terrain.surfaceHeight(e - rr, n),\n          terrain.surfaceHeight(e, n + rr), terrain.surfaceHeight(e, n - rr));\n        const keep = rockRand();\n        const variant = rockRand() < 0.5 ? 0 : 1;\n        const yaw = rockRand() * Math.PI * 2; const tilt = (rockRand() - 0.5) * 0.7; const roll = (rockRand() - 0.5) * 0.7;\n        const quat = new THREE.Quaternion().setFromEuler(new THREE.Euler(tilt, yaw, roll, 'YXZ')).toArray();\n        const tone = 0.5 + rockRand() * 0.32;\n        if (y < 0.05) continue;                        // at or under the water: the map carries it\n        const z = zoneOf(n);\n        // seated: its flat underside on the lowest ground under it, sunk among the rest\n        const seat = (low + y) / 2 + size * (0.2 - 0.3 * (stones.sink ?? 0.35));\n        z.rocks.push({ e, n, y: seat, size, keep, variant, quat, tone, tint: wetTint(y, wetBelow) });\n        z.rockE += e;\n      }\n    }\n  }\n";
+const eagerRockBuilder="    if (rockMat && z.rocks.length) {\n      z.rocks.sort((a, b) => a.keep - b.keep);\n      z.rockMeshes = rockGeos.map((g, vi) => {\n        const list = z.rocks.filter((r) => r.variant === vi);\n        const mesh = new THREE.InstancedMesh(g, rockMat, Math.max(1, list.length));\n        list.forEach((r, k) => {\n          q.fromArray(r.quat);\n          m4.compose(v3.set(wx(r.e), r.y, wz(r.n)), q, s3.set(r.size, r.size, r.size));\n          mesh.setMatrixAt(k, m4);\n          mesh.setColorAt(k, c.setRGB(r.tone * r.tint[0], r.tone * r.tint[1], r.tone * r.tint[2]));\n        });\n        mesh.computeBoundingSphere();\n        mesh.userData.railwayStaticMatrix = true;\n        mesh.name = `railway-rocks-z${zi}-${vi}`;\n        mesh.castShadow = false; mesh.receiveShadow = true;\n        mesh.userData.keeps = list.map((r) => r.keep);\n        group.add(mesh);\n        return mesh;\n      });\n      z.rockCentre = z.rockE / z.rocks.length;\n    }\n";
+const currentRockScatter=base.slice(base.indexOf('  if (stones && lake && edgeMeshes.length) {'),base.indexOf('\n  /* ---- build each zone',base.indexOf('  if (stones && lake && edgeMeshes.length) {')));
+const currentRockBuilder=base.slice(base.indexOf('    if (rockMat && z.rocks.length) {'),base.indexOf('    z.rocks = null;',base.indexOf('    if (rockMat && z.rocks.length) {')));
+const wetCode=base.slice(base.indexOf('function wetTint('),base.indexOf('/**',base.indexOf('function wetTint(')));
+function scatterRocks(source,face,terrain,stones) {
+ const z={rocks:[],rockE:0};
+ Function('THREE','rng','WET','UNDER','stones','lake','edgeMeshes','edgeSpec','terrain','zoneOf',wetCode+source)(
+  THREE,rockHelpers.rng,[.52,.56,.48],[.36,.42,.38],stones,{face},[{}],{face:{wet_below_m:.35}},terrain,()=>z);
+ return z;
+}
+function buildRocks(source,z,face,stones) {
+ const group=new THREE.Group();group.name='railway';const geos=[new THREE.BoxGeometry(1,1,1),new THREE.IcosahedronGeometry(.6)],mat=new THREE.MeshStandardMaterial();
+ const marker=new THREE.Object3D();
+ Function('THREE','packRockCache','rockReplayFace','lake','stones','z','rockMat','rockGeos','group','zi','wx','wz',
+  'const q=new THREE.Quaternion(),m4=new THREE.Matrix4(),v3=new THREE.Vector3(),s3=new THREE.Vector3(),c=new THREE.Color();'+source)(
+  THREE,rockHelpers.packRockCache,face.map(st=>new Float64Array(st)),{face},stones,z,mat,geos,group,0,e=>e,n=>-n);
+ assert.equal(new THREE.Object3D().id-marker.id,3,'Original two rock Object3D slots retained');checks++;
+ return {z,group};
+}
+const words=a=>new Uint32Array(a.buffer,a.byteOffset,a.length);
+const actualRockScene=JSON.parse(await fs.readFile(`${root}/data/railway/1904_context.json`,'utf8'));
+if(phase!=='cache-words'){
+let sourceRockRows=0,sourceRecipeBytes=0,sourceFullBytes=0;
+for(const [label,face,terrain,actualStones] of [
+ ['mixed-underwater',[[-0,0,3,0],[1,-30,4,-30],[2,-60,5,-60]],{surfaceHeight:(e,n)=>.15+Math.sin(n/4)*.3}],
+ ['actual-1904-complete-face',actualRockScene.lake_edge.face,{surfaceHeight:(e,n)=>.4+Math.sin(n/41)*.4},actualRockScene.edge.stones],
+ ['actual-1904-above-water',actualRockScene.lake_edge.face,{surfaceHeight:()=>.5},actualRockScene.edge.stones],
+]) {
+ const stones=actualStones??{size_m:[.35,.85],sink:.35,per_m2:{full:1.5}};
+ const eager=scatterRocks(eagerRockScatter,face,terrain,stones),lazy=scatterRocks(currentRockScatter,face,terrain,stones);
+ assert.equal(lazy.rocks.length,eager.rocks.length);checks++;
+ for(let k=0;k<lazy.rocks.length;k++) {const {faceIndex,sourceSeed,...r}=lazy.rocks[k];assert.deepEqual(r,eager.rocks[k]);checks++;}
+ for(const share of[label==='mixed-underwater'?1:stones.per_m2.light/stones.per_m2.full]) {
+  const select=z=>({rocks:z.rocks.filter(r=>r.keep<share),rockE:z.rocks.filter(r=>r.keep<share).reduce((sum,r)=>sum+r.e,0)});
+  const a=buildRocks(eagerRockBuilder,select(eager),face,stones),b=buildRocks(currentRockBuilder,select(lazy),face,stones);
+  for(let vi=0;vi<2;vi++) {
+   const old=a.z.rockMeshes[vi],mesh=b.z.rockMeshes[vi],cache=mesh.userData.rockCache;
+   assert(cache&&!cache.matrix,'Every original source row must admit exact compact replay');assert(cache.faces instanceof Uint16Array);assert.equal(mesh.count,0);checks+=3;
+   sourceRockRows+=cache.count;sourceRecipeBytes+=cache.faces.byteLength+cache.seeds.byteLength+cache.values.byteLength+(cache.tintMask?.byteLength??0)+(cache.tintValues?.byteLength??0);sourceFullBytes+=old.instanceMatrix.array.byteLength+old.instanceColor.array.byteLength;
+   const sphere=mesh.boundingSphere;assert.deepEqual(sphere.center.toArray(),old.boundingSphere.center.toArray());assert.equal(sphere.radius,old.boundingSphere.radius);checks+=2;
+   // Original coordinates may be mutated after construction, but replay uses a private double snapshot.
+   const original=face[0][0];face[0][0]+=17;
+   rockHelpers.installRockCache(mesh,Math.min(2,cache.count));face[0][0]=original;
+   assert.deepEqual(words(mesh.instanceMatrix.array),words(old.instanceMatrix.array));assert.deepEqual(words(mesh.instanceColor.array),words(old.instanceColor.array));
+   assert.equal(mesh.boundingSphere,sphere);assert.equal(mesh.userData.rockCache,null);checks+=4;
+   // Original ground/HDR RGB/negative-zero Float32 bits need no future terrain access.
+   const records=lazy.rocks.filter(r=>r.keep<share).sort((a,b)=>a.keep-b.keep).filter(r=>r.variant===vi);
+   const colors=old.instanceColor.array.slice();colors[0]=1.25;colors[1]=-0;
+   const matrix=old.instanceMatrix.array.slice();matrix[13]=-0;
+   const special=rockHelpers.packRockCache(matrix,colors,records,face.map(st=>new Float64Array(st)),stones.size_m);
+   assert(!special.matrix);const holder=new THREE.InstancedMesh(old.geometry,old.material,0);holder.userData.rockCache=special;rockHelpers.installRockCache(holder,records.length);
+   assert.deepEqual(words(holder.instanceMatrix.array),words(matrix));assert.deepEqual(words(holder.instanceColor.array),words(colors));checks+=3;
+   const wrong=records.map((r,k)=>k? r:{...r,sourceSeed:(r.sourceSeed+1)>>>0});
+   const fallback=rockHelpers.packRockCache(matrix,colors,wrong,face,stones.size_m);assert.equal(fallback.matrix,matrix);assert.equal(fallback.color,colors);checks+=2;
+   const malformed=records.map((r,k)=>k?r:{...r,faceIndex:-1});assert.equal(rockHelpers.packRockCache(matrix,colors,malformed,face,stones.size_m).matrix,matrix);checks++;
+  }
+  console.log(JSON.stringify({rockSourceCase:label,retainedRows:b.z.rockMeshes.reduce((n,m)=>n+m.instanceMatrix.count,0),actualSpec:!!actualStones,lightBuiltShare:share}));
+  // Existing tier/range paths install only on original rock reach and retain later attributes.
+  const lazyAgain=buildRocks(currentRockBuilder,select(lazy),face,stones),f=make();
+  f.group.add(...lazyAgain.group.children.slice());Object.assign(f.zone,{rockMeshes:lazyAgain.z.rockMeshes,rockCentre:0});f.setDetail('light');f.update(eye(-900));
+  assert(f.zone.rockMeshes.every(m=>m.count===0&&m.userData.rockCache));checks++;
+  f.update(eye(-50));
+  for(const mesh of f.zone.rockMeshes){assert.equal(mesh.userData.rockCache,null);assert(mesh.instanceMatrix.userData.uploadReleased);mesh.instanceMatrix.onUploadCallback.call(mesh.instanceMatrix);assert.equal(mesh.instanceMatrix.array,null);mesh.getMatrixAt=()=>{throw Error('Rock read after release');};checks+=3;}
+  for(const level of['full','balanced','light'])for(const n of[-50,-209,-350,-900,-160]){assert.doesNotThrow(()=>{f.setDetail(level);f.update(eye(n));for(const m of f.zone.rockMeshes)new THREE.Frustum().intersectsObject(m);});checks++;}
+  f.dispose();assert(f.zone.rockMeshes.every(m=>m.userData.rockCache===null));checks++;
+  const pending=buildRocks(currentRockBuilder,select(lazy),face,stones),u=make();u.group.add(...pending.group.children.slice());Object.assign(u.zone,{rockMeshes:pending.z.rockMeshes,rockCentre:0});u.dispose();assert(u.zone.rockMeshes.every(m=>m.userData.rockCache===null));checks++;
+ }
+}
+{
+ const face=[[0,0,3,0],[1,-10,4,-10]],stones={size_m:[.45,1.1],per_m2:{full:2},sink:.4};
+ const z=scatterRocks(currentRockScatter,face,{surfaceHeight:()=>.5},stones);
+ const old=buildRocks(eagerRockBuilder,{rocks:z.rocks,rockE:z.rockE},face,stones);
+ const records=z.rocks.sort((a,b)=>a.keep-b.keep).filter(r=>r.variant===0);
+ const many=Array(65537).fill([0,0,0,0]);many[65535]=face[0];many[65536]=face[1];
+ const mesh=old.z.rockMeshes[0],cache=rockHelpers.packRockCache(mesh.instanceMatrix.array,mesh.instanceColor.array,records.map(r=>({...r,faceIndex:65535})),many,stones.size_m);
+ assert(cache.faces instanceof Uint32Array);assert(!cache.matrix);assert.deepEqual(words(rockHelpers.replayRockMatrices(cache)),words(mesh.instanceMatrix.array));checks+=3;
+}
+console.log(JSON.stringify({sourceRockRows,sourceRecipeBytes,sourceFullBytes,sourceBytesSaved:sourceFullBytes-sourceRecipeBytes,maxRecipeBytesPerRowBeforeGray:22,originalNineDrawSequenceAndWaterFilteringExact:true,allComparedMatrixAndHDRColorWordsExact:true,privateDoubleFaceSnapshot:true,wrongSeedAndMalformedFallback:true,actualSetDetailReachUploadDisposePass:true,browserPixelsAndOfficialMemory:'UNRUN'}));
+console.log(`PASS ${checks} total native CPU producer/lifecycle checks; no browser or official-budget claim.`);
+
+// Gray-channel packing must preserve exact Float32 words, including signed zero.
+{
+ const values=new Float32Array([
+  -0,1.25,1.25,1.25, .3,-0,-0,-0, .4,-0,0,-0, .5,.8,.7,.6,
+  .6,.9,.9,.9, .7,2,2,2, .8,.5,.5,.5, .9,.4,.4,.4,
+  1,.3,.3,.3]);
+ const compact=rockHelpers.packRockValues(values,values.length/4);assert.equal(compact.valueStride,2);checks++;
+ const restored=new Float32Array(values.length/4*3);let cursor=0;
+ for(let k=0;k<values.length/4;k++){
+  const r=compact.values[k*2+1],t=compact.tintMask[k>>3]&(1<<(k&7));
+  restored[k*3]=r;restored[k*3+1]=t?compact.tintValues[cursor++]:r;restored[k*3+2]=t?compact.tintValues[cursor++]:r;
+  assert.equal(Object.is(compact.values[k*2],values[k*4]),true);checks++;
+ }
+ const actualHolder=new THREE.InstancedMesh(new THREE.BoxGeometry(1,1,1),new THREE.MeshBasicMaterial(),0);
+ actualHolder.userData.rockCache={...compact,count:values.length/4,matrix:new Float32Array(values.length/4*16)};
+ rockHelpers.installRockCache(actualHolder,values.length/4);
+ const expected=Float32Array.from(Array.from({length:values.length/4},(_,k)=>[...values.subarray(k*4+1,k*4+4)]).flat());
+ assert.deepEqual(words(restored),words(expected));assert.deepEqual(words(actualHolder.instanceColor.array),words(expected));assert.equal(cursor,compact.tintValues.length);checks+=3;
+ const colorful=new Float32Array([0,1,2,3, 0,4,5,6]);assert.equal(rockHelpers.packRockValues(colorful,2).values,colorful);checks++;
+ const nonfinite=values.slice();nonfinite[2]=NaN;assert.equal(rockHelpers.packRockValues(nonfinite,nonfinite.length/4).values,nonfinite);checks++;
+ const inf=values.slice();inf[0]=Infinity;assert.equal(rockHelpers.packRockValues(inf,inf.length/4).values,inf);checks++;
+ // A wrong gray classifier that equates +0 and -0 must lose a word and fail.
+ const wordTest='const tinted = k => words[k * 4 + 1] !== words[k * 4 + 2] || words[k * 4 + 1] !== words[k * 4 + 3];';
+ const brokenHelpers=tieHelpers.replace(wordTest,'const tinted = k => values[k * 4 + 1] !== values[k * 4 + 2] || values[k * 4 + 1] !== values[k * 4 + 3];');assert.notEqual(brokenHelpers,tieHelpers);
+ const badPack=Function('THREE',brokenHelpers+';return packRockValues;')(THREE),bad=badPack(values,values.length/4);
+ const badHolder=new THREE.InstancedMesh(actualHolder.geometry,actualHolder.material,0);badHolder.userData.rockCache={...bad,count:values.length/4,matrix:new Float32Array(values.length/4*16)};
+ rockHelpers.installRockCache(badHolder,values.length/4);
+ assert.throws(()=>assert.deepEqual(words(badHolder.instanceColor.array),words(expected)),assert.AssertionError);checks++;
+}
+console.log(`PASS ${checks} native CPU checks including profitable gray/mixed HDR/signed-zero and unprofitable/nonfinite controls; official memory UNRUN.`);
+}
+
+// Cache only final Float32 WORDS: no quantization, matrix recipe, or RGB relation.
+// Include payloads that cannot be valid scene numbers; their NaN payload/sign bits
+// still belong to this storage codec, without ever handing NaNs to a mesh.
+if(phase!=='legacy'){
+let cacheWordRoundtrips=0;
+const cacheBytes=c=>c.values?.byteLength??c.wordColumns.reduce((n,c)=>n+(c.data?.byteLength??0)+(c.dictionary?.byteLength??0),0);
+function wordRoundtrip(input,stride,compressed) {
+ const values=new Float32Array(input.length);new Uint32Array(values.buffer).set(input);
+ const original={count:input.length/stride,stride,values},packed=tieFunctions.packRailCacheWords(original);
+ if(compressed===true)assert.notEqual(packed,original);if(compressed===false)assert.equal(packed,original);
+ const decoded=tieFunctions.unpackRailCacheWords(packed);
+ assert.deepEqual(words(decoded.values),input);cacheWordRoundtrips+=input.length;checks++;
+ if(packed!==original){
+  assert(!Object.hasOwn(packed,'values'),'Compressed cache must not retain its original Float32 view');
+  for(const c of packed.wordColumns)for(const a of[c.data,c.dictionary])if(a)assert.notEqual(a.buffer,values.buffer);
+  new Uint32Array(values.buffer).fill(0x12345678);
+  assert.deepEqual(words(tieFunctions.unpackRailCacheWords(packed).values),input,'Private encoded data must survive original scratch reuse');checks+=2;
+ }
+ return packed;
+}
+{
+ const count=1024,input=new Uint32Array(count*8),special=[0,0x80000000,0x7f800000,0xff800000,0x7fc00001,0x7fa12345,0xffa54321,0x3fa00000];
+ let seed=0x8b73062;
+ for(let i=0;i<count;i++){
+  seed=(Math.imul(seed,1664525)+1013904223)>>>0;
+  input.set([0x80000000,0x3f800000+i%256,0x3f000000+(i*123)%65536,
+   0x3f000000+(i*7919)%0x1000000,seed,special[i%special.length],
+   [0x3f333333,0xbf333333,0x3eaaaaab,0xbeaaaaab][i%4],0xffa12345],i*8);
+ }
+ const packed=wordRoundtrip(input,8,true);
+ assert.deepEqual(packed.wordColumns.map(c=>c.width),[0,1,2,3,4,1,1,0]);
+ assert(packed.wordColumns[5].dictionary);assert(packed.wordColumns[6].dictionary);checks+=3;
+ // Every byte-width boundary, including the entire unsigned word domain.
+ for(const[span,width]of[[255,1],[256,2],[65535,2],[65536,3],[0xffffff,3],[0x1000000,4],[0xffffffff,4]]){
+  const a=new Uint32Array(count*2);for(let i=0;i<count;i++){a[i*2]=Math.floor(span*i/(count-1));a[i*2+1]=0xdeadbeef;}
+  assert.equal(wordRoundtrip(a,2,true).wordColumns[0].width,width);checks++;
+ }
+ // Full entropy cannot buy an encoding; admission includes 64 + 256/column
+ // reserved descriptor/view bytes, not just the encoded typed-array payload.
+ const entropy=new Uint32Array(count*8);for(let i=0;i<entropy.length;i++){seed=(Math.imul(seed,1664525)+1013904223)>>>0;entropy[i]=seed;}
+ wordRoundtrip(entropy,8,false);
+ wordRoundtrip(new Uint32Array(80).fill(0x80000000),1,false);
+ wordRoundtrip(new Uint32Array(81).fill(0x80000000),1,true);
+ wordRoundtrip(new Uint32Array(0),11,false);
+ assert.throws(()=>tieFunctions.packRailCacheWords({count:1,stride:11,values:new Float32Array(10)}));checks++;
+ const wrong=change=>{const c={...packed,wordColumns:packed.wordColumns.map(c=>({...c}))};change(c);return c;};
+ for(const corrupt of[
+  c=>{c.stride++;},c=>{c.count=-1;},c=>{c.wordColumns[0].width=5;},
+  c=>{c.wordColumns[1].data=c.wordColumns[1].data.subarray(1);},
+  c=>{c.wordColumns[5].data=c.wordColumns[5].data.slice();c.wordColumns[5].data[0]=255;},
+  c=>{c.wordColumns[1].base=0xffffffff;},
+ ]){assert.throws(()=>tieFunctions.unpackRailCacheWords(wrong(corrupt)));checks++;}
+ // A plausible but wrong byte must fail the same complete word oracle.
+ const corrupt=wrong(c=>{c.wordColumns[1].data=c.wordColumns[1].data.slice();c.wordColumns[1].data[0]^=1;});
+ assert.throws(()=>assert.deepEqual(words(tieFunctions.unpackRailCacheWords(corrupt).values),input),assert.AssertionError);checks++;
+ const broken=tieHelpers.replace('words[i * stride + lane] = word;','words[i * stride + lane] = word & 0x7fffffff;');assert.notEqual(broken,tieHelpers);
+ const loseSign=Function('THREE',broken+';return unpackRailCacheWords;')(THREE);
+ assert.throws(()=>assert.deepEqual(words(loseSign(packed).values),input),assert.AssertionError);checks++;
+}
+// Actual Three Matrix4/Quaternion/Color eager producers remain the oracle. The
+// larger fixture follows the native 1904 track path and reaches the real codec;
+// the existing tiny fixtures above retain their Float32 interfaces and strides.
+{
+ const source=JSON.parse(await fs.readFile(`${root}/data/railway/1904.json`,'utf8'));
+ const path=trackPath(source.tracks.find(t=>t.id==='ic_track_17').centreline_local_m,{surfaceHeight:(e,n)=>.3+Math.sin(n/75)*.1});
+ const ties=source.ties,rand=rockHelpers.rng(19040701);
+ const records=Array.from({length:Math.min(2048,Math.floor(path.length/ties.spacing_m))},(_,i)=>{
+  const s=(i+.5)*ties.spacing_m,sj=s+(rand()-.5)*2*ties.jitter.along_m,a=path.at(Math.max(0,Math.min(path.length,sj)));
+  const yaw=Math.atan2(a.tn,a.te)+((rand()-.5)*2*ties.jitter.skew_deg*Math.PI)/180;
+  const length=ties.length_m+(rand()-.5)*2*ties.jitter.length_m,shift=(rand()-.5)*.08,tone=.78+rand()*.34;
+  return{e:a.e+a.tn*shift,n:a.n-a.te*shift,y:a.y+.024+ties.exposed_m,yaw,length,tone,warm:rand()};
+ });
+ const eager=tiePair(eagerTieSource,records),lazy=tiePair(lazyTieSource,records),cache=lazy.z.tieCache;
+ assert(cache.wordColumns);assert.equal(cache.stride,11);assert(!cache.values);checks+=3;
+ const pending=make();pending.group.add(...lazy.group.children.slice());Object.assign(pending.zone,{tiesNear:lazy.z.tiesNear,tiesFar:lazy.z.tiesFar,tieCache:cache});
+ pending.update(eye(-900));assert.equal(pending.zone.tieCache,cache);assert.equal(pending.zone.tiesNear.count,0);checks+=2;
+ pending.update(eye(-50));assert.equal(pending.zone.tieCache,null);sameTiePair(eager,{z:pending.zone});checks++;
+ const matrix=pending.zone.tiesNear.instanceMatrix,color=pending.zone.tiesNear.instanceColor;
+ for(const level of['full','balanced','light'])for(const n of[-900,-300,-50]){pending.setDetail(level);pending.update(eye(n));assert.equal(pending.zone.tiesNear.instanceMatrix,matrix);assert.equal(pending.zone.tiesNear.instanceColor,color);checks+=2;}
+ pending.dispose();assert.equal(pending.zone.tieCache,null);checks++;
+ const tuftRows=records.map((r,i)=>({...r,scale:.6+(i%271)*.002,keep:(i*317%2048)/2048,yaw:((i+1)*1.371)%Math.PI}));
+ const eagerTufts=tuftPair(eagerTuftSource,tuftRows),lazyTufts=tuftPair(lazyTuftSource,tuftRows),tuftCache=lazyTufts.z.tuftCache;
+ assert(tuftCache.wordColumns);assert.equal(tuftCache.stride,8);assert(!tuftCache.values);checks+=3;
+ const f=make();f.group.add(...lazyTufts.group.children.slice());Object.assign(f.zone,{tuftMesh:lazyTufts.z.tuftMesh,tuftKeeps:lazyTufts.z.tuftKeeps,tuftCache});
+ f.setDetail('light');f.update(eye(-900));assert.equal(f.zone.tuftCache,tuftCache);assert.equal(f.zone.tuftMesh.count,0);checks+=2;
+ const wanted=eagerTufts.z.tuftKeeps.filter(k=>k<.25).length;eagerTufts.z.tuftMesh.count=wanted;
+ f.update(eye(-50));assert.equal(f.zone.tuftCache,null);sameTuft(eagerTufts,{z:f.zone});checks++;
+ const tm=f.zone.tuftMesh.instanceMatrix,tc=f.zone.tuftMesh.instanceColor;
+ for(const level of['full','balanced','light'])for(const n of[-900,-160,-50]){f.setDetail(level);f.update(eye(n));assert.equal(f.zone.tuftMesh.instanceMatrix,tm);assert.equal(f.zone.tuftMesh.instanceColor,tc);checks+=2;}
+ f.dispose();assert.equal(f.zone.tuftCache,null);checks++;
+ console.log(JSON.stringify({railWordCacheFixtureRows:records.length,tieFloatBytes:records.length*44,tieEncodedPayloadBytes:cacheBytes(cache),tuftFloatBytes:tuftRows.length*32,tuftEncodedPayloadBytes:cacheBytes(tuftCache),admissionReservesDescriptorBytes:true,actualThreeEagerMatrixColorBoundsAndIdOracle:true,originalFirstReachDensityOrderAndReentry:true,noOriginalFloat32CacheRetainer:true,actual1904SceneMemory:'UNRUN'}));
+}
+console.log(`PASS ${checks} native CPU lifecycle controls plus ${cacheWordRoundtrips} exact cache word roundtrips; GPU, browser, and official memory UNRUN.`);
+}
+
+// Exact configured-tier density prefixes: original JS-double comparisons, not
+// Float32 thresholds or rounded keep values. Every earlier lifecycle oracle stays.
+{
+ const prefix=(keeps,threshold)=>{let n=0;while(n<keeps.length&&keeps[n]<threshold)n++;return n;};
+ const datasets=[[],[-0,0,Number.MIN_VALUE,.25-Number.EPSILON,.25,.25+Number.EPSILON,.5,.6,1],
+  [-Infinity,-0,0,.1,Infinity],[.1,NaN,.2],[.2,.8,.1],[NaN]];
+ for(const raw of datasets)for(const initial of[null,.3])for(const dens of[
+  {full:4,balanced:2,light:1},{full:0,balanced:0,light:0},
+  {full:1,balanced:NaN,light:-0},{full:2,balanced:Infinity,light:-1},
+ ]){
+  // The existing Light constructor's filter precedes the original sort; kept
+  // rows remain a subsequence. Direct unsorted cases also retain old stop-first.
+  const kept=initial===null?raw.slice():raw.filter(k=>k<initial);
+  const share={full:1,balanced:.6,light:.3},rock={userData:{keeps:kept.slice()},count:0};
+  const zone={rockMeshes:[rock],tuftMesh:{count:0},tuftKeeps:kept.slice()};
+  const f=Function('zones','dens','rockShare','REACH',`let level='light';const out={census:{}};${detailSource};return out;`)([zone],dens,share,reach);
+  let expectedLevel='light';
+  for(const next of['full','balanced','light','bogus','',null,undefined,'toString','constructor','light','full']){
+   if(reach[next])expectedLevel=next;f.setDetail(next);
+   const rocks=prefix(kept,share[expectedLevel]),tufts=prefix(kept,(dens[expectedLevel]??0)/(dens.full||1));
+   assert.equal(rock.userData.rockWanted,rocks);assert.equal(rock.count,rocks);assert.equal(f.census.rocks,rocks);
+   assert.equal(zone.tuftWanted,tufts);assert.equal(zone.tuftMesh.count,tufts);assert.equal(f.census.tufts,tufts);checks+=6;
+  }
+  assert.equal(Object.hasOwn(rock.userData,'keeps'),false);assert.equal(Object.hasOwn(zone,'tuftKeeps'),false);
+  assert.equal(Object.getPrototypeOf(rock.userData.densityCounts),null);assert.equal(Object.getPrototypeOf(zone.tuftDensityCounts),null);
+  assert.deepEqual(Object.keys(rock.userData.densityCounts),['full','balanced','light']);
+  assert.deepEqual(Object.keys(zone.tuftDensityCounts),['full','balanced','light']);checks+=6;
+ }
+}
+console.log(`PASS ${checks} total native CPU checks, including exact configured density prefixes; browser/memory UNRUN.`);

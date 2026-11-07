@@ -1,0 +1,87 @@
+{
+  "structure_id": "law_house_1620_prairie_coach_house",
+  "view": "landowner_1874_from_northeast",
+  "glb": "assets/gltf/law_house_1620_prairie_coach_house__as_standing_1904.glb",
+  "glb_sha256": "850af29f9f41a976e373282fa7665317217042e0104fe74328b8ccf8438751d8",
+  "camera_sha256": "1591a7dda4b67a32f4d520b402ad017c1831c72a769842f7b8187bbf4c195556",
+  "photo_sha256": "ece6ea5d877f60e649e7e2cdbac51101ec8a9d29db76f38d410d97ad573ede19",
+  "rendered_members": [
+    {
+      "structure_id": "law_house_1620_prairie_coach_house",
+      "glb": "assets/gltf/law_house_1620_prairie_coach_house__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1333.907,
+        "local_n": -3015.175,
+        "rotation_deg": -0.579,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "850af29f9f41a976e373282fa7665317217042e0104fe74328b8ccf8438751d8"
+    },
+    {
+      "structure_id": "law_house_1620_prairie",
+      "glb": "assets/gltf/law_house_1620_prairie__restored_1904.glb",
+      "placement": {
+        "local_e": 1366.874,
+        "local_n": -3022.849,
+        "rotation_deg": -0.579,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "restored_1904"
+      },
+      "position": [
+        32.88776876291903,
+        0,
+        8.006749077920025
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "c77f06750bca66ad29d9f2f299e36b8a913befb858dfed9d7a4de5d0e2c19768"
+    }
+  ],
+  "group_sha256": "09ca7896548a012718e4b22fefd22b960029f08a7eacefebc584945ec116e45c",
+  "side_by_side": "docs/RESEARCH/photo-match/law_house_1620_prairie_coach_house/landowner_1874_from_northeast-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "place: the engraving's rear building starts at the house's rear corner (x 848 px), as the build's does: the house hides both left of that line, so the two stand on the same ground behind the house, toward the alley",
+      "status": "within tolerance"
+    },
+    {
+      "what": "material: the engraving draws the building's walls in board-and-batten, vertical boards with battens and a horizontal rail at y 505 px, lighter than the house's brick north wall beside it; the build is brick, as both maps draw it. The engraving is dated May 1874; Robinson's 1886 plate draws a pink (brick) building crossed by the atlas's stable X on this ground and the 1911 sheet a two-storey brick one, so the engraving's frame building is read as the stable the brick one replaced between 1874 and 1886 and is not built for 1904 (L-k12-1620-stable-1932). Left open: a ticket naming this building closes past it only with `ticket.mjs done --anyway --why` and that reason, or once a picture of the brick stable is found.",
+      "status": "open"
+    },
+    {
+      "what": "roof: the engraving draws two hipped roofs side by side with a valley between them (ridges about y 433 px, 10.3 m over grade), its north end a hipped face in shade, and two brick chimneys rising behind the ridges at x 862 and 895 px (tops about 11.2 m); the build has the K12 kit's one gable roof with its ridge along the alley (about y 447 px) and no chimney. The 1874 frame stable, not built for 1904: see the material item.",
+      "status": "open"
+    },
+    {
+      "what": "height: the engraving's eaves stand at y about 460 px, 8.8 m over grade on the yard wall's plane, its upper windows from 8.2 to 6.5 m over a rail at 6.2 m; the build's eaves are the kit's 6.3 m (y about 503-508 px), where the engraving's rail is. The 1874 frame stable, not built for 1904: see the material item.",
+      "status": "open"
+    },
+    {
+      "what": "length: the engraving's two-storey block ends at x 957 px (v 2.4 on the yard wall) and a lower board structure runs on to x about 1007 px (v 5.15); the build runs two storeys to the lot's north line (v 8.15, x about 1063 px) and closes there in the kit's party wall against 1616's alley building, as the 1911 sheet draws it (Robinson's 1886 plate also runs the brick stable across both lots). The 1874 frame stable, not built for 1904: see the material item.",
+      "status": "open"
+    },
+    {
+      "what": "openings: the engraving shows two upper windows on the yard face at x 852-862 and 902-912 px; the build's yard face carries the kit's door at its middle (x about 907-923 px) and a stable sash and a loft sash toward its north end (x about 997 px), none of them pictured. The 1874 frame stable, not built for 1904: see the material item.",
+      "status": "open"
+    },
+    {
+      "what": "the building's foot and ground storey: the north board fence and 1616's street fence hide everything below y about 545 px in the engraving and the render alike",
+      "status": "not shown"
+    },
+    {
+      "what": "the alley wall, the south gable and the party wall's north face: the engraving sees only the yard face and the north end",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "reviewed": "T-1932, 2026-10-31, side by side at docs/RESEARCH/photo-match/law_house_1620_prairie_coach_house/landowner_1874_from_northeast-side-by-side.jpg, the engraving read at full size (x 840-1020, y 400-560 px at 4x)"
+}

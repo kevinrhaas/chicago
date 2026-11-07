@@ -1,0 +1,40 @@
+{
+  "structure_id": "marshall_field_jr_house_1919_prairie",
+  "source_id": "chicago_blue_book_1912_gatlin_1919_plate",
+  "library_image": "a19-bluebook-1912-gatlin-1919",
+  "photo": "../../sources/assets/field_jr_1919_plates_t3279/blue_book_1912_gatlin_plate.jpg",
+  "image_px": [
+    1045,
+    1600
+  ],
+  "principal_px": [
+    550,
+    616
+  ],
+  "focal_px": 922.0,
+  "eye": [
+    47.0,
+    -22.35,
+    4.18
+  ],
+  "yaw_deg": 302.79,
+  "basis_right_up_forward": [
+    [
+      0.54321,
+      0.83832,
+      0.04636
+    ],
+    [
+      0.02201,
+      -0.06941,
+      0.99735
+    ],
+    [
+      -0.83931,
+      0.54075,
+      0.05616
+    ]
+  ],
+  "sky": "overcast",
+  "solve": "Fitted by T-3354 (piece 2 of T-3338) to the 1912 Chicago Blue Book plate (the image store's 1045 x 1600 px copy of p. 28; the halftone stands at x 145-955, y 337-895 px, and the principal point is taken at its centre, x 550, y 616), in the same footprint frame as the 1913 and 1919 plates' cameras (u toward Prairie Avenue from the front block's rear wall, v south from its north wall). The plate is a coarse halftone with the lower storeys behind trees, so the camera is fitted by least squares (seven unknowns: eye, heading, tilt, roll, focal length) to four points and a line it can find: the tops of the two tall stacks on the north flank (the near one, u 16.3, at x 601, y 369 px; the far one, u 2.6, at x 464, y 410), the round tower's flat top on its axis (x 555, y 455), the street hip's finial (x 688, y 415), the stacks taken at 17.44 m (1.6 m over the 15.84 m ridge), the tower's top at 14.0 m and the finial at the ridge; and the iron fence's foot on the street line (u 26.18, grade), held to the line the plate draws between the hedge and the pavement from x 222, y 841 to x 837, y 807 (within 1-4 px at four points along it). The eye was bounded at u 47, the avenue's far side, as the other two plates' were: left free it walks back along the line of sight trading distance against focal length (to u 90 and 2165 px at 14.5 px RMS), and every step back puts the rear ranges' gables further from the plate's, so the bound is kept. RESIDUAL 24 px RMS; the worst is the near stack, which the plate stands about 28 px (about 1.4 m) closer to the tower than the record does, as the 1919 plate's camera also finds. PLACE: the eye at u 47 (the avenue's far side), v -22.4 (about 22 m north of the north flank) and 4.2 m over grade, heading 303 degrees in this frame (south-east across the house's north-west corner), looking up 3.2 degrees and rolled 2.7 degrees (the plate's pavement and curb fall to the left across the frame); focal length 922 px. Within about 1 m and 3 degrees of the 1919 programme plate's camera, which agrees with the Prairie library's note that the Gatlin plates share a viewpoint. CHECKED on what it did not fit: the stack behind the street dormers and the dormers themselves stand over the plate's within about 30 px, the garage's north gable (T-3354) lands on the plate's third gable at the flank's far end, and the rear ranges' gables stand about 30 px left of and (the middle range's) about 40 px under the plate's, as through the other two cameras. LIGHT: soft and even, no cast shadow readable in the halftone, so the view renders overcast."
+}

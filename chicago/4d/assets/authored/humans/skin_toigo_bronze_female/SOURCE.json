@@ -1,0 +1,47 @@
+{
+  "status": "whole official ZIP downloaded, hashed and the selected entry extracted unchanged (T-3434, 2026-11-06)",
+  "url": "https://files2.makehumancommunity.org/asset_packs/skins01/skins01_cc0.zip",
+  "archive_bytes": 104227958,
+  "etag": "\"6366476-6160e7f028bce\"",
+  "archive_sha256": "7495ab99287053bd19ff1636114e64b608994d9f7437fea6cc75ea387f96dba9",
+  "entry": {
+    "path": "skins/toigo_light_skin_female_bronze/young_lightskinned_female_diffuse_Bronze.png",
+    "compressed": 4170899,
+    "size": 4172187,
+    "method": 8,
+    "crc": 1720579175
+  },
+  "entry_sha256": "535535f30bacd42111590df4b03cf3b6bcdb7db18f336ce670665ec332ab3e0b",
+  "entry_crc32_verified": true,
+  "image": {
+    "width": 2048,
+    "height": 2048,
+    "mode": "RGBA",
+    "visually_inspected": true
+  },
+  "metadata_sha256": "da310f988040625aa2bcc8d1b21ecbd227f19abc66156bc7f907e529af462b0c",
+  "material_sha256": "9279383955cdc9fa11f179467ae07f7ad155a7ddd9bb31b50a59b01108343576",
+  "license_evidence": {
+    "source": "skins01.original.json",
+    "key": "toigo_light_skin_female_bronze",
+    "record": {
+      "author": "MargaretToigo",
+      "category": "",
+      "changed": "2019-02-12",
+      "created": "2017-11-13",
+      "description": "A variation of the young light skinned female bronze without makeup.",
+      "license": "CC0",
+      "original_author": "",
+      "original_source": "",
+      "source": "http://www.makehumancommunity.org/node/1133",
+      "thumbnail": "toigo_light_skin_female_bronze.png",
+      "type": "skin"
+    }
+  },
+  "pack_page": "https://files2.makehumancommunity.org/asset_packs/skins01/ (\"Natural female skins, shared under CC0\")",
+  "twin_of": "assets/authored/humans/skin_toigo_bronze (the same author's male bronze variation; same hm08 UV layout)",
+  "used_by": [
+    "data/humans/recipes/adult_dress_1904.json"
+  ],
+  "ticket": "T-3434"
+}

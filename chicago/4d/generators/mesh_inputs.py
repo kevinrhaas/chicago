@@ -85,11 +85,16 @@ PURE_PYTHON = {"k01_frontage": "k01_emit.py", "k13_conservatories": "k13_emit.py
                "k16_timber": "k16_emit.py",  # T-2323: K16
                "k12_coach_house": "k12_emit.py",  # T-2321: K12
                "prairie_draft": "draft_emit.py",  # T-2329: the district draft
-               "haystack": "haystack_emit.py"}  # T-2510: Lee's Place's stacks
+               "haystack": "haystack_emit.py",  # T-2510: Lee's Place's stacks
+               "lodge_camp": "lodge_camp_emit.py"}  # T-3342: the Potawatomi camp of 1812
 #: The library modules a pure-Python archetype lays on its walls (T-2291), and so hashes
 #: beside the archetype: K03 brick's bond, heads and string course move vertices too.
 #: T-2302: and K05 builds its roof, from the kit's own parts (k05_roofs.json, hashed below).
-PURE_PYTHON_HELPERS = {"k01_frontage": ("k03_brick.py", "k05_roofs.py", "k09_frontage.py", "k09_trim.py",
+PURE_PYTHON_HELPERS = {
+                       # T-3342: the camp's dimensions are constants in its params module
+                       # (the dataclass hashed above carries only the record's counts)
+                       "lodge_camp": ("lodge_camp_params.py",),
+                       "k01_frontage": ("k03_brick.py", "k05_roofs.py", "k09_frontage.py", "k09_trim.py",
                                        "k10_frontage.py", "k10_cornices.py", "k01_stone_finish.py",
                                        "k11_frontage.py", "k11_ironwork.py",
                                        # T-2360: K14 lays the yard, from the condition kit's ground layers
@@ -110,8 +115,14 @@ PURE_PYTHON_HELPERS = {"k01_frontage": ("k03_brick.py", "k05_roofs.py", "k09_fro
                                        "k01_hip_deck.py",
                                        # T-3242: a two-level veranda on the rear wall
                                        "k01_rear_veranda.py",
+                                       # T-1881: a raised stone terrace under an awning on the rear wall
+                                       "k01_rear_terrace.py",
+                                       # T-1881: a hanging lantern on a bracket on the street front
+                                       "k01_wall_lanterns.py",
                                        # T-3255: eared and crested hoods, and corner pilasters
-                                       "k01_dressings.py"),
+                                       "k01_dressings.py",
+                                       # T-3384: side walls carried up through a mansard, and the deck's fret
+                                       "k01_mansard_walled.py"),
                        # T-2306: the conservatory is cut with K01's Prim and K06's polygon helpers
                        "k13_conservatories": ("k01_frontage.py", "k06_windows.py"),
                        # T-2323: the timber front is cut with K01's Prim and K06's sash and polygon helpers
@@ -163,9 +174,15 @@ def _code_shas(archetype: str, params=None) -> dict[str, str]:
             wanted += [gen / "archetypes" / "k06_windows.py", gen / "archetypes" / "k07_entrances.py"]
             # T-2308: a record's bays are built by the K08 kit, so its module moves vertices
             wanted += [gen / "archetypes" / "k08_bays.py"]
+        # T-3386: a draft laid in a K03 recipe resolves it through k03_brick
+        if archetype == "prairie_draft" and getattr(params, "elevation", {}).get("brick_recipe"):
+            wanted += [gen / "archetypes" / "k03_brick.py"]
         # T-3222: a K16 house with a yard has its walk routed by K14 and worn by the condition kit
         if archetype == "k16_timber" and getattr(params, "yard", None):
             wanted += [gen / "archetypes" / "k14_yard.py", gen / "archetypes" / "k14_condition.py"]
+    # T-3387: a fort building laid in a K03 period recipe resolves it through k03_brick
+    if archetype == "fort_structure" and getattr(params, "period_brick", None):
+        wanted += [gen / "archetypes" / "k03_brick.py"]
     # T-1730: the high-detail Glessner build delegates to v4-only modules.
     # Hash every module in that family, including the material/texture recipe;
     # the legacy path never imports them. New helpers in the family therefore
@@ -245,6 +262,18 @@ def structure_inputs_doc(structure: dict, phase: dict, archetype: str | None = N
     }
     if arch in PURE_PYTHON:
         del doc["blender_pin"]
+    if arch == "fort_structure" and getattr(params, "period_brick", None):
+        # T-3387: a fort building laid in a K03 period recipe embeds its panel's maps
+        from archetypes import k03_brick
+        doc["textures"] = {p.relative_to(ROOT).as_posix(): _sha_file(p) for p in k03_brick.TEXTURE_FILES}
+        doc["component_data"] = {k03_brick.FACE_BRICK_FILE.relative_to(ROOT).as_posix():
+                                 _sha_file(k03_brick.FACE_BRICK_FILE)}
+    if arch == "prairie_draft" and params.elevation.get("brick_recipe"):
+        # T-3386: a draft laid in a K03 recipe embeds its panel's maps and reads the palette
+        from archetypes import k03_brick
+        doc["textures"] = {p.relative_to(ROOT).as_posix(): _sha_file(p) for p in k03_brick.TEXTURE_FILES}
+        doc["component_data"] = {k03_brick.FACE_BRICK_FILE.relative_to(ROOT).as_posix():
+                                 _sha_file(k03_brick.FACE_BRICK_FILE)}
     if arch == "k01_frontage":
         # T-2291: the K03 maps a K01 wall embeds are inputs, like Glessner v4's below
         from archetypes import k03_brick

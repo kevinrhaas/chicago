@@ -1,0 +1,46 @@
+{
+  "id": "hi_glessner_williamson_martha_l_1904",
+  "contract_version": 1,
+  "scene": "1904",
+  "person_id": "glessner_williamson_martha_l",
+  "appearance": {
+    "asset_id": "williamson_mattie_1904_cook_study"
+  },
+  "placement": {
+    "local_e": 1367.5,
+    "local_n": -3233.0,
+    "heading_deg": 95,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0
+  },
+  "behaviour": {
+    "state": "standing"
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed standing depiction of Martha L. (Mattie) Williamson, the Glessners' cook (attested by the museum's account of her, written from Frances Glessner's journal: cook from 1892 to 1912 apart from a year away in 1897-98), standing in the Glessner House courtyard toward the carriage passage. She is the first woman drawn in the 1904 town (T-3423): MakeHuman's female-young macros, a pale shirtwaist with a standing collar, a dark skirt and a white bib apron cut after the working dress of the 1903 Wasson stereographs, hair drawn up to a knot. Her presence in the household is attested; where she stands, her dress, her hair, her face and her complexion are reconstructed, not observed.",
+    "sources": [
+      "glessner_house_blog_mattie_williamson_2020",
+      "loc_wasson_1903_charming_rogue_new_cook_stereograph",
+      "loc_wasson_1903_new_french_cook_mr_mrs_stereograph",
+      "loc_wasson_1903_new_french_cook_stereograph"
+    ],
+    "liberty": "L418",
+    "seed": "glessner_williamson_martha_l:1904:initial-standing:20261106",
+    "replaceable_by": "A photograph of Martha Williamson, or of the Glessner staff, replacing the reconstructed face, dress and stand; exact location/action has no documentary claim."
+  }
+}

@@ -119,6 +119,11 @@ PICKET_HEAD_K = 1.06
 RIBBAND_HALF_T = 0.05
 RIBBAND_H = 0.16
 RIBBAND_AT = (0.85, 0.80)   # metres above the ground, and below the head
+#: T-3407 — a garden wicket's two posts: half their squared side, and how much taller
+#: than the pales they stand. Reconstructed (docs/LIBERTIES.md L-t3407-officers-garden);
+#: renderers/web/js/fort-gates.js reads the same two numbers to hang the leaf between them.
+WICKET_POST_HALF_M = 0.08
+WICKET_POST_RISE_M = 0.18
 
 
 def build(params: PalisadeParams, name: str):
@@ -183,7 +188,8 @@ def _stockade(b: MeshBuilder, p: PalisadeParams) -> None:
         cuts = []
         if side in p.gate_sides:
             half = p.gate_width_m / 2.0
-            cuts.append((run / 2.0 - half, run / 2.0 + half))
+            mid = run / 2.0 + _gate_shift(p, side)
+            cuts.append((mid - half, mid + half))
         for end, corner in zip((0.0, run), corner_at[side]):
             if corner in p.bastion_corners:
                 lo, hi = (0.0, p.bastion_length_m) if end == 0.0 else \
@@ -196,6 +202,14 @@ def _stockade(b: MeshBuilder, p: PalisadeParams) -> None:
         _bastion(b, p, corner, c_bast)
     for side in p.gate_sides:
         _gate(b, p, side, c_gate)
+
+
+def _gate_shift(p: PalisadeParams, side: str) -> float:
+    """How far along its side's WALK (the order `_stockade` runs it) a gate's middle
+    sits from the side's middle (T-3319). `gate_offset_m` is stated toward +u for the
+    north and south walls and +v for the east and west; the south and east walls are
+    walked that way and the north and west the other, so those two take it negated."""
+    return p.gate_offset_m if side in ("s", "e") else -p.gate_offset_m
 
 
 def _lerp(a, z, t):
@@ -341,13 +355,28 @@ def _gate(b: MeshBuilder, p: PalisadeParams, side: str, conf: float) -> None:
     """
     w, d = p.width_m, p.depth_m
     if side in ("n", "s"):
-        cx, cy = w / 2.0, (d if side == "n" else 0.0)
+        cx, cy = w / 2.0 + p.gate_offset_m, (d if side == "n" else 0.0)
         ux, uy = 1.0, 0.0
     else:
-        cx, cy = (w if side == "e" else 0.0), d / 2.0
+        cx, cy = (w if side == "e" else 0.0), d / 2.0 + p.gate_offset_m
         ux, uy = 0.0, 1.0
     nx, ny = -uy, ux
     half = p.gate_width_m / 2.0
+    if p.gate_kind == "wicket":
+        # T-3407 — A GARDEN WICKET: two hewn posts standing in the cut, a hand taller
+        # than the pales, and nothing between them. The leaf is a paling of the
+        # fence's own pales on two rails, hung by the renderer on the west post so a
+        # visitor can open it (fort-gates.js WICKET_*); a baked shut leaf would be a
+        # second, immovable one. The posts are the pickets' own split timber, so they
+        # take its texture: the heavy jamb-and-lintel frame below, in the flat gate
+        # colour, was what stood in this garden's gateway until now, and read as a
+        # grey box round a black hole (the owner, 2026-11-06).
+        for s in (-1.0, 1.0):
+            jx = cx + ux * (half - WICKET_POST_HALF_M) * s
+            jy = cy + uy * (half - WICKET_POST_HALF_M) * s
+            _post(b, jx, jy, ux, uy, nx, ny, WICKET_POST_HALF_M, WICKET_POST_HALF_M,
+                  p.picket_height_m + WICKET_POST_RISE_M, conf, M_PICKET)
+        return
     jamb = 0.20
     head = p.picket_height_m * 0.86
 

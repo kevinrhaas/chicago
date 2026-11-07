@@ -150,6 +150,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "generators"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from occupied_footprints import additional_world_polygons
+
 import generate_entrances as entrances  # noqa: E402
 from archetypes.frame_tavern_params import from_phase as _tavern_params  # noqa: E402
 from heightfield import Heightfield  # noqa: E402
@@ -556,6 +558,11 @@ def _footprint_world(sidecar: dict) -> list[tuple[float, float]]:
     return [_to_enu(u, v, place) for u, v in poly]
 
 
+def _occupied_footprints_world(sidecar: dict) -> list[list]:
+    """Physical blockers, retaining the unchanged core/frontage reference."""
+    return [_footprint_world(sidecar), *additional_world_polygons(sidecar)]
+
+
 def _poly_contains(pt, poly) -> bool:
     x, y = pt
     inside = False
@@ -613,7 +620,7 @@ def _standing() -> tuple[list[str], dict]:
 # --------------------------------------------------------------------------- #
 
 def build_frontages(ids: list[str], cars: dict) -> tuple[list, list]:
-    worlds = {sid: _footprint_world(sc) for sid, sc in cars.items()}
+    worlds = {sid: _occupied_footprints_world(sc) for sid, sc in cars.items()}
     frontages: list[dict] = []
     refused: list[dict] = []
 
@@ -667,7 +674,8 @@ def build_frontages(ids: list[str], cars: dict) -> tuple[list, list]:
         # Out of the wall, in ENU. `rotation_deg` IS the facade bearing, so the outward
         # normal is (sin b, cos b) and the along-wall direction is the +u axis.
         b = math.radians(bearing)
-        others = [(oid, w) for oid, w in worlds.items() if oid != sid and len(w) >= 3]
+        others = [(oid, w) for oid, shapes in worlds.items() if oid != sid
+                  for w in shapes if len(w) >= 3]
 
         def at(u_along: float) -> tuple[float, float]:
             e, n = _to_enu(u_along, vmax, place)
@@ -798,8 +806,8 @@ def build_wagons(cars: dict) -> tuple[list, list]:
     e_lo, e_hi = min(p[0] for p in pts), max(p[0] for p in pts)
     n_lo, n_hi = min(p[1] for p in pts), max(p[1] for p in pts)
 
-    walls = [(sid, w) for sid, w in
-             ((sid, _footprint_world(sc)) for sid, sc in cars.items()) if len(w) >= 3]
+    walls = [(sid, w) for sid, sc in cars.items()
+             for w in _occupied_footprints_world(sc) if len(w) >= 3]
 
     # ONLY THE WALLS THAT CAN WIN (T-2117). Every lattice point below stands inside the
     # yard's box, and so does every vertex of its fence, so no point is farther from the
@@ -914,9 +922,8 @@ def build_green_tree_yard(cars: dict) -> tuple[list, list, list, list]:
     front_w = u1 - u0                     # the front wall's own width, 25 ft here
     bearing = float(place.get("rotation_deg") or 0.0)      # the facade bearing
 
-    walls = [(sid, w) for sid, w in
-             ((sid, _footprint_world(other)) for sid, other in cars.items()
-              if sid != GREEN_TREE_ID) if len(w) >= 3]
+    walls = [(sid, w) for sid, other in cars.items() if sid != GREEN_TREE_ID
+             for w in _occupied_footprints_world(other) if len(w) >= 3]
 
     refused: list = []
 
@@ -933,7 +940,12 @@ def build_green_tree_yard(cars: dict) -> tuple[list, list, list, list]:
               (rec.get("phases") or [None])[0])
     if ph is not None and rec.get("archetype") == "frame_tavern":
         tp = _tavern_params(ph)
-        if tp.rear_ell:
+        if tp.rear_ell or tp.enclosed_left_annex is not None:
+            # T-2376 retires the old ell, not its existing reconstructed wagon
+            # stands. Retain that former far-wall line as a parking-apron datum;
+            # it supplies no occupied building solid or historical dimension.
+            # The protected wagon notes retain their earlier derivation; the
+            # amendment is recorded in L-green-tree-enclosed-left-reading-2376.
             ell_d = tp.rear_ell_depth_m
 
     # ---- the wagons -------------------------------------------------------- #
@@ -1075,6 +1087,17 @@ def _green_tree_wagon_shed(sc: dict, place: dict, poly: list,
     ground `WAGON_CLEAR_M` gives a parked wagon, and its open eave stands a
     hand's breadth over the tilt it has to cover.
     """
+    # The same canonical building state owns this ground. Andreas's closed
+    # shoulder and Trowbridge's open bay are competing readings, not two roofs
+    # to draw together. Leave every absent/false case on the old path exactly.
+    annex = ((sc.get("attributes") or {}).get("enclosed_left_annex") or {}).get("value")
+    if isinstance(annex, dict) and annex.get("shoulder_enclosed") is True:
+        return [], [], [{"structure_id": GREEN_TREE_ID, "why": (
+            "the canonical enclosed shoulder occupies the open-bay ground; "
+            "the separate shed/posts and its covered wagon are not drawn twice. "
+            "Trowbridge's open bay remains a conflicting retrospective reading, "
+            "not a dated conversion or a measured July1835 condition.")}]
+
     refused: list = []
     u0 = min(p[0] for p in poly)
     u1 = max(p[0] for p in poly)
@@ -1152,8 +1175,10 @@ def _green_tree_wagon_shed(sc: dict, place: dict, poly: list,
             "native primary entrance, instead of its former rear-end station. The "
             "covered wagon shares this centre. This is reconstructed setting from a "
             "retrospective drawing, not a surveyed coordinate or proof of the exact "
-            "July-1835 state; the inn and its doors do not move. The enclosed gabled "
-            "Andreas annexes remain unresolved and are not this yard roof. "
+            "July-1835 state; the inn and its doors do not move. The canonical low "
+            "connector and farther gabled range are independent building geometry. "
+            "The unadopted prepared Andreas reading closes the shoulder; this open "
+            "wagon bay remains separate native yard geometry, not the gabled range. "
             "HOW BIG IS ARITHMETIC on numbers already here: the "
             f"bay is {length:.2f} m along the wall (the wagon's body and "
             f"{GT_SHED_END_M:.2f} m of air at each end) by {depth:.2f} m out from it "
@@ -1217,8 +1242,8 @@ def _town_world(cars: dict) -> dict:
     `boats.keepOut`. A second mechanism for any of them would be a second answer, and
     two answers about the same ground is how a wagon ends up standing on a footway.
     """
-    walls = [(sid, w) for sid, w in
-             ((sid, _footprint_world(sc)) for sid, sc in cars.items()) if len(w) >= 3]
+    walls = [(sid, w) for sid, sc in cars.items()
+             for w in _occupied_footprints_world(sc) if len(w) >= 3]
 
     streets = []
     for s in _load(STREETS).get("streets", []):

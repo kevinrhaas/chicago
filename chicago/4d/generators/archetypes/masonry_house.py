@@ -394,17 +394,27 @@ def _stable_reworked(b, r):
         pl = {"axis": axis, "sign": sign, "at": at}
         prof = profile(r, face)
         if face == "north":
-            # The masonry gable has coping only on its two slopes. No raised
-            # diagonal runs from its foot to the ordinary alley eave.
-            lift = r["parapet_m"].get("north", 0)
             west_eave = g.get('north_west_eave', g['north_eave'])
             east_eave = (g['north_eave'] if g.get('north_service_junction') else
                          height(r,g['front_x1'],r['y1']) if g.get('level_courtyard_gable') else g['north_eave'])
             gp = [(g["front_x0"],west_eave),(r["ridge_at"],r["ridge_z"]),(g["front_x1"],east_eave)]
-            prof = [(r["x0"],west_eave),(g["front_x0"],west_eave),
-                (g["front_x0"],west_eave+lift),(r["ridge_at"],r["ridge_z"]+lift),
-                (g["front_x1"],east_eave+lift),(g["front_x1"],east_eave)]
-            _parapet(b,pl,gp,lift,r["conf_ends"][face],WALL_MAT[kind])
+            if r["gable_ends"].get("north") == "parapet":
+                # The masonry gable has coping only on its two slopes. No raised
+                # diagonal runs from its foot to the ordinary alley eave.
+                lift = r["parapet_m"].get("north", 0)
+                prof = [(r["x0"],west_eave),(g["front_x0"],west_eave),
+                    (g["front_x0"],west_eave+lift),(r["ridge_at"],r["ridge_z"]+lift),
+                    (g["front_x1"],east_eave+lift),(g["front_x1"],east_eave)]
+                _parapet(b,pl,gp,lift,r["conf_ends"][face],WALL_MAT[kind])
+            else:
+                # T-3376: the tiles run over the gable's rakes to a thin verge. The
+                # wall keeps the roof's own line at the face (`prof`), which on the
+                # west rake stands a little over the gable's nominal line, so the
+                # verge follows it from foot to foot.
+                rise = [i for i, (u, z) in enumerate(prof) if z > min(west_eave, east_eave) + 1e-6]
+                if rise:
+                    run = prof[max(rise[0] - 1, 0):rise[-1] + 2]
+                    _verge(b, pl, run, VERGE, r["conf_ends"][face])
         if face == "west" and g.get("alley_parapet"):
             # T-3096: the alley gable keeps its apex and stands proud of the cross
             # roof, which comes down behind it. South of its foot the wall still
@@ -427,6 +437,13 @@ def _stable_reworked(b, r):
                        (0.08, z + lift + COPING_H), (0.08, z + lift)]
                 _poly_facing(b, [_plane_point(pl, u, h, off) for off, h in end],
                              r["conf_ends"][face], WALL_MAT[kind], (0.0, way, 0.0))
+        if face == "west" and r["gable_ends"].get("west") == "plain":
+            # T-3376: the cross roof oversails the alley gable (its components reach
+            # VERGE past the wall); its verge, over the gable's span only.
+            foot = g["south_foot_y"]
+            run = [(u, height(r, r["x0"] - VERGE, u)) for u, _ in prof if u >= foot - 1e-9]
+            if len(run) > 1:
+                _verge(b, pl, run, VERGE, r["conf_ends"][face])
         spans=_kept(prof[0][0],prof[-1][0],r["wall_skip"].get(face,[]))
         _profile_wall(b,pl,prof,spans,r["conf_plan"],WALL_MAT[kind])
     for _,pts in patches(r):
@@ -530,6 +547,39 @@ def _stack_cut(b, pl, end_prof, lift, stack, conf, mat):
         want = (0.0, way, 0.0) if pl["axis"] == "x" else (way, 0.0, 0.0)
         _poly_facing(b, pts, conf, mat, want)
     return [q for q in (left, right) if len(q) > 1]
+
+
+VERGE = 0.15                # T-3376: tiles carried over a stable gable's rake
+VERGE_RISE = 0.10           # the tiles' build-up over the stone at the verge's edge
+VERGE_LIP = 0.16            # the verge's edge, from its top down past the stone's
+VERGE_SEAT = 0.03           # where the verge leaves the tiles, over the wall's face
+
+
+def _verge(b, pl, prof, over, conf) -> None:
+    """T-3376: a gable whose roof runs over its rakes. A strip of edge tiles leaves the
+    roof over the wall's face and tilts up to stand VERGE_RISE over the stone `over`
+    metres past it, ending in a thin lip, so the rake's edge is the tiles' and not
+    the stone's; no coping stands over them."""
+    # The strip is the verge's own edge tiles, laid flat: a tiled roof's courses run
+    # down its fall line, which here is the rake, and would stand as steps.
+    flat = getattr(b, 'raw', None)
+    for (ua, za), (ub, zb) in zip(prof, prof[1:]):
+        ta, tb = za + VERGE_RISE, zb + VERGE_RISE
+        top = [_plane_point(pl, ua, za + VERGE_SEAT), _plane_point(pl, ub, zb + VERGE_SEAT),
+               _plane_point(pl, ub, tb, over), _plane_point(pl, ua, ta, over)]
+        if _normal(top)[2] < 0:
+            top.reverse()
+        if flat:
+            flat(top, conf, ROOF)
+        else:
+            _up(b, top, conf, ROOF)
+        _poly_facing(b, [_plane_point(pl, ua, ta - VERGE_LIP, over), _plane_point(pl, ub, tb - VERGE_LIP, over),
+                         _plane_point(pl, ub, tb, over), _plane_point(pl, ua, ta, over)],
+                     conf, ROOF, _plane_dir(pl))
+        # its soffit, back to the stone
+        _poly_facing(b, [_plane_point(pl, ua, ta - VERGE_LIP, over), _plane_point(pl, ub, tb - VERGE_LIP, over),
+                         _plane_point(pl, ub, tb - VERGE_LIP, 0.0), _plane_point(pl, ua, ta - VERGE_LIP, 0.0)],
+                     conf, ROOF, (0.0, 0.0, -1.0))
 
 
 def _parapet(b, pl, prof, lift, conf, mat) -> None:

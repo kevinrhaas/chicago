@@ -2,7 +2,7 @@
   "structure_id": "henderson_house_1816_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/henderson_house_1816_prairie__as_mapped_1904.glb",
-  "glb_sha256": "56726e0125f37a47c9691fe704ec90b57aea33c35e6dd4568e070f73b4976d52",
+  "glb_sha256": "a9fab1bc33e69d1ec007ee345879669ad9d1afc8f8c830617daa3f1f778557d3",
   "camera_sha256": "cd716f257362184bf542e8422a3b0549da4bde9351614c1cf035953b19b1371a",
   "photo_sha256": "6cf57cac7e3076af06121b104b57a02b9a25ac3830f01ddafe9ac2f27eb96ca8",
   "side_by_side": "docs/RESEARCH/photo-match/henderson_house_1816_prairie/chicagology_photo-side-by-side.jpg",
@@ -12,6 +12,16 @@
       "what": "massing: a two-storey brick block over a raised stone basement under a mansard, the street front and the south flank both seen, the corner at x 588 px",
       "status": "fixed",
       "how": "T-2963: the 1911 sheet's 14.82 x 12.0 m front block on K01, two storeys (4.8 and 5.3 m) over a 2.0 m basement; the render's corner stands on x 588"
+    },
+    {
+      "what": "the basement in pale ashlar in level courses from grade to a projecting water table at the principal floor, round the street front, both canted bays and the south flank, with barred lights under the bays' windows; built as brick to grade",
+      "status": "fixed",
+      "how": "T-1886: K01's stone front stopped at the principal floor (stone_front.brick_above_m 2.0) under a 0.28 m coping, carried round the south flank (side_base) and through both bays (front_stone, brick over a 2.0 m basement storey) with a barred light in each face the camera sees; the render's stone stands from grade to the brick at the print's line and its lights under the print's, offset with the bays by the 1 m above"
+    },
+    {
+      "what": "the basement's coursing: about six level joints a third of a metre apart in the print; the render's smooth limestone shows three base courses to the lights' heads and plain ashlar over them",
+      "status": "within tolerance",
+      "how": "T-1886: joints under 0.02 m wide in a stone of the right extent, tone and dressing; the profile lays the rusticated base to the lights' heads (L-k01-1816-henderson-1886)"
     },
     {
       "what": "the canted bay at the street front's south corner, two storeys of windows in its faces, the cornice carried round it",
@@ -54,8 +64,19 @@
       "how": "T-2964: the flank bay's upper storey raised to the wall head (5.04 m, as the front bay's), the bracketed cornice run round it (K10, now on any wall), and over it a K08 mansard 4.0 m at 76 degrees under iron cresting; its rise reads about two-fifths of the wall under it in both the print and the render"
     },
     {
-      "what": "the dormers in the two crowns' own faces: one in the front crown's canted face, and one in each face of the flank crown",
-      "status": "open"
+      "what": "the dormers in the two crowns' own faces: one on the front crown's street face, one on the flank crown's south face",
+      "status": "fixed",
+      "how": "T-1886: one pedimented dormer on each crown's front face (K08 mansard_dormers, the main dormers' 40-degree gabled head, a 0.7 by 1.4 m sash); through the camera they render where the print's stand, the front crown's about 1 m north of the print's with the porch and bay (the within-tolerance item above)"
+    },
+    {
+      "what": "the flank crown's second dormer, in its south-east canted face (x 230-290 px)",
+      "status": "open",
+      "how": "T-1886: K08 lays a bay's mansard dormers on its front face only; a dormer on a canted face is a kit change (L-k01-1816-henderson-1886)"
+    },
+    {
+      "what": "both crowns' lower faces slated as the main mansard, the print drawing all three alike; built in a plain grey sheet",
+      "status": "fixed",
+      "how": "T-1886: the crowns roof.slated_as_house (T-1881), so they take the main mansard's own slate"
     },
     {
       "what": "iron cresting along every roof deck",
@@ -97,7 +118,7 @@
       "how": "T-2964: a pattern inside a fence of the right height, kind and line"
     },
     {
-      "what": "the brick's tone: dark in the print; built in K01's buff brick (the print is monochrome, so the colour itself is not shown)",
+      "what": "the brick's tone: dark in the print on the street front and the south flank alike; built red on the front and the bays (T-3385's pressed red) and buff on the flank between them",
       "status": "open"
     },
     {
@@ -115,5 +136,5 @@
       "how": "T-3206 adds the K14 flagged walk from the stair to the public walk and stands the entrance gate open; the scroll fence on its curb is kept"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

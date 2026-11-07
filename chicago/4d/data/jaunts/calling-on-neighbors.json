@@ -1,15 +1,12 @@
 {
   "schema_version": 1,
+  "content_version": 2,
+  "category": "Social life",
+  "review_required": false,
   "id": "calling-on-neighbors",
-  "content_version": 1,
+  "scene": "1835",
   "title": "Calling on Neighbors",
   "premise": "Make a few imagined calls: present a letter of introduction from Brown's boarding house, read the Peck household on its card, find where the town meets at the Exchange, and leave a calling card.",
-  "category": "Social life",
-  "scene": "1835",
-  "opening": {
-    "text": "You have taken a room in town this summer and carry two letters of introduction. Make a few calls: choose which letter to present, read a merchant household on its card, find where the town meets, and leave a calling card. The letters, the calls and the card are invented; who answered any door is not recorded.",
-    "read_s": 20
-  },
   "default_mode": "horse",
   "allowed_modes": [
     "walk",
@@ -18,6 +15,15 @@
     "fly",
     "instantly"
   ],
+  "long_form": true,
+  "ambience": {
+    "hour": "daytime",
+    "season": "summer"
+  },
+  "opening": {
+    "text": "JAUNT: CALLING ON NEIGHBORS. You have taken a room in town this summer and carry two letters of introduction, which in 1835 is how a stranger becomes a neighbour. And Chicago is a town of strangers: the Democrat found them 'crowding every room of our public houses'. Everybody is new, everybody is introducing themselves, and everybody leaves a card.\n\nPresent a letter, read a merchant's household, find where the town meets, and leave your card. Come winter, this town dances: at one ball Charles Hoffman saw 'a veteran officer in full uniform balancing to a tradesman's daughter'. In summer it does business. Mind your manners.",
+    "read_s": 29
+  },
   "variables": {
     "note": {
       "min": 0,
@@ -39,8 +45,8 @@
         "kind": "structure",
         "id": "brown_boarding_house"
       },
-      "text": "Start behind Peck's store at Mrs Rufus Brown's log boarding house, which Andreas names as one of the first-class boarding houses; its exact spot is our placement. In this imagined call you lodge here and carry two letters of introduction. Choose the one to present first.",
-      "read_s": 24,
+      "text": "Start behind Peck's store at Mrs Rufus Brown's log boarding house, which Andreas names as one of the first-class boarding houses of the town. You lodge here, and you carry two letters of introduction from home. In a town where nearly everyone arrived within the last three years, a letter from someone back east is how people learn who you are. Choose the one to present first.",
+      "read_s": 21,
       "action_s": 10,
       "links": [
         {
@@ -69,7 +75,7 @@
         {
           "id": "merchant-letter",
           "label": "A letter from a merchant back east",
-          "consequence": "It introduces you to the town's trade. Who wrote it, and to whom, is the story's.",
+          "consequence": "It introduces you to the town's trade.",
           "effects": [
             {
               "op": "set",
@@ -82,7 +88,7 @@
         {
           "id": "minister-letter",
           "label": "A letter from your minister at home",
-          "consequence": "It introduces you to the town's congregations. No reply is recorded.",
+          "consequence": "It introduces you to the town's congregations.",
           "effects": [
             {
               "op": "set",
@@ -101,8 +107,8 @@
         "kind": "structure",
         "id": "peck_store"
       },
-      "text": "A few steps round to Peck's corner of South Water and LaSalle. Andreas has him arriving with a stock of goods in July 1831, and the Rev. Jeremiah Porter lodging in this store's unfinished loft in May 1833. Who was in today is not recorded: read his household on its card instead.",
-      "read_s": 26,
+      "text": "A few steps round to Peck's corner of South Water and LaSalle. P. F. W. Peck came in July 1831 with a stock of goods, and when the Rev. Jeremiah Porter arrived in 1833 Peck gave him 'a lodging place and study in the second story of his store building', where 'one of the earliest Sunday-schools organized in the town' met. This is also the year Peck marries Mary K. Wythe of Philadelphia. Read the household on its card.",
+      "read_s": 24,
       "action_s": 10,
       "links": [
         {
@@ -131,7 +137,9 @@
         "peck-loft",
         "peck-home",
         "peck-place",
-        "calls"
+        "calls",
+        "mk-peck-porter",
+        "mk-peck-later"
       ],
       "next": "the-exchange",
       "narrative": "Read at its card, not its door."
@@ -142,8 +150,8 @@
         "kind": "structure",
         "id": "exchange_coffee_house"
       },
-      "text": "West to Lake and Wells and the Exchange Coffee House, kept by Mr. and Mrs. Murphy since August 1834. The Democrat reports Democratic meetings held here in April and June 1835, and a dancing master's 1834 notice asked would-be pupils to leave their address here. A public house is a public address.",
-      "read_s": 28,
+      "text": "West to Lake and Wells and the Exchange Coffee House, kept by Mr. and Mrs. Murphy since August 1834. The town's Democrats met here in April and again in June 1835 to name their candidates, and in 1834 the dancing master J. A. Marshall asked would-be pupils to leave their address here. A public house is post box, notice board and meeting hall at once. Leave your card, or carry it on.",
+      "read_s": 22,
       "action_s": 10,
       "links": [
         {
@@ -210,8 +218,8 @@
         "kind": "structure",
         "id": "sauganash_hotel"
       },
-      "text": "Along Lake Street to Market and the Sauganash, which the Democrat of 10 June 1835 reported repaired and newly fitted up; a week later the paper found strangers crowding every room of the public houses. A card still in your pocket is left here. Who reads it, nobody wrote down.",
-      "read_s": 26,
+      "text": "Along Lake Street to Market and the Sauganash, newly fitted up in June and, Moses and Kirkland say, 'the most attractive hostlery the city possessed'. A week after the refit the Democrat found strangers crowding every room in town, and every one of them, like you, is a name on a card. A card still in your pocket is left here.",
+      "read_s": 19,
       "action_s": 5,
       "links": [
         {
@@ -230,7 +238,8 @@
         "crowded",
         "sauganash-place",
         "continuity",
-        "calls"
+        "calls",
+        "mk-sauganash"
       ],
       "next": "$end",
       "narrative": "A town of strangers, introducing themselves."
@@ -240,7 +249,7 @@
     {
       "from": "the-room",
       "to": "the-merchant",
-      "note": "A few steps from the boarding house round to the store in front of it; how far behind the store the house stood is our placement.",
+      "note": "A few steps from the boarding house round to the store in front of it.",
       "evidence": [
         "brown-place",
         "peck-place"
@@ -253,7 +262,7 @@
     {
       "from": "the-merchant",
       "to": "the-exchange",
-      "note": "West along South Water Street to Wells and a block south to Lake; no particular path is claimed.",
+      "note": "West along South Water Street to Wells and a block south to Lake.",
       "evidence": [
         "peck-place",
         "exchange-place"
@@ -276,8 +285,8 @@
   "endings": [
     {
       "id": "merchant-at-the-exchange",
-      "text": "A merchant's letter presented and your card left at the Exchange, among the town's notices and meetings. Whether anyone called in return is not recorded; the letter, the calls and the card are the story's.",
-      "read_s": 10,
+      "text": "A merchant's letter presented and your card left at the Exchange, where the Democrats meet and the dancing master took his names. By next week the right people will know who you are.",
+      "read_s": 9,
       "completion_eligible": true,
       "when": {
         "all": [
@@ -296,8 +305,8 @@
     },
     {
       "id": "minister-at-the-exchange",
-      "text": "A minister's letter presented and your card left at the Exchange, where the town comes to meet. Whether a congregation called in return is not recorded; the letter, the calls and the card are the story's.",
-      "read_s": 10,
+      "text": "A minister's letter presented and your card left at the Exchange, where the town comes to meet. With luck, a congregation calls on you before Sunday.",
+      "read_s": 8,
       "completion_eligible": true,
       "when": {
         "all": [
@@ -316,8 +325,8 @@
     },
     {
       "id": "card-at-the-sauganash",
-      "text": "Your card left at the Sauganash, among a summer's crowd of strangers new to the town. Whether anyone called in return is not recorded; the letter, the calls and the card are the story's.",
-      "read_s": 10,
+      "text": "Your card is left at the Sauganash, among a summer's crowd of strangers. In a year most of them will be neighbours, and a few of them will be rich.",
+      "read_s": 8,
       "completion_eligible": true,
       "default": true
     }
@@ -441,6 +450,42 @@
       "locator": "17 June 1835 (Vol. II No. 9), p. 2, col. 4, the editor's paragraph on the state of the streets (claim chicago_democrat_1835_06_17#c001). Transcription-mediated reading; the issue's interior editorial block prints 10 June."
     },
     {
+      "id": "mk-ball",
+      "text": "Charles F. Hoffman, at a Chicago ball in 1834, found 'a complete medley of all ranks, ages, professions, trades and occupations': 'a veteran officer in full uniform balancing to a tradesman's daughter, still in her short frock and trousers', while 'a pair of Cinderella-like slippers would chassez across with a brace of thick-soled brogans'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 100, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 13421-13449 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-peck-porter",
+      "text": "Peck gave the Rev. Jeremiah Porter 'a lodging place and study in the second story of his store building', and there was held 'one of the earliest Sunday-schools organized in the town'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 571, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 99868-99876 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-peck-later",
+      "text": "In 1835 Peck joined the Pioneer Hook and Ladder Company and married Mary K. Wythe of Philadelphia; years later he was credited 'with having $40,000 in cash locked in an iron safe in his dwelling, and was considered nearly as wealthy as John Jacob Astor'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 571, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 99877-99917 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
+      "id": "mk-sauganash",
+      "text": "Moses and Kirkland call the Sauganash 'the most attractive hostlery the city possessed', and its genial landlord, 'with his merry fiddle, the most popular of hosts'.",
+      "confidence": "attested",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "locator": "p. 87, data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 11879-11886 (machine OCR of the 1895 printing, read as corrected)"
+    },
+    {
       "id": "sauganash-place",
       "text": "The Sauganash stood at the south-east corner of Lake and Market Streets, on the east bank of the South Branch.",
       "confidence": "inferred",
@@ -469,8 +514,8 @@
       "liberty": "L-jaunt-calling-on-neighbors"
     }
   ],
-  "review_required": false,
   "liberties": [
-    "L-jaunt-calling-on-neighbors"
+    "L-jaunt-calling-on-neighbors",
+    "L-jaunt-1835-light-and-stories"
   ]
 }

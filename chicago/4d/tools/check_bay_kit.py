@@ -30,6 +30,9 @@ clause is a rule here:
              fraction of its triangles (T-1890: a bay holding an open opening, a loggia's,
              may state its own fraction up to 0.65, with its reason)
   costs      every variant inside its triangle budget, at both tiers
+  winding    every face wound outward, the way its own normals point, at both tiers
+             (T-3289: a segmental bow's cone faced into the bow, so the renderer, which
+             culls back faces, drew it from below and lost it from above)
   specimen   the committed specimen GLB is the generator's bytes
 """
 
@@ -140,6 +143,8 @@ def rule_data(v, data, b):
         if w.get("door") and k == 0:   # T-1890: a door runs through the plinth, its sill on the step
             floor = levels[0] - k06["parts"]["sill"]["height_m"]
         ceil = levels[k + 1] - (band["height_m"] / 2 if k + 1 < len(levels) - 1 else 0)
+        if w.get("in_plinth") and k == 0:   # T-3257: a basement light stands in the plinth itself
+            floor, ceil = levels[0], plinth["height_m"]
         if w["y_all"][0] < floor - EPS or w["y_all"][1] > ceil + EPS:
             fails.append(f"storey: {w['opening']} on storey {k} spans y {w['y_all'][0]:.3f}..{w['y_all'][1]:.3f}, "
                          f"outside its storey's clear wall {floor:.3f}..{ceil:.3f}")
@@ -264,6 +269,24 @@ def rule_keyed(b, v):
     # T-2900: a corner turret's cone stands whole over its wing's roof (`cap_whole`), so its
     # roof and finial reach behind the face, inside its eaves' circle and nowhere else
     whole = ("roof", "finial") if v.get("cap_whole") else ()
+    # T-1890: a shallow pavilion's roof behind its gable (`roof.gable.behind`, 1801's south
+    # pavilion) runs back into its host's roof, as deep as `run_back_m` and no deeper (below)
+    behind_roof = (((v.get("roof") or {}).get("gable") or {}).get("behind")) if v.get("shallow") else None
+    # T-1881 (2026-11-02): a mansard joined to its host's (`roof.mansard.back_m`, 1729's sections)
+    # runs its roof back through the plane into the host's, as deep as back_m and no deeper
+    joined = ((v.get("roof") or {}).get("mansard") or {}).get("back_m")
+    if joined is not None:
+        whole = (*whole, "roof", "roof_back")
+        far = min((p[2] for r in ("roof", "roof_back") for p in b.prims.get(r, K.Prim(r)).pos), default=0.0)
+        if far < -float(joined) - 1e-6:
+            fails.append(f"behind: a joined mansard stands {-far:.4f} m behind the host wall's face, "
+                         f"past its back_m {joined}")
+    if behind_roof:
+        whole = (*whole, "roof")
+        far = min((p[2] for p in b.prims["roof"].pos), default=0.0) if "roof" in b.prims else 0.0
+        if far < -float(behind_roof["run_back_m"]) - 1e-6:
+            fails.append(f"behind: the roof behind its gable stands {-far:.4f} m behind the host wall's face, "
+                         f"past its run_back_m {behind_roof['run_back_m']}")
     # T-3047: a shallow projection's window recesses and its gable's parapet run back through
     # the plane (its host opens its face round the recesses), no deeper than a recess reaches
     through = (*K.WINDOW_ROLES, "band") if v.get("shallow") else ()
@@ -284,7 +307,7 @@ def rule_keyed(b, v):
         if far[0] < -deep - 1e-6:
             fails.append(f"behind: a shallow projection's {far[1]} reaches {-far[0]:.4f} m behind the host wall's "
                          f"face, past its recesses' {deep:.4f} m")
-    if whole:
+    if whole and v.get("cap_whole"):
         (cx, cz), reach = b.plan["centre"], b.plan["R"] + b.meta["overhang_m"]
         far = max(math.hypot(p[0] - cx, p[2] - cz) for role in whole for p in b.prims.get(role, K.Prim(role)).pos)
         if far > reach + 1e-6:
@@ -326,10 +349,20 @@ def inside_point(b):
     # door to close, so a ray out through it is the doorway, not a gap; with the door on the
     # block's axis (1729's p_forward) every point above stands behind it, so the points
     # halfway between its jambs and the block's sides are tried too
+    # (T-1881 round 3: and, on a front step as shallow as 1729's entry, 1.6 m, the same points
+    # 0.3 m behind its front, where no 45-degree ray reaches across to the door)
+    # (T-3367: or a square tower's face, 1936's: the face is the middle of the bay's three runs)
     dh = b.v.get("door_hole")
     if dh:
-        (xa, _), (xb, _) = b.v["plan"]["points"][1:3]
-        cands = (*cands, ((dh["x_m"][1] + xb) / 2, 0.1), ((dh["x_m"][0] + xa) / 2, 0.1))
+        f = b.runs[1]
+        (xa, zf_), xb = f.A, f.A[0] + f.L * f.e[0]
+        # T-3367: on a square tower whose door stands off its axis (1936's, under the face's north
+        # part) the points beside the door see it, and its belvedere's deep cornice leaves the
+        # points behind the face outside the shell at the wall top; so its far sides come first
+        if b.v["plan"].get("kind") == "polygon":
+            cands = (*cands, (xa + 0.3, 0.1), (xb - 0.3, 0.1))
+        cands = (*cands, ((dh["x_m"][1] + xb) / 2, 0.1), ((dh["x_m"][0] + xa) / 2, 0.1),
+                 ((dh["x_m"][1] + xb) / 2, zf_ - 0.3), ((dh["x_m"][0] + xa) / 2, zf_ - 0.3))
     lv = b.meta["levels_m"]
 
     def points(cand):
@@ -347,7 +380,7 @@ def through_door(b, p, dh):
     """T-1881: whether a ray of DIRS from p meets the block's front inside its door hole."""
     if not dh:
         return False
-    zf = b.v["plan"]["points"][1][1]
+    zf = b.runs[1].A[1]
     for d in DIRS:
         if d[2] <= 0:
             continue
@@ -644,13 +677,18 @@ def rule_light(full, light, data, v=None):
         # ...or for a bay with one light a storey under a cornice swept round it and a mansard
         # (1801's south bay, the main cornice and slate carried round it): both stand whole in
         # either tier, and one light a storey leaves the light tier little sash to drop
+        # ...or under a coped gable between pinnacles (1801's east frontispiece, T-1890): its coping,
+        # kneelers, pinnacles and finial stand whole in either tier, as the cornice and mansard do
         swept = ((v.get("overrides") or {}).get("eaves") or {}).get("profile") or (v.get("eaves") or {}).get("cornice")
-        dressed = bool(swept) and bool((v.get("roof") or {}).get("mansard")) \
+        roof = v.get("roof") or {}
+        coped = roof.get("kind") == "gable" and bool((roof.get("gable") or {}).get("coping")) \
+            and bool((roof.get("gable") or {}).get("pinnacle"))
+        dressed = (bool(swept) and bool(roof.get("mansard")) or coped) \
             and all(sum(len(w.get("at") or [0]) for w in st["windows"]) <= 1 for st in v["storeys"])
         if not dressed and not any(k06.get(w["opening"], {}).get("operation") == "open"
                                    for st in v["storeys"] for w in st["windows"]):
             fails.append("light: a bay states its own light_tier ratio but holds no open opening (or one light "
-                         "a storey under a swept cornice and a mansard) to warrant it")
+                         "a storey under a swept cornice and a mansard, or a coped gable between pinnacles) to warrant it")
         elif not str(lt.get("why", "")).strip() or not cv["max_triangle_ratio"] < lt["max_triangle_ratio"] <= 0.65:
             fails.append(f"light: a bay's own light_tier ratio {lt.get('max_triangle_ratio')} must lie over "
                          f"{cv['max_triangle_ratio']}, at most 0.65, and say why")
@@ -680,6 +718,31 @@ def rule_light(full, light, data, v=None):
     return fails
 
 
+def rule_winding(b, tier):
+    """T-3289: a triangle's corners run anticlockwise seen from the side its normals face, so
+    the renderer's back-face cull keeps it from outside. Every role, the roof's first among them:
+    a cone wound against its normals is lit as a roof and drawn as its own underside."""
+    fails = []
+    for role, pr in sorted(b.prims.items()):
+        bad, first = 0, None
+        for t in range(0, len(pr.idx), 3):
+            ia, ib, ic = pr.idx[t:t + 3]
+            a, p, q = pr.pos[ia], pr.pos[ib], pr.pos[ic]
+            u = (p[0] - a[0], p[1] - a[1], p[2] - a[2])
+            w = (q[0] - a[0], q[1] - a[1], q[2] - a[2])
+            g = (u[1] * w[2] - u[2] * w[1], u[2] * w[0] - u[0] * w[2], u[0] * w[1] - u[1] * w[0])
+            if g[0] * g[0] + g[1] * g[1] + g[2] * g[2] < 1e-16:   # a sliver has no side to face
+                continue
+            n = [pr.nrm[ia][k] + pr.nrm[ib][k] + pr.nrm[ic][k] for k in range(3)]
+            if g[0] * n[0] + g[1] * n[1] + g[2] * n[2] <= 0:
+                bad += 1
+                first = first or tuple(round((a[k] + p[k] + q[k]) / 3, 3) for k in range(3))
+        if bad:
+            fails.append(f"winding: {bad} of the {tier} tier's {role} triangles are wound against their own "
+                         f"normals (the first at {first}), so the renderer culls them from the side they face")
+    return fails
+
+
 def rule_costs(b, data, tier):
     t = K.triangles(b)
     cap = data["costs"]["max_triangles"][tier]
@@ -693,7 +756,8 @@ def check_variant(v, data, full=None, light=None):
     return (rule_data(v, data, full) + rule_keyed(full, v) + rule_closed(full, tracer) + rule_windows(full, tracer)
             + rule_recesses(full, v, data) + rule_doubled(full) + rule_curves(full, data, "full")
             + rule_curves(light, data, "light") + rule_support(full, v, data) + rule_light(full, light, data, v)
-            + rule_costs(full, data, "full") + rule_costs(light, data, "light"))
+            + rule_costs(full, data, "full") + rule_costs(light, data, "light")
+            + rule_winding(full, "full") + rule_winding(light, "light"))
 
 
 def house_bays():
@@ -786,6 +850,14 @@ def self_test(data) -> int:
     def m_light_own(d):   # T-1890: a bay's own ratio, with no open opening to warrant it
         _v(d, "k08.bay.canted")["light_tier"] = {"max_triangle_ratio": 0.6, "why": "no reason"}
 
+    def m_light_gable(d):   # T-1890: a coped gable warrants its own ratio only over one light a storey
+        g = {"upstand_m": 0.15, "coping": {"width_m": 0.4, "height_m": 0.16, "proud_m": 0.08},
+             "kneeler": {"width_m": 0.35, "out_m": 0.03}, "pinnacle": {"width_m": 0.16, "shaft_m": 0.4, "cap_m": 0.4},
+             "finial": {"width_m": 0.2, "shaft_m": 0.2, "cap_m": 0.25}, "inset_m": [0.0, 0.0]}
+        v = _v(d, "k08.projection.full_height")
+        v["roof"] = {"kind": "gable", "pitch": 1.2, "covering": "slate_pennsylvania", "gable": g}
+        v["light_tier"] = {"max_triangle_ratio": 0.62, "why": "a coped gable with two lights a storey"}
+
     def m_light_pier(d):   # T-1890: a bay that calls itself a pier keeps no light tier, but only as a box
         _v(d, "k08.bay.canted")["pier"] = True
 
@@ -804,6 +876,8 @@ def self_test(data) -> int:
         ("a light tier as heavy as the full", m_light, "k08.bay.canted", "light:"),
         ("a light tier cut so coarse it loses the silhouette", m_coarse, "k08.bay.bowed", "facet: the light tier"),
         ("a glazed bay stating its own light-tier ratio", m_light_own, "k08.bay.canted", "holds no open opening"),
+        ("a coped gable over two lights a storey stating its own ratio", m_light_gable,
+         "k08.projection.full_height", "holds no open opening"),
         ("a glazed bay calling itself a pier to keep its light tier", m_light_pier, "k08.bay.canted", "a pier costs"),
     ]
     bad = 0
@@ -855,6 +929,10 @@ def self_test(data) -> int:
     b = built()
     b.prims["wall"].pos = [(p[0], p[1], p[2] + 0.01) for p in b.prims["wall"].pos]
     geo.append(("a wall moved off its declared plan", rule_keyed(b, v), "footprint:"))
+    b = built(vb)
+    rf = b.prims["roof"]
+    rf.idx = [i for t in range(0, len(rf.idx), 3) for i in (rf.idx[t], rf.idx[t + 2], rf.idx[t + 1])]
+    geo.append(("a bow's roof wound into the bow (T-3289)", rule_winding(b, "full"), "winding:"))
     for name, got, want in geo:
         hit = any(want in f for f in got)
         print(f"self-test | {'ok  ' if hit else 'FAIL'} {name} -> "

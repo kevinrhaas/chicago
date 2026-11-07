@@ -24,7 +24,8 @@
  *  - every bounding volume, computed before the position can go, so the
  *    frustum never needs it again — for a BatchedMesh that is each of its
  *    geometries' box and sphere too, which three computes lazily off the
- *    positions the first time an instance is culled or sorted;
+ *    positions the first time an instance is culled or sorted, and which are
+ *    then kept as float32 figures rather than objects (batch-bounds.js, T-3173);
  *  - a BatchedMesh index's element size, which three reads on every draw that
  *    culls: its array is swapped for an empty one of the same type, not dropped;
  *  - a geometry flagged `userData.rereadBeforeRelease`, which its layer will
@@ -45,14 +46,20 @@
  */
 
 import * as THREE from 'three';
-import { isSharedImage, retireSharedImage } from './shared-images.js';
+import { isSharedImage, retireSharedImage, sourceTextureSlots } from './shared-images.js';
+import { compactBatchBounds } from './batch-bounds.js';
 
 /** Layer → attributes it must keep for a tap. Unlisted layers keep nothing. */
 export const RELEASE_KEEP = {
   terrain: [],
   trees: [],
+  'street-trees': [],
   'yard-ground': [],
   streets: [],
+  // Street-grid CPU ray picks keep positions and indices; other uploaded lanes can go.
+  'street-grid': ['position', 'index'],
+  // Front yards pick analytically; keep triangles for ordinary raycast compatibility.
+  'front-yards': ['position', 'index'],
   // T-2572: picked on the GPU (gpu-pick.js), so their triangles go too.
   frontage: [],
   enclosures: [],
@@ -64,6 +71,11 @@ export const RELEASE_KEEP = {
   // T-2775: the 1904 lakefront railway. Its pick marches the ray to the ground and
   // tests the strips' stations (railway.js), so no triangle is read back.
   railway: [],
+  // Context streets have no triangle pick: context.js raycasts only its building meshes.
+  'context:streets': [],
+  // T-3407: the 1812 officers' garden picks its beds on their planes (gardens.js pickAt) and
+  // swaps its plants' levels by geometry id, so no array is read back after upload.
+  gardens: [],
 };
 
 function dropArray() { this.array = null; }
@@ -84,7 +96,9 @@ const census = { geometries: 0, attributes: 0, bytes: 0, keptForHarness: KEEP_AR
   // T-2548: the buildings' source glTF geometry, and their decoded images.
   sources: 0, sourceBytes: 0, images: 0, imageBytes: 0,
   // T-2828: a GLB KTX2's transcoded levels, let go by texture residency once uploaded.
-  compressed: 0, compressedBytes: 0 };
+  compressed: 0, compressedBytes: 0,
+  // T-3173: BatchedMesh geometry bounds moved into typed arrays (batch-bounds.js).
+  boundsRows: 0, boundsBytes: 0 };
 
 /** T-2828: texture-residency.js let go of one source's transcoded levels (`bytes`). */
 export function noteReleasedLevels(bytes) {
@@ -106,8 +120,56 @@ function release(attr, drop = dropArray) {
   if (!KEEP_ARRAYS) attr.onUpload(drop);
 }
 
+/** Railway alone opts in after its last matrix write. Shared near/far users
+ * must all have full-capacity bounds before the shared upload array can go. */
+function markRailwayStaticMatrices(layer) {
+  if (layer.name !== 'railway') return;
+  const users = new Map();
+  layer.traverse(o => {
+    const a = o.instanceMatrix;
+    if (!o.isInstancedMesh || !a?.array
+      || a.itemSize !== 16 || a.usage !== THREE.StaticDrawUsage
+      || !(a.array instanceof Float32Array) || !a.count || a.userData?.uploadReleased) return;
+    if (!users.has(a)) users.set(a, []);
+    users.get(a).push(o);
+  });
+  for (const [a, meshes] of users) {
+    if (!meshes.every(m => m.userData.railwayStaticMatrix === true)) continue;
+    a.userData = a.userData || {};
+    a.userData.uploadReleased = true; a.userData.uploadBytes = a.array.byteLength;
+    census.attributes += 1; census.bytes += a.array.byteLength;
+    if (KEEP_ARRAYS) continue;
+    const previousUpload = a.onUploadCallback;
+    a.onUpload(function releaseRailwayMatrix() {
+      // No future tier/count increase may lazily read a discarded matrix.
+      const box = new THREE.Box3(), sphere = new THREE.Sphere();
+      for (const mesh of meshes) {
+        const count = mesh.count, oldBox = mesh.boundingBox, oldSphere = mesh.boundingSphere;
+        if (oldBox) box.union(oldBox);
+        if (oldSphere) sphere.union(oldSphere);
+        try {
+          mesh.count = this.count; mesh.boundingBox = null; mesh.boundingSphere = null;
+          mesh.computeBoundingBox(); mesh.computeBoundingSphere();
+          box.union(mesh.boundingBox); sphere.union(mesh.boundingSphere);
+        } finally { mesh.count = count; mesh.boundingBox = oldBox; mesh.boundingSphere = oldSphere; }
+      }
+      // Preserve near/far's shared sphere and never shrink any previous bound.
+      const sharedSphere = meshes.find(m => m.boundingSphere)?.boundingSphere ?? new THREE.Sphere();
+      sharedSphere.copy(sphere);
+      for (const mesh of meshes) {
+        if (mesh.boundingBox) mesh.boundingBox.copy(box); else mesh.boundingBox = box.clone();
+        mesh.boundingSphere = sharedSphere;
+      }
+      previousUpload.call(this);
+      this.array = null;
+      this.onUploadCallback = previousUpload;
+    });
+  }
+}
+
 /** Mark one layer's geometries to let go of their page arrays once uploaded. */
 function markLayer(layer, keep) {
+  markRailwayStaticMatrices(layer);
   layer.traverse((o) => {
     const geo = o.geometry;
     if (!geo || o.isInstancedMesh || geo.userData.uploadReleased) return;
@@ -156,6 +218,10 @@ function batchBounds(batch) {
     batch.getBoundingBoxAt(id, _box);
     batch.getBoundingSphereAt(id, _sphere);
   }
+  // T-3173: and then kept as figures in two typed arrays rather than a Box3 and a
+  // Sphere apiece — about 20 MB of a phone's JS heap on /1904/ (batch-bounds.js).
+  const rows = compactBatchBounds(batch);
+  if (rows) { census.boundsRows += rows; census.boundsBytes += batch.userData.compactBounds.bytes; }
 }
 
 /** What three's raycast interpolates at a hit when the geometry carries it. */
@@ -314,10 +380,40 @@ export function releaseSources(registry) {
       geo.setIndex(null);
       geo.dispose();
     });
+    collapseScene(row);
     row.sourceReleased = true;
     census.sources += 1;
     for (const buffer of buffers) census.sourceBytes += buffer.byteLength;
   }
+}
+
+/**
+ * T-3173. A RELEASED ROW KEEPS ITS MATERIALS, NOT ITS NODE TREE. With the geometry
+ * gone, the GLB's Object3D tree was still held twice per building (`gltf.scene`,
+ * `gltf.scenes`, and `record.node` inside them): every node's matrices, children
+ * arrays and `extras` userData, about 9 MB of the 1904 phone's JS heap for 411
+ * structures. Nothing reads the tree once the batch is built — the card reads the
+ * record's sidecar, and a detail rebuild re-reads a released row's GLB first
+ * (main.js `rereadReleased`). What a retired gltf still owes is disposal of its
+ * materials and the textures they reach (`disposeLoadedAsset`, which walks the
+ * scene for them; the batches draw with those same materials). So the scene becomes
+ * one plain node carrying the list — not an Object3D apiece, each of which is three
+ * matrices and more — with a `traverse` that visits it: the same disposal, none of
+ * the tree.
+ */
+function collapseScene(row) {
+  const scene = row.gltf.scene;
+  if (!scene || scene.collapsed) return;
+  const requiredTextureSlots = [...sourceTextureSlots(scene)];
+  const materials = new Set();
+  scene.traverse((o) => {
+    for (const material of (Array.isArray(o.material) ? o.material : [o.material])) if (material) materials.add(material);
+  });
+  const carrier = { material: [...materials] };
+  const collapsed = { name: scene.name, collapsed: true, requiredTextureSlots, traverse(visit) { visit(carrier); } };
+  row.gltf.scene = collapsed;
+  if (Array.isArray(row.gltf.scenes)) row.gltf.scenes = [collapsed];
+  row.node = null;
 }
 
 /**

@@ -47,11 +47,17 @@ from archetypes import frame_storefront_params as _storefront
 from archetypes import log_dwelling_params as _log
 from archetypes import outbuilding_params as _outbuilding
 from archetypes import fort_structure_params as _fort
+from archetypes import frame_tavern_params as _tavern
 
 # Kinds that are holes in the wall, as against applied joinery standing on it.
 # Both refuse a signboard; only the first is an "opening" in the ticket's sense.
+# T-2374: `aperture` is a hole and nothing more — a dark recess a picture draws
+# and does not explain, with no sash, glass, leaf or function claimed. It belongs
+# here because it IS a hole: a board hung across one covers an opening, and two of
+# them running together on one front is the defect T-1984 refuses, exactly as for a
+# door or a window. It is not an entrance kind: see generate_entrances.ENTRANCE_KINDS.
 HOLE_KINDS = frozenset({"door", "window", "shop_door", "show_window",
-                        "loft_door", "vent", "open_bay"})
+                        "loft_door", "vent", "open_bay", "aperture"})
 
 
 def _storefront_front(p) -> dict:
@@ -73,15 +79,18 @@ _FRONT = {
     "outbuilding": _outbuilding_front,
     # Explicit range layouts only; legacy fort fronts still return None.
     "fort_structure": _fort.front_wall,
+    # T-3359: frontage scheme only; the gable-front and corner-gable schemes, and a
+    # log wing on the front, still return None.
+    "frame_tavern": _tavern.front_wall,
 }
 
 # Archetypes with no reader yet. Named rather than merely absent, so that a caller
 # reporting "no rule for this wall" can say whether the archetype is one this
-# project knows about. frame_tavern is the one that matters: it carries eight signs
-# today, every one of them on a bracket, an awning or a post, so nothing is hung
-# flat on a tavern wall and nothing is silently wrong. The day one is, the caller
-# refuses the flat mounting and says so rather than guessing.
-UNREAD = ("bridge_timber", "frame_tavern",
+# project knows about. frame_tavern left this list with T-3359, when the owner had
+# the town's hung boards fixed flat on their fronts: its frontage scheme is read by
+# `frame_tavern_params.front_wall`, and its other schemes answer None there, so a
+# caller still refuses a flat board on those and says so rather than guessing.
+UNREAD = ("bridge_timber",
           "palisade", "pier_crib")
 
 

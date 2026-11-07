@@ -13,6 +13,7 @@
  */
 
 import { formatDistance, normalUnitSystem } from './units.js';
+import { occupiedPolygons } from './occupied-footprints.js';
 import { isTyping } from './controls/pointerlock.js';
 import { todayText, withLotNumber } from './modern-streets.js';
 
@@ -87,6 +88,37 @@ const SUPER = 2;
 /** Seen only where a window runs past the field — the letterbox case. */
 const OUTSIDE = '#3b3a30';
 
+/**
+ * T-3391. A window drawn at more than CRISP_OVER times the background's own pixels per
+ * metre is drawn afresh, not blown up out of the background: the Map's close-up runs at
+ * 1.25 px/m against the background's 0.25, so a blit smeared every house into a soft
+ * blob five times its width. Above this the ground comes from the heightfield at its own
+ * cell size and the streets and footprints are stroked as paths, culled to the window.
+ */
+const CRISP_OVER = 1.25;
+/** A crisp window samples the heightfield at most this many cells a side (a stride above). */
+const CRISP_GROUND_MAX = 512;
+
+/** The ground's colour for an elevation: the one rule both the background and a crisp window paint by. */
+function groundRGB(h0, out) {
+  if (h0 < -0.02) { out[0] = 45; out[1] = 79; out[2] = 91; return out; }
+  const shade = Math.max(0, Math.min(18, Math.round(Math.max(0, h0) * 4)));
+  out[0] = 105 + shade; out[1] = 101 + shade; out[2] = 70 + Math.round(shade * 0.45);
+  return out;
+}
+
+/** [eMin, nMin, eMax, nMax] of a list of [e, n] points. */
+function boxOf(pts) {
+  let e0 = Infinity, n0 = Infinity, e1 = -Infinity, n1 = -Infinity;
+  for (const [e, n] of pts) {
+    if (e < e0) e0 = e; if (e > e1) e1 = e;
+    if (n < n0) n0 = n; if (n > n1) n1 = n;
+  }
+  return [e0, n0, e1, n1];
+}
+
+const outsideView = (b, view) => b[2] < view.eMin || b[0] > view.eMax || b[3] < view.nMin || b[1] > view.nMax;
+
 function normalBearing(value) {
   return ((Number(value) || 0) % 360 + 360) % 360;
 }
@@ -95,27 +127,29 @@ function cardinal(bearing) {
   return CARDINALS[Math.round(normalBearing(bearing) / 22.5) % CARDINALS.length];
 }
 
-function structureOutlines(registry) {
+export function structureOutlines(registry) {
   const out = [];
   for (const record of registry?.values?.() ?? []) {
     const sidecar = record.sidecar ?? {};
     const raw = sidecar.footprint;
-    const polygon = Array.isArray(raw) ? raw : raw?.polygon;
+    const polygons = occupiedPolygons(raw);
     const placement = sidecar.placement ?? {};
-    if (!Array.isArray(polygon) || polygon.length < 3) continue;
+    if (!polygons.length) continue;
     const th = (placement.rotation_deg ?? 0) * DEG;
     const cos = Math.cos(th);
     const sin = Math.sin(th);
     const e0 = placement.local_e ?? 0;
     const n0 = placement.local_n ?? 0;
-    const ring = polygon.map(([u, v]) => [
-      e0 + u * cos + v * sin,
-      n0 - u * sin + v * cos,
-    ]);
-    // T-2654: the Map app hit-tests these and colours them by the building's own grade.
-    ring.id = record.id ?? sidecar.id ?? null;
-    ring.grade = sidecar.grade?.value ?? sidecar.documented_range?.confidence ?? null;
-    out.push(ring);
+    for (const polygon of polygons) {
+      const ring = polygon.map(([u, v]) => [
+        e0 + u * cos + v * sin,
+        n0 - u * sin + v * cos,
+      ]);
+      // Components retain one structure id and the structure's singular grade.
+      ring.id = record.id ?? sidecar.id ?? null;
+      ring.grade = sidecar.grade?.value ?? sidecar.documented_range?.confidence ?? null;
+      out.push(ring);
+    }
   }
   return out;
 }
@@ -198,6 +232,7 @@ export function createNavigation({ root, terrain, registry, streets, year = '', 
     background.height = h;
     const image = bg.createImageData(w, h);
     const data = image.data;
+    const rgb = [0, 0, 0];
     for (let y = 0; y < h; y++) {
       const gy = hf?.loaded
         ? Math.min(hf.rows - 1, Math.round((h - 1 - y) * (hf.rows - 1)
@@ -206,13 +241,11 @@ export function createNavigation({ root, terrain, registry, streets, year = '', 
         const gx = hf?.loaded
           ? Math.min(hf.cols - 1, Math.round(x * (hf.cols - 1)
             / Math.max(1, w - 1))) : 0;
-        const h0 = hf?.loaded ? hf.data[gy * hf.cols + gx] : 1;
-        const water = h0 < -0.02;
-        const shade = Math.max(0, Math.min(18, Math.round(Math.max(0, h0) * 4)));
+        groundRGB(hf?.loaded ? hf.data[gy * hf.cols + gx] : 1, rgb);
         const i = (y * w + x) * 4;
-        data[i] = water ? 45 : 105 + shade;
-        data[i + 1] = water ? 79 : 101 + shade;
-        data[i + 2] = water ? 91 : 70 + Math.round(shade * 0.45);
+        data[i] = rgb[0];
+        data[i + 1] = rgb[1];
+        data[i + 2] = rgb[2];
         data[i + 3] = 255;
       }
     }
@@ -224,35 +257,117 @@ export function createNavigation({ root, terrain, registry, streets, year = '', 
     // distinction between a street and a whole block of tan pixels.
     // Widths are in BACKGROUND pixels, so they carry the SUPER factor: the
     // inset downsamples 2:1 and a 1.8px line lands as the 0.9px it always was.
-    bg.save();
-    bg.strokeStyle = 'rgba(77, 61, 36, .78)';
-    bg.lineWidth = 0.9 * SUPER;
-    for (const street of streets?.records ?? []) {
-      bg.beginPath();
-      street.path.forEach(([e, n], i) => {
-        const screen = point(e, n);
-        if (i === 0) bg.moveTo(screen.x, screen.y); else bg.lineTo(screen.x, screen.y);
-      });
-      bg.stroke();
-    }
-    bg.restore();
-
+    const toBg = (e, n) => { const p = point(e, n); return [p.x, p.y]; };
+    strokeStreets(bg, toBg, 0.9 * SUPER);
     // Every compiled footprint, including water-anchored bridges and piers.
-    bg.save();
-    bg.fillStyle = 'rgba(244, 235, 208, .82)';
-    bg.strokeStyle = 'rgba(42, 34, 22, .72)';
-    bg.lineWidth = 0.7 * SUPER;
-    for (const polygon of outlines) {
-      bg.beginPath();
-      polygon.forEach(([e, n], i) => {
-        const screen = point(e, n);
-        if (i === 0) bg.moveTo(screen.x, screen.y); else bg.lineTo(screen.x, screen.y);
+    fillOutlines(bg, toBg, 0.7 * SUPER);
+  }
+
+  const STREET_STROKE = 'rgba(77, 61, 36, .78)';
+  const OUTLINE_FILL = 'rgba(244, 235, 208, .82)';
+  const OUTLINE_STROKE = 'rgba(42, 34, 22, .72)';
+  // T-3391: boxes, so a crisp window strokes only the streets and footprints in it.
+  const streetBoxes = (streets?.records ?? []).map((s) => (s.path?.length ? boxOf(s.path) : null));
+  const outlineBoxes = outlines.map(boxOf);
+
+  /** The period streets' centrelines through `toPx` (and, given a `view`, only those in it). */
+  function strokeStreets(dest, toPx, width, view = null) {
+    dest.save();
+    dest.strokeStyle = STREET_STROKE;
+    dest.lineWidth = width;
+    dest.lineCap = 'round';
+    dest.lineJoin = 'round';
+    (streets?.records ?? []).forEach((street, s) => {
+      if (!street.path?.length || (view && outsideView(streetBoxes[s], view))) return;
+      dest.beginPath();
+      street.path.forEach(([e, n], i) => {
+        const [x, y] = toPx(e, n);
+        if (i === 0) dest.moveTo(x, y); else dest.lineTo(x, y);
       });
-      bg.closePath();
-      bg.fill();
-      bg.stroke();
+      dest.stroke();
+    });
+    dest.restore();
+  }
+
+  /** Every footprint through `toPx` (and, given a `view`, only those in it), filled and edged. */
+  function fillOutlines(dest, toPx, width, view = null) {
+    dest.save();
+    dest.fillStyle = OUTLINE_FILL;
+    dest.strokeStyle = OUTLINE_STROKE;
+    dest.lineWidth = width;
+    dest.lineJoin = 'round';
+    outlines.forEach((polygon, o) => {
+      if (view && outsideView(outlineBoxes[o], view)) return;
+      dest.beginPath();
+      polygon.forEach(([e, n], i) => {
+        const [x, y] = toPx(e, n);
+        if (i === 0) dest.moveTo(x, y); else dest.lineTo(x, y);
+      });
+      dest.closePath();
+      dest.fill();
+      dest.stroke();
+    });
+    dest.restore();
+  }
+
+  // T-3391: the crisp window's ground, sampled from the heightfield at its own cell size.
+  // Made on the first close-up and sized to the window (a few dozen KB), never the field.
+  let groundCanvas = null;
+  let groundImage = null;
+
+  /** The ground under `view` at the heightfield's own cells, smoothed up to `k` px/m. */
+  function drawGround(dest, view, k) {
+    const eMin = Math.max(view.eMin, bounds.eMin);
+    const eMax = Math.min(view.eMax, bounds.eMax);
+    const nMin = Math.max(view.nMin, bounds.nMin);
+    const nMax = Math.min(view.nMax, bounds.nMax);
+    if (!(eMax > eMin && nMax > nMin)) return;
+    const clipX = (eMin - view.eMin) * k, clipY = (view.nMax - nMax) * k;
+    const clipW = (eMax - eMin) * k, clipH = (nMax - nMin) * k;
+    if (!hf?.loaded) {
+      dest.fillStyle = `rgb(${groundRGB(1, [0, 0, 0]).join(',')})`;
+      dest.fillRect(clipX, clipY, clipW, clipH);
+      return;
     }
-    bg.restore();
+    const cell = hf.cellM;
+    const cell0 = (v, origin, last) => Math.max(0, Math.min(last, Math.floor((v - origin) / cell)));
+    const cell1 = (v, origin, last) => Math.max(0, Math.min(last, Math.ceil((v - origin) / cell)));
+    const c0 = cell0(eMin, hf.originE, hf.cols - 1), c1 = cell1(eMax, hf.originE, hf.cols - 1);
+    const r0 = cell0(nMin, hf.originN, hf.rows - 1), r1 = cell1(nMax, hf.originN, hf.rows - 1);
+    const stride = Math.max(1, Math.ceil(Math.max(c1 - c0 + 1, r1 - r0 + 1) / CRISP_GROUND_MAX));
+    const cw = Math.floor((c1 - c0) / stride) + 1, ch = Math.floor((r1 - r0) / stride) + 1;
+    groundCanvas ??= document.createElement('canvas');
+    const gc = groundCanvas.getContext('2d');
+    if (!gc) return;
+    if (groundCanvas.width !== cw || groundCanvas.height !== ch || !groundImage) {
+      groundCanvas.width = cw;
+      groundCanvas.height = ch;
+      groundImage = gc.createImageData(cw, ch);
+    }
+    const data = groundImage.data;
+    const rgb = [0, 0, 0];
+    for (let y = 0; y < ch; y++) {
+      const r = Math.min(hf.rows - 1, r0 + (ch - 1 - y) * stride);
+      for (let x = 0; x < cw; x++) {
+        groundRGB(hf.data[r * hf.cols + Math.min(hf.cols - 1, c0 + x * stride)], rgb);
+        const i = (y * cw + x) * 4;
+        data[i] = rgb[0]; data[i + 1] = rgb[1]; data[i + 2] = rgb[2]; data[i + 3] = 255;
+      }
+    }
+    gc.putImageData(groundImage, 0, 0);
+    // Each texel is a sample CENTRED on its cell, so the image overhangs the samples by half
+    // a step; the clip keeps that overhang off the letterbox outside the field.
+    const step = cell * stride;
+    const west = hf.originE + c0 * cell - step / 2;
+    const north = hf.originN + (r0 + (ch - 1) * stride) * cell + step / 2;
+    dest.save();
+    dest.beginPath();
+    dest.rect(clipX, clipY, clipW, clipH);
+    dest.clip();
+    dest.imageSmoothingEnabled = true;
+    if ('imageSmoothingQuality' in dest) dest.imageSmoothingQuality = 'high';
+    dest.drawImage(groundCanvas, 0, 0, cw, ch, (west - view.eMin) * k, (view.nMax - north) * k, cw * step * k, ch * step * k);
+    dest.restore();
   }
 
   /** Today's streets, once, at the background's scale, for the inset and the pop-out. */
@@ -680,9 +795,17 @@ export function createNavigation({ root, terrain, registry, streets, year = '', 
       if (!bgPainted) paintBackground();
       dest.fillStyle = OUTSIDE;
       dest.fillRect(0, 0, w, h);
-      blit(dest, view, 0, 0, w, h);
+      const k = w / (view.eMax - view.eMin);
+      // T-3391: past the background's own detail the window is drawn, not blown up.
+      if (k > bgScale * CRISP_OVER) {
+        const toPx = (e, n) => [(e - view.eMin) * k, (view.nMax - n) * k];
+        drawGround(dest, view, k);
+        strokeStreets(dest, toPx, Math.min(2.4, Math.max(0.9, 1.1 * k)), view);
+        fillOutlines(dest, toPx, Math.min(1.2, Math.max(0.6, 0.8 * k)), view);
+      } else {
+        blit(dest, view, 0, 0, w, h);
+      }
       if (streetVisible && modern) {
-        const k = w / (view.eMax - view.eMin);
         strokeModern(dest, (e, n) => [(e - view.eMin) * k, (view.nMax - n) * k], 1.2, view);
         labelModern(dest, view, w, h);
       }

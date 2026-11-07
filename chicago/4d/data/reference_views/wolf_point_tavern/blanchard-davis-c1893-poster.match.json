@@ -1,0 +1,37 @@
+{
+  "structure_id": "wolf_point_tavern",
+  "view": "blanchard-davis-c1893-poster",
+  "glb": "assets/gltf/wolf_point_tavern__log_frame_1828.glb",
+  "glb_sha256": "225f3e1041d02cdaa627d3d73c5f6448aff9b12c66f4a545462db45bbf8e0d59",
+  "camera_sha256": "1d6950d5b715da1a6fbe685845f875abf1fb36db0547e06d913de17b9e330637",
+  "photo_sha256": "96fb4ee23dfff23097365987be08d0486f4c05e2a7f25c10330fc8dc919ab4f8",
+  "side_by_side": "docs/RESEARCH/photo-match/wolf_point_tavern/blanchard-davis-c1893-poster-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "The unchanged current master supplies low connected outward gables, two dark entry recesses, the small right light, a broad roof head plus separate slender pipe and the hanging wolf-board sapling. These pictured categories are present in the genuine native comparison.",
+      "status": "fixed"
+    },
+    {
+      "what": "The later ca1893 poster shows an additional dark opening at the left gable. The earlier governing1867Blanchard/Shober sheet shows one doorway and continuous logs there. Keep the established1867form. This is explicit disagreement between actual retrospective pictures under T3153, not a claim that the extra opening is pixel-small, fixed in the model or absent from the poster. No historical alteration date is inferred.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Six exact-master gable controls have8.53px coordinateRMS; three independent stack/pipe/window checks have16.13px coordinateRMS and were not fitted. These are drawing/model-camera residuals, not measured historical metres. The free level-camera fit reaches focal/height bounds; finite camera-family disagreement remains within tolerance under T3153 and does not establish a uniform visitor-visible dimension correction.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Pole/roof projection, illustrated weathering and stylized illumination differ between the poster, earlier governingNYPL and other retrospective pictures. The review light and palette are reconstructed; this frame does not authenticate original pigment or an1832solarpose. No universal missing count/material or >0.3m physical change is established by those source/camera disagreements.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The neutral target-only render omits terrain, riverbank, neighbours including Miller House, figures and flora; it does not accept surveyed placement, interiors or exact unchanged survival to1July1835. Current in-app roof normal/ORM treatment and clear Wolf-body desktop/phone framing require separate published-world review.",
+      "status": "not shown"
+    },
+    {
+      "what": "The asset camera remains provisional and diagnostic_only because the geographic world camera is unsolved. It must not expose a fabricated From-this-spot location. This comparison does not identify a house in the separate unkeyed Herriott panorama or create a ninth matching camera.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

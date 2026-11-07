@@ -309,80 +309,17 @@ def _fan(b,o,d):
     if spec:recessed_bed(r,cx,cz,rad+.04,o['r_out'],spec,reduced=True)
     else:r.solid([(cx+o['r_out']*math.cos(math.pi*i/20),cz+o['r_out']*math.sin(math.pi*i/20)) for i in range(21)],-.065,-.045)
     R=rad+.04
-    # The bands of ornament.fan, outside in, at the same radii and depths.
-    r.arc(cx,cz,R-.012,.034,.012)
-    orn._annulus(r,cx,cz,R*.885,R-.02,-.045,.004,12)
-    for i in range(33):
-        th=math.pi*(i+.5)/33;da=math.pi/33*.30
-        orn._boss(r,[(cx+rr*math.cos(aa),cz+rr*math.sin(aa))
-                     for rr,aa in [(R*.902,th-da*1.08),(R-.032,th-da),(R-.032,th+da),(R*.902,th+da*1.08)]],.004,.040,.16)
-    r.arc(cx,cz,R*.878,.030,.010)
-    orn._annulus(r,cx,cz,R*.705,R*.868,-.045,-.004,12)
-    band=R*.786;size=R*.150
-    for i in range(23):
-        th=math.pi*(i+.5)/23
-        base=(cx+(band-size*.5)*math.cos(th),cz+(band-size*.5)*math.sin(th))
-        r.leaf(*base,th,size,size*.62,.004,.022,.06)
-        for side in (-1,1):
-            r.leaf(*base,th+side*.62,size*.74,size*.42,.000,.018,side*.20)
-    for i in range(24):
-        th=math.pi*i/23
-        r.bead(cx+band*math.cos(th),cz+band*math.sin(th),.012,.0085)
-    r.arc(cx,cz,R*.690,.026,.018)
-    r.arc(cx,cz,R*.655,.010,.008)
-    F=R*.640
-    def stem(points,depth=.020,width=.011):
-        r.tube(orn._bezier([(cx+x*F,cz+z*F) for x,z in points],depth,20),width)
-    def roundel(x,z,radius,depth):
-        r.arc(x,z,radius,depth,radius*.075,0,2*math.pi,40)
-        for j in range(6):
-            th=math.pi/2+2*math.pi*j/6
-            r.leaf(x+radius*.10*math.cos(th),z+radius*.10*math.sin(th),th,radius*.86,radius*.62,depth-.006,radius*.16,(.18 if j%2 else -.18))
-        r.bead(x,z,depth+.012,radius*.16)
-    stem([(0,.0),(0,.25),(0,.55),(0,.80)],.022,.016)
-    for mirror in (-1,1):
-        stem([(0,.10),(mirror*.18,.12),(mirror*.30,.18),(mirror*.36,.28)])
-        stem([(0,.46),(mirror*.08,.50),(mirror*.16,.56),(mirror*.21,.62)])
-        roundel(cx+mirror*F*.53,cz+F*.33,F*.235,.024)
-        roundel(cx+mirror*F*.27,cz+F*.70,F*.165,.026)
-        for x,z,ang,ln in ((.20,.06,.30,.24),(.80,.10,1.75,.20),(.10,.36,.95,.22),(.48,.62,1.25,.22),
-                           (.70,.52,2.10,.18),(.42,.86,1.95,.15),(.86,.30,1.45,.15),(.08,.66,1.15,.18)):
-            r.leaf(cx+mirror*F*x,cz+F*z,ang if mirror>0 else math.pi-ang,F*ln,F*ln*.55,.016,.016,mirror*.16)
-        for x,z,ang,ln in ((.30,.04,.10,.20),(.62,.06,1.00,.16),(.92,.18,1.60,.12),(.30,.52,1.40,.15),
-                           (.58,.84,2.40,.12),(.20,.92,1.80,.10),(.06,.20,1.30,.16),(.40,.16,.60,.14),(.76,.68,2.60,.12)):
-            r.leaf(cx+mirror*F*x,cz+F*z,ang if mirror>0 else math.pi-ang,F*ln,F*ln*.60,.010,.014,-mirror*.14)
-    roundel(cx,cz+F*.83,F*.120,.028)
-    r.solid([(cx+F*.14*math.cos(math.pi*i/8),cz+F*.14*math.sin(math.pi*i/8)) for i in range(9)],-.045,.012)
-    for j in range(5):
-        th=math.pi*(j+.5)/5
-        r.leaf(cx+F*.03*math.cos(th),cz+.004+F*.03*math.sin(th),th,F*.13,F*.075,.012,.010,0)
+    # T-3381: ornament.fan's own rims and field, band for band and motif for
+    # motif, at this tier's facets (leaves as lozenges, rings on fewer points).
+    orn.bands_and_field(r,cx,cz,R,0.,low=True)
 
 
 def _columns(b,params,d):
     # T-2965: the full tier's colonnettes (ornament.columns) at fewer facets: splayed
     # base, tapered shaft, cushion block, its carved band as one raised course and
-    # the leaf tips; the bodies' fine carving is the master's alone.
-    orn=d.ornament;spec=params.detail.get('prairie_colonnette') or {}
-    ops=sorted([o for o in params.openings if o['kind']=='window' and o['face']=='east' and o['z0']>5],
-               key=lambda o:(round(o['at'],3),round(o['z0'],2),o['u0']))
-    for a,c in zip(ops,ops[1:]):
-        gap=c['u0']-a['u1']
-        if not .12<gap<.3 or abs(a['z0']-c['z0'])>.05 or abs(a['at']-c['at'])>.05:continue
-        u=(c['u0']+a['u1'])/2;z0,z1=a['z0'],a['z1'];h=z1-z0
-        r=orn.Relief(b,a,params.detail.get('conf',max(a['conf'],c['conf'])),orn.CARVED_GRANITE)
-        foot=spec.get('shaft_foot_m',gap*1.24)/2;neck=spec.get('shaft_neck_m',gap*.98)/2
-        half=spec.get('abacus_m',gap*2.3)/2
-        base=z0+h*spec.get('base_share',.13);low=z1-h*spec.get('capital_share',.33)
-        dep=-foot
-        r.box(u-gap*.5-.004,u+gap*.5+.004,base,low,-spec.get('mullion_depth_m',.46),dep)
-        orn._splayed_base(r,u,z0,base,spec.get('base_foot_m',gap*1.8)/2,foot+.008,dep)
-        orn._taper(r,u,base,low,foot,neck,dep,12)
-        top=z1-.012;ch=top-low
-        orn._block(r,u,low,top,neck,half,dep,16,5)
-        r.box(u-half*.92,u+half*.92,low+ch*.82,top-.01,dep+half-.01,dep+half+.012)
-        for j in range(3):
-            r.leaf(u+(j-1)*half*.45,low+ch*.12,math.pi*.5+(j-1)*.15,ch*.30,half*.28,
-                   dep+neck+(half-neck)*.30,.02,0,False,steps=4)
+    # the leaf tips; the bodies' fine carving is the master's alone. T-3343: one recipe,
+    # ornament.colonnette(reduced=True), which the north pairs take too (via d.tower).
+    d.ornament.columns(b,params,reduced=True)
 
 
 def _ridges(b,params,d):

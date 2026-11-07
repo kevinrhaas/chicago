@@ -1,0 +1,29 @@
+{
+ "id": "cdn_almanac_1913_gatlin_1919_plate",
+ "type": "photograph",
+ "citation": "'Former Residence of Marshall Field Jr.' [1919 S. Prairie Avenue], halftone in the Gatlin Institute advertisement 'Liquor and Drug Habits Quickly Cured', The Chicago Daily News Almanac and Year-Book for 1913 (Chicago: Chicago Daily News Company, 1912), p. 619. Photographer uncredited.",
+ "author": "uncredited photographer for the Gatlin Institute (advertiser)",
+ "date": "1912 (publication); photograph c. 1909-1912",
+ "describes_date": "1909-1912",
+ "repository": "Internet Archive, chicagodailynews1913chic, page n622 (https://archive.org/details/chicagodailynews1913chic/page/n622/mode/1up). Prairie library image a19-cdnalmanac-1913-gatlin-1919; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a19-cdnalmanac-1913-gatlin-1919.jpg), committed by T-3279 at data/sources/assets/field_jr_1919_plates_t3279/.",
+ "url": "https://archive.org/details/chicagodailynews1913chic/page/n622/mode/1up",
+ "locator": "The plate on p. 619, captioned 'Former Residence of Marshall Field Jr.': the house from Prairie Avenue to the north-west, its narrow street front at the right with the stoop at its south end beside the south neighbour's mansard, and its long north flank running back to the left: a round tower close behind the front, two very tall stacks, steep slated roofs, a gabled street dormer, steep gables and two-storey bays along the flank; the iron fence and parkway trees in front.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Published in the United States in 1912 (pre-1929): public domain (the Prairie library's ruling). The copy is the image store's, unaltered.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-31 (T-3279) from the image store's copy, 1101 x 1600 px (the page, downsampled from the Archive's 2558 x 3716 original, sha256 b0ad42aa4e414253c1d0b15c378e901c73d5ba90e9b9e6686b71c8b7c7e6a9ab per the library), sha256 0d82a77e9db197b91d68e67cc3eb66520b9ec00b84890cd97447e0c5cd4c553f.",
+ "note": "A halftone of a photograph of c. 1909-1912 printed in a Gatlin Institute advertisement; the Institute bought 1919 Prairie in 1909 and the plate shows the house in the form Marshall Field Jr.'s 1902 enlargement gave it (the T-1837 register's phase guard: the early Beman front is pre-1902). The larger and sharper of the two plates, so the house's camera is solved on it.",
+ "what_it_supplies": [
+  "the post-1902 massing seen from the north-west: the narrow front, its canted north corner and the stoop at its south end; the long north flank with its round tower, tall stacks, steep gables and dormers",
+  "the materials' tone: dark brick, paler stone dressings, dark slate",
+  "the iron fence on the street line"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the plate is monochrome",
+  "the south flank and the rear",
+  "fine detail: the halftone screen hides mouldings, glazing bars and carving",
+  "a 1904 date: the photograph is c. 1909-1912"
+ ]
+}

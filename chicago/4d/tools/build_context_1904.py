@@ -172,6 +172,22 @@ RAIL = ROOT / "data" / "railway" / "1904_context.json"
 RAIL_CLEAR_M = 3.0
 WALK_CLEAR_M = 2.0                # a stand-in keeps a walk's width off a faded street's carriageway
 TRIM_KEEP = 0.6                   # a stand-in trimmed off a street keeps at least this share of each side
+# T-3388: a sheet's stand-in has to be believable as a building on its own, because the renderer
+# drops whichever of a drawn building's parts a placed draft touches and leaves the rest standing.
+# The owner, 2026-11-05, behind 244-250 E 18th Street: free-standing pink tower slabs with windows.
+# They were a 2.9 x 4.8 m yard piece, a 2.8 x 2.9 m one and their like, each given the 16 m eave of
+# the 2,000 m2 run of houses the trace had joined them to (big_block), standing alone once the
+# Indiana Avenue drafts took the run's main body away. So: a part takes a block's height only when
+# it is a block itself (BLOCK_BY_PART); no sheet stand-in stands taller than SLENDER_MAX times its
+# narrower side; a part narrower than MIN_SIDE_M is a line the trace caught, not a building; and
+# every part carries its drawn building's `group`, which the renderer drops whole.
+SLENDER_MAX = 2.0
+MIN_SIDE_M = 1.5
+# ...and a part of a joined run at least a house's size (the draft builder's 5.5 m least body,
+# tools/draft_prairie_1904.py fit.min_body_m) is a house of its own, at a house's height: the
+# terraces sheet 35 draws on Indiana Avenue at 20th-21st, each house a part of one long run.
+HOUSE_PART_M2 = 90.0
+HOUSE_PART_SIDE_M = 5.5
 MIN_LOT_DEPTH_M = 14.0
 NEAR_BOX = (1100.0 - RING_M, 1800.0, -3800.0 - RING_M, -2900.0 + RING_M)
 VACANT_MIN = 0.06
@@ -555,16 +571,26 @@ def read_sheet(sheet: str, grid: dict, rnd) -> tuple:
                 rule, eave, roof = "printed", reading["eave_m"], reading["roof"]
                 rise = reading.get("rise_m", 0.45 * r["rect"][2] if roof == "gable" else 0.0)
             e, n, w, d, bearing = r["rect"]
+            run_rule = None
             if rule in ("block", "big_block") and row_like:
                 # T-2833: a long, shallow building is a row of houses, not one block: Robinson
                 # draws Mortimer and Tappan's sixteen lots on 16th Street as one pink strip.
                 rule, roof, rise = "house_row", "flat", 0.0
                 eave = RULES["frame_dwelling"]["eave_m"] if r["mat"] == "frame" else RULES["dwelling_masonry"]["eave_m"]
+            if rule in ("block", "big_block") and r["m2"] < RULES["block"]["min_m2"]:
+                # T-3388: a part of a joined run is a house, a wing or a shed by its OWN size; the
+                # run's size made every piece of it a 13-16 m block. Its own seeded draw, so the
+                # rest of the city's draws are untouched.
+                own = random.Random(f"{SEED}:{sheet}:{k}:{j}")
+                run_rule = rule
+                house = j == 0 or (r["m2"] >= HOUSE_PART_M2 and min(r["rect"][2], r["rect"][3]) >= HOUSE_PART_SIDE_M)
+                rule, eave, roof, rise = heights(r["mat"], r["m2"], main["m2"], r["m2"], house, False, own)
             if roof == "gable" and rule != "printed":
                 rise = min(rise, 0.5 * w + 0.5)
             rows.append({"e": e, "n": n, "w": w, "d": d, "bearing": bearing, "eave": eave, "rise": rise,
                          "roof": roof, "mat": r["mat"], "rule": rule, "src": sheet,
-                         "reading": reading["what"] if reading else None, "lod": 0})
+                         "reading": reading["what"] if reading else None, "lod": 0, "group": f"{sheet}:{k}",
+                         "run_rule": run_rule})
     return rows, fit, rois
 
 
@@ -770,7 +796,8 @@ def projected(grid: dict, ground: Ground, fr: Frame, net: dict, sheet_rows: list
     frontages = [p["frontage_ft"] * 0.3048 for p in grid["parcels"]
                  if p["street"] in ("indiana", "calumet") and p.get("frontage_ft")]
     mats = [r["mat"] for r in sheet_rows if r["src"] in ("20", "28", "35")
-            and r["rule"] in ("dwelling_masonry", "frame_dwelling", "block", "big_block", "house_row")]
+            and (r.get("run_rule") or r["rule"]) in ("dwelling_masonry", "frame_dwelling", "block", "big_block",
+                                                     "house_row")]
     mix = {m: mats.count(m) / len(mats) for m in MATS}
     buildings, trees = [], []
 
@@ -1167,11 +1194,25 @@ def build() -> dict:
     roofs = ["flat", "gable", "pyramid"]
     rules = sorted({r["rule"] for r in sheet_rows + proj_rows})
     brows = []
+    groups = {}
+    believable = {"line_dropped": 0, "eave_capped": 0}
     for r in sheet_rows + proj_rows:
         tones = len(PALETTE[r["mat"]])
-        brows.append([r1(r["e"]), r1(r["n"]), r1(r["bearing"]), r1(r["w"]), r1(r["d"]), r1(r["eave"]),
-                      r1(r["rise"]), roofs.index(r["roof"]), MATS.index(r["mat"]), rnd.randrange(tones),
-                      rnd.randrange(len(PALETTE["roof"])), srcs.index(r["src"]), rules.index(r["rule"]), r["lod"]])
+        tone, roof_tone = rnd.randrange(tones), rnd.randrange(len(PALETTE["roof"]))
+        eave = r["eave"]
+        if r["src"] != "project" and r["rule"] != "printed":
+            # T-3388: after the draws, so every other stand-in keeps its colours.
+            narrow = min(r["w"], r["d"])
+            if narrow < MIN_SIDE_M:
+                believable["line_dropped"] += 1
+                continue
+            if eave > SLENDER_MAX * narrow:
+                believable["eave_capped"] += 1
+                eave = SLENDER_MAX * narrow
+        group = groups.setdefault(r["group"], len(groups) + 1) if r.get("group") else 0
+        brows.append([r1(r["e"]), r1(r["n"]), r1(r["bearing"]), r1(r["w"]), r1(r["d"]), r1(eave),
+                      r1(r["rise"]), roofs.index(r["roof"]), MATS.index(r["mat"]), tone,
+                      roof_tone, srcs.index(r["src"]), rules.index(r["rule"]), r["lod"], group])
     trows = [[r1(t["e"]), r1(t["n"]), r1(t["h"]), r1(t["r"]), rnd.randrange(len(PALETTE["tree"])),
               0 if t["src"] == "sheet" else 1, t["lod"]] for t in trees]
     readings = [{k: v for k, v in rd.items()} for rd in READINGS]
@@ -1213,12 +1254,21 @@ def build() -> dict:
             "height_roof_colour_trees": "reconstructed -- by `rules`; the maps' storey figures are not read",
         },
         "rules": RULES,
+        "believable": {
+            "_doc": ("T-3388: every sheet stand-in is believable as a building on its own. A part takes a block's "
+                     "height only when it is a block itself, and a house's when it is a house's size; none stands taller than `slender_max` times its "
+                     "narrower side; a part narrower than `min_side_m` is a line the trace caught and is dropped; "
+                     "`group` numbers each drawn building's parts (0: a projected stand-in, its own), and the "
+                     "renderer drops a group whole when a placed structure touches any part of it."),
+            "slender_max": SLENDER_MAX, "min_side_m": MIN_SIDE_M, "house_part_m2": HOUSE_PART_M2,
+            "house_part_side_m": HOUSE_PART_SIDE_M, "groups": len(groups), **believable,
+        },
         "readings": readings,
         "palette": PALETTE,
         "projection": projection,
         "fields": {
             "buildings": ["e", "n", "bearing_deg", "width_m", "depth_m", "eave_m", "rise_m", "roof", "material",
-                          "tone", "roof_tone", "src", "rule", "lod"],
+                          "tone", "roof_tone", "src", "rule", "lod", "group"],
             "trees": ["e", "n", "height_m", "crown_r_m", "tone", "src", "lod"],
             "streets": ["e0", "n0", "e1", "n1", "name", "tier"],
         },
@@ -1304,6 +1354,16 @@ def contract(doc: dict) -> list:
     ground_b, ground_t, faded = keep_off(grid, row_way, streets, walk=False)
     rail_only = Plan(row_way.quads)
     src = doc["enums"]["src"]
+    # T-3388: no sheet stand-in is a tower or a line (the owner's slabs behind 244-250 E 18th Street).
+    printed = doc["enums"]["rule"].index("printed") if "printed" in doc["enums"]["rule"] else -1
+    for i, b in enumerate(doc["buildings"]):
+        if src[b[11]] == "project" or b[12] == printed:
+            continue
+        narrow = min(b[3], b[4])
+        if narrow < MIN_SIDE_M:
+            bad.append(f"building {i} at ({b[0]}, {b[1]}) is {narrow} m across: a line on the sheet, not a building")
+        elif b[5] > SLENDER_MAX * narrow + 0.11:
+            bad.append(f"building {i} at ({b[0]}, {b[1]}) stands {b[5]} m to its eave on a {narrow} m side: a tower")
     placed = Plan()
     TOL = 1.0                         # m2: the rows are rounded to 0.1 m
     for i, b in enumerate(doc["buildings"]):
@@ -1355,14 +1415,22 @@ def self_test() -> int:
     cal = next(c for c in grid["carriageways"] if c["id"] == "calumet_20_22")["polygon_local_m"]
     ce, cn = sum(q[0] for q in cal) / len(cal), sum(q[1] for q in cal) / len(cal)
     ok7 = any("tree 0" in f for f in contract(dict(doc, trees=[[ce, cn, 12, 3, 0, 1, 0]])))
+    # T-3388, the owner's own case: a 2.9 x 4.8 m yard piece behind 1727 Indiana at a block's 16 m.
+    big = doc["enums"]["rule"].index("big_block")
+    slab = [1293.7, -3162.7, 179.2, 2.9, 4.8, 16.0, 0.0, 0, 0, 1, 3, 0, big, 0, 1]
+    ok8 = any("a tower" in f for f in contract(dict(doc, buildings=[slab])))
+    line = [1305.4, -3162.8, 90.1, 0.4, 5.3, 3.2, 0.0, 0, 0, 1, 0, 0, big, 0, 1]
+    ok9 = any("a line on the sheet" in f for f in contract(dict(doc, buildings=[line])))
     print(f"a stand-in on a Prairie Avenue lot: {'FAIL (caught)' if ok else 'NOT CAUGHT'}")
+    print(f"a 16 m tower on a 2.9 m yard piece behind 1727 Indiana: {'FAIL (caught)' if ok8 else 'NOT CAUGHT'}")
+    print(f"a 0.4 m line the trace caught, standing as a building: {'FAIL (caught)' if ok9 else 'NOT CAUGHT'}")
     print(f"a stand-in in the lake: {'FAIL (caught)' if ok2 else 'NOT CAUGHT'}")
     print(f"a faded street across Prairie Avenue's blocks: {'FAIL (caught)' if ok3 else 'NOT CAUGHT'}")
     print(f"a stand-in on 18th Street's curve into Calumet: {'FAIL (caught)' if ok4 else 'NOT CAUGHT'}")
     print(f"a faded street in the Illinois Central's tracks: {'FAIL (caught)' if ok5 else 'NOT CAUGHT'}")
     print(f"one projected stand-in on another: {'FAIL (caught)' if ok6 else 'NOT CAUGHT'}")
     print(f"a tree in Calumet Avenue's roadway: {'FAIL (caught)' if ok7 else 'NOT CAUGHT'}")
-    return 0 if all((ok, ok2, ok3, ok4, ok5, ok6, ok7)) else 1
+    return 0 if all((ok, ok2, ok3, ok4, ok5, ok6, ok7, ok8, ok9)) else 1
 
 
 def main() -> int:

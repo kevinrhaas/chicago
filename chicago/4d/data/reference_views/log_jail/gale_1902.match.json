@@ -2,19 +2,65 @@
   "structure_id": "log_jail",
   "view": "gale_1902",
   "glb": "assets/gltf/log_jail__log_1833.glb",
-  "glb_sha256": "ee949fa9f67187678a034e0a84025f0acdab971ef1ee923261467341bc09182b",
-  "camera_sha256": "96720b71e5f5e13dd19132c2e421edef8d09aa4c9c2d4f7f9873179ce7e9b719",
+  "glb_sha256": "e767412faebcd8b77a680d188d89458ea879cf467ec56494a8df1a49a2e65dec",
+  "camera_sha256": "74641a1adcba03d01345eb92734dd3c9c8b4b24fa48aea36ea33e9753dffb8c9",
   "photo_sha256": "d1fa0afa1dcd10af3b97ba11b46510fd71dd6504f6f9574aba73828e0fefb85a",
+  "rendered_members": [
+    {
+      "structure_id": "log_jail",
+      "glb": "assets/gltf/log_jail__log_1833.glb",
+      "placement": {
+        "local_e": 465.51,
+        "local_n": -275.87,
+        "rotation_deg": 0,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "log_1833"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "e767412faebcd8b77a680d188d89458ea879cf467ec56494a8df1a49a2e65dec"
+    },
+    {
+      "structure_id": "log_jail_keeper_house",
+      "glb": "assets/gltf/log_jail_keeper_house__frame_1835.glb",
+      "placement": {
+        "local_e": 473.31,
+        "local_n": -274.57,
+        "rotation_deg": 0,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "frame_1835"
+      },
+      "position": [
+        7.800000000000011,
+        0,
+        -1.3000000000000114
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "91837241ab0873cbbd27c9f64cd314cc453e41addf019657da3afc8a98c6978b"
+    }
+  ],
+  "group_sha256": "b9a143ef6fe010920b352fc008d860d9267ed9aae03d75a5427efc1e1d333c67",
   "rendered_enclosures": [
     {
       "id": "log_jail_palisade",
       "file": "data/enclosures/log_jail_palisade.json",
-      "sha256": "a99fe122c758f63ca0e93b0ac595eca80d1df0b5a9e777e14a54f1c578845d34"
+      "sha256": "4de1ab8905eb5af96e3ab249e797b29e5baa8c9cd3429c9c9b1fae6f1891de8f"
+    },
+    {
+      "id": "log_jail_keeper_link",
+      "file": "data/enclosures/log_jail_keeper_link.json",
+      "sha256": "1594cc81214cd4f5d8e3612d1e6010d4b10d5e92df95b66e892561bfb283e6ee"
     }
   ],
   "enclosure_anchor": {
     "local_e": 465.51,
-    "local_n": -274.57,
+    "local_n": -275.87,
     "rotation_deg": 0,
     "scene": "1835",
     "target_date": "1835-07-01",
@@ -23,7 +69,7 @@
   "enclosure_renderer_sources": [
     {
       "file": "tools/photo_match.mjs",
-      "sha256": "45d1dae558c75926070806c99ef82d29117a72fe76d2a91f3d6820bebf4bce47"
+      "sha256": "75e452b467c22fc5d00cd4b512706c364c942d181869e504f7218ea25167a79c"
     },
     {
       "file": "tools/photo_match_enclosures.mjs",
@@ -31,11 +77,11 @@
     },
     {
       "file": "renderers/web/js/enclosures.js",
-      "sha256": "4ede1357214160ef50fb86d62410cb39b6a40a038834f3f99059fb89a294badd"
+      "sha256": "4dfac316ce02d19ad5d01f2186d0e85fb1372f4f0c64c6769ea26bffc085887d"
     },
     {
       "file": "renderers/web/js/gates.js",
-      "sha256": "4cc1894048017b2a9bde397f27e8fd3e677e65aa94fb0504320483f9aa289c67"
+      "sha256": "7d54b76befcadeb9b2d6704059a83d513a6feb47325a1eaaa3ccf2a832d56448"
     },
     {
       "file": "renderers/web/js/compact-streams.js",
@@ -43,7 +89,7 @@
     },
     {
       "file": "renderers/web/js/gpu-pick.js",
-      "sha256": "cc56599416ed37601d2d06ff62835bca8ee3058c024b1dbf559a735229491540"
+      "sha256": "4314066f2eed63983df7230e375879358b89152168f1b3ee0a55992347a6c11a"
     },
     {
       "file": "renderers/web/vendor/three-0.185.1/three.module.js",
@@ -54,7 +100,7 @@
       "sha256": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759"
     }
   ],
-  "enclosures_sha256": "cf33b7521e8af0a535e3c49208da4ba5efa5a91ef88d7ea085d6ae1f383eff57",
+  "enclosures_sha256": "66d972818f54bef0981811b852ed7d0f4eb5995a60bd72e3c563e5b33f1a3f75",
   "side_by_side": "docs/RESEARCH/photo-match/log_jail/gale_1902-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -67,12 +113,12 @@
       "status": "fixed"
     },
     {
-      "what": "The keeper house pictured partly within the compound is absent. Its footprint, original-cell relationship and July1835 continuity are unresolved; no anonymous house is relabelled or invented in this increment.",
-      "status": "open"
+      "what": "The keeper house pictured partly within the compound is absent. Its footprint, original-cell relationship and July1835 continuity are unresolved; no anonymous house is relabelled or invented in this increment. RESOLVED 2026-11-03 (T-2380): The keeper house is now built and rendered in the group: log_jail_keeper_house__frame_1835.glb, 6.4 x 4.6 m, set 7.8 m east of the core. Every metric of it is reconstruction, recorded under L-log-jail-keeper-compound-2380.",
+      "status": "fixed"
     },
     {
-      "what": "The pictured compound enclosure/gate relationship extends around the keeper house. The current compact enclosure and open doorway-aligned passage do not reproduce that whole compound or its hung gate. Layout and gate attribution remain unresolved.",
-      "status": "open"
+      "what": "The pictured compound enclosure/gate relationship extends around the keeper house. The current compact enclosure and open doorway-aligned passage do not reproduce that whole compound or its hung gate. Layout and gate attribution remain unresolved. RESOLVED 2026-11-03 (T-2380): The palisade now runs continuously across the front and the low framed house-side gate (log_jail_keeper_link) is hung and rendered. The run, the 1.10 m leaf, its brace and its endpoint spacing are reconstruction, not picture measurements.",
+      "status": "fixed"
     },
     {
       "what": "The taller rear gabled volume in Gale conflicts with the hip/pyramidal rear cap in the Andreas plate. The mostly concealed original jail core/later-cell identity is unresolved; these contradictory views do not select a justified core-roof reconstruction.",
@@ -81,7 +127,27 @@
     {
       "what": "Provisional compound framing, distance and principal point are diagnostic choices. The full source is uncropped; common flat ground is a review adapter. This is not a solved source camera or a historical From this spot location, and neither pixel scale nor perspective disagreement is promoted into a metric geometry error.",
       "status": "within tolerance"
+    },
+    {
+      "what": "The plate shows the log jail's own log walls and roof standing well clear above the fence, left of the keeper house. In this render the core is concealed behind the palisade and almost none of it reads. A visitor comparing the two would notice the jail itself is missing from the picture's dominant position: the palisade is too high for the core against this picture, or the core too low, and this increment resolves neither.",
+      "status": "open"
+    },
+    {
+      "what": "The compound's relative proportions are wrong against the plate: the palisade fills most of this render's frame while the plate's fence is a secondary element behind a dominant building group. This follows from the uncalibrated diagnostic camera as much as from the geometry, and no metric error is claimed from it.",
+      "status": "open"
+    },
+    {
+      "what": "The keeper house's drawn elevation is the north front and east gable of the reconstructed `keeper_gale_1902` layout. Whether the plate's house is the same building seen the same way is not established — the plate is captioned 1836 and Andreas draws a different elevation entirely.",
+      "status": "open"
+    },
+    {
+      "what": "Tone and material: the render's palisade reads as one flat dark brown mass, where the plate draws light vertical boards with visible joints and shadow. No board-by-board palisade stock is modelled and none is claimed.",
+      "status": "open"
+    },
+    {
+      "what": "The keeper house's pictured end gable carried the roof-shingle material, so the end triangle read as roof covering where the Gale/Trowbridge plate draws horizontal boarding continuing around the loft light, distinct from the covering above it. FIXED 2026-11-04 (T-2380): the generator now gives that one east roof-end triangle the existing wall finish, as wall infill. The roof envelope, slopes, loft, openings and the unpictured west end are unchanged, and no board relief, paint or colour is claimed from the plate. LIMIT, measured on this very side-by-side: the diagnostic camera meets that end almost edge-on, so the corrected face reads here only as a thin lightened sliver along the rake (610 px changed, mean RGB 169 -> 186). The gable face itself is not presented to this uncalibrated camera, so this is a correction of material role, not a demonstration that the end now matches the plate.",
+      "status": "fixed"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

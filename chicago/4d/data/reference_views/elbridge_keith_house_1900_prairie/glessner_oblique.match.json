@@ -2,7 +2,7 @@
   "structure_id": "elbridge_keith_house_1900_prairie",
   "view": "glessner_oblique",
   "glb": "assets/gltf/elbridge_keith_house_1900_prairie__as_mapped_1904.glb",
-  "glb_sha256": "3632372460a2be62bc7ebc95a660d2ccb1886bcd8da1d4b9e34d22d8fd8698a5",
+  "glb_sha256": "b8cedd3f5be2c81365222214fb0ce615475c3af75ec4a6f1c15fb3931aec7b8d",
   "camera_sha256": "b9b8e12b10a51ac7e8e2ee25256b6183637dcdd04713f89cef41a6f3170e6c99",
   "photo_sha256": "2bf412a3d0369c7619b25c5da579805f71d07fdf90ea1442b8013627be8df755",
   "side_by_side": "docs/RESEARCH/photo-match/elbridge_keith_house_1900_prairie/glessner_oblique-side-by-side.jpg",
@@ -69,6 +69,10 @@
       "status": "fixed"
     },
     {
+      "what": "the light paved walk running square from the public walk between the coping's two posts to the stoop's foot (the print's x 520-735 px, below the stoop): T-3322 lays it as K14's flagged front walk, 2.5 m wide, from the stoop's foot through the wall's opening to the public walk; the review's common grade plane shows the flags as a faint lighter band, the app (docs/RESEARCH/house-boundaries-T-3322/stills) plainly",
+      "status": "fixed"
+    },
+    {
       "what": "the stoop's two square block newels at its foot, about 1.2 m high with carved caps (the print's x 600 and 700; the mid-century and 2024 fronts), and its iron hand-rails: the build's stoop has solid stone cheeks and no newels. K11's coping wall stands one stair pier on one side only and K07's balustrade would add balusters no picture shows",
       "status": "open"
     },
@@ -101,5 +105,5 @@
       "status": "within tolerance"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

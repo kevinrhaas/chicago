@@ -2,7 +2,7 @@
   "structure_id": "green_tree_tavern",
   "view": "andreas_1838",
   "glb": "assets/gltf/green_tree_tavern__frame_1833.glb",
-  "glb_sha256": "f69934897306e608bad55f6ffecfdcb53adf030675b6df0df9fa1004ba3a4d2c",
+  "glb_sha256": "f213818f5a686d31bfbb07217233a7021c514be64b841035d3c29996a380807b",
   "camera_sha256": "9439f5f7e6f3138e53328647456d332110948ef8421692f951827e48eb274f6b",
   "photo_sha256": "bfaa184f9043ea94560eb74e44926c631f06338bc90e6ba54951a610edef119a",
   "side_by_side": "docs/RESEARCH/photo-match/green_tree_tavern/andreas_1838-side-by-side.jpg",
@@ -13,11 +13,19 @@
       "status": "fixed"
     },
     {
-      "what": "The illustrated left-hand annex roof masses and their relation to the main block are not reproduced by the retained rear-ell/side-addition arrangement; this is a visitor-visible massing discrepancy, not a pixel residual. Its exact July1835 form remains uncertain. The separate Trowbridge open wagon bay is procedural yard geometry; its front-end station does not reproduce these enclosed masses.",
+      "what": "The previously omitted closed shoulder now has its clapboard wall, lower sash and raised front-gable/dormer light in the actual native closed-reading comparison at the unchanged camera/source. Existing metric controls are retained as reconstruction. The canonical yard producer declines the separate open shed/posts and its coupled covered wagon to avoid competing geometry. Trowbridge’s open bay remains explicit source disagreement, not a dated conversion.",
+      "status": "fixed"
+    },
+    {
+      "what": "The small front-gable light over the closed shoulder now reads as the sharply pointed cap Andreas draws, instead of the blunt, nearly flat one. front_gable_peak_m 4.50 to 4.85 m against the builder's unchanged 4.20 m dormer head and 0.625 m roof half-span turns the cap from about 25.6 to about 46.1 degrees, and the clapboard courses step up the little gable face with it. Independent exported-mesh comparison at the unchanged camera 9439f5f7 and picture bfaa184f confines the change to that dormer roof and its gable-course infill: 3318 to 3330 triangles, two roof-ridge vertices raised 0.35 m, 24 cladding vertices added in the 4.307-4.581 m band, the full model bounding box exactly equal, and the other eight primitives byte-identical in geometry, normals, vertex colours, confidence, indices and material. Re-audited 2026-11-04: `TEXCOORD_0` was repacked across all ten primitives, so those eight are not byte-identical as whole primitives; the earlier “every other primitive byte-identical” wording is withdrawn as too broad. Those UVs are unused — the master declares no texture, no image and no material texture reference — so the repack changes no rendered pixel. No sky seam, hole or roof penetration. 4.85 m is a RECONSTRUCTED control for the drawn shape, not a measurement off the retrospective plate, and it dates nothing.",
+      "status": "fixed"
+    },
+    {
+      "what": "The rest of the left group still differs from Andreas: the shoulder's own roof slope and eaves line, and the relative proportions of shoulder, connector and farther turned range against the main block. The sharper dormer cap above does not settle them. No new metric distance, height, angle or historical camera is inferred from the provisional fit, and this partial increment is not picture acceptance for the view or for original T-2376.",
       "status": "open"
     },
     {
-      "what": "The middle south-wall doorway is now the pictured stock sash: the actual new-master comparison at the unchanged Andreas camera shows seven lower sash rather than six sash and a middle door. Independent exported-triangle comparison confines the 56 replaced triangles to that opening; the existing 0.75 m sill, 0.85 m glass width and 2.10 m head are retained model controls, not archival measurements. Gray's later side-door recollection remains explicit counterevidence; the picture-led choice is inferred and proves no exact July-1835 absence of a door. Actualpublishedbothviewportbody/yard/ground/NormalByGrade/entry/creditedsourceandnativeWEBreviewpassed2026-10-29 onthe source-boundc093candidate; the substantialenclosedannexremainsOPEN.",
+      "what": "The middle south-wall doorway is now the pictured stock sash: the actual new-master comparison at the unchanged Andreas camera shows seven lower sash rather than six sash and a middle door. Independent exported-triangle comparison confines the 56 replaced triangles to that opening; the existing 0.75 m sill, 0.85 m glass width and 2.10 m head are retained model controls, not archival measurements. Gray's later side-door recollection remains explicit counterevidence; the picture-led choice is inferred and proves no exact July-1835 absence of a door. Actualpublishedbothviewportbody/yard/ground/NormalByGrade/entry/creditedsourceandnativeWEBreviewpassed2026-10-29 onthe source-boundc093candidate; the substantial enclosed annex then remained OPEN.",
       "status": "fixed"
     },
     {

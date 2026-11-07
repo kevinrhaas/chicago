@@ -120,6 +120,12 @@
       "structure": "chicago_lighthouse_1832",
       "picture": "early-castelnau-1842-chicago-harbor",
       "why": "The identified 1842 Castelnau harbour print shows the distinct visible lighthouse shaft, gallery, framed lantern, rounded crown and finial sufficiently to guide its appearance, although it is the small far-right building and its foot is occluded. The entire source and its original plate detail were inspected; this is appearance evidence rather than the mapped plan alone. The whole-building grade does not attest metric diameter, the 40 ft datum, paint, hidden construction, a historical viewing station or unchanged July 1835 detail. Circa 1838-to-1835 continuity remains inferred. The canonical Castelnau comparison now matches under T-3153; the Kellogg aperture/proportion and Baker cap disagreements remain explicit conflicting-picture readings, not literal matches. Tiny or occluded features and the original source/date/rights limits remain qualified in the seven-picture review."
+    },
+    {
+      "scene": "1835",
+      "structure": "fort_dearborn_blockhouse",
+      "picture": "kurz_allison_1893",
+      "why": "Panel 5 of the sheet, 'Fort Dearborn as rebuilt 1835', shows this blockhouse WHOLE and from outside the stockade — the two-storey body, its jettied upper storey, the full four-sided cap and the little square cupola at the centre of it — not a corner and not a building the view merely contains (read 2026-11-03 off the committed crop data/sources/assets/prefire_views_kevin_2026_08/p3_1.png, which tools/measure_plate_join.py joins to the sheet as panel 5). RULED IN HERE RATHER THAN BY A SOLVED CAMERA on purpose: the only camera fitted on this panel is the T-3040 compound diagnostic, whose eye reached its imposed 100 m bound and which renders the whole fort aerial and undersized, so it is not evidence that anything is well framed — the reasonable-picture judgement is the plate's own and is stated here. The grade says a picture shows what this building looked like; it says nothing about how closely the model matches it, which T-2388 still records as DIFFERS."
     }
   ],
   "not_pictured": [
@@ -140,6 +146,18 @@
       "structure": "house_1712_prairie",
       "picture": "cgn-1712-tribune-1939-kodak-model",
       "why": "The Chicago Tribune's photograph of 24 December 1939 shows the architects' model of the Eastman Kodak film-processing plant (Schmidt, Garden & Erikson; five storeys, 120 by 160 ft) to be built on the 1712-1720 frontage, as the Prairie library's own note says ('what replaced the Sturges/Walker houses'). It is a picture of the building that replaced the house, not of the house, so it does not attest 1712's 1904 form (read 2026-10-27, T-3187)."
+    },
+    {
+      "scene": "1835",
+      "structure": "chappel_infant_school",
+      "picture": "early-eliza-chappel-school-shore-reference",
+      "why": "This image shows the form the project explicitly chooses for the model, but its subject is not securely identified as Chappel’s schoolhouse: the original artist/publication is unknown and the modern Lake-and-Clark caption conflicts with the first school’s log form and shore setting. The diagnostic local camera verifies resemblance to an owner-approved design reference, not that the historical building is depicted. Preserve the inferred structure grade; every new metric/form choice is separately reconstructed. This does not deny the existence of the pictured building or identify it as the Sauganash annex."
+    },
+    {
+      "scene": "1904",
+      "structure": "law_house_1620_prairie_coach_house",
+      "picture": "a16-cgy-landowner-1874-1620-law",
+      "why": "The May 1874 Land Owner engraving of the Robert Law house shows, behind it on this ground, a board-and-batten building under two hipped roofs; Robinson's 1886 plate 10 and the 1911 Sanborn sheet 20 both draw a brick stable there, so the engraving pictures the frame stable the brick one replaced, not the building standing in 1904 (T-1932; L-k12-1620-stable-1932). Its image-gate camera is kept to record that reading, not as a picture of this building."
     }
   ],
   "street_maps": {

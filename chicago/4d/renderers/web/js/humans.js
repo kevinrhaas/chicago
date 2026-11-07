@@ -32,11 +32,16 @@
  */
 import * as THREE from 'three';
 import { resolveHumanIdentity, humanRoleCard } from './human-identity.js';
+import { createHumanLife } from './human-life.js';
+import { createHumanActions } from './human-actions.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { registerKTX2 } from './ktx2.js';
 import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
+import { loadVariationKit, personVariation, applyVariation, disposeVariants } from './human-variation.js';
 import { loadMeshoptDecoder, disposeLoadedAsset } from './scene-loader.js';
 import { enuToWorld } from './terrain.js';
+import { dressSkin } from './human-skin.js';
+import { dressHair } from './human-hair.js';
 
 /** § 8: the LODs each scene-detail tier may draw. `light` stays the floor. */
 export const HUMAN_TIERS = Object.freeze({ full: [0, 1, 2, 3], balanced: [1, 2, 3], light: [2, 3] });
@@ -98,6 +103,7 @@ function findClip(clips, want) {
 export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoader()), fetchImpl = fetch } = {}) {
   const entries = new Map();
   let decoder = null;
+  let variation = null;
   const url = (assetId, lod) => new URL(`humans/web/${assetId}.lod${lod}.glb`, assetBase);
 
   async function parse(href) {
@@ -129,7 +135,24 @@ export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoa
       const e = entries.get(key);
       if (!e || --e.refs > 0) return;
       entries.delete(key);
-      e.gltf.then(disposeLoadedAsset, () => {});
+      e.gltf.then((gltf) => {
+        const geometries = new Set();
+        gltf?.scene?.traverse((node) => { if (node.geometry) geometries.add(node.geometry); });
+        disposeVariants(geometries);
+        disposeLoadedAsset(gltf);
+      }, () => {});
+    },
+    /**
+     * T-3412: the shared body/face delta kit and each drawn person's record (age, a fitted
+     * face), fetched once. Never rejects: without them every figure is the asset as drawn.
+     */
+    variation() {
+      variation ??= Promise.all([
+        loadVariationKit(new URL('humans/web/', assetBase), fetchImpl),
+        Promise.resolve(fetchImpl(new URL('humans/web/hm08_variation_persons.json', assetBase)))
+          .then((r) => (r.ok ? r.json() : null)).catch(() => null),
+      ]).then(([kit, persons]) => (kit ? { kit, persons: persons?.persons ?? {} } : null), () => null);
+      return variation;
     },
     get loaded() { return [...entries.keys()]; },
   };
@@ -145,7 +168,7 @@ const PROXY_MATERIAL = new THREE.MeshBasicMaterial({ visible: false });
  * skeleton, § 7) adds clips the body's own file does not carry.
  */
 export class HumanActor {
-  constructor({ instance, person = null, identity = null, assets, heightAt = () => 0, clipLibrary = [], tier = 'full' }) {
+  constructor({ instance, person = null, identity = null, assets, heightAt = () => 0, clipLibrary = [], tier = 'full', variation = 'full' }) {
     this.instance = instance;
     this.person = person;
     this.identity = identity ?? { kind: 'person', personId: instance.person_id, person, profile: null, role: null };
@@ -166,8 +189,19 @@ export class HumanActor {
     this.proxy.userData.actor = this;
     this.root.add(this.proxy);
     this.libraryClips = clipLibrary;
+    // T-3412: this person's own height, build and face (human-variation.js). `face` keeps a
+    // seated driver's body as fitted to his seat and reins; `none` draws the asset as it is.
+    this.variationScope = variation;
+    this.variation = null;
+    this.varied = null;
     this.lod = -1;
     this.wanted = -1;
+    this.visualIdleBody = null;
+    // T-3402: breathing, weight shifts, gaze and blinks over the clip (human-life.js).
+    // One per figure, rebound on a LOD swap; null until a contract-skeleton body loads.
+    this.life = null;
+    // T-3415: what the arms and hands do (human-actions.js), after the life layer.
+    this.actions = null;
     this.body = null;           // { lod, scene, meshes, mixer, clips, actions, faces }
     this.pending = null;
     this.clipName = null;
@@ -191,7 +225,10 @@ export class HumanActor {
   }
 
   /** Where it stands, in local ENU metres, with its feet on the ground. */
-  get position() { return { e: this.e, n: this.n, y: this.root.position.y }; }
+  get position() {
+    const p = this.root.getWorldPosition(new THREE.Vector3());
+    return { e: p.x, n: -p.z, y: p.y };
+  }
 
   place() {
     enuToWorld(this.e, this.n, this.heightAt(this.e, this.n), this.root.position);
@@ -203,9 +240,9 @@ export class HumanActor {
     if (this.disposed || lod === this.lod || lod === this.wanted) return this.pending ?? this.body;
     this.wanted = lod;
     const assetId = this.instance.appearance.asset_id;
-    const job = this.assets.acquire(assetId, lod).then((gltf) => {
+    const job = Promise.all([this.assets.acquire(assetId, lod), this.assets.variation?.() ?? null]).then(([gltf, variation]) => {
       if (this.disposed || this.wanted !== lod) { this.assets.release(assetId, lod); return this.body; }
-      const next = this.build(gltf, lod);
+      const next = this.build(gltf, lod, variation);
       const prev = this.body;
       // The new LOD takes up the clip where the old one was, so a swap is not a stumble.
       const time = prev?.action ? prev.action.time : null;
@@ -213,6 +250,14 @@ export class HumanActor {
       this.lod = lod;
       this.root.add(next.scene);
       this.play(this.clipName ?? this.defaultClip(), { fade: 0, time });
+      if (this.life) this.life.bind(next.scene);
+      else this.life = createHumanLife({ id: this.personId ?? this.id, scene: next.scene });
+      if (this.actions) this.actions.bind(next.scene);
+      else {
+        // The dress assembly's figures greet with a nod (T-3423); the GLB's scene extras name it.
+        const dressed = /adult_dress_v1/.test(next.scene.userData?.chicago4d_human?.wardrobe_assembly_json ?? '');
+        this.actions = createHumanActions({ id: this.personId ?? this.id, scene: next.scene, greeting: dressed ? 'nod' : 'brow', skirt: dressed });
+      }
       if (prev) { this.counters.swaps++; this.teardown(prev); }
       this.costs = '';
       this.applyCosts();
@@ -224,18 +269,34 @@ export class HumanActor {
     return job;
   }
 
-  build(gltf, lod) {
+  /** T-3412: this person's own face, height and build, from the shared kit, on the clone. */
+  vary(scene, variation) {
+    if (!variation?.kit || this.variationScope === 'none') return;
+    const assetId = this.instance.appearance.asset_id;
+    this.variation ??= personVariation({ kit: variation.kit, key: this.personId ?? this.id,
+      record: variation.persons?.[this.personId] ?? null, assetId, sceneYear: Number(this.instance.scene) || null });
+    this.varied = applyVariation(scene, variation.kit, this.variation, { scope: this.variationScope });
+  }
+
+  build(gltf, lod, variation = null) {
     const scene = cloneSkinned(gltf.scene);
+    this.vary(scene, variation);   // before dressSkin, which reads the varied rest pose
     const meshes = [];
     scene.traverse((o) => {
       if (!o.isSkinnedMesh) return;
       meshes.push(o);
       o.frustumCulled = false;    // a skinned bound is the rest pose's, not the walk's
     });
+    // T-3400: skin with pores, blood and a glow, hair with a strand sheen, wet eyes, on
+    // every person (human-skin.js; a shader patch, no texture). Bound to the rest pose.
+    dressSkin(scene);
     // Measured through the node transforms: a quantised derivative's positions are not metres.
     scene.updateMatrixWorld(true);
     const height = new THREE.Box3().setFromObject(scene).max.y;
     this.proxy.scale.y = height > 0.3 ? height : 1.7;
+    // T-3414: at the near levels, strand-card hair, beard and whiskers grown from this body's
+    // own scalp and face, by the person's cut (human-hair-styles.js). Not counted in its height.
+    this.hair = dressHair(scene, { lod, person: this.personId ?? null, year: Number(this.instance.scene) || null });
     const clips = new Map();
     for (const c of gltf.animations ?? []) clips.set(c.name, c);
     for (const c of this.libraryClips) if (!clips.has(c.name)) clips.set(c.name, c);
@@ -401,7 +462,7 @@ export class HumanActor {
    * One frame. `camera` is a three.js camera (or anything with a world `position`).
    * Returns false when the figure was out of range and nothing was done.
    */
-  update(dt, cameraPosition) {
+  update(dt, cameraPosition, visualDt = dt) {
     if (this.disposed) return false;
     this.recheck -= dt;
     if (!this.inRange && this.recheck > 0) return false;
@@ -410,6 +471,7 @@ export class HumanActor {
     this.inRange = lod >= 0;
     if (!this.inRange) {
       this.root.visible = false;
+      this.visualIdleBody = null;
       this.recheck = RECHECK_S;
       return false;
     }
@@ -418,16 +480,27 @@ export class HumanActor {
     if (lod !== this.lod && lod !== this.wanted) this.setLod(lod).catch(() => {});
     this.walk(dt);
     const b = this.body;
-    if (!b) return true;
+    if (!b) { this.visualIdleBody = null; return true; }
     if (this.distance < ANIMATE_M) {
-      b.mixer.update(dt);
+      const naturalStanding = this.state === 'standing' && this.clipName === 'idle_natural_v1' && !b.oneShot;
+      const idleDt = Number.isFinite(visualDt) && visualDt >= 0 ? visualDt : 0;
+      const clipDt = naturalStanding ? (this.visualIdleBody === b ? idleDt : 0) : dt;
+      b.mixer.update(clipDt);
+      // Life rides the clip's own clock, so a held clip holds it too.
+      if (this.life?.bound && !b.oneShot) this.life.apply(clipDt, { state: this.state, root: this.root, viewer: cameraPosition });
+      if (this.actions?.bound && !b.oneShot) {
+        this.actions.apply(clipDt, { state: this.state, root: this.root, viewer: cameraPosition });
+        if (this.actions.takeNod()) this.life?.nod();
+      }
+      this.visualIdleBody = naturalStanding ? b : null;
       this.counters.animated++;
-    }
+    } else this.visualIdleBody = null;
     if (this.distance < FACE_M && b.faces.length) {
-      // A slow, deterministic blink, so a near face is alive and a still one is a choice.
+      // A deterministic blink, so a near face is alive and a still one is a choice: the
+      // life layer's irregular one (T-3402) where it is bound, else every 4 s.
       this.blinkClock += dt;
       const t = this.blinkClock % 4;
-      const w = t < 0.15 ? Math.sin((t / 0.15) * Math.PI) : 0;
+      const w = this.life?.bound ? this.life.blink : t < 0.15 ? Math.sin((t / 0.15) * Math.PI) : 0;
       this.applyFace({ ...this.expression, eyeBlinkLeft: w, eyeBlinkRight: w });
       this.counters.faced++;
     }
@@ -440,6 +513,7 @@ export class HumanActor {
     this.disposed = true;
     this.wanted = -1;
     if (this.body) this.teardown(this.body);
+    this.visualIdleBody = null;
     this.body = null;
     this.root.removeFromParent();
   }
@@ -466,6 +540,9 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
   group.name = 'humans';
   const events = new EventTarget();
   const actors = new Map();
+  // A vehicle temporarily owns a person's depiction, never a second copy in town.
+  const withheld = new Map();
+  let disposed = false;
   const store = assets ?? createHumanAssets({ assetBase });
   const raycaster = new THREE.Raycaster();
   const near = new Set();
@@ -484,13 +561,17 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
     events,
     assets: store,
     on(type, fn) { events.addEventListener(type, (ev) => fn(ev.detail)); return layer; },
-    get count() { return actors.size; },
-    get actors() { return [...actors.values()]; },
-    get(personId) { return actors.get(personId) ?? (personId ? [...actors.values()].find((a) => a.personId === personId) : null) ?? null; },
+    get count() { return actors.size + [...withheld.values()].filter(t => t.externalActor).length; },
+    get actors() { return [...actors.values(), ...[...withheld.values()].map(t => t.externalActor).filter(Boolean)]; },
+    get(personId) { return actors.get(personId) ?? (personId ? layer.actors.find((a) => a.id === personId || a.personId === personId) : null) ?? null; },
+    // External depictions remain addressable for People/Find, but their vehicle
+    // alone advances, places and chooses the LOD of the seated body.
+    external(personId) { return withheld.get(personId)?.externalActor ?? null; },
 
     /** Stand one figure in the group. Refuses a second instance of one person (§ 11). */
     add(instance, { person = null, profile = null, identity: validatedIdentity = null } = {}) {
-      if (actors.has(instance.id) || (instance.person_id && layer.get(instance.person_id))) {
+      if (disposed || actors.has(instance.id) || (instance.person_id
+          && (layer.get(instance.person_id) || withheld.has(instance.person_id)))) {
         throw new Error(`humans: ${instance.person_id} already stands in this scene`);
       }
       const identity = validatedIdentity ?? (instance.anonymous_profile_id
@@ -502,9 +583,45 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
       return actor;
     },
 
+    /** Transfer only the standing depiction; the vehicle owns its seated actor.
+     * Detaching its root AND update/pick entry prevents the next frame drawing it again.
+     * The release restores the exact original actor, or retires it with a disposed layer.
+     */
+    withhold(personId, { instanceId = null, externalActor = null } = {}) {
+      if (disposed || !personId || withheld.has(personId)) throw Error('humans: person already transferred or layer disposed');
+      if (externalActor && (externalActor.personId !== personId
+          || (instanceId && externalActor.id !== instanceId))) throw Error('humans: external driver identity differs');
+      const actor = layer.get(personId);
+      if (actor && instanceId && actor.id !== instanceId) throw Error('humans: transferred instance differs from the driver');
+      const parent = actor?.root.parent ?? null;
+      const visible = actor?.root.visible;
+      const token = { actor, externalActor, release: null };
+      withheld.set(personId, token);
+      if (actor) {
+        actors.delete(actor.id); near.delete(actor);
+        if (hovered === actor) hovered = null;
+        actor.root.removeFromParent();
+      }
+      let released = false;
+      token.release = () => {
+        if (released) return;
+        released = true;
+        if (withheld.get(personId) !== token) return;
+        withheld.delete(personId);
+        if (!actor) return;
+        if (disposed || actor.disposed) { actor.dispose(); return; }
+        actors.set(actor.id, actor);
+        actor.tier = tier; actor.recheck = 0; actor.root.visible = visible;
+        (parent ?? group).add(actor.root);
+      };
+      return token.release;
+    },
+
     remove(id) {
       const a = actors.get(id) ?? layer.get(id);
       if (!a) return false;
+      // The vehicle alone retires its seated actor; release the transfer first.
+      if ([...withheld.values()].some(token => token.externalActor === a)) return false;
       actors.delete(a.id);
       near.delete(a);
       if (hovered === a) hovered = null;
@@ -523,13 +640,13 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
      * One frame for every actor. `visitor` (local ENU {e, n}, the walker) is what crosses an
      * interaction radius; it defaults to the camera's ground position.
      */
-    update(dt, camera, visitor = null) {
+    update(dt, camera, visitor = null, visualDt = dt) {
       if (!actors.size) return;
       const eye = camera.getWorldPosition ? camera.getWorldPosition(new THREE.Vector3()) : camera.position;
       const ve = visitor ? visitor.e : eye.x;
       const vn = visitor ? visitor.n : -eye.z;
       for (const a of actors.values()) {
-        a.update(dt, eye);
+        a.update(dt, eye, visualDt);
         const r = a.instance.interaction?.radius_m;
         if (!r || !a.inRange) continue;
         const inside = Math.hypot(a.e - ve, a.n - vn) <= r;
@@ -579,6 +696,8 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
     },
 
     dispose() {
+      disposed = true;
+      for (const token of [...withheld.values()]) token.release();
       for (const id of [...actors.keys()]) layer.remove(id);
       group.removeFromParent();
     },
@@ -597,10 +716,10 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
  * (which is what a record says when it wants nothing drawn) is a line in `problems`.
  */
 export async function mountHumans({
-  dataBase = null, assetBase, assets = null, sceneId, people = null, terrain = null, tier = 'full',
-  problems = [], fetchImpl = fetch, contract = null,
+  dataBase = null, assetBase, assets = null, sceneId, people = null, getPeople = null, terrain = null, tier = 'full',
+  problems = [], fetchImpl = fetch, contract = null, groundHeight = null,
 } = {}) {
-  const heightAt = terrain ? (e, n) => terrain.surfaceHeight(e, n) : () => 0;
+  const heightAt = groundHeight ?? (terrain ? (e, n) => terrain.surfaceHeight(e, n) : () => 0);
   const layer = createHumanLayer({ assetBase, assets, heightAt, tier });
   const out = Object.assign(layer, { records: [], withheld: [], refused: [] });
   if (!dataBase) return out;
@@ -626,6 +745,16 @@ export async function mountHumans({
   const ids = Array.isArray(index.instances) ? index.instances : [];
   const records = await Promise.all(ids.map((id) => getJson(`humans/instances/${sceneId}/${id}.json`)
     .catch((err) => { problems.push(`humans: ${id} did not load (${err.message})`); return null; })));
+  // A scene whose directory loads lazily (1904 lists no `residents`, T-3423) passes `getPeople`:
+  // it is read only when a record names a person the eager list does not hold, and only the
+  // rows the records name are kept from it.
+  const wanted = new Set(records.filter(Boolean).map(r => r.person_id).filter(id => id && !byId.has(id)));
+  if (getPeople && wanted.size) {
+    try {
+      const directory = await getPeople();
+      for (const p of Array.isArray(directory?.people) ? directory.people : []) if (wanted.has(p.id)) byId.set(p.id, p);
+    } catch (err) { problems.push(`humans: the people directory did not load (${err.message})`); }
+  }
   const profiles = new Map();
   for (const id of new Set(records.filter(Boolean).map(r => r.anonymous_profile_id).filter(Boolean))) {
     if (!/^anonymous_[a-z0-9_]+$/.test(id)) continue;

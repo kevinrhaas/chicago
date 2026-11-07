@@ -134,14 +134,21 @@
        "k01.flat_lintel",
        "k01.flat_lintel"
       ],
-      "brick_heads": "segmental"
+      "brick_heads": "flat",
+      "head_key": {
+       "foot_m": 0.28,
+       "top_m": 0.34,
+       "height_m": 0.5,
+       "proud_m": 0.06,
+       "chamfer_m": 0.05
+      }
      },
      "confidence": "inferred",
      "sources": [
       "chicagology_1700_1706_townhouses_photo",
       "glessner_blog_1708_1706_1700_christmas_photo"
      ],
-     "note": "Both photographs show the upper windows' heads laid in the brick (a gauged flat arch under a stone key, the key not built) with no stone lintel; K03's rowlock heads in the front's own brick are the kit's nearest form."
+     "note": "Both photographs show the upper windows' heads laid in the brick (a gauged flat arch under a stone key) with no stone lintel. T-3297 (the owner's report, 2026-11-01): the heads are flat, laid as K03's soldier course in the front's own brick where the segmental rowlock rings had arched them, and each carries its stone key, read off Chicagology's photograph at about 235 px a metre on the upper lights (a 1.15 m light about 270 px across): a block about 0.28 m across at its foot widening to 0.34 m at its top, about 0.5 m high, its top corners cut, its foot on the light's head; the Christmas print shows the same keys over all eight."
     },
     "street_front_round_heads": {
      "value": {
@@ -172,7 +179,7 @@
        ]
       },
       "bracket_m": {
-       "height_m": 0.3,
+       "height_m": 0.18,
        "width_m": 0.1,
        "projection_m": 0.5
       }
@@ -182,7 +189,7 @@
       "chicagology_1700_1706_townhouses_photo",
       "glessner_blog_1708_1706_1700_christmas_photo"
      ],
-     "note": "Both photographs show a deep classical cornice painted light across the pair (its tone the prints' near-white; the paint's hue is reconstructed), a dentil course under a close row of modillions, its soffit about 8.3 m over grade. K01 lays K10's bracketed timber cornice, its brackets made small to stand for the modillions (they stand further apart than the photograph's, and the dentils are not cut). T-3244: the paint is white (linear 0.86, 0.85, 0.80): the cornice prints at the top of each picture's range with the porches' columns, as white lead does beside the red brick (docs/RESEARCH/colour-1700-block-T-3244/README.md)."
+     "note": "Both photographs show a deep classical cornice painted light across the pair (its tone the prints' near-white; the paint's hue is reconstructed), a dentil course under a close row of modillions, its soffit about 8.3 m over grade. K01 lays K10's bracketed timber cornice, its brackets made small to stand for the modillions (they stand further apart than the photograph's, and the dentils are not cut). T-3244: the paint is white (linear 0.86, 0.85, 0.80): the cornice prints at the top of each picture's range with the porches' columns, as white lead does beside the red brick (docs/RESEARCH/colour-1700-block-T-3244/README.md). T-3297: the brackets are cut to 0.18 m deep, the photograph's modillions under the corona, where at the kit's 0.3 m they hung down across the upper lights' keys (Chicagology's photograph shows each key's top about 0.15 m clear of the cornice's lowest member)."
     },
     "roof_form": {
      "value": "mansard",
@@ -230,34 +237,78 @@
         "along_m": 2.2,
         "sash": {
          "variant": "k06.opening.sash_paired_flat",
-         "width_m": 1.2,
-         "height_m": 1.45,
+         "width_m": 1.45,
+         "height_m": 1.55,
          "sill_m": 0.15
         },
-        "surround_m": 0.3,
+        "surround_m": 0.22,
         "face_setback_m": 0.35,
         "head": "gable",
-        "gable_pitch_deg": 30
+        "gable_pitch_deg": 24,
+        "frieze_m": 0.28,
+        "dress": {
+         "cornice_m": [
+          0.24,
+          0.22
+         ],
+         "return_m": 0.2,
+         "rake": [
+          [
+           0.09,
+           0.2
+          ],
+          [
+           0.1,
+           0.1
+          ]
+         ],
+         "pilasters": {
+          "width_m": 0.15,
+          "proud_m": 0.035,
+          "cap_m": 0.08
+         },
+         "cheeks": "painted"
+        }
        },
        {
         "face": "street",
         "along_m": 7.4,
         "sash": {
          "variant": "k06.opening.sash_paired_flat",
-         "width_m": 1.2,
-         "height_m": 1.45,
+         "width_m": 1.45,
+         "height_m": 1.55,
          "sill_m": 0.15
         },
-        "surround_m": 0.3,
+        "surround_m": 0.22,
         "face_setback_m": 0.35,
         "head": "gable",
-        "gable_pitch_deg": 30
+        "gable_pitch_deg": 24,
+        "frieze_m": 0.28,
+        "dress": {
+         "cornice_m": [
+          0.24,
+          0.22
+         ],
+         "return_m": 0.2,
+         "rake": [
+          [
+           0.09,
+           0.2
+          ],
+          [
+           0.1,
+           0.1
+          ]
+         ],
+         "pilasters": {
+          "width_m": 0.15,
+          "proud_m": 0.035,
+          "cap_m": 0.08
+         },
+         "cheeks": "painted"
+        }
        }
       ],
-      "side_parapet": {
-       "wall": "north",
-       "top_m": 12.15
-      },
       "deck": {
        "cresting": {
         "height_m": 0.9,
@@ -265,17 +316,27 @@
         "sides": [
          "street"
         ],
-        "painted": true
+        "painted": true,
+        "pattern": "fret",
+        "panel_m": 1.0
        }
       },
-      "dormer_fabric": "painted"
+      "dormer_fabric": "painted",
+      "walled_ends": [
+       {
+        "wall": "north",
+        "party": true,
+        "thickness_m": 0.25,
+        "upstand_m": 0.3
+       }
+      ]
      },
      "confidence": "inferred",
      "sources": [
       "chicagology_1700_1706_townhouses_photo",
       "glessner_blog_1708_1706_1700_christmas_photo"
      ],
-     "note": "Chicagology's photograph read through its camera: the straight steep lower faces from the cornice to a curb about 12.0 m over grade (so a 3.7 m rise at about 70 degrees), two pedimented dormers to each house (each pediment's peak triangulated from the two cameras, within 0.3 m: about 2.2 and 7.4 m from 1706's south corner and 3.15 and 8.05 m from 1700's south end, so the pair's dormers are not mirrored, their faces set 0.35 m into the lower face, as far as their pediments clear the curb), their paired sash about 1.45 m square from about 9.2 m (built 1.2 m wide, the kit's widest dormer light), the pediments' peaks about 11.4-11.9 m; the party wall carried up through the roof between the two houses (1706's north wall, which 1700's south hip dies against), and 1700's north end wall carried up past the curb as the Christmas print shows it, coped about 0.6 m over the curb; and an openwork railing about 0.9 m high along the deck's street edge (a white-painted fret in the photograph, laid as K10's cresting pattern in the eave's painted timber: the pattern is the kit's, not the fret's). T-3244: the dormers' faces and pediments are painted timber in the cornice's white, as all three pictures print them, not limestone."
+     "note": "Chicagology's photograph read through its camera: the straight steep lower faces from the cornice to a curb about 12.0 m over grade (so a 3.7 m rise at about 70 degrees), two pedimented dormers to each house (each pediment's peak triangulated from the two cameras, within 0.3 m: about 2.2 and 7.4 m from 1706's south corner and 3.15 and 8.05 m from 1700's south end, so the pair's dormers are not mirrored, their faces set 0.35 m into the lower face, as far as their pediments clear the curb), their paired sash about 1.45 m square from about 9.2 m (built 1.2 m wide until T-3297 built them at 1.45 m), the pediments' peaks about 11.4-11.9 m; and an openwork railing about 0.9 m high along the deck's street edge, a white-painted fret. T-3244: the dormers' faces and pediments are painted timber in the cornice's white, as all three pictures print them, not limestone. T-3297 (the owner's report, 2026-11-01, that the dormers read half shut): each dormer's paired sash had only its first light cut through the face, the second standing behind it; both are cut now, and the pair is built at the photograph's 1.45 m (K01 had held a dormer's light to one sash's 1.2 m) and about 1.55 m high, in a 0.22 m surround, the face's width and the sash's height read through Chicagology's camera against the photograph's (each dormer's sash within about 5-10 px of it). T-3307 (the owner's word, 2026-11-02, to dress them as the photograph does): each dormer's pediment carries a moulded level cornice about 0.24 m high projecting 0.22 m, returned 0.2 m along both cheeks, under two raking bands (0.09 m proud 0.2 m, 0.1 m proud 0.1 m) at a 24 degree pitch over a 0.28 m frieze, the face framed by a 0.15 m pilaster with a capital either side of the paired sash, and the cheeks painted in the face's white as the photograph prints them, not slated; the pediment's pitch, the cornice's depth and the pilasters' width read through Chicagology's camera against the photograph's dormers. T-3384 (the owner, 2026-11-05, on both photographs): the pair is ONE mansard, not two hipped at the party line. Its street face runs on unbroken across both houses, and the party wall, centred on the line, is carried up through it: its pale coping, a broad band, follows the roof's own section from the cornice up the steep face and over the deck, a stack standing on it just behind the railing (the Christmas print, and Chicagology's close at the deck). Each house builds the half of the wall on its own side of the line (`walled_ends`, party), so the two halves read as one wall about 0.5 m thick; 1700's north end wall is carried up the same way past its end of the roof, its coping falling down the steep face to the cornice at the corner, as both photographs show it. The deck's railing is the photograph's own fret, not the kit's cresting: square posts about a metre apart under a moulded rail, a bar corner to corner in each panel and a rectilinear key in each triangle it leaves (Chicagology's close view). RECONSTRUCTED: the parapets' upstand (0.3 m over the slope) and the party wall's thickness, the fret's sections and its keys' exact turns. Liberty L-k01-1700-1706-roof-3384."
     },
     "stair_tread_m": {
      "value": 0.3,
@@ -413,7 +474,7 @@
       "downpipes": [
        {
         "wall": "k01.wall.street_front",
-        "s_m": 10.5
+        "s_m": 11.05
        },
        {
         "wall": "k01.wall.rear_service",
@@ -426,7 +487,7 @@
       "chicagology_1700_1706_townhouses_photo",
       "glessner_blog_1708_1706_1700_christmas_photo"
      ],
-     "note": "Both photographs show one downpipe down the front at the party line between the two houses; the gutter behind the cornice and the rear pipe are reconstructed."
+     "note": "Both photographs show one downpipe down the front at the party line between the two houses; the gutter behind the cornice and the rear pipe are reconstructed. T-3384 (the owner, 2026-11-05): the one pipe stands ON the party line, both houses' street gutters running to it: 1706 builds it, and 1700's gutter names it as its outlet (`shared`)."
     },
     "basement_lights": {
      "value": {
@@ -451,8 +512,14 @@
       "cap_depth_m": 0.15,
       "stacks": [
        {
-        "u_m": 9.6,
-        "v_m": 9.75
+        "u_m": 11.55,
+        "v_m": 11.05,
+        "wall_end": "north",
+        "plan_m": [
+         0.9,
+         1.2
+        ],
+        "top_m": 14.4
        },
        {
         "u_m": 5.5,
@@ -465,7 +532,7 @@
       "chicagology_1700_1706_townhouses_photo",
       "glessner_blog_1708_1706_1700_christmas_photo"
      ],
-     "note": "Both photographs show a stack at the party wall over the deck and one toward each house's outer wall; their places on the deck and their heights are reconstructed."
+     "note": "Both photographs show a stack at the party wall over the deck and one toward each house's outer wall; their places on the deck and their heights are reconstructed. T-3384 (the owner, 2026-11-05): both photographs show ONE stack at the party line, standing on the party wall just behind the deck's railing (the Christmas print; Chicagology's shows the fret running on in front of it), broad along the front, and one on each outer end wall behind the railing where the photograph reaches it (1700's north end in both). The party stack is built in two halves, one by each house, meeting on the line; its size and height are read roughly off the prints (about 1.2 m along the front, its cap about 14.4 m over grade) and reconstructed in detail."
     },
     "entrance_kit": {
      "value": {
@@ -607,14 +674,15 @@
       "posts": {
        "section_m": 0.12,
        "height_m": 1.55
-      }
+      },
+      "open_curb": true
      },
      "confidence": "inferred",
      "sources": [
       "chicagology_1700_1706_townhouses_photo",
       "glessner_blog_1700_1706_construction_1901_photo"
      ],
-     "note": "Chicagology's photograph (after 1902) shows the spear-headed iron railing on a low curb running on from before 1708 along 1706's front to a pair of capped piers at the walk to 1706's porch, and stopping there: north of the walk 1706's front, like 1700's, lies open to its lawn behind a low edging stone (T-3212). K11's spear-on-curb railing just inside the street line, 8.7 m before the front: the pair's record puts the public walk 8.9 m out (1708's 9.17 m, the two records 0.3 m apart on one walk), and K11 keeps the curb and piers 0.05 m clear of it, so this line stands about 0.2 m inside 1708's, under a foot, the entrance a pair of walk gates square to the stoop, hung on cast-iron posts with no urn (`posts`, as 1708's): the photograph's gateway posts are dark iron, capped, not stone. The pair is built to its lot's side lines (1706 against 1708, 1700 against the party line), so neither front has a side passage or a side gate (boundary.runs, T-3212). RECONSTRUCTED: the railing's height, the posts' section and height (1708's) and the gates' leaves are the kit's, and the leaves are drawn standing open into the yard, 70 degrees, so the way in reads open from the street, as at 1708 (no picture shows them; liberty L-k14-walks-1700-1706-3212). The 1901 construction photograph (the library's a16-ghm-blog-1700-1706-construction-1901, its camera data/reference_views/<this house>/ghm_construction_1901.json) shows this railing already standing during the build, on a stone curb, running on from 1708's to the gateway's piers before 1706 and stopping there; through that camera 1706's gateway stood about 1.6 m south of the one laid square to the flight (open in 1706's match record: K11 lays a gateway only on its flight's axis)."
+     "note": "Chicagology's photograph (after 1902) shows the spear-headed iron railing on a low curb running on from before 1708 along 1706's front to a pair of capped piers at the walk to 1706's porch, and stopping there: north of the walk 1706's front, like 1700's, lies open to its lawn behind a low edging stone (T-3212). K11's spear-on-curb railing just inside the street line, 8.7 m before the front: the pair's record puts the public walk 8.9 m out (1708's 9.17 m, the two records 0.3 m apart on one walk), and K11 keeps the curb and piers 0.05 m clear of it, so this line stands about 0.2 m inside 1708's, under a foot, the entrance a pair of walk gates square to the stoop, hung on cast-iron posts with no urn (`posts`, as 1708's): the photograph's gateway posts are dark iron, capped, not stone. The pair is built to its lot's side lines (1706 against 1708, 1700 against the party line), so neither front has a side passage or a side gate (boundary.runs, T-3212). RECONSTRUCTED: the railing's height, the posts' section and height (1708's) and the gates' leaves are the kit's, and the leaves are drawn standing open into the yard, 70 degrees, so the way in reads open from the street, as at 1708 (no picture shows them; liberty L-k14-walks-1700-1706-3212). The 1901 construction photograph (the library's a16-ghm-blog-1700-1706-construction-1901, its camera data/reference_views/<this house>/ghm_construction_1901.json) shows this railing already standing during the build, on a stone curb, running on from 1708's to the gateway's piers before 1706 and stopping there; through that camera 1706's gateway stood about 1.6 m south of the one laid square to the flight (open in 1706's match record: K11 lays a gateway only on its flight's axis). T-3393 (the owner, 2026-11-05: the front is missing its street fence): both photographs show the lawn north of 1706's walk, across the pair's middle to the party line, held behind a low dressed-stone curb on the street line, in line with the railing's own curb and bare of iron; `open_curb` lays the kit's curb alone there (0.30 m wide, 0.25 m over grade), from the entrance's north pier to the party line, where 1700's meets it. RECONSTRUCTED: its section is the kit's railing curb (liberty L-k14-walks-1700-1706-3212)."
     },
     "yard": {
      "value": {

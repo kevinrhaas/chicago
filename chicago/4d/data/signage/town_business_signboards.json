@@ -27,25 +27,23 @@
   },
   "treatment": {
     "confidence": "reconstructed",
-    "note": "Five mountings, chosen by the trade's class and de-conflicted against every sign within 40 m so that no two neighbours hang alike: `bracket_board` (the wolf sign's own geometry — a plank hung by two straps 0.20 m under a 1.15 m bracket arm, 1.7 m to one side of the facade's centre and clear of the eave), `awning_board` (the same plank under a hood 1.45 m deep that falls 0.34 m to its outer edge), `wall_board` (a board fixed flat on the front under a cap), `post_board` (a pole at the street edge 1.9 m out from the wall, with a cross-arm and the board under it — the Green Tree's own arrangement, T-0082) and `facade_painted` (the name straight onto the boards of the building, no board at all — what image 5 of the owner's brief shows across the Tremont's row, standing with its foot 2.3 m up so it clears a door head, or lower where the wall has not the height for that and 0.25 m of eave besides). Not one of those numbers is a record's. A sign's SIZE is derived from the length of its own name inside the range its mounting allows and inside the frontage it stands on; its `aspect` comes from its style, so two boards on one street are not the same rectangle either.",
+    "note": "SINCE T-3359 NOTHING IS BUILT HUNG BUT A TAVERN'S POST: a board dealt a bracket or an awning (its `hung_before`) is fixed flat on its own front instead, over the door or beside it, clear of every opening, with the wording, colourway and letterform it was dealt (the owner, 2026-11-03, and L159's amendment). The deal itself is unchanged: Five mountings, chosen by the trade's class and de-conflicted against every sign within 40 m so that no two neighbours hang alike: `bracket_board` (the wolf sign's own geometry — a plank hung by two straps 0.20 m under a 1.15 m bracket arm, 1.7 m to one side of the facade's centre and clear of the eave), `awning_board` (the same plank under a hood 1.45 m deep that falls 0.34 m to its outer edge), `wall_board` (a board fixed flat on the front under a cap), `post_board` (a pole at the street edge 1.9 m out from the wall, with a cross-arm and the board under it — the Green Tree's own arrangement, T-0082) and `facade_painted` (the name straight onto the boards of the building, no board at all — what image 5 of the owner's brief shows across the Tremont's row, standing with its foot 2.3 m up so it clears a door head, or lower where the wall has not the height for that and 0.25 m of eave besides). Not one of those numbers is a record's. A sign's SIZE is derived from the length of its own name inside the range its mounting allows and inside the frontage it stands on; its `aspect` comes from its style, so two boards on one street are not the same rectangle either.",
     "mountings": {
-      "awning_board": 14,
-      "bracket_board": 21,
       "facade_painted": 24,
       "post_board": 6,
-      "wall_board": 15
+      "wall_board": 50
     }
   },
   "opening_sweep": {
     "note": "Every sign in the record, and what the opening test did with it. A board on a BRACKET, an AWNING or a POST stands off the wall on an arm, a hood or a stick of its own and cannot cover an opening, so it is swept as `not flat on the wall` rather than as clear — the test applies to the boards fixed flat against a facade and to the names painted straight on one. `already clear` is a measurement and not a silence: it means the board was tested against this building's own door and window rectangles and stood off all of them where the trade rule had already put it.",
-    "flat_mounted": 39,
+    "flat_mounted": 74,
     "counts": {
       "already clear": 2,
       "lettered on the fascia": 7,
-      "moved": 14,
-      "not flat on the wall": 41,
-      "reshaped": 8,
-      "shrunk onto clear face": 8
+      "moved": 36,
+      "not flat on the wall": 6,
+      "reshaped": 20,
+      "shrunk onto clear face": 9
     },
     "signs": [
       {
@@ -60,10 +58,12 @@
       },
       {
         "structure_id": "brown_boarding_house",
-        "mounting": "awning_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door"
+        ],
+        "done": "moved"
       },
       {
         "structure_id": "carpenter_south_water_store",
@@ -116,38 +116,55 @@
       },
       {
         "structure_id": "exchange_coffee_house",
-        "mounting": "bracket_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door"
+        ],
+        "done": "moved"
       },
       {
         "structure_id": "frederick_thomas_shop",
-        "mounting": "bracket_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "moved"
       },
       {
         "structure_id": "goss_cobb_saddlery",
-        "mounting": "bracket_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "moved"
       },
       {
         "structure_id": "h_jones_store",
-        "mounting": "awning_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "shop_door",
+          "show_window"
+        ],
+        "done": "moved"
       },
       {
         "structure_id": "harmon_loomis_store",
-        "mounting": "bracket_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "moved"
       },
       {
         "structure_id": "hogan_store",
@@ -181,10 +198,12 @@
       },
       {
         "structure_id": "kelsey_boarding_house",
-        "mounting": "awning_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door"
+        ],
+        "done": "moved"
       },
       {
         "structure_id": "kinzie_hunter_warehouse",
@@ -197,17 +216,21 @@
       },
       {
         "structure_id": "madore_beaubien_house",
-        "mounting": "bracket_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door"
+        ],
+        "done": "reshaped"
       },
       {
         "structure_id": "mansion_house",
-        "mounting": "bracket_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door"
+        ],
+        "done": "moved"
       },
       {
         "structure_id": "mason_blacksmith_shop",
@@ -238,10 +261,12 @@
       },
       {
         "structure_id": "new_york_house",
-        "mounting": "awning_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door"
+        ],
+        "done": "moved"
       },
       {
         "structure_id": "newberry_dole_slaughterhouse_south_branch",
@@ -263,10 +288,14 @@
       },
       {
         "structure_id": "peck_store",
-        "mounting": "bracket_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "moved"
       },
       {
         "structure_id": "pierce_blacksmith_shop",
@@ -279,17 +308,23 @@
       },
       {
         "structure_id": "pruyne_kimball_drugstore",
-        "mounting": "awning_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "moved"
       },
       {
         "structure_id": "recon_1835_blk_indiana_north_cass_h3_09",
-        "mounting": "bracket_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door"
+        ],
+        "done": "moved"
       },
       {
         "structure_id": "recon_1835_blk_lake_clark_c1_01",
@@ -304,10 +339,14 @@
       },
       {
         "structure_id": "recon_1835_blk_lake_clark_c2_02",
-        "mounting": "bracket_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "reshaped"
       },
       {
         "structure_id": "recon_1835_blk_lake_clark_c3_03",
@@ -343,17 +382,23 @@
       },
       {
         "structure_id": "recon_1835_blk_randolph_clark_c2_01",
-        "mounting": "bracket_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "reshaped"
       },
       {
         "structure_id": "recon_1835_blk_randolph_clark_w1_10",
-        "mounting": "bracket_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door"
+        ],
+        "done": "shrunk onto clear face"
       },
       {
         "structure_id": "recon_1835_blk_randolph_clark_w2_09",
@@ -415,10 +460,14 @@
       },
       {
         "structure_id": "recon_1835_blk_south_water_dearborn_c3_02",
-        "mounting": "awning_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "reshaped"
       },
       {
         "structure_id": "recon_1835_blk_south_water_dearborn_f2_11",
@@ -429,17 +478,25 @@
       },
       {
         "structure_id": "recon_1835_blk_south_water_franklin_c2_08",
-        "mounting": "bracket_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "reshaped"
       },
       {
         "structure_id": "recon_1835_blk_south_water_franklin_c2_09",
-        "mounting": "awning_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "reshaped"
       },
       {
         "structure_id": "recon_1835_blk_south_water_franklin_c2_10",
@@ -465,10 +522,14 @@
       },
       {
         "structure_id": "recon_1835_blk_south_water_lasalle_c2_11",
-        "mounting": "bracket_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "reshaped"
       },
       {
         "structure_id": "recon_1835_blk_south_water_lasalle_c3_13",
@@ -519,10 +580,12 @@
       },
       {
         "structure_id": "recon_1835_blk_washington_clark_h3_05",
-        "mounting": "awning_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door"
+        ],
+        "done": "moved"
       },
       {
         "structure_id": "recon_1835_blk_washington_clark_h3_06",
@@ -533,17 +596,21 @@
       },
       {
         "structure_id": "recon_1835_blk_washington_clark_h3_11",
-        "mounting": "awning_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door"
+        ],
+        "done": "moved"
       },
       {
         "structure_id": "recon_1835_blk_washington_dearborn_h3_01",
-        "mounting": "bracket_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door"
+        ],
+        "done": "moved"
       },
       {
         "structure_id": "recon_1835_blk_washington_market_h3_01",
@@ -554,10 +621,12 @@
       },
       {
         "structure_id": "recon_1835_blk_washington_market_h3_04",
-        "mounting": "bracket_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door"
+        ],
+        "done": "moved"
       },
       {
         "structure_id": "recon_1835_canal_trade_c3_001",
@@ -572,10 +641,13 @@
       },
       {
         "structure_id": "recon_1835_canal_trade_c4_002",
-        "mounting": "bracket_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "shop_door",
+          "show_window"
+        ],
+        "done": "reshaped"
       },
       {
         "structure_id": "recon_1835_canal_trade_w1_003",
@@ -597,31 +669,41 @@
       },
       {
         "structure_id": "recon_1835_north_h1_007",
-        "mounting": "awning_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door",
+          "porch",
+          "shutter"
+        ],
+        "done": "reshaped"
       },
       {
         "structure_id": "recon_1835_north_h2_022",
-        "mounting": "bracket_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door"
+        ],
+        "done": "moved"
       },
       {
         "structure_id": "recon_1835_north_h2_028",
-        "mounting": "awning_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door"
+        ],
+        "done": "moved"
       },
       {
         "structure_id": "recon_1835_north_h2_030",
-        "mounting": "bracket_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door"
+        ],
+        "done": "moved"
       },
       {
         "structure_id": "recon_1835_north_h2_045",
@@ -632,10 +714,13 @@
       },
       {
         "structure_id": "recon_1835_south_c3_040",
-        "mounting": "awning_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "shop_door",
+          "show_window"
+        ],
+        "done": "reshaped"
       },
       {
         "structure_id": "recon_1835_south_f1_038",
@@ -648,10 +733,13 @@
       },
       {
         "structure_id": "recon_1835_west_006",
-        "mounting": "bracket_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door",
+          "shutter"
+        ],
+        "done": "reshaped"
       },
       {
         "structure_id": "recon_1835_west_007",
@@ -666,10 +754,12 @@
       },
       {
         "structure_id": "recon_1835_west_035",
-        "mounting": "awning_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door"
+        ],
+        "done": "moved"
       },
       {
         "structure_id": "robert_kinzie_store",
@@ -682,24 +772,32 @@
       },
       {
         "structure_id": "sauganash_hotel",
-        "mounting": "bracket_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door"
+        ],
+        "done": "reshaped"
       },
       {
         "structure_id": "steamboat_hotel",
-        "mounting": "bracket_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "door"
+        ],
+        "done": "moved"
       },
       {
         "structure_id": "thomas_church_store",
-        "mounting": "awning_board",
-        "covered_an_opening_before": false,
-        "covered_before": [],
-        "done": "not flat on the wall"
+        "mounting": "wall_board",
+        "covered_an_opening_before": true,
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "done": "moved"
       },
       {
         "structure_id": "tremont_house_1",
@@ -809,6 +907,33 @@
       "note": "The promise above, MEASURED rather than assumed, every build: every pair of boards within 40 m that shares a mounting, a style or a ground colour. The generator REFUSES TO BUILD on any pair not listed here as allowed. A mounting may be shared only where one of the two trades belongs to a class whose cycle is a single mounting — a works paints its front and hangs nothing at all, so two works on one corner cannot differ, and this project would rather say so than hang a plank on a works to make a rule come out.",
       "pairs_within_neighbour_m_sharing_something": [
         {
+          "a": "brown_boarding_house",
+          "b": "carpenter_south_water_store",
+          "gap_m": 39.7,
+          "share": "mounting",
+          "value": "wall_board",
+          "allowed": true,
+          "why": "the two were DEALT different mountings and one of them was a hung board, which T-3359 fixes flat on its front: two shops in one street with boards on their fronts is what the period's streets show, and they still differ in style and ground colour."
+        },
+        {
+          "a": "brown_boarding_house",
+          "b": "peck_store",
+          "gap_m": 21.2,
+          "share": "mounting",
+          "value": "wall_board",
+          "allowed": true,
+          "why": "the two were DEALT different mountings and one of them was a hung board, which T-3359 fixes flat on its front: two shops in one street with boards on their fronts is what the period's streets show, and they still differ in style and ground colour."
+        },
+        {
+          "a": "carpenter_south_water_store",
+          "b": "h_jones_store",
+          "gap_m": 34.1,
+          "share": "mounting",
+          "value": "wall_board",
+          "allowed": true,
+          "why": "the two were DEALT different mountings and one of them was a hung board, which T-3359 fixes flat on its front: two shops in one street with boards on their fronts is what the period's streets show, and they still differ in style and ground colour."
+        },
+        {
           "a": "chicago_american_office",
           "b": "recon_1835_blk_south_water_dearborn_c1_08",
           "gap_m": 21.2,
@@ -836,6 +961,114 @@
           "why": "one of these two trades is a works, and the works cycle is a single mounting — a works paints its front and hangs nothing at all, so two of them inside 40 m cannot differ and this project would rather say so than hang a plank on a works to make a rule come out."
         },
         {
+          "a": "exchange_coffee_house",
+          "b": "new_york_house",
+          "gap_m": 13.1,
+          "share": "mounting",
+          "value": "wall_board",
+          "allowed": true,
+          "why": "the two were DEALT different mountings and one of them was a hung board, which T-3359 fixes flat on its front: two shops in one street with boards on their fronts is what the period's streets show, and they still differ in style and ground colour."
+        },
+        {
+          "a": "frederick_thomas_shop",
+          "b": "john_holbrook_store",
+          "gap_m": 18.0,
+          "share": "mounting",
+          "value": "wall_board",
+          "allowed": true,
+          "why": "the two were DEALT different mountings and one of them was a hung board, which T-3359 fixes flat on its front: two shops in one street with boards on their fronts is what the period's streets show, and they still differ in style and ground colour."
+        },
+        {
+          "a": "frederick_thomas_shop",
+          "b": "recon_1835_blk_south_water_dearborn_c3_01",
+          "gap_m": 33.6,
+          "share": "mounting",
+          "value": "wall_board",
+          "allowed": true,
+          "why": "the two were DEALT different mountings and one of them was a hung board, which T-3359 fixes flat on its front: two shops in one street with boards on their fronts is what the period's streets show, and they still differ in style and ground colour."
+        },
+        {
+          "a": "frederick_thomas_shop",
+          "b": "recon_1835_blk_south_water_dearborn_c3_02",
+          "gap_m": 28.3,
+          "share": "mounting",
+          "value": "wall_board",
+          "allowed": true,
+          "why": "the two were DEALT different mountings and one of them was a hung board, which T-3359 fixes flat on its front: two shops in one street with boards on their fronts is what the period's streets show, and they still differ in style and ground colour."
+        },
+        {
+          "a": "harmon_loomis_store",
+          "b": "pruyne_kimball_drugstore",
+          "gap_m": 36.0,
+          "share": "mounting",
+          "value": "wall_board",
+          "allowed": true,
+          "why": "the two were DEALT different mountings and one of them was a hung board, which T-3359 fixes flat on its front: two shops in one street with boards on their fronts is what the period's streets show, and they still differ in style and ground colour."
+        },
+        {
+          "a": "harmon_loomis_store",
+          "b": "recon_1835_blk_south_water_clark_c2_06",
+          "gap_m": 26.8,
+          "share": "mounting",
+          "value": "wall_board",
+          "allowed": true,
+          "why": "the two were DEALT different mountings and one of them was a hung board, which T-3359 fixes flat on its front: two shops in one street with boards on their fronts is what the period's streets show, and they still differ in style and ground colour."
+        },
+        {
+          "a": "hogan_store",
+          "b": "sauganash_hotel",
+          "gap_m": 26.5,
+          "share": "mounting",
+          "value": "wall_board",
+          "allowed": true,
+          "why": "the two were DEALT different mountings and one of them was a hung board, which T-3359 fixes flat on its front: two shops in one street with boards on their fronts is what the period's streets show, and they still differ in style and ground colour."
+        },
+        {
+          "a": "jh_kinzie_forwarding_store",
+          "b": "recon_1835_blk_south_water_franklin_c2_08",
+          "gap_m": 23.1,
+          "share": "mounting",
+          "value": "wall_board",
+          "allowed": true,
+          "why": "the two were DEALT different mountings and one of them was a hung board, which T-3359 fixes flat on its front: two shops in one street with boards on their fronts is what the period's streets show, and they still differ in style and ground colour."
+        },
+        {
+          "a": "jh_kinzie_forwarding_store",
+          "b": "recon_1835_blk_south_water_franklin_c2_09",
+          "gap_m": 16.6,
+          "share": "mounting",
+          "value": "wall_board",
+          "allowed": true,
+          "why": "the two were DEALT different mountings and one of them was a hung board, which T-3359 fixes flat on its front: two shops in one street with boards on their fronts is what the period's streets show, and they still differ in style and ground colour."
+        },
+        {
+          "a": "pruyne_kimball_drugstore",
+          "b": "recon_1835_blk_south_water_clark_c2_06",
+          "gap_m": 9.2,
+          "share": "mounting",
+          "value": "wall_board",
+          "allowed": true,
+          "why": "the two were DEALT different mountings and one of them was a hung board, which T-3359 fixes flat on its front: two shops in one street with boards on their fronts is what the period's streets show, and they still differ in style and ground colour."
+        },
+        {
+          "a": "recon_1835_blk_lake_clark_c1_01",
+          "b": "recon_1835_blk_lake_clark_c2_02",
+          "gap_m": 6.7,
+          "share": "mounting",
+          "value": "wall_board",
+          "allowed": true,
+          "why": "the two were DEALT different mountings and one of them was a hung board, which T-3359 fixes flat on its front: two shops in one street with boards on their fronts is what the period's streets show, and they still differ in style and ground colour."
+        },
+        {
+          "a": "recon_1835_blk_randolph_clark_w1_10",
+          "b": "recon_1835_blk_randolph_clark_w2_09",
+          "gap_m": 26.1,
+          "share": "mounting",
+          "value": "wall_board",
+          "allowed": true,
+          "why": "the two were DEALT different mountings and one of them was a hung board, which T-3359 fixes flat on its front: two shops in one street with boards on their fronts is what the period's streets show, and they still differ in style and ground colour."
+        },
+        {
           "a": "recon_1835_blk_south_water_dearborn_c1_08",
           "b": "recon_1835_blk_south_water_dearborn_f2_11",
           "gap_m": 21.3,
@@ -843,6 +1076,51 @@
           "value": "facade_painted",
           "allowed": true,
           "why": "one of these two trades is a works, and the works cycle is a single mounting — a works paints its front and hangs nothing at all, so two of them inside 40 m cannot differ and this project would rather say so than hang a plank on a works to make a rule come out."
+        },
+        {
+          "a": "recon_1835_blk_south_water_dearborn_c3_01",
+          "b": "recon_1835_blk_south_water_dearborn_c3_02",
+          "gap_m": 5.2,
+          "share": "mounting",
+          "value": "wall_board",
+          "allowed": true,
+          "why": "the two were DEALT different mountings and one of them was a hung board, which T-3359 fixes flat on its front: two shops in one street with boards on their fronts is what the period's streets show, and they still differ in style and ground colour."
+        },
+        {
+          "a": "recon_1835_blk_south_water_franklin_c2_08",
+          "b": "recon_1835_blk_south_water_franklin_c2_09",
+          "gap_m": 6.4,
+          "share": "mounting",
+          "value": "wall_board",
+          "allowed": true,
+          "why": "the two were DEALT different mountings and one of them was a hung board, which T-3359 fixes flat on its front: two shops in one street with boards on their fronts is what the period's streets show, and they still differ in style and ground colour."
+        },
+        {
+          "a": "recon_1835_blk_south_water_lasalle_c2_11",
+          "b": "recon_1835_blk_south_water_lasalle_d5_01",
+          "gap_m": 38.4,
+          "share": "mounting",
+          "value": "wall_board",
+          "allowed": true,
+          "why": "the two were DEALT different mountings and one of them was a hung board, which T-3359 fixes flat on its front: two shops in one street with boards on their fronts is what the period's streets show, and they still differ in style and ground colour."
+        },
+        {
+          "a": "recon_1835_blk_south_water_lasalle_c2_11",
+          "b": "recon_1835_blk_south_water_lasalle_f2_10",
+          "gap_m": 6.2,
+          "share": "mounting",
+          "value": "wall_board",
+          "allowed": true,
+          "why": "the two were DEALT different mountings and one of them was a hung board, which T-3359 fixes flat on its front: two shops in one street with boards on their fronts is what the period's streets show, and they still differ in style and ground colour."
+        },
+        {
+          "a": "recon_1835_canal_trade_c3_001",
+          "b": "recon_1835_canal_trade_c4_002",
+          "gap_m": 16.9,
+          "share": "mounting",
+          "value": "wall_board",
+          "allowed": true,
+          "why": "the two were DEALT different mountings and one of them was a hung board, which T-3359 fixes flat on its front: two shops in one street with boards on their fronts is what the period's streets show, and they still differ in style and ground colour."
         },
         {
           "a": "recon_1835_canal_trade_w1_003",
@@ -894,8 +1172,8 @@
         "note": "black on a bare weathered board — the tone L130 hung the town's blank boards in"
       },
       "anchor_local_enu_m": [
-        687.32,
-        -54.83
+        684.9,
+        -49.81
       ],
       "facade_bearing_deg": 90.0,
       "arm_height_m": 2.55,
@@ -912,20 +1190,20 @@
       "frontage_m": 12.19,
       "ground_quad_local_enu_m": [
         [
-          679.7,
-          -43.7
+          677.28,
+          -38.68
         ],
         [
-          679.7,
-          -55.89
+          677.28,
+          -50.88
         ],
         [
-          687.32,
-          -55.89
+          684.9,
+          -50.88
         ],
         [
-          687.32,
-          -43.7
+          684.9,
+          -38.68
         ]
       ],
       "opening_fit": {
@@ -1013,8 +1291,9 @@
       "trade_class": "house",
       "why_a_board": "lodging is sold to arrivals who have to find the door",
       "confidence": "reconstructed",
-      "mounting": "awning_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a awning board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "awning_board",
       "style": {
         "id": "white_on_blue",
         "ground": "#22344f",
@@ -1025,22 +1304,19 @@
         "note": "white block letters on a Prussian-blue ground"
       },
       "anchor_local_enu_m": [
-        429.7,
+        426.52,
         -23.9
       ],
       "facade_bearing_deg": 0.0,
       "arm_height_m": 2.55,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.56,
-      "board_h_m": 0.6,
+      "board_w_m": 1.72,
+      "board_h_m": 0.66,
       "board_thickness_m": 0.05,
       "geometry": {
-        "awning_projection_m": 1.45,
-        "awning_drop_m": 0.34,
-        "awning_width_m": 2.46,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 2.02,
+      "reach_m": 0.98,
       "wall_height_m": 2.9,
       "wall_height_from": "the record",
       "frontage_m": 7.32,
@@ -1061,7 +1337,46 @@
           424.34,
           -23.9
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "door"
+        ],
+        "fixed_to": null,
+        "note": "moved 1.48 m along the front, off door, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          7.32
+        ],
+        "board_span_local_m": [
+          1.32,
+          3.04
+        ],
+        "openings": [
+          {
+            "kind": "door",
+            "u0": 3.14,
+            "u1": 4.18,
+            "z0": 0.02,
+            "z1": 1.95
+          },
+          {
+            "kind": "window",
+            "u0": 1.3,
+            "u1": 1.92,
+            "z0": 0.99,
+            "z1": 1.71
+          },
+          {
+            "kind": "window",
+            "u0": 5.4,
+            "u1": 6.02,
+            "z0": 0.99,
+            "z1": 1.71
+          }
+        ]
+      }
     },
     {
       "structure_id": "carpenter_south_water_store",
@@ -1663,8 +1978,9 @@
       "trade_class": "house",
       "why_a_board": "a public house takes its custom from the road",
       "confidence": "reconstructed",
-      "mounting": "bracket_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a bracket board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "bracket_board",
       "style": {
         "id": "black_on_ochre",
         "ground": "#c19a52",
@@ -1675,41 +1991,191 @@
         "note": "black Egyptian on a yellow-ochre ground"
       },
       "anchor_local_enu_m": [
-        310.42,
-        -99.66
+        310.58,
+        -99.65
       ],
       "facade_bearing_deg": 180.0,
-      "arm_height_m": 2.55,
+      "arm_height_m": 2.89,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.46,
-      "board_h_m": 0.62,
+      "board_w_m": 1.93,
+      "board_h_m": 0.69,
       "board_thickness_m": 0.05,
       "geometry": {
-        "arm_m": 1.15,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 1.48,
+      "reach_m": 1.09,
       "wall_height_m": 5.2,
       "wall_height_from": "the record",
       "frontage_m": 14.0,
       "ground_quad_local_enu_m": [
         [
-          319.12,
-          -90.66
+          317.58,
+          -90.65
         ],
         [
-          305.12,
-          -90.66
+          303.58,
+          -90.65
         ],
         [
-          305.12,
-          -99.66
+          303.58,
+          -99.65
         ],
         [
-          319.12,
-          -99.66
+          317.58,
+          -99.65
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "door"
+        ],
+        "fixed_to": null,
+        "note": "moved 0.34 m up it, off door, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          14.0
+        ],
+        "board_span_local_m": [
+          6.04,
+          7.96
+        ],
+        "openings": [
+          {
+            "kind": "window",
+            "u0": 0.97,
+            "u1": 1.82,
+            "z0": 0.78,
+            "z1": 2.13
+          },
+          {
+            "kind": "casing",
+            "u0": 0.88,
+            "u1": 1.92,
+            "z0": 0.78,
+            "z1": 2.28
+          },
+          {
+            "kind": "window",
+            "u0": 3.78,
+            "u1": 4.62,
+            "z0": 0.78,
+            "z1": 2.13
+          },
+          {
+            "kind": "casing",
+            "u0": 3.69,
+            "u1": 4.71,
+            "z0": 0.78,
+            "z1": 2.28
+          },
+          {
+            "kind": "door",
+            "u0": 6.4,
+            "u1": 7.6,
+            "z0": 0.0,
+            "z1": 2.1
+          },
+          {
+            "kind": "window",
+            "u0": 9.38,
+            "u1": 10.23,
+            "z0": 0.78,
+            "z1": 2.13
+          },
+          {
+            "kind": "casing",
+            "u0": 9.29,
+            "u1": 10.32,
+            "z0": 0.78,
+            "z1": 2.28
+          },
+          {
+            "kind": "window",
+            "u0": 12.17,
+            "u1": 13.03,
+            "z0": 0.78,
+            "z1": 2.13
+          },
+          {
+            "kind": "casing",
+            "u0": 12.08,
+            "u1": 13.12,
+            "z0": 0.78,
+            "z1": 2.28
+          },
+          {
+            "kind": "window",
+            "u0": 0.97,
+            "u1": 1.82,
+            "z0": 3.38,
+            "z1": 4.73
+          },
+          {
+            "kind": "casing",
+            "u0": 0.88,
+            "u1": 1.92,
+            "z0": 3.38,
+            "z1": 4.88
+          },
+          {
+            "kind": "window",
+            "u0": 3.78,
+            "u1": 4.62,
+            "z0": 3.38,
+            "z1": 4.73
+          },
+          {
+            "kind": "casing",
+            "u0": 3.69,
+            "u1": 4.71,
+            "z0": 3.38,
+            "z1": 4.88
+          },
+          {
+            "kind": "window",
+            "u0": 6.58,
+            "u1": 7.42,
+            "z0": 3.38,
+            "z1": 4.73
+          },
+          {
+            "kind": "casing",
+            "u0": 6.49,
+            "u1": 7.51,
+            "z0": 3.38,
+            "z1": 4.88
+          },
+          {
+            "kind": "window",
+            "u0": 9.38,
+            "u1": 10.23,
+            "z0": 3.38,
+            "z1": 4.73
+          },
+          {
+            "kind": "casing",
+            "u0": 9.29,
+            "u1": 10.32,
+            "z0": 3.38,
+            "z1": 4.88
+          },
+          {
+            "kind": "window",
+            "u0": 12.17,
+            "u1": 13.03,
+            "z0": 3.38,
+            "z1": 4.73
+          },
+          {
+            "kind": "casing",
+            "u0": 12.08,
+            "u1": 13.12,
+            "z0": 3.38,
+            "z1": 4.88
+          }
+        ]
+      }
     },
     {
       "structure_id": "frederick_thomas_shop",
@@ -1736,8 +2202,9 @@
       "trade_class": "counter",
       "why_a_board": "a counter open to the street",
       "confidence": "reconstructed",
-      "mounting": "bracket_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a bracket board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "bracket_board",
       "style": {
         "id": "cream_on_red",
         "ground": "#7c3020",
@@ -1748,20 +2215,19 @@
         "note": "cream fat face on Venetian red"
       },
       "anchor_local_enu_m": [
-        750.85,
+        751.71,
         -8.25
       ],
       "facade_bearing_deg": 0.0,
       "arm_height_m": 2.55,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.46,
-      "board_h_m": 0.75,
+      "board_w_m": 1.78,
+      "board_h_m": 0.77,
       "board_thickness_m": 0.05,
       "geometry": {
-        "arm_m": 1.15,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 1.48,
+      "reach_m": 1.01,
       "wall_height_m": 3.0,
       "wall_height_from": "the record",
       "frontage_m": 9.14,
@@ -1782,7 +2248,48 @@
           744.58,
           -8.25
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": null,
+        "note": "moved 1.73 m along the front, off fascia and shop_door and show_window, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          9.14
+        ],
+        "board_span_local_m": [
+          6.24,
+          8.02
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 3.04,
+            "u1": 4.79,
+            "z0": 0.74,
+            "z1": 2.33
+          },
+          {
+            "kind": "shop_door",
+            "u0": 4.89,
+            "u1": 5.91,
+            "z0": 0.0,
+            "z1": 2.46
+          },
+          {
+            "kind": "fascia",
+            "u0": 2.8,
+            "u1": 6.14,
+            "z0": 2.46,
+            "z1": 2.74
+          }
+        ]
+      }
     },
     {
       "structure_id": "goss_cobb_saddlery",
@@ -1810,8 +2317,9 @@
       "trade_class": "counter",
       "why_a_board": "a craft shop selling finished goods over a counter",
       "confidence": "reconstructed",
-      "mounting": "bracket_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a bracket board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "bracket_board",
       "style": {
         "id": "gold_on_green",
         "ground": "#16261c",
@@ -1822,20 +2330,19 @@
         "note": "gilt letters in an oval field on a dark green ground"
       },
       "anchor_local_enu_m": [
-        -144.6,
+        -145.72,
         -126.68
       ],
       "facade_bearing_deg": 180.0,
       "arm_height_m": 2.55,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.46,
-      "board_h_m": 0.83,
+      "board_w_m": 2.3,
+      "board_h_m": 1.11,
       "board_thickness_m": 0.05,
       "geometry": {
-        "arm_m": 1.15,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 1.48,
+      "reach_m": 1.27,
       "wall_height_m": 3.0,
       "wall_height_from": "the record",
       "frontage_m": 9.14,
@@ -1856,7 +2363,48 @@
           -138.33,
           -126.68
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": null,
+        "note": "moved 1.99 m along the front, off fascia and shop_door and show_window, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          9.14
+        ],
+        "board_span_local_m": [
+          6.24,
+          8.54
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 3.04,
+            "u1": 4.79,
+            "z0": 0.74,
+            "z1": 2.33
+          },
+          {
+            "kind": "shop_door",
+            "u0": 4.89,
+            "u1": 5.91,
+            "z0": 0.0,
+            "z1": 2.46
+          },
+          {
+            "kind": "fascia",
+            "u0": 2.8,
+            "u1": 6.14,
+            "z0": 2.46,
+            "z1": 2.74
+          }
+        ]
+      }
     },
     {
       "structure_id": "h_jones_store",
@@ -1883,8 +2431,9 @@
       "trade_class": "counter",
       "why_a_board": "a counter open to the street",
       "confidence": "reconstructed",
-      "mounting": "awning_board",
-      "mounting_note": "a wall board is what this frontage's place in the counter cycle asks for, and a sign within 40 m already hangs that way — so the cycle advances rather than repeating a neighbour",
+      "mounting": "wall_board",
+      "mounting_note": "a wall board is what this frontage's place in the counter cycle asks for, and a sign within 40 m already hangs that way — so the cycle advances rather than repeating a neighbour; dealt a awning board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "awning_board",
       "style": {
         "id": "white_on_blue",
         "ground": "#22344f",
@@ -1895,22 +2444,19 @@
         "note": "white block letters on a Prussian-blue ground"
       },
       "anchor_local_enu_m": [
-        355.18,
+        356.9,
         -6.55
       ],
       "facade_bearing_deg": 0.0,
       "arm_height_m": 2.55,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.66,
-      "board_h_m": 0.64,
+      "board_w_m": 2.05,
+      "board_h_m": 0.78,
       "board_thickness_m": 0.05,
       "geometry": {
-        "awning_projection_m": 1.45,
-        "awning_drop_m": 0.34,
-        "awning_width_m": 2.56,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 2.05,
+      "reach_m": 1.15,
       "wall_height_m": 3.6,
       "wall_height_from": "the record",
       "frontage_m": 12.19,
@@ -1931,7 +2477,54 @@
           347.38,
           -6.55
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": null,
+        "note": "moved 3.42 m along the front, off shop_door and show_window, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          12.19
+        ],
+        "board_span_local_m": [
+          8.49,
+          10.54
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 3.8,
+            "u1": 5.49,
+            "z0": 0.74,
+            "z1": 2.92
+          },
+          {
+            "kind": "shop_door",
+            "u0": 5.59,
+            "u1": 6.6,
+            "z0": 0.0,
+            "z1": 3.05
+          },
+          {
+            "kind": "show_window",
+            "u0": 6.71,
+            "u1": 8.39,
+            "z0": 0.74,
+            "z1": 2.92
+          },
+          {
+            "kind": "fascia",
+            "u0": 3.62,
+            "u1": 8.57,
+            "z0": 3.05,
+            "z1": 3.33
+          }
+        ]
+      }
     },
     {
       "structure_id": "harmon_loomis_store",
@@ -1956,8 +2549,9 @@
       "trade_class": "counter",
       "why_a_board": "a counter open to the street",
       "confidence": "reconstructed",
-      "mounting": "bracket_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a bracket board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "bracket_board",
       "style": {
         "id": "cream_on_red",
         "ground": "#7c3020",
@@ -1968,20 +2562,19 @@
         "note": "cream fat face on Venetian red"
       },
       "anchor_local_enu_m": [
-        595.69,
+        597.53,
         -5.08
       ],
       "facade_bearing_deg": 0.0,
       "arm_height_m": 2.55,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.46,
-      "board_h_m": 0.75,
+      "board_w_m": 1.93,
+      "board_h_m": 0.83,
       "board_thickness_m": 0.05,
       "geometry": {
-        "arm_m": 1.15,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 1.48,
+      "reach_m": 1.09,
       "wall_height_m": 5.5,
       "wall_height_from": "the record",
       "frontage_m": 12.19,
@@ -2002,7 +2595,90 @@
           587.89,
           -5.08
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": null,
+        "note": "moved 3.54 m along the front, off fascia and shop_door and show_window, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          12.19
+        ],
+        "board_span_local_m": [
+          8.67,
+          10.6
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 3.8,
+            "u1": 5.49,
+            "z0": 0.74,
+            "z1": 2.28
+          },
+          {
+            "kind": "shop_door",
+            "u0": 5.59,
+            "u1": 6.6,
+            "z0": 0.0,
+            "z1": 2.41
+          },
+          {
+            "kind": "show_window",
+            "u0": 6.71,
+            "u1": 8.39,
+            "z0": 0.74,
+            "z1": 2.28
+          },
+          {
+            "kind": "fascia",
+            "u0": 3.62,
+            "u1": 8.57,
+            "z0": 2.41,
+            "z1": 2.69
+          },
+          {
+            "kind": "window",
+            "u0": 0.42,
+            "u1": 1.27,
+            "z0": 3.58,
+            "z1": 4.88
+          },
+          {
+            "kind": "window",
+            "u0": 2.02,
+            "u1": 2.86,
+            "z0": 3.58,
+            "z1": 4.88
+          },
+          {
+            "kind": "window",
+            "u0": 4.46,
+            "u1": 5.3,
+            "z0": 3.58,
+            "z1": 4.88
+          },
+          {
+            "kind": "window",
+            "u0": 6.9,
+            "u1": 7.75,
+            "z0": 3.58,
+            "z1": 4.88
+          },
+          {
+            "kind": "window",
+            "u0": 9.33,
+            "u1": 10.19,
+            "z0": 3.58,
+            "z1": 4.88
+          }
+        ]
+      }
     },
     {
       "structure_id": "hogan_store",
@@ -2372,8 +3048,9 @@
       "trade_class": "house",
       "why_a_board": "lodging is sold to arrivals who have to find the door",
       "confidence": "reconstructed",
-      "mounting": "awning_board",
-      "mounting_note": "a post was refused here because no street lies in front of this wall within 22 m — a post here would stand in a yard",
+      "mounting": "wall_board",
+      "mounting_note": "a post was refused here because no street lies in front of this wall within 22 m — a post here would stand in a yard; dealt a awning board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "awning_board",
       "style": {
         "id": "black_on_white",
         "ground": "#e8e1cf",
@@ -2384,22 +3061,19 @@
         "note": "black on a white lead ground, the cheapest board a signwriter could sell"
       },
       "anchor_local_enu_m": [
-        1309.05,
+        1309.62,
         478.9
       ],
       "facade_bearing_deg": 180.0,
       "arm_height_m": 2.55,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.56,
-      "board_h_m": 0.63,
+      "board_w_m": 1.72,
+      "board_h_m": 0.69,
       "board_thickness_m": 0.05,
       "geometry": {
-        "awning_projection_m": 1.45,
-        "awning_drop_m": 0.34,
-        "awning_width_m": 2.46,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 2.02,
+      "reach_m": 0.98,
       "wall_height_m": 3.2,
       "wall_height_from": "the record",
       "frontage_m": 8.5,
@@ -2420,7 +3094,46 @@
           1315.0,
           478.9
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "door"
+        ],
+        "fixed_to": null,
+        "note": "moved 1.42 m along the front, off door, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          8.5
+        ],
+        "board_span_local_m": [
+          4.52,
+          6.24
+        ],
+        "openings": [
+          {
+            "kind": "window",
+            "u0": 1.14,
+            "u1": 1.91,
+            "z0": 0.95,
+            "z1": 2.38
+          },
+          {
+            "kind": "door",
+            "u0": 3.5,
+            "u1": 4.42,
+            "z0": 0.1,
+            "z1": 2.12
+          },
+          {
+            "kind": "window",
+            "u0": 6.63,
+            "u1": 7.39,
+            "z0": 0.95,
+            "z1": 2.38
+          }
+        ]
+      }
     },
     {
       "structure_id": "kinzie_hunter_warehouse",
@@ -2540,8 +3253,9 @@
       "trade_class": "counter",
       "why_a_board": "a counter open to the street, with the keeper living over it",
       "confidence": "reconstructed",
-      "mounting": "bracket_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a bracket board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "bracket_board",
       "style": {
         "id": "gold_on_black",
         "ground": "#141009",
@@ -2552,20 +3266,19 @@
         "note": "gilt letters on a black ground, shaded — the commonest painted board of the trade"
       },
       "anchor_local_enu_m": [
-        683.95,
+        684.51,
         -6.49
       ],
       "facade_bearing_deg": 0.0,
       "arm_height_m": 2.2,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.46,
-      "board_h_m": 0.79,
+      "board_w_m": 3.27,
+      "board_h_m": 0.52,
       "board_thickness_m": 0.05,
       "geometry": {
-        "arm_m": 1.15,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 1.48,
+      "reach_m": 1.76,
       "wall_height_m": 2.5,
       "wall_height_from": "the record",
       "frontage_m": 9.14,
@@ -2586,7 +3299,46 @@
           677.68,
           -6.49
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "reshaped",
+        "covered_before": [
+          "door"
+        ],
+        "fixed_to": null,
+        "note": "the copy would not clear door on a 1.93 x 0.88 m board, so the same words are lettered on a longer and narrower 3.27 x 0.52 m one, which does",
+        "wall_span_local_m": [
+          0.0,
+          9.14
+        ],
+        "board_span_local_m": [
+          5.19,
+          8.46
+        ],
+        "openings": [
+          {
+            "kind": "door",
+            "u0": 4.05,
+            "u1": 5.09,
+            "z0": 0.02,
+            "z1": 1.95
+          },
+          {
+            "kind": "window",
+            "u0": 1.7,
+            "u1": 2.32,
+            "z0": 0.85,
+            "z1": 1.57
+          },
+          {
+            "kind": "window",
+            "u0": 6.82,
+            "u1": 7.44,
+            "z0": 0.85,
+            "z1": 1.57
+          }
+        ]
+      }
     },
     {
       "structure_id": "mansion_house",
@@ -2611,8 +3363,9 @@
       "trade_class": "house",
       "why_a_board": "a public house takes its custom from the road",
       "confidence": "reconstructed",
-      "mounting": "bracket_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a bracket board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "bracket_board",
       "style": {
         "id": "white_on_brown",
         "ground": "#4a3121",
@@ -2623,20 +3376,19 @@
         "note": "white fat face on a chocolate-brown ground"
       },
       "anchor_local_enu_m": [
-        742.44,
+        745.63,
         -100.78
       ],
       "facade_bearing_deg": 180.0,
       "arm_height_m": 2.3,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.41,
+      "board_w_m": 1.69,
       "board_h_m": 0.58,
       "board_thickness_m": 0.05,
       "geometry": {
-        "arm_m": 1.15,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 1.47,
+      "reach_m": 0.97,
       "wall_height_m": 2.6,
       "wall_height_from": "the record",
       "frontage_m": 12.0,
@@ -2657,7 +3409,46 @@
           750.14,
           -100.78
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "door"
+        ],
+        "fixed_to": null,
+        "note": "moved 1.49 m along the front, off door, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          12.0
+        ],
+        "board_span_local_m": [
+          3.66,
+          5.35
+        ],
+        "openings": [
+          {
+            "kind": "door",
+            "u0": 5.45,
+            "u1": 6.55,
+            "z0": 0.02,
+            "z1": 2.05
+          },
+          {
+            "kind": "window",
+            "u0": 2.28,
+            "u1": 3.0,
+            "z0": 0.82,
+            "z1": 1.87
+          },
+          {
+            "kind": "window",
+            "u0": 9.0,
+            "u1": 9.72,
+            "z0": 0.82,
+            "z1": 1.87
+          }
+        ]
+      }
     },
     {
       "structure_id": "mason_blacksmith_shop",
@@ -2791,7 +3582,7 @@
         "note": "black on a bare weathered board — the tone L130 hung the town's blank boards in"
       },
       "anchor_local_enu_m": [
-        13.31,
+        16.74,
         50.0
       ],
       "facade_bearing_deg": 180.0,
@@ -2831,14 +3622,14 @@
           "window"
         ],
         "fixed_to": null,
-        "note": "moved 0.81 m along the front, off window, onto blank face",
+        "note": "moved 4.24 m along the front, off window, onto blank face",
         "wall_span_local_m": [
           0.0,
           15.0
         ],
         "board_span_local_m": [
-          5.86,
-          7.52
+          2.43,
+          4.09
         ],
         "openings": [
           {
@@ -2896,6 +3687,13 @@
             "u1": 13.38,
             "z0": 3.43,
             "z1": 4.48
+          },
+          {
+            "kind": "log_notch",
+            "u0": 5.8,
+            "u1": 6.2,
+            "z0": 0.0,
+            "z1": 2.6
           }
         ]
       }
@@ -3032,8 +3830,9 @@
       "trade_class": "house",
       "why_a_board": "a public house takes its custom from the road",
       "confidence": "reconstructed",
-      "mounting": "awning_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a awning board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "awning_board",
       "style": {
         "id": "cream_on_red",
         "ground": "#7c3020",
@@ -3044,22 +3843,19 @@
         "note": "cream fat face on Venetian red"
       },
       "anchor_local_enu_m": [
-        295.79,
-        -98.46
+        297.49,
+        -98.47
       ],
       "facade_bearing_deg": 180.5,
-      "arm_height_m": 2.55,
+      "arm_height_m": 2.94,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.56,
-      "board_h_m": 0.68,
+      "board_w_m": 1.72,
+      "board_h_m": 0.74,
       "board_thickness_m": 0.05,
       "geometry": {
-        "awning_projection_m": 1.45,
-        "awning_drop_m": 0.34,
-        "awning_width_m": 2.46,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 2.02,
+      "reach_m": 0.98,
       "wall_height_m": 5.5,
       "wall_height_from": "the record",
       "frontage_m": 12.19,
@@ -3080,7 +3876,158 @@
           303.59,
           -98.52
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "door"
+        ],
+        "fixed_to": null,
+        "note": "moved 0.39 m up it, off door, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          12.19
+        ],
+        "board_span_local_m": [
+          5.24,
+          6.96
+        ],
+        "openings": [
+          {
+            "kind": "window",
+            "u0": 0.79,
+            "u1": 1.64,
+            "z0": 0.82,
+            "z1": 2.17
+          },
+          {
+            "kind": "casing",
+            "u0": 0.7,
+            "u1": 1.73,
+            "z0": 0.82,
+            "z1": 2.32
+          },
+          {
+            "kind": "window",
+            "u0": 3.23,
+            "u1": 4.08,
+            "z0": 0.82,
+            "z1": 2.17
+          },
+          {
+            "kind": "casing",
+            "u0": 3.14,
+            "u1": 4.17,
+            "z0": 0.82,
+            "z1": 2.32
+          },
+          {
+            "kind": "door",
+            "u0": 5.5,
+            "u1": 6.7,
+            "z0": 0.0,
+            "z1": 2.1
+          },
+          {
+            "kind": "window",
+            "u0": 8.11,
+            "u1": 8.96,
+            "z0": 0.82,
+            "z1": 2.17
+          },
+          {
+            "kind": "casing",
+            "u0": 8.02,
+            "u1": 9.05,
+            "z0": 0.82,
+            "z1": 2.32
+          },
+          {
+            "kind": "window",
+            "u0": 10.55,
+            "u1": 11.4,
+            "z0": 0.82,
+            "z1": 2.17
+          },
+          {
+            "kind": "casing",
+            "u0": 10.46,
+            "u1": 11.49,
+            "z0": 0.82,
+            "z1": 2.32
+          },
+          {
+            "kind": "window",
+            "u0": 0.79,
+            "u1": 1.64,
+            "z0": 3.58,
+            "z1": 4.93
+          },
+          {
+            "kind": "casing",
+            "u0": 0.7,
+            "u1": 1.73,
+            "z0": 3.58,
+            "z1": 5.08
+          },
+          {
+            "kind": "window",
+            "u0": 3.23,
+            "u1": 4.08,
+            "z0": 3.58,
+            "z1": 4.93
+          },
+          {
+            "kind": "casing",
+            "u0": 3.14,
+            "u1": 4.17,
+            "z0": 3.58,
+            "z1": 5.08
+          },
+          {
+            "kind": "window",
+            "u0": 5.67,
+            "u1": 6.52,
+            "z0": 3.58,
+            "z1": 4.93
+          },
+          {
+            "kind": "casing",
+            "u0": 5.58,
+            "u1": 6.61,
+            "z0": 3.58,
+            "z1": 5.08
+          },
+          {
+            "kind": "window",
+            "u0": 8.11,
+            "u1": 8.96,
+            "z0": 3.58,
+            "z1": 4.93
+          },
+          {
+            "kind": "casing",
+            "u0": 8.02,
+            "u1": 9.05,
+            "z0": 3.58,
+            "z1": 5.08
+          },
+          {
+            "kind": "window",
+            "u0": 10.55,
+            "u1": 11.4,
+            "z0": 3.58,
+            "z1": 4.93
+          },
+          {
+            "kind": "casing",
+            "u0": 10.46,
+            "u1": 11.49,
+            "z0": 3.58,
+            "z1": 5.08
+          }
+        ]
+      }
     },
     {
       "structure_id": "newberry_dole_slaughterhouse_south_branch",
@@ -3305,8 +4252,9 @@
       "trade_class": "counter",
       "why_a_board": "a counter open to the street, with the keeper living over it",
       "confidence": "reconstructed",
-      "mounting": "bracket_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a bracket board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "bracket_board",
       "style": {
         "id": "cream_on_green",
         "ground": "#1d3226",
@@ -3317,20 +4265,19 @@
         "note": "cream on a Brunswick-green ground"
       },
       "anchor_local_enu_m": [
-        435.94,
+        437.79,
         -5.89
       ],
       "facade_bearing_deg": 0.0,
       "arm_height_m": 2.55,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.46,
-      "board_h_m": 0.86,
+      "board_w_m": 1.93,
+      "board_h_m": 0.96,
       "board_thickness_m": 0.05,
       "geometry": {
-        "arm_m": 1.15,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 1.48,
+      "reach_m": 1.09,
       "wall_height_m": 5.5,
       "wall_height_from": "the record",
       "frontage_m": 12.19,
@@ -3351,7 +4298,90 @@
           428.15,
           -5.89
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": null,
+        "note": "moved 3.54 m along the front, off fascia and shop_door and show_window, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          12.19
+        ],
+        "board_span_local_m": [
+          8.67,
+          10.6
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 3.8,
+            "u1": 5.49,
+            "z0": 0.74,
+            "z1": 2.28
+          },
+          {
+            "kind": "shop_door",
+            "u0": 5.59,
+            "u1": 6.6,
+            "z0": 0.0,
+            "z1": 2.41
+          },
+          {
+            "kind": "show_window",
+            "u0": 6.71,
+            "u1": 8.39,
+            "z0": 0.74,
+            "z1": 2.28
+          },
+          {
+            "kind": "fascia",
+            "u0": 3.62,
+            "u1": 8.57,
+            "z0": 2.41,
+            "z1": 2.69
+          },
+          {
+            "kind": "window",
+            "u0": 0.42,
+            "u1": 1.27,
+            "z0": 3.58,
+            "z1": 4.88
+          },
+          {
+            "kind": "window",
+            "u0": 2.02,
+            "u1": 2.86,
+            "z0": 3.58,
+            "z1": 4.88
+          },
+          {
+            "kind": "window",
+            "u0": 4.46,
+            "u1": 5.3,
+            "z0": 3.58,
+            "z1": 4.88
+          },
+          {
+            "kind": "window",
+            "u0": 6.9,
+            "u1": 7.75,
+            "z0": 3.58,
+            "z1": 4.88
+          },
+          {
+            "kind": "window",
+            "u0": 9.33,
+            "u1": 10.19,
+            "z0": 3.58,
+            "z1": 4.88
+          }
+        ]
+      }
     },
     {
       "structure_id": "pierce_blacksmith_shop",
@@ -3475,8 +4505,9 @@
       "trade_class": "counter",
       "why_a_board": "a counter open to the street",
       "confidence": "reconstructed",
-      "mounting": "awning_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a awning board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "awning_board",
       "style": {
         "id": "red_on_white",
         "ground": "#e9e2d1",
@@ -3487,22 +4518,19 @@
         "note": "vermilion Egyptian on a white ground"
       },
       "anchor_local_enu_m": [
-        632.7,
+        633.5,
         -5.65
       ],
       "facade_bearing_deg": 0.0,
       "arm_height_m": 2.55,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.62,
-      "board_h_m": 0.76,
+      "board_w_m": 1.78,
+      "board_h_m": 0.83,
       "board_thickness_m": 0.05,
       "geometry": {
-        "awning_projection_m": 1.45,
-        "awning_drop_m": 0.34,
-        "awning_width_m": 2.52,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 2.04,
+      "reach_m": 1.01,
       "wall_height_m": 3.0,
       "wall_height_from": "the record",
       "frontage_m": 7.62,
@@ -3523,7 +4551,48 @@
           627.19,
           -5.65
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": null,
+        "note": "moved 1.73 m along the front, off fascia and shop_door and show_window, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          7.62
+        ],
+        "board_span_local_m": [
+          5.42,
+          7.2
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 2.22,
+            "u1": 3.97,
+            "z0": 0.74,
+            "z1": 2.33
+          },
+          {
+            "kind": "shop_door",
+            "u0": 4.08,
+            "u1": 5.09,
+            "z0": 0.0,
+            "z1": 2.46
+          },
+          {
+            "kind": "fascia",
+            "u0": 1.99,
+            "u1": 5.32,
+            "z0": 2.46,
+            "z1": 2.74
+          }
+        ]
+      }
     },
     {
       "structure_id": "robert_kinzie_store",
@@ -3657,8 +4726,9 @@
       "trade_class": "house",
       "why_a_board": "a public house takes its custom from the road",
       "confidence": "reconstructed",
-      "mounting": "bracket_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a bracket board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "bracket_board",
       "style": {
         "id": "white_on_blue",
         "ground": "#22344f",
@@ -3669,20 +4739,19 @@
         "note": "white block letters on a Prussian-blue ground"
       },
       "anchor_local_enu_m": [
-        108.06,
+        103.32,
         -122.6
       ],
       "facade_bearing_deg": 0.0,
-      "arm_height_m": 2.55,
+      "arm_height_m": 3.37,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.46,
-      "board_h_m": 0.66,
+      "board_w_m": 3.17,
+      "board_h_m": 0.37,
       "board_thickness_m": 0.05,
       "geometry": {
-        "arm_m": 1.15,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 1.48,
+      "reach_m": 1.71,
       "wall_height_m": 5.5,
       "wall_height_from": "the record",
       "frontage_m": 9.92,
@@ -3703,7 +4772,284 @@
           101.4,
           -122.6
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "reshaped",
+        "covered_before": [
+          "door"
+        ],
+        "fixed_to": null,
+        "note": "the copy would not clear door on a 1.75 x 0.67 m board, so the same words are lettered on a longer and narrower 3.17 x 0.37 m one, which does",
+        "wall_span_local_m": [
+          0.0,
+          9.92
+        ],
+        "board_span_local_m": [
+          0.34,
+          3.51
+        ],
+        "openings": [
+          {
+            "kind": "window",
+            "u0": 0.64,
+            "u1": 1.34,
+            "z0": 0.9,
+            "z1": 2.75
+          },
+          {
+            "kind": "casing",
+            "u0": 0.55,
+            "u1": 1.43,
+            "z0": 0.9,
+            "z1": 2.9
+          },
+          {
+            "kind": "shutter",
+            "u0": 0.25,
+            "u1": 0.64,
+            "z0": 0.9,
+            "z1": 2.75
+          },
+          {
+            "kind": "shutter",
+            "u0": 1.34,
+            "u1": 1.74,
+            "z0": 0.9,
+            "z1": 2.75
+          },
+          {
+            "kind": "window",
+            "u0": 2.63,
+            "u1": 3.33,
+            "z0": 0.9,
+            "z1": 2.75
+          },
+          {
+            "kind": "casing",
+            "u0": 2.54,
+            "u1": 3.42,
+            "z0": 0.9,
+            "z1": 2.9
+          },
+          {
+            "kind": "shutter",
+            "u0": 2.23,
+            "u1": 2.63,
+            "z0": 0.9,
+            "z1": 2.75
+          },
+          {
+            "kind": "shutter",
+            "u0": 3.33,
+            "u1": 3.72,
+            "z0": 0.9,
+            "z1": 2.75
+          },
+          {
+            "kind": "door",
+            "u0": 3.61,
+            "u1": 6.31,
+            "z0": 0.0,
+            "z1": 3.18
+          },
+          {
+            "kind": "window",
+            "u0": 6.59,
+            "u1": 7.29,
+            "z0": 0.9,
+            "z1": 2.75
+          },
+          {
+            "kind": "casing",
+            "u0": 6.5,
+            "u1": 7.38,
+            "z0": 0.9,
+            "z1": 2.9
+          },
+          {
+            "kind": "shutter",
+            "u0": 6.2,
+            "u1": 6.59,
+            "z0": 0.9,
+            "z1": 2.75
+          },
+          {
+            "kind": "shutter",
+            "u0": 7.29,
+            "u1": 7.69,
+            "z0": 0.9,
+            "z1": 2.75
+          },
+          {
+            "kind": "window",
+            "u0": 8.58,
+            "u1": 9.28,
+            "z0": 0.9,
+            "z1": 2.75
+          },
+          {
+            "kind": "casing",
+            "u0": 8.49,
+            "u1": 9.37,
+            "z0": 0.9,
+            "z1": 2.9
+          },
+          {
+            "kind": "shutter",
+            "u0": 8.18,
+            "u1": 8.58,
+            "z0": 0.9,
+            "z1": 2.75
+          },
+          {
+            "kind": "shutter",
+            "u0": 9.28,
+            "u1": 9.67,
+            "z0": 0.9,
+            "z1": 2.75
+          },
+          {
+            "kind": "window",
+            "u0": 0.57,
+            "u1": 1.42,
+            "z0": 3.58,
+            "z1": 4.93
+          },
+          {
+            "kind": "casing",
+            "u0": 0.48,
+            "u1": 1.51,
+            "z0": 3.58,
+            "z1": 5.08
+          },
+          {
+            "kind": "shutter",
+            "u0": 0.11,
+            "u1": 0.57,
+            "z0": 3.58,
+            "z1": 4.93
+          },
+          {
+            "kind": "shutter",
+            "u0": 1.42,
+            "u1": 1.87,
+            "z0": 3.58,
+            "z1": 4.93
+          },
+          {
+            "kind": "window",
+            "u0": 2.55,
+            "u1": 3.4,
+            "z0": 3.58,
+            "z1": 4.93
+          },
+          {
+            "kind": "casing",
+            "u0": 2.46,
+            "u1": 3.49,
+            "z0": 3.58,
+            "z1": 5.08
+          },
+          {
+            "kind": "shutter",
+            "u0": 2.09,
+            "u1": 2.55,
+            "z0": 3.58,
+            "z1": 4.93
+          },
+          {
+            "kind": "shutter",
+            "u0": 3.4,
+            "u1": 3.86,
+            "z0": 3.58,
+            "z1": 4.93
+          },
+          {
+            "kind": "window",
+            "u0": 4.54,
+            "u1": 5.38,
+            "z0": 3.58,
+            "z1": 4.93
+          },
+          {
+            "kind": "casing",
+            "u0": 4.45,
+            "u1": 5.47,
+            "z0": 3.58,
+            "z1": 5.08
+          },
+          {
+            "kind": "shutter",
+            "u0": 4.08,
+            "u1": 4.54,
+            "z0": 3.58,
+            "z1": 4.93
+          },
+          {
+            "kind": "shutter",
+            "u0": 5.38,
+            "u1": 5.84,
+            "z0": 3.58,
+            "z1": 4.93
+          },
+          {
+            "kind": "window",
+            "u0": 6.52,
+            "u1": 7.37,
+            "z0": 3.58,
+            "z1": 4.93
+          },
+          {
+            "kind": "casing",
+            "u0": 6.43,
+            "u1": 7.46,
+            "z0": 3.58,
+            "z1": 5.08
+          },
+          {
+            "kind": "shutter",
+            "u0": 6.06,
+            "u1": 6.52,
+            "z0": 3.58,
+            "z1": 4.93
+          },
+          {
+            "kind": "shutter",
+            "u0": 7.37,
+            "u1": 7.83,
+            "z0": 3.58,
+            "z1": 4.93
+          },
+          {
+            "kind": "window",
+            "u0": 8.5,
+            "u1": 9.35,
+            "z0": 3.58,
+            "z1": 4.93
+          },
+          {
+            "kind": "casing",
+            "u0": 8.41,
+            "u1": 9.44,
+            "z0": 3.58,
+            "z1": 5.08
+          },
+          {
+            "kind": "shutter",
+            "u0": 8.05,
+            "u1": 8.5,
+            "z0": 3.58,
+            "z1": 4.93
+          },
+          {
+            "kind": "shutter",
+            "u0": 9.35,
+            "u1": 9.81,
+            "z0": 3.58,
+            "z1": 4.93
+          }
+        ]
+      }
     },
     {
       "structure_id": "steamboat_hotel",
@@ -3728,8 +5074,9 @@
       "trade_class": "house",
       "why_a_board": "a public house takes its custom from the road",
       "confidence": "reconstructed",
-      "mounting": "bracket_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a bracket board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "bracket_board",
       "style": {
         "id": "gold_on_black",
         "ground": "#141009",
@@ -3740,20 +5087,19 @@
         "note": "gilt letters on a black ground, shaded — the commonest painted board of the trade"
       },
       "anchor_local_enu_m": [
-        927.62,
-        208.32
+        928.74,
+        209.59
       ],
       "facade_bearing_deg": 131.4,
-      "arm_height_m": 2.55,
+      "arm_height_m": 3.01,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.46,
-      "board_h_m": 0.79,
+      "board_w_m": 1.78,
+      "board_h_m": 0.81,
       "board_thickness_m": 0.05,
       "geometry": {
-        "arm_m": 1.15,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 1.48,
+      "reach_m": 1.01,
       "wall_height_m": 5.2,
       "wall_height_from": "the record",
       "frontage_m": 15.0,
@@ -3774,7 +5120,158 @@
           933.7,
           215.22
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "door"
+        ],
+        "fixed_to": null,
+        "note": "moved 0.46 m up it, off door, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          15.0
+        ],
+        "board_span_local_m": [
+          6.61,
+          8.39
+        ],
+        "openings": [
+          {
+            "kind": "window",
+            "u0": 1.07,
+            "u1": 1.93,
+            "z0": 0.78,
+            "z1": 2.13
+          },
+          {
+            "kind": "casing",
+            "u0": 0.98,
+            "u1": 2.02,
+            "z0": 0.78,
+            "z1": 2.28
+          },
+          {
+            "kind": "window",
+            "u0": 4.08,
+            "u1": 4.92,
+            "z0": 0.78,
+            "z1": 2.13
+          },
+          {
+            "kind": "casing",
+            "u0": 3.99,
+            "u1": 5.01,
+            "z0": 0.78,
+            "z1": 2.28
+          },
+          {
+            "kind": "door",
+            "u0": 6.9,
+            "u1": 8.1,
+            "z0": 0.0,
+            "z1": 2.1
+          },
+          {
+            "kind": "window",
+            "u0": 10.07,
+            "u1": 10.93,
+            "z0": 0.78,
+            "z1": 2.13
+          },
+          {
+            "kind": "casing",
+            "u0": 9.98,
+            "u1": 11.02,
+            "z0": 0.78,
+            "z1": 2.28
+          },
+          {
+            "kind": "window",
+            "u0": 13.07,
+            "u1": 13.93,
+            "z0": 0.78,
+            "z1": 2.13
+          },
+          {
+            "kind": "casing",
+            "u0": 12.98,
+            "u1": 14.02,
+            "z0": 0.78,
+            "z1": 2.28
+          },
+          {
+            "kind": "window",
+            "u0": 1.07,
+            "u1": 1.93,
+            "z0": 3.38,
+            "z1": 4.73
+          },
+          {
+            "kind": "casing",
+            "u0": 0.98,
+            "u1": 2.02,
+            "z0": 3.38,
+            "z1": 4.88
+          },
+          {
+            "kind": "window",
+            "u0": 4.08,
+            "u1": 4.92,
+            "z0": 3.38,
+            "z1": 4.73
+          },
+          {
+            "kind": "casing",
+            "u0": 3.99,
+            "u1": 5.01,
+            "z0": 3.38,
+            "z1": 4.88
+          },
+          {
+            "kind": "window",
+            "u0": 7.08,
+            "u1": 7.92,
+            "z0": 3.38,
+            "z1": 4.73
+          },
+          {
+            "kind": "casing",
+            "u0": 6.99,
+            "u1": 8.02,
+            "z0": 3.38,
+            "z1": 4.88
+          },
+          {
+            "kind": "window",
+            "u0": 10.07,
+            "u1": 10.93,
+            "z0": 3.38,
+            "z1": 4.73
+          },
+          {
+            "kind": "casing",
+            "u0": 9.98,
+            "u1": 11.02,
+            "z0": 3.38,
+            "z1": 4.88
+          },
+          {
+            "kind": "window",
+            "u0": 13.07,
+            "u1": 13.93,
+            "z0": 3.38,
+            "z1": 4.73
+          },
+          {
+            "kind": "casing",
+            "u0": 12.98,
+            "u1": 14.02,
+            "z0": 3.38,
+            "z1": 4.88
+          }
+        ]
+      }
     },
     {
       "structure_id": "thomas_church_store",
@@ -3799,8 +5296,9 @@
       "trade_class": "counter",
       "why_a_board": "a counter open to the street",
       "confidence": "reconstructed",
-      "mounting": "awning_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a awning board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "awning_board",
       "style": {
         "id": "gold_on_green",
         "ground": "#16261c",
@@ -3811,22 +5309,19 @@
         "note": "gilt letters in an oval field on a dark green ground"
       },
       "anchor_local_enu_m": [
-        513.6,
+        511.76,
         -100.02
       ],
       "facade_bearing_deg": 180.0,
       "arm_height_m": 2.55,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.66,
-      "board_h_m": 0.8,
+      "board_w_m": 1.93,
+      "board_h_m": 0.93,
       "board_thickness_m": 0.05,
       "geometry": {
-        "awning_projection_m": 1.45,
-        "awning_drop_m": 0.34,
-        "awning_width_m": 2.56,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 2.05,
+      "reach_m": 1.09,
       "wall_height_m": 5.5,
       "wall_height_from": "the record",
       "frontage_m": 12.19,
@@ -3847,7 +5342,90 @@
           521.4,
           -100.02
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": null,
+        "note": "moved 3.54 m along the front, off fascia and shop_door and show_window, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          12.19
+        ],
+        "board_span_local_m": [
+          8.67,
+          10.6
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 3.8,
+            "u1": 5.49,
+            "z0": 0.74,
+            "z1": 2.28
+          },
+          {
+            "kind": "shop_door",
+            "u0": 5.59,
+            "u1": 6.6,
+            "z0": 0.0,
+            "z1": 2.41
+          },
+          {
+            "kind": "show_window",
+            "u0": 6.71,
+            "u1": 8.39,
+            "z0": 0.74,
+            "z1": 2.28
+          },
+          {
+            "kind": "fascia",
+            "u0": 3.62,
+            "u1": 8.57,
+            "z0": 2.41,
+            "z1": 2.69
+          },
+          {
+            "kind": "window",
+            "u0": 0.42,
+            "u1": 1.27,
+            "z0": 3.58,
+            "z1": 4.88
+          },
+          {
+            "kind": "window",
+            "u0": 2.02,
+            "u1": 2.86,
+            "z0": 3.58,
+            "z1": 4.88
+          },
+          {
+            "kind": "window",
+            "u0": 4.46,
+            "u1": 5.3,
+            "z0": 3.58,
+            "z1": 4.88
+          },
+          {
+            "kind": "window",
+            "u0": 6.9,
+            "u1": 7.75,
+            "z0": 3.58,
+            "z1": 4.88
+          },
+          {
+            "kind": "window",
+            "u0": 9.33,
+            "u1": 10.19,
+            "z0": 3.58,
+            "z1": 4.88
+          }
+        ]
+      }
     },
     {
       "structure_id": "tremont_house_1",
@@ -3884,8 +5462,8 @@
         "note": "cream fat face on Venetian red"
       },
       "anchor_local_enu_m": [
-        678.5,
-        -100.56
+        676.25,
+        -100.55
       ],
       "facade_bearing_deg": 180.0,
       "arm_height_m": 2.55,
@@ -3906,20 +5484,20 @@
       "frontage_m": 15.24,
       "ground_quad_local_enu_m": [
         [
-          687.82,
-          -91.42
+          685.57,
+          -91.41
         ],
         [
-          672.58,
-          -91.42
+          670.33,
+          -91.41
         ],
         [
-          672.58,
-          -100.56
+          670.33,
+          -100.55
         ],
         [
-          687.82,
-          -100.56
+          685.57,
+          -100.55
         ]
       ]
     },
@@ -4020,8 +5598,9 @@
       "trade_class": "house",
       "why_a_board": "lodging is sold to arrivals who have to find the door",
       "confidence": "reconstructed",
-      "mounting": "bracket_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a bracket board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "bracket_board",
       "style": {
         "id": "cream_on_red",
         "ground": "#7c3020",
@@ -4032,20 +5611,19 @@
         "note": "cream fat face on Venetian red"
       },
       "anchor_local_enu_m": [
-        958.04,
-        494.23
+        959.74,
+        494.22
       ],
       "facade_bearing_deg": 180.4,
-      "arm_height_m": 2.55,
+      "arm_height_m": 2.94,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.44,
+      "board_w_m": 1.72,
       "board_h_m": 0.74,
       "board_thickness_m": 0.05,
       "geometry": {
-        "arm_m": 1.15,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 1.48,
+      "reach_m": 0.98,
       "wall_height_m": 6.5,
       "wall_height_from": "the record",
       "frontage_m": 9.88,
@@ -4066,7 +5644,200 @@
           964.68,
           494.19
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "door"
+        ],
+        "fixed_to": null,
+        "note": "moved 0.39 m up it, off door, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          9.88
+        ],
+        "board_span_local_m": [
+          4.08,
+          5.8
+        ],
+        "openings": [
+          {
+            "kind": "window",
+            "u0": 0.56,
+            "u1": 1.41,
+            "z0": 0.97,
+            "z1": 2.32
+          },
+          {
+            "kind": "casing",
+            "u0": 0.47,
+            "u1": 1.5,
+            "z0": 0.97,
+            "z1": 2.47
+          },
+          {
+            "kind": "window",
+            "u0": 2.54,
+            "u1": 3.39,
+            "z0": 0.97,
+            "z1": 2.32
+          },
+          {
+            "kind": "casing",
+            "u0": 2.45,
+            "u1": 3.48,
+            "z0": 0.97,
+            "z1": 2.47
+          },
+          {
+            "kind": "door",
+            "u0": 4.34,
+            "u1": 5.54,
+            "z0": 0.0,
+            "z1": 2.1
+          },
+          {
+            "kind": "window",
+            "u0": 6.49,
+            "u1": 7.34,
+            "z0": 0.97,
+            "z1": 2.32
+          },
+          {
+            "kind": "casing",
+            "u0": 6.4,
+            "u1": 7.43,
+            "z0": 0.97,
+            "z1": 2.47
+          },
+          {
+            "kind": "window",
+            "u0": 8.47,
+            "u1": 9.32,
+            "z0": 0.97,
+            "z1": 2.32
+          },
+          {
+            "kind": "casing",
+            "u0": 8.38,
+            "u1": 9.41,
+            "z0": 0.97,
+            "z1": 2.47
+          },
+          {
+            "kind": "window",
+            "u0": 0.19,
+            "u1": 1.04,
+            "z0": 4.22,
+            "z1": 5.57
+          },
+          {
+            "kind": "casing",
+            "u0": 0.1,
+            "u1": 1.13,
+            "z0": 4.22,
+            "z1": 5.72
+          },
+          {
+            "kind": "window",
+            "u0": 1.43,
+            "u1": 2.28,
+            "z0": 4.22,
+            "z1": 5.57
+          },
+          {
+            "kind": "casing",
+            "u0": 1.34,
+            "u1": 2.37,
+            "z0": 4.22,
+            "z1": 5.72
+          },
+          {
+            "kind": "window",
+            "u0": 2.66,
+            "u1": 3.51,
+            "z0": 4.22,
+            "z1": 5.57
+          },
+          {
+            "kind": "casing",
+            "u0": 2.57,
+            "u1": 3.6,
+            "z0": 4.22,
+            "z1": 5.72
+          },
+          {
+            "kind": "window",
+            "u0": 3.9,
+            "u1": 4.75,
+            "z0": 4.22,
+            "z1": 5.57
+          },
+          {
+            "kind": "casing",
+            "u0": 3.81,
+            "u1": 4.84,
+            "z0": 4.22,
+            "z1": 5.72
+          },
+          {
+            "kind": "window",
+            "u0": 5.13,
+            "u1": 5.98,
+            "z0": 4.22,
+            "z1": 5.57
+          },
+          {
+            "kind": "casing",
+            "u0": 5.04,
+            "u1": 6.07,
+            "z0": 4.22,
+            "z1": 5.72
+          },
+          {
+            "kind": "window",
+            "u0": 6.37,
+            "u1": 7.22,
+            "z0": 4.22,
+            "z1": 5.57
+          },
+          {
+            "kind": "casing",
+            "u0": 6.28,
+            "u1": 7.31,
+            "z0": 4.22,
+            "z1": 5.72
+          },
+          {
+            "kind": "window",
+            "u0": 7.6,
+            "u1": 8.45,
+            "z0": 4.22,
+            "z1": 5.57
+          },
+          {
+            "kind": "casing",
+            "u0": 7.51,
+            "u1": 8.54,
+            "z0": 4.22,
+            "z1": 5.72
+          },
+          {
+            "kind": "window",
+            "u0": 8.84,
+            "u1": 9.69,
+            "z0": 4.22,
+            "z1": 5.57
+          },
+          {
+            "kind": "casing",
+            "u0": 8.75,
+            "u1": 9.78,
+            "z0": 4.22,
+            "z1": 5.72
+          }
+        ]
+      }
     },
     {
       "structure_id": "recon_1835_blk_south_water_market_h3_02",
@@ -4165,8 +5936,9 @@
       "trade_class": "house",
       "why_a_board": "lodging is sold to arrivals who have to find the door",
       "confidence": "reconstructed",
-      "mounting": "awning_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a awning board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "awning_board",
       "style": {
         "id": "cream_on_green",
         "ground": "#1d3226",
@@ -4177,22 +5949,19 @@
         "note": "cream on a Brunswick-green ground"
       },
       "anchor_local_enu_m": [
-        669.52,
-        -505.3
+        671.22,
+        -505.31
       ],
       "facade_bearing_deg": 180.4,
-      "arm_height_m": 2.55,
+      "arm_height_m": 3.05,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.56,
-      "board_h_m": 0.78,
+      "board_w_m": 1.72,
+      "board_h_m": 0.85,
       "board_thickness_m": 0.05,
       "geometry": {
-        "awning_projection_m": 1.45,
-        "awning_drop_m": 0.34,
-        "awning_width_m": 2.46,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 2.02,
+      "reach_m": 0.98,
       "wall_height_m": 5.71,
       "wall_height_from": "the record",
       "frontage_m": 8.47,
@@ -4213,7 +5982,186 @@
           675.46,
           -505.34
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "door"
+        ],
+        "fixed_to": null,
+        "note": "moved 0.50 m up it, off door, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          8.47
+        ],
+        "board_span_local_m": [
+          3.37,
+          5.09
+        ],
+        "openings": [
+          {
+            "kind": "window",
+            "u0": 0.42,
+            "u1": 1.27,
+            "z0": 0.86,
+            "z1": 2.21
+          },
+          {
+            "kind": "casing",
+            "u0": 0.33,
+            "u1": 1.36,
+            "z0": 0.86,
+            "z1": 2.36
+          },
+          {
+            "kind": "window",
+            "u0": 2.12,
+            "u1": 2.97,
+            "z0": 0.86,
+            "z1": 2.21
+          },
+          {
+            "kind": "casing",
+            "u0": 2.03,
+            "u1": 3.06,
+            "z0": 0.86,
+            "z1": 2.36
+          },
+          {
+            "kind": "door",
+            "u0": 3.63,
+            "u1": 4.83,
+            "z0": 0.0,
+            "z1": 2.1
+          },
+          {
+            "kind": "window",
+            "u0": 5.5,
+            "u1": 6.35,
+            "z0": 0.86,
+            "z1": 2.21
+          },
+          {
+            "kind": "casing",
+            "u0": 5.41,
+            "u1": 6.44,
+            "z0": 0.86,
+            "z1": 2.36
+          },
+          {
+            "kind": "window",
+            "u0": 7.2,
+            "u1": 8.05,
+            "z0": 0.86,
+            "z1": 2.21
+          },
+          {
+            "kind": "casing",
+            "u0": 7.11,
+            "u1": 8.14,
+            "z0": 0.86,
+            "z1": 2.36
+          },
+          {
+            "kind": "window",
+            "u0": 0.18,
+            "u1": 1.03,
+            "z0": 3.71,
+            "z1": 5.06
+          },
+          {
+            "kind": "casing",
+            "u0": 0.09,
+            "u1": 1.12,
+            "z0": 3.71,
+            "z1": 5.21
+          },
+          {
+            "kind": "window",
+            "u0": 1.39,
+            "u1": 2.24,
+            "z0": 3.71,
+            "z1": 5.06
+          },
+          {
+            "kind": "casing",
+            "u0": 1.3,
+            "u1": 2.33,
+            "z0": 3.71,
+            "z1": 5.21
+          },
+          {
+            "kind": "window",
+            "u0": 2.6,
+            "u1": 3.45,
+            "z0": 3.71,
+            "z1": 5.06
+          },
+          {
+            "kind": "casing",
+            "u0": 2.51,
+            "u1": 3.54,
+            "z0": 3.71,
+            "z1": 5.21
+          },
+          {
+            "kind": "window",
+            "u0": 3.81,
+            "u1": 4.66,
+            "z0": 3.71,
+            "z1": 5.06
+          },
+          {
+            "kind": "casing",
+            "u0": 3.72,
+            "u1": 4.75,
+            "z0": 3.71,
+            "z1": 5.21
+          },
+          {
+            "kind": "window",
+            "u0": 5.02,
+            "u1": 5.87,
+            "z0": 3.71,
+            "z1": 5.06
+          },
+          {
+            "kind": "casing",
+            "u0": 4.93,
+            "u1": 5.96,
+            "z0": 3.71,
+            "z1": 5.21
+          },
+          {
+            "kind": "window",
+            "u0": 6.23,
+            "u1": 7.08,
+            "z0": 3.71,
+            "z1": 5.06
+          },
+          {
+            "kind": "casing",
+            "u0": 6.14,
+            "u1": 7.17,
+            "z0": 3.71,
+            "z1": 5.21
+          },
+          {
+            "kind": "window",
+            "u0": 7.44,
+            "u1": 8.29,
+            "z0": 3.71,
+            "z1": 5.06
+          },
+          {
+            "kind": "casing",
+            "u0": 7.35,
+            "u1": 8.38,
+            "z0": 3.71,
+            "z1": 5.21
+          }
+        ]
+      }
     },
     {
       "structure_id": "recon_1835_blk_washington_clark_h3_06",
@@ -4312,8 +6260,9 @@
       "trade_class": "house",
       "why_a_board": "lodging is sold to arrivals who have to find the door",
       "confidence": "reconstructed",
-      "mounting": "awning_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a awning board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "awning_board",
       "style": {
         "id": "black_on_timber",
         "ground": "#cbc2b1",
@@ -4324,22 +6273,19 @@
         "note": "black on a bare weathered board — the tone L130 hung the town's blank boards in"
       },
       "anchor_local_enu_m": [
-        599.57,
-        -406.4
+        597.87,
+        -406.39
       ],
       "facade_bearing_deg": 0.4,
-      "arm_height_m": 2.55,
+      "arm_height_m": 2.99,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.66,
-      "board_h_m": 0.7,
+      "board_w_m": 1.87,
+      "board_h_m": 0.79,
       "board_thickness_m": 0.05,
       "geometry": {
-        "awning_projection_m": 1.45,
-        "awning_drop_m": 0.34,
-        "awning_width_m": 2.56,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 2.05,
+      "reach_m": 1.06,
       "wall_height_m": 6.17,
       "wall_height_from": "the record",
       "frontage_m": 10.0,
@@ -4360,7 +6306,200 @@
           592.87,
           -406.36
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "door"
+        ],
+        "fixed_to": null,
+        "note": "moved 0.44 m up it, off door, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          10.0
+        ],
+        "board_span_local_m": [
+          4.07,
+          5.94
+        ],
+        "openings": [
+          {
+            "kind": "window",
+            "u0": 0.58,
+            "u1": 1.43,
+            "z0": 0.93,
+            "z1": 2.28
+          },
+          {
+            "kind": "casing",
+            "u0": 0.49,
+            "u1": 1.52,
+            "z0": 0.93,
+            "z1": 2.43
+          },
+          {
+            "kind": "window",
+            "u0": 2.58,
+            "u1": 3.43,
+            "z0": 0.93,
+            "z1": 2.28
+          },
+          {
+            "kind": "casing",
+            "u0": 2.49,
+            "u1": 3.52,
+            "z0": 0.93,
+            "z1": 2.43
+          },
+          {
+            "kind": "door",
+            "u0": 4.4,
+            "u1": 5.6,
+            "z0": 0.0,
+            "z1": 2.1
+          },
+          {
+            "kind": "window",
+            "u0": 6.58,
+            "u1": 7.43,
+            "z0": 0.93,
+            "z1": 2.28
+          },
+          {
+            "kind": "casing",
+            "u0": 6.49,
+            "u1": 7.52,
+            "z0": 0.93,
+            "z1": 2.43
+          },
+          {
+            "kind": "window",
+            "u0": 8.58,
+            "u1": 9.43,
+            "z0": 0.93,
+            "z1": 2.28
+          },
+          {
+            "kind": "casing",
+            "u0": 8.49,
+            "u1": 9.52,
+            "z0": 0.93,
+            "z1": 2.43
+          },
+          {
+            "kind": "window",
+            "u0": 0.2,
+            "u1": 1.05,
+            "z0": 4.01,
+            "z1": 5.36
+          },
+          {
+            "kind": "casing",
+            "u0": 0.11,
+            "u1": 1.14,
+            "z0": 4.01,
+            "z1": 5.51
+          },
+          {
+            "kind": "window",
+            "u0": 1.45,
+            "u1": 2.3,
+            "z0": 4.01,
+            "z1": 5.36
+          },
+          {
+            "kind": "casing",
+            "u0": 1.36,
+            "u1": 2.39,
+            "z0": 4.01,
+            "z1": 5.51
+          },
+          {
+            "kind": "window",
+            "u0": 2.7,
+            "u1": 3.55,
+            "z0": 4.01,
+            "z1": 5.36
+          },
+          {
+            "kind": "casing",
+            "u0": 2.61,
+            "u1": 3.64,
+            "z0": 4.01,
+            "z1": 5.51
+          },
+          {
+            "kind": "window",
+            "u0": 3.95,
+            "u1": 4.8,
+            "z0": 4.01,
+            "z1": 5.36
+          },
+          {
+            "kind": "casing",
+            "u0": 3.86,
+            "u1": 4.89,
+            "z0": 4.01,
+            "z1": 5.51
+          },
+          {
+            "kind": "window",
+            "u0": 5.2,
+            "u1": 6.05,
+            "z0": 4.01,
+            "z1": 5.36
+          },
+          {
+            "kind": "casing",
+            "u0": 5.11,
+            "u1": 6.14,
+            "z0": 4.01,
+            "z1": 5.51
+          },
+          {
+            "kind": "window",
+            "u0": 6.45,
+            "u1": 7.3,
+            "z0": 4.01,
+            "z1": 5.36
+          },
+          {
+            "kind": "casing",
+            "u0": 6.36,
+            "u1": 7.39,
+            "z0": 4.01,
+            "z1": 5.51
+          },
+          {
+            "kind": "window",
+            "u0": 7.7,
+            "u1": 8.55,
+            "z0": 4.01,
+            "z1": 5.36
+          },
+          {
+            "kind": "casing",
+            "u0": 7.61,
+            "u1": 8.64,
+            "z0": 4.01,
+            "z1": 5.51
+          },
+          {
+            "kind": "window",
+            "u0": 8.95,
+            "u1": 9.8,
+            "z0": 4.01,
+            "z1": 5.36
+          },
+          {
+            "kind": "casing",
+            "u0": 8.86,
+            "u1": 9.89,
+            "z0": 4.01,
+            "z1": 5.51
+          }
+        ]
+      }
     },
     {
       "structure_id": "recon_1835_blk_washington_dearborn_h3_01",
@@ -4385,8 +6524,9 @@
       "trade_class": "house",
       "why_a_board": "lodging is sold to arrivals who have to find the door",
       "confidence": "reconstructed",
-      "mounting": "bracket_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a bracket board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "bracket_board",
       "style": {
         "id": "gold_on_green",
         "ground": "#16261c",
@@ -4397,20 +6537,19 @@
         "note": "gilt letters in an oval field on a dark green ground"
       },
       "anchor_local_enu_m": [
-        749.1,
-        -407.62
+        747.4,
+        -407.61
       ],
       "facade_bearing_deg": 0.4,
-      "arm_height_m": 2.55,
+      "arm_height_m": 3.07,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.46,
-      "board_h_m": 0.83,
+      "board_w_m": 1.81,
+      "board_h_m": 0.87,
       "board_thickness_m": 0.05,
       "geometry": {
-        "arm_m": 1.15,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 1.48,
+      "reach_m": 1.03,
       "wall_height_m": 6.61,
       "wall_height_from": "the record",
       "frontage_m": 9.51,
@@ -4431,7 +6570,200 @@
           742.64,
           -407.58
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "door"
+        ],
+        "fixed_to": null,
+        "note": "moved 0.52 m up it, off door, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          9.51
+        ],
+        "board_span_local_m": [
+          3.85,
+          5.66
+        ],
+        "openings": [
+          {
+            "kind": "window",
+            "u0": 0.53,
+            "u1": 1.38,
+            "z0": 0.99,
+            "z1": 2.34
+          },
+          {
+            "kind": "casing",
+            "u0": 0.44,
+            "u1": 1.47,
+            "z0": 0.99,
+            "z1": 2.49
+          },
+          {
+            "kind": "window",
+            "u0": 2.43,
+            "u1": 3.28,
+            "z0": 0.99,
+            "z1": 2.34
+          },
+          {
+            "kind": "casing",
+            "u0": 2.34,
+            "u1": 3.37,
+            "z0": 0.99,
+            "z1": 2.49
+          },
+          {
+            "kind": "door",
+            "u0": 4.16,
+            "u1": 5.36,
+            "z0": 0.0,
+            "z1": 2.1
+          },
+          {
+            "kind": "window",
+            "u0": 6.23,
+            "u1": 7.08,
+            "z0": 0.99,
+            "z1": 2.34
+          },
+          {
+            "kind": "casing",
+            "u0": 6.14,
+            "u1": 7.17,
+            "z0": 0.99,
+            "z1": 2.49
+          },
+          {
+            "kind": "window",
+            "u0": 8.14,
+            "u1": 8.99,
+            "z0": 0.99,
+            "z1": 2.34
+          },
+          {
+            "kind": "casing",
+            "u0": 8.05,
+            "u1": 9.08,
+            "z0": 0.99,
+            "z1": 2.49
+          },
+          {
+            "kind": "window",
+            "u0": 0.17,
+            "u1": 1.02,
+            "z0": 4.29,
+            "z1": 5.64
+          },
+          {
+            "kind": "casing",
+            "u0": 0.08,
+            "u1": 1.11,
+            "z0": 4.29,
+            "z1": 5.79
+          },
+          {
+            "kind": "window",
+            "u0": 1.36,
+            "u1": 2.21,
+            "z0": 4.29,
+            "z1": 5.64
+          },
+          {
+            "kind": "casing",
+            "u0": 1.27,
+            "u1": 2.3,
+            "z0": 4.29,
+            "z1": 5.79
+          },
+          {
+            "kind": "window",
+            "u0": 2.55,
+            "u1": 3.4,
+            "z0": 4.29,
+            "z1": 5.64
+          },
+          {
+            "kind": "casing",
+            "u0": 2.46,
+            "u1": 3.49,
+            "z0": 4.29,
+            "z1": 5.79
+          },
+          {
+            "kind": "window",
+            "u0": 3.74,
+            "u1": 4.59,
+            "z0": 4.29,
+            "z1": 5.64
+          },
+          {
+            "kind": "casing",
+            "u0": 3.65,
+            "u1": 4.68,
+            "z0": 4.29,
+            "z1": 5.79
+          },
+          {
+            "kind": "window",
+            "u0": 4.93,
+            "u1": 5.78,
+            "z0": 4.29,
+            "z1": 5.64
+          },
+          {
+            "kind": "casing",
+            "u0": 4.84,
+            "u1": 5.87,
+            "z0": 4.29,
+            "z1": 5.79
+          },
+          {
+            "kind": "window",
+            "u0": 6.12,
+            "u1": 6.97,
+            "z0": 4.29,
+            "z1": 5.64
+          },
+          {
+            "kind": "casing",
+            "u0": 6.03,
+            "u1": 7.06,
+            "z0": 4.29,
+            "z1": 5.79
+          },
+          {
+            "kind": "window",
+            "u0": 7.3,
+            "u1": 8.15,
+            "z0": 4.29,
+            "z1": 5.64
+          },
+          {
+            "kind": "casing",
+            "u0": 7.21,
+            "u1": 8.24,
+            "z0": 4.29,
+            "z1": 5.79
+          },
+          {
+            "kind": "window",
+            "u0": 8.49,
+            "u1": 9.34,
+            "z0": 4.29,
+            "z1": 5.64
+          },
+          {
+            "kind": "casing",
+            "u0": 8.4,
+            "u1": 9.43,
+            "z0": 4.29,
+            "z1": 5.79
+          }
+        ]
+      }
     },
     {
       "structure_id": "recon_1835_blk_washington_market_h3_01",
@@ -4530,8 +6862,9 @@
       "trade_class": "house",
       "why_a_board": "lodging is sold to arrivals who have to find the door",
       "confidence": "reconstructed",
-      "mounting": "bracket_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a bracket board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "bracket_board",
       "style": {
         "id": "cream_on_green",
         "ground": "#1d3226",
@@ -4542,20 +6875,19 @@
         "note": "cream on a Brunswick-green ground"
       },
       "anchor_local_enu_m": [
-        155.01,
-        -505.3
+        156.71,
+        -505.31
       ],
       "facade_bearing_deg": 180.3,
-      "arm_height_m": 2.55,
+      "arm_height_m": 3.05,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.44,
+      "board_w_m": 1.72,
       "board_h_m": 0.85,
       "board_thickness_m": 0.05,
       "geometry": {
-        "arm_m": 1.15,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 1.48,
+      "reach_m": 0.98,
       "wall_height_m": 5.74,
       "wall_height_from": "the record",
       "frontage_m": 9.98,
@@ -4576,7 +6908,200 @@
           161.7,
           -505.34
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "door"
+        ],
+        "fixed_to": null,
+        "note": "moved 0.50 m up it, off door, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          9.98
+        ],
+        "board_span_local_m": [
+          4.13,
+          5.85
+        ],
+        "openings": [
+          {
+            "kind": "window",
+            "u0": 0.57,
+            "u1": 1.42,
+            "z0": 0.86,
+            "z1": 2.21
+          },
+          {
+            "kind": "casing",
+            "u0": 0.48,
+            "u1": 1.51,
+            "z0": 0.86,
+            "z1": 2.36
+          },
+          {
+            "kind": "window",
+            "u0": 2.57,
+            "u1": 3.42,
+            "z0": 0.86,
+            "z1": 2.21
+          },
+          {
+            "kind": "casing",
+            "u0": 2.48,
+            "u1": 3.51,
+            "z0": 0.86,
+            "z1": 2.36
+          },
+          {
+            "kind": "door",
+            "u0": 4.39,
+            "u1": 5.59,
+            "z0": 0.0,
+            "z1": 2.1
+          },
+          {
+            "kind": "window",
+            "u0": 6.56,
+            "u1": 7.41,
+            "z0": 0.86,
+            "z1": 2.21
+          },
+          {
+            "kind": "casing",
+            "u0": 6.47,
+            "u1": 7.5,
+            "z0": 0.86,
+            "z1": 2.36
+          },
+          {
+            "kind": "window",
+            "u0": 8.56,
+            "u1": 9.41,
+            "z0": 0.86,
+            "z1": 2.21
+          },
+          {
+            "kind": "casing",
+            "u0": 8.47,
+            "u1": 9.5,
+            "z0": 0.86,
+            "z1": 2.36
+          },
+          {
+            "kind": "window",
+            "u0": 0.2,
+            "u1": 1.05,
+            "z0": 3.73,
+            "z1": 5.08
+          },
+          {
+            "kind": "casing",
+            "u0": 0.11,
+            "u1": 1.14,
+            "z0": 3.73,
+            "z1": 5.23
+          },
+          {
+            "kind": "window",
+            "u0": 1.45,
+            "u1": 2.3,
+            "z0": 3.73,
+            "z1": 5.08
+          },
+          {
+            "kind": "casing",
+            "u0": 1.36,
+            "u1": 2.39,
+            "z0": 3.73,
+            "z1": 5.23
+          },
+          {
+            "kind": "window",
+            "u0": 2.69,
+            "u1": 3.54,
+            "z0": 3.73,
+            "z1": 5.08
+          },
+          {
+            "kind": "casing",
+            "u0": 2.6,
+            "u1": 3.63,
+            "z0": 3.73,
+            "z1": 5.23
+          },
+          {
+            "kind": "window",
+            "u0": 3.94,
+            "u1": 4.79,
+            "z0": 3.73,
+            "z1": 5.08
+          },
+          {
+            "kind": "casing",
+            "u0": 3.85,
+            "u1": 4.88,
+            "z0": 3.73,
+            "z1": 5.23
+          },
+          {
+            "kind": "window",
+            "u0": 5.19,
+            "u1": 6.04,
+            "z0": 3.73,
+            "z1": 5.08
+          },
+          {
+            "kind": "casing",
+            "u0": 5.1,
+            "u1": 6.13,
+            "z0": 3.73,
+            "z1": 5.23
+          },
+          {
+            "kind": "window",
+            "u0": 6.44,
+            "u1": 7.29,
+            "z0": 3.73,
+            "z1": 5.08
+          },
+          {
+            "kind": "casing",
+            "u0": 6.35,
+            "u1": 7.38,
+            "z0": 3.73,
+            "z1": 5.23
+          },
+          {
+            "kind": "window",
+            "u0": 7.68,
+            "u1": 8.53,
+            "z0": 3.73,
+            "z1": 5.08
+          },
+          {
+            "kind": "casing",
+            "u0": 7.59,
+            "u1": 8.62,
+            "z0": 3.73,
+            "z1": 5.23
+          },
+          {
+            "kind": "window",
+            "u0": 8.93,
+            "u1": 9.78,
+            "z0": 3.73,
+            "z1": 5.08
+          },
+          {
+            "kind": "casing",
+            "u0": 8.84,
+            "u1": 9.87,
+            "z0": 3.73,
+            "z1": 5.23
+          }
+        ]
+      }
     },
     {
       "structure_id": "recon_1835_canal_trade_c3_001",
@@ -4740,8 +7265,9 @@
       "trade_class": "counter",
       "why_a_board": "a counter open to the street",
       "confidence": "reconstructed",
-      "mounting": "bracket_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a bracket board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "bracket_board",
       "style": {
         "id": "red_on_white",
         "ground": "#e9e2d1",
@@ -4752,20 +7278,19 @@
         "note": "vermilion Egyptian on a white ground"
       },
       "anchor_local_enu_m": [
-        -150.65,
-        -35.54
+        -150.61,
+        -36.28
       ],
       "facade_bearing_deg": 266.7,
-      "arm_height_m": 2.55,
+      "arm_height_m": 3.88,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.46,
-      "board_h_m": 0.81,
+      "board_w_m": 2.95,
+      "board_h_m": 0.71,
       "board_thickness_m": 0.05,
       "geometry": {
-        "arm_m": 1.15,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 1.48,
+      "reach_m": 1.6,
       "wall_height_m": 6.27,
       "wall_height_from": "the record",
       "frontage_m": 9.56,
@@ -4786,7 +7311,89 @@
           -150.28,
           -42.01
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "reshaped",
+        "covered_before": [
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": null,
+        "note": "the copy would not clear shop_door and show_window on a 2.11 x 0.99 m board, so the same words are lettered on a longer and narrower 2.95 x 0.71 m one, which does",
+        "wall_span_local_m": [
+          0.0,
+          9.56
+        ],
+        "board_span_local_m": [
+          4.27,
+          7.22
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 1.77,
+            "u1": 3.4,
+            "z0": 0.74,
+            "z1": 2.67
+          },
+          {
+            "kind": "show_window",
+            "u0": 3.5,
+            "u1": 5.13,
+            "z0": 0.74,
+            "z1": 2.67
+          },
+          {
+            "kind": "shop_door",
+            "u0": 5.24,
+            "u1": 6.25,
+            "z0": 0.0,
+            "z1": 2.79
+          },
+          {
+            "kind": "show_window",
+            "u0": 6.35,
+            "u1": 7.99,
+            "z0": 0.74,
+            "z1": 2.67
+          },
+          {
+            "kind": "fascia",
+            "u0": 1.59,
+            "u1": 8.17,
+            "z0": 2.79,
+            "z1": 3.08
+          },
+          {
+            "kind": "window",
+            "u0": 0.79,
+            "u1": 1.64,
+            "z0": 4.08,
+            "z1": 5.38
+          },
+          {
+            "kind": "window",
+            "u0": 3.23,
+            "u1": 4.08,
+            "z0": 4.08,
+            "z1": 5.38
+          },
+          {
+            "kind": "window",
+            "u0": 5.67,
+            "u1": 6.52,
+            "z0": 4.08,
+            "z1": 5.38
+          },
+          {
+            "kind": "window",
+            "u0": 8.11,
+            "u1": 8.96,
+            "z0": 4.08,
+            "z1": 5.38
+          }
+        ]
+      }
     },
     {
       "structure_id": "recon_1835_canal_trade_w1_003",
@@ -5009,8 +7616,9 @@
       "trade_class": "house",
       "why_a_board": "lodging is sold to arrivals who have to find the door",
       "confidence": "reconstructed",
-      "mounting": "awning_board",
-      "mounting_note": "a post was refused here because no street lies in front of this wall within 22 m — a post here would stand in a yard",
+      "mounting": "wall_board",
+      "mounting_note": "a post was refused here because no street lies in front of this wall within 22 m — a post here would stand in a yard; dealt a awning board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "awning_board",
       "style": {
         "id": "gold_on_black",
         "ground": "#141009",
@@ -5021,22 +7629,19 @@
         "note": "gilt letters on a black ground, shaded — the commonest painted board of the trade"
       },
       "anchor_local_enu_m": [
-        643.3,
+        642.34,
         220.17
       ],
       "facade_bearing_deg": 180.0,
-      "arm_height_m": 2.55,
+      "arm_height_m": 3.18,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.56,
-      "board_h_m": 0.71,
+      "board_w_m": 2.48,
+      "board_h_m": 0.54,
       "board_thickness_m": 0.05,
       "geometry": {
-        "awning_projection_m": 1.45,
-        "awning_drop_m": 0.34,
-        "awning_width_m": 2.46,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 2.02,
+      "reach_m": 1.36,
       "wall_height_m": 3.52,
       "wall_height_from": "the record",
       "frontage_m": 8.2,
@@ -5057,7 +7662,125 @@
           649.1,
           220.17
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "reshaped",
+        "covered_before": [
+          "door",
+          "porch",
+          "shutter"
+        ],
+        "fixed_to": null,
+        "note": "the copy would not clear door and porch and shutter on a 1.72 x 0.78 m board, so the same words are lettered on a longer and narrower 2.48 x 0.54 m one, which does",
+        "wall_span_local_m": [
+          0.0,
+          8.2
+        ],
+        "board_span_local_m": [
+          5.52,
+          8.0
+        ],
+        "openings": [
+          {
+            "kind": "window",
+            "u0": 0.58,
+            "u1": 1.45,
+            "z0": 0.95,
+            "z1": 2.53
+          },
+          {
+            "kind": "window",
+            "u0": 2.21,
+            "u1": 3.08,
+            "z0": 0.95,
+            "z1": 2.53
+          },
+          {
+            "kind": "door",
+            "u0": 3.81,
+            "u1": 4.73,
+            "z0": 0.1,
+            "z1": 2.12
+          },
+          {
+            "kind": "window",
+            "u0": 5.46,
+            "u1": 6.33,
+            "z0": 0.95,
+            "z1": 2.53
+          },
+          {
+            "kind": "window",
+            "u0": 7.05,
+            "u1": 7.91,
+            "z0": 0.95,
+            "z1": 2.53
+          },
+          {
+            "kind": "shutter",
+            "u0": 0.05,
+            "u1": 0.48,
+            "z0": 0.95,
+            "z1": 2.53
+          },
+          {
+            "kind": "shutter",
+            "u0": 1.55,
+            "u1": 1.99,
+            "z0": 0.95,
+            "z1": 2.53
+          },
+          {
+            "kind": "shutter",
+            "u0": 1.67,
+            "u1": 2.11,
+            "z0": 0.95,
+            "z1": 2.53
+          },
+          {
+            "kind": "shutter",
+            "u0": 3.18,
+            "u1": 3.61,
+            "z0": 0.95,
+            "z1": 2.53
+          },
+          {
+            "kind": "shutter",
+            "u0": 4.92,
+            "u1": 5.36,
+            "z0": 0.95,
+            "z1": 2.53
+          },
+          {
+            "kind": "shutter",
+            "u0": 6.43,
+            "u1": 6.86,
+            "z0": 0.95,
+            "z1": 2.53
+          },
+          {
+            "kind": "shutter",
+            "u0": 6.51,
+            "u1": 6.94,
+            "z0": 0.95,
+            "z1": 2.53
+          },
+          {
+            "kind": "shutter",
+            "u0": 8.02,
+            "u1": 8.45,
+            "z0": 0.95,
+            "z1": 2.53
+          },
+          {
+            "kind": "porch",
+            "u0": 3.12,
+            "u1": 5.42,
+            "z0": 0.0,
+            "z1": 2.62
+          }
+        ]
+      }
     },
     {
       "structure_id": "recon_1835_north_h2_022",
@@ -5082,8 +7805,9 @@
       "trade_class": "house",
       "why_a_board": "lodging is sold to arrivals who have to find the door",
       "confidence": "reconstructed",
-      "mounting": "bracket_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a bracket board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "bracket_board",
       "style": {
         "id": "cream_on_green",
         "ground": "#1d3226",
@@ -5094,20 +7818,19 @@
         "note": "cream on a Brunswick-green ground"
       },
       "anchor_local_enu_m": [
-        873.3,
+        875.0,
         219.88
       ],
       "facade_bearing_deg": 180.0,
-      "arm_height_m": 2.55,
+      "arm_height_m": 3.05,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.44,
+      "board_w_m": 1.72,
       "board_h_m": 0.85,
       "board_thickness_m": 0.05,
       "geometry": {
-        "arm_m": 1.15,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 1.48,
+      "reach_m": 0.98,
       "wall_height_m": 5.58,
       "wall_height_from": "the record",
       "frontage_m": 8.07,
@@ -5128,7 +7851,172 @@
           879.03,
           219.88
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "door"
+        ],
+        "fixed_to": null,
+        "note": "moved 0.50 m up it, off door, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          8.07
+        ],
+        "board_span_local_m": [
+          3.17,
+          4.89
+        ],
+        "openings": [
+          {
+            "kind": "window",
+            "u0": 0.38,
+            "u1": 1.23,
+            "z0": 0.84,
+            "z1": 2.19
+          },
+          {
+            "kind": "casing",
+            "u0": 0.29,
+            "u1": 1.32,
+            "z0": 0.84,
+            "z1": 2.34
+          },
+          {
+            "kind": "window",
+            "u0": 1.99,
+            "u1": 2.84,
+            "z0": 0.84,
+            "z1": 2.19
+          },
+          {
+            "kind": "casing",
+            "u0": 1.9,
+            "u1": 2.93,
+            "z0": 0.84,
+            "z1": 2.34
+          },
+          {
+            "kind": "door",
+            "u0": 3.43,
+            "u1": 4.63,
+            "z0": 0.0,
+            "z1": 2.1
+          },
+          {
+            "kind": "window",
+            "u0": 5.22,
+            "u1": 6.07,
+            "z0": 0.84,
+            "z1": 2.19
+          },
+          {
+            "kind": "casing",
+            "u0": 5.13,
+            "u1": 6.16,
+            "z0": 0.84,
+            "z1": 2.34
+          },
+          {
+            "kind": "window",
+            "u0": 6.83,
+            "u1": 7.68,
+            "z0": 0.84,
+            "z1": 2.19
+          },
+          {
+            "kind": "casing",
+            "u0": 6.74,
+            "u1": 7.77,
+            "z0": 0.84,
+            "z1": 2.34
+          },
+          {
+            "kind": "window",
+            "u0": 0.25,
+            "u1": 1.1,
+            "z0": 3.62,
+            "z1": 4.97
+          },
+          {
+            "kind": "casing",
+            "u0": 0.16,
+            "u1": 1.19,
+            "z0": 3.62,
+            "z1": 5.12
+          },
+          {
+            "kind": "window",
+            "u0": 1.59,
+            "u1": 2.44,
+            "z0": 3.62,
+            "z1": 4.97
+          },
+          {
+            "kind": "casing",
+            "u0": 1.5,
+            "u1": 2.53,
+            "z0": 3.62,
+            "z1": 5.12
+          },
+          {
+            "kind": "window",
+            "u0": 2.94,
+            "u1": 3.79,
+            "z0": 3.62,
+            "z1": 4.97
+          },
+          {
+            "kind": "casing",
+            "u0": 2.85,
+            "u1": 3.88,
+            "z0": 3.62,
+            "z1": 5.12
+          },
+          {
+            "kind": "window",
+            "u0": 4.28,
+            "u1": 5.13,
+            "z0": 3.62,
+            "z1": 4.97
+          },
+          {
+            "kind": "casing",
+            "u0": 4.19,
+            "u1": 5.22,
+            "z0": 3.62,
+            "z1": 5.12
+          },
+          {
+            "kind": "window",
+            "u0": 5.62,
+            "u1": 6.47,
+            "z0": 3.62,
+            "z1": 4.97
+          },
+          {
+            "kind": "casing",
+            "u0": 5.53,
+            "u1": 6.56,
+            "z0": 3.62,
+            "z1": 5.12
+          },
+          {
+            "kind": "window",
+            "u0": 6.97,
+            "u1": 7.82,
+            "z0": 3.62,
+            "z1": 4.97
+          },
+          {
+            "kind": "casing",
+            "u0": 6.88,
+            "u1": 7.91,
+            "z0": 3.62,
+            "z1": 5.12
+          }
+        ]
+      }
     },
     {
       "structure_id": "recon_1835_north_h2_028",
@@ -5153,8 +8041,9 @@
       "trade_class": "house",
       "why_a_board": "lodging is sold to arrivals who have to find the door",
       "confidence": "reconstructed",
-      "mounting": "awning_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a awning board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "awning_board",
       "style": {
         "id": "gold_on_black",
         "ground": "#141009",
@@ -5165,22 +8054,19 @@
         "note": "gilt letters on a black ground, shaded — the commonest painted board of the trade"
       },
       "anchor_local_enu_m": [
-        931.7,
+        930.0,
         350.5
       ],
       "facade_bearing_deg": 0.0,
-      "arm_height_m": 2.55,
+      "arm_height_m": 2.98,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.56,
-      "board_h_m": 0.71,
+      "board_w_m": 1.72,
+      "board_h_m": 0.78,
       "board_thickness_m": 0.05,
       "geometry": {
-        "awning_projection_m": 1.45,
-        "awning_drop_m": 0.34,
-        "awning_width_m": 2.46,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 2.02,
+      "reach_m": 0.98,
       "wall_height_m": 5.92,
       "wall_height_from": "the record",
       "frontage_m": 8.88,
@@ -5201,7 +8087,186 @@
           925.56,
           350.5
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "door"
+        ],
+        "fixed_to": null,
+        "note": "moved 0.43 m up it, off door, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          8.88
+        ],
+        "board_span_local_m": [
+          3.58,
+          5.3
+        ],
+        "openings": [
+          {
+            "kind": "window",
+            "u0": 0.46,
+            "u1": 1.31,
+            "z0": 0.89,
+            "z1": 2.24
+          },
+          {
+            "kind": "casing",
+            "u0": 0.37,
+            "u1": 1.4,
+            "z0": 0.89,
+            "z1": 2.39
+          },
+          {
+            "kind": "window",
+            "u0": 2.24,
+            "u1": 3.09,
+            "z0": 0.89,
+            "z1": 2.24
+          },
+          {
+            "kind": "casing",
+            "u0": 2.15,
+            "u1": 3.18,
+            "z0": 0.89,
+            "z1": 2.39
+          },
+          {
+            "kind": "door",
+            "u0": 3.84,
+            "u1": 5.04,
+            "z0": 0.0,
+            "z1": 2.1
+          },
+          {
+            "kind": "window",
+            "u0": 5.79,
+            "u1": 6.64,
+            "z0": 0.89,
+            "z1": 2.24
+          },
+          {
+            "kind": "casing",
+            "u0": 5.7,
+            "u1": 6.73,
+            "z0": 0.89,
+            "z1": 2.39
+          },
+          {
+            "kind": "window",
+            "u0": 7.57,
+            "u1": 8.42,
+            "z0": 0.89,
+            "z1": 2.24
+          },
+          {
+            "kind": "casing",
+            "u0": 7.48,
+            "u1": 8.51,
+            "z0": 0.89,
+            "z1": 2.39
+          },
+          {
+            "kind": "window",
+            "u0": 0.21,
+            "u1": 1.06,
+            "z0": 3.85,
+            "z1": 5.2
+          },
+          {
+            "kind": "casing",
+            "u0": 0.12,
+            "u1": 1.15,
+            "z0": 3.85,
+            "z1": 5.35
+          },
+          {
+            "kind": "window",
+            "u0": 1.48,
+            "u1": 2.33,
+            "z0": 3.85,
+            "z1": 5.2
+          },
+          {
+            "kind": "casing",
+            "u0": 1.39,
+            "u1": 2.42,
+            "z0": 3.85,
+            "z1": 5.35
+          },
+          {
+            "kind": "window",
+            "u0": 2.75,
+            "u1": 3.6,
+            "z0": 3.85,
+            "z1": 5.2
+          },
+          {
+            "kind": "casing",
+            "u0": 2.66,
+            "u1": 3.69,
+            "z0": 3.85,
+            "z1": 5.35
+          },
+          {
+            "kind": "window",
+            "u0": 4.01,
+            "u1": 4.86,
+            "z0": 3.85,
+            "z1": 5.2
+          },
+          {
+            "kind": "casing",
+            "u0": 3.92,
+            "u1": 4.95,
+            "z0": 3.85,
+            "z1": 5.35
+          },
+          {
+            "kind": "window",
+            "u0": 5.28,
+            "u1": 6.13,
+            "z0": 3.85,
+            "z1": 5.2
+          },
+          {
+            "kind": "casing",
+            "u0": 5.19,
+            "u1": 6.22,
+            "z0": 3.85,
+            "z1": 5.35
+          },
+          {
+            "kind": "window",
+            "u0": 6.55,
+            "u1": 7.4,
+            "z0": 3.85,
+            "z1": 5.2
+          },
+          {
+            "kind": "casing",
+            "u0": 6.46,
+            "u1": 7.49,
+            "z0": 3.85,
+            "z1": 5.35
+          },
+          {
+            "kind": "window",
+            "u0": 7.82,
+            "u1": 8.67,
+            "z0": 3.85,
+            "z1": 5.2
+          },
+          {
+            "kind": "casing",
+            "u0": 7.73,
+            "u1": 8.76,
+            "z0": 3.85,
+            "z1": 5.35
+          }
+        ]
+      }
     },
     {
       "structure_id": "recon_1835_north_h2_030",
@@ -5226,8 +8291,9 @@
       "trade_class": "house",
       "why_a_board": "lodging is sold to arrivals who have to find the door",
       "confidence": "reconstructed",
-      "mounting": "bracket_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a bracket board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "bracket_board",
       "style": {
         "id": "black_on_white",
         "ground": "#e8e1cf",
@@ -5238,20 +8304,19 @@
         "note": "black on a white lead ground, the cheapest board a signwriter could sell"
       },
       "anchor_local_enu_m": [
-        761.7,
+        760.0,
         370.3
       ],
       "facade_bearing_deg": 0.0,
-      "arm_height_m": 2.55,
+      "arm_height_m": 2.89,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.44,
+      "board_w_m": 1.72,
       "board_h_m": 0.69,
       "board_thickness_m": 0.05,
       "geometry": {
-        "arm_m": 1.15,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 1.48,
+      "reach_m": 0.98,
       "wall_height_m": 5.74,
       "wall_height_from": "the record",
       "frontage_m": 8.18,
@@ -5272,7 +8337,172 @@
           755.91,
           370.3
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "door"
+        ],
+        "fixed_to": null,
+        "note": "moved 0.34 m up it, off door, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          8.18
+        ],
+        "board_span_local_m": [
+          3.23,
+          4.95
+        ],
+        "openings": [
+          {
+            "kind": "window",
+            "u0": 0.39,
+            "u1": 1.24,
+            "z0": 0.86,
+            "z1": 2.21
+          },
+          {
+            "kind": "casing",
+            "u0": 0.3,
+            "u1": 1.33,
+            "z0": 0.86,
+            "z1": 2.36
+          },
+          {
+            "kind": "window",
+            "u0": 2.03,
+            "u1": 2.88,
+            "z0": 0.86,
+            "z1": 2.21
+          },
+          {
+            "kind": "casing",
+            "u0": 1.94,
+            "u1": 2.97,
+            "z0": 0.86,
+            "z1": 2.36
+          },
+          {
+            "kind": "door",
+            "u0": 3.49,
+            "u1": 4.69,
+            "z0": 0.0,
+            "z1": 2.1
+          },
+          {
+            "kind": "window",
+            "u0": 5.3,
+            "u1": 6.15,
+            "z0": 0.86,
+            "z1": 2.21
+          },
+          {
+            "kind": "casing",
+            "u0": 5.21,
+            "u1": 6.24,
+            "z0": 0.86,
+            "z1": 2.36
+          },
+          {
+            "kind": "window",
+            "u0": 6.94,
+            "u1": 7.79,
+            "z0": 0.86,
+            "z1": 2.21
+          },
+          {
+            "kind": "casing",
+            "u0": 6.85,
+            "u1": 7.88,
+            "z0": 0.86,
+            "z1": 2.36
+          },
+          {
+            "kind": "window",
+            "u0": 0.26,
+            "u1": 1.11,
+            "z0": 3.73,
+            "z1": 5.08
+          },
+          {
+            "kind": "casing",
+            "u0": 0.17,
+            "u1": 1.2,
+            "z0": 3.73,
+            "z1": 5.23
+          },
+          {
+            "kind": "window",
+            "u0": 1.62,
+            "u1": 2.47,
+            "z0": 3.73,
+            "z1": 5.08
+          },
+          {
+            "kind": "casing",
+            "u0": 1.53,
+            "u1": 2.56,
+            "z0": 3.73,
+            "z1": 5.23
+          },
+          {
+            "kind": "window",
+            "u0": 2.98,
+            "u1": 3.83,
+            "z0": 3.73,
+            "z1": 5.08
+          },
+          {
+            "kind": "casing",
+            "u0": 2.89,
+            "u1": 3.92,
+            "z0": 3.73,
+            "z1": 5.23
+          },
+          {
+            "kind": "window",
+            "u0": 4.35,
+            "u1": 5.2,
+            "z0": 3.73,
+            "z1": 5.08
+          },
+          {
+            "kind": "casing",
+            "u0": 4.26,
+            "u1": 5.29,
+            "z0": 3.73,
+            "z1": 5.23
+          },
+          {
+            "kind": "window",
+            "u0": 5.71,
+            "u1": 6.56,
+            "z0": 3.73,
+            "z1": 5.08
+          },
+          {
+            "kind": "casing",
+            "u0": 5.62,
+            "u1": 6.65,
+            "z0": 3.73,
+            "z1": 5.23
+          },
+          {
+            "kind": "window",
+            "u0": 7.07,
+            "u1": 7.92,
+            "z0": 3.73,
+            "z1": 5.08
+          },
+          {
+            "kind": "casing",
+            "u0": 6.98,
+            "u1": 8.01,
+            "z0": 3.73,
+            "z1": 5.23
+          }
+        ]
+      }
     },
     {
       "structure_id": "recon_1835_north_h2_045",
@@ -5371,8 +8601,9 @@
       "trade_class": "house",
       "why_a_board": "lodging is sold to arrivals who have to find the door",
       "confidence": "reconstructed",
-      "mounting": "bracket_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a bracket board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "bracket_board",
       "style": {
         "id": "cream_on_green",
         "ground": "#1d3226",
@@ -5383,20 +8614,19 @@
         "note": "cream on a Brunswick-green ground"
       },
       "anchor_local_enu_m": [
-        -262.79,
-        27.39
+        -262.82,
+        29.19
       ],
       "facade_bearing_deg": 89.0,
-      "arm_height_m": 2.55,
+      "arm_height_m": 3.57,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.46,
-      "board_h_m": 0.86,
+      "board_w_m": 2.2,
+      "board_h_m": 0.79,
       "board_thickness_m": 0.05,
       "geometry": {
-        "arm_m": 1.15,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 1.48,
+      "reach_m": 1.22,
       "wall_height_m": 3.91,
       "wall_height_from": "the record",
       "frontage_m": 7.92,
@@ -5417,7 +8647,117 @@
           -262.89,
           33.05
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "reshaped",
+        "covered_before": [
+          "door",
+          "shutter"
+        ],
+        "fixed_to": null,
+        "note": "the copy would not clear door and shutter on a 1.87 x 0.93 m board, so the same words are lettered on a longer and narrower 2.20 x 0.79 m one, which does",
+        "wall_span_local_m": [
+          0.0,
+          7.92
+        ],
+        "board_span_local_m": [
+          2.76,
+          4.96
+        ],
+        "openings": [
+          {
+            "kind": "window",
+            "u0": 0.24,
+            "u1": 1.2,
+            "z0": 0.95,
+            "z1": 2.69
+          },
+          {
+            "kind": "window",
+            "u0": 1.75,
+            "u1": 2.72,
+            "z0": 0.95,
+            "z1": 2.69
+          },
+          {
+            "kind": "door",
+            "u0": 3.4,
+            "u1": 4.32,
+            "z0": 0.1,
+            "z1": 2.12
+          },
+          {
+            "kind": "window",
+            "u0": 5.0,
+            "u1": 5.97,
+            "z0": 0.95,
+            "z1": 2.69
+          },
+          {
+            "kind": "window",
+            "u0": 6.63,
+            "u1": 7.6,
+            "z0": 0.95,
+            "z1": 2.69
+          },
+          {
+            "kind": "shutter",
+            "u0": -0.35,
+            "u1": 0.13,
+            "z0": 0.95,
+            "z1": 2.69
+          },
+          {
+            "kind": "shutter",
+            "u0": 1.31,
+            "u1": 1.79,
+            "z0": 0.95,
+            "z1": 2.69
+          },
+          {
+            "kind": "shutter",
+            "u0": 1.16,
+            "u1": 1.65,
+            "z0": 0.95,
+            "z1": 2.69
+          },
+          {
+            "kind": "shutter",
+            "u0": 2.82,
+            "u1": 3.31,
+            "z0": 0.95,
+            "z1": 2.69
+          },
+          {
+            "kind": "shutter",
+            "u0": 4.42,
+            "u1": 4.9,
+            "z0": 0.95,
+            "z1": 2.69
+          },
+          {
+            "kind": "shutter",
+            "u0": 6.07,
+            "u1": 6.56,
+            "z0": 0.95,
+            "z1": 2.69
+          },
+          {
+            "kind": "shutter",
+            "u0": 6.04,
+            "u1": 6.53,
+            "z0": 0.95,
+            "z1": 2.69
+          },
+          {
+            "kind": "shutter",
+            "u0": 7.7,
+            "u1": 8.18,
+            "z0": 0.95,
+            "z1": 2.69
+          }
+        ]
+      }
     },
     {
       "structure_id": "recon_1835_west_035",
@@ -5442,8 +8782,9 @@
       "trade_class": "house",
       "why_a_board": "lodging is sold to arrivals who have to find the door",
       "confidence": "reconstructed",
-      "mounting": "awning_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a awning board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "awning_board",
       "style": {
         "id": "gold_on_black",
         "ground": "#141009",
@@ -5454,22 +8795,19 @@
         "note": "gilt letters on a black ground, shaded — the commonest painted board of the trade"
       },
       "anchor_local_enu_m": [
-        -366.94,
-        -261.83
+        -368.64,
+        -261.8
       ],
       "facade_bearing_deg": 1.0,
-      "arm_height_m": 2.55,
+      "arm_height_m": 3.07,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.66,
-      "board_h_m": 0.76,
+      "board_w_m": 1.9,
+      "board_h_m": 0.86,
       "board_thickness_m": 0.05,
       "geometry": {
-        "awning_projection_m": 1.45,
-        "awning_drop_m": 0.34,
-        "awning_width_m": 2.56,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 2.05,
+      "reach_m": 1.07,
       "wall_height_m": 5.8,
       "wall_height_from": "the record",
       "frontage_m": 8.53,
@@ -5490,7 +8828,186 @@
           -372.9,
           -261.73
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "moved",
+        "covered_before": [
+          "door"
+        ],
+        "fixed_to": null,
+        "note": "moved 0.52 m up it, off door, onto blank face",
+        "wall_span_local_m": [
+          0.0,
+          8.53
+        ],
+        "board_span_local_m": [
+          3.32,
+          5.22
+        ],
+        "openings": [
+          {
+            "kind": "window",
+            "u0": 0.43,
+            "u1": 1.28,
+            "z0": 0.87,
+            "z1": 2.22
+          },
+          {
+            "kind": "casing",
+            "u0": 0.34,
+            "u1": 1.37,
+            "z0": 0.87,
+            "z1": 2.37
+          },
+          {
+            "kind": "window",
+            "u0": 2.14,
+            "u1": 2.99,
+            "z0": 0.87,
+            "z1": 2.22
+          },
+          {
+            "kind": "casing",
+            "u0": 2.05,
+            "u1": 3.08,
+            "z0": 0.87,
+            "z1": 2.37
+          },
+          {
+            "kind": "door",
+            "u0": 3.67,
+            "u1": 4.87,
+            "z0": 0.0,
+            "z1": 2.1
+          },
+          {
+            "kind": "window",
+            "u0": 5.55,
+            "u1": 6.4,
+            "z0": 0.87,
+            "z1": 2.22
+          },
+          {
+            "kind": "casing",
+            "u0": 5.46,
+            "u1": 6.49,
+            "z0": 0.87,
+            "z1": 2.37
+          },
+          {
+            "kind": "window",
+            "u0": 7.26,
+            "u1": 8.11,
+            "z0": 0.87,
+            "z1": 2.22
+          },
+          {
+            "kind": "casing",
+            "u0": 7.17,
+            "u1": 8.2,
+            "z0": 0.87,
+            "z1": 2.37
+          },
+          {
+            "kind": "window",
+            "u0": 0.18,
+            "u1": 1.03,
+            "z0": 3.77,
+            "z1": 5.12
+          },
+          {
+            "kind": "casing",
+            "u0": 0.09,
+            "u1": 1.12,
+            "z0": 3.77,
+            "z1": 5.27
+          },
+          {
+            "kind": "window",
+            "u0": 1.4,
+            "u1": 2.25,
+            "z0": 3.77,
+            "z1": 5.12
+          },
+          {
+            "kind": "casing",
+            "u0": 1.31,
+            "u1": 2.34,
+            "z0": 3.77,
+            "z1": 5.27
+          },
+          {
+            "kind": "window",
+            "u0": 2.62,
+            "u1": 3.47,
+            "z0": 3.77,
+            "z1": 5.12
+          },
+          {
+            "kind": "casing",
+            "u0": 2.53,
+            "u1": 3.56,
+            "z0": 3.77,
+            "z1": 5.27
+          },
+          {
+            "kind": "window",
+            "u0": 3.84,
+            "u1": 4.69,
+            "z0": 3.77,
+            "z1": 5.12
+          },
+          {
+            "kind": "casing",
+            "u0": 3.75,
+            "u1": 4.78,
+            "z0": 3.77,
+            "z1": 5.27
+          },
+          {
+            "kind": "window",
+            "u0": 5.06,
+            "u1": 5.91,
+            "z0": 3.77,
+            "z1": 5.12
+          },
+          {
+            "kind": "casing",
+            "u0": 4.97,
+            "u1": 6.0,
+            "z0": 3.77,
+            "z1": 5.27
+          },
+          {
+            "kind": "window",
+            "u0": 6.28,
+            "u1": 7.13,
+            "z0": 3.77,
+            "z1": 5.12
+          },
+          {
+            "kind": "casing",
+            "u0": 6.19,
+            "u1": 7.22,
+            "z0": 3.77,
+            "z1": 5.27
+          },
+          {
+            "kind": "window",
+            "u0": 7.5,
+            "u1": 8.35,
+            "z0": 3.77,
+            "z1": 5.12
+          },
+          {
+            "kind": "casing",
+            "u0": 7.41,
+            "u1": 8.44,
+            "z0": 3.77,
+            "z1": 5.27
+          }
+        ]
+      }
     },
     {
       "structure_id": "recon_1835_blk_lake_clark_c1_01",
@@ -5644,8 +9161,9 @@
       "trade_class": "office",
       "why_a_board": "a shop front or a consulting-room door, either of which a stranger has to be able to pick out",
       "confidence": "reconstructed",
-      "mounting": "bracket_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a bracket board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "bracket_board",
       "style": {
         "id": "white_on_brown",
         "ground": "#4a3121",
@@ -5656,20 +9174,19 @@
         "note": "white fat face on a chocolate-brown ground"
       },
       "anchor_local_enu_m": [
-        598.95,
+        598.35,
         -127.54
       ],
       "facade_bearing_deg": 0.5,
-      "arm_height_m": 2.55,
+      "arm_height_m": 3.6,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.41,
-      "board_h_m": 0.58,
+      "board_w_m": 1.75,
+      "board_h_m": 0.56,
       "board_thickness_m": 0.05,
       "geometry": {
-        "arm_m": 1.15,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 1.47,
+      "reach_m": 1.0,
       "wall_height_m": 3.95,
       "wall_height_from": "the record",
       "frontage_m": 6.17,
@@ -5690,7 +9207,48 @@
           594.17,
           -127.51
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "reshaped",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": null,
+        "note": "the copy would not clear fascia and shop_door and show_window on a 1.69 x 0.58 m board, so the same words are lettered on a longer and narrower 1.75 x 0.56 m one, which does",
+        "wall_span_local_m": [
+          0.0,
+          6.17
+        ],
+        "board_span_local_m": [
+          3.3,
+          5.05
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 1.82,
+            "u1": 3.57,
+            "z0": 0.74,
+            "z1": 2.53
+          },
+          {
+            "kind": "shop_door",
+            "u0": 3.67,
+            "u1": 4.69,
+            "z0": 0.0,
+            "z1": 2.66
+          },
+          {
+            "kind": "fascia",
+            "u0": 1.59,
+            "u1": 4.92,
+            "z0": 2.66,
+            "z1": 2.94
+          }
+        ]
+      }
     },
     {
       "structure_id": "recon_1835_blk_lake_clark_c3_03",
@@ -6088,8 +9646,9 @@
       "trade_class": "counter",
       "why_a_board": "a counter open to the street",
       "confidence": "reconstructed",
-      "mounting": "bracket_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a bracket board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "bracket_board",
       "style": {
         "id": "gold_on_green",
         "ground": "#16261c",
@@ -6100,20 +9659,19 @@
         "note": "gilt letters in an oval field on a dark green ground"
       },
       "anchor_local_enu_m": [
-        672.88,
+        672.11,
         -271.64
       ],
       "facade_bearing_deg": 0.3,
-      "arm_height_m": 2.55,
+      "arm_height_m": 3.35,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.46,
-      "board_h_m": 0.83,
+      "board_w_m": 3.15,
+      "board_h_m": 0.57,
       "board_thickness_m": 0.05,
       "geometry": {
-        "arm_m": 1.15,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 1.48,
+      "reach_m": 1.7,
       "wall_height_m": 3.69,
       "wall_height_from": "the record",
       "frontage_m": 6.5,
@@ -6134,7 +9692,48 @@
           667.93,
           -271.61
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "reshaped",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": null,
+        "note": "the copy would not clear fascia and shop_door and show_window on a 1.93 x 0.93 m board, so the same words are lettered on a longer and narrower 3.15 x 0.57 m one, which does",
+        "wall_span_local_m": [
+          0.0,
+          6.5
+        ],
+        "board_span_local_m": [
+          2.6,
+          5.75
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 1.82,
+            "u1": 3.57,
+            "z0": 0.74,
+            "z1": 2.27
+          },
+          {
+            "kind": "shop_door",
+            "u0": 3.67,
+            "u1": 4.69,
+            "z0": 0.0,
+            "z1": 2.4
+          },
+          {
+            "kind": "fascia",
+            "u0": 1.59,
+            "u1": 4.92,
+            "z0": 2.4,
+            "z1": 2.68
+          }
+        ]
+      }
     },
     {
       "structure_id": "recon_1835_blk_randolph_clark_w1_10",
@@ -6161,8 +9760,9 @@
       "trade_class": "counter",
       "why_a_board": "a shop front on a street of stores",
       "confidence": "reconstructed",
-      "mounting": "bracket_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a bracket board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "bracket_board",
       "style": {
         "id": "cream_on_red",
         "ground": "#7c3020",
@@ -6173,20 +9773,19 @@
         "note": "cream fat face on Venetian red"
       },
       "anchor_local_enu_m": [
-        683.01,
-        -342.49
+        683.04,
+        -338.41
       ],
       "facade_bearing_deg": 90.4,
-      "arm_height_m": 2.55,
+      "arm_height_m": 3.08,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.46,
-      "board_h_m": 0.75,
+      "board_w_m": 1.66,
+      "board_h_m": 0.71,
       "board_thickness_m": 0.05,
       "geometry": {
-        "arm_m": 1.15,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 1.48,
+      "reach_m": 0.95,
       "wall_height_m": 3.42,
       "wall_height_from": "the record",
       "frontage_m": 6.98,
@@ -6207,7 +9806,32 @@
           683.04,
           -337.3
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "shrunk onto clear face",
+        "covered_before": [
+          "door"
+        ],
+        "fixed_to": null,
+        "note": "this front has no 1.84 m of blank face — every band is taken by door — so the board is shrunk to 1.66 x 0.71 m and fixed on the clear wall between the openings",
+        "wall_span_local_m": [
+          0.0,
+          6.98
+        ],
+        "board_span_local_m": [
+          0.28,
+          1.94
+        ],
+        "openings": [
+          {
+            "kind": "door",
+            "u0": 2.04,
+            "u1": 4.94,
+            "z0": 0.0,
+            "z1": 3.0
+          }
+        ]
+      }
     },
     {
       "structure_id": "recon_1835_blk_randolph_clark_w2_09",
@@ -6985,8 +10609,9 @@
       "trade_class": "counter",
       "why_a_board": "a counter open to the street",
       "confidence": "reconstructed",
-      "mounting": "awning_board",
-      "mounting_note": "a facade painted already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835); a bracket board already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835); a wall board already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835)",
+      "mounting": "wall_board",
+      "mounting_note": "a facade painted already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835); a bracket board already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835); a wall board already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835); dealt a awning board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "awning_board",
       "style": {
         "id": "black_on_white",
         "ground": "#e8e1cf",
@@ -6997,22 +10622,19 @@
         "note": "black on a white lead ground, the cheapest board a signwriter could sell"
       },
       "anchor_local_enu_m": [
-        780.85,
-        -9.02
+        780.05,
+        -8.99
       ],
       "facade_bearing_deg": 1.6,
-      "arm_height_m": 2.55,
+      "arm_height_m": 3.65,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.65,
-      "board_h_m": 0.67,
+      "board_w_m": 2.03,
+      "board_h_m": 0.65,
       "board_thickness_m": 0.05,
       "geometry": {
-        "awning_projection_m": 1.45,
-        "awning_drop_m": 0.34,
-        "awning_width_m": 2.55,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 2.05,
+      "reach_m": 1.14,
       "wall_height_m": 5.93,
       "wall_height_from": "the record",
       "frontage_m": 5.74,
@@ -7033,7 +10655,62 @@
           776.28,
           -8.89
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "reshaped",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": null,
+        "note": "the copy would not clear fascia and shop_door and show_window on a 1.81 x 0.73 m board, so the same words are lettered on a longer and narrower 2.03 x 0.65 m one, which does",
+        "wall_span_local_m": [
+          0.0,
+          5.74
+        ],
+        "board_span_local_m": [
+          2.76,
+          4.79
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 1.41,
+            "u1": 3.16,
+            "z0": 0.74,
+            "z1": 2.5
+          },
+          {
+            "kind": "shop_door",
+            "u0": 3.26,
+            "u1": 4.28,
+            "z0": 0.0,
+            "z1": 2.63
+          },
+          {
+            "kind": "fascia",
+            "u0": 1.18,
+            "u1": 4.51,
+            "z0": 2.63,
+            "z1": 2.91
+          },
+          {
+            "kind": "window",
+            "u0": 1.2,
+            "u1": 2.05,
+            "z0": 3.86,
+            "z1": 5.16
+          },
+          {
+            "kind": "window",
+            "u0": 4.05,
+            "u1": 4.9,
+            "z0": 3.86,
+            "z1": 5.16
+          }
+        ]
+      }
     },
     {
       "structure_id": "recon_1835_blk_south_water_dearborn_f2_11",
@@ -7194,8 +10871,9 @@
       "trade_class": "counter",
       "why_a_board": "a counter open to the street",
       "confidence": "reconstructed",
-      "mounting": "bracket_board",
-      "mounting_note": "a facade painted already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835)",
+      "mounting": "wall_board",
+      "mounting_note": "a facade painted already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835); dealt a bracket board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "bracket_board",
       "style": {
         "id": "black_on_white",
         "ground": "#e8e1cf",
@@ -7206,20 +10884,19 @@
         "note": "black on a white lead ground, the cheapest board a signwriter could sell"
       },
       "anchor_local_enu_m": [
-        266.42,
-        -7.27
+        265.69,
+        -7.28
       ],
       "facade_bearing_deg": 359.5,
-      "arm_height_m": 2.55,
+      "arm_height_m": 3.52,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.46,
-      "board_h_m": 0.7,
+      "board_w_m": 2.43,
+      "board_h_m": 0.56,
       "board_thickness_m": 0.05,
       "geometry": {
-        "arm_m": 1.15,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 1.48,
+      "reach_m": 1.34,
       "wall_height_m": 3.87,
       "wall_height_from": "the record",
       "frontage_m": 6.41,
@@ -7240,7 +10917,48 @@
           261.51,
           -7.32
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "reshaped",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": null,
+        "note": "the copy would not clear fascia and shop_door and show_window on a 1.84 x 0.74 m board, so the same words are lettered on a longer and narrower 2.43 x 0.56 m one, which does",
+        "wall_span_local_m": [
+          0.0,
+          6.41
+        ],
+        "board_span_local_m": [
+          2.96,
+          5.39
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 1.82,
+            "u1": 3.57,
+            "z0": 0.74,
+            "z1": 2.45
+          },
+          {
+            "kind": "shop_door",
+            "u0": 3.67,
+            "u1": 4.69,
+            "z0": 0.0,
+            "z1": 2.58
+          },
+          {
+            "kind": "fascia",
+            "u0": 1.59,
+            "u1": 4.92,
+            "z0": 2.58,
+            "z1": 2.86
+          }
+        ]
+      }
     },
     {
       "structure_id": "recon_1835_blk_south_water_franklin_c2_09",
@@ -7267,8 +10985,9 @@
       "trade_class": "counter",
       "why_a_board": "a counter open to the street",
       "confidence": "reconstructed",
-      "mounting": "awning_board",
-      "mounting_note": "a wall board already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835)",
+      "mounting": "wall_board",
+      "mounting_note": "a wall board already hangs within 40 m, and an adopted register firm's board is dealt last and repeats no neighbour's mounting (T-1835); dealt a awning board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "awning_board",
       "style": {
         "id": "white_on_blue",
         "ground": "#22344f",
@@ -7279,22 +10998,19 @@
         "note": "white block letters on a Prussian-blue ground"
       },
       "anchor_local_enu_m": [
-        260.2,
-        -7.33
+        259.25,
+        -7.34
       ],
       "facade_bearing_deg": 359.5,
-      "arm_height_m": 2.55,
+      "arm_height_m": 3.22,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.66,
-      "board_h_m": 0.64,
+      "board_w_m": 2.55,
+      "board_h_m": 0.56,
       "board_thickness_m": 0.05,
       "geometry": {
-        "awning_projection_m": 1.45,
-        "awning_drop_m": 0.34,
-        "awning_width_m": 2.56,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 2.05,
+      "reach_m": 1.4,
       "wall_height_m": 3.57,
       "wall_height_from": "the record",
       "frontage_m": 6.04,
@@ -7315,7 +11031,48 @@
           255.48,
           -7.37
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "reshaped",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": null,
+        "note": "the copy would not clear fascia and shop_door and show_window on a 1.93 x 0.74 m board, so the same words are lettered on a longer and narrower 2.55 x 0.56 m one, which does",
+        "wall_span_local_m": [
+          0.0,
+          6.04
+        ],
+        "board_span_local_m": [
+          2.5,
+          5.05
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 1.41,
+            "u1": 3.16,
+            "z0": 0.74,
+            "z1": 2.15
+          },
+          {
+            "kind": "shop_door",
+            "u0": 3.26,
+            "u1": 4.28,
+            "z0": 0.0,
+            "z1": 2.28
+          },
+          {
+            "kind": "fascia",
+            "u0": 1.18,
+            "u1": 4.51,
+            "z0": 2.28,
+            "z1": 2.56
+          }
+        ]
+      }
     },
     {
       "structure_id": "recon_1835_blk_south_water_franklin_c2_10",
@@ -7618,8 +11375,9 @@
       "trade_class": "office",
       "why_a_board": "a counting-room a shipper has to find from the wharf",
       "confidence": "reconstructed",
-      "mounting": "bracket_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a bracket board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "bracket_board",
       "style": {
         "id": "white_on_brown",
         "ground": "#4a3121",
@@ -7630,20 +11388,19 @@
         "note": "white fat face on a chocolate-brown ground"
       },
       "anchor_local_enu_m": [
-        497.37,
+        496.58,
         -5.33
       ],
       "facade_bearing_deg": 359.5,
-      "arm_height_m": 2.55,
+      "arm_height_m": 3.27,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.46,
-      "board_h_m": 0.6,
+      "board_w_m": 2.24,
+      "board_h_m": 0.55,
       "board_thickness_m": 0.05,
       "geometry": {
-        "arm_m": 1.15,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 1.48,
+      "reach_m": 1.24,
       "wall_height_m": 3.63,
       "wall_height_from": "the record",
       "frontage_m": 5.72,
@@ -7664,7 +11421,48 @@
           492.81,
           -5.36
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "reshaped",
+        "covered_before": [
+          "fascia",
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": null,
+        "note": "the copy would not clear fascia and shop_door and show_window on a 1.90 x 0.65 m board, so the same words are lettered on a longer and narrower 2.24 x 0.55 m one, which does",
+        "wall_span_local_m": [
+          0.0,
+          5.72
+        ],
+        "board_span_local_m": [
+          2.65,
+          4.89
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 1.41,
+            "u1": 3.16,
+            "z0": 0.74,
+            "z1": 2.21
+          },
+          {
+            "kind": "shop_door",
+            "u0": 3.26,
+            "u1": 4.28,
+            "z0": 0.0,
+            "z1": 2.34
+          },
+          {
+            "kind": "fascia",
+            "u0": 1.18,
+            "u1": 4.51,
+            "z0": 2.34,
+            "z1": 2.62
+          }
+        ]
+      }
     },
     {
       "structure_id": "recon_1835_blk_south_water_lasalle_c3_13",
@@ -8211,8 +12009,9 @@
       "trade_class": "counter",
       "why_a_board": "a counter open to the street",
       "confidence": "reconstructed",
-      "mounting": "awning_board",
-      "mounting_note": null,
+      "mounting": "wall_board",
+      "mounting_note": "dealt a awning board, and since T-3359 nothing hangs over an 1835 footway but a tavern's post: the same board is fixed flat on the front, over the door or beside it",
+      "hung_before": "awning_board",
       "style": {
         "id": "cream_on_red",
         "ground": "#7c3020",
@@ -8223,22 +12022,19 @@
         "note": "cream fat face on Venetian red"
       },
       "anchor_local_enu_m": [
-        733.1,
-        -217.26
+        732.24,
+        -217.25
       ],
       "facade_bearing_deg": 1.0,
-      "arm_height_m": 2.55,
+      "arm_height_m": 4.15,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 1.66,
-      "board_h_m": 0.72,
+      "board_w_m": 2.05,
+      "board_h_m": 0.76,
       "board_thickness_m": 0.05,
       "geometry": {
-        "awning_projection_m": 1.45,
-        "awning_drop_m": 0.34,
-        "awning_width_m": 2.56,
-        "hanger_drop_m": 0.2
+        "proud_m": 0.02
       },
-      "reach_m": 2.05,
+      "reach_m": 1.15,
       "wall_height_m": 6.69,
       "wall_height_from": "the record",
       "frontage_m": 5.86,
@@ -8259,7 +12055,61 @@
           728.47,
           -217.18
         ]
-      ]
+      ],
+      "opening_fit": {
+        "action": "reshaped",
+        "covered_before": [
+          "shop_door",
+          "show_window"
+        ],
+        "fixed_to": null,
+        "note": "the copy would not clear shop_door and show_window on a 1.90 x 0.82 m board, so the same words are lettered on a longer and narrower 2.05 x 0.76 m one, which does",
+        "wall_span_local_m": [
+          0.0,
+          5.86
+        ],
+        "board_span_local_m": [
+          2.75,
+          4.8
+        ],
+        "openings": [
+          {
+            "kind": "show_window",
+            "u0": 1.41,
+            "u1": 3.16,
+            "z0": 0.74,
+            "z1": 2.88
+          },
+          {
+            "kind": "shop_door",
+            "u0": 3.26,
+            "u1": 4.28,
+            "z0": 0.0,
+            "z1": 3.01
+          },
+          {
+            "kind": "fascia",
+            "u0": 1.18,
+            "u1": 4.51,
+            "z0": 3.01,
+            "z1": 3.29
+          },
+          {
+            "kind": "window",
+            "u0": 1.2,
+            "u1": 2.05,
+            "z0": 4.35,
+            "z1": 5.65
+          },
+          {
+            "kind": "window",
+            "u0": 4.05,
+            "u1": 4.9,
+            "z0": 4.35,
+            "z1": 5.65
+          }
+        ]
+      }
     },
     {
       "structure_id": "recon_1835_south_f1_038",

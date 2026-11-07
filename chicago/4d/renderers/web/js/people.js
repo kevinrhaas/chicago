@@ -338,6 +338,10 @@ function filterSpecs(people) {
  * @param {URL} o.dataBase                where data/ lives
  * @param {string} o.sceneId              which scene's citation join to read
  * @param {(target: object) => void} o.onGoTo   travel to a person's building
+ * @param {(id: string) => boolean} [o.inTown]  T-3404: is this person placed in town now
+ *                                             (a driver on their round)? Their card then
+ *                                             offers Find in town and Follow.
+ * @param {(id: string) => void} [o.onFollow]   walk alongside them
  * @param {(text: string|null, onBack?: Function) => void} [o.onTitle]
  *   the drawer head's title hook (hud.setTitle), when the lead passes one: the
  *   open card puts the person's name in the head with a back arrow, and the
@@ -351,7 +355,7 @@ function filterSpecs(people) {
  */
 export async function mountPeople({
   mount, people, registry, dataBase, sceneId, onGoTo, onTitle = null,
-  firmsByPerson = null, onBusiness = null, problems = [],
+  firmsByPerson = null, onBusiness = null, problems = [], inTown = null, onFollow = null,
 } = {}) {
   const idle = { search() {}, open() { return Promise.resolve(false); }, close() {}, filter() {}, get state() { return null; } };
   if (!mount) return { people: 0, error: 'no mount', ...idle };
@@ -737,7 +741,21 @@ export async function mountPeople({
   // since T-1493, the way there. Both live in `seat.js`, because the business
   // card prints the same block from the same address book.
 
+  /** T-3404: a person placed in town now can be found where they are, and followed. */
+  function townHtml(r) {
+    if (typeof inTown !== 'function' || !inTown(r.id)) return '';
+    const follow = typeof onFollow === 'function'
+      ? '<button type="button" class="people-go people-follow" data-follow=""><span class="people-go-verb">Follow</span><span class="people-go-title">Walk alongside them</span></button>' : '';
+    return `<button type="button" class="people-go people-find" data-go="town"><span class="people-go-verb">Find this person</span><span class="people-go-title">Where they are in town now</span></button>${follow}`;
+  }
+
   function actionsHtml(r) {
+    const town = townHtml(r);
+    if (town) return town + actionsHtmlAt(r);
+    return actionsHtmlAt(r);
+  }
+
+  function actionsHtmlAt(r) {
     const livesTitle = r.lives_at ? buildingTitle(r.lives_at) : null;
     const worksTitle = r.works_at ? buildingTitle(r.works_at) : null;
     if (livesTitle && worksTitle && r.lives_at === r.works_at) return goButton(r, 'both', r.lives_at, livesTitle);
@@ -986,6 +1004,7 @@ export async function mountPeople({
     if (ev.target.closest('.people-back')) { state.lastOpened = state.open; close(); return; }
     const firm = ev.target.closest('.people-firm');
     if (firm) { onBusiness?.(firm.dataset.business); return; }
+    if (ev.target.closest('.people-follow') && state.open) { onFollow?.(state.open); return; }
     const go = ev.target.closest('.people-go');
     if (go && state.open) {
       const r = byId.get(state.open);
@@ -994,6 +1013,7 @@ export async function mountPeople({
       // none, which is why it is there — so it goes to the structure it names and
       // never through the person route, which would resolve to nothing.
       if (which === 'seat') { onGoTo?.({ kind: 'structure', id: go.dataset.structure }); return; }
+      if (which === 'town') { onGoTo?.({ kind: 'person', id: r.id, label: r.name }); return; }
       onGoTo?.({
         kind: 'person',
         id: r.id,

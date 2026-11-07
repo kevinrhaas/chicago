@@ -19,6 +19,18 @@ const P = {
   forks: '<path d="M12 21.5v-8.5C12 9 8 6.5 3.5 3.5M12 13c0-4 4-6.5 8.5-9.5" stroke-width="2.4"/>',
   street: '<path d="M2.5 20.5h19"/><path d="M3.5 20.5V10l3-3 3 3v10.5M9.5 20.5V8h5v12.5M14.5 20.5v-9l3-3 3 3v9"/><path d="M11 20.5v-3h2v3"/>',
   wharf: '<path d="M3 14.5h18l-3 4.5H6z"/><path d="M9.5 14.5v-11M15 14.5V5.5"/><path d="M9.5 4.5l-4.5 8h4.5M15 6.5l4.5 6.5H15"/>',
+  // T-3436: 1904's viewpoints, each its own glyph instead of the one eye.
+  arch: '<path d="M2.5 20.5h19"/><path d="M4 20.5V11a8 8 0 0 1 16 0v9.5"/><path d="M8.5 20.5V12.5a3.5 3.5 0 0 1 7 0v8"/>',
+  mansion: '<path d="M2.5 20.5h19"/><path d="M4.5 20.5v-10h15v10"/><path d="M3.5 10.5L6 6.5h12l2.5 4"/><path d="M9.5 6.5V3.5h5v3"/><path d="M10.5 20.5v-4h3v4"/><path d="M7 13h2M15 13h2"/>',
+  mansard: '<path d="M2.5 20.5h19"/><path d="M5 20.5v-9h14v9"/><path d="M4 11.5l1.8-5h12.4l1.8 5"/><path d="M8.5 9v-2.5M12 9v-2.5M15.5 9v-2.5"/><path d="M8 14.5h2v2.5H8zM14 14.5h2v2.5h-2z"/>',
+  church: '<path d="M12 2.5V6M10.3 4.1h3.4"/><path d="M9 11l3-5 3 5"/><path d="M9 11v9.5h6V11"/><path d="M15 13.5h5v7h-5M9 13.5H4v7h5"/><path d="M11 20.5v-2.5a1 1 0 0 1 2 0v2.5"/>',
+  ghost: '<path d="M6 20.5V10a6 6 0 0 1 12 0v10.5l-2-1.5-2 1.5-2-1.5-2 1.5-2-1.5z"/><circle cx="10" cy="10.5" r=".9"/><circle cx="14" cy="10.5" r=".9"/>',
+  door: '<path d="M3.5 20.5h17"/><path d="M6.5 20.5V8a5.5 5.5 0 0 1 11 0v12.5"/><path d="M12 20.5V9"/><circle cx="10.3" cy="14.5" r=".7"/>',
+  gate: '<path d="M4 20.5V5M20 20.5V5"/><path d="M4 8.5c3 1.5 13 1.5 16 0M4 17.5h16M8 9.5v8M12 9.8v7.7M16 9.5v8"/>',
+  court: '<path d="M3.5 20.5V3.5h17v17z"/><path d="M8.5 20.5v-12h12"/><path d="M13 13h3v3h-3z"/>',
+  stable: '<path d="M3.5 20.5V10L12 4.5l8.5 5.5v10.5"/><path d="M8.5 20.5v-6.5h7v6.5"/><path d="M8.5 14l7 6.5M15.5 14l-7 6.5"/><path d="M10.5 9h3"/>',
+  wall: '<path d="M3 5.5h18v13H3z"/><path d="M3 9.8h18M3 14.2h18M9 5.5v4.3M15 5.5v4.3M6 9.8v4.4M12 9.8v4.4M18 9.8v4.4M9 14.2v4.3M15 14.2v4.3"/>',
+  corner: '<path d="M2.5 9h6.5V2.5M15 2.5V9h6.5M2.5 15h6.5v6.5M15 21.5V15h6.5"/>',
   view: '<path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/>',
   // the arrival's three choices
   jaunts: '<circle cx="5.5" cy="18.5" r="2"/><path d="M7.5 18.5h4.5a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h7.5"/><path d="M16.5 10V2.5l4 1.8-4 1.8"/>',
@@ -31,6 +43,14 @@ const P = {
   // T-2561: keep a year on this device, and the year kept
   keep: '<path d="M12 3.5v11"/><path d="M7.5 10.5l4.5 4.5 4.5-4.5"/><path d="M4.5 15.5v4h15v-4"/>',
   kept: '<path d="M4.5 15.5v4h15v-4"/><path d="M7.5 9l3 3 6-6.5"/>',
+  // T-3432: the jaunt's welcome page, its last stop and its finish
+  clock: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/>',
+  day: '<circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M18.7 5.3l-1.8 1.8M7.1 16.9l-1.8 1.8"/>',
+  night: '<path d="M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z"/>',
+  story: '<path d="M12 6.5c-2.5-1.6-5.5-2-8.5-1.5v13c3-.5 6-.1 8.5 1.5 2.5-1.6 5.5-2 8.5-1.5V5c-3-.5-6-.1-8.5 1.5z"/><path d="M12 6.5v13"/>',
+  finish: '<path d="M5.5 21.5V3.5"/><path d="M5.5 4h13l-3 4 3 4h-13"/>',
+  close: '<path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>',
+  done: '<circle cx="12" cy="12" r="8.5"/><path d="M8 12.3l2.8 2.8L16.3 9"/>',
 };
 export function iconSvg(name, size = 20) {
   const body = P[name] || P.view;

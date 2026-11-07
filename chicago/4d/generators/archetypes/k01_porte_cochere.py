@@ -19,6 +19,23 @@ The block's plan, the arches' places, spans and crowns, and the entablature's an
 balustrade's heights are read off the print through its solved camera; the walls' thickness,
 the entablature's projection and the balustrade's section are this module's (docs/LIBERTIES.md
 L-pullman-1729-porte-cochere-3160).
+
+T-1881 (the owner, 2026-10-30: "this part of the pullman house would have been balanced not off
+centered lop sided like that, and there is more detail you need on it on the corners and arches"),
+two optional keys:
+
+  back_m      the plane the block stands from, metres out from the side wall: a pavilion's
+              face it stands before. Its ends begin there, so an end's arch is judged and
+              centred on the face a visitor sees, not on a face running back into the pavilion.
+              An end's outer pier is measured to the block's corner, the front wall's turned
+              end included, keeping 0.1 m of end wall between the arch and the front wall.
+  dressing    the stone dressing Taylor's photograph no. 1445 shows round the arches:
+              rustication (banded courses on every pier from grade to the entablature, broken
+              by the impost and stopped clear of the arch's ring, the corner piers' bands
+              turned round the corner), impost (a moulded band across each pier
+              at the springing) and archivolt (a ring of voussoirs proud of the face round each
+              arch's head, its keystone standing higher and prouder) (docs/LIBERTIES.md
+              L-pullman-1729-porte-dressing-1881).
 """
 
 from __future__ import annotations
@@ -31,6 +48,8 @@ ENT_KEYS = {"height_m", "proud_m"}
 BAL_KEYS = {"height_m", "post_m", "baluster_m", "pitch_m", "rail_m"}
 SEGMENTS = 12           # an arch's half-circle in this many straight pieces
 PIER_MIN_M = 0.4        # the least pier an arch leaves at either side of its face
+END_STUB_M = 0.1        # the least end wall an end's arch leaves before the front wall's inner face
+DRESS_KEYS = {"rustication", "impost", "archivolt"}
 
 
 class ParamError(ValueError):
@@ -41,8 +60,8 @@ def resolve(spec, *, depth, width, stone, openings) -> dict:
     """The record's `porte_cochere`, checked against the house (module doc)."""
     if not spec:
         return {}
-    if not isinstance(spec, dict) or set(spec) != KEYS:
-        raise ParamError(f"porte_cochere takes {sorted(KEYS)}")
+    if not isinstance(spec, dict) or not KEYS <= set(spec) <= KEYS | {"back_m", "dressing"}:
+        raise ParamError(f"porte_cochere takes {sorted(KEYS)} (and back_m, dressing)")
     if not stone:
         raise ParamError("porte_cochere is laid in the front's stone: it needs a stone_front")
     wall = spec["wall"]
@@ -55,6 +74,11 @@ def resolve(spec, *, depth, width, stone, openings) -> dict:
         raise ParamError(f"porte_cochere.s_m [{s0}, {s1}]: at least 3 m along the side wall, inside its {depth} m")
     if not 2.0 <= out <= 8.0 or not 0.3 <= t <= 1.2 or 2 * t > s1 - s0 - 1.0 or t > out - 1.0:
         raise ParamError("porte_cochere: 2-8 m out, its walls 0.3-1.2 m thick with a passage at least 1 m inside them")
+    back = float(spec.get("back_m", 0.0))
+    if not 0.0 <= back <= out - t - 1.5:
+        raise ParamError(f"porte_cochere.back_m {back}: 0 to {out - t - 1.5:.2f} m, leaving its ends at least "
+                         f"1.5 m of face")
+    dressing = _resolve_dressing(spec.get("dressing"))
     E, B = spec["entablature"], spec["balustrade"]
     if set(E) != ENT_KEYS or set(B) != BAL_KEYS or len(B["rail_m"]) != 2:
         raise ParamError("porte_cochere.entablature takes height_m and proud_m; its balustrade height_m, post_m, "
@@ -74,9 +98,16 @@ def resolve(spec, *, depth, width, stone, openings) -> dict:
         # the front's centre is the side wall's own s; an end's is metres out from the wall
         c, w = float(ar["centre_m"]) - (s0 if ar["face"] == "front" else 0.0), float(ar["span_m"])
         L = lengths[ar["face"]]
-        lo = t if ar["face"] == "front" else 0.0          # the front's corners are the end walls' piers
-        hi = L - t                                        # an end's outer corner is the front wall's
-        if not 1.0 <= w <= 5.0 or c - w / 2 < lo + PIER_MIN_M - 1e-6 or c + w / 2 > hi - PIER_MIN_M + 1e-6:
+        if ar["face"] == "front":
+            ok = c - w / 2 >= t + PIER_MIN_M - 1e-6 and c + w / 2 <= L - t - PIER_MIN_M + 1e-6
+        elif back > 0.0:
+            # T-1881: an end standing before a pavilion is judged on the face it shows, from
+            # back_m to the block's corner (the front wall's turned end is the corner pier's)
+            ok = c - w / 2 >= back + PIER_MIN_M - 1e-6 and c + w / 2 <= L - PIER_MIN_M + 1e-6 \
+                and c + w / 2 <= L - t - END_STUB_M + 1e-6
+        else:
+            ok = c - w / 2 >= PIER_MIN_M - 1e-6 and c + w / 2 <= L - t - PIER_MIN_M + 1e-6
+        if not 1.0 <= w <= 5.0 or not ok:
             raise ParamError(f"porte_cochere.arches[{j}]: a 1-5 m arch on its {L:.2f} m face leaving a "
                              f"{PIER_MIN_M} m pier each side")
         if any(a["face"] == ar["face"] for a in arches):
@@ -93,9 +124,56 @@ def resolve(spec, *, depth, width, stone, openings) -> dict:
                 and o.sill_m < top + 0.1:
             raise ParamError(f"porte_cochere (s {s0}-{s1}, to {top:.2f} m) stands over the opening at s {o.s_m} "
                              f"on {wall}")
+    if dressing:
+        for ar in arches:
+            if dressing.get("archivolt"):
+                A = dressing["archivolt"]
+                if ys + ar["span_m"] / 2 + A["band_m"] + A["keystone_m"] > H - 0.02:
+                    raise ParamError(f"porte_cochere.dressing.archivolt: the {ar['face']} arch's keystone "
+                                     f"stands into the entablature at {H} m")
+            if dressing.get("impost") and dressing["impost"]["height_m"] > ys - 1.0:
+                raise ParamError("porte_cochere.dressing.impost: at least 1 m of pier under it")
     return {"wall": wall, "s_m": [s0, s1], "out_m": out, "thickness_m": t, "spring_m": ys, "head_m": H,
+            **({"back_m": back} if back else {}), **({"dressing": dressing} if dressing else {}),
             "arches": arches, "entablature": {"height_m": eh, "proud_m": ep},
             "balustrade": {"height_m": bh, "post_m": bp, "baluster_m": bb, "pitch_m": bpi, "rail_m": [rw, rd]}}
+
+
+def _resolve_dressing(d) -> dict:
+    """porte_cochere.dressing (module doc): each of its three parts optional."""
+    if d is None:
+        return {}
+    if not isinstance(d, dict) or not d or not set(d) <= DRESS_KEYS:
+        raise ParamError(f"porte_cochere.dressing takes any of {sorted(DRESS_KEYS)}")
+    out = {}
+    if "rustication" in d:
+        r = d["rustication"]
+        if set(r) != {"course_m", "channel_m", "proud_m"}:
+            raise ParamError("porte_cochere.dressing.rustication takes course_m, channel_m and proud_m")
+        c, ch, pr = (float(r[k]) for k in ("course_m", "channel_m", "proud_m"))
+        if not (0.2 <= c <= 0.8 and 0.02 <= ch <= 0.15 and 0.02 <= pr <= 0.12):
+            raise ParamError("porte_cochere.dressing.rustication: 0.2-0.8 m courses, 0.02-0.15 m channels, "
+                             "0.02-0.12 m proud")
+        out["rustication"] = {"course_m": c, "channel_m": ch, "proud_m": pr}
+    if "impost" in d:
+        r = d["impost"]
+        if set(r) != {"height_m", "proud_m"}:
+            raise ParamError("porte_cochere.dressing.impost takes height_m and proud_m")
+        h, pr = float(r["height_m"]), float(r["proud_m"])
+        if not (0.1 <= h <= 0.5 and 0.04 <= pr <= 0.2):
+            raise ParamError("porte_cochere.dressing.impost: 0.1-0.5 m high, 0.04-0.2 m proud")
+        out["impost"] = {"height_m": h, "proud_m": pr}
+    if "archivolt" in d:
+        r = d["archivolt"]
+        if set(r) != {"band_m", "proud_m", "voussoirs", "keystone_m"}:
+            raise ParamError("porte_cochere.dressing.archivolt takes band_m, proud_m, voussoirs and keystone_m")
+        b, pr, n, k = float(r["band_m"]), float(r["proud_m"]), r["voussoirs"], float(r["keystone_m"])
+        if not (0.15 <= b <= 0.6 and 0.03 <= pr <= 0.15 and isinstance(n, int) and 5 <= n <= 25 and n % 2 == 1
+                and 0.0 <= k <= 0.4):
+            raise ParamError("porte_cochere.dressing.archivolt: a 0.15-0.6 m ring 0.03-0.15 m proud, an odd "
+                             "5-25 voussoirs (one the keystone, at the crown), the keystone 0-0.4 m higher")
+        out["archivolt"] = {"band_m": b, "proud_m": pr, "voussoirs": n, "keystone_m": k}
+    return out
 
 
 def dress(a):
@@ -113,6 +191,7 @@ def dress(a):
     pr = a.prim(mat)
     (s0, s1), out, t = pc["s_m"], pc["out_m"], pc["thickness_m"]
     ys, H = pc["spring_m"], pc["head_m"]
+    bk = pc.get("back_m", 0.0)   # T-1881: the plane its ends stand from (a pavilion's face)
     seed = a.instance("k01.porte_cochere", "porte_cochere",
                       {"s0_m": s0, "s1_m": s1, "out_m": out, "spring_m": ys, "head_m": H,
                        "arches": len(pc["arches"])},
@@ -124,19 +203,19 @@ def dress(a):
     # each wall in its own (a, y, w) coordinates: `a` along its face, `w` through it from the
     # outer face inwards; `at(a, y, w)` puts a point in the house, `nf` is its outer normal
     walls = {
-        "front": (lambda a_, y, w: P(s0 + a_, y, out - w), N, s1 - s0, bf, be),
-        "low_end": (lambda a_, y, w: P(s0 + w, y, a_), _mul(R, -1), out - t, be, bf),
-        "high_end": (lambda a_, y, w: P(s1 - w, y, a_), R, out - t, be, bf),
+        "front": (lambda a_, y, w: P(s0 + a_, y, out - w), N, s1 - s0, bf, be, 0.0),
+        "low_end": (lambda a_, y, w: P(s0 + w, y, a_), _mul(R, -1), out - t, be, bf, bk),
+        "high_end": (lambda a_, y, w: P(s1 - w, y, a_), R, out - t, be, bf, bk),
     }
     arch_of = {ar["face"]: ar for ar in pc["arches"]}
-    for face, (at, nf, L, b_face, b_end) in walls.items():
+    for face, (at, nf, L, b_face, b_end, a0) in walls.items():
         ni = _mul(nf, -1)
         ar = arch_of.get(face)
         # the faces, outer then inner: piers and (over an arch) spandrel strips from its curve up
         for w, n in ((0.0, nf), (t, ni)):
             if ar:
                 c, r = ar["centre_m"], ar["span_m"] / 2
-                quad([at(0.0, 0.0, w), at(c - r, 0.0, w), at(c - r, H, w), at(0.0, H, w)], n, b_face)
+                quad([at(a0, 0.0, w), at(c - r, 0.0, w), at(c - r, H, w), at(a0, H, w)], n, b_face)
                 quad([at(c + r, 0.0, w), at(L, 0.0, w), at(L, H, w), at(c + r, H, w)], n, b_face)
                 for k in range(SEGMENTS):
                     t0, t1 = math.pi * k / SEGMENTS, math.pi * (k + 1) / SEGMENTS
@@ -144,7 +223,7 @@ def dress(a):
                     x1, y1 = c + r * math.cos(t1), ys + r * math.sin(t1)
                     quad([at(x0, y0, w), at(x0, H, w), at(x1, H, w), at(x1, y1, w)], n, b_face)
             else:
-                quad([at(0.0, 0.0, w), at(L, 0.0, w), at(L, H, w), at(0.0, H, w)], n, b_face)
+                quad([at(a0, 0.0, w), at(L, 0.0, w), at(L, H, w), at(a0, H, w)], n, b_face)
         if ar:
             c, r = ar["centre_m"], ar["span_m"] / 2
             # the jambs, grade to springing, facing into the opening
@@ -168,15 +247,15 @@ def dress(a):
     # underside the passage's ceiling inside the walls and the overhang's soffit outside them
     eh, ep = pc["entablature"]["height_m"], pc["entablature"]["proud_m"]
     S0, S1, Dd, y1 = s0 - ep, s1 + ep, out + ep, H + eh
-    quad([P(S0, y1, 0.0), P(S1, y1, 0.0), P(S1, y1, Dd), P(S0, y1, Dd)], up, bh)
+    quad([P(S0, y1, bk), P(S1, y1, bk), P(S1, y1, Dd), P(S0, y1, Dd)], up, bh)
     quad([P(S0, H, Dd), P(S1, H, Dd), P(S1, y1, Dd), P(S0, y1, Dd)], N, bf)
     for s_, n in ((S0, _mul(R, -1)), (S1, R)):
-        quad([P(s_, H, 0.0), P(s_, H, Dd), P(s_, y1, Dd), P(s_, y1, 0.0)], n, be)
-    quad([P(s0 + t, H, 0.0), P(s1 - t, H, 0.0), P(s1 - t, H, out - t), P(s0 + t, H, out - t)], down, bh)
+        quad([P(s_, H, bk), P(s_, H, Dd), P(s_, y1, Dd), P(s_, y1, bk)], n, be)
+    quad([P(s0 + t, H, bk), P(s1 - t, H, bk), P(s1 - t, H, out - t), P(s0 + t, H, out - t)], down, bh)
     if ep > 0:
         quad([P(S0, H, out), P(S1, H, out), P(S1, H, Dd), P(S0, H, Dd)], down, bh)
-        quad([P(S0, H, 0.0), P(s0, H, 0.0), P(s0, H, out), P(S0, H, out)], down, bh)
-        quad([P(s1, H, 0.0), P(S1, H, 0.0), P(S1, H, out), P(s1, H, out)], down, bh)
+        quad([P(S0, H, bk), P(s0, H, bk), P(s0, H, out), P(S0, H, out)], down, bh)
+        quad([P(s1, H, bk), P(S1, H, bk), P(S1, H, out), P(s1, H, out)], down, bh)
 
     # the balustrade round the deck's three open sides: posts at its corners and against the
     # wall, a rail over square balusters along the front and both ends
@@ -198,14 +277,14 @@ def dress(a):
             if k not in skip:
                 quad(pts, n, b)
 
-    for a0, d0 in ((Ls, F - pm), (Rs - pm, F - pm), (Ls, 0.0), (Rs - pm, 0.0)):
-        box(a0, a0 + pm, y2, y3, d0, d0 + pm, skip=("bottom",) + (("back",) if d0 == 0.0 else ()))
+    for a0, d0 in ((Ls, F - pm), (Rs - pm, F - pm), (Ls, bk), (Rs - pm, bk)):
+        box(a0, a0 + pm, y2, y3, d0, d0 + pm, skip=("bottom",) + (("back",) if d0 == bk else ()))
     fr = (F - pm / 2 - rw / 2, F - pm / 2 + rw / 2)
     box(Ls + pm, Rs - pm, yr, y3 - 0.02, *fr, skip=("left", "right"))
     mid = lambda x, y_: (x + y_) / 2
     for a0 in (Ls, Rs - pm):
         ac = (mid(a0, a0 + pm) - rw / 2, mid(a0, a0 + pm) + rw / 2)
-        box(*ac, yr, y3 - 0.02, pm, F - pm, skip=("back", "front"))
+        box(*ac, yr, y3 - 0.02, bk + pm, F - pm, skip=("back", "front"))
 
     def balusters(lo, hi, along_s, fixed):
         n = max(1, math.floor((hi - lo) / B["pitch_m"]))
@@ -219,9 +298,91 @@ def dress(a):
         return n
     nb = balusters(Ls + pm, Rs - pm, True, mid(*fr))
     for a0 in (Ls, Rs - pm):
-        nb += balusters(pm, F - pm, False, mid(a0, a0 + pm))
+        nb += balusters(bk + pm, F - pm, False, mid(a0, a0 + pm))
+    dressed = _dress_stone(pc, walls, arch_of, quad, bh) if pc.get("dressing") else {}
     a.seat((O, R, N), [(s, y, 0.0) for s in (S0, S1) for y in (0.0, y3)], "k01.porte_cochere")
-    a.porte_cochere_meta = {"arches": len(pc["arches"]), "balusters": nb, "top_m": round(y3, 4)}
+    a.porte_cochere_meta = {"arches": len(pc["arches"]), "balusters": nb, "top_m": round(y3, 4), **dressed}
+
+
+def _dress_stone(pc, walls, arch_of, quad, bh) -> dict:
+    """T-1881: porte_cochere.dressing (module doc) on the three walls' outer faces: banded
+    courses on every pier from grade to the entablature, an impost band at the springing, and a
+    ring of voussoirs round each arch's head with its keystone standing higher and prouder."""
+    from .k01_frontage import Y, _add, _mul
+    dz = pc["dressing"]
+    ys, out, t = pc["spring_m"], pc["out_m"], pc["thickness_m"]
+    Ru, Im, Av = dz.get("rustication"), dz.get("impost"), dz.get("archivolt")
+    counts = {"courses": 0, "voussoirs": 0}
+    # the corner piers' bands turn the corner: the front's run past its ends by their
+    # projection and close the corner square the ends' stop short of
+    turn = max(Ru["proud_m"] if Ru else 0.0, Im["proud_m"] if Im else 0.0)
+    for face, (at, nf, L, b_face, b_end, a0) in walls.items():
+        along = _sub_(at(1.0, 0.0, 0.0), at(0.0, 0.0, 0.0))
+        vec = lambda da, dy: _add(_mul(along, da), _mul(Y, dy))
+        if face == "front":
+            lo, hi, ext = 0.0, L, turn
+        else:
+            lo, hi, ext = a0, out, 0.0          # to the corner, the front wall's turned end included
+        ar = arch_of.get(face)
+        piers = [(lo - ext, ar["centre_m"] - ar["span_m"] / 2), (ar["centre_m"] + ar["span_m"] / 2, hi + ext)] \
+            if ar else [(lo - ext, hi + ext)]
+
+        def block(p0, p1, y0, y1, pr):
+            o, i_ = -pr, 0.0                      # w: proud of the face (negative is outwards)
+            quad([at(p0, y0, o), at(p1, y0, o), at(p1, y1, o), at(p0, y1, o)], nf, b_face)
+            quad([at(p0, y1, o), at(p1, y1, o), at(p1, y1, i_), at(p0, y1, i_)], Y, bh)
+            quad([at(p0, y0, o), at(p1, y0, o), at(p1, y0, i_), at(p0, y0, i_)], _mul(Y, -1), bh)
+            quad([at(p0, y0, o), at(p0, y1, o), at(p0, y1, i_), at(p0, y0, i_)], _mul(along, -1), b_end)
+            quad([at(p1, y0, o), at(p1, y1, o), at(p1, y1, i_), at(p1, y0, i_)], along, b_end)
+
+        y_top = ys - (Im["height_m"] if Im else 0.0)
+        H = pc["head_m"]
+        # over the impost the piers' bands run on to the entablature, each course stopped
+        # clear of the arch's ring at its foot (Taylor's no. 1445: the corner pier banded to
+        # the entablature, the spandrel over the arch plain)
+        ring = (ar["span_m"] / 2 + (Av["band_m"] + 0.02 if Av else 0.0)) if ar else 0.0
+        for side, (p0, p1) in enumerate(piers):
+            if p1 - p0 < 0.05:
+                continue
+            if Ru:
+                c, ch = Ru["course_m"], Ru["channel_m"]
+                for ya, yb in ((0.0, y_top), (ys, H)):
+                    y0 = ya
+                    while y0 < yb - 0.1:
+                        q0, q1 = p0, p1
+                        if ar and ya == ys:
+                            dy = y0 - ys
+                            reach = math.sqrt(max(ring * ring - dy * dy, 0.0))
+                            if side == 0:
+                                q1 = min(p1, ar["centre_m"] - reach)
+                            else:
+                                q0 = max(p0, ar["centre_m"] + reach)
+                        if q1 - q0 >= 0.1:
+                            block(q0, q1, y0, min(y0 + c, yb), Ru["proud_m"])
+                            counts["courses"] += 1
+                        y0 += c + ch
+            if Im:
+                block(p0, p1, y_top, ys, Im["proud_m"])
+        if ar and Av:
+            c, r, b, n = ar["centre_m"], ar["span_m"] / 2, Av["band_m"], Av["voussoirs"]
+            gap = 0.012 / r                       # a mortar joint between voussoirs, in radians
+            for k in range(n):
+                t0, t1 = math.pi * k / n + gap, math.pi * (k + 1) / n - gap
+                key = k == n // 2
+                ro, pr = r + b + (Av["keystone_m"] if key else 0.0), Av["proud_m"] + (0.03 if key else 0.0)
+                o = -pr
+                pt = lambda rad, th, w: at(c + rad * math.cos(th), ys + rad * math.sin(th), w)
+                quad([pt(r, t0, o), pt(r, t1, o), pt(ro, t1, o), pt(ro, t0, o)], nf, b_face)
+                tm = (t0 + t1) / 2
+                radial = vec(math.cos(tm), math.sin(tm))
+                quad([pt(ro, t0, o), pt(ro, t1, o), pt(ro, t1, 0.0), pt(ro, t0, 0.0)], radial, bh)
+                quad([pt(r, t0, o), pt(r, t1, o), pt(r, t1, 0.0), pt(r, t0, 0.0)], _mul(radial, -1), bh)
+                quad([pt(r, t0, o), pt(ro, t0, o), pt(ro, t0, 0.0), pt(r, t0, 0.0)],
+                     vec(math.sin(t0), -math.cos(t0)), b_end)
+                quad([pt(r, t1, o), pt(ro, t1, o), pt(ro, t1, 0.0), pt(r, t1, 0.0)],
+                     vec(-math.sin(t1), math.cos(t1)), b_end)
+                counts["voussoirs"] += 1
+    return counts
 
 
 def _sub_(u, v):
@@ -246,8 +407,8 @@ def resolve_porch(spec, *, width, openings, bays) -> dict:
     left either side, its crown under the entablature."""
     if not spec:
         return {}
-    if not isinstance(spec, dict) or set(spec) != PORCH_KEYS:
-        raise ParamError(f"corner_porch takes {sorted(PORCH_KEYS)}")
+    if not isinstance(spec, dict) or not PORCH_KEYS <= set(spec) <= PORCH_KEYS | {"roundels", "columns", "rail"}:
+        raise ParamError(f"corner_porch takes {sorted(PORCH_KEYS)} (and roundels, columns, rail)")
     s0, s1 = sorted(float(x) for x in spec["s_m"])
     out, t, fl = float(spec["out_m"]), float(spec["thickness_m"]), float(spec["floor_m"])
     ys, H = float(spec["spring_m"]), float(spec["head_m"])
@@ -298,9 +459,155 @@ def resolve_porch(spec, *, width, openings, bays) -> dict:
             b0, b1 = b["span_m"]
             if b1 > s0 - ep - 0.05 and b0 < s1 + ep + 0.05:
                 raise ParamError(f"corner_porch (s {s0}-{s1}) runs into the bay {b['id']} (s {b0:.2f}-{b1:.2f})")
+    # T-3257: carved roundels on the podium's front face (1701's, the photograph's dark
+    # discs in stone rings under the arcade, over the fence), each a ring proud of the face
+    # round a dark sunk disc, under the floor and clear of the face's ends
+    rs = spec.get("roundels")
+    roundels = None
+    if rs is not None:
+        if set(rs) != {"y_m", "d_m", "centre_m"} or not rs["centre_m"]:
+            raise ParamError("corner_porch.roundels takes y_m, d_m and centre_m (along the front)")
+        ry, rdm = float(rs["y_m"]), float(rs["d_m"])
+        if not 0.2 <= rdm <= 0.9 or ry - rdm / 2 < 0.15 or ry + rdm / 2 > fl - 0.1:
+            raise ParamError(f"corner_porch.roundels: 0.2-0.9 m across, at least 0.15 m off the ground and "
+                             f"0.1 m under the porch's floor at {fl} m")
+        cs = [float(c) - s0 for c in rs["centre_m"]]
+        if any(c - rdm / 2 < 0.1 or c + rdm / 2 > s1 - s0 - 0.1 for c in cs):
+            raise ParamError("corner_porch.roundels stand inside the porch's front face, 0.1 m clear of its ends")
+        roundels = {"y_m": ry, "d_m": rdm, "centre_m": cs}
+    columns = _porch_columns(spec.get("columns"), arches, t, fl, ys)
+    rail = _porch_rail(spec.get("rail"), arches, fl, ys)
     return {"wall": "k01.wall.street_front", "s_m": [s0, s1], "out_m": out, "thickness_m": t, "floor_m": fl,
+            **({"roundels": roundels} if roundels else {}),
+            **({"columns": columns} if columns else {}),
+            **({"rail": rail} if rail else {}),
             "spring_m": ys, "head_m": H, "arches": arches, "entablature": {"height_m": eh, "proud_m": ep},
             "balustrade": {"height_m": bh, "post_m": bp, "baluster_m": bb, "pitch_m": bpi, "rail_m": [rw, rd]}}
+
+
+# T-3356: the front's piers between its arches stood as columns. 1936 Prairie's verandah, in
+# Chicagology's photograph (x 1440-1620, y 700-860 px), is three round-headed openings on two
+# slender columns between solid end piers, and the 1869 Tribune calls them "Corinthian fluted
+# columns". Each pier between two front arches becomes a free column on the porch's floor: a
+# square plinth and a torus, a fluted shaft tapering to its necking, and a capital of two
+# flaring tiers under a square abacus whose top is the arches' springing. The photograph's
+# capitals are carved leafage a few pixels across; the tiers stand for it
+# (docs/LIBERTIES.md L-k01-1936-allerton-1901).
+
+PORCH_COLUMN_KEYS = {"radius_m", "base_m", "capital_m", "flutes"}
+
+
+def _porch_columns(cs, arches, t, fl, ys):
+    """The record's `corner_porch.columns`, checked: a shaft that fits its pier (the gap
+    between two front arches) with its abacus no wider than the pier and the wall it carries,
+    a base and a capital that leave most of the height to the shaft. Returns the resolved
+    dict with each column's centre along the front (porch-local metres), or None."""
+    if cs is None:
+        return None
+    if not isinstance(cs, dict) or set(cs) != PORCH_COLUMN_KEYS:
+        raise ParamError(f"corner_porch.columns takes {sorted(PORCH_COLUMN_KEYS)}")
+    rs, bh, ch, nf = float(cs["radius_m"]), float(cs["base_m"]), float(cs["capital_m"]), int(cs["flutes"])
+    front = [a for a in arches if a["face"] == "front"]
+    gaps = [(a["centre_m"] + a["span_m"] / 2, b["centre_m"] - b["span_m"] / 2) for a, b in zip(front, front[1:])]
+    if not gaps:
+        raise ParamError("corner_porch.columns stand between front arches, and the front has fewer than two")
+    if not 0.08 <= rs <= 0.35 or not 8 <= nf <= 32:
+        raise ParamError("corner_porch.columns: a 0.08-0.35 m shaft with 8-32 flutes")
+    for g0, g1 in gaps:
+        if 2 * rs > g1 - g0 + 1e-6:
+            raise ParamError(f"corner_porch.columns: a {2 * rs:.2f} m shaft does not fit the "
+                             f"{g1 - g0:.2f} m pier at {g0:.2f}-{g1:.2f} m")
+        if 2 * rs * 1.25 > g1 - g0 + 1e-6:
+            raise ParamError(f"corner_porch.columns: the abacus ({2 * rs * 1.25:.2f} m) is wider than the "
+                             f"{g1 - g0:.2f} m pier at {g0:.2f}-{g1:.2f} m")
+    if not 0.1 <= bh <= 0.6 or not 0.2 <= ch <= 0.8 or bh + ch > 0.4 * (ys - fl):
+        raise ParamError("corner_porch.columns: a 0.1-0.6 m base and a 0.2-0.8 m capital, together no more "
+                         "than 0.4 of the column's height")
+    return {"radius_m": rs, "base_m": bh, "capital_m": ch, "flutes": nf,
+            "centre_m": [round((g0 + g1) / 2, 4) for g0, g1 in gaps], "piers": [list(g) for g in gaps]}
+
+
+# T-3357: an iron rail across the front's openings. 1936 Prairie's verandah, in Chicagology's
+# photograph, has a dark bar across the feet of its three arched openings (y 822 px, about
+# 0.8 m over the floor, against the openings' 45-50 px), a short dark standard under it in
+# the middle of each, standing out from the brownstone round it. Each front arch takes a
+# square iron bar from jamb to jamb (or column to column) at `height_m` over the porch's
+# floor, set in the wall's middle, on `standards` uprights spaced evenly along it. The bar's
+# section and the standards' count are read off the print a few pixels across; its iron is
+# the dark tone's reading (docs/LIBERTIES.md L-k01-1936-allerton-1901).
+
+PORCH_RAIL_KEYS = {"height_m", "bar_m", "standards"}
+
+
+def _porch_rail(rl, arches, fl, ys):
+    """The record's `corner_porch.rail`, checked: a 0.5-1.2 m rail under the springing, a
+    0.03-0.1 m bar on 0-3 standards an opening. Returns the resolved dict, or None."""
+    if rl is None:
+        return None
+    if not isinstance(rl, dict) or set(rl) != PORCH_RAIL_KEYS:
+        raise ParamError(f"corner_porch.rail takes {sorted(PORCH_RAIL_KEYS)}")
+    h, b, n = float(rl["height_m"]), float(rl["bar_m"]), rl["standards"]
+    if not any(a["face"] == "front" for a in arches):
+        raise ParamError("corner_porch.rail runs across the front's arches, and the front has none")
+    if not 0.5 <= h <= 1.2 or fl + h + b > ys - 0.3:
+        raise ParamError(f"corner_porch.rail: 0.5-1.2 m over the floor, at least 0.3 m under the springing at {ys} m")
+    if not 0.03 <= b <= 0.1 or not isinstance(n, int) or not 0 <= n <= 3:
+        raise ParamError("corner_porch.rail: a 0.03-0.1 m bar on 0-3 standards an opening")
+    return {"height_m": h, "bar_m": b, "standards": n}
+
+
+def _dress_rail(a, frame, rl, arches, s0, d, fl, seed, conf):
+    """The iron rail across each front opening (T-3357): a bar between the opening's jambs at
+    the rail's height and its standards on the floor under it."""
+    from .k01_arched_front import _box
+    mat = "iron"
+    h, b, n = rl["height_m"], rl["bar_m"], rl["standards"]
+    y0, y1, hb = fl + h - b, fl + h, b / 2
+    bars = 0
+    for ar in arches:
+        if ar["face"] != "front":
+            continue
+        c, r = s0 + ar["centre_m"], ar["span_m"] / 2
+        _box(a, mat, frame, c - r, c + r, y0, y1, d - hb, d + hb, seed, conf, skip=("left", "right"))
+        for k in range(1, n + 1):
+            sk = c - r + 2 * r * k / (n + 1)
+            _box(a, mat, frame, sk - hb, sk + hb, fl, y0, d - hb, d + hb, seed, conf, skip=("bottom", "top"))
+        bars += 1
+    return bars
+
+
+def _fluted(a, mat, frame, s, d, y0, y1, r0, r1, flutes, seed, conf):
+    """A fluted shaft: a frustum whose ring alternates an arris at the radius and a flute's
+    hollow under it, `flutes` of each round; no ends."""
+    from .k01_arched_front import _face
+    n = 2 * flutes
+    k = [1.0 if i % 2 == 0 else 0.9 for i in range(n)]
+    ring = lambda y, r: [(s + r * k[i] * math.cos(2 * math.pi * i / n), y, d + r * k[i] * math.sin(2 * math.pi * i / n))
+                         for i in range(n)]
+    lo, hi = ring(y0, r0), ring(y1, r1)
+    for i in range(n):
+        j = (i + 1) % n
+        mid = 2 * math.pi * (i + 0.5) / n
+        _face(a, mat, frame, [lo[i], lo[j], hi[j], hi[i]], (math.cos(mid), 0.0, math.sin(mid)), seed, conf)
+
+
+def _dress_columns(a, frame, cl, s0, d, fl, ys, mat, seed, conf):
+    """The porch's columns (T-3356), each on the floor at `fl` and carrying the springing at `ys`."""
+    from .k01_arched_front import _box, _frustum
+    rs, bh, ch, nf = cl["radius_m"], cl["base_m"], cl["capital_m"], cl["flutes"]
+    pb, aw = rs * 1.2, rs * 1.25          # the plinth's and the abacus' half-widths
+    yp, yb, yc = fl + bh * 0.45, fl + bh, ys - ch
+    ab = ys - min(0.08, ch * 0.2)         # the abacus' foot
+    for c in cl["centre_m"]:
+        sc = s0 + c
+        _box(a, mat, frame, sc - pb, sc + pb, fl, yp, d - pb, d + pb, seed, conf, skip=("bottom",))
+        _frustum(a, mat, frame, sc, d, yp, yb, rs * 1.12, rs * 1.0, seed, conf)              # the torus
+        _fluted(a, mat, frame, sc, d, yb, yc, rs, rs * 0.86, nf, seed, conf)                  # the shaft
+        _frustum(a, mat, frame, sc, d, yc, yc + 0.04, rs * 0.94, rs * 0.94, seed, conf)       # the necking ring
+        ym = yc + 0.04 + (ab - yc - 0.04) * 0.5
+        _frustum(a, mat, frame, sc, d, yc + 0.04, ym, rs * 0.86, rs * 1.08, seed, conf)       # the lower leaves
+        _frustum(a, mat, frame, sc, d, ym, ab, rs * 0.98, aw * 0.98, seed, conf)              # the upper leaves
+        _box(a, mat, frame, sc - aw, sc + aw, ab, ys, d - aw, d + aw, seed, conf, skip=("top",))
 
 
 def dress_porch(a):
@@ -317,7 +624,10 @@ def dress_porch(a):
     fl, ys, H = pc["floor_m"], pc["spring_m"], pc["head_m"]
     seed = a.instance("k01.corner_porch", "corner_porch",
                       {"s0_m": s0, "s1_m": s1, "out_m": out, "floor_m": fl, "spring_m": ys, "head_m": H,
-                       "arches": len(pc["arches"])},
+                       "arches": len(pc["arches"]),
+                       **({"columns": len(pc["columns"]["centre_m"]), "column_radius_m": pc["columns"]["radius_m"],
+                           "carving": "fluted shafts; two flaring tiers under the abacus standing for the "
+                                      "Corinthian leafage"} if pc.get("columns") else {})},
                       {"deck": P((s0 + s1) / 2, H + pc["entablature"]["height_m"], out / 2)})
     bf, bh, be = a.basis(mat, O, R, Y, seed), a.basis(mat, O, R, N, seed), a.basis(mat, O, N, Y, seed)
     quad = lambda pts, n, b: pr.face(pts, n, b, conf)
@@ -331,11 +641,18 @@ def dress_porch(a):
         ni = _mul(nf, -1)
         along = _sub_(at(1.0, 0.0, 0.0), at(0.0, 0.0, 0.0))
         ars = [ar for ar in pc["arches"] if ar["face"] == face]
+        # T-3356: on the front, a pier between two arches stands as a column (resolve_porch),
+        # its wall only the podium under it and the spandrel over the springing
+        cols = pc.get("columns") if face == "front" else None
         for w, n in ((0.0, nf), (t, ni)):
             x = 0.0
-            for ar in ars:
+            for i, ar in enumerate(ars):
                 c, r = ar["centre_m"], ar["span_m"] / 2
-                quad([at(x, 0.0, w), at(c - r, 0.0, w), at(c - r, H, w), at(x, H, w)], n, b_face)
+                if cols and i > 0:
+                    quad([at(x, 0.0, w), at(c - r, 0.0, w), at(c - r, fl, w), at(x, fl, w)], n, b_face)
+                    quad([at(x, ys, w), at(c - r, ys, w), at(c - r, H, w), at(x, H, w)], n, b_face)
+                else:
+                    quad([at(x, 0.0, w), at(c - r, 0.0, w), at(c - r, H, w), at(x, H, w)], n, b_face)
                 if fl > 0.0:   # the podium under the opening
                     quad([at(c - r, 0.0, w), at(c + r, 0.0, w), at(c + r, fl, w), at(c - r, fl, w)], n, b_face)
                 for k in range(SEGMENTS):
@@ -345,10 +662,11 @@ def dress_porch(a):
                     quad([at(x0, y0, w), at(x0, H, w), at(x1, H, w), at(x1, y1, w)], n, b_face)
                 x = c + r
             quad([at(x, 0.0, w), at(L, 0.0, w), at(L, H, w), at(x, H, w)], n, b_face)
-        for ar in ars:
+        for i, ar in enumerate(ars):
             c, r = ar["centre_m"], ar["span_m"] / 2
-            for x, k in ((c - r, 1.0), (c + r, -1.0)):   # the jambs, podium to springing
-                quad([at(x, fl, 0.0), at(x, ys, 0.0), at(x, ys, t), at(x, fl, t)], _mul(along, k), b_end)
+            for x, k, inner in ((c - r, 1.0, i > 0), (c + r, -1.0, i < len(ars) - 1)):   # the jambs, podium to springing
+                if not (cols and inner):
+                    quad([at(x, fl, 0.0), at(x, ys, 0.0), at(x, ys, t), at(x, fl, t)], _mul(along, k), b_end)
             if fl > 0.0:   # the opening's sill on the podium
                 quad([at(c - r, fl, 0.0), at(c + r, fl, 0.0), at(c + r, fl, t), at(c - r, fl, t)], up, bh)
             for k in range(SEGMENTS):   # the arch's soffit, turned through the wall
@@ -358,6 +676,31 @@ def dress_porch(a):
                 x1, y1 = c + r * math.cos(t1), ys + r * math.sin(t1)
                 n = _add(_mul(along, -math.cos(tm)), _mul(Y, -math.sin(tm)))
                 quad([at(x0, y0, 0.0), at(x1, y1, 0.0), at(x1, y1, t), at(x0, y0, t)], n, bh)
+        if cols:   # the piers' floor under each column and the spandrel's soffit over it
+            for g0, g1 in cols["piers"]:
+                quad([at(g0, fl, 0.0), at(g1, fl, 0.0), at(g1, fl, t), at(g0, fl, t)], up, bh)
+                quad([at(g0, ys, 0.0), at(g1, ys, 0.0), at(g1, ys, t), at(g0, ys, t)], down, bh)
+            _dress_columns(a, (O, R, N), cols, s0, out - t / 2, fl, ys, mat, seed, conf)
+    if pc.get("rail"):   # T-3357: the iron rail across the front's openings (_porch_rail)
+        _dress_rail(a, (O, R, N), pc["rail"], pc["arches"], s0, out - t / 2, fl, seed, conf)
+    rnd = pc.get("roundels")
+    if rnd:   # T-3257: the podium's roundels (resolve_porch)
+        ring_out, sunk, k_n = 0.05, 0.02, 24
+        ro, ri = rnd["d_m"] / 2, rnd["d_m"] / 2 * 0.72
+        dark = a.prim("iron")
+        bi = a.basis("iron", O, R, Y, seed)
+        for c in rnd["centre_m"]:
+            cc = s0 + c
+            ang = [2 * math.pi * k / k_n for k in range(k_n + 1)]
+            for k in range(k_n):
+                a0, a1 = ang[k], ang[k + 1]
+                q = lambda rr, an, d: P(cc + rr * math.cos(an), rnd["y_m"] + rr * math.sin(an), out + d)
+                quad([q(ri, a0, ring_out), q(ri, a1, ring_out), q(ro, a1, ring_out), q(ro, a0, ring_out)], N, bf)
+                am = (a0 + a1) / 2
+                no = _add(_mul(R, math.cos(am)), _mul(Y, math.sin(am)))
+                quad([q(ro, a0, 0.0), q(ro, a0, ring_out), q(ro, a1, ring_out), q(ro, a1, 0.0)], no, bf)
+                quad([q(ri, a1, sunk), q(ri, a1, ring_out), q(ri, a0, ring_out), q(ri, a0, sunk)], _mul(no, -1), bf)
+                dark.face([q(0.0, a0, sunk), q(ri, a0, sunk), q(ri, a1, sunk)], N, bi, conf)
     for s_, n in ((s0, _mul(R, -1)), (s1, R)):   # the front wall's ends, its corners turned
         quad([P(s_, 0.0, out - t), P(s_, 0.0, out), P(s_, H, out), P(s_, H, out - t)], n, be)
     # the porch's floor on the podium, inside its walls

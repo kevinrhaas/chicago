@@ -64,24 +64,32 @@
 }
 .insp-full { background: transparent; color: var(--ink); font: 500 0.9375rem/1.2 var(--font-body, inherit); cursor: pointer; }
 
-/* The tabs (T-2639): Overview · People · Design · Story · Photos · Sources, each a 44 px
-   target. T-3021: they wrap rather than scroll sideways (at 400 px Photos and Sources were
-   off the edge, unseen), and Back and the tabs ride one bar pinned to the top of the screen
-   (the screen's own 14 px top padding is what `top` takes back), so neither scrolls away. */
-.insp-bar { position: sticky; top: -14px; z-index: 2; display: flex; align-items: flex-start; gap: 4px;
-  margin: -14px -16px 0; padding: 6px 16px 0; background: var(--panel-solid, var(--panel));
+/* The tabs (T-2639): each a 44 px target. T-3021: Back and the tabs ride one bar pinned to the
+   top of the screen (the screen's own 14 px top padding is what `top` takes back), so neither
+   scrolls away. T-3435 (the owner, 2026-11-06: "i dont like the double row … maybe icons and
+   small text?"): ONE ROW — each tab an icon over a small label, the tabs sharing the row's width
+   equally; only where even that cannot fit (Expert research's eighth tab at a narrow width, or
+   a large Text size) does the row scroll sideways, never wrap. */
+.insp-bar { position: sticky; top: -14px; z-index: 2; display: flex; align-items: stretch; gap: 0;
+  margin: -14px -16px 0; padding: 4px 8px 0 16px; background: var(--panel-solid, var(--panel));
   border-bottom: 1px solid var(--edge); }
-.insp-back { flex: 0 0 auto; display: inline-grid; place-items: center; width: 44px; height: 44px; margin-left: -10px;
+.insp-back { flex: 0 0 auto; display: inline-grid; place-items: center; width: 36px; min-height: 48px; margin-left: -10px;
   border: 0; border-radius: var(--r-control, 4px); background: transparent; color: var(--ink-dim); cursor: pointer; }
 .insp-back:hover { color: var(--ink); }
 .insp-back:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: -2px; }
-.insp-tabs { flex: 1 1 auto; min-width: 0; display: flex; flex-wrap: wrap; gap: 0 2px; margin: 0; }
+.insp-tabs { flex: 1 1 auto; min-width: 0; display: flex; flex-wrap: nowrap; gap: 0; margin: 0;
+  overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; }
+.insp-tabs::-webkit-scrollbar { display: none; }
 .insp-panes { padding-top: 12px; }
-.insp-tab { flex: 0 0 auto; min-height: 44px; padding: 0 10px; border: 0; border-bottom: 2px solid transparent;
+.insp-tab { flex: 1 0 auto; min-width: 38px; min-height: 48px; display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 3px; padding: 4px 2px 3px; border: 0; border-bottom: 2px solid transparent;
   background: transparent; color: var(--ink-dim); cursor: pointer;
-  font: var(--label-weight, 400) 0.75rem/1 var(--font-label, var(--font-mono, ui-monospace, monospace));
-  letter-spacing: .08em; text-transform: uppercase; }
+  font: 500 0.625rem/1 var(--font-body, inherit); letter-spacing: 0; white-space: nowrap; }
+.insp-tab-icon { display: block; flex: 0 0 auto; }
+.insp-tab-label { display: block; }
+.insp-tab:hover { color: var(--ink); }
 .insp-tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent, currentColor); }
+.insp-tab[aria-selected="true"] .insp-tab-icon { color: var(--accent, currentColor); }
 .insp-tab:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: -2px; }
 .insp-pane[hidden] { display: none; }
 
@@ -93,6 +101,9 @@
 .insp-card table.attrs { table-layout: fixed; }
 .insp-people-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .insp-person-link { cursor: pointer; text-align: left; background: transparent; color: var(--ink); font: inherit; min-height: 44px; }
+/* T-3266: a former resident is a row, not a person card: it opens nothing. */
+.insp-former { cursor: default; }
+.insp-former-members { font-size: 13px; }
 .insp-timeline { display: flex; flex-direction: column; gap: 8px; margin: 0 0 12px; padding: 0; list-style: none; }
 .insp-when { display: grid; grid-template-columns: 3.2rem 1fr; gap: 8px; align-items: baseline; }
 .insp-date { font: var(--label-weight, 400) 0.75rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace)); color: var(--ink-dim); }
@@ -130,6 +141,64 @@
 .insp-after { align-self: flex-start; margin-top: 2px; padding: 1px 6px; border: 1px dashed var(--edge-strong, var(--edge)); border-radius: 4px;
   font: var(--label-weight, 400) 0.625rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
   letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+/* T-3435: the Design tab's written style guide — a head, a lead in the body face, Look for, the
+   five parts (Shape · Walls · Roof · Windows and doors · Grounds) as icon-headed tiles in a
+   two-column grid that folds to one on a phone, a "Built from" note, then the style card.
+   Every line keeps its grade dot. Static; every colour is a skin token. */
+.sg-head { display: flex; flex-direction: column; gap: 6px; }
+.sg-head .insp-kicker { margin: 0; }
+.sg-name { margin: 0; font: 500 1.5rem/1.15 var(--font-display, inherit); letter-spacing: var(--display-tracking, 0); color: var(--ink); }
+.sg-name .fact-dot, .sg-sub .fact-dot { margin-left: 6px; vertical-align: middle; }
+.sg-sub { margin: 0; font: 400 0.9375rem/1.4 var(--font-body, inherit); color: var(--ink-dim); }
+.sg-chips .insp-chip { display: inline-flex; align-items: center; gap: 6px; }
+.sg-lead { margin: 0; padding: 10px 0 10px 12px; border-left: 2px solid var(--accent, var(--edge-strong, var(--edge)));
+  font: 400 1rem/1.6 var(--font-body, inherit); color: var(--ink); max-width: 65ch; }
+.sg-sentence .fact-dot { margin: 0 2px 0 4px; }
+.sg-sentence + .sg-sentence { margin-left: .35em; }
+.sg-look .insp-h { margin-bottom: 2px; }
+.sg-parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 10px; }
+.sg-part { min-width: 0; padding: 10px 12px; border: 1px solid var(--edge); border-radius: 6px; background: var(--panel-raised, transparent); }
+.sg-part[data-empty] { background: transparent; border-style: dashed; }
+.sg-part-h { display: flex; align-items: center; gap: 8px; margin: 0 0 6px;
+  font: var(--label-weight, 400) 0.6875rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
+.sg-icon { display: inline-grid; place-items: center; color: var(--accent, var(--ink)); }
+.sg-icon svg { display: block; }
+.sg-lines { display: flex; flex-direction: column; gap: 5px; margin: 0; padding: 0; list-style: none; }
+.sg-line { font: 400 0.9375rem/1.45 var(--font-body, inherit); color: var(--ink); }
+.sg-line .fact-dot { margin-left: 6px; }
+/* A line's last word and its dot never part at a wrap. */
+.sg-tail { white-space: nowrap; }
+.sg-none { margin: 0; font: 400 0.875rem/1.45 var(--font-body, inherit); color: var(--ink-dim); font-style: italic; }
+.sg-basis { display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; border-radius: 6px;
+  border: 1px solid var(--edge); background: color-mix(in srgb, var(--accent, currentColor) 7%, transparent); }
+.sg-basis .insp-kicker, .sg-basis p { margin: 0; }
+.sg-basis-text { font: 400 0.9375rem/1.45 var(--font-body, inherit); color: var(--ink); }
+.sg-basis-text .fact-dot { margin-left: 6px; }
+.sg-basis-draft { font: 400 0.875rem/1.45 var(--font-body, inherit); color: var(--ink-dim); }
+.sg-more { display: flex; flex-wrap: wrap; gap: 8px; }
+.sg-go { min-height: 44px; cursor: pointer; background: transparent; color: var(--ink); font: 500 0.9375rem/1.2 var(--font-body, inherit); }
+/* T-3435: Sources by source — a row per source, its kind and how many facts it gave on the row,
+   opened to the facts themselves and the full citation. */
+.src-source > summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; min-height: 44px;
+  padding: 10px 24px 10px 0; position: relative; cursor: pointer; list-style: none; }
+.src-source > summary::-webkit-details-marker { display: none; }
+.src-source > summary::after { content: '+'; position: absolute; right: 4px; top: 10px;
+  font: 400 1rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace)); color: var(--ink-dim); }
+.src-source[open] > summary::after { content: '\2212'; }
+.src-source > summary:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: 2px; }
+.src-source .src-title { font-weight: 500; font-size: 1rem; }
+.src-n { margin-left: auto; font: var(--label-weight, 400) 0.625rem/1.6 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .06em; text-transform: uppercase; color: var(--ink-dim); white-space: nowrap; }
+.src-gave { display: flex; flex-direction: column; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.src-gave-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; }
+.src-gave-row .fact-dot { align-self: center; }
+.src-gave-row .src-label { font-size: 0.9375rem; }
+.src-unsourced { padding-top: 10px; border-top: 1px solid var(--edge); display: flex; flex-direction: column; gap: 8px; }
+.src-unsourced .insp-h { display: flex; margin: 0; }
+.src-unsourced .nav-sub { margin: 0; }
+.src-unsourced .sg-go, .src-page > .sg-go { align-self: flex-start; }
+
 /* T-2641: the Design tab. The style card (kicker, name, two lines, a plate through the same
    CRT treatment as the front page's, and the cues as chips), the numbered "On this house"
    hotspots — each a 44 px row, a button where Show me can aim, its number in a ring — and
@@ -269,6 +338,8 @@ button.insp-hot-row:focus-visible { outline: 2px solid var(--accent, currentColo
    Back is a full-width 44 px row naming the household it returns to; the census line reads
    in the mono face, as the enumerator's hand is quoted; every colour is a skin token. */
 .insp-people-home[hidden] { display: none; }
+/* T-3382: the household's children who lived here in other years, under its 1904 list. */
+.insp-people-home .insp-people-other { margin-top: 16px; }
 .insp-person-card { display: flex; flex-direction: column; gap: 12px; color: var(--ink); overflow-wrap: anywhere; }
 .insp-person-back { display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; min-height: 44px;
   margin-left: -8px; padding: 0 12px 0 6px; border: 0; border-radius: var(--r-control, 4px); background: transparent;
@@ -298,4 +369,10 @@ button.insp-hot-row:focus-visible { outline: 2px solid var(--accent, currentColo
   font: 400 0.875rem/1.45 var(--font-body, inherit); }
 .insp-person-sources a { color: var(--ink); }
 .insp-person-reading { margin: 6px 0 0; font: 400 0.875rem/1.5 var(--font-body, inherit); color: var(--ink); }
+/* T-3413: a portrait beside the model's fitted face, the same size, side by side even on a phone. */
+.insp-person-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 4px 0 10px; }
+.insp-person-face { margin: 0; display: flex; flex-direction: column; gap: 4px; }
+.insp-person-face img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover;
+  border-radius: 6px; border: 1px solid var(--edge); background: var(--panel-raised, #1c1b18); }
+.insp-person-likeness .insp-person-why-title { margin-top: 0; }
 .insp-person-card .insp-key { grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr)); }

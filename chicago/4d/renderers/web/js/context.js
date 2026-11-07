@@ -25,7 +25,10 @@
  *
  * WHAT IT GIVES WAY TO. A stand-in that a placed structure's footprint touches is
  * dropped at load, so a building drafted later on Indiana or Calumet replaces its
- * stand-in without anything here being regenerated. Every vertex is `reconstructed`
+ * stand-in without anything here being regenerated. It gives way as the whole building
+ * the sheet draws (T-3388: every part carries its drawn building's `group`): a draft that
+ * takes the larger share of a joined run takes its yard pieces with it, which had stood on
+ * alone as towers behind 244-250 E 18th Street. Every vertex is `reconstructed`
  * on the confidence channel (the heights are ours even where the outline is the
  * sheet's), so hiding reconstructed work takes the whole context city away.
  */
@@ -33,6 +36,9 @@
 import * as THREE from 'three';
 
 const FADE_TO = [0.86, 0.87, 0.88];   // a pale, faintly cool grey, in sRGB
+// T-3388: a drawn building (one `group`) gives way whole when placed structures touch at
+// least this share of its plan: the draft has taken its main body, and its yard pieces go too.
+const GIVE_WAY_SHARE = 0.5;
 const FADE = 0.42;                    // how far each colour goes toward it
 const DESATURATE = 0.3;               // how much of its own saturation it loses first
 const ROOF_TOP_SHADE = 0.86;          // a flat roof a little darker than its walls
@@ -169,10 +175,10 @@ function pyramidGeometry() {
 
 /** The faded streets as one ribbon mesh: each segment cut into pieces that each take the
  *  ground's height at their ends, so a street follows the ground and the skirt beyond it. */
-function streetGeometry(streets, at, width, ground, colour) {
-  const p = []; const c = []; const conf = [];
+function streetGeometry(streets, at, width, ground) {
+  const p = []; const conf = [];
   const half = width / 2;
-  const push = (e, n) => { p.push(wx(e), ground(e, n) + STREET_LIFT_M, wz(n)); c.push(colour.r, colour.g, colour.b); conf.push(1); };
+  const push = (e, n) => { p.push(wx(e), ground(e, n) + STREET_LIFT_M, wz(n)); conf.push(1); };
   for (const st of streets) {
     const e0 = st[at.e0]; const n0 = st[at.n0]; const e1 = st[at.e1]; const n1 = st[at.n1];
     const L = Math.hypot(e1 - e0, n1 - n0);
@@ -190,7 +196,6 @@ function streetGeometry(streets, at, width, ground, colour) {
   }
   const g = new THREE.BufferGeometry();
   g.setAttribute('position', new THREE.Float32BufferAttribute(p, 3));
-  g.setAttribute('color', new THREE.Float32BufferAttribute(c, 3));
   g.setAttribute('_confidence', new THREE.Float32BufferAttribute(conf, 1));
   g.computeVertexNormals();
   return g;
@@ -502,10 +507,24 @@ export async function createContext({
   const rows = [];
   let dropped = 0;
   const projectSrc = (enums.src ?? []).indexOf('project');
+  // T-3388: a drawn building gives way whole once placed footprints touch the larger share
+  // of its plan (GIVE_WAY_SHARE); below that only the parts they touch go, as before.
+  const touched = new Set();
+  const groupArea = new Map();
+  const touchedArea = new Map();
+  for (const b of doc.buildings ?? []) {
+    if (touchesStructure(fps, b[at.e], b[at.n], b[at.width_m], b[at.depth_m], b[at.bearing_deg])) touched.add(b);
+    const gid = at.group != null ? b[at.group] : 0;
+    if (!gid) continue;
+    const a = b[at.width_m] * b[at.depth_m];
+    groupArea.set(gid, (groupArea.get(gid) ?? 0) + a);
+    if (touched.has(b)) touchedArea.set(gid, (touchedArea.get(gid) ?? 0) + a);
+  }
+  const givenWay = (gid) => gid && (touchedArea.get(gid) ?? 0) >= GIVE_WAY_SHARE * groupArea.get(gid);
   for (const b of doc.buildings ?? []) {
     const e = b[at.e]; const n = b[at.n]; const w = b[at.width_m]; const d = b[at.depth_m];
     const bearing = b[at.bearing_deg];
-    if (touchesStructure(fps, e, n, w, d, bearing)) { dropped++; continue; }
+    if (touched.has(b) || givenWay(at.group != null ? b[at.group] : 0)) { dropped++; continue; }
     // On light detail the near ring's one-to-a-lot houses stop at `reach`; the rows of lots past
     // the ring (lod 1, T-2491) stay, so a phone still sees the city run out to the haze.
     if (b[at.src] === projectSrc && !b[at.lod] && far(e, n)) continue;
@@ -620,9 +639,12 @@ export async function createContext({
   let streetMesh = null; let streetMaterial = null;
   if ((doc.streets ?? []).length) {
     const width = doc.projection?.network?.carriageway_m ?? 11.58;
-    const geo = streetGeometry(doc.streets, S, width, ground, fadeHex(STREET));
+    const geo = streetGeometry(doc.streets, S, width, ground);
+    const streetColor = fadeHex(STREET);
+    // Match the original Float32 vertex colour at the uniform upload boundary.
+    streetColor.setRGB(Math.fround(streetColor.r), Math.fround(streetColor.g), Math.fround(streetColor.b));
     streetMaterial = new THREE.MeshStandardMaterial({
-      color: 0xffffff, vertexColors: true, roughness: 1, metalness: 0,
+      color: streetColor, roughness: 1, metalness: 0,
       polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1,
     });
     confidence?.patch(streetMaterial);

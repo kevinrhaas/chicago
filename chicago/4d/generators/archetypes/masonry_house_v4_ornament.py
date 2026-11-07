@@ -252,16 +252,272 @@ def _legs(r, cx, cz, r0, r1, back, front, stilt):
             r.face(quad if n>0 else quad[::-1],None,(n,0,0))
 
 
-# T-2853: the field's roundels where HABS sheet 5 measures them, as (across,
-# up, radius) in shares of the field's radius F from the stilted centre. Read
-# off the rectified sheet at 100 px a foot (docs/RESEARCH/glessner-entry-T-2853).
-# The sheet draws eight stems bent into rings, unequal and not mirrored, rising
-# from a boss at the foot; the office's No. 23A sketches the same scrolling.
-FIELD_ROUNDELS = ((-.772, .000, .160), (-.486, .486, .126), (-.343, .069, .229),
-                  (.143, .498, .257), (.601, .355, .114), (.469, .029, .183),
-                  (.830, .057, .143), (-.830, .297, .086))
-# Each stem runs from a parent (-1 the boss) to its roundel, as the sheet links them.
-FIELD_STEMS = ((-1, 2), (-1, 5), (-1, 3), (2, 0), (2, 1), (0, 7), (5, 6), (5, 4))
+# T-3381: the field is the owner's photographs' tree (2026-11-05): a trunk up the
+# middle and scrolls bent into rings either side, mirrored, every ring filled with
+# leaves and the ground between them drilled through to shadow. As (across, up,
+# radius) in shares of the field's radius F from the stilted centre: the large
+# ring low either side of the trunk, a smaller one out at the springing, one
+# beside the trunk's head and one between. Read off the photographs to about a
+# twentieth of F; HABS sheet 5's eight unmirrored rings (T-2853) are a drawing's
+# shorthand that the photographs do not bear out.
+FIELD_ROUNDELS = ((-.430, .330, .290), (.430, .330, .290), (-.820, .110, .140), (.820, .110, .140),
+                  (-.260, .720, .200), (.260, .720, .200), (-.600, .620, .110), (.600, .620, .110))
+# Each branch runs from a parent (-1 the trunk, at the height given) to its ring.
+FIELD_STEMS = ((-1, 1, .18), (-1, 0, .18), (1, 3, 0), (0, 2, 0), (-1, 5, .50), (-1, 4, .50), (5, 7, 0), (4, 6, 0))
+# The dark slot (glass_dark), used as the deep shadow behind pierced carving and
+# in drilled pockets, as window recesses use it: the renderer bakes no occlusion.
+DARK = 11
+
+
+def _cells(cx, cz, a, b, count, stilt):
+    """A band between radii a and b cut into `count` cells round the head and on
+    down its plumb legs at about the same pitch; each cell maps (radial, along)
+    fractions to a point."""
+    cells = []
+    for i in range(count):
+        t0, t1 = math.pi*i/count, math.pi*(i+1)/count
+        cells.append(lambda fr, ft, t0=t0, t1=t1: (cx+(a+(b-a)*fr)*math.cos(t0+(t1-t0)*ft),
+                                                  cz+(a+(b-a)*fr)*math.sin(t0+(t1-t0)*ft)))
+    pitch = (a+b)/2*math.pi/count
+    n = int(stilt/pitch+.5) if stilt > 0 else 0
+    for k in range(n):
+        z0, z1 = cz-stilt*k/n, cz-stilt*(k+1)/n
+        for sign in (-1, 1):
+            cells.append(lambda fr, ft, z0=z0, z1=z1, sign=sign: (cx+sign*(a+(b-a)*fr), z0+(z1-z0)*ft))
+    return cells
+
+
+def _quad_faces(r, cell, f0, f1, g0, g1, depth, mat=None, steps=1):
+    """The cell's front between radial fractions f0..f1 and along g0..g1, at a
+    depth that may vary with the radial fraction."""
+    for j in range(steps):
+        a, c = f0+(f1-f0)*j/steps, f0+(f1-f0)*(j+1)/steps
+        da, dc = (depth(a), depth(c)) if callable(depth) else (depth, depth)
+        r.face([(*cell(a, g0), da), (*cell(c, g0), dc), (*cell(c, g1), dc), (*cell(a, g1), da)], mat)
+
+
+def _wall(r, p, q, back, front, inward, mat=None):
+    """A side wall between two band points, facing `inward` in the plane."""
+    r.face([(*p, back), (*q, back), (*q, front), (*p, front)], mat, (inward[0], inward[1], 0))
+
+
+def _dentil_band(r, cx, cz, a, b, back, front, count, stilt, low=False):
+    """T-3381: the outer rim, a flat band sunk with square pockets ("blockier marks"):
+    each cell's face rings its own pocket, whose floor is in shadow."""
+    pf0, pf1 = .30, .70
+    for cell in _cells(cx, cz, a, b, count, stilt):
+        # The pockets stand about their own width apart, as photographed.
+        width = math.dist(cell(.5, 0), cell(.5, 1))
+        half = min(.27, (pf1-pf0)*(b-a)/max(width, 1e-6)/2)
+        g0, g1 = .5-half, .5+half
+        if low:
+            _quad_faces(r, cell, 0, 1, 0, 1, front)
+            # The cell is one flat quad over the curved bed, so the pocket's
+            # shadow stands clear of its chord.
+            r.face([(*cell(pf0, g0), front+.008), (*cell(pf1, g0), front+.008),
+                    (*cell(pf1, g1), front+.008), (*cell(pf0, g1), front+.008)], DARK)
+            continue
+        _quad_faces(r, cell, 0, pf0, 0, 1, front)
+        _quad_faces(r, cell, pf1, 1, 0, 1, front)
+        _quad_faces(r, cell, pf0, pf1, 0, g0, front)
+        _quad_faces(r, cell, pf0, pf1, g1, 1, front)
+        floor = front-.030
+        r.face([(*cell(pf0, g0), floor), (*cell(pf1, g0), floor),
+                (*cell(pf1, g1), floor), (*cell(pf0, g1), floor)], DARK)
+        mid = cell(.5, .5)
+        for p, q in ((cell(pf0, g0), cell(pf1, g0)), (cell(pf1, g0), cell(pf1, g1)),
+                     (cell(pf1, g1), cell(pf0, g1)), (cell(pf0, g1), cell(pf0, g0))):
+            m = ((p[0]+q[0])/2, (p[1]+q[1])/2)
+            _wall(r, p, q, floor, front, (mid[0]-m[0], mid[1]-m[1]))
+        # The band's own edges, to the bed.
+        for fr, way in ((0, -1), (1, 1)):
+            p, q = cell(fr, 0), cell(fr, 1)
+            m = ((p[0]+q[0])/2, (p[1]+q[1])/2)
+            _wall(r, p, q, back, front, ((m[0]-mid[0])*1, (m[1]-mid[1])*1))
+
+
+def _drill(r, x, z, d, radius, sides=6):
+    """A drilled hole: a small dark disc just proud of the stone it pierces."""
+    r.face([(x+radius*math.cos(2*math.pi*k/sides), z+radius*math.sin(2*math.pi*k/sides), d) for k in range(sides)], DARK)
+
+
+def _petal(r, x, z, angle, length, width, depth, lift):
+    """The phone tier's leaf: a raised lozenge on its midrib, four triangles."""
+    tx, tz = math.cos(angle), math.sin(angle)
+    nx, nz = -tz, tx
+    at = lambda t, v, up: (x+tx*length*t+nx*width*.5*v, z+tz*length*t+nz*width*.5*v, depth+up)
+    root, tip, left, right, ridge = at(0, 0, 0), at(1, 0, lift*.2), at(.42, -1, lift*.25), at(.42, 1, lift*.25), at(.45, 0, lift)
+    for p, q in ((root, left), (left, tip), (tip, right), (right, root)):
+        r.face([p, q, ridge])
+
+
+def _leaf(r, low, x, z, angle, length, width, depth, lift, curl, holes, phase, steps):
+    if low:
+        return _petal(r, x, z, angle, length, width, depth, lift)
+    r.leaf(x, z, angle, length, width, depth, lift, curl, holes, phase, steps)
+
+
+def _carved_roll(r, cx, cz, a, b, base, bulge, count, stilt, low=False):
+    """T-3381: the middle rim, a rounded roll cut into blocks at dark radial joints,
+    every block filled with a four-leaf cluster and drilled through between them."""
+    depth = lambda fr: base+bulge*math.sin(math.pi*fr)
+    gap = .022
+    for i, cell in enumerate(_cells(cx, cz, a, b, count, stilt)):
+        g0, g1 = gap, 1-gap
+        steps = 2 if low else 5
+        along = 1 if low else 3
+        for k in range(along):
+            _quad_faces(r, cell, 0, 1, g0+(g1-g0)*k/along, g0+(g1-g0)*(k+1)/along, depth, steps=steps)
+        # The joint: the bed seen down the cut between two blocks.
+        _quad_faces(r, cell, .04, .96, 1-gap, 1, base-.028, DARK)
+        if not low:
+            _quad_faces(r, cell, .04, .96, 0, gap, base-.028, DARK)
+        if not low:
+            mid = cell(.5, .5)
+            for g in (g0, g1):
+                for j in range(steps):
+                    f0, f1 = j/steps, (j+1)/steps
+                    p, q = cell(f0, g), cell(f1, g)
+                    m = ((p[0]+q[0])/2, (p[1]+q[1])/2)
+                    r.face([(*p, base-.03), (*q, base-.03), (*q, depth(f1)), (*p, depth(f0))], None,
+                           ((m[0]-mid[0]), (m[1]-mid[1]), 0))
+        # The cluster: four broad leaves to the block's corners round a boss,
+        # and the stone drilled through in the four gaps between them.
+        x, z = cell(.5, .5)
+        ux, uz = cell(1, .5)[0]-x, cell(1, .5)[1]-z
+        ang = math.atan2(uz, ux)
+        size = (b-a)*.47
+        top = depth(.5)
+        for j in range(4):
+            th = ang+math.pi/4+math.pi/2*j
+            _leaf(r, low, x+size*.10*math.cos(th), z+size*.10*math.sin(th), th, size, size*.78, top-.006,
+                  size*.20, (.20 if j % 2 else -.20), True, i*.41+j, 8)
+        r.bead(x, z, top+.010, size*.17)
+        for j in range(4):
+            th = ang+math.pi/2*j
+            for reach, rad in (((.62, .085),) if low else ((.62, .085), (.95, .060))):
+                fr = .5+reach*size/(b-a)*math.cos(th-ang)
+                _drill(r, x+reach*size*math.cos(th), z+reach*size*math.sin(th), depth(fr)+.0015, size*rad,
+                       4 if low else 6)
+
+
+def _field_fill(F, rings, pitch, keep_off, trunk, low_z=0., jitter=0.):
+    """Points of the field's ground the rings and trunk leave bare, mirrored, on
+    a staggered lattice of the given pitch (jittered by a share of it), down to
+    `low_z` under the centre: (across, up) in metres."""
+    found = []
+    row = 0
+    z = low_z+pitch*.5
+    while z < F:
+        x0 = pitch*.5 if row % 2 else pitch
+        while x0 < F:
+            x = x0+jitter*pitch*math.sin(x0*137.1+z*71.9)
+            z1 = z+jitter*pitch*math.sin(x0*53.3-z*97.7)
+            ok = math.hypot(x, max(z1, 0)) < F*.92 and x > F*trunk and z1 > low_z+F*.02 and x < F*.92
+            for rx, rz, rr in rings:
+                if ok and math.hypot(x-rx, z1-rz) < rr+F*keep_off:
+                    ok = False
+            if ok:
+                found += [(x, z1), (-x, z1)]
+            x0 += pitch
+        z += pitch*.87
+        row += 1
+    return found
+
+
+
+def bands_and_field(r, cx, cz, R, stilt, low=False):
+    """The fan's carved rims and field, outside in (T-3381, the owner's photographs
+    of 2026-11-05): a fillet; a flat rim sunk with square pockets; a rounded roll
+    of carved and drilled blocks; a thin plain rim stepped out from the field; and
+    the field's tree of ringed scrolls on a drilled-through ground."""
+    _plumb_arc(r, cx, cz, R-.012, .034, .012, stilt)
+    _dentil_band(r, cx, cz, R*.875, R-.02, -.045, .030, 36, stilt, low)
+    _plumb_arc(r, cx, cz, R*.878, .030, .010, stilt)
+    if not low:
+        _annulus(r, cx, cz, R*.655, R*.872, -.045, -.020, 48)
+        _legs(r, cx, cz, R*.655, R*.872, -.045, -.020, stilt)
+    _carved_roll(r, cx, cz, R*.660, R*.866, .000, .045, 13, stilt, low)
+    # The thin rim, plain and stepped out.
+    _annulus(r, cx, cz, R*.592, R*.648, -.045, .032, 12 if low else 48)
+    _legs(r, cx, cz, R*.592, R*.648, -.045, .032, stilt)
+    F = R*.585
+    # The field's ground, cut back behind the carving and drilled through it to shadow.
+    n = 16 if low else 40
+    r.face([(cx+F, cz-stilt, -.020)]+[(cx+F*math.cos(math.pi*i/n), cz+F*math.sin(math.pi*i/n), -.020)
+                                      for i in range(n+1)]+[(cx-F, cz-stilt, -.020)], DARK)
+    foot = cz-stilt
+    # The trunk, broad at its root and tapering up the middle to a small rosette.
+    trunk = [(cx, foot+F*.04+(cz+F*.80-foot-F*.04)*i/12, .024) for i in range(13)]
+    r.tube(trunk, lambda t: F*(.085-.045*t+.080*max(0, .25-t)/.25), 6 if low else 10)
+    rings = [(cx+x*F, cz+z*F, rr*F) for x, z, rr in FIELD_ROUNDELS]
+    for j, (parent, child, up) in enumerate(FIELD_STEMS):
+        x, z, rr = rings[child]
+        p0 = (cx, cz+up*F) if parent < 0 else rings[parent][:2]
+        dx, dz = x-p0[0], z-p0[1]; length = math.hypot(dx, dz) or 1.
+        p3 = (x-dx/length*rr*.93, z-dz/length*rr*.93)
+        out = F*.05 if parent < 0 else rings[parent][2]*.93
+        p0 = (p0[0]+dx/length*out, p0[1]+dz/length*out)
+        sgn = 1 if x > cx else -1
+        bend = (-dz/length*sgn, dx/length*sgn); sway = .14*length
+        p1 = (p0[0]+(p3[0]-p0[0])*.33+bend[0]*sway, p0[1]+(p3[1]-p0[1])*.33+bend[1]*sway)
+        p2 = (p0[0]+(p3[0]-p0[0])*.66+bend[0]*sway*.5, p0[1]+(p3[1]-p0[1])*.66+bend[1]*sway*.5)
+        span = math.hypot(p3[0]-p0[0], p3[1]-p0[1])
+        r.tube(_bezier([p0, p1, p2, p3], .022, max(4, min(20, round(span/.012)))),
+               F*(.030 if parent < 0 else .024), 6 if low else 8)
+        mid = _bezier([p0, p1, p2, p3], 0, 2)[1]
+        ang = math.atan2(dz, dx)
+        for side in (-1, 1):
+            _leaf(r, low, mid[0], mid[1], ang+side*1.05, F*.15, F*.085, .016, .016, side*.16, True, j*.5+side, 10)
+    for j, (x, z, rr) in enumerate(rings+[(cx, cz+F*.88, F*.075)]):
+        d = .028 if j == len(rings) else .024+.002*(j % 3)
+        if low:
+            # The ring as a flat raised band on sixteen chords.
+            w = rr*.075
+            for k in range(16):
+                a, c = 2*math.pi*k/16, 2*math.pi*(k+1)/16
+                ring = [(x+(rr+w)*math.cos(a), z+(rr+w)*math.sin(a)), (x+(rr+w)*math.cos(c), z+(rr+w)*math.sin(c)),
+                        (x+(rr-w)*math.cos(c), z+(rr-w)*math.sin(c)), (x+(rr-w)*math.cos(a), z+(rr-w)*math.sin(a))]
+                r.face([(*q, d+w) for q in ring])
+                r.face([(*ring[1], d-w), (*ring[0], d-w), (*ring[0], d+w), (*ring[1], d+w)], None,
+                       (math.cos((a+c)/2), math.sin((a+c)/2), 0))
+            for k in range(6):
+                th = math.pi/2+2*math.pi*k/6+j*.21
+                _petal(r, x+rr*.10*math.cos(th), z+rr*.10*math.sin(th), th, rr*.86, rr*.62, d-.006, rr*.16)
+                if j < len(rings):
+                    th += math.pi/6
+                    _petal(r, x+rr*.30*math.cos(th), z+rr*.30*math.sin(th), th, rr*.62, rr*.46, .014, rr*.12)
+            r.bead(x, z, d+.012, rr*.16)
+            continue
+        _roundel(r, x, z, rr, d, j)
+        if j == len(rings):
+            continue
+        # A second whorl of smaller leaves between the rosette's, so the ring
+        # reads full of foliage pierced between, as photographed.
+        for k in range(6):
+            th = math.pi/2+2*math.pi*(k+.5)/6+j*.21
+            r.leaf(x+rr*.30*math.cos(th), z+rr*.30*math.sin(th), th, rr*.62, rr*.46, .014, rr*.12,
+                   (.2 if k % 2 else -.2), False, j+k, 7)
+    # The ground between the rings, crowded with leaves sprung outward and up
+    # from the trunk's root; where they leave it bare it shows the shadow behind.
+    near = [(x-cx, z-cz, rr) for x, z, rr in rings]
+    # Every ring sprouts leaves off its outside, curling on round it as a scroll.
+    for j, (x, z, rr) in enumerate(near):
+        side = 1 if x > 0 else -1
+        for k, th in enumerate((-.35, .55, 1.45, 2.35, 3.25)):
+            th = math.pi/2-side*(math.pi/2-th)
+            px, pz = x+rr*1.02*math.cos(th), z+rr*1.02*math.sin(th)
+            if math.hypot(px, max(pz, 0)) > F*.90 or abs(px) < F*.10 or pz < -stilt+F*.04:
+                continue
+            ang = th-side*math.pi*.42
+            _leaf(r, low, cx+px, cz+pz, ang, rr*.62, rr*.40, .013, .015, -.18*side, True, j+k*.6, 8)
+    for j, (x, z) in enumerate(_field_fill(F, near, F*.10, .025, .11, -stilt, .25)):
+        ang = math.atan2(z+F*.35, x)+(.35 if (j//2) % 2 else -.25)*(1 if x > 0 else -1)
+        _leaf(r, low, cx+x-math.cos(ang)*F*.07, cz+z-math.sin(ang)*F*.07, ang, F*.16, F*.11, .012, .016,
+              .16*(1 if x > 0 else -1), True, j*.37, 8)
+    # The small half-boss at the trunk's root.
+    k = 6 if low else 16
+    r.solid([(cx+F*.12*math.cos(math.pi*i/k), foot+F*.12*math.sin(math.pi*i/k)) for i in range(k+1)], -.020, .012)
 
 
 def fan(b, o):
@@ -281,6 +537,12 @@ def fan(b, o):
     `o['stilt']` over the spring line, every ring run plumb down to it), and the
     field's roundels are the sheet's eight, at its places and sizes, on stems
     from the boss at the foot, where the record had five on a mirrored trunk.
+
+    T-3381 rebuilt the rims and field to the owner's photographs of 2026-11-05,
+    which govern over the sheet's shorthand: inside out, a tree of ringed scrolls
+    either side of a flared trunk, pierced to shadow; a thin plain rim stepped
+    out; a rounded roll of carved blocks drilled between the leaves; and a flat
+    outer rim sunk with square pockets (bands_and_field).
     """
     conf=b.params.detail.get('conf',o['conf'])
     # The colour photographs show the tympanum cut in the wall's own pink granite,
@@ -305,79 +567,7 @@ def fan(b, o):
         r.solid([(cx+bed_radius,cz-stilt)]+[(cx+bed_radius*math.cos(math.pi*i/80),cz+bed_radius*math.sin(math.pi*i/80))
                  for i in range(81)]+[(cx-bed_radius,cz-stilt)],-.065,-.045)
     R=rad+.04
-    # Outer frame: a fillet, the billet channel, a fillet.
-    _plumb_arc(r,cx,cz,R-.012,.034,.012,stilt)
-    _annulus(r,cx,cz,R*.885,R-.02,-.045,.004)
-    _legs(r,cx,cz,R*.885,R-.02,-.045,.004,stilt)
-    count=33
-    for i in range(count):
-        th=math.pi*(i+.5)/count;da=math.pi/count*.30
-        poly=[(cx+rr*math.cos(aa),cz+rr*math.sin(aa))
-              for rr,aa in [(R*.902,th-da*1.08),(R-.032,th-da),(R-.032,th+da),(R*.902,th+da*1.08)]]
-        _boss(r,poly,.004,.040,.16)
-    # The sheet draws the billets on down the plumb legs at the same pitch.
-    pitch=(R*.95)*math.pi/count
-    for k in range(int(stilt/pitch+.5)):
-        z=cz-pitch*(k+.5)
-        for sign in (-1,1):
-            x0,x1=sorted((cx+sign*R*.902,cx+sign*(R-.032)))
-            _boss(r,[(x0,z-pitch*.3),(x1,z-pitch*.3),(x1,z+pitch*.3),(x0,z+pitch*.3)],.004,.040,.16)
-    _plumb_arc(r,cx,cz,R*.878,.030,.010,stilt)
-    # The archivolt: a carved band of radiating palmettes, drilled between.
-    _annulus(r,cx,cz,R*.705,R*.868,-.045,-.004)
-    _legs(r,cx,cz,R*.705,R*.868,-.045,-.004,stilt)
-    band=R*.786;size=R*.150
-    for i in range(23):
-        th=math.pi*(i+.5)/23
-        base=(cx+(band-size*.5)*math.cos(th),cz+(band-size*.5)*math.sin(th))
-        r.leaf(*base,th,size,size*.62,.004,.022,.06,True,i*.37,11)
-        for side in (-1,1):
-            r.leaf(*base,th+side*.62,size*.74,size*.42,.000,.018,side*.20,True,i*.29+side,9)
-    for i in range(24):
-        th=math.pi*i/23
-        r.bead(cx+band*math.cos(th),cz+band*math.sin(th),.012,.0085)
-    # Torus roll and fillet framing the field.
-    _plumb_arc(r,cx,cz,R*.690,.026,.018,stilt)
-    _plumb_arc(r,cx,cz,R*.655,.010,.008,stilt)
-    F=R*.640
-    # The field: HABS sheet 5's roundels on stems from the boss at the foot.
-    foot=(cx,cz-stilt+F*.10)
-    def stem(points,depth=.020,width=.011):
-        # About a centimetre a ring: a short stem sampled as finely as a long
-        # one folds its rings into each other at the bend.
-        span=math.hypot(points[3][0]-points[0][0],points[3][1]-points[0][1])
-        r.tube(_bezier(points,depth,max(4,min(20,round(span/.012)))),width,8)
-    rings=[(cx+x*F,cz+z*F,rr*F) for x,z,rr in FIELD_ROUNDELS]
-    for j,(parent,child) in enumerate(FIELD_STEMS):
-        x,z,rr=rings[child]
-        p0=foot if parent<0 else rings[parent][:2]
-        dx,dz=x-p0[0],z-p0[1];length=math.hypot(dx,dz) or 1.
-        # The stem meets its ring on the side that faces where it came from, and
-        # leaves its parent a little out along its own way: stems rooted at one
-        # point would cap on top of each other (T-2267's coincident faces).
-        # Both ends sink into the ring's own roll, so no cap lies on its surface.
-        p3=(x-dx/length*rr*.93,z-dz/length*rr*.93)
-        out=F*.05 if parent<0 else rings[parent][2]*.93
-        p0=(p0[0]+dx/length*out,p0[1]+dz/length*out)
-        bend=(-dz/length,dx/length);s=(1 if j%2 else -1)*.18*length
-        p1=(p0[0]+(p3[0]-p0[0])*.33+bend[0]*s,p0[1]+(p3[1]-p0[1])*.33+bend[1]*s)
-        p2=(p0[0]+(p3[0]-p0[0])*.66-bend[0]*s,p0[1]+(p3[1]-p0[1])*.66-bend[1]*s)
-        stem([p0,p1,p2,p3],.022 if parent<0 else .020,.014 if parent<0 else .011)
-        # Leaves off each stem's middle fill the field, as the drilled foliage does.
-        mid=_bezier([p0,p1,p2,p3],0,2)[1]
-        ang=math.atan2(dz,dx)
-        for side in (-1,1):
-            r.leaf(mid[0],mid[1],ang+side*1.05,F*.16,F*.09,.016,.016,side*.16,True,j*.5+side,10)
-    for j,(x,z,rr) in enumerate(rings):
-        _roundel(r,x,z,rr,.024+.002*(j%3),j)
-    # The small half-boss the drawing shows at the foot.
-    fz=cz-stilt
-    r.solid([(cx+F*.14*math.cos(math.pi*i/16),fz+F*.14*math.sin(math.pi*i/16)) for i in range(17)],-.045,.012)
-    # Each blade roots a little out from the boss's centre: five blades from one
-    # point crowd their first row into sub-millimetre slivers (T-2267).
-    for j in range(5):
-        th=math.pi*(j+.5)/5
-        r.leaf(cx+F*.03*math.cos(th),fz+.004+F*.03*math.sin(th),th,F*.13,F*.075,.012,.010,0,False,steps=6)
+    bands_and_field(r,cx,cz,R,stilt)
 
 
 def sill(b, o):
@@ -490,12 +680,16 @@ def _block(r,u,low,z1,neck,half,depth,sides=32,rows=10):
     r.face(rings[-1],normal=(0,1,0))
 
 
-def _volute(r,x,z,radius,mirror,depth,turns=1.5,thick=.019):
-    """A flat spiral scroll, coiling inward, as the corners of the 2013 close-ups."""
+def _volute(r,x,z,radius,mirror,depth,turns=1.5,thick=.019,shrink=.82):
+    """A flat spiral scroll, coiling inward, as the corners of the 2013 close-ups.
+
+    ``shrink`` is how far in it coils (its eye at radius*(1-shrink)); a smaller block
+    (T-3343's north capitals) coils less, so its eye stays wider than the tube is thick
+    and K01 does not count the tube's folded rings as coincident faces."""
     path=[]
     for i in range(41):
         t=i/40;th=math.pi*.5+mirror*2*math.pi*turns*t
-        rr=radius*(1-.82*t)
+        rr=radius*(1-shrink*t)
         path.append((x+rr*math.cos(th),z+rr*math.sin(th),depth))
     r.tube(path,lambda t:thick*(1-.4*t),7)
 
@@ -590,7 +784,7 @@ def _capital(r,u,low,z1,neck,half,spec,depth=.07):
     if spec.get('volutes',True):
         for m in (-1,1):
             x,z=F(m*.66,.64)
-            _volute(rb,x,z,half*.27,-m,.014)
+            _volute(rb,x,z,half*.27,-m,.014,shrink=spec.get('volute_shrink',.82))
             # The stem that ends in each volute rises from the block's foot.
             rb.tube([(*F(m*.12,.30),.006),(*F(m*.40,.46),.010),(*F(m*.62,.58),.010),
                      (x+m*half*.02,z+half*.25,.014)],.016,7)
@@ -634,7 +828,38 @@ def _capital(r,u,low,z1,neck,half,spec,depth=.07):
                      for t in (i/16 for i in range(17))],lambda t:.009*(1-.3*t),7)
 
 
-def columns(b, params):
+def colonnette(r,u,z0,z1,gap,spec,cap,reduced=False):
+    """T-2965/T-3343: one Glessner colonnette between two lights, z0 sill to z1 head.
+
+    A splayed square base, a straight-tapered round shaft and a carved block capital,
+    the round front of a stone mullion flush with the wall's face; ``r`` is a Relief in
+    the lights' plane, ``u`` the mullion's centre and ``gap`` the lights' clear spacing.
+    ``spec`` is a record stock (prairie_colonnette or north_pair_colonnette): its
+    heights are shares of the opening, or ``base_m``/``capital_m`` outright. ``cap`` is
+    the capital's own carving. ``reduced`` is the light tier's recipe (fewer facets,
+    the band as one raised course and three leaf tips, the body's carving omitted)."""
+    h=z1-z0
+    foot=spec.get('shaft_foot_m',gap*1.24)/2;neck=spec.get('shaft_neck_m',gap*.98)/2
+    half=spec.get('abacus_m',gap*2.3)/2
+    base=z0+(spec['base_m'] if 'base_m' in spec else h*spec.get('base_share',.13))
+    low=z1-(spec['capital_m'] if 'capital_m' in spec else h*spec.get('capital_share',.33))
+    depth=-foot
+    r.box(u-gap*.5-.004,u+gap*.5+.004,base,low,-spec.get('mullion_depth_m',.46),depth)
+    _splayed_base(r,u,z0,base,spec.get('base_foot_m',gap*1.8)/2,foot+.008,depth)
+    if reduced:
+        _taper(r,u,base,low,foot,neck,depth,12)
+        top=z1-.012;ch=top-low
+        _block(r,u,low,top,neck,half,depth,16,5)
+        r.box(u-half*.92,u+half*.92,low+ch*.82,top-.01,depth+half-.01,depth+half+.012)
+        for j in range(3):
+            r.leaf(u+(j-1)*half*.45,low+ch*.12,math.pi*.5+(j-1)*.15,ch*.30,half*.28,
+                   depth+neck+(half-neck)*.30,.02,0,False,steps=4)
+        return
+    _taper(r,u,base,low,foot,neck,depth)
+    _capital(r,u,low,z1,neck,half,cap,depth)
+
+
+def columns(b, params, reduced=False):
     """T-2965: every Prairie colonnette to HABS sheets 3 and 6 and the photographs.
 
     A splayed square base, a straight-tapered round shaft and a carved block capital,
@@ -651,19 +876,30 @@ def columns(b, params):
         gap=c['u0']-a['u1']
         if not .12<gap<.3 or abs(a['z0']-c['z0'])>.05 or abs(a['at']-c['at'])>.05:
             continue
-        u=(c['u0']+a['u1'])/2;z0,z1=a['z0'],a['z1'];h=z1-z0
+        u=(c['u0']+a['u1'])/2
         r=Relief(b,a,params.detail.get('conf',max(a['conf'],c['conf'])),CARVED_GRANITE)
-        foot=spec.get('shaft_foot_m',gap*1.24)/2;neck=spec.get('shaft_neck_m',gap*.98)/2
-        base=z0+h*spec.get('base_share',.13);low=z1-h*spec.get('capital_share',.33)
-        depth=-foot
-        r.box(u-gap*.5-.004,u+gap*.5+.004,base,low,-spec.get('mullion_depth_m',.46),depth)
-        _splayed_base(r,u,z0,base,spec.get('base_foot_m',gap*1.8)/2,foot+.008,depth)
-        _taper(r,u,base,low,foot,neck,depth)
         # The openings run north to south along u (u grows northward); the record
         # lists the capitals south to north, so they are taken in the same order.
-        _capital(r,u,low,z1,neck,spec.get('abacus_m',gap*2.3)/2,
-                 caps[n] if n<len(caps) else {},depth)
+        colonnette(r,u,a['z0'],a['z1'],gap,spec,caps[n] if n<len(caps) else {},reduced)
         n+=1
+
+
+def north_pairs(b, params, conf):
+    """T-3343: the two 18th Street pairs' colonnettes, the front's kind (HABS 13/14).
+
+    Each north_gable_pair is two lights either side of a colonnette; the record's
+    north_pair_colonnette holds their stock and, east to west, each capital's carving."""
+    spec=params.detail.get('north_pair_colonnette') or {}
+    caps=spec.get('capitals') or []
+    ops=sorted([o for o in params.openings if o.get('style')=='north_gable_pair'],key=lambda o:o['u0'])
+    reduced=getattr(b,'reduced_sash',False)
+    pairs=[(a,c) for a,c in zip(ops,ops[1:]) if .1<c['u0']-a['u1']<.65]
+    # u grows eastward along the north wall; the record lists the capitals east to
+    # west (W from Prairie, as HABS 13 reads them right to left), so walk u backwards.
+    for n,(a,c) in enumerate(reversed(pairs)):
+        r=Relief(b,a,conf,CARVED_GRANITE)
+        colonnette(r,(a['u1']+c['u0'])/2,a['z0'],a['z1'],c['u0']-a['u1'],spec,
+                   caps[n] if n<len(caps) else {},reduced)
 
 
 def build_entry_ornament(b, params, part='all'):

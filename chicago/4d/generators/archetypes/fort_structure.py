@@ -41,7 +41,11 @@ from common.logwork import (  # noqa: E402
 from common import materials  # noqa: E402
 from common import openings  # noqa: E402
 from common.mesh import MeshBuilder, ROOF_RGBA, simple_material  # noqa: E402
-from archetypes.fort_structure_params import FortStructureParams, wall_openings, tower_opening_layout  # noqa: E402
+from archetypes.fort_structure_params import (
+    BARREL_EAVE_M,  # noqa: E402
+    CUPOLA_CAP_PITCH_DEG, CUPOLA_EAVE_M, CUPOLA_HEIGHT_M, CUPOLA_SEAT_M,
+    CUPOLA_SIDE_M, FortStructureParams, tower_opening_layout, wall_openings,
+)
 
 #: This archetype's roof COVERING, off the sheet's dealing rule (T-1487).
 #: `materials.roof_substrate` holds the argument for why it is this one and
@@ -262,7 +266,94 @@ def build(params: FortStructureParams, name: str):
     ob = b.to_object(mats)
     if params.tower_lantern_detail is not None:
         _configure_cage_glass(ob, params)
+    if params.period_brick:
+        _lay_period_brick(ob, params, mats)
     return ob
+
+
+# ------------------------------------------------------------------ period brick
+
+#: The repository root, which a resolved recipe's map paths are relative to.
+_REPO = Path(__file__).resolve().parents[2]
+
+
+def _lay_period_brick(ob, p: FortStructureParams, mats) -> None:
+    """T-3387: lay a K03 period recipe on the brick walls and on the stacks.
+
+    The owner, 2026-11-05: "lay any foundations to apply the appropriate brick to the few
+    1835 buildings with brick or 1812 maybe some of the chimneys"; then, asked, to rebake
+    them with it. Until this every brick surface of the garrison was the sheet's flat brick
+    colour. Now a record that names `period_brick` wears the K03 panel its recipe names (the
+    same picture a 1904 wall embeds, so the renderer's per-brick shuffle, brick-bond.js,
+    finds it by its image name) under the recipe's colour factor.
+
+    THE UVS. The brick has to lie in courses, so it takes K01's metre registration (u along
+    the course, horizontal; v up the wall from a bed joint at grade, over the panel's tile),
+    which a smart projection cannot give. So the brick's map is the mesh's FIRST UV layer,
+    which the exporter writes as TEXCOORD_0, the one the renderer keeps; emit.unwrap's smart
+    projection writes the second, made active here, and nothing reads it. Only the faces of a
+    brick material are registered; the rest of the first layer is zero and no map reads it.
+    glTF's v runs down the image, the exporter writes 1 - v, so the layer holds 1 + height.
+    """
+    me = ob.data
+    slots = list(me.materials)
+    targets = {}
+    if "walls" in p.period_brick:
+        targets[slots.index(mats[M_WALL])] = p.period_brick["walls"]
+    if "stacks" in p.period_brick:
+        targets[slots.index(mats[M_CHIMNEY])] = p.period_brick["stacks"]
+    if len(me.uv_layers):
+        raise RuntimeError(f"{ob.name}: the builder made a UV layer, so the brick's would not be first")
+    brick_uv = me.uv_layers.new(name="brick_uv")
+    me.uv_layers.active = me.uv_layers.new(name="UVMap")
+    for poly in me.polygons:
+        r = targets.get(poly.material_index)
+        if r is None:
+            continue
+        tu, tv = r["tile_m"]
+        nx, ny, nz = poly.normal
+        ax, ay, az = -ny, nx, 0.0                      # up x n: level, along the course
+        h = math.hypot(ax, ay)
+        if h < 1e-3:                                   # a level face: the plan's x and y
+            ax, ay, vx, vy, vz = 1.0, 0.0, 0.0, 1.0, 0.0
+        else:
+            ax, ay = ax / h, ay / h
+            vx, vy, vz = ny * az - nz * ay, nz * ax - nx * az, nx * ay - ny * ax   # n x u: up the face
+        for li in poly.loop_indices:
+            x, y, z = me.vertices[me.loops[li].vertex_index].co
+            brick_uv.data[li].uv = ((x * ax + y * ay) / tu, 1.0 + (x * vx + y * vy + z * vz) / tv)
+    for idx, r in targets.items():
+        _period_brick_nodes(me.materials[idx], r)
+
+
+def _period_brick_nodes(mat, r: dict) -> None:
+    """The panel's base colour times the recipe's factor, and its normal map, on brick_uv."""
+    import bpy
+    nt = mat.node_tree
+    bsdf = nt.nodes["Principled BSDF"]
+    uv = nt.nodes.new("ShaderNodeUVMap")
+    uv.uv_map = "brick_uv"
+    tex = nt.nodes.new("ShaderNodeTexImage")
+    tex.image = bpy.data.images.load(str(_REPO / r["basecolor"]), check_existing=True)
+    nt.links.new(uv.outputs["UV"], tex.inputs["Vector"])
+    mix = nt.nodes.new("ShaderNodeMix")
+    mix.data_type, mix.blend_type = "RGBA", "MULTIPLY"
+    mix.inputs[0].default_value = 1.0
+    mix.inputs[7].default_value = (*r["tone"], 1.0)
+    nt.links.new(tex.outputs["Color"], mix.inputs[6])
+    nt.links.new(mix.outputs[2], bsdf.inputs["Base Color"])
+    ntex = nt.nodes.new("ShaderNodeTexImage")
+    ntex.image = bpy.data.images.load(str(_REPO / r["normal"]), check_existing=True)
+    ntex.image.colorspace_settings.name = "Non-Color"
+    nt.links.new(uv.outputs["UV"], ntex.inputs["Vector"])
+    nm = nt.nodes.new("ShaderNodeNormalMap")
+    nm.uv_map = "brick_uv"
+    nt.links.new(ntex.outputs["Color"], nm.inputs["Color"])
+    nt.links.new(nm.outputs["Normal"], bsdf.inputs["Normal"])
+    # the recipe's shift on the surface's own gloss (a wall's 0.90, a stack's 0.85), so a wall
+    # and a stack in one recipe stay two materials through the web derivative's merge
+    rough = bsdf.inputs["Roughness"]
+    rough.default_value = round(rough.default_value + r["roughness_delta"], 3)
 
 
 # ------------------------------------------------------------------ buildings
@@ -275,7 +366,7 @@ def _building(b: MeshBuilder, p: FortStructureParams) -> None:
     frame_tavern.build and is not repeated here.
     """
     c_mass = p.worst_conf("kind", "stories", "construction")
-    c_roof = p.worst_conf("roof_type", "roof_pitch_deg")
+    c_roof = p.worst_conf("roof_type", "barrel_rise_m" if p.roof_type == "barrel_vault" else "roof_pitch_deg")
     w, d, wz = p.width_m, p.depth_m, p.wall_height_m
     over = p.overhang_m
 
@@ -316,6 +407,8 @@ def _building(b: MeshBuilder, p: FortStructureParams) -> None:
         _gallery(b, p, p.conf("gallery", "reconstructed"))
     if p.chimneys:
         _chimneys(b, p, ridge, p.conf("chimneys", "reconstructed"), M_CHIMNEY)
+    if p.cupola:
+        _cupola(b, p, ridge, p.conf("cupola", "inferred"))
 
 
 #: How far a pitched roof reaches past the wall at its eaves and its rakes. The
@@ -349,6 +442,8 @@ def _roof(b: MeshBuilder, p: FortStructureParams, x0, y0, x1, y1,
     """
     c_wall = conf if c_wall is None else c_wall
     t = math.tan(math.radians(p.roof_pitch_deg))
+    if p.roof_type == "barrel_vault":
+        return _barrel_vault_roof(b, p, x0, y0, x1, y1, eave_z, conf, c_wall)
     if p.roof_type == "none":
         return eave_z
     if p.roof_type == "flat":
@@ -393,6 +488,69 @@ def _roof_plane(b: MeshBuilder, pts, conf: float, ridge_edge: int = None) -> Non
         b.add_poly([a, (a[0], a[1], a[2] - ROOF_EDGE_M),
                     (z[0], z[1], z[2] - ROOF_EDGE_M), z], conf, M_ROOF)
     b.tone_fn = prev
+
+
+def _barrel_vault_roof(b: MeshBuilder, p: FortStructureParams,
+                       x0, y0, x1, y1, eave_z: float, conf: float,
+                       c_wall: float) -> float:
+    """T-3041: a circular-segment magazine roof, its axis along local Y.
+
+    The pictures/owner ruling supply a vault, NOT its radius. The explicit
+    reconstructed rise preserves the old reconstructed gable's peak. Its varying
+    tangent is never called a uniform pitch. Walls, door and footprint stay put.
+    """
+    a = (x1 - x0) / 2.0
+    h = p.barrel_rise_m
+    radius = (a * a + h * h) / (2.0 * h)
+    o = BARREL_EAVE_M
+    if not math.isfinite(radius) or radius <= a + o:
+        raise ValueError("barrel side eave is outside the declared circle")
+    xm = (x0 + x1) / 2.0
+    crown = eave_z + h
+    zc = crown - radius
+    edge = math.asin((a + o) / radius)
+    spring = math.asin(a / radius)
+    # Exact crown and wall-seat samples; 32 arc facets are a mesh resolution,
+    # not a historical count. No radicand clamp or guessed replacement radius.
+    angles = sorted(set([-edge + 2.0 * edge * i / 32 for i in range(33)] +
+                        [-spring, 0.0, spring]))
+    profile = [(xm + radius * math.sin(t), zc + radius * math.cos(t)) for t in angles]
+    lo = profile[0][1]
+    prev = b.tone_fn
+    # One continuous height treatment, not a new random paint for every strip.
+    b.tone_fn = lambda q, _c, _m: (ROOF_EAVE_K +
+        (ROOF_RIDGE_K - ROOF_EAVE_K) * (q[2] - lo) / (crown - lo))
+    for (xa, za), (xb, zb) in zip(profile, profile[1:]):
+        b.add_poly([(xa, y0 - o, za), (xb, y0 - o, zb),
+                    (xb, y1 + o, zb), (xa, y1 + o, za)], conf, M_ROOF)
+    # A closed covering: underside, front/rear fascia and only the TWO outer
+    # side eaves. Per-strip perimeter thickness would put ribs inside the vault.
+    b.tone_fn = lambda _q, _c, _m: ROOF_EAVE_K * ROOF_EDGE_K
+    t = ROOF_EDGE_M
+    for (xa, za), (xb, zb) in zip(profile, profile[1:]):
+        b.add_poly([(xa, y0 - o, za - t), (xa, y1 + o, za - t),
+                    (xb, y1 + o, zb - t), (xb, y0 - o, zb - t)], conf, M_ROOF)
+        b.add_poly([(xa, y1 + o, za), (xb, y1 + o, zb),
+                    (xb, y1 + o, zb - t), (xa, y1 + o, za - t)], conf, M_ROOF)
+        b.add_poly([(xb, y0 - o, zb), (xa, y0 - o, za),
+                    (xa, y0 - o, za - t), (xb, y0 - o, zb - t)], conf, M_ROOF)
+    xa, za = profile[0]
+    xb, zb = profile[-1]
+    b.add_poly([(xa, y0 - o, za), (xa, y1 + o, za),
+                (xa, y1 + o, za - t), (xa, y0 - o, za - t)], conf, M_ROOF)
+    b.add_poly([(xb, y0 - o, zb), (xb, y0 - o, zb - t),
+                (xb, y1 + o, zb - t), (xb, y1 + o, zb)], conf, M_ROOF)
+    b.tone_fn = prev
+    # Only the two brick end infills change above the unchanged rectangular
+    # wall tops. Outward winding: front +Y, rear -Y. Geometry uncertainty follows
+    # the reconstructed rise (larger _CONFIDENCE means more reconstructed).
+    wall = [(xm + radius * math.sin(t), y1, zc + radius * math.cos(t))
+            for t in angles if -spring <= t <= spring]
+    wall[0] = (x0, y1, eave_z)
+    wall[-1] = (x1, y1, eave_z)
+    b.add_poly(wall, max(conf, c_wall), M_WALL)
+    b.add_poly([(x, y0, z) for x, _y, z in reversed(wall)], max(conf, c_wall), M_WALL)
+    return crown
 
 
 def _gable_roof(b: MeshBuilder, p: FortStructureParams, x0, y0, x1, y1, eave_z: float,
@@ -518,8 +676,14 @@ def _gable_wall(b: MeshBuilder, p: FortStructureParams, axis: str, plane: float,
                    M_TRIM)
 
 
+#: How far a hip or a pyramid reaches past the walls it covers. Named rather than
+#: left as a literal default because `_cupola` has to know where the roof surface
+#: under its own footprint actually is, and a copy of this number would drift.
+HIP_OVERHANG_M = 0.28
+
+
 def _hip_roof(b: MeshBuilder, x0, y0, x1, y1, eave_z, pitch_deg, conf,
-              pyramid: bool, overhang: float = 0.28) -> float:
+              pyramid: bool, overhang: float = HIP_OVERHANG_M) -> float:
     """A hip or a pyramid. A pyramid is the degenerate hip whose ridge is a point,
     and a blockhouse gets one because a four-sided pitched cap over a square plan
     is what every surviving blockhouse of the period carries."""
@@ -749,6 +913,61 @@ def _chimneys(b: MeshBuilder, p: FortStructureParams, ridge_z: float,
         b.add_box(x - half_x - 0.08, yc - half_y - 0.08, ridge_z + 0.60,
                   x + half_x + 0.08, yc + half_y + 0.08, ridge_z + 0.78,
                   conf, mat, skip=("bottom",))
+
+
+def _cupola(b: MeshBuilder, p: FortStructureParams, ridge_z: float,
+            conf: float) -> None:
+    """The little square cupola at the apex of a blockhouse's pyramid cap (T-2388).
+
+    Panel 5 of the Kurz & Allison sheet — captioned "Fort Dearborn as rebuilt 1835" —
+    draws the second fort's blockhouse with a small square body at the centre of its
+    four-sided roof, under a cap of its own, and nothing else on the roof at all. The
+    two Wau-Bun reproductions of the 1831 view draw the same body and no separate
+    stack beside it. That is what this builds. **The pictures carry the cupola's
+    OCCURRENCE and not one of its dimensions**: a retrospective chromolithograph is a
+    tier-5 source, form only, never a measurement, and the size, the height, the cap's
+    pitch and the plain boarded sides below it are all reconstructed at a defensible
+    working size in the proportions the panel shows (fort_structure_params, and
+    docs/LIBERTIES.md).
+
+    **It MEETS the roof, it does not balance on it.** A box set down at the apex
+    stands clear of the covering at its own four corners, because the pyramid falls
+    away from the apex in every direction — which would ship a strip of sky under the
+    cupola and, worse, somewhere to hide a stack. So the body's foot is carried
+    CUPOLA_SEAT_M below the lowest the main roof gets anywhere under its footprint,
+    which is at the body's corners; everywhere else along its perimeter the covering
+    is higher still, and the body simply comes up through it. The main roof is not
+    touched: it is the same four planes `_hip_roof` has always laid.
+
+    The cap is `_hip_roof` again, a pyramid of the same covering as the roof below,
+    with its own small eave; `_hip_roof` drops its eave by the overhang's own rise, so
+    the cap passes exactly through the top of the body at the body's wall line.
+
+    Nothing is louvred and nothing is finialled. The 1856 Kellogg/Blanchard print
+    (misleadingly filed as `chicago_fort_dearborn_river_mouth_1830.jpg`) shows a
+    LOUVRED cap and a small ambiguous projection beside it, but it depicts about
+    1836-1849 and may not be backdated onto 1 July 1835; and the lighthouse's birdcage
+    lantern is a different building's fitting, not a part to be reached for because
+    the helper exists.
+    """
+    half = CUPOLA_SIDE_M / 2.0
+    cx, cy = p.width_m / 2.0, p.depth_m / 2.0
+    # The main pyramid, as `_building` laid it: the jetty's outline, then
+    # `_hip_roof`'s own overhang, and its rise is set by the SHORT span.
+    ex = p.overhang_m + HIP_OVERHANG_M
+    half_w, half_d = p.width_m / 2.0 + ex, p.depth_m / 2.0 + ex
+    rise = min(half_w, half_d) * math.tan(math.radians(p.roof_pitch_deg))
+    # How far that surface has fallen below the apex at the body's own corners —
+    # whichever of the two slopes governs there is the one that has fallen further.
+    fall = rise * max(half / half_w, half / half_d)
+    base_z = ridge_z - fall - CUPOLA_SEAT_M
+    eave_z = base_z + CUPOLA_HEIGHT_M
+    # Plain boarded sides, in the building's own wall fabric. The bottom face is
+    # inside the roof cone and is skipped; the top is covered by the cap above it.
+    b.add_box(cx - half, cy - half, base_z, cx + half, cy + half, eave_z,
+              conf, M_WALL, skip=("bottom",))
+    _hip_roof(b, cx - half, cy - half, cx + half, cy + half, eave_z,
+              CUPOLA_CAP_PITCH_DEG, conf, pyramid=True, overhang=CUPOLA_EAVE_M)
 
 
 # ------------------------------------------------------------ ground furniture

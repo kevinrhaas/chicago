@@ -67,12 +67,45 @@ function elmSpec(mode) {
     return { ...spec, puffScale: 0.82, dark: 0x9a7420, light: 0xe8c45a };
   }
   if (mode === 'winter') {
-    // Bare: the summer crown's sprays, drawn from the twig atlas in the grey
-    // brown of elm wood (the twig ink is about 0.44 grey, so these are lifted).
+    // Bare (T-1934, T-3429: wood only, no leaf or twig card); the leaf colours are
+    // kept for any card a caller might still draw.
     return { ...spec, dark: 0x8c8474, light: 0xb8b0a0 };
   }
   return spec;
 }
+
+/**
+ * T-3164 — THE FORMS A PICTURED TREE MAY NAME. A tree read off a picture that
+ * shows its crown plainly unlike the grown elm's fountain carries `form` in
+ * data/street_trees/pictured_1904.json, and grows on that habit at the same
+ * height band, leaf and season; every other tree is the parkway elm. One:
+ * `broad_head`, a young elm still on its leader, the head wide and low from
+ * about a quarter of its height (tree-model.js ARCH.ulmus_americana_young), the
+ * tree before the 1800 Calumet gate in the 1894 plate and Lowe's print. Two:
+ * `limbed_head`, that young elm with its limbs starting about 5 m up (T-1934). Three:
+ * `high_head`, a tall elm on its leader under a narrow head from about half its height
+ * (T-1881), the trees before 1729 Prairie in the Detroit print and Taylor's no. 1445.
+ */
+const FORMS = {
+  // `dbh` is the bole at the height the crown is grown at: a form's few trees grow
+  // their own template at their own height (about 12 m at the record's scale 0.6),
+  // not the parkway elm's 20 m scaled down, so the elm's 0.45-0.70 m would stand
+  // here unscaled. The plate draws this trunk about 0.27 m across at breast height.
+  broad_head: (mode) => ({ ...elmSpec(mode), arch: 'ulmus_americana_young', form: 'parkway_head', spreadK: 0.95,
+    dbh: [0.24, 0.30] }),
+  // T-1934: `limbed_head`, the same young elm clear to about 5 m before its first limbs
+  // (ARCH.ulmus_americana_young_limbed), the tree at 18th Street's Calumet corner in
+  // Taylor's 16555 and 16554.
+  limbed_head: (mode) => ({ ...elmSpec(mode), arch: 'ulmus_americana_young_limbed', form: 'parkway_head_limbed',
+    spreadK: 0.85, dbh: [0.24, 0.30] }),
+  // T-1881: `high_head`, a tall elm on one leader clear to about half its height under a
+  // narrow head (ARCH.ulmus_americana_high), the trees before 1729 Prairie in the Detroit
+  // print and along its 18th Street flank in Taylor's no. 1445: crowns 5-6 m across on trees
+  // 15-20 m tall, boles about 0.3 m.
+  high_head: (mode) => ({ ...elmSpec(mode), arch: 'ulmus_americana_high', form: 'parkway_head_high',
+    spreadK: 0.40, dbh: [0.28, 0.35] }),
+};
+const specFor = (t, mode, elm) => (FORMS[t.form] ? FORMS[t.form](mode) : elm);
 
 async function getJSON(url) {
   const res = await fetch(url, { cache: 'no-cache' });
@@ -94,6 +127,18 @@ const STREET_LEVELS = {
   full: { near: 10, mid: 44, distant: 420 },
   balanced: { near: 10, mid: 40, distant: 380 },
   light: { near: 0, mid: 32, distant: 220 },
+};
+/**
+ * T-3429 — WINTER'S RINGS. A bare elm's `far` level is round wood seated on its limbs
+ * (tree-model.js ELM_BARE_FAR, about 600 triangles a grown elm against summer's 90 of leaf
+ * cards), which past about 160 m (120 m on the phone's tier) is under a pixel a twig; so in
+ * winter the `distant` level, the bole and its limbs, comes in there instead of at the
+ * summer ring, and the many elms beyond it pay for the few nearer ones' branches.
+ */
+const WINTER_LEVELS = {
+  full: { near: 10, mid: 44, distant: 160 },
+  balanced: { near: 10, mid: 40, distant: 150 },
+  light: { near: 0, mid: 32, distant: 120 },
 };
 /**
  * T-2833 — THE CONTEXT CITY'S TREES. The faded city around the district
@@ -144,6 +189,9 @@ function treeCard(t, doc) {
       change_note: (young
         ? 'A young elm planted in a gap in the parkway file, as the 1901 photograph of 1700 Prairie shows one. '
         : 'One of the elms in the grass parkway between the walk and the curb. ')
+        + (t.form === 'broad_head' || t.form === 'limbed_head'
+          ? 'Still a young tree on its leader, its head broad and low over the walk, as the pictures draw it. '
+          : '')
         + (pictured
           ? 'It stands where photographs of the 1890s show a tree on this parkway.'
           : 'The 1887-91 photograph from this walk at 18th Street shows a single file of tall elms; '
@@ -238,12 +286,15 @@ export async function createStreetTrees({
     // them at its record's smaller scale. Each variant is a megabyte and more of
     // geometry, and a parkway of one age is the case where siblings read true.
     const spec = elmSpec(wantMode);
-    const rings = STREET_LEVELS[wantDetail] ?? STREET_LEVELS.full;
+    const LV = wantMode === 'winter' ? WINTER_LEVELS : STREET_LEVELS;
+    const rings = LV[wantDetail] ?? LV.full;
+    // T-3164: a form only one or two pictured trees name grows as many crowns as it has trees.
     const grown = new TreeInstances({ level: wantDetail, shadowM: rings.mid, name: 'street-trees',
-      variants: () => Math.min(variants, 3), levels: STREET_LEVELS, fadeS: FADE_S, castFar: true });
+      variants: (count) => Math.max(1, Math.min(variants, 3, count)), levels: LV, fadeS: FADE_S,
+      castFar: true });
     for (const p of placed) {
       const sc = p.t.scale ?? 1;
-      p.h = grown.add(spec, p.t.e, p.y, -p.t.n, sc,
+      p.h = grown.add(specFor(p.t, wantMode, spec), p.t.e, p.y, -p.t.n, sc,
         { yaw: (p.t.yaw_deg ?? 0) * Math.PI / 180, variant: p.variant });
     }
     const background = contextTrees?.(wantDetail) ?? [];

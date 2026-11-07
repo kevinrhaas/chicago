@@ -77,6 +77,77 @@ class JauntTests(unittest.TestCase):
             self.assertFalse(errors)
             self.assertLessEqual(len(files['catalog.json'].encode()), 30000)
 
+    def test_stop_hour(self):
+        """T-3328: a stop's hour is a time the setting knows, resting on the stop's own claims."""
+        stop = self.doc['stops'][0]
+        stop.update(hour='sunset', date='1812-06-17', hour_evidence=[stop['evidence'][0]])
+        self.compiler.validate(self.doc)
+        stop['hour'] = '18:40'
+        self.compiler.validate(self.doc)
+        stop['hour'] = 'teatime'
+        self.bad('schema')
+        stop['hour'] = 'sunset'
+        stop['hour_evidence'] = ['missing']
+        self.bad("among the stop's own evidence")
+        del stop['hour_evidence']
+        self.bad('an hour needs hour_evidence')
+        stop['hour_evidence'] = [stop['evidence'][0]]
+        stop['date'] = '1812-02-30'
+        self.bad('is not a day')
+        del stop['hour']
+        self.bad('a date or hour_evidence needs an hour')
+        with patch('compile_jaunts.time_names', return_value=frozenset({'morning'})):
+            stop.update(hour='sunset', date='1812-06-17')
+            self.bad('neither HH:MM nor a named time')
+
+    def test_stop_since(self):
+        """T-3406: a stop's "Four hours later" says the gap its date and hour already show."""
+        doc = json.loads((ROOT / 'data/jaunts/killing-of-jean-lalime.json').read_text())
+        compiler = Compiler(scene_id='1812')
+        compiler.validate(doc)
+        gate, flight = doc['stops'][5], doc['stops'][6]
+        self.assertEqual((gate['hour'], flight['hour'], flight['since']), ('sunset', '23:20', 'Four hours later'))
+        def bad(text):
+            with self.assertRaisesRegex(ValueError, text): compiler.validate(doc)
+        # A stop's hour moves and its lead does not: refused, naming the real gap.
+        flight['hour'] = '21:20'; doc['stops'][7]['since'] = 'Eleven hours later'
+        bad(r"since 'Four hours later' does not say the 2\.0 hours from the-gate")
+        for said in ('Two hours later', 'A few hours later', 'That night', '2 hours later'):
+            flight['since'] = said; compiler.validate(doc)
+        for said in ('Two hour later', 'An hours later', 'Six months later', 'The next morning', 'Soon after'):
+            flight['since'] = said; bad('does not say')
+        flight['hour'] = '23:20'; flight['since'] = 'Four hours later'; doc['stops'][7]['since'] = 'Nine hours later'
+        # Sunset is solved on the stop's own day: 17 June 1812 at Chicago is 19:20 on the grid,
+        # eighty minutes after the quarrel's 18:00.
+        gate['since'] = 'Eighty minutes later'; compiler.validate(doc)
+        gate['since'] = 'Twenty minutes later'; bad('does not say the 1.3 hours')
+        gate['since'] = 'An hour later'
+        # Every stop after the first carries one, the first none; both ends need a clock.
+        del doc['stops'][2]['since']; bad('every stop after the first needs a since')
+        doc['stops'][2]['since'] = 'Nine months later'
+        doc['stops'][0]['since'] = 'Long before'; bad('the first stop has no stop before it')
+        del doc['stops'][0]['since']
+        doc['stops'][3]['hour'] = 'daytime'; bad('cannot count from or to "daytime"')
+        doc['stops'][3]['hour'] = 'afternoon'
+        doc['stops'][3]['since'] = 'five weeks later!'; bad('schema')
+
+    def test_long_form_and_leg_mode(self):
+        """T-3355: long-form stops run to 150 words; a leg's own mode is one the jaunt allows."""
+        stop = self.doc['stops'][0]
+        stop['text'] = ' '.join(['word'] * 120)
+        self.bad('text needs 25–60 words')
+        self.doc['long_form'] = True
+        self.compiler.validate(self.doc)
+        stop['text'] = ' '.join(['word'] * 151)
+        self.bad('text needs 25–150 words')
+        stop['text'] = ' '.join(['word'] * 30)
+        self.doc['legs'] = [{'note': 'A long ride.', 'evidence': [self.doc['evidence'][0]['id']], 'mode': 'teleport'}]
+        self.bad('schema')
+        self.doc['legs'][0]['mode'] = 'instantly'
+        self.compiler.validate(self.doc)
+        self.doc['allowed_modes'] = [self.doc['default_mode']]
+        self.bad('leg mode not allowed')
+
     def test_dangling_id(self):
         self.doc['stops'][0]['destination']['id'] = 'missing'; self.bad('dangling')
 

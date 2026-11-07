@@ -1,0 +1,280 @@
+{
+  "method": "Actual published /1904/ app at 390x780, `full`; animation paused after readiness; each stand renders the same held frame with the far shadow twins off (buildings.farShadow.on=false), off again (control), on, and with no structure casting (the positive control); triangles from renderer.info, every pixel with gl.readPixels in the same task as the render.",
+  "viewport": {
+    "width": 390,
+    "height": 780
+  },
+  "detail": "full",
+  "boot": {
+    "scene": "1904",
+    "detail": "full",
+    "budget": {
+      "drawCalls": 7800,
+      "triangles": 4700000
+    },
+    "build": "0.1.0",
+    "twins": 334,
+    "twinTriangles": 355080,
+    "twinVertices": 291609,
+    "buildMs": 449,
+    "readyMs": 25818
+  },
+  "errors": [],
+  "bad": [],
+  "stands": [
+    {
+      "name": "alley-from-north",
+      "tierHasItOn": true,
+      "pieces": 334,
+      "swapped": 231,
+      "saved": 1052343,
+      "off": {
+        "triangles": 5421138,
+        "drawCalls": 2751
+      },
+      "on": {
+        "triangles": 4446393,
+        "drawCalls": 2768,
+        "withinBudget": true,
+        "farBudget": {
+          "triangles": 7325000,
+          "drawCalls": 8500
+        },
+        "withinFarBudget": true
+      },
+      "pixels": 304200,
+      "pixelsDiffering": 0,
+      "pixelsDifferingOver8": 0,
+      "maxChannelDelta": 0,
+      "differingAt": [],
+      "controlOffOffPixelsDiffering": 0,
+      "controlPixelsDifferingWithNoStructureCasting": 83102,
+      "problems": 0
+    },
+    {
+      "name": "glessner-18th-far-west",
+      "tierHasItOn": true,
+      "pieces": 334,
+      "swapped": 295,
+      "saved": 1183002,
+      "off": {
+        "triangles": 5228965,
+        "drawCalls": 1804
+      },
+      "on": {
+        "triangles": 4382751,
+        "drawCalls": 1830,
+        "withinBudget": true,
+        "farBudget": {
+          "triangles": 7325000,
+          "drawCalls": 8500
+        },
+        "withinFarBudget": true
+      },
+      "pixels": 304200,
+      "pixelsDiffering": 9,
+      "pixelsDifferingOver8": 0,
+      "maxChannelDelta": 5,
+      "differingAt": [
+        [
+          149,
+          405,
+          2
+        ],
+        [
+          152,
+          405,
+          5
+        ],
+        [
+          153,
+          405,
+          1
+        ],
+        [
+          154,
+          386,
+          1
+        ],
+        [
+          153,
+          383,
+          1
+        ],
+        [
+          154,
+          381,
+          1
+        ],
+        [
+          155,
+          381,
+          1
+        ],
+        [
+          154,
+          380,
+          2
+        ],
+        [
+          156,
+          380,
+          1
+        ]
+      ],
+      "controlOffOffPixelsDiffering": 0,
+      "controlPixelsDifferingWithNoStructureCasting": 790,
+      "problems": 0
+    },
+    {
+      "name": "glessner-prairie-far-se",
+      "tierHasItOn": true,
+      "pieces": 334,
+      "swapped": 257,
+      "saved": 819859,
+      "off": {
+        "triangles": 6997527,
+        "drawCalls": 2768
+      },
+      "on": {
+        "triangles": 6205942,
+        "drawCalls": 2766,
+        "withinBudget": false,
+        "farBudget": {
+          "triangles": 7325000,
+          "drawCalls": 8500
+        },
+        "withinFarBudget": true
+      },
+      "pixels": 304200,
+      "pixelsDiffering": 108,
+      "pixelsDifferingOver8": 10,
+      "maxChannelDelta": 16,
+      "differingAt": [
+        [
+          110,
+          413,
+          1
+        ],
+        [
+          131,
+          412,
+          4
+        ],
+        [
+          120,
+          410,
+          1
+        ],
+        [
+          12,
+          404,
+          2
+        ],
+        [
+          12,
+          403,
+          3
+        ],
+        [
+          13,
+          403,
+          1
+        ],
+        [
+          12,
+          402,
+          2
+        ],
+        [
+          13,
+          402,
+          1
+        ],
+        [
+          109,
+          398,
+          1
+        ],
+        [
+          109,
+          397,
+          1
+        ],
+        [
+          109,
+          396,
+          1
+        ],
+        [
+          109,
+          395,
+          1
+        ],
+        [
+          109,
+          394,
+          1
+        ],
+        [
+          1,
+          393,
+          1
+        ],
+        [
+          109,
+          393,
+          1
+        ],
+        [
+          1,
+          392,
+          1
+        ],
+        [
+          108,
+          392,
+          1
+        ],
+        [
+          1,
+          391,
+          1
+        ],
+        [
+          2,
+          391,
+          1
+        ],
+        [
+          1,
+          390,
+          1
+        ],
+        [
+          2,
+          390,
+          1
+        ],
+        [
+          2,
+          388,
+          1
+        ],
+        [
+          143,
+          388,
+          1
+        ],
+        [
+          144,
+          388,
+          1
+        ]
+      ],
+      "controlOffOffPixelsDiffering": 0,
+      "controlPixelsDifferingWithNoStructureCasting": 39231,
+      "problems": 0
+    }
+  ]
+}

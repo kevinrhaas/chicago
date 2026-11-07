@@ -17,7 +17,7 @@
  *
  *   shrubs    the nursery shrubs of an 1890s yard (YARD_PLANTS): lilac, Van Houtte's
  *             spiraea, the smooth hydrangea in its July flower, the garden rose in bloom,
- *             arborvitae sheared to a cone or a ball;
+ *             arborvitae sheared to a cone or a ball, or clipped to a column (Pullman's terrace);
  *   trees     a young maple or linden in the lawn, as the 1816 and Pullman photographs show;
  *   beds      a round or oval bed cut in the lawn, bedded out as the period's books lay them:
  *             scarlet or pink geraniums massed, or edged with coleus;
@@ -25,7 +25,10 @@
  *   tubs      Pullman's summer tub plants (T-1934): a clipped standard, cone or column, or a
  *             palm out of the palm house, in a painted tub, at grade or up on the palm house's
  *             terrace, where the 1894 plate and Taylor's 16555 stand them. Their rows carry two more numbers, what the tub stands on above the
- *             ground (the terrace floor, read off the baked model) and the tub's height.
+ *             ground (the terrace floor, read off the baked model) and the tub's height, and may
+ *             name the vessel (T-1881): 'box', a square planting box on legs (the boxed
+ *             standards before the 1800 Calumet conservatory, Lowe's c. 1897 print), or 'over',
+ *             a plant grown over the box of the row at its own spot, its foot the height given.
  *
  * WHAT IS EVIDENCE. Pullman's ivy and its shrub border along 18th Street are in the Detroit
  * Publishing views and are attested; 1912's ivy is in a later photograph, so inferred; the
@@ -43,11 +46,21 @@ import { resolveBases } from './scene-loader.js';
 import { patchSeason } from './season.js';
 
 const CONF = { attested: 0, inferred: 0.5, reconstructed: 1 };
+// The level-topped ivy of a stretch a picture shows wholly clothed (T-1881): the mantle itself,
+// the low patch under a window's sill and the patch standing on a window's head.
+const MANTLES = new Set(['mantle', 'mantle_sill', 'mantle_head']);
 const BED_LIFT_M = 0.07;
 const LOAM = 0x3b2c1f;
 /** A planting tub: a round staved tub painted the period's dark garden green (T-1934). */
 const TUB_PAINT = 0x2d3b2a;
 const TUB_SEG = 12;
+/** T-1881: a planting box's corner posts, which print paler than its panels in Lowe's c. 1897
+ *  photograph of the conservatory lawn: drawn a painted stone white. */
+const BOX_POST_PAINT = 0xb9b4a4;
+/** A planting box's half-width (Lowe's print: the near box's face 50 px across at 26.8 m, about
+ *  0.95 m) and how far its panels stand clear of the lawn on its legs (0.1 m). */
+const BOX_HALF_M = 0.47;
+const BOX_LEGS_M = 0.1;
 /**
  * The plants, as tree-model.js grows them (`arch` its ARCH habit; `h` and `crownW` the
  * plant's band, metres; `dark`/`light` its July leaf; `bloom` the flower it carries on
@@ -66,12 +79,17 @@ export const YARD_PLANTS = {
     bloom: { shape: 'cup', rgb: [196, 30, 52], size_m: [0.08, 0.11], height_frac: 0.4 } },
   arborvitae: { speciesId: 'thuja_occidentalis', common: 'American arborvitae', h: [2.0, 3.2],
     crownW: [0.9, 1.3], dbh: [0.05, 0.08], dark: 0x1f361b, light: 0x4f6c34, bark: 0x6b5444, evergreen: true },
+  // T-1934: the Pullman palm house terrace's clipped columns (Taylor's 16554 and 16555).
+  column: { speciesId: 'thuja_column', arch: 'thuja_column', common: 'arborvitae clipped to a column',
+    h: [2.6, 3.8], crownW: [0.45, 1.0], dbh: [0.05, 0.08], dark: 0x1f361b, light: 0x4f6c34, bark: 0x6b5444,
+    evergreen: true },
   globe: { speciesId: 'thuja_globe', arch: 'thuja_globe', common: 'arborvitae sheared to a ball',
     h: [0.8, 1.15], crownW: [0.9, 1.25], dbh: [0.02, 0.03], dark: 0x213a1c, light: 0x55723a,
     bark: 0x6b5444, evergreen: true },
+  // `own`: each is grown to its own height and width (T-1881), so its head stays a ball.
   standard: { speciesId: 'standard_ball', common: 'evergreen clipped to a ball on a clear stem',
     h: [1.4, 2.6], crownW: [1.1, 1.6], dbh: [0.03, 0.05], dark: 0x213a1c, light: 0x55723a,
-    bark: 0x7a6e5e, evergreen: true },
+    bark: 0x7a6e5e, evergreen: true, own: true },
   // T-1934: the palm house's palm set out on its terrace for the summer (Taylor's 16555).
   palm: { speciesId: 'phoenix_tub', common: 'palm from the palm house, set out in its tub',
     h: [1.4, 2.4], crownW: [1.8, 2.6], dbh: [0.05, 0.07], dark: 0x2a4320, light: 0x6f8a45,
@@ -113,6 +131,85 @@ const SEASON = {
   winter: { leafCover: 0 },
 };
 
+/**
+ * T-3399 — EACH PLANT'S OWN SEASON. The owner (2026-11-06) set the Season to fall and
+ * saw the elms turn while the yards' lilacs, maples and lindens stayed July green.
+ * Each plant now takes its own leaf for the day the Season shows (season.js
+ * SEASON_DAY: 15 April, 15 October, 15 February since T-3437), as the species generally looks
+ * in a Chicago yard then: `dark`/`light` its leaf, `crown` how much of it is out
+ * (tree-model.js leafCover/leafScale; the SEASON row above when absent), `bloom`
+ * what flowers or fruit it carries (null: none). Winter is the SEASON row's bare
+ * crown for every deciduous plant. A viewing choice under liberty L-season-view-2864,
+ * like the rest of the Season; no record of these yards on those days stands behind it.
+ *   lilac       leafing by mid-April (it leafs early), and in October still a
+ *               dull olive green: a lilac drops its leaves late and barely turns
+ *   spiraea     small fresh leaves in April; orange to wine red in October
+ *   hydrangea   cut back in winter, so in April only low new shoots; yellowing in
+ *               October, its heads dried on the stem to tan
+ *   rose        bronze-red new leaf in April; in October a tired olive leaf and hips
+ *   maple       sugar maple: yellow-green flower and first leaf; orange-scarlet in fall
+ *   linden      fresh leaf in April; clear yellow and thinning in October
+ *   arborvitae  evergreen, but American arborvitae bronzes in a hard winter
+ *   ivy         Boston ivy: small bronze leaves in April, crimson in October, bare in
+ *               winter (the stems stay on the wall)
+ *   bedding     geraniums and coleus are set out after the frosts, late May, and come
+ *               up at the first frost; on 15 October they are still in the beds
+ * The tubbed plants are under glass from the first frost to late May, so only the
+ * summer Season stands them out (the tubs with them).
+ */
+const SEASON_LOOK = {
+  lilac: {
+    spring: { dark: 0x46602c, light: 0x9cbc62, crown: { leafCover: 0.8, leafScale: 0.75 } },
+    fall: { dark: 0x3c4a26, light: 0x7f8648, crown: { leafCover: 0.88, leafScale: 0.95 } },
+  },
+  spiraea: {
+    spring: { dark: 0x55702e, light: 0xa8c46a, crown: { leafCover: 0.65, leafScale: 0.55 } },
+    fall: { dark: 0x6a2c1a, light: 0xc8743c },
+  },
+  hydrangea: {
+    spring: { dark: 0x4e6a2a, light: 0x9ab85c, crown: { leafCover: 0.35, leafScale: 0.4 }, bloom: null },
+    fall: { dark: 0x7a6a2a, light: 0xc8b462, crown: { leafCover: 0.6, leafScale: 0.85 },
+      bloom: { shape: 'head', rgb: [170, 142, 102], size_m: [0.11, 0.16], height_frac: 0.55 } },
+  },
+  rose: {
+    spring: { dark: 0x5a3a28, light: 0x9a8048, crown: { leafCover: 0.45, leafScale: 0.45 }, bloom: null },
+    fall: { dark: 0x4a4424, light: 0x8e7a3c, crown: { leafCover: 0.6, leafScale: 0.85 },
+      bloom: { shape: 'cup', rgb: [186, 58, 28], size_m: [0.02, 0.03], height_frac: 0.45 } },
+  },
+  maple: {
+    spring: { dark: 0x6d7a35, light: 0xc3cf7a, crown: { leafCover: 0.5, leafScale: 0.45 } },
+    fall: { dark: 0x9c3a10, light: 0xf0a030, crown: { leafCover: 0.75, leafScale: 0.9 } },
+  },
+  linden: {
+    spring: { dark: 0x5a7430, light: 0xb0cc6c, crown: { leafCover: 0.55, leafScale: 0.5 } },
+    fall: { dark: 0xa07818, light: 0xf2c844, crown: { leafCover: 0.6, leafScale: 0.85 } },
+  },
+  arborvitae: { winter: { dark: 0x3a3a1e, light: 0x78703c } },
+  globe: { winter: { dark: 0x3a3a1e, light: 0x78703c } },
+  column: { winter: { dark: 0x3a3a1e, light: 0x78703c } },
+  geranium: { fall: { dark: 0x34462a, light: 0x6c7a44 } },
+  geranium_pink: { fall: { dark: 0x34462a, light: 0x6c7a44 } },
+  coleus: { fall: { dark: 0x4a1424, light: 0x8a2a34 } },
+  ivy: {
+    spring: { dark: 0x5a2c1c, light: 0xa86a40, crown: { leafCover: 0.35, leafScale: 1 } },
+    fall: { dark: 0x701612, light: 0xd0402a, crown: { leafCover: 0.85, leafScale: 1 } },
+  },
+};
+/** Bedding plants are in the beds from late May to the first hard frost. */
+const BEDDED = { summer: true, fall: true };
+
+/** A plant's spec as the Season shows it: its own leaf, crown and bloom for the day. */
+export function seasonSpec(key, spec, mode) {
+  const look = SEASON_LOOK[key]?.[mode];
+  if (!look) return spec;
+  const out = { ...spec, dark: look.dark ?? spec.dark, light: look.light ?? spec.light };
+  if (look.crown) out.seasonCrown = look.crown;
+  if ('bloom' in look) {
+    if (look.bloom) out.bloom = look.bloom; else delete out.bloom;
+  }
+  return out;
+}
+
 async function getJSON(url) {
   const res = await fetch(url, { cache: 'no-cache' });
   if (!res.ok) throw new Error(`${res.status} ${res.statusText} — ${url}`);
@@ -153,7 +250,8 @@ function plantCard(hit, doc) {
         : (grade === 'attested' ? pictured.border?.note : null);
   const plant = YARD_PLANTS[hit.plant];
   const name = {
-    shrub: hit.tub ? `${/^[aeiou]/i.test(plant?.common ?? '') ? 'An' : 'A'} ${plant?.common ?? 'shrub'}, in a tub`
+    shrub: hit.tub ? `${/^[aeiou]/i.test(plant?.common ?? '') ? 'An' : 'A'} ${plant?.common ?? 'shrub'}, `
+      + (hit.vessel === 'box' || hit.vessel === 'over' ? 'in a planting box' : 'in a tub')
       : `A ${plant?.common ?? 'shrub'} in the front yard`,
     tree: `A ${plant?.common ?? 'young tree'} in the front lawn`,
     bed: 'A flower bed in the front lawn',
@@ -325,28 +423,30 @@ export async function createFrontYards({
 
   /* ---- what grows: every plant one stem in the grown batches ------------- */
   const placed = [];   // { x, z, y, h, r, plant, conf, grade, lot, kind, index, yaw, scale }
-  const tubs = [];     // { x, z, y, h, r, conf }
+  const tubs = [];     // { x, z, y, h, r, conf, box }
   for (const lot of lots) {
     // A row is [east, north, plant, height, crown width, (grade), (stand, tub)]: the planter
     // measured the width against the doors and walks, so the plant is drawn to it. A tub
     // plant's row adds what its tub stands on above the ground and the tub's own height.
     for (const kind of ['shrub', 'tree']) {
       for (const [i, r] of (lot[`${kind}s`] ?? []).entries()) {
-        const [e, n, plant, h, w, grade, standM = 0, tubM = 0] = r;
+        const [e, n, plant, h, w, grade, standM = 0, tubM = 0, vessel = 'tub'] = r;
         const g = grade ?? lot.grade;
         const y0 = groundAt(e, n) + standM;
-        if (tubM > 0) {
-          tubs.push({ x: e, z: -n, y: y0, h: tubM, r: Math.min(0.42, Math.max(0.26, w * 0.28)), conf: CONF[g] ?? 1 });
+        if (tubM > 0 && vessel !== 'over') {
+          tubs.push({ x: e, z: -n, y: y0, h: tubM, r: Math.min(0.42, Math.max(0.26, w * 0.28)), conf: CONF[g] ?? 1,
+            box: vessel === 'box' });
         }
         placed.push({ x: e, z: -n, y: y0 + tubM, h, w, plant, grade: g, conf: CONF[g] ?? 1, lot, kind, index: i,
-          tub: tubM > 0 });
+          tub: tubM > 0, vessel });
       }
     }
     const cg = lot.pictured_notes?.creeper?.grade ?? 'reconstructed';
     for (const [i, c] of (lot.creeper ?? []).entries()) {
-      const [e, n, facing, w, h] = c;
-      placed.push({ x: e, z: -n, y: groundAt(e, n), h, w, facing, plant: 'ivy', grade: cg, conf: CONF[cg] ?? 1,
-        lot, kind: 'creeper', index: i });
+      // T-1881: a `mantle_head` patch stands on a window's head (`base`, metres over the ground)
+      const [e, n, facing, w, h, form, base = 0] = c;
+      placed.push({ x: e, z: -n, y: groundAt(e, n) + base, h, w, facing, plant: 'ivy', grade: cg, conf: CONF[cg] ?? 1,
+        lot, kind: 'creeper', index: i, mantle: MANTLES.has(form) ? form : null });
       stats.creeper += 1;
     }
   }
@@ -365,13 +465,36 @@ export async function createFrontYards({
   stats.plants = placed.length;
 
   /* ---- the tubs: one mesh, each a staved tub a little wider at its rim ---- */
-  // Tub plants were wintered under glass and set out for the summer, so the winter
-  // Season draws neither the tubs nor what grows in them.
+  // Tub plants were wintered under glass and set out for the summer, so only the
+  // summer Season draws the tubs and what grows in them (T-3399: 15 April is before
+  // the last frost, and by 15 October the tubs are going in under glass).
   let tubMesh = null;
   stats.tubs = tubs.length;
   if (tubs.length) {
-    const pos = []; const conf = [];
+    const pos = []; const conf = []; const col = [];
+    const paint = new THREE.Color(TUB_PAINT); const post = new THREE.Color(BOX_POST_PAINT);
+    // A box: its four panels between the posts and the soil in it, and a post at each corner.
+    const cuboid = (x0, x1, y0, y1, z0, z1, c, k) => {
+      const q = (a, b, cc, d) => {
+        pos.push(...a, ...b, ...cc, ...a, ...cc, ...d);
+        for (let i = 0; i < 6; i += 1) { conf.push(k); col.push(c.r, c.g, c.b); }
+      };
+      q([x0, y0, z1], [x1, y0, z1], [x1, y1, z1], [x0, y1, z1]);
+      q([x1, y0, z0], [x0, y0, z0], [x0, y1, z0], [x1, y1, z0]);
+      q([x1, y0, z1], [x1, y0, z0], [x1, y1, z0], [x1, y1, z1]);
+      q([x0, y0, z0], [x0, y0, z1], [x0, y1, z1], [x0, y1, z0]);
+      q([x0, y1, z1], [x1, y1, z1], [x1, y1, z0], [x0, y1, z0]);
+    };
     for (const t of tubs) {
+      if (t.box) {
+        const a = BOX_HALF_M; const p = 0.045; const top = t.y + t.h;
+        cuboid(t.x - a + p, t.x + a - p, t.y + BOX_LEGS_M, top - 0.03, t.z - a + p, t.z + a - p, paint, t.conf);
+        for (const [sx, sz] of [[-1, -1], [1, -1], [1, 1], [-1, 1]]) {
+          const cx = t.x + sx * (a - p); const cz = t.z + sz * (a - p);
+          cuboid(cx - p, cx + p, t.y - 0.02, top, cz - p, cz + p, post, t.conf);
+        }
+        continue;
+      }
       const rb = t.r * 0.86; const top = t.y + t.h;
       for (let k = 0; k < TUB_SEG; k += 1) {
         const a0 = (k / TUB_SEG) * Math.PI * 2; const a1 = ((k + 1) / TUB_SEG) * Math.PI * 2;
@@ -380,14 +503,16 @@ export async function createFrontYards({
         pos.push(t.x + c0 * rb, t.y - 0.02, t.z + s0 * rb, t.x + c1 * t.r, top, t.z + s1 * t.r, t.x + c1 * rb, t.y - 0.02, t.z + s1 * rb);
         pos.push(t.x + c0 * rb, t.y - 0.02, t.z + s0 * rb, t.x + c0 * t.r, top, t.z + s0 * t.r, t.x + c1 * t.r, top, t.z + s1 * t.r);
         pos.push(t.x, top - 0.04, t.z, t.x + c1 * t.r * 0.94, top - 0.04, t.z + s1 * t.r * 0.94, t.x + c0 * t.r * 0.94, top - 0.04, t.z + s0 * t.r * 0.94);
-        for (let z = 0; z < 9; z += 1) conf.push(t.conf);
+        for (let z = 0; z < 9; z += 1) { conf.push(t.conf); col.push(paint.r, paint.g, paint.b); }
       }
     }
     const geo = new THREE.BufferGeometry();
     geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+    geo.setAttribute('color', new THREE.Float32BufferAttribute(col, 3));
     geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(conf, 1));
     geo.computeVertexNormals();
-    const mat = new THREE.MeshStandardMaterial({ color: TUB_PAINT, roughness: 0.8, metalness: 0, side: THREE.DoubleSide });
+    const mat = new THREE.MeshStandardMaterial({ color: 0xffffff, vertexColors: true, roughness: 0.8, metalness: 0,
+      side: THREE.DoubleSide });
     mat.name = 'front-yards-tubs';
     confidence?.patch(mat);
     const mesh = new THREE.Mesh(geo, mat);
@@ -423,18 +548,22 @@ export async function createFrontYards({
     const lvl = YARD_LEVELS[wantDetail] ? wantDetail : 'full';
     const grown = new TreeInstances({ level: lvl, shadowM: SHADOW_M[lvl], name: 'front-yards',
       levels: YARD_LEVELS, cull: true, fadeS: FADE_S });
-    if (tubMesh) tubMesh.visible = wantMode !== 'winter';
+    if (tubMesh) tubMesh.visible = wantMode === 'summer';
     for (const p of placed) {
-      if (p.tub && wantMode === 'winter') continue;
+      if (p.tub && wantMode !== 'summer') continue;
+      if (p.kind === 'bedding' && !BEDDED[wantMode]) continue;
       if (p.kind === 'creeper') {
         // Its +x out of the wall: a compass bearing turned into the batches' yaw.
-        const spec = ivySpec(2.4, 6, p.conf);
+        // a pictured stretch wholly clothed keeps its own level-topped variants, and the low
+        // patches under its windows theirs, so neither is grown at the other's height (T-1881)
+        const spec = { ...seasonSpec('ivy', ivySpec(2.4, 6, p.conf), wantMode), ...(p.mantle ? { arch: p.mantle } : {}) };
         grown.add({ ...spec, h: [p.h, p.h] }, p.x, p.y, p.z, 1,
           { yaw: Math.PI / 2 - (p.facing * Math.PI) / 180, crownW: p.w });
         continue;
       }
-      const spec = specOf(p.plant, p.conf);
-      grown.add({ ...spec, h: [p.h, p.h] }, p.x, p.y, p.z, 1, { crownW: p.w ?? null });
+      const spec = seasonSpec(p.plant, specOf(p.plant, p.conf), wantMode);
+      const own = spec.own && p.w ? { crownW: [p.w, p.w], own: `${p.h}x${p.w}` } : {};
+      grown.add({ ...spec, h: [p.h, p.h], ...own }, p.x, p.y, p.z, 1, { crownW: p.w ?? null });
     }
     const pause = checkpoint(); if (pause) await pause;
     forest = await grown.build({ ...mats, checkpoint, season: SEASON[wantMode] ?? {} });
@@ -478,7 +607,7 @@ export async function createFrontYards({
     let best = null;
     const sphere = new THREE.Sphere(); const hitP = new THREE.Vector3();
     for (const p of placed) {
-      if (p.kind === 'bedding' || (p.tub && current.mode === 'winter') || Math.hypot(p.x - o.x, p.z - o.z) > PICK_M) continue;
+      if (p.kind === 'bedding' || (p.tub && current.mode !== 'summer') || Math.hypot(p.x - o.x, p.z - o.z) > PICK_M) continue;
       const r = p.kind === 'creeper' ? Math.min(p.w ?? 1.5, p.h) * 0.5
         : p.kind === 'tree' ? p.h * 0.3 : Math.max(0.4, p.h * 0.5);
       sphere.center.set(p.x, p.y + (p.kind === 'tree' ? p.h * 0.62 : p.h * 0.5), p.z);
@@ -515,7 +644,7 @@ export async function createFrontYards({
     if (!r) return null;
     const hit = m[2] === 'bed' ? { lot, kind: 'bed', index: i, bedKind: r[5], grade: lot.grade }
       : m[2] === 'creeper' ? { lot, kind: 'creeper', index: i, grade: lot.pictured_notes?.creeper?.grade ?? lot.grade }
-        : { lot, kind: m[2], index: i, plant: r[2], grade: r[5] ?? lot.grade, tub: (r[7] ?? 0) > 0 };
+        : { lot, kind: m[2], index: i, plant: r[2], grade: r[5] ?? lot.grade, tub: (r[7] ?? 0) > 0, vessel: r[8] ?? 'tub' };
     return plantCard(hit, doc);
   };
   out.dispose = () => {

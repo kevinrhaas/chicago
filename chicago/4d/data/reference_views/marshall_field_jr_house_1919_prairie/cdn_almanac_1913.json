@@ -1,0 +1,40 @@
+{
+ "structure_id": "marshall_field_jr_house_1919_prairie",
+ "source_id": "cdn_almanac_1913_gatlin_1919_plate",
+ "library_image": "a19-cdnalmanac-1913-gatlin-1919",
+ "photo": "../../sources/assets/field_jr_1919_plates_t3279/cdn_almanac_1913_gatlin_plate.jpg",
+ "image_px": [
+  1101,
+  1600
+ ],
+ "principal_px": [
+  527.0,
+  712.0
+ ],
+ "focal_px": 1003.5,
+ "eye": [
+  48.0,
+  -20.62,
+  8.0
+ ],
+ "yaw_deg": 299.88,
+ "basis_right_up_forward": [
+  [
+   0.49851,
+   0.86524,
+   -0.05325
+  ],
+  [
+   0.00687,
+   0.05748,
+   0.99832
+  ],
+  [
+   -0.86685,
+   0.49804,
+   -0.02271
+  ]
+ ],
+ "sky": "overcast",
+ "solve": "Fitted by T-3279 (piece 1 of T-1906) to the 1913 Almanac plate alone (the image store's 1101 x 1600 px copy of the page; the halftone stands at x 75-975, y 385-1040 px, and the principal point is taken at its centre, x 527, y 712), against the 1911 sheet's plan (s28fp-1919-b1). The footprint frame's u runs toward Prairie Avenue (west) from the front block's rear wall and v SOUTH from its north wall (the record's rotation is 179.4 degrees): the front stands at u 18.4 and the north flank at v 0. The plate is a coarse halftone (about 60 lines across the house), so the camera is fitted by least squares (seven unknowns: eye, heading, tilt, roll, focal length) to six points it can find: the tops of the two tall stacks on the north flank (x 583, y 446 and x 429, y 499 px), the top of the round tower (x 545, y 550), the eave at the front's two corners (x 605, y 638 and x 820, y 655) and the tower's axis near its foot (x 548, y 880), the eave and the stacks' tops taken at the record's own heights (9.5 m and 3.0 m over the 14.45 m ridge). RESIDUAL 16 px RMS; the worst is the tower's top, which the plate draws about 36 px (about 2 m) higher than the record builds it, an open difference, not fitted away. PLACE: the eye at u 48 (on the avenue's far side, about 30 m before the front; the fit was bounded there, because left free it walks further back along the line of sight, trading distance against focal length), v -20.6 (about 21 m north of the north flank) and 8 m over grade (the fit's bound: the plate looks down on the fence and the parkway, as from an upper window or a raised stand across the avenue). Heading 300 degrees in this frame (looking south-east across the house's north-west corner), tilted 1.3 degrees down and rolled 3 degrees; focal length 1004 px, a normal lens for a plate of this size. CHECKED on what it did not fit: the street dormer lands on the plate's dormer (within about 15 px), the rear ranges' north gables stand where the plate's steep gables are, and the stoop lands at the front's south end beside the neighbour's front as the plate draws it. LIGHT: soft and even, no cast shadow readable in the halftone, so the view renders overcast."
+}

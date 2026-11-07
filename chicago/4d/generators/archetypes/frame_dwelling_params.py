@@ -313,6 +313,7 @@ CONSUMED = frozenset({
     "construction", "plan", "bays", "porch", "ell", "ell_wall_height_m",
     "chimneys", "paint", "shutters", "siding_exposure_m", "stovepipes", "glazing",
     "trim", "chimney_head", "tower", "chimney_placement", "front_window_sill_m",
+    "picture_layout",
 })
 # NOT in the set, and each absence is a decision rather than an oversight:
 #   `cladding`      — this archetype always builds clapboard over sheathing, so a
@@ -449,7 +450,34 @@ class FrameDwellingParams:
     # None preserves the existing house, rear and gable opening arithmetic.
     front_window_sill_m: float | None = field(default=None, kw_only=True)
 
+    # T-2380: one opt-in retrospective keeper-house layout. None retains all
+    # existing house paths; adding a loft light does not assert a habitable half storey.
+    picture_layout: str | None = field(default=None, kw_only=True)
+
     # ---------------------------------------------------------------- derived
+
+    @property
+    def keeper_front_stations(self) -> tuple:
+        """North-facing set-out: local D/W/W reads W/W/D from outside; distances reconstructed."""
+        if self.picture_layout != "keeper_gale_1902":
+            return ()
+        return tuple((self.width_m * u, kind) for u, kind in
+                     ((0.95 / 6.4, "door"), (3.25 / 6.4, "window"),
+                      (5.20 / 6.4, "window")))
+
+    @property
+    def keeper_gable_sash_centres(self) -> tuple:
+        """Two pictured east-end ground sash, independent of stack suppression."""
+        if self.picture_layout != "keeper_gale_1902":
+            return ()
+        return (self.depth_m * (1.25 / 4.6), self.depth_m * (3.35 / 4.6))
+
+    @property
+    def keeper_loft_opening(self) -> tuple:
+        """(centre-v, bottom-z, width, height); small light, not a storey claim."""
+        if self.picture_layout != "keeper_gale_1902":
+            return ()
+        return (self.depth_m / 2, self.wall_height_m + 0.17, 0.42, 0.45)
 
     @property
     def chapel_front_stations(self) -> tuple:
@@ -478,6 +506,8 @@ class FrameDwellingParams:
         """The unchanged house layout, or the pictured chapel's existing far stack."""
         if self.chimneys <= 0:
             return ()
+        if self.picture_layout == "keeper_gale_1902":
+            return (self.width_m * (5.50 / 6.4),)
         if self.chimney_placement == "far_gable":
             return (self.width_m - 0.75,)
         out = [0.75]
@@ -708,6 +738,39 @@ class FrameDwellingParams:
                              f"a colour for")
         if self.glazing not in GLAZINGS:
             raise ParamError(f"glazing '{self.glazing}' not in {tuple(GLAZINGS)}")
+        # T-2380. This opt-in's own checks measure openings, which reads `glazing`
+        # through `window_w_m`, so it runs BELOW the glazing check and not above it:
+        # a golden case that perturbs the glazing key must fail on the key, not on a
+        # KeyError raised while this block was sizing a sash from it.
+        if self.picture_layout is not None:
+            if self.picture_layout != "keeper_gale_1902":
+                raise ParamError("picture_layout must be None or keeper_gale_1902")
+            if (self.stories != 1.0 or self.ell or self.roof_type != "gable"
+                    or self.plan != "hall_parlour" or self.bays != 3
+                    or self.chimneys != 1 or self.stovepipes or self.tower
+                    or self.chimney_placement != "house"
+                    or self.front_window_sill_m is not None):
+                raise ParamError("keeper_gale_1902 needs one-storey rectangular gabled "
+                                 "hall_parlour, three front bays and one existing stack")
+            stations = self.keeper_front_stations
+            for i, (cx, kind) in enumerate(stations):
+                half = _opening_w(self, kind) / 2
+                if cx - half < 0.35 or cx + half > self.width_m - 0.35:
+                    raise ParamError("keeper_gale_1902 front opening crosses corner trim")
+                if i and _clash(stations[i - 1], stations[i], self):
+                    raise ParamError("keeper_gale_1902 front openings overlap")
+            g = self.keeper_gable_sash_centres
+            if (g[0] - self.window_w_m / 2 < 0.35
+                    or g[1] + self.window_w_m / 2 > self.depth_m - 0.35
+                    or g[1] - g[0] < self.window_w_m + OPENING_GAP_M):
+                raise ParamError("keeper_gale_1902 gable sash do not fit")
+            _v, bottom, width, height = self.keeper_loft_opening
+            # The cap is a gable, so ensure both loft-light upper corners fit
+            # inside its wall-plane triangle, rather than only below the ridge.
+            available = self.wall_height_m + (self.depth_m / 2 - width / 2) * math.tan(
+                math.radians(self.roof_pitch_deg))
+            if bottom + height + 0.10 > available:
+                raise ParamError("keeper_gale_1902 loft light crosses the roof slope")
         if self.front_window_sill_m is not None:
             sill = self.front_window_sill_m
             if (isinstance(sill, bool) or not isinstance(sill, (int, float))
@@ -1025,6 +1088,7 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameDwellingParams:
         tower=val("tower", False),
         chimney_placement=str(val("chimney_placement", "house")),
         front_window_sill_m=val("front_window_sill_m"),
+        picture_layout=val("picture_layout"),
     )
     p.resolve()
     return p
@@ -1129,6 +1193,8 @@ def facade_bays(p: "FrameDwellingParams") -> list:
     something the sidecar mentions. Openings the snap runs together are parted
     (`_part`, T-1984).
     """
+    if p.picture_layout == "keeper_gale_1902":
+        return list(p.keeper_front_stations)
     if p.plan == "chapel_side":
         return list(p.chapel_front_stations)
     w, n = p.width_m, p.bays
@@ -1185,4 +1251,25 @@ def front_wall(p: "FrameDwellingParams") -> dict:
             for cx, _kind in facade_bays(p):
                 out.append({"kind": "window", "u0": cx - hw, "u1": cx + hw,
                             "z0": z, "z1": z + hu})
+    # T-3359: what stands ON the front as well as what is cut into it, so a board
+    # fixed flat beside or over the door stays off it — the shutter leaves
+    # (`frame_dwelling._shutters`: from the casing's outer edge, half a sash wide)
+    # and a roofed porch's shed roof over the door (`_porch`: 2.30 m wide, its head
+    # at `min(wall_z - 0.32, 2.62)`). Copies of the builder's literals, which
+    # tools/check_tavern_front_reader.py holds against frame_dwelling.py.
+    if p.shutters:
+        for o in [o for o in out if o["kind"] == "window"]:
+            cx = (o["u0"] + o["u1"]) / 2.0
+            for side in (-1, 1):
+                a = cx + side * (hw + DWELLING_CASING_W_M + 0.012)
+                b = a + side * (p.window_w_m * 0.5)
+                out.append({"kind": "shutter", "u0": min(a, b), "u1": max(a, b),
+                            "z0": o["z0"], "z1": o["z1"]})
+    if p.porch == "roofed":
+        door = next((cx for cx, k in facade_bays(p) if k == "door"), w / 2.0)
+        out.append({"kind": "porch", "u0": door - 1.15, "u1": door + 1.15,
+                    "z0": 0.0, "z1": min(wall_z - 0.32, 2.62)})
     return {"u0": 0.0, "u1": w, "wall_height_m": wall_z, "openings": out}
+
+
+DWELLING_CASING_W_M = 0.090      # common/openings.CASING_W_M

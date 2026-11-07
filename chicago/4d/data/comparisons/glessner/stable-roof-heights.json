@@ -13,7 +13,7 @@
  "model": {
   "ridge_W": 141.0,
   "ridge_ft": 38.6,
-  "gable_coping_apex_ft": 39.6,
+  "gable_coping_apex_ft": 38.6,
   "cupola_centre_WS": [
    141.0,
    14.6
@@ -917,7 +917,7 @@
  },
  "summary": {
   "gable_coping_apex_ft": {
-   "model": 39.6,
+   "model": 38.6,
    "habs01_committed": 37.82,
    "habs01_doorway_fits": [
     38.07,

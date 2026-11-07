@@ -1,0 +1,415 @@
+{
+  "schema": "town_driven_transport_candidates_v1",
+  "status": "SOURCE_DERIVED_CANDIDATES_RENDERED_GROUND_COLLISION_AND_BROWSER_UNRUN",
+  "corridor_line": "reconstructed",
+  "corridor_line_why": "The 1835 demonstration uses reconstructed level ground southwest of town. The 1904 candidate uses a reconstructed lane within existing inferred carriageways; source triangle support assessment does not establish posed world contact or an archival trip.",
+  "new_static_placements_removed": false,
+  "static_Light_policy_changed": false,
+  "native_contact_and_hitch_qualification": "UNRUN",
+  "horse_models": {
+    "current26_inplace_full": {
+      "file": "transport/driven/horse-current26-inplace-full.glb",
+      "sha256": "ad9dc060f8630d0de04fef97d716e8c82be3ac8bf070684e78107720c5221ec6",
+      "stride_m": 0.135,
+      "walk_clip": "reconstructed_bare_current26_inplace_careful_walk_cubic129_v1",
+      "material_variant": "organic_dielectric_v1",
+      "appearance_grade": "reconstructed",
+      "support_domain": {
+        "certificate_file": "transport/driven/current26-hoof-support-domain.json",
+        "certificate_sha256": "425d1c15c7869638a4c6f7b950cb38a9208faf9eb381476d77749b60f4fa7817",
+        "model_sha256": "ad9dc060f8630d0de04fef97d716e8c82be3ac8bf070684e78107720c5221ec6",
+        "half_width_m": 0.35,
+        "half_length_m": 0.595
+      }
+    },
+    "current26_walk_v2": {
+      "file": "transport/driven/horse-current26-inplace-full.glb",
+      "sha256": "ad9dc060f8630d0de04fef97d716e8c82be3ac8bf070684e78107720c5221ec6",
+      "stride_m": 1.0,
+      "walk_clip": "reconstructed_current26_walk_v2",
+      "walk_clip_file": "transport/driven/horse-walk-v2.json",
+      "walk_clip_sha256": "b122c987c5dd7fdd33b77516e532f3fea54919cd4a28ec0028a5cdb708e6f50f",
+      "walk_clip_producer": "tools/horse_walk_v2.mjs",
+      "material_variant": "organic_dielectric_v1",
+      "appearance_grade": "reconstructed",
+      "support_domain": {
+        "certificate_file": "transport/driven/current26-walk-v2-hoof-domain.json",
+        "certificate_sha256": "7162108dddcde6af8421d137ff4bfea3aa221154758efa08af4a18bc78c968e1",
+        "model_sha256": "ad9dc060f8630d0de04fef97d716e8c82be3ac8bf070684e78107720c5221ec6",
+        "half_width_m": 0.35,
+        "half_length_m": 0.89
+      }
+    }
+  },
+  "source_inputs": [
+    {
+      "path": "/workspace/chicago-wagon-delivery-20261030/chicago/4d/data/streets/1835.json",
+      "sha256": "30c25746d0e6ba2e5c6675f19b7de5684c92d0406ab404134d988b30b0d4dd53"
+    },
+    {
+      "path": "/workspace/chicago-wagon-delivery-20261030/chicago/4d/data/street_grid/1904.json",
+      "sha256": "5573de2f05537c88ba51fc446ddeda362c1e6f26121755f2111307e3e864acd7"
+    }
+  ],
+  "rows": [
+    {
+      "speed_m_s": 1.3,
+      "steering_limit_deg": 8,
+      "track_m": 1.21,
+      "wheelbase_m": 2.35,
+      "root_ahead_of_rear_axle_m": 1.175,
+      "driver_local_m": [
+        0,
+        1.58,
+        0.65
+      ],
+      "wheel_radii_m": [
+        0.685,
+        0.685,
+        0.535,
+        0.535
+      ],
+      "team_half_spacing_m": 0.65,
+      "id": "western_hotel_driven_wagon_loop_1835",
+      "name": "Wagon driver on a reconstructed circuit",
+      "scene": "1835",
+      "route": {
+        "kind": "circle",
+        "center_enu_m": [
+          -367.5,
+          -557.5
+        ],
+        "radius_m": 18,
+        "clockwise": false,
+        "phase_rad": 0
+      },
+      "vehicle_file": "transport/wagon-driver/wagon-w01.glb",
+      "driver_asset": "bardwell_otis_1835",
+      "driver_clip": "sit_drive_look_v2",
+      "driver_livery_file": "transport/driven/wardrobe-bardwell-otis-1835.json",
+      "driver_livery_sha256": "91910277acd96a290f5ad1046aca2e33a92f0d84f0314732e63e2f2b615f7d2c",
+      "driver_livery_body_sha256": "4816ec6176ef6037834c1e8a14c528a5b394173bfa2821372bd66ae1d802bd38",
+      "replace_human_instance": "hi_rc_bardwell_otis_1835",
+      "person_id": "rc_bardwell_otis",
+      "driver_seat_node_m": [
+        0,
+        1.58,
+        0.65
+      ],
+      "source_ids": [
+        "chicagology_prefire278"
+      ],
+      "note": "Otis Bardwell's appearance and driving activity are reconstructed. Sources do not establish this vehicle, team, route or ownership. The circuit follows level ground southwest of town.",
+      "horse_offset_m": [
+        0,
+        0,
+        3.4987
+      ],
+      "initial_distance_m": 0,
+      "driver_binding": {
+        "scene": "1835",
+        "asset_id": "bardwell_otis_1835",
+        "vehicle_file": "transport/wagon-driver/wagon-w01.glb",
+        "vehicle_glb_sha256": "f415e6fb79c9df9372c5b2ec6cb77c9a305117de3fa8e9c704c87d5c09a6aeb0",
+        "vehicle_sidecar_sha256": "911fbbf965d49abb0a70015171ca0fa8e7aa39bcd3a98b3cc7132118f2deb0a7",
+        "root_offset_m": [
+          0,
+          0,
+          0
+        ]
+      },
+      "driver_instance": {
+        "person_id": "rc_bardwell_otis",
+        "interaction": {
+          "opens": "resident_card",
+          "selectable": true
+        },
+        "provenance": {
+          "grade": "reconstructed",
+          "basis": "Otis Bardwell's appearance and driving activity are reconstructed. Sources do not establish this vehicle, team, route or ownership. The circuit follows level ground southwest of town.",
+          "liberty": "L418"
+        },
+        "review_required": false
+      },
+      "horse_model": "current26_walk_v2",
+      "hitch": {
+        "harness_file": "transport/driven-hitch/current26-collar-girth-v2.glb",
+        "units_file": "transport/driven-hitch/connection-units-v1.glb",
+        "bindings_file": "transport/driven/hitch-bindings-v2.json",
+        "vehicle_binding": "wagon_w01",
+        "web_assets": true
+      },
+      "envelope_local_xz_m": [
+        -1.2064490225160753,
+        -1.859947006707745,
+        1.2054720601606732,
+        5.041550165367125
+      ],
+      "envelope_basis": "Actual native assembled mesh vertices incl hitch instances, both driverLOD0+3, steering-8/0/+8, WALK0/.5/1.3/1.6. Add clearance15cm margin; actual world/between-sample envelope remains a qualification question.",
+      "liberty": "L-driven-town-circuits-2804"
+    },
+    {
+      "speed_m_s": 1.3,
+      "steering_limit_deg": 8,
+      "track_m": 1.34,
+      "wheelbase_m": 2.3,
+      "root_ahead_of_rear_axle_m": 1.15,
+      "driver_local_m": [
+        0,
+        1.77585,
+        0.76
+      ],
+      "wheel_radii_m": [
+        0.65,
+        0.65,
+        0.528,
+        0.528
+      ],
+      "team_half_spacing_m": 0.65,
+      "id": "prairie_driven_brougham_loop_1904",
+      "name": "Carriage driver on Prairie Avenue",
+      "scene": "1904",
+      "route": {
+        "kind": "rounded_block",
+        "bounds_enu_m": [
+          -70.81839968847768,
+          -135.5171560782112,
+          68.8183996884778,
+          135.51715607821075
+        ],
+        "origin_enu_m": [
+          1335.378263805655,
+          -3340.2158764288492
+        ],
+        "rotation_rad": 0.010869405844751164,
+        "corner_radius_m": 18,
+        "clockwise": false
+      },
+      "source_lane_intersections_enu_m": [
+        [
+          1269.1409707127038,
+          -3473.403153677721
+        ],
+        [
+          1404.5231050909726,
+          -3472.0469636458693
+        ],
+        [
+          1401.8623574511666,
+          -3206.924125086154
+        ],
+        [
+          1265.9866219677772,
+          -3208.4892633056534
+        ]
+      ],
+      "vehicle_file": "transport/parked-brougham/brougham-near.glb",
+      "driver_asset": "anonymous_working_driver_1904",
+      "driver_clip": "sit_drive_look_v2",
+      "person_id": "pa1904_otis_f_r_c1900_hans_johnson",
+      "driver_seat_node_m": [
+        0,
+        1.77585,
+        0.76
+      ],
+      "source_ids": [
+        "studebaker_1893_illustrated_souvenir",
+        "census_1900_chicago_t623_roll245",
+        "sanborn_1911_chicago_v3_sheet_27",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "Existing inferred1904 coachman Hans Johnson is the identity reference; his appearance, this driving activity, vehicle and circuit are reconstructed. The census documents his occupation in1900; no1904 roster, archival likeness, household carriage ownership or documented trip is asserted. Separate actualBrougham-seated export is used.",
+      "horse_offset_m": [
+        0,
+        0,
+        3.08
+      ],
+      "driver_binding": {
+        "scene": "1904",
+        "asset_id": "anonymous_working_driver_1904",
+        "vehicle_file": "transport/parked-brougham/brougham-near.glb",
+        "vehicle_glb_sha256": "3d2f3a802f4b32dba6a3e61f2c188dddce4db05cecfcbba81e1e8d369d5dfe89",
+        "vehicle_sidecar_sha256": "768f849182bb8ca7aa9d28db98a5d2cb3d502ea6c23c6f0b8fbf2a5b329e541f",
+        "root_offset_m": [
+          0,
+          0,
+          0
+        ]
+      },
+      "driver_instance": {
+        "person_id": "pa1904_otis_f_r_c1900_hans_johnson",
+        "interaction": {
+          "opens": "resident_card",
+          "selectable": true
+        },
+        "provenance": {
+          "grade": "reconstructed",
+          "basis": "Existing inferred1904 coachman Hans Johnson is the identity reference; his appearance, this driving activity, vehicle and circuit are reconstructed. The census documents his occupation in1900; no1904 roster, archival likeness, household carriage ownership or documented trip is asserted. Separate actualBrougham-seated export is used.",
+          "liberty": "L418"
+        },
+        "review_required": false
+      },
+      "horse_model": "current26_walk_v2",
+      "hitch": {
+        "harness_file": "transport/driven-hitch/current26-collar-girth-v2.glb",
+        "units_file": "transport/driven-hitch/connection-units-v1.glb",
+        "bindings_file": "transport/driven/hitch-bindings-v2.json",
+        "vehicle_binding": "studebaker_brougham_1893",
+        "web_assets": true
+      },
+      "driver_livery_file": "transport/driven/driver-livery-1904.json",
+      "driver_livery_sha256": "95ca007afd5677d88afc063c7320fcb7740c2ed7cf585d83d4e72d9a2b9cded9",
+      "driver_livery_body_sha256": "c3b285d0305559ee5fbe13695985df86cde4c38ca8d7efd8419fcdd2d97bc4b8",
+      "driver_palm_bindings_by_lod": {
+        "0": {
+          "l": {
+            "scene": "1904",
+            "asset_id": "anonymous_working_driver_1904",
+            "web": true,
+            "lod": 0,
+            "asset_sha256": "49a84c1d858f67359ff33e56762336ade56db1dcbbb1cbe923846d95825c9547",
+            "side": "l",
+            "actual_body_mesh": "anonymous_working_driver_1904_body_0_lod0",
+            "actual_point_vehicle_local_m": [
+              0.16613275455330426,
+              2.125940669929468,
+              1.3020159104816145
+            ],
+            "actual_triangle_indices": [
+              12482,
+              12478,
+              12483
+            ],
+            "barycentric": [
+              0.6747075445278921,
+              0.003801117992967784,
+              0.3214913374791401
+            ],
+            "source_palm_surface_seed_m": [
+              0.16612975079143671,
+              2.1259261717219884,
+              1.3020162104308726
+            ],
+            "source_seed_distance_m": 1.4809138227174935e-05,
+            "pose": "sit_drive",
+            "time_s": 0.5,
+            "closed_finger_grip_verified": false,
+            "source_palm_proof_sha256": "af14a6741f4112a6e4bfab7dfbf9271a517b34eec54b305c5214d9a06e96337b"
+          },
+          "r": {
+            "scene": "1904",
+            "asset_id": "anonymous_working_driver_1904",
+            "web": true,
+            "lod": 0,
+            "asset_sha256": "49a84c1d858f67359ff33e56762336ade56db1dcbbb1cbe923846d95825c9547",
+            "side": "r",
+            "actual_body_mesh": "anonymous_working_driver_1904_body_0_lod0",
+            "actual_point_vehicle_local_m": [
+              -0.16613275455330428,
+              2.125940669929468,
+              1.3020159104816145
+            ],
+            "actual_triangle_indices": [
+              7726,
+              7730,
+              7731
+            ],
+            "barycentric": [
+              0.0038011179929643424,
+              0.674707544527892,
+              0.32149133747914366
+            ],
+            "source_palm_surface_seed_m": [
+              -0.16612975079143671,
+              2.1259261717219884,
+              1.3020162104308726
+            ],
+            "source_seed_distance_m": 1.4809138227180565e-05,
+            "pose": "sit_drive",
+            "time_s": 0.5,
+            "closed_finger_grip_verified": false,
+            "source_palm_proof_sha256": "af14a6741f4112a6e4bfab7dfbf9271a517b34eec54b305c5214d9a06e96337b"
+          }
+        },
+        "3": {
+          "l": {
+            "scene": "1904",
+            "asset_id": "anonymous_working_driver_1904",
+            "web": true,
+            "lod": 3,
+            "asset_sha256": "6c5182d709ce9de5be003a650c4f7f69b90ae9591d0865174d4303103bd97de4",
+            "side": "l",
+            "actual_body_mesh": "anonymous_working_driver_1904_body_0_lod3",
+            "actual_point_vehicle_local_m": [
+              0.16601491981319236,
+              2.1252945934052874,
+              1.302017317600189
+            ],
+            "actual_triangle_indices": [
+              1678,
+              1677,
+              1679
+            ],
+            "barycentric": [
+              0.21410503822600924,
+              0.7192326792834032,
+              0.06666228249058762
+            ],
+            "source_palm_surface_seed_m": [
+              0.16612975079143671,
+              2.1259261717219884,
+              1.3020162104308726
+            ],
+            "source_seed_distance_m": 0.0006419334463286249,
+            "pose": "sit_drive",
+            "time_s": 0.5,
+            "closed_finger_grip_verified": false,
+            "source_palm_proof_sha256": "af14a6741f4112a6e4bfab7dfbf9271a517b34eec54b305c5214d9a06e96337b"
+          },
+          "r": {
+            "scene": "1904",
+            "asset_id": "anonymous_working_driver_1904",
+            "web": true,
+            "lod": 3,
+            "asset_sha256": "6c5182d709ce9de5be003a650c4f7f69b90ae9591d0865174d4303103bd97de4",
+            "side": "r",
+            "actual_body_mesh": "anonymous_working_driver_1904_body_0_lod3",
+            "actual_point_vehicle_local_m": [
+              -0.16601491981319236,
+              2.125294593405288,
+              1.302017317600189
+            ],
+            "actual_triangle_indices": [
+              1149,
+              1150,
+              1151
+            ],
+            "barycentric": [
+              0.7192326792834027,
+              0.2141050382260076,
+              0.06666228249058972
+            ],
+            "source_palm_surface_seed_m": [
+              -0.16612975079143671,
+              2.1259261717219884,
+              1.3020162104308726
+            ],
+            "source_seed_distance_m": 0.000641933446328188,
+            "pose": "sit_drive",
+            "time_s": 0.5,
+            "closed_finger_grip_verified": false,
+            "source_palm_proof_sha256": "af14a6741f4112a6e4bfab7dfbf9271a517b34eec54b305c5214d9a06e96337b"
+          }
+        }
+      },
+      "envelope_local_xz_m": [
+        -1.1971540112566856,
+        -1.8365528583526611,
+        1.1971540112566856,
+        4.622850165367126
+      ],
+      "envelope_basis": "Actual native assembled mesh vertices incl hitch instances, both driverLOD0+3, steering-8/0/+8, WALK0/.5/1.3/1.6. Add clearance15cm margin; actual world/between-sample envelope remains a qualification question.",
+      "liberty": "L-driven-town-circuits-2804"
+    }
+  ]
+}

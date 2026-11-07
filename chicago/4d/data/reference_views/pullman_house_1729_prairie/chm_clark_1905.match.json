@@ -1,0 +1,145 @@
+{
+  "structure_id": "pullman_house_1729_prairie",
+  "view": "chm_clark_1905",
+  "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
+  "glb_sha256": "d54e1abf6756083ae09754152d3ba30da5610aa563bada2024cb8ac0d94f4935",
+  "camera_sha256": "aff196c66dbbceed8e5d7703d25104fb936052941fcd6a870030e252f4dffb7b",
+  "photo_sha256": "fede674ee5cffe692cc4c096d33e28b01d23a13fecb26d1bcc10decf01614314",
+  "rendered_flora": {
+    "season": "summer",
+    "lots": [
+      {
+        "parcel": "prairie_1729",
+        "shrubs": 26,
+        "trees": 3,
+        "beds": 0,
+        "creeper": 20
+      }
+    ],
+    "street_trees": 36,
+    "street_trees_m": 70,
+    "street_furniture": [
+      "hydrant.pictured.pullman",
+      "hydrant.pictured.pullman_stable",
+      "lamp.corner.prairie.e18th.ne",
+      "lamp.corner.prairie.e18th.nw",
+      "lamp.corner.prairie.e18th.se",
+      "lamp.pictured.opposite_1721",
+      "lamp.pictured.pullman_court",
+      "lamp.rule.calumet__prairie_ic_16_18#00",
+      "lamp.rule.prairie__prairie_ic_16_18#03",
+      "lamp.rule.prairie__prairie_ic_16_18#04"
+    ],
+    "street_furniture_m": 70
+  },
+  "flora_anchor": {
+    "local_e": 1456.371,
+    "local_n": -3167.542,
+    "rotation_deg": 179.611,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "as_mapped_1904"
+  },
+  "flora_renderer_sources": [
+    {
+      "file": "tools/photo_match.mjs",
+      "sha256": "75e452b467c22fc5d00cd4b512706c364c942d181869e504f7218ea25167a79c"
+    },
+    {
+      "file": "tools/photo_match_flora.mjs",
+      "sha256": "c973a45041a77a11ea32e30302cdc3eda3dc5516ad715fb0b1e14060f08b5c87"
+    },
+    {
+      "file": "renderers/web/js/front-yards.js",
+      "sha256": "cac67fd26e677f5a848f1817b51d2a485835b09f09aa2c234efc1b3a5b3e3329"
+    },
+    {
+      "file": "renderers/web/js/street-trees.js",
+      "sha256": "90d02b3e6b6ac5d1ab27a0eb3088f72719a8c1f59a7624dd833db80b127268f2"
+    },
+    {
+      "file": "renderers/web/js/tree-instances.js",
+      "sha256": "a103f17c2d5a18b12a39126c62c539dd69ad9a118939254589b0b579d4cb9c61"
+    },
+    {
+      "file": "renderers/web/js/tree-model.js",
+      "sha256": "516638c5cb53043e352359012564973fbaca844282e7809913d3f4709d8e5572"
+    },
+    {
+      "file": "renderers/web/js/tree-surface.js",
+      "sha256": "23dec0e5dda80547d8ee2ae86f1400fb1a4af2bd54ca0b53d7fe8d52f088cc84"
+    },
+    {
+      "file": "renderers/web/js/season.js",
+      "sha256": "e44ebdadf8266909cd6e8676775a9decc3b7376ba245ad784118851e15b409cc"
+    },
+    {
+      "file": "renderers/web/js/trees.js",
+      "sha256": "bd022919ca052610595908f83128dfceea976790c5bf2eff63f381abaa3b89b5"
+    },
+    {
+      "file": "renderers/web/js/street-furniture.js",
+      "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
+    }
+  ],
+  "flora_sha256": "c95d4bab56207e9a5865147b0de25a305bad49d95b8783d1286c0fdcfc0a04c3",
+  "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/chm_clark_1905-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "the big pedimented dormer and the column of round-arched lights under it (principal and second storey) stand at x 166-168 in the print, v about 11.0-11.45 on the Prairie front; the build's, at v 14.45 (the owner's 2026-11-01 sketch, its ends read to about 0.5 m), render at x 187-188, about 3.2 m south along the front",
+      "status": "fixed",
+      "how": "T-1881 (2026-11-02): read with this camera, which was fitted without the dormer; the Detroit print's camera, fitted on other points by T-1880, reads the same dormer at x 460-466 against the build's 509 (v 11.0-11.45 again), so two cameras on two pictures agree. That place lies inside the entry part as the build lays it (p_entry, v 7.35-12.1), so moving the dormer and its lights means re-dividing the front's three parts (L-pullman-1729-three-part-front-1881), not shifting one dormer; not done in this run. T-1881 (2026-11-02): the Prairie front re-divided to the photographs: the north block v 0-5.0, the entry v 4.95-8.8 on the door at v 6.875 (the gate's axis), the south part v 8.8-17.93 on the main wall with the big column and its pedimented dormer at v 11.225 and the narrow south column (lights at v 15.45, a small dormer at v 14.8) restored (L-pullman-1729-three-part-front-1881): the render's column now at x 168, on the print's 166-168"
+    },
+    {
+      "what": "a narrow second-storey light between the big column and the south-west corner (x about 198-203, y 105-118), where the build's south part shows plain wall; the Detroit print shows a narrower bay there with its own smaller dormer (x 510-525) T-1881 (2026-11-06): taken off the Prairie front again; the master scan of the Detroit print shows that narrow light and its dormer past the banded corner pier where the cornice turns, on the 18th Street flank (north_bays s 1.4), which the owner had ruled on 2026-11-01 (the south-west corner's section belongs to the 18th Street side) and asked again on 2026-11-06.",
+      "status": "owner ruling",
+      "how": "T-1881 (2026-11-02): read at the thumbnail's size, about 5 px wide; goes with the item above (the south part's bays). T-1881 (2026-11-02): the Prairie front re-divided to the photographs: the north block v 0-5.0, the entry v 4.95-8.8 on the door at v 6.875 (the gate's axis), the south part v 8.8-17.93 on the main wall with the big column and its pedimented dormer at v 11.225 and the narrow south column (lights at v 15.45, a small dormer at v 14.8) restored (L-pullman-1729-three-part-front-1881): the render's narrow light at x about 194, the print's 195-203 (under 1 m at this size)"
+    },
+    {
+      "what": "the south-west corner, the mansard's top and the cornice: the corner at x 210, the cornice at y 91, the cresting's foot at y 64",
+      "status": "within tolerance",
+      "how": "T-1881 (2026-11-02): the fit's own points, residual 0.57 px rms (about 0.1 m)"
+    },
+    {
+      "what": "the porte-cochere's west arch on the 18th Street flank (x 236-246, dark, under the flank's shade)",
+      "status": "within tolerance",
+      "how": "T-1881 (2026-11-02): used in the fit; the render's arch stands at x 238-248"
+    },
+    {
+      "what": "the north block, the portico and the entry on the Prairie front (x 100-160)",
+      "status": "not shown",
+      "how": "T-1881 (2026-11-02): behind the parkway elms' trunks and leaves; only the mansard's cresting reads above them, at the render's height T-1881 (2026-11-06): re-rendered with the portico run on before the north block; the render's front shows through a gap the photograph's elms close, so it is still not compared here. Nothing in this record is open, so its verdict is matches (data/reference_views/README.md: only open blocks matches)."
+    },
+    {
+      "what": "the parkway and lawn trees: the print's are tall elms in full leaf with trunks clear to about the second storey (crowns from about y 30-100) and the house's walls visible between them; the render's summer trees carry broad, low crowns that cover the house down to its principal storey",
+      "status": "fixed",
+      "how": "T-1881 (2026-11-02): as in the house's other four views (the trees' size and crowns); the street-tree layer's, not worked here T-1881 (2026-11-03): the house's own parkway trees (Prairie Avenue 232.0-256.0 m, 18th Street 3.7-24.65 m) grow on a new pictured form, `high_head` (street-trees.js FORMS, tree-model.js ARCH.ulmus_americana_high): one straight leader about 0.3 m across, clear to about the second storey, under a head about 6 m across on a tree 16-20 m tall, read off this print and Taylor's no. 1445. Through this camera the parkway trees before the house now stand on clear boles with their crowns from about the second storey, and the house's walls show between them from the mansard to the ground, as the print draws it; the crowns' extent in full leaf is read at a 375 px thumbnail, within its reach. T-1881 (2026-11-06): the tree planted at 259.8 m on the Prairie parkway (read off the Detroit print and Taylor's no. 1445) renders through this camera before the porte-cochere's arch, where the photograph draws a trunk at about x 240 of 387; within this thumbnail's few pixels"
+    },
+    {
+      "what": "the hydrant: the print's stands at x 157 (foot y 177), the build's (hydrant.pictured.pullman, v 20.1 on the Prairie parkway) at x 192",
+      "status": "within tolerance",
+      "how": "T-1881 (2026-11-02): on the parkway line (u 47) x 157 is v about 16, 4 m north of the build's, which the Detroit print and the Glessner House Museum's halftone place; a foot at this size is good to a few metres in depth, the picture is of 1905 against their 1890s, and two pictures disagreeing is within tolerance (T-3153)"
+    },
+    {
+      "what": "a lamp post with its lantern at x 197 (foot y about 182) before the house, beside a gate pier; the build's Pullman corner lamp (lamp.corner.prairie.e18th.ne, at the curb corner) renders at x 300",
+      "status": "within tolerance",
+      "how": "T-1881 (2026-11-02): the print's foot is about 33 m from the camera against the corner lamp's 45 m, so it is not the curb-corner post as placed; the Detroit print and the halftone place that one at the corner, so the pictures disagree (T-3153). Read again on a larger copy"
+    },
+    {
+      "what": "the low stone boundary wall along Prairie Avenue and its gate pier (y 165-172, a pier at x 185-192)",
+      "status": "within tolerance",
+      "how": "T-1881 (2026-11-02): the render's wall stands on the same line and height to about 2 px; the pier is not separable from the lamp at this size"
+    },
+    {
+      "what": "the walls' colour and the mansard's slate",
+      "status": "not shown",
+      "how": "a monochrome print"
+    },
+    {
+      "what": "the Prairie front's third part, on the main wall south of the entry (v 8.8 to the south-west corner pier, v 16.8-17.93): the owner, 2026-11-06, his crop of the Detroit print beside the build: \"you have two windows at every level for this third part of the face, but in the image there is one window at every level, line and size them up correctly with the house\". Built (T-1881) with ONE column, the 1.2 x 3.25 m principal light, the 1.45 x 2.65 m second-storey light and the 1.1 x 1.9 m pedimented dormer, centred on the wall between the banded pier at v 8.8-9.41 and the corner pier, at v 13.1; the narrow column (v 15.45, its dormer at v 14.85) is taken off. On the Library of Congress master scan (det 4a08065u) the big light stands midway between the entry's banded corner and the next banded pier, at which the cornice turns and falls away with the flank, so the narrow light and smaller dormer beyond it are the 18th Street flank's first column (north_bays s 1.4), as Taylor's no. 1445 shows them. Through this camera (its corner fitted at x 210) the column renders south of the print's x 166-168, the same corner disagreement the Detroit camera has.",
+      "status": "owner ruling"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

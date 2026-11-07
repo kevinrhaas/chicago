@@ -1,0 +1,29 @@
+{
+ "id": "chicago_tribune_1928_07_29_famous_homes_corwith",
+ "type": "photograph",
+ "citation": "'Famous Homes' [the old Corwith home, 1945 Prairie avenue]. Halftone photograph with caption, '[Tribune Photo.]'. Chicago Sunday Tribune, 29 July 1928 (vol. 87 no. 31).",
+ "author": "Chicago Tribune (staff photographer, uncredited)",
+ "date": "1928-07-29 (publication)",
+ "describes_date": "by 1928",
+ "repository": "Internet Archive, Chicago Tribune microfilm (per_chicago-daily-tribune_1928-07-29_87_31, page index 96; the same cut repeated at index 105). Prairie library image nps-1945-tribune-1928-07-29-famous-homes-corwith-photo; the image store's display copy (kevinrhaas/chicago-images, prairie-1904/files/nps-1945-tribune-1928-07-29-famous-homes-corwith-photo.jpg).",
+ "url": "https://archive.org/details/per_chicago-daily-tribune_1928-07-29_87_31/page/n96/mode/1up",
+ "locator": "The 'Famous Homes' box: the house from Prairie Avenue to its south-west, the street front and the front part of the 20th Street flank, under the caption 'THE old Corwith home at 1945 Prairie avenue remained the residence of Mrs. Isabelle Corwith until February, 1922, when she passed away at the advanced age of 96. The spacious structure is typical of the homes built during the fashionable period of the neighborhood's history.' The walls are under a heavy growth of creeper.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Published in the United States in 1928, so in the public domain (the 95-year term for works published 1928-1977 ran out on 1 January 2024; the owner's rights rule of 2026-10-02 takes publication up to 1930). The reference copy committed for the image gate (data/sources/assets/corwith_1945_pictures_t3281/tribune_1928_07_29_famous_homes_corwith.jpg) is the store's display copy of the box, unaltered; nothing is derived from it as an asset.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-31 (T-3281) from the image store's display copy, 1227 x 1400 px (sha256 de40c9e5304e2c321c60d06deec224f38ef217fb583375142223a6ac0fd1756e); the library records the original scan at 8981 x 10244 px.",
+ "note": "The only public-domain picture of 1945 Prairie in the Prairie library: a dark halftone of a creeper-covered house, so openings and silhouettes read and fine ornament does not. Its camera is solved in data/reference_views/armour_corwith_house_1945_prairie/tribune_1928_famous_homes.json.",
+ "what_it_supplies": [
+  "the house's form by 1928: two full storeys over a high basement under a mansard with dormers, a Second Empire house",
+  "the street front's composition: a canted two-storey bay at the north end under its own dormers, the round-arched door over a high straight stoop, then a broad south block with two lights a storey under a higher mansard, cut on a canted face at the 20th Street corner",
+  "round-headed lights on the principal storey, taller flat-headed lights above, and the 20th Street flank's window column behind the corner",
+  "an iron fence on a stone curb along the walk"
+ ],
+ "what_it_does_not_supply": [
+  "colour: a monochrome halftone, and the walls are under creeper",
+  "the north flank, the rear and the rear ranges",
+  "the house in 1904: it shows it in 1928, six years after Mrs. Corwith's death"
+ ]
+}

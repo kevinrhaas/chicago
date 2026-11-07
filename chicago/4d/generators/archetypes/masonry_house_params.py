@@ -503,6 +503,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             "conf_wall": cf(attr, el_attr),
             "conf_roof": cf(el_attr),
         })
+        if el.get("corner_piers"):
+            # T-3374: one tall stone over each corner between two lit facets. Set
+            # only when asked, so records without it resolve to the same params.
+            p.bays[-1]["corner_piers"] = True
 
     # ---------------------------------------------------------------- dormers
     dm = val("dormers")
@@ -646,6 +650,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                     # T-2926: the light stands in continuous lintel and sill courses
                     # (their own `band` items), so it lays no stones of its own.
                     op["courses"] = True
+                if it.get("lintel_course"):
+                    # T-3374: the light's head is a continuous lintel course (its own
+                    # `band` item); it keeps its own sill.
+                    op["lintel_course"] = True
                 if it.get("panes"):
                     # T-2928: a narrow light drawn as one pane, with no glazing bars.
                     op["panes"] = int(it["panes"])
@@ -799,7 +807,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
         p.detail["court_dormer_union"] = raw.get("court_dormer_union", False)
         p.detail["court_finial"] = raw.get("court_finial")
         nc = raw.get("north_pair_colonnette")
-        p.detail["north_pair_colonnette"] = ({"capital_m": nc["capital_ft"] * FT, "base_m": nc["base_ft"] * FT}
+        # T-3343: the north pairs' stock, the front's kind (record note); capital_m and
+        # base_m are heights outright (T-2868), the rest widths and depths.
+        p.detail["north_pair_colonnette"] = ({**{k[:-3] + "_m": v * FT for k, v in nc.items() if k.endswith("_ft")},
+                                              "capitals": list(nc.get("capitals") or [])}
                                              if nc else None)
         pc = raw.get("prairie_colonnette")
         # T-2965: the Prairie colonnettes' stock, read off HABS sheet 6 (record note).
@@ -1055,9 +1066,24 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
         p.detail["dining_roof_junction"] = raw.get("dining_roof_junction", False)
         p.detail["dining_crested_connection"] = raw.get("dining_crested_connection", False)
         p.detail["continuous_copper_corner"] = raw.get("continuous_copper_corner", False)
-        if raw.get("north_copper_cladding"):
-            p.detail["north_copper_cladding"] = {
-                "outline": [(fr.x(w), fr.y(s)) for w, s in raw["north_copper_cladding"]["outline_WS_ft"]],
+        if raw.get("north_copper_leanto"):
+            # T-3373: HABS sheet 4's flatter copper run between the dining bay and the bow.
+            lt = raw["north_copper_leanto"]
+            p.detail["north_copper_leanto"] = {
+                "x_west": fr.x(lt["west_W"]), "meets_y": fr.y(lt["meets_S"]),
+                "eave_z": fr.zval(lt["eave_z"]), "overhang_m": lt["overhang_ft"]*FT,
+                "conf": cf("v4_detail"),
+            }
+        if raw.get("north_court_dormer"):
+            # T-3373: the small hooded dormer east of the great chimney.
+            nd = raw["north_court_dormer"]
+            p.detail["north_court_dormer"] = {
+                "x": sorted((fr.x(nd["W"][0]), fr.x(nd["W"][1]))), "front_y": fr.y(nd["front_S"]),
+                "eave_z": fr.zval(nd["eave_z"]), "apex_z": fr.zval(nd["apex_z"]),
+                "light": [fr.zval(v) for v in nd["light_z"]],
+                "light_margin_fraction": nd["light_margin_fraction"],
+                "side_overhang_m": nd["side_overhang_ft"]*FT, "side_apron_inset_m": nd["side_apron_inset_ft"]*FT,
+                "frame_stock_m": nd["frame_stock_ft"]*FT, "fascia_m": nd["fascia_ft"]*FT,
                 "conf": cf("v4_detail"),
             }
         p.detail["rainwater"] = val("rainwater_details")

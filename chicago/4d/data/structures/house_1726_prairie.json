@@ -113,6 +113,14 @@
           "confidence": "reconstructed",
           "note": "RECONSTRUCTED: the K03 common brick panel 1608, 1616 and 1628 wear on every face; no picture of the house is known, so its brick's colour is the kit's."
         },
+        "face_brick": {
+          "value": {
+            "front": "pressed_buff",
+            "sides": "common_yellow"
+          },
+          "confidence": "reconstructed",
+          "note": "T-3385: No picture of this house reads its brick. Built about 1890, when golden-buff pressed fronts came into fashion: the buff pressed brick; the sides a chicago common brick, yellow run. Palette: data/components/prairie_1904/k03_face_brick.json; the reading: docs/RESEARCH/face-brick-1904-T-3385/README.md (L-k03-face-brick-3385)."
+        },
         "stair_tread_m": {
           "value": 0.3,
           "confidence": "reconstructed",

@@ -51,6 +51,17 @@ export function testFloraReviews() {
     assert.throws(() => floraReview(root, {...camera, flora: {...camera.flora, street_trees_m: 900}}), /radius/);
     assert.throws(() => floraReview(root, {...camera, flora: {...camera.flora, extra: 1}}), /flora takes/);
     assert.throws(() => floraReview(root, {...camera, scene: undefined}), /explicit scene/);
+    // T-1881: the ivy drawn in leaf among bare trees is part of what was looked at
+    const leafy = floraReview(root, {...camera, flora: {...camera.flora, creeper_in_leaf: true}});
+    assert.equal(leafy.creeperInLeaf, true);
+    assert.equal(leafy.review.rendered_flora.creeper_in_leaf, true);
+    assert.equal(floraReview(root, camera).creeperInLeaf, false, 'the ivy follows the season unless asked');
+    assert.equal(floraReview(root, camera).review.rendered_flora.creeper_in_leaf, undefined);
+    assert.notEqual(leafy.review.flora_sha256, floraReview(root, camera).review.flora_sha256,
+      'drawing the ivy in leaf invalidates the review');
+    assert.throws(() => floraReview(root, {...camera, flora: {...camera.flora, creeper_in_leaf: 'yes'}}), /true or false/);
+    assert.throws(() => floraReview(root, {...camera, flora: {street_trees_m: 50, season: 'winter', creeper_in_leaf: true}}),
+      /needs front_yards/);
     // T-1934: street furniture is opt-in; asked for, it binds the posts in reach and their renderer
     assert.equal(before.docs.street_furniture, undefined, 'no furniture unless the camera asks');
     const plain = floraReview(root, camera).review.flora_sha256;

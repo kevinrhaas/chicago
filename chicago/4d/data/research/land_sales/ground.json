@@ -35,17 +35,17 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 977,
+    "structures_placed": 979,
     "structures_reached": 135,
     "structures_reached_by_grade": {
       "inferred": 30,
       "reconstructed": 105
     },
     "structures_unreached_by_section": {
-      "09": 516,
+      "09": 517,
       "10": 1,
       "16": 42,
-      "outside the four sections": 283
+      "outside the four sections": 284
     },
     "school_section": {
       "parcels": {
@@ -40024,6 +40024,7 @@
       "lasalle_lake_house",
       "lasalle_slough_crossing",
       "log_jail",
+      "log_jail_keeper_house",
       "madore_beaubien_house",
       "mansion_house",
       "mansion_house_stable",
@@ -40755,6 +40756,7 @@
       "marsh_house_1824_prairie_coach_house",
       "marshall_field_house_1905_prairie",
       "marshall_field_house_1905_prairie_coach_house",
+      "marshall_field_house_1905_prairie_conservatory",
       "marshall_field_jr_house_1919_prairie",
       "mayer_house_2009_prairie",
       "mayer_house_2009_prairie_coach_house",

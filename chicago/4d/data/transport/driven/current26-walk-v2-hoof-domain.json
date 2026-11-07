@@ -1,0 +1,25 @@
+{
+  "schema": "generated_walk_hoof_domain_v1",
+  "ticket": "T-2803",
+  "asset_sha256": "ad9dc060f8630d0de04fef97d716e8c82be3ac8bf070684e78107720c5221ec6",
+  "asset_file": "renderers/web/transport/driven/horse-current26-inplace-full.glb",
+  "clip_file": "renderers/web/transport/driven/horse-walk-v2.json",
+  "clip_sha256": "b122c987c5dd7fdd33b77516e532f3fea54919cd4a28ec0028a5cdb708e6f50f",
+  "producer": "tools/horse_walk_v2.mjs",
+  "sampled_phases": 256,
+  "hoof_vertices": 1120,
+  "maximum_support_tilt_deg": 2,
+  "extra_domain_numerical_allowance_m": 0.00001,
+  "measured_required_centered_half_width_m": 0.34563,
+  "measured_required_centered_half_length_m": 0.88714,
+  "half_width_m": 0.35,
+  "half_length_m": 0.89,
+  "lowest_hoof_vertex_m": -0.000259,
+  "plane_residual_limit_m": 0.002,
+  "stance": {
+    "maximum_hoof_slip_m": 0,
+    "maximum_hoof_lift_m": 0,
+    "maximum_swing_reach_shortfall_m": 0
+  },
+  "scope": "Skinned hoof vertices of the actual GLB through the generated in-place clip at the sampled phases, root-local metres. No terrain contact, rendered-route or photographic acceptance is claimed."
+}

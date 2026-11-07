@@ -1,0 +1,146 @@
+{
+  "schema": "seated_driver_look_derivation_v2",
+  "recipe_sha256": "23ecf4274a5b109d276f6de20abf83b83f20d8acdce4e888ef5f5e2a1d7e798d",
+  "generator_sha256": "da9b8e6932d0467fb5d2b3fbd5e0eb1c14a1fbbadb02dd35af47a96c0662d606",
+  "files": [
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod0.glb",
+      "parent_sha256": "821d771462b6ff583c27ccc00fbcde3604dc34d24b4512c5d5ba92dba331589f",
+      "sha256": "4816ec6176ef6037834c1e8a14c528a5b394173bfa2821372bd66ae1d802bd38",
+      "bytes": 8688224,
+      "original_bin_sha256": "7a4a18f57f90fa0f6eb34707239363355b411ba3b5ebe3c50463c6e3dececedd",
+      "original_bin_bytes": 8553036,
+      "original_bin_prefix_exact": true,
+      "old_clips_exact": true,
+      "meshes_skins_images_nodes_materials_exact": true,
+      "new_clip": "sit_drive_look_v2",
+      "changed_rotation_targets": [
+        "neck_01",
+        "head"
+      ],
+      "non_head_neck_channels_unchanged": true
+    },
+    {
+      "file": "assets/humans/bardwell_otis_1835.lod3.glb",
+      "parent_sha256": "18e48c466ace5f47f799607128b52c1a9118627fec7afc323ad18cd63c4914d1",
+      "sha256": "2c57f30ca74d2390913167a63e2df6fe0b3b92d9296c6b078d237e6bda0a693e",
+      "bytes": 7273156,
+      "original_bin_sha256": "7b12e9bc4c72126130ad19f90e10e1bf626d98c3f52360b05e44b1efe87ffc84",
+      "original_bin_bytes": 7139980,
+      "original_bin_prefix_exact": true,
+      "old_clips_exact": true,
+      "meshes_skins_images_nodes_materials_exact": true,
+      "new_clip": "sit_drive_look_v2",
+      "changed_rotation_targets": [
+        "neck_01",
+        "head"
+      ],
+      "non_head_neck_channels_unchanged": true
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod0.glb",
+      "parent_sha256": "d568cb8f7d17fb9f8ca7035049c6f1c3f02a30f3d153242d1ea67f876b454ddf",
+      "sha256": "afc2fda09713911404b4b2c39ee08bf5d98e126f62ca16c55cf50de728586c6b",
+      "bytes": 4478104,
+      "original_bin_sha256": "bcc8a618c06260ee6c27eba4b26ff24fe5eb9b19d776dcfe2d5bb9298db7c889",
+      "original_bin_bytes": 4342504,
+      "original_bin_prefix_exact": true,
+      "old_clips_exact": true,
+      "meshes_skins_images_nodes_materials_exact": true,
+      "new_clip": "sit_drive_look_v2",
+      "changed_rotation_targets": [
+        "neck_01",
+        "head"
+      ],
+      "non_head_neck_channels_unchanged": true
+    },
+    {
+      "file": "assets/humans/web/bardwell_otis_1835.lod3.glb",
+      "parent_sha256": "bb650009de2987b46e1c54fa64ca45f42c7e3d088f71de3451adb8d83c9de0d7",
+      "sha256": "9423585a506b1ae317c08c7eae9fb936e6ceea5e46d00ae6b2673f8c5e268f81",
+      "bytes": 340516,
+      "original_bin_sha256": "0f6af0e0bfcf36c463779e52177e88342d2f500b1929f535daec7ca3afa22d0a",
+      "original_bin_bytes": 207400,
+      "original_bin_prefix_exact": true,
+      "old_clips_exact": true,
+      "meshes_skins_images_nodes_materials_exact": true,
+      "new_clip": "sit_drive_look_v2",
+      "changed_rotation_targets": [
+        "neck_01",
+        "head"
+      ],
+      "non_head_neck_channels_unchanged": true
+    },
+    {
+      "file": "assets/humans/anonymous_working_driver_1904.lod0.glb",
+      "parent_sha256": "5ca3300d48e7479e29897665409c1e95340f3fc5831b35f3f0ba25d2a3b6edc6",
+      "sha256": "c3b285d0305559ee5fbe13695985df86cde4c38ca8d7efd8419fcdd2d97bc4b8",
+      "bytes": 8650564,
+      "original_bin_sha256": "237e90c8e6d76de54668b34ce2ae610b709586f4a8bd833160217715229e0d7f",
+      "original_bin_bytes": 8528620,
+      "original_bin_prefix_exact": true,
+      "old_clips_exact": true,
+      "meshes_skins_images_nodes_materials_exact": true,
+      "new_clip": "sit_drive_look_v2",
+      "changed_rotation_targets": [
+        "head",
+        "neck_01"
+      ],
+      "non_head_neck_channels_unchanged": true
+    },
+    {
+      "file": "assets/humans/anonymous_working_driver_1904.lod3.glb",
+      "parent_sha256": "c9d644084cff807aa5faea6387213a28ea9f7f431b6e2eb2997e1d58d4fc8f41",
+      "sha256": "3833f8fc26f722d17c62afa36ce1b511e38fd112142619db58fa1bf9f551ef75",
+      "bytes": 7256444,
+      "original_bin_sha256": "7203b4744201f1bffaaaf18d0a8c2a3a32a99004319f661f55b1869e9b1a25cd",
+      "original_bin_bytes": 7136520,
+      "original_bin_prefix_exact": true,
+      "old_clips_exact": true,
+      "meshes_skins_images_nodes_materials_exact": true,
+      "new_clip": "sit_drive_look_v2",
+      "changed_rotation_targets": [
+        "head",
+        "neck_01"
+      ],
+      "non_head_neck_channels_unchanged": true
+    },
+    {
+      "file": "assets/humans/web/anonymous_working_driver_1904.lod0.glb",
+      "parent_sha256": "7a3c2392e63edf75950f48a4bd607075f3e8c71015db5c81a6d8a7df40b0f09e",
+      "sha256": "49a84c1d858f67359ff33e56762336ade56db1dcbbb1cbe923846d95825c9547",
+      "bytes": 4458148,
+      "original_bin_sha256": "d1d9ff076745a6be0917f47a4927431ada7f78faafb3a09ffc0ca72f45502d39",
+      "original_bin_bytes": 4334292,
+      "original_bin_prefix_exact": true,
+      "old_clips_exact": true,
+      "meshes_skins_images_nodes_materials_exact": true,
+      "new_clip": "sit_drive_look_v2",
+      "changed_rotation_targets": [
+        "head",
+        "neck_01"
+      ],
+      "non_head_neck_channels_unchanged": true
+    },
+    {
+      "file": "assets/humans/web/anonymous_working_driver_1904.lod3.glb",
+      "parent_sha256": "681da7b7e9119f5c4e8bf0ddd0a491427ef5898697665157b2321d8725138bed",
+      "sha256": "84e602cd49c6e355fb25bc6659a0f4a9e573e4bebe6ce8d2e30e14ed5250b60b",
+      "bytes": 326600,
+      "original_bin_sha256": "253b4913cb1bae1d467fc4d4bd0f475820235a557e42904a968af0cb14c8c928",
+      "original_bin_bytes": 205352,
+      "original_bin_prefix_exact": true,
+      "old_clips_exact": true,
+      "meshes_skins_images_nodes_materials_exact": true,
+      "new_clip": "sit_drive_look_v2",
+      "changed_rotation_targets": [
+        "head",
+        "neck_01"
+      ],
+      "non_head_neck_channels_unchanged": true
+    }
+  ],
+  "native_qualified": false,
+  "photographic_accepted": false,
+  "scope": "Exact animation-only regeneration; native skinning/contact and scene appearance are separate"
+}

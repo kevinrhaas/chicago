@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs04-terrace-section",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "ad7c9ce42259c10402987bffd680e1c957a13dd807fc0b9a1d1643e28bd76203",
+  "glb_sha256": "78857b7fb778e8c658297fa3e5119c6281993144b816fb66943e3de8c80f0872",
   "camera_sha256": "8a205031625ec1548ebf1cd55c187368c27358532f37ba9c0a000a82e9179dde",
   "photo_sha256": "21f8cab23de531faf9e47dafc5d13ca4f427d2f517b5ca4870e838284a2169e7",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-terrace-section-side-by-side.jpg",
@@ -35,7 +35,27 @@
     {
       "what": "T-2928: the barred basement light beside the stair tower takes sheet 4's bar pitch (twelve bars drawn at 0.345 ft across the full drawn width; nine at 0.355 ft on the built light, which T-2880 holds short of the plan's drum), where it had six. Its rails and opening are unchanged.",
       "status": "fixed"
+    },
+    {
+      "what": "T-3371: the north range's ridge (raised to 36.17 ft) and the alley gable are out of this view; re-rendered and reviewed, nothing in it changed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3372: the two courtyard service stacks moved onto HABS sheets 2-3's flues are out of this view; re-rendered and reviewed, nothing in it changed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3373: the northeast court corner's copper lean-to, raised wall, corner leader and small dormer east of the great chimney are out of this view or hidden behind nearer fabric; re-rendered and reviewed, nothing visible in it changed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3374: the dining bay's corner stones and the two lintel courses on the north range's court face east of it are out of this view; re-rendered and reviewed, nothing visible in it changed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3376: the stable gables' verges are out of this view or hidden behind nearer fabric; re-rendered and reviewed, nothing visible in it changed.",
+      "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

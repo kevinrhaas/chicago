@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%235c4934' d='M5 9h22v12H5z'/%3E%3Ccircle cx='10' cy='24' r='5' fill='%23273129'/%3E%3Ccircle cx='23' cy='24' r='5' fill='%23273129'/%3E%3C/svg%3E">
+<title>Reconstructed farm-box wagon</title>
+<style>
+body{margin:0;background:#e8e5de;color:#273129;font:14px system-ui;display:grid;grid-template-columns:290px minmax(0,1fr);height:100dvh;overflow:hidden}canvas{display:block;grid-column:2;grid-row:1;width:100%;height:100dvh}aside{grid-column:1;grid-row:1;box-sizing:border-box;margin:12px;padding:14px;border-radius:10px;background:#fffffff0;box-shadow:0 3px 20px #0002;overflow:auto}h1{font-size:18px;margin:4px 0 8px}p{line-height:1.4}label{display:block;margin:12px 0}input[type=range]{display:block;width:100%}button,select{padding:6px;margin:2px}small{display:block;margin-top:8px;line-height:1.4}a{color:#285b43}#technical-status{font-variant-numeric:tabular-nums}@media(max-width:600px){body{grid-template-columns:minmax(0,1fr);grid-template-rows:42dvh 58dvh}aside{grid-column:1;grid-row:1;margin:6px;padding:10px;font-size:12px}h1{font-size:15px}p{margin:6px 0}label{margin:6px 0}canvas{grid-column:1;grid-row:2;height:58dvh}}
+</style>
+<script type="importmap">{"imports":{"three":"../../vendor/three-0.185.1/three.module.js"}}</script>
+<canvas id="view"></canvas>
+<aside>
+  <a href="../">Transport collection</a>
+  <h1>Farm-box wagon</h1>
+  <p>A reconstructed work wagon, with separately turning wheels, front gear and pole. Its maker, owner and exact historical appearance are unknown.</p>
+  <label>Detail <select id="detail"><option value="near">Near</option><option value="mid">Middle distance</option><option value="far">Far</option></select></label>
+  <label>Finish <select id="finish"><option value="source">Weathered gray</option><option value="warm">Muted warm timber</option></select></label>
+  <label><input id="hold-view" type="checkbox"> Keep view when changing detail</label>
+  <label>Front gear <output id="steerValue">0°</output><input id="steer" aria-label="Front gear turn" type="range" min="-8" max="8" step=".1" value="0"></label>
+  <label>Travel <output id="travelValue">0 m</output><input id="travel" aria-label="Rear axle travel" type="range" min="-2" max="2" step=".01" value="0"></label>
+  <label><input id="raised" type="checkbox" checked> Pole raised</label>
+  <button id="play">Roll</button><button id="reset">Reset</button>
+  <div><button data-view="quarter">Quarter</button><button data-view="side">Side</button><button data-view="front">Front</button><button data-view="rear">Rear</button></div>
+  <p id="status">Loading wagon…</p>
+  <details><summary>Model details</summary><p id="technical-status"></p></details>
+  <small>Grid squares are 1 metre. Drag to orbit; wheel to zoom. <a href="farm-box.json">Model, sources and liberties</a>.</small>
+  <small>Adapted from <a href="https://sketchfab.com/3d-models/old-cart-f536745fd82144eeb5cc4900a48e816e">Old Cart by Lyskilde / longtail</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Scale, articulation, single pole and both finishes are reconstructed.</small>
+</aside>
+<script type="module" src="fixture.js"></script>
+</html>

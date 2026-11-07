@@ -1288,6 +1288,37 @@ body.is-touch .crosshair { display: none; }
 @media (prefers-reduced-motion: reduce) {
   .quick-column > .quick-inspect, .quick-column > .quick-inspect[hidden] { transition: none; transform: none; }
 }
+/* T-3319: the Interact key, under Inspect while a gate is in reach. It says what a press
+   will do ("Open gate"), so it keeps its words on a phone where Inspect goes icon-only;
+   the "Interact ·" lead and the R key hint are for a wider screen. It fades like Inspect. */
+.quick-interact { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, var(--edge)); }
+.quick-interact .ik-verb { color: var(--ink-dim); }
+.quick-interact .ik-kbd {
+  font: inherit; font-size: 10px; line-height: 1; padding: 2px 4px; margin-left: 2px;
+  border: 1px solid var(--edge); border-radius: 4px; color: var(--ink-dim);
+}
+.quick-interact[aria-disabled="true"] { opacity: .75; cursor: default; }
+.quick-column > .quick-interact {
+  transition: opacity .2s ease-out, transform .2s ease-out, visibility 0s linear 0s;
+}
+.quick-column > .quick-interact[hidden] {
+  display: inline-flex;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transform: translateX(8px);
+  transition: opacity .25s ease-in, transform .25s ease-in, visibility 0s linear .25s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .quick-column > .quick-interact, .quick-column > .quick-interact[hidden] { transition: none; transform: none; }
+}
+@media (max-width: 560px), (pointer: coarse) {
+  .quick-interact .ik-verb, .quick-interact .ik-kbd { display: none; }
+}
+/* T-3404: Stop following, in the Interact key's place and look. The name is for a wide
+   screen; a phone keeps the verb, which is what the press does. */
+.quick-follow .fk-who { color: var(--ink); max-width: 16ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 560px), (pointer: coarse) {
+  .quick-follow .fk-who { display: none; }
+}
 /* T-2977 (owner, 2026-10-21: "that button overlaps on mobile landscape"): a phone on its side
    is too short for a key at mid-height — the instrument, its heading row and the street
    readout reach past the middle. So Inspect drops to the lower right corner, under the
@@ -2220,13 +2251,15 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 /* Starting at…: five one-tap places, then search, kinds and the full list. */
 #welcome-picker { display: flex; flex-direction: column; gap: 8px; }
 #welcome-picker[hidden] { display: none; }
-.welcome-quick { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; flex-shrink: 0; }
+/* T-3436: compact chips, three to a row: a glyph of its own and a one- or two-word name. */
+.welcome-quick { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; flex-shrink: 0; }
 .welcome-quick:empty { display: none; }
 .welcome-quick-start {
-  display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 5px;
-  min-width: 0; min-height: 74px; padding: 10px 3px 8px; font-size: 11.5px; line-height: 1.15; text-align: center;
+  display: flex; flex-direction: row; align-items: center; justify-content: flex-start; gap: 6px;
+  min-width: 0; min-height: 44px; padding: 6px 8px; font-size: 12px; line-height: 1.15; text-align: left;
   background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 13%, var(--panel)), var(--panel));
 }
+.welcome-quick-start > span { min-width: 0; overflow-wrap: anywhere; }
 .welcome-quick-start .menu-icon { color: var(--accent); flex: none; }
 .welcome-find, .jaunt-find { position: relative; flex: 1 1 auto; min-width: 0; }
 .welcome-find .menu-icon, .jaunt-find .menu-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--ink-faint, var(--ink-dim)); pointer-events: none; }
@@ -2236,7 +2269,7 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
   border: 1px solid var(--edge); border-radius: 999px;
 }
 .welcome-kinds { display: flex; flex-shrink: 0; overflow-x: auto; gap: 5px; scrollbar-width: none; }
-.welcome-kinds button { min-height: 34px; padding: 0 11px; font-size: 12px; min-width: 44px; flex: none; border-radius: 999px; color: var(--ink-dim); background: none; }
+.welcome-kinds button { min-height: 34px; padding: 0 9px; font-size: 12px; min-width: 40px; flex: none; border-radius: 999px; color: var(--ink-dim); background: none; }
 .welcome-kinds button[aria-pressed="true"] { border-color: var(--accent); color: var(--ink); background: color-mix(in srgb, var(--accent) 16%, transparent); }
 /* T-2740: the kinds scroll sideways; the order sits at the row's end, quiet, always in reach. */
 .welcome-filters { display: flex; align-items: center; gap: 6px; flex-shrink: 0; min-width: 0; }
@@ -2251,7 +2284,22 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
   border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-70%) rotate(45deg); }
 .welcome-sort select:hover, .welcome-sort select:focus-visible { border-color: var(--accent); color: var(--ink); outline: none; }
 .welcome-sort select option { color: var(--ink); background: var(--panel-solid); }
+/* On a phone the chips stay three to a row, icon over name, the name breaking only between
+   words: two short rows, nothing scrolling sideways or past the edge at a larger text size
+   (T-2656 reflow). */
+@media (max-width: 520px) {
+  .welcome-quick { gap: 5px; }
+  .welcome-quick-start { flex-direction: column; justify-content: center; gap: 3px; padding: 6px 4px; text-align: center; }
+  .welcome-quick-start > span { overflow-wrap: normal; }
+  .welcome-kinds button { padding: 0 8px; }
+  .welcome-sort select { padding: 0 22px 0 9px; }
+  .welcome-sort::after { right: 10px; }
+}
 .welcome-results { overflow-y: auto; overscroll-behavior: contain; min-height: 96px; flex: 1 1 auto; }
+/* Lent to the Navigator's Jaunts screen, the list is not a scroller of its own: the screen
+   scrolls. An unbounded list kept as a scroll container caught the mouse wheel and, with
+   overscroll contained, passed it nowhere (the owner, 2026-11-07). */
+.nav-screen .welcome-results { overflow-y: visible; overscroll-behavior: auto; min-height: 0; }
 .welcome-destination { width: 100%; text-align: left; padding: 8px 10px; margin-bottom: 5px; min-height: 44px; }
 .welcome-destination strong, .welcome-destination span { display: block; }
 .welcome-destination strong { font-size: 14px; }
@@ -2260,6 +2308,12 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .welcome-destination strong { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2;
   overflow: hidden; white-space: normal; overflow-wrap: anywhere; line-height: 1.25; }
 .welcome-destination .welcome-dest-text { min-width: 0; }
+/* T-3436: a photo view leads with its picture, a viewpoint with its glyph. */
+.welcome-destination.has-lead { grid-template-columns: auto minmax(0, 1fr) auto; }
+.welcome-destination .welcome-thumb { width: 52px; height: 40px; object-fit: cover; border-radius: 4px; display: block;
+  background: color-mix(in srgb, var(--accent) 10%, var(--panel)); }
+.welcome-destination .welcome-thumb.is-missing { visibility: hidden; }
+.welcome-destination .welcome-glyph { display: inline-grid; place-items: center; width: 24px; color: var(--accent); }
 .welcome-destination .welcome-dist { display: inline-flex; align-items: center; gap: 4px; font: 400 11px/1.2 var(--font-mono, ui-monospace, monospace);
   color: var(--ink-dim); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .welcome-destination .welcome-dist i { display: inline-grid; width: 14px; height: 14px; transform: rotate(var(--turn, 0deg)); }
@@ -2300,7 +2354,8 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .gate.welcome-compact[data-state="welcome"] .welcome-action > span { display: none; }
 .gate.welcome-compact[data-state="welcome"] .welcome-action .menu-icon { margin: 0; }
 .gate.welcome-compact[data-region] h1 { display: none; }
-.gate.welcome-compact .welcome-quick-start { min-height: 44px; padding: 6px 3px; }
+.gate.welcome-compact .welcome-quick { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); }
+.gate.welcome-compact .welcome-quick-start { min-height: 44px; padding: 6px 3px; justify-content: center; text-align: center; }
 .gate.welcome-compact .welcome-quick-start .menu-icon { display: none; }
 /* First entry must not shrink the menu on return and hide its restored focus. */
 .gate[data-region="jaunts"] #welcome-close[hidden] { display: block; visibility: hidden; }
@@ -2361,6 +2416,7 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .jaunt-length[data-size="m"] { --g2: currentColor; }
 .jaunt-length[data-size="l"] { --g2: currentColor; --g3: currentColor; }
 .jaunt-length:empty { display: none; }
+.jaunt-light { white-space: nowrap; color: var(--accent, currentColor); }
 .jaunt-held { color: var(--ink-dim); border: 1px dashed var(--edge); border-radius: 999px; padding: 0 6px; }
 /* T-2631: a route's plate (a credited picture of its stops), its keepsake, and the outing
    in progress pinned on top with Continue. */
@@ -2375,6 +2431,27 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .jaunt-continue h3 { margin: 2px 0 0; }
 .jaunt-continue-next { margin: 2px 0 8px; color: var(--ink-dim); }
 .jaunt-continue [data-action="continue"] { min-height: 44px; font-weight: 600; }
+/* T-3432: Outing complete, one compact card over the list; the ending folds under it. */
+.jaunt-outcome { border-color: var(--accent); padding: 10px 10px 8px 12px; }
+.jaunt-outcome-head { display: grid; grid-template-columns: 36px minmax(0, 1fr) auto; gap: 10px; align-items: center; }
+.jaunt-outcome-mark { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%;
+  color: var(--accent-ink, var(--panel-solid)); background: var(--accent); }
+.jaunt-outcome-words { min-width: 0; }
+.jaunt-outcome h3 { margin: 0; font: 600 10px/1.4 var(--font-mono, ui-monospace, monospace); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.jaunt-outcome-title { margin: 1px 0 0; font-weight: 600; font-size: 14px; line-height: 1.25; }
+.jaunt-outcome-kept { display: flex; align-items: center; gap: 4px; margin: 2px 0 0; font-size: 12px; color: var(--ink-dim); }
+.jaunt-outcome-kept .menu-icon { flex: none; color: var(--accent); }
+.jaunt-outcome-close { width: 44px; height: 44px; display: grid; place-items: center; padding: 0; color: var(--ink-dim); }
+.jaunt-outcome-more { margin: 6px 0 0; }
+.jaunt-outcome-more > summary { display: flex; align-items: center; justify-content: space-between; min-height: 40px; padding-top: 2px;
+  list-style: none; cursor: pointer; font-size: 13px; color: var(--accent); border-top: 1px dashed var(--edge); }
+.jaunt-outcome-more > summary::-webkit-details-marker { display: none; }
+.jaunt-outcome-more > summary .menu-icon { transition: transform .15s ease; }
+.jaunt-outcome-more[open] > summary .menu-icon { transform: rotate(180deg); }
+.jaunt-outcome-more > p { margin: 6px 0; font-size: 13px; line-height: 1.5; }
+.jaunt-outcome-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.jaunt-outcome-actions .welcome-link { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 6px 12px; font-size: 13px; }
+.jaunt-outcome-actions .menu-icon { color: var(--accent); }
 .jaunt-actions { display: flex; align-items: center; gap: 4px; }
 .jaunt-start { width: 40px; height: 40px; display: grid; place-items: center; padding: 0 0 0 2px; cursor: pointer;
   color: var(--accent-ink, var(--panel-solid)); border: 0; border-radius: 50%; background: var(--accent);

@@ -1,0 +1,79 @@
+{
+  "structure_id": "philo_carpenter_log_shop",
+  "view": "kurz-allison-1893-panel14",
+  "glb": "assets/gltf/philo_carpenter_log_shop__log_1832.glb",
+  "glb_sha256": "f3e26f650627f36879087d75f30db5c4553e0f5938ae5bd0d305480958549cfc",
+  "camera_sha256": "a4f07a851137c13d4caba5fc0a4afd56e6d7f3b210a821f65ce98ca46e4d32d6",
+  "photo_sha256": "f251e68441b86738120e6b0462fccd5521153b845a3efc5c5a04c23387506406",
+  "rendered_members": [
+    {
+      "structure_id": "philo_carpenter_log_shop",
+      "glb": "assets/gltf/philo_carpenter_log_shop__log_1832.glb",
+      "placement": {
+        "local_e": 111.32,
+        "local_n": -127.5,
+        "rotation_deg": 0,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "log_1832"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "f3e26f650627f36879087d75f30db5c4553e0f5938ae5bd0d305480958549cfc"
+    },
+    {
+      "structure_id": "sauganash_hotel",
+      "glb": "assets/gltf/sauganash_hotel__frame_1831.glb",
+      "placement": {
+        "local_e": 101.4,
+        "local_n": -130.6,
+        "rotation_deg": 0,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "frame_1831"
+      },
+      "position": [
+        -9.919999999999987,
+        0,
+        3.0999999999999943
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "16335b77d354996661cd5da85405b7cd51e76ed34088991f762b787be59f0d93"
+    }
+  ],
+  "group_sha256": "8740f16344972785805c6f3d6ea467c0f685de3495b73fe550bae0db410ce8ab",
+  "side_by_side": "docs/RESEARCH/photo-match/philo_carpenter_log_shop/kurz-allison-1893-panel14-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "The hotel standing behind the shop in this view was built with a bare rake where the picture draws a boxed gable cornice and its two short horizontal returns. Both are now built on the hotel's +x gable at reconstructed sections (T-2383, docs/LIBERTIES.md L-sauganash-main-gable-cornice-2383). The Carpenter shop ANCHOR is untouched: its own master, camera, placement, openings, materials and every prior T-3153 disposition are unchanged, and this pair was re-rendered and directly reviewed before the verdict below was retained.",
+      "status": "fixed"
+    },
+    {
+      "what": "Kurz14 repeats the low annex/twofrontsash/darkdoor/free-endstack/horizontalgable categories but redraws side/front proportions. Fixed acceptedAndreas pose and onecopy-scale/principal fit preserve geometry; approximate4px wallcorner picks on368x241crop have maxresidual6.81px. Source/camera disagreement is within tolerance underT3153, not a new historical dimension.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Kurz14 redroof colouring disagrees with the darker retrospective rendition and is not established by monochromeAndreas/Trowbridge. Existing reconstructed shinglefinish remains; genuine dependent-copy/pigment disagreement is within tolerance underT3153, with no historical paint claim.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The annex retains the shared single-pen form, two front sash around one dark doorway, one free-end stack and horizontal exposed-gable timber. Openings, documented16x20ft footprint, inferred2.5m eave and placement are unchanged. Fine hatching, shadow edges and uncertain handpicked wallcorners do not justify additional bay/size controls.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Monochrome hatching cannot establish original paint, photometric reflectance, exact wall joinery or hidden faces. Neutral timber/course relief is a declared reconstructed proxy. The diagnostic eye/principal point is not a historical visitor pose or independent survey.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "context_refresh_review": {
+    "reviewed_at": "2026-11-04T07:00:00+00:00",
+    "disposition": "This run rendered the view from its own camera before and after the change and viewed both side-by-sides beside the picture itself before setting the verdict below.",
+    "scope": "The only rendered input that moved is the Sauganash hotel's master: its two main-block ridge stacks moved from the generic 0.22/0.78 frontage fractions to the existing gable_ends kit's 0.60 m end insets (T-2383). The Carpenter shop anchor's GLB is byte-identical, and no camera, placement or photograph changed. This review signs off neither the whole hotel nor T-2383, whose roof silhouette and left-gable differences stay open."
+  }
+}

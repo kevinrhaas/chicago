@@ -47,20 +47,20 @@ if g.get('level_courtyard_gable'):
     south=profile(r,'south')
     assert len(south)==3 and abs(south[1][0]-r['ridge_at'])<1e-4
     assert abs(south[1][1]-zng(38.6))<1e-4
-    # T-3096 (T-3095's ruling A): the alley cross ridge comes down its own north
-    # plane, its pitch kept, to S12.31 at 36.5 ft (its own plane, within 1 mm), where the prints' course count and
-    # the measured-control cameras put it. It no longer shares the north range's
-    # S14.6 line; the cupola stays on that line (T-2228) and the lowered ridge still
-    # runs into the cupola's west face rather than past its north side.
-    assert abs(g['cross_y']-(74-12.31)*.3048)<1e-4
-    assert abs(g['cross_z']-zng(36.17))<1e-4
+    # T-3396 (owner, 2026-11-06): the alley cross ridge stands on the north range's
+    # ridge line, S14.6, at its height (36.17 ft, T-3371), as the owner's 2026-10-15
+    # overhead ruling (T-2228) set it; this supersedes T-3096's S12.31 (T-3095's
+    # course-count ruling A). The cupola stays centred on that same line.
+    assert abs(g['cross_y']-(74-14.6)*.3048)<1e-4
+    assert abs(g['cross_y']-n['ridge_at'])<1e-4
+    assert abs(g['cross_z']-zng(36.17))<1e-4 and abs(g['cross_z']-n['ridge_z'])<1e-4
     # T-3148: its north foot is the 18th Street eave, level either side of the stable's
-    # gable (HABS 01's tiles draw one straight line from W 60 to W 160), so with the
-    # plane kept on the alley gable's north rake the cross ridge stands at S12.31 at 36.17 ft
-    # (0.10 m under T-3096's, inside its cameras' 0.3 m) and the plane at 46.7 degrees, not 42.5.
+    # gable (HABS 01's tiles draw one straight line from W 60 to W 160), so the cross
+    # roof's north slope is the north range's own plane.
     assert abs(g['north_west_eave']-g['north_eave'])<1e-6
     pitch=math.degrees(math.atan2(g['cross_z']-g['north_west_eave'],r['y1']-g['cross_y']))
-    assert abs(pitch-46.7)<.2,pitch
+    npitch=math.degrees(math.atan2(n['ridge_z']-zng(23.1),n['y1']-n['ridge_at']))  # the 18th Street eave
+    assert abs(pitch-npitch)<.05 and abs(pitch-41.8)<.2,(pitch,npitch)
     t=p.turrets[0]
     assert abs((t['y0']+t['y1'])/2-n['ridge_at'])<1e-4
     assert t['y0']<g['cross_y']<t['y1']
@@ -71,21 +71,22 @@ if g.get('level_courtyard_gable'):
         assert abs(run['ridge_at']-n['ridge_at'])<1e-4 or abs(run['ridge_at']-g['cross_y'])<1e-4
         assert abs(run.get('ridge_skew',0))<1e-10
     cross_runs=[(a,b) for run,a,b in east_west if abs(run['ridge_at']-g['cross_y'])<1e-4]
-    assert len(cross_runs)==1 and t['x0']<cross_runs[0][1]<t['x1'],cross_runs
-    # The alley gable keeps its apex and stands proud of the lowered roof: its
-    # wall line is never under the roof at the alley face, and its coping clears
-    # the tiles (0.245 m over this envelope) along both rakes.
-    ap=g['alley_parapet']
-    assert abs(ap['apex_y']-(74-14.6)*.3048)<1e-4 and abs(ap['apex_z']-zng(38.6))<1e-4
+    # T-3396: one straight crest through the cupola: the alley run dies into its
+    # west face and the north range's run leaves its east face, on the same line.
+    cross_runs.sort()
+    assert len(cross_runs)==2,cross_runs
+    assert abs(cross_runs[0][0]-r['x0'])<1e-6 and t['x0']<cross_runs[0][1]<t['x1'],cross_runs
+    assert t['x0']<cross_runs[1][0]<t['x1']+.1 and cross_runs[1][1]>r['x1'],cross_runs
+    # T-3376 (owner review of the c. 1887 Cornell print): both stable gables are
+    # verges, not parapets. The roof's apex at the alley is T-3396's (S14.6,
+    # 36.17 ft); over the gable's span the cross roof oversails the alley wall by
+    # 0.15 m at the wall's own heights, as the alley eave south of its foot does.
+    assert 'alley_parapet' not in g
+    assert r['gable_ends']['west']=='plain' and r['gable_ends']['north']=='plain'
+    assert abs(height(r,r['x0'],g['cross_y'])-g['cross_z'])<1e-4
     for i in range(1,100):
         y=g['south_foot_y']+(r['y1']-g['south_foot_y'])*i/100
-        a,c=(g['south_foot_y'],g['cross_foot_eave']),(ap['apex_y'],ap['apex_z'])
-        if y>ap['apex_y']:a,c=c,(r['y1'],g['north_west_eave'])
-        line=a[1]+(c[1]-a[1])*(y-a[0])/(c[0]-a[0])
-        assert line>=height(r,r['x0'],y)-1e-3,(y,line)
-        assert line+ap['lift']>height(r,r['x0'],y)+.245+.04,(y,line)
-    # No roof oversails the alley wall over the gable; the alley eave south of it does.
-    assert height(r,r['x0']-.1,(g['south_foot_y']+r['y1'])/2)==0
+        assert abs(height(r,r['x0']-.1,y)-height(r,r['x0'],y))<1e-4,y
     assert height(r,r['x0']-.1,g['south_foot_y']-1)>0
     # Matching 2.36-ft awning, continuous at the 24-ft north courtyard edge.
     edge=r['x1']+2.36*.3048
@@ -98,7 +99,8 @@ if g.get('level_courtyard_gable'):
             assert abs(height(r,x,y)-zng(38.6+(24-38.6)*f))<1e-4
     north_edge=n['eave_lo_z']-n['eave_lo_overhang']*(n['ridge_z']-n['eave_lo_z'])/(n['ridge_at']-n['y0'])
     assert abs(height(r,edge,ny)-north_edge)<1e-4
-    assert abs(n['ridge_z']-zng(34.1))<1e-4
+    # T-3371: the north range's ridge meets the stable's cross ridge level at the cupola.
+    assert abs(n['ridge_z']-zng(36.17))<1e-4 and abs(n['ridge_z']-g['cross_z'])<1e-4
     from archetypes.masonry_house_v4_courtyard_roof import wall_profile
     court_wall=wall_profile(p,r['x1'],n['x1'],n['eave_lo_z'])
     for x,h in court_wall:
@@ -110,9 +112,9 @@ if g.get('level_courtyard_gable'):
                 assert height(r,r['x1'],y)>o['z1']+.27,(o,y)
     # The 2026-10-15 owner aerial priority supersedes the west-study peak
     # at S18.4. Preserve end eaves and the full-height north-south ridge.
-    # T-3096 lowers the cross ridge at the alley to S12.31/36.5 ft on its own
-    # north plane; T-3148 brings its north end down to the 18th Street eave.
-    for station,roof_z in ((0,23.1),(12.31,36.17),(35,16.5),(59.75,16.5)):
+    # T-3396 puts the cross ridge at the alley back on S14.6 at 36.17 ft;
+    # T-3148 brings its north end down to the 18th Street eave.
+    for station,roof_z in ((0,23.1),(14.6,36.17),(35,16.5),(59.75,16.5)):
         assert abs(height(r,r['x0'],(74-station)*.3048)-zng(roof_z))<1e-4
     for _,pts in patches(r,False):
         for a,b in zip(pts,pts[1:]+pts[:1]):
@@ -291,12 +293,20 @@ if p.detail.get('dining_crested_connection'):
     n=next(r for r in p.ranges if r['name']=='north_range')
     bay=p.bays[0];ap=bay['apex']
     assert bay['pts'][1][1]-1e-4<=ap[1]<=bay['pts'][0][1]
-    assert abs(ap[2]-n['ridge_z'])<1e-5 and n['ridge_at']-ap[1]>3.5
+    # T-3371: the cap's point keeps T-2172's height under the raised north ridge;
+    # its level connector dies into the courtyard slope short of the ridge.
+    from archetypes.masonry_house_v4_courtyard_roof import connector_end
+    assert ap[2]<=n['ridge_z']+1e-9 and n['ridge_at']-ap[1]>3.5
+    end=connector_end(p)
+    assert abs(end[2]-ap[2])<1e-9 and ap[1]<end[1]<=n['ridge_at']+1e-9
+    assert abs(end[2]-(n['eave_lo_z']+(end[1]-n['y0'])*(n['ridge_z']-n['eave_lo_z'])/(n['ridge_at']-n['y0'])))<1e-6
     profile_points=wall_profile(p,n['x0'],n['x1'],n['eave_lo_z'])
     if g.get('level_courtyard_gable'):
         # The restored west slope closes a 0.32-ft corner wedge above the
         # north wall datum; the original flat endpoint would leave a slit.
-        left_height=zng(38.6+(24-38.6)*15.25/(15.25+2.36))
+        # T-3371: the raised north ridge lifts the north wall's courtyard eave 4 mm
+        # over the west slope there, so the wedge closes on the eave itself.
+        left_height=max(n['eave_lo_z'],zng(38.6+(24-38.6)*15.25/(15.25+2.36)))
         assert profile_points[0][0]==n['x0'] and abs(profile_points[0][1]-left_height)<1e-4
     else:
         assert profile_points[0]==(n['x0'],n['eave_lo_z'])
@@ -338,7 +348,8 @@ b=f['bay_dining_elevation']['value']
 wing=f['opening_heights']['value']['openings_court_north']['second']
 assert abs(b['glazed_band_top'][0]-wing[1])<1e-8
 assert abs(b['glazed_band_top'][0]-b['wall_top'][0]-3.1)<1e-8
-assert abs(b['roof_apex'][2][0]-f['ridge_north_range']['value']['ridge'][0])<1e-8
+# T-3371 raised the north ridge to 36.17 ft; the cap keeps its 34.1-ft point under it.
+assert abs(b['roof_apex'][2][0]-34.1)<1e-8 and b['roof_apex'][2][0]<=f['ridge_north_range']['value']['ridge'][0]
 assert 9.5 < b['roof_apex'][2][0]-b['glazed_band_top'][0] < 10.7
 # T-2183 corrects the earlier perspective-based enlargement. The openings must
 # share floor datums; keeping a ratio that forced tall tower windows was wrong.

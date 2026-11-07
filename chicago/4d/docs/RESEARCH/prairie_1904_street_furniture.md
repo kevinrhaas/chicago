@@ -76,26 +76,19 @@ the parkway close to the walk, which is where the rule places the others. The pi
 across 18th Street, shows a post at the street edge of the walk before the palm-house wing, where the
 curb turns into Calumet Avenue (x 795 of the 1200 px copy, its foot at y 607; through its solved
 camera 10 m east of the palm house's centre). It is drawn there (`lamp.pictured.pullman_court`), 1.25 m
-west of the reading to keep clear of the parkway elm Taylor's 16555 places beside it. Its head reads as
-a shallow round globe on a post about 4.5-5 m tall, not the district's 3.1 m post with its square
-lantern; the place is read and the form is not (it stays open in the palm house's and stable's match
-records). The same print, and the Detroit Publishing view of c. 1900, see the rest of the north walk
+west of the reading to keep clear of the parkway elm Taylor's 16555 places beside it. It is the
+district's post. T-1934 first read its head as a shallow round globe on a post about 4.5-5 m tall and
+drew it so; the owner, comparing the print (2026-10-30, T-3267), read it as the district's lamp, and the
+print agrees: at 13 px across, the 1811 photograph's lantern, narrow at its foot and wide at its glazed
+top under a small dark roof, with the ladder bar below it, is exactly a "slim neck, a wide globe lit
+above and dark beneath, a small cap" (the top lit by the sky, the foot and its arms dark). Its
+height read through the camera (4.9 m) is not evidence against that: the same camera puts the walk's
+ground about 45 px higher than the print does (the post's foot at y 557 against 605), so it cannot
+scale the post, and no picture in the Prairie library shows a globe-headed gas post in the district. The same print, and the Detroit Publishing view of c. 1900, see the rest of the north walk
 from Prairie Avenue whole and show no post on it, so the rule's mid-block lamp there is withdrawn
 (`placement.gas_lamp.pictured_empty`). Taylor's 16555 (1892 to May 1894) shows no post at the turn:
 16554 is the later print, the dead 'massacre tree' 16555 shows, felled on 18 May 1894, not standing in
 it, so the lamp is taken as set after 16555.
-
-**Its form (T-1934, 2026-10-30).** Read off 16554's column at x 795, against the hedge in shadow
-behind it: a plain post 3-4 px wide, printing 180-200 where the hedge prints about 60 and the sunlit
-stone about 170, so it is painted pale, not the district's dark iron; a small dark bar to its right
-at y 537; a slim neck; a globe at y 507-515, 13 px across, lit above and dark beneath (milky glass, not
-a clear lantern); a small dark cap from y 503. Scaled by the district post's render at the same place
-(65 px for 3.12 m), the cap's top stands about 4.9 m up, the globe's centre about 4.5 m and the bar
-about 3.3 m. It is drawn as its own class, the globe post (`kinds.gas_lamp.model_by_class.globe_post`),
-and through the same camera the render's post stands 103 px tall against the print's 102. The camera
-puts the walk's ground about 45 px higher than the print does (its foot at y 557 against 605, as the
-parkway's trees), so the height moves with that camera if it is re-solved. Whether it burned gas or
-electricity the print cannot say; it is kept with the gas lamps for its place.
 
 **Lit?** The scene is 10:30 on a July morning and world.js has no night or evening setting, so no
 lamp is lit and no light is added.

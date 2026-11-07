@@ -22,13 +22,13 @@
   ]
  },
  "min_m": -5.3064,
- "max_m": 5.6366,
+ "max_m": 6.096,
  "quantisation_error_m": 0.0025,
  "water_surface_m": 0.0,
  "water_fraction": 0.1598,
  "relief_ft": {
   "land_min": -3.556,
-  "land_max": 18.493,
+  "land_max": 20.0,
   "channel_min": -17.409
  },
  "gradient_audit_ft_per_300ft": {
@@ -52,20 +52,28 @@
   "shore_and_swale_cell_max": 224.231,
   "relief_zones_ft_per_300ft": {
    "bank_face": {
-    "cells": 98304,
+    "cells": 97832,
     "cell_max": 224.231
+   },
+   "battle_bank_1812": {
+    "cells": 46785,
+    "cell_max": 150.854
    },
    "channel_west_bank_ruling": {
     "cells": 8987,
     "cell_max": 135.065
    },
    "dunes": {
-    "cells": 36224,
-    "cell_max": 87.073
+    "cells": 36230,
+    "cell_max": 150.854
    },
    "fort_dearborn_mound": {
     "cells": 2251,
     "cell_max": 188.849
+   },
+   "heald_small_elevation_1812": {
+    "cells": 1307,
+    "cell_max": 32.513
    },
    "marsh_strip": {
     "cells": 21942,
@@ -76,8 +84,8 @@
     "cell_max": 72.232
    },
    "south_sand_ridge": {
-    "cells": 315601,
-    "cell_max": 214.995
+    "cells": 315499,
+    "cell_max": 188.849
    },
    "spit_1812": {
     "cells": 19274,
@@ -104,5 +112,5 @@
   "ground": "gltf/terrain__e1830_natural.glb",
   "water": "gltf/water__e1830_natural.glb"
  },
- "inputs_sha256": "26e3f920439ba9361737ec2be066313b8fd08d3f040314c16d6d4e6fd4b75cdd"
+ "inputs_sha256": "99e95b1dd88e6c4137d827c2f327c8337f82894cf29d3473650a1638924c3da9"
 }

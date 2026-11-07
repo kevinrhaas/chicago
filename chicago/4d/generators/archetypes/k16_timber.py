@@ -757,11 +757,13 @@ class Sample:
         at = [first + kb * sp for kb in range(nb)]
         if v.get("bracket_pairs_m") is not None:     # T-3182: brackets in pairs where the photograph has them
             at = [p + e * br["pair_m"] / 2 for p in v["bracket_pairs_m"] for e in (-1, 1)]
+        if v.get("brackets") is False:     # T-1932: an outbuilding's plain boxed eave, no brackets
+            at = []
         for kb, s_b in enumerate(at):
             self.bracket(F, s_b, ft, y_s, br, br["thickness_m"], tone=self.tone("bracket", kb))
         for fl in v.get("frieze_lights") or []:
             self._frieze_light(F, fl, ft)
-        if corner:
+        if corner and v.get("brackets") is not False:
             self.bracket(R, (cb - ct + D) / 2, ft, y_s, br, br["thickness_m"], tone=self.tone("bracket", "r"))
         self.meta["eave"] = {"y_top": y_s + fh, "projection_m": P_}   # T-2323
         self.meta.update({"wall_thickness_m": T, "focus": [W * 0.62, 2.1, 0.0], "span_m": 3.2})
@@ -3189,6 +3191,7 @@ def frame_house_parts(st: dict, phase: dict, data: dict | None = None) -> dict:
                  "wall_top_m": b["wall_top_m"],
                  **({"frieze_m": b["frieze_m"]} if "frieze_m" in b else {}),     # T-3180: a block's own frieze
                  **{k: b[k] for k in ("eave", "bracket") if k in b},              # T-3182: its own eave
+                 **({"brackets": False} if b.get("brackets") is False else {}),   # T-1932: a plain eave
                  **({"bracket_pairs_m": [round(x - start, 6) for x in w["bracket_pairs_m"]]}
                     if "bracket_pairs_m" in w else {}),
                  **({"frieze_lights": [dict(x, centre_m=round(x["centre_m"] - start, 6)) for x in w["frieze_lights"]]}
@@ -3209,7 +3212,7 @@ def frame_house_parts(st: dict, phase: dict, data: dict | None = None) -> dict:
                 out[f"{b['id']}.{w['side']}_gable"] = sm
     po = fh.get("porch")
     if po:
-        main = fh["blocks"][0]
+        main = host_block(fh, po)
         O, U, _ = side_frame(main["rect_uv"], po.get("side", "east"))
         half = dict(po, width_m=po["half_width_m"])
         probe = Sample(half, data).build()
@@ -3230,10 +3233,19 @@ def frame_house_parts(st: dict, phase: dict, data: dict | None = None) -> dict:
     return out
 
 
+def host_block(fh: dict, part: dict) -> dict:
+    """T-1909: the block a porch or a bay stands on: the one its `block` names, else the first.
+    2000 and 2010 Prairie's sheet draws the porch across a front block and the canted bays on
+    the flanks of rooms that stand out from the main body, none of them on the first block."""
+    want = part.get("block")
+    return next(b for b in fh["blocks"] if b["id"] == want) if want else fh["blocks"][0]
+
+
 def _bay_frame(fh: dict, bay: dict):
     """T-3182: where a frame house's bay plan stands: its (s, z) run along the named side of the
-    first block from that side's start corner, z out from the wall."""
-    O, U, _ = side_frame(fh["blocks"][0]["rect_uv"], bay["side"])
+    first block (T-1909: or of the block it names) from that side's start corner, z out from
+    the wall."""
+    O, U, _ = side_frame(host_block(fh, bay)["rect_uv"], bay["side"])
     return O, U, _cross(U, Y)
 
 

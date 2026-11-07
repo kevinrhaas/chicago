@@ -1,0 +1,222 @@
+{
+  "method": "Actual published /1904/ app at 1280x800, `full`; animation paused after readiness; each stand renders the same held frame with the far-relief swap off (buildings.farRelief.on=false), off again (QA_CONTROL), on in the colour pass only (farRelief.sun=false, T-3284), on in both passes (T-3285), with the relief batches casting nothing (the sun's positive control), and with the three relief pieces hidden outright (the positive control); triangles from renderer.info, every pixel with gl.readPixels in the same task as the render.",
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "detail": "full",
+  "boot": {
+    "scene": "1904",
+    "detail": "full",
+    "budget": {
+      "drawCalls": 7800,
+      "triangles": 4700000
+    },
+    "build": "0.1.0"
+  },
+  "errors": [],
+  "bad": [],
+  "stands": [
+    {
+      "name": "glessner-18th-far-west",
+      "tierHasItOn": true,
+      "sunHasItOn": true,
+      "pieces": 3,
+      "swapped": 3,
+      "sunSwapped": 3,
+      "off": {
+        "triangles": 6442822,
+        "drawCalls": 3929
+      },
+      "colourOnly": {
+        "triangles": 6195657
+      },
+      "on": {
+        "triangles": 5948492,
+        "drawCalls": 3929,
+        "withinBudget": false
+      },
+      "colourPixelsDiffering": 0,
+      "saved": 494330,
+      "savedBySun": 247165,
+      "pixels": 1024000,
+      "pixelsDiffering": 19,
+      "maxChannelDelta": 31,
+      "sunPixelsDiffering": 19,
+      "sunMaxChannelDelta": 31,
+      "sunDifferingAt": [
+        [
+          590,
+          382,
+          1
+        ],
+        [
+          587,
+          381,
+          1
+        ],
+        [
+          588,
+          378,
+          1
+        ],
+        [
+          616,
+          377,
+          1
+        ],
+        [
+          615,
+          375,
+          2
+        ],
+        [
+          607,
+          374,
+          4
+        ],
+        [
+          614,
+          374,
+          1
+        ],
+        [
+          607,
+          372,
+          2
+        ],
+        [
+          610,
+          368,
+          1
+        ],
+        [
+          617,
+          368,
+          1
+        ],
+        [
+          617,
+          367,
+          3
+        ],
+        [
+          617,
+          366,
+          6
+        ],
+        [
+          618,
+          366,
+          22
+        ],
+        [
+          617,
+          365,
+          2
+        ],
+        [
+          618,
+          365,
+          31
+        ],
+        [
+          619,
+          365,
+          7
+        ],
+        [
+          618,
+          364,
+          2
+        ],
+        [
+          619,
+          364,
+          1
+        ],
+        [
+          619,
+          363,
+          5
+        ]
+      ],
+      "controlPixelsDifferingWithReliefCastingNothing": 26,
+      "controlOffOffPixelsDiffering": null,
+      "controlPixelsDifferingWithRoofReliefHidden": 61,
+      "problems": 0
+    },
+    {
+      "name": "glessner-prairie-front",
+      "tierHasItOn": true,
+      "sunHasItOn": true,
+      "pieces": 3,
+      "swapped": 3,
+      "sunSwapped": 3,
+      "off": {
+        "triangles": 4231077,
+        "drawCalls": 4222
+      },
+      "colourOnly": {
+        "triangles": 3983912
+      },
+      "on": {
+        "triangles": 3736747,
+        "drawCalls": 4222,
+        "withinBudget": true
+      },
+      "colourPixelsDiffering": 0,
+      "saved": 494330,
+      "savedBySun": 247165,
+      "pixels": 1024000,
+      "pixelsDiffering": 1,
+      "maxChannelDelta": 1,
+      "sunPixelsDiffering": 1,
+      "sunMaxChannelDelta": 1,
+      "sunDifferingAt": [
+        [
+          410,
+          300,
+          1
+        ]
+      ],
+      "controlPixelsDifferingWithReliefCastingNothing": 1,
+      "controlOffOffPixelsDiffering": null,
+      "controlPixelsDifferingWithRoofReliefHidden": 1842,
+      "problems": 0
+    },
+    {
+      "name": "glessner-prairie-se",
+      "tierHasItOn": true,
+      "sunHasItOn": true,
+      "pieces": 3,
+      "swapped": 3,
+      "sunSwapped": 3,
+      "off": {
+        "triangles": 5210050,
+        "drawCalls": 4526
+      },
+      "colourOnly": {
+        "triangles": 4962885
+      },
+      "on": {
+        "triangles": 4715720,
+        "drawCalls": 4526,
+        "withinBudget": false
+      },
+      "colourPixelsDiffering": 0,
+      "saved": 494330,
+      "savedBySun": 247165,
+      "pixels": 1024000,
+      "pixelsDiffering": 0,
+      "maxChannelDelta": 0,
+      "sunPixelsDiffering": 0,
+      "sunMaxChannelDelta": 0,
+      "sunDifferingAt": [],
+      "controlPixelsDifferingWithReliefCastingNothing": 0,
+      "controlOffOffPixelsDiffering": null,
+      "controlPixelsDifferingWithRoofReliefHidden": 524,
+      "problems": 0
+    }
+  ]
+}

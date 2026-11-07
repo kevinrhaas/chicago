@@ -101,7 +101,8 @@ def tower_refusals():
 def dormer_checks():
     st, phase = record()
     p = KP.from_phase(phase, st)
-    ds = p.mansard["dormers"]
+    # T-1890 (2026-11-06): the hooded three; the flat-capped wall dormer beside them has no hood
+    ds = [d for d in p.mansard["dormers"] if d["head"] == "hood"]
     check(len(ds) == 3 and all(d["hood"].get("face") == "slate" and d["hood"].get("frame_m") == 0.1 for d in ds),
           "1801's three hooded dormers are slated, each light in a 0.1 m frame")
     for why, mut in (("a frame on a stone face", lambda h: (h.pop("face"))),

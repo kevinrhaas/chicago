@@ -198,6 +198,8 @@ class Variant:
                         gate=gate)
         if style == "lattice":
             return self.lattice(fa, fb, yb + rh, yt, bottom.name, gate)
+        if style == "scroll_panel":
+            return self.scroll_panel(fa, fb, yb + rh, yt, bottom.name, gate)
         s = K["section_m"]
         xs = even(fa, fb, K["pitch_m"])
         top = yt + rh + S["rise_m"] if style == "spear" else yt + rh - 0.01
@@ -262,14 +264,49 @@ class Variant:
         self.meta["rhythm"].setdefault("lattice", {"axis": 0, "member": C["ribbon_m"]})
         return y1 + self.P["rail"]["height_m"]
 
+    def scroll_panel(self, fa, fb, y0, y1, host, gate=False):
+        """T-3283: a property's own panels of tall S-scrolls between the rails (1923 Prairie's
+        1898 Tribune sketch: large scrolls filling each panel between its posts, no pickets).
+        Plain bars of the picket's section part the panel into bays no wider than the record's
+        `pitch_m`, rail to rail; in each bay one S of the scroll bar, its upper volute against
+        the bay's one side and the top rail, its lower against the other side and the bottom
+        rail, the two joined up the bay's middle, every other bay mirrored so
+        neighbours face each other as a lyre."""
+        C, s = self.P["scroll"], self.P["picket"]["section_m"]
+        w, turn, n = C["ribbon_m"], C["turn"], 14
+        bars = even(fa, fb, self.v["pitch_m"])
+        for x in bars:
+            self.member(self.name("bar"), "iron", host, x - s / 2, x + s / 2, y0 - 0.01, y1 + 0.01, -s / 2, s / 2,
+                        rhythm="scroll panel", gate=gate)
+        faces = [fa] + [e for x in bars for e in (x - s / 2, x + s / 2)] + [fb]
+        for j, (xl, xr) in enumerate(zip(faces[::2], faces[1::2])):
+            # each volute an ellipse as wide as a quarter of the bay and up to 2.2 times as tall,
+            # so the S fills the bay's height as the sketch's do, its stem whatever height is left
+            rx = (xr - xl - w) / 4
+            ry = min((y1 - y0 - w) / 4, 2.2 * rx)
+            if rx < 0.03:
+                continue
+            mid = (xl + xr) / 2
+            T, B = (mid - rx, y1 - w / 2 - ry), (mid + rx, y0 + w / 2 + ry)
+            vol = lambda c, a0: [(c[0] + rx * (1 - 0.55 * q) * math.cos(a0 + q * turn * math.pi),
+                                  c[1] + ry * (1 - 0.55 * q) * math.sin(a0 + q * turn * math.pi))
+                                 for q in (i / n for i in range(n + 1))]
+            line = list(reversed(vol(T, 0.0))) + vol(B, math.pi)
+            if j % 2:
+                line = [(xl + xr - x, y) for x, y in line]
+            p = self.piece(self.name("scroll"), "iron", "rooted", host, gate=gate)
+            prism(p.mesh, ribbon(line, w), -C["iron_m"] / 2, C["iron_m"] / 2, back=True)
+        self.meta["rhythm"].setdefault("scroll panel", {"axis": 0, "member": s})
+        return y1 + self.P["rail"]["height_m"]
+
     def fence_run(self, x0, x1, style, group, host_a=None, host_b=None):
         """A run of fence on a curb from x0 to x1: a post at each end not let into a pier
         (`host_a` / `host_b`), posts between at no more than the data's panel length."""
         Q, R, S = self.P["post"], self.P["rail"], self.P["spear"]
         h = Q["section_m"] / 2
-        # a lattice has no pickets over its top rail: its posts stand a finial's foot over it
+        # a lattice (or a scroll panel) has no pickets over its top rail: its posts stand a finial's foot over it
         y_post = self.P["curb"]["height_m"] + R["top_m"] + R["height_m"] + (
-            0.06 if style == "lattice" else S["rise_m"] + S["height_m"] + 0.02)
+            0.06 if style in ("lattice", "scroll_panel") else S["rise_m"] + S["height_m"] + 0.02)
         ca = x0 - (0.05 if host_a else 0.12)
         cb = x1 + (0.05 if host_b else 0.12)
         curb = self.curb(ca, cb)

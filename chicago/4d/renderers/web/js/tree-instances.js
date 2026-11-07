@@ -40,8 +40,10 @@
  */
 
 import * as THREE from 'three';
+import { LEAF_SKY } from './time-of-day.js';
 import { buildTreeTemplate, archFor, mulberry32 } from './tree-model.js';
 import { loadCompressed, countSheet } from './ktx2.js';
+import { instanceDraws, patchInstancedDraws, extraSlots } from './batch-instance.js';
 
 /** Level distances by Scene detail, metres from the eye. A near tree is a few
  *  thousand triangles, so the near ring is kept to the trees a visitor walks
@@ -96,9 +98,11 @@ export const isGrownForm = (spec) => spec.form !== 'thicket' && spec.form !== 's
 export const grownGroupName = (name) => `${name}s-grown`;
 
 function archetypeKey(spec) {
-  // A habit named outright (`spec.arch`, T-3017) is its own archetype.
+  // A habit named outright (`spec.arch`, T-3017) is its own archetype; so is a plant grown to its
+  // own measured crown (`spec.own`, T-1881: a standard's ball head, which a shared variant
+  // stretched to another width would draw as an egg).
   return [spec.speciesId ?? spec.common, spec.form, spec.common, spec.dark, spec.light, spec.bark,
-    spec.conf ?? 0.5].join('|') + (spec.arch ? `|${spec.arch}` : '');
+    spec.conf ?? 0.5].join('|') + (spec.arch ? `|${spec.arch}` : '') + (spec.own ? `|own ${spec.own}` : '');
 }
 
 /**
@@ -177,7 +181,9 @@ export class TreeInstances {
         // T-3017: the phone's tier asks a grown habit that has one (the parkway
         // elm) for its coarse leaf: fewer, larger sprays.
         // T-3223: an evergreen (the front yards' arborvitae) keeps its summer crown in every Season.
-        const o = { conf: spec.conf ?? 0.5, ...(spec.evergreen ? {} : season), coarse: light };
+        // T-3399: a plant that names its own crown for the Season (`seasonCrown`: a lilac
+        // holds its leaf into late October, a hydrangea is cut back to stubs in April) has it.
+        const o = { conf: spec.conf ?? 0.5, ...(spec.evergreen ? {} : (spec.seasonCrown ?? season)), coarse: light };
         const first = buildTreeTemplate(spec, seed, light ? 'mid' : 'near', o);
         const mid = light ? first : buildTreeTemplate(spec, seed, 'mid', { ...o, skeleton: first.skeleton });
         const far = buildTreeTemplate(spec, seed, 'far', { ...o, skeleton: first.skeleton });
@@ -217,12 +223,18 @@ export class TreeInstances {
     const n = this.stems.length;
     const fading = this.fadeS > 0;
     const castFar = this.castFar;
+    // T-3363: each template a set holds is one instanced draw (batch-instance.js),
+    // and its batch keeps one indirect-table entry for it beside the stems'.
+    let templates = 0;
+    for (const kind of this.kinds.values()) templates += kind.variants.length;
     const make = (set, part, mat, depth, distance) => {
       const [vc, ic] = sizes[set][part];
       // T-2948: a fading wood holds a ghost instance per stem beside its own.
-      const b = new THREE.BatchedMesh(fading ? 2 * n : n, Math.max(3, vc), Math.max(3, ic), mat);
+      const slots = (fading ? 2 * n : n) + extraSlots(templates * sets[set].length);
+      const b = new THREE.BatchedMesh(slots, Math.max(3, vc), Math.max(3, ic), mat);
       b.name = `${this.name}-${set}-${part}`;
       b.sortObjects = false;
+      instanceDraws(b, stats);
       b.castShadow = set === 'shade' || castFar;
       b.receiveShadow = true;
       if (depth) b.customDepthMaterial = depth;
@@ -548,6 +560,8 @@ export async function createGrownTreeMaterials({ assetBase, uWind, confidence = 
     if (fade) patchFade(mm);
     confidence?.patch(mm);
   }
+  // T-3363: every copy of one template drawn as one instanced draw (batch-instance.js).
+  for (const mm of [woodMat, leafMat, leafDepth, leafDistance, woodDepth, woodDistance]) patchInstancedDraws(mm);
   return {
     woodMat, leafMat, woodDepth, leafDepth, woodDistance, leafDistance,
     dispose() {
@@ -564,9 +578,12 @@ function patchLeaves(material, uWind, patchWind) {
   const wind = material.onBeforeCompile;
   material.onBeforeCompile = (shader, r) => {
     wind(shader, r);
-    shader.fragmentShader = shader.fragmentShader.replace('#include <lights_fragment_end>', `
+    // T-3331: the transmitted skylight falls with the hour (time-of-day.js LEAF_SKY);
+    // 0.22 by day, exactly as before.
+    shader.uniforms.uLeafSky = LEAF_SKY;
+    shader.fragmentShader = 'uniform float uLeafSky;\n' + shader.fragmentShader.replace('#include <lights_fragment_end>', `
 #include <lights_fragment_end>
-reflectedLight.indirectDiffuse += diffuseColor.rgb * 0.22;
+reflectedLight.indirectDiffuse += diffuseColor.rgb * uLeafSky;
 `);
   };
   material.customProgramCacheKey = () => 'grown-tree-leaves-t2743';

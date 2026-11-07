@@ -82,9 +82,12 @@ const COPIES = [
   ['data/residents_1812/', 'data/residents_1812/'],
   ['data/residents_1904/', 'data/residents_1904/'],
   ['data/enclosures/', 'data/enclosures/'],
+  // T-3332: a scene's night lights (lit windows by the hour, the lamps outside); night-lights.js reads them.
+  ['data/night_lights/', 'data/night_lights/'],
   ['data/signage/', 'data/signage/'],
   ['data/yard/', 'data/yard/'],
   ['data/transport/parked/', 'data/transport/parked/'],
+  ['data/transport/driven/', 'data/transport/driven/'],
   ['data/wharves/', 'data/wharves/'],
   ['data/boats/', 'data/boats/'],
   ['data/wells/', 'data/wells/'],
@@ -95,6 +98,7 @@ const COPIES = [
   ['data/street_trees/', 'data/street_trees/'],
   ['data/street_furniture/', 'data/street_furniture/'],
   ['data/front_yards/', 'data/front_yards/'],
+  ['data/gardens/', 'data/gardens/'],
   ['data/railway/', 'data/railway/'],
   ['data/frontage/', 'data/frontage/'],
   ['data/flora/', 'data/flora/'],
@@ -319,6 +323,16 @@ if (existsSync(transportPolicyFile)) {
       }
     }
     console.log(`transport publication: ${files.length} declared source masters retained outside the mirror`);
+  }
+}
+
+// The driven layer fetches these at runtime. Checking only existing mirror
+// files would let an entirely omitted data family pass (and the app fetch 404).
+for (const rel of ['data/transport/driven/loops.json', 'data/transport/driven/hitch-bindings-v2.json',
+  'data/transport/driven/current26-hoof-support-domain.json',
+  'data/transport/driven/current26-walk-v2-hoof-domain.json']) {
+  if (existsSync(path.join(REPO, rel)) && !existsSync(path.join(SITE, rel))) {
+    problems.push(`${rel} is missing from the published mirror; publish.sh must copy the driven runtime data.`);
   }
 }
 

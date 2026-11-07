@@ -30,7 +30,7 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The seven live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: P. D. Armour (Philip D. Armour died in January 1901; the 1904 Blue Book lists his widow); Alice Shaw (a widow of 58 with the relation column left blank; no 1904 source puts her here); Kenneth Monroe (heads his own family in the rear building; his trade reads as a horseman but is hard to read). The 1910 census was not read. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 40, T623 roll 245) was read for this card. The seven live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: P. D. Armour (Philip D. Armour died in January 1901; the 1904 Blue Book lists his widow); Alice Shaw (a widow of 58 with the relation column left blank; no 1904 source puts her here); Kenneth Monroe (heads his own family in the rear building; his trade reads as a horseman but is hard to read). The children the Blue Book lists at the number from 1890 to 1911 are on the card with the years each was listed, whether or not they were at home in 1904. The 1910 census was not read for this card. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
       "census_1900_chicago_t623_roll245"
@@ -57,6 +57,37 @@
         "as_enumerated": "Armour, Belle O.",
         "relation_as_enumerated": "Wife"
       }
+    },
+    {
+      "id": "pa1904_armour_john_o",
+      "name": "John O. Armour",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "chicago_blue_book_1890",
+        "chicago_blue_book_1891"
+      ],
+      "printed_as": "2115 John O. Armour",
+      "lived_here": {
+        "years": "1890-1891",
+        "on_scene_date": "no"
+      },
+      "note": "Listed at 2115 under Mr. and Mrs. Philip D. Armour in 1890 and 1891. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship. He was J. Ogden Armour, who succeeded his father at the head of Armour and Company, but the book does not say that either."
+    },
+    {
+      "id": "pa1904_armour_philip_d_jr",
+      "name": "Philip D. Armour jr.",
+      "relationship": "son",
+      "grade": "attested",
+      "sources": [
+        "chicago_blue_book_1890"
+      ],
+      "printed_as": "2115 Phillip D. Armour jr.",
+      "lived_here": {
+        "years": "1890",
+        "on_scene_date": "no"
+      },
+      "note": "Listed at 2115 under his parents in the 1890 edition; the 'jr.' names him the son of the house."
     },
     {
       "id": "pa1904_armour_mrs_philip_d_c1900_delia_king",

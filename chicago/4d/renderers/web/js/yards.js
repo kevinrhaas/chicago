@@ -104,6 +104,207 @@ const FRINGE_M = { worn_earth: 1.3, trodden_earth: 0.45, road_earth: 0.6, doorya
  */
 const FEATHER_M = { worn_earth: 22, trodden_earth: 22 };
 
+/**
+ * T-3339 — WORN TRAILS. The owner, 2026-11-03, of the 1812 scene: *"I would expect
+ * worn paths almost roads from the fort entrance and even out south ... natural
+ * worn paths and worn areas around the buildings ... vary them based on density and
+ * some can be very light"*. A record whose `ground.trails` lists lines (written by
+ * tools/generate_worn_ground_1812.py, every one a least-cost route over the committed
+ * ground) has each drawn here as a ribbon of its treatment's earth, draped vertex by
+ * vertex on the heightfield like a yard, with no seam of its own:
+ *
+ *   `tread`      one foot-and-hoof line, the core `width_m` wide, its edges fading
+ *                into the grass over most of that again;
+ *   `two_track`  a cart's two ruts with a lighter, grassier median between them;
+ *   `band`       a broad trodden way.
+ *
+ * `wear` (0..1) is how bare it is. Along its length the wear breathes (`trailMottle`):
+ * a faint trail fades nearly out in places and comes back, the way a little-used path
+ * across grass does; every trail tapers in over its first and last few metres, so a
+ * path meets a yard or another path without a butt end. The sward thins under it at
+ * the same share (`suppressesSward`), and no tree stands on its core (`blocksTrees`).
+ * A quad with a foot in the water mask is dropped, so a ford is a gap, not a bridge.
+ * Every vertex is `reconstructed`: docs/LIBERTIES.md L-t3339-worn-ground-1812.
+ */
+const TRAIL_LIFT_M = 0.026;
+const TRAIL_TAPER_M = 4.0;
+const TRAIL_CELL_M = 16;
+
+/** The cross-section of a trail: offsets from its line (metres, right to left) and
+ *  the share of its wear at each. */
+function trailProfile(form, width) {
+  const w = Math.max(0.3, width);
+  if (form === 'two_track') {
+    const r = 0.22;
+    const g = Math.max(r + 0.2, w * 0.32);
+    const f = 0.75;
+    const m = 0.38;
+    const inner = Math.max(0.05, g - r - 0.15);
+    return { offsets: [-(g + r + f), -(g + r), -(g - r), -inner, inner, g - r, g + r, g + r + f],
+      weights: [0, 1, 1, m, m, 1, 1, 0] };
+  }
+  const h = w / 2;
+  const f = form === 'band' ? Math.max(0.6, w * 0.6) : Math.max(0.45, w * 0.9);
+  return { offsets: [-(h + f), -h, h, h + f], weights: [0, 1, 1, 0] };
+}
+
+/** The profile's weight at |d| metres from the line (it is symmetric). */
+function profileWeight(profile, d) {
+  const o = profile.offsets;
+  const wts = profile.weights;
+  const k0 = o.length >> 1;
+  const a = Math.abs(d);
+  // The right half of the profile, from the line out, with the centre at its inner weight.
+  let prevO = 0;
+  let prevW = wts[k0];
+  for (let k = k0; k < o.length; k++) {
+    if (a <= o[k]) return prevW + (wts[k] - prevW) * ((a - prevO) / ((o[k] - prevO) || 1));
+    prevO = o[k];
+    prevW = wts[k];
+  }
+  return 0;
+}
+
+/** How much of its wear a trail keeps `s` metres along it: a slow breathing, deeper on
+ *  a faint trail (which nearly fades out in places), and a taper at both ends. */
+function trailMottle(trail, s) {
+  const p = trail.seed;
+  const n = 0.6 * Math.sin(s / 23.0 + p) + 0.4 * Math.sin(s / 8.7 + 2.3 * p);
+  const depth = 0.18 + 0.5 * Math.max(0, 0.6 - trail.wear);
+  const taper = Math.min(1, s / TRAIL_TAPER_M, (trail.length - s) / TRAIL_TAPER_M);
+  return Math.max(0, Math.min(1, 1 - depth * (0.5 - 0.5 * n))) * Math.max(0, taper);
+}
+
+/** The trails a record carries, each with its profile, segments and box. */
+function trailsOf(record, problems) {
+  const ground = record.ground ?? {};
+  if (!Array.isArray(ground.trails)) return [];
+  const level = LEVEL[ground.confidence] ?? 1;
+  const out = [];
+  ground.trails.forEach((t, idx) => {
+    const line = t.line_local_enu_m;
+    const treatment = t.treatment ?? ground.treatment;
+    if (!Array.isArray(line) || line.length < 2 || !TREATMENTS[treatment]) {
+      problems.push(`yards: ${record.id} trail ${t.id ?? idx} has no line or no treatment this layer builds`);
+      return;
+    }
+    const profile = trailProfile(t.form ?? 'tread', t.width_m ?? 0.8);
+    const reach = profile.offsets[profile.offsets.length - 1];
+    const s = [0];
+    for (let i = 1; i < line.length; i++) {
+      s.push(s[i - 1] + Math.hypot(line[i][0] - line[i - 1][0], line[i][1] - line[i - 1][1]));
+    }
+    let minE = Infinity; let maxE = -Infinity; let minN = Infinity; let maxN = -Infinity;
+    for (const [e, n] of line) {
+      minE = Math.min(minE, e); maxE = Math.max(maxE, e);
+      minN = Math.min(minN, n); maxN = Math.max(maxN, n);
+    }
+    out.push({ id: t.id ?? `${record.id}__${idx}`, record: record.id, treatment, level, line, s,
+      length: s[s.length - 1], profile, reach, wear: Math.min(1, Math.max(0, t.wear ?? 0.6)),
+      seed: (idx * 1.618 + line.length * 0.37) % 6.283,
+      bbox: { minE: minE - reach, maxE: maxE + reach, minN: minN - reach, maxN: maxN + reach } });
+  });
+  return out;
+}
+
+/** The trails' segments filed on a world grid, and the cover they give a point. */
+function trailGrid(trails) {
+  const cells = new Map();
+  const key = (i, j) => (i + 32768) * 65536 + (j + 32768);
+  const segs = [];
+  for (const t of trails) {
+    for (let i = 1; i < t.line.length; i++) {
+      const a = t.line[i - 1];
+      const b = t.line[i];
+      const seg = { t, ax: a[0], an: a[1], bx: b[0], bn: b[1], s0: t.s[i - 1], len: t.s[i] - t.s[i - 1] };
+      segs.push(seg);
+      const r = t.reach;
+      for (let ci = Math.floor((Math.min(a[0], b[0]) - r) / TRAIL_CELL_M);
+        ci <= Math.floor((Math.max(a[0], b[0]) + r) / TRAIL_CELL_M); ci++) {
+        for (let cj = Math.floor((Math.min(a[1], b[1]) - r) / TRAIL_CELL_M);
+          cj <= Math.floor((Math.max(a[1], b[1]) + r) / TRAIL_CELL_M); cj++) {
+          const k = key(ci, cj);
+          let cell = cells.get(k);
+          if (!cell) { cell = []; cells.set(k, cell); }
+          cell.push(seg);
+        }
+      }
+    }
+  }
+  const coverOf = (list, e, n) => {
+    let best = 0;
+    for (let k = 0; k < list.length; k++) {
+      const g = list[k];
+      const dx = g.bx - g.ax;
+      const dn = g.bn - g.an;
+      const L2 = dx * dx + dn * dn || 1e-9;
+      const u = Math.min(1, Math.max(0, ((e - g.ax) * dx + (n - g.an) * dn) / L2));
+      const d = Math.hypot(e - (g.ax + dx * u), n - (g.an + dn * u));
+      if (d >= g.t.reach) continue;
+      const c = g.t.wear * profileWeight(g.t.profile, d) * trailMottle(g.t, g.s0 + u * g.len);
+      if (c > best) best = c;
+    }
+    return best;
+  };
+  return {
+    coverAt: (e, n) => {
+      const list = cells.get(key(Math.floor(e / TRAIL_CELL_M), Math.floor(n / TRAIL_CELL_M)));
+      return list ? coverOf(list, e, n) : 0;
+    },
+    coverScan: (e, n) => coverOf(segs, e, n),
+  };
+}
+
+/** One trail's ribbon into `buf`: a row of the profile at every vertex of its line. */
+function layTrail(buf, trail, terrain, spec) {
+  const { line, s, profile } = trail;
+  const tint = spec.fringe;
+  const k = profile.offsets.length;
+  const rows = [];
+  for (let i = 0; i < line.length; i++) {
+    const p = line[Math.max(0, i - 1)];
+    const q = line[Math.min(line.length - 1, i + 1)];
+    const tl = Math.hypot(q[0] - p[0], q[1] - p[1]) || 1;
+    const nx = -(q[1] - p[1]) / tl;
+    const nn = (q[0] - p[0]) / tl;
+    const mott = trail.wear * trailMottle(trail, s[i]) * spec.alpha[0];
+    const row = [];
+    for (let j = 0; j < k; j++) {
+      const o = profile.offsets[j];
+      const w = profile.weights[j];
+      const e = line[i][0] + nx * o;
+      const n = line[i][1] + nn * o;
+      row.push({ e, n, wet: terrain.isWater?.(e, n) ?? false,
+        y: terrain.surfaceHeight(e, n) + TRAIL_LIFT_M,
+        r: tint[0] + (1 - tint[0]) * w, g: tint[1] + (1 - tint[1]) * w, b: tint[2] + (1 - tint[2]) * w,
+        a: mott * w });
+    }
+    rows.push(row);
+  }
+  const period = PERIOD_M[spec.base];
+  const push = (v) => {
+    buf.pos.push(v.e, v.y, -v.n);
+    buf.uv.push(v.e / period, v.n / period);
+    buf.col.push(v.r, v.g, v.b, v.a);
+    buf.conf.push(trail.level);
+  };
+  let quads = 0;
+  for (let i = 0; i + 1 < rows.length; i++) {
+    for (let j = 0; j + 1 < k; j++) {
+      const A = rows[i][j];
+      const B = rows[i + 1][j];
+      const C = rows[i + 1][j + 1];
+      const D = rows[i][j + 1];
+      if (A.wet || B.wet || C.wet || D.wet) continue;
+      if (A.a + B.a + C.a + D.a < 0.004) continue;
+      push(A); push(B); push(C);
+      push(A); push(C); push(D);
+      quads += 1;
+    }
+  }
+  return quads;
+}
+
 /** The beds in a dooryard, in metres: a bed, the walkway beside it, how many are
  *  laid at most, and how long a bed may run. The cap is what makes one rule work
  *  at two scales — it fills a 28 x 20 ft kitchen plot and leaves a hotel's back
@@ -695,12 +896,20 @@ function interiorsOf(record, problems) {
   const ground = record.ground ?? {};
   const treatment = ground.treatment ?? null;
   if (!treatment) return [];
+  // T-3339: a record of worn trails lays ribbons (trailsOf), not an interior.
+  if (Array.isArray(ground.trails)) return [];
   if (!TREATMENTS[treatment]) {
     problems.push(`yards: ${record.id} states ground treatment '${treatment}', which this `
       + 'layer does not build — no ground is laid inside that fence');
     return [];
   }
   const level = LEVEL[ground.confidence] ?? 1;
+  // T-3320: a record may state its own feather width (`ground.feather_m`), for a
+  // ground that has buildings close round it and cannot fade over the treatment's
+  // own 22 m. Without it the treatment's width stands, as it always did.
+  const featherM = Number.isFinite(ground.feather_m) && ground.feather_m > 0 ? ground.feather_m : null;
+  // T-3339: how bare a worn yard is, 0..1 (absent: 1, as every ground was before).
+  const wear = Number.isFinite(ground.wear) ? Math.min(1, Math.max(0, ground.wear)) : 1;
   const out = [];
   const authored = ground.interior_local_enu_m;
   // One ring is `[[e, n], ...]` and several are `[[[e, n], ...], ...]`, so the
@@ -715,11 +924,11 @@ function interiorsOf(record, problems) {
     authored.forEach((r, i) => {
       if (!Array.isArray(r) || r.length < 3) return;
       out.push({ id: `${record.id}__interior_${i}`, record: record.id, treatment, level,
-        pts: ring(r), fringePts: fringeRing });
+        pts: ring(r), fringePts: fringeRing, featherM, wear });
     });
   } else if (Array.isArray(authored) && authored.length >= 3) {
     out.push({ id: `${record.id}__interior`, record: record.id, treatment, level,
-      pts: ring(authored), fringePts: fringeRing });
+      pts: ring(authored), fringePts: fringeRing, featherM, wear });
   } else {
     for (const run of record.runs ?? []) {
       if (!closes(run.path_local_enu_m)) continue;
@@ -782,6 +991,8 @@ export async function createFencedGround({
     interiors: [],
     census: { interiors: 0, cells: 0, beds: 0, paths: 0, byTreatment: {} },
     suppressesSward: () => false,
+    trailCover: () => 0,
+    blocksTrees: () => false,
     treatmentAt: () => null,
     drawnBaseHeightAt: () => null,
     staticSupport: { regions: 0, triangles: 0, bytes: 0, disposed: false },
@@ -799,14 +1010,16 @@ export async function createFencedGround({
       out.interiors.push(interior);
     }
   }
-  if (!out.interiors.length) return out;
+  // T-3339: the worn trails some records carry, laid as ribbons below.
+  const trailList = records.flatMap((record) => trailsOf(record, problems));
+  if (!out.interiors.length && !trailList.length) return out;
 
   // T-2125: the feathered grounds, one per outer ring however many interiors
   // share it — each with its skirt (the ring pushed out by FEATHER_M, as one
   // quad per side) and the cover the drape and the sward both read.
   const feathers = new Map();
   for (const interior of out.interiors) {
-    const width = FEATHER_M[interior.treatment];
+    const width = interior.featherM ?? FEATHER_M[interior.treatment];
     const ring = interior.fringePts;
     if (!width || !ring) continue;
     let f = feathers.get(ring);
@@ -820,7 +1033,10 @@ export async function createFencedGround({
           const q = [p, ring[(i + 1) % ring.length], outer[(i + 1) % ring.length], outer[i]];
           return signedArea2(q) > 0 ? q : q.reverse();
         }),
-        cover: (e, n) => featherCover(ring, width, e, n),
+        // T-3339: a worn yard's `wear` thins the whole ground, its sward and its earth alike.
+        cover: (interior.wear ?? 1) < 1
+          ? (e, n) => interior.wear * featherCover(ring, width, e, n)
+          : (e, n) => featherCover(ring, width, e, n),
       } : null;
       if (!f) {
         problems.push(`yards: ${interior.record}'s outer ring is not convex — its ground is `
@@ -833,6 +1049,11 @@ export async function createFencedGround({
   // An array, not the map's iterator: the sward asks this of every slot.
   const featherList = [...feathers.values()].filter(Boolean);
   const swardCells = swardGrid(out.interiors, featherList);
+  const trailCells = trailGrid(trailList);
+  /** T-3339: how worn the trails leave (e, n), 0..1 — the sward thins at that share. */
+  out.trailCover = (e, n) => trailCells.coverAt(e, n);
+  /** T-3339: a trail's trodden core, which no tree stands on. */
+  out.blocksTrees = (e, n) => trailCells.coverAt(e, n) > 0.22;
 
   /** Is this point inside a fenced interior — the question `flora.js` asks
    *  through `main.js`'s block-list composition, and the question the smoke asks
@@ -847,13 +1068,16 @@ export async function createFencedGround({
    *  `checkSwardGrid` holds the two to the same answer. */
   out.suppressesSward = (e, n) => {
     const cell = swardCells.at(e, n);
-    return cell ? swardAnswer(cell.interiors, cell.feathers, e, n) : false;
+    if (cell && swardAnswer(cell.interiors, cell.feathers, e, n)) return true;
+    return trailList.length ? trailCells.coverAt(e, n) * 0.95 > ditherHash(e, n) : false;
   };
-  out.suppressesSwardScan = (e, n) => swardAnswer(out.interiors, featherList, e, n);
+  out.suppressesSwardScan = (e, n) => swardAnswer(out.interiors, featherList, e, n)
+    || (trailList.length ? trailCells.coverScan(e, n) * 0.95 > ditherHash(e, n) : false);
   /** T-2696: `count` points over the yards' own boxes, the bucketed answer
    *  against the full walk. `differ` must be 0. */
   out.checkSwardGrid = (count = 20000) => {
-    const boxes = [...out.interiors.map((i) => i.bbox), ...featherList.map((f) => f.bbox)];
+    const boxes = [...out.interiors.map((i) => i.bbox), ...featherList.map((f) => f.bbox),
+      ...trailList.map((t) => t.bbox)];
     let s = 0x2696;
     const rnd = () => { s ^= s << 13; s >>>= 0; s ^= s >>> 17; s ^= s << 5; s >>>= 0; return s / 4294967296; };
     const res = { asked: 0, suppressed: 0, differ: 0, first: [] };
@@ -1028,6 +1252,17 @@ export async function createFencedGround({
           out.census.paths += 1;
         }
       }
+    }
+  }
+
+  // T-3339: the worn trails, laid into the same surfaces' buffers (no draw of their own).
+  if (!replay && trailList.length) {
+    out.census.trails = { trails: 0, metres: 0, quads: 0 };
+    for (const trail of trailList) {
+      const spec = TREATMENTS[trail.treatment];
+      out.census.trails.quads += layTrail(bufFor(spec.base), trail, terrain, spec);
+      out.census.trails.trails += 1;
+      out.census.trails.metres += Math.round(trail.length);
     }
   }
 

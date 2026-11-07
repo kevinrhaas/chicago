@@ -10,11 +10,13 @@ elm's blades take their surface from a CC BY 4.0 photograph of an American elm
 leaf (T-3247, data/sources/bioimages_ulmus_americana_11688.json; credited in
 assets/LICENSES.md). Every outline, twig and placement is still drawn here:
 
-  leaf_atlas.png       2048 x 2560 RGBA, 4 x 5 tiles of 512. Per leaf family two
+  leaf_atlas.png       2048 x 3072 RGBA, 4 x 6 tiles of 512. Per leaf family two
                        tiles: a SPRAY (one twig and its leaves, for the near
                        cards) and a CLUMP (several sprays massed, for the mid and
                        far cards). Families and their tiles are
-                       renderers/web/js/tree-model.js LEAF_TILES.
+                       renderers/web/js/tree-model.js LEAF_TILES. The sixth row
+                       holds the bare winter elm's twig, a spray and a tuft
+                       (TWIG_TILES, tree-model.js TWIG_TILE; T-1934).
   bark_basecolor.png   2048 x 1024 RGB, 4 x 2 tiles of 512, each tileable in both
   bark_normal.png      axes, with its tangent-space normal map (OpenGL, +Y up).
                        Tiles are tree-model.js BARK_TILES.
@@ -892,7 +894,86 @@ FAMILIES = ['poplar', 'willow', 'elm', 'maple', 'oak_round', 'oak_pointed', 'com
 # after the sixteen broadleaf tiles from the same random stream, so those tiles
 # stay byte-identical to the T-2743 atlas.
 FAMILIES_ALL = FAMILIES + list(CONIFERS)
-ROWS = 5
+# T-1934: the bare winter elm's twig takes a SIXTH ROW, tiles 20 (one branch end's
+# twig, TWIG_TILES[0]) and 21 (a tuft of them massed, TWIG_TILES[1]); 22 and 23 stay
+# empty. Painted after the twenty tiles before them from the same random stream, so
+# those stay byte-identical to the T-2768 atlas.
+TWIG_TILES = (20, 21)
+ROWS = 6
+
+# The twig's paint: the elm's own bark tile's mean ('interlaced', tile 1 of the bark
+# atlas, about (102, 90, 75)), so tree-model.js tints a twig card with the same upper
+# bark colour it tints the wood with and the two read as one tree.
+TWIG_RGB = (112, 104, 94)
+
+
+def twig_marks(rng, x0, y0, length, angle, scale, depth, out, order=0, max_order=5):
+    """A bare elm's branch end in winter, as the c. 1890s prints draw a parkway
+    elm's crown rim: a shoot that forks again and again into fine ascending twig,
+    each fork turned up out of the droop the summer's leaf weight gave it, and
+    zig-zagging a little at every bud, as an elm's twig does. A mark per shoot:
+    its points, its width (thick at the shoot's foot, a texel or two at the last
+    twig) and its depth (deeper twigs sit in the shade of the ones in front)."""
+    S = TILE * SS
+    steps = 6
+    pts = [(x0, y0)]
+    a = angle
+    x, y = x0, y0
+    for k in range(steps):
+        # the bud's zig-zag, and the shoot easing back toward the vertical
+        a += (0.16 if k % 2 else -0.16) * (rng.random() + 0.3) + (0 - a) * 0.06
+        x += math.sin(a) * length / steps
+        y -= math.cos(a) * length / steps
+        pts.append((x, y))
+    # A card of this tile is drawn at the mid and far rings, a metre or two across at 10-70 m,
+    # so the GPU samples it three or four mips down: a twig is painted 6-16 texels wide, the
+    # width that comes through that mip as a line a pixel or two wide and not as a blot.
+    w = max(2, int(S * (0.032, 0.023, 0.017, 0.013, 0.012, 0.012)[order] * scale))
+    out.append(dict(pts=pts, w=w, z=depth + (rng.random() - 0.5) * 0.15))
+    if order >= max_order:
+        return
+    n = (2, 2, 2, 2, 1)[order] + (1 if rng.random() < 0.3 else 0)
+    for k in range(n):
+        t = 0.30 + 0.62 * (k + rng.random() * 0.6) / n
+        i = min(steps - 1, int(t * steps))
+        bx, by = pts[i]
+        side = -1 if (k + order) % 2 else 1
+        ba = math.atan2(pts[i + 1][0] - bx, -(pts[i + 1][1] - by))
+        twig_marks(rng, bx, by, length * (0.50 + rng.random() * 0.18) * (1.08 - 0.4 * t),
+                   ba + side * (0.42 + rng.random() * 0.42), scale, depth + (rng.random() - 0.5) * 0.2,
+                   out, order + 1, max_order)
+    # the shoot's own leader runs on past its last fork
+    twig_marks(rng, pts[-1][0], pts[-1][1], length * 0.55, a + (rng.random() - 0.5) * 0.3,
+               scale, depth, out, order + 1, max_order)
+
+
+def twig_tile(rng, clump=False):
+    """TWIG_TILES: a SPRAY is one branch end's twig filling the card from its foot;
+    a CLUMP is a dozen and more of them massed into the rounded tuft a crown's
+    rim reads as from thirty metres, denser toward its middle so the tuft keeps
+    a grey core when a coarse mip thins its last twigs out. Painted near the
+    elm's bark colour; the card's vertex colour carries the tree's own."""
+    S = TILE * SS
+    img = Image.new('RGBA', (S, S), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(img)
+    marks = []
+    if not clump:
+        twig_marks(rng, S * 0.5, S * 0.98, S * 0.46, (rng.random() - 0.5) * 0.2, 1.0, 0.6, marks, 0, 3)
+    else:
+        # the tuft fans out of a point below the tile, as a crown's shoots fan out of
+        # their limb: each shoot rises along its own ray, the middle ones in front
+        for _k in range(9):
+            ray = (rng.random() - 0.5) * 2.1
+            r = 0.45 + 0.55 * math.sqrt(rng.random())
+            cx = S * 0.5 + math.sin(ray) * r * S * 0.30
+            cy = S * 1.02 - math.cos(ray) * r * S * 0.42
+            z = 0.25 + 0.65 * (1 - abs(ray) / 1.05) * 0.8 + rng.random() * 0.15
+            twig_marks(rng, cx, cy, S * 0.26, ray + (rng.random() - 0.5) * 0.35, 0.75, z, marks, 1, 4)
+    for m in sorted(marks, key=lambda d: d['z']):
+        z = min(1.0, max(0.0, m['z']))
+        k = 0.78 + 0.34 * z + (rng.random() - 0.5) * 0.08
+        draw.line(m['pts'], fill=tuple(int(min(255, c * k)) for c in TWIG_RGB) + (255,), width=m['w'])
+    return _finish_tile(img)
 
 
 def make_leaves(seed):
@@ -910,6 +991,15 @@ def make_leaves(seed):
             t[:, :6, 3] = 0
             t[:, -6:, 3] = 0
             atlas[y0:y0 + TILE, x0:x0 + TILE] = t
+    for k, tile in enumerate(TWIG_TILES):
+        x0 = (tile % 4) * TILE
+        y0 = (tile // 4) * TILE
+        t = twig_tile(rng, clump=bool(k))
+        t[:6, :, 3] = 0
+        t[-6:, :, 3] = 0
+        t[:, :6, 3] = 0
+        t[:, -6:, 3] = 0
+        atlas[y0:y0 + TILE, x0:x0 + TILE] = t
     # Fill the colour of transparent texels from their neighbours, so a mip that
     # averages a blade with the gap beside it does not pull in black.
     rgb = atlas[..., :3].astype(np.float32)
@@ -971,6 +1061,9 @@ def print_crops(margin=8, alpha=24):
         cx, cy = t % gx, t // gx
         tile = a[cy * TILE:(cy + 1) * TILE, cx * TILE:(cx + 1) * TILE]
         ys, xs = np.where(tile > alpha)
+        if not len(xs):
+            rows.append('[0.000, 1.000, 0.000, 1.000]')  # an empty tile (22, 23)
+            continue
         x0 = max(pad, xs.min() - margin)
         x1 = min(TILE - pad, xs.max() + 1 + margin)
         y0 = max(pad, ys.min() - margin)
@@ -1018,9 +1111,9 @@ def main():
     if not args.no_ktx2:
         write_ktx2(li, ci, ni.resize((ni.width // 2, ni.height // 2), Image.LANCZOS))
     if args.sheet:
-        sheet = Image.new('RGB', (2048, 2560 + 1024), (200, 214, 230))
+        sheet = Image.new('RGB', (2048, li.height + 1024), (200, 214, 230))
         sheet.paste(li, (0, 0), li)
-        sheet.paste(ci, (0, 2560))
+        sheet.paste(ci, (0, li.height))
         sheet.save(args.sheet, quality=85)
     for f in sorted(os.listdir(OUT)):
         print(f'{f:28s} {os.path.getsize(os.path.join(OUT, f)) // 1024:6d} KB')

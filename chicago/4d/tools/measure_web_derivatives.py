@@ -342,6 +342,26 @@ def materials(doc: dict) -> dict:
     return {"names": names, "colours": colours, "textures": len(doc.get("textures", []))}
 
 
+def image_bytes(doc: dict) -> int:
+    """T-3387: the bytes a file's embedded images take (their buffer views)."""
+    views = doc.get("bufferViews", [])
+    return sum(views[im["bufferView"]]["byteLength"] for im in doc.get("images", [])
+               if "bufferView" in im)
+
+
+def grew(row: dict) -> bool:
+    """K37's size rule, judged on what compression can shrink: the file less its images.
+
+    T-3387: assertion 10 makes a textured derivative ship KTX2, and a Basis map is bigger ON
+    DISK than the JPEG it replaces (it is smaller where it matters, on the GPU, which is the
+    whole point of T-2595). On a large textured house the mesh's savings hide that; on a small
+    one (a fort magazine laid in K03 brick, ~2,000 triangles) they cannot, and the file grows
+    by the maps alone. So the rule compares the bytes outside the images, which meshopt and
+    quantisation exist to shrink; an untextured file is judged exactly as before."""
+    (master_bytes, shipped_bytes), (master_img, shipped_img) = row["bytes"], row.get("image_bytes", (0, 0))
+    return shipped_bytes - shipped_img > master_bytes - master_img
+
+
 def raster_images(doc: dict) -> int:
     """Images a GPU can only take as uncompressed RGBA8: PNG or JPEG, by type or URI."""
     return sum(1 for im in doc.get("images", [])
@@ -403,6 +423,7 @@ def measure() -> dict:
             "textures_shipped": mb["textures"],
             "raster_images": raster_images(b),
             "bytes": (master_bytes, shipped_bytes),
+            "image_bytes": (image_bytes(a), image_bytes(b)),
             "uncompressed_copy": master_files[name].read_bytes()
                                  == shipped_files[name].read_bytes(),
             "master_sha256": hashlib.sha256(master_files[name].read_bytes()).hexdigest(),
@@ -460,7 +481,7 @@ def assertions(result: dict, baseline: dict) -> list[str]:
                             f"docs/GLB-CONTRACT.md names")
         if not name.startswith(EPOCH_PREFIXES):
             master_bytes, shipped_bytes = row["bytes"]
-            if shipped_bytes > master_bytes:
+            if grew(row):
                 problems.append(
                     f"{name}: the shipped derivative is {shipped_bytes:,} bytes and the master "
                     f"it came from is {master_bytes:,} — {shipped_bytes - master_bytes:+,} "
@@ -587,11 +608,11 @@ def print_census(result: dict) -> None:
               f"writer nobody watched)")
         for name in undecided[:5]:
             print(f"      unbanked  {name}")
-    grew = [r for r in rows
-            if not r["name"].startswith(EPOCH_PREFIXES) and r["bytes"][1] > r["bytes"][0]]
+    grown = [r for r in rows
+             if not r["name"].startswith(EPOCH_PREFIXES) and grew(r)]
     excluded = [r for r in rows
                 if r["name"].startswith(EPOCH_PREFIXES) and r["bytes"][1] > r["bytes"][0]]
-    print(f"  derivative bigger than its master: {len(grew)} (bound: 0) "
+    print(f"  derivative bigger than its master (outside its images): {len(grown)} (bound: 0) "
           f"+ {len(excluded)} epoch mesh(es) excluded by name, R-W6 "
           f"(their bit depth is asserted by tools/measure_terrain_fit.mjs --gate, T-0151)")
     for r in excluded:
