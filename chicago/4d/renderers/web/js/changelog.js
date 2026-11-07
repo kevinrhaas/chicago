@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2778, ts: '2026-11-07T15:08:16.379Z', date: 'Nov 7, 2026, 9:08 AM CT', title: 'Pullman house: the rear chimney climbs the back wing\'s roof', kind: 'improvement',
+    items: [
+      'The chimney between the Pullman house\'s two rear dormers now stands on the back wing\'s cornice and rises up the face of its slate roof, as the c. 1900 Detroit Publishing photograph from 18th Street shows it, instead of standing on the flat roof behind.',
+    ] },
   { v: 2777, ts: '2026-11-07T15:03:56.857Z', date: 'Nov 7, 2026, 9:03 AM CT', title: 'People\'s pictures load once', kind: 'change',
     items: [
       'Every person shares the same hair, skin and eye pictures. Each now downloads once, not once per person.',
