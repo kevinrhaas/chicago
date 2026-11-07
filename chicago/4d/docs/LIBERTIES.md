@@ -40276,8 +40276,12 @@ sketch of the 1812 ground that shows a path (the 1821 and 1830 surveys are the n
 places one. The eighteenth yard (T-3401, 2026-11-06) is Lee's Place's stack yard, round the four haystacks: Wau-Bun
 puts the cattle "standing among the haystacks" and foddered there, so the ground round their feet is grazed and
 trodden rather than standing prairie; its extent (the stacks' squares grown 3 m) is ours, like the others'.
-**Ticket:** T-3339, T-3401.
-**Recorded:** 2026-11-03 (T-3339); the stack yard 2026-11-06 (T-3401).
+T-3457 (2026-11-07, the owner: "minimize or eliminate the grass in the worn paths and areas") takes the standing
+grass off the worn ground harder than the earth shows: inside a yard and on a trail's core about 96 in 100 plants
+go whatever the wear, and round each yard the grass thins out over 1.8 times its earth's feather, never nearer than a
+fifth of that band to the yard, before it frays back to prairie. That share, that reach and that floor are ours.
+**Ticket:** T-3339, T-3401, T-3457.
+**Recorded:** 2026-11-03 (T-3339); the stack yard 2026-11-06 (T-3401); the grass 2026-11-07 (T-3457).
 
 ### L-t3340-south-groves-1812 — 1812's timber south of the river: the South Branch belt carried east of Wells, and groves in the wet hollows
 
@@ -41356,9 +41360,22 @@ left on the bushes, the fallen onion tops, the wicket's make, its swing and a vi
 from M'Mahon's calendar of the August kitchen garden and its distances (read in the 1857 printing).
 **How to resolve:** a garrison account, order book or letter naming what the commanding officer grew, or a
 description of the garden in 1812, replaces the crops; a better reading of the draught's beds moves them.
+**The garden in the other seasons (T-3460, 2026-11-07).** The owner, in 1812 with Settings > Season on winter: *"its
+winter in 1812 and we still have a garden! it should be season appropriate"*. Under the Season setting (itself a
+viewing choice, L-season-view-2864) the same beds are planted for 15 April, 15 October and 15 February from M'Mahon's
+calendar for those months: in April only young cabbage plants, onion sets, lettuce, the first asparagus spears, small
+strawberry and herb plants, and the bushes and canes breaking leaf, the spent raspberry canes cut out (corn, beans,
+melons, squash, cucumbers and potatoes are sown or showing only in May); in October the corn and the bean vines dry
+on their stalks and poles, the squashes ripe on frost-killed runners, the melon and cucumber runners withered and
+picked, the potatoes and onions lifted, cabbages, roots and lettuce still standing, the asparagus yellow and the
+bushes turned; in February nothing above the snow but the leafless currants, gooseberries and raspberry canes, the
+beds having been cleared, dunged and ridged for the winter in November, and the beds and walks under the season's
+snow. Which crops stand in which month, how far grown and how coloured are ours from that calendar (written for
+Philadelphia; Chicago's spring runs later, so April is read from its earliest work); nothing records the garden in
+any month but August. `renderers/web/js/gardens.js` SEASON_CROPS holds the table.
 **Covers:** `first_fort_outer_officers_garden.first_fort_1803.form.gate_kind`
-**Ticket:** T-3407.
-**Recorded:** 2026-11-06 (T-3407).
+**Ticket:** T-3407, T-3460.
+**Recorded:** 2026-11-06 (T-3407); seasons 2026-11-07 (T-3460).
 
 ### L-t3403-battle-shore-1812 — The 1812 shore at the battle: the two surveys joined at Twelfth Street, Heald's high sand bank and ravine laid as one profile, and his small elevation placed
 
@@ -41818,3 +41835,36 @@ visitor's camera. The grille's pane is drawn as a dark pane rather than transmis
 photograph of the open door or of the hall from the entrance for the swing and the finish.
 **Ticket:** T-3442.
 **Recorded:** 2026-11-07 (T-3442).
+
+### L-first-fort-blockhouse-cupolas-3041 — cupolas on the first fort's two blockhouses
+
+**Decision:** Build a small square cupola under its own pyramid cap at the apex of both first-fort
+blockhouses, `first_fort_dearborn_blockhouse_nw` and `first_fort_dearborn_blockhouse_se`, as the owner adopted from Currey's 1912 bird's-eye on
+2026-11-03 (T-3335).
+
+**What the sources carry:** Whistler's 1808 draught lays cupolas down on both blockhouses and its index
+says they were "not yet built ... as laid down", so they were planned and not standing in 1808. Kurz &
+Allison (1893) panel 1 draws a small roof lantern on each first-fort blockhouse, and Currey (1912), after
+the 1899 Tribune sketch of Van den Berghen's 1898 model, draws a square body under a pyramid cap on both.
+Intent plus two later depictions carries their OCCURRENCE by August 1812 at `inferred`. No source dates
+their completion, and both pictures are tier-5 retrospectives. The occurrence is in each record's
+`form.cupola`; this entry admits what that attribute does not carry, the size.
+
+**What is invented:** Every dimension, reused unchanged from the second fort's cupola kit in
+`generators/archetypes/fort_structure_params.py` (L-second-fort-blockhouse-cupola-2388): the 1.8 m side,
+the 2.1 m body height from its seat to the cap's eave, the 0.22 m cap eave, the 36 degree cap pitch and the
+0.12 m seat into the main roof. Plain boarded sides, no louvres, glazing or finial. Nothing in either
+picture measures them; they sit in the proportions both pictures show.
+
+**Supersedes:** The line in L-first-fort-pictured-blockhouse-stacks-3041 that the first-fort lanterns
+remain unbuilt. Its zero separate stacks stand, as do L370's height, jetty and roof choices.
+
+**What is not changed:** The measured plans, surveyed seats and bearings, the 5.2 m walls, the jetty, the
+30 degree main pyramid, and every other building of the fort. The blockhouses' tower proportions stay on
+Whistler's plan by the owner's ruling.
+
+**How to resolve:** a garrison return, order or letter between 1808 and 1812 that reports the cupolas
+finished, or describes their size.
+
+**Ticket:** T-3041 (partial; the fort's full picture match stays open).
+**Recorded:** 2026-11-07.

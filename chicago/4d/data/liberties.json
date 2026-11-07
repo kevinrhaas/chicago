@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1036,
+  "count": 1037,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -67181,15 +67181,16 @@
         },
         {
           "label": "How to resolve",
-          "text": "a survey or sketch of the 1812 ground that shows a path (the 1821 and 1830 surveys are the nearest), or a recollection that places one. The eighteenth yard is Lee's Place's stack yard, round the four haystacks: Wau-Bun puts the cattle \"standing among the haystacks\" and foddered there, so the ground round their feet is grazed and trodden rather than standing prairie; its extent (the stacks' squares grown 3 m) is ours, like the others'."
+          "text": "a survey or sketch of the 1812 ground that shows a path (the 1821 and 1830 surveys are the nearest), or a recollection that places one. The eighteenth yard is Lee's Place's stack yard, round the four haystacks: Wau-Bun puts the cattle \"standing among the haystacks\" and foddered there, so the ground round their feet is grazed and trodden rather than standing prairie; its extent (the stacks' squares grown 3 m) is ours, like the others'. Later work (2026-11-07, the owner: \"minimize or eliminate the grass in the worn paths and areas\") takes the standing grass off the worn ground harder than the earth shows: inside a yard and on a trail's core about 96 in 100 plants go whatever the wear, and round each yard the grass thins out over 1.8 times its earth's feather, never nearer than a fifth of that band to the yard, before it frays back to prairie. That share, that reach and that floor are ours."
         },
         {
           "label": "Recorded",
-          "text": "2026-11-03 (T-3339); the stack yard 2026-11-06 (T-3401)."
+          "text": "2026-11-03 (T-3339); the stack yard 2026-11-06 (T-3401); the grass 2026-11-07 (T-3457)."
         }
       ],
       "work_refs": [
         "T-3401",
+        "T-3457",
         "T-3339"
       ]
     },
@@ -69279,7 +69280,7 @@
         },
         {
           "label": "How to resolve",
-          "text": "a garrison account, reconstruction plan or letter naming what the commanding officer grew, or a description of the garden in 1812, replaces the crops; a better reading of the draught's beds moves them."
+          "text": "a garrison account, reconstruction plan or letter naming what the commanding officer grew, or a description of the garden in 1812, replaces the crops; a better reading of the draught's beds moves them. **The garden in the other seasons.** The owner, in 1812 with Settings > Season on winter: *\"its winter in 1812 and we still have a garden! it should be season appropriate\"*. Under the Season setting (itself a viewing choice, “The Season setting in 1812 and 1835: spring, fall and winter on scenes dated 14 August and 1 July”) the same beds are planted for 15 April, 15 October and 15 February from M'Mahon's calendar for those months: in April only young cabbage plants, onion sets, lettuce, the first asparagus spears, small strawberry and herb plants, and the bushes and canes breaking leaf, the spent raspberry canes cut out (corn, beans, melons, squash, cucumbers and potatoes are sown or showing only in May); in October the corn and the bean vines dry on their stalks and poles, the squashes ripe on frost-killed runners, the melon and cucumber runners withered and picked, the potatoes and onions lifted, cabbages, roots and lettuce still standing, the asparagus yellow and the bushes turned; in February nothing above the snow but the leafless currants, gooseberries and raspberry canes, the beds having been cleared, dunged and ridged for the winter in November, and the beds and walks under the season's snow. Which crops stand in which month, how far grown and how coloured are ours from that calendar (written for Philadelphia; Chicago's spring runs later, so April is read from its earliest work); nothing records the garden in any month but August. the walkthrough's gardens code season crops holds the table."
         },
         {
           "label": "Covers",
@@ -69287,12 +69288,13 @@
         },
         {
           "label": "Recorded",
-          "text": "2026-11-06 (T-3407)."
+          "text": "2026-11-06 (T-3407); seasons 2026-11-07 (T-3460)."
         }
       ],
       "work_refs": [
         "T-3407",
-        "T-2062"
+        "T-2062",
+        "T-3460"
       ]
     },
     {
@@ -69826,6 +69828,53 @@
       ],
       "work_refs": [
         "T-3442"
+      ]
+    },
+    {
+      "id": "L-first-fort-blockhouse-cupolas-3041",
+      "title": "cupolas on the first fort's two blockhouses",
+      "section": "per_subject",
+      "subjects": [
+        "first_fort_dearborn_blockhouse_nw",
+        "first_fort_dearborn_blockhouse_se",
+        "fort_dearborn_blockhouse"
+      ],
+      "covers": [],
+      "recorded": "2026-11-07",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Build a small square cupola under its own pyramid cap at the apex of both first-fort blockhouses, First Fort Dearborn — north-west blockhouse and First Fort Dearborn — south-east blockhouse, as the owner adopted from Currey's 1912 bird's-eye on 2026-11-03."
+        },
+        {
+          "label": "What the sources carry",
+          "text": "Whistler's 1808 draught lays cupolas down on both blockhouses and its index says they were \"not yet built... as laid down\", so they were planned and not standing in 1808. Kurz & Allison (1893) panel 1 draws a small roof lantern on each first-fort blockhouse, and Currey (1912), after the 1899 Tribune sketch of Van den Berghen's 1898 model, draws a square body under a pyramid cap on both. Intent plus two later depictions carries their OCCURRENCE by August 1812 at `inferred`. No source dates their completion, and both pictures are a modern reconstruction retrospectives. The occurrence is in each record's `form.cupola`; this entry admits what that attribute does not carry, the size."
+        },
+        {
+          "label": "What is invented",
+          "text": "Every dimension, reused unchanged from the second fort's cupola kit in the fort structure params generator (“the cupola on the second fort's blockhouse, and the stack it replaces”): the 1.8 m side, the 2.1 m body height from its seat to the cap's eave, the 0.22 m cap eave, the 36 degree cap pitch and the 0.12 m seat into the main roof. Plain boarded sides, no louvres, glazing or finial. Nothing in either picture measures them; they sit in the proportions both pictures show."
+        },
+        {
+          "label": "Supersedes",
+          "text": "The line in “Retire two reconstructed stacks” that the first-fort lanterns remain unbuilt. Its zero separate stacks stand, as do “The first Fort Dearborn's heights, roofs, stacks, pickets and two missing depths are ours”'s height, jetty and roof choices."
+        },
+        {
+          "label": "What is not changed",
+          "text": "The measured plans, surveyed seats and bearings, the 5.2 m walls, the jetty, the 30 degree main pyramid, and every other building of the fort. The blockhouses' tower proportions stay on Whistler's plan by the owner's ruling."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a garrison return, order or letter between 1808 and 1812 that reports the cupolas finished, or describes their size."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-07."
+        }
+      ],
+      "work_refs": [
+        "T-3335",
+        "T-3041"
       ]
     },
     {

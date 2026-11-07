@@ -291,6 +291,7 @@ export async function loadScene(year, bases = resolveBases(), {
   onProgress = () => {}, version = null, detail = 'full', keepAssetBytes = true,
   pool = BOOT_POOL,
   keepEncodedImages = false,
+  encodedImagesAsBlobs = false,
 } = {}) {
   const { dataBase, assetBase } = bases;
   const problems = [];
@@ -364,7 +365,8 @@ export async function loadScene(year, bases = resolveBases(), {
   // T-2464: houses built on one kit embed the same maps; decode each once.
   // T-2598: a phone keeps each picture's encoded bytes, so texture residency can
   // decode one again after the decoded copy was closed (texture-residency.js).
-  const sharedImages = shareImageSources(loader, { keepEncoded: keepEncodedImages });
+  const sharedImages = shareImageSources(loader, { keepEncoded: keepEncodedImages,
+    encodedAsBlobs: encodedImagesAsBlobs });
   const registry = new Map();
   let bytes = 0;
   // Keep compressed bytes, not a parsed scene whose materials batching may modify.

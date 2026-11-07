@@ -452,8 +452,8 @@
     "first_fort_dearborn_blockhouse_nw__first_fort_1803.glb": {
       "archetype": "fort_structure",
       "baked_ao": false,
-      "bytes": 101776,
-      "inputs_sha256": "9a392591339d7259bf54d6cf554cfac074a17e7f8f3073a3db98e78a4db3696b",
+      "bytes": 103140,
+      "inputs_sha256": "6b856feb6f63051442b0fbeccffb891a0728de977781c6b971cab8fd50a88550",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_dearborn_blockhouse_nw"
@@ -461,8 +461,8 @@
     "first_fort_dearborn_blockhouse_se__first_fort_1803.glb": {
       "archetype": "fort_structure",
       "baked_ao": false,
-      "bytes": 97172,
-      "inputs_sha256": "bf8862d8a02e7dd5723564eb2efd04aa2328e85622e0db613e5c3be3065b7d93",
+      "bytes": 98536,
+      "inputs_sha256": "cfbf905f58a40d456cf77f9b4410e2bbdaa8ebf19b9939b6297dc405e6623094",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_dearborn_blockhouse_se"
