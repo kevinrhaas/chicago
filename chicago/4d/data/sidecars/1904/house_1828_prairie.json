@@ -392,7 +392,15 @@
               "respond_m": 0.15
             },
             "railing_fabric": "stone",
-            "fabric": "stone"
+            "fabric": "stone",
+            "arches": {
+              "faces": [
+                "front",
+                "left"
+              ],
+              "spring_m": 5.45,
+              "rise_m": 0.5
+            }
           },
           "balustrade": {
             "height_m": 0.9,
@@ -458,7 +466,7 @@
         "chicagology_1828_shipman_automobile",
         "glessner_blog_1828_shipman_partial"
       ],
-      "note": "The porch in both photographs: columns at its front corners on the stoop's head, a deep carved entablature over them (y 140-215 px, about 1.2 m; built 1.0 m) under a cornice, and a balustrade on its flat top (y 100-140 px) under the second-storey window over it; the arches' crowns, taken as the soffit, at y 215 px, about 6.0 m over grade through the automobile photograph's camera. K01's door hood on two columns (T-2963) is the porch, laid columns, entablature and balustrade in the front's stone (T-3159's portico fabric), as both prints show it: its balustrade heavier than the joinery railing it replaced, 0.3 m posts and 0.1 m balusters under a 0.25 m rail, about 0.65 m high (the automobile print's y 100-140 px). T-3168 lays the stoop's cheeks with a turned stone balustrade on their tops, newels 0.36 m square, a little proud of the 0.3 m cheeks, at the landing and at the foot (the automobile print's turned balusters over the solid cheeks and the newel at the foot; the partial view's blocks at the foot), 0.9 m over the nosings, its balusters' turning reconstructed. The porch's round arches and third column are open in the match records; its carving is within tolerance (relief under a foot)."
+      "note": "The porch in both photographs: columns at its front corners on the stoop's head, a deep carved entablature over them (y 140-215 px, about 1.2 m; built 1.0 m) under a cornice, and a balustrade on its flat top (y 100-140 px) under the second-storey window over it; the arches' crowns, taken as the soffit, at y 215 px, about 6.0 m over grade through the automobile photograph's camera. K01's door hood on two columns (T-2963) is the porch, laid columns, entablature and balustrade in the front's stone (T-3159's portico fabric), as both prints show it: its balustrade heavier than the joinery railing it replaced, 0.3 m posts and 0.1 m balusters under a 0.25 m rail, about 0.65 m high (the automobile print's y 100-140 px). T-3168 lays the stoop's cheeks with a turned stone balustrade on their tops, newels 0.36 m square, a little proud of the 0.3 m cheeks, at the landing and at the foot (the automobile print's turned balusters over the solid cheeks and the newel at the foot; the partial view's blocks at the foot), 0.9 m over the nosings, its balusters' turning reconstructed. T-1887 turns the porch's round arches, on its front and its south side (K01's porch arcade, T-3210), off the automobile photograph through its camera (63 px/m at the porch's front, the horizon at y 496 px): the arches spring at y 245 px off the capitals (about 5.45 m over grade) and their crowns stand at y 212 (about 5.95 m), so each is a half ellipse 0.5 m high over its clear span, under the carved spandrel to the soffit. Its carving is within tolerance (relief under a foot)."
     },
     "boundary": {
       "value": {
@@ -544,6 +552,38 @@
                     0.5
                   ],
                   "why_not_ordinary": "the automobile photograph's tall principal windows, about 3.5 m high (the bay's front window at x 300-365 px, sill y 415 and head y 195), the cheek's narrower"
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.85,
+                  "clear_height_m": 1.15,
+                  "sill_m": 0.3,
+                  "at": [
+                    0.163,
+                    0.837
+                  ],
+                  "why_not_ordinary": "the automobile photograph's barred basement lights under the principal ones in the bay's south cheek (x 194-254 px) and its front (x 308-363), y 505-580 px: about 0.3-1.45 m over grade through its camera, as wide as the principal lights over them, iron uprights in their reveals (the ring at their heads reconstructed: K08's bar grille carries one); the bay's stone plinth lowered to 0.15 m so that it runs under them (its foot is behind the fence in both photographs)",
+                  "grille": {
+                    "bars": 6,
+                    "set_back_m": 0.04,
+                    "ring_radius_m": 0.12
+                  },
+                  "recess_m": 0.4
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.85,
+                  "clear_height_m": 1.15,
+                  "sill_m": 0.3,
+                  "at": [
+                    0.5
+                  ],
+                  "why_not_ordinary": "the automobile photograph's barred basement lights under the principal ones in the bay's south cheek (x 194-254 px) and its front (x 308-363), y 505-580 px: about 0.3-1.45 m over grade through its camera, as wide as the principal lights over them, iron uprights in their reveals (the ring at their heads reconstructed: K08's bar grille carries one); the bay's stone plinth lowered to 0.15 m so that it runs under them (its foot is behind the fence in both photographs)",
+                  "grille": {
+                    "bars": 6,
+                    "set_back_m": 0.04,
+                    "ring_radius_m": 0.12
+                  }
                 }
               ]
             },
@@ -582,7 +622,8 @@
             "kind": "hip",
             "pitch": 0.25,
             "covering": "slate_pennsylvania"
-          }
+          },
+          "plinth_m": 0.15
         },
         {
           "id": "south_round",
