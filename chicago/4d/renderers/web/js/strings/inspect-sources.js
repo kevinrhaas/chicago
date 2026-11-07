@@ -1,11 +1,23 @@
-/** T-2644 — Inspect's Sources tab (design doc §08 "Sources", §12 "Move one level down").
- * Facts grouped by grade, Liberties as a section, human source titles, and the full citation
- * folded under each fact. The grade words and their plain lines come from terms.js. */
+/** T-2644 — Inspect's Sources tab (design doc §08 "Sources", §12 "Move one level down"); T-3435
+ * split it in two. Details: facts grouped by grade, Liberties, open questions, the full citation
+ * folded under each fact. Sources: one row per source, opened to the facts it gave. The grade
+ * words and their plain lines come from terms.js. */
 import { register } from './index.js';
 
 export default register('inspect-sources', {
-  lead: '{count} facts. {split}. Tap any one to see its sources.',
-  'lead.one': '1 fact. {split}. Tap it to see its sources.',
+  'details.lead': '{count} facts. {split}. Tap any one to see why, and its sources.',
+  'details.lead.one': '1 fact. {split}. Tap it to see why, and its sources.',
+  'by.lead': '{count} sources stand behind this building. Tap one to see what it gave.',
+  'by.lead.one': 'One source stands behind this building. Tap it to see what it gave.',
+  'by.none': 'No source is named for anything here yet.',
+  gave: '{count} facts',
+  'gave.one': '1 fact',
+  'gave.k': 'What it gave',
+  'unsourced.k': 'No source named',
+  unsourced: '{count} facts rest on clues or on our reconstruction. Details says why for each.',
+  'unsourced.one': '1 fact rests on clues or on our reconstruction. Details says why.',
+  'go.details': 'Every fact, graded',
+  'go.sources': 'Where it comes from',
   none: 'No facts in this group.',
   'off-scale': '{count} carry no grade on our scale. That is a fault in our record.',
   why: 'Why',

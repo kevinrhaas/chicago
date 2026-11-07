@@ -133,7 +133,7 @@ const visible = visitorHtml.replace(/<svg[\s\S]*?<\/svg>/g, '').replace(/<[^>]+>
 assert(!INTERNAL.test(visible.replace(/\b(grades|city|sources|liberties|exclusions|uncertain|ground|fauna|plants|population)\b/g, '')),
   `no internal word outside the researcher card: ${visible.match(INTERNAL)?.[0]}`);
 assert.match(visitorHtml, /class="ev-card-hint">One building&#39;s own sources are on its Sources tab in Inspect\./, 'Sources points to Inspect');
-assert.match(visitorHtml, /class="ev-card-hint">One building&#39;s own Liberties are on its Sources tab in Inspect\./, 'Liberties points to Inspect');
+assert.match(visitorHtml, /class="ev-card-hint">One building&#39;s own Liberties are on its Details tab in Inspect\./, 'Liberties points to Inspect');
 assert.match(html, /data-researcher[^>]*>[\s\S]*Reconstructing the town/, 'the researcher card is the order book\'s');
 
 // ---- the string table: visitor strings carry no internal word ---------------------------------

@@ -1,6 +1,7 @@
 /**
- * inspect-sources.js — Inspect's Sources tab (T-2644; design doc §08 "Sources", §12 "Move
- * one level down").
+ * inspect-sources.js — Inspect's Details and Sources tabs (T-2644; design doc §08 "Sources", §12
+ * "Move one level down"). T-3435 split the one tab in two: Details (`detailsPaneHtml`) is the
+ * grade view described below; Sources (`sourcesPaneHtml`) lists the same facts by source.
  *
  * EVERY FACT THE BUILDING HOLDS, GROUPED BY GRADE. Two kinds of fact stand behind a
  * building, and both are graded and sourced in the data:
@@ -300,7 +301,8 @@ function questionRow(u) {
 }
 
 /**
- * The Sources tab, as HTML.
+ * The Details tab, as HTML (T-3435; before it, this was the Sources tab): every fact grouped by
+ * grade, each with its reasoning and its sources folded under it, then Liberties and open questions.
  * @param {object} o
  * @param {object|null} o.sidecar     the record's sidecar (its `citations` are the joined sources)
  * @param {object|null} o.summary     its compiled summary record, or null
@@ -311,7 +313,7 @@ function questionRow(u) {
  * @param {object|null} o.sourceDates inspect/<scene>.json's `source_dates`: each source's own date
  * @param {number|string|null} o.sceneYear the scene's year, which "from the time" is held to
  */
-export function sourcesPaneHtml({ sidecar = null, summary = null, docSources = null, liberties = null, questions = null,
+export function detailsPaneHtml({ sidecar = null, summary = null, docSources = null, liberties = null, questions = null,
   dossier = null, sourceDates = null, sceneYear = null } = {}) {
   const facts = buildingFacts(sidecar, summary);
   const n = factCounts(facts);
@@ -320,7 +322,7 @@ export function sourcesPaneHtml({ sidecar = null, summary = null, docSources = n
   const dateOf = (id) => docSources?.[id]?.date ?? dates[id] ?? null;
   const ctx = { citationsById, docSources, dateOf, sceneYear };
   const split = GRADES.map((g) => `${n[g]} ${gradeTerm(g).label}`).join(', ');
-  const lead = `<p class="src-lead">${escapeHtml(s(n.total === 1 ? 'lead.one' : 'lead', { count: n.total, split }))}</p>`;
+  const lead = `<p class="src-lead">${escapeHtml(s(n.total === 1 ? 'details.lead.one' : 'details.lead', { count: n.total, split }))}</p>`;
 
   const groups = GRADES.map((g) => {
     const mine = facts.filter((f) => f.grade === g);
@@ -356,11 +358,76 @@ export function sourcesPaneHtml({ sidecar = null, summary = null, docSources = n
         <p class="nav-sub">${escapeHtml(s('open.lead'))}</p><ul class="src-facts">${qs.map(questionRow).join('')}</ul></section>`
     : '';
 
+  return `<div class="src-page" data-facts="${n.total}">
+    ${lead}${groups}${offScale}${libSec}${openSec}
+    <button type="button" class="nav-tile sg-go" data-insp-go="sources">${escapeHtml(s('go.sources'))}</button>
+  </div>`;
+}
+
+/**
+ * The Sources tab, as HTML (T-3435; the owner, 2026-11-06: "the sources tab should be organized
+ * by source, like the sources first and maybe you could expand or see details from each source
+ * what it provided"). One row per source behind the building, the most-used first, each with its
+ * human title and kind; opened, it lists every fact that source gave, with that fact's grade,
+ * and the full citation. The facts that name no source are counted at the foot and sent to
+ * Details, where each says why. The same facts as Details and the Overview's meter
+ * (`buildingFacts`), so the three cannot disagree.
+ * @param {object} o  as `detailsPaneHtml`; liberties and questions are Details' and unused here
+ */
+export function sourcesPaneHtml({ sidecar = null, summary = null, docSources = null, dossier = null,
+  sourceDates = null, sceneYear = null } = {}) {
+  const facts = buildingFacts(sidecar, summary);
+  const citationsById = new Map(list(sidecar?.citations).filter((c) => c.source_id).map((c) => [c.source_id, c]));
+  const dates = sourceDates && typeof sourceDates === 'object' ? sourceDates : {};
+  const dateOf = (id) => docSources?.[id]?.date ?? dates[id] ?? null;
+  const bySource = new Map();
+  for (const f of facts) {
+    for (const id of new Set(f.sources)) {
+      if (!bySource.has(id)) bySource.set(id, []);
+      bySource.get(id).push(f);
+    }
+  }
+  const rows = [...bySource.entries()].map(([id, gave]) => {
+    const c = resolveSource(id, citationsById, docSources);
+    // A title cut inside a quoted name keeps the citation's words but not its open quote mark.
+    const t0 = c ? sourceTitle(c.citation) : '';
+    const title = /^["“‘']/.test(t0) && !/["”’']/.test(t0.slice(1)) ? t0.slice(1) : t0;
+    return { id, c, gave, title: title || s('source.untitled'),
+      when: c ? sourceTag(c.tier, dateOf(id), sceneYear) : '' };
+  }).sort((a, b) => b.gave.length - a.gave.length || a.title.localeCompare(b.title));
+  const unsourced = facts.filter((f) => !f.sources.length);
+
+  const row = (r) => {
+    const gave = r.gave.map((f) => {
+      const v = f.value && f.value.length <= SHORT_VALUE ? ` <span class="src-value">${escapeHtml(f.value)}</span>` : '';
+      return `<li class="src-gave-row">${dot(f.grade)}<span class="src-label">${escapeHtml(f.label)}</span>${v}</li>`;
+    }).join('');
+    const cite = r.c ? `<details class="src-cites"><summary>${escapeHtml(s('cites.one'))}</summary>
+        <ol class="cites">${citationItems([{ ...r.c, source_id: r.id }], { tier: false, evidence: false })}</ol></details>` : '';
+    return `<li><details class="src-source">
+      <summary><span class="src-title">${escapeHtml(r.title)}</span>${r.when ? ` <span class="src-when">${escapeHtml(r.when)}</span>` : ''}
+        <span class="src-n">${escapeHtml(s(r.gave.length === 1 ? 'gave.one' : 'gave', { count: r.gave.length }))}</span></summary>
+      <div class="src-body">
+        <p class="src-k">${escapeHtml(s('gave.k'))}</p>
+        <ul class="src-gave">${gave}</ul>
+        ${cite}
+      </div>
+    </details></li>`;
+  };
+  const lead = `<p class="src-lead">${escapeHtml(rows.length
+    ? s(rows.length === 1 ? 'by.lead.one' : 'by.lead', { count: rows.length })
+    : s('by.none'))}</p>`;
+  const list_ = rows.length ? `<ul class="src-facts src-sources">${rows.map(row).join('')}</ul>` : '';
+  const rest = unsourced.length
+    ? `<section class="src-unsourced"><h3 class="insp-h">${escapeHtml(s('unsourced.k'))} <span class="src-count">${unsourced.length}</span></h3>
+        <p class="nav-sub">${escapeHtml(s(unsourced.length === 1 ? 'unsourced.one' : 'unsourced', { count: unsourced.length }))}</p>
+        <button type="button" class="nav-tile sg-go" data-insp-go="details">${escapeHtml(s('go.details'))}</button></section>`
+    : '';
   const foot = dossier
     ? `<a href="${escapeHtml(dossier)}" target="_blank" rel="noopener">${escapeHtml(s('dossier.link'))} ↗</a>`
     : escapeHtml(s('dossier.none'));
-  return `<div class="src-page" data-facts="${n.total}">
-    ${lead}${groups}${offScale}${libSec}${openSec}
+  return `<div class="src-page src-by-source" data-sources="${rows.length}" data-facts="${facts.length}">
+    ${lead}${list_}${rest}
     <p class="pop-foot src-foot">${foot}</p>
     <button type="button" class="nav-tile insp-full" data-insp-full>${escapeHtml(s('full.record'))}</button>
   </div>`;
