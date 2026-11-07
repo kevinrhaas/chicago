@@ -22,7 +22,10 @@ average instead of wandering). The person's age at the picture drives the ageing
 does in the renderer, so the fitted values are the face's shape, not its years. A record naming
 `base_body` (T-3473, a woman's portrait) fits against that body's own rest face (its unoptimised
 GLB under assets/humans/, in the kit's vertex order), at its base age, and centres each prior on
-the body's face_bias, which a fitted value replaces in the renderer. The one_of
+the body's face_bias, which a fitted value replaces in the renderer. A record with `stand_in`
+(T-3478: no photograph of the person is known) is fitted to a stand-in's photograph, someone of
+their sex, age, heritage and work: it must be graded reconstructed, and its `card_note` goes on
+the card (tools/cut_portrait.py burns its `label` on the picture). The one_of
 head outline is tried option by option and the best kept.
 
 What it writes. The fitted values for every face axis the portrait can move (and the head
@@ -321,6 +324,8 @@ def fit(person):
 
 def record(person, f):
     p = f['portrait']
+    if p.get('stand_in') and p['grade'] != 'reconstructed':
+        sys.exit(f"{person}: a face fitted to a stand-in's photograph is reconstructed, not {p['grade']}")
     src = json.loads((ROOT / 'data/sources' / f"{p['source']}.json").read_text())
     return {
         'format': 'chicago4d_human_face_fit_v1',
@@ -351,6 +356,8 @@ def record(person, f):
             'marks': len(f['names']),
             'portrait': p['card']['portrait'].replace('assets/humans/web/', 'humans/web/'),
             'model': p['card']['model'].replace('assets/humans/web/', 'humans/web/'),
+            # T-3478: a stand-in's photograph (no picture of the person is known) says so on the card.
+            **({'stand_in': p['stand_in']['card_note']} if p.get('stand_in') else {}),
         } if p.get('card') else None,
     }
 
