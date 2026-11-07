@@ -419,7 +419,9 @@
       "stacks": [
        {
         "u_m": 1.7,
-        "v_m": 0.9
+        "v_m": 0.9,
+        "top_m": 17.35,
+        "panelled": false
        },
        {
         "u_m": 11.7,
@@ -429,13 +431,47 @@
         "u_m": 9.0,
         "v_m": 14.9
        }
-      ]
+      ],
+      "k15": {
+       "kit": "data/components/prairie_1904/k15_chimneys.json",
+       "from": "k15.stack.sherman",
+       "omit": [
+        "dentils"
+       ],
+       "flues": 2,
+       "panels": {
+        "count": 1,
+        "width_m": 0.45,
+        "depth_m": 0.035,
+        "above_roof_m": 1.0,
+        "under_head_m": 1.08,
+        "min_height_m": 0.6
+       },
+       "corbels": [
+        [
+         0.15,
+         0.06
+        ],
+        [
+         0.15,
+         0.13
+        ],
+        [
+         0.2,
+         0.2
+        ]
+       ],
+       "cap": {
+        "thickness_m": 0.35,
+        "projection_m": 0.28
+       }
+      }
      },
      "confidence": "inferred",
      "sources": [
       "chicagology_1936_prairie_exterior_photo"
      ],
-     "note": "Tall corniced stacks over the roof in the photograph: one over the south flank's rear part (x 905-995 px) and one over its front part (x 1215-1290 px); the third, on the north side, is reconstructed. T-3370 places the two south stacks on the photograph's re-solved camera (data/reference_views/house_1918_prairie/chicagology_photo.json): held on the line v 0.9 the photograph's left stack (x 905-995 px) stands at u 1.7, over the flank's west end, not u 6.0 (about 125 px east of it in the photograph), and the right one (x 1215-1300 px) at u 11.7 (from 12.5; the final fit reads it at 12.3, the two fits' spread). Their tops read about 17.4 and 18.2 m on that line, the build's within about 0.9 m and 0.1 m; the stack right of the tower in the photograph (x 1820-1860 px) stands, through that camera, in front of the house's line, so it is the neighbour's, not this house's north stack."
+     "note": "Tall corniced stacks over the roof in the photograph: one over the south flank's rear part (x 905-995 px) and one over its front part (x 1215-1290 px); the third, on the north side, is reconstructed. T-3370 places the two south stacks on the photograph's re-solved camera (data/reference_views/house_1918_prairie/chicagology_photo.json): held on the line v 0.9 the photograph's left stack (x 905-995 px) stands at u 1.7, over the flank's west end, not u 6.0 (about 125 px east of it in the photograph), and the right one (x 1215-1300 px) at u 11.7 (from 12.5; the final fit reads it at 12.3, the two fits' spread). Their tops read about 17.4 and 18.2 m on that line, the build's within about 0.9 m and 0.1 m; the stack right of the tower in the photograph (x 1820-1860 px) stands, through that camera, in front of the house's line, so it is the neighbour's, not this house's north stack. T-3370 (second pass) reads the two stacks' heights and heads through the same camera, at about 39 px a metre on the left one and 42 on the right: the left one's top stands at y 270 px, 17.33 m (built 18.22, so about 35 px high), so it stands at its own 17.35 m (a hip's stack read off a picture may, as a mansard's does, clearing the hip's covering under it by 0.6 m); the right one's top at y 185 px, 18.26 m, the build's 18.22. Each carries a heavy moulded head over a stone band: the left one's head y 270-305 px (16.43-17.33 m, about 0.9 m) standing about 12 px (0.3 m) out each side of its 65 px shaft, its band at y 318 (16.09 m, 1.7 m over the roof under it); the right one's band at y 267 (16.29 m), under it a sunk panel to y 303 (15.43 m) on its east face. So the three are dressed from the K15 kit's panelled form (chimneys.k15, k15.stack.sherman, without its corbel blocks, which the print does not resolve): its two stone bands 0.55 and 1.75 m over the roof under each stack, a sunk panel 0.45 m wide on the street and rear faces from 1.0 m over that roof to 1.08 m under the head (the right one's 15.37-16.29 m, the photograph's 15.43-16.29), the left one plain (its shaft under the head is too short for one and the print shows none), and a head of three corbelled courses (0.15, 0.15 and 0.2 m, out 0.06, 0.13 and 0.2 m) under a stone cap 0.35 m thick and 0.28 m out, 0.85 m in all, for the print's 0.9 m and 0.3 m. Courses and cap are read at the print's scale, not measured, so reconstructed (liberty L-k01-1936-allerton-1901). Still open: the right one's head is two-staged in the print, a broad moulded cap at 16.75-17.3 m with a narrower stage on it to the top at 18.26 m, where the build's one 0.85 m head stands at its top; and the left one's shaft reads about 65 px across where the build's 1.1 by 0.8 m stack spans 52 px, about 0.25 m broader, within the print's blur."
     },
     "rainwater": {
      "value": {

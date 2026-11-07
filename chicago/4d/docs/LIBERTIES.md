@@ -24454,7 +24454,7 @@ shows them. Across the verandah's three openings (T-3357) stands an iron rail, a
 column at 0.8 m over the floor on one standard in each opening's middle: the photograph's dark bar and the
 dark upright under it in its first two openings, a few pixels across, so the section and the standard's
 count are reconstructed and the iron is the dark tone's reading. The rear range is built to its second
-storey's head (9.45 m) under a flat roof, short of the Tribune's 37 ft cornice. T-3370 moves the tower 2.0 m north of the sheet, to v 7.95-11.75 (the sheet's v 5.95-9.74), with the door (s 10.65) and its landing, and runs the verandah from the corner to it, s 0-7.6 with three 1.9 m openings on 2.3 m centres, where the sheet's porch strip gives 5.6 m: the photograph's camera, re-solved at 12 px rms once its south-east corner was read at the cornice's nearest vertex (x 1425 px), puts the tower 1.6-2.7 m north of the sheet across its variants and the verandah's two columns about 2.55 m apart. The image gate builds the photograph; the sheet's place is kept here. On the same camera the two south stacks stand at u 1.7 and 11.7 (from 6.0 and 12.5).
+storey's head (9.45 m) under a flat roof, short of the Tribune's 37 ft cornice. T-3370 moves the tower 2.0 m north of the sheet, to v 7.95-11.75 (the sheet's v 5.95-9.74), with the door (s 10.65) and its landing, and runs the verandah from the corner to it, s 0-7.6 with three 1.9 m openings on 2.3 m centres, where the sheet's porch strip gives 5.6 m: the photograph's camera, re-solved at 12 px rms once its south-east corner was read at the cornice's nearest vertex (x 1425 px), puts the tower 1.6-2.7 m north of the sheet across its variants and the verandah's two columns about 2.55 m apart. The image gate builds the photograph; the sheet's place is kept here. On the same camera the two south stacks stand at u 1.7 and 11.7 (from 6.0 and 12.5). Their heads are read on the same camera at about 40 px a metre: the left stack stands at its own 17.35 m (the photograph's 17.33 m), under the kit's one height; all three are dressed from the K15 kit's panelled form (k15.stack.sherman less its corbel blocks), its two stone bands, a sunk panel 0.45 m wide where a stack's shaft has room for one (the right one's, the photograph's 15.43-16.29 m), and a head of three corbelled courses 0.15, 0.15 and 0.2 m high, out 0.06, 0.13 and 0.2 m, under a stone cap 0.35 m thick and 0.28 m out, for the photograph's moulded heads about 0.9 m tall and 0.3 m out; those courses, the cap and the panels' sizes are reconstructed, the moulded profiles the kit's square courses, and the north stack's dress is the south ones'. The right stack's narrower upper stage over its broad cap is not built.
 
 **How to resolve:** T-1901's next piece re-solves the photograph's camera (its present fit is provisional:
 see `data/reference_views/house_1918_prairie/chicagology_photo.json`), settles the front's composition
@@ -36620,6 +36620,13 @@ Short upper lashes (`lashes_upper`) are grown on both women, the brows are made 
 `face_bias` adds a narrower, shorter, straighter nose with finer nostrils, the tip a little up, and
 higher cheekbones. A drawn-back bun is what the 1903 stereographs show of a working woman's hair; the
 hairstyle, its colour and every amount are reconstructed choices, and nothing says how she wore hers.
+
+**A softer face, 2026-11-07 (T-3434):** with the bun on, her face still read as a man's. Her seeded draw
+had given her MakeHuman's rectangular head outline and a long, heavy chin. The women's bodies now allow
+only the oval, round, inverted-triangular and diamond outlines (`one_of_allow`; the same draw picks
+among them, so no one else's choice moves), damp the seeded face and head outline to half spread
+(`face_draw_scale`) before their bias, and lean the jaw a little further (-0.45) and the chin a little
+shorter. A choice of depiction, like the rest of the bias; nothing records her face.
 
 ### L-tremont-gale-envelope-2385 — two-storey default and picture alternative
 

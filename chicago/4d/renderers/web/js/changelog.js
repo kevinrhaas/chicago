@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2746, ts: '2026-11-07T02:51:28.029Z', date: 'Nov 6, 2026, 8:51 PM CT', title: '1936 Prairie\'s chimneys take their photograph\'s heights and heavy heads', kind: 'fix',
+    items: [
+      'The Thompson/Allerton house at 1936 Prairie: the left chimney over the south flank comes down about 0.9 m to the height its winter photograph shows, and both south chimneys now wear what the photograph draws on them: a stone band, a sunk panel on the taller one, and a heavy corbelled head under a broad stone cap in place of a thin slab.',
+    ] },
+  { v: 2745, ts: '2026-11-07T02:43:18.075Z', date: 'Nov 6, 2026, 8:43 PM CT', title: 'Softer faces for the women in town', kind: 'improvement',
+    items: [
+      'Mattie Williamson\'s face no longer comes out long and square-jawed: the women\'s faces now keep to oval, round or heart-shaped outlines, with a lighter jaw and a shorter chin.',
+    ] },
   { v: 2744, ts: '2026-11-07T02:08:45.776Z', date: 'Nov 6, 2026, 8:08 PM CT', title: '2009 Prairie\'s bay window now sits on a band of carved flowers', kind: 'improvement',
     items: [
       'In 1904, the stone bay window over the front door of 2009 Prairie Avenue now carries a carved band under its three windows: two staggered rows of small four-petalled flowers, seventeen in all, where the old photograph shows them. Before, the stone under the windows was plain.',

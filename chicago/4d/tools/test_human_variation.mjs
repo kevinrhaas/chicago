@@ -63,10 +63,23 @@ const faceAxes = kit.axes.filter(a => a.scope === 'face' && !a.drive && !a.rest)
   const man = V.personVariation({ kit, key: 'someone', assetId: 'bardwell_otis_1835' });
   assert.equal(man.values.mouth_corners, 0, 'a man draws no resting mouth');
   assert.equal(woman.values.mouth_corners, bias.mouth_corners);
+  // Her body also damps the seeded face and head outline (face_draw_scale) and allows only the
+  // softer head outlines (one_of_allow); a man's draw is the undamped one.
+  const asset = header.assets.williamson_mattie_1904_cook_study, scale = asset.face_draw_scale;
+  assert(scale > 0 && scale < 1, 'the women damp their seeded faces');
+  const damped = a => (a.scope === 'face' || a.id === 'head_shape') ? scale : 1;
+  const axis = id => kit.axes.find(a => a.id === id);
   for (const [k, v] of Object.entries(bias)) if (k !== 'mouth_corners')
-    assert(Math.abs(woman.values[k] - Math.max(-header.limit, Math.min(header.limit, man.values[k] + v))) < 1e-12, `${k} leans by its bias`);
+    assert(Math.abs(woman.values[k] - Math.max(-header.limit, Math.min(header.limit, man.values[k] * damped(axis(k)) + v))) < 1e-12, `${k} leans by its bias`);
   for (const a of kit.axes) if (!a.drive && !(a.id in bias) && !(a.draw_as in bias) && a.sex !== 'female' && a.sex !== 'male')
-    assert.equal(woman.values[a.id], man.values[a.id], `${a.id} unmoved by the bias`); }
+    assert(Math.abs(woman.values[a.id] - man.values[a.id] * damped(a)) < 1e-12, `${a.id} unmoved by the bias`);
+  const allow = asset.one_of_allow.head_shape;
+  for (let i = 0; i < 200; i++) {
+    const w = V.personVariation({ kit, key: `woman_${i}`, assetId: 'williamson_mattie_1904_cook_study' });
+    assert(allow.includes(w.option.head_shape), `a woman's head outline is one of ${allow}`);
+  }
+  const men = new Set(Array.from({ length: 200 }, (_, i) => V.personVariation({ kit, key: `woman_${i}`, assetId: 'bardwell_otis_1835' }).option.head_shape));
+  assert(men.has(2) || men.has(3), 'a man may still draw a square or rectangular head'); }
 
 // No two alike: across a crowd of 400 ids, the closest pair of faces still differ by at least
 // one axis's own spread, measured in units of each axis's spread.
