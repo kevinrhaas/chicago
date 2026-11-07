@@ -41484,6 +41484,7 @@ L-k01-2009-meyer-1913 left them.
 check the hoods from a second picture and might read their projection.
 **Ticket:** T-3365 (piece 2 of T-1914).
 **Recorded:** 2026-11-07 (T-3365).
+
 ### L-k01-1816-henderson-1886 — 1816 Prairie's brick stood on a pale stone basement round its front, bays and south flank, and its two crowns slated as the house with a dormer in each, read off its photograph
 
 **Decision:** 1816 Prairie's photograph (`chicagology_1816_henderson_photo`) shows the house's brick on a
