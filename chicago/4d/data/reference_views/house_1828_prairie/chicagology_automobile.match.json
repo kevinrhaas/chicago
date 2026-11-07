@@ -2,7 +2,7 @@
   "structure_id": "house_1828_prairie",
   "view": "chicagology_automobile",
   "glb": "assets/gltf/house_1828_prairie__as_mapped_1904.glb",
-  "glb_sha256": "726b4e7058c911874f2e725f44544513b22f6d523816f2daa7cd9e55c11073a0",
+  "glb_sha256": "34b354ad5ccffd33ba1fe01ef97143d478e4c5a3a59a23ca43235f38d856570b",
   "camera_sha256": "c5db781be13c8f38279e02b2deb16a970c6995b2397cc02e886addbafc8d281e",
   "photo_sha256": "c758e387f00acae0068286d86a69065154ee0f03e3edb234ab9ad936aba2e957",
   "side_by_side": "docs/RESEARCH/photo-match/house_1828_prairie/chicagology_automobile-side-by-side.jpg",
@@ -19,9 +19,8 @@
       "how": "T-3166: a K08 canted bay 4.54 m at the wall and 1.25 m out, its front 1.92 m, one window a storey in each cheek and in the front, 1.05 x 3.5 m on the principal storey, under K09's cornice-hood lintels; they render within about 10 px"
     },
     {
-      "what": "the basement windows under the principal ones, about y 505-580 px (about 0.25-1.45 m over grade)",
-      "status": "open",
-      "how": "built 0.8 m high to 1.05 m, where K02's two Lemont base courses (0.2-0.41 m each) put the coping the lights' heads must meet; the print's stand about 0.4 m taller; T-3168 tried the print's 1.2 m and K02's Lemont profile refuses it (at most two base courses of 0.41 m under the coping the lights' heads meet), so it is K02 work"
+      "what": "the basement windows under the principal ones, about y 505-580 px (about 0.3-1.45 m over grade): T-1887 cuts one under each of the bay's three principal lights, as wide as they are, iron uprights in their reveals, the bay's plinth lowered to 0.2 m so that it runs under them; they render in place and size through the fence",
+      "status": "fixed"
     },
     {
       "what": "the porch: columns at the stoop's head, a deep carved entablature (y 140-215 px) under a cornice, a balustrade on its top (y 100-140), its floor at the principal floor",
@@ -29,9 +28,12 @@
       "how": "T-3166: K01's door hood on two columns (T-2963), 2.4 m wide and 1.8 m out, its soffit 6.0 m and its fascia 1.0 m; the entablature and the balustrade render within about 10 px"
     },
     {
-      "what": "the porch's round arches on its front and its south side, springing from the columns, and the third column at its south-rear corner (x 440 px)",
-      "status": "open",
-      "how": "built as a flat soffit on two front columns with responds at the wall (T-3168: K01's door hood carries no arch or rear column; kit work)"
+      "what": "the porch's round arches on its front and its south side, springing from the capitals at y 245 px (about 5.45 m) to crowns at y 212 (about 5.95 m) under the carved spandrel: T-1887 turns them (K01's porch arcade), and they render in place on both faces",
+      "status": "fixed"
+    },
+    {
+      "what": "the third column at the porch's south-rear corner (x 440 px): through this camera it stands against the canted bay's north cheek, about 0.5 m south of where the build's flat respond on the recessed wall carries the south arch, and it is a round column with a capital, not a pilaster; K01's porch places columns only along its front (at_v_m), so it is not yet built",
+      "status": "open"
     },
     {
       "what": "the porch's carving: the entablature's carved frieze, the spandrels over the arches, the columns' capitals",
@@ -89,5 +91,5 @@
       "how": "this print shows an iron fence on a curb; glessner_partial reads as a low solid wall; the fence is kept (L-k14-walks-1800-block-3206)"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
