@@ -586,7 +586,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    * town's untextured one. A load that fails degrades to today's flat roofs and
    * reports itself; see roof-relief.js.
    */
-  const relief = await loadRoofRelief();
+  const relief = await loadRoofRelief({ lowSpec });
   if (relief.problem) problems.push(relief.problem);
   /**
    * The walls' relief (T-1963): clapboard and laid logs, by the record's own
