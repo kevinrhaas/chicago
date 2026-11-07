@@ -1,0 +1,30 @@
+{
+ "id": "chicago_tribune_1899_08_15_butterflies_pullman_lawn",
+ "type": "newspaper",
+ "citation": "'Butterflies in a Cloud. Swarms of Insects Visit Pullman Residence.' Chicago Daily Tribune, Tuesday, 15 August 1899 (vol. LVIII, no. 227), p. 1.",
+ "author": "Chicago Tribune (unsigned)",
+ "date": "1899-08-15",
+ "describes_date": "1899-08-14 (the evening before publication)",
+ "repository": "Internet Archive, item per_chicago-daily-tribune_1899-08-15_58_227 (Chicago Tribune microfilm).",
+ "url": "https://archive.org/details/per_chicago-daily-tribune_1899-08-15_58_227/page/n0/mode/1up",
+ "locator": "Front page (scan leaf n0), fifth of seven columns, from the head 'BUTTERFLIES IN A CLOUD.' to the end of the section 'Residents Look and Admire.'; the yard passages are under the cross-heads 'Number at Least a Million.' and 'Make Trees Look Like Velvet.' (page image region x 8800-10800, y 1700-11000 of 14956 x 18728 px).",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "A US newspaper published in 1899, in the public domain. Quoted in text only; nothing is derived from the page image.",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "Read 2026-11-07 (T-3488) off the page image: the column was fetched in four crops through the Archive's IIIF service and read in full. The item's OCR text (per_chicago-daily-tribune_1899-08-15_58_227_djvu.txt, sha256 850d219cdc3a593c4505fcafcac0b9b731053fb4c12bbf1ab4d5e16bc18a7b94) carries most of the article but drops and scrambles lines (the vines sentence is broken across another column's text there), so every quotation in `note` is from the image, not the OCR. The chicagology.com 1729 S. Prairie page also quotes the article; it was not needed and not used.",
+ "note": "Read: 'Butterflies descended upon the Pullman residence at Eighteenth street and Prairie avenue in countless numbers last evening.' 'John Algots, keeper of the Pullman greenhouse, was at work on the lawn in front of the residence when the butterflies arrived there.' He moved to 'the steps of the house'; 'In all my experience as a gardener I never saw butterflies in such large numbers ... then lit on the trees.' Under 'Make Trees Look Like Velvet.': 'Several young birch trees in the corner of the lawn presented a curious sight after the butterflies had settled down on their slender branches.' 'On the large trees the visitors rested just as thickly, but were not so conspicuous because of their height above the ground. The vines on the side of the house were chosen also as resting places by the butterflies, and large numbers of them folded their wings on the window copings. At 9 p. m. the tree branches were heavy with them and a stream of water from the lawn hose, when thrown among the foliage, sent them fluttering to the ground like brown leaves in an autumn gale.' The day before, a few had been seen 'over a clump of sunflowers in the vacant lot at Twenty-second street and Prairie avenue'. Neighbours watching: 'From across the street the family of Hugh McBirney'; 'Ralph C. Otis, 1730 Prairie avenue; J. J. Glessner, 1800 Prairie avenue'. The article names no side of the lot: the lawn is 'in front of the residence', the birches are in 'the corner of the lawn' and the vines on 'the side of the house', none of them placed by street.",
+ "what_it_supplies": [
+  "a lawn at the Pullman house in August 1899, kept by the greenhouse keeper John Algots, who calls himself a gardener",
+  "several young birch trees in a corner of that lawn, and large trees besides",
+  "vines on a side wall of the house, reaching the window copings",
+  "a lawn hose in use on the grounds",
+  "a vacant lot with a clump of sunflowers at Twenty-second Street and Prairie Avenue in August 1899"
+ ],
+ "what_it_does_not_supply": [
+  "which side of the lot the lawn, the birches or the vines were on: 'in front of the residence' and 'the side of the house' are not placed by street",
+  "the number of birches or of large trees, or their species beyond birch",
+  "the yard in 1904: it is five summers earlier"
+ ]
+}

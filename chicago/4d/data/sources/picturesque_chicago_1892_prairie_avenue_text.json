@@ -1,0 +1,26 @@
+{
+ "id": "picturesque_chicago_1892_prairie_avenue_text",
+ "type": "book",
+ "citation": "'Prairie Avenue.' Entry in Part II, 'Important Buildings and Points of Interest', pp. 101-104 in Picturesque Chicago and Guide to the World's Fair (Baltimore: R. H. Woodward and Company, 1892).",
+ "author": "not named (R. H. Woodward and Company, publisher)",
+ "date": "1892",
+ "describes_date": "1891-1892",
+ "repository": "Internet Archive, University of California Libraries copy (picturesquechica00baltiala). The same book's halftone plate of the street is its own record, picturesque_chicago_1892_prairie_avenue; this record is the entry's text.",
+ "url": "https://archive.org/details/picturesquechica00baltiala/page/n126/mode/1up",
+ "locator": "p. 104 (scan leaf n126), the entry's last paragraph, from 'The new fads in architecture' to 'secluded and sedate precincts'. The entry begins on p. 101 (n123) and runs on across p. 103 (n125; p. 102, n124, is a plate); those pages name residents and say nothing of yards.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Published in the United States in 1892; the Internet Archive marks the book NOT_IN_COPYRIGHT. Quoted in text only.",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "Read 2026-11-07 (T-3488) from the item's OCR full text (picturesquechica00baltiala_djvu.txt, sha256 9ebd2aa81fceb17ee93dbe75e06b25f2f428b40518aa8365f0a0d6d57788d06e), and the p. 104 passage checked against the page image fetched through the Archive's IIIF service.",
+ "note": "Read, p. 104: 'The street is as quiet as a country lane. Even the banana man's voice is hushed. No noise breaks the dignified stillness of Prairie avenue, save the occasional whirr of an Illinois Central suburban train as it flies by the back yards of the buildings on the east side.' Pp. 101-103 walk the avenue southward naming householders (Shortall, Studebaker, Sterling, Farwell, Law, McBirney, Linville, Pullman, Field, Armour) and call Field's 'an elegant, but unostentatious mansion'; nothing on those pages describes grounds. The one sentence about yards is a guidebook's phrase: it says the east side's houses had back yards toward the Illinois Central and nothing about what was in them.",
+ "what_it_supplies": [
+  "that the east-side lots had back yards facing the Illinois Central tracks in 1892, passed by suburban trains"
+ ],
+ "what_it_does_not_supply": [
+  "what the back yards held: lawn, planting, fences, outbuildings",
+  "the yards on the west side",
+  "any lot, measurement or date closer to 1904"
+ ]
+}

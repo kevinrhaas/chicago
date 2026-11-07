@@ -76,6 +76,9 @@ export const RELEASE_KEEP = {
   // T-3407: the 1812 officers' garden picks its beds on their planes (gardens.js pickAt) and
   // swaps its plants' levels by geometry id, so no array is read back after upload.
   gardens: [],
+  // T-3488: the 1904 back yards pick on their surfaces' planes, their doors' and posts' boxes
+  // (back-yards.js pickAt), and swap their crop rows' levels by geometry id: nothing is read back.
+  'back-yards': [],
 };
 
 function dropArray() { this.array = null; }
