@@ -1,0 +1,153 @@
+{
+  "id": "hh_holt_isaac_1812",
+  "scene": "1812",
+  "name": "The Holt family of Heald's company, in the fort",
+  "head": "holt_isaac",
+  "division": "fort",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "kinzie_waubun_1856",
+      "quaife_1913"
+    ],
+    "note": "The family's men, women and children are on Helm's and Heald's lists of 1812-1814 (Quaife App. IV, VI)."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "first_fort_dearborn_small_house_sw",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "whistler_1808_fort_dearborn_draught",
+      "also_sources": [],
+      "note": "No source says which room of the fort any soldier or soldier's family lived in; the barracks named here is the reconstructed choice (liberty L-1812-people-3461)."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "A child the counts of 18 do not name may have been of this family; those children have their own reconstructed cards (hh_garrison_children_unnamed_1812).",
+    "sources": [
+      "kinzie_waubun_1856",
+      "quaife_1913"
+    ]
+  },
+  "persons": [
+    {
+      "id": "holt_isaac",
+      "name": "Isaac Holt",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "quaife_1913"
+      ],
+      "occupation": {
+        "value": "sergeant, Captain Nathan Heald's company of the First Regiment of Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 22 Apr 1811 for five years, to 22 Apr 1816. An account of the battle or of its captives names him, so he was with the garrison when it marched. After 14 August: Wounded in the neck early in the action; killed in battle (Quaife).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16958; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Isaac Holt Sergeant 22 Apl. 1811 22 Apl. 1816 Isaac Holt",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17359; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Isaac Holt Sergeant Killed in battle",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "Gutenberg #12183 plain text (pg12183.txt; the 1873 Philadelphia reprint of the 1856 text), line 5742-5743; ch. XIX",
+          "quote": "There was a Sergeant Holt, who, early in the engagement, received a ball in the neck.",
+          "claim": "Wau-Bun: Sgt Holt, shot in the neck, gave his sword to his mounted wife."
+        }
+      ]
+    },
+    {
+      "id": "holt_mrs",
+      "name": "Mrs. Holt",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "note": "Named in Helm's and Woodward's lists of women prisoners. First name not found. After 14 August: Mounted; fought with her husband's sword; captured; per Wau-Bun restored by a trader on the Illinois River; Quaife: possibly the woman ransomed with Mrs. Lee at Chicago. Wau-Bun (1856) believed her living in Ohio.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16816; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's women list, Appendix VI",
+          "quote": "Mrs. Holt }",
+          "claim": "Helm's women list."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16920-16922; Appendix VII, 'Letter of Judge Augustus B. Woodward to Colonel Proctor' (begins p. 422)",
+          "quote": "They were Mrs. Bums wife to the citizen before mentioned as killed after the attack. Mrs. Holt, Mrs. Lee, Mrs. Needs, Mrs. Simmons.",
+          "claim": "Woodward names the five women still captive."
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "Gutenberg #12183 plain text (pg12183.txt; the 1873 Philadelphia reprint of the 1856 text), line 5745-5746; ch. XIX",
+          "quote": "Mrs. Holt rode a very fine horse, which the Indians were desirous of possessing,",
+          "claim": "Wau-Bun."
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "Gutenberg #12183 plain text (pg12183.txt; the 1873 Philadelphia reprint of the 1856 text), line 12682-12683; footnotes collected at the end of the volume; footnote 37",
+          "quote": "Mrs. Holt is believed to be still living, in the State of Ohio.",
+          "claim": "Wau-Bun footnote 37."
+        }
+      ]
+    },
+    {
+      "id": "holt_child",
+      "name": "The Holt child",
+      "relationship": "child",
+      "grade": "inferred",
+      "sources": [
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "note": "Only Quaife's reconstruction (App. IX) gives Mrs. Holt a child who survived; Helm's 'children yet in captivity' list does not mention one. After 14 August: Returned with its mother (Quaife).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17140-17141; Appendix IX, 'The Fated Company' (begins p. 428)",
+          "quote": "One child each at least, and perhaps more, belonged to Mrs. Needs and Mrs. Holt.",
+          "claim": "Quaife App. IX."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17146-17147; Appendix IX, 'The Fated Company' (begins p. 428)",
+          "quote": "Two of them belonged to Mrs. Burns, and one each to Mrs. Simmons, Mrs. Holt, and Mrs. Lee.",
+          "claim": "Survivors (Quaife App. IX)."
+        }
+      ]
+    }
+  ]
+}

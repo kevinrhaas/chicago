@@ -1,0 +1,188 @@
+{
+  "id": "hh_helm_linai_1812",
+  "scene": "1812",
+  "name": "Lieutenant Linai T. Helm and Margaret Helm in the officers' barracks",
+  "head": "helm_linai",
+  "division": "fort",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "currey_1912_story_of_old_fort_dearborn",
+      "kinzie_waubun_1856",
+      "kirkland_1893_chicago_massacre"
+    ],
+    "note": "Helm wrote his own account of the evacuation in 1814 (Quaife App. VI)."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "first_fort_dearborn_officers_barracks",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "whistler_1808_fort_dearborn_draught",
+      "also_sources": [],
+      "note": "Whistler's index names an officers' barracks; which officer had which room is not recorded."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "Everyone the T-3461 sweep found in this household on 14 August is on the card.",
+    "sources": [
+      "andreas_1884_v1",
+      "currey_1912_story_of_old_fort_dearborn",
+      "kinzie_waubun_1856"
+    ]
+  },
+  "persons": [
+    {
+      "id": "helm_linai",
+      "name": "Linai T. Helm",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "occupation": {
+        "value": "second lieutenant, Captain Nathan Heald's company of the First Regiment of Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "also_written": [
+        "Linah T. Helm (Woodward)",
+        "L. T. Helm"
+      ],
+      "note": "Heald's official report and Journal name the four officers in the action. After 14 August: Wounded in the right foot; taken down the Illinois River, ransomed by Thomas Forsyth (two mares and a keg), reached St Louis 14 Oct 1812; rejoined his wife at his father's in New York, March 1813.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16953; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Lina T. Helm 2nd Lieut. 15 Dec'r 1808 ............. Lina T. Helm",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17355; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Lina T. Helm 2nd Lieut. Returned to civilization",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16749-16751; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415)",
+          "quote": "I was taken on the 15th of August and arrived safe among the americans at St. Louis on the 14th. of October.",
+          "claim": "Helm on his ransom and arrival."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16674; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415)",
+          "quote": "I received a ball in my right foot which lamed me considerably",
+          "claim": "Wounded (Helm narrative)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 7206-7207; ch. VII 'Nine Years of Garrison Life' (begins p. 153)",
+          "quote": "his place was filled by the transfer of Lieutenant Linai T. Helm from Detroit to Fort Dearborn.",
+          "claim": "Quaife on his transfer to Fort Dearborn."
+        }
+      ]
+    },
+    {
+      "id": "helm_margaret",
+      "name": "Margaret Helm",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_story_of_old_fort_dearborn",
+        "kinzie_waubun_1856",
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "born": {
+        "value": "about 1795 (aged seventeen in Aug 1812)",
+        "confidence": "inferred",
+        "sources": [
+          "andreas_1884_v1"
+        ],
+        "note": "As the source gives it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "also_written": [
+        "Margaret McKillip Helm",
+        "Margaret McKillip",
+        "Mrs. Helm"
+      ],
+      "note": "Eleanor Kinzie's daughter by her first marriage (to McKillip), married to Lieutenant Helm. Helm's narrative and Wau-Bun (her own account) put her on horseback in the march and battle. Wau-Bun's massacre narrative is \"represented as being quoted directly from her\" (Quaife App. II), told ~20 years later; Quaife doubts its details. No children. After 14 August: Saved (Wau-Bun: by Black Partridge); taken across to the Kinzie house; with the Kinzies to St Joseph and Detroit; reached Helm's father's home in New York a week before her husband, March 1813.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16737-16738; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415)",
+          "quote": "to my great astonishment saw my wife siting among some squaws crying",
+          "claim": "Helm finds her alive among the squaws."
+        },
+        {
+          "source_id": "currey_1912_story_of_old_fort_dearborn",
+          "locator": "Gutenberg #52346 plain text (pg52346.txt), line 1052-1053; ch. II 'Fortifying the Frontier' (begins p. 17)",
+          "quote": "Lieutenant Helm had married Mr. Kinzie's step-daughter, Margaret McKillip, some years before,",
+          "claim": "Married to Helm (Currey)."
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "Gutenberg #12183 plain text (pg12183.txt; the 1873 Philadelphia reprint of the 1856 text), line 6027-6028; ch. XIX",
+          "quote": "Mrs. Helm, a delicate woman of seventeen years,",
+          "claim": "Age (Wau-Bun)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16815; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's women list, Appendix VI",
+          "quote": "Mrs. Helm Do }",
+          "claim": "Helm's women list."
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 73",
+          "quote": "Margaret McKillip, Mr. Kinzie's step-daughter, who married Lieutenant Linai Helm of Fort Dearborn",
+          "claim": "relationship"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, PG 51737 lines 6646-6646 (1856 text as reprinted in the 1901 Caxton Club edition)",
+          "quote": "a delicate woman of seventeen years",
+          "claim": "age"
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "pt. 1, PG 59624 lines 831-832",
+          "quote": "Mrs. Helm, on the dreadful day, was a mere girl-wife of seventeen years",
+          "claim": "age"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. XI, PG 69274 lines 9943-9944",
+          "quote": "That Mrs. Helm may have sought refuge with Ouilmette's family is equally consonant with probability",
+          "claim": "Ouilmette refuge judged plausible"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. XI, PG 69274 lines 10014-10015",
+          "quote": "Mrs. Helm shared the fortunes of her mother's family as far as Detroit.",
+          "claim": "fate"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "id": "hh_heald_nathan_1812",
+  "scene": "1812",
+  "name": "Captain Nathan Heald's household in the commanding officer's quarters",
+  "head": "heald_nathan",
+  "division": "fort",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "currey_1912_story_of_old_fort_dearborn",
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913"
+    ],
+    "note": "Heald commanded the post until the evacuation on 15 August (his own report, Quaife App. IV)."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "first_fort_dearborn_commanding_officers_barracks",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "inferred",
+      "source_id": "whistler_1808_fort_dearborn_draught",
+      "also_sources": [
+        "quaife_1913"
+      ],
+      "note": "Whistler's index names the commanding officer's barracks; that the Healds lived in it in 1812 is inferred from his command, and Wau-Bun's Black Partridge enters 'the quarters of the commanding officer'."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "The Healds' son, stillborn on 4 May 1812 (Heald's journal), died before the scene date and has no card.",
+    "sources": [
+      "currey_1912_story_of_old_fort_dearborn",
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913"
+    ]
+  },
+  "persons": [
+    {
+      "id": "heald_nathan",
+      "name": "Nathan Heald",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "currey_1912_story_of_old_fort_dearborn",
+        "quaife_1913"
+      ],
+      "born": {
+        "value": "1775-09-24",
+        "confidence": "inferred",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "As the source gives it. A year from a later family account, not a register."
+      },
+      "occupation": {
+        "value": "captain commanding the post, Captain Nathan Heald's company of the First Regiment of Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "also_written": [
+        "Nat. Heald (Hull's order)",
+        "N. Heald"
+      ],
+      "note": "Heald's official report and Journal name the four officers in the action. Currey says 37 in 1812; the Journal birth date makes him 36 on 14 Aug 1812. After 14 August: Wounded (thigh and right forearm per Darius Heald); taken to St Joseph, by canoe to Mackinac, paroled; Detroit, Buffalo, Pittsburgh (report 23 Oct 1812), Louisville 19 Nov 1812; major from 26 Aug 1812; disbanded 1814; St Charles Co., Missouri; died 1832.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16952; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Nathan Heald Capt. 31 Jan'y 1807 ............. Nathan Heald",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17354; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Nathan Heald Capt. Returned to civilization",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16070-16072; Appendix III, 'Nathan Heald's Journal' (begins p. 402)",
+          "quote": "was born in New Ipswich in the state of New Hampshire the 24th of September 1775,",
+          "claim": "Birth (his Journal)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16113-16115; Appendix III, 'Nathan Heald's Journal' (begins p. 402)",
+          "quote": "where I was married to Rebecca Wells the daughter of Gen'l Samuel Wells and Mary his wife, on the 23d of May 1811,",
+          "claim": "Marriage and arrival (Journal)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16270-16271; Appendix IV, 'Captain Heald's Official Report of the Evacuation of Fort Dearborn' (begins p. 406)",
+          "quote": "Our strength was fifty-four regulars and twelve militia, out of which, twenty-six regulars and all the militia were killed",
+          "claim": "Strength he reported."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16229-16230; Appendix IV, 'Captain Heald's Official Report of the Evacuation of Fort Dearborn' (begins p. 406)",
+          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies,",
+          "claim": "Wells arrived 13 Aug (Heald report)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16532; Appendix V, 'Darius Heald's Narrative of the Chicago Massacre, as Told to Lyman C. Draper in 1868' (begins p. 409)",
+          "quote": "There is no likeness extant of Maj. Heald.",
+          "claim": "No likeness of him survived (Darius Heald to Draper, 1868)."
+        },
+        {
+          "source_id": "currey_1912_story_of_old_fort_dearborn",
+          "locator": "Gutenberg #52346 plain text (pg52346.txt), line 1899-1900; ch. III 'The Tragedy' (begins p. 95)",
+          "quote": "Captain Heald was at that time thirty-seven years old",
+          "claim": "Currey: aged 37 in summer 1812."
+        }
+      ]
+    },
+    {
+      "id": "heald_rebekah",
+      "name": "Rebekah Wells Heald",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "born": {
+        "value": "1790",
+        "confidence": "inferred",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "Darius Heald to Draper 1868; born in Jefferson Co., Kentucky. A year from a later family account, not a register."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "also_written": [
+        "Rebecca Wells (Heald Journal)",
+        "Rebekah Heald"
+      ],
+      "note": "Heald's report: she was wounded and taken with him to St Joseph. Lost her first-born son, stillborn 4 May 1812. After 14 August: Mounted in the march; six or seven wounds; ransomed (Chandonnai) and escaped with her husband via Mackinac to Louisville; died about 1857 in Missouri.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16527-16528; Appendix V, 'Darius Heald's Narrative of the Chicago Massacre, as Told to Lyman C. Draper in 1868' (begins p. 409)",
+          "quote": "Mrs. Heald was born in Jefferson Co., Ky., in 1790, was in her 21st year when married in May, 1811.",
+          "claim": "Born 1790 (Darius Heald 1868)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16117-16118; Appendix III, 'Nathan Heald's Journal' (begins p. 402)",
+          "quote": "On the 4th of May 1812, we had a son born dead for the want of a skilful Midwife.",
+          "claim": "Stillborn son 4 May 1812 (Journal)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16277-16278; Appendix IV, 'Captain Heald's Official Report of the Evacuation of Fort Dearborn' (begins p. 406)",
+          "quote": "Mrs. Heald and myself were taken to the mouth of the river St. Joseph, and being both badly wounded,",
+          "claim": "Wounded and taken to St Joseph (Heald report)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16814; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's women list, Appendix VI",
+          "quote": "Mrs. Heald Released. }",
+          "claim": "Helm's list: released."
+        }
+      ]
+    },
+    {
+      "id": "cicely",
+      "name": "Cicely",
+      "relationship": "enslaved",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "also_written": [
+        "Mrs. Heald's Negro woman (Helm)",
+        "black Cicely"
+      ],
+      "note": "Enslaved by the Healds; the sources call her Mrs. Heald's servant or slave and give her no other name. Helm lists 'Mrs. Heald's Negro woman' among women killed in the action; Quaife: an inmate of the fort from June 1811 until the massacre. Came from Louisville with the Healds on horseback, June 1811. Rebekah Heald's 1855 memorandum for the property claim says Kinzie had offered $600 for her, and lists 'the loss of the two slaves'. After 14 August: Killed in the battle with her infant son.",
+      "review_required": true,
+      "touches_removal": false,
+      "review_note": "review_required: Enslaved people held by the commanding officer's wife. Sources name the woman only as Cicely and the child not at all; every surviving description is by the enslavers' family (Rebekah and Darius Heald) or by Helm. Depict and caption with care, never invent a surname, age or speech; the property-claim memorandum treats them as lost property, which is evidence of their status, not a description of them.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 7187-7188; ch. VII 'Nine Years of Garrison Life' (begins p. 153)",
+          "quote": "Mrs. Heald's slave girl, Cicely, accompanied them on their journey, and was an inmate of Fort Dearborn from this time until the massacre",
+          "claim": "Quaife ch. VII."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 9205-9206; ch. X 'The Battle and Defeat' (begins p. 211)",
+          "quote": "The other was Cicely, Mrs. Heald's negro serving-woman. She and her infant son, who also perished,",
+          "claim": "Killed with her son (Quaife ch. X)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 9221-9223; ch. X 'The Battle and Defeat' (begins p. 211); footnote 596",
+          "quote": "He knows about the negro woman being killed and also her male infant killed in the battle by the Indians",
+          "claim": "Rebekah Heald's memorandum (Quaife fn 596)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16825; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's 'Killed in the action' list, Appendix VI",
+          "quote": "Mrs. Heald's Negro woman }",
+          "claim": "Helm's list."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 2172-2173; Part II, ch. II (begins p. 65)",
+          "quote": "one for a little negro slave-girl named Cicely.",
+          "claim": "Darius Heald (1892) via Kirkland."
+        }
+      ]
+    },
+    {
+      "id": "cicely_son",
+      "name": "Cicely's son",
+      "relationship": "son",
+      "grade": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "note": "Cicely's infant son; no source names him. Rebekah Heald's memorandum: killed in the battle. Father not recorded. Name not recorded. After 14 August: Killed in the battle (counted among the 12 children killed).",
+      "review_required": true,
+      "touches_removal": false,
+      "review_note": "review_required: an enslaved child, named by no source; see his mother's card.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 9222-9223; ch. X 'The Battle and Defeat' (begins p. 211); footnote 596",
+          "quote": "also her male infant killed in the battle by the Indians",
+          "claim": "Quaife fn 596 (memorandum)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17139-17140; Appendix IX, 'The Fated Company' (begins p. 428)",
+          "quote": "Black Cicely had one child, and Mrs. Simmons two.",
+          "claim": "Quaife App. IX: Cicely had one child."
+        }
+      ]
+    }
+  ]
+}

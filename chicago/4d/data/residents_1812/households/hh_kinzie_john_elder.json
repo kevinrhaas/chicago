@@ -20,7 +20,7 @@
     "sources": [
       "moses_kirkland_history_of_chicago_v1"
     ],
-    "note": "Presence on 1812-08-14 is inferred from the named interpreter at the 12 August council (local OCR lines 7290\u20137296) and the elder Kinzie accompanying the land column on 15 August (lines 7458\u20137466), with no absence between reported. These are 1895 compilation passages drawing on Wau-Bun, not contemporary attendance at 15:00 on 14 August."
+    "note": "Presence on 1812-08-14 is inferred from the named interpreter at the 12 August council (local OCR lines 7290–7296) and the elder Kinzie accompanying the land column on 15 August (lines 7458–7466), with no absence between reported. These are 1895 compilation passages drawing on Wau-Bun, not contemporary attendance at 15:00 on 14 August."
   },
   "associated_with": [
     {
@@ -64,12 +64,510 @@
         "note": "Local OCR lines5151-5153 calls him silver-smith and Indian-trader; council interpreter passage is separate. Neither occupation makes him a professional wagon driver."
       },
       "note": "Existing historical identity already named by the1812 house and source narratives, newly proposed as a date-qualified portable-person record. Inferred grade reflects a later compilation/family narrative, not an anonymous invented identity. Distinct from kinzie_john_h (the child John Harris Kinzie, aged9 in1812); no1835 resident card is moved backward. Appearance, dimensions, clothes and standing/walking actions are reconstructed, no portrait likeness or observed action claimed."
+    },
+    {
+      "id": "kinzie_eleanor",
+      "name": "Eleanor Kinzie",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "kirkland_1893_chicago_massacre"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "also_written": [
+        "Eleanor (Lytle) McKillip",
+        "Mrs. McKillip",
+        "Mrs. John Kinzie"
+      ],
+      "note": "In the fort with the family from April (Andreas p. 74); in the boat at the river mouth on 15 Aug. After 14 August: Watched the battle from the boat; back at the Kinzie house 15-18 Aug; St Joseph, then Detroit as a prisoner of war.",
+      "evidence": [
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "app. D, PG 59624 lines 5273-5274",
+          "quote": "In 1800 John Kinzie married Eleanor (Lytle) McKillip, widow of a British officer, who had one daughter, Margaret",
+          "claim": "marriage (Kirkland: 1800; Quaife gives 1798)"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, PG 51737 lines 6134-6136 (1856 text as reprinted in the 1901 Caxton Club edition)",
+          "quote": "Mrs. Kinzie and her four younger children, their nurse Grutte, a clerk of Mr. Kinzie's, two servants and the boatmen",
+          "claim": "in the boat 15 Aug"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, PG 51737 lines 6146-6147 (1856 text as reprinted in the 1901 Caxton Club edition)",
+          "quote": "gazed upon the march of her husband and eldest child to certain destruction",
+          "claim": "her eldest child (Margaret Helm) marched with the column"
+        }
+      ]
+    },
+    {
+      "id": "kinzie_john_h_1812",
+      "name": "John Harris Kinzie",
+      "relationship": "son",
+      "grade": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_story_of_old_fort_dearborn",
+        "kirkland_1893_chicago_massacre"
+      ],
+      "born": {
+        "value": "1803-07-07",
+        "confidence": "attested",
+        "sources": [
+          "kirkland_1893_chicago_massacre"
+        ],
+        "note": "As the source gives it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "note": "With the family in the fort; in the boat on 15 Aug. After 14 August: Survived with the family; St Joseph, then Detroit.",
+      "evidence": [
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "pt. 1, PG 59624 lines 678-679",
+          "quote": "her son, John H., born at Sandwich, Canada, July 7, 1803",
+          "claim": "birth"
+        },
+        {
+          "source_id": "currey_1912_story_of_old_fort_dearborn",
+          "locator": "pt. III \"The Tragedy\", PG 52346 lines 2379-2381",
+          "quote": "consisted of Mrs. Kinzie and her four children, the eldest of whom by her second marriage was John Harris, then nine years old",
+          "claim": "in the boat, 15 Aug"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 74",
+          "quote": "he entrusted his family—now consisting of wife and four children, John H., nine years of age, and Ellen, Maria and Robert, younger",
+          "claim": "in the family in the fort"
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "app. D, PG 59624 lines 5367-5369",
+          "quote": "JOHN HARRIS KINZIE (1827). From a miniature in possession of the Kinzie family.",
+          "claim": "portrait (1827 miniature)"
+        }
+      ]
+    },
+    {
+      "id": "kinzie_ellen_marion",
+      "name": "Ellen Marion Kinzie",
+      "relationship": "daughter",
+      "grade": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_story_of_old_fort_dearborn",
+        "kirkland_1893_chicago_massacre"
+      ],
+      "born": {
+        "value": "1805-12",
+        "confidence": "attested",
+        "sources": [
+          "kirkland_1893_chicago_massacre"
+        ],
+        "note": "As the source gives it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "note": "With the family in the fort; in the boat on 15 Aug. After 14 August: Survived with the family; St Joseph, then Detroit.",
+      "evidence": [
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "pt. 1, PG 59624 lines 679-680",
+          "quote": "Ellen Marion (later Mrs. Alexander Wolcott), born in Chicago, December, 1805",
+          "claim": "birth"
+        },
+        {
+          "source_id": "currey_1912_story_of_old_fort_dearborn",
+          "locator": "pt. III \"The Tragedy\", PG 52346 lines 2379-2381",
+          "quote": "consisted of Mrs. Kinzie and her four children, the eldest of whom by her second marriage was John Harris, then nine years old",
+          "claim": "in the boat, 15 Aug"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 74",
+          "quote": "he entrusted his family—now consisting of wife and four children, John H., nine years of age, and Ellen, Maria and Robert, younger",
+          "claim": "in the family in the fort"
+        },
+        {
+          "source_id": "currey_1912_story_of_old_fort_dearborn",
+          "locator": "pt. III \"The Tragedy\", PG 52346 lines 2381-2383",
+          "quote": "Ellen Marion, six and a half years old; Maria Indiana, four years old, and Robert Allen, two and a half years old",
+          "claim": "ages at the massacre (Currey)"
+        }
+      ]
+    },
+    {
+      "id": "kinzie_maria_indiana",
+      "name": "Maria Indiana Kinzie",
+      "relationship": "daughter",
+      "grade": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_story_of_old_fort_dearborn",
+        "kirkland_1893_chicago_massacre"
+      ],
+      "born": {
+        "value": "1807",
+        "confidence": "attested",
+        "sources": [
+          "kirkland_1893_chicago_massacre"
+        ],
+        "note": "As the source gives it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "note": "With the family in the fort; in the boat on 15 Aug. After 14 August: Survived with the family; St Joseph, then Detroit.",
+      "evidence": [
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "pt. 1, PG 59624 lines 680-681",
+          "quote": "Maria Indiana (later Mrs. General Hunter), born in Chicago, in 1807",
+          "claim": "birth"
+        },
+        {
+          "source_id": "currey_1912_story_of_old_fort_dearborn",
+          "locator": "pt. III \"The Tragedy\", PG 52346 lines 2379-2381",
+          "quote": "consisted of Mrs. Kinzie and her four children, the eldest of whom by her second marriage was John Harris, then nine years old",
+          "claim": "in the boat, 15 Aug"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 74",
+          "quote": "he entrusted his family—now consisting of wife and four children, John H., nine years of age, and Ellen, Maria and Robert, younger",
+          "claim": "in the family in the fort"
+        }
+      ]
+    },
+    {
+      "id": "kinzie_robert_allen",
+      "name": "Robert Allen Kinzie",
+      "relationship": "son",
+      "grade": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_story_of_old_fort_dearborn"
+      ],
+      "born": {
+        "value": "1810-02-08",
+        "confidence": "attested",
+        "sources": [
+          "andreas_1884_v1"
+        ],
+        "note": "As the source gives it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "note": "With the family in the fort; in the boat on 15 Aug. After 14 August: Survived with the family; St Joseph, then Detroit.",
+      "evidence": [
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 73 (IA full-text OCR; quote cleaned of OCR noise, match 0.93)",
+          "quote": "Ellen Marion, in December, 1805; Maria Indiana in 1807; and Robert Allen, February 8, 1810",
+          "claim": "birth"
+        },
+        {
+          "source_id": "currey_1912_story_of_old_fort_dearborn",
+          "locator": "pt. III \"The Tragedy\", PG 52346 lines 2379-2381",
+          "quote": "consisted of Mrs. Kinzie and her four children, the eldest of whom by her second marriage was John Harris, then nine years old",
+          "claim": "in the boat, 15 Aug"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 74",
+          "quote": "he entrusted his family—now consisting of wife and four children, John H., nine years of age, and Ellen, Maria and Robert, younger",
+          "claim": "in the family in the fort"
+        }
+      ]
+    },
+    {
+      "id": "laframboise_josette_1812",
+      "name": "Josette LaFramboise",
+      "relationship": "servant",
+      "grade": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_story_of_old_fort_dearborn",
+        "kinzie_waubun_1856",
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "also_written": [
+        "Grutte (Wau-Bun misprint)",
+        "Josette La Framboise",
+        "Mrs. Jean Baptiste Beaubien"
+      ],
+      "note": "Nurse to the Kinzie children. Ancestry as the sources put it: French-Ottawa. Named in the boat party of 15 Aug. After 14 August: Married Jean Baptiste Beaubien: in 1812 according to Andreas, in 1814 according to Quaife (conflict).",
+      "evidence": [
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "pt. 1, PG 59624 lines 685-687",
+          "quote": "the nurse, Josette (misprinted in Wau-Bun, \"Grutte\") Laframboise (afterward Mrs. Jean Baptiste Beaubien)",
+          "claim": "identity"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, PG 51737 lines 6142-6142 (1856 text as reprinted in the 1901 Caxton Club edition)",
+          "quote": "Afterwards Mrs. Jean Baptiste Beaubien.",
+          "claim": "Wau-Bun footnote AG on Grutte"
+        },
+        {
+          "source_id": "currey_1912_story_of_old_fort_dearborn",
+          "locator": "pt. III \"The Tragedy\", PG 52346 lines 2383-2384",
+          "quote": "Josette La Framboise, a French-Ottawa half-breed, a nurse in the family",
+          "claim": "ancestry and role"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. XII, PG 69274 lines 11213-11214",
+          "quote": "In 1814 he married Josette La Framboise, who was a servant in the family of John Kinzie at the time of the massacre.",
+          "claim": "servant at massacre; marriage 1814"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 84",
+          "quote": "During that year he married, for his second wife, Josette LaFramboise, daughter of Francis LaFramboise",
+          "claim": "marriage in 1812 (Andreas) - conflicts"
+        }
+      ]
+    },
+    {
+      "id": "chandonnai_jean_baptiste",
+      "name": "Jean Baptiste Chandonnai",
+      "relationship": "clerk",
+      "grade": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "kinzie_waubun_1856",
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "also_written": [
+        "Chandonnais",
+        "Chandonnait",
+        "John Baptiste Chandonnait",
+        "Chandonnis"
+      ],
+      "note": "Clerk to Kinzie; later fur trader. Ancestry as the sources put it: described as \"half-breed\" (Quaife). Kinzie entrusted the family to him for the boat; ransomed Mrs. Heald on 15 Aug. After 14 August: Escorted Mrs. Kinzie to Detroit; in Kinzie's employ again from about 1816-17; granted two sections at the 1821 treaty. 15 and 16 August: Ransomed Mrs Heald (mule and whiskey promise) and reunited the Healds; escorted them toward St Joseph.",
+      "evidence": [
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 74 (IA full-text OCR; quote cleaned of OCR noise, match 0.97)",
+          "quote": "to the care of his clerk, John Baptiste Chandonnait, and two friendly Indians",
+          "claim": "clerk; boat escort"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, PG 51737 lines 6380-6380 (1856 text as reprinted in the 1901 Caxton Club edition)",
+          "quote": "Run, Chandonnai,' to one of Mr. Kinzie's clerks",
+          "claim": "clerk; ransom of Mrs. Heald"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. X, PG 69274 lines 9028-9029",
+          "quote": "Chandonnai, the half-breed, staunch friend of the Americans",
+          "claim": "ancestry as described"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. XV, PG 69274 lines 13886-13888",
+          "quote": "Jean Baptiste Chandonnai, whose activities as a trader at Chicago and elsewhere have already received our attention, was granted two sections of land.",
+          "claim": "fate 1821"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. X, lines 9028-9030",
+          "quote": "Chandonnai, the half-breed, staunch friend of the Americans, whom all authorities unite in crediting with noble exertions to save the prisoners.",
+          "claim": "Quaife's summary",
+          "tier": "secondary history (1884-1913), cite as compiler's statement"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Appendix V, lines 16329-16330",
+          "quote": "a half-breed connected with the Indians by the name of _Jean Baptist Chandonnis_",
+          "claim": "Family tradition (Heald)",
+          "tier": "late recollection (participant or family, told 1868-1876)"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, line 5775",
+          "quote": "Run, Chandonnai,\" to one of Mr. Kinzie's clerks",
+          "claim": "Kinzie's clerk",
+          "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+        }
+      ]
+    },
+    {
+      "id": "black_jim",
+      "name": "Black Jim",
+      "relationship": "servant",
+      "grade": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "also_written": [
+        "black Jim"
+      ],
+      "note": "Servant. Ancestry as the sources put it: Black (implied by the name only). In the bow of the boat on 15 Aug. Whether he was free, indentured or enslaved is not stated in any source read. After 14 August: With the family at Detroit in the winter of 1812-13.",
+      "evidence": [
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, PG 51737 lines 6409-6411 (1856 text as reprinted in the 1901 Caxton Club edition)",
+          "quote": "Black Jim, one of the servants who stood in the bow of the boat, seized an axe",
+          "claim": "in the boat"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XX, PG 51737 lines 6834-6834 (1856 text as reprinted in the 1901 Caxton Club edition)",
+          "quote": "The last bargain made was by black Jim, and one of children",
+          "claim": "at Detroit, winter 1812-13"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "app. VI, PG 69274 lines 16753-16754",
+          "quote": "Captain Heald through Kenzie sending his two Negroes got put on board a Indean boat going to St. Joseph",
+          "claim": "possible link; ambiguous"
+        }
+      ]
+    },
+    {
+      "id": "leclerc_pierre",
+      "name": "Pierre Le Clerc",
+      "relationship": "employee",
+      "grade": "inferred",
+      "sources": [
+        "kinzie_waubun_1856",
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "also_written": [
+        "Peresh Leclerc",
+        "Pierre Le Claire",
+        "LeClaire",
+        "Le Clerc",
+        "Peresh Leclerc (Wau-Bun)"
+      ],
+      "note": "In Kinzie's service; interpreter at the surrender. Ancestry as the sources put it: described as \"half-breed\" (Wau-Bun, Quaife). Marched with the detachment on 15 Aug; by tradition brought the war news in July. Quaife conjectures he was one of the twelve militia. After 14 August: Survived; negotiated the surrender; granted a section on the Elkhart at the 1821 treaty. 15 and 16 August: Marched with the troops, went over to the Indians, carried the surrender terms (Helm; Wau-Bun).",
+      "evidence": [
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, PG 51737 lines 6305-6306 (1856 text as reprinted in the 1901 Caxton Club edition)",
+          "quote": "Peresh Leclerc, a half-breed boy in the service of Mr. Kinzie, who had accompanied the detachment and fought manfully on their side",
+          "claim": "role 15 Aug"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. X, PG 69274 lines 8688-8689",
+          "quote": "the news was brought by Pierre Le Claire, a half-breed who figured in the negotiations for the surrender",
+          "claim": "tradition of the war news"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "app. IX, PG 69274 lines 17160-17161",
+          "quote": "the conjecture may be hazarded that Pierre LeClaire, the half-breed interpreter, was one of the twelve",
+          "claim": "possible militiaman"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. XV, PG 69274 lines 13883-13884",
+          "quote": "now received a section of land on the Elkhart",
+          "claim": "fate 1821"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Appendix VI, lines 16689-16691",
+          "quote": "the interpiter was a half indean and had lived a long time within a few yards of the fort and bound to Mr. Kinzie",
+          "claim": "The interpreter in Helm",
+          "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, lines 5705-5706",
+          "quote": "Lieutenant Helm sent Peresh Leclerc, a half-breed boy in the service of Mr. Kinzie",
+          "claim": "Named in Wau-Bun",
+          "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. X, lines 8688-8691",
+          "quote": "the news was brought by Pierre Le Claire, a half-breed who figured in the negotiations for the surrender",
+          "claim": "News of war (tradition)",
+          "tier": "tradition via Hubbard, reported by Quaife"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17160-17161; Appendix IX, 'The Fated Company' (begins p. 428)",
+          "quote": "the conjecture may be hazarded that Pierre LeClaire, the half-breed interpreter, was one of the twelve.",
+          "claim": "Quaife App. IX."
+        }
+      ]
+    },
+    {
+      "id": "kinzie_servant_second",
+      "name": "A second Kinzie servant, name not recorded",
+      "relationship": "servant",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "note": "Servant. Wau-Bun and Kirkland count two servants in the boat; only Black Jim is named. After 14 August: Unknown.",
+      "evidence": [
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "pt. 1, PG 59624 lines 687-688",
+          "quote": "a clerk of Mr. Kinzie's, two servants, the boatman, and two Indians as guard",
+          "claim": "count of servants"
+        }
+      ]
     }
   ],
   "not_in_this_household": {
-    "note": "Only the selected adult is carried by this first parcel. Omission of Eleanor, children or staff is not evidence they were absent. The 1812 family boat on15August is not staged on14August; no unnamed driver is invented. Liberty White and Lee farm deaths inApril are not resurrected.",
+    "note": "The Kinzie household on the afternoon of 14 August 1812, from the T-3461 sweep (docs/RESEARCH/people-1812-3461/). The family had been in the fort since the April alarm (Andreas p. 74). Kinzie's boatmen and engagés, and the 'Frenchmen' of the lodging house, are counted by no source and named by none, so they have no card; Henry and Pero, sometimes named as servants, are in none of the six works read. Margaret Helm, Eleanor's daughter, is on her husband's card.",
     "sources": [
-      "moses_kirkland_history_of_chicago_v1"
+      "kinzie_waubun_1856",
+      "andreas_1884_v1",
+      "quaife_1913"
     ]
   }
 }

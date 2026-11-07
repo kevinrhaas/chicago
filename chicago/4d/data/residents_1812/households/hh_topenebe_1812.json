@@ -1,0 +1,94 @@
+{
+  "id": "hh_topenebe_1812",
+  "scene": "1812",
+  "name": "Topenebe, at the gathering of August 1812",
+  "head": "topenebe",
+  "division": "camp",
+  "review_required": true,
+  "touches_removal": true,
+  "review_note": "review_required: a Potawatomi person of the gathering at Chicago in August 1812, the eve of the battle in which the garrison and its families were attacked. The card states only what the named sources say, says where a story is Kinzie family tradition rather than a contemporary account, and stages no speech or ceremony.",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "currey_1912_old_fort_dearborn",
+      "kinzie_waubun_1856",
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913"
+    ],
+    "note": "Each person's own card says how their presence on 14 August is known."
+  },
+  "associated_with": [],
+  "not_in_this_household": {
+    "note": "No source names his family or places his lodge in the camp.",
+    "sources": [
+      "currey_1912_old_fort_dearborn",
+      "kinzie_waubun_1856",
+      "kirkland_1893_chicago_massacre"
+    ]
+  },
+  "persons": [
+    {
+      "id": "topenebe",
+      "name": "Topenebe",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "currey_1912_old_fort_dearborn",
+        "kinzie_waubun_1856",
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "also_written": [
+        "To-pee-nee-bee",
+        "Topinabee"
+      ],
+      "note": "Principal chief; long friend of the Kinzies; brother of KawKeemee, wife of trader William Burnett. Potawatomi, St Joseph's band (Michigan). Wau-Bun has him sending two messages to Kinzie early on the 15th and personally taking Sgt Griffith prisoner near the fort that morning. 15 and 16 August: Warned Kinzie; detained the Kinzie boat at the river mouth; spared and hid Sgt Griffith; sheltered the Kinzies at St Joseph to November. Afterwards: Lived into the 1820s (1821 treaty).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a Potawatomi person of the gathering at Chicago in August 1812, the eve of the battle in which the garrison and its families were attacked. The card states only what the named sources say, says where a story is Kinzie family tradition rather than a contemporary account, and stages no speech or ceremony.",
+      "evidence": [
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, lines 5526-5528",
+          "quote": "Early in the morning Mr. Kinzie received a message from To-pee-nee-bee, a chief of the St. Joseph's band",
+          "claim": "Early 15 Aug warning",
+          "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, lines 5970-5975",
+          "quote": "he was met and made prisoner by To-pee-nee-bee.",
+          "claim": "Took Griffith prisoner, then let him hide",
+          "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. XV, lines 13917-13918",
+          "quote": "Burnett had married KawKeemee, the sister of the Pottawatomie chieftain, Topinabee",
+          "claim": "Sister married Burnett",
+          "tier": "secondary history (1884-1913), cite as compiler's statement"
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "lines 1965-1966 (quoting Isaac McCoy)",
+          "quote": "Topenebe, the principal chief of the Pottowatomies, a man nearly eighty years of age",
+          "claim": "Age in 1821",
+          "tier": "later witness (McCoy, 1821) quoted by Kirkland"
+        },
+        {
+          "source_id": "currey_1912_old_fort_dearborn",
+          "locator": "lines 2363-2365",
+          "quote": "Topenebe was a chief in the Potawatami tribe, but a firm friend of the whites and especially of the Kinzie family.",
+          "claim": "Firm friend of the whites (Currey)",
+          "tier": "secondary history (1884-1913), cite as compiler's statement"
+        }
+      ]
+    }
+  ]
+}

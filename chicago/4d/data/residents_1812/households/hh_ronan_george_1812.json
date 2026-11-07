@@ -1,0 +1,97 @@
+{
+  "id": "hh_ronan_george_1812",
+  "scene": "1812",
+  "name": "Ensign George Ronan in the officers' barracks",
+  "head": "ronan_george",
+  "division": "fort",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913"
+    ],
+    "note": "On the 31 May 1812 roll of the post's officers."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "first_fort_dearborn_officers_barracks",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "whistler_1808_fort_dearborn_draught",
+      "also_sources": [],
+      "note": "An officer of the post; which room he had is not recorded."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "Everyone the T-3461 sweep found in this household on 14 August is on the card.",
+    "sources": [
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913"
+    ]
+  },
+  "persons": [
+    {
+      "id": "ronan_george",
+      "name": "George Ronan",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "occupation": {
+        "value": "ensign, Captain Nathan Heald's company of the First Regiment of Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "also_written": [
+        "G Ronan (signature)"
+      ],
+      "note": "Heald's official report and Journal name the four officers in the action. Currey: graduated West Point only the year before. Wau-Bun portrays him as at odds with Heald; Mrs. Heald (via Darius, Kirkland Part I) denied it. After 14 August: Killed in battle near the baggage wagons, fighting on one knee (Wau-Bun).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16954; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "George Ronan Ensign 1 March 1811 ............. George Ronan",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17356; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "George Ronan Ensign Killed in battle near the baggage wagons",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16272-16274; Appendix IV, 'Captain Heald's Official Report of the Evacuation of Fort Dearborn' (begins p. 406)",
+          "quote": "Ensign George Ronan and doctor Isaac V Van Voorhis of my company, with Captain Wells, of Fort Wayne, are, to my great sorrow,",
+          "claim": "Heald report."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 7201-7202; ch. VII 'Nine Years of Garrison Life' (begins p. 153)",
+          "quote": "In March, 1811, George Ronan, a young cadet direct from West Point, was given the rank of ensign",
+          "claim": "From West Point, March 1811."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4656; Appendix B (begins p. 143)",
+          "quote": "Permission is hereby given for one gill of whiskey each:",
+          "claim": "His signature survives on a whiskey order of 12 Nov 1811 found in 1856 (facsimile in Kirkland)."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "id": "hh_ouilmette_antoine_1812",
+  "scene": "1812",
+  "name": "Antoine Ouilmette's household at his house west of the Kinzies",
+  "head": "ouilmette_antoine",
+  "division": "north",
+  "review_required": true,
+  "touches_removal": false,
+  "review_note": "review_required: a Potawatomi woman (Currey) married to a French trader, whose household stayed through the battle. The card states only what the named sources say.",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "currey_1912_story_of_old_fort_dearborn",
+      "kinzie_waubun_1856",
+      "quaife_1913"
+    ],
+    "note": "The household stayed through the battle (Wau-Bun; Quaife)."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "ouilmette_house_1812",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "inferred",
+      "source_id": "kinzie_waubun_1856",
+      "also_sources": [],
+      "note": "The house the 1812 structure record calls Ouilmette's; the sources differ on whether it stood north, behind or west of the Kinzie house (civilians.json notes)."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "Everyone the T-3461 sweep found in this household on 14 August is on the card.",
+    "sources": [
+      "andreas_1884_v1",
+      "currey_1912_story_of_old_fort_dearborn",
+      "kinzie_waubun_1856"
+    ]
+  },
+  "persons": [
+    {
+      "id": "ouilmette_antoine",
+      "name": "Antoine Ouilmette",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_story_of_old_fort_dearborn",
+        "kinzie_waubun_1856",
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "also_written": [
+        "Ouillemette",
+        "Wilmette"
+      ],
+      "note": "Portage carrier; employee of Kinzie. Ancestry as the sources put it: French (Canadian), per Wau-Bun and Quaife. Stayed in his own house through the evacuation; the only white resident left after 18 Aug. Not enrolled in the militia. After 14 August: Remained at Chicago through the war; found there by the 1816 garrison; Gros Point (Wilmette) reservation 1829; died at Council Bluffs.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. VI, PG 69274 lines 5720-5720",
+          "quote": "Ouilmette claimed to have come to Chicago in 1790.",
+          "claim": "arrival claim"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. VI, PG 69274 lines 5723-5724",
+          "quote": "he was living with his Indian wife in one of the four huts which they found here",
+          "claim": "1803 residence"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. VII, PG 69274 lines 6810-6812",
+          "quote": "three of the long-time residents of Chicago, La Lime, Ouilmette, and Kinzie, were not included in this number",
+          "claim": "not militia"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, PG 51737 lines 6477-6479 (1856 text as reprinted in the 1901 Caxton Club edition)",
+          "quote": "the house of Ouilmette, a Frenchman with a half-breed wife, who formed a part of the establishment of Mr. Kinzie",
+          "claim": "house and employment"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 92 (IA full-text OCR; quote cleaned of OCR noise, match 0.96)",
+          "quote": "Ouilmette's house was just north, and within a very short distance of Mr. Kinzie's.",
+          "claim": "house position (conflicts with repo structure)"
+        },
+        {
+          "source_id": "currey_1912_story_of_old_fort_dearborn",
+          "locator": "pt. III \"The Tragedy\", PG 52346 lines 2400-2401",
+          "quote": "Antoine Ouilmette and his family did not abandon their dwelling as did all the other residents of the village.",
+          "claim": "stayed"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 92 (IA full-text OCR; quote cleaned of OCR noise, match 0.99)",
+          "quote": "After the departure of the boat containing his employer's family, Ouilmette was left the sole white inhabitant of Chicago.",
+          "claim": "after 18 Aug"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. VI, PG 69274 lines 5781-5782",
+          "quote": "the new garrison which came in 1816 found him living here in serene possession",
+          "claim": "fate 1816"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 92 (IA full-text OCR; quote cleaned of OCR noise, match 0.97)",
+          "quote": "both himself and wife died at Council Bluffs, Iowa",
+          "claim": "death"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. XV, PG 69274 lines 14341-14342",
+          "quote": "he had been given eight hundred dollars for losses sustained at the time of the Chicago massacre",
+          "claim": "1829 compensation"
+        }
+      ]
+    },
+    {
+      "id": "ouilmette_archange",
+      "name": "Archange Ouilmette",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "currey_1912_story_of_old_fort_dearborn",
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "also_written": [
+        "Okra (Head Papers, via Quaife)",
+        "Mrs. Ouilmette"
+      ],
+      "note": "Ancestry as the sources put it: Potawatomi per Currey; \"half-breed\" per Wau-Bun. Watched the troops leave from the north side (Head Papers account); the household stayed. After 14 August: Granted land with her children at Prairie du Chien 1829; died at Council Bluffs.",
+      "review_required": true,
+      "touches_removal": false,
+      "review_note": "review_required: a Potawatomi woman (Currey) married to a French trader, whose household stayed through the battle. The card states only what the named sources say.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "app. II, PG 69274 lines 16013-16014",
+          "quote": "One account was obtained by a soldier's wife from Okra, Ouilmette's wife, and a half-breed French woman.",
+          "claim": "name Okra; witness"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "app. II, PG 69274 lines 16015-16017",
+          "quote": "From a favorable vantage point on the north side of the river where Ouilmette's hut stood they had watched the troops march out",
+          "claim": "present 15 Aug"
+        },
+        {
+          "source_id": "currey_1912_story_of_old_fort_dearborn",
+          "locator": "pt. II \"Fortifying The Frontier\", PG 52346 lines 695-697",
+          "quote": "His wife, being a member of the Potawatami tribe, was awarded, at one of the Indian treaties many years later, a tract of land",
+          "claim": "ancestry; land"
+        }
+      ]
+    },
+    {
+      "id": "bisson_mrs",
+      "name": "Mrs. Bisson",
+      "relationship": "household_member",
+      "grade": "attested",
+      "sources": [
+        "currey_1912_story_of_old_fort_dearborn",
+        "kinzie_waubun_1856"
+      ],
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "note": "Archange Ouilmette's sister. A member of the Ouilmette household on 15-16 Aug in Wau-Bun, Currey and Andreas; the Helm-concealment story itself is doubted by Quaife. After 14 August: Unknown.",
+      "evidence": [
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, PG 51737 lines 6485-6487 (1856 text as reprinted in the 1901 Caxton Club edition)",
+          "quote": "Mrs. Bisson, the sister of Ouilmette's wife, then seated herself with her sewing upon the front of the bed.",
+          "claim": "present 15-16 Aug"
+        },
+        {
+          "source_id": "currey_1912_story_of_old_fort_dearborn",
+          "locator": "pt. III \"The Tragedy\", PG 52346 lines 2401-2402",
+          "quote": "A sister of his wife, known in the accounts as Mrs. Bisson, was a member of this same household.",
+          "claim": "household member"
+        }
+      ]
+    },
+    {
+      "id": "ouilmette_children",
+      "name": "The Ouilmette children",
+      "relationship": "children",
+      "grade": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_story_of_old_fort_dearborn"
+      ],
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "note": "One row for the children of the house, who are counted and not named for 1812. Currey counts \"half-breed children of Ouilmette\" in the winter of 1812-13. Andreas names Elizabeth, Josette, Michell, Lewis, Francis, Sophie and Joseph, but gives no birth years; Josette was a child in 1831, so she was not yet born. After 14 August: Later to Kansas with the Potawatomi (Andreas).",
+      "evidence": [
+        {
+          "source_id": "currey_1912_story_of_old_fort_dearborn",
+          "locator": "pt. III \"The Tragedy\", PG 52346 lines 3225-3226",
+          "quote": "including the half-breed children of Ouilmette and the engagés and helpers in the employ of Du Pin",
+          "claim": "winter 1812-13"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 92",
+          "quote": "Michell, Lewis, Francis, Sophie and Joseph",
+          "claim": "names of the children (no dates)"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "id": "hh_waubansee_1812",
+  "scene": "1812",
+  "name": "Waubansee, at the gathering of August 1812",
+  "head": "waubansee",
+  "division": "camp",
+  "review_required": true,
+  "touches_removal": true,
+  "review_note": "review_required: a Potawatomi person of the gathering at Chicago in August 1812, the eve of the battle in which the garrison and its families were attacked. The card states only what the named sources say, says where a story is Kinzie family tradition rather than a contemporary account, and stages no speech or ceremony.",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "kinzie_waubun_1856"
+    ],
+    "note": "Each person's own card says how their presence on 14 August is known."
+  },
+  "associated_with": [],
+  "not_in_this_household": {
+    "note": "No source names his family or places his lodge in the camp.",
+    "sources": [
+      "andreas_1884_v1",
+      "kinzie_waubun_1856"
+    ]
+  },
+  "persons": [
+    {
+      "id": "waubansee",
+      "name": "Waubansee",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "kinzie_waubun_1856"
+      ],
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "also_written": [
+        "Wau-ban-see",
+        "Wabansia",
+        "Wabeesiuse (OCR of the May 1812 description)"
+      ],
+      "note": "Chief; friend of the Kinzies. Potawatomi (with Chippewa and Ottawa), Fox River band of about thirty men in May 1812. Wau-Bun places him at Chicago on the 15th and 16th; nothing dates his arrival. 15 and 16 August: with Winnemeg tried to save Wells (Wau-Bun, hearsay). 16th: sentinel at Kinzie house; Black Partridge spoke to him in the parlour (Wau-Bun). Afterwards: Opposed war in 1832 (Quaife index: 'Wabansia, opposed to war, 324').",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a Potawatomi person of the gathering at Chicago in August 1812, the eve of the battle in which the garrison and its families were attacked. The card states only what the named sources say, says where a story is Kinzie family tradition rather than a contemporary account, and stages no speech or ceremony.",
+      "evidence": [
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "pp. 78-79, the May 1812 description of the Illinois River tribes prepared for Governor Edwards, local OCR lines 20670-20674",
+          "quote": "Waubunsee is their leader. This is a small band, about thirty.",
+          "claim": "Band on the Fox River in May 1812, about thirty",
+          "tier": "contemporary document (May 1812) as printed by Andreas [OCR normalised: OCR reads 'Wabeesiuse (Waubunsee)']"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 74, local OCR lines 19894-19897",
+          "quote": "the strong personal friendship and tireless vigilance of the neighboring chiefs, Black Partridge, Waubansee and Caldwell the Sauganash",
+          "claim": "Protected the Kinzies with Black Partridge and Caldwell",
+          "tier": "secondary history (1884-1913), cite as compiler's statement [OCR normalised]"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, lines 5837-5839",
+          "quote": "Black Partridge, Wau-ban-see, and Kee-po-tah, with two other Indians, having established themselves in the porch",
+          "claim": "Sentinel 16 Aug",
+          "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 78, local OCR lines 20514-20518",
+          "quote": "Among the chiefs present were the Blackbird",
+          "claim": "Present at Peoria council 16 Aug 1811",
+          "tier": "secondary history (1884-1913), cite as compiler's statement"
+        }
+      ]
+    }
+  ]
+}

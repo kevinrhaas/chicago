@@ -1,0 +1,134 @@
+{
+  "id": "hh_black_partridge_1812",
+  "scene": "1812",
+  "name": "Black Partridge, at the gathering of August 1812",
+  "head": "black_partridge",
+  "division": "camp",
+  "review_required": true,
+  "touches_removal": true,
+  "review_note": "review_required: a Potawatomi person of the gathering at Chicago in August 1812, the eve of the battle in which the garrison and its families were attacked. The card states only what the named sources say, says where a story is Kinzie family tradition rather than a contemporary account, and stages no speech or ceremony.",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "kinzie_waubun_1856",
+      "quaife_1913"
+    ],
+    "note": "Each person's own card says how their presence on 14 August is known."
+  },
+  "associated_with": [],
+  "not_in_this_household": {
+    "note": "No source names his family or places his lodge in the camp.",
+    "sources": [
+      "andreas_1884_v1",
+      "kinzie_waubun_1856",
+      "quaife_1913"
+    ]
+  },
+  "persons": [
+    {
+      "id": "black_partridge",
+      "name": "Black Partridge",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "kinzie_waubun_1856",
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Presence on the afternoon of 14 August 1812, read from the evidence below; no source takes a roll call that afternoon."
+      },
+      "also_written": [
+        "the Partridge",
+        "Muck-otey-pokee (Andreas, OCR; usually written Mucktypoke)"
+      ],
+      "note": "Chief; friendly to Kinzie and the garrison, but warned that the young men could not be restrained. Potawatomi, Illinois River (village opposite the head of Peoria Lake per Andreas; 'village on the Au Sable' per Wau-Bun). Helm (contemporary, 1814) puts him at Heald's quarters on the night of the 14th; Wau-Bun puts the medal return on the evening after the 14 Aug council. 15 and 16 August: per Wau-Bun (Mrs Helm's story) pulled Mrs Helm into the lake and led her to the camp; per Wau-Bun killed the wounded Lee girl; took Mrs Lee and infant to his village. 16th: sentinel on the Kinzie porch (Wau-Bun). Helm 1814 says only that his wife was among 'squaws' and does not mention the rescue. Afterwards: His village was later destroyed 'in a single day' (Andreas); ransomed Lt Helm from the Kankakee with pony, rifle and nose ring (Andreas, unsourced there).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a Potawatomi person of the gathering at Chicago in August 1812, the eve of the battle in which the garrison and its families were attacked. The card states only what the named sources say, says where a story is Kinzie family tradition rather than a contemporary account, and stages no speech or ceremony.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Appendix VI, Helm's narrative (1814), Gutenberg lines 16755-16757",
+          "quote": "The night of the 14th the Interpreter and a Chief black patredge waited on Capt Heald the Indian gave up his medal",
+          "claim": "Gave up his medal and warned Heald on the night of the 14th, with the interpreter",
+          "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. X, lines 8953-8956 and fn 591 (8960-8966)",
+          "quote": "Black Partridge, a Pottawatomie chief from the Illinois River, came to him with the significant message that \"linden birds\" had been singing in his ears",
+          "claim": "Warning recorded as 'linden birds' (McAfee from Sgt Griffith); chief from the Illinois River",
+          "tier": "secondary (Quaife) summarising two contemporary versions (Helm 1814; McAfee 1816 from Griffith)"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XVIII, lines 5486-5493",
+          "quote": "On the evening succeeding the council, _Black Partridge_, a conspicuous chief, entered the quarters of the commanding officer.",
+          "claim": "Wau-Bun's medal speech, evening succeeding the second council of 14 Aug",
+          "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Appendix II, lines 15310-15312",
+          "quote": "Mrs. Kinzie's version of his speech is just as certainly the product of her own literary imagination.",
+          "claim": "Quaife: the speech text is Mrs Kinzie's invention, the incident real",
+          "tier": "secondary history (1884-1913), cite as compiler's statement"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 82 (OCR page header lost; local OCR lines 21080-21083)",
+          "quote": "always friendly to the whites since the treaty of Greenville, had received a medal from General Wayne at the time of that treaty.",
+          "claim": "Medal received from Wayne at Greenville (1795)",
+          "tier": "secondary history (1884-1913), cite as compiler's statement"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 83, local OCR lines 21221-21223",
+          "quote": "he freely offered them his pony, his rifle and a large gold ring which he wore in his nose.",
+          "claim": "Wore a gold ring in his nose (dress detail; Andreas gives no source)",
+          "tier": "secondary history (1884-1913), cite as compiler's statement"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 79, local OCR lines 20729-20731",
+          "quote": "The village of Black Partridge Muck-otey-pokee was on the south side of the Illinois River, opposite the head of Peoria Lake.",
+          "claim": "Village location",
+          "tier": "secondary history (1884-1913), cite as compiler's statement [OCR spacing normalised]"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, lines 5631-5633",
+          "quote": "I soon recognized, in spite of the paint with which he was disguised, _The Black Partridge_.",
+          "claim": "Painted on the 15th; rescued Mrs Helm (her own story via Wau-Bun)",
+          "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Appendix VI, line 16738",
+          "quote": "to my great astonishment saw my wife siting among some squaws crying",
+          "claim": "Helm's contemporary account: wife found among the women near the fort",
+          "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, lines 5837-5839",
+          "quote": "Black Partridge, Wau-ban-see, and Kee-po-tah, with two other Indians, having established themselves in the porch of the building as sentinels",
+          "claim": "Sentinel at Kinzie house 16 Aug",
+          "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 84, local OCR lines 21327-21329",
+          "quote": "The village of Black Partridge had been destroyed in a single day, and his people killed or scattered.",
+          "claim": "Fate of his village",
+          "tier": "secondary history (1884-1913), cite as compiler's statement"
+        }
+      ]
+    }
+  ]
+}
