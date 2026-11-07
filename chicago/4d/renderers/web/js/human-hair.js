@@ -344,27 +344,45 @@ export function growHair({ hair, skin = null, root, style, lod, seed = 'person' 
       const piece = FACIAL_HAIR[name];
       if (!piece) continue;
       const r = piece.region_cm;
-      const keep = (c, n) => {
+      const keep = (c, n, _tri, m = 0) => {
         const l = c.clone().sub(f.o), x = Math.abs(l.dot(f.x)) * 100, y = l.dot(f.y) * 100, z = l.dot(f.z) * 100;
-        if (x < r.x[0] || x > r.x[1] || z < r.z_min || z > (r.z_max ?? Infinity)) return false;
+        if (x < r.x[0] - m || x > r.x[1] + m || z < r.z_min - m || z > (r.z_max ?? Infinity)) return false;
         // The band narrows toward its ends, and droops there by \`droop\` cm.
-        const t = (x - r.x[0]) / (r.x[1] - r.x[0]), mid = (r.y[0] + r.y[1]) / 2 - (r.droop ?? 0) * t * t;
+        const t = Math.min(1, Math.max(0, (x - r.x[0]) / (r.x[1] - r.x[0]))), mid = (r.y[0] + r.y[1]) / 2 - (r.droop ?? 0) * t * t;
         const half = (r.y[1] - r.y[0]) / 2 * Math.sqrt(Math.max(0, 1 - t * t * .75));
-        if (Math.abs(y - mid) > half) return false;
+        if (Math.abs(y - mid) > half + m) return false;
         return piece.facing === 'front' ? n.dot(f.z) > .35 : Math.abs(n.dot(f.x)) > .3 && n.dot(f.z) > -.3;
       };
-      const region = sampler(face, keep, rand);
+      // An exact piece (T-3456) is kept point by point, not by whole triangles: a band a few
+      // millimetres tall otherwise takes only the few skin triangles whose centres fall in it,
+      // and its hairs bunch over those triangles in clumps with bare skin between.
+      let region = sampler(face, piece.exact ? (c, n, tri) => keep(c, n, tri, .9) : keep, rand);
+      if (piece.exact && region.area > 0) {
+        const loose = region, trials = 600;
+        let hit = 0;
+        for (let k = 0; k < trials; k++) { const s = loose.draw(); if (s && keep(s.p, s.n)) hit++; }
+        region = { area: loose.area * hit / trials, draw() { for (let k = 0; k < 400; k++) { const s = loose.draw(); if (s && keep(s.p, s.n)) return s; } return null; } };
+      }
       const width = piece.width_mm / 1000, len = piece.length_cm / 100;
       const want = Math.round(level.facial * piece.cover * region.area / (width * len));
+      // An even piece (T-3456, owner 2026-11-07: brows "super clumpy bunchy") spaces its roots
+      // apart, a few tries each, so the hairs lie as a smooth band, not in random clumps.
+      const spacing = piece.even ? piece.even * Math.sqrt(region.area / Math.max(1, want)) : 0, roots = [];
       for (let c = 0; c < want; c++) {
-        const s = region.draw();
+        let s = region.draw();
+        for (let k = 0; spacing && s && k < 12 && roots.some(q => q.distanceToSquared(s.p) < spacing * spacing); k++) s = region.draw();
         if (!s) break;
-        const out_ = f.x.clone().multiplyScalar(Math.sign(s.p.clone().sub(f.o).dot(f.x)) * piece.outward);
-        const fall = f.y.clone().multiplyScalar(-piece.fall);
+        if (spacing) roots.push(s.p);
+        const across = s.p.clone().sub(f.o).dot(f.x);
+        const out_ = f.x.clone().multiplyScalar(Math.sign(across) * piece.outward);
+        // `fall_ends` turns the hairs along the band: a brow's rise up from the nose, its tail down.
+        const t = Math.min(1, Math.max(0, (Math.abs(across) * 100 - r.x[0]) / (r.x[1] - r.x[0])));
+        const fall = f.y.clone().multiplyScalar(-(piece.fall_ends ? piece.fall_ends[0] + (piece.fall_ends[1] - piece.fall_ends[0]) * t : piece.fall));
+        const taper = piece.taper ? 1 - piece.taper * t : 1;
         layCard(out, {
-          start: s.p, n0: s.n, length: len * (1 - (piece.spread ?? .3) / 2 + (piece.spread ?? .3) * rand()), segments: Math.max(2, level.segments - 2), width: width * (.8 + .4 * rand()),
+          start: s.p, n0: s.n, length: len * taper * (1 - (piece.spread ?? .3) / 2 + (piece.spread ?? .3) * rand()), segments: Math.max(2, level.segments - 2), width: width * (.8 + .4 * rand()),
           lift: { root: piece.lift_mm.root / 1000, tip: piece.lift_mm.tip / 1000 }, dir: () => fall.clone().add(out_),
-          surface: face, nearest: nearFace, reach: .01, rand, curl: .12, weights: weightsOf(skin, s.vertex, toBones), seed: rand(), layer: rand(),
+          surface: face, nearest: nearFace, reach: .01, rand, curl: piece.curl ?? .12, weights: weightsOf(skin, s.vertex, toBones), seed: rand(), layer: rand(),
         });
         grown.facial[name] = (grown.facial[name] ?? 0) + 1;
       }
