@@ -1,0 +1,49 @@
+{
+  "id": "merchant_1835",
+  "role": "merchant",
+  "label": "a merchant in day dress in an American town, mid 1830s",
+  "years": [
+    1833,
+    1836
+  ],
+  "scenes": [
+    "1835"
+  ],
+  "evidence": {
+    "repo": "kevinrhaas/chicago-evidence",
+    "dir": "evidence/people-references-2026-11-07/merchant_1835"
+  },
+  "note": "Gathered 2026-11-07 for T-3449, the 1835 merchant's day dress first worn by Philip F. W. Peck. None is of Chicago or of Peck: a British coat and trousers of about 1833 on a form (the Met, in colour), Durand's 1835 portrait of the New York merchant Luman Reed, and Hornor's 1836 Broadway at street distance. A reference set says what a man of this role and decade looked like, never what Peck wore on a given day.",
+  "pictures": [
+    {
+      "name": "met_1833_tailcoat",
+      "band": "near",
+      "file": "met_1833_tailcoat_near.jpg",
+      "sha256": "f38333d591a453954a3ed564890ce676b1ff4a5f20cde990ea0ac0e15cca0d01",
+      "source_id": "met_ci_1833_tailcoat_and_trousers",
+      "from": "Met open-access image DT412 (2867 x 3722), crop [820, 150, 2150, 3700], the dressed form, reduced to 1600 high",
+      "caption": "Coat and trousers, British, ca. 1833, with waistcoat and stock. The Met, Costume Institute 1981.210.4 and 1982.316.11",
+      "shows": "The whole outfit from the front three-quarter: blue tailcoat cut square at the waist with a dark velvet collar and covered buttons, buff waistcoat, black stock tied in a bow, full pleated pale linen trousers strapped under black shoes."
+    },
+    {
+      "name": "durand_1835_reed",
+      "band": "near",
+      "file": "durand_1835_reed_near.jpg",
+      "sha256": "2c25df3c7287e6ee7c3fbedac6e6ef98fce451fa838a9f0881d9380c965bf8f8",
+      "source_id": "met_durand_1835_luman_reed",
+      "from": "Met open-access image ap63.36 (1879 x 2320), the whole portrait, reduced to 1600 high",
+      "caption": "Asher B. Durand, Luman Reed, 1835. The Met 63.36",
+      "shows": "A New York merchant at about a metre, to the waist: black coat with a high rolled collar, a wide black stock under the jaw, white shirt collar points at the cheeks, a white shirt front, short side whiskers."
+    },
+    {
+      "name": "hornor_1836_broadway",
+      "band": "far",
+      "file": "hornor_1836_broadway_far.jpg",
+      "sha256": "01d4056ba6e481dc3dc562b83f7f5ba907275fed667782fe10ee36129920e6e4",
+      "source_id": "met_hornor_1836_broadway_new_york",
+      "from": "Met open-access image 49H_116R3 (3337 x 2475), crop [150, 1450, 1000, 1980], the west sidewalk, at full resolution",
+      "caption": "Thomas Hornor, Broadway, New-York, 1836, the west sidewalk. The Met 54.90.703",
+      "shows": "Men and women on the sidewalk at street distance: a man in a blue tailcoat, black top hat and white trousers in the middle of the walk, others in top hats beyond; at this size a tailcoat reads as a dark body over pale legs under a tall black hat."
+    }
+  ]
+}

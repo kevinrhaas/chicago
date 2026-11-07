@@ -36720,6 +36720,103 @@ its engineering age; the town's variation kit would age her (33, from the census
 build at runtime once she is placed. No picture of Mary Reynolds is known; every amount is chosen by eye
 against the pictures, and none says how she dressed.
 
+**The 1835 merchant supplement, 2026-11-07 (T-3449):** a merchant's day dress on the same component
+path, `tools/human_merchant_1835.py` with `data/humans/recipes/merchant_1835.json`, built as the asset
+`peck_philip_1835` on the shared male body and first worn by Philip F. W. Peck (attested; merchant at South
+Water and LaSalle, age band 30-39); he is not placed in the town by this work. **Choice of dress:** the piece
+of work asked for a frock or tail coat, waistcoat, stock, trousers, top hat and boots. A British coat and
+trousers of about 1833 dressed with a buff waistcoat and a black stock in the Met
+(`met_ci_1833_tailcoat_and_trousers`, in colour) give a cutaway tailcoat; Asher B. Durand's 1835 portrait of
+the New York merchant Luman Reed (`met_durand_1835_luman_reed`) gives the high black stock, the shirt collar
+points at the cheeks and the side whiskers; Thomas Hornor's 1836 Broadway (`met_hornor_1836_broadway_new_york`)
+shows men in tailcoats and top hats on an American street. A tailcoat over a buff waistcoat joins the three;
+that Peck dressed so is not recorded, none of the pictures is of Chicago, and the Met's garments are British.
+**Cut:** a shirt made only where it shows (its front in the waistcoat's opening, 1.2 cm of cuff); a stock
+lofted round the neck's own sections 8 mm out, from 4.2 cm below the neck joint in front (0.4 cm behind) to
+just under the jaw in front and 6.2 cm above the joint behind; two collar points 4 cm high standing out of it
+at the jaw, two skins; a waistcoat made only in front (its back would only poke through the coat), offset
+1.6 cm, cut straight 9.8 cm below spine_02 and opening in a V from 24.5 cm above it, with a rolled collar;
+a tailcoat body offset 2.2 cm and smoothed, double-breasted to a roll 12 cm above spine_02, broad lapels,
+its collar standing 4.2 cm above the neck joint behind, sleeves to 2.4 cm short of the wrist; tails lofted
+round the body's sections from the waist seam to 0.53 m, cut away in front (their front edges sloping from
+74 to 124 degrees round from the front) with a 3-degree vent, each tail skinned to its own thigh and calf in
+place of cloth simulation; six gilt buttons; full trousers on the shared workwear shell to the instep; a top
+hat 16 cm tall flaring to 1.08 of its band at a flat top, brim curled at the sides, rigid on the head bone and
+a mesh of its own. The Met coat's velvet collar and covered buttons, the stock's bow and the trousers' pleats
+and foot straps are not modelled. **Colour:** the dark blue of the coat and the buff of the waistcoat are the
+1833 garments'; the gilt buttons (the 1833 coat's are covered) and the stone of the trousers are chosen.
+**Skin and hair:** the shared young light-skinned generic skin and short04 hair of the 1835 studies; a hair
+row (brushed forward, side whiskers) after Reed's portrait. **Body:** the shared male base at its
+engineering age 35, inside Peck's recorded band, so the variation kit is asked for no ageing; no picture of
+Peck has been read. Every amount is chosen by eye against the pictures; none is measured, and none says how
+he dressed.
+
+**The 1835 labourer supplement, 2026-11-07 (T-3450):** a labourer's working dress on the same component
+path, `tools/human_labourer_1835.py` with `data/humans/recipes/labourer_1835.json`, built as the asset
+`mahoney_patrick_1835` on the shared male body and first worn by Patrick Mahoney (reconstructed; a labourer of
+the South Division, age band 30-39, from the 1835 order book); he is not placed in the town by this work.
+**Choice of dress:** the piece of work asked for shirt, trousers, braces, waistcoat, a cap or slouch hat and
+boots. No picture of 1835 itself was found in an open collection that could be read: William Sidney Mount's
+Raffle (1837, `met_mount_1837_the_raffle`) gives a working man in full shirtsleeves, waistcoat, knotted red
+neckerchief and broad soft felt hat; Mount's Cider Making (1840-41, `met_mount_1841_cider_making`) working
+men whole in shirtsleeves, braces, a dark green waistcoat and full brown trousers; Charles E. Weir's Wood
+Sawyer (1842, `met_weir_1842_the_wood_sawyer`) a town labourer at work with his waistcoat open. All three are
+of rural or eastern New York, two to seven years after the scene, none of Chicago. A slouch hat (not a cap)
+and an open waistcoat, so the braces show, are chosen among them. **Cut:** a whole shirt offset 8 mm, tucked
+14 cm below spine_02 into the trousers, a collar band 1.4 cm above the neck joint, open in a V 10 cm deep at
+the throat, its sleeves smoothed over the arm's muscles and standing up to 2.4 cm further off the arm,
+gathered back over the last 6 cm to a cuff 1.4 cm short of the wrist; a neckerchief 3.4 cm deep lofted round
+the neck 1.4 cm out, lower in front, without a knot; braces 2.4 cm wide offset 1.5 cm, from 3 cm below the
+trousers' waist, diverging from 6 to 8.6 cm off the centre line up the chest, then straight over the shoulders
+and down the back (an H; Cider Making's cross behind, an X); a waistcoat offset 2.2 cm, back and two fronts,
+cut straight 10.5 cm below spine_02, its fronts falling open 8.8 cm each side of the centre at the hem and
+10.2 cm at the top; full trousers on the shared workwear shell a little short of the merchant's; a slouch hat
+with a crown 9.8 cm high rounding to its top and a 6.6 cm brim drooping 2 cm fore and aft, rigid on the head
+bone and a mesh of its own. No knot, buttons or buckles are modelled. **Colour:** the waistcoat's dark green and
+the trousers' brown follow Cider Making; the unbleached shirt, the red of the neckerchief, the brown braces,
+the drab hat and the brown boots are chosen. **Skin, hair and body:** the shared young light-skinned generic
+skin and short04 hair of the 1835 studies and the 1835 era's hair default (no row of his own); the shared
+male base at its engineering age 35, inside his band, not aged. Every amount is chosen by eye against the
+pictures; none is measured, and none says how he dressed.
+
+**The 1812 soldier supplement, 2026-11-07 (T-3451):** a private's dress of the First Regiment of Infantry on
+the same component path, `tools/human_soldier_1812.py` with `data/humans/recipes/soldier_1812.json`, built as
+the asset `private_first_infantry_1812` on the shared male body at its engineering age 25. **Who:** an
+anonymous private of Captain Nathan Heald's company, the garrison of the first Fort Dearborn, whose
+muster-roll of April-May 1812 Quaife prints (`quaife_1913`, Appendix VIII). No soldier of the company is a
+person of the 1812 people layer, so the figure is anonymous by necessity, not by choice: he names no one, is
+graded reconstructed, and is not placed in the town or in any event of August 1812. **Dating:** the scene is
+1812-08-14. The private's issue is the 1802 act's (`us_1812_rules_and_articles_albany`, Sec. 8: hat, coat,
+vest, woollen and linen overalls, shoes, stock and clasp, half gaiters). The uniform change printed in 1813
+and 1814 (`us_1814_military_laws_and_regulations`; earliest printing read follows an order of 27 April 1813)
+made the infantry coat "uniformly blue, no red collars or cuffs", took away lace, put all rank and file in
+coatees and substituted leather caps for felt and pompons for feathers. It is taken to postdate August 1812
+and read backwards: the coat here keeps a red standing collar and red cuffs, the cap is felt with a feather,
+and the 1813 leather cap and plain coatee are not used. That reading is an inference from a change, not a
+description of the earlier uniform; its cut, the tails' length, the buttons and the cap's shape are not
+given by anything read. **The frontier:** a one-company post far from supply may well have worn older, mixed
+or worn-out clothing, even the 1802-1810 pattern of long-skirted coats and crested round hats that Ogden's
+1888 plate reconstructs (`loc_ogden_1888_infantry_artillery_1802_1810`); that is recorded here as a
+possibility, not modelled. Krimmel's watercolour of Philadelphia soldiery, 1811-13
+(`met_krimmel_1813_philadelphia_soldiery`), shows volunteers, not regulars: short blue coats faced
+orange-red, dark leather crossbelts, gaiters and tall caps. **Cut:** a closed single-breasted coat offset 2 cm
+from the body and smoothed, its seam 2.4 cm below spine_02, sleeves to 2.2 cm short of the wrist, the last
+6.5 cm red; tails lofted round the body's sections, cut away in front (front edges from 96 to 138 degrees
+round from the front) to mid-thigh at 0.70 m, each skinned to its own leg; a red standing collar lofted round
+the neck, open 26 degrees either side of the front where the stock shows, its top 1 cm under the stock's; the
+merchant's stock loft in black leather; eight white metal buttons; two white crossbelts 5.2 cm wide cut from
+the coat's own surface and stood 3 and 4 mm off it, from the shoulders at 9.2 cm off the centre line to the
+hips at 15 cm, crossing on the breast and running over the shoulders and down the back; a black cartridge box
+behind the right hip and a bayonet scabbard at the left, rigid on the pelvis; white linen overalls on the
+shared workwear shell with a band of the body's own surface carrying them up under the coat's seam; a black
+felt cylinder cap 17.5 cm tall with a 5 cm leather peak and a white feather 13 cm tall at the front, rigid
+on the head bone. Not modelled: musket, lace on the coat front, cap plate or cockade, belt plate, knapsack,
+turnbacks. **Colour:** the coat's dark blue and the red of collar and cuffs follow the 1813 change read
+backwards; the white of the belts follows Ogden (Krimmel's are dark); the feather's white, the buttons' white
+metal and the overalls' white linen are chosen. **Skin and hair:** the shared young light-skinned generic skin
+and short04 hair of the period studies; no hair row (1812 has no era default). Every amount is chosen by eye;
+none is measured, and none says what the garrison wore.
+
 ### L-tremont-gale-envelope-2385 — two-storey default and picture alternative
 
 **Decision:** the default first Tremont follows Gale's retrospective, 1835-framed

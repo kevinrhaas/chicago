@@ -1,0 +1,49 @@
+{
+  "id": "labourer_1835",
+  "role": "labourer",
+  "label": "a labouring man at work in his shirtsleeves in America, later 1830s and early 1840s",
+  "years": [
+    1837,
+    1842
+  ],
+  "scenes": [
+    "1835"
+  ],
+  "evidence": {
+    "repo": "kevinrhaas/chicago-evidence",
+    "dir": "evidence/people-references-2026-11-07/labourer_1835"
+  },
+  "note": "Gathered 2026-11-07 for T-3450, the 1835 labourer's working dress first worn by Patrick Mahoney (reconstructed). None is of Chicago or of Mahoney, and none is from 1835 itself: Mount's Raffle (1837) near, Weir's Wood Sawyer (1842) near, Mount's Cider Making (1840-41) far. A reference set says what a man of this role looked like, never what Mahoney wore.",
+  "pictures": [
+    {
+      "name": "mount_1837_raffle",
+      "band": "near",
+      "file": "mount_1837_raffle_near.jpg",
+      "sha256": "a2838d369aebdc66a5848a14cec1a5cf949d564b71b464dd1725447167fdecd0",
+      "source_id": "met_mount_1837_the_raffle",
+      "from": "Met open-access image DT1511 (3811 x 2812), crop [1800, 950, 2650, 2400], the man in his shirtsleeves, at full resolution",
+      "caption": "William Sidney Mount, The Raffle, 1837, the man in his shirtsleeves. The Met 97.36",
+      "shows": "A young working man at about a metre, to the hips: full white shirtsleeves gathered at the wrist, a buff waistcoat open at the chest, a red neckerchief knotted loose, a pale soft felt hat with a broad brim."
+    },
+    {
+      "name": "weir_1842_wood_sawyer",
+      "band": "near",
+      "file": "weir_1842_wood_sawyer_near.jpg",
+      "sha256": "f5a4cd97ee81c460009b256d355ad18c331d33f89b2af4f35d51472be70d0c52",
+      "source_id": "met_weir_1842_the_wood_sawyer",
+      "from": "Met open-access image (1092 x 1316), the whole painting",
+      "caption": "Charles E. Weir, The Wood Sawyer, 1842. The Met 2018.6",
+      "shows": "A town labourer at work, whole figure at two or three metres: white shirt over a red one, a brown waistcoat worn open, dark trousers, boots, a battered black hat."
+    },
+    {
+      "name": "mount_1841_cider_making",
+      "band": "far",
+      "file": "mount_1841_cider_making_far.jpg",
+      "sha256": "d0ff6ea8f6e4e931d64c39e037b3ec5e37e17b7e8bbed1f1d8c88c411a6adb25",
+      "source_id": "met_mount_1841_cider_making",
+      "from": "Met open-access image DT72 (3811 x 3006), crop [2300, 1500, 3400, 2300], the men by the press, at full resolution",
+      "caption": "William Sidney Mount, Cider Making, 1840-41, the men by the press. The Met 66.126",
+      "shows": "Working men whole at a distance: white shirts, braces over the shoulders, a dark green waistcoat, full brown trousers, a red neckerchief, straw and felt hats; at this size a man reads as a pale shirt over brown legs under a hat."
+    }
+  ]
+}
