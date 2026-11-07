@@ -3754,7 +3754,7 @@ async function boot() {
   });
   api.humans.on('open', ({ personId }) => {
     if (!api.people) return;
-    if (supportsTownTransport(YEAR) && !draws('residents')) { void openPersonCard(personId); return; }
+    if (!draws('residents')) { void openPersonCard(personId); return; }
     hud.setPanel(true); hud.selectTab('people'); api.people.open?.(personId);
   });
   api.humans.on('role_open', ({ roleCard }) => showHumanRoleCard(roleCard));
@@ -4179,7 +4179,9 @@ async function boot() {
     bootController.end('people');
     // 1904 uses its existing scene-aware Navigator household card, never the
     // 1835 drawer/research joins. This does not populate a human scene layer.
-    if (supportsTownTransport(YEAR)) api.people = { open: openSceneDirectoryPerson };
+    // T-3468 (owner, 2026-11-07: "all of the years should be consistent with the inspect
+    // card"): 1812 too, whose people directory names its own residents_root as 1904's does.
+    api.people = { open: openSceneDirectoryPerson };
   }
 
   // …and the town's FIRMS, which until now reached a visitor only through the
@@ -4202,7 +4204,7 @@ async function boot() {
     // A proprietor the town holds a card for is one tap from their firm: the
     // People view already knows how to open them, so this only has to ask.
     onPerson: (personId) => {
-      if (supportsTownTransport(YEAR) && !draws('residents')) { void openPersonCard(personId); return; }
+      if (!draws('residents')) { void openPersonCard(personId); return; }
       hud.selectTab('people');
       api.people?.open?.(personId);
     },
@@ -4912,7 +4914,7 @@ async function boot() {
     if (!resolved) {
       const row = target && destinations.byId(target.kind, target.id);
       if (row?.kind === 'person') {
-        if (supportsTownTransport(YEAR) && !draws('residents')) { void openPersonCard(row.id); return true; }
+        if (!draws('residents')) { void openPersonCard(row.id); return true; }
         hud.setPanel(true); hud.selectTab('people'); api.people?.open?.(row.id); return true;
       }
       if (row?.kind === 'business' && !row.derived_from) { openBusiness(row.id); return true; }
@@ -5671,7 +5673,7 @@ async function boot() {
         // (1835), else their own card in Inspect on the house they lived or worked in
         // (T-3265), else the Navigator's People screen (1904, T-1740).
         openPerson: (id) => openPersonCard(id),
-        findPerson: supportsTownTransport(YEAR) && !draws('residents')
+        findPerson: !draws('residents')
           ? (id) => findSceneDirectoryPerson(id) : null,
         // T-3404: someone placed in town (a driver on their round) can be followed.
         followPerson: (id) => followPerson(id),

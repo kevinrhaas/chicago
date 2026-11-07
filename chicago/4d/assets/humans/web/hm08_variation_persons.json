@@ -96,6 +96,22 @@
     "data/humans/instances/1904/hi_glessner_williamson_martha_l_1904.json"
    ]
   },
+  "grummo_paul": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_heald_company_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_heald_company_private_1812.json"
+   ],
+   "age": {
+    "band": [
+     20,
+     32
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 20-32 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male"
+  },
   "pa1904_glessner_john_j_c1900_mary_reynolds": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_glessner_john_j.json",

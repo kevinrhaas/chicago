@@ -102,6 +102,7 @@ await check('people pins: one per address in the directory, absent people left o
   const rows12 = scenes['1812'].people.people;
   const flagged12 = new Set(rows12.filter((r) => r.review_required === true).map((r) => r.id));
   for (const pl of p12.places) for (const x of pl.people) assert.equal(x.review, flagged12.has(x.id), x.id);
+  assert.ok(p12.places.some((pl) => pl.people.some((p) => p.id === 'grummo_paul')), 'Paul Grummo, the parade private (T-3468), carries a pin');
   assert.equal(rows12.find((r) => r.id === 'kinzie_john_elder').grade, 'inferred');
   const none = O.pinPlaces([{ id: 'a', name: 'A. Nobody', lives_at: 'not_drawn' }], () => null);
   assert.equal(none.places.length, 0);
