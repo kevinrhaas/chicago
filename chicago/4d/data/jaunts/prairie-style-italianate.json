@@ -30,12 +30,13 @@
         "kind": "structure",
         "id": "goodman_house_1612_prairie"
       },
-      "text": "1612 Prairie, Joseph Goodman's house of 1869, two years before the Great Fire. Its photograph shows the Italianate formula done in stone: three bays, every window round-headed under a long keystone, a belt course marking the principal floor, and an arched portico on columns at the top of a high stoop. The stoop is the point: a caller climbs well above the street, and the dust of its carriages, before the door ever opens. Walk south a block and the same year's style gets a famous architect.",
-      "read_s": 24,
+      "text": "1612 Prairie, Joseph Goodman's house of 1869, two years before the Great Fire. Its photograph shows the Italianate formula done in stone: three bays, every window round-headed under a long keystone, a belt course marking the principal floor, and an arched portico on columns at the top of a high stoop. The stoop is the point: a caller climbs well above the street, and the dust of its carriages, before the door ever opens. The house stands until it is razed around 1960. Walk south a block and the same year's style gets a famous architect.",
+      "read_s": 27,
       "evidence": [
         "goodman-marker",
         "goodman-photo",
         "goodman-style",
+        "goodman-razed",
         "tour"
       ],
       "next": "hibbard"
@@ -46,11 +47,12 @@
         "kind": "structure",
         "id": "hibbard_house_1701_prairie"
       },
-      "text": "1701 Prairie, William G. Hibbard's house, also of 1869, designed by William Le Baron Jenney for the president of a large wholesale hardware firm. The district register reads it as Italianate: a low hipped roof on bracketed eaves over a stone-based body, with a rear range added in 1874. Jenney would go on to build the first skyscraper. Two doors south is a rarer thing on this street: an Italianate house of wood.",
-      "read_s": 20,
+      "text": "1701 Prairie, William G. Hibbard's house, also of 1869, designed by William Le Baron Jenney for the president of a large wholesale hardware firm. The district register reads it as Italianate: a low hipped roof on bracketed eaves over a stone-based body, with a rear range added in 1874. Jenney would go on to build the first skyscraper; the house is razed in 1932. Two doors south is a rarer thing on this street: an Italianate house of wood.",
+      "read_s": 22,
       "evidence": [
         "hibbard-marker",
         "hibbard-draft",
+        "hibbard-razed",
         "tour"
       ],
       "next": "walker"
@@ -61,10 +63,11 @@
         "kind": "structure",
         "id": "walker_house_1720_prairie"
       },
-      "text": "1720 Prairie, the Tyrrell and Walker house, read by the district register as an Italianate house built of wood: a low hip on deep bracketed eaves, a central gable, a canted bay and a full-width porch. The brick and stone fronts crowding it show which way the street went. Compare its timber brackets with the stone ones around it. Cross Eighteenth Street to a house that changed its clothes.",
-      "read_s": 19,
+      "text": "1720 Prairie, the Tyrrell and Walker house, read by the district register as an Italianate house built of wood: a low hip on deep bracketed eaves, a central gable, a canted bay and a full-width porch. The brick and stone fronts crowding it show which way the street went. In 1910 wreckers will make it the first of many Prairie Avenue houses torn down, as homes give way to offices, warehouses and factories. Compare its timber brackets with the stone ones around it. Cross Eighteenth Street to a house that changed its clothes.",
+      "read_s": 26,
       "evidence": [
         "walker-draft",
+        "walker-razed",
         "tour"
       ],
       "next": "jones"
@@ -75,12 +78,13 @@
         "kind": "structure",
         "id": "jones_house_1834_prairie"
       },
-      "text": "1834 Prairie, Fernando Jones's house, by John M. Van Osdel, built in 1866 for 'one of Chicago's earliest pioneers - Fernando Jones'. It was built Italianate. Twenty years later the whole street had gone mansard, and in 1886 Jones gave his house a mansard addition 'to bring it into fashion with many of its neighbors'. So here is an Italianate house in a newer hat. Prairie Avenue was a competitive street. One more stop, past Twentieth.",
-      "read_s": 21,
+      "text": "1834 Prairie, Fernando Jones's house, by John M. Van Osdel, built in 1866 for 'one of Chicago's earliest pioneers - Fernando Jones'. It was built Italianate. Twenty years later the whole street had gone mansard, and in 1886 Jones gave his house a mansard addition 'to bring it into fashion with many of its neighbors'. So here is an Italianate house in a newer hat, worn until it is razed in 1942. Prairie Avenue was a competitive street. One more stop, past Twentieth.",
+      "read_s": 23,
       "evidence": [
         "jones-marker",
         "tour",
-        "vanosdel-first"
+        "vanosdel-first",
+        "jones-razed"
       ],
       "next": "tolman"
     },
@@ -233,6 +237,42 @@
         "glessner_blog_2015_08_van_osdel"
       ],
       "locator": "The post on Van Osdel."
+    },
+    {
+      "id": "goodman-razed",
+      "text": "Joseph Goodman Residence, 1612 S. Prairie Avenue: razed circa 1960.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "locator": "The 1612 S. Prairie Avenue entry."
+    },
+    {
+      "id": "hibbard-razed",
+      "text": "William G. Hibbard Residence, 1701 S. Prairie Avenue: in 1921 the house was bought by the American Terra Cotta & Ceramic Co., which gave the architect Louis Sullivan free office space there until his death in 1924. Razed 1932.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "locator": "The 1701 S. Prairie Avenue entry."
+    },
+    {
+      "id": "walker-razed",
+      "text": "In 1910 wreckers destroyed the mansion at 1720 Prairie, the first of many Prairie Avenue homes to be torn down, as the street's residences increasingly gave way to offices, warehouses and factories.",
+      "confidence": "attested",
+      "sources": [
+        "encyclopedia_chicago_worlds_of_prairie_avenue"
+      ],
+      "locator": "The essay's closing paragraphs on the street's decline."
+    },
+    {
+      "id": "jones-razed",
+      "text": "Fernando Jones Residence, 1834 S. Prairie Avenue: razed 1942.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "locator": "The 1834 S. Prairie Avenue entry."
     }
   ],
   "liberties": [

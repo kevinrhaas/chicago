@@ -69,6 +69,8 @@ LEVELS = {
     1: 'a first rough model, reshaped from a picture',
 }
 NAMES = jaunt_names.table(SCENE)
+# The owner, 2026-11-07: a stop at a house that was later torn down says so, briefly.
+RAZED = json.loads((DATA / 'jaunts/_names/demolished.json').read_text())['houses']
 
 
 def read(path):
@@ -184,6 +186,8 @@ def stop_text(row, after):
     views = row['views']
     pics = f'; {plural(views, "solved picture")}, {row["matches"]} matching' if views else ''
     head = f'{row["label"]}. DETAIL {row["level"]}/5: {LEVELS[row["level"]]}{pics}. {row["record"]["grade"]["why"]}'
+    if row['id'] in RAZED:
+        head += ' ' + RAZED[row['id']]['line']
     if after is None:
         tail = 'Last stop of the walk so far; it grows as more buildings are built out.'
     elif after['area'] == row['area']:
@@ -216,11 +220,16 @@ def build():
         text='Which buildings the walk includes, their detail levels, its grouping and order, reading times and keepsake are this project\'s own description of its models, rewritten from the records by tools/jaunt_built_so_far.py; no historical visit is asserted.')]
     for n, row in enumerate(order, 1):
         text = stop_text(row, order[n] if n < count else None)
+        razed = RAZED.get(row['id'])
         stops.append(dict(id=f'stop-{n}', destination=dict(kind='structure', id=row['id']), text=text,
-                          read_s=max(10, round(len(text.split()) * 0.42)), evidence=[f'stood-{n}', 'tour'],
+                          read_s=max(10, round(len(text.split()) * 0.42)),
+                          evidence=[f'stood-{n}'] + ([f'razed-{n}'] if razed else []) + ['tour'],
                           links=[dict(kind='structure', id=row['id'], label='About this building')],
                           next=f'stop-{n + 1}' if n < count else 'finish'))
         evidence.append(claim(n, row))
+        if razed:
+            evidence.append(dict(id=f'razed-{n}', text=razed['claim'], confidence='attested', sources=[razed['source']],
+                                 locator=razed['locator']))
     scope = (f'Every Prairie Avenue building modelled past its first rough model: {plural(count, "building")} in '
              f'{plural(area_count, "area")}.') if not waiting else (
         f'The {count} most detailed of the {len(worked_rows)} Prairie Avenue buildings modelled past their first rough model, '

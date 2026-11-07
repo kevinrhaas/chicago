@@ -79,13 +79,14 @@
         "kind": "structure",
         "id": "jones_house_1834_prairie"
       },
-      "text": "1834 Prairie, the Fernando Jones house. Jane Grahame Jones was, in the words of the city's encyclopedia, a longtime and outspoken activist for woman suffrage; her husband's scrapbook keeps clippings on the Illinois Woman Suffrage Association from as early as 1875. She has been at it for nearly thirty years and still cannot vote. In 1913 Illinois will become the first state east of the Mississippi to let women vote for president. Keep walking south, past Twentieth Street, to a family that will give the city a fountain.",
-      "read_s": 24,
+      "text": "1834 Prairie, the Fernando Jones house. Jane Grahame Jones was, in the words of the city's encyclopedia, a longtime and outspoken activist for woman suffrage; her husband's scrapbook keeps clippings on the Illinois Woman Suffrage Association from as early as 1875. She has been at it for nearly thirty years and still cannot vote. In 1913 Illinois will become the first state east of the Mississippi to let women vote for president. The house is razed in 1942. Keep walking south, past Twentieth Street, to a family that will give the city a fountain.",
+      "read_s": 26,
       "evidence": [
         "jones-listing",
         "jones-suffrage",
         "jones-scrapbook",
         "illinois-1913",
+        "jones-razed",
         "tour"
       ],
       "next": "buckingham"
@@ -112,14 +113,15 @@
         "kind": "structure",
         "id": "armour_house_2115_prairie"
       },
-      "text": "2115 Prairie, the Kelley-Armour house. The 1904 Blue Book lists Mrs. Philip D. Armour here; the census of 1900 names her Belle, born in Ohio. Her husband, the meatpacker, died in 1901. As the great families died or moved away to suburbs like Lake Forest, she stayed on, and on. The district marker says Armour's widow was among the last residents of the street, dying here in 1927, long after most of her neighbours' houses had been sold or torn down.",
-      "read_s": 22,
+      "text": "2115 Prairie, the Kelley-Armour house. The 1904 Blue Book lists Mrs. Philip D. Armour here; the census of 1900 names her Belle, born in Ohio. Her husband, the meatpacker, died in 1901. As the great families died or moved away to suburbs like Lake Forest, she stayed on, and on. The district marker says Armour's widow was among the last residents of the street, dying here in 1927, long after most of her neighbours' houses had been sold or torn down. Hers follows in 1937.",
+      "read_s": 23,
       "evidence": [
         "armour-listing",
         "armour-last",
         "armour-leaving",
         "tour",
-        "armour-belle"
+        "armour-belle",
+        "armour-razed"
       ],
       "next": "finish"
     }
@@ -384,6 +386,24 @@
         "census_1900_chicago_t623_roll245"
       ],
       "locator": "ED 40, sheet 14B, line 69, leaf n821, as data/residents_1904/households/hh_armour_mrs_philip_d.json reads it."
+    },
+    {
+      "id": "jones-razed",
+      "text": "Fernando Jones Residence, 1834 S. Prairie Avenue: razed 1942.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "locator": "The 1834 S. Prairie Avenue entry."
+    },
+    {
+      "id": "armour-razed",
+      "text": "David Kelley-Philip D. Armour Residence, 2115 S. Prairie Avenue: razed 1937.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ],
+      "locator": "The 2115 S. Prairie Avenue entry."
     }
   ],
   "liberties": [
