@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1037,
+  "count": 1039,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -67205,6 +67205,36 @@
       ]
     },
     {
+      "id": "L-t3458-yard-goods-1812",
+      "title": "the wood, casks and carts round the 1812 houses, placed by rule",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-07",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1812 scene gets the yard goods a frontier household and a garrison post could not do without, written by the yard goods 1812 generator into the yard goods 1812 data and drawn by the walkthrough's yard code with the 1835 town's own woodpile, block, cask, case, cart and wagon: at every house (the Kinzie house and its men's lodging house, Ouilmette, Lalime, Lemai, Burns, the Lees' town house, the two houses at the forks, Lee's Place, the agent's and the interpreter's houses) a rick of split wood against the back wall, a chopping block in front of it and a water cask at a corner; an oven's heap of unsplit lengths at the garrison's and the Kinzies' bake houses; casks and cases along a gable of the government factory and the merchant's shop; a slack tub and a heap of slabs at the armourer's; a two-wheeled cart at the garrison's stables, the Kinzie stable and Lee's Place, and a four-wheeled wagon in the garrison's stable yard. What bounds it: every fire in 1812 Chicago burned wood; the factory's goods were given out on the scene date; the evacuation of the 15th went out with wagons (Quaife 1913)."
+        },
+        {
+          "label": "What is ours throughout",
+          "text": "that any one of these objects stood at any one place, every position (a rule off the building's own walls: back wall first, a hand's gap off it, never on wet ground, in or against a footprint, on a fence or in a garden, on a worn trail or under a planted stem), every size and every count. No source places a woodpile, cask or cart at any 1812 house."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a recollection, inventory or claim naming one at a particular house; the factory's returns for 1812; a view of the post's out-buildings."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-07 (T-3458)."
+        }
+      ],
+      "work_refs": [
+        "T-3458"
+      ]
+    },
+    {
       "id": "L-t3340-south-groves-1812",
       "title": "1812's timber south of the river: the South Branch belt carried east of Wells, and groves in the wet hollows",
       "section": "per_subject",
@@ -69838,6 +69868,37 @@
       ],
       "work_refs": [
         "T-3442"
+      ]
+    },
+    {
+      "id": "L-1812-people-3461",
+      "title": "The people of Chicago on 14 August 1812: who is carded, which roof each family is given, and the counted people nobody names",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-07",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1812 scene's people layer (the households data) carries everyone a four-part research sweep (the research notes on people 1812) found at the post on the afternoon of 14 August 1812: the 55 regulars of Heald's company on its muster-roll to 31 May 1812 (Quaife 1913, App. VIII), the women and children of the garrison and the militia families, the Kinzie, Ouilmette, Burns and Lee households, William Wells, and the Potawatomi people the sources name. Three things on those cards are ours. (1) **Which roof.** No source says which room of the fort any soldier or soldier's family lived in; only the commanding officer's quarters are named in an account of 1812. The four married privates' families are put in the two small houses and the two soldiers' barracks of Whistler's 1808 index, the single men in the barracks and the north range, and the junior officers in the officers' barracks, each association graded `reconstructed`. (2) **Presence that afternoon.** No roll was called on 14 August. Every man on the 31 May roll is taken as present, as Quaife takes him (App. IX: \"no reason to suppose that there was any alteration in this number\"); a person no account of the battle or its captives names is marked `probably present` on their own card. (3) **The counted and unnamed.** Quaife counts twelve militia and eighteen children with the evacuation; at least six militiamen and seven children have no name in any source. Each has a card graded `reconstructed`, standing for one of the counted, with nothing about him or her but the count. Wells's Miami escort (about thirty, named by no source) and the families of the Potawatomi camp (Helm's 500 warriors and 179 women and children on 12 August) are left to later work, which cards them when it places them."
+        },
+        {
+          "label": "Not invented",
+          "text": "any name, birth year, rank, family tie or fate. Each of those is a field of the reading, with its source, locator and quote on the person's `evidence`. Wau-Bun's dialogue is not quoted as speech; where a story is Kinzie family tradition the card says so."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a quartering return or reconstruction plan of the 1812 garrison; a name for any counted person, which retires one reconstructed card."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-07."
+        }
+      ],
+      "work_refs": [
+        "T-3461",
+        "T-3467"
       ]
     },
     {

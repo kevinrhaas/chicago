@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 2788, ts: '2026-11-07T19:02:19.313Z', date: 'Nov 7, 2026, 1:02 PM CT', title: 'Everyone at Fort Dearborn on 14 August 1812 now has a card', kind: 'feature',
+    items: [
+      '120 people of 1812 are in People: all 55 men on Heald\'s muster-roll, the militia, the officers\' and soldiers\' wives and children, Cicely and her son.',
+      'The Kinzie household gains Eleanor, the four children, Josette LaFramboise, Chandonnai, Le Clerc and Black Jim; the Ouilmette, Burns and Lee families have their own cards.',
+      'William Wells and the Potawatomi leaders the sources name (Black Partridge, Waubansee, Topenebe, Winnemeg and others) are carded with what the records say of them.',
+      'Six militiamen and seven children who are counted but never named have reconstructed cards of their own.',
+      'Each card tells what happened to the person after 14 August, with the source behind every fact.',
+    ] },
+  { v: 2787, ts: '2026-11-07T19:02:19.313Z', date: 'Nov 7, 2026, 1:02 PM CT', title: '1812: woodpiles, casks and carts round every house', kind: 'feature',
+    items: [
+      'Every 1812 house has a rick of split wood stacked against its back wall, a chopping block with the split billets lying round it, and a water cask at a corner.',
+      'Both bake houses have extra unsplit logs for their ovens. The government trading house and the merchant\'s shop have casks and crates of trade goods stacked by a gable.',
+      'The armourer\'s smithy has a water tub by its door and a heap of wood scraps. Carts stand at the garrison stables, the Kinzie stable and Lee\'s Place, and the post\'s wagon stands in its stable yard.',
+      'All of it is our reconstruction, kept off the paths, fences and gardens (Liberty L-t3458-yard-goods-1812).',
+    ] },
   { v: 2786, ts: '2026-11-07T18:16:42.716Z', date: 'Nov 7, 2026, 12:16 PM CT', title: 'Jaunts open in their own season, hour and date', kind: 'fix',
     items: [
       'A story jaunt\'s dated stops now set the season too, not only the sun: April 1812 is spring and August 1812 is summer, whatever your own Season is. Your Season comes back when the jaunt ends.',

@@ -1,0 +1,441 @@
+{
+  "id": "hh_burns_thomas_1812",
+  "scene": "1812",
+  "name": "Thomas Burns and his family at the Burns house",
+  "head": "burns_thomas",
+  "division": "north",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "kinzie_waubun_1856",
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913"
+    ],
+    "note": "In the fort from the April alarm, with the other civilian families (Quaife ch. X)."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "burns_house_1812",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "inferred",
+      "source_id": "quaife_1913",
+      "also_sources": [],
+      "note": "The Burns house on the north bank, as the 1812 structure record places it."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "Everyone the T-3461 sweep found in this household on 14 August is on the card.",
+    "sources": [
+      "kinzie_waubun_1856",
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913"
+    ]
+  },
+  "persons": [
+    {
+      "id": "burns_thomas",
+      "name": "Thomas Burns",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "occupation": {
+        "value": "sergeant of the Chicago militia",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "The militia Heald enrolled after the April murders (Quaife ch. X, App. IX)."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Helm: 'Jos. Burns ... Mortally wounded since killed'; Woodward; Griffith 1820. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Jos. Burns (Helm list)",
+        "Mr. Burns a citizen (Woodward)",
+        "Sergeant Burns (Quaife)",
+        "John Burns (Kirkland, Currey)",
+        "Jos. Burns (Heald's list in the Helm narrative)"
+      ],
+      "note": "After 14 August: Badly wounded; killed by a woman about an hour after the surrender.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 9419-9421; ch. XI 'The Fate of the Survivors' (begins p. 232)",
+          "quote": "It shows that he was a sergeant in the Chicago militia, enrolled by Heald after the murders at the Lee farm in April, 1812.",
+          "claim": "Griffith letter 1820 via Quaife."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16910-16912; Appendix VII, 'Letter of Judge Augustus B. Woodward to Colonel Proctor' (begins p. 422)",
+          "quote": "Mr. Burns a citizen severely wounded was killed by a squaw in the day time about an hour after the action.",
+          "claim": "Woodward."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16808; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's list, Appendix VI",
+          "quote": "Jos. Burns 28 { since killed",
+          "claim": "Helm's list."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4801; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "Thomas Burns \" 18 June 1806 Present.",
+          "claim": "A Thomas Burns, private, enlisted 18 June 1806, on the Dec 1810 roll; Quaife takes him to be the discharged militia sergeant."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. XI, PG 69274 lines 10221-10222",
+          "quote": "The killing of the husband, Thomas Burns, an hour after the surrender has already been described.",
+          "claim": "name Thomas"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. XI, PG 69274 lines 9419-9420",
+          "quote": "he was a sergeant in the Chicago militia, enrolled by Heald after the murders at the Lee farm",
+          "claim": "militia sergeant"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. XI, PG 69274 lines 9428-9429",
+          "quote": "Apparently Burns was a discharged soldier who had made Chicago his permanent home",
+          "claim": "discharged soldier"
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "pt. 2 ch. IV, PG 59624 lines 2904-2905",
+          "quote": "Just west of Kinzie's house is Ouillemette's cabin, and still further that of John Burns.",
+          "claim": "house; name John"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XVIII, PG 51737 lines 5735-5736 (1856 text as reprinted in the 1901 Caxton Club edition)",
+          "quote": "Burns' house stood near the spot where the Agency building, or \"Cobweb Castle,\" was afterwards erected.",
+          "claim": "house site"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. X, PG 69274 lines 9188-9189",
+          "quote": "But one, Sergeant Burns, escaped instant death, and he, grievously wounded, was slaughtered an hour after the surrender",
+          "claim": "fate"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "app. VI, PG 69274 lines 16808-16808",
+          "quote": "Jos. Burns 28 { since killed",
+          "claim": "Heald list, \"Citizens\""
+        }
+      ]
+    },
+    {
+      "id": "burns_mrs",
+      "name": "Mrs. Burns",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Helm's and Woodward's women lists. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Mrs. Cooper (Forsyth's guess)",
+        "Mrs. Bums (Woodward as printed)",
+        "formerly Mrs. Cooper"
+      ],
+      "note": "Wife of Thomas Burns. After 14 August: Captive about two years; taken to Mackinac, bought by traders, sent to Detroit; living in Detroit 1820 (Griffith); died there about 1823 (Edwards via Quaife) or 1832 (Edwards via Kirkland).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16817; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's women list, Appendix VI",
+          "quote": "Mrs. Burns }",
+          "claim": "Helm's women list."
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "Gutenberg #12183 plain text (pg12183.txt; the 1873 Philadelphia reprint of the 1856 text), line 5168-5169; ch. XVIII",
+          "quote": "took the mother, with her infant of scarcely a day old, upon her bed to the boat,",
+          "claim": "Wau-Bun: newborn in April."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16829; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's list, Appendix VI",
+          "quote": "Mrs. Burns 2",
+          "claim": "Helm's children list."
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XVIII, PG 51737 lines 5744-5745 (1856 text as reprinted in the 1901 Caxton Club edition)",
+          "quote": "took the mother, with her infant of scarcely a day old, upon her bed to the boat",
+          "claim": "brought to the fort in April"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. X, PG 69274 lines 9068-9069",
+          "quote": "What of Mrs. Burns and Mrs. Simmons with their babes of a few months",
+          "claim": "infant at evacuation"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "app. IX, PG 69274 lines 17138-17138",
+          "quote": "Mrs. Burns had several, some of whom bore her former name of Cooper",
+          "claim": "children"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. XI, PG 69274 lines 10277-10279",
+          "quote": "She was then living in Detroit, supporting herself and her three surviving children by her own labor.",
+          "claim": "fate 1820"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. XI, PG 69274 lines 10287-10288",
+          "quote": "Edwards records that Mrs. Burns died at Detroit about the year 1823.",
+          "claim": "death (one version)"
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "app. G, PG 59624 lines 6691-6692",
+          "quote": "Her mother died there about the year 1832.",
+          "claim": "death (other version)"
+        }
+      ]
+    },
+    {
+      "id": "cooper_joseph",
+      "name": "Joseph (or James) Cooper",
+      "relationship": "stepson",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Griffith to Heald, 13 Jan 1820 (Draper Coll.), as reported by Quaife. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "Son of Mrs. Burns. Stepson of Thomas Burns. A. H. Edwards (via Kirkland App. G) says the scalped girl's father, a Cooper, was killed; Kirkland wrongly identifies him with surgeon's mate John Cooper (who had resigned). Quaife resolves the Coopers as Mrs. Burns's children by her first marriage. After 14 August: Killed with the militia.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 10222-10224; ch. XI 'The Fate of the Survivors' (begins p. 232)",
+          "quote": "A son of Mrs. Burns by a former marriage, Joseph or James Cooper, was also a member of the slaughtered militia.",
+          "claim": "Quaife ch. XI."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17153-17154; Appendix IX, 'The Fated Company' (begins p. 428)",
+          "quote": "One of his followers was his stepson. Joseph, or James, Cooper;",
+          "claim": "Quaife App. IX."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. XI, PG 69274 lines 10222-10224",
+          "quote": "A son of Mrs. Burns by a former marriage, Joseph or James Cooper, was also a member of the slaughtered militia.",
+          "claim": "identity"
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "app. G, PG 59624 lines 6681-6682",
+          "quote": "was a daughter of Cooper, one of the soldiers who was killed in the fight",
+          "claim": "conflict: Edwards makes the killed Cooper Isabella's father"
+        }
+      ]
+    },
+    {
+      "id": "cooper_isabella",
+      "name": "Isabella Cooper",
+      "relationship": "stepdaughter",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "born": {
+        "value": "about 1803 (about nine in 1812)",
+        "confidence": "inferred",
+        "sources": [
+          "kirkland_1893_chicago_massacre"
+        ],
+        "note": "The date as the cited source prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "A. H. Edwards (1881, 1891 letters) from her own account; Quaife. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Isabella (Cooper) Farnum (Kirkland index)",
+        "later Mrs. Farnum"
+      ],
+      "note": "Daughter of Mrs. Burns. Stepdaughter of Thomas Burns. After 14 August: Scalped but saved by an old woman; captive ~2 years; lived with the Edwards family in Detroit from 1816; married a man named Farnum (Edwards).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 10256-10257; ch. XI 'The Fate of the Survivors' (begins p. 232)",
+          "quote": "Her daughter, Isabella Cooper, became an inmate of the Edwards home,",
+          "claim": "Quaife ch. XI."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 10261-10262; ch. XI 'The Fate of the Survivors' (begins p. 232)",
+          "quote": "the child, though only about nine years of age, fought him to the best of her ability,",
+          "claim": "Age (Quaife)."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 6606-6607; Appendix G (begins p. 197)",
+          "quote": "this girl was taken into our family, and was then about thirteen years old, and had been scalped.",
+          "claim": "Edwards 1891 (Kirkland App. G)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. XI, PG 69274 lines 10256-10257",
+          "quote": "Her daughter, Isabella Cooper, became an inmate of the Edwards home",
+          "claim": "name"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. XI, PG 69274 lines 10261-10262",
+          "quote": "the child, though only about nine years of age, fought him to the best of her ability",
+          "claim": "age"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. XI, PG 69274 lines 10267-10269",
+          "quote": "She and her mother and sister remained among the Indians two years, when they were taken to Mackinac, purchased by some traders",
+          "claim": "fate"
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "app. G, PG 59624 lines 6690-6691",
+          "quote": "I think she married a man by the name of Farnum and lived many years in Detroit.",
+          "claim": "marriage"
+        }
+      ]
+    },
+    {
+      "id": "burns_infant",
+      "name": "The Burns baby",
+      "relationship": "daughter",
+      "grade": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "born": {
+        "value": "1812-04 (a day old on 7 April 1812)",
+        "confidence": "inferred",
+        "sources": [
+          "kinzie_waubun_1856"
+        ],
+        "note": "The date as the cited source prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Wau-Bun; Helm's 'Mrs. Burns 2' in captivity. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "Daughter of Mrs. Burns. Sex from Wau-Bun's 'a young woman' who showed the scar; Edwards speaks of Isabella's younger sister. Whether these are the same child is inference. After 14 August: Survived a tomahawk blow in captivity; met Juliette Kinzie on a steamer 22 years later (Wau-Bun fn 41).",
+      "evidence": [
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "Gutenberg #12183 plain text (pg12183.txt; the 1873 Philadelphia reprint of the 1856 text), line 6071; ch. XIX",
+          "quote": "Mrs. Burns, with her infant, became the prisoner of a chief,",
+          "claim": "Wau-Bun."
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "Gutenberg #12183 plain text (pg12183.txt; the 1873 Philadelphia reprint of the 1856 text), line 12698-12699; footnotes collected at the end of the volume; footnote 41",
+          "quote": "raising the hair from her forehead, showed me the mark of the tomahawk",
+          "claim": "Wau-Bun footnote 41."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "pt. 2 ch. II, PG 59624 lines 2233-2234",
+          "quote": "Burns, living at about where is now the crossing of Kinzie and State Streets, had just been delivered of a child.",
+          "claim": "birth April 1812"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, PG 51737 lines 6690-6691 (1856 text as reprinted in the 1901 Caxton Club edition)",
+          "quote": "Mrs. Burns, with her infant, became the prisoners of a chief, who carried her to his village",
+          "claim": "captivity"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, PG 51737 lines 6700-6702 (1856 text as reprinted in the 1901 Caxton Club edition)",
+          "quote": "a young woman, hearing my name, introduced herself to me, and raising the hair from her forehead, showed me the mark of the tomahawk",
+          "claim": "fate; sex female"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "app. VI, PG 69274 lines 16829-16829",
+          "quote": "Mrs. Burns 2",
+          "claim": "Heald list: children yet in captivity"
+        }
+      ]
+    },
+    {
+      "id": "burns_child_a",
+      "name": "A child of Mrs. Burns, name not recorded",
+      "relationship": "child",
+      "grade": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Quaife ch. XI (assembled from Griffith 1820, Helm, Edwards). No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "Child of Mrs. Burns. After 14 August: Killed in the massacre.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 10224-10226; ch. XI 'The Fate of the Survivors' (begins p. 232)",
+          "quote": "To complete the tale of the mother's bereavement, her two children next in age perished in the massacre.",
+          "claim": "Quaife ch. XI."
+        }
+      ]
+    },
+    {
+      "id": "burns_child_b",
+      "name": "A second child of Mrs. Burns, name not recorded",
+      "relationship": "child",
+      "grade": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Quaife ch. XI (assembled from Griffith 1820, Helm, Edwards). No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "Child of Mrs. Burns. After 14 August: Killed in the massacre.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 10224-10226; ch. XI 'The Fate of the Survivors' (begins p. 232)",
+          "quote": "To complete the tale of the mother's bereavement, her two children next in age perished in the massacre.",
+          "claim": "Quaife ch. XI."
+        }
+      ]
+    }
+  ]
+}
