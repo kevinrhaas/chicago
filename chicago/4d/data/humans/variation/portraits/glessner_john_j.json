@@ -21,8 +21,7 @@
  "grade": "attested",
  "basis": "Fitted to a photograph of him showing his whole face (the 1910 Commercial Club plate): the eye spacing, nose, mouth, chin and ear placement are read from it, as far as the shared MakeHuman face axes can express them. Depth is read from a single quarter view, so an axis the marks say little about stays near the town's average (listed as mostly_prior).",
  "not_modelled": [
-  "his colouring (the plate is a monochrome halftone; the body's skin is a younger man's)",
-  "his clothes (the still's body is a coachman's, until his own figure)"
+  "his colouring (the plate is a monochrome halftone; skin, hair and cloth colours are chosen)"
  ],
  "axes": [
   "nose_length",
@@ -145,7 +144,7 @@
   }
  ],
  "card": {
-  "_doc": "What the person's card shows (T-3413): `portrait` is cut from the scan at `portrait_from_scan_px` (left, top, right, bottom) and scaled to `size_px`; `model` is tools/portrait_still.mjs's render of the fitted face on `body`, turned to the fit's yaw and framed like the portrait. `dress` (T-3440): the still is dressed as humans.js dresses him in town, with his skin, his own hair and moustache (human-hair-styles.js) and his spectacles (human-spectacles.js).",
+  "_doc": "What the person's card shows (T-3413): `portrait` is cut from the scan at `portrait_from_scan_px` (left, top, right, bottom) and scaled to `size_px`; `model` is tools/portrait_still.mjs's render of the fitted face on `body`, turned to the fit's yaw and framed like the portrait. `dress` (T-3440): the still is dressed as humans.js dresses him in town, with his skin, his own hair and moustache (human-hair-styles.js) and his spectacles (human-spectacles.js). `hide` leaves out his derby: the portrait is bareheaded.",
   "portrait": "assets/humans/web/portraits/glessner_john_j_portrait.jpg",
   "portrait_from_scan_px": [
    282,
@@ -158,10 +157,11 @@
    360,
    480
   ],
-  "body": "anonymous_working_driver_1904",
+  "body": "glessner_john_j_1904",
   "background": "#1c1b18",
-  "distance_m": 0.78,
-  "aim_above_head_m": 0.008,
-  "dress": true
+  "distance_m": 0.9,
+  "aim_above_head_m": 0.0,
+  "dress": true,
+  "hide": "^headwear"
  }
 }

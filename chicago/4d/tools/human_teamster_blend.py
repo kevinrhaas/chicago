@@ -124,8 +124,11 @@ def resolve_dress_reference_1904(variant, root=ROOT):
 
     Her grade is copied as recorded (attested), never raised or lowered; her look stays
     reconstructed (the asset's own grade)."""
-    if variant.get('component_assembly')!='adult_dress_v1' or variant.get('recipe_path')!='data/humans/recipes/adult_dress_1904.json':
-        raise ValueError('only the bound 1904 dress study may reference a 1904 person')
+    bound=((variant.get('component_assembly'),variant.get('recipe_path')) in
+           (('adult_dress_v1','data/humans/recipes/adult_dress_1904.json'),
+            ('gentleman_1904_v1','data/humans/recipes/gentleman_1904.json')))  # T-3441
+    if not bound:
+        raise ValueError('only the bound 1904 dress or gentleman study may reference a 1904 person')
     pid=variant['person_reference_id']
     scene_path=root/'data/sidecars/1904/people.json'
     if not scene_path.exists():raise ValueError('compile the 1904 scene first; its people layer is required for identity validation')
@@ -185,7 +188,11 @@ def build(args):
     if body.get('target_blend',{}).get('phenotype',{}).get('chosen_age_years')!=variant['body_parameters']['engineering_age_years']:
         raise ValueError('variant adult macro body does not match its reconstructed authoring-age parameter')
     dress = None
-    if variant.get('component_assembly'):
+    if variant.get('component_assembly')=='gentleman_1904_v1':
+        # T-3441: a 1904 gentleman's day dress; generic garment meshes through the dress path.
+        from human_gentleman_1904 import prepare_gentleman_assembly
+        dress = prepare_gentleman_assembly(ROOT, recipe, variant, body)
+    elif variant.get('component_assembly'):
         from human_dress_components import prepare_dress_assembly
         dress = prepare_dress_assembly(ROOT, recipe, variant, body)
         # T-3423: a dress study sits only on its own transferred binding, which load_study
@@ -274,7 +281,7 @@ def build(args):
     # Packing is essential: exported masters must decode an actual texture.
     weave=bpy.data.images.new('original_reconstructed_woven_shirt',width=256,height=256,alpha=False)
     weave.colorspace_settings.name='sRGB'
-    cloth_material='garment_upper__plain_dress' if dress else 'garment_upper__shirt_linen'
+    cloth_material=dress.get('weave_material','garment_upper__plain_dress') if dress else 'garment_upper__shirt_linen'
     base=colors[cloth_material];pixels=[]
     for yy in range(256):
         for xx in range(256):
@@ -450,7 +457,7 @@ def build(args):
             cap=hair_roll(hair,bones,**dress['roll'])
             if lod==0:print(json.dumps({'source_hair_roll':cap['receipt']}),flush=True)
         object_mesh(f"{asset}_{hair_config.get('object','short04')}_hair_lod{lod}",cap['positions_m'],cap['triangles'],cap['uvs'],cap['weights'],hair_name,col)
-        if dress and not hair_proxy:
+        if dress and dress.get('bun') and not hair_proxy:
             # T-3423: her hair is worn up: a reconstructed bun over the same cleared cap.
             from human_dress_components import hair_bun
             bun=hair_bun(hair,bones,**dress['bun'])
@@ -491,7 +498,7 @@ def build(args):
         # No body skin is hidden. All sole points survive at every LOD; the
         # existing loaded stance/foot/sole contact gates remain unchanged.
         shoes=fitted_shoes(body,bones,lod,scale,recipe['workwear_coverage']['shoe_clearance_m'])
-        shoe_material='footwear__plain_low_shoes' if dress else 'footwear__closed_leather_shoes'
+        shoe_material=dress.get('shoe_material','footwear__plain_low_shoes') if dress else 'footwear__closed_leather_shoes'
         object_mesh(f'{asset}_closed_shoes_lod{lod}',shoes['positions_m'],shoes['triangles'],shoes['uvs'],shoes['weights'],shoe_material,col)
         if lod==0:print(json.dumps({'source_shoe_enclosure':shoes['receipt']}),flush=True)
         # Standing collar is welded into the linen shirt before LOD reduction.
@@ -586,7 +593,9 @@ def build(args):
             'body_and_identity_unchanged':True,'grade':'reconstructed',
             'canonical_fit_and_photo_accepted':False},sort_keys=True)
     if dress:
-        scene['chicago4d_human']['wardrobe_assembly_json']=json.dumps({'assembly':'adult_dress_v1','liberty':recipe['dress_components']['liberty'],'production_eligible':False,'qualified_roles':[],'standing_source_only':True,'walking_seated_and_photo_accepted':False,'body_and_identity_unchanged':True},sort_keys=True)
+        if dress.get('assembly')=='gentleman_1904_v1':
+            scene['chicago4d_human']['wardrobe_assembly_json']=json.dumps({'assembly':'gentleman_1904_v1','liberty':dress['liberty'],'production_eligible':False,'qualified_roles':['standing','walking'],'standing_source_only':False,'walking_seated_and_photo_accepted':False,'body_and_identity_unchanged':True,'garments':dress['garments']},sort_keys=True)
+        else:scene['chicago4d_human']['wardrobe_assembly_json']=json.dumps({'assembly':'adult_dress_v1','liberty':dress['liberty'],'production_eligible':False,'qualified_roles':[],'standing_source_only':True,'walking_seated_and_photo_accepted':False,'body_and_identity_unchanged':True},sort_keys=True)
     scene['authoring_status']='UNVERIFIED: fitting, anatomy, facial targets, UV density, grounded animation and all export/render gates remain open until Blender/CI runs'
     scene.frame_set(1)
     args.output.parent.mkdir(parents=True,exist_ok=True)

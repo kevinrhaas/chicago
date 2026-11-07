@@ -96,6 +96,8 @@ import { t, applyStrings } from './strings/index.js';
 import './strings/arrival.js';
 import { createFlags } from './flags.js';
 import { createFortGates, gatesOnRoute } from './fort-gates.js';
+import { createHouseDoors } from './house-doors.js';
+import { createHouseErrands } from './house-errands.js';
 import { createNightLights } from './night-lights.js';
 import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
@@ -2920,6 +2922,14 @@ async function boot() {
   // structure record to carry `placement.walk_surface_m`, and the height is the
   // one that layer drew the slab at (T-0058; see the header of `wharves.js`).
   decks.push(...wharves.decks);
+  // T-3442: Glessner's front door hung to swing, its two steps decks the walker climbs and
+  // its doorway cut into the footprint; Interact opens and closes it (house-doors.js). After
+  // `planting` is taken, like the wharf decks: its treads are paving the house already lays.
+  const houseDoors = createHouseDoors({ registry: loaded.registry, buildings, footprints, decks, interactions,
+    visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }),
+    groundAt: (e, n) => profiledGroundHeight(terrain, decks, e, n), confidence, problems });
+  scene3d.add(houseDoors.group);
+  api.houseDoors = houseDoors;
   bootController.end('ground');
   bootController.start('flora');
   await yieldToPaint();
@@ -3378,6 +3388,8 @@ async function boot() {
         scene3d.remove(previous.group);
         api.buildings = buildings;
         api.roll = buildings.roll;
+        // T-3442: the door's leaf is the new house's (the old one's goes with it).
+        houseDoors.rebind(buildings);
         residency?.dispose();
         previous.dispose();
         disposeLoadedAsset(oldAsset);
@@ -3765,6 +3777,23 @@ async function boot() {
     }
     gateFrame.invalidate();
   }
+  // T-3443: a person whose house has a working front door (John J. Glessner, by 1800
+  // Prairie's) is an Interact thing too: Greet him, or send him home up his steps and in;
+  // and (T-3444) his door offers Ask for him while he is in.
+  api.houseErrands = createHouseErrands({ humans: api.humans, houseDoors, interactions,
+    visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }),
+    eye: () => camera.getWorldPosition(new THREE.Vector3()),
+    openCard: (actor) => api.humans.select(actor.id),
+    // T-3444: asked for at his door, he can walk the visitor round the house or into the
+    // court — by the router's ways (made below), to the Meet the Glessner House stands —
+    // the visitor walking with him (follow.js, made later still).
+    router: { plan: (...args) => api.router?.plan(...args) ?? null },
+    anchorAt: (id) => (Array.isArray(loaded.scene.anchors) ? loaded.scene.anchors.find((a) => a.id === id) : null) ?? null,
+    walkWith: (actor, on) => {
+      if (on) api.follow?.start(actor.personId, { name: actor.person?.name ?? null });
+      else if (api.follow?.personId === actor.personId) api.follow.stop('arrived');
+    },
+    groundAt: (e, n) => profiledGroundHeight(terrain, decks, e, n), problems: layerProblems('humans') });
   // Read only the small route table at boot. Actual occupied assets and full
   // rendered-ground/collision readings begin after the visitor approaches a circuit.
   api.townTransport = null;
@@ -5447,6 +5476,7 @@ async function boot() {
   api.personInTown = personInTown;
   const interactKey = createInteractKey({ interactions,
     keyEl: document.getElementById('btn-interact'),
+    moreEl: document.getElementById('interact-more'),
     where: () => ({ e: walker.state.e, n: walker.state.n, bearing: walker.bearingDeg, flying: walker.state.flying }),
     say: text => hud.say(text), enabled: () => !gateOpen, keys: window, isTyping,
   });

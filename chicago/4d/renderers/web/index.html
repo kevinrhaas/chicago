@@ -868,6 +868,9 @@
     <!-- T-3404: while the visitor walks alongside a person (js/follow.js): who, and a press
          stops it. Their own movement stops it too. -->
     <button id="btn-follow" class="chip quick-interact quick-follow" type="button" hidden><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg> <span class="fk-verb">Stop following</span> <span class="fk-who"></span></button>
+    <!-- T-3443: a thing with more than one thing to do (a person: Greet, Go home) — the
+         first is the Interact key above, the rest are keys here, 2, 3 … (js/interact.js). -->
+    <div id="interact-more" class="interact-more" role="group" aria-label="More to do here" hidden></div>
   </div>
   <!-- T-2640: Show me pulses this outline on the building for 2 s. -->
   <div class="show-me-outline" id="show-me-outline" aria-hidden="true" hidden></div>

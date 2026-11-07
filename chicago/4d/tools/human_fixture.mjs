@@ -120,7 +120,7 @@ try {
     page.on('pageerror', (e) => errors.push(`${vp}: pageerror ${e.message}`));
     page.on('console', (msg) => { if (msg.type() === 'error') errors.push(`${vp}: console.error ${msg.text()}`); });
     await page.goto(base);
-    await page.waitForFunction(() => window.__fixture?.ready || window.__failed, null, { timeout: 120000 })
+    await page.waitForFunction(() => window.__fixture?.ready || window.__failed, null, { timeout: 120000 + 15000 * files.length })
       .catch((e) => errors.push(`${vp}: never ready (${e.message.split('\n')[0]})`));
     runs[vp] = (await page.evaluate(() => window.__fixture?.results)) || [];
     await page.close();

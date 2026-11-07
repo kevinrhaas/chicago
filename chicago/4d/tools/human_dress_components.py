@@ -734,6 +734,7 @@ def prepare_dress_assembly(root, recipe, variant, body):
         need(record.get('id') == source_id and record.get('rights_status') in study['rights']
              and record.get('asset_use') == 'cross_check', 'dress reference is not a cleared bounded cross-check')
     bundle = construct(body, study['outfit'])
+    bundle['liberty'] = liberty  # the builder records it from the bundle (T-3441)
     for material, spec in bundle['materials'].items():
         need(recipe['colors_linear_rgba'].get(material) == spec['base_color_linear'], 'dress material recipe/source disagree')
     names = {b['name'] for b in body['skeleton']}

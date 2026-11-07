@@ -31513,6 +31513,10 @@ Actual pinned exporter source statically recognizes the proposed 1-(Alpha<.4) no
 
 **John J. Glessner's hair, moustache and spectacles (2026-11-07, T-3440):** The owner, of the card's model: *"his likeness is still not right"*. His 1897 portrait plate (`glessner_commercial_club_1910_presidents_plate`) shows a bald crown with short white hair at the sides and back, a full moustache over the upper lip, full brows, and round wire spectacles, and he is drawn so (`human-hair-styles.js` row `glessner_john_j`, graded attested; `human-spectacles.js`, attested). What the plate cannot give is reconstructed: the colour (white going grey, linear RGB 0.44, 0.41, 0.36, read from the plate's light tone and his age, the plate being a monochrome halftone), every length, the density and how far the fringe rises (3.6 cm above the eyes at the temples, 3.9 cm behind), the moustache's reach and droop, the spectacles' 38 mm lenses, 0.9 mm gold wire and their 12 mm set in front of the cornea, and the bald crown's undercoat (the cap's own triangles where the fringe grows, in a darker shade of the hair's colour, under the cards so the fringe reads as one band of hair). He is drawn in 1904 as the plate shows him seven years before.
 
+**John J. Glessner on his front walk, and going home (2026-11-07, T-3443):** The owner: *"I suppose he needs to be somewhere, sitting or standing near the house? ... tell them to go home into their house"*. He is drawn standing on his own front walk at 1800 Prairie Avenue, about 3.4 m out from the door and facing the street (`data/humans/instances/1904/hi_glessner_john_j_1904.json`); that he stands there, and when, is reconstructed: no photograph shows him on his walk. Sent home, he walks up the walk and the threshold, waits while the door swings, goes in and the door is shut behind him (`house-errands.js`); his pace is the walk clip's, the wait 0.3 m clear of the leaf, and the moment he is indoors (1.2 m past it) are ours. That the family went in by the Prairie Avenue door and the staff by the service entrance off the court is the house's plan (Richardson's front door, the court's service door), not a recorded habit, so the cook is never sent through the front door. Greeting him turns him to the visitor and touches his hat brim (T-3419's gesture) and opens his own card; nothing is said, since no words of his are recorded for it.
+
+**John J. Glessner at his door, and walking a caller round (2026-11-07, T-3444):** The owner: *"interacting at the front door of buildings would allow you to ask for someone to come to the door and then they can come to the door and open it and interact with you, they could open the door and then walk down and around the house ... or like glessner maybe into the back courtyard"*. Asked for at his front door, he answers it himself; in 1904 a house of this size had a butler or parlour maid to answer the door (the household's 1900 census rows list a parlor maid), so his answering it is ours, done because the owner asked for the person to come. The wait before he comes (2.5 s), where he stands while the door swings (1.6 m inside the leaf, clear of its sweep), how far down the walk he comes (1.3 m short of the caller, the sidewalk at most), and the two walks he offers (into the court by the carriage passage to the Meet the Glessner House hall-bay stand, and round by Eighteenth Street to the great-arch stand, by the router's ways) are reconstructed. No record has him walking a caller anywhere.
+
 
 ## T-2793 — W01 original wheel/edge refinement (2026-10-19)
 
@@ -36614,6 +36618,30 @@ she stands with them loosely clasped in front at the waist, over the apron, or h
 as women in service stand in the photographs of the decade. All amounts are chosen by eye against the
 1903 stereographs; none is measured, and none says anything about how she looked.
 
+**The 1904 gentleman supplement, 2026-11-07 (T-3441):** a man's outfit on the same component path,
+`tools/human_gentleman_1904.py` with `data/humans/recipes/gentleman_1904.json`, built as the asset
+`glessner_john_j_1904` and first worn by John J. Glessner (attested; vice president of International
+Harvester in 1904); he is not placed in the town by this work. **Choice of coat:** the ticket allowed a
+frock coat, a morning coat or a sack suit. A 1904 Clinedinst print of Taft and Elihu Root
+(`loc_clinedinst_1904_taft_root_frock_coats`, LOC, no known restrictions) shows two public men in dark
+frock coats; an Underwood & Underwood stereograph of State Street, Chicago, at noon in 1903
+(`loc_underwood_1903_state_street_noonday_stereograph`) shows the city's men by day mostly in sack coats,
+one in a frock coat, nearly all in black derbies; Glessner's own plate
+(`glessner_commercial_club_1910_presidents_plate`) shows a tall standing collar, a dark four-in-hand tie and a
+high dark waistcoat under a dark coat. A frock coat with a derby joins the three; that he wore one on a
+given weekday is not recorded. **Cut:** a white shirt whose neck cut rises 4 cm up the neck as a standing
+collar; a waistcoat cut high, its V opening from 21.5 cm above the waist; a frock coat offset 2.4 cm from the
+body and smoothed so it spans the chest's hollows (pressed cloth, not skin), lapels rolled from 13 cm above
+the waist, skirts lofted round the body's own sections from the waist seam to the knee (0.49 m), widest
+over the front, the two front panels each going with their own leg and the back shared, in place of cloth
+simulation; straight mid-grey trousers on the shared workwear shell; closed black boots round the feet; a
+derby seated round the skull (crown 11.8 cm, brim 4 to 4.8 cm, curled 1.8 cm at the sides), rigid on the head
+bone and a mesh of its own so a renderer can lift it. **Colour:** the pictures are monochrome; the black,
+the white and the grey are chosen. **Skin:** MakeHuman's own CC0 older light-skinned male atlas, its painted
+scalp stubble blended to skin for his bald crown (`tools/human_skin_bald_scalp.py`). **Body:** the shared
+adult male base; his age (61), face (fitted to his plate), height and build are applied at runtime. Every
+amount is chosen by eye against the pictures; none is measured, and none says how he dressed.
+
 **Her own hair, 2026-11-06 (T-3434):** the owner still saw a man's head ("she still basically looks
 like Hans"): the raised short04 cap and a modelled knot were a man's crop underneath. Mattie now wears a
 cleared woman's hairstyle, RehmanPolanski's *hair bun brown* (MakeHuman hair01, CC0;
@@ -41574,3 +41602,29 @@ depth (0.45 m) is hidden in the wall.
 its frame reaches the south side.
 **Ticket:** T-3365 (piece 2 of T-1914).
 **Recorded:** 2026-11-07 (T-3365).
+
+### L-glessner-front-door-swing-3442 — Glessner's front door hung on its north jamb, swinging inward into a dark vestibule, and its steps walkable
+
+**Decision:** the `glessner_house` front door on Prairie Avenue (`openings_prairie` "front door", the leaf
+L-glessner-front-door-2216 draws) opens and closes with the Interact key. Its leaf is the baked one, lifted out of
+the house's batch at load and hung on a pivot (`renderers/web/js/house-doors.js`): hung on the north (right-hand,
+seen from the street) jamb, it swings inward through 90 degrees in 1.6 s, eased at both ends. Behind it stands a dark
+vestibule 1.9 m deep, the doorway's width, its floor level with the sill and its ceiling 0.5 m over the head, unlit
+and shaded darker toward the back. The approach paving and the threshold are walkable steps at the heights the mesh
+draws them, and a drawn person can walk a path from the Prairie Avenue sidewalk up both to 0.6 m inside the door.
+The owner, 2026-11-07: *"interacting at the front door of buildings would allow you to ask for someone to come to
+the door and then they can come to the door and open it ... you will need to be able to handle steps"*.
+**What it stands on:** The doorway, leaf, threshold and approach paving are the record's (`frame_ft`, `openings_prairie`,
+`prairie_frontage`, `v4_detail.prairie_entry`), read as `masonry_house_params.py` frames them. The hinge side is
+INFERRED from sheet No. 95 (`artic_glessner_sheet_95_main_entrance_door`), which puts the latch plate and drop ring
+at the leaf's left end as seen from outside: a latch is on the free edge, so the hinges are on the right.
+**What is invented:** That the leaf swings inward (the ordinary way for a house's street door, not recorded for this
+one), how far and how fast; the vestibule, its depth, width, height, darkness and finish, which nothing read records
+(HABS draws the plan of the hall, not the space behind the leaf as a visitor would see it from the step, and its
+interior is not modelled); the riser ease of a walked path (0.12 m each side of a riser) and the step ease of the
+visitor's camera. The grille's pane is drawn as a dark pane rather than transmissive glass, and its dark backing
+0.6 m behind the leaf is left out, since the vestibule is what lies behind it now.
+**How to resolve:** the HABS first-floor plan (sheet 2) read for the vestibule's real depth, width and doors, and a
+photograph of the open door or of the hall from the entrance for the swing and the finish.
+**Ticket:** T-3442.
+**Recorded:** 2026-11-07 (T-3442).
