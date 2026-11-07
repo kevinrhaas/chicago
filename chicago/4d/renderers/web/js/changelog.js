@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2801, ts: '2026-11-07T23:06:20.367Z', date: 'Nov 7, 2026, 5:06 PM CT', title: '1812: the factory stands on its bank, not in it', kind: 'fix',
+    items: [
+      'The government factory west of the fort stood half sunk in the slope down to the river, over the foot of its door and its lower windows.',
+      'It now stands level on a fieldstone underpinning, a course or two high on the fort side and over a metre at the river corner, with a stone step up to the door.',
+      'The interpreter\'s house beside it gets the same for its smaller slope. Every other 1812 building already stood level.',
+      'The stone and step are reconstructed and listed in Liberties.',
+    ] },
   { v: 2800, ts: '2026-11-07T22:54:15.123Z', date: 'Nov 7, 2026, 4:54 PM CT', title: 'People walk like people: real pace, heel to toe, swinging arms', kind: 'improvement',
     items: [
       'Everyone on foot walks at a real pace for their age and height, about twice as fast as before, with full-length steps.',
