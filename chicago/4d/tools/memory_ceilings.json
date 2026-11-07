@@ -304,6 +304,21 @@
             },
             "humans_layer_mb": 1.3,
             "note": "The first figure drawn from the people pool: Martha Williamson standing in the Glessner courtyard, about 45 m from the spawn, drawn at the light tier's LOD3 (0.1 MB of geometry, 1.2 MB of four 256 px textures). The total sits under the 400 MiB line; CI reads about 7 MB higher. Dev has moved on since T-3408 read 375.1 MB; of this reading the human layer is 1.3 MB. The ceiling is unchanged."
+          },
+          {
+            "ticket": "T-3452",
+            "on": "2026-11-07T14:22:15Z",
+            "build": "8c5bd0a08+T-3453",
+            "reading": "docs/measurements/T-3452-memory.json",
+            "reading_mb": {
+              "total": 400.0,
+              "js_heap": 77.5,
+              "arraybuffers": 80.5,
+              "gpu_buffers": 178.4,
+              "gpu_textures": 63.5
+            },
+            "humans_layer_mb": 8.5,
+            "note": "Four figures drawn from the people pool: John Glessner and Martha Williamson, with Frances Glessner in the courtyard and the maid Mary Reynolds at the 18th Street arch, at the light tier's LOD2/LOD3 (1.0 MB of geometry, 7.2 MB of sixteen textures, their pictures decoded once across figures since T-3453). The human layer stays inside its 12 MB. The total reads 11 KB under the 400 MiB line here and CI reads about 7 MB higher: the rest of 1904 grew about 16 MB on a phone since T-3408's 375.1 (without the two new figures this build read 395.9). The ceiling is unchanged."
           }
         ]
       }
