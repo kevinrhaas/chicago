@@ -162,6 +162,11 @@
       "pattern": "^enclosures/([0-9]{4}/)?$",
       "description": "T-3320. The folder under data/ that the `enclosures` layer reads its manifest (index.json) and records from. Absent means `enclosures/`, the 1835 town's fences and grounds; a scene whose grounds are not 1835's names its own folder (1812: `enclosures/1812/`, which holds the first fort's parade ground and nothing else)."
     },
+    "yard_dir": {
+      "type": "string",
+      "pattern": "^yard/([0-9]{4}/)?$",
+      "description": "T-3458. The folder under data/ that the `yard_goods` layer reads its manifest (index.json) and records from. Absent means `yard/`, the 1835 town's goods; a scene whose yards are not 1835's names its own folder (1812: `yard/1812/`, the settlement's woodpiles, casks and carts written by tools/generate_yard_goods_1812.py)."
+    },
     "released": {
       "type": "boolean",
       "default": false,
