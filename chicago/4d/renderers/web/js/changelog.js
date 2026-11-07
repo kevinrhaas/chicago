@@ -1,4 +1,23 @@
 export const CHANGELOG = [ // newest first
+  { v: 2793, ts: '2026-11-07T19:57:20.144Z', date: 'Nov 7, 2026, 1:57 PM CT', title: 'Frances Glessner\'s face, from her 1892 photograph', kind: 'feature',
+    items: [
+      'Mrs. Glessner\'s face is now fitted to a photograph of her: the Chicago History Museum\'s 1892 picture of her in a conservatory. Her card\'s Likeness shows the photograph beside the model, as her husband\'s does.',
+      'Her face is read against a woman\'s face, not the men\'s base, so what the picture doesn\'t settle keeps her own build.',
+      'Both of the owner\'s photographs of her are now in the evidence corpus with source records: the 1892 conservatory portrait and Hartley\'s 1897 multigraph, five views of her at once.',
+    ] },
+  { v: 2792, ts: '2026-11-07T19:57:20.144Z', date: 'Nov 7, 2026, 1:57 PM CT', title: 'Follow walks right behind the person', kind: 'change',
+    items: [
+      'Follow now keeps you right behind the person you follow, looking down the way they are going, instead of a few metres off to one side.',
+      'A wall, fence or house behind them pulls you in closer, or round to one side, so you are never pressed into stone looking through it.',
+      'Round a corner you go the way they went. If a wall still holds you, you are set down behind them.',
+      'Behind a carriage you keep back past its rear and a little to one side, so you can see the driver on the box.',
+    ] },
+  { v: 2791, ts: '2026-11-07T19:42:36.337Z', date: 'Nov 7, 2026, 1:42 PM CT', title: 'Heald\'s company stands at Fort Dearborn, each man as himself', kind: 'feature',
+    items: [
+      '51 men of the 1812 garrison now stand in the scene: a guard at the main gate, a sentry at the magazine, men on the parade and at the barracks doors, at the garden, stables, bake house and armourer\'s shop, on the river bank and at the wharf, and three in the company\'s cornfield at the forks.',
+      'Each one opens his own card: his rank, his enlistment and what became of him after 14 August.',
+      'Every man has his own face, height and build, and an age that fits his rank.',
+    ] },
   { v: 2790, ts: '2026-11-07T19:36:28.974Z', date: 'Nov 7, 2026, 1:36 PM CT', title: '1812 blockhouse cupolas are log and lower', kind: 'improvement',
     items: [
       'The cupolas on the first fort\'s two blockhouses are now built of logs like the walls below them, and stand about 20% lower, closer to the fort\'s drawings.',

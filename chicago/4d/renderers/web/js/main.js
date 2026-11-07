@@ -5464,12 +5464,16 @@ async function boot() {
   });
   targetTag.setEnabled(!gateOpen);
   api.targetTag = targetTag;
-  // T-3404: Follow — the visitor walks alongside a person in town (follow.js). The key in
-  // the quick column names who and stops it; the visitor's own movement stops it too.
+  // T-3404: Follow — the visitor walks with a person in town, right behind them since
+  // T-3471 (follow.js). The key in the quick column names who and stops it; the visitor's
+  // own movement stops it too.
   const followKey = document.getElementById('btn-follow');
   const follow = createFollow({
     walker, walk: WALK, locate: personInTown,
     blockedAt: (e, n) => router.blockedAt(e, n),
+    // T-3471: the stand right behind them is pulled in short of any wall in the line, by
+    // the same capsule test the walker's own steps meet (houses, enclosure walls, steps).
+    clearBetween: (ae, an, be, bn) => router.clearSegment(ae, an, be, bn),
     busy: () => (travel?.state?.phase ?? 'idle') !== 'idle',
     onChange: (state, why, was) => {
       if (followKey) {

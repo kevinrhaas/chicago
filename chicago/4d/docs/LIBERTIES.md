@@ -36694,6 +36694,12 @@ bun hair, shared; the hair keeps its brown, and nothing records whether Frances 
 her has been read. Every amount is chosen by eye against the pictures; none
 is measured, and none says how she dressed.
 
+**Her face, 2026-11-07 (T-3473):** her face's proportions are now fitted to a photograph of her, the
+Chicago History Museum's conservatory portrait of 4 March 1892 (ICHi-061818, at 44), read against
+her own female body's face rather than the men's base; what the one three-quarter view does not
+settle stays at her body's own lean. Her hair as she wore it (drawn up to a crown of braids in
+Hartley's 1897 multigraph) and her colouring are still chosen: the town's bun and the shared skin.
+
 **The 1904 house maid supplement, 2026-11-07 (T-3448):** a house maid's working dress on the same
 component path, `tools/human_maid_1904.py` with `data/humans/recipes/maid_1904.json`, built as the asset
 `reynolds_mary_1904_maid` on the shared female body and first worn by Mary Reynolds, house maid in the
@@ -41910,6 +41916,15 @@ read by eye off pictures that are not to scale.
 `first_fort_dearborn_blockhouse_se.first_fort_1803.form.cupola_height_m`.
 
 **Ticket:** T-3041 (partial; the fort's full picture match stays open).
+**Recorded:** 2026-11-07.
+
+### L-1812-garrison-stations-3462 — Where each man of Heald's company stands on the afternoon of 14 August 1812
+
+**Decision:** every enlisted man of Heald's company that the T-3461 sweep cards stands in the 1812 scene as himself (`data/humans/instances/1812/hi_<person>_1812.json`, written by `docs/RESEARCH/people-1812-3462/place.py`), in the company private's dress (T-3451) and with the face, height and build the variation kit seeds from his own id. Paul Grummo keeps the parade figure (T-3452, T-3468). Three things are ours. (1) **The stations.** No order book, guard report or morning report of the post survives for the date, so each man's place is reconstructed from what a small frontier post of the period kept by day: a sergeant's guard of three at the main gate, a sentry at the magazine, men on the parade and at the barracks doors, the four married men near the quarters T-3461 gives their families, men at the garden, the stables, the bake house, the armourer's shop and the merchant's shop, on the river bank and at the wharf, two on the roads to the garden, and three at the company's cornfield at the forks. Which man stands where follows the roll's order within a rank. Nothing of that day's events is acted out: no council, no giving out of the goods, no breaking of the casks or the arms. (2) **One dress for every rank.** Sergeants', corporals' and musicians' distinctions (epaulettes, sashes, the musicians' reversed coats) are not drawn; every man wears the private's dress, and his card gives his rank. (3) **Ages.** The muster-roll gives no ages. A man with no birth year in the readings carries a reconstructed age band on his card, by rank: privates 20-32, corporals 22-36, sergeants 24-40, drummers and fifers 16-30. The variation kit draws his age inside it (L418).
+
+**Not invented:** any man's name, rank, enlistment, family or fate; those are on his card with their sources.
+**Re-opens on:** a guard roster, order book or morning report of Fort Dearborn for August 1812; a description of the post's daily duties in 1811-12; the 1812 dress for the company's sergeants, corporals and musicians (T-3463).
+**Ticket:** T-3462.
 **Recorded:** 2026-11-07.
 
 ### L-human-gait-3472 — People on foot walk at a real pace, heel to toe, with the arms, trunk and skirts moving with the legs

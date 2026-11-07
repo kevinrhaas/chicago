@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1040,
+  "count": 1041,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -61607,6 +61607,10 @@
           "text": "the shared female base at its engineering age; the town's variation kit would age her (56, from her record) and draw her height and build at runtime once she is placed, and no portrait of her has been read. Every amount is chosen by eye against the pictures; none is measured, and none says how she dressed."
         },
         {
+          "label": "Her face, 2026-11-07",
+          "text": "her face's proportions are now fitted to a photograph of her, the Chicago History Museum's conservatory portrait of 4 March 1892 (ICHi-061818, at 44), read against her own female body's face rather than the men's base; what the one three-quarter view does not settle stays at her body's own lean. Her hair as she wore it (drawn up to a crown of braids in Hartley's 1897 multigraph) and her colouring are still chosen: the town's bun and the shared skin."
+        },
+        {
           "label": "The 1904 house maid supplement, 2026-11-07",
           "text": "a house maid's working dress on the same component path, the human maid 1904 tool with the maid 1904 data, built as the asset reynolds mary 1904 maid on the shared female body and first worn by Mary Reynolds, house maid in the Glessner household in the 1900 census (inferred; whether she was still there in July 1904 is not recorded); she is not placed in the town by this work."
         },
@@ -61709,6 +61713,7 @@
         "T-3434",
         "T-3441",
         "T-3447",
+        "T-3473",
         "T-3448",
         "T-3449",
         "T-3450",
@@ -69958,6 +69963,41 @@
       "work_refs": [
         "T-3335",
         "T-3041"
+      ]
+    },
+    {
+      "id": "L-1812-garrison-stations-3462",
+      "title": "Where each man of Heald's company stands on the afternoon of 14 August 1812",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-07",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "every enlisted man of Heald's company that the sweep cards stands in the 1812 scene as himself (the hi <person> 1812 data, written by the research notes on people 1812), in the company private's dress and with the face, height and build the variation kit seeds from his own id. Paul Grummo keeps the parade figure. Three things are ours. (1) **The stations.** No reconstruction plan, guard report or morning report of the post survives for the date, so each man's place is reconstructed from what a small frontier post of the period kept by day: a sergeant's guard of three at the main gate, a sentry at the magazine, men on the parade and at the barracks doors, the four married men near the quarters earlier work gives their families, men at the garden, the stables, the bake house, the armourer's shop and the merchant's shop, on the river bank and at the wharf, two on the roads to the garden, and three at the company's cornfield at the forks. Which man stands where follows the roll's order within a rank. Nothing of that day's events is acted out: no council, no giving out of the goods, no breaking of the casks or the arms. (2) **One dress for every rank.** Sergeants', corporals' and musicians' distinctions (epaulettes, sashes, the musicians' reversed coats) are not drawn; every man wears the private's dress, and his card gives his rank. (3) **Ages.** The muster-roll gives no ages. A man with no birth year in the readings carries a reconstructed age band on his card, by rank: privates 20-32, corporals 22-36, sergeants 24-40, drummers and fifers 16-30. The variation kit draws his age inside it (“Resident workwear studies on a licensed human base”)."
+        },
+        {
+          "label": "Not invented",
+          "text": "any man's name, rank, enlistment, family or fate; those are on his card with their sources."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a guard roster, reconstruction plan or morning report of Fort Dearborn for August 1812; a description of the post's daily duties in 1811-12; the 1812 dress for the company's sergeants, corporals and musicians."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-07."
+        }
+      ],
+      "work_refs": [
+        "T-3451",
+        "T-3452",
+        "T-3468",
+        "T-3461",
+        "T-3463",
+        "T-3462"
       ]
     },
     {
