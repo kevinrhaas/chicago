@@ -7,9 +7,9 @@
     "asset_id": "private_first_infantry_1812"
   },
   "placement": {
-    "local_e": 1153.4,
-    "local_n": 212.4,
-    "heading_deg": 20,
+    "local_e": 1145.3,
+    "local_n": 229.9,
+    "heading_deg": 90,
     "anchor": "terrain"
   },
   "animation": {
@@ -18,7 +18,15 @@
     "phase": 0.887
   },
   "behaviour": {
-    "state": "standing"
+    "state": "standing",
+    "duty": {
+      "kind": "beat",
+      "to": {
+        "local_e": 1148.9,
+        "local_n": 229.9
+      },
+      "face_deg": 180
+    }
   },
   "interaction": {
     "selectable": true,
@@ -32,7 +40,7 @@
   "review_required": false,
   "provenance": {
     "grade": "reconstructed",
-    "basis": "Reconstructed figure of Prestly Andrews, private of Captain Nathan Heald's company of the First Infantry (on the company's muster-roll to 31 May 1812, Quaife 1913 App. VIII), at the door of the soldiers' barracks east of the gate, on the afternoon of 14 August 1812. Where he stands and what he is doing are ours (liberty L-1812-garrison-stations-3462): no guard report or order book of the post survives for that day, and nothing of it is acted out. He wears the company private's dress (T-3451). His face, height and build are seeded from his own name; no picture of him is known.",
+    "basis": "Reconstructed figure of Prestly Andrews, private of Captain Nathan Heald's company of the First Infantry (on the company's muster-roll to 31 May 1812, Quaife 1913 App. VIII), on sentry before the magazine, walking his post, on the afternoon of 14 August 1812. Where he stands and what he is doing are ours (liberty L-1812-garrison-stations-3462): no guard report or order book of the post survives for that day, and nothing of it is acted out. He wears the company private's dress (T-3451). His face, height and build are seeded from his own name; no picture of him is known.",
     "sources": [
       "loc_ogden_1888_infantry_artillery_1802_1810",
       "met_krimmel_1813_philadelphia_soldiery",
@@ -42,7 +50,7 @@
       "whistler_1808_fort_dearborn_draught"
     ],
     "liberty": "L418",
-    "seed": "andrews_prestly:1812:se_door_a:20261107",
+    "seed": "andrews_prestly:1812:magazine:20261107",
     "replaceable_by": "A guard report, order book or morning report of the post for August 1812, which would put him at his own duty."
   }
 }

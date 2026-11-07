@@ -7,9 +7,9 @@
     "asset_id": "private_first_infantry_1812"
   },
   "placement": {
-    "local_e": 1157.9,
-    "local_n": 217.8,
-    "heading_deg": 120,
+    "local_e": 1146.3,
+    "local_n": 221.08,
+    "heading_deg": 90,
     "anchor": "terrain"
   },
   "animation": {
@@ -18,7 +18,15 @@
     "phase": 0.381
   },
   "behaviour": {
-    "state": "standing"
+    "state": "standing",
+    "duty": {
+      "kind": "rank",
+      "id": "fatigue_party"
+    },
+    "hours": [
+      5.5,
+      21.0
+    ]
   },
   "interaction": {
     "selectable": true,
@@ -32,7 +40,7 @@
   "review_required": false,
   "provenance": {
     "grade": "reconstructed",
-    "basis": "Reconstructed figure of Stephen Draper, private of Captain Nathan Heald's company of the First Infantry (on the company's muster-roll to 31 May 1812, Quaife 1913 App. VIII), on the parade before the commanding officer's quarters, on the afternoon of 14 August 1812. Where he stands and what he is doing are ours (liberty L-1812-garrison-stations-3462): no guard report or order book of the post survives for that day, and nothing of it is acted out. He wears the company private's dress (T-3451). His face, height and build are seeded from his own name; no picture of him is known.",
+    "basis": "Reconstructed figure of Stephen Draper, private of Captain Nathan Heald's company of the First Infantry (on the company's muster-roll to 31 May 1812, Quaife 1913 App. VIII), in the rank of a fatigue party drawn up on the parade, on the afternoon of 14 August 1812. Where he stands and what he is doing are ours (liberty L-1812-garrison-stations-3462): no guard report or order book of the post survives for that day, and nothing of it is acted out. He wears the company private's dress (T-3451). His face, height and build are seeded from his own name; no picture of him is known.",
     "sources": [
       "loc_ogden_1888_infantry_artillery_1802_1810",
       "met_krimmel_1813_philadelphia_soldiery",
@@ -42,7 +50,7 @@
       "whistler_1808_fort_dearborn_draught"
     ],
     "liberty": "L418",
-    "seed": "draper_stephen:1812:east_c:20261107",
+    "seed": "draper_stephen:1812:fatigue_4:20261107",
     "replaceable_by": "A guard report, order book or morning report of the post for August 1812, which would put him at his own duty."
   }
 }
