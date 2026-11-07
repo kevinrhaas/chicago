@@ -181,7 +181,7 @@
       "archetype": "fort_structure",
       "baked_ao": false,
       "bytes": 881200,
-      "inputs_sha256": "5b0f9a5a9a3ecd32b0d1610a462a5f29d6b4cbe2c9929e894dd7db6acb8624c3",
+      "inputs_sha256": "1b35a11e703265b437cb178fae18dcae0746836f9a9ede8638a9bfea5f6b771d",
       "kind": "generated",
       "phase_id": "tower_1832",
       "structure_id": "chicago_lighthouse_1832"
@@ -452,8 +452,8 @@
     "first_fort_dearborn_blockhouse_nw__first_fort_1803.glb": {
       "archetype": "fort_structure",
       "baked_ao": false,
-      "bytes": 103140,
-      "inputs_sha256": "6b856feb6f63051442b0fbeccffb891a0728de977781c6b971cab8fd50a88550",
+      "bytes": 120376,
+      "inputs_sha256": "7534626fb0d58b5ff7dec604d43f4cf896feb5796124827c05f1e67b9424ea0c",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_dearborn_blockhouse_nw"
@@ -461,8 +461,8 @@
     "first_fort_dearborn_blockhouse_se__first_fort_1803.glb": {
       "archetype": "fort_structure",
       "baked_ao": false,
-      "bytes": 98536,
-      "inputs_sha256": "cfbf905f58a40d456cf77f9b4410e2bbdaa8ebf19b9939b6297dc405e6623094",
+      "bytes": 115772,
+      "inputs_sha256": "d414889931d0121ed2cf94276f5d41409933c890a3c098ffb0549eaaacadc0f6",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_dearborn_blockhouse_se"
@@ -471,7 +471,7 @@
       "archetype": "fort_structure",
       "baked_ao": false,
       "bytes": 372780,
-      "inputs_sha256": "e2b497bfcff426eaa41ae5626be2e88ed7b93bf645ba0a5027c9b4baf0856bf5",
+      "inputs_sha256": "ce9d4fa392e54a219f9e15f9b35a27c8b9c91f8144b185a09aaf30274f9f1b1b",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_dearborn_commanding_officers_barracks"
@@ -480,7 +480,7 @@
       "archetype": "fort_structure",
       "baked_ao": false,
       "bytes": 3088,
-      "inputs_sha256": "c301dae5faf10527aa30b1f7aee028e71b3c88455d33698fb5e27ab7cb33dc49",
+      "inputs_sha256": "dbc0575b4a22857007319ea697728b0a28b570931c09914c9ea67b119d13487f",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_dearborn_flagstaff"
@@ -489,7 +489,7 @@
       "archetype": "fort_structure",
       "baked_ao": false,
       "bytes": 167912,
-      "inputs_sha256": "c1d00d741229879250079d167af76af937f08daad8880b46b17f051a85cb349d",
+      "inputs_sha256": "3cea37498703a30fabd83d5c77a819f2dc8a70ef163b817c3097c9b62854a132",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_dearborn_magazine"
@@ -498,7 +498,7 @@
       "archetype": "fort_structure",
       "baked_ao": false,
       "bytes": 348412,
-      "inputs_sha256": "dbcc3081ba8f89ab7de12e4a577879cee5fe283948d1665ae5b41efe6671c4c8",
+      "inputs_sha256": "974bdf21940cb54d009821da2b1ab67ed3d1f237c4e29f3901120922b6c53493",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_dearborn_north_range"
@@ -507,7 +507,7 @@
       "archetype": "fort_structure",
       "baked_ao": false,
       "bytes": 427232,
-      "inputs_sha256": "6b9a5930079e40e87d602f4584225862043f0774871c8ce967fd806b8d81c7b9",
+      "inputs_sha256": "89bade0effecf61d1f82d92c86b9fb510b5bad6e66b4fb5637328712aa4be8ec",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_dearborn_officers_barracks"
@@ -516,7 +516,7 @@
       "archetype": "fort_structure",
       "baked_ao": false,
       "bytes": 2244,
-      "inputs_sha256": "771a5a5bdf58674e829c11e75ff6ce323ac0178beeca6bcf36a7b9ed4229a680",
+      "inputs_sha256": "143eba5902dea2ca434768c7726f0bd607248f1dd022d25c9aa1b71e863731ad",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_dearborn_parade"
@@ -561,7 +561,7 @@
       "archetype": "fort_structure",
       "baked_ao": false,
       "bytes": 344980,
-      "inputs_sha256": "daf91baa787bb7587f1818181993a5d6f9bf60aafa6c37a0530a1d1e8b7b1b6d",
+      "inputs_sha256": "806166aca031026b6b9e7263b2e87ad87e139b67a309ad2be28127acc9d7f4ab",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_dearborn_soldiers_barracks_se"
@@ -570,7 +570,7 @@
       "archetype": "fort_structure",
       "baked_ao": false,
       "bytes": 342536,
-      "inputs_sha256": "544a4fa4598bdbfc2b19f368a4e36d1fe2156e8d64d9cd331a89d2496328d2d4",
+      "inputs_sha256": "41487e30372c5ddf522fafd1668d01e562abb5ecbb6c5c1e9057a272a07f329a",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_dearborn_soldiers_barracks_sw"
@@ -773,7 +773,7 @@
       "archetype": "fort_structure",
       "baked_ao": false,
       "bytes": 67976,
-      "inputs_sha256": "69a3c0d38ed1f8d71d054365d7919a978b8d3b4a009ffa436a46eb3b2348ba69",
+      "inputs_sha256": "6cba0dc7c6e995c1a2664e4037a097b456592ea01b9438987af8e1bddb8e8575",
       "kind": "generated",
       "phase_id": "log_1816",
       "structure_id": "fort_dearborn_artillery_house"
@@ -782,7 +782,7 @@
       "archetype": "fort_structure",
       "baked_ao": false,
       "bytes": 385076,
-      "inputs_sha256": "cf861a7600b171dd7a3c0dddc6fc8fd735f227a1cba961af63df48a57bbcd68f",
+      "inputs_sha256": "9aa2fdb064f788f00180c04b9bf2c6521d6ece5082510242ce9304e0d8619ab1",
       "kind": "generated",
       "phase_id": "log_1816",
       "structure_id": "fort_dearborn_barracks"
@@ -800,7 +800,7 @@
       "archetype": "fort_structure",
       "baked_ao": false,
       "bytes": 133092,
-      "inputs_sha256": "74e88eb25735540588ce8c3f79c04ae2992b1d98de81474100c76865a46abc3f",
+      "inputs_sha256": "cf2ee4bc0bdc713808ffb2072c14b21f7383f2919703baa3c182b56b56c7e3a5",
       "kind": "generated",
       "phase_id": "log_1816",
       "structure_id": "fort_dearborn_blockhouse"
@@ -809,7 +809,7 @@
       "archetype": "fort_structure",
       "baked_ao": false,
       "bytes": 218392,
-      "inputs_sha256": "1da51756c5fccbc9f81132091243f74fbe87afb368095776cf5da4ff35e7b3cc",
+      "inputs_sha256": "b82653320d89ac5e7e0ddfc34a770d32c66ce4369f270dda7dd4f91f878fc862",
       "kind": "generated",
       "phase_id": "brick_1816",
       "structure_id": "fort_dearborn_commandants_quarters"
@@ -818,7 +818,7 @@
       "archetype": "fort_structure",
       "baked_ao": false,
       "bytes": 3064,
-      "inputs_sha256": "67a8ef47b224f2d23b593d127a406c4a0b365aa56b6ec84fccd5c0bfe3116224",
+      "inputs_sha256": "f90a600d21aaf3e44044b78608bef8dd542f48757c3dc12c3e0ad4287bf578de",
       "kind": "generated",
       "phase_id": "staff_1833_37",
       "structure_id": "fort_dearborn_flagstaff"
@@ -836,7 +836,7 @@
       "archetype": "fort_structure",
       "baked_ao": false,
       "bytes": 198076,
-      "inputs_sha256": "84be3e2ed990742f4e62fbba1791bd842cd1273ff85aecadb8aa4195a1ee493b",
+      "inputs_sha256": "5378852201f7759367b4cda6c36167025104653286fd880d5df12d8f7b72e798",
       "kind": "generated",
       "phase_id": "log_1816",
       "structure_id": "fort_dearborn_guard_house"
@@ -845,7 +845,7 @@
       "archetype": "fort_structure",
       "baked_ao": false,
       "bytes": 138528,
-      "inputs_sha256": "3e8d2c453bdba5d12b0f6554f57ccc961d65fe5ef6af2a2f0f98c90453848359",
+      "inputs_sha256": "e74723424fdce97c867fe33f174e9f3c45c5461eeb469c1f22f02ec467e9f625",
       "kind": "generated",
       "phase_id": "brick_1816",
       "structure_id": "fort_dearborn_magazine"
@@ -854,7 +854,7 @@
       "archetype": "fort_structure",
       "baked_ao": false,
       "bytes": 475316,
-      "inputs_sha256": "d631012fd5292ff28c77bcd47959f713bc53b9dfdf25e918fa3d80afa4cd972e",
+      "inputs_sha256": "8bf402707966972d2d9120675182b1be8c30a627b0341e8426649d87b1a8be94",
       "kind": "generated",
       "phase_id": "log_1816",
       "structure_id": "fort_dearborn_officers_quarters"
@@ -890,7 +890,7 @@
       "archetype": "fort_structure",
       "baked_ao": false,
       "bytes": 5500,
-      "inputs_sha256": "c5c2672d4a340871d17542f00ca59e5aff3244584c005c4e8b5953d99a51e4b7",
+      "inputs_sha256": "ae2558aa5963249709a77b853af601ce169b4431e42a14cf0655318cdfe9f6ca",
       "kind": "generated",
       "phase_id": "parade_1816",
       "structure_id": "fort_dearborn_parade"
@@ -899,7 +899,7 @@
       "archetype": "fort_structure",
       "baked_ao": false,
       "bytes": 4488,
-      "inputs_sha256": "198bc57c6030cbf154cd8adf99b9abbac0e6f528f04a7f4c43e07073415a6aad",
+      "inputs_sha256": "5f9bd64ab206db8f8a982216cc9d5fbf7f21404fef21914d0b732f5f3183ea78",
       "kind": "generated",
       "phase_id": "cellar_1816",
       "structure_id": "fort_dearborn_root_house"
@@ -908,7 +908,7 @@
       "archetype": "fort_structure",
       "baked_ao": false,
       "bytes": 4500,
-      "inputs_sha256": "25c928b55063c032505517cd7c148512f5776f7768a33db68d2ed5a60f936db4",
+      "inputs_sha256": "4bbd4b28a473461d01b3045e83585299965c646eebb0bf55944f1685d5ae2384",
       "kind": "generated",
       "phase_id": "cellar_1816_b",
       "structure_id": "fort_dearborn_root_house_b"
@@ -926,7 +926,7 @@
       "archetype": "fort_structure",
       "baked_ao": false,
       "bytes": 81416,
-      "inputs_sha256": "46821a26d3f95267566b591e948aead10b72047b4704a4544abf860e6028adad",
+      "inputs_sha256": "a2db426be14496fa1243c7ff06f6138096dfd8106f4f4f1a362abd61f69d918b",
       "kind": "generated",
       "phase_id": "log_1816",
       "structure_id": "fort_dearborn_store_house"
@@ -935,7 +935,7 @@
       "archetype": "fort_structure",
       "baked_ao": false,
       "bytes": 210280,
-      "inputs_sha256": "f9d3c3f85dd68e4748667c1e36d3eca54b562591238d4d8b1eadfcf6dac553ca",
+      "inputs_sha256": "dfc443f0e254b915a86e290e5e0fb8a3416cbcff4af687ac0c1af5ac8aa614f3",
       "kind": "generated",
       "phase_id": "log_1816",
       "structure_id": "fort_dearborn_sutlers_store"
@@ -3449,7 +3449,7 @@
       "archetype": "fort_structure",
       "baked_ao": false,
       "bytes": 133844,
-      "inputs_sha256": "01b1e2a87f2f057a8bc20f5d795771f6cc0ad59bbf152d18e56d473770dfd66d",
+      "inputs_sha256": "fef2deaaae46d147dbc6c55496fa66e6bf799f7b7c9789a86984a2935e596f2c",
       "kind": "generated",
       "phase_id": "shell_1835",
       "structure_id": "lake_house_construction"

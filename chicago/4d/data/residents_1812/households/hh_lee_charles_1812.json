@@ -1,0 +1,314 @@
+{
+  "id": "hh_lee_charles_1812",
+  "scene": "1812",
+  "name": "Charles Lee and his family at the Lee house by the river mouth",
+  "head": "lee_charles",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "currey_1912_story_of_old_fort_dearborn",
+      "kinzie_waubun_1856",
+      "kirkland_1893_chicago_massacre"
+    ],
+    "note": "In the fort from the April alarm (Quaife ch. X)."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "lee_house_1812",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "inferred",
+      "source_id": "kinzie_waubun_1856",
+      "also_sources": [
+        "currey_1912_story_of_old_fort_dearborn"
+      ],
+      "note": "The family's town house on the lake shore near the fort (Wau-Bun ch. XIX)."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "Liberty White and Jean Baptiste Cardin, killed at Lee's Place on 6 April 1812, died before the scene date. Russell, said to be Lee's partner, is not placed at Chicago in August by any source read.",
+    "sources": [
+      "andreas_1884_v1",
+      "currey_1912_story_of_old_fort_dearborn",
+      "kinzie_waubun_1856"
+    ]
+  },
+  "persons": [
+    {
+      "id": "lee_charles",
+      "name": "Charles Lee",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "currey_1912_story_of_old_fort_dearborn",
+        "kinzie_waubun_1856",
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "occupation": {
+        "value": "farmer of Lee's Place (Hardscrabble)",
+        "confidence": "inferred",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His farm on the South Branch, where Liberty White and Jean Baptiste Cardin were killed on 6 April 1812."
+      },
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Lee",
+        "Leigh",
+        "See (Heald's letter)",
+        "Mr. Lee (Wau-Bun)",
+        "Leigh (Helm, Forsyth spell the family so)"
+      ],
+      "note": "Farmer (Lee's Place); said to have held the provision contract. Quaife thinks he was one of the twelve militia; killed 15 Aug. The given name Charles is in Currey only. After 14 August: Killed 15 Aug.",
+      "evidence": [
+        {
+          "source_id": "currey_1912_story_of_old_fort_dearborn",
+          "locator": "pt. III \"The Tragedy\", PG 52346 lines 2243-2244",
+          "quote": "stood the house of Charles Lee, the owner of \"Lee's Place,\"",
+          "claim": "name Charles; house at river mouth"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. X, PG 69274 lines 8577-8579",
+          "quote": "Lee is said to have settled at Chicago about the year 1805, having received the contract to supply the garrison with provisions.",
+          "claim": "arrival; contract (unverified tradition)"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. X, PG 69274 lines 8579-8580",
+          "quote": "He lived with his family a short distance southwest of the fort",
+          "claim": "house (conflicts with Wau-Bun \"Lake shore\")"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, PG 51737 lines 6705-6706 (1856 text as reprinted in the 1901 Caxton Club edition)",
+          "quote": "The family of Mr. Lee had resided in a house on the Lake shore, not far from the fort.",
+          "claim": "house"
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "pt. 2 ch. II, PG 59624 lines 2216-2216",
+          "quote": "This name I find sometimes spelled \"Lee,\" and sometimes \"See.\"",
+          "claim": "spellings"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "app. IX, PG 69274 lines 17154-17155",
+          "quote": "Lee, the farmer, must have been another although there is no positive record to this effect",
+          "claim": "militia (conjecture)"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17154-17155; Appendix IX, 'The Fated Company' (begins p. 428)",
+          "quote": "Lee, the farmer, must have been another although there is no positive record to this effect.",
+          "claim": "Quaife App. IX."
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "Gutenberg #12183 plain text (pg12183.txt; the 1873 Philadelphia reprint of the 1856 text), line 6080-6081; ch. XIX",
+          "quote": "The family of Mr. Lee had resided in a house on the Lake shore, not far from the fort.",
+          "claim": "Wau-Bun."
+        }
+      ]
+    },
+    {
+      "id": "lee_mrs",
+      "name": "Mrs. Lee",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "kinzie_waubun_1856",
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Mrs. Leigh",
+        "Madame Du Pin",
+        "Mrs. Leigh (Helm; Forsyth)",
+        "Madame Du Pin (later, Wau-Bun)"
+      ],
+      "note": "Taken prisoner 15 Aug (Heald list; Woodward). After 14 August: Captive of Black Partridge; ransomed at Chicago in the winter of 1812-13 by Du Pin (and Buisson), whom she married; said to have sold the Lee house to Beaubien.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. XI, PG 69274 lines 9542-9543",
+          "quote": "they have bought of[f] Mrs. Leigh and her younger child",
+          "claim": "ransom 1812-13 (Forsyth letter)"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, PG 51737 lines 6762-6762 (1856 text as reprinted in the 1901 Caxton Club edition)",
+          "quote": "in process of time Mrs. Lee became Madame Du Pin",
+          "claim": "marriage"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 84",
+          "quote": "the house of Mr. Lee near the fort, on the lake shore, was evidently sold by his widow to Jean Baptiste Beaubien",
+          "claim": "house sold"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16818; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's women list, Appendix VI",
+          "quote": "Mrs. Leigh } Prisoners.",
+          "claim": "Helm's women list."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 9542-9544; ch. XI 'The Fate of the Survivors' (begins p. 232); footnote 613",
+          "quote": "they have bought of[f] Mrs. Leigh and her younger child, and another woman which I expect is Mrs. Cooper or Burns,",
+          "claim": "Forsyth to Heald, 10 Apr 1813."
+        }
+      ]
+    },
+    {
+      "id": "lee_son",
+      "name": "Lee's son",
+      "relationship": "son",
+      "grade": "inferred",
+      "sources": [
+        "kinzie_waubun_1856",
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "Farm hand; possibly militiaman. Escaped the April attack at Lee's Place; killed 15 Aug. Quaife's April account has the boy unnamed and does not call him Lee's son. After 14 August: Killed 15 Aug. Wau-Bun has Lee's son killed with him; that he served in the militia is Quaife's inference.",
+      "evidence": [
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, PG 51737 lines 6707-6708 (1856 text as reprinted in the 1901 Caxton Club edition)",
+          "quote": "It was his son who ran down with the discharged soldier to give the alarm",
+          "claim": "April escape"
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "pt. 2 ch. V, PG 59624 lines 3304-3306",
+          "quote": "His son escaped from the murderers at \"Hardscrabble\" in spring, only to perish, with his father, during the massacre",
+          "claim": "fate"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "Gutenberg #12183 plain text (pg12183.txt; the 1873 Philadelphia reprint of the 1856 text), line 6082-6083; ch. XIX",
+          "quote": "It was his son who ran down with the discharged soldier to give the alarm of \"Indians,\" at the fort,",
+          "claim": "Wau-Bun."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17156-17158; Appendix IX, 'The Fated Company' (begins p. 428)",
+          "quote": "If the boy who escaped from the April massacre was the son of Lee, he doubtless was one of the militiamen.",
+          "claim": "Quaife App. IX."
+        }
+      ]
+    },
+    {
+      "id": "lee_daughter",
+      "name": "Lee's daughter",
+      "relationship": "daughter",
+      "grade": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "quaife_1913"
+      ],
+      "born": {
+        "value": "about 1800 (about twelve in 1812)",
+        "confidence": "inferred",
+        "sources": [
+          "kinzie_waubun_1856"
+        ],
+        "note": "The date as the cited source prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "\"Lillian Lee\" (Matson; distrusted)",
+        "Lillian Lee (Matson 1882; distrusted by Quaife)"
+      ],
+      "note": "On horseback with the column 15 Aug. After 14 August: Wounded; killed by Black Partridge to end her suffering (Wau-Bun).",
+      "evidence": [
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, PG 51737 lines 6712-6713 (1856 text as reprinted in the 1901 Caxton Club edition)",
+          "quote": "a little girl of Mrs. Lee's, about twelve years of age",
+          "claim": "age"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. XI, PG 69274 lines 10353-10355",
+          "quote": "He avers that the child who was dragged by the horse and afterward tomahawked was Lillian Lee, ten years of age",
+          "claim": "Matson variant (distrusted)"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "Gutenberg #12183 plain text (pg12183.txt; the 1873 Philadelphia reprint of the 1856 text), line 6087-6088; ch. XIX",
+          "quote": "He had been particularly attached to a little girl of Mrs. Lee's, about twelve years of age.",
+          "claim": "Wau-Bun."
+        }
+      ]
+    },
+    {
+      "id": "lee_infant",
+      "name": "The Lee baby",
+      "relationship": "child",
+      "grade": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "Survived with the mother. Heald's list counts two Lee children in captivity, one since dead. After 14 August: Fell ill in captivity; ransomed with the mother.",
+      "evidence": [
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, PG 51737 lines 6710-6711 (1856 text as reprinted in the 1901 Caxton Club edition)",
+          "quote": "except Mrs. Lee and her young infant",
+          "claim": "survived"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "app. VI, PG 69274 lines 16828-16828",
+          "quote": "Mrs. Leigh's 2 one Since Dead",
+          "claim": "Heald list"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "Gutenberg #12183 plain text (pg12183.txt; the 1873 Philadelphia reprint of the 1856 text), line 6085-6086; ch. XIX",
+          "quote": "except Mrs. Lee and her young infant. These were claimed by Black Partridge,",
+          "claim": "Wau-Bun."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16828; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's list, Appendix VI",
+          "quote": "Mrs. Leigh's 2 one Since Dead N D",
+          "claim": "Helm's children list."
+        }
+      ]
+    }
+  ]
+}

@@ -1139,6 +1139,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its eighteen outputs (data/enclosures/1812/worn_trails_1812.json and seventeen data/enclosures/1812/worn_yard_1812_*.json) and the 1812 index through generate_fort_parade_ground.py's index_1812(), changed no committed byte.",
       "placed": "not yet: it reads the 1812 sidecars (compile_scene.py's output), the 1812 enclosure records and the e1830_natural terrain, so its slot is after the sidecars and beside generate_fort_parade_ground.py; to be placed with the next pass over the furniture layer (T-3339)"
     },
+    "generate_yard_goods_1812.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-07",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote data/yard/1812/yard_goods_1812.json and data/yard/1812/index.json, changed no committed byte.",
+      "placed": "not yet: it reads the 1812 sidecars, the 1812 enclosure records (worn yards and trails written by generate_worn_ground_1812.py) and the 1812 plantings, so its slot is after generate_worn_ground_1812.py; to be placed with that tool (T-3458)"
+    },
     "generate_yard_goods.py": {
       "placement": "manifest",
       "write_mode": "(bare)",

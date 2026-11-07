@@ -3038,6 +3038,9 @@ export async function createYardGoods({
   lowSpec = false,
   /** Authored near replacements keep their exact old vehicle as a light/far/load-failure fallback. */
   replacementIds = new Set(),
+  /** T-3458: the folder under data/ the manifest and its records are read from. A scene whose
+   *  yard is not 1835's names its own (`yard_dir` in data/scenes/1812.json: `yard/1812/`). */
+  dir = 'yard/',
 } = {}) {
   const group = new THREE.Group();
   group.name = 'yard';
@@ -3066,7 +3069,7 @@ export async function createYardGoods({
   }
   let index;
   try {
-    index = await getJSON(new URL('yard/index.json', dataBase));
+    index = await getJSON(new URL(`${dir}index.json`, dataBase));
   } catch (err) {
     // Degrade to NOTHING drawn plus a recorded problem, never to an invented
     // barrel: the same contract the enclosure, signage and vegetation layers keep.
@@ -3080,7 +3083,7 @@ export async function createYardGoods({
   const loaded = await Promise.all(wanted.map(async (y) => {
     if (!y.file) return [y.id, null, 'the manifest gave no file'];
     try {
-      return [y.id, await getJSON(new URL(`yard/${y.file}`, dataBase)), null];
+      return [y.id, await getJSON(new URL(`${dir}${y.file}`, dataBase)), null];
     } catch (err) { return [y.id, null, err.message]; }
   }));
 

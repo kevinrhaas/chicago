@@ -2986,6 +2986,12 @@ step "the 1812 camp's worn ground re-derives from its camp records (T-3342)" \
 step "the 1812 worn trails and yards re-derive from the terrain and the footprints" \
   python3 tools/generate_worn_ground_1812.py --check
 
+# And what stands on that ground (T-3458): the woodpiles, chopping blocks, casks, cases and carts
+# round the 1812 houses, each placed by a fixed rule off its building's own walls and refused in
+# writing where the ground is wet, taken, fenced, on a trail or under a planted stem.
+step "the 1812 yard goods re-derive from the houses, fences, worn yards and trails (T-3458)" \
+  python3 tools/generate_yard_goods_1812.py --check
+
 # And the layer above that ground: the wood p4_0 draws outside the same walls (T-0098). Same
 # shape again — the plate attests a tree mass and places nothing, so which ground carries a
 # stem is a rule off the palisade's own footprint and its apron's own width, re-derived here.

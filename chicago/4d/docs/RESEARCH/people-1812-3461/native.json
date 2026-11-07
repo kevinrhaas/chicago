@@ -1,0 +1,1560 @@
+{
+ "scene": "Chicago, afternoon of 14 August 1812",
+ "persons": [
+  {
+   "id": "black_partridge_1812",
+   "names": [
+    "Black Partridge",
+    "the Partridge",
+    "Muck-otey-pokee (Andreas, OCR; usually written Mucktypoke)"
+   ],
+   "name_meaning": "The English name is itself the gloss; no source read here translates the Potawatomi form.",
+   "nation_band": "Potawatomi, Illinois River (village opposite the head of Peoria Lake per Andreas; 'village on the Au Sable' per Wau-Bun)",
+   "role": "chief; friendly to Kinzie and the garrison, but warned that the young men could not be restrained",
+   "sex": "male",
+   "age": null,
+   "present_14_aug": "present",
+   "presence_evidence": "Helm (contemporary, 1814) puts him at Heald's quarters on the night of the 14th; Wau-Bun puts the medal return on the evening after the 14 Aug council.",
+   "location_in_scene": "Afternoon 14 Aug: no source places him; evening of 14 Aug: the commanding officer's quarters in the fort (Helm; Wau-Bun). His wigwam is not located by any source.",
+   "part_15_16_aug": "15th: per Wau-Bun (Mrs Helm's story) pulled Mrs Helm into the lake and led her to the camp; per Wau-Bun killed the wounded Lee girl; took Mrs Lee and infant to his village. 16th: sentinel on the Kinzie porch (Wau-Bun). Helm 1814 says only that his wife was among 'squaws' and does not mention the rescue.",
+   "fate": "His village was later destroyed 'in a single day' (Andreas); ransomed Lt Helm from the Kankakee with pony, rifle and nose ring (Andreas, unsourced there).",
+   "facts": [
+    {
+     "claim": "Gave up his medal and warned Heald on the night of the 14th, with the interpreter",
+     "source": "quaife_1913",
+     "locator": "Appendix VI, Helm's narrative (1814), Gutenberg lines 16755-16757",
+     "quote": "The night of the 14th the Interpreter and a Chief black patredge waited on Capt Heald the Indian gave up his medal",
+     "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+    },
+    {
+     "claim": "Warning recorded as 'linden birds' (McAfee from Sgt Griffith); chief from the Illinois River",
+     "source": "quaife_1913",
+     "locator": "ch. X, lines 8953-8956 and fn 591 (8960-8966)",
+     "quote": "Black Partridge, a Pottawatomie chief from the Illinois River, came to him with the significant message that \"linden birds\" had been singing in his ears",
+     "tier": "secondary (Quaife) summarising two contemporary versions (Helm 1814; McAfee 1816 from Griffith)"
+    },
+    {
+     "claim": "Wau-Bun's medal speech, evening succeeding the second council of 14 Aug",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XVIII, lines 5486-5493",
+     "quote": "On the evening succeeding the council, _Black Partridge_, a conspicuous chief, entered the quarters of the commanding officer.",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    },
+    {
+     "claim": "Quaife: the speech text is Mrs Kinzie's invention, the incident real",
+     "source": "quaife_1913",
+     "locator": "Appendix II, lines 15310-15312",
+     "quote": "Mrs. Kinzie's version of his speech is just as certainly the product of her own literary imagination.",
+     "tier": "secondary history (1884-1913), cite as compiler's statement"
+    },
+    {
+     "claim": "Medal received from Wayne at Greenville (1795)",
+     "source": "andreas_1884_v1",
+     "locator": "p. 82 (OCR page header lost; local OCR lines 21080-21083)",
+     "quote": "always friendly to the whites since the treaty of Greenville, had received a medal from General Wayne at the time of that treaty.",
+     "tier": "secondary history (1884-1913), cite as compiler's statement"
+    },
+    {
+     "claim": "Wore a gold ring in his nose (dress detail; Andreas gives no source)",
+     "source": "andreas_1884_v1",
+     "locator": "p. 83, local OCR lines 21221-21223",
+     "quote": "he freely offered them his pony, his rifle and a large gold ring which he wore in his nose.",
+     "tier": "secondary history (1884-1913), cite as compiler's statement"
+    },
+    {
+     "claim": "Village location",
+     "source": "andreas_1884_v1",
+     "locator": "p. 79, local OCR lines 20729-20731",
+     "quote": "The village of Black Partridge Muck-otey-pokee was on the south side of the Illinois River, opposite the head of Peoria Lake.",
+     "tier": "secondary history (1884-1913), cite as compiler's statement [OCR spacing normalised]"
+    },
+    {
+     "claim": "Painted on the 15th; rescued Mrs Helm (her own story via Wau-Bun)",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 5631-5633",
+     "quote": "I soon recognized, in spite of the paint with which he was disguised, _The Black Partridge_.",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    },
+    {
+     "claim": "Helm's contemporary account: wife found among the women near the fort",
+     "source": "quaife_1913",
+     "locator": "Appendix VI, line 16738",
+     "quote": "to my great astonishment saw my wife siting among some squaws crying",
+     "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+    },
+    {
+     "claim": "Sentinel at Kinzie house 16 Aug",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 5837-5839",
+     "quote": "Black Partridge, Wau-ban-see, and Kee-po-tah, with two other Indians, having established themselves in the porch of the building as sentinels",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    },
+    {
+     "claim": "Fate of his village",
+     "source": "andreas_1884_v1",
+     "locator": "p. 84, local OCR lines 21327-21329",
+     "quote": "The village of Black Partridge had been destroyed in a single day, and his people killed or scattered.",
+     "tier": "secondary history (1884-1913), cite as compiler's statement"
+    }
+   ],
+   "portraits": "None known to this research. (Kirkland 1893 prints a 'Bronze Group' frontispiece, the 1893 monument, not a portrait.)",
+   "review_note": "Kirkland's description of the medal as bearing Madison's portrait (lines 2786-2790) cannot be right for a 1795 Greenville gift; medal type is unattested and must be drawn generic or omitted."
+  },
+  {
+   "id": "winnemeg_1812",
+   "names": [
+    "Winnemeg",
+    "Catfish",
+    "Winamac",
+    "Winnemac"
+   ],
+   "name_meaning": "Wau-Bun glosses it 'Catfish'.",
+   "nation_band": "Potawatomi, St Joseph River (Andreas p. 79)",
+   "role": "chief; courier who carried Hull's evacuation order to Heald",
+   "sex": "male",
+   "age": null,
+   "present_14_aug": "probably_present",
+   "presence_evidence": "Arrived 7, 8 or 9 Aug with the order (sources differ); Wau-Bun (Mrs Helm, hearsay) places him on the field on the 15th. No source names him on the 14th.",
+   "location_in_scene": "Not placed on the 14th by any source.",
+   "part_15_16_aug": "Wau-Bun: with Waubansee tried to save the wounded Wells (Kirkland, lines 1313-1333, doubts this story).",
+   "fate": "Not established from sources read here.",
+   "facts": [
+    {
+     "claim": "Brought the letter; advised immediate evacuation",
+     "source": "quaife_1913",
+     "locator": "Appendix VI, Helm (1814), lines 16629-16631",
+     "quote": "This Letter was brot by a Potowautemie Chief Winnemeg & he informed Capt. Heald through Kenzie to evacuate immediately",
+     "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+    },
+    {
+     "claim": "Quaife dates delivery to 9 Aug",
+     "source": "quaife_1913",
+     "locator": "ch. X, lines 8811-8812",
+     "quote": "The next day the Indian runner. Winnemac, delivered to Captain Heald at Fort Dearborn his order for the evacuation.",
+     "tier": "secondary history (1884-1913), cite as compiler's statement"
+    },
+    {
+     "claim": "Wau-Bun dates his arrival 7 Aug and glosses the name",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XVIII, lines 5251-5253",
+     "quote": "On the afternoon of the 7th of August, Winnemeg, or _Catfish_, a Pottowattamie chief, arrived at the post, bringing despatches from General Hull.",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    },
+    {
+     "claim": "15 Aug, with Waubansee, at Wells's death (Mrs Helm's story)",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 5726-5728",
+     "quote": "he was met by _Winnemeg_ and _Wau-ban-see_, who endeavored to save him from the savages who had now overtaken him.",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    },
+    {
+     "claim": "Village",
+     "source": "andreas_1884_v1",
+     "locator": "p. 79, local OCR lines 20731-20732",
+     "quote": "Topenebe and Winnemeg were on the St. Joseph River.",
+     "tier": "secondary history (1884-1913), cite as compiler's statement [OCR normalised]"
+    },
+    {
+     "claim": "1810: kept the Potawatomi out of the confederacy at St Joseph council",
+     "source": "andreas_1884_v1",
+     "locator": "p. 79, local OCR lines 20885-20887",
+     "quote": "through the influence of Winnemeg, the Pottawatomies did not join.",
+     "tier": "secondary history (1884-1913), cite as compiler's statement [OCR normalised]"
+    }
+   ],
+   "portraits": "None known."
+  },
+  {
+   "id": "waubansee_1812",
+   "names": [
+    "Waubansee",
+    "Wau-ban-see",
+    "Wabansia",
+    "Wabeesiuse (OCR of the May 1812 description)"
+   ],
+   "name_meaning": "No source read here translates it.",
+   "nation_band": "Potawatomi (with Chippewa and Ottawa), Fox River band of about thirty men in May 1812",
+   "role": "chief; friend of the Kinzies",
+   "sex": "male",
+   "age": null,
+   "present_14_aug": "probably_present",
+   "presence_evidence": "Wau-Bun places him at Chicago on the 15th and 16th; nothing dates his arrival.",
+   "location_in_scene": "16 Aug: Kinzie porch (Wau-Bun). Not placed on the 14th.",
+   "part_15_16_aug": "15th: with Winnemeg tried to save Wells (Wau-Bun, hearsay). 16th: sentinel at Kinzie house; Black Partridge spoke to him in the parlour (Wau-Bun).",
+   "fate": "Opposed war in 1832 (Quaife index: 'Wabansia, opposed to war, 324').",
+   "facts": [
+    {
+     "claim": "Band on the Fox River in May 1812, about thirty",
+     "source": "andreas_1884_v1",
+     "locator": "pp. 78-79, the May 1812 description of the Illinois River tribes prepared for Governor Edwards, local OCR lines 20670-20674",
+     "quote": "Waubunsee is their leader. This is a small band, about thirty.",
+     "tier": "contemporary document (May 1812) as printed by Andreas [OCR normalised: OCR reads 'Wabeesiuse (Waubunsee)']"
+    },
+    {
+     "claim": "Protected the Kinzies with Black Partridge and Caldwell",
+     "source": "andreas_1884_v1",
+     "locator": "p. 74, local OCR lines 19894-19897",
+     "quote": "the strong personal friendship and tireless vigilance of the neighboring chiefs, Black Partridge, Waubansee and Caldwell the Sauganash",
+     "tier": "secondary history (1884-1913), cite as compiler's statement [OCR normalised]"
+    },
+    {
+     "claim": "Sentinel 16 Aug",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 5837-5839",
+     "quote": "Black Partridge, Wau-ban-see, and Kee-po-tah, with two other Indians, having established themselves in the porch",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    },
+    {
+     "claim": "Present at Peoria council 16 Aug 1811",
+     "source": "andreas_1884_v1",
+     "locator": "p. 78, local OCR lines 20514-20518",
+     "quote": "Among the chiefs present were the Blackbird",
+     "tier": "secondary history (1884-1913), cite as compiler's statement"
+    }
+   ],
+   "portraits": "Charles Bird King portrait (painted later, Washington), known through the McKenney & Hall lithograph 'Wa-baun-see, a Pottawatomie chief' (new_sources whs_mckenney_hall_wa_baun_see; WHS states 'No Copyright - United States'). Also the 'Waubansa stone', a soldier's carving of his features at the second fort (Kirkland lines 4699-4705, quoting Hurlbut) - a post-1816 likeness of uncertain fidelity."
+  },
+  {
+   "id": "topenebe_1812",
+   "names": [
+    "Topenebe",
+    "To-pee-nee-bee",
+    "Topinabee"
+   ],
+   "name_meaning": "Not given in sources read.",
+   "nation_band": "Potawatomi, St Joseph's band (Michigan)",
+   "role": "principal chief; long friend of the Kinzies; brother of KawKeemee, wife of trader William Burnett",
+   "sex": "male",
+   "age": "McCoy (via Kirkland) calls him 'nearly eighty years of age' at the 1821 Chicago treaty, so born c. 1740s (derived)",
+   "present_14_aug": "probably_present",
+   "presence_evidence": "Wau-Bun has him sending two messages to Kinzie early on the 15th and personally taking Sgt Griffith prisoner near the fort that morning.",
+   "location_in_scene": "15 Aug: by the river near the fort (he paddled Griffith across). Not placed on the 14th.",
+   "part_15_16_aug": "Warned Kinzie; detained the Kinzie boat at the river mouth; spared and hid Sgt Griffith; sheltered the Kinzies at St Joseph to November.",
+   "fate": "Lived into the 1820s (1821 treaty).",
+   "facts": [
+    {
+     "claim": "Early 15 Aug warning",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 5526-5528",
+     "quote": "Early in the morning Mr. Kinzie received a message from To-pee-nee-bee, a chief of the St. Joseph's band",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    },
+    {
+     "claim": "Took Griffith prisoner, then let him hide",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 5970-5975",
+     "quote": "he was met and made prisoner by To-pee-nee-bee.",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    },
+    {
+     "claim": "Sister married Burnett",
+     "source": "quaife_1913",
+     "locator": "ch. XV, lines 13917-13918",
+     "quote": "Burnett had married KawKeemee, the sister of the Pottawatomie chieftain, Topinabee",
+     "tier": "secondary history (1884-1913), cite as compiler's statement"
+    },
+    {
+     "claim": "Age in 1821",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "lines 1965-1966 (quoting Isaac McCoy)",
+     "quote": "Topenebe, the principal chief of the Pottowatomies, a man nearly eighty years of age",
+     "tier": "later witness (McCoy, 1821) quoted by Kirkland"
+    },
+    {
+     "claim": "Firm friend of the whites (Currey)",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "lines 2363-2365",
+     "quote": "Topenebe was a chief in the Potawatami tribe, but a firm friend of the whites and especially of the Kinzie family.",
+     "tier": "secondary history (1884-1913), cite as compiler's statement"
+    }
+   ],
+   "portraits": "None verified."
+  },
+  {
+   "id": "blackbird_1812",
+   "names": [
+    "Black Bird",
+    "Blackbird",
+    "Letourneau (French name, Andreas)",
+    "Mucketepennese (Andreas OCR)",
+    "Siggenauk (Encyclopedia of Chicago identifies the 1812 Blackbird with Siggenauk)"
+   ],
+   "name_meaning": "English gloss 'Black Bird'.",
+   "nation_band": "Potawatomi; in May 1812 of Pepper's band at the Au Sable (Andreas, OCR); Encyclopedia of Chicago calls Siggenauk 'a leader from Chicago'",
+   "role": "war leader of the attack; received Heald's surrender",
+   "sex": "male",
+   "age": null,
+   "present_14_aug": "probably_present",
+   "presence_evidence": "Leader on the 15th (Heald, contemporary). Nothing places him on the 14th directly.",
+   "location_in_scene": "Not placed on the 14th.",
+   "part_15_16_aug": "Met Heald with the interpreter and requested surrender, promising to spare prisoners (Heald 1812; Helm 1814).",
+   "fate": "Not established here.",
+   "facts": [
+    {
+     "claim": "Received Heald's surrender",
+     "source": "quaife_1913",
+     "locator": "Appendix IV, Heald's report (Pittsburg, 23 Oct 1812), lines 16258-16260",
+     "quote": "I advanced towards them alone, and was met by one of the Potawatamie chiefs, called the Black Bird, with an interpreter.",
+     "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+    },
+    {
+     "claim": "Helm also names him",
+     "source": "quaife_1913",
+     "locator": "Appendix VI, lines 16691-16692",
+     "quote": "a chief by the name of Blackbird advanced to the interpiter",
+     "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+    },
+    {
+     "claim": "Quaife: probably son of the 1781 Siggenauk",
+     "source": "quaife_1913",
+     "locator": "ch. X, lines 9034-9035",
+     "quote": "Among the hostile leaders were Black Bird, probably the son of the chief who had assisted the Americans in plundering St. Joseph in 1781",
+     "tier": "secondary history (1884-1913), cite as compiler's statement"
+    },
+    {
+     "claim": "Encyclopedia of Chicago equates him with Siggenauk",
+     "source": "encyclopedia_chicago_potawatomis",
+     "locator": "entry 'Potawatomis'",
+     "quote": "led by Siggenauk and Mad Sturgeon attacked the garrison",
+     "tier": "secondary history (1884-1913), cite as compiler's statement"
+    },
+    {
+     "claim": "French and Potawatomi names (Peoria council 1811)",
+     "source": "andreas_1884_v1",
+     "locator": "p. 78, local OCR lines 20515-20517",
+     "quote": "the Blackbird known by the French as Letourneau, and by the surrounding Indians as Mucketepennese",
+     "tier": "secondary history (1884-1913), cite as compiler's statement [OCR normalised; spelling of the Potawatomi name unreliable]"
+    }
+   ],
+   "portraits": "None known.",
+   "review_note": "Quaife and the Encyclopedia disagree on whether the 1812 Black Bird is the Siggenauk of 1781 or his son; keep both ids' claims attributed."
+  },
+  {
+   "id": "nuscotnemeg_1812",
+   "names": [
+    "Nuscotnemeg",
+    "Mad Sturgeon",
+    "Nee-scot-nee-meg",
+    "Nescotnemeg"
+   ],
+   "name_meaning": "English gloss 'Mad Sturgeon' (Quaife).",
+   "nation_band": "Potawatomi",
+   "role": "hostile leader; implicated in 1810 Illinois murders",
+   "sex": "male",
+   "age": null,
+   "present_14_aug": "probably_present",
+   "presence_evidence": "Fought and was badly wounded on the 15th (Wau-Bun); named a leader by Quaife and the Encyclopedia.",
+   "location_in_scene": "Not placed.",
+   "part_15_16_aug": "Badly wounded; carried off toward the Des Plaines by the 16th (Wau-Bun).",
+   "fate": "Alive 1817, when Storrow met him at Chicago (Quaife). His daughter was Billy Caldwell's wife (Wau-Bun ch. XVII; Andreas p. 109).",
+   "facts": [
+    {
+     "claim": "Hostile leader",
+     "source": "quaife_1913",
+     "locator": "ch. X, lines 9036-9037",
+     "quote": "Nuscotnemeg, or the Mad Sturgeon, already guilty of many murders committed against the whites.",
+     "tier": "secondary history (1884-1913), cite as compiler's statement"
+    },
+    {
+     "claim": "Wounded, met at the Aux Plaines by the Wabash party",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 5856-5858",
+     "quote": "a party of their friends having with them their chief Nee-scot-nee-meg, badly wounded",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    },
+    {
+     "claim": "Met at Chicago in 1817",
+     "source": "quaife_1913",
+     "locator": "ch. XII area, lines 11293-11294",
+     "quote": "Storrow encountered one of the \"principal perpetrators,\" Nuscotnemeg, or the Mad Sturgeon.",
+     "tier": "secondary history (1884-1913), cite as compiler's statement"
+    },
+    {
+     "claim": "Father-in-law of Billy Caldwell",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XVII, lines 4676-4679",
+     "quote": "his wife, who was a daughter of Nee-scot-nee-meg, one of the most famous chiefs of the nation.",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    }
+   ],
+   "portraits": "None known."
+  },
+  {
+   "id": "keepotah_1812",
+   "names": [
+    "Kee-po-tah",
+    "Keepoteh"
+   ],
+   "name_meaning": "Not given.",
+   "nation_band": "Potawatomi (band not stated; with To-pee-nee-bee at St Joseph in autumn 1812)",
+   "role": "chief; Kinzie family's protector",
+   "sex": "male",
+   "age": null,
+   "present_14_aug": "probably_present",
+   "presence_evidence": "Guarded the Kinzie boat at the river mouth on the morning of the 15th (Wau-Bun), so very likely at Chicago on the 14th.",
+   "location_in_scene": "15th: in the Kinzie boat at the river mouth; 16th: Kinzie porch.",
+   "part_15_16_aug": "Protected Mrs Kinzie's boat; sentinel on the 16th; escorted the family to Detroit in November 1812; had met Harrison at the 1811 Vincennes council.",
+   "fate": "With the Kinzies at Detroit, autumn 1813 (Wau-Bun ch. XX).",
+   "facts": [
+    {
+     "claim": "Guarded the boat",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 5766-5768",
+     "quote": "were carefully guarded by Kee-po-tah and another Indian.",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    },
+    {
+     "claim": "Escort to Detroit",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 5996-5998",
+     "quote": "under the escort of Chandonnai and their trusty Indian friend, Kee-po-tah",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    },
+    {
+     "claim": "Known to Harrison",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XX, lines 6322-6324",
+     "quote": "he was introduced to Kee-po-tah, who happened to be on a visit to the family at that time.",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    }
+   ],
+   "portraits": "None known."
+  },
+  {
+   "id": "peesotum_1812",
+   "names": [
+    "Pee-so-tum",
+    "Pesotum"
+   ],
+   "name_meaning": "Not given.",
+   "nation_band": "Potawatomi (band not stated)",
+   "role": "warrior",
+   "sex": "male",
+   "age": null,
+   "present_14_aug": "probably_present",
+   "presence_evidence": "At the camp on the 15th with Wells's scalp (Mrs Helm via Wau-Bun).",
+   "location_in_scene": "15th: walking Mrs Helm from the prairie to the camp's wigwams.",
+   "part_15_16_aug": "Mrs Helm says he carried Wells's scalp and (hearsay) stabbed Wells; Kirkland doubts the circumstances.",
+   "fate": "Unknown.",
+   "facts": [
+    {
+     "claim": "Helped Mrs Helm to the wigwams",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 5647-5650",
+     "quote": "Pee-so-tum, who held dangling in his hand a scalp, which by the black ribbon around the queue I recognized as that of Captain Wells",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    },
+    {
+     "claim": "Kirkland's doubt",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "lines 1332-1333",
+     "quote": "Pee-so-tum may have killed and scalped Wells, but it surely was not under such circumstances as those above set forth.",
+     "tier": "secondary history (1884-1913), cite as compiler's statement"
+    }
+   ],
+   "portraits": "None."
+  },
+  {
+   "id": "waubeeneemah_1812",
+   "names": [
+    "Wau-bee-nee-mah",
+    "Wah-bee-nee-mah (Kirkland's reprint)"
+   ],
+   "name_meaning": "Not given.",
+   "nation_band": "Potawatomi, Illinois River",
+   "role": "chief, with a wigwam in the camp by the creek",
+   "sex": "male",
+   "age": null,
+   "present_14_aug": "probably_present",
+   "presence_evidence": "His family's wigwam stood in the encampment on the 15th, beside the creek (Wau-Bun, Mrs Helm); a lodge standing on the 15th was very likely pitched by the 14th.",
+   "location_in_scene": "A wigwam beside the stream 'along the present State Street' (Wau-Bun fn 36), in the camp on the river's south bank: i.e. one of the potawatomi_camp_1812 grounds, which one unknown.",
+   "part_15_16_aug": "Stretched a mat across two poles to screen Mrs Helm from the killing of a wounded prisoner.",
+   "fate": "Unknown.",
+   "facts": [
+    {
+     "claim": "Chief from the Illinois River; his wife's kettle and the creek",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 5652-5654 and fn 36 (line 12680)",
+     "quote": "The wife of Wau-bee-nee-mah, a chief from the Illinois River, was standing near",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    },
+    {
+     "claim": "The mat screen",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 5690-5691",
+     "quote": "Wau-bee-nee-mah stretched a mat across two poles, between me and this dreadful scene.",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    }
+   ],
+   "portraits": "None."
+  },
+  {
+   "id": "wife_of_waubeeneemah_1812",
+   "names": [
+    "the wife of Wau-bee-nee-mah (unnamed)"
+   ],
+   "nation_band": "Potawatomi, Illinois River",
+   "role": "woman of the camp; gave Mrs Helm maple-sugar water",
+   "sex": "female",
+   "age": null,
+   "present_14_aug": "probably_present",
+   "presence_evidence": "At her wigwam by the creek on the 15th.",
+   "location_in_scene": "Beside her wigwam on the creek bank, with a kettle; the creek is the State Street swale (Wau-Bun fn 36; Kirkland's bracket: the slough at the south end of State Street bridge).",
+   "part_15_16_aug": "Dipped water from the stream, stirred in maple sugar with her hand and gave it to Mrs Helm.",
+   "fate": "Unknown.",
+   "facts": [
+    {
+     "claim": "The act of kindness",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 5653-5656",
+     "quote": "she seized a kettle, dipped up some water from a stream that flowed near,[36] threw into it some maple-sugar",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    },
+    {
+     "claim": "The stream located",
+     "source": "kinzie_waubun_1856",
+     "locator": "fn 36, line 12680",
+     "quote": "Along the present State Street.",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    }
+   ],
+   "depiction_note": "The best-evidenced individual Potawatomi woman for the scene: a kettle, maple sugar, water from the creek. Dress not described; reconstruct from dress_evidence. Her act is on the 15th; on the 14th she may be shown at ordinary camp work, declared reconstructed."
+  },
+  {
+   "id": "naunongee_1812",
+   "names": [
+    "Nau-non-gee",
+    "Naunongee",
+    "possibly the 'Mau-nun-gai' (OCR 'Mau-mm-gai') named second chief of the Little Calumet village in May 1812 (Andreas p. 79) - identity NOT asserted"
+   ],
+   "nation_band": "Potawatomi, Calumet village",
+   "role": "one of the chiefs of the Calumet village",
+   "sex": "male",
+   "age": null,
+   "present_14_aug": "probably_present",
+   "presence_evidence": "Fought on the 15th (Wau-Bun).",
+   "location_in_scene": "Not placed.",
+   "part_15_16_aug": "Killed Sgt Hays and was mortally wounded by Hays's bayonet; died days later at the Calumet village (Wau-Bun). Schoolcraft 1820 (via Quaife) tells the same duel with the Indian unnamed.",
+   "fate": "Died of the wound some days after 15 Aug.",
+   "facts": [
+    {
+     "claim": "Spring 1812 remark at the fort",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XVIII, lines 5112-5114",
+     "quote": "one of them, Nau-non-gee, remarked, \"The white chiefs' wives are amusing themselves very much",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    },
+    {
+     "claim": "Death",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 6140-6141 and 6155-6156",
+     "quote": "The fate of Nau-non-gee, one of the chiefs of the Calumet village",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    },
+    {
+     "claim": "Unnamed in the 1820 version",
+     "source": "quaife_1913",
+     "locator": "ch. X, lines 9253-9254 (fn 597, Schoolcraft 1820, 392)",
+     "quote": "Before the warrior could strike Hayes ran his bayonet into his breast up to the socket",
+     "tier": "later witness (Schoolcraft 1820, from Kinzie) via Quaife"
+    },
+    {
+     "claim": "May 1812: Little Calumet village chiefs",
+     "source": "andreas_1884_v1",
+     "locator": "pp. 79-80, local OCR lines 20714-20721",
+     "quote": "Old Campignan is their chief.",
+     "tier": "contemporary document (May 1812) as printed by Andreas [OCR normalised; the village size figure is illegible in the OCR]"
+    }
+   ]
+  },
+  {
+   "id": "pierre_leclerc_1812",
+   "names": [
+    "Pierre Le Claire",
+    "Peresh Leclerc",
+    "Le Clerc"
+   ],
+   "nation_band": "Metis ('half-breed'), in Kinzie's service",
+   "role": "interpreter who negotiated the surrender; said to have brought news of war from St Joseph",
+   "sex": "male",
+   "age": "Wau-Bun calls him a 'boy'",
+   "present_14_aug": "present",
+   "presence_evidence": "Helm: the interpreter 'had lived a long time within a few yards of the fort'.",
+   "location_in_scene": "Lived within a few yards of the fort (Helm); exact house not identified (the civilian researcher may match him to a house).",
+   "part_15_16_aug": "Marched with the troops, went over to the Indians, carried the surrender terms (Helm; Wau-Bun).",
+   "fate": "Granted a section on the Elkhart, 1821 treaty (Quaife).",
+   "facts": [
+    {
+     "claim": "The interpreter in Helm",
+     "source": "quaife_1913",
+     "locator": "Appendix VI, lines 16689-16691",
+     "quote": "the interpiter was a half indean and had lived a long time within a few yards of the fort and bound to Mr. Kinzie",
+     "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+    },
+    {
+     "claim": "Named in Wau-Bun",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 5705-5706",
+     "quote": "Lieutenant Helm sent Peresh Leclerc, a half-breed boy in the service of Mr. Kinzie",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    },
+    {
+     "claim": "News of war (tradition)",
+     "source": "quaife_1913",
+     "locator": "ch. X, lines 8688-8691",
+     "quote": "the news was brought by Pierre Le Claire, a half-breed who figured in the negotiations for the surrender",
+     "tier": "tradition via Hubbard, reported by Quaife"
+    }
+   ],
+   "overlap": "Metis household member; civilian researchers may also list him."
+  },
+  {
+   "id": "jean_baptiste_chandonnai_1812",
+   "names": [
+    "Jean Baptiste Chandonnai",
+    "Chandonnais",
+    "Chandonnis"
+   ],
+   "nation_band": "Metis ('half-breed'; Potawatomi connections)",
+   "role": "clerk of John Kinzie",
+   "sex": "male",
+   "age": "'a young man' (1812 obituary text quoted in Darius Heald's narrative)",
+   "present_14_aug": "present",
+   "presence_evidence": "In the Kinzie boat on the 15th (Wau-Bun); Kinzie's clerk resident at Chicago.",
+   "location_in_scene": "Kinzie establishment, north bank.",
+   "part_15_16_aug": "Ransomed Mrs Heald (mule and whiskey promise) and reunited the Healds; escorted them toward St Joseph.",
+   "fate": "Fur trader after the war; visited the Healds in Missouri c. 1831; 1821 treaty grant.",
+   "facts": [
+    {
+     "claim": "Quaife's summary",
+     "source": "quaife_1913",
+     "locator": "ch. X, lines 9028-9030",
+     "quote": "Chandonnai, the half-breed, staunch friend of the Americans, whom all authorities unite in crediting with noble exertions to save the prisoners.",
+     "tier": "secondary history (1884-1913), cite as compiler's statement"
+    },
+    {
+     "claim": "Family tradition (Heald)",
+     "source": "quaife_1913",
+     "locator": "Appendix V, lines 16329-16330",
+     "quote": "a half-breed connected with the Indians by the name of _Jean Baptist Chandonnis_",
+     "tier": "late recollection (participant or family, told 1868-1876)"
+    },
+    {
+     "claim": "Kinzie's clerk",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, line 5775",
+     "quote": "Run, Chandonnai,\" to one of Mr. Kinzie's clerks",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    }
+   ],
+   "overlap": "Kinzie household; civilian researchers may also list him."
+  },
+  {
+   "id": "alexander_robinson_1812",
+   "names": [
+    "Alexander Robinson",
+    "Che-che-pin-qua (Andreas)",
+    "Chechepinquay (Indigenous Chicago)"
+   ],
+   "name_meaning": "Not given in sources read.",
+   "nation_band": "Odawa-born Metis (Odawa mother, Scottish father), later chief of the united Potawatomi, Chippewa and Ottawa",
+   "role": "trader from St Joseph; protector of the Kinzies and the Healds",
+   "sex": "male",
+   "age": "born at Mackinac 1762 'according to popular belief' (Andreas p. 108); the dates are doubtful",
+   "present_14_aug": "uncertain",
+   "presence_evidence": "Andreas: 'arrived on the scene too late to do anything to prevent the massacre, of which he was a witness' (self-contradictory). Quaife lists him among the chiefs on the eve and calls him a chief 'in the massacre'; Wau-Bun puts him only at St Joseph afterwards; Indigenous Chicago says he moved to Chicago after the war. Leave him out of the 14 Aug crowd, or mark reconstructed.",
+   "location_in_scene": "Not placed.",
+   "part_15_16_aug": "After 15 Aug sheltered the Kinzies at St Joseph and with his wife paddled the Healds to Mackinac for $100.",
+   "fate": "Lived on his Des Plaines reservation until his death on 22 April 1872 (Andreas).",
+   "facts": [
+    {
+     "claim": "Arrived too late",
+     "source": "andreas_1884_v1",
+     "locator": "p. 108, local OCR lines 25427-25428",
+     "quote": "He arrived on the scene too late to do anything to prevent the massacre, of which he was a witness",
+     "tier": "secondary history (1884-1913), cite as compiler's statement"
+    },
+    {
+     "claim": "Born Mackinac 1762 (popular belief)",
+     "source": "andreas_1884_v1",
+     "locator": "p. 108, local OCR lines 25412-25415",
+     "quote": "Alexander Robinson (Che-che-pin-qua), a chief of the United Pottawatomies, Chippewas and Ottawas, was born at Mackinaw, 1762, according to popular belief",
+     "tier": "secondary history (1884-1913), cite as compiler's statement [OCR normalised]"
+    },
+    {
+     "claim": "Canoe to Mackinac with his wife",
+     "source": "quaife_1913",
+     "locator": "ch. XI, lines 9758-9760",
+     "quote": "Alexander Robinson, was prevailed upon to conduct them to Mackinac in his birch-bark canoe. He was assisted by his squaw",
+     "tier": "secondary history (1884-1913), cite as compiler's statement"
+    },
+    {
+     "claim": "Heald family memorandum: paid $100",
+     "source": "quaife_1913",
+     "locator": "Appendix V, lines 16505-16507",
+     "quote": "gave the since chief Alex. Robinson $100. for conveying Maj. Heald & wife to Mackinaw",
+     "tier": "late recollection (participant or family, told 1868-1876)"
+    },
+    {
+     "claim": "Indigenous Chicago profile",
+     "source": "indigenous_chicago_alexander_robinson",
+     "locator": "profile text",
+     "quote": "born to a Odawa mother and a Scottish father at Fort Mackinac",
+     "tier": "modern curated profile"
+    }
+   ],
+   "portraits": "Kirkland 1893 prints 'ALEXANDER ROBINSON (in old age)' (pg59624 lines 3141-3143), public domain by date; original photograph not traced here."
+  },
+  {
+   "id": "billy_caldwell_1812",
+   "names": [
+    "Billy Caldwell",
+    "Sauganash ('the Englishman')",
+    "'Straight Tree' (his first Indian name, per Andreas)"
+   ],
+   "name_meaning": "Sau-ga-nash = Englishman (Wau-Bun fn 38; Currey); 'Straight Tree' for his fine appearance (Andreas).",
+   "nation_band": "Metis: Potawatomi mother, British (Irish-born) officer father",
+   "role": "Potawatomi chief; in 1812 allied with Tecumseh and the British",
+   "sex": "male",
+   "age": "born about 1780 (Andreas p. 108)",
+   "present_14_aug": "absent",
+   "presence_evidence": "Andreas: he and Shabbona 'do not appear to have been present'; Currey: 'not present at the evacuation'; Wau-Bun brings him by canoe on the 16th; Matson (from Shabbona) brings him after dark on the 15th.",
+   "location_in_scene": "Not in the 14 Aug scene.",
+   "part_15_16_aug": "Arrived by canoe across the river and talked the Wabash party out of harming the Kinzies (Wau-Bun 16th; Matson 15th night). Quaife: a 'kernel of fact' at most.",
+   "fate": "Removed west with the Potawatomi in 1836; died at Council Bluffs, 28 Sept 1841 (Kirkland App. H).",
+   "facts": [
+    {
+     "claim": "Not present before the battle",
+     "source": "andreas_1884_v1",
+     "locator": "p. 108, local OCR lines 25492-25494",
+     "quote": "He and Shaw-bo-nee, do not appear to have been present at Fort Dearborn before or at the time of the massacre",
+     "tier": "secondary history (1884-1913), cite as compiler's statement [OCR normalised]"
+    },
+    {
+     "claim": "Not present (Currey)",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "lines 2974-2975",
+     "quote": "He was not present at the evacuation and massacre of the day before",
+     "tier": "secondary history (1884-1913), cite as compiler's statement"
+    },
+    {
+     "claim": "Arrival story",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, line 5933 and fn 38 (12685)",
+     "quote": "\"I am a _Sau-ga-nash_!\"",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented) - dialogue, not to be presented as attested"
+    },
+    {
+     "claim": "Quaife's caution",
+     "source": "quaife_1913",
+     "locator": "fn 631, lines 9935-9943",
+     "quote": "Probably there was a kernel of fact around which the story of the rescue of the family by Billy Caldwell",
+     "tier": "secondary history (1884-1913), cite as compiler's statement"
+    }
+   ],
+   "portraits": "No portrait verified in this research (Kirkland reproduces only his signature, pg59624 line 6787)."
+  },
+  {
+   "id": "shabbona_1812",
+   "names": [
+    "Shabbona",
+    "Shau-be-na",
+    "Shabonee",
+    "Chamblee / Chamblie",
+    "Shaw-bo-nee"
+   ],
+   "nation_band": "Ottawa by birth, married into and led a Potawatomi band (Illinois River, later Shabbona Grove)",
+   "role": "chief; aide to Tecumseh 1812-13",
+   "sex": "male",
+   "age": "born 1775 or 1776 by his own statement (Matson); about 1775 (Andreas)",
+   "present_14_aug": "absent",
+   "presence_evidence": "By his own account (via Matson) he set out after hearing that warriors had gone to Chicago and arrived a few hours after the battle, with twenty-two warriors.",
+   "location_in_scene": "Not in the 14 Aug scene.",
+   "part_15_16_aug": "Afternoon/night of 15th: among the warriors guarding the Kinzie porch under Black Partridge (his account via Matson).",
+   "fate": "Died near Morris, Illinois, July 1859 (Andreas).",
+   "facts": [
+    {
+     "claim": "Arrived after the battle",
+     "source": "matson_1876_sketch_of_shaubena",
+     "locator": "WHC vol. 7, p. 416, local lines 22279-22284",
+     "quote": "he mounted his pony and followed them, arriving there after the soldiers were massacred.",
+     "tier": "late recollection (participant or family, told 1868-1876) (Matson, from Shabbona's own statements)"
+    },
+    {
+     "claim": "Twenty-two warriors",
+     "source": "matson_1876_sketch_of_shaubena",
+     "locator": "p. 417, local lines 22295-22297",
+     "quote": "It was in the afternoon of the fatal day, a few hours after the battle, when, in company with twenty-two warriors, he arrived at Chicago.",
+     "tier": "late recollection (participant or family, told 1868-1876) [OCR normalised]"
+    },
+    {
+     "claim": "Birth",
+     "source": "matson_1876_sketch_of_shaubena",
+     "locator": "p. 415, local lines 22187-22189",
+     "quote": "he was born in the year 1775 or 1776, at an Indian village on the Kankakee River",
+     "tier": "late recollection (participant or family, told 1868-1876) [OCR normalised]"
+    },
+    {
+     "claim": "Not present (Andreas)",
+     "source": "andreas_1884_v1",
+     "locator": "p. 108, local OCR lines 25492-25494",
+     "quote": "do not appear to have been present at Fort Dearborn before or at the time of the massacre",
+     "tier": "secondary history (1884-1913), cite as compiler's statement"
+    }
+   ],
+   "portraits": "Oil portrait 1859 by E. S. Webber, Chicago History Museum ICHi-062493 (accession 1920.652), 'No Copyright - United States'; Kirkland 1893 prints 'SHAUBENA IN OLD AGE (ABOUT 1856)' (pg59624 line 4378). Andreas p. 110 notes a portrait then at the Chicago Historical Society. All late (1850s); not evidence for 1812 dress."
+  },
+  {
+   "id": "main_poc_1812",
+   "names": [
+    "Main Poc",
+    "Little Chief (Lalime's letter, via Andreas)"
+   ],
+   "nation_band": "Potawatomi, Kankakee River",
+   "role": "war chief hostile to the Americans",
+   "sex": "male",
+   "age": null,
+   "present_14_aug": "absent",
+   "presence_evidence": "The Missouri Gazette (19 Sept 1812, via Quaife) has him fighting with Tecumseh near Malden and sending a runner to Chicago.",
+   "facts": [
+    {
+     "claim": "Absent, sent runner",
+     "source": "quaife_1913",
+     "locator": "Appendix II, lines 15732-15734",
+     "quote": "He had been sent by Main Poc ... who lived on the Kankakee but who was now fighting with Tecumseh's forces near Maiden.",
+     "tier": "contemporary newspaper (Missouri Gazette, 19 Sept 1812) via Quaife's reading of Draper's copy"
+    }
+   ]
+  },
+  {
+   "id": "main_poc_runner_1812",
+   "names": [
+    "an Indian runner from Main Poc (unnamed)"
+   ],
+   "nation_band": "Potawatomi (presumed)",
+   "role": "messenger bearing a large red belt and news of British success",
+   "sex": "male",
+   "age": null,
+   "present_14_aug": "present",
+   "presence_evidence": "Arrived on the 14th (Missouri Gazette via Quaife).",
+   "location_in_scene": "Not placed.",
+   "facts": [
+    {
+     "claim": "Arrived on the 14th with a red belt",
+     "source": "quaife_1913",
+     "locator": "Appendix II, lines 15731-15732",
+     "quote": "on the fourteenth an Indian runner arrived with a large red belt.",
+     "tier": "contemporary newspaper (Missouri Gazette, 19 Sept 1812) via Quaife"
+    }
+   ],
+   "depiction_note": "One of the few things attested for the 14th itself. The belt's form is not described beyond 'large red belt'; draw as reconstructed or leave out."
+  },
+  {
+   "id": "william_wells_1812",
+   "names": [
+    "Captain William Wells",
+    "Ep-i-con-yare (what the Indians called a Wells, per the Heald family)"
+   ],
+   "nation_band": "Kentucky-born, adopted by the Miami; son-in-law of Little Turtle",
+   "role": "Indian agent/interpreter from Fort Wayne leading the Miami escort; uncle of Rebekah Heald",
+   "sex": "male",
+   "age": "'a man about forty years of age' (Currey)",
+   "present_14_aug": "present",
+   "presence_evidence": "Arrived 13 Aug (Heald 1812), 12 Aug (Helm 1814), or 14 Aug (Wau-Bun). Heald's dating preferred.",
+   "location_in_scene": "With Heald in and about the fort; the Miamis' camp is not located by any source.",
+   "part_15_16_aug": "Led the advance with blackened face; killed; heart eaten (Quaife).",
+   "fate": "Killed 15 Aug 1812.",
+   "facts": [
+    {
+     "claim": "Arrival with about 30 Miamis on the 13th",
+     "source": "quaife_1913",
+     "locator": "Appendix IV, Heald's report, lines 16229-16231",
+     "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
+     "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+    },
+    {
+     "claim": "Helm: 12th, 27 Miamis",
+     "source": "quaife_1913",
+     "locator": "Appendix VI, lines 16634-16635",
+     "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
+     "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+    },
+    {
+     "claim": "Wau-Bun: 14th, fifteen Miamis",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XVIII, lines 5446-5448",
+     "quote": "the arrival, on the 14th of August, of Captain Wells[33] with fifteen friendly Miamis.",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    },
+    {
+     "claim": "Painted and dressed like an Indian",
+     "source": "quaife_1913",
+     "locator": "Appendix V (Darius Heald to Draper, 1868), lines 16395-16396",
+     "quote": "readily recognized him, though painted black & dressed like an Indian",
+     "tier": "late recollection (participant or family, told 1868-1876)"
+    },
+    {
+     "claim": "Name Epiconyare",
+     "source": "quaife_1913",
+     "locator": "Appendix V, lines 16412-16413",
+     "quote": "the Indians charged her with being an _Ep-i-con-yare--a_ Wells.",
+     "tier": "late recollection (participant or family, told 1868-1876)"
+    }
+   ],
+   "portraits": "Kirkland 1893 prints an illustration 'WILLIAM WELLS' (pg59624 line 2892), origin not stated; treat as unverified."
+  },
+  {
+   "id": "miami_escort_1812",
+   "names": [
+    "Wells's Miami escort (no individual named in any source read)"
+   ],
+   "nation_band": "Miami, Fort Wayne",
+   "role": "mounted escort",
+   "sex": "male",
+   "count": "about 30 (Heald 1812; Kirkland; Currey), 27 (Helm 1814), fifteen (Wau-Bun); Andreas: fifteen in the advance and fifteen in the rear",
+   "present_14_aug": "present",
+   "presence_evidence": "Arrived 13 Aug (Heald).",
+   "location_in_scene": "Not placed. Currey has them 'mounted on ponies'.",
+   "part_15_16_aug": "Half led the column, half the rear; they did not fight and fled at the first fire (Heald; Quaife).",
+   "facts": [
+    {
+     "claim": "Mounted",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "lines 2180-2182",
+     "quote": "at the head of a band of about thirty friendly Indians of the Miami tribe mounted on ponies.",
+     "tier": "secondary history (1884-1913), cite as compiler's statement"
+    },
+    {
+     "claim": "Did not assist",
+     "source": "quaife_1913",
+     "locator": "Appendix IV, line 16253",
+     "quote": "finding the Miamies did not assist us",
+     "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+    },
+    {
+     "claim": "Their unnamed chief's speech (Wau-Bun)",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 5575-5577",
+     "quote": "The Miamis fled at the outset. Their chief rode up to the Pottowattamies",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented); Quaife App. II (lines 15316-15320) says Mrs Helm could not have heard the speech"
+    }
+   ],
+   "names_search_note": "No Miami of the escort is named in Heald, Helm, Wau-Bun, Quaife, Kirkland, Currey or Andreas. 'Corn Plant' has no support: Wau-Bun's only Corn-Planter (fn 42, line 12702) is the Seneca 'Big White Man' of an eighteenth-century captivity, not 1812. The 'White Racoon' of the Walter Jordan letter (Niles' Register 1813) is dismissed by Kirkland (lines 3655-3720) as a fabrication."
+  },
+  {
+   "id": "potawatomi_women_children_1812",
+   "names": [
+    "the women and children of the August 1812 camp (group)"
+   ],
+   "nation_band": "Potawatomi with some Ottawa and Chippewa",
+   "sex": "female and children",
+   "count": "179 women and children counted on 12 Aug (Helm 1814)",
+   "present_14_aug": "present",
+   "presence_evidence": "Helm's count of 12 Aug; Quaife; Wau-Bun's 'Indian camp, near the fort, where had been left their squaws and children'.",
+   "location_in_scene": "The camp on the State Street creek (potawatomi_camp_1812_*).",
+   "facts": [
+    {
+     "claim": "Count",
+     "source": "quaife_1913",
+     "locator": "Appendix VI, lines 16635-16636",
+     "quote": "the tribes there assembled to amount of 500 warriors 179 women & children",
+     "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+    },
+    {
+     "claim": "Present in numbers",
+     "source": "quaife_1913",
+     "locator": "ch. X, lines 8996-8998",
+     "quote": "Several hundred red warriors, many of them accompanied by their squaws and children, had gathered about the doomed garrison.",
+     "tier": "secondary history (1884-1913), cite as compiler's statement"
+    },
+    {
+     "claim": "Camp near the fort",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 5720-5721",
+     "quote": "started for the Indian camp, near the fort, where had been left their squaws and children.",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    },
+    {
+     "claim": "Women active in the days before (Wau-Bun)",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XVIII, lines 5359-5362",
+     "quote": "while the squaws rushed to and fro, in great excitement",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    },
+    {
+     "claim": "Women dressed Mrs Heald's wounds (15th)",
+     "source": "quaife_1913",
+     "locator": "Appendix V, lines 16430-16431",
+     "quote": "to dress the wounds with poultices, which they did",
+     "tier": "late recollection (participant or family, told 1868-1876)"
+    },
+    {
+     "claim": "Two half-grown boys (15th, Moses Morgan's narrative)",
+     "source": "quaife_1913",
+     "locator": "Appendix II, lines 16035-16037",
+     "quote": "two half-grown Pottawatomie boys began shooting at the animals hitched to the wagons",
+     "tier": "late recollection of a non-participant (Morgan), via Quaife"
+    }
+   ],
+   "depiction_note": "Quaife's text uses the period word 'squaws'; the project should write 'women'. No woman's name survives except as 'the wife of' a man."
+  },
+  {
+   "id": "unnamed_chief_guarding_helm_1812",
+   "names": [
+    "a chief who guarded Lt Helm (unnamed)"
+   ],
+   "nation_band": "Potawatomi (presumed)",
+   "sex": "male",
+   "present_14_aug": "probably_present",
+   "facts": [
+    {
+     "claim": "Prevented Helm's stripping and led him to water",
+     "source": "quaife_1913",
+     "locator": "Appendix VI, lines 16735-16737",
+     "quote": "they attempted to strip me but were prevented by a chief who stuck close to me",
+     "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+    }
+   ]
+  },
+  {
+   "id": "kankakee_captor_of_heald_1812",
+   "names": [
+    "an Indian from the Kankakee who took Captain Heald (unnamed)"
+   ],
+   "nation_band": "Potawatomi (Kankakee)",
+   "sex": "male",
+   "present_14_aug": "probably_present",
+   "facts": [
+    {
+     "claim": "Captor from the Kankakee",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 6038-6039",
+     "quote": "Captain Heald had been taken prisoner by an Indian from the Kankakee",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    },
+    {
+     "claim": "Name unknown to the Healds",
+     "source": "quaife_1913",
+     "locator": "Appendix V, lines 16480-16481",
+     "quote": "Don't know the name of the Indian who took Capt. Heald.",
+     "tier": "late recollection (participant or family, told 1868-1876)"
+    }
+   ]
+  },
+  {
+   "id": "young_chief_captor_of_mrs_heald_1812",
+   "names": [
+    "a young chief who took Mrs Heald, and his wife (both unnamed)"
+   ],
+   "nation_band": "not stated",
+   "sex": "male (and his wife)",
+   "present_14_aug": "probably_present",
+   "facts": [
+    {
+     "claim": "A young chief",
+     "source": "quaife_1913",
+     "locator": "Appendix V, lines 16410-16411",
+     "quote": "Doesn't know what Indian took her, except that he was a young chief.",
+     "tier": "late recollection (participant or family, told 1868-1876)"
+    },
+    {
+     "claim": "His wife tried to take the saddle blanket",
+     "source": "quaife_1913",
+     "locator": "Appendix V, lines 16414-16416",
+     "quote": "one of these forest ladies at once commenced pulling out the blanket from under Mrs. Heald",
+     "tier": "late recollection (participant or family, told 1868-1876)"
+    }
+   ]
+  },
+  {
+   "id": "old_woman_stable_fork_1812",
+   "names": [
+    "an old woman of the camp (unnamed)"
+   ],
+   "sex": "female",
+   "present_14_aug": "probably_present",
+   "facts": [
+    {
+     "claim": "Killed a wounded prisoner in camp on the 15th",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 5685-5688",
+     "quote": "She seized a stable-fork and assaulted one miserable victim",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    },
+    {
+     "claim": "Burns killed by a woman (Griffith, via Quaife)",
+     "source": "quaife_1913",
+     "locator": "ch. XI, lines 9411-9413",
+     "quote": "Burns, who had been wounded in the battle, was killed by a squaw about an hour after its conclusion.",
+     "tier": "contemporary letter (Griffith to Heald, 1820) via Quaife"
+    }
+   ],
+   "depiction_note": "A 15 Aug event; not for the 14 Aug scene."
+  },
+  {
+   "id": "old_chief_kinzie_house_1812",
+   "names": [
+    "an old chief at the Kinzie house (unnamed)"
+   ],
+   "sex": "male",
+   "present_14_aug": "probably_present",
+   "facts": [
+    {
+     "claim": "Declined to extract the ball from Mrs Heald's arm",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 5815-5817",
+     "quote": "Mr. K. applied to an old chief who stood by, and who, like most of his tribe, possessed some skill in surgery",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    }
+   ]
+  },
+  {
+   "id": "kinzie_boat_protector_1812",
+   "names": [
+    "the second Indian guarding the Kinzie boat (unnamed)"
+   ],
+   "sex": "male",
+   "present_14_aug": "probably_present",
+   "facts": [
+    {
+     "claim": "Two Indian protectors in the boat",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 5537-5539",
+     "quote": "besides the two Indians who acted as their protectors.",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    }
+   ]
+  },
+  {
+   "id": "francois_interpreter_1812",
+   "names": [
+    "François, a 'half-breed' interpreter"
+   ],
+   "nation_band": "Metis",
+   "sex": "male",
+   "present_14_aug": "probably_present",
+   "facts": [
+    {
+     "claim": "Took the Kinzies to St Joseph on the third day after the battle",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 5992-5995",
+     "quote": "under the care of François, a half-breed interpreter",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    }
+   ],
+   "overlap": "Kinzie establishment; may duplicate a civilian record."
+  },
+  {
+   "id": "cowabeemai_1812",
+   "names": [
+    "Co-wa-bee-mai (OCR 'Co-wa-bce-mai')"
+   ],
+   "nation_band": "Potawatomi, Chippewa and Ottawa village of about thirty men at the Chicago portage, three leagues from the fort (May 1812)",
+   "role": "chief of the village nearest the fort",
+   "sex": "male",
+   "present_14_aug": "unknown",
+   "presence_evidence": "No source places him at the August gathering; listed because his village is the closest documented one and its men are likely among those who 'came in from all quarters' (Heald).",
+   "facts": [
+    {
+     "claim": "The portage village",
+     "source": "andreas_1884_v1",
+     "locator": "p. 79, local OCR lines 20707-20710",
+     "quote": "At the camping place of Chicago, three leagues from the Lake Michigan, or Chicago Fort, is a village of Pottawatomies, Chippewas and Ottawas",
+     "tier": "contemporary document (May 1812) as printed by Andreas [OCR normalised]"
+    }
+   ]
+  },
+  {
+   "id": "wabash_party_1812",
+   "names": [
+    "the 'Wabash' Potawatomi party (group)"
+   ],
+   "present_14_aug": "absent",
+   "presence_evidence": "Arrived after the battle (16th in Wau-Bun; after dark on the 15th in Matson).",
+   "facts": [
+    {
+     "claim": "Late arrivals with blackened faces",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 5843-5845 and 5861",
+     "quote": "On arriving at Chicago they blackened their faces",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    }
+   ]
+  },
+  {
+   "id": "note_ouilmette_household_1812",
+   "names": [
+    "Archange Ouilmette (Ouilmette's Potawatomi wife)",
+    "Mrs Bisson, her sister"
+   ],
+   "present_14_aug": "present",
+   "note_only": true,
+   "facts": [
+    {
+     "claim": "The Ouilmette house hid Mrs Helm on the 16th",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XIX, lines 5871-5873 and 5879-5881",
+     "quote": "the house of Ouilmette, a Frenchman with a half-breed wife",
+     "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+    }
+   ],
+   "note": "Covered by the civilian researcher; listed only so the Native census does not lose them. Wau-Bun shows Mrs Bisson sewing patchwork on the bed."
+  }
+ ],
+ "camp_population": {
+  "estimates": [
+   {
+    "figure": "500 warriors, 179 women & children",
+    "date_counted": "12 Aug 1812 (at Wells's council)",
+    "source": "quaife_1913",
+    "locator": "Appendix VI, Helm's narrative (1814), lines 16634-16636",
+    "quote": "the tribes there assembled to amount of 500 warriors 179 women & children",
+    "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+   },
+   {
+    "figure": "warriors between 400 and 500, mostly Potawatomi",
+    "date_counted": "15 Aug (the attackers)",
+    "source": "quaife_1913",
+    "locator": "Appendix IV, Heald's report (23 Oct 1812), lines 16267-16269",
+    "quote": "Their number of warriors was between four and five hundred, mostly of the Potawatamie nation",
+    "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+   },
+   {
+    "figure": "about 500 Indians",
+    "date_counted": "15 Aug",
+    "source": "quaife_1913",
+    "locator": "Appendix III, Heald's Journal, line 16123",
+    "quote": "attacked by about 500 Indians two miles from the Fort",
+    "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+   },
+   {
+    "figure": "an unusually large gathering, orderly until the 15th",
+    "date_counted": "9-14 Aug",
+    "source": "quaife_1913",
+    "locator": "Appendix IV, lines 16236-16238",
+    "quote": "The collection was unusually large for that place; but they conducted themselves with the strictest propriety till after I left the fort.",
+    "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+   },
+   {
+    "figure": "about 800 Indians received the goods; about 400 attacked",
+    "date_counted": "goods distribution; 15 Aug",
+    "source": "quaife_1913",
+    "locator": "Appendix II, Missouri Gazette 19 Sept 1812, lines 15729-15730 and 15749",
+    "quote": "the goods were distributed to about eight hundred Indians.",
+    "tier": "contemporary newspaper via Quaife (Draper's copy)"
+   },
+   {
+    "figure": "escort of Potawatomi about 500",
+    "date_counted": "15 Aug",
+    "source": "kinzie_waubun_1856",
+    "locator": "ch. XIX, lines 5556-5557",
+    "quote": "the escort of Pottowattamies, in number about five hundred",
+    "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+   },
+   {
+    "figure": "about 300 on the bank",
+    "date_counted": "15 Aug, one body during the fight",
+    "source": "quaife_1913",
+    "locator": "Appendix VI, lines 16682-16683",
+    "quote": "they appeared to be about 300 strong",
+    "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+   },
+   {
+    "figure": "May 1812 band sizes (men): Gomo ~150; Pepper's band at the Au Sable ~200 (incl. the Blackbird); Main Poc ~50; Waubansee ~30; Chicago portage village ~30",
+    "source": "andreas_1884_v1",
+    "locator": "pp. 78-79, local OCR lines 20651-20674, 20707-20710",
+    "quote": "of about one hundred and fifty men, at the north end of Peoria Lake",
+    "tier": "contemporary document (May 1812) as printed by Andreas [OCR normalised]"
+   },
+   {
+    "figure": "Illinois census allowed no more than 1,200 Potawatomi (1823)",
+    "source": "keating_1824_narrative_v1",
+    "locator": "vol. 1, p. 124, local lines 5827-5829",
+    "quote": "the census of Indians in the state of Illinois does not admit of more than twelve hundred Potawatomis.",
+    "tier": "later observer (1823)"
+   }
+  ],
+  "arrivals_after_scene": "Shabbona with 22 warriors (afternoon 15th, Matson); Billy Caldwell (night 15th/16th); the Wabash party (16th, Wau-Bun). None belong in the 14 Aug afternoon.",
+  "miami_not_in_camp": "Wells's ~30 Miamis are not placed in the Potawatomi camp by any source; keep them separate (near the fort, with ponies) as reconstructed.",
+  "recommendation": "Total on the ground on 14 Aug: roughly 680-800 people (Helm's 679 on the 12th; the Gazette's ~800 at the distribution). Men outnumber women and children about 5:2 in Helm's count, which likely undercounts children. A respectful representative scene might draw about one figure per ten to fifteen people: 45-70 figures across the six camp grounds, about two-thirds adult men and one-third women and children, plus a few Miami near the fort. Declare the count, the ratio and every placement reconstructed (L-1812 liberty), citing Helm and Heald for the totals."
+ },
+ "dress_evidence": [
+  {
+   "kind": "written",
+   "date": "1812 (13 Aug distribution)",
+   "applies_to": "everyone in the camp on the 14th: newly received cloth, blankets and paint",
+   "source": "kinzie_waubun_1856",
+   "locator": "ch. XVIII, lines 5427-5428",
+   "quote": "On the 13th, the goods, consisting of blankets, broadcloths, calicoes, paints, etc., were distributed",
+   "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)",
+   "note": "Heald (contemporary) dates the distribution to the 14th (Appendix IV, lines 16231-16232). Either way the camp on the afternoon of the 14th holds fresh factory blankets, broadcloth, calico and paint."
+  },
+  {
+   "kind": "written",
+   "date": "April 1812",
+   "applies_to": "Potawatomi dress and paint were distinguishable from Winnebago",
+   "source": "kinzie_waubun_1856",
+   "locator": "ch. XVIII, lines 5132-5134",
+   "quote": "I know by their dress and paint that they are not Pottowattamies.",
+   "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+  },
+  {
+   "kind": "written",
+   "date": "15 Aug 1812",
+   "applies_to": "face paint in war",
+   "source": "kinzie_waubun_1856",
+   "locator": "ch. XIX, lines 5631-5633 (Black Partridge painted); 5552-5553 (Wells blackened face); 5861 (Wabash party)",
+   "quote": "in spite of the paint with which he was disguised",
+   "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+  },
+  {
+   "kind": "written",
+   "date": "15 Aug 1812",
+   "applies_to": "Wells, a white man in Native dress",
+   "source": "quaife_1913",
+   "locator": "Appendix V, line 16396",
+   "quote": "though painted black & dressed like an Indian",
+   "tier": "late recollection (participant or family, told 1868-1876)"
+  },
+  {
+   "kind": "written",
+   "date": "15 Aug 1812",
+   "applies_to": "weapons carried",
+   "source": "quaife_1913",
+   "locator": "Appendix V, line 16466",
+   "quote": "The Indians used guns, spears, bows & arrows, in the fight.",
+   "tier": "late recollection (participant or family, told 1868-1876)"
+  },
+  {
+   "kind": "written",
+   "date": "1812 (Andreas, unsourced)",
+   "applies_to": "Black Partridge's ornaments: Greenville medal and a gold nose ring",
+   "source": "andreas_1884_v1",
+   "locator": "pp. 82-83, local OCR lines 21080-21083, 21221-21223",
+   "quote": "a large gold ring which he wore in his nose.",
+   "tier": "secondary history (1884-1913), cite as compiler's statement"
+  },
+  {
+   "kind": "written",
+   "date": "16 Aug 1812",
+   "applies_to": "Metis/French women of Chicago (Ouilmette household, Mrs Bisson)",
+   "source": "kinzie_waubun_1856",
+   "locator": "ch. XIX, lines 5867-5870",
+   "quote": "the ordinary dress of a Frenchwoman of the country; namely, a short gown and petticoat, with a blue cotton handkerchief wrapped around her head.",
+   "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+  },
+  {
+   "kind": "written",
+   "date": "16 Aug 1812",
+   "applies_to": "French engage / Metis men",
+   "source": "kinzie_waubun_1856",
+   "locator": "ch. XIX, lines 5984-5986",
+   "quote": "arrayed him in a suit of deer-skin, with belt, moccasins, and pipe, like a French engagé.",
+   "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+  },
+  {
+   "kind": "written",
+   "date": "autumn 1812",
+   "applies_to": "Kinzie took on Native dress and paint",
+   "source": "kinzie_waubun_1856",
+   "locator": "ch. XIX, lines 6003-6005",
+   "quote": "he wore the costume and paint of the tribe",
+   "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+  },
+  {
+   "kind": "written",
+   "date": "16 Aug 1812",
+   "applies_to": "plundered finery worn after the battle (not the 14th)",
+   "source": "kinzie_waubun_1856",
+   "locator": "ch. XIX, lines 5830-5832",
+   "quote": "shawls, ribbons, and feathers fluttered about in all directions.",
+   "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+  },
+  {
+   "kind": "written",
+   "date": "late 1812",
+   "applies_to": "ornaments for women",
+   "source": "matson_1876_sketch_of_shaubena",
+   "locator": "WHC vol. 7, p. 418, local lines 22353-22356",
+   "quote": "a large package of presents, consisting of rings, beads, and various kinds of ornaments, mostly for the squaws",
+   "tier": "late recollection (participant or family, told 1868-1876)"
+  },
+  {
+   "kind": "written",
+   "date": "c. 1830 (describing the annual Malden presents, given 'for many years' before 1812)",
+   "applies_to": "range of trade goods in Native dress",
+   "source": "kinzie_waubun_1856",
+   "locator": "ch. I, lines 539-542",
+   "quote": "blankets, broadcloths or _strouding_, calicoes, guns, kettles, traps, silver-works (comprising arm-bands, bracelets, brooches; and ear-bobs), looking-glasses, combs",
+   "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+  },
+  {
+   "kind": "written",
+   "date": "1818-19",
+   "applies_to": "trader/engage dress of the Illinois country (for Metis and French men; the same garments Native men wore under the blanket)",
+   "source": "hubbard_autobiography_1911",
+   "locator": "printed pp. 59-60, repo text lines 3293-3315",
+   "quote": "Underneath my outside garment I wore a calico shirt, breech-cloth, and buckskin leggins.",
+   "tier": "autobiography (written late) of an 1818 arrival"
+  },
+  {
+   "kind": "written",
+   "date": "1823 (Fort Wayne)",
+   "applies_to": "a Potawatomi war leader's everyday dress, the closest dated detailed description found",
+   "source": "keating_1824_narrative_v1",
+   "locator": "vol. 1, pp. 89-90, local lines 4427-4440",
+   "quote": "leather leggings buttoned on the outside, a breech-cloth of blue broadcloth, and a short checkered shirt over it; the whole was covered with a blanket",
+   "tier": "eyewitness (Long expedition, 1823)",
+   "note": "Same passage: face painted with vermilion round the left eye; four coloured feathers on a string tied to a lock of hair; blanket belted at the waist (lines 4438-4445)."
+  },
+  {
+   "kind": "written",
+   "date": "1833 treaty (Quaife's synthesis of Latrobe, Shirreff, Porter)",
+   "applies_to": "men and women; LATE bound, 21 years after",
+   "source": "quaife_1913",
+   "locator": "ch. XV, lines 14080-14092",
+   "quote": "The squaws wore blue or printed cotton cloths and the richer ones had embroidered petticoats and shawls.",
+   "tier": "secondary history (1884-1913), cite as compiler's statement",
+   "note": "Men: breechclouts and blankets, coloured leggings, jackets, sashes, shawl or handkerchief turbans; silver and brass, glass beads, mirrors; paint blue, black, white, vermilion."
+  },
+  {
+   "kind": "written",
+   "date": "pre-1835 recollection",
+   "applies_to": "maple sugar in birch-bark mococks; heads covered with blankets",
+   "source": "currey_1912_old_fort_dearborn",
+   "locator": "lines 1381-1389",
+   "quote": "would cover the tops of their heads with blankets to exclude the light",
+   "tier": "secondary history (1884-1913), cite as compiler's statement"
+  },
+  {
+   "kind": "picture",
+   "date": "1823 drawing, published 1824",
+   "title": "Metea, Potawatomi chief (Samuel Seymour's likeness, Keating Plate III)",
+   "source": "keating_1824_narrative_v1",
+   "locator": "vol. 1, p. 90, local lines 4446-4448 (the plate itself not inspected here)",
+   "quote": "Mr. Seymour took a likeness of him, which was considered a very striking one",
+   "rights": "published 1824: public domain; scan at archive.org narrativeofexped01keat",
+   "note": "Metea fought at Fort Wayne, not Chicago, in 1812; use for dress only."
+  },
+  {
+   "kind": "picture",
+   "date": "1830",
+   "title": "George Catlin, 'On-saw-kie, The Sauk, in the Act of Praying' (sitter described by SAAM as Potawatomi/Prairie Band)",
+   "source": "saam_catlin_1830_on_saw_kie",
+   "locator": "SAAM 1985.66.237",
+   "rights": "SAAM: 'Unrestricted (Public Domain)'"
+  },
+  {
+   "kind": "picture",
+   "date": "1835 (lithograph; Lewis's sketches made 1825-27)",
+   "title": "James Otto Lewis, 'Cha-co-to, A Pottowattomie Chief', The Aboriginal Port Folio",
+   "source": "saam_lewis_1835_cha_co_to",
+   "locator": "SAAM 1973.167.3",
+   "rights": "SAAM: 'Unrestricted (Public Domain)'",
+   "note": "SAAM says ceremonial dress; where and when drawn not stated on the page."
+  },
+  {
+   "kind": "picture",
+   "date": "1830s (King original; lithograph in McKenney & Hall; WHS dates its copy 1838)",
+   "title": "'Wa-baun-see, a Pottawatomie chief', after Charles Bird King",
+   "source": "whs_mckenney_hall_wa_baun_see",
+   "locator": "Wisconsin Historical Society image W013A7T (WHi 23927)",
+   "rights": "WHS: 'NO COPYRIGHT - UNITED STATES'",
+   "note": "A named man of the 1812 scene, depicted about two decades later."
+  },
+  {
+   "kind": "picture",
+   "date": "June 1837",
+   "title": "George Winter, 'Logansport, June, 1837' (Potawatomi man leaning against a horse), watercolour",
+   "source": "tcha_winter_1837_logansport",
+   "locator": "Indiana Memory PU_gwinter-955",
+   "rights": "Tippecanoe County Historical Association: not to be used without its written permission"
+  },
+  {
+   "kind": "picture",
+   "date": "1837",
+   "title": "George Winter, 'Eight Potawatomi Natives', oil",
+   "source": "crystal_bridges_winter_1837_eight_potawatomi",
+   "locator": "Crystal Bridges Museum of American Art (promised gift)",
+   "rights": "No rights statement on the page; treat as all rights reserved",
+   "note": "The museum's text describes shawls wrapped like turbans and muslin shirts with large ruffles: an 1837 Indiana bound."
+  },
+  {
+   "kind": "picture",
+   "date": "late 1840s-1850s (after an 1830 sitting)",
+   "title": "George Catlin, 'Kee-se-(?), A Potowatomie woman repeating her prayer from the maple baton', pencil",
+   "source": "williams_catlin_potawatomi_woman",
+   "locator": "Williams College Museum of Art M.2003.26.2",
+   "rights": "No rights statement on the page",
+   "note": "Only Potawatomi woman picture found; outside the 1790-1840 window as a drawing."
+  },
+  {
+   "kind": "picture",
+   "date": "1859",
+   "title": "E. S. Webber, portrait of Shabbona wearing a peace medal, oil",
+   "source": "chm_webber_1859_shabbona",
+   "locator": "Chicago History Museum ICHi-062493",
+   "rights": "'No Copyright - United States'",
+   "note": "Too late for 1812 dress; useful only for the medal-wearing habit."
+  }
+ ],
+ "new_sources": [
+  {
+   "id": "keating_1824_narrative_v1",
+   "citation": "William H. Keating, comp., Narrative of an Expedition to the Source of St. Peter's River, Lake Winnepeek, Lake of the Woods, &c., performed in the year 1823 ... under the command of Stephen H. Long. Vol. 1. Philadelphia: H. C. Carey & I. Lea, 1824.",
+   "url": "https://archive.org/details/narrativeofexped01keat",
+   "opened": "djvu text downloaded 2026-11-07 (873,595 bytes) to src/dl_keating/keating1824_v1.txt",
+   "use": "Metea's dress (pp. 89-90); Dr Hall's Chicago notes on the Potawatomi (from p. 94); population (p. 124)."
+  },
+  {
+   "id": "matson_1876_sketch_of_shaubena",
+   "citation": "N. Matson, 'Sketch of Shau-be-na, a Pottowattamie Chief,' Collections of the State Historical Society of Wisconsin, vol. 7 (Madison, 1876), pp. 415 ff.",
+   "url": "https://archive.org/details/collectionsstate07stat",
+   "opened": "djvu text downloaded 2026-11-07 to src/dl_whc7/whc7.txt; sketch at local lines 22169-22420",
+   "use": "Shabbona's own account (via Matson) of arriving after the battle; Quaife App. II cites it as WHC VII 416-18."
+  },
+  {
+   "id": "saam_catlin_1830_on_saw_kie",
+   "citation": "George Catlin, On-saw-kie, The Sauk, in the Act of Praying, 1830, oil on canvas, Smithsonian American Art Museum 1985.66.237, Gift of Mrs. Joseph Harrison, Jr.",
+   "url": "https://americanart.si.edu/collections/search/artwork/?id=4345",
+   "rights": "Unrestricted (Public Domain)"
+  },
+  {
+   "id": "saam_lewis_1835_cha_co_to",
+   "citation": "James Otto Lewis, CHA-CO-TO, A Pottowattomie Chief, from The Aboriginal Portfolio, 1835, hand-coloured lithograph, Smithsonian American Art Museum 1973.167.3, Gift of H. Lyman Sayen to his nation.",
+   "url": "https://americanart.si.edu/collections/search/artwork/?id=34366",
+   "rights": "Unrestricted (Public Domain)"
+  },
+  {
+   "id": "whs_mckenney_hall_wa_baun_see",
+   "citation": "'Wa-Baun-See', hand-coloured lithograph from McKenney & Hall, History of the Indian Tribes of North America, after Charles Bird King; Wisconsin Historical Society, Paul Vanderbilt papers M94-200, image W013A7T (WHi 23927).",
+   "url": "https://wisconsinhistory.org/Records/Image/IM23927",
+   "rights": "NO COPYRIGHT - UNITED STATES; requested credit 'Wisconsin Historical Society, Creator, Title, W013A7T'"
+  },
+  {
+   "id": "chm_webber_1859_shabbona",
+   "citation": "E. S. Webber, Portrait of Shabbona, Bodéwadmi (Potawatomi) Chief, 1859, oil, Chicago History Museum accession 1920.652, ICHi-062493.",
+   "url": "https://images.chicagohistory.org/asset/25639",
+   "rights": "No Copyright - United States"
+  },
+  {
+   "id": "tcha_winter_1837_logansport",
+   "citation": "George Winter, Logansport, June, 1837 (Pottawattamie man leaning against a horse), watercolour, George Winter Collection, Tippecanoe County Historical Association; Indiana Memory record PU_gwinter-955.",
+   "url": "https://digital.library.in.gov/Record/PU_gwinter-955",
+   "rights": "Written permission of TCHA required"
+  },
+  {
+   "id": "crystal_bridges_winter_1837_eight_potawatomi",
+   "citation": "George Winter, Eight Potawatomi Natives, 1837, oil on canvas mounted on board, promised gift to Crystal Bridges Museum of American Art.",
+   "url": "https://crystalbridges.emuseum.com/objects/186/eight-potawatomi-natives",
+   "rights": "not stated"
+  },
+  {
+   "id": "williams_catlin_potawatomi_woman",
+   "citation": "George Catlin, Potwatomie / Kee-se-(---), A Potowatomie woman repeating her prayer from the maple baton, pencil on paper, late 1840s-1850s, Williams College Museum of Art M.2003.26.2, Gift of Leslie and Michael Engl '66.",
+   "url": "https://egallery.williams.edu/objects/15953/potwatomiekee--se---a-potowatomie-woman-repeating-h",
+   "rights": "not stated"
+  }
+ ],
+ "notes": "SOURCE TIERS. Contemporary: Heald's report (23 Oct 1812) and Journal, Helm's narrative (1814), Griffith/McAfee, the Missouri Gazette (19 Sept 1812), all read as printed in Quaife's appendices. Late recollection: Darius Heald to Draper (1868), Matson's Shabbona (1876), Hubbard. Family tradition: Wau-Bun (Mrs Helm and Mrs Kinzie via Juliette Kinzie). Quaife App. II (lines 15290-15320) says its speeches and dialogue are invented, and Mrs Heald (App. V, lines 16479-16480) called it exaggerated. Every Wau-Bun speech here, including Black Partridge's medal speech, the Miami chief's speech and Caldwell's 'Sau-ga-nash' exchange, is family tradition and must not be shown as attested dialogue. DATE CONFLICTS for the scene: Wells arrived on the 12th (Helm), the 13th (Heald, preferred) or the 14th (Wau-Bun). The goods were distributed on the 13th (Wau-Bun) or the 14th (Heald, preferred). Ammunition was destroyed the night of the 13th (Helm, Andreas, Wau-Bun); Heald does not date it. On the 14th Wau-Bun has a second council in the afternoon and Black Partridge's medal return that evening (Helm: 'the night of the 14th'). The Missouri Gazette brings Main Poc's runner with a red belt on the 14th. EDITIONS. kinzie_waubun_1856 line numbers are from Gutenberg #12183 (the 1873 Philadelphia printing, with footnotes updated to 1870). Chapter numbers match 1856, and the 1856 page numbers were not checked. Andreas line numbers are from the archive.org OCR (historyofchicago01andr_djvu.txt, downloaded to src/dl_andreas/), and page numbers come from the OCR's page headers, some of which are lost. Where a quote says 'OCR normalised', spacing and obvious OCR letter errors were corrected. KINZIE'S NATIVE CONNECTIONS: his Native name was Shaw-nee-aw-kee, glossed 'silver-smith' (Kirkland lines 2120-2121, 5132-5134; Wau-Bun ch. XIX line 5806 uses it in 1812). His protectors in Aug 1812 were Topenebe's St Joseph band, Kee-po-tah, Black Partridge, Waubansee and Caldwell; his clerk was Chandonnai, his servant the interpreter Le Claire, and he had Francois the interpreter and the Ouilmette household. Wau-Bun (lines 5304-5312) has the officers saying the chiefs' restraint came 'by motives of private regard to one family, that of Mr. Kinzie'. NOT FOUND: Mucktypoke as a spelling (Andreas has 'Muck-otey-pokee'); any name or meaning for Waubansee, Kee-po-tah, Pee-so-tum or Wau-bee-nee-mah; any named Miami of Wells's escort ('Corn Plant' is unsupported); any surviving Billy Caldwell portrait; any 1812 description specific to Potawatomi women's dress at Chicago. Not opened, so not cited: Clifton's The Prairie People, Edmunds's The Potawatomis, and the Newberry Indigenous Chicago curriculum beyond the one existing Robinson profile. PRESENCE VALUE 'uncertain' (Robinson) and 'unknown' (Co-wa-bee-mai) are added beyond the three requested values, because the evidence will not support a call either way. Downloaded texts are in /tmp/claude-0/-home-user/32a6343f-9f24-5321-8d20-a9c8fc4d05c6/scratchpad/src/ (dl_waubun, dl_andreas, dl_keating, dl_whc7)."
+}

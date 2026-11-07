@@ -1595,16 +1595,26 @@ for (const [label, viewport, touch] of [
   // flora what it dealt, or reads instance buffers back, pays for those draws
   // and uses none of them. Measured on the steward runner on 2026-10-11, one
   // `setDetail('balanced')` took 252.7 s in the town against 22.8 s behind the
-  // gate. `holdDraws(true)` swaps `renderer.render` for a no-op — what
+  // gate. `holdDraws(true)` swaps `renderer.render` for one that draws nothing — what
   // `tools/measure_walk_frames.mjs` does while it drives a walk — and leaves the
   // tick running, so the flora, trees and walker still update; `holdDraws(false)`
   // puts the draw back. Call the pair around a `try`/`finally`, and never around
   // anything that photographs a frame or reads `renderer.info`.
+  //
+  // T-3489: the held draw still does the one thing `render` does that a reading
+  // DOES depend on — it brings the camera's world matrix up to the walker's pose,
+  // as three.js does at the top of every draw. The walker writes the camera's
+  // position and quaternion, not its `matrixWorld`, so with a bare no-op every
+  // raycast (`pick`, `target.current`) and every `project` the page itself makes
+  // (Show me's outline) would read the pose of the last frame actually DRAWN, and
+  // a Show me or a From this spot inside a hold would aim from where the camera
+  // was before it turned. The camera alone, never the whole scene graph: the
+  // town's own objects do not move between the reads a hold covers.
   const holdDraws = (on) => page.evaluate((hold) => {
     const r = window.__chicago4d.renderer;
     if (hold && !window.__smokeHeldDraw) {
       window.__smokeHeldDraw = r.render;
-      r.render = () => {};
+      r.render = (scene, camera) => { camera?.updateMatrixWorld?.(); };
     } else if (!hold && window.__smokeHeldDraw) {
       r.render = window.__smokeHeldDraw;
       delete window.__smokeHeldDraw;
@@ -15477,9 +15487,18 @@ for (const [label, viewport, touch] of [
       && flight.instant.dist <= 40 && flight.instant.bannerHidden,
       JSON.stringify(flight.instant));
 
-    // T-0708/T-0709: the People directory — every person, searched, narrowed,
-    // opened, and walked to. `open()` is awaited: under swiftshader the record
-    // body settles in seconds, and a fixed wait would measure the machine.
+    // T-3455: from here to the drawer's close below, every reading is the
+    // Navigator's own DOM — the People and Businesses directories, a person's
+    // card, the Evidence hub and its Sources — and none reads a pixel, a program
+    // or `renderer.info`, so the draws are HELD (`holdDraws`, T-2337). Measured
+    // on the steward runner on 2026-11-07, a frame of the 1835 town at 1280x800
+    // costs 7.75 s in software, and every `await` a reading makes — a 50 ms
+    // `setTimeout`, a fetch landing, a lazy body settling — waits behind at
+    // least one of them: `setTimeout(r, 50)` took 7.8-15.5 s here and 50 ms
+    // with the draw held. That is why these six sections cost about 13 minutes
+    // of desktop part 13 on CI against a 40-minute leg cap. The tick keeps
+    // running, so a walk or a ride still moves the walker.
+    await holdDraws(true);
     await openSection('people');
     const people = await page.evaluate(async () => {
       const api = window.__chicago4d;
@@ -16367,6 +16386,7 @@ for (const [label, viewport, touch] of [
     check(`${label}: Back returns to the hub`,
       hub.back.hubShown && hub.back.title === 'About this destination' && hub.back.topic === null && hub.back.backHidden,
       JSON.stringify(hub.back));
+    await holdDraws(false); // T-3455: the draws come back before the drawer closes
     // The chrome as the next block expects it: drawer closed.
     await clickChrome('#panel-close');
 
@@ -18358,6 +18378,17 @@ for (const [label, viewport, touch] of [
     if (stageOn(14)) {
     inStageWork = true;
     await enterTown();
+    // T-3455: the Evidence panel is DOM from here to its close before free-fly —
+    // the liberties, the people, the wildlife, the plants, the eight mounts'
+    // wrapping, what is not here and the ground's claims — and none of it reads a
+    // pixel, a program or `renderer.info`, so the draws are HELD (`holdDraws`,
+    // T-2337). A frame of the 1835 town at 1280x800 measured 7.75 s in software
+    // on the steward runner on 2026-11-07, and every `await` here waits behind at
+    // least one: the people reading opens six households and polls each body
+    // every 50 ms, which is a frame a poll, and took 408 s of this part on CI
+    // (run 42384650539) and never returned inside 580 s on the runner. With the
+    // draw held the same 50 ms wait took 50 ms. The tick keeps running.
+    await holdDraws(true);
     // --- the liberties, in the Evidence panel ------------------------------
     // The claim this project makes is that a visitor can tell which parts we
     // made up. The confidence view covers attributes; these are the decisions
@@ -19675,6 +19706,7 @@ for (const [label, viewport, touch] of [
       marking.unbuilt.slice(0, 140));
     check(`${label}: the Evidence panel still does not overflow with the ground on it`,
       ground.overflow);
+    await holdDraws(false); // T-3455: free-fly below is drawn, so the draws come back first
     // T-0210, and it was the LAST frame-bound chrome click in the file. This one
     // close timed out at ninety seconds on an unmodified tree and took the desktop
     // half of part 13 down with it, which read as a broken control and was not one.
@@ -20478,6 +20510,19 @@ for (const [label, viewport, touch] of [
           + `registry ${at.registry} against ${PLACED_1904.length} listed; `
           + `structures placed ${JSON.stringify(at.placed)}`);
         const houseHits = at.house?.hits ?? [];
+        // T-3489: from here to the end of the 1904 door every reading is the card,
+        // Inspect's tabs, the People directory, the drawer and the Guide — DOM —
+        // plus the camera POSE that Show me, a Design hotspot and From this spot
+        // leave behind, which the held draw keeps current (see `holdDraws`). None
+        // reads a pixel, a program or `renderer.info`: the spawn's draw, its hits and
+        // its budget were all read into `at` above, while the town still drew. So the
+        // draws are HELD. With them drawing, each of the dozens of 100 ms polls below
+        // waited behind a software frame of the 1904 scene at 1280x800 (seconds each,
+        // T-3455), which is what kept desktop part 14 over the 600 s local cap after
+        // the Evidence panel was held. The tick keeps running, so Show me's 900 ms
+        // glide and the outline's two animation frames still run, and run at once.
+        await holdDraws(true);
+        try {
         // Owner-reported date ambiguity: 1946 closes an exterior phase, not
         // the life of the surviving museum. Check the actual card and evidence.
         const survivalCard = await page.evaluate(() => {
@@ -21139,6 +21184,9 @@ for (const [label, viewport, touch] of [
         check(`${label}: the frame at the 1904 spawn is inside the draw budget (T-1739)`, at.budget.within === true,
           `${at.budget.calls} draw calls, ${at.budget.triangles} triangles against `
           + `${JSON.stringify(at.budget.ceiling)}, ${at.budget.fps} fps`, true);
+        } finally {
+          await holdDraws(false); // T-3489: the draws come back as the 1904 door closes
+        }
       }
     }
 
