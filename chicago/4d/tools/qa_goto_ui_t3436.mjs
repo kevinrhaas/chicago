@@ -38,6 +38,17 @@ try {
   console.log('tiles', JSON.stringify(viewRows));
   await page.evaluate(() => { __chicago4d.step(); });
   await shot(page, '1-goto');
+  // The tiles at Settings' 140 % text: none past the screen's edge (the T-2656 reflow check).
+  const at140 = await page.evaluate(async () => {
+    const sel = document.getElementById('s-text-size'); const set = (v) => { sel.value = String(v); sel.dispatchEvent(new Event('change', { bubbles: true })); };
+    set(1.4); await new Promise((r) => setTimeout(r, 400)); __chicago4d.step();
+    const box = document.querySelector('#nav-app-jaunts')?.getBoundingClientRect();
+    const tiles = [...document.querySelectorAll('.welcome-quick-start')].map((b) => b.getBoundingClientRect());
+    return { rows: new Set(tiles.map((r) => Math.round(r.top))).size, past: tiles.filter((r) => r.right > box.right + 1 || r.left < box.left - 1).length };
+  });
+  console.log('tiles at 140%', JSON.stringify(at140));
+  await shot(page, '1b-goto-140');
+  await page.evaluate(() => { const sel = document.getElementById('s-text-size'); sel.value = '1'; sel.dispatchEvent(new Event('change', { bubbles: true })); __chicago4d.step(); });
   // Viewpoints filter.
   await page.evaluate(() => { document.querySelector('#welcome-kinds button[data-kind="anchor"]')?.click(); __chicago4d.step(); });
   await shot(page, '2-viewpoints');
