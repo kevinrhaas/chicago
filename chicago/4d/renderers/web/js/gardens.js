@@ -1255,12 +1255,18 @@ function drape(poly, toWorld, groundAt, { lift, crown = 0, shoulder = 0.35, conf
     ids.set(key, id);
     return id;
   };
+  // A frame turned the other way (the 1835 dooryards' is: u to the right of a walker
+  // looking in from the street, v back from the house) mirrors the plan, and a mirrored
+  // cell is wound clockwise from above: its face is culled and the bed is not drawn at all
+  // (T-3476). Such a frame's cells are wound the other way round.
+  const [oe, on] = toWorld([0, 0]), [ae, an] = toWorld([1, 0]), [be, bn] = toWorld([0, 1]);
+  const mirrored = (ae - oe) * (bn - on) - (an - on) * (be - oe) < 0;
   for (let i = 0; i < nu; i += 1) {
     for (let j = 0; j < nv; j += 1) {
       const cu = u0 + ((i + 0.5) / nu) * (u1 - u0), cv = v0 + ((j + 0.5) / nv) * (v1 - v0);
       if (!pointInPoly(poly, cu, cv)) continue;
       const a = vert(i, j), bb = vert(i + 1, j), c = vert(i + 1, j + 1), d = vert(i, j + 1);
-      b.t(a, bb, c); b.t(a, c, d);
+      if (mirrored) { b.t(a, c, bb); b.t(a, d, c); } else { b.t(a, bb, c); b.t(a, c, d); }
     }
   }
   const g = b.geometry(conf);

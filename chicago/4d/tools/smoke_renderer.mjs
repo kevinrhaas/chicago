@@ -3516,9 +3516,18 @@ for (const [label, viewport, touch] of [
       await page.waitForTimeout(350);
       await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
       const withGround = await page.evaluate(() => window.__chicago4d.capture());
-      await page.evaluate(() => { window.__chicago4d.yards.group.visible = false; });
+      // Since T-3476 a dooryard's ground is laid by two layers: yards.js its walks,
+      // gardens.js its beds (one merged mesh, drawn over the yards' ground). Both
+      // are the ground; the plants stay up.
+      const toggle = (on) => {
+        const a = window.__chicago4d;
+        a.yards.group.visible = on;
+        const beds = a.gardens?.group?.getObjectByName?.('garden-beds:merged');
+        if (beds) beds.visible = on;
+      };
+      await page.evaluate(`(${toggle})(false)`);
       const withoutGround = await page.evaluate(() => window.__chicago4d.capture());
-      await page.evaluate(() => { window.__chicago4d.yards.group.visible = true; });
+      await page.evaluate(`(${toggle})(true)`);
       await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
       const d = signatureDistance(withGround, withoutGround);
       check(`${label}: the ground in ${stand.name} reaches the screen from inside it`,
