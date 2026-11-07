@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2782, ts: '2026-11-07T17:29:44.980Z', date: 'Nov 7, 2026, 11:29 AM CT', title: '1812: the commanding officer\'s garden follows the Season', kind: 'fix',
+    items: [
+      'Winter: the beds and walks lie under snow, with only bare currant and gooseberry bushes and raspberry canes above it.',
+      'Spring: just-set cabbage plants, onion sets, lettuce and the first asparagus spears; the bushes breaking leaf. Corn, beans, melons and squash wait for May.',
+      'Fall: dry corn and bean vines, ripe squash on frost-killed runners, yellow asparagus, turned bushes; cabbages and roots still stand.',
+      'Summer is the mid-August garden as before.',
+    ] },
   { v: 2781, ts: '2026-11-07T17:24:35.094Z', date: 'Nov 7, 2026, 11:24 AM CT', title: 'Phones carry 1904 and its people with about 20 MB to spare', kind: 'fix',
     items: [
       'Nothing you can see changes. A phone used to hold a spare copy of every building picture inside the page, in case it had to load one again; it now hands that copy to the browser, which keeps it outside the page. 1904 on a phone takes about 20 MB less, so the Glessners, Martha Williamson and Mary Reynolds fit under the memory line with room left over. Desktops are unchanged.',
