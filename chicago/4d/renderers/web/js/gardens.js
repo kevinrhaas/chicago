@@ -17,6 +17,11 @@
  *               crop, two levels by distance, all in two BatchedMeshes: one draw for the
  *               leaves and one for the solid parts, each plant one instance.
  *
+ * IN EACH SEASON (T-3460). The file plants mid-August. Settings > Season replants the same
+ * beds for its day from SEASON_CROPS (April's first sowings, October's harvest, February's
+ * bare canes over snow), and the walks and beds take the season's snow (season.js
+ * patchSeason). The owner, 2026-11-07: *"its winter in 1812 and we still have a garden!"*
+ *
  * WHAT IS EVIDENCE. The beds and walks are the draught's (inferred: its scale is read, not
  * stated in words). Melons and small fruit are Quaife's (attested of the garden in
  * Whistler's and Cooper's years). Every other crop, every plant's place and every leaf is
@@ -31,6 +36,7 @@
  */
 
 import * as THREE from 'three';
+import { patchSeason } from './season.js';
 
 const CONF = { attested: 0, inferred: 0.5, reconstructed: 1 };
 
@@ -446,9 +452,16 @@ function soilCanvas(kind, seed, lowSpec = false) {
 /* -------------------------------------------------------------------------- */
 
 class Buf {
-  constructor() { this.pos = []; this.nrm = []; this.uv = []; this.col = []; this.idx = []; }
+  /** `recolour(c)` (optional) moves every colour written: a season's leaf tint or its dry
+   *  stalks. `skip()` (optional) drops a whole leaf card: the leaves a season has not
+   *  put out yet, or has let fall. */
+  constructor({ recolour = null, skip = null } = {}) {
+    this.pos = []; this.nrm = []; this.uv = []; this.col = []; this.idx = [];
+    this.recolour = recolour; this.skip = skip;
+  }
   get count() { return this.pos.length / 3; }
   v(p, n, uv, c) {
+    if (this.recolour) c = this.recolour(c);
     this.pos.push(p[0], p[1], p[2]);
     const l = Math.hypot(n[0], n[1], n[2]) || 1;
     this.nrm.push(n[0] / l, n[1] / l, n[2] / l);
@@ -490,6 +503,7 @@ const tint = (c, k) => [c[0] * k, c[1] * k, c[2] * k];
  */
 function leafCard(b, { base, dir, side, len, wid, tile, rise = 0.2, droop = 0.4, fold = 0.25, segs = 3,
   col = [1, 1, 1], centre = null, twist = 0 }) {
+  if (b.skip?.()) return;
   const up = [0, 1, 0];
   let s = norm(side);
   const rows = [];
@@ -622,8 +636,9 @@ function q(lod, a, b, lo = 1, whole = true) {
 export const CROPS = {
   /** Indian corn, two stalks to a hill (M'Mahon: "two grains in each place"), tasselled,
    *  an ear silking on most. */
-  corn(lb, sb, r, lod) {
+  corn(lb, sb, r, lod, _arg, look = {}) {
     const near = lod === 'near';
+    const dry = look.stage === 'dry';
     hills(sb, r, 0.3, 0.09, lod);
     const stalks = 2;
     for (let k = 0; k < stalks; k += 1) {
@@ -641,7 +656,7 @@ export const CROPS = {
         const dir = norm([Math.cos(head), 0.55 - f * 0.25, Math.sin(head)]);
         const side = [-Math.sin(head), 0, Math.cos(head)];
         leafCard(lb, { base: p, dir, side, len: 0.62 + (1 - Math.abs(f - 0.45)) * 0.35, wid: 0.3,
-          tile: LEAF.strap, rise: 0.15, droop: 0.75 + r() * 0.3, fold: 0.35, segs: q(lod, 4, 2, 1),
+          tile: LEAF.strap, rise: 0.15, droop: 0.75 + r() * 0.3 + (dry ? 0.35 : 0), fold: dry ? 0.6 : 0.35, segs: q(lod, 4, 2, 1),
           col: tint(GREEN, f < 0.2 ? 0.8 + r() * 0.1 : 0.95 + r() * 0.1), twist: (r() - 0.5) * 0.8 });
       }
       // the tassel: a spray of thin spikes
@@ -652,20 +667,21 @@ export const CROPS = {
         tube(sb, top, tip, 0.005, 0.002, STRAW, 3);
       }
       tube(sb, top, add(top, [0, 0.32, 0]), 0.006, 0.003, STRAW, 3);
-      // the ear: a green husk, its silk browning in mid-August
+      // the ear: a green husk, its silk browning in mid-August; in October the ripe ear
+      // hangs down in its dry husk
       if (r() < 0.85) {
         const ef = 0.42 + r() * 0.12;
         const ep = add(foot, mul(sub(top, foot), ef));
         const ea = a + Math.PI * 0.5 + (r() - 0.5);
-        const out = [Math.cos(ea) * 0.07, 0.17, Math.sin(ea) * 0.07];
+        const out = dry ? [Math.cos(ea) * 0.1, -0.15, Math.sin(ea) * 0.1] : [Math.cos(ea) * 0.07, 0.17, Math.sin(ea) * 0.07];
         tube(sb, ep, add(ep, out), 0.028, 0.02, [0.42, 0.5, 0.24], q(lod, 6, 4, 3));
-        tube(sb, add(ep, out), add(ep, mul(out, 1.35)), 0.012, 0.004, [0.45, 0.3, 0.16], 3);
+        if (!dry) tube(sb, add(ep, out), add(ep, mul(out, 1.35)), 0.012, 0.004, [0.45, 0.3, 0.16], 3);
       }
     }
   },
 
   /** A pole bean: the pole driven in its hill and the vine wound up it, in leaf and pod. */
-  pole_bean(lb, sb, r, lod) {
+  pole_bean(lb, sb, r, lod, _arg, look = {}) {
     const near = lod === 'near';
     hills(sb, r, 0.26, 0.07, lod);
     const h = 2.4 + r() * 0.4;
@@ -702,7 +718,7 @@ export const CROPS = {
             col: tint(GREEN, 0.86 + r() * 0.22), centre: mul(top, 0.5) });
         }
         // pods hang under the leaves on the lower two-thirds
-        if (near && t < 0.7 && r() < 0.45) {
+        if (near && t < 0.7 && r() < (look.stage === 'dry' ? 0.7 : 0.45)) {
           const p0 = add(c, [Math.cos(head + 1.6) * 0.05, -0.02, Math.sin(head + 1.6) * 0.05]);
           tube(sb, p0, add(p0, [(r() - 0.5) * 0.04, -0.14 - r() * 0.05, (r() - 0.5) * 0.04]), 0.006, 0.004, [0.38, 0.5, 0.2], 3);
         }
@@ -711,14 +727,16 @@ export const CROPS = {
   },
 
   /** A cabbage or savoy: the outer leaves spread, a firm head in the middle. */
-  cabbage(lb, sb, r, lod) {
-    const near = lod === 'near';
+  cabbage(lb, sb, r, lod, _arg, look = {}) {
+    // April's plants just set out (M'Mahon: "as early in this month as possible plant out
+    // your general crops of cabbage plants"): a few spreading leaves, no head yet
+    const near = lod === 'near' && look.stage !== 'young';
     const savoy = r() < 0.35;
     const head = 0.13 + r() * 0.05;
     const hc = [0, head * 0.85, 0];
     const headCol = savoy ? [0.36, 0.48, 0.3] : [0.55, 0.66, 0.52];
-    ellipsoid(sb, hc, head, head * 0.88, head, (y) => tint(headCol, 0.85 + y * 0.15), { lat: q(lod, 6, 4, 2), lon: q(lod, 10, 6, 5) });
-    const leaves = q(lod, 10, 6);
+    if (look.stage !== 'young') ellipsoid(sb, hc, head, head * 0.88, head, (y) => tint(headCol, 0.85 + y * 0.15), { lat: q(lod, 6, 4, 2), lon: q(lod, 10, 6, 5) });
+    const leaves = look.stage === 'young' ? q(lod, 6, 4) : q(lod, 10, 6);
     for (let i = 0; i < leaves; i += 1) {
       const a = (i / leaves) * Math.PI * 2 + r() * 0.4;
       const tilt = 0.25 + r() * 0.5;
@@ -764,8 +782,10 @@ export const CROPS = {
 
   /** Melon or cucumber hill: vines running out over the bed, leaves held up off it, and
    *  the fruit lying in the leaves. `fruit` picks the rind. */
-  vine(lb, sb, r, lod, fruit) {
+  vine(lb, sb, r, lod, fruit, look = {}) {
     const near = lod === 'near';
+    // October (look.stage): the frost has killed the runners; a squash's fruit lies ripe
+    // on them, a melon's and a cucumber's were picked long since ('spent')
     hills(sb, r, 0.35, 0.08, lod);
     const runners = q(lod, 5, 3);
     // mid-August: the runners have met across the hills and the bed is a mat of leaf
@@ -798,7 +818,7 @@ export const CROPS = {
       // fruit on the runner
       const fruits = fruit === 'cucumber' ? 2 : 1;
       for (let f = 0; f < fruits; f += 1) {
-        if (r() < 0.25) continue;
+        if (r() < 0.25 || look.stage === 'spent') continue;
         const t = 0.45 + r() * 0.45;
         const p = pts[Math.min(steps, Math.round(t * steps))];
         const yaw = a + (r() - 0.5);
@@ -818,7 +838,7 @@ export const CROPS = {
             return y < -0.55 ? [0.62, 0.6, 0.36] : c;           // the ground spot
           }, { lat: q(lod, 6, 4, 2), lon: q(lod, 14, 8, 5), yaw });
         } else if (fruit === 'squash') {
-          const R = 0.13 + r() * 0.08; const turned = r();
+          const R = 0.13 + r() * 0.08; const turned = look.stage === 'ripe' ? 0.4 + r() * 0.6 : r();
           const c = turned < 0.4 ? [0.3, 0.42, 0.18] : turned < 0.75 ? [0.62, 0.45, 0.12] : [0.78, 0.4, 0.07];
           ellipsoid(sb, [p[0], R * 0.72, p[2]], R * 1.12, R * 0.8, R * 1.12, (y, u) => {
             const rib = 0.82 + 0.18 * Math.abs(Math.cos(u * Math.PI * 10));
@@ -835,8 +855,10 @@ export const CROPS = {
 
   /** A short length of a drilled row of roots or salad: `kind` beet, carrot, parsnip,
    *  onion, lettuce. One instance is ROW_M of row. */
-  row(lb, sb, r, lod, kind) {
+  row(lb, sb, r, lod, kind, look = {}) {
     const near = lod === 'near';
+    // April's onion sets: green shoots standing up, no bulb swelled yet
+    const sets = look.stage === 'sets';
     const L = 1.0;
     const n = { beet: 7, carrot: 10, parsnip: 6, onion: 9, lettuce: 4 }[kind] * q(lod, 1, 0.5, 0.3, false);
     // the drill's ridge
@@ -847,8 +869,8 @@ export const CROPS = {
       const base = [x, 0.02, z];
       if (kind === 'onion') {
         // blue-green hollow leaves, half of them fallen over: the August sign they are ripe
-        if (lod !== 'far') ellipsoid(sb, [x, 0.03, z], 0.035, 0.03, 0.035, () => [0.62, 0.48, 0.3], { lat: 3, lon: 6 });
-        const fallen = r() < 0.55;
+        if (lod !== 'far' && !sets) ellipsoid(sb, [x, 0.03, z], 0.035, 0.03, 0.035, () => [0.62, 0.48, 0.3], { lat: 3, lon: 6 });
+        const fallen = r() < 0.55 && !sets;
         const leaves = q(lod, 4, 2);
         for (let k = 0; k < leaves; k += 1) {
           const a = r() * Math.PI * 2;
@@ -887,10 +909,10 @@ export const CROPS = {
   },
 
   /** A currant or gooseberry bush: a stool of stems, the fruit mostly picked. */
-  berry_bush(lb, sb, r, lod, kind) {
+  berry_bush(lb, sb, r, lod, kind, look = {}) {
     const near = lod === 'near';
     const h = (kind === 'gooseberry' ? 0.9 : 1.15) + r() * 0.3;
-    const grow = lod === 'near' ? 1 : lod === 'mid' ? 1.2 : 1.5;
+    const grow = (lod === 'near' ? 1 : lod === 'mid' ? 1.2 : 1.5) * (look.leafScale ?? 1);
     const stems = q(lod, 9, 5);
     for (let s = 0; s < stems; s += 1) {
       const a = (s / stems) * Math.PI * 2 + r() * 0.5;
@@ -907,7 +929,7 @@ export const CROPS = {
           tile: LEAF.berry, col: tint(GREEN, 0.85 + r() * 0.25), centre: [0, h * 0.55, 0], cup: 0.2, segs: 1 });
       }
       // a few strings of late fruit left on the bush
-      if (near && r() < 0.35) {
+      if (near && r() < 0.35 && !look.stage) {
         const p = mul(mid, 1.1);
         const red = kind === 'gooseberry' ? [0.5, 0.55, 0.25] : [0.55, 0.06, 0.06];
         for (let k = 0; k < 4; k += 1) ellipsoid(sb, add(p, [0, -0.02 - k * 0.018, 0.01 * k]), 0.008, 0.008, 0.008, () => red, { lat: 2, lon: 4 });
@@ -916,13 +938,17 @@ export const CROPS = {
   },
 
   /** Raspberry canes: this year's arching green canes and last year's brown, spent. */
-  raspberry(lb, sb, r, lod) {
+  raspberry(lb, sb, r, lod, _arg, look = {}) {
     const near = lod === 'near';
     const canes = q(lod, 7, 4);
-    const grow = lod === 'near' ? 1 : lod === 'mid' ? 1.2 : 1.5;
+    const grow = (lod === 'near' ? 1 : lod === 'mid' ? 1.2 : 1.5) * (look.leafScale ?? 1);
     for (let c = 0; c < canes; c += 1) {
       const a = r() * Math.PI * 2;
       const old = r() < 0.3;
+      // M'Mahon: the canes that bore are cut to the ground "either now [October] or in the
+      // spring", and he would not prune before the end of February; so they stand all winter
+      // and are gone by April
+      if (old && look.stage === 'pruned') continue;
       const h = 1.3 + r() * 0.5;
       const reach = 0.35 + r() * 0.3;
       const pts = [];
@@ -965,8 +991,20 @@ export const CROPS = {
   },
 
   /** Asparagus in its summer fern: feathery stems a man's height, the crowns left to grow. */
-  asparagus(lb, sb, r, lod) {
+  asparagus(lb, sb, r, lod, _arg, look = {}) {
     const near = lod === 'near';
+    if (look.stage === 'spears') {
+      // mid-April: the first spears through the dressed bed, a hand high, green to purple
+      const n = q(lod, 7, 4, 2);
+      for (let s = 0; s < n; s += 1) {
+        const a = r() * Math.PI * 2, d = 0.05 + r() * 0.14;
+        const foot = [Math.cos(a) * d, 0, Math.sin(a) * d];
+        const h = 0.06 + r() * 0.14;
+        tube(sb, foot, add(foot, [(r() - 0.5) * 0.02, h, (r() - 0.5) * 0.02]), 0.008, 0.005,
+          r() < 0.4 ? [0.42, 0.3, 0.36] : [0.48, 0.58, 0.3], q(lod, 5, 4, 3), [0.5, 0.36, 0.42]);
+      }
+      return;
+    }
     const stems = q(lod, 6, 3);
     for (let s = 0; s < stems; s += 1) {
       const a = r() * Math.PI * 2;
@@ -1006,11 +1044,120 @@ export const KINDS = {
 };
 const VARIANTS = 3;
 
-/** Grow one variant of one kind at one level: { leaves, solid } geometries. */
-export function growTemplate(kind, variant, lod, conf) {
+/* -------------------------------------------------------------------------- */
+/* the seasons (T-3460)                                                        */
+/* -------------------------------------------------------------------------- */
+
+/** Leaf tints (a multiplier on the atlas's painted green, as the vertex colours above). */
+const TINT = {
+  fresh: [1.12, 1.2, 0.8],       // April's first leaf: paler, yellower
+  straw: [1.95, 1.3, 1.5],       // a corn blade dead on the stalk
+  dead: [1.35, 0.82, 0.95],      // a frosted bean or vine leaf, brown
+  gold: [2.3, 1.45, 0.9],        // asparagus fern turned yellow
+  turned: [2.0, 1.1, 0.8],       // a currant's or raspberry's October leaf
+  red: [1.9, 0.75, 0.85],        // a strawberry's
+  yellowing: [1.15, 1.05, 0.85], // a root's tops in October
+};
+/** Dry stalks, vines and canes (what was green in the solid parts, see recolourDry). */
+const DRY = { straw: [0.6, 0.52, 0.34], brown: [0.42, 0.34, 0.24], cane: [0.45, 0.3, 0.22] };
+
+/**
+ * What stands in the garden on each season's day (season.js SEASON_DAY: 15 April,
+ * 15 October, 15 February; summer is the scene's own 14 August, the planting the file
+ * records). A kind missing from a season is not in the ground or not above it. Each look:
+ *   size       on the plant's own scale (a young plant)
+ *   keep       the share of leaf cards it carries (leaf not yet out, or fallen)
+ *   leafScale  on each leaf's size (bushes breaking bud)
+ *   leaf       the leaf tint (TINT); dry  the colour its green stalks and vines dry to (DRY)
+ *   stage      a grower's own state: corn and beans 'dry', squash 'ripe', melons 'spent',
+ *              cabbage 'young', onion 'sets', raspberry 'pruned', asparagus 'spears',
+ *              and 'bare' for a bush in winter.
+ * Read from M'Mahon's calendar month by month (data/sources/
+ * mmahon_1857_american_gardeners_calendar.json; liberty L-t3407-officers-garden):
+ *   APRIL     plant out the cabbages "as early in this month as possible", plant the seed
+ *             onions and potatoes, sow lettuces, beets, carrots and parsneps; the
+ *             asparagus "shoots will be advancing rapidly"; cucumbers, squashes and melons
+ *             "cannot be sown ... before the eighth of May", nor Indian corn and kidney-beans.
+ *   OCTOBER   asparagus stalks "turn yellow" and are cut "towards the end of this month";
+ *             the carrots, beets and parsneps are taken up "about the latter end of the
+ *             month"; clear "the decayed stalks of peas, beans, cabbages"; strawberry beds
+ *             dressed, the runners taken off; the raspberry canes that bore cut down "now
+ *             or in the spring".
+ *   NOVEMBER  cabbages and savoys taken up and laid in "immediately previous to the
+ *             setting in of hard frost", the roots stored in sand; the ground dunged and
+ *             trenched and laid "in high narrow sloping ridges" for the winter.
+ * So mid-February is beds under snow, with only the fruit bushes and canes above it.
+ */
+export const SEASON_CROPS = Object.freeze({
+  spring: {
+    cabbage: { size: 0.6, stage: 'young', leaf: TINT.fresh },
+    onion: { size: 0.45, stage: 'sets', leaf: TINT.fresh },
+    lettuce: { size: 0.45, leaf: TINT.fresh },
+    asparagus: { stage: 'spears' },
+    currant: { keep: 0.55, leafScale: 0.55, leaf: TINT.fresh, stage: 'leafing' },
+    gooseberry: { keep: 0.6, leafScale: 0.6, leaf: TINT.fresh, stage: 'leafing' },
+    raspberry: { keep: 0.35, leafScale: 0.5, leaf: TINT.fresh, stage: 'pruned' },
+    strawberry: { size: 0.7, leaf: TINT.fresh },
+    herb: { size: 0.7 },
+  },
+  fall: {
+    corn: { stage: 'dry', keep: 0.8, leaf: TINT.straw, dry: DRY.straw },
+    pole_bean: { stage: 'dry', keep: 0.3, leaf: TINT.dead, dry: DRY.brown },
+    squash: { stage: 'ripe', keep: 0.3, leaf: TINT.dead, dry: DRY.brown },
+    muskmelon: { stage: 'spent', keep: 0.15, leaf: TINT.dead, dry: DRY.brown },
+    watermelon: { stage: 'spent', keep: 0.15, leaf: TINT.dead, dry: DRY.brown },
+    cucumber: { stage: 'spent', keep: 0.15, leaf: TINT.dead, dry: DRY.brown },
+    cabbage: {},
+    beet: { leaf: TINT.yellowing, keep: 0.85 },
+    carrot: { leaf: TINT.yellowing, keep: 0.85 },
+    parsnip: { leaf: TINT.yellowing, keep: 0.85 },
+    lettuce: { size: 0.7 },
+    asparagus: { leaf: TINT.gold, dry: DRY.straw },
+    currant: { keep: 0.5, leaf: TINT.turned, stage: 'turned' },
+    gooseberry: { keep: 0.45, leaf: TINT.turned, stage: 'turned' },
+    raspberry: { keep: 0.6, leaf: TINT.turned, dry: DRY.cane },
+    strawberry: { keep: 0.8, leaf: TINT.red },
+    herb: {},
+  },
+  winter: {
+    currant: { keep: 0, stage: 'bare' },
+    gooseberry: { keep: 0, stage: 'bare' },
+    raspberry: { keep: 0, dry: DRY.cane },
+  },
+});
+
+/** The look of `kind` in `season`: {} in summer (the file's own planting), null when
+ *  nothing of it stands above the ground. */
+export function seasonLook(kind, season = 'summer') {
+  if (!season || season === 'summer') return {};
+  return SEASON_CROPS[season]?.[kind] ?? null;
+}
+
+/** Move a green solid colour (stalk, vine, pod, husk, cane) to a dry one at its own
+ *  lightness; fruit, earth and bark keep theirs. */
+function recolourDry(to) {
+  return (c) => {
+    if (!(c[1] > c[0] * 1.05 && c[1] > c[2])) return c;
+    const k = (0.3 * c[0] + 0.59 * c[1] + 0.11 * c[2]) / 0.4;
+    return [to[0] * k, to[1] * k, to[2] * k];
+  };
+}
+
+/** Grow one variant of one kind at one level, in a season: { leaves, solid } geometries,
+ *  or null when the kind has nothing above the ground in that season. */
+export function growTemplate(kind, variant, lod, conf, season = 'summer') {
   const [builder, arg] = KINDS[kind];
-  const lb = new Buf(), sb = new Buf();
-  CROPS[builder](lb, sb, rng(strSeed(`${kind}:${variant}`)), lod, arg);
+  const look = seasonLook(kind, season);
+  if (!look) return null;
+  const tintBy = look.leaf;
+  const keep = look.keep ?? 1;
+  const drop = keep < 1 ? rng(strSeed(`${kind}:${variant}:${lod}:${season}:drop`)) : null;
+  const lb = new Buf({
+    recolour: tintBy ? (c) => [c[0] * tintBy[0], c[1] * tintBy[1], c[2] * tintBy[2]] : null,
+    skip: drop ? () => drop() >= keep : null,
+  });
+  const sb = new Buf({ recolour: look.dry ? recolourDry(look.dry) : null });
+  CROPS[builder](lb, sb, rng(strSeed(`${kind}:${variant}`)), lod, arg, look);
   return { leaves: lb.count ? lb.geometry(conf) : null, solid: sb.count ? sb.geometry(conf) : null,
     tris: (lb.idx.length + sb.idx.length) / 3 };
 }
@@ -1140,14 +1287,14 @@ function bedCard(garden, bed, doc) {
  */
 export async function createGardens({
   dataBase, sceneId, terrain, confidence = null, problems = [], detail = 'full', levelAt = null,
-  lowSpec = false, onGeometry = null,
+  lowSpec = false, onGeometry = null, season = 'summer',
 } = {}) {
   const group = new THREE.Group();
   group.name = 'gardens';
-  const stats = { gardens: 0, beds: 0, plants: 0, near: 0, triangles: 0, drawCalls: 0, detail };
+  const stats = { gardens: 0, beds: 0, plants: 0, near: 0, triangles: 0, drawCalls: 0, detail, season };
   const out = {
     group, stats, records: [], pickAt: () => null, cardFor: () => null, update() {}, setDetail() {},
-    settle() {}, dispose() {},
+    setSeason() {}, settle() {}, dispose() {},
   };
   if (!dataBase || !terrain) return out;
   let doc;
@@ -1171,19 +1318,33 @@ export async function createGardens({
 
   // What build() lays and every later call reads.
   const bedsHit = [];
-  const plants = [];
+  let plants = [];
   const geoIds = new Map();
   let leaves = null, solids = null, built = false;
+  let walkMat = null, bedMat = null;
+  let seasonNow = ['spring', 'fall', 'winter'].includes(season) ? season : 'summer';
+  stats.season = seasonNow;
+  const cropDisposers = [];
 
-  /** Lay the walks and beds, grow the templates and plant every crop: once. */
+  /** T-3460: the walks and beds take the season's snow as the yards' do (main.js
+   *  YARD_SEASON_KIND): a bed's loam as a garden bed, a walk as trodden earth. */
+  const seasonGround = () => {
+    if (!built || seasonNow === 'summer') return;
+    // a bed a little under a lawn, so the ridged loam shows through here and there; a
+    // walk nearly so, nobody sweeping it, a little trodden
+    patchSeason(bedMat, 0.9);
+    patchSeason(walkMat, 0.78);
+  };
+
+  /** Lay the walks and beds, then plant the season's crops: once. */
   function build() {
     built = true;
     /* ---- the ground: walks, then the beds over them ---- */
     const walkTex = soilCanvas('walk', 7, lowSpec);
     const bedTex = soilCanvas('bed', 9, lowSpec);
-    const walkMat = new THREE.MeshStandardMaterial({ map: walkTex, vertexColors: true, roughness: 0.97, metalness: 0,
+    walkMat = new THREE.MeshStandardMaterial({ map: walkTex, vertexColors: true, roughness: 0.97, metalness: 0,
       polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 });
-    const bedMat = new THREE.MeshStandardMaterial({ map: bedTex, vertexColors: true, roughness: 0.95, metalness: 0,
+    bedMat = new THREE.MeshStandardMaterial({ map: bedTex, vertexColors: true, roughness: 0.95, metalness: 0,
       polygonOffset: true, polygonOffsetFactor: -3, polygonOffsetUnits: -3 });
     walkMat.name = 'garden-walks'; bedMat.name = 'garden-beds';
     for (const m of [walkMat, bedMat]) confidence?.patch?.(m);
@@ -1217,6 +1378,18 @@ export async function createGardens({
         stats.beds += 1;
       }
     }
+    seasonGround();
+    plant();
+  }
+
+  /** Plant what stands in the current season (T-3460): its templates and its two batches,
+   *  replacing any planted before. */
+  function plant() {
+    for (const f of cropDisposers.splice(0)) f();
+    plants = [];
+    geoIds.clear();
+    leaves = null; solids = null;
+    stats.plants = 0; stats.near = 0; stats.triangles = 0;
 
     /* ---- the crops: every plant one instance of its kind's variant ---- */
     const atlas = cropAtlas(lowSpec);
@@ -1229,15 +1402,18 @@ export async function createGardens({
     confidence?.patch?.(solidMat);
     const leafDepth = new THREE.MeshDepthMaterial({ map: atlas, alphaTest: LEAF_CUTOFF, side: THREE.DoubleSide,
       depthPacking: THREE.RGBADepthPacking });
-    disposers.push(() => { leafMat.dispose(); solidMat.dispose(); leafDepth.dispose(); });
+    cropDisposers.push(() => { leafMat.dispose(); solidMat.dispose(); leafDepth.dispose(); });
 
-    // every plant, in world space
+    // every plant that stands in this season, in world space
     for (const g of gardens) {
       for (const [kind, list] of Object.entries(g.plants ?? {})) {
         if (!KINDS[kind]) { problems.push(`gardens: ${g.id} plants an unknown kind "${kind}"`); continue; }
+        const look = seasonLook(kind, seasonNow);
+        if (!look) continue;
         const conf = CONF[doc.crops?.[kind]?.grade] ?? 1;
+        const size = look.size ?? 1;
         for (const [e, n, yaw, scale, variant] of list) {
-          plants.push({ kind, e, n, y: groundAt(e, n) + SOIL_LIFT.bed, yaw: (yaw * Math.PI) / 180, scale,
+          plants.push({ kind, e, n, y: groundAt(e, n) + SOIL_LIFT.bed, yaw: (yaw * Math.PI) / 180, scale: scale * size,
             variant: variant % variants, conf });
         }
       }
@@ -1255,7 +1431,7 @@ export async function createGardens({
       const conf = CONF[doc.crops?.[kind]?.grade] ?? 1;
       for (let v = 0; v < variants; v += 1) {
         for (const lod of lods) {
-          const t = growTemplate(kind, v, lod, conf);
+          const t = growTemplate(kind, v, lod, conf, seasonNow);
           templates.set(`${kind}:${v}:${lod}`, t);
           if (t.leaves) { leafV += t.leaves.attributes.position.count; leafI += t.leaves.index.count; }
           if (t.solid) { solidV += t.solid.attributes.position.count; solidI += t.solid.index.count; }
@@ -1292,8 +1468,10 @@ export async function createGardens({
     }
     group.add(leaves, solids);
     stats.drawCalls = 2 + gardens.length + stats.beds;
-    disposers.push(() => { leaves.dispose(); solids.dispose(); });
+    const planted = [leaves, solids];
+    cropDisposers.push(() => { for (const b of planted) { group.remove(b); b.dispose(); } });
   }
+  disposers.push(() => { for (const f of cropDisposers.splice(0)) f(); });
 
   /* ---- levels by distance ---- */
   let current = LEVELS[detail] ? detail : 'full';
@@ -1376,6 +1554,20 @@ export async function createGardens({
   };
   out.settle = (camera) => {
     if (camera && ensureBuilt(camera)) { lastEye = camera.position.clone(); deal(camera.position); }
+  };
+  /** T-3460: Settings > Season. The beds take the snow, and what stands in them is
+   *  planted again for the season's day (a few hundred kilobytes of templates, once). */
+  out.setSeason = (s) => {
+    const next = ['spring', 'fall', 'winter'].includes(s) ? s : 'summer';
+    if (next === seasonNow) return false;
+    seasonNow = next; stats.season = next;
+    if (!built) return true;
+    seasonGround();
+    plant();
+    applyCast();
+    onGeometry?.(group);
+    if (lastEye) deal(lastEye);
+    return true;
   };
   out.setDetail = (d) => {
     if (!LEVELS[d] || d === current) return;

@@ -127,6 +127,25 @@ const FEATHER_M = { worn_earth: 22, trodden_earth: 22 };
  * Every vertex is `reconstructed`: docs/LIBERTIES.md L-t3339-worn-ground-1812.
  */
 const TRAIL_LIFT_M = 0.026;
+/**
+ * T-3457 — THE GRASS GIVES WAY HARDER THAN THE EARTH SHOWS. The owner, 2026-11-07, of
+ * the 1812 scene: *"you have paths and worn areas around the buildings but there is
+ * still grass heavily there, can you minimize or eliminate the grass in the worn paths
+ * and areas"*. `wear` was read as the share of the sward taken out as well as the
+ * strength of the earth, so a yard at 0.4 kept six tufts in ten across its trodden
+ * middle. Trampling kills the standing grass well before it shows bare dirt, so the
+ * sward now answers to the SHAPE of the worn ground (its feather, its trail profile and
+ * breathing) and not to its wear: inside a worn yard and on a trail's core almost
+ * every plant is gone, a few survive (`WORN_SWARD_MAX`), and the edges still fade out
+ * raggedly, over a band WORN_SWARD_REACH times the earth's own feather (the trampled,
+ * thinned grass round a house reaches past the dirt). A light trail keeps a little more (`TRAIL_SWARD_FLOOR` + its wear). The
+ * earth itself is drawn exactly as before. Reconstructed: L-t3339-worn-ground-1812.
+ */
+const WORN_SWARD_MAX = 0.96;
+const WORN_SWARD_GAIN = 1.3;
+const WORN_SWARD_REACH = 1.8;
+const TRAIL_SWARD_FLOOR = 0.6;
+const TRAIL_SWARD_GAIN = 1.5;
 const TRAIL_TAPER_M = 4.0;
 const TRAIL_CELL_M = 16;
 
@@ -231,7 +250,7 @@ function trailGrid(trails) {
       }
     }
   }
-  const coverOf = (list, e, n) => {
+  const coverOf = (list, e, n, sward = false) => {
     let best = 0;
     for (let k = 0; k < list.length; k++) {
       const g = list[k];
@@ -241,17 +260,28 @@ function trailGrid(trails) {
       const u = Math.min(1, Math.max(0, ((e - g.ax) * dx + (n - g.an) * dn) / L2));
       const d = Math.hypot(e - (g.ax + dx * u), n - (g.an + dn * u));
       if (d >= g.t.reach) continue;
-      const c = g.t.wear * profileWeight(g.t.profile, d) * trailMottle(g.t, g.s0 + u * g.len);
+      const shape = profileWeight(g.t.profile, d) * trailMottle(g.t, g.s0 + u * g.len);
+      // T-3457: the sward's share, off the trail's shape and only lightly its wear.
+      const c = sward
+        ? Math.min(WORN_SWARD_MAX, shape * TRAIL_SWARD_GAIN * Math.min(1, TRAIL_SWARD_FLOOR + g.t.wear))
+        : g.t.wear * shape;
       if (c > best) best = c;
     }
     return best;
   };
+  const listAt = (e, n) => cells.get(key(Math.floor(e / TRAIL_CELL_M), Math.floor(n / TRAIL_CELL_M)));
   return {
     coverAt: (e, n) => {
-      const list = cells.get(key(Math.floor(e / TRAIL_CELL_M), Math.floor(n / TRAIL_CELL_M)));
+      const list = listAt(e, n);
       return list ? coverOf(list, e, n) : 0;
     },
     coverScan: (e, n) => coverOf(segs, e, n),
+    /** T-3457: the share of the sward a trail takes out at (e, n). */
+    swardAt: (e, n) => {
+      const list = listAt(e, n);
+      return list ? coverOf(list, e, n, true) : 0;
+    },
+    swardScan: (e, n) => coverOf(segs, e, n, true),
   };
 }
 
@@ -416,6 +446,21 @@ function featherCover(ring, width, e, n) {
 }
 
 /**
+ * T-3457 — the sward's own feather round a worn yard: the same wandering edge as
+ * `featherCover`, but its middle never comes in nearer than a fifth of the band, so
+ * a bay of grass cannot reach back to the house wall, and the trampled ground is
+ * clear for a few metres all round before it frays out into the prairie.
+ */
+function swardFeather(ring, width, e, n) {
+  const s = edgeDistance(ring, e, n) * (pointInPolygon(ring, e, n) ? -1 : 1);
+  const fray = Math.sin(1.93 * e + 0.71 * n + 0.3) * Math.sin(-0.57 * e + 2.11 * n + 1.1);
+  const mid = width * (0.58 + 0.28 * featherWander(e, n) + 0.08 * fray);
+  const ramp = width * 0.12;
+  const t = Math.min(1, Math.max(0, (s - (mid - ramp)) / (2 * ramp)));
+  return 1 - t * t * (3 - 2 * t);
+}
+
+/**
  * T-2696. The yards' interiors and feathers filed on a world grid by their
  * bounding boxes, in their own order, so `suppressesSward` asks only those that
  * can contain the point. A point inside a box is in a cell that box was filed
@@ -439,7 +484,7 @@ function swardGrid(interiors, featherList) {
     }
   };
   for (const i of interiors) file(i.bbox, i, 'interiors');
-  for (const f of featherList) file(f.bbox, f, 'feathers');
+  for (const f of featherList) file(f.swardBbox ?? f.bbox, f, 'feathers');
   return {
     at: (e, n) => cells.get(key(Math.floor(e / SWARD_CELL_M), Math.floor(n / SWARD_CELL_M))),
   };
@@ -1037,7 +1082,18 @@ export async function createFencedGround({
         cover: (interior.wear ?? 1) < 1
           ? (e, n) => interior.wear * featherCover(ring, width, e, n)
           : (e, n) => featherCover(ring, width, e, n),
+        // T-3457: but the sward of a worn yard gives way to its shape, not its wear,
+        // and thins out over a wider band than the earth shows (`WORN_SWARD_REACH`).
+        sward: (interior.wear ?? 1) < 1
+          ? (e, n) => Math.min(WORN_SWARD_MAX,
+            WORN_SWARD_GAIN * swardFeather(ring, width * WORN_SWARD_REACH, e, n))
+          : (e, n) => featherCover(ring, width, e, n),
       } : null;
+      if (f && (interior.wear ?? 1) < 1) {
+        const swardOuter = offsetConvexRing(ring, width * WORN_SWARD_REACH);
+        if (swardOuter) { f.swardOuter = swardOuter; f.swardBbox = bboxOf(swardOuter); }
+        else f.sward = f.cover;
+      }
       if (!f) {
         problems.push(`yards: ${interior.record}'s outer ring is not convex — its ground is `
           + 'not feathered into the sward and stops at the ring');
@@ -1069,14 +1125,14 @@ export async function createFencedGround({
   out.suppressesSward = (e, n) => {
     const cell = swardCells.at(e, n);
     if (cell && swardAnswer(cell.interiors, cell.feathers, e, n)) return true;
-    return trailList.length ? trailCells.coverAt(e, n) * 0.95 > ditherHash(e, n) : false;
+    return trailList.length ? trailCells.swardAt(e, n) > ditherHash(e, n) : false;
   };
   out.suppressesSwardScan = (e, n) => swardAnswer(out.interiors, featherList, e, n)
-    || (trailList.length ? trailCells.coverScan(e, n) * 0.95 > ditherHash(e, n) : false);
+    || (trailList.length ? trailCells.swardScan(e, n) > ditherHash(e, n) : false);
   /** T-2696: `count` points over the yards' own boxes, the bucketed answer
    *  against the full walk. `differ` must be 0. */
   out.checkSwardGrid = (count = 20000) => {
-    const boxes = [...out.interiors.map((i) => i.bbox), ...featherList.map((f) => f.bbox),
+    const boxes = [...out.interiors.map((i) => i.bbox), ...featherList.map((f) => f.swardBbox ?? f.bbox),
       ...trailList.map((t) => t.bbox)];
     let s = 0x2696;
     const rnd = () => { s ^= s << 13; s >>>= 0; s ^= s >>> 17; s ^= s << 5; s >>>= 0; return s / 4294967296; };
@@ -1100,15 +1156,15 @@ export async function createFencedGround({
       if (pointInPolygon(i.pts, e, n)) {
         // T-2125: on a feathered ground the sward thins in at the share the
         // earth thins out, drawn per slot so the same slot always answers.
-        return i.feather ? i.feather.cover(e, n) > ditherHash(e, n) : true;
+        return i.feather ? i.feather.sward(e, n) > ditherHash(e, n) : true;
       }
     }
     for (let k = 0; k < feathersOf.length; k++) {
       const f = feathersOf[k];
-      const b = f.bbox;
+      const b = f.swardBbox ?? f.bbox;
       if (e < b.minE || e > b.maxE || n < b.minN || n > b.maxN) continue;
-      if (pointInPolygon(f.outer, e, n) && !pointInPolygon(f.ring, e, n)) {
-        return f.cover(e, n) > ditherHash(e, n);
+      if (pointInPolygon(f.swardOuter ?? f.outer, e, n) && !pointInPolygon(f.ring, e, n)) {
+        return f.sward(e, n) > ditherHash(e, n);
       }
     }
     return false;

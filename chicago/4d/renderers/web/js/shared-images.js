@@ -24,7 +24,7 @@
 
 /** image -> { users: number of loaded assets holding it, forget(): drop it from its cache } */
 const shared = new WeakMap();
-/** texture source -> { encoded: { view, mimeType, imageLoader } | null } — T-2598. */
+/** texture source -> { encoded: { view | blob, byteLength, mimeType, imageLoader } | null } — T-2598, T-3454. */
 const glbSources = new WeakMap();
 
 /**
@@ -60,12 +60,35 @@ function entryFor(byKey, key) {
 }
 
 /**
+ * The recovery bytes of one picture (T-2598), kept either as the page's own view
+ * of them or, with `asBlob`, as a Blob — T-3454.
+ *
+ * WHY A BLOB, ON A PHONE. A Blob's bytes are not the page's: WebKit hands them to
+ * its network process and Chromium to its browser process, and the tab keeps only
+ * a handle. iOS kills a tab by the memory of its web content process, so the
+ * encoded copy of every GLB picture a phone may have to decode again — 69 of them,
+ * 19.0 MB of ArrayBuffers on a 1904 phone (2026-11-07) — was counted against the
+ * one limit that matters while doing nothing until a picture came back. Held as a
+ * Blob it leaves that limit; decoding from it is what `redecode` always did, since
+ * a picture is decoded again through an object URL made from a Blob anyway.
+ */
+function encodedRecord(view, mimeType, imageLoader, asBlob) {
+  const byteLength = view.byteLength;
+  if (asBlob && typeof Blob === 'function') {
+    return { blob: new Blob([view], { type: mimeType }), byteLength, mimeType, imageLoader };
+  }
+  return { view, byteLength, mimeType, imageLoader };
+}
+
+/**
  * Teach `loader` (a GLTFLoader) to decode each distinct embedded image once for
  * every file it parses. `keepEncoded` is true for all recovery bytes, false for
- * none, or 'compressed' for only decoded compressed textures. Returns `{ stats }`,
- * which counts images decoded and images shared, for the tools that measure it.
+ * none, or 'compressed' for only decoded compressed textures; `encodedAsBlobs`
+ * keeps those bytes as Blobs, outside the page (T-3454, a phone). Returns
+ * `{ stats }`, which counts images decoded and images shared, for the tools that
+ * measure it.
  */
-export function shareImageSources(loader, { keepEncoded = false } = {}) {
+export function shareImageSources(loader, { keepEncoded = false, encodedAsBlobs = false } = {}) {
   const byKey = new Map();
   const stats = { decoded: 0, shared: 0 };
   loader.register((parser) => {
@@ -99,7 +122,7 @@ export function shareImageSources(loader, { keepEncoded = false } = {}) {
             if (texture.source) {
               const retainEncoded = keepEncoded && (keepEncoded !== 'compressed' || texture.isCompressedTexture);
               glbSources.set(texture.source, { encoded: retainEncoded
-                ? { view, mimeType: def.mimeType, imageLoader } : null });
+                ? encodedRecord(view, def.mimeType, imageLoader, encodedAsBlobs) : null });
             }
             return texture;
           });
