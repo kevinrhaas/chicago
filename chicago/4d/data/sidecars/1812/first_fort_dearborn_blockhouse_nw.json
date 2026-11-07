@@ -157,6 +157,14 @@
       "confidence": "reconstructed",
       "note": "T-3041: the body from its seat in the main roof to the cap's eave. The owner (2026-11-07), comparing the first build with the fort's drawings: the cupolas read about 20% too tall. The kit's 2.1 m body is cut to 1.6 m, which makes the whole cupola (body above the roof plus cap) about 20% shorter. Neither picture is to scale; this is a proportion read by eye, recorded in docs/LIBERTIES.md L-first-fort-blockhouse-cupolas-3041."
     },
+    "cupola_ports": {
+      "value": true,
+      "confidence": "inferred",
+      "sources": [
+        "currey_1912_first_fort_birdseye"
+      ],
+      "note": "T-3041, the owner's reading of Currey's bird's-eye (2026-11-07): each face of the cupola's cap carries a small dark opening, a lookout to see far off. The drawing shows two faces of each cap with one opening apiece; the other two faces are taken to match. It is too small to give the openings' shape or size, so each is built as a small framed opening under a shed hood, its width, height and place on the face reconstructed (fort_structure_params CUPOLA_PORT_*; docs/LIBERTIES.md L-first-fort-blockhouse-cupolas-3041)."
+    },
     "function": {
       "value": "block_house",
       "confidence": "attested",

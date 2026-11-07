@@ -65,7 +65,7 @@
       "sha256": "bd022919ca052610595908f83128dfceea976790c5bf2eff63f381abaa3b89b5"
     }
   ],
-  "flora_sha256": "a6b8362fc59f83b0ec3774abb3368aee55de5e94914558814eb79601699b051b",
+  "flora_sha256": "5754f59467b93d32ddcc12d8c0ce941184307ad19568eba232e3bda71a4ff405",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -274,6 +274,10 @@
     },
     {
       "what": "the principal storey's lights seen through the porte-cochere's east arch: the print, of the early 1890s, draws a narrow round-headed pair there, where the build now has one broad square-headed window under a transom, read off the Detroit print det 4a08066 of c. 1900 (T-1881, 2026-11-07); two dated pictures disagree and the later one governs a 1904 build, so the earlier lights are read as altered before c. 1900",
+      "status": "within tolerance"
+    },
+    {
+      "what": "[T-1881, 2026-11-07] re-rendered after 18th Street's parkway tree at 58.8 m (before the house's south-east corner) was regrown from the grown elm's forked fountain to a straight leader under a narrow head (form high_head, scale 0.65), off Taylor's 16554 and the Detroit print det 4a08066; the other high_head trees keep their places and habit, their crowns re-dealt. The 58.8 m tree is out of this view (the flank's file ends at 46.9 m); the parkway trees stand where they did, on the same habit; the open item is unchanged.",
       "status": "within tolerance"
     }
   ],

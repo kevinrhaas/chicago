@@ -1,0 +1,28 @@
+{
+ "id": "chicago_tribune_1903_08_09_sherman_will_dooryard",
+ "type": "newspaper",
+ "citation": "'Widow Must Trim the Trees. Will of the Late John B. Sherman Contains No Provision for Keeping Up His Three Homes.' Chicago Sunday Tribune, 9 August 1903 (vol. LXII, no. 32), p. 1.",
+ "author": "Chicago Tribune (unsigned)",
+ "date": "1903-08-09",
+ "describes_date": "1903-08-08 (Judge Holdom's ruling 'yesterday')",
+ "repository": "Internet Archive, item per_chicago-daily-tribune_1903-08-09_62_32 (Chicago Tribune microfilm).",
+ "url": "https://archive.org/details/per_chicago-daily-tribune_1903-08-09_62_32/page/n0/mode/1up",
+ "locator": "Front page (scan leaf n0), the sixth column (under 'Panic at Ball Game'), near its foot: the whole item, headline and four paragraphs (page image region x 9600-11700, y 15100-17100 of 14609 x 18640 px).",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "A US newspaper published in 1903, in the public domain. Quoted in text only; nothing is derived from the page image.",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "Read 2026-11-07 (T-3488) off the page image (one crop through the Archive's IIIF service) and the item's OCR text (per_chicago-daily-tribune_1903-08-09_62_32_djvu.txt, sha256 4dd2294f5983e0cbaf15a07c4f113eb62fbaed94da61823f97767fce0bc8e551), which agree word for word on the passage quoted.",
+ "note": "Read: 'When asked to construe certain parts of the will of the late John B. Sherman, Judge Holdom yesterday held that the widow, Mrs. Catherine Sherman, will have to take care of the trees in her dooryard, saw off the dead limbs herself, and keep her own lawn in trim, as the estate will not have to pay for it. By the will Mrs. Sherman was given an annual income and the use of the three homes of her late husband at Mount Clemens, Newport, and Chicago. No direct provision, it was averred, was made for the keeping up and repairing of the places.' THE ITEM DOES NOT SAY WHICH HOME THE TREES AND LAWN ARE AT. The ruling is about the keeping up of all three places, the item uses 'dooryard' without placing it at any of them, and it names no street and no address. That the Chicago home was 2100 Prairie Avenue rests on other sources (for example the Inter Ocean of 2 January 1887, inter_ocean_1887_01_02_prairie_avenue_homes), not on this one.",
+ "what_it_supplies": [
+  "that the Sherman homes in 1903, the Chicago one among them, had trees and a lawn in the widow's keeping, in the general terms of a court ruling",
+  "that the estate would not pay for their upkeep after August 1903"
+ ],
+ "what_it_does_not_supply": [
+  "which of the three homes (Mount Clemens, Newport or Chicago) the trees and lawn belong to: the item does not say",
+  "the Chicago address",
+  "front or rear: 'dooryard' does not place the trees on the lot",
+  "the number or kind of trees"
+ ]
+}

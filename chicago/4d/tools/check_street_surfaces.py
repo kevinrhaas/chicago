@@ -33,7 +33,8 @@ evidence. So the contract is:
     python3 tools/check_street_surfaces.py --handedness  # the normals' sign (T-2296)
 
   * HANDEDNESS (T-2296). Each `normal_gl` map, and the web JPEG the renderer actually
-    binds, is OpenGL-handed against its own `height16`: red falls where height rises
+    binds, of every material in the library's manifest (the street seven and, since
+    T-3488, the yard group no street names), is OpenGL-handed against its own `height16`: red falls where height rises
     to the right and green rises where height rises DOWN the image, because +V runs up
     it (three.js loads with flipY). Measured as the correlation of each channel with
     the height's central difference, so it reads the sign, not the strength. Every map
@@ -310,6 +311,20 @@ def check_handedness(doc: dict, textures: Path = TEXTURES):
     return bad, lines
 
 
+def with_library_only(doc: dict) -> dict:
+    """The surfaces file plus every library material no street names (the T-3488 yard
+    group), so --handedness reads the sign of every normal map the library ships, not
+    only the street seven's."""
+    doc = copy.deepcopy(doc)
+    lib = TEXTURES / doc.get("texture_library", "textures/prairie_1904_pbr/")
+    named = {m.get("texture") for m in (doc.get("materials") or {}).values()}
+    for m in load(lib / "manifest.json")["materials"]:
+        tex = f'{m["group"]}/{m["id"]}'
+        if tex not in named:
+            doc.setdefault("materials", {})[f'library:{m["id"]}'] = {"texture": tex}
+    return doc
+
+
 def check() -> list:
     for p in (SURFACES, GRID):
         if not p.exists():
@@ -405,7 +420,7 @@ def main() -> int:
     if a.self_test:
         return self_test()
     if a.handedness:
-        got = check_handedness(load(SURFACES))
+        got = check_handedness(with_library_only(load(SURFACES)))
         if got is None:
             print("SKIP the normals' handedness: numpy or Pillow is not installed — a banked "
                   "reading, not a pass (tools/check_gate_readers.py)")

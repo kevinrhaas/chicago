@@ -1,0 +1,13 @@
+{
+  "sheet": "wood_shingles_weathered_orl.ktx2",
+  "what": "the wall (or shingle roof) relief's packed map: R = AO, G = roughness, B = 0.5 * L / mean(L) (relief-pack.js packOrl), written bottom row first (tools/ktx2_sheets.py)",
+  "px": [
+    1024,
+    1024
+  ],
+  "mean_roughness": 0.902619,
+  "masters": {
+    "wood_shingles_weathered_orm.png": "3844b7eb06093aa8d3b40e16bf9c020917ff07636b062ae3caff9302f9dd80ec",
+    "wood_shingles_weathered_basecolor.png": "4d2823fd687630de4a132aee2638a0ca8e4724cb25e9d9ecf19bee4c7a74c427"
+  }
+}
