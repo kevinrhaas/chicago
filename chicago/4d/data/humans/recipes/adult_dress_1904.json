@@ -10,8 +10,8 @@
     0.12
   ],
   "skin_texture": {
-    "path": "assets/authored/humans/skin_toigo_bronze/young_lightskinned_male_diffuse_Bronze.png",
-    "sha256": "5a53213f061bfa97ee0afd6b40650ffbc089a479c144e63f3c39acceca5853c0",
+    "path": "assets/authored/humans/skin_toigo_bronze_female/young_lightskinned_female_diffuse_Bronze.png",
+    "sha256": "535535f30bacd42111590df4b03cf3b6bcdb7db18f336ce670665ec332ab3e0b",
     "license": "CC0-1.0",
     "color_space": "sRGB",
     "base_color_factor": [
@@ -24,7 +24,7 @@
     "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
     "identity_basis": "Cleared reusable generic skin atlas; not a likeness, attested complexion, or source identifying any named/reconstructed resident.",
     "uv_status": "Source atlas and UV registration viewed in source diagnostics; final Blender export/LOD render validation remains outstanding.",
-    "female_appearance_status": "Existing male-named Bronze atlas is a provisional cleared source experiment only; female skin appearance, atlas fit and photographic qualification remain open."
+    "female_appearance_status": "The same author's female bronze atlas (skins01, CC0), replacing the male one whose beard shadow read as a man's jaw at 3 m (T-3434); photographic qualification remains open."
   },
   "hair_component": {
     "directory": "assets/authored/humans/hair_short04",

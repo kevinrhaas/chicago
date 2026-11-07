@@ -36590,6 +36590,24 @@ the head bone (5 cm in 1835) and the strand hair is combed up from the face to i
 stereographs show hair drawn up to a knot on the crown. **Body:** the same female base as Mary
 Flynn; no birth year is recorded for her, so the variation kit draws her age, and her face, height,
 build and complexion are not hers.
+**The softer woman, 2026-11-06 (T-3434):** the owner read her as neither feminine nor kind. Four
+causes are changed. **Skin:** she wore the male Toigo bronze atlas, whose beard shadow made a man's jaw;
+she now wears the same author's female bronze atlas (MakeHuman skins01, CC0;
+`assets/authored/humans/skin_toigo_bronze_female/`). **Face:** each women's body (Mary's and hers) carries a
+`face_bias` in `data/humans/variation/axes.json` that leans every seeded face toward MakeHuman's own
+feminine proportions (a lighter jaw, chin and jowl, a smaller brow ridge, fuller lips, brows raised a
+little) and sets the mouth's corners a little up at rest (the new `mouth_corners` axis, from MakeHuman's
+CC0 mouth-angles targets, which is never drawn, so no one else's face moves). Fine arched eyebrows
+(`brows_fine`) are grown on both women. **Cut:** the shirtwaist pouches forward over the waist band by up
+to 1.8 cm, most 8 cm above the waist and nothing from 25 cm up, and its upper sleeves stand 1.2 cm off
+the arm, gathered to nothing at the shoulder and the elbow; the bib carries two 3 cm shoulder straps up
+over the shoulders and down the back to the waist. **Hair:** the cleared short04 cap itself is raised into a roll,
+up to 2.8 cm over the brow and 1.8 cm at the temples, rising from nothing at the cap's edge and fading to
+nothing toward the back and below the temples; the strand hair grows on it, so it follows. **Hands:** a woman in the full skirt never
+lets her hands hang or sets them on her hips, where they sank into the skirt's bell (the owner saw it);
+she stands with them loosely clasped in front at the waist, over the apron, or held at the waist behind,
+as women in service stand in the photographs of the decade. All amounts are chosen by eye against the
+1903 stereographs; none is measured, and none says anything about how she looked.
 
 ### L-tremont-gale-envelope-2385 — two-storey default and picture alternative
 
@@ -39312,6 +39330,7 @@ The rear, the plan's stair block and service range, stays the draft's.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg`.
 **Recorded:** 2026-11-01 (T-1881).
 **Revised 2026-11-02 (T-1881):** the Prairie front's part ends moved from the sketch's proportions to the photographs' readings, the three parts kept in order and depth. Clark's 1905 photograph (CHM i71913) and the Detroit print (LC-D4-12551), each through its own solved camera, put the big pedimented dormer and its column of lights at v 11.0-11.45, 3.2 m north of round 3's v 14.45; the Detroit print reads the light over the door at v 6.0-6.9, the gate's urned piers centred on v 6.875, the north block's south return beside the portico at about v 5.0, and a narrow south column (lights at v 15.2-15.7, a smaller dormer at v 14.3-15.3) that round 3 had dropped. Now: `p_block` v 0-5.0 (K01's forward-block floor lowered from 6 m to 4.5 m for it), `p_entry` v 4.95-8.8 on the door at v 6.875, the hood 3.1 m with its columns at v 5.65 and 8.1 and the stoop 3.1 m, the south part v 8.8-17.93 with the big column and dormer at v 11.225 and the narrow column at v 15.45 under a 0.6 m dormer at v 14.85. Through both cameras the render's columns land within a few pixels of the prints'. **Still invented:** the ends to about 0.5 m, and the portico's reach: the print and the 1911 sheet run it over v 1.6-10.6, before the north block, which this build cannot lay while the block stands 2.95 m forward.
+**Revised 2026-11-06 (T-1881):** the owner, his crop of the Detroit print beside the build: "you have two windows at every level for this third part of the face, but in the image there is one window at every level, line and size them up correctly with the house". The south part (v 8.8-17.93) now carries ONE column, the big principal light, the wide second-storey light and the pedimented dormer, centred on its wall between the banded pier at v 8.8-9.41 and the corner pier, at v 13.1; the narrow column at v 15.45 and its dormer at v 14.85 are taken off. Read on the Library of Congress master scan of the Detroit print (det 4a08065u, five times the store's copy): the big light stands midway between the entry's banded corner and the next banded pier, at which the cornice turns and falls away with the flank, so that pier is the south-west corner and the narrow light and small dormer beyond it are the 18th Street flank's first column (north_bays s 1.4), the owner's 2026-11-01 ruling that the corner's section belongs to the 18th Street side. Taylor's no. 1445 reads the column at v 12.8-14.2. The Detroit and Clark cameras, each fitted with its corner on a point of the flank 2.5-3 m past the true one, read it at v 11.0-11.45; their match records carry that as an owner ruling. **Still invented:** the column's exact place, set at the wall's middle as the prints draw it, to about 0.4 m.
 
 ### L-pullman-1729-joined-roof-1881 — 1729 Prairie's mansard built as one roof over its sections, under one rail of cresting, and the ivy at its south-west corner held off the windows
 
@@ -41274,6 +41293,30 @@ architrave, which HABS 2 shows and the kit's flat-capped face does not yet build
 drawings if any were made), or a nearer photograph of the front's roof.
 **Ticket:** T-1890.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`, `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg`.
+
+### L-kimball-1801-third-storey-architrave-1890 — the moulded architrave round 1801 Prairie's third-storey light
+**Recorded:** 2026-11-06.
+
+**Decision:** the one light in the stone third storey behind the bow's balcony
+(`mansard.dormers[3]`, L-kimball-1801-third-storey-1890) stands in a lugged architrave
+(`architrave`, K01's flat-capped wall dormer, T-1890): a plain stone band 0.18 m broad standing
+0.06 m out of the face up both jambs and across the head, the head's ends carried 0.08 m past the
+jambs as lugs 0.26 m deep from the head's top, and a sill 0.12 m deep standing 0.12 m out and
+running 0.06 m past the band.
+**What is read, not invented.** Harold Allen's HABS photograph 2 of 1965
+(`habs_kimball_photo_02_nw_1965`) shows the frame plainly: a moulded architrave round the light with
+lugs at its head's corners and a projecting sill, pale stone against the face. J. W. Taylor's
+photograph of c. 1895 (`taylor_c1895_kimball_residence_1801`) shows a raised frame round the same
+light, so it is fabric of 1904 and not a later change. The frame's outer edges were set by
+rendering through both cameras until they stood on the prints'.
+**What is invented or held by the kit.** Neither print is near enough to read the mouldings, so the
+band is laid flat-faced, and its breadth, projection, the lugs' reach and drop and the sill's
+section are proportions read off the prints' few pixels, not measured. This entry supersedes the
+older entry's statement that the architrave is not built.
+**How to resolve:** an elevation drawing of the Prairie front (Solon S. Beman's), or a nearer
+photograph of the third storey.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg`, `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
 
 ### L-k01-1729-pullman-lantern-1881 — 1729 Prairie's hanging lantern beside the portico and the banded pier at the entrance's inner angle, read off the 1890 Albertype plate
 

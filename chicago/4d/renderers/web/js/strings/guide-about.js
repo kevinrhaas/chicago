@@ -21,7 +21,7 @@ export default register('guide-about', {
   'card.sources.inspect': "One building's own sources are on its Sources tab in Inspect.",
   'card.liberties': 'Liberties',
   'card.liberties.line': 'Every choice we made without a source, by name. Also what we left out, and what is still open.',
-  'card.liberties.inspect': "One building's own Liberties are on its Sources tab in Inspect.",
+  'card.liberties.inspect': "One building's own Liberties are on its Details tab in Inspect.",
   'card.living': 'What lived and grew here',
   'card.living.line': 'The land itself, and the life our sources name on it.',
   // One line under each topic's tile. The grades line is the HUD's (hud.sources.grades).

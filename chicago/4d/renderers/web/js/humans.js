@@ -256,7 +256,7 @@ export class HumanActor {
       else {
         // The dress assembly's figures greet with a nod (T-3423); the GLB's scene extras name it.
         const dressed = /adult_dress_v1/.test(next.scene.userData?.chicago4d_human?.wardrobe_assembly_json ?? '');
-        this.actions = createHumanActions({ id: this.personId ?? this.id, scene: next.scene, greeting: dressed ? 'nod' : 'brow' });
+        this.actions = createHumanActions({ id: this.personId ?? this.id, scene: next.scene, greeting: dressed ? 'nod' : 'brow', skirt: dressed });
       }
       if (prev) { this.counters.swaps++; this.teardown(prev); }
       this.costs = '';

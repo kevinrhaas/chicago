@@ -1,8 +1,9 @@
 #!/usr/bin/env node
-// T-2644 (NAV-508): Inspect's Sources tab. Every fact grouped by Attested, Inferred and
-// Reconstructed with real counts, a Liberties section, human source titles taken from the
-// source records' own citations, the full citation folded under each fact, and no source id,
-// tier number or tier label in what a visitor reads.
+// T-2644 (NAV-508): Inspect's Details tab (the Sources tab until T-3435). Every fact grouped by
+// Attested, Inferred and Reconstructed with real counts, a Liberties section, human source titles
+// taken from the source records' own citations, the full citation folded under each fact, and no
+// source id, tier number or tier label in what a visitor reads. T-3435: the Sources tab, the same
+// facts by source, each source opened to what it gave.
 //
 // No browser: the pane is an HTML string, read here over fixtures and over the real Glessner
 // House sidecar, its authored summary record and its liberties.
@@ -10,7 +11,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildingFacts, factCounts, sourceTitle, sourceTag, sourceYear, resolveSource, sourcesPaneHtml, GRADES, _test }
+import { buildingFacts, factCounts, sourceTitle, sourceTag, sourceYear, resolveSource, sourcesPaneHtml, detailsPaneHtml, GRADES, _test }
   from '../renderers/web/js/inspect-sources.js';
 import { clean } from '../renderers/web/js/fallback-summary.js';
 
@@ -123,12 +124,12 @@ assert.equal(sourceTag(undefined, null, 1904), '', 'an unknown tier and no date 
   const n = factCounts(facts);
   assert.deepEqual(n, { attested: 8, inferred: 2, reconstructed: 1, other: 1, total: 12 });
 
-  const html = sourcesPaneHtml({ sidecar, summary, docSources, liberties: [
+  const html = detailsPaneHtml({ sidecar, summary, docSources, liberties: [
     { id: 'L-1', title: 'courtyard roof junction', fields: [{ label: 'Decision', text: 'The **apex** is ours.' }, { label: 'Ticket', text: 'T-2016' }] },
     { id: 'L-2', title: 'The west gable', fields: [{ label: 'Decision', text: 'See `data/x.json`.' }] },
   ], questions: null, dossier: 'https://example.org/dossier.md', sourceDates, sceneYear: '1904' });
   const text = visible(html);
-  assert.match(text, /^\s*12 facts\. 8 Attested, 2 Inferred, 1 Reconstructed\. Tap any one to see its sources\./, 'the header counts every fact, by grade');
+  assert.match(text, /^\s*12 facts\. 8 Attested, 2 Inferred, 1 Reconstructed\. Tap any one to see why, and its sources\./, 'the header counts every fact, by grade');
   const groups = [...html.matchAll(/<section class="src-grade" data-grade="(\w+)">/g)].map((m) => m[1]);
   assert.deepEqual(groups, [...GRADES, 'other'], 'three groups in ladder order, and the off-scale one said to be a fault');
   assert.match(text, /1 carry no grade on our scale\. That is a fault in our record\./);
@@ -149,18 +150,37 @@ assert.equal(sourceTag(undefined, null, 1904), '', 'an unknown tier and no date 
   assert.match(text, /Courtyard roof junction Decision The apex is ours\./, 'a liberty by name, its visitor-facing part folded under it');
   assert(!/T-2016|L-1|L-2|data\/x\.json/.test(text), 'no liberty id, ticket or path');
   assert.match(text, /The west gable The full entry is written for researchers\./);
-  assert.match(text, /Read the research dossier ↗/);
-  assert.match(html, /data-insp-full/, 'a way to the full record');
+  assert.match(html, /data-insp-go="sources"/, 'a way on to Sources');
   assert(!/<details[^>]*\bopen\b/.test(html), 'every row starts folded');
   assert(!/src-why|src-titles|cites/.test(closed(html)), 'before a tap, only the labels and values show');
 
-  assert.match(visible(sourcesPaneHtml({ sidecar, liberties: null })), /Our list of liberties could not be read just now\./,
+  assert.match(visible(detailsPaneHtml({ sidecar, liberties: null })), /Our list of liberties could not be read just now\./,
     'a list that did not load is said, never shown as empty');
-  assert.match(visible(sourcesPaneHtml({ sidecar, liberties: [] })), /No liberties are written down for this building\. That does not mean none were taken\./);
+  assert.match(visible(detailsPaneHtml({ sidecar, liberties: [] })), /No liberties are written down for this building\. That does not mean none were taken\./);
   assert.equal(resolveSource('src_c', new Map(), docSources).tier, 4);
   assert.equal(resolveSource('nope', new Map(), docSources), null);
   assert.equal(_test.keyWords('frame_ft'), 'Frame (ft)');
   assert.equal(_test.valueWords({ length_ft: 1 }), '', 'a structured value is left off');
+
+  // T-3435: Sources, by source. One row per source, the most-used first, each with its title,
+  // its kind and how many facts it gave; opened, the facts themselves and the full citation.
+  const by = sourcesPaneHtml({ sidecar, summary, docSources, dossier: 'https://example.org/dossier.md', sourceDates, sceneYear: '1904' });
+  const bt = visible(by);
+  assert.match(bt, /^\s*3 sources stand behind this building\. Tap one to see what it gave\./, 'the header counts the sources');
+  const titles = [...by.matchAll(/<details class="src-source">\s*<summary><span class="src-title">([^<]*)<\/span>/g)].map((m) => m[1]);
+  assert.equal(titles.length, 3, 'one row per source');
+  assert.match(titles[0], /^Historic American Buildings Survey/, 'the source behind the most facts first');
+  assert.match(by, /<span class="src-n">5 facts<\/span>/, 'each row says how many facts it gave');
+  assert.match(bt, /What it gave Built 1887 Architect H\. H\. Richardson Stood here Its outline Roof covering terracotta tile/, 'opened, the facts it gave');
+  assert.match(bt, /Sanborn Map Company\. Insurance Maps of Chicago, Illinois, Vol\. 3 \(1911\), sheet… from the time/);
+  assert.match(bt, /No source named 4 4 facts rest on clues or on our reconstruction\./, 'the facts with no source are counted, not lost');
+  assert.match(by, /data-insp-go="details"/, 'and sent to Details');
+  assert.match(bt, /Read the research dossier ↗/);
+  assert.match(by, /data-insp-full/, 'a way to the full record');
+  assert(!/src_[abc]/.test(bt), 'no source id');
+  assert(!/<details[^>]*\bopen\b/.test(by), 'every source starts folded');
+  assert(!/What it gave|cites/.test(closed(by)), 'before a tap, only the sources show');
+  assert.match(visible(sourcesPaneHtml({ sidecar: { attributes: { x: { value: 1, confidence: 'reconstructed' } } } })), /No source is named for anything here yet\./);
 }
 
 // ---- Glessner House, from the real tree ----------------------------------------------------
@@ -171,7 +191,7 @@ assert.equal(sourceTag(undefined, null, 1904), '', 'an unknown tier and no date 
   const dateOf = (id) => { try { return json(`data/sources/${id}.json`).date ?? null; } catch { return null; } };
   const ids0 = new Set([...sidecar.citations.map((c) => c.source_id), ...buildingFacts(sidecar, summary).flatMap((f) => f.sources)]);
   const sourceDates = Object.fromEntries([...ids0].map((id) => [id, dateOf(id)]).filter(([, d]) => d));
-  const html = sourcesPaneHtml({ sidecar, summary, docSources: null, liberties: libs, questions: [], dossier: null, sourceDates, sceneYear: 1904 });
+  const html = detailsPaneHtml({ sidecar, summary, docSources: null, liberties: libs, questions: [], dossier: null, sourceDates, sceneYear: 1904 });
   const facts = buildingFacts(sidecar, summary);
   const n = factCounts(facts);
   const claims = 3 + Object.keys(sidecar.attributes).length;
@@ -194,6 +214,14 @@ assert.equal(sourceTag(undefined, null, 1904), '', 'an unknown tier and no date 
   assert.equal((html.match(/<span class="src-when">from the time<\/span>/g) ?? []).length, fromTime, 'and the pane says it of exactly those');
   assert(!/written later/.test(text));
   for (const term of ['Attested', 'Inferred', 'Reconstructed', 'Liberties']) assert(text.includes(term), `the locked term ${term}`);
+  // T-3435: by source, every sourced fact sits under each source it names, and no id shows.
+  const by = sourcesPaneHtml({ sidecar, summary, docSources: null, dossier: null, sourceDates, sceneYear: 1904 });
+  const rows = (by.match(/<details class="src-source">/g) ?? []).length;
+  assert.equal(rows, new Set(facts.flatMap((f) => f.sources)).size, 'a row for every source the facts name');
+  const gave = (by.match(/<li class="src-gave-row">/g) ?? []).length;
+  assert.equal(gave, facts.reduce((k, f) => k + new Set(f.sources).size, 0), 'each fact under each of its sources');
+  const bt = visible(by);
+  for (const id of ids) assert(!bt.includes(id), `no source id by source: ${id}`);
 }
 
 console.log('test_nav_sources: OK');

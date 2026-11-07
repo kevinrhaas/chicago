@@ -41,9 +41,13 @@ const NEEDED = ['pelvis', 'spine_03', 'head', 'thigh_l', 'thigh_r', 'foot_l', 'f
   'lowerarm_l', 'lowerarm_r', 'hand_l', 'hand_r'];
 
 /** The standing hand poses a person moves between; `rest` is no IK at all. */
-export const HAND_POSES = Object.freeze(['rest', 'hips', 'behind']);
+export const HAND_POSES = Object.freeze(['rest', 'hips', 'behind', 'clasp']);
+// A woman in a full skirt (T-3434) never lets her hands hang, nor sets them on her hips: in
+// both the hand sinks into the skirt's bell. She stands with them clasped in front at the
+// waist, over the apron, or held at the waist behind.
+export const SKIRT_POSES = Object.freeze(['clasp', 'behind']);
 
-export function createHumanActions({ id = 'human', scene = null, greeting = 'brow' } = {}) {
+export function createHumanActions({ id = 'human', scene = null, greeting = 'brow', skirt = false } = {}) {
   const rand = seededRandom(`actions:${id}`);
   const between = (a, b) => a + (b - a) * rand();
   let bones = {}, held = {}, bound = false, root = null, body = null;
@@ -101,6 +105,8 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
     const eyes = found.eye_l && found.eye_r ? at('eye_l').add(at('eye_r')).multiplyScalar(0.5) : at('head').add(new THREE.Vector3(0, 0.05, 0.09));
     L.brow = eyes.add(new THREE.Vector3(0, 0.055, 0.035));
     L.backZ = Math.min(at('pelvis').z, at('spine_03').z) - 0.13; // the small of the back's surface, roughly
+    L.frontZ = Math.max(at('pelvis').z, at('spine_03').z) + 0.19; // the front of a skirt and apron at the waist, roughly
+    L.waistY = (at('pelvis').y + at('spine_03').y) / 2;
     held = {};
     for (const s of SIDES) for (const n of ARM(s)) if (found[n]) held[n] = { base: found[n].quaternion.clone(), out: new THREE.Quaternion(NaN, NaN, NaN, NaN) };
     bones = found;
@@ -181,7 +187,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
 
   // State, kept across a LOD swap.
   let time = rand() * 50;
-  let pose = 'rest', poseW = 1, prevPose = 'rest', poseHold = between(6, 14);
+  let pose = skirt ? 'clasp' : 'rest', poseW = 1, prevPose = pose, poseHold = between(6, 14);
   let greet = -1, greetCool = 0, nodRequest = 0;
   const swing = { l: 0, r: 0 };
   let lastState = null;
@@ -189,13 +195,23 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
   function choosePose() {
     const r = rand();
     prevPose = pose; poseW = 0;
-    pose = pose !== 'rest' && r < 0.45 ? 'rest' : r < 0.72 ? 'hips' : r < 0.95 ? 'behind' : 'rest';
+    if (skirt) pose = pose !== 'clasp' && r < 0.65 ? 'clasp' : r < 0.9 ? 'behind' : 'clasp';
+    else pose = pose !== 'rest' && r < 0.45 ? 'rest' : r < 0.72 ? 'hips' : r < 0.95 ? 'behind' : 'rest';
     poseHold = pose === 'rest' ? between(8, 20) : between(10, 26);
   }
 
   /** Where each pose puts the wrists, the elbows' pull and the hands, in figure terms. */
   function poseTargets(name, s) {
     const sx = s === 'l' ? 1 : -1; // +X is the figure's left
+    if (skirt && name === 'clasp') {
+      // Hands loosely together in front at the waist, over the apron, the right over the left.
+      return { wrist: new THREE.Vector3(sx * 0.055, L.waistY - 0.05, L.frontZ + (s === 'r' ? 0.03 : 0.015)), pole: new THREE.Vector3(sx, -0.3, -0.3),
+        fingers: new THREE.Vector3(-sx * 0.85, -0.3, 0.2), palm: new THREE.Vector3(0, 0.1, -1), curl: s === 'r' ? 0.3 : 0.45 };
+    }
+    if (skirt && name === 'behind') {
+      return { wrist: new THREE.Vector3(sx * 0.045, L.waistY - 0.01, L.backZ - 0.06), pole: new THREE.Vector3(sx * 0.9, -0.25, -0.4),
+        fingers: new THREE.Vector3(-sx, -0.35, -0.1), palm: new THREE.Vector3(0, 0.15, -1), curl: s === 'l' ? 0.55 : 0.25 };
+    }
     if (name === 'hips') {
       return { wrist: new THREE.Vector3(sx * (L.hipHalf + 0.095), L.pelvisY + 0.07, -0.005), pole: new THREE.Vector3(sx, -0.1, -0.75),
         fingers: new THREE.Vector3(-sx * 0.15, -0.75, 0.62), palm: new THREE.Vector3(-sx, 0, 0), curl: 0.35 };
@@ -212,7 +228,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
     bind,
     get pose() { return pose; },
     /** Change the standing hand pose now (`rest`, `hips` or `behind`). */
-    setPose(name) { if (HAND_POSES.includes(name) && name !== pose) { prevPose = pose; pose = name; poseW = 0; poseHold = between(10, 26); } return api; },
+    setPose(name) { if (HAND_POSES.includes(name) && (!skirt || SKIRT_POSES.includes(name)) && (skirt || name !== 'clasp') && name !== pose) { prevPose = pose; pose = name; poseW = 0; poseHold = between(10, 26); } return api; },
     /** Touch the brow in greeting now (the right hand), unless one is under way. */
     // A woman in a dress (T-3423) greets with the nod alone: the touch of the brim or
     // forelock is a man's.
@@ -229,16 +245,16 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
       body.getWorldQuaternion(sceneQ); sceneM.copy(body.matrixWorld);
       const standing = state === 'standing' || state === 'talking';
       const walking = state === 'walking';
-      if (state !== lastState) { lastState = state; if (!standing) { pose = 'rest'; poseW = 1; } }
+      if (state !== lastState) { lastState = state; if (!standing) { pose = 'rest'; poseW = 1; } else if (skirt && pose === 'rest') { prevPose = 'rest'; pose = 'clasp'; poseW = 0; } }
 
       // The arms hang in by the sides, elbows soft: the base every pose starts from.
       for (const s of SIDES) {
         const sx = s === 'l' ? 1 : -1;
-        const inward = toWorldDir(fig.up.clone().multiplyScalar(-1).addScaledVector(fig.left, sx * 0.075)
+        const inward = toWorldDir(fig.up.clone().multiplyScalar(-1).addScaledVector(fig.left, sx * (skirt ? 0.16 : 0.075))
           .addScaledVector(fig.fwd, 0.04));
         aim(`upperarm_${s}`, inward, 0.85);
         bones[`upperarm_${s}`].updateMatrixWorld(true);
-        const forearm = toWorldDir(fig.up.clone().multiply(new THREE.Vector3(0, -1, 0)).addScaledVector(fig.left, sx * 0.03)
+        const forearm = toWorldDir(fig.up.clone().multiply(new THREE.Vector3(0, -1, 0)).addScaledVector(fig.left, sx * (skirt ? 0.12 : 0.03))
           .addScaledVector(fig.fwd, walking ? 0.32 : 0.2));
         aim(`lowerarm_${s}`, forearm, 0.85);
         // The hand hangs relaxed: fingers down and a little forward, palm to the thigh,
