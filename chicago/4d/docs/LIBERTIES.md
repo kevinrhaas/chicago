@@ -41549,3 +41549,26 @@ own choice (the match record keeps it open).
 which sees the flank from the north-west, would place the stack along it and might show its breast.
 **Ticket:** T-3365 (piece 2 of T-1914).
 **Recorded:** 2026-11-07 (T-3365).
+
+### L-k01-2009-meyer-gable-run-on-3365 — 2009 Prairie's gable carried on down to the party wall on its south side, and the corner cut down under it
+
+**Decision:** the Chicagology photograph (`chicagology_2009_prairie_meyer_photo`, rights check_required:
+forms, places and sizes only) shows the ogee gable's south side running on past the height where its north
+side stops, down over the party wall with 2011 to about 10.3 m. K01's shaped gable gains a `run_on`
+(`shaped_gable.run_on`, the front's high-s end, K01's side.north): the slab is carried down the print's line
+on a 0.45 m band under its coping, the street front and the party wall are cut down under the line, the hip's
+eave, soffit, gutter and covering over it are taken off in front of a cheek 0.9 m behind the front, and the
+cut is closed by that cheek (the side walls' brick) over a slated floor along the line. This retires the
+"the kit draws both sides alike" liberty in the record's note.
+**What is read, not invented.** The line itself, read row by row off the print at 99.9 px a metre: the coping's
+outer edge at half-width 2.31 m at 12.34 m, 2.6 at 11.86, 3.0 at 11.26, 3.37 at 10.78 and 3.62 at 10.46,
+meeting the party line at about 10.32 m; the render's coping lands within about 0.15 m of the print's along
+its length.
+**What is invented.** Everything behind the coping: the print sees only a dark face in shadow there (2011's
+wall and roof beyond the party line), so how deep the cut runs back (0.9 m), the cheek's brick and the
+slated floor sloping to the party wall are this build's, as is the gutter stopped at the cheek. The band's
+depth (0.45 m) is hidden in the wall.
+**How to resolve:** a picture of the roof from the south or above, or a camera on Monroe's 1896 plate if
+its frame reaches the south side.
+**Ticket:** T-3365 (piece 2 of T-1914).
+**Recorded:** 2026-11-07 (T-3365).

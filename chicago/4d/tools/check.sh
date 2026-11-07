@@ -318,8 +318,8 @@ step "Settings › About's field log counts landings, first inspects, tabs, Show
 # T-2657: Researcher mode, the Settings › About switch.
 step "Researcher mode is off by default and remembered per device, and shows research prose in place while on (T-2657)" \
   node tools/test_researcher_mode.mjs
-# T-2658: Short "Why?" — a one-line hint and a bubble of 40 words at most per researched setting.
-step "Every 'Why this default' is one line and a 'Why?' bubble of 40 words at most that opens by tap, click or key and closes on Escape or an outside tap; the full essay is Researcher mode's (T-2658)" \
+# T-3445 (was T-2658's short "Why?"): the owner dropped the "Why this setting" lines and essays.
+step "Settings and Move carry no 'Why?' lines or essays, every note there is one short line, and the researched defaults are named on their readouts (T-3445)" \
   node tools/test_short_why.mjs
 step "Navigator Jump: three era cards with HERE, the in-world ring and transfer stamp, Escape aborts, RECALL the one signal-red key (T-2655)" \
   node tools/test_nav_jump.mjs
@@ -604,6 +604,8 @@ step "All named1904 driver LODs retain their native contract and seated geometry
   node tools/test_working_driver_1904.mjs
 step "A person transfers to their driven vehicle without duplicate bodies or lifetime ownership (T-2804)" \
   node tools/test_human_driver_transfer.mjs
+step "A figure's distance levels are parked and reused, not reloaded; People hidden stops every figure (T-3439)" \
+  node tools/test_human_lod_park.mjs
 step "The shared interaction key and touch control stop and resume the existing transport actor (T-2804)" \
   node tools/test_transport_interactions.mjs
 step "Every person placed in town is named by the look tag, found, and followed beside them (T-3404)" \
