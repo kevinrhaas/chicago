@@ -67273,6 +67273,42 @@
       ]
     },
     {
+      "id": "L-t3474-yard-wood-surfaces",
+      "title": "the woodpiles' wood: a procedural atlas of split ends, bark and sawn rounds",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-07",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the yard layer's woodpiles (the walkthrough's yard code, every year that has them: 1812's 17 and 1835's 399) are drawn in a physically scaled PBR wood atlas, the woodpile atlas model (base colour, OpenGL normal, packed ORM; 1129 px to the metre), written by the yard wood pbr generator: two rick faces of split billet ends (quarters, eighths, halves, slabs and small rounds racked in courses, each with its growth rings round its own pith, oak's rays, a heartwood/sapwood break, a bark rind on its outer arc, rim and heart checks, axe facets, and its own weathering, most a season stacked and greying); the sticks along their length; a sawn round's end with checks, kerf and axe scores (the chopping block's top and a log's end); oak/hickory log bark; and a split face along the grain. Where the atlas loads it replaces earlier work's painted cells, which stay as the fallback. The 1812 casks and cases standing in those yards move out of the woodpile mesh into the goods' chunks, where they wear the board face's grain the town's other casks wear; and the 1812 woodpiles show at the phone (`light`) row, which keeps hiding the 1835 town's 399 (wood light max lots)."
+        },
+        {
+          "label": "Why",
+          "text": "the owner, 2026-11-07, on the screenshots: *\"those are a nice start make the next round of them photographic, improve the surface textures\"*."
+        },
+        {
+          "label": "What is\nours throughout",
+          "text": "the whole look: the mix of woods (oak, hickory, ash and elm, the trees of the 1812 groves), the split shapes, ring widths, colours, checks and weathering. No photograph is embedded, sampled or traced; no source shows any 1812 or 1835 Chicago woodpile."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a period view or description of a Chicago woodpile, or of the wood the post and the households burned."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-07 (T-3474)."
+        }
+      ],
+      "work_refs": [
+        "T-1959",
+        "T-3458",
+        "T-3474"
+      ]
+    },
+    {
       "id": "L-t3340-south-groves-1812",
       "title": "1812's timber south of the river: the South Branch belt carried east of Wells, and groves in the wet hollows",
       "section": "per_subject",

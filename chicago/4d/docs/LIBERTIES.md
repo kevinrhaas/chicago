@@ -40351,6 +40351,28 @@ the factory's returns for 1812; a view of the post's out-buildings.
 **Ticket:** T-3458.
 **Recorded:** 2026-11-07 (T-3458).
 
+### L-t3474-yard-wood-surfaces — the woodpiles' wood: a procedural atlas of split ends, bark and sawn rounds
+
+**Decision:** the yard layer's woodpiles (`renderers/web/js/yard.js`, every year that has them: 1812's 17 and
+1835's 399) are drawn in a physically scaled PBR wood atlas, `assets/textures/yard_wood_pbr/woodpile_atlas/`
+(base colour, OpenGL normal, packed ORM; 1129 px to the metre), written by
+`assets/textures/yard_wood_pbr/tools/generate_yard_wood_pbr.py`: two rick faces of split billet ends (quarters,
+eighths, halves, slabs and small rounds racked in courses, each with its growth rings round its own pith, oak's
+rays, a heartwood/sapwood break, a bark rind on its outer arc, rim and heart checks, axe facets, and its own
+weathering, most a season stacked and greying); the sticks along their length; a sawn round's end with checks,
+kerf and axe scores (the chopping block's top and a log's end); oak/hickory log bark; and a split face along the
+grain. Where the atlas loads it replaces T-1959's painted cells, which stay as the fallback. The 1812 casks and
+cases standing in those yards move out of the woodpile mesh into the goods' chunks, where they wear the board
+face's grain the town's other casks wear; and the 1812 woodpiles show at the phone (`light`) tier, which keeps
+hiding the 1835 town's 399 (`WOOD_LIGHT_MAX_LOTS`). **Why:** the owner, 2026-11-07, on the T-3458 screenshots:
+*"those are a nice start make the next round of them photographic, improve the surface textures"*. **What is
+ours throughout:** the whole look: the mix of woods (oak, hickory, ash and elm, the trees of the 1812 groves),
+the split shapes, ring widths, colours, checks and weathering. No photograph is embedded, sampled or traced; no
+source shows any 1812 or 1835 Chicago woodpile. **How to resolve:** a period view or description of a Chicago
+woodpile, or of the wood the post and the households burned.
+**Ticket:** T-3474.
+**Recorded:** 2026-11-07 (T-3474).
+
 ### L-t3340-south-groves-1812 — 1812's timber south of the river: the South Branch belt carried east of Wells, and groves in the wet hollows
 
 **Decision:** in the 1812 scene only, `renderers/web/js/trees.js` (`SOUTH_GROVES`) deals two kinds of grove on the
