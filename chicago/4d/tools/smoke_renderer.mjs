@@ -14517,7 +14517,7 @@ for (const [label, viewport, touch] of [
       return {
         teachers: !!document.querySelector('#nav-app-guide #guide-teachers'),
         print: document.getElementById('guide-handout-print')?.textContent.trim() ?? null,
-        stepsFromTour: !!steps && steps.length === 8 && rows.length === 8 && rows.every((r, i) =>
+        stepsFromTour: !!steps && steps.length === 9 && rows.length === 9 && rows.every((r, i) =>
           r.querySelector('.handout-task')?.textContent === steps[i].task
           && r.querySelector('.handout-bubble')?.textContent === steps[i].bubble({ scene, front: null })),
         scene,
@@ -14564,14 +14564,14 @@ for (const [label, viewport, touch] of [
     });
     // page.pdf is Chromium-headless only; anywhere else it is reported, not counted.
     const pdfUnsupported = Object.values(sheets).every((s) => s.pages === null && /not supported|headless/i.test(s.error ?? ''));
-    check(`${label}: Guide › For teachers prints the eight tour steps and three Jaunts per destination on one page at Letter and A4 (T-2666)`,
+    check(`${label}: Guide › For teachers prints the nine tour steps and three Jaunts per destination on one page at Letter and A4 (T-2666)`,
       handoutRead.teachers && handoutRead.print === 'Print the handout' && handoutRead.stepsFromTour
       && handoutRead.dests.map((d) => d.name).join('|') === '1835 · Chicago|1904 · Prairie Avenue|1812 · Fort Dearborn'
       // T-3325..T-3327 gave 1812 its three Fort Dearborn jaunts, so every destination has three.
       && handoutRead.dests.every((d) => d.jaunts === 3 && d.empty === null)
       && !handoutRead.snake && !handoutRead.lore
       && printedLayout.shown.join() === 'handout-print'
-      && Object.values(sheets).every((s) => s.printed === 1 && s.copy && s.steps === 8 && s.jaunts === 9)
+      && Object.values(sheets).every((s) => s.printed === 1 && s.copy && s.steps === 9 && s.jaunts === 9)
       && (pdfUnsupported || Object.values(sheets).every((s) => s.pages === 1 && s.after)),
       JSON.stringify({ handoutRead, printedLayout, sheets }));
     // <<< T-2666
@@ -15283,7 +15283,7 @@ for (const [label, viewport, touch] of [
     check(`${label}: the getting-there choice is one, stored, and used by Go to and the map (T-2652)`,
       gettingThere.ride.travelMode === 'horse' && gettingThere.ride.travel === 'horse' && gettingThere.ride.stored === 'horse'
       && gettingThere.fly.travel === 'fly' && gettingThere.after.travel === 'instantly'
-      && /^Go to and the map use this choice\. Jaunts keep the way each recommends, unless Jaunts use my choice is on\./.test(gettingThere.note),
+      && /^Applies to Go to and the map\.$/.test(gettingThere.note), // T-3445: one line
       JSON.stringify(gettingThere));
     // ---- end T-2652
     // ---- T-2727: Jaunts use my choice (part 13) ------------------------------------------
@@ -16798,7 +16798,7 @@ for (const [label, viewport, touch] of [
     check(`${label}: Settings › Sound's sliders move the real gains and are stored, Effects or Ambience at Off stops theirs, Master at Off is silence, a hidden tab stops the hum and the bed, all put back (T-2659)`,
       soundRead.loaded && soundRead.full && soundRead.half && soundRead.storedHalf && soundRead.effectsOff && soundRead.noRelay
       && soundRead.bedOff && soundRead.silent && soundRead.back && soundRead.hidden && soundRead.shown && soundRead.restored
-      && /made up for mood: it is not a recording of the past\./.test(soundRead.note ?? ''),
+      && /Ambience is a mood tone, not a recording of the past\./.test(soundRead.note ?? ''), // T-3445
       JSON.stringify({ full: soundRead.full, half: soundRead.half, storedHalf: soundRead.storedHalf, effectsOff: soundRead.effectsOff,
         noRelay: soundRead.noRelay, bedOff: soundRead.bedOff, silent: soundRead.silent, back: soundRead.back, hidden: soundRead.hidden,
         shown: soundRead.shown, restored: soundRead.restored, was: soundRead.was, note: soundRead.note }));
@@ -17982,7 +17982,7 @@ for (const [label, viewport, touch] of [
       return out;
     }, licenseFirst);
     check(`${label}: finishing the Field Check awards the Navigator License once, says so once, and Jaunts' daybook shows it with the keepsakes (T-2665)`,
-      typeof licenseFirst.first?.earned === 'string' && licenseFirst.resumed === 7 && !licenseClick
+      typeof licenseFirst.first?.earned === 'string' && licenseFirst.resumed === 8 && !licenseClick
       && licenseAwarded.seen?.text === 'Navigator License earned. It is kept with your keepsakes in Jaunts.'
       && licenseAwarded.seen.inView && licenseAwarded.seen.pointer === 'none' && licenseAwarded.held && !!licenseAwarded.stored
       && licenseAgain.seen === 0 && licenseAgain.stored === licenseAwarded.stored
