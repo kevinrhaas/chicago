@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1037,
+  "count": 1038,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -67192,6 +67192,36 @@
         "T-3401",
         "T-3457",
         "T-3339"
+      ]
+    },
+    {
+      "id": "L-t3458-yard-goods-1812",
+      "title": "the wood, casks and carts round the 1812 houses, placed by rule",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-07",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1812 scene gets the yard goods a frontier household and a garrison post could not do without, written by the yard goods 1812 generator into the yard goods 1812 data and drawn by the walkthrough's yard code with the 1835 town's own woodpile, block, cask, case, cart and wagon: at every house (the Kinzie house and its men's lodging house, Ouilmette, Lalime, Lemai, Burns, the Lees' town house, the two houses at the forks, Lee's Place, the agent's and the interpreter's houses) a rick of split wood against the back wall, a chopping block in front of it and a water cask at a corner; an oven's heap of unsplit lengths at the garrison's and the Kinzies' bake houses; casks and cases along a gable of the government factory and the merchant's shop; a slack tub and a heap of slabs at the armourer's; a two-wheeled cart at the garrison's stables, the Kinzie stable and Lee's Place, and a four-wheeled wagon in the garrison's stable yard. What bounds it: every fire in 1812 Chicago burned wood; the factory's goods were given out on the scene date; the evacuation of the 15th went out with wagons (Quaife 1913)."
+        },
+        {
+          "label": "What is ours throughout",
+          "text": "that any one of these objects stood at any one place, every position (a rule off the building's own walls: back wall first, a hand's gap off it, never on wet ground, in or against a footprint, on a fence or in a garden, on a worn trail or under a planted stem), every size and every count. No source places a woodpile, cask or cart at any 1812 house."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a recollection, inventory or claim naming one at a particular house; the factory's returns for 1812; a view of the post's out-buildings."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-07 (T-3458)."
+        }
+      ],
+      "work_refs": [
+        "T-3458"
       ]
     },
     {

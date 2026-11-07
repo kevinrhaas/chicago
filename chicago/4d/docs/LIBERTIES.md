@@ -40283,6 +40283,27 @@ fifth of that band to the yard, before it frays back to prairie. That share, tha
 **Ticket:** T-3339, T-3401, T-3457.
 **Recorded:** 2026-11-03 (T-3339); the stack yard 2026-11-06 (T-3401); the grass 2026-11-07 (T-3457).
 
+### L-t3458-yard-goods-1812 — the wood, casks and carts round the 1812 houses, placed by rule
+
+**Decision:** the 1812 scene gets the yard goods a frontier household and a garrison post could not do
+without, written by `tools/generate_yard_goods_1812.py` into `data/yard/1812/yard_goods_1812.json` and drawn
+by `renderers/web/js/yard.js` with the 1835 town's own woodpile, block, cask, case, cart and wagon: at every
+house (the Kinzie house and its men's lodging house, Ouilmette, Lalime, Lemai, Burns, the Lees' town house,
+the two houses at the forks, Lee's Place, the agent's and the interpreter's houses) a rick of split wood
+against the back wall, a chopping block in front of it and a water cask at a corner; an oven's heap of
+unsplit lengths at the garrison's and the Kinzies' bake houses; casks and cases along a gable of the
+government factory and the merchant's shop; a slack tub and a heap of slabs at the armourer's; a two-wheeled
+cart at the garrison's stables, the Kinzie stable and Lee's Place, and a four-wheeled wagon in the garrison's
+stable yard. What bounds it: every fire in 1812 Chicago burned wood; the factory's goods were given out on the
+scene date; the evacuation of the 15th went out with wagons (Quaife 1913). **What is ours throughout:** that
+any one of these objects stood at any one place, every position (a rule off the building's own walls: back
+wall first, a hand's gap off it, never on wet ground, in or against a footprint, on a fence or in a garden, on
+a worn trail or under a planted stem), every size and every count. No source places a woodpile, cask or cart
+at any 1812 house. **How to resolve:** a recollection, inventory or claim naming one at a particular house;
+the factory's returns for 1812; a view of the post's out-buildings.
+**Ticket:** T-3458.
+**Recorded:** 2026-11-07 (T-3458).
+
 ### L-t3340-south-groves-1812 — 1812's timber south of the river: the South Branch belt carried east of Wells, and groves in the wet hollows
 
 **Decision:** in the 1812 scene only, `renderers/web/js/trees.js` (`SOUTH_GROVES`) deals two kinds of grove on the
