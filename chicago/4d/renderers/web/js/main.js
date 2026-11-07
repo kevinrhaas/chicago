@@ -145,7 +145,7 @@ import { createTarget } from './target.js';
 import { createTargetTag } from './target-tag.js';
 import { createShowMe, plan as planShowMe, crosses as crossesShowMe } from './show-me.js';
 import { spotTarget } from './photos-tab.js';
-import { createWhere } from './where.js';
+import { createWhere, screenDate, spokenDay } from './where.js';
 import { loadModernStreets } from './modern-streets.js';
 import { resolveSharpness } from './sharpness.js';
 import { createFrameGovernor, describeGovernor } from './frame-governor.js';
@@ -1771,7 +1771,8 @@ const arrival = createArrival({
   deviceEl: gate.querySelector('.gate-card'),
   destinationEl: document.getElementById('arrival-destination'),
   announceEl: document.getElementById('arrival-announce'),
-  targetDate: () => api.scene?.target_date,
+  // T-3437: the ARRIVED stamp names the Season's day (a stored winter lands on 15 February).
+  targetDate: () => seasonDate(api.season?.current ?? 'summer', api.scene?.target_date),
   targetYear: YEAR,
   titleEl: document.getElementById('gate-title'),
   contentOptions: {
@@ -2504,10 +2505,19 @@ async function boot() {
   }
   // T-3328: the year chip's day follows a jaunt stop's own date (17 June at the Lalime
   // gate, 6 April at Lee's Place) and goes back to the scene's when the hour is given back.
+  // T-3437: and the Season's day (15 February, 15 April, 15 October), so it always
+  // names the day the sun is lit for: the chip, its spoken label and the Navigator's date.
   function paintChipDay(iso) {
+    const shown = iso || world.sunDate || loaded.scene.target_date || '';
+    const m = /^\d{4}-(\d{2})-(\d{2})/.exec(shown);
+    if (!m) return;
     const sub = document.querySelector('#year-badge .badge-sub');
-    const m = /^\d{4}-(\d{2})-(\d{2})/.exec(iso || loaded.scene.target_date || '');
-    if (sub && m) sub.textContent = `${m[1]}.${m[2]}`;
+    if (sub) sub.textContent = `${m[1]}.${m[2]}`;
+    const badge = document.getElementById('year-badge');
+    const label = badge?.getAttribute('aria-label');
+    if (label) badge.setAttribute('aria-label', label.replace(/^\d{1,2} [A-Z][a-z]+/, spokenDay(shown)));
+    const navDate = document.getElementById('nav-date');
+    if (navDate) navDate.textContent = screenDate(shown);
   }
   function applyTime(value, { date, transient = false } = {}) {
     const v = isTimeValue(value) ? value : 'daytime';
@@ -2626,6 +2636,7 @@ async function boot() {
     const day = seasonDate(s, loaded.scene.target_date) || loaded.scene.target_date;
     if (timeState.transient) timeState.ownDate = day;
     else world.setSun({ date: day, time: world.resolveTime(timeState.own, day).hhmm });
+    paintChipDay(timeState.transient?.date);
     paintTime();
     contextCity.setSeason?.(s);
     await seasonPlants(s);
@@ -3961,6 +3972,9 @@ async function boot() {
   // T-3331: Settings' own copy, so a later save keeps an hour set from code; then paint.
   timeState.hudSettings = hud.settings;
   paintTime();
+  // T-3437: the HUD writes the scene's own day into the chip; a Season chosen before it
+  // existed (the stored one, applied at boot) puts its own day back.
+  paintChipDay(timeState.transient?.date);
   // The Trees setting is offered only where there are parkway trees to set (T-2473).
   document.getElementById('row-street-trees')?.toggleAttribute('hidden', !streetTrees.records.length);
   document.getElementById('row-season')?.toggleAttribute('hidden', !seasonal);
@@ -3972,6 +3986,11 @@ async function boot() {
     document.getElementById('s-season')?.setAttribute('title', `A viewing choice: the scene is dated ${day}`);
     const summer = document.querySelector('#s-season option[value="summer"]');
     if (summer) summer.textContent = `Summer — ${day.replace(/ \d{4}$/, '')}, full leaf`;
+    // T-3437: and each other season names the day it shows (season.js SEASON_DAY).
+    for (const [season, name, look] of [['spring', 'Spring', 'first leaf'], ['fall', 'Fall', 'turned leaves'], ['winter', 'Winter', 'snow, bare limbs']]) {
+      const opt = document.querySelector(`#s-season option[value="${season}"]`);
+      if (opt) opt.textContent = `${name} — ${spokenDay(seasonDate(season, loaded.scene.target_date))}, ${look}`;
+    }
   }
   document.getElementById('row-lot-lines')?.toggleAttribute('hidden', !streetGrid.lotLines);
   api.evidenceHub = createEvidenceHub({
@@ -4524,7 +4543,7 @@ async function boot() {
   // it go, back to where the Navigator was (docked, if it was docked).
   let handInspect = null; // { id, wasLevel, opening } while Inspect shows a building the visitor opened
   let letting = null;     // one let go while still opening: Inspect closes as soon as it is up
-  function openBuilding(id, { person = null } = {}) {
+  function openBuilding(id, { person = null, photo = null } = {}) {
     const record = loaded.registry.get(id);
     if (!record?.sidecar || !navigatorUi?.has?.('inspect')) return pick(id);
     if (popup.openId) popup.close();
@@ -4537,7 +4556,9 @@ async function boot() {
     handInspect = hand;
     inspectHold = id;
     // T-3265: a person's own card, on the People tab of the house they lived in.
-    const link = person ? { app: 'inspect', id, tab: 'people', person } : { app: 'inspect', id };
+    // T-3436: a photo view gone to from Go to › Photos: its Photos tab, that picture large.
+    const link = person ? { app: 'inspect', id, tab: 'people', person }
+      : photo ? { app: 'inspect', id, tab: 'photos', photo } : { app: 'inspect', id };
     void Promise.resolve(navigatorUi.openLink(link)).finally(() => {
       hand.opening = false;
       if (hand.released) { letGo(hand); if (letting === hand) letting = null; } // let go before it was on screen
@@ -4841,8 +4862,15 @@ async function boot() {
     api.townTransport?.cancelDriverApproaches();
     // T-3436: a photo view is walked, ridden or flown to like any place, and its last turn is
     // the Photos tab's From this spot: the camera's own spot and facing, the building outlined.
+    // The building's card then opens on its Photos tab with that picture large (the owner,
+    // 2026-11-07: "pop open the photo in the card ... see the larger version and be able to
+    // open in new window").
     if (resolved.kind === 'photo') {
-      return travel.go(resolved, { onArrive: () => { void api.fromSpot?.(resolved.of, resolved.picture); } });
+      return travel.go(resolved, { onArrive: () => {
+        void api.fromSpot?.(resolved.of, resolved.picture);
+        hud.setPanel(false);
+        openBuilding(resolved.of, { photo: resolved.picture?.id ?? resolved.id });
+      } });
     }
     return travel.go(resolved.structureId
       ? { kind: 'structure', id: resolved.structureId, label: resolved.label, person: resolved.kind === 'person' ? resolved.id : null }
@@ -5069,6 +5097,8 @@ async function boot() {
     } finally { root.removeAttribute('aria-busy'); }
   }
   api.welcome = createWelcome({ gate, scene: loaded.scene, destinations, isTouch: coarse,
+    // T-3437: Home's stamp names the Season's day, as the year chip does.
+    sceneDate: () => seasonDate(api.season?.current ?? 'summer', loaded.scene.target_date),
     // T-3436: Go to's Photos read the cards' pictures file the first time Go to shows.
     photos: () => ensurePictures(),
     // T-2632: each Go to row's distance and bearing, from where the visitor stands.
@@ -5602,6 +5632,7 @@ async function boot() {
     }),
   });
   api.navigator = navigatorUi;
+  paintChipDay(timeState.transient?.date); // T-3437: the Navigator's date is the Season's too
   // T-3022: Inspect opened on a building by hand is let go once the device leaves it.
   navigatorUi?.onChange?.(({ app, level }) => { if (handInspect && !handInspect.opening && (app !== 'inspect' || level === 0)) handInspect = null; });
   api.openBuilding = openBuilding;

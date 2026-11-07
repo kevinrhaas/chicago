@@ -28129,7 +28129,8 @@ places each joint, and a photograph of a crossing shows how it wore.
 **Decision:** Settings › Season offers summer (the scene's own 1 July 1904, the default), spring,
 fall and winter. A season other than summer moves the sun to a day in the scene's year at the
 scene's own hour (25 April for first leaf, 20 October for the elms' yellow, 21 December for the
-solstice) and repaints the scene: a fresher green sward in spring; a browner sward, yellow elms
+solstice; since T-3437 the middle of a season's month: 15 April, 15 October and 15 February, the
+owner's choice, February so that a winter view is never Christmas) and repaints the scene: a fresher green sward in spring; a browner sward, yellow elms
 and fallen leaves in fall; and in winter snow lying on the lawns, parkways, roofs and the faded
 city, trodden on the roadways, swept off the walks, with the elms bare
 (`renderers/web/js/season.js`).
@@ -28152,7 +28153,8 @@ look; a weather record for a chosen day would set its snow.
 
 **Decision:** Settings › Season is offered in every year, not only 1904. In 1812 (dated 14 August)
 and 1835 (dated 1 July) summer is the scene's own day and stays the default; spring, fall and winter
-move the sun to 25 April, 20 October and 21 December of that year at the scene's hour, and repaint
+move the sun to 25 April, 20 October and 21 December of that year at the scene's hour (15 April,
+15 October and 15 February since T-3437, and the year chip and the Navigator name that day), and repaint
 the ground as 1904's do (snow, a fresher or browner sward, fallen leaves), with snow on the roofs
 and trodden on the earth roads. The woods are re-grown with a season's crown: first leaf in spring,
 a thinner crown in fall, bare limbs in winter. In fall each stand turns yellow, orange, oak russet

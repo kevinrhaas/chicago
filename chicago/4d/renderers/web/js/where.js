@@ -149,6 +149,15 @@ export function clockWords(hhmm) {
   return `${h % 12 || 12}:${m[2]} ${h < 12 ? 'am' : 'pm'}`;
 }
 
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+  'August', 'September', 'October', 'November', 'December'];
+
+/** T-3437: "1904-02-15" → "15 February", the year chip's day as it is spoken. */
+export function spokenDay(iso) {
+  const m = /^\d{4}-(\d{2})-(\d{2})/.exec(String(iso ?? ''));
+  return m && MONTHS[+m[1] - 1] ? `${+m[2]} ${MONTHS[+m[1] - 1]}` : '';
+}
+
 /** "1904-07-01" → "1904.07.01", the screen header's date. */
 export function screenDate(iso) {
   const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(iso ?? ''));
