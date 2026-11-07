@@ -41356,9 +41356,22 @@ left on the bushes, the fallen onion tops, the wicket's make, its swing and a vi
 from M'Mahon's calendar of the August kitchen garden and its distances (read in the 1857 printing).
 **How to resolve:** a garrison account, order book or letter naming what the commanding officer grew, or a
 description of the garden in 1812, replaces the crops; a better reading of the draught's beds moves them.
+**The garden in the other seasons (T-3460, 2026-11-07).** The owner, in 1812 with Settings > Season on winter: *"its
+winter in 1812 and we still have a garden! it should be season appropriate"*. Under the Season setting (itself a
+viewing choice, L-season-view-2864) the same beds are planted for 15 April, 15 October and 15 February from M'Mahon's
+calendar for those months: in April only young cabbage plants, onion sets, lettuce, the first asparagus spears, small
+strawberry and herb plants, and the bushes and canes breaking leaf, the spent raspberry canes cut out (corn, beans,
+melons, squash, cucumbers and potatoes are sown or showing only in May); in October the corn and the bean vines dry
+on their stalks and poles, the squashes ripe on frost-killed runners, the melon and cucumber runners withered and
+picked, the potatoes and onions lifted, cabbages, roots and lettuce still standing, the asparagus yellow and the
+bushes turned; in February nothing above the snow but the leafless currants, gooseberries and raspberry canes, the
+beds having been cleared, dunged and ridged for the winter in November, and the beds and walks under the season's
+snow. Which crops stand in which month, how far grown and how coloured are ours from that calendar (written for
+Philadelphia; Chicago's spring runs later, so April is read from its earliest work); nothing records the garden in
+any month but August. `renderers/web/js/gardens.js` SEASON_CROPS holds the table.
 **Covers:** `first_fort_outer_officers_garden.first_fort_1803.form.gate_kind`
-**Ticket:** T-3407.
-**Recorded:** 2026-11-06 (T-3407).
+**Ticket:** T-3407, T-3460.
+**Recorded:** 2026-11-06 (T-3407); seasons 2026-11-07 (T-3460).
 
 ### L-t3403-battle-shore-1812 — The 1812 shore at the battle: the two surveys joined at Twelfth Street, Heald's high sand bank and ravine laid as one profile, and his small elevation placed
 
