@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2761, ts: '2026-11-07T08:14:37.135Z', date: 'Nov 7, 2026, 2:14 AM CT', title: '1904 jaunts say when each lost house came down', kind: 'improvement',
+    items: [
+      'Every 1904 jaunt stop at a house later torn down now says when, in a line woven into the story: Pullman\'s house razed in 1922, Field\'s in 1955, Armour\'s in 1937.',
+      'Some stops carry the backstory too: Louis Sullivan\'s free office in the Hibbard house until 1924, the Keith house\'s north wall left standing to shield the Glessner courtyard, and 1720 Prairie in 1910, the first of the street\'s houses to go.',
+      'The build-log walk notes each teardown as well, and new stops must keep doing it.',
+    ] },
   { v: 2760, ts: '2026-11-07T07:44:06.363Z', date: 'Nov 7, 2026, 1:44 AM CT', title: 'The first-time tour and the controls lists catch up with the town', kind: 'change',
     items: [
       'The tour gains a People step: find anyone, visit their house, or follow them in 1904. Where a destination has no People, the step is skipped and not counted.',
