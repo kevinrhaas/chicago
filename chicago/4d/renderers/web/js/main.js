@@ -5296,7 +5296,8 @@ async function boot() {
     humanPersons ??= fetch(new URL('humans/web/hm08_variation_persons.json', base), { cache: 'no-cache' })
       .then((res) => (res.ok ? res.json() : null))
       .catch(() => { humanPersons = null; return null; });
-    return humanPersons.then((d) => { const face = d?.persons?.[id]?.face; return face ? { face, base: String(base) } : null; });
+    // T-3491: and how he looks (`looks`), for the card's Looks section.
+    return humanPersons.then((d) => { const r = d?.persons?.[id]; return r?.face || r?.looks ? { face: r.face ?? null, looks: r.looks ?? null, base: String(base) } : null; });
   }
   // A nearby occupied driver can be inspected as soon as its model is ready.
   // Warm only the existing card code/metadata; never open Navigator or acquire a model.

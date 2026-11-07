@@ -1,0 +1,51 @@
+{
+ "format": "chicago4d_human_looks_v1",
+ "ticket": "T-3491",
+ "person_id": "bowen_joseph",
+ "scene": "1812",
+ "generated_by": "docs/RESEARCH/people-1812-3491/looks.py",
+ "heritage": {
+  "origin": "Welsh",
+  "family": "welsh",
+  "source_title": "A Dictionary of English and Welsh Surnames (Bardsley 1896) — as quoted on forebears.io",
+  "url": "https://forebears.io/surnames/bowen"
+ },
+ "complexion": {
+  "value": "light",
+  "drawn": "light",
+  "grade": "reconstructed"
+ },
+ "hair": {
+  "value": "brown",
+  "drawn": "mid_brown",
+  "cut": "cropped_1812",
+  "facial": [
+   "side_whiskers_short"
+  ],
+  "grade": "reconstructed"
+ },
+ "eyes": {
+  "value": "black",
+  "drawn": "dark_brown",
+  "grade": "reconstructed"
+ },
+ "stature": {
+  "inches": 73.7,
+  "grade": "reconstructed",
+  "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+ },
+ "height_scale": 1.0697,
+ "basis": "His complexion (light), hair (brown) and eyes (black) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Welsh name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+ "reference": {
+  "title": "Self-portrait",
+  "artist": "Joseph Wood (1778-1830)",
+  "date": "ca. 1810",
+  "page_url": "https://www.metmuseum.org/art/collection/search/15307",
+  "image": "humans/web/portraits/ref_1812_1993_283.jpg",
+  "licence": "The Met Open Access, public domain",
+  "why": "A stand-in: a period face of like colouring (mid-brown, curly, side-whiskers; pale/fair), not his likeness."
+ },
+ "grade": "reconstructed",
+ "liberty": "L-1812-garrison-looks-3491",
+ "replaceable_by": "His entry in the Register of Enlistments (NARA M233), which gives his height, complexion, eyes and hair."
+}

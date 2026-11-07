@@ -37,6 +37,7 @@ OUT_BIN = ROOT / 'assets/humans/web/hm08_variation_kit.bin'
 OUT_JSON = ROOT / 'assets/humans/web/hm08_variation_kit.json'
 PERSONS = ROOT / 'assets/humans/web/hm08_variation_persons.json'  # beside the kit: humans.js reads both from its asset base
 FITS = ROOT / 'data/humans/variation/fits'
+LOOKS = ROOT / 'data/humans/variation/looks'   # T-3491: complexion, hair, eyes, stature
 RESIDENTS = {'1812': ROOT / 'data/residents_1812', '1835': ROOT / 'data/residents', '1904': ROOT / 'data/residents_1904'}
 COMMIT = 'a8bc2d54ff0ac92e78ff71431b1023eda42bf482'
 RAW = f'https://raw.githubusercontent.com/makehumancommunity/makehuman/{COMMIT}/makehuman/data/targets/'
@@ -283,10 +284,17 @@ def persons():
             f = json.loads(fit.read_text())
             rec['face'] = {k: f[k] for k in ('grade', 'sources', 'basis', 'values', 'liberty', 'not_modelled', 'card') if f.get(k) is not None}
             rec['face']['fit'] = str(fit.relative_to(ROOT))
+        looks = LOOKS / f'{pid}.json'
+        if looks.exists():
+            lk = json.loads(looks.read_text())
+            rec['looks'] = {k: lk[k] for k in ('complexion', 'hair', 'eyes', 'stature', 'height_scale', 'build', 'heritage', 'basis',
+                                               'reference', 'grade', 'liberty') if lk.get(k) is not None}
+            rec['looks']['heritage'] = {'origin': lk['heritage']['origin']}
+            rec['looks']['file'] = str(looks.relative_to(ROOT))
         out[pid] = rec
     return (json.dumps({'format': 'chicago4d_human_variation_persons_v1', 'ticket': 'T-3412',
                         'generated_by': 'tools/human_variation_kit.py',
-                        '_doc': 'Each drawn person\'s age (from their own record: a birth date, else an age band) and any face fitted to a picture of them. renderers/web/js/human-variation.js seeds everything else from the person id. Regenerate; never edit by hand.',
+                        '_doc': 'Each drawn person\'s age (from their own record: a birth date, else an age band), any face fitted to a picture of them, and any looks (complexion, hair, eyes, stature; T-3491). renderers/web/js/human-variation.js seeds everything else from the person id. Regenerate; never edit by hand.',
                         'persons': out}, indent=1) + '\n').encode()
 
 

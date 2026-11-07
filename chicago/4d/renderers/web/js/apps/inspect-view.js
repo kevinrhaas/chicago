@@ -607,7 +607,7 @@ async function openPersonCard(pane, personId, ctx) {
   ]);
   if (pane.dataset.person !== personId) return false; // Back, or another person, in the meantime
   const person = (household?.persons ?? []).find((p) => p.id === personId) ?? null;
-  const card = draw(personModel({ row, person, household, citations, sceneYear, face: likeness?.face ?? null, assetBase: likeness?.base ?? null }));
+  const card = draw(personModel({ row, person, household, citations, sceneYear, face: likeness?.face ?? null, looks: likeness?.looks ?? null, assetBase: likeness?.base ?? null }));
   if (!person) card.querySelector('.insp-person-wait')?.replaceWith(el(doc, 'p', 'nav-sub', 'This person\u2019s household record could not be read.'));
   if (doc.activeElement === doc.body || !doc.activeElement) card.querySelector('[data-person-back]')?.focus?.({ preventScroll: true });
   return true;
