@@ -318,8 +318,8 @@ step "Settings › About's field log counts landings, first inspects, tabs, Show
 # T-2657: Researcher mode, the Settings › About switch.
 step "Researcher mode is off by default and remembered per device, and shows research prose in place while on (T-2657)" \
   node tools/test_researcher_mode.mjs
-# T-2658: Short "Why?" — a one-line hint and a bubble of 40 words at most per researched setting.
-step "Every 'Why this default' is one line and a 'Why?' bubble of 40 words at most that opens by tap, click or key and closes on Escape or an outside tap; the full essay is Researcher mode's (T-2658)" \
+# T-3445 (was T-2658's short "Why?"): the owner dropped the "Why this setting" lines and essays.
+step "Settings and Move carry no 'Why?' lines or essays, every note there is one short line, and the researched defaults are named on their readouts (T-3445)" \
   node tools/test_short_why.mjs
 step "Navigator Jump: three era cards with HERE, the in-world ring and transfer stamp, Escape aborts, RECALL the one signal-red key (T-2655)" \
   node tools/test_nav_jump.mjs
@@ -4326,6 +4326,13 @@ step "Jaunt content refusals across the library (T-2040)" \
 
 selftest "…and each refusal still fires when broken (T-2040)" \
   python3 tools/audit_jaunt_refusals.py --self-test
+
+# The owner, 2026-11-07: a 1904 jaunt stop at a house later torn down says when, with a
+# claim, from data/jaunts/_names/demolished.json.
+step "1904 jaunt stops at torn-down houses say when (demolition notes)" \
+  python3 tools/check_jaunt_demolitions.py
+selftest "…and the demolition gate still fires on a stop stripped of its year" \
+  python3 tools/check_jaunt_demolitions.py --self-test
 
 step "Source-use backlinks match authored claims (T-1248)" \
   python3 tools/compile_source_use.py --check

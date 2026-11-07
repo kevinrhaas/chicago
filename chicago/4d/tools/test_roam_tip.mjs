@@ -12,8 +12,8 @@ import { createRoamTip, tipText, ROAM_TIP_KEY, ROAM_TIP_MS } from '../renderers/
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
 
-assert.equal(tipText(true), 'Tap any building to inspect it.', 'the words of the design, on a touch screen');
-assert.equal(tipText(false), 'Click any building, or press E, to inspect it.', 'and with a mouse');
+assert.equal(tipText(true), 'Tap any building or person to inspect it.', 'the words of the design, on a touch screen');
+assert.equal(tipText(false), 'Click any building or person, or press E, to inspect it.', 'and with a mouse');
 
 const el = () => { const fns = {}; return { hidden: true, textContent: '', addEventListener: (t, fn) => { (fns[t] ??= []).push(fn); }, click: () => (fns.click ?? []).forEach((f) => f()) }; };
 const store = () => { const m = new Map(); return { getItem: (k) => m.get(k) ?? null, setItem: (k, v) => m.set(k, String(v)), removeItem: (k) => m.delete(k), m }; };
@@ -25,7 +25,7 @@ const clock = () => { const q = []; return { wait: (fn, ms) => { q.push({ fn, ms
   const tip = createRoamTip({ el: e, storage: s, wait: c.wait, cancel: c.cancel });
   assert.equal(tip.show({ touch: true }), true, 'the first Free roam shows it');
   assert.equal(e.hidden, false);
-  assert.equal(e.textContent, 'Tap any building to inspect it.');
+  assert.equal(e.textContent, 'Tap any building or person to inspect it.');
   assert.equal(s.m.get(ROAM_TIP_KEY), '1', 'and remembers it on this device');
   assert.equal(c.q[0].ms, ROAM_TIP_MS, 'it goes by itself after a few seconds');
   c.run();
@@ -39,7 +39,7 @@ const clock = () => { const q = []; return { wait: (fn, ms) => { q.push({ fn, ms
   const e = el(), c = clock();
   const tip = createRoamTip({ el: e, storage: store(), wait: c.wait, cancel: c.cancel });
   tip.show({ touch: false });
-  assert.equal(e.textContent, 'Click any building, or press E, to inspect it.');
+  assert.equal(e.textContent, 'Click any building or person, or press E, to inspect it.');
   e.click();
   assert.equal(e.hidden, true, 'a tap on it puts it away');
   assert.equal(tip.showing, false);
@@ -66,4 +66,4 @@ assert(/<button type="button" class="roam-tip" id="roam-tip" hidden><\/button>/.
 assert(/\.roam-tip\[hidden\] \{ display: none; \}/.test(read('renderers/web/css/walk.css')));
 assert(/prefers-reduced-motion: reduce\) \{ \.roam-tip \{ animation: none; \}/.test(read('renderers/web/css/walk.css')), 'still with reduced motion');
 
-console.log('test_roam_tip: Free roam docks the Navigator and says "Tap any building to inspect it." once per device');
+console.log('test_roam_tip: Free roam docks the Navigator and says "Tap any building or person to inspect it." once per device');

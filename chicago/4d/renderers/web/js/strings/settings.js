@@ -19,8 +19,8 @@ export default register('settings', {
   'sound.effects': 'Effects',
   'sound.ambience': 'Ambience',
   'sound.off': 'Off',
-  // T-2659: what each level covers, and that the ambience is mood, not a recording.
-  'sound.note': "Effects are the year ticker, the landing, and the Navigator's clicks and hum. Ambience is a quiet tone for each destination, made up for mood: it is not a recording of the past. Sound is off until you raise Master. It starts with your first tap, and Master at Off is silence.",
+  // T-2659: that the ambience is mood, not a recording; T-3445 cut it to that and Master.
+  'sound.note': 'Off until you raise Master. Ambience is a mood tone, not a recording of the past.',
   'about': "About & What's new",
   'whatsnew.line': 'Release notes',
 });

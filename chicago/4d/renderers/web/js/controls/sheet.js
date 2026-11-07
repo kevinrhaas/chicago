@@ -6,7 +6,8 @@
  * is `[keys, what it does]`; a keyboard row's keys are shown as keys. These are the
  * bindings the page actually has — js/controls/pointerlock.js, hud.js's key handler and
  * navigator.js's (N, 1–9, T-2622) — and tools/test_nav_guide.mjs holds the keyboard
- * sheet to every key the drawer's own list names.
+ * sheet to every key the drawer's own list names. T-3445: people, the Interact key (R,
+ * js/interact.js) and Go to's photos.
  */
 export const CONTROL_SHEETS = {
   touch: {
@@ -16,8 +17,11 @@ export const CONTROL_SHEETS = {
       [['Left thumb'], 'walk: touch the lower left and push the way you want to go'],
       [['Push it all the way'], 'run'],
       [['Drag the right side'], 'look around'],
-      [['Tap a building'], 'inspect it: what it was, and the sources for it'],
+      [['Tap a building'], 'its card: Design, Timeline, Photos, Sources'],
+      [['Tap a person'], 'their card; Follow walks you alongside them'],
+      [['Interact'], 'shows when a gate is in reach; tap it to open or shut it'],
       [['Fly'], 'rise above the town; ▲ and ▼ appear on the right to climb and descend'],
+      [['Go to'], 'a viewpoint, a building or a photo; pick one to go there'],
       [['Tap the small map'], 'the whole field'],
       [['The Navigator'], 'tap the pill at the bottom, or swipe it up, to open it; swipe down to drop it a level'],
     ],
@@ -29,11 +33,12 @@ export const CONTROL_SHEETS = {
       [['W', 'A', 'S', 'D'], 'walk (the arrow keys work too)'],
       [['Shift'], 'hurry: a run on foot, a gallop on a horse'],
       [['Mouse'], 'look around'],
-      [['Click', 'E'], 'inspect a building: what it was, and the sources for it'],
+      [['Click', 'E'], 'inspect a building or a person: its card'],
+      [['R'], 'interact: open or shut a gate in reach'],
       [['F'], 'fly, or back to walking'],
       [['Space', 'Q'], 'climb and descend, while flying'],
       [['C'], 'the Confidence view'],
-      [['G'], 'go to a viewpoint, a building or a street corner'],
+      [['G'], 'go to a viewpoint, a building, a corner or a photo'],
       [['M'], 'the whole map'],
       [['P'], 'change your pace'],
       [['N'], 'open or close the Navigator'],
