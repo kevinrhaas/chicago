@@ -41821,11 +41821,8 @@ photograph of the open door or of the hall from the entrance for the swing and t
 
 ### L-first-fort-blockhouse-cupolas-3041 — cupolas on the first fort's two blockhouses
 
-**Covers:** `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.cupola`,
-`first_fort_dearborn_blockhouse_se.first_fort_1803.form.cupola`.
-
 **Decision:** Build a small square cupola under its own pyramid cap at the apex of both first-fort
-blockhouses (north-west and south-east), as the owner adopted from Currey's 1912 bird's-eye on
+blockhouses, `first_fort_dearborn_blockhouse_nw` and `first_fort_dearborn_blockhouse_se`, as the owner adopted from Currey's 1912 bird's-eye on
 2026-11-03 (T-3335).
 
 **What the sources carry:** Whistler's 1808 draught lays cupolas down on both blockhouses and its index
@@ -41833,7 +41830,8 @@ says they were "not yet built ... as laid down", so they were planned and not st
 Allison (1893) panel 1 draws a small roof lantern on each first-fort blockhouse, and Currey (1912), after
 the 1899 Tribune sketch of Van den Berghen's 1898 model, draws a square body under a pyramid cap on both.
 Intent plus two later depictions carries their OCCURRENCE by August 1812 at `inferred`. No source dates
-their completion, and both pictures are tier-5 retrospectives.
+their completion, and both pictures are tier-5 retrospectives. The occurrence is in each record's
+`form.cupola`; this entry admits what that attribute does not carry, the size.
 
 **What is invented:** Every dimension, reused unchanged from the second fort's cupola kit in
 `generators/archetypes/fort_structure_params.py` (L-second-fort-blockhouse-cupola-2388): the 1.8 m side,

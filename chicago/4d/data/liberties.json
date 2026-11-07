@@ -69837,34 +69837,17 @@
         "first_fort_dearborn_blockhouse_se",
         "fort_dearborn_blockhouse"
       ],
-      "covers": [
-        {
-          "domain": "structure",
-          "structure": "first_fort_dearborn_blockhouse_nw",
-          "phase": "first_fort_1803",
-          "aspect": "form.cupola"
-        },
-        {
-          "domain": "structure",
-          "structure": "first_fort_dearborn_blockhouse_se",
-          "phase": "first_fort_1803",
-          "aspect": "form.cupola"
-        }
-      ],
+      "covers": [],
       "recorded": "2026-11-07",
       "revised": null,
       "fields": [
         {
-          "label": "Covers",
-          "text": "`first_fort_dearborn_blockhouse_nw.first_fort_1803.form.cupola`, `first_fort_dearborn_blockhouse_se.first_fort_1803.form.cupola`."
-        },
-        {
           "label": "Decision",
-          "text": "Build a small square cupola under its own pyramid cap at the apex of both first-fort blockhouses (north-west and south-east), as the owner adopted from Currey's 1912 bird's-eye on 2026-11-03."
+          "text": "Build a small square cupola under its own pyramid cap at the apex of both first-fort blockhouses, First Fort Dearborn — north-west blockhouse and First Fort Dearborn — south-east blockhouse, as the owner adopted from Currey's 1912 bird's-eye on 2026-11-03."
         },
         {
           "label": "What the sources carry",
-          "text": "Whistler's 1808 draught lays cupolas down on both blockhouses and its index says they were \"not yet built... as laid down\", so they were planned and not standing in 1808. Kurz & Allison (1893) panel 1 draws a small roof lantern on each first-fort blockhouse, and Currey (1912), after the 1899 Tribune sketch of Van den Berghen's 1898 model, draws a square body under a pyramid cap on both. Intent plus two later depictions carries their OCCURRENCE by August 1812 at `inferred`. No source dates their completion, and both pictures are a modern reconstruction retrospectives."
+          "text": "Whistler's 1808 draught lays cupolas down on both blockhouses and its index says they were \"not yet built... as laid down\", so they were planned and not standing in 1808. Kurz & Allison (1893) panel 1 draws a small roof lantern on each first-fort blockhouse, and Currey (1912), after the 1899 Tribune sketch of Van den Berghen's 1898 model, draws a square body under a pyramid cap on both. Intent plus two later depictions carries their OCCURRENCE by August 1812 at `inferred`. No source dates their completion, and both pictures are a modern reconstruction retrospectives. The occurrence is in each record's `form.cupola`; this entry admits what that attribute does not carry, the size."
         },
         {
           "label": "What is invented",
