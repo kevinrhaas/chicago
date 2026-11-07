@@ -1,0 +1,106 @@
+{
+  "id": "hh_blackbird_1812",
+  "scene": "1812",
+  "name": "Black Bird, at the gathering of August 1812",
+  "head": "blackbird",
+  "division": "camp",
+  "review_required": true,
+  "touches_removal": true,
+  "review_note": "review_required: a Potawatomi person of the gathering at Chicago in August 1812, the eve of the battle in which the garrison and its families were attacked. The card states only what the named sources say, says where a story is Kinzie family tradition rather than a contemporary account, and stages no speech or ceremony.",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "encyclopedia_chicago_potawatomis",
+      "quaife_1913"
+    ],
+    "note": "Each person's own card says how their presence on 14 August is known."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "potawatomi_camp_1812_south_reach",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "kinzie_waubun_1856",
+      "also_sources": [],
+      "note": "No source places his lodge in the camp; the card is put at one of the camp's grounds on the creek (the 1812 camp records) so it can be found, a reconstructed choice (liberty L-1812-people-3461)."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "No source names his family or places his lodge in the camp.",
+    "sources": [
+      "andreas_1884_v1",
+      "encyclopedia_chicago_potawatomis",
+      "quaife_1913"
+    ]
+  },
+  "persons": [
+    {
+      "id": "blackbird",
+      "name": "Black Bird",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "encyclopedia_chicago_potawatomis",
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "Leader on the 15th (Heald, contemporary). Nothing places him on the 14th directly. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Blackbird",
+        "Letourneau (French name, Andreas)",
+        "Mucketepennese (Andreas OCR)",
+        "Siggenauk (Encyclopedia of Chicago identifies the 1812 Blackbird with Siggenauk)"
+      ],
+      "note": "War leader of the attack; received Heald's surrender. Potawatomi; in May 1812 of Pepper's band at the Au Sable (Andreas, OCR); Encyclopedia of Chicago calls Siggenauk 'a leader from Chicago'. 15 and 16 August: Met Heald with the interpreter and requested surrender, promising to spare prisoners (Heald 1812; Helm 1814). Afterwards: Not established here.",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a Potawatomi person of the gathering at Chicago in August 1812, the eve of the battle in which the garrison and its families were attacked. The card states only what the named sources say, says where a story is Kinzie family tradition rather than a contemporary account, and stages no speech or ceremony.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Appendix IV, Heald's report (Pittsburg, 23 Oct 1812), lines 16258-16260",
+          "quote": "I advanced towards them alone, and was met by one of the Potawatamie chiefs, called the Black Bird, with an interpreter.",
+          "claim": "Received Heald's surrender",
+          "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Appendix VI, lines 16691-16692",
+          "quote": "a chief by the name of Blackbird advanced to the interpiter",
+          "claim": "Helm also names him",
+          "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. X, lines 9034-9035",
+          "quote": "Among the hostile leaders were Black Bird, probably the son of the chief who had assisted the Americans in plundering St. Joseph in 1781",
+          "claim": "Quaife: probably son of the 1781 Siggenauk",
+          "tier": "secondary history (1884-1913), cite as compiler's statement"
+        },
+        {
+          "source_id": "encyclopedia_chicago_potawatomis",
+          "locator": "entry 'Potawatomis'",
+          "quote": "led by Siggenauk and Mad Sturgeon attacked the garrison",
+          "claim": "Encyclopedia of Chicago equates him with Siggenauk",
+          "tier": "secondary history (1884-1913), cite as compiler's statement"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 78, local OCR lines 20515-20517",
+          "quote": "the Blackbird known by the French as Letourneau, and by the surrounding Indians as Mucketepennese",
+          "claim": "French and Potawatomi names (Peoria council 1811)",
+          "tier": "secondary history (1884-1913), cite as compiler's statement [OCR normalised; spelling of the Potawatomi name unreliable]"
+        }
+      ]
+    }
+  ]
+}

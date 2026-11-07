@@ -961,11 +961,21 @@ def _cupola(b: MeshBuilder, p: FortStructureParams, ridge_z: float,
     # whichever of the two slopes governs there is the one that has fallen further.
     fall = rise * max(half / half_w, half / half_d)
     base_z = ridge_z - fall - CUPOLA_SEAT_M
-    eave_z = base_z + CUPOLA_HEIGHT_M
-    # Plain boarded sides, in the building's own wall fabric. The bottom face is
-    # inside the roof cone and is skipped; the top is covered by the cap above it.
-    b.add_box(cx - half, cy - half, base_z, cx + half, cy + half, eave_z,
-              conf, M_WALL, skip=("bottom",))
+    height = CUPOLA_HEIGHT_M if p.cupola_height_m is None else float(p.cupola_height_m)
+    eave_z = base_z + height
+    if p.cupola_construction == "log":
+        # T-3041: the body laid in the blockhouse's own coursed, notched log, its
+        # course grid starting at the body's seat. The top is closed by a plain lid
+        # under the cap so no course end looks into the roof space.
+        _log_wall(b, b.name + ":cupola", cx - half, cy - half, cx + half, cy + half,
+                  base_z, eave_z, conf)
+        b.add_box(cx - half, cy - half, eave_z - 0.02, cx + half, cy + half, eave_z,
+                  conf, M_WALL, skip=("bottom",))
+    else:
+        # Plain boarded sides, in the building's own wall fabric. The bottom face is
+        # inside the roof cone and is skipped; the top is covered by the cap above it.
+        b.add_box(cx - half, cy - half, base_z, cx + half, cy + half, eave_z,
+                  conf, M_WALL, skip=("bottom",))
     _hip_roof(b, cx - half, cy - half, cx + half, cy + half, eave_z,
               CUPOLA_CAP_PITCH_DEG, conf, pyramid=True, overhang=CUPOLA_EAVE_M)
 

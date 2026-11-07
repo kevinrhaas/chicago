@@ -40285,6 +40285,27 @@ fifth of that band to the yard, before it frays back to prairie. That share, tha
 **Ticket:** T-3339, T-3401, T-3457.
 **Recorded:** 2026-11-03 (T-3339); the stack yard 2026-11-06 (T-3401); the grass 2026-11-07 (T-3457).
 
+### L-t3458-yard-goods-1812 — the wood, casks and carts round the 1812 houses, placed by rule
+
+**Decision:** the 1812 scene gets the yard goods a frontier household and a garrison post could not do
+without, written by `tools/generate_yard_goods_1812.py` into `data/yard/1812/yard_goods_1812.json` and drawn
+by `renderers/web/js/yard.js` with the 1835 town's own woodpile, block, cask, case, cart and wagon: at every
+house (the Kinzie house and its men's lodging house, Ouilmette, Lalime, Lemai, Burns, the Lees' town house,
+the two houses at the forks, Lee's Place, the agent's and the interpreter's houses) a rick of split wood
+against the back wall, a chopping block in front of it and a water cask at a corner; an oven's heap of
+unsplit lengths at the garrison's and the Kinzies' bake houses; casks and cases along a gable of the
+government factory and the merchant's shop; a slack tub and a heap of slabs at the armourer's; a two-wheeled
+cart at the garrison's stables, the Kinzie stable and Lee's Place, and a four-wheeled wagon in the garrison's
+stable yard. What bounds it: every fire in 1812 Chicago burned wood; the factory's goods were given out on the
+scene date; the evacuation of the 15th went out with wagons (Quaife 1913). **What is ours throughout:** that
+any one of these objects stood at any one place, every position (a rule off the building's own walls: back
+wall first, a hand's gap off it, never on wet ground, in or against a footprint, on a fence or in a garden, on
+a worn trail or under a planted stem), every size and every count. No source places a woodpile, cask or cart
+at any 1812 house. **How to resolve:** a recollection, inventory or claim naming one at a particular house;
+the factory's returns for 1812; a view of the post's out-buildings.
+**Ticket:** T-3458.
+**Recorded:** 2026-11-07 (T-3458).
+
 ### L-t3340-south-groves-1812 — 1812's timber south of the river: the South Branch belt carried east of Wells, and groves in the wet hollows
 
 **Decision:** in the 1812 scene only, `renderers/web/js/trees.js` (`SOUTH_GROVES`) deals two kinds of grove on the
@@ -41838,6 +41859,15 @@ photograph of the open door or of the hall from the entrance for the swing and t
 **Ticket:** T-3442.
 **Recorded:** 2026-11-07 (T-3442).
 
+### L-1812-people-3461 — The people of Chicago on 14 August 1812: who is carded, which roof each family is given, and the counted people nobody names
+
+**Decision:** the 1812 scene's people layer (`data/residents_1812/households/`) carries everyone a four-part research sweep (T-3461, `docs/RESEARCH/people-1812-3461/`) found at the post on the afternoon of 14 August 1812: the 55 regulars of Heald's company on its muster-roll to 31 May 1812 (Quaife 1913, App. VIII), the women and children of the garrison and the militia families, the Kinzie, Ouilmette, Burns and Lee households, William Wells, and the Potawatomi people the sources name. Three things on those cards are ours. (1) **Which roof.** No source says which room of the fort any soldier or soldier's family lived in; only the commanding officer's quarters are named in an account of 1812. The four married privates' families are put in the two small houses and the two soldiers' barracks of Whistler's 1808 index, the single men in the barracks and the north range, and the junior officers in the officers' barracks, each association graded `reconstructed`. (2) **Presence that afternoon.** No roll was called on 14 August. Every man on the 31 May roll is taken as present, as Quaife takes him (App. IX: "no reason to suppose that there was any alteration in this number"); a person no account of the battle or its captives names is marked `probably present` on their own card. (3) **The counted and unnamed.** Quaife counts twelve militia and eighteen children with the evacuation; at least six militiamen and seven children have no name in any source. Each has a card graded `reconstructed`, standing for one of the counted, with nothing about him or her but the count. Wells's Miami escort (about thirty, named by no source) and the families of the Potawatomi camp (Helm's 500 warriors and 179 women and children on 12 August) are left to T-3467, which cards them when it places them.
+
+**Not invented:** any name, birth year, rank, family tie or fate. Each of those is a field of the reading, with its source, locator and quote on the person's `evidence`. Wau-Bun's dialogue is not quoted as speech; where a story is Kinzie family tradition the card says so.
+**Re-opens on:** a quartering return or order book of the 1812 garrison; a name for any counted person, which retires one reconstructed card.
+**Ticket:** T-3461.
+**Recorded:** 2026-11-07.
+
 ### L-first-fort-blockhouse-cupolas-3041 — cupolas on the first fort's two blockhouses
 
 **Decision:** Build a small square cupola under its own pyramid cap at the apex of both first-fort
@@ -41867,6 +41897,17 @@ Whistler's plan by the owner's ruling.
 
 **How to resolve:** a garrison return, order or letter between 1808 and 1812 that reports the cupolas
 finished, or describes their size.
+
+**Amended 2026-11-07 — log, and lower.** The owner, looking at the fort's drawings beside the first build:
+the cupolas were logs at the top like the rest of the structure, and about 20% shorter. Both records now
+set `cupola_construction: log` (inferred from Currey's coursed bodies) and `cupola_height_m: 1.6`
+(reconstructed, the body from its seat to the cap's eave, down from the kit's 2.1 m), which the
+fort_structure archetype reads as opt-in controls; the second fort's boarded 2.1 m cupola is unchanged.
+The log courses, notching and chinking are the blockhouse's own coursed wall. The 1.6 m is a proportion
+read by eye off pictures that are not to scale.
+
+**Covers:** `first_fort_dearborn_blockhouse_nw.first_fort_1803.form.cupola_height_m`,
+`first_fort_dearborn_blockhouse_se.first_fort_1803.form.cupola_height_m`.
 
 **Ticket:** T-3041 (partial; the fort's full picture match stays open).
 **Recorded:** 2026-11-07.
