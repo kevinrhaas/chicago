@@ -2988,6 +2988,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_sunken_sills.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_tavern_front_reader.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -4171,11 +4175,11 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/generate_yard_goods_1812.py": {
+    "tools/generate_yard_goods.py": {
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/generate_yard_goods.py": {
+    "tools/generate_yard_goods_1812.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5938,26 +5942,6 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/test_human_lady_1904.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_human_maid_1904.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_human_merchant_1835.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_human_labourer_1835.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_human_soldier_1812.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
     "tools/test_human_grounded_gait.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5990,11 +5974,27 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_human_labourer_1835.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_lady_1904.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_human_life.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/test_human_lod_park.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_maid_1904.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_merchant_1835.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6023,6 +6023,10 @@
       "wrote_ignored": []
     },
     "tools/test_human_skin_canonicalize.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_soldier_1812.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6675,6 +6679,10 @@
       "wrote_ignored": []
     },
     "tools/test_travel_estimate.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_underpinning.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
