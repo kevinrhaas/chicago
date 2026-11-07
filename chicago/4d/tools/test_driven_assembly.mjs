@@ -367,7 +367,9 @@ assert.equal(actualDriverRow.person_id, 'pa1904_otis_f_r_c1900_hans_johnson');
 for (const id of ['1835', '1904', 1835, 1904]) assert(supportsTownTransport(id));
 for (const id of ['1812', '1880', '1905', null]) assert(!supportsTownTransport(id));
 assert(sceneBindingSource.includes('if (!supportsTownTransport(sceneId)) return null;'), 'Mount shares the same eligibility guard');
-assert(mainSource.includes('if (supportsTownTransport(YEAR)) api.people = { open: openSceneDirectoryPerson };'), 'Only eligible scenes receive the native public card adapter');
+// T-3468 (owner, 2026-11-07): every scene without the 1835 drawer directory (1812 and 1904)
+// opens its people in the Inspect person card; the 1835 drawer keeps its own.
+assert(mainSource.includes('    api.people = { open: openSceneDirectoryPerson };'), 'Non-drawer scenes receive the native public card adapter');
 assert(mainSource.includes("if (draws('residents')) try {"), 'Legacy1835 eager directory/UI layer gates retained');
 assert(mainSource.includes("dataBase: layerBase('humans')"), 'No scene-wide human population enabled');
 assert(mainSource.includes('getPeople: () => peopleDirectory.load()'), 'Actual mount uses existing lazy compiled catalog promise');
@@ -422,7 +424,7 @@ const findButton = nativeCard.children.find(n => n.dataset?.personFind);
 assert(findButton, 'Actual native card renders the optional public Find action');
 findButton.events.click(); assert.deepEqual(foundPeople, [actualDriverRow.person_id]);
 assert(!renderPersonCard(cardDoc, cardModel).children.some(n => n.dataset?.personFind), 'Nontransport/default cards gain no action');
-assert(mainSource.includes("findPerson: supportsTownTransport(YEAR) && !draws('residents')"), 'NativeFind is limited to eligible nonlegacy scene');
+assert(mainSource.includes("findPerson: !draws('residents')"), 'NativeFind is limited to nonlegacy scenes');
 assert(mainSource.includes("? (id) => findSceneDirectoryPerson(id) : null"), 'Find reaches existing actual live driver-anchor travel path');
 console.log('native1904 card Find forwards exactHans identity; default card/Back remains unchanged PASS');
 

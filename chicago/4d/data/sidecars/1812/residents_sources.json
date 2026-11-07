@@ -1553,6 +1553,23 @@
       "tier": 4,
       "tier_label": "later scholarship"
     },
+    "quaife_1913": {
+      "source_id": "quaife_1913",
+      "citation": "Quaife, Milo Milton. Chicago and the Old Northwest, 1673-1835: A Study of the Evolution of the Northwestern Frontier, together with a History of Fort Dearborn. Chicago: University of Chicago Press, 1913.",
+      "url": "https://www.gutenberg.org/ebooks/69274",
+      "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "the 1808 Whistler draught index for the FIRST fort, with its scale and its distances",
+        "Major Long's 1816 report on the second fort under construction",
+        "a scholarly negative: no dimension of the second fort's stockade"
+      ],
+      "what_it_does_not_supply": [
+        "any plan or dimension of the 1816 fort",
+        "anything about the fort after 1835"
+      ]
+    },
     "racine_old_settlers_elisha_raymond_1871": {
       "source_id": "racine_old_settlers_elisha_raymond_1871",
       "citation": "Official Record of the Old Settlers' Society of Racine County, Wisconsin, Raymond settlement account.",
