@@ -598,15 +598,15 @@
    "row": "merchant",
    "rule": "Y-W5",
    "confidence": "reconstructed",
-   "wall": "side",
+   "wall": "back",
    "items": [
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      253.11,
-      -272.4
+      247.69,
+      -277.02
      ],
-     "bearing_deg": 270.0,
+     "bearing_deg": 0.0,
      "length_m": 2.44,
      "depth_m": 1.22,
      "height_m": 1.18,
@@ -616,10 +616,10 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      253.11,
-      -269.61
+      250.48,
+      -277.02
      ],
-     "bearing_deg": 270.0,
+     "bearing_deg": 0.0,
      "length_m": 2.44,
      "depth_m": 1.22,
      "height_m": 0.82,
@@ -629,10 +629,10 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      254.82,
-      -268.84
+      251.25,
+      -278.73
      ],
-     "bearing_deg": 270.0,
+     "bearing_deg": 0.0,
      "billets": 3,
      "seed": 1706694081
     }
@@ -650,15 +650,15 @@
    "row": "merchant",
    "rule": "Y-W5",
    "confidence": "reconstructed",
-   "wall": "side",
+   "wall": "back",
    "items": [
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      513.64,
-      -675.39
+      516.27,
+      -684.03
      ],
-     "bearing_deg": 90.0,
+     "bearing_deg": 0.0,
      "length_m": 2.44,
      "depth_m": 1.22,
      "height_m": 0.89,
@@ -668,10 +668,10 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      513.64,
-      -678.18
+      519.06,
+      -684.03
      ],
-     "bearing_deg": 90.0,
+     "bearing_deg": 0.0,
      "length_m": 2.44,
      "depth_m": 1.22,
      "height_m": 1.09,
@@ -681,10 +681,10 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      511.93,
-      -678.95
+      519.83,
+      -685.74
      ],
-     "bearing_deg": 90.0,
+     "bearing_deg": 0.0,
      "billets": 1,
      "seed": 29863348
     }
@@ -4243,15 +4243,15 @@
    "row": "keeper",
    "rule": "Y-W6",
    "confidence": "reconstructed",
-   "wall": "side",
+   "wall": "back",
    "items": [
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      541.73,
-      -540.11
+      536.31,
+      -544.65
      ],
-     "bearing_deg": 270.0,
+     "bearing_deg": 0.0,
      "length_m": 2.44,
      "depth_m": 1.22,
      "height_m": 1.11,
@@ -4261,10 +4261,10 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      541.73,
-      -537.32
+      539.1,
+      -544.65
      ],
-     "bearing_deg": 270.0,
+     "bearing_deg": 0.0,
      "length_m": 2.44,
      "depth_m": 1.22,
      "height_m": 0.96,
@@ -4274,10 +4274,10 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      543.44,
-      -536.55
+      539.87,
+      -546.36
      ],
-     "bearing_deg": 270.0,
+     "bearing_deg": 0.0,
      "billets": 3,
      "seed": 1591632870
     }
@@ -4665,15 +4665,15 @@
    "row": "merchant",
    "rule": "Y-W5",
    "confidence": "reconstructed",
-   "wall": "side",
+   "wall": "back",
    "items": [
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      676.62,
-      -631.79
+      682.5,
+      -629.15
      ],
-     "bearing_deg": 90.0,
+     "bearing_deg": 180.0,
      "length_m": 2.44,
      "depth_m": 1.22,
      "height_m": 0.87,
@@ -4683,10 +4683,10 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      676.62,
-      -634.58
+      679.71,
+      -629.15
      ],
-     "bearing_deg": 90.0,
+     "bearing_deg": 180.0,
      "length_m": 2.44,
      "depth_m": 1.22,
      "height_m": 1.16,
@@ -4696,10 +4696,10 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      674.91,
-      -631.02
+      683.27,
+      -627.44
      ],
-     "bearing_deg": 90.0,
+     "bearing_deg": 180.0,
      "billets": 1,
      "seed": 2014133474
     }
@@ -5432,15 +5432,15 @@
    "row": "merchant",
    "rule": "Y-W5",
    "confidence": "reconstructed",
-   "wall": "side",
+   "wall": "back",
    "items": [
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      323.16,
-      -637.07
+      329.17,
+      -628.07
      ],
-     "bearing_deg": 90.0,
+     "bearing_deg": 180.0,
      "length_m": 2.44,
      "depth_m": 1.22,
      "height_m": 0.77,
@@ -5450,10 +5450,10 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      321.45,
-      -637.84
+      328.4,
+      -626.36
      ],
-     "bearing_deg": 90.0,
+     "bearing_deg": 180.0,
      "billets": 3,
      "seed": 1859451947
     }
@@ -6010,15 +6010,15 @@
    "row": "merchant",
    "rule": "Y-W5",
    "confidence": "reconstructed",
-   "wall": "side",
+   "wall": "back",
    "items": [
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      768.24,
-      -89.86
+      775.78,
+      -87.27
      ],
-     "bearing_deg": 90.37,
+     "bearing_deg": 180.37,
      "length_m": 2.44,
      "depth_m": 1.22,
      "height_m": 0.92,
@@ -6028,10 +6028,10 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      768.23,
-      -92.65
+      772.99,
+      -87.26
      ],
-     "bearing_deg": 90.37,
+     "bearing_deg": 180.37,
      "length_m": 2.44,
      "depth_m": 1.22,
      "height_m": 0.86,
@@ -6041,10 +6041,10 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      766.54,
-      -89.08
+      776.56,
+      -85.57
      ],
-     "bearing_deg": 90.37,
+     "bearing_deg": 180.37,
      "billets": 2,
      "seed": 537486533
     }
@@ -7730,15 +7730,15 @@
    "row": "merchant",
    "rule": "Y-W5",
    "confidence": "reconstructed",
-   "wall": "side",
+   "wall": "back",
    "items": [
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      766.28,
-      -420.26
+      771.71,
+      -425.71
      ],
-     "bearing_deg": 90.36,
+     "bearing_deg": 0.36,
      "length_m": 2.44,
      "depth_m": 1.22,
      "height_m": 1.17,
@@ -7748,10 +7748,10 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      766.26,
-      -423.05
+      774.5,
+      -425.73
      ],
-     "bearing_deg": 90.36,
+     "bearing_deg": 0.36,
      "length_m": 2.44,
      "depth_m": 1.22,
      "height_m": 1.12,
@@ -7761,10 +7761,10 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      764.55,
-      -423.81
+      775.26,
+      -427.44
      ],
-     "bearing_deg": 90.36,
+     "bearing_deg": 0.36,
      "billets": 3,
      "seed": 1254918401
     }
@@ -8339,15 +8339,15 @@
    "row": "merchant",
    "rule": "Y-W5",
    "confidence": "reconstructed",
-   "wall": "side",
+   "wall": "back",
    "items": [
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      517.02,
-      -416.77
+      524.35,
+      -419.44
      ],
-     "bearing_deg": 90.35,
+     "bearing_deg": 0.35,
      "length_m": 2.44,
      "depth_m": 1.22,
      "height_m": 0.91,
@@ -8357,10 +8357,10 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      515.31,
-      -417.53
+      525.11,
+      -421.16
      ],
-     "bearing_deg": 90.35,
+     "bearing_deg": 0.35,
      "billets": 1,
      "seed": 1634835313
     }
@@ -12317,15 +12317,15 @@
    "row": "cabin",
    "rule": "Y-W2",
    "confidence": "reconstructed",
-   "wall": "side",
+   "wall": "back",
    "items": [
     {
      "kind": "log_heap",
      "at_local_enu_m": [
-      264.29,
-      -149.86
+      269.05,
+      -152.72
      ],
-     "bearing_deg": 89.45,
+     "bearing_deg": 359.45,
      "logs": 3,
      "log_length_m": 2.83,
      "depth_m": 1.38,
@@ -12334,10 +12334,10 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      262.49,
-      -148.91
+      268.11,
+      -154.52
      ],
-     "bearing_deg": 89.45,
+     "bearing_deg": 359.45,
      "billets": 3,
      "seed": 724084140
     }
@@ -12353,15 +12353,15 @@
    "row": "cabin",
    "rule": "Y-W2",
    "confidence": "reconstructed",
-   "wall": "side",
+   "wall": "back",
    "items": [
     {
      "kind": "log_heap",
      "at_local_enu_m": [
-      497.86,
-      -149.73
+      492.94,
+      -152.59
      ],
-     "bearing_deg": 270.07,
+     "bearing_deg": 0.07,
      "logs": 3,
      "log_length_m": 2.74,
      "depth_m": 1.38,
@@ -12370,10 +12370,10 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      499.65,
-      -148.81
+      493.86,
+      -154.38
      ],
-     "bearing_deg": 270.07,
+     "bearing_deg": 0.07,
      "billets": 3,
      "seed": 568930257
     }
@@ -12389,15 +12389,15 @@
    "row": "cabin",
    "rule": "Y-W2",
    "confidence": "reconstructed",
-   "wall": "side",
+   "wall": "back",
    "items": [
     {
      "kind": "log_heap",
      "at_local_enu_m": [
-      745.83,
-      -145.26
+      740.62,
+      -152.28
      ],
-     "bearing_deg": 270.85,
+     "bearing_deg": 0.85,
      "logs": 5,
      "log_length_m": 2.79,
      "depth_m": 2.1,
@@ -12406,10 +12406,10 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      747.96,
-      -146.23
+      739.64,
+      -154.42
      ],
-     "bearing_deg": 270.85,
+     "bearing_deg": 0.85,
      "billets": 3,
      "seed": 733227836
     }

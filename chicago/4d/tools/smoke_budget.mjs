@@ -571,11 +571,11 @@ const COVERAGE = [
   ['renderers/web/js/front-yards.js', [14], 'the 1904 front yards: grown shrubs, young trees, beds, ivy (T-3203, T-3223)'],
   ['data/front_yards/', [14], 'the 1904 front yards, generated from the grid and the houses'],
   ['tools/plant_prairie_1904_front_yards.py', NONE, 'the front-yard planter — read by no renderer: its own --check in check.sh'],
-  // T-3407. The 1812 commanding officer's garden: beds and crops inside its paling. main.js
-  // asks for the layer only where a scene lists it, and only 1812's does; no part boots 1812,
-  // so these are held by plant_gardens.py's --check and test_gardens.mjs in check.sh.
-  ['renderers/web/js/gardens.js', NONE, "the 1812 officers' garden: beds, soil and grown crops (T-3407) — no part boots 1812"],
-  ['data/gardens/', NONE, "the 1812 officers' garden's beds and plants — fetched only at /1812/, which no part boots"],
+  // T-3407. The 1812 commanding officer's garden: beds and crops inside its paling. Since
+  // T-3476 the 1835 scene lists the layer too (the town's dooryard gardens, planted), so the
+  // part that boots 1835's enclosures boots it.
+  ['renderers/web/js/gardens.js', [1], "the kitchen gardens' beds and grown crops: 1812's officer's garden, 1835's dooryards (T-3407, T-3476)"],
+  ['data/gardens/', [1], "the kitchen gardens' beds and plants, per scene"],
   ['tools/plant_gardens.py', NONE, 'the garden planter — read by no renderer: its own --check in check.sh'],
   // T-1728. What that grid is paved with, and the maps it is paved in.
   ['data/street_section/', [14], 'the 1904 curb reveal and carriage walks (T-2474)'],

@@ -36,6 +36,7 @@
  */
 
 import * as THREE from 'three';
+import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { patchSeason } from './season.js';
 
 const CONF = { attested: 0, inferred: 0.5, reconstructed: 1 };
@@ -659,6 +660,8 @@ export const CROPS = {
           tile: LEAF.strap, rise: 0.15, droop: 0.75 + r() * 0.3 + (dry ? 0.35 : 0), fold: dry ? 0.6 : 0.35, segs: q(lod, 4, 2, 1),
           col: tint(GREEN, f < 0.2 ? 0.8 + r() * 0.1 : 0.95 + r() * 0.1), twist: (r() - 0.5) * 0.8 });
       }
+      // T-3476: early July ('young') the corn is in blade and has not yet tasselled or eared
+      if (look.stage === 'young') continue;
       // the tassel: a spray of thin spikes
       const spikes = q(lod, 7, 3);
       for (let i = 0; i < spikes; i += 1) {
@@ -704,6 +707,8 @@ export const CROPS = {
       if (lod !== 'far') polyTube(sb, pts, 0.006, 0.004, [0.3, 0.42, 0.16], 3);
       for (let i = 1; i < nodes; i += 1) {
         const t = (i + (twin ? 0.5 : 0)) / nodes;
+        // T-3476: early July the vines are partway up their poles, in flower, no pods yet
+        if (look.climb && t > look.climb) continue;
         const c = mul(top, t * 0.95);
         const head = r() * Math.PI * 2;
         // a trifoliate leaf: three leaflets on a short stalk, the upper ones younger
@@ -718,7 +723,7 @@ export const CROPS = {
             col: tint(GREEN, 0.86 + r() * 0.22), centre: mul(top, 0.5) });
         }
         // pods hang under the leaves on the lower two-thirds
-        if (near && t < 0.7 && r() < (look.stage === 'dry' ? 0.7 : 0.45)) {
+        if (near && t < 0.7 && look.stage !== 'flowering' && r() < (look.stage === 'dry' ? 0.7 : 0.45)) {
           const p0 = add(c, [Math.cos(head + 1.6) * 0.05, -0.02, Math.sin(head + 1.6) * 0.05]);
           tube(sb, p0, add(p0, [(r() - 0.5) * 0.04, -0.14 - r() * 0.05, (r() - 0.5) * 0.04]), 0.006, 0.004, [0.38, 0.5, 0.2], 3);
         }
@@ -789,7 +794,8 @@ export const CROPS = {
     hills(sb, r, 0.35, 0.08, lod);
     const runners = q(lod, 5, 3);
     // mid-August: the runners have met across the hills and the bed is a mat of leaf
-    const spread = { squash: 1.6, watermelon: 2.1, muskmelon: 1.5, cucumber: 1.2 }[fruit] ?? 1.2;
+    // T-3476: early July ('running') the runners are a third of their August length
+    const spread = ({ squash: 1.6, watermelon: 2.1, muskmelon: 1.5, cucumber: 1.2 }[fruit] ?? 1.2) * (look.spread ?? 1);
     const bigLeaf = fruit === 'squash' ? 0.3 : fruit === 'watermelon' ? 0.15 : 0.17;
     for (let k = 0; k < runners; k += 1) {
       const a = (k / runners) * Math.PI * 2 + r() * 0.8;
@@ -819,6 +825,7 @@ export const CROPS = {
       const fruits = fruit === 'cucumber' ? 2 : 1;
       for (let f = 0; f < fruits; f += 1) {
         if (r() < 0.25 || look.stage === 'spent') continue;
+        if (look.stage === 'running' && (fruit !== 'cucumber' || r() < 0.6)) continue;
         const t = 0.45 + r() * 0.45;
         const p = pts[Math.min(steps, Math.round(t * steps))];
         const yaw = a + (r() - 0.5);
@@ -1119,6 +1126,32 @@ export const SEASON_CROPS = Object.freeze({
     strawberry: { keep: 0.8, leaf: TINT.red },
     herb: {},
   },
+  /** T-3476: a scene dated in early July (1835's 1 July) draws its summer as this: M'Mahon's
+   *  June and July. The corn in blade, not tasselled; beans partway up their poles in
+   *  flower; melons, squash and cucumbers running, no fruit set but a first cucumber;
+   *  cabbages heading; roots in full leaf, smaller; potatoes in flower; currants,
+   *  gooseberries and raspberries in fruit; strawberries done, in leaf. */
+  july: {
+    corn: { size: 0.62, stage: 'young' },
+    pole_bean: { stage: 'flowering', climb: 0.62 },
+    squash: { stage: 'running', spread: 0.5 },
+    muskmelon: { stage: 'running', spread: 0.45 },
+    watermelon: { stage: 'running', spread: 0.4 },
+    cucumber: { stage: 'running', spread: 0.6 },
+    cabbage: { size: 0.85 },
+    potato: {},
+    beet: { size: 0.85 },
+    carrot: { size: 0.85 },
+    parsnip: { size: 0.85 },
+    onion: {},
+    lettuce: {},
+    asparagus: {},
+    currant: {},
+    gooseberry: {},
+    raspberry: {},
+    strawberry: {},
+    herb: {},
+  },
   winter: {
     currant: { keep: 0, stage: 'bare' },
     gooseberry: { keep: 0, stage: 'bare' },
@@ -1129,7 +1162,7 @@ export const SEASON_CROPS = Object.freeze({
 /** The look of `kind` in `season`: {} in summer (the file's own planting), null when
  *  nothing of it stands above the ground. */
 export function seasonLook(kind, season = 'summer') {
-  if (!season || season === 'summer') return {};
+  if (!season || season === 'summer') return KINDS[kind] ? {} : null;
   return SEASON_CROPS[season]?.[kind] ?? null;
 }
 
@@ -1321,9 +1354,13 @@ export async function createGardens({
   let plants = [];
   const geoIds = new Map();
   let leaves = null, solids = null, built = false;
-  let walkMat = null, bedMat = null;
+  let walkMat = null, bedMat = null, townBedMat = null;
   let seasonNow = ['spring', 'fall', 'winter'].includes(season) ? season : 'summer';
   stats.season = seasonNow;
+  // T-3476: the scene's own summer — 1812's file is planted for 14 August, 1835's is dated
+  // 1 July and draws its summer as M'Mahon's early July (SEASON_CROPS.july)
+  const summerAs = SEASON_CROPS[doc.summer_stage] ? doc.summer_stage : 'summer';
+  const lookSeason = () => (seasonNow === 'summer' ? summerAs : seasonNow);
   const cropDisposers = [];
 
   /** T-3460: the walks and beds take the season's snow as the yards' do (main.js
@@ -1333,9 +1370,11 @@ export async function createGardens({
     // a bed a little under a lawn, so the ridged loam shows through here and there; a
     // walk nearly so, nobody sweeping it, a little trodden
     patchSeason(bedMat, 0.9);
+    if (townBedMat) patchSeason(townBedMat, 0.9);
     patchSeason(walkMat, 0.78);
   };
 
+  let groundMeshes = 0;
   /** Lay the walks and beds, then plant the season's crops: once. */
   function build() {
     built = true;
@@ -1348,13 +1387,20 @@ export async function createGardens({
       polygonOffset: true, polygonOffsetFactor: -3, polygonOffsetUnits: -3 });
     walkMat.name = 'garden-walks'; bedMat.name = 'garden-beds';
     for (const m of [walkMat, bedMat]) confidence?.patch?.(m);
+    const shared = [];
     disposers.push(() => { walkMat.dispose(); bedMat.dispose(); walkTex.dispose(); bedTex.dispose(); });
     for (const g of gardens) {
       const toWorld = frameOf(g);
+      // T-3476: a garden whose walks another layer lays (the 1835 dooryards: yards.js lays
+      // them from the same record) lays only its beds ('beds'), and those of every such
+      // garden go into one mesh, so ninety gardens are one draw and not four hundred
+      const ground = g.ground !== false && g.ground !== 'beds';
+      const bedsOnly = g.ground === 'beds';
       const walkConf = CONF[g.walk_grade] ?? 0.5;
       const inset = g.paling_inset_m ?? 0.15;
       const [W, D] = g.size_m;
       const plot = [[inset, inset], [W - inset, inset], [W - inset, D - inset], [inset, D - inset]];
+      if (ground) {
       const walk = new THREE.Mesh(drape(plot, toWorld, groundAt, { lift: SOIL_LIFT.walk, conf: walkConf, uvScale: 0.45, cell,
         // the trodden middle of each walk paler, its edges where the grass hangs on greener
         colorAt: (u, v) => {
@@ -1364,18 +1410,48 @@ export async function createGardens({
       walk.name = `garden-walks:${g.id}`;
       walk.receiveShadow = true;
       group.add(walk);
+      groundMeshes += 1;
+      }
       for (const bed of g.beds ?? []) {
         const conf = CONF[bed.grade] ?? 0.5;
         const r = rng(strSeed(bed.id));
+        if (bedsOnly) {
+          shared.push(drape(bed.poly, toWorld, groundAt, { lift: SOIL_LIFT.bed, crown: SOIL_LIFT.crown,
+            conf, uvScale: 0.5, cell, colorAt: () => tint([1, 1, 1], 0.92 + r() * 0.16) }));
+        } else if (ground) {
         const mesh = new THREE.Mesh(drape(bed.poly, toWorld, groundAt, { lift: SOIL_LIFT.bed, crown: SOIL_LIFT.crown,
           conf, uvScale: 0.5, cell, colorAt: () => tint([1, 1, 1], 0.92 + r() * 0.16) }), bedMat);
         mesh.name = `garden-bed:${g.id}:${bed.id}`;
         mesh.receiveShadow = true;
         group.add(mesh);
+        groundMeshes += 1;
+        }
         const c = bed.poly.reduce((a, p) => [a[0] + p[0] / bed.poly.length, a[1] + p[1] / bed.poly.length], [0, 0]);
         const [ce, cn] = toWorld(c);
         bedsHit.push({ garden: g, bed, e: ce, n: cn, y: groundAt(ce, cn) + 0.15 });
         stats.beds += 1;
+      }
+    }
+    if (shared.length) {
+      const geo = mergeGeometries(shared, false);
+      for (const gg of shared) gg.dispose();
+      if (geo) {
+        // The yards layer's ground under these gardens is a transparent surface drawn after
+        // the opaque pass with a strong polygon offset (yards.js surfaceMaterial), so an
+        // opaque bed a few centimetres over it is painted out. These beds are drawn as it is,
+        // after it (renderOrder) and a little nearer.
+        townBedMat = bedMat.clone();
+        Object.assign(townBedMat, { transparent: true, depthWrite: false, alphaTest: 0.02,
+          polygonOffsetFactor: -9, polygonOffsetUnits: -36 });
+        townBedMat.name = 'garden-beds:town';
+        confidence?.patch?.(townBedMat);
+        const mesh = new THREE.Mesh(geo, townBedMat);
+        mesh.renderOrder = 4;
+        mesh.name = 'garden-beds:merged';
+        mesh.receiveShadow = true;
+        group.add(mesh);
+        groundMeshes += 1;
+        disposers.push(() => { geo.dispose(); townBedMat.dispose(); });
       }
     }
     seasonGround();
@@ -1408,7 +1484,7 @@ export async function createGardens({
     for (const g of gardens) {
       for (const [kind, list] of Object.entries(g.plants ?? {})) {
         if (!KINDS[kind]) { problems.push(`gardens: ${g.id} plants an unknown kind "${kind}"`); continue; }
-        const look = seasonLook(kind, seasonNow);
+        const look = seasonLook(kind, lookSeason());
         if (!look) continue;
         const conf = CONF[doc.crops?.[kind]?.grade] ?? 1;
         const size = look.size ?? 1;
@@ -1431,7 +1507,7 @@ export async function createGardens({
       const conf = CONF[doc.crops?.[kind]?.grade] ?? 1;
       for (let v = 0; v < variants; v += 1) {
         for (const lod of lods) {
-          const t = growTemplate(kind, v, lod, conf, seasonNow);
+          const t = growTemplate(kind, v, lod, conf, lookSeason());
           templates.set(`${kind}:${v}:${lod}`, t);
           if (t.leaves) { leafV += t.leaves.attributes.position.count; leafI += t.leaves.index.count; }
           if (t.solid) { solidV += t.solid.attributes.position.count; solidI += t.solid.index.count; }
@@ -1467,7 +1543,7 @@ export async function createGardens({
       pl.level = 'far';
     }
     group.add(leaves, solids);
-    stats.drawCalls = 2 + gardens.length + stats.beds;
+    stats.drawCalls = 2 + groundMeshes;
     const planted = [leaves, solids];
     cropDisposers.push(() => { for (const b of planted) { group.remove(b); b.dispose(); } });
   }
@@ -1485,6 +1561,10 @@ export async function createGardens({
   // ceiling) lays it the first time the garden comes into the camera's view within its far
   // ring: from the 1812 spawn it is behind the eye, so a phone that never turns to it never
   // pays for it, and one that does pays about a megabyte, uploaded and released at once.
+  // T-3476: the far ring, cut to the file's own `reach_m` where it states one (a phone's to
+  // three quarters of it)
+  const farOf = () => Math.min(LEVELS[current].far,
+    (doc.reach_m ?? Infinity) * (current === 'light' ? 0.75 : 1));
   const ball = new THREE.Sphere();
   {
     const pts = [];
@@ -1501,7 +1581,7 @@ export async function createGardens({
   }
   const frustum = new THREE.Frustum(), view = new THREE.Matrix4();
   const comesIntoView = (camera) => {
-    if (camera.position.distanceTo(ball.center) - ball.radius > LEVELS[current].far) return false;
+    if (camera.position.distanceTo(ball.center) - ball.radius > farOf()) return false;
     camera.updateMatrixWorld();
     view.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse);
     return frustum.setFromProjectionMatrix(view).intersectsSphere(ball);
@@ -1518,7 +1598,9 @@ export async function createGardens({
   applyCast();
   const deal = (eye) => {
     if (!built) return;
-    const L = LEVELS[current];
+    // T-3476: a file may draw its plants nearer than the level's far ring (1835's ninety
+    // town gardens behind their fences: a cabbage 300 m off is a pixel, ninety of them a load)
+    const L = { ...LEVELS[current], far: farOf() };
     let near = 0, tris = 0;
     for (const pl of plants) {
       const d = Math.hypot(pl.e - eye.x, -pl.n - eye.z);

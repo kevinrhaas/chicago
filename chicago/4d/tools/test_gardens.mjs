@@ -142,5 +142,22 @@ for (const season of Object.keys(SEASON_CROPS)) {
   ok(sBytes <= TEMPLATE_BYTES, `${season}: the garden's templates hold ${sBytes} bytes, over ${TEMPLATE_BYTES}`);
 }
 
+// T-3476: the 1835 town's dooryard gardens. Its summer is SEASON_CROPS.july, which must
+// name every kind (a kind missing from a season is not drawn), and every kind it plants is in
+// its crop table, in the beds it states.
+{
+  const town = JSON.parse(fs.readFileSync(new URL('../data/gardens/1835.json', import.meta.url), 'utf8'));
+  ok(town.summer_stage === 'july', '1835 draws its summer as early July');
+  for (const kind of Object.keys(KINDS)) ok(SEASON_CROPS.july[kind], `SEASON_CROPS.july has no row for ${kind}`);
+  ok(town.gardens.length >= 60, `1835 plants ${town.gardens.length} gardens`);
+  const sizes = new Set(town.gardens.map((g) => g.size_m.join('x')));
+  ok(sizes.size === town.gardens.length, `two 1835 gardens share a size (${sizes.size} sizes for ${town.gardens.length})`);
+  for (const g of town.gardens) {
+    ok(g.ground === 'beds', `${g.id} lays its own beds`);
+    for (const kind of Object.keys(g.plants)) ok(town.crops[kind] && KINDS[kind], `${g.id} plants ${kind}, not in the crop table`);
+  }
+  ok(Number.isFinite(town.reach_m) && town.reach_m <= 200, '1835 draws its plants no farther than 200 m');
+}
+
 console.log(`test_gardens: PASS (${checks} checks; far ${far} tris, templates ${(bytes / 1e6).toFixed(2)} MB; `
   + `far spring ${seasonFar.spring}, fall ${seasonFar.fall}, winter ${seasonFar.winter})`);

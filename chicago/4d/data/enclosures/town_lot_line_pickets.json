@@ -28,8 +28,8 @@
     ],
     "confidence": "derived",
     "counts": {
-      "runs_joined_to_a_household": 76,
-      "runs_bounding_structures_only": 573,
+      "runs_joined_to_a_household": 75,
+      "runs_bounding_structures_only": 620,
       "households_that_gained_a_fence": 30,
       "lots_named": 253,
       "households": [
@@ -762,6 +762,41 @@
       "note": "THE REAR LOT LINE of blk_south_water_clark_lot5, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_south_water_clark_d3_03 — and the yard behind those buildings is 12.19 m deep by 24.64 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
+      "id": "side_blk_south_water_franklin_lot3_blk_south_water_franklin_lot5_e_1",
+      "path_local_enu_m": [
+        [
+          269.02,
+          -75.19
+        ],
+        [
+          269.13,
+          -55.45
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_south_water_franklin_lot3",
+          "structures": [
+            "recon_1835_blk_south_water_franklin_a1_06",
+            "recon_1835_blk_south_water_franklin_d2_05"
+          ],
+          "households": [],
+          "side": "south-west",
+          "refused": "no_household_names_this_ground"
+        },
+        {
+          "lot": "blk_south_water_franklin_lot5",
+          "structures": [
+            "recon_1835_blk_south_water_franklin_d3_03"
+          ],
+          "households": [],
+          "side": "south-east",
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_south_water_franklin_lot3 — and the fence on it is built ONCE: blk_south_water_franklin_lot3 and blk_south_water_franklin_lot5 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
       "id": "side_blk_south_water_franklin_lot3_w",
       "path_local_enu_m": [
         [
@@ -785,41 +820,6 @@
         }
       ],
       "note": "A SIDE LOT LINE — the west side of blk_south_water_franklin_lot3 — and the fence on it is built ONCE: blk_south_water_franklin_lot3 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
-    },
-    {
-      "id": "side_blk_south_water_franklin_lot3_blk_south_water_franklin_lot5_e",
-      "path_local_enu_m": [
-        [
-          268.88,
-          -99.67
-        ],
-        [
-          269.13,
-          -55.45
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_south_water_franklin_lot3",
-          "structures": [
-            "recon_1835_blk_south_water_franklin_a1_06",
-            "recon_1835_blk_south_water_franklin_d2_05"
-          ],
-          "households": [],
-          "side": "west",
-          "refused": "no_household_names_this_ground"
-        },
-        {
-          "lot": "blk_south_water_franklin_lot5",
-          "structures": [
-            "recon_1835_blk_south_water_franklin_d3_03"
-          ],
-          "households": [],
-          "side": "east",
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "A SIDE LOT LINE — the east side of blk_south_water_franklin_lot3 — and the fence on it is built ONCE: blk_south_water_franklin_lot3 and blk_south_water_franklin_lot5 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
       "id": "side_blk_south_water_wells_lot3_w",
@@ -947,8 +947,8 @@
       "id": "side_blk_south_water_lasalle_lot1_w_1",
       "path_local_enu_m": [
         [
-          464.15,
-          -85.07
+          464.17,
+          -81.08
         ],
         [
           464.32,
@@ -1003,11 +1003,11 @@
       "note": "A SIDE LOT LINE — the east side of blk_south_water_lasalle_lot1 — and the fence on it is built ONCE: blk_south_water_lasalle_lot1 and blk_south_water_lasalle_lot3 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
-      "id": "side_blk_south_water_lasalle_lot7_e",
+      "id": "side_blk_south_water_lasalle_lot7_e_1",
       "path_local_enu_m": [
         [
-          563.1,
-          -102.07
+          563.24,
+          -79.87
         ],
         [
           563.4,
@@ -1134,6 +1134,41 @@
       "note": "A SIDE LOT LINE — the north side of blk_west_lake_des_plaines_lot5 — and the fence on it is built ONCE: blk_west_lake_des_plaines_lot5 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
+      "id": "side_blk_south_water_franklin_lot3_blk_south_water_franklin_lot5_e",
+      "path_local_enu_m": [
+        [
+          268.88,
+          -99.67
+        ],
+        [
+          268.97,
+          -84.43
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_south_water_franklin_lot3",
+          "structures": [
+            "recon_1835_blk_south_water_franklin_a1_06",
+            "recon_1835_blk_south_water_franklin_d2_05"
+          ],
+          "households": [],
+          "side": "north-west",
+          "refused": "no_household_names_this_ground"
+        },
+        {
+          "lot": "blk_south_water_franklin_lot5",
+          "structures": [
+            "recon_1835_blk_south_water_franklin_d3_03"
+          ],
+          "households": [],
+          "side": "north-east",
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_south_water_franklin_lot3 — and the fence on it is built ONCE: blk_south_water_franklin_lot3 and blk_south_water_franklin_lot5 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
       "id": "side_blk_south_water_lasalle_lot1_w",
       "path_local_enu_m": [
         [
@@ -1142,7 +1177,7 @@
         ],
         [
           464.1,
-          -92.54
+          -93.54
         ]
       ],
       "belongs_to": [
@@ -1156,6 +1191,30 @@
         }
       ],
       "note": "A SIDE LOT LINE — the west side of blk_south_water_lasalle_lot1 — and the fence on it is built ONCE: blk_south_water_lasalle_lot1 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_south_water_lasalle_lot7_e",
+      "path_local_enu_m": [
+        [
+          563.1,
+          -102.07
+        ],
+        [
+          563.19,
+          -88.6
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_south_water_lasalle_lot7",
+          "structures": [
+            "recon_1835_blk_south_water_lasalle_d3_03"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_south_water_lasalle_lot7 — and the fence on it is built ONCE: blk_south_water_lasalle_lot7 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
       "id": "side_blk_west_lake_des_plaines_lot0_s",
@@ -1256,6 +1315,40 @@
       "note": "A SIDE LOT LINE — the south side of blk_west_lake_des_plaines_lot5 — and the fence on it is built ONCE: blk_west_lake_des_plaines_lot5 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
+      "id": "side_blk_lake_market_lot2_blk_lake_market_lot4_e_1",
+      "path_local_enu_m": [
+        [
+          146.67,
+          -141.8
+        ],
+        [
+          146.78,
+          -123.06
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_lake_market_lot2",
+          "structures": [
+            "recon_1835_blk_lake_market_d3_03"
+          ],
+          "households": [],
+          "side": "south-west",
+          "refused": "no_household_names_this_ground"
+        },
+        {
+          "lot": "blk_lake_market_lot4",
+          "structures": [
+            "recon_1835_blk_lake_market_d4_02"
+          ],
+          "households": [],
+          "side": "south-east",
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_lake_market_lot2 — and the fence on it is built ONCE: blk_lake_market_lot2 and blk_lake_market_lot4 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
       "id": "side_blk_lake_franklin_lot0_blk_lake_franklin_lot2_e_1",
       "path_local_enu_m": [
         [
@@ -1295,7 +1388,7 @@
       "path_local_enu_m": [
         [
           513.26,
-          -152.78
+          -153.03
         ],
         [
           513.43,
@@ -1332,8 +1425,8 @@
           -179.52
         ],
         [
-          146.78,
-          -123.06
+          146.6,
+          -153.29
         ]
       ],
       "belongs_to": [
@@ -1343,7 +1436,7 @@
             "recon_1835_blk_lake_market_d3_03"
           ],
           "households": [],
-          "side": "west",
+          "side": "north-west",
           "refused": "no_household_names_this_ground"
         },
         {
@@ -1352,7 +1445,7 @@
             "recon_1835_blk_lake_market_d4_02"
           ],
           "households": [],
-          "side": "east",
+          "side": "north-east",
           "refused": "no_household_names_this_ground"
         }
       ],
@@ -1500,8 +1593,8 @@
           -182.5
         ],
         [
-          513.21,
-          -162.27
+          513.16,
+          -169.76
         ]
       ],
       "belongs_to": [
@@ -1604,8 +1697,8 @@
       "id": "side_blk_lake_market_lot1_e",
       "path_local_enu_m": [
         [
-          121.81,
-          -222.77
+          121.84,
+          -218.03
         ],
         [
           122.03,
@@ -2155,6 +2248,30 @@
       "note": "THE REAR LOT LINE of blk_lake_lasalle_lot7, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds wright_building_to_let_b — and the yard behind those buildings is 12.19 m deep by 24.75 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
+      "id": "side_blk_lake_lasalle_lot7_e_1",
+      "path_local_enu_m": [
+        [
+          562.34,
+          -220.87
+        ],
+        [
+          562.55,
+          -188.39
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_lake_lasalle_lot7",
+          "structures": [
+            "wright_building_to_let_b"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_lake_lasalle_lot7 — and the fence on it is built ONCE: blk_lake_lasalle_lot7 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
       "id": "rear_blk_lake_clark_lot1",
       "path_local_enu_m": [
         [
@@ -2261,8 +2378,8 @@
           -236.19
         ],
         [
-          -459.71,
-          -236.57
+          -485.95,
+          -236.36
         ]
       ],
       "belongs_to": [
@@ -2281,8 +2398,8 @@
       "id": "side_blk_west_lake_des_plaines_lot4_n_1",
       "path_local_enu_m": [
         [
-          -480.52,
-          -212.72
+          -490.77,
+          -212.64
         ],
         [
           -460.28,
@@ -2324,6 +2441,30 @@
         }
       ],
       "note": "THE REAR LOT LINE of blk_west_lake_des_plaines_lot4, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_west_044 — and the yard behind those buildings is 12.19 m deep by 23.69 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+    },
+    {
+      "id": "side_blk_west_lake_des_plaines_lot4_s_1",
+      "path_local_enu_m": [
+        [
+          -478.46,
+          -236.42
+        ],
+        [
+          -459.71,
+          -236.57
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_lake_des_plaines_lot4",
+          "structures": [
+            "recon_1835_west_044"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the south side of blk_west_lake_des_plaines_lot4 — and the fence on it is built ONCE: blk_west_lake_des_plaines_lot4 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
       "id": "side_blk_west_lake_des_plaines_lot8_s",
@@ -2774,8 +2915,8 @@
           -244.85
         ],
         [
-          562.55,
-          -188.39
+          562.28,
+          -230.36
         ]
       ],
       "belongs_to": [
@@ -2841,6 +2982,180 @@
       "note": "A SIDE LOT LINE — the east side of blk_lake_clark_lot1 — and the fence on it is built ONCE: blk_lake_clark_lot1 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
+      "id": "side_blk_school_section_tier_81_lot2_blk_school_section_tier_81_lot4_e_1",
+      "path_local_enu_m": [
+        [
+          139.86,
+          -546.49
+        ],
+        [
+          139.86,
+          -531.25
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_81_lot2",
+          "structures": [
+            "recon_1835_blk_school_section_tier_81_d5_01"
+          ],
+          "households": [],
+          "side": "south-west",
+          "refused": "no_household_names_this_ground"
+        },
+        {
+          "lot": "blk_school_section_tier_81_lot4",
+          "structures": [
+            "recon_1835_blk_school_section_tier_81_d4_03"
+          ],
+          "households": [],
+          "side": "south-east",
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_81_lot2 — and the fence on it is built ONCE: blk_school_section_tier_81_lot2 and blk_school_section_tier_81_lot4 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_school_section_tier_94_lot2_w_1",
+      "path_local_enu_m": [
+        [
+          249.16,
+          -546.49
+        ],
+        [
+          249.16,
+          -531.25
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_94_lot2",
+          "structures": [
+            "recon_1835_blk_school_section_tier_94_d5_02"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the west side of blk_school_section_tier_94_lot2 — and the fence on it is built ONCE: blk_school_section_tier_94_lot2 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_school_section_tier_94_lot2_blk_school_section_tier_94_lot4_e_1",
+      "path_local_enu_m": [
+        [
+          279.89,
+          -546.74
+        ],
+        [
+          279.89,
+          -531.25
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_94_lot2",
+          "structures": [
+            "recon_1835_blk_school_section_tier_94_d5_02"
+          ],
+          "households": [],
+          "side": "south-west",
+          "refused": "no_household_names_this_ground"
+        },
+        {
+          "lot": "blk_school_section_tier_94_lot4",
+          "structures": [
+            "recon_1835_blk_school_section_tier_94_d4_04"
+          ],
+          "households": [],
+          "side": "south-east",
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_94_lot2 — and the fence on it is built ONCE: blk_school_section_tier_94_lot2 and blk_school_section_tier_94_lot4 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_school_section_tier_95_lot2_blk_school_section_tier_95_lot4_e_1",
+      "path_local_enu_m": [
+        [
+          408.24,
+          -546.99
+        ],
+        [
+          408.24,
+          -531.25
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_95_lot2",
+          "structures": [
+            "recon_1835_blk_school_section_tier_95_d5_01"
+          ],
+          "households": [],
+          "side": "south-west",
+          "refused": "no_household_names_this_ground"
+        },
+        {
+          "lot": "blk_school_section_tier_95_lot4",
+          "structures": [
+            "recon_1835_blk_school_section_tier_95_d4_03"
+          ],
+          "households": [],
+          "side": "south-east",
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_95_lot2 — and the fence on it is built ONCE: blk_school_section_tier_95_lot2 and blk_school_section_tier_95_lot4 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_school_section_tier_118_lot6_e_1",
+      "path_local_enu_m": [
+        [
+          573.48,
+          -548.73
+        ],
+        [
+          573.48,
+          -531.25
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_118_lot6",
+          "structures": [
+            "recon_1835_blk_school_section_tier_118_d6_06"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_118_lot6 — and the fence on it is built ONCE: blk_school_section_tier_118_lot6 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_school_section_tier_119_lot6_e_1",
+      "path_local_enu_m": [
+        [
+          695.06,
+          -548.23
+        ],
+        [
+          695.06,
+          -531.25
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_119_lot6",
+          "structures": [
+            "recon_1835_blk_school_section_tier_119_d5_06"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_119_lot6 — and the fence on it is built ONCE: blk_school_section_tier_119_lot6 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
       "id": "side_blk_school_section_tier_81_lot2_w",
       "path_local_enu_m": [
         [
@@ -2863,40 +3178,6 @@
         }
       ],
       "note": "A SIDE LOT LINE — the west side of blk_school_section_tier_81_lot2 — and the fence on it is built ONCE: blk_school_section_tier_81_lot2 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
-    },
-    {
-      "id": "side_blk_school_section_tier_81_lot2_blk_school_section_tier_81_lot4_e",
-      "path_local_enu_m": [
-        [
-          139.86,
-          -584.7
-        ],
-        [
-          139.86,
-          -531.25
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_school_section_tier_81_lot2",
-          "structures": [
-            "recon_1835_blk_school_section_tier_81_d5_01"
-          ],
-          "households": [],
-          "side": "west",
-          "refused": "no_household_names_this_ground"
-        },
-        {
-          "lot": "blk_school_section_tier_81_lot4",
-          "structures": [
-            "recon_1835_blk_school_section_tier_81_d4_03"
-          ],
-          "households": [],
-          "side": "east",
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_81_lot2 — and the fence on it is built ONCE: blk_school_section_tier_81_lot2 and blk_school_section_tier_81_lot4 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
       "id": "side_blk_school_section_tier_81_lot4_blk_school_section_tier_81_lot6_e",
@@ -2957,64 +3238,6 @@
       "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_81_lot6 — and the fence on it is built ONCE: blk_school_section_tier_81_lot6 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
-      "id": "side_blk_school_section_tier_94_lot2_w",
-      "path_local_enu_m": [
-        [
-          249.16,
-          -584.7
-        ],
-        [
-          249.16,
-          -531.25
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_school_section_tier_94_lot2",
-          "structures": [
-            "recon_1835_blk_school_section_tier_94_d5_02"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "A SIDE LOT LINE — the west side of blk_school_section_tier_94_lot2 — and the fence on it is built ONCE: blk_school_section_tier_94_lot2 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
-    },
-    {
-      "id": "side_blk_school_section_tier_94_lot2_blk_school_section_tier_94_lot4_e",
-      "path_local_enu_m": [
-        [
-          279.89,
-          -584.7
-        ],
-        [
-          279.89,
-          -531.25
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_school_section_tier_94_lot2",
-          "structures": [
-            "recon_1835_blk_school_section_tier_94_d5_02"
-          ],
-          "households": [],
-          "side": "west",
-          "refused": "no_household_names_this_ground"
-        },
-        {
-          "lot": "blk_school_section_tier_94_lot4",
-          "structures": [
-            "recon_1835_blk_school_section_tier_94_d4_04"
-          ],
-          "households": [],
-          "side": "east",
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_94_lot2 — and the fence on it is built ONCE: blk_school_section_tier_94_lot2 and blk_school_section_tier_94_lot4 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
-    },
-    {
       "id": "side_blk_school_section_tier_94_lot4_blk_school_section_tier_94_lot6_e",
       "path_local_enu_m": [
         [
@@ -3049,11 +3272,11 @@
       "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_94_lot4 — and the fence on it is built ONCE: blk_school_section_tier_94_lot4 and blk_school_section_tier_94_lot6 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
-      "id": "side_blk_school_section_tier_94_lot6_e",
+      "id": "side_blk_school_section_tier_94_lot6_e_1",
       "path_local_enu_m": [
         [
           341.34,
-          -584.7
+          -549.73
         ],
         [
           341.34,
@@ -3095,40 +3318,6 @@
         }
       ],
       "note": "A SIDE LOT LINE — the west side of blk_school_section_tier_95_lot2 — and the fence on it is built ONCE: blk_school_section_tier_95_lot2 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
-    },
-    {
-      "id": "side_blk_school_section_tier_95_lot2_blk_school_section_tier_95_lot4_e",
-      "path_local_enu_m": [
-        [
-          408.24,
-          -584.7
-        ],
-        [
-          408.24,
-          -531.25
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_school_section_tier_95_lot2",
-          "structures": [
-            "recon_1835_blk_school_section_tier_95_d5_01"
-          ],
-          "households": [],
-          "side": "west",
-          "refused": "no_household_names_this_ground"
-        },
-        {
-          "lot": "blk_school_section_tier_95_lot4",
-          "structures": [
-            "recon_1835_blk_school_section_tier_95_d4_03"
-          ],
-          "households": [],
-          "side": "east",
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_95_lot2 — and the fence on it is built ONCE: blk_school_section_tier_95_lot2 and blk_school_section_tier_95_lot4 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
       "id": "side_blk_school_section_tier_95_lot4_blk_school_section_tier_95_lot6_e",
@@ -3281,30 +3470,6 @@
       "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_118_lot4 — and the fence on it is built ONCE: blk_school_section_tier_118_lot4 and blk_school_section_tier_118_lot6 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
-      "id": "side_blk_school_section_tier_118_lot6_e",
-      "path_local_enu_m": [
-        [
-          573.48,
-          -584.7
-        ],
-        [
-          573.48,
-          -531.25
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_school_section_tier_118_lot6",
-          "structures": [
-            "recon_1835_blk_school_section_tier_118_d6_06"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_118_lot6 — and the fence on it is built ONCE: blk_school_section_tier_118_lot6 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
-    },
-    {
       "id": "side_blk_school_section_tier_119_lot2_w",
       "path_local_enu_m": [
         [
@@ -3397,30 +3562,6 @@
       "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_119_lot4 — and the fence on it is built ONCE: blk_school_section_tier_119_lot4 and blk_school_section_tier_119_lot6 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
-      "id": "side_blk_school_section_tier_119_lot6_e",
-      "path_local_enu_m": [
-        [
-          695.06,
-          -584.7
-        ],
-        [
-          695.06,
-          -531.25
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_school_section_tier_119_lot6",
-          "structures": [
-            "recon_1835_blk_school_section_tier_119_d5_06"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_119_lot6 — and the fence on it is built ONCE: blk_school_section_tier_119_lot6 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
-    },
-    {
       "id": "rear_blk_school_section_tier_81_lot1",
       "path_local_enu_m": [
         [
@@ -3443,6 +3584,40 @@
         }
       ],
       "note": "THE REAR LOT LINE of blk_school_section_tier_81_lot1, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_school_section_tier_81_d5_07 — and the yard behind those buildings is 12.19 m deep by 29.23 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+    },
+    {
+      "id": "side_blk_school_section_tier_81_lot2_blk_school_section_tier_81_lot4_e",
+      "path_local_enu_m": [
+        [
+          139.86,
+          -584.7
+        ],
+        [
+          139.86,
+          -558.97
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_81_lot2",
+          "structures": [
+            "recon_1835_blk_school_section_tier_81_d5_01"
+          ],
+          "households": [],
+          "side": "north-west",
+          "refused": "no_household_names_this_ground"
+        },
+        {
+          "lot": "blk_school_section_tier_81_lot4",
+          "structures": [
+            "recon_1835_blk_school_section_tier_81_d4_03"
+          ],
+          "households": [],
+          "side": "north-east",
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_81_lot2 — and the fence on it is built ONCE: blk_school_section_tier_81_lot2 and blk_school_section_tier_81_lot4 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
       "id": "rear_blk_school_section_tier_81_lot2",
@@ -3613,6 +3788,30 @@
       "note": "THE REAR LOT LINE of blk_school_section_tier_94_lot1, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_school_section_tier_94_d5_01 — and the yard behind those buildings is 12.19 m deep by 30.72 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
+      "id": "side_blk_school_section_tier_94_lot2_w",
+      "path_local_enu_m": [
+        [
+          249.16,
+          -584.7
+        ],
+        [
+          249.16,
+          -556.23
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_94_lot2",
+          "structures": [
+            "recon_1835_blk_school_section_tier_94_d5_02"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the west side of blk_school_section_tier_94_lot2 — and the fence on it is built ONCE: blk_school_section_tier_94_lot2 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
       "id": "rear_blk_school_section_tier_94_lot2",
       "path_local_enu_m": [
         [
@@ -3659,6 +3858,40 @@
         }
       ],
       "note": "THE REAR LOT LINE of blk_school_section_tier_94_lot3, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_school_section_tier_94_d5_03 — and the yard behind those buildings is 12.19 m deep by 30.73 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+    },
+    {
+      "id": "side_blk_school_section_tier_94_lot2_blk_school_section_tier_94_lot4_e",
+      "path_local_enu_m": [
+        [
+          279.89,
+          -584.7
+        ],
+        [
+          279.89,
+          -557.48
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_94_lot2",
+          "structures": [
+            "recon_1835_blk_school_section_tier_94_d5_02"
+          ],
+          "households": [],
+          "side": "north-west",
+          "refused": "no_household_names_this_ground"
+        },
+        {
+          "lot": "blk_school_section_tier_94_lot4",
+          "structures": [
+            "recon_1835_blk_school_section_tier_94_d4_04"
+          ],
+          "households": [],
+          "side": "north-east",
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_94_lot2 — and the fence on it is built ONCE: blk_school_section_tier_94_lot2 and blk_school_section_tier_94_lot4 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
       "id": "rear_blk_school_section_tier_94_lot4",
@@ -3757,6 +3990,30 @@
       "note": "THE REAR LOT LINE of blk_school_section_tier_94_lot7, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_school_section_tier_94_d7_07 — and the yard behind those buildings is 12.19 m deep by 30.72 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
+      "id": "side_blk_school_section_tier_94_lot6_e",
+      "path_local_enu_m": [
+        [
+          341.34,
+          -584.7
+        ],
+        [
+          341.34,
+          -564.22
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_94_lot6",
+          "structures": [
+            "recon_1835_blk_school_section_tier_94_h1_06"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_94_lot6 — and the fence on it is built ONCE: blk_school_section_tier_94_lot6 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
       "id": "rear_blk_school_section_tier_95_lot1",
       "path_local_enu_m": [
         [
@@ -3779,6 +4036,40 @@
         }
       ],
       "note": "THE REAR LOT LINE of blk_school_section_tier_95_lot1, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_school_section_tier_95_d6_07 — and the yard behind those buildings is 12.19 m deep by 23.39 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+    },
+    {
+      "id": "side_blk_school_section_tier_95_lot2_blk_school_section_tier_95_lot4_e",
+      "path_local_enu_m": [
+        [
+          408.24,
+          -584.7
+        ],
+        [
+          408.24,
+          -557.48
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_95_lot2",
+          "structures": [
+            "recon_1835_blk_school_section_tier_95_d5_01"
+          ],
+          "households": [],
+          "side": "north-west",
+          "refused": "no_household_names_this_ground"
+        },
+        {
+          "lot": "blk_school_section_tier_95_lot4",
+          "structures": [
+            "recon_1835_blk_school_section_tier_95_d4_03"
+          ],
+          "households": [],
+          "side": "north-east",
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_95_lot2 — and the fence on it is built ONCE: blk_school_section_tier_95_lot2 and blk_school_section_tier_95_lot4 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
       "id": "rear_blk_school_section_tier_95_lot2",
@@ -4093,6 +4384,30 @@
       "note": "THE REAR LOT LINE of blk_school_section_tier_118_lot7, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_school_section_tier_118_d5_07 — and the yard behind those buildings is 12.19 m deep by 24.59 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
+      "id": "side_blk_school_section_tier_118_lot6_e",
+      "path_local_enu_m": [
+        [
+          573.48,
+          -584.7
+        ],
+        [
+          573.48,
+          -562.47
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_118_lot6",
+          "structures": [
+            "recon_1835_blk_school_section_tier_118_d6_06"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_118_lot6 — and the fence on it is built ONCE: blk_school_section_tier_118_lot6 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
       "id": "rear_blk_school_section_tier_119_lot1",
       "path_local_enu_m": [
         [
@@ -4261,6 +4576,54 @@
       "note": "THE REAR LOT LINE of blk_school_section_tier_119_lot7, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_school_section_tier_119_d7_07 — and the yard behind those buildings is 12.19 m deep by 25.37 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
+      "id": "side_blk_school_section_tier_119_lot6_e",
+      "path_local_enu_m": [
+        [
+          695.06,
+          -584.7
+        ],
+        [
+          695.06,
+          -561.72
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_119_lot6",
+          "structures": [
+            "recon_1835_blk_school_section_tier_119_d5_06"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_119_lot6 — and the fence on it is built ONCE: blk_school_section_tier_119_lot6 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_school_section_tier_119_lot7_e_1",
+      "path_local_enu_m": [
+        [
+          695.06,
+          -609.42
+        ],
+        [
+          695.06,
+          -590.19
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_119_lot7",
+          "structures": [
+            "recon_1835_blk_school_section_tier_119_d7_07"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_119_lot7 — and the fence on it is built ONCE: blk_school_section_tier_119_lot7 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
       "id": "side_blk_school_section_tier_81_lot1_w",
       "path_local_enu_m": [
         [
@@ -4319,11 +4682,11 @@
       "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_81_lot1 — and the fence on it is built ONCE: blk_school_section_tier_81_lot1 and blk_school_section_tier_81_lot3 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
-      "id": "side_blk_school_section_tier_81_lot3_blk_school_section_tier_81_lot5_e",
+      "id": "side_blk_school_section_tier_81_lot3_blk_school_section_tier_81_lot5_e_1",
       "path_local_enu_m": [
         [
           139.86,
-          -643.64
+          -615.42
         ],
         [
           139.86,
@@ -4337,7 +4700,7 @@
             "recon_1835_blk_school_section_tier_81_d5_02"
           ],
           "households": [],
-          "side": "west",
+          "side": "south-west",
           "refused": "no_household_names_this_ground"
         },
         {
@@ -4346,7 +4709,7 @@
             "recon_1835_blk_school_section_tier_81_d4_04"
           ],
           "households": [],
-          "side": "east",
+          "side": "south-east",
           "refused": "no_household_names_this_ground"
         }
       ],
@@ -4387,11 +4750,11 @@
       "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_81_lot5 — and the fence on it is built ONCE: blk_school_section_tier_81_lot5 and blk_school_section_tier_81_lot7 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
-      "id": "side_blk_school_section_tier_81_lot7_e",
+      "id": "side_blk_school_section_tier_81_lot7_e_1",
       "path_local_enu_m": [
         [
           198.32,
-          -643.64
+          -614.67
         ],
         [
           198.32,
@@ -4435,11 +4798,11 @@
       "note": "A SIDE LOT LINE — the west side of blk_school_section_tier_94_lot1 — and the fence on it is built ONCE: blk_school_section_tier_94_lot1 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
-      "id": "side_blk_school_section_tier_94_lot1_blk_school_section_tier_94_lot3_e",
+      "id": "side_blk_school_section_tier_94_lot1_blk_school_section_tier_94_lot3_e_1",
       "path_local_enu_m": [
         [
           249.16,
-          -643.64
+          -614.42
         ],
         [
           249.16,
@@ -4453,7 +4816,7 @@
             "recon_1835_blk_school_section_tier_94_d5_01"
           ],
           "households": [],
-          "side": "west",
+          "side": "south-west",
           "refused": "no_household_names_this_ground"
         },
         {
@@ -4462,18 +4825,18 @@
             "recon_1835_blk_school_section_tier_94_d5_03"
           ],
           "households": [],
-          "side": "east",
+          "side": "south-east",
           "refused": "no_household_names_this_ground"
         }
       ],
       "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_94_lot1 — and the fence on it is built ONCE: blk_school_section_tier_94_lot1 and blk_school_section_tier_94_lot3 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
-      "id": "side_blk_school_section_tier_94_lot3_blk_school_section_tier_94_lot5_e",
+      "id": "side_blk_school_section_tier_94_lot3_blk_school_section_tier_94_lot5_e_1",
       "path_local_enu_m": [
         [
           279.89,
-          -643.64
+          -619.91
         ],
         [
           279.89,
@@ -4487,7 +4850,7 @@
             "recon_1835_blk_school_section_tier_94_d5_03"
           ],
           "households": [],
-          "side": "west",
+          "side": "south-west",
           "refused": "no_household_names_this_ground"
         },
         {
@@ -4496,18 +4859,18 @@
             "recon_1835_blk_school_section_tier_94_d3_05"
           ],
           "households": [],
-          "side": "east",
+          "side": "south-east",
           "refused": "no_household_names_this_ground"
         }
       ],
       "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_94_lot3 — and the fence on it is built ONCE: blk_school_section_tier_94_lot3 and blk_school_section_tier_94_lot5 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
-      "id": "side_blk_school_section_tier_94_lot5_blk_school_section_tier_94_lot7_e",
+      "id": "side_blk_school_section_tier_94_lot5_blk_school_section_tier_94_lot7_e_1",
       "path_local_enu_m": [
         [
           310.62,
-          -643.64
+          -611.67
         ],
         [
           310.62,
@@ -4521,7 +4884,7 @@
             "recon_1835_blk_school_section_tier_94_d3_05"
           ],
           "households": [],
-          "side": "west",
+          "side": "south-west",
           "refused": "no_household_names_this_ground"
         },
         {
@@ -4530,7 +4893,7 @@
             "recon_1835_blk_school_section_tier_94_d7_07"
           ],
           "households": [],
-          "side": "east",
+          "side": "south-east",
           "refused": "no_household_names_this_ground"
         }
       ],
@@ -4653,11 +5016,11 @@
       "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_95_lot3 — and the fence on it is built ONCE: blk_school_section_tier_95_lot3 and blk_school_section_tier_95_lot5 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
-      "id": "side_blk_school_section_tier_95_lot5_blk_school_section_tier_95_lot7_e",
+      "id": "side_blk_school_section_tier_95_lot5_blk_school_section_tier_95_lot7_e_1",
       "path_local_enu_m": [
         [
           431.63,
-          -643.64
+          -617.41
         ],
         [
           431.63,
@@ -4671,7 +5034,7 @@
             "recon_1835_blk_school_section_tier_95_d4_04"
           ],
           "households": [],
-          "side": "west",
+          "side": "south-west",
           "refused": "no_household_names_this_ground"
         },
         {
@@ -4680,7 +5043,7 @@
             "recon_1835_blk_school_section_tier_95_d6_06"
           ],
           "households": [],
-          "side": "east",
+          "side": "south-east",
           "refused": "no_household_names_this_ground"
         }
       ],
@@ -4735,11 +5098,11 @@
       "note": "A SIDE LOT LINE — the west side of blk_school_section_tier_118_lot1 — and the fence on it is built ONCE: blk_school_section_tier_118_lot1 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
-      "id": "side_blk_school_section_tier_118_lot1_blk_school_section_tier_118_lot3_e",
+      "id": "side_blk_school_section_tier_118_lot1_blk_school_section_tier_118_lot3_e_1",
       "path_local_enu_m": [
         [
           499.73,
-          -643.64
+          -614.92
         ],
         [
           499.73,
@@ -4753,7 +5116,7 @@
             "recon_1835_blk_school_section_tier_118_d2_01"
           ],
           "households": [],
-          "side": "west",
+          "side": "south-west",
           "refused": "no_household_names_this_ground"
         },
         {
@@ -4762,7 +5125,7 @@
             "recon_1835_blk_school_section_tier_118_d4_03"
           ],
           "households": [],
-          "side": "east",
+          "side": "south-east",
           "refused": "no_household_names_this_ground"
         }
       ],
@@ -4837,6 +5200,30 @@
       "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_118_lot5 — and the fence on it is built ONCE: blk_school_section_tier_118_lot5 and blk_school_section_tier_118_lot7 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
+      "id": "side_blk_school_section_tier_119_lot1_w_1",
+      "path_local_enu_m": [
+        [
+          593.59,
+          -616.17
+        ],
+        [
+          593.59,
+          -590.19
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_119_lot1",
+          "structures": [
+            "recon_1835_blk_school_section_tier_119_d6_01"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the west side of blk_school_section_tier_119_lot1 — and the fence on it is built ONCE: blk_school_section_tier_119_lot1 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
       "id": "side_blk_school_section_tier_118_lot7_e",
       "path_local_enu_m": [
         [
@@ -4861,35 +5248,11 @@
       "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_118_lot7 — and the fence on it is built ONCE: blk_school_section_tier_118_lot7 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
-      "id": "side_blk_school_section_tier_119_lot1_w",
-      "path_local_enu_m": [
-        [
-          593.59,
-          -643.64
-        ],
-        [
-          593.59,
-          -590.19
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_school_section_tier_119_lot1",
-          "structures": [
-            "recon_1835_blk_school_section_tier_119_d6_01"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "A SIDE LOT LINE — the west side of blk_school_section_tier_119_lot1 — and the fence on it is built ONCE: blk_school_section_tier_119_lot1 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
-    },
-    {
-      "id": "side_blk_school_section_tier_119_lot1_blk_school_section_tier_119_lot3_e",
+      "id": "side_blk_school_section_tier_119_lot1_blk_school_section_tier_119_lot3_e_1",
       "path_local_enu_m": [
         [
           618.96,
-          -643.64
+          -617.91
         ],
         [
           618.96,
@@ -4903,7 +5266,7 @@
             "recon_1835_blk_school_section_tier_119_d6_01"
           ],
           "households": [],
-          "side": "west",
+          "side": "south-west",
           "refused": "no_household_names_this_ground"
         },
         {
@@ -4912,7 +5275,7 @@
             "recon_1835_blk_school_section_tier_119_d4_03"
           ],
           "households": [],
-          "side": "east",
+          "side": "south-east",
           "refused": "no_household_names_this_ground"
         }
       ],
@@ -4987,6 +5350,292 @@
       "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_119_lot5 — and the fence on it is built ONCE: blk_school_section_tier_119_lot5 and blk_school_section_tier_119_lot7 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
+      "id": "side_blk_school_section_tier_81_lot3_blk_school_section_tier_81_lot5_e",
+      "path_local_enu_m": [
+        [
+          139.86,
+          -643.64
+        ],
+        [
+          139.86,
+          -628.15
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_81_lot3",
+          "structures": [
+            "recon_1835_blk_school_section_tier_81_d5_02"
+          ],
+          "households": [],
+          "side": "north-west",
+          "refused": "no_household_names_this_ground"
+        },
+        {
+          "lot": "blk_school_section_tier_81_lot5",
+          "structures": [
+            "recon_1835_blk_school_section_tier_81_d4_04"
+          ],
+          "households": [],
+          "side": "north-east",
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_81_lot3 — and the fence on it is built ONCE: blk_school_section_tier_81_lot3 and blk_school_section_tier_81_lot5 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_school_section_tier_81_lot7_e",
+      "path_local_enu_m": [
+        [
+          198.32,
+          -643.64
+        ],
+        [
+          198.32,
+          -626.16
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_81_lot7",
+          "structures": [
+            "recon_1835_blk_school_section_tier_81_d6_06"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_81_lot7 — and the fence on it is built ONCE: blk_school_section_tier_81_lot7 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_school_section_tier_94_lot1_blk_school_section_tier_94_lot3_e",
+      "path_local_enu_m": [
+        [
+          249.16,
+          -643.64
+        ],
+        [
+          249.16,
+          -627.16
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_94_lot1",
+          "structures": [
+            "recon_1835_blk_school_section_tier_94_d5_01"
+          ],
+          "households": [],
+          "side": "north-west",
+          "refused": "no_household_names_this_ground"
+        },
+        {
+          "lot": "blk_school_section_tier_94_lot3",
+          "structures": [
+            "recon_1835_blk_school_section_tier_94_d5_03"
+          ],
+          "households": [],
+          "side": "north-east",
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_94_lot1 — and the fence on it is built ONCE: blk_school_section_tier_94_lot1 and blk_school_section_tier_94_lot3 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_school_section_tier_94_lot3_blk_school_section_tier_94_lot5_e",
+      "path_local_enu_m": [
+        [
+          279.89,
+          -643.64
+        ],
+        [
+          279.89,
+          -630.15
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_94_lot3",
+          "structures": [
+            "recon_1835_blk_school_section_tier_94_d5_03"
+          ],
+          "households": [],
+          "side": "north-west",
+          "refused": "no_household_names_this_ground"
+        },
+        {
+          "lot": "blk_school_section_tier_94_lot5",
+          "structures": [
+            "recon_1835_blk_school_section_tier_94_d3_05"
+          ],
+          "households": [],
+          "side": "north-east",
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_94_lot3 — and the fence on it is built ONCE: blk_school_section_tier_94_lot3 and blk_school_section_tier_94_lot5 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_school_section_tier_94_lot5_blk_school_section_tier_94_lot7_e",
+      "path_local_enu_m": [
+        [
+          310.62,
+          -643.64
+        ],
+        [
+          310.62,
+          -627.65
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_94_lot5",
+          "structures": [
+            "recon_1835_blk_school_section_tier_94_d3_05"
+          ],
+          "households": [],
+          "side": "north-west",
+          "refused": "no_household_names_this_ground"
+        },
+        {
+          "lot": "blk_school_section_tier_94_lot7",
+          "structures": [
+            "recon_1835_blk_school_section_tier_94_d7_07"
+          ],
+          "households": [],
+          "side": "north-east",
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_94_lot5 — and the fence on it is built ONCE: blk_school_section_tier_94_lot5 and blk_school_section_tier_94_lot7 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_school_section_tier_95_lot5_blk_school_section_tier_95_lot7_e",
+      "path_local_enu_m": [
+        [
+          431.63,
+          -643.64
+        ],
+        [
+          431.63,
+          -627.16
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_95_lot5",
+          "structures": [
+            "recon_1835_blk_school_section_tier_95_d4_04"
+          ],
+          "households": [],
+          "side": "north-west",
+          "refused": "no_household_names_this_ground"
+        },
+        {
+          "lot": "blk_school_section_tier_95_lot7",
+          "structures": [
+            "recon_1835_blk_school_section_tier_95_d6_06"
+          ],
+          "households": [],
+          "side": "north-east",
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_95_lot5 — and the fence on it is built ONCE: blk_school_section_tier_95_lot5 and blk_school_section_tier_95_lot7 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_school_section_tier_118_lot1_blk_school_section_tier_118_lot3_e",
+      "path_local_enu_m": [
+        [
+          499.73,
+          -643.64
+        ],
+        [
+          499.73,
+          -627.16
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_118_lot1",
+          "structures": [
+            "recon_1835_blk_school_section_tier_118_d2_01"
+          ],
+          "households": [],
+          "side": "north-west",
+          "refused": "no_household_names_this_ground"
+        },
+        {
+          "lot": "blk_school_section_tier_118_lot3",
+          "structures": [
+            "recon_1835_blk_school_section_tier_118_d4_03"
+          ],
+          "households": [],
+          "side": "north-east",
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_118_lot1 — and the fence on it is built ONCE: blk_school_section_tier_118_lot1 and blk_school_section_tier_118_lot3 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_school_section_tier_119_lot1_w",
+      "path_local_enu_m": [
+        [
+          593.59,
+          -643.64
+        ],
+        [
+          593.59,
+          -627.16
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_119_lot1",
+          "structures": [
+            "recon_1835_blk_school_section_tier_119_d6_01"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the west side of blk_school_section_tier_119_lot1 — and the fence on it is built ONCE: blk_school_section_tier_119_lot1 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_school_section_tier_119_lot1_blk_school_section_tier_119_lot3_e",
+      "path_local_enu_m": [
+        [
+          618.96,
+          -643.64
+        ],
+        [
+          618.96,
+          -629.65
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_119_lot1",
+          "structures": [
+            "recon_1835_blk_school_section_tier_119_d6_01"
+          ],
+          "households": [],
+          "side": "north-west",
+          "refused": "no_household_names_this_ground"
+        },
+        {
+          "lot": "blk_school_section_tier_119_lot3",
+          "structures": [
+            "recon_1835_blk_school_section_tier_119_d4_03"
+          ],
+          "households": [],
+          "side": "north-east",
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_119_lot1 — and the fence on it is built ONCE: blk_school_section_tier_119_lot1 and blk_school_section_tier_119_lot3 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
       "id": "side_blk_school_section_tier_119_lot7_e",
       "path_local_enu_m": [
         [
@@ -4995,7 +5644,7 @@
         ],
         [
           695.06,
-          -590.19
+          -626.41
         ]
       ],
       "belongs_to": [
@@ -5015,7 +5664,7 @@
       "path_local_enu_m": [
         [
           524.31,
-          -686.03
+          -686.78
         ],
         [
           524.31,
@@ -5193,7 +5842,7 @@
         ],
         [
           524.31,
-          -692.28
+          -696.53
         ]
       ],
       "belongs_to": [
@@ -5262,6 +5911,40 @@
       "note": "THE REAR LOT LINE of blk_school_section_tier_82_lot3, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_school_section_tier_82_d5_02 — and the yard behind those buildings is 12.19 m deep by 29.23 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
+      "id": "side_blk_school_section_tier_82_lot3_blk_school_section_tier_82_lot5_e_1",
+      "path_local_enu_m": [
+        [
+          139.86,
+          -756.26
+        ],
+        [
+          139.86,
+          -729.26
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_82_lot3",
+          "structures": [
+            "recon_1835_blk_school_section_tier_82_d5_02"
+          ],
+          "households": [],
+          "side": "south-west",
+          "refused": "no_household_names_this_ground"
+        },
+        {
+          "lot": "blk_school_section_tier_82_lot5",
+          "structures": [
+            "recon_1835_blk_school_section_tier_82_d4_04"
+          ],
+          "households": [],
+          "side": "south-east",
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_82_lot3 — and the fence on it is built ONCE: blk_school_section_tier_82_lot3 and blk_school_section_tier_82_lot5 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
       "id": "rear_blk_school_section_tier_82_lot4",
       "path_local_enu_m": [
         [
@@ -5308,6 +5991,40 @@
         }
       ],
       "note": "THE REAR LOT LINE of blk_school_section_tier_82_lot5, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_school_section_tier_82_d4_04 — and the yard behind those buildings is 12.19 m deep by 29.23 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+    },
+    {
+      "id": "side_blk_school_section_tier_82_lot5_blk_school_section_tier_82_lot7_e_1",
+      "path_local_enu_m": [
+        [
+          169.09,
+          -758.01
+        ],
+        [
+          169.09,
+          -729.26
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_school_section_tier_82_lot5",
+          "structures": [
+            "recon_1835_blk_school_section_tier_82_d4_04"
+          ],
+          "households": [],
+          "side": "south-west",
+          "refused": "no_household_names_this_ground"
+        },
+        {
+          "lot": "blk_school_section_tier_82_lot7",
+          "structures": [
+            "recon_1835_blk_school_section_tier_82_h1_06"
+          ],
+          "households": [],
+          "side": "south-east",
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the east side of blk_school_section_tier_82_lot5 — and the fence on it is built ONCE: blk_school_section_tier_82_lot5 and blk_school_section_tier_82_lot7 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
       "id": "rear_blk_school_section_tier_82_lot6",
@@ -5419,7 +6136,7 @@
         ],
         [
           139.86,
-          -729.26
+          -767.76
         ]
       ],
       "belongs_to": [
@@ -5429,7 +6146,7 @@
             "recon_1835_blk_school_section_tier_82_d5_02"
           ],
           "households": [],
-          "side": "west",
+          "side": "north-west",
           "refused": "no_household_names_this_ground"
         },
         {
@@ -5438,7 +6155,7 @@
             "recon_1835_blk_school_section_tier_82_d4_04"
           ],
           "households": [],
-          "side": "east",
+          "side": "north-east",
           "refused": "no_household_names_this_ground"
         }
       ],
@@ -5453,7 +6170,7 @@
         ],
         [
           169.09,
-          -729.26
+          -768.26
         ]
       ],
       "belongs_to": [
@@ -5463,7 +6180,7 @@
             "recon_1835_blk_school_section_tier_82_d4_04"
           ],
           "households": [],
-          "side": "west",
+          "side": "north-west",
           "refused": "no_household_names_this_ground"
         },
         {
@@ -5472,7 +6189,7 @@
             "recon_1835_blk_school_section_tier_82_h1_06"
           ],
           "households": [],
-          "side": "east",
+          "side": "north-east",
           "refused": "no_household_names_this_ground"
         }
       ],
@@ -7528,7 +8245,7 @@
       "blk_west_lake_des_plaines_lot5",
       "blk_west_lake_des_plaines_lot8"
     ],
-    "runs": 204,
+    "runs": 228,
     "note": "253 of the 263 improved platted lots in this town carry a yard fence after this record and its two companions — every one the rule reaches, on every block of the plat. The other 10 are refused for want of room behind their buildings and each is named in `refused` below with the measurement that refused it. THE REMAINDER OF THE OWNER'S ASK IS NOT HERE AND IS NOT PRETENDED TO BE: the continuous street-lining fences at the road edge are T-0069's half of it, and ground outside the 65 platted blocks that carry lot lines — the reservation, Kinzie's Addition, the West Division blocks whose own sheet prints no dimension to divide them by, the country places outside the plat — has no committed lot geometry to derive a line from at all."
   },
   "refused": [
