@@ -7,9 +7,9 @@
     "asset_id": "private_first_infantry_1812"
   },
   "placement": {
-    "local_e": 1155.2,
-    "local_n": 224.6,
-    "heading_deg": 300,
+    "local_e": 1146.73,
+    "local_n": 224.86,
+    "heading_deg": 350.0,
     "anchor": "terrain"
   },
   "animation": {
@@ -18,7 +18,20 @@
     "phase": 0.103
   },
   "behaviour": {
-    "state": "standing"
+    "state": "talking",
+    "duty": {
+      "kind": "knot",
+      "id": "west_parade",
+      "away": {
+        "local_e": 1144.0,
+        "local_n": 222.8,
+        "heading_deg": 90
+      }
+    },
+    "hours": [
+      5.5,
+      21.0
+    ]
   },
   "interaction": {
     "selectable": true,
@@ -32,7 +45,7 @@
   "review_required": false,
   "provenance": {
     "grade": "reconstructed",
-    "basis": "Reconstructed figure of John Fury, private of Captain Nathan Heald's company of the First Infantry (on the company's muster-roll to 31 May 1812, Quaife 1913 App. VIII), on the parade, on the afternoon of 14 August 1812. Where he stands and what he is doing are ours (liberty L-1812-garrison-stations-3462): no guard report or order book of the post survives for that day, and nothing of it is acted out. He wears the company private's dress (T-3451). His face, height and build are seeded from his own name; no picture of him is known.",
+    "basis": "Reconstructed figure of John Fury, private of Captain Nathan Heald's company of the First Infantry (on the company's muster-roll to 31 May 1812, Quaife 1913 App. VIII), talking with others on the parade by the magazine, on the afternoon of 14 August 1812. Where he stands and what he is doing are ours (liberty L-1812-garrison-stations-3462): no guard report or order book of the post survives for that day, and nothing of it is acted out. He wears the company private's dress (T-3451). His face, height and build are seeded from his own name; no picture of him is known.",
     "sources": [
       "loc_ogden_1888_infantry_artillery_1802_1810",
       "met_krimmel_1813_philadelphia_soldiery",
@@ -42,7 +55,7 @@
       "whistler_1808_fort_dearborn_draught"
     ],
     "liberty": "L418",
-    "seed": "fury_john:1812:parade_d:20261107",
+    "seed": "fury_john:1812:wp_knot_b:20261107",
     "replaceable_by": "A guard report, order book or morning report of the post for August 1812, which would put him at his own duty."
   }
 }

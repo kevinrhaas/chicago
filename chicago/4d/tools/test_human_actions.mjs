@@ -187,6 +187,35 @@ for (const [asset, lod, clip] of [['bardwell_otis_1835', 0, 'idle_natural_v1'], 
   }
 }
 
+// T-3490: a duty's hold and talking hand, on the 1812 private. Held at rest, his hands never
+// move to the hips or behind however long he stands (a man in a rank); talking, one forearm
+// comes up before him, the hand ahead of the body above the waist, and moves; quiet, it goes
+// back down to his side.
+{
+  const r = await rig('private_first_infantry_1812', 0, 'idle');
+  const life = createHumanLife({ id: 'talk', scene: r.scene }), acts = createHumanActions({ id: 'talk', scene: r.scene });
+  const opts = { state: 'standing', root: r.root };
+  acts.hold('rest');
+  for (let i = 0; i < 30 * 70; i++) { step(r, life, acts, 1 / 30, opts); assert.equal(acts.pose, 'rest', 'a held pose holds'); }
+  const pelvisY = figure(r, world(r.bone('pelvis'))).y;
+  const quiet = { l: figure(r, world(r.bone('hand_l'))), r: figure(r, world(r.bone('hand_r'))) };
+  acts.setTalk(true);
+  const seen = [];
+  for (let i = 0; i < 90; i++) { step(r, life, acts, 1 / 30, opts); if (i >= 45) seen.push({ l: figure(r, world(r.bone('hand_l'))), r: figure(r, world(r.bone('hand_r'))) }); }
+  const up = ['l', 'r'].find(s => seen.every(p => p[s].z > quiet[s].z + 0.12));
+  assert(up, `a talking hand comes up before him (front z ${seen.at(-1).l.z.toFixed(3)} / ${seen.at(-1).r.z.toFixed(3)})`);
+  const h = seen.at(-1)[up];
+  assert(h.y > pelvisY + 0.05 && h.z > 0.15, `the talking ${up} hand is ahead of the body above the waist (${h.toArray().map(x => x.toFixed(3))})`);
+  const travel = Math.max(...seen.map(p => p[up].distanceTo(seen[0][up])));
+  assert(travel > 0.015, `the talking hand moves with the talk (${travel.toFixed(3)} m)`);
+  acts.setTalk(false);
+  for (let i = 0; i < 75; i++) step(r, life, acts, 1 / 30, opts);
+  assert(figure(r, world(r.bone(`hand_${up}`))).distanceTo(quiet[up]) < 0.05, 'quiet, the hand goes back to his side');
+  acts.hold(null);
+  assert.equal(acts.held, null, 'a hold is let go');
+  console.log(`private_first_infantry_1812 LOD0: rank hold for 70 s; talking ${up} hand up ${(h.z - quiet[up].z).toFixed(2)} m before him, moving ${travel.toFixed(3)} m: PASS`);
+}
+
 // Walking: the arms swing opposite the legs, as far as the stride.
 {
   const r = await rig('bardwell_otis_1835', 1, 'walk');

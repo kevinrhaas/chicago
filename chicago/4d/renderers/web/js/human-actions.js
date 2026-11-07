@@ -21,7 +21,11 @@
  * read off the body (the hips, the small of the back, the brow), so they fit any body
  * on the contract skeleton. Each pose blends in and out over most of a second.
  *
- * Talking in pairs, sweeping and carrying need a second person and props, and the
+ * A duty (human-duties.js, T-3490) can hold one standing pose (`hold`: a man in a rank, his
+ * hands at his sides) and raise a talking hand (`setTalk`: a slow beat of the forearm before
+ * him, palm half up), while the others in his knot look at him.
+ *
+ * Sweeping and carrying need props, and the
  * coat-tail sway needs coats: they follow with the wardrobe kit and the next people.
  *
  * Deterministic (seeded from the person id), additive over the clip, rebuilt each frame.
@@ -193,6 +197,9 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
   let time = rand() * 50;
   let pose = skirt ? 'clasp' : 'rest', poseW = 1, prevPose = pose, poseHold = between(6, 14);
   let greet = -1, greetCool = 0, nodRequest = 0;
+  // T-3490: a pose held by a duty (a man in a rank, hands at his sides), and the talking hand.
+  let heldPose = null, talking = false, talkW = 0;
+  const talkSide = rand() < 0.8 ? 'r' : 'l';
   const swing = { l: 0, r: 0 };
   let lastState = null;
 
@@ -233,6 +240,18 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
     get pose() { return pose; },
     /** Change the standing hand pose now (`rest`, `hips` or `behind`). */
     setPose(name) { if (HAND_POSES.includes(name) && (!skirt || SKIRT_POSES.includes(name)) && (skirt || name !== 'clasp') && name !== pose) { prevPose = pose; pose = name; poseW = 0; poseHold = between(10, 26); } return api; },
+    /** T-3490: hold one standing pose until released (null): a man in a rank stands with his hands at his sides. */
+    hold(name) {
+      if (name === null) { heldPose = null; poseHold = between(4, 10); return api; }
+      if (!HAND_POSES.includes(name)) return api;
+      heldPose = name;
+      if (name !== pose) { prevPose = pose; pose = name; poseW = 0; }
+      return api;
+    },
+    get held() { return heldPose; },
+    /** T-3490: talking, one hand comes up before him and moves with what he says (no words: L1). */
+    setTalk(on) { talking = !!on; return api; },
+    get talking() { return talking; },
     /** Touch the brow in greeting now (the right hand), unless one is under way. */
     // A woman in a dress (T-3423) greets with the nod alone: the touch of the brim or
     // forelock is a man's.
@@ -295,7 +314,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
       // Standing: what the hands are doing.
       if (standing) {
         poseHold -= dt;
-        if (poseHold <= 0 && greet < 0) choosePose();
+        if (poseHold <= 0 && greet < 0 && !heldPose) choosePose();
         poseW = Math.min(1, poseW + dt / 0.9);
         const wIn = smooth(poseW), wOut = 1 - wIn;
         for (const s of SIDES) {
@@ -316,6 +335,21 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
           const flat = Math.hypot(v.x, v.z), yaw = Math.atan2(v.x, v.z);
           if (flat < 4.2 && flat > 0.9 && Math.abs(yaw) < 55 * DEG) { api.greet(); greetCool = between(40, 70); }
         }
+      }
+      // T-3490: the talking hand. The forearm comes up before the body to the height of the
+      // waistcoat's pockets, the palm half up and turned in, and beats with the talk: a slow
+      // sway with a quicker small one over it, as a man's hand goes when he tells something.
+      talkW += ((talking && standing ? 1 : 0) - talkW) * (1 - Math.exp(-3.2 * dt));
+      if (talkW > 1e-3 && !(greet >= 0 && talkSide === 'r')) {
+        const s = talkSide, sx = s === 'l' ? 1 : -1;
+        const beat = Math.sin(time * 2.1) * 0.035 + Math.sin(time * 5.3 + 1.1) * 0.018;
+        const wrist = new THREE.Vector3(sx * (L.hipHalf + 0.02 + Math.sin(time * 1.3) * 0.02), L.pelvisY + 0.2 + beat,
+          0.26 + Math.sin(time * 1.7 + 0.4) * 0.03);
+        const w = smooth(talkW);
+        reach(s, toWorldPos(wrist), toWorldDir(new THREE.Vector3(sx, -0.7, -0.35)), w);
+        bones[`lowerarm_${s}`].updateMatrixWorld(true);
+        orientHand(s, toWorldDir(new THREE.Vector3(-sx * 0.25, 0.12 + beat, 1)), toWorldDir(new THREE.Vector3(-sx * 0.55, 0.8, 0)), w * 0.9);
+        curl(s, 0.2 * w);
       }
       // The greeting: the right fingertips up to the brow (a touch of the brim or the
       // forelock), held a beat, and down. The wrist sits a hand's length below and outside
@@ -338,7 +372,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
       settle();
     },
     snapshot() {
-      return { pose, blend: +poseW.toFixed(3), greeting: greet >= 0, swing_l_deg: +(swing.l / DEG).toFixed(2), swing_r_deg: +(swing.r / DEG).toFixed(2) };
+      return { pose, blend: +poseW.toFixed(3), greeting: greet >= 0, held: heldPose, talking, talk_w: +talkW.toFixed(3), swing_l_deg: +(swing.l / DEG).toFixed(2), swing_r_deg: +(swing.r / DEG).toFixed(2) };
     },
   };
   if (scene && !bind(scene)) return null;

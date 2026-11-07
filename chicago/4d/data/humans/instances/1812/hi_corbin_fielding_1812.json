@@ -7,9 +7,9 @@
     "asset_id": "private_first_infantry_1812"
   },
   "placement": {
-    "local_e": 1143.6,
-    "local_n": 212.6,
-    "heading_deg": 30,
+    "local_e": 1145.66,
+    "local_n": 215.6,
+    "heading_deg": 200.0,
     "anchor": "terrain"
   },
   "animation": {
@@ -18,7 +18,20 @@
     "phase": 0.144
   },
   "behaviour": {
-    "state": "standing"
+    "state": "talking",
+    "duty": {
+      "kind": "knot",
+      "id": "sw_porch",
+      "away": {
+        "local_e": 1144.0,
+        "local_n": 212.4,
+        "heading_deg": 20
+      }
+    },
+    "hours": [
+      5.5,
+      21.0
+    ]
   },
   "interaction": {
     "selectable": true,
@@ -32,7 +45,7 @@
   "review_required": false,
   "provenance": {
     "grade": "reconstructed",
-    "basis": "Reconstructed figure of Fielding Corbin, private of Captain Nathan Heald's company of the First Infantry (on the company's muster-roll to 31 May 1812, Quaife 1913 App. VIII), at the door of the soldiers' barracks west of the gate, on the afternoon of 14 August 1812. Where he stands and what he is doing are ours (liberty L-1812-garrison-stations-3462): no guard report or order book of the post survives for that day, and nothing of it is acted out. He wears the company private's dress (T-3451). His face, height and build are seeded from his own name; no picture of him is known.",
+    "basis": "Reconstructed figure of Fielding Corbin, private of Captain Nathan Heald's company of the First Infantry (on the company's muster-roll to 31 May 1812, Quaife 1913 App. VIII), talking with others before the soldiers' barracks west of the gate, on the afternoon of 14 August 1812. Where he stands and what he is doing are ours (liberty L-1812-garrison-stations-3462): no guard report or order book of the post survives for that day, and nothing of it is acted out. He wears the company private's dress (T-3451). His face, height and build are seeded from his own name; no picture of him is known.",
     "sources": [
       "loc_ogden_1888_infantry_artillery_1802_1810",
       "met_krimmel_1813_philadelphia_soldiery",
@@ -42,7 +55,7 @@
       "whistler_1808_fort_dearborn_draught"
     ],
     "liberty": "L418",
-    "seed": "corbin_fielding:1812:corbin_quarters:20261107",
+    "seed": "corbin_fielding:1812:sw_knot_a:20261107",
     "replaceable_by": "A guard report, order book or morning report of the post for August 1812, which would put him at his own duty."
   }
 }

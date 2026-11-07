@@ -592,6 +592,10 @@ step "People on foot breathe, shift weight with feet planted, look at a close vi
   node tools/test_human_life.mjs
 step "People on foot rest their hands in, change stance, touch the hat brim to a close visitor and swing their arms against their feet, deterministic (T-3419)" \
   node tools/test_human_actions.mjs
+step "The 1812 garrison is at its duties: knots that talk, break up and come back together, sentries walking their posts, a rank before its sergeant, nobody standing loose on the parade, deterministic (T-3490)" \
+  node tools/test_human_duties.mjs
+step "The 1812 garrison's instance records are what place.py writes (T-3462, T-3490)" \
+  python3 docs/RESEARCH/people-1812-3462/place.py --check
 step "The driven team's generated walk and its hoof-support domain reproduce byte for byte, hooves planted without slide (T-2803)" \
   node tools/horse_walk_v2.mjs --check
 step "A driver's plain garments read as cloth: weave, heather and sheen by shader patch, no texture, one program (T-2804)" \

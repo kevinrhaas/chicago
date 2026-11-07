@@ -85,6 +85,7 @@ import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
 import { mountHumans } from './humans.js';
+import { createHumanDuties } from './human-duties.js';
 import { createInteractions, createInteractKey } from './interact.js';
 import { createFollow } from './follow.js';
 import { createPeopleLook } from './people-look.js';
@@ -3772,6 +3773,10 @@ async function boot() {
     a?.life?.attend?.(camera.getWorldPosition(new THREE.Vector3()), 4);
   });
   scene3d.add(api.humans.group);
+  // T-3490: men at a shared duty — a knot talking, a sentry's beat, a rank (human-duties.js).
+  // Out by day, in quarters by night but for the guard (`behaviour.hours`, by the sun's clock).
+  api.duties = createHumanDuties({ humans: api.humans, three: THREE,
+    hour: () => { const [h, m] = String(world.sunTime ?? '').split(':').map(Number); return Number.isFinite(h) ? h + (m || 0) / 60 : null; } });
   /**
    * T-3439 (owner, 2026-11-07): Settings › Show › People and › Carriages and horses. A
    * viewing choice, like Street trees: hidden, a layer is neither drawn nor advanced nor
@@ -5979,6 +5984,7 @@ async function boot() {
     // Consume the same real elapsed interval as walking and the standing horse.
     // A 0.05 s visual-effects step made human clips/routes crawl on slow devices.
     api.humans?.update(frameDt, camera, walker.state, visualDt);
+    api.duties?.update(frameDt);
 
     // T-2113. Under the gate, draw only a frame that differs from the last one
     // drawn: the first, one a capture or a test asked for, or one in which

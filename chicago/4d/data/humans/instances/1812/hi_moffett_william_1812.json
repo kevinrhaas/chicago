@@ -18,7 +18,11 @@
     "phase": 0.526
   },
   "behaviour": {
-    "state": "standing"
+    "state": "standing",
+    "hours": [
+      5.5,
+      21.0
+    ]
   },
   "interaction": {
     "selectable": true,
