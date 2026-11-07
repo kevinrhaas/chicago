@@ -224,10 +224,10 @@ export function takeDoorLeaf(record, mesh, matrix) {
   const at = (i) => (index ? index.getX(i) : i);
   // Every vertex in the structure's frame, once.
   const world = new Float32Array(pos.count * 3);
-  const v = new THREE.Vector3();
+  const vec = new THREE.Vector3();
   for (let i = 0; i < pos.count; i += 1) {
-    v.fromBufferAttribute(pos, i).applyMatrix4(matrix);
-    world[3 * i] = v.x; world[3 * i + 1] = v.y; world[3 * i + 2] = v.z;
+    vec.fromBufferAttribute(pos, i).applyMatrix4(matrix);
+    world[3 * i] = vec.x; world[3 * i + 1] = vec.y; world[3 * i + 2] = vec.z;
   }
   const out = [];
   const lifted = new Uint8Array(count / 3);
@@ -270,16 +270,16 @@ function subGeometry(geo, tris, matrix) {
   });
   const out = new THREE.BufferGeometry();
   const normalMatrix = new THREE.Matrix3().getNormalMatrix(matrix);
-  const v = new THREE.Vector3();
+  const vec = new THREE.Vector3();
   for (const [name, attr] of Object.entries(geo.attributes)) {
     if (!['position', 'normal', 'uv', 'uv1'].includes(name)) continue;
     const size = attr.itemSize;
     const arr = new Float32Array(order.length * size);
     order.forEach((src, k) => {
       if (name === 'position' || name === 'normal') {
-        v.fromBufferAttribute(attr, src);
-        if (name === 'position') v.applyMatrix4(matrix); else v.applyMatrix3(normalMatrix).normalize();
-        arr[k * size] = v.x; arr[k * size + 1] = v.y; arr[k * size + 2] = v.z;
+        vec.fromBufferAttribute(attr, src);
+        if (name === 'position') vec.applyMatrix4(matrix); else vec.applyMatrix3(normalMatrix).normalize();
+        arr[k * size] = vec.x; arr[k * size + 1] = vec.y; arr[k * size + 2] = vec.z;
       } else {
         for (let c = 0; c < size; c += 1) arr[k * size + c] = attr.getComponent(src, c);
       }

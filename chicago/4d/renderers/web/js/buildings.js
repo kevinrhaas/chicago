@@ -1845,7 +1845,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       for (const [, bucket] of groups) bucket.material.dispose();
       for (const depth of depthMaterials.values()) depth.dispose();
       depthMaterials.clear();
-      for (const pieces of doorLeaves.values()) for (const p of pieces) { p.geometry.dispose(); p.material.dispose(); }
+      for (const pieces of doorLeaves.values()) for (const piece of pieces) { piece.geometry.dispose(); piece.material.dispose(); }
       doorLeaves.clear();
     },
   };
