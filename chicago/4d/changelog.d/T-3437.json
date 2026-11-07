@@ -1,8 +1,0 @@
-{
-  "title": "The date by the year follows the Season",
-  "kind": "fix",
-  "items": [
-    "The date beside the year at the top of the screen now names the Season's day, not always the scene's own: spring reads 15 April, fall 15 October and winter 15 February (February, so a winter view is never Christmas). Summer keeps the scene's own day, 1 July in 1835 and 1904 and 14 August in 1812.",
-    "The sun is lit for that same day, the Navigator's date matches, and Settings › Season names each season's day. A jaunt that sets its own season shows that season's day while it runs."
-  ]
-}

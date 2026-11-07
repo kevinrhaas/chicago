@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2756, ts: '2026-11-07T05:47:58.404Z', date: 'Nov 6, 2026, 11:47 PM CT', title: 'Go to › Photos opens the picture in the card', kind: 'feature',
+    items: [
+      'Arriving at a photo view from Go to › Photos opens the building\'s card on its Photos tab, with that picture large at the top, marked Taken from here.',
+      'Tap the picture for the viewer, or Full size ↗ to open it in a new window.',
+    ] },
+  { v: 2755, ts: '2026-11-07T05:47:58.404Z', date: 'Nov 6, 2026, 11:47 PM CT', title: 'The date by the year follows the Season', kind: 'fix',
+    items: [
+      'The date beside the year at the top of the screen now names the Season\'s day, not always the scene\'s own: spring reads 15 April, fall 15 October and winter 15 February (February, so a winter view is never Christmas). Summer keeps the scene\'s own day, 1 July in 1835 and 1904 and 14 August in 1812.',
+      'The sun is lit for that same day, the Navigator\'s date matches, and Settings › Season names each season\'s day. A jaunt that sets its own season shows that season\'s day while it runs.',
+    ] },
   { v: 2754, ts: '2026-11-07T05:20:51.651Z', date: 'Nov 6, 2026, 11:20 PM CT', title: 'People lists each household once', kind: 'fix',
     items: [
       'The household of the building in view is pinned once on Households, with every other household under it, instead of again as the list\'s first row.',
