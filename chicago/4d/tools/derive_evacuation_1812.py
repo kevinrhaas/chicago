@@ -225,7 +225,7 @@ def build(readings: dict, datum: dict) -> dict:
             station(f"station_{r['id']}_south", "South end of Heald's band (1.75 mi)", hi,
                     r["confidence"], r["band_note"], [r["source_id"]], extra)
         else:
-            station(f"station_{r['id']}", "Half a mile (Jordan, not adopted)", r["value_m"],
+            station(f"station_{r['id']}", r.get("station_name", "Half a mile (Jordan, not adopted)"), r["value_m"],
                     r["confidence"], r["confidence_note"], [r["source_id"]], extra)
 
     trees = next(r for r in readings["readings"] if r["id"] == "eighteenth_street_trees")

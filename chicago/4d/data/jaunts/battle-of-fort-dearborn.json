@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 3,
+  "content_version": 4,
   "category": "Fort Dearborn",
   "featured": true,
   "review_required": false,
@@ -185,38 +185,41 @@
     },
     {
       "id": "the-bank",
-      "since": "Forty minutes later",
+      "since": "One hour later",
       "destination": {
         "kind": "anchor",
-        "id": "heald_mile_and_a_half"
+        "id": "battle_bank_eighteenth_street"
       },
-      "text": "About 9:40. The column walks with 'the lake on our left, and a high sand bank on our right'. 'We had proceeded about a mile and a half,' Heald wrote, 'when it was discovered that the Indians were prepared to attack us from behind the bank.' The soldiers charge up it. Behind them, at the wagons, Quaife writes, 'a deadlier combat, which we may perhaps think of as a separate battle,' is raging. The militia are 'cut down to a man'. Among the dead are 'Cicely, Mrs. Heald's negro serving-woman' and 'her infant son', two of the few people recorded as held in slavery at Chicago. Heald has a few dozen men left standing, and a decision to make.",
+      "text": "About ten in the morning, two miles down the beach, with 'the lake on our left, and a high sand bank on our right'. 'We had proceeded about a mile and a half,' Heald wrote, 'when it was discovered that the Indians were prepared to attack us from behind the bank.' His own journal says 'two miles from the Fort', and the Kinzies later pointed to two cottonwoods here, 'near the place where the attack began'. The soldiers charge up the bank. Behind them, at the wagons, Quaife writes, 'a deadlier combat, which we may perhaps think of as a separate battle,' is raging. The militia are 'cut down to a man'. Among the dead are 'Cicely, Mrs. Heald's negro serving-woman' and 'her infant son', two of the few people recorded as held in slavery at Chicago. Heald has a few dozen men left standing.",
       "read_s": 34,
       "evidence": [
         "attack",
-        "stand-mile",
         "march",
-        "battle-hour"
+        "helm-hour",
+        "heald-journal",
+        "place-readings",
+        "stand-bank"
       ],
       "next": "cottonwoods",
-      "hour": "09:40",
+      "hour": "10:00",
       "date": "1812-08-15",
       "hour_evidence": [
-        "battle-hour"
+        "helm-hour"
       ]
     },
     {
       "id": "cottonwoods",
-      "since": "Fifty minutes later",
+      "since": "Thirty minutes later",
       "destination": {
         "kind": "anchor",
         "id": "heald_small_elevation"
       },
-      "text": "About half past ten. Heald gathers his last men on 'a small elevation in the open prarie'. A Potawatomi leader called Black Bird comes out, shakes his hand and asks him to surrender, 'promising to spare the lives of all the prisoners.' Heald agrees. His count: 'twenty-six regulars and all the militia were killed in the action, with two women and twelve children.' Among them are Ensign Ronan, the young surgeon's mate Isaac Van Voorhis, and Captain Wells. Later Chicago remembered two cottonwoods farther south, at what became Eighteenth Street, as the place. The survivors are led back north, and at the Kinzie house the danger is not over.",
+      "text": "About half past ten. Heald gathers his last men on 'a small elevation in the open prarie', out of shot of the bank; the Kinzies remembered that 'the combatants moved south and west over considerable space'. A Potawatomi leader called Black Bird comes out, shakes his hand and asks him to surrender, 'promising to spare the lives of all the prisoners.' Heald agrees. His count: 'twenty-six regulars and all the militia were killed in the action, with two women and twelve children.' Among them are Ensign Ronan, the young surgeon's mate Isaac Van Voorhis, and Captain Wells. Twenty-three years later a boy named Fernando Jones was shown this ground by people 'who were children at the time'. The survivors are led back north, and at the Kinzie house the danger is not over.",
       "read_s": 30,
       "evidence": [
         "surrender",
         "stand-elevation",
+        "place-readings",
         "cottonwoods",
         "surrender-hour",
         "officers"
@@ -342,7 +345,7 @@
       ]
     },
     {
-      "note": "A mile down the beach: this leg goes Instantly.",
+      "note": "Two miles down the beach: this leg goes Instantly.",
       "mode": "instantly",
       "story": "South with 'the lake on our left, and a high sand bank on our right'.",
       "evidence": [
@@ -353,7 +356,7 @@
       ]
     },
     {
-      "note": "A quarter of a mile inland, over the bank and the ravine behind it.",
+      "note": "A quarter of a mile inland and south-west, over the bank and the ravine behind it.",
       "story": "Back from the bank across the open prairie, 'out of shot of the bank or any other cover'.",
       "evidence": [
         "surrender",
@@ -364,7 +367,7 @@
       ]
     },
     {
-      "note": "Two miles back north, across the river: this leg goes Instantly.",
+      "note": "Two and a half miles back north, across the river: this leg goes Instantly.",
       "mode": "instantly",
       "story": "The prisoners are taken back toward the fort; the Kinzies are returned to their own house.",
       "evidence": [
@@ -537,25 +540,55 @@
       "locator": "Appendix IV, Captain Heald's official report, Pittsburg, 23 October 1812 (from Brannan, Official Military and Naval Letters, 1823, p. 84), Project Gutenberg eBook #69274 plain text; Quaife, the battle chapter and note 596"
     },
     {
-      "id": "stand-mile",
-      "text": "This stand is on the reconstructed 1812 beach at Heald's 'about a mile and a half', measured along the march from the fort site down the river and the shore.",
+      "id": "heald-journal",
+      "text": "Captain Heald's journal: 'On the 15th Marched for Detroit & was attacked by about 500 Indians two miles from the Fort'.",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "Appendix III, Nathan Heald's Journal, Project Gutenberg eBook #69274 plain text"
+    },
+    {
+      "id": "helm-hour",
+      "text": "Lieutenant Helm's account (1814): 'we evacuated the Garrison & about one and [a] half mile from the Garrison we were informed by Capt Wells that we were surrounded & the attack by the Indians began, about 10 of the Clock Morning'.",
+      "confidence": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "locator": "Appendix VI, Lieutenant Helm's account of the massacre, Project Gutenberg eBook #69274 plain text (Quaife's '[a]' is his insertion)"
+    },
+    {
+      "id": "place-readings",
+      "text": "Isaac N. Arnold, 1884, of the Eighteenth Street cottonwood: 'This tree was pointed out to me by both Mr. and Mrs. Kinzie, as near the place where the attack began. As the fight continued the combatants moved south and west over considerable space.' Fernando Jones, who came in 1835, 'visited many times the location of the Indian massacre of 1812. The spot was pointed out by some who were children at the time, and by others who had been informed by their parents.'",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "kirkland_1893_chicago_massacre"
+      ],
+      "locator": "Andreas, History of Chicago vol. 1 (1884), p. 31, Arnold to Andreas, 25 January 1884 (the OCR's 'light' read as 'fight'); Kirkland, The Chicago Massacre of 1812 (1893), Fernando Jones's letter, Project Gutenberg eBook #59624 plain text"
+    },
+    {
+      "id": "stand-bank",
+      "text": "This stand is on the reconstructed 1812 beach just south of the later Eighteenth Street, about 60 m south of the two Eighteenth Street cottonwoods, looking north-north-west up the shore with the high sand bank of terrain_spec.json battle_bank_1812 and its cottonwoods on the left; it follows the readings that name a place, not a marked spot.",
       "confidence": "inferred",
       "sources": [
-        "quaife_1913",
-        "moses_kirkland_history_of_chicago_v1"
+        "andreas_1884_v1",
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
       ],
-      "reasoning": "data/terrain/1812_evacuation_readings.json and the route tools/derive_evacuation_1812.py lays from it: the station 'About a mile and a half (Heald)' at local E 1318.0, N -1852.7, the middle of a band of 1.25 to 1.75 miles. The stand is on the beach about 110 m south of it, looking north past it with the high sand bank of terrain_spec.json battle_bank_1812 on the left (T-3403). It is a reading of his distance, not a marked place, and the scene card 'Where the attack happened' says the same."
+      "reasoning": "T-3469 (the owner's choice, 2026-11-07). Heald's report gives about a mile and a half, a straight line to the later Roosevelt Road; his journal gives two miles, near Seventeenth Street; Arnold, from the Kinzies, puts the start of the attack at the Eighteenth Street tree, and Fernando Jones was shown the ground and the burials near Seventeenth and Prairie. The stand is where those meet; the scene card 'Where the attack happened' keeps the Roosevelt Road reading beside it."
     },
     {
       "id": "stand-elevation",
-      "text": "This stand is on the open prairie just below a rise placed for Heald's 'small elevation in the open prarie, out of shot of the bank or any other cover', due west of his mile and a half and about a quarter of a mile from the water; the accounts give no distance or size, so its place and height are this reconstruction's.",
+      "text": "This stand is on the open prairie just below a rise placed for Heald's 'small elevation in the open prarie, out of shot of the bank or any other cover', south-west of the Eighteenth Street bank near the later Nineteenth Street and Indiana Avenue; the accounts give no distance or size, so its place and height are this reconstruction's.",
       "confidence": "inferred",
       "sources": [
         "quaife_1913",
         "kinzie_waubun_1856",
-        "moses_kirkland_history_of_chicago_v1"
+        "andreas_1884_v1",
+        "kirkland_1893_chicago_massacre"
       ],
-      "reasoning": "data/terrain/epochs/e1830_natural/terrain_spec.json heald_small_elevation_1812: centred at local E 960, N -1853, 358 m inland of the station 'About a mile and a half (Heald)' at E 1318, N -1853, beyond the high bank and the ravine of battle_bank_1812; Wau-Bun's 'rising ground, not far from the Oak Woods' and Moses & Kirkland's 'far inland, out of gun-shot from the bank' agree on the direction. Admitted in docs/LIBERTIES.md L-t3403-battle-shore-1812."
+      "reasoning": "data/terrain/epochs/e1830_natural/terrain_spec.json heald_small_elevation_1812: centred at local E 1215, N -3420, 377 m from the water on its row, beyond the high bank and the ravine of battle_bank_1812. South-west because Arnold, from the Kinzies, has the fight moving 'south and west', Wau-Bun has the rising ground 'not far from the Oak Woods', which lay south, and Fernando Jones's vidette grave at Twenty-first and Indiana lay 'southwest of the massacre-ground'. Moved by T-3469; admitted in docs/LIBERTIES.md L-t3403-battle-shore-1812."
     },
     {
       "id": "surrender",
@@ -684,32 +717,23 @@
       "reasoning": "Wau-Bun's 'evening succeeding the council' and the march next morning; the hour is a reading of 'evening'."
     },
     {
-      "id": "battle-hour",
-      "text": "The march began 'at 9 o'clock in the morning'; at a marching pace a column covers a mile and a half in about half an hour to forty minutes, so the attack at the bank is set at 9:40. Heald gives no hour for it.",
-      "confidence": "inferred",
-      "sources": [
-        "quaife_1913"
-      ],
-      "reasoning": "Heald's 9 o'clock start and his 'about a mile and a half', at an ordinary infantry pace of two to three miles an hour; an estimate, not a recorded time."
-    },
-    {
       "id": "surrender-hour",
       "text": "The fight at the bank, the struggle at the wagons and Heald's withdrawal to the rise all came before the surrender; this stop is set at half past ten that morning. No source gives the hour.",
       "confidence": "inferred",
       "sources": [
         "quaife_1913"
       ],
-      "reasoning": "Sequence in Heald's report (charge, withdrawal to 'a small elevation in the open prarie', parley, surrender) after a 9:40 attack; an estimate."
+      "reasoning": "Sequence in Heald's report (charge, withdrawal to 'a small elevation in the open prarie', parley, surrender) after an attack Helm puts at about ten; an estimate."
     },
     {
       "id": "cottonwoods",
-      "text": "Two cottonwoods in the later Eighteenth Street were remembered as the place of the attack, a tradition written down from the 1880s; this scene stands them where it put them, and Heald's own mile and a half falls short of them.",
+      "text": "Two cottonwoods in the later Eighteenth Street were remembered as the place of the attack, a tradition written down from the 1880s and carried by the Kinzie family; this scene stands them where it put them, and since T-3469 the battle stops stand beside them.",
       "confidence": "inferred",
       "sources": [
-        "quaife_1913",
-        "moses_kirkland_history_of_chicago_v1"
+        "moses_kirkland_history_of_chicago_v1",
+        "andreas_1884_v1"
       ],
-      "reasoning": "Heald's own distance against the later tradition; the stand follows the tradition and says so."
+      "reasoning": "Moses and Kirkland p. 60 and Andreas p. 31 for the tradition; the planting massacre_cottonwoods_1812 for the trees' places (L372). Heald's report's mile and a half falls short of them, his journal's two miles near them."
     },
     {
       "id": "kinzie-evening",
