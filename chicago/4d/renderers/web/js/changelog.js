@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2748, ts: '2026-11-07T03:33:36.219Z', date: 'Nov 6, 2026, 9:33 PM CT', title: '2009 Prairie\'s windows get their carved stone hoods', kind: 'improvement',
+    items: [
+      'In 1904, the top window of 2009 Prairie Avenue now sits under a stone hood whose ends turn down, with a carved stone pendant rising off it into the gable; two stone brackets hang under the bay window either side of the window below, and the small window has a splayed stone block over it, all where the old photograph shows them. The gutter that ran across the foot of the gable, which the photograph does not show, is gone.',
+      'The chimney\'s place and the gable\'s south foot are still to come.',
+    ] },
   { v: 2747, ts: '2026-11-07T03:15:06.640Z', date: 'Nov 6, 2026, 9:15 PM CT', title: 'The Pullman portico runs the length of the front', kind: 'feature',
     items: [
       'In 1904, the Pullman house\'s stone portico on Prairie Avenue no longer stops at the door. As the old photographs show it, its columns, entablature and balustraded balcony now run north across the front block to its corner, standing well out from the wall on three columns.',
