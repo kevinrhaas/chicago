@@ -4519,10 +4519,18 @@ class Assembly:
                                      lambda i, p_, q_: "chimney" if i != 2 else "hidden", "chimney", "chimney"))
             if c.get("stone"):   # T-3003: its shaft in the walls' stone (_emit_shell reads the box)
                 self.stone_stack_boxes.append((u - sx / 2 - 1e-3, u + sx / 2 + 1e-3, z - sz / 2 - 1e-3, z + sz / 2 + 1e-3))
+            if c.get("on_step"):
+                # T-1881: a step's stack stands in front of the house's rear wall, so a tail
+                # runs from its inner face back through the wall line to join the house's roof,
+                # low enough (1 m over the soffit) to stay inside the step's own mansard; its
+                # faces are the shaft's, buried in the step's roof as the shaft's foot is
+                solids.append(k5.extrude([(u + sx / 2 - 0.05, y0), (0.3, y0), (0.3, hs + 1.0),
+                                          (u + sx / 2 - 0.05, hs + 1.0)], z - sz / 2 + 0.05, z + sz / 2 - 0.05, P,
+                                         "chimney", "chimney", "chimney"))
             solids.append(k5.extrude([(u - sx / 2 - cp, top - cd), (u + sx / 2 + cp, top - cd),
                                       (u + sx / 2 + cp, top), (u - sx / 2 - cp, top)],
                                      z - sz / 2 - cp, z + sz / 2 + cp, P, "coping", "coping", "coping"))
-            plain_stacks += solids[-2:]
+            plain_stacks += solids[-3:] if c.get("on_step") else solids[-2:]
         polys = k5.union_all(k5._snap(solids))
         # T-2313: each stack from the K15 kit, built in this roof as the kit builds its
         # specimen's (k15_chimneys.build_variant): its parts joined and its flues cut on

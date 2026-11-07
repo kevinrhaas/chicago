@@ -7764,6 +7764,38 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                     raise ParamError(f"chimney at ({u}, {v}): an end-parapet stack's outer face is the "
                                      f"step-out's, and it is no thinner than the parapet")
                 base = round(pf + sum(heights), 4)
+            elif st_.get("on_step"):
+                # T-1881: a stack standing on the cornice of a K08 step on the rear wall and
+                # carried up the step's own mansard face (1729's rear step, between its two
+                # dormers, the Detroit print det 4a08066): its outer face stands on the step's
+                # cornice, no further out than the house's cornice reaches past the step's
+                # face, its inner face behind the step's face, so the slate closes round it as
+                # the slope rises. It rises from the wall head; a tail inside the step's roof
+                # joins it to the house's (k01_frontage.Builder.roof)
+                bay = next((b for b in (val("bays") or []) if b.get("id") == st_["on_step"]), None)
+                if bay is None or bay.get("wall") != "k01.wall.rear_service" or not (bay.get("plan") or {}).get("step") \
+                        or not ((bay.get("roof") or {}).get("mansard")):
+                    raise ParamError(f"chimney at ({u}, {v}): on_step names a K08 step with a mansard on the rear wall")
+                if not mansard:
+                    raise ParamError(f"chimney at ({u}, {v}): only a mansard house's step carries a stack on its cornice")
+                proud, half = float(bay["plan"]["proud_m"]), float(bay["plan"]["width_m"]) / 2
+                o = float(val("eave_overhang_m"))
+                if not (-proud - o - 1e-9 <= u - sx / 2 and u + sx / 2 <= -proud + sx - 1e-9 and u + sx / 2 > -proud):
+                    raise ParamError(f"chimney at ({u}, {v}): a step's stack stands on its cornice, its outer face "
+                                     f"0-{o} m past the step's face at u {-proud} and its inner face behind it")
+                vc = width - float(bay["s_m"])   # the rear wall runs from the south corner (v = width) north
+                if not (vc - half + 0.3 <= v - sz / 2 and v + sz / 2 <= vc + half - 0.3):
+                    raise ParamError(f"chimney at ({u}, {v}) does not stand along the step's face (v "
+                                     f"{vc - half:.2f}-{vc + half:.2f})")
+                for dm in bay.get("mansard_dormers") or []:
+                    dv = vc - float(dm["at_m"])
+                    reach = float(dm["sash"]["width_m"]) / 2 + float(dm.get("surround_m", 0.0)) \
+                        + float((dm.get("eared_hood") or {}).get("ear_m", 0.0)) + 0.1
+                    if abs(v - dv) < sz / 2 + reach:
+                        raise ParamError(f"chimney at ({u}, {v}) runs into the step's dormer at v {dv:.2f}")
+                if "top_m" not in st_:
+                    raise ParamError(f"chimney at ({u}, {v}): a step's stack names its top_m")
+                base = round(pf + sum(heights), 4)
             elif not (sx / 2 + 0.3 <= u <= depth - sx / 2 - 0.3 and sz / 2 + 0.3 <= v <= width - sz / 2 - 0.3):
                 raise ParamError(f"chimney at ({u}, {v}) does not stand inside the footprint")
             if above < 0.6:
@@ -7855,7 +7887,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             chimneys.append({"u_m": u, "v_m": v, "plan_m": (sx, sz), "top_m": top, "base_m": base,
                              "cap_proud_m": sp_, "cap_depth_m": sd_, "stone": fab == "stone",
                              **({"head": head} if head else {}),
-                             **({"wall_end": st_["wall_end"]} if st_.get("wall_end") else {})})
+                             **({"wall_end": st_["wall_end"]} if st_.get("wall_end") else {}),
+                             **({"on_step": True} if st_.get("on_step") else {})})
     elif ch and (flat or mansard or gable):
         raise ParamError(f"a {roof_form} K01 roof takes T-2302's plain stacks: K15's draught rule "
                          "reads a hip's covering")
