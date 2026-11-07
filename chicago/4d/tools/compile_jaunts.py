@@ -270,6 +270,8 @@ class Compiler:
             reason = self.resolve(stop['destination'], True)
             if reason: reasons.append(reason)
             for link in stop.get('links', []): self.resolve(link)
+            # T-3495: the people a stop calls for are people of this scene.
+            for pid in stop.get('people', []): self.resolve({'kind': 'person', 'id': pid})
             choices = stop.get('choices', [])
             unique(choices, 'choice')
             transitions = list(choices) + ([{'next': stop['next']}] if 'next' in stop else [])

@@ -685,6 +685,17 @@
             "additionalProperties": false
           }
         },
+        "people": {
+          "description": "T-3495: the people this stop calls for, by person id of the scene. While a jaunt is under way the everyday figures are held out of the scene; a stop's `people`, and the people its person links name, are the ones drawn at it.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+            "maxLength": 90
+          },
+          "maxItems": 24,
+          "uniqueItems": true
+        },
         "next": {
           "anyOf": [
             {
