@@ -154,6 +154,13 @@ class JauntTests(unittest.TestCase):
         self.doc['allowed_modes'] = [self.doc['default_mode']]
         self.bad('leg mode not allowed')
 
+    def test_stop_people(self):
+        # T-3495: the people a stop calls for are people of the scene, named once each.
+        self.doc['stops'][0]['people'] = ['peck_philip']
+        self.compiler.validate(self.doc)
+        self.doc['stops'][0]['people'] = ['nobody_of_this_town']; self.bad('dangling person')
+        self.doc['stops'][0]['people'] = ['peck_philip', 'peck_philip']; self.bad('schema')
+
     def test_dangling_id(self):
         self.doc['stops'][0]['destination']['id'] = 'missing'; self.bad('dangling')
 

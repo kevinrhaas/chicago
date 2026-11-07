@@ -642,11 +642,14 @@ def build(spec, base):
         h_ft, moved = battle_bank(E, N, water, h_ft, bank)
         conf = np.where(moved, tg.CONF_CONJECTURAL, conf)
         geom["bands"]["battle_bank_1812"] = moved
-    rise = spec.get("heald_small_elevation_1812")
-    if rise:
-        h_ft, lifted = small_elevation(E, N, water, h_ft, rise)
-        conf = np.where(lifted, tg.CONF_CONJECTURAL, conf)
-        geom["bands"]["heald_small_elevation_1812"] = lifted
+    # T-3469: Heald's rise moved south; the rise T-3403 built at his mile and a half is
+    # kept as ground by the owner's ruling, under its own block
+    for key in ("heald_small_elevation_1812", "tenth_street_rise_1812"):
+        rise = spec.get(key)
+        if rise:
+            h_ft, lifted = small_elevation(E, N, water, h_ft, rise)
+            conf = np.where(lifted, tg.CONF_CONJECTURAL, conf)
+            geom["bands"][key] = lifted
 
     h_m = h_ft * FT
     meta.update({

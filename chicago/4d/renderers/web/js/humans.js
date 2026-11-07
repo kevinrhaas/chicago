@@ -774,6 +774,10 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
   // T-3439: Settings › Show › People. Hidden, nobody is drawn, updated, loaded or picked,
   // a seated driver included (his vehicle owns him, so only his root is hidden).
   let shown = true;
+  // T-3495: a jaunt's hold on the everyday people. null, nobody is held; a Set, only the
+  // people it names (by person id or instance id) are drawn, advanced, met or picked.
+  let keep = null;
+  const kept = (a) => !keep || keep.has(a.personId) || keep.has(a.id);
 
   const detail = (actor) => ({
     personId: actor.personId, instanceId: actor.id, state: actor.state,
@@ -808,6 +812,34 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
       }
       return shown;
     },
+
+    /**
+     * T-3495: hold the everyday people out of the scene while a jaunt is under way, but for
+     * `ids` (the people its stop calls for). Drivers on their seats belong to their vehicles
+     * and are not held. Settings › Show › People stays the master switch: hidden there,
+     * nobody is drawn, held or not.
+     */
+    holdCrowd(ids = []) {
+      keep = new Set(Array.from(ids ?? [], String));
+      for (const a of actors.values()) {
+        if (kept(a)) { a.recheck = 0; continue; }
+        a.root.visible = false;
+        if (near.delete(a)) emit('leave', a);
+        if (hovered === a) hovered = null;
+      }
+      return keep.size;
+    },
+    /** T-3495: give every held figure back to the scene. */
+    releaseCrowd() {
+      if (!keep) return false;
+      keep = null;
+      for (const a of actors.values()) a.recheck = 0;
+      return true;
+    },
+    /** T-3495: the person ids a jaunt keeps, or null when nobody is held. */
+    get crowdKept() { return keep ? [...keep] : null; },
+    /** T-3495: whether a jaunt is holding this figure out of the scene. */
+    isHeld(actor) { return !!actor && actors.has(actor.id) && !kept(actor); },
 
     /** Stand one figure in the group. Refuses a second instance of one person (§ 11). */
     add(instance, { person = null, profile = null, identity: validatedIdentity = null } = {}) {
@@ -853,7 +885,7 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
         if (!actor) return;
         if (disposed || actor.disposed) { actor.dispose(); return; }
         actors.set(actor.id, actor);
-        actor.tier = tier; actor.recheck = 0; actor.root.visible = visible;
+        actor.tier = tier; actor.recheck = 0; actor.root.visible = visible && kept(actor);
         (parent ?? group).add(actor.root);
       };
       return token.release;
@@ -888,6 +920,7 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
       const ve = visitor ? visitor.e : eye.x;
       const vn = visitor ? visitor.n : -eye.z;
       for (const a of actors.values()) {
+        if (!kept(a)) continue;
         a.update(dt, eye, visualDt);
         const r = a.instance.interaction?.radius_m;
         if (!r || !a.inRange) continue;

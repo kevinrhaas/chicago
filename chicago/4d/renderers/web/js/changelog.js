@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2802, ts: '2026-11-07T23:31:58.505Z', date: 'Nov 7, 2026, 5:31 PM CT', title: 'Jaunts clear the everyday crowd from each stop', kind: 'feature',
+    items: [
+      'On a jaunt, the people who stand about town are held out of the scene, so the garrison no longer stands about the fort through the 1812 battle.',
+      'A stop still shows the people it names: anyone its cards link, like Philip Peck at his store.',
+      'Everyone comes back when the jaunt ends, completes or goes to the Jaunts menu.',
+      'Drivers, carriages and horses stay, and Settings › Show › People still hides everyone.',
+    ] },
   { v: 2801, ts: '2026-11-07T23:06:20.367Z', date: 'Nov 7, 2026, 5:06 PM CT', title: '1812: the factory stands on its bank, not in it', kind: 'fix',
     items: [
       'The government factory west of the fort stood half sunk in the slope down to the river, over the foot of its door and its lower windows.',

@@ -56,8 +56,8 @@
     "cell_max": 224.231
    },
    "battle_bank_1812": {
-    "cells": 46785,
-    "cell_max": 150.854
+    "cells": 78972,
+    "cell_max": 159.229
    },
    "channel_west_bank_ruling": {
     "cells": 8987,
@@ -65,15 +65,15 @@
    },
    "dunes": {
     "cells": 36230,
-    "cell_max": 150.854
+    "cell_max": 159.229
    },
    "fort_dearborn_mound": {
     "cells": 2251,
     "cell_max": 188.849
    },
    "heald_small_elevation_1812": {
-    "cells": 1307,
-    "cell_max": 32.513
+    "cells": 1313,
+    "cell_max": 32.926
    },
    "marsh_strip": {
     "cells": 21942,
@@ -98,6 +98,10 @@
    "swales": {
     "cells": 711,
     "cell_max": 224.231
+   },
+   "tenth_street_rise_1812": {
+    "cells": 1307,
+    "cell_max": 32.513
    }
   },
   "rule": "docs/research/01-terrain-hydrology.md modelling rule 1: outside the zones that earn relief, hold local gradients under 0.5 ft per 300 ft"
@@ -112,5 +116,5 @@
   "ground": "gltf/terrain__e1830_natural.glb",
   "water": "gltf/water__e1830_natural.glb"
  },
- "inputs_sha256": "99e95b1dd88e6c4137d827c2f327c8337f82894cf29d3473650a1638924c3da9"
+ "inputs_sha256": "2923383c3b0d99c3a3fbc4722cbe98c78262f603c879b7a6a3cc9932eb16a372"
 }
