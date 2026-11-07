@@ -21959,7 +21959,8 @@ chicagology_prefire052); "the garden on the south side"; the agent's distance; a
 scale. The "5o" is an inferred reading of a looped 5. **The factory's identity is inferred too.**
 Its numeral 18 is not read on the sheet. It is the paled house due west of the fort, the one of
 Quaife's "two log houses" without the numeral 17. The factory stands on the top of the bank, and
-its low corner is 0.93 m off the falling ground (`ground_contact: approach_not_modelled`). The
+its low corner is 0.93 m off the falling ground (declared `ground_contact: approach_not_modelled`
+until T-3492 carried it on an underpinning, L-t3492-underpinnings-1812). The
 drafter's own figures disagree with each other: the interpreter's house's stated 48 perches is 6.8
 times the drawing, not 3.3. So the rule is one honest reading of the sheet, not a survey. That
 house is not built: its figure puts it on the water's edge, and the ticket did not ask for it.
@@ -21970,7 +21971,7 @@ Office of Indian Trade's letters name its buildings), or an archaeological readi
 site would replace the rule's positions outright. A better reading of the numerals beside the
 stables (one reads more like "23", House in Factors Dept.) re-labels them; it does not move them.
 
-**Covers:** `first_fort_outer_agents_house.first_fort_1803.footprint`, `first_fort_outer_agents_house.first_fort_1803.form.loft`, `first_fort_outer_agents_house.first_fort_1803.form.roof_pitch_deg`, `first_fort_outer_agents_house.first_fort_1803.form.wall_height_m`, `first_fort_outer_agents_house.first_fort_1803.position`, `first_fort_outer_factory.first_fort_1803.footprint`, `first_fort_outer_factory.first_fort_1803.form.loft`, `first_fort_outer_factory.first_fort_1803.form.roof_pitch_deg`, `first_fort_outer_factory.first_fort_1803.form.wall_height_m`, `first_fort_outer_factory.first_fort_1803.ground_contact`, `first_fort_outer_factory.first_fort_1803.position`, `first_fort_outer_officers_garden.first_fort_1803.footprint`, `first_fort_outer_officers_garden.first_fort_1803.form.construction`, `first_fort_outer_officers_garden.first_fort_1803.form.gate_width_m`, `first_fort_outer_officers_garden.first_fort_1803.form.picket_height_m`, `first_fort_outer_officers_garden.first_fort_1803.form.picket_spacing_m`, `first_fort_outer_officers_garden.first_fort_1803.form.picket_width_m`, `first_fort_outer_officers_garden.first_fort_1803.form.wall_kind`, `first_fort_outer_officers_garden.first_fort_1803.position`, `first_fort_outer_stable_middle.first_fort_1803.footprint`, `first_fort_outer_stable_middle.first_fort_1803.form.construction`, `first_fort_outer_stable_middle.first_fort_1803.form.roof_pitch_deg`, `first_fort_outer_stable_middle.first_fort_1803.form.wall_height_m`, `first_fort_outer_stable_middle.first_fort_1803.position`, `first_fort_outer_stable_north.first_fort_1803.footprint`, `first_fort_outer_stable_north.first_fort_1803.form.construction`, `first_fort_outer_stable_north.first_fort_1803.form.roof_pitch_deg`, `first_fort_outer_stable_north.first_fort_1803.form.wall_height_m`, `first_fort_outer_stable_north.first_fort_1803.position`, `first_fort_outer_stable_south.first_fort_1803.footprint`, `first_fort_outer_stable_south.first_fort_1803.form.construction`, `first_fort_outer_stable_south.first_fort_1803.form.roof_pitch_deg`, `first_fort_outer_stable_south.first_fort_1803.form.wall_height_m`, `first_fort_outer_stable_south.first_fort_1803.position`, `first_fort_outer_sutlers_garden.first_fort_1803.footprint`, `first_fort_outer_sutlers_garden.first_fort_1803.form.construction`, `first_fort_outer_sutlers_garden.first_fort_1803.form.picket_height_m`, `first_fort_outer_sutlers_garden.first_fort_1803.form.picket_spacing_m`, `first_fort_outer_sutlers_garden.first_fort_1803.form.picket_width_m`, `first_fort_outer_sutlers_garden.first_fort_1803.form.wall_kind`, `first_fort_outer_sutlers_garden.first_fort_1803.position`, `first_fort_outer_factory.first_fort_1803.ground_contact`.
+**Covers:** `first_fort_outer_agents_house.first_fort_1803.footprint`, `first_fort_outer_agents_house.first_fort_1803.form.loft`, `first_fort_outer_agents_house.first_fort_1803.form.roof_pitch_deg`, `first_fort_outer_agents_house.first_fort_1803.form.wall_height_m`, `first_fort_outer_agents_house.first_fort_1803.position`, `first_fort_outer_factory.first_fort_1803.footprint`, `first_fort_outer_factory.first_fort_1803.form.loft`, `first_fort_outer_factory.first_fort_1803.form.roof_pitch_deg`, `first_fort_outer_factory.first_fort_1803.form.wall_height_m`, `first_fort_outer_factory.first_fort_1803.position`, `first_fort_outer_officers_garden.first_fort_1803.footprint`, `first_fort_outer_officers_garden.first_fort_1803.form.construction`, `first_fort_outer_officers_garden.first_fort_1803.form.gate_width_m`, `first_fort_outer_officers_garden.first_fort_1803.form.picket_height_m`, `first_fort_outer_officers_garden.first_fort_1803.form.picket_spacing_m`, `first_fort_outer_officers_garden.first_fort_1803.form.picket_width_m`, `first_fort_outer_officers_garden.first_fort_1803.form.wall_kind`, `first_fort_outer_officers_garden.first_fort_1803.position`, `first_fort_outer_stable_middle.first_fort_1803.footprint`, `first_fort_outer_stable_middle.first_fort_1803.form.construction`, `first_fort_outer_stable_middle.first_fort_1803.form.roof_pitch_deg`, `first_fort_outer_stable_middle.first_fort_1803.form.wall_height_m`, `first_fort_outer_stable_middle.first_fort_1803.position`, `first_fort_outer_stable_north.first_fort_1803.footprint`, `first_fort_outer_stable_north.first_fort_1803.form.construction`, `first_fort_outer_stable_north.first_fort_1803.form.roof_pitch_deg`, `first_fort_outer_stable_north.first_fort_1803.form.wall_height_m`, `first_fort_outer_stable_north.first_fort_1803.position`, `first_fort_outer_stable_south.first_fort_1803.footprint`, `first_fort_outer_stable_south.first_fort_1803.form.construction`, `first_fort_outer_stable_south.first_fort_1803.form.roof_pitch_deg`, `first_fort_outer_stable_south.first_fort_1803.form.wall_height_m`, `first_fort_outer_stable_south.first_fort_1803.position`, `first_fort_outer_sutlers_garden.first_fort_1803.footprint`, `first_fort_outer_sutlers_garden.first_fort_1803.form.construction`, `first_fort_outer_sutlers_garden.first_fort_1803.form.picket_height_m`, `first_fort_outer_sutlers_garden.first_fort_1803.form.picket_spacing_m`, `first_fort_outer_sutlers_garden.first_fort_1803.form.picket_width_m`, `first_fort_outer_sutlers_garden.first_fort_1803.form.wall_kind`, `first_fort_outer_sutlers_garden.first_fort_1803.position`.
 **Related:** **T-2062**, **T-2050** (the fort these stand outside, seated on the same frame),
 **T-0469** (the owner's 1812 ask), data/traces/whistler_1808_fort_dearborn.json § outside_the_stockade.
 **Recorded:** 2026-10-05 (T-2062).
@@ -40355,6 +40356,28 @@ fifth of that band to the yard, before it frays back to prairie. That share, tha
 **Ticket:** T-3339, T-3401, T-3457.
 **Recorded:** 2026-11-03 (T-3339); the stack yard 2026-11-06 (T-3401); the grass 2026-11-07 (T-3457).
 
+### L-t3492-underpinnings-1812 — the stone under the factory's and the interpreter's sills, and their doorsteps
+
+**Decision:** the two 1812 houses that stand on sloping ground, the government factory on the top of the river
+bank (0.93 m of fall across its walls on the committed e1830_natural ground) and the interpreter's house on the
+slope west of the fort (0.32 m), have their sills carried level 0.20 m over the highest ground under their walls on
+an underpinning of field and lake stone laid in lime, built by `renderers/web/js/underpinning.js` from below the
+lowest ground to the sill under every wall and gable stack, about 1.1 m of it showing at the factory's river
+corner, with a stone doorstep of even risers no taller than 0.19 m up to each front door. **Why:** the owner,
+2026-11-07, of the factory from the east: *"this house looks sunken in 1812"*. The renderer beds every building at
+the lowest ground under it, and on the bank that put the factory's front, door and ground-floor sash half a metre to
+nine-tenths of a metre in the ground. A builder carries a sill level on a slope; he does not bury his front door.
+**What is ours throughout:** that either house had an underpinning at all, that it was stone rather than log
+cribbing or a bank of earth, its fabric (the 1904 random-rubble sheet), its height over the ground, the sill's
+0.20 m clearance, every dimension of the step, and the 0.30 m of fall at which a house is given one
+(`tools/check_sunken_sills.py`, the photo-ticket bar of about a foot). No source describes the foundation, floor
+level or doorstep of any building at the 1812 post. **How to resolve:** a description of the factory's or the
+interpreter's house's cellar, underpinning or floor; a plan of the post giving floor levels; or a regrading of the
+bank under the factory that a source supports.
+**Covers:** `first_fort_outer_factory.first_fort_1803.underpinning`, `first_fort_outer_interpreters_house.first_fort_1803.underpinning`.
+**Ticket:** T-3492.
+**Recorded:** 2026-11-07 (T-3492).
+
 ### L-t3458-yard-goods-1812 — the wood, casks and carts round the 1812 houses, placed by rule
 
 **Decision:** the 1812 scene gets the yard goods a frontier household and a garrison post could not do
@@ -42059,3 +42082,38 @@ these numbers, so they are the kit's constants and no record attribute holds the
 **Re-opens on:** a guard roster, order book or morning report of Fort Dearborn for August 1812; a description of the post's daily duties in 1811-12; the 1812 dress for the company's sergeants, corporals and musicians (T-3463).
 **Ticket:** T-3462.
 **Recorded:** 2026-11-07.
+
+### L-human-gait-3472 — People on foot walk at a real pace, heel to toe, with the arms, trunk and skirts moving with the legs
+
+**Decision:** every figure drawn by `humans.js` walks by a runtime gait layer (`renderers/web/js/human-gait.js`)
+in place of the baked `walk` clip's pelvis and legs, which was a mechanical flat-foot study at 0.6 m/s with
+0.36 m steps (`tools/human_grounded_gait.py`, a pose fixture by its own account). Kevin, 2026-11-07, of Frances
+Glessner followed across her court: "their walking is not very natural". Each person walks at a comfortable
+pace for their sex and age and a stride in proportion to their height (men about 1.35 m/s and 0.83 of their
+height, women about 1.25 m/s and 0.78, less past fifty; a woman in a floor-length skirt about 8 % slower with a
+5 % shorter step), so 105-120 steps a minute. The phase of the cycle advances by the ground covered, so a
+figure that slows to turn takes slower steps and its feet never slide. The stance foot is planted where the
+swing set it down: it lands on the heel toes-up, rolls flat, then rises over the ball with the toes flat until
+toe-off. The swing follows the measured hip, knee and ankle curves (the knee folds to about 60 degrees),
+corrected to leave and land exactly. The pelvis rides as low as the leading knee's measured bend allows (2-3 cm
+of bob, lowest in double support), shifts 2 cm over the stance foot, turns about 5 degrees with the leading
+leg and dips about 4 on the swing side (a third less in a skirt); stopping takes a closing step. The arm layer (human-actions.js) swings the
+arms from the gait's phase, opposite the legs and a little after the other heel strikes, about 22 degrees at
+1.25 m/s with the elbow bending more at the front (half that in a full skirt); the life layer
+(human-life.js) turns the chest back against the pelvis, leans the trunk forward 2-4 degrees with speed and
+keeps the head steady in the world.
+**What is read.** Nothing about any person's own walk. The shape of the cycle and its events are the means of
+the young adults walking at 1.24 m/s in the public gait dataset of Fukuchi, Fukuchi & Duarte (2018, *PeerJ*
+6:e4640), the shoulder line against the pelvis from Horst et al. (2019); speeds, steps and cadence by sex and
+age from Oberg, Karsznia & Oberg (1993) and Bohannon & Andrews (2011). A lady's restraint in swinging her arms
+is period advice (Hill's Manual, Chicago, 1887), and the shortened step of a long skirt is a period complaint
+(Galbraith, quoted by Macfadden, 1901). Tables, sources and period street films to judge by are in
+`data/humans/gait/` (`normative_gait.json`, `README.md`).
+**What is invented.** That any person of 1812, 1835 or 1904 walked so: modern laboratory means stand in for
+period walking. The skirt factors (no measured study of a 1900s walking skirt over a corset was found), the
+per-person seeded variation of pace (±3 %) and stride, the start and closing steps, and every amplitude
+within the published ranges.
+**How to resolve:** motion capture of walkers in reproduction period dress, or measurement of walking from
+period street films (Lumière and Edison/AM&B street scenes of 1896-1906), reviewed in the town.
+**Ticket:** T-3472.
+**Recorded:** 2026-11-07 (T-3472).

@@ -592,6 +592,10 @@ step "People on foot breathe, shift weight with feet planted, look at a close vi
   node tools/test_human_life.mjs
 step "People on foot rest their hands in, change stance, touch the hat brim to a close visitor and swing their arms against their feet, deterministic (T-3419)" \
   node tools/test_human_actions.mjs
+step "People on foot walk heel to toe at a real pace and stride, the stance foot planted, the pelvis turning and rising over it, deterministic across LOD swaps (T-3472)" \
+  node tools/test_human_gait.mjs
+step "A woman's skirt swings off her legs as she walks and never parts between them, the rest pose exact (T-3472)" \
+  node tools/test_human_skirt.mjs
 step "The driven team's generated walk and its hoof-support domain reproduce byte for byte, hooves planted without slide (T-2803)" \
   node tools/horse_walk_v2.mjs --check
 step "A driver's plain garments read as cloth: weave, heather and sheen by shader patch, no texture, one program (T-2804)" \
@@ -2991,6 +2995,17 @@ step "the 1812 worn trails and yards re-derive from the terrain and the footprin
 # writing where the ground is wet, taken, fenced, on a trail or under a planted stem.
 step "the 1812 yard goods re-derive from the houses, fences, worn yards and trails (T-3458)" \
   python3 tools/generate_yard_goods_1812.py --check
+
+# And the buildings themselves on that ground (T-3492): the renderer beds a building at the
+# lowest ground under its walls, which on the river bank put the factory's front door half in
+# the ground. A walled 1812 building on more than about a foot of fall carries its sill on an
+# underpinning (renderers/web/js/underpinning.js), and one on level ground may not.
+step "no 1812 building stands in the ground: a sill on sloping ground is carried on stone (T-3492)" \
+  python3 tools/check_sunken_sills.py
+selftest "…and the factory stripped of its underpinning, a level house given one, and a house moved onto the bank are each refused" \
+  python3 tools/check_sunken_sills.py --self-test
+step "the underpinning's pieces: outward faces, below the ground to the sill, a pier per stack, even doorsteps (T-3492)" \
+  node tools/test_underpinning.mjs
 
 # And the layer above that ground: the wood p4_0 draws outside the same walls (T-0098). Same
 # shape again — the plate attests a tree mass and places nothing, so which ground carries a

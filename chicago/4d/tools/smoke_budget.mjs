@@ -463,6 +463,9 @@ const COVERAGE = [
   // --- PART 9: what the light does to the town
   ['renderers/web/js/facades.js', [9], 'T-0002, the facade tones'],
   ['renderers/web/js/buildings.js', [8, 9], 'the facades and the shadow reach they carry, and the merged batch part 8 reads the roughness channel out of'],
+  // T-3492: the stone under a sill carried level on sloping ground, built inside buildings.js's
+  // load and added to its group; part 4's "nothing hovers" reads the stone's foot.
+  ['renderers/web/js/underpinning.js', [4, 8, 9], 'T-3492, the underpinnings under a sill carried level on a slope — built in buildings.js\'s load and added to the structures, and read by part 4\'s no-hover check'],
   // T-3408: a phone's structure buckets laid as 16-bit-indexed batches; read wherever buildings.js lays batches.
   ['renderers/web/js/short-index.js', [8, 9], 'the structure batches a phone lays small enough to index in 16 bits'],
   ['renderers/web/js/shadow-casters.js', [8, 9], 'T-2529, the sun\'s pass at `light` — it wraps every structure batch buildings.js makes, so it is read where the facades and their shadows are'],

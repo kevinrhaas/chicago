@@ -1,4 +1,24 @@
 export const CHANGELOG = [ // newest first
+  { v: 2801, ts: '2026-11-07T23:06:20.367Z', date: 'Nov 7, 2026, 5:06 PM CT', title: '1812: the factory stands on its bank, not in it', kind: 'fix',
+    items: [
+      'The government factory west of the fort stood half sunk in the slope down to the river, over the foot of its door and its lower windows.',
+      'It now stands level on a fieldstone underpinning, a course or two high on the fort side and over a metre at the river corner, with a stone step up to the door.',
+      'The interpreter\'s house beside it gets the same for its smaller slope. Every other 1812 building already stood level.',
+      'The stone and step are reconstructed and listed in Liberties.',
+    ] },
+  { v: 2800, ts: '2026-11-07T22:54:15.123Z', date: 'Nov 7, 2026, 4:54 PM CT', title: 'People walk like people: real pace, heel to toe, swinging arms', kind: 'improvement',
+    items: [
+      'Everyone on foot walks at a real pace for their age and height, about twice as fast as before, with full-length steps.',
+      'Each foot lands on the heel, rolls flat and pushes off from the ball, and stays put on the ground while it carries the weight.',
+      'Knees bend as they take the weight and fold through the swing; hips rise, fall and turn with each step.',
+      'Arms swing in time with the legs, the shoulders turn against the hips and the head stays steady.',
+      'Stopping, a walker brings the trailing foot up beside the other.',
+    ] },
+  { v: 2799, ts: '2026-11-07T22:24:13.673Z', date: 'Nov 7, 2026, 4:24 PM CT', title: '1812 blockhouse cupola lookouts and shingled roofs', kind: 'improvement',
+    items: [
+      'Each cupola cap on the first fort\'s two blockhouses now has a small hooded lookout opening on all four sides, as Currey\'s drawing shows.',
+      'Shingle roofs across town are redrawn as riven shingles: mixed widths, broken joints and a weathered tone on each shingle, where they used to read as a flat plane.',
+    ] },
   { v: 2798, ts: '2026-11-07T21:57:19.970Z', date: 'Nov 7, 2026, 3:57 PM CT', title: 'Pullman\'s 18th Street corner tree grows tall and slender, as photographed', kind: 'improvement',
     items: [
       'The parkway tree before the Pullman house\'s south-east corner on 18th Street is no longer a broad forked elm spreading over the corner and terrace. It stands as Taylor\'s winter photograph and the c. 1900 Detroit print show it: one straight trunk under a narrow head, about 13 m tall.',

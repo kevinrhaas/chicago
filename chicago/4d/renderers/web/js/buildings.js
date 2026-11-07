@@ -59,6 +59,7 @@ import { loadWallRelief } from './wall-relief.js';
 import { loadCampSurfaces } from './camp-surfaces.js';
 import { applyBrickBond, brickBondFromSearch } from './brick-bond.js';
 import { addFeet, feetPoints, packFeet } from './building-feet.js';
+import { buildUnderpinnings, groundInFrame, underpinnedHeight } from './underpinning.js';
 import { buildingBodyBounds } from './building-body-bounds.js';
 import { drawsLeaves as leavesHungElsewhere, paradeLaidAsGround, paradeGroundOwner } from './fort-gates.js';
 import { takeDoorLeaf, doorLeafMaterial } from './house-doors.js';
@@ -972,6 +973,28 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     return Number.isFinite(lowest) ? lowest : terrain.surfaceHeight(e, n);
   }
 
+  /**
+   * T-3492: the HIGHEST ground under the walls' feet, read on the same feet and in
+   * the same frame as `groundUnder`, for a structure whose sill is carried level on
+   * an underpinning (underpinning.js) rather than bedded at its lowest corner.
+   */
+  function groundOverUnder(record, e, n, rotationDeg) {
+    if (!terrain) return 0;
+    const th = bearingToYaw(rotationDeg);
+    const cos = Math.cos(th);
+    const sin = Math.sin(th);
+    let highest = terrain.surfaceHeight(e, n);
+    for (const [lx, lz] of feetPoints(localFeet.get(record.id))) {
+      highest = Math.max(highest, terrain.surfaceHeight(e + lx * cos + lz * sin, n + lx * sin - lz * cos));
+    }
+    for (const [u, v] of record.sidecar?.footprint?.polygon ?? []) {
+      highest = Math.max(highest, terrain.surfaceHeight(e + u * cos - v * sin, n + u * sin + v * cos));
+    }
+    return Number.isFinite(highest) ? highest : terrain.surfaceHeight(e, n);
+  }
+  /** id -> what underpinning.js needs to build under it, and the sill's lift. */
+  const underpinned = new Map();
+
   // Placement matrix per structure, from the sidecar and nothing else.
   const placements = new Map();
   for (const record of registry.values()) {
@@ -986,7 +1009,15 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // the bed, so a bridge left on the terrain anchor does not sink — it hangs
     // four metres above the river, which is the harder failure to read.
     const onWater = p.vertical_anchor === 'water';
-    const y = onWater ? 0 : groundUnder(record, e, n, p.rotation_deg ?? 0);
+    let y = onWater ? 0 : groundUnder(record, e, n, p.rotation_deg ?? 0);
+    // T-3492: a sill carried clear of the highest ground under the walls, on stone.
+    const under = !onWater && terrain ? p.underpinning : null;
+    if (under) {
+      const lo = y;
+      const hi = groundOverUnder(record, e, n, p.rotation_deg ?? 0);
+      y = underpinnedHeight(lo, hi, Number(under.sill_clear_m) || 0.2);
+      underpinned.set(record.id, { e, n, rot: p.rotation_deg ?? 0, y, lo, hi, under });
+    }
     placements.set(record.id, new THREE.Matrix4().compose(
       enuToWorld(e, n, y),
       new THREE.Quaternion().setFromEuler(
@@ -999,6 +1030,35 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     }
   }
   for (const [id, feet] of localFeet) localFeet.set(id, packFeet(feet));
+
+  // T-3492: the stone under every underpinned sill, one mesh for the scene.
+  const underpinnings = { mesh: null, census: { buildings: 0, boxes: 0, steps: 0, sheet: null, ids: [] } };
+  if (underpinned.size) {
+    const entries = [];
+    for (const [id, u] of underpinned) {
+      const record = registry.get(id);
+      entries.push({
+        id,
+        matrix: placements.get(id),
+        polygon: record.sidecar?.footprint?.polygon ?? [],
+        feet: feetPoints(localFeet.get(id)),
+        doors: Array.isArray(u.under.doors) ? u.under.doors : [],
+        frontV: Number.isFinite(u.under.front_v_m) ? u.under.front_v_m : null,
+        ground: groundInFrame(terrain, u.e, u.n, u.rot, u.y),
+      });
+    }
+    try {
+      const built = await buildUnderpinnings(entries);
+      problems.push(...built.problems);
+      underpinnings.census = built.census;
+      if (built.mesh) {
+        underpinnings.mesh = built.mesh;
+        group.add(built.mesh);
+      }
+    } catch (err) {
+      problems.push(`underpinnings not built — ${err.message}`);
+    }
+  }
 
   // Shadows have to agree with the view: a wall you can see through should not
   // cast a solid shadow. The same patch on a depth material dithers the shadow
@@ -1821,6 +1881,14 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
      *  uniform dequantize scale; a point in the structure's frame goes through
      *  this one, a stored batch position through the instance matrix. */
     matrixOf(id) { return placements.get(id) ?? null; },
+    /** T-3492: how a structure carried on an underpinning was stood — `lo`/`hi` the
+     *  lowest and highest ground under its feet, `y` its sill — or null. */
+    underpinningOf(id) {
+      const u = underpinned.get(id);
+      return u ? { lo: u.lo, hi: u.hi, y: u.y, sill_clear_m: Number(u.under.sill_clear_m) || 0.2 } : null;
+    },
+    /** T-3492: the underpinnings layer's census: buildings, boxes, steps, sheet, ids. */
+    get underpinnings() { return underpinnings.census; },
 
     /** T-3442: each hung door's baked leaf, lifted out of its batch as the house loaded:
      *  [{ doorId, geometry, material }] in the structure's frame. This layer owns them. */
