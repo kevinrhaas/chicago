@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2781, ts: '2026-11-07T17:24:35.094Z', date: 'Nov 7, 2026, 11:24 AM CT', title: 'Phones carry 1904 and its people with about 20 MB to spare', kind: 'fix',
+    items: [
+      'Nothing you can see changes. A phone used to hold a spare copy of every building picture inside the page, in case it had to load one again; it now hands that copy to the browser, which keeps it outside the page. 1904 on a phone takes about 20 MB less, so the Glessners, Martha Williamson and Mary Reynolds fit under the memory line with room left over. Desktops are unchanged.',
+    ] },
   { v: 2780, ts: '2026-11-07T16:46:25.762Z', date: 'Nov 7, 2026, 10:46 AM CT', title: 'Mr. Glessner walks, stands and dresses right', kind: 'fix',
     items: [
       'People stand on raised walks and door steps. Mr. Glessner\'s feet no longer sink into his front walk.',
