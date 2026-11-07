@@ -67589,10 +67589,23 @@
         {
           "label": "Recorded",
           "text": "2026-11-03 (T-1934)."
+        },
+        {
+          "label": "Revised 2026-11-07",
+          "text": "the stack's place along the rear face is read, and a second rear stack is added. The Detroit print LC-D4-12552 (det 4a08066, c. 1900) now has a camera (the detroit det 4a08066 data) fitted on the house's south-east corner, the rear face's north end, the porte-cochere, the rear dormers and the cresting, the fit this entry asked for. It draws Taylor's stack at x 495-506 px between the rear step's two dormers (x 476-484 and 520-528), so it moves from v 10.0 to v 4.6, between the dormers at v 8.04 and 3.44, still 1.4 m behind the face (`chimneys.stacks[3]`). The same print shows a second capped stone stack over the south section's dormer (x 423-434, its cap at y 288), which 16554 also shows at x 428-442 once its camera's 20-30 px offset along the rear is allowed; it is built at (1.4, 13.5) (`chimneys.stacks[4]`)."
+        },
+        {
+          "label": "Still invented",
+          "text": "both stacks' depth behind the face (1.4 m, the first's), their tops (18.4 m, 16554's reading; the Detroit camera reads the deck about 2 m higher there) and their plans and caps (the house's other deck stacks'). The Detroit print draws the step's stack carried up the mansard's face from the cornice, in front of the slope; the K15 kit stands a cornice stack only on a side wall, so it stays on the deck and the print's record holds that open."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
         }
       ],
       "work_refs": [
-        "T-1934"
+        "T-1934",
+        "T-1881"
       ]
     },
     {
