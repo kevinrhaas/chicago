@@ -155,8 +155,11 @@ async function compressedPair(here, id) {
   return { normal, orl, meanRough };
 }
 
-/** One substrate's pair: `{ normal, orl, tileM, meanRough }`. */
-async function loadSubstrate(base, dir, lowSpec) {
+/**
+ * One substrate's pair: `{ normal, orl, tileM, meanRough }`. Exported for
+ * roof-relief.js, whose riven shingle (T-3041) takes the same pair by the same recipe.
+ */
+export async function loadSubstrate(base, dir, lowSpec) {
   const here = new URL(`${dir}/`, base);
   const res = await fetch(new URL('material.json', here), { cache: 'no-cache' });
   if (!res.ok) throw new Error(`${res.status} — ${new URL('material.json', here)}`);
