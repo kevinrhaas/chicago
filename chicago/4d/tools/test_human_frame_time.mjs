@@ -105,11 +105,13 @@ a.distanceForTest=2; a.step(.25,50); a.step(.25,50); assert.equal(a.body.values.
 a.step(0,0); assert.equal(a.body.values.at(-1),0,'A held visual tick advances no idle');
 actorDispose.call(a); const disposedCount=a.body; assert.equal(a.step(.05,50),false); assert.equal(a.body,disposedCount);
 const layerUpdate = required(engine.match(/\n    update\(dt, camera, visitor = null, visualDt = dt\) \{([\s\S]*?)\n    \},\n\n    \/\*\* The selectable/), 'human layer update')[1];
-const layerOf = (shown) => new Function('actors','near','emit','THREE','shown',`return function(dt,camera,visitor=null,visualDt=dt){${layerUpdate}}`)(new Map([['one',{inRange:true,instance:{},update(...args){forwarded.push(args);}}]]),new Set(),()=>{},{},shown);
+// T-3495: `kept` is the jaunt's hold on the everyday people; a held figure is not updated either.
+const layerOf = (shown, kept = () => true) => new Function('actors','near','emit','THREE','shown','kept',`return function(dt,camera,visitor=null,visualDt=dt){${layerUpdate}}`)(new Map([['one',{inRange:true,instance:{},update(...args){forwarded.push(args);}}]]),new Set(),()=>{},{},shown,kept);
 const forwarded=[]; const layer = layerOf(true);
 const eye={}; layer(.05,{position:eye},{e:1,n:2},3); assert.deepEqual(forwarded.at(-1),[.05,eye,3]);
 layer(.05,{position:eye}); assert.deepEqual(forwarded.at(-1),[.05,eye,.05],'Optional visual argument retains existing callers');
 const beforeHidden = forwarded.length; layerOf(false)(.05,{position:eye}); assert.equal(forwarded.length,beforeHidden,'People hidden (T-3439): no figure is updated or loaded');
+layerOf(true, () => false)(.05,{position:eye}); assert.equal(forwarded.length,beforeHidden,'Held by a jaunt (T-3495): the figure is not updated or loaded');
 
 // Actual shared horse-layer activation: reduced motion, ancestor/range visibility and tier changes cannot bank unseen time.
 const horseUpdate = required(standing.match(/    update\(camera, dt = 0, ([\s\S]*?)\n    \},\n    async setTier/), 'horse update');
