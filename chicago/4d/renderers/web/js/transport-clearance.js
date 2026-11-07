@@ -85,3 +85,53 @@ export function createTransportClearance({ footprints, visitor = () => null,
   clear.invalidate = () => { polygonBounds = new WeakMap(); };
   return clear;
 }
+
+/**
+ * Where a visitor standing in a stopped team's way steps to, so it can pass ("Step back to
+ * let the wagon pass"). `poses` are the team's poses from where it stands along the road it
+ * will drive (at most .25 m apart). The stand is the nearest point to `at`, within
+ * `reach_m`, that every one of those envelopes misses by the visitor's radius plus `room_m`
+ * — a little more than the live check asks, so the journey resumes and stays clear —
+ * which `blockedAt` lets a walker stand on, reached by a line it lets them walk. Sideways
+ * to the team is preferred over ahead or behind it at the same distance. Null when none.
+ */
+export function giveRoomStand({ poses, envelope_local_xz_m, at, visitor_radius_m = .35, margin_m = .15,
+  room_m = .3, reach_m = 6, step_m = .25, blockedAt = () => false }) {
+  if (!Array.isArray(poses) || !poses.length || !Array.isArray(envelope_local_xz_m) || envelope_local_xz_m.length !== 4
+    || !envelope_local_xz_m.every(Number.isFinite) || !Number.isFinite(at?.e) || !Number.isFinite(at?.n)
+    || typeof blockedAt !== 'function') throw Error('transport clearance: poses, measured envelope, visitor and ground reader required');
+  const [left, back, right, front] = envelope_local_xz_m;
+  const bounds = [left - margin_m, back - margin_m, right + margin_m, front + margin_m];
+  const need = visitor_radius_m + room_m;
+  const reachOf = Math.hypot(Math.max(-bounds[0], bounds[2]), Math.max(-bounds[1], bounds[3])) + need;
+  const local = poses.map(p => ({ e: p.e, n: p.n, c: Math.cos(p.yaw), s: Math.sin(p.yaw) }));
+  const clearOf = (e, n) => {
+    for (const p of local) {
+      const de = e - p.e, dn = n - p.n;
+      if (Math.abs(de) > reachOf || Math.abs(dn) > reachOf) continue;
+      const x = p.c * de + p.s * dn, z = p.s * de - p.c * dn;
+      const dx = Math.max(bounds[0] - x, 0, x - bounds[2]), dz = Math.max(bounds[1] - z, 0, z - bounds[3]);
+      if (Math.hypot(dx, dz) <= need) return false;
+    }
+    return true;
+  };
+  const walkable = (e, n) => {
+    if (blockedAt(e, n)) return false;
+    const d = Math.hypot(e - at.e, n - at.n), count = Math.ceil(d / step_m);
+    for (let i = 1; i < count; i++) if (blockedAt(at.e + (e - at.e) * i / count, at.n + (n - at.n) * i / count)) return false;
+    return true;
+  };
+  if (clearOf(at.e, at.n)) return { e: at.e, n: at.n, moved_m: 0 };
+  const forward = [local[0].s, -local[0].c];     // the team's +z, in ENU
+  for (let r = step_m; r <= reach_m + 1e-9; r += step_m) {
+    const ring = [];
+    for (let k = 0; k < 24; k++) {
+      const a = k * Math.PI / 12, ue = Math.cos(a), un = Math.sin(a);
+      ring.push({ e: at.e + ue * r, n: at.n + un * r, along: Math.abs(ue * forward[0] + un * forward[1]) });
+    }
+    ring.sort((p, q) => p.along - q.along);
+    const stand = ring.find(p => clearOf(p.e, p.n) && walkable(p.e, p.n));
+    if (stand) return { e: stand.e, n: stand.n, moved_m: r };
+  }
+  return null;
+}

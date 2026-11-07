@@ -3821,6 +3821,10 @@ async function boot() {
           : (e, n) => profiledGroundHeight(terrain, decks, e, n),
         footprints: () => footprints, visitor: () => walker.state,
         interactions, detail: detailLevel, coarse, problems,
+        // T-3475: Step back to let it pass walks the visitor to a clear stand, looking where they looked.
+        blockedAt: (e, n) => api.router?.blockedAt(e, n) ?? false,
+        placeVisitor: (e, n) => { if (!walker.state.flying) walker.teleport({ local_e: e, local_n: n,
+          yaw_deg: walker.bearingDeg, pitch_deg: walker.state.pitch / DEG }); },
       });
       if (api.townTransport) scene3d.add(api.townTransport.group);
     } catch (error) { problems.push(`town transport: ${error.message}`); }
