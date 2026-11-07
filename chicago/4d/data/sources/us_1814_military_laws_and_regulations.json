@@ -1,0 +1,26 @@
+{
+ "id": "us_1814_military_laws_and_regulations",
+ "type": "book",
+ "citation": "Military Laws, and Rules and Regulations for the Army of the United States. Washington, 1814.",
+ "author": "United States, Adjutant and Inspector General's Office (compiled)",
+ "date": "1814",
+ "describes_date": "1813",
+ "repository": "Internet Archive item 0215605.nlm.nih.gov (U.S. National Library of Medicine scan).",
+ "url": "https://archive.org/details/0215605.nlm.nih.gov",
+ "locator": "\"Changes in the Uniform of the Army of the United States\", pp. 262-263, printed there undated; the same text is printed as an extract from the Rules and Regulations for the Army in the Burlington Rules & Articles of War of 1813 (Internet Archive rulesarticlesofw00unit), where it follows an order of 27 April 1813.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "A United States government publication of 1814; public domain. Used only to date what the infantry wore before the 1813 change (T-3451).",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "Read 2026-11-07 (T-3451) in the scan's full text: \"The coat of the infantry and artillery shall be uniformly blue, no red collars or cuffs: and no lace shall be worn by any grade ... all the rank and file will wear coatees. The button holes of these will be trimmed with tape on the collar only. Leather caps will be substituted for felt, and worsted or cotton pompons for feathers.\" The earliest printing read is of 1813, following an order of 27 April 1813; the change is taken to postdate August 1812, and what it took away (red collars and cuffs, lace, felt caps, feathers) is read as what the infantry wore before it.",
+ "note": "Read backwards for the coat and cap of 1812: an inference from a change, not a description of the earlier uniform.",
+ "what_it_supplies": [
+  "red collars and cuffs, lace, felt caps and feathers on infantry before spring 1813, by inference",
+  "the plain blue coatee and leather cap that came after, and so are not modelled"
+ ],
+ "what_it_does_not_supply": [
+  "the earlier pattern's cut or its tails' length",
+  "what the Fort Dearborn garrison actually had in August 1812"
+ ]
+}

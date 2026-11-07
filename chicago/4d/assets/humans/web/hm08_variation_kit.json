@@ -11,7 +11,7 @@
  "bin": "hm08_variation_kit.bin",
  "bin_bytes": 927482,
  "bin_sha256": "6eaa8ea253b2e7f63e0974318ef4f67a7558da4c985e33cd9c8264930782780b",
- "axes_sha256": "3a773a2369676461777e1864c7bf45f4052dc9b5aec70c261679a668bbbf9889",
+ "axes_sha256": "8b71ce7ae1614a3dd321bc2ae318bdf54800c900974ff431a06563091eac61f0",
  "manifest_sha256": "80087621bf4d5b3185430dda3d8a08ed8c81a9286c91d4ad92a84d6a8d2847d1",
  "limit": 0.6,
  "height": {
@@ -178,6 +178,10 @@
   },
   "mahoney_patrick_1835": {
    "base_age_years": 35,
+   "sex": "male"
+  },
+  "private_first_infantry_1812": {
+   "base_age_years": 25,
    "sex": "male"
   }
  },

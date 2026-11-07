@@ -36779,6 +36779,44 @@ skin and short04 hair of the 1835 studies and the 1835 era's hair default (no ro
 male base at its engineering age 35, inside his band, not aged. Every amount is chosen by eye against the
 pictures; none is measured, and none says how he dressed.
 
+**The 1812 soldier supplement, 2026-11-07 (T-3451):** a private's dress of the First Regiment of Infantry on
+the same component path, `tools/human_soldier_1812.py` with `data/humans/recipes/soldier_1812.json`, built as
+the asset `private_first_infantry_1812` on the shared male body at its engineering age 25. **Who:** an
+anonymous private of Captain Nathan Heald's company, the garrison of the first Fort Dearborn, whose
+muster-roll of April-May 1812 Quaife prints (`quaife_1913`, Appendix VIII). No soldier of the company is a
+person of the 1812 people layer, so the figure is anonymous by necessity, not by choice: he names no one, is
+graded reconstructed, and is not placed in the town or in any event of August 1812. **Dating:** the scene is
+1812-08-14. The private's issue is the 1802 act's (`us_1812_rules_and_articles_albany`, Sec. 8: hat, coat,
+vest, woollen and linen overalls, shoes, stock and clasp, half gaiters). The uniform change printed in 1813
+and 1814 (`us_1814_military_laws_and_regulations`; earliest printing read follows an order of 27 April 1813)
+made the infantry coat "uniformly blue, no red collars or cuffs", took away lace, put all rank and file in
+coatees and substituted leather caps for felt and pompons for feathers. It is taken to postdate August 1812
+and read backwards: the coat here keeps a red standing collar and red cuffs, the cap is felt with a feather,
+and the 1813 leather cap and plain coatee are not used. That reading is an inference from a change, not a
+description of the earlier uniform; its cut, the tails' length, the buttons and the cap's shape are not
+given by anything read. **The frontier:** a one-company post far from supply may well have worn older, mixed
+or worn-out clothing, even the 1802-1810 pattern of long-skirted coats and crested round hats that Ogden's
+1888 plate reconstructs (`loc_ogden_1888_infantry_artillery_1802_1810`); that is recorded here as a
+possibility, not modelled. Krimmel's watercolour of Philadelphia soldiery, 1811-13
+(`met_krimmel_1813_philadelphia_soldiery`), shows volunteers, not regulars: short blue coats faced
+orange-red, dark leather crossbelts, gaiters and tall caps. **Cut:** a closed single-breasted coat offset 2 cm
+from the body and smoothed, its seam 2.4 cm below spine_02, sleeves to 2.2 cm short of the wrist, the last
+6.5 cm red; tails lofted round the body's sections, cut away in front (front edges from 96 to 138 degrees
+round from the front) to mid-thigh at 0.70 m, each skinned to its own leg; a red standing collar lofted round
+the neck, open 26 degrees either side of the front where the stock shows, its top 1 cm under the stock's; the
+merchant's stock loft in black leather; eight white metal buttons; two white crossbelts 5.2 cm wide cut from
+the coat's own surface and stood 3 and 4 mm off it, from the shoulders at 9.2 cm off the centre line to the
+hips at 15 cm, crossing on the breast and running over the shoulders and down the back; a black cartridge box
+behind the right hip and a bayonet scabbard at the left, rigid on the pelvis; white linen overalls on the
+shared workwear shell with a band of the body's own surface carrying them up under the coat's seam; a black
+felt cylinder cap 17.5 cm tall with a 5 cm leather peak and a white feather 13 cm tall at the front, rigid
+on the head bone. Not modelled: musket, lace on the coat front, cap plate or cockade, belt plate, knapsack,
+turnbacks. **Colour:** the coat's dark blue and the red of collar and cuffs follow the 1813 change read
+backwards; the white of the belts follows Ogden (Krimmel's are dark); the feather's white, the buttons' white
+metal and the overalls' white linen are chosen. **Skin and hair:** the shared young light-skinned generic skin
+and short04 hair of the period studies; no hair row (1812 has no era default). Every amount is chosen by eye;
+none is measured, and none says what the garrison wore.
+
 ### L-tremont-gale-envelope-2385 — two-storey default and picture alternative
 
 **Decision:** the default first Tremont follows Gale's retrospective, 1835-framed

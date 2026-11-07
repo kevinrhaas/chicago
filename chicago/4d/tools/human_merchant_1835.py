@@ -295,12 +295,14 @@ def rolled_edges(base, roll, name, material, width, notch, half_top, top_gap=.00
     return out
 
 
-def tails(body, bones, coat, waist):
+def tails(body, bones, coat, waist, t=None, name='tailcoat_tails', material='garment_outer__tailcoat_blue_1835',
+          garment='tailcoat tails to the back of the knee'):
     """The tailcoat's tails: two panels lofted round convex supports that enclose the body's
     own sections (and hang: below the seat no ring is narrower than the one above it), cut
     away from the front at the waist, their front edges sloping back to the hem at the back
-    of the knee, a short vent between them. Each tail goes with its own thigh and calf."""
-    t = TAILORING['tails']
+    of the knee, a short vent between them. Each tail goes with its own thigh and calf.
+    `t`, `name` and `material` let another coat (the 1812 soldier's, T-3451) cut its own."""
+    t = t or TAILORING['tails']
     rows, cols, ease = t['rows'], t['segments'], t['ease']
     hem = t['hem_y']; top = waist+.006
     levels = [top+(hem-top)*i/(rows-1) for i in range(rows)]
@@ -328,7 +330,7 @@ def tails(body, bones, coat, waist):
         k = (a % (2*math.pi))/(2*math.pi)*N; k0 = int(k) % N; f = k-int(k)
         return supports[i][k0]*(1-f)+supports[i][(k0+1) % N]*f
     knee = bones['calf_l']['head_m'][1]
-    out = empty('tailcoat_tails', 'garment_outer__tailcoat_blue_1835')
+    out = empty(name, material)
     vent = math.radians(t['vent_deg'])/2
     for side in (1, -1):
         base = len(out['positions_m'])
@@ -370,7 +372,7 @@ def tails(body, bones, coat, waist):
             worst = min(worst, rr-math.hypot(p[0], p[2]))
     need(worst > .004, f'tails meet the standing body ({worst:.4f} m)')
     out = finish_edges(out, .0018)
-    out['receipt'] = dict(garment='tailcoat tails to the back of the knee', hem_y_m=hem, top_y_m=top, ease_m=ease,
+    out['receipt'] = dict(garment=garment, hem_y_m=hem, top_y_m=top, ease_m=ease,
                           minimum_standing_body_clearance_m=worst, front_edge_deg=[t['edge_top_deg'], t['edge_hem_deg']],
                           skinning='pelvis at the seam; each tail with its own thigh/calf')
     return out

@@ -99,6 +99,7 @@ def resolve_person_reference(variant, root=ROOT):
     """Resolve existing person and scene; never mint a name or upgrade its grade."""
     scene=str(variant['person_reference_scene'])
     if scene=='1904':return resolve_dress_reference_1904(variant,root)
+    if scene=='1812':return resolve_soldier_reference_1812(variant,root)
     if scene!='1835':raise ValueError('this wardrobe recipe is bounded to the 1835 scene')
     pid=variant['person_reference_id']
     scene_path=root/'data/sidecars'/scene/'people.json'
@@ -129,6 +130,26 @@ def resolve_person_reference(variant, root=ROOT):
         raise ValueError('resident reference changed; review recipe rather than retaining stale identity facts')
     if snapshot['presence']!='present':raise ValueError('resident is not present in this scene record')
     return {**snapshot, 'review_required':bool(person.get('review_required') or person.get('reconstruction',{}).get('review_required') or household.get('review_required') or people[pid].get('review_required')), 'touches_removal':bool(person.get('touches_removal') or household.get('touches_removal') or people[pid].get('touches_removal'))}
+
+
+def resolve_soldier_reference_1812(variant, root=ROOT):
+    """T-3451: the 1812 soldier is anonymous -- a private of Heald's company of the First
+    Infantry, whose muster-roll Quaife (1913) prints -- and no person of the 1812 people layer.
+    Bound to its own recipe; its grade stays reconstructed; it names no one."""
+    if (variant.get('component_assembly'),variant.get('recipe_path'))!=('soldier_1812_v1','data/humans/recipes/soldier_1812.json'):
+        raise ValueError('only the bound 1812 soldier study may reference the 1812 garrison')
+    if variant['person_reference_id']!='anonymous_private_heald_company_1812' or variant['person_reference_grade']!='reconstructed':
+        raise ValueError('the 1812 soldier is an anonymous reconstructed private; never a named or graded person')
+    scene_path=root/'data/sidecars/1812/people.json'
+    if scene_path.exists() and variant['person_reference_id'] in {p['id'] for p in json.loads(scene_path.read_text())['people']}:
+        raise ValueError('the anonymous soldier must not collide with a person of the 1812 people layer')
+    record=root/variant['person_reference_record']
+    if record!=root/'data/sources/quaife_1913.json' or json.loads(record.read_text()).get('id')!='quaife_1913':
+        raise ValueError('the 1812 soldier rests on the Quaife muster-roll source record')
+    snapshot={'name':"a private of Captain Nathan Heald's company, First Infantry",'named':False,'unit':'First Regiment of Infantry','post':'Fort Dearborn','presence':'garrison'}
+    if snapshot!=variant['reference_summary']:
+        raise ValueError('soldier reference changed; review recipe rather than retaining stale facts')
+    return {**snapshot,'review_required':False,'touches_removal':False}
 
 
 def resolve_dress_reference_1904(variant, root=ROOT):
@@ -222,6 +243,10 @@ def build(args):
         # T-3450: an 1835 labourer's working dress; generic garment meshes through the dress path.
         from human_labourer_1835 import prepare_labourer_assembly
         dress = prepare_labourer_assembly(ROOT, recipe, variant, body)
+    elif variant.get('component_assembly')=='soldier_1812_v1':
+        # T-3451: an 1812 private of the First Infantry; generic garment meshes through the dress path.
+        from human_soldier_1812 import prepare_soldier_assembly
+        dress = prepare_soldier_assembly(ROOT, recipe, variant, body)
     elif variant.get('component_assembly'):
         from human_dress_components import prepare_dress_assembly
         dress = prepare_dress_assembly(ROOT, recipe, variant, body)
@@ -626,7 +651,7 @@ def build(args):
         if dress.get('assembly') in ('lady_1904_v1','maid_1904_v1'):
             # T-3447: a woman's assembly in a full skirt (humans.js reads `skirt`: the nod, the clasped hands).
             scene['chicago4d_human']['wardrobe_assembly_json']=json.dumps({'assembly':dress['assembly'],'liberty':dress['liberty'],'production_eligible':False,'qualified_roles':['standing','walking'],'skirt':True,'standing_source_only':False,'walking_seated_and_photo_accepted':False,'body_and_identity_unchanged':True,'garments':dress['garments']},sort_keys=True)
-        elif dress.get('assembly') in ('gentleman_1904_v1','merchant_1835_v1','labourer_1835_v1'):
+        elif dress.get('assembly') in ('gentleman_1904_v1','merchant_1835_v1','labourer_1835_v1','soldier_1812_v1'):
             scene['chicago4d_human']['wardrobe_assembly_json']=json.dumps({'assembly':dress['assembly'],'liberty':dress['liberty'],'production_eligible':False,'qualified_roles':['standing','walking'],'standing_source_only':False,'walking_seated_and_photo_accepted':False,'body_and_identity_unchanged':True,'garments':dress['garments']},sort_keys=True)
         else:scene['chicago4d_human']['wardrobe_assembly_json']=json.dumps({'assembly':'adult_dress_v1','liberty':dress['liberty'],'production_eligible':False,'qualified_roles':[],'standing_source_only':True,'walking_seated_and_photo_accepted':False,'body_and_identity_unchanged':True},sort_keys=True)
     scene['authoring_status']='UNVERIFIED: fitting, anatomy, facial targets, UV density, grounded animation and all export/render gates remain open until Blender/CI runs'
