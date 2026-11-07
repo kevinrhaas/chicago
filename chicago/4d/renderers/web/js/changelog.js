@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2794, ts: '2026-11-07T20:22:57.337Z', date: 'Nov 7, 2026, 2:22 PM CT', title: 'Step back lets the carriage pass', kind: 'fix',
+    items: [
+      'Standing in a carriage\'s or wagon\'s road stops it, and Interact offers Step back to let it pass. Pressing it used to do nothing.',
+      'Now you step aside to the nearest clear spot beside the road, and the driver goes on.',
+      'Where there is no room to step aside, the key says so.',
+    ] },
   { v: 2793, ts: '2026-11-07T19:57:20.144Z', date: 'Nov 7, 2026, 1:57 PM CT', title: 'Frances Glessner\'s face, from her 1892 photograph', kind: 'feature',
     items: [
       'Mrs. Glessner\'s face is now fitted to a photograph of her: the Chicago History Museum\'s 1892 picture of her in a conservatory. Her card\'s Likeness shows the photograph beside the model, as her husband\'s does.',
