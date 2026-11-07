@@ -2988,6 +2988,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_sunken_sills.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_tavern_front_reader.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -4171,11 +4175,11 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/generate_yard_goods_1812.py": {
+    "tools/generate_yard_goods.py": {
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/generate_yard_goods.py": {
+    "tools/generate_yard_goods_1812.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6691,6 +6695,10 @@
       "wrote_ignored": []
     },
     "tools/test_travel_estimate.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_underpinning.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

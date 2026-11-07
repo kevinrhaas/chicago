@@ -285,7 +285,7 @@ SLUG = re.compile(r"^[a-z0-9_]+$")
 # else a liberty can be held to is under `form`, whose vocabulary is open and is
 # enumerated from the data rather than listed here. Kept in step with
 # tools/compile_liberties.py's COVER_ASPECTS.
-PHASE_ASPECTS = ("footprint", "position", "documented_range")
+PHASE_ASPECTS = ("footprint", "position", "documented_range", "underpinning")
 STRUCTURE_ASPECTS = ("function", "occupants", "present_status", "built")
 
 
@@ -1913,6 +1913,12 @@ def unlanded_values(structures: dict, scenes: dict, rep: Report,
             # drawn by another layer, which drapes on the heightfield at every
             # post rather than standing a footprint on it.
             if drawn_by_another_layer(ph):
+                continue
+            # T-3492: an underpinned phase is carried down to the ground by the
+            # renderer's underpinning, from a sill over its highest ground to below
+            # its lowest, so it lands by construction; tools/check_sunken_sills.py
+            # is the measurement that holds that layer to the heightfield.
+            if isinstance(ph.get("underpinning"), dict):
                 continue
             pos = ph.get("position") or {}
             poly = (ph.get("footprint") or {}).get("polygon")
