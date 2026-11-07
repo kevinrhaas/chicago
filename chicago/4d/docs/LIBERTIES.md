@@ -31509,6 +31509,8 @@ Actual pinned exporter source statically recognizes the proposed 1-(Alpha<.4) no
 
 **Strand hair, beards and eyes (2026-11-06, T-3414):** From the plan "Photographic humans: the path" the owner approved (*"Agreed on your recommendations, proceed"*). `renderers/web/js/human-hair.js` grows strand cards at load over each body's own hair cap and face, at the near levels only (LOD0, LOD1), with no texture and no file: narrow ribbons combed by a cut, a millimetre or two off the cap, cut into strands of uneven length by their shader, lit by the cap's two strand lobes, and skinned to the body's own bones; roots are kept where the cap's own texture is hair, and strands above the band of a hat put on later are cut away. The cuts and facial hair are a table, `renderers/web/js/human-hair-styles.js`, each choice graded: Hans Johnson (1904) wears a short back and sides with a side part, dark brown, and is clean-shaven, as the liveried coachmen in the people-match reference set (coachman_1904: Rau 1902, Griffith 1905) are; Otis Bardwell (1835) wears his hair fuller and brushed forward, with side whiskers, mid brown; anyone else takes their era's cut with no facial hair. No picture of either man is known: the cuts, the whiskers, every length, the colours and the density are reconstructed choices for a working man of each year, not evidence of what either wore. The iris and pupil now take the normals of a dome about 7.8 mm in radius centred behind each eye's own disc (roughness 0.1, the sky's reflection on them 2.5 times three's default), so a light makes one small sharp highlight on them and the sky a catchlight, and the white is shaded up to 45% toward the corners the lids cover; both are reconstructed rendering choices.
 
+**John J. Glessner's hair, moustache and spectacles (2026-11-07, T-3440):** The owner, of the card's model: *"his likeness is still not right"*. His 1897 portrait plate (`glessner_commercial_club_1910_presidents_plate`) shows a bald crown with short white hair at the sides and back, a full moustache over the upper lip, full brows, and round wire spectacles, and he is drawn so (`human-hair-styles.js` row `glessner_john_j`, graded attested; `human-spectacles.js`, attested). What the plate cannot give is reconstructed: the colour (white going grey, linear RGB 0.44, 0.41, 0.36, read from the plate's light tone and his age, the plate being a monochrome halftone), every length, the density and how far the fringe rises (3.6 cm above the eyes at the temples, 3.9 cm behind), the moustache's reach and droop, the spectacles' 38 mm lenses, 0.9 mm gold wire and their 12 mm set in front of the cornea, and the bald crown's undercoat (the cap's own triangles where the fringe grows, in a darker shade of the hair's colour, under the cards so the fringe reads as one band of hair). He is drawn in 1904 as the plate shows him seven years before.
+
 
 ## T-2793 — W01 original wheel/edge refinement (2026-10-19)
 
@@ -36608,6 +36610,30 @@ lets her hands hang or sets them on her hips, where they sank into the skirt's b
 she stands with them loosely clasped in front at the waist, over the apron, or held at the waist behind,
 as women in service stand in the photographs of the decade. All amounts are chosen by eye against the
 1903 stereographs; none is measured, and none says anything about how she looked.
+
+**The 1904 gentleman supplement, 2026-11-07 (T-3441):** a man's outfit on the same component path,
+`tools/human_gentleman_1904.py` with `data/humans/recipes/gentleman_1904.json`, built as the asset
+`glessner_john_j_1904` and first worn by John J. Glessner (attested; vice president of International
+Harvester in 1904); he is not placed in the town by this work. **Choice of coat:** the ticket allowed a
+frock coat, a morning coat or a sack suit. A 1904 Clinedinst print of Taft and Elihu Root
+(`loc_clinedinst_1904_taft_root_frock_coats`, LOC, no known restrictions) shows two public men in dark
+frock coats; an Underwood & Underwood stereograph of State Street, Chicago, at noon in 1903
+(`loc_underwood_1903_state_street_noonday_stereograph`) shows the city's men by day mostly in sack coats,
+one in a frock coat, nearly all in black derbies; Glessner's own plate
+(`glessner_commercial_club_1910_presidents_plate`) shows a tall standing collar, a dark four-in-hand tie and a
+high dark waistcoat under a dark coat. A frock coat with a derby joins the three; that he wore one on a
+given weekday is not recorded. **Cut:** a white shirt whose neck cut rises 4 cm up the neck as a standing
+collar; a waistcoat cut high, its V opening from 21.5 cm above the waist; a frock coat offset 2.4 cm from the
+body and smoothed so it spans the chest's hollows (pressed cloth, not skin), lapels rolled from 13 cm above
+the waist, skirts lofted round the body's own sections from the waist seam to the knee (0.49 m), widest
+over the front, the two front panels each going with their own leg and the back shared, in place of cloth
+simulation; straight mid-grey trousers on the shared workwear shell; closed black boots round the feet; a
+derby seated round the skull (crown 11.8 cm, brim 4 to 4.8 cm, curled 1.8 cm at the sides), rigid on the head
+bone and a mesh of its own so a renderer can lift it. **Colour:** the pictures are monochrome; the black,
+the white and the grey are chosen. **Skin:** MakeHuman's own CC0 older light-skinned male atlas, its painted
+scalp stubble blended to skin for his bald crown (`tools/human_skin_bald_scalp.py`). **Body:** the shared
+adult male base; his age (61), face (fitted to his plate), height and build are applied at runtime. Every
+amount is chosen by eye against the pictures; none is measured, and none says how he dressed.
 
 **Her own hair, 2026-11-06 (T-3434):** the owner still saw a man's head ("she still basically looks
 like Hans"): the raised short04 cap and a modelled knot were a man's crop underneath. Mattie now wears a

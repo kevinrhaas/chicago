@@ -42,6 +42,7 @@ import { loadMeshoptDecoder, disposeLoadedAsset } from './scene-loader.js';
 import { enuToWorld } from './terrain.js';
 import { dressSkin } from './human-skin.js';
 import { dressHair } from './human-hair.js';
+import { dressSpectacles } from './human-spectacles.js';
 
 /** § 8: the LODs each scene-detail tier may draw. `light` stays the floor. */
 export const HUMAN_TIERS = Object.freeze({ full: [0, 1, 2, 3], balanced: [1, 2, 3], light: [2, 3] });
@@ -297,6 +298,8 @@ export class HumanActor {
     // T-3414: at the near levels, strand-card hair, beard and whiskers grown from this body's
     // own scalp and face, by the person's cut (human-hair-styles.js). Not counted in its height.
     this.hair = dressHair(scene, { lod, person: this.personId ?? null, year: Number(this.instance.scene) || null });
+    // T-3440: spectacles, for a person whose portrait shows them (human-spectacles.js).
+    this.spectacles = dressSpectacles(scene, { lod, person: this.personId ?? null });
     const clips = new Map();
     for (const c of gltf.animations ?? []) clips.set(c.name, c);
     for (const c of this.libraryClips) if (!clips.has(c.name)) clips.set(c.name, c);

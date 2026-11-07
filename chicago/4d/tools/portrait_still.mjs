@@ -58,7 +58,7 @@ for (const person of people) {
   page.on('pageerror', (e) => errors.push(String(e)));
   const q = new URLSearchParams({ asset: card.body, keys: person, view: 'faces', aim: 'head', labels: '0',
     yaw: String(fit.fit.camera.yaw_deg), bg: card.background, dist: String(card.distance_m), look: String(card.aim_above_head_m),
-    ...(card.hide ? { hide: card.hide } : {}) });
+    ...(card.hide ? { hide: card.hide } : {}), ...(card.dress ? { dress: '1' } : {}) });
   await page.goto(`${base}/tools/human_variation_lineup.html?${q}`);
   await page.waitForFunction(() => window.__lineupReady === true, null, { timeout: 240000 });
   const applied = await page.evaluate(() => window.__variations?.[0] ?? null);
