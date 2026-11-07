@@ -1,0 +1,212 @@
+{
+  "structure_id": "pullman_house_1729_prairie",
+  "view": "detroit_det_4a08066",
+  "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
+  "glb_sha256": "1413110d8060ba16a1a185405b1c01ef085b263efdb6565bc78c59c928e8e374",
+  "camera_sha256": "2782cfb7522dcbce06430cb36da1cc7ca371344a01271c28449ffb8942619cd9",
+  "photo_sha256": "297e4d7b05312c70ddea6e5dbb24a74cffd0db743f3bb9cdcbb1f4c0edc5f4fb",
+  "rendered_members": [
+    {
+      "structure_id": "pullman_house_1729_prairie",
+      "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1456.371,
+        "local_n": -3167.542,
+        "rotation_deg": 179.611,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "1413110d8060ba16a1a185405b1c01ef085b263efdb6565bc78c59c928e8e374"
+    },
+    {
+      "structure_id": "pullman_house_1729_prairie_ranges",
+      "glb": "assets/gltf/pullman_house_1729_prairie_ranges__draft_1904.glb",
+      "placement": {
+        "local_e": 1456.387,
+        "local_n": -3169.972,
+        "rotation_deg": 179.611,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "draft_1904"
+      },
+      "position": [
+        0.0004983158329692067,
+        0,
+        -2.430052623233238
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "f165d4af7461c032c7c7fb87ba3af9e83c3b64a4b7946bea9b402993baa40cdf"
+    },
+    {
+      "structure_id": "pullman_house_1729_prairie_conservatory",
+      "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1467.58,
+        "local_n": -3167.464,
+        "rotation_deg": -0.815,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        -11.20927122522742,
+        0,
+        0.0018971781228114964
+      ],
+      "rotation_y": 3.1490277562032887,
+      "glb_sha256": "33753cacaa38e5035e8d72e0f568c4efa6c9770272b67ef2f03738313beeb916"
+    }
+  ],
+  "group_sha256": "b71c610006149e7686c1ba1bcbf5d9f033129832e378a86ee9a0a3546ecadbdc",
+  "rendered_flora": {
+    "season": "winter",
+    "creeper_in_leaf": true,
+    "lots": [
+      {
+        "parcel": "prairie_1729",
+        "shrubs": 26,
+        "trees": 3,
+        "beds": 0,
+        "creeper": 20
+      }
+    ],
+    "street_trees": 36,
+    "street_trees_m": 70,
+    "street_furniture": [
+      "hydrant.pictured.pullman",
+      "hydrant.pictured.pullman_stable",
+      "lamp.corner.prairie.e18th.ne",
+      "lamp.corner.prairie.e18th.nw",
+      "lamp.corner.prairie.e18th.se",
+      "lamp.pictured.opposite_1721",
+      "lamp.pictured.pullman_court",
+      "lamp.rule.calumet__prairie_ic_16_18#00",
+      "lamp.rule.prairie__prairie_ic_16_18#03",
+      "lamp.rule.prairie__prairie_ic_16_18#04"
+    ],
+    "street_furniture_m": 70
+  },
+  "flora_anchor": {
+    "local_e": 1456.371,
+    "local_n": -3167.542,
+    "rotation_deg": 179.611,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "as_mapped_1904"
+  },
+  "flora_renderer_sources": [
+    {
+      "file": "tools/photo_match.mjs",
+      "sha256": "75e452b467c22fc5d00cd4b512706c364c942d181869e504f7218ea25167a79c"
+    },
+    {
+      "file": "tools/photo_match_flora.mjs",
+      "sha256": "c973a45041a77a11ea32e30302cdc3eda3dc5516ad715fb0b1e14060f08b5c87"
+    },
+    {
+      "file": "renderers/web/js/front-yards.js",
+      "sha256": "cac67fd26e677f5a848f1817b51d2a485835b09f09aa2c234efc1b3a5b3e3329"
+    },
+    {
+      "file": "renderers/web/js/street-trees.js",
+      "sha256": "90d02b3e6b6ac5d1ab27a0eb3088f72719a8c1f59a7624dd833db80b127268f2"
+    },
+    {
+      "file": "renderers/web/js/tree-instances.js",
+      "sha256": "a103f17c2d5a18b12a39126c62c539dd69ad9a118939254589b0b579d4cb9c61"
+    },
+    {
+      "file": "renderers/web/js/tree-model.js",
+      "sha256": "516638c5cb53043e352359012564973fbaca844282e7809913d3f4709d8e5572"
+    },
+    {
+      "file": "renderers/web/js/tree-surface.js",
+      "sha256": "23dec0e5dda80547d8ee2ae86f1400fb1a4af2bd54ca0b53d7fe8d52f088cc84"
+    },
+    {
+      "file": "renderers/web/js/season.js",
+      "sha256": "e44ebdadf8266909cd6e8676775a9decc3b7376ba245ad784118851e15b409cc"
+    },
+    {
+      "file": "renderers/web/js/trees.js",
+      "sha256": "bd022919ca052610595908f83128dfceea976790c5bf2eff63f381abaa3b89b5"
+    },
+    {
+      "file": "renderers/web/js/street-furniture.js",
+      "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
+    }
+  ],
+  "flora_sha256": "13dc0772aa9546c05554b725fbc8f49ee35e0293ec8e3ef62947c527295a83b9",
+  "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08066-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: the main block's flank east section and rear (east) face under the mansard, the south-east corner at x 393 (cornice y 352), the rear face's north end at x 545, the step's return at x 458: the camera's fitted points, within 1-6 px",
+      "status": "fixed"
+    },
+    {
+      "what": "the rear face's three window columns, one round-headed light a storey in the south section and two in the step (the print's heads at x 422, 477 and 522; the render's at 427, 487 and 522), and a dormer over each (the print's at x 427, 480 and 524; the render's 427, 487, 522)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the rear face stepped: the step's lit return between the south section and the step (x 455-460) under the mansard's hip",
+      "status": "fixed"
+    },
+    {
+      "what": "a capped stone stack between the step's two dormers (x 495-506, its cap at y 295), where the build stood the deck's stack at v 10.0 (x about 459 through this camera, over the south section's dormer) [T-1881, 2026-11-07: moved to v 4.6, 1.4 m behind the face, between the dormers at v 8.04 and 3.44; a tree in the render's foreground covers it through this camera]",
+      "status": "fixed"
+    },
+    {
+      "what": "a second capped stone stack over the south section's dormer (x 423-434, its cap at y 288, standing over the cresting), not built [T-1881, 2026-11-07: built at (1.4, 13.5), top 18.4 m; it renders at x 423-435]",
+      "status": "fixed"
+    },
+    {
+      "what": "the step's stack is carried up the mansard's face from the cornice (x 495-508, y 295-365), in front of the slope, where the build stands it on the deck 1.4 m behind the face: the K15 kit stands a cornice stack only on a side wall, so carrying it on the rear face needs a kit change",
+      "status": "open"
+    },
+    {
+      "what": "the deck's cresting and its finials over the south-east corner, the cresting's top at y 293 (the render's 296)",
+      "status": "fixed"
+    },
+    {
+      "what": "the porte-cochere on the flank: a one-storey block with a balustraded deck (its top at y 427) and a dark round arch facing the camera at x 247-285, the deck's balustrade running back to the flank; the render's block stands in place (deck within 9 px) but its arch toward the camera renders narrower and about 15-20 px right (x 270-295), about 2 m at this distance",
+      "status": "open"
+    },
+    {
+      "what": "the flank's east section: the triple and the pair of round-headed second-storey lights (x 300-320 and 360-375) over a belt",
+      "status": "fixed"
+    },
+    {
+      "what": "the flank's ground storey east of the porte-cochere: two broad square-headed windows, glazed in several lights (x 297-315 and 350-372, y about 450-490), where the build has narrow round-headed lights (Taylor's no. 1445 sees this stretch only through the porte-cochere's arches, as a pair, and the build follows it)",
+      "status": "open"
+    },
+    {
+      "what": "the ivy: a heavy mantle over the flank's east section's ground storey (x 290-390, up to the belt at about y 440) and over the porte-cochere's piers and arch, where the build clothes only the porte-cochere's corner pier",
+      "status": "open"
+    },
+    {
+      "what": "18th Street's north parkway trees before the house: the print's trunks stand at x about 345, 435 and 540 (before the flank's east section, before the terrace's flight and at the rear face's north end), the render's at about 245, 305, 390 and 497, up to about 45 px (about 5 m) off; the trees were planted at Taylor's no. 1445's trunks (T-1881, 2026-10-30), which this print, of c. 1900, does not confirm",
+      "status": "open"
+    },
+    {
+      "what": "the walls' colour and the mansard's slate: a monochrome print",
+      "status": "not shown"
+    },
+    {
+      "what": "the Prairie Avenue front and the house's north face: beyond the corner, behind the trees",
+      "status": "not shown"
+    },
+    {
+      "what": "the estate's other buildings, judged in their own records (T-1934): the raised terrace in the rear's south-east angle (the conservatory record's), which the print shows as a low balustraded terrace along the rear face from the corner to about x 495 with its flight descending to the 18th Street walk between two piers at x 435-470 and no awning, where the build lays a terrace with its awning and flights and urned piers reaching forward and west to the coping (x 350-570); the low east range with its balustrade and two stacks (x 545-640) and the conservatory's drum behind it (x 640-660, y 395); and the stable, whose south-east corner (x 930) the fit used, and whose south face the build draws long and tall across x 570-930, where the print shows the low range, a two-storey block (x 700-800) and the stable's hipped roof only from about x 860; the 18th Street coping and its piers",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
