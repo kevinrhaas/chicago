@@ -2,7 +2,7 @@
   "structure_id": "mayer_house_2009_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/mayer_house_2009_prairie__as_mapped_1904.glb",
-  "glb_sha256": "0a0ace75fe14099f101c2005d57ae5a61746f20da83bb820e9be72b5ce2afb0c",
+  "glb_sha256": "e364e184a44323f7158e1ec5028b7f94d770f964c8845a55fe065979766afc69",
   "camera_sha256": "78ec8f49f37566693a797fc7fa98ded24d4845ec40ef057129786224b8258d8a",
   "photo_sha256": "03db894ab10dff078b747f611eba3dd8d9bc3b1f35aae50435017dcd4640b4a2",
   "side_by_side": "docs/RESEARCH/photo-match/mayer_house_2009_prairie/chicagology_photo-side-by-side.jpg",
@@ -89,8 +89,12 @@
       "status": "within tolerance"
     },
     {
-      "what": "the windows' moulded hoods (the ground window's hood on consoles, the paired light's hood rising to the pendant, the small light's hood block), and the carved pendant in the gable: under the build's plain lintels (T-1914)",
-      "status": "open"
+      "what": "the windows' moulded hoods and the gable's pendant: over the paired light a stone drip mould from s 2.47 to 5.57 m (x 637-945 px), stone from the light's head to about 11.85 m (y 542 px), its ends turned down to about 11.3 m as label stops 0.18 m wide, and off its crown a carved pendant to about 12.96 m (y 430 px), a stem under two pairs of arms and a bud (x 755-820 px); under the oriel two consoles (centres s 1.54 and 4.31 m, x 533-555 and 812-830 px) from about 4.2 m up into the corbel, widening upward; over the small light a splayed block 0.40-0.51 m across, 7.35-7.73 m (x 999-1050 px), in place of the surround's lintel; laid as street_front_windows.hoods, and the street gutter that had run across the gable's foot taken off (shaped_gable.takes_gutter), as the print shows none (T-3365)",
+      "status": "fixed"
+    },
+    {
+      "what": "the hoods' carving: the pendant's foliage drawn as stepped stone blocks (its arms square where the print's curl), the hood's ogee rise into the pendant as a short wider block, the consoles' scrolls as plain tapered blocks, about 0.5 m shorter than the print's (they stop under the build's deeper oriel corbel at 4.72 m, where the print's run on to about 5.1 m under a shallower one); and the drip mould stands 0.08 m proud of the gable's slab, 0.2 m out of the wall, where the print's projection cannot be read off a square view",
+      "status": "within tolerance"
     },
     {
       "what": "the north corner: the print, read at 2x with its contrast stretched, shows brick up the corner to the string course and a pale stone strip about 0.5 m across from the string course to the kneeler (9.2-11.75 m), not quoins from grade; laid as stone courses up the corner from 9.2 m to the wall head, returned 0.3 m on the flank (T-3365)",
