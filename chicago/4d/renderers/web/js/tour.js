@@ -74,7 +74,7 @@ export const STEPS = [
   { task: 'People',
     bubble: (p) => menuOpen('People', String(p.scene) === '1904' ? 'find anyone, visit their house, follow them' : 'find a person or a household')(p),
     target: railKey('people'), done: opened('people'), when: (p) => p.people !== false },
-  { task: 'Settings', bubble: menuOpen('Settings', 'light, season, time of day, labels'),
+  { task: 'Settings', bubble: menuOpen('Settings', 'light, season, time of day, people, labels'),
     target: railKey('settings'), done: opened('settings') },
   { task: 'Ready', bubble: () => 'Ready. Take a Jaunt, Go to a place or a photo, or Jump years.',
     target: '#navigator', action: 'finish' },

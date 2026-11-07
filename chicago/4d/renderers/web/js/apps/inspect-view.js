@@ -58,6 +58,7 @@ let drawnFor = null;
 let lastTab = 'overview';
 let tabFor = null;            // the building the remembered tab belongs to
 let personLinked = null;      // the last link whose person card was opened (T-3265)
+let photoLinked = null;       // the last link whose arrived-at photo was shown (T-3436)
 // T-3435 (the owner, 2026-11-06): Story reads Timeline (its key stays `story`, so old links
 // still open it); Details, the grade view, sits before Sources, which is last; the bar is one
 // row of icons over small labels.
@@ -348,6 +349,12 @@ function render(root, ctx) {
     && (ctx.link !== personLinked || (root._insp?.id === id && root._insp.person === ctx.link.person))
     ? ctx.link.person : null;
   if (person) { personLinked = ctx.link; tab = 'people'; }
+  // T-3436: a Go to › Photos ride ends on the Photos tab with that picture large at its head,
+  // once per arrival (first-open mount and shown both draw, so keep it across that refresh).
+  const photo = !person && ctx.link?.app === 'inspect' && ctx.link.id === id && ctx.link.photo
+    && (ctx.link !== photoLinked || (root._insp?.id === id && root._insp.photo === ctx.link.photo))
+    ? ctx.link.photo : null;
+  if (photo) { photoLinked = ctx.link; tab = 'photos'; }
   tabFor = id;
   const bar = el(doc, 'nav', 'insp-tabs');
   bar.setAttribute('role', 'tablist');
@@ -387,7 +394,7 @@ function render(root, ctx) {
   }
   head.append(bar);
   root.append(head, panes);
-  root._insp = { id, sum, ctx, person };
+  root._insp = { id, sum, ctx, person, photo };
   selectTab(root, tab);
   drawnFor = id;
 }
@@ -414,7 +421,7 @@ function selectTab(root, key) {
 }
 
 async function fillPane(root, pane, key) {
-  const { id, sum, ctx } = root._insp ?? {};
+  const { id, sum, ctx, photo } = root._insp ?? {};
   if (!id) return;
   const doc = root.ownerDocument;
   pane.dataset.filled = 'pending';
@@ -483,7 +490,7 @@ async function fillPane(root, pane, key) {
       if (['half', 'full'].includes(ctx.navigator?.detent)) ctx.navigator?.dock?.();
       void ctx.actions.fromSpot(id, p);
     } : null;
-    if (!renderPhotos(pane, { doc: ctx.picturesDoc, id, sceneYear: ctx.scene?.id ?? ctx.scene?.scene_id, onSpot })) {
+    if (!renderPhotos(pane, { doc: ctx.picturesDoc, id, sceneYear: ctx.scene?.id ?? ctx.scene?.scene_id, onSpot, featured: photo })) {
       const d = html(sec.photos);
       pane.append(d);
       hydratePictures(d);

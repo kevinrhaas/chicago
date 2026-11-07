@@ -2296,6 +2296,10 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
   .welcome-sort::after { right: 10px; }
 }
 .welcome-results { overflow-y: auto; overscroll-behavior: contain; min-height: 96px; flex: 1 1 auto; }
+/* Lent to the Navigator's Jaunts screen, the list is not a scroller of its own: the screen
+   scrolls. An unbounded list kept as a scroll container caught the mouse wheel and, with
+   overscroll contained, passed it nowhere (the owner, 2026-11-07). */
+.nav-screen .welcome-results { overflow-y: visible; overscroll-behavior: auto; min-height: 0; }
 .welcome-destination { width: 100%; text-align: left; padding: 8px 10px; margin-bottom: 5px; min-height: 44px; }
 .welcome-destination strong, .welcome-destination span { display: block; }
 .welcome-destination strong { font-size: 14px; }

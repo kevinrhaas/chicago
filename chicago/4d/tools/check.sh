@@ -604,6 +604,8 @@ step "All named1904 driver LODs retain their native contract and seated geometry
   node tools/test_working_driver_1904.mjs
 step "A person transfers to their driven vehicle without duplicate bodies or lifetime ownership (T-2804)" \
   node tools/test_human_driver_transfer.mjs
+step "A figure's distance levels are parked and reused, not reloaded; People hidden stops every figure (T-3439)" \
+  node tools/test_human_lod_park.mjs
 step "The shared interaction key and touch control stop and resume the existing transport actor (T-2804)" \
   node tools/test_transport_interactions.mjs
 step "Every person placed in town is named by the look tag, found, and followed beside them (T-3404)" \
