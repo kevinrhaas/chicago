@@ -68,8 +68,9 @@ st, phase = record()
 wins = phase["form"]["street_front_windows"]["value"]["windows"]
 p = KP.from_phase(phase, st)
 arcs = p.street_dress.get("architraves", ())
-# T-1881 (2026-11-02): the south part carries the big column (v 11.225) and the narrow one (v 15.45)
-check(len(arcs) == 4 and len(wins) == 4, f"all four of the south part's named lights are framed ({len(arcs)})")
+# T-1881 (2026-11-06, the owner: "in the image there is one window at every level"): the south part
+# carries ONE column, centred at v 13.1; the narrow one at v 15.45 is the 18th Street flank's
+check(len(arcs) == 2 and len(wins) == 2, f"both of the south part's named lights are framed ({len(arcs)})")
 check(not p.street_dress.get("voussoirs"), "no light on the front is still turned in voussoirs")
 keyed = sorted(a["s_m"] for a in arcs if a.get("key_m"))
 check(keyed == sorted(w["s_m"] for w in wins if w["storey"] == 0 and "architrave" in w),
@@ -77,7 +78,7 @@ check(keyed == sorted(w["s_m"] for w in wins if w["storey"] == 0 and "architrave
 check(all(a.get("impost_m") for a in arcs), "every architrave steps out in an impost at its springing")
 a = K1.build(p, st["id"])
 meta = getattr(a, "architrave_meta", [])
-check(len(meta) == 4, f"the assembly framed four lights ({len(meta)})")
+check(len(meta) == 2, f"the assembly framed two lights ({len(meta)})")
 for m in meta:
     w = next(w for w in wins if "architrave" in w and abs(w["s_m"] - m["s_m"]) < 1e-6 and abs(w["sill_m"] - m["sill_m"]) < 1e-6)
     spring = w["sill_m"] + w["height_m"] - w["width_m"] / 2
@@ -98,12 +99,12 @@ refused(lambda ws: ws[1].update(voussoirs={"ring_m": 0.25, "stones": 13, "proud_
 refused(lambda ws: ws[0]["architrave"].update(band_m=0.6), "architrave: a 0.1-0.45 m band", "a band out of range")
 refused(lambda ws: ws[0]["architrave"].update(hood=True), "architrave takes", "an unknown key")
 refused(lambda ws: ws[0]["architrave"].update(key_m=[0.3, 0.1]), "key_m", "a keystone lower than the band")
-refused(lambda ws: ws.append(dict(ws[0], s_m=12.9)), "street_front_windows: the architrave", "two architraves run into one another")
+refused(lambda ws: ws.append(dict(ws[0], s_m=11.4)), "street_front_windows: the architrave", "two architraves run into one another")
 
 # T-1881 (2026-11-03): the big principal-storey light's foot, off the 1890 Albertype plate: its sill
 # with an ear either side of the band's feet, a longer sill on two corbels under it, a sunk panel below
 feet = [a for a in arcs if a.get("foot")]
-check(len(feet) == 1 and feet[0]["s_m"] == 11.225 and feet[0]["sill_m"] == 2.5,
+check(len(feet) == 1 and feet[0]["s_m"] == 13.1 and feet[0]["sill_m"] == 2.5,
       f"only the big principal-storey light carries a foot ({[a['s_m'] for a in feet]})")
 check([m["foot"] for m in meta].count(True) == 1, "the assembly laid one light's foot")
 if feet:
