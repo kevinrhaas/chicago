@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2747, ts: '2026-11-07T03:15:06.640Z', date: 'Nov 6, 2026, 9:15 PM CT', title: 'The Pullman portico runs the length of the front', kind: 'feature',
+    items: [
+      'In 1904, the Pullman house\'s stone portico on Prairie Avenue no longer stops at the door. As the old photographs show it, its columns, entablature and balustraded balcony now run north across the front block to its corner, standing well out from the wall on three columns.',
+    ] },
   { v: 2746, ts: '2026-11-07T02:51:28.029Z', date: 'Nov 6, 2026, 8:51 PM CT', title: '1936 Prairie\'s chimneys take their photograph\'s heights and heavy heads', kind: 'fix',
     items: [
       'The Thompson/Allerton house at 1936 Prairie: the left chimney over the south flank comes down about 0.9 m to the height its winter photograph shows, and both south chimneys now wear what the photograph draws on them: a stone band, a sunk panel on the taller one, and a heavy corbelled head under a broad stone cap in place of a thin slab.',
