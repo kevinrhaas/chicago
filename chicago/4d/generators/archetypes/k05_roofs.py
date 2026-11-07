@@ -470,7 +470,8 @@ def hip_crown_element(x0, x1, z0, z1, E, side_deg, end_deg, o, f):
     return ring_stack(rings, ["fascia", "covering"], "soffit"), E - f, {"ridge_m": round(E + rise, 4)}
 
 
-def mansard_element(x0, x1, z0, z1, E, lower_deg, upper_deg, rise, bulge, n, profile, o, f, cut=None):
+def mansard_element(x0, x1, z0, z1, E, lower_deg, upper_deg, rise, bulge, n, profile, o, f, cut=None,
+                    x1_run=None, x1_knee=None):
     """A mansard over the wall rectangle x0..x1 by z0..z1 as one ring stack (T-2304's
     variant, factored out by T-2370 so a K01 house is roofed by the same code): the fascia
     out `o` past the wall line with its top at E (a mansard's eave is its cornice), the
@@ -482,12 +483,28 @@ def mansard_element(x0, x1, z0, z1, E, lower_deg, upper_deg, rise, bulge, n, pro
     T-3186: `cut`, (ring_fn, gone_at), cuts a corner of every ring on a canted face:
     ring_fn(ring, out) takes inset_rect's ring and how far out of the wall line it stands,
     and `gone_at` is the inset where the cut runs out of the low hip, which takes a ring
-    of its own so every face stays planar."""
+    of its own so every face stays planar.
+
+    T-1890: `x1_run`, the x1 face's own run from its fascia to the curb where that face leans
+    back further than the others (1801's street face, which both photographs from the
+    north-west put about 1 m further back at its curb than its side faces' pitch would): every
+    ring of that face stands in by the others' inset scaled by x1_run / run up to the curb, and
+    by that extra run on to the ridge, so each face is still one plane per ring. `x1_knee`, on a
+    straight face (bulge 0): the x1 face rises at the others' pitch up to that height over the
+    eave, where a ring of its own stands, and leans back from there to its curb."""
     lt = math.tan(math.radians(lower_deg))
     ut = math.tan(math.radians(upper_deg))
     run = rise / lt
     hs, he = E - f, E
     X0, X1, Z0, Z1 = x0 - o, x1 + o, z0 - o, z1 + o
+    tk = None
+    if x1_run is not None and x1_run > run + 1e-9:
+        tk = x1_knee / lt if x1_knee else 0.0           # the others' inset at the knee
+        k1, extra = (x1_run - tk) / (run - tk), x1_run - run
+        rect = lambda X0_, X1_, Z0_, Z1_, d: _inset_rect_x1(
+            X0_, X1_, Z0_, Z1_, d, d if d <= tk else tk + (d - tk) * k1 if d <= run + 1e-9 else d + extra)
+    else:
+        rect = inset_rect
     # the lower face: a quadratic curve from the fascia's top (inset 0) to the curb
     L = math.hypot(run, rise)
     P0, P2 = (0.0, he), (run, E + rise)
@@ -495,22 +512,33 @@ def mansard_element(x0, x1, z0, z1, E, lower_deg, upper_deg, rise, bulge, n, pro
     sgn = 1.0 if profile == "convex" else -1.0
     mid = ((P0[0] + P2[0]) / 2, (P0[1] + P2[1]) / 2)
     P1 = (mid[0] + sgn * bulge * L * nrm[0], mid[1] + sgn * bulge * L * nrm[1])
-    rings = [(hs, inset_rect(X0, X1, Z0, Z1, 0.0)), (he, inset_rect(X0, X1, Z0, Z1, 0.0))]
+    rings = [(hs, rect(X0, X1, Z0, Z1, 0.0)), (he, rect(X0, X1, Z0, Z1, 0.0))]
     for k in range(1, n + 1):
         u = k / n
         ins = (1 - u) ** 2 * P0[0] + 2 * (1 - u) * u * P1[0] + u * u * P2[0]
         y = (1 - u) ** 2 * P0[1] + 2 * (1 - u) * u * P1[1] + u * u * P2[1]
-        rings.append((y, inset_rect(X0, X1, Z0, Z1, ins)))
+        if tk and k == 1 and bulge == 0.0 and 0.0 < tk < ins:   # T-1890: the x1 face's knee
+            rings.append((E + x1_knee, rect(X0, X1, Z0, Z1, tk)))
+        rings.append((y, rect(X0, X1, Z0, Z1, ins)))
     d = min(X1 - X0, Z1 - Z0) / 2
     # T-3283: a cut may name more insets (the one where it eats the end side it cuts)
     for t in sorted((cut[1], *cut[2:]) if cut is not None else ()):
         if run < t < d:
-            rings.append((E + rise + (t - run) * ut, inset_rect(X0, X1, Z0, Z1, t)))
-    rings.append((E + rise + (d - run) * ut, inset_rect(X0, X1, Z0, Z1, d)))
+            rings.append((E + rise + (t - run) * ut, rect(X0, X1, Z0, Z1, t)))
+    rings.append((E + rise + (d - run) * ut, rect(X0, X1, Z0, Z1, d)))
     if cut is not None:
         rings = [(y, cut[0](ring, o - _ins(ring, X0, Z1))) for y, ring in rings]
     roof = ring_stack(rings, ["fascia"] + ["covering"] * (len(rings) - 2), "soffit")
     return roof, hs, {"curb_m": round(E + rise, 4), "ridge_m": round(rings[-1][0], 4)}
+
+
+def _inset_rect_x1(x0, x1, z0, z1, d, d1):
+    """T-1890: inset_rect with the x1 side inset by its own `d1` (clamped where the x sides meet)."""
+    xa, xb = x0 + d, x1 - d1
+    if xa > xb:
+        xa = xb = (xa + xb) / 2
+    za, zb = min(z0 + d, (z0 + z1) / 2), max(z1 - d, (z0 + z1) / 2)
+    return [(xa, za), (xb, za), (xb, zb), (xa, zb)]
 
 
 def _ins(ring, X0, Z1):

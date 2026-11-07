@@ -41549,6 +41549,37 @@ check the crest and the pinnacles from a second picture.
 **Ticket:** T-3365 (piece 2 of T-1914).
 **Recorded:** 2026-11-06 (T-3365).
 
+### L-kimball-1801-street-lean-1890 — 1801 Prairie's street face leaning back further than its side faces, and its front stack lowered to 17.3 m
+**Recorded:** 2026-11-07.
+
+**Decision:** the W. W. Kimball house's mansard rises 5.76 m from its 8.9 m cornice to a curb at 14.66 m;
+its 18th Street, south and rear faces at 67.0 degrees (a run of 2.44 m, as before), its street face on
+Prairie Avenue running 3.42 m back to the curb (`mansard.street_run_m`): at the side faces' pitch up to a
+knee 2.9 m over the eave (`mansard.street_knee_m`), at about 53 degrees over it. The deck, its
+cresting, the corner hood and the street dormers stand on that line; the dormers' faces are set back so
+their lights keep their heights. The south wall's front stack is lowered from 18.0 to 17.3 m.
+**What is read, not invented.** J. W. Taylor's photograph of c. 1895 (`taylor_c1895_kimball_residence_1801`)
+and HABS photograph 2 of 1965 (`habs_kimball_photo_02_nw_1965`), through their solved cameras: the curb's
+north-west corner (x 948, y 318 on the print; x 1203, y 320 on HABS 2) and the corner hood's top, which
+both put lower and further east than a mansard of one pitch could stand them, and the print's corner hip,
+which leans back as it rises; the front's curb line on both. HABS photograph 1 (`habs_kimball_photo_01_sw_1965`)
+holds the south curb at the new height. The stack's height is where the Taylor print's eye loses it behind
+the south pavilion's cross roof, where the print shows sky.
+**What is inferred.** How the setback divides between the street face and the side face: the two cameras
+stand about 6 m apart and fix the corner well across their line of sight and poorly along it, so a longer
+side run with a shorter street run fits almost as well (a free fit: street 4.39 m, side 3.65 m, rise
+6.56 m). The side faces' run is held where the build stood it. The knee is inferred, not seen: the prints show
+the hip leaning back evenly (the build's bends, about 0.35 m off the Taylor print's at its middle), but a face
+leaned from the eave would stand its slate about 0.5 m under the south cant's 11.65 m cornice, where HABS
+photograph 1 shows slate over the cornice and a light on the cant lights a room behind it; the knee's height
+is the lowest that keeps that slate over the cornice with some margin. A bell-cast street face would answer
+both readings and is not built. The stack: HABS photograph 1 of 1965 reads its cap about 0.5 m
+higher; the period print governs the 1904 phase, and the 1965 height may be a later raising.
+**How to resolve:** a picture of the front's roof from the south-west or from across the street square-on
+(the third bearing on the corner), or a section of the house.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`, `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg`, `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg`.
+
 ### L-k01-2009-meyer-hoods-3365 — 2009 Prairie's window hoods, the consoles under its oriel and the carved pendant in its gable, read off its photograph
 
 **Decision:** Read off the undated Chicagology photograph (`chicagology_2009_prairie_meyer_photo`, rights
