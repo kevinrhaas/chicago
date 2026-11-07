@@ -3111,6 +3111,8 @@ class Assembly:
                              {"k08_variant": b["id"], "plan": v["plan"]["kind"], "storeys": len(v["storeys"]),
                               "wall_top_m": built.meta["wall_top_m"], "projection_m": built.meta["plan"]["projection_m"],
                               "windows": len(built.windows), "wall": b["wall"],
+                              # T-3365: the carved band under its lights, where it has one
+                              **({"apron_band": built.meta["apron_band"]} if "apron_band" in built.meta else {}),
                               **({"on_chamfer": cant["host"]} if b.get("on_chamfer") else {}),
                               **({"on_front": cant["host"]} if b.get("on_face") else {})},
                              {"junction_left": _add(O, _mul(R, s_at + lo_ if cant else b["span_m"][0])),

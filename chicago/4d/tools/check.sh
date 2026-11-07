@@ -1496,6 +1496,12 @@ step "a K01 named-window front takes named basement lights, a corner stone and a
 step "a K01 shaped gable takes a carved crest and a door's pilasters take pinnacles (T-3365)" \
   python3 tools/test_k01_crest_pinnacles.py
 
+# T-3365. A K08 bay's carved apron band under its lowest lights (2009 Prairie's oriel, the
+# Chicagology photograph): held on the committed record, its rosettes counted, the light tier
+# dropping them; each key refused out of its range, and a band into the sill stones refused.
+step "a K08 oriel takes a carved apron band of rosettes under its lights (T-3365)" \
+  python3 tools/test_k08_apron_band.py
+
 # T-3255. Eared and crested stone hoods over a K01 wall's round-headed lights, and the main
 # block's corner pilasters (k01_dressings), held on 1701 Prairie's record: every round light on
 # the named walls hooded and no other, a pair meeting ear to ear, every crest under the eave,
