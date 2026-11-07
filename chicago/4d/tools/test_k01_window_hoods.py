@@ -103,7 +103,42 @@ refused(lambda f: hd(f, 2)["pendant"].update(tiers=[[12.5, 12.6, 0.48], [12.18, 
         "pendant tiers out of order")
 refused(lambda f: hd(f, 2)["pendant"].update(stem_m=0.7), "a pendant stem wider than its tiers")
 
+# T-3365: the gable's south side run on down to the party wall (`shaped_gable.run_on`): the slab's
+# outline reaches the front's high-s corner at the run-on's foot, the walls under the line are cut
+# down to it, the wall head behind the soffit stops where the cut starts, and the high-s gutter run
+# stops at the cheek
+from archetypes import k01_shaped_gable as KSG  # noqa: E402
+ro = p.shaped_gable["run_on"]
+W = p.width_m
+g = a.shaped_gable_geom
+corner = [q for q in g["outline"] if abs(q[0] + W) < 1e-6]
+check(any(abs(q[1] - ro["profile_m"][-1][1]) < 1e-6 for q in corner)
+      and any(abs(q[1] - (ro["profile_m"][-1][1] - ro["band_m"])) < 1e-6 for q in corner),
+      "the slab runs on down to the party wall's corner on its band")
+check(min(y for _, y in g["outline"]) < p.shaped_gable["foot_m"] - 1.0, "the run-on falls a metre under the slab's foot")
+holes = KSG.run_on_wall_holes(p)
+fh = holes["k01.wall.street_front"]
+check(fh and abs(fh[-1][1] - W) < 0.1 and all(h[2] < KSG.run_on_y(p.shaped_gable, h[0] - W / 2) for h in fh),
+      f"the front stepped down under the line to the corner ({len(fh)} steps)")
+check(holes["k01.wall.side.north"][0][1] > ro["back_m"], "the party wall cut back past the cheek")
+head = [q for q in a.prims[a.front_brick].pos if abs(q[0] - p.depth_m) < 1e-6 and q[1] > p.eave_m - 1e-6
+        and -q[2] > fh[0][0] + 1e-6]
+check(not head, "no wall head left standing over the run-on")
+check(len(a.roof_shell[1]) > 0, "the roof joins and cuts with the run-on's floor and cheek")
+
+
+def ro_set(**kw):
+    return lambda f: f["shaped_gable"]["value"]["run_on"].update(**kw)
+
+
+refused(ro_set(wall="k01.wall.side.south"), "a run-on at the low-s end")
+refused(ro_set(profile_m=[[2.31, 12.34], [3.0, 11.26], [3.7, 10.32]]), "a run-on short of the corner")
+refused(ro_set(profile_m=[[2.31, 12.34], [3.0, 12.6], [3.78, 10.32]]), "a run-on that rises")
+refused(ro_set(profile_m=[[1.2, 12.34], [3.0, 11.26], [3.78, 10.32]]), "a run-on off the outline")
+refused(ro_set(band_m=1.2), "a 1.2 m band")
+refused(ro_set(back_m=0.2), "a cut 0.2 m deep")
+
 if failures:
     print(f"FAIL  {len(failures)} check(s)")
     sys.exit(1)
-print("PASS  window hoods, consoles, key and pendant")
+print("PASS  window hoods, consoles, key and pendant; the gable's run-on")

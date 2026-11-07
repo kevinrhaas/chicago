@@ -44,6 +44,13 @@ waves to a crown at its middle and a flick at each end, over a two-step `shelf`;
 block carries a sunk `panel`; each scroll a carved `rosette` in its eye; the `finial` is an
 `urn` on a carved ball; and `base_ledge_half_m` draws the slab's base in from its foot to the
 kneelers' ledge. L-k01-1812-wheeler-gable-3090.
+
+T-3365: 2009 Prairie's gable runs on down its south side to the party wall where its north
+side stops at the kneeler. `run_on` carries the outline's high-s side on down a line of its own
+to the front's corner (the slab a band under it); run_on_wall_holes() cuts the front and the
+party wall down under the line, and run_on_solids() takes the hip's eave and covering off over
+it in front of a cheek, closing the cut with that cheek over a slated floor along the line.
+L-k01-2009-meyer-gable-run-on-3365.
 """
 
 from __future__ import annotations
@@ -98,11 +105,118 @@ def geometry(p, ye):
     up = [(w, y) for w, y in sg["profile_m"] if y > ledge + 1e-6]
     right = [(hl, ledge)] + up        # foot to apex, the last on the centre line
     bl = sg.get("base_ledge_half_m") or hb   # T-3090: the base drawn in to the ledge
-    side = [(zc - hb, sg["foot_m"]), (zc + hb, sg["foot_m"]), (zc + bl, ledge)]
+    foot = sg["foot_m"]
+    ro = sg.get("run_on")
+    if not ro:
+        side = [(zc - hb, foot), (zc + hb, foot), (zc + bl, ledge)]
+        pts = side + [(zc + w, y) for w, y in right[:-1]] + [(zc, right[-1][1])]
+        pts += [(zc - w, y) for w, y in reversed(right[:-1])] + [(zc - bl, ledge)]
+        return {"xf": xf, "xb": xb, "zc": zc, "ledge": ledge, "hb": hb, "right": right, "left": right,
+                "apex": right[-1][1], "outline": pts, "under": []}
+    # T-3365: the high-s side (z = zc - w) leaves the profile where the run-on starts and runs on
+    # down to the front's corner; the slab under it is a band `band_m` deep, its underside the
+    # run-on dropped by that much, back up to the slab's foot
+    left = run_on_line(sg)
+    under = [(w, y - ro["band_m"]) for w, y in ro["profile_m"]]
+    keep = [q for q in under if q[1] < foot - 1e-6]
+    i = next(i for i, q in enumerate(under) if q[1] < foot - 1e-6)
+    if i > 0:   # where the underside crosses the slab's foot
+        (w0, y0), (w1, y1) = under[i - 1], under[i]
+        wf = w0 + (w1 - w0) * (foot - y0) / (y1 - y0)
+    else:
+        wf = keep[0][0]
+    side = [(zc - wf, foot), (zc + hb, foot), (zc + bl, ledge)]
     pts = side + [(zc + w, y) for w, y in right[:-1]] + [(zc, right[-1][1])]
-    pts += [(zc - w, y) for w, y in reversed(right[:-1])] + [(zc - bl, ledge)]
-    return {"xf": xf, "xb": xb, "zc": zc, "ledge": ledge, "hb": hb, "right": right,
-            "apex": right[-1][1], "outline": pts}
+    pts += [(zc - w, y) for w, y in reversed(left[:-1])]
+    pts += [(zc - w, y) for w, y in reversed(keep)]
+    return {"xf": xf, "xb": xb, "zc": zc, "ledge": ledge, "hb": hb, "right": right, "left": left,
+            "apex": right[-1][1], "outline": pts,
+            "under": [(zc - w, y) for w, y in [(wf, foot)] + list(reversed(keep))]}
+
+
+def run_on_line(sg):
+    """T-3365: the high-s side's outline from the front's corner up to the apex — the run-on's
+    points, lowest first, then the profile's over them — as (half-width, height), like `right`."""
+    ro = sg["run_on"]
+    rp = list(reversed(ro["profile_m"]))
+    return rp + [(w, y) for w, y in sg["profile_m"] if y > ro["profile_m"][0][1] + 1e-6]
+
+
+def run_on_y(sg, w):
+    """T-3365: the run-on's height at half-width w (between its first point and the corner)."""
+    rp = sg["run_on"]["profile_m"]
+    for (w0, y0), (w1, y1) in zip(rp, rp[1:]):
+        if w0 - 1e-9 <= w <= w1 + 1e-9:
+            return y0 + (y1 - y0) * (w - w0) / (w1 - w0)
+    return rp[0][1] if w < rp[0][0] else rp[-1][1]
+
+
+RUN_ON_STEP_M = 0.1         # T-3365: the walls' cut under the run-on, in steps this wide
+RUN_ON_CHEEK_M = 0.5        # the cheek closing the cut, this thick behind its face
+RUN_ON_SKIN_M = 0.02        # the notch's floor this far under the coping's line, and
+RUN_ON_CLEAR_M = 0.03       # the cut's floor this far over it: three offsets of one bent line
+                            # a few mm apart split the slab's face into slivers at its bends
+                            # (a doubled triangle at 4 mm and 10 mm; tools/check_roof_kit.py)
+
+
+def run_on_wall_holes(p):
+    """T-3365: what the run-on takes out of the walls under it, as {wall: [(s0, s1, y0, y1)]}:
+    the street front stepped down under the line from where it falls under the wall head to the
+    corner (each step's foot under the line's lower end, inside the band), and the party wall
+    from the front back to the cheek, down to the line's foot."""
+    sg = p.shaped_gable
+    ro = sg.get("run_on")
+    if not ro:
+        return {}
+    W, E = p.width_m, p.eave_m
+    rp = ro["profile_m"]
+    w = rp[0][0]
+    if run_on_y(sg, w) > E:   # start where the line falls through the wall head
+        for (w0, y0), (w1, y1) in zip(rp, rp[1:]):
+            if y0 >= E >= y1:
+                w = w0 + (w1 - w0) * (y0 - E) / (y0 - y1)
+                break
+    front = []
+    while w < W / 2 - 1e-9:
+        w1 = min(W / 2, w + RUN_ON_STEP_M)
+        front.append((round(W / 2 + w, 5), round(W / 2 + w1 + (0.05 if w1 >= W / 2 else 0.0), 5),
+                      round(run_on_y(sg, w1) - 0.01, 5), round(E + 0.5, 5)))
+        w = w1
+    side = [(0.0, round(ro["back_m"] + 0.05, 5), round(rp[-1][1] - 0.01, 5), round(E + 0.5, 5))]
+    return {"k01.wall.street_front": front, "k01.wall.side.north": side}
+
+
+def run_on_solids(a, k5):
+    """T-3365: the roof's side of the run-on, for the union and the cut, as (solids, cutters).
+    Under the coping's line from the front back to the cheek a slated floor (the notch's), and
+    the cheek, a brick face `back_m` behind the front from under the line to the roof, closing
+    the notch the cut opens; the cutters take the hip's eave, soffit and covering off over the
+    line, in front of the cheek, and its side eave past the party wall's face."""
+    p, sg = a.p, a.p.shaped_gable
+    ro = sg["run_on"]
+    D, W, E = p.depth_m, p.width_m, p.eave_m
+    back = D - ro["back_m"]
+    rp = ro["profile_m"]
+    z = lambda w: -(W / 2 + w)
+    y_bot = rp[-1][1] - ro["band_m"] - 0.3
+    top = p.ridge_m + 1.0
+    P = k5.frame("x")
+    line = [(z(w), y) for w, y in rp]
+    floor = [(z0, y - RUN_ON_SKIN_M) for z0, y in line] + [(z(rp[-1][0]), y_bot), (z(rp[0][0]), y_bot)]
+    cheek = [(z(rp[0][0]), y_bot), (z(rp[-1][0]), y_bot), (z(rp[-1][0]), E + 0.05), (z(rp[0][0]), E + 0.05)]
+    solids = [k5.extrude(floor, back - RUN_ON_CHEEK_M, D - 0.05, P,
+                         lambda i, p_, q_: "cheek" if min(p_[1], q_[1]) > y_bot + 1e-6
+                         and abs(p_[0] - q_[0]) > 1e-9 else "wall", "wall", "wall"),
+              k5.extrude(cheek, back - RUN_ON_CHEEK_M, back, P, "wall", "wall", "wall")]
+    # over the line: one cutter to the party wall's face (its back the cheek's brick face) and one
+    # past it, through the side eave (its back the eave's return)
+    over = [(z0, y + RUN_ON_CLEAR_M) for z0, y in line] + [(z(rp[-1][0]), top), (z(rp[0][0]), top)]
+    past = [(z(rp[-1][0]), rp[-1][1] + RUN_ON_CLEAR_M), (z(rp[-1][0]) - 1.5, rp[-1][1] + RUN_ON_CLEAR_M),
+            (z(rp[-1][0]) - 1.5, top), (z(rp[-1][0]), top)]
+    side = lambda i, p_, q_: "hidden" if abs(p_[1] - top) < 1e-9 and abs(q_[1] - top) < 1e-9 else "cheek"
+    cutters = [k5.extrude(over, back - 0.01, D + 3.0, P, side, "parapet", "hidden"),
+               k5.extrude(past, back - 0.01, D + 3.0, P, side, "return", "hidden")]
+    return solids, cutters
 
 
 def element(a, k5, ye):
@@ -114,9 +228,14 @@ def element(a, k5, ye):
         a.front_parapet_u = g["xb"] - 1e-6   # T-2730: _emit_shell dresses the slab in the front's stone
     a.front_gable_u = g["xb"] - 1e-6         # T-3093: and a toned front's brick, its brick
 
+    under = g["under"]
+
     def role(i, p_, q_):
         if abs(p_[1] - foot) < 1e-9 and abs(q_[1] - foot) < 1e-9:
             return "parapet"          # its soffit, over the wall's head
+        if any(abs(p_[0] - u[0]) + abs(p_[1] - u[1]) < 1e-9 for u in under) and \
+                any(abs(q_[0] - u[0]) + abs(q_[1] - u[1]) < 1e-9 for u in under):
+            return "parapet"          # T-3365: the run-on band's underside, over the wall
         if abs(p_[0] - q_[0]) < 1e-9:
             return "parapet"          # the base's two ends
         return "coping"               # the outline: the kneelers' ledges and the curves
@@ -474,9 +593,9 @@ def dress(a, roof_seed):
                    0.0, TRANSOM_PROUD_M, gseed, conf)
     # the coping band: a dressed stone strip on the face along the outline, both sides
     cw, cp = sg["coping"]["width_m"], sg["coping"]["proud_m"]
-    right = g["right"]
     for sgn in (1, -1):
-        for (w0, y0), (w1, y1) in zip(right, right[1:]):
+        line = g["left"] if sgn > 0 else g["right"]   # T-3365: the high-s side's, run on down
+        for (w0, y0), (w1, y1) in zip(line, line[1:]):
             dx, dy = (w1 - w0) * sgn, y1 - y0
             L = math.hypot(dx, dy)
             nx, ny = -dy / L * sgn, dx / L * sgn          # toward the gable's inside
