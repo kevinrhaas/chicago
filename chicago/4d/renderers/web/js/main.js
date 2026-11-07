@@ -2925,7 +2925,8 @@ async function boot() {
   // its doorway cut into the footprint; Interact opens and closes it (house-doors.js). After
   // `planting` is taken, like the wharf decks: its treads are paving the house already lays.
   const houseDoors = createHouseDoors({ registry: loaded.registry, buildings, footprints, decks, interactions,
-    visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }), confidence, problems });
+    visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }),
+    groundAt: (e, n) => profiledGroundHeight(terrain, decks, e, n), confidence, problems });
   scene3d.add(houseDoors.group);
   api.houseDoors = houseDoors;
   bootController.end('ground');

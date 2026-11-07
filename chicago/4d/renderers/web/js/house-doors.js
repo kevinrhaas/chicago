@@ -448,11 +448,12 @@ function vestibuleGeometry(plan) {
  * @param {Array} o.decks             walker.js decks — the door's treads join it
  * @param {object} [o.interactions]   interact.js engine; each door is added to it
  * @param {() => ({e:number, n:number})|null} [o.visitor]  where the walker stands
+ * @param {(e:number, n:number) => number} [o.groundAt]  the ground a path's off-step points stand on
  * @param {object} [o.confidence]
  * @param {string[]} [o.problems]
  */
 export function createHouseDoors({ registry, buildings, footprints = [], decks = [], interactions = null,
-  visitor = null, confidence = null, problems = [] } = {}) {
+  visitor = null, groundAt: ground = null, confidence = null, problems = [] } = {}) {
   const group = new THREE.Group();
   group.name = 'house-doors';
   const doors = [];
@@ -591,7 +592,7 @@ export function createHouseDoors({ registry, buildings, footprints = [], decks =
       const span = planPoint(plan, plan.leaf.front, plan.jambs[0]), span1 = planPoint(plan, plan.leaf.front, plan.jambs[1]);
       thing.span = { a: toWorld(span), b: toWorld(span1) };
       /** The walk up to this door (house-doors.js header). */
-      thing.path = ({ from = null, inside: past = 0.6, groundAt = null } = {}) => {
+      thing.path = ({ from = null, inside: past = 0.6, groundAt = ground } = {}) => {
         let fromUV = null;
         if (from) {
           // A start in ENU, back into the structure frame through the placement's inverse.
