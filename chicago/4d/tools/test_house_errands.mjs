@@ -17,6 +17,11 @@
  *     indoors (no longer drawn, picked or offered), and the door shuts behind him; the key
  *     says he has gone in;
  *   - with the visitor standing in the doorway, he goes in and leaves it open;
+ *   - T-3444: while he is in, his door offers Ask for him first (a knock); asked, he comes,
+ *     opens the door from inside clear of its swing, comes out and down to the visitor (no
+ *     nearer than MEET_M, no further than the sidewalk), turns to them and shuts the door;
+ *     he can then walk them to a stand about the house (the router's way, the visitor
+ *     walking with him), and from there go home by the town's walks and his steps;
  *   - interact.js: a step that waits on the world ends when it is answered, or at its timeout.
  *
  *   node tools/test_house_errands.mjs
@@ -38,7 +43,8 @@ const { HumanActor } = await import('../renderers/web/js/humans.js');
 const { enuToWorld } = await import('../renderers/web/js/terrain.js');
 const { bearingToYaw } = await import('../renderers/web/js/angles.js');
 const { glessnerFrontPlan, takeDoorLeaf, doorLeafMaterial, createHouseDoors, DOOR_SWING_S } = await import('../renderers/web/js/house-doors.js');
-const { createHouseErrands, wayHome, HOUSEHOLD_DOORS, DOOR_WAIT_M, GREET_S, PERSON_REACH_M } = await import('../renderers/web/js/house-errands.js');
+const { createHouseErrands, wayHome, wayOut, HOUSEHOLD_DOORS, HOUSE_STROLLS, DOOR_WAIT_M, GREET_S, PERSON_REACH_M, ANSWER_S, MEET_M, ANSWER_FROM_M }
+  = await import('../renderers/web/js/house-errands.js');
 
 const ROOT = new URL('../', import.meta.url);
 let checks = 0;
@@ -112,8 +118,15 @@ const mattie = actorFor({ ...instance, id: 'hi_cook', person_id: cook.id, placem
 const other = people.find((x) => x.household && x.household !== person.household && x.relationship === 'head');
 const neighbour = actorFor({ ...instance, id: 'hi_other', person_id: other.id }, other);
 const opened = [];
+const scene = read('data/scenes/1904.json');
+const anchorAt = (id) => scene.anchors.find((a) => a.id === id) ?? null;
+// A stand-in router: straight there, by way of a point to turn at (route.js is the town's).
+const plans = [];
+const router = { plan: (a, b) => { plans.push([a, b]); return { points: [[a.e, a.n], [(a.e + b.e) / 2, a.n], [b.e, b.n]] }; } };
+const withHim = [];
 const errands = createHouseErrands({ humans: { actors: [john, mattie, neighbour] }, houseDoors: doors, interactions: ix,
-  visitor: () => visitor, eye: () => new THREE.Vector3(0, 1.6, 0), openCard: (a) => opened.push(a.id), groundAt: () => BASE });
+  visitor: () => visitor, eye: () => new THREE.Vector3(0, 1.6, 0), openCard: (a) => opened.push(a.id), groundAt: () => BASE,
+  router, anchorAt, walkWith: (a, on) => withHim.push([a.id, on]) });
 ok(errands.errands.length === 1 && errands.get('glessner_john_j')?.actor === john, 'only he is made a thing: not the cook, nor a neighbour');
 const thing = errands.get('glessner_john_j');
 ok(thing.state === 'out' && thing.kind === 'person' && thing.reach === PERSON_REACH_M, 'out, a person, within arm\'s reach');
@@ -142,9 +155,11 @@ visitor = { e: standBy.e, n: standBy.n };
 const key = createInteractKey({ interactions: ix, keyEl, moreEl, doc, keys,
   where: () => ({ ...visitor, bearing: (outward + 180) % 360, flying: false }), say: (t) => said.push(t) });
 ok(key.refresh() === thing && keyEl.textContent === 'Greet', 'beside him the key offers Greet');
-ok(key.choices.join() === 'greet,go_home' && !moreEl.hidden && moreEl.children.length === 1
-  && moreEl.children[0].children[0].textContent === 'Go home' && moreEl.children[0].children[1].textContent === '2',
-  'and Go home on a second key, numbered 2');
+ok(key.choices.join() === 'greet,go_home,stroll:court,stroll:arch' && !moreEl.hidden && moreEl.children.length === 3
+  && moreEl.children[0].children[0].textContent === 'Go home' && moreEl.children[0].children[1].textContent === '2'
+  && moreEl.children[1].children[0].textContent === 'Show me the courtyard' && moreEl.children[2].children[1].textContent === '4',
+  'and Go home on a second key, numbered 2, and his walks on 3 and 4');
+ok(HOUSE_STROLLS[plan.id].every((x) => anchorAt(x.anchor)), 'every walk goes to a stand the scene has');
 let prevented = 0;
 const press = (code) => keyListeners.keydown({ code, target: null, preventDefault: () => { prevented += 1; } });
 press('Digit5');
@@ -204,6 +219,64 @@ ok(!john.root.visible && !john.inRange, 'nor drawn, nor in range to be met');
   ok(thing.state === 'home' && john.indoors && door.state === 'open', 'he goes in and leaves the door open rather than shut it on them');
 }
 
+// ---------------------------------------------------------------- T-3444: asked for at the door
+{
+  const at0 = enu(face + plan.sidewalk - 1.0, mid + 0.3);  // the visitor, on the walk below the steps
+  visitor = { e: at0.e, n: at0.n };
+  // The door left open by the last test: shut it first.
+  ix.act(door, 'close'); ix.update(DOOR_SWING_S + 0.05);
+  ok(door.state === 'closed', 'his door is shut');
+  const offers = ix.offer(door);
+  ok(offers.label === 'Ask for John J. Glessner' && offers.more.map((a) => a.id).join() === 'open',
+    'at his shut door, Ask for him comes first, then Open door');
+  ok(ix.act(door).ok && thing.running?.action.id === 'come_out', 'a knock asks for him');
+  ix.update(1 / 60);
+  ok(!door.running && door.state === 'closed', 'the door is not opened by the knock');
+  const trail = [];
+  for (let i = 0; i < 60 * 30 && thing.running; i++) {
+    ix.update(1 / 60); john.walk(1 / 60);
+    if (!john.indoors) trail.push({ ...toPlan(john.e, john.n), y: john.root.position.y, step: thing.running?.index ?? null, door: door.state, swing: door.swing });
+  }
+  ok(thing.state === 'out' && !john.indoors && said.at(-1) === 'John J. Glessner comes to the door', `he comes to the door (${said.at(-1)})`);
+  const first = trail[0];
+  ok(first.step === 1 && near(first.d, plan.leaf.back - ANSWER_FROM_M, 0.01) && first.swing < 0.1,
+    `he appears ${ANSWER_FROM_M} m inside the leaf as it starts to swing`);
+  const hinge = { d: plan.leaf.back, s: plan.hinge === 'right' ? plan.jambs[1] : plan.jambs[0] };
+  const width = plan.jambs[1] - plan.jambs[0];
+  ok(Math.hypot(first.d - hinge.d, first.s - hinge.s) > width, 'out of the leaf\'s sweep');
+  ok(trail.filter((t) => t.step === 2).every((t) => t.door === 'open'), 'he walks out once it is open');
+  const end = toPlan(john.e, john.n);
+  const meet = Math.hypot(john.e - visitor.e, john.n - visitor.n);
+  ok(near(meet, MEET_M, 0.15) && end.d > plan.leaf.front + DOOR_WAIT_M - 0.01, `down the walk to ${meet.toFixed(2)} m from the visitor`);
+  const toV = (Math.atan2(visitor.e - john.e, visitor.n - john.n) * 180 / Math.PI + 360) % 360;
+  ok(Math.abs(((john.heading - toV + 540) % 360) - 180) < 2, 'turned to them');
+  ok(door.state === 'closed' && john.greeted >= 2, 'the door shut behind him, and he touches his brim');
+  ok(key.refresh() === thing && key.choices[0] === 'greet', 'and he is offered again: Greet first');
+  // Asked for from the sidewalk, he comes no further than the sidewalk.
+  const far = wayOut(doors, plan.id, [enu(face + plan.sidewalk + 8, mid).e, enu(face + plan.sidewalk + 8, mid).n]);
+  ok(near(toPlan(far.out.at(-1).e, far.out.at(-1).n).d, plan.sidewalk, 1e-3), 'asked for from the street, he stops at the sidewalk');
+  const close = wayOut(doors, plan.id, [enu(face + 0.1, mid).e, enu(face + 0.1, mid).n]);
+  ok(near(toPlan(close.out.at(-1).e, close.out.at(-1).n).d, plan.leaf.front + DOOR_WAIT_M, 1e-3), 'and with the visitor on the threshold, on it');
+}
+
+// ---------------------------------------------------------------- T-3444: a walk about the house
+{
+  plans.length = 0; withHim.length = 0;
+  const court = anchorAt('glessner_tour_hall_bow');
+  ok(ix.act(thing, 'stroll:court').ok && plans.length === 1 && withHim.at(-1)?.[1] === true, 'Show me the courtyard: the router finds his way, and the visitor walks with him');
+  for (let i = 0; i < 60 * 90 && thing.running; i++) { ix.update(1 / 60); john.walk(1 / 60); }
+  ok(!thing.running && near(john.e, court.local_e, 1e-6) && near(john.n, court.local_n, 1e-6), 'he walks to the court\'s stand');
+  ok(near(john.heading, court.yaw_deg, 0.6) && withHim.at(-1)?.[1] === false, 'turns to its view, and the walking-with ends');
+  // From the court, home: by the town's way to the foot of his walk, then up it.
+  plans.length = 0;
+  const home = wayHome(doors, plan.id, [john.e, john.n], { router });
+  const hp = home.toDoor.map((q) => toPlan(q.e, q.n));
+  ok(plans.length === 1 && hp.some((q) => near(q.d, plan.sidewalk, 1e-3)), 'from the court his way home comes round by the sidewalk');
+  ok(ix.act(thing, 'go_home').ok, 'and he goes');
+  for (let i = 0; i < 60 * 120 && thing.running; i++) { ix.update(1 / 60); john.walk(1 / 60); }
+  ok(thing.state === 'home' && john.indoors, 'all the way in');
+}
+
 // ---------------------------------------------------------------- the way home, alone
 {
   const way = wayHome(doors, plan.id, [enu(face + plan.sidewalk + 4, mid + 3).e, enu(face + plan.sidewalk + 4, mid + 3).n]);
@@ -231,4 +304,4 @@ ok(!john.root.visible && !john.inRange, 'nor drawn, nor in range to be met');
 }
 
 doors.dispose();
-console.log(`PASS: ${checks} checks — John J. Glessner on his front walk is greeted, and goes home up his steps and in (T-3443)`);
+console.log(`PASS: ${checks} checks — John J. Glessner on his front walk is greeted and goes home up his steps (T-3443); asked for at his door, he comes out and walks you round (T-3444)`);

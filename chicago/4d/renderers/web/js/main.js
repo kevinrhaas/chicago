@@ -3778,11 +3778,21 @@ async function boot() {
     gateFrame.invalidate();
   }
   // T-3443: a person whose house has a working front door (John J. Glessner, by 1800
-  // Prairie's) is an Interact thing too: Greet him, or send him home up his steps and in.
+  // Prairie's) is an Interact thing too: Greet him, or send him home up his steps and in;
+  // and (T-3444) his door offers Ask for him while he is in.
   api.houseErrands = createHouseErrands({ humans: api.humans, houseDoors, interactions,
     visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }),
     eye: () => camera.getWorldPosition(new THREE.Vector3()),
     openCard: (actor) => api.humans.select(actor.id),
+    // T-3444: asked for at his door, he can walk the visitor round the house or into the
+    // court — by the router's ways (made below), to the Meet the Glessner House stands —
+    // the visitor walking with him (follow.js, made later still).
+    router: { plan: (...args) => api.router?.plan(...args) ?? null },
+    anchorAt: (id) => (Array.isArray(loaded.scene.anchors) ? loaded.scene.anchors.find((a) => a.id === id) : null) ?? null,
+    walkWith: (actor, on) => {
+      if (on) api.follow?.start(actor.personId, { name: actor.person?.name ?? null });
+      else if (api.follow?.personId === actor.personId) api.follow.stop('arrived');
+    },
     groundAt: (e, n) => profiledGroundHeight(terrain, decks, e, n), problems: layerProblems('humans') });
   // Read only the small route table at boot. Actual occupied assets and full
   // rendered-ground/collision readings begin after the visitor approaches a circuit.
