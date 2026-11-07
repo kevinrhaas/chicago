@@ -119,7 +119,9 @@ PICTURED = {
                             "over the whole ground storey of the front south of the portico and of the 18th "
                             "Street flank west of the porte-cochere, up to the balcony's belt course, "
                             "and the porte-cochere's corner pier clothed to its entablature "
-                            "(LC-D4-12551)."},
+                            "(LC-D4-12551); the flank's east section east of the pavilion under the "
+                            "same mantle, and the porte-cochere's east end clothed to its entablature "
+                            "(LC-D4-12552)."},
         # T-1881: the stretches a picture shows wholly clothed, each read through the Detroit print's
         # solved camera (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json),
         # which lays the lot's s/d metres on the print's x: the front's face (d 16.8) from s 25 at
@@ -146,6 +148,18 @@ PICTURED = {
             {"face": "high_s", "span_m": [16.6, 23.9], "height_m": [5.0, 5.6], "over_heads": False,
              "clear_windows": {"sidecar": "pullman_house_1729_prairie", "attribute": "north_bays",
                                "under_m": 4.6, "face_u_m": 27.75, "face_v_m": 17.93, "margin_m": 0.4}},
+            # T-1881 (2026-11-07): the flank's east section, from the 18th Street pavilion's east
+            # return (s 20.6, d 37.4) to the south-east corner (s 27.75, d 44.55), which the Detroit
+            # print det 4a08066 shows under a heavy mantle up to the belt (x 342-390, y 430-497);
+            # held, by the same owner ruling, clear of its broad ground-storey window and to the lights'
+            # heads rather than the belt
+            # ...and the pavilion's own face between its broad ground-storey window (s 15.6-18.2,
+            # d 32.4-35.0) and its east return (d 37.4), clothed in the same print (x 316-326); held
+            # 0.4 m off the window as the owner ruled
+            {"face": "high_s", "span_m": [35.4, 37.2], "height_m": [5.0, 5.6], "over_heads": False},
+            {"face": "high_s", "span_m": [37.7, 44.3], "height_m": [5.0, 5.6], "over_heads": False,
+             "clear_windows": {"sidecar": "pullman_house_1729_prairie", "attribute": "north_bays",
+                               "under_m": 4.6, "face_u_m": 27.75, "face_v_m": 17.93, "margin_m": 0.4}},
         ],
         # T-1881: the porte-cochere's corner pier, clothed from the ground to the entablature's
         # soffit (6.85 m) in the Detroit print: its west face, seen square through the solved
@@ -157,6 +171,13 @@ PICTURED = {
             {"sidecar": "pullman_house_1729_prairie", "face": "low_end", "pier": "outer",
              "proud_m": 0.05, "height_m": [6.55, 6.85]},
             {"sidecar": "pullman_house_1729_prairie", "face": "front", "pier": "low",
+             "proud_m": 0.05, "height_m": [6.55, 6.85]},
+            # T-1881 (2026-11-07): the east end's two piers, either side of its arch, which the
+            # Detroit print det 4a08066 sees square from near Calumet Avenue clothed to the
+            # entablature (x 240-295, the arch's dark mouth between them)
+            {"sidecar": "pullman_house_1729_prairie", "face": "high_end", "pier": "inner",
+             "proud_m": 0.05, "height_m": [6.55, 6.85]},
+            {"sidecar": "pullman_house_1729_prairie", "face": "high_end", "pier": "outer",
              "proud_m": 0.05, "height_m": [6.55, 6.85]},
         ],
         # T-1934 (the owner, 2026-10-30: the carriage ways with "no plants blocking it"): the border

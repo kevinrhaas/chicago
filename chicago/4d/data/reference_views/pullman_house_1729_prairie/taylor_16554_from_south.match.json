@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_16554_from_south",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "1413110d8060ba16a1a185405b1c01ef085b263efdb6565bc78c59c928e8e374",
+  "glb_sha256": "4fdacdfa3af6182c21fbe8726defe6c3d271465e6c05346efa3ce90a542abde8",
   "camera_sha256": "568a603acd37c9549b21b76a5f24b692670a1c74a4abc57c3eaf1aaa48334598",
   "photo_sha256": "f1099e538ca42a2bf75bc3db892a8e73c172c22f866862b71fa38c27c464dbfa",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "1413110d8060ba16a1a185405b1c01ef085b263efdb6565bc78c59c928e8e374"
+      "glb_sha256": "4fdacdfa3af6182c21fbe8726defe6c3d271465e6c05346efa3ce90a542abde8"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "33753cacaa38e5035e8d72e0f568c4efa6c9770272b67ef2f03738313beeb916"
     }
   ],
-  "group_sha256": "b71c610006149e7686c1ba1bcbf5d9f033129832e378a86ee9a0a3546ecadbdc",
+  "group_sha256": "1ed1db05ac5cddb0864c3a533689ab16c449cf3f46c4083e73d9b4b3f8923c0e",
   "rendered_flora": {
     "season": "winter",
     "lots": [
@@ -73,7 +73,7 @@
         "shrubs": 26,
         "trees": 3,
         "beds": 0,
-        "creeper": 20
+        "creeper": 28
       }
     ],
     "street_trees": 36,
@@ -111,7 +111,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "cac67fd26e677f5a848f1817b51d2a485835b09f09aa2c234efc1b3a5b3e3329"
+      "sha256": "392731bfd19a5feee49ff99b0cad94653d3953628153e4f709c65741aa202c89"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -131,7 +131,7 @@
     },
     {
       "file": "renderers/web/js/season.js",
-      "sha256": "e44ebdadf8266909cd6e8676775a9decc3b7376ba245ad784118851e15b409cc"
+      "sha256": "8407ba119eef8e26e1bfb4bf1d9dd2c4786d2981165f2d232fe53d2347a9bda7"
     },
     {
       "file": "renderers/web/js/trees.js",
@@ -142,7 +142,7 @@
       "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "8474993efb2116f903f7573922871d7756f35f804524226393e2197d9dc56615",
+  "flora_sha256": "f32bfccee54a41cfda5b4766918cfef570dadc51bbcb6305febdc09c77f3ff18",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_16554_from_south-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -200,6 +200,10 @@
     {
       "what": "[T-1881, 2026-11-07] a second dark, capped stack behind the cresting at x about 428-442 px (its top near y 305), left of the south section's dormer: the Detroit print det 4a08066 shows the same stack over the south section's dormer, and it is built from that print at (1.4, 13.5), top 18.4 m; through this camera it renders at x about 455-465, the camera's 20-30 px offset along the rear",
       "status": "fixed"
+    },
+    {
+      "what": "the 18th Street flank's ground-storey lights east of the porte-cochere: this winter print, of the early 1890s, draws narrow round-headed lights under the pavilion's triple and in the east section, where the build now has two broad square-headed windows under transoms, read off the Detroit print det 4a08066 of c. 1900 (T-1881, 2026-11-07); two dated pictures disagree and the later one governs a 1904 build, so the earlier lights are read as altered before c. 1900",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
