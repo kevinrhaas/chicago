@@ -255,9 +255,9 @@ export function createHouseErrands({ humans, houseDoors, interactions, visitor =
       name,
       states: ['out', 'home'],
       state: actor.indoors ? 'home' : 'out',
-      /** Where he is; indoors, or with people hidden (Settings › Show › People), nowhere a
-       *  visitor can reach. */
-      get at() { return actor.indoors || actor.disposed || humans.shown === false ? null : [actor.e, actor.n]; },
+      /** Where he is; indoors, with people hidden (Settings › Show › People), or held out
+       *  by a jaunt that does not call for him (T-3495), nowhere a visitor can reach. */
+      get at() { return actor.indoors || actor.disposed || humans.shown === false || humans.isHeld?.(actor) ? null : [actor.e, actor.n]; },
       reach: PERSON_REACH_M,
       actions: {
         out: [

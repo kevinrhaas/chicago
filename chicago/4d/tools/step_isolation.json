@@ -2988,6 +2988,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_sunken_sills.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_tavern_front_reader.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6062,6 +6066,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_jaunt_crowd.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_jaunt_mechanics.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6695,6 +6703,10 @@
       "wrote_ignored": []
     },
     "tools/test_travel_estimate.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_underpinning.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

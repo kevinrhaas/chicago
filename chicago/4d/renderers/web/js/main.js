@@ -5174,6 +5174,12 @@ async function boot() {
         hour: api.timeOfDay,
         // T-3377: a jaunt's own season, held for the outing and given back after.
         season: api.season,
+        // T-3495: the everyday people held out while a jaunt is on, but for those its stop
+        // calls for; Settings › Show › People hidden stays hidden either way.
+        crowd: {
+          hold: (ids) => { api.humans?.holdCrowd?.(ids); gateFrame.invalidate(); },
+          restore: () => { api.humans?.releaseCrowd?.(); gateFrame.invalidate(); },
+        },
         showMenu({ returnId }) { jauntReturnId = returnId; api.welcome.show({ focus: false }); api.welcome.enter('jaunts'); },
         closeDetail: jauntCards.close,
         openDetail: jauntCards.open, onError: jauntError,

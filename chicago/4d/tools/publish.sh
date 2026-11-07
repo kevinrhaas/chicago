@@ -676,6 +676,16 @@ for sheet in assets/textures/camp_1812_pbr/*/material.json; do
         "$SITE/data/$rel/"
 done
 
+# The underpinnings' stone (T-3492): renderers/web/js/underpinning.js binds the 1904 random
+# rubble sheet under any sill a record carries level over sloping ground (the 1812 factory
+# and interpreter's house). The three web maps and material.json, under the same data/
+# rename; it loads only in a scene that has an underpinning.
+src="assets/textures/prairie_1904_stone/foundation_rubble"
+dst="$SITE/data/textures/prairie_1904_stone/foundation_rubble"
+mkdir -p "$dst"
+cp -f "$src/material.json" "$src/foundation_rubble_basecolor_web.jpg" \
+      "$src/foundation_rubble_normal_gl_web.jpg" "$src/foundation_rubble_orm_web.jpg" "$dst/"
+
 # The yard woodpiles' wood (T-3474): one atlas of six cells yard.js binds on the woodpile
 # mesh, the same six web files and its material.json, under the same data/ rename.
 for sheet in assets/textures/yard_wood_pbr/*/material.json; do

@@ -401,6 +401,8 @@ step "Jaunt flies to its start, welcome, final stop and readable road notes (T-3
   node tools/test_jaunt_start_finish.mjs
 step "Jaunt resources, Revise, endings and saved-session replay (T-1256)" \
   node tools/test_jaunt_mechanics.mjs
+step "Jaunts hold the everyday people out but for those each stop calls for, and give them back (T-3495)" \
+  node tools/test_jaunt_crowd.mjs
 step "Jaunt route and pace estimates (T-1280)" \
   node tools/test_travel_estimate.mjs
 step "Street travel keeps each pace on its surface and clears buildings (T-2496)" \
@@ -2999,6 +3001,17 @@ step "the 1812 worn trails and yards re-derive from the terrain and the footprin
 # writing where the ground is wet, taken, fenced, on a trail or under a planted stem.
 step "the 1812 yard goods re-derive from the houses, fences, worn yards and trails (T-3458)" \
   python3 tools/generate_yard_goods_1812.py --check
+
+# And the buildings themselves on that ground (T-3492): the renderer beds a building at the
+# lowest ground under its walls, which on the river bank put the factory's front door half in
+# the ground. A walled 1812 building on more than about a foot of fall carries its sill on an
+# underpinning (renderers/web/js/underpinning.js), and one on level ground may not.
+step "no 1812 building stands in the ground: a sill on sloping ground is carried on stone (T-3492)" \
+  python3 tools/check_sunken_sills.py
+selftest "…and the factory stripped of its underpinning, a level house given one, and a house moved onto the bank are each refused" \
+  python3 tools/check_sunken_sills.py --self-test
+step "the underpinning's pieces: outward faces, below the ground to the sill, a pier per stack, even doorsteps (T-3492)" \
+  node tools/test_underpinning.mjs
 
 # And the layer above that ground: the wood p4_0 draws outside the same walls (T-0098). Same
 # shape again — the plate attests a tree mass and places nothing, so which ground carries a
