@@ -28,8 +28,8 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   // T-3022: Research (the Expert research switch) leads, ahead of the design's order.
   assert.deepEqual(heads, ['Research', 'Display', 'Show', 'Movement', 'Machine', 'Performance', 'Sound', 'Units', "About & What's new"],
     'Settings reads Research, then Display, Show, Movement, Machine, Performance, Sound, Units, About & What\'s new (DESIGN §07)');
-  const kept = ['s-units', 's-fov', 'v-fov', 's-road-aid', 'v-road-aid', 'road-aid-note', 's-brightness', 'v-brightness',
-    'brightness-note', 's-detail', 's-quality', 's-governor', 'governor-line', 'device-line', 'pacing-read', 's-pacing-read',
+  const kept = ['s-units', 's-fov', 'v-fov', 's-road-aid', 'v-road-aid', 's-brightness', 'v-brightness',
+    's-detail', 's-quality', 's-governor', 'governor-line', 'device-line', 'pacing-read', 's-pacing-read',
     's-pacing-copy', 'pacing-read-status', 'pacing-read-out', 's-compass', 's-overview-map', 's-street-names',
     's-street-names-label', 's-look-tag', 'row-season', 's-season', 'row-street-trees', 's-street-trees', 'row-lot-lines',
     's-lot-lines', 's-show-control-help', 's-about', 's-about-build', 's-about-dev', 's-about-dev-note'];
@@ -50,8 +50,9 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   assert.deepEqual(sizes.map((m) => Number(m[2])), [100, 110, 120, 130, 140]);
   // Light or dark left the HUD for good, and the old chip with it.
   assert(!/id="btn-theme"/.test(html), 'the HUD chip is gone');
-  // Sound says what each level covers, and that the ambience is not a recording (T-2659).
-  assert.match(settingsHtml, /id="s-sound-note"[^>]*>Effects are the year ticker, the landing, and the Navigator's clicks and hum\. Ambience is a quiet tone for each destination, made up for mood: it is not a recording of the past\./);
+  // Sound says it is off until Master, and that the ambience is not a recording (T-2659;
+  // T-3445 cut the note to those two).
+  assert.match(settingsHtml, /id="s-sound-note"[^>]*>Off until you raise Master\. Ambience is a mood tone, not a recording of the past\./);
   // About keeps T-2629's stamp, and opens What's new.
   const about = settingsHtml.slice(settingsHtml.indexOf('id="s-about"'));
   assert(about.indexOf('id="s-about-build"') > 0 && about.indexOf('id="s-open-whatsnew"') > about.indexOf('id="s-about-build"'));

@@ -14791,7 +14791,7 @@ for (const [label, viewport, touch] of [
         stored: JSON.parse(localStorage.getItem('chicago4d.settings') || '{}').eyeHeight };
     });
     check(`${label}: eye height starts at the researched period figure`,
-      Math.abs(eye.dflt - 1.68) < 0.005 && /period eye level/.test(eye.readoutAtDefault),
+      Math.abs(eye.dflt - 1.68) < 0.005 && /1830s average/.test(eye.readoutAtDefault),
       `${eye.dflt} m, readout "${eye.readoutAtDefault}"`);
     check(`${label}: the eye height readout is a stature, not rounded to whole feet`,
       /\d+ ft \d+ in/.test(eye.readoutAtDefault),
@@ -14808,12 +14808,12 @@ for (const [label, viewport, touch] of [
       eye.min <= 1.5 && eye.max >= 2.0 && eye.max <= 3.0,
       `${eye.min}–${eye.max} m`);
     // ---- T-2653: Move › Comfort — the head bob, the eye height and snap-turn sit together,
-    // each is stored as it changes, and the eye height's Why names the researched figure.
+    // each is stored as it changes. T-3445: no "Why?" under the eye height any more.
     const comfort = await page.evaluate(() => {
       const api = window.__chicago4d;
       const stored = () => JSON.parse(localStorage.getItem('chicago4d.settings') || '{}');
       const group = document.querySelector('[data-panel="travel"]');
-      const inMove = ['s-head-bob', 's-eye', 's-snap-turn', 'eye-note'].filter((id) => group?.querySelector(`#${id}`));
+      const inMove = ['s-head-bob', 's-eye', 's-snap-turn'].filter((id) => group?.querySelector(`#${id}`));
       const snap = document.getElementById('s-snap-turn');
       const bob = document.getElementById('s-head-bob');
       const before = { snap: snap.checked, bob: bob.checked, snapSetting: api.hud.settings.snapTurn };
@@ -14821,14 +14821,14 @@ for (const [label, viewport, touch] of [
       const on = { snap: stored().snapTurn, bob: stored().headBob, eye: stored().eyeHeight };
       snap.click(); bob.click();
       const off = { snap: stored().snapTurn, bob: stored().headBob };
-      return { inMove, before, on, off, why: document.getElementById('eye-note')?.textContent.replace(/\s+/g, ' ').trim().slice(0, 40),
+      return { inMove, before, on, off, why: !!group?.querySelector('.why-line, details.why, #eye-note'),
         heading: document.getElementById('move-comfort')?.textContent.trim(), settingsEye: !!document.querySelector('[data-panel="settings"] #s-eye') };
     });
     check(`${label}: Move's Comfort holds the head bob, the eye height and snap-turn, each stored as it changes (T-2653)`,
-      comfort.inMove.length === 4 && comfort.heading === 'Comfort' && !comfort.settingsEye
+      comfort.inMove.length === 3 && comfort.heading === 'Comfort' && !comfort.settingsEye
       && comfort.before.snap === false && comfort.before.snapSetting === false && comfort.before.bob === true
       && comfort.on.snap === true && comfort.on.bob === false && Math.abs(comfort.on.eye - 1.68) < 0.005
-      && comfort.off.snap === false && comfort.off.bob === true && /^The default, 1\.68 m/.test(comfort.why ?? ''),
+      && comfort.off.snap === false && comfort.off.bob === true && comfort.why === false,
       JSON.stringify(comfort));
     // ---- end T-2653
 
@@ -16653,8 +16653,8 @@ for (const [label, viewport, touch] of [
         researchAll: marked.length, researchShown: marked.filter(shown).length,
         standAll: stand.length, standShown: stand.filter(shown).length,
         whys: whys.length, full: whys.filter((d) => shown(d.querySelector('.why-full'))).length,
-        // T-2658: a visitor's stand-in is the one line and "Why?" before each fold.
-        hints: [...document.querySelectorAll('.why-line[data-visitor-only]')].filter(shown).length,
+        // T-3445: the "Why?" lines (T-2658) are gone with the essays.
+        hints: document.querySelectorAll('.why-line').length,
         innerW: innerWidth, innerH: innerHeight,
       };
     });
@@ -16672,131 +16672,20 @@ for (const [label, viewport, touch] of [
       const a = researchOff, b = researchOn, c = researchBack;
       const clear = (x, y) => !x || !y || x.r <= y.l || y.r <= x.l || x.b <= y.t || y.b <= x.t;
       const inView = (x) => !!x && x.l >= 0 && x.r <= b.innerW + 1 && x.t >= 0 && x.b <= b.innerH;
-      check(`${label}: Researcher mode is off by default; Settings › Research's Expert research switch shows the RESEARCHER label and the full "Why this default" essays, is remembered, and turns off again (T-2657)`,
+      check(`${label}: Researcher mode is off by default; Settings › Research's Expert research switch shows the RESEARCHER label and the research it holds back, is remembered, and turns off again (T-2657); no "Why?" lines or essays in either mode (T-3445)`,
         a.inAbout && !a.attr && a.apiOn === false && a.checked === false && a.stored === null && !a.badge
-        && a.researchAll > 0 && a.researchShown === 0 && a.standShown === a.standAll && a.whys === 3 && a.full === 0 && a.hints === 3
+        && a.researchAll > 0 && a.researchShown === 0 && a.standShown === a.standAll && a.whys === 0 && a.hints === 0
         && !researchClick && b.attr && b.apiOn === true && b.checked === true && b.stored === 'on'
         && b.badge && b.badgeText === 'RESEARCHER' && inView(b.badgeBox) && clear(b.badgeBox, b.year) && clear(b.badgeBox, b.instrument)
-        && b.researchShown === b.researchAll && b.standShown === 0 && b.full === 3 && b.hints === 0
+        && b.researchShown === b.researchAll && b.standShown === 0 && b.whys === 0 && b.hints === 0
         && !researchClick2 && !c.attr && c.apiOn === false && c.checked === false && c.stored === null && !c.badge
-        && c.researchShown === 0 && c.standShown === c.standAll && c.full === 0 && c.hints === 3,
+        && c.researchShown === 0 && c.standShown === c.standAll && c.whys === 0 && c.hints === 0,
         JSON.stringify({ off: a, click: researchClick, on: b, click2: researchClick2, back: c }));
     }
     // <<< T-2657
-    // >>> T-2658: Short "Why?". Each researched setting (Settings › Display's brightness and
-    // road visibility, Move › Comfort's eye height) shows a visitor one line and a "Why?"
-    // button. A REAL tap (phone) or mouse click (desktop) at the button's hit-tested centre
-    // opens a bubble of 40 words at most, inside the window; a real tap elsewhere closes it;
-    // Enter opens it from the keyboard and Escape closes it without closing the Navigator;
-    // and Researcher mode puts the line away and shows the full essay instead. Every step is
-    // bounded and caught, so a stuck click is this check's one red line, never an aborted part.
-    {
-      const whyTap = async (sel) => {
-        const at = await page.evaluate((s) => {
-          const el = document.querySelector(s);
-          if (!el) return { why: `nothing matches ${s}` };
-          el.scrollIntoView({ block: 'center', inline: 'nearest' });
-          const b = el.getBoundingClientRect();
-          if (b.width < 1 || b.height < 1) return { why: `${s} has no box` };
-          const x = b.x + b.width / 2; const y = b.y + b.height / 2;
-          const top = document.elementFromPoint(x, y);
-          if (!top || !(top === el || el.contains(top))) return { why: `${s} is covered by <${top?.tagName.toLowerCase() ?? 'nothing'} class="${top?.className ?? ''}">` };
-          return { x, y };
-        }, sel);
-        if (at.why) throw new Error(at.why);
-        if (touch) await page.touchscreen.tap(at.x, at.y); else await page.mouse.click(at.x, at.y);
-      };
-      const tipOpen = (want) => page.waitForFunction((w) => {
-        const tip = document.getElementById('why-tip');
-        return w ? !!tip && !tip.hidden : !tip || tip.hidden;
-      }, want, { timeout: 30_000, polling: 100 });
-      const tipRead = (key) => page.evaluate((k) => {
-        const tip = document.getElementById('why-tip');
-        const btn = document.getElementById(`why-${k}`);
-        const b = tip && !tip.hidden ? tip.getBoundingClientRect() : null;
-        const hint = btn?.closest('.why-line')?.querySelector('.why-hint');
-        const hb = hint?.getBoundingClientRect();
-        const lh = hint ? parseFloat(getComputedStyle(hint).lineHeight) || 16 : 16;
-        return {
-          open: !!tip && !tip.hidden, for: tip?.dataset.for ?? null, expanded: btn?.getAttribute('aria-expanded') ?? null,
-          text: tip?.textContent ?? '', words: (tip?.textContent ?? '').trim().split(/\s+/).filter(Boolean).length,
-          same: !!tip && tip.textContent === document.getElementById(`why-${k}-text`)?.textContent.replace(/\s+/g, ' ').trim(),
-          box: b ? { l: Math.round(b.left), r: Math.round(b.right), t: Math.round(b.top), b: Math.round(b.bottom) } : null,
-          inView: !!b && b.left >= 0 && b.right <= innerWidth && b.top >= 0 && b.bottom <= innerHeight,
-          noScrollX: document.documentElement.scrollWidth <= innerWidth,
-          hintOneLine: !!hb && hb.height > 0 && hb.height < lh * 1.6,
-          focused: document.activeElement === btn, navLevel: window.__chicago4d.navigator?.level ?? null,
-          w: innerWidth, h: innerHeight,
-        };
-      }, key);
-      const whyRun = async (key) => {
-        const out = { key };
-        try {
-          await page.evaluate(() => window.__chicago4d.whyTips?.close());
-          await whyTap(`#why-${key}`);
-          await tipOpen(true).catch(() => {});
-          out.tapped = await tipRead(key);
-          // Outside: the line's own words, beside the button and clear of the bubble below it.
-          await whyTap(`.why-line:has(#why-${key}) .why-hint`);
-          await tipOpen(false).catch(() => {});
-          out.outside = await tipRead(key);
-          await page.evaluate((k) => document.getElementById(`why-${k}`)?.focus(), key);
-          await page.keyboard.press('Enter');
-          await tipOpen(true).catch(() => {});
-          out.keyed = await tipRead(key);
-          await page.keyboard.press('Escape');
-          await tipOpen(false).catch(() => {});
-          out.escaped = await tipRead(key);
-        } catch (e) { out.error = String(e.message || e).slice(0, 300); }
-        return out;
-      };
-      const ok = (r) => !r.error && r.tapped?.open && r.tapped.for === `why-${r.key}-text` && r.tapped.expanded === 'true'
-        && r.tapped.words > 0 && r.tapped.words <= 40 && r.tapped.same && r.tapped.inView && r.tapped.noScrollX && r.tapped.hintOneLine
-        && !r.outside?.open && r.outside.expanded === 'false'
-        && r.keyed?.open && r.keyed.inView && !r.escaped?.open && r.escaped.focused && r.escaped.navLevel > 0;
-      const whys = [];
-      try {
-        await openSection('settings');
-        whys.push(await whyRun('brightness'), await whyRun('road'));
-        await openSection('travel');
-        whys.push(await whyRun('eye'));
-      } catch (e) { whys.push({ key: 'open', error: String(e.message || e).slice(0, 300) }); }
-      // Researcher mode: the line and its button step aside, an open bubble closes, and the
-      // full essay is under "Why this default".
-      let research = {};
-      try {
-        await whyTap('#why-eye');
-        await tipOpen(true).catch(() => {});
-        await page.evaluate(() => window.__chicago4d.researcher.set(true));
-        await tipOpen(false).catch(() => {});
-        research = await page.evaluate(() => {
-          const shown = (el) => !!el && getComputedStyle(el).display !== 'none';
-          const folds = [...document.querySelectorAll('details.why')];
-          for (const d of folds) d.open = true;
-          const full = folds.map((d) => d.querySelector('.why-full'));
-          return {
-            tipClosed: document.getElementById('why-tip')?.hidden !== false,
-            lines: [...document.querySelectorAll('.why-line')].filter(shown).length,
-            folds: folds.filter(shown).length,
-            eyeFull: (() => { const e = document.getElementById('eye-note'); const b = e?.getBoundingClientRect(); return shown(e) && !!b && b.height > 0; })(),
-            shortest: Math.min(...full.map((p) => (p?.textContent ?? '').trim().split(/\s+/).length)),
-          };
-        });
-      } catch (e) { research.error = String(e.message || e).slice(0, 300); }
-      await page.evaluate(() => {
-        const api = window.__chicago4d;
-        api.researcher?.set(false); api.whyTips?.close();
-        for (const d of document.querySelectorAll('details.why')) d.open = false;
-      }).catch(() => {});
-      check(`${label}: each researched setting's "Why?" opens a bubble of 40 words at most by a real ${touch ? 'tap' : 'click'} and by Enter, inside the screen, and an outside tap or Escape closes it, the Navigator staying open (T-2658)`,
-        whys.length === 3 && whys.every(ok), JSON.stringify(whys));
-      check(`${label}: in Researcher mode the one-line hints and "Why?" step aside, an open bubble closes, and the full "Why this default" essays show (T-2658)`,
-        !research.error && research.tipClosed && research.lines === 0 && research.folds === 3 && research.eyeFull && research.shortest > 40,
-        JSON.stringify(research));
-      // Give the Settings screen back as T-2657's block left it, for the close below.
-      await openSection('settings').catch(() => {});
-    }
-    // <<< T-2658
+    // T-2658's short "Why?" lines and Researcher mode's "Why this default" essays were dropped
+    // by the owner (T-3445, 2026-11-07); the researcher check above holds that none is drawn,
+    // and tools/test_short_why.mjs holds the page, the strings and the stylesheets.
     // >>> T-2659: the Navigator's sounds (js/sound.js). The gesture is the visitor's own: a
     // TRUSTED tap (touchscreen on a phone, mouse on a desktop) at the centre of a Settings
     // control in the open Navigator — the tone already chosen, so nothing changes — hit-tested
@@ -17834,7 +17723,7 @@ for (const [label, viewport, touch] of [
     // engine reads the camera and the walker either way; tools/test_tour.mjs holds the
     // thresholds). Reload at 4 is read from storage here and resumed; Skip at 6 ends it
     // cleanly; Replay starts again, and a full pass ends on Finish. T-2954: step 05 is the
-    // release (Esc with a keyboard, the card's Close on touch), 06 opens Move, 07 Settings.
+    // release (Esc with a keyboard, the card's Close on touch), 06 opens Move, 07 People, 08 Settings.
     await page.evaluate(() => { window.__chicago4d.navigator.dock(); window.__chicago4d.popup.close(); });
     // T-2620: the drawer's Guide section opens in the Navigator's Guide, under its sheet.
     await openSection('controls');
@@ -17896,7 +17785,8 @@ for (const [label, viewport, touch] of [
     await clickChrome('#tour-skip');
     const skipped = await page.evaluate(() => ({ running: window.__chicago4d.tour.running, shown: !document.getElementById('tour').hidden,
       dim: document.documentElement.hasAttribute('data-tour'), stored: JSON.parse(localStorage.getItem('chicago4d.tour') || 'null') }));
-    // Replay, and a full pass to Finish: 06 on Move, 07 on Settings, 08 on Finish.
+    // Replay, and a full pass to Finish: 06 on Move, 07 on People (T-3445), 08 on Settings,
+    // 09 on Finish.
     await page.evaluate(() => { window.__chicago4d.popup.close(); window.__chicago4d.tour.start(); });
     await clickChrome('#tour-next');
     await page.evaluate(() => { const w = window.__chicago4d.walker; w.teleport({ local_e: w.state.e, local_n: w.state.n, yaw_deg: 200 }); });
@@ -17910,9 +17800,12 @@ for (const [label, viewport, touch] of [
     const moveStep = await tourView();
     await page.evaluate(async () => { await window.__chicago4d.navigator.select('move'); });
     await tourWait(6);
+    const peopleStep = await tourView();
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('people'); });
+    await tourWait(7);
     const settingsStep = await tourView();
     await page.evaluate(async () => { await window.__chicago4d.navigator.select('settings'); });
-    await tourWait(7);
+    await tourWait(8);
     const last = await tourView();
     await clickChrome('#tour-next');
     const done = await page.evaluate(() => ({ running: window.__chicago4d.tour.running, finished: window.__chicago4d.tour.finished,
@@ -17925,17 +17818,18 @@ for (const [label, viewport, touch] of [
       await api.navigator.select('home');
       api.navigator.dock();
     });
-    check(`${label}: the Field Check moves on only on each step's own action — select, release, Move, Settings — resumes at 4, skips cleanly at 6, replays and finishes (T-2663, T-2954)`,
-      t1.shown && t1.count === 'Field check · 1 / 8' && t1.ring && !t1.waiting && /^This is your Navigator/.test(t1.bubble ?? '')
+    check(`${label}: the Field Check moves on only on each step's own action — select, release, Move, People, Settings — resumes at 4, skips cleanly at 6, replays and finishes (T-2663, T-2954, T-3445)`,
+      t1.shown && t1.count === 'Field check · 1 / 9' && t1.ring && !t1.waiting && /^This is your Navigator/.test(t1.bubble ?? '')
       && t2.step === 1 && t2.waiting && turned.step === 2 && walked.step === 3
       && new RegExp(`^${touch ? 'Tap' : 'Click'} the `).test(walked.bubble ?? '')
       && stored?.active === true && stored?.step === 3 && resumed === 3
       && inspected.step === 4 && (touch ? /Tap Close/ : /Press Esc/).test(inspected.bubble ?? '') && releaseRing
       && released.step === 5 && releasedCard === null && /^Open (the Navigator, then )?Move/.test(released.bubble ?? '')
       && !skipped.running && !skipped.shown && !skipped.dim && skipped.stored?.active === false
-      && moveStep.step === 5 && settingsStep.step === 6 && /Settings/.test(settingsStep.bubble ?? '')
-      && last.step === 7 && /^Ready\./.test(last.bubble ?? '') && !done.running && done.finished && !done.shown,
-      JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, releaseRing, released, releasedCard, skipped, moveStep, settingsStep, last, done }));
+      && moveStep.step === 5 && peopleStep.step === 6 && /People/.test(peopleStep.bubble ?? '')
+      && settingsStep.step === 7 && /Settings/.test(settingsStep.bubble ?? '')
+      && last.step === 8 && /^Ready\./.test(last.bubble ?? '') && !done.running && done.finished && !done.shown,
+      JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, releaseRing, released, releasedCard, skipped, moveStep, peopleStep, settingsStep, last, done }));
     // ---- end T-2663
     // >>> T-2664: Home offers the Field Check once per device after the landing; taking it
     // goes into the town and starts step 01 (without Free roam's tip); Home does not offer it
@@ -18029,7 +17923,7 @@ for (const [label, viewport, touch] of [
       };
       window.__licenseObs = new MutationObserver(look);
       window.__licenseObs.observe(h, { attributes: true, childList: true, characterData: true, subtree: true });
-      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 7, done: true }));
+      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 8, done: true }));
       const resumed = api.tour.resume() && api.tour.step;
       return { first: (() => { try { return JSON.parse(first); } catch { return null; } })(), tourWas, resumed, heldAfterForget: api.license.held };
     });
@@ -18046,7 +17940,7 @@ for (const [label, viewport, touch] of [
       const seen = window.__licenseSeen.slice();
       window.__licenseSeen.length = 0;
       api.hints.hide();
-      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 7, done: true }));
+      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 8, done: true }));
       api.tour.resume();
       return { seen: seen[0] ?? null, held: api.license.held, stored: localStorage.getItem('chicago4d.navigatorLicense') };
     });
@@ -18236,7 +18130,7 @@ for (const [label, viewport, touch] of [
       api.roamTip.hide();
       return { first, second };
     });
-    const tipWords = roamTip.first.backend === 'touch' ? 'Tap any building to inspect it.' : 'Click any building, or press E, to inspect it.';
+    const tipWords = roamTip.first.backend === 'touch' ? 'Tap any building or person to inspect it.' : 'Click any building or person, or press E, to inspect it.';
     check(`${label}: Free roam docks the Navigator and shows "${tipWords}" once per device (T-2634)`,
       roamTip.first.level === 0 && roamTip.first.showing && roamTip.first.text === tipWords && roamTip.first.stored === '1' && roamTip.first.inView
       && roamTip.second.level === 0 && !roamTip.second.showing,

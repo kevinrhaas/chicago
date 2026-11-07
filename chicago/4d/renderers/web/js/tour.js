@@ -1,7 +1,7 @@
 /**
  * Tour mode, the Field Check (T-2663, NAV-801; design doc section 11, M10).
  *
- * Eight steps the Navigator runs itself, framed as a Confluence Laboratory field check.
+ * Nine steps the Navigator runs itself, framed as a Confluence Laboratory field check.
  * Every step waits for the visitor to actually do the thing — read from the page through
  * `probe()`, never assumed — and Skip is always there. Progress is kept per device
  * (localStorage, inside try/catch), so a reload mid-tour resumes at the same step; it can
@@ -13,17 +13,22 @@
  * card's Go deeper step are gone — the owner found the first hard to find and turn off,
  * and neither is getting around. Bubbles say click on a mouse device and tap on touch.
  *
- * Bubbles are 14 words or fewer (section 11). Step 08's Finish ends the tour and calls
+ * T-3445 (the owner, 2026-11-07: "is the first time user tour current?") brings it up to
+ * what the town does now: the card's tabs (T-3435), a People step for the directory and
+ * Follow (T-3430, T-3404) where the scene has a People app, and Go to by photo (T-3436).
+ *
+ * Bubbles are 14 words or fewer (section 11). The last step's Finish ends the tour and calls
  * `onFinish`, which awards the Navigator License keepsake (T-2665, js/license.js); Skip
  * ends it without.
  *
- * `probe()` returns { yawDeg, e, n, opens, selected, card, apps, touch, level, scene, front }:
+ * `probe()` returns { yawDeg, e, n, opens, selected, card, apps, touch, level, scene, front, people }:
  * the camera's bearing, where the visitor stands, how many times Inspect or a building
  * card has opened on a structure, whether one is open now (and whether it is the floating
  * card, T-3022), how many times each Navigator
  * app has been opened, whether the visitor is on touch, how far the Navigator is open
- * (0 docked), the scene id, and the name of the building in front of the visitor (or
- * null). The counters are what make a step wait for an action taken DURING it: a card
+ * (0 docked), the scene id, the name of the building in front of the visitor (or
+ * null), and whether the rail has a People app (false skips the People step). The
+ * counters are what make a step wait for an action taken DURING it: a card
  * already open, or a menu already open, when the step begins does not complete it.
  */
 import { count as countField } from './field-log.js'; // T-2660
@@ -40,9 +45,11 @@ const menuOpen = (name, what) => (p) => (p.touch && !(p.level > 0)
   ? `Open the Navigator, then ${name}: ${what}.`
   : `Open ${name} on the rail: ${what}.`);
 
-/** The eight steps. `task` is the field-check line over the bubble; `target` the selector
+/** The nine steps. `task` is the field-check line over the bubble; `target` the selector
  *  the spotlight rings (or a function of the probe); `done(p, base)` whether the step's
- *  real action has happened. */
+ *  real action has happened; `when(p)`, where given, whether the step applies here (People
+ *  only where the scene has a People app on the rail) — a step that does not is passed over
+ *  and not counted. */
 export const STEPS = [
   { task: 'Your device', bubble: () => 'This is your Navigator. Every menu lives on its rail.',
     target: '#navigator', action: 'next' },
@@ -52,7 +59,8 @@ export const STEPS = [
     target: null, done: (p, base) => Math.hypot(p.e - base.e, p.n - base.n) >= WALK_M },
   { task: 'Select a building',
     // Section 11: in 1904 the Glessner House; in 1835 and 1812 the building in front of you.
-    bubble: (p) => `${press(p)} the ${String(p.scene) === '1904' ? 'Glessner House' : (p.front || 'building in front of you')}. Its file opens.`,
+    // T-3445: the card's tabs as they are now (T-3435).
+    bubble: (p) => `${press(p)} the ${String(p.scene) === '1904' ? 'Glessner House' : (p.front || 'building in front of you')}. Its card opens: Design, Timeline, Photos, Sources.`,
     target: null, done: (p, base) => (p.opens ?? 0) > base.opens },
   // T-3022: a building opened by hand opens in Inspect, let go by its Back key; the floating
   // card (`p.card`), where one is open, by its Close.
@@ -62,11 +70,18 @@ export const STEPS = [
     target: (p) => (p.card ? '#popup:not([hidden]) .pop-close' : '#nav-app-inspect .insp-back'), done: (p) => !p.selected },
   { task: 'Move', bubble: menuOpen('Move', 'walk, run, ride or fly'),
     target: railKey('move'), done: opened('move') },
-  { task: 'Settings', bubble: menuOpen('Settings', 'light, text, map, labels, season'),
+  // T-3445: People — the directory (T-3430), and in 1904 Follow for someone out in town (T-3404).
+  { task: 'People',
+    bubble: (p) => menuOpen('People', String(p.scene) === '1904' ? 'find anyone, visit their house, follow them' : 'find a person or a household')(p),
+    target: railKey('people'), done: opened('people'), when: (p) => p.people !== false },
+  { task: 'Settings', bubble: menuOpen('Settings', 'light, season, time of day, labels'),
     target: railKey('settings'), done: opened('settings') },
-  { task: 'Ready', bubble: () => 'Ready. Take a Jaunt, Go to a place, or Jump years.',
+  { task: 'Ready', bubble: () => 'Ready. Take a Jaunt, Go to a place or a photo, or Jump years.',
     target: '#navigator', action: 'finish' },
 ];
+
+/** Whether step `s` applies where the visitor is (no `when`: everywhere). */
+const applies = (s, p) => { try { return !s.when || !!s.when(p); } catch { return true; } };
 
 const angle = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
 
@@ -84,12 +99,15 @@ export function createTour({ probe = () => ({}), render = () => {}, onFinish = (
     if (step < 0) return null;
     const s = STEPS[step];
     const p = sample();
-    return { step, n: step + 1, of: STEPS.length, task: s.task, bubble: s.bubble(p),
+    const live = STEPS.filter((x) => applies(x, p));
+    return { step, n: live.indexOf(s) + 1 || step + 1, of: live.length, task: s.task, bubble: s.bubble(p),
       target: typeof s.target === 'function' ? s.target(p) : s.target,
       action: s.action ?? null, waiting: !s.action };
   }
   function paint(v) { shown = v; render(v); }
   function enter(i, { resumed = false } = {}) {
+    // A step that does not apply here (no People app on this rail) is passed over.
+    while (i < STEPS.length - 1 && !applies(STEPS[i], sample())) i++;
     step = i;
     if (!resumed) countField('tourStep'); // T-2660: a step reached, not one a reload resumes
     const p = sample();
@@ -116,7 +134,7 @@ export function createTour({ probe = () => ({}), render = () => {}, onFinish = (
       enter(saved.step, { resumed: true });
       return true;
     },
-    /** Next on step 01, Finish on step 08; nothing on a step that waits for an action. */
+    /** Next on step 01, Finish on the last; nothing on a step that waits for an action. */
     press() {
       if (step < 0) return false;
       const a = STEPS[step].action;
