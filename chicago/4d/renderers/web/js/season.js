@@ -20,12 +20,15 @@ import * as THREE from 'three';
 export const SEASONS = ['summer', 'spring', 'fall', 'winter'];
 
 /**
- * The day each season shows, as month-day in the scene's own year. Summer is the
- * scene's date. The others are chosen to agree with what the leaves are doing:
- * elms in first leaf in the last week of April, elms yellow in the third week of
- * October, and the winter solstice for the lowest sun of the year.
+ * The day each season shows, as month-day in the scene's own year: the sun is lit for
+ * it and the year chip names it (1904 · 02.15). Summer is the scene's own date.
+ * T-3437 (the owner, 2026-11-07): the others are the middle of a season's month,
+ * mid-April, mid-October and mid-February (February rather than January, so a winter
+ * view is never Christmas). The leaves agree: elms breaking bud in mid-April, elms
+ * turned by mid-October, and February the deep of the snow. Before T-3437 they were
+ * 25 April, 20 October and 21 December, and the chip still read the scene's day.
  */
-const SEASON_DAY = { spring: '04-25', fall: '10-20', winter: '12-21' };
+export const SEASON_DAY = Object.freeze({ spring: '04-15', fall: '10-15', winter: '02-15' });
 
 /** The date the sun is computed for, given the scene's own target date. */
 export function seasonDate(season, targetDate) {
