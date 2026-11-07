@@ -1,0 +1,105 @@
+{
+  "id": "hh_van_voorhis_isaac_1812",
+  "scene": "1812",
+  "name": "Surgeon's mate Isaac Van Voorhis in the officers' barracks",
+  "head": "van_voorhis_isaac",
+  "division": "fort",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "quaife_1913"
+    ],
+    "note": "On the 31 May 1812 roll of the post's officers."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "first_fort_dearborn_officers_barracks",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "whistler_1808_fort_dearborn_draught",
+      "also_sources": [],
+      "note": "An officer of the post; which room he had is not recorded."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "Everyone the T-3461 sweep found in this household on 14 August is on the card.",
+    "sources": [
+      "quaife_1913"
+    ]
+  },
+  "persons": [
+    {
+      "id": "van_voorhis_isaac",
+      "name": "Isaac Van Voorhis",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "born": {
+        "value": "1789",
+        "confidence": "inferred",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "From aged 22 when writing in Oct 1811 (Quaife App. II). Not a register entry."
+      },
+      "occupation": {
+        "value": "surgeon's mate, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Heald's official report and Journal name the four officers in the action. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Isaac V Van Voorhis (Heald report)",
+        "Dr. Van Voorhees (Wau-Bun)",
+        "Van Vorees (Helm)"
+      ],
+      "note": "After Irwin left on 5 July 1812 Van Voorhis held the keys of the factory (first_fort_outer_factory), whose goods Heald distributed on 14 Aug. After 14 August: Killed in battle near the baggage wagons; Wau-Bun's portrait of his cowardice is rejected by Quaife.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16955-16956; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27)",
+          "quote": "Isaac N. Van Surg'n Mate 1 March 1811 ............. Isaac N. Van Voorhis Voorhis",
+          "claim": "On the 31 May 1812 muster-roll."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17357; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Isaac Van Voorhis Surgeon's mate Killed in battle near the baggage wagons",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 7212; ch. VII 'Nine Years of Garrison Life' (begins p. 153)",
+          "quote": "Isaac Van Voorhis, like Cooper a native of Fishkill, New York,",
+          "claim": "Native of Fishkill, NY; Cooper's college classmate."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 15435-15436; Appendix II, 'Sources of Information for the Fort Dearborn Massacre' (begins p. 378)",
+          "quote": "The man who at the age of twenty-two could pen these lines",
+          "claim": "Age 22 in Oct 1811 (born c. 1789)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 12031-12032; ch. XIII 'The Indian Trade' (begins p. 285)",
+          "quote": "On July 5 Irwin left Chicago, having closed the storehouse and delivered the keys to Doctor Van Voorhis.",
+          "claim": "Received the factory keys from Irwin, 5 July 1812."
+        }
+      ]
+    }
+  ]
+}

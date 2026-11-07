@@ -189,8 +189,8 @@
     if (name !== current) {
       current = name;
       film.pause();
-      var v = name === 'chicago-walk' ? '?v=2' : '';   // the combined cut was re-cut newest-first
-      film.innerHTML = '<source src="media/' + name + '.webm' + v + '" type="video/webm"><source src="media/' + name + '.mp4' + v + '" type="video/mp4">';
+      var v = '?v=3';   // every film re-shot in Nov 2026: bump to refresh caches
+      film.innerHTML = '<source src="media/' + name + '.mp4' + v + '" type="video/mp4">';
       film.poster = 'media/' + name + '.jpg' + v;
       film.load();
     }
@@ -216,4 +216,24 @@
     dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
     dlg.addEventListener('close', function () { film.pause(); if (hero && !reduce && !saveData) quietPlay(hero); });
   }
+
+  /* ---- gallery: one house, four seasons ------------------------------------------------ */
+  (function () {
+    var box = document.getElementById('seasons'); if (!box) return;
+    var imgs = [].slice.call(box.querySelectorAll('.seasons-frame img'));
+    var btns = [].slice.call(box.querySelectorAll('.seasons-tabs button'));
+    var tag = document.getElementById('seasonTag'), at = 0, timer = null;
+    function show(i) {
+      at = i;
+      imgs.forEach(function (im, k) { im.classList.toggle('on', k === i); });
+      btns.forEach(function (b, k) { b.setAttribute('aria-pressed', k === i ? 'true' : 'false'); });
+      if (tag && btns[i]) tag.textContent = btns[i].textContent;
+    }
+    btns.forEach(function (b, k) { b.addEventListener('click', function () { if (timer) clearInterval(timer); timer = false; show(k); }); });
+    if (reduce || !('IntersectionObserver' in window)) return;
+    new IntersectionObserver(function (e) {
+      if (e[0].isIntersecting && timer === null) timer = setInterval(function () { show((at + 1) % imgs.length); }, 2600);
+      else if (!e[0].isIntersecting && timer) { clearInterval(timer); timer = null; }
+    }, { threshold: 0.4 }).observe(box);
+  })();
 })();

@@ -678,6 +678,28 @@
       "tier": 4,
       "tier_label": "later scholarship"
     },
+    "currey_1912_old_fort_dearborn": {
+      "source_id": "currey_1912_old_fort_dearborn",
+      "citation": "J. Seymour Currey, The Story of Old Fort Dearborn. Chicago: A. C. McClurg & Co., 1912 (published August 1912). A popular history of the first fort from 1803 to its burning in 1812, compiled from the printed accounts and the pioneer recollections before it, with eleven illustrations.",
+      "url": "https://www.gutenberg.org/ebooks/52346",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "two placings of Lee's Place: 'some four miles southwest of the fort ... on the west bank of the South Branch ... about where at the present time the old Illinois and Michigan Canal opens into that stream' (lines 1450-1454), and, in the caption to its illustration, 'on the west bank of the South Branch of the Chicago river some four miles from the mouth of the river' (lines 1484-1486)",
+        "the caption of an illustration titled 'Hardscrabble', facing p. 74, which T-2503 is to read as a picture",
+        "a 'Map of Chicago in 1812' facing p. 165, not yet opened",
+        "the Lee family's house near the fort, on the river bank opposite the mouth, near the later Madison Street and Michigan Avenue, with the sand-bar as the reason (lines 1456-1463)",
+        "the Burns house, John Burns's cabin on the north bank near the later State Street bridge, west of the Kinzies' (lines 1565-1576, 2249-2251, 2820-2822)",
+        "the four houses left standing on 18 August 1812: the Kinzie and Ouilmette houses, Burns's and Lee's (lines 3100-3105)",
+        "the one statement in the corpus that names Guarie among the residents John Kinzie found in 1804 (lines 801-803), uncited; weighed and not followed in data/exclusions.json guarie_trading_house, because Hubbard's tradition, which is Andreas's and Quaife's only authority for Guarie, dates his house before 1778 (T-2489)"
+      ],
+      "what_it_does_not_supply": [
+        "an eyewitness: Currey writes a century after the farm, from the books before him, and he says so ('it is said in a recent history of Chicago')",
+        "a survey distance. 'Some four miles' is a round figure, and the book gives no route for it",
+        "the illustration's own date or maker, which the caption does not state; until it is read it is a retrospective picture and grades tier 5 as a picture, whatever this record's tier as a text"
+      ]
+    },
     "currey_1912_story_of_old_fort_dearborn": {
       "source_id": "currey_1912_story_of_old_fort_dearborn",
       "citation": "Currey, J. Seymour. The Story of Old Fort Dearborn. Chicago: A. C. McClurg & Co., 1912.",
@@ -1267,6 +1289,24 @@
       "tier": 2,
       "tier_label": "near-primary recollection"
     },
+    "kirkland_1893_chicago_massacre": {
+      "source_id": "kirkland_1893_chicago_massacre",
+      "citation": "Joseph Kirkland, The Chicago Massacre of 1812, with Illustrations and Historical Documents (Chicago: Dibble Publishing Co., 1893). The whole book; the Appendix K letters alone are held at kirkland_1893_chicago_massacre_appendix_k.",
+      "url": "https://www.gutenberg.org/ebooks/59624",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "Mrs. Kinzie's account through Hubbard: Lalime met Kinzie outside the garrison and shot him, 'the ball cutting the side of his neck'; Kinzie stabbed him, hid in the woods and was later acquitted by the officers",
+        "Victoire Porthier's eyewitness account: sunset at the fort gate, Lieutenant Helm calling a warning, the pistol, the two falling together, Kinzie taken to Milwaukee by her father that night",
+        "the grave: 'in plain view from his front door and piazza' (Hubbard), a picket fence, 'two hundred yards west of the Kinzie house', and the bones found at Cass and Illinois streets on 29 April 1891",
+        "Lalime's letters of 26 May and 7 July 1811, and Main Poc's reply"
+      ],
+      "what_it_does_not_supply": [
+        "any document of 1812 from the factor or the surgeon's mate (those are in the War Department letters, read here only through dailing_2018_chicago_reader_lalime)",
+        "the bill of sale of 1800"
+      ]
+    },
     "lake_county_coroner_starr_titus_1839": {
       "source_id": "lake_county_coroner_starr_titus_1839",
       "citation": "Lake County, Illinois Coroner's Office, 2018 Annual Report, history of the office.",
@@ -1553,6 +1593,23 @@
       "tier": 4,
       "tier_label": "later scholarship"
     },
+    "quaife_1913": {
+      "source_id": "quaife_1913",
+      "citation": "Quaife, Milo Milton. Chicago and the Old Northwest, 1673-1835: A Study of the Evolution of the Northwestern Frontier, together with a History of Fort Dearborn. Chicago: University of Chicago Press, 1913.",
+      "url": "https://www.gutenberg.org/ebooks/69274",
+      "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "the 1808 Whistler draught index for the FIRST fort, with its scale and its distances",
+        "Major Long's 1816 report on the second fort under construction",
+        "a scholarly negative: no dimension of the second fort's stockade"
+      ],
+      "what_it_does_not_supply": [
+        "any plan or dimension of the 1816 fort",
+        "anything about the fort after 1835"
+      ]
+    },
     "racine_old_settlers_elisha_raymond_1871": {
       "source_id": "racine_old_settlers_elisha_raymond_1871",
       "citation": "Official Record of the Old Settlers' Society of Racine County, Wisconsin, Raymond settlement account.",
@@ -1755,6 +1812,23 @@
         "A woman's own name, much of the time. The roll sets a wife as `Mrs.` followed by her HUSBAND'S name — `Fullerton, Mrs. A. N.` — so a line that meets a man in the 1835 layer has met his name and not him, and the crosswalk flags every such line.",
         "A death or a departure that can be dated. `Deceased` and `Dismissed` are the state of the roll at its closing on 1 June 1892, not events with dates of their own.",
         "An address, a trade or a household. The roll carries none of the three."
+      ]
+    },
+    "simmons_1896_heroes_and_heroines": {
+      "source_id": "simmons_1896_heroes_and_heroines",
+      "citation": "Simmons, N. Heroes and Heroines of the Fort Dearborn Massacre: A Romantic and Tragic History of Corporal John Simmons and His Heroic Wife. Lawrence, Kansas: Journal Publishing Company, 1896.",
+      "url": "https://archive.org/details/heroesheroinesof00simm",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "Susan Simmons's maiden name, Millhouse",
+        "the Simmons children's names and birth dates",
+        "Mrs. Simmons's march with her infant through captivity, as family tradition"
+      ],
+      "what_it_does_not_supply": [
+        "a contemporary record of anything at Chicago in 1812",
+        "a reliable rank for John Simmons (it calls him a corporal; the roll says private)"
       ]
     },
     "st_cyr_register_ichr_v4": {

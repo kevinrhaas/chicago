@@ -1,0 +1,83 @@
+{
+  "id": "hh_keepotah_1812",
+  "scene": "1812",
+  "name": "Kee-po-tah, at the gathering of August 1812",
+  "head": "keepotah",
+  "division": "camp",
+  "review_required": true,
+  "touches_removal": true,
+  "review_note": "review_required: a Potawatomi person of the gathering at Chicago in August 1812, the eve of the battle in which the garrison and its families were attacked. The card states only what the named sources say, says where a story is Kinzie family tradition rather than a contemporary account, and stages no speech or ceremony.",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "kinzie_waubun_1856"
+    ],
+    "note": "Each person's own card says how their presence on 14 August is known."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "potawatomi_camp_1812_west_bank",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "kinzie_waubun_1856",
+      "also_sources": [],
+      "note": "No source places his lodge in the camp; the card is put at one of the camp's grounds on the creek (the 1812 camp records) so it can be found, a reconstructed choice (liberty L-1812-people-3461)."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "No source names his family or places his lodge in the camp.",
+    "sources": [
+      "kinzie_waubun_1856"
+    ]
+  },
+  "persons": [
+    {
+      "id": "keepotah",
+      "name": "Kee-po-tah",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "Guarded the Kinzie boat at the river mouth on the morning of the 15th (Wau-Bun), so very likely at Chicago on the 14th. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Keepoteh"
+      ],
+      "note": "Chief; Kinzie family's protector. Potawatomi (band not stated; with To-pee-nee-bee at St Joseph in autumn 1812). 15 and 16 August: Protected Mrs Kinzie's boat; sentinel on the 16th; escorted the family to Detroit in November 1812; had met Harrison at the 1811 Vincennes council. Afterwards: With the Kinzies at Detroit, autumn 1813 (Wau-Bun ch. XX).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a Potawatomi person of the gathering at Chicago in August 1812, the eve of the battle in which the garrison and its families were attacked. The card states only what the named sources say, says where a story is Kinzie family tradition rather than a contemporary account, and stages no speech or ceremony.",
+      "evidence": [
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, lines 5766-5768",
+          "quote": "were carefully guarded by Kee-po-tah and another Indian.",
+          "claim": "Guarded the boat",
+          "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, lines 5996-5998",
+          "quote": "under the escort of Chandonnai and their trusty Indian friend, Kee-po-tah",
+          "claim": "Escort to Detroit",
+          "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XX, lines 6322-6324",
+          "quote": "he was introduced to Kee-po-tah, who happened to be on a visit to the family at that time.",
+          "claim": "Known to Harrison",
+          "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+        }
+      ]
+    }
+  ]
+}

@@ -106,11 +106,11 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 137.3,
-        "mobile": 144.5
+        "desktop": 175.4,
+        "mobile": 157.2
       },
       "frame_ms_median": {
-        "desktop": 0.2,
+        "desktop": 0.3,
         "mobile": 0.2
       },
       "verdicts": [
@@ -255,12 +255,12 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 148.9,
-        "mobile": 138.7
+        "desktop": 137.6,
+        "mobile": 146
       },
       "frame_ms_median": {
         "desktop": 0.2,
-        "mobile": 0.2
+        "mobile": 0.3
       },
       "verdicts": [
         {
@@ -400,8 +400,8 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 133.1,
-        "mobile": 141.1
+        "desktop": 148.6,
+        "mobile": 151.7
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -535,8 +535,8 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 2436.6,
-        "mobile": 2278.3
+        "desktop": 2529.8,
+        "mobile": 2384.3
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -679,8 +679,8 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 135.7,
-        "mobile": 156.2
+        "desktop": 133.2,
+        "mobile": 144
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -833,8 +833,8 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 142,
-        "mobile": 154.7
+        "desktop": 149.4,
+        "mobile": 138
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -983,8 +983,8 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 133.9,
-        "mobile": 156.6
+        "desktop": 158.5,
+        "mobile": 165.7
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -1123,8 +1123,8 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 167.2,
-        "mobile": 148.6
+        "desktop": 137,
+        "mobile": 131.7
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -1237,8 +1237,8 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 18.2,
-        "mobile": 18.1
+        "desktop": 27.1,
+        "mobile": 32.2
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -1366,8 +1366,8 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 10.3,
-        "mobile": 14.4
+        "desktop": 18.5,
+        "mobile": 17.7
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -1491,8 +1491,8 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 11,
-        "mobile": 11.6
+        "desktop": 8.9,
+        "mobile": 19.4
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -1601,8 +1601,8 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 9.6,
-        "mobile": 9.9
+        "desktop": 10.7,
+        "mobile": 8.4
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -1735,8 +1735,8 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 151.8,
-        "mobile": 147.1
+        "desktop": 137.6,
+        "mobile": 148.9
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -1884,8 +1884,8 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 186.6,
-        "mobile": 165.1
+        "desktop": 183.5,
+        "mobile": 195.5
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -2029,8 +2029,8 @@
       "rest_height_m": 1.6532,
       "soles_y_m": -0.0001,
       "load_ms": {
-        "desktop": 180.7,
-        "mobile": 168
+        "desktop": 157.7,
+        "mobile": 157.5
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -2159,8 +2159,8 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 132,
-        "mobile": 149.4
+        "desktop": 144,
+        "mobile": 156.7
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -2288,8 +2288,8 @@
       "rest_height_m": 1.7431,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 191.4,
-        "mobile": 163.6
+        "desktop": 198.2,
+        "mobile": 182.1
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -2432,8 +2432,8 @@
       "rest_height_m": 1.7436,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 150.8,
-        "mobile": 179.3
+        "desktop": 170.1,
+        "mobile": 161
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -2572,8 +2572,8 @@
       "rest_height_m": 1.7443,
       "soles_y_m": -0.0001,
       "load_ms": {
-        "desktop": 144.9,
-        "mobile": 159.8
+        "desktop": 159.2,
+        "mobile": 187.8
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -2697,12 +2697,12 @@
       "rest_height_m": 1.7454,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 154.3,
-        "mobile": 151.5
+        "desktop": 153.3,
+        "mobile": 138.2
       },
       "frame_ms_median": {
         "desktop": 0.1,
-        "mobile": 0.2
+        "mobile": 0.1
       },
       "verdicts": [
         {
@@ -2774,13 +2774,13 @@
     },
     {
       "file": "assets/humans/glessner_john_j_1904.lod0.glb",
-      "sha256": "2b69ad132f3ef7699d201bad9b6562760b90f8d7a34915be622999534b16d646",
+      "sha256": "62b8372c00af4e4772185d47e8cdae04f1f0b718a772feb8e282010386747b14",
       "lod": 0,
       "derivative_of": null,
-      "bytes": 8561636,
+      "bytes": 8501308,
       "meshopt": false,
-      "triangles": 49072,
-      "vertices": 35393,
+      "triangles": 48229,
+      "vertices": 34324,
       "draw_calls": 14,
       "materials": 11,
       "textures": [
@@ -2826,8 +2826,8 @@
       "rest_height_m": 1.782,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 136.6,
-        "mobile": 159.1
+        "desktop": 164.1,
+        "mobile": 136.6
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -2912,19 +2912,19 @@
         {
           "check": "the same at 390x780",
           "ok": true,
-          "got": "49072 tris, 14 draws"
+          "got": "48229 tris, 14 draws"
         }
       ]
     },
     {
       "file": "assets/humans/glessner_john_j_1904.lod1.glb",
-      "sha256": "8623d2b94c2f828a54b41f01f8c216048a20083f3dc2833b04ed2a86eee46110",
+      "sha256": "d091e8d5298925b55a0fd1e46a999ec5b8774bfde2355a5e3473cf0693290eba",
       "lod": 1,
       "derivative_of": null,
-      "bytes": 7652092,
+      "bytes": 7617532,
       "meshopt": false,
-      "triangles": 29809,
-      "vertices": 21963,
+      "triangles": 29301,
+      "vertices": 21351,
       "draw_calls": 14,
       "materials": 11,
       "textures": [
@@ -2970,8 +2970,8 @@
       "rest_height_m": 1.782,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 129.1,
-        "mobile": 156
+        "desktop": 146.7,
+        "mobile": 153.7
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -3056,19 +3056,19 @@
         {
           "check": "the same at 390x780",
           "ok": true,
-          "got": "29809 tris, 14 draws"
+          "got": "29301 tris, 14 draws"
         }
       ]
     },
     {
       "file": "assets/humans/glessner_john_j_1904.lod2.glb",
-      "sha256": "a375d022e13e6d8b6b04b2c0264918328f312b2521a42561107cb7b402027c4f",
+      "sha256": "655bcc1c878537bcc67ca2977b2418f8752857e5445ac48f8b93db1ea9c4b279",
       "lod": 2,
       "derivative_of": null,
-      "bytes": 6888216,
+      "bytes": 6872304,
       "meshopt": false,
-      "triangles": 14608,
-      "vertices": 11292,
+      "triangles": 14373,
+      "vertices": 11007,
       "draw_calls": 14,
       "materials": 11,
       "textures": [
@@ -3110,8 +3110,8 @@
       "rest_height_m": 1.7819,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 137.4,
-        "mobile": 144.4
+        "desktop": 164.4,
+        "mobile": 126
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -3181,19 +3181,19 @@
         {
           "check": "the same at 390x780",
           "ok": true,
-          "got": "14608 tris, 14 draws"
+          "got": "14373 tris, 14 draws"
         }
       ]
     },
     {
       "file": "assets/humans/glessner_john_j_1904.lod3.glb",
-      "sha256": "da262da9fe9340f91878d6cddc88e27d4b973ab41c3c175e1289db35a6e08e43",
+      "sha256": "0792f48fe3c748eb3ec43691f93782599616caffa79e4607a6390089d5286a66",
       "lod": 3,
       "derivative_of": null,
-      "bytes": 6533440,
+      "bytes": 6530552,
       "meshopt": false,
-      "triangles": 6994,
-      "vertices": 5349,
+      "triangles": 6893,
+      "vertices": 5299,
       "draw_calls": 14,
       "materials": 11,
       "textures": [
@@ -3235,8 +3235,8 @@
       "rest_height_m": 1.7818,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 159.3,
-        "mobile": 111.9
+        "desktop": 142.8,
+        "mobile": 140.5
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -3306,7 +3306,7 @@
         {
           "check": "the same at 390x780",
           "ok": true,
-          "got": "6994 tris, 14 draws"
+          "got": "6893 tris, 14 draws"
         }
       ]
     },
@@ -3364,8 +3364,8 @@
       "rest_height_m": 1.787,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 137.9,
-        "mobile": 130.1
+        "desktop": 177.8,
+        "mobile": 136.9
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -3508,8 +3508,8 @@
       "rest_height_m": 1.787,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 161.9,
-        "mobile": 168.3
+        "desktop": 138.4,
+        "mobile": 153.7
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -3648,8 +3648,8 @@
       "rest_height_m": 1.7872,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 132.8,
-        "mobile": 136.4
+        "desktop": 144.9,
+        "mobile": 157
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -3773,8 +3773,8 @@
       "rest_height_m": 1.7872,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 150.7,
-        "mobile": 131.5
+        "desktop": 128.2,
+        "mobile": 149
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -3902,8 +3902,8 @@
       "rest_height_m": 1.83,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 132.3,
-        "mobile": 157.3
+        "desktop": 153.3,
+        "mobile": 152.7
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -4046,8 +4046,8 @@
       "rest_height_m": 1.83,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 153.5,
-        "mobile": 148.9
+        "desktop": 160.7,
+        "mobile": 148.2
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -4186,8 +4186,8 @@
       "rest_height_m": 1.8299,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 131.8,
-        "mobile": 168.2
+        "desktop": 137.4,
+        "mobile": 151.4
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -4311,8 +4311,8 @@
       "rest_height_m": 1.8298,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 150,
-        "mobile": 146.2
+        "desktop": 174.2,
+        "mobile": 132
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -4440,8 +4440,8 @@
       "rest_height_m": 1.939,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 148.1,
-        "mobile": 167.1
+        "desktop": 153.6,
+        "mobile": 138.2
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -4584,8 +4584,8 @@
       "rest_height_m": 1.9306,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 135.4,
-        "mobile": 142.6
+        "desktop": 153.8,
+        "mobile": 180
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -4724,8 +4724,8 @@
       "rest_height_m": 1.9302,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 137.2,
-        "mobile": 135.5
+        "desktop": 163.7,
+        "mobile": 141
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -4849,8 +4849,8 @@
       "rest_height_m": 1.9303,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 148.5,
-        "mobile": 129.4
+        "desktop": 135.8,
+        "mobile": 152.1
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -4978,8 +4978,8 @@
       "rest_height_m": 1.6756,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 172.5,
-        "mobile": 177.4
+        "desktop": 188.8,
+        "mobile": 185.4
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -5122,8 +5122,8 @@
       "rest_height_m": 1.6756,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 155.4,
-        "mobile": 180.6
+        "desktop": 167,
+        "mobile": 167.5
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -5262,8 +5262,8 @@
       "rest_height_m": 1.6757,
       "soles_y_m": -0.0001,
       "load_ms": {
-        "desktop": 150.2,
-        "mobile": 165.1
+        "desktop": 174.1,
+        "mobile": 156.6
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -5387,8 +5387,8 @@
       "rest_height_m": 1.6762,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 151,
-        "mobile": 168.3
+        "desktop": 151.3,
+        "mobile": 163.6
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -5516,8 +5516,8 @@
       "rest_height_m": 1.6643,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 138.9,
-        "mobile": 153.7
+        "desktop": 183.3,
+        "mobile": 167.6
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -5660,8 +5660,8 @@
       "rest_height_m": 1.6643,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 172.6,
-        "mobile": 145.5
+        "desktop": 150.4,
+        "mobile": 155.6
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -5800,8 +5800,8 @@
       "rest_height_m": 1.6644,
       "soles_y_m": -0.0001,
       "load_ms": {
-        "desktop": 157,
-        "mobile": 155.5
+        "desktop": 155.1,
+        "mobile": 169.2
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -5925,8 +5925,8 @@
       "rest_height_m": 1.6643,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 166.4,
-        "mobile": 168.2
+        "desktop": 164.1,
+        "mobile": 167.4
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -6064,8 +6064,8 @@
       "rest_height_m": 1.7539,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 98.8,
-        "mobile": 103.7
+        "desktop": 104.9,
+        "mobile": 122.7
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -6223,8 +6223,8 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 53.8,
-        "mobile": 49.9
+        "desktop": 47.5,
+        "mobile": 71
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -6378,8 +6378,8 @@
       "rest_height_m": 1.7538,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 38.6,
-        "mobile": 30.8
+        "desktop": 37.2,
+        "mobile": 34.4
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -6523,8 +6523,8 @@
       "rest_height_m": 1.7537,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 20.8,
-        "mobile": 19.9
+        "desktop": 23.8,
+        "mobile": 30.8
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -6677,8 +6677,8 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 135.4,
-        "mobile": 98.3
+        "desktop": 144,
+        "mobile": 115.6
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -6841,8 +6841,8 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 54.4,
-        "mobile": 59.3
+        "desktop": 51.5,
+        "mobile": 81.9
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -7001,8 +7001,8 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 38.1,
-        "mobile": 31.9
+        "desktop": 32.8,
+        "mobile": 27.2
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -7151,8 +7151,8 @@
       "rest_height_m": 1.7535,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 20.1,
-        "mobile": 21.2
+        "desktop": 20.7,
+        "mobile": 17.1
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -7275,8 +7275,8 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 15.5,
-        "mobile": 17.5
+        "desktop": 12.6,
+        "mobile": 17.3
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -7414,8 +7414,8 @@
       "rest_height_m": 1.7033,
       "soles_y_m": 0.0017,
       "load_ms": {
-        "desktop": 7.7,
-        "mobile": 9.7
+        "desktop": 9.6,
+        "mobile": 10.3
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -7549,8 +7549,8 @@
       "rest_height_m": 1.7032,
       "soles_y_m": 0.0018,
       "load_ms": {
-        "desktop": 7.4,
-        "mobile": 10.4
+        "desktop": 9.3,
+        "mobile": 7.8
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -7669,11 +7669,11 @@
       "rest_height_m": 1.7032,
       "soles_y_m": 0.0018,
       "load_ms": {
-        "desktop": 16.4,
-        "mobile": 11.3
+        "desktop": 16,
+        "mobile": 9
       },
       "frame_ms_median": {
-        "desktop": 0.1,
+        "desktop": 0,
         "mobile": 0.1
       },
       "verdicts": [
@@ -7813,8 +7813,8 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 110.8,
-        "mobile": 92.9
+        "desktop": 88.2,
+        "mobile": 113.7
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -7972,11 +7972,11 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 50.8,
-        "mobile": 45.4
+        "desktop": 56.1,
+        "mobile": 61.9
       },
       "frame_ms_median": {
-        "desktop": 0,
+        "desktop": 0.1,
         "mobile": 0.1
       },
       "verdicts": [
@@ -8127,11 +8127,11 @@
       "rest_height_m": 1.6532,
       "soles_y_m": -0.0001,
       "load_ms": {
-        "desktop": 38,
-        "mobile": 27.9
+        "desktop": 37.8,
+        "mobile": 32.5
       },
       "frame_ms_median": {
-        "desktop": 0,
+        "desktop": 0.1,
         "mobile": 0.1
       },
       "verdicts": [
@@ -8267,12 +8267,12 @@
       "rest_height_m": 1.6531,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 26.5,
-        "mobile": 18.7
+        "desktop": 25.6,
+        "mobile": 31.6
       },
       "frame_ms_median": {
         "desktop": 0.1,
-        "mobile": 0.1
+        "mobile": 0
       },
       "verdicts": [
         {
@@ -8406,8 +8406,8 @@
       "rest_height_m": 1.7431,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 195.3,
-        "mobile": 149.8
+        "desktop": 165.4,
+        "mobile": 143.8
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -8560,8 +8560,8 @@
       "rest_height_m": 1.7437,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 74.2,
-        "mobile": 56.1
+        "desktop": 56.9,
+        "mobile": 69.5
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -8710,8 +8710,8 @@
       "rest_height_m": 1.7443,
       "soles_y_m": -0.0001,
       "load_ms": {
-        "desktop": 46.1,
-        "mobile": 44.3
+        "desktop": 32.6,
+        "mobile": 33.1
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -8845,8 +8845,8 @@
       "rest_height_m": 1.7454,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 19.5,
-        "mobile": 19.5
+        "desktop": 25.1,
+        "mobile": 18
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -8932,13 +8932,13 @@
     },
     {
       "file": "assets/humans/web/glessner_john_j_1904.lod0.glb",
-      "sha256": "c1cae6f7aabeb90fe832e25caa161aed19bd7cae801ea91314f2ffdb7c0ce08d",
+      "sha256": "53abddd2f2958fe26f14beb5b2782d7a9bbb84c962ae6372dcc0d10895be945a",
       "lod": 0,
       "derivative_of": "assets/humans/glessner_john_j_1904.lod0.glb",
-      "bytes": 4646916,
+      "bytes": 4634336,
       "meshopt": true,
-      "triangles": 49072,
-      "vertices": 35393,
+      "triangles": 48229,
+      "vertices": 34324,
       "draw_calls": 14,
       "materials": 11,
       "textures": [
@@ -8984,8 +8984,8 @@
       "rest_height_m": 1.782,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 126.3,
-        "mobile": 98.1
+        "desktop": 133.5,
+        "mobile": 118.9
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -9070,7 +9070,7 @@
         {
           "check": "the same at 390x780",
           "ok": true,
-          "got": "49072 tris, 14 draws"
+          "got": "48229 tris, 14 draws"
         },
         {
           "check": "decoded frame matches its master",
@@ -9080,19 +9080,19 @@
         {
           "check": "same triangles, joints, morphs and clips as its master",
           "ok": true,
-          "got": "49072 tris"
+          "got": "48229 tris"
         }
       ]
     },
     {
       "file": "assets/humans/web/glessner_john_j_1904.lod1.glb",
-      "sha256": "3e4732a5593dd79bd7facff30a89c98a83e4403bb6230652a2528f8165a09094",
+      "sha256": "d9b3924bf015f9d038963ead806cf76f9d8bead97751b7c207476cfe1bb9a63b",
       "lod": 1,
       "derivative_of": "assets/humans/glessner_john_j_1904.lod1.glb",
-      "bytes": 1693548,
+      "bytes": 1685892,
       "meshopt": true,
-      "triangles": 29809,
-      "vertices": 21963,
+      "triangles": 29301,
+      "vertices": 21351,
       "draw_calls": 14,
       "materials": 11,
       "textures": [
@@ -9138,8 +9138,8 @@
       "rest_height_m": 1.782,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 45.6,
-        "mobile": 56.6
+        "desktop": 60.6,
+        "mobile": 58.6
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -9224,7 +9224,7 @@
         {
           "check": "the same at 390x780",
           "ok": true,
-          "got": "29809 tris, 14 draws"
+          "got": "29301 tris, 14 draws"
         },
         {
           "check": "decoded frame matches its master",
@@ -9234,19 +9234,19 @@
         {
           "check": "same triangles, joints, morphs and clips as its master",
           "ok": true,
-          "got": "29809 tris"
+          "got": "29301 tris"
         }
       ]
     },
     {
       "file": "assets/humans/web/glessner_john_j_1904.lod2.glb",
-      "sha256": "c231e65a4129434886505db2f4aa3d4c4bc05fc2699895fa0079bd19764acde7",
+      "sha256": "b44778406626f68a81c1ef64332f35c12bdedb41b64aff0e37b6e3e7f77e9a7c",
       "lod": 2,
       "derivative_of": "assets/humans/glessner_john_j_1904.lod2.glb",
-      "bytes": 677540,
+      "bytes": 673704,
       "meshopt": true,
-      "triangles": 14608,
-      "vertices": 11292,
+      "triangles": 14373,
+      "vertices": 11007,
       "draw_calls": 14,
       "materials": 11,
       "textures": [
@@ -9288,8 +9288,8 @@
       "rest_height_m": 1.782,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 41.8,
-        "mobile": 28.5
+        "desktop": 56.2,
+        "mobile": 44.5
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -9359,7 +9359,7 @@
         {
           "check": "the same at 390x780",
           "ok": true,
-          "got": "14608 tris, 14 draws"
+          "got": "14373 tris, 14 draws"
         },
         {
           "check": "decoded frame matches its master",
@@ -9369,19 +9369,19 @@
         {
           "check": "same triangles, joints, morphs and clips as its master",
           "ok": true,
-          "got": "14608 tris"
+          "got": "14373 tris"
         }
       ]
     },
     {
       "file": "assets/humans/web/glessner_john_j_1904.lod3.glb",
-      "sha256": "3dc9a0ced4e91a8ee0cd5c8c1bb7e389dff321e4832b4f9800285182c19a4ac5",
+      "sha256": "ac5a8b3eb05a4db708d3a3e8a863d516e035a492df678f1164cde9dd4c4c7ee9",
       "lod": 3,
       "derivative_of": "assets/humans/glessner_john_j_1904.lod3.glb",
-      "bytes": 328764,
+      "bytes": 328096,
       "meshopt": true,
-      "triangles": 6994,
-      "vertices": 5349,
+      "triangles": 6893,
+      "vertices": 5299,
       "draw_calls": 14,
       "materials": 11,
       "textures": [
@@ -9423,8 +9423,8 @@
       "rest_height_m": 1.7817,
       "soles_y_m": 0.0001,
       "load_ms": {
-        "desktop": 29.9,
-        "mobile": 22.5
+        "desktop": 30.6,
+        "mobile": 24.9
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -9494,7 +9494,7 @@
         {
           "check": "the same at 390x780",
           "ok": true,
-          "got": "6994 tris, 14 draws"
+          "got": "6893 tris, 14 draws"
         },
         {
           "check": "decoded frame matches its master",
@@ -9504,7 +9504,7 @@
         {
           "check": "same triangles, joints, morphs and clips as its master",
           "ok": true,
-          "got": "6994 tris"
+          "got": "6893 tris"
         }
       ]
     },
@@ -9562,8 +9562,8 @@
       "rest_height_m": 1.7869,
       "soles_y_m": 0.0001,
       "load_ms": {
-        "desktop": 103.3,
-        "mobile": 106.3
+        "desktop": 119.9,
+        "mobile": 131.1
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -9716,8 +9716,8 @@
       "rest_height_m": 1.787,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 51.5,
-        "mobile": 50.2
+        "desktop": 53.7,
+        "mobile": 46.5
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -9866,8 +9866,8 @@
       "rest_height_m": 1.7873,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 33.1,
-        "mobile": 53.9
+        "desktop": 25.1,
+        "mobile": 35.8
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -10001,8 +10001,8 @@
       "rest_height_m": 1.7872,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 18.5,
-        "mobile": 18
+        "desktop": 23.3,
+        "mobile": 25.1
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -10140,11 +10140,11 @@
       "rest_height_m": 1.83,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 113.5,
-        "mobile": 108.2
+        "desktop": 128.1,
+        "mobile": 105.7
       },
       "frame_ms_median": {
-        "desktop": 0.1,
+        "desktop": 0.2,
         "mobile": 0.1
       },
       "verdicts": [
@@ -10294,12 +10294,12 @@
       "rest_height_m": 1.83,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 59.5,
-        "mobile": 51.2
+        "desktop": 56.2,
+        "mobile": 52.4
       },
       "frame_ms_median": {
         "desktop": 0.1,
-        "mobile": 0.1
+        "mobile": 0.2
       },
       "verdicts": [
         {
@@ -10444,8 +10444,8 @@
       "rest_height_m": 1.8299,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 32.6,
-        "mobile": 26.2
+        "desktop": 28.1,
+        "mobile": 33.4
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -10579,8 +10579,8 @@
       "rest_height_m": 1.8298,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 16,
-        "mobile": 17.3
+        "desktop": 24.2,
+        "mobile": 23.5
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -10718,11 +10718,11 @@
       "rest_height_m": 1.939,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 108.6,
-        "mobile": 111.1
+        "desktop": 132.8,
+        "mobile": 113.7
       },
       "frame_ms_median": {
-        "desktop": 0.2,
+        "desktop": 0.1,
         "mobile": 0.1
       },
       "verdicts": [
@@ -10872,8 +10872,8 @@
       "rest_height_m": 1.9306,
       "soles_y_m": -0.0001,
       "load_ms": {
-        "desktop": 43.9,
-        "mobile": 44.5
+        "desktop": 46.3,
+        "mobile": 41.7
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -11022,11 +11022,11 @@
       "rest_height_m": 1.9302,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 35.5,
-        "mobile": 33.4
+        "desktop": 39.8,
+        "mobile": 29.9
       },
       "frame_ms_median": {
-        "desktop": 0.2,
+        "desktop": 0.1,
         "mobile": 0.1
       },
       "verdicts": [
@@ -11157,8 +11157,8 @@
       "rest_height_m": 1.9303,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 22.9,
-        "mobile": 20.2
+        "desktop": 25.8,
+        "mobile": 19.4
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -11296,8 +11296,8 @@
       "rest_height_m": 1.6756,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 154.1,
-        "mobile": 141.5
+        "desktop": 152.3,
+        "mobile": 149.9
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -11450,8 +11450,8 @@
       "rest_height_m": 1.6755,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 66.2,
-        "mobile": 78.9
+        "desktop": 79.9,
+        "mobile": 59.3
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -11600,8 +11600,8 @@
       "rest_height_m": 1.6757,
       "soles_y_m": -0.0001,
       "load_ms": {
-        "desktop": 51,
-        "mobile": 42.2
+        "desktop": 41.3,
+        "mobile": 49.8
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -11735,8 +11735,8 @@
       "rest_height_m": 1.6762,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 27.8,
-        "mobile": 26.2
+        "desktop": 23.9,
+        "mobile": 31.8
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -11874,8 +11874,8 @@
       "rest_height_m": 1.6642,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 131.2,
-        "mobile": 136.4
+        "desktop": 164.4,
+        "mobile": 154.5
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -12028,8 +12028,8 @@
       "rest_height_m": 1.6643,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 69.6,
-        "mobile": 74.6
+        "desktop": 61.8,
+        "mobile": 63.5
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -12178,8 +12178,8 @@
       "rest_height_m": 1.6644,
       "soles_y_m": -0.0001,
       "load_ms": {
-        "desktop": 44.7,
-        "mobile": 48.3
+        "desktop": 39.2,
+        "mobile": 43.4
       },
       "frame_ms_median": {
         "desktop": 0.1,
@@ -12313,8 +12313,8 @@
       "rest_height_m": 1.6643,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 29.5,
-        "mobile": 32.9
+        "desktop": 20.3,
+        "mobile": 18.9
       },
       "frame_ms_median": {
         "desktop": 0.1,

@@ -31519,6 +31519,8 @@ Actual pinned exporter source statically recognizes the proposed 1-(Alpha<.4) no
 
 **Five figures placed in three scenes (2026-11-07, T-3452):** The five people dressed by T-3447 to T-3451 now stand in the town, each graded reconstructed: where each stands, facing where, standing still, and when, is ours, and no picture of any of them standing there exists. **Frances M. Glessner** (`hi_glessner_frances_m_1904`, E 1359.5, N -3230.5, facing 110) stands in her house's courtyard, in its north-west part about 4.7 m off the north range and the hall bay, facing across the court to the carriage passage; she is kept clear of the carriage way along the court's south side and of John J. Glessner's walks (up his front walk and steps, and through the carriage passage to the hall-bay stand), and 8.4 m from the cook. That she was at home at all on 1 July 1904 is the people directory's, not a record of that day. **Mary Reynolds** (`hi_pa1904_glessner_john_j_c1900_mary_reynolds_1904`, E 1356.3, N -3216.7, facing 20) stands on the Eighteenth Street walk at the mouth of the great arch, about a metre out from the wall and clear of the porch steps inside it. Glessner's own account (`glessner_story_of_a_house_1923`) names the arch as the service entrance; that is the read part. That a maid would wait there, rather than inside or in the court, is ours, and so is her presence in 1904: the 1900 census is the last record of her in the house. **Philip F. W. Peck** (`hi_peck_philip_1835`, E 437.5, N -1.2, facing 290) stands on the South Water Street verge before his own store (`peck_store`, the corner Andreas gives), a metre off the plank walk so his feet stand on the ground and not in the boards, east of its stoop and clear of the hitching post, turned west down the street. **Patrick Mahoney** (`hi_rc_mahoney_patrick_1835`, E 440.5, N 24.0, facing 200), a reconstructed labourer whose seat is a porter's at A. Garrett's auction room (on South Water Street, no house named) and whose roof is a boarder's in the school section, stands on the worked bank above the landing reconstructed for Peck's store, 7.5 m from the water; that he works that landing, or for Peck, is not claimed. **An anonymous private of Heald's company** (`hi_heald_company_private_1812`, E 1147.5, N 219.5, facing 190) stands at ease on the first fort's parade, about four metres west of the line from the main gate to the flagstaff and five metres off the officers' barracks, facing the gate. He is the first anonymous role figure: the 1812 profile `anonymous_adult_1812` now accepts the private's dress for 1812 and no other asset, because no soldier of the company is a person of the 1812 people layer (whose one person is John Kinzie the elder). He acts out nothing of 14 August 1812, and the scene's cards that said no one is drawn now say who is. The body kit draws an anonymous figure's age by its instance id from its 22-58 default band; the id `hi_heald_company_private_1812` was chosen because its draw (about 26) keeps the young private the dress was built for. No strand hair is grown for him: no era cut is set for 1812, so the cleared short04 cap the dress was fitted over shows below the felt cap and nothing can show through it. Every spot was checked against the placed building footprints (`tools/check_structure_clearance.py`'s own shapes), the street-edge walks, posts and fittings, the yard props, the trees and street furniture, the driven circuits and the other figures, and against the heightfield (dry, on ground, no step over 2 cm within a metre). **How to resolve:** a photograph or record that puts any of them somewhere on the day replaces that stand; a person record for a soldier of Heald's company replaces the anonymous private.
 
+**The parade private named (2026-11-07, T-3468):** the owner asked that the 1812 figure be a reconstructed or documented person of 1812, not an anonymous role. `hi_heald_company_private_1812` now names `grummo_paul`, Private Paul Grummo, carded in `data/residents_1812/households/hh_heald_company_1812.json` from Heald's muster-roll of 31 May 1812 (`quaife_1913`, Appendix VIII, p. 426: enlisted 1 October 1810, present) and Quaife's account of the nine men who came back from captivity in 1814 and of Grummo's later telling (pp. 238-40). He was chosen over the other eight because his is the one story the record keeps, and over David Kennison, whose own claim to have been born in 1736 would make him 76 in a dress made for a young private. Graded inferred: his presence on 14 August is read from the May roll and his return, not a roll of that day; the scouting, adoption and journey are his own telling, which Quaife calls untrustworthy, and the card says so. Reconstructed, and still this liberty's: his place on the parade, his standing, his face, build and age (no likeness or birth year is known), and his home in the west soldiers' barracks (Whistler's plan has two; which he slept in is not recorded). The dress asset stays anonymous; only the figure wearing it is named. The role profile `anonymous_adult_1812` now has no instance.
+
 
 ## T-2793 — W01 original wheel/edge refinement (2026-10-19)
 
@@ -40276,8 +40278,33 @@ sketch of the 1812 ground that shows a path (the 1821 and 1830 surveys are the n
 places one. The eighteenth yard (T-3401, 2026-11-06) is Lee's Place's stack yard, round the four haystacks: Wau-Bun
 puts the cattle "standing among the haystacks" and foddered there, so the ground round their feet is grazed and
 trodden rather than standing prairie; its extent (the stacks' squares grown 3 m) is ours, like the others'.
-**Ticket:** T-3339, T-3401.
-**Recorded:** 2026-11-03 (T-3339); the stack yard 2026-11-06 (T-3401).
+T-3457 (2026-11-07, the owner: "minimize or eliminate the grass in the worn paths and areas") takes the standing
+grass off the worn ground harder than the earth shows: inside a yard and on a trail's core about 96 in 100 plants
+go whatever the wear, and round each yard the grass thins out over 1.8 times its earth's feather, never nearer than a
+fifth of that band to the yard, before it frays back to prairie. That share, that reach and that floor are ours.
+**Ticket:** T-3339, T-3401, T-3457.
+**Recorded:** 2026-11-03 (T-3339); the stack yard 2026-11-06 (T-3401); the grass 2026-11-07 (T-3457).
+
+### L-t3458-yard-goods-1812 — the wood, casks and carts round the 1812 houses, placed by rule
+
+**Decision:** the 1812 scene gets the yard goods a frontier household and a garrison post could not do
+without, written by `tools/generate_yard_goods_1812.py` into `data/yard/1812/yard_goods_1812.json` and drawn
+by `renderers/web/js/yard.js` with the 1835 town's own woodpile, block, cask, case, cart and wagon: at every
+house (the Kinzie house and its men's lodging house, Ouilmette, Lalime, Lemai, Burns, the Lees' town house,
+the two houses at the forks, Lee's Place, the agent's and the interpreter's houses) a rick of split wood
+against the back wall, a chopping block in front of it and a water cask at a corner; an oven's heap of
+unsplit lengths at the garrison's and the Kinzies' bake houses; casks and cases along a gable of the
+government factory and the merchant's shop; a slack tub and a heap of slabs at the armourer's; a two-wheeled
+cart at the garrison's stables, the Kinzie stable and Lee's Place, and a four-wheeled wagon in the garrison's
+stable yard. What bounds it: every fire in 1812 Chicago burned wood; the factory's goods were given out on the
+scene date; the evacuation of the 15th went out with wagons (Quaife 1913). **What is ours throughout:** that
+any one of these objects stood at any one place, every position (a rule off the building's own walls: back
+wall first, a hand's gap off it, never on wet ground, in or against a footprint, on a fence or in a garden, on
+a worn trail or under a planted stem), every size and every count. No source places a woodpile, cask or cart
+at any 1812 house. **How to resolve:** a recollection, inventory or claim naming one at a particular house;
+the factory's returns for 1812; a view of the post's out-buildings.
+**Ticket:** T-3458.
+**Recorded:** 2026-11-07 (T-3458).
 
 ### L-t3340-south-groves-1812 — 1812's timber south of the river: the South Branch belt carried east of Wells, and groves in the wet hollows
 
@@ -41356,9 +41383,22 @@ left on the bushes, the fallen onion tops, the wicket's make, its swing and a vi
 from M'Mahon's calendar of the August kitchen garden and its distances (read in the 1857 printing).
 **How to resolve:** a garrison account, order book or letter naming what the commanding officer grew, or a
 description of the garden in 1812, replaces the crops; a better reading of the draught's beds moves them.
+**The garden in the other seasons (T-3460, 2026-11-07).** The owner, in 1812 with Settings > Season on winter: *"its
+winter in 1812 and we still have a garden! it should be season appropriate"*. Under the Season setting (itself a
+viewing choice, L-season-view-2864) the same beds are planted for 15 April, 15 October and 15 February from M'Mahon's
+calendar for those months: in April only young cabbage plants, onion sets, lettuce, the first asparagus spears, small
+strawberry and herb plants, and the bushes and canes breaking leaf, the spent raspberry canes cut out (corn, beans,
+melons, squash, cucumbers and potatoes are sown or showing only in May); in October the corn and the bean vines dry
+on their stalks and poles, the squashes ripe on frost-killed runners, the melon and cucumber runners withered and
+picked, the potatoes and onions lifted, cabbages, roots and lettuce still standing, the asparagus yellow and the
+bushes turned; in February nothing above the snow but the leafless currants, gooseberries and raspberry canes, the
+beds having been cleared, dunged and ridged for the winter in November, and the beds and walks under the season's
+snow. Which crops stand in which month, how far grown and how coloured are ours from that calendar (written for
+Philadelphia; Chicago's spring runs later, so April is read from its earliest work); nothing records the garden in
+any month but August. `renderers/web/js/gardens.js` SEASON_CROPS holds the table.
 **Covers:** `first_fort_outer_officers_garden.first_fort_1803.form.gate_kind`
-**Ticket:** T-3407.
-**Recorded:** 2026-11-06 (T-3407).
+**Ticket:** T-3407, T-3460.
+**Recorded:** 2026-11-06 (T-3407); seasons 2026-11-07 (T-3460).
 
 ### L-t3403-battle-shore-1812 — The 1812 shore at the battle: the two surveys joined at Twelfth Street, Heald's high sand bank and ravine laid as one profile, and his small elevation placed
 
@@ -41819,3 +41859,45 @@ visitor's camera. The grille's pane is drawn as a dark pane rather than transmis
 photograph of the open door or of the hall from the entrance for the swing and the finish.
 **Ticket:** T-3442.
 **Recorded:** 2026-11-07 (T-3442).
+
+### L-1812-people-3461 — The people of Chicago on 14 August 1812: who is carded, which roof each family is given, and the counted people nobody names
+
+**Decision:** the 1812 scene's people layer (`data/residents_1812/households/`) carries everyone a four-part research sweep (T-3461, `docs/RESEARCH/people-1812-3461/`) found at the post on the afternoon of 14 August 1812: the 55 regulars of Heald's company on its muster-roll to 31 May 1812 (Quaife 1913, App. VIII), the women and children of the garrison and the militia families, the Kinzie, Ouilmette, Burns and Lee households, William Wells, and the Potawatomi people the sources name. Three things on those cards are ours. (1) **Which roof.** No source says which room of the fort any soldier or soldier's family lived in; only the commanding officer's quarters are named in an account of 1812. The four married privates' families are put in the two small houses and the two soldiers' barracks of Whistler's 1808 index, the single men in the barracks and the north range, and the junior officers in the officers' barracks, each association graded `reconstructed`. (2) **Presence that afternoon.** No roll was called on 14 August. Every man on the 31 May roll is taken as present, as Quaife takes him (App. IX: "no reason to suppose that there was any alteration in this number"); a person no account of the battle or its captives names is marked `probably present` on their own card. (3) **The counted and unnamed.** Quaife counts twelve militia and eighteen children with the evacuation; at least six militiamen and seven children have no name in any source. Each has a card graded `reconstructed`, standing for one of the counted, with nothing about him or her but the count. Wells's Miami escort (about thirty, named by no source) and the families of the Potawatomi camp (Helm's 500 warriors and 179 women and children on 12 August) are left to T-3467, which cards them when it places them.
+
+**Not invented:** any name, birth year, rank, family tie or fate. Each of those is a field of the reading, with its source, locator and quote on the person's `evidence`. Wau-Bun's dialogue is not quoted as speech; where a story is Kinzie family tradition the card says so.
+**Re-opens on:** a quartering return or order book of the 1812 garrison; a name for any counted person, which retires one reconstructed card.
+**Ticket:** T-3461.
+**Recorded:** 2026-11-07.
+
+### L-first-fort-blockhouse-cupolas-3041 — cupolas on the first fort's two blockhouses
+
+**Decision:** Build a small square cupola under its own pyramid cap at the apex of both first-fort
+blockhouses, `first_fort_dearborn_blockhouse_nw` and `first_fort_dearborn_blockhouse_se`, as the owner adopted from Currey's 1912 bird's-eye on
+2026-11-03 (T-3335).
+
+**What the sources carry:** Whistler's 1808 draught lays cupolas down on both blockhouses and its index
+says they were "not yet built ... as laid down", so they were planned and not standing in 1808. Kurz &
+Allison (1893) panel 1 draws a small roof lantern on each first-fort blockhouse, and Currey (1912), after
+the 1899 Tribune sketch of Van den Berghen's 1898 model, draws a square body under a pyramid cap on both.
+Intent plus two later depictions carries their OCCURRENCE by August 1812 at `inferred`. No source dates
+their completion, and both pictures are tier-5 retrospectives. The occurrence is in each record's
+`form.cupola`; this entry admits what that attribute does not carry, the size.
+
+**What is invented:** Every dimension, reused unchanged from the second fort's cupola kit in
+`generators/archetypes/fort_structure_params.py` (L-second-fort-blockhouse-cupola-2388): the 1.8 m side,
+the 2.1 m body height from its seat to the cap's eave, the 0.22 m cap eave, the 36 degree cap pitch and the
+0.12 m seat into the main roof. Plain boarded sides, no louvres, glazing or finial. Nothing in either
+picture measures them; they sit in the proportions both pictures show.
+
+**Supersedes:** The line in L-first-fort-pictured-blockhouse-stacks-3041 that the first-fort lanterns
+remain unbuilt. Its zero separate stacks stand, as do L370's height, jetty and roof choices.
+
+**What is not changed:** The measured plans, surveyed seats and bearings, the 5.2 m walls, the jetty, the
+30 degree main pyramid, and every other building of the fort. The blockhouses' tower proportions stay on
+Whistler's plan by the owner's ruling.
+
+**How to resolve:** a garrison return, order or letter between 1808 and 1812 that reports the cupolas
+finished, or describes their size.
+
+**Ticket:** T-3041 (partial; the fort's full picture match stays open).
+**Recorded:** 2026-11-07.

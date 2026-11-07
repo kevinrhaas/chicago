@@ -250,6 +250,11 @@ assert.equal(hairFor(null, 1812), null, 'the 1812 private grows no strand hair u
   assert(mattie === null || mattie.grown.scalp === 0, `no scalp cards over her bun: ${mattie?.grown.scalp}`);
   assert.equal(cap.material.alphaTest, before, 'her cap keeps its own alpha cut');
   assert(FACIAL_HAIR.lashes_upper && hairFor('rc_flynn_mary', 1835).facial.includes('lashes_upper'), 'both women grow lashes');
+  // T-3456 (owner: brows "super clumpy bunchy"): the fine brow is rooted point by point and
+  // evenly spaced, its hairs rising at the nose and falling at the tail.
+  const brow = FACIAL_HAIR.brows_fine;
+  assert(brow.exact && brow.even > 0, 'fine brows are rooted point by point, evenly');
+  assert(brow.fall_ends[0] < 0 && brow.fall_ends[1] > 0, 'fine brow hairs rise at the nose, fall at the tail');
 }
 
 // 4d. A bald crown (T-3440, Glessner): cards root only below the bald line, the cap (a full

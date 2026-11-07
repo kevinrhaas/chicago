@@ -47,9 +47,10 @@ LIBERTY = 'L-human-modular-dress-1789'
 # Every dimension of the outfit, in metres; the recipe repeats them for review and the
 # builder refuses a recipe that disagrees. All are reconstructed choices.
 TAILORING = dict(
-    shirt=dict(ease=.006, collar=.040, waist_below_spine02=.115),
+    shirt=dict(ease=.006, collar=.040, collar_front_dip=.024, collar_dip_depth=.060, waist_below_spine02=.115,
+               collar_standoff=.005, front_margin=.015),
     waistcoat=dict(ease=.013, armpit_extra=.008, hem_below_spine02=.115, top_below_neck=.022,
-                   v_bottom_above_spine02=.215, v_half_width_top=.050),
+                   v_bottom_above_spine02=.285, v_half_width_top=.038),
     coat=dict(ease=.024, armpit_extra=.022, sleeve_short_of_wrist=.030, collar_above_neck=.016, waist_below_spine02=.020,
               roll_above_spine02=.130, v_half_width_top=.060, lapel_width=.052, lapel_notch=.80),
     skirt=dict(hem_y=.490, ease=.022, front_gap_deg=.5, segments=72, rows=14),
@@ -253,23 +254,46 @@ def shirt(body, bones):
     neck = bones['neck_01']['head_m'][1]
     lo = bones['spine_02']['head_m'][1]-t['waist_below_spine02']; hi = neck+t['collar']
     cuff = abs(bones['hand_l']['head_m'][0])-.012
-    fields = [lambda v: v['p'][1]-lo, lambda v: hi-v['p'][1], lambda v: cuff-v['p'][0], lambda v: cuff+v['p'][0]]
+    # T-3456 (owner, 2026-11-07: "his collar looks like it wraps around his chin"): the
+    # collar's top falls toward the throat, `collar_front_dip` lower at the front than at
+    # the back, so a level cut through the body no longer takes in the underside of the jaw.
+    neck_z = bones['neck_01']['head_m'][2]
+    def top(v):
+        return hi-t['collar_front_dip']*min(1., max(0., (v['p'][2]-neck_z)/t['collar_dip_depth']))-v['p'][1]
+    fields = [lambda v: v['p'][1]-lo, top, lambda v: cuff-v['p'][0], lambda v: cuff+v['p'][0]]
     # Only what can be seen is made: the collar all round, the front between the
     # waistcoat's and the coat's openings, and the cuffs beyond the coat sleeves. A whole
     # shirt under a closed coat only pokes through it at the armpits when the arms come down.
-    collar_y = neck-.012
+    # The collar piece reaches under the waistcoat's top, so no neck shows between them.
+    collar_y = neck-TAILORING['waistcoat']['top_below_neck']-.006; band_y = neck-.012
     front_y = bones['spine_02']['head_m'][1]+TAILORING['waistcoat']['v_bottom_above_spine02']-.035
     cuff_x = cuff-.045
     def pieces(poly):
         collar = _clip(_clip(poly, lambda v: v['p'][1]-collar_y), lambda v: .2-abs(v['p'][0]))
+        # The front only as wide as the waistcoat's opening shows it (T-3470: a wider plate
+        # showed as white blades beside the coat's lapels in his likeness).
+        fw = TAILORING['waistcoat']['v_half_width_top']+t['front_margin']
         front = _clip(_clip(_clip(_clip(_clip(poly, lambda v: collar_y-v['p'][1]), lambda v: v['p'][1]-front_y),
-                                    lambda v: v['p'][2]), lambda v: .09-v['p'][0]), lambda v: .09+v['p'][0])
+                                    lambda v: v['p'][2]), lambda v: fw-v['p'][0]), lambda v: fw+v['p'][0])
         left = _clip(poly, lambda v: v['p'][0]-cuff_x)
         right = _clip(poly, lambda v: -v['p'][0]-cuff_x)
         return [collar, front, left, right]
     out = _poly_shell(body, bones, 'shirt_standing_collar', 'garment_upper__shirt_linen_1904', fields, t['ease'],
                       [(lo, hi)], neck, pieces)
-    out = finish_edges(out, .0012)
+    # A starched collar stands off the neck as a band (T-3470, owner 2026-11-07: "that collar
+    # looks bad"): above its foot every point moves `collar_standoff` further out, across the
+    # neck's axis, so the collar reads as a stiff band with an edge, not skin painted white.
+    head_z = bones['head']['head_m'][2]; head_y = bones['head']['head_m'][1]
+    for i, p in enumerate(out['positions_m']):
+        g = min(1., max(0., (p[1]-band_y)/.012))
+        if g <= 0:
+            continue
+        cz = neck_z+(head_z-neck_z)*min(1., max(0., (p[1]-neck)/(head_y-neck)))
+        dx, dz = p[0], p[2]-cz
+        r = math.hypot(dx, dz)
+        if r > 1e-6:
+            out['positions_m'][i] = [p[0]+t['collar_standoff']*g*dx/r, p[1], p[2]+t['collar_standoff']*g*dz/r]
+    out = finish_edges(out, .002)
     out['receipt'] = dict(garment='white linen shirt, long sleeves, standing collar', waist_y_m=lo, collar_top_y_m=hi,
                           cuff_x_m=cuff, ease_m=t['ease'], source_body_mutated=False)
     return out

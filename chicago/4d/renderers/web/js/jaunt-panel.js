@@ -1,4 +1,4 @@
-import { currentStop, choicesFor, canNext, choiceStatus, choiceConsequence, resourceSummary, shownMode, isFinalStop } from './jaunts.js';
+import { currentStop, choicesFor, canNext, choiceStatus, choiceConsequence, resourceSummary, shownMode, isFinalStop, openingLight } from './jaunts.js';
 import { claimPresentation } from './jaunt-context.js';
 import { PACES } from './travel-settings.js';
 import { formatEstimate } from './travel-estimate.js';
@@ -181,7 +181,8 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
     // The time it takes, as the remaining-time line gives it at every later stop.
     const time = state.estimate && fact('clock', formatEstimate(state.estimate).replace(/^about /, '~'));
     if (time) { time.dataset.jauntRemaining = ''; time.title = `${formatEstimate(state.estimate)} remaining`; }
-    const ambience = state.jaunt.ambience || row.ambience;
+    // T-3459: the light its first scene is shown in (a dated stop's own season).
+    const ambience = openingLight(state.jaunt) || row.ambience;
     if (ambience) fact(['dusk', 'night'].includes(ambience.hour) ? 'night' : 'day', ambienceLabel(ambience));
     const mode = shownMode(state);
     if (PACES[mode]) fact(mode, PACES[mode].label);

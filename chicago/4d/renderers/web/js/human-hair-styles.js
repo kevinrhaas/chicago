@@ -81,9 +81,13 @@ export const FACIAL_HAIR = Object.freeze({
   // Fine arched eyebrows (T-3434): short hairs combed out from the nose along the brow
   // bone, a little up at the inner end, the tail falling toward the temple. Without them a
   // face reads bare and hard at 3 m.
+  // T-3456 (owner, 2026-11-07: "super clumpy bunchy"): roots kept point by point and spaced evenly, the hairs
+  // turning from up at the nose to down at the tail and shorter toward it, wider soft cards
+  // lifted clear of the skin, and a straighter lay, so the brow reads as one smooth band.
   brows_fine: Object.freeze({
-    region_cm: Object.freeze({ x: [1.3, 4.6], y: [1.58, 1.86], z_min: -1.5, droop: .5 }), facing: 'front',
-    length_cm: .55, fall: -.1, outward: 1, lift_mm: Object.freeze({ root: .15, tip: .3 }), width_mm: .4, cover: 5.5, spread: .5,
+    region_cm: Object.freeze({ x: [1.3, 4.6], y: [1.5, 1.9], z_min: -1.5, droop: .55 }), facing: 'front',
+    length_cm: .5, fall: -.1, fall_ends: Object.freeze([-1, .35]), outward: 1, taper: .35, curl: .04, even: .7, exact: true,
+    lift_mm: Object.freeze({ root: .3, tip: .45 }), width_mm: .8, cover: 3.2, spread: .3,
   }),
   // Upper lashes (T-3434): a short dark fringe along the upper lid, swept out and up. At 3 m
   // it reads as the dark line that makes an eye look open and soft rather than bare.

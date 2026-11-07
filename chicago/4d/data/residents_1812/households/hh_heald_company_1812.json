@@ -1,0 +1,2897 @@
+{
+  "id": "hh_heald_company_1812",
+  "scene": "1812",
+  "name": "The men of Heald's company in the soldiers' barracks",
+  "head": "hays_otho",
+  "division": "fort",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "kinzie_waubun_1856",
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913"
+    ],
+    "note": "All 51 enlisted men of the roll are taken as at the post on 14 August: no discharge, desertion or detachment is recorded after 31 May, and Quaife sees 'no reason to suppose that there was any alteration in this number' (App. IX)."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "first_fort_dearborn_soldiers_barracks_sw",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "whistler_1808_fort_dearborn_draught",
+      "also_sources": [],
+      "note": "No source says which room of the fort any soldier or soldier's family lived in; the barracks named here is the reconstructed choice (liberty L-1812-people-3461)."
+    },
+    {
+      "kind": "home",
+      "place_or_structure_id": "first_fort_dearborn_soldiers_barracks_se",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "whistler_1808_fort_dearborn_draught",
+      "also_sources": [],
+      "note": "No source says which room of the fort any soldier or soldier's family lived in; the barracks named here is the reconstructed choice (liberty L-1812-people-3461)."
+    },
+    {
+      "kind": "home",
+      "place_or_structure_id": "first_fort_dearborn_north_range",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "whistler_1808_fort_dearborn_draught",
+      "also_sources": [],
+      "note": "No source says which room of the fort any soldier or soldier's family lived in; the barracks named here is the reconstructed choice (liberty L-1812-people-3461)."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "The officers and the four married men have their own family cards. Thomas Forth's enlistment ran out on 6 July 1812; no discharge is recorded, so he is carded with the presence he was read with.",
+    "sources": [
+      "kinzie_waubun_1856",
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913"
+    ]
+  },
+  "persons": [
+    {
+      "id": "hays_otho",
+      "name": "Otho Hays",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "24-40",
+        "low": 24,
+        "high": 40,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A sergeant of the line was most often a man of some years' service; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "sergeant, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Hayes (Quaife ch. X)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 23 Apr 1811 for five years, to 23 Apr 1816. After 14 August: Killed in a bayonet/tomahawk duel with an Indian (Nau-non-gee in Wau-Bun); story first recorded by Schoolcraft 1820 from Kinzie.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16959; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Otho Hays \" 23 Apl. 1811 23 Apl. 1816 Otho Hays",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17360; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Otho Hays Sergeant Killed in battle in individual duel with an Indian",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "Gutenberg #12183 plain text (pg12183.txt; the 1873 Philadelphia reprint of the 1856 text), line 6144-6146; ch. XIX",
+          "quote": "the chief object of his attack was one Sergeant Hays, a man from whom he had received many acts of kindness.",
+          "claim": "Wau-Bun names him as the object of Nau-non-gee's attack in the battle."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 9250-9252; ch. X 'The Battle and Defeat' (begins p. 211)",
+          "quote": "During the battle Sergeant Hayes, who had already manifested the greatest bravery, engaged in individual combat with an Indian.",
+          "claim": "Quaife, from Schoolcraft 1820."
+        }
+      ]
+    },
+    {
+      "id": "crozier_john",
+      "name": "John Crozier",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "24-40",
+        "low": 24,
+        "high": 40,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A sergeant of the line was most often a man of some years' service; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "sergeant, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Crosier (Forsyth)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 2 Jul 1808 for five years, to 2 Jul 1813. After 14 August: Taken from the Au Sable to Green Bay by a Chippewa friend and so freed (Forsyth to Heald, 2 Jan 1813).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16960; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "John Crozier \" 2 July 1808 2 July 1813 John Crozier",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17361; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "John Crozier Sergeant Returned to civilization",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16797; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's tabular list of survivors, Appendix VI (pp. 415-21)",
+          "quote": "John Crozier 19 Deserted",
+          "claim": "Helm lists him (and marks him, wrongly per Quaife, a deserter)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16902-16903; Appendix VII, 'Letter of Judge Augustus B. Woodward to Colonel Proctor' (begins p. 422)",
+          "quote": "John Crozier a sergeant, Daniel Dougherty a corporal, and one other corporal by the name of Bowen.",
+          "claim": "Woodward to Proctor, 7 Oct 1812, names him among NCO survivors."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 9993-9995; ch. XI 'The Fate of the Survivors' (begins p. 232); footnote 632",
+          "quote": "Crosier was taken off from River Aux Sable to Green Bay by a Chipeway Indian, an old friend of his, and therefore he is free.",
+          "claim": "Forsyth to Heald, 2 Jan 1813 (Quaife fn 632)."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4787; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*John Crozier \" 2 July 1808 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "griffith_william",
+      "name": "Wm. Griffith",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "24-40",
+        "low": 24,
+        "high": 40,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A sergeant of the line was most often a man of some years' service; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "sergeant, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Wm Griffiths (Helm list)",
+        "John Griffiths (Gordon 1912 reading)",
+        "William Griffin (Woodward)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 1 May 1812 (enlisted at Chicago) for five years, to 1 May 1817; the roll remarks: Joined by enlisting at this place 1 May 1812.. Wau-Bun puts him on the north bank during the battle; Quaife (ch. XI fn 631) rejects this: \"Griffith was a participant in it.\" After 14 August: Escaped with the Healds by canoe to Mackinac, paroled; reached Detroit and Pittsburgh with them; later in R. M. Johnson's regiment (McAfee's informant); wrote to Heald 1820 for Mrs. Burns's pension.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16961; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Wm. Griffith \" 1 May 1812 1 May 1817 Wm. Griffith Joined by enlisting",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17362; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Wm. Griffith Sergeant Returned to civilization",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16961-16962; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425)",
+          "quote": "Wm. Griffith \" 1 May 1812 1 May 1817 Wm. Griffith Joined by enlisting at this place 1 May 1812.",
+          "claim": "Roll remark: enlisted at Chicago 1 May 1812, i.e. a local civilian in the April alarm."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16134-16135; Appendix III, 'Nathan Heald's Journal' (begins p. 402)",
+          "quote": "with Sergeant Griffith, one of the unfortunate prisoners, and 3 Frenchmen & a Squaw.",
+          "claim": "Heald's Journal: he left St Joseph with the Healds."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16903-16904; Appendix VII, 'Letter of Judge Augustus B. Woodward to Colonel Proctor' (begins p. 422)",
+          "quote": "The other is William Griffin a Serjeant who is now here.",
+          "claim": "Woodward: he was at Detroit in Oct 1812."
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "Gutenberg #12183 plain text (pg12183.txt; the 1873 Philadelphia reprint of the 1856 text), line 5961-5962; ch. XIX",
+          "quote": "The quartermaster-sergeant, Griffith, was sent to collect them and bring them on,",
+          "claim": "Wau-Bun calls him quartermaster-sergeant and long on the sick report (story of his escape rejected by Quaife fn 631)."
+        }
+      ]
+    },
+    {
+      "id": "forth_thomas",
+      "name": "Thomas Forth",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "22-36",
+        "low": 22,
+        "high": 36,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A corporal was most often a private of some service, promoted; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "corporal, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "On the 31 May 1812 roll with no later discharge, desertion or detachment recorded; no survivor list names him, so Quaife reckons him among the 26 regulars killed by elimination (Appendix IX). Presence rests on the roll plus Heald's and Quaife's totals, not on a document naming him at the battle. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Thos. Forth (Present column)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 6 Jul 1807 for five years, to 6 Jul 1812. His five-year term ran out 6 July 1812, before the evacuation, and the roll records no re-enlistment; that he was still serving rests on Heald's totals and Quaife's reckoning. Weakest presence among the NCOs. After 14 August: Killed in battle (Quaife, by elimination).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16964; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Thomas Forth Corporal 6 July 1807 6 July 1812 Thos. Forth",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17364; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Thomas Forth Corporal Killed in battle",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4789; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "Thomas Forth Corporal 6 July 1807 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "bowen_joseph",
+      "name": "Joseph Bowen",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "22-36",
+        "low": 22,
+        "high": 36,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A corporal was most often a private of some service, promoted; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "corporal, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 22 Apr 1811 for five years, to 22 Apr 1816. After 14 August: Held among the Fox River Indians about nine months, bought at Chicago, sent via Amherstburg to Quebec (arr. 8 Nov 1813), reached Plattsburg May 1814.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16965; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Joseph Bowen \" 22 Apl 1811 22 Apl 1816 Joseph Bowen",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17365; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Joseph Bowen Corporal Returned to civilization",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16795; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's tabular list of survivors, Appendix VI (pp. 415-21)",
+          "quote": "Joseph Bowen { 17 frenchman and Released",
+          "claim": "Listed by Lt. Helm among the garrison survivors of the battle (pencil list with his 1814 narrative)."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 3746-3747; Part II, ch. VII (begins p. 113); Part II ch. VII p. 118",
+          "quote": "James Van Horn, Dyson Dyer, Joseph Knowles, Joseph Bowen, Paul Grummond, Nathan Edson, Elias Mills, James Corbin, Phelim Corbin,",
+          "claim": "Niles' Register of 4 June 1814 (reprinting a Plattsburg paper) names nine Fort Dearborn survivors arrived from Quebec."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 9660-9661; ch. XI 'The Fate of the Survivors' (begins p. 232)",
+          "quote": "They were James Van Horn, Dyson Dyer, Joseph Noles, Joseph Bowen, Paul Grummo, Nathan Edson, Elias Mills, James Corbin, and Fielding Corbin.",
+          "claim": "Quaife's list of the nine who reached Plattsburg in May 1814."
+        }
+      ]
+    },
+    {
+      "id": "burnett_george",
+      "name": "George Burnett",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "16-30",
+        "low": 16,
+        "high": 30,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. Fifers of the regular army were often enlisted young; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "fifer, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "On the 31 May 1812 roll with no later discharge, desertion or detachment recorded; no survivor list names him, so Quaife reckons him among the 26 regulars killed by elimination (Appendix IX). Presence rests on the roll plus Heald's and Quaife's totals, not on a document naming him at the battle. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "George Burnet (1810 roll)",
+        "Burnett (Ronan's whiskey order, 12 Nov 1811)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 1 Jul 1811 for five years, to 1 Jul 1816. After 14 August: Killed in battle (Quaife, by elimination).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16967; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "George Burnett Fifer 1 July 1811 1 July 1816 George Burnett",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17367; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "George Burnett Fifer Killed in battle",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4793; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "George Burnet Fifer. 1 Oct. 1806 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "smith_john_jr",
+      "name": "John Smith",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "16-30",
+        "low": 16,
+        "high": 30,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. Fifers of the regular army were often enlisted young; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "fifer, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "John Smith Junr. (Helm)",
+        "John Fifer Smith (Woodward)"
+      ],
+      "note": "Son of Private John Smith. On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 22 Apr 1811 for five years, to 22 Apr 1816. After 14 August: Survived; returned (Quaife lists among the five whose return is inferred, not recorded).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16968; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "John Smith \" 22 Apl. 1811 22 Apl. 1816 John Smith",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17368; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "John Smith Fifer Returned to civilization",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16789; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's tabular list of survivors, Appendix VI (pp. 415-21)",
+          "quote": "John Smith Junr. 11 ...................",
+          "claim": "Listed by Lt. Helm among the garrison survivors of the battle (pencil list with his 1814 narrative)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16916-16917; Appendix VII, 'Letter of Judge Augustus B. Woodward to Colonel Proctor' (begins p. 422)",
+          "quote": "John Smith Senior, father of John Smith before named as a fifer, James Van Horn.",
+          "claim": "Woodward: the fifer is son of the private John Smith."
+        }
+      ]
+    },
+    {
+      "id": "mcpherson_hugh",
+      "name": "Hugh McPherson",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "16-30",
+        "low": 16,
+        "high": 30,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. Drummers of the regular army were often enlisted young; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "drummer, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "On the 31 May 1812 roll with no later discharge, desertion or detachment recorded; no survivor list names him, so Quaife reckons him among the 26 regulars killed by elimination (Appendix IX). Presence rests on the roll plus Heald's and Quaife's totals, not on a document naming him at the battle. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 20 Oct 1807 for five years, to 20 Oct 1852 [sic, as printed; five-year term would end 1812]. After 14 August: Killed in battle (Quaife, by elimination).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16969; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Hugh McPherson Drumr 20 Oct. 1807 20 Oct. 1852 Hugh McPherson",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17369; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Hugh McPherson Drummer Killed in battle",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4796; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*Hugh McPherson \" 20 Oct. 1807 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "hamilton_john",
+      "name": "John Hamilton",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "16-30",
+        "low": 16,
+        "high": 30,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. Drummers of the regular army were often enlisted young; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "drummer, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "On the 31 May 1812 roll with no later discharge, desertion or detachment recorded; no survivor list names him, so Quaife reckons him among the 26 regulars killed by elimination (Appendix IX). Presence rests on the roll plus Heald's and Quaife's totals, not on a document naming him at the battle. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 5 Jul 1808 for five years, to 5 Jul 1813. After 14 August: Killed in battle (Quaife, by elimination).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16970; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "John Hamilton \" 5 July 1808 5 July 1813 John Hamilton",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17370; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "John Hamilton Drummer Killed in battle",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4795; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*John Hamilton Drummer 5 July 1808 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "allin_john",
+      "name": "John Allin",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "On the 31 May 1812 roll with no later discharge, desertion or detachment recorded; no survivor list names him, so Quaife reckons him among the 26 regulars killed by elimination (Appendix IX). Presence rests on the roll plus Heald's and Quaife's totals, not on a document naming him at the battle. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "John Allen (1810 roll)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 27 Nov 1810 for five years, to 27 Nov 1815. After 14 August: Killed in battle (Quaife, by elimination).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16972; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "John Allin Private 27 Nov. 1810 27 Nov. 1815 John Allin",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17372; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "John Allin Private Killed in battle",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4797; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*John Allen Private 27 Nov. 1810 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "adams_george",
+      "name": "George Adams",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "On the 31 May 1812 roll with no later discharge, desertion or detachment recorded; no survivor list names him, so Quaife reckons him among the 26 regulars killed by elimination (Appendix IX). Presence rests on the roll plus Heald's and Quaife's totals, not on a document naming him at the battle. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 21 Aug 1811 for five years, to 21 Aug 1816. After 14 August: Killed in battle (Quaife, by elimination).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16973; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "George Adams \" 21 Aug. 1811 21 Aug. 1816 George Adams",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17373; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "George Adams Private Killed in battle",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4798; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "George Adams \" 21 Aug. 1806 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "andrews_prestly",
+      "name": "Prestly Andrews",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Presley Andrews (1810 roll)",
+        "John [Prestly] Andrews (Helm)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 11 Apr 1811 for five years, to 11 Apr 1816. After 14 August: Helm marks him killed; Quaife counts him among the 26 slain in battle, though no other source mentions his fate.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16974; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Prestly Andrews \" 11 Apl. 1811 11 Apl. 1816 Prestly Andrews",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17374; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Prestly Andrews Private Killed in battle",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16801; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's tabular list of survivors, Appendix VI (pp. 415-21)",
+          "quote": "John [Prestly] Andrews 23 Killed",
+          "claim": "Listed by Lt. Helm among the garrison survivors of the battle (pencil list with his 1814 narrative)."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4799; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "Presley Andrews \" 11 July 1806 \" (sick.)",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "corbin_james",
+      "name": "James Corbin",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 2 Oct 1810 for five years, to 2 Oct 1815. Relationship (if any) to Fielding Corbin is not stated in any source read. After 14 August: One of the nine who reached Plattsburg from Quebec in May 1814.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16975; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "James Corbin \" 2 Oct. 1810 2 Oct. 1815 James Corbin",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17375; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "James Corbin Private Returned to civilization",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16804; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's tabular list of survivors, Appendix VI (pp. 415-21)",
+          "quote": "James Corbin 26",
+          "claim": "Listed by Lt. Helm among the garrison survivors of the battle (pencil list with his 1814 narrative)."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 3746-3747; Part II, ch. VII (begins p. 113); Part II ch. VII p. 118",
+          "quote": "James Van Horn, Dyson Dyer, Joseph Knowles, Joseph Bowen, Paul Grummond, Nathan Edson, Elias Mills, James Corbin, Phelim Corbin,",
+          "claim": "Niles' Register of 4 June 1814 (reprinting a Plattsburg paper) names nine Fort Dearborn survivors arrived from Quebec."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4806; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "James Corbin \" 2 Oct. 1810 Present.",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "campbell_asa",
+      "name": "Asa Campbell",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "On the 31 May 1812 roll with no later discharge, desertion or detachment recorded; no survivor list names him, so Quaife reckons him among the 26 regulars killed by elimination (Appendix IX). Presence rests on the roll plus Heald's and Quaife's totals, not on a document naming him at the battle. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 26 Jan 1810 for five years, to 26 Jan 1815. After 14 August: Killed in battle (Quaife, by elimination).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16977; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Asa Campbell \" 26 Jan'y 1810 26 Jan'y 1815 Asa Campbell",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17377; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Asa Campbell Private Killed in battle",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4790; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*Asa Campbell \" 26 Jan. 1810 \"",
+          "claim": "Shown as a corporal on the Dec 1810 roll."
+        }
+      ]
+    },
+    {
+      "id": "dyer_dyson",
+      "name": "Dyson Dyer",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 1 Oct 1810 for five years, to 1 Oct 1815. After 14 August: Helm marks him killed, but he was one of the nine who reached Plattsburg in May 1814.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16978; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Dyson Dyer \" 1 Oct. 1810 1 Oct. 1815 Dyson Dyer",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17378; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Dyson Dyer Private Returned to civilization",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16800; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's tabular list of survivors, Appendix VI (pp. 415-21)",
+          "quote": "Dyson Dyer 22 Killed",
+          "claim": "Listed by Lt. Helm among the garrison survivors of the battle (pencil list with his 1814 narrative)."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 3746-3747; Part II, ch. VII (begins p. 113); Part II ch. VII p. 118",
+          "quote": "James Van Horn, Dyson Dyer, Joseph Knowles, Joseph Bowen, Paul Grummond, Nathan Edson, Elias Mills, James Corbin, Phelim Corbin,",
+          "claim": "Niles' Register of 4 June 1814 (reprinting a Plattsburg paper) names nine Fort Dearborn survivors arrived from Quebec."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4810; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*Dyson Dyer \" 1 Oct. 1810 Present (sick).",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "draper_stephen",
+      "name": "Stephen Draper",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "On the 31 May 1812 roll with no later discharge, desertion or detachment recorded; no survivor list names him, so Quaife reckons him among the 26 regulars killed by elimination (Appendix IX). Presence rests on the roll plus Heald's and Quaife's totals, not on a document naming him at the battle. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 19 Apr 1811 for five years, to 19 Apr 1816. After 14 August: Killed in battle (Quaife, by elimination).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16979; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Stephen Draper \" 19 Apl. 1811 19 Apl. 1816 Stephen Draper",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17379; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Stephen Draper Private Killed in battle",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4811; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "Stephen Draper \" 19 July 1806 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "daugherty_daniel",
+      "name": "Dan'l Daugherty",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Daniel Dougherty (Woodward, called a corporal; 1810 roll)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 13 Aug 1807 for five years, to 13 Aug 1812 (re-enlisted 1 Jun 1812); the roll remarks: Re-enlisted 1st June 1812.. After 14 August: Survived; return inferred by Quaife (no record of it).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16980; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Dan'l Daugherty \" 13 Aug. 1807 13 Aug. 1812 Dan'l Daugherty Re-enlisted 1st June 1812.",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17380; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Daniel Daugherty Private Returned to civilization",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16799; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's tabular list of survivors, Appendix VI (pp. 415-21)",
+          "quote": "Daniel Daugherty 21",
+          "claim": "Listed by Lt. Helm among the garrison survivors of the battle (pencil list with his 1814 narrative)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16902-16903; Appendix VII, 'Letter of Judge Augustus B. Woodward to Colonel Proctor' (begins p. 422)",
+          "quote": "John Crozier a sergeant, Daniel Dougherty a corporal,",
+          "claim": "Woodward names him among NCO survivors."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4812; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*Daniel Dougherty \" 13 Aug. 1807 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "denison_micajah",
+      "name": "Micajah Denison",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Micajah Dennison (Woodward)",
+        "Denison (Ronan's whiskey order 12 Nov 1811)",
+        "possibly Michael Denison (1810 roll, enl. 28 Apr 1806)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 23 Jan 1811 for five years, to 23 Jan 1816. After 14 August: Badly wounded; Quaife infers he was among the five tortured to death the night after the battle.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16981; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Micajah Denison \" 23 Jan'y 1811 23 Jan'y 1816 Micajah Denison",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17381-17382; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Micajah Denison Private Badly wounded in battle; tortured to death the ensuing night",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16913-16915; Appendix VII, 'Letter of Judge Augustus B. Woodward to Colonel Proctor' (begins p. 422)",
+          "quote": "Micajah Dennison and John Fury were so badly wounded in the action that [_perh_] little hope was indulged of their recovery.",
+          "claim": "Woodward: badly wounded survivors."
+        }
+      ]
+    },
+    {
+      "id": "edson_nathan",
+      "name": "Nathan Edson",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 6 Apr 1810 for five years, to 6 Apr 1815. After 14 August: One of the nine who reached Plattsburg in May 1814.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16982; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Nathan Edson \" 6 Apl. 1810 6 Apl. 1815 Nathan Edson",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17383; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Nathan Edson Private Returned to civilization",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16781; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's tabular list of survivors, Appendix VI (pp. 415-21)",
+          "quote": "Nathan Edson 3 ...................",
+          "claim": "Listed by Lt. Helm among the garrison survivors of the battle (pencil list with his 1814 narrative)."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 3746-3747; Part II, ch. VII (begins p. 113); Part II ch. VII p. 118",
+          "quote": "James Van Horn, Dyson Dyer, Joseph Knowles, Joseph Bowen, Paul Grummond, Nathan Edson, Elias Mills, James Corbin, Phelim Corbin,",
+          "claim": "Niles' Register of 4 June 1814 (reprinting a Plattsburg paper) names nine Fort Dearborn survivors arrived from Quebec."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4814; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*Nathan Edson \" 6 April 1810 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "fury_john",
+      "name": "John Fury",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "John Ferry (or Fury) (Gordon 1912 reading)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 19 Mar 1808 for five years, to 19 Mar 1813; the roll remarks: Sick.. Marked Sick on the 31 May roll; Darius Heald says wagons carried sick soldiers on 15 Aug. After 14 August: Badly wounded; Quaife infers tortured to death the night after the battle.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16983; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "John Fury \" 19 March 1808 19 March 1813 John Fury Sick.",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17384-17385; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "John Fury Private Badly wounded in battle; tortured to death the ensuing night",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16796; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's tabular list of survivors, Appendix VI (pp. 415-21)",
+          "quote": "John Fury 18 ...................",
+          "claim": "Listed by Lt. Helm among the garrison survivors of the battle (pencil list with his 1814 narrative)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16913-16914; Appendix VII, 'Letter of Judge Augustus B. Woodward to Colonel Proctor' (begins p. 422)",
+          "quote": "Micajah Dennison and John Fury were so badly wounded in the action",
+          "claim": "Woodward: badly wounded."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4815; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*John Fury \" 19 March 1808 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "grummo_paul",
+      "name": "Paul Grummo",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Paul Grumo (Helm)",
+        "Paul Grummond (Niles)",
+        "Grumond (whiskey order)",
+        "Paul De Garmo (later life)"
+      ],
+      "note": "Paul Grummo signed on for five years on 1 October 1810, and by the spring of 1812 he was a private in Captain Nathan Heald's company at Fort Dearborn, present when the company was mustered at the end of May. Long afterwards he said he spent that summer as a scout, carrying dispatches through the woods between Fort Dearborn and Fort Wayne. Taken in the fight on 15 August, he said a chief whose son he had killed adopted him, and took him north-west across the Mississippi above the Falls of St. Anthony to bring the tribes into the war, then sold him to the British near Detroit. He was one of the nine men of the garrison who came back from captivity by way of Quebec and reached Plattsburg, New York, in May 1814. He settled at Maumee City near Toledo, where he went by Paul De Garmo, a tall, well-built man who always insisted he had been at Fort Dearborn. The War Department had set him down as a deserter, and though General Cass and General John E. Hunt spoke for him he never got his pension. His story reaches us through a neighbour, Charles A. Lamb, who wrote it down half a century after hearing it; Quaife (1913, pp. 238-40) calls many of its details untrustworthy and says Grummo drew a long bow, as old soldiers do. His enlistment, his place on the May 1812 roll and his return from captivity are on the record; the scouting, the adoption and the journey are his own telling.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16984; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Paul Grummo \" 1 Oct. 1810 1 Oct. 1815 Paul Grummo",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17386; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Paul Grummo Private Returned to civilization",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16792; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's tabular list of survivors, Appendix VI (pp. 415-21)",
+          "quote": "Paul Grumo 14 ...................",
+          "claim": "Listed by Lt. Helm among the garrison survivors of the battle (pencil list with his 1814 narrative)."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 3746-3747; Part II, ch. VII (begins p. 113); Part II ch. VII p. 118",
+          "quote": "James Van Horn, Dyson Dyer, Joseph Knowles, Joseph Bowen, Paul Grummond, Nathan Edson, Elias Mills, James Corbin, Phelim Corbin,",
+          "claim": "Niles' Register of 4 June 1814 (reprinting a Plattsburg paper) names nine Fort Dearborn survivors arrived from Quebec."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 9667-9668; ch. XI 'The Fate of the Survivors' (begins p. 232)",
+          "quote": "In later life Grummo, or De Garmo, as he seems to have been known, settled at Maumee City, a few miles from Toledo, Ohio.",
+          "claim": "Later life."
+        }
+      ]
+    },
+    {
+      "id": "garner_richard",
+      "name": "Richard Garner",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Richard Gamer (Woodward as printed)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 2 Oct 1810 for five years, to 2 Oct 1815. After 14 August: Tortured to death the night after the battle (Woodward names him).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16985; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Richard Garner \" 2 Oct. 1810 2 Oct. 1815 Richard Garner",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17387-17388; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Richard Garner Private Tortured to death the night after the massacre",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16791; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's tabular list of survivors, Appendix VI (pp. 415-21)",
+          "quote": "Richard Garner 13 Killed",
+          "claim": "Listed by Lt. Helm among the garrison survivors of the battle (pencil list with his 1814 narrative)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16909-16910; Appendix VII, 'Letter of Judge Augustus B. Woodward to Colonel Proctor' (begins p. 422)",
+          "quote": "I have only been able to collect the names of two Richard Gamer and James Latte.",
+          "claim": "Woodward names two of the five put to death that night."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4792; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "* Richard Garner \" 2 Oct. 1810 \"",
+          "claim": "Shown as a corporal on the Dec 1810 roll."
+        }
+      ]
+    },
+    {
+      "id": "hunt_william_n",
+      "name": "Wm. N. Hunt",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "William Nelson Hunt (Woodward)",
+        "Nelson (Niles 1814)",
+        "William N. Hunt (1810 roll, enl. 18 Oct 1810)",
+        "possibly \"Nathan Hurt\" on Helm's list"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 8 Oct 1810 for five years, to 8 Oct 1815. After 14 August: Frozen to death in captivity; Niles calls him Nelson, formerly of Maryland.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16986; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Wm. N. Hunt \" 8 Oct. 1810 8 Oct. 1815 Wm. N. Hunt",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17389; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Wm. N. Hunt Private Frozen to death in captivity",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16915-16916; Appendix VII, 'Letter of Judge Augustus B. Woodward to Colonel Proctor' (begins p. 422)",
+          "quote": "Dyson Dyer, William Nelson Hunt, Duncan McCarty, Augustus Mott,",
+          "claim": "Woodward names him."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 3785-3786; Part II, ch. VII (begins p. 113)",
+          "quote": "A man by the name of Nelson was frozen to death while a captive with the Indians. He was formerly from Maryland.",
+          "claim": "Niles 1814."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4817; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*William N. Hunt \" 18 Oct. 1810 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "hurtt_nathan_a",
+      "name": "Nathan A. Hurtt",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "On the 31 May 1812 roll with no later discharge, desertion or detachment recorded; no survivor list names him, so Quaife reckons him among the 26 regulars killed by elimination (Appendix IX). Presence rests on the roll plus Heald's and Quaife's totals, not on a document naming him at the battle. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 29 Dec 1811 for five years, to 29 Dec 1816. Quaife reads that entry as Wm. N. Hunt (his Helm-survivor list #16), so Hurtt is counted slain by elimination. The Helm entry could instead be Hurtt himself: unresolved. After 14 August: Killed in battle (Quaife).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16987; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Nathan A. Hurtt \" 29 Dec. 1811 29 Dec. 1816 Nathan A. Hurtt",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17390; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Nathan A. Hurtt Private Killed in battle",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        }
+      ]
+    },
+    {
+      "id": "jones_rodias",
+      "name": "Rodias Jones",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "On the 31 May 1812 roll with no later discharge, desertion or detachment recorded; no survivor list names him, so Quaife reckons him among the 26 regulars killed by elimination (Appendix IX). Presence rests on the roll plus Heald's and Quaife's totals, not on a document naming him at the battle. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Rhodias Jones (1810 roll; Quaife table)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 9 Dec 1807 for five years, to 9 Dec 1812. After 14 August: Killed in battle (Quaife, by elimination).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16988; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Rodias Jones \" 9 Dec. 1807 9 Dec. 1812 Rodias Jones",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17391; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Rhodias Jones Private Killed in battle",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4791; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*Rhodias Jones \" 9 Dec. 1807 \"",
+          "claim": "Shown as a corporal on the Dec 1810 roll."
+        }
+      ]
+    },
+    {
+      "id": "kennison_david",
+      "name": "David Kinison",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "On the 31 May 1812 roll (\"present for duty\"), but no 1812-14 source names him at the battle or in captivity; Quaife infers survival from his later life. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "David Kennison (1810 roll; Quaife)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 14 Mar 1808 for five years, to 14 Mar 1813. After 14 August: Returned (inferred); settled in Chicago 1845, died 24 Feb 1852, buried in the City Cemetery (now Lincoln Park), monument 1905.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16989; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "David Kinison \" 14 March 1808 14 March 1813 David Kinison",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17392-17393; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "David Kennison Private Returned to civilization; died at Chicago in 1852",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 10382-10383; ch. XI 'The Fate of the Survivors' (begins p. 232)",
+          "quote": "The garrison muster-roll for May, 1812, shows that he was present for duty at that time.",
+          "claim": "Quaife on his presence."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 10376-10377; ch. XI 'The Fate of the Survivors' (begins p. 232)",
+          "quote": "Born in New Hampshire in 1736, if his own story of his age is to be accepted,",
+          "claim": "Claimed birth year."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 10385-10386; ch. XI 'The Fate of the Survivors' (begins p. 232)",
+          "quote": "his name is nowhere expressly mentioned in connection with that event.",
+          "claim": "Presence is inference only."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4819; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*David Kennison \" 14 March 1808 Present.",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "kilpatrick_samuel",
+      "name": "Sam'l Kilpatrick",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "On the 31 May 1812 roll with no later discharge, desertion or detachment recorded; no survivor list names him, so Quaife reckons him among the 26 regulars killed by elimination (Appendix IX). Presence rests on the roll plus Heald's and Quaife's totals, not on a document naming him at the battle. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Sam'l Kirkpatrick (1810 roll)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 20 Dec 1810 for five years, to 20 Dec 1815. After 14 August: Killed in battle (Quaife, by elimination).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16990; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Sam'l Kilpatrick \" 20 Dec. 1810 20 Dec. 1815 Sam'l Kilpatrick",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17394; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Samuel Kilpatrick Private Killed in battle",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4820; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*Sam'l Kirkpatrick \" 20 Dec. 1810 Re-enlisted 20 Dec. 1810.",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "kelso_john",
+      "name": "John Kelso",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "On the 31 May 1812 roll with no later discharge, desertion or detachment recorded; no survivor list names him, so Quaife reckons him among the 26 regulars killed by elimination (Appendix IX). Presence rests on the roll plus Heald's and Quaife's totals, not on a document naming him at the battle. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "John Kelsoe (1810 roll)",
+        "John Kelson (La Lime to Wells, Apr 1812)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 3 May 1812 (re-enlisted at Chicago) for five years, to 3 May 1817; the roll remarks: Joined by re-enlisting at this place 3d May 1812.. After 14 August: Killed in battle (Quaife, by elimination). Quaife identifies him with \"John Kelson\", who escaped the Lee-farm murders of 6 April 1812.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16991; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "John Kelso \" 3 May 1812 3 May 1817 John Kelso Joined by re-enlisting",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17395; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "John Kelso Private Killed in battle",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 8586-8588; ch. X 'The Battle and Defeat' (begins p. 211)",
+          "quote": "a soldier of the garrison named John Kelso,[571] a boy whose name no one has taken the trouble to record,",
+          "claim": "At the Lee farm on 6 April 1812."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4818; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "John Kelsoe \" 17 Dec. 1808 Time expired 17 Dec. 1810",
+          "claim": "Dec 1810 roll: term expired 17 Dec 1810 (so a discharged soldier until May 1812, as Wau-Bun's \"discharged soldier\" at Lee's implies)."
+        }
+      ]
+    },
+    {
+      "id": "landon_jacob",
+      "name": "Jacob Landon",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "On the 31 May 1812 roll with no later discharge, desertion or detachment recorded; no survivor list names him, so Quaife reckons him among the 26 regulars killed by elimination (Appendix IX). Presence rests on the roll plus Heald's and Quaife's totals, not on a document naming him at the battle. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Jacob Laudon (1810 roll)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 28 Nov 1807 for five years, to 28 Nov 1812. After 14 August: Killed in battle (Quaife, by elimination).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16992; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Jacob Landon \" 28 Nov. 1807 28 Nov. 1812 Jacob Landon at this place 3d May 1812.",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17396; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Jacob Landon Private Killed in battle",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4821; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*Jacob Laudon \" 28 Nov. 1807 Unfit for service.",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "latta_james",
+      "name": "James Latta",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "James Latte (Woodward)",
+        "James Lutta (1810 roll)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 10 Apr 1810 for five years, to 10 Apr 1815. After 14 August: Tortured to death the night after the battle (Woodward).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16993; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "James Latta \" 10 Apl. 1810 10 Apl. 1815 James Latta",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17397-17398; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "James Latta Private Tortured to death the night after the massacre",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16785; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's tabular list of survivors, Appendix VI (pp. 415-21)",
+          "quote": "James Latta 7 Killed",
+          "claim": "Listed by Lt. Helm among the garrison survivors of the battle (pencil list with his 1814 narrative)."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4822; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*James Lutta \" 10 April 1810 .........................",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "lynch_michael",
+      "name": "Michael Lynch",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 23 Dec 1810 for five years, to 23 Dec 1815. After 14 August: Badly wounded; killed by his captors before reaching the Au Sable River (Forsyth).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16994; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Michael Lynch \" 23 Dec. 1810 23 Dec. 1815 Michael Lynch",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17399-17400; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Michael Lynch Private Badly wounded; killed by the Indians en route to the Illinois River",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16786; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's tabular list of survivors, Appendix VI (pp. 415-21)",
+          "quote": "Michael Lynch 8 Killed",
+          "claim": "Listed by Lt. Helm among the garrison survivors of the battle (pencil list with his 1814 narrative)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 9992-9993; ch. XI 'The Fate of the Survivors' (begins p. 232); footnote 632",
+          "quote": "Lynch & Suttenfield was badly wounded, and were both killed before the Indians arrived at River Aux Sable.",
+          "claim": "Forsyth to Heald, 2 Jan 1813."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4823; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*Michael Lynch \" 20 Dec. 1810 Re-enlisted 20 Dec. 1810.",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "logan_hugh",
+      "name": "Hugh Logan",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 5 Feb 1811 for five years, to 5 Feb 1816. After 14 August: An Irishman; tomahawked in captivity when too fatigued to walk (Niles).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16995; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Hugh Logan \" 5 Feby. 1811 5 Feby. 1816 Hugh Logan",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17401-17402; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Hugh Logan Private Tomahawked in captivity because unable to walk from fatigue",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 3779-3780; Part II, ch. VII (begins p. 113)",
+          "quote": "Hugh Logan, an Irishman, was tomahawked and put to death, be not being able to walk from excessive fatigue.",
+          "claim": "Niles 1814."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4825; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "Hugh Logan \" 5 May 1806 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "locker_frederick",
+      "name": "Frederick Locker",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "On the 31 May 1812 roll with no later discharge, desertion or detachment recorded; no survivor list names him, so Quaife reckons him among the 26 regulars killed by elimination (Appendix IX). Presence rests on the roll plus Heald's and Quaife's totals, not on a document naming him at the battle. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 13 Apr 1810 for five years, to 13 Apr 1815. After 14 August: Killed in battle (Quaife, by elimination).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16996; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Frederick Locker \" 13 Apl. 1810 13 Apl. 1815 Frederick Locker",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17403; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Frederick Locker Private Killed in battle",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4826; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*Frederick Locker \" 13 April 1810 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "mortt_august",
+      "name": "August Mortt",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "August Mort (Helm)",
+        "Augustus Mott (Woodward)",
+        "August Mott (Niles; 1810 roll)",
+        "Old Mott (Forsyth)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 9 Apr 1811 for five years, to 9 Apr 1816. After 14 August: A German; tomahawked in captivity (Niles); Forsyth says \"Old Mott\" went out of his head that winter and was killed.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16997; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "August Mortt \" 9 Apl. 1811 9 Apl. 1816 August Mortt",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17404; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "August Mortt Private Tomahawked in captivity",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16784; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's tabular list of survivors, Appendix VI (pp. 415-21)",
+          "quote": "August Mort 6 Died Natural",
+          "claim": "Listed by Lt. Helm among the garrison survivors of the battle (pencil list with his 1814 narrative)."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 3782-3783; Part II, ch. VII (begins p. 113)",
+          "quote": "August Mott, a German, was killed in the same manner for the like reason.",
+          "claim": "Niles 1814."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 9544-9545; ch. XI 'The Fate of the Survivors' (begins p. 232); footnote 613",
+          "quote": "Old Mott was a prisoner, and became out of his head last Winter and was killed by the Indians.",
+          "claim": "Forsyth to Heald, 10 Apr 1813."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4828; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "August Mott \" 9 July 1806 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "miller_peter",
+      "name": "Peter Miller",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "On the 31 May 1812 roll with no later discharge, desertion or detachment recorded; no survivor list names him, so Quaife reckons him among the 26 regulars killed by elimination (Appendix IX). Presence rests on the roll plus Heald's and Quaife's totals, not on a document naming him at the battle. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 24 Jul 1811 for five years, to 24 Jul 1816. After 14 August: Killed in battle (Quaife, by elimination).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16998; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Peter Miller \" 24 July 1811 24 July 1816 Peter Miller",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17405; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Peter Miller Private Killed in battle",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4830; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "Peter Miller \" 13 June 1806 Present, unfit for service.",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "mccarty_duncan",
+      "name": "Duncan McCarty",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 31 Aug 1807 for five years, to 31 Aug 1812. After 14 August: Survived (Woodward); return inferred by Quaife.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16999; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Duncan McCarty \" 31 Aug. 1807 31 Aug. 1812 Duncan McCarty",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17406; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Duncan McCarty Private Returned to civilization",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16915; Appendix VII, 'Letter of Judge Augustus B. Woodward to Colonel Proctor' (begins p. 422)",
+          "quote": "Dyson Dyer, William Nelson Hunt, Duncan McCarty,",
+          "claim": "Woodward names him."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4831; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*Duncan McCarty \" 2 Aug. 1807 Present.",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "moffett_william",
+      "name": "Wm. Moffett",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "On the 31 May 1812 roll with no later discharge, desertion or detachment recorded; no survivor list names him, so Quaife reckons him among the 26 regulars killed by elimination (Appendix IX). Presence rests on the roll plus Heald's and Quaife's totals, not on a document naming him at the battle. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "William Moffit (1810 roll)",
+        "possibly \"Morfitt\" (whiskey order 1811)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 23 Jan 1811 for five years, to 23 Jan 1816. After 14 August: Killed in battle (Quaife, by elimination).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17000; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Wm. Moffett \" 23 Jany. 1811 23 Jany. 1816 Wm. Moffett",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17407; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Wm. Moffett Private Killed in battle",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4834; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "William Moffit \" 23 April 1806 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "mills_elias",
+      "name": "Elias Mills",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 26 Oct 1811 for five years, to 26 Oct 1816. After 14 August: One of the nine who reached Plattsburg in May 1814.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17001; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Elias Mills \" 26 Oct. 1811 26 Oct. 1816 Elias Mills",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17408; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Elias Mills Private Returned to civilization",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16782; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's tabular list of survivors, Appendix VI (pp. 415-21)",
+          "quote": "Elias Mills 4 ...................",
+          "claim": "Listed by Lt. Helm among the garrison survivors of the battle (pencil list with his 1814 narrative)."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 3746-3747; Part II, ch. VII (begins p. 113); Part II ch. VII p. 118",
+          "quote": "James Van Horn, Dyson Dyer, Joseph Knowles, Joseph Bowen, Paul Grummond, Nathan Edson, Elias Mills, James Corbin, Phelim Corbin,",
+          "claim": "Niles' Register of 4 June 1814 (reprinting a Plattsburg paper) names nine Fort Dearborn survivors arrived from Quebec."
+        }
+      ]
+    },
+    {
+      "id": "noles_joseph",
+      "name": "Joseph Noles",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Joseph Knowles (Niles)",
+        "Joseph Nolis (or Notts) (Gordon 1912 reading)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 8 Sep 1810 for five years, to 8 Sep 1815. After 14 August: One of the nine who reached Plattsburg in May 1814.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17003; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Joseph Noles \" 8 Sept. 1810 8 Sept. 1815 Joseph Noles",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17410; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Joseph Noles Private Returned to civilization",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16803; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's tabular list of survivors, Appendix VI (pp. 415-21)",
+          "quote": "Joseph Noles 25",
+          "claim": "Listed by Lt. Helm among the garrison survivors of the battle (pencil list with his 1814 narrative)."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 3746-3747; Part II, ch. VII (begins p. 113); Part II ch. VII p. 118",
+          "quote": "James Van Horn, Dyson Dyer, Joseph Knowles, Joseph Bowen, Paul Grummond, Nathan Edson, Elias Mills, James Corbin, Phelim Corbin,",
+          "claim": "Niles' Register of 4 June 1814 (reprinting a Plattsburg paper) names nine Fort Dearborn survivors arrived from Quebec."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4837; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*Joseph Noles \" 8 Sept 1810 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "poindexter_thomas",
+      "name": "Thos. Poindexter",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Thos. Point Dexter (Helm)",
+        "Thomas Poindexter (1810 roll)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 3 Sep 1810 for five years, to 3 Sep 1815; the roll remarks: Sick.. After 14 August: Heald lists him among those who died in captivity; Quaife infers he was tortured to death the night after the battle.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17004; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Thos. Poindexter \" 3 Sept. 1810 3 Sept. 1815 Thos. Poindexter Sick.",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17411-17412; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Thos. Poindexter Private Tortured to death the night after the massacre",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16783; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's tabular list of survivors, Appendix VI (pp. 415-21)",
+          "quote": "Thos. Point Dexter 5 ...................",
+          "claim": "Listed by Lt. Helm among the garrison survivors of the battle (pencil list with his 1814 narrative)."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4838; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*Thomas Poindexter \" 3 Sept. 1810 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "prickett_william",
+      "name": "Wm. Prickett",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "On the 31 May 1812 roll with no later discharge, desertion or detachment recorded; no survivor list names him, so Quaife reckons him among the 26 regulars killed by elimination (Appendix IX). Presence rests on the roll plus Heald's and Quaife's totals, not on a document naming him at the battle. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "possibly William Pickett (1810 roll, enl. 6 Jun 1806)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 7 Mar 1811 for five years, to 7 Mar 1816. After 14 August: Killed in battle (Quaife, by elimination).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17005; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Wm. Prickett \" 7 March 1811 7 March 1816 Wm. Prickett",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17413; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Wm. Prickett Private Killed in battle",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        }
+      ]
+    },
+    {
+      "id": "peterson_frederick",
+      "name": "Frederick Peterson",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "On the 31 May 1812 roll with no later discharge, desertion or detachment recorded; no survivor list names him, so Quaife reckons him among the 26 regulars killed by elimination (Appendix IX). Presence rests on the roll plus Heald's and Quaife's totals, not on a document naming him at the battle. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 7 Jun 1808 for five years, to 7 Jun 1813. After 14 August: Killed in battle (Quaife, by elimination).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17006; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Frederick Peterson \" 7 June 1808 7 June 1813 Frederick Peterson",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17414; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Frederick Peterson Private Killed in battle",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4840; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*Frederick Peterson \" 1 June 1808 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "sherror_david",
+      "name": "David Sherror",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "On the 31 May 1812 roll with no later discharge, desertion or detachment recorded; no survivor list names him, so Quaife reckons him among the 26 regulars killed by elimination (Appendix IX). Presence rests on the roll plus Heald's and Quaife's totals, not on a document naming him at the battle. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 1 Oct 1810 for five years, to 1 Oct 1815. After 14 August: Killed in battle (Quaife, by elimination).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17007; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "David Sherror \" 1 Oct. 1810 1 Oct. 1815 David Sherror",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17415; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "David Sherror Private Killed in battle",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4841; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*David Sherror \" 1 Oct. 1810 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "suttenfield_john",
+      "name": "John Suttenfield",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "John Suttinfield (Helm)",
+        "John Sullinfield (Gordon 1912 reading)",
+        "John Suttonfield (1810 roll)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 8 Sep 1807 for five years, to 8 Sep 1812. After 14 August: Badly wounded; killed by his captors before reaching the Au Sable River (Forsyth).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17008; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "John Suttenfield \" 8 Sept. 1807 8 Sept. 1812 John Suttenfield",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17416-17417; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "John Suttenfield Private Badly wounded; killed by the Indians while en route to the Illinois River",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16787; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's tabular list of survivors, Appendix VI (pp. 415-21)",
+          "quote": "John Suttinfield 9 Killed",
+          "claim": "Listed by Lt. Helm among the garrison survivors of the battle (pencil list with his 1814 narrative)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 9992-9993; ch. XI 'The Fate of the Survivors' (begins p. 232); footnote 632",
+          "quote": "Lynch & Suttenfield was badly wounded, and were both killed before the Indians arrived at River Aux Sable.",
+          "claim": "Forsyth to Heald, 2 Jan 1813."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4842; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*John Suttonfield \" 8 Sept. 1807 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "smith_john_sr",
+      "name": "John Smith",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "John Smith Senr. (Helm)",
+        "John Smith Senior (Woodward)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 2 Apr 1808 for five years, to 2 Apr 1813. After 14 August: Helm marks him released; father of the fifer John Smith (Woodward).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17009; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "John Smith \" 2 Apl. 1808 2 Apl. 1813 John Smith",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17418; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "John Smith Private Returned to civilization",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16788; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's tabular list of survivors, Appendix VI (pp. 415-21)",
+          "quote": "John Smith Senr. 10 Released",
+          "claim": "Listed by Lt. Helm among the garrison survivors of the battle (pencil list with his 1814 narrative)."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4843; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*John Smith \" 2 April 1808 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "starr_james",
+      "name": "James Starr",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "James Stone (or Starr or Storr) (Gordon 1912 reading)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 18 Nov 1809 for five years, to 18 Nov 1814. After 14 August: Helm marks him killed; Quaife counts him among the 26 slain.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17010; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "James Starr \" 18 Nov. 1809 18 Nov. 1814 James Starr",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17419; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "James Starr Private Killed in battle",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16802; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's tabular list of survivors, Appendix VI (pp. 415-21)",
+          "quote": "James Starr 24 Killed",
+          "claim": "Listed by Lt. Helm among the garrison survivors of the battle (pencil list with his 1814 narrative)."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4844; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*James Starr \" 18 Nov. 1809 \"",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    },
+    {
+      "id": "vanhorn_james",
+      "name": "James Vanhorn",
+      "relationship": "soldier",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "James Van Horn (Woodward; Niles)",
+        "James Van Home (1810 roll OCR)",
+        "James V__tworth (?) (Gordon 1912 reading)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 2 May 1810 for five years, to 2 May 1815. After 14 August: One of the nine who reached Plattsburg in May 1814.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17012; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "James Vanhorn \" 2 May 1810 2 May 1815 James Vanhorn",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17421; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "James Van Horn Private Returned to civilization",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16793; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's tabular list of survivors, Appendix VI (pp. 415-21)",
+          "quote": "James Vanhorn 15 ...................",
+          "claim": "Listed by Lt. Helm among the garrison survivors of the battle (pencil list with his 1814 narrative)."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 3746-3747; Part II, ch. VII (begins p. 113); Part II ch. VII p. 118",
+          "quote": "James Van Horn, Dyson Dyer, Joseph Knowles, Joseph Bowen, Paul Grummond, Nathan Edson, Elias Mills, James Corbin, Phelim Corbin,",
+          "claim": "Niles' Register of 4 June 1814 (reprinting a Plattsburg paper) names nine Fort Dearborn survivors arrived from Quebec."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4847; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "*James Van Home \" 2 May 1810 \" (sick).",
+          "claim": "On the Dec 1810 muster and pay-roll printed by Kirkland (spelling and date as printed)."
+        }
+      ]
+    }
+  ]
+}
