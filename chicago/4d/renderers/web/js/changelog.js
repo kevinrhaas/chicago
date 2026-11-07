@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2799, ts: '2026-11-07T22:24:13.673Z', date: 'Nov 7, 2026, 4:24 PM CT', title: '1812 blockhouse cupola lookouts and shingled roofs', kind: 'improvement',
+    items: [
+      'Each cupola cap on the first fort\'s two blockhouses now has a small hooded lookout opening on all four sides, as Currey\'s drawing shows.',
+      'Shingle roofs across town are redrawn as riven shingles: mixed widths, broken joints and a weathered tone on each shingle, where they used to read as a flat plane.',
+    ] },
   { v: 2798, ts: '2026-11-07T21:57:19.970Z', date: 'Nov 7, 2026, 3:57 PM CT', title: 'Pullman\'s 18th Street corner tree grows tall and slender, as photographed', kind: 'improvement',
     items: [
       'The parkway tree before the Pullman house\'s south-east corner on 18th Street is no longer a broad forked elm spreading over the corner and terrace. It stands as Taylor\'s winter photograph and the c. 1900 Detroit print show it: one straight trunk under a narrow head, about 13 m tall.',
