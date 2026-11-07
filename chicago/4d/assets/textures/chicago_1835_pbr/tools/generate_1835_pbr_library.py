@@ -32,7 +32,7 @@ MATERIALS = [
     dict(id="sawn_board_weathered", group="timber", span_m=4.00, confidence="inferred", mean_roughness=.94, kind="planks", colors=((118,103,80),(77,72,61)), note="Plain gappy sawn stock; grain detail only where board widths are geometry."),
     dict(id="fresh_sawn_framing", group="timber", span_m=4.00, confidence="inferred", mean_roughness=.84, kind="planks", colors=((177,148,100),(129,105,73)), note="Pale fresh-sawn exposed framing."),
     dict(id="heavy_timber_weathered", group="timber", span_m=4.00, confidence="inferred", mean_roughness=.90, kind="planks", colors=((92,75,55),(57,52,44)), note="Moisture-darkened heavy posts, docks and bridge members."),
-    dict(id="wood_shingles_weathered", group="roofs", span_m=4.48, confidence="attested once; otherwise inferred", mean_roughness=.90, kind="shingle", colors=((92,80,67),(57,56,53)), note="Riven timber shingles; 0.14 m exposure is a declared reconstruction outside the attested North Side school."),
+    dict(id="wood_shingles_weathered", group="roofs", span_m=4.48, confidence="attested once; otherwise inferred", mean_roughness=.90, kind="shingle", colors=((92,80,67),(57,56,53)), note="Riven timber shingles of mixed widths, 8-30 cm (reconstructed, L263), joints broken course to course, each shingle its own weathering (T-3041); 0.14 m exposure is a declared reconstruction outside the attested North Side school."),
     dict(id="roof_boards_weathered", group="roofs", span_m=4.00, confidence="inferred", mean_roughness=.94, kind="roofboards", colors=((100,85,66),(61,58,51)), note="Plain board covering appropriate to rough outbuildings."),
     dict(id="chicago_clay_brick_lime_mortar", group="masonry", span_m=4.20, confidence="fabric attested; module reconstructed", mean_roughness=.90, kind="brick", colors=((132,71,54),(190,178,151)), note="Locally fired red-brown brick with pale lime mortar; brick dimensions are reconstructed, not Chicago-attested."),
     dict(id="limestone_rubble_lime_mortar", group="masonry", span_m=4.00, confidence="reconstructed", mean_roughness=.93, kind="stone", colors=((143,139,126),(190,183,159)), note="Irregular pale Great Lakes rubble masonry; use only where stone fabric is selected."),
@@ -194,12 +194,73 @@ def logwall(size, seed):
 
 
 def shingles(size, seed):
-    yy,xx=np.indices((size,size)); rows=32; rh=size/rows; cols=16; cw=size/cols
-    r=(yy//rh).astype(int); fx=((xx+(r%2)*cw/2)%cw)/cw; fy=(yy%rh)/rh
-    seamx=np.exp(-((np.minimum(fx,1-fx))/.04)**2)
-    seamy=np.exp(-(fy/.07)**2)
-    h=.36+.30*fy-.23*seamy-.14*seamx+.10*(grain(size,seed)-.5)
-    return clamp01(h),clamp01(seamx+seamy)
+    """Riven shingles as laid: 32 courses at the 0.14 m exposure, every course a run of
+    shingles each its own width, joints broken against the course below, each shingle
+    its own weathered tone (T-3041).
+
+    Until T-3041 this was a regular 16 x 32 grid, and the colour followed a wavy grain
+    that knew nothing of it, so a roof read as a brown plane with ripples. Riven stock
+    is split, not sawn, to whatever the bolt gave, so the widths run unsorted; the 8-30
+    cm here is RECONSTRUCTED (L263 holds the exposure and, since T-3041, the widths). A
+    shingle's butt is thick and ragged, its face carries the split's
+    ridges down the slope, and it cups or curls as it weathers. Image y runs DOWN the
+    slope, so each course's butt is the bottom of its band and throws its shadow on the
+    top of the band below, which is where it always lay.
+
+    Returns height, the joint mask, and the tone the colour follows (1 = the darker
+    end of the palette), like `boardface`.
+    """
+    rng=np.random.default_rng(seed); rows=32; rh=size//rows
+    courses=[]
+    prev=None
+    for r in range(rows):
+        for _ in range(60):
+            x0=float(rng.uniform(0,size)); w=[]; total=0.0
+            while total<size-18:
+                v=float(rng.uniform(18,68)); w.append(v); total+=v
+            w=np.array(w)*size/total
+            j=(x0+np.concatenate(([0.0],np.cumsum(w)[:-1])))%size
+            if prev is None:
+                break
+            d=np.abs(j[:,None]-prev[None,:]); d=np.minimum(d,size-d)
+            if d.min()>=9:
+                break
+        prev=j
+        xs=np.arange(size,dtype=np.float32)
+        rel=(xs[None,:]-j[:,None])%size          # each shingle's distance along from its left joint
+        idx=np.argmin(np.where(rel<w[:,None],rel,np.inf),axis=0)
+        n=len(w)
+        courses.append(dict(
+            idx=idx, at=rel[idx,np.arange(size)], w=w[idx],
+            tone=rng.normal(0,.16,n)[idx],         # weathering differs shingle to shingle
+            cup=rng.uniform(-.05,.08,n)[idx],      # cupped (+) or curled (-) across
+            drop=rng.uniform(0,3.2,n)[idx],        # a ragged butt: px it hangs over the course below
+            tilt=rng.uniform(-.04,.04,n)[idx]))
+    split=streaks(size,seed+1,1.0,10)             # the split's ridges, down the slope
+    fine=streaks(size,seed+2,.6,3)
+    broad=fbm(size,seed+3,(160,60),(.7,.3))
+    lichen=clamp01((fbm(size,seed+5,(9,3),(.7,.3))-.70)*5)*clamp01((broad-.35)*3)
+    h=np.zeros((size,size),np.float32); joint=np.zeros_like(h); tone=np.zeros_like(h)
+    yrel=np.arange(rh,dtype=np.float32)[:,None]
+    for r in range(rows):
+        c=courses[r]; up=courses[r-1]
+        fx=c["at"]/c["w"]
+        jd=np.minimum(c["at"],c["w"]-c["at"])                      # px to the nearer joint
+        jx=np.exp(-(jd/1.4)**2)[None,:]
+        fy=yrel/rh
+        face=(.30+.34*fy+c["cup"][None,:]*np.sin(fx*math.pi)[None,:]
+              +c["tilt"][None,:]*(fx[None,:]-.5))
+        lap=yrel<up["drop"][None,:]                                # the butt above still over this course
+        shade=np.exp(-(np.maximum(yrel-up["drop"][None,:],0)/2.2)**2)*(~lap)
+        band=slice(r*rh,(r+1)*rh)
+        hb=np.where(lap,.66+.5*up["cup"][None,:],face)-.26*shade-.22*jx*(~lap)
+        h[band]=hb+.07*(split[band]-.5)+.03*(fine[band]-.5)
+        joint[band]=np.maximum(jx*(~lap),shade)
+        tb=np.where(lap,up["tone"][None,:],c["tone"][None,:])
+        # Dirt and damp sit where the butt above sheds water; the exposed foot bleaches.
+        tone[band]=tb+.22*shade+.10*(1-fy)-.08*fy
+    tone=clamp01(.5+1.0*tone+.55*(split-.5)+.25*(fine-.5)+.55*(broad-.5)-.45*lichen)
+    return clamp01(h),clamp01(joint),tone
 
 
 def brick(size, seed):
@@ -269,7 +330,7 @@ def surface(spec, seed):
     elif k=="boardface": h,m,tone=boardface(SIZE,seed)
     elif k=="logface": h,m,tone=logface(SIZE,seed)
     elif k in ("planks","roofboards","walk","tarwood"): h,m=board_surface(SIZE,seed,k not in ("roofboards","walk"),14 if k!="walk" else 11)
-    elif k=="shingle": h,m=shingles(SIZE,seed)
+    elif k=="shingle": h,m,tone=shingles(SIZE,seed)
     elif k=="brick": h,m=brick(SIZE,seed)
     elif k=="stone": h,m=stone(SIZE,seed)
     elif k=="clay": h,m=ground(SIZE,seed,"earth")
@@ -279,11 +340,11 @@ def surface(spec, seed):
     else: raise ValueError(k)
 
     n=fbm(SIZE,seed+40,(80,24,7,2),(.45,.30,.17,.08))
-    if k in ("boardface","logface"):
+    if k in ("boardface","logface","shingle"):
         # Colour follows the grain, the weather and the checks the normal map lights,
         # so the albedo modulation a renderer reads from it lands on the same wood.
-        color=palette(.20*n+.80*tone,*spec["colors"]); color*=1-(.20 if k=="boardface" else .35)*m[...,None]
-    elif k in ("clapboard","batten","vertical","planks","roofboards","walk","tarwood","shingle","log"):
+        color=palette(.20*n+.80*tone,*spec["colors"]); color*=1-{"boardface":.20,"logface":.35,"shingle":.30}[k]*m[...,None]
+    elif k in ("clapboard","batten","vertical","planks","roofboards","walk","tarwood","log"):
         g=grain(SIZE,seed+12,vertical=k in ("clapboard","shingle","log","roofboards","walk"))
         color=palette(.25*n+.75*g,*spec["colors"])
     else:

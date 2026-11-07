@@ -86,6 +86,22 @@
  * The tile rate is read from the library's `material.json` (`span_m`) rather
  * than written here, so the renderer cannot drift from the sheet the generators
  * deal off.
+ *
+ * ## The shingle's own tone (T-3041)
+ *
+ * The owner, 2026-11-07, of Fort Dearborn's blockhouses: "make the roof surfaces
+ * correct photographic textures". Relief alone could not: the shingle sheet was a
+ * regular grid whose colour followed a wavy grain, and with the colour off the
+ * vertex every shingle of a roof was the same shade. A riven shingle roof is read
+ * by the opposite — every shingle its own weathering, joints broken course to
+ * course. The library's shingle is now drawn that way, and the roof takes it the
+ * way the log and clapboard walls take theirs (wall-relief.js): the packed `orl`
+ * (R = AO, G = roughness, both the orm's own; B = 0.5 * L / mean(L) of the
+ * basecolor) in place of the orm, and `diffuse *= mix(1, 2 * orl.B, grain)`. The
+ * mean of 2 * orl.B is 1, so the vertex colour — T-0007's grading, T-0002's jitter
+ * — is still the roof's colour on average, and a far roof, whose mips average the
+ * ratio away, reads exactly as it did. The board roof has no such tone in its sheet
+ * and keeps the plain orm.
  */
 
 import * as THREE from 'three';
@@ -93,6 +109,7 @@ import { captureHooks, registerPatch } from './batch-material.js';
 import { structureFrameGLSL } from './compact-attributes.js';
 import { resolveBases } from './scene-loader.js';
 import { ktx2Beside, loadSheet } from './ktx2.js';
+import { loadSubstrate } from './wall-relief.js';
 
 /**
  * Material name -> the library directory that covers it.
@@ -106,6 +123,13 @@ const COVERINGS = {
   roof_shingle: 'roofs/wood_shingles_weathered',
   roof_board: 'roofs/roof_boards_weathered',
 };
+
+/**
+ * The coverings whose sheet carries a tone per piece, and how much of it the roof
+ * shows (T-3041): the wall's `orl` pair, see the header. 1 is the sheet's own
+ * contrast; the colour is still the vertex's on average.
+ */
+const TONED = { roof_shingle: 1.0 };
 
 const LIBRARY = 'textures/chicago_1835_pbr/';
 
@@ -124,12 +148,18 @@ const LIBRARY = 'textures/chicago_1835_pbr/';
  * longer read, because `<uv_vertex>`'s product is overwritten. The metric tile
  * is the whole of the transform.
  */
-function metricRoofUv(material, tileM) {
+function metricRoofUv(material, tileM, grain = 0) {
   const batchHooks = captureHooks(material);
   const prior = material.onBeforeCompile;
   material.onBeforeCompile = (shader, renderer) => {
     if (typeof prior === 'function') prior(shader, renderer);
     shader.uniforms.chiRoofTileM = { value: tileM };
+    // The shingle's tone (T-3041): the orl's B, the basecolor's luminance ratio.
+    if (grain > 0) {
+      shader.fragmentShader = shader.fragmentShader.replace('#include <color_fragment>',
+        `#include <color_fragment>
+  diffuseColor.rgb *= mix( 1.0, 2.0 * texture2D( roughnessMap, vRoughnessMapUv ).b, ${grain.toFixed(3)} );`);
+    }
     shader.vertexShader = 'uniform float chiRoofTileM;\n'
       + shader.vertexShader.replace(
         '#include <project_vertex>',
@@ -158,7 +188,7 @@ function metricRoofUv(material, tileM) {
   }`,
       );
   };
-  registerPatch(material, batchHooks, 'metric-roof-uv-v2', { tileM });
+  registerPatch(material, batchHooks, 'metric-roof-uv-v2', { tileM, grain });
   material.needsUpdate = true;
 }
 
@@ -196,12 +226,19 @@ async function reliefTexture(loader, url) {
  * The caller reports the miss through the same `problems` list every other
  * asset complaint travels on.
  */
-export async function loadRoofRelief({ assetBase = resolveBases().assetBase } = {}) {
+export async function loadRoofRelief({ assetBase = resolveBases().assetBase, lowSpec = false } = {}) {
   const loader = new THREE.TextureLoader();
   const base = new URL(LIBRARY, assetBase);
   const bound = new Map();
   try {
     await Promise.all(Object.entries(COVERINGS).map(async ([name, dir]) => {
+      if (TONED[name]) {
+        // The wall's pair: KTX2 normal + orl where the GPU takes them, else the
+        // WebPs with the orl packed on the canvas (wall-relief.js loadSubstrate).
+        const set = await loadSubstrate(base, dir, lowSpec);
+        bound.set(name, { normalMap: set.normal, orm: set.orl, tileM: set.tileM, grain: TONED[name] });
+        return;
+      }
       const here = new URL(`${dir}/`, base);
       const res = await fetch(new URL('material.json', here), { cache: 'no-cache' });
       if (!res.ok) throw new Error(`${res.status} — ${new URL('material.json', here)}`);
@@ -240,10 +277,11 @@ export async function loadRoofRelief({ assetBase = resolveBases().assetBase } = 
       material.normalMap = covering.normalMap;
       // One file in two slots: ORM is R=AO, G=roughness, B=metallic, and three
       // samples exactly those channels for `aoMap` and `roughnessMap`. Binding
-      // it twice costs one upload and one resident texture rather than two.
+      // it twice costs one upload and one resident texture rather than two. A
+      // toned covering's `orl` has the same R and G; its B is read above.
       material.roughnessMap = covering.orm;
       material.aoMap = covering.orm;
-      metricRoofUv(material, covering.tileM);
+      metricRoofUv(material, covering.tileM, covering.grain ?? 0);
       material.userData = { ...(material.userData ?? {}), chiRoofRelief: material.name };
 
       // `perVertexRoughness` refuses a material with a `roughnessMap` — it
