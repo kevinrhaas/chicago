@@ -145,7 +145,7 @@ import { createTarget } from './target.js';
 import { createTargetTag } from './target-tag.js';
 import { createShowMe, plan as planShowMe, crosses as crossesShowMe } from './show-me.js';
 import { spotTarget } from './photos-tab.js';
-import { createWhere } from './where.js';
+import { createWhere, screenDate, spokenDay } from './where.js';
 import { loadModernStreets } from './modern-streets.js';
 import { resolveSharpness } from './sharpness.js';
 import { createFrameGovernor, describeGovernor } from './frame-governor.js';
@@ -1771,7 +1771,8 @@ const arrival = createArrival({
   deviceEl: gate.querySelector('.gate-card'),
   destinationEl: document.getElementById('arrival-destination'),
   announceEl: document.getElementById('arrival-announce'),
-  targetDate: () => api.scene?.target_date,
+  // T-3437: the ARRIVED stamp names the Season's day (a stored winter lands on 15 February).
+  targetDate: () => seasonDate(api.season?.current ?? 'summer', api.scene?.target_date),
   targetYear: YEAR,
   titleEl: document.getElementById('gate-title'),
   contentOptions: {
@@ -2504,10 +2505,19 @@ async function boot() {
   }
   // T-3328: the year chip's day follows a jaunt stop's own date (17 June at the Lalime
   // gate, 6 April at Lee's Place) and goes back to the scene's when the hour is given back.
+  // T-3437: and the Season's day (15 February, 15 April, 15 October), so it always
+  // names the day the sun is lit for: the chip, its spoken label and the Navigator's date.
   function paintChipDay(iso) {
+    const shown = iso || world.sunDate || loaded.scene.target_date || '';
+    const m = /^\d{4}-(\d{2})-(\d{2})/.exec(shown);
+    if (!m) return;
     const sub = document.querySelector('#year-badge .badge-sub');
-    const m = /^\d{4}-(\d{2})-(\d{2})/.exec(iso || loaded.scene.target_date || '');
-    if (sub && m) sub.textContent = `${m[1]}.${m[2]}`;
+    if (sub) sub.textContent = `${m[1]}.${m[2]}`;
+    const badge = document.getElementById('year-badge');
+    const label = badge?.getAttribute('aria-label');
+    if (label) badge.setAttribute('aria-label', label.replace(/^\d{1,2} [A-Z][a-z]+/, spokenDay(shown)));
+    const navDate = document.getElementById('nav-date');
+    if (navDate) navDate.textContent = screenDate(shown);
   }
   function applyTime(value, { date, transient = false } = {}) {
     const v = isTimeValue(value) ? value : 'daytime';
@@ -2626,6 +2636,7 @@ async function boot() {
     const day = seasonDate(s, loaded.scene.target_date) || loaded.scene.target_date;
     if (timeState.transient) timeState.ownDate = day;
     else world.setSun({ date: day, time: world.resolveTime(timeState.own, day).hhmm });
+    paintChipDay(timeState.transient?.date);
     paintTime();
     contextCity.setSeason?.(s);
     await seasonPlants(s);
@@ -3289,7 +3300,9 @@ async function boot() {
     if (failed) throw failed.reason;
     rows.forEach((row, i) => {
       if (!hasRequiredSourceTextures(row.gltf, got[i].value.gltf)) {
-        throw new Error(`${row.id}: reloaded source is missing a required texture`);
+        // T-3439: the usual cause is a newer build on the server: a deploy since this page
+        // loaded changed the model's materials. Say what fixes it.
+        throw new Error(`${row.id}: reloaded source is missing a required texture. If the site was updated since this page loaded, reload the page`);
       }
     });
     rows.forEach((row, i) => {
@@ -3719,6 +3732,9 @@ async function boot() {
       return res.json();
     },
     groundHeight: (e, n) => profiledGroundHeight(terrain, decks, e, n),
+    // T-3439: a figure's new distance level is compiled off the frame (parallel compile)
+    // before it is drawn, so walking up to someone is not a stall on her skin's programs.
+    prepare: (object) => renderer.compileAsync(object, camera, scene3d),
   });
   api.humans.on('open', ({ personId }) => {
     if (!api.people) return;
@@ -3733,6 +3749,25 @@ async function boot() {
     a?.life?.attend?.(camera.getWorldPosition(new THREE.Vector3()), 4);
   });
   scene3d.add(api.humans.group);
+  /**
+   * T-3439 (owner, 2026-11-07): Settings › Show › People and › Carriages and horses. A
+   * viewing choice, like Street trees: hidden, a layer is neither drawn nor advanced nor
+   * fetched nor picked. People covers the figures on foot and the drivers on their seats;
+   * Carriages and horses covers the driven teams, the parked vehicles (and the yard's old
+   * stand-ins for them) and the standing horses.
+   */
+  const shownLayers = { people: true, vehicles: true };
+  function setShownLayer(key, on) {
+    shownLayers[key] = on;
+    if (key === 'people') api.humans?.setShown?.(on);
+    else {
+      parkedTransport.setShown(on);
+      standingHorses.group.visible = on;
+      if (on) standingHorses.update(camera);
+      if (api.townTransport?.group) api.townTransport.group.visible = on;
+    }
+    gateFrame.invalidate();
+  }
   // Read only the small route table at boot. Actual occupied assets and full
   // rendered-ground/collision readings begin after the visitor approaches a circuit.
   api.townTransport = null;
@@ -3938,6 +3973,9 @@ async function boot() {
       } else if (key === 'lotLines') {
         streetGrid.setLotLines(value === 'shown');
         gateFrame.invalidate();
+      } else if (key === 'people' || key === 'vehicles') {
+        // T-3439: the people, and the carriages and horses, shown or hidden.
+        setShownLayer(key, value !== 'hidden');
       } else if (key === 'units') {
         navigation.setUnits(value);
       }
@@ -3958,9 +3996,15 @@ async function boot() {
     void sourcesPromise.then(view => { if (api.evidenceHub.topic === 'sources') view?.show(); });
   };
   hud.omitTabs(api.drawerOmitted.tabs);
+  // T-3439: the stored Show choices for people and vehicles, before the first frame.
+  if (hud.settings.people === 'hidden') setShownLayer('people', false);
+  if (hud.settings.vehicles === 'hidden') setShownLayer('vehicles', false);
   // T-3331: Settings' own copy, so a later save keeps an hour set from code; then paint.
   timeState.hudSettings = hud.settings;
   paintTime();
+  // T-3437: the HUD writes the scene's own day into the chip; a Season chosen before it
+  // existed (the stored one, applied at boot) puts its own day back.
+  paintChipDay(timeState.transient?.date);
   // The Trees setting is offered only where there are parkway trees to set (T-2473).
   document.getElementById('row-street-trees')?.toggleAttribute('hidden', !streetTrees.records.length);
   document.getElementById('row-season')?.toggleAttribute('hidden', !seasonal);
@@ -3972,6 +4016,11 @@ async function boot() {
     document.getElementById('s-season')?.setAttribute('title', `A viewing choice: the scene is dated ${day}`);
     const summer = document.querySelector('#s-season option[value="summer"]');
     if (summer) summer.textContent = `Summer — ${day.replace(/ \d{4}$/, '')}, full leaf`;
+    // T-3437: and each other season names the day it shows (season.js SEASON_DAY).
+    for (const [season, name, look] of [['spring', 'Spring', 'first leaf'], ['fall', 'Fall', 'turned leaves'], ['winter', 'Winter', 'snow, bare limbs']]) {
+      const opt = document.querySelector(`#s-season option[value="${season}"]`);
+      if (opt) opt.textContent = `${name} — ${spokenDay(seasonDate(season, loaded.scene.target_date))}, ${look}`;
+    }
   }
   document.getElementById('row-lot-lines')?.toggleAttribute('hidden', !streetGrid.lotLines);
   api.evidenceHub = createEvidenceHub({
@@ -4524,7 +4573,7 @@ async function boot() {
   // it go, back to where the Navigator was (docked, if it was docked).
   let handInspect = null; // { id, wasLevel, opening } while Inspect shows a building the visitor opened
   let letting = null;     // one let go while still opening: Inspect closes as soon as it is up
-  function openBuilding(id, { person = null } = {}) {
+  function openBuilding(id, { person = null, photo = null } = {}) {
     const record = loaded.registry.get(id);
     if (!record?.sidecar || !navigatorUi?.has?.('inspect')) return pick(id);
     if (popup.openId) popup.close();
@@ -4537,7 +4586,9 @@ async function boot() {
     handInspect = hand;
     inspectHold = id;
     // T-3265: a person's own card, on the People tab of the house they lived in.
-    const link = person ? { app: 'inspect', id, tab: 'people', person } : { app: 'inspect', id };
+    // T-3436: a photo view gone to from Go to › Photos: its Photos tab, that picture large.
+    const link = person ? { app: 'inspect', id, tab: 'people', person }
+      : photo ? { app: 'inspect', id, tab: 'photos', photo } : { app: 'inspect', id };
     void Promise.resolve(navigatorUi.openLink(link)).finally(() => {
       hand.opening = false;
       if (hand.released) { letGo(hand); if (letting === hand) letting = null; } // let go before it was on screen
@@ -4841,8 +4892,15 @@ async function boot() {
     api.townTransport?.cancelDriverApproaches();
     // T-3436: a photo view is walked, ridden or flown to like any place, and its last turn is
     // the Photos tab's From this spot: the camera's own spot and facing, the building outlined.
+    // The building's card then opens on its Photos tab with that picture large (the owner,
+    // 2026-11-07: "pop open the photo in the card ... see the larger version and be able to
+    // open in new window").
     if (resolved.kind === 'photo') {
-      return travel.go(resolved, { onArrive: () => { void api.fromSpot?.(resolved.of, resolved.picture); } });
+      return travel.go(resolved, { onArrive: () => {
+        void api.fromSpot?.(resolved.of, resolved.picture);
+        hud.setPanel(false);
+        openBuilding(resolved.of, { photo: resolved.picture?.id ?? resolved.id });
+      } });
     }
     return travel.go(resolved.structureId
       ? { kind: 'structure', id: resolved.structureId, label: resolved.label, person: resolved.kind === 'person' ? resolved.id : null }
@@ -5069,6 +5127,8 @@ async function boot() {
     } finally { root.removeAttribute('aria-busy'); }
   }
   api.welcome = createWelcome({ gate, scene: loaded.scene, destinations, isTouch: coarse,
+    // T-3437: Home's stamp names the Season's day, as the year chip does.
+    sceneDate: () => seasonDate(api.season?.current ?? 'summer', loaded.scene.target_date),
     // T-3436: Go to's Photos read the cards' pictures file the first time Go to shows.
     photos: () => ensurePictures(),
     // T-2632: each Go to row's distance and bearing, from where the visitor stands.
@@ -5602,6 +5662,7 @@ async function boot() {
     }),
   });
   api.navigator = navigatorUi;
+  paintChipDay(timeState.transient?.date); // T-3437: the Navigator's date is the Season's too
   // T-3022: Inspect opened on a building by hand is let go once the device leaves it.
   navigatorUi?.onChange?.(({ app, level }) => { if (handInspect && !handInspect.opening && (app !== 'inspect' || level === 0)) handInspect = null; });
   api.openBuilding = openBuilding;
@@ -5842,19 +5903,21 @@ async function boot() {
     railway.update(camera);
     flags.update(dt);
     parkedTransport.update(camera);
-    api.townTransport?.ensureNear(camera.position, !gateOpen && !animationHold && !document.hidden && !confidence.hidden.reconstructed);
+    // T-3439: Settings › Show › Carriages and horses, hidden: nothing driven is fetched,
+    // and a team already on its round is hidden the way the Confidence view hides it.
+    api.townTransport?.ensureNear(camera.position, shownLayers.vehicles && !gateOpen && !animationHold && !document.hidden && !confidence.hidden.reconstructed);
     // The journey bounds travelled metres, then checks every <= .05s sweep.
     // The shared visible clock has already rejected held/document lifecycle time.
     api.townTransport?.update(visualDt, camera.position, {
       elapsedFrame: true,
       paused: animationHold || gateOpen || document.hidden,
       reducedMotion: transportReducedMotion.matches,
-      hidden: confidence.hidden.reconstructed,
+      hidden: confidence.hidden.reconstructed || !shownLayers.vehicles,
       visualDt,
     });
     api.townTransport?.refreshInteractions();
     if ((interactPaintAt += elapsed) >= .25) { interactPaintAt = 0; interactKey.refresh(); }
-    standingHorses.update(camera, visualDt, { paused: animationHold || gateOpen, visualFrame: true });
+    if (shownLayers.vehicles) standingHorses.update(camera, visualDt, { paused: animationHold || gateOpen, visualFrame: true });
     // T-2598: which house pictures are on the GPU, from where the eye ended up; at
     // most a frame's allowance of them is uploaded here, before the draw.
     residency?.tick(camera.position);

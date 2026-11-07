@@ -73,7 +73,29 @@ try {
     return { ok, row: !!row, p: a.player };
   });
   console.log('walked', JSON.stringify(walked));
+  // Show me's outline round the building, as From this spot draws it.
+  const outlined = await page.evaluate(async () => {
+    const seen = [];
+    for (let i = 0; i < 40; i++) { __chicago4d.step(); await new Promise((r) => requestAnimationFrame(r)); seen.push(!document.getElementById('show-me-outline')?.hidden); await new Promise((r) => setTimeout(r, 75)); }
+    return seen.some(Boolean);
+  });
+  console.log('outline shown', outlined);
   await shot(page, '5-walked-pullman-1890s');
+  // The card on arrival: its Photos tab, the picture gone to large at its head (2026-11-07).
+  await page.waitForFunction(() => document.querySelector('#nav-app-inspect .ph-hero img')?.complete, null, { timeout: 60000, polling: 500 }).catch(() => console.log('no hero'));
+  await page.waitForTimeout(2500);
+  const card = await page.evaluate(() => {
+    const a = __chicago4d; for (let i = 0; i < 4; i++) a.step();
+    const fig = document.querySelector('#nav-app-inspect .ph-hero');
+    const tab = document.querySelector('#nav-app-inspect .insp-tab[aria-selected="true"]')?.dataset.inspTab;
+    const full = fig?.querySelector('.ph-hero-full');
+    const r = fig?.getBoundingClientRect();
+    return { app: a.navigator?.app, tab, photo: fig?.dataset.photo, img: fig?.querySelector('img')?.currentSrc?.split('/').pop(),
+      full: full ? [full.target, full.href.split('/').pop()] : null, box: r ? [Math.round(r.left), Math.round(r.top), Math.round(r.width), Math.round(r.height)] : null,
+      outline: !document.getElementById('show-me-outline')?.hidden, p: a.player };
+  });
+  console.log('card', JSON.stringify(card));
+  await shot(page, '6-card-photo');
   if (errors.length) console.log(`page errors: ${errors.join(' | ')}`);
   await context.close();
 } finally { await browser.close(); server.close(); }

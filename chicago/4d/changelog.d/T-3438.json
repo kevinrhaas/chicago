@@ -1,8 +1,0 @@
-{
-  "title": "People lists each household once",
-  "kind": "fix",
-  "items": [
-    "The household of the building in view is pinned once on Households, with every other household under it, instead of again as the list's first row.",
-    "On People, the pin shows that household's own people rather than a household row, with everyone else under it."
-  ]
-}

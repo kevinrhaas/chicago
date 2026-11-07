@@ -28129,7 +28129,8 @@ places each joint, and a photograph of a crossing shows how it wore.
 **Decision:** Settings › Season offers summer (the scene's own 1 July 1904, the default), spring,
 fall and winter. A season other than summer moves the sun to a day in the scene's year at the
 scene's own hour (25 April for first leaf, 20 October for the elms' yellow, 21 December for the
-solstice) and repaints the scene: a fresher green sward in spring; a browner sward, yellow elms
+solstice; since T-3437 the middle of a season's month: 15 April, 15 October and 15 February, the
+owner's choice, February so that a winter view is never Christmas) and repaints the scene: a fresher green sward in spring; a browner sward, yellow elms
 and fallen leaves in fall; and in winter snow lying on the lawns, parkways, roofs and the faded
 city, trodden on the roadways, swept off the walks, with the elms bare
 (`renderers/web/js/season.js`).
@@ -28152,7 +28153,8 @@ look; a weather record for a chosen day would set its snow.
 
 **Decision:** Settings › Season is offered in every year, not only 1904. In 1812 (dated 14 August)
 and 1835 (dated 1 July) summer is the scene's own day and stays the default; spring, fall and winter
-move the sun to 25 April, 20 October and 21 December of that year at the scene's hour, and repaint
+move the sun to 25 April, 20 October and 21 December of that year at the scene's hour (15 April,
+15 October and 15 February since T-3437, and the year chip and the Navigator name that day), and repaint
 the ground as 1904's do (snow, a fresher or browner sward, fallen leaves), with snow on the roofs
 and trodden on the earth roads. The woods are re-grown with a season's crown: first leaf in spring,
 a thinner crown in fall, bare limbs in winter. In fall each stand turns yellow, orange, oak russet
@@ -41545,5 +41547,28 @@ own choice (the match record keeps it open).
 **What is not built.** The gable's south foot is still as L-k01-2009-meyer-1913 left it.
 **How to resolve:** a camera solved on Monroe's 1896 plate (`monroe_1896_john_wellborn_root_meyer_plate`),
 which sees the flank from the north-west, would place the stack along it and might show its breast.
+**Ticket:** T-3365 (piece 2 of T-1914).
+**Recorded:** 2026-11-07 (T-3365).
+
+### L-k01-2009-meyer-gable-run-on-3365 — 2009 Prairie's gable carried on down to the party wall on its south side, and the corner cut down under it
+
+**Decision:** the Chicagology photograph (`chicagology_2009_prairie_meyer_photo`, rights check_required:
+forms, places and sizes only) shows the ogee gable's south side running on past the height where its north
+side stops, down over the party wall with 2011 to about 10.3 m. K01's shaped gable gains a `run_on`
+(`shaped_gable.run_on`, the front's high-s end, K01's side.north): the slab is carried down the print's line
+on a 0.45 m band under its coping, the street front and the party wall are cut down under the line, the hip's
+eave, soffit, gutter and covering over it are taken off in front of a cheek 0.9 m behind the front, and the
+cut is closed by that cheek (the side walls' brick) over a slated floor along the line. This retires the
+"the kit draws both sides alike" liberty in the record's note.
+**What is read, not invented.** The line itself, read row by row off the print at 99.9 px a metre: the coping's
+outer edge at half-width 2.31 m at 12.34 m, 2.6 at 11.86, 3.0 at 11.26, 3.37 at 10.78 and 3.62 at 10.46,
+meeting the party line at about 10.32 m; the render's coping lands within about 0.15 m of the print's along
+its length.
+**What is invented.** Everything behind the coping: the print sees only a dark face in shadow there (2011's
+wall and roof beyond the party line), so how deep the cut runs back (0.9 m), the cheek's brick and the
+slated floor sloping to the party wall are this build's, as is the gutter stopped at the cheek. The band's
+depth (0.45 m) is hidden in the wall.
+**How to resolve:** a picture of the roof from the south or above, or a camera on Monroe's 1896 plate if
+its frame reaches the south side.
 **Ticket:** T-3365 (piece 2 of T-1914).
 **Recorded:** 2026-11-07 (T-3365).

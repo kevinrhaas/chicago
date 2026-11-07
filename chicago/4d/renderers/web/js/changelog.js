@@ -1,4 +1,35 @@
 export const CHANGELOG = [ // newest first
+  { v: 2759, ts: '2026-11-07T07:05:31.620Z', date: 'Nov 7, 2026, 1:05 AM CT', title: '2009 Prairie\'s gable sweeps down to its neighbour, as photographed', kind: 'improvement',
+    items: [
+      'In 1904, the tall shaped gable of 2009 Prairie Avenue no longer stops short on its south side: its stone coping now sweeps on down past the roof\'s edge to the wall it shares with 2011, about 10 m up, as the old photograph shows, and the brick corner and eave that stood above that line are gone.',
+    ] },
+  { v: 2758, ts: '2026-11-07T06:39:04.720Z', date: 'Nov 7, 2026, 12:39 AM CT', title: 'No more freezes walking near people; hide people or carriages', kind: 'fix',
+    items: [
+      'Walking about Mattie Williamson in the Glessner courtyard no longer freezes the frame: a person keeps each distance level once drawn, so stepping back and forth swaps instantly instead of reloading her.',
+      'A person\'s own build and face are fitted to her clothes about nine times faster, with the same result.',
+      'Her shaders are compiled in the background before a nearer level shows.',
+      'Settings > Show has People and Carriages and horses, each Shown or Hidden. Hidden, they are not drawn or loaded at all.',
+      'Switching detail after the site was updated now says to reload the page.',
+    ] },
+  { v: 2757, ts: '2026-11-07T06:39:04.720Z', date: 'Nov 7, 2026, 12:39 AM CT', title: 'A 1922 photograph of the Pullman house joins its sources', kind: 'improvement',
+    items: [
+      'The Chicago Tribune\'s photograph of the Pullman house being pulled down in July 1922 is now one of the house\'s sources. With the roof already gone it shows the stonework close up: quoins, window frames and the door case. Which face it shows is not yet settled, so nothing in the 1904 house is built from it yet.',
+    ] },
+  { v: 2756, ts: '2026-11-07T05:47:58.404Z', date: 'Nov 6, 2026, 11:47 PM CT', title: 'Go to › Photos opens the picture in the card', kind: 'feature',
+    items: [
+      'Arriving at a photo view from Go to › Photos opens the building\'s card on its Photos tab, with that picture large at the top, marked Taken from here.',
+      'Tap the picture for the viewer, or Full size ↗ to open it in a new window.',
+    ] },
+  { v: 2755, ts: '2026-11-07T05:47:58.404Z', date: 'Nov 6, 2026, 11:47 PM CT', title: 'The date by the year follows the Season', kind: 'fix',
+    items: [
+      'The date beside the year at the top of the screen now names the Season\'s day, not always the scene\'s own: spring reads 15 April, fall 15 October and winter 15 February (February, so a winter view is never Christmas). Summer keeps the scene\'s own day, 1 July in 1835 and 1904 and 14 August in 1812.',
+      'The sun is lit for that same day, the Navigator\'s date matches, and Settings › Season names each season\'s day. A jaunt that sets its own season shows that season\'s day while it runs.',
+    ] },
+  { v: 2754, ts: '2026-11-07T05:20:51.651Z', date: 'Nov 6, 2026, 11:20 PM CT', title: 'People lists each household once', kind: 'fix',
+    items: [
+      'The household of the building in view is pinned once on Households, with every other household under it, instead of again as the list\'s first row.',
+      'On People, the pin shows that household\'s own people rather than a household row, with everyone else under it.',
+    ] },
   { v: 2753, ts: '2026-11-07T05:13:17.209Z', date: 'Nov 6, 2026, 11:13 PM CT', title: '1936 Prairie\'s dining-room side gets the windows its photograph shows', kind: 'fix',
     items: [
       'The Thompson/Allerton house at 1936 Prairie: the dining room\'s south side now has the windows its winter photograph shows on each floor, a single, a single and a pair, where it had two evenly spaced singles. The pair stands on a stone mullion, and all three line up with the photograph from its own viewpoint.',
