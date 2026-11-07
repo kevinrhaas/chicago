@@ -1,0 +1,92 @@
+{
+  "license": "CC0-1.0",
+  "asset": "hair bun brown (rehmanpolanski_hair_bun_brown)",
+  "author": "RehmanPolanski",
+  "uuid": "9bf96086-aaa0-4a13-9d83-71b6c4b4732a",
+  "basis": "Adapted by its author from the MakeHuman system ponytail01 (itself CC0 since September 2020).",
+  "archive_url": "https://files2.makehumancommunity.org/asset_packs/hair01/hair01_cc0.zip",
+  "archive_etag": "\"d93956d-6160e7894ff24\"",
+  "archive_bytes": 227775853,
+  "pack_page": "https://files2.makehumancommunity.org/asset_packs/hair01/ (\"rehmanpolanski_hair_bun_brown RehmanPolanski asset repo CC0\")",
+  "pack_metadata": {
+    "entry": "packs/hair01.json",
+    "sha256": "b1f3c32a877cf7fb681ed54d28715d53a4d9660656ae063c6a50229181830de7",
+    "crc32_verified": true,
+    "record": {
+      "author": "RehmanPolanski",
+      "category": "Hair",
+      "changed": "2020-04-16",
+      "created": "2020-04-11",
+      "description": "This model is adapted from the MH Ponytail01. UPGRADE I replaced the ponytail with a bun and a red velvet tie. I used the original texture from the ponytail01 and added my own for the bun and the tie. I fixed a problem with fitting and resizing the hair.",
+      "license": "CC0",
+      "original_author": "",
+      "original_source": "",
+      "source": "http://www.makehumancommunity.org/node/2477",
+      "thumbnail": "rehmanpolanski_hair_bun_brown.png",
+      "type": "clothes"
+    }
+  },
+  "extraction": "Entries read by HTTP byte range from the official archive (central directory parsed from its tail); each inflated entry matches the archive CRC-32 and size. The whole archive was not hashed.",
+  "header_note": "The OBJ and MHCLO headers keep the MakeClothes default export stamp \"license AGPL3 (see also http://www.makehuman.org/doc/node/external_tools_license.html)\"; the author's listing in the official CC0 pack is the release relied on.",
+  "files": [
+    {
+      "path": "hair_bun_brown.obj",
+      "sha256": "87620ef37e13235c103415db778ae583b4f1abab21323ac1180bce57bef64856",
+      "bytes": 194911,
+      "kind": "original source",
+      "archive_entry": "hair/rehmanpolanski_hair_bun_brown/hair_bun_brown.obj",
+      "crc32": 1763735923,
+      "crc32_verified": true
+    },
+    {
+      "path": "rehmanpolanski_hair_bun_brown.mhclo",
+      "sha256": "54f136555d516f940268881e75453305789ff430be85032f25864d773ebe9676",
+      "bytes": 171791,
+      "kind": "original source",
+      "archive_entry": "hair/rehmanpolanski_hair_bun_brown/rehmanpolanski_hair_bun_brown.mhclo",
+      "crc32": 698149602,
+      "crc32_verified": true
+    },
+    {
+      "path": "hair_bun_brown.mhmat",
+      "sha256": "4f5c86a531b73707505632b36507c30f8759cea2f001de06d794aa1c4e1be716",
+      "bytes": 467,
+      "kind": "original source",
+      "archive_entry": "hair/rehmanpolanski_hair_bun_brown/hair_bun_brown.mhmat",
+      "crc32": 3126116232,
+      "crc32_verified": true
+    },
+    {
+      "path": "Hair_bun_brown.png",
+      "sha256": "ebcf2d58a5f8dfe11db376e559d0308e57da00170cde1c1304871bab10d251fa",
+      "bytes": 4326322,
+      "kind": "original source",
+      "archive_entry": "hair/rehmanpolanski_hair_bun_brown/Hair_bun_brown.png",
+      "crc32": 2638899856,
+      "crc32_verified": true
+    },
+    {
+      "path": "hair_bun_brown_dark_tie.png",
+      "sha256": "15339830ff1143c171ee83b807948d7a7989c108df3088fd03777b3c5adde340",
+      "bytes": 4030293,
+      "kind": "project derivative: the red velvet tie disc recoloured dark brown, luminance kept; all other pixels unchanged"
+    },
+    {
+      "path": "hair01.original.json",
+      "sha256": "34f0f557598a989cf94b00eef7cf7147c37b8b31007013fa08bbc2d22374085b",
+      "bytes": 696,
+      "kind": "pack metadata record (key rehmanpolanski_hair_bun_brown) from packs/hair01.json"
+    },
+    {
+      "path": "README.md",
+      "sha256": "9e1dbb82b77985dc3da97a25aad5cc3456a58d317ea58bc4fb54f67e8d283b7e",
+      "bytes": 1335,
+      "kind": "original project CC0 documentary provenance"
+    }
+  ],
+  "rights_scope": "No MakeHuman AGPL program or shader code copied; the source phong shader is not ported; a procedural PBR material is reconstructed.",
+  "used_by": [
+    "data/humans/recipes/adult_dress_1904.json"
+  ],
+  "ticket": "T-3434"
+}

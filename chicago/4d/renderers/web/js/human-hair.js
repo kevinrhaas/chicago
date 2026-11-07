@@ -292,7 +292,8 @@ export function growHair({ hair, skin = null, root, style, lod, seed = 'person' 
   if (mask && uv) scalp.bare = Uint8Array.from({ length: scalp.count }, (_, i) => mask(uv.getX(i), uv.getY(i)) < .25 ? 1 : 0);
   // Cards until they cover the cap `cover` times over (or the level's most): short cards at the
   // sides take more of them than the long ones on top.
-  const want = CARDS.cover * cut.density * area.area;
+  // A cut whose cap carries its own fine strands (a cleared bun hair, T-3434) grows none here.
+  const want = cut.scalp_cards === false ? 0 : CARDS.cover * cut.density * area.area;
   let laid = 0;
   const same = i => i;
   for (let c = 0; c < level.scalp && laid < want; c++) {
@@ -506,7 +507,7 @@ export function dressHair(root, { lod = 0, person = null, year = null, style: gi
   hair.parent.add(mesh);
   // Under the cards the cap is the scalp's colour: solid, not its own masked strands, so no
   // skin shows between the cards. (The far levels keep the cap as it was, alone.)
-  if (hair.material?.alphaTest > CARDS.cap_alpha_test) hair.material.alphaTest = CARDS.cap_alpha_test;
+  if (entry.grown.scalp && hair.material?.alphaTest > CARDS.cap_alpha_test) hair.material.alphaTest = CARDS.cap_alpha_test;
   // A hat put on later (driver-livery.js) cuts the strands above its band.
   let frame = 0, seen = null;
   mesh.onBeforeRender = () => {
