@@ -188,6 +188,9 @@ CONSUMED = {
                                    "blend_back_m", "seed"}),
     "heald_small_elevation_1812": frozenset({"centre_e", "centre_n", "rise_ft",
                                              "flat_radius_m", "skirt_m", "aspect"}),
+    # T-3469: the T-3403 rise kept as ground when Heald's elevation moved south.
+    "tenth_street_rise_1812": frozenset({"centre_e", "centre_n", "rise_ft",
+                                         "flat_radius_m", "skirt_m", "aspect"}),
 }
 
 

@@ -129,7 +129,101 @@
       ],
       "where_on_the_ground": "Eighteenth Street's row, east of Prairie Avenue to the shore. Arnold names the street ('leading from Michigan avenue to the lake') and puts the tree 'not very far from the track of the Illinois Central', which ran along the lake end; Prairie's committed crossing is taken as the locus's west limit for that reason. No easting is stated for either tree, so the locus is a line along the street and not a point.",
       "confidence": "conjectural",
-      "confidence_note": "A tradition, recorded in the 1880s and 1890s, carried by the Kinzie family and by one unnamed Potawatomi witness relayed second-hand. Juliette Kinzie's 'saplings at the time' is a statement about the trees, not about the battle. It is the one reading that names a place, and it lies further south than the distance reading allows - see the derived file's disagreement - so it is kept beside the distance and neither is preferred."
+      "confidence_note": "A tradition, recorded in the 1880s and 1890s, carried by the Kinzie family and by one unnamed Potawatomi witness relayed second-hand. Juliette Kinzie's 'saplings at the time' is a statement about the trees, not about the battle. It is the one reading that names a place, and it lies further south than the distance reading allows - see the derived file's disagreement - so it is kept beside the distance and neither is preferred. T-3469 (owner's choice, 2026-11-07): the battle jaunt's stands now follow the place readings, this one, Arnold's, Jones's and Harpell's, because Heald's own journal (heald_journal) gives two miles and every reading that names a place lands between Sixteenth and Twenty-first Streets. This file still adopts one distance for its stations and claims no point."
+    },
+    {
+      "id": "heald_journal",
+      "role": "alternative_not_adopted",
+      "kind": "distance_from_fort",
+      "source_id": "quaife_1913",
+      "station_name": "Two miles (Heald's journal)",
+      "locator": "Appendix III, Nathan Heald's Journal, Project Gutenberg eBook #69274 plain text",
+      "author": "Captain Nathan Heald, commanding the garrison, a participant",
+      "written": "after the event; Quaife prints it from the manuscript",
+      "quote": "On the 15th Marched for Detroit & was attacked by about 500 Indians two miles from the Fort",
+      "value_m": 3218.688,
+      "value_note": "Two statute miles, exactly.",
+      "confidence": "inferred",
+      "confidence_note": "The commander's own second figure (T-3469). It disagrees with his report's mile and a half, so neither of his figures is a fixed point; measured in a straight line from the fort it falls near the later Seventeenth Street, beside the place readings. Kept as a station, not adopted, so the route's stations stay derived from one adopted distance."
+    },
+    {
+      "id": "helm_1814_narrative",
+      "role": "corroborating_independent",
+      "kind": "distance_from_fort",
+      "source_id": "quaife_1913",
+      "station_name": "About one and a half mile (Helm)",
+      "locator": "Appendix VI, Lieutenant Helm's account of the massacre, Project Gutenberg eBook #69274 plain text",
+      "author": "Lieutenant Linai T. Helm, the garrison's second officer, a participant",
+      "written": "1814",
+      "quote": "we evacuated the Garrison & about one and [a] half mile from the Garrison we were informed by Capt Wells that we were surrounded & the attack by the Indians began, about 10 of the Clock Morning",
+      "value_m": 2414.016,
+      "confidence": "inferred",
+      "confidence_note": "A second participant's figure, written apart from Heald's (the two officers' accounts disagree on much else), giving the same mile and a half and the hour, about ten o'clock. Quaife's '[a]' is his editorial insertion. T-3469."
+    },
+    {
+      "id": "woodward_1812_letter",
+      "role": "alternative_not_adopted",
+      "kind": "distance_reported",
+      "source_id": "quaife_1913",
+      "locator": "Appendix VII, letter of Judge Augustus B. Woodward to Colonel Proctor, 7 October 1812, Project Gutenberg eBook #69274 plain text",
+      "author": "Augustus B. Woodward, at Detroit, from three survivors",
+      "written": "7 October 1812",
+      "quote": "at the distance of about [after before they had marched] three miles from the fort",
+      "confidence": "conjectural",
+      "confidence_note": "Hearsay from three survivors; Quaife prints the manuscript's struck words in brackets. Three miles is past every other reading and is not drawn. T-3469."
+    },
+    {
+      "id": "western_courier_1812",
+      "role": "alternative_not_adopted",
+      "kind": "distance_reported",
+      "source_id": "quaife_1913",
+      "locator": "Appendix II, the sources of the massacre: the Western Courier of Louisville, 28 August 1812, Project Gutenberg eBook #69274 plain text",
+      "author": "an officer at or near Fort Wayne, as Quaife summarises the letter",
+      "written": "August 1812",
+      "quote": "the garrison attacked after marching \"about one mile,\"",
+      "confidence": "conjectural",
+      "confidence_note": "Quaife's summary of an early report from Fort Wayne, from the Miami survivors; not drawn. T-3469."
+    },
+    {
+      "id": "fernando_jones_1835",
+      "role": "tradition_kept_beside",
+      "kind": "landmark",
+      "source_id": "kirkland_1893_chicago_massacre",
+      "locator": "Fernando Jones's letter to Kirkland, in the chapter after the massacre, Project Gutenberg eBook #59624 plain text",
+      "author": "Fernando Jones, who came to Chicago in 1835 aged fifteen",
+      "quote": "visited many times the location of the Indian massacre of 1812. The spot was pointed out by some who were children at the time, and by others who had been informed by their parents.",
+      "also_quoted": [
+        "Kirkland: 'Mr. Fernando Jones believes them to have been buried at where Seventeenth Street, extended, would cross Prairie Avenue.'",
+        "Jones: 'There was a mound in the prairie southwest of the massacre-ground, that was pointed out as the grave of the vidette, or soldier in advance of the retreating garrison.'",
+        "Jones, of the 1836 digging: 'we unearthed a skeleton surrounded by bits of woolen cloth, pieces of leather, brass military buttons and buckles and a brass plate with U. S. upon it' ... 'The spot was about a block south of the Calumet Club-House, near the S. E. corner of Indiana Ave. and Twenty-first Street.'"
+      ],
+      "where_on_the_ground": "The burials at Seventeenth Street and Prairie Avenue; the grave south-west of the ground at Twenty-first Street and Indiana Avenue. Modern locators, as with the trees.",
+      "confidence": "conjectural",
+      "confidence_note": "Recorded in 1893 from 1835-36 memory, but from Native and metis people who were children in 1812 and independent of the Kinzie family, with a grave and U.S. military buttons found in the ground. T-3469."
+    },
+    {
+      "id": "harpell_battle_ground",
+      "role": "tradition_kept_beside",
+      "kind": "landmark",
+      "source_id": "andreas_1884_v1",
+      "locator": "vol. 1 p. 31, 'Chicago's Historic Tree' (archive.org historyofchicago01andr djvu text)",
+      "author": "Charles Harpell, an old citizen, as Andreas reports him",
+      "quote": "this locality was known as the \"Indian battle-ground;\"",
+      "where_on_the_ground": "The Eighteenth Street tree's locality.",
+      "confidence": "conjectural",
+      "confidence_note": "Andreas adds that boys hunted there 'in the sand for beads' and that Harpell found 'an old single-barreled brass pistol' (the OCR's 'Lrass' read as 'brass'). T-3469."
+    },
+    {
+      "id": "arnold_1884",
+      "role": "tradition_kept_beside",
+      "kind": "landmark",
+      "source_id": "andreas_1884_v1",
+      "locator": "vol. 1 p. 31, Isaac N. Arnold to A. T. Andreas, 25 January 1884 (the OCR's 'light' read as 'fight')",
+      "author": "Isaac N. Arnold, who came in 1836, from the John H. Kinzie family",
+      "quote": "This tree was pointed out to me by both Mr. and Mrs. Kinzie, as near the place where the attack began. As the fight continued the combatants moved south and west over considerable space.",
+      "where_on_the_ground": "The Eighteenth Street tree for the start of the attack; south and west of it for the rest of the fight.",
+      "confidence": "conjectural",
+      "confidence_note": "Kirkland's 1893 reprint of the same letter reads 'moved south and went over considerable space'; Andreas's own printing of 1884 is followed. T-3469."
     }
   ]
 }
