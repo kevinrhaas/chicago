@@ -652,6 +652,16 @@ for sheet in assets/textures/camp_1812_pbr/*/material.json; do
         "$SITE/data/$rel/"
 done
 
+# The underpinnings' stone (T-3492): renderers/web/js/underpinning.js binds the 1904 random
+# rubble sheet under any sill a record carries level over sloping ground (the 1812 factory
+# and interpreter's house). The three web maps and material.json, under the same data/
+# rename; it loads only in a scene that has an underpinning.
+src="assets/textures/prairie_1904_stone/foundation_rubble"
+dst="$SITE/data/textures/prairie_1904_stone/foundation_rubble"
+mkdir -p "$dst"
+cp -f "$src/material.json" "$src/foundation_rubble_basecolor_web.jpg" \
+      "$src/foundation_rubble_normal_gl_web.jpg" "$src/foundation_rubble_orm_web.jpg" "$dst/"
+
 # The 1904 lakefront railway (T-2478): the traced tracks and the spec they carry,
 # drawn by renderers/web/js/railway.js, and its maps — the same three web files
 # per surface as the street library above, plus the grass tuft's one alpha card.

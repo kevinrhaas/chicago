@@ -10851,7 +10851,12 @@ for (const [label, viewport, touch] of [
         const m = api.buildings.matrixOf(id);
         if (!b || !m) continue;
         const feet = api.buildings.feetOf?.(id) ?? [];
-        const base = feet.length ? feet.map(([x, z]) => [x, 0, z])
+        // T-3492: a sill carried on an underpinning stands clear of its low ground on
+        // purpose; what meets the ground there is the stone, whose foot is carried 0.35 m
+        // below the LOWEST ground under the feet (underpinning.js BURY_M).
+        const under = api.buildings.underpinningOf?.(id);
+        const foot = under ? under.lo - 0.35 - under.y : 0;
+        const base = feet.length ? feet.map(([x, z]) => [x, foot, z])
           : [[b.min[0], b.min[1], b.min[2]], [b.min[0], b.min[1], b.max[2]],
             [b.max[0], b.min[1], b.min[2]], [b.max[0], b.min[1], b.max[2]]];
         let gap = -Infinity;
