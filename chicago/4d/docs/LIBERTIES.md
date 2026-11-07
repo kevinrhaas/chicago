@@ -36590,6 +36590,24 @@ the head bone (5 cm in 1835) and the strand hair is combed up from the face to i
 stereographs show hair drawn up to a knot on the crown. **Body:** the same female base as Mary
 Flynn; no birth year is recorded for her, so the variation kit draws her age, and her face, height,
 build and complexion are not hers.
+**The softer woman, 2026-11-06 (T-3434):** the owner read her as neither feminine nor kind. Four
+causes are changed. **Skin:** she wore the male Toigo bronze atlas, whose beard shadow made a man's jaw;
+she now wears the same author's female bronze atlas (MakeHuman skins01, CC0;
+`assets/authored/humans/skin_toigo_bronze_female/`). **Face:** each women's body (Mary's and hers) carries a
+`face_bias` in `data/humans/variation/axes.json` that leans every seeded face toward MakeHuman's own
+feminine proportions (a lighter jaw, chin and jowl, a smaller brow ridge, fuller lips, brows raised a
+little) and sets the mouth's corners a little up at rest (the new `mouth_corners` axis, from MakeHuman's
+CC0 mouth-angles targets, which is never drawn, so no one else's face moves). Fine arched eyebrows
+(`brows_fine`) are grown on both women. **Cut:** the shirtwaist pouches forward over the waist band by up
+to 1.8 cm, most 8 cm above the waist and nothing from 25 cm up, and its upper sleeves stand 1.2 cm off
+the arm, gathered to nothing at the shoulder and the elbow; the bib carries two 3 cm shoulder straps up
+over the shoulders and down the back to the waist. **Hair:** the cleared short04 cap itself is raised into a roll,
+up to 2.8 cm over the brow and 1.8 cm at the temples, rising from nothing at the cap's edge and fading to
+nothing toward the back and below the temples; the strand hair grows on it, so it follows. **Hands:** a woman in the full skirt never
+lets her hands hang or sets them on her hips, where they sank into the skirt's bell (the owner saw it);
+she stands with them loosely clasped in front at the waist, over the apron, or held at the waist behind,
+as women in service stand in the photographs of the decade. All amounts are chosen by eye against the
+1903 stereographs; none is measured, and none says anything about how she looked.
 
 ### L-tremont-gale-envelope-2385 — two-storey default and picture alternative
 
