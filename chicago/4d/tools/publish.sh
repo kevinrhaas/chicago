@@ -204,7 +204,7 @@ node tools/share_glb_sheets.mjs "$SITE"
 # leaving it behind is roofs with no relief on the deployed site while the dev
 # tree shingles every one of them, which is the scenes/, fauna/ and residents/
 # failure again.
-for covering in wood_shingles_weathered roof_boards_weathered; do
+for covering in roof_boards_weathered; do
   src="assets/textures/chicago_1835_pbr/roofs/$covering"
   dst="$SITE/data/textures/chicago_1835_pbr/roofs/$covering"
   mkdir -p "$dst"
@@ -215,6 +215,21 @@ for covering in wood_shingles_weathered roof_boards_weathered; do
         "$src/${covering}_orm.ktx2" \
         "$dst/"
 done
+# THE SHINGLE IS A WALL-STYLE PAIR SINCE T-3041: each riven shingle carries its own
+# tone, which roof-relief.js reads as the wall's albedo ratio (wall-relief.js
+# loadSubstrate). The KTX2 path fetches the normal, the packed `orl` and its
+# statement; the canvas path the normal, orm and basecolor WebPs it packs from.
+src="assets/textures/chicago_1835_pbr/roofs/wood_shingles_weathered"
+dst="$SITE/data/textures/chicago_1835_pbr/roofs/wood_shingles_weathered"
+mkdir -p "$dst"
+cp -f "$src/material.json" \
+      "$src/wood_shingles_weathered_normal_gl.webp" \
+      "$src/wood_shingles_weathered_orm.webp" \
+      "$src/wood_shingles_weathered_basecolor.webp" \
+      "$src/wood_shingles_weathered_normal_gl.ktx2" \
+      "$src/wood_shingles_weathered_orl.ktx2" \
+      "$src/wood_shingles_weathered_orl.json" \
+      "$dst/"
 # THE .ktx2 BESIDE EACH (T-2582): the same map GPU-compressed by
 # tools/ktx2_sheets.py. A visitor downloads ONE of the pair — the KTX2 where the GPU
 # takes a block format, the WebP otherwise (js/ktx2.js) — so both ship.
@@ -660,6 +675,16 @@ for sheet in assets/textures/camp_1812_pbr/*/material.json; do
         "$src/${id}_basecolor.ktx2" "$src/${id}_normal_gl.ktx2" "$src/${id}_orm.ktx2" \
         "$SITE/data/$rel/"
 done
+
+# The underpinnings' stone (T-3492): renderers/web/js/underpinning.js binds the 1904 random
+# rubble sheet under any sill a record carries level over sloping ground (the 1812 factory
+# and interpreter's house). The three web maps and material.json, under the same data/
+# rename; it loads only in a scene that has an underpinning.
+src="assets/textures/prairie_1904_stone/foundation_rubble"
+dst="$SITE/data/textures/prairie_1904_stone/foundation_rubble"
+mkdir -p "$dst"
+cp -f "$src/material.json" "$src/foundation_rubble_basecolor_web.jpg" \
+      "$src/foundation_rubble_normal_gl_web.jpg" "$src/foundation_rubble_orm_web.jpg" "$dst/"
 
 # The yard woodpiles' wood (T-3474): one atlas of six cells yard.js binds on the woodpile
 # mesh, the same six web files and its material.json, under the same data/ rename.

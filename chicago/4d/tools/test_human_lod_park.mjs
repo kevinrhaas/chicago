@@ -21,8 +21,10 @@ const actorSource = slice('export function chooseHumanLod(', '\nconst verbOf') +
   + slice('const PROXY_GEOMETRY', '\n/**\n * THE ENGINE.');
 const stubLife = () => ({ bound: true, bind() { return true; }, apply() {}, nod() {} });
 const stubActions = () => ({ bound: true, bind() { return true; }, apply() {}, takeNod() { return false; } });
-const HumanActor = new Function('THREE', 'createHumanLife', 'createHumanActions', 'enuToWorld',
-  `${constants}\n${actorSource}\nreturn HumanActor;`)(THREE, stubLife, stubActions,
+const stubGait = () => ({ bound: true, bind() { return true; }, apply() {}, speed: 1.3, pace: 1 });
+const stubSkirt = () => null;
+const HumanActor = new Function('THREE', 'createHumanLife', 'createHumanActions', 'createHumanGait', 'createHumanSkirt', 'enuToWorld',
+  `${constants}\n${actorSource}\nreturn HumanActor;`)(THREE, stubLife, stubActions, stubGait, stubSkirt,
   (e, n, h, out) => out.set(e, h, -n));
 
 // The asset store, counting what is parsed and let go.

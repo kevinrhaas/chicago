@@ -101,6 +101,12 @@
           "confidence": "reconstructed",
           "note": "Marks at both ends of the drawn roof may be stacks, as the agent's house's are; at this size they are not read with confidence."
         }
+      },
+      "underpinning": {
+        "kind": "fieldstone",
+        "sill_clear_m": 0.2,
+        "confidence": "reconstructed",
+        "note": "T-3492. The interpreter's house stands on the slope west of the fort, where the committed e1830_natural ground falls 0.32 m across its walls, so bedded at its lowest corner its front stood about a foot in the ground at the door. It is carried on the same reconstructed underpinning as the factory beside it: the sill 0.20 m over the highest ground under the walls, field and lake stone in lime down to below the lowest, and a step up to the door. NO SOURCE describes this house's foundation; every part of it is reconstructed (L-t3492-underpinnings-1812)."
       }
     }
   ],

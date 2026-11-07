@@ -1,4 +1,30 @@
 export const CHANGELOG = [ // newest first
+  { v: 2800, ts: '2026-11-07T22:54:15.123Z', date: 'Nov 7, 2026, 4:54 PM CT', title: 'People walk like people: real pace, heel to toe, swinging arms', kind: 'improvement',
+    items: [
+      'Everyone on foot walks at a real pace for their age and height, about twice as fast as before, with full-length steps.',
+      'Each foot lands on the heel, rolls flat and pushes off from the ball, and stays put on the ground while it carries the weight.',
+      'Knees bend as they take the weight and fold through the swing; hips rise, fall and turn with each step.',
+      'Arms swing in time with the legs, the shoulders turn against the hips and the head stays steady.',
+      'Stopping, a walker brings the trailing foot up beside the other.',
+    ] },
+  { v: 2799, ts: '2026-11-07T22:24:13.673Z', date: 'Nov 7, 2026, 4:24 PM CT', title: '1812 blockhouse cupola lookouts and shingled roofs', kind: 'improvement',
+    items: [
+      'Each cupola cap on the first fort\'s two blockhouses now has a small hooded lookout opening on all four sides, as Currey\'s drawing shows.',
+      'Shingle roofs across town are redrawn as riven shingles: mixed widths, broken joints and a weathered tone on each shingle, where they used to read as a flat plane.',
+    ] },
+  { v: 2798, ts: '2026-11-07T21:57:19.970Z', date: 'Nov 7, 2026, 3:57 PM CT', title: 'Pullman\'s 18th Street corner tree grows tall and slender, as photographed', kind: 'improvement',
+    items: [
+      'The parkway tree before the Pullman house\'s south-east corner on 18th Street is no longer a broad forked elm spreading over the corner and terrace. It stands as Taylor\'s winter photograph and the c. 1900 Detroit print show it: one straight trunk under a narrow head, about 13 m tall.',
+    ] },
+  { v: 2797, ts: '2026-11-07T21:46:59.050Z', date: 'Nov 7, 2026, 3:46 PM CT', title: 'Prairie district back yards: back doors, terraces, walks and gardens', kind: 'feature',
+    items: [
+      '121 houses gain a back door with its steps, and 103 a paved terrace at their foot, in herringbone brick or stone flags.',
+      'Walks run from the terrace to the coach house, to the alley, and down the side passage to the service walk or the front steps.',
+      '59 drying yards with clothes posts; where the 1900 census lists a laundress the yard is inferred, otherwise reconstructed.',
+      '23 small kitchen gardens on Indiana and Calumet lots, side-lawn shade trees and shrub borders, and creeper on some coach houses.',
+      'Glessner\'s court, Pullman\'s grounds and Field\'s south lawn are left as their sources draw them.',
+      'No picture shows these yards, so all of it is a liberty, and the confidence view and each card say so.',
+    ] },
   { v: 2796, ts: '2026-11-07T21:25:39.781Z', date: 'Nov 7, 2026, 3:25 PM CT', title: 'Woodpiles in real wood', kind: 'improvement',
     items: [
       'Woodpiles, chopping blocks, log heaps and loose billets now wear a photographic wood surface: split ends with rings, bark rinds and checks, bark along the sticks, sawn rounds with axe scores.',
