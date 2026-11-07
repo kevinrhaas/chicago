@@ -1,0 +1,90 @@
+{
+  "_doc": "T-3488 test fixture for tools/test_back_yards.mjs: two small lots in data/back_yards/<scene>.json's format (the lead's tools/lay_prairie_1904_back_yards.py writes the real one). Coordinates are a made-up frame near the origin; the test stands them on a made-up sloping, rippled field. Not data.",
+  "scene": "test",
+  "target_date": "1904-07-01",
+  "ticket": "T-3488",
+  "generated_by": "tools/fixtures/back_yards_test.json (hand-written)",
+  "liberty": "L-prairie-back-yards-1904",
+  "materials": {
+    "yard_brick": { "texture": "yard_brick_herringbone", "tile_m": 1.6, "label": "brick paving, laid herringbone" },
+    "flags": { "texture": "bluestone_flags", "tile_m": 2.4, "label": "stone flagging" },
+    "cement": { "texture": "portland_cement_walk", "tile_m": 1.83, "label": "Portland cement walk" },
+    "gravel": { "texture": "pea_gravel", "tile_m": 2.0, "label": "gravel" },
+    "trodden": { "texture": "beaten_earth", "tile_m": 3.0, "label": "trodden earth" },
+    "loam": { "texture": "garden_loam", "tile_m": 2.0, "label": "dug garden soil" },
+    "lawn": { "texture": "turf", "tile_m": 1, "label": "the lawn" }
+  },
+  "lots": [
+    {
+      "parcel": "test_101", "addresses": ["101"], "street": "prairie", "side": "east",
+      "structures": ["test_house_101", "test_house_101_coach_house"],
+      "scheme": "service_court", "grade": "reconstructed", "sources": [],
+      "note": "A brick terrace at the kitchen door, a walk to the coach house and a kitchen garden",
+      "surfaces": [
+        { "id": "test_101:terrace", "kind": "rear_terrace", "material": "yard_brick",
+          "polygon_local_m": [[20, 2], [25.5, 2], [25.5, 13], [20, 13]],
+          "along_deg": 90, "lift_m": 0.03, "order": 1, "grade": "reconstructed", "note": "Laid at the kitchen door." },
+        { "id": "test_101:walk", "kind": "coach_walk", "material": "cement",
+          "polygon_local_m": [[25.5, 7], [46, 7], [46, 8.2], [25.5, 8.2]],
+          "along_deg": 90, "lift_m": 0.03, "order": 1, "grade": "inferred", "note": "The walk out to the coach house door." },
+        { "id": "test_101:court", "kind": "carriage_court", "material": "gravel",
+          "polygon_local_m": [[40, 1], [47.3, 1], [47.3, 14], [44, 14], [44, 9], [40, 9]],
+          "along_deg": 0, "lift_m": 0.03, "order": 0, "grade": "reconstructed", "note": "" },
+        { "id": "test_101:garden_path", "kind": "garden_path", "material": "trodden",
+          "polygon_local_m": [[27, 0.6], [39, 0.6], [39, 6.4], [27, 6.4]],
+          "along_deg": 0, "lift_m": 0.025, "order": 0, "grade": "reconstructed", "note": "" },
+        { "id": "test_101:bed", "kind": "garden_bed", "material": "loam",
+          "polygon_local_m": [[28, 1.2], [38, 1.2], [38, 5.8], [28, 5.8]],
+          "along_deg": 90, "lift_m": 0.035, "order": 1, "grade": "reconstructed", "note": "The vegetable bed." },
+        { "id": "test_101:lawn", "kind": "drying_yard", "material": "lawn",
+          "polygon_local_m": [[27, 9], [39, 9], [39, 14], [27, 14]],
+          "along_deg": 0, "lift_m": 0.0, "order": 0, "grade": "reconstructed", "note": "The sward itself." }
+      ],
+      "doors": [
+        { "id": "test_101:back_door", "structure": "test_house_101", "e": 20, "n": 7.6, "facing_deg": 90,
+          "sill_m": 1.3, "width_m": 0.95, "height_m": 2.2, "leaf": true,
+          "stoop": { "depth_m": 1.2, "width_m": 1.6, "material": "wood" }, "grade": "reconstructed", "note": "The kitchen door." },
+        { "id": "test_101:side_door", "structure": "test_house_101", "e": 15, "n": 1.8, "facing_deg": 180,
+          "sill_m": 0.4, "width_m": 0.9, "height_m": 2.1, "leaf": false,
+          "stoop": { "depth_m": 0.9, "width_m": 1.3, "material": "stone" }, "grade": "inferred", "note": "The model carries this door." }
+      ],
+      "posts": [
+        { "kind": "clothes_post", "e": 28, "n": 11.5, "height_m": 2.3, "arm_m": 0.9, "facing_deg": 90, "line_to": 1, "grade": "reconstructed" },
+        { "kind": "clothes_post", "e": 37, "n": 11.5, "height_m": 2.3, "arm_m": 0.9, "facing_deg": 90, "line_to": null, "grade": "reconstructed" }
+      ],
+      "crops": [
+        { "bed": "test_101:bed", "rows": [
+          [28.6, 5.2, 37.4, 5.2, "cabbage"], [28.6, 4.4, 37.4, 4.4, "beet"],
+          [28.6, 3.6, 37.4, 3.6, "onion"], [28.6, 2.8, 37.4, 2.8, "lettuce"],
+          [28.6, 2.0, 37.4, 2.0, "currant"] ] }
+      ],
+      "shrubs": [[26.2, 12.4, "lilac", 2.6, 2.0]],
+      "trees": [],
+      "creeper": [],
+      "beds": []
+    },
+    {
+      "parcel": "test_105", "addresses": ["105", "107"], "street": "prairie", "side": "east",
+      "structures": ["test_house_105"],
+      "scheme": "open_rear", "grade": "reconstructed", "sources": [],
+      "note": "Flags at the door and a gangway round to the front steps",
+      "surfaces": [
+        { "id": "test_105:terrace", "kind": "rear_terrace", "material": "flags",
+          "polygon_local_m": [[20, 16], [24, 16], [24, 24], [20, 24]],
+          "along_deg": 0, "lift_m": 0.03, "order": 0, "grade": "reconstructed", "note": "" },
+        { "id": "test_105:gangway", "kind": "gangway", "material": "cement",
+          "polygon_local_m": [[2, 14.6], [24, 14.6], [24, 15.8], [2, 15.8]],
+          "along_deg": 90, "lift_m": 0.03, "order": 0, "grade": "reconstructed", "note": "Round the house to the front steps." },
+        { "id": "test_105:far_walk", "kind": "yard_walk", "material": "cement",
+          "polygon_local_m": [[170, 16], [200, 16], [200, 17.2], [170, 17.2]],
+          "along_deg": 90, "lift_m": 0.03, "order": 0, "grade": "reconstructed", "note": "In the next chunk east." }
+      ],
+      "doors": [
+        { "id": "test_105:back_door", "structure": "test_house_105", "e": 20, "n": 20, "facing_deg": 90,
+          "sill_m": 0.5, "width_m": 0.95, "height_m": 2.2, "leaf": true,
+          "stoop": { "depth_m": 1.0, "width_m": 1.5, "material": "stone" }, "grade": "reconstructed", "note": "" }
+      ],
+      "posts": [], "crops": [], "shrubs": [], "trees": [], "creeper": [], "beds": []
+    }
+  ]
+}

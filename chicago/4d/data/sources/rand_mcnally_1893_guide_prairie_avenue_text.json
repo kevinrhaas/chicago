@@ -1,0 +1,29 @@
+{
+ "id": "rand_mcnally_1893_guide_prairie_avenue_text",
+ "type": "book",
+ "citation": "The Prairie Avenue drive, pp. 232-235 in the chapter 'Streets, Parks, Residences, etc.', Rand, McNally & Co.'s Bird's-Eye Views and Guide to Chicago (Chicago: Rand, McNally & Co., 1893).",
+ "author": "Rand, McNally & Co. (no author named)",
+ "date": "1893",
+ "describes_date": "1892-1893",
+ "repository": "Internet Archive, item randmcnallycosbi00lawr (University of Illinois at Chicago Library, Lawrence J. Gutter Collection of Chicagoana). The same book's street-front drawings are their own records: rand_mcnally_1893_views_prairie_east_1701_1815 and rand_mcnally_1893_views_prairie_west_1816_1936.",
+ "url": "https://archive.org/details/randmcnallycosbi00lawr/page/234/mode/1up",
+ "locator": "p. 234 (scan leaf n246), the paragraph beginning 'The Pullman residence occupies an area'; p. 232 (n244), the avenue's introduction, beginning 'Prairie Avenue, a neighborhood of millionaires'; p. 235 (n247) closes the drive at Twenty-second Street.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Published in Chicago in 1893, before 1929: public domain in the United States. Quoted in text only.",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "Read 2026-11-07 (T-3488) from the item's OCR full text (randmcnallycosbi00lawr_djvu.txt, sha256 924c6299c7b495b6cbba2a63f6b1ee5ffe0191a0112246c42caa7d4d12f22a9f) and checked against the page image of p. 234 fetched through the Archive's IIIF service. The chicagology.com Prairie Avenue page also transcribes this passage; it was not used.",
+ "note": "Read, p. 232: 'The houses are very large, and there are but few to the block.' P. 234: 'The Pullman residence occupies an area on the north side of Eighteenth Street, the house facing Prairie Avenue, with a handsome approach from the foregoing street. The old homestead is a stately brown-stone mansion with Mansard roof, having been remodeled in 1892 to admit a picture-gallery and palm-house. A charming feature of this beautiful estate is the magnificent conservatory and spacious lawn, forming a private park, on the south side of Eighteenth Street, bordering Calumet Avenue and commanding a grand view of Lake Michigan. The entire grounds are marked by quiet elegance and taste.' The passage goes on to the cottonwood the guide ties to the 1812 Battle of Fort Dearborn and to Pullman's monument at the foot of Eighteenth Street; nothing more of the grounds.",
+ "what_it_supplies": [
+  "Pullman's conservatory and 'spacious lawn, forming a private park' on the south side of Eighteenth Street toward Calumet Avenue, by 1893",
+  "the house's 'handsome approach' from Eighteenth Street",
+  "the 1892 remodelling for a picture-gallery and palm-house",
+  "that the Prairie Avenue houses were large and few to the block"
+ ],
+ "what_it_does_not_supply": [
+  "the planting, paths or trees of either Pullman ground",
+  "any dimension",
+  "the grounds in 1904"
+ ]
+}

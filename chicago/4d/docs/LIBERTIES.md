@@ -28102,6 +28102,45 @@ tool follows it.
 **Review:** `docs/RESEARCH/prairie_1904_street_section.md`.
 **Recorded:** 2026-10-31 (T-3274).
 
+### L-prairie-back-yards-3488 — The 1904 back and side yards: back doors, terraces, walks, gangways, drying yards and kitchen gardens
+
+**Decision:** behind and beside the 1904 district's houses, `tools/lay_prairie_1904_back_yards.py`
+lays out each lot's yard (`data/back_yards/1904.json`, drawn by `renderers/web/js/back-yards.js`):
+a back door on the main house's rear wall where its model has none, on a stretch of wall with no
+window in its way, its sill at the house's first floor (1.5 m at most) or, where the first floor's
+windows or a shallow yard leave no room, at grade a step up; its steps and landing; a paved terrace
+at their foot (brick laid herringbone, or stone flags on a stone front), larger where a double lot
+gives the house a side yard; walks from it, laid straight on the lot's free ground, to the coach
+house's yard door or its K12 workyard paving, to the alley where no stable stands, and down the side
+passage to the K14 service walk or to the front walk by the stoop; a drying yard of trodden earth
+with two clothes posts; on some of the modest Indiana and Calumet lots a kitchen garden of a few dug
+rows against the sunny fence; and on a worked house's side lawn one to three shade trees and a shrub
+border, creeper on a third of the coach houses' yard walls, a lilac at the back fence of a lot with
+no stable. Every lot is seeded by its parcel id. Glessner's court, the Pullman house lot and
+glasshouse ground, and Field's south lawn are left as their own records draw them.
+**What it stands on:** the research note `docs/RESEARCH/prairie_1904_back_yards.md`: the Sanborn
+sheets of 1911 put the stables on the alley with 5-18 m of yard between them and the houses; the
+1900 census (`census_1900_chicago_t623_roll245`) enumerates coachmen over the stables and a laundress
+in many households, so the back yard was the kitchen's and the stable's working court and the wash
+was hung at home; the side lawns and shade trees of the double lots are in `sheldon_artistic_houses_1884_field_house`
+("a spacious lawn and scattered shade-trees"), `inter_ocean_1887_01_02_prairie_avenue_homes` and the
+1883 album; and every house of the period had a kitchen door. The owner, 2026-11-07: "patios and
+entertaining space near the rear doors and walkways to the carriage houses and to the front steps and
+maybe in gangways ... dont wildly invent things".
+**What is invented:** every piece's place, size and paving: no picture shows the rear of any house
+or the back yard of any lot here but Hibbard's (1701), Glessner's court (c. 1923) and Pullman's. The
+drying yard of a household whose laundress the 1900 census names is inferred from that enumeration
+(its place and size are still reconstructed); every other drying yard, all kitchen gardens (no
+source names one on any lot of the district), the terraces, the walks, the back doors and their
+steps, and the side-lawn trees, borders, creeper and lilacs are reconstructed.
+**How to resolve:** a photograph, a plan or an insurance drawing of a lot's rear (the Houghton
+courtyard elevations, a Sanborn porch or areaway, a later HABS sheet) replaces that lot's rule; a
+rebaked house whose rear gains its own door or porch takes this file's door away (the tool keeps a
+model's door and draws only its steps).
+**Ticket:** T-3488.
+**Review:** `docs/RESEARCH/prairie_1904_back_yards.md`.
+**Recorded:** 2026-11-07 (T-3488).
+
 ### L-prairie-paving-seams-2475 — Where two 1904 pavings meet: one roadway per crossing, the other worn into it over 1.6 m
 
 **Decision:** where two 1904 roadways cross or meet, only one is drawn: the one with the higher
@@ -40312,6 +40351,28 @@ at any 1812 house. **How to resolve:** a recollection, inventory or claim naming
 the factory's returns for 1812; a view of the post's out-buildings.
 **Ticket:** T-3458.
 **Recorded:** 2026-11-07 (T-3458).
+
+### L-t3474-yard-wood-surfaces — the woodpiles' wood: a procedural atlas of split ends, bark and sawn rounds
+
+**Decision:** the yard layer's woodpiles (`renderers/web/js/yard.js`, every year that has them: 1812's 17 and
+1835's 399) are drawn in a physically scaled PBR wood atlas, `assets/textures/yard_wood_pbr/woodpile_atlas/`
+(base colour, OpenGL normal, packed ORM; 1129 px to the metre), written by
+`assets/textures/yard_wood_pbr/tools/generate_yard_wood_pbr.py`: two rick faces of split billet ends (quarters,
+eighths, halves, slabs and small rounds racked in courses, each with its growth rings round its own pith, oak's
+rays, a heartwood/sapwood break, a bark rind on its outer arc, rim and heart checks, axe facets, and its own
+weathering, most a season stacked and greying); the sticks along their length; a sawn round's end with checks,
+kerf and axe scores (the chopping block's top and a log's end); oak/hickory log bark; and a split face along the
+grain. Where the atlas loads it replaces T-1959's painted cells, which stay as the fallback. The 1812 casks and
+cases standing in those yards move out of the woodpile mesh into the goods' chunks, where they wear the board
+face's grain the town's other casks wear; and the 1812 woodpiles show at the phone (`light`) tier, which keeps
+hiding the 1835 town's 399 (`WOOD_LIGHT_MAX_LOTS`). **Why:** the owner, 2026-11-07, on the T-3458 screenshots:
+*"those are a nice start make the next round of them photographic, improve the surface textures"*. **What is
+ours throughout:** the whole look: the mix of woods (oak, hickory, ash and elm, the trees of the 1812 groves),
+the split shapes, ring widths, colours, checks and weathering. No photograph is embedded, sampled or traced; no
+source shows any 1812 or 1835 Chicago woodpile. **How to resolve:** a period view or description of a Chicago
+woodpile, or of the wood the post and the households burned.
+**Ticket:** T-3474.
+**Recorded:** 2026-11-07 (T-3474).
 
 ### L-t3340-south-groves-1812 — 1812's timber south of the river: the South Branch belt carried east of Wells, and groves in the wet hollows
 

@@ -1,0 +1,46 @@
+{
+  "id": "bluestone_flags",
+  "directional": true,
+  "group": "yard",
+  "span_m": 2.4,
+  "kind": "flagging",
+  "mean_roughness": 0.84,
+  "colors": [
+    [
+      142,
+      137,
+      125
+    ],
+    [
+      97,
+      93,
+      79
+    ]
+  ],
+  "note": "Random-rectangular stone flagging in three courses: buff-grey Joliet limestone and blue-grey flag, slabs 0.5-1.0 m with some split smaller, 10-15 mm soil joints with grass and moss creeping along some, slabs settled unevenly, weather, lichen and an iron stain or two. Stone, sizes and weathering are reconstructed (T-3488).",
+  "ticket": "T-3488",
+  "span_along_m": 2.4,
+  "span_across_m": 2.4,
+  "resolution_px": 512,
+  "px_per_m": 213.33,
+  "confidence": "reconstructed appearance; which yard surface carries it is the yard layout's to say, never this map's",
+  "orientation": "image x = along the path or court the yard layout lays it on (renderer u); image y = across it (v)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "normal_dx": "linear",
+    "roughness": "linear",
+    "height16": "linear 16-bit",
+    "ao": "linear",
+    "metallic": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "bluestone_flags_basecolor_web.jpg",
+    "normal_gl": "bluestone_flags_normal_gl_web.jpg",
+    "orm": "bluestone_flags_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 19041509,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_pbr.py); no photograph sampled"
+}
