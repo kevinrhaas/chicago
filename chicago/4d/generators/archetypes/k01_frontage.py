@@ -4226,7 +4226,7 @@ class Assembly:
             mz0, mz1 = k01_mansard_walled.extend(p, -W, 0.0) if m.get("walled_ends") else (-W, 0.0)
             hip, hs, _ = k5.mansard_element(0.0, D, mz0, mz1, E, m["lower_pitch_deg"], p.roof_pitch_deg,
                                             m["lower_rise_m"], m["bulge"], m["segments"], m["profile"], o, f,
-                                            cut=cut)
+                                            cut=cut, x1_run=m.get("street_run_m"))   # T-1890: a leaned street face
         elif gb:   # T-2459: the parapets first, so the union keeps their faces on the walls' planes
             from . import k01_gable_roof
             solids, hs, _, self.gable_roof = k01_gable_roof.elements(p, k5, E, o, f)
@@ -5368,8 +5368,16 @@ class Assembly:
                 out.append(g)
                 continue
             centre = d["along_m"] if self.DORMER_FACES[d["face"]][0] == "z" else -d["along_m"]
+            # T-1890: on a leaned street face the body runs back only the side faces' run + 0.3 m,
+            # where the face already stands over its head (k01_frontage_params checks it), so it
+            # does not reach across the corner's hip into the next face's dormer
+            back_at = None
+            if d["face"] == "street" and m.get("street_run_m"):
+                side_run = m["lower_rise_m"] / math.tan(math.radians(m["lower_pitch_deg"]))
+                back_at = fascia["street"] - self.DORMER_FACES["street"][1] * (side_run + 0.3)
             g = self.round_dormer_body(d, d["face"], fascia[d["face"]], centre, m["lower_rise_m"],
-                                       m["lower_pitch_deg"], m["bulge"], E)
+                                       k01_frontage_params.face_lower(m, d["face"])[0], m["bulge"], E,
+                                       back_at=back_at)
             self.round_dormers.append(g["geom"])
             out.append(g)
         return out

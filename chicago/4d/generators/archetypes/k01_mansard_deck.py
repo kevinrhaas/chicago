@@ -56,7 +56,8 @@ def resolve(deck: dict, m: dict, depth: float, width: float, overhang: float, pi
     if m.get("crown"):
         raise ParamError("mansard.deck dresses a mansard's own deck; a crown stands on it")
     run = m["lower_rise_m"] / math.tan(math.radians(m["lower_pitch_deg"]))
-    u0, u1 = -overhang + run, depth + overhang - run
+    # T-1890: a leaned street face stands the street curb its own run in
+    u0, u1 = -overhang + run, depth + overhang - m.get("street_run_m", run)
     v0, v1 = -overhang + run, width + overhang - run
     # T-3384: the deck runs on to a side wall carried up through the roof, to the wall's inner face
     walled = {e["wall"]: e for e in m.get("walled_ends", [])}

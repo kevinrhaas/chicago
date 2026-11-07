@@ -1349,6 +1349,14 @@ step "a canted bay's own mansard may carry dormers on its front run (T-3283)" \
 step "a mansard crown may stand over a stretch of the front and turn a canted corner (T-3283)" \
   python3 tools/test_k01_front_crown.py
 
+# T-1890. 1801 Prairie's street face leans back further than its side faces (the Taylor print
+# and HABS photograph 2 put its curb's north-west corner about 1 m further back): the K05 ring
+# stack's street rings scaled to their own run, every face planar, no other mansard moved; the
+# deck, the covering and the street dormers on the street face's own pitch; refused when no
+# longer than the side run, shallower than 55 degrees, or leaving the deck under 1.5 m.
+step "a K01 mansard's street face may lean back on its own run (T-1890)" \
+  python3 tools/test_k01_street_lean.py
+
 # T-1881. 1729 Prairie's belt course under its second storey's sills (Taylor's photograph no.
 # 1445, the 1890 Albertype), swept round its runs and their projections, and its dormers' eared
 # architraves and hoods: a bad profile, a belt through a window or an ear out of bounds refused;

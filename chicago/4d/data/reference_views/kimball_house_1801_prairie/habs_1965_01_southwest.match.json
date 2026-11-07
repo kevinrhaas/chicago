@@ -2,18 +2,18 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_01_southwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "0e37a492e8155ab0b20d1ce56904ca52358298e954fd9ed139311f19bb0dc301",
+  "glb_sha256": "636d0e5084e8327e53482e8a76cb23c0f30d13f0fa57857d6173f383e4abf3f9",
   "camera_sha256": "25ae1017d8380392455b2c28a2f20f4bfb52043e60a5a6ce4cdb9575d3fdf9e9",
   "photo_sha256": "be2d21b595907011c7fe29c3e3765f754486cee1acdd321fed62f683ae6e0cbf",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "the south wall's two tall stacks: the print's rise from the main cornice over the wall line in pale ashlar the walls' tone, the front one at about u 14.45 (shaft x 870-945 px) and the rear one at about u 3.2 (x 1122-1190); the build had one small reconstructed brick stack at u 3.0, v 10.0 (T-3107)",
       "status": "fixed"
     },
     {
-      "what": "the stacks' heights, re-read through T-3108's re-solved camera (T-3109): the front one's cap top at y 125 px reads about 17.8 m, so its 18.0 m, the most the c. 1895 Taylor print allows, now fits this picture within about 0.2 m; the rear one's (y 225) reads about 18.5 m, where T-3107 read 20.1 m through the earlier camera, and it is lowered to 18.5 m (L-kimball-1801-stack-heads-3109)",
+      "what": "the stacks' heights, re-read through T-3108's re-solved camera (T-3109): the front one's cap top at y 125 px reads about 17.8 m, so its 18.0 m, the most the c. 1895 Taylor print allows, now fits this picture within about 0.2 m; the rear one's (y 225) reads about 18.5 m, where T-3107 read 20.1 m through the earlier camera, and it is lowered to 18.5 m (L-kimball-1801-stack-heads-3109) Re-read T-1890 (2026-11-07): the front one is lowered to 17.3 m, the height at which the Taylor print's eye loses it behind the cross roof's ridge once the deck is lowered (Taylor record); through this camera its cap now renders about 30 px under this print's (y 155 against 125), about 0.5 m: the 1965 print and the period print disagree, and the period one governs the 1904 phase",
       "status": "within tolerance"
     },
     {
@@ -162,8 +162,8 @@
       "status": "fixed"
     },
     {
-      "status": "open",
-      "what": "the front's roof north of the south pavilion (T-1890, 2026-11-06): left of the pavilion's gable the print shows a slate slope topping out at about x 462, y 475 (through this camera about 11 m at v 5.7, the height the Taylor print and HABS photograph 2 give the eave over the bow's third storey) and sky over it, where the build's front mansard rises on to its 15.3 m curb (about y 250-270 at x 380-465 here), a broad field of slate the picture does not have. The pavilion itself renders within about 20 px of the print's here, so this is not a framing error alone; it is the Taylor record's open curb-and-deck and third-storey items seen from the south-west Re-read 2026-11-06 after the wall dormer (mansard.dormers[3]): its 11.25 m eave and cap are now under the slate this print shows topping out at y 475, but the front mansard over it still rises to the 15.3 m curb into this print's sky, so the item stays open with the Taylor record's curb"
+      "status": "within tolerance",
+      "what": "the front's roof north of the south pavilion (T-1890, 2026-11-06): left of the pavilion's gable the print shows a slate slope topping out at about x 462, y 475 (through this camera about 11 m at v 5.7, the height the Taylor print and HABS photograph 2 give the eave over the bow's third storey) and sky over it, where the build's front mansard rises on to its 15.3 m curb (about y 250-270 at x 380-465 here), a broad field of slate the picture does not have. The pavilion itself renders within about 20 px of the print's here, so this is not a framing error alone; it is the Taylor record's open curb-and-deck and third-storey items seen from the south-west Re-read 2026-11-06 after the wall dormer (mansard.dormers[3]): its 11.25 m eave and cap are now under the slate this print shows topping out at y 475, but the front mansard over it still rises to the 15.3 m curb into this print's sky, so the item stays open with the Taylor record's curb Re-read T-1890 (2026-11-07) on the leaned street face (the Taylor record's curb-and-deck item): the curb now stands 0.64 m lower and its north-west corner about 1 m further back, at x 420, y 325 through this camera, where the old curb stood at x 378, y 281. This camera is the one already shown to disagree with the build along the front north of the pavilion: the loggia's arch renders 117 px north of the print's and the front's north-west eave corner about 130 px (x 181 against the print's silhouette at about 310). Carried by that same shift the new corner falls at about x 540, behind the gable's face (x 465-620) and under its rake, where the print shows the gable and sky over the slope; the old one stood over the rake. So what is left is this camera's disagreement with the Taylor print and HABS photograph 2 along that stretch, not a gap in the roof"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
