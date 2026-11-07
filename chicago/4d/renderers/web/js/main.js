@@ -3987,9 +3987,9 @@ async function boot() {
     const summer = document.querySelector('#s-season option[value="summer"]');
     if (summer) summer.textContent = `Summer — ${day.replace(/ \d{4}$/, '')}, full leaf`;
     // T-3437: and each other season names the day it shows (season.js SEASON_DAY).
-    for (const [s, look] of [['spring', 'first leaf'], ['fall', 'turned leaves'], ['winter', 'snow, bare limbs']]) {
-      const opt = document.querySelector(`#s-season option[value="${s}"]`);
-      if (opt) opt.textContent = `${s[0].toUpperCase()}${s.slice(1)} — ${spokenDay(seasonDate(s, loaded.scene.target_date))}, ${look}`;
+    for (const [season, name, look] of [['spring', 'Spring', 'first leaf'], ['fall', 'Fall', 'turned leaves'], ['winter', 'Winter', 'snow, bare limbs']]) {
+      const opt = document.querySelector(`#s-season option[value="${season}"]`);
+      if (opt) opt.textContent = `${name} — ${spokenDay(seasonDate(season, loaded.scene.target_date))}, ${look}`;
     }
   }
   document.getElementById('row-lot-lines')?.toggleAttribute('hidden', !streetGrid.lotLines);
