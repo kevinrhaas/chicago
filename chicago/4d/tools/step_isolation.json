@@ -4171,11 +4171,11 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/generate_yard_goods_1812.py": {
+    "tools/generate_yard_goods.py": {
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/generate_yard_goods.py": {
+    "tools/generate_yard_goods_1812.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6047,6 +6047,10 @@
       "wrote_ignored": []
     },
     "tools/test_human_workwear_shoulders.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_jaunt_crowd.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
