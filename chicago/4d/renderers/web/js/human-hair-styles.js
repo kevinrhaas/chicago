@@ -127,6 +127,14 @@ export const PEOPLE_HAIR = Object.freeze({
     cut: 'drawn_back_bun_1904', facial: Object.freeze(['brows_fine', 'lashes_upper']), colour: 'mid_brown', grade: 'reconstructed',
     basis: 'A reconstructed choice: a working woman of 1904 with her hair drawn back from the face to a bun, as the 1903 Wasson stereographs of a cook and a maid show. No picture of Martha Williamson has been read.',
   }),
+  glessner_frances_m: Object.freeze({
+    cut: 'drawn_back_bun_1904', facial: Object.freeze(['brows_fine', 'lashes_upper']), colour: 'mid_brown', grade: 'reconstructed',
+    basis: 'A reconstructed choice: a lady of 56 in 1904 with her hair drawn up from the face to a knot behind, under her hat, as the women of the 1905 Johnston photograph and the 1904 Easter crowd wear it (lady_1904 reference set). No portrait of Frances Glessner has been read; whether her hair was grey by then is not recorded, and the cleared bun hair keeps its brown.',
+  }),
+  pa1904_glessner_john_j_c1900_mary_reynolds: Object.freeze({
+    cut: 'drawn_back_bun_1904', facial: Object.freeze(['brows_fine', 'lashes_upper']), colour: 'dark_brown', grade: 'reconstructed',
+    basis: 'A reconstructed choice: a house maid of 1904 with her hair drawn up from the face to a knot on the crown, under her cap, as the 1904 Kelley maid and the 1903 Wasson cook wear it (maid_1904 reference set). No picture of Mary Reynolds is known.',
+  }),
   rc_flynn_mary: Object.freeze({
     cut: 'centre_part_knot_1835', facial: Object.freeze(['brows_fine', 'lashes_upper']), colour: 'dark_brown', grade: 'reconstructed',
     basis: 'A reconstructed choice for a working woman in the Chicago of 1835: hair parted in the middle, drawn smooth over the ears and pinned up in a knot behind, as women of the 1830s wore it. No picture of Mary Flynn is known.',

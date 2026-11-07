@@ -11,7 +11,7 @@
  "bin": "hm08_variation_kit.bin",
  "bin_bytes": 927482,
  "bin_sha256": "6eaa8ea253b2e7f63e0974318ef4f67a7558da4c985e33cd9c8264930782780b",
- "axes_sha256": "7df6d058493d885998086b8d506c8f67a57ae03ad6c5c7a6d81eef3a5abac26a",
+ "axes_sha256": "fcc22d8fbf15c468882c4a8209466ae0b893484ab69529b2dd269acf36db91a4",
  "manifest_sha256": "80087621bf4d5b3185430dda3d8a08ed8c81a9286c91d4ad92a84d6a8d2847d1",
  "limit": 0.6,
  "height": {
@@ -71,6 +71,74 @@
    }
   },
   "williamson_mattie_1904_cook_study": {
+   "base_age_years": 25,
+   "sex": "female",
+   "one_of_allow": {
+    "head_shape": [
+     0,
+     1,
+     5,
+     6
+    ]
+   },
+   "face_draw_scale": 0.5,
+   "face_bias": {
+    "jaw": -0.45,
+    "chin_height": -0.15,
+    "chin_width": -0.15,
+    "double_chin": -0.3,
+    "jowls": -0.25,
+    "brow_ridge": -0.25,
+    "brow_angle": 0.2,
+    "cheek_volume": 0.15,
+    "lip_upper": 0.12,
+    "lip_lower": 0.08,
+    "mouth_width": -0.12,
+    "prognathism": -0.1,
+    "mouth_corners": 0.35,
+    "nose_width": -0.25,
+    "nose_length": -0.15,
+    "nose_hump": -0.2,
+    "nose_tip": 0.15,
+    "nostrils": -0.2,
+    "cheekbones": 0.2
+   }
+  },
+  "glessner_frances_m_1904": {
+   "base_age_years": 25,
+   "sex": "female",
+   "one_of_allow": {
+    "head_shape": [
+     0,
+     1,
+     5,
+     6
+    ]
+   },
+   "face_draw_scale": 0.5,
+   "face_bias": {
+    "jaw": -0.45,
+    "chin_height": -0.15,
+    "chin_width": -0.15,
+    "double_chin": -0.3,
+    "jowls": -0.25,
+    "brow_ridge": -0.25,
+    "brow_angle": 0.2,
+    "cheek_volume": 0.15,
+    "lip_upper": 0.12,
+    "lip_lower": 0.08,
+    "mouth_width": -0.12,
+    "prognathism": -0.1,
+    "mouth_corners": 0.35,
+    "nose_width": -0.25,
+    "nose_length": -0.15,
+    "nose_hump": -0.2,
+    "nose_tip": 0.15,
+    "nostrils": -0.2,
+    "cheekbones": 0.2
+   }
+  },
+  "reynolds_mary_1904_maid": {
    "base_age_years": 25,
    "sex": "female",
    "one_of_allow": {

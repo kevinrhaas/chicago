@@ -36661,6 +36661,65 @@ among them, so no one else's choice moves), damp the seeded face and head outlin
 (`face_draw_scale`) before their bias, and lean the jaw a little further (-0.45) and the chin a little
 shorter. A choice of depiction, like the rest of the bias; nothing records her face.
 
+**The 1904 lady supplement, 2026-11-07 (T-3447):** a lady's day dress on the same component path,
+`tools/human_lady_1904.py` with `data/humans/recipes/lady_1904.json`, built as the asset
+`glessner_frances_m_1904` on the shared female body and first worn by Frances M. Glessner (attested; 56 in
+1904); she is not placed in the town by this work. **Choice of dress:** the piece of work asked for an
+afternoon or walking dress of 1900-1905. A black wool suit of 1902 in the Met (`met_ci_1902_black_wool_suit`;
+bodice, gored skirt and coat) gives the cut and its black; Frances Benjamin Johnston's photograph of
+Mrs. Fairbanks speaking at the Memorial Continental Hall cornerstone (`loc_johnston_1905_fairbanks_cornerstone_address`,
+dated by the Library 1905-1908) shows women of fifty and more in dark coats and bodices, high white collars,
+lace jabots and hats heaped with plumes; Easter crowds on Fifth Avenue in 1904
+(`loc_detroit_1904_easter_crowds_fifth_avenue`) show the same dress and hats in the street. The suit, a
+white collar and jabot and a plumed hat join the three; that she dressed so on a given day is not
+recorded, and none of the pictures is of Chicago. **Cut:** a white shirtwaist made only where it shows,
+its collar standing 4.6 cm up the neck and its front inside the jacket's V; a pleated jabot 13 cm long
+laid on it; a jacket offset 2.1 cm from the body and smoothed across the bust and the hollow beneath it,
+closed from the waist to 15 cm above it and open above in a V with narrow revers, eased under the arms;
+its basque lofted 0.9 cm outside the skirt from the waist seam 17 cm down; a skirt of seven gores lofted
+round the body's own sections from the waist to 3 cm above the ground, flaring below 0.70 m to an
+elliptical hem fuller behind, skirt and basque sharing the leg-following skirt weights of T-3423 in place
+of cloth simulation; closed shoes round the feet; a hat perched over the fitted bun hair, its crown
+seated round the hair's and scalp's own section and tilted 9 degrees forward, its brim 5 to 7.5 cm, with four grey
+plumes swept back round the crown (each two skins 3 mm apart), hat and plumes rigid on the head bone and meshes of their own.
+**Colour:** the suit's black is the Met garment's own; the white, the grey of the plumes and the shoes
+are chosen (the photographs are monochrome). **Skin and hair:** Mattie Williamson's cleared female skin and
+bun hair, shared; the hair keeps its brown, and nothing records whether Frances Glessner's was grey in
+1904. **Body:** the shared female base at its engineering age; the town's variation kit would age her
+(56, from her record) and draw her height and build at runtime once she is placed, and no portrait of
+her has been read. Every amount is chosen by eye against the pictures; none
+is measured, and none says how she dressed.
+
+**The 1904 house maid supplement, 2026-11-07 (T-3448):** a house maid's working dress on the same
+component path, `tools/human_maid_1904.py` with `data/humans/recipes/maid_1904.json`, built as the asset
+`reynolds_mary_1904_maid` on the shared female body and first worn by Mary Reynolds, house maid in the
+Glessner household in the 1900 census (inferred; whether she was still there in July 1904 is not
+recorded); she is not placed in the town by this work. **Choice of dress:** the piece of work asked for a
+plain black or print work dress to the floor with long sleeves, a white bib apron and a white cap.
+E. W. Kelley's 1904 stereograph of a maid answering the front door to the postman
+(`loc_kelley_1904_mail_man_postage_due_stereograph`) shows exactly that, with a white collar and broad
+frilled apron straps; C. H. Graves's maid seen from behind (`loc_graves_1905_jessie_furnace_man_stereograph`,
+c1905) gives the apron ties' bow at the back of the waist; the 1903 Wasson cook
+(`loc_wasson_1903_charming_rogue_new_cook_stereograph`) the small cap and ruffled bib straps. The black
+dress, not a morning print, is chosen because the 1904 maid answers the door in it; all three are staged
+comic scenes, none of Chicago. **Cut:** the T-3423 bodice with its fullness (ease 1.6 cm, a 1.2 cm pouch,
+1 cm at the upper sleeve) and a high neck 2.6 cm up it; the T-3423 gathered skirt to 4 cm above the
+ground; a white collar band and cuffs 5.5 cm long copied 2 mm off the bodice (the cuffs are not made out
+in the photograph and are reconstructed to match the collar); an apron skirt laid 8 mm out on the dress
+skirt across 35 of its 96 columns, from the waist to two rows above the hem; the T-3423 bib, its top 20.5 cm above
+the waist, and straps 3.4 cm wide, with frills up to 4.4 cm standing up and out from the straps' outer edges over the
+shoulders and fading 24 cm down the front and the back; a bow of two loops and two tails at the back of
+the waist; a small cap 5.2 cm across laid on the crown of the fitted bun hair, its height smoothed round
+it and pinned no more than 2 mm into the hair, ringed by a fluted frill 2 cm wide. Skirt and apron share
+the leg-following skirt weights of T-3423 in place of cloth simulation; frills, bow and cap are two
+skins 0.6 mm apart; the cap is rigid on the head bone, a mesh of its own. The skirt's tucks near the hem,
+the lace edging of the straps and the turned-down shape of the collar are not modelled. **Colour:** black
+and white are the usual reading of the photographs, which are monochrome; none is measured. **Skin and
+hair:** Mattie Williamson's cleared female skin and bun hair, shared. **Body:** the shared female base at
+its engineering age; the town's variation kit would age her (33, from the census) and draw her height and
+build at runtime once she is placed. No picture of Mary Reynolds is known; every amount is chosen by eye
+against the pictures, and none says how she dressed.
+
 ### L-tremont-gale-envelope-2385 — two-storey default and picture alternative
 
 **Decision:** the default first Tremont follows Gale's retrospective, 1835-framed

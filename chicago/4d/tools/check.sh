@@ -445,6 +445,10 @@ step "A cleared woman's hairstyle (Mattie's bun) is pinned, CC0, fitted to her h
   python3 tools/test_human_hair_proxy.py
 step "A 1904 gentleman's day dress is sourced, layered and skinned on the shared rig (T-3441)" \
   python3 tools/test_human_gentleman_1904.py
+step "A 1904 lady's day dress is sourced, layered and skinned on the shared rig (T-3447)" \
+  python3 tools/test_human_lady_1904.py
+step "A 1904 house maid's dress is sourced, layered and skinned on the shared rig (T-3448)" \
+  python3 tools/test_human_maid_1904.py
 
 step "Resident body normals share exact source seams without welding geometry or UVs (T-1789)" \
   python3 tools/test_human_source_normals.py
