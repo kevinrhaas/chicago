@@ -191,8 +191,12 @@ def build(args):
         # T-3423: a dress study sits only on its own transferred binding, which load_study
         # requires (tools/human_seated_transfer.py); no other seated draft is borrowed.
     skinpath = verify_skin_texture(recipe)
-    from human_hair_short04 import fit as fit_short04
-    hair, hairpath, hair_report = fit_short04(body, recipe['hair_component'], ROOT)
+    if recipe['hair_component'].get('fitter') == 'mhclo_proxy':
+        # T-3434: a named cleared hm08 hair proxy (the 1904 cook's bun) in place of short04.
+        from human_hair_proxy import fit as fit_hair
+    else:
+        from human_hair_short04 import fit as fit_hair
+    hair, hairpath, hair_report = fit_hair(body, recipe['hair_component'], ROOT)
     colors = {**recipe['colors_linear_rgba'], **variant.get('color_overrides',{})}
     if wardrobe:
         colors.update(wardrobe['colors'])
@@ -290,7 +294,10 @@ def build(args):
     # padded derivative preserves source repeat samples at base-level bilinear only;
     # mip/aniso and actual glTF alpha-mode behavior must be reviewed after export.
     hair_config=recipe['hair_component']
-    hair_mat=bpy.data.materials.new('hair__makehuman_short04');hair_mat.use_nodes=True
+    hair_proxy=hair_config.get('fitter')=='mhclo_proxy'
+    hair_name=hair_config['material'] if hair_proxy else 'hair__makehuman_short04'
+    if not hair_name.startswith('hair__'):raise ValueError('hair material must be named hair__*')
+    hair_mat=bpy.data.materials.new(hair_name);hair_mat.use_nodes=True
     hair_mat.use_backface_culling=False
     if hasattr(hair_mat,'surface_render_method'):hair_mat.surface_render_method='DITHERED'
     hair_nodes=hair_mat.node_tree.nodes;hair_links=hair_mat.node_tree.links
@@ -298,7 +305,7 @@ def build(args):
     hair_bsdf.inputs['Base Color'].default_value=(1,1,1,1)
     hair_bsdf.inputs['Roughness'].default_value=hair_config['roughness']
     hair_image=bpy.data.images.load(str(hairpath.resolve()),check_existing=True)
-    if tuple(hair_image.size)!=(2048,2057):raise ValueError('unexpected padded hair atlas dimensions')
+    if tuple(hair_image.size)!=(tuple(hair_config['texture_size']) if hair_proxy else (2048,2057)):raise ValueError('unexpected hair atlas dimensions')
     hair_image.colorspace_settings.name='sRGB';hair_image.pack()
     hair_tex=hair_nodes.new('ShaderNodeTexImage');hair_tex.image=hair_image
     hair_tex.extension='EXTEND';hair_tex.interpolation='Linear'
@@ -312,7 +319,7 @@ def build(args):
     inverse.inputs[0].default_value=1
     hair_links.new(clip.outputs[0],inverse.inputs[1])
     hair_links.new(inverse.outputs[0],hair_bsdf.inputs['Alpha'])
-    materials['hair__makehuman_short04']=hair_mat
+    materials[hair_name]=hair_mat
     # Incoming source UVs are retained per loop, including source-seam duplicates.
     def object_mesh(name,points,faces,uvs,weights,material,col,ratio=1,source_vertex_indices=None,corner_uvs=None,flat_face_indices=()):
         mesh = bpy.data.meshes.new(name)
@@ -437,13 +444,13 @@ def build(args):
         col=bpy.data.collections.new('lod'+str(lod));scene.collection.children.link(col)
         # Preserve source hair topology pending measured lower-LOD adaptation.
         cap=hair
-        if dress and dress.get('roll'):
+        if dress and dress.get('roll') and not hair_proxy:
             # T-3434: the 1900s roll over the brow and temples, raised in the cap itself.
             from human_dress_components import hair_roll
             cap=hair_roll(hair,bones,**dress['roll'])
             if lod==0:print(json.dumps({'source_hair_roll':cap['receipt']}),flush=True)
-        object_mesh(f'{asset}_short04_hair_lod{lod}',cap['positions_m'],cap['triangles'],cap['uvs'],cap['weights'],'hair__makehuman_short04',col)
-        if dress:
+        object_mesh(f"{asset}_{hair_config.get('object','short04')}_hair_lod{lod}",cap['positions_m'],cap['triangles'],cap['uvs'],cap['weights'],hair_name,col)
+        if dress and not hair_proxy:
             # T-3423: her hair is worn up: a reconstructed bun over the same cleared cap.
             from human_dress_components import hair_bun
             bun=hair_bun(hair,bones,**dress['bun'])

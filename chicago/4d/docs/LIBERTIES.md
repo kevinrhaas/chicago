@@ -36609,6 +36609,18 @@ she stands with them loosely clasped in front at the waist, over the apron, or h
 as women in service stand in the photographs of the decade. All amounts are chosen by eye against the
 1903 stereographs; none is measured, and none says anything about how she looked.
 
+**Her own hair, 2026-11-06 (T-3434):** the owner still saw a man's head ("she still basically looks
+like Hans"): the raised short04 cap and a modelled knot were a man's crop underneath. Mattie now wears a
+cleared woman's hairstyle, RehmanPolanski's *hair bun brown* (MakeHuman hair01, CC0;
+`assets/authored/humans/hair_bun_brown/`), fitted unchanged to her body by `tools/human_hair_proxy.py`:
+the hair drawn back smooth from the face to a round bun at the back of the head, its red velvet tie
+recoloured a dark hair brown. Its own painted strands read finer than strand cards, so her cut
+(`drawn_back_bun_1904`) grows no scalp cards and the roll and modelled knot are not applied to it.
+Short upper lashes (`lashes_upper`) are grown on both women, the brows are made finer, and the women's
+`face_bias` adds a narrower, shorter, straighter nose with finer nostrils, the tip a little up, and
+higher cheekbones. A drawn-back bun is what the 1903 stereographs show of a working woman's hair; the
+hairstyle, its colour and every amount are reconstructed choices, and nothing says how she wore hers.
+
 ### L-tremont-gale-envelope-2385 — two-storey default and picture alternative
 
 **Decision:** the default first Tremont follows Gale's retrospective, 1835-framed

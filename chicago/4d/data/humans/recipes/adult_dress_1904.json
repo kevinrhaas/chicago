@@ -27,17 +27,25 @@
     "female_appearance_status": "The same author's female bronze atlas (skins01, CC0), replacing the male one whose beard shadow read as a man's jaw at 3 m (T-3434); photographic qualification remains open."
   },
   "hair_component": {
-    "directory": "assets/authored/humans/hair_short04",
-    "texture": "short04_diffuse_periodic_pad_draft.png",
-    "uv_transform": {
-      "source_height": 2048,
-      "top_rows": 8,
-      "bottom_rows": 1
-    },
+    "fitter": "mhclo_proxy",
+    "directory": "assets/authored/humans/hair_bun_brown",
+    "mhclo": "rehmanpolanski_hair_bun_brown.mhclo",
+    "obj": "hair_bun_brown.obj",
+    "texture": "hair_bun_brown_dark_tie.png",
+    "texture_size": [
+      2048,
+      2048
+    ],
+    "topology": [
+      2524,
+      4432
+    ],
+    "material": "hair__makehuman_bun",
+    "object": "bun",
     "roughness": 0.65,
     "alpha_cutoff": 0.4,
-    "appearance_basis": "Existing cleared short04 component with a reconstructed knot set high on the crown, as the 1903 stereographs show hair drawn up; no personal appearance or photographic qualification is asserted.",
-    "source_manifest_sha256": "68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99"
+    "appearance_basis": "Cleared CC0 bun hair (RehmanPolanski, from the MakeHuman ponytail01), the hair drawn back smooth from the face to a bun at the back of the head, as the 1903 Wasson stereographs show a working woman's hair drawn up; its red velvet tie recoloured dark (T-3434). No personal appearance or photographic qualification is asserted.",
+    "source_manifest_sha256": "1c4e95ace2160f24f37837e4ae8dd592c85f9c3cf0afd53bcf0ed5789ca30903"
   },
   "eye_components": {
     "radius_m": 0.012,

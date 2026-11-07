@@ -223,6 +223,19 @@ assert.equal(hairFor(null, 1600), null, 'no era, no hair grown');
   assert.equal(hairFor('rc_flynn_mary', 1835).cut, 'centre_part_knot_1835', 'a woman\'s cut, not the era\'s man\'s');
 }
 
+// 4c. A cap that is a cleared woman's hairstyle with its own strands (Mattie's bun, T-3434)
+//     grows no scalp cards, keeps its own alpha cut, and still grows brows and lashes.
+{
+  const { root, cap } = figure();
+  const before = cap.material.alphaTest;
+  const mattie = dressHair(root, { lod: 0, person: 'glessner_williamson_martha_l', year: 1904 });
+  assert.equal(hairFor('glessner_williamson_martha_l', 1904).cut, 'drawn_back_bun_1904');
+  assert.equal(HAIR_CUTS.drawn_back_bun_1904.scalp_cards, false);
+  assert(mattie === null || mattie.grown.scalp === 0, `no scalp cards over her bun: ${mattie?.grown.scalp}`);
+  assert.equal(cap.material.alphaTest, before, 'her cap keeps its own alpha cut');
+  assert(FACIAL_HAIR.lashes_upper && hairFor('rc_flynn_mary', 1835).facial.includes('lashes_upper'), 'both women grow lashes');
+}
+
 // 5. Every person: humans.js grows each near body's hair after it measures its height.
 const humans = await fs.readFile(new URL('renderers/web/js/humans.js', here), 'utf8');
 assert(/import \{ dressHair \} from '\.\/human-hair\.js';/.test(humans));
