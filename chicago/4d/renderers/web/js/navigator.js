@@ -416,6 +416,7 @@ export function createNavigator({
       if (!next?.app || !registry.has(next.app)) return Promise.resolve(false);
       link = { app: next.app, id: next.id ?? null, tab: next.tab ?? null };
       if (next.person) link.person = next.person; // T-3265: Inspect opens People on this person's card
+      if (next.photo) link.photo = next.photo;    // T-3436: Inspect opens Photos on this picture
       return registry.select(next.app, { by: 'link' });
     },
     get link() { return link; },

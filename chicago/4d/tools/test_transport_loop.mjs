@@ -388,13 +388,15 @@ console.log(`transport loop: ${count} checks PASS`);
   const motion = { matches: false, addEventListener(name, fn) { assert.equal(name, 'change'); listeners.push(fn); } };
   const clock = { delta: 0, reads: 0, getDelta() { this.reads++; return this.delta; } };
   const confidence = { hidden: { reconstructed: false }, setHidden(level, value) { this.hidden[level] = !!value; } };
-  const native = new Function('clock', 'document', 'window', 'api', 'camera', 'confidence', 'gateFrame', `
+  // T-3439: Settings › Show › Carriages and horses hides the teams the way the Confidence view does.
+  const shownLayers = { people: true, vehicles: true };
+  const native = new Function('clock', 'document', 'window', 'api', 'camera', 'confidence', 'gateFrame', 'shownLayers', `
     let animationHold = false, gateOpen = false;
     ${latch}\n${media}
     return {tick() { ${clockBody}\n${forwarding} }, hide(level, hide) { ${hide} }};
   `)(clock, { hidden: false }, { matchMedia: () => motion },
     { townTransport: { update(dt, camera, options) { assert.strictEqual(camera, eye); calls.push({dt, options}); } } },
-    { position: eye }, confidence, { invalidate() {} });
+    { position: eye }, confidence, { invalidate() {} }, shownLayers);
   const tick = delta => { clock.delta = delta; const reads = clock.reads; native.tick(); assert.equal(clock.reads, reads + 1); return calls.at(-1); };
   assert.equal(tick(30).dt, 0);
   assert.equal(tick(.5).dt, .5);
@@ -407,5 +409,10 @@ console.log(`transport loop: ${count} checks PASS`);
   native.hide('reconstructed', true); native.hide('reconstructed', false);
   assert.equal(tick(30).dt, 0, 'Confidence hide/show without any held tick rebases the journey interval');
   assert.equal(tick(.5).dt, .5);
+  assert.equal(calls.at(-1).options.hidden, false);
+  shownLayers.vehicles = false; tick(.5);
+  assert.equal(calls.at(-1).options.hidden, true, 'Carriages and horses hidden (T-3439) hides and suspends every team');
+  shownLayers.vehicles = true; tick(.5);
+  assert.equal(calls.at(-1).options.hidden, false);
   console.log('native main elapsed forwarding and no-held-tick transport preference/confidence boundaries PASS');
 }
