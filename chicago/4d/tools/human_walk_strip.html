@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Human walk strip</title><link rel="icon" href="data:,">
+<!-- T-3472: a test page, served from chicago/4d and never published. A gait lab's side-view
+     filmstrip: ONE asset walked along a straight line through humans.js exactly as the town
+     walks a person (createHumanLayer + HumanActor.walkPath, so whatever the life, arm, gait and
+     skirt layers do in town they do here), on a flat grey ground with a 10 cm grid and metre
+     marks and a gridded backdrop, seen by a fixed orthographic camera that tracks the figure.
+       ?asset=glessner_frances_m_1904&lod=0&person=<id>&year=1904&speed=<m/s>&view=side|front|three-quarter
+       &w=640&h=720 (canvas px) &prints=0 (no footfall marks) &manual=1 (no live clock)
+       &gait=off (the baked walk clip without human-gait.js: a before/after toggle)
+       &hide=<regex> (leave out meshes by name: hide=skirt shows the legs under a skirt)
+     window.__strip = { ready, step(seconds), actor, setView(v), metrics(), snap(), sheet() }.
+     The clock is manual once step() is called: nothing moves between steps, so a script can
+     step 1/30 s at a time and read the same frames on every run. -->
+<style>html,body{margin:0;height:100%;background:#8d8f8c;overflow:hidden;font:12px system-ui}canvas{display:block}
+#hud{position:fixed;left:8px;top:6px;color:#222;background:#ffffffb0;padding:2px 6px;border-radius:4px;pointer-events:none}</style>
+<script type="importmap">{"imports":{
+  "three":"../renderers/web/vendor/three-0.185.1/three.module.js",
+  "three/addons/":"../renderers/web/vendor/three-0.185.1/addons/"}}</script>
+</head><body><div id="hud"></div>
+<script type="module">
+import * as THREE from 'three';
+import { createHumanLayer } from '../renderers/web/js/humans.js';
+
+const q = new URLSearchParams(location.search);
+const asset = q.get('asset') ?? 'glessner_frances_m_1904';
+const lod = Number(q.get('lod') ?? 0);
+const year = q.get('year') ?? asset.match(/_(\d{4})(?:_|$)/)?.[1] ?? '1904';
+const speed = q.get('speed') ? Number(q.get('speed')) : null;
+const W = Number(q.get('w') ?? innerWidth), H = Number(q.get('h') ?? innerHeight);
+const PATH_E = [-10, 10];      // the walk, along +E (world +x), at n = 0
+const SUB = 1 / 30;            // the clock's largest step
+const VIEW_H = 2.3;            // orthographic frame height, metres
+const hud = document.getElementById('hud');
+let resolveReady, rejectReady;
+const strip = window.__strip = { ready: new Promise((ok, no) => { resolveReady = ok; rejectReady = no; }) };
+strip.ready.catch((e) => { strip.error = String(e?.stack ?? e); hud.textContent = `error: ${e?.message ?? e}`; });
+
+try {
+  // ---- the stage -------------------------------------------------------------------------
+  const renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+  renderer.setPixelRatio(1);
+  renderer.setSize(W, H);
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;   // as world.js draws the town
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFShadowMap;
+  document.body.appendChild(renderer.domElement);
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0xb9bcbf);
+  scene.add(new THREE.HemisphereLight(0xf4f2ee, 0x5e5a52, 1.5));
+  const sun = new THREE.DirectionalLight(0xfff3e0, 2.4);
+  sun.castShadow = true;
+  sun.shadow.mapSize.set(2048, 2048);
+  Object.assign(sun.shadow.camera, { left: -2.5, right: 2.5, top: 2.5, bottom: -2.5, near: 0.5, far: 20 });
+  sun.shadow.bias = -0.0005;
+  scene.add(sun, sun.target);
+
+  // A 1 m tile: 10 cm lines, a heavier 50 cm line, a dark metre edge.
+  const gridTexture = (bg, minor, mid, major) => {
+    const c = document.createElement('canvas'); c.width = c.height = 1000;
+    const g = c.getContext('2d');
+    g.fillStyle = bg; g.fillRect(0, 0, 1000, 1000);
+    for (let i = 0; i < 10; i++) {
+      const p = i * 100;
+      g.fillStyle = i === 0 ? major : i === 5 ? mid : minor;
+      const w = i === 0 ? 8 : i === 5 ? 4 : 2;
+      g.fillRect(p - w / 2, 0, w, 1000); g.fillRect(0, p - w / 2, 1000, w);
+      if (i === 0) { g.fillRect(1000 - w / 2, 0, w, 1000); g.fillRect(0, 1000 - w / 2, 1000, w); }
+    }
+    const t = new THREE.CanvasTexture(c);
+    t.wrapS = t.wrapT = THREE.RepeatWrapping;
+    t.colorSpace = THREE.SRGBColorSpace;
+    t.anisotropy = renderer.capabilities.getMaxAnisotropy();
+    return t;
+  };
+  const LEN = 40;
+  const groundTex = gridTexture('#8e8f8c', '#a3a4a0', '#6d6e6b', '#3f403e');
+  groundTex.repeat.set(LEN, 8);
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(LEN, 8).rotateX(-Math.PI / 2),
+    new THREE.MeshLambertMaterial({ map: groundTex }));
+  ground.receiveShadow = true;
+  scene.add(ground);
+  // A gridded backdrop 0.9 m behind the line of walk, as a gait lab's wall (the side camera
+  // is orthographic, so a foot and the wall's metre line under it are one x).
+  const WALL_Z = -0.9;
+  const wallTex = gridTexture('#c9cbc8', '#b3b5b2', '#9a9c99', '#6f716e');
+  wallTex.repeat.set(LEN, 2.4);
+  const wall = new THREE.Mesh(new THREE.PlaneGeometry(LEN, 2.4), new THREE.MeshLambertMaterial({ map: wallTex }));
+  wall.position.set(0, 1.2, WALL_Z);
+  scene.add(wall);
+  const label = (text, size = 0.12, color = '#2b2c2a') => {
+    const c = document.createElement('canvas'); c.width = 256; c.height = 64;
+    const g = c.getContext('2d');
+    g.font = 'bold 44px system-ui'; g.fillStyle = color; g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.fillText(text, 128, 34);
+    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
+    return new THREE.Mesh(new THREE.PlaneGeometry(size * 4, size), new THREE.MeshBasicMaterial({ map: t, transparent: true, toneMapped: false }));
+  };
+  const flats = new THREE.Group(); scene.add(flats);
+  for (let x = -LEN / 2 + 1; x < LEN / 2; x++) {
+    const top = label(`${x} m`); top.position.set(x, 1.8, WALL_Z + 0.002); scene.add(top);
+    const low = label(`${x}`, 0.07); low.position.set(x + 0.08, 0.05, WALL_Z + 0.002); scene.add(low);
+    // On the ground just in front of the line, for the front and three-quarter views.
+    const flat = label(`${x}`, 0.12); flat.rotation.x = -Math.PI / 2; flat.position.set(x, 0.002, 0.55); flats.add(flat);
+  }
+  for (const y of [0.5, 1, 1.5, 2]) { const m = label(`${y.toFixed(1)}`, 0.06, '#555'); m.position.set(-LEN / 2 + 0.2, y, WALL_Z + 0.002); scene.add(m); }
+
+  // ---- the person, as the town stands one ---------------------------------------------------
+  const ASSETS = new URL('../assets/', location.href);
+  const DATA = new URL('../data/', location.href);
+  let record = null;
+  try {
+    const index = await fetch(new URL(`humans/instances/${year}/index.json`, DATA)).then((r) => (r.ok ? r.json() : null));
+    for (const id of index?.instances ?? []) {
+      const rec = await fetch(new URL(`humans/instances/${year}/${id}.json`, DATA)).then((r) => (r.ok ? r.json() : null));
+      if (rec?.appearance?.asset_id === asset) { record = rec; break; }
+    }
+  } catch { /* no record: the asset walks as nobody */ }
+  const personId = q.get('person') ?? record?.person_id ?? null;
+  const instance = {
+    id: record?.id ?? `hi_walk_strip_${asset}`, contract_version: 1, scene: String(year),
+    person_id: personId ?? undefined,
+    appearance: { asset_id: asset },
+    placement: { local_e: PATH_E[0], local_n: 0, heading_deg: 90, anchor: 'terrain' },
+    animation: { clip: record?.animation?.clip ?? 'idle', loop: true, phase: record?.animation?.phase ?? 0 },
+    behaviour: { state: 'standing' },
+    interaction: { selectable: false, radius_m: 0, opens: 'none' },
+    lod: { policy: 'fixed', fixed: lod }, display: 'shown', review_required: false,
+    provenance: { grade: 'reconstructed', basis: 'T-3472 walk strip: a test page, never published', liberty: record?.provenance?.liberty ?? null },
+  };
+  const layer = createHumanLayer({ assetBase: ASSETS, heightAt: () => 0, tier: 'full' });
+  scene.add(layer.group);
+  const actor = layer.add(instance, { person: null });
+  strip.actor = actor; strip.layer = layer; strip.instance = instance; strip.record = record?.id ?? null;
+
+  // ---- cameras -------------------------------------------------------------------------------
+  const camera = new THREE.OrthographicCamera(-VIEW_H * W / H / 2, VIEW_H * W / H / 2, VIEW_H / 2, -VIEW_H / 2, 0.1, 40);
+  const VIEWS = {
+    side: { dir: [0, Math.sin(12 * Math.PI / 180), Math.cos(12 * Math.PI / 180)] },     // from the south (+z), travel left to right
+    front: { dir: [Math.cos(14 * Math.PI / 180), Math.sin(14 * Math.PI / 180), 0] },   // ahead (+x), looking back at her
+    'three-quarter': { dir: [0.62, 0.3, 0.72] },
+  };
+  let view = VIEWS[q.get('view')] ? q.get('view') : 'side';
+  const aim = new THREE.Vector3();
+  const placeCamera = () => {
+    const x = actor.root.position.x;
+    aim.set(x, 0.93, 0);
+    flats.visible = view === 'three-quarter';   // edge-on clutter from the side and the front
+    const d = new THREE.Vector3(...VIEWS[view].dir).normalize();
+    camera.position.copy(aim).addScaledVector(d, 8);
+    camera.up.set(0, 1, 0);
+    camera.lookAt(aim);
+    camera.updateMatrixWorld(true);
+    sun.position.set(x + 1.5, 6, 4.5);
+    sun.target.position.set(x, 0, 0);
+    sun.target.updateMatrixWorld();
+    hud.textContent = `${asset} · lod${lod} · ${personId ?? 'nobody'} · ${year} · ${view} · t ${clock.toFixed(2)} s · x ${x.toFixed(2)} m`;
+  };
+  strip.setView = (v) => { if (!VIEWS[v]) throw new Error(`no view ${v}`); view = v; placeCamera(); render(); return v; };
+  // &hide=<regex>: leave out the figure's meshes whose names match (hide=skirt shows the legs).
+  const hideRe = q.get('hide') ? new RegExp(q.get('hide')) : null;
+  const render = () => {
+    if (hideRe) actor.root.traverse((o) => { if (o.isMesh && hideRe.test(o.name)) o.visible = false; });
+    placeCamera(); renderer.render(scene, camera);
+  };
+  strip.render = render;
+
+  // ---- the walk, looped by restarting --------------------------------------------------------
+  let clock = 0, laps = 0;
+  const startWalk = () => {
+    laps++;
+    actor.walkPath([{ e: PATH_E[0], n: 0 }, { e: PATH_E[1], n: 0 }], { speed });
+  };
+
+  // ---- the gait readout: feet, pelvis ------------------------------------------------------
+  // Each foot is the vertices whose heaviest bone is its foot or ball, on every skinned mesh
+  // (shoe and the foot under it), skinned on the CPU each step as the GPU draws them.
+  let feet = null, pelvis = null;
+  const bindFeet = () => {
+    const b = actor.body;
+    const bone = (name) => { let o = null; b.scene.traverse((n) => { if (n.isBone && n.name === name) o = n; }); return o; };
+    pelvis = bone('pelvis');
+    const side = (s) => ({ s, ankle: bone(`foot_${s}`), verts: [], prev: null, cur: null });
+    feet = { l: side('l'), r: side('r') };
+    for (const m of b.meshes) {
+      const si = m.geometry.attributes.skinIndex, sw = m.geometry.attributes.skinWeight;
+      if (!si || !sw || !m.visible) continue;
+      for (let i = 0; i < si.count; i++) {
+        let best = 0, bi = -1;
+        for (let k = 0; k < 4; k++) { const w = sw.getComponent(i, k); if (w > best) { best = w; bi = si.getComponent(i, k); } }
+        const name = m.skeleton.bones[bi]?.name ?? '';
+        const f = /^(foot|ball)_l$/.test(name) ? feet.l : /^(foot|ball)_r$/.test(name) ? feet.r : null;
+        if (f) f.verts.push([m, i]);
+      }
+    }
+    for (const f of Object.values(feet)) {
+      const cap = 1600;   // keep the readout cheap: an even subsample of a dense foot
+      if (f.verts.length > cap) { const k = f.verts.length / cap; f.verts = Array.from({ length: cap }, (_, i) => f.verts[Math.floor(i * k)]); }
+      f.cur = new Float32Array(f.verts.length * 3); f.prev = new Float32Array(f.verts.length * 3);
+    }
+    strip.footVerts = { l: feet.l.verts.length, r: feet.r.verts.length };
+  };
+  const samples = [];
+  const TOUCH = 0.008, LIFT = 0.02;   // metres above the lower foot
+  const v = new THREE.Vector3(), w = new THREE.Vector3();
+  let prevX = null;
+  const sample = (dt) => {
+    if (!feet || !actor.body) return;
+    actor.root.updateMatrixWorld(true);
+    const out = { t: clock, x: actor.root.position.x, walking: actor.state === 'walking', pelvisY: pelvis ? pelvis.getWorldPosition(w).y : null };
+    for (const f of Object.values(feet)) {
+      [f.prev, f.cur] = [f.cur, f.prev];
+      let min = Infinity;
+      for (let j = 0; j < f.verts.length; j++) {
+        const [m, i] = f.verts[j];
+        m.getVertexPosition(i, v).applyMatrix4(m.matrixWorld);
+        f.cur[j * 3] = v.x; f.cur[j * 3 + 1] = v.y; f.cur[j * 3 + 2] = v.z;
+        if (v.y < min) min = v.y;
+      }
+      const a = f.ankle ? f.ankle.getWorldPosition(w) : null;
+      out[f.s] = { min, ax: a?.x ?? null, az: a?.z ?? null };
+    }
+    // The sole on the ground: the points within TOUCH of the lower foot's lowest point. A foot's
+    // slip since the last step is the median horizontal travel of its points on the ground both
+    // then and now; `cx`/`cz` is where they are (a footfall mark).
+    const ground = Math.min(out.l.min, out.r.min) + TOUCH;
+    for (const f of Object.values(feet)) {
+      const moves = []; let cx = 0, cz = 0, cn = 0;
+      for (let j = 0; j < f.verts.length; j++) {
+        if (f.cur[j * 3 + 1] > ground) continue;
+        cx += f.cur[j * 3]; cz += f.cur[j * 3 + 2]; cn++;
+        if (f.prevGround !== undefined && f.prev[j * 3 + 1] <= f.prevGround) moves.push(Math.hypot(f.cur[j * 3] - f.prev[j * 3], f.cur[j * 3 + 2] - f.prev[j * 3 + 2]));
+      }
+      moves.sort((p, q) => p - q);
+      Object.assign(out[f.s], { slip: moves.length ? moves[moves.length >> 1] : null, cx: cn ? cx / cn : null, cz: cn ? cz / cn : null });
+      f.prevGround = ground;
+    }
+    // Contact, with hysteresis against the lower foot (so a figure that floats or sinks is still
+    // read): a foot touches down within TOUCH of it and lifts off past LIFT, or when its ankle
+    // goes over the ground faster than 1.5 times the body (a swing foot that skims the ground
+    // is still a swing; a stance foot that skates along with the body is still on the ground,
+    // and its slip counts). A touch-down is a footfall (`strike`).
+    const floor = Math.min(out.l.min, out.r.min);
+    const body = prevX === null || dt <= 0 ? 0 : Math.abs(out.x - prevX) / dt;
+    for (const f of Object.values(feet)) {
+      const o = out[f.s];
+      o.speed = f.pax === undefined || dt <= 0 || o.ax === null ? 0 : Math.hypot(o.ax - f.pax, o.az - f.paz) / dt;
+      const fast = o.speed > 1.5 * Math.max(body, 0.3);
+      if (f.contact === undefined) f.contact = o.min < floor + TOUCH;
+      else if (f.contact && (o.min > floor + LIFT || fast)) f.contact = false;
+      else if (!f.contact && o.min < floor + TOUCH && !fast) { f.contact = true; o.strike = true; }
+      o.contact = f.contact;
+      f.pax = o.ax; f.paz = o.az;
+    }
+    prevX = out.x;
+    out.stance = out.l.min <= out.r.min ? 'l' : 'r';
+    out.contact = (out.l.contact ? 'L' : '') + (out.l.contact && out.r.contact ? '+' : '') + (out.r.contact ? 'R' : '') || '-';
+    samples.push(out);
+    if (samples.length > 30 * 12) samples.shift();
+    if (prints) footprint(out);
+  };
+  // Footfall marks on the ground, left blue and right red, where a foot touches down.
+  const prints = q.get('prints') !== '0';
+  const printGroup = new THREE.Group(); scene.add(printGroup);
+  const printGeo = new THREE.CircleGeometry(0.03, 16).rotateX(-Math.PI / 2);
+  const printMat = { l: new THREE.MeshBasicMaterial({ color: 0x2f6fd6, toneMapped: false }), r: new THREE.MeshBasicMaterial({ color: 0xd63b2f, toneMapped: false }) };
+  const footprint = (s) => {
+    if (!s.walking) return;
+    for (const k of ['l', 'r']) {
+      const f = s[k];
+      if (!f.strike || f.cx === null) continue;
+      const m = new THREE.Mesh(printGeo, printMat[k]); m.position.set(f.cx, 0.003, f.cz); printGroup.add(m);
+    }
+    while (printGroup.children.length > 60) printGroup.remove(printGroup.children[0]);
+  };
+
+  // ---- the clock -----------------------------------------------------------------------------
+  let live = q.get('manual') !== '1';
+  const tick = (dt) => {
+    layer.update(dt, camera, null, dt);
+    clock += dt;
+    if (!actor.path || actor.path.arrived) { printGroup.clear(); startWalk(); }
+    sample(dt);
+  };
+  strip.step = (seconds = SUB, { render: draw = true } = {}) => {
+    live = false;
+    let left = seconds;
+    while (left > 1e-9) { const dt = Math.min(SUB, left); tick(dt); left -= dt; }
+    if (draw) render();
+    return { t: +clock.toFixed(4), x: +actor.root.position.x.toFixed(4), contact: samples.at(-1)?.contact ?? null, lower: samples.at(-1)?.stance ?? null };
+  };
+  Object.defineProperty(strip, 'clock', { get: () => clock });
+  Object.defineProperty(strip, 'laps', { get: () => laps });
+
+  /** The walk clip's cycle, seconds (its own stated cycle, else its length). */
+  strip.clipCycle = () => {
+    const c = actor.body?.clips?.get(actor.clipName) ?? null;
+    return c ? (c.userData?.cycle_duration_s ?? c.duration) : null;
+  };
+  /** Step (1/30 s) until the given foot ('l' or 'r') touches down; returns the seconds stepped. */
+  strip.untilFootfall = (s = 'r', max = 3) => {
+    let t = 0;
+    while (t < max) { strip.step(SUB, { render: false }); t += SUB; if (samples.at(-1)?.[s]?.strike) break; }
+    render();
+    return +t.toFixed(4);
+  };
+
+  /**
+   * The gait over the last `seconds` (default two of the clip's cycles) of samples. A foot is
+   * in contact from touch-down (its lowest point within 8 mm of the lower foot's, and not
+   * swinging) to lift-off (past 2 cm, or its ankle faster than 1.5 times the body); the lower
+   * foot is the stance foot.
+   *  slide_m        per foot, the most its sole slips while in contact, over one contact
+   *                 (the median horizontal travel of the sole points on the ground, summed) — 0 is planted
+   *  ankle_travel_m per foot, how far its ankle moves over the ground over one contact
+   *                 (a heel-to-toe roll moves it some with no slip at all)
+   *  contact_fraction per foot, the share of the window it is on the ground (a walk: about 0.6)
+   *  sole_min_m     the lowest sole point (below 0 is into the ground); stance_sole_mean_m the
+   *                 stance foot's lowest point on average (above 0 is floating)
+   *  steps          footfalls (touch-downs); step_m the ankles' spacing along the walk at them
+   *                 (step_sole_m: the first sole points down); cadence_spm
+   *                 steps a minute; cycle_s two steps; pelvis_range_m the pelvis bone's rise and fall
+   */
+  strip.metrics = (seconds = null) => {
+    const span = seconds ?? 2 * (strip.clipCycle() ?? 1.2);
+    const s = samples.filter((x) => x.t > clock - span - 1e-6 && x.walking);
+    if (s.length < 3) return { error: 'too few walking samples', samples: s.length };
+    const r3 = (x) => (x === null || x === undefined || !Number.isFinite(x) ? null : +x.toFixed(3));
+    const mean = (a) => (a.length ? a.reduce((p, c) => p + c, 0) / a.length : null);
+    const falls = [];
+    const foot = (k) => {
+      const phases = [];
+      let cur = null;
+      for (let i = 0; i < s.length; i++) {
+        const f = s[i][k];
+        if (f.strike) falls.push({ t: s[i].t, s: k, x: f.ax, sole: f.cx });
+        if (f.contact && !cur) { cur = { slide: 0, ax0: f.ax, az0: f.az, travel: 0, whole: !!f.strike }; phases.push(cur); }
+        else if (f.contact) { cur.slide += f.slip ?? 0; cur.travel = Math.hypot(f.ax - cur.ax0, f.az - cur.az0); }
+        else cur = null;
+      }
+      if (cur) cur.whole = false;   // still on the ground at the window's end
+      const whole = phases.filter((p) => p.whole);
+      const use = whole.length ? whole : phases;
+      return {
+        contacts: use.length, whole: whole.length > 0,
+        slide_m: use.length ? r3(Math.max(...use.map((p) => p.slide))) : null,
+        ankle_travel_m: use.length ? r3(Math.max(...use.map((p) => p.travel))) : null,
+        contact_fraction: r3(s.filter((x) => x[k].contact).length / s.length),
+      };
+    };
+    const left = foot('l'), right = foot('r');
+    falls.sort((a, b) => a.t - b.t);
+    const steps = falls.slice(1).map((f, i) => Math.abs(f.x - falls[i].x));
+    const dts = falls.slice(1).map((f, i) => f.t - falls[i].t);
+    const py = s.map((x) => x.pelvisY).filter((y) => y !== null);
+    const dx = s.at(-1).x - s[0].x, dt = s.at(-1).t - s[0].t;
+    return {
+      asset, lod, person: personId, year: Number(year), clip: actor.clipName, gait: actor.gait ? (actor.gait.off ? 'off' : 'on') : 'absent', window_s: r3(dt), clip_cycle_s: strip.clipCycle(),
+      speed_m_s: r3(dx / dt),
+      left, right,
+      sole_min_m: r3(Math.min(...s.map((x) => Math.min(x.l.min, x.r.min)))),
+      stance_sole_mean_m: r3(mean(s.map((x) => x[x.stance].min))),
+      steps: falls.length, footfalls: falls.map((f) => f.s.toUpperCase()).join(''), step_m: steps.map(r3), step_mean_m: r3(mean(steps)),
+      step_sole_m: falls.slice(1).map((f, i) => r3(Math.abs(f.sole - falls[i].sole))),
+      cadence_spm: dts.length ? r3(60 / mean(dts)) : null, cycle_s: dts.length ? r3(2 * mean(dts)) : null,
+      pelvis_range_m: py.length ? r3(Math.max(...py) - Math.min(...py)) : null,
+      foot_points: strip.footVerts,
+    };
+  };
+
+  // ---- the filmstrip sheet, composited in the page --------------------------------------------
+  const snaps = [];
+  /** Copy the frame drawn now into the sheet, under `group` (a row block), with a caption. */
+  strip.snap = (group, caption = '') => {
+    const c = document.createElement('canvas'); c.width = W; c.height = H;
+    c.getContext('2d').drawImage(renderer.domElement, 0, 0);
+    snaps.push({ group, caption, canvas: c });
+    return snaps.length;
+  };
+  strip.clearSnaps = () => { snaps.length = 0; };
+  /** The snaps as one labelled JPEG data URL: each group in rows of `cols`, frames at `scale`. */
+  strip.sheet = ({ title = '', notes = [], cols = 4, scale = 0.75, quality = 0.88 } = {}) => {
+    const fw = Math.round(W * scale), fh = Math.round(H * scale), pad = 8, head = 44, gh = 26, lh = 18;
+    const groups = [...new Set(snaps.map((s) => s.group))];
+    const rows = groups.map((g) => Math.ceil(snaps.filter((s) => s.group === g).length / cols));
+    const width = cols * fw + (cols + 1) * pad;
+    const height = head + groups.length * gh + rows.reduce((a, b) => a + b, 0) * (fh + pad) + notes.length * lh + 2 * pad;
+    const c = document.createElement('canvas'); c.width = width; c.height = height;
+    const g = c.getContext('2d');
+    g.fillStyle = '#1d1e1c'; g.fillRect(0, 0, width, height);
+    g.fillStyle = '#f2f0ea'; g.font = 'bold 22px system-ui'; g.textBaseline = 'middle';
+    g.fillText(title, pad, head / 2);
+    let y = head;
+    groups.forEach((grp) => {
+      g.fillStyle = '#c9c4b8'; g.font = 'bold 16px system-ui'; g.fillText(grp, pad, y + gh / 2); y += gh;
+      snaps.filter((s) => s.group === grp).forEach((s, i) => {
+        const cx = pad + (i % cols) * (fw + pad), cy = y + Math.floor(i / cols) * (fh + pad);
+        g.drawImage(s.canvas, cx, cy, fw, fh);
+        g.fillStyle = '#000000a0'; g.fillRect(cx, cy + fh - 24, fw, 24);
+        g.fillStyle = '#fff'; g.font = '14px system-ui'; g.fillText(s.caption, cx + 6, cy + fh - 12);
+      });
+      y += Math.ceil(snaps.filter((s) => s.group === grp).length / cols) * (fh + pad);
+    });
+    g.fillStyle = '#e6e2d8'; g.font = '14px ui-monospace, monospace';
+    notes.forEach((n, i) => g.fillText(n, pad, y + pad + i * lh + lh / 2));
+    return c.toDataURL('image/jpeg', quality);
+  };
+
+  // ---- boot: load the body, then walk ----------------------------------------------------------
+  placeCamera();
+  layer.update(0, camera, null, 0);
+  await actor.pending;
+  layer.update(0, camera, null, 0);
+  if (!actor.body) throw new Error(`${asset}.lod${lod} drew no body`);
+  // &gait=off: the baked walk clip alone, as the town drew it before human-gait.js (T-3472) —
+  // a before/after toggle for this page only; without it the figure walks exactly as in town.
+  const gaitOff = q.get('gait') === 'off';
+  if (gaitOff && actor.gait) actor.gait = { bound: false, bind() {}, speed: 0, pace: 1, off: true };
+  bindFeet();
+  render();             // the first draw compiles the programs
+  startWalk();          // as house-errands.js does: the body is up, then the figure is sent off
+  render();
+  resolveReady({ asset, lod, person: personId, year: Number(year), record: strip.record, clips: actor.clips, footVerts: strip.footVerts,
+    gait: actor.gait ? (actor.gait.off ? 'off' : 'on') : 'absent' });
+
+  let last = performance.now();
+  const loop = (now) => {
+    if (!live) return;
+    tick(Math.min(0.1, (now - last) / 1000)); last = now;
+    render();
+    requestAnimationFrame(loop);
+  };
+  requestAnimationFrame((now) => { last = now; loop(now); });
+  addEventListener('keydown', (e) => { const v = { s: 'side', f: 'front', t: 'three-quarter' }[e.key]; if (v) strip.setView(v); });
+} catch (err) {
+  rejectReady(err);
+}
+</script></body></html>
