@@ -42022,3 +42022,38 @@ these numbers, so they are the kit's constants and no record attribute holds the
 **Re-opens on:** a guard roster, order book or morning report of Fort Dearborn for August 1812; a description of the post's daily duties in 1811-12; the 1812 dress for the company's sergeants, corporals and musicians (T-3463).
 **Ticket:** T-3462, T-3490.
 **Recorded:** 2026-11-07.
+
+### L-human-gait-3472 — People on foot walk at a real pace, heel to toe, with the arms, trunk and skirts moving with the legs
+
+**Decision:** every figure drawn by `humans.js` walks by a runtime gait layer (`renderers/web/js/human-gait.js`)
+in place of the baked `walk` clip's pelvis and legs, which was a mechanical flat-foot study at 0.6 m/s with
+0.36 m steps (`tools/human_grounded_gait.py`, a pose fixture by its own account). Kevin, 2026-11-07, of Frances
+Glessner followed across her court: "their walking is not very natural". Each person walks at a comfortable
+pace for their sex and age and a stride in proportion to their height (men about 1.35 m/s and 0.83 of their
+height, women about 1.25 m/s and 0.78, less past fifty; a woman in a floor-length skirt about 8 % slower with a
+5 % shorter step), so 105-120 steps a minute. The phase of the cycle advances by the ground covered, so a
+figure that slows to turn takes slower steps and its feet never slide. The stance foot is planted where the
+swing set it down: it lands on the heel toes-up, rolls flat, then rises over the ball with the toes flat until
+toe-off. The swing follows the measured hip, knee and ankle curves (the knee folds to about 60 degrees),
+corrected to leave and land exactly. The pelvis rides as low as the leading knee's measured bend allows (2-3 cm
+of bob, lowest in double support), shifts 2 cm over the stance foot, turns about 5 degrees with the leading
+leg and dips about 4 on the swing side (a third less in a skirt); stopping takes a closing step. The arm layer (human-actions.js) swings the
+arms from the gait's phase, opposite the legs and a little after the other heel strikes, about 22 degrees at
+1.25 m/s with the elbow bending more at the front (half that in a full skirt); the life layer
+(human-life.js) turns the chest back against the pelvis, leans the trunk forward 2-4 degrees with speed and
+keeps the head steady in the world.
+**What is read.** Nothing about any person's own walk. The shape of the cycle and its events are the means of
+the young adults walking at 1.24 m/s in the public gait dataset of Fukuchi, Fukuchi & Duarte (2018, *PeerJ*
+6:e4640), the shoulder line against the pelvis from Horst et al. (2019); speeds, steps and cadence by sex and
+age from Oberg, Karsznia & Oberg (1993) and Bohannon & Andrews (2011). A lady's restraint in swinging her arms
+is period advice (Hill's Manual, Chicago, 1887), and the shortened step of a long skirt is a period complaint
+(Galbraith, quoted by Macfadden, 1901). Tables, sources and period street films to judge by are in
+`data/humans/gait/` (`normative_gait.json`, `README.md`).
+**What is invented.** That any person of 1812, 1835 or 1904 walked so: modern laboratory means stand in for
+period walking. The skirt factors (no measured study of a 1900s walking skirt over a corset was found), the
+per-person seeded variation of pace (±3 %) and stride, the start and closing steps, and every amplitude
+within the published ranges.
+**How to resolve:** motion capture of walkers in reproduction period dress, or measurement of walking from
+period street films (Lumière and Edison/AM&B street scenes of 1896-1906), reviewed in the town.
+**Ticket:** T-3472.
+**Recorded:** 2026-11-07 (T-3472).

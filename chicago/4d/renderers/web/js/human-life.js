@@ -35,6 +35,12 @@
  * `attend(point, seconds)` makes the figure look at a world point for a while: the
  * interaction layer calls it when a visitor comes up to someone.
  *
+ * On the walk, with the gait layer (human-gait.js, applied before this one and owning the
+ * pelvis and the legs) passed in as `gait`, the trunk walks with it (see TRUNK below): the
+ * thorax turns back against the pelvis, the trunk counters the hip's drop and leans a
+ * little into the speed, and the head is held steady in the world, so the gaze does not
+ * wobble with the steps. Without it (`gait` null) the walk reads the feet as before.
+ *
  * Deterministic: the only randomness is a PRNG seeded from the person, so a harness sees
  * the same motion on every load. It is reconstructed animation, not recorded behaviour
  * (liberty L-human-life-3402). No assets, textures or extra draw calls: a few dozen
@@ -69,6 +75,28 @@ export const LIFE_MODES = Object.freeze({
   working: { breath: 0.8, sway: 0.4, weight: false, gaze: 0.5, visitor_m: 4 },
   seated: { breath: 0.9, sway: 0.5, weight: false, gaze: 0.8, visitor_m: 5 },
 });
+
+/**
+ * The trunk over the gait layer's pelvis. Walking at 1.2-1.4 m/s the pelvis turns a few
+ * degrees each way with the stepping leg and the thorax turns back against it, so the
+ * shoulders turn little in the world; the relative phase of the two moves toward
+ * antiphase as the speed rises (van Emmerik & Wagenaar 1996; Murray, Drought & Kory 1964
+ * measured both rotations in normal men). `counter` is the share of the pelvis's yaw the
+ * thorax takes back relative to the pelvis, rising with speed from `min` to `max`
+ * (reconstructed numbers inside those findings). The trunk also takes back most of the
+ * pelvis's drop to the swing side, and leans forward a little more the faster the walk
+ * (reconstructed: 2 deg at 1 m/s to 4 deg at 1.6). The head is stabilised in space, as
+ * people's heads are on the walk (Pozzo, Berthoz & Lefort 1990): its yaw and roll take out
+ * what the pelvis and thorax leave, and its pitch turns down as the body rises, so the
+ * eyes stay on the same point of the way ahead (`fixation_m`, reconstructed).
+ */
+export const TRUNK = Object.freeze({
+  counter: { min: 0.6, max: 1.0, at0: 0.55, perMS: 0.3 }, // k = clamp(at0 + perMS * speed): 0.91 at 1.2 m/s
+  roll: 0.7, // share of the pelvis's roll the trunk takes back
+  lean: { at1: 2, perMS: 3.3, min: 1.5, max: 4.5 }, // degrees of forward lean, by speed
+  fixation_m: 2,
+});
+const fin = (x, d = 0) => (Number.isFinite(x) ? x : d);
 
 /** One natural blink, 0..1..0 over its duration: a fast close and a slower open. */
 function blinkCurve(t, dur = 0.2) {
@@ -170,6 +198,7 @@ export function createHumanLife({ id = 'human', scene = null } = {}) {
   let blinkNext = between(1, 4), blinkT = -1, blinkDur = 0.2, lastBlinkYaw = 0;
   let nodT = -1; // a small nod of greeting (T-3415), seconds into it
   const walkTwist = S();
+  const walkLean = S(); // the trunk's forward lean on the walk, radians
   const vf = new THREE.Vector3();
   const v = new THREE.Vector3();
 
@@ -207,13 +236,20 @@ export function createHumanLife({ id = 'human', scene = null } = {}) {
     /**
      * One frame on top of the clip's pose. `dt` is the seconds the clip advanced (0 holds
      * the pose); `state` the actor's behaviour state; `root` its root (position and
-     * heading); `viewer` the visitor's eye in world space, or null.
+     * heading); `viewer` the visitor's eye in world space, or null; `gait` the gait
+     * layer's state this frame (phase, weight, speed, pelvisYaw, pelvisRoll, bob), or null.
      */
-    apply(dt, { state = 'standing', root = null, viewer = null } = {}) {
+    apply(dt, { state = 'standing', root = null, viewer = null, gait = null } = {}) {
       if (!bound) return;
       dt = Number.isFinite(dt) && dt > 0 ? Math.min(dt, 0.1) : 0;
       const mode = LIFE_MODES[state] ?? LIFE_MODES.standing;
       const walking = state === 'walking';
+      // The gait layer's share now (0 with none, and standing), and the pelvis it set. Its
+      // yaw, roll and bob are taken at that share, so a gait at weight 0 changes nothing
+      // whether or not it reports them faded.
+      const gw = gait ? clamp(fin(gait.weight), 0, 1) : 0;
+      const pYaw = gait ? fin(gait.pelvisYaw) * gw : 0, pRoll = gait ? fin(gait.pelvisRoll) * gw : 0, bob = gait ? fin(gait.bob) * gw : 0;
+      const speed = gait ? fin(gait.speed, 1.25) : 0;
       time += dt;
       lookedAtVisitor += dt;
       rebase();
@@ -258,8 +294,11 @@ export function createHumanLife({ id = 'human', scene = null } = {}) {
           weightHold = between(4, 11);
         }
       }
-      const side = spring(weight.side, mode.weight ? weightTarget.side : 0, 1.3, dt); // +1: weight on the RIGHT leg
-      const wYaw = spring(weight.yaw, mode.weight ? weightTarget.yaw : 0, 1.1, dt);
+      // The gait layer owns the pelvis and the legs while it drives: what is left of a
+      // weight shift (its springs settle over a second after the walk starts) yields to it.
+      const own = 1 - gw;
+      const side = spring(weight.side, mode.weight ? weightTarget.side : 0, 1.3, dt) * own; // +1: weight on the RIGHT leg
+      const wYaw = spring(weight.yaw, mode.weight ? weightTarget.yaw : 0, 1.1, dt) * own;
 
       // Breathing and sway.
       const rate = breathRate * mode.breath;
@@ -302,17 +341,33 @@ export function createHumanLife({ id = 'human', scene = null } = {}) {
           .dot(vf.set(0, 0, 1).applyAxisAngle(THREE.Object3D.DEFAULT_UP, root.rotation.y));
         twistTarget = clamp(d * 0.2, -0.09, 0.09); // about 4 deg at a 0.36 m lead
       }
-      const twist = spring(walkTwist, twistTarget, 12, dt);
-      // The spine counters the hips so the shoulders sit level; the chest breathes.
-      turn('spine_01', -wYaw * 0.4, swayPitch * 0.4, -tip * 0.45 + swayRoll * 0.3);
-      turn('spine_02', torso * 0.35 + twist * 0.4, breath * 0.9 * DEG * mode.breath + swayPitch * 0.4, -tip * 0.35 + swayRoll * 0.4);
-      turn('spine_03', torso * 0.65 - wYaw * 0.3 + twist * 0.6, breath * 0.55 * DEG + swayPitch * 0.2, -tip * 0.2 + swayRoll * 0.3);
+      let twist = spring(walkTwist, twistTarget, 12, dt);
+      // With the gait layer (TRUNK above), the thorax turns back by its share of the
+      // pelvis's turn, from the phase (no lag); the feet's reading fades out as it fades in.
+      // The trunk takes back most of the hip's roll, and leans into the speed.
+      // (The lean eases, so a gait that goes away lets it go without a jerk.)
+      let rollBack = 0;
+      if (gait) {
+        const c = TRUNK.counter, k = clamp(c.at0 + c.perMS * speed, c.min, c.max);
+        twist = twist * own - k * pYaw;
+        rollBack = -TRUNK.roll * pRoll;
+      }
+      const l = TRUNK.lean;
+      const trunkLean = spring(walkLean, gw * clamp(l.at1 + l.perMS * (speed - 1), l.min, l.max) * DEG, 3, dt);
+      // The spine counters the hips so the shoulders sit level; the chest breathes. The
+      // walk's lean is a forward (negative) pitch, mostly low in the back.
+      turn('spine_01', -wYaw * 0.4, swayPitch * 0.4 - trunkLean * 0.45, -tip * 0.45 + swayRoll * 0.3 + rollBack * 0.45);
+      turn('spine_02', torso * 0.35 + twist * 0.4, breath * 0.9 * DEG * mode.breath + swayPitch * 0.4 - trunkLean * 0.35, -tip * 0.35 + swayRoll * 0.4 + rollBack * 0.35);
+      turn('spine_03', torso * 0.65 - wYaw * 0.3 + twist * 0.6, breath * 0.55 * DEG + swayPitch * 0.2 - trunkLean * 0.2, -tip * 0.2 + swayRoll * 0.3 + rollBack * 0.2);
       let nod = 0;
       if (nodT >= 0) { nodT += dt; nod = nodT < 0.9 ? Math.sin(nodT / 0.9 * Math.PI) * 9 * DEG : 0; if (nodT >= 0.9) nodT = -1; }
-      // The head is held level against the chest's breath, the hips and the sway.
-      const steadyRoll = -swayRoll * 0.6;
-      const steadyPitch = -(breath * 1.1 * DEG + swayPitch);
-      const headTurn = headYaw - torso - twist;
+      // The head is held level against the chest's breath, the hips and the sway. On the
+      // gait layer's walk it is held steady in the world: it takes out the pelvis's turn and
+      // roll that the thorax left, the trunk's lean, and pitches down as the body rises so
+      // the eyes keep the same point of the way ahead (all 0 with no gait).
+      const steadyRoll = -swayRoll * 0.6 - (pRoll + rollBack);
+      const steadyPitch = -(breath * 1.1 * DEG + swayPitch) + trunkLean - Math.atan2(bob, TRUNK.fixation_m);
+      const headTurn = headYaw - torso - twist - pYaw;
       turn('neck_01', headTurn * 0.4, headPitch * 0.35 + steadyPitch * 0.5 - nod * 0.4, steadyRoll * 0.5);
       turn('head', headTurn * 0.6, headPitch * 0.65 + steadyPitch * 0.5 - nod * 0.6, steadyRoll * 0.5 + headTurn * -0.05);
       // The eyes make what is left of the turn.
