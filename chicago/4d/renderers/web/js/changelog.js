@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2753, ts: '2026-11-07T05:13:17.209Z', date: 'Nov 6, 2026, 11:13 PM CT', title: '1936 Prairie\'s dining-room side gets the windows its photograph shows', kind: 'fix',
+    items: [
+      'The Thompson/Allerton house at 1936 Prairie: the dining room\'s south side now has the windows its winter photograph shows on each floor, a single, a single and a pair, where it had two evenly spaced singles. The pair stands on a stone mullion, and all three line up with the photograph from its own viewpoint.',
+    ] },
   { v: 2752, ts: '2026-11-07T05:06:36.036Z', date: 'Nov 6, 2026, 11:06 PM CT', title: '2009 Prairie\'s tall chimney moves to the wall its photograph shows', kind: 'improvement',
     items: [
       'In 1904, the tall chimney of 2009 Prairie Avenue now rises astride the north wall, where the old photograph puts it, instead of standing inside the roof; its head is laid in courses that step out under a stone cap, as the photograph draws it, and the chimney farther back gets the same head.',
