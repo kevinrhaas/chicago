@@ -36751,6 +36751,34 @@ engineering age 35, inside Peck's recorded band, so the variation kit is asked f
 Peck has been read. Every amount is chosen by eye against the pictures; none is measured, and none says how
 he dressed.
 
+**The 1835 labourer supplement, 2026-11-07 (T-3450):** a labourer's working dress on the same component
+path, `tools/human_labourer_1835.py` with `data/humans/recipes/labourer_1835.json`, built as the asset
+`mahoney_patrick_1835` on the shared male body and first worn by Patrick Mahoney (reconstructed; a labourer of
+the South Division, age band 30-39, from the 1835 order book); he is not placed in the town by this work.
+**Choice of dress:** the piece of work asked for shirt, trousers, braces, waistcoat, a cap or slouch hat and
+boots. No picture of 1835 itself was found in an open collection that could be read: William Sidney Mount's
+Raffle (1837, `met_mount_1837_the_raffle`) gives a working man in full shirtsleeves, waistcoat, knotted red
+neckerchief and broad soft felt hat; Mount's Cider Making (1840-41, `met_mount_1841_cider_making`) working
+men whole in shirtsleeves, braces, a dark green waistcoat and full brown trousers; Charles E. Weir's Wood
+Sawyer (1842, `met_weir_1842_the_wood_sawyer`) a town labourer at work with his waistcoat open. All three are
+of rural or eastern New York, two to seven years after the scene, none of Chicago. A slouch hat (not a cap)
+and an open waistcoat, so the braces show, are chosen among them. **Cut:** a whole shirt offset 8 mm, tucked
+14 cm below spine_02 into the trousers, a collar band 1.4 cm above the neck joint, open in a V 10 cm deep at
+the throat, its sleeves smoothed over the arm's muscles and standing up to 2.4 cm further off the arm,
+gathered back over the last 6 cm to a cuff 1.4 cm short of the wrist; a neckerchief 3.4 cm deep lofted round
+the neck 1.4 cm out, lower in front, without a knot; braces 2.4 cm wide offset 1.5 cm, from 3 cm below the
+trousers' waist, diverging from 6 to 8.6 cm off the centre line up the chest, then straight over the shoulders
+and down the back (an H; Cider Making's cross behind, an X); a waistcoat offset 2.2 cm, back and two fronts,
+cut straight 10.5 cm below spine_02, its fronts falling open 8.8 cm each side of the centre at the hem and
+10.2 cm at the top; full trousers on the shared workwear shell a little short of the merchant's; a slouch hat
+with a crown 9.8 cm high rounding to its top and a 6.6 cm brim drooping 2 cm fore and aft, rigid on the head
+bone and a mesh of its own. No knot, buttons or buckles are modelled. **Colour:** the waistcoat's dark green and
+the trousers' brown follow Cider Making; the unbleached shirt, the red of the neckerchief, the brown braces,
+the drab hat and the brown boots are chosen. **Skin, hair and body:** the shared young light-skinned generic
+skin and short04 hair of the 1835 studies and the 1835 era's hair default (no row of his own); the shared
+male base at its engineering age 35, inside his band, not aged. Every amount is chosen by eye against the
+pictures; none is measured, and none says how he dressed.
+
 ### L-tremont-gale-envelope-2385 — two-storey default and picture alternative
 
 **Decision:** the default first Tremont follows Gale's retrospective, 1835-framed

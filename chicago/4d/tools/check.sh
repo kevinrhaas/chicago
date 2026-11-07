@@ -451,6 +451,8 @@ step "A 1904 house maid's dress is sourced, layered and skinned on the shared ri
   python3 tools/test_human_maid_1904.py
 step "An 1835 merchant's day dress is sourced, layered and skinned on the shared rig (T-3449)" \
   python3 tools/test_human_merchant_1835.py
+step "An 1835 labourer's working dress is sourced, layered and skinned on the shared rig (T-3450)" \
+  python3 tools/test_human_labourer_1835.py
 
 step "Resident body normals share exact source seams without welding geometry or UVs (T-1789)" \
   python3 tools/test_human_source_normals.py

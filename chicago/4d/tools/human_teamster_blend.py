@@ -91,7 +91,8 @@ def validate_input(body, contract):
 
 
 # The 1835 role dresses (T-3449..) and the recipe each is bound to.
-ROLE_ASSEMBLIES_1835=(('merchant_1835_v1','data/humans/recipes/merchant_1835.json'),)  # T-3449
+ROLE_ASSEMBLIES_1835=(('merchant_1835_v1','data/humans/recipes/merchant_1835.json'),  # T-3449
+                      ('labourer_1835_v1','data/humans/recipes/labourer_1835.json'))  # T-3450
 
 
 def resolve_person_reference(variant, root=ROOT):
@@ -217,6 +218,10 @@ def build(args):
         # T-3449: an 1835 merchant's day dress; generic garment meshes through the dress path.
         from human_merchant_1835 import prepare_merchant_assembly
         dress = prepare_merchant_assembly(ROOT, recipe, variant, body)
+    elif variant.get('component_assembly')=='labourer_1835_v1':
+        # T-3450: an 1835 labourer's working dress; generic garment meshes through the dress path.
+        from human_labourer_1835 import prepare_labourer_assembly
+        dress = prepare_labourer_assembly(ROOT, recipe, variant, body)
     elif variant.get('component_assembly'):
         from human_dress_components import prepare_dress_assembly
         dress = prepare_dress_assembly(ROOT, recipe, variant, body)
@@ -621,7 +626,7 @@ def build(args):
         if dress.get('assembly') in ('lady_1904_v1','maid_1904_v1'):
             # T-3447: a woman's assembly in a full skirt (humans.js reads `skirt`: the nod, the clasped hands).
             scene['chicago4d_human']['wardrobe_assembly_json']=json.dumps({'assembly':dress['assembly'],'liberty':dress['liberty'],'production_eligible':False,'qualified_roles':['standing','walking'],'skirt':True,'standing_source_only':False,'walking_seated_and_photo_accepted':False,'body_and_identity_unchanged':True,'garments':dress['garments']},sort_keys=True)
-        elif dress.get('assembly') in ('gentleman_1904_v1','merchant_1835_v1'):
+        elif dress.get('assembly') in ('gentleman_1904_v1','merchant_1835_v1','labourer_1835_v1'):
             scene['chicago4d_human']['wardrobe_assembly_json']=json.dumps({'assembly':dress['assembly'],'liberty':dress['liberty'],'production_eligible':False,'qualified_roles':['standing','walking'],'standing_source_only':False,'walking_seated_and_photo_accepted':False,'body_and_identity_unchanged':True,'garments':dress['garments']},sort_keys=True)
         else:scene['chicago4d_human']['wardrobe_assembly_json']=json.dumps({'assembly':'adult_dress_v1','liberty':dress['liberty'],'production_eligible':False,'qualified_roles':[],'standing_source_only':True,'walking_seated_and_photo_accepted':False,'body_and_identity_unchanged':True},sort_keys=True)
     scene['authoring_status']='UNVERIFIED: fitting, anatomy, facial targets, UV density, grounded animation and all export/render gates remain open until Blender/CI runs'

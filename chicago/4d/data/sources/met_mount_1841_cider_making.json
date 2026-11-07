@@ -1,0 +1,26 @@
+{
+ "id": "met_mount_1841_cider_making",
+ "type": "illustration",
+ "citation": "William Sidney Mount, Cider Making, 1840-41, oil on canvas. The Metropolitan Museum of Art, 66.126, Purchase, Bequest of Charles Allen Munn, by exchange, 1966.",
+ "author": "William Sidney Mount",
+ "date": "1840-1841",
+ "describes_date": "1840",
+ "repository": "The Metropolitan Museum of Art, The American Wing; object 11619 in the museum's collection API (isPublicDomain: true), image at images.metmuseum.org.",
+ "url": "https://www.metmuseum.org/art/collection/search/11619",
+ "locator": "The open-access image DT72 (3811 x 3006): the three men at work by the cider press, right of centre.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "The Met's Open Access images of public-domain works are released CC0. Used only as a reference picture the 1835 labourer is judged against at distance and for his braces, waistcoat and trousers (T-3450); nothing is traced or sampled from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (T-3450). Men at work at a Long Island cider mill: one in a white shirt with braces over his shoulders and brown trousers, leaning on a rail; one in a white shirt, a dark green waistcoat, brown trousers, a red neckerchief and a straw hat, drinking; one in a long smock. Five to six years after the scene, rural New York, not Chicago.",
+ "note": "One of the 1835 labourer reference set's pictures (data/people_match/reference_sets/labourer_1835.json).",
+ "what_it_supplies": [
+  "working men in shirtsleeves, waistcoats, braces and full brown trousers, whole figures at a distance",
+  "braces worn over the shirt, crossing at the back"
+ ],
+ "what_it_does_not_supply": [
+  "the scene year: it was painted five to six years later",
+  "anything about Chicago or Patrick Mahoney"
+ ]
+}
