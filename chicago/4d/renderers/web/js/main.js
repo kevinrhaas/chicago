@@ -105,6 +105,7 @@ import { jobsState } from './jobs/pool.js';
 import { createStreetTrees } from './street-trees.js';
 import { createStreetFurniture } from './street-furniture.js';
 import { createFrontYards } from './front-yards.js';
+import { createBackYards } from './back-yards.js';
 import { createGardens } from './gardens.js';
 import { TIME_NAMES, isTimeValue, minutesOf } from './time-of-day.js';
 import { SEASONS, SEASON_TREE_MODE, SEASON_CROWN, FOLIAGE, seasonDate, applySeasonLook, patchSeason, patchFoliage }
@@ -2207,7 +2208,7 @@ async function boot() {
     layer.updateWorldMatrix(true, true);
     uploadLayerNow(renderer, scene3d, camera, layer, {
       hide: (o) => (want.crossStreetWalks === false && !!o.userData.crossStreet)
-        || (want.woodpiles === false && !!o.userData.woodpiles) || beyond(o),
+        || (want.woodpiles === false && !!o.userData.woodpiles && !o.userData.woodpilesLight) || beyond(o),
     });
   };
   // T-1154 — the ground's reach, set from the fog the world just made rather
@@ -2403,6 +2404,30 @@ async function boot() {
   });
   scene3d.add(streetFurniture.group);
   api.streetFurniture = streetFurniture;
+  // T-3488 — the house lots' back and side yards (data/back_yards/<scene>.json): the paved
+  // terraces by the rear doors, the walks to the coach houses and round to the front steps,
+  // the gangways, drying yards and kitchen gardens, as textured ground decals on the
+  // street library's maps (the walk and alley maps the street grid already holds are shared),
+  // and the back doors' leaves and stoops, each sill over its house's own bed. Its shrubs,
+  // trees, creeper and beds grow with the front yards' (below). Only a scene listing it.
+  const sharedPbr = new Map();
+  streetGrid.group.traverse((o) => {
+    const key = o.isMesh ? o.userData?.material : null;
+    const texture = key ? streetGrid.surfaces?.materials?.[key]?.texture : null;
+    if (texture && o.material?.map && !sharedPbr.has(texture)) {
+      sharedPbr.set(texture, { map: o.material.map, normalMap: o.material.normalMap ?? null, orm: o.material.roughnessMap ?? null });
+    }
+  });
+  const backYards = await createBackYards({
+    dataBase: layerBase('back_yards'), assetBase: bases.assetBase, sceneId: loaded.scene.id ?? YEAR, terrain,
+    confidence, problems: layerProblems('back_yards'), levelAt: streetGrid.offsetAt ?? null, ...detailOpts(),
+    lowSpec: coarse, season: seasonPref.season, sharedMaps: sharedPbr, checkpoint: bootCheckpoint,
+    bedOf: (id) => buildings.positionOf?.(id)?.y ?? null,
+    // A phone grows the kitchen rows only once they come into view; their arrays then go.
+    onGeometry: coarse ? (group) => releaseAfterUpload(group) : null,
+  });
+  scene3d.add(backYards.group);
+  api.backYards = backYards;
   // T-3203 — the house lots' front yards (data/front_yards/<scene>.json): a mown lawn to each
   // house, foundation shrubs along it, low beds, and ivy where a picture shows it; laid clear
   // of every stoop, walk, fence and door's way the houses' own models draw.
@@ -2412,6 +2437,8 @@ async function boot() {
     // T-3223: grown as the parkway elms are, on their leaf and bark atlases, in the Season.
     grownMaterials: streetTrees.materials ?? null, lowSpec: coarse, checkpoint: bootCheckpoint,
     mode: SEASON_TREE_MODE[seasonPref.season] ?? 'summer',
+    // T-3488: the back yards' shrubs, trees, creeper and beds, grown here with the front yards'.
+    back: backYards.doc ?? null,
   });
   scene3d.add(frontYards.group);
   api.frontYards = frontYards;
@@ -2648,6 +2675,8 @@ async function boot() {
     contextCity.setSeason?.(s);
     // T-3460: the kitchen garden's crops and its snow.
     gardens.setSeason?.(s);
+    // T-3488: the back yards' kitchen rows replanted for the day (their paving's snow is a uniform).
+    backYards.setSeason?.(s);
     await seasonPlants(s);
     await frontYards.setSeason?.(SEASON_TREE_MODE[s] ?? 'summer');
     return streetTrees.setMode(streetTreeMode(s, seasonState.treesShown));
@@ -3116,7 +3145,8 @@ async function boot() {
     // T-1959: the woodpiles' group is shown or hidden by the tier, BEFORE the
     // furniture is banked, so a hidden one is never banked (see `light.woodpiles`).
     scene3d.getObjectByName('yard')?.traverse((o) => {
-      if (o.userData.woodpiles) o.visible = want.woodpiles !== false;
+      // T-3474: a town with few enough piles (1812's 17) draws them at `light` too.
+      if (o.userData.woodpiles) o.visible = want.woodpiles !== false || !!o.userData.woodpilesLight;
     });
     // T-0192: the cross streets' plank walks, by the same mechanism and for the
     // same reason — hidden BEFORE the furniture is banked, so the reach and the
@@ -3449,6 +3479,7 @@ async function boot() {
       void streetTrees.setDetail(level);
       streetFurniture.setDetail(level);
       frontYards.setDetail(level);
+      backYards.setDetail(level);
       gardens.setDetail(level);
       railway.setDetail(level);
       refreshGlessnerOcclusion();
@@ -3503,6 +3534,7 @@ async function boot() {
     void streetTrees.setDetail(level);
     streetFurniture.setDetail(level);
     frontYards.setDetail(level);
+    backYards.setDetail(level);
     gardens.setDetail(level);
     // The road's: `light` keeps the refined grids, the two tiers above it lay
     // the panels that sag on the ground's ridge (streets.js, THE RIDGE DRAPE).
@@ -4568,6 +4600,11 @@ async function boot() {
     const yardHit = frontYards.pickAt(ndc, camera);
     if (yardHit && yardHit.record && (!hit || yardHit.distance < hit.distance)) {
       hit = { ...yardHit };
+    }
+    // And a back yard's paving, back door and steps, clothes post or crop row (T-3488).
+    const backHit = backYards.pickAt(ndc, camera);
+    if (backHit && backHit.record && (!hit || backHit.distance < hit.distance)) {
+      hit = { ...backHit };
     }
     // And a kitchen garden's bed (T-3407): what grows in it and what that rests on.
     const gardenHit = gardens.pickAt(ndc, camera);
@@ -5953,6 +5990,7 @@ async function boot() {
     streetTrees.update(dt, camera);
     streetFurniture.update(dt, camera);
     frontYards.update(dt, camera);
+    backYards.update(dt, camera);
     gardens.update(dt, camera);
     railway.update(camera);
     flags.update(dt);

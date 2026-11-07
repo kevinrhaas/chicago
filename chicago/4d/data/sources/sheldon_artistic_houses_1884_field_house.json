@@ -1,0 +1,31 @@
+{
+ "id": "sheldon_artistic_houses_1884_field_house",
+ "type": "book",
+ "citation": "'Mr. Marshall Field's House' (text headed 'Marshall Field's House.'), pp. 43-47 in Artistic Houses: Being a Series of Interior Views of a Number of the Most Beautiful and Celebrated Homes in the United States, with a Description of the Art Treasures Contained Therein, vol. 2, part 1 (New York: printed for the subscribers by D. Appleton and Company, MDCCCLXXXIV), with two plates, 'Hall' and 'Library'.",
+ "author": "not named in the volume; the series is commonly attributed to George William Sheldon (that attribution is not read off this copy)",
+ "date": "1884 (title page, 'MDCCCLXXXIV'; the Internet Archive's metadata gives 1883)",
+ "describes_date": "1883-1884",
+ "repository": "Internet Archive, item Artistichouses2 (Smithsonian Libraries, Cooper Union Museum Library copy, no. 85 of 500).",
+ "url": "https://archive.org/details/Artistichouses2/page/n52/mode/1up",
+ "locator": "p. 43 (scan leaf n52, image Artistichouses2_0053): the situation, 'spacious lawn and scattered shade-trees'; p. 44 (n53): the porte-cochere, the conservatory, the stables; pp. 44-45 (n53-n54): the conservatory's plants and fountain; p. 47 (n56): the dining-room window on the lawn.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Published in New York in 1884; the Internet Archive item is marked 'Not in copyright.' Quoted in text only; nothing is derived from its plates.",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "Read 2026-11-07 (T-3488) from the item's OCR full text (Artistichouses2_djvu.txt, 185,459 bytes, sha256 9e93ecf12d78a8c4c278708706bd249fe086983fb28f82eb880f5c7795043962) and checked line by line against the page images of pp. 43, 44, 45 and 47 fetched through the Archive's IIIF service; every quotation in `note` agrees with the page image. The download host returned HTTP 500 on first requests and served the files on retry.",
+ "note": "Read, p. 43: 'His house, at 1905 Prairie Avenue, deserves a place in the first rank ... It is a large and roomy mansion, standing by itself, with abundant breathing-room on the southern side, where a spacious lawn and scattered shade-trees suggest green fields and the natural attractions of the country.' Pp. 43-44: 'Mr. Field's house is of red pressed brick, with trimmings of light sandstone, three stories in height, with main entrance in the center of the west front, at the head of a broad flight of granite steps, a high porte-cochère on the northern side, and a fine large conservatory on the southern. Stables and other out-buildings are in the rear, on the side nearest the lake.' Pp. 44-45, the reception-room: 'A window opens into the conservatory, rich in rare plants and bright flowers, in the center of which a fountain plays ceaselessly into its bronze basin.' P. 47, the dining-room: 'Glass doors out of this room lead into the conservatory, and a window looks out upon the spacious lawn.' The text is an interior survey; these few sentences are all it says of the grounds. It describes the house about twenty years before the scene date.",
+ "what_it_supplies": [
+  "an open south yard by 1883-84: 'a spacious lawn and scattered shade-trees' on the southern side",
+  "the conservatory on the south side, opening from the reception-room and the dining-room, with plants and an indoor fountain",
+  "the stables and other out-buildings at the rear, on the lake (east) side",
+  "the porte-cochere on the north side and the entrance in the centre of the west front, up granite steps",
+  "red pressed brick with light sandstone trim, three storeys"
+ ],
+ "what_it_does_not_supply": [
+  "the yard in 1904: it is twenty years earlier",
+  "the number, species or places of the shade-trees",
+  "any flower bed, walk or fence outdoors: the flowers it names are inside the conservatory",
+  "any dimension of the lawn, the conservatory or the stables"
+ ]
+}

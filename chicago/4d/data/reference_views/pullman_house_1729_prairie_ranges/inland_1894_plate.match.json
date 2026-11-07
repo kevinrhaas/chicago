@@ -61,10 +61,10 @@
         2.430052623233238
       ],
       "rotation_y": 0,
-      "glb_sha256": "4fdacdfa3af6182c21fbe8726defe6c3d271465e6c05346efa3ce90a542abde8"
+      "glb_sha256": "d9d4b45c8ab5da47cc304d1945f2ee3c1865d1f2f9b261fcd3190704d86304b7"
     }
   ],
-  "group_sha256": "7bd701c5360179cac731c769d7be84cd006523f347e75b97540468e3edfe5777",
+  "group_sha256": "d66421741fec9aa3bd6be5ee0449c89490a6d9d0eed030d780aeea32080fd7fb",
   "rendered_flora": {
     "season": "summer",
     "lots": [
@@ -141,7 +141,7 @@
       "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "b22ca7a09c4976cb272084484e1448573a7082eeae2bba75c2700c3b8cbba383",
+  "flora_sha256": "b9a763b84e001c677dfaa6f6e5e821115a38bb175e34d7ecd5655437fcac0364",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -267,6 +267,10 @@
       "what": "the house's raised terrace at its south-east corner, its balustrade and its striped awning (pullman_house_1729_prairie, T-1881), where the build stood a one-storey brick block until now",
       "status": "not shown",
       "how": "T-1881 (2026-10-31): another structure, judged in the house's and the conservatory's records (taylor_16555_west_front, taylor_16554_from_south, inland_1894_plate); this record's verdict on the stable and range is unchanged"
+    },
+    {
+      "what": "[T-1881, 2026-11-07] the 58.8 m tree on 18th Street's north parkway (the plate's living tree) now stands on a straight leader under a narrow head (high_head, scale 0.65), where the build drew the grown elm's low fork, a V about 3 m up: the plate draws a straight leader with its head from about half its height. Its bole draws about 0.3 m across against the plate's stouter trunk (Taylor's 16554 prints it about 0.5 m), within tolerance. Re-read on this render, which also carries the house's rear-step stack as #1828 moved it: no new difference.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -65,7 +65,7 @@
       "sha256": "bd022919ca052610595908f83128dfceea976790c5bf2eff63f381abaa3b89b5"
     }
   ],
-  "flora_sha256": "6b25f19ad0d3569e8ad87c5f05143f2092cd9b74c87a2bb5e21040f9832efb41",
+  "flora_sha256": "82e8f4fb3f4c7f8d096471e0c6eaf428782e447649eacb949d9ee36e4d3ca568",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -225,6 +225,10 @@
       "what": "the portico's entablature and deck: the plate runs the entablature from the north block's banded corner pier across to the column south of the door, its balustraded deck over the columns either side of the door",
       "status": "fixed",
       "how": "T-1881 (2026-11-06): the portico now runs v 1.6-8.425, before the north block as well as the entry (L-pullman-1729-three-part-front-1881); aligned on the north-west corner, its two columns either side of the door render within about 3-7 px of the plate's, and its entablature now starts at the corner pier as the plate's does. Its north column stands about 15 px inside the plate's corner pier, which the vignette draws banded: within tolerance at this scale (about 1 px a 10 cm), and the deck's balustrade north of the door, which the vignette's tree and branches cover, is not shown."
+    },
+    {
+      "what": "[T-1881, 2026-11-07] re-rendered after 18th Street's parkway tree at 58.8 m (before the house's south-east corner) was regrown from the grown elm's forked fountain to a straight leader under a narrow head (form high_head, scale 0.65), off Taylor's 16554 and the Detroit print det 4a08066; the other high_head trees keep their places and habit, their crowns re-dealt. The 58.8 m tree is out of this view; the house's own Prairie and 18th Street parkway trees stand where they did, on the same habit, so the verdict stands.",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

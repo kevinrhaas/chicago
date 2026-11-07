@@ -143,7 +143,7 @@
       "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "d9aa94e4cfd9e95d65a5cbd359da5915fa786a4a1c37b00d11e926cf23153167",
+  "flora_sha256": "b85cc2bcfda8fbb69411435ac5671bd331360a9ab450ce632090d59ac54e9a08",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08066-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -193,8 +193,8 @@
       "status": "owner ruling"
     },
     {
-      "what": "18th Street's north parkway trees before the house: the print's trunks stand at x about 345, 435 and 540 (before the flank's east section, before the terrace's flight and at the rear face's north end), the render's at about 245, 305, 390 and 497, up to about 45 px (about 5 m) off; the trees were planted at Taylor's no. 1445's trunks (T-1881, 2026-10-30), which this print, of c. 1900, does not confirm",
-      "status": "open"
+      "what": "18th Street's north parkway trees before the house: the print's trunks stand at x about 345, 435 and 540 (before the flank's east section, before the terrace's flight and at the rear face's north end), the render's at about 245, 305, 390 and 497, up to about 45 px (about 5 m) off; the trees were planted at Taylor's no. 1445's trunks (T-1881, 2026-10-30), which this print, of c. 1900, does not confirm [T-1881, 2026-11-07, re-read on a fresh render with the print at 2.5-3x: the render's trunk at x 245 is 18th Street's tree at 58.8 m, now on a straight leader under a narrow head (high_head), and pairs with the print's slender trunk at x 232 (feet y 516 against the render's 525, 1.3 m along the parkway), which this record had not listed. The print's three trunks at x about 360, 432 and 542 (feet y 530, 534, 539) pair with the render's Calumet-corner trees at x 307, 392 and 497 (3.3, 10.3 and 16.1 m on the corner's curve), 40-55 px left of them and their feet 30-180 px low; the hydrant the same way (the render's at x about 615, its foot about y 765, against the print's x 593, y 546). Those trees stand 7-17 m from this camera, whose raised eye (3.8 m) is fitted on the house 40-50 m off and does not hold the ground near it (its solve says the street's ground and the coping's foot in the foreground are not compared); an eye 1 m off moves a trunk at 10 m about 45 px. Their places are read through Taylor's 16555 and 16554, cameras fitted on that ground at 15-30 m, so the gap is a camera-fit disagreement, within tolerance.]",
+      "status": "within tolerance"
     },
     {
       "what": "the walls' colour and the mansard's slate: a monochrome print",

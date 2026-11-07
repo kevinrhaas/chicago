@@ -1,4 +1,23 @@
 export const CHANGELOG = [ // newest first
+  { v: 2798, ts: '2026-11-07T21:57:19.970Z', date: 'Nov 7, 2026, 3:57 PM CT', title: 'Pullman\'s 18th Street corner tree grows tall and slender, as photographed', kind: 'improvement',
+    items: [
+      'The parkway tree before the Pullman house\'s south-east corner on 18th Street is no longer a broad forked elm spreading over the corner and terrace. It stands as Taylor\'s winter photograph and the c. 1900 Detroit print show it: one straight trunk under a narrow head, about 13 m tall.',
+    ] },
+  { v: 2797, ts: '2026-11-07T21:46:59.050Z', date: 'Nov 7, 2026, 3:46 PM CT', title: 'Prairie district back yards: back doors, terraces, walks and gardens', kind: 'feature',
+    items: [
+      '121 houses gain a back door with its steps, and 103 a paved terrace at their foot, in herringbone brick or stone flags.',
+      'Walks run from the terrace to the coach house, to the alley, and down the side passage to the service walk or the front steps.',
+      '59 drying yards with clothes posts; where the 1900 census lists a laundress the yard is inferred, otherwise reconstructed.',
+      '23 small kitchen gardens on Indiana and Calumet lots, side-lawn shade trees and shrub borders, and creeper on some coach houses.',
+      'Glessner\'s court, Pullman\'s grounds and Field\'s south lawn are left as their sources draw them.',
+      'No picture shows these yards, so all of it is a liberty, and the confidence view and each card say so.',
+    ] },
+  { v: 2796, ts: '2026-11-07T21:25:39.781Z', date: 'Nov 7, 2026, 3:25 PM CT', title: 'Woodpiles in real wood', kind: 'improvement',
+    items: [
+      'Woodpiles, chopping blocks, log heaps and loose billets now wear a photographic wood surface: split ends with rings, bark rinds and checks, bark along the sticks, sawn rounds with axe scores.',
+      '1812 water casks and trade casks carry the same wood grain as the town\'s other casks.',
+      '1812 woodpiles now show on phones too.',
+    ] },
   { v: 2795, ts: '2026-11-07T20:24:41.594Z', date: 'Nov 7, 2026, 2:24 PM CT', title: 'The 1904 checks stop waiting on pictures too', kind: 'fix',
     items: [
       'Nothing you can see changes. The last of the town\'s checks, the one that opens Prairie Avenue in 1904 and reads the Glessner House\'s card, its Inspect tabs, its photographs and the People directory, still waited for the scene to be drawn at every step, so it ran past its time limit on the test machines. It now pauses the drawing while it reads those panels, and the camera still turns when Show me or From this spot asks it to. The 1904 checks now finish in about a third of the time on a phone-sized screen and inside the limit on a desktop one.',
