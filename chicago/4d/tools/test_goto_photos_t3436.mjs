@@ -110,4 +110,8 @@ assert(/resolved\.kind === 'photo'\) \{\s*return travel\.go\(resolved, \{ onArri
 const walk = read('renderers/web/css/walk.css');
 assert(/\.welcome-quick \{ display: grid; grid-template-columns: repeat\(3, minmax\(0, 1fr\)\);/.test(walk), 'the featured tiles are compact, three to a row');
 assert(/\.welcome-destination \.welcome-thumb \{/.test(walk), 'a photo row shows its picture');
+// A phone keeps the chips three to a row, icon over name, rather than one row scrolling
+// sideways: the T-2656 reflow check at 140 % text finds a sideways strip a fault.
+const phone = walk.match(/On a phone the chips stay three to a row[\s\S]*?\n\}/)?.[0] ?? '';
+assert(/\.welcome-quick-start \{ flex-direction: column;/.test(phone) && !/overflow-x|grid-auto-flow: column/.test(phone), 'phone chips stack, no sideways strip');
 console.log('test_goto_photos_t3436: 1904 viewpoints by short name and glyph, six featured, Photos listed at their cameras and gone to like any place');
