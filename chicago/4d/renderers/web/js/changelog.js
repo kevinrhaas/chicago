@@ -1,4 +1,20 @@
 export const CHANGELOG = [ // newest first
+  { v: 2744, ts: '2026-11-07T02:08:45.776Z', date: 'Nov 6, 2026, 8:08 PM CT', title: '2009 Prairie\'s bay window now sits on a band of carved flowers', kind: 'improvement',
+    items: [
+      'In 1904, the stone bay window over the front door of 2009 Prairie Avenue now carries a carved band under its three windows: two staggered rows of small four-petalled flowers, seventeen in all, where the old photograph shows them. Before, the stone under the windows was plain.',
+      'The chimney\'s place, the window hoods and the gable\'s south foot are still to come.',
+    ] },
+  { v: 2743, ts: '2026-11-07T02:07:04.011Z', date: 'Nov 6, 2026, 8:07 PM CT', title: 'Go to: phone tiles stay on screen', kind: 'fix',
+    items: [
+      'On a phone, Go to\'s six featured tiles sit three to a row with the icon over the name, so nothing scrolls sideways or runs off the edge at a larger text size.',
+    ] },
+  { v: 2742, ts: '2026-11-07T01:46:07.203Z', date: 'Nov 6, 2026, 7:46 PM CT', title: '1919 Prairie\'s north flank: its last two photo gaps re-read and settled', kind: 'change',
+    items: [
+      'Nothing you can see changed in the town. The last two differences between 1919 Prairie\'s back wings and its three old advertising plates were measured again.',
+      'The back wing\'s gable reads about a metre off in the plates, but the same plates put its two pinnacled dormers where it would have to stand in front of them. The two cannot both be right, so the house keeps the plan the 1911 map draws.',
+      'The three-light window on the flank sits right on a corner in the plates, at about the plates\' own measuring error, so it stays as built.',
+      'All three plates now count as matching the house, so the Built so far walk lists 1919 Prairie among the houses matched to their pictures.',
+    ] },
   { v: 2741, ts: '2026-11-07T01:17:31.125Z', date: 'Nov 6, 2026, 7:17 PM CT', title: 'Mattie Williamson wears her hair in a bun', kind: 'improvement',
     items: [
       'The Glessners\' cook had a man\'s short haircut under a modelled knot. She now wears a real woman\'s hairstyle: drawn back smooth from the face to a round bun at the back of the head.',
