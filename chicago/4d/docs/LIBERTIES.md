@@ -36720,6 +36720,37 @@ its engineering age; the town's variation kit would age her (33, from the census
 build at runtime once she is placed. No picture of Mary Reynolds is known; every amount is chosen by eye
 against the pictures, and none says how she dressed.
 
+**The 1835 merchant supplement, 2026-11-07 (T-3449):** a merchant's day dress on the same component
+path, `tools/human_merchant_1835.py` with `data/humans/recipes/merchant_1835.json`, built as the asset
+`peck_philip_1835` on the shared male body and first worn by Philip F. W. Peck (attested; merchant at South
+Water and LaSalle, age band 30-39); he is not placed in the town by this work. **Choice of dress:** the piece
+of work asked for a frock or tail coat, waistcoat, stock, trousers, top hat and boots. A British coat and
+trousers of about 1833 dressed with a buff waistcoat and a black stock in the Met
+(`met_ci_1833_tailcoat_and_trousers`, in colour) give a cutaway tailcoat; Asher B. Durand's 1835 portrait of
+the New York merchant Luman Reed (`met_durand_1835_luman_reed`) gives the high black stock, the shirt collar
+points at the cheeks and the side whiskers; Thomas Hornor's 1836 Broadway (`met_hornor_1836_broadway_new_york`)
+shows men in tailcoats and top hats on an American street. A tailcoat over a buff waistcoat joins the three;
+that Peck dressed so is not recorded, none of the pictures is of Chicago, and the Met's garments are British.
+**Cut:** a shirt made only where it shows (its front in the waistcoat's opening, 1.2 cm of cuff); a stock
+lofted round the neck's own sections 8 mm out, from 4.2 cm below the neck joint in front (0.4 cm behind) to
+just under the jaw in front and 6.2 cm above the joint behind; two collar points 4 cm high standing out of it
+at the jaw, two skins; a waistcoat made only in front (its back would only poke through the coat), offset
+1.6 cm, cut straight 9.8 cm below spine_02 and opening in a V from 24.5 cm above it, with a rolled collar;
+a tailcoat body offset 2.2 cm and smoothed, double-breasted to a roll 12 cm above spine_02, broad lapels,
+its collar standing 4.2 cm above the neck joint behind, sleeves to 2.4 cm short of the wrist; tails lofted
+round the body's sections from the waist seam to 0.53 m, cut away in front (their front edges sloping from
+74 to 124 degrees round from the front) with a 3-degree vent, each tail skinned to its own thigh and calf in
+place of cloth simulation; six gilt buttons; full trousers on the shared workwear shell to the instep; a top
+hat 16 cm tall flaring to 1.08 of its band at a flat top, brim curled at the sides, rigid on the head bone and
+a mesh of its own. The Met coat's velvet collar and covered buttons, the stock's bow and the trousers' pleats
+and foot straps are not modelled. **Colour:** the dark blue of the coat and the buff of the waistcoat are the
+1833 garments'; the gilt buttons (the 1833 coat's are covered) and the stone of the trousers are chosen.
+**Skin and hair:** the shared young light-skinned generic skin and short04 hair of the 1835 studies; a hair
+row (brushed forward, side whiskers) after Reed's portrait. **Body:** the shared male base at its
+engineering age 35, inside Peck's recorded band, so the variation kit is asked for no ageing; no picture of
+Peck has been read. Every amount is chosen by eye against the pictures; none is measured, and none says how
+he dressed.
+
 ### L-tremont-gale-envelope-2385 — two-storey default and picture alternative
 
 **Decision:** the default first Tremont follows Gale's retrospective, 1835-framed

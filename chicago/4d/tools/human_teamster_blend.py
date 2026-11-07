@@ -90,6 +90,10 @@ def validate_input(body, contract):
     return bones
 
 
+# The 1835 role dresses (T-3449..) and the recipe each is bound to.
+ROLE_ASSEMBLIES_1835=(('merchant_1835_v1','data/humans/recipes/merchant_1835.json'),)  # T-3449
+
+
 def resolve_person_reference(variant, root=ROOT):
     """Resolve existing person and scene; never mint a name or upgrade its grade."""
     scene=str(variant['person_reference_scene'])
@@ -104,13 +108,20 @@ def resolve_person_reference(variant, root=ROOT):
     record=root/variant['person_reference_record']
     dress_reference=(variant.get('component_assembly')=='adult_dress_v1' and pid=='rc_flynn_mary'
                      and record==root/'data/residents/households/hh_rc_flynn_mary.json')
-    if not (record.is_relative_to(root/'data/residents/reconstructed_trades') or dress_reference):
+    # T-3449: an 1835 role's dress, bound to its own recipe, may be first worn by a person of
+    # any grade in the 1835 people layer; the grade is copied as recorded, never changed.
+    role_reference=((variant.get('component_assembly'),variant.get('recipe_path')) in ROLE_ASSEMBLIES_1835
+                    and record.is_relative_to(root/'data/residents'))
+    if not (record.is_relative_to(root/'data/residents/reconstructed_trades') or dress_reference or role_reference):
         raise ValueError('person reference must resolve under reconstructed_trades or the explicit existing Mary Flynn dress study')
     household=json.loads(record.read_text())
     person=next((p for p in household['persons'] if p['id']==pid),None)
     if person is None:raise ValueError(f'{pid}: missing in referenced household')
     grade=variant['person_reference_grade']
-    if grade!='reconstructed' or people[pid].get('grade')!=grade or person.get('grade')!=grade:
+    if role_reference:
+        if people[pid].get('grade')!=grade or person.get('grade')!=grade:
+            raise ValueError('person reference grade differs; never silently change an identity grade')
+    elif grade!='reconstructed' or people[pid].get('grade')!=grade or person.get('grade')!=grade:
         raise ValueError('person reference grade differs; never silently upgrade reconstructed identities')
     snapshot={'name':person['name'],'age_band':person['age_band']['value'],'occupation':person['occupation']['value'],'division':household['division'],'presence':household['present_on_scene_date']['value']}
     if snapshot!=variant['reference_summary']:
@@ -202,6 +213,10 @@ def build(args):
         # T-3448: a 1904 house maid's dress; generic garment meshes through the dress path.
         from human_maid_1904 import prepare_maid_assembly
         dress = prepare_maid_assembly(ROOT, recipe, variant, body)
+    elif variant.get('component_assembly')=='merchant_1835_v1':
+        # T-3449: an 1835 merchant's day dress; generic garment meshes through the dress path.
+        from human_merchant_1835 import prepare_merchant_assembly
+        dress = prepare_merchant_assembly(ROOT, recipe, variant, body)
     elif variant.get('component_assembly'):
         from human_dress_components import prepare_dress_assembly
         dress = prepare_dress_assembly(ROOT, recipe, variant, body)
@@ -606,8 +621,8 @@ def build(args):
         if dress.get('assembly') in ('lady_1904_v1','maid_1904_v1'):
             # T-3447: a woman's assembly in a full skirt (humans.js reads `skirt`: the nod, the clasped hands).
             scene['chicago4d_human']['wardrobe_assembly_json']=json.dumps({'assembly':dress['assembly'],'liberty':dress['liberty'],'production_eligible':False,'qualified_roles':['standing','walking'],'skirt':True,'standing_source_only':False,'walking_seated_and_photo_accepted':False,'body_and_identity_unchanged':True,'garments':dress['garments']},sort_keys=True)
-        elif dress.get('assembly')=='gentleman_1904_v1':
-            scene['chicago4d_human']['wardrobe_assembly_json']=json.dumps({'assembly':'gentleman_1904_v1','liberty':dress['liberty'],'production_eligible':False,'qualified_roles':['standing','walking'],'standing_source_only':False,'walking_seated_and_photo_accepted':False,'body_and_identity_unchanged':True,'garments':dress['garments']},sort_keys=True)
+        elif dress.get('assembly') in ('gentleman_1904_v1','merchant_1835_v1'):
+            scene['chicago4d_human']['wardrobe_assembly_json']=json.dumps({'assembly':dress['assembly'],'liberty':dress['liberty'],'production_eligible':False,'qualified_roles':['standing','walking'],'standing_source_only':False,'walking_seated_and_photo_accepted':False,'body_and_identity_unchanged':True,'garments':dress['garments']},sort_keys=True)
         else:scene['chicago4d_human']['wardrobe_assembly_json']=json.dumps({'assembly':'adult_dress_v1','liberty':dress['liberty'],'production_eligible':False,'qualified_roles':[],'standing_source_only':True,'walking_seated_and_photo_accepted':False,'body_and_identity_unchanged':True},sort_keys=True)
     scene['authoring_status']='UNVERIFIED: fitting, anatomy, facial targets, UV density, grounded animation and all export/render gates remain open until Blender/CI runs'
     scene.frame_set(1)

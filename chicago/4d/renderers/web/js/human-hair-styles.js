@@ -143,6 +143,10 @@ export const PEOPLE_HAIR = Object.freeze({
     cut: 'brushed_forward_1835', facial: Object.freeze(['side_whiskers']), colour: 'mid_brown', grade: 'reconstructed',
     basis: 'A reconstructed choice for a teamster in the Chicago of 1835: hair worn fuller and brushed forward, side whiskers, the chin shaved. No picture of Otis Bardwell is known.',
   }),
+  peck_philip: Object.freeze({
+    cut: 'brushed_forward_1835', facial: Object.freeze(['side_whiskers']), colour: 'dark_brown', grade: 'reconstructed',
+    basis: 'A reconstructed choice for a merchant of 1835: hair brushed forward at the temples and short side whiskers, the chin shaved, as Durand painted the New York merchant Luman Reed that year (merchant_1835 reference set). No picture of Philip F. W. Peck has been read.',
+  }),
 });
 
 /** The hair a person wears in a year: their own row, else their era's, else none. */
