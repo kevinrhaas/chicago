@@ -1,0 +1,1174 @@
+{
+ "roles": [
+  {
+   "role": "U.S. infantry company officer (captain, lieutenant, ensign) and surgeon's mate, August 1812",
+   "build": {
+    "garments": [
+     "Coat: dark blue wool, single-breasted, long skirts to the bend of the knee (longer than the private's), scarlet standing collar to the ear and scarlet cuffs, white turnbacks/lining, white-metal (silver) buttons, silver lace loops on the collar (and probably on the breast as in Pike's portrait); grade: inferred (Pike 1808 portrait shows blue/scarlet/silver; the 1813 change took away red collars and cuffs and lace, so they were there before; the Dec 1812 transcription to verify gives the full spec).",
+     "Epaulette: one silver bullion epaulette; captain on the right shoulder, lieutenant on the left (by analogy with the light artillery text printed 1814); ensign: reconstructed (none or as lieutenant; no source found).",
+     "Waistcoat white, single-breasted; breeches or pantaloons white (nankeen in summer per the staff text of 1813-14); black leather or silk stock; high boots: inferred from the staff/artillery text and Krimmel's officer.",
+     "Headwear: black felt chapeau bras (bicorne), black cockade about 4.5 in with an eagle, a white feather rising about 8 in, worn fore-and-aft as Krimmel's officer wears it: inferred by analogy (artillery text) and Krimmel.",
+     "Sash: crimson/red silk, worn round the waist and only on a tour of duty (artillery text); Krimmel shows officers with red/crimson sashes: inferred.",
+     "Sword: straight, yellow (brass/gilt) mounted with black or yellow grip (artillery: cut and thrust) on a white leather waist belt: inferred by analogy. Infantry officers' mounts may have been silver to match buttons: reconstructed.",
+     "Undress at a remote post in August (likely what a daily figure wears): the same coat, perhaps unbuttoned, round hat or chapeau, no sash, linen pantaloons: reconstruction; the 1813 change says 'The rules with respect to undress, are dispensed with, excepting that cockades must always be worn', showing an undress rule existed.",
+     "Surgeon's mate (Isaac Van Voorhis at Fort Dearborn): the regimental officer's coat but with a black velvet collar/cape and a black plume (artillery surgeons and mates, printed 1814); hospital surgeons and mates in black coats; the transcription to verify says medical staff wore blue collars and cuffs. Sources disagree; build blue coat with black velvet collar, chapeau with black plume, no sash, and record the liberty. He may well have worn civilian dress: reconstruction."
+    ],
+    "colours": "coat dark indigo blue (as the private's coat_blue_1812); collar/cuffs scarlet brighter and cleaner than the private's (officer's superfine cloth); lace, buttons and epaulette silver (bright metal, not the private's pewter grey); waistcoat and breeches white; chapeau and stock black; sash crimson.",
+    "fit": "Tailored close through the chest and waist, waist seam at natural waist or slightly above, skirts to the back of the knee; high collar to the ear; boots to the knee."
+   },
+   "references": [
+    {
+     "source_id": "inde_peale_1808_zebulon_pike",
+     "existing_source": false,
+     "evidences": "blue coat, scarlet laced collar and facings, silver lace, white buttons, silver epaulette, black stock on a U.S. infantry officer, 1808",
+     "grade": "direct (portrait, pre-1812)",
+     "url": "https://www.worldhistory.org/image/19742/zebulon-pike/",
+     "date": "1808",
+     "repository": "Independence National Historical Park (per viewed page)",
+     "rights_status": "check_required"
+    },
+    {
+     "source_id": "met_krimmel_1813_philadelphia_soldiery",
+     "existing_source": true,
+     "evidences": "officer in a long-skirted blue coat, chapeau bras worn fore-and-aft with plume, crimson sash at the waist, sword, high black boots (centre figure); a second officer with an orange-red sash; not recorded in the existing record's access_notes, which describe only the privates",
+     "grade": "direct for volunteers 1811-1813; analogy for regulars",
+     "url": "https://www.metmuseum.org/art/collection/search/12727",
+     "date": "1811-1813",
+     "repository": "The Metropolitan Museum of Art",
+     "accession": "42.95.21",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "us_1814_military_laws_and_regulations",
+     "existing_source": true,
+     "evidences": "pp. 263-268 (beyond the pages the existing record cites): general staff chapeau dimensions, black cockade with gold eagle, black stock of leather or silk, high boots; artillery officers: chapeau with yellow button and loop, black leather cockade 4.5 in with gold eagle, 'A white feather to rise eight inches', white leather waist belts, 'Sashes ... to be worn only on a tour of duty, and round the waist', epaulettes by rank; 'The surgeons and mates ... will wear the same uniform except the cape, which is of black velvet; the plume black'; hospital surgeons and mates in black; p. 273 light artillery: 'a captain, one on the right shoulder ... the lieutenants, one on the left'",
+     "grade": "inferred by analogy (artillery, printed after the 1813 change)",
+     "url": "https://archive.org/details/0215605.nlm.nih.gov",
+     "date": "1814",
+     "repository": "Internet Archive (NLM scan)",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "reenact_23rd_us_1812_uniform_notes",
+     "existing_source": false,
+     "evidences": "transcribed 30 Dec 1812 officer's coat spec (blue, scarlet collar and cuffs, silver lace, white buttons, knee length) and 'Medical staff ... blue collars and cuffs'",
+     "grade": "lead only; verify in War Department records",
+     "url": "http://www.23rdus1812reg.org/USUniform01.htm",
+     "rights_status": "check_required"
+    },
+    {
+     "source_id": "aic_stuart_1812_henry_dearborn",
+     "existing_source": false,
+     "evidences": "general officer's 1812 coat with gold embroidery and epaulettes: the contrast company officers did not wear",
+     "grade": "contrast only",
+     "url": "https://api.artic.edu/api/v1/artworks/69619",
+     "date": "1812",
+     "repository": "The Art Institute of Chicago",
+     "accession": "1913.793",
+     "rights_status": "public_domain"
+    }
+   ]
+  },
+  {
+   "role": "Sergeant, corporal and musician (drummer, fifer) of 1812 infantry",
+   "build": {
+    "garments": [
+     "Sergeant and corporal: the private's dress (coat, felt cap, overalls, crossbelts) with rank marks. Worsted epaulettes: sergeant two, corporal one on the right shoulder: inferred by analogy only (the rule printed in 1814 is for light dragoon NCOs: 'Sergeants to wear two white epaulettes, corporals one on the right shoulder'). For infantry the colour of the worsted (white or red) is not evidenced: reconstruction. Sergeants may carry a sword or halberd/spontoon rather than musket: not evidenced here; leave musket.",
+     "Musician: reversed colours, i.e. scarlet coat faced blue (collar, cuffs), white crossbelt or drum carriage, drum painted, same cap: directly shown for a Philadelphia volunteer drummer in Krimmel 1811-13; the regulars' red musicians' coats are claimed by the reenactor page only. Build as red faced blue, inferred.",
+     "Fifer: same coat, fife case on a shoulder belt in place of the cartridge box: reconstruction."
+    ],
+    "colours": "musician coat scarlet with dark blue collar and cuffs; drum shell natural wood or painted, hoops red/blue: reconstructed; NCO epaulettes worsted white (reconstructed).",
+    "fit": "As the private."
+   },
+   "references": [
+    {
+     "source_id": "met_krimmel_1813_philadelphia_soldiery",
+     "existing_source": true,
+     "evidences": "drummer at left in a red coat with blue facings, white belt, tall black round hat, drum with rope tension (not in the existing record's notes beyond 'a drummer with a white belt')",
+     "grade": "direct for volunteers, analogy for regulars",
+     "url": "https://www.metmuseum.org/art/collection/search/12727",
+     "accession": "42.95.21",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "us_1814_military_laws_and_regulations",
+     "existing_source": true,
+     "evidences": "p. 271, light dragoon NCOs: 'Sergeants to wear two white epaulettes, corporals one on the right shoulder'",
+     "grade": "analogy (another arm, 1813-14)",
+     "url": "https://archive.org/details/0215605.nlm.nih.gov",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "us_1812_rules_and_articles_albany",
+     "existing_source": true,
+     "evidences": "NCOs and musicians draw the same annual clothing as privates (Sec. 8, 1802 act; repeated Sec. 9 of the January 1812 act)",
+     "grade": "direct for the issue list",
+     "url": "https://archive.org/details/actestablishingr00unitrich",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "reenact_23rd_us_1812_uniform_notes",
+     "existing_source": false,
+     "evidences": "'musicians wore red uniforms'",
+     "grade": "lead only",
+     "url": "http://www.23rdus1812reg.org/USUniform01.htm",
+     "rights_status": "check_required"
+    }
+   ]
+  },
+  {
+   "role": "Soldiers in fatigue dress at work (August)",
+   "build": {
+    "garments": [
+     "Fatigue frock: coarse unbleached linen, loose, pulled on over the head or open-fronted, thigh length: the issue 'one coarse linen frock and trowsers for fatigue clothing' is direct (1802 act; repeated in the act of January 1812); the cut is reconstruction.",
+     "Fatigue trousers: coarse linen, loose, full length, unbleached/off-white: direct issue, cut reconstructed.",
+     "Shirt (four a year) and stock may be worn without coat: direct issue; a man in shirt-sleeves and waistcoat ('vest') is equally supported.",
+     "Headwear: no fatigue cap is in the 1802 or 1812 issue; use the issued felt hat/cap left off, a civilian round hat, or bare head: reconstruction. Do NOT build a forage cap of a later pattern.",
+     "Shoes: issued black shoes, without gaiters."
+    ],
+    "colours": "linen natural/oatmeal (lighter and greyer than the white overalls of dress); waistcoat white; shirt white/unbleached.",
+    "fit": "Loose and long; sleeves rolled for work (reconstruction). Krimmel's Black Sawyers and Wayside Inn show how civilian working men of these years wore shirtsleeves, waistcoats and round hats, a cross-check for posture and looseness, not for army issue."
+   },
+   "references": [
+    {
+     "source_id": "us_1812_rules_and_articles_albany",
+     "existing_source": true,
+     "evidences": "'one coarse linen frock and trowsers for fatigue clothing' in the yearly issue (Sec. 8 of the 1802 act, p. 53; again Sec. 9 of the act of 11 January 1812)",
+     "grade": "direct (issue list)",
+     "url": "https://archive.org/details/actestablishingr00unitrich",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_krimmel_1811_black_sawyers_bank_of_pennsylvania",
+     "existing_source": false,
+     "evidences": "men at heavy work in shirtsleeves, waistcoats, loose trousers, round hats, 1811-13",
+     "grade": "analogy (civilian labour)",
+     "url": "https://www.metmuseum.org/art/collection/search/12734",
+     "accession": "42.95.16",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_krimmel_1811_merrymaking_wayside_inn",
+     "existing_source": false,
+     "evidences": "shirtsleeves, waistcoats, loose trousers, round hats",
+     "grade": "analogy",
+     "url": "https://www.metmuseum.org/art/collection/search/12728",
+     "accession": "42.95.12",
+     "rights_status": "public_domain"
+    }
+   ]
+  },
+  {
+   "role": "Officer's wife (Rebekah Heald, Margaret Helm) and enlisted man's wife / laundress",
+   "build": {
+    "garments": [
+     "Officer's wife: high-waisted (waist under the bust) gown of white or light cotton/muslin, long sleeves for day, ankle-length skirt with fullness at the back; a white cotton cap indoors; a close bonnet out of doors; a shawl (white cotton, or coloured); a short spencer jacket for cool mornings; flat slippers or half-boots. Grade: inferred. At Fort Dearborn itself Wau-Bun records Mrs. Heald's bonnet, 'shawls, ribbons, and feathers' and 'a muslin gown, and the bonnet of one of the ladies' plundered from the fort: direct for the materials present on 15 August 1812 (a later, family-transmitted narrative).",
+     "Enlisted man's wife / laundress: short gown (a loose hip-length jacket-bodice) and petticoat of printed cotton, linen or homespun, an apron, a kerchief at the neck, a cap or a cotton handkerchief tied round the head; bare arms for washing. Grade: inferred from Wau-Bun's 'ordinary dress of a French woman of the country; namely, a short gown and petticoat, with a blue cotton handkerchief wrapped around her head' (Chicago, August 1812), Lambert's 'petticoat and short jacket', and Krimmel's working woman in head-wrap, white bodice and striped petticoat.",
+     "No portrait of Rebekah Heald or Margaret Helm was found; any likeness is invention."
+    ],
+    "colours": "gowns white/cream (fine), or printed cottons and coloured silks (blue, yellow per Krimmel); shawl white or blue; bonnet white cotton or straw; laundress petticoat striped or plain homespun (pink-stripe, blue, brown), apron white or checked, head handkerchief blue cotton.",
+    "fit": "Gown waist high under bust, skirt narrow in front, ankle length; sleeves long and close or short puffed with long gloves. Short gown loose to the hip, worn over a petticoat to the ankle or just above."
+   },
+   "references": [
+    {
+     "source_id": "kinzie_waubun_1856",
+     "existing_source": true,
+     "evidences": "Chicago, August 1812: Mrs. Heald's bonnet; plundered 'shawls, ribbons, and feathers' and 'a muslin gown, and the bonnet of one of the ladies'; Mrs. Helm disguised in 'the ordinary dress of a French woman of the country; namely, a short gown and petticoat, with a blue cotton handkerchief wrapped around her head' (1856 ed., narrative of the massacre, pp. 233-236; IA waubunearlydayin00kinz_0). The existing record's locator does not cite these passages",
+     "grade": "direct for Chicago 1812 (later narrative)",
+     "url": "https://archive.org/details/waubunearlydayin00kinz_0",
+     "date": "1856",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_krimmel_1811_sunday_morning_arch_street",
+     "existing_source": false,
+     "evidences": "white high-waisted gowns, close bonnets, gloves, an older woman's brown gown and black bonnet",
+     "grade": "direct for 1811-13 (Philadelphia)",
+     "url": "https://www.metmuseum.org/art/collection/search/12749",
+     "accession": "42.95.17",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_krimmel_1811_chimney_sweeps_christ_church",
+     "existing_source": false,
+     "evidences": "white gown, blue shawl, cap",
+     "grade": "direct 1811-13",
+     "url": "https://www.metmuseum.org/art/collection/search/12762",
+     "accession": "42.95.15",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_ci_1810_1820_american_linen_dress",
+     "existing_source": false,
+     "evidences": "American white linen high-waisted day dress",
+     "grade": "object, 1810-20",
+     "url": "https://www.metmuseum.org/art/collection/search/85429",
+     "accession": "C.I.64.61.1",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_ci_1812_american_bonnet",
+     "existing_source": false,
+     "evidences": "American white cotton bonnet ca. 1812",
+     "grade": "object",
+     "url": "https://www.metmuseum.org/art/collection/search/106037",
+     "accession": "C.I.69.32.17",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_ci_1810_1820_american_cap",
+     "existing_source": false,
+     "evidences": "American white cotton cap with lappets",
+     "grade": "object",
+     "url": "https://www.metmuseum.org/art/collection/search/157146",
+     "accession": "2009.300.2332",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_ci_1800_1810_american_shawl",
+     "existing_source": false,
+     "evidences": "American white cotton shawl",
+     "grade": "object",
+     "url": "https://www.metmuseum.org/art/collection/search/110201",
+     "accession": "1979.346.181",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_ci_1813_spencer",
+     "existing_source": false,
+     "evidences": "short spencer jacket dated 1813",
+     "grade": "object",
+     "url": "https://www.metmuseum.org/art/collection/search/108014",
+     "accession": "C.I.39.13.48",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_krimmel_1811_black_sawyers_bank_of_pennsylvania",
+     "existing_source": false,
+     "evidences": "working woman: head-wrap, white bodice/short gown, pink-striped petticoat, child on hip",
+     "grade": "direct 1811-13 (Philadelphia)",
+     "url": "https://www.metmuseum.org/art/collection/search/12734",
+     "accession": "42.95.16",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "lambert_1810_travels_lower_canada_v1",
+     "existing_source": false,
+     "evidences": "'A petticoat and short jacket, is the most prevailing dress'; printed cotton gowns, muslin aprons, shawls, handkerchiefs",
+     "grade": "direct 1806-08 (Lower Canada)",
+     "url": "https://archive.org/details/travelsthroughlo01lamb",
+     "rights_status": "public_domain"
+    }
+   ]
+  },
+  {
+   "role": "Children 2-12 and infants, about 1810",
+   "build": {
+    "garments": [
+     "Infants and toddlers of both sexes: white cotton frock, high waist, short puffed sleeves, ankle length, a cap; direct (Beecher dress worn by a boy ca. 1813; Emma Van Name; Rutter girl; Krimmel's infant in white).",
+     "Boys about 3-8: skeleton-type suit, short jacket buttoned to long trousers at the waist, wide frilled white collar, white stockings, black shoes: direct (Rutter boy ca. 1805).",
+     "Boys about 7-12: short or cutaway jacket, waistcoat, long trousers, round hat, white collar: direct (Met boy's suit ca. 1810; Krimmel's boy 1811-13; Pixler boys ca. 1815 with checked/spotted trousers).",
+     "Girls 4-12: white or coloured high-waisted frock to the ankle, short or long sleeves, pinafore/apron for work (pinafore reconstructed), bonnet out of doors.",
+     "Frontier/working children: same shapes in coarser, coloured cloth; barefoot in summer is supported by Krimmel's sweeps (urban poor): inferred.",
+     "The Kinzie children in 1812 (four younger, with nurse 'Grutte') are named in Wau-Bun; nothing of their dress is recorded."
+    ],
+    "colours": "frocks white or pink/printed; boys' suits dark blue, tan-brown, green; trousers patterned (check, spot) or plain.",
+    "fit": "Children's waistlines high like adults'; trousers long and loose; jackets short."
+   },
+   "references": [
+    {
+     "source_id": "met_ci_1813_beecher_child_dress",
+     "existing_source": false,
+     "evidences": "infant's white cotton frock worn by a boy, ca. 1813",
+     "grade": "object",
+     "url": "https://www.metmuseum.org/art/collection/search/159240",
+     "accession": "2009.300.682",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_ci_1810_american_boys_suit",
+     "existing_source": false,
+     "evidences": "American boy's cutaway jacket, waistcoat and trousers ca. 1810",
+     "grade": "object",
+     "url": "https://www.metmuseum.org/art/collection/search/79705",
+     "accession": "1997.509a-d",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_johnson_1805_rutter_children",
+     "existing_source": false,
+     "evidences": "boy's buttoned-on suit with frilled collar; girl's white frock",
+     "grade": "portrait ca. 1805",
+     "url": "https://www.metmuseum.org/art/collection/search/11269",
+     "accession": "65.254.3",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_johnson_1805_emma_van_name",
+     "existing_source": false,
+     "evidences": "toddler's frock and cap",
+     "grade": "portrait ca. 1805",
+     "url": "https://www.metmuseum.org/art/collection/search/701989",
+     "accession": "2016.116",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_krimmel_1811_sunday_morning_arch_street",
+     "existing_source": false,
+     "evidences": "boy's dark jacket, trousers, round hat 1811-13",
+     "grade": "direct",
+     "url": "https://www.metmuseum.org/art/collection/search/12749",
+     "accession": "42.95.17",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_pixler_family_c1815",
+     "existing_source": false,
+     "evidences": "three boys' jackets, collars, patterned trousers",
+     "grade": "ca. 1815",
+     "url": "https://www.metmuseum.org/art/collection/search/12847",
+     "accession": "66.242.3",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_rauschner_1810_family_in_a_park",
+     "existing_source": false,
+     "evidences": "small child in white frock",
+     "grade": "ca. 1810",
+     "url": "https://www.metmuseum.org/art/collection/search/770850",
+     "accession": "2018.60",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_krimmel_1811_chimney_sweeps_christ_church",
+     "existing_source": false,
+     "evidences": "barefoot working boys in ragged jackets",
+     "grade": "direct 1811-13",
+     "url": "https://www.metmuseum.org/art/collection/search/12762",
+     "accession": "42.95.15",
+     "rights_status": "public_domain"
+    }
+   ]
+  },
+  {
+   "role": "Prosperous trader / merchant about 1810 (John Kinzie) and his wife (Eleanor Kinzie)",
+   "build": {
+    "garments": [
+     "Man: dark wool tailcoat (blue, green, brown or black), double- or single-breasted, cut square or cut away at the waist, tails to the knee, high turned collar; waistcoat (white, buff, yellow or a coloured silk), standing collar; white shirt with frill and a white neckcloth tied high; knee breeches with buttoned knee bands (older man of 49) or pantaloons/trousers; stockings and shoes, or top boots for riding; tall round hat with a moderate brim. Direct for the type (Met objects and Krimmel); reconstruction for Kinzie (no picture or inventory of his clothes was found).",
+     "Frontier working version: same coat older and plainer, or a round jacket, with linen trousers in August: reconstruction.",
+     "Wife (aged about 43 in 1812): as the officer's wife, perhaps darker gown and fuller cap for a matron (Lambert's elderly women 'adhere to long waists, full caps'; the Pixler mother in dark gown and frilled cap): inferred."
+    ],
+    "colours": "coat dark green (Robinson 1811; Krimmel's green coat), dark blue or brown-black; waistcoat yellow, buff or white; breeches black, buff or light; neckcloth white.",
+    "fit": "Coat close-cut with high armholes, waist seam at natural waist; breeches snug to just below the knee."
+   },
+   "references": [
+    {
+     "source_id": "met_ci_1810_1820_coutts_coat_and_breeches",
+     "existing_source": false,
+     "evidences": "dark wool double-breasted tailcoat and black wool knee breeches of the Coutts family, 1810-20 (British)",
+     "grade": "object",
+     "url": "https://www.metmuseum.org/art/collection/search/91902",
+     "accession": "08.187.1; 08.187.3",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_ci_1815_tailcoat",
+     "existing_source": false,
+     "evidences": "dark blue double-breasted tailcoat ca. 1815 (probably British)",
+     "grade": "object",
+     "url": "https://www.metmuseum.org/art/collection/search/657342",
+     "accession": "2014.501",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_peale_1811_anthony_wayne_robinson",
+     "existing_source": false,
+     "evidences": "American man 1811: dark green coat, yellow waistcoat, white neckcloth",
+     "grade": "miniature",
+     "url": "https://www.metmuseum.org/art/collection/search/15145",
+     "accession": "2006.235.137",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_krimmel_1811_chimney_sweeps_christ_church",
+     "existing_source": false,
+     "evidences": "green tailcoat, buff waistcoat and breeches, top boots, tall hat",
+     "grade": "direct 1811-13",
+     "url": "https://www.metmuseum.org/art/collection/search/12762",
+     "accession": "42.95.15",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_pixler_family_c1815",
+     "existing_source": false,
+     "evidences": "rural father (dark coat, yellow waistcoat, frilled shirt) and mother (dark gown, frilled cap)",
+     "grade": "ca. 1815",
+     "url": "https://www.metmuseum.org/art/collection/search/12847",
+     "accession": "66.242.3",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_ci_1833_tailcoat_and_trousers",
+     "existing_source": true,
+     "evidences": "existing 1833 tailcoat: too late for 1812; do not reuse its cut",
+     "grade": "not applicable to 1812"
+    }
+   ]
+  },
+  {
+   "role": "French Canadian / Métis engagés and voyageurs, and a Métis or French woman of the country",
+   "build": {
+    "garments": [
+     "Engagé/voyageur in August: shirt (often coloured/printed calico; Wau-Bun's 1830 traders wear 'calico shirts'), trousers or breechcloth with leggings, moccasins, a red knitted cap ('bonnet rouge, or tuque as the voyageurs call it'), a beaded worsted arrow sash at the waist; a hooded capot of grey (or blue/white blanket) cloth carried or worn in cool weather. Grades: issue of blanket, shirt, trousers direct (Heriot 1807); habitant capot, sash, moccasins, red cap direct (Lambert 1810, Lower Canada); tuque name direct (Wau-Bun, 1830, Fox River); breechcloth and leggings for paddlers: not evidenced in sources opened here (reconstruction; Native dress is another researcher's scope).",
+     "Summer substitution: 'the long coat is exchanged for a jacket, and the bonnet rouge for a straw hat' (Lambert): direct.",
+     "Hair: long queue tied behind (Lambert) for habitants: direct for Lower Canada.",
+     "Sash: finger-woven wool with glass beads, about 11 cm wide and nearly 3 m long (McCord M8486, about 1800); colours not seen: reconstruct red/blue/green/yellow chevrons and record the liberty.",
+     "Woman of the country (French or Métis): short gown and petticoat, a blue cotton handkerchief tied round the head (Wau-Bun, Chicago 1812, direct); apron, kerchief; moccasins likely (Lambert: moccasins 'in general use among the country people'): inferred."
+    ],
+    "colours": "capot dark grey (Lambert) or blanket white/blue; cap red; sash multicoloured with red dominant (reconstructed); shirt printed/blue/white calico; trousers blue or natural linen; moccasins tan smoked leather; woman's head handkerchief blue cotton, short gown printed cotton, petticoat dark homespun.",
+    "fit": "Capot loose, knee or thigh length, hooded, belted by the sash; trousers loose."
+   },
+   "references": [
+    {
+     "source_id": "lambert_1810_travels_lower_canada_v1",
+     "existing_source": false,
+     "evidences": "habitant's grey hooded capot, beaded worsted sash, same-cloth waistcoat and trousers, moccasins, red night-cap, queue; summer jacket and straw hat; women's petticoat and short jacket",
+     "grade": "direct (Lower Canada 1806-08)",
+     "url": "https://archive.org/details/travelsthroughlo01lamb",
+     "date": "1810",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "heriot_1807_travels_through_the_canadas",
+     "existing_source": false,
+     "evidences": "'To each man, a blanket, shirt, and pair of trowsers are supplied' (Montreal canoemen); knitted worsted caps",
+     "grade": "direct (issue, ca. 1800-07)",
+     "url": "https://archive.org/details/travelsthroughca00heri_2",
+     "date": "1807",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "kinzie_waubun_1856",
+     "existing_source": true,
+     "evidences": "'a bright red cap (a bonnet rouge, or tuque as the voyageurs call it)', calico shirts (1830, p. 44); the French woman's short gown, petticoat, blue cotton head-handkerchief (Chicago 1812)",
+     "grade": "direct (later narrative)",
+     "url": "https://archive.org/details/waubunearlydayin00kinz_0",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "mccord_m8486_arrow_sash_c1800",
+     "existing_source": false,
+     "evidences": "surviving beaded wool arrow sash about 1800, Quebec, 11 x 288 cm",
+     "grade": "object (image not viewed)",
+     "url": "https://collections.musee-mccord-stewart.ca/en/objects/details/16209",
+     "accession": "M8486",
+     "rights_status": "check_required"
+    },
+    {
+     "source_id": "lac_rindisbacher_c1825_hbc_express_canoe",
+     "existing_source": false,
+     "evidences": "lead only: canoemen ca. 1825, image not viewed",
+     "grade": "unverified lead",
+     "url": "https://www.watercolourworld.org/painting/hudsons-bay-company-officials-express-canoe-crossing-lake-tww01579f",
+     "accession": "R9266-346",
+     "rights_status": "check_required"
+    }
+   ]
+  },
+  {
+   "role": "Black servant or enslaved person in the Old Northwest about 1810",
+   "build": {
+    "garments": [
+     "Evidence of dress in the region and period is THIN: no picture or description of a Black person's clothing at Chicago, Detroit, Vincennes or St. Louis about 1810 was found in this pass.",
+     "Presence is recorded: Wau-Bun names 'Black Jim, one of the servants' in the Kinzie family's boat on 15 August 1812 (no dress recorded), and the household's nurse 'Grutte'.",
+     "What can be built, as reconstruction bounded by eastern evidence: a working man in shirt (white, red or checked), waistcoat, loose linen or wool trousers, round black hat or head-wrap, shoes or barefoot in summer (Krimmel's Black Sawyers, Philadelphia 1811-13); a working woman in head-wrap, short gown or bodice and petticoat, apron (same sheet). The Wau-Bun French woman's dress (short gown, petticoat, head handkerchief) is the best Chicago-1812 evidence for any working woman of the household.",
+     "Do not dress the figure in livery or in anything implying a status the record does not give; record the identity as reconstructed."
+    ],
+    "colours": "as the working figures: white/red/checked shirt, striped or green waistcoat, blue or mustard trousers, black round hat; woman's head-wrap white or coloured, petticoat striped.",
+    "fit": "Loose working cut."
+   },
+   "references": [
+    {
+     "source_id": "kinzie_waubun_1856",
+     "existing_source": true,
+     "evidences": "'Black Jim, one of the servants' in the Kinzie boat, 15 August 1812; no dress",
+     "grade": "direct for presence, not dress",
+     "url": "https://archive.org/details/waubunearlydayin00kinz_0",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_krimmel_1811_black_sawyers_bank_of_pennsylvania",
+     "existing_source": false,
+     "evidences": "Black working men's and a woman's dress, Philadelphia 1811-13",
+     "grade": "direct for Philadelphia; analogy for the Old Northwest",
+     "url": "https://www.metmuseum.org/art/collection/search/12734",
+     "accession": "42.95.16",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_svinin_1811_black_methodists_prayer_meeting",
+     "existing_source": false,
+     "evidences": "Black Philadelphians' dress across ranks 1811-13",
+     "grade": "analogy",
+     "url": "https://www.metmuseum.org/art/collection/search/12733",
+     "accession": "42.95.19",
+     "rights_status": "public_domain"
+    },
+    {
+     "source_id": "met_krimmel_1811_merrymaking_wayside_inn",
+     "existing_source": false,
+     "evidences": "Black fiddler in green coat and round hat at a country inn",
+     "grade": "analogy",
+     "url": "https://www.metmuseum.org/art/collection/search/12728",
+     "accession": "42.95.12",
+     "rights_status": "public_domain"
+    }
+   ]
+  }
+ ],
+ "new_sources": [
+  {
+   "id": "met_krimmel_1811_black_sawyers_bank_of_pennsylvania",
+   "type": "illustration",
+   "citation": "John Lewis Krimmel, Black Sawyers Working in front of the Bank of Pennsylvania, Philadelphia, 1811-ca. 1813. The Metropolitan Museum of Art, 42.95.16.",
+   "author": "John Lewis Krimmel",
+   "date": "1811-ca. 1813",
+   "describes_date": "1811-1813",
+   "repository": "The Metropolitan Museum of Art; object 12734 in the museum's collection API (isPublicDomain: true), image DT1805 at images.metmuseum.org.",
+   "url": "https://www.metmuseum.org/art/collection/search/12734",
+   "locator": "Open-access image DT1805: the four sawyers and the woman holding a child, foreground.",
+   "tier": 1,
+   "rights_status": "public_domain",
+   "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+   "asset_use": "cross_check",
+   "verified": true,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). Watercolour drawn in the war years. Black working men sawing cordwood in shirtsleeves: white shirts, one red shirt, striped and green waistcoats, blue and mustard trousers, black round hats, one white head-wrap; a Black woman in a head-wrap, white bodice or short gown and a pink-striped petticoat carries a small child in a white frock with an orange wrap.",
+   "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record.",
+   "what_it_supplies": [
+    "working dress of free Black men and a woman in an American city 1811-1813, drawn at the time: shirtsleeves, waistcoats, round hats, head-wraps, short gown and striped petticoat, a child's frock"
+   ],
+   "what_it_does_not_supply": [
+    "the Old Northwest: this is Philadelphia",
+    "any enslaved or free person at Chicago"
+   ]
+  },
+  {
+   "id": "met_svinin_1811_black_methodists_prayer_meeting",
+   "type": "illustration",
+   "citation": "Pavel Petrovich Svinin, Black Methodists Holding a Prayer Meeting, 1811-ca. 1813. The Metropolitan Museum of Art, 42.95.19.",
+   "author": "Pavel Petrovich Svinin",
+   "date": "1811-ca. 1813",
+   "describes_date": "1811-1813",
+   "repository": "The Metropolitan Museum of Art; object 12733 in the museum's collection API (isPublicDomain: true), image DT1808 at images.metmuseum.org.",
+   "url": "https://www.metmuseum.org/art/collection/search/12733",
+   "locator": "Open-access image DT1808: the congregation, the preacher in the doorway.",
+   "tier": 1,
+   "rights_status": "public_domain",
+   "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+   "asset_use": "cross_check",
+   "verified": true,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). Watercolour. A Black congregation: men in round jackets and tail coats (blue, brown, red), yellow and striped trousers; women in white high-waisted gowns, head-wraps and caps, coloured petticoats; children in frocks.",
+   "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record.",
+   "what_it_supplies": [
+    "dress of Black Philadelphians of many ranks 1811-1813, drawn at the time: coats, jackets, trousers, white gowns, head-wraps"
+   ],
+   "what_it_does_not_supply": [
+    "working dress in the Old Northwest",
+    "anything about Chicago"
+   ]
+  },
+  {
+   "id": "met_krimmel_1811_merrymaking_wayside_inn",
+   "type": "illustration",
+   "citation": "John Lewis Krimmel, Merrymaking at a Wayside Inn, 1811-ca. 1813. The Metropolitan Museum of Art, 42.95.12.",
+   "author": "John Lewis Krimmel",
+   "date": "1811-ca. 1813",
+   "describes_date": "1811-1813",
+   "repository": "The Metropolitan Museum of Art; object 12728 in the museum's collection API (isPublicDomain: true), image DT1801 at images.metmuseum.org.",
+   "url": "https://www.metmuseum.org/art/collection/search/12728",
+   "locator": "Open-access image DT1801: the dancing couples and the fiddler.",
+   "tier": 1,
+   "rights_status": "public_domain",
+   "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+   "asset_use": "cross_check",
+   "verified": true,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). Watercolour of a country inn. Young men in shirtsleeves, red waistcoat or brown coat, red neckerchief, light trousers, tall round hats; young women in high-waisted gowns (blue, yellow) with red neckerchiefs crossed over the bosom, one in a bonnet trimmed green; a Black fiddler in a green coat and round hat; an older seated woman in a cap.",
+   "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record.",
+   "what_it_supplies": [
+    "rural working and holiday dress of men and women 1811-1813: shirtsleeves and waistcoats, round hats, high-waisted gowns with neckerchiefs, a bonnet"
+   ],
+   "what_it_does_not_supply": [
+    "the frontier; Pennsylvania, not Illinois"
+   ]
+  },
+  {
+   "id": "met_krimmel_1811_sunday_morning_arch_street",
+   "type": "illustration",
+   "citation": "John Lewis Krimmel, Sunday Morning in front of the Arch Street Meeting House, Philadelphia, 1811-ca. 1813. The Metropolitan Museum of Art, 42.95.17.",
+   "author": "John Lewis Krimmel",
+   "date": "1811-ca. 1813",
+   "describes_date": "1811-1813",
+   "repository": "The Metropolitan Museum of Art; object 12749 in the museum's collection API (isPublicDomain: true), image DP276569 at images.metmuseum.org.",
+   "url": "https://www.metmuseum.org/art/collection/search/12749",
+   "locator": "Open-access image DP276569: the five figures on the pavement.",
+   "tier": 1,
+   "rights_status": "public_domain",
+   "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+   "asset_use": "cross_check",
+   "verified": true,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). Watercolour. Two young women in white and cream high-waisted gowns with long sleeves, close bonnets and blue gloves, one with a parasol; an older woman in a brown gown and black bonnet; an older man in a drab coat, breeches and broad hat; a boy of about eight in a dark short jacket and long trousers with a white collar and a round hat.",
+   "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record.",
+   "what_it_supplies": [
+    "women's walking dress with close bonnets 1811-1813",
+    "a boy's jacket-and-trousers suit and round hat 1811-1813"
+   ],
+   "what_it_does_not_supply": [
+    "a frontier household; the sitters are Philadelphia Quakers"
+   ]
+  },
+  {
+   "id": "met_krimmel_1811_chimney_sweeps_christ_church",
+   "type": "illustration",
+   "citation": "John Lewis Krimmel, \"Worldly Folk\" Questioning Chimney Sweeps and Their Master before Christ Church, Philadelphia, 1811-ca. 1813. The Metropolitan Museum of Art, 42.95.15.",
+   "author": "John Lewis Krimmel",
+   "date": "1811-ca. 1813",
+   "describes_date": "1811-1813",
+   "repository": "The Metropolitan Museum of Art; object 12762 in the museum's collection API (isPublicDomain: true), image DT1804 at images.metmuseum.org.",
+   "url": "https://www.metmuseum.org/art/collection/search/12762",
+   "locator": "Open-access image DT1804: the couple at left, the master and the two boys.",
+   "tier": 1,
+   "rights_status": "public_domain",
+   "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+   "asset_use": "cross_check",
+   "verified": true,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). Watercolour. A fashionable woman in a white high-waisted gown, blue shawl and cap; a man in a green tailcoat, buff waistcoat and breeches, top boots and tall hat; a Black master sweep in a round hat, dark coat, red waistcoat and red neckcloth; two barefoot boy sweeps in ragged brown jackets and trousers with caps.",
+   "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record.",
+   "what_it_supplies": [
+    "a prosperous couple's street dress 1811-1813: tailcoat, top boots, white gown, shawl",
+    "working boys' ragged jackets and bare feet"
+   ],
+   "what_it_does_not_supply": [
+    "anything west of Philadelphia"
+   ]
+  },
+  {
+   "id": "met_ci_1810_american_boys_suit",
+   "type": "object",
+   "citation": "Suit (boy's), cotton, ca. 1810. The Metropolitan Museum of Art, 1997.509a-d.",
+   "author": "Unknown maker",
+   "date": "ca. 1810",
+   "describes_date": "1810",
+   "repository": "The Metropolitan Museum of Art; object 79705 in the museum's collection API (isPublicDomain: true), image DT4248 at images.metmuseum.org.",
+   "url": "https://www.metmuseum.org/art/collection/search/79705",
+   "locator": "The whole suit on its child-size mount (image DT4248).",
+   "tier": 1,
+   "rights_status": "public_domain",
+   "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+   "asset_use": "cross_check",
+   "verified": true,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). An American boy's suit: a tan-brown cotton double-breasted cutaway jacket with short tails, a matching waistcoat and long trousers, worn with a frilled shirt; the museum's label calls it 'this boy's suit in the New Republic double-breasted, cutaway style' that 'echoes the male style'.",
+   "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record.",
+   "what_it_supplies": [
+    "the cut of an American boy's suit about 1810: cutaway jacket, waistcoat, long trousers, frilled shirt collar"
+   ],
+   "what_it_does_not_supply": [
+    "the colour or cloth a frontier boy wore",
+    "a skeleton suit buttoned to the trousers"
+   ]
+  },
+  {
+   "id": "met_ci_1813_beecher_child_dress",
+   "type": "object",
+   "citation": "Dress (child's), cotton, ca. 1813. The Metropolitan Museum of Art, 2009.300.682.",
+   "author": "Unknown maker",
+   "date": "ca. 1813",
+   "describes_date": "1813",
+   "repository": "The Metropolitan Museum of Art; object 159240 in the museum's collection API (isPublicDomain: true), image 48.61.1_CP4 at images.metmuseum.org.",
+   "url": "https://www.metmuseum.org/art/collection/search/159240",
+   "locator": "The dress on its small form (image 48.61.1_CP4).",
+   "tier": 1,
+   "rights_status": "public_domain",
+   "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+   "asset_use": "cross_check",
+   "verified": true,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). A small white cotton dress with puffed short sleeves, high waist and embroidered hem; the museum page records that it was 'worn by the brother of Harriet Beecher Stowe', most likely Henry Ward Beecher (born 1813), so a dress worn by an infant boy.",
+   "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record.",
+   "what_it_supplies": [
+    "an American infant's white cotton frock about 1813, worn by a boy: infants of both sexes in frocks"
+   ],
+   "what_it_does_not_supply": [
+    "what a garrison child wore",
+    "the age at which a boy was breeched"
+   ]
+  },
+  {
+   "id": "met_johnson_1805_rutter_children",
+   "type": "illustration",
+   "citation": "Joshua Johnson, Edward and Sarah Rutter, ca. 1805. The Metropolitan Museum of Art, 65.254.3.",
+   "author": "Joshua Johnson",
+   "date": "ca. 1805",
+   "describes_date": "1805",
+   "repository": "The Metropolitan Museum of Art; object 11269 in the museum's collection API (isPublicDomain: true), image DT5512 at images.metmuseum.org.",
+   "url": "https://www.metmuseum.org/art/collection/search/11269",
+   "locator": "Open-access image DT5512: both children full length.",
+   "tier": 1,
+   "rights_status": "public_domain",
+   "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+   "asset_use": "cross_check",
+   "verified": true,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). Oil portrait of two Baltimore children. The boy, perhaps six, in a dark blue jacket and long trousers buttoned together (a skeleton-type suit, buttons at the waist), a wide frilled white collar, white stockings and black shoes; the girl, perhaps three, in a white high-waisted short-sleeved frock to the ankle, a coral necklace and red shoes.",
+   "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record.",
+   "what_it_supplies": [
+    "a boy's skeleton-type suit with frilled collar and a small girl's white frock about 1805"
+   ],
+   "what_it_does_not_supply": [
+    "a frontier family; these are Baltimore children painted in their best"
+   ]
+  },
+  {
+   "id": "met_johnson_1805_emma_van_name",
+   "type": "illustration",
+   "citation": "Joshua Johnson, Emma Van Name, ca. 1805. The Metropolitan Museum of Art, 2016.116.",
+   "author": "Joshua Johnson",
+   "date": "ca. 1805",
+   "describes_date": "1805",
+   "repository": "The Metropolitan Museum of Art; object 701989 in the museum's collection API (isPublicDomain: true), image DP-952-001 at images.metmuseum.org.",
+   "url": "https://www.metmuseum.org/art/collection/search/701989",
+   "locator": "Open-access image DP-952-001: the child full length.",
+   "tier": 1,
+   "rights_status": "public_domain",
+   "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+   "asset_use": "cross_check",
+   "verified": true,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). Oil portrait of a toddler girl in a pink spotted short-sleeved frock with tucks and white trim at the hem, a lace cap, red shoes and a coral necklace with whistle.",
+   "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record.",
+   "what_it_supplies": [
+    "a toddler's frock, cap and shoes about 1805"
+   ],
+   "what_it_does_not_supply": [
+    "anything about a frontier child"
+   ]
+  },
+  {
+   "id": "met_ci_1810_1820_american_linen_dress",
+   "type": "object",
+   "citation": "Dress, linen, 1810-1820. The Metropolitan Museum of Art, C.I.64.61.1.",
+   "author": "Unknown maker",
+   "date": "1810-1820",
+   "describes_date": "1810-1820",
+   "repository": "The Metropolitan Museum of Art; object 85429 in the museum's collection API (isPublicDomain: true), image C.I.64.61.1_F at images.metmuseum.org.",
+   "url": "https://www.metmuseum.org/art/collection/search/85429",
+   "locator": "The dress on its form (image C.I.64.61.1_F).",
+   "tier": 1,
+   "rights_status": "public_domain",
+   "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+   "asset_use": "cross_check",
+   "verified": true,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). An American white linen high-waisted day dress to the floor with long sleeves puffed at the shoulder, a front-buttoning bodice and a gathered skirt with a narrow frill at the hem.",
+   "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record.",
+   "what_it_supplies": [
+    "an American woman's plain high-waisted linen day dress of the 1810s"
+   ],
+   "what_it_does_not_supply": [
+    "a dated 1812 example; the range runs to 1820 and the puffed sleeve-heads may be later in it"
+   ]
+  },
+  {
+   "id": "met_ci_1813_spencer",
+   "type": "object",
+   "citation": "Spencer, wool and silk, 1813. The Metropolitan Museum of Art, C.I.39.13.48.",
+   "author": "Unknown maker",
+   "date": "1813",
+   "describes_date": "1813",
+   "repository": "The Metropolitan Museum of Art; object 108014 in the museum's collection API (isPublicDomain: true), image CI39.13.48_F1 at images.metmuseum.org.",
+   "url": "https://www.metmuseum.org/art/collection/search/108014",
+   "locator": "The archival photograph (CI39.13.48_F1) of the spencer worn over a dark skirt with a cap.",
+   "tier": 1,
+   "rights_status": "public_domain",
+   "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+   "asset_use": "cross_check",
+   "verified": true,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). A short-waisted jacket (spencer) ending at the high waistline, long sleeves puffed at the head, closed down the front with braid; culture recorded as American or European; the old photograph is black and white.",
+   "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record.",
+   "what_it_supplies": [
+    "the cut of a woman's spencer dated 1813, worn over a high-waisted gown"
+   ],
+   "what_it_does_not_supply": [
+    "colour (the image is black and white)",
+    "American origin (recorded as American or European)"
+   ]
+  },
+  {
+   "id": "met_ci_1812_american_bonnet",
+   "type": "object",
+   "citation": "Bonnet, cotton, ca. 1812. The Metropolitan Museum of Art, C.I.69.32.17.",
+   "author": "Unknown maker",
+   "date": "ca. 1812",
+   "describes_date": "1812",
+   "repository": "The Metropolitan Museum of Art; object 106037 in the museum's collection API (isPublicDomain: true), image CI69.32.17 at images.metmuseum.org.",
+   "url": "https://www.metmuseum.org/art/collection/search/106037",
+   "locator": "The bonnet, side view (image CI69.32.17).",
+   "tier": 1,
+   "rights_status": "public_domain",
+   "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+   "asset_use": "cross_check",
+   "verified": true,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). An American white cotton bonnet with a soft gathered crown, a frilled brim edge and long ties.",
+   "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record.",
+   "what_it_supplies": [
+    "an American woman's white cotton bonnet dated about 1812"
+   ],
+   "what_it_does_not_supply": [
+    "straw or silk bonnets, which the same years also show"
+   ]
+  },
+  {
+   "id": "met_ci_1810_1820_american_cap",
+   "type": "object",
+   "citation": "Cap, cotton, 1810-1820. The Metropolitan Museum of Art, 2009.300.2332.",
+   "author": "Unknown maker",
+   "date": "1810-1820",
+   "describes_date": "1810-1820",
+   "repository": "The Metropolitan Museum of Art; object 157146 in the museum's collection API (isPublicDomain: true), image 35.1240_CP3 at images.metmuseum.org.",
+   "url": "https://www.metmuseum.org/art/collection/search/157146",
+   "locator": "The cap on a head form (image 35.1240_CP3).",
+   "tier": 1,
+   "rights_status": "public_domain",
+   "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+   "asset_use": "cross_check",
+   "verified": true,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). An American embroidered fine white cotton cap shaped close to the head with lappets falling past the ears.",
+   "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record.",
+   "what_it_supplies": [
+    "an American woman's white cotton day cap of the 1810s"
+   ],
+   "what_it_does_not_supply": [
+    "a working woman's plainer cap"
+   ]
+  },
+  {
+   "id": "met_ci_1800_1810_american_shawl",
+   "type": "object",
+   "citation": "Shawl, cotton, 1800-1810. The Metropolitan Museum of Art, 1979.346.181.",
+   "author": "Unknown maker",
+   "date": "1800-1810",
+   "describes_date": "1800-1810",
+   "repository": "The Metropolitan Museum of Art; object 110201 in the museum's collection API (isPublicDomain: true), image 1979.346.181 at images.metmuseum.org.",
+   "url": "https://www.metmuseum.org/art/collection/search/110201",
+   "locator": "The shawl laid flat (image 1979.346.181).",
+   "tier": 1,
+   "rights_status": "public_domain",
+   "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+   "asset_use": "cross_check",
+   "verified": true,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). An American fine white cotton rectangular shawl with white embroidery in one corner.",
+   "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record.",
+   "what_it_supplies": [
+    "an American white cotton shawl of 1800-1810"
+   ],
+   "what_it_does_not_supply": [
+    "patterned wool or cashmere shawls, which Krimmel also shows"
+   ]
+  },
+  {
+   "id": "met_ci_1810_1820_coutts_coat_and_breeches",
+   "type": "object",
+   "citation": "Coat and Breeches, wool, 1810-1820. The Metropolitan Museum of Art, 08.187.1 and 08.187.3.",
+   "author": "Unknown maker",
+   "date": "1810-1820",
+   "describes_date": "1810-1820",
+   "repository": "The Metropolitan Museum of Art; object 91902 in the museum's collection API (isPublicDomain: true), image 08.187.1_F at images.metmuseum.org.",
+   "url": "https://www.metmuseum.org/art/collection/search/91902",
+   "locator": "Coat 08.187.1 (image 08.187.1_F) and breeches 08.187.3 (object 91903, image 08.187.3_F), both 'Gift of the family of Thomas Coutts, 1908'.",
+   "tier": 1,
+   "rights_status": "public_domain",
+   "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+   "asset_use": "cross_check",
+   "verified": true,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). British. A very dark brown-black wool double-breasted tailcoat cut square across the waist with tails to the knee, a turned-down collar and covered buttons; black wool knee breeches with a fall front and buttoned knee bands.",
+   "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record.",
+   "what_it_supplies": [
+    "the cut and cloth of a prosperous man's dark tailcoat and knee breeches of the 1810s"
+   ],
+   "what_it_does_not_supply": [
+    "an American or frontier merchant's dress (these are British)"
+   ]
+  },
+  {
+   "id": "met_ci_1815_tailcoat",
+   "type": "object",
+   "citation": "Tailcoat, wool, ca. 1815. The Metropolitan Museum of Art, 2014.501.",
+   "author": "Unknown maker",
+   "date": "ca. 1815",
+   "describes_date": "1815",
+   "repository": "The Metropolitan Museum of Art; object 657342 in the museum's collection API (isPublicDomain: true), image 2014.501_F at images.metmuseum.org.",
+   "url": "https://www.metmuseum.org/art/collection/search/657342",
+   "locator": "The coat on its form (image 2014.501_F).",
+   "tier": 1,
+   "rights_status": "public_domain",
+   "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+   "asset_use": "cross_check",
+   "verified": true,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). Probably British. A dark blue wool double-breasted tailcoat cut away square at the waist, high rolled collar and lapels, long tails behind.",
+   "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record.",
+   "what_it_supplies": [
+    "the cut of a dark blue gentleman's tailcoat about 1815"
+   ],
+   "what_it_does_not_supply": [
+    "an American provenance; a date before August 1812"
+   ]
+  },
+  {
+   "id": "met_peale_1811_anthony_wayne_robinson",
+   "type": "illustration",
+   "citation": "James Peale, Anthony Wayne Robinson, 1811. The Metropolitan Museum of Art, 2006.235.137.",
+   "author": "James Peale",
+   "date": "1811",
+   "describes_date": "1811",
+   "repository": "The Metropolitan Museum of Art; object 15145 in the museum's collection API (isPublicDomain: true), image DP217026 at images.metmuseum.org.",
+   "url": "https://www.metmuseum.org/art/collection/search/15145",
+   "locator": "Open-access image DP217026: the miniature.",
+   "tier": 1,
+   "rights_status": "public_domain",
+   "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+   "asset_use": "cross_check",
+   "verified": true,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). Watercolour on ivory miniature of an American man in a dark green coat with a high turned collar, a yellow waistcoat and a white neckcloth tied high.",
+   "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record.",
+   "what_it_supplies": [
+    "an American man's coat, waistcoat and neckcloth colours in 1811"
+   ],
+   "what_it_does_not_supply": [
+    "below the chest; a merchant's working dress"
+   ]
+  },
+  {
+   "id": "met_pixler_family_c1815",
+   "type": "illustration",
+   "citation": "The Abraham Pixler Family, ca. 1815. The Metropolitan Museum of Art, 66.242.3.",
+   "author": "Unknown maker",
+   "date": "ca. 1815",
+   "describes_date": "1815",
+   "repository": "The Metropolitan Museum of Art; object 12847 in the museum's collection API (isPublicDomain: true), image APS2276 at images.metmuseum.org.",
+   "url": "https://www.metmuseum.org/art/collection/search/12847",
+   "locator": "Image APS2276: the three boys below and the parents above.",
+   "tier": 1,
+   "rights_status": "public_domain",
+   "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+   "asset_use": "cross_check",
+   "verified": true,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). American folk watercolour: the father in a dark coat with yellow waistcoat and frilled shirt; the mother in a dark gown and white frilled cap; three boys in short jackets (green, dark) with wide white collars and long trousers, one checked, one spotted, one plain red-brown.",
+   "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record.",
+   "what_it_supplies": [
+    "rural American boys' short jackets, wide collars and patterned long trousers about 1815"
+   ],
+   "what_it_does_not_supply": [
+    "a frontier household; a precise date"
+   ]
+  },
+  {
+   "id": "met_rauschner_1810_family_in_a_park",
+   "type": "illustration",
+   "citation": "John Christian Rauschner, Father, Mother, and Child in a Park, ca. 1810. The Metropolitan Museum of Art, 2018.60.",
+   "author": "John Christian Rauschner",
+   "date": "ca. 1810",
+   "describes_date": "1810",
+   "repository": "The Metropolitan Museum of Art; object 770850 in the museum's collection API (isPublicDomain: true), image DP-24382-001 at images.metmuseum.org.",
+   "url": "https://www.metmuseum.org/art/collection/search/770850",
+   "locator": "Image DP-24382-001: the wax relief.",
+   "tier": 1,
+   "rights_status": "public_domain",
+   "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+   "asset_use": "cross_check",
+   "verified": true,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). American coloured-wax relief: a man in a black tailcoat with light-blue breeches or stockings, a woman in a white high-waisted gown, and a small child in a white frock.",
+   "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record.",
+   "what_it_supplies": [
+    "a family group's dress about 1810: tailcoat, white gown, infant's white frock"
+   ],
+   "what_it_does_not_supply": [
+    "anything about a frontier family"
+   ]
+  },
+  {
+   "id": "aic_stuart_1812_henry_dearborn",
+   "type": "illustration",
+   "citation": "Gilbert Stuart, Major-General Henry Dearborn, 1812, oil on mahogany panel. The Art Institute of Chicago, 1913.793 (Friends of American Art Collection).",
+   "author": "Gilbert Stuart",
+   "date": "1812",
+   "describes_date": "1812",
+   "repository": "The Art Institute of Chicago, artwork 69619 in the museum API (is_public_domain: true); IIIF image 8b2a82f5-0f04-4f9d-e6e8-c4e1247aac76.",
+   "url": "https://api.artic.edu/api/v1/artworks/69619",
+   "locator": "The whole panel.",
+   "tier": 1,
+   "rights_status": "public_domain",
+   "rights_note": "AIC marks the work public domain; its API data are CC0. Cross-check only.",
+   "asset_use": "cross_check",
+   "verified": true,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). The fort's namesake, painted in 1812: a dark blue coat with a high standing collar and lapels heavily embroidered in gold oak leaves, gold bullion epaulettes, a red sash or ribbon over the shoulder, a frilled shirt and white neckcloth. A general officer's dress, not a company officer's.",
+   "note": "A contrast for the company officers: the generals' gold embroidery is what the line officers did not wear.",
+   "what_it_supplies": [
+    "a dated 1812 picture of a United States general officer's coat and epaulettes"
+   ],
+   "what_it_does_not_supply": [
+    "a company officer's dress: infantry line officers wore silver, not gold embroidery",
+    "anything worn at Fort Dearborn"
+   ]
+  },
+  {
+   "id": "inde_peale_1808_zebulon_pike",
+   "type": "illustration",
+   "citation": "Charles Willson Peale, Zebulon Pike, 1808, oil. Independence National Historical Park, Philadelphia (catalogue number not verified).",
+   "author": "Charles Willson Peale",
+   "date": "1808",
+   "describes_date": "1808",
+   "repository": "Independence National Historical Park (National Park Service), as named by the viewed page; the page's original image is on Wikimedia Commons as File:ZebulonPikeByPeale.jpg (that page did not load).",
+   "url": "https://www.worldhistory.org/image/19742/zebulon-pike/",
+   "locator": "The portrait, head and shoulders.",
+   "tier": 1,
+   "rights_status": "check_required",
+   "rights_note": "Painted 1808, public domain by age; the viewed page marks the image public domain. The holding institution's own record and catalogue number were not opened; check before any asset use.",
+   "asset_use": "cross_check",
+   "verified": false,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). Viewed the 1200 x 900 reproduction: a young United States infantry officer in a dark blue coat, a high scarlet standing collar laced with silver loops, scarlet lapels or facings laced with silver, white-metal buttons with silver lace loops across the breast, a silver bullion epaulette, and a black stock.",
+   "note": "The best period picture found of an American infantry officer's coat before 1812; Pike's regiment and rank in 1808 are not recorded from this page.",
+   "what_it_supplies": [
+    "a dated 1808 American infantry officer's coat: blue, scarlet collar and facings, silver lace, white buttons, silver epaulette, black stock"
+   ],
+   "what_it_does_not_supply": [
+    "the coat below the chest, the hat, sash or sword",
+    "Captain Heald's or Lieutenant Helm's own dress",
+    "the catalogue record of the holding institution"
+   ]
+  },
+  {
+   "id": "reenact_23rd_us_1812_uniform_notes",
+   "type": "secondary_web",
+   "citation": "23rd Infantry Regiment Reenactment, \"American Military Uniforms in the War of 1812\" (web page, no author named).",
+   "author": "23rd U.S. Infantry reenactment group (unnamed author)",
+   "date": "undated web page",
+   "describes_date": "1812-1813",
+   "repository": "23rdus1812reg.org",
+   "url": "http://www.23rdus1812reg.org/USUniform01.htm",
+   "locator": "The whole page; the transcribed Adjutant General's description of 30 December 1812.",
+   "tier": 5,
+   "rights_status": "check_required",
+   "rights_note": "The quoted 1812 government text is public domain; the page itself is a private site. Text only.",
+   "asset_use": "text_only",
+   "verified": false,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). Prints, as from the Adjutant General's Office, 30 December 1812, a coat 'blue ... with scarlet collars and cuff; the length to reach the bend of the knee; single breasted with one row of ten buttons ... white linings; The buttons white ... standing collar ... laced 4.5 inches long with silver lace ... skirts ... lined and faced with white cloth, with a diamond of scarlet cloth ... laced with silver lace' (an officer's coat by its lace); says 'musicians wore red uniforms' and 'Medical staff wore the same uniform, but with blue collars and cuffs'. No archival citation is given for any quotation.",
+   "note": "A lead, not evidence: every quotation needs finding in the War Department records (National Archives) or a printed edition before it can carry a garment.",
+   "what_it_supplies": [
+    "a transcription to verify: the infantry officer's coat as described in December 1812 (blue, scarlet collar and cuffs, silver lace, white buttons, white turnbacks, knee length)",
+    "a claim to verify that musicians wore red"
+   ],
+   "what_it_does_not_supply": [
+    "a primary source in hand",
+    "anything about Fort Dearborn"
+   ]
+  },
+  {
+   "id": "lambert_1810_travels_lower_canada_v1",
+   "type": "book",
+   "citation": "John Lambert, Travels through Lower Canada, and the United States of North America, in the years 1806, 1807, and 1808, vol. 1. London: Richard Phillips, 1810.",
+   "author": "John Lambert",
+   "date": "1810",
+   "describes_date": "1806-1808",
+   "repository": "Internet Archive item travelsthroughlo01lamb.",
+   "url": "https://archive.org/details/travelsthroughlo01lamb",
+   "locator": "Pp. 162-164 (the dress of the Habitant; the women; home manufacture); p. 93-94 (moccasins); the winter dress passage later in the volume (Bath great coats, sash with beads, fur cap).",
+   "tier": 1,
+   "rights_status": "public_domain",
+   "rights_note": "Printed 1810; public domain. Text only.",
+   "asset_use": "text_only",
+   "verified": true,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). Read in the scan's full text: the Habitant wears 'a long-skirted cloth coat or frock, of a dark grey colour, with a hood attached to it ... His coat is tied round the waist by a worsted sash of various colours, ornamented with beads. His waistcoat and trowsers are of the same cloth. A pair of moccasins, or swamp-boots, complete the lower part of his dress. His hair is tied in a thick long queue behind ... Upon his head is a bonnet rouge, or in other words, a red night-cap'; 'in summer, the long coat is exchanged for a jacket, and the bonnet rouge for a straw hat'. Women: 'printed cotton gowns, muslin aprons, shawls, and handkerchiefs; but there are numbers who wear only cloth of their own manufacture ... A petticoat and short jacket, is the most prevailing dress'; elderly women keep 'long waists, full caps'. They knit 'stockings and bonnets rouge' and plait straw 'summer hats and bonnets'.",
+   "note": "Lower Canada, the parishes the engagés came from; an eyewitness of 1806-1808.",
+   "what_it_supplies": [
+    "French-Canadian men's dress 1806-1808: grey hooded capot, beaded worsted sash, same-cloth waistcoat and trousers, moccasins, red knitted cap, queue; summer jacket and straw hat",
+    "French-Canadian women's dress: petticoat and short jacket of homespun, or printed cotton gown, muslin apron, shawl, handkerchief, full cap"
+   ],
+   "what_it_does_not_supply": [
+    "voyageurs at Chicago or Métis dress in the Illinois country",
+    "pictures"
+   ]
+  },
+  {
+   "id": "heriot_1807_travels_through_the_canadas",
+   "type": "book",
+   "citation": "George Heriot, Travels through the Canadas. London: Richard Phillips, 1807.",
+   "author": "George Heriot",
+   "date": "1807",
+   "describes_date": "1800-1807",
+   "repository": "Internet Archive item travelsthroughca00heri_2.",
+   "url": "https://archive.org/details/travelsthroughca00heri_2",
+   "locator": "P. 236 (the canoemen of the Montreal trade: 'To each man, a blanket, shirt, and pair of trowsers are supplied'); the passage on home manufacture of 'druggets, coarse linens, stockings, and worsted caps knitted with wires' and straw hats.",
+   "tier": 1,
+   "rights_status": "public_domain",
+   "rights_note": "Printed 1807; public domain. Text only.",
+   "asset_use": "text_only",
+   "verified": true,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). Read in the scan's full text. The voyageurs' issue is a blanket, shirt and trousers; Canadians knit worsted caps and plait straw hats.",
+   "note": "Heriot's fur-trade passage follows earlier published accounts of the North West Company's trade; it is a summary, not a muster.",
+   "what_it_supplies": [
+    "the issue a Montreal canoeman drew about 1800-1807: blanket, shirt, trousers",
+    "home-knitted worsted caps and straw hats in Canada"
+   ],
+   "what_it_does_not_supply": [
+    "cut or colour of any garment",
+    "pictures (the book's plates were not examined)"
+   ]
+  },
+  {
+   "id": "mccord_m8486_arrow_sash_c1800",
+   "type": "object",
+   "citation": "Arrow sash (ceinture fléchée), about 1800, Quebec; wool and glass beads, 11 x 288 cm. McCord Stewart Museum, M8486 (Gift of Robert W. Reford).",
+   "author": "Unknown maker",
+   "date": "about 1800",
+   "describes_date": "1800",
+   "repository": "McCord Stewart Museum, Montreal.",
+   "url": "https://collections.musee-mccord-stewart.ca/en/objects/details/16209",
+   "locator": "The object record.",
+   "tier": 1,
+   "rights_status": "check_required",
+   "rights_note": "The record gives no licence; the museum's rights-and-reproductions terms were not read and the image was not viewed. Text only until cleared.",
+   "asset_use": "text_only",
+   "verified": false,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). Record read (the image itself could not be fetched): arrow sash, about 1800, Quebec, Eastern Woodlands geocultural area, wool and glass beads, 11 x 288 cm.",
+   "note": "Matches Lambert's 'worsted sash of various colours, ornamented with beads' in date, place and materials; its colours were not seen.",
+   "what_it_supplies": [
+    "a surviving beaded wool sash of about 1800 from Quebec: width about 11 cm, length about 2.9 m"
+   ],
+   "what_it_does_not_supply": [
+    "its colours or pattern (image not viewed)",
+    "who wore it"
+   ]
+  },
+  {
+   "id": "lac_rindisbacher_c1825_hbc_express_canoe",
+   "type": "illustration",
+   "citation": "Peter Rindisbacher, Hudson's Bay Company officials in an express canoe crossing a lake, ca. 1825, watercolour. Library and Archives Canada, R9266-346 (Peter Winkworth Collection of Canadiana).",
+   "author": "Peter Rindisbacher",
+   "date": "ca. 1825",
+   "describes_date": "1821-1825",
+   "repository": "Library and Archives Canada, as listed by The Watercolour World.",
+   "url": "https://www.watercolourworld.org/painting/hudsons-bay-company-officials-express-canoe-crossing-lake-tww01579f",
+   "locator": "The listing.",
+   "tier": 1,
+   "rights_status": "check_required",
+   "rights_note": "The Watercolour World marks it 'Copyright Expired'; LAC's own record was not opened and the image was not viewed.",
+   "asset_use": "cross_check",
+   "verified": false,
+   "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). Listing read; the picture was not seen.",
+   "note": "A lead for paddlers' dress; Red River and Hudson's Bay Company, a decade late.",
+   "what_it_supplies": [
+    "a lead to an eyewitness picture of canoemen, ca. 1825"
+   ],
+   "what_it_does_not_supply": [
+    "anything until the image is viewed",
+    "the Chicago trade of 1812"
+   ]
+  }
+ ],
+ "notes": "All Met objects were checked in the Met collection API (isPublicDomain true) and every image named was downloaded and looked at on 2026-11-07; descriptions are what was seen, not catalogue text, except where the museum label is quoted. Every museum garment is a pattern for cut and cloth, not evidence of what anyone at Chicago wore. Strongest Chicago-specific evidence: Wau-Bun (1856; existing source kinzie_waubun_1856) for the women's bonnets, muslin gown, shawls, ribbons and feathers at the fort, the 'ordinary dress of a French woman of the country' (short gown, petticoat, blue cotton head-handkerchief), and Black Jim's presence. Recommend extending the existing records rather than duplicating them: met_krimmel_1813_philadelphia_soldiery (its access_notes miss the officer in chapeau, sash and boots and the drummer in a red coat faced blue); us_1814_military_laws_and_regulations (pp. 263-273 carry the staff/artillery/dragoon officer and NCO details used here by analogy, including surgeons' and mates' black velvet cape and black plume); kinzie_waubun_1856 (locator should add the 1812 narrative and the p. 44 tuque). Gaps and leads not verified: (1) H. A. Ogden plate XII, 'General, staff, infantry 1810-1813' (1888; a later reconstruction like the existing plate XI) is the natural companion to loc_ogden_1888_infantry_artillery_1802_1810, but loc.gov was blocked by a bot check this session and the item was not opened. (2) The 30 December 1812 Adjutant General's description is known here only through a reenactor page with no archival citation; find it in the War Department letters (National Archives RG 107 / RG 92) or a printed edition before relying on it. (3) No infantry-specific primary text for 1812 sergeants' or corporals' marks or musicians' coats was found; the NCO epaulettes come from the 1814 light dragoon text and the red musician's coat from Krimmel's volunteer drummer. (4) No fatigue-cap evidence for 1812; the issue has a frock and trousers only. (5) No portrait of Nathan or Rebekah Heald, Linai or Margaret Helm, John or Eleanor Kinzie, or Isaac Van Voorhis was found. (6) Runaway advertisements in the Missouri Gazette (St. Louis, 1808-) or Vincennes Western Sun would be the regional evidence for Black and working dress about 1810; not searched successfully in this pass. (7) The McCord sash and the Rindisbacher canoe were not seen as images; colours are reconstruction. (8) Andrew Jackson's uniform coat (NMAH AF.16082, ca. 1812-13, CC0 per the Smithsonian open-access API) exists as a surviving 1812-era officer's coat, but no record page was opened; a general's coat in any case. Do not invent Native dress here; another researcher covers Potawatomi and Miami dress."
+}

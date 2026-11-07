@@ -41859,6 +41859,15 @@ photograph of the open door or of the hall from the entrance for the swing and t
 **Ticket:** T-3442.
 **Recorded:** 2026-11-07 (T-3442).
 
+### L-1812-people-3461 — The people of Chicago on 14 August 1812: who is carded, which roof each family is given, and the counted people nobody names
+
+**Decision:** the 1812 scene's people layer (`data/residents_1812/households/`) carries everyone a four-part research sweep (T-3461, `docs/RESEARCH/people-1812-3461/`) found at the post on the afternoon of 14 August 1812: the 55 regulars of Heald's company on its muster-roll to 31 May 1812 (Quaife 1913, App. VIII), the women and children of the garrison and the militia families, the Kinzie, Ouilmette, Burns and Lee households, William Wells, and the Potawatomi people the sources name. Three things on those cards are ours. (1) **Which roof.** No source says which room of the fort any soldier or soldier's family lived in; only the commanding officer's quarters are named in an account of 1812. The four married privates' families are put in the two small houses and the two soldiers' barracks of Whistler's 1808 index, the single men in the barracks and the north range, and the junior officers in the officers' barracks, each association graded `reconstructed`. (2) **Presence that afternoon.** No roll was called on 14 August. Every man on the 31 May roll is taken as present, as Quaife takes him (App. IX: "no reason to suppose that there was any alteration in this number"); a person no account of the battle or its captives names is marked `probably present` on their own card. (3) **The counted and unnamed.** Quaife counts twelve militia and eighteen children with the evacuation; at least six militiamen and seven children have no name in any source. Each has a card graded `reconstructed`, standing for one of the counted, with nothing about him or her but the count. Wells's Miami escort (about thirty, named by no source) and the families of the Potawatomi camp (Helm's 500 warriors and 179 women and children on 12 August) are left to T-3467, which cards them when it places them.
+
+**Not invented:** any name, birth year, rank, family tie or fate. Each of those is a field of the reading, with its source, locator and quote on the person's `evidence`. Wau-Bun's dialogue is not quoted as speech; where a story is Kinzie family tradition the card says so.
+**Re-opens on:** a quartering return or order book of the 1812 garrison; a name for any counted person, which retires one reconstructed card.
+**Ticket:** T-3461.
+**Recorded:** 2026-11-07.
+
 ### L-first-fort-blockhouse-cupolas-3041 — cupolas on the first fort's two blockhouses
 
 **Decision:** Build a small square cupola under its own pyramid cap at the apex of both first-fort

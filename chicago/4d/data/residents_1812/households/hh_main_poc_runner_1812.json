@@ -1,0 +1,66 @@
+{
+  "id": "hh_main_poc_runner_1812",
+  "scene": "1812",
+  "name": "A runner from Main Poc",
+  "head": "main_poc_runner",
+  "division": "camp",
+  "review_required": true,
+  "touches_removal": true,
+  "review_note": "review_required: a Potawatomi person of the gathering at Chicago in August 1812, the eve of the battle in which the garrison and its families were attacked. The card states only what the named sources say, says where a story is Kinzie family tradition rather than a contemporary account, and stages no speech or ceremony.",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "quaife_1913"
+    ],
+    "note": "Each person's own card says how their presence on 14 August is known."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "potawatomi_camp_1812_mouth",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "quaife_1913",
+      "also_sources": [],
+      "note": "No source places him in the camp; the card is put at one of the camp's grounds on the creek (the 1812 camp records) so it can be found, a reconstructed choice (liberty L-1812-people-3461)."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "Everyone the T-3461 sweep found in this household on 14 August is on the card.",
+    "sources": [
+      "quaife_1913"
+    ]
+  },
+  "persons": [
+    {
+      "id": "main_poc_runner",
+      "name": "A runner from Main Poc, name not recorded",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Arrived on the 14th (Missouri Gazette via Quaife). No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "Messenger bearing a large red belt and news of British success. Potawatomi (presumed).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a Potawatomi person of the gathering at Chicago in August 1812, the eve of the battle in which the garrison and its families were attacked. The card states only what the named sources say, says where a story is Kinzie family tradition rather than a contemporary account, and stages no speech or ceremony.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Appendix II, lines 15731-15732",
+          "quote": "on the fourteenth an Indian runner arrived with a large red belt.",
+          "claim": "Arrived on the 14th with a red belt",
+          "tier": "contemporary newspaper (Missouri Gazette, 19 Sept 1812) via Quaife"
+        }
+      ]
+    }
+  ]
+}
