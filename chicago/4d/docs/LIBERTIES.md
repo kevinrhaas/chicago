@@ -41516,3 +41516,31 @@ the match record. The 1874 Land Owner engraving is not read.
 K01 door hood.
 **Ticket:** T-1886.
 **Recorded:** 2026-11-07 (T-1886).
+
+### L-k01-2009-meyer-north-stack-3365 — 2009 Prairie's near north stack built astride the north wall, its breast carried up the flank from the ground, and its head as its photograph draws it
+
+**Decision:** the tall stack the Chicagology photograph (`chicagology_2009_prairie_meyer_photo`, rights
+check_required: forms, places and sizes only) shows rising at 2009 Prairie's north flank no longer stands
+0.7 m inside the north wall, where K01 could stand it: K01 gains a hip house's stack astride a side wall
+(`chimneys.stacks[].astride_wall`, K01's south wall at v 0), and the stack stands with the wall's line
+through its middle at u 23.6 m. Its head is laid with the K15 kit (`chimneys.k15`, from `k15.stack.ridge`):
+a 0.07 m band 0.03 m proud, a stage of two 0.22 m courses 0.05 m proud, and a stone cap 0.24 m deep and
+0.07 m out. Monroe's farther stack takes the same head.
+**What is read, not invented.** The shaft's place across the flank and its width (x 336-412 px on the print,
+about 0.84 m, on the wall's line through the camera; the render's shaft lands at x 327-410 px); that Monroe's
+plate draws it at the flank beside the gable's kneeler; its top, about 1.7 m over the ridge (the render's
+within 0.1 m of the print's); the head's band, its proud stage and its cap, and their depths.
+**What is invented.** The stack's place back from the front (2.4 m, from the camera on the wall's line, then
+held 0.1 m clear of the tall light 1.4 m behind the front corner); its depth along the flank (0.9 m, the
+record's); everything below the eave: the part outside the wall is carried up the flank from the ground as a
+breast, because a 0.1 m eave cannot carry a stack standing 0.42 m out of the wall, and both pictures hide the
+flank there behind trees. The head's projections are read to about 0.02 m; the cap's weathered top is
+drawn flat; the farther stack's head is the near one's.
+**What is built otherwise than the evidence, and why.** The stacks keep the side walls' buff brick, where the
+print draws them as dark as the front's rough brick; the print is monochrome, and the brick is the house's
+own choice (the match record keeps it open).
+**What is not built.** The gable's south foot is still as L-k01-2009-meyer-1913 left it.
+**How to resolve:** a camera solved on Monroe's 1896 plate (`monroe_1896_john_wellborn_root_meyer_plate`),
+which sees the flank from the north-west, would place the stack along it and might show its breast.
+**Ticket:** T-3365 (piece 2 of T-1914).
+**Recorded:** 2026-11-07 (T-3365).
