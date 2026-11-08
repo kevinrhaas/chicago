@@ -555,6 +555,10 @@ def write(check=False):
                                         'sources': cited[:3]}
         rec['persons'] = persons
         out[f"{h['hid']}.json"] = rec
+    # T-3507..T-3509: the 15th on the named Native cards, names for the two no source names
+    sys.path.insert(0, str(ROOT / 'tools'))
+    import native_cards_1812 as nc
+    nc.apply_households({n[:-5]: r for n, r in out.items()})
     faults = []
     for name, rec in out.items():
         for p in rec['persons']:

@@ -37,10 +37,11 @@
   "persons": [
     {
       "id": "main_poc_runner",
-      "name": "A runner from Main Poc, name not recorded",
+      "name": "Fox Running",
       "relationship": "head",
       "grade": "attested",
       "sources": [
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "present_on_scene_date": {
@@ -60,7 +61,48 @@
           "claim": "Arrived on the 14th with a red belt",
           "tier": "contemporary newspaper (Missouri Gazette, 19 Sept 1812) via Quaife"
         }
-      ]
+      ],
+      "also_written": [
+        "A runner from Main Poc, name not recorded"
+      ],
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him. A name of our making, given in English as the treaty clerks of 1815-16 wrote many names of these bands, and made as Morgan says names were: a gens owned its names, and a name spoke of it. This one speaks of the Fox (Wake-shĭ′)."
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Fox (Wake-shĭ′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Not recorded",
+          "grade": "inferred"
+        }
+      ],
+      "reconstruction": {
+        "name": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "on_15_august": {
+        "value": "Not recorded",
+        "grade": "inferred",
+        "note": "The Missouri Gazette brings him on the 14th with a red belt; nothing more.",
+        "sources": [
+          "quaife_1913"
+        ]
+      }
     }
   ]
 }

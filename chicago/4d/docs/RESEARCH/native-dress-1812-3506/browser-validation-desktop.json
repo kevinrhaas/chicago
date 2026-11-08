@@ -1,0 +1,2096 @@
+{
+  "method": "Published /1812/ app, normal boot; animation paused after readiness, the sun set to 14 August 10:00 and the day layer stepped by hand. T-3506: every built Potawatomi and Miami figure read for its own dress.",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "errors": [],
+      "bad": [],
+      "built": 163,
+      "twins": [],
+      "cuts": [
+        null
+      ],
+      "headcloths": 15,
+      "stands": [
+        {
+          "name": "middle-ground",
+          "near": [
+            "gathering_1812_middle_024",
+            "gathering_1812_middle_050",
+            "gathering_1812_middle_053"
+          ],
+          "problems": [
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "miami_escort_camp_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_far_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_head_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_north_flat: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_prairie_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_bend: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_prairie: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release"
+          ]
+        },
+        {
+          "name": "the-bend",
+          "near": [
+            "gathering_1812_south_bend_019",
+            "gathering_1812_south_bend_049",
+            "gathering_1812_south_bend_023"
+          ],
+          "problems": [
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "miami_escort_camp_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_far_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_head_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_north_flat: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_prairie_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_bend: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_prairie: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release"
+          ]
+        },
+        {
+          "name": "north-flat-men",
+          "near": [
+            "gathering_1812_north_flat_043",
+            "gathering_1812_north_flat_046",
+            "gathering_1812_north_flat_001"
+          ],
+          "problems": [
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "miami_escort_camp_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_far_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_head_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_north_flat: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_prairie_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_bend: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_prairie: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release"
+          ]
+        },
+        {
+          "name": "west-bank",
+          "near": [
+            "gathering_1812_west_bank_048",
+            "gathering_1812_west_bank_041",
+            "gathering_1812_west_bank_023"
+          ],
+          "problems": [
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "miami_escort_camp_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_far_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_head_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_north_flat: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_prairie_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_bend: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_prairie: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release"
+          ]
+        }
+      ],
+      "dressed": [
+        {
+          "person": "gathering_1812_far_west_004",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=3d4864,accessory__garters_woven_dark_1812=7d362f,footwear__moccasins_smoked_1812=7e6c54,garment_lower__breechcloth_broadcloth_blue_1812=1f1f23,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=222226,garment_lower__leggings_stroud_scarlet_1812=222226,garment_upper__shirt_check_blue_1812=ab9367,garment_upper__shirt_check_blue_1812=ab9367|blanket_stripes,blanket_wrap,silver_arm_bands,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "silver_arm_bands",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_far_west_005",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=80734a,accessory__garters_woven_dark_1812=803830,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=7a634d,garment_lower__breechcloth_broadcloth_blue_1812=2c3452,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=333d5b,garment_lower__leggings_stroud_scarlet_1812=333d5b,garment_outer__blanket_stripe_dark_1812=292d40,garment_outer__blanket_wool_white_1812=b2aea4,garment_upper__shirt_check_blue_1812=a8afc0,garment_upper__shirt_check_blue_1812=a8afc0|silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_far_west_006",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=776a45,accessory__garters_woven_dark_1812=873b33,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=796751,garment_lower__breechcloth_broadcloth_blue_1812=29314d,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=303a57,garment_lower__leggings_stroud_scarlet_1812=303a57,garment_outer__blanket_stripe_dark_1812=b1ada3,garment_outer__blanket_wool_white_1812=344061,garment_upper__shirt_check_blue_1812=ad7f76,garment_upper__shirt_check_blue_1812=ad7f76|silver_arm_bands||true",
+          "cut": null,
+          "headcloth": true,
+          "hidden": [
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "gathering_1812_far_west_016",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=444e69,accessory__garters_woven_dark_1812=978346,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=7f6c55,garment_lower__breechcloth_broadcloth_blue_1812=2b324e,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=333c59,garment_lower__leggings_stroud_scarlet_1812=333c59,garment_upper__shirt_check_blue_1812=7b5c49,garment_upper__shirt_check_blue_1812=7b5c49|blanket_stripes,blanket_wrap||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap"
+          ]
+        },
+        {
+          "person": "gathering_1812_far_west_021",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=84433e,accessory__garters_woven_dark_1812=917e43,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=7c6a53,garment_lower__breechcloth_broadcloth_blue_1812=2d3553,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=374161,garment_lower__leggings_stroud_scarlet_1812=374161,garment_upper__shirt_check_blue_1812=7f3d36,garment_upper__shirt_check_blue_1812=7f3d36|blanket_stripes,blanket_wrap,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_far_west_025",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=8c433c,accessory__garters_woven_dark_1812=883b33,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=826f57,garment_lower__breechcloth_broadcloth_blue_1812=2a3251,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=354062,garment_lower__leggings_stroud_scarlet_1812=354062,garment_outer__blanket_stripe_dark_1812=aba89d,garment_outer__blanket_wool_white_1812=37446a,garment_upper__shirt_check_blue_1812=4a5372,garment_upper__shirt_check_blue_1812=4a5372|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_far_west_043",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=3f4b68,accessory__garters_woven_dark_1812=383c52,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=5a4835,garment_lower__breechcloth_broadcloth_blue_1812=212124,garment_lower__leggings_stroud_scarlet_1812=725d48,garment_lower__leggings_stroud_scarlet_1812=725d48,garment_outer__blanket_stripe_dark_1812=2e3248,garment_outer__blanket_wool_white_1812=bcb8ad,garment_upper__shirt_check_blue_1812=939aa9,garment_upper__shirt_check_blue_1812=939aa9|legging_selvage,silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "legging_selvage",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "gathering_1812_far_west_045",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=89423c,accessory__garters_woven_dark_1812=803830,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=715c47,garment_lower__breechcloth_broadcloth_blue_1812=232326,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=303a59,garment_lower__leggings_stroud_scarlet_1812=303a59,garment_upper__shirt_check_blue_1812=7c5b46,garment_upper__shirt_check_blue_1812=7c5b46|blanket_stripes,blanket_wrap||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap"
+          ]
+        },
+        {
+          "person": "gathering_1812_far_west_046",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=453527,footwear__moccasins_smoked_1812=6e5a45,garment_lower__breechcloth_broadcloth_blue_1812=1f1f22,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=2f4c39,garment_lower__leggings_stroud_scarlet_1812=2f4c39,garment_upper__shirt_check_blue_1812=969eaf,garment_upper__shirt_check_blue_1812=969eaf|blanket_stripes,blanket_wrap,garters,silver_arm_bands,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "garters",
+            "silver_arm_bands",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_far_west_053",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=3c4661,accessory__garters_woven_dark_1812=313131,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=816e57,garment_lower__breechcloth_broadcloth_blue_1812=92433b,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=303b5a,garment_lower__leggings_stroud_scarlet_1812=303b5a,garment_outer__blanket_stripe_dark_1812=a8a59a,garment_outer__blanket_wool_white_1812=333f62,garment_upper__shirt_check_blue_1812=89909d,garment_upper__shirt_check_blue_1812=89909d|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_far_west_057",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=776a45,accessory__garters_woven_dark_1812=333333,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=735e48,garment_lower__breechcloth_broadcloth_blue_1812=212124,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=314b39,garment_lower__leggings_stroud_scarlet_1812=314b39,garment_outer__blanket_stripe_dark_1812=a6a299,garment_outer__blanket_wool_white_1812=bebbb1,garment_upper__shirt_check_blue_1812=8f453c,garment_upper__shirt_check_blue_1812=8f453c|silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "gathering_1812_head_west_001",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=7c6f47,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=5c4937,garment_lower__breechcloth_broadcloth_blue_1812=2b3351,garment_lower__leggings_stroud_scarlet_1812=364162,garment_lower__leggings_stroud_scarlet_1812=364162,garment_upper__shirt_check_blue_1812=9aa2b1,garment_upper__shirt_check_blue_1812=9aa2b1|blanket_stripes,blanket_wrap,garters,legging_selvage||true",
+          "cut": null,
+          "headcloth": true,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "garters",
+            "legging_selvage"
+          ]
+        },
+        {
+          "person": "gathering_1812_head_west_002",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=873f39,accessory__garters_woven_dark_1812=303030,footwear__moccasins_smoked_1812=6b5743,garment_lower__breechcloth_broadcloth_blue_1812=262f4d,garment_lower__leggings_stroud_scarlet_1812=2e4937,garment_lower__leggings_stroud_scarlet_1812=2e4937,garment_upper__shirt_check_blue_1812=556a4c,garment_upper__shirt_check_blue_1812=556a4c|blanket_stripes,blanket_wrap,legging_selvage,silver_arm_bands,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "legging_selvage",
+            "silver_arm_bands",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_head_west_005",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=82744c,accessory__garters_woven_dark_1812=333333,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=5e4a38,garment_lower__breechcloth_broadcloth_blue_1812=29304c,garment_lower__leggings_stroud_scarlet_1812=803c36,garment_lower__leggings_stroud_scarlet_1812=803c36,garment_outer__blanket_stripe_dark_1812=b3afa5,garment_outer__blanket_wool_white_1812=364f3f,garment_upper__shirt_check_blue_1812=a2766e,garment_upper__shirt_check_blue_1812=a2766e|legging_selvage,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "legging_selvage",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_head_west_011",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=47516d,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=67523e,garment_lower__breechcloth_broadcloth_blue_1812=2c3450,garment_lower__leggings_stroud_scarlet_1812=313b57,garment_lower__leggings_stroud_scarlet_1812=313b57,garment_upper__shirt_check_blue_1812=795b48,garment_upper__shirt_check_blue_1812=795b48|blanket_stripes,blanket_wrap,garters,legging_selvage||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "garters",
+            "legging_selvage"
+          ]
+        },
+        {
+          "person": "gathering_1812_head_west_015",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=3f4863,footwear__moccasins_smoked_1812=634f3b,garment_lower__breechcloth_broadcloth_blue_1812=88403a,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=843e39,garment_lower__leggings_stroud_scarlet_1812=843e39,garment_upper__shirt_check_blue_1812=c1bcb2,garment_upper__shirt_check_blue_1812=c1bcb2|blanket_stripes,blanket_wrap,garters,silver_arm_bands,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "garters",
+            "silver_arm_bands",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_head_west_016",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=3f4b68,accessory__garters_woven_dark_1812=33374c,footwear__moccasins_smoked_1812=7d6b54,garment_lower__breechcloth_broadcloth_blue_1812=262e4c,garment_lower__leggings_stroud_scarlet_1812=79634d,garment_lower__leggings_stroud_scarlet_1812=79634d,garment_upper__shirt_check_blue_1812=8b7761,garment_upper__shirt_check_blue_1812=8b7761|blanket_stripes,blanket_wrap,legging_selvage,silver_arm_bands,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "legging_selvage",
+            "silver_arm_bands",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_head_west_027",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=3d4761,accessory__garters_woven_dark_1812=998547,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=614d3a,garment_lower__breechcloth_broadcloth_blue_1812=2e3757,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=783b37,garment_lower__leggings_stroud_scarlet_1812=783b37,garment_outer__blanket_stripe_dark_1812=2a2e42,garment_outer__blanket_wool_white_1812=bab7ac,garment_upper__shirt_check_blue_1812=5e7355,garment_upper__shirt_check_blue_1812=5e7355|silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "gathering_1812_head_west_040",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=47382b,accessory__garters_woven_dark_1812=313131,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=6b5743,garment_lower__breechcloth_broadcloth_blue_1812=2f3755,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=86403a,garment_lower__leggings_stroud_scarlet_1812=86403a,garment_outer__blanket_stripe_dark_1812=26262a,garment_outer__blanket_wool_white_1812=843b38,garment_upper__shirt_check_blue_1812=868c99,garment_upper__shirt_check_blue_1812=868c99|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_head_west_044",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=473629,accessory__garters_woven_dark_1812=34384c,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=624e3a,garment_lower__breechcloth_broadcloth_blue_1812=2b3454,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=873b35,garment_lower__leggings_stroud_scarlet_1812=873b35,garment_upper__shirt_check_blue_1812=8f7a64,garment_upper__shirt_check_blue_1812=8f7a64|blanket_stripes,blanket_wrap,silver_arm_bands||true",
+          "cut": null,
+          "headcloth": true,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "gathering_1812_head_west_047",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=463629,accessory__garters_woven_dark_1812=78342c,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=87735a,garment_lower__breechcloth_broadcloth_blue_1812=2d3655,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=8c413a,garment_lower__leggings_stroud_scarlet_1812=8c413a,garment_upper__shirt_check_blue_1812=884037,garment_upper__shirt_check_blue_1812=884037|blanket_stripes,blanket_wrap,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_head_west_048",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=3c4662,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=7f6d55,garment_lower__breechcloth_broadcloth_blue_1812=2c3556,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=8a3d36,garment_lower__leggings_stroud_scarlet_1812=8a3d36,garment_outer__blanket_stripe_dark_1812=35353c,garment_outer__blanket_wool_white_1812=76736e,garment_upper__shirt_check_blue_1812=883d34,garment_upper__shirt_check_blue_1812=883d34|garters||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "garters"
+          ]
+        },
+        {
+          "person": "gathering_1812_head_west_054",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=413225,accessory__garters_woven_dark_1812=873b33,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=705b46,garment_lower__breechcloth_broadcloth_blue_1812=2b3454,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=242427,garment_lower__leggings_stroud_scarlet_1812=242427,garment_upper__shirt_check_blue_1812=a0a8b8,garment_upper__shirt_check_blue_1812=a0a8b8|blanket_stripes,blanket_wrap||true",
+          "cut": null,
+          "headcloth": true,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap"
+          ]
+        },
+        {
+          "person": "gathering_1812_middle_006",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=404a64,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=5a4835,garment_lower__breechcloth_broadcloth_blue_1812=29314c,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=222225,garment_lower__leggings_stroud_scarlet_1812=222225,garment_outer__blanket_stripe_dark_1812=27272c,garment_outer__blanket_wool_white_1812=823a37,garment_upper__shirt_check_blue_1812=888e9a,garment_upper__shirt_check_blue_1812=888e9a|garters,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "garters",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_middle_012",
+          "asset": "potawatomi_woman_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=806e56,garment_lower__cloth_leggings_red_1812=2e3957,garment_lower__strouding_selvage_white_1812=b3afa2,garment_lower__strouding_skirt_blue_1812=27304d,garment_outer__trade_blanket_white_1812=bbb8ad,garment_upper__calico_shirt_1812=883e35,garment_upper__calico_shirt_1812=883e35|silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_middle_020",
+          "asset": "potawatomi_woman_1812",
+          "lod": 3,
+          "key": "accessory__silver_brooches_1812=cececb,footwear__moccasins_smoked_1812=7a634d,garment_lower__cloth_leggings_red_1812=333d5a,garment_lower__strouding_selvage_white_1812=a19d91,garment_lower__strouding_skirt_blue_1812=2e3654,garment_outer__trade_blanket_white_1812=afada4,garment_upper__calico_shirt_1812=56694f,garment_upper__calico_shirt_1812=56694f|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_middle_024",
+          "asset": "potawatomi_woman_1812",
+          "lod": 3,
+          "key": "accessory__silver_brooches_1812=cececb,footwear__moccasins_smoked_1812=6b5743,garment_lower__cloth_leggings_red_1812=67403e,garment_lower__strouding_selvage_white_1812=b1aca0,garment_lower__strouding_skirt_blue_1812=303549,garment_outer__trade_blanket_white_1812=adaba5,garment_upper__calico_shirt_1812=b5a386,garment_upper__calico_shirt_1812=b5a386|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_middle_042",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=463528,accessory__garters_woven_dark_1812=79342d,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=67523e,garment_lower__breechcloth_broadcloth_blue_1812=2c3656,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=883c36,garment_lower__leggings_stroud_scarlet_1812=883c36,garment_upper__shirt_check_blue_1812=a5adbe,garment_upper__shirt_check_blue_1812=a5adbe|blanket_stripes,blanket_wrap,silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "gathering_1812_middle_048",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=89413b,accessory__garters_woven_dark_1812=8b7840,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=735e49,garment_lower__breechcloth_broadcloth_blue_1812=2a3352,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=883c36,garment_lower__leggings_stroud_scarlet_1812=883c36,garment_outer__blanket_stripe_dark_1812=28282d,garment_outer__blanket_wool_white_1812=913c38,garment_upper__shirt_check_blue_1812=959cab,garment_upper__shirt_check_blue_1812=959cab|silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "gathering_1812_middle_050",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=433326,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=68533e,garment_lower__breechcloth_broadcloth_blue_1812=2b3454,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=843933,garment_lower__leggings_stroud_scarlet_1812=843933,garment_outer__blanket_stripe_dark_1812=242429,garment_outer__blanket_wool_white_1812=883734,garment_upper__shirt_check_blue_1812=ab7b71,garment_upper__shirt_check_blue_1812=ab7b71|garters,silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "garters",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "gathering_1812_middle_051",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=853f38,accessory__garters_woven_dark_1812=7f372f,footwear__moccasins_smoked_1812=7c6a53,garment_lower__breechcloth_broadcloth_blue_1812=212124,garment_lower__leggings_stroud_scarlet_1812=76604b,garment_lower__leggings_stroud_scarlet_1812=76604b,garment_outer__blanket_stripe_dark_1812=a8a59a,garment_outer__blanket_wool_white_1812=39476f,garment_upper__shirt_check_blue_1812=904137,garment_upper__shirt_check_blue_1812=904137|legging_selvage,silver_arm_bands,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "legging_selvage",
+            "silver_arm_bands",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_middle_052",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=3e4966,accessory__garters_woven_dark_1812=323549,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=5e4b38,garment_lower__breechcloth_broadcloth_blue_1812=2c3657,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=323d5e,garment_lower__leggings_stroud_scarlet_1812=323d5e,garment_upper__shirt_check_blue_1812=a6766d,garment_upper__shirt_check_blue_1812=a6766d|blanket_stripes,blanket_wrap,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_middle_053",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=833f39,accessory__garters_woven_dark_1812=373b51,footwear__moccasins_smoked_1812=76604a,garment_lower__breechcloth_broadcloth_blue_1812=232326,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=343f60,garment_lower__leggings_stroud_scarlet_1812=343f60,garment_upper__shirt_check_blue_1812=86735f,garment_upper__shirt_check_blue_1812=86735f|blanket_stripes,blanket_wrap,silver_arm_bands,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "silver_arm_bands",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_mouth_005",
+          "asset": "potawatomi_woman_1812",
+          "lod": 3,
+          "key": "accessory__silver_brooches_1812=cececb,footwear__moccasins_smoked_1812=7a6851,garment_lower__cloth_leggings_red_1812=354162,garment_lower__strouding_selvage_white_1812=b39d43,garment_lower__strouding_skirt_blue_1812=2d3656,garment_upper__calico_shirt_1812=c1bdb2,garment_upper__calico_shirt_1812=c1bdb2|trade_blanket||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "trade_blanket"
+          ]
+        },
+        {
+          "person": "gathering_1812_mouth_021",
+          "asset": "potawatomi_girl_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=735d48,garment_lower__stroud_leggings_red_1812=333e5e,garment_lower__stroud_selvage_white_1812=ffffff,garment_lower__stroud_skirt_blue_1812=28304e,garment_upper__calico_blouse_rose_1812=858c99,garment_upper__calico_blouse_rose_1812=858c99|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_mouth_025",
+          "asset": "potawatomi_girl_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=735d48,garment_lower__stroud_leggings_red_1812=843e38,garment_lower__stroud_selvage_white_1812=ffffff,garment_lower__stroud_skirt_blue_1812=222225,garment_upper__calico_blouse_rose_1812=843f37,garment_upper__calico_blouse_rose_1812=843f37|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_mouth_027",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=7a6d44,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=6d5844,garment_lower__breechcloth_broadcloth_blue_1812=293150,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=753834,garment_lower__leggings_stroud_scarlet_1812=753834,garment_outer__blanket_stripe_dark_1812=29292e,garment_outer__blanket_wool_white_1812=843633,garment_upper__shirt_check_blue_1812=596f50,garment_upper__shirt_check_blue_1812=596f50|garters,silver_arm_bands||true",
+          "cut": null,
+          "headcloth": true,
+          "hidden": [
+            "garters",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "gathering_1812_mouth_028",
+          "asset": "potawatomi_woman_1812",
+          "lod": 3,
+          "key": "accessory__silver_brooches_1812=cececb,footwear__moccasins_smoked_1812=76604b,garment_lower__cloth_leggings_red_1812=763936,garment_lower__strouding_selvage_white_1812=a3a094,garment_lower__strouding_skirt_blue_1812=222225,garment_upper__calico_shirt_1812=a76d73,garment_upper__calico_shirt_1812=a76d73|trade_blanket||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "trade_blanket"
+          ]
+        },
+        {
+          "person": "gathering_1812_mouth_035",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=80734c,accessory__garters_woven_dark_1812=34384d,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=6f5a45,garment_lower__breechcloth_broadcloth_blue_1812=2c3452,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=343e5d,garment_lower__leggings_stroud_scarlet_1812=343e5d,garment_outer__blanket_stripe_dark_1812=242428,garment_outer__blanket_wool_white_1812=8d403d,garment_upper__shirt_check_blue_1812=5a6e52,garment_upper__shirt_check_blue_1812=5a6e52|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_mouth_040",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=813e38,accessory__garters_woven_dark_1812=32354a,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=624e3b,garment_lower__breechcloth_broadcloth_blue_1812=2a3352,garment_lower__leggings_stroud_scarlet_1812=873d36,garment_lower__leggings_stroud_scarlet_1812=873d36,garment_outer__blanket_stripe_dark_1812=a9a59c,garment_outer__blanket_wool_white_1812=bdbaaf,garment_upper__shirt_check_blue_1812=47506e,garment_upper__shirt_check_blue_1812=47506e|legging_selvage,silver_arm_bands||true",
+          "cut": null,
+          "headcloth": true,
+          "hidden": [
+            "legging_selvage",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "gathering_1812_mouth_041",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=44506f,accessory__garters_woven_dark_1812=2e2e2e,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=7d6b54,garment_lower__breechcloth_broadcloth_blue_1812=843933,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=914038,garment_lower__leggings_stroud_scarlet_1812=914038,garment_upper__shirt_check_blue_1812=c4c0b4,garment_upper__shirt_check_blue_1812=c4c0b4|blanket_stripes,blanket_wrap||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap"
+          ]
+        },
+        {
+          "person": "gathering_1812_mouth_043",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=44506f,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=66513d,garment_lower__breechcloth_broadcloth_blue_1812=2a3352,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=323d5e,garment_lower__leggings_stroud_scarlet_1812=323d5e,garment_outer__blanket_stripe_dark_1812=aeaa9f,garment_outer__blanket_wool_white_1812=354268,garment_upper__shirt_check_blue_1812=485271,garment_upper__shirt_check_blue_1812=485271|garters||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "garters"
+          ]
+        },
+        {
+          "person": "gathering_1812_mouth_050",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=823d37,accessory__garters_woven_dark_1812=323232,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=78624c,garment_lower__breechcloth_broadcloth_blue_1812=8f3f38,garment_lower__leggings_stroud_scarlet_1812=6c5845,garment_lower__leggings_stroud_scarlet_1812=6c5845,garment_outer__blanket_stripe_dark_1812=2b2f43,garment_outer__blanket_wool_white_1812=b8b5aa,garment_upper__shirt_check_blue_1812=5d7354,garment_upper__shirt_check_blue_1812=5d7354|legging_selvage,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "legging_selvage",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_north_flat_001",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=443528,accessory__garters_woven_dark_1812=363a50,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=67523d,garment_lower__breechcloth_broadcloth_blue_1812=222225,garment_lower__leggings_stroud_scarlet_1812=75604d,garment_lower__leggings_stroud_scarlet_1812=75604d,garment_upper__shirt_check_blue_1812=843e36,garment_upper__shirt_check_blue_1812=843e36|blanket_stripes,blanket_wrap,legging_selvage,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "legging_selvage",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_north_flat_007",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=786b45,accessory__garters_woven_dark_1812=79342d,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=816e56,garment_lower__breechcloth_broadcloth_blue_1812=2c3553,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=6e3733,garment_lower__leggings_stroud_scarlet_1812=6e3733,garment_outer__blanket_stripe_dark_1812=a39f96,garment_outer__blanket_wool_white_1812=c1beb4,garment_upper__shirt_check_blue_1812=bcb7ad,garment_upper__shirt_check_blue_1812=bcb7ad|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_north_flat_030",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=7f403a,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=67523e,garment_lower__breechcloth_broadcloth_blue_1812=2c3451,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=324c3b,garment_lower__leggings_stroud_scarlet_1812=324c3b,garment_upper__shirt_check_blue_1812=c3bfb4,garment_upper__shirt_check_blue_1812=c3bfb4|blanket_stripes,blanket_wrap,garters,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "garters",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_north_flat_031",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=7a6c44,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=715c47,garment_lower__breechcloth_broadcloth_blue_1812=232326,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=333e5e,garment_lower__leggings_stroud_scarlet_1812=333e5e,garment_upper__shirt_check_blue_1812=a2aabb,garment_upper__shirt_check_blue_1812=a2aabb|blanket_stripes,blanket_wrap,garters,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "garters",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_north_flat_034",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=473629,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=7d6b54,garment_lower__breechcloth_broadcloth_blue_1812=2b3454,garment_lower__leggings_stroud_scarlet_1812=735e4a,garment_lower__leggings_stroud_scarlet_1812=735e4a,garment_upper__shirt_check_blue_1812=8d4037,garment_upper__shirt_check_blue_1812=8d4037|blanket_stripes,blanket_wrap,garters,legging_selvage,silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "garters",
+            "legging_selvage",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "gathering_1812_north_flat_043",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=776a46,accessory__garters_woven_dark_1812=7e372f,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=78624c,garment_lower__breechcloth_broadcloth_blue_1812=2a324e,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=303a56,garment_lower__leggings_stroud_scarlet_1812=303a56,garment_upper__shirt_check_blue_1812=a3abba,garment_upper__shirt_check_blue_1812=a3abba|blanket_stripes,blanket_wrap,silver_brooches||true",
+          "cut": null,
+          "headcloth": true,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_north_flat_045",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=424d69,accessory__garters_woven_dark_1812=968246,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=755f4a,garment_lower__breechcloth_broadcloth_blue_1812=2b3453,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=93433c,garment_lower__leggings_stroud_scarlet_1812=93433c,garment_outer__blanket_stripe_dark_1812=2b2f43,garment_outer__blanket_wool_white_1812=aeaba1,garment_upper__shirt_check_blue_1812=9fa7b7,garment_upper__shirt_check_blue_1812=9fa7b7|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_north_flat_046",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=3e4761,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=86735a,garment_lower__breechcloth_broadcloth_blue_1812=2d3553,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=87413b,garment_lower__leggings_stroud_scarlet_1812=87413b,garment_outer__blanket_stripe_dark_1812=aeaba1,garment_outer__blanket_wool_white_1812=c4c1b7,garment_upper__shirt_check_blue_1812=715442,garment_upper__shirt_check_blue_1812=715442|garters,silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "garters",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "gathering_1812_north_flat_047",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=8d453e,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=5c4936,garment_lower__breechcloth_broadcloth_blue_1812=2b3352,garment_lower__leggings_stroud_scarlet_1812=6c3430,garment_lower__leggings_stroud_scarlet_1812=6c3430,garment_upper__shirt_check_blue_1812=ae7e76,garment_upper__shirt_check_blue_1812=ae7e76|blanket_stripes,blanket_wrap,garters,legging_selvage||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "garters",
+            "legging_selvage"
+          ]
+        },
+        {
+          "person": "gathering_1812_north_flat_048",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=48382b,footwear__moccasins_smoked_1812=65503c,garment_lower__breechcloth_broadcloth_blue_1812=282f4b,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=853e38,garment_lower__leggings_stroud_scarlet_1812=853e38,garment_outer__blanket_stripe_dark_1812=2a2e41,garment_outer__blanket_wool_white_1812=b8b4aa,garment_upper__shirt_check_blue_1812=cecabe,garment_upper__shirt_check_blue_1812=cecabe|garters,silver_arm_bands,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "garters",
+            "silver_arm_bands",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_north_flat_050",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=84764e,accessory__garters_woven_dark_1812=7c362e,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=7e6b54,garment_lower__breechcloth_broadcloth_blue_1812=222225,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=733a37,garment_lower__leggings_stroud_scarlet_1812=733a37,garment_outer__blanket_stripe_dark_1812=2c3044,garment_outer__blanket_wool_white_1812=bab7ad,garment_upper__shirt_check_blue_1812=7e6d5b,garment_upper__shirt_check_blue_1812=7e6d5b|silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_north_flat_054",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=4a382a,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=7a6852,garment_lower__breechcloth_broadcloth_blue_1812=2c3556,garment_lower__leggings_stroud_scarlet_1812=77614c,garment_lower__leggings_stroud_scarlet_1812=77614c,garment_outer__blanket_stripe_dark_1812=26262b,garment_outer__blanket_wool_white_1812=8f3b37,garment_upper__shirt_check_blue_1812=586e50,garment_upper__shirt_check_blue_1812=586e50|garters,legging_selvage,silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "garters",
+            "legging_selvage",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "gathering_1812_prairie_west_001",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=413327,accessory__garters_woven_dark_1812=373b51,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=837058,garment_lower__breechcloth_broadcloth_blue_1812=2b324d,garment_lower__leggings_stroud_scarlet_1812=8d4640,garment_lower__leggings_stroud_scarlet_1812=8d4640,garment_upper__shirt_check_blue_1812=8a453d,garment_upper__shirt_check_blue_1812=8a453d|blanket_stripes,blanket_wrap,legging_selvage,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "legging_selvage",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_prairie_west_003",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=3d4761,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=786750,garment_lower__breechcloth_broadcloth_blue_1812=2d3554,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=8e423c,garment_lower__leggings_stroud_scarlet_1812=8e423c,garment_upper__shirt_check_blue_1812=a97c73,garment_upper__shirt_check_blue_1812=a97c73|blanket_stripes,blanket_wrap,garters,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "garters",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_prairie_west_006",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=7d6f44,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=604d39,garment_lower__breechcloth_broadcloth_blue_1812=843a33,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=843933,garment_lower__leggings_stroud_scarlet_1812=843933,garment_outer__blanket_stripe_dark_1812=29292e,garment_outer__blanket_wool_white_1812=913b38,garment_upper__shirt_check_blue_1812=c8c3b7,garment_upper__shirt_check_blue_1812=c8c3b7|garters,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "garters",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_prairie_west_011",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=48372a,accessory__garters_woven_dark_1812=7c362e,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=65503c,garment_lower__breechcloth_broadcloth_blue_1812=2a3251,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=313c5c,garment_lower__leggings_stroud_scarlet_1812=313c5c,garment_upper__shirt_check_blue_1812=897560,garment_upper__shirt_check_blue_1812=897560|blanket_stripes,blanket_wrap||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap"
+          ]
+        },
+        {
+          "person": "gathering_1812_prairie_west_013",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=424e6b,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=705b46,garment_lower__breechcloth_broadcloth_blue_1812=293250,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=2f4938,garment_lower__leggings_stroud_scarlet_1812=2f4938,garment_upper__shirt_check_blue_1812=ad9469,garment_upper__shirt_check_blue_1812=ad9469|blanket_stripes,blanket_wrap,garters||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "garters"
+          ]
+        },
+        {
+          "person": "gathering_1812_prairie_west_017",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=423225,accessory__garters_woven_dark_1812=323232,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=786750,garment_lower__breechcloth_broadcloth_blue_1812=2b3556,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=202024,garment_lower__leggings_stroud_scarlet_1812=202024,garment_upper__shirt_check_blue_1812=505a7d,garment_upper__shirt_check_blue_1812=505a7d|blanket_stripes,blanket_wrap,silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "gathering_1812_prairie_west_031",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=7f714a,accessory__garters_woven_dark_1812=32364b,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=5e4b38,garment_lower__breechcloth_broadcloth_blue_1812=28304b,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=35405f,garment_lower__leggings_stroud_scarlet_1812=35405f,garment_upper__shirt_check_blue_1812=833f37,garment_upper__shirt_check_blue_1812=833f37|blanket_stripes,blanket_wrap,silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "gathering_1812_prairie_west_039",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=823c35,footwear__moccasins_smoked_1812=847159,garment_lower__breechcloth_broadcloth_blue_1812=293252,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=323d5f,garment_lower__leggings_stroud_scarlet_1812=323d5f,garment_outer__blanket_stripe_dark_1812=26262b,garment_outer__blanket_wool_white_1812=853531,garment_upper__shirt_check_blue_1812=ad7b72,garment_upper__shirt_check_blue_1812=ad7b72|garters,silver_arm_bands,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "garters",
+            "silver_arm_bands",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_prairie_west_042",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=433428,accessory__garters_woven_dark_1812=2e2e2e,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=624e3a,garment_lower__breechcloth_broadcloth_blue_1812=2a324f,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=823e38,garment_lower__leggings_stroud_scarlet_1812=823e38,garment_outer__blanket_stripe_dark_1812=242429,garment_outer__blanket_wool_white_1812=8a3e3b,garment_upper__shirt_check_blue_1812=4e5774,garment_upper__shirt_check_blue_1812=4e5774|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_prairie_west_052",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=85423c,accessory__garters_woven_dark_1812=2e2e2e,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=6b5743,garment_lower__breechcloth_broadcloth_blue_1812=8d423b,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=222226,garment_lower__leggings_stroud_scarlet_1812=222226,garment_outer__blanket_stripe_dark_1812=26262b,garment_outer__blanket_wool_white_1812=8c3d3a,garment_upper__shirt_check_blue_1812=979eac,garment_upper__shirt_check_blue_1812=979eac|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_south_bend_003",
+          "asset": "potawatomi_boy_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=ffffff,garment_lower__stroud_leggings_blue_1812=303a57,garment_upper__calico_shirt_madder_1812=b9b5ab,garment_upper__calico_shirt_madder_1812=b9b5ab|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_south_bend_011",
+          "asset": "potawatomi_woman_1812",
+          "lod": 3,
+          "key": "accessory__silver_brooches_1812=cececb,footwear__moccasins_smoked_1812=745e49,garment_lower__cloth_leggings_red_1812=354163,garment_lower__strouding_selvage_white_1812=9e8b3a,garment_lower__strouding_skirt_blue_1812=323d5e,garment_upper__calico_shirt_1812=8e94a2,garment_upper__calico_shirt_1812=8e94a2|trade_blanket||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "trade_blanket"
+          ]
+        },
+        {
+          "person": "gathering_1812_south_bend_019",
+          "asset": "potawatomi_woman_1812",
+          "lod": 3,
+          "key": "accessory__silver_brooches_1812=cececb,footwear__moccasins_smoked_1812=7a634d,garment_lower__cloth_leggings_red_1812=2d4937,garment_lower__strouding_selvage_white_1812=a9a699,garment_lower__strouding_skirt_blue_1812=333e61,garment_outer__trade_blanket_white_1812=bcb8ac,garment_upper__calico_shirt_1812=a76a71,garment_upper__calico_shirt_1812=a76a71|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_south_bend_023",
+          "asset": "potawatomi_woman_1812",
+          "lod": 3,
+          "key": "accessory__silver_brooches_1812=cececb,footwear__moccasins_smoked_1812=7c6a53,garment_lower__cloth_leggings_red_1812=323b57,garment_lower__strouding_selvage_white_1812=9e9a8f,garment_lower__strouding_skirt_blue_1812=743c39,garment_outer__trade_blanket_white_1812=914340,garment_upper__calico_shirt_1812=6c5140,garment_upper__calico_shirt_1812=6c5140|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_south_bend_030",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=3e4863,accessory__garters_woven_dark_1812=2c2c2c,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=87735a,garment_lower__breechcloth_broadcloth_blue_1812=222226,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=313b5a,garment_lower__leggings_stroud_scarlet_1812=313b5a,garment_upper__shirt_check_blue_1812=7a5a45,garment_upper__shirt_check_blue_1812=7a5a45|blanket_stripes,blanket_wrap,silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "gathering_1812_south_bend_035",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=3f4962,accessory__garters_woven_dark_1812=9a8648,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=6d5844,garment_lower__breechcloth_broadcloth_blue_1812=2b334f,garment_lower__leggings_stroud_scarlet_1812=313a56,garment_lower__leggings_stroud_scarlet_1812=313a56,garment_outer__blanket_stripe_dark_1812=2c3043,garment_outer__blanket_wool_white_1812=b6b3aa,garment_upper__shirt_check_blue_1812=834039,garment_upper__shirt_check_blue_1812=834039|legging_selvage,silver_brooches||true",
+          "cut": null,
+          "headcloth": true,
+          "hidden": [
+            "legging_selvage",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_south_bend_040",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=48382c,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=76604a,garment_lower__breechcloth_broadcloth_blue_1812=2f3756,garment_lower__leggings_stroud_scarlet_1812=212124,garment_lower__leggings_stroud_scarlet_1812=212124,garment_upper__shirt_check_blue_1812=81705e,garment_upper__shirt_check_blue_1812=81705e|blanket_stripes,blanket_wrap,garters,legging_selvage,silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "garters",
+            "legging_selvage",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "gathering_1812_south_bend_043",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=4a392a,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=85725a,garment_lower__breechcloth_broadcloth_blue_1812=2c3556,garment_lower__leggings_stroud_scarlet_1812=8b3d36,garment_lower__leggings_stroud_scarlet_1812=8b3d36,garment_outer__blanket_stripe_dark_1812=b6b2a8,garment_outer__blanket_wool_white_1812=b2afa5,garment_upper__shirt_check_blue_1812=464f6e,garment_upper__shirt_check_blue_1812=464f6e|garters,legging_selvage||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "garters",
+            "legging_selvage"
+          ]
+        },
+        {
+          "person": "gathering_1812_south_bend_049",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=404b67,footwear__moccasins_smoked_1812=76654f,garment_lower__breechcloth_broadcloth_blue_1812=222225,garment_lower__leggings_stroud_scarlet_1812=75614c,garment_lower__leggings_stroud_scarlet_1812=75614c,garment_outer__blanket_stripe_dark_1812=afaca1,garment_outer__blanket_wool_white_1812=354265,garment_upper__shirt_check_blue_1812=873e35,garment_upper__shirt_check_blue_1812=873e35|garters,legging_selvage,silver_arm_bands,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "garters",
+            "legging_selvage",
+            "silver_arm_bands",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_south_bend_051",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=423327,accessory__garters_woven_dark_1812=7f3830,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=5b4936,garment_lower__breechcloth_broadcloth_blue_1812=853d37,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=2d4736,garment_lower__leggings_stroud_scarlet_1812=2d4736,garment_upper__shirt_check_blue_1812=c0bcb1,garment_upper__shirt_check_blue_1812=c0bcb1|blanket_stripes,blanket_wrap,silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "gathering_1812_south_prairie_015",
+          "asset": "potawatomi_woman_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=806e56,garment_lower__cloth_leggings_red_1812=36405f,garment_lower__strouding_selvage_white_1812=a8a498,garment_lower__strouding_skirt_blue_1812=212124,garment_upper__calico_shirt_1812=9298a6,garment_upper__calico_shirt_1812=9298a6|silver_brooches,trade_blanket||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "silver_brooches",
+            "trade_blanket"
+          ]
+        },
+        {
+          "person": "gathering_1812_south_prairie_030",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=853f39,accessory__garters_woven_dark_1812=883c33,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=806e56,garment_lower__breechcloth_broadcloth_blue_1812=27304d,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=313c5c,garment_lower__leggings_stroud_scarlet_1812=313c5c,garment_upper__shirt_check_blue_1812=883d34,garment_upper__shirt_check_blue_1812=883d34|blanket_stripes,blanket_wrap||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap"
+          ]
+        },
+        {
+          "person": "gathering_1812_south_prairie_031",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=7a6d46,accessory__garters_woven_dark_1812=313131,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=7f6c55,garment_lower__breechcloth_broadcloth_blue_1812=232326,garment_lower__leggings_stroud_scarlet_1812=813b36,garment_lower__leggings_stroud_scarlet_1812=813b36,garment_outer__blanket_stripe_dark_1812=30344a,garment_outer__blanket_wool_white_1812=bfbcb1,garment_upper__shirt_check_blue_1812=b28279,garment_upper__shirt_check_blue_1812=b28279|legging_selvage,silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "legging_selvage",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "gathering_1812_south_prairie_051",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=403124,accessory__garters_woven_dark_1812=917e43,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=816e56,garment_lower__breechcloth_broadcloth_blue_1812=202023,garment_lower__leggings_stroud_scarlet_1812=77624d,garment_lower__leggings_stroud_scarlet_1812=77624d,garment_outer__blanket_stripe_dark_1812=b4b0a5,garment_outer__blanket_wool_white_1812=3a476f,garment_upper__shirt_check_blue_1812=515b7d,garment_upper__shirt_check_blue_1812=515b7d|legging_selvage||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "legging_selvage"
+          ]
+        },
+        {
+          "person": "gathering_1812_south_prairie_058",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=4a392b,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=78624c,garment_lower__breechcloth_broadcloth_blue_1812=212124,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=8b4039,garment_lower__leggings_stroud_scarlet_1812=8b4039,garment_outer__blanket_stripe_dark_1812=b6b2a8,garment_outer__blanket_wool_white_1812=bcb9af,garment_upper__shirt_check_blue_1812=8d94a2,garment_upper__shirt_check_blue_1812=8d94a2|garters,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "garters",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_south_prairie_059",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=403125,accessory__garters_woven_dark_1812=893c34,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=67523e,garment_lower__breechcloth_broadcloth_blue_1812=27304d,garment_lower__leggings_stroud_scarlet_1812=803a34,garment_lower__leggings_stroud_scarlet_1812=803a34,garment_upper__shirt_check_blue_1812=949bab,garment_upper__shirt_check_blue_1812=949bab|blanket_stripes,blanket_wrap,legging_selvage,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "legging_selvage",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_south_prairie_062",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=7e3d37,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=77614b,garment_lower__breechcloth_broadcloth_blue_1812=843c36,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=354061,garment_lower__leggings_stroud_scarlet_1812=354061,garment_outer__blanket_stripe_dark_1812=2c3045,garment_outer__blanket_wool_white_1812=bbb8ad,garment_upper__shirt_check_blue_1812=ab9369,garment_upper__shirt_check_blue_1812=ab9369|garters,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "garters",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_south_reach_008",
+          "asset": "potawatomi_boy_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=ffffff,garment_lower__stroud_leggings_blue_1812=364162,garment_upper__calico_shirt_madder_1812=b89f72,garment_upper__calico_shirt_madder_1812=b89f72|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_south_reach_009",
+          "asset": "potawatomi_girl_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=735d48,garment_lower__stroud_leggings_red_1812=803c36,garment_lower__stroud_selvage_white_1812=ffffff,garment_lower__stroud_skirt_blue_1812=35405f,garment_upper__calico_blouse_rose_1812=cfcabf,garment_upper__calico_blouse_rose_1812=cfcabf|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_south_reach_018",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=3d4864,accessory__garters_woven_dark_1812=7f3730,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=67523d,garment_lower__breechcloth_broadcloth_blue_1812=262f4c,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=924139,garment_lower__leggings_stroud_scarlet_1812=924139,garment_upper__shirt_check_blue_1812=833b32,garment_upper__shirt_check_blue_1812=833b32|blanket_stripes,blanket_wrap,silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "gathering_1812_south_reach_024",
+          "asset": "potawatomi_girl_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=735d48,garment_lower__stroud_leggings_red_1812=92433c,garment_lower__stroud_selvage_white_1812=ffffff,garment_lower__stroud_skirt_blue_1812=232326,garment_upper__calico_blouse_rose_1812=8c92a0,garment_upper__calico_blouse_rose_1812=8c92a0|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_south_west_006",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=86443e,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=6f5a46,garment_lower__breechcloth_broadcloth_blue_1812=823e38,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=833e38,garment_lower__leggings_stroud_scarlet_1812=833e38,garment_upper__shirt_check_blue_1812=803d35,garment_upper__shirt_check_blue_1812=803d35|blanket_stripes,blanket_wrap,garters,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "garters",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_south_west_009",
+          "asset": "potawatomi_boy_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=ffffff,garment_lower__stroud_leggings_blue_1812=344061,garment_upper__calico_shirt_madder_1812=8e4138,garment_upper__calico_shirt_madder_1812=8e4138|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_south_west_015",
+          "asset": "potawatomi_woman_1812",
+          "lod": 3,
+          "key": "accessory__silver_brooches_1812=cececb,footwear__moccasins_smoked_1812=857159,garment_lower__cloth_leggings_red_1812=703936,garment_lower__strouding_selvage_white_1812=81322e,garment_lower__strouding_skirt_blue_1812=2c3350,garment_outer__trade_blanket_white_1812=7b7974,garment_upper__calico_shirt_1812=bcb8ae,garment_upper__calico_shirt_1812=bcb8ae|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_south_west_017",
+          "asset": "potawatomi_girl_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=735d48,garment_lower__stroud_leggings_red_1812=853b34,garment_lower__stroud_selvage_white_1812=ffffff,garment_lower__stroud_skirt_blue_1812=252528,garment_upper__calico_blouse_rose_1812=89909e,garment_upper__calico_blouse_rose_1812=89909e|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_south_west_025",
+          "asset": "potawatomi_boy_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=ffffff,garment_lower__stroud_leggings_blue_1812=323d5f,garment_upper__calico_shirt_madder_1812=904036,garment_upper__calico_shirt_madder_1812=904036|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_south_west_049",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=8b4843,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=65503c,garment_lower__breechcloth_broadcloth_blue_1812=2a324d,garment_lower__leggings_stroud_scarlet_1812=84403b,garment_lower__leggings_stroud_scarlet_1812=84403b,garment_upper__shirt_check_blue_1812=a7916b,garment_upper__shirt_check_blue_1812=a7916b|blanket_stripes,blanket_wrap,garters,legging_selvage||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "garters",
+            "legging_selvage"
+          ]
+        },
+        {
+          "person": "gathering_1812_south_west_051",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=3e4966,footwear__moccasins_smoked_1812=6e5945,garment_lower__breechcloth_broadcloth_blue_1812=2b3454,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=6b322e,garment_lower__leggings_stroud_scarlet_1812=6b322e,garment_upper__shirt_check_blue_1812=c4bfb4,garment_upper__shirt_check_blue_1812=c4bfb4|blanket_stripes,blanket_wrap,garters,silver_arm_bands,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "garters",
+            "silver_arm_bands",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_south_west_053",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=414b65,accessory__garters_woven_dark_1812=34384d,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=796751,garment_lower__breechcloth_broadcloth_blue_1812=2d3552,garment_lower__leggings_stroud_scarlet_1812=6c5a48,garment_lower__leggings_stroud_scarlet_1812=6c5a48,garment_upper__shirt_check_blue_1812=8c929f,garment_upper__shirt_check_blue_1812=8c929f|blanket_stripes,blanket_wrap,legging_selvage||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "legging_selvage"
+          ]
+        },
+        {
+          "person": "gathering_1812_south_west_065",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=86784d,footwear__moccasins_smoked_1812=76604a,garment_lower__breechcloth_broadcloth_blue_1812=252528,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=333e5d,garment_lower__leggings_stroud_scarlet_1812=333e5d,garment_upper__shirt_check_blue_1812=8e433a,garment_upper__shirt_check_blue_1812=8e433a|blanket_stripes,blanket_wrap,garters,silver_arm_bands,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "garters",
+            "silver_arm_bands",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_south_west_067",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=424d68,accessory__garters_woven_dark_1812=7b352e,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=7e6c55,garment_lower__breechcloth_broadcloth_blue_1812=2f3757,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=343e5c,garment_lower__leggings_stroud_scarlet_1812=343e5c,garment_outer__blanket_stripe_dark_1812=2a2a2f,garment_outer__blanket_wool_white_1812=92413e,garment_upper__shirt_check_blue_1812=8d443c,garment_upper__shirt_check_blue_1812=8d443c|silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "gathering_1812_upper_011",
+          "asset": "potawatomi_woman_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=634f3b,garment_lower__cloth_leggings_red_1812=2e3855,garment_lower__strouding_selvage_white_1812=af9a42,garment_lower__strouding_skirt_blue_1812=2c3452,garment_upper__calico_shirt_1812=898f9d,garment_upper__calico_shirt_1812=898f9d|silver_brooches,trade_blanket||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "silver_brooches",
+            "trade_blanket"
+          ]
+        },
+        {
+          "person": "gathering_1812_upper_012",
+          "asset": "potawatomi_girl_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=735d48,garment_lower__stroud_leggings_red_1812=813832,garment_lower__stroud_selvage_white_1812=ffffff,garment_lower__stroud_skirt_blue_1812=2a3353,garment_upper__calico_blouse_rose_1812=cfcabe,garment_upper__calico_blouse_rose_1812=cfcabe|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_upper_018",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=473628,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=77614b,garment_lower__breechcloth_broadcloth_blue_1812=2b3455,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=324f3c,garment_lower__leggings_stroud_scarlet_1812=324f3c,garment_outer__blanket_stripe_dark_1812=adaaa0,garment_outer__blanket_wool_white_1812=bfbcb1,garment_upper__shirt_check_blue_1812=b38177,garment_upper__shirt_check_blue_1812=b38177|garters,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "garters",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_upper_024",
+          "asset": "potawatomi_girl_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=735d48,garment_lower__stroud_leggings_red_1812=303954,garment_lower__stroud_selvage_white_1812=ffffff,garment_lower__stroud_skirt_blue_1812=2e3653,garment_upper__calico_blouse_rose_1812=7c3d36,garment_upper__calico_blouse_rose_1812=7c3d36|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_upper_029",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=423327,accessory__garters_woven_dark_1812=873b33,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=6b5743,garment_lower__breechcloth_broadcloth_blue_1812=2d3554,garment_lower__leggings_stroud_scarlet_1812=705c49,garment_lower__leggings_stroud_scarlet_1812=705c49,garment_outer__blanket_stripe_dark_1812=a8a49b,garment_outer__blanket_wool_white_1812=395343,garment_upper__shirt_check_blue_1812=969dac,garment_upper__shirt_check_blue_1812=969dac|legging_selvage,silver_arm_bands||true",
+          "cut": null,
+          "headcloth": true,
+          "hidden": [
+            "legging_selvage",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "gathering_1812_west_bank_007",
+          "asset": "potawatomi_woman_1812",
+          "lod": 2,
+          "key": "accessory__silver_brooches_1812=cececb,footwear__moccasins_smoked_1812=796751,garment_lower__cloth_leggings_red_1812=793a35,garment_lower__strouding_selvage_white_1812=a9a599,garment_lower__strouding_skirt_blue_1812=6d332f,garment_upper__calico_shirt_1812=8f4137,garment_upper__calico_shirt_1812=8f4137|trade_blanket||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "trade_blanket"
+          ]
+        },
+        {
+          "person": "gathering_1812_west_bank_012",
+          "asset": "potawatomi_woman_1812",
+          "lod": 2,
+          "key": "footwear__moccasins_smoked_1812=816e56,garment_lower__cloth_leggings_red_1812=6b3633,garment_lower__strouding_selvage_white_1812=883531,garment_lower__strouding_skirt_blue_1812=2d3552,garment_upper__calico_shirt_1812=745744,garment_upper__calico_shirt_1812=745744|silver_brooches,trade_blanket||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "silver_brooches",
+            "trade_blanket"
+          ]
+        },
+        {
+          "person": "gathering_1812_west_bank_015",
+          "asset": "potawatomi_man_1812",
+          "lod": 2,
+          "key": "accessory__belt_leather_1812=44506e,accessory__garters_woven_dark_1812=7f372f,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=826f57,garment_lower__breechcloth_broadcloth_blue_1812=242427,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=6e3330,garment_lower__leggings_stroud_scarlet_1812=6e3330,garment_upper__shirt_check_blue_1812=893d34,garment_upper__shirt_check_blue_1812=893d34|blanket_stripes,blanket_wrap,silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "gathering_1812_west_bank_021",
+          "asset": "potawatomi_girl_1812",
+          "lod": 2,
+          "key": "footwear__moccasins_smoked_1812=735d48,garment_lower__stroud_leggings_red_1812=843e38,garment_lower__stroud_selvage_white_1812=ffffff,garment_lower__stroud_skirt_blue_1812=222226,garment_upper__calico_blouse_rose_1812=ad7379,garment_upper__calico_blouse_rose_1812=ad7379|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "gathering_1812_west_bank_023",
+          "asset": "potawatomi_man_1812",
+          "lod": 2,
+          "key": "accessory__belt_leather_1812=7a6c43,accessory__garters_woven_dark_1812=303030,footwear__moccasins_smoked_1812=7d6b53,garment_lower__breechcloth_broadcloth_blue_1812=27304e,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=8d3f38,garment_lower__leggings_stroud_scarlet_1812=8d3f38,garment_upper__shirt_check_blue_1812=873d34,garment_upper__shirt_check_blue_1812=873d34|blanket_stripes,blanket_wrap,silver_arm_bands,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "silver_arm_bands",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_west_bank_028",
+          "asset": "potawatomi_man_1812",
+          "lod": 2,
+          "key": "accessory__belt_leather_1812=3e4760,accessory__garters_woven_dark_1812=323232,footwear__moccasins_smoked_1812=77614b,garment_lower__breechcloth_broadcloth_blue_1812=29304b,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=833f3a,garment_lower__leggings_stroud_scarlet_1812=833f3a,garment_outer__blanket_stripe_dark_1812=27272c,garment_outer__blanket_wool_white_1812=8f423f,garment_upper__shirt_check_blue_1812=af8179,garment_upper__shirt_check_blue_1812=af8179|silver_arm_bands,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "silver_arm_bands",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_west_bank_036",
+          "asset": "potawatomi_man_1812",
+          "lod": 2,
+          "key": "accessory__belt_leather_1812=864039,accessory__garters_woven_dark_1812=333333,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=78624c,garment_lower__breechcloth_broadcloth_blue_1812=833a33,garment_lower__leggings_stroud_scarlet_1812=6e5a46,garment_lower__leggings_stroud_scarlet_1812=6e5a46,garment_upper__shirt_check_blue_1812=989fae,garment_upper__shirt_check_blue_1812=989fae|blanket_stripes,blanket_wrap,legging_selvage,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "legging_selvage",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_west_bank_041",
+          "asset": "potawatomi_man_1812",
+          "lod": 2,
+          "key": "accessory__belt_leather_1812=85764c,footwear__moccasins_smoked_1812=816e56,garment_lower__breechcloth_broadcloth_blue_1812=2e3757,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=8b403a,garment_lower__leggings_stroud_scarlet_1812=8b403a,garment_outer__blanket_stripe_dark_1812=b2aea5,garment_outer__blanket_wool_white_1812=c5c1b7,garment_upper__shirt_check_blue_1812=4a5270,garment_upper__shirt_check_blue_1812=4a5270|garters,silver_arm_bands,silver_brooches||true",
+          "cut": null,
+          "headcloth": true,
+          "hidden": [
+            "garters",
+            "silver_arm_bands",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_west_bank_044",
+          "asset": "potawatomi_man_1812",
+          "lod": 2,
+          "key": "accessory__belt_leather_1812=3e4964,accessory__garters_woven_dark_1812=313131,footwear__moccasins_smoked_1812=65513c,garment_lower__breechcloth_broadcloth_blue_1812=813a34,garment_lower__leggings_stroud_scarlet_1812=745f4b,garment_lower__leggings_stroud_scarlet_1812=745f4b,garment_outer__blanket_stripe_dark_1812=2c3045,garment_outer__blanket_wool_white_1812=b4b1a7,garment_upper__shirt_check_blue_1812=873e36,garment_upper__shirt_check_blue_1812=873e36|legging_selvage,silver_arm_bands,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "legging_selvage",
+            "silver_arm_bands",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "gathering_1812_west_bank_048",
+          "asset": "potawatomi_man_1812",
+          "lod": 2,
+          "key": "accessory__belt_leather_1812=453427,accessory__garters_woven_dark_1812=8b7940,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=7d6b54,garment_lower__breechcloth_broadcloth_blue_1812=272f4d,garment_lower__leggings_stroud_scarlet_1812=77624c,garment_lower__leggings_stroud_scarlet_1812=77624c,garment_upper__shirt_check_blue_1812=4f597b,garment_upper__shirt_check_blue_1812=4f597b|blanket_stripes,blanket_wrap,legging_selvage||true",
+          "cut": null,
+          "headcloth": true,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "legging_selvage"
+          ]
+        },
+        {
+          "person": "gathering_1812_west_bank_049",
+          "asset": "potawatomi_man_1812",
+          "lod": 2,
+          "key": "accessory__belt_leather_1812=424c66,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=6d5844,garment_lower__breechcloth_broadcloth_blue_1812=2b324e,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=89433d,garment_lower__leggings_stroud_scarlet_1812=89433d,garment_outer__blanket_stripe_dark_1812=2b2f42,garment_outer__blanket_wool_white_1812=b6b3a9,garment_upper__shirt_check_blue_1812=a37971,garment_upper__shirt_check_blue_1812=a37971|garters,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "garters",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "miami_escort_1812_15",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=7e7048,accessory__garters_woven_dark_1812=988447,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=634f3b,garment_lower__breechcloth_broadcloth_blue_1812=2a3250,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=843d37,garment_lower__leggings_stroud_scarlet_1812=843d37,garment_outer__blanket_stripe_dark_1812=2f3449,garment_outer__blanket_wool_white_1812=b6b3a8,garment_upper__shirt_check_blue_1812=d1ccc1,garment_upper__shirt_check_blue_1812=d1ccc1|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "miami_escort_1812_16",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=82413b,footwear__moccasins_smoked_1812=67523e,garment_lower__breechcloth_broadcloth_blue_1812=212125,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=364060,garment_lower__leggings_stroud_scarlet_1812=364060,garment_outer__blanket_stripe_dark_1812=29292f,garment_outer__blanket_wool_white_1812=823a37,garment_upper__shirt_check_blue_1812=959caa,garment_upper__shirt_check_blue_1812=959caa|garters,silver_arm_bands,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "garters",
+            "silver_arm_bands",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "black_partridge",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=89453f,accessory__garters_woven_dark_1812=813830,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=68533e,garment_lower__breechcloth_broadcloth_blue_1812=2d3655,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=8c423c,garment_lower__leggings_stroud_scarlet_1812=8c423c,garment_outer__blanket_stripe_dark_1812=26262b,garment_outer__blanket_wool_white_1812=8c3e3b,garment_upper__shirt_check_blue_1812=a1a9b8,garment_upper__shirt_check_blue_1812=a1a9b8|||true",
+          "cut": null,
+          "headcloth": true,
+          "hidden": []
+        },
+        {
+          "person": "blackbird",
+          "asset": "potawatomi_man_1812",
+          "lod": 2,
+          "key": "accessory__belt_leather_1812=433429,accessory__garters_woven_dark_1812=823931,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=86735a,garment_lower__breechcloth_broadcloth_blue_1812=212124,garment_lower__leggings_stroud_scarlet_1812=786451,garment_lower__leggings_stroud_scarlet_1812=786451,garment_outer__blanket_stripe_dark_1812=a9a69b,garment_outer__blanket_wool_white_1812=3a4568,garment_upper__shirt_check_blue_1812=9f766e,garment_upper__shirt_check_blue_1812=9f766e|legging_selvage||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "legging_selvage"
+          ]
+        },
+        {
+          "person": "keepotah",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=433428,accessory__garters_woven_dark_1812=813830,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=837058,garment_lower__breechcloth_broadcloth_blue_1812=2b3350,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=8d433d,garment_lower__leggings_stroud_scarlet_1812=8d433d,garment_outer__blanket_stripe_dark_1812=242429,garment_outer__blanket_wool_white_1812=893d3a,garment_upper__shirt_check_blue_1812=af8178,garment_upper__shirt_check_blue_1812=af8178|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "miami_escort_1812_01",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=90433c,accessory__garters_woven_dark_1812=383c53,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=847058,garment_lower__breechcloth_broadcloth_blue_1812=283150,garment_lower__leggings_stroud_scarlet_1812=344063,garment_lower__leggings_stroud_scarlet_1812=344063,garment_outer__blanket_stripe_dark_1812=a09c92,garment_outer__blanket_wool_white_1812=334d3d,garment_upper__shirt_check_blue_1812=8f96a5,garment_upper__shirt_check_blue_1812=8f96a5|legging_selvage||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "legging_selvage"
+          ]
+        },
+        {
+          "person": "miami_escort_1812_02",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=4a392a,accessory__garters_woven_dark_1812=7a352d,footwear__moccasins_smoked_1812=6b5743,garment_lower__breechcloth_broadcloth_blue_1812=232327,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=344062,garment_lower__leggings_stroud_scarlet_1812=344062,garment_outer__blanket_stripe_dark_1812=b0aca1,garment_outer__blanket_wool_white_1812=37456b,garment_upper__shirt_check_blue_1812=ac7b72,garment_upper__shirt_check_blue_1812=ac7b72|silver_arm_bands,silver_brooches||true",
+          "cut": null,
+          "headcloth": true,
+          "hidden": [
+            "silver_arm_bands",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "miami_escort_1812_03",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=813f39,accessory__garters_woven_dark_1812=34384c,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=5b4836,garment_lower__breechcloth_broadcloth_blue_1812=202023,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=893e38,garment_lower__leggings_stroud_scarlet_1812=893e38,garment_upper__shirt_check_blue_1812=8a919e,garment_upper__shirt_check_blue_1812=8a919e|blanket_stripes,blanket_wrap||true",
+          "cut": null,
+          "headcloth": true,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap"
+          ]
+        },
+        {
+          "person": "miami_escort_1812_04",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=48382c,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=624f3b,garment_lower__breechcloth_broadcloth_blue_1812=2f3755,garment_lower__leggings_stroud_scarlet_1812=74614e,garment_lower__leggings_stroud_scarlet_1812=74614e,garment_outer__blanket_stripe_dark_1812=a4a097,garment_outer__blanket_wool_white_1812=33493c,garment_upper__shirt_check_blue_1812=b8a076,garment_upper__shirt_check_blue_1812=b8a076|garters,legging_selvage,silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "garters",
+            "legging_selvage",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "miami_escort_1812_05",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=90443d,accessory__garters_woven_dark_1812=32364a,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=6e5a45,garment_lower__breechcloth_broadcloth_blue_1812=8e3f37,garment_lower__leggings_stroud_scarlet_1812=2e3857,garment_lower__leggings_stroud_scarlet_1812=2e3857,garment_upper__shirt_check_blue_1812=a3746c,garment_upper__shirt_check_blue_1812=a3746c|blanket_stripes,blanket_wrap,legging_selvage,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "legging_selvage",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "miami_escort_1812_06",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=414d6b,accessory__garters_woven_dark_1812=9e8a4a,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=64503c,garment_lower__breechcloth_broadcloth_blue_1812=232326,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=303b5c,garment_lower__leggings_stroud_scarlet_1812=303b5c,garment_upper__shirt_check_blue_1812=853b32,garment_upper__shirt_check_blue_1812=853b32|blanket_stripes,blanket_wrap||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap"
+          ]
+        },
+        {
+          "person": "miami_escort_1812_07",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=823e38,accessory__garters_woven_dark_1812=873b33,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=5e4b38,garment_lower__breechcloth_broadcloth_blue_1812=873c36,garment_lower__leggings_stroud_scarlet_1812=843b35,garment_lower__leggings_stroud_scarlet_1812=843b35,garment_upper__shirt_check_blue_1812=803a32,garment_upper__shirt_check_blue_1812=803a32|blanket_stripes,blanket_wrap,legging_selvage,silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "legging_selvage",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "miami_escort_1812_08",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=463629,footwear__moccasins_smoked_1812=5d4a37,garment_lower__breechcloth_broadcloth_blue_1812=28304d,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=853c36,garment_lower__leggings_stroud_scarlet_1812=853c36,garment_outer__blanket_stripe_dark_1812=242429,garment_outer__blanket_wool_white_1812=913e3b,garment_upper__shirt_check_blue_1812=8c7864,garment_upper__shirt_check_blue_1812=8c7864|garters,silver_arm_bands,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "garters",
+            "silver_arm_bands",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "naunongee",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=7f413c,accessory__garters_woven_dark_1812=9c8749,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=806e56,garment_lower__breechcloth_broadcloth_blue_1812=2c334f,garment_lower__leggings_stroud_scarlet_1812=74604e,garment_lower__leggings_stroud_scarlet_1812=74604e,garment_upper__shirt_check_blue_1812=b9a177,garment_upper__shirt_check_blue_1812=b9a177|blanket_stripes,blanket_wrap,legging_selvage||true",
+          "cut": null,
+          "headcloth": true,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "legging_selvage"
+          ]
+        },
+        {
+          "person": "nuscotnemeg",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=813b35,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=725d48,garment_lower__breechcloth_broadcloth_blue_1812=293252,garment_lower__leggings_stroud_scarlet_1812=77614b,garment_lower__leggings_stroud_scarlet_1812=77614b,garment_upper__shirt_check_blue_1812=c1bdb1,garment_upper__shirt_check_blue_1812=c1bdb1|blanket_stripes,blanket_wrap,garters,legging_selvage||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "garters",
+            "legging_selvage"
+          ]
+        },
+        {
+          "person": "peesotum",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=7e7045,accessory__garters_woven_dark_1812=333333,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=6f5a46,garment_lower__breechcloth_broadcloth_blue_1812=27304e,garment_lower__leggings_stroud_scarlet_1812=79644e,garment_lower__leggings_stroud_scarlet_1812=79644e,garment_upper__shirt_check_blue_1812=a87970,garment_upper__shirt_check_blue_1812=a87970|blanket_stripes,blanket_wrap,legging_selvage,silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "legging_selvage",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "potawatomi_1812_horse_ground_boy_12",
+          "asset": "potawatomi_man_1812",
+          "lod": 2,
+          "key": "accessory__belt_leather_1812=44506e,accessory__garters_woven_dark_1812=313131,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=634f3b,garment_lower__breechcloth_broadcloth_blue_1812=91413a,garment_lower__leggings_stroud_scarlet_1812=833a34,garment_lower__leggings_stroud_scarlet_1812=833a34,garment_upper__shirt_check_blue_1812=99a1b1,garment_upper__shirt_check_blue_1812=99a1b1|blanket_stripes,blanket_wrap,legging_selvage,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "legging_selvage",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "potawatomi_1812_horse_ground_man",
+          "asset": "potawatomi_man_1812",
+          "lod": 2,
+          "key": "accessory__belt_leather_1812=84764b,accessory__garters_woven_dark_1812=7b352e,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=5e4b38,garment_lower__breechcloth_broadcloth_blue_1812=28304d,garment_lower__leggings_stroud_scarlet_1812=8f423b,garment_lower__leggings_stroud_scarlet_1812=8f423b,garment_upper__shirt_check_blue_1812=c0bcb1,garment_upper__shirt_check_blue_1812=c0bcb1|blanket_stripes,blanket_wrap,legging_selvage,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "legging_selvage",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "potawatomi_1812_middle_boy_5",
+          "asset": "potawatomi_boy_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=ffffff,garment_lower__stroud_leggings_blue_1812=745f4a,garment_upper__calico_shirt_madder_1812=aa9165,garment_upper__calico_shirt_madder_1812=aa9165|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "potawatomi_1812_middle_girl_12",
+          "asset": "potawatomi_woman_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=5b4836,garment_lower__cloth_leggings_red_1812=1f1f23,garment_lower__strouding_selvage_white_1812=a6a296,garment_lower__strouding_skirt_blue_1812=262f4e,garment_outer__trade_blanket_white_1812=354369,garment_upper__calico_shirt_1812=ba9f6e,garment_upper__calico_shirt_1812=ba9f6e|silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "potawatomi_1812_middle_man_1",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=83754b,accessory__garters_woven_dark_1812=35394e,footwear__moccasins_smoked_1812=7d6b54,garment_lower__breechcloth_broadcloth_blue_1812=2c3453,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=8f433d,garment_lower__leggings_stroud_scarlet_1812=8f433d,garment_upper__shirt_check_blue_1812=8a919e,garment_upper__shirt_check_blue_1812=8a919e|blanket_stripes,blanket_wrap,silver_arm_bands,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "silver_arm_bands",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "potawatomi_1812_middle_man_2",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=85403a,accessory__garters_woven_dark_1812=998547,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=78614b,garment_lower__breechcloth_broadcloth_blue_1812=272f4b,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=2e3856,garment_lower__leggings_stroud_scarlet_1812=2e3856,garment_outer__blanket_stripe_dark_1812=2d3146,garment_outer__blanket_wool_white_1812=aba89e,garment_upper__shirt_check_blue_1812=853d35,garment_upper__shirt_check_blue_1812=853d35|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "potawatomi_1812_middle_man_3",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=433326,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=816f57,garment_lower__breechcloth_broadcloth_blue_1812=2a3353,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=354163,garment_lower__leggings_stroud_scarlet_1812=354163,garment_outer__blanket_stripe_dark_1812=27272c,garment_outer__blanket_wool_white_1812=873834,garment_upper__shirt_check_blue_1812=ac9368,garment_upper__shirt_check_blue_1812=ac9368|garters,silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "garters",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "potawatomi_1812_middle_woman_1",
+          "asset": "potawatomi_woman_1812",
+          "lod": 3,
+          "key": "accessory__silver_brooches_1812=cececb,footwear__moccasins_smoked_1812=86735a,garment_lower__cloth_leggings_red_1812=6d3633,garment_lower__strouding_selvage_white_1812=aeaa9d,garment_lower__strouding_skirt_blue_1812=242428,garment_upper__calico_shirt_1812=c4c0b5,garment_upper__calico_shirt_1812=c4c0b5|trade_blanket||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "trade_blanket"
+          ]
+        },
+        {
+          "person": "potawatomi_1812_middle_woman_2",
+          "asset": "potawatomi_woman_1812",
+          "lod": 3,
+          "key": "accessory__silver_brooches_1812=cececb,footwear__moccasins_smoked_1812=6b5743,garment_lower__cloth_leggings_red_1812=6f3834,garment_lower__strouding_selvage_white_1812=a5a195,garment_lower__strouding_skirt_blue_1812=2e3755,garment_outer__trade_blanket_white_1812=817e79,garment_upper__calico_shirt_1812=9298a6,garment_upper__calico_shirt_1812=9298a6|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "potawatomi_1812_middle_young_woman",
+          "asset": "potawatomi_woman_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=614e3a,garment_lower__cloth_leggings_red_1812=793834,garment_lower__strouding_selvage_white_1812=a29e92,garment_lower__strouding_skirt_blue_1812=2a3353,garment_outer__trade_blanket_white_1812=8e3935,garment_upper__calico_shirt_1812=a96c72,garment_upper__calico_shirt_1812=a96c72|silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "potawatomi_1812_mouth_boy_8",
+          "asset": "potawatomi_boy_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=ffffff,garment_lower__stroud_leggings_blue_1812=823d37,garment_upper__calico_shirt_madder_1812=4c5573,garment_upper__calico_shirt_madder_1812=4c5573|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "potawatomi_1812_mouth_elder_woman",
+          "asset": "potawatomi_woman_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=6d5844,garment_lower__cloth_leggings_red_1812=6d4442,garment_lower__strouding_selvage_white_1812=8b3733,garment_lower__strouding_skirt_blue_1812=383e53,garment_outer__trade_blanket_white_1812=7a7875,garment_upper__calico_shirt_1812=83504c,garment_upper__calico_shirt_1812=83504c|silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "potawatomi_1812_mouth_girl_10",
+          "asset": "potawatomi_girl_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=735d48,garment_lower__stroud_leggings_red_1812=91423b,garment_lower__stroud_selvage_white_1812=ffffff,garment_lower__stroud_skirt_blue_1812=2f3958,garment_upper__calico_blouse_rose_1812=ad7d74,garment_upper__calico_blouse_rose_1812=ad7d74|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "potawatomi_1812_mouth_man_1",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=483729,accessory__garters_woven_dark_1812=36394f,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=6a5643,garment_lower__breechcloth_broadcloth_blue_1812=883b34,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=2d3857,garment_lower__leggings_stroud_scarlet_1812=2d3857,garment_upper__shirt_check_blue_1812=d1ccc0,garment_upper__shirt_check_blue_1812=d1ccc0|blanket_stripes,blanket_wrap,silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "potawatomi_1812_mouth_man_2",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=433428,footwear__moccasins_smoked_1812=7c6a53,garment_lower__breechcloth_broadcloth_blue_1812=853e39,garment_lower__leggings_stroud_scarlet_1812=364160,garment_lower__leggings_stroud_scarlet_1812=364160,garment_outer__blanket_stripe_dark_1812=a8a49a,garment_outer__blanket_wool_white_1812=344c3d,garment_upper__shirt_check_blue_1812=b9a074,garment_upper__shirt_check_blue_1812=b9a074|garters,legging_selvage,silver_arm_bands,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "garters",
+            "legging_selvage",
+            "silver_arm_bands",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "potawatomi_1812_mouth_man_3",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=404b68,accessory__garters_woven_dark_1812=2d2d2d,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=705b46,garment_lower__breechcloth_broadcloth_blue_1812=1f1f23,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=873b34,garment_lower__leggings_stroud_scarlet_1812=873b34,garment_outer__blanket_stripe_dark_1812=25252a,garment_outer__blanket_wool_white_1812=913b37,garment_upper__shirt_check_blue_1812=8e3f36,garment_upper__shirt_check_blue_1812=8e3f36|silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "potawatomi_1812_mouth_woman_1",
+          "asset": "potawatomi_woman_1812",
+          "lod": 3,
+          "key": "accessory__silver_brooches_1812=cececb,footwear__moccasins_smoked_1812=624e3a,garment_lower__cloth_leggings_red_1812=693531,garment_lower__strouding_selvage_white_1812=a29e92,garment_lower__strouding_skirt_blue_1812=2d3552,garment_upper__calico_shirt_1812=854139,garment_upper__calico_shirt_1812=854139|trade_blanket||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "trade_blanket"
+          ]
+        },
+        {
+          "person": "potawatomi_1812_south_reach_girl_6",
+          "asset": "potawatomi_girl_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=735d48,garment_lower__stroud_leggings_red_1812=354060,garment_lower__stroud_selvage_white_1812=ffffff,garment_lower__stroud_skirt_blue_1812=364162,garment_upper__calico_blouse_rose_1812=7b5b46,garment_upper__calico_blouse_rose_1812=7b5b46|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "potawatomi_1812_south_reach_man_1",
+          "asset": "potawatomi_man_1812",
+          "lod": 2,
+          "key": "accessory__belt_leather_1812=833f39,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=76604b,garment_lower__breechcloth_broadcloth_blue_1812=2d3655,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=833b35,garment_lower__leggings_stroud_scarlet_1812=833b35,garment_upper__shirt_check_blue_1812=939aa8,garment_upper__shirt_check_blue_1812=939aa8|blanket_stripes,blanket_wrap,garters||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "garters"
+          ]
+        },
+        {
+          "person": "potawatomi_1812_south_reach_man_2",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=4a382a,accessory__garters_woven_dark_1812=32364a,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=5e4b38,garment_lower__breechcloth_broadcloth_blue_1812=222225,garment_lower__leggings_stroud_scarlet_1812=893b34,garment_lower__leggings_stroud_scarlet_1812=893b34,garment_upper__shirt_check_blue_1812=98a0b0,garment_upper__shirt_check_blue_1812=98a0b0|blanket_stripes,blanket_wrap,legging_selvage||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "legging_selvage"
+          ]
+        },
+        {
+          "person": "potawatomi_1812_south_reach_woman",
+          "asset": "potawatomi_woman_1812",
+          "lod": 3,
+          "key": "accessory__silver_brooches_1812=cececb,footwear__moccasins_smoked_1812=6b5743,garment_lower__cloth_leggings_red_1812=222225,garment_lower__strouding_selvage_white_1812=9f8b3b,garment_lower__strouding_skirt_blue_1812=232326,garment_upper__calico_shirt_1812=833d35,garment_upper__calico_shirt_1812=833d35|trade_blanket||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "trade_blanket"
+          ]
+        },
+        {
+          "person": "potawatomi_1812_upper_elder_man",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=4d5468,accessory__garters_woven_dark_1812=893c34,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=796751,garment_lower__breechcloth_broadcloth_blue_1812=222225,garment_lower__leggings_stroud_scarlet_1812=794946,garment_lower__leggings_stroud_scarlet_1812=794946,garment_upper__shirt_check_blue_1812=c7c4bc,garment_upper__shirt_check_blue_1812=c7c4bc|blanket_stripes,blanket_wrap,legging_selvage,silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "legging_selvage",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "potawatomi_1812_upper_girl_9",
+          "asset": "potawatomi_girl_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=735d48,garment_lower__stroud_leggings_red_1812=883c35,garment_lower__stroud_selvage_white_1812=ffffff,garment_lower__stroud_skirt_blue_1812=313c5c,garment_upper__calico_blouse_rose_1812=883d34,garment_upper__calico_blouse_rose_1812=883d34|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        },
+        {
+          "person": "potawatomi_1812_upper_man",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=453529,accessory__garters_woven_dark_1812=8b7940,footwear__moccasins_smoked_1812=5d4a37,garment_lower__breechcloth_broadcloth_blue_1812=2a314d,garment_lower__leggings_stroud_scarlet_1812=695746,garment_lower__leggings_stroud_scarlet_1812=695746,garment_outer__blanket_stripe_dark_1812=2f3348,garment_outer__blanket_wool_white_1812=bebbb1,garment_upper__shirt_check_blue_1812=9096a4,garment_upper__shirt_check_blue_1812=9096a4|legging_selvage,silver_arm_bands,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "legging_selvage",
+            "silver_arm_bands",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "potawatomi_1812_upper_woman",
+          "asset": "potawatomi_woman_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=5b4836,garment_lower__cloth_leggings_red_1812=6e3431,garment_lower__strouding_selvage_white_1812=9e9a8f,garment_lower__strouding_skirt_blue_1812=242427,garment_upper__calico_shirt_1812=823b33,garment_upper__calico_shirt_1812=823b33|silver_brooches,trade_blanket||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "silver_brooches",
+            "trade_blanket"
+          ]
+        },
+        {
+          "person": "potawatomi_1812_west_bank_boy_14",
+          "asset": "potawatomi_man_1812",
+          "lod": 2,
+          "key": "accessory__belt_leather_1812=404a66,footwear__moccasins_smoked_1812=66523d,garment_lower__breechcloth_broadcloth_blue_1812=883e37,garment_lower__leggings_stroud_scarlet_1812=2f3957,garment_lower__leggings_stroud_scarlet_1812=2f3957,garment_upper__shirt_check_blue_1812=806d5a,garment_upper__shirt_check_blue_1812=806d5a|blanket_stripes,blanket_wrap,garters,legging_selvage,silver_arm_bands,silver_brooches||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "garters",
+            "legging_selvage",
+            "silver_arm_bands",
+            "silver_brooches"
+          ]
+        },
+        {
+          "person": "potawatomi_1812_west_bank_man_1",
+          "asset": "potawatomi_man_1812",
+          "lod": 2,
+          "key": "accessory__belt_leather_1812=81403a,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=5d4a37,garment_lower__breechcloth_broadcloth_blue_1812=8c413b,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=344f3d,garment_lower__leggings_stroud_scarlet_1812=344f3d,garment_outer__blanket_stripe_dark_1812=aaa69d,garment_outer__blanket_wool_white_1812=c4c1b7,garment_upper__shirt_check_blue_1812=566a4e,garment_upper__shirt_check_blue_1812=566a4e|garters||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "garters"
+          ]
+        },
+        {
+          "person": "potawatomi_1812_west_bank_man_2",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=823c36,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=857259,garment_lower__breechcloth_broadcloth_blue_1812=232326,garment_lower__leggings_stroud_scarlet_1812=705b47,garment_lower__leggings_stroud_scarlet_1812=705b47,garment_outer__blanket_stripe_dark_1812=b3b0a4,garment_outer__blanket_wool_white_1812=39476f,garment_upper__shirt_check_blue_1812=af7d74,garment_upper__shirt_check_blue_1812=af7d74|garters,legging_selvage,silver_arm_bands||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "garters",
+            "legging_selvage",
+            "silver_arm_bands"
+          ]
+        },
+        {
+          "person": "potawatomi_1812_west_bank_woman_1",
+          "asset": "potawatomi_woman_1812",
+          "lod": 3,
+          "key": "footwear__moccasins_smoked_1812=5f4c39,garment_lower__cloth_leggings_red_1812=783a36,garment_lower__strouding_selvage_white_1812=b1ada0,garment_lower__strouding_skirt_blue_1812=743835,garment_upper__calico_shirt_1812=9198a6,garment_upper__calico_shirt_1812=9198a6|silver_brooches,trade_blanket||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "silver_brooches",
+            "trade_blanket"
+          ]
+        },
+        {
+          "person": "potawatomi_1812_west_bank_woman_2",
+          "asset": "potawatomi_woman_1812",
+          "lod": 2,
+          "key": "accessory__silver_brooches_1812=cececb,footwear__moccasins_smoked_1812=5c4937,garment_lower__cloth_leggings_red_1812=232327,garment_lower__strouding_selvage_white_1812=9e8b3a,garment_lower__strouding_skirt_blue_1812=313b57,garment_upper__calico_shirt_1812=b0827a,garment_upper__calico_shirt_1812=b0827a|trade_blanket||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "trade_blanket"
+          ]
+        },
+        {
+          "person": "topenebe",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=81413b,accessory__garters_woven_dark_1812=7d372f,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=5f4b38,garment_lower__breechcloth_broadcloth_blue_1812=833e38,garment_lower__leggings_stroud_scarlet_1812=86403a,garment_lower__leggings_stroud_scarlet_1812=86403a,garment_outer__blanket_stripe_dark_1812=a8a49a,garment_outer__blanket_wool_white_1812=3a466a,garment_upper__shirt_check_blue_1812=959caa,garment_upper__shirt_check_blue_1812=959caa|legging_selvage||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "legging_selvage"
+          ]
+        },
+        {
+          "person": "waubansee",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=7f3d37,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=634f3b,garment_lower__breechcloth_broadcloth_blue_1812=27304d,garment_lower__leggings_stroud_scarlet_1812=8e413a,garment_lower__leggings_stroud_scarlet_1812=8e413a,garment_upper__shirt_check_blue_1812=c0bcb1,garment_upper__shirt_check_blue_1812=c0bcb1|blanket_stripes,blanket_wrap,garters,legging_selvage||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "garters",
+            "legging_selvage"
+          ]
+        },
+        {
+          "person": "waubeeneemah",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=3c4763,accessory__garters_woven_dark_1812=2e2e2e,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=77614b,garment_lower__breechcloth_broadcloth_blue_1812=262f4d,garment_lower__leggings_stroud_scarlet_1812=2d3858,garment_lower__leggings_stroud_scarlet_1812=2d3858,garment_upper__shirt_check_blue_1812=586e4f,garment_upper__shirt_check_blue_1812=586e4f|blanket_stripes,blanket_wrap,legging_selvage||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "blanket_stripes",
+            "blanket_wrap",
+            "legging_selvage"
+          ]
+        },
+        {
+          "person": "waubeeneemah_wife",
+          "asset": "potawatomi_woman_1812",
+          "lod": 3,
+          "key": "accessory__silver_brooches_1812=cececb,footwear__moccasins_smoked_1812=806d56,garment_lower__cloth_leggings_red_1812=753834,garment_lower__strouding_selvage_white_1812=a6a296,garment_lower__strouding_skirt_blue_1812=2c3555,garment_upper__calico_shirt_1812=873e35,garment_upper__calico_shirt_1812=873e35|trade_blanket||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": [
+            "trade_blanket"
+          ]
+        },
+        {
+          "person": "winnemeg",
+          "asset": "potawatomi_man_1812",
+          "lod": 3,
+          "key": "accessory__belt_leather_1812=3e4863,accessory__garters_woven_dark_1812=907d43,accessory__silver_1812=aaaaa8,accessory__silver_1812=aaaaa8,footwear__moccasins_smoked_1812=837058,garment_lower__breechcloth_broadcloth_blue_1812=29314d,garment_lower__leggings_selvage_white_1812=cbc8bf,garment_lower__leggings_stroud_scarlet_1812=6d3532,garment_lower__leggings_stroud_scarlet_1812=6d3532,garment_outer__blanket_stripe_dark_1812=2f3449,garment_outer__blanket_wool_white_1812=c0bcb2,garment_upper__shirt_check_blue_1812=cac5ba,garment_upper__shirt_check_blue_1812=cac5ba|||false",
+          "cut": null,
+          "headcloth": false,
+          "hidden": []
+        }
+      ]
+    }
+  ]
+}

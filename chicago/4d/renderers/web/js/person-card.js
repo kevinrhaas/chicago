@@ -194,6 +194,19 @@ export function personModel({ row, person = null, household = null, citations = 
     facts.push({ label: year ? `In ${year}` : 'On the scene date', value: ON_SCENE_DATE[lived.on_scene_date], grade });
   }
   const ownCard = p.own_card ?? row?.own_card ?? null;
+  // T-3507..T-3509: a card's own graded facts (a Native card's name basis, band, gens, its 15th),
+  // a reconstructed history kept apart from the story, and a named man's own portrait.
+  for (const f of Array.isArray(p.card_facts) ? p.card_facts : []) {
+    if (f?.label && f?.value && !facts.some((x) => x.label === f.label)) facts.push({ label: String(f.label), value: String(f.value), grade: f.grade ?? grade });
+  }
+  const assetUrl = (q) => { try { return assetBase ? new URL(q, assetBase).href : q; } catch { return q; } };
+  const hist = p.history && Array.isArray(p.history.paragraphs) && p.history.paragraphs.length ? {
+    title: String(p.history.title ?? 'A reconstructed history'), grade: p.history.grade ?? 'reconstructed',
+    caveat: String(p.history.caveat ?? ''), paragraphs: p.history.paragraphs.map(String) } : null;
+  const fifteenth = p.on_15_august?.value ? { value: String(p.on_15_august.value), grade: p.on_15_august.grade ?? grade, note: String(p.on_15_august.note ?? '') } : null;
+  const nameBasis = p.name_basis?.note ? { grade: p.name_basis.grade ?? grade, text: String(p.name_basis.note) } : null;
+  const portrait = p.portrait?.image ? { image: assetUrl(p.portrait.image), caption: String(p.portrait.caption ?? ''), why: String(p.portrait.why ?? ''),
+    grade: p.portrait.grade ?? 'attested' } : null;
 
   // How we know.
   const sources = (Array.isArray(p.sources) ? p.sources : []).map((id) => {
@@ -238,6 +251,10 @@ export function personModel({ row, person = null, household = null, citations = 
     ownCard,
     likeness: likenessOf(face, assetBase),
     looks: looksOf(looks, assetBase),
+    history: hist,
+    fifteenth,
+    nameBasis,
+    portrait,
     away: lived?.on_scene_date === 'no',
     read: !!person,
   };
@@ -392,6 +409,43 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), o
     card.append(el(doc, 'p', 'nav-sub', 'The record says no more about them yet than the listing below.'));
   }
 
+  if (m.history) {
+    const H = m.history;
+    const sec = el(doc, 'section', 'insp-sec insp-person-history');
+    sec.dataset.grade = H.grade;
+    const h = el(doc, 'h3', 'insp-h', H.title);
+    sec.append(h);
+    if (H.caveat) { const c = el(doc, 'p', 'insp-person-note', H.caveat); c.prepend(dot(doc, H.grade), ' '); sec.append(c); }
+    for (const t of H.paragraphs) sec.append(el(doc, 'p', 'insp-summary', t));
+    card.append(sec);
+  }
+
+  if (m.fifteenth) {
+    const F = m.fifteenth;
+    const sec = el(doc, 'section', 'insp-sec insp-person-fifteenth');
+    sec.dataset.grade = F.grade;
+    sec.append(el(doc, 'h3', 'insp-h', '15 August 1812'));
+    const v = el(doc, 'p', 'insp-person-why-title', F.value);
+    v.prepend(dot(doc, F.grade));
+    sec.append(v);
+    if (F.note) sec.append(el(doc, 'p', 'insp-person-note', F.note));
+    card.append(sec);
+  }
+
+  if (m.portrait && !m.likeness) {
+    const P = m.portrait;
+    const sec = el(doc, 'section', 'insp-sec insp-person-likeness insp-person-portrait');
+    sec.dataset.grade = P.grade;
+    sec.append(el(doc, 'h3', 'insp-h', 'Likeness'));
+    const fig = el(doc, 'figure', 'insp-person-face');
+    const img = el(doc, 'img');
+    img.src = P.image; img.alt = `${m.name}: ${P.caption}`; img.loading = 'lazy'; img.decoding = 'async'; img.width = 360; img.height = 480;
+    fig.append(img, el(doc, 'figcaption', 'nav-k', P.caption));
+    sec.append(fig);
+    if (P.why) sec.append(el(doc, 'p', 'insp-person-note', P.why));
+    card.append(sec);
+  }
+
   if (m.likeness) {
     const L = m.likeness;
     const sec = el(doc, 'section', 'insp-sec insp-person-likeness');
@@ -489,6 +543,11 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), o
   for (const n of m.sheetNotes) {
     const p = el(doc, 'p', 'insp-person-note', n.text);
     p.prepend(dot(doc, n.grade), ' ');
+    how.append(p);
+  }
+  if (m.nameBasis) {
+    const p = el(doc, 'p', 'insp-person-note', `Name: ${m.nameBasis.text}`);
+    p.prepend(dot(doc, m.nameBasis.grade), ' ');
     how.append(p);
   }
   for (const c of m.caveats) how.append(el(doc, 'p', 'insp-person-note', c));

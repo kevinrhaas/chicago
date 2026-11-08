@@ -70,15 +70,31 @@
           "claim": "The mat screen",
           "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
         }
+      ],
+      "on_15_august": {
+        "value": "At the camp: screened Mrs Helm with a mat from the killing of a wounded prisoner",
+        "grade": "inferred",
+        "note": "Wau-Bun (Mrs Helm's story).",
+        "sources": [
+          "kinzie_waubun_1856"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "On 15 August",
+          "value": "At the camp: screened Mrs Helm with a mat from the killing of a wounded prisoner",
+          "grade": "inferred"
+        }
       ]
     },
     {
       "id": "waubeeneemah_wife",
-      "name": "The wife of Wau-bee-nee-mah",
+      "name": "Rain After Thunder",
       "relationship": "wife",
       "grade": "attested",
       "sources": [
-        "kinzie_waubun_1856"
+        "kinzie_waubun_1856",
+        "morgan_1877_ancient_society"
       ],
       "present_on_scene_date": {
         "value": "probably present",
@@ -104,7 +120,48 @@
           "claim": "The stream located",
           "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
         }
-      ]
+      ],
+      "also_written": [
+        "The wife of Wau-bee-nee-mah"
+      ],
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names her. A name of our making, given in English as the treaty clerks of 1815-16 wrote many names of these bands, and made as Morgan says names were: a gens owned its names, and a name spoke of it. This one speaks of the Thunder (Che′-kwa)."
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Thunder (Che′-kwa)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp: gave Mrs Helm water with maple sugar stirred in",
+          "grade": "inferred"
+        }
+      ],
+      "reconstruction": {
+        "name": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "on_15_august": {
+        "value": "At the camp: gave Mrs Helm water with maple sugar stirred in",
+        "grade": "inferred",
+        "note": "Wau-Bun (Mrs Helm's story).",
+        "sources": [
+          "kinzie_waubun_1856"
+        ]
+      }
     }
   ]
 }

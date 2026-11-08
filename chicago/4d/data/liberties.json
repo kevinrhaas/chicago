@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1053,
+  "count": 1055,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -71548,6 +71548,72 @@
         "T-3467",
         "T-3342",
         "T-3500"
+      ]
+    },
+    {
+      "id": "L-1812-native-dress-3506",
+      "title": "Each Potawatomi and Miami person of 1812 dressed and wearing their hair as their own",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-08",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-08, walking the camps: *\"all the people look identical like all wearing the same clothing and identical hair etc all men look same and all women\"*. The 1812 camp had one dressed body per sex and age (potawatomi man 1812, _woman 1812, _boy 1812, _girl 1812). No new body is made (1812's phone memory is at its ceiling); the research notes on native dress 1812 writes the dress 1812 native data, which recolours each person's own pieces and leaves some off, seeded per person. Five things are ours. (1) **Colours** of the trade cloth: shirts in the calicoes, checks and plain linens of the trade lists (madder, indigo, white, check), blankets white, striped or dark, leggings scarlet, blue or black stroud, garters and belts; older people's cloth more faded. (2) **What is worn**: a blanket, leggings, garters or silver left off by some, chiefs with silver. (3) **Hair**: four men's cuts (clubbed, tied high, clubbed long, a side part tied) and three women's (centre part, clubbed low or tied high), a tied tail 8-28 cm (none on boys), black, blue-black or black-brown, grey from 55; the tail is grown at the middle distance too, where everyone's cap is the same short hair. (4) **Headcloths**: a handkerchief tied round the head on about one man in eight (one in four of the old) and one woman in twelve. (5) **The mix**: no two of the 163 built figures alike (the qa native dress t3506 tool)."
+        },
+        {
+          "label": "Not invented",
+          "text": "the goods given out on 13 August, *\"blankets, broadcloths, calicoes, paints, etc.\"* (Wau-Bun ch. XVIII); the trade-cloth dress of the Great Lakes peoples in the period's portraits already cited for the bodies (Lewis 1835, Catlin 1830). Nothing about any one person's dress is recorded."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a description or picture of the gathering at Chicago in 1812, or of a band's dress there."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-08."
+        }
+      ],
+      "work_refs": [
+        "T-3506"
+      ]
+    },
+    {
+      "id": "L-1812-native-cards-3507",
+      "title": "Names, histories and the part on 15 August for every Potawatomi and Miami card of 1812, and three named men who came after the 14th",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-08",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-08 (the project's rules, standing constraint): permission to reconstruct a researched, respectful name and a history for each Native person, marked as reconstruction; to include named men of the bands who might have been at the camps, with a likeness; and to assign the likely battle participants. the native cards 1812 tool, called by the three generators that write the cards (gathering-people-1812-3500/the build tool, people-1812-town/the cards tool, people-1812-3461/the build tool), adds to every Native card. Six things are ours. (1) **Names.** 670 people no source names get a name of our making, in English as the 1815-16 treaty clerks wrote many names of these same bands (*Black Partridge*, *White Hair*, *Little Wolf*, *Walker*, *Lake*, *Stout*, *Trader*), made by the practice Morgan records (*Ancient Society*, 1877, pt. II ch. II): a gens owned its names and a name *\"proclaimed by [its] signification the gens to which [it] belonged\"*, children had names of childhood, descent ran in the male line and no one married within the gens. Each family takes a gens from Morgan's lists (fifteen Potawatomi, nine named Miami), the man's and children's names speak of it, the wife's of another. No Potawatomi word is composed; no name is one a source gives anyone of these bands; no two alike. (2) **Bands.** Each camp ground's families are put with a band of Governor Edwards's description of May 1812 (Andreas pp. 78-79), led by the named man already carded at that ground. (3) **Treaty men.** 26 signers of the 1815 (Portage des Sioux) and 1816 (St. Louis) treaties for the Illinois and Milwaukee river bands take the cards of drawn men of 22-55: their names are attested, their presence at Chicago in August 1812 is not, and each card says so. (4) **Histories**: a band, a gens, a lodge and its family by name, a season's work, the gathering and the goods of the 13th, every particular ours and marked. (5) **15 August.** Heald counts *\"between four and five hundred\"* warriors in the attack, *\"mostly of the Potawatamie nation\"*, out of Helm's 500: a man of 16-55 is *likely among the warriors who attacked the column*; older men *likely stayed at the camp* (and are no longer away from it that morning); women and children at the camp, where Heald's prisoners were brought; the Miamis, *\"did not assist us\"*. Named people's parts are their sources', graded. Nothing of the fighting is staged. (6) **Shabbona, Billy Caldwell, Alexander Robinson**: cards of their own, not placed in the camp (Shabbona by his own account came after the fight, Caldwell on the 16th, Robinson's presence disputed), with Kirkland's (1893) engravings of Shabbona and Robinson in old age as their likenesses. This supersedes, for the Native cards, “A card for everyone of the August 1812 gathering and of Wells's escort, and Louis Fettle: sex, age, lodge, who is drawn and their day”'s *\"No card invents a name, band, kin or story\"*, by the owner's ruling."
+        },
+        {
+          "label": "Not invented",
+          "text": "the treaty names and glosses (Kappler II), Morgan's gentes and naming rules, Edwards's bands, Heald's and Helm's counts, the named people's parts and the three men's lives as their sources give them; every reconstructed fact is graded `reconstructed` on the card beside it."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "any record that names a person of the gathering or puts a band at a ground; a Potawatomi naming authority's guidance on the names."
+        },
+        {
+          "label": "pieces of work",
+          "text": "Other work."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-08."
+        }
+      ],
+      "work_refs": [
+        "T-3507",
+        "T-3508",
+        "T-3509"
       ]
     },
     {
