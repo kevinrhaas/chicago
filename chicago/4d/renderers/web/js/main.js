@@ -87,6 +87,7 @@ import { createBoats } from './boats.js';
 import { mountHumans } from './humans.js';
 import { createHumanDuties } from './human-duties.js';
 import { createHumanDays } from './human-days.js';
+import { createHumanSpacing } from './human-spacing.js';
 import { createInteractions, createInteractKey } from './interact.js';
 import { createFollow } from './follow.js';
 import { createPeopleLook } from './people-look.js';
@@ -3854,6 +3855,12 @@ async function boot() {
       router: { plan: (...args) => (api.router?.built ? api.router.plan(...args) : null) },
       problems: layerProblems('humans') });
   }
+  // T-3504 (owner, 2026-11-08: "two people occupying the same space? Prevent that"): every year's
+  // figures kept a body's width apart, standing or walking, after the layers above move them;
+  // never into a building, by the router's grid once something has built it.
+  api.spacing = createHumanSpacing({ humans: api.humans,
+    visitor: () => ({ e: walker.state.e, n: walker.state.n }),
+    blockedAt: (e, n) => (api.router?.built ? api.router.blockedAt(e, n) : false) });
   /**
    * T-3439 (owner, 2026-11-07): Settings › Show › People and › Carriages and horses. A
    * viewing choice, like Street trees: hidden, a layer is neither drawn nor advanced nor
@@ -6083,6 +6090,8 @@ async function boot() {
     api.humans?.update(frameDt, camera, walker.state, visualDt);
     api.duties?.update(frameDt);
     api.days?.update(frameDt);
+    // T-3504: and then nobody stands in anybody else (human-spacing.js).
+    api.spacing?.update(frameDt);
 
     // T-2113. Under the gate, draw only a frame that differs from the last one
     // drawn: the first, one a capture or a test asked for, or one in which

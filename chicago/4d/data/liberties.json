@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1052,
+  "count": 1053,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -71481,6 +71481,36 @@
         "T-3465",
         "T-3466",
         "T-3467"
+      ]
+    },
+    {
+      "id": "L-t3504-people-apart",
+      "title": "Nobody in anybody else's place, and nobody standing idle out of doors",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-08",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-08, of two figures on the 1812 parade, one inside the other: *\"Seems like her feet are sunken in and there are two people occupying the same space? Prevent that\"*, and *\"Yes give everyone a purpose or task so the are all not standing around idly you can put people in buildings if you need so it does not have lots of idle people standing around and we can ask for them and they can come out of the building\"*. Where and when each person is stays their record's; how the hour is spent there is filled in by the renderer, in every year. (1) **A talk stands in a ring.** The records of one talk all name the knot's one point (seven children on one spot on the parade at 9.30); its people now stand in a ring about that point, neighbours 0.95 m apart and turned in (the walkthrough's human days code `planDay`), unless their own places already stand them 0.7 m apart. (2) **Standing together is a talk.** Two or more people standing out of doors within 6 m at the same hour (waiting at the factory, an evening at the yard, a muster) talk as one company, in a ring. (3) **Standing alone is a job.** One person standing alone works about the place, between it and two spots 1.4-3 m off it; a span whose own words name a post (a sentry, a watch, a guard) is still stood. A soldier with hours and no duty is at a chore at his station the same way (the walkthrough's human duties code CHORE); the guard, who keeps no hours, still stands. (4) **A body's width apart.** Whatever is left (two people working one spot, walks that end at one place, two walkers meeting, a figure in another layer's way) is kept 0.62 m apart centre to centre by a step aside of at most 1.4 m, never into a building, a walker taking most of it (the walkthrough's human spacing code). (5) **Feet on the laid ground.** A figure in a yard's garden bed or on its laid walk stands on it (2.8 and 3.4 cm over the heightfield), not on the yard's base under it."
+        },
+        {
+          "label": "Not invented",
+          "text": "anyone's place, company, hours or building; nobody is put indoors who was not."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a source that says what a person was doing at a given hour, which goes into their day reading and is then played as written."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-08."
+        }
+      ],
+      "work_refs": [
+        "T-3504"
       ]
     },
     {

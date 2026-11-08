@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2828, ts: '2026-11-08T15:41:43.930Z', date: 'Nov 8, 2026, 9:41 AM CT', title: 'People keep their own space and something to do', kind: 'fix',
+    items: [
+      'Children and adults talking together now stand in a ring facing each other, not stacked on one spot.',
+      'Every figure keeps a body\'s width from everyone else, standing or walking, in every year.',
+      'People standing together talk; someone standing alone works about the place; idle soldiers do chores at their station.',
+      'Figures stand on garden beds and laid walks instead of sinking into them.',
+    ] },
   { v: 2827, ts: '2026-11-08T13:20:27.077Z', date: 'Nov 8, 2026, 7:20 AM CT', title: 'Content builds wait out a flaky texture-tool download', kind: 'fix',
     items: [
       'The pinned KTX-Software 4.3.2 package that compresses every texture is now kept in the build cache, checked against its pinned fingerprint, and fetched with patient retries, so a passing gateway timeout from github.com no longer throws away a whole content build. On 8 November three builds in a row were lost that way with nothing wrong in the change; the fallback fetch inside tools/ktx2_sheets.py now retries too, and a self-test in the gate proves it waits out a 504 but refuses a missing file or a wrong fingerprint at once.',

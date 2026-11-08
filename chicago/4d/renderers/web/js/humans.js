@@ -264,6 +264,9 @@ export class HumanActor {
     this.tow = null;
     // T-3443: gone indoors (house-errands.js): not drawn, not picked, met by nobody.
     this.indoors = false;
+    // T-3504: a step aside from whoever else stands here, local metres (human-spacing.js).
+    this.spaceE = 0;
+    this.spaceN = 0;
     this.place();
   }
 
@@ -275,7 +278,12 @@ export class HumanActor {
 
   place() {
     // T-3442: on a walked path the path says how high each point is (a tread, a sill).
-    enuToWorld(this.e, this.n, this.standY ?? this.heightAt(this.e, this.n), this.root.position);
+    // T-3504: off a walked path, a step aside from whoever else stands here (human-spacing.js).
+    if (this.standY != null) { enuToWorld(this.e, this.n, this.standY, this.root.position); }
+    else {
+      const e = this.e + (this.spaceE ?? 0), n = this.n + (this.spaceN ?? 0);
+      enuToWorld(e, n, this.heightAt(e, n), this.root.position);
+    }
     this.root.rotation.y = headingToYaw(this.heading);
   }
 
