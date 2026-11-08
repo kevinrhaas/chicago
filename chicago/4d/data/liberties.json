@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1053,
+  "count": 1054,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -71511,6 +71511,36 @@
       ],
       "work_refs": [
         "T-3504"
+      ]
+    },
+    {
+      "id": "L-t3505-rounds",
+      "title": "A talk comes and goes; between, each person is at their own job or at play; breaks indoors",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-08",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-08: *\"I do not want to have everyone standing in groups talking, it's fine if there are conversations that come together and break up, but the whole day of theirs should not be spent talking, they should be doing something their duty or other normal activities. Some if not many can be inside because that might be normal, so please give everyone a purpose and role for every part of the day\"*, and *\"the people should look natural that they are doing ordinary things on a loop for example. They can take breaks and go in and out of houses and buildings\"*. The scene's hour stands still while the visitor looks about, so the renderer plays each span as a round on its own clock (the walkthrough's human days code, seeded, the same on every load). (1) **A talk is a gathering that comes and goes.** A talk of two or more (written, or a company of people standing together) gathers every 75-150 s (each knot its own beat) for 24-52 s; each of its people is seeded to come or not each time (three in four; two at least), stands in its ring and talks, and goes back. (2) **Between, a job of one's own.** Each one works 1.8-3.4 m out from the ring, turned from it, between that place and two more 1.2-2.6 m about it; a child plays, walking between three places 2.5-6 m apart. A talk that names no one else is a job. (3) **Breaks indoors.** Someone at a job or a talk whose day has them in a building with a door within 45 m of their place now and then goes in, for 28-75 s in about half of every 150-330 s, and comes out again; while in they are offered at that door as anyone inside is. (4) **One place each.** Two or more people whose jobs name one spot at once (three of the militia) work at places of their own about it, 0.95 m apart. Every place of a job is clear of the buildings and never across the fort's pickets (`clearWayOf`, the walker's footprints)."
+        },
+        {
+          "label": "Not invented",
+          "text": "anyone's place, company, hours or building; nobody is put into a building their day does not have them in."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a source that says what a person was doing at a given hour, which goes into their day reading and is then played as written."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-08."
+        }
+      ],
+      "work_refs": [
+        "T-3505"
       ]
     },
     {

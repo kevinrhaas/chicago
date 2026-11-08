@@ -172,7 +172,8 @@ const walksBefore = kinzie.walks.length;
 tick(0.1, 3);
 assert.equal(kinzie.indoors, false);
 assert.equal(kinzie.walks.length, walksBefore, 'far from the visitor he is put, not walked');
-assert(Math.hypot(kinzie.e - 1150, kinzie.n - 332) < 0.01);
+// T-3505: at his talk's place or at his own job between its gatherings, a few metres off.
+assert(Math.hypot(kinzie.e - 1150, kinzie.n - 332) < 8, `put at his round (${kinzie.e}, ${kinzie.n})`);
 assert(NEAR_M > 40);
 
 // February: Lalime is at his work by his house, and in at night, asked for at his door.
