@@ -899,6 +899,11 @@ function heldFlagHtml(s) {
       }</span>`;
 }
 
+/** The review note at the foot of a card or a tab: small, last, still the record's words. */
+function heldFootHtml(s) {
+  return s?.review_required === true ? `<div class="pop-flags pop-held-foot">${heldFlagHtml(s)}</div>` : '';
+}
+
 function headHtml(s, record, called, p, place, { titleRow = true } = {}) {
   const opening = cardOpening(s, called);
   const aka = opening.aka.length
@@ -963,7 +968,11 @@ function headHtml(s, record, called, p, place, { titleRow = true } = {}) {
   // compiler through the module the two of them share (T-0268). Before this the
   // reason lived in a 400-word `research_note` the card shows verbatim and folded
   // away, which is a reason a visitor never reads.
-  if (s.review_required === true) flags.push(heldFlagHtml(s));
+  //
+  // T-3518: owner, 2026-11-08, of this note at the head of a card: "you can hide or make
+  // it an indicator collapsible or make much smaller or move way down on the card". It is
+  // moved to the foot of the card (heldFootHtml) and set small; it is not folded, because
+  // a reason behind a disclosure is the state T-0268 was opened about.
   const flagBlock = flags.length ? `<div class="pop-flags">${flags.join('')}</div>` : '';
 
   // The title row sits outside .pop-head so it can stay pinned for the card's whole
@@ -1569,10 +1578,11 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
       const p = s.placement ?? {};
       const residents = householdsById.has(record.id) ? { residents: said(householdsById.get(record.id)) } : s;
       return {
-        people: `${s.review_required === true ? `<div class="pop-flags">${heldFlagHtml(s)}</div>` : ''}
+        // An unflagged record's pane is byte for byte what it was (test_brougham_card hashes it).
+        people: `
           ${lodgingSection(s)}
           ${residentsSection(residents)}
-          ${agencySectionHtml(said(agencies), 'structure_id', record.id, escapeHtml)}`,
+          ${agencySectionHtml(said(agencies), 'structure_id', record.id, escapeHtml)}${heldFootHtml(s)}`,
         hasResidents: Array.isArray(residents.residents) && residents.residents.length > 0,
         households: (Array.isArray(residents.residents) ? residents.residents : [])
           .map((h) => ({ household: h.household ?? null, name: h.name ?? '' })),
@@ -1660,7 +1670,7 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
         ${paneHtml('images', picturesPaneHtml(pictures, record.id,
           { open: lastTab === 'images', failed: picturesFailed }))}
         ${paneHtml('liberties', libertiesPane)}
-        ${paneHtml('record', recordPane)}
+        ${paneHtml('record', recordPane)}${heldFootHtml(s)}
       `;
       root.removeAttribute('hidden');
       // On a phone the sheet takes the lower screen and the building is framed into

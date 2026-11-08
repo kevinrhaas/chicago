@@ -95,6 +95,12 @@ for (const boat of doc.boats) {
   const sig = [boat.hull.length_m, boat.hull.beam_m, boat.hull.depth_m, ...(boat.look.tone ?? [])].join('|');
   ok(!seen.has(sig), `${boat.id}: the same hull and colour as another boat`);
   seen.add(sig);
+  // The water lid closes the hollow above the waterline, inside the hull's beam.
+  ok(b.mask.length >= 9 * 20, `${boat.id}: no water lid over the hollow`);
+  let lidLow = Infinity, lidWide = 0;
+  for (let k = 0; k < b.mask.length; k += 3) { lidLow = Math.min(lidLow, b.mask[k + 1]); lidWide = Math.max(lidWide, Math.abs(b.mask[k + 2])); }
+  ok(lidLow > boat.hull.draft_m + 0.08, `${boat.id}: the water lid dips to ${lidLow.toFixed(3)}, near the waterline`);
+  ok(lidWide < boat.hull.beam_m / 2, `${boat.id}: the water lid is wider than the hull`);
   const coarse = buildBoat(boat, { coarse: true });
   ok((coarse.wood.pos.length + (coarse.bark?.pos.length ?? 0)) < (b.wood.pos.length + (b.bark?.pos.length ?? 0)), `${boat.id}: the coarse hull is not lighter`);
 }

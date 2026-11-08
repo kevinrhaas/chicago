@@ -77,6 +77,21 @@
           "claim": "Known to Harrison",
           "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
         }
+      ],
+      "on_15_august": {
+        "value": "Guarded the Kinzie boat; a sentinel at the Kinzie house on the 16th",
+        "grade": "inferred",
+        "note": "Wau-Bun (family tradition).",
+        "sources": [
+          "kinzie_waubun_1856"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "On 15 August",
+          "value": "Guarded the Kinzie boat; a sentinel at the Kinzie house on the 16th",
+          "grade": "inferred"
+        }
       ]
     }
   ]
