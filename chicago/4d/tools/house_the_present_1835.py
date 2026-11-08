@@ -146,6 +146,23 @@ A stated use (data/reconstruction/1835_stated_uses.json, T-1826) is for a roof n
 and retires when a keeper can take it. recon_1835_west_020's did on T-2246: a C2 store whose
 use named no trade, standing empty while three Canal Street keepers boarded.
 
+## BOARDING WITH A NAMED HOUSEHOLD (T-3494)
+
+Until T-3494 a single person boarded only under a roof that states no occupant, and in the
+South Division only 16 of the 194 dwelling roofs state none: 156 carry a household's name
+("The Blaisdell household — a name the town's own records carry"). So the division's 935
+seats went under eleven roofs, and three log dwellings of about 40 m² each took 77 to 82
+households, 118 to 124 people. The owner, 2026-11-07, on being told: *"Yes fix those"*.
+
+A boarder now may also take a roof whose stated occupant is a NAMED HOUSEHOLD (the claim
+reads "The … household"): a family taking in a boarder does not overturn the claim of who
+lives there, and in 1835 Chicago most boarders lived just so. A practice, a shop, a school,
+a press or "Anonymous stock" is still refused, and so is every documented building. A family
+still takes only a roof that states nobody. Choosing among them is unchanged, the fewest
+people per square metre, except that a named roof nobody is yet seated in counts as holding
+its household at the town's own median family size (the households of two or more on the
+cards), so it is not mistaken for an empty one.
+
 The invention is docs/LIBERTIES.md **L354**.
 """
 
@@ -156,6 +173,7 @@ import copy
 import hashlib
 import json
 import math
+import re
 import sys
 from collections import Counter
 from pathlib import Path
@@ -196,6 +214,9 @@ LODGING_FAMILIES = {"H3", "T1", "T2", "T3"}
 STORE_FAMILIES = {"C1", "C2", "C3", "C4"}
 STREET_OF_STORES = ("a counter open to the street", "a shop front on a street of stores")
 ANONYMOUS_STOCK = "Anonymous stock; no occupant is claimed"
+# T-3494: the stated occupant a boarder may board with — a household by name
+HOUSEHOLD_CLAIM = re.compile(r"^The .+ household\b")
+BOARDING_TICKET = "T-3494"
 WORKSHOP_TRADES = {o for family, rule in TRADE_ROOF_MATCH.items() if family.startswith("W")
                    for o in rule.get("occupations", ())}
 ORDER_BOOK = DATA / "reconstruction" / "1835_reconstruction_order_book.json"
@@ -216,6 +237,9 @@ DOCUMENTED_DWELLINGS = {
 
 # The census of November 1835 (town model, `people_per_dwelling_november_1835`).
 CENSUS_PEOPLE_PER_DWELLING = 8.204
+# T-3494's tripwire, not a policy: a person to every square metre of floor is a roof no
+# deal should ever fill (before T-3494 three South log houses held 3.1 a square metre)
+MAX_PEOPLE_PER_M2 = 1.0
 
 # The relation compile_scene writes for a household whose card only WORKS at the roof.
 WORKED_HERE = "worked here"
@@ -377,6 +401,13 @@ def first_sentence(text: str) -> str:
     return text if cut < 0 else text[:cut + 1]
 
 
+def boards_with(roof: dict) -> bool:
+    """T-3494: a generated dwelling whose stated occupant is a household by name, which a
+    boarder may share."""
+    return (roof["family"] in DWELLING_FAMILIES - LODGING_FAMILIES and not roof["documented"]
+            and roof["area"] > 0 and bool(HOUSEHOLD_CLAIM.match(str(roof["occupants"] or ""))))
+
+
 def division_of(card: dict, row: dict | None) -> str | None:
     if row and (row.get("seat") or {}).get("division") in DIVISIONS:
         return row["seat"]["division"]
@@ -394,6 +425,9 @@ def deal(inputs: dict) -> dict:
     pool = {sid: r for sid, r in roofs.items()
             if r["family"] in DWELLING_FAMILIES and not r["documented"]
             and r["occupants"] in (None, "") and r["area"] > 0}
+    # T-3494: the roofs a boarder may also take — a dwelling a named household holds
+    boarding = {sid: r for sid, r in roofs.items() if sid not in pool and boards_with(r)}
+    rooms = {**pool, **boarding}
 
     # People already sleeping under each roof, from every overlay but this one. A row
     # that only WORKED there is somebody else's bed and is not counted.
@@ -459,17 +493,26 @@ def deal(inputs: dict) -> dict:
                       "division": roofs[sid]["district"], "family": roofs[sid]["family"],
                       "presence": presence, "words": words})
 
+    # A named household's roof that nobody is yet seated in is not empty: it holds that
+    # household, counted at the cards' own median family size (T-3494).
+    sizes = sorted(len(e["card"].get("persons") or []) for e in cards.values()
+                   if len(e["card"].get("persons") or []) >= 2)
+    named_held = sizes[len(sizes) // 2] if sizes else 0
+
+    def held(sid):
+        return people[sid] + (named_held if sid in boarding else 0)
+
     def best(hid, candidates):
         return min(candidates, key=lambda sid: (
-            round((people[sid] + len(cards[hid]["card"].get("persons") or [])) / pool[sid]["area"], 6),
+            round((held(sid) + len(cards[hid]["card"].get("persons") or [])) / rooms[sid]["area"], 6),
             seed(hid, sid, TICKET)))
 
     def size(hid):
         return len(cards[hid]["card"].get("persons") or [])
 
-    def in_division(hid, families_ok):
+    def in_division(hid, families_ok, offered=None):
         division = division_of(cards[hid]["card"], book.get(hid))
-        return division, [sid for sid, r in pool.items()
+        return division, [sid for sid, r in (offered or pool).items()
                           if (division is None or r["district"] == division)
                           and r["family"] in families_ok]
 
@@ -542,10 +585,10 @@ def deal(inputs: dict) -> dict:
             row = book.get(hid)
             clause = ((row or {}).get("seat") or {}).get("clause")
             admitted = inputs["clauses"].get(clause, set()) & homes
-            division, roofs_ok = in_division(hid, admitted) if admitted else (None, [])
+            division, roofs_ok = in_division(hid, admitted, rooms) if admitted else (None, [])
             how = f"a {'/'.join(sorted(admitted))} dwelling, as the {clause} clause admits"
             if not roofs_ok:
-                division, roofs_ok = in_division(hid, homes)
+                division, roofs_ok = in_division(hid, homes, rooms)
                 how = "a dwelling of its division" if division else "the town's least crowded dwelling"
             if not roofs_ok:
                 refused.append({"household": hid, "why": "no dwelling of its division stands"})
@@ -562,7 +605,7 @@ def deal(inputs: dict) -> dict:
                 lodging_beds[sid] -= 1
                 place(hid, sid, "lodger", "a free ordinary-night bed of the lodging model", presence)
                 continue
-            division, roofs_ok = in_division(hid, homes)
+            division, roofs_ok = in_division(hid, homes, rooms)
             if not roofs_ok:
                 refused.append({"household": hid, "why": "no dwelling of its division stands"})
                 continue
@@ -679,15 +722,15 @@ def deal(inputs: dict) -> dict:
     present_housed = sum(people[sid] for sid in inhabited)
     dwellings = standing_dwellings()
     by_presence = Counter(s["presence"] for s in seats)
-    crowd = sorted(((people[sid], sid) for sid in pool), reverse=True)
-    density = sorted(((round(people[sid] / pool[sid]["area"], 4), sid) for sid in pool),
+    crowd = sorted(((people[sid], sid) for sid in rooms), reverse=True)
+    density = sorted(((round(people[sid] / rooms[sid]["area"], 4), sid) for sid in rooms),
                      reverse=True)
     return {
         "$schema_note": "DERIVED — regenerate with tools/house_the_present_1835.py; "
                         "tools/check.sh re-derives it. Do not hand-edit.",
         "id": "chicago_july_1835_housing_seats",
         "ticket": TICKET,
-        "tickets": [TICKET, RULED_TICKET, KEEPER_TICKET],
+        "tickets": [TICKET, RULED_TICKET, KEEPER_TICKET, BOARDING_TICKET],
         "parent_ticket": "T-1965",
         "target_date": "1835-07-01",
         "generated_by": "tools/house_the_present_1835.py",
@@ -730,7 +773,10 @@ def deal(inputs: dict) -> dict:
             "roofs_in_the_pool": len(pool),
             "roofs_the_deal_used": len({s["place"] for s in seats}),
             "of_them_assigned_to_their_own_household": len(
-                {s["place"] for s in seats if s["place"] not in pool}),
+                {s["place"] for s in seats if s["place"] not in rooms}),
+            "named_household_roofs_offered_to_boarders": len(boarding),
+            "boarders_with_a_named_household": sum(s["place"] in boarding for s in seats),
+            "a_named_household_counted_as": named_held,
         },
         "the_ceiling": {
             "census_people_per_dwelling": CENSUS_PEOPLE_PER_DWELLING,
@@ -745,11 +791,13 @@ def deal(inputs: dict) -> dict:
             "inhabited_roofs": len(inhabited),
             "people_per_inhabited_roof": round(present_housed / len(inhabited), 3) if inhabited else 0,
             "why_the_two_differ": "documented dwellings no card links and roofs whose record "
-                                  "already states its occupants stand in the first count and "
-                                  "are refused by this deal; who sleeps in them is T-1966's "
-                                  "and T-1615's to settle, not a policy deal's",
+                                  "states a practice, a shop or anonymous stock stand in the "
+                                  "first count and are refused by this deal (a named "
+                                  "household's roof takes boarders and families, T-3494); who "
+                                  "sleeps in them is T-1966's and T-1615's to settle, not a "
+                                  "policy deal's",
             "most_crowded_roof": {"structure_id": crowd[0][1], "people": crowd[0][0],
-                                  "floor_m2": pool[crowd[0][1]]["area"]} if crowd else None,
+                                  "floor_m2": rooms[crowd[0][1]]["area"]} if crowd else None,
             "densest_roof": {"structure_id": density[0][1], "people_per_m2": density[0][0]}
             if density else None,
         },
@@ -873,7 +921,8 @@ def problems(doc: dict, inputs: dict) -> list[str]:
                 out.append(f"{s['household']} keeps {s['place']}, which somebody else's "
                            "house of trade or stated occupant already holds")
         elif s["place"] not in pool_ok and \
-                inputs["roofs"][s["place"]]["assigned_to"] != s["household"]:
+                inputs["roofs"][s["place"]]["assigned_to"] != s["household"] and not (
+                    s["rung"] in ("boarder", "family") and boards_with(inputs["roofs"][s["place"]])):
             out.append(f"{s['household']} is seated at {s['place']}, which this deal refuses")
     if doc["refused"]:
         out.append(f"{len(doc['refused'])} present household(s) left without a roof")
@@ -938,6 +987,10 @@ def problems(doc: dict, inputs: dict) -> list[str]:
         out.append(f"{hid} is present and sleeps under no roof"
                    + (" — it only works at one" if hid in inputs["at_work_only"] else ""))
     ceiling = doc["the_ceiling"]
+    densest = ceiling.get("densest_roof") or {}
+    if (densest.get("people_per_m2") or 0) > MAX_PEOPLE_PER_M2:
+        out.append(f"{densest['structure_id']} holds {densest['people_per_m2']} people a square "
+                   f"metre of floor, above {MAX_PEOPLE_PER_M2} (T-3494)")
     if ceiling["people_per_dwelling"] > CENSUS_PEOPLE_PER_DWELLING:
         out.append(f"{ceiling['people_per_dwelling']} people per standing dwelling is above "
                    f"the census's {CENSUS_PEOPLE_PER_DWELLING}")
@@ -1016,6 +1069,17 @@ def self_test(inputs: dict) -> int:
          "structure_id": d["seats"][0]["place"]}))
     expect("a store with no keeper held, on a firm T-2245 never ruled on", lambda d: d[
         "the_keepers"]["keeper_not_held"]["stores"][0].update(business="biz_x"))
+    def boarder_over_a_practice(d):
+        # T-3494 lets a boarder or a family share a named HOUSEHOLD's roof, not a roof
+        # whose stated occupant is a practice, a shop or a school
+        sid = next(s for s, r in sorted(inputs["roofs"].items())
+                   if r["family"] in DWELLING_FAMILIES and not r["documented"]
+                   and r["occupants"] not in (None, "", ANONYMOUS_STOCK) and not boards_with(r))
+        next(s for s in d["seats"] if s["rung"] == "boarder").update(place=sid)
+
+    expect("a boarder seated under a roof a practice or a shop holds", boarder_over_a_practice)
+    expect("a roof filled past a person a square metre",
+           lambda d: d["the_ceiling"]["densest_roof"].update(people_per_m2=3.15))
     expect("a town above the census's crowding",
            lambda d: d["the_ceiling"].update(people_per_dwelling=9.0))
 
@@ -1042,7 +1106,7 @@ def self_test(inputs: dict) -> int:
     if failures:
         print("SELF-TEST FAILED — the guard did not fire on: " + "; ".join(failures))
         return 1
-    print("self-test: all fifteen guards fire")
+    print("self-test: all seventeen guards fire")
     return 0
 
 

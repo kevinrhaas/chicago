@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2816, ts: '2026-11-08T01:46:15.434Z', date: 'Nov 7, 2026, 7:46 PM CT', title: 'Pullman house: the carriage porch\'s east arch opens again', kind: 'fix',
+    items: [
+      'The ivy over the east arch of the Pullman house\'s carriage porch, on 18th Street, grew down into the arch\'s opening and closed about half of it. The c. 1900 Detroit Publishing photograph shows the opening dark and clear, with the leaves on the two piers and over the arch\'s stone ring.',
+      'The ivy on the ring now stays on the ring: its leaves are smaller, held to the stonework and turned up the wall. The opening reads as an arch again, framed in ivy, from the street and from the photograph\'s own spot.',
+    ] },
+  { v: 2815, ts: '2026-11-08T01:40:35.384Z', date: 'Nov 7, 2026, 7:40 PM CT', title: '1835: boarders share the named houses, not three log cabins', kind: 'fix',
+    items: [
+      'The South Division\'s boarders and families no longer pile into three one-room cabins (up to 124 people in one).',
+      'They now lodge with the town\'s named households as well, spread over 338 roofs.',
+      'The busiest house holds 37 people in 217 m², and no cabin holds more than ten.',
+    ] },
   { v: 2814, ts: '2026-11-08T00:59:37.148Z', date: 'Nov 7, 2026, 6:59 PM CT', title: '1812: twelve more gardens and fields, each its household\'s', kind: 'feature',
     items: [
       'Kinzie\'s kitchen garden: two rows of beds off the gate walk, currants and gooseberries along the north paling.',

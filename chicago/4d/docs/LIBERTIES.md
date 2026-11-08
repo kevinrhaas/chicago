@@ -20333,6 +20333,19 @@ those four stores. And the West's empty C2 store recon_1835_west_020, whose stat
 named no trade and retired when a keeper could take it, is now kept by L. Chevalier
 (watches, jewelry and fancy goods, a Canal Street house of trade on no roof), seated over it
 by the keeper rung: which store roof his house stands in is the invention, as for every keeper.
+**Amended 2026-11-07 (T-3494):** the refusal of every roof whose sidecar states its occupants
+had left the deal almost nowhere to put the South Division: 156 of its 194 dwellings name "The X
+household", so some 80 households each went under a handful of one-room log cabins (124 people
+in `recon_1835_south_d1_018`'s 38 m², 126 in `recon_1835_blk_lake_market_d1_05`). The owner,
+2026-11-07, approved the fix. Boarders and families may now also take a roof whose stated occupant
+is a named household (`^The .+ household`, `boards_with()` in `tools/house_the_present_1835.py`),
+and such a roof counts as already holding its own household at the cards' median family size of
+four. Practices, shops, schools, documented buildings and anonymous stock stay refused. A new
+tripwire refuses any roof seated past one person a square metre of floor. 338 roofs now hold
+the 3,001 seated, against 299; the busiest is `recon_1835_blk_washington_dearborn_h2_05`, 37
+people in 217 m², and no cabin holds more than ten. **What is invented** is every boarder and
+family placed under a named household's roof: no source puts them there, and the named
+household's own card is unchanged.
 
 ### L355 — Two camps on conjectural ground: the land-sale crowd on the reservation shore and a wagon party at the west approach
 
