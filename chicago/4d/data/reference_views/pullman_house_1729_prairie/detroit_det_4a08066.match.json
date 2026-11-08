@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08066",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "10f6bca8d23fe0d26a88e82bc7d8dc4bd43aa2f0e15e4e77deb807c39c3bd430",
+  "glb_sha256": "968ac3f1a0a55b4c5a44645336d4ce0b08a24dc1971398cb7d6a4181d557528b",
   "camera_sha256": "e1983a073ee8677c97941e6478f7753b65e26ab2fb1822cfacdd533053fc5e34",
   "photo_sha256": "297e4d7b05312c70ddea6e5dbb24a74cffd0db743f3bb9cdcbb1f4c0edc5f4fb",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "10f6bca8d23fe0d26a88e82bc7d8dc4bd43aa2f0e15e4e77deb807c39c3bd430"
+      "glb_sha256": "968ac3f1a0a55b4c5a44645336d4ce0b08a24dc1971398cb7d6a4181d557528b"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "33753cacaa38e5035e8d72e0f568c4efa6c9770272b67ef2f03738313beeb916"
     }
   ],
-  "group_sha256": "d21199679891a723eb44ce698dfc0a1dd8d023b0714875360f4e0cea782b4f14",
+  "group_sha256": "97c44220255143b754cab98d3e79e8ab4042c862d8d7d36e56aac879df911ed3",
   "rendered_flora": {
     "season": "winter",
     "creeper_in_leaf": true,
@@ -221,8 +221,8 @@
       "status": "fixed"
     },
     {
-      "what": "the 18th Street coping's piers before the house: the print shows square piers along the wall at x 245-255, 271-281, 311-322, 330-342, 382-397, 406-420 and 474-485, their tops level at y 491-496 (about 1.8 m); through the re-solved camera the build's piers on the lot's 18th Street line (boundary.side_return, v 28.05: u 16.4-17.3, 13.05-13.95, 4.7-5.6, -2.0 to -1.1, -8.0 to -7.1, -10.25 to -9.35) fall at x 173-178, 193-199, 249-255, 299-306, 349-357 and 369-377, 50-100 px left of the print's row, with the terrace's own piers between. The print's row stands either further east along the street or nearer the house than the build's line; to be read with Taylor's no. 1445 and 16554, which see the same wall",
-      "status": "open"
+      "what": "the 18th Street coping's piers before the house: the print shows square piers along the wall at x 245-255, 271-281, 311-322, 330-342, 382-397, 406-420 and 474-485, their tops level at y 491-496 (about 1.8 m); through the re-solved camera the build's piers on the lot's 18th Street line (boundary.side_return, v 28.05: u 16.4-17.3, 13.05-13.95, 4.7-5.6, -2.0 to -1.1, -8.0 to -7.1, -10.25 to -9.35) fall at x 173-178, 193-199, 249-255, 299-306, 349-357 and 369-377, 50-100 px left of the print's row, with the terrace's own piers between. The print's row stands either further east along the street or nearer the house than the build's line; to be read with Taylor's no. 1445 and 16554, which see the same wall [T-1881, 2026-11-08, read at the print's full size: from the third pier east the print's row is the 1894 plate's wall, in order and form — the third pier (x 330-336), the coping falling from it and sweeping back up to the fourth (x 382-388), a doorway slot (x 397-406), the fifth pier with a small urn on its cap (x 406-413), the carriage mouth with the terrace's flight seen through it (x 413-475) and the sixth pier (x 475-485), the level coping beyond it. The build had withdrawn the fourth to sixth piers, the urn and the sweeps for 1904 (L-pullman-18th-street-wall-c1900-1934, read before this camera was solved, its sixth pier taken for the third); they are built again. Re-rendered, the build's row stands 10-40 px east of the print's (third 366-375, fourth 420-431, fifth with its urn 441-451, sixth 482-497), and west of the third the print's piers at x 247, 274 and 294-316 against the build's at 252, 303 and 353. This camera is fitted on the house 80-90 m off and does not hold the ground before it: the terrace's flight behind the wall, which Taylor's 16555 places within 3 px, renders at x 510-535 against the print's 435-472, and the hydrant's foot about 220 px off; the 1894 plate's camera, fitted on these piers' own bases, puts them within about 30 px. The count, order and forms match; the places are two camera fits disagreeing.]",
+      "status": "within tolerance"
     },
     {
       "what": "the flank's east section's second-storey pair: the print shows its lights at x 362-371 (the left one, if a pair, behind the elm's trunk at 355-364), centred about x 366 over the broad ground-storey window centred at 360.5; the render's pair is centred at x 357 over its window at 357. On the flank's plane that puts the print's window at s 21.9-25.0 (centre 23.5; built 22.95, 2.8 m wide) and the pair's centre at about s 23.9-24.2 (built 22.95; Taylor's no. 1445 reads 23.35): the pair about 1 m and the window about 0.5 m east of the build's [T-1881, 2026-11-08] FIXED: the window now stands at s 23.5 (its centre 0.55 m east), on the print's reading, and the pair above it is kept centred on it at s 23.5; re-rendered through the same camera the pair's lights read at x about 361-371 against the print's 362-371 and the window's jambs at about 357-372 against 350-372, both half behind the elm and the shrubs as in the print. The pair stands between this print's s 23.9-24.2 and Taylor's no. 1445's 23.35, a gap two pictures disagree about (T-3153).",
