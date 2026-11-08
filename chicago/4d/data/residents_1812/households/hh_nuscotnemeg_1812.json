@@ -89,6 +89,21 @@
           "claim": "Father-in-law of Billy Caldwell",
           "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
         }
+      ],
+      "on_15_august": {
+        "value": "Among the attackers; badly wounded, and carried off toward the Des Plaines by the 16th",
+        "grade": "inferred",
+        "note": "Wau-Bun (family tradition).",
+        "sources": [
+          "kinzie_waubun_1856"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "On 15 August",
+          "value": "Among the attackers; badly wounded, and carried off toward the Des Plaines by the 16th",
+          "grade": "inferred"
+        }
       ]
     }
   ]

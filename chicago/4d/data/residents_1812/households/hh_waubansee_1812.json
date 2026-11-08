@@ -89,6 +89,21 @@
           "claim": "Present at Peoria council 16 Aug 1811",
           "tier": "secondary history (1884-1913), cite as compiler's statement"
         }
+      ],
+      "on_15_august": {
+        "value": "With Winnemeg, said to have tried to save the wounded Wells; a sentinel at the Kinzie house on the 16th",
+        "grade": "inferred",
+        "note": "Wau-Bun (hearsay); Kirkland doubts the Wells story.",
+        "sources": [
+          "kinzie_waubun_1856"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "On 15 August",
+          "value": "With Winnemeg, said to have tried to save the wounded Wells; a sentinel at the Kinzie house on the 16th",
+          "grade": "inferred"
+        }
       ]
     }
   ]

@@ -73,6 +73,21 @@
           "claim": "Kirkland's doubt",
           "tier": "secondary history (1884-1913), cite as compiler's statement"
         }
+      ],
+      "on_15_august": {
+        "value": "Among the attackers; Mrs Helm saw him carry Wells's scalp",
+        "grade": "inferred",
+        "note": "Wau-Bun (Mrs Helm's story); Kirkland doubts the circumstances.",
+        "sources": [
+          "kinzie_waubun_1856"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "On 15 August",
+          "value": "Among the attackers; Mrs Helm saw him carry Wells's scalp",
+          "grade": "inferred"
+        }
       ]
     }
   ]

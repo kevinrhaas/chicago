@@ -44,9 +44,9 @@ import { loadVariationKit, personVariation, applyVariation, disposeVariants } fr
 import { loadMeshoptDecoder, disposeLoadedAsset } from './scene-loader.js';
 import { enuToWorld } from './terrain.js';
 import { dressSkin, restingLid } from './human-skin.js';
-import { dressHair } from './human-hair.js';
+import { dressHair, dressHeadcloth } from './human-hair.js';
 import { hairFor } from './human-hair-styles.js';
-import { dressLooks, looksHairStyle } from './human-looks.js';
+import { dressLooks, dressCloth, looksHairStyle } from './human-looks.js';
 import { dressSpectacles } from './human-spectacles.js';
 
 /** § 8: the LODs each scene-detail tier may draw. `light` stays the floor. */
@@ -413,8 +413,12 @@ export class HumanActor {
     // skin and iris, before dressSkin patches them.
     const looks = variation?.persons?.[this.personId]?.looks ?? null;
     const looked = looks ? dressLooks(scene, looks) : [];
-    // ...and his own hair colour and cut, for the hair layer below.
+    // T-3506: their own cloth colours and the pieces they wear today (human-looks.js).
+    const dress = variation?.persons?.[this.personId]?.dress ?? null;
+    if (dress) looked.push(...dressCloth(scene, dress));
+    // ...and his own hair colour and cut, for the hair layer below (and any tail below a tie).
     const style = looks ? looksHairStyle(looks, hairFor(this.personId ?? null, Number(this.instance.scene) || null)) : null;
+    if (style && dress?.tail_cm) style.tail_cm = dress.tail_cm;
     // T-3400: skin with pores, blood and a glow, hair with a strand sheen, wet eyes, on
     // every person (human-skin.js; a shader patch, no texture). Bound to the rest pose.
     // T-3493: with the person's age and brows, for the lines and shade of their face.
@@ -427,6 +431,8 @@ export class HumanActor {
     // own scalp and face, by the person's cut (human-hair-styles.js). Not counted in its height.
     const year = Number(this.instance.scene) || null;
     const hair = dressHair(scene, { lod, person: this.personId ?? null, year, style });
+    // T-3506: a handkerchief tied round the head, at every level.
+    if (dress?.headcloth) { const cloth = dressHeadcloth(scene, dress.headcloth, { person: this.personId ?? null }); if (cloth) looked.push(cloth.material); }
     // T-3440: spectacles, for a person whose portrait shows them (human-spectacles.js).
     this.spectacles = dressSpectacles(scene, { lod, person: this.personId ?? null });
     const clips = new Map();
