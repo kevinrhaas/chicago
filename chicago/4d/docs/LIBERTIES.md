@@ -38951,6 +38951,15 @@ about 4 m off the stable's front, is where 16555's leafy masses (x 903-963 and 1
 coping (1.45-2.24 m): through that camera the coping itself reads about 0.55 m, which the match
 record holds open, and read absolutely the tops are 0.8-1.7 m. 16555, of 1892-94, shows the low
 balls' stretch bare over the coping, so they are taken as planted after it and before 16554.
+On 2026-11-08 the bed inside the court's carriage mouth, between the stable drive's east edge and
+the stable's corner bay, which 16555 shows behind a low curved kerb: a dark evergreen at its north
+end, which the plate shows too behind its fifth pier with low flowers at its foot, fixed where the
+two pictures' pixel columns cross (1476.02 E, -3189.67 N, stood 0.38 m east to 1476.4 E off the
+reconstructed drive; its top 1.95 m, between the plate's 2.11 and 16555's 1.82); the low flowering
+mass along the kerb (1476.34 E, -3190.73 N, 0.38 m) and a small clipped cone by the sweep before
+the sixth pier (1476.87 E, -3193.84 N, 1.06 m), each where its foot casts on the court's ground
+through 16555's camera. The mass's south half lies in the mouth's kept-clear way (the owner,
+2026-10-30: "no plants blocking it") and is left out.
 **What is read:** each plant's place across the picture and its top from the plate's pixels; its
 depth from the plane it is read on (the terrace behind its balustrade, the line 1.6 m off the
 stable's wall, the ground at its visible foot); that the two balls are clipped evergreens, one
@@ -38964,12 +38973,14 @@ palm's kind: a pinnate palm of the date-palm sort the period's palm houses set o
 plate's elm trunk stands across its place, so the two pictures do not say whether it was out in
 1894 too. The plate's tall evergreens west of its flight are left out: they stand by the second
 flight the build does not have, and Taylor's print sets the terrace's tubs otherwise (an urn on
-the pier where the plate has the ball), which the match records hold within tolerance.
+the pier where the plate has the ball), which the match records hold within tolerance. In the court's bed: the evergreen drawn as a clipped arborvitae and
+the low mass as smooth hydrangea in flower, kinds read off shape and tone in two sepia prints; the
+kerb (about 0.1 m) is not drawn.
 **How to resolve:** a summer picture of the terrace nearer 1904, or a nursery or household record.
 **Ticket:** T-1934.
 **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg`
 and `taylor_16555_west_front-side-by-side.jpg` and their match records; `docs/RESEARCH/prairie_1904_front_yards.md`.
-**Recorded:** 2026-10-29 (T-1934); the column, the cone and the palm added 2026-10-30 (T-1934); the terrace's four planted columns 2026-10-31 (T-1934); the fourteen behind the coping before the stable 2026-10-31 (T-1934).
+**Recorded:** 2026-10-29 (T-1934); the column, the cone and the palm added 2026-10-30 (T-1934); the terrace's four planted columns 2026-10-31 (T-1934); the fourteen behind the coping before the stable 2026-10-31 (T-1934); the court bed's three 2026-11-08 (T-1934).
 
 ### L-k01-1729-pullman-stone-tone-1881 — 1729 Prairie's brownstone laid in a light fawn sandstone, its shade read off the print values of its photographs
 
