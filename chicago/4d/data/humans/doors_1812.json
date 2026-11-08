@@ -845,6 +845,74 @@
    ]
   },
   {
+   "structure": "miami_escort_camp_1812",
+   "name": "The Miami escort's camp, August 1812",
+   "asset_sha256": "41b6e56d6101e16faa3b39ff3746b440125da6b3a7af94b53a9e9d1238363023",
+   "placement": {
+    "local_e": 1060.0,
+    "local_n": 56.0,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "miami_escort_camp_1812:lodge1",
+     "leaf": {
+      "local_e": 1066.11,
+      "local_n": 59.61
+     },
+     "step": {
+      "local_e": 1065.61,
+      "local_n": 59.13
+     },
+     "outward_deg": 226.7,
+     "width_m": 1.33,
+     "lodge": true
+    },
+    {
+     "id": "miami_escort_camp_1812:lodge2",
+     "leaf": {
+      "local_e": 1070.19,
+      "local_n": 73.17
+     },
+     "step": {
+      "local_e": 1070.55,
+      "local_n": 72.57
+     },
+     "outward_deg": 149.2,
+     "width_m": 1.07,
+     "lodge": true
+    },
+    {
+     "id": "miami_escort_camp_1812:lodge3",
+     "leaf": {
+      "local_e": 1071.5,
+      "local_n": 64.76
+     },
+     "step": {
+      "local_e": 1071.98,
+      "local_n": 65.26
+     },
+     "outward_deg": 43.8,
+     "width_m": 1.36,
+     "lodge": true
+    },
+    {
+     "id": "miami_escort_camp_1812:lodge4",
+     "leaf": {
+      "local_e": 1080.96,
+      "local_n": 65.43
+     },
+     "step": {
+      "local_e": 1080.37,
+      "local_n": 65.79
+     },
+     "outward_deg": 301.3,
+     "width_m": 1.04,
+     "lodge": true
+    }
+   ]
+  },
+  {
    "structure": "ouilmette_house_1812",
    "name": "Antoine Ouilmette's house, the easternmost of the three houses west of the Kinzie house",
    "asset_sha256": "bb35d77aaa6504c74e916df5ced31af94eb2ff6843972030d56212d7cfbdefd8",
@@ -866,6 +934,226 @@
      },
      "outward_deg": 180.0,
      "width_m": 1.26
+    }
+   ]
+  },
+  {
+   "structure": "potawatomi_camp_1812_far_west",
+   "name": "The Potawatomi camp of August 1812: the men's lodges furthest west",
+   "asset_sha256": "3c251ec7e6de8ea89a0a2e932115088dd37bdae3882d196ea7c6bac4ac267f7d",
+   "placement": {
+    "local_e": 576.0,
+    "local_n": -132.0,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "potawatomi_camp_1812_far_west:lodge1",
+     "leaf": {
+      "local_e": 583.03,
+      "local_n": -115.36
+     },
+     "step": {
+      "local_e": 582.35,
+      "local_n": -115.22
+     },
+     "outward_deg": 281.9,
+     "width_m": 1.17,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_far_west:lodge2",
+     "leaf": {
+      "local_e": 589.32,
+      "local_n": -125.37
+     },
+     "step": {
+      "local_e": 589.38,
+      "local_n": -124.67
+     },
+     "outward_deg": 4.9,
+     "width_m": 0.78,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_far_west:lodge3",
+     "leaf": {
+      "local_e": 589.85,
+      "local_n": -110.36
+     },
+     "step": {
+      "local_e": 589.83,
+      "local_n": -111.06
+     },
+     "outward_deg": 181.5,
+     "width_m": 0.78,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_far_west:lodge4",
+     "leaf": {
+      "local_e": 590.36,
+      "local_n": -117.01
+     },
+     "step": {
+      "local_e": 591.04,
+      "local_n": -117.17
+     },
+     "outward_deg": 103.0,
+     "width_m": 1.18,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_far_west:lodge5",
+     "leaf": {
+      "local_e": 595.75,
+      "local_n": -111.44
+     },
+     "step": {
+      "local_e": 595.57,
+      "local_n": -112.12
+     },
+     "outward_deg": 194.9,
+     "width_m": 0.95,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_far_west:lodge6",
+     "leaf": {
+      "local_e": 596.96,
+      "local_n": -117.42
+     },
+     "step": {
+      "local_e": 596.27,
+      "local_n": -117.3
+     },
+     "outward_deg": 280.1,
+     "width_m": 0.96,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_far_west:lodge7",
+     "leaf": {
+      "local_e": 598.04,
+      "local_n": -123.84
+     },
+     "step": {
+      "local_e": 597.58,
+      "local_n": -123.31
+     },
+     "outward_deg": 319.2,
+     "width_m": 1.06,
+     "lodge": true
+    }
+   ]
+  },
+  {
+   "structure": "potawatomi_camp_1812_head_west",
+   "name": "The Potawatomi camp of August 1812: the men's lodges by the creek's head",
+   "asset_sha256": "bc5ee45ac560f89f71530bee35885996babe011208745412f417b179bb077979",
+   "placement": {
+    "local_e": 616.0,
+    "local_n": -172.0,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "potawatomi_camp_1812_head_west:lodge1",
+     "leaf": {
+      "local_e": 626.36,
+      "local_n": -149.06
+     },
+     "step": {
+      "local_e": 625.87,
+      "local_n": -148.56
+     },
+     "outward_deg": 316.4,
+     "width_m": 1.35,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_head_west:lodge2",
+     "leaf": {
+      "local_e": 627.51,
+      "local_n": -158.74
+     },
+     "step": {
+      "local_e": 628.21,
+      "local_n": -158.82
+     },
+     "outward_deg": 96.5,
+     "width_m": 0.85,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_head_west:lodge3",
+     "leaf": {
+      "local_e": 630.81,
+      "local_n": -162.77
+     },
+     "step": {
+      "local_e": 630.95,
+      "local_n": -162.08
+     },
+     "outward_deg": 10.9,
+     "width_m": 0.99,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_head_west:lodge4",
+     "leaf": {
+      "local_e": 631.62,
+      "local_n": -154.33
+     },
+     "step": {
+      "local_e": 632.09,
+      "local_n": -154.85
+     },
+     "outward_deg": 138.6,
+     "width_m": 1.37,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_head_west:lodge5",
+     "leaf": {
+      "local_e": 635.48,
+      "local_n": -150.28
+     },
+     "step": {
+      "local_e": 635.13,
+      "local_n": -150.89
+     },
+     "outward_deg": 210.5,
+     "width_m": 1.06,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_head_west:lodge6",
+     "leaf": {
+      "local_e": 636.67,
+      "local_n": -163.91
+     },
+     "step": {
+      "local_e": 636.09,
+      "local_n": -163.53
+     },
+     "outward_deg": 303.3,
+     "width_m": 1.09,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_head_west:lodge7",
+     "leaf": {
+      "local_e": 639.99,
+      "local_n": -154.33
+     },
+     "step": {
+      "local_e": 639.37,
+      "local_n": -154.66
+     },
+     "outward_deg": 242.3,
+     "width_m": 1.02,
+     "lodge": true
     }
    ]
   },
@@ -1118,6 +1406,460 @@
    ]
   },
   {
+   "structure": "potawatomi_camp_1812_north_flat",
+   "name": "The Potawatomi camp of August 1812: the men's lodges on the flat above the mouth",
+   "asset_sha256": "f44eb9dda80ea8b3a72c14208cd7faf1f7111ab2e6faea507366210dc168ff13",
+   "placement": {
+    "local_e": 696.0,
+    "local_n": -100.0,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "potawatomi_camp_1812_north_flat:lodge1",
+     "leaf": {
+      "local_e": 708.58,
+      "local_n": -81.17
+     },
+     "step": {
+      "local_e": 709.26,
+      "local_n": -81.31
+     },
+     "outward_deg": 102.3,
+     "width_m": 0.93,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_north_flat:lodge2",
+     "leaf": {
+      "local_e": 710.85,
+      "local_n": -86.62
+     },
+     "step": {
+      "local_e": 711.49,
+      "local_n": -86.34
+     },
+     "outward_deg": 66.2,
+     "width_m": 0.99,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_north_flat:lodge3",
+     "leaf": {
+      "local_e": 711.25,
+      "local_n": -92.21
+     },
+     "step": {
+      "local_e": 711.27,
+      "local_n": -91.51
+     },
+     "outward_deg": 1.5,
+     "width_m": 0.8,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_north_flat:lodge4",
+     "leaf": {
+      "local_e": 715.6,
+      "local_n": -79.4
+     },
+     "step": {
+      "local_e": 715.5,
+      "local_n": -80.09
+     },
+     "outward_deg": 189.0,
+     "width_m": 0.9,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_north_flat:lodge5",
+     "leaf": {
+      "local_e": 717.02,
+      "local_n": -86.35
+     },
+     "step": {
+      "local_e": 716.78,
+      "local_n": -85.69
+     },
+     "outward_deg": 340.5,
+     "width_m": 1.24,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_north_flat:lodge6",
+     "leaf": {
+      "local_e": 719.83,
+      "local_n": -93.08
+     },
+     "step": {
+      "local_e": 720.1,
+      "local_n": -93.73
+     },
+     "outward_deg": 156.6,
+     "width_m": 1.24,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_north_flat:lodge7",
+     "leaf": {
+      "local_e": 722.09,
+      "local_n": -83.88
+     },
+     "step": {
+      "local_e": 721.4,
+      "local_n": -83.99
+     },
+     "outward_deg": 261.6,
+     "width_m": 0.83,
+     "lodge": true
+    }
+   ]
+  },
+  {
+   "structure": "potawatomi_camp_1812_prairie_west",
+   "name": "The Potawatomi camp of August 1812: the men's lodges on the west prairie",
+   "asset_sha256": "dff9e77e70ede3421a1462d347a85b8e5dede2c202983b07dc56f054ebe14460",
+   "placement": {
+    "local_e": 568.0,
+    "local_n": -172.0,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "potawatomi_camp_1812_prairie_west:lodge1",
+     "leaf": {
+      "local_e": 578.11,
+      "local_n": -163.69
+     },
+     "step": {
+      "local_e": 577.48,
+      "local_n": -163.99
+     },
+     "outward_deg": 245.1,
+     "width_m": 1.27,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_prairie_west:lodge2",
+     "leaf": {
+      "local_e": 578.8,
+      "local_n": -156.97
+     },
+     "step": {
+      "local_e": 579.43,
+      "local_n": -157.28
+     },
+     "outward_deg": 116.0,
+     "width_m": 1.03,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_prairie_west:lodge3",
+     "leaf": {
+      "local_e": 584.82,
+      "local_n": -160.66
+     },
+     "step": {
+      "local_e": 585.46,
+      "local_n": -160.36
+     },
+     "outward_deg": 64.9,
+     "width_m": 1.26,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_prairie_west:lodge4",
+     "leaf": {
+      "local_e": 586.5,
+      "local_n": -151.13
+     },
+     "step": {
+      "local_e": 586.68,
+      "local_n": -151.8
+     },
+     "outward_deg": 165.0,
+     "width_m": 0.94,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_prairie_west:lodge5",
+     "leaf": {
+      "local_e": 587.5,
+      "local_n": -163.75
+     },
+     "step": {
+      "local_e": 587.31,
+      "local_n": -163.08
+     },
+     "outward_deg": 344.0,
+     "width_m": 0.99,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_prairie_west:lodge6",
+     "leaf": {
+      "local_e": 592.23,
+      "local_n": -155.56
+     },
+     "step": {
+      "local_e": 591.55,
+      "local_n": -155.71
+     },
+     "outward_deg": 257.6,
+     "width_m": 0.93,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_prairie_west:lodge7",
+     "leaf": {
+      "local_e": 593.42,
+      "local_n": -163.3
+     },
+     "step": {
+      "local_e": 592.74,
+      "local_n": -163.11
+     },
+     "outward_deg": 285.5,
+     "width_m": 0.92,
+     "lodge": true
+    }
+   ]
+  },
+  {
+   "structure": "potawatomi_camp_1812_south_bend",
+   "name": "The Potawatomi camp of August 1812: the family lodges below the bend",
+   "asset_sha256": "1fa50ebac986204444bf0968cc540bda11c32556fbefc9b35a9d9da8fbf9c5db",
+   "placement": {
+    "local_e": 736.0,
+    "local_n": -232.0,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "potawatomi_camp_1812_south_bend:lodge1",
+     "leaf": {
+      "local_e": 747.72,
+      "local_n": -217.95
+     },
+     "step": {
+      "local_e": 748.42,
+      "local_n": -217.91
+     },
+     "outward_deg": 86.7,
+     "width_m": 0.77,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_bend:lodge2",
+     "leaf": {
+      "local_e": 749.4,
+      "local_n": -212.14
+     },
+     "step": {
+      "local_e": 749.79,
+      "local_n": -212.72
+     },
+     "outward_deg": 146.4,
+     "width_m": 1.06,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_bend:lodge3",
+     "leaf": {
+      "local_e": 751.67,
+      "local_n": -223.17
+     },
+     "step": {
+      "local_e": 751.88,
+      "local_n": -222.5
+     },
+     "outward_deg": 17.8,
+     "width_m": 0.98,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_bend:lodge4",
+     "leaf": {
+      "local_e": 756.56,
+      "local_n": -225.51
+     },
+     "step": {
+      "local_e": 755.98,
+      "local_n": -225.11
+     },
+     "outward_deg": 305.0,
+     "width_m": 1.1,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_bend:lodge5",
+     "leaf": {
+      "local_e": 756.83,
+      "local_n": -214.59
+     },
+     "step": {
+      "local_e": 756.26,
+      "local_n": -214.99
+     },
+     "outward_deg": 235.1,
+     "width_m": 1.04,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_bend:lodge6",
+     "leaf": {
+      "local_e": 758.02,
+      "local_n": -219.35
+     },
+     "step": {
+      "local_e": 757.51,
+      "local_n": -218.87
+     },
+     "outward_deg": 314.0,
+     "width_m": 1.38,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_bend:lodge7",
+     "leaf": {
+      "local_e": 763.46,
+      "local_n": -224.51
+     },
+     "step": {
+      "local_e": 763.97,
+      "local_n": -224.99
+     },
+     "outward_deg": 133.9,
+     "width_m": 1.4,
+     "lodge": true
+    }
+   ]
+  },
+  {
+   "structure": "potawatomi_camp_1812_south_prairie",
+   "name": "The Potawatomi camp of August 1812: the family lodges on the south prairie",
+   "asset_sha256": "725f087b5e050fda8f8327e1cdade451528b189d1d4e9d5bc9d13d24541d054e",
+   "placement": {
+    "local_e": 736.0,
+    "local_n": -272.0,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "potawatomi_camp_1812_south_prairie:lodge1",
+     "leaf": {
+      "local_e": 743.11,
+      "local_n": -248.9
+     },
+     "step": {
+      "local_e": 742.52,
+      "local_n": -248.52
+     },
+     "outward_deg": 302.9,
+     "width_m": 1.34,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_prairie:lodge2",
+     "leaf": {
+      "local_e": 746.3,
+      "local_n": -265.55
+     },
+     "step": {
+      "local_e": 745.74,
+      "local_n": -265.97
+     },
+     "outward_deg": 233.4,
+     "width_m": 0.94,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_prairie:lodge3",
+     "leaf": {
+      "local_e": 749.24,
+      "local_n": -252.99
+     },
+     "step": {
+      "local_e": 749.82,
+      "local_n": -253.39
+     },
+     "outward_deg": 124.2,
+     "width_m": 1.31,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_prairie:lodge4",
+     "leaf": {
+      "local_e": 751.53,
+      "local_n": -261.69
+     },
+     "step": {
+      "local_e": 752.09,
+      "local_n": -261.26
+     },
+     "outward_deg": 53.1,
+     "width_m": 0.94,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_prairie:lodge5",
+     "leaf": {
+      "local_e": 756.36,
+      "local_n": -264.97
+     },
+     "step": {
+      "local_e": 756.26,
+      "local_n": -264.28
+     },
+     "outward_deg": 351.5,
+     "width_m": 0.84,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_prairie:lodge6",
+     "leaf": {
+      "local_e": 756.55,
+      "local_n": -251.98
+     },
+     "step": {
+      "local_e": 756.37,
+      "local_n": -252.66
+     },
+     "outward_deg": 194.7,
+     "width_m": 0.89,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_prairie:lodge7",
+     "leaf": {
+      "local_e": 759.98,
+      "local_n": -259.24
+     },
+     "step": {
+      "local_e": 759.39,
+      "local_n": -258.86
+     },
+     "outward_deg": 303.0,
+     "width_m": 1.02,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_prairie:lodge8",
+     "leaf": {
+      "local_e": 761.1,
+      "local_n": -253.16
+     },
+     "step": {
+      "local_e": 760.49,
+      "local_n": -253.51
+     },
+     "outward_deg": 240.8,
+     "width_m": 0.98,
+     "lodge": true
+    }
+   ]
+  },
+  {
    "structure": "potawatomi_camp_1812_south_reach",
    "name": "The Potawatomi camp of August 1812: the lodges south of the creek's bend",
    "asset_sha256": "e61423321ef75cebe077ef0c733b41b9869a77916f09a1ca52d560b52838473a",
@@ -1195,6 +1937,144 @@
      },
      "outward_deg": 275.4,
      "width_m": 0.77,
+     "lodge": true
+    }
+   ]
+  },
+  {
+   "structure": "potawatomi_camp_1812_south_west",
+   "name": "The Potawatomi camp of August 1812: the family lodges south of the reach",
+   "asset_sha256": "eb6ddbfc651379e6fc4ea31e274617841a59e077527add4819397554e71f6d34",
+   "placement": {
+    "local_e": 676.0,
+    "local_n": -288.0,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "potawatomi_camp_1812_south_west:lodge1",
+     "leaf": {
+      "local_e": 683.43,
+      "local_n": -267.2
+     },
+     "step": {
+      "local_e": 684.12,
+      "local_n": -267.27
+     },
+     "outward_deg": 95.3,
+     "width_m": 0.9,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_west:lodge2",
+     "leaf": {
+      "local_e": 686.01,
+      "local_n": -274.46
+     },
+     "step": {
+      "local_e": 686.69,
+      "local_n": -274.28
+     },
+     "outward_deg": 74.8,
+     "width_m": 1.0,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_west:lodge3",
+     "leaf": {
+      "local_e": 687.55,
+      "local_n": -284.7
+     },
+     "step": {
+      "local_e": 687.19,
+      "local_n": -285.31
+     },
+     "outward_deg": 210.3,
+     "width_m": 0.96,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_west:lodge4",
+     "leaf": {
+      "local_e": 688.65,
+      "local_n": -269.69
+     },
+     "step": {
+      "local_e": 689.05,
+      "local_n": -270.26
+     },
+     "outward_deg": 144.8,
+     "width_m": 1.06,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_west:lodge5",
+     "leaf": {
+      "local_e": 691.06,
+      "local_n": -279.23
+     },
+     "step": {
+      "local_e": 691.46,
+      "local_n": -278.66
+     },
+     "outward_deg": 34.6,
+     "width_m": 0.96,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_west:lodge6",
+     "leaf": {
+      "local_e": 692.97,
+      "local_n": -266.58
+     },
+     "step": {
+      "local_e": 693.0,
+      "local_n": -267.28
+     },
+     "outward_deg": 177.5,
+     "width_m": 0.77,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_west:lodge7",
+     "leaf": {
+      "local_e": 698.35,
+      "local_n": -276.06
+     },
+     "step": {
+      "local_e": 697.69,
+      "local_n": -275.83
+     },
+     "outward_deg": 289.1,
+     "width_m": 1.25,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_west:lodge8",
+     "leaf": {
+      "local_e": 699.33,
+      "local_n": -270.21
+     },
+     "step": {
+      "local_e": 698.69,
+      "local_n": -270.49
+     },
+     "outward_deg": 246.5,
+     "width_m": 0.98,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_west:lodge9",
+     "leaf": {
+      "local_e": 705.48,
+      "local_n": -278.41
+     },
+     "step": {
+      "local_e": 706.14,
+      "local_n": -278.64
+     },
+     "outward_deg": 109.2,
+     "width_m": 1.18,
      "lodge": true
     }
    ]
