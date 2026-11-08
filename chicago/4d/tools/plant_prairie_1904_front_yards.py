@@ -224,7 +224,10 @@ PICTURED = {
                          "the year round. Behind the 18th Street coping before the stable, a row of sheared "
                          "balls and cones, a clipped column and a dense mass at its east end, as Taylor's "
                          "winter 16554 shows them over the coping; the earlier 16555 (1892-94) shows the "
-                         "taller of them there in leaf and the low balls not yet planted.",
+                         "taller of them there in leaf and the low balls not yet planted. Inside the court's "
+                         "carriage mouth, the bed Taylor's 16555 shows before the stable's corner bay: a "
+                         "dark clipped evergreen (the 1894 plate's too), a low flowering mass and a small "
+                         "clipped cone.",
                  "sources": ["inland_1894_pullman_palm_house_stable", "aic_taylor_16555_pullman_west_front",
                              "aic_taylor_16554_pullman_from_sw"],
                  "plants": [
@@ -330,6 +333,26 @@ PICTURED = {
                       "tub_m": 0.0, "read": "the ball behind the coping before the stable: 16554 x 1042-1066 px, its top at y 538 px, 32 px over the coping's top (about 1.68 m over the walk read absolutely through the camera); 52.5 m off, read on n -3187"},
                      {"plant": "globe", "e": 1491.98, "n": -3187, "on": "grade", "top_m": 2.14, "w": 0.99,
                       "tub_m": 0.0, "read": "the ball behind the coping before the stable: 16554 x 1066-1090 px, its top at y 540 px, 30 px over the coping's top (about 1.59 m over the walk read absolutely through the camera); 52.0 m off, read on n -3187"},
+                     # T-1934 (2026-11-08, the 16555 sign-off): the bed inside the court's carriage
+                     # mouth, between the stable drive's east edge and the stable's corner bay, as
+                     # Taylor's summer 16555 shows it: a low kerb curving from the drive's edge to the
+                     # sweep before the sixth pier, a dark evergreen at its north end, a low flowering
+                     # mass along the kerb and a small clipped cone by the sweep. The evergreen is the
+                     # one the 1894 plate shows behind its fifth pier, with low flowers at its foot, so
+                     # it is fixed in plan by crossing the two pictures' pixel columns; the mass and the
+                     # cone, which only 16555 sees, stand where their feet cast onto the court's ground
+                     # through 16555's solved camera (the kerb casts to e 1475.6-1476.1, the drive's
+                     # east edge is 1475.6-1476.0), sized at that distance. The mass's south half
+                     # (16555 x 686-714 px, cast at n -3192.99) lies inside the court mouth's kept-clear
+                     # way (GATE_WAY_M; the owner, 2026-10-30, on the carriage ways: "no plants blocking
+                     # it"), so it is left out, and the match records say so as an owner ruling. The
+                     # kinds are read off shape and tone. In the ground: tub_m 0, drawn in every Season.
+                     {"plant": "arborvitae", "e": 1476.4, "n": -3189.67, "on": "grade", "top_m": 1.95, "w": 0.75,
+                      "tub_m": 0.0, "read": "the dark evergreen at the bed's north end, which the 1894 plate shows too: 16555 x 648-678 px (top y 628) crossed with the plate's x 1690-1740 px (top y 845) at e 1476.02, n -3189.67, where both pictures' feet fall within 5 and 20 px of the prints'; its top 1.82 m in 16555 and 2.11 m in the plate, so 1.95; 0.91 m wide in 16555 and 0.57 m in the plate, so 0.75. Stood 0.38 m east, off the stable drive's east edge (the drive is reconstructed; L-pullman-carriage-ways-1934)"},
+                     {"plant": "hydrangea", "e": 1476.34, "n": -3190.73, "on": "grade", "top_m": 0.38, "w": 0.94,
+                      "tub_m": 0.0, "read": "the low flowering mass along the kerb, its north half: 16555 x 665-697 px, its top at y 677 px; cast on the ground 29.6 m off"},
+                     {"plant": "arborvitae", "e": 1476.87, "n": -3193.84, "on": "grade", "top_m": 1.06, "w": 0.4,
+                      "tub_m": 0.0, "read": "the small clipped cone by the sweep before the sixth pier: 16555 x 715-730 px, its foot at y 697 px and its top at y 657 px; cast on the ground 26.5 m off"},
                  ]},
     },
     "prairie_1912": {
