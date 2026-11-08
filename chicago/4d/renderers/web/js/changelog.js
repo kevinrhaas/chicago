@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 2815, ts: '2026-11-08T01:40:35.384Z', date: 'Nov 7, 2026, 7:40 PM CT', title: '1835: boarders share the named houses, not three log cabins', kind: 'fix',
+    items: [
+      'The South Division\'s boarders and families no longer pile into three one-room cabins (up to 124 people in one).',
+      'They now lodge with the town\'s named households as well, spread over 338 roofs.',
+      'The busiest house holds 37 people in 217 m², and no cabin holds more than ten.',
+    ] },
+  { v: 2814, ts: '2026-11-08T00:59:37.148Z', date: 'Nov 7, 2026, 6:59 PM CT', title: '1812: twelve more gardens and fields, each its household\'s', kind: 'feature',
+    items: [
+      'Kinzie\'s kitchen garden: two rows of beds off the gate walk, currants and gooseberries along the north paling.',
+      'Ouilmette\'s currant bushes stand in a garden of hill corn, beans, squash, onions and potatoes.',
+      'Lee\'s lake-shore garden grows melons on the sand. The sutler\'s is a market garden in blocks.',
+      'Coursoll\'s field is corn in hills with pumpkins. Burns, Clark, the soldier, the factory and the agency have their own plots.',
+      'La Lime\'s patch has run to weeds since June. At Lee\'s Place the cabin\'s enclosure is all weeds.',
+      'New crops: turnip seedlings, sown that week, and an untended weed stand. Both follow Settings > Season.',
+    ] },
   { v: 2813, ts: '2026-11-08T00:39:34.866Z', date: 'Nov 7, 2026, 6:39 PM CT', title: 'Frances Glessner looks her age, and everyone blinks properly', kind: 'fix',
     items: [
       'Frances Glessner no longer looks young beside her 1892 photograph. Her face is fuller in the cheeks and jaw, with the start of a jowl and a level mouth, as the photograph shows.',

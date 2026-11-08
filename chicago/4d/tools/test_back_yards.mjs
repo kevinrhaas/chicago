@@ -148,8 +148,8 @@ globalThis.fetch = async (url) => ({ ok: false, status: 404, statusText: 'Not Fo
     ok(cropPlan(lots, s).every((p) => seasonLook(p.kind, s)), `${s} plants a crop gardens.js does not keep then`);
   }
   const probs = [];
-  ok(cropPlan([{ parcel: 'x', crops: [{ bed: 'b', rows: [[0, 0, 4, 0, 'turnip']] }] }], 'summer', { problems: probs }).length === 0
-    && /unknown crop "turnip"/.test(probs[0] ?? ''), 'an unknown crop is planted or not reported');
+  ok(cropPlan([{ parcel: 'x', crops: [{ bed: 'b', rows: [[0, 0, 4, 0, 'mandrake']] }] }], 'summer', { problems: probs }).length === 0
+    && /unknown crop "mandrake"/.test(probs[0] ?? ''), 'an unknown crop is planted or not reported');
 }
 
 /* ---- the layer --------------------------------------------------------------------- */
