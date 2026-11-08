@@ -20333,6 +20333,19 @@ those four stores. And the West's empty C2 store recon_1835_west_020, whose stat
 named no trade and retired when a keeper could take it, is now kept by L. Chevalier
 (watches, jewelry and fancy goods, a Canal Street house of trade on no roof), seated over it
 by the keeper rung: which store roof his house stands in is the invention, as for every keeper.
+**Amended 2026-11-07 (T-3494):** the refusal of every roof whose sidecar states its occupants
+had left the deal almost nowhere to put the South Division: 156 of its 194 dwellings name "The X
+household", so some 80 households each went under a handful of one-room log cabins (124 people
+in `recon_1835_south_d1_018`'s 38 m², 126 in `recon_1835_blk_lake_market_d1_05`). The owner,
+2026-11-07, approved the fix. Boarders and families may now also take a roof whose stated occupant
+is a named household (`^The .+ household`, `boards_with()` in `tools/house_the_present_1835.py`),
+and such a roof counts as already holding its own household at the cards' median family size of
+four. Practices, shops, schools, documented buildings and anonymous stock stay refused. A new
+tripwire refuses any roof seated past one person a square metre of floor. 338 roofs now hold
+the 3,001 seated, against 299; the busiest is `recon_1835_blk_washington_dearborn_h2_05`, 37
+people in 217 m², and no cabin holds more than ten. **What is invented** is every boarder and
+family placed under a named household's roof: no source puts them there, and the named
+household's own card is unchanged.
 
 ### L355 — Two camps on conjectural ground: the land-sale crowd on the reservation shore and a wagon party at the west approach
 
@@ -41596,8 +41609,9 @@ with a brace, hung on the west post, swinging inward, opened and shut with the I
 garden"*, and *"cant seem to enter the garden"*.
 **What is recorded and what is not:** the garden, its name, its place south of the fort and its ruled beds are the
 draught's (the place by T-2062's rule, itself reconstructed); that melons and small fruit and vegetables were raised
-there is Quaife's ("in Cooper's time", the years before 1812 that Dr. John Cooper of the garrison described); that a soldier "worked hard all day in the Colonel's
-garden" in May 1811 is Quaife's account of a court martial. Nothing reached says which vegetables, which small fruit,
+there is Quaife's ("in Cooper's time", the years before 1812 that Dr. John Cooper of the garrison described); Quaife's court-martial account of a soldier who
+"worked hard all day in the Colonel's garden" in May 1811 is of Detroit, not Chicago (corrected 2026-11-07, T-3477),
+and says nothing of this garden. Nothing reached says which vegetables, which small fruit,
 how they stood in the beds, or how the garden looked on 14 August 1812, the day before the garrison marched out. The
 choice of crops and their places, the beds' crown and the corner beds' use, every leaf, fruit and pole, the fruit
 left on the bushes, the fallen onion tops, the wicket's make, its swing and a visitor's power to open it are ours,
@@ -42251,3 +42265,45 @@ period street films (Lumière and Edison/AM&B street scenes of 1896-1906), revie
 **Re-opens on:** any man's own entry in the Register of Enlistments (it would replace his drawn colouring and height); a likeness of any of them.
 **Ticket:** T-3491.
 **Recorded:** 2026-11-07.
+
+### L-t3477-gardens-1812 — Every 1812 household's garden laid out and planted for its own house, and Lee's Place left to weeds
+
+**Recorded:** 2026-11-07 (T-3477).
+
+**Decision:** besides the commanding officer's garden (L-t3407-officers-garden), `data/gardens/1812.json` now lays
+out and plants twelve more pieces of ground for 14 August 1812, each sized and laid for its household
+(`tools/plant_gardens_1812.py`). Inside their palings: Kinzie's kitchen garden north of the house, 46 x 15.5 m, a
+walk from the south gate between two rows of beds (onions and roots, cabbages and new-set savoys, potatoes, musk-melons
+and cucumbers; corn with running beans, a turnip bed sown that week, onions and lettuce, squashes and pumpkins), sage,
+thyme and parsley at the gate and currants and gooseberries the length of the north paling; and the sutler's garden
+as a market garden, a walk down the middle and four blocks a side (cabbages, onions, potatoes, cucumbers, musk-melons,
+beans, turnips), its north end left to the way worn in to the house the draught draws inside it. Coursoll's worm-fenced
+field is Indian corn in hills three and a half feet apart, tasselled, with pumpkins in the gaps. On open ground, each
+clearing its own plot of sward: Ouilmette's garden behind the house, the six currant bushes already standing there
+(`data/flora/plantings/ouilmette_garden_1812.json`) with seven more round them, hill corn with beans and squash,
+onions and potatoes; La Lime's patch, sown in May and neglected since June, the corn stunted and gone to weeds and the
+squash sprawling; a rough clearing behind the Burns cabin (potatoes, corn, cabbages, beans, pumpkins); Clark's small
+garden at the forks (potatoes, cabbages, pumpkins) and the discharged soldier's smaller one; Lee's garden landward of
+his house on the lake shore, melons and water-melons first on the sand, cucumbers, squash, potatoes, beans, cabbages
+and onions; the factory's paled yard as a neat kitchen garden and the agency's as a crowded one of potatoes and
+cabbages; and at Lee's Place the cabin's small enclosure as a stand of weeds over the last pot-herbs, with one
+volunteer pumpkin. Two kinds join the garden's growers (`renderers/web/js/gardens.js`): turnip seed leaves in drills,
+and an annual weed stand waist to head high, both following Settings > Season. Every bed stands clear of the
+scene's buildings, fences, worn trails and yards, planted stems and yard goods, on dry ground (the tool's check).
+**Why:** the owner, 2026-11-07: *"can you do a sweep of 1812 and 1835 and improve all of the gardens? ... all of the
+gardens should be unique ... different sizes and layouts that are sensible for the design of the property and the
+family and team at hand, like I think Lees place had a large garden? and kinize?"*; and his ruling the same day that
+Lee's Place in August 1812 is left unplanted.
+**What is recorded and what is not:** the gardens at Kinzie's (Whistler 1808 "Mr Kinzie's kitchen garden"; Quaife
+p. 166; J. H. Kinzie's "the garden and the shrubbery, the fence paling that surrounded it", Andreas vol. 1 p. 76),
+Ouilmette's and its currant bushes (Wau-Bun ch. XIX), Lee's on the lake shore (Andreas p. 92), the sutler's (the
+draught), Coursoll's inclosed field (Quaife p. 167) and the small enclosure at Lee's Place (Wau-Bun ch. XVIII) are
+the sources'. The gardens at La Lime's, Burns's, Clark's and the soldier's houses, and the use of the factory's and the
+agency's paled yards, are ours. No source names a crop in any of them; every size, place, bed, crop and stage is
+reconstructed, from M'Mahon's calendar for August (the first edition of 1806 for the turnip sowing, the savoys and the
+beans, read in the 1857 printing) and the creole field crop "Corn, pumpkins, and spring wheat" (Brackenridge 1814).
+Wau-Bun's "company gardens, well filled with currant-bushes and young fruit-trees" is 1831 and not used for 1812.
+**How to resolve:** an account book, letter or recollection naming what one of these households grew, or a drawing
+of one of the gardens, replaces that garden's beds; a reading that places Lee's garden, or Burns's, replaces its plot.
+The company's cornfield and gardens at the forks are not planted yet: some twenty thousand corn hills want a cheaper
+way to draw a field than one plant at a time.

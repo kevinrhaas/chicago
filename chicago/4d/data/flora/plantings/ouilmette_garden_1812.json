@@ -9,6 +9,7 @@
     "ouilmette_house_1812"
   ],
   "zone": "z10_settled_town",
+  "in_structure": "ouilmette_garden_1812__garden",
   "existence": {
     "value": true,
     "confidence": "attested",
@@ -17,7 +18,7 @@
     ],
     "note": "Wau-Bun ch. XIX, of the afternoon of 17 August 1812, three days after this scene's date: a sergeant who had hidden in the woods 'ventured to steal cautiously into the garden of Ouilmette, where he concealed himself for a time behind some currant-bushes. At length he determined to enter the house, and accordingly climbed up through a small back window into the room where the family were.' Currant bushes big enough to hide a man stood in mid-August of a season's growth, so they stood on the 14th. The garden is behind the house because the window he climbed through was its back one. Every position, the number of bushes and their heights are reconstructed (L-1812-ouilmette-2486)."
   },
-  "research_note": "WHAT WOULD MOVE THESE. A plan or a picture of Ouilmette's lot, or any account giving the garden's size or fence. Wau-Bun names no fence, so none is built; Kinzie's garden next door is a separate record (kinzie_garden_1812). T-3106: the two reconstructed rows now stand at N +353.3 and +355.1, respectively 5.016 and 6.816 m behind the unchanged house's back wall at N +348.284. The former N +350.2/+352.0 rows were inside the renderer's unchanged 4.5 m footprint clearance and all six bushes were refused. Keep the same six currants, eastings, heights and 1.8 m spacing; no footprint exemption is used. These garden coordinates are reconstructed, not measured from Wau-Bun (docs/LIBERTIES.md L-1812-flora-3106).",
+  "research_note": "WHAT WOULD MOVE THESE. A plan or a picture of Ouilmette's lot, or any account giving the garden's size or fence. Wau-Bun names no fence, so none is built; Kinzie's garden next door is a separate record (kinzie_garden_1812). T-3106: the two reconstructed rows now stand at N +353.3 and +355.1, respectively 5.016 and 6.816 m behind the unchanged house's back wall at N +348.284. The former N +350.2/+352.0 rows were inside the renderer's unchanged 4.5 m footprint clearance and all six bushes were refused. Keep the same six currants, eastings, heights and 1.8 m spacing; no footprint exemption is used for the house. These garden coordinates are reconstructed, not measured from Wau-Bun (docs/LIBERTIES.md L-1812-flora-3106). T-3477: the garden these bushes stand in now clears its own sward (renderers/web/js/gardens.js keepOut `ouilmette_garden_1812__garden`), so in_structure names that one polygon and lets these six stems past it, as fort_company_garden_1835 is let past its fence; the house, walls and tracks still refuse them.",
   "stems": [
     {
       "id": "ouilmette_currant_1",
