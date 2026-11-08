@@ -142,6 +142,15 @@ echo
 echo "== sidecars"
 python3 tools/compile_scene.py --all
 
+# T-3503. Read off the models this bake just built, so it is the bake's to rewrite.
+# derive_doors_1812.py keys each building on its model's sha256 and `--check` refuses
+# a file whose models moved: the first whole-town bake to reach its gate (content
+# build 42491116435, 2026-11-08) was red on that alone, because the 26.04 drift had
+# re-hashed the 1812 masters and nothing in the bake re-read their doors.
+echo
+echo "== derived from the built models"
+python3 tools/derive_doors_1812.py
+
 echo
 echo "== publish"
 tools/publish.sh
