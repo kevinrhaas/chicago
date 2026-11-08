@@ -7,7 +7,7 @@ from pathlib import Path
 import tempfile
 import zipfile
 
-from recover_glessner_v4 import TARGETS, drift, materialize, pack, sha256, verified_members, write_member
+from recover_glessner_v4 import TARGETS, drift, materialize, pack, reuse_derivatives, sha256, verified_members, write_member
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--self-test', action='store_true', help='run the fixture assertions (also the default)')
@@ -103,3 +103,44 @@ with tempfile.TemporaryDirectory() as directory:
     assert materialize(root, recovery) == 3 and drift(root, recovery) == {}, "--materialize heals it"
     assert drift(root, Path(directory) / "no-package") == {}, "an unreadable manifest is --check's to report"
 print("PASS: drift names a stale or missing materialized output by hash, and --materialize clears it")
+
+# T-3503: a whole-town bake builds the master and finds no derivative (they are
+# untracked). Restore the packaged pair only when the built master IS the packaged one,
+# only into absent files, and say "derive it" for everything else without writing.
+with tempfile.TemporaryDirectory() as directory:
+    root = Path(directory) / "checkout"; recovery = Path(directory) / "package"
+    write_member(root, "data/structures/glessner_house.json", b"{}")
+    master, web, light = (name.replace("versions/glessner_house/v4/", "") for name in TARGETS)
+    for name in (master, web, light):
+        write_member(root, name, b"packed " + name.encode())
+    pack(root, recovery)
+    packed = {name: (root / name).read_bytes() for name in (master, web, light)}
+
+    (root / web).unlink(); (root / light).unlink()
+    count, why = reuse_derivatives(root, recovery)
+    assert count == 2, why
+    assert all((root / n).read_bytes() == packed[n] for n in (web, light)), "restore the packed bytes"
+    assert drift(root, recovery) == {}, "a reused tree matches its package"
+
+    (root / web).unlink(); (root / light).unlink()
+    (root / master).write_bytes(b"a moved master")
+    assert reuse_derivatives(root, recovery)[0] == 0, "a moved master is derived, not reused"
+    assert not (root / web).exists() and not (root / light).exists(), "nothing written for a moved master"
+    assert (root / master).read_bytes() == b"a moved master", "never roll back a bake"
+
+    (root / master).unlink()
+    assert reuse_derivatives(root, recovery)[0] == 0 and not (root / web).exists(), \
+        "an absent master is the bake's to build, not this to restore"
+
+    write_member(root, master, packed[master])
+    write_member(root, web, b"a stale local derivative")
+    assert reuse_derivatives(root, recovery)[0] == 0, "a present derivative is left alone"
+    assert (root / web).read_bytes() == b"a stale local derivative" and not (root / light).exists(), \
+        "never write over a present derivative, nor beside one"
+
+    (root / web).unlink()
+    assert reuse_derivatives(root, Path(directory) / "no-package")[0] == 0, "no package: derive it"
+    (recovery / "assets.zip.part00").write_bytes(b"corrupt")
+    refuses(lambda: reuse_derivatives(root, recovery))
+    assert not (root / web).exists(), "a corrupt package restores nothing"
+print("PASS: a whole-town bake reuses the packaged derivatives only for the packaged master, only into absent files")
