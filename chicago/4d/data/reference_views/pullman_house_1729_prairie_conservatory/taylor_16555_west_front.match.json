@@ -107,7 +107,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "7f4ba235f07a51d60ba052a507137919c58c6a0bfeeb45a6a9696e112ab092b3"
+      "sha256": "1d76c4415a93713c9e01d4b8400d4dbb0175f88a8eadb3414a66b7666f3be2ff"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -119,7 +119,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "5225613ca5dd36a0e7577b2f0aed62e1a9cf15f4af2a39cd233b8d1cf97d40d2"
+      "sha256": "1ec46dc2bfb15d13dab2260c022b31d4ee88b7302aab5be62069b2eaf5e198e2"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -138,7 +138,7 @@
       "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "1fe8fdbd54138c664254bd7bc3fc5b69d405f9ff84b0c2390c60933668c6a40f",
+  "flora_sha256": "7a6ac274161ef224cda02588376808db8b46c846a389cb3033a8b3b2920ac6f2",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/taylor_16555_west_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
