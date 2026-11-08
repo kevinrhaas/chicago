@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
-import { circleRoute, roundedBlockRoute, createTransportLoop, preflightTransportRouteAsync, TransportSpawnObstructedError } from './transport-loop.js';
+import { routeFor, createTransportLoop, preflightTransportRouteAsync, TransportSpawnObstructedError } from './transport-loop.js';
 
 const WHEELS = ['vehicle_wheel_rear_left', 'vehicle_wheel_rear_right',
   'vehicle_wheel_front_left', 'vehicle_wheel_front_right'];
@@ -116,6 +116,97 @@ export function createDrivenAssembly({ vehicle, driver, horse, confidence,
   };
 }
 
+/**
+ * T-3497: a team led by a teamster ON FOOT, as an army wagon of 1812 was: he walks at the
+ * near horse's head with a lead in his hand, and no one rides the wagon. The vehicle and its
+ * horses are posed exactly as a driven assembly's; the teamster is an ordinary standing figure
+ * (humans.js HumanActor, his own looks and walk) that his team tows: each frame he is put at
+ * `walkerLocal_m` in the vehicle's frame, walking while the team moves and standing when it
+ * stands. `walker` is that actor; he is drawn in world space beside the vehicle, not on it.
+ */
+export function createTeamsterAssembly({ root, vehicle, walker, horse, confidence, walkerLocal_m, horseOffset_m,
+  disposeVehicle, hitch = null, patchMaterial = () => {} }) {
+  if (!root?.add || root === vehicle || !vehicle?.getObjectByName || !walker?.root || typeof walker.update !== 'function'
+    || typeof horse?.poseVehicle !== 'function' || typeof horse.stop !== 'function'
+    || typeof disposeVehicle !== 'function') throw Error('town transport: real vehicle, teamster on foot, distance-driven team and ownership required');
+  const wheels = WHEELS.map(name => vehicle.getObjectByName(name));
+  const steer = vehicle.getObjectByName('vehicle_steer_front');
+  if (wheels.some(node => !node) || !steer) throw Error('town transport: authored wheel and steering hierarchy required');
+  for (const offset of [walkerLocal_m, horseOffset_m]) {
+    if (!Array.isArray(offset) || offset.length !== 3 || !offset.every(Number.isFinite)) throw Error('town transport: finite assembly offsets required');
+  }
+  root.name = 'teamster-assembly';
+  horse.root.position.set(...horseOffset_m);
+  vehicle.add(horse.root);
+  root.add(vehicle, walker.root);
+  vehicle.traverse(node => {
+    if (!node.isMesh || node.material?.visible === false) return;
+    node.castShadow = true; node.receiveShadow = true;
+    for (const material of Array.isArray(node.material) ? node.material : [node.material]) {
+      confidence?.patch?.(material); patchMaterial(material);
+    }
+  });
+  const wheelRest = wheels.map(node => node.rotation.x), steerRest = steer.rotation.y;
+  let stopped = true, disposed = false, lastPose = null, posed = false, target = null;
+  walker.tow = () => target;
+  const place = pose => {
+    const [x, , z] = walkerLocal_m, c = Math.cos(pose.yaw), s = Math.sin(pose.yaw);
+    target = { e: pose.e + c * x + s * z, n: pose.n + s * x - c * z,
+      heading: ((180 - pose.yaw * 180 / Math.PI) % 360 + 360) % 360 };
+  };
+  return {
+    root,
+    walker,
+    pose(pose) {
+      if (disposed) return;
+      lastPose = pose; posed = true;
+      vehicle.position.set(pose.e, pose.height, -pose.n); vehicle.rotation.y = pose.yaw;
+      steer.rotation.y = steerRest + pose.steering;
+      wheels.forEach((node, i) => { node.rotation.x = wheelRest[i] + pose.wheelRotation[i]; });
+      vehicle.updateMatrixWorld(true);
+      horse.poseVehicle(pose); vehicle.updateMatrixWorld(true);
+      place(pose);
+    },
+    advance(dt) { if (dt > 0) stopped = false; },
+    updateVisual(dt, { paused = false, viewer = null } = {}) {
+      if (disposed) return;
+      if (!Number.isFinite(dt) || dt < 0) throw Error('town transport: finite nonnegative teamster time required');
+      const held = paused || !root.visible;
+      const moving = posed && !stopped && !held;
+      const want = moving ? 'walking' : 'standing';
+      if (walker.state !== want) walker.setState(want);
+      if (viewer && !held) walker.update(dt, viewer);
+      // The lead follows his hand, after he has walked this frame.
+      if (lastPose && hitch && !held) {
+        root.updateMatrixWorld(true);
+        const connection = hitch.update(lastPose);
+        if (connection?.valid === false) throw Error('town transport: actual hitch exceeds its declared connection bound');
+      }
+      posed = false;
+    },
+    visible(value) {
+      if (disposed) return;
+      root.visible = value;
+      if (!value && !stopped) { horse.stop(); stopped = true; }
+    },
+    stop() { if (!stopped) { horse.stop(); stopped = true; } },
+    snapshot() { return { horse: horse.snapshot?.() ?? null, driver: { on_foot: true, at: target }, hitch: hitch?.snapshot?.() ?? null }; },
+    dispose() {
+      if (disposed) return;
+      disposed = true; walker.tow = null;
+      root.removeFromParent(); hitch?.dispose(); horse.dispose?.(); walker.root.removeFromParent();
+      disposeVehicle();
+    },
+  };
+}
+
+/** T-3497: outside a row's [from, to) local hours (`to` may pass midnight); no hour, never. */
+export function offHours(hours, hour) {
+  if (!Array.isArray(hours) || hours.length !== 2 || !hours.every(Number.isFinite) || !Number.isFinite(hour)) return false;
+  const [from, to] = hours;
+  return from <= to ? !(hour >= from && hour < to) : !(hour >= from || hour < to);
+}
+
 /** One instance per scene. The static parked layer remains independently owned. */
 export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssembly = null, heightAt,
   clear, routeClear = clear, routeSupport = null, detail = 'full',
@@ -127,11 +218,12 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
   const pendingApproaches = new Map();
   const routeReadings = new Map(), deferred = new Map(), failed = new Set();
   const circuits = rows.filter(row => row.scene === sceneId).map(row => {
-    const route = row.route.kind === 'rounded_block' ? roundedBlockRoute(row.route) : circleRoute(row.route);
+    const route = routeFor(row.route);
     const points = Array.from({ length: 65 }, (_, i) => route.at(route.length * i / 64));
     return { id: row.id, row, route, west: Math.min(...points.map(p => p.e)), east: Math.max(...points.map(p => p.e)),
       south: Math.min(...points.map(p => p.n)), north: Math.max(...points.map(p => p.n)) };
   });
+  const rowById = new Map(circuits.map(circuit => [circuit.id, circuit.row]));
   let disposed = false, tier = detail, load = null, generation = 0, loadGeneration = -1;
   let lastUpdate = null;
   const out = {
@@ -151,9 +243,9 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
             const prior = saved.get(row.id);
             const liveRow = prior ? { ...row, initial_distance_m: prior.distance_m,
               initial_total_distance_m: prior.total_distance_m, initial_wheel_rotation_rad: prior.wheel_rotation_rad,
-              initial_state: prior.state, initial_assembly_state: prior.assembly_state } : row;
-            const route = row.route.kind === 'rounded_block'
-              ? roundedBlockRoute(row.route) : circleRoute(row.route);
+              initial_state: prior.state, initial_assembly_state: prior.assembly_state,
+              initial_dwell_s: prior.dwell_s ?? 0 } : row;
+            const route = routeFor(row.route);
             if (row.horse_offset_m && !routeSupport) throw Error('town transport: actual whole-circuit horse support reader required');
             let routeReading = routeReadings.get(row.id);
             if (!routeReading && prepareAssembly) {
@@ -216,17 +308,20 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
       return near;
     },
     update(dt, cameraPosition, { paused = false, reducedMotion = false, hidden = false, visualDt = dt,
-      elapsedFrame = false, motionFrame = true } = {}) {
+      elapsedFrame = false, motionFrame = true, hour = null } = {}) {
       if (disposed) return;
       // A visibility replay must not prime a new/restored journey's first real frame.
-      lastUpdate = [0, cameraPosition, { paused, reducedMotion, hidden, visualDt: 0, elapsedFrame, motionFrame: false }];
+      lastUpdate = [0, cameraPosition, { paused, reducedMotion, hidden, visualDt: 0, elapsedFrame, motionFrame: false, hour }];
       const distance = reach[tier] ?? 0;
       for (const actor of actors) {
         const at = actor.at;
         const drawn = distance > 0 && Math.hypot(at[0] - cameraPosition.x, -at[1] - cameraPosition.z) < distance;
-        actor.update(dt, { enabled: !hidden, drawn, paused, reducedMotion, elapsedFrame, motionFrame });
+        // T-3497: a team with `hours` (its teamster's, as human-duties.js keeps them) is put
+        // up outside them: not drawn, not moving, its place on the road kept for the morning.
+        const away = hidden || offHours(rowById.get(actor.id)?.hours, hour);
+        actor.update(dt, { enabled: !away, drawn, paused, reducedMotion, elapsedFrame, motionFrame });
         // Synthetic visibility replays cannot prime the independent driver clock.
-        if (!elapsedFrame || motionFrame) actor.updateVisual?.(visualDt, { paused: paused || reducedMotion || hidden, viewer: cameraPosition });
+        if (!elapsedFrame || motionFrame) actor.updateVisual?.(visualDt, { paused: paused || reducedMotion || away, viewer: cameraPosition });
       }
     },
     async setTier(next) {

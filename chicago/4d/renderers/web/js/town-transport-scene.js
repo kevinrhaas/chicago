@@ -96,12 +96,17 @@ export async function mountTownTransport({ sceneId, dataBase, people, getPeople 
         sceneId, people: directory.people, profiles: config.profiles ?? [],
         humanAssets: humans.assets, confidence, heightAt, horseSpec: config.horse_models[model], horseSupportDomain: supportByHorse.get(model),
         makeHitch, driverLod: coarse ? 3 : 0,
+        // T-3497: a teamster on foot is the scene's own figure of him, made as the layer makes it.
+        createWalker: typeof humans.createActor === 'function'
+          ? (instance, identity) => humans.createActor(instance, { person: identity.person, identity }) : null,
         adoptPerson(instance, actor) {
           if (instance.person_id !== actor.personId) throw Error('town transport: driver identity mismatch');
           return humans.withhold(instance.person_id, { instanceId: instance.id, externalActor: actor });
         },
       }));
-      return makeByHorse.get(model)(row);
+      // T-3497: phones and Light take a row's lighter level of the same vehicle, when it has one.
+      return makeByHorse.get(model)(coarse && row.vehicle_file_light
+        ? { ...row, vehicle_file: row.vehicle_file_light, vehicle_glb_sha256: row.vehicle_glb_sha256_light } : row);
     },
     onActorsChanged(actors) {
       registration?.dispose();

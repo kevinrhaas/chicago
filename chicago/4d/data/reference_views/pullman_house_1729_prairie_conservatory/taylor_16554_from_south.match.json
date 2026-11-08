@@ -42,7 +42,7 @@
         -0.08144418823104738
       ],
       "rotation_y": -3.1490277562032887,
-      "glb_sha256": "d9d4b45c8ab5da47cc304d1945f2ee3c1865d1f2f9b261fcd3190704d86304b7"
+      "glb_sha256": "968ac3f1a0a55b4c5a44645336d4ce0b08a24dc1971398cb7d6a4181d557528b"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "f165d4af7461c032c7c7fb87ba3af9e83c3b64a4b7946bea9b402993baa40cdf"
     }
   ],
-  "group_sha256": "e200d5682a005b8cba2d69766b051c65be663ba50ca7c3f197f1cde7a3066424",
+  "group_sha256": "7177498949deec8a8aea60473f9782c76e41b98d9dc799a3b3589fabe906bf1d",
   "rendered_flora": {
     "season": "winter",
     "lots": [
@@ -191,7 +191,7 @@
       "how": "[T-1934, 2026-10-31: re-rendered on dev's house GLB: the house now draws in T-1881's fawn sandstone ashlar (PR #1465), not red brick, and its raised stone terrace with its balustrade and awning toward 18th Street stands (T-1881, PR #1523). The stone's tone against this print is the house's own records' to judge (pullman_house_1729_prairie).]"
     },
     {
-      "what": "the 18th Street boundary: a low stone wall with square piers and a coping along the walk, a lamp post by the court, and the clipped shrubs and young trees behind it; none of it is built (the owner, 2026-10-28: the lot's wall and its planting are judged in the match) [T-1934, 2026-10-31: east of the third pier this is replaced for 1904 — the Detroit Publishing view of c. 1900 (loc_det_4a08066_pullman_residence), the picture nearest 1 July 1904, shows the wall from the stair's east pier (the third) to the Fort Dearborn monument as one level coping about 0.9 m high with a dense border of shrubs behind it: no pier over its top, no urn, no curved low wall (its x 485-740 px); the Chicago History Museum's ICHi-19208 (circa 1900, a check only) shows the same plain coping at the stable's end; the fourth, fifth and sixth piers, the fifth's urn and the curved low walls are withdrawn (L-pullman-18th-street-wall-c1900-1934).]",
+      "what": "the 18th Street boundary: a low stone wall with square piers and a coping along the walk, a lamp post by the court, and the clipped shrubs and young trees behind it; none of it is built (the owner, 2026-10-28: the lot's wall and its planting are judged in the match) [T-1934, 2026-10-31: east of the third pier this is replaced for 1904 — the Detroit Publishing view of c. 1900 (loc_det_4a08066_pullman_residence), the picture nearest 1 July 1904, shows the wall from the stair's east pier (the third) to the Fort Dearborn monument as one level coping about 0.9 m high with a dense border of shrubs behind it: no pier over its top, no urn, no curved low wall (its x 485-740 px); the Chicago History Museum's ICHi-19208 (circa 1900, a check only) shows the same plain coping at the stable's end; the fourth, fifth and sixth piers, the fifth's urn and the curved low walls are withdrawn (L-pullman-18th-street-wall-c1900-1934).] [T-1881, 2026-11-08: restored for 1904. Read through the Detroit view's solved camera, its c. 1900 print shows this wall east of the stair as the 1894 plate does: the third pier, the coping falling and sweeping back up to the fourth, the doorway slot, the fifth pier with its urn, the carriage mouth and the sixth pier (its x 330-485 px); the withdrawal had read its sixth pier as the third. The fourth, fifth and sixth piers, the fifth's urn and the sweeps stand again as L-pullman-18th-street-wall-1934 built them; L-pullman-18th-street-wall-c1900-1934 is resolved.]",
       "status": "fixed",
       "how": "the 18th Street wall built (T-1934): on the lot line from the house's east end to the stable's east wall, through the plate's camera rays from five pier bases put it, the 0.9 m wall with its chamfered coping, square piers 1.7-1.8 m high, the opening onto the terrace's west flight, the low wall falling steeply from the third pier and curving up again to the fourth, the opening onto the east flight, and the wall on low along the stable's front (pullman_house_1729_prairie form.boundary); its lamps, the planting and the trees are judged in their own lines below"
     },
@@ -234,8 +234,8 @@
       "how": "T-1934, 2026-10-30 (the owner on Taylor's 16554): hydrant.pictured.pullman_stable in data/street_furniture/1904.json, placed on the print's ray (x 1065) at the walk's street edge"
     },
     {
-      "what": "the 18th Street wall's piers east of the court's mouth and the fourth pier, which this print shows standing over the coping by the palm house's terrace",
-      "status": "not shown",
+      "what": "the 18th Street wall's piers east of the court's mouth and the fourth pier, which this print shows standing over the coping by the palm house's terrace [T-1881, 2026-11-08: built again for 1904 — the Detroit view of c. 1900, read through its solved camera, shows the 1894 wall still standing east of the stair (L-pullman-18th-street-wall-c1900-1934 resolved); the fourth, fifth (with its urn) and sixth piers and the sweeps stand where L-pullman-18th-street-wall-1934 put them.]",
+      "status": "fixed",
       "how": "replaced for 1904: the Detroit Publishing view of c. 1900 (loc_det_4a08066_pullman_residence), the picture nearest 1 July 1904, shows the wall from the stair's east pier (the third) to the Fort Dearborn monument as one level coping about 0.9 m high with a dense border of shrubs behind it: no pier over its top, no urn, no curved low wall (its x 485-740 px); the Chicago History Museum's ICHi-19208 (circa 1900, a check only) shows the same plain coping at the stable's end. So the 1904 wall stands level at 0.9 m east of the third pier, its two openings kept (L-pullman-18th-street-wall-c1900-1934)."
     },
     {
@@ -304,6 +304,10 @@
     {
       "what": "[T-1881, 2026-11-07] the print's stout trunk at x 417 (base y 595), forking about 8 m up into a narrow, sparse head about 3 m across and 13 m to its top, is 18th Street's tree at 58.8 m: the build drew the grown elm's forked fountain there, about 6 m across and 19 m high over the house's south-east corner, and now draws a straight leader under a narrow head (high_head, scale 0.65). It renders about 46 px east of the print's trunk, as this camera draws the trees at 43.7 and 51.3 m (33 and 45 px; 2.3-2.8 m along the parkway), a camera-fit disagreement. Re-read on this render, which also carries the house's rear-step stack as #1828 moved it: no new difference.",
       "status": "fixed"
+    },
+    {
+      "what": "[T-1881, 2026-11-08] the flank's east section's window and second-storey pair moved from s 22.95 to 23.5 (off the Detroit print det 4a08066): in this print they move about 7 px east (the side-by-side's render x 363-404, y 389-545), the pair now a little east of the narrow lights this winter print draws; the three pictures place the pair between s 23.35 and 24.2, a gap pictures disagree about (T-3153), and the ground-storey lights stay as ruled above; the rest of the render is pixel-identical",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
