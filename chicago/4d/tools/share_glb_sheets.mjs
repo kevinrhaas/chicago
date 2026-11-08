@@ -44,8 +44,8 @@ export const GLTF_DIR = 'data/gltf';
 export const SHEETS = 'sheets';
 /** T-3463: not an image: a geometry or clip stream two figures carry byte for byte. */
 export const STREAM = 'application/octet-stream';
-/** A stream is shared only from this size: below it, a fetch costs more than the bytes. */
-export const STREAM_MIN = 4096;
+/** A stream is shared only from this size: below it, a fetch costs more than the bytes (2 KiB: at most 23 sheets a figure file, each fetched once for every figure). */
+export const STREAM_MIN = 2048;
 const EXT = { 'image/ktx2': 'ktx2', 'image/png': 'png', 'image/jpeg': 'jpg', 'image/webp': 'webp', [STREAM]: 'bin' };
 /**
  * T-3463: the build's own records a figure's GLB carries in its scene extras, which the

@@ -780,7 +780,7 @@ if [ -d assets/humans/web ]; then
   # renderer still decodes it once (shared-images.js); check.sh reads every rewrite
   # back to its assets/humans/web source.
   # T-3463: and so does every geometry or clip stream two figures carry byte for byte
-  # (--streams), 4 KiB or more: the same bodies, hands and hair under different dress.
+  # (--streams), 2 KiB or more: the same bodies, hands and hair under different dress.
   node tools/share_glb_sheets.mjs "$SITE" --dir data/humans/web --source assets/humans/web --streams
 fi
 
