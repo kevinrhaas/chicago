@@ -612,6 +612,10 @@ step "Driven assembly retains named drivers, vehicle ownership and exact current
   node tools/test_driven_assembly.mjs
 step "The 1812 fort wagons' rows are what their layer writes: roads, stops and hours (T-3497)" \
   node tools/lay_driven_wagons_1812.mjs --check
+step "The 1812 crossing boats are what their layer writes: on dry banks, afloat at the stern, a path deep enough to float them over (T-3510)" \
+  python3 tools/lay_crossing_boats_1812.py --check
+step "Every 1812 boat builds, rests bow up the bank, and carries a visitor across and back with no jump, and the wharf's deck sits on its crib (T-3510)" \
+  node tools/test_crossings.mjs
 step "A seated driver breathes, looks round and holds his reins, bounded and deterministic, on the real 1904 driver (T-1790)" \
   node tools/test_driver_life.mjs
 step "People on foot breathe, shift weight with feet planted, look at a close visitor and blink irregularly, bounded and deterministic (T-3402)" \
@@ -640,6 +644,10 @@ step "The cards of the 1812 town's people the 14 August sweep left out (Lalime, 
   python3 docs/RESEARCH/people-1812-town/cards.py --check
 step "The 1812 town's looks files are what looks.py writes from the readings' own words (T-3463..T-3467)" \
   python3 docs/RESEARCH/people-1812-town/looks.py --check
+step "Shabbona, Billy Caldwell and Alexander Robinson have the cards native_cards_1812.py writes, each placed where his sources tie him in August 1812 (T-3508)" \
+  python3 tools/native_cards_1812.py --check
+step "Every 1812 Potawatomi and Miami person is dressed as their own, as dress.py writes it (T-3506)" \
+  python3 docs/RESEARCH/native-dress-1812-3506/dress.py --check
 step "People on foot walk heel to toe at a real pace and stride, the stance foot planted, the pelvis turning and rising over it, deterministic across LOD swaps (T-3472)" \
   node tools/test_human_gait.mjs
 step "A woman's skirt swings off her legs as she walks and never parts between them, the rest pose exact (T-3472)" \

@@ -986,7 +986,10 @@ def _mansard_cornice(a, K, data, bays, conf):
     corner it turns and capped where the named walls end. A K08 bay on those walls that
     stands up to it — a pavilion, a tower, a bow under its own cornice — takes it into its
     side, so the course stops on the bay's junctions; nothing else interrupts it, and a head
-    that would reach it is refused, as on the street front."""
+    that would reach it is refused, as on the street front. T-1890 (2026-11-08): a pavilion
+    marked `cornice_across` that stands out at least as far as the course projects is not
+    cut: the course breaks out round its plan (cheek, face, chamfer) as one mitred path, and
+    a bay against it takes the course only outside that stretch."""
     p = a.p
     v = next(x for x in data["variants"] if x["id"] == STONE)
     prof = [tuple(q) for q in data["parts"]["profiles"][v["profile"]]["points"]]
@@ -1008,6 +1011,7 @@ def _mansard_cornice(a, K, data, bays, conf):
         if o.wall in names and o.head_m + HEAD_RISE_M > y_c - 0.005:
             raise ValueError(f"the head over {o.wall} s {o.s_m} reaches the stone cornice at {y_c:.3f} m")
     cut, into = [], []
+    detours = []   # T-1890: (from, to, points) along the chain, the course broken out round a bay
     for b, (wall, s0, s1, top) in zip(p.bays, bays):
         # T-1890: but a shallow pavilion the cornice is carried across stands behind it (1801's
         # wall gable, HABS photograph 1: the course runs on under its lights to the corner)
@@ -1015,17 +1019,45 @@ def _mansard_cornice(a, K, data, bays, conf):
             i = names.index(wall)
             cut.append((cum[i] + s0, cum[i] + s1))
             into.append(b["id"])
+        elif wall in names and b.get("cornice_across"):
+            # T-1890 (2026-11-08): a pavilion standing out further than the course projects
+            # (1801's south one, flush with its bow's crown on the 1911 sheet and in all three
+            # pictures, the main cornice carried round its cheek, across its face and down its
+            # chamfer to the south wall) breaks the course out round its plan, one mitred path
+            pts = b["variant"]["plan"]["points"]
+            if max(float(q[1]) for q in pts) < pj:
+                continue
+            i, mid = names.index(wall), float(b["s_m"])   # the plan's own middle, not the span cut for it
+            path = [chain[i].at(mid + float(x), y_c, float(z)) for x, z in pts]
+            end = cum[i] + mid + float(pts[-1][0])
+            if float(pts[-1][1]) < -1e-9:   # a chamfer's back, on the next wall's plane
+                if b.get("flush_corner") != "right" or i + 1 >= len(chain) \
+                        or abs(mid + float(pts[-1][0]) - chain[i].L) > 1e-6:
+                    raise ValueError(f"{b['id']}: a course broken out round a chamfer runs on along the "
+                                     f"next named wall from its back")
+                end = cum[i + 1] - float(pts[-1][1])
+            detours.append((cum[i] + mid + float(pts[0][0]), end, path, b))
     # T-1890: a chamfered pavilion's corner cut (k01_frontage_params.chamfer_spans) takes the
     # course off the side wall too, from the lost corner back to where the canted face meets
     # it (1801's south wall, carried by the course since its south bay took the cornice round
     # it); the course is capped there, against the face, as at a corner
     from .k01_frontage_params import chamfer_spans
     capped = set()
-    for wall, (s0, s1) in chamfer_spans(p.bays, p.depth_m, p.width_m).items():
+    round_out = {id(d[3]) for d in detours}
+    for wall, (s0, s1) in chamfer_spans([b for b in p.bays if id(b) not in round_out],
+                                        p.depth_m, p.width_m).items():
         if wall in names and wall != "k01.wall.street_front":
             i = names.index(wall)
             cut.append((cum[i] + s0, cum[i] + s1))
             capped.add(round(cum[i] + (s1 if s0 < 1e-9 else s0), 6))
+    # T-1890: a bay standing against a broken-out stretch (1801's bow at the pavilion's cheek, the
+    # round on its chamfer) takes the course into its side only outside it: the course runs
+    # round the pavilion in front of what of the bay stands inside its plan
+    for d0, d1, _, _ in detours:
+        trimmed = []
+        for c0, c1 in cut:
+            trimmed += [(a_, b_) for a_, b_ in ((c0, min(c1, d0)), (max(c0, d1), c1)) if b_ - a_ > 1e-9]
+        cut = trimmed
     spans, at = [], 0.0
     for c0, c1 in sorted(cut):
         if c0 > at:
@@ -1063,8 +1095,12 @@ def _mansard_cornice(a, K, data, bays, conf):
             raise ValueError("the stone cornice stops on a canted corner's cut")
     paths = []
     for k, (s0, s1) in enumerate(spans):
-        path = [point(s0)] + [q for j, c in enumerate(cum[1:-1], 1) if s0 + 1e-6 < c < s1 - 1e-6
-                              for q in cant.get(j, [point(c)])] + [point(s1)]
+        marks = [(c, cant.get(j, [point(c)])) for j, c in enumerate(cum[1:-1], 1) if s0 + 1e-6 < c < s1 - 1e-6
+                 and not any(d0 - 1e-6 <= c <= d1 + 1e-6 for d0, d1, _, _ in detours)]
+        marks += [(d0, d[2]) for d in detours for d0 in (d[0],) if s0 - 1e-6 <= d0 and d[1] <= s1 + 1e-6]
+        path = [point(s0)] + [q for _, qs in sorted(marks, key=lambda m: m[0]) for q in qs] + [point(s1)]
+        if detours:   # a stretch starting or ending on a broken-out bay's junction: no doubled point
+            path = [q for j, q in enumerate(path) if j == 0 or math.dist(q, path[j - 1]) > 1e-6]
         pc = var.piece(f"stone cornice {k + 1}", "stone", "open", run_names=names)
         ends = (s0 < 1e-9 or round(s0, 6) in capped,   # capped where the named walls end or a
                 s1 > cum[-1] - 1e-9 or round(s1, 6) in capped)   # chamfer cuts them; dying into a bay

@@ -1,0 +1,28 @@
+{
+  "id": "morgan_1877_ancient_society",
+  "type": "book",
+  "citation": "Lewis H. Morgan, Ancient Society, or Researches in the Lines of Human Progress from Savagery, through Barbarism to Civilization (New York: Henry Holt and Company, 1877).",
+  "author": "Lewis Henry Morgan (1818-1881)",
+  "date": "1877",
+  "describes_date": "the kinship and naming customs of North American nations, including the Potawatomi and Miami, as Morgan recorded them in the 1850s-1860s",
+  "repository": "Project Gutenberg eBook #45950",
+  "url": "https://www.gutenberg.org/ebooks/45950",
+  "locator": "Part II, ch. II, 'VI. The right of bestowing names upon its members' (Gutenberg plain text lines 3098-3135); ch. VI, the Algonkin gentes, with the Potawatomi gentes in note 170 and the Miami in note 172; the Omaha girls' names (line 19377 on).",
+  "tier": 3,
+  "rights_status": "public_domain",
+  "rights_note": "Published 1877 in the United States; public domain by age. Read as Project Gutenberg's plain text; nothing is derived from it as an asset.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-11-08 for T-3507 from the Gutenberg plain text (fetched that day). Transcription-mediated; the Potawatomi words are as Gutenberg prints Morgan's diacritics.",
+  "note": "A NINETEENTH-CENTURY ETHNOLOGY, used only for the shape of naming: each gens owned its names, a name 'proclaimed by [its] signification the gens to which they belonged', the mother chose a child's name, names of childhood were exchanged for adult names, descent among the Potawatomi and Miami ran in the male line, and no one married within the gens. Morgan's evolutionary framework ('savagery', 'barbarism') is his, not ours, and is not repeated on any card. His lists of gentes are given with his own spellings.",
+  "what_it_supplies": [
+    "the fifteen Potawatomi gentes with Morgan's names for them (note 170)",
+    "the Miami gentes (note 172)",
+    "how names were made and given (Part II ch. II, VI)",
+    "example names, Seneca and Omaha, that show the form"
+  ],
+  "what_it_does_not_supply": [
+    "the name of any person at Chicago in 1812",
+    "Potawatomi words beyond the gens names"
+  ]
+}

@@ -6,7 +6,7 @@
   "division": "camp",
   "review_required": true,
   "touches_removal": false,
-  "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, carded so that Helm's count of 27 is whole; no source names him. The card invents no name or story and stages no speech, ceremony or act of war.",
+  "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
   "present_on_scene_date": {
     "value": "present",
     "confidence": "inferred",
@@ -37,10 +37,11 @@
   "persons": [
     {
       "id": "miami_escort_1812_09",
-      "name": "A man of the Miami escort's camp (name not recorded), 9 of 27",
+      "name": "Swift Raccoon",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -59,34 +60,89 @@
       "note": "One of the 27 Miamis of Wells's escort (Helm), whom no source names; carded so the count is whole. Sleeps in lodge no. 1 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
       "review_required": true,
       "touches_removal": false,
-      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, carded so that Helm's count of 27 is whole; no source names him. The card invents no name or story and stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3500",
-        "liberty": "L-1812-gathering-people-3500"
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Raccoon gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the Miami escort's camp (name not recorded), 9 of 27"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm's count of the escort; this card is one of it."
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Heald's date and count of the escort."
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Raccoon (Ah-se-pon′-nä)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 40",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Raccoon gens (Ah-se-pon′-nä), and his children are of it after him.",
+          "The winter before, he hunted with his family on the Kankakee and traded the skins at Kinzie's for powder, cloth and kettles.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_10",
-      "name": "A man of the Miami escort's camp (name not recorded), 10 of 27",
+      "name": "Red Raccoon",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -105,34 +161,89 @@
       "note": "One of the 27 Miamis of Wells's escort (Helm), whom no source names; carded so the count is whole. Sleeps in lodge no. 2 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
       "review_required": true,
       "touches_removal": false,
-      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, carded so that Helm's count of 27 is whole; no source names him. The card invents no name or story and stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3500",
-        "liberty": "L-1812-gathering-people-3500"
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Raccoon gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the Miami escort's camp (name not recorded), 10 of 27"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm's count of the escort; this card is one of it."
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Heald's date and count of the escort."
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Raccoon (Ah-se-pon′-nä)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 36",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Raccoon gens (Ah-se-pon′-nä), and his children are of it after him.",
+          "He hunts deer in the oak openings, and in the fall goes after ducks and geese in the marshes of the Calumet.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_11",
-      "name": "A man of the Miami escort's camp (name not recorded), 11 of 27",
+      "name": "Far Loon Feather",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -151,34 +262,89 @@
       "note": "One of the 27 Miamis of Wells's escort (Helm), whom no source names; carded so the count is whole. Sleeps in lodge no. 3 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
       "review_required": true,
       "touches_removal": false,
-      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, carded so that Helm's count of 27 is whole; no source names him. The card invents no name or story and stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3500",
-        "liberty": "L-1812-gathering-people-3500"
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Loon gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the Miami escort's camp (name not recorded), 11 of 27"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm's count of the escort; this card is one of it."
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Heald's date and count of the escort."
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Loon (Mon-gwä′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 33",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Loon gens (Mon-gwä′), and his children are of it after him.",
+          "He has a pony, and some winters went as far as the Wabash to hunt.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_12",
-      "name": "A man of the Miami escort's camp (name not recorded), 12 of 27",
+      "name": "Winter Snow",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -197,34 +363,89 @@
       "note": "One of the 27 Miamis of Wells's escort (Helm), whom no source names; carded so the count is whole. Sleeps in lodge no. 4 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
       "review_required": true,
       "touches_removal": false,
-      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, carded so that Helm's count of 27 is whole; no source names him. The card invents no name or story and stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3500",
-        "liberty": "L-1812-gathering-people-3500"
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Snow gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the Miami escort's camp (name not recorded), 12 of 27"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm's count of the escort; this card is one of it."
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Heald's date and count of the escort."
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Snow (Mon-nă′-to)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 39",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Snow gens (Mon-nă′-to), and his children are of it after him.",
+          "He has a pony, and some winters went as far as the Wabash to hunt.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_13",
-      "name": "A man of the Miami escort's camp (name not recorded), 13 of 27",
+      "name": "Far Buzzard",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -243,34 +464,89 @@
       "note": "One of the 27 Miamis of Wells's escort (Helm), whom no source names; carded so the count is whole. Sleeps in lodge no. 1 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
       "review_required": true,
       "touches_removal": false,
-      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, carded so that Helm's count of 27 is whole; no source names him. The card invents no name or story and stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3500",
-        "liberty": "L-1812-gathering-people-3500"
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Buzzard gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the Miami escort's camp (name not recorded), 13 of 27"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm's count of the escort; this card is one of it."
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Heald's date and count of the escort."
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Buzzard (Ah-pă′-kose-e-ă)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 25",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Buzzard gens (Ah-pă′-kose-e-ă), and his children are of it after him.",
+          "The winter before, he hunted with his family on the Kankakee and traded the skins at Kinzie's for powder, cloth and kettles.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_14",
-      "name": "A man of the Miami escort's camp (name not recorded), 14 of 27",
+      "name": "Far Snowfall",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -289,34 +565,89 @@
       "note": "One of the 27 Miamis of Wells's escort (Helm), whom no source names; carded so the count is whole. Sleeps in lodge no. 2 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
       "review_required": true,
       "touches_removal": false,
-      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, carded so that Helm's count of 27 is whole; no source names him. The card invents no name or story and stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3500",
-        "liberty": "L-1812-gathering-people-3500"
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Snow gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the Miami escort's camp (name not recorded), 14 of 27"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm's count of the escort; this card is one of it."
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Heald's date and count of the escort."
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Snow (Mon-nă′-to)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 36",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Snow gens (Mon-nă′-to), and his children are of it after him.",
+          "He has a pony, and some winters went as far as the Wabash to hunt.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_15",
-      "name": "A man of the Miami escort's camp (name not recorded), 15 of 27",
+      "name": "Far Eagle",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -335,34 +666,89 @@
       "note": "One of the 27 Miamis of Wells's escort (Helm), whom no source names; carded so the count is whole. Sleeps in lodge no. 3 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
       "review_required": true,
       "touches_removal": false,
-      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, carded so that Helm's count of 27 is whole; no source names him. The card invents no name or story and stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3500",
-        "liberty": "L-1812-gathering-people-3500"
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Eagle gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the Miami escort's camp (name not recorded), 15 of 27"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm's count of the escort; this card is one of it."
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Heald's date and count of the escort."
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Eagle (Ken-da-wă′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 38",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Eagle gens (Ken-da-wă′), and his children are of it after him.",
+          "He hunts deer in the oak openings, and in the fall goes after ducks and geese in the marshes of the Calumet.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_16",
-      "name": "A man of the Miami escort's camp (name not recorded), 16 of 27",
+      "name": "Gray Buzzard",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -381,34 +767,89 @@
       "note": "One of the 27 Miamis of Wells's escort (Helm), whom no source names; carded so the count is whole. Sleeps in lodge no. 4 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
       "review_required": true,
       "touches_removal": false,
-      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, carded so that Helm's count of 27 is whole; no source names him. The card invents no name or story and stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3500",
-        "liberty": "L-1812-gathering-people-3500"
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Buzzard gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the Miami escort's camp (name not recorded), 16 of 27"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm's count of the escort; this card is one of it."
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Heald's date and count of the escort."
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Buzzard (Ah-pă′-kose-e-ă)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 32",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Buzzard gens (Ah-pă′-kose-e-ă), and his children are of it after him.",
+          "The winter before, he hunted with his family on the Kankakee and traded the skins at Kinzie's for powder, cloth and kettles.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_17",
-      "name": "A man of the Miami escort's camp (name not recorded), 17 of 27",
+      "name": "White Turkey Foot",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -427,34 +868,89 @@
       "note": "One of the 27 Miamis of Wells's escort (Helm), whom no source names; carded so the count is whole. Sleeps in lodge no. 1 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
       "review_required": true,
       "touches_removal": false,
-      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, carded so that Helm's count of 27 is whole; no source names him. The card invents no name or story and stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3500",
-        "liberty": "L-1812-gathering-people-3500"
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Turkey gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the Miami escort's camp (name not recorded), 17 of 27"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm's count of the escort; this card is one of it."
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Heald's date and count of the escort."
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Turkey (Pĭ-la-wä′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 36",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Turkey gens (Pĭ-la-wä′), and his children are of it after him.",
+          "He hunts deer in the oak openings, and in the fall goes after ducks and geese in the marshes of the Calumet.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_18",
-      "name": "A man of the Miami escort's camp (name not recorded), 18 of 27",
+      "name": "Prairie Eagle",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -473,34 +969,89 @@
       "note": "One of the 27 Miamis of Wells's escort (Helm), whom no source names; carded so the count is whole. Sleeps in lodge no. 2 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
       "review_required": true,
       "touches_removal": false,
-      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, carded so that Helm's count of 27 is whole; no source names him. The card invents no name or story and stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3500",
-        "liberty": "L-1812-gathering-people-3500"
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Eagle gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the Miami escort's camp (name not recorded), 18 of 27"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm's count of the escort; this card is one of it."
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Heald's date and count of the escort."
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Eagle (Ken-da-wă′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 35",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Eagle gens (Ken-da-wă′), and his children are of it after him.",
+          "He knows the portage and the Des Plaines from carrying canoes and packs across it in high water and low.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_19",
-      "name": "A man of the Miami escort's camp (name not recorded), 19 of 27",
+      "name": "Evening Drift",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -519,34 +1070,89 @@
       "note": "One of the 27 Miamis of Wells's escort (Helm), whom no source names; carded so the count is whole. Sleeps in lodge no. 3 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
       "review_required": true,
       "touches_removal": false,
-      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, carded so that Helm's count of 27 is whole; no source names him. The card invents no name or story and stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3500",
-        "liberty": "L-1812-gathering-people-3500"
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Snow gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the Miami escort's camp (name not recorded), 19 of 27"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm's count of the escort; this card is one of it."
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Heald's date and count of the escort."
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Snow (Mon-nă′-to)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 33",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Snow gens (Mon-nă′-to), and his children are of it after him.",
+          "He knows the portage and the Des Plaines from carrying canoes and packs across it in high water and low.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_20",
-      "name": "A man of the Miami escort's camp (name not recorded), 20 of 27",
+      "name": "Lone Wolf Track",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -565,34 +1171,89 @@
       "note": "One of the 27 Miamis of Wells's escort (Helm), whom no source names; carded so the count is whole. Sleeps in lodge no. 4 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
       "review_required": true,
       "touches_removal": false,
-      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, carded so that Helm's count of 27 is whole; no source names him. The card invents no name or story and stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3500",
-        "liberty": "L-1812-gathering-people-3500"
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Wolf gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the Miami escort's camp (name not recorded), 20 of 27"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm's count of the escort; this card is one of it."
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Heald's date and count of the escort."
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Wolf (Mo-wha′-wä)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 30",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Wolf gens (Mo-wha′-wä), and his children are of it after him.",
+          "He has a pony, and some winters went as far as the Wabash to hunt.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_21",
-      "name": "A man of the Miami escort's camp (name not recorded), 21 of 27",
+      "name": "Standing Turkey Feather",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -611,34 +1272,89 @@
       "note": "One of the 27 Miamis of Wells's escort (Helm), whom no source names; carded so the count is whole. Sleeps in lodge no. 1 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
       "review_required": true,
       "touches_removal": false,
-      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, carded so that Helm's count of 27 is whole; no source names him. The card invents no name or story and stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3500",
-        "liberty": "L-1812-gathering-people-3500"
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Turkey gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the Miami escort's camp (name not recorded), 21 of 27"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm's count of the escort; this card is one of it."
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Heald's date and count of the escort."
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Turkey (Pĭ-la-wä′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 33",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Turkey gens (Pĭ-la-wä′), and his children are of it after him.",
+          "He knows the portage and the Des Plaines from carrying canoes and packs across it in high water and low.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_22",
-      "name": "A man of the Miami escort's camp (name not recorded), 22 of 27",
+      "name": "Red Sunrise",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -657,34 +1373,89 @@
       "note": "One of the 27 Miamis of Wells's escort (Helm), whom no source names; carded so the count is whole. Sleeps in lodge no. 2 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
       "review_required": true,
       "touches_removal": false,
-      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, carded so that Helm's count of 27 is whole; no source names him. The card invents no name or story and stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3500",
-        "liberty": "L-1812-gathering-people-3500"
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Sun gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the Miami escort's camp (name not recorded), 22 of 27"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm's count of the escort; this card is one of it."
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Heald's date and count of the escort."
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Sun (Kul-swä′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 30",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Sun gens (Kul-swä′), and his children are of it after him.",
+          "In the spring he helped at the sugar camp, and in summer fished the river and the lake while the corn grew at the village.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_23",
-      "name": "A man of the Miami escort's camp (name not recorded), 23 of 27",
+      "name": "Morning Eagle Feather",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -703,34 +1474,89 @@
       "note": "One of the 27 Miamis of Wells's escort (Helm), whom no source names; carded so the count is whole. Sleeps in lodge no. 3 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
       "review_required": true,
       "touches_removal": false,
-      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, carded so that Helm's count of 27 is whole; no source names him. The card invents no name or story and stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3500",
-        "liberty": "L-1812-gathering-people-3500"
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Eagle gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the Miami escort's camp (name not recorded), 23 of 27"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm's count of the escort; this card is one of it."
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Heald's date and count of the escort."
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Eagle (Ken-da-wă′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 30",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Eagle gens (Ken-da-wă′), and his children are of it after him.",
+          "He hunts deer in the oak openings, and in the fall goes after ducks and geese in the marshes of the Calumet.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_24",
-      "name": "A man of the Miami escort's camp (name not recorded), 24 of 27",
+      "name": "Gray Eagle Feather",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -749,34 +1575,89 @@
       "note": "One of the 27 Miamis of Wells's escort (Helm), whom no source names; carded so the count is whole. Sleeps in lodge no. 4 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
       "review_required": true,
       "touches_removal": false,
-      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, carded so that Helm's count of 27 is whole; no source names him. The card invents no name or story and stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3500",
-        "liberty": "L-1812-gathering-people-3500"
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Eagle gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the Miami escort's camp (name not recorded), 24 of 27"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm's count of the escort; this card is one of it."
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Heald's date and count of the escort."
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Eagle (Ken-da-wă′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 34",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Eagle gens (Ken-da-wă′), and his children are of it after him.",
+          "The winter before, he hunted with his family on the Kankakee and traded the skins at Kinzie's for powder, cloth and kettles.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_25",
-      "name": "A man of the Miami escort's camp (name not recorded), 25 of 27",
+      "name": "Evening Sunrise",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -795,34 +1676,89 @@
       "note": "One of the 27 Miamis of Wells's escort (Helm), whom no source names; carded so the count is whole. Sleeps in lodge no. 1 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
       "review_required": true,
       "touches_removal": false,
-      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, carded so that Helm's count of 27 is whole; no source names him. The card invents no name or story and stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3500",
-        "liberty": "L-1812-gathering-people-3500"
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Sun gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the Miami escort's camp (name not recorded), 25 of 27"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm's count of the escort; this card is one of it."
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Heald's date and count of the escort."
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Sun (Kul-swä′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 32",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Sun gens (Kul-swä′), and his children are of it after him.",
+          "He hunts deer in the oak openings, and in the fall goes after ducks and geese in the marshes of the Calumet.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_26",
-      "name": "A man of the Miami escort's camp (name not recorded), 26 of 27",
+      "name": "Yellow Buzzard Wing",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -841,34 +1777,89 @@
       "note": "One of the 27 Miamis of Wells's escort (Helm), whom no source names; carded so the count is whole. Sleeps in lodge no. 2 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
       "review_required": true,
       "touches_removal": false,
-      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, carded so that Helm's count of 27 is whole; no source names him. The card invents no name or story and stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3500",
-        "liberty": "L-1812-gathering-people-3500"
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Buzzard gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the Miami escort's camp (name not recorded), 26 of 27"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm's count of the escort; this card is one of it."
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Heald's date and count of the escort."
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Buzzard (Ah-pă′-kose-e-ă)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 28",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Buzzard gens (Ah-pă′-kose-e-ă), and his children are of it after him.",
+          "He knows the portage and the Des Plaines from carrying canoes and packs across it in high water and low.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_27",
-      "name": "A man of the Miami escort's camp (name not recorded), 27 of 27",
+      "name": "Tall Sunrise",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -887,27 +1878,113 @@
       "note": "One of the 27 Miamis of Wells's escort (Helm), whom no source names; carded so the count is whole. Sleeps in lodge no. 3 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
       "review_required": true,
       "touches_removal": false,
-      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, carded so that Helm's count of 27 is whole; no source names him. The card invents no name or story and stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "ticket": "T-3500",
-        "liberty": "L-1812-gathering-people-3500"
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Sun gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the Miami escort's camp (name not recorded), 27 of 27"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm's count of the escort; this card is one of it."
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Heald's date and count of the escort."
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Sun (Kul-swä′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 33",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Sun gens (Kul-swä′), and his children are of it after him.",
+          "In the spring he helped at the sugar camp, and in summer fished the river and the lake while the corn grew at the village.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
+    }
+  ],
+  "card_evidence": [
+    {
+      "source_id": "quaife_1913",
+      "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
+      "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
+      "claim": "Helm's count of the escort; this card is one of it."
+    },
+    {
+      "source_id": "quaife_1913",
+      "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
+      "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
+      "claim": "Heald's date and count of the escort."
+    },
+    {
+      "source_id": "morgan_1877_ancient_society",
+      "locator": "pt. II, ch. II (VI, the right of bestowing names) and ch. VI (the gentes, notes 170 and 172)",
+      "quote": "These names either proclaimed by their signification the gens to which they belonged, or were known as such by common reputation.",
+      "claim": "how a reconstructed name is made"
+    },
+    {
+      "source_id": "quaife_1913",
+      "locator": "App. IV (Heald, 1812)",
+      "quote": "Captain Wells, of Fort Wayne",
+      "claim": "the Miami towns about Fort Wayne, the band these cards are put with (reconstructed)"
+    },
+    {
+      "source_id": "quaife_1913",
+      "locator": "App. IV, Heald (23 Oct 1812), line 16252",
+      "quote": "finding the Miamies did not assist us",
+      "claim": "the Miami escort did not fight"
     }
   ]
 }

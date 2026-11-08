@@ -93,6 +93,13 @@ function figure() {
   const near1 = growHair({ hair: cap, root, style: { ...style, facial: [] }, lod: 1, seed: 'a' });
   assert(near1.position.length < g.position.length, 'LOD1 grows less than LOD0');
   assert.equal(growHair({ hair: cap, root, style, lod: 2, seed: 'a' }), null, 'LOD2 grows none');
+  // T-3506: a tied cut with a tail grows the tail at LOD0 and, alone, at LOD2.
+  const tied = { ...style, cut: 'tied_high_1812', facial: [], tail_cm: 20 };
+  const t0 = growHair({ hair: cap, root, style: tied, lod: 0, seed: 'a' });
+  assert(t0.grown.tail > 0 && t0.grown.scalp > 0, 'a tied cut grows its tail beside the scalp');
+  const t2 = growHair({ hair: cap, root, style: tied, lod: 2, seed: 'a' });
+  assert(t2 && t2.grown.tail === CARDS.lods[2].tail && t2.grown.scalp === 0, 'LOD2 grows the tail alone');
+  assert.equal(growHair({ hair: cap, root, style: { ...tied, tail_cm: 0 }, lod: 2, seed: 'a' }), null, 'no tail, nothing at LOD2');
 }
 
 // 2. dressHair: one skinned sibling of the cap, no texture, its card vertices skinned to the
@@ -340,9 +347,9 @@ assert.equal(hairFor(null, 1812), null, 'the 1812 private grows no strand hair u
 
 // 5. Every person: humans.js grows each near body's hair after it measures its height.
 const humans = await fs.readFile(new URL('renderers/web/js/humans.js', here), 'utf8');
-assert(/import \{ dressHair \} from '\.\/human-hair\.js';/.test(humans));
+assert(/import \{ dressHair(, dressHeadcloth)? \} from '\.\/human-hair\.js';/.test(humans));
 assert(/this\.proxy\.scale\.y = [^\n]*\n[\s\S]{0,400}dressHair\(scene, \{ lod,/.test(humans), 'build() grows the hair, after the height is measured');
-assert(/dressHair\(scene[^\n]*\n[\s\S]{0,200}dressSpectacles\(scene, \{ lod,/.test(humans), 'build() puts on spectacles after the hair (T-3440)');
+assert(/dressHair\(scene[^\n]*\n[\s\S]{0,500}dressSpectacles\(scene, \{ lod,/.test(humans), 'build() puts on spectacles after the hair (T-3440)');
 // Liberty: the hair supplement under L418 names this ticket.
 const liberties = await fs.readFile(new URL('docs/LIBERTIES.md', here), 'utf8');
 assert(/\*\*Strand hair, beards and eyes \(2026-11-06, T-3414\):\*\*/.test(liberties), 'L418 carries the hair supplement');

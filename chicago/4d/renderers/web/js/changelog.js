@@ -1,4 +1,39 @@
 export const CHANGELOG = [ // newest first
+  { v: 2838, ts: '2026-11-08T21:22:50.544Z', date: 'Nov 8, 2026, 3:22 PM CT', title: '1801 Prairie\'s south front now reads as one front, as photographed', kind: 'improvement',
+    items: [
+      'The Kimball house\'s round bay, gabled face and second bay now stand as one front, the face flush with the bay beside it and the cornice running across all three.',
+      'The south-west corner\'s round bay meets the south wall where the 1965 photograph and the 1911 map put it.',
+      'Over the corner, the slate roof now comes down behind the round bay\'s balustrade instead of a tall block of stone.',
+      'The main cornice and roof stand about half a metre higher, where all three photographs put them.',
+      'Both north-west photographs (1895 and 1965) match the model; the 1965 south-west one still shows one small window over the corner that is not built yet.',
+    ] },
+  { v: 2837, ts: '2026-11-08T20:52:41.697Z', date: 'Nov 8, 2026, 2:52 PM CT', title: 'Dry 1812 boats, full-height skiffs, and a smaller review note', kind: 'fix',
+    items: [
+      'The river no longer shows through the bottom of a dugout or canoe.',
+      'The skiffs have their full plank sides; they were only a hand deep.',
+      'A card\'s historical review note now sits small at the foot of the card instead of at its head.',
+    ] },
+  { v: 2836, ts: '2026-11-08T20:48:26.941Z', date: 'Nov 8, 2026, 2:48 PM CT', title: 'Every Potawatomi and Miami person of 1812 their own', kind: 'feature',
+    items: [
+      'The camp people no longer all look alike: each is dressed in their own colours of trade cloth, with or without a blanket, leggings or silver, wears their hair their own way with a tied tail, and some a headcloth.',
+      'Every Native card now has a name: the people no source names have a reconstructed name and a reconstructed history, both marked, and 26 men who signed the 1815 and 1816 treaties for these bands stand among them under their own names.',
+      'Each card says what that person likely did on 15 August 1812, graded: most of the men likely among the warriors who attacked the column, the older men, women and children at the camp, the Miamis not fighting.',
+      'Shabbona, Billy Caldwell and Alexander Robinson have cards of their own, with Shabbona\'s and Robinson\'s portraits.',
+    ] },
+  { v: 2835, ts: '2026-11-08T19:44:44.799Z', date: 'Nov 8, 2026, 1:44 PM CT', title: 'Cross the 1812 river by dugout, bark canoe or skiff', kind: 'feature',
+    items: [
+      'Twelve boats lie drawn up at the river\'s crossings: the Kinzie landing, the fort wharf, the forks, Lee\'s Place and the branches.',
+      'Walk up and Cross: you step in, push off, paddle or row over, run ashore and step out.',
+      'Each boat has its own shape and weathering; the boat stays on the bank you left it.',
+      'The fort wharf has a weathered puncheon deck and hewn-log crib.',
+      'Reeds are trodden flat at each landing so the boats show.',
+    ] },
+  { v: 2834, ts: '2026-11-08T19:44:44.799Z', date: 'Nov 8, 2026, 1:44 PM CT', title: '1835 and 1904 people keep busy: jobs, breaks indoors, in at night', kind: 'improvement',
+    items: [
+      'Peck at his store front and Mary Flynn at her dooryard in 1835 work through the day, go in and out of their own doors, and are in at night. Mahoney and Bardwell work the bank and the tavern yard.',
+      'In 1904 the Glessners\' cooks, stable helper, maid and coachman work about the court and Eighteenth Street. They gather now and then, and go in by the service stair, the north entry or the stable doors.',
+      'While someone is in, their door offers Ask for them, as in 1812.',
+    ] },
   { v: 2833, ts: '2026-11-08T19:22:18.241Z', date: 'Nov 8, 2026, 1:22 PM CT', title: '1812: natural camp ground, camp paths, and pockets of low wood', kind: 'improvement',
     items: [
       'Each camp group\'s bare ground now follows its own lodges, fires and racks, so no two are the same shape; the lodges have not moved.',

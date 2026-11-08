@@ -75,6 +75,37 @@ export const HAIR_CUTS = Object.freeze({
     knot_cm: Object.freeze({ up: -2, back: 12 }),
     lift_mm: Object.freeze({ root: .5, tip: 1.2 }), density: 1.35, curl: .02, hang: false,
   }),
+  // T-3506: the other ways the 1812 Potawatomi and Miami men and women wore long hair, so that
+  // no two of a camp are alike (the owner, 2026-11-08). Each is the hair drawn back to a tie,
+  // the tie set higher or lower, the parting moved; the hanging tail or club below the tie is
+  // grown from the person's `tail_cm` (human-hair.js). Keating 1824 of Metea: "hair long and
+  // tied or clubbed behind"; the 1826-37 Lewis and Winter portraits show partings and ties at
+  // every height. Reconstructed choices, as all cuts here.
+  tied_high_1812: Object.freeze({
+    flow: 'centre_part_back', part_cm: 0, lengths_cm: Object.freeze({ top: 8, side: 8, back: 7 }),
+    knot_cm: Object.freeze({ up: 2.5, back: 10.5 }),
+    lift_mm: Object.freeze({ root: .7, tip: 1.8 }), density: 1.3, curl: .03, hang: false,
+  }),
+  clubbed_long_1812: Object.freeze({
+    flow: 'centre_part_back', part_cm: 0, lengths_cm: Object.freeze({ top: 10, side: 10, back: 9 }),
+    knot_cm: Object.freeze({ up: -6.5, back: 10 }),
+    lift_mm: Object.freeze({ root: 1, tip: 2.6 }), density: 1.35, curl: .05, hang: false,
+  }),
+  side_part_tied_1812: Object.freeze({
+    flow: 'side_part', part_cm: 2.6, lengths_cm: Object.freeze({ top: 8, side: 7, back: 7 }),
+    knot_cm: Object.freeze({ up: -4.5, back: 10.5 }),
+    lift_mm: Object.freeze({ root: .8, tip: 2 }), density: 1.3, curl: .04, hang: false,
+  }),
+  centre_part_low_1812: Object.freeze({
+    flow: 'centre_part_back', part_cm: 0, lengths_cm: Object.freeze({ top: 9, side: 8, back: 8 }),
+    knot_cm: Object.freeze({ up: -6, back: 10.5 }),
+    lift_mm: Object.freeze({ root: .5, tip: 1.3 }), density: 1.35, curl: .02, hang: false,
+  }),
+  centre_part_tied_high_1812: Object.freeze({
+    flow: 'centre_part_back', part_cm: 0, lengths_cm: Object.freeze({ top: 8, side: 8, back: 7 }),
+    knot_cm: Object.freeze({ up: 1.5, back: 11 }),
+    lift_mm: Object.freeze({ root: .6, tip: 1.4 }), density: 1.35, curl: .02, hang: false,
+  }),
   // Of the 1830s: fuller all round, brushed forward from the crown toward the brow and
   // temples, over the tops of the ears.
   brushed_forward_1835: Object.freeze({
@@ -146,6 +177,10 @@ export const HAIR_COLOURS = Object.freeze({
   // The registers' other words for hair (T-3491), each a linear colour: black, fair, sandy
   // (a reddish fair) and red.
   black: Object.freeze([.012, .010, .009]),
+  // T-3506: black hair is not one black. A cooler blue-black, and a black with brown in it in
+  // the sun, so a camp's heads are not one colour.
+  blue_black: Object.freeze([.008, .009, .012]),
+  black_brown: Object.freeze([.022, .015, .011]),
   fair: Object.freeze([.30, .21, .11]),
   sandy: Object.freeze([.25, .13, .06]),
   red: Object.freeze([.20, .065, .025]),

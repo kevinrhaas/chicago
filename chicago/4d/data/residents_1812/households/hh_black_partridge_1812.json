@@ -140,6 +140,22 @@
           "claim": "Fate of his village",
           "tier": "secondary history (1884-1913), cite as compiler's statement"
         }
+      ],
+      "on_15_august": {
+        "value": "Pulled Mrs Helm into the lake and brought her to the camp (Wau-Bun); kept watch at the Kinzie house on the 16th",
+        "grade": "inferred",
+        "note": "Wau-Bun's account (Mrs Helm's story, family tradition). Helm (1814), a contemporary, says only that his wife was among the women.",
+        "sources": [
+          "kinzie_waubun_1856",
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "On 15 August",
+          "value": "Pulled Mrs Helm into the lake and brought her to the camp (Wau-Bun); kept watch at the Kinzie house on the 16th",
+          "grade": "inferred"
+        }
       ]
     }
   ]

@@ -6,7 +6,7 @@
   "division": "camp",
   "review_required": true,
   "touches_removal": true,
-  "review_note": "review_required: a person drawn to stand for the families of the Potawatomi gathering at Chicago in August 1812, whom no roll names or counts lodge by lodge. touches_removal: these are the people removed from Chicago in 1835. The card invents no name, band or story and stages no speech, ceremony or act of war.",
+  "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
   "present_on_scene_date": {
     "value": "present",
     "confidence": "inferred",
@@ -41,11 +41,13 @@
   "persons": [
     {
       "id": "potawatomi_1812_west_bank_man_1",
-      "name": "A man of the camp on the creek's west bank (name not recorded)",
+      "name": "Tall Elk Horn",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "andreas_1884_v1",
         "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -64,44 +66,91 @@
       "note": "A representative figure, not a recorded individual. No Potawatomi name is given because none is recorded; inventing one would present fiction as evidence. In the town from 1812-08-12 to 1812-08-16: The gathering: Heald has the neighbours come in from all quarters after the order of 9 August; the camp records stand 12 to 16 August (the council of the 12th to the burning of the fort, L-1812-potawatomi-camp-2515). Before the 12th no lodge is drawn, and after the 16th the gathering broke up (no source dates it), so the card is shown 12 to 16 August only.",
       "review_required": true,
       "touches_removal": true,
-      "review_note": "review_required: a person drawn to stand for the families of the Potawatomi gathering at Chicago in August 1812, whom no roll names or counts lodge by lodge. touches_removal: these are the people removed from Chicago in 1835. The card invents no name, band or story; its sex, age, lodge, dress and day are this reading's reconstruction (L-1812-people-day-3467), built to the counts Helm and Heald give, and it stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "liberty": "L-1812-town-days-3463",
-        "ticket": "T-3467"
+        "ticket": "T-3467",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Elk gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the camp on the creek's west bank (name not recorded)"
+      ],
+      "on_15_august": {
+        "value": "Likely among the warriors who attacked the column",
+        "grade": "reconstructed",
+        "note": "Heald: \"between four and five hundred\" attacked, of the 500 at the council. Who fought is not recorded; that he did is our reading.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative (1814), Gutenberg #69274 lines 16635-16636",
-          "quote": "the tribes there assembled to amount of 500 warriors 179 women & children",
-          "claim": "Helm's count of the gathering at Wells's council.",
-          "tier": "contemporary (Helm, 1814)"
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "currey_1912_old_fort_dearborn",
-          "locator": "ch. II, Gutenberg #52346 lines 1361-1363",
-          "quote": "while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank",
-          "claim": "Their usual camping place was the State Street creek on the south bank.",
-          "tier": "compiled secondary (Currey 1912)"
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
         },
         {
-          "source_id": "currey_1912_old_fort_dearborn",
-          "locator": "ch. III, Gutenberg #52346 lines 2246-2247",
-          "quote": "beyond which were the groups of Indian wigwams clustered along the creek",
-          "claim": "The wigwams along the creek, seen from the fort on the last day.",
-          "tier": "compiled secondary (Currey 1912)"
+          "label": "Band",
+          "value": "Waubansee's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Elk (Mis-shă′-wă)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 40",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Likely among the warriors who attacked the column",
+          "grade": "reconstructed"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with Waubansee's band, on the Fox River of the Illinois (about thirty men in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "He is of the Elk gens (Mis-shă′-wă), and his children are of it after him.",
+          "The winter before, he hunted with his family on the Kankakee and traded the skins at Kinzie's for powder, cloth and kettles.",
+          "He came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out."
+        ]
+      }
     },
     {
       "id": "potawatomi_1812_west_bank_man_2",
-      "name": "A man of the camp on the creek's west bank (name not recorded)",
+      "name": "Lone Bear",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "andreas_1884_v1",
         "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -120,44 +169,91 @@
       "note": "A representative figure, not a recorded individual. No Potawatomi name is given because none is recorded; inventing one would present fiction as evidence. In the town from 1812-08-12 to 1812-08-16: The gathering: Heald has the neighbours come in from all quarters after the order of 9 August; the camp records stand 12 to 16 August (the council of the 12th to the burning of the fort, L-1812-potawatomi-camp-2515). Before the 12th no lodge is drawn, and after the 16th the gathering broke up (no source dates it), so the card is shown 12 to 16 August only.",
       "review_required": true,
       "touches_removal": true,
-      "review_note": "review_required: a person drawn to stand for the families of the Potawatomi gathering at Chicago in August 1812, whom no roll names or counts lodge by lodge. touches_removal: these are the people removed from Chicago in 1835. The card invents no name, band or story; its sex, age, lodge, dress and day are this reading's reconstruction (L-1812-people-day-3467), built to the counts Helm and Heald give, and it stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "liberty": "L-1812-town-days-3463",
-        "ticket": "T-3467"
+        "ticket": "T-3467",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Bear gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the camp on the creek's west bank (name not recorded)"
+      ],
+      "on_15_august": {
+        "value": "Likely among the warriors who attacked the column",
+        "grade": "reconstructed",
+        "note": "Heald: \"between four and five hundred\" attacked, of the 500 at the council. Who fought is not recorded; that he did is our reading.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative (1814), Gutenberg #69274 lines 16635-16636",
-          "quote": "the tribes there assembled to amount of 500 warriors 179 women & children",
-          "claim": "Helm's count of the gathering at Wells's council.",
-          "tier": "contemporary (Helm, 1814)"
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "currey_1912_old_fort_dearborn",
-          "locator": "ch. II, Gutenberg #52346 lines 1361-1363",
-          "quote": "while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank",
-          "claim": "Their usual camping place was the State Street creek on the south bank.",
-          "tier": "compiled secondary (Currey 1912)"
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
         },
         {
-          "source_id": "currey_1912_old_fort_dearborn",
-          "locator": "ch. III, Gutenberg #52346 lines 2246-2247",
-          "quote": "beyond which were the groups of Indian wigwams clustered along the creek",
-          "claim": "The wigwams along the creek, seen from the fort on the last day.",
-          "tier": "compiled secondary (Currey 1912)"
+          "label": "Band",
+          "value": "Waubansee's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Bear (M′-ko′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 33",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Likely among the warriors who attacked the column",
+          "grade": "reconstructed"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with Waubansee's band, on the Fox River of the Illinois (about thirty men in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "He is of the Bear gens (M′-ko′), and his children are of it after him.",
+          "He hunts deer in the oak openings, and in the fall goes after ducks and geese in the marshes of the Calumet.",
+          "He came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out."
+        ]
+      }
     },
     {
       "id": "potawatomi_1812_horse_ground_man",
-      "name": "A man who keeps horses on the camp's horse ground (name not recorded)",
+      "name": "Little Fox Tail",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "andreas_1884_v1",
         "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -176,44 +272,91 @@
       "note": "A representative figure, not a recorded individual. No Potawatomi name is given because none is recorded; inventing one would present fiction as evidence. In the town from 1812-08-12 to 1812-08-16: The gathering: Heald has the neighbours come in from all quarters after the order of 9 August; the camp records stand 12 to 16 August (the council of the 12th to the burning of the fort, L-1812-potawatomi-camp-2515). Before the 12th no lodge is drawn, and after the 16th the gathering broke up (no source dates it), so the card is shown 12 to 16 August only.",
       "review_required": true,
       "touches_removal": true,
-      "review_note": "review_required: a person drawn to stand for the families of the Potawatomi gathering at Chicago in August 1812, whom no roll names or counts lodge by lodge. touches_removal: these are the people removed from Chicago in 1835. The card invents no name, band or story; its sex, age, lodge, dress and day are this reading's reconstruction (L-1812-people-day-3467), built to the counts Helm and Heald give, and it stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "liberty": "L-1812-town-days-3463",
-        "ticket": "T-3467"
+        "ticket": "T-3467",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Fox gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man who keeps horses on the camp's horse ground (name not recorded)"
+      ],
+      "on_15_august": {
+        "value": "Likely among the warriors who attacked the column",
+        "grade": "reconstructed",
+        "note": "Heald: \"between four and five hundred\" attacked, of the 500 at the council. Who fought is not recorded; that he did is our reading.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative (1814), Gutenberg #69274 lines 16635-16636",
-          "quote": "the tribes there assembled to amount of 500 warriors 179 women & children",
-          "claim": "Helm's count of the gathering at Wells's council.",
-          "tier": "contemporary (Helm, 1814)"
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "currey_1912_old_fort_dearborn",
-          "locator": "ch. II, Gutenberg #52346 lines 1361-1363",
-          "quote": "while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank",
-          "claim": "Their usual camping place was the State Street creek on the south bank.",
-          "tier": "compiled secondary (Currey 1912)"
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
         },
         {
-          "source_id": "currey_1912_old_fort_dearborn",
-          "locator": "ch. III, Gutenberg #52346 lines 2246-2247",
-          "quote": "beyond which were the groups of Indian wigwams clustered along the creek",
-          "claim": "The wigwams along the creek, seen from the fort on the last day.",
-          "tier": "compiled secondary (Currey 1912)"
+          "label": "Band",
+          "value": "Waubansee's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Fox (Wake-shĭ′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 36",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Likely among the warriors who attacked the column",
+          "grade": "reconstructed"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with Waubansee's band, on the Fox River of the Illinois (about thirty men in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "He is of the Fox gens (Wake-shĭ′), and his children are of it after him.",
+          "He hunts deer in the oak openings, and in the fall goes after ducks and geese in the marshes of the Calumet.",
+          "He came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out."
+        ]
+      }
     },
     {
       "id": "potawatomi_1812_west_bank_woman_1",
-      "name": "A woman of the camp on the creek's west bank (name not recorded)",
+      "name": "Red Turkey Woman",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "andreas_1884_v1",
         "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "female",
@@ -232,44 +375,91 @@
       "note": "A representative figure, not a recorded individual. No Potawatomi name is given because none is recorded; inventing one would present fiction as evidence. In the town from 1812-08-12 to 1812-08-16: The gathering: Heald has the neighbours come in from all quarters after the order of 9 August; the camp records stand 12 to 16 August (the council of the 12th to the burning of the fort, L-1812-potawatomi-camp-2515). Before the 12th no lodge is drawn, and after the 16th the gathering broke up (no source dates it), so the card is shown 12 to 16 August only.",
       "review_required": true,
       "touches_removal": true,
-      "review_note": "review_required: a person drawn to stand for the families of the Potawatomi gathering at Chicago in August 1812, whom no roll names or counts lodge by lodge. touches_removal: these are the people removed from Chicago in 1835. The card invents no name, band or story; its sex, age, lodge, dress and day are this reading's reconstruction (L-1812-people-day-3467), built to the counts Helm and Heald give, and it stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "liberty": "L-1812-town-days-3463",
-        "ticket": "T-3467"
+        "ticket": "T-3467",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names her: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Turkey gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A woman of the camp on the creek's west bank (name not recorded)"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative (1814), Gutenberg #69274 lines 16635-16636",
-          "quote": "the tribes there assembled to amount of 500 warriors 179 women & children",
-          "claim": "Helm's count of the gathering at Wells's council.",
-          "tier": "contemporary (Helm, 1814)"
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "currey_1912_old_fort_dearborn",
-          "locator": "ch. II, Gutenberg #52346 lines 1361-1363",
-          "quote": "while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank",
-          "claim": "Their usual camping place was the State Street creek on the south bank.",
-          "tier": "compiled secondary (Currey 1912)"
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
         },
         {
-          "source_id": "currey_1912_old_fort_dearborn",
-          "locator": "ch. III, Gutenberg #52346 lines 2246-2247",
-          "quote": "beyond which were the groups of Indian wigwams clustered along the creek",
-          "claim": "The wigwams along the creek, seen from the fort on the last day.",
-          "tier": "compiled secondary (Currey 1912)"
+          "label": "Band",
+          "value": "Waubansee's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Turkey (Pen′-nă)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 35",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "Her family is put with Waubansee's band, on the Fox River of the Illinois (about thirty men in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "She is of the Turkey gens (Pen′-nă); her husband, since no one married within the gens, is of another, and her children are of his.",
+          "She dresses deerskins and sews moccasins, and is known at the Kinzies' for her work.",
+          "She came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out."
+        ]
+      }
     },
     {
       "id": "potawatomi_1812_west_bank_woman_2",
-      "name": "A woman of the camp on the creek's west bank (name not recorded)",
+      "name": "Lone Bear Track Woman",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "andreas_1884_v1",
         "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "female",
@@ -288,44 +478,91 @@
       "note": "A representative figure, not a recorded individual. No Potawatomi name is given because none is recorded; inventing one would present fiction as evidence. In the town from 1812-08-12 to 1812-08-16: The gathering: Heald has the neighbours come in from all quarters after the order of 9 August; the camp records stand 12 to 16 August (the council of the 12th to the burning of the fort, L-1812-potawatomi-camp-2515). Before the 12th no lodge is drawn, and after the 16th the gathering broke up (no source dates it), so the card is shown 12 to 16 August only.",
       "review_required": true,
       "touches_removal": true,
-      "review_note": "review_required: a person drawn to stand for the families of the Potawatomi gathering at Chicago in August 1812, whom no roll names or counts lodge by lodge. touches_removal: these are the people removed from Chicago in 1835. The card invents no name, band or story; its sex, age, lodge, dress and day are this reading's reconstruction (L-1812-people-day-3467), built to the counts Helm and Heald give, and it stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "liberty": "L-1812-town-days-3463",
-        "ticket": "T-3467"
+        "ticket": "T-3467",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names her: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Bear gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A woman of the camp on the creek's west bank (name not recorded)"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative (1814), Gutenberg #69274 lines 16635-16636",
-          "quote": "the tribes there assembled to amount of 500 warriors 179 women & children",
-          "claim": "Helm's count of the gathering at Wells's council.",
-          "tier": "contemporary (Helm, 1814)"
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "currey_1912_old_fort_dearborn",
-          "locator": "ch. II, Gutenberg #52346 lines 1361-1363",
-          "quote": "while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank",
-          "claim": "Their usual camping place was the State Street creek on the south bank.",
-          "tier": "compiled secondary (Currey 1912)"
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
         },
         {
-          "source_id": "currey_1912_old_fort_dearborn",
-          "locator": "ch. III, Gutenberg #52346 lines 2246-2247",
-          "quote": "beyond which were the groups of Indian wigwams clustered along the creek",
-          "claim": "The wigwams along the creek, seen from the fort on the last day.",
-          "tier": "compiled secondary (Currey 1912)"
+          "label": "Band",
+          "value": "Waubansee's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Bear (M′-ko′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 45",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "Her family is put with Waubansee's band, on the Fox River of the Illinois (about thirty men in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "She is of the Bear gens (M′-ko′); her husband, since no one married within the gens, is of another, and her children are of his.",
+          "She gathers wild rice and rushes in the marshes in late summer and dries berries for the winter.",
+          "She came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out."
+        ]
+      }
     },
     {
       "id": "potawatomi_1812_west_bank_boy_14",
-      "name": "A boy of the camp on the creek's west bank (name not recorded)",
+      "name": "Turkey Poult",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "andreas_1884_v1",
         "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -344,44 +581,90 @@
       "note": "A representative figure, not a recorded individual. No Potawatomi name is given because none is recorded; inventing one would present fiction as evidence. In the town from 1812-08-12 to 1812-08-16: The gathering: Heald has the neighbours come in from all quarters after the order of 9 August; the camp records stand 12 to 16 August (the council of the 12th to the burning of the fort, L-1812-potawatomi-camp-2515). Before the 12th no lodge is drawn, and after the 16th the gathering broke up (no source dates it), so the card is shown 12 to 16 August only.",
       "review_required": true,
       "touches_removal": true,
-      "review_note": "review_required: a person drawn to stand for the families of the Potawatomi gathering at Chicago in August 1812, whom no roll names or counts lodge by lodge. touches_removal: these are the people removed from Chicago in 1835. The card invents no name, band or story; its sex, age, lodge, dress and day are this reading's reconstruction (L-1812-people-day-3467), built to the counts Helm and Heald give, and it stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "liberty": "L-1812-town-days-3463",
-        "ticket": "T-3467"
+        "ticket": "T-3467",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Turkey gens as Morgan says a name did. A name of childhood."
+      },
+      "also_written": [
+        "A boy of the camp on the creek's west bank (name not recorded)"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative (1814), Gutenberg #69274 lines 16635-16636",
-          "quote": "the tribes there assembled to amount of 500 warriors 179 women & children",
-          "claim": "Helm's count of the gathering at Wells's council.",
-          "tier": "contemporary (Helm, 1814)"
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "currey_1912_old_fort_dearborn",
-          "locator": "ch. II, Gutenberg #52346 lines 1361-1363",
-          "quote": "while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank",
-          "claim": "Their usual camping place was the State Street creek on the south bank.",
-          "tier": "compiled secondary (Currey 1912)"
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
         },
         {
-          "source_id": "currey_1912_old_fort_dearborn",
-          "locator": "ch. III, Gutenberg #52346 lines 2246-2247",
-          "quote": "beyond which were the groups of Indian wigwams clustered along the creek",
-          "claim": "The wigwams along the creek, seen from the fort on the last day.",
-          "tier": "compiled secondary (Currey 1912)"
+          "label": "Band",
+          "value": "Waubansee's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Turkey (Pen′-nă)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 14",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with Waubansee's band, on the Fox River of the Illinois (about thirty men in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "He is of the Turkey gens (Pen′-nă, as Morgan writes it), his father's, and his name is a name of childhood, to be put aside for another as he grows up.",
+          "This summer is the first time this child has seen the fort, the soldiers and so many lodges in one place."
+        ]
+      }
     },
     {
       "id": "potawatomi_1812_horse_ground_boy_12",
-      "name": "A boy who helps with the horses on the camp's horse ground (name not recorded)",
+      "name": "Spring Eaglet",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
+        "andreas_1884_v1",
         "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -400,36 +683,133 @@
       "note": "A representative figure, not a recorded individual. No Potawatomi name is given because none is recorded; inventing one would present fiction as evidence. In the town from 1812-08-12 to 1812-08-16: The gathering: Heald has the neighbours come in from all quarters after the order of 9 August; the camp records stand 12 to 16 August (the council of the 12th to the burning of the fort, L-1812-potawatomi-camp-2515). Before the 12th no lodge is drawn, and after the 16th the gathering broke up (no source dates it), so the card is shown 12 to 16 August only.",
       "review_required": true,
       "touches_removal": true,
-      "review_note": "review_required: a person drawn to stand for the families of the Potawatomi gathering at Chicago in August 1812, whom no roll names or counts lodge by lodge. touches_removal: these are the people removed from Chicago in 1835. The card invents no name, band or story; its sex, age, lodge, dress and day are this reading's reconstruction (L-1812-people-day-3467), built to the counts Helm and Heald give, and it stages no speech, ceremony or act of war.",
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "liberty": "L-1812-town-days-3463",
-        "ticket": "T-3467"
+        "ticket": "T-3467",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Bald Eagle gens as Morgan says a name did. A name of childhood."
+      },
+      "also_written": [
+        "A boy who helps with the horses on the camp's horse ground (name not recorded)"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative (1814), Gutenberg #69274 lines 16635-16636",
-          "quote": "the tribes there assembled to amount of 500 warriors 179 women & children",
-          "claim": "Helm's count of the gathering at Wells's council.",
-          "tier": "contemporary (Helm, 1814)"
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "currey_1912_old_fort_dearborn",
-          "locator": "ch. II, Gutenberg #52346 lines 1361-1363",
-          "quote": "while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank",
-          "claim": "Their usual camping place was the State Street creek on the south bank.",
-          "tier": "compiled secondary (Currey 1912)"
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
         },
         {
-          "source_id": "currey_1912_old_fort_dearborn",
-          "locator": "ch. III, Gutenberg #52346 lines 2246-2247",
-          "quote": "beyond which were the groups of Indian wigwams clustered along the creek",
-          "claim": "The wigwams along the creek, seen from the fort on the last day.",
-          "tier": "compiled secondary (Currey 1912)"
+          "label": "Band",
+          "value": "Waubansee's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Bald Eagle (M′-ge-ze′-wä)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 12",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with Waubansee's band, on the Fox River of the Illinois (about thirty men in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "He is of the Bald Eagle gens (M′-ge-ze′-wä, as Morgan writes it), his father's, and his name is a name of childhood, to be put aside for another as he grows up.",
+          "This summer is the first time this child has seen the fort, the soldiers and so many lodges in one place."
+        ]
+      }
+    }
+  ],
+  "card_evidence": [
+    {
+      "source_id": "quaife_1913",
+      "locator": "App. VI, Helm's narrative (1814), Gutenberg #69274 lines 16635-16636",
+      "quote": "the tribes there assembled to amount of 500 warriors 179 women & children",
+      "claim": "Helm's count of the gathering at Wells's council.",
+      "tier": "contemporary (Helm, 1814)"
+    },
+    {
+      "source_id": "currey_1912_old_fort_dearborn",
+      "locator": "ch. II, Gutenberg #52346 lines 1361-1363",
+      "quote": "while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank",
+      "claim": "Their usual camping place was the State Street creek on the south bank.",
+      "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+      "source_id": "currey_1912_old_fort_dearborn",
+      "locator": "ch. III, Gutenberg #52346 lines 2246-2247",
+      "quote": "beyond which were the groups of Indian wigwams clustered along the creek",
+      "claim": "The wigwams along the creek, seen from the fort on the last day.",
+      "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+      "source_id": "morgan_1877_ancient_society",
+      "locator": "pt. II, ch. II (VI, the right of bestowing names) and ch. VI (the gentes, notes 170 and 172)",
+      "quote": "These names either proclaimed by their signification the gens to which they belonged, or were known as such by common reputation.",
+      "claim": "how a reconstructed name is made"
+    },
+    {
+      "source_id": "andreas_1884_v1",
+      "locator": "p. 79 (Edwards, May 1812)",
+      "quote": "In the Fox River ... is another band of Pottawatomies, Chippewas and Ottawas, mixed together",
+      "claim": "Waubansee's band, the band these cards are put with (reconstructed)"
+    },
+    {
+      "source_id": "quaife_1913",
+      "locator": "App. VI, Helm (1814), lines 16634-16636",
+      "quote": "the tribes there assembled to amount of 500 warriors 179 women & children",
+      "claim": "Helm's count at the council"
+    },
+    {
+      "source_id": "quaife_1913",
+      "locator": "App. IV, Heald (23 Oct 1812), lines 16267-16269",
+      "quote": "Their number of warriors was between four and five hundred, mostly of the Potawatamie nation",
+      "claim": "the warriors in the attack"
+    },
+    {
+      "source_id": "quaife_1913",
+      "locator": "App. IV, Heald (23 Oct 1812), lines 16264-16266",
+      "quote": "we were taken back to their encampment near the fort, and distributed among the different tribes",
+      "claim": "the prisoners brought back to the camp"
     }
   ]
 }

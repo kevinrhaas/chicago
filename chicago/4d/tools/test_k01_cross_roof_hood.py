@@ -58,20 +58,24 @@ def deck_of(phase):
 
 st, ph = record()
 hood = deck_of(ph)["cross_roof"].get("hood")
-check(hood == {"base_m": 1.2, "rise_m": 0.5, "flashing_m": 0.06},
-      f"1801's cross roof carries the HABS 1 hood: 1.2 m across, 0.5 m over the ridge, 0.06 m zinc ({hood})")
+# T-1890 (2026-11-08): 1.3 m across (from 1.2) and the ridge 15.4 m (from 16.3): the south front
+# rebuilt flush with its bow (HABS photograph 1) moved the gable's middle north and lowered its apex,
+# and the eave rose 0.5 m, so the ridge stands 0.24 m over the 15.16 m curb
+RIDGE = 15.4
+check(hood == {"base_m": 1.3, "rise_m": 0.5, "flashing_m": 0.06},
+      f"1801's cross roof carries the HABS 1 hood: 1.3 m across, 0.5 m over the ridge, 0.06 m zinc ({hood})")
 
 # -- the record's build: the hood, the finial on it, the cresting stopped short of it ---------
 a = build(ph, st)
 fin = {f["corner"]: f for f in a.deck["finials"]}
 cr = fin.get("cross_roof")
-check(cr is not None and cr["on"] == "cross roof hood" and abs(cr["foot_m"] - (16.3 + 0.5 - MD.LET_IN_M)) < 1e-3,
-      f"the cross roof's finial stands on the hood's apex, its foot let in under 16.8 m ({cr})")
+check(cr is not None and cr["on"] == "cross roof hood" and abs(cr["foot_m"] - (RIDGE + 0.5 - MD.LET_IN_M)) < 1e-3,
+      f"the cross roof's finial stands on the hood's apex, its foot let in under {RIDGE + 0.5} m ({cr})")
 hoods = [i for i in a.components.get("k01.roof.deck_hood", {}).get("instances", [])
          if i["params"].get("corner") == "cross_roof"]
-check(len(hoods) == 1 and abs(hoods[0]["sockets"]["apex"][1] - 16.8) < 1e-3
+check(len(hoods) == 1 and abs(hoods[0]["sockets"]["apex"][1] - (RIDGE + 0.5)) < 1e-3
       and abs(hoods[0]["sockets"]["apex"][0] - 16.0) < 1e-3,
-      "one slated hood, its apex over the ridge's end at u 16.0, 16.8 m")
+      f"one slated hood, its apex over the ridge's end at u 16.0, {RIDGE + 0.5} m")
 run = next(c for c in a.deck["cresting"] if c["side"] == "north")   # the curb the cross roof crosses
 check(run["to_m"] <= 16.0 - 0.6 - MD.CORNER_CLEAR_M + 1e-3,
       f"the cresting along that curb stops short of the hood's foot (to u {run['to_m']})")
@@ -79,7 +83,9 @@ check(run["to_m"] <= 16.0 - 0.6 - MD.CORNER_CLEAR_M + 1e-3,
 # -- the hood's foot is buried: under the deck and the cross roof everywhere ------------------
 dk = KP.from_phase(ph, st).mansard["deck"]
 xh = dk["cross_roof"]["hood"]
-check(xh["foot_m"] < MD.deck_y(dk, 0.0) + 0.04 and xh["foot_m"] < dk["cross_roof"]["ridge_m"] - 0.6,
+# (T-1890, 2026-11-08: with the ridge 0.24 m over the curb the foot stands under the ridge by the
+# hood's own let-in, not 0.6 m)
+check(xh["foot_m"] < MD.deck_y(dk, 0.0) + 0.04 and xh["foot_m"] < dk["cross_roof"]["ridge_m"] - 0.15,
       f"the hood's foot ({xh['foot_m']} m) stands under the deck's curb line and the cross roof's ridge")
 
 # -- without a hood: exactly the old build ----------------------------------------------------
@@ -87,7 +93,7 @@ ph0 = copy.deepcopy(ph)
 del deck_of(ph0)["cross_roof"]["hood"]
 a0 = build(ph0, st)
 f0 = {f["corner"]: f for f in a0.deck["finials"]}["cross_roof"]
-check(f0["on"] == "cross roof" and abs(f0["foot_m"] - (16.3 - MD.LET_IN_M)) < 1e-3,
+check(f0["on"] == "cross roof" and abs(f0["foot_m"] - (RIDGE - MD.LET_IN_M)) < 1e-3,
       "a cross roof without a hood stands its finial on the ridge's end, as before")
 zn = lambda asm: len(asm.prims["k04_zinc_sheet"].idx) if "k04_zinc_sheet" in asm.prims else 0
 check(zn(a) - zn(a0) == 4 * 2 * 2 * 3,
@@ -101,6 +107,10 @@ for bad, why in (({"base_m": 0.3, "rise_m": 0.5}, "a base under 0.5 m"),
                  ({"base_m": 1.2, "rise_m": 0.5, "colour": "red"}, "an unknown key")):
     phb = copy.deepcopy(ph)
     deck_of(phb)["cross_roof"]["hood"] = bad
+    if why == "a base past the curb":
+        # T-1890 (2026-11-08): 1.6 m now fits on the gable's middle; inset the gable 0.6 m from
+        # its north corner so its middle, and the hood, stand 0.3 m nearer the south curb
+        next(b_ for b_ in phb["form"]["bays"]["value"] if b_["id"] == "p_south")["roof"]["gable"]["inset_m"] = [0.6, 0.0]
     try:
         KP.from_phase(phb, st)
         check(False, f"{why} is refused")

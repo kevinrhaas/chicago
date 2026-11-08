@@ -38,6 +38,7 @@ OUT_JSON = ROOT / 'assets/humans/web/hm08_variation_kit.json'
 PERSONS = ROOT / 'assets/humans/web/hm08_variation_persons.json'  # beside the kit: humans.js reads both from its asset base
 FITS = ROOT / 'data/humans/variation/fits'
 LOOKS = ROOT / 'data/humans/variation/looks'   # T-3491: complexion, hair, eyes, stature
+DRESS = ROOT / 'data/humans/variation/dress_1812_native.json'   # T-3506: each Native person's own dress and hair
 RESIDENTS = {'1812': ROOT / 'data/residents_1812', '1835': ROOT / 'data/residents', '1904': ROOT / 'data/residents_1904'}
 COMMIT = 'a8bc2d54ff0ac92e78ff71431b1023eda42bf482'
 RAW = f'https://raw.githubusercontent.com/makehumancommunity/makehuman/{COMMIT}/makehuman/data/targets/'
@@ -263,6 +264,16 @@ def person_record(pid, scene):
     return next(p for p in hh['persons'] if p['id'] == pid), row['file']
 
 
+_DRESSES = None
+
+
+def dresses():
+    global _DRESSES
+    if _DRESSES is None:
+        _DRESSES = json.loads(DRESS.read_text())['persons'] if DRESS.exists() else {}
+    return _DRESSES
+
+
 def persons():
     """Age and sex of each drawn person as their own record states them, and any fitted face."""
     out = {}
@@ -296,6 +307,18 @@ def persons():
                                                'reference', 'grade', 'liberty') if lk.get(k) is not None}
             rec['looks']['heritage'] = {'origin': lk['heritage']['origin']}
             rec['looks']['file'] = str(looks.relative_to(ROOT))
+        dress = dresses().get(pid)
+        if dress:
+            # T-3506: their own cloth colours and pieces worn, and their hair's tie and colour.
+            rec['dress'] = {k: dress[k] for k in ('colours', 'hide', 'worn') if dress.get(k)}
+            rec['dress']['grade'] = 'reconstructed'
+            hair = dress.get('hair') or {}
+            if hair.get('tail_cm'):
+                rec['dress']['tail_cm'] = hair['tail_cm']
+            if hair.get('headcloth'):
+                rec['dress']['headcloth'] = hair['headcloth']['rgb']
+            if rec.get('looks', {}).get('hair'):
+                rec['looks']['hair'] = {**rec['looks']['hair'], **{k: hair[k] for k in ('cut', 'drawn') if hair.get(k)}}
         out[pid] = rec
     return (json.dumps({'format': 'chicago4d_human_variation_persons_v1', 'ticket': 'T-3412',
                         'generated_by': 'tools/human_variation_kit.py',

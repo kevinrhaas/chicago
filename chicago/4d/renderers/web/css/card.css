@@ -121,6 +121,20 @@
   background: color-mix(in srgb, var(--ink) 7%, transparent);
   color: var(--ink);
 }
+/* T-3518: at the foot of the card, as a small note rather than a banner (owner,
+   2026-11-08: "make much smaller or move way down on the card"). Same words, quieter:
+   a hairline above it, no tinted ground, one size down. */
+.pop-held-foot { margin-top: 14px; padding-top: 8px; border-top: 1px solid color-mix(in srgb, var(--ink) 12%, transparent); }
+.pop-held-foot .pop-flag-held {
+  padding: 0 0 0 7px;
+  border-left-width: 2px;
+  background: none;
+  color: var(--ink-dim);
+  font-size: 10.5px;
+  line-height: 1.4;
+}
+.pop-held-foot .pop-held-why { margin-top: 3px; font-size: 10px; }
+
 /* The record's own sentence for holding it. Italic and one step down, because it is
    a quotation from the dossier sitting under the project's standing text, and the
    two must not read as one voice. */

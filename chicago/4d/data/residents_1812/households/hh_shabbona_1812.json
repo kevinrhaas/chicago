@@ -1,0 +1,130 @@
+{
+ "id": "hh_shabbona_1812",
+ "scene": "1812",
+ "name": "Shabbona, who came to Chicago after the fight of 15 August 1812",
+ "head": "shabbona",
+ "division": "camp",
+ "review_required": true,
+ "touches_removal": true,
+ "review_note": "review_required: a named Native man of the Chicago country in August 1812, the eve of the attack on the garrison and its families. touches_removal: his people were removed from Illinois after 1833. The card states what its sources say, with their tier, and stages no speech, ceremony or act of war.",
+ "present_on_scene_date": {
+  "value": "absent",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1",
+   "kirkland_1893_chicago_massacre",
+   "kappler_1904_treaty_ottawa_etc_1816"
+  ],
+  "note": "His card says how his presence is known."
+ },
+ "associated_with": [
+  {
+   "kind": "home",
+   "place_or_structure_id": "kinzie_house_1812",
+   "resolves_to": "structure",
+   "from": null,
+   "to": null,
+   "tier": "reconstructed",
+   "source_id": "andreas_1884_v1",
+   "also_sources": [],
+   "note": "Not his home: by his own account (via Matson) he came in on the afternoon of the 15th and stood among the Indians guarding the Kinzie house that night. His card is found there."
+  }
+ ],
+ "not_in_this_household": {
+  "note": "Not drawn in the scene: he was not, or may not have been, at Chicago on the 14th.",
+  "sources": [
+   "andreas_1884_v1"
+  ]
+ },
+ "persons": [
+  {
+   "id": "shabbona",
+   "name": "Shabbona",
+   "relationship": "head",
+   "grade": "attested",
+   "sources": [
+    "andreas_1884_v1",
+    "kirkland_1893_chicago_massacre",
+    "kappler_1904_treaty_ottawa_etc_1816"
+   ],
+   "sex": "male",
+   "present_on_scene_date": {
+    "value": "absent",
+    "confidence": "inferred",
+    "note": "Not at Chicago on the 14th: by his own account he arrived on the afternoon of the 15th, after the fight."
+   },
+   "also_written": [
+    "Shau-be-na",
+    "Shabonee",
+    "Chamblee (1816 treaty)",
+    "Chamblie"
+   ],
+   "note": "An Ottawa by birth who married into a Potawatomi band of the Illinois River and later led it; in 1812 an aide to Tecumseh. By his own account, as Matson took it down, he set out for Chicago when he heard the warriors had gone there, and came in a few hours after the fight on the 15th with twenty-two men; Andreas thinks he was not there before it. As Chamblee he signed the 1816 treaty that ceded the land about Chicago. He kept to peace in 1832, was granted land at Shabbona Grove and lost it, and died near Morris, Illinois, in July 1859.",
+   "review_required": true,
+   "touches_removal": true,
+   "review_note": "review_required: a named Native man of the Chicago country in August 1812, the eve of the attack on the garrison and its families. touches_removal: his people were removed from Illinois after 1833. The card states what its sources say, with their tier, and stages no speech, ceremony or act of war.",
+   "reconstruction": {
+    "stage": "named_after_the_14th",
+    "ticket": "T-3508",
+    "liberty": "L-1812-native-cards-3507"
+   },
+   "evidence": [
+    {
+     "source_id": "andreas_1884_v1",
+     "locator": "pp. 108-110",
+     "quote": "do not appear to have been present",
+     "claim": "not at the attack (Andreas, of him and Caldwell)"
+    },
+    {
+     "source_id": "kappler_1904_treaty_ottawa_etc_1816",
+     "locator": "Kappler II, Treaty with the Ottawa, etc., 1816, the signers",
+     "quote": "Chamblee, his x mark",
+     "claim": "signed the 1816 cession"
+    },
+    {
+     "source_id": "kirkland_1893_chicago_massacre",
+     "locator": "the plate \"Shaubena in old age (about 1856)\"",
+     "quote": "SHAUBENA IN OLD AGE. (ABOUT 1856.)",
+     "claim": "his portrait"
+    }
+   ],
+   "card_facts": [
+    {
+     "label": "People",
+     "value": "Ottawa by birth; led a Potawatomi band",
+     "grade": "attested"
+    },
+    {
+     "label": "Born",
+     "value": "About 1775",
+     "grade": "inferred"
+    },
+    {
+     "label": "On 14 August",
+     "value": "Not yet at Chicago",
+     "grade": "inferred"
+    },
+    {
+     "label": "On 15 August",
+     "value": "Came in after the fight, by his own account",
+     "grade": "inferred"
+    }
+   ],
+   "on_15_august": {
+    "value": "Came in after the fight, by his own account",
+    "grade": "inferred",
+    "note": "His account via Matson (1876), late recollection: he arrived a few hours after the battle and stood among the warriors guarding the Kinzie house that night.",
+    "sources": [
+     "andreas_1884_v1"
+    ]
+   },
+   "portrait": {
+    "image": "humans/web/portraits/shabbona_kirkland_1893.jpg",
+    "caption": "Shaubena in old age (about 1856): Kirkland 1893",
+    "source_id": "kirkland_1893_chicago_massacre",
+    "grade": "attested",
+    "why": "His own likeness, some forty-four years after 1812: the face he was known by late in life, not his dress of 1812."
+   }
+  }
+ ]
+}

@@ -238,6 +238,10 @@ def build():
 
 def main(check=False):
     out, unknown = build()
+    # T-3507..T-3509: names, histories and the 15th on the Native cards (tools/native_cards_1812.py)
+    sys.path.insert(0, str(ROOT / 'tools'))
+    import native_cards_1812 as nc
+    nc.apply_households({n[:-5]: r for n, r in out.items() if nc.is_native(n[:-5])})
     stale = []
     for name, rec in out.items():
         text = json.dumps(rec, indent=2, ensure_ascii=False) + '\n'

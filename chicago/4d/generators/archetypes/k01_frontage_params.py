@@ -540,7 +540,12 @@ BAY_KINDS = ("bay", "projection", "oriel", "tower")
 TOWER_PAST_EAVE_M = 1.0
 #: T-2900: how far inside its end wall's plane a corner turret's ring may stand, at the most
 TURRET_CORNER_M = 0.3
-SHALLOW_PROUD_M = 0.3   # T-3047: a shallow projection stands at most this far proud
+#: T-3047: a shallow projection stands at most this far proud. T-1890 (2026-11-08): 0.8 m from
+#: 0.3, for 1801's south pavilion, 0.8 m proud and flush with its bow's crown where the 1911
+#: sheet's trace bulges the front out about 0.8 m from v 5.7 to 9.2 and all three pictures put
+#: its face (the Taylor print's edges within about 10 px); its recesses and copings still run
+#: back through the wall plane, which a deep projection's would not
+SHALLOW_PROUD_M = 0.8
 #: T-1890: and may run this far along its wall, past a pavilion's 6.0 m (1801's 18th Street
 #: section, about 7 m between the corbel table's corner round and the tower at the 1911 sheet's
 #: 0.1 m): a pavilion's width was the least its recesses and eave fitted in, which a shallow
@@ -3502,6 +3507,9 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # T-3092: or a stone panel in one run's middle rising to a pedestal, iron scrolls
             # over its sweeps, and a roundel on every bar (1812's, the Levy print)
             spanel, roundel = bl.pop("panel", None), bl.pop("roundel", None)
+            # T-1890: or a bow's rail stopped part way round, where the bow runs into a
+            # pavilion's face (1801's front bow, its rail ending at the gabled face's pilaster)
+            to_frac = bl.pop("to_frac", None)
             need = {"height_m", "inset_m", "post_m", "bar_m", "pitch_m", "rail_m", "foot_rail_m"}
             flat_top = v["plan"]["kind"] == "polyline" and v["kind"] in ("bay", "projection") \
                 and float(e.get("roof", v["roof"]).get("pitch", 1.0)) == 0.0
@@ -3559,6 +3567,11 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                         or not 2 * rd_["radius_m"] < bal["pitch_m"] or not 0.0 <= rd_["drop_m"] <= 0.2:
                     raise ParamError(f"bays: {e['id']}'s balcony roundel {rd_} does not ring its bar inside its pitch")
                 bal["roundel"] = rd_
+            if to_frac is not None:
+                if v["plan"]["kind"] != "bow" or not 0.3 <= float(to_frac) < 1.0:
+                    raise ParamError(f"bays: {e['id']}'s balcony to_frac stops a bow's rail part way round "
+                                     f"its arc, 0.3 to under 1 of it from its start, not {to_frac}")
+                bal["to_frac"] = float(to_frac)
             v["balcony"] = bal
         # T-2534: a balcony on a projection's floor, bowed out from its front under the window
         # it serves (1637 Prairie's wing, from its engraving): a stone slab and its balustrade
