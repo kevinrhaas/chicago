@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2836, ts: '2026-11-08T20:48:26.941Z', date: 'Nov 8, 2026, 2:48 PM CT', title: 'Every Potawatomi and Miami person of 1812 their own', kind: 'feature',
+    items: [
+      'The camp people no longer all look alike: each is dressed in their own colours of trade cloth, with or without a blanket, leggings or silver, wears their hair their own way with a tied tail, and some a headcloth.',
+      'Every Native card now has a name: the people no source names have a reconstructed name and a reconstructed history, both marked, and 26 men who signed the 1815 and 1816 treaties for these bands stand among them under their own names.',
+      'Each card says what that person likely did on 15 August 1812, graded: most of the men likely among the warriors who attacked the column, the older men, women and children at the camp, the Miamis not fighting.',
+      'Shabbona, Billy Caldwell and Alexander Robinson have cards of their own, with Shabbona\'s and Robinson\'s portraits.',
+    ] },
   { v: 2835, ts: '2026-11-08T19:44:44.799Z', date: 'Nov 8, 2026, 1:44 PM CT', title: 'Cross the 1812 river by dugout, bark canoe or skiff', kind: 'feature',
     items: [
       'Twelve boats lie drawn up at the river\'s crossings: the Kinzie landing, the fort wharf, the forks, Lee\'s Place and the branches.',
