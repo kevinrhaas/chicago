@@ -829,7 +829,7 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
     identityKind: actor.identity.kind, profileId: actor.identity.profile?.id ?? null, role: actor.identity.role,
     roleCard: humanRoleCard(actor.identity, actor.instance),
   });
-  const emit = (type, actor) => events.dispatchEvent(new CustomEvent(type, { detail: detail(actor) }));
+  const emit = (type, actor, extra = null) => events.dispatchEvent(new CustomEvent(type, { detail: extra ? { ...detail(actor), ...extra } : detail(actor) }));
 
   const layer = {
     group,
@@ -980,7 +980,9 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
         if (inside && !near.has(a)) {
           near.add(a);
           emit('approach', a);
-          if (a.instance.interaction?.opens === 'resident_card' && a.identity.kind === 'person') emit('open', a);
+          // T-3521: `approach` marks an open the visitor did not ask for (they walked up, or the
+          // person walked past them), so a card the visitor picked can stay where it is.
+          if (a.instance.interaction?.opens === 'resident_card' && a.identity.kind === 'person') emit('open', a, { approach: true });
           if (a.instance.interaction?.opens === 'role_card' && a.identity.kind === 'anonymous') emit('role_open', a);
         } else if (!inside && near.has(a)) {
           near.delete(a);

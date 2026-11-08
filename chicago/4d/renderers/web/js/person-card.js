@@ -135,7 +135,7 @@ export function looksOf(looks, assetBase = null) {
  * The card, from the directory's row and (once it is read) the household record's own entry
  * for this person and the scene's citation join. Every part is optional but the row.
  */
-export function personModel({ row, person = null, household = null, citations = null, sceneYear = null, face = null, looks = null, assetBase = null } = {}) {
+export function personModel({ row, person = null, household = null, citations = null, sceneYear = null, face = null, looks = null, assetBase = null, told = null } = {}) {
   const p = person ?? {};
   const grade = p.grade ?? row?.grade ?? null;
   const relationship = p.relationship ?? row?.relationship ?? '';
@@ -166,8 +166,29 @@ export function personModel({ row, person = null, household = null, citations = 
     story = story.slice(sheet[0].length).trim();
     lead = censusLead({ name: p.name ?? row?.name ?? '', line: sheet[0], work, householdName });
   }
-  if (story) paragraphs.push(story);
-  for (const n of [bornNote, workNote]) if (n && !fromTheSheet(n) && !story.includes(n)) paragraphs.push(n);
+  // T-3521 (the owner, 2026-11-08, of John Kinzie's 1812 card: "the story text style deviates
+  // from the style we had before, this is really technical and not interesting, do a sweep of
+  // everyone so that we have good correct stories for each"): a person's story is written for
+  // a reader in the scene's stories file (data/residents_<scene>/stories.json, `told`). The
+  // record's own notes, which are the researchers' working words, move to How we know, folded
+  // under "The research notes". Without a written story a census servant keeps the lead said
+  // from the enumerator's line, and a reconstructed life its reconstructed history; the notes
+  // are the story only where nothing else is written yet.
+  const notes = [];
+  const toldParas = (Array.isArray(told) ? told : told ? String(told).split(/\n\s*\n/) : []).map((t) => String(t).trim()).filter(Boolean);
+  if (toldParas.length) {
+    lead = null;
+    if (story) notes.push(story);
+    for (const n of [bornNote, workNote]) if (n && !fromTheSheet(n) && !story.includes(n)) notes.push(n);
+    paragraphs.push(...toldParas);
+  } else if (lead || (p.history && Array.isArray(p.history.paragraphs) && p.history.paragraphs.length)) {
+    if (story) notes.push(story);
+    for (const n of [bornNote, workNote]) if (n && !fromTheSheet(n) && !story.includes(n)) notes.push(n);
+    if (lead) { const extra = roleLine(work); if (extra) paragraphs.push(extra); }
+  } else {
+    if (story) paragraphs.push(story);
+    for (const n of [bornNote, workNote]) if (n && !fromTheSheet(n) && !story.includes(n)) paragraphs.push(n);
+  }
   const sheetNotes = [];
   if (bornNote && fromTheSheet(bornNote)) sheetNotes.push({ text: bornNote, grade: gradeOf(p.born) });
   if (workNote && fromTheSheet(workNote)) sheetNotes.push({ text: workNote, grade: gradeOf(p.occupation) });
@@ -203,6 +224,13 @@ export function personModel({ row, person = null, household = null, citations = 
   const hist = p.history && Array.isArray(p.history.paragraphs) && p.history.paragraphs.length ? {
     title: String(p.history.title ?? 'A reconstructed history'), grade: p.history.grade ?? 'reconstructed',
     caveat: String(p.history.caveat ?? ''), paragraphs: p.history.paragraphs.map(String) } : null;
+  // T-3521: with no written story, a reconstructed history IS the story, told under Their
+  // story with its reconstructed mark rather than in a second section beneath technical notes.
+  const historyIsStory = !!hist && !toldParas.length && !lead;
+  // A story about someone no source tells the life of says so beside it.
+  const storyMark = historyIsStory ? { grade: hist.grade, text: hist.caveat || 'No source tells this life: every particular of it is ours.' }
+    : (toldParas.length && grade === 'reconstructed') ? { grade: 'reconstructed', text: 'No source names this person: the life told here is reconstructed from the record of the town.' }
+      : null;
   const fifteenth = p.on_15_august?.value ? { value: String(p.on_15_august.value), grade: p.on_15_august.grade ?? grade, note: String(p.on_15_august.note ?? '') } : null;
   const nameBasis = p.name_basis?.note ? { grade: p.name_basis.grade ?? grade, text: String(p.name_basis.note) } : null;
   const portrait = p.portrait?.image ? { image: assetUrl(p.portrait.image), caption: String(p.portrait.caption ?? ''), why: String(p.portrait.why ?? ''),
@@ -241,7 +269,11 @@ export function personModel({ row, person = null, household = null, citations = 
     back: householdShort(householdName),
     facts,
     lead,
-    story: paragraphs,
+    story: historyIsStory ? hist.paragraphs.slice() : paragraphs,
+    storyMark,
+    historyIsStory,
+    told: toldParas.length > 0,
+    notes,
     why,
     census,
     printedAs,
@@ -258,6 +290,28 @@ export function personModel({ row, person = null, household = null, citations = 
     away: lived?.on_scene_date === 'no',
     read: !!person,
   };
+}
+
+/**
+ * T-3521: a line on what the work meant in a house like this one, for a census servant whose
+ * card has no story written yet. It is about the work, said generally ("A cook in a house
+ * like this …"), never a claim about the person; a work it does not know says nothing.
+ */
+const ROLE_LINES = [
+  [/^cook/i, 'A cook in a Prairie Avenue house ran the kitchen below stairs: the coal range lit before dawn, three meals for the family and the staff, and the dinners the street was known for.'],
+  [/^(second |head |chamber|house|parlo(u)?r|lady'?s )?(maid|servant|housemaid|domestic)/i, 'A maid in a house like this was up first and to bed last: grates cleaned and fires laid, rooms dusted and beds made, hot water carried up the back stairs before the family woke.'],
+  [/^waitress/i, 'A waitress laid the table, served each course and cleared it, and kept the silver and the china in the butler\'s pantry between meals.'],
+  [/^laundress/i, 'A laundress spent her week in the basement laundry: Monday washing in the copper, then starching, drying and ironing until the family\'s linen went back upstairs.'],
+  [/^(nurse|nursemaid|governess)/i, 'A nurse kept the children: their nursery, their meals, their walks along the avenue and the lake, and their bedtimes.'],
+  [/^(coachman|driver|hostler|groom|stableman)/i, 'A coachman lived over or beside the stable at the back of the lot, kept the horses and the carriages, and drove the family wherever they went.'],
+  [/^(butler|footman|houseman|man servant|manservant|valet)/i, 'A butler ran the household staff, kept the wine and the silver, answered the door and announced every caller.'],
+  [/^(seamstress|dressmaker)/i, 'A seamstress kept the family\'s clothes in repair and made new ones in a sewing room upstairs.'],
+  [/^(helper|laborer|labourer|gardener|porter|janitor|furnace)/i, 'A helper did the heavy work of the place: coal and ashes, the walks and the yard, and whatever the house and stable needed carried.'],
+];
+export function roleLine(work) {
+  const w = String(work ?? '').trim();
+  if (!w) return '';
+  return ROLE_LINES.find(([re]) => re.test(w))?.[1] ?? '';
 }
 
 /**
@@ -396,6 +450,12 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), o
   if (m.lead || m.story.length) {
     const sec = el(doc, 'section', 'insp-sec insp-person-story');
     sec.append(el(doc, 'h3', 'insp-h', 'Their story'));
+    if (m.storyMark) {
+      sec.dataset.grade = m.storyMark.grade;
+      const c = el(doc, 'p', 'insp-person-note insp-person-mark', m.storyMark.text);
+      c.prepend(dot(doc, m.storyMark.grade), ' ');
+      sec.append(c);
+    }
     if (m.lead) {
       const p = el(doc, 'p', 'insp-summary', m.lead);
       p.dataset.composed = ''; // said from the census line below, clause by clause
@@ -409,7 +469,7 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), o
     card.append(el(doc, 'p', 'nav-sub', 'The record says no more about them yet than the listing below.'));
   }
 
-  if (m.history) {
+  if (m.history && !m.historyIsStory) {
     const H = m.history;
     const sec = el(doc, 'section', 'insp-sec insp-person-history');
     sec.dataset.grade = H.grade;
@@ -491,11 +551,18 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), o
     const g = el(doc, 'p', 'insp-person-why-title', `${GRADE_WORD[L.grade] ?? L.grade}${L.heritage ? ` \u00b7 ${L.heritage}` : ''}`);
     g.prepend(dot(doc, L.grade));
     sec.append(g);
-    if (L.basis) sec.append(el(doc, 'p', 'insp-person-note', L.basis));
-    if (L.stature?.basis) {
-      const s = el(doc, 'p', 'insp-person-note', `Height: ${L.stature.basis}`);
-      if (L.stature.grade && L.stature.grade !== L.grade) s.prepend(dot(doc, L.stature.grade));
-      sec.append(s);
+    // T-3521: the working notes on how the look was drawn (readings, source lines, liberty
+    // numbers) fold under the grade, as the story's research notes fold under How we know.
+    if (L.basis || L.stature?.basis) {
+      const fold = el(doc, 'details', 'insp-person-notes');
+      fold.append(el(doc, 'summary', 'nav-k', 'How the look was drawn'));
+      if (L.basis) fold.append(el(doc, 'p', 'insp-person-note', L.basis));
+      if (L.stature?.basis) {
+        const s = el(doc, 'p', 'insp-person-note', `Height: ${L.stature.basis}`);
+        if (L.stature.grade && L.stature.grade !== L.grade) s.prepend(dot(doc, L.stature.grade));
+        fold.append(s);
+      }
+      sec.append(fold);
     }
     if (L.reference) {
       const fig = el(doc, 'figure', 'insp-person-face insp-person-standin');
@@ -551,6 +618,13 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), o
     how.append(p);
   }
   for (const c of m.caveats) how.append(el(doc, 'p', 'insp-person-note', c));
+  if (m.notes?.length) {
+    // T-3521: the record's own notes, in the researchers' words, a tap away.
+    const det = el(doc, 'details', 'insp-person-notes');
+    det.append(el(doc, 'summary', 'nav-k', 'The research notes'));
+    for (const t of m.notes) det.append(el(doc, 'p', 'insp-person-note', t));
+    how.append(det);
+  }
   if (m.sources.length) {
     const ul = el(doc, 'ul', 'insp-person-sources');
     for (const s of m.sources) {

@@ -605,7 +605,7 @@ export function createTravel({
     const to = destinationOf(target, { card: !callbacks });
     if (!to) return false;
 
-    if (mode === 'fly') {
+    const flight = () => {
       const s = walker.state;
       const d = Math.hypot(to.e - s.e, to.n - s.n);
       setFly?.(true);
@@ -616,13 +616,22 @@ export function createTravel({
       phase = 'ascending';
       paintBanner();
       return true;
-    }
+    };
+    if (mode === 'fly') return flight();
 
     // A ground ride. Down to earth first: the route is walked, not flown.
     if (walker.state.flying || intent.flying) setFly?.(false);
     const s = walker.state;
     const route = router?.plan?.({ e: s.e, n: s.n }, to, { mode }) ?? null;
     if (!route?.points?.length) {
+      // T-3521 (the owner, 2026-11-08, on John Kinzie's 1812 card: "i could not get to him
+      // when i click find or his house"): 1812 has no bridge, so no walk reaches the north
+      // bank, and Find and Go to house refused for everyone across the river. A place no
+      // street reaches is flown to instead, and lands there like any flight.
+      if (!walker.state.flying && typeof setFly === 'function') {
+        hud?.say?.('No way there on foot. Flying instead.');
+        return flight();
+      }
       callbacks?.onStop?.({ ...callbacks.token, reason: 'unreachable' });
       hud?.say?.('No safe street route was found. Choose another destination or Go instantly.');
       return false;

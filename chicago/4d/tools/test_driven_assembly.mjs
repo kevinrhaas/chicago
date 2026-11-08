@@ -436,7 +436,9 @@ const targets = [], findNativePerson = new Function('peopleDirectory', 'loaded',
   { townTransport: { driverAnchorForPerson: id => id === named.personId ? { actor: 'actual named driver' } : null } },
   target => { targets.push(target); return true; });
 assert.equal(await findNativePerson(named.personId), true);
-assert.deepEqual(targets, [{ kind: 'person', id: named.personId }]);
+// T-3521: Find also names the person and their house, the stand-by when no clear place beside them is found.
+assert.deepEqual(targets.map(({ kind, id }) => ({ kind, id })), [{ kind: 'person', id: named.personId }]);
+assert.equal(targets[0].home, named.person.lives_at, 'Find carries the house to fall back on');
 // Execute the exact1835 branch with the existing visible-tab fallback guard.
 const sharedBegin = mainSource.indexOf('async function openPersonCard(id) {'), sharedEnd = mainSource.indexOf('\n  // T-2618:', sharedBegin);
 const legacyCalls = [], sharedOpen = new Function('api', 'document', 'hud', 'openSceneDirectoryPerson', mainSource.slice(sharedBegin, sharedEnd) + '\nreturn openPersonCard;')(
