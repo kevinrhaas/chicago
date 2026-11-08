@@ -103,6 +103,9 @@ export function likenessOf(face, assetBase = null) {
     sourceUrl: c.source_url ?? '',
     fit: Number.isFinite(c.rms_mm) ? `Fitted to ${c.marks ?? 'the'} points marked on the photograph; the model sits within about ${Math.round(c.rms_mm)} mm of them on average.` : '',
     notModelled,
+    // T-3478: no photograph of the person is known, so the face is fitted to a stand-in's:
+    // someone of their sex, age, heritage and work, named and credited, who is NOT them.
+    standIn: c.stand_in ? String(c.stand_in) : '',
   };
 }
 
@@ -395,7 +398,8 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), o
     sec.dataset.grade = L.grade;
     sec.append(el(doc, 'h3', 'insp-h', 'Likeness'));
     const pair = el(doc, 'div', 'insp-person-pair');
-    for (const [src, cap, alt] of [[L.portrait, 'Photograph', `${m.name}, photograph`], [L.model, 'Model', `${m.name}, the model's face`]]) {
+    const photo = L.standIn ? ['Stand-in, not them', `A stand-in's photograph, not ${m.name}`] : ['Photograph', `${m.name}, photograph`];
+    for (const [src, cap, alt] of [[L.portrait, photo[0], photo[1]], [L.model, 'Model', `${m.name}, the model's face`]]) {
       const fig = el(doc, 'figure', 'insp-person-face');
       const img = el(doc, 'img');
       img.src = src; img.alt = alt; img.loading = 'lazy'; img.decoding = 'async'; img.width = 360; img.height = 480;
@@ -403,8 +407,9 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), o
       pair.append(fig);
     }
     sec.append(pair);
-    const g = el(doc, 'p', 'insp-person-why-title', `Face ${String(GRADE_WORD[L.grade] ?? L.grade).toLowerCase()} by the photograph`);
+    const g = el(doc, 'p', 'insp-person-why-title', L.standIn ? `Face ${String(GRADE_WORD[L.grade] ?? L.grade).toLowerCase()} after a stand-in` : `Face ${String(GRADE_WORD[L.grade] ?? L.grade).toLowerCase()} by the photograph`);
     g.prepend(dot(doc, L.grade));
+    if (L.standIn) { g.after(el(doc, 'p', 'insp-person-note', L.standIn)); }
     sec.append(g);
     if (L.fit) sec.append(el(doc, 'p', 'insp-person-note', L.fit));
     if (L.notModelled.length) sec.append(el(doc, 'p', 'insp-person-note', `Not on the model yet: ${L.notModelled.join(', ')}.`));

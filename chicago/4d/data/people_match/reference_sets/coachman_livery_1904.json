@@ -1,0 +1,49 @@
+{
+ "id": "coachman_livery_1904",
+ "role": "coachman",
+ "label": "a private coachman standing in his livery, 1900s",
+ "years": [
+  1902,
+  1905
+ ],
+ "scenes": [
+  "1904"
+ ],
+ "evidence": {
+  "repo": "kevinrhaas/chicago-evidence",
+  "dir": "evidence/people-references-2026-11-07/coachman_livery_1904"
+ },
+ "note": "Gathered 2026-11-07 for T-3483, Charles Nelson's standing livery. The coachman_1904 set shows coachmen on the box; this one shows a coachman on foot, full length, in the livery he stood in. Neither plate is of Chicago or of Nelson: a reference set says what a man of this role and decade looked like, not what Nelson wore. Both are monochrome halftones and say nothing about colour.",
+ "pictures": [
+  {
+   "name": "seely_1902_coachman",
+   "band": "near",
+   "file": "seely_1902_coachman_near.jpg",
+   "sha256": "87b0e3097243e41f13f2d6f907313db517ec79ee2a92f57a59a1f3d2fe64944b",
+   "source_id": "seely_1902_coachman_livery_plates",
+   "from": "Internet Archive scan mrsseelyscookboo00seel, leaf n68 (2394 x 3503) turned upright, crop [2050, 0, 3400, 2150]: the right-hand figure of the plate, at full resolution",
+   "caption": "Coachman standing in livery, full length. Mrs. Seely's Cook Book (New York, 1902), plate facing p. 26",
+   "shows": "A clean-shaven coachman full length from the front at a few metres: double-breasted coat buttoned to the throat and falling to the knee, two rows of six bright buttons, white stock, white gloves, white breeches above black top boots, silk hat, a long whip in his right hand."
+  },
+  {
+   "name": "seely_1902_mourning",
+   "band": "near",
+   "file": "seely_1902_mourning_near.jpg",
+   "sha256": "854bbc3243618b2fa68dec13bc6f86e4eb442e5ad030a38cbfb186dad2103d63",
+   "source_id": "seely_1902_coachman_livery_plates",
+   "from": "Internet Archive scan mrsseelyscookboo00seel, leaf n72 (2394 x 3503) turned upright, crop [450, 0, 1750, 2150]: the left-hand figure of the plate, at full resolution",
+   "caption": "Older coachman in mourning livery, full length. Mrs. Seely's Cook Book (New York, 1902), plate facing p. 28",
+   "shows": "An older, heavier coachman full length from the front: the same double-breasted coat cut to mid-calf, two rows of buttons, dark gloves, dark trousers and boots, silk hat; clean-shaven."
+  },
+  {
+   "name": "seely_1902_plate",
+   "band": "far",
+   "file": "seely_1902_plate_far.jpg",
+   "sha256": "1a613aa87ba6d75b32a7af9f43801a6c89cd30426ebb5977008901327fbf70e8",
+   "source_id": "seely_1902_coachman_livery_plates",
+   "from": "Internet Archive scan mrsseelyscookboo00seel, leaf n68 turned upright and reduced to 1400 px wide: the whole plate",
+   "caption": "Carriage footman and coachman side by side. Mrs. Seely's Cook Book (New York, 1902), plate facing p. 26",
+   "shows": "The two liveried men whole and small on the page: how the coat, the white breeches and the black boots read as blocks at a distance, the coat's bright buttons as two dotted lines."
+  }
+ ]
+}

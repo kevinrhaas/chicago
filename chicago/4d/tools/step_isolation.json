@@ -6865,6 +6865,22 @@
     "{}": {
       "wrote": [],
       "wrote_ignored": []
+    },
+    "tools/test_human_coachman_1904.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_stable_helper_1904.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_cook_1904.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_errand_1904.py": {
+      "wrote": [],
+      "wrote_ignored": []
     }
   }
 }

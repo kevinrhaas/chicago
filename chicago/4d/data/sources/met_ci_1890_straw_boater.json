@@ -1,0 +1,25 @@
+{
+ "id": "met_ci_1890_straw_boater",
+ "type": "photograph",
+ "citation": "Boater, American, ca. 1890, straw and silk. The Metropolitan Museum of Art, Brooklyn Museum Costume Collection, 2009.300.4567, Gift of the Brooklyn Museum, 2009; Bequest of Matilda Alice Shaw, 1948; the museum's open-access object photograph 48.128.44_CP2.",
+ "author": "The Metropolitan Museum of Art (object photograph)",
+ "date": "ca. 1890",
+ "describes_date": "ca. 1890",
+ "repository": "The Metropolitan Museum of Art; object 170376 in the museum's collection API (isPublicDomain: true), images at images.metmuseum.org.",
+ "url": "https://www.metmuseum.org/art/collection/search/170376",
+ "locator": "The three-quarter view on a stand.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "The Met's Open Access images of public-domain works are released CC0. Used only as a reference picture for the shape and colour of the 1904 parlor maid's sailor hat (T-3481); nothing is traced or sampled from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (T-3481) from the museum's open-access image. A woman's straw boater: a flat-topped straight-sided crown of plaited straw in a warm golden tan, a flat brim of even width, a broad black silk ribbon round the crown. A real hat, American, in colour, about fourteen years before the scene; the form is the one the 1904 drawings show.",
+ "note": "A reference picture for the 1904 parlor maid's sailor hat, Christine Nelson of the Glessner household (data/humans/recipes/errand_1904.json).",
+ "what_it_supplies": [
+  "the straw's colour, the black ribbon, and the flat crown and even brim of an American woman's boater"
+ ],
+ "what_it_does_not_supply": [
+  "its 1904 proportions (the crown and brim varied by season)",
+  "anything about Chicago, the Glessner household or Christine Nelson"
+ ]
+}

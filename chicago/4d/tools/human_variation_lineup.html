@@ -20,7 +20,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
 import { loadMeshoptDecoder } from '../renderers/web/js/scene-loader.js';
 import { loadVariationKit, personVariation, applyVariation } from '../renderers/web/js/human-variation.js';
-import { dressSkin } from '../renderers/web/js/human-skin.js';
+import { dressSkin, restingLid } from '../renderers/web/js/human-skin.js';
 import { dressHair } from '../renderers/web/js/human-hair.js';
 import { dressSpectacles } from '../renderers/web/js/human-spectacles.js';
 
@@ -72,12 +72,16 @@ keys.forEach((key, i) => {
   // &dress=1 (T-3440): dressed as humans.js dresses a person in town: the skin, the person's
   // own hair and facial hair (human-hair-styles.js) and spectacles where they wear them.
   if (q.get('dress') === '1') {
-    dressSkin(fig);
+    dressSkin(fig, { age: window.__variations?.find((x) => x.key === key)?.age ?? null, person: key === 'base' ? null : key, year: Number(q.get('year') ?? 1904) });
     const hair = dressHair(fig, { lod, person: key === 'base' ? null : key, year: Number(q.get('year') ?? 1904) });
     const specs = dressSpectacles(fig, { lod, person: key === 'base' ? null : key });
     window.__dressed = [...(window.__dressed ?? []), { key, hair: hair ? { cut: hair.style.cut, grown: hair.grown } : null, spectacles: !!specs }];
   }
   // &hide=hair: leave out meshes whose material names match (a bald portrait's still).
+  // &blink=0..1 (T-3493): the eyes that far shut, on every mesh that takes the face's morphs.
+  // Unset, a dressed face's lids rest where humans.js rests them for the person's age.
+  const lid = q.get('blink') ? Number(q.get('blink')) : q.get('dress') === '1' ? restingLid(window.__variations?.find((x) => x.key === key)?.age) : 0;
+  if (lid) fig.traverse((o) => { for (const k of ['eyeBlinkLeft', 'eyeBlinkRight']) if (o.morphTargetDictionary?.[k] !== undefined) o.morphTargetInfluences[o.morphTargetDictionary[k]] = lid; });
   if (q.get('hide')) { const re = new RegExp(q.get('hide')); fig.traverse((o) => { if (o.isMesh && re.test(o.material?.name ?? '')) o.visible = false; }); }
   const holder = new THREE.Group(); holder.add(fig);
   holder.position.x = (i - (keys.length - 1) / 2) * gap;
@@ -99,5 +103,6 @@ if (headBone) {
 } else if (view === 'faces') { camera.position.set(0, 1.64, Math.max(1.2, span * 1.35)); camera.lookAt(0, 1.6, 0); }
 else { camera.position.set(0, 1.0, Math.max(3.2, span * 1.6)); camera.lookAt(0, 0.92, 0); }
 renderer.render(scene, camera);
+window.__scene = scene;
 window.__lineupReady = true;
 </script></body></html>

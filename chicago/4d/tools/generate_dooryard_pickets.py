@@ -67,11 +67,16 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import re
 from pathlib import Path
+
+import random
 
 from occupied_footprints import additional_world_polygons
 
+import dooryard_layouts
 import enclosure_owners
+import gate_kinds
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -97,12 +102,128 @@ def is_dwelling_function(value: str) -> bool:
 
 # THE PLOT, in feet and recorded converted, per data/datum.json's units rule.
 LOT_MARGIN_M = 0.914      # 3 ft off the lot line — the fence is inside the lot
-REAR_CLEAR_M = 3.048      # 10 ft of open dooryard between the back wall and the plot
-MAX_DEPTH_M = 6.096       # 20 ft
-MAX_WIDTH_M = 8.534       # 28 ft
+REAR_CLEAR_M = 3.048      # 10 ft of open dooryard between the back wall and the plot, at least
 MIN_DEPTH_M = 4.572       # 15 ft — under this it is a bed, not a garden; skip the lot
 MIN_WIDTH_M = 6.096       # 20 ft
 GATE_WIDTH_M = 1.067      # 3 ft 6 in, in the side that faces the house
+# T-3476: the back of the lot is kept for what stands there (the yard layer's privy at a
+# rear corner 0.75 m off the alley, a merchant's stable): 25 ft of it is never garden.
+ALLEY_KEEP_M = 7.62
+SEED = "T-3476"
+
+# THE PLOT BY THE HOUSE (T-3476). The owner, 2026-11-07: "all of the gardens seem to look
+# identical ... different sizes and layouts that are sensible for the design of the
+# property and the family". No source sizes a garden on any lot in this town, so the size
+# follows what the house says about who lives in it: a one-room cottage's plot is a few
+# rods, a deep-plan cottage's a family's, a larger house's a household's with help, and a
+# log dwelling's a patch hoed in hills. Each row is (width range, depth range) in metres,
+# the layouts it is laid out in (tools/dooryard_layouts.py), weighted, and the fences it
+# is closed with, weighted. Reconstructed, docs/LIBERTIES.md L-t3476-dooryard-gardens.
+FT = 0.3048
+SMALL = {"size": ((20 * FT, 30 * FT), (15 * FT, 24 * FT)),
+         "styles": {"centre_walk": 4, "side_walk": 4, "long_beds": 2},
+         "fences": {"picket": 4, "picket_pointed": 2, "open_paled": 4}}
+FAMILY = {"size": ((24 * FT, 38 * FT), (20 * FT, 34 * FT)),
+          "styles": {"centre_walk": 3, "side_walk": 2, "long_beds": 3, "four_square": 2},
+          "fences": {"picket": 4, "picket_pointed": 3, "open_paled": 2, "close_paled": 1}}
+HOUSE = {"size": ((32 * FT, 48 * FT), (28 * FT, 42 * FT)),
+         "styles": {"four_square": 5, "centre_walk": 3, "long_beds": 1, "side_walk": 1},
+         "fences": {"picket_pointed": 4, "close_paled": 3, "picket": 3}}
+MERCHANT = {"size": ((42 * FT, 56 * FT), (36 * FT, 50 * FT)),
+            "styles": {"four_square": 7, "centre_walk": 3},
+            "fences": {"close_paled": 6, "picket_pointed": 4}}
+# A log dwelling's ground is paled, not railed: a rail turns cattle and not a hen.
+LOG = {"size": ((28 * FT, 46 * FT), (26 * FT, 46 * FT)),
+       "styles": {"patch": 7, "centre_walk": 3},
+       "fences": {"open_paled": 6, "picket": 4}}
+# A labourer's household keeps a truck patch, whatever its roof (Peck's "truck patch", in
+# his New Guide for Emigrants of 1836, which this project does not yet hold as a source).
+LABOURER = {"size": ((18 * FT, 30 * FT), (15 * FT, 28 * FT)),
+            "styles": {"patch": 5, "side_walk": 3, "centre_walk": 2},
+            "fences": {"open_paled": 7, "picket": 3}}
+# A doctor's ground (Dr Harmon's "horticulture", Wau-Bun ch. XXI): quarters with a bed of
+# pot herbs under the back fence.
+DOCTOR = {"size": ((40 * FT, 56 * FT), (36 * FT, 50 * FT)),
+          "styles": {"four_square": 1},
+          "fences": {"close_paled": 1},
+          "border": "herb"}
+DOCTORS = {"harmon_log_cabin"}
+# By the household's class (the sidecar's reconstruction.fabric_basis.class): a merchant
+# or a keeper in a cottage keeps a larger ground than its roof says, a labourer a smaller.
+UP = {id(SMALL): FAMILY, id(FAMILY): HOUSE, id(HOUSE): MERCHANT, id(MERCHANT): MERCHANT, id(LOG): LOG}
+CLASSES = {
+    "one_room_frame_cottage": SMALL,
+    "two_room_frame_cottage": FAMILY,
+    "deep_plan_frame_cottage": FAMILY,
+    "dwelling": FAMILY,
+    "dwelling_to_let": SMALL,
+    "one_and_a_half_story_frame_cottage": FAMILY,
+    "larger_one_and_a_half_story_house": HOUSE,
+    "small_two_story_frame_house": HOUSE,
+    "merchant_or_professional_house": MERCHANT,
+    "older_log_dwelling": LOG,
+}
+
+# THE FENCES (T-3476): each overrides the record's `form` field by field on its own run
+# (renderers/web/js/enclosures.js formOf). All reconstructed; the plate behind them is the
+# Kinzie-view panel of `kurz_allison_1893` (pickets) and John H. Kinzie's "fence paling"
+# round the old Kinzie garden (Andreas vol. 1 p. 76). Every one is paled: a garden fence
+# keeps out the ringed hogs the 1833 town code let run at large, and the hens.
+FENCES = {
+    "picket": {},
+    "picket_pointed": {"top_shape": "pointed", "point_height_m": 0.07},
+    "open_paled": {"picket_width_m": 0.076, "picket_gap_m": 0.115, "height_m": 1.07},
+    "close_paled": {"picket_width_m": 0.102, "picket_gap_m": 0.051, "height_m": 1.37,
+                    "top_shape": "pointed", "point_height_m": 0.06},
+}
+FENCE_NOTES = {
+    "picket": "flat-topped pickets a pale's width apart, the record's own form",
+    "picket_pointed": "pickets cut to a point",
+    "open_paled": "light, wide-set pales, 3 ft 6 in",
+    "close_paled": "close-set pointed pales, 4 ft 6 in",
+}
+
+
+def class_for(sid, sc, fn):
+    """(the CLASSES row, the house's age_state) for one house: its band, moved by the
+    household's class and by a named doctor."""
+    rec = sc.get("reconstruction") or {}
+    klass = (rec.get("fabric_basis") or {}).get("class")
+    age = rec.get("age_state")
+    if sid in DOCTORS:
+        return DOCTOR, age
+    cls = CLASSES.get(fn, FAMILY)
+    if klass == "labourer" and cls is not LOG:
+        cls = LABOURER
+    elif klass in ("merchant", "keeper") and cls in (SMALL, FAMILY, HOUSE):
+        cls = UP[id(cls)]
+    return cls, age
+
+
+def _seg_dist(p, a, b) -> float:
+    dx, dy = b[0] - a[0], b[1] - a[1]
+    t = max(0.0, min(1.0, ((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / (dx * dx + dy * dy or 1.0)))
+    return math.hypot(p[0] - a[0] - dx * t, p[1] - a[1] - dy * t)
+
+
+def pick(rng, weights: dict):
+    total = sum(weights.values())
+    x = rng.random() * total
+    for k, w in weights.items():
+        x -= w
+        if x < 0:
+            return k
+    return k
+
+
+def form_for(fence: str, rng) -> dict:
+    """A run's own `form`: the fence's overrides, its bay and height a little its own."""
+    over = dict(FENCES[fence])
+    over.setdefault("post_spacing_m", rng.choice([2.13, 2.44, 2.44, 2.74]))
+    if fence in ("picket", "picket_pointed"):
+        over["height_m"] = round(1.22 + rng.choice([-0.08, 0.0, 0.0, 0.08]), 2)
+    # the reason is the run's note and the record's form block; a field says only its value
+    return {k: {"value": v, "confidence": "reconstructed"} for k, v in sorted(over.items())}
 
 
 def load(path: Path):
@@ -236,9 +357,23 @@ def candidates(require_household=False):
     return out, sidecars
 
 
-def plot_for(block, index, lot, sid, sc, all_sidecars):
-    """The garden rectangle, derived; or (None, why) when the lot cannot carry one."""
+def plot_for(block, index, lot, sid, sc, all_sidecars, fn=None):
+    """The garden rectangle, derived; or (None, why) when the lot cannot carry one.
+
+    T-3476: its size, its place across the lot, how far back of the house it starts and
+    where its gate is are this house's own — read from the house's class (CLASSES) with a
+    generator seeded on the lot, so they hold still from run to run and no two lots match."""
     fm, (ux, uy), (vx, vy), width, depth = lot_frame(block, lot)
+    # A garden is a rectangle even on a skewed lot (the West Division's): its depth axis is
+    # square to the frontage, not along the lot's slanted side lines.
+    dot = vx * ux + vy * uy
+    vx, vy = vx - dot * ux, vy - dot * uy
+    lv = math.hypot(vx, vy) or 1.0
+    vx, vy = vx / lv, vy / lv
+    depth *= lv
+    lot_id = f"{block['id']}_lot{index}"
+    rng = random.Random(f"{SEED}:{lot_id}")
+    cls, age = class_for(sid, sc, fn)
 
     def to_lot(p):
         dx, dy = p[0] - fm[0], p[1] - fm[1]
@@ -246,12 +381,21 @@ def plot_for(block, index, lot, sid, sc, all_sidecars):
 
     house = [to_lot(p) for p in footprint_world(sc)]
     hv_max = max(p[1] for p in house)
-    hu_mid = (min(p[0] for p in house) + max(p[0] for p in house)) / 2
+    hu_lo, hu_hi = min(p[0] for p in house), max(p[0] for p in house)
+    hu_mid = (hu_lo + hu_hi) / 2
 
+    (w_lo, w_hi), (d_lo, d_hi) = cls["size"]
+    want_w = rng.uniform(w_lo, w_hi)
+    want_d = rng.uniform(d_lo, d_hi)
+    clear = REAR_CLEAR_M + rng.choice([0.0, 0.0, 0.6, 1.2, 2.4])
     # A DOORYARD garden is the yard by the door, so the plot starts where the dooryard
-    # ends and runs back from there — it is not pushed to the far end of a deep lot.
-    v_start = max(hv_max + REAR_CLEAR_M, LOT_MARGIN_M)
-    v_end = min(v_start + MAX_DEPTH_M, depth - LOT_MARGIN_M)
+    # ends and runs back from there — it is not pushed to the far end of a deep lot; and
+    # the alley end of the lot is kept for the privy and the stable.
+    v_start = max(hv_max + clear, LOT_MARGIN_M)
+    v_end = min(v_start + want_d, depth - max(LOT_MARGIN_M, ALLEY_KEEP_M))
+    if v_end - v_start < MIN_DEPTH_M:
+        v_start = max(hv_max + REAR_CLEAR_M, LOT_MARGIN_M)
+        v_end = min(v_start + want_d, depth - LOT_MARGIN_M)
     if v_end - v_start < MIN_DEPTH_M:
         over = hv_max - (depth - LOT_MARGIN_M)
         why = (f"the committed house stands at the rear of its lot — its back face is "
@@ -260,30 +404,92 @@ def plot_for(block, index, lot, sid, sc, all_sidecars):
         return None, (why + f"so nothing {MIN_DEPTH_M:.2f} m deep fits behind it")
     d = v_end - v_start
 
-    w = min(MAX_WIDTH_M, width - 2 * LOT_MARGIN_M)
+    edge = width / 2 - LOT_MARGIN_M
+    w = min(want_w, 2 * edge)
     if w < MIN_WIDTH_M:
         return None, f"the lot is only {width:.2f} m wide between its side lines"
     # `u` is measured from the MIDDLE of the frontage, because that is where the lot
     # frame's origin sits, so the side lot lines are at plus and minus half the width.
-    edge = width / 2 - LOT_MARGIN_M
-    u_lo = min(max(hu_mid - w / 2, -edge), edge - w)
+    # The plot is centred on the house, or set to one side of it along a lot line.
+    place = rng.choice(["centre", "centre", "left", "right"])
+    if place == "left":
+        u_lo = -edge
+    elif place == "right":
+        u_lo = edge - w
+    else:
+        u_lo = hu_mid - w / 2
+    u_lo = min(max(u_lo, -edge), edge - w)
     u_hi = u_lo + w
 
     def to_world(u, v):
         return (round(fm[0] + ux * u + vx * v, 2), round(fm[1] + uy * u + vy * v, 2))
 
-    corners = [to_world(u_lo, v_start), to_world(u_hi, v_start),
-               to_world(u_hi, v_end), to_world(u_lo, v_end)]
-    for other_id, other in all_sidecars.items():
-        if other_id == sid:
-            continue
-        shapes = [footprint_world(other), *additional_world_polygons(other)]
-        if any(len(fp) >= 3 and convex_overlap(corners, fp) for fp in shapes):
-            return None, (f"the derived plot overlaps {other_id}'s committed footprint, "
-                          f"which stands over the lot line")
-    gate = to_world((u_lo + u_hi) / 2, v_start)
+    # on a skewed lot a side line leans across the plot's back corners: draw the plot in
+    # from that side until all four stand inside the lot, a margin off its lines
+    poly = lot["polygon"]
+
+    def within(u, v):
+        p = to_world(u, v)
+        return poly_contains(p, poly) and min(
+            _seg_dist(p, poly[i], poly[(i + 1) % len(poly)]) for i in range(len(poly))) >= LOT_MARGIN_M - 0.01
+
+    for _ in range(40):
+        if all(within(u, v) for u in (u_lo, u_hi) for v in (v_start, v_end)):
+            break
+        if not all(within(u_lo, v) for v in (v_start, v_end)):
+            u_lo += 0.25
+        if not all(within(u_hi, v) for v in (v_start, v_end)):
+            u_hi -= 0.25
+    w = u_hi - u_lo
+    if w < MIN_WIDTH_M:
+        return None, f"the lot's side lines lean too far across it to fit a plot {MIN_WIDTH_M:.2f} m wide"
+
+    def corners_of(ul, uh, vs, ve):
+        return [to_world(ul, vs), to_world(uh, vs), to_world(uh, ve), to_world(ul, ve)]
+
+    # a plot that would cross a neighbour's committed footprint shrinks back toward the
+    # house before it is refused
+    hit = None
+    for shrink in (1.0, 0.85, 0.7):
+        ve = v_start + max(MIN_DEPTH_M, d * shrink)
+        corners = corners_of(u_lo, u_hi, v_start, ve)
+        hit = None
+        for other_id, other in all_sidecars.items():
+            if other_id == sid:
+                continue
+            shapes = [footprint_world(other), *additional_world_polygons(other)]
+            if any(len(fp) >= 3 and convex_overlap(corners, fp) for fp in shapes):
+                hit = other_id
+                break
+        if not hit:
+            d = ve - v_start
+            break
+    if hit:
+        return None, (f"the derived plot overlaps {hit}'s committed footprint, "
+                      f"which stands over the lot line")
+    # the gate faces the house's back door: under the house, a little off its middle
+    gate_u = min(max(hu_mid + rng.uniform(-0.25, 0.25) * (hu_hi - hu_lo), u_lo + 1.2), u_hi - 1.2)
+    gate = to_world(gate_u, v_start)
+    style = pick(rng, cls["styles"])
+    fence = pick(rng, cls["fences"])
+    if age == "new" and cls is not DOCTOR:
+        # the house went up this season or last: its ground is new-broken sod, no bushes
+        style = "new_ground"
+    lay = dooryard_layouts.layout(w, d, gate_u - u_lo, style, rng, fruit=age != "new",
+                                  border_plan=cls.get("border"))
+    # the plot's own frame: origin at its near left corner, u across, v back from the house
+    frame = {"origin": list(to_world(u_lo, v_start)), "u": [round(ux, 6), round(uy, 6)],
+             "v": [round(vx, 6), round(vy, 6)]}
+
+    def uv_world(poly):
+        return [list(to_world(u_lo + u, v_start + v)) for u, v in poly]
+
     return {"corners": corners, "gate": gate, "width_m": round(w, 2),
-            "depth_m": round(d, 2)}, None
+            "depth_m": round(d, 2), "frame": frame, "style": style, "fence": fence,
+            "form": form_for(fence, rng), "place": place,
+            "beds": [{"plan": plan, "poly": poly} for plan, poly in lay["beds"]],
+            "walks_world": [uv_world(poly) for poly in lay["walks"]],
+            "hung": rng.random() < 0.65}, None
 
 
 def house_grade(sid) -> str:
@@ -297,7 +503,7 @@ def build_record():
     runs, openings, refused = [], [], []
     links = enclosure_owners.household_links()
     for block, index, lot, sid, sc, fn in cands:
-        plot, why = plot_for(block, index, lot, sid, sc, sidecars)
+        plot, why = plot_for(block, index, lot, sid, sc, sidecars, fn)
         if plot is None:
             refused.append(f"{block['id']} lot {index} ({sid}): {why}")
             continue
@@ -334,20 +540,30 @@ def build_record():
                    "garden is drawn as the lot's ground and not as anyone's: under the "
                    "ruling it passes to whoever the roof is next dealt to, or stands "
                    "unworked. ")
-                + f"THE RECTANGLE IS DERIVED AND NOT PLACED: "
-                f"{plot['width_m']:.2f} x {plot['depth_m']:.2f} m at the back of the lot, "
-                f"{LOT_MARGIN_M:.3f} m inside the rear and side lot lines, "
-                f"{REAR_CLEAR_M:.3f} m or more clear of the house's own back face, and "
-                f"centred on the house. Every metre of it comes from "
+                + f"THE PLOT IS THIS HOUSE'S OWN (T-3476): "
+                f"{plot['width_m']:.2f} x {plot['depth_m']:.2f} m behind the house, "
+                f"{'centred on it' if plot['place'] == 'centre' else 'set along the lot ' + plot['place'] + ' side line'}, "
+                f"at least {LOT_MARGIN_M:.3f} m inside the lot lines and "
+                f"{REAR_CLEAR_M:.3f} m or more clear of the house's own back face, laid out "
+                f"'{plot['style']}' (tools/dooryard_layouts.py) and closed with "
+                f"{FENCE_NOTES[plot['fence']]}. Its lines come from "
                 f"data/traces/vectors/thompson_lots.json and this building's committed "
-                f"footprint; the SIZE of the plot and its position at the rear are the "
-                f"invention, and they are the same for every lot on this record. THE "
-                f"CEILING ON THE PLOT — 28 x 20 ft — is invented twice over: nothing "
-                f"states a garden's size, and the number is additionally bounded by the "
-                f"renderer's own triangle budget, because a paled fence is thousands of "
-                f"small boxes and this layer draws in one pass. docs/LIBERTIES.md L129 "
-                f"claims that, on the precedent of L121."
+                f"footprint; its SIZE, which follows the house's class "
+                f"({fn}), its layout and its fence are the invention, read off a hash "
+                f"of the lot so no two lots match. docs/LIBERTIES.md L129 claims the plot, "
+                f"L-t3476-dooryard-gardens its size, beds and fence."
             ),
+            "form": plot["form"],
+            "garden": {
+                "style": plot["style"],
+                "fence": plot["fence"],
+                "frame": plot["frame"],
+                "size_m": [plot["width_m"], plot["depth_m"]],
+                # the beds in the plot's own frame (u across, v back from the house):
+                # renderers/web/js/gardens.js lays and plants them (data/gardens/1835.json)
+                "beds": plot["beds"],
+            },
+            "walks_local_enu_m": plot["walks_world"],
         })
         openings.append({
             "id": f"{block['id']}_lot{index}_gate",
@@ -355,13 +571,18 @@ def build_record():
             "at_local_enu_m": list(plot["gate"]),
             "width_m": GATE_WIDTH_M,
             "confidence": "reconstructed",
+            **({"gate": gate_kinds.gate_for(f"{block['id']}_lot{index}_gate", "dwelling",
+                                             "picket"),
+                "opens_into_local_enu_m": [round(math.fsum(c[0] for c in plot["corners"]) / 4, 2),
+                                           round(math.fsum(c[1] for c in plot["corners"]) / 4, 2)]}
+               if plot["hung"] else {}),
             "note": (
                 "INVENTED, like every gateway on this layer. A garden that is worked "
-                "daily from the house has a way in from the house, so the gap is centred "
-                "in the side that faces the back door; 3 ft 6 in is a person with a hoe "
-                "or a basket, not a team. NO GATE LEAF IS DRAWN — the fence simply stops, "
-                "the way it does at the wagon yard and the pound, because a hung gate "
-                "would be an invention on top of an invention."
+                "daily from the house has a way in from the house, so the gap is in the "
+                "side that faces the back door, under the house; 3 ft 6 in is a person "
+                "with a hoe or a basket, not a team. SINCE T-3476 about two gardens in "
+                "three hang a leaf in it (tools/gate_kinds.py, a foot gate, L382) and the "
+                "rest are a plain gap."
             ),
         })
     return runs, openings, refused
@@ -548,7 +769,10 @@ def record(runs, openings, refused):
                 "month, and nothing states what was grown on any lot in this town. The "
                 "treatment is therefore graded reconstructed like the fence over it, it "
                 "disappears with the rest of that tier, and docs/LIBERTIES.md L158 claims "
-                "the scheme on the precedent of L129."
+                "the scheme on the precedent of L129. SINCE T-3476 every run states its own beds "
+                "and walks (`garden.beds`, `walks_local_enu_m`, laid out by "
+                "tools/dooryard_layouts.py): yards.js lays the walks and not its four strips, "
+                "and the gardens layer lays and plants the beds (data/gardens/1835.json)."
             ),
         },
         "refused": refused,
@@ -593,7 +817,7 @@ def compare_rules() -> int:
     def drawable(pool):
         ok, refused = [], []
         for block, index, lot, sid, sc, fn in pool:
-            plot, why = plot_for(block, index, lot, sid, sc, sidecars)
+            plot, why = plot_for(block, index, lot, sid, sc, sidecars, fn)
             (refused if plot is None else ok).append((f"{block['id']}_lot{index}", sid, why))
         return ok, refused
 
@@ -632,6 +856,8 @@ def main() -> int:
         return compare_rules()
     runs, openings, refused = build_record()
     text = json.dumps(record(runs, openings, refused), indent=2, ensure_ascii=False) + "\n"
+    # T-3476: a coordinate pair on one line, or the record's beds and walks run to 20,000
+    text = re.sub(r"\[\n\s+(-?[\d.]+),\n\s+(-?[\d.]+)\n\s+\]", r"[\1, \2]", text)
     if args.check:
         if not OUT.exists():
             print(f"DOORYARD PICKET DRIFT\n  - {OUT.relative_to(ROOT)} is missing")

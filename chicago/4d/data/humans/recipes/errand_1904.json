@@ -1,0 +1,375 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "liberty": "L418",
+  "height_scale": 1.0,
+  "lod_ratios": [
+    1.0,
+    0.6,
+    0.28,
+    0.12
+  ],
+  "skin_texture": {
+    "path": "assets/authored/humans/skin_toigo_bronze_female/young_lightskinned_female_diffuse_Bronze.png",
+    "sha256": "535535f30bacd42111590df4b03cf3b6bcdb7db18f336ce670665ec332ab3e0b",
+    "license": "CC0-1.0",
+    "color_space": "sRGB",
+    "base_color_factor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "roughness": 0.68,
+    "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
+    "identity_basis": "Cleared reusable generic skin atlas; not a likeness, attested complexion, or source identifying any named/reconstructed resident.",
+    "uv_status": "Source atlas and UV registration viewed in source diagnostics; final Blender export/LOD render validation remains outstanding.",
+    "female_appearance_status": "The same author's female bronze atlas (skins01, CC0), replacing the male one whose beard shadow read as a man's jaw at 3 m (T-3434); photographic qualification remains open."
+  },
+  "hair_component": {
+    "fitter": "mhclo_proxy",
+    "directory": "assets/authored/humans/hair_bun_brown",
+    "mhclo": "rehmanpolanski_hair_bun_brown.mhclo",
+    "obj": "hair_bun_brown.obj",
+    "texture": "hair_bun_brown_dark_tie.png",
+    "texture_size": [
+      2048,
+      2048
+    ],
+    "topology": [
+      2524,
+      4432
+    ],
+    "material": "hair__makehuman_bun",
+    "object": "bun",
+    "roughness": 0.65,
+    "alpha_cutoff": 0.4,
+    "appearance_basis": "Cleared CC0 bun hair (RehmanPolanski, from the MakeHuman ponytail01), the hair drawn back smooth from the face to a bun at the back of the head, as the 1903 Wasson stereographs show a working woman's hair drawn up; its red velvet tie recoloured dark (T-3434). No personal appearance or photographic qualification is asserted.",
+    "source_manifest_sha256": "1c4e95ace2160f24f37837e4ae8dd592c85f9c3cf0afd53bcf0ed5789ca30903"
+  },
+  "eye_components": {
+    "radius_m": 0.012,
+    "iris_radius_m": 0.0055,
+    "pupil_radius_m": 0.0022,
+    "corneal_bulge_m": 0,
+    "cornea_enabled": false,
+    "source_basis": "Actual helper centers/axes; original opaque sclera/iris/pupil, reconstructed dimensions and brown color, not resident facts",
+    "status": "No actual BPy/export/blink fit/photographic acceptance"
+  },
+  "label": "Reconstructed 1904 parlor maid's street dress on an errand (a white cotton shirtwaist with a tall standing collar, a small black bow tie and narrow cuffs, a narrow black belt, a dark navy serge walking skirt of seven gores clear of the ground, a straw sailor hat with a black ribbon, black shoes, and a willow market basket with a cloth over it carried in the left hand) on the shared portable female rig",
+  "scene_date": "1904-07-01",
+  "grade": "reconstructed",
+  "sources": [
+    "met_ci_1900_cotton_shirtwaist",
+    "loc_bain_1909_shirtwaist_strikers_group",
+    "loc_shinn_1904_misfit_sailor_hats_drawing",
+    "met_ci_1890_straw_boater",
+    "loc_wasson_1903_new_french_cook_mr_mrs_stereograph",
+    "loc_underwood_1903_state_street_noonday_stereograph"
+  ],
+  "basis": "A maid out of the house in the street dress of a young working woman of the decade, not her uniform: the T-3423 bodice and T-3434 blouse fullness re-cut as a white shirtwaist with a tall standing collar and narrow cuffs, a small black bow at the collar, a narrow black belt, a gored walking skirt after the T-3447 lady's cut made narrower and shorter, a straw sailor hat with a black ribbon, and a willow basket with a cloth over it held by its handle in the left hand. Every amount and colour is reconstructed (tools/human_errand_1904.py, T-3481).",
+  "source_scope": "The Met's American cotton shirtwaist of about 1900 gives the white, the tall collar, the full sleeves, the narrow cuffs and the pouched front; Bain's 1909 photographs of New York shirtwaist strikers (LOC) young working women's own street dress, a dark skirt to the ankle, a belt, a bow tie at a tall collar; Florence Scovel Shinn's 1904 drawing (LOC) the flat-crowned sailor hat with its band, set level on drawn-up hair, and the Met's American boater its straw and black ribbon; Wasson's 1903 young woman (LOC) the dark tie at a shirtwaist collar; Underwood's 1903 State Street (LOC) women walking in Chicago in dark skirts and hats. None is of Chicago's Prairie Avenue or of Christine Nelson; the photographs are monochrome; no source read shows the basket, which is reconstructed.",
+  "colors_linear_rgba": {
+    "skin": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "eyes": [
+      0.12,
+      0.09,
+      0.06,
+      1.0
+    ],
+    "garment_upper__errand_shirtwaist_white": [
+      0.8,
+      0.79,
+      0.75,
+      1
+    ],
+    "garment_lower__errand_skirt_navy": [
+      0.02,
+      0.024,
+      0.046,
+      1
+    ],
+    "garment_outer__errand_belt_black": [
+      0.014,
+      0.013,
+      0.013,
+      1
+    ],
+    "garment_outer__errand_tie_black": [
+      0.016,
+      0.016,
+      0.02,
+      1
+    ],
+    "headwear__errand_boater_straw": [
+      0.5,
+      0.4,
+      0.22,
+      1
+    ],
+    "headwear__errand_boater_ribbon": [
+      0.014,
+      0.014,
+      0.016,
+      1
+    ],
+    "accessory__market_basket": [
+      0.28,
+      0.19,
+      0.095,
+      1
+    ],
+    "accessory__basket_cloth": [
+      0.66,
+      0.65,
+      0.6,
+      1
+    ],
+    "footwear__errand_shoes_black": [
+      0.012,
+      0.011,
+      0.011,
+      1
+    ]
+  },
+  "workwear_coverage": {
+    "shoe_clearance_m": 0.004
+  },
+  "proof_variants": [
+    {
+      "id": "nelson_christine_1904_errand",
+      "component_assembly": "errand_1904_v1",
+      "person_reference_id": "pa1904_glessner_john_j_c1900_christine_nelson",
+      "person_reference_scene": "1904",
+      "person_reference_grade": "inferred",
+      "person_reference_record": "data/residents_1904/households/hh_glessner_john_j.json",
+      "reference_summary": {
+        "name": "Christine Nelson",
+        "occupation": "parlor maid",
+        "household": "hh_glessner_john_j",
+        "presence": "present"
+      },
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_adult_female_25.json",
+      "body_parameters": {
+        "chosen_height_m": 1.65,
+        "height_basis": "The shared female engineering body; the variation kit draws height and build at runtime. Not a recorded height.",
+        "engineering_age_years": 25,
+        "age_basis": "Engineering body at the female kit base age 25. human-variation.js ages a person drawn in the town from their own record (hm08_variation_persons.json): born March 1873 by the 1900 census, 31 in 1904.",
+        "shape_basis": "Equal cleared upstream female-young software-category blend, not inferred ancestry or a portrait"
+      },
+      "body_basis": "CC0 adult-female graphical body and the generic cleared female skin are reconstructed authoring choices. Christine Nelson is an inferred person of the 1904 house (its parlor maid in the 1900 census, born in Sweden, came 1892; no source read says she was still there in July 1904); no picture of her is known, and no complexion, height or outfit of hers is asserted.",
+      "recipe_path": "data/humans/recipes/errand_1904.json"
+    }
+  ],
+  "errand_components": {
+    "version": 1,
+    "generator": "tools/human_errand_1904.py",
+    "liberty": "L-human-modular-dress-1789",
+    "body_sha256": "3060ee86957ff7c2d70c89e70fe95ff3bc2294a0d7f6a5716b5a2f3f8dd84c72",
+    "standing_source_only": false,
+    "production_eligible": false,
+    "photo_accepted": false,
+    "evidence_choice": "The brief asked for a parlor maid out on an errand, in street clothes over or instead of her uniform. A maid went out of the house without her apron and cap, in the street dress any young working woman of the decade wore: a white shirtwaist and a dark walking skirt clear of the ground, a belt, and in summer a straw sailor hat. The pictures read agree on that dress; the sailor hat is the 1904 drawing's, the summer hat of the scene's July.",
+    "tailoring": {
+      "shirtwaist": {
+        "ease": 0.012,
+        "collar": 0.042,
+        "waist_below_spine02": 0.018,
+        "pouch": 0.024,
+        "pouch_height": 0.09,
+        "sleeve": 0.02
+      },
+      "cuffs": {
+        "length": 0.05,
+        "lift": 0.0025
+      },
+      "tie": {
+        "below_collar_top": 0.03,
+        "loop": 0.032,
+        "loop_height": 0.022,
+        "tail": 0.05,
+        "standoff": 0.004
+      },
+      "belt": {
+        "height": 0.028,
+        "lift": 0.004
+      },
+      "skirt": {
+        "hem_y": 0.075,
+        "ease": 0.02,
+        "follow_below_top": 0.06,
+        "flare_from_y": 0.62,
+        "hem_rx": 0.3,
+        "hem_rz_front": 0.27,
+        "hem_rz_back": 0.31,
+        "gores": 7,
+        "gore_depth": 0.009,
+        "segments": 84,
+        "rows": 24
+      },
+      "boater": {
+        "seat_below_hair_top": 0.052,
+        "ease": 0.006,
+        "crown_height": 0.072,
+        "brim": 0.068,
+        "thickness": 0.004,
+        "band": 0.028
+      },
+      "basket": {
+        "length": 0.34,
+        "width": 0.21,
+        "depth": 0.12,
+        "bottom_scale": 0.82,
+        "handle_rise": 0.16,
+        "handle_radius": 0.0075,
+        "cloth_dome": 0.03,
+        "cloth_drape": 0.035,
+        "segments": 40
+      }
+    },
+    "carry": {
+      "side": "l",
+      "wrist_from_shoulder": [
+        0.205,
+        -0.39,
+        0.05
+      ],
+      "elbow_pole": [
+        0.7,
+        -0.1,
+        -0.7
+      ],
+      "fingers": [
+        0.1,
+        -1.0,
+        0.06
+      ],
+      "palm": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "grip_from_wrist": 0.08,
+      "grip_toward_palm": 0.02,
+      "curl": 0.75
+    },
+    "garments": [
+      {
+        "id": "shirtwaist",
+        "material": "garment_upper__errand_shirtwaist_white",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_ci_1900_cotton_shirtwaist",
+            "loc_bain_1909_shirtwaist_strikers_group"
+          ],
+          "source_scope": "A white cotton shirtwaist with a tall standing collar, full sleeves and a front pouched over the belt, as the Met's of about 1900 is cut and the 1909 strikers wear theirs; the ruffled front is not modelled, and the fullness and ease are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "cuffs",
+        "material": "garment_upper__errand_shirtwaist_white",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_ci_1900_cotton_shirtwaist"
+          ],
+          "source_scope": "Narrow cuffs at the wrist, as the Met's shirtwaist has; their width is reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "bow_tie",
+        "material": "garment_outer__errand_tie_black",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "loc_bain_1909_shirtwaist_strikers_group",
+            "loc_wasson_1903_new_french_cook_mr_mrs_stereograph"
+          ],
+          "source_scope": "A small dark bow at the front of the collar, as one of the 1909 strikers and the 1903 young woman wear; black and its size are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "belt",
+        "material": "garment_outer__errand_belt_black",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "loc_bain_1909_shirtwaist_strikers_group"
+          ],
+          "source_scope": "A narrow dark belt over the top of the skirt, as the 1909 striker in a white shirtwaist wears hers; the buckle is not modelled and black is reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "walking_skirt",
+        "material": "garment_lower__errand_skirt_navy",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "loc_bain_1909_shirtwaist_strikers_group",
+            "loc_underwood_1903_state_street_noonday_stereograph"
+          ],
+          "source_scope": "A dark skirt close over the hips, flaring a little to a hem clear of the ground at the ankle, as the 1909 working women wear theirs and the women on State Street in 1903 walk in dark skirts; seven gores, the navy serge and the hem height are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "sailor_hat",
+        "material": "headwear__errand_boater_straw",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "loc_shinn_1904_misfit_sailor_hats_drawing",
+            "met_ci_1890_straw_boater"
+          ],
+          "source_scope": "A straw sailor hat with a flat crown and a straight brim, set level on the drawn-up hair, as the women of Shinn's 1904 drawing wear them, in the golden straw of the Met's American boater; its size is reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "hat_ribbon",
+        "material": "headwear__errand_boater_ribbon",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_ci_1890_straw_boater",
+            "loc_shinn_1904_misfit_sailor_hats_drawing"
+          ],
+          "source_scope": "A black ribbon round the crown, as the Met's boater has and the 1904 drawing's hats show; its width is reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "market_basket",
+        "material": "accessory__market_basket",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [],
+          "source_scope": "A willow market basket with a cloth over it, carried by its handle in the left hand, as if back from market (the owner's brief, 2026-11-07). No source read shows Christine Nelson or the Glessner staff marketing, and no picture of such a basket in Chicago in 1904 was read: the basket, its size and how she holds it are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "black_shoes",
+        "material": "footwear__errand_shoes_black",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "loc_bain_1909_shirtwaist_strikers_group"
+          ],
+          "source_scope": "Black laced shoes show under the 1909 strikers' hems; their cut is reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      }
+    ]
+  }
+}

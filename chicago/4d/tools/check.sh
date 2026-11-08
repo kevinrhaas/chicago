@@ -457,6 +457,14 @@ step "An 1835 labourer's working dress is sourced, layered and skinned on the sh
   python3 tools/test_human_labourer_1835.py
 step "An 1812 First Infantry private's dress is sourced, dated, layered and skinned on the shared rig (T-3451)" \
   python3 tools/test_human_soldier_1812.py
+step "A 1904 coachman's standing livery (Charles Nelson) is sourced, layered and skinned on the shared rig (T-3483)" \
+  python3 tools/test_human_coachman_1904.py
+step "A 1904 stable helper's working dress (August Billings) is sourced, layered and skinned on the shared rig (T-3484)" \
+  python3 tools/test_human_stable_helper_1904.py
+step "A 1904 cook's working dress (Kate Ryan) is sourced, layered and skinned on the shared rig, at the service stair (T-3479)" \
+  python3 tools/test_human_cook_1904.py
+step "A 1904 parlor maid's street dress and basket (Christine Nelson) are sourced and skinned, her loop on the block's walks (T-3481)" \
+  python3 tools/test_human_errand_1904.py
 
 step "Resident body normals share exact source seams without welding geometry or UVs (T-1789)" \
   python3 tools/test_human_source_normals.py

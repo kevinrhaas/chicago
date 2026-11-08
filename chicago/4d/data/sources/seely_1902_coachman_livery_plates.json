@@ -1,0 +1,27 @@
+{
+ "id": "seely_1902_coachman_livery_plates",
+ "type": "book",
+ "citation": "Lida Seely, Mrs. Seely's Cook Book: A Manual of French and American Cookery, with Chapters on Domestic Servants, Their Rights and Duties, and Many Other Details of Household Management (New York: The Macmillan Company, 1902), halftone plates facing p. 26 ('Carriage Footman' and 'Coachman') and facing p. 28 ('Carriage Footman, in Mourning Livery' and 'Coachman, in Mourning Livery'), with the chapter 'Duties of Coachmen and Stablemen in a Large Establishment', pp. 26-27.",
+ "author": "Lida Seely",
+ "date": "1902",
+ "describes_date": "1902",
+ "repository": "Boston Public Library copy, digitised by the Internet Archive, item mrsseelyscookboo00seel (scan leaves n68 and n72); crops kept in kevinrhaas/chicago-evidence evidence/people-references-2026-11-07/coachman_livery_1904/.",
+ "url": "https://archive.org/details/mrsseelyscookboo00seel/page/n68/mode/1up",
+ "locator": "Plate facing p. 26 (scan leaf n68), right-hand figure captioned 'COACHMAN.': a coachman standing full length, facing the camera, a whip in his right hand. Plate facing p. 28 (scan leaf n72), the figure captioned 'COACHMAN, IN MOURNING LIVERY.'. Text pp. 26-27.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "A book printed in the United States in 1902, in the public domain; the Internet Archive records the item as NOT_IN_COPYRIGHT. Used as a reference picture for the cut of a coachman's standing livery (T-3483); nothing is traced or sampled from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-11-07 (T-3483) at the scan's full page images (2394 x 3503). The coachman wears a long double-breasted livery coat buttoned to the throat and falling straight to just below the knee, two rows of six light-coloured buttons running from the chest to the waist (the rows a little wider apart at the top), a flapped pocket at each hip, a turned-down coat collar with a white stock standing above it, white cuffs and white gloves; white breeches show for a hand's breadth between the coat's hem and plain black top boots that reach just below the knee; a tall silk hat with a narrow curled brim and a band. He is clean-shaven. The mourning plate shows an older, heavier coachman, also clean-shaven, in the same double-breasted coat cut longer (to mid-calf) over dark trousers and black boots, with dark gloves; its buttons read lighter than the cloth. A posed studio photograph for a household manual (New York), not Chicago and not of any named servant.",
+ "note": "One of the 1904 standing coachman's reference pictures (data/people_match/reference_sets/coachman_livery_1904.json). The book's text describes a large establishment's stable staff (head coachman, second coachman, pad groom, harness cleaner and stablemen), their duties and their lodging in the stable.",
+ "what_it_supplies": [
+  "the cut of a private coachman's standing livery in an American household manual of 1902: double-breasted coat to the knee, two rows of buttons, stock, breeches, top boots, silk hat, gloves",
+  "how long the coat is against the breeches and boots, and where the buttons and pockets sit",
+  "what a stableman's and a coachman's work was in a private stable (pp. 26-27)"
+ ],
+ "what_it_does_not_supply": [
+  "colour (a monochrome halftone): the coat's dark colour is not given, nor the buttons' metal",
+  "anything about Chicago, the Glessner household or Charles Nelson; no likeness is asserted"
+ ]
+}

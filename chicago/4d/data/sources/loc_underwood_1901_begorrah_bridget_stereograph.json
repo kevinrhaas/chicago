@@ -1,0 +1,25 @@
+{
+ "id": "loc_underwood_1901_begorrah_bridget_stereograph",
+ "type": "photograph",
+ "citation": "Underwood & Underwood, \"Begorrah, Bridget, lit's arbitrate\", stereograph, copyright 1901. Library of Congress, Prints and Photographs Division, LOT 3531-4, LC-USZ62-47713 (item 2006689888).",
+ "author": "Underwood & Underwood",
+ "date": "1901",
+ "describes_date": "1901",
+ "repository": "Library of Congress, Prints and Photographs Division; half-stereo copy negative LC-USZ62-47713, reference image 3a47865r.jpg read at tile.loc.gov.",
+ "url": "https://www.loc.gov/item/2006689888/",
+ "locator": "The single frame: a stout older woman cook standing at a kitchen table with a rolling pin raised, full length at about three metres, a man fallen against the dresser beside her.",
+ "tier": 1,
+ "rights_status": "no_known_restrictions",
+ "rights_note": "LOC rights advisory: 'No known restrictions on publication.' Published 1901. Used only as a reference picture the 1904 cook is judged against and for the cut of her working dress and apron (T-3479); nothing is traced or sampled from it.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (T-3479) from the LOC reference image; the catalogue marks its caption-card data 'unverified, old data'. A comic stereograph of the Irish cook the period's humour called 'Bridget': a stout older woman in a long dress of a large figured print with full long sleeves, a broad checked apron from the waist to near the hem wrapping round the skirt, black shoes, her hair drawn up. It is a caricature; only her working dress is read here, not her face, her figure or the joke.",
+ "note": "A reference picture for the 1904 cook's dress, Kate Ryan of the Glessner household (data/humans/recipes/cook_1904.json).",
+ "what_it_supplies": [
+  "an older working cook's long print dress with full sleeves and a broad checked apron wrapping round the skirt, about 1901"
+ ],
+ "what_it_does_not_supply": [
+  "colour (a monochrome print)",
+  "anything about Chicago, the Glessner household or Kate Ryan; no likeness is asserted, and the picture is a caricature"
+ ]
+}

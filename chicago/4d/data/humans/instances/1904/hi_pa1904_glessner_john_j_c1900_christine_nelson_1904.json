@@ -1,0 +1,99 @@
+{
+  "id": "hi_pa1904_glessner_john_j_c1900_christine_nelson_1904",
+  "contract_version": 1,
+  "scene": "1904",
+  "person_id": "pa1904_glessner_john_j_c1900_christine_nelson",
+  "appearance": {
+    "asset_id": "nelson_christine_1904_errand"
+  },
+  "placement": {
+    "local_e": 1393.61,
+    "local_n": -3250.0,
+    "heading_deg": 1,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "walk",
+    "loop": true,
+    "phase": 0.0
+  },
+  "behaviour": {
+    "state": "walking",
+    "route": [
+      {
+        "local_e": 1393.28,
+        "local_n": -3217.1
+      },
+      {
+        "local_e": 1392.17,
+        "local_n": -3216.02
+      },
+      {
+        "local_e": 1367.0,
+        "local_n": -3216.31
+      },
+      {
+        "local_e": 1363.0,
+        "local_n": -3215.81
+      },
+      {
+        "local_e": 1336.0,
+        "local_n": -3216.12
+      },
+      {
+        "local_e": 1332.5,
+        "local_n": -3216.71
+      },
+      {
+        "local_e": 1276.06,
+        "local_n": -3217.37
+      },
+      {
+        "local_e": 1274.98,
+        "local_n": -3218.48
+      },
+      {
+        "local_e": 1277.89,
+        "local_n": -3463.28
+      },
+      {
+        "local_e": 1279.0,
+        "local_n": -3464.36
+      },
+      {
+        "local_e": 1394.64,
+        "local_n": -3463.21
+      },
+      {
+        "local_e": 1395.73,
+        "local_n": -3462.1
+      }
+    ]
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed walking depiction of Christine Nelson, parlor maid in the Glessner household (inferred: the 1900 census enumerates her in the house as a servant, \"Parlor maid\", born March 1873 in Sweden, came 1892, single; no source read says she was still there on 1 July 1904), walking round the Glessner block on its sidewalks with a market basket in her left hand, as if back from market: up Prairie Avenue past the front of the house, west along Eighteenth Street past the great arch (the service entrance, Glessner's The Story of a House, 1923) and the stable doors, stepping out toward the kerb past the two staff who stand there, then south down Indiana Avenue, east along Twentieth Street and north up Prairie again, about 730 m, some twenty minutes at the walk's own pace, and round again. Her white shirtwaist, navy walking skirt, belt, bow and straw sailor hat are built after the Met's shirtwaist and boater, Bain's 1909 working women and Shinn's 1904 drawing (T-3481); the basket is reconstructed. That she went to market, the way she walks and when, her face, hair and complexion are reconstructed: no picture of her is known.",
+    "sources": [
+      "census_1900_chicago_t623_roll245",
+      "glessner_story_of_a_house_1923",
+      "met_ci_1900_cotton_shirtwaist",
+      "loc_bain_1909_shirtwaist_strikers_group",
+      "loc_shinn_1904_misfit_sailor_hats_drawing",
+      "met_ci_1890_straw_boater",
+      "loc_underwood_1903_state_street_noonday_stereograph"
+    ],
+    "liberty": "L418",
+    "seed": "pa1904_glessner_john_j_c1900_christine_nelson:1904:block-walk-from-market:20261107",
+    "replaceable_by": "A photograph of Christine Nelson or of the Glessner staff, or a record that she was or was not in the house in 1904, or of where the household bought its food; her walk round the block and her basket have no documentary claim."
+  }
+}
