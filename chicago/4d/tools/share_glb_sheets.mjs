@@ -36,6 +36,7 @@ import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
+import { deflateSync, inflateSync } from 'node:zlib';
 
 const HERE = path.dirname(new URL(import.meta.url).pathname);
 const REPO = path.resolve(HERE, '..');
@@ -46,6 +47,22 @@ export const STREAM = 'application/octet-stream';
 /** A stream is shared only from this size: below it, a fetch costs more than the bytes. */
 export const STREAM_MIN = 4096;
 const EXT = { 'image/ktx2': 'ktx2', 'image/png': 'png', 'image/jpeg': 'jpg', 'image/webp': 'webp', [STREAM]: 'bin' };
+/**
+ * T-3463: the build's own records a figure's GLB carries in its scene extras, which the
+ * renderer never reads (it reads `lod` and `wardrobe_assembly_json`): the source JSON of the
+ * body, hair, skin and blend it was made from. The committed GLB keeps them; the published
+ * copy does not, and --check compares the two with them set aside.
+ */
+export const BUILD_EXTRAS = Object.freeze(['body_source_json', 'hair_source_json', 'body_target_blend_json',
+  'skin_source_json', 'body_parameters_json', 'person_reference_summary_json']);
+const leanable = (json) => (json.scenes ?? []).some((sc) => BUILD_EXTRAS.some((k) => sc.extras?.chicago4d_human?.[k] !== undefined));
+export function leanExtras(json) {
+  for (const sc of json.scenes ?? []) {
+    const e = sc.extras?.chicago4d_human;
+    if (e) for (const k of BUILD_EXTRAS) delete e[k];
+  }
+  return json;
+}
 const JSON_CHUNK = 0x4E4F534A;
 const BIN_CHUNK = 0x004E4942;
 const MESHOPT = 'EXT_meshopt_compression';
@@ -159,7 +176,7 @@ export function movableStreams(json, bin) {
  * alignment.
  */
 export function rewriteGlb(json, bin, move, streams = new Map()) {
-  json = structuredClone(json);
+  json = leanExtras(structuredClone(json));
   const bi = binIndex(json, bin);
   const views = json.bufferViews;
   const bufferFor = new Map();
@@ -170,8 +187,10 @@ export function rewriteGlb(json, bin, move, streams = new Map()) {
     }
     return bufferFor.get(uri);
   };
-  for (const [index, uri] of move) {
+  for (const [index, to] of move) {
     const v = views[json.images[index].bufferView];
+    const { uri, byteLength } = typeof to === 'string' ? { uri: to } : to;
+    if (byteLength) v.byteLength = byteLength;   // a re-deflated PNG sheet (T-3463)
     v.buffer = bufferOf(uri, v.byteLength);
     delete v.byteOffset;
   }
@@ -214,6 +233,108 @@ export function rewriteGlb(json, bin, move, streams = new Map()) {
   return { json, bin: out };
 }
 
+// ── T-3463: a shared PNG sheet ships re-deflated, pixel for pixel the same ──────────────
+const PNG_SIG = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]);
+function pngChunks(bytes) {
+  if (bytes.length < 8 || !bytes.subarray(0, 8).equals(PNG_SIG)) return null;
+  const out = [];
+  for (let o = 8; o + 12 <= bytes.length;) {
+    const len = bytes.readUInt32BE(o);
+    const type = bytes.toString('latin1', o + 4, o + 8);
+    out.push({ type, data: bytes.subarray(o + 8, o + 8 + len), raw: bytes.subarray(o, o + 12 + len) });
+    o += 12 + len;
+    if (type === 'IEND') break;
+  }
+  return out;
+}
+const CHANNELS = { 0: 1, 2: 3, 4: 2, 6: 4 };
+/** The unfiltered scanlines of an 8-bit, non-interlaced PNG, with its chunks; else null. */
+export function pngPixels(bytes) {
+  const chunks = pngChunks(bytes);
+  const hdr = chunks?.[0];
+  if (!hdr || hdr.type !== 'IHDR') return null;
+  const w = hdr.data.readUInt32BE(0), h = hdr.data.readUInt32BE(4);
+  const depth = hdr.data[8], colour = hdr.data[9], interlace = hdr.data[12];
+  if (depth !== 8 || !CHANNELS[colour] || interlace !== 0) return null;
+  const bpp = CHANNELS[colour], stride = w * bpp;
+  const z = inflateSync(Buffer.concat(chunks.filter((c) => c.type === 'IDAT').map((c) => c.data)));
+  if (z.length !== h * (stride + 1)) return null;
+  const px = Buffer.alloc(h * stride);
+  for (let y = 0; y < h; y++) {
+    const f = z[y * (stride + 1)];
+    const src = y * (stride + 1) + 1, dst = y * stride, up = dst - stride;
+    for (let x = 0; x < stride; x++) {
+      const a = x >= bpp ? px[dst + x - bpp] : 0, b = y ? px[up + x] : 0, c = x >= bpp && y ? px[up + x - bpp] : 0;
+      let pr = 0;
+      if (f === 0) pr = 0; else if (f === 1) pr = a; else if (f === 2) pr = b; else if (f === 3) pr = (a + b) >> 1;
+      else if (f === 4) { const p = a + b - c, pa = Math.abs(p - a), pb = Math.abs(p - b), pc = Math.abs(p - c); pr = pa <= pb && pa <= pc ? a : pb <= pc ? b : c; }
+      else return null;
+      px[dst + x] = (z[src + x] + pr) & 255;
+    }
+  }
+  return { w, h, bpp, stride, px, chunks };
+}
+const crcTable = (() => { const t = new Uint32Array(256); for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+function crc32(buf) { let c = 0xFFFFFFFF; for (const b of buf) c = crcTable[(c ^ b) & 255] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; }
+function chunk(type, data) {
+  const out = Buffer.alloc(12 + data.length);
+  out.writeUInt32BE(data.length, 0);
+  out.write(type, 4, 'latin1');
+  data.copy(out, 8);
+  out.writeUInt32BE(crc32(out.subarray(4, 8 + data.length)), 8 + data.length);
+  return out;
+}
+/**
+ * The same PNG, its rows re-filtered (each row the filter whose bytes sum smallest) and
+ * deflated at level 9, every chunk but the image data kept as it was. Returns the smaller of
+ * that and the input, so it never grows a file.
+ */
+export function repackPng(bytes) {
+  const p = pngPixels(bytes);
+  if (!p) return bytes;
+  const { h, bpp, stride, px, chunks } = p;
+  const rows = Buffer.alloc(h * (stride + 1));
+  const cand = [0, 1, 2, 3, 4].map(() => Buffer.alloc(stride));
+  for (let y = 0; y < h; y++) {
+    const row = y * stride, up = row - stride;
+    let best = 0, bestSum = Infinity;
+    for (let f = 0; f < 5; f++) {
+      const out = cand[f];
+      let sum = 0;
+      for (let x = 0; x < stride; x++) {
+        const a = x >= bpp ? px[row + x - bpp] : 0, b = y ? px[up + x] : 0, c = x >= bpp && y ? px[up + x - bpp] : 0;
+        let pr = 0;
+        if (f === 1) pr = a; else if (f === 2) pr = b; else if (f === 3) pr = (a + b) >> 1;
+        else if (f === 4) { const q = a + b - c, pa = Math.abs(q - a), pb = Math.abs(q - b), pc = Math.abs(q - c); pr = pa <= pb && pa <= pc ? a : pb <= pc ? b : c; }
+        const v = (px[row + x] - pr) & 255;
+        out[x] = v;
+        sum += v < 128 ? v : 256 - v;
+        if (sum >= bestSum) break;
+      }
+      if (sum < bestSum) { bestSum = sum; best = f; }
+    }
+    // Re-run the winner in full (the loop above may have stopped it early only if it lost).
+    rows[y * (stride + 1)] = best;
+    cand[best].copy(rows, y * (stride + 1) + 1);
+  }
+  const idat = deflateSync(rows, { level: 9, memLevel: 9 });
+  const parts = [PNG_SIG];
+  let wrote = false;
+  for (const c of chunks) {
+    if (c.type === 'IDAT') { if (!wrote) { parts.push(chunk('IDAT', idat)); wrote = true; } continue; }
+    parts.push(c.raw);
+  }
+  const out = Buffer.concat(parts);
+  return out.length < bytes.length ? out : bytes;
+}
+/** Whether two PNGs draw the same pixels with the same header and chunks but their data. */
+export function samePngPixels(a, b) {
+  const p = pngPixels(a), q = pngPixels(b);
+  if (!p || !q || !p.px.equals(q.px)) return false;
+  const rest = (x) => x.chunks.filter((c) => c.type !== 'IDAT').map((c) => c.raw.toString('base64')).join();
+  return rest(p) === rest(q);
+}
+
 function listGlbs(dir, rel = '') {
   const out = [];
   if (!existsSync(dir)) return out;
@@ -248,27 +369,41 @@ export function shareSheets(site, glbDir = GLTF_DIR, { streams: withStreams = fa
   rmSync(path.join(dir, SHEETS), { recursive: true, force: true });
   if (!shared.size) return { glbs: 0, sheets: 0, before: 0, after: 0 };
   mkdirSync(path.join(dir, SHEETS), { recursive: true });
-  for (const [name, h] of shared) writeFileSync(path.join(dir, SHEETS, name), h.bytes);
+  // T-3463: with --streams (the people's directory), a PNG sheet ships re-deflated when that
+  // is smaller, under its new bytes' name; the GLBs' image views take its length.
+  const shipped = new Map();
+  for (const [name, h] of shared) {
+    let bytes = h.bytes, out = name;
+    if (withStreams && name.endsWith('.png')) {
+      const small = repackPng(h.bytes);
+      if (small.length < h.bytes.length) { bytes = small; out = sheetName(small, 'image/png'); }
+    }
+    shipped.set(name, { name: out, length: bytes.length });
+    writeFileSync(path.join(dir, SHEETS, out), bytes);
+  }
   let glbs = 0, before = 0, after = 0;
   for (const [rel, g] of read) {
     const move = new Map();
     const up = path.posix.relative(path.posix.dirname(rel), SHEETS);
     for (const im of g.images) {
       const name = sheetName(im.bytes, im.mimeType);
-      if (shared.has(name)) move.set(im.index, `${up}/${name}`);
+      if (shared.has(name)) {
+        const sh = shipped.get(name);
+        move.set(im.index, sh.name === name ? `${up}/${name}` : { uri: `${up}/${sh.name}`, byteLength: sh.length });
+      }
     }
     const moveStreams = new Map();
     for (const st of g.streams) {
       const name = sheetName(st.bytes, st.mimeType);
       if (shared.has(name)) moveStreams.set(`${st.view}:${st.meshopt ? 'm' : 'd'}`, `${up}/${name}`);
     }
-    if (!move.size && !moveStreams.size) continue;
+    if (!move.size && !moveStreams.size && !(withStreams && leanable(g.json))) continue;
     const { json, bin } = rewriteGlb(g.json, g.bin, move, moveStreams);
     const bytes = writeGlb(json, bin);
     writeFileSync(path.join(dir, rel), bytes);
     glbs++; before += g.size; after += bytes.length;
   }
-  const sheetBytes = [...shared.values()].reduce((s, h) => s + h.bytes.length, 0);
+  const sheetBytes = [...shipped.values()].reduce((s, h) => s + h.length, 0);
   return { glbs, sheets: shared.size, before, after: after + sheetBytes };
 }
 
@@ -329,10 +464,25 @@ export function checkSheets(site, sourceDir = path.join(REPO, 'assets/web'), glb
         (held.get(resolved) || held.set(resolved, new Set()).get(resolved)).add(rel);
         return readFileSync(file);
       };
-      if (placementFree(pub.json) !== placementFree(src.json)) throw new Error('its JSON is not its source\'s');
+      // T-3463: a PNG image whose bytes differ from its source's must draw the same pixels
+      // (repackPng); its view's length is then the only thing the JSON may differ by.
+      const said = structuredClone(pub.json);
+      const repacked = new Set();
+      for (const im of pub.json.images ?? []) {
+        if (im.mimeType !== 'image/png' || im.bufferView === undefined) continue;
+        const i = im.bufferView;
+        const a = viewBytes(pub.json, pub.bin, readUri, pub.json.bufferViews[i]).data;
+        const b = viewBytes(src.json, src.bin, () => null, src.json.bufferViews[i]).data;
+        if (!a || !b || a.equals(b)) continue;
+        if (!samePngPixels(a, b)) throw new Error(`bufferView ${i}'s PNG does not draw its source's pixels`);
+        repacked.add(i);
+        said.bufferViews[i].byteLength = src.json.bufferViews[i].byteLength;
+      }
+      if (placementFree(said) !== placementFree(leanExtras(structuredClone(src.json)))) throw new Error('its JSON is not its source\'s');
       const pv = pub.json.bufferViews ?? [];
       const sv = src.json.bufferViews ?? [];
       for (let i = 0; i < sv.length; i++) {
+        if (repacked.has(i)) continue;
         const a = viewBytes(pub.json, pub.bin, readUri, pv[i]);
         const b = viewBytes(src.json, src.bin, () => null, sv[i]);
         if (!!a.data !== !!b.data || (a.data && !a.data.equals(b.data))) throw new Error(`bufferView ${i} differs`);
@@ -491,6 +641,20 @@ function selfTest() {
       `with --streams the shared stream ships once (${sd.glbs} GLBs, ${sd.sheets} sheet, ${sd.before} -> ${sd.after} bytes)`);
     r = checkSheets(site, ssrc, SDIR);
     ok(!r.problems.length && r.rewritten === 2, `and each reads back to its source (${r.problems.join('; ') || 'clean'})`);
+    // T-3463: a PNG re-deflates to the same pixels and never grows; a changed pixel is caught.
+    {
+      const w = 64, h = 32, raw = Buffer.alloc(h * (w * 4 + 1));
+      for (let y = 0; y < h; y++) for (let x = 0; x < w * 4; x++) raw[y * (w * 4 + 1) + 1 + x] = (x * 7 + y * 3) & 255;
+      const ihdr = Buffer.alloc(13); ihdr.writeUInt32BE(w, 0); ihdr.writeUInt32BE(h, 4); ihdr[8] = 8; ihdr[9] = 6;
+      const loose = Buffer.concat([PNG_SIG, chunk('IHDR', ihdr), chunk('IDAT', deflateSync(raw, { level: 0 })), chunk('IEND', Buffer.alloc(0))]);
+      const tight = repackPng(loose);
+      ok(tight.length < loose.length && samePngPixels(tight, loose), `a PNG re-deflates smaller, pixel for pixel (${loose.length} -> ${tight.length})`);
+      ok(repackPng(tight).length <= tight.length, 'and never grows');
+      const px = pngPixels(tight).px; px[5] ^= 1;
+      const bent = Buffer.concat([PNG_SIG, chunk('IHDR', ihdr), chunk('IDAT', deflateSync(Buffer.concat(
+        Array.from({ length: h }, (_, y) => Buffer.concat([Buffer.from([0]), px.subarray(y * w * 4, (y + 1) * w * 4)]))))), chunk('IEND', Buffer.alloc(0))]);
+      ok(!samePngPixels(bent, loose), 'one changed pixel is not the same picture');
+    }
     const s0 = readGlb(readFileSync(path.join(site, SDIR, 's.lod0.glb')));
     ok(s0.bin.length < 400 && s0.json.bufferViews[0].extensions[MESHOPT].buffer === 2, 'the stream left the binary chunk for the sheet');
   } finally {

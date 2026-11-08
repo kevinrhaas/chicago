@@ -1,0 +1,5 @@
+{
+  "format": "chicago4d_inside_only_v1",
+  "doc": "People of the 1812 scene who are carded but not drawn, offered at their home's doors by renderers/web/js/human-days.js and built only when asked for (T-3463; the gathering's lodges are T-3500's). Each entry: person (card id), name (what Ask for shows), home (a structure in data/humans/doors_1812.json), door (optional, one of its door ids; else one is picked by the person's id), asset_id (the dress drawn), presence (optional, as behaviour.presence), ask_order (optional), provenance (optional, copied onto the built figure).",
+  "people": []
+}
