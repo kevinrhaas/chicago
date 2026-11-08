@@ -3047,6 +3047,11 @@ step "the forts' parade grounds re-derive from their parade records" \
 # lodge_camp footprint, derived from the camp's sidecars and listed in the 1812 manifest.
 step "the 1812 camp's worn ground re-derives from its camp records (T-3342)" \
   python3 tools/generate_camp_ground_1812.py --check
+# T-3526: and that ground states every lodge and bark house standing on it, so yards.js
+# leaves its earth out from under them: the cut is inside every foot, the mask uploads, and
+# a scene with no dwellings compiles no cut (the lodges "floated" over a navy band from afar).
+step "no yard earth under the 1812 camp's lodges, so their feet stand on the ground at any range (T-3526)" \
+  node tools/test_yard_dwelling_cut.mjs
 
 # And the ground BETWEEN the 1812 buildings (T-3339): the worn trails (the beaten lake-shore
 # trail, the Vincennes trace, the cart road south from the gate, the paths along both banks)

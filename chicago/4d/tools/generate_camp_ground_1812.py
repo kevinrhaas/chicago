@@ -74,6 +74,8 @@ REACH_M = {
     "scaffold": 1.3, "hide_frame": 1.4, "bundle": 0.9, "canoe": 1.2, "picket": 2.6,
     "pack_saddle": 1.2,
 }
+# The things a family lives inside: walled to the ground, so no yard earth runs under them.
+DWELLINGS = ("mat_lodge", "bark_roofed", "long_lodge", "bark_house")
 # Each item's own half-size before its reach (the archetype's dimensions; a dome's is its
 # size's half-length, read off the item).
 HALF_M = {
@@ -122,6 +124,39 @@ def _items(sc: dict) -> list[tuple[str, float, float, float]]:
         else:
             half = HALF_M.get(kind, 0.5)
         out.append((kind, x, y, half + REACH_M.get(kind, 1.2)))
+    return out
+
+
+# T-3526: the plan of every dwelling the archetype stands on a ground, which yards.js leaves
+# its earth out from under. Each is (half-width across the door axis, half-length along it,
+# superellipse exponent) of what lodge_camp builds: a dome's plan is the _Dome's (a, b, p)
+# at its foot, a long lodge's the same with p 2.8, a bark house's its oblong of walls.
+def _dwelling_plan(kind: str, extra) -> tuple[float, float, float]:
+    if kind == "bark_house":
+        return lodge_camp_params.BARK_HOUSE[0] / 2.0, lodge_camp_params.BARK_HOUSE[1] / 2.0, 8.0
+    if kind == "long_lodge":
+        return lodge_camp_params.LONG_LODGE[0] / 2.0, lodge_camp_params.LONG_LODGE[1] / 2.0, 2.8
+    return extra[0] / 2.0, extra[1] / 2.0, 2.0
+
+
+def dwellings(sc: dict) -> list[list[float]]:
+    """Every dwelling on this ground as [e, n, half_x, half_y, axis_deg, p] in local ENU:
+    its centre, its plan's half-axes along and across its own x axis, that axis's bearing
+    counter-clockwise from east, and its superellipse exponent."""
+    rec = json.loads((DATA / "structures" / f"{sc['id']}.json").read_text(encoding="utf-8"))
+    phase = next(p for p in rec["phases"] if p["id"] == sc.get("phase", rec["phases"][0]["id"]))
+    params = lodge_camp_params.from_phase(phase, rec)
+    place = sc.get("placement") or {}
+    out = []
+    for kind, x, y, rot, extra in lodge_camp.layout(params):
+        if kind not in DWELLINGS:
+            continue
+        hx, hy, p = _dwelling_plan(kind, extra)
+        e, n = _to_enu(x, y, place)
+        th = math.radians(rot)
+        e1, n1 = _to_enu(x + math.cos(th), y + math.sin(th), place)
+        axis = math.degrees(math.atan2(n1 - n, e1 - e))
+        out.append([_round(e), _round(n), _round(hx), _round(hy), _round(axis, 1), p])
     return out
 
 
@@ -276,6 +311,17 @@ def derive() -> dict:
                 "its edges, the right reading for ground walked and worked between lodges."
             ),
             "interior_local_enu_m": rings,
+            "dwellings_local_enu_m": [d for sc in groups for d in dwellings(sc)],
+            "dwellings_note": (
+                "T-3526: the plan of every lodge and bark house standing on these grounds, as "
+                "[e, n, half_x, half_y, axis_deg, p] (centre, half-axes along and across the "
+                "dwelling's own x axis, that axis counter-clockwise from east, superellipse "
+                "exponent), read off the archetype's layout like the rings. yards.js leaves its "
+                "earth out from under each, so the bare ground drawn over the terrain cannot "
+                "paint over a lodge's foot from a distance (the owner, 2026-11-08: the mat "
+                "lodges seemed to float above the ground from far away). Nothing here claims "
+                "evidence; the lodges' own records do."
+            ),
             "feather_m": FEATHER_M,
             "fringe_note": (
                 f"Each patch is worn round its own camp's lodges and yards, so no two are the "

@@ -725,6 +725,10 @@ uniform vec3 uDirtRest;
 uniform sampler2D uSward;
 uniform float uSwardM;
 uniform float uSwardMean;
+#ifdef YARD_DWELLINGS
+uniform sampler2D uDwell;
+uniform vec4 uDwellBox;
+#endif
 float yardHash(vec2 p) {
   vec3 q = fract(vec3(p.xyx) * 0.1031);
   q += dot(q, q.yzx + 33.33);
@@ -815,11 +819,124 @@ const YARD_TONES = {
   dooryard_green: { lane: [104, 132, 66], rest: [92, 112, 58] },
 };
 
+/**
+ * T-3526 — NO YARD EARTH UNDER A DWELLING. The owner, 2026-11-08, walking the 1812
+ * camp: "the mat lodges seem to float above the ground from far away". They did not
+ * float; the earth did. Every yard surface is drawn after the town's opaques with
+ * `polygonOffset -8/-32` (below), and the factor scales with the depth slope, which at
+ * the grazing angle a camp is seen at from 50 m is enormous, so the camp's worn earth
+ * won the depth test against the bottom of every lodge stood on it and painted the
+ * ground UNDER the lodge, in the lodge's own shade, over its foot: a band of sky-lit
+ * navy where the mats meet the ground, which reads as daylight under the dome. The
+ * band grew with distance because the offset does. Read in the browser at 46 m (14
+ * August, 13:00): the band was 8 px tall and went with the yard layer hidden, with the
+ * sun's shadows off, and with the offset dropped to its units alone; but the offset
+ * cannot drop, because without the slope term the terrain shows through the earth in
+ * patches from the air (T-1805 met the same choice for the back yards and could take
+ * the other side of it only because nothing stands on those lawns).
+ *
+ * So a ground that knows what stands on it says so (`ground.dwellings_local_enu_m`,
+ * tools/generate_camp_ground_1812.py), and every yard surface drops its fragments
+ * under those plans. What is left of the earth under a lodge is the rim inside its foot
+ * (KEEP), so there is nothing behind the foot near enough to win, and the terrain under
+ * the dome is the opaque ground it always was. The plans are drawn into one signed-
+ * distance mask over the grounds that carry them, metres from the cut's edge clamped to
+ * +/-RANGE, so bilinear filtering puts the edge within a few centimetres at a 0.5 m
+ * texel. A scene with no dwellings builds no mask and compiles no cut.
+ */
+/** The share of a dwelling's plan radius inside which no earth is drawn: inside the
+ *  foot by more than a dome's wobble (lodge_camp _Dome, up to ~6 % at the foot). */
+export const DWELLING_KEEP = 0.88;
+const DWELLING_TEXEL_M = 0.5;
+const DWELLING_RANGE_M = 2.0;
+const DWELLING_MAX_PX = 2048;
+const DWELLING_CUT = /* glsl */`
+#ifdef YARD_DWELLINGS
+  {
+    vec2 yardDw = (vec2(vYardWorld.x, -vYardWorld.z) - uDwellBox.xy) * uDwellBox.zw;
+    if (yardDw.x > 0.0 && yardDw.y > 0.0 && yardDw.x < 1.0 && yardDw.y < 1.0
+        && texture2D(uDwell, yardDw).r < 0.5) discard;
+  }
+#endif
+`;
+
+/** The dwellings every record's ground states, as [e, n, half_x, half_y, axis_deg, p]. */
+export function dwellingsOf(records = []) {
+  const out = [];
+  for (const record of records) {
+    for (const d of record?.ground?.dwellings_local_enu_m ?? []) {
+      if (Array.isArray(d) && d.length >= 6 && d.every(Number.isFinite) && d[2] > 0 && d[3] > 0) out.push(d);
+    }
+  }
+  return out;
+}
+
+/** Signed metres from the cut's edge (negative inside) of one dwelling at (e, n). */
+export function dwellingDistance([ce, cn, hx, hy, axisDeg, p], e, n, keep = DWELLING_KEEP) {
+  const th = (axisDeg * Math.PI) / 180;
+  const c = Math.cos(th);
+  const s = Math.sin(th);
+  const de = e - ce;
+  const dn = n - cn;
+  const lx = de * c + dn * s;
+  const ly = -de * s + dn * c;
+  const r = (Math.abs(lx / hx) ** p + Math.abs(ly / hy) ** p) ** (1 / p);
+  if (r < 1e-6) return -keep * Math.min(hx, hy);
+  return Math.hypot(lx, ly) * (1 - keep / r);
+}
+
+/** The mask the cut reads: { texture, box (e0, n0, 1/width_m, 1/depth_m), count, width,
+ *  height, texelM }, or null where no ground states a dwelling. */
+export function dwellingMask(records = []) {
+  const list = dwellingsOf(records);
+  if (!list.length) return null;
+  let e0 = Infinity; let n0 = Infinity; let e1 = -Infinity; let n1 = -Infinity;
+  for (const [e, n, hx, hy] of list) {
+    const r = Math.max(hx, hy) + DWELLING_RANGE_M;
+    e0 = Math.min(e0, e - r); n0 = Math.min(n0, n - r);
+    e1 = Math.max(e1, e + r); n1 = Math.max(n1, n + r);
+  }
+  const texelM = Math.max(DWELLING_TEXEL_M, Math.max(e1 - e0, n1 - n0) / DWELLING_MAX_PX);
+  const width = Math.ceil((e1 - e0) / texelM);
+  const height = Math.ceil((n1 - n0) / texelM);
+  const data = new Uint8Array(width * height).fill(255);
+  for (const d of list) {
+    const r = Math.max(d[2], d[3]) + DWELLING_RANGE_M;
+    const i0 = Math.max(0, Math.floor((d[0] - r - e0) / texelM));
+    const i1 = Math.min(width - 1, Math.ceil((d[0] + r - e0) / texelM));
+    const j0 = Math.max(0, Math.floor((d[1] - r - n0) / texelM));
+    const j1 = Math.min(height - 1, Math.ceil((d[1] + r - n0) / texelM));
+    for (let j = j0; j <= j1; j += 1) {
+      const n = n0 + (j + 0.5) * texelM;
+      for (let i = i0; i <= i1; i += 1) {
+        const e = e0 + (i + 0.5) * texelM;
+        const v = Math.max(0, Math.min(255, Math.round(128 + dwellingDistance(d, e, n) * (127 / DWELLING_RANGE_M))));
+        const k = j * width + i;
+        if (v < data[k]) data[k] = v;
+      }
+    }
+  }
+  const texture = new THREE.DataTexture(data, width, height, THREE.RedFormat, THREE.UnsignedByteType);
+  texture.magFilter = THREE.LinearFilter;
+  texture.minFilter = THREE.LinearFilter;
+  texture.generateMipmaps = false;
+  // One byte a texel and rows of any width: the default 4-byte row alignment would read
+  // past the buffer and the upload would fail black, which cuts every yard in the box.
+  texture.unpackAlignment = 1;
+  texture.wrapS = texture.wrapT = THREE.ClampToEdgeWrapping;
+  texture.name = 'yard-dwelling-cut';
+  texture.needsUpdate = true;
+  const box = new THREE.Vector4(e0, n0, 1 / (width * texelM), 1 / (height * texelM));
+  return { texture, box, count: list.length, width, height, texelM };
+}
+
 /** A yard surface's material on the shared tiles (T-2013, T-2090). Set before
  *  `confidence.patch()`, which chains whatever `onBeforeCompile` it finds. */
-function yardGround(mat, surface, tiles) {
+function yardGround(mat, surface, tiles, dwell = null) {
   const tones = YARD_TONES[surface];
+  if (dwell) mat.defines = { ...(mat.defines ?? {}), YARD_DWELLINGS: '' };
   mat.onBeforeCompile = (shader) => {
+    if (dwell) Object.assign(shader.uniforms, { uDwell: { value: dwell.texture }, uDwellBox: { value: dwell.box } });
     Object.assign(shader.uniforms, {
       uGrit: { value: tiles.grit.texture },
       uGritM: { value: GRIT_TILE_M },
@@ -832,6 +949,7 @@ function yardGround(mat, surface, tiles) {
       '#include <begin_vertex>',
       '#include <begin_vertex>\n  vYardWorld = (modelMatrix * vec4(transformed, 1.0)).xyz;\n  vYardUv = uv;');
     shader.fragmentShader = `${YARD_HEAD}\n${shader.fragmentShader}`
+      .replace('#include <clipping_planes_fragment>', `#include <clipping_planes_fragment>\n${DWELLING_CUT}`)
       .replace('#include <map_fragment>', YARD_FRAGMENT[surface])
       .replace('#include <normal_fragment_maps>', YARD_NORMAL);
   };
@@ -1399,6 +1517,13 @@ export async function createFencedGround({
   // earths and the bed, the grass grain for the green.
   const tiles = { grit: roadGrit(), sward: swardTexture() };
   const disposables = [tiles.grit.texture, tiles.sward];
+  // T-3526: the earth is left out from under every dwelling a ground states.
+  const dwell = dwellingMask(records);
+  if (dwell) disposables.push(dwell.texture);
+  out.census.dwellings = dwell
+    ? { count: dwell.count, width: dwell.width, height: dwell.height, texelM: dwell.texelM }
+    : null;
+  out.dwellingCut = dwell;
   const laid = [];
   for (const [surface, buf] of buffers) {
     if (!buf.pos.length) continue;
@@ -1414,7 +1539,7 @@ export async function createFencedGround({
     buf.pos = buf.uv = buf.col = buf.conf = null;
     geo.computeVertexNormals();
     geo.computeBoundingSphere();
-    const { mat, map } = surfaceMaterial(surface, tiles, confidence);
+    const { mat, map } = surfaceMaterial(surface, tiles, confidence, dwell);
     laid.push({ surface, geo, mat, map, mesh: spatialBatchAsync(geo, mat) });
   }
   if (replay) {
@@ -1422,7 +1547,7 @@ export async function createFencedGround({
     // batches the page's own (byte-equal: prebuild_layers.mjs --layer yards).
     for (const s of replay.index.surfaces) {
       const surface = s.name.replace(/^yard-/, '');
-      const { mat, map } = surfaceMaterial(surface, tiles, confidence);
+      const { mat, map } = surfaceMaterial(surface, tiles, confidence, dwell);
       laid.push({ surface, geo: null, mat, map, mesh: batchPieces(prebuiltPieces(s, replay.bin), mat) });
     }
     Object.assign(out.prebuilt, { used: true, why: null, build: replay.index.build, bytes: replay.index.bytes,
@@ -1586,7 +1711,7 @@ function prebuiltPieces(surface, bin) {
 /** One surface's material: the shared tiles, the bed's drills, the confidence
  *  patch and this layer's own program. The same whether the surface was laid
  *  here or came prebuilt (T-2711). */
-function surfaceMaterial(surface, tiles, confidence) {
+function surfaceMaterial(surface, tiles, confidence, dwell = null) {
   // Every surface draws the shared tiles (T-2013, T-2090); only the bed keeps
   // a canvas, for its drills.
   const map = surface === 'garden_bed' ? bedTexture() : null;
@@ -1607,14 +1732,14 @@ function surfaceMaterial(surface, tiles, confidence) {
     polygonOffsetUnits: -32,
   });
   mat.name = `yard-${surface}`;
-  yardGround(mat, surface, tiles);
+  yardGround(mat, surface, tiles, dwell);
   confidence?.patch(mat);
   // This layer's own program, for the reason enclosures.js records at length:
   // `customProgramCacheKey` defaults to the SOURCE TEXT of `onBeforeCompile`,
   // which every material `confidence.patch()` touches shares, so two patched
   // materials that agree on their other program parameters share a compiled
   // program and one of them is drawn by the other's shader.
-  mat.customProgramCacheKey = () => `chicago4d-yard-${surface}`;
+  mat.customProgramCacheKey = () => `chicago4d-yard-${surface}${dwell ? '-dwellings' : ''}`;
   return { mat, map };
 }
 
