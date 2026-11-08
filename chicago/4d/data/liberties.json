@@ -27610,6 +27610,9 @@
       "title": "The present housed: every household in the town on 1 July 1835 seated under a standing dwelling by a deal, the room deciding",
       "section": "per_subject",
       "subjects": [
+        "recon_1835_blk_lake_market_d1_05",
+        "recon_1835_blk_washington_dearborn_h2_05",
+        "recon_1835_south_d1_018",
         "recon_1835_west_013",
         "recon_1835_west_020"
       ],
@@ -27672,6 +27675,10 @@
         {
           "label": "Amended 2026-10-09",
           "text": "a store roof nobody sleeps or works in, standing a house of trade none of whose keepers the town holds a card for, is ruled a store nobody is seated over, and the book's order for a household over it is discharged. Four stores, each on the roof the street-face adoption gave the firm: H. Doty & Co., Rockwell's cabinet furniture warehouse, the Chicago Bakery (D. Graves) and Harmon, Loomis & Co. (whose Harmon brothers the town places at the firm's documented store). The register's mint refuses the first three keepers a card (a firm, not a person; a surname, a trade and nothing else; the town already names a Graves), and no keeper is minted here to fill the order. **What is invented** is that nobody slept over those four stores. And the West's empty C2 store a store-residence, whose stated use (“Four West roofs nobody holds, given a stated use”) named no trade and retired when a keeper could take it, is now kept by L. Chevalier (watches, jewelry and fancy goods, a Canal Street house of trade on no roof), seated over it by the keeper rung: which store roof his house stands in is the invention, as for every keeper."
+        },
+        {
+          "label": "Amended 2026-11-07",
+          "text": "the refusal of every roof whose sidecar states its occupants had left the deal almost nowhere to put the South Division: 156 of its 194 dwellings name \"The X household\", so some 80 households each went under a handful of one-room log cabins (124 people in an older log dwelling's 38 m², 126 in an older log dwelling). The owner, 2026-11-07, approved the fix. Boarders and families may now also take a roof whose stated occupant is a named household (`^The.+ household`, boards with in the house the present 1835 tool), and such a roof counts as already holding its own household at the cards' median family size of four. Practices, shops, schools, documented buildings and anonymous stock stay refused. A new tripwire refuses any roof seated past one person a square metre of floor. 338 roofs now hold the 3,001 seated, against 299; the busiest is a merchant or professional house, 37 people in 217 m², and no cabin holds more than ten. **What is invented** is every boarder and family placed under a named household's roof: no source puts them there, and the named household's own card is unchanged."
         }
       ],
       "work_refs": [
@@ -27696,7 +27703,8 @@
         "T-2194",
         "T-1996",
         "T-2244",
-        "T-2246"
+        "T-2246",
+        "T-3494"
       ]
     },
     {
