@@ -626,6 +626,8 @@ step "Each 1812 building's doors are where its model draws the leaf, and where o
   python3 tools/derive_doors_1812.py --check
 step "1812 people keep their day: off their dates nowhere (Lalime gone by 14 August, there in February), indoors or out by the hour, talking, at work, walking; a door offers Ask for whoever is inside, soldiers in quarters too, and the one asked for comes out to the visitor and goes back in (T-3463..T-3467)" \
   node tools/test_human_days.mjs
+step "Nobody stands in anybody else's place: a talk in a ring, people standing together talk, one alone is at a job, and every year's figures kept a body's width apart through the day (T-3504)" \
+  node tools/test_human_spacing.mjs
 step "The 1812 town's people (Kinzie, Lalime, the officers, women, children, Potawatomi and Miami) are what place_town.py writes from their day readings, every indoor span at a building with a door (T-3463..T-3467)" \
   python3 docs/RESEARCH/people-1812-town/place_town.py --check
 step "The cards of the 1812 town's people the 14 August sweep left out (Lalime, Irwin, the Mirandeaus, the camp families, the Miami escort) are what cards.py writes (T-3463..T-3467)" \

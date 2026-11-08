@@ -1201,7 +1201,7 @@ export async function createFencedGround({
   /** T-3491 (the owner: "their feet are sinked"): how far the drawn ground here stands above the heightfield: a yard's
    *  laid earth or a worn trail is draped a couple of centimetres up (LIFT_M,
    *  TRAIL_LIFT_M), and a figure stood on the heightfield sinks his soles into it. */
-  out.groundLiftAt = (e, n) => (out.treatmentAt(e, n) ? LIFT_M.base : out.trailCover(e, n) > 0 ? TRAIL_LIFT_M : 0);
+  // (made below, with the beds and walks laid higher still: T-3504)
 
   // T-2711: the five surfaces, prebuilt at publish, stand in for laying and
   // cutting them when they were built from exactly what this page read (THE
@@ -1220,6 +1220,28 @@ export async function createFencedGround({
   const bufFor = (surface) => {
     if (!buffers.has(surface)) buffers.set(surface, { pos: [], uv: [], col: [], conf: [] });
     return buffers.get(surface);
+  };
+
+  // T-3504: the beds and walks laid above the yard's base, so a figure stands on them too
+  // (groundLiftAt). Prebuilt, only the authored ones are known here (the generated are the build's).
+  const raised = [];
+  const raise = (ring, lift) => { if (ring?.length >= 3) raised.push({ pts: ring, bbox: bboxOf(ring), lift }); };
+  if (replay) {
+    for (const interior of out.interiors) {
+      const spec = TREATMENTS[interior.treatment];
+      if (spec?.beds) for (const r of interior.beds ?? []) raise(r, LIFT_M.bed);
+      if (spec?.path) for (const r of interior.walks ?? []) raise(r, LIFT_M.path);
+    }
+  }
+  out.groundLiftAt = (e, n) => {
+    let lift = out.treatmentAt(e, n) ? LIFT_M.base : 0;
+    if (lift < TRAIL_LIFT_M && out.trailCover(e, n) > 0) lift = TRAIL_LIFT_M;
+    for (const r of raised) {
+      const b = r.bbox;
+      if (r.lift <= lift || e < b.minE || e > b.maxE || n < b.minN || n > b.maxN) continue;
+      if (pointInPolygon(r.pts, e, n)) lift = r.lift;
+    }
+    return lift;
   };
 
   // Prebuilt, nothing is laid here: the file's census is the build's.
@@ -1280,6 +1302,7 @@ export async function createFencedGround({
           fringeOf: () => 1,
         });
         out.census.beds += 1;
+        raise(bed, LIFT_M.bed);
       }
     } else if (spec.beds) {
       const gate = interior.gate;
@@ -1310,6 +1333,7 @@ export async function createFencedGround({
             fringeOf: () => 1,
           });
           out.census.beds += 1;
+          raise(bed, LIFT_M.bed);
         }
       }
     }
@@ -1329,6 +1353,7 @@ export async function createFencedGround({
           tint: [1, 1, 1], alpha: [0.94, 0.94], fringeOf: () => 1,
         });
         out.census.paths += 1;
+        raise(path, LIFT_M.path);
       }
     } else if (spec.path && interior.gate) {
       const g = interior.gate;
@@ -1353,6 +1378,7 @@ export async function createFencedGround({
             tint: [1, 1, 1], alpha: [0.94, 0.94], fringeOf: () => 1,
           });
           out.census.paths += 1;
+          raise(path, LIFT_M.path);
         }
       }
     }
