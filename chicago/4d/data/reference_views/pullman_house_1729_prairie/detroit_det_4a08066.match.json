@@ -71,10 +71,10 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 26,
+        "shrubs": 29,
         "trees": 3,
         "beds": 0,
-        "creeper": 53
+        "creeper": 54
       }
     ],
     "street_trees": 36,
@@ -136,14 +136,14 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "bd022919ca052610595908f83128dfceea976790c5bf2eff63f381abaa3b89b5"
+      "sha256": "83513a6667d725328ce9e0c5ed00c0a69ab3b61e5f4dbc9dfaccf6e6122def73"
     },
     {
       "file": "renderers/web/js/street-furniture.js",
       "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "0f9cf80de89e131b366713415a90180a5192533fb3ec630542b3e7cf57d87f38",
+  "flora_sha256": "7f850622a0ef02f3220b499736b7671bc5d36796ca661cd7cfcdbdbc4b7ab958",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08066-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -230,6 +230,11 @@
     {
       "what": "the flank's east section's second-storey pair: the print shows its lights at x 362-371 (the left one, if a pair, behind the elm's trunk at 355-364), centred about x 366 over the broad ground-storey window centred at 360.5; the render's pair is centred at x 357 over its window at 357. On the flank's plane that puts the print's window at s 21.9-25.0 (centre 23.5; built 22.95, 2.8 m wide) and the pair's centre at about s 23.9-24.2 (built 22.95; Taylor's no. 1445 reads 23.35): the pair about 1 m and the window about 0.5 m east of the build's [T-1881, 2026-11-08] FIXED: the window now stands at s 23.5 (its centre 0.55 m east), on the print's reading, and the pair above it is kept centred on it at s 23.5; re-rendered through the same camera the pair's lights read at x about 361-371 against the print's 362-371 and the window's jambs at about 357-372 against 350-372, both half behind the elm and the shrubs as in the print. The pair stands between this print's s 23.9-24.2 and Taylor's no. 1445's 23.35, a gap two pictures disagree about (T-3153).",
       "status": "fixed"
+    },
+    {
+      "what": "[T-1934, 2026-11-08 (the 16555 sign-off)] re-rendered after data/front_yards/1904.json was regenerated: the court bed's three plants added, and the 18th Street flank's ivy re-laid on the rebaked house (the committed file was behind the models); against the previous render the ivy on the flank's east section shifts by 8 px at x 356-364",
+      "status": "within tolerance",
+      "how": "compared render against render at full size; nothing over the bar moved"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

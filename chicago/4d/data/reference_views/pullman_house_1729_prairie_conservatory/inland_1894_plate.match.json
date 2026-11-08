@@ -70,10 +70,10 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 26,
+        "shrubs": 29,
         "trees": 3,
         "beds": 0,
-        "creeper": 53
+        "creeper": 54
       }
     ],
     "street_trees": 31,
@@ -131,14 +131,14 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "bd022919ca052610595908f83128dfceea976790c5bf2eff63f381abaa3b89b5"
+      "sha256": "83513a6667d725328ce9e0c5ed00c0a69ab3b61e5f4dbc9dfaccf6e6122def73"
     },
     {
       "file": "renderers/web/js/street-furniture.js",
       "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "7a6ac274161ef224cda02588376808db8b46c846a389cb3033a8b3b2920ac6f2",
+  "flora_sha256": "37d1c3e02fcb69f91f80c3a5870b87c84d330e1410caef137c940e6c3e9f85bb",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -323,6 +323,11 @@
     {
       "what": "[T-1881, 2026-11-07] the 58.8 m tree on 18th Street's north parkway (the plate's living tree) now stands on a straight leader under a narrow head (high_head, scale 0.65), where the build drew the grown elm's low fork, a V about 3 m up: the plate draws a straight leader with its head from about half its height. Its bole draws about 0.3 m across against the plate's stouter trunk (Taylor's 16554 prints it about 0.5 m), within tolerance. Re-read on this render, which also carries the house's rear-step stack as #1828 moved it: no new difference.",
       "status": "fixed"
+    },
+    {
+      "what": "the dark evergreen behind the fifth pier, in front of the stable corner bay's third arch, with low flowers at its foot (plate x 1690-1740 px, its top at y 845 px)",
+      "status": "fixed",
+      "how": "T-1934, 2026-11-08 (the 16555 sign-off): planted where this plate's pixel column crosses Taylor 16555's (e 1476.02, n -3189.67, stood 0.38 m east off the stable drive), 1.95 m, between this plate's 2.11 m and 16555's 1.82 m; it renders between the piers where the plate shows it, its top about level with the pier's cap as in the plate. A first placing from 16555's ground cast alone (n -3186.9) stood over the wall before the bay's second arch, where this plate shows none, and was withdrawn."
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
