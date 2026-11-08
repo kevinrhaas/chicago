@@ -887,6 +887,13 @@ def _ring_toward(ring, target, out_m=0.0):
     return [cx + ux * (best + out_m), cy + uy * (best + out_m)]
 
 
+def _dry_between(a, b, step=1.0):
+    """True when the straight line a-b crosses no open water."""
+    n = max(2, int(math.dist(a, b) / step))
+    return all(height(a[0] + (b[0] - a[0]) * i / n, a[1] + (b[1] - a[1]) * i / n) >= WATER_Y
+               for i in range(n + 1))
+
+
 def _nearest_dry_bank(p, reach):
     """The dry point CAMP_BANK_M up from the open water nearest `p`, within `reach`, or None."""
     step = 2.5
@@ -975,7 +982,10 @@ def camp_paths(existing):
     landings, water_lines = [], []
     for _d, sid, bank in sorted(wanted):
         ring = rings[sid]
-        shared = next((q for q in landings if math.dist(q, bank) < CAMP_LANDING_M), None)
+        # shared only on this side of the water: a landing across the slough (T-3517) is
+        # another group's, and walking round the slough's head to it is no path to water
+        shared = next((q for q in landings if math.dist(q, bank) < CAMP_LANDING_M
+                       and _dry_between(q, bank)), None)
         bank = shared or bank
         start = _ring_toward(ring, bank, -1.0)
         if math.dist(start, bank) < 6.0 or math.dist(start, bank) > CAMP_WATER_M:
