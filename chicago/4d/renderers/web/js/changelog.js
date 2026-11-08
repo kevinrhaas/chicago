@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2805, ts: '2026-11-08T00:12:49.887Z', date: 'Nov 7, 2026, 6:12 PM CT', title: 'Every 1835 dooryard garden is its own, and planted', kind: 'improvement',
+    items: [
+      'The town\'s 97 house gardens differ in size, place, beds and fence, sized to the house and its household.',
+      'Layouts by household: a family\'s walk and beds, a larger house\'s quarters, a labourer\'s truck patch, a new house\'s first sod.',
+      'Fences vary: flat and pointed pickets, light open pales, close pales; about two in three hang a gate.',
+      'The beds are planted for early July: corn in blade, beans climbing, vines running, currants ripe.',
+      'The gardens follow Settings > Season like 1812\'s.',
+    ] },
   { v: 2804, ts: '2026-11-07T23:59:33.325Z', date: 'Nov 7, 2026, 5:59 PM CT', title: 'The Fort Dearborn garrison gets on with its afternoon', kind: 'feature',
     items: [
       'Soldiers on the 1812 parade stand in small groups and talk: one speaks with his hand moving while the others look at him and nod.',
