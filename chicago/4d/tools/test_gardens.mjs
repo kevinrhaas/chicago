@@ -38,7 +38,11 @@ const { growTemplate, KINDS, SEASON_CROPS, seasonLook } = await import('../rende
 
 // Measured 2026-11-06: 64k at far, ~2.3 MB of templates. The ceilings leave room to grow
 // a crop's detail, not to double the garden.
-const FAR_TRIS = 90_000;
+// T-3477, 2026-11-07: the bank's other gardens (Kinzie's, the sutler's, Coursoll's field, the
+// factory's and the agency's, Ouilmette's and La Lime's) all stand within the far ring of the
+// officer's: 192k at far with every one of them in view, the officer's own 73k of it. A phone
+// draws its far ring to 280 m, not 450, and its frame holds only part of the bank.
+const FAR_TRIS = 200_000;
 const TEMPLATE_BYTES = 3_500_000;
 
 const doc = JSON.parse(fs.readFileSync(new URL('../data/gardens/1812.json', import.meta.url), 'utf8'));
@@ -78,9 +82,29 @@ for (const k of Object.keys(KINDS)) {
     `${k}: a farther level costs more (near ${tris[k].near}, mid ${tris[k].mid}, far ${tris[k].far})`);
 }
 
-let far = 0;
-for (const g of doc.gardens) for (const [k, list] of Object.entries(g.plants)) far += tris[k].far * list.length;
-ok(far <= FAR_TRIS, `the garden at its far level is ${far} triangles, over ${FAR_TRIS}`);
+// T-3477: 1812 plants a dozen gardens a kilometre and more apart (the fort's bank, the forks, Lee's
+// Place four kilometres off), so the ceiling holds what a phone sees at once: every garden within
+// the far ring (450 m, the widest level's) of any one garden, at its far level.
+const centre = (g) => {
+  const [W, D] = g.size_m, [oe, on] = g.frame.origin, [ue, un] = g.frame.u, [ve, vn] = g.frame.v;
+  return [oe + ue * W / 2 + ve * D / 2, on + un * W / 2 + vn * D / 2];
+};
+const REACH_M = 450;
+const inReach = (costOf) => {
+  let worst = 0, where = '';
+  for (const g of doc.gardens) {
+    const [ce, cn] = centre(g);
+    let sum = 0;
+    for (const h of doc.gardens) {
+      const [he, hn] = centre(h);
+      if (Math.hypot(he - ce, hn - cn) <= REACH_M) sum += costOf(h);
+    }
+    if (sum > worst) { worst = sum; where = g.id; }
+  }
+  return [worst, where];
+};
+const [far, farAt] = inReach((g) => Object.entries(g.plants).reduce((a, [k, list]) => a + tris[k].far * list.length, 0));
+ok(far <= FAR_TRIS, `the gardens in reach of ${farAt} at their far level are ${far} triangles, over ${FAR_TRIS}`);
 ok(bytes <= TEMPLATE_BYTES, `the garden's templates hold ${bytes} bytes, over ${TEMPLATE_BYTES}`);
 
 /* ---- T-3460: the seasons ---- */
@@ -135,10 +159,9 @@ for (const season of Object.keys(SEASON_CROPS)) {
     ok(st[k].near.tris >= st[k].mid.tris && st[k].mid.tris >= st[k].far.tris, `${season}: ${k}: a farther level costs more`);
     if (season === 'winter') ok(!st[k].near.leaves, `winter: ${k} still carries leaves`);
   }
-  let f = 0;
-  for (const g of doc.gardens) for (const [k, list] of Object.entries(g.plants)) if (st[k]) f += st[k].far.tris * list.length;
+  const [f, fAt] = inReach((g) => Object.entries(g.plants).reduce((a, [k, list]) => a + (st[k] ? st[k].far.tris * list.length : 0), 0));
   seasonFar[season] = f;
-  ok(f <= FAR_TRIS, `${season}: the garden at its far level is ${f} triangles, over ${FAR_TRIS}`);
+  ok(f <= FAR_TRIS, `${season}: the gardens in reach of ${fAt} at their far level are ${f} triangles, over ${FAR_TRIS}`);
   ok(sBytes <= TEMPLATE_BYTES, `${season}: the garden's templates hold ${sBytes} bytes, over ${TEMPLATE_BYTES}`);
 }
 
