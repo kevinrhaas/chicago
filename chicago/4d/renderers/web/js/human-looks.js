@@ -77,6 +77,46 @@ export function dressLooks(root, looks) {
   return [...made.values()].filter(Boolean);
 }
 
+/**
+ * T-3506: a person's own dress, on the same dressed body as everyone of their kind. The owner,
+ * 2026-11-08, of the 1812 camps: "all the people look identical like all wearing the same
+ * clothing and identical hair". `dress` (data/humans/variation/dress_1812_native.json, by way
+ * of the persons file) names, by the body's own material names, the colour of each piece of
+ * cloth (linear RGB: the dressed bodies are flat colours, so a clone with its colour set is the
+ * whole change), and by the body's own mesh names the pieces not worn today (a blanket set
+ * aside in the heat, silver left in the lodge). Clones share the program of the material they
+ * were made from: no texture, no program. Returns the clones, to dispose with the level.
+ */
+export function dressCloth(root, dress) {
+  const colours = dress?.colours ?? null, hide = dress?.hide ?? [];
+  if (!root || (!colours && !hide.length)) return [];
+  const made = new Map();
+  const remake = (m) => {
+    if (made.has(m)) return made.get(m);
+    const rgb = colours?.[m?.name ?? ''];
+    let next = null;
+    if (rgb) {
+      next = m.clone();
+      next.color.setRGB(...rgb, THREE.LinearSRGBColorSpace);
+      // A body built with a flat picture under its colour (a one-colour cloth) is drawn by the
+      // colour alone, as the others are.
+      if (next.map) { next.map = null; next.needsUpdate = true; }
+    }
+    made.set(m, next);
+    return next;
+  };
+  // A piece's mesh is named `<asset>_<piece>_lod<n>` (or the piece alone).
+  const hidden = hide.length ? new RegExp(`(^|_)(${hide.map((h) => h.replace(/[^a-z0-9_]/gi, '')).join('|')})(_lod\\d+)?$`) : null;
+  root.traverse((o) => {
+    if (!o.isMesh) return;
+    if (hidden && hidden.test(o.name)) { o.visible = false; return; }
+    if (!colours) return;
+    if (Array.isArray(o.material)) o.material = o.material.map((m) => remake(m) ?? m);
+    else { const n = remake(o.material); if (n) o.material = n; }
+  });
+  return [...made.values()].filter(Boolean);
+}
+
 export function disposeLooks(materials) {
   for (const m of materials ?? []) m.dispose();
 }

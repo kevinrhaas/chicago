@@ -106,6 +106,21 @@
           "claim": "1810: kept the Potawatomi out of the confederacy at St Joseph council",
           "tier": "secondary history (1884-1913), cite as compiler's statement [OCR normalised]"
         }
+      ],
+      "on_15_august": {
+        "value": "With Waubansee, said to have tried to save the wounded Wells",
+        "grade": "inferred",
+        "note": "Wau-Bun (hearsay); Kirkland doubts it.",
+        "sources": [
+          "kinzie_waubun_1856"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "On 15 August",
+          "value": "With Waubansee, said to have tried to save the wounded Wells",
+          "grade": "inferred"
+        }
       ]
     }
   ]

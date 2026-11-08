@@ -2605,3 +2605,20 @@ humans/web/portraits/ref_1812_81_16.jpg
 humans/web/portraits/ref_1812_94_23_3.jpg
 humans/web/portraits/ref_1812_97_39.jpg
 ```
+
+### Two named men's own portraits — `humans/web/portraits/*_kirkland_1893.jpg` (T-3508)
+
+Two wood engravings from Joseph Kirkland, *The Chicago Massacre of 1812* (Chicago: Dibble, 1893),
+as Project Gutenberg eBook #59624 reproduces them (`images/page139.png`, `images/page101.png`):
+published 1893 in the United States, **public domain**. Each is set on white and scaled into
+360x480; nothing else is changed. They are the men's own likenesses, late in life, and are shown
+on their cards as such (`data/residents_1812/households/hh_shabbona_1812.json`,
+`hh_robinson_alexander_1812.json`; liberty L-1812-native-cards-3507).
+
+- `shabbona_kirkland_1893.jpg`: "Shaubena in old age. (About 1856.)", Kirkland p. 139.
+- `robinson_kirkland_1893.jpg`: "Alexander Robinson (in old age). Chief of the Pottowatomies, Chippewas, and others.", Kirkland p. 101.
+
+```text
+humans/web/portraits/robinson_kirkland_1893.jpg
+humans/web/portraits/shabbona_kirkland_1893.jpg
+```

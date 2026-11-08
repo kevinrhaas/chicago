@@ -1,0 +1,125 @@
+{
+ "id": "hh_robinson_alexander_1812",
+ "scene": "1812",
+ "name": "Alexander Robinson, trader of St. Joseph, perhaps at Chicago in August 1812",
+ "head": "robinson_alexander",
+ "division": "camp",
+ "review_required": true,
+ "touches_removal": true,
+ "review_note": "review_required: a named Native man of the Chicago country in August 1812, the eve of the attack on the garrison and its families. touches_removal: his people were removed from Illinois after 1833. The card states what its sources say, with their tier, and stages no speech, ceremony or act of war.",
+ "present_on_scene_date": {
+  "value": "uncertain",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1",
+   "quaife_1913",
+   "kinzie_waubun_1856",
+   "kirkland_1893_chicago_massacre"
+  ],
+  "note": "His card says how his presence is known."
+ },
+ "associated_with": [
+  {
+   "kind": "home",
+   "place_or_structure_id": "potawatomi_camp_1812_mouth",
+   "resolves_to": "structure",
+   "from": null,
+   "to": null,
+   "tier": "reconstructed",
+   "source_id": "andreas_1884_v1",
+   "also_sources": [],
+   "note": "Not his home: a St. Joseph trader, put with Topenebe's St. Joseph people at the camp by the river mouth, if he was here at all. His card is found there."
+  }
+ ],
+ "not_in_this_household": {
+  "note": "Not drawn in the scene: he was not, or may not have been, at Chicago on the 14th.",
+  "sources": [
+   "andreas_1884_v1"
+  ]
+ },
+ "persons": [
+  {
+   "id": "robinson_alexander",
+   "name": "Alexander Robinson (Che-che-pin-qua)",
+   "relationship": "head",
+   "grade": "attested",
+   "sources": [
+    "andreas_1884_v1",
+    "quaife_1913",
+    "kinzie_waubun_1856",
+    "kirkland_1893_chicago_massacre"
+   ],
+   "sex": "male",
+   "present_on_scene_date": {
+    "value": "uncertain",
+    "confidence": "inferred",
+    "note": "The sources disagree whether he was here on the 14th."
+   },
+   "also_written": [
+    "Che-che-pin-qua (Andreas)",
+    "Chechepinquay"
+   ],
+   "note": "A trader from St. Joseph, born at Mackinac to an Odawa mother and a Scottish father, by popular belief in 1762. Whether he was at Chicago in August 1812 the sources do not agree: Andreas has him arrive too late to stop the killing yet a witness to it; Quaife names him among the chiefs; Wau-Bun puts him only at St. Joseph afterwards, where he sheltered the Kinzies, and with his wife he paddled the Healds to Mackinac. He was later a chief of the united Potawatomi, Chippewa and Ottawa and signed the 1833 treaty, kept a reservation on the Des Plaines, and died there on 22 April 1872.",
+   "review_required": true,
+   "touches_removal": true,
+   "review_note": "review_required: a named Native man of the Chicago country in August 1812, the eve of the attack on the garrison and its families. touches_removal: his people were removed from Illinois after 1833. The card states what its sources say, with their tier, and stages no speech, ceremony or act of war.",
+   "reconstruction": {
+    "stage": "named_after_the_14th",
+    "ticket": "T-3508",
+    "liberty": "L-1812-native-cards-3507"
+   },
+   "evidence": [
+    {
+     "source_id": "andreas_1884_v1",
+     "locator": "p. 108",
+     "quote": "arrived on the scene too late to do anything to prevent the massacre, of which he was a witness",
+     "claim": "his presence, as Andreas has it"
+    },
+    {
+     "source_id": "kirkland_1893_chicago_massacre",
+     "locator": "the plate \"Alexander Robinson (in old age)\"",
+     "quote": "ALEXANDER ROBINSON (in old age).",
+     "claim": "his portrait"
+    }
+   ],
+   "card_facts": [
+    {
+     "label": "People",
+     "value": "Odawa mother, Scottish father; later a chief of the united bands",
+     "grade": "attested"
+    },
+    {
+     "label": "Born",
+     "value": "About 1762 (popular belief)",
+     "grade": "inferred"
+    },
+    {
+     "label": "On 14 August",
+     "value": "Uncertain: the sources disagree",
+     "grade": "inferred"
+    },
+    {
+     "label": "On 15 August",
+     "value": "Not in the fighting; afterwards sheltered the Kinzies and carried the Healds away",
+     "grade": "inferred"
+    }
+   ],
+   "on_15_august": {
+    "value": "Not in the fighting; afterwards sheltered the Kinzies and carried the Healds away",
+    "grade": "inferred",
+    "note": "Wau-Bun and Andreas; whether he was a witness is disputed.",
+    "sources": [
+     "kinzie_waubun_1856",
+     "andreas_1884_v1"
+    ]
+   },
+   "portrait": {
+    "image": "humans/web/portraits/robinson_kirkland_1893.jpg",
+    "caption": "Alexander Robinson (in old age), chief of the Pottowatomies, Chippewas, and others: Kirkland 1893",
+    "source_id": "kirkland_1893_chicago_massacre",
+    "grade": "attested",
+    "why": "His own likeness, late in life (he died in 1872): his face, not his dress of 1812."
+   }
+  }
+ ]
+}
