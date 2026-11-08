@@ -42243,9 +42243,9 @@ Kevin 2026-11-08: "the hand and arm swing still could be more natural"): mostly 
 degrees back to 6 forward of the vertical, the elbow 12-43 degrees and following the shoulder late, scaled by
 sex and speed from the measured range (half in a full skirt); the hand hangs loose and trails at the wrist,
 fingers loosely curled once (Kevin 2026-11-08, of the clawed hands: "the fingers still seem kind of janky":
-the hanging hand's curl and the walk's had added up), bent about as much at the knuckle as at the middle
-joint, a little more toward the little finger, turned in together and drawn a little fuller across so they
-lie against each other, the thumb laid beside the first finger short of turning its root all the way;
+the hanging hand's curl and the walk's had added up; then "missing the knuckle"), bent about as much at the
+knuckle as at the middle joint, a little more toward the little finger, side by side, each knuckle standing up
+a little as its finger bends, the thumb laid beside the first finger short of turning its root all the way;
 and each person draws their own range, carriage, elbow and a slightly stronger arm; the life layer
 (human-life.js) turns the chest back against the pelvis, leans the trunk forward 2-4 degrees with speed and
 keeps the head steady in the world.
@@ -42263,7 +42263,7 @@ per-person seeded variation of pace (±3 %) and stride, the start and closing st
 within the published ranges; the arm swing's scaling with speed and age (the decline with age is reported,
 Mirelman 2015, not tabled), each person's arm variation (range ±15 %, carriage ±3 degrees, elbow ±4 degrees,
 one arm up to 8 % stronger), the wrist's trailing and the hand's curl, its share among the joints, the
-cascade, the fingers' turn toward each other and their 12 % fuller width, and the thumb's lie.
+cascade, the knuckles' lift and the thumb's lie.
 **How to resolve:** motion capture of walkers in reproduction period dress, or measurement of walking from
 period street films (Lumière and Edison/AM&B street scenes of 1896-1906), reviewed in the town.
 **Ticket:** T-3472, T-3496.

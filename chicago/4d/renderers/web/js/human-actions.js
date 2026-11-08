@@ -49,14 +49,12 @@ const CASCADE = Object.freeze({ index: 0.93, middle: 1, ring: 1.04, pinky: 1.08 
 // A loose hand bends about as much at the knuckle as at the middle joint, and the last joint
 // half that; a hand bent mostly past the knuckle is a claw.
 const FLEX = Object.freeze([['01', 1], ['02', 0.9], ['03', 0.45]]);
-// How far each finger turns toward the index (degrees, + toward it) as the hand closes to 0.4.
-const CONVERGE = Object.freeze({ index: -9, middle: 0, ring: 5, pinky: 11 });
-// How much fuller across the fingers are drawn (see shapeHand).
-const FINGER_FILL = 1.12;
+// How far a knuckle stands up for each 30 degrees its finger bends (metres; see shapeHand).
+const KNUCKLE = 0.0025;
 // The relaxed thumb's three bones, each as (along the hand, toward the palm, toward the index).
 // Its root bone goes only THUMB_ROOT of the way: turned all the way in from the model's flat
 // hand, the web at the root of the thumb folds through itself and tears.
-const THUMB_ROOT = 0.72;
+const THUMB_ROOT = 0.55;
 const THUMB = Object.freeze([['01', [0.8, 0.45, 0.4]], ['02', [0.92, 0.32, -0.12]], ['03', [0.85, 0.42, -0.15]]]);
 const ARM = (s) => [`upperarm_${s}`, `lowerarm_${s}`, `hand_${s}`,
   ...FINGERS.flatMap((f) => ['01', '02', '03'].map((k) => `${f}_${k}_${s}`)), `thumb_01_${s}`, `thumb_02_${s}`, `thumb_03_${s}`];
@@ -100,7 +98,7 @@ export const ARM_SWING = Object.freeze({
   upper: Object.freeze([-19.4, -19.4, -18.0, -15.7, -12.8, -9.0, -5.0, -1.3, 1.9, 4.4, 5.8, 5.5, 3.4, 0.4, -2.1, -4.7, -8.1, -11.7, -15.0, -17.6, -19.0]),
   elbow: Object.freeze([22.6, 21.3, 20.4, 21.3, 23.9, 27.4, 32.4, 38.1, 43.8, 48.4, 51.0, 51.5, 49.8, 45.6, 39.6, 33.8, 29.9, 27.5, 25.9, 24.6, 23.2]),
   rom: Object.freeze({ female: [31.2, 1.49], male: [22.4, 1.40], all: [26.9, 1.44] }),
-  elbowOffset_deg: 8, older: 0.3, wristLag: 0.06, wrist_deg: 6, curl: 0.4, palmBack: 0.35,
+  elbowOffset_deg: 8, older: 0.3, wristLag: 0.06, wrist_deg: 6, curl: 0.3, palmBack: 0.35,
   // Two people never swing alike (reconstructed): each draws how far (`range`), how far back
   // the arm hangs (`mean_deg`), how bent the elbow (`elbow_deg`), and one arm a little more than the other (`side`).
   person: Object.freeze({ range: [0.85, 1.15], mean_deg: [-3, 3], elbow_deg: [-4, 4], side: [0.92, 1.08] }),
@@ -181,6 +179,8 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
         index.addScaledVector(along, -index.dot(along)).addScaledVector(palm, -index.dot(palm)).normalize();
       }
       local[`hand_${s}`] = { along, palm, index };
+      // Where each finger's knuckle bone sits on the hand, to lift it from (shapeHand).
+      for (const f of FINGERS) if (found[`${f}_01_${s}`]) local[`${f}_01_${s}`] = { rest: found[`${f}_01_${s}`].position.clone() };
       // The thumb's bones, each along to its child; the last, which has none, along its own
       // offset from its parent (the line of the bone before it).
       for (const [n, c] of [[`thumb_01_${s}`, `thumb_02_${s}`], [`thumb_02_${s}`, `thumb_03_${s}`]]) {
@@ -197,13 +197,6 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
         const toF1 = found[`index_01_${s}`].quaternion.clone().invert();
         local[`curl_${s}`] = t1.sub(t0).dot(palm.clone().applyQuaternion(toF1)) >= 0 ? 1 : -1;
       } else local[`curl_${s}`] = 1;
-      // Which way about each finger's local Z (square to the palm) turns it toward the index.
-      const f1 = found[`index_01_${s}`];
-      if (f1 && f2 && f2.position.lengthSq() > 1e-12) {
-        const c0 = f2.position.clone().applyQuaternion(f1.quaternion);
-        const c1 = f2.position.clone().applyQuaternion(f1.quaternion.clone().multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 0, 1), 0.3)));
-        local[`spread_${s}`] = c1.sub(c0).dot(index) >= 0 ? 1 : -1;
-      } else local[`spread_${s}`] = 0;
     }
     L.handLen = found.middle_03_r ? at('middle_03_r').distanceTo(at('hand_r')) + 0.025 : 0.17;
     const hipL = at('thigh_l'), hipR = at('thigh_r');
@@ -297,12 +290,9 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
   /** Lay side `s`'s asked curl and thumb on its fingers, once, at the end of the frame. */
   function shapeHand(s) {
     const k = handAsk[s].curl;
-    // As a hand closes its fingers come together, toward the middle one (they point to the
-    // root of the thumb): the bind pose holds them side by side, which curled reads as a fan.
-    if (k > 1e-4 && local[`spread_${s}`]) for (const f of FINGERS) {
-      const b = bones[`${f}_01_${s}`];
-      if (b && CONVERGE[f]) b.quaternion.multiply(qa.setFromAxisAngle(new THREE.Vector3(0, 0, 1), local[`spread_${s}`] * CONVERGE[f] * Math.min(1, k / 0.4) * DEG));
-    }
+    // The fingers bend straight down from their knuckles, side by side as the model holds
+    // them: turned in toward each other or drawn fuller (tried, T-3496), the little finger
+    // and the index kinked at the root, the skin there pinched.
     if (Math.abs(k) > 1e-4) for (const f of FINGERS) for (const [seg, amt0] of FLEX) {
       const b = bones[`${f}_${seg}_${s}`];
       if (!b) continue;
@@ -312,10 +302,16 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
       // bends them about the figure's right, which is the same axis in a hanging hand).
       b.quaternion.multiply(qa.setFromAxisAngle(new THREE.Vector3(1, 0, 0), local[`curl_${s}`] * k * amt * 60 * DEG));
     }
-    // The model's hand is a flat one with gaps between the fingers; a little fuller across,
-    // they lie against each other as a loose hand's do. Set outright each frame (no other
-    // layer scales a finger), about the finger's own axis, so it moves no joint.
-    for (const f of FINGERS) bones[`${f}_01_${s}`]?.scale.set(FINGER_FILL, 1, 1.04);
+    // The knuckle. Skinned on a hinge, the back of the hand folds in where a finger bends
+    // from it, and the knuckle is lost: a real one stands up as the finger bends (the head of
+    // the hand bone comes out from under the skin). Lifting the finger's root toward the back
+    // of the hand as it bends puts the knuckle back.
+    for (const f of FINGERS) {
+      const b = bones[`${f}_01_${s}`], rest = local[`${f}_01_${s}`]?.rest;
+      if (!b || !rest) continue;
+      const bend = Math.max(0, k) * FLEX[0][1] * CASCADE[f] * 60;   // degrees at the knuckle
+      b.position.copy(rest).addScaledVector(local[`hand_${s}`].palm, -KNUCKLE * bend / 30);
+    }
     layThumb(s, handAsk[s].thumb);
     handAsk[s].curl = 0; handAsk[s].thumb = 0;
   }
@@ -447,7 +443,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
         // fingers loosely curled (the clip holds them open and turned out).
         bones[`lowerarm_${s}`].updateMatrixWorld(true);
         orientHand(s, toWorldDir(new THREE.Vector3(0, -1, walking ? 0.25 : 0.12)), toWorldDir(new THREE.Vector3(-sx, 0, -0.25)), 0.8);
-        curl(s, 0.32);
+        curl(s, 0.26);
         thumbIn(s, 0.8);
       }
 

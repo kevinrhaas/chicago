@@ -351,8 +351,8 @@ const excursion = (rows, s) => { const v = rows.map(x => x[s].flex); return Math
 }
 {
   // T-3496: a walking hand is curled once, loosely (the hanging hand's curl and the walk's
-  // used to add up to 0.74 of a fist, a claw), its fingers drawn together, and the thumb
-  // laid beside the index rather than stuck out from the hand.
+  // used to add up to 0.74 of a fist, a claw), its fingers side by side, its knuckles up,
+  // and the thumb laid beside the index rather than stuck out from the hand.
   const { r } = await gaitWalk('bardwell_otis_1835');
   for (const s of ['l', 'r']) {
     const P = n => world(r.bone(`${n}_${s}`));
@@ -360,8 +360,9 @@ const excursion = (rows, s) => { const v = rows.map(x => x[s].flex); return Math
     const bend = f => along.angleTo(P(`${f}_03`).sub(P(`${f}_02`))) * 180 / Math.PI;
     const ix = bend('index'), px = bend('pinky');
     assert(ix > 25 && ix < 55 && px > ix && px < 65, `gait: the ${s} fingers loosely curled, the little one more (index ${ix.toFixed(0)}, little ${px.toFixed(0)} deg)`);
+    // Side by side, not fanned or kinked in at the root (that pinched the skin at the knuckle).
     const base = P('index_01').distanceTo(P('pinky_01')), tips = P('index_03').distanceTo(P('pinky_03'));
-    assert(tips < base - 0.005, `gait: the ${s} fingers come together (${(base * 100).toFixed(1)} cm at the knuckles, ${(tips * 100).toFixed(1)} at the last joints)`);
+    assert(Math.abs(tips - base) < 0.008, `gait: the ${s} fingers bend side by side (${(base * 100).toFixed(1)} cm at the knuckles, ${(tips * 100).toFixed(1)} at the last joints)`);
     const thumb = P('thumb_03').distanceTo(P('index_02'));
     assert(thumb < 0.05, `gait: the ${s} thumb lies beside the index (${(thumb * 100).toFixed(1)} cm from its middle joint)`);
     console.log(`gait: ${s} hand curled ${ix.toFixed(0)}..${px.toFixed(0)} deg, fingers ${(base * 100).toFixed(1)} → ${(tips * 100).toFixed(1)} cm, thumb ${(thumb * 100).toFixed(1)} cm from the index: PASS`);
