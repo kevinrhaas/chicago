@@ -2422,4 +2422,28 @@ rendered by `tools/portrait_still.mjs` as above, and is **CC0-1.0**.
 humans/web/portraits/pa1904_glessner_john_j_c1900_august_billings_model.jpg
 humans/web/portraits/pa1904_glessner_john_j_c1900_august_billings_model.json
 humans/web/portraits/pa1904_glessner_john_j_c1900_august_billings_portrait.jpg
+### Stand-in portraits for the 1812 garrison's looks — `humans/web/portraits/ref_1812_*.jpg` (T-3491)
+
+Seven period portraits of American men of about 1810-1825 from The Metropolitan Museum of Art,
+each marked "Public Domain" under the Met's Open Access policy (isPublicDomain true in the Met
+Collection API): **public domain**. Each is scaled to 360x480 from the Met's image. They are shown
+on a soldier's card as a stand-in for how a man of his sort looked, never as his likeness
+(`data/humans/variation/looks/`, liberty L-1812-garrison-looks-3491).
+
+- `ref_1812_97_39.jpg`: Gilbert Stuart, *Henry Rice*, ca. 1815, accession 97.39 (https://www.metmuseum.org/art/collection/search/12666).
+- `ref_1812_81_16.jpg`: John Wesley Jarvis, *Alexander Anderson*, 1815, accession 81.16 (https://www.metmuseum.org/art/collection/search/11240).
+- `ref_1812_1993_283.jpg`: Joseph Wood, *Self-portrait*, ca. 1810, accession 1993.283 (https://www.metmuseum.org/art/collection/search/15307).
+- `ref_1812_33_73.jpg`: John Wesley Jarvis, *Mr. Cook*, 1810, accession 33.73 (https://www.metmuseum.org/art/collection/search/11244).
+- `ref_1812_22_217_1.jpg`: Samuel Lovett Waldo, *Self-portrait*, ca. 1815, accession 22.217.1 (https://www.metmuseum.org/art/collection/search/13105).
+- `ref_1812_94_23_3.jpg`: Thomas Sully, *Portrait of the Artist*, 1821, accession 94.23.3 (https://www.metmuseum.org/art/collection/search/12701).
+- `ref_1812_36_114.jpg`: Samuel Lovett Waldo, *Henry La Tourette de Groot*, 1825-30, accession 36.114 (https://www.metmuseum.org/art/collection/search/13094).
+
+```text
+humans/web/portraits/ref_1812_1993_283.jpg
+humans/web/portraits/ref_1812_22_217_1.jpg
+humans/web/portraits/ref_1812_33_73.jpg
+humans/web/portraits/ref_1812_36_114.jpg
+humans/web/portraits/ref_1812_81_16.jpg
+humans/web/portraits/ref_1812_94_23_3.jpg
+humans/web/portraits/ref_1812_97_39.jpg
 ```

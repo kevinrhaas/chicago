@@ -53,6 +53,12 @@ export const HAIR_CUTS = Object.freeze({
     bald: Object.freeze({ side_cm: 3.6, back_cm: 3.9, front_z_cm: -2.8 }), card_mm: 2.6,
     lift_mm: Object.freeze({ root: .5, tip: 1.4 }), density: 3.2, curl: .06, hang: false,
   }),
+  // A soldier's crop of 1812 (T-3491, a reconstructed choice): short all round, a little
+  // longer on top and brushed forward to the brow, close over the ears and at the nape.
+  cropped_1812: Object.freeze({
+    flow: 'forward', part_cm: 0, lengths_cm: Object.freeze({ top: 3.2, side: 1.3, back: 1.5 }),
+    lift_mm: Object.freeze({ root: 1, tip: 2.6 }), density: 1.3, curl: .1, hang: false,
+  }),
   // Of the 1830s: fuller all round, brushed forward from the crown toward the brow and
   // temples, over the tops of the ears.
   brushed_forward_1835: Object.freeze({
@@ -101,6 +107,11 @@ export const FACIAL_HAIR = Object.freeze({
   lashes_upper: Object.freeze({
     lid: 'upper', per_cm: 70, length_cm: .55, width_mm: .3, rise: 1, splay: .35,
   }),
+  // Short side whiskers of the 1810s (T-3491): from the temple to about the ear's lobe, cut close.
+  side_whiskers_short: Object.freeze({
+    region_cm: Object.freeze({ x: [5.9, 8.4], y: [-2.6, 1.2], z_min: -7.4, z_max: -3.9 }), facing: 'side',
+    length_cm: .55, fall: 1, outward: 0, lift_mm: Object.freeze({ root: .4, tip: 1 }), width_mm: 2.4, cover: 7,
+  }),
   // Side whiskers: down from the temple in front of the ear to about the line of the mouth.
   side_whiskers: Object.freeze({
     region_cm: Object.freeze({ x: [5.8, 8.6], y: [-5.2, 1.2], z_min: -7.6, z_max: -3.6 }), facing: 'side',
@@ -114,7 +125,14 @@ export const HAIR_COLOURS = Object.freeze({
   mid_brown: Object.freeze([.062, .036, .020]),
   // A light brown (T-3493): brows a shade lighter than a cleared bun hair's own texture, as
   // light brows read in a photograph of a fair-haired woman (Frances Glessner's, 1892).
+  // The 1812 registers' "light" hair (T-3491) takes it too.
   light_brown: Object.freeze([.22, .145, .095]),
+  // The registers' other words for hair (T-3491), each a linear colour: black, fair, sandy
+  // (a reddish fair) and red.
+  black: Object.freeze([.012, .010, .009]),
+  fair: Object.freeze([.30, .21, .11]),
+  sandy: Object.freeze([.25, .13, .06]),
+  red: Object.freeze([.20, .065, .025]),
   // White going grey (T-3440): an old man's hair, a little warm, not paper white.
   white_grey: Object.freeze([.44, .41, .36]),
   // Brown going grey at 56 (T-3483, Charles Nelson): mid brown with grey through it.

@@ -1,0 +1,51 @@
+{
+ "format": "chicago4d_human_looks_v1",
+ "ticket": "T-3491",
+ "person_id": "burnett_george",
+ "scene": "1812",
+ "generated_by": "docs/RESEARCH/people-1812-3491/looks.py",
+ "heritage": {
+  "origin": "English / Scottish",
+  "family": "gaelic",
+  "source_title": "Dictionary of American Family Names (Elsdon C. Smith 1956); Surnames of the United Kingdom (Harrison 1912) — as quoted on forebears.io",
+  "url": "https://forebears.io/surnames/burnett"
+ },
+ "complexion": {
+  "value": "ruddy",
+  "drawn": "ruddy",
+  "grade": "reconstructed"
+ },
+ "hair": {
+  "value": "dark",
+  "drawn": "dark_brown",
+  "cut": "cropped_1812",
+  "facial": [
+   "side_whiskers_short"
+  ],
+  "grade": "reconstructed"
+ },
+ "eyes": {
+  "value": "grey",
+  "drawn": "grey",
+  "grade": "reconstructed"
+ },
+ "stature": {
+  "inches": 70.1,
+  "grade": "reconstructed",
+  "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+ },
+ "height_scale": 1.0174,
+ "basis": "His complexion (ruddy), hair (dark) and eyes (grey) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Scottish, Ulster or Irish name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+ "reference": {
+  "title": "Self-portrait",
+  "artist": "Samuel Lovett Waldo (1783-1861)",
+  "date": "ca. 1815",
+  "page_url": "https://www.metmuseum.org/art/collection/search/13105",
+  "image": "humans/web/portraits/ref_1812_22_217_1.jpg",
+  "licence": "The Met Open Access, public domain",
+  "why": "A stand-in: a period face of like colouring (dark brown, unkempt, side-whiskers; fair-to-ruddy, weathered), not his likeness."
+ },
+ "grade": "reconstructed",
+ "liberty": "L-1812-garrison-looks-3491",
+ "replaceable_by": "His entry in the Register of Enlistments (NARA M233), which gives his height, complexion, eyes and hair."
+}

@@ -2,7 +2,7 @@
  "format": "chicago4d_human_variation_persons_v1",
  "ticket": "T-3412",
  "generated_by": "tools/human_variation_kit.py",
- "_doc": "Each drawn person's age (from their own record: a birth date, else an age band) and any face fitted to a picture of them. renderers/web/js/human-variation.js seeds everything else from the person id. Regenerate; never edit by hand.",
+ "_doc": "Each drawn person's age (from their own record: a birth date, else an age band), any face fitted to a picture of them, and any looks (complexion, hair, eyes, stature; T-3491). renderers/web/js/human-variation.js seeds everything else from the person id. Regenerate; never edit by hand.",
  "persons": {
   "adams_george": {
    "scene": "1812",
@@ -18,7 +18,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "brown",
+     "drawn": "mid_brown",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "hazel",
+     "drawn": "hazel",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 66.0,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9579,
+    "heritage": {
+     "origin": "English"
+    },
+    "basis": "His complexion (fair), hair (brown) and eyes (hazel) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Self-portrait",
+     "artist": "Joseph Wood (1778-1830)",
+     "date": "ca. 1810",
+     "page_url": "https://www.metmuseum.org/art/collection/search/15307",
+     "image": "humans/web/portraits/ref_1812_1993_283.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (mid-brown, curly, side-whiskers; pale/fair), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/adams_george.json"
+   }
   },
   "allin_john": {
    "scene": "1812",
@@ -34,7 +75,50 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "dark",
+     "drawn": "dark",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "brown",
+     "drawn": "mid_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "side_whiskers_short"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 68.1,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9884,
+    "heritage": {
+     "origin": "English"
+    },
+    "basis": "His complexion (dark), hair (brown) and eyes (blue) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Alexander Anderson",
+     "artist": "John Wesley Jarvis",
+     "date": "1815",
+     "page_url": "https://www.metmuseum.org/art/collection/search/11240",
+     "image": "humans/web/portraits/ref_1812_81_16.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (very dark brown to black, short, with sideburns; light olive-warm skin, rosy cheeks, dark brows; stubble shadow), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/allin_john.json"
+   }
   },
   "andrews_prestly": {
    "scene": "1812",
@@ -50,7 +134,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "dark",
+     "drawn": "dark",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "sandy",
+     "drawn": "sandy",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "grey",
+     "drawn": "grey",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 68.9,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 1.0,
+    "heritage": {
+     "origin": "English / Scottish"
+    },
+    "basis": "His complexion (dark), hair (sandy) and eyes (grey) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Scottish, Ulster or Irish name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Henry Rice",
+     "artist": "Gilbert Stuart",
+     "date": "ca. 1815",
+     "page_url": "https://www.metmuseum.org/art/collection/search/12666",
+     "image": "humans/web/portraits/ref_1812_97_39.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (auburn / red-brown, short and tousled, long sideburns; fair skin with strongly ruddy cheeks), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/andrews_prestly.json"
+   }
   },
   "bowen_joseph": {
    "scene": "1812",
@@ -66,7 +191,50 @@
     "grade": "reconstructed",
     "basis": "age band 22-36 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "light",
+     "drawn": "light",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "brown",
+     "drawn": "mid_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "side_whiskers_short"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "black",
+     "drawn": "dark_brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 73.7,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 1.0697,
+    "heritage": {
+     "origin": "Welsh"
+    },
+    "basis": "His complexion (light), hair (brown) and eyes (black) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Welsh name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Self-portrait",
+     "artist": "Joseph Wood (1778-1830)",
+     "date": "ca. 1810",
+     "page_url": "https://www.metmuseum.org/art/collection/search/15307",
+     "image": "humans/web/portraits/ref_1812_1993_283.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (mid-brown, curly, side-whiskers; pale/fair), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/bowen_joseph.json"
+   }
   },
   "burnett_george": {
    "scene": "1812",
@@ -82,7 +250,50 @@
     "grade": "reconstructed",
     "basis": "age band 16-30 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "ruddy",
+     "drawn": "ruddy",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "dark",
+     "drawn": "dark_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "side_whiskers_short"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "grey",
+     "drawn": "grey",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 70.1,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 1.0174,
+    "heritage": {
+     "origin": "English / Scottish"
+    },
+    "basis": "His complexion (ruddy), hair (dark) and eyes (grey) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Scottish, Ulster or Irish name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Self-portrait",
+     "artist": "Samuel Lovett Waldo (1783-1861)",
+     "date": "ca. 1815",
+     "page_url": "https://www.metmuseum.org/art/collection/search/13105",
+     "image": "humans/web/portraits/ref_1812_22_217_1.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (dark brown, unkempt, side-whiskers; fair-to-ruddy, weathered), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/burnett_george.json"
+   }
   },
   "campbell_asa": {
    "scene": "1812",
@@ -98,7 +309,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "light",
+     "drawn": "light_brown",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 63.7,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9245,
+    "heritage": {
+     "origin": "Scottish (Highland; common among Ulster Scots)"
+    },
+    "basis": "His complexion (fair), hair (light) and eyes (blue) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Scottish, Ulster or Irish name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Mr. Cook",
+     "artist": "John Wesley Jarvis",
+     "date": "1810",
+     "page_url": "https://www.metmuseum.org/art/collection/search/11244",
+     "image": "humans/web/portraits/ref_1812_33_73.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (light-to-mid brown, curly, tousled; fair, pinkish), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/campbell_asa.json"
+   }
   },
   "corbin_fielding": {
    "scene": "1812",
@@ -114,7 +366,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "dark",
+     "drawn": "dark",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black",
+     "drawn": "black",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "grey",
+     "drawn": "grey",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 72.4,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 1.0508,
+    "heritage": {
+     "origin": "English (Norman-French origin)"
+    },
+    "basis": "His complexion (dark), hair (black) and eyes (grey) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Alexander Anderson",
+     "artist": "John Wesley Jarvis",
+     "date": "1815",
+     "page_url": "https://www.metmuseum.org/art/collection/search/11240",
+     "image": "humans/web/portraits/ref_1812_81_16.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (very dark brown to black, short, with sideburns; light olive-warm skin, rosy cheeks, dark brows; stubble shadow), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/corbin_fielding.json"
+   }
   },
   "corbin_james": {
    "scene": "1812",
@@ -130,7 +423,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "dark",
+     "drawn": "dark",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "brown",
+     "drawn": "mid_brown",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "hazel",
+     "drawn": "hazel",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 67.8,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.984,
+    "heritage": {
+     "origin": "English (Norman-French origin)"
+    },
+    "basis": "His complexion (dark), hair (brown) and eyes (hazel) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Alexander Anderson",
+     "artist": "John Wesley Jarvis",
+     "date": "1815",
+     "page_url": "https://www.metmuseum.org/art/collection/search/11240",
+     "image": "humans/web/portraits/ref_1812_81_16.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (very dark brown to black, short, with sideburns; light olive-warm skin, rosy cheeks, dark brows; stubble shadow), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/corbin_james.json"
+   }
   },
   "crozier_john": {
    "scene": "1812",
@@ -146,7 +480,48 @@
     "grade": "reconstructed",
     "basis": "age band 24-40 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "dark",
+     "drawn": "dark",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "brown",
+     "drawn": "mid_brown",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 68.3,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9913,
+    "heritage": {
+     "origin": "English, strongly Ulster/Border-associated (Scots-Irish)"
+    },
+    "basis": "His complexion (dark), hair (brown) and eyes (blue) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Scottish, Ulster or Irish name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Alexander Anderson",
+     "artist": "John Wesley Jarvis",
+     "date": "1815",
+     "page_url": "https://www.metmuseum.org/art/collection/search/11240",
+     "image": "humans/web/portraits/ref_1812_81_16.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (very dark brown to black, short, with sideburns; light olive-warm skin, rosy cheeks, dark brows; stubble shadow), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/crozier_john.json"
+   }
   },
   "daugherty_daniel": {
    "scene": "1812",
@@ -162,7 +537,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "fair",
+     "drawn": "fair",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "grey",
+     "drawn": "grey",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 70.5,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 1.0232,
+    "heritage": {
+     "origin": "Irish (Ulster, Donegal)"
+    },
+    "basis": "His complexion (fair), hair (fair) and eyes (grey) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Scottish, Ulster or Irish name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Portrait of the Artist",
+     "artist": "Thomas Sully (born Horncastle, Lincolnshire, 1783)",
+     "date": "1821",
+     "page_url": "https://www.metmuseum.org/art/collection/search/12701",
+     "image": "humans/web/portraits/ref_1812_94_23_3.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (dark auburn-brown, curly; fair, rosy, with strong warm light), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/daugherty_daniel.json"
+   }
   },
   "denison_micajah": {
    "scene": "1812",
@@ -178,7 +594,50 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "dark",
+     "drawn": "dark",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "brown",
+     "drawn": "mid_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "side_whiskers_short"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "hazel",
+     "drawn": "hazel",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 68.4,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9927,
+    "heritage": {
+     "origin": "English"
+    },
+    "basis": "His complexion (dark), hair (brown) and eyes (hazel) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Alexander Anderson",
+     "artist": "John Wesley Jarvis",
+     "date": "1815",
+     "page_url": "https://www.metmuseum.org/art/collection/search/11240",
+     "image": "humans/web/portraits/ref_1812_81_16.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (very dark brown to black, short, with sideburns; light olive-warm skin, rosy cheeks, dark brows; stubble shadow), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/denison_micajah.json"
+   }
   },
   "draper_stephen": {
    "scene": "1812",
@@ -194,7 +653,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black",
+     "drawn": "black",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "hazel",
+     "drawn": "hazel",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 69.2,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 1.0044,
+    "heritage": {
+     "origin": "English"
+    },
+    "basis": "His complexion (fair), hair (black) and eyes (hazel) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Henry La Tourette de Groot",
+     "artist": "Samuel Lovett Waldo",
+     "date": "1825-30",
+     "page_url": "https://www.metmuseum.org/art/collection/search/13094",
+     "image": "humans/web/portraits/ref_1812_36_114.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (very dark brown/black, curly; fair with pink cheeks; dark brows), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/draper_stephen.json"
+   }
   },
   "dyer_dyson": {
    "scene": "1812",
@@ -210,7 +710,50 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "fair",
+     "drawn": "fair",
+     "cut": "cropped_1812",
+     "facial": [
+      "side_whiskers_short"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "grey",
+     "drawn": "grey",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 66.5,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9652,
+    "heritage": {
+     "origin": "English"
+    },
+    "basis": "His complexion (fair), hair (fair) and eyes (grey) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Portrait of the Artist",
+     "artist": "Thomas Sully (born Horncastle, Lincolnshire, 1783)",
+     "date": "1821",
+     "page_url": "https://www.metmuseum.org/art/collection/search/12701",
+     "image": "humans/web/portraits/ref_1812_94_23_3.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (dark auburn-brown, curly; fair, rosy, with strong warm light), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/dyer_dyson.json"
+   }
   },
   "edson_nathan": {
    "scene": "1812",
@@ -226,7 +769,50 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "fair",
+     "drawn": "fair",
+     "cut": "cropped_1812",
+     "facial": [
+      "side_whiskers_short"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 63.6,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9231,
+    "heritage": {
+     "origin": "English"
+    },
+    "basis": "His complexion (fair), hair (fair) and eyes (blue) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Portrait of the Artist",
+     "artist": "Thomas Sully (born Horncastle, Lincolnshire, 1783)",
+     "date": "1821",
+     "page_url": "https://www.metmuseum.org/art/collection/search/12701",
+     "image": "humans/web/portraits/ref_1812_94_23_3.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (dark auburn-brown, curly; fair, rosy, with strong warm light), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/edson_nathan.json"
+   }
   },
   "forth_thomas": {
    "scene": "1812",
@@ -242,7 +828,48 @@
     "grade": "reconstructed",
     "basis": "age band 22-36 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "brown",
+     "drawn": "mid_brown",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "brown",
+     "drawn": "brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 62.9,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9129,
+    "heritage": {
+     "origin": "English"
+    },
+    "basis": "His complexion (fair), hair (brown) and eyes (brown) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Self-portrait",
+     "artist": "Joseph Wood (1778-1830)",
+     "date": "ca. 1810",
+     "page_url": "https://www.metmuseum.org/art/collection/search/15307",
+     "image": "humans/web/portraits/ref_1812_1993_283.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (mid-brown, curly, side-whiskers; pale/fair), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/forth_thomas.json"
+   }
   },
   "fury_john": {
    "scene": "1812",
@@ -258,7 +885,50 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black",
+     "drawn": "black",
+     "cut": "cropped_1812",
+     "facial": [
+      "side_whiskers_short"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "grey",
+     "drawn": "grey",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 64.2,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9318,
+    "heritage": {
+     "origin": "Irish (or Norman-English)"
+    },
+    "basis": "His complexion (fair), hair (black) and eyes (grey) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Scottish, Ulster or Irish name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Henry La Tourette de Groot",
+     "artist": "Samuel Lovett Waldo",
+     "date": "1825-30",
+     "page_url": "https://www.metmuseum.org/art/collection/search/13094",
+     "image": "humans/web/portraits/ref_1812_36_114.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (very dark brown/black, curly; fair with pink cheeks; dark brows), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/fury_john.json"
+   }
   },
   "garner_richard": {
    "scene": "1812",
@@ -274,7 +944,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "brown",
+     "drawn": "mid_brown",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "brown",
+     "drawn": "brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 66.3,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9623,
+    "heritage": {
+     "origin": "English"
+    },
+    "basis": "His complexion (fair), hair (brown) and eyes (brown) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Self-portrait",
+     "artist": "Joseph Wood (1778-1830)",
+     "date": "ca. 1810",
+     "page_url": "https://www.metmuseum.org/art/collection/search/15307",
+     "image": "humans/web/portraits/ref_1812_1993_283.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (mid-brown, curly, side-whiskers; pale/fair), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/garner_richard.json"
+   }
   },
   "glessner_frances_m": {
    "scene": "1904",
@@ -503,7 +1214,50 @@
     "grade": "reconstructed",
     "basis": "age band 24-40 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "brown",
+     "drawn": "mid_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "side_whiskers_short"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 67.7,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9826,
+    "heritage": {
+     "origin": "Welsh"
+    },
+    "basis": "His complexion (fair), hair (brown) and eyes (blue) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Welsh name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Self-portrait",
+     "artist": "Joseph Wood (1778-1830)",
+     "date": "ca. 1810",
+     "page_url": "https://www.metmuseum.org/art/collection/search/15307",
+     "image": "humans/web/portraits/ref_1812_1993_283.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (mid-brown, curly, side-whiskers; pale/fair), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/griffith_william.json"
+   }
   },
   "grummo_paul": {
    "scene": "1812",
@@ -519,7 +1273,54 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "dark",
+     "drawn": "dark",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black",
+     "drawn": "black",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "grey",
+     "drawn": "grey",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 73.1,
+     "grade": "inferred",
+     "basis": "A neighbour remembered him as \"a tall, well-built man\" (Quaife 1913, p. 239); how tall is our choice, a little over the period's tall."
+    },
+    "height_scale": 1.061,
+    "build": {
+     "weight": 0.35,
+     "muscle": 0.35,
+     "grade": "inferred",
+     "basis": "Well-built, as the same neighbour remembered him."
+    },
+    "heritage": {
+     "origin": "French origin via colonial New York (De Garmo family of Albany)"
+    },
+    "basis": "His complexion (dark), hair (black) and eyes (grey) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a French name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Alexander Anderson",
+     "artist": "John Wesley Jarvis",
+     "date": "1815",
+     "page_url": "https://www.metmuseum.org/art/collection/search/11240",
+     "image": "humans/web/portraits/ref_1812_81_16.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (very dark brown to black, short, with sideburns; light olive-warm skin, rosy cheeks, dark brows; stubble shadow), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/grummo_paul.json"
+   }
   },
   "hamilton_john": {
    "scene": "1812",
@@ -535,7 +1336,48 @@
     "grade": "reconstructed",
     "basis": "age band 16-30 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "light",
+     "drawn": "light",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black",
+     "drawn": "black",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "grey",
+     "drawn": "grey",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 67.9,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9855,
+    "heritage": {
+     "origin": "Scottish (also Ulster-Scots)"
+    },
+    "basis": "His complexion (light), hair (black) and eyes (grey) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Scottish, Ulster or Irish name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Henry La Tourette de Groot",
+     "artist": "Samuel Lovett Waldo",
+     "date": "1825-30",
+     "page_url": "https://www.metmuseum.org/art/collection/search/13094",
+     "image": "humans/web/portraits/ref_1812_36_114.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (very dark brown/black, curly; fair with pink cheeks; dark brows), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/hamilton_john.json"
+   }
   },
   "hays_otho": {
    "scene": "1812",
@@ -551,7 +1393,48 @@
     "grade": "reconstructed",
     "basis": "age band 24-40 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "light",
+     "drawn": "light",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "brown",
+     "drawn": "mid_brown",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 67.9,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9855,
+    "heritage": {
+     "origin": "English (also Scottish Hay / Irish Hayes possible)"
+    },
+    "basis": "His complexion (light), hair (brown) and eyes (blue) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Scottish, Ulster or Irish name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Self-portrait",
+     "artist": "Joseph Wood (1778-1830)",
+     "date": "ca. 1810",
+     "page_url": "https://www.metmuseum.org/art/collection/search/15307",
+     "image": "humans/web/portraits/ref_1812_1993_283.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (mid-brown, curly, side-whiskers; pale/fair), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/hays_otho.json"
+   }
   },
   "holt_isaac": {
    "scene": "1812",
@@ -567,7 +1450,48 @@
     "grade": "reconstructed",
     "basis": "age band 24-40 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "light",
+     "drawn": "light",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "brown",
+     "drawn": "mid_brown",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "brown",
+     "drawn": "brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 66.2,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9608,
+    "heritage": {
+     "origin": "English"
+    },
+    "basis": "His complexion (light), hair (brown) and eyes (brown) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Self-portrait",
+     "artist": "Joseph Wood (1778-1830)",
+     "date": "ca. 1810",
+     "page_url": "https://www.metmuseum.org/art/collection/search/15307",
+     "image": "humans/web/portraits/ref_1812_1993_283.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (mid-brown, curly, side-whiskers; pale/fair), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/holt_isaac.json"
+   }
   },
   "hunt_william_n": {
    "scene": "1812",
@@ -583,7 +1507,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "dark",
+     "drawn": "dark",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "dark",
+     "drawn": "dark_brown",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "hazel",
+     "drawn": "hazel",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 68.6,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9956,
+    "heritage": {
+     "origin": "English"
+    },
+    "basis": "His complexion (dark), hair (dark) and eyes (hazel) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Alexander Anderson",
+     "artist": "John Wesley Jarvis",
+     "date": "1815",
+     "page_url": "https://www.metmuseum.org/art/collection/search/11240",
+     "image": "humans/web/portraits/ref_1812_81_16.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (very dark brown to black, short, with sideburns; light olive-warm skin, rosy cheeks, dark brows; stubble shadow), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/hunt_william_n.json"
+   }
   },
   "hurtt_nathan_a": {
    "scene": "1812",
@@ -599,7 +1564,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "light",
+     "drawn": "light_brown",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "brown",
+     "drawn": "brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 68.8,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9985,
+    "heritage": {
+     "origin": "English"
+    },
+    "basis": "His complexion (fair), hair (light) and eyes (brown) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Mr. Cook",
+     "artist": "John Wesley Jarvis",
+     "date": "1810",
+     "page_url": "https://www.metmuseum.org/art/collection/search/11244",
+     "image": "humans/web/portraits/ref_1812_33_73.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (light-to-mid brown, curly, tousled; fair, pinkish), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/hurtt_nathan_a.json"
+   }
   },
   "jones_rodias": {
    "scene": "1812",
@@ -615,7 +1621,50 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "brown",
+     "drawn": "mid_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "side_whiskers_short"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 71.9,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 1.0435,
+    "heritage": {
+     "origin": "Welsh (English medieval origin)"
+    },
+    "basis": "His complexion (fair), hair (brown) and eyes (blue) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Welsh name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Self-portrait",
+     "artist": "Joseph Wood (1778-1830)",
+     "date": "ca. 1810",
+     "page_url": "https://www.metmuseum.org/art/collection/search/15307",
+     "image": "humans/web/portraits/ref_1812_1993_283.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (mid-brown, curly, side-whiskers; pale/fair), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/jones_rodias.json"
+   }
   },
   "kelso_john": {
    "scene": "1812",
@@ -631,7 +1680,50 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "light",
+     "drawn": "light_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "side_whiskers_short"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "dark",
+     "drawn": "dark_brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 66.8,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9695,
+    "heritage": {
+     "origin": "Scottish (Borders) / Ulster-Scots"
+    },
+    "basis": "His complexion (fair), hair (light) and eyes (dark) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Scottish, Ulster or Irish name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Mr. Cook",
+     "artist": "John Wesley Jarvis",
+     "date": "1810",
+     "page_url": "https://www.metmuseum.org/art/collection/search/11244",
+     "image": "humans/web/portraits/ref_1812_33_73.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (light-to-mid brown, curly, tousled; fair, pinkish), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/kelso_john.json"
+   }
   },
   "kennison_david": {
    "scene": "1812",
@@ -647,7 +1739,54 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "light",
+     "drawn": "light",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "brown",
+     "drawn": "mid_brown",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "dark",
+     "drawn": "dark_brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 70.0,
+     "grade": "inferred",
+     "basis": "Lossing, who met him about 1848, gives him \"about five feet ten inches\" with \"an expansive chest and broad shoulders\" \u2014 a measure of his old age, taken here for 1812."
+    },
+    "height_scale": 1.016,
+    "build": {
+     "weight": 0.15,
+     "muscle": 0.3,
+     "grade": "inferred",
+     "basis": "Broad-shouldered and deep-chested, as Lossing describes him."
+    },
+    "heritage": {
+     "origin": "English (probably; New England family) \u2014 standard reference not reached"
+    },
+    "basis": "His complexion (light), hair (brown) and eyes (dark) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Self-portrait",
+     "artist": "Joseph Wood (1778-1830)",
+     "date": "ca. 1810",
+     "page_url": "https://www.metmuseum.org/art/collection/search/15307",
+     "image": "humans/web/portraits/ref_1812_1993_283.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (mid-brown, curly, side-whiskers; pale/fair), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/kennison_david.json"
+   }
   },
   "kilpatrick_samuel": {
    "scene": "1812",
@@ -663,7 +1802,50 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black",
+     "drawn": "black",
+     "cut": "cropped_1812",
+     "facial": [
+      "side_whiskers_short"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 70.5,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 1.0232,
+    "heritage": {
+     "origin": "Scottish (Dumfriesshire) / Ulster-Irish"
+    },
+    "basis": "His complexion (fair), hair (black) and eyes (blue) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Scottish, Ulster or Irish name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Henry La Tourette de Groot",
+     "artist": "Samuel Lovett Waldo",
+     "date": "1825-30",
+     "page_url": "https://www.metmuseum.org/art/collection/search/13094",
+     "image": "humans/web/portraits/ref_1812_36_114.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (very dark brown/black, curly; fair with pink cheeks; dark brows), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/kilpatrick_samuel.json"
+   }
   },
   "landon_jacob": {
    "scene": "1812",
@@ -679,7 +1861,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "dark",
+     "drawn": "dark",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "fair",
+     "drawn": "fair",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "grey",
+     "drawn": "grey",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 66.4,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9637,
+    "heritage": {
+     "origin": "English (or French)"
+    },
+    "basis": "His complexion (dark), hair (fair) and eyes (grey) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Henry Rice",
+     "artist": "Gilbert Stuart",
+     "date": "ca. 1815",
+     "page_url": "https://www.metmuseum.org/art/collection/search/12666",
+     "image": "humans/web/portraits/ref_1812_97_39.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (auburn / red-brown, short and tousled, long sideburns; fair skin with strongly ruddy cheeks), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/landon_jacob.json"
+   }
   },
   "latta_james": {
    "scene": "1812",
@@ -695,7 +1918,50 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "light",
+     "drawn": "light_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "side_whiskers_short"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 64.7,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.939,
+    "heritage": {
+     "origin": "Scottish (Renfrewshire/Ayrshire)"
+    },
+    "basis": "His complexion (fair), hair (light) and eyes (blue) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Scottish, Ulster or Irish name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Mr. Cook",
+     "artist": "John Wesley Jarvis",
+     "date": "1810",
+     "page_url": "https://www.metmuseum.org/art/collection/search/11244",
+     "image": "humans/web/portraits/ref_1812_33_73.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (light-to-mid brown, curly, tousled; fair, pinkish), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/latta_james.json"
+   }
   },
   "locker_frederick": {
    "scene": "1812",
@@ -711,7 +1977,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "brown",
+     "drawn": "mid_brown",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "grey",
+     "drawn": "grey",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 70.2,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 1.0189,
+    "heritage": {
+     "origin": "English (possibly anglicized German \u2014 unsourced)"
+    },
+    "basis": "His complexion (fair), hair (brown) and eyes (grey) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Self-portrait",
+     "artist": "Joseph Wood (1778-1830)",
+     "date": "ca. 1810",
+     "page_url": "https://www.metmuseum.org/art/collection/search/15307",
+     "image": "humans/web/portraits/ref_1812_1993_283.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (mid-brown, curly, side-whiskers; pale/fair), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/locker_frederick.json"
+   }
   },
   "logan_hugh": {
    "scene": "1812",
@@ -727,7 +2034,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black",
+     "drawn": "black",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 73.8,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 1.0711,
+    "heritage": {
+     "origin": "Scottish (Ayrshire) / Irish"
+    },
+    "basis": "His complexion (fair), hair (black) and eyes (blue) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Scottish, Ulster or Irish name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Henry La Tourette de Groot",
+     "artist": "Samuel Lovett Waldo",
+     "date": "1825-30",
+     "page_url": "https://www.metmuseum.org/art/collection/search/13094",
+     "image": "humans/web/portraits/ref_1812_36_114.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (very dark brown/black, curly; fair with pink cheeks; dark brows), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/logan_hugh.json"
+   }
   },
   "lynch_michael": {
    "scene": "1812",
@@ -743,7 +2091,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "dark",
+     "drawn": "dark",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "fair",
+     "drawn": "fair",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 67.2,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9753,
+    "heritage": {
+     "origin": "Irish (or English)"
+    },
+    "basis": "His complexion (dark), hair (fair) and eyes (blue) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Scottish, Ulster or Irish name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Henry Rice",
+     "artist": "Gilbert Stuart",
+     "date": "ca. 1815",
+     "page_url": "https://www.metmuseum.org/art/collection/search/12666",
+     "image": "humans/web/portraits/ref_1812_97_39.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (auburn / red-brown, short and tousled, long sideburns; fair skin with strongly ruddy cheeks), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/lynch_michael.json"
+   }
   },
   "mccarty_duncan": {
    "scene": "1812",
@@ -759,7 +2148,50 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "dark",
+     "drawn": "dark",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "sandy",
+     "drawn": "sandy",
+     "cut": "cropped_1812",
+     "facial": [
+      "side_whiskers_short"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "brown",
+     "drawn": "brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 62.7,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.91,
+    "heritage": {
+     "origin": "Irish (Cork); forename Duncan is Scottish"
+    },
+    "basis": "His complexion (dark), hair (sandy) and eyes (brown) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Scottish, Ulster or Irish name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Henry Rice",
+     "artist": "Gilbert Stuart",
+     "date": "ca. 1815",
+     "page_url": "https://www.metmuseum.org/art/collection/search/12666",
+     "image": "humans/web/portraits/ref_1812_97_39.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (auburn / red-brown, short and tousled, long sideburns; fair skin with strongly ruddy cheeks), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/mccarty_duncan.json"
+   }
   },
   "mcpherson_hugh": {
    "scene": "1812",
@@ -775,7 +2207,48 @@
     "grade": "reconstructed",
     "basis": "age band 16-30 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "dark",
+     "drawn": "dark_brown",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "grey",
+     "drawn": "grey",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 66.6,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9666,
+    "heritage": {
+     "origin": "Scottish (Highland)"
+    },
+    "basis": "His complexion (fair), hair (dark) and eyes (grey) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Scottish, Ulster or Irish name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Self-portrait",
+     "artist": "Samuel Lovett Waldo (1783-1861)",
+     "date": "ca. 1815",
+     "page_url": "https://www.metmuseum.org/art/collection/search/13105",
+     "image": "humans/web/portraits/ref_1812_22_217_1.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (dark brown, unkempt, side-whiskers; fair-to-ruddy, weathered), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/mcpherson_hugh.json"
+   }
   },
   "miller_peter": {
    "scene": "1812",
@@ -791,7 +2264,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black",
+     "drawn": "black",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "hazel",
+     "drawn": "hazel",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 64.0,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9289,
+    "heritage": {
+     "origin": "English (occupational; in America often anglicized German M\u00fcller \u2014 unsourced)"
+    },
+    "basis": "His complexion (fair), hair (black) and eyes (hazel) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Henry La Tourette de Groot",
+     "artist": "Samuel Lovett Waldo",
+     "date": "1825-30",
+     "page_url": "https://www.metmuseum.org/art/collection/search/13094",
+     "image": "humans/web/portraits/ref_1812_36_114.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (very dark brown/black, curly; fair with pink cheeks; dark brows), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/miller_peter.json"
+   }
   },
   "mills_elias": {
    "scene": "1812",
@@ -807,7 +2321,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "dark",
+     "drawn": "dark",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black",
+     "drawn": "black",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "grey",
+     "drawn": "grey",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 69.2,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 1.0044,
+    "heritage": {
+     "origin": "English"
+    },
+    "basis": "His complexion (dark), hair (black) and eyes (grey) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Alexander Anderson",
+     "artist": "John Wesley Jarvis",
+     "date": "1815",
+     "page_url": "https://www.metmuseum.org/art/collection/search/11240",
+     "image": "humans/web/portraits/ref_1812_81_16.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (very dark brown to black, short, with sideburns; light olive-warm skin, rosy cheeks, dark brows; stubble shadow), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/mills_elias.json"
+   }
   },
   "moffett_william": {
    "scene": "1812",
@@ -823,7 +2378,50 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "sandy",
+     "drawn": "sandy",
+     "cut": "cropped_1812",
+     "facial": [
+      "side_whiskers_short"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "brown",
+     "drawn": "brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 67.4,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9782,
+    "heritage": {
+     "origin": "Scottish (Annandale, Dumfriesshire)"
+    },
+    "basis": "His complexion (fair), hair (sandy) and eyes (brown) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Scottish, Ulster or Irish name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Portrait of the Artist",
+     "artist": "Thomas Sully (born Horncastle, Lincolnshire, 1783)",
+     "date": "1821",
+     "page_url": "https://www.metmuseum.org/art/collection/search/12701",
+     "image": "humans/web/portraits/ref_1812_94_23_3.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (dark auburn-brown, curly; fair, rosy, with strong warm light), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/moffett_william.json"
+   }
   },
   "mortt_august": {
    "scene": "1812",
@@ -839,7 +2437,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "fair",
+     "drawn": "fair",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "dark",
+     "drawn": "dark_brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 67.2,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9753,
+    "heritage": {
+     "origin": "uncertain \u2014 English if \"Mott\"; forename August(us) hints German (unsourced)"
+    },
+    "basis": "His complexion (fair), hair (fair) and eyes (dark) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Portrait of the Artist",
+     "artist": "Thomas Sully (born Horncastle, Lincolnshire, 1783)",
+     "date": "1821",
+     "page_url": "https://www.metmuseum.org/art/collection/search/12701",
+     "image": "humans/web/portraits/ref_1812_94_23_3.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (dark auburn-brown, curly; fair, rosy, with strong warm light), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/mortt_august.json"
+   }
   },
   "needs_john": {
    "scene": "1812",
@@ -855,7 +2494,50 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "dark",
+     "drawn": "dark",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "fair",
+     "drawn": "fair",
+     "cut": "cropped_1812",
+     "facial": [
+      "side_whiskers_short"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 68.6,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9956,
+    "heritage": {
+     "origin": "English"
+    },
+    "basis": "His complexion (dark), hair (fair) and eyes (blue) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Henry Rice",
+     "artist": "Gilbert Stuart",
+     "date": "ca. 1815",
+     "page_url": "https://www.metmuseum.org/art/collection/search/12666",
+     "image": "humans/web/portraits/ref_1812_97_39.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (auburn / red-brown, short and tousled, long sideburns; fair skin with strongly ruddy cheeks), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/needs_john.json"
+   }
   },
   "noles_joseph": {
    "scene": "1812",
@@ -871,7 +2553,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "dark",
+     "drawn": "dark",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "brown",
+     "drawn": "mid_brown",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "grey",
+     "drawn": "grey",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 66.2,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9608,
+    "heritage": {
+     "origin": "English (= Knowles)"
+    },
+    "basis": "His complexion (dark), hair (brown) and eyes (grey) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Alexander Anderson",
+     "artist": "John Wesley Jarvis",
+     "date": "1815",
+     "page_url": "https://www.metmuseum.org/art/collection/search/11240",
+     "image": "humans/web/portraits/ref_1812_81_16.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (very dark brown to black, short, with sideburns; light olive-warm skin, rosy cheeks, dark brows; stubble shadow), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/noles_joseph.json"
+   }
   },
   "pa1904_glessner_john_j_c1900_august_billings": {
    "scene": "1904",
@@ -1283,7 +3006,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black",
+     "drawn": "black",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "black",
+     "drawn": "dark_brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 69.9,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 1.0145,
+    "heritage": {
+     "origin": "Scandinavian, English/Welsh or Scottish (ambiguous); forename Frederick hints German/Scandinavian"
+    },
+    "basis": "His complexion (fair), hair (black) and eyes (black) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Scottish, Ulster or Irish name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Henry La Tourette de Groot",
+     "artist": "Samuel Lovett Waldo",
+     "date": "1825-30",
+     "page_url": "https://www.metmuseum.org/art/collection/search/13094",
+     "image": "humans/web/portraits/ref_1812_36_114.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (very dark brown/black, curly; fair with pink cheeks; dark brows), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/peterson_frederick.json"
+   }
   },
   "poindexter_thomas": {
    "scene": "1812",
@@ -1299,7 +3063,50 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "dark",
+     "drawn": "dark",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "brown",
+     "drawn": "mid_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "side_whiskers_short"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "grey",
+     "drawn": "grey",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 65.2,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9463,
+    "heritage": {
+     "origin": "Anglo-French (Norman)"
+    },
+    "basis": "His complexion (dark), hair (brown) and eyes (grey) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Alexander Anderson",
+     "artist": "John Wesley Jarvis",
+     "date": "1815",
+     "page_url": "https://www.metmuseum.org/art/collection/search/11240",
+     "image": "humans/web/portraits/ref_1812_81_16.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (very dark brown to black, short, with sideburns; light olive-warm skin, rosy cheeks, dark brows; stubble shadow), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/poindexter_thomas.json"
+   }
   },
   "prickett_william": {
    "scene": "1812",
@@ -1315,7 +3122,50 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "fair",
+     "drawn": "fair",
+     "cut": "cropped_1812",
+     "facial": [
+      "side_whiskers_short"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 68.4,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9927,
+    "heritage": {
+     "origin": "English / Welsh"
+    },
+    "basis": "His complexion (fair), hair (fair) and eyes (blue) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Portrait of the Artist",
+     "artist": "Thomas Sully (born Horncastle, Lincolnshire, 1783)",
+     "date": "1821",
+     "page_url": "https://www.metmuseum.org/art/collection/search/12701",
+     "image": "humans/web/portraits/ref_1812_94_23_3.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (dark auburn-brown, curly; fair, rosy, with strong warm light), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/prickett_william.json"
+   }
   },
   "rc_bardwell_otis": {
    "scene": "1835",
@@ -1380,7 +3230,50 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "dark",
+     "drawn": "dark",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "light",
+     "drawn": "light_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "side_whiskers_short"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "dark",
+     "drawn": "dark_brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 66.3,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9623,
+    "heritage": {
+     "origin": "uncertain \u2014 possibly Scottish/northern English Shearer/Sherar (or German Scherer)"
+    },
+    "basis": "His complexion (dark), hair (light) and eyes (dark) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Scottish, Ulster or Irish name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Mr. Cook",
+     "artist": "John Wesley Jarvis",
+     "date": "1810",
+     "page_url": "https://www.metmuseum.org/art/collection/search/11244",
+     "image": "humans/web/portraits/ref_1812_33_73.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (light-to-mid brown, curly, tousled; fair, pinkish), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/sherror_david.json"
+   }
   },
   "simmons_john": {
    "scene": "1812",
@@ -1396,7 +3289,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "dark",
+     "drawn": "dark",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "fair",
+     "drawn": "fair",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 72.4,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 1.0508,
+    "heritage": {
+     "origin": "English"
+    },
+    "basis": "His complexion (dark), hair (fair) and eyes (blue) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Henry Rice",
+     "artist": "Gilbert Stuart",
+     "date": "ca. 1815",
+     "page_url": "https://www.metmuseum.org/art/collection/search/12666",
+     "image": "humans/web/portraits/ref_1812_97_39.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (auburn / red-brown, short and tousled, long sideburns; fair skin with strongly ruddy cheeks), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/simmons_john.json"
+   }
   },
   "smith_john_jr": {
    "scene": "1812",
@@ -1412,7 +3346,48 @@
     "grade": "reconstructed",
     "basis": "age band 16-30 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "dark",
+     "drawn": "dark_brown",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 65.7,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9536,
+    "heritage": {
+     "origin": "English (occupational)"
+    },
+    "basis": "His complexion (fair), hair (dark) and eyes (blue) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Self-portrait",
+     "artist": "Samuel Lovett Waldo (1783-1861)",
+     "date": "ca. 1815",
+     "page_url": "https://www.metmuseum.org/art/collection/search/13105",
+     "image": "humans/web/portraits/ref_1812_22_217_1.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (dark brown, unkempt, side-whiskers; fair-to-ruddy, weathered), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/smith_john_jr.json"
+   }
   },
   "smith_john_sr": {
    "scene": "1812",
@@ -1428,7 +3403,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "dark",
+     "drawn": "dark",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black",
+     "drawn": "black",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "grey",
+     "drawn": "grey",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 69.3,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 1.0058,
+    "heritage": {
+     "origin": "English (occupational)"
+    },
+    "basis": "His complexion (dark), hair (black) and eyes (grey) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Alexander Anderson",
+     "artist": "John Wesley Jarvis",
+     "date": "1815",
+     "page_url": "https://www.metmuseum.org/art/collection/search/11240",
+     "image": "humans/web/portraits/ref_1812_81_16.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (very dark brown to black, short, with sideburns; light olive-warm skin, rosy cheeks, dark brows; stubble shadow), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/smith_john_sr.json"
+   }
   },
   "starr_james": {
    "scene": "1812",
@@ -1444,7 +3460,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "brown",
+     "drawn": "mid_brown",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 68.9,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 1.0,
+    "heritage": {
+     "origin": "English"
+    },
+    "basis": "His complexion (fair), hair (brown) and eyes (blue) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Self-portrait",
+     "artist": "Joseph Wood (1778-1830)",
+     "date": "ca. 1810",
+     "page_url": "https://www.metmuseum.org/art/collection/search/15307",
+     "image": "humans/web/portraits/ref_1812_1993_283.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (mid-brown, curly, side-whiskers; pale/fair), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/starr_james.json"
+   }
   },
   "suttenfield_john": {
    "scene": "1812",
@@ -1460,7 +3517,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "dark",
+     "drawn": "dark",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black",
+     "drawn": "black",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 68.7,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 0.9971,
+    "heritage": {
+     "origin": "unknown"
+    },
+    "basis": "His complexion (dark), hair (black) and eyes (blue) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Alexander Anderson",
+     "artist": "John Wesley Jarvis",
+     "date": "1815",
+     "page_url": "https://www.metmuseum.org/art/collection/search/11240",
+     "image": "humans/web/portraits/ref_1812_81_16.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (very dark brown to black, short, with sideburns; light olive-warm skin, rosy cheeks, dark brows; stubble shadow), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/suttenfield_john.json"
+   }
   },
   "vanhorn_james": {
    "scene": "1812",
@@ -1476,7 +3574,48 @@
     "grade": "reconstructed",
     "basis": "age band 20-32 (the person's record); the year inside it is seeded"
    },
-   "sex": "male"
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "fair",
+     "drawn": "fair",
+     "cut": "cropped_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 69.9,
+     "grade": "reconstructed",
+     "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+    },
+    "height_scale": 1.0145,
+    "heritage": {
+     "origin": "Dutch (New Netherland family)"
+    },
+    "basis": "His complexion (fair), hair (fair) and eyes (blue) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Dutch name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+    "reference": {
+     "title": "Portrait of the Artist",
+     "artist": "Thomas Sully (born Horncastle, Lincolnshire, 1783)",
+     "date": "1821",
+     "page_url": "https://www.metmuseum.org/art/collection/search/12701",
+     "image": "humans/web/portraits/ref_1812_94_23_3.jpg",
+     "licence": "The Met Open Access, public domain",
+     "why": "A stand-in: a period face of like colouring (dark auburn-brown, curly; fair, rosy, with strong warm light), not his likeness."
+    },
+    "grade": "reconstructed",
+    "liberty": "L-1812-garrison-looks-3491",
+    "file": "data/humans/variation/looks/vanhorn_james.json"
+   }
   }
  }
 }

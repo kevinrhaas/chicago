@@ -127,6 +127,11 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
     values[a.id] = a.kind === 'age_macro' ? clip((age - base) * kit.header.age.per_year, -0.5, 1)
       : clip(age >= base ? (age - base) / (90 - base) : (age - base) / (base - 25), -0.5, 1);
   }
+  // T-3491: a stature the person's looks give (the period's spread, or his own measure) in
+  // place of the seeded one, and the build they name (Grummo's "tall, well-built").
+  const looks = record?.looks;
+  if (Number.isFinite(looks?.height_scale)) height = clip(looks.height_scale, 0.88, 1.12);
+  for (const k of ['weight', 'muscle']) if (Number.isFinite(looks?.build?.[k]) && k in values) values[k] = clip(looks.build[k], -L, L);
   const face = record?.face;
   if (face?.values) {
     for (const [k, v] of Object.entries(face.values)) {

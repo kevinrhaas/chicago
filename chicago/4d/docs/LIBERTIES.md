@@ -42257,6 +42257,15 @@ within the published ranges.
 period street films (Lumière and Edison/AM&B street scenes of 1896-1906), reviewed in the town.
 **Ticket:** T-3472.
 **Recorded:** 2026-11-07 (T-3472).
+### L-1812-garrison-looks-3491 — How each man of Heald's company looks: complexion, hair, eyes, height
+
+**Decision:** the owner, 2026-11-07: *"they all have the same complexion and hair so change all that up ... use their ethnicity and find an image of someone like that and use that as a basis"*. Each enlisted man gets his own looks (`data/humans/variation/looks/<person>.json`, written by `docs/RESEARCH/people-1812-3491/looks.py` from `reading.json` beside it, carried into `assets/humans/web/hm08_variation_persons.json`, drawn by `renderers/web/js/human-looks.js` and shown in his card's Looks section). Four things are ours. (1) **His colouring is drawn, not read.** No man's own entry in the Register of Enlistments (NARA M233, which gives each recruit's height, complexion, eyes and hair) could be reached; the 1798-1815 volumes are transcribed only behind subscription logins. His complexion, hair and eyes are drawn, seeded by his id, from what the register wrote of 199 men of the 22nd US Infantry, 1812-14 (fair 98, dark 70, light 21, ruddy 4, brown 3; hair brown 57, black 46, dark 32, fair 26, light 19, sandy 11; eyes blue 67, grey 58, brown 21, dark 20, black 17, hazel 13), in the register's own words. (2) **The lean of his name.** A Scottish, Ulster or Irish surname doubles the draw's chance of sandy hair and triples that of red; a Welsh or French one leans dark; a Dutch one leans fair. Each surname's origin is read from a surname dictionary; the lean is our choice, not a measured rate. (3) **His height** is drawn from 68.1 in, the mean of native-born army recruits of 1815-20 aged 24-35 (Sokoloff 1984, after Sokoloff and Villaflor 1982), with the 2.5 in spread of two register samples, clipped to 62-75 in; Paul Grummo, remembered as "a tall, well-built man" (Quaife 1913 p. 239), is put at 71-74 in and heavier built (inferred), and David Kennison at the "about five feet ten inches" Lossing measured in his old age (inferred). (4) **The look.** The tints that draw each register word on the shared skin picture, the iris colours, a short crop for every man and short side whiskers for about two in five are reconstructed rendering choices. His card shows the one of seven public-domain portraits of young American men of about 1810-1825 (The Met) whose colouring is nearest his, labelled a stand-in, never his likeness.
+
+**Not invented:** any man's name, rank, family or fate; Grummo's and Kennison's descriptions, quoted with their sources; the registers' counts and the stature figures, each with its source and quote in `reading.json`.
+**Re-opens on:** any man's own entry in the Register of Enlistments (it would replace his drawn colouring and height); a likeness of any of them.
+**Ticket:** T-3491.
+**Recorded:** 2026-11-07.
+
 ### L-t3477-gardens-1812 — Every 1812 household's garden laid out and planted for its own house, and Lee's Place left to weeds
 
 **Recorded:** 2026-11-07 (T-3477).
