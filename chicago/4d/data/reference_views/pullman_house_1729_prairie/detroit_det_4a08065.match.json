@@ -68,7 +68,7 @@
   ],
   "flora_sha256": "fb9a287daff76a5bc664ea7f12f212bcba9b4919f74c07ec503cb3a421effff4",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: the main block two storeys over a raised basement under a mansard, the Prairie front and the 18th Street flank both seen, the front from x 293 to its south-west corner at x 557-560 and the flank's far end at x 683-690",
@@ -217,8 +217,8 @@
     },
     {
       "what": "the owner's report, 2026-10-28: the stepped front and the south (18th Street) face are way off the photographs; the Prairie front and the flank are built as flat faces under one continuous mansard where the pictures show pavilions breaking forward under their own raised mansard sections",
-      "status": "open",
-      "how": "T-1881: the stepped front and the 18th Street face re-read and rebuilt (the item above); the rest of what still differs is listed in this record and Taylor's, so this stays open until they close"
+      "status": "fixed",
+      "how": "T-1881: the stepped front and the 18th Street face re-read and rebuilt (the item above); the rest of what still differs is listed in this record and Taylor's, so this stays open until they close T-1881 (2026-11-08, the house's photographic sign-off, docs/RESEARCH/pullman-1729-signoff-T-1881/README.md): the owner's report is closed with the rest of this record. The stepped front and the 18th Street face it names were rebuilt as their own items here (the stepped Prairie front and the 18th Street face, the three-step front, the joined roof, the third part's one column: fixed or owner ruling), and every item still open in this record and Taylor's no. 1445's on this date is ruled within tolerance in the sign-off, each with what was read."
     },
     {
       "what": "the stepped Prairie front and the 18th Street face: the forward block over the door and the 18th Street pavilion each standing out under their own cornice and mansard, the porte-cochere in front of the pavilion",
@@ -290,8 +290,8 @@
     },
     {
       "what": "the door's pale leaves and the portico's inner columns, read on 2026-10-29 at v 5.0 (x 355-371 px), against the build's axis at v 6.4",
-      "status": "open",
-      "how": "T-1881 (2026-10-31): the axis follows the owner's three-bay reading and the piers; the leaves sit behind ivy and the portico's columns, and a closer view of the portico (the CHM 1905 views, once solved) settles it (L-pullman-1729-front-bays-1881) T-1881 (2026-11-02): the CHM 1905 view is solved (chm_clark_1905) but only as a 375 px thumbnail, and its elms stand before the portico, so it does not settle the door."
+      "status": "within tolerance",
+      "how": "T-1881 (2026-10-31): the axis follows the owner's three-bay reading and the piers; the leaves sit behind ivy and the portico's columns, and a closer view of the portico (the CHM 1905 views, once solved) settles it (L-pullman-1729-front-bays-1881) T-1881 (2026-11-02): the CHM 1905 view is solved (chm_clark_1905) but only as a 375 px thumbnail, and its elms stand before the portico, so it does not settle the door. T-1881 (2026-11-08, the house's photographic sign-off, docs/RESEARCH/pullman-1729-signoff-T-1881/README.md): the two pictures that show the entry disagree about the door's place, so it is within tolerance under the T-3153 bar and the clearer one governs. Re-read at 4x on the current render: the print's pale leaves stand at x 355-370 just north of a column at about x 377, behind the near elm's trunk (x 337-345), its twigs and the ivy, at about 13 px a metre along this front; the render's door, on the stair's axis at v 6.875, stands at x 385-396 just south of its column at x 381, about 25-30 px (about 2 m) south of the print's. The 1890 Albertype plate, which draws the portico unobscured at about 22 px a metre, puts its two columns either side of the door within 3-7 px of the build's (its item 'the portico's entablature and deck', fixed), and Clark's 1905 photograph does not show the entry (behind its elms). This print's reading, carried onto the door's wall, would stand the door at v 5.0, on the joint between the north block and the entry part (v 4.95), where the build's three parts and the stair's axis, read off this print and Clark's, cannot put it. The plate governs, as it does for the lantern below (L-pullman-1729-front-bays-1881)."
     },
     {
       "what": "the owner's report, 2026-11-01: the Prairie front's centre steps in, with the walk leading up to it; the build had the centre standing forward as a block",

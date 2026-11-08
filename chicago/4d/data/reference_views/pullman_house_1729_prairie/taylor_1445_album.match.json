@@ -67,7 +67,7 @@
   ],
   "flora_sha256": "66c6b700929d0918fbb7082c08b22a5b4f9362c1e8c95efc2ccbb9788bda6228",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: the main block two storeys over a raised basement under its mansard, the Prairie front from its north-west block (x 152) to the south-west corner (x 447) and the 18th Street flank to its east end (x 850); the main cornice's top on all three fitted points within 0.4-2.2 px",
@@ -242,8 +242,8 @@
     },
     {
       "what": "the Prairie front's north block with the portico and its balcony standing forward of the wall to the south",
-      "status": "open",
-      "how": "T-1881 round 3 (2026-11-01, the owner's plan and elevation sketches): the north block stands 2.95 m forward on the 1911 sheet's line, the entry 1.6 m with the portico before it, the south part on the main wall; the ends along the front are the sketch's, and this camera's view of the front is the one it fits worst, so it stays open (L-pullman-1729-three-part-front-1881) T-1881 (2026-11-06): the portico's entablature and railed deck now run from the house's north-west corner to the door on a column near that end, as this photograph draws them (x 170-293 px, a column at about 185); through this camera they render at about x 300-345 at a reduced scale, the front still drawn about 120 px left of the photograph's and foreshortened, so this stays open on the camera's fit of the front, not on the portico."
+      "status": "within tolerance",
+      "how": "T-1881 round 3 (2026-11-01, the owner's plan and elevation sketches): the north block stands 2.95 m forward on the 1911 sheet's line, the entry 1.6 m with the portico before it, the south part on the main wall; the ends along the front are the sketch's, and this camera's view of the front is the one it fits worst, so it stays open (L-pullman-1729-three-part-front-1881) T-1881 (2026-11-06): the portico's entablature and railed deck now run from the house's north-west corner to the door on a column near that end, as this photograph draws them (x 170-293 px, a column at about 185); through this camera they render at about x 300-345 at a reduced scale, the front still drawn about 120 px left of the photograph's and foreshortened, so this stays open on the camera's fit of the front, not on the portico. T-1881 (2026-11-08, the house's photographic sign-off, docs/RESEARCH/pullman-1729-signoff-T-1881/README.md): the front's massing this item names is built: the north block forward with the portico and its railed deck running from the north-west corner to the door, the entry part between, the south part on the main wall, each read and fixed on the 1890 Albertype plate, the Detroit print det 4a08065 and Clark's 1905 photograph (their records match). What stays is this camera's fit along the Prairie front, which its own solve states: fitted on three cornice points, no level pinhole fits both the front's ends and its piers and lights (10.8 px rms), so the front renders about 120 px left and foreshortened against the photograph while the flank, seen squarely, lands. That is a gap two camera fits disagree about, within tolerance under the T-3153 bar, and not a difference in the building."
     },
     {
       "what": "the side door seen through the porte-cochere's west arch (x 662-682 px), its foot about 1.35 m over the drive behind a short flight of steps, under the 18th Street section's pair: the owner's sketch's section-2 entry",
