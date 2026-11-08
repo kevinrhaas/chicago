@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2824, ts: '2026-11-08T07:05:13.011Z', date: 'Nov 8, 2026, 1:05 AM CT', title: '1812: the camp on the creek now roofs the whole gathering', kind: 'add',
+    items: [
+      'Seven more lodge groups stand along the creek, thirteen in all, room for Helm\'s count of 500 warriors and 179 women and children.',
+      'Wells\'s 27 Miamis have their own small camp and horse lines south-west of the fort.',
+      'How many lodges, how many sleep in each, and where each group stands are reconstructed.',
+      'The woods store their shape in half the bytes, so 1812 on a computer needs about 40 MB less memory, with every frame unchanged.',
+    ] },
   { v: 2823, ts: '2026-11-08T06:29:49.460Z', date: 'Nov 8, 2026, 12:29 AM CT', title: '1812: the company\'s cornfield at the forks is planted', kind: 'feature',
     items: [
       'The eight acres the draught letters \'Company Garden & public Cornfield\' stand in Indian corn: some 24,000 hills, tasselled and in the ear, pumpkins between.',

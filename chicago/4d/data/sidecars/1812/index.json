@@ -415,10 +415,28 @@
       "asset": "gltf/lemai_house_1812__lemai_1812.glb"
     },
     {
+      "id": "miami_escort_camp_1812",
+      "name": "The Miami escort's camp, August 1812",
+      "sidecar": "sidecars/1812/miami_escort_camp_1812.json",
+      "asset": "gltf/miami_escort_camp_1812__camp_1812.glb"
+    },
+    {
       "id": "ouilmette_house_1812",
       "name": "Antoine Ouilmette's house, the easternmost of the three houses west of the Kinzie house",
       "sidecar": "sidecars/1812/ouilmette_house_1812.json",
       "asset": "gltf/ouilmette_house_1812__ouilmette_1812.glb"
+    },
+    {
+      "id": "potawatomi_camp_1812_far_west",
+      "name": "The Potawatomi camp of August 1812: the men's lodges furthest west",
+      "sidecar": "sidecars/1812/potawatomi_camp_1812_far_west.json",
+      "asset": "gltf/potawatomi_camp_1812_far_west__camp_1812.glb"
+    },
+    {
+      "id": "potawatomi_camp_1812_head_west",
+      "name": "The Potawatomi camp of August 1812: the men's lodges by the creek's head",
+      "sidecar": "sidecars/1812/potawatomi_camp_1812_head_west.json",
+      "asset": "gltf/potawatomi_camp_1812_head_west__camp_1812.glb"
     },
     {
       "id": "potawatomi_camp_1812_horse_ground",
@@ -439,10 +457,40 @@
       "asset": "gltf/potawatomi_camp_1812_mouth__camp_1812.glb"
     },
     {
+      "id": "potawatomi_camp_1812_north_flat",
+      "name": "The Potawatomi camp of August 1812: the men's lodges on the flat above the mouth",
+      "sidecar": "sidecars/1812/potawatomi_camp_1812_north_flat.json",
+      "asset": "gltf/potawatomi_camp_1812_north_flat__camp_1812.glb"
+    },
+    {
+      "id": "potawatomi_camp_1812_prairie_west",
+      "name": "The Potawatomi camp of August 1812: the men's lodges on the west prairie",
+      "sidecar": "sidecars/1812/potawatomi_camp_1812_prairie_west.json",
+      "asset": "gltf/potawatomi_camp_1812_prairie_west__camp_1812.glb"
+    },
+    {
+      "id": "potawatomi_camp_1812_south_bend",
+      "name": "The Potawatomi camp of August 1812: the family lodges below the bend",
+      "sidecar": "sidecars/1812/potawatomi_camp_1812_south_bend.json",
+      "asset": "gltf/potawatomi_camp_1812_south_bend__camp_1812.glb"
+    },
+    {
+      "id": "potawatomi_camp_1812_south_prairie",
+      "name": "The Potawatomi camp of August 1812: the family lodges on the south prairie",
+      "sidecar": "sidecars/1812/potawatomi_camp_1812_south_prairie.json",
+      "asset": "gltf/potawatomi_camp_1812_south_prairie__camp_1812.glb"
+    },
+    {
       "id": "potawatomi_camp_1812_south_reach",
       "name": "The Potawatomi camp of August 1812: the lodges south of the creek's bend",
       "sidecar": "sidecars/1812/potawatomi_camp_1812_south_reach.json",
       "asset": "gltf/potawatomi_camp_1812_south_reach__camp_1812.glb"
+    },
+    {
+      "id": "potawatomi_camp_1812_south_west",
+      "name": "The Potawatomi camp of August 1812: the family lodges south of the reach",
+      "sidecar": "sidecars/1812/potawatomi_camp_1812_south_west.json",
+      "asset": "gltf/potawatomi_camp_1812_south_west__camp_1812.glb"
     },
     {
       "id": "potawatomi_camp_1812_upper",
