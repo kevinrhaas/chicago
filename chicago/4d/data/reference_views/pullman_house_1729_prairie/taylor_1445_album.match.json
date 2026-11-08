@@ -10,10 +10,10 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 26,
+        "shrubs": 29,
         "trees": 3,
         "beds": 0,
-        "creeper": 53
+        "creeper": 54
       }
     ],
     "street_trees": 36,
@@ -62,10 +62,10 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "bd022919ca052610595908f83128dfceea976790c5bf2eff63f381abaa3b89b5"
+      "sha256": "83513a6667d725328ce9e0c5ed00c0a69ab3b61e5f4dbc9dfaccf6e6122def73"
     }
   ],
-  "flora_sha256": "66c6b700929d0918fbb7082c08b22a5b4f9362c1e8c95efc2ccbb9788bda6228",
+  "flora_sha256": "8c55b6e0b83be14a0e858228c7a2d94bccd7f138d66ebdc8e5214fc1325eea7d",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_1445_album-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -283,6 +283,11 @@
     {
       "what": "[T-1881, 2026-11-08] the flank's east section's window and second-storey pair moved from s 22.95 to 23.5 (off the Detroit print det 4a08066): the pair at the east end now reads at x about 791-809 against this photograph's 789-809, closer than before, where one light of it hid behind the parkway tree; every pixel the move changes lies in the render's x 791-817, y 406-609, and the rest of the render is pixel-identical",
       "status": "fixed"
+    },
+    {
+      "what": "[T-1934, 2026-11-08 (the 16555 sign-off)] re-rendered after data/front_yards/1904.json was regenerated: the court bed's three plants added, and the 18th Street flank's ivy re-laid on the rebaked house (the committed file was behind the models); against the previous render the ivy patch at the flank's east end (x 832-859 px) shifts a few px",
+      "status": "within tolerance",
+      "how": "compared render against render at full size; nothing over the bar moved"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
