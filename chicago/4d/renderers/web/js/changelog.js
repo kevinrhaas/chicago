@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2830, ts: '2026-11-08T17:06:30.155Z', date: 'Nov 8, 2026, 11:06 AM CT', title: 'Content builds fit their time limit again', kind: 'chore',
+    items: [
+      'A full rebuild of the town no longer spends eighteen minutes re-encoding the Glessner house\'s textures into bytes it already ships; they are restored from the committed package when the house has not changed.',
+      'The rebuild\'s checks now run in eight parallel parts beside the browser tests, instead of whole at the end of the build, so a rebuild can finish and land its new geometry.',
+    ] },
   { v: 2829, ts: '2026-11-08T17:04:57.168Z', date: 'Nov 8, 2026, 11:04 AM CT', title: '1812: everyone at the camp has a card; call them out', kind: 'add',
     items: [
       'All 679 people of Helm\'s count and all 27 of Wells\'s Miamis now have a card: 637 more, each with their lodge on the creek.',

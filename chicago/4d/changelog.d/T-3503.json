@@ -1,8 +1,0 @@
-{
-  "title": "Content builds fit their time limit again",
-  "kind": "chore",
-  "items": [
-    "A full rebuild of the town no longer spends eighteen minutes re-encoding the Glessner house's textures into bytes it already ships; they are restored from the committed package when the house has not changed.",
-    "The rebuild's checks now run in eight parallel parts beside the browser tests, instead of whole at the end of the build, so a rebuild can finish and land its new geometry."
-  ]
-}
