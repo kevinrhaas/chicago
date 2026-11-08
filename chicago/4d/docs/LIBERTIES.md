@@ -42318,3 +42318,34 @@ Wau-Bun's "company gardens, well filled with currant-bushes and young fruit-tree
 of one of the gardens, replaces that garden's beds; a reading that places Lee's garden, or Burns's, replaces its plot.
 The company's cornfield and gardens at the forks are not planted yet: some twenty thousand corn hills want a cheaper
 way to draw a field than one plant at a time.
+
+### L-1812-army-wagons-3497 — Two of the fort's wagons on the move on 14 August 1812, each led by a private on foot
+
+**Recorded:** 2026-11-08 (T-3497).
+
+**Decision:** two horse-drawn wagons now move in the 1812 scene, on the same driven-team system as the 1835 wagon and
+the 1904 brougham (`data/transport/driven/loops.json`, laid by `tools/lay_driven_wagons_1812.mjs`). One goes round the
+fort's outbuildings, standing at the foot of the south gate, the stables and the merchant's shop; the other runs down
+the shore road south of the fort to the Lee family's house and back up to the north end of the road, standing at
+each end. Each stands about a minute at a stop, as if loading. Each is led by a private of Heald's company walking at
+the near horse's head with a lead rope, not driving from a seat: Elias Mills on the round and William Moffett on the
+shore road, the two men the garrison stations already put at the stables (L-1812-garrison-stations-3462). While a man
+leads his wagon his standing figure is withdrawn, so he is never drawn twice.
+**Why:** the owner, 2026-11-08: *"add some wagons that are driven by horses and in movement in 1812 just like we have
+in 1904 but make them the wagons from the era and have some wagons rotating around town on loops ... you should I
+think have people taking wagons places"*; and *"We should have some existing photographic wagons that can work for
+this"*, *"As long as they are appropriate"*.
+**What is recorded and what is not:** that the company had wagons at the post is the accounts' (the women and
+children rode in the wagons on the march of 15 August: Quaife 1913, Kirkland 1893, Wau-Bun); the eve of the
+evacuation was spent readying the stores and baggage. Everything else is ours: that two wagons were working that
+afternoon, the vehicle, the teams, the men leading them, the roads they take, where they stop, how long they stand
+and the pace (a slow walk, 1.3 m/s). The vehicle is the scanned "Old Cart" farm-box wagon (Lyskilde, CC BY 4.0,
+`renderers/web/transport/farm-box-master/`), a plain four-wheeled box wagon of the kind in use on farms and with
+armies through the period; it is not a drawing or record of a Fort Dearborn wagon. Army teams of the time were as often
+oxen as horses; the scene's only draught model is the horse, so horses draw both. Leading a team on foot by the near
+horse's head was a common way for a teamster to work a slow wagon; nothing records how these men drove. The roads are
+hand-laid along the 1812 trails and the plain round the fort, held to a turn the wagon can make (18 m) and to ground
+it can stand on; they are not surveyed roads. The ground under the wheels and hooves is read smoothed from the
+committed heightfield (`renderers/web/js/transport-ground.js`); the drawn ground is unchanged.
+**How to resolve:** an order book, morning report or quartermaster's return of the post for August 1812 would say what
+wagons and teams it had and who drove them; a drawing of the post's wagons would replace the cart.
