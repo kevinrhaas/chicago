@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1054,
+  "count": 1055,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -71541,6 +71541,38 @@
       ],
       "work_refs": [
         "T-3505"
+      ]
+    },
+    {
+      "id": "L-t3516-days",
+      "title": "A working day for each drawn person of 1835 and 1904, with breaks in and out of their own door",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-08",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-08: *\"give everyone a purpose and role for every part of the day. This is for all years starting with 1812\"*, and *\"They can take breaks and go in and out of houses and buildings\"*. Each drawn person of 1835 and 1904 has a day (the research notes on people days 1835), played as 1812's are (the walkthrough's human days code, L-other work-rounds): out at the place the record already stands them, at a job about it, in their building at night and for a meal. (1) **1835.** Philip F. W. Peck in and out of his store (Andreas 1884: he kept it and lived in it), out at its front 7-11.45 and 12.15-18.30; Mary Flynn in and out of her log house, at her dooryard 5.30-11 and 12-17.30; Patrick Mahoney (a labourer, no fixed premises) on the river bank 5.30-18.30 and Otis Bardwell (a teamster) at his wagon in the tavern yard 5.30-19, each off the scene at night, since no record names where they lodged. (2) **1904.** The Glessners' cooks (Mattie Williamson, Kate Ryan) and stable helper (August Billings) out in the court, the maid (Mary Reynolds) at the servants' entry and the coachman (Charles Nelson) at the stable doors on Eighteenth Street, through the morning and the afternoon, in the house at night and for its meals. Each group gathers now and then about the one of them nearest their middle. (3) **Their doors.** Read off the 1835 models (the derive doors scene tool, as 1812's); Glessner's from its record: the court's service entrance, entered at the foot of its service stair (the climb to the landing door is not walked), the north entry's alcove and the stable's carriage doorway. The family (John J. and Frances) keep to the front door's own comings and goings, and Christine Nelson to her errand route."
+        },
+        {
+          "label": "Not invented",
+          "text": "anyone's place, trade or building; the hours of each day are."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a source that says what one of them was doing at a given hour, or where Mahoney or Bardwell lodged."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-08."
+        }
+      ],
+      "work_refs": [
+        "T-3443",
+        "T-3444",
+        "T-3516"
       ]
     },
     {

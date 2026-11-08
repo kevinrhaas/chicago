@@ -3826,10 +3826,14 @@ async function boot() {
   // door and ask for any person inside"): each person's day by the scene's date and hour,
   // and every 1812 door that has someone behind it offers Ask for them (human-days.js).
   api.days = null;
-  if (String(loaded.scene.id ?? YEAR) === '1812') {
+  // T-3516 (owner, 2026-11-08: "This is for all years starting with 1812, give all people a
+  // purpose and something to do"): every year's people keep a day, by its own doors file.
+  const daysScene = String(loaded.scene.id ?? YEAR);
+  if (['1812', '1835', '1904'].includes(daysScene)) {
     const getOptional = (rel) => fetch(new URL(rel, bases.dataBase), { cache: 'no-cache' })
       .then((r) => (r.ok ? r.json() : null)).catch(() => null);
-    const [doors, inside] = await Promise.all([getOptional('humans/doors_1812.json'), getOptional('humans/inside_1812.json')]);
+    const [doors, inside] = await Promise.all([getOptional(`humans/doors_${daysScene}.json`),
+      daysScene === '1812' ? getOptional('humans/inside_1812.json') : null]);
     // The gathering's people who are carded and not drawn (inside_1812.json): a figure is
     // built for one only when they are asked for at their lodge's door, from the dress their
     // entry names, and taken away once they are back in.
@@ -3837,7 +3841,7 @@ async function boot() {
     const spawn = (entry, door) => {
       if (!entry.asset_id || !api.humans?.add) return null;
       const rec = {
-        id: `hi_inside_${entry.person}`, contract_version: 1, scene: '1812', person_id: entry.person,
+        id: `hi_inside_${entry.person}`, contract_version: 1, scene: daysScene, person_id: entry.person,
         appearance: { asset_id: entry.asset_id },
         placement: { local_e: door.leaf.local_e, local_n: door.leaf.local_n, heading_deg: door.outward_deg, anchor: 'terrain' },
         animation: { clip: 'idle', loop: true, phase: 0 }, behaviour: { state: 'standing' },

@@ -2323,6 +2323,13 @@
       "measured": "2026-11-08",
       "finding": "Reproduces: a bare write run on the committed tree rewrote data/humans/doors_1812.json (69 doors on 38 buildings) with identical bytes (T-3463).",
       "placed": "not yet \u2014 measured to reproduce. It reads the 1812 sidecars and their GLBs (door leaves off the models) and the lodge camp records; tools/test_human_days.mjs and human-days.js read its output, so it follows the 1812 structure emitters, and the manifest's order is its own measured pass, so it is not appended blind (T-3463)."
+    },
+    "derive_doors_scene.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-08",
+      "finding": "Reproduces: a bare write run on the tree rewrote data/humans/doors_1835.json (4 doors on 2 buildings, read off their models) and doors_1904.json (3 doors on Glessner's house, from its record) with identical bytes (T-3516).",
+      "placed": "not yet \u2014 measured to reproduce. It reads the 1835 and 1904 people records' days, the buildings they name (sidecars, and the 1835 GLBs' door leaves as derive_doors_1812.py does); tools/test_human_rounds.mjs and human-days.js read its output, so it follows the structure emitters and the people days, and the manifest's order is its own measured pass, so it is not appended blind (T-3516)."
     }
   }
 }
