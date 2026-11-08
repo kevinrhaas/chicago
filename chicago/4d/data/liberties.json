@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1047,
+  "count": 1048,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -1582,6 +1582,10 @@
       "name": "David McKee's log house"
     },
     {
+      "id": "miami_escort_camp_1812",
+      "name": "The Miami escort's camp, August 1812"
+    },
+    {
       "id": "miller_house",
       "name": "Miller House"
     },
@@ -1706,6 +1710,14 @@
       "name": "Asahel Pierce's Blacksmith Shop"
     },
     {
+      "id": "potawatomi_camp_1812_far_west",
+      "name": "The Potawatomi camp of August 1812: the men's lodges furthest west"
+    },
+    {
+      "id": "potawatomi_camp_1812_head_west",
+      "name": "The Potawatomi camp of August 1812: the men's lodges by the creek's head"
+    },
+    {
       "id": "potawatomi_camp_1812_horse_ground",
       "name": "The Potawatomi camp of August 1812: the horse ground"
     },
@@ -1718,8 +1730,28 @@
       "name": "The Potawatomi camp of August 1812: the lodges by the creek's mouth"
     },
     {
+      "id": "potawatomi_camp_1812_north_flat",
+      "name": "The Potawatomi camp of August 1812: the men's lodges on the flat above the mouth"
+    },
+    {
+      "id": "potawatomi_camp_1812_prairie_west",
+      "name": "The Potawatomi camp of August 1812: the men's lodges on the west prairie"
+    },
+    {
+      "id": "potawatomi_camp_1812_south_bend",
+      "name": "The Potawatomi camp of August 1812: the family lodges below the bend"
+    },
+    {
+      "id": "potawatomi_camp_1812_south_prairie",
+      "name": "The Potawatomi camp of August 1812: the family lodges on the south prairie"
+    },
+    {
       "id": "potawatomi_camp_1812_south_reach",
       "name": "The Potawatomi camp of August 1812: the lodges south of the creek's bend"
+    },
+    {
+      "id": "potawatomi_camp_1812_south_west",
+      "name": "The Potawatomi camp of August 1812: the family lodges south of the reach"
     },
     {
       "id": "potawatomi_camp_1812_upper",
@@ -46838,6 +46870,964 @@
         "T-2515",
         "T-2490",
         "T-2514"
+      ]
+    },
+    {
+      "id": "L-1812-gathering-lodges-3499",
+      "title": "Lodges for the whole August 1812 gathering: seven more grounds on the creek, the occupancy rule, and a camp for Wells's Miami escort",
+      "section": "per_subject",
+      "subjects": [
+        "miami_escort_camp_1812",
+        "potawatomi_camp_1812_far_west",
+        "potawatomi_camp_1812_head_west",
+        "potawatomi_camp_1812_north_flat",
+        "potawatomi_camp_1812_prairie_west",
+        "potawatomi_camp_1812_south_bend",
+        "potawatomi_camp_1812_south_prairie",
+        "potawatomi_camp_1812_south_west"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "miami_escort_camp_1812",
+          "phase": null,
+          "aspect": "occupants"
+        },
+        {
+          "domain": "structure",
+          "structure": "miami_escort_camp_1812",
+          "phase": "camp_1812",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "miami_escort_camp_1812",
+          "phase": "camp_1812",
+          "aspect": "form.arbors"
+        },
+        {
+          "domain": "structure",
+          "structure": "miami_escort_camp_1812",
+          "phase": "camp_1812",
+          "aspect": "form.bark_houses"
+        },
+        {
+          "domain": "structure",
+          "structure": "miami_escort_camp_1812",
+          "phase": "camp_1812",
+          "aspect": "form.bark_roofed_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "miami_escort_camp_1812",
+          "phase": "camp_1812",
+          "aspect": "form.canoe_edge"
+        },
+        {
+          "domain": "structure",
+          "structure": "miami_escort_camp_1812",
+          "phase": "camp_1812",
+          "aspect": "form.canoes"
+        },
+        {
+          "domain": "structure",
+          "structure": "miami_escort_camp_1812",
+          "phase": "camp_1812",
+          "aspect": "form.drying_racks"
+        },
+        {
+          "domain": "structure",
+          "structure": "miami_escort_camp_1812",
+          "phase": "camp_1812",
+          "aspect": "form.hearths"
+        },
+        {
+          "domain": "structure",
+          "structure": "miami_escort_camp_1812",
+          "phase": "camp_1812",
+          "aspect": "form.hide_frames"
+        },
+        {
+          "domain": "structure",
+          "structure": "miami_escort_camp_1812",
+          "phase": "camp_1812",
+          "aspect": "form.horse_pickets"
+        },
+        {
+          "domain": "structure",
+          "structure": "miami_escort_camp_1812",
+          "phase": "camp_1812",
+          "aspect": "form.long_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "miami_escort_camp_1812",
+          "phase": "camp_1812",
+          "aspect": "form.mat_condition"
+        },
+        {
+          "domain": "structure",
+          "structure": "miami_escort_camp_1812",
+          "phase": "camp_1812",
+          "aspect": "form.mat_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "miami_escort_camp_1812",
+          "phase": "camp_1812",
+          "aspect": "form.mortars"
+        },
+        {
+          "domain": "structure",
+          "structure": "miami_escort_camp_1812",
+          "phase": "camp_1812",
+          "aspect": "form.pack_saddles"
+        },
+        {
+          "domain": "structure",
+          "structure": "miami_escort_camp_1812",
+          "phase": "camp_1812",
+          "aspect": "form.scaffolds"
+        },
+        {
+          "domain": "structure",
+          "structure": "miami_escort_camp_1812",
+          "phase": "camp_1812",
+          "aspect": "form.woodpiles"
+        },
+        {
+          "domain": "structure",
+          "structure": "miami_escort_camp_1812",
+          "phase": "camp_1812",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_far_west",
+          "phase": null,
+          "aspect": "occupants"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_far_west",
+          "phase": "camp_1812",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_far_west",
+          "phase": "camp_1812",
+          "aspect": "form.arbors"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_far_west",
+          "phase": "camp_1812",
+          "aspect": "form.bark_houses"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_far_west",
+          "phase": "camp_1812",
+          "aspect": "form.bark_roofed_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_far_west",
+          "phase": "camp_1812",
+          "aspect": "form.canoe_edge"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_far_west",
+          "phase": "camp_1812",
+          "aspect": "form.canoes"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_far_west",
+          "phase": "camp_1812",
+          "aspect": "form.drying_racks"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_far_west",
+          "phase": "camp_1812",
+          "aspect": "form.hearths"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_far_west",
+          "phase": "camp_1812",
+          "aspect": "form.hide_frames"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_far_west",
+          "phase": "camp_1812",
+          "aspect": "form.horse_pickets"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_far_west",
+          "phase": "camp_1812",
+          "aspect": "form.long_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_far_west",
+          "phase": "camp_1812",
+          "aspect": "form.mat_condition"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_far_west",
+          "phase": "camp_1812",
+          "aspect": "form.mat_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_far_west",
+          "phase": "camp_1812",
+          "aspect": "form.mortars"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_far_west",
+          "phase": "camp_1812",
+          "aspect": "form.pack_saddles"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_far_west",
+          "phase": "camp_1812",
+          "aspect": "form.scaffolds"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_far_west",
+          "phase": "camp_1812",
+          "aspect": "form.woodpiles"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_far_west",
+          "phase": "camp_1812",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_head_west",
+          "phase": null,
+          "aspect": "occupants"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_head_west",
+          "phase": "camp_1812",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_head_west",
+          "phase": "camp_1812",
+          "aspect": "form.arbors"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_head_west",
+          "phase": "camp_1812",
+          "aspect": "form.bark_houses"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_head_west",
+          "phase": "camp_1812",
+          "aspect": "form.bark_roofed_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_head_west",
+          "phase": "camp_1812",
+          "aspect": "form.canoe_edge"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_head_west",
+          "phase": "camp_1812",
+          "aspect": "form.canoes"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_head_west",
+          "phase": "camp_1812",
+          "aspect": "form.drying_racks"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_head_west",
+          "phase": "camp_1812",
+          "aspect": "form.hearths"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_head_west",
+          "phase": "camp_1812",
+          "aspect": "form.hide_frames"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_head_west",
+          "phase": "camp_1812",
+          "aspect": "form.horse_pickets"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_head_west",
+          "phase": "camp_1812",
+          "aspect": "form.long_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_head_west",
+          "phase": "camp_1812",
+          "aspect": "form.mat_condition"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_head_west",
+          "phase": "camp_1812",
+          "aspect": "form.mat_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_head_west",
+          "phase": "camp_1812",
+          "aspect": "form.mortars"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_head_west",
+          "phase": "camp_1812",
+          "aspect": "form.pack_saddles"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_head_west",
+          "phase": "camp_1812",
+          "aspect": "form.scaffolds"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_head_west",
+          "phase": "camp_1812",
+          "aspect": "form.woodpiles"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_head_west",
+          "phase": "camp_1812",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_north_flat",
+          "phase": null,
+          "aspect": "occupants"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_north_flat",
+          "phase": "camp_1812",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_north_flat",
+          "phase": "camp_1812",
+          "aspect": "form.arbors"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_north_flat",
+          "phase": "camp_1812",
+          "aspect": "form.bark_houses"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_north_flat",
+          "phase": "camp_1812",
+          "aspect": "form.bark_roofed_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_north_flat",
+          "phase": "camp_1812",
+          "aspect": "form.canoe_edge"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_north_flat",
+          "phase": "camp_1812",
+          "aspect": "form.canoes"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_north_flat",
+          "phase": "camp_1812",
+          "aspect": "form.drying_racks"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_north_flat",
+          "phase": "camp_1812",
+          "aspect": "form.hearths"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_north_flat",
+          "phase": "camp_1812",
+          "aspect": "form.hide_frames"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_north_flat",
+          "phase": "camp_1812",
+          "aspect": "form.horse_pickets"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_north_flat",
+          "phase": "camp_1812",
+          "aspect": "form.long_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_north_flat",
+          "phase": "camp_1812",
+          "aspect": "form.mat_condition"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_north_flat",
+          "phase": "camp_1812",
+          "aspect": "form.mat_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_north_flat",
+          "phase": "camp_1812",
+          "aspect": "form.mortars"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_north_flat",
+          "phase": "camp_1812",
+          "aspect": "form.pack_saddles"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_north_flat",
+          "phase": "camp_1812",
+          "aspect": "form.scaffolds"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_north_flat",
+          "phase": "camp_1812",
+          "aspect": "form.woodpiles"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_north_flat",
+          "phase": "camp_1812",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_prairie_west",
+          "phase": null,
+          "aspect": "occupants"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_prairie_west",
+          "phase": "camp_1812",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_prairie_west",
+          "phase": "camp_1812",
+          "aspect": "form.arbors"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_prairie_west",
+          "phase": "camp_1812",
+          "aspect": "form.bark_houses"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_prairie_west",
+          "phase": "camp_1812",
+          "aspect": "form.bark_roofed_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_prairie_west",
+          "phase": "camp_1812",
+          "aspect": "form.canoe_edge"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_prairie_west",
+          "phase": "camp_1812",
+          "aspect": "form.canoes"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_prairie_west",
+          "phase": "camp_1812",
+          "aspect": "form.drying_racks"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_prairie_west",
+          "phase": "camp_1812",
+          "aspect": "form.hearths"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_prairie_west",
+          "phase": "camp_1812",
+          "aspect": "form.hide_frames"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_prairie_west",
+          "phase": "camp_1812",
+          "aspect": "form.horse_pickets"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_prairie_west",
+          "phase": "camp_1812",
+          "aspect": "form.long_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_prairie_west",
+          "phase": "camp_1812",
+          "aspect": "form.mat_condition"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_prairie_west",
+          "phase": "camp_1812",
+          "aspect": "form.mat_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_prairie_west",
+          "phase": "camp_1812",
+          "aspect": "form.mortars"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_prairie_west",
+          "phase": "camp_1812",
+          "aspect": "form.pack_saddles"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_prairie_west",
+          "phase": "camp_1812",
+          "aspect": "form.scaffolds"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_prairie_west",
+          "phase": "camp_1812",
+          "aspect": "form.woodpiles"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_prairie_west",
+          "phase": "camp_1812",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_bend",
+          "phase": null,
+          "aspect": "occupants"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_bend",
+          "phase": "camp_1812",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_bend",
+          "phase": "camp_1812",
+          "aspect": "form.arbors"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_bend",
+          "phase": "camp_1812",
+          "aspect": "form.bark_houses"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_bend",
+          "phase": "camp_1812",
+          "aspect": "form.bark_roofed_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_bend",
+          "phase": "camp_1812",
+          "aspect": "form.canoe_edge"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_bend",
+          "phase": "camp_1812",
+          "aspect": "form.canoes"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_bend",
+          "phase": "camp_1812",
+          "aspect": "form.drying_racks"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_bend",
+          "phase": "camp_1812",
+          "aspect": "form.hearths"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_bend",
+          "phase": "camp_1812",
+          "aspect": "form.hide_frames"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_bend",
+          "phase": "camp_1812",
+          "aspect": "form.horse_pickets"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_bend",
+          "phase": "camp_1812",
+          "aspect": "form.long_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_bend",
+          "phase": "camp_1812",
+          "aspect": "form.mat_condition"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_bend",
+          "phase": "camp_1812",
+          "aspect": "form.mat_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_bend",
+          "phase": "camp_1812",
+          "aspect": "form.mortars"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_bend",
+          "phase": "camp_1812",
+          "aspect": "form.pack_saddles"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_bend",
+          "phase": "camp_1812",
+          "aspect": "form.scaffolds"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_bend",
+          "phase": "camp_1812",
+          "aspect": "form.woodpiles"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_bend",
+          "phase": "camp_1812",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_prairie",
+          "phase": null,
+          "aspect": "occupants"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_prairie",
+          "phase": "camp_1812",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_prairie",
+          "phase": "camp_1812",
+          "aspect": "form.arbors"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_prairie",
+          "phase": "camp_1812",
+          "aspect": "form.bark_houses"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_prairie",
+          "phase": "camp_1812",
+          "aspect": "form.bark_roofed_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_prairie",
+          "phase": "camp_1812",
+          "aspect": "form.canoe_edge"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_prairie",
+          "phase": "camp_1812",
+          "aspect": "form.canoes"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_prairie",
+          "phase": "camp_1812",
+          "aspect": "form.drying_racks"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_prairie",
+          "phase": "camp_1812",
+          "aspect": "form.hearths"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_prairie",
+          "phase": "camp_1812",
+          "aspect": "form.hide_frames"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_prairie",
+          "phase": "camp_1812",
+          "aspect": "form.horse_pickets"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_prairie",
+          "phase": "camp_1812",
+          "aspect": "form.long_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_prairie",
+          "phase": "camp_1812",
+          "aspect": "form.mat_condition"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_prairie",
+          "phase": "camp_1812",
+          "aspect": "form.mat_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_prairie",
+          "phase": "camp_1812",
+          "aspect": "form.mortars"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_prairie",
+          "phase": "camp_1812",
+          "aspect": "form.pack_saddles"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_prairie",
+          "phase": "camp_1812",
+          "aspect": "form.scaffolds"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_prairie",
+          "phase": "camp_1812",
+          "aspect": "form.woodpiles"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_prairie",
+          "phase": "camp_1812",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_west",
+          "phase": null,
+          "aspect": "occupants"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_west",
+          "phase": "camp_1812",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_west",
+          "phase": "camp_1812",
+          "aspect": "form.arbors"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_west",
+          "phase": "camp_1812",
+          "aspect": "form.bark_houses"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_west",
+          "phase": "camp_1812",
+          "aspect": "form.bark_roofed_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_west",
+          "phase": "camp_1812",
+          "aspect": "form.canoe_edge"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_west",
+          "phase": "camp_1812",
+          "aspect": "form.canoes"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_west",
+          "phase": "camp_1812",
+          "aspect": "form.drying_racks"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_west",
+          "phase": "camp_1812",
+          "aspect": "form.hearths"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_west",
+          "phase": "camp_1812",
+          "aspect": "form.hide_frames"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_west",
+          "phase": "camp_1812",
+          "aspect": "form.horse_pickets"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_west",
+          "phase": "camp_1812",
+          "aspect": "form.long_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_west",
+          "phase": "camp_1812",
+          "aspect": "form.mat_condition"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_west",
+          "phase": "camp_1812",
+          "aspect": "form.mat_lodges"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_west",
+          "phase": "camp_1812",
+          "aspect": "form.mortars"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_west",
+          "phase": "camp_1812",
+          "aspect": "form.pack_saddles"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_west",
+          "phase": "camp_1812",
+          "aspect": "form.scaffolds"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_west",
+          "phase": "camp_1812",
+          "aspect": "form.woodpiles"
+        },
+        {
+          "domain": "structure",
+          "structure": "potawatomi_camp_1812_south_west",
+          "phase": "camp_1812",
+          "aspect": "position"
+        }
+      ],
+      "recorded": "2026-11-08",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "seven more lodge camp grounds stand beside earlier work's six on the State Street creek (The Potawatomi camp of August 1812: the family lodges south of the reach, _north flat, _south bend, _head west, _prairie west, _far west and _south prairie), and The Miami escort's camp, August 1812 stands on the prairie about 175 m south-west of the fort, at the owner's ask of 2026-11-08 to card every missing person of the gathering and keep the undrawn ones \"in buildings\" where he can call them out. **The count is the source's**: Helm's narrative (Quaife 1913, Appendix VI) has Wells arrive \"on the 12th August with 27 Miamis\" and a council with \"the tribes there assembled to amount of 500 warriors 179 women & children\"; Heald's report gives the warriors as \"between four and five hundred\" (Appendix IV). **Everything else is ours.** The occupancy rule (a mat or bark-roofed lodge sleeps 8, a long lodge 20, a bark house 14), by which earlier work's grounds sleep 270 and these seven 440, 710 for Helm's 679, and the Miami camp 36 for his 27; the reading of Helm's 179 against 500 as about 45 families with most of the men come without them, so three grounds are drawn as family grounds and four as men's grounds (lodges, hearths, firewood and horse pickets); every ground's place, found by a search on the the 1830 natural ground heightfield for level ground off the creek's cut and clear of every other 1812 footprint, worn trail and wagon road (the research notes on gathering camp 1812), and its extent; and the Miami camp's whole existence as a separate ground: no source read places where the escort spent its two or three nights, and the Potawatomi camp's lodge forms stand for the Miamis'. The forms themselves are earlier work's archetype, and what each rests on is “The Potawatomi camp of August 1812: its six grounds on the creek, its lodges, arbors, hearths, gear and horse ground, and every form's shape and size”."
+        },
+        {
+          "label": "Consequence",
+          "text": "the camp roofs everyone Helm counts, so every person later work cards has a lodge to be in; a visitor sees thirteen grounds along the creek where there were six, and a small mounted camp south-west of the fort."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a count or a map of the lodges of August 1812; a source placing the Miami escort's camp; the judgement of Native scholars or community organisations, which may change the number, the forms or whether the camp is drawn at all."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-08 (T-3499)."
+        },
+        {
+          "label": "Covers",
+          "text": "`potawatomi_camp_1812_south_west.occupants`, `potawatomi_camp_1812_south_west.camp_1812.position`, `potawatomi_camp_1812_south_west.camp_1812.footprint`, `potawatomi_camp_1812_south_west.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_south_west.camp_1812.form.long_lodges`, `potawatomi_camp_1812_south_west.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_south_west.camp_1812.form.bark_houses`, `potawatomi_camp_1812_south_west.camp_1812.form.arbors`, `potawatomi_camp_1812_south_west.camp_1812.form.hearths`, `potawatomi_camp_1812_south_west.camp_1812.form.drying_racks`, `potawatomi_camp_1812_south_west.camp_1812.form.scaffolds`, `potawatomi_camp_1812_south_west.camp_1812.form.hide_frames`, `potawatomi_camp_1812_south_west.camp_1812.form.woodpiles`, `potawatomi_camp_1812_south_west.camp_1812.form.mortars`, `potawatomi_camp_1812_south_west.camp_1812.form.canoes`, `potawatomi_camp_1812_south_west.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_south_west.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_south_west.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_south_west.camp_1812.form.mat_condition`, `potawatomi_camp_1812_north_flat.occupants`, `potawatomi_camp_1812_north_flat.camp_1812.position`, `potawatomi_camp_1812_north_flat.camp_1812.footprint`, `potawatomi_camp_1812_north_flat.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_north_flat.camp_1812.form.long_lodges`, `potawatomi_camp_1812_north_flat.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_north_flat.camp_1812.form.bark_houses`, `potawatomi_camp_1812_north_flat.camp_1812.form.arbors`, `potawatomi_camp_1812_north_flat.camp_1812.form.hearths`, `potawatomi_camp_1812_north_flat.camp_1812.form.drying_racks`, `potawatomi_camp_1812_north_flat.camp_1812.form.scaffolds`, `potawatomi_camp_1812_north_flat.camp_1812.form.hide_frames`, `potawatomi_camp_1812_north_flat.camp_1812.form.woodpiles`, `potawatomi_camp_1812_north_flat.camp_1812.form.mortars`, `potawatomi_camp_1812_north_flat.camp_1812.form.canoes`, `potawatomi_camp_1812_north_flat.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_north_flat.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_north_flat.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_north_flat.camp_1812.form.mat_condition`, `potawatomi_camp_1812_south_bend.occupants`, `potawatomi_camp_1812_south_bend.camp_1812.position`, `potawatomi_camp_1812_south_bend.camp_1812.footprint`, `potawatomi_camp_1812_south_bend.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_south_bend.camp_1812.form.long_lodges`, `potawatomi_camp_1812_south_bend.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_south_bend.camp_1812.form.bark_houses`, `potawatomi_camp_1812_south_bend.camp_1812.form.arbors`, `potawatomi_camp_1812_south_bend.camp_1812.form.hearths`, `potawatomi_camp_1812_south_bend.camp_1812.form.drying_racks`, `potawatomi_camp_1812_south_bend.camp_1812.form.scaffolds`, `potawatomi_camp_1812_south_bend.camp_1812.form.hide_frames`, `potawatomi_camp_1812_south_bend.camp_1812.form.woodpiles`, `potawatomi_camp_1812_south_bend.camp_1812.form.mortars`, `potawatomi_camp_1812_south_bend.camp_1812.form.canoes`, `potawatomi_camp_1812_south_bend.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_south_bend.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_south_bend.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_south_bend.camp_1812.form.mat_condition`, `potawatomi_camp_1812_head_west.occupants`, `potawatomi_camp_1812_head_west.camp_1812.position`, `potawatomi_camp_1812_head_west.camp_1812.footprint`, `potawatomi_camp_1812_head_west.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_head_west.camp_1812.form.long_lodges`, `potawatomi_camp_1812_head_west.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_head_west.camp_1812.form.bark_houses`, `potawatomi_camp_1812_head_west.camp_1812.form.arbors`, `potawatomi_camp_1812_head_west.camp_1812.form.hearths`, `potawatomi_camp_1812_head_west.camp_1812.form.drying_racks`, `potawatomi_camp_1812_head_west.camp_1812.form.scaffolds`, `potawatomi_camp_1812_head_west.camp_1812.form.hide_frames`, `potawatomi_camp_1812_head_west.camp_1812.form.woodpiles`, `potawatomi_camp_1812_head_west.camp_1812.form.mortars`, `potawatomi_camp_1812_head_west.camp_1812.form.canoes`, `potawatomi_camp_1812_head_west.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_head_west.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_head_west.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_head_west.camp_1812.form.mat_condition`, `potawatomi_camp_1812_prairie_west.occupants`, `potawatomi_camp_1812_prairie_west.camp_1812.position`, `potawatomi_camp_1812_prairie_west.camp_1812.footprint`, `potawatomi_camp_1812_prairie_west.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_prairie_west.camp_1812.form.long_lodges`, `potawatomi_camp_1812_prairie_west.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_prairie_west.camp_1812.form.bark_houses`, `potawatomi_camp_1812_prairie_west.camp_1812.form.arbors`, `potawatomi_camp_1812_prairie_west.camp_1812.form.hearths`, `potawatomi_camp_1812_prairie_west.camp_1812.form.drying_racks`, `potawatomi_camp_1812_prairie_west.camp_1812.form.scaffolds`, `potawatomi_camp_1812_prairie_west.camp_1812.form.hide_frames`, `potawatomi_camp_1812_prairie_west.camp_1812.form.woodpiles`, `potawatomi_camp_1812_prairie_west.camp_1812.form.mortars`, `potawatomi_camp_1812_prairie_west.camp_1812.form.canoes`, `potawatomi_camp_1812_prairie_west.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_prairie_west.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_prairie_west.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_prairie_west.camp_1812.form.mat_condition`, `potawatomi_camp_1812_far_west.occupants`, `potawatomi_camp_1812_far_west.camp_1812.position`, `potawatomi_camp_1812_far_west.camp_1812.footprint`, `potawatomi_camp_1812_far_west.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_far_west.camp_1812.form.long_lodges`, `potawatomi_camp_1812_far_west.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_far_west.camp_1812.form.bark_houses`, `potawatomi_camp_1812_far_west.camp_1812.form.arbors`, `potawatomi_camp_1812_far_west.camp_1812.form.hearths`, `potawatomi_camp_1812_far_west.camp_1812.form.drying_racks`, `potawatomi_camp_1812_far_west.camp_1812.form.scaffolds`, `potawatomi_camp_1812_far_west.camp_1812.form.hide_frames`, `potawatomi_camp_1812_far_west.camp_1812.form.woodpiles`, `potawatomi_camp_1812_far_west.camp_1812.form.mortars`, `potawatomi_camp_1812_far_west.camp_1812.form.canoes`, `potawatomi_camp_1812_far_west.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_far_west.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_far_west.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_far_west.camp_1812.form.mat_condition`, `potawatomi_camp_1812_south_prairie.occupants`, `potawatomi_camp_1812_south_prairie.camp_1812.position`, `potawatomi_camp_1812_south_prairie.camp_1812.footprint`, `potawatomi_camp_1812_south_prairie.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_south_prairie.camp_1812.form.long_lodges`, `potawatomi_camp_1812_south_prairie.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_south_prairie.camp_1812.form.bark_houses`, `potawatomi_camp_1812_south_prairie.camp_1812.form.arbors`, `potawatomi_camp_1812_south_prairie.camp_1812.form.hearths`, `potawatomi_camp_1812_south_prairie.camp_1812.form.drying_racks`, `potawatomi_camp_1812_south_prairie.camp_1812.form.scaffolds`, `potawatomi_camp_1812_south_prairie.camp_1812.form.hide_frames`, `potawatomi_camp_1812_south_prairie.camp_1812.form.woodpiles`, `potawatomi_camp_1812_south_prairie.camp_1812.form.mortars`, `potawatomi_camp_1812_south_prairie.camp_1812.form.canoes`, `potawatomi_camp_1812_south_prairie.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_south_prairie.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_south_prairie.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_south_prairie.camp_1812.form.mat_condition`, `miami_escort_camp_1812.occupants`, `miami_escort_camp_1812.camp_1812.position`, `miami_escort_camp_1812.camp_1812.footprint`, `miami_escort_camp_1812.camp_1812.form.mat_lodges`, `miami_escort_camp_1812.camp_1812.form.long_lodges`, `miami_escort_camp_1812.camp_1812.form.bark_roofed_lodges`, `miami_escort_camp_1812.camp_1812.form.bark_houses`, `miami_escort_camp_1812.camp_1812.form.arbors`, `miami_escort_camp_1812.camp_1812.form.hearths`, `miami_escort_camp_1812.camp_1812.form.drying_racks`, `miami_escort_camp_1812.camp_1812.form.scaffolds`, `miami_escort_camp_1812.camp_1812.form.hide_frames`, `miami_escort_camp_1812.camp_1812.form.woodpiles`, `miami_escort_camp_1812.camp_1812.form.mortars`, `miami_escort_camp_1812.camp_1812.form.canoes`, `miami_escort_camp_1812.camp_1812.form.horse_pickets`, `miami_escort_camp_1812.camp_1812.form.pack_saddles`, `miami_escort_camp_1812.camp_1812.form.canoe_edge`, `miami_escort_camp_1812.camp_1812.form.mat_condition`"
+        }
+      ],
+      "work_refs": [
+        "T-3342",
+        "T-3500",
+        "T-3499"
       ]
     },
     {
