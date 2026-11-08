@@ -408,19 +408,6 @@
       ]
     },
     {
-      "why": "THE 1812 OFFICERS' GARDEN (T-3407): the commanding officer's garden south of the first fort laid in the beds Whistler's 1808 draught draws and planted for mid-August at M'Mahon's period spacings, inside the paling of first_fort_outer_officers_garden. It reads only the structure record and its own tables.",
-      "command": [
-        "python3",
-        "tools/plant_gardens.py"
-      ],
-      "resolves": [],
-      "verify": [
-        "python3",
-        "tools/plant_gardens.py",
-        "--check"
-      ]
-    },
-    {
       "why": "A SOURCE READ OUT OF ITS COMMITTED ORIGINAL (T-2327, T-2328, T-2340): sheets 28, 20 and 35's 1904 building footprints, read off the committed Sanborn rasters through the GCP files tools/georef_prairie_1904.py writes, clipped to the lots data/street_grid/1904.json carries and keyed to the authored T-1841, T-1840 and T-1842 sheet censuses. It reads the parcel grid the step above writes, so it follows that step.",
       "command": [
         "python3",
@@ -2999,6 +2986,19 @@
       "verify": [
         "python3",
         "tools/generate_dooryard_pickets.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "THE KITCHEN GARDENS (T-3407, T-3476): the 1812 commanding officer's garden south of the first fort laid in the beds Whistler's 1808 draught draws and planted for mid-August at M'Mahon's period spacings, inside the paling of first_fort_outer_officers_garden; and since T-3476 the 1835 town's dooryard gardens, planted in the beds tools/generate_dooryard_pickets.py lays out in data/enclosures/town_dooryard_pickets.json. It reads that record, so it follows the step that writes it.",
+      "command": [
+        "python3",
+        "tools/plant_gardens.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/plant_gardens.py",
         "--check"
       ]
     },

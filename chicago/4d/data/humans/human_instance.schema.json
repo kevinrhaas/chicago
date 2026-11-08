@@ -161,6 +161,145 @@
               }
             }
           }
+        },
+        "duty": {
+          "type": "object",
+          "required": [
+            "kind"
+          ],
+          "additionalProperties": false,
+          "description": "T-3490: a duty shared with others, played by renderers/web/js/human-duties.js. `knot`: men of one `id` standing together talking (placement is his place in it, facing in), who now and then each walk to `away`, stand a while and come back. `beat`: a sentry walking between his placement and `to`, pausing at each end facing `face_deg`. `rank`: men of one `id` drawn up still, hands at their sides, looking at the one marked `lead`, who speaks to them now and then. No words are said (L1).",
+          "properties": {
+            "kind": {
+              "enum": [
+                "knot",
+                "beat",
+                "rank"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "pattern": "^[a-z0-9_]+$"
+            },
+            "lead": {
+              "type": "boolean"
+            },
+            "away": {
+              "type": "object",
+              "required": [
+                "local_e",
+                "local_n",
+                "heading_deg"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "local_e": {
+                  "type": "number"
+                },
+                "local_n": {
+                  "type": "number"
+                },
+                "heading_deg": {
+                  "type": "number",
+                  "minimum": 0,
+                  "exclusiveMaximum": 360
+                },
+                "via": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "local_e",
+                      "local_n"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "local_e": {
+                        "type": "number"
+                      },
+                      "local_n": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "to": {
+              "type": "object",
+              "required": [
+                "local_e",
+                "local_n"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "local_e": {
+                  "type": "number"
+                },
+                "local_n": {
+                  "type": "number"
+                }
+              }
+            },
+            "face_deg": {
+              "type": "number",
+              "minimum": 0,
+              "exclusiveMaximum": 360
+            },
+            "pause_s": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "kind": {
+                    "const": "beat"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "to"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "knot",
+                      "rank"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "id"
+                ]
+              }
+            }
+          ]
+        },
+        "hours": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 24
+          },
+          "description": "T-3490: local solar hours [from, to) the person is out (`to` may pass midnight); outside them they are in quarters, not drawn (renderers/web/js/human-duties.js). Absent: always out."
         }
       }
     },

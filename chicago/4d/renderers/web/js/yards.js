@@ -499,6 +499,17 @@ function ring(path) {
   return pts;
 }
 
+/** T-3476: a ring's own frame, `u` along its longest side, from that side's first corner. */
+function longFrame(pts) {
+  let best = 0, frame = { e: pts[0][0], n: pts[0][1], ux: 1, un: 0 };
+  for (let i = 0; i < pts.length; i++) {
+    const a = pts[i], b = pts[(i + 1) % pts.length];
+    const len = Math.hypot(b[0] - a[0], b[1] - a[1]);
+    if (len > best) { best = len; frame = { e: a[0], n: a[1], ux: (b[0] - a[0]) / len, un: (b[1] - a[1]) / len }; }
+  }
+  return frame;
+}
+
 /** Whether a run's own path closes a ring, which is what lets a record state an
  *  interior without stating a second set of coordinates. */
 function closes(path) {
@@ -977,8 +988,14 @@ function interiorsOf(record, problems) {
   } else {
     for (const run of record.runs ?? []) {
       if (!closes(run.path_local_enu_m)) continue;
+      // T-3476: a run laid out as a garden of its own (the 1835 dooryard gardens) states
+      // its walks, which are laid here, and its beds, which the gardens layer lays and
+      // plants (data/gardens/1835.json): so the BED rule's four strips are not laid in it.
+      const walks = Array.isArray(run.walks_local_enu_m)
+        ? run.walks_local_enu_m.filter((r) => Array.isArray(r) && r.length >= 3).map(ring) : null;
       out.push({ id: `${record.id}__${run.id ?? out.length}`, record: record.id,
-        treatment, level, pts: ring(run.path_local_enu_m) });
+        treatment, level, pts: ring(run.path_local_enu_m),
+        beds: run.garden ? [] : null, walks });
     }
   }
   if (!out.length) {
@@ -1245,7 +1262,20 @@ export async function createFencedGround({
     // hotel's back yard (where it makes a garden patch in the far corner rather
     // than ploughing the whole yard). Every bed is clipped to the interior on
     // the way in, so none of this can escape its own fence.
-    if (spec.beds) {
+    if (spec.beds && interior.beds) {
+      for (const authored of interior.beds) {
+        const bed = clipRingToRing(authored, pts);
+        if (!bed) continue;
+        // the drills run down the bed's longest side
+        out.census.cells += layRegion(bufFor(spec.beds), bed, terrain, {
+          frame: longFrame(bed),
+          period: PERIOD_M[spec.beds], lift: LIFT_M.bed,
+          level: interior.level, tint: [1, 1, 1], alpha: [0.99, 0.99],
+          fringeOf: () => 1,
+        });
+        out.census.beds += 1;
+      }
+    } else if (spec.beds) {
       const gate = interior.gate;
       const u0 = BED.inset;
       const u1 = Math.max(u0, uLen - BED.inset);
@@ -1283,7 +1313,18 @@ export async function createFencedGround({
     // door. Derived from the record's own gateway and the ring it stands on;
     // nothing new is authored, and where a record states no gateway there is no
     // path, which is the honest answer rather than a path from nowhere.
-    if (spec.path && interior.gate) {
+    if (spec.path && interior.walks) {
+      for (const authored of interior.walks) {
+        const path = clipRingToRing(authored, pts);
+        if (!path) continue;
+        out.census.cells += layRegion(bufFor(spec.path), path, terrain, {
+          frame: longFrame(path),
+          period: PERIOD_M[spec.path] * 0.4, lift: LIFT_M.path, level: interior.level,
+          tint: [1, 1, 1], alpha: [0.94, 0.94], fringeOf: () => 1,
+        });
+        out.census.paths += 1;
+      }
+    } else if (spec.path && interior.gate) {
       const g = interior.gate;
       const inward = inwardNormal(pts, g.e, g.n);
       if (inward) {
