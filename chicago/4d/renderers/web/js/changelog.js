@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2837, ts: '2026-11-08T20:52:41.697Z', date: 'Nov 8, 2026, 2:52 PM CT', title: 'Dry 1812 boats, full-height skiffs, and a smaller review note', kind: 'fix',
+    items: [
+      'The river no longer shows through the bottom of a dugout or canoe.',
+      'The skiffs have their full plank sides; they were only a hand deep.',
+      'A card\'s historical review note now sits small at the foot of the card instead of at its head.',
+    ] },
   { v: 2836, ts: '2026-11-08T20:48:26.941Z', date: 'Nov 8, 2026, 2:48 PM CT', title: 'Every Potawatomi and Miami person of 1812 their own', kind: 'feature',
     items: [
       'The camp people no longer all look alike: each is dressed in their own colours of trade cloth, with or without a blanket, leggings or silver, wears their hair their own way with a tied tail, and some a headcloth.',
