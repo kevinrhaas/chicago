@@ -690,8 +690,12 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # turns on moves no vertex of the other 271 frame-family assets — all 271 masters rebuilt
 # byte-identical on the pinned Blender — but their input signatures were refreshed with it.
 #
+# 1035 -> 1043 on 2026-11-08 (T-3499): seven more grounds of the 1812 Potawatomi camp and the
+# Miami escort's camp, eight assets on the pure-Python `lodge_camp` (generators/lodge_camp_emit.py),
+# restaling on none of the shared rows.
+#
 STATED = {
-    "assets": 1035,
+    "assets": 1043,
     "restales": {
         "generators/common/*.py": 742,
         "generators/common/__init__.py": 0,

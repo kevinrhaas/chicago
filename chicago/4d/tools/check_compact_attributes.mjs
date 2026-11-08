@@ -383,3 +383,52 @@ console.log('PASS batch: BatchedMesh keeps Int16 x4 positions and a pick lands o
   clone.dispose(); batch.dispose(); for (const g of chunks) g.dispose();
   console.log('PASS timber final scalars: exact U8 leaf/encoded FP16 grades, other lanes and sources retained, native clones and invalid-value fallbacks');
 }
+
+// T-3499: the final timber batch's normal, uv and colour go compact, after every chunk is in.
+{
+  const timberSource = await readFile(path.join(web, 'js/trees.js'), 'utf8');
+  const rules = timberSource.match(/export const TIMBER_CHANNEL_RULES = \{[\s\S]*?\n\};/)?.[0];
+  const helper = timberSource.match(/export function compactTimberChannels\(geometry\) \{[\s\S]*?\n\}/)?.[0];
+  assert(rules && helper, 'trees.js keeps TIMBER_CHANNEL_RULES and compactTimberChannels');
+  const caURL = 'data:text/javascript;base64,'
+    + Buffer.from(source.replace("from 'three'", `from '${threeURL}'`)).toString('base64');
+  const { TIMBER_CHANNEL_RULES, compactTimberChannels } = await import('data:text/javascript;base64,'
+    + Buffer.from(`import { RULES, compactPlan, compactGeometry } from '${caURL}';\n${rules}\n${helper}`).toString('base64'));
+  const at = timberSource.indexOf('compactTimberChannels(batch.geometry);');
+  assert(at > timberSource.indexOf('compactTimberFlags(batch.geometry);'));
+  assert(at < timberSource.indexOf('batch.computeBoundingSphere();', at));
+  for (const [name, r] of Object.entries(TIMBER_CHANNEL_RULES)) assert.equal(strideOf(r, name === 'uv' ? 2 : 3) % 4, 0);
+  const g = new THREE.BufferGeometry();
+  const n = [0, 1, 0, 0.6, 0.8, 0, -0.28, 0.96, 0];
+  const c = [0.02, 0.05, 0.01, 0.5, 0.4, 0.3, 1, 0.9, 0.0];
+  const u = [0, 0, 0.5, 0.25, 1, 1];
+  g.setAttribute('position', new THREE.Float32BufferAttribute([0, 0, 0, 1, 0, 0, 0, 1, 0], 3));
+  g.setAttribute('normal', new THREE.Float32BufferAttribute(n, 3));
+  g.setAttribute('color', new THREE.Float32BufferAttribute(c, 3));
+  g.setAttribute('uv', new THREE.Float32BufferAttribute(u, 2));
+  const batch = new THREE.BatchedMesh(1, 3, 3, new THREE.MeshStandardMaterial({ vertexColors: true }));
+  g.setIndex([0, 1, 2]);
+  batch.addInstance(batch.addGeometry(g));
+  assert.equal(compactTimberChannels(batch.geometry), 3 * 16, 'sixteen fewer bytes a vertex');
+  const a = batch.geometry.attributes;
+  assert(a.normal.array instanceof Int8Array && a.normal.normalized && a.normal.itemSize === 4);
+  assert(a.uv.array instanceof Uint16Array && a.uv.normalized && a.uv.itemSize === 2);
+  assert(a.color.array instanceof Uint16Array && a.color.normalized && a.color.itemSize === 4);
+  for (let i = 0; i < 3; i++) {
+    for (let k = 0; k < 3; k++) {
+      assert(Math.abs(a.normal.getComponent(i, k) - n[i * 3 + k]) <= 0.5 / 127 + 1e-6);
+      assert(Math.abs(a.color.getComponent(i, k) - c[i * 3 + k]) <= 0.5 / 65535 + 1e-7);
+    }
+    assert.equal(a.color.getComponent(i, 3), 1, 'colour alpha is exactly 1');
+    for (let k = 0; k < 2; k++) assert(Math.abs(a.uv.getComponent(i, k) - u[i * 2 + k]) <= 0.5 / 65535 + 1e-7);
+  }
+  assert(a.position.array instanceof Float32Array, 'positions are left as they were');
+  const bright = new THREE.BufferGeometry();
+  const tone = new THREE.Float32BufferAttribute([1.2, 0.5, 0.5], 3), tiling = new THREE.Float32BufferAttribute([2, 0], 2);
+  bright.setAttribute('color', tone); bright.setAttribute('uv', tiling);
+  compactTimberChannels(bright);
+  assert.equal(bright.getAttribute('color'), tone, 'a colour over 1 stays float');
+  assert.equal(bright.getAttribute('uv'), tiling, 'a tiling uv stays float');
+  batch.dispose(); g.dispose();
+  console.log('PASS timber final channels: Int8 normal, Uint16 uv, Uint16 x4 colour (alpha 1), out-of-range channels kept float');
+}

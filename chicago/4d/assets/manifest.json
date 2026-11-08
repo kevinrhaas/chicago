@@ -3778,6 +3778,16 @@
       "phase_id": "log_1823",
       "structure_id": "mckee_log_house"
     },
+    "miami_escort_camp_1812__camp_1812.glb": {
+      "archetype": "lodge_camp",
+      "baked_ao": false,
+      "bytes": 395092,
+      "generator": "generators/lodge_camp_emit.py",
+      "inputs_sha256": "dc2279869d306b2cfd1725c07b2a429c490090e533a2226f55449ab5fe17a6b0",
+      "kind": "generated",
+      "phase_id": "camp_1812",
+      "structure_id": "miami_escort_camp_1812"
+    },
     "miller_house__log_frame_1827.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,
@@ -4063,6 +4073,26 @@
       "phase_id": "shop_1833",
       "structure_id": "pierce_blacksmith_shop"
     },
+    "potawatomi_camp_1812_far_west__camp_1812.glb": {
+      "archetype": "lodge_camp",
+      "baked_ao": false,
+      "bytes": 560680,
+      "generator": "generators/lodge_camp_emit.py",
+      "inputs_sha256": "d78e625ae20496f0f328bdf543e5e27e441c82cf908881dbcea75b70e3844780",
+      "kind": "generated",
+      "phase_id": "camp_1812",
+      "structure_id": "potawatomi_camp_1812_far_west"
+    },
+    "potawatomi_camp_1812_head_west__camp_1812.glb": {
+      "archetype": "lodge_camp",
+      "baked_ao": false,
+      "bytes": 554964,
+      "generator": "generators/lodge_camp_emit.py",
+      "inputs_sha256": "e4f4307616de49a5c172edf2ef1c524d26c4c437edc630d90e5ef44cc279240a",
+      "kind": "generated",
+      "phase_id": "camp_1812",
+      "structure_id": "potawatomi_camp_1812_head_west"
+    },
     "potawatomi_camp_1812_horse_ground__camp_1812.glb": {
       "archetype": "lodge_camp",
       "baked_ao": false,
@@ -4093,6 +4123,46 @@
       "phase_id": "camp_1812",
       "structure_id": "potawatomi_camp_1812_mouth"
     },
+    "potawatomi_camp_1812_north_flat__camp_1812.glb": {
+      "archetype": "lodge_camp",
+      "baked_ao": false,
+      "bytes": 603960,
+      "generator": "generators/lodge_camp_emit.py",
+      "inputs_sha256": "30081363a454277f22d3a010737ad84d6472c3af13d6f5383f8528a581cc5a6a",
+      "kind": "generated",
+      "phase_id": "camp_1812",
+      "structure_id": "potawatomi_camp_1812_north_flat"
+    },
+    "potawatomi_camp_1812_prairie_west__camp_1812.glb": {
+      "archetype": "lodge_camp",
+      "baked_ao": false,
+      "bytes": 605888,
+      "generator": "generators/lodge_camp_emit.py",
+      "inputs_sha256": "1387ddfde0789aab714013bf1e6ca35595761a8891032389b2306d04f3792a9b",
+      "kind": "generated",
+      "phase_id": "camp_1812",
+      "structure_id": "potawatomi_camp_1812_prairie_west"
+    },
+    "potawatomi_camp_1812_south_bend__camp_1812.glb": {
+      "archetype": "lodge_camp",
+      "baked_ao": false,
+      "bytes": 591716,
+      "generator": "generators/lodge_camp_emit.py",
+      "inputs_sha256": "24b045f895531000126eb81d6155a95a4476f39277065351719d8676e5ee5d07",
+      "kind": "generated",
+      "phase_id": "camp_1812",
+      "structure_id": "potawatomi_camp_1812_south_bend"
+    },
+    "potawatomi_camp_1812_south_prairie__camp_1812.glb": {
+      "archetype": "lodge_camp",
+      "baked_ao": false,
+      "bytes": 565072,
+      "generator": "generators/lodge_camp_emit.py",
+      "inputs_sha256": "898147da90b893fb5d4218e80f200a2aca975cd0ba3ec0227b4dbb42eaba7277",
+      "kind": "generated",
+      "phase_id": "camp_1812",
+      "structure_id": "potawatomi_camp_1812_south_prairie"
+    },
     "potawatomi_camp_1812_south_reach__camp_1812.glb": {
       "archetype": "lodge_camp",
       "baked_ao": false,
@@ -4102,6 +4172,16 @@
       "kind": "generated",
       "phase_id": "camp_1812",
       "structure_id": "potawatomi_camp_1812_south_reach"
+    },
+    "potawatomi_camp_1812_south_west__camp_1812.glb": {
+      "archetype": "lodge_camp",
+      "baked_ao": false,
+      "bytes": 671544,
+      "generator": "generators/lodge_camp_emit.py",
+      "inputs_sha256": "89cbe0d89feeff2a9c0777f6eea2df92380b89e82daf9011e82eea67b5f5167b",
+      "kind": "generated",
+      "phase_id": "camp_1812",
+      "structure_id": "potawatomi_camp_1812_south_west"
     },
     "potawatomi_camp_1812_upper__camp_1812.glb": {
       "archetype": "lodge_camp",
