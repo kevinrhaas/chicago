@@ -1,0 +1,435 @@
+{
+  "id": "hh_potawatomi_camp_west_bank_1812",
+  "scene": "1812",
+  "name": "The families at the camp's ground by the west bank (names not recorded)",
+  "head": "potawatomi_1812_west_bank_man_1",
+  "division": "camp",
+  "review_required": true,
+  "touches_removal": true,
+  "review_note": "review_required: a person drawn to stand for the families of the Potawatomi gathering at Chicago in August 1812, whom no roll names or counts lodge by lodge. touches_removal: these are the people removed from Chicago in 1835. The card invents no name, band or story and stages no speech, ceremony or act of war.",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "currey_1912_old_fort_dearborn",
+      "quaife_1913"
+    ],
+    "note": "Each person's own card says how their presence on 14 August is known."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "potawatomi_camp_1812_west_bank",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "currey_1912_old_fort_dearborn",
+      "also_sources": [
+        "quaife_1913"
+      ],
+      "note": "The camp ground of the 1812 camp records; which lodge each family had is not recorded."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "Everyone the T-3463..T-3467 day readings put in this household is on the card (liberty L-1812-town-days-3463).",
+    "sources": [
+      "currey_1912_old_fort_dearborn",
+      "quaife_1913"
+    ]
+  },
+  "persons": [
+    {
+      "id": "potawatomi_1812_west_bank_man_1",
+      "name": "A man of the camp on the creek's west bank (name not recorded)",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "currey_1912_old_fort_dearborn",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "40-40",
+        "low": 40,
+        "high": 40,
+        "tier": "reconstructed",
+        "note": "Chosen to give the drawn camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Helm counts 500 warriors and 179 women and children at the gathering; this card stands for some of them. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "A representative figure, not a recorded individual. No Potawatomi name is given because none is recorded; inventing one would present fiction as evidence. In the town from 1812-08-12 to 1812-08-16: The gathering: Heald has the neighbours come in from all quarters after the order of 9 August; the camp records stand 12 to 16 August (the council of the 12th to the burning of the fort, L-1812-potawatomi-camp-2515). Before the 12th no lodge is drawn, and after the 16th the gathering broke up (no source dates it), so the card is shown 12 to 16 August only.",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person drawn to stand for the families of the Potawatomi gathering at Chicago in August 1812, whom no roll names or counts lodge by lodge. touches_removal: these are the people removed from Chicago in 1835. The card invents no name, band or story; its sex, age, lodge, dress and day are this reading's reconstruction (L-1812-people-day-3467), built to the counts Helm and Heald give, and it stages no speech, ceremony or act of war.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "liberty": "L-1812-town-days-3463",
+        "ticket": "T-3467"
+      },
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "App. VI, Helm's narrative (1814), Gutenberg #69274 lines 16635-16636",
+          "quote": "the tribes there assembled to amount of 500 warriors 179 women & children",
+          "claim": "Helm's count of the gathering at Wells's council.",
+          "tier": "contemporary (Helm, 1814)"
+        },
+        {
+          "source_id": "currey_1912_old_fort_dearborn",
+          "locator": "ch. II, Gutenberg #52346 lines 1361-1363",
+          "quote": "while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank",
+          "claim": "Their usual camping place was the State Street creek on the south bank.",
+          "tier": "compiled secondary (Currey 1912)"
+        },
+        {
+          "source_id": "currey_1912_old_fort_dearborn",
+          "locator": "ch. III, Gutenberg #52346 lines 2246-2247",
+          "quote": "beyond which were the groups of Indian wigwams clustered along the creek",
+          "claim": "The wigwams along the creek, seen from the fort on the last day.",
+          "tier": "compiled secondary (Currey 1912)"
+        }
+      ]
+    },
+    {
+      "id": "potawatomi_1812_west_bank_man_2",
+      "name": "A man of the camp on the creek's west bank (name not recorded)",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "currey_1912_old_fort_dearborn",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "33-33",
+        "low": 33,
+        "high": 33,
+        "tier": "reconstructed",
+        "note": "Chosen to give the drawn camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Helm counts 500 warriors and 179 women and children at the gathering; this card stands for some of them. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "A representative figure, not a recorded individual. No Potawatomi name is given because none is recorded; inventing one would present fiction as evidence. In the town from 1812-08-12 to 1812-08-16: The gathering: Heald has the neighbours come in from all quarters after the order of 9 August; the camp records stand 12 to 16 August (the council of the 12th to the burning of the fort, L-1812-potawatomi-camp-2515). Before the 12th no lodge is drawn, and after the 16th the gathering broke up (no source dates it), so the card is shown 12 to 16 August only.",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person drawn to stand for the families of the Potawatomi gathering at Chicago in August 1812, whom no roll names or counts lodge by lodge. touches_removal: these are the people removed from Chicago in 1835. The card invents no name, band or story; its sex, age, lodge, dress and day are this reading's reconstruction (L-1812-people-day-3467), built to the counts Helm and Heald give, and it stages no speech, ceremony or act of war.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "liberty": "L-1812-town-days-3463",
+        "ticket": "T-3467"
+      },
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "App. VI, Helm's narrative (1814), Gutenberg #69274 lines 16635-16636",
+          "quote": "the tribes there assembled to amount of 500 warriors 179 women & children",
+          "claim": "Helm's count of the gathering at Wells's council.",
+          "tier": "contemporary (Helm, 1814)"
+        },
+        {
+          "source_id": "currey_1912_old_fort_dearborn",
+          "locator": "ch. II, Gutenberg #52346 lines 1361-1363",
+          "quote": "while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank",
+          "claim": "Their usual camping place was the State Street creek on the south bank.",
+          "tier": "compiled secondary (Currey 1912)"
+        },
+        {
+          "source_id": "currey_1912_old_fort_dearborn",
+          "locator": "ch. III, Gutenberg #52346 lines 2246-2247",
+          "quote": "beyond which were the groups of Indian wigwams clustered along the creek",
+          "claim": "The wigwams along the creek, seen from the fort on the last day.",
+          "tier": "compiled secondary (Currey 1912)"
+        }
+      ]
+    },
+    {
+      "id": "potawatomi_1812_horse_ground_man",
+      "name": "A man who keeps horses on the camp's horse ground (name not recorded)",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "currey_1912_old_fort_dearborn",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "36-36",
+        "low": 36,
+        "high": 36,
+        "tier": "reconstructed",
+        "note": "Chosen to give the drawn camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Helm counts 500 warriors and 179 women and children at the gathering; this card stands for some of them. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "A representative figure, not a recorded individual. No Potawatomi name is given because none is recorded; inventing one would present fiction as evidence. In the town from 1812-08-12 to 1812-08-16: The gathering: Heald has the neighbours come in from all quarters after the order of 9 August; the camp records stand 12 to 16 August (the council of the 12th to the burning of the fort, L-1812-potawatomi-camp-2515). Before the 12th no lodge is drawn, and after the 16th the gathering broke up (no source dates it), so the card is shown 12 to 16 August only.",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person drawn to stand for the families of the Potawatomi gathering at Chicago in August 1812, whom no roll names or counts lodge by lodge. touches_removal: these are the people removed from Chicago in 1835. The card invents no name, band or story; its sex, age, lodge, dress and day are this reading's reconstruction (L-1812-people-day-3467), built to the counts Helm and Heald give, and it stages no speech, ceremony or act of war.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "liberty": "L-1812-town-days-3463",
+        "ticket": "T-3467"
+      },
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "App. VI, Helm's narrative (1814), Gutenberg #69274 lines 16635-16636",
+          "quote": "the tribes there assembled to amount of 500 warriors 179 women & children",
+          "claim": "Helm's count of the gathering at Wells's council.",
+          "tier": "contemporary (Helm, 1814)"
+        },
+        {
+          "source_id": "currey_1912_old_fort_dearborn",
+          "locator": "ch. II, Gutenberg #52346 lines 1361-1363",
+          "quote": "while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank",
+          "claim": "Their usual camping place was the State Street creek on the south bank.",
+          "tier": "compiled secondary (Currey 1912)"
+        },
+        {
+          "source_id": "currey_1912_old_fort_dearborn",
+          "locator": "ch. III, Gutenberg #52346 lines 2246-2247",
+          "quote": "beyond which were the groups of Indian wigwams clustered along the creek",
+          "claim": "The wigwams along the creek, seen from the fort on the last day.",
+          "tier": "compiled secondary (Currey 1912)"
+        }
+      ]
+    },
+    {
+      "id": "potawatomi_1812_west_bank_woman_1",
+      "name": "A woman of the camp on the creek's west bank (name not recorded)",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "currey_1912_old_fort_dearborn",
+        "quaife_1913"
+      ],
+      "sex": "female",
+      "age_band": {
+        "value": "35-35",
+        "low": 35,
+        "high": 35,
+        "tier": "reconstructed",
+        "note": "Chosen to give the drawn camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Helm counts 500 warriors and 179 women and children at the gathering; this card stands for some of them. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "A representative figure, not a recorded individual. No Potawatomi name is given because none is recorded; inventing one would present fiction as evidence. In the town from 1812-08-12 to 1812-08-16: The gathering: Heald has the neighbours come in from all quarters after the order of 9 August; the camp records stand 12 to 16 August (the council of the 12th to the burning of the fort, L-1812-potawatomi-camp-2515). Before the 12th no lodge is drawn, and after the 16th the gathering broke up (no source dates it), so the card is shown 12 to 16 August only.",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person drawn to stand for the families of the Potawatomi gathering at Chicago in August 1812, whom no roll names or counts lodge by lodge. touches_removal: these are the people removed from Chicago in 1835. The card invents no name, band or story; its sex, age, lodge, dress and day are this reading's reconstruction (L-1812-people-day-3467), built to the counts Helm and Heald give, and it stages no speech, ceremony or act of war.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "liberty": "L-1812-town-days-3463",
+        "ticket": "T-3467"
+      },
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "App. VI, Helm's narrative (1814), Gutenberg #69274 lines 16635-16636",
+          "quote": "the tribes there assembled to amount of 500 warriors 179 women & children",
+          "claim": "Helm's count of the gathering at Wells's council.",
+          "tier": "contemporary (Helm, 1814)"
+        },
+        {
+          "source_id": "currey_1912_old_fort_dearborn",
+          "locator": "ch. II, Gutenberg #52346 lines 1361-1363",
+          "quote": "while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank",
+          "claim": "Their usual camping place was the State Street creek on the south bank.",
+          "tier": "compiled secondary (Currey 1912)"
+        },
+        {
+          "source_id": "currey_1912_old_fort_dearborn",
+          "locator": "ch. III, Gutenberg #52346 lines 2246-2247",
+          "quote": "beyond which were the groups of Indian wigwams clustered along the creek",
+          "claim": "The wigwams along the creek, seen from the fort on the last day.",
+          "tier": "compiled secondary (Currey 1912)"
+        }
+      ]
+    },
+    {
+      "id": "potawatomi_1812_west_bank_woman_2",
+      "name": "A woman of the camp on the creek's west bank (name not recorded)",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "currey_1912_old_fort_dearborn",
+        "quaife_1913"
+      ],
+      "sex": "female",
+      "age_band": {
+        "value": "45-45",
+        "low": 45,
+        "high": 45,
+        "tier": "reconstructed",
+        "note": "Chosen to give the drawn camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Helm counts 500 warriors and 179 women and children at the gathering; this card stands for some of them. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "A representative figure, not a recorded individual. No Potawatomi name is given because none is recorded; inventing one would present fiction as evidence. In the town from 1812-08-12 to 1812-08-16: The gathering: Heald has the neighbours come in from all quarters after the order of 9 August; the camp records stand 12 to 16 August (the council of the 12th to the burning of the fort, L-1812-potawatomi-camp-2515). Before the 12th no lodge is drawn, and after the 16th the gathering broke up (no source dates it), so the card is shown 12 to 16 August only.",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person drawn to stand for the families of the Potawatomi gathering at Chicago in August 1812, whom no roll names or counts lodge by lodge. touches_removal: these are the people removed from Chicago in 1835. The card invents no name, band or story; its sex, age, lodge, dress and day are this reading's reconstruction (L-1812-people-day-3467), built to the counts Helm and Heald give, and it stages no speech, ceremony or act of war.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "liberty": "L-1812-town-days-3463",
+        "ticket": "T-3467"
+      },
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "App. VI, Helm's narrative (1814), Gutenberg #69274 lines 16635-16636",
+          "quote": "the tribes there assembled to amount of 500 warriors 179 women & children",
+          "claim": "Helm's count of the gathering at Wells's council.",
+          "tier": "contemporary (Helm, 1814)"
+        },
+        {
+          "source_id": "currey_1912_old_fort_dearborn",
+          "locator": "ch. II, Gutenberg #52346 lines 1361-1363",
+          "quote": "while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank",
+          "claim": "Their usual camping place was the State Street creek on the south bank.",
+          "tier": "compiled secondary (Currey 1912)"
+        },
+        {
+          "source_id": "currey_1912_old_fort_dearborn",
+          "locator": "ch. III, Gutenberg #52346 lines 2246-2247",
+          "quote": "beyond which were the groups of Indian wigwams clustered along the creek",
+          "claim": "The wigwams along the creek, seen from the fort on the last day.",
+          "tier": "compiled secondary (Currey 1912)"
+        }
+      ]
+    },
+    {
+      "id": "potawatomi_1812_west_bank_boy_14",
+      "name": "A boy of the camp on the creek's west bank (name not recorded)",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "currey_1912_old_fort_dearborn",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "14-14",
+        "low": 14,
+        "high": 14,
+        "tier": "reconstructed",
+        "note": "Chosen to give the drawn camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Helm counts 500 warriors and 179 women and children at the gathering; this card stands for some of them. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "A representative figure, not a recorded individual. No Potawatomi name is given because none is recorded; inventing one would present fiction as evidence. In the town from 1812-08-12 to 1812-08-16: The gathering: Heald has the neighbours come in from all quarters after the order of 9 August; the camp records stand 12 to 16 August (the council of the 12th to the burning of the fort, L-1812-potawatomi-camp-2515). Before the 12th no lodge is drawn, and after the 16th the gathering broke up (no source dates it), so the card is shown 12 to 16 August only.",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person drawn to stand for the families of the Potawatomi gathering at Chicago in August 1812, whom no roll names or counts lodge by lodge. touches_removal: these are the people removed from Chicago in 1835. The card invents no name, band or story; its sex, age, lodge, dress and day are this reading's reconstruction (L-1812-people-day-3467), built to the counts Helm and Heald give, and it stages no speech, ceremony or act of war.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "liberty": "L-1812-town-days-3463",
+        "ticket": "T-3467"
+      },
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "App. VI, Helm's narrative (1814), Gutenberg #69274 lines 16635-16636",
+          "quote": "the tribes there assembled to amount of 500 warriors 179 women & children",
+          "claim": "Helm's count of the gathering at Wells's council.",
+          "tier": "contemporary (Helm, 1814)"
+        },
+        {
+          "source_id": "currey_1912_old_fort_dearborn",
+          "locator": "ch. II, Gutenberg #52346 lines 1361-1363",
+          "quote": "while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank",
+          "claim": "Their usual camping place was the State Street creek on the south bank.",
+          "tier": "compiled secondary (Currey 1912)"
+        },
+        {
+          "source_id": "currey_1912_old_fort_dearborn",
+          "locator": "ch. III, Gutenberg #52346 lines 2246-2247",
+          "quote": "beyond which were the groups of Indian wigwams clustered along the creek",
+          "claim": "The wigwams along the creek, seen from the fort on the last day.",
+          "tier": "compiled secondary (Currey 1912)"
+        }
+      ]
+    },
+    {
+      "id": "potawatomi_1812_horse_ground_boy_12",
+      "name": "A boy who helps with the horses on the camp's horse ground (name not recorded)",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "currey_1912_old_fort_dearborn",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "12-12",
+        "low": 12,
+        "high": 12,
+        "tier": "reconstructed",
+        "note": "Chosen to give the drawn camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Helm counts 500 warriors and 179 women and children at the gathering; this card stands for some of them. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "A representative figure, not a recorded individual. No Potawatomi name is given because none is recorded; inventing one would present fiction as evidence. In the town from 1812-08-12 to 1812-08-16: The gathering: Heald has the neighbours come in from all quarters after the order of 9 August; the camp records stand 12 to 16 August (the council of the 12th to the burning of the fort, L-1812-potawatomi-camp-2515). Before the 12th no lodge is drawn, and after the 16th the gathering broke up (no source dates it), so the card is shown 12 to 16 August only.",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person drawn to stand for the families of the Potawatomi gathering at Chicago in August 1812, whom no roll names or counts lodge by lodge. touches_removal: these are the people removed from Chicago in 1835. The card invents no name, band or story; its sex, age, lodge, dress and day are this reading's reconstruction (L-1812-people-day-3467), built to the counts Helm and Heald give, and it stages no speech, ceremony or act of war.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "liberty": "L-1812-town-days-3463",
+        "ticket": "T-3467"
+      },
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "App. VI, Helm's narrative (1814), Gutenberg #69274 lines 16635-16636",
+          "quote": "the tribes there assembled to amount of 500 warriors 179 women & children",
+          "claim": "Helm's count of the gathering at Wells's council.",
+          "tier": "contemporary (Helm, 1814)"
+        },
+        {
+          "source_id": "currey_1912_old_fort_dearborn",
+          "locator": "ch. II, Gutenberg #52346 lines 1361-1363",
+          "quote": "while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank",
+          "claim": "Their usual camping place was the State Street creek on the south bank.",
+          "tier": "compiled secondary (Currey 1912)"
+        },
+        {
+          "source_id": "currey_1912_old_fort_dearborn",
+          "locator": "ch. III, Gutenberg #52346 lines 2246-2247",
+          "quote": "beyond which were the groups of Indian wigwams clustered along the creek",
+          "claim": "The wigwams along the creek, seen from the fort on the last day.",
+          "tier": "compiled secondary (Currey 1912)"
+        }
+      ]
+    }
+  ]
+}

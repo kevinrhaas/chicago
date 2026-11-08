@@ -1,0 +1,280 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "liberty": "L418",
+  "height_scale": 1.0,
+  "lod_ratios": [
+    1.0,
+    0.6,
+    0.28,
+    0.12
+  ],
+  "skin_texture": {
+    "path": "assets/authored/humans/skin_toigo_bronze/young_lightskinned_male_diffuse_Bronze.png",
+    "sha256": "5a53213f061bfa97ee0afd6b40650ffbc089a479c144e63f3c39acceca5853c0",
+    "license": "CC0-1.0",
+    "color_space": "sRGB",
+    "base_color_factor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "roughness": 0.68,
+    "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
+    "identity_basis": "Cleared reusable generic skin atlas; not a likeness, attested complexion, or source identifying any named/reconstructed resident.",
+    "uv_status": "Source atlas and UV registration viewed in source diagnostics; final Blender export/LOD render validation remains outstanding."
+  },
+  "hair_component": {
+    "directory": "assets/authored/humans/hair_short04",
+    "texture": "short04_diffuse_periodic_pad_draft.png",
+    "uv_transform": {
+      "source_height": 2048,
+      "top_rows": 8,
+      "bottom_rows": 1
+    },
+    "roughness": 0.65,
+    "alpha_cutoff": 0.4,
+    "appearance_basis": "Shared cleared CC0 short04 source fitted to existing Otis/Joseph/Martin bodies; hair/part/color are reconstructed choices, no period hairstyle attestation or individual likeness.",
+    "source_manifest_sha256": "68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99"
+  },
+  "eye_components": {
+    "radius_m": 0.012,
+    "iris_radius_m": 0.0055,
+    "pupil_radius_m": 0.0022,
+    "corneal_bulge_m": 0,
+    "cornea_enabled": false,
+    "source_basis": "Actual helper centers/axes; original opaque sclera/iris/pupil, reconstructed dimensions and brown color, not resident facts",
+    "status": "No actual BPy/export/blink fit/photographic acceptance"
+  },
+  "label": "Reconstructed 1812 engage of a Chicago trading household (blue calico shirt, red worsted sash knotted at the left hip, deer-skin trousers, smoked moccasins, red knitted cap) on the shared portable male rig",
+  "scene_date": "1812-08-14",
+  "grade": "reconstructed",
+  "sources": [
+    "kinzie_waubun_1856",
+    "hubbard_autobiography_1911",
+    "lambert_1810_travels_lower_canada_v1",
+    "heriot_1807_travels_through_the_canadas",
+    "quaife_1913"
+  ],
+  "basis": "The 1835 labourer's shirt and trouser shells offset from the cleared adult body's own surface, a sash lofted round the garments' own sections with its ends falling clear of the thigh, a knitted cap seated round the skull and closed boots round the feet as moccasins, after Wau-Bun's 'suit of deer-skin, with belt, moccasins ... like a French engage' (Chicago, 1812) and the period texts of the Canadian fur trade. Seams, ease, lengths and colours are reconstructed. Complete source anatomy remains unchanged beneath clothing.",
+  "source_scope": "Wau-Bun (1856; family tradition) gives the engage's dress at Chicago in 1812 in one line and the calico shirt, coloured waist scarf and red tuque of the Fox River boatmen of 1830; Hubbard (written in the 1880s) wore a calico shirt in the Illinois trade of 1818; Lambert (1810) describes the Lower Canada habitant's sash, moccasins and red cap; Heriot (1807) the canoeman's issue of shirt and trousers and the knitted worsted cap; Quaife (1913) places Kinzie's engages and the Ouilmette household at Chicago. No picture of a Chicago engage is known; no pixels or traced shapes enter the asset.",
+  "colors_linear_rgba": {
+    "skin": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "eyes": [
+      0.12,
+      0.09,
+      0.06,
+      1.0
+    ],
+    "garment_upper__shirt_calico_blue_1812": [
+      0.1,
+      0.15,
+      0.29,
+      1
+    ],
+    "garment_lower__trousers_deerskin_1812": [
+      0.25,
+      0.165,
+      0.095,
+      1
+    ],
+    "accessory__sash_worsted_red_1812": [
+      0.3,
+      0.045,
+      0.032,
+      1
+    ],
+    "headwear__tuque_red_1812": [
+      0.33,
+      0.045,
+      0.035,
+      1
+    ],
+    "footwear__moccasins_smoked_1812": [
+      0.14,
+      0.088,
+      0.048,
+      1
+    ]
+  },
+  "workwear_coverage": {
+    "shoe_clearance_m": 0.004
+  },
+  "role_1812": {
+    "module": "human_engage_1812",
+    "prepare": "prepare_engage_assembly",
+    "assembly": "engage_1812_v1"
+  },
+  "proof_variants": [
+    {
+      "id": "engage_1812",
+      "component_assembly": "engage_1812_v1",
+      "person_reference_id": "anonymous_engage_1812",
+      "person_reference_scene": "1812",
+      "person_reference_grade": "reconstructed",
+      "person_reference_record": "data/sources/kinzie_waubun_1856.json",
+      "reference_summary": {
+        "name": "a French Canadian or Metis engage of a Chicago trading household",
+        "named": false,
+        "household": "the Kinzie and other trading households",
+        "post": "Chicago",
+        "presence": "August 1812"
+      },
+      "review_required": true,
+      "touches_removal": false,
+      "review_reason": "The figure may stand for a Metis man (the engages and carriers of Chicago's trading households were French Canadian or Metis, and Antoine Ouilmette's household was Potawatomi by marriage), so it is a Metis depiction under the AGENTS.md standing constraint: evidence-bounded, everyday working dress only, nothing ceremonial, and every garment graded with its sources. It is held for review with that care, not because anything in it is known to be wrong.",
+      "touches_removal_reason": "The dress itself touches no removal history; a person who wears it (Ouilmette, whose family went west with the Potawatomi) carries his own flag on his own record.",
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_adult_35.json",
+      "body_parameters": {
+        "chosen_height_m": 1.75,
+        "height_basis": "The shared engineering body; not a recorded height.",
+        "engineering_age_years": 35,
+        "age_basis": "Engineering body at age 35; no engage of the town is described and no age is read.",
+        "shape_basis": "CC0 male macro targets; equal software-category blend is engineering only, not inferred ancestry or a portrait."
+      },
+      "body_basis": "CC0 adult-male graphical body and the shared light-skinned generic skin of the period studies are reconstructed authoring choices. The engage is anonymous: a role, not any man; the complexion, face, height and build of whoever wears the dress are set on his own record (human-looks.js and the variation kit). No outfit of anyone is asserted.",
+      "recipe_path": "data/humans/recipes/engage_1812.json"
+    }
+  ],
+  "engage_components": {
+    "version": 1,
+    "generator": "tools/human_engage_1812.py",
+    "liberty": "L-human-modular-dress-1789",
+    "body_sha256": "ef5eb3ca282b29c482a67af4e3e50d1ed29a8055eed0230ee2a58ec36dddbba9",
+    "standing_source_only": false,
+    "production_eligible": false,
+    "photo_accepted": false,
+    "evidence_choice": "The brief asked for a shirt, a sash or belt, buckskin leggings or trousers, moccasins and a kerchief, a knitted cap or a bare head. Wau-Bun gives the Chicago engage of 1812 'a suit of deer-skin, with belt, moccasins' and the Fox River 'mitiff' of 1830 a calico shirt and a coloured scarf round the waist; deer-skin trousers (not breechcloth and leggings, which are the Potawatomi man's and also Hubbard's of 1818) keep the two roles apart at a distance. The head is the hard choice. The evidence for summer leans to a bare head (Hubbard, 1818: a red knit cap 'sometimes in winter', otherwise 'usually went bareheaded', hair grown long) or a straw hat (Lambert's habitant in summer; Wau-Bun's 1830 'mitiff' in a straw hat with a band of black feathers; Heriot's summer straw hats), and for the red knitted cap all year (Lambert: 'worn the whole year round'; Wau-Bun's voyageurs' tuque; Heriot's knitted caps). The cap is modelled because a bare head would show the shared short European crop where these men wore their hair long or in a queue, and no kerchief is in any text read. A bareheaded engage with long hair, and the straw hat, are recorded alternatives for later, not modelled.",
+    "tailoring": {
+      "shirt": {
+        "ease": 0.008,
+        "waist_below_spine02": 0.14,
+        "collar_above_neck": 0.014,
+        "throat_v_below_neck": 0.1,
+        "throat_v_half_width": 0.034,
+        "cuff_short_of_wrist": 0.014,
+        "sleeve_fullness": 0.024,
+        "smoothing": 90,
+        "sleeve_gather": 0.06,
+        "armpit_extra": 0.004
+      },
+      "trousers": {
+        "ease": 0.013,
+        "waist_height_fraction": 0.585,
+        "cuff_radius_ratio": 0.92,
+        "added_section_ease": 0.014,
+        "thigh_transition_fraction": 0.65,
+        "hem_front_y": 0.068,
+        "hem_back_y": 0.036
+      },
+      "sash": {
+        "bottom_y": 0.985,
+        "top_y": 1.07,
+        "ease": 0.005,
+        "segments": 48,
+        "rows": 6,
+        "roll": 0.003,
+        "knot_deg": 68.0,
+        "end_width": 0.085,
+        "end_lengths": [
+          0.3,
+          0.23
+        ],
+        "end_gap": 0.03,
+        "end_out": 0.01,
+        "end_rows": 8
+      },
+      "tuque": {
+        "seat_below_top": 0.088,
+        "ease": 0.009,
+        "cuff": 0.03,
+        "cuff_thickness": 0.005,
+        "segments": 28,
+        "fitted_rows": 4,
+        "crown_below_top": 0.022,
+        "tail_rows": 12,
+        "tail_rise": 0.075,
+        "tail_back": 0.075,
+        "tail_drop": 0.075,
+        "tail_radius": 0.02
+      }
+    },
+    "garments": [
+      {
+        "id": "calico_shirt",
+        "material": "garment_upper__shirt_calico_blue_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "kinzie_waubun_1856",
+            "hubbard_autobiography_1911",
+            "heriot_1807_travels_through_the_canadas"
+          ],
+          "source_scope": "A coloured calico shirt is what Wau-Bun's boatmen and its Fox River 'mitiff' wear in 1830 ('calico shirt, bright-colored scarf around his waist ... the usual dress of his class', ch. VI) and what Hubbard wore under his outer garment in the Illinois trade of 1818 (pp. 59-60); Heriot (p. 236) says each canoeman is issued a shirt. None is Chicago in 1812. The deep blue follows Wau-Bun's travellers' shirts 'gay with the deepest of blue and pink' (1830); the cut is the 1835 labourer's (full sleeves, open throat, tucked in). The print is not drawn.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "worsted_sash",
+        "material": "accessory__sash_worsted_red_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "kinzie_waubun_1856",
+            "lambert_1810_travels_lower_canada_v1",
+            "hubbard_autobiography_1911"
+          ],
+          "source_scope": "Wau-Bun's Chicago engage of 1812 wears a 'belt' (ch. XIX) and its 'mitiff' of 1830 a 'bright-colored scarf around his waist' (ch. VI); Lambert's habitant ties his coat with 'a worsted sash of various colours, ornamented with beads' (1810, pp. 162-163); Hubbard's outer garment was 'belted in at the waist with a sash or buckskin belt' (1818, p. 59). Wound twice and knotted at the left hip with two hanging ends; its red is reconstructed (the dress research reads 'red dominant'), and the woven pattern and beads are not drawn.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "deerskin_trousers",
+        "material": "garment_lower__trousers_deerskin_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "kinzie_waubun_1856",
+            "heriot_1807_travels_through_the_canadas"
+          ],
+          "source_scope": "Wau-Bun's 'suit of deer-skin ... like a French engage' (Chicago, 16 August 1812, family tradition) read as deer-skin trousers; Heriot issues trousers to each canoeman. Hubbard's breech-cloth and leggings (1818) were the other way to dress, and are the Potawatomi man's. Cut on the shared workwear shell (the labourer's trousers); the smoked tan is reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "moccasins",
+        "material": "footwear__moccasins_smoked_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "kinzie_waubun_1856",
+            "lambert_1810_travels_lower_canada_v1"
+          ],
+          "source_scope": "Moccasins in Wau-Bun's engage dress of 1812 and 'in general use among the country people, as shoes' in Lower Canada (Lambert, pp. 93-94). The shared closed foot loft stands for them, coloured smoked deer-skin; seams, vamp and cuff are not modelled.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "red_knitted_cap",
+        "material": "headwear__tuque_red_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "kinzie_waubun_1856",
+            "lambert_1810_travels_lower_canada_v1",
+            "heriot_1807_travels_through_the_canadas",
+            "hubbard_autobiography_1911"
+          ],
+          "source_scope": "'a bright red cap (a bonnet rouge, or tuque, as the voyageurs call it)' (Wau-Bun, ch. IV, of September 1830); Lambert's habitant wears a red cap and, though in summer it may give way to a straw hat, 'it oftener happens that the dress which I have described is worn the whole year round' (1810, p. 163); Heriot's Canadians knit 'worsted caps ... with wires' (1807, p. 227). Against it for August: Hubbard, a trader's man of 1818, wore 'sometimes in winter, a red knit cap' and 'usually went bareheaded', his hair grown long (pp. 59-60). The cap is chosen because a bare head would show the shared short crop where Hubbard and Lambert give these men long hair or a queue, which the hair kit cannot yet grow; its shape (turned-up cuff, soft top fallen to the back) is reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      }
+    ]
+  }
+}

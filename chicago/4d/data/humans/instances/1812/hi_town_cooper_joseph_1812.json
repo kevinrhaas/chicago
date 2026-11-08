@@ -1,0 +1,475 @@
+{
+  "id": "hi_town_cooper_joseph_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "cooper_joseph",
+  "appearance": {
+    "asset_id": "settler_1812"
+  },
+  "placement": {
+    "local_e": 1078.0,
+    "local_n": 160.0,
+    "heading_deg": 60.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.76
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1811-06-18",
+          "to": "1812-04-05"
+        },
+        "note": "with the Burns household",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "burns_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 800.0,
+              "local_n": 104.8,
+              "heading_deg": 160.0
+            },
+            "doing": "feeding the cattle",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 798.68,
+                "local_n": 104.32
+              },
+              {
+                "local_e": 801.32,
+                "local_n": 105.28
+              }
+            ]
+          },
+          {
+            "from": 6.5,
+            "to": 7.0,
+            "indoors": true,
+            "where": "burns_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 7.0,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 800.0,
+              "local_n": 104.8,
+              "heading_deg": 160.0
+            },
+            "doing": "cutting wood with his stepfather",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 798.68,
+                "local_n": 104.32
+              },
+              {
+                "local_e": 801.32,
+                "local_n": 105.28
+              }
+            ]
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "burns_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 796.0,
+              "local_n": 99.5,
+              "heading_deg": 180.0
+            },
+            "doing": "fishing from the bank",
+            "activity": "stand"
+          },
+          {
+            "from": 18.0,
+            "to": 19.0,
+            "indoors": true,
+            "where": "burns_house_1812",
+            "doing": "supper"
+          },
+          {
+            "from": 19.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "burns_house_1812",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-04-06",
+          "to": "1812-04-06"
+        },
+        "note": "the day of the murders",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "burns_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 800.0,
+              "local_n": 104.8,
+              "heading_deg": 160.0
+            },
+            "doing": "feeding the cattle",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 798.68,
+                "local_n": 104.32
+              },
+              {
+                "local_e": 801.32,
+                "local_n": 105.28
+              }
+            ]
+          },
+          {
+            "from": 6.5,
+            "to": 7.0,
+            "indoors": true,
+            "where": "burns_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 7.0,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 800.0,
+              "local_n": 104.8,
+              "heading_deg": 160.0
+            },
+            "doing": "cutting wood with his stepfather",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 798.68,
+                "local_n": 104.32
+              },
+              {
+                "local_e": 801.32,
+                "local_n": 105.28
+              }
+            ]
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "burns_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 18.6,
+            "indoors": false,
+            "at": {
+              "local_e": 796.0,
+              "local_n": 99.5,
+              "heading_deg": 180.0
+            },
+            "doing": "fishing from the bank while his mother lies in with a newborn",
+            "activity": "stand"
+          },
+          {
+            "from": 18.6,
+            "to": 19.3,
+            "indoors": false,
+            "at": {
+              "local_e": 800.0,
+              "local_n": 104.8,
+              "heading_deg": 160.0
+            },
+            "doing": "the shout across the river: Indians at Lee's Place",
+            "activity": "stand"
+          },
+          {
+            "from": 19.3,
+            "to": 20.5,
+            "indoors": true,
+            "where": "burns_house_1812",
+            "doing": "barred in the house with the family"
+          },
+          {
+            "from": 20.5,
+            "to": 21.5,
+            "indoors": true,
+            "away": true,
+            "doing": "in Ronan's scow with the family, rowed down to the fort"
+          },
+          {
+            "from": 21.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_soldiers_barracks_sw",
+            "doing": "in the fort for the night"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-04-07",
+          "to": "1812-08-13"
+        },
+        "note": "a militiaman at the agency house",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 2.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "asleep in the fortified agency house"
+          },
+          {
+            "from": 2.0,
+            "to": 5.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1073.5,
+              "local_n": 172.0,
+              "heading_deg": 90.0
+            },
+            "doing": "on sentry on the agency-house piazza, the small hours",
+            "activity": "stand"
+          },
+          {
+            "from": 5.0,
+            "to": 5.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1078.0,
+              "local_n": 160.0,
+              "heading_deg": 60.0
+            },
+            "doing": "mustered with the militia before the agency house",
+            "activity": "stand"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "breakfast at the agency house"
+          },
+          {
+            "from": 6.5,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1040.0,
+              "local_n": 130.0,
+              "heading_deg": 200.0
+            },
+            "doing": "with the cattle and horses at the stables and the pasture by the esplanade",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1038.68,
+                "local_n": 130.48
+              },
+              {
+                "local_e": 1041.32,
+                "local_n": 129.52
+              }
+            ]
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "dinner at the agency house"
+          },
+          {
+            "from": 13.0,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1040.0,
+              "local_n": 130.0,
+              "heading_deg": 200.0
+            },
+            "doing": "with the cattle and horses at the stables and the pasture by the esplanade",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1038.68,
+                "local_n": 130.48
+              },
+              {
+                "local_e": 1041.32,
+                "local_n": 129.52
+              }
+            ]
+          },
+          {
+            "from": 18.0,
+            "to": 19.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "supper at the agency house"
+          },
+          {
+            "from": 19.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "in the agency house for the night"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-14",
+          "to": "1812-08-14"
+        },
+        "note": "the last day",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "asleep in the agency house"
+          },
+          {
+            "from": 5.0,
+            "to": 6.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1078.0,
+              "local_n": 160.0,
+              "heading_deg": 60.0
+            },
+            "doing": "at the militia's muster",
+            "activity": "stand"
+          },
+          {
+            "from": 6.0,
+            "to": 6.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "breakfast"
+          },
+          {
+            "from": 6.5,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1074.0,
+              "local_n": 220.0,
+              "heading_deg": 270.0
+            },
+            "doing": "carrying provisions out of the factory",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1074.0,
+                "local_n": 221.4
+              },
+              {
+                "local_e": 1074.0,
+                "local_n": 218.6
+              }
+            ]
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1040.0,
+              "local_n": 130.0,
+              "heading_deg": 200.0
+            },
+            "doing": "driving in the cattle that will go with the march",
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1037.61,
+              "local_n": 123.42
+            }
+          },
+          {
+            "from": 18.0,
+            "to": 19.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "supper"
+          },
+          {
+            "from": 19.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "the last night in the agency house"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1811-06-18",
+      "to": "1812-08-15"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Joseph (or James) Cooper in the 1812 town, at each hour of each run of dates where the reading for T-3466 (docs/RESEARCH/people-1812-3466/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the settler 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913"
+    ],
+    "liberty": "L418",
+    "seed": "cooper_joseph:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

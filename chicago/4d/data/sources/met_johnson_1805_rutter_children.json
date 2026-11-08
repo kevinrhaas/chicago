@@ -1,0 +1,24 @@
+{
+ "id": "met_johnson_1805_rutter_children",
+ "type": "illustration",
+ "citation": "Joshua Johnson, Edward and Sarah Rutter, ca. 1805. The Metropolitan Museum of Art, 65.254.3.",
+ "author": "Joshua Johnson",
+ "date": "ca. 1805",
+ "describes_date": "1805",
+ "repository": "The Metropolitan Museum of Art; object 11269 in the museum's collection API (isPublicDomain: true), image DT5512 at images.metmuseum.org.",
+ "url": "https://www.metmuseum.org/art/collection/search/11269",
+ "locator": "Open-access image DT5512: both children full length.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "The Met's Open Access images of public-domain works are released CC0. Used only as a reference picture the 1812 children's dress is judged against (T-3465); nothing traced or sampled.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). Oil portrait of two Baltimore children. The boy, perhaps six, in a dark blue jacket and long trousers buttoned together (a skeleton-type suit, buttons at the waist), a wide frilled white collar, white stockings and black shoes; the girl, perhaps three, in a white high-waisted short-sleeved frock to the ankle, a coral necklace and red shoes.",
+ "note": "Entered for the 1812 children's dress (T-3465; docs/RESEARCH/people-1812-dress/children.md) from the dress research of docs/RESEARCH/people-1812-3461/dress.json; not a Chicago or Fort Dearborn record.",
+ "what_it_supplies": [
+  "a boy's skeleton-type suit with frilled collar and a small girl's white frock about 1805"
+ ],
+ "what_it_does_not_supply": [
+  "a frontier family; these are Baltimore children painted in their best"
+ ]
+}

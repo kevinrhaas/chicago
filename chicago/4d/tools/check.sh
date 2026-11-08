@@ -457,6 +457,20 @@ step "An 1835 labourer's working dress is sourced, layered and skinned on the sh
   python3 tools/test_human_labourer_1835.py
 step "An 1812 First Infantry private's dress is sourced, dated, layered and skinned on the shared rig (T-3451)" \
   python3 tools/test_human_soldier_1812.py
+step "The 1812 women's dress (lady, working woman, woman of the country, Potawatomi woman) is sourced, layered, skinned and the Potawatomi figure held for review on the shared rig (T-3464)" \
+  python3 tools/test_human_women_1812.py
+step "The 1812 children's dress (town boy, girl and toddler; Potawatomi boy and girl) is sourced, layered and skinned on child bodies of the shared rig (T-3465)" \
+  python3 tools/test_human_child_1812.py
+step "An 1812 engagé's working dress is sourced, layered and skinned on the shared rig" \
+  python3 tools/test_human_engage_1812.py
+step "An 1812 Potawatomi man's everyday dress is sourced, layered, skinned and held for review on the shared rig" \
+  python3 tools/test_human_potawatomi_man_1812.py
+step "An 1812 First Infantry officer's dress (captain, lieutenant, surgeon's mate) is sourced, layered and skinned on the shared rig" \
+  python3 tools/test_human_officer_1812.py
+step "An 1812 trader's dress is sourced, layered and skinned on the shared rig" \
+  python3 tools/test_human_trader_1812.py
+step "An 1812 settler's working dress is sourced, layered and skinned on the shared rig" \
+  python3 tools/test_human_settler_1812.py
 step "A 1904 coachman's standing livery (Charles Nelson) is sourced, layered and skinned on the shared rig (T-3483)" \
   python3 tools/test_human_coachman_1904.py
 step "A 1904 stable helper's working dress (August Billings) is sourced, layered and skinned on the shared rig (T-3484)" \
@@ -606,6 +620,16 @@ step "The 1812 garrison is at its duties: knots that talk, break up and come bac
   node tools/test_human_duties.mjs
 step "The 1812 garrison's instance records are what place.py writes (T-3462, T-3490)" \
   python3 docs/RESEARCH/people-1812-3462/place.py --check
+step "Each 1812 building's doors are where its model draws the leaf, and where one who answers stands (T-3463)" \
+  python3 tools/derive_doors_1812.py --check
+step "1812 people keep their day: off their dates nowhere (Lalime gone by 14 August, there in February), indoors or out by the hour, talking, at work, walking; a door offers Ask for whoever is inside, soldiers in quarters too, and the one asked for comes out to the visitor and goes back in (T-3463..T-3467)" \
+  node tools/test_human_days.mjs
+step "The 1812 town's people (Kinzie, Lalime, the officers, women, children, Potawatomi and Miami) are what place_town.py writes from their day readings, every indoor span at a building with a door (T-3463..T-3467)" \
+  python3 docs/RESEARCH/people-1812-town/place_town.py --check
+step "The cards of the 1812 town's people the 14 August sweep left out (Lalime, Irwin, the Mirandeaus, the camp families, the Miami escort) are what cards.py writes (T-3463..T-3467)" \
+  python3 docs/RESEARCH/people-1812-town/cards.py --check
+step "The 1812 town's looks files are what looks.py writes from the readings' own words (T-3463..T-3467)" \
+  python3 docs/RESEARCH/people-1812-town/looks.py --check
 step "People on foot walk heel to toe at a real pace and stride, the stance foot planted, the pelvis turning and rising over it, deterministic across LOD swaps (T-3472)" \
   node tools/test_human_gait.mjs
 step "A woman's skirt swings off her legs as she walks and never parts between them, the rest pose exact (T-3472)" \

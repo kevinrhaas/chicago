@@ -1,0 +1,83 @@
+{
+  "format": "chicago4d_human_graphical_target_recipe_v1",
+  "targets": [
+    {
+      "path": "makehuman/data/targets/macrodetails/caucasian-male-child.target",
+      "sha256": "401b9b0349c88dc7aacb81e71f67daf747fecde0f7fd7f3f6e10fb2ce5586d1e",
+      "coefficient": 0.037037037037037035
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/caucasian-male-baby.target",
+      "sha256": "f970a2e354b70f8438508a884cd40a9b2ea5cbd24fa6b89a99071a30720c7417",
+      "coefficient": 0.12962962962962962
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/asian-male-child.target",
+      "sha256": "c1b56e9cc549cd7c463f407557d7adceaa217b528c600d34c19df98bc3d6472e",
+      "coefficient": 0.037037037037037035
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/asian-male-baby.target",
+      "sha256": "296f9dd9c9716a0e43afb9dadfb35e11be0ecc1f15d2efae6e903b0e91bc07a5",
+      "coefficient": 0.12962962962962962
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/african-male-child.target",
+      "sha256": "5b89c85ed7ba9984b5e57a5844b10eb74ab7fcfa79f77a5a3ec697dd860969ed",
+      "coefficient": 0.037037037037037035
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/african-male-baby.target",
+      "sha256": "32ce877fa330805971ca636a78aa736bc486b37118e91d2e4bfb9f1ad2cd48a1",
+      "coefficient": 0.12962962962962962
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/caucasian-female-child.target",
+      "sha256": "17fc408839c0a407bf4efd96d9af7eebcdf20d74698659f3597b0647ed6b147e",
+      "coefficient": 0.037037037037037035
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/caucasian-female-baby.target",
+      "sha256": "2ae0b8f760a3608b8e628b9af80054592d0fd0ac4b7867f81d8fc86b5a75c170",
+      "coefficient": 0.12962962962962962
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/asian-female-child.target",
+      "sha256": "a4fffea45a475a24a0a7332dac28a07dfd60a9af9eb50b61ed5abd1178197f75",
+      "coefficient": 0.037037037037037035
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/asian-female-baby.target",
+      "sha256": "43c2a05ac425c4084f9dc30687a294cc5b61699d7c075985536f7e9c3b23f78d",
+      "coefficient": 0.12962962962962962
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/african-female-child.target",
+      "sha256": "f88b8f252df8a9a3f35f78e1664983e9a30756bca1e454afce39438296eb7b41",
+      "coefficient": 0.037037037037037035
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/african-female-baby.target",
+      "sha256": "b1d4b5c76c73107b8f433bba6e224addf9da542287612868a02109d0f5a1c235",
+      "coefficient": 0.12962962962962962
+    }
+  ],
+  "phenotype": {
+    "sex": "unbreeched child of either sex (male and female targets equally)",
+    "chosen_age_years": 3,
+    "age_band_years": [
+      2,
+      4
+    ],
+    "age_anchors_years": {
+      "baby": 1,
+      "child": 10,
+      "young": 25
+    },
+    "age_method": "Linear between the upstream baby (1 year) and child (10 year) anchors, as adult_35 is linear between young (25) and old (90): child 2/9, baby 7/9, each shared equally over the three upstream shape categories and both sexes.",
+    "ancestry_status": "unattested; equal upstream software-category blend is an authoring liberty, not a resident ethnicity",
+    "age_status": "chosen 3-year authoring point for the unbreeched children of 1812 about two and a half to four and a half; no birth year or precise age asserted",
+    "likeness_status": "component study; not attested likeness"
+  },
+  "basis": "Sparse CC0 graphical child/baby target deltas applied to base and all helper vertices before skeleton derivation; no upstream program logic copied (T-3465)"
+}

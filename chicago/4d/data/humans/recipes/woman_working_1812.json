@@ -1,0 +1,418 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "liberty": "L418",
+  "height_scale": 1.0,
+  "lod_ratios": [
+    1.0,
+    0.6,
+    0.28,
+    0.12
+  ],
+  "skin_texture": {
+    "path": "assets/authored/humans/skin_toigo_bronze_female/young_lightskinned_female_diffuse_Bronze.png",
+    "sha256": "535535f30bacd42111590df4b03cf3b6bcdb7db18f336ce670665ec332ab3e0b",
+    "license": "CC0-1.0",
+    "color_space": "sRGB",
+    "base_color_factor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "roughness": 0.68,
+    "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
+    "identity_basis": "Cleared reusable generic skin atlas; not a likeness, attested complexion, or source identifying any named/reconstructed resident.",
+    "uv_status": "Source atlas and UV registration viewed in source diagnostics; final Blender export/LOD render validation remains outstanding.",
+    "female_appearance_status": "The same author's female bronze atlas (skins01, CC0), replacing the male one whose beard shadow read as a man's jaw at 3 m (T-3434); photographic qualification remains open."
+  },
+  "hair_component": {
+    "directory": "assets/authored/humans/hair_short04",
+    "texture": "short04_diffuse_periodic_pad_draft.png",
+    "uv_transform": {
+      "source_height": 2048,
+      "top_rows": 8,
+      "bottom_rows": 1
+    },
+    "roughness": 0.65,
+    "alpha_cutoff": 0.4,
+    "appearance_basis": "Shared cleared CC0 short04 cap (the 1812 private's own hair component, fitted here to the female body as the 1835 dress study's was), under a cap or a handkerchief that covers all but the hair over the brow; the short04 atlas keeps the asset within the 1812 private's byte budget, where the bun proxy of the 1904 women would add about 2.5 MB at LOD0. No period hairstyle attestation or likeness.",
+    "source_manifest_sha256": "68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99"
+  },
+  "eye_components": {
+    "radius_m": 0.012,
+    "iris_radius_m": 0.0055,
+    "pupil_radius_m": 0.0022,
+    "corneal_bulge_m": 0,
+    "cornea_enabled": false,
+    "source_basis": "Actual helper centers/axes; original opaque sclera/iris/pupil, reconstructed dimensions and brown color, not resident facts",
+    "status": "No actual BPy/export/blink fit/photographic acceptance"
+  },
+  "label": "Reconstructed 1812 working woman's dress (a short gown of a madder print with elbow sleeves and a skirt to the hip over a blue homespun petticoat to the ankle, a broad natural linen apron tied at the waist, a white kerchief round the neck, a plain linen cap, shoes) and its woman-of-the-country variant (the short gown a red calico, the petticoat dark stroud, a blue cotton handkerchief wrapped round the head, moccasins) on the shared portable female rig",
+  "scene_date": "1812-08-14",
+  "grade": "reconstructed",
+  "sources": [
+    "kinzie_waubun_1856",
+    "lambert_1810_travels_lower_canada_v1",
+    "met_krimmel_1811_black_sawyers_bank_of_pennsylvania",
+    "met_ci_1810_1820_american_cap"
+  ],
+  "basis": "The T-3423 bodice loosened and cut back to the elbow as a short gown, its skirt lofted outside the petticoat to the hip, a petticoat lofted round the body's own sections to the ankle, a broad apron laid over both and hung straight, its band round the waist, a kerchief shell round the neck, a cap or a handkerchief laid over the hair, and the shared closed shoe (as shoes or moccasins), after Wau-Bun's Chicago woman of 1812, Lambert and Krimmel (tools/human_women_1812.py, T-3464). Every amount and colour is reconstructed.",
+  "source_scope": "Wau-Bun (1856; the Kinzie family's narrative) gives Mrs Helm's disguise on 16 August 1812 as 'the ordinary dress of a Frenchwoman of the country; namely, a short gown and petticoat, with a blue cotton handkerchief wrapped around her head'; Lambert (1810, Lower Canada 1806-08) that 'A petticoat and short jacket, is the most prevailing dress', with muslin aprons, handkerchiefs and full caps, and moccasins among the country people; Krimmel's Philadelphia woman of 1811-13 (Met) a head-wrap, a short gown and a striped petticoat; the Met's 1810-20 cap the close shape. None shows a soldier's wife, a laundress or a French woman at Chicago.",
+  "colors_linear_rgba": {
+    "skin": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "eyes": [
+      0.12,
+      0.09,
+      0.06,
+      1.0
+    ],
+    "garment_upper__short_gown_madder_print_1812": [
+      0.15,
+      0.075,
+      0.055,
+      1
+    ],
+    "garment_lower__petticoat_blue_homespun_1812": [
+      0.065,
+      0.075,
+      0.095,
+      1
+    ],
+    "garment_outer__apron_natural_linen_1812": [
+      0.4,
+      0.36,
+      0.29,
+      1
+    ],
+    "accessory__neck_kerchief_white_1812": [
+      0.55,
+      0.53,
+      0.48,
+      1
+    ],
+    "headwear__linen_cap_white_1812": [
+      0.58,
+      0.56,
+      0.51,
+      1
+    ],
+    "footwear__shoes_black_1812": [
+      0.025,
+      0.018,
+      0.013,
+      1
+    ],
+    "garment_upper__short_gown_red_calico_1812": [
+      0.2,
+      0.07,
+      0.055,
+      1
+    ],
+    "garment_lower__petticoat_dark_stroud_1812": [
+      0.025,
+      0.03,
+      0.055,
+      1
+    ],
+    "headwear__blue_cotton_handkerchief_1812": [
+      0.05,
+      0.08,
+      0.16,
+      1
+    ],
+    "footwear__moccasins_smoked_1812": [
+      0.17,
+      0.11,
+      0.065,
+      1
+    ]
+  },
+  "workwear_coverage": {
+    "shoe_clearance_m": 0.004
+  },
+  "proof_variants": [
+    {
+      "id": "woman_working_1812",
+      "component_assembly": "woman_working_1812_v1",
+      "person_reference_id": "anonymous_woman_working_1812",
+      "person_reference_scene": "1812",
+      "person_reference_grade": "reconstructed",
+      "person_reference_record": "data/sources/kinzie_waubun_1856.json",
+      "reference_summary": {
+        "name": "a soldier's wife, laundress or settler's wife at Chicago, 1812",
+        "named": false,
+        "role": "soldier's wife; laundress; settler's wife; servant",
+        "post": "Fort Dearborn and the settlement",
+        "presence": "town"
+      },
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_adult_female_25.json",
+      "body_parameters": {
+        "chosen_height_m": 1.65,
+        "height_basis": "The shared female engineering body; the variation kit draws height and build at runtime. Not a recorded height.",
+        "engineering_age_years": 25,
+        "age_basis": "Engineering body at the female kit base age 25. human-variation.js ages a person drawn in the town from her own record; no age is read for the anonymous figure.",
+        "shape_basis": "Equal cleared upstream female-young software-category blend, not inferred ancestry or a portrait"
+      },
+      "body_basis": "CC0 adult-female graphical body and the generic cleared female skin are reconstructed authoring choices. The figure is anonymous: the working dress of a soldier's or settler's wife, a laundress or a servant, not any woman's own; no complexion, height, face or outfit of anyone is asserted.",
+      "recipe_path": "data/humans/recipes/woman_working_1812.json"
+    },
+    {
+      "id": "woman_country_1812",
+      "component_assembly": "woman_working_1812_v1",
+      "person_reference_id": "anonymous_woman_country_1812",
+      "person_reference_scene": "1812",
+      "person_reference_grade": "reconstructed",
+      "person_reference_record": "data/sources/kinzie_waubun_1856.json",
+      "reference_summary": {
+        "name": "a French or Metis woman of the country at Chicago, 1812",
+        "named": false,
+        "role": "woman of the country",
+        "post": "the settlement",
+        "presence": "town"
+      },
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_adult_female_25.json",
+      "body_parameters": {
+        "chosen_height_m": 1.65,
+        "height_basis": "The shared female engineering body; the variation kit draws height and build at runtime. Not a recorded height.",
+        "engineering_age_years": 25,
+        "age_basis": "Engineering body at the female kit base age 25. human-variation.js ages a person drawn in the town from her own record; no age is read for the anonymous figure.",
+        "shape_basis": "Equal cleared upstream female-young software-category blend, not inferred ancestry or a portrait"
+      },
+      "body_basis": "CC0 adult-female graphical body and the generic cleared female skin are reconstructed authoring choices; complexion and features come from each wearer's own looks at runtime. The figure is anonymous: Wau-Bun's 'ordinary dress of a Frenchwoman of the country' at Chicago in 1812, not any woman's own outfit.",
+      "recipe_path": "data/humans/recipes/woman_working_1812.json"
+    }
+  ],
+  "role_1812": {
+    "module": "human_women_1812",
+    "prepare": "prepare_working",
+    "assembly": "woman_working_1812_v1"
+  },
+  "women_components": {
+    "version": 1,
+    "generator": "tools/human_women_1812.py",
+    "role": "woman_working_1812",
+    "liberty": "L-human-modular-dress-1789",
+    "body_sha256": "3060ee86957ff7c2d70c89e70fe95ff3bc2294a0d7f6a5716b5a2f3f8dd84c72",
+    "standing_source_only": false,
+    "production_eligible": false,
+    "photo_accepted": false,
+    "evidence_choice": "The brief asked for a soldier's wife or laundress and a French woman of the country in Wau-Bun's short gown and petticoat, with an apron, a kerchief and either a linen cap or the blue cotton handkerchief. Both heads are built: the cap on woman_working_1812 (the laundresses, the settlers' wives and the Healds' servant Cicely, T-3464 day.json), the handkerchief on the variant woman_country_1812 (Archange Ouilmette, Mrs Bisson, Josette LaFramboise), which also takes the woman of the country's red print, dark stroud and moccasins; it costs a whole asset of bytes and the integrator may drop it. The sleeves end below the elbow, the working length of T-3464's reading; the petticoat is not kilted up.",
+    "tailoring": {
+      "bodice": {
+        "waist_below_spine02": 0.018,
+        "ease": 0.017,
+        "neck_below_neck01": 0.012,
+        "sleeve_past_elbow": 0.06,
+        "pouch": 0.008,
+        "sleeve_fullness": 0.012
+      },
+      "skirt": {
+        "hem_y": 0.085,
+        "ease": 0.016,
+        "flare_from_y": 0.66,
+        "hem_rx": 0.27,
+        "hem_rz_front": 0.23,
+        "hem_rz_back": 0.28,
+        "back_fullness": 0.012,
+        "folds": 16,
+        "fold_depth": 0.009,
+        "front_folds": 0.6,
+        "segments": 72,
+        "rows": 18
+      },
+      "peplum": {
+        "length": 0.165,
+        "ease": 0.009,
+        "flare": 0.03,
+        "front_gap_deg": 7.0,
+        "rows": 7
+      },
+      "apron": {
+        "half_angle_deg": 78.0,
+        "hem_above_skirt_hem": 0.1,
+        "offset": 0.006,
+        "rows": 16,
+        "columns": 37
+      },
+      "band": {
+        "below": 0.01,
+        "above": 0.014,
+        "lift": 0.004
+      },
+      "kerchief": {
+        "ease": 0.02,
+        "above_neck01": 0.003,
+        "front_point_above_waist": 0.15,
+        "front_slope": 0.8,
+        "back_point_below_neck01": 0.17,
+        "back_slope": 0.75,
+        "half_width": 0.19,
+        "arm": 0.4,
+        "gap": 0.007,
+        "smooth": 8,
+        "folds": 7,
+        "fold_depth": 0.007,
+        "cross": 0.003
+      },
+      "cap": {
+        "front_above_eyes": 0.08,
+        "nape_below_hair": 0.006,
+        "side_drop": 1.2,
+        "ease": 0.008,
+        "puff": 0.014,
+        "gathers": 16,
+        "gather_depth": 0.006,
+        "rows": 12,
+        "sectors": 48,
+        "frill": 0.01,
+        "frill_waves": 11,
+        "frill_arc_deg": 95.0
+      },
+      "handkerchief": {
+        "front_above_eyes": 0.05,
+        "nape_below_hair": 0.012,
+        "side_drop": 1.3,
+        "ease": 0.007,
+        "puff": 0.006,
+        "gathers": 9,
+        "gather_depth": 0.003,
+        "rows": 12,
+        "sectors": 40,
+        "knot": 0.028
+      }
+    },
+    "garments": [
+      {
+        "id": "short_gown",
+        "material": "garment_upper__short_gown_madder_print_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "kinzie_waubun_1856",
+            "lambert_1810_travels_lower_canada_v1",
+            "met_krimmel_1811_black_sawyers_bank_of_pennsylvania"
+          ],
+          "source_scope": "A short gown (a loose jacket-bodice, here with elbow sleeves and a skirt to the hip): Wau-Bun's 'short gown and petticoat' at Chicago in 1812, Lambert's 'petticoat and short jacket', Krimmel's working woman of 1811-13. The ease, the sleeve length (T-3464 day.json: elbow or three-quarter), the hip length and the madder print drawn as its mean colour are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "petticoat_to_the_ankle",
+        "material": "garment_lower__petticoat_blue_homespun_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "kinzie_waubun_1856",
+            "lambert_1810_travels_lower_canada_v1",
+            "met_krimmel_1811_black_sawyers_bank_of_pennsylvania"
+          ],
+          "source_scope": "A petticoat to the ankle under the short gown (the same three). Blue homespun is one of T-3464 day.json's colours (striped, blue, brown or madder); the stripe of Krimmel's is drawn as a plain colour; the fullness and the hem's height, just clear of the ankle, are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "broad_apron",
+        "material": "garment_outer__apron_natural_linen_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "lambert_1810_travels_lower_canada_v1"
+          ],
+          "source_scope": "An apron round the front and sides, tied at the waist over the short gown: Lambert names aprons; T-3464 day.json reads a coarse linen or checked apron. Natural linen, its breadth and length are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "neck_kerchief",
+        "material": "accessory__neck_kerchief_white_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "lambert_1810_travels_lower_canada_v1"
+          ],
+          "source_scope": "A kerchief round the neck (Lambert's 'handkerchiefs'; T-3464 day.json); white, its fold and depth reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "linen_cap",
+        "material": "headwear__linen_cap_white_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "lambert_1810_travels_lower_canada_v1",
+            "met_ci_1810_1820_american_cap"
+          ],
+          "source_scope": "A plain linen cap over the hair (Lambert's caps; the Met's 1810-20 cap for the close shape, a lady's, made plainer here with a narrow frill). Reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "shoes",
+        "material": "footwear__shoes_black_1812",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [],
+          "source_scope": "Heavy shoes (T-3464 day.json: stockings and heavy shoes, or bare feet at the washing); the shared closed shoe; reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "short_gown_red_calico",
+        "material": "garment_upper__short_gown_red_calico_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "kinzie_waubun_1856",
+            "lambert_1810_travels_lower_canada_v1"
+          ],
+          "source_scope": "The woman of the country's short gown (Wau-Bun, Chicago 1812); a red printed calico (T-3464 day.json: red, blue or brown print) drawn as its mean colour is reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "petticoat_dark_stroud",
+        "material": "garment_lower__petticoat_dark_stroud_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "kinzie_waubun_1856"
+          ],
+          "source_scope": "Her petticoat (Wau-Bun, Chicago 1812); dark blue stroud (T-3464 day.json: dark blue or black stroud or homespun; Wau-Bun names strouding among the trade goods) is reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "blue_cotton_head_handkerchief",
+        "material": "headwear__blue_cotton_handkerchief_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "kinzie_waubun_1856"
+          ],
+          "source_scope": "'a blue cotton handkerchief wrapped around her head' (Wau-Bun, of a French woman of the country at Chicago, 16 August 1812): graded inferred, not attested, because the source is the Kinzie family's narrative of 1856; how it is wrapped, the knot at the nape and the shade of blue are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "moccasins",
+        "material": "footwear__moccasins_smoked_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "lambert_1810_travels_lower_canada_v1",
+            "kinzie_waubun_1856"
+          ],
+          "source_scope": "Moccasins: Lambert's moccasins 'in general use among the country people', and Wau-Bun's engage's moccasins at Chicago in 1812. The shared closed shoe stands for them in a smoked-leather colour; their cut is not modelled.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      }
+    ]
+  }
+}

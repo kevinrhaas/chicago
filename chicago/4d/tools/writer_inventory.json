@@ -2316,6 +2316,13 @@
       "measured": "2026-11-06",
       "finding": "Reproduces: a bare write run on the committed tree rewrote data/humans/variation/fits/glessner_john_j.json with identical bytes; git status stayed clean (T-3413). It does not write the card's still; tools/portrait_still.mjs does, and --check refuses a still whose sidecar names another fit.",
       "placed": "not yet \u2014 measured to reproduce. It reads the portrait records, data/sources/, axes.json, the variation kit and base.obj; tools/human_variation_kit.py reads its output (persons.json carries the fitted face), so its slot precedes that tool's, and the manifest's order is its own measured pass, so it is not appended blind (T-3413)."
+    },
+    "derive_doors_1812.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-08",
+      "finding": "Reproduces: a bare write run on the committed tree rewrote data/humans/doors_1812.json (69 doors on 38 buildings) with identical bytes (T-3463).",
+      "placed": "not yet \u2014 measured to reproduce. It reads the 1812 sidecars and their GLBs (door leaves off the models) and the lodge camp records; tools/test_human_days.mjs and human-days.js read its output, so it follows the 1812 structure emitters, and the manifest's order is its own measured pass, so it is not appended blind (T-3463)."
     }
   }
 }

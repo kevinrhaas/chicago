@@ -86,6 +86,7 @@ import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
 import { mountHumans } from './humans.js';
 import { createHumanDuties } from './human-duties.js';
+import { createHumanDays } from './human-days.js';
 import { createInteractions, createInteractKey } from './interact.js';
 import { createFollow } from './follow.js';
 import { createPeopleLook } from './people-look.js';
@@ -3815,8 +3816,44 @@ async function boot() {
   scene3d.add(api.humans.group);
   // T-3490: men at a shared duty — a knot talking, a sentry's beat, a rank (human-duties.js).
   // Out by day, in quarters by night but for the guard (`behaviour.hours`, by the sun's clock).
-  api.duties = createHumanDuties({ humans: api.humans, three: THREE,
-    hour: () => { const [h, m] = String(world.sunTime ?? '').split(':').map(Number); return Number.isFinite(h) ? h + (m || 0) / 60 : null; } });
+  const sunHour = () => { const [h, m] = String(world.sunTime ?? '').split(':').map(Number); return Number.isFinite(h) ? h + (m || 0) / 60 : null; };
+  api.duties = createHumanDuties({ humans: api.humans, three: THREE, hour: sunHour,
+    // T-3463: a man asked for at his quarters' door is out of his duty till he goes back in.
+    held: (actor) => api.days?.isCalled(actor) ?? false });
+  // T-3463..T-3467 (owner, 2026-11-08: "some inside and others active and doing what they
+  // would be doing as normal activities per time of day", "If they are inside I can walk to
+  // door and ask for any person inside"): each person's day by the scene's date and hour,
+  // and every 1812 door that has someone behind it offers Ask for them (human-days.js).
+  api.days = null;
+  if (String(loaded.scene.id ?? YEAR) === '1812') {
+    const getOptional = (rel) => fetch(new URL(rel, bases.dataBase), { cache: 'no-cache' })
+      .then((r) => (r.ok ? r.json() : null)).catch(() => null);
+    const [doors, inside] = await Promise.all([getOptional('humans/doors_1812.json'), getOptional('humans/inside_1812.json')]);
+    // The gathering's people who are carded and not drawn (inside_1812.json): a figure is
+    // built for one only when they are asked for at their lodge's door, from the dress their
+    // entry names, and taken away once they are back in.
+    const byPerson = new Map((people?.people ?? []).map((row) => [row.id, row]));
+    const spawn = (entry, door) => {
+      if (!entry.asset_id || !api.humans?.add) return null;
+      const rec = {
+        id: `hi_inside_${entry.person}`, contract_version: 1, scene: '1812', person_id: entry.person,
+        appearance: { asset_id: entry.asset_id },
+        placement: { local_e: door.leaf.local_e, local_n: door.leaf.local_n, heading_deg: door.outward_deg, anchor: 'terrain' },
+        animation: { clip: 'idle', loop: true, phase: 0 }, behaviour: { state: 'standing' },
+        interaction: { selectable: true, radius_m: 3, opens: 'resident_card' }, lod: { policy: 'auto' },
+        display: 'shown', review_required: true, provenance: entry.provenance ?? null,
+      };
+      return api.humans.add(rec, { person: byPerson.get(entry.person) ?? { id: entry.person, name: entry.name } });
+    };
+    api.days = createHumanDays({ humans: api.humans, three: THREE, hour: sunHour, date: () => world.sunDate ?? null,
+      doors, interactions, inside, spawn, despawn: (actor) => api.humans?.remove?.(actor.id),
+      visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }),
+      eye: () => camera.getWorldPosition(new THREE.Vector3()),
+      // The router's grid is hundreds of MB and is built on its first plan: a day's walk takes
+      // its ways only once something else (Go to) has built it, else walks straight.
+      router: { plan: (...args) => (api.router?.built ? api.router.plan(...args) : null) },
+      problems: layerProblems('humans') });
+  }
   /**
    * T-3439 (owner, 2026-11-07): Settings › Show › People and › Carriages and horses. A
    * viewing choice, like Street trees: hidden, a layer is neither drawn nor advanced nor
@@ -6038,6 +6075,7 @@ async function boot() {
     // A 0.05 s visual-effects step made human clips/routes crawl on slow devices.
     api.humans?.update(frameDt, camera, walker.state, visualDt);
     api.duties?.update(frameDt);
+    api.days?.update(frameDt);
 
     // T-2113. Under the gate, draw only a frame that differs from the last one
     // drawn: the first, one a capture or a test asked for, or one in which

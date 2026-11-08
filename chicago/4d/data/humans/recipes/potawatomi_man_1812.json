@@ -1,0 +1,386 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "liberty": "L418",
+  "height_scale": 1.0,
+  "lod_ratios": [
+    1.0,
+    0.6,
+    0.28,
+    0.12
+  ],
+  "skin_texture": {
+    "path": "assets/authored/humans/skin_toigo_bronze/young_lightskinned_male_diffuse_Bronze.png",
+    "sha256": "5a53213f061bfa97ee0afd6b40650ffbc089a479c144e63f3c39acceca5853c0",
+    "license": "CC0-1.0",
+    "color_space": "sRGB",
+    "base_color_factor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "roughness": 0.68,
+    "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
+    "identity_basis": "Cleared reusable generic skin atlas; not a likeness, attested complexion, or source identifying any named/reconstructed resident.",
+    "uv_status": "Source atlas and UV registration viewed in source diagnostics; final Blender export/LOD render validation remains outstanding."
+  },
+  "hair_component": {
+    "directory": "assets/authored/humans/hair_short04",
+    "texture": "short04_diffuse_periodic_pad_draft.png",
+    "uv_transform": {
+      "source_height": 2048,
+      "top_rows": 8,
+      "bottom_rows": 1
+    },
+    "roughness": 0.65,
+    "alpha_cutoff": 0.4,
+    "appearance_basis": "Shared cleared CC0 short04 source fitted to existing Otis/Joseph/Martin bodies; hair/part/color are reconstructed choices, no period hairstyle attestation or individual likeness.",
+    "source_manifest_sha256": "68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99"
+  },
+  "eye_components": {
+    "radius_m": 0.012,
+    "iris_radius_m": 0.0055,
+    "pupil_radius_m": 0.0022,
+    "corneal_bulge_m": 0,
+    "cornea_enabled": false,
+    "source_basis": "Actual helper centers/axes; original opaque sclera/iris/pupil, reconstructed dimensions and brown color, not resident facts",
+    "status": "No actual BPy/export/blink fit/photographic acceptance"
+  },
+  "label": "Reconstructed Potawatomi man of the Chicago gathering, 14 August 1812 (a blue check trade shirt worn loose to mid-thigh, blue broadcloth breechcloth, scarlet stroud leggings gartered below the knee, a white wool blanket belted round the waist, silver arm bands and brooches, smoked moccasins, bare head) on the shared portable male rig",
+  "scene_date": "1812-08-14",
+  "grade": "reconstructed",
+  "sources": [
+    "kinzie_waubun_1856",
+    "keating_1824_narrative_v1",
+    "hubbard_autobiography_1911",
+    "quaife_1913",
+    "lambert_1810_travels_lower_canada_v1",
+    "saam_lewis_1835_cha_co_to",
+    "saam_catlin_1830_on_saw_kie"
+  ],
+  "basis": "The 1835 labourer's shirt shell offset from the cleared adult body's own surface, a shirt skirt, breechcloth flaps and a wrapped blanket hung on convex supports enclosing the body's own sections and shared between the pelvis and each leg, leggings on the shared trouser shell cut apart above the crotch with flaps lofted along their outer seams, garters, a belt, silver bands and brooches lofted on the garments beneath and closed boots round the feet as moccasins. Seams, ease, lengths and colours are reconstructed. Complete source anatomy remains unchanged beneath clothing.",
+  "source_scope": "Keating (1824) describes a Potawatomi man (Metea, Fort Wayne) and a man of a mixed northern Illinois village in 1823: breechcloth of blue broadcloth, leather or buckskin leggings gartered below the knee, a short checkered shirt over the breechcloth, a blanket belted at the waist, moccasins. Wau-Bun (1856; family tradition) lists the blankets, broadcloths and calicoes given out to the camp on the 13th and the trade silver of the annual presents. Hubbard (1818) wore the calico shirt, breech-cloth and buckskin leggings of the Illinois trade. Lambert (1810) records the mantle fastened round the waist in warm weather. Lewis's Cha-co-to (1827) and Catlin's On-saw-kie (1830) are judged against, not copied. Quaife (1913) prints Helm's count of the camp. No picture of any man of the 1812 camp is known; no pixels or traced shapes enter the asset.",
+  "colors_linear_rgba": {
+    "skin": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "eyes": [
+      0.12,
+      0.09,
+      0.06,
+      1.0
+    ],
+    "garment_upper__shirt_check_blue_1812": [
+      0.27,
+      0.3,
+      0.37,
+      1
+    ],
+    "garment_lower__leggings_stroud_scarlet_1812": [
+      0.26,
+      0.045,
+      0.035,
+      1
+    ],
+    "garment_lower__leggings_selvage_white_1812": [
+      0.6,
+      0.58,
+      0.52,
+      1
+    ],
+    "garment_lower__breechcloth_broadcloth_blue_1812": [
+      0.022,
+      0.032,
+      0.085,
+      1
+    ],
+    "garment_outer__blanket_wool_white_1812": [
+      0.47,
+      0.45,
+      0.39,
+      1
+    ],
+    "garment_outer__blanket_stripe_dark_1812": [
+      0.025,
+      0.03,
+      0.06,
+      1
+    ],
+    "accessory__belt_leather_1812": [
+      0.06,
+      0.035,
+      0.02,
+      1
+    ],
+    "accessory__garters_woven_dark_1812": [
+      0.035,
+      0.04,
+      0.075,
+      1
+    ],
+    "accessory__silver_1812": [
+      0.4,
+      0.4,
+      0.39,
+      1
+    ],
+    "footwear__moccasins_smoked_1812": [
+      0.15,
+      0.095,
+      0.052,
+      1
+    ]
+  },
+  "workwear_coverage": {
+    "shoe_clearance_m": 0.004
+  },
+  "role_1812": {
+    "module": "human_potawatomi_man_1812",
+    "prepare": "prepare_potawatomi_man_assembly",
+    "assembly": "potawatomi_man_1812_v1"
+  },
+  "proof_variants": [
+    {
+      "id": "potawatomi_man_1812",
+      "component_assembly": "potawatomi_man_1812_v1",
+      "person_reference_id": "anonymous_potawatomi_man_1812",
+      "person_reference_scene": "1812",
+      "person_reference_grade": "reconstructed",
+      "person_reference_record": "data/sources/quaife_1913.json",
+      "reference_summary": {
+        "name": "a Potawatomi man of the camp at Chicago",
+        "named": false,
+        "nation": "Potawatomi; the Miami of Wells's escort wear the same",
+        "post": "Chicago",
+        "presence": "the gathering of 12-16 August 1812"
+      },
+      "review_required": true,
+      "touches_removal": true,
+      "review_reason": "A Native depiction under the AGENTS.md standing constraint. It shows everyday dress on 14 August 1812 bounded by the evidence: the trade cloth, calico, blankets and silver the sources name, from the nearest dated description (Keating, 1823, eleven years after) and the goods given out to the camp on the 13th. Nothing ceremonial is drawn, no paint (that is the 15th), no arms, no feathers, and nothing of the Plains or of later decades. Colours, proportions and the hair are reconstructed and should be reviewed against the Newberry's Indigenous Chicago material and by people with standing to judge.",
+      "touches_removal_reason": "The Potawatomi of the Chicago gathering are the people whose land was ceded at Chicago in 1833 and who were removed west from 1835; every figure in this dress stands in that history, whatever the scene, and carries the flag so that each card and record built on it says so.",
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_adult_25.json",
+      "body_parameters": {
+        "chosen_height_m": 1.75,
+        "height_basis": "The shared engineering body; not a recorded height.",
+        "engineering_age_years": 25,
+        "age_basis": "Engineering body at age 25; the age of whoever wears the dress is his own record's (chiefs and elders by the variation kit).",
+        "shape_basis": "CC0 male macro targets; equal software-category blend is engineering only, not inferred ancestry or a portrait."
+      },
+      "body_basis": "CC0 adult-male graphical body and the shared light-skinned generic skin atlas of the period studies are reconstructed authoring choices; complexion is not asserted by the asset. The man is anonymous: a role, not any man of the camp; his complexion, eyes, hair colour, face, height, build and age are set on each person's own record (human-looks.js and the variation kit).",
+      "recipe_path": "data/humans/recipes/potawatomi_man_1812.json"
+    }
+  ],
+  "potawatomi_man_components": {
+    "version": 1,
+    "generator": "tools/human_potawatomi_man_1812.py",
+    "liberty": "L-human-modular-dress-1789",
+    "body_sha256": "e7b088b88ea18bb309ca990ef6c0cafea9420ac152d42d1351c1a9795daa9269",
+    "standing_source_only": false,
+    "production_eligible": false,
+    "photo_accepted": false,
+    "evidence_choice": "Keating's Metea (1823) is followed piece by piece because it is the nearest dated, detailed eyewitness description of a Potawatomi man; the goods given out on the 13th (blankets, broadcloths, calicoes) make the cloth new. The blanket is worn round the waist (Keating's belt; Lambert's warm-weather wrap), not over the shoulders: it is August, and a mantle over the lowered arms cannot be built on this rig without the arms passing through it. Leggings are scarlet stroud after the T-3467 day research, which reads stroud as more usual than Keating's leather. The head is bare and the asset carries only the shared short04 cap: the hair is drawn per person by the looks layer (the clubbed_behind_1812 cut), after the T-3467 day research's 'long and tied or clubbed behind', Keating's Metea with feathers on a lock (1823) and the Pecatonica man's 'plaited hair ... on the crown of his head', and Catlin's On-saw-kie (1830) with loose jaw-length hair. A cloth head wrap (Lewis's Cha-co-to, 1827; Quaife's 1833 'handkerchief turbans') is later and was a minority, so none is built in. Chiefs and elders wear the same asset and differ by their own looks and age; their medals and gorgets, recorded only for named men, are not drawn. The Miami of Wells's escort wear the same: no source read describes their dress, Keating (p. 91) says only that 'diversities of dress' distinguish the Algonquian nations without saying how, and the Miami particulars the research found (Lewis's Mi-a-qu-a, 1826-27: broad silver arm bands, a nose ring, a turban) are treaty dress of one chief fourteen years on.",
+    "tailoring": {
+      "shirt": {
+        "ease": 0.008,
+        "waist_below_spine02": 0.14,
+        "collar_above_neck": 0.014,
+        "throat_v_below_neck": 0.1,
+        "throat_v_half_width": 0.034,
+        "cuff_short_of_wrist": 0.014,
+        "sleeve_fullness": 0.024,
+        "smoothing": 90,
+        "sleeve_gather": 0.06,
+        "armpit_extra": 0.004
+      },
+      "shirt_skirt": {
+        "top_y": 1.03,
+        "hem_y": 0.7,
+        "ease": 0.022,
+        "segments": 64,
+        "rows": 9,
+        "fold": 0.006,
+        "folds": 7
+      },
+      "breechcloth": {
+        "top_y": 0.8,
+        "hem_front_y": 0.52,
+        "hem_back_y": 0.545,
+        "ease": 0.016,
+        "half_width_deg": 34.0,
+        "rows": 7,
+        "cols": 9
+      },
+      "leggings": {
+        "ease": 0.011,
+        "waist_height_fraction": 0.585,
+        "cuff_radius_ratio": 0.95,
+        "added_section_ease": 0.012,
+        "thigh_transition_fraction": 0.65,
+        "hem_front_y": 0.072,
+        "hem_back_y": 0.05,
+        "top_y": 0.78,
+        "flap": 0.032,
+        "selvage": 0.009,
+        "flap_back_deg": 24.0,
+        "flap_top_y": 0.76,
+        "flap_bottom_y": 0.09,
+        "flap_rows": 16
+      },
+      "brooches": {
+        "radius": 0.011,
+        "count": 3,
+        "first_below_neck": 0.135,
+        "step": 0.045,
+        "standoff": 0.003,
+        "sides": 12
+      },
+      "garters": {
+        "centre_below_knee": 0.05,
+        "height": 0.026,
+        "ease": 0.004,
+        "segments": 24,
+        "rows": 3,
+        "roll": 0.002
+      },
+      "blanket": {
+        "top_y": 1.04,
+        "hem_y": 0.505,
+        "ease_top": 0.03,
+        "ease": 0.052,
+        "segments": 72,
+        "rows": 12,
+        "open_top_deg": 30.0,
+        "open_hem_deg": 42.0,
+        "fold": 0.026,
+        "folds": 13,
+        "corner_droop": 0.035,
+        "stripe_from_edge": 0.05,
+        "stripe_width": 0.045
+      },
+      "belt": {
+        "bottom_y": 1.002,
+        "top_y": 1.04,
+        "ease": 0.004,
+        "segments": 48,
+        "rows": 3,
+        "roll": 0.002
+      },
+      "arm_bands": {
+        "centre_from_shoulder": 0.115,
+        "width": 0.032,
+        "ease": 0.003,
+        "segments": 24
+      }
+    },
+    "garments": [
+      {
+        "id": "trade_shirt",
+        "material": "garment_upper__shirt_check_blue_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "keating_1824_narrative_v1",
+            "hubbard_autobiography_1911",
+            "kinzie_waubun_1856"
+          ],
+          "source_scope": "Keating's Metea (Fort Wayne, 1823) wears 'a short checkered shirt' over the breechcloth; Hubbard (Illinois trade, 1818) a calico shirt; calicoes were among the goods given out on the 13th or 14th (Wau-Bun ch. XVIII; Heald). Worn outside, loose to mid-thigh: the 1835 labourer's shirt above the waist and a hanging skirt below. A blue-and-white linen check (one of the T-3467 research's 'checked blue-and-white, red-and-white or brown linen shirts') is drawn as one flat colour, the check's blend at a distance; the length is reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "blue_broadcloth_breechcloth",
+        "material": "garment_lower__breechcloth_broadcloth_blue_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "keating_1824_narrative_v1",
+            "kinzie_waubun_1856"
+          ],
+          "source_scope": "'a breech-cloth of blue broadcloth' twice in Keating (Metea, 1823; the Pecatonica man 'as usual with the Indians of this country'); broadcloths among the goods of the 13th (Wau-Bun). Flaps before and behind falling to above the knee; their width and length are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "stroud_leggings",
+        "material": "garment_lower__leggings_stroud_scarlet_1812",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "keating_1824_narrative_v1",
+            "kinzie_waubun_1856",
+            "lambert_1810_travels_lower_canada_v1"
+          ],
+          "source_scope": "Leggings to the upper thigh, gartered below the knee, with the seam or a flap outside: Keating (Metea's 'leather leggings buttoned on the outside'; the Pecatonica man's buckskin leggings 'secured to thongs tied to a leather belt' and 'Garters ... immediately below the knee'), Lambert's 'blue or scarlet leggings' of Lower Canada (1810). Scarlet stroud follows the T-3467 day research ('leggings of blue or red stroud (some of smoked deerskin)') and the broadcloth given out on the 13th; Keating's men of 1823 wore leather, so the cloth is a choice. The white selvage at the flap's edge is the research's 'undyed white selvage showing'; flap width and colours reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "garters",
+        "material": "accessory__garters_woven_dark_1812",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "keating_1824_narrative_v1"
+          ],
+          "source_scope": "Keating: garters 'generally very much ornamented with porcupine quills, beads' support the leggings below the knee (1823). Drawn plain and dark; the ornament is not drawn.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "trade_blanket",
+        "material": "garment_outer__blanket_wool_white_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "kinzie_waubun_1856",
+            "keating_1824_narrative_v1",
+            "lambert_1810_travels_lower_canada_v1"
+          ],
+          "source_scope": "Blankets were the first of the goods distributed on the 13th or 14th (Wau-Bun ch. XVIII; Heald). Keating's Metea wears his 'secured round his waist by a belt'; Lambert's Lower Canada people 'In warm weather ... fasten it round their waist'. Wrapped round the waist to the knee and open in front, for an August afternoon (the T-3467 research: 'set aside in the heat of the day'). White wool with dark stripes near its ends is a reconstructed choice among the white, blue and red blankets the research names.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "leather_belt",
+        "material": "accessory__belt_leather_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "keating_1824_narrative_v1",
+            "hubbard_autobiography_1911"
+          ],
+          "source_scope": "Keating: the blanket 'secured round his waist by a belt' and the leggings tied 'to a leather belt around the waist'; Hubbard's 'sash or buckskin belt'. Plain dark leather; no knife or pouch drawn.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "silver_work",
+        "material": "accessory__silver_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "kinzie_waubun_1856"
+          ],
+          "source_scope": "Wau-Bun's list of the annual presents given 'for many years' before 1812: 'silver-works (comprising arm-bands, bracelets, brooches; and ear-bobs)' (ch. I). One band on each upper arm and three small brooches down the shirt; no gorget, medal or nose ring (those are recorded only for named men, and are theirs), no ear-bobs (too small to read).",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "moccasins",
+        "material": "footwear__moccasins_smoked_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "keating_1824_narrative_v1"
+          ],
+          "source_scope": "'buckskin leggings and moccassins of the same material' (Keating, 1823). The shared closed foot loft stands for them, smoked deer-skin; seam, vamp and cuff are not modelled.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      }
+    ]
+  }
+}

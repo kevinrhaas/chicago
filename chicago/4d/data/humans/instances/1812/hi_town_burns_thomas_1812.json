@@ -1,0 +1,562 @@
+{
+  "id": "hi_town_burns_thomas_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "burns_thomas",
+  "appearance": {
+    "asset_id": "settler_1812"
+  },
+  "placement": {
+    "local_e": 1080.0,
+    "local_n": 163.0,
+    "heading_deg": 90.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.954
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1811-06-18",
+          "to": "1812-04-05"
+        },
+        "note": "at his own house up the north bank",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "burns_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 797.0,
+              "local_n": 104.5,
+              "heading_deg": 180.0
+            },
+            "doing": "milking and feeding his cattle",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 795.6,
+                "local_n": 104.5
+              },
+              {
+                "local_e": 798.4,
+                "local_n": 104.5
+              }
+            ]
+          },
+          {
+            "from": 6.5,
+            "to": 7.0,
+            "indoors": true,
+            "where": "burns_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 7.0,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 800.0,
+              "local_n": 104.8,
+              "heading_deg": 160.0
+            },
+            "doing": "cutting and splitting firewood by his house",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 798.68,
+                "local_n": 104.32
+              },
+              {
+                "local_e": 801.32,
+                "local_n": 105.28
+              }
+            ]
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "burns_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 797.0,
+              "local_n": 104.5,
+              "heading_deg": 180.0
+            },
+            "doing": "at work about his place: fencing, hay, the garden",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 795.6,
+                "local_n": 104.5
+              },
+              {
+                "local_e": 798.4,
+                "local_n": 104.5
+              }
+            ]
+          },
+          {
+            "from": 18.0,
+            "to": 19.0,
+            "indoors": true,
+            "where": "burns_house_1812",
+            "doing": "supper"
+          },
+          {
+            "from": 19.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "burns_house_1812",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-04-06",
+          "to": "1812-04-06"
+        },
+        "note": "the day of the Lee's Place murders (Wau-Bun: the 7th)",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "burns_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 797.0,
+              "local_n": 104.5,
+              "heading_deg": 180.0
+            },
+            "doing": "milking and feeding his cattle",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 795.6,
+                "local_n": 104.5
+              },
+              {
+                "local_e": 798.4,
+                "local_n": 104.5
+              }
+            ]
+          },
+          {
+            "from": 6.5,
+            "to": 7.0,
+            "indoors": true,
+            "where": "burns_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 7.0,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 800.0,
+              "local_n": 104.8,
+              "heading_deg": 160.0
+            },
+            "doing": "cutting and splitting firewood by his house",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 798.68,
+                "local_n": 104.32
+              },
+              {
+                "local_e": 801.32,
+                "local_n": 105.28
+              }
+            ]
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "burns_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 18.6,
+            "indoors": false,
+            "at": {
+              "local_e": 797.0,
+              "local_n": 104.5,
+              "heading_deg": 180.0
+            },
+            "doing": "at work about his place while his wife lies in with a newborn daughter, Mrs. Kinzie helping her",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 795.6,
+                "local_n": 104.5
+              },
+              {
+                "local_e": 798.4,
+                "local_n": 104.5
+              }
+            ]
+          },
+          {
+            "from": 18.6,
+            "to": 19.3,
+            "indoors": false,
+            "at": {
+              "local_e": 800.0,
+              "local_n": 104.8,
+              "heading_deg": 160.0
+            },
+            "doing": "the shout across the river: Indians at Lee's Place",
+            "activity": "stand"
+          },
+          {
+            "from": 19.3,
+            "to": 20.5,
+            "indoors": true,
+            "where": "burns_house_1812",
+            "doing": "barred in the house with his family, waiting"
+          },
+          {
+            "from": 20.5,
+            "to": 21.5,
+            "indoors": true,
+            "away": true,
+            "doing": "in Ronan's scow with his wife on her bed and the infant, rowed down to the fort"
+          },
+          {
+            "from": 21.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_soldiers_barracks_sw",
+            "doing": "in the fort for the night"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-04-07",
+          "to": "1812-08-13"
+        },
+        "note": "sergeant of the militia, at the agency house",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "asleep in the fortified agency house"
+          },
+          {
+            "from": 5.0,
+            "to": 5.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1080.0,
+              "local_n": 163.0,
+              "heading_deg": 90.0
+            },
+            "doing": "calling the militia's muster before the agency house",
+            "activity": "stand"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "breakfast at the agency house"
+          },
+          {
+            "from": 6.5,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1080.0,
+              "local_n": 163.0,
+              "heading_deg": 90.0
+            },
+            "doing": "drilling the militia, then at the work of the camp: wood, water, the cattle, under guard",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1080.0,
+                "local_n": 161.6
+              },
+              {
+                "local_e": 1080.0,
+                "local_n": 164.4
+              }
+            ]
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "dinner at the agency house"
+          },
+          {
+            "from": 13.0,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1080.0,
+              "local_n": 163.0,
+              "heading_deg": 90.0
+            },
+            "doing": "drilling the militia, then at the work of the camp: wood, water, the cattle, under guard",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1080.0,
+                "local_n": 161.6
+              },
+              {
+                "local_e": 1080.0,
+                "local_n": 164.4
+              }
+            ]
+          },
+          {
+            "from": 18.0,
+            "to": 19.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "supper at the agency house"
+          },
+          {
+            "from": 19.0,
+            "to": 21.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "in the agency house"
+          },
+          {
+            "from": 21.0,
+            "to": 24.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1073.5,
+              "local_n": 172.0,
+              "heading_deg": 90.0
+            },
+            "doing": "on sentry on the planked piazza of the agency house",
+            "activity": "stand"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-14",
+          "to": "1812-08-14"
+        },
+        "note": "the last day",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "asleep in the fortified agency house"
+          },
+          {
+            "from": 5.0,
+            "to": 6.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1080.0,
+              "local_n": 163.0,
+              "heading_deg": 90.0
+            },
+            "doing": "the militia's muster: arms inspected, the cartridges counted out",
+            "activity": "stand"
+          },
+          {
+            "from": 6.0,
+            "to": 6.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "breakfast"
+          },
+          {
+            "from": 6.5,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1074.0,
+              "local_n": 213.0,
+              "heading_deg": 270.0
+            },
+            "doing": "with a militia party carrying provisions out of the factory for Heald's giving-out",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1074.0,
+                "local_n": 214.4
+              },
+              {
+                "local_e": 1074.0,
+                "local_n": 211.6
+              }
+            ]
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1082.0,
+              "local_n": 165.0,
+              "heading_deg": 270.0
+            },
+            "doing": "packing his family's things for the wagon; the agency house emptied",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1082.0,
+                "local_n": 166.4
+              },
+              {
+                "local_e": 1082.0,
+                "local_n": 163.6
+              }
+            ]
+          },
+          {
+            "from": 18.0,
+            "to": 19.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "supper"
+          },
+          {
+            "from": 19.0,
+            "to": 21.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "in the agency house"
+          },
+          {
+            "from": 21.0,
+            "to": 24.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1073.5,
+              "local_n": 172.0,
+              "heading_deg": 90.0
+            },
+            "doing": "the last night's sentry on the agency-house piazza",
+            "activity": "stand"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-15",
+          "to": "1812-08-15"
+        },
+        "note": "the evacuation",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "in the agency house"
+          },
+          {
+            "from": 5.0,
+            "to": 8.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1080.0,
+              "local_n": 163.0,
+              "heading_deg": 90.0
+            },
+            "doing": "getting his family and the militia ready for the march",
+            "activity": "stand"
+          },
+          {
+            "from": 8.5,
+            "to": 9.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1147.5,
+              "local_n": 197.0,
+              "heading_deg": 200.0
+            },
+            "doing": "with the militia at the wagons before the gate",
+            "activity": "stand"
+          },
+          {
+            "from": 9.0,
+            "to": 24.0,
+            "indoors": true,
+            "away": true,
+            "doing": "not drawn: killed about an hour after the surrender"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1811-06-18",
+      "to": "1812-08-15"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Thomas Burns in the 1812 town, at each hour of each run of dates where the reading for T-3466 (docs/RESEARCH/people-1812-3466/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the settler 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "currey_1912_story_of_old_fort_dearborn",
+      "kinzie_waubun_1856",
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913"
+    ],
+    "liberty": "L418",
+    "seed": "burns_thomas:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

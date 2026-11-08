@@ -1,0 +1,265 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "liberty": "L418",
+  "height_scale": 1.0,
+  "lod_ratios": [
+    1.0,
+    0.6,
+    0.28,
+    0.12
+  ],
+  "skin_texture": {
+    "path": "assets/authored/humans/skin_toigo_bronze/young_lightskinned_male_diffuse_Bronze.png",
+    "sha256": "5a53213f061bfa97ee0afd6b40650ffbc089a479c144e63f3c39acceca5853c0",
+    "license": "CC0-1.0",
+    "color_space": "sRGB",
+    "base_color_factor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "roughness": 0.68,
+    "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
+    "identity_basis": "Cleared reusable generic skin atlas; not a likeness, attested complexion, or source identifying any named/reconstructed resident.",
+    "uv_status": "Source atlas and UV registration viewed in source diagnostics; final Blender export/LOD render validation remains outstanding."
+  },
+  "hair_component": {
+    "directory": "assets/authored/humans/hair_short04",
+    "texture": "short04_diffuse_periodic_pad_draft.png",
+    "uv_transform": {
+      "source_height": 2048,
+      "top_rows": 8,
+      "bottom_rows": 1
+    },
+    "roughness": 0.65,
+    "alpha_cutoff": 0.4,
+    "appearance_basis": "Shared cleared CC0 short04 source fitted to existing Otis/Joseph/Martin bodies; hair/part/color are reconstructed choices, no period hairstyle attestation or individual likeness.",
+    "source_manifest_sha256": "68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99"
+  },
+  "eye_components": {
+    "radius_m": 0.012,
+    "iris_radius_m": 0.0055,
+    "pupil_radius_m": 0.0022,
+    "corneal_bulge_m": 0,
+    "cornea_enabled": false,
+    "source_basis": "Actual helper centers/axes; original opaque sclera/iris/pupil, reconstructed dimensions and brown color, not resident facts",
+    "status": "No actual BPy/export/blink fit/photographic acceptance"
+  },
+  "label": "Reconstructed boy of the 1812 town, about six to ten, in a skeleton suit (a short dark blue jacket buttoned down the front, high long trousers of the same cloth buttoned onto it, a wide white shirt collar, black shoes, bare head) on an 8-year child body of the shared portable rig",
+  "scene_date": "1812-08-14",
+  "grade": "reconstructed",
+  "sources": [
+    "met_johnson_1805_rutter_children",
+    "met_pixler_family_c1815",
+    "quaife_1913",
+    "kinzie_waubun_1856"
+  ],
+  "basis": "Original garments on a cleared MakeHuman hm08 child body (T-3465): shells offset from the body's own surface, a skirt lofted round its own sections, pieces cut from a garment's own surface, after the period pictures named in the sources and the children's research (docs/RESEARCH/people-1812-3465/day.json \"dress\"; docs/RESEARCH/people-1812-3461/dress.json \"Children 2-12 and infants\"). Seams, ease, lengths and colours are reconstructed. Complete source anatomy remains unchanged beneath clothing.",
+  "source_scope": "Eastern portraits and objects of about 1805-1815 (the Met): Joshua Johnson's Rutter children and Emma Van Name (Baltimore, about 1805), the Beecher child's frock (about 1813), the Pixler family (about 1815). None shows a child at Chicago; Wau-Bun and Quaife place the children in the town and record nothing of their dress. No pixels or traced shapes enter the asset.",
+  "colors_linear_rgba": {
+    "skin": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "eyes": [
+      0.12,
+      0.09,
+      0.06,
+      1.0
+    ],
+    "garment_upper__skeleton_jacket_blue_1812": [
+      0.03,
+      0.04,
+      0.095,
+      1
+    ],
+    "garment_lower__skeleton_trousers_blue_1812": [
+      0.03,
+      0.04,
+      0.095,
+      1
+    ],
+    "accessory__shirt_collar_white_1812": [
+      0.72,
+      0.71,
+      0.66,
+      1
+    ],
+    "accessory__horn_buttons_1812": [
+      0.1,
+      0.085,
+      0.065,
+      1
+    ],
+    "footwear__child_shoes_black_1812": [
+      0.014,
+      0.013,
+      0.012,
+      1
+    ]
+  },
+  "workwear_coverage": {
+    "shoe_clearance_m": 0.003
+  },
+  "role_1812": {
+    "module": "human_child_1812",
+    "prepare": "prepare_child_assembly",
+    "assembly": "child_boy_1812_v1"
+  },
+  "proof_variants": [
+    {
+      "id": "child_boy_1812",
+      "component_assembly": "child_boy_1812_v1",
+      "person_reference_id": "anonymous_child_boy_1812",
+      "person_reference_scene": "1812",
+      "person_reference_grade": "reconstructed",
+      "person_reference_record": "data/sources/quaife_1913.json",
+      "reference_summary": {
+        "name": "a boy of the 1812 town, about six to ten",
+        "named": false,
+        "dress_role": "boy_skeleton_suit_1812",
+        "ages_years": [
+          5.5,
+          10.5
+        ],
+        "presence": "the town and fort, 1812",
+        "research": "docs/RESEARCH/people-1812-3465/day.json"
+      },
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_child_male_8.json",
+      "body_parameters": {
+        "chosen_height_m": 1.208,
+        "height_basis": "CDC 2000 stature-for-age, boys, 10th centile at 96.5 months (120.8 cm; statage.csv), the centile the children's research (T-3465, docs/RESEARCH/people-1812-3465/day.json) takes for every child of 1812 after Steckel 1985 and Komlos 2003. The kit draws each boy at his own height (0.88-1.12 of this). Not a recorded height.",
+        "engineering_age_years": 8,
+        "age_basis": "Engineering body at 8 (MakeHuman child 7/9, baby 2/9 between its 10- and 1-year anchors); no boy of the town is named by the asset and no age is read. One 8-year body stands for boys about 5.5 to 10.5 at the 10th centile (the kit's 0.88-1.12 height clip); see the notes file.",
+        "shape_basis": "CC0 male child and baby macro targets; equal software-category blend is engineering only, not inferred ancestry or a portrait."
+      },
+      "body_basis": "CC0 child graphical body and a cleared generic young skin atlas are reconstructed authoring choices. The child is anonymous: a child of the town whose presence Quaife (1913, App. IX) and Wau-Bun record, not any one of them; no complexion, height, face or outfit of anyone is asserted.",
+      "recipe_path": "data/humans/recipes/child_boy_1812.json"
+    }
+  ],
+  "child_components": {
+    "version": 1,
+    "generator": "tools/human_child_1812.py",
+    "role": "child_boy_1812",
+    "liberty": "L-human-modular-dress-1789",
+    "body_sha256": "573c17c5e93c7f3c9c22c43cd3aa97a652acf00577dcf51f1c6de9dc39026b90",
+    "standing_source_only": false,
+    "production_eligible": false,
+    "photo_accepted": false,
+    "ages_years": [
+      5.5,
+      10.5
+    ],
+    "evidence_choice": "The research proposes a skeleton suit for boys about 4-8 and a cutaway jacket, waistcoat and round hat for 8-13; the coordinator asked for one boy asset. The skeleton suit is taken: it has the clearest picture of the period (the Rutter boy) and is the mark of a boy's dress about 1810; an older boy in it is a liberty, and the cutaway jacket and round hat are not made.",
+    "tailoring": {
+      "jacket": {
+        "ease": 0.015,
+        "armpit_extra": 0.012,
+        "sleeve_short_of_wrist": 0.012,
+        "top_below_neck": 0.006,
+        "hem_above_spine01": 0.012,
+        "smoothing": 90,
+        "smoothing_min_ease": 0.015
+      },
+      "collar": {
+        "depth_front": 0.06,
+        "depth_back": 0.07,
+        "depth_side": 0.05,
+        "half_width": 0.118,
+        "front_gap": 0.016,
+        "frill_waves": 0,
+        "frill_depth": 0.0,
+        "offset": 0.0035
+      },
+      "trousers": {
+        "ease": 0.01,
+        "cuff_radius_ratio": 0.95,
+        "added_section_ease": 0.01,
+        "thigh_transition_fraction": 0.45,
+        "hem_front_y": 0.044,
+        "hem_back_y": 0.024,
+        "band_ease": 0.018,
+        "band_below_waist": 0.02,
+        "band_above_spine02": 0.03
+      },
+      "buttons": {
+        "radius": 0.0055,
+        "standoff": 0.0022,
+        "sides": 10,
+        "front_count": 4,
+        "front_top_below_neck": 0.05,
+        "band_count": 7,
+        "band_half_span": 0.075,
+        "band_below_top": 0.011
+      }
+    },
+    "garments": [
+      {
+        "id": "skeleton_jacket_blue",
+        "material": "garment_upper__skeleton_jacket_blue_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_johnson_1805_rutter_children",
+            "met_pixler_family_c1815"
+          ],
+          "source_scope": "A short jacket buttoned to long trousers, the Rutter boy's (about 1805, dark blue) and the Pixler boys' short jackets (about 1815). Single row of buttons, the length to the ribs and the dark blue (less near-black than the soldiers' coats) are reconstructed; a boy at Chicago is not pictured.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "skeleton_trousers_high",
+        "material": "garment_lower__skeleton_trousers_blue_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_johnson_1805_rutter_children"
+          ],
+          "source_scope": "Long trousers rising high and buttoned onto the jacket (the Rutter boy: \"buttons at the waist\"); same cloth as the jacket. The height of the rise and the row of seven buttons are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "shirt_collar_white",
+        "material": "accessory__shirt_collar_white_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_johnson_1805_rutter_children",
+            "met_pixler_family_c1815"
+          ],
+          "source_scope": "The wide white shirt collar turned out over the jacket, on the Rutter boy and the Pixler boys, where it is frilled. Drawn plain: the frill is not modelled (at the scale drawn it read as a jagged edge). Its depth and width are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "horn_buttons",
+        "material": "accessory__horn_buttons_1812",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "met_johnson_1805_rutter_children"
+          ],
+          "source_scope": "Buttons down the jacket and round the trousers' top; their number, size and the dark horn colour are reconstructed (the picture shows the row at the waist, not its material).",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "black_shoes",
+        "material": "footwear__child_shoes_black_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_johnson_1805_rutter_children"
+          ],
+          "source_scope": "Black shoes (the Rutter boy, with white stockings that do not show under long trousers). The shared closed shoe stands for them; a garrison or working boy barefoot in August (Krimmel's sweeps) is not made.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      }
+    ]
+  }
+}

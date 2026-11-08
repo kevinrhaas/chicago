@@ -1,0 +1,262 @@
+{
+  "id": "hi_town_chicago_militia_unnamed_6_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "chicago_militia_unnamed_6",
+  "appearance": {
+    "asset_id": "settler_1812"
+  },
+  "placement": {
+    "local_e": 1076.5,
+    "local_n": 162.0,
+    "heading_deg": 80.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.329
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-04-07",
+          "to": "1812-08-13"
+        },
+        "note": "a militiaman at the agency house",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "asleep in the fortified agency house"
+          },
+          {
+            "from": 5.0,
+            "to": 5.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1078.0,
+              "local_n": 160.0,
+              "heading_deg": 60.0
+            },
+            "doing": "mustered with the militia before the agency house",
+            "activity": "stand"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "breakfast at the agency house"
+          },
+          {
+            "from": 6.5,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1062.0,
+              "local_n": 149.0,
+              "heading_deg": 270.0
+            },
+            "doing": "helping at the fort's stables with the settlers' horses",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1062.0,
+                "local_n": 150.4
+              },
+              {
+                "local_e": 1062.0,
+                "local_n": 147.6
+              }
+            ]
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "dinner at the agency house"
+          },
+          {
+            "from": 13.0,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1062.0,
+              "local_n": 149.0,
+              "heading_deg": 270.0
+            },
+            "doing": "helping at the fort's stables with the settlers' horses",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1062.0,
+                "local_n": 150.4
+              },
+              {
+                "local_e": 1062.0,
+                "local_n": 147.6
+              }
+            ]
+          },
+          {
+            "from": 18.0,
+            "to": 19.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "supper at the agency house"
+          },
+          {
+            "from": 19.0,
+            "to": 21.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1073.5,
+              "local_n": 172.0,
+              "heading_deg": 90.0
+            },
+            "doing": "on sentry on the planked piazza of the agency house",
+            "activity": "stand"
+          },
+          {
+            "from": 21.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "asleep in the agency house"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-14",
+          "to": "1812-08-14"
+        },
+        "note": "the last day",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "asleep in the agency house"
+          },
+          {
+            "from": 5.0,
+            "to": 6.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1076.5,
+              "local_n": 162.0,
+              "heading_deg": 80.0
+            },
+            "doing": "at the militia's muster: arms inspected, cartridges counted",
+            "activity": "stand"
+          },
+          {
+            "from": 6.0,
+            "to": 6.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "breakfast"
+          },
+          {
+            "from": 6.5,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1062.0,
+              "local_n": 149.0,
+              "heading_deg": 270.0
+            },
+            "doing": "at the stables with Lee, harnessing",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1062.0,
+                "local_n": 150.4
+              },
+              {
+                "local_e": 1062.0,
+                "local_n": 147.6
+              }
+            ]
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1062.0,
+              "local_n": 149.0,
+              "heading_deg": 270.0
+            },
+            "doing": "packing for the march; the agency house emptied",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1062.0,
+                "local_n": 150.4
+              },
+              {
+                "local_e": 1062.0,
+                "local_n": 147.6
+              }
+            ]
+          },
+          {
+            "from": 18.0,
+            "to": 19.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "supper"
+          },
+          {
+            "from": 19.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "the last night in the agency house"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-04-07",
+      "to": "1812-08-15"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of A man of the Chicago militia, name not recorded (6 of 6) in the 1812 town, at each hour of each run of dates where the reading for T-3466 (docs/RESEARCH/people-1812-3466/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the settler 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "kinzie_waubun_1856",
+      "quaife_1913"
+    ],
+    "liberty": "L418",
+    "seed": "chicago_militia_unnamed_6:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

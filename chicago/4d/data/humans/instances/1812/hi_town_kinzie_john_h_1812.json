@@ -1,0 +1,435 @@
+{
+  "id": "hi_town_kinzie_john_h_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "kinzie_john_h_1812",
+  "appearance": {
+    "asset_id": "child_boy_1812"
+  },
+  "placement": {
+    "local_e": 1151.2,
+    "local_n": 216.4,
+    "heading_deg": 0.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.727
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-01-01",
+          "to": "1812-04-07"
+        },
+        "note": "At their own house across the river until the evening of 7 April, when the family fled to the fort in pirogues (the April jaunt plays that evening).",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 6.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 6.5,
+            "to": 8.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "up; breakfast by the fire"
+          },
+          {
+            "from": 8.0,
+            "to": 9.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1152.0,
+              "local_n": 343.4,
+              "heading_deg": 0.0
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1152.0,
+              "local_n": 352.5
+            },
+            "once": true,
+            "doing": "carrying in firewood and milk from the dairy"
+          },
+          {
+            "from": 9.0,
+            "to": 11.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "lessons: reading from the spelling-book"
+          },
+          {
+            "from": 11.0,
+            "to": 12.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1151.0,
+              "local_n": 328.0,
+              "heading_deg": 180.0
+            },
+            "doing": "playing out of doors in the middle of the day",
+            "activity": "talk",
+            "knot": "talk_c7f385ec"
+          },
+          {
+            "from": 12.5,
+            "to": 13.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.5,
+            "to": 17.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "indoors: sewing, games, the little ones asleep"
+          },
+          {
+            "from": 17.5,
+            "to": 18.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "supper by candle"
+          },
+          {
+            "from": 18.5,
+            "to": 20.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "dancing before the fire to their father's violin"
+          },
+          {
+            "from": 20.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-04-08",
+          "to": "1812-08-13"
+        },
+        "note": "Which room the Kinzies had in the fort is not recorded. They are put in the officers' barracks with the Helms (Margaret Helm was Mrs. Kinzie's daughter; the Helm card's own home is this building). If ",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 7.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "up, washed and dressed; breakfast with the family"
+          },
+          {
+            "from": 7.5,
+            "to": 8.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1163.0,
+              "local_n": 230.2,
+              "heading_deg": 268.7
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1144.0,
+              "local_n": 225.0
+            },
+            "via": [
+              {
+                "local_e": 1150.0,
+                "local_n": 229.9
+              }
+            ],
+            "once": true,
+            "doing": "carrying a pail of water to the quarters"
+          },
+          {
+            "from": 8.5,
+            "to": 10.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "lessons: reading from the spelling-book with his mother"
+          },
+          {
+            "from": 10.0,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1151.2,
+              "local_n": 216.4,
+              "heading_deg": 0.0
+            },
+            "doing": "playing with the other children of the post",
+            "activity": "talk",
+            "knot": "talk_6862f23b"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "dinner with the family"
+          },
+          {
+            "from": 13.0,
+            "to": 15.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "quiet hours indoors in the heat: sewing, a slate, minding the baby"
+          },
+          {
+            "from": 15.0,
+            "to": 17.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1151.2,
+              "local_n": 216.4,
+              "heading_deg": 0.0
+            },
+            "doing": "playing about the parade with the other children",
+            "activity": "talk",
+            "knot": "talk_440dd700"
+          },
+          {
+            "from": 17.0,
+            "to": 18.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "supper"
+          },
+          {
+            "from": 18.0,
+            "to": 20.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "evening with the family; prayers"
+          },
+          {
+            "from": 20.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-14",
+          "to": "1812-08-14"
+        },
+        "note": "The family is to go by boat to St Joseph next morning (Wau-Bun, Andreas); the household packs.",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep; the night was broken by barrels being knocked in at the river and the sally-port"
+          },
+          {
+            "from": 5.5,
+            "to": 7.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "up and fed; the household is packing"
+          },
+          {
+            "from": 7.5,
+            "to": 9.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "helping pack: tying bundles, minding the little ones"
+          },
+          {
+            "from": 9.5,
+            "to": 11.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1151.2,
+              "local_n": 216.4,
+              "heading_deg": 0.0
+            },
+            "doing": "a short time out, playing near the door",
+            "activity": "talk",
+            "knot": "talk_0af4d7b0"
+          },
+          {
+            "from": 11.0,
+            "to": 12.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "indoors"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 15.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "indoors while the council sits outside the fort"
+          },
+          {
+            "from": 15.0,
+            "to": 17.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1151.2,
+              "local_n": 216.4,
+              "heading_deg": 0.0
+            },
+            "doing": "out again by the door, watching the soldiers at the stores",
+            "activity": "talk",
+            "knot": "talk_440dd700"
+          },
+          {
+            "from": 17.0,
+            "to": 18.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "supper"
+          },
+          {
+            "from": 18.0,
+            "to": 20.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "evening indoors; the household packing round them"
+          },
+          {
+            "from": 20.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep; the march is set for nine next morning"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-15",
+          "to": "1812-08-15"
+        },
+        "note": "The battle day; the battle jaunt governs. This is only where the child is.",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 8.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "up early; dressed for the boat; the family's things carried down"
+          },
+          {
+            "from": 8.5,
+            "to": 9.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1163.0,
+              "local_n": 230.2,
+              "heading_deg": 0.0
+            },
+            "doing": "walked down to the boat with mother and nurse",
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1170.0,
+              "local_n": 230.2
+            }
+          },
+          {
+            "from": 9.0,
+            "to": 15.0,
+            "indoors": true,
+            "away": true,
+            "doing": "sitting in the boat with mother, nurse, clerk, servants and boatmen"
+          },
+          {
+            "from": 15.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "back at their own house across the river; indoors and kept quiet"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-16",
+          "to": "1812-08-17"
+        },
+        "note": "At home until the boat leaves for St Joseph on the 18th.",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 7.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 7.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "kept indoors at their own house, the fort burning and the Potawatomi about; fed and minded by mother and nurse"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1804-01-01",
+      "to": "1812-08-18"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of John Harris Kinzie in the 1812 town, at each hour of each run of dates where the reading for T-3465 (docs/RESEARCH/people-1812-3465/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the child boy 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "andreas_1884_v1",
+      "currey_1912_story_of_old_fort_dearborn",
+      "kinzie_waubun_1856",
+      "kirkland_1893_chicago_massacre"
+    ],
+    "liberty": "L418",
+    "seed": "kinzie_john_h_1812:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

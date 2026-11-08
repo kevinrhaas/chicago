@@ -25,6 +25,14 @@ export const COMPLEXION_TINT = Object.freeze({
   ruddy: Object.freeze([1.03, 0.86, 0.8]),
   dark: Object.freeze([0.84, 0.74, 0.64]),
   brown: Object.freeze([0.76, 0.63, 0.5]),
+  // T-3463..T-3467, the town of 1812: the readings' own words for the French, Métis,
+  // Potawatomi, Miami and Black people of the post (olive; light brown; a warm medium-to-deep
+  // brown; dark brown). Reconstructed renderings as the five above are (liberty
+  // L-1812-town-days-3463), with no exaggerated feature: only the colour moves.
+  olive: Object.freeze([0.9, 0.79, 0.65]),
+  tan: Object.freeze([0.8, 0.65, 0.49]),
+  copper: Object.freeze([0.62, 0.46, 0.33]),
+  deep_brown: Object.freeze([0.43, 0.3, 0.21]),
 });
 /** Iris colours, linear, by the register's word for the eyes. */
 export const EYE_COLOUR = Object.freeze({

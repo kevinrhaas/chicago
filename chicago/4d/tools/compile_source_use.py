@@ -28,8 +28,10 @@ USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # pictures, the 1812 soldier's laws, regulations and plates read 248 510); 264 000 from
 # T-3486's fourteen Glessner-household likeness and wardrobe sources (the stand-in portraits,
 # the coachman's and stable hand's references, the cook's and errand girl's dress read
-# 259 766) — see outputs().
-INDEX_BUDGET = 264_000
+# 259 766); 272 000 from T-3463..T-3467's eighteen 1812 town dress sources (the officers',
+# trader's, women's and children's Met and Krimmel pictures, Keating, Lambert, Heriot and the
+# SAAM portraits read 265 911) — see outputs().
+INDEX_BUDGET = 272_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
                  'unknown': 'reconstructed', 'not_1835_resident': 'reconstructed'}

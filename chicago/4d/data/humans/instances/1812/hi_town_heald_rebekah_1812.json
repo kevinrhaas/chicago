@@ -1,0 +1,286 @@
+{
+  "id": "hi_town_heald_rebekah_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "heald_rebekah",
+  "appearance": {
+    "asset_id": "lady_1812"
+  },
+  "placement": {
+    "local_e": 1066.2,
+    "local_n": 147.6,
+    "heading_deg": 270.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.192
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-01-01",
+          "to": "1812-08-13"
+        },
+        "note": "A plain summer day (winter would keep her indoors more).",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 7.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "dressing; breakfast with her husband"
+          },
+          {
+            "from": 7.5,
+            "to": 9.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1140.0,
+              "local_n": 132.0,
+              "heading_deg": 0.0
+            },
+            "doing": "gathering vegetables in the commanding officer's garden with Cicely",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1141.4,
+                "local_n": 132.0
+              },
+              {
+                "local_e": 1138.6,
+                "local_n": 132.0
+              }
+            ]
+          },
+          {
+            "from": 9.5,
+            "to": 12.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "housekeeping; giving Cicely the day's orders; letters"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 15.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1143.4,
+              "local_n": 218.0,
+              "heading_deg": 90.0
+            },
+            "doing": "sewing with Margaret Helm before the officers' barracks",
+            "activity": "talk",
+            "knot": "talk_6db1eacc"
+          },
+          {
+            "from": 15.5,
+            "to": 17.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "at battledore with Margaret Helm in the officers' quarters"
+          },
+          {
+            "from": 17.0,
+            "to": 18.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "supper"
+          },
+          {
+            "from": 18.5,
+            "to": 20.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1160.7,
+              "local_n": 219.4,
+              "heading_deg": 270.0
+            },
+            "doing": "sitting before her quarters in the evening",
+            "activity": "stand"
+          },
+          {
+            "from": 20.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "indoors for the night; abed after tattoo"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-14",
+          "to": "1812-08-14"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 8.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "packing her clothes and the household's things for the march, with Cicely; breakfast"
+          },
+          {
+            "from": 8.0,
+            "to": 9.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1066.2,
+              "local_n": 147.6,
+              "heading_deg": 270.0
+            },
+            "doing": "at the stable with her Kentucky horse, seeing her saddle and the red blanket girt on for the march",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1066.2,
+                "local_n": 149.0
+              },
+              {
+                "local_e": 1066.2,
+                "local_n": 146.2
+              }
+            ]
+          },
+          {
+            "from": 9.5,
+            "to": 11.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1140.0,
+              "local_n": 132.0,
+              "heading_deg": 0.0
+            },
+            "doing": "taking what can be carried from the commanding officer's garden",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1141.4,
+                "local_n": 132.0
+              },
+              {
+                "local_e": 1138.6,
+                "local_n": 132.0
+              }
+            ]
+          },
+          {
+            "from": 11.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "dinner with her husband and her uncle William Wells"
+          },
+          {
+            "from": 13.0,
+            "to": 14.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1143.4,
+              "local_n": 218.0,
+              "heading_deg": 90.0
+            },
+            "doing": "sewing with Margaret Helm before the officers' barracks: mending for the march",
+            "activity": "talk",
+            "knot": "talk_6db1eacc"
+          },
+          {
+            "from": 14.5,
+            "to": 17.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "indoors packing while the second council sits outside the fort"
+          },
+          {
+            "from": 17.5,
+            "to": 19.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "supper"
+          },
+          {
+            "from": 19.0,
+            "to": 23.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "in the quarters when Black Partridge comes to give back his medal; packing late"
+          },
+          {
+            "from": 23.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-16",
+          "to": "1812-08-16"
+        },
+        "note": "15 August is the battle jaunt's day, not planned here.",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "wounded, in the Kinzie house until sent across the lake to St Joseph"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-01-01",
+      "to": "1812-08-16"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Rebekah Wells Heald in the 1812 town, at each hour of each run of dates where the reading for T-3464 (docs/RESEARCH/people-1812-3464/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the lady 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "kinzie_waubun_1856",
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913"
+    ],
+    "liberty": "L418",
+    "seed": "heald_rebekah:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

@@ -1,0 +1,323 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "liberty": "L418",
+  "height_scale": 1.0,
+  "lod_ratios": [
+    1.0,
+    0.6,
+    0.28,
+    0.12
+  ],
+  "skin_texture": {
+    "path": "assets/authored/humans/skin_toigo_bronze_female/young_lightskinned_female_diffuse_Bronze.png",
+    "sha256": "535535f30bacd42111590df4b03cf3b6bcdb7db18f336ce670665ec332ab3e0b",
+    "license": "CC0-1.0",
+    "color_space": "sRGB",
+    "base_color_factor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "roughness": 0.68,
+    "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
+    "identity_basis": "Cleared reusable generic skin atlas; not a likeness, attested complexion, or source identifying any named/reconstructed resident.",
+    "uv_status": "Source atlas and UV registration viewed in source diagnostics; final Blender export/LOD render validation remains outstanding.",
+    "female_appearance_status": "The same author's female bronze atlas (skins01, CC0), replacing the male one whose beard shadow read as a man's jaw at 3 m (T-3434); photographic qualification remains open."
+  },
+  "hair_component": {
+    "directory": "assets/authored/humans/hair_short04",
+    "texture": "short04_diffuse_periodic_pad_draft.png",
+    "uv_transform": {
+      "source_height": 2048,
+      "top_rows": 8,
+      "bottom_rows": 1
+    },
+    "roughness": 0.65,
+    "alpha_cutoff": 0.4,
+    "appearance_basis": "Shared cleared CC0 short04 cap only, bare-headed: the looks layer draws her hair at runtime (centre_part_clubbed_1812: parted in the middle and clubbed at the back, T-3467 day.json, read from Winter's 1837 Potawatomi pictures, a later bound), so no knot or bun is built into the asset; it would only sit under the drawn hair and cost 360 triangles at every LOD. No source read describes a Potawatomi woman's hair at Chicago in 1812 (native.json); no braid wrap, ornament or later style is drawn. No likeness.",
+    "source_manifest_sha256": "68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99"
+  },
+  "eye_components": {
+    "radius_m": 0.012,
+    "iris_radius_m": 0.0055,
+    "pupil_radius_m": 0.0022,
+    "corneal_bulge_m": 0,
+    "cornea_enabled": false,
+    "source_basis": "Actual helper centers/axes; original opaque sclera/iris/pupil, reconstructed dimensions and brown color, not resident facts",
+    "status": "No actual BPy/export/blink fit/photographic acceptance"
+  },
+  "label": "Reconstructed everyday dress of a Potawatomi woman of the camp at Chicago, August 1812 (a wrapped dark-blue broadcloth strouding skirt to mid-calf with its undyed selvage at the hem, a calico shirt worn over it to the hip with long sleeves, red cloth leggings, moccasins, an undecorated off-white trade blanket round the shoulders, three small silver brooches at the shirt's neck, bare-headed, her hair left to the looks layer) on the shared portable female rig",
+  "scene_date": "1812-08-14",
+  "grade": "reconstructed",
+  "sources": [
+    "kinzie_waubun_1856",
+    "quaife_1913",
+    "hubbard_autobiography_1911",
+    "currey_1912_old_fort_dearborn"
+  ],
+  "basis": "The T-3423 bodice as a calico shirt with its skirt lofted outside the strouding skirt to the hip, the skirt lofted round the body's own sections and the leggings beneath it with its wrapped edge stepped over the under layer and a selvage band at its hem, leggings and a blanket shelled off the body's own surface, small brooches on the shirt, and the shared closed shoe as moccasins, after the trade goods the sources name for the camp of August 1812 (tools/human_women_1812.py, T-3464). Every amount and colour is reconstructed.",
+  "source_scope": "Wau-Bun (1856, the Kinzie family's narrative) has the goods distributed on the 13th, 'blankets, broadcloths, calicoes, paints, etc.' (Heald, contemporary, dates it the 14th), and the annual presents of the years before 1812 as 'blankets, broadcloths or strouding, calicoes ... silver-works (comprising arm-bands, bracelets, brooches; and ear-bobs)'; Quaife (1913) prints Helm's count of 179 women and children on 12 August, and his synthesis of the 1833 treaty (21 years later, a late bound) that the women 'wore blue or printed cotton cloths and the richer ones had embroidered petticoats and shawls'; Hubbard (written late, of 1818-19) the calico shirt and leggings of the Illinois country, a man's. No 1812 description of Potawatomi women's dress at Chicago was found (native.json); no picture of a Potawatomi woman of the period with cleared rights was found. Nothing here is traced from a picture.",
+  "colors_linear_rgba": {
+    "skin": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "eyes": [
+      0.12,
+      0.09,
+      0.06,
+      1.0
+    ],
+    "garment_upper__calico_shirt_1812": [
+      0.3,
+      0.12,
+      0.1,
+      1
+    ],
+    "garment_lower__strouding_skirt_blue_1812": [
+      0.022,
+      0.028,
+      0.06,
+      1
+    ],
+    "garment_lower__strouding_selvage_white_1812": [
+      0.4,
+      0.38,
+      0.32,
+      1
+    ],
+    "garment_lower__cloth_leggings_red_1812": [
+      0.17,
+      0.035,
+      0.03,
+      1
+    ],
+    "garment_outer__trade_blanket_white_1812": [
+      0.52,
+      0.49,
+      0.42,
+      1
+    ],
+    "accessory__silver_brooches_1812": [
+      0.62,
+      0.62,
+      0.6,
+      1
+    ],
+    "footwear__moccasins_smoked_1812": [
+      0.17,
+      0.11,
+      0.065,
+      1
+    ]
+  },
+  "workwear_coverage": {
+    "shoe_clearance_m": 0.004
+  },
+  "proof_variants": [
+    {
+      "id": "potawatomi_woman_1812",
+      "component_assembly": "potawatomi_woman_1812_v1",
+      "person_reference_id": "anonymous_potawatomi_woman_1812",
+      "person_reference_scene": "1812",
+      "person_reference_grade": "reconstructed",
+      "person_reference_record": "data/sources/quaife_1913.json",
+      "reference_summary": {
+        "name": "a Potawatomi woman of the camp at Chicago, August 1812",
+        "named": false,
+        "role": "woman of the Potawatomi camp",
+        "nation": "Potawatomi",
+        "post": "the camp about the fort",
+        "presence": "camp"
+      },
+      "review_required": true,
+      "review_reason": "A Potawatomi woman drawn from thin evidence: no 1812 source read describes the dress of Potawatomi women at Chicago, so the skirt, shirt, leggings, blanket, brooches and hair are reconstructed from the trade goods the sources say were given to the camp and from later bounds (Quaife's 1833 synthesis). Under AGENTS.md's standing constraint the depiction is evidence-bounded, informed and fair: everyday dress of the 14th, no paint, nothing ceremonial, no later or Plains stereotype; it should be reviewed against the Newberry's Indigenous Chicago material and any better source.",
+      "touches_removal": true,
+      "touches_removal_reason": "The Potawatomi of the Chicago region were removed westward under the 1833 treaty, the last of them in 1835 (AGENTS.md's standing constraint); a figure of the camp of August 1812 belongs to that history, of a people who were there before the fort and long after it, and is flagged so that every scene and card that shows her carries that care.",
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_adult_female_25.json",
+      "body_parameters": {
+        "chosen_height_m": 1.65,
+        "height_basis": "The shared female engineering body; the variation kit draws height and build at runtime. Not a recorded height.",
+        "engineering_age_years": 25,
+        "age_basis": "Engineering body at the female kit base age 25; human-variation.js ages a person drawn in the camp from her own record. No age is read for the anonymous figure.",
+        "shape_basis": "Equal cleared upstream female-young software-category blend, not inferred ancestry or a portrait"
+      },
+      "body_basis": "CC0 adult-female graphical body and the generic cleared female skin atlas are reconstructed authoring choices, not inferred ancestry: complexion and features come from each wearer's own looks at runtime (human-looks.js). The figure is anonymous: a woman of the camp, not any woman's own outfit or likeness.",
+      "recipe_path": "data/humans/recipes/potawatomi_woman_1812.json"
+    }
+  ],
+  "role_1812": {
+    "module": "human_women_1812",
+    "prepare": "prepare_potawatomi",
+    "assembly": "potawatomi_woman_1812_v1"
+  },
+  "women_components": {
+    "version": 1,
+    "generator": "tools/human_women_1812.py",
+    "role": "potawatomi_woman_1812",
+    "liberty": "L-human-modular-dress-1789",
+    "body_sha256": "3060ee86957ff7c2d70c89e70fe95ff3bc2294a0d7f6a5716b5a2f3f8dd84c72",
+    "standing_source_only": false,
+    "production_eligible": false,
+    "photo_accepted": false,
+    "evidence_choice": "The brief asked for a Potawatomi woman of the August 1812 gathering from native.json's dress_evidence: a wrapped strouding skirt to below the knee, a calico shirt over it, leggings, moccasins, a trade blanket over the shoulders, silver brooches only as the sources name them, her hair as the sources say or plain. The sources name the cloth (broadcloth or strouding, calico, blankets) and the silver work (brooches among it) given to the camp, and say nothing of how a woman wore them in 1812; the cut, lengths and colours are therefore reconstructed, kept plain and recorded. Paint was among the goods distributed and is not drawn: there is no source for its everyday use by women on the 14th, and the war paint of the 15th is not this day. The hair is the looks layer's (centre_part_clubbed_1812, from T-3467's reading of later pictures); the asset is bare-headed and carries no ornament in it. review_required and touches_removal are kept with their own prose.",
+    "tailoring": {
+      "shirt": {
+        "waist_below_spine02": 0.018,
+        "ease": 0.016,
+        "neck_below_neck01": 0.0,
+        "pouch": 0.01,
+        "sleeve_fullness": 0.014
+      },
+      "skirt": {
+        "hem_y": 0.33,
+        "ease": 0.017,
+        "flare_from_y": 0.5,
+        "hem_rx": 0.0,
+        "hem_rz_front": 0.0,
+        "hem_rz_back": 0.0,
+        "back_fullness": 0.0,
+        "folds": 7,
+        "fold_depth": 0.004,
+        "front_folds": 0.7,
+        "segments": 72,
+        "rows": 12,
+        "wrap_deg": -35.0,
+        "wrap_step": 0.0045,
+        "wrap_overlap_deg": 70.0
+      },
+      "peplum": {
+        "length": 0.15,
+        "ease": 0.008,
+        "flare": 0.022,
+        "front_gap_deg": 1.0,
+        "rows": 6
+      },
+      "selvage": {
+        "height": 0.032,
+        "lift": 0.0016,
+        "rows": 2
+      },
+      "leggings": {
+        "bottom_y": 0.11,
+        "above_skirt_hem": 0.07,
+        "ease": 0.011
+      },
+      "blanket": {
+        "ease": 0.034,
+        "hem_below_spine02": 0.09,
+        "top_below_neck01": 0.012,
+        "front_gap": 0.065,
+        "sleeve_to_x": 0.33,
+        "smooth": 40,
+        "smooth_floor": 0.012,
+        "gap": 0.006
+      },
+      "brooches": {
+        "count": 3,
+        "radius": 0.0085,
+        "first_below_neck01": 0.045,
+        "spacing": 0.034,
+        "standoff": 0.002,
+        "sides": 10
+      }
+    },
+    "garments": [
+      {
+        "id": "strouding_skirt_wrapped",
+        "material": "garment_lower__strouding_skirt_blue_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "kinzie_waubun_1856",
+            "quaife_1913"
+          ],
+          "source_scope": "A wrapped skirt of broadcloth: Wau-Bun's 'broadcloths or strouding' among the annual presents and the 'broadcloths' distributed to the camp on the 13th; Quaife's 1833 women in 'blue or printed cotton cloths' and petticoats (a late bound). Wrapped round and stepped where its edge overlaps, to mid-calf, plain dark blue with no ribbon or other ornament (T-3467 day.json: dark blue or black stroud wrapped round the waist to mid-calf; the ribbonwork of the 1830s-40s pictures is later and is not drawn): reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "strouding_selvage",
+        "material": "garment_lower__strouding_selvage_white_1812",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "kinzie_waubun_1856"
+          ],
+          "source_scope": "The undyed selvage (list) of the stroud worn at the hem, a band about 3 cm deep: T-3467 day.json reads 'the white selvage at the hem' in George Winter's Potawatomi pictures of 1837 (25 years later; no record with cleared rights is in data/sources, so none is cited); Wau-Bun names the strouding. Its depth and its dulled off-white are reconstructed (L-human-modular-dress-1789).",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "calico_shirt",
+        "material": "garment_upper__calico_shirt_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "kinzie_waubun_1856",
+            "hubbard_autobiography_1911",
+            "quaife_1913"
+          ],
+          "source_scope": "A calico shirt worn over the skirt to the hip: the calicoes distributed on the 13th (Wau-Bun) and among the presents; Hubbard's calico shirt of the Illinois country (a man's, 1818-19); Quaife's 1833 printed cottons. Its cut, long sleeves, length and its red print (T-3467 day.json: calico in reds, pinks, blues and small prints) drawn as one mean colour are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "cloth_leggings",
+        "material": "garment_lower__cloth_leggings_red_1812",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "hubbard_autobiography_1911",
+            "quaife_1913"
+          ],
+          "source_scope": "Leggings from the moccasin to under the skirt: Hubbard's leggings and Quaife's 1833 'coloured leggings' are men's; a woman's cloth leggings are not in the sources read, so these, their red broadcloth and their length are reconstructed (L-human-modular-dress-1789).",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "moccasins",
+        "material": "footwear__moccasins_smoked_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "kinzie_waubun_1856"
+          ],
+          "source_scope": "Moccasins (Wau-Bun names them at Chicago in 1812, of the engage's dress). The shared closed shoe stands for them in a smoked-leather colour; their cut and any decoration are not modelled.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "trade_blanket",
+        "material": "garment_outer__trade_blanket_white_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "kinzie_waubun_1856",
+            "quaife_1913",
+            "currey_1912_old_fort_dearborn"
+          ],
+          "source_scope": "A blanket round the shoulders: blankets were distributed to the camp on the 13th (Wau-Bun; Heald, the 14th) and were among the presents; Quaife's 1833 women's shawls (a late bound). Off-white wool, undecorated (no stripes, since no source read names them), worn round the shoulders to the hip and open in front (Currey, 1912, a late secondary account, has the women's heads covered with blankets: the other way of wearing it, not drawn): reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "silver_brooches",
+        "material": "accessory__silver_brooches_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "kinzie_waubun_1856",
+            "quaife_1913"
+          ],
+          "source_scope": "Small silver brooches: Wau-Bun lists 'silver-works (comprising arm-bands, bracelets, brooches; and ear-bobs)' among the presents of the years before 1812, and Quaife's 1833 synthesis 'silver and brass'. Three, small and round, at the shirt's neck where the blanket's edges part: their number, size and place are reconstructed; no arm-bands, ear-bobs or other ornament is drawn.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      }
+    ]
+  }
+}

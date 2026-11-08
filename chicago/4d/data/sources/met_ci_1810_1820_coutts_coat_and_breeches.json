@@ -1,0 +1,24 @@
+{
+ "id": "met_ci_1810_1820_coutts_coat_and_breeches",
+ "type": "photograph",
+ "citation": "Coat and Breeches, wool, 1810-1820. The Metropolitan Museum of Art, 08.187.1 and 08.187.3.",
+ "author": "Unknown maker",
+ "date": "1810-1820",
+ "describes_date": "1810-1820",
+ "repository": "The Metropolitan Museum of Art; object 91902 in the museum's collection API (isPublicDomain: true), image 08.187.1_F at images.metmuseum.org.",
+ "url": "https://www.metmuseum.org/art/collection/search/91902",
+ "locator": "Coat 08.187.1 (image 08.187.1_F) and breeches 08.187.3 (object 91903, image 08.187.3_F), both 'Gift of the family of Thomas Coutts, 1908'.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). British. A very dark brown-black wool double-breasted tailcoat cut square across the waist with tails to the knee, a turned-down collar and covered buttons; black wool knee breeches with a fall front and buttoned knee bands.",
+ "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record. A museum garment: its record is typed by the museum photograph of it, as met_ci_1833_tailcoat_and_trousers is. Recorded by the 1812 dress build (officers-traders group) from the T-3461 dress research (docs/RESEARCH/people-1812-3461/dress.json new_sources).",
+ "what_it_supplies": [
+  "the cut and cloth of a prosperous man's dark tailcoat and knee breeches of the 1810s"
+ ],
+ "what_it_does_not_supply": [
+  "an American or frontier merchant's dress (these are British)"
+ ]
+}

@@ -753,6 +753,10 @@ fi
 rm -rf "$SITE/data/humans"
 mkdir -p "$SITE/data/humans/web"
 cp -a data/humans/. "$SITE/data/humans/"
+# T-3463 (owner, 2026-11-08: the 1812 town under the 432 MB budget): the browser fixture's
+# readings and the dress recipes are build and gate inputs the renderer never fetches.
+rm -rf "$SITE/data/humans/recipes"
+rm -f "$SITE"/data/humans/*.measure.json
 if [ -d assets/humans/web ]; then
   cp -a assets/humans/web/. "$SITE/data/humans/web/"
   # T-3451: a figure that nothing in the town draws (no instance, pose binding,
@@ -775,7 +779,9 @@ if [ -d assets/humans/web ]; then
   # under data/humans/web/sheets/, and the GLBs name it as an external buffer. The
   # renderer still decodes it once (shared-images.js); check.sh reads every rewrite
   # back to its assets/humans/web source.
-  node tools/share_glb_sheets.mjs "$SITE" --dir data/humans/web --source assets/humans/web
+  # T-3463: and so does every geometry or clip stream two figures carry byte for byte
+  # (--streams), 4 KiB or more: the same bodies, hands and hair under different dress.
+  node tools/share_glb_sheets.mjs "$SITE" --dir data/humans/web --source assets/humans/web --streams
 fi
 
 # The animal layer (ROADMAP K51). Same argument as the residents above, and it

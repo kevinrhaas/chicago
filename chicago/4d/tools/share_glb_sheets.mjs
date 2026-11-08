@@ -41,7 +41,11 @@ const HERE = path.dirname(new URL(import.meta.url).pathname);
 const REPO = path.resolve(HERE, '..');
 export const GLTF_DIR = 'data/gltf';
 export const SHEETS = 'sheets';
-const EXT = { 'image/ktx2': 'ktx2', 'image/png': 'png', 'image/jpeg': 'jpg', 'image/webp': 'webp' };
+/** T-3463: not an image: a geometry or clip stream two figures carry byte for byte. */
+export const STREAM = 'application/octet-stream';
+/** A stream is shared only from this size: below it, a fetch costs more than the bytes. */
+export const STREAM_MIN = 4096;
+const EXT = { 'image/ktx2': 'ktx2', 'image/png': 'png', 'image/jpeg': 'jpg', 'image/webp': 'webp', [STREAM]: 'bin' };
 const JSON_CHUNK = 0x4E4F534A;
 const BIN_CHUNK = 0x004E4942;
 const MESHOPT = 'EXT_meshopt_compression';
@@ -120,25 +124,64 @@ export function movableImages(json, bin) {
 }
 
 /**
+ * T-3463: the streams this GLB carries that can be moved as sheets are: each bufferView's own
+ * bytes in the binary chunk (its meshopt stream where it has one, else its data), STREAM_MIN
+ * or more, overlapping no other view's, and not an image's (movableImages has those). Each
+ * `{ view, meshopt, bytes, mimeType: STREAM }`. Same refusals as movableImages.
+ */
+export function movableStreams(json, bin) {
+  const bi = binIndex(json, bin);
+  if (bi < 0) return [];
+  const views = json.bufferViews ?? [];
+  if (views.some((v) => Object.keys(v.extensions ?? {}).some((k) => k !== MESHOPT))) return [];
+  const images = new Set((json.images ?? []).map((im) => im.bufferView));
+  const regions = [];
+  for (const [view, v] of views.entries()) {
+    const m = v.extensions?.[MESHOPT];
+    if (m && m.buffer === bi) regions.push({ view, meshopt: true, s: m.byteOffset ?? 0, len: m.byteLength });
+    if (v.buffer === bi) regions.push({ view, meshopt: false, s: v.byteOffset ?? 0, len: v.byteLength });
+  }
+  const overlaps = (r) => regions.some((q) => q !== r && q.s < r.s + r.len && r.s < q.s + q.len);
+  const out = [];
+  for (const r of regions) {
+    if (r.len < STREAM_MIN || images.has(r.view) || overlaps(r)) continue;
+    if (!r.meshopt && views[r.view].extensions?.[MESHOPT]) continue;
+    out.push({ view: r.view, meshopt: r.meshopt, mimeType: STREAM, bytes: bin.subarray(r.s, r.s + r.len) });
+  }
+  return out;
+}
+
+/**
  * Rewrite one GLB: every image in `move` (a Map of image index -> sheet URI)
  * points at an external buffer, and the binary chunk keeps only what is still
  * referenced in it. Each run of referenced bytes moves as a block to an offset
  * congruent to its old one mod 16, so no accessor or meshopt stream changes its
  * alignment.
  */
-export function rewriteGlb(json, bin, move) {
+export function rewriteGlb(json, bin, move, streams = new Map()) {
   json = structuredClone(json);
   const bi = binIndex(json, bin);
   const views = json.bufferViews;
   const bufferFor = new Map();
-  for (const [index, uri] of move) {
-    const v = views[json.images[index].bufferView];
+  const bufferOf = (uri, len) => {
     if (!bufferFor.has(uri)) {
       bufferFor.set(uri, json.buffers.length);
-      json.buffers.push({ uri, byteLength: v.byteLength });
+      json.buffers.push({ uri, byteLength: len });
     }
-    v.buffer = bufferFor.get(uri);
+    return bufferFor.get(uri);
+  };
+  for (const [index, uri] of move) {
+    const v = views[json.images[index].bufferView];
+    v.buffer = bufferOf(uri, v.byteLength);
     delete v.byteOffset;
+  }
+  // T-3463: a stream moves the same way; a meshopt one moves the extension's buffer.
+  for (const [key, uri] of streams) {
+    const [view, kind] = key.split(':');
+    const v = views[Number(view)];
+    const o = kind === 'm' ? v.extensions[MESHOPT] : v;
+    o.buffer = bufferOf(uri, o.byteLength);
+    delete o.byteOffset;
   }
   const refs = [];
   for (const v of views) {
@@ -183,7 +226,7 @@ function listGlbs(dir, rel = '') {
 }
 
 /** publish.sh's step. Returns what it did, for its one line of output. */
-export function shareSheets(site, glbDir = GLTF_DIR) {
+export function shareSheets(site, glbDir = GLTF_DIR, { streams: withStreams = false } = {}) {
   const dir = path.join(site, glbDir);
   const files = listGlbs(dir);
   const read = new Map();
@@ -193,8 +236,9 @@ export function shareSheets(site, glbDir = GLTF_DIR) {
     let parsed;
     try { parsed = readGlb(bytes); } catch { continue; }
     const images = movableImages(parsed.json, parsed.bin);
-    read.set(rel, { ...parsed, images, size: bytes.length });
-    for (const im of images) {
+    const streams = withStreams ? movableStreams(parsed.json, parsed.bin) : [];
+    read.set(rel, { ...parsed, images, streams, size: bytes.length });
+    for (const im of [...images, ...streams]) {
       const name = sheetName(im.bytes, im.mimeType);
       if (!holders.has(name)) holders.set(name, { bytes: im.bytes, files: new Set() });
       holders.get(name).files.add(rel);
@@ -213,8 +257,13 @@ export function shareSheets(site, glbDir = GLTF_DIR) {
       const name = sheetName(im.bytes, im.mimeType);
       if (shared.has(name)) move.set(im.index, `${up}/${name}`);
     }
-    if (!move.size) continue;
-    const { json, bin } = rewriteGlb(g.json, g.bin, move);
+    const moveStreams = new Map();
+    for (const st of g.streams) {
+      const name = sheetName(st.bytes, st.mimeType);
+      if (shared.has(name)) moveStreams.set(`${st.view}:${st.meshopt ? 'm' : 'd'}`, `${up}/${name}`);
+    }
+    if (!move.size && !moveStreams.size) continue;
+    const { json, bin } = rewriteGlb(g.json, g.bin, move, moveStreams);
     const bytes = writeGlb(json, bin);
     writeFileSync(path.join(dir, rel), bytes);
     glbs++; before += g.size; after += bytes.length;
@@ -410,6 +459,40 @@ function selfTest() {
       `another directory's GLBs share their own sheet beside them (${hd.glbs} GLBs, ${hd.sheets} sheet)`);
     r = checkSheets(site, hsrc, HUMANS);
     ok(!r.problems.length && r.rewritten === 2, `and read back to their own sources (${r.problems.join('; ') || 'clean'})`);
+
+    // T-3463: with streams, a geometry stream two figures carry byte for byte ships once too.
+    const SDIR = 'data/humans/streams';
+    const ssrc = path.join(root, 'streams');
+    mkdirSync(path.join(site, SDIR), { recursive: true });
+    mkdirSync(ssrc, { recursive: true });
+    const body = Buffer.alloc(STREAM_MIN + 12, 42);
+    const makeS = (n) => {
+      const mine = Buffer.alloc(300, n);
+      const bin = Buffer.alloc(body.length + 4 + 300);
+      body.copy(bin, 0); mine.copy(bin, body.length + 4);
+      return writeGlb({
+        asset: { version: '2.0' },
+        buffers: [{ byteLength: bin.length }, { byteLength: 64, extensions: { [MESHOPT]: { fallback: true } } }],
+        bufferViews: [
+          { buffer: 1, byteLength: 64, extensions: { [MESHOPT]: { buffer: 0, byteOffset: 0, byteLength: body.length, byteStride: 4, count: 16, mode: 'ATTRIBUTES' } } },
+          { buffer: 0, byteOffset: body.length + 4, byteLength: 300 },
+        ],
+        accessors: [{ bufferView: 0, componentType: 5126, count: 16, type: 'SCALAR' }, { bufferView: 1, componentType: 5126, count: 75, type: 'SCALAR' }],
+      }, bin);
+    };
+    for (const [rel, n] of [['s.lod0.glb', 6], ['t.lod0.glb', 7]]) {
+      writeFileSync(path.join(site, SDIR, rel), makeS(n));
+      writeFileSync(path.join(ssrc, rel), makeS(n));
+    }
+    const none = shareSheets(site, SDIR);
+    ok(none.glbs === 0, 'without --streams a stream stays where it is');
+    const sd = shareSheets(site, SDIR, { streams: true });
+    ok(sd.glbs === 2 && sd.sheets === 1 && existsSync(path.join(site, SDIR, SHEETS, sheetName(body, STREAM))),
+      `with --streams the shared stream ships once (${sd.glbs} GLBs, ${sd.sheets} sheet, ${sd.before} -> ${sd.after} bytes)`);
+    r = checkSheets(site, ssrc, SDIR);
+    ok(!r.problems.length && r.rewritten === 2, `and each reads back to its source (${r.problems.join('; ') || 'clean'})`);
+    const s0 = readGlb(readFileSync(path.join(site, SDIR, 's.lod0.glb')));
+    ok(s0.bin.length < 400 && s0.json.bufferViews[0].extensions[MESHOPT].buffer === 2, 'the stream left the binary chunk for the sheet');
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
@@ -425,6 +508,8 @@ if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(new URL(im
   // pictures the same way: every figure embeds the same hair, skin and eye maps.
   const opt = (name) => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] : undefined; };
   const glbDir = opt('--dir') ?? GLTF_DIR;
+  // T-3463: `--streams` shares the figures' identical geometry and clip streams as well.
+  const withStreams = args.includes('--streams');
   const sourceDir = path.join(REPO, opt('--source') ?? 'assets/web');
   if (!site || !statSync(site, { throwIfNoEntry: false })?.isDirectory()) {
     console.error('usage: share_glb_sheets.mjs SITE [--dir D --source S] [--check] | --self-test');
@@ -439,7 +524,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(new URL(im
     }
     console.log(`shared sheets (${glbDir}): ${r.rewritten} GLB(s) read back to their sources through ${r.sheets} sheet(s)`);
   } else {
-    const r = shareSheets(site, glbDir);
+    const r = shareSheets(site, glbDir, { streams: withStreams });
     const mib = (n) => (n / 1048576).toFixed(3);
     console.log(`   sheets (${glbDir}): ${r.sheets} shared by ${r.glbs} GLB(s), ${mib(r.before)} -> ${mib(r.after)} MiB`);
   }

@@ -1,0 +1,25 @@
+{
+ "id": "met_krimmel_1811_chimney_sweeps_christ_church",
+ "type": "illustration",
+ "citation": "John Lewis Krimmel, \"Worldly Folk\" Questioning Chimney Sweeps and Their Master before Christ Church, Philadelphia, 1811-ca. 1813. The Metropolitan Museum of Art, 42.95.15.",
+ "author": "John Lewis Krimmel",
+ "date": "1811-ca. 1813",
+ "describes_date": "1811-1813",
+ "repository": "The Metropolitan Museum of Art; object 12762 in the museum's collection API (isPublicDomain: true), image DT1804 at images.metmuseum.org.",
+ "url": "https://www.metmuseum.org/art/collection/search/12762",
+ "locator": "Open-access image DT1804: the couple at left, the master and the two boys.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). Watercolour. A fashionable woman in a white high-waisted gown, blue shawl and cap; a man in a green tailcoat, buff waistcoat and breeches, top boots and tall hat; a Black master sweep in a round hat, dark coat, red waistcoat and red neckcloth; two barefoot boy sweeps in ragged brown jackets and trousers with caps.",
+ "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record. Added for the 1812 women's dress (T-3464 dress build, tools/human_women_1812.py) from docs/RESEARCH/people-1812-3461/dress.json.",
+ "what_it_supplies": [
+  "a prosperous couple's street dress 1811-1813: tailcoat, top boots, white gown, shawl",
+  "working boys' ragged jackets and bare feet"
+ ],
+ "what_it_does_not_supply": [
+  "anything west of Philadelphia"
+ ]
+}

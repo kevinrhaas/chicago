@@ -1,0 +1,289 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "liberty": "L418",
+  "height_scale": 1.0,
+  "lod_ratios": [
+    1.0,
+    0.6,
+    0.28,
+    0.12
+  ],
+  "skin_texture": {
+    "path": "assets/authored/humans/skin_toigo_bronze_female/young_lightskinned_female_diffuse_Bronze.png",
+    "sha256": "535535f30bacd42111590df4b03cf3b6bcdb7db18f336ce670665ec332ab3e0b",
+    "license": "CC0-1.0",
+    "color_space": "sRGB",
+    "base_color_factor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "roughness": 0.68,
+    "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
+    "identity_basis": "Cleared reusable generic skin atlas; not a likeness, attested complexion, or source identifying any named/reconstructed resident.",
+    "uv_status": "Source atlas and UV registration viewed in source diagnostics; final Blender export/LOD render validation remains outstanding.",
+    "female_appearance_status": "The same author's female bronze atlas (skins01, CC0), replacing the male one whose beard shadow read as a man's jaw at 3 m (T-3434); photographic qualification remains open."
+  },
+  "hair_component": {
+    "directory": "assets/authored/humans/hair_short04",
+    "texture": "short04_diffuse_periodic_pad_draft.png",
+    "uv_transform": {
+      "source_height": 2048,
+      "top_rows": 8,
+      "bottom_rows": 1
+    },
+    "roughness": 0.65,
+    "alpha_cutoff": 0.4,
+    "appearance_basis": "Shared cleared CC0 short04 cap (the 1812 private's own hair component, fitted here to the female body as the 1835 dress study's was), under a cap or a handkerchief that covers all but the hair over the brow; the short04 atlas keeps the asset within the 1812 private's byte budget, where the bun proxy of the 1904 women would add about 2.5 MB at LOD0. No period hairstyle attestation or likeness.",
+    "source_manifest_sha256": "68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99"
+  },
+  "eye_components": {
+    "radius_m": 0.012,
+    "iris_radius_m": 0.0055,
+    "pupil_radius_m": 0.0022,
+    "corneal_bulge_m": 0,
+    "cornea_enabled": false,
+    "source_basis": "Actual helper centers/axes; original opaque sclera/iris/pupil, reconstructed dimensions and brown color, not resident facts",
+    "status": "No actual BPy/export/blink fit/photographic acceptance"
+  },
+  "label": "Reconstructed 1812 officer's or trader's wife's day dress (a high-waisted gown of a small blue print, the bodice short to just under the bust with long close sleeves, a narrow gathered skirt falling straight to the ankle with its fullness behind, a white muslin kerchief round the neck crossed into the waist, a white cotton day cap with a frill round the face, flat black shoes) on the shared portable female rig",
+  "scene_date": "1812-08-14",
+  "grade": "reconstructed",
+  "sources": [
+    "kinzie_waubun_1856",
+    "met_ci_1810_1820_american_linen_dress",
+    "met_krimmel_1811_sunday_morning_arch_street",
+    "met_krimmel_1811_chimney_sweeps_christ_church",
+    "met_krimmel_1811_merrymaking_wayside_inn",
+    "met_ci_1810_1820_american_cap",
+    "met_pixler_family_c1815",
+    "lambert_1810_travels_lower_canada_v1"
+  ],
+  "basis": "The T-3423 bodice cut short under the bust, a skirt lofted from there round the body's own sections and hung straight to the ankle, a self-fabric band at the high waist, a kerchief shell laid round the neck and over the bodice, a cap laid over the hair and scalp with a fluted frill, and the shared closed shoe, after the period pictures and the Met's 1810-20 day dress and cap (tools/human_women_1812.py, T-3464). Every amount and colour is reconstructed.",
+  "source_scope": "Wau-Bun (1856; the Kinzie family's narrative) puts a muslin gown, ladies' bonnets and shawls at Fort Dearborn in August 1812; Krimmel's watercolours of 1811-13 (Met) draw women in high-waisted long-sleeved gowns, a white gown with a blue shawl and cap, and country women in high-waisted gowns with neckerchiefs crossed over the bosom; the Met's American linen day dress of 1810-20 gives the cut, its American cotton cap of 1810-20 the close cap; the Pixler mother (about 1815) a dark gown and white frilled cap; Lambert (1810) that elderly women keep 'long waists, full caps'. None is of Chicago or of any woman of the fort, and no portrait of Rebekah Heald, Margaret Helm or Eleanor Kinzie of 1812 is known.",
+  "colors_linear_rgba": {
+    "skin": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "eyes": [
+      0.12,
+      0.09,
+      0.06,
+      1.0
+    ],
+    "garment_upper__gown_blue_print_1812": [
+      0.06,
+      0.075,
+      0.115,
+      1
+    ],
+    "garment_lower__gown_blue_print_1812": [
+      0.06,
+      0.075,
+      0.115,
+      1
+    ],
+    "accessory__muslin_kerchief_white_1812": [
+      0.6,
+      0.59,
+      0.55,
+      1
+    ],
+    "headwear__cotton_cap_white_1812": [
+      0.62,
+      0.61,
+      0.57,
+      1
+    ],
+    "footwear__flat_shoes_black_1812": [
+      0.014,
+      0.013,
+      0.012,
+      1
+    ]
+  },
+  "workwear_coverage": {
+    "shoe_clearance_m": 0.004
+  },
+  "proof_variants": [
+    {
+      "id": "lady_1812",
+      "component_assembly": "lady_1812_v1",
+      "person_reference_id": "anonymous_lady_1812",
+      "person_reference_scene": "1812",
+      "person_reference_grade": "reconstructed",
+      "person_reference_record": "data/sources/kinzie_waubun_1856.json",
+      "reference_summary": {
+        "name": "an officer's or trader's wife at Chicago, 1812",
+        "named": false,
+        "role": "officer's wife; trader's wife",
+        "post": "Fort Dearborn and the Kinzie house",
+        "presence": "town"
+      },
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_adult_female_25.json",
+      "body_parameters": {
+        "chosen_height_m": 1.65,
+        "height_basis": "The shared female engineering body; the variation kit draws height and build at runtime. Not a recorded height.",
+        "engineering_age_years": 25,
+        "age_basis": "Engineering body at the female kit base age 25. human-variation.js ages a person drawn in the town from her own record; no age is read for the anonymous figure.",
+        "shape_basis": "Equal cleared upstream female-young software-category blend, not inferred ancestry or a portrait"
+      },
+      "body_basis": "CC0 adult-female graphical body and the generic cleared female skin are reconstructed authoring choices. The figure is anonymous: the dress of an officer's or trader's wife at the fort, not any woman's own; no complexion, height, face or outfit of anyone is asserted.",
+      "recipe_path": "data/humans/recipes/lady_1812.json"
+    }
+  ],
+  "role_1812": {
+    "module": "human_women_1812",
+    "prepare": "prepare_lady",
+    "assembly": "lady_1812_v1"
+  },
+  "women_components": {
+    "version": 1,
+    "generator": "tools/human_women_1812.py",
+    "role": "lady_1812",
+    "liberty": "L-human-modular-dress-1789",
+    "body_sha256": "3060ee86957ff7c2d70c89e70fe95ff3bc2294a0d7f6a5716b5a2f3f8dd84c72",
+    "standing_source_only": false,
+    "production_eligible": false,
+    "photo_accepted": false,
+    "evidence_choice": "The brief asked for an officer's or trader's wife about 1810-12 in a high-waisted day gown, a fichu or kerchief or shawl, a cap and flat shoes, in muted cotton or wool colours and not ballroom white silk. The kerchief is chosen over a shawl because it is worn indoors and out and keeps the neckline of the period without a low bodice; the cap over the bonnet, because the women stand about the fort and the house (a bonnet out of doors remains a later variant). One gown serves the young officers' wives and the matron Eleanor Kinzie, so its colour is a muted blue print between the young wives' small prints and the matron's darker stuff (T-3464 day.json); a darker matron's colour way is a possible later variant.",
+    "tailoring": {
+      "bodice": {
+        "high_waist_above_spine03": 0.044,
+        "ease": 0.011,
+        "neck_below_neck01": 0.012,
+        "sleeve_head": 0.008
+      },
+      "skirt": {
+        "hem_y": 0.062,
+        "ease": 0.016,
+        "flare_from_y": 0.62,
+        "hem_rx": 0.25,
+        "hem_rz_front": 0.215,
+        "hem_rz_back": 0.3,
+        "back_fullness": 0.04,
+        "folds": 18,
+        "fold_depth": 0.013,
+        "front_folds": 0.3,
+        "segments": 72,
+        "rows": 20
+      },
+      "band": {
+        "below": 0.01,
+        "above": 0.012,
+        "lift": 0.0035
+      },
+      "kerchief": {
+        "ease": 0.016,
+        "above_neck01": 0.004,
+        "front_point_above_waist": 0.012,
+        "front_slope": 0.75,
+        "back_point_below_neck01": 0.2,
+        "back_slope": 0.85,
+        "half_width": 0.2,
+        "arm": 0.45,
+        "gap": 0.007,
+        "smooth": 6,
+        "folds": 7,
+        "fold_depth": 0.008,
+        "cross": 0.0035
+      },
+      "cap": {
+        "front_above_eyes": 0.085,
+        "nape_below_hair": 0.006,
+        "side_drop": 1.25,
+        "ease": 0.008,
+        "puff": 0.018,
+        "gathers": 18,
+        "gather_depth": 0.007,
+        "rows": 12,
+        "sectors": 48,
+        "frill": 0.016,
+        "frill_waves": 13,
+        "frill_arc_deg": 100.0
+      }
+    },
+    "garments": [
+      {
+        "id": "high_waisted_gown_bodice",
+        "material": "garment_upper__gown_blue_print_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_ci_1810_1820_american_linen_dress",
+            "met_krimmel_1811_sunday_morning_arch_street",
+            "kinzie_waubun_1856"
+          ],
+          "source_scope": "The bodice short to just under the bust with long close sleeves: the Met's American linen day dress of 1810-20 and Krimmel's young women of 1811 in long-sleeved high-waisted gowns; Wau-Bun names a muslin gown among the ladies' things at the fort in August 1812. The neckline under the kerchief, the ease, the slight fullness at the sleeve head and the blue print (drawn as its mean colour, one gown serving the young wives' small prints and the matron's darker stuff of T-3464's day.json; the eastern white is not used for frontier day wear) are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "gown_skirt_narrow_to_the_ankle",
+        "material": "garment_lower__gown_blue_print_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_ci_1810_1820_american_linen_dress",
+            "met_krimmel_1811_sunday_morning_arch_street"
+          ],
+          "source_scope": "A gathered skirt from the high waist, narrow in front with its fullness behind, to the ankle (the 1810-20 linen dress; Krimmel's 1811 street). The hem's height and ellipse, the gathers and the fullness behind are reconstructed; no hem frill.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "gown_waist_band",
+        "material": "garment_upper__gown_blue_print_1812",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [],
+          "source_scope": "A narrow band of the gown's own cloth round the high waist seam: reconstructed construction (where the bodice meets the gathered skirt); no source names it.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "muslin_kerchief_crossed",
+        "material": "accessory__muslin_kerchief_white_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_krimmel_1811_merrymaking_wayside_inn",
+            "lambert_1810_travels_lower_canada_v1"
+          ],
+          "source_scope": "A kerchief round the neck, its ends crossed over the bosom into the waist: Krimmel's country women of 1811-13 wear neckerchiefs crossed over the bosom; Lambert lists 'muslin aprons, shawls, and handkerchiefs'; T-3464's day.json reads a white neck-kerchief filling the neckline. White muslin, the depth of its point behind and in front are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "white_cotton_day_cap",
+        "material": "headwear__cotton_cap_white_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_ci_1810_1820_american_cap",
+            "met_pixler_family_c1815",
+            "met_krimmel_1811_chimney_sweeps_christ_church",
+            "lambert_1810_travels_lower_canada_v1"
+          ],
+          "source_scope": "A white cotton cap close to the head (the Met's American cap of 1810-20), with a frill round the face (the Pixler mother's frilled cap, about 1815); Krimmel's woman of 1811 in a cap; Lambert's elderly women in 'full caps'. Its fullness, its edge and the frill's width are reconstructed; no lappets are drawn.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "flat_shoes",
+        "material": "footwear__flat_shoes_black_1812",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [],
+          "source_scope": "Flat black leather shoes (T-3464's day.json: flat leather shoes or half-boots); the shared closed shoe stands for them; reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      }
+    ]
+  }
+}

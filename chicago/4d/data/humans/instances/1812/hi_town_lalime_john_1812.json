@@ -1,0 +1,524 @@
+{
+  "id": "hi_town_lalime_john_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "lalime_john",
+  "appearance": {
+    "asset_id": "trader_1812"
+  },
+  "placement": {
+    "local_e": 1036.0,
+    "local_n": 175.0,
+    "heading_deg": 180.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.332
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1803-10-01",
+          "to": "1808-01-24"
+        },
+        "note": "before his house is on the draught",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "lalime_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": true,
+            "where": "lalime_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 6.5,
+            "to": 6.8,
+            "indoors": true,
+            "away": true,
+            "doing": "crossing to the fort by canoe"
+          },
+          {
+            "from": 6.8,
+            "to": 9.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "with the commanding officer: the morning's Indian business"
+          },
+          {
+            "from": 9.0,
+            "to": 12.0,
+            "indoors": true,
+            "where": "first_fort_outer_interpreters_house",
+            "doing": "at the interpreter's house, speaking with Indian visitors for the garrison"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_outer_interpreters_house",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 16.0,
+            "indoors": true,
+            "where": "first_fort_outer_interpreters_house",
+            "doing": "writing up what he has heard for the agent and the commander"
+          },
+          {
+            "from": 16.0,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1036.0,
+              "local_n": 175.0,
+              "heading_deg": 180.0
+            },
+            "doing": "before the interpreter's house, talking with Potawatomi callers",
+            "activity": "stand"
+          },
+          {
+            "from": 17.5,
+            "to": 17.8,
+            "indoors": true,
+            "away": true,
+            "doing": "crossing home"
+          },
+          {
+            "from": 17.8,
+            "to": 19.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1103.0,
+              "local_n": 342.5,
+              "heading_deg": 180.0
+            },
+            "doing": "before his door, his pipe, the evening",
+            "activity": "stand"
+          },
+          {
+            "from": 19.0,
+            "to": 19.5,
+            "indoors": true,
+            "where": "lalime_house_1812",
+            "doing": "supper"
+          },
+          {
+            "from": 19.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "lalime_house_1812",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1808-01-25",
+          "to": "1812-04-05"
+        },
+        "note": "the fort's interpreter, at home on the north bank",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "lalime_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": true,
+            "where": "lalime_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 6.5,
+            "to": 6.8,
+            "indoors": true,
+            "away": true,
+            "doing": "crossing to the fort by canoe"
+          },
+          {
+            "from": 6.8,
+            "to": 9.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "with the commanding officer: the morning's Indian business"
+          },
+          {
+            "from": 9.0,
+            "to": 12.0,
+            "indoors": true,
+            "where": "first_fort_outer_interpreters_house",
+            "doing": "at the interpreter's house, speaking with Indian visitors for the garrison"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_outer_interpreters_house",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 16.0,
+            "indoors": true,
+            "where": "first_fort_outer_interpreters_house",
+            "doing": "writing up what he has heard for the agent and the commander"
+          },
+          {
+            "from": 16.0,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1036.0,
+              "local_n": 175.0,
+              "heading_deg": 180.0
+            },
+            "doing": "before the interpreter's house, talking with Potawatomi callers",
+            "activity": "stand"
+          },
+          {
+            "from": 17.5,
+            "to": 17.8,
+            "indoors": true,
+            "away": true,
+            "doing": "crossing home"
+          },
+          {
+            "from": 17.8,
+            "to": 19.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1103.0,
+              "local_n": 342.5,
+              "heading_deg": 180.0
+            },
+            "doing": "before his door, his pipe, the evening",
+            "activity": "stand"
+          },
+          {
+            "from": 19.0,
+            "to": 19.5,
+            "indoors": true,
+            "where": "lalime_house_1812",
+            "doing": "supper"
+          },
+          {
+            "from": 19.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "lalime_house_1812",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1811-05-26",
+          "to": "1811-05-26"
+        },
+        "note": "the letter to Governor Clark (jaunt stop)",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "lalime_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": true,
+            "where": "lalime_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 6.5,
+            "to": 6.8,
+            "indoors": true,
+            "away": true,
+            "doing": "crossing to the fort by canoe"
+          },
+          {
+            "from": 6.8,
+            "to": 9.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "with the commanding officer: the morning's Indian business"
+          },
+          {
+            "from": 9.0,
+            "to": 11.7,
+            "indoors": true,
+            "where": "first_fort_outer_interpreters_house",
+            "doing": "at the interpreter's house"
+          },
+          {
+            "from": 11.7,
+            "to": 12.0,
+            "indoors": true,
+            "away": true,
+            "doing": "crossing home early"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "lalime_house_1812",
+            "doing": "dinner at home"
+          },
+          {
+            "from": 13.0,
+            "to": 17.8,
+            "indoors": true,
+            "where": "lalime_house_1812",
+            "doing": "writing to Governor William Clark: an Indian from the Peorias passed yesterday with news of stolen horses"
+          },
+          {
+            "from": 17.8,
+            "to": 19.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1103.0,
+              "local_n": 342.5,
+              "heading_deg": 180.0
+            },
+            "doing": "before his door, his pipe, the evening",
+            "activity": "stand"
+          },
+          {
+            "from": 19.0,
+            "to": 19.5,
+            "indoors": true,
+            "where": "lalime_house_1812",
+            "doing": "supper"
+          },
+          {
+            "from": 19.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "lalime_house_1812",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-04-06",
+          "to": "1812-06-16"
+        },
+        "note": "after the April murders: at the agency house",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "asleep in the fortified agency house"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "breakfast"
+          },
+          {
+            "from": 6.5,
+            "to": 9.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "with Heald, trying to learn which nation the April raiders were"
+          },
+          {
+            "from": 9.0,
+            "to": 12.0,
+            "indoors": true,
+            "where": "first_fort_outer_interpreters_house",
+            "doing": "at the interpreter's house"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "dinner at the agency house"
+          },
+          {
+            "from": 13.0,
+            "to": 17.0,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "at the factory with Irwin, whose side he takes against the sutler"
+          },
+          {
+            "from": 17.0,
+            "to": 18.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1036.0,
+              "local_n": 175.0,
+              "heading_deg": 180.0
+            },
+            "doing": "before the interpreter's house",
+            "activity": "stand"
+          },
+          {
+            "from": 18.5,
+            "to": 19.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "supper"
+          },
+          {
+            "from": 19.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "in the agency house for the night"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-06-17",
+          "to": "1812-06-17"
+        },
+        "note": "the day he was killed",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "asleep in the fortified agency house"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "breakfast"
+          },
+          {
+            "from": 6.5,
+            "to": 9.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "with Heald, trying to learn which nation the April raiders were"
+          },
+          {
+            "from": 9.0,
+            "to": 12.0,
+            "indoors": true,
+            "where": "first_fort_outer_interpreters_house",
+            "doing": "at the interpreter's house"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "dinner at the agency house"
+          },
+          {
+            "from": 13.0,
+            "to": 17.5,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "at the factory with Irwin"
+          },
+          {
+            "from": 17.5,
+            "to": 18.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "in the fort on the garrison's business"
+          },
+          {
+            "from": 18.0,
+            "to": 19.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1155.0,
+              "local_n": 223.0,
+              "heading_deg": 90.0
+            },
+            "doing": "on the parade, defending the factory against Helm and Kinzie",
+            "activity": "stand"
+          },
+          {
+            "from": 19.5,
+            "to": 19.6,
+            "indoors": false,
+            "at": {
+              "local_e": 1147.5,
+              "local_n": 197.0,
+              "heading_deg": 200.0
+            },
+            "doing": "following Kinzie out of the gate as it is shut, a pistol and a dirk in his belt",
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1145.11,
+              "local_n": 190.42
+            }
+          },
+          {
+            "from": 19.6,
+            "to": 24.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1147.5,
+              "local_n": 197.0,
+              "heading_deg": 200.0
+            },
+            "doing": "killed outside the gate at sunset; his body lies there through the night",
+            "activity": "stand"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1803-10-01",
+      "to": "1812-06-17"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Jean (John) Lalime in the 1812 town, at each hour of each run of dates where the reading for T-3466 (docs/RESEARCH/people-1812-3466/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the trader 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "andreas_1884_v1",
+      "dailing_2018_chicago_reader_lalime",
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913"
+    ],
+    "liberty": "L418",
+    "seed": "lalime_john:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

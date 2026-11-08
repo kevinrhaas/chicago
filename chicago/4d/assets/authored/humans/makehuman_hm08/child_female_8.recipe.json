@@ -1,0 +1,53 @@
+{
+  "format": "chicago4d_human_graphical_target_recipe_v1",
+  "targets": [
+    {
+      "path": "makehuman/data/targets/macrodetails/caucasian-female-child.target",
+      "sha256": "17fc408839c0a407bf4efd96d9af7eebcdf20d74698659f3597b0647ed6b147e",
+      "coefficient": 0.25925925925925924
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/caucasian-female-baby.target",
+      "sha256": "2ae0b8f760a3608b8e628b9af80054592d0fd0ac4b7867f81d8fc86b5a75c170",
+      "coefficient": 0.07407407407407407
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/asian-female-child.target",
+      "sha256": "a4fffea45a475a24a0a7332dac28a07dfd60a9af9eb50b61ed5abd1178197f75",
+      "coefficient": 0.25925925925925924
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/asian-female-baby.target",
+      "sha256": "43c2a05ac425c4084f9dc30687a294cc5b61699d7c075985536f7e9c3b23f78d",
+      "coefficient": 0.07407407407407407
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/african-female-child.target",
+      "sha256": "f88b8f252df8a9a3f35f78e1664983e9a30756bca1e454afce39438296eb7b41",
+      "coefficient": 0.25925925925925924
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/african-female-baby.target",
+      "sha256": "b1d4b5c76c73107b8f433bba6e224addf9da542287612868a02109d0f5a1c235",
+      "coefficient": 0.07407407407407407
+    }
+  ],
+  "phenotype": {
+    "sex": "female engineering child",
+    "chosen_age_years": 8,
+    "age_band_years": [
+      6,
+      10
+    ],
+    "age_anchors_years": {
+      "baby": 1,
+      "child": 10,
+      "young": 25
+    },
+    "age_method": "Linear between the upstream baby (1 year) and child (10 year) anchors, as adult_35 is linear between young (25) and old (90): child 7/9, baby 2/9, each shared equally over the three upstream shape categories.",
+    "ancestry_status": "unattested; equal upstream software-category blend is an authoring liberty, not a resident ethnicity",
+    "age_status": "chosen 8-year authoring point for the children of 1812 about six to ten; no birth year or precise age asserted",
+    "likeness_status": "component study; not attested likeness"
+  },
+  "basis": "Sparse CC0 graphical child/baby target deltas applied to base and all helper vertices before skeleton derivation; no upstream program logic copied (T-3465)"
+}

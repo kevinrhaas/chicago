@@ -1,0 +1,24 @@
+{
+ "id": "met_peale_1811_anthony_wayne_robinson",
+ "type": "illustration",
+ "citation": "James Peale, Anthony Wayne Robinson, 1811. The Metropolitan Museum of Art, 2006.235.137.",
+ "author": "James Peale",
+ "date": "1811",
+ "describes_date": "1811",
+ "repository": "The Metropolitan Museum of Art; object 15145 in the museum's collection API (isPublicDomain: true), image DP217026 at images.metmuseum.org.",
+ "url": "https://www.metmuseum.org/art/collection/search/15145",
+ "locator": "Open-access image DP217026: the miniature.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). Watercolour on ivory miniature of an American man in a dark green coat with a high turned collar, a yellow waistcoat and a white neckcloth tied high.",
+ "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record. Recorded by the 1812 dress build (officers-traders group) from the T-3461 dress research (docs/RESEARCH/people-1812-3461/dress.json new_sources).",
+ "what_it_supplies": [
+  "an American man's coat, waistcoat and neckcloth colours in 1811"
+ ],
+ "what_it_does_not_supply": [
+  "below the chest; a merchant's working dress"
+ ]
+}
