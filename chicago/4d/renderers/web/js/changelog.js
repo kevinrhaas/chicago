@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2825, ts: '2026-11-08T08:08:20.580Z', date: 'Nov 8, 2026, 2:08 AM CT', title: 'Pullman\'s estate signed off; a planted bed in the stable court', kind: 'feature',
+    items: [
+      'A small bed now grows inside the stable court\'s gateway on 18th Street, by the stable\'s corner bay, as an 1890s photograph shows it: a dark clipped evergreen, a low flowering shrub and a little clipped cone.',
+      'The palm house and the stable now match all six of their pictures, so the estate\'s photo match is complete.',
+      'The ivy on the house\'s 18th Street side is re-laid around its rebuilt east windows.',
+    ] },
   { v: 2824, ts: '2026-11-08T07:05:13.011Z', date: 'Nov 8, 2026, 1:05 AM CT', title: '1812: the camp on the creek now roofs the whole gathering', kind: 'add',
     items: [
       'Seven more lodge groups stand along the creek, thirteen in all, room for Helm\'s count of 500 warriors and 179 women and children.',
