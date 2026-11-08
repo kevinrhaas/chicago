@@ -1,0 +1,284 @@
+{
+  "id": "hi_camp_miami_escort_1812_16",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "miami_escort_1812_16",
+  "appearance": {
+    "asset_id": "potawatomi_man_1812"
+  },
+  "placement": {
+    "local_e": 1079.86,
+    "local_n": 67.91,
+    "heading_deg": 301.3,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.535
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-08-13",
+          "to": "1812-08-13"
+        },
+        "spans": [
+          {
+            "from": 0,
+            "to": 16.0,
+            "indoors": true,
+            "away": true,
+            "doing": "on the road from Fort Wayne (not drawn)"
+          },
+          {
+            "from": 16.0,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1073.49,
+              "local_n": 70.25,
+              "heading_deg": 110.0
+            },
+            "activity": "talk",
+            "doing": "talking with the men of the ground",
+            "knot": "men_miami_1"
+          },
+          {
+            "from": 17.5,
+            "to": 18.75,
+            "indoors": false,
+            "at": {
+              "local_e": 1079.86,
+              "local_n": 67.91,
+              "heading_deg": 301.3
+            },
+            "activity": "stand",
+            "doing": "the evening meal with the lodge"
+          },
+          {
+            "from": 18.75,
+            "to": 21.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1079.86,
+              "local_n": 67.91,
+              "heading_deg": 301.3
+            },
+            "activity": "stand",
+            "doing": "evening at the lodge door"
+          },
+          {
+            "from": 21.5,
+            "to": 24,
+            "indoors": true,
+            "where": "miami_escort_camp_1812",
+            "doing": "asleep in the lodge"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-15",
+          "to": "1812-08-15"
+        },
+        "spans": [
+          {
+            "from": 0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "miami_escort_camp_1812",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1079.86,
+              "local_n": 67.91,
+              "heading_deg": 301.3
+            },
+            "activity": "stand",
+            "doing": "up at the lodge door, the fire made up"
+          },
+          {
+            "from": 6.5,
+            "to": 7.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1079.86,
+              "local_n": 67.91,
+              "heading_deg": 301.3
+            },
+            "activity": "stand",
+            "doing": "eating with the lodge"
+          },
+          {
+            "from": 7.5,
+            "to": 9.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1079.86,
+              "local_n": 67.91,
+              "heading_deg": 301.3
+            },
+            "activity": "work",
+            "doing": "mending a bridle",
+            "spots": [
+              {
+                "local_e": 1080.15,
+                "local_n": 68.75
+              },
+              {
+                "local_e": 1079.86,
+                "local_n": 67.91
+              }
+            ]
+          },
+          {
+            "from": 9.0,
+            "to": 24.0,
+            "indoors": true,
+            "away": true,
+            "doing": "gone south with the column (not drawn)"
+          }
+        ]
+      },
+      {
+        "spans": [
+          {
+            "from": 0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "miami_escort_camp_1812",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1079.86,
+              "local_n": 67.91,
+              "heading_deg": 301.3
+            },
+            "activity": "stand",
+            "doing": "up at the lodge door, the fire made up"
+          },
+          {
+            "from": 6.5,
+            "to": 7.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1079.86,
+              "local_n": 67.91,
+              "heading_deg": 301.3
+            },
+            "activity": "stand",
+            "doing": "eating with the lodge"
+          },
+          {
+            "from": 7.5,
+            "to": 12,
+            "indoors": false,
+            "at": {
+              "local_e": 1079.86,
+              "local_n": 67.91,
+              "heading_deg": 301.3
+            },
+            "activity": "work",
+            "doing": "mending a bridle",
+            "spots": [
+              {
+                "local_e": 1080.15,
+                "local_n": 68.75
+              },
+              {
+                "local_e": 1079.86,
+                "local_n": 67.91
+              }
+            ]
+          },
+          {
+            "from": 12,
+            "to": 13.5,
+            "indoors": true,
+            "where": "miami_escort_camp_1812",
+            "doing": "out of the midday sun in the lodge"
+          },
+          {
+            "from": 13.5,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1073.49,
+              "local_n": 70.25,
+              "heading_deg": 110.0
+            },
+            "activity": "talk",
+            "doing": "talking with the men of the ground",
+            "knot": "men_miami_1"
+          },
+          {
+            "from": 17.5,
+            "to": 18.75,
+            "indoors": false,
+            "at": {
+              "local_e": 1079.86,
+              "local_n": 67.91,
+              "heading_deg": 301.3
+            },
+            "activity": "stand",
+            "doing": "the evening meal with the lodge"
+          },
+          {
+            "from": 18.75,
+            "to": 21.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1079.86,
+              "local_n": 67.91,
+              "heading_deg": 301.3
+            },
+            "activity": "stand",
+            "doing": "evening at the lodge door"
+          },
+          {
+            "from": 21.5,
+            "to": 24,
+            "indoors": true,
+            "where": "miami_escort_camp_1812",
+            "doing": "asleep in the lodge"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-08-13",
+      "to": "1812-08-15"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": true,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "One of the escort carded by T-3500 and drawn (about one in five), at the door of their own lodge by day and asleep in it by night; the hours, places and work are ours (liberty L-1812-gathering-people-3500); nothing of the 15th is staged.",
+    "sources": [
+      "quaife_1913"
+    ],
+    "liberty": "L418",
+    "seed": "miami_escort_1812_16:T-3500:20261108",
+    "replaceable_by": "An account of the camp that says who lodged where and what they did."
+  }
+}

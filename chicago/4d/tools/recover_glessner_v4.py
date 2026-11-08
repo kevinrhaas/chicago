@@ -126,6 +126,43 @@ def drift(root=ROOT, recovery=RECOVERY):
     return out
 
 
+def reuse_derivatives(root=ROOT, recovery=RECOVERY):
+    """(restored, reason): the packaged derivatives, when the master in the tree is the packaged one (T-3503).
+
+    The two v4 derivatives are untracked, so on a fresh checkout a whole-town bake's
+    `tools/stale_derivatives.py` always found the Glessner master "underived" and
+    re-encoded both — about nine and a half minutes for the full tier's KTX2 pass and
+    seven and a half for the light tier's, 18 of the 20.6 minutes the derivative step
+    took on every content build of 2026-11-07/08, three of which hit the bake job's
+    50-minute cap. Every one of them then published "package verified", which
+    `materialize` says only when every file present equals its packed bytes: the
+    eighteen minutes rebuilt the package byte for byte. A master that IS the packaged
+    one has packaged derivatives, so restore them and let the record's own hash test
+    skip it.
+
+    Narrower than `materialize` on purpose. It acts only when the master is present
+    and hashes to the packaged master, and it writes only a derivative that is ABSENT
+    — never over one present, matching or not (a clone's stale output stays for
+    `--check` to name). A moved master, a missing one, or no package at all is not
+    an error here: the answer is "derive it", which the bake goes on to do.
+    """
+    names = targets(root)
+    master, derived = names[0], names[1:]
+    state = drift(root, recovery)
+    if not (recovery / "manifest.json").is_file():
+        return 0, "no Glessner v4 package in this tree: derive it"
+    if master in state:
+        return 0, f"the Glessner master is {state[master]} against its package: derive it"
+    absent = [name for name in derived if not (root / name).exists()]
+    if len(absent) != len(derived):
+        return 0, "a Glessner derivative is already present: left to the gates"
+    members = verified_members(recovery)
+    for name in absent:
+        require(name in members, f"archive lacks {name}")
+        write_member(root, name, members[name])
+    return len(absent), "the Glessner master is the packaged one: its packaged derivatives restored"
+
+
 def pack(root=ROOT, recovery=RECOVERY):
     members = {name: (root / name).read_bytes() for name in targets(root)}
     buffer = io.BytesIO()

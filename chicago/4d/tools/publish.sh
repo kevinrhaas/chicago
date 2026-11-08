@@ -542,6 +542,10 @@ fi
 mkdir -p "$SITE/data/transport"
 rm -rf "$SITE/data/transport/parked"
 cp -a data/transport/parked "$SITE/data/transport/parked"
+# T-3500: the standing horse's derivation and qualification reports (5.3 MB) are the
+# record of how its model was made and checked; tools/test_standing_horse_*.py read them
+# in the source tree and no page fetches one, so they stay out of the published tree.
+rm -rf "$SITE/data/transport/parked/standing-horse-planted"
 
 # Occupied town circuits and their live hitch bindings use the same data base.
 # Keep runtime inputs explicit; the complete native measurement fixture stays in tools/.
@@ -757,6 +761,10 @@ cp -a data/humans/. "$SITE/data/humans/"
 # readings and the dress recipes are build and gate inputs the renderer never fetches.
 rm -rf "$SITE/data/humans/recipes"
 rm -f "$SITE"/data/humans/*.measure.json
+# T-3500: each person's looks file is an input of tools/human_variation_kit.py, which carries
+# it into hm08_variation_persons.json (`looks`), the file the renderer reads; the 1812
+# gathering's 634 are 3 MB the page never fetches.
+rm -rf "$SITE/data/humans/variation/looks"
 # T-3463: the people's instance records ship minified, as the residents do: the 1812 town's
 # 158 records are 0.86 MB of indentation a visitor never reads (humans.js fetches them with
 # response.json()). tools/check_published.mjs holds each to its source, value for value.

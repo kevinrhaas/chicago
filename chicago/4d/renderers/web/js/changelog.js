@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 2830, ts: '2026-11-08T17:06:30.155Z', date: 'Nov 8, 2026, 11:06 AM CT', title: 'Content builds fit their time limit again', kind: 'chore',
+    items: [
+      'A full rebuild of the town no longer spends eighteen minutes re-encoding the Glessner house\'s textures into bytes it already ships; they are restored from the committed package when the house has not changed.',
+      'The rebuild\'s checks now run in eight parallel parts beside the browser tests, instead of whole at the end of the build, so a rebuild can finish and land its new geometry.',
+    ] },
+  { v: 2829, ts: '2026-11-08T17:04:57.168Z', date: 'Nov 8, 2026, 11:04 AM CT', title: '1812: everyone at the camp has a card; call them out', kind: 'add',
+    items: [
+      'All 679 people of Helm\'s count and all 27 of Wells\'s Miamis now have a card: 637 more, each with their lodge on the creek.',
+      'About one in five is out at their lodge door going about the day; ask at any lodge door for the rest and they come out to meet you.',
+      'Wells\'s Miamis sleep at their own camp now, not by the fort\'s stables.',
+      'Louis Fettle, who lived here from 1803, has a card and answers at Le Mai\'s door.',
+      'No source names any of the gathering: who is in which lodge, their ages and their day are reconstructed.',
+    ] },
   { v: 2828, ts: '2026-11-08T15:41:43.930Z', date: 'Nov 8, 2026, 9:41 AM CT', title: 'People keep their own space and something to do', kind: 'fix',
     items: [
       'Children and adults talking together now stand in a ring facing each other, not stacked on one spot.',

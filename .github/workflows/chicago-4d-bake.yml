@@ -84,9 +84,10 @@ permissions:
 #
 # So the work is split and each part gets its own budget:
 #
-#   bake     generate, derive, publish, gate    SKIP_SMOKE=1, ~15 min
+#   bake     generate, derive, publish          SKIP_SMOKE=1 SKIP_GATE=1, ~15 min
+#   gate     check.sh on the baked tree, 8 parts, PARALLEL with smoke (T-3503)
 #   smoke    the published mirror, viewport × stage  8 legs, ~18 min worst, PARALLEL
-#   open-pr  the PR, only once smoke is green
+#   open-pr  the PR, only once gate AND smoke are green
 #
 # THE SMOKE ROW ABOVE READ "per viewport, ~15 min each" UNTIL T-0171, and that
 # was the mobile figure standing in for both. Run #269 read the desktop one:
@@ -354,11 +355,27 @@ jobs:
   # re-derives their work every night. Moving either side is a re-bake made on
   # purpose (tools/check_runner_images.py refuses a floating label here).
   #
-  # Fifty minutes is the measured worst case with room: checkout 3-5, setup 1,
+  # Fifty minutes WAS the measured worst case with room: checkout 3-5, setup 1,
   # generate 3, derive the full drift 14, sidecars + publish 1, embedded gate 14
   # (2026-10-16; still running at 9.3 when 11-01 was cancelled), push + bundle 1
   # — about 38. Once a bake lands, derivation drops back to the few masters a
   # change actually moved and the job returns to roughly twenty.
+  #
+  # NO BAKE LANDED, AND BOTH HALVES OF THAT SUM HAD GROWN (T-3503). Three whole-
+  # town bakes read on 2026-11-07/08 — dev push 42425844204, nightly main
+  # 42454769550, PR #1874's 42480258299 — were cancelled at 50m0s inside this
+  # job's Bake step, each the same way: checkout 2, setup 1, generate 4.4, derive
+  # 20.6, sidecars + publish 1.5, and the embedded gate still running after 21.5.
+  # The derive step was not the drift: its moved list was the SAME 82 masters on
+  # all three, and 18 of its minutes were Glessner's two KTX2 passes, re-encoding
+  # bytes publish then verified identical to the committed package (its
+  # derivatives are untracked, so a fresh checkout always read it "underived").
+  # bake.sh now restores those from the package when the built master is the
+  # packaged one (tools/stale_derivatives.py --reuse-packaged), so the drift costs
+  # about 2.5 minutes until a bake lands it. And the whole gate is about thirty
+  # minutes (CI's eight parts summed 38-42 on dev the same day), so it is the
+  # `gate` job's, in parts, beside the smoke. This job is now about fourteen
+  # minutes; fifty is left as it was, as the room the first landing bake needs.
   bake:
     needs: warranted
     if: needs.warranted.outputs.bake == '1'
@@ -566,13 +583,19 @@ jobs:
           key: blender-${{ steps.pin.outputs.version }}
 
       # SKIP_SMOKE=1 because the smoke is the next job, not the tail of this one.
-      # bake.sh still runs check.sh as ITS last step, so a bake whose own gate is
-      # red fails here and the smoke never runs against a tree that already
-      # disagrees with itself.
+      # bake.sh used to run check.sh as ITS last step, so a bake whose own gate was
+      # red failed here and the smoke never ran against a tree that already
+      # disagreed with itself.
+      # T-3503: SKIP_GATE too, so that is no longer true: a red gate now fails the
+      # `gate` job while the smoke runs beside it, and both are what open-pr needs. The whole gate is about thirty minutes on four cores
+      # now, and it ran inside this step after a twenty-minute derivative step, so
+      # every whole-town bake of 2026-11-07/08 died at the job's cap with the gate
+      # half read. The `gate` job below runs it in parts on the tree this pushed.
       - name: Bake
         working-directory: chicago/4d
         env:
           SKIP_SMOKE: '1'
+          SKIP_GATE: '1'
         run: |
           if [ -n "${{ inputs.only }}" ]; then
             ./tools/bake.sh --only "${{ inputs.only }}"
@@ -663,8 +686,9 @@ jobs:
       # T-2068 — PACK THE SCENE BUNDLE FROM THE COMMIT THIS BAKE JUST GATED.
       #
       # HEAD here is that commit: the bake branch's own commit when the bake changed
-      # content, and the baked ref itself when it did not. Either way `check.sh` has
-      # just passed on exactly that tree (bake.sh runs it last), and scene_bundle.py
+      # content, and the baked ref itself when it did not. Either way the `gate` job
+      # checks exactly that tree, and `publish-bundle` needs it green (T-3503; this
+      # used to be bake.sh's own last step), and scene_bundle.py
       # reads every byte out of that one commit's git objects, never the working
       # tree, so the build stamps the bake left behind cannot leak in
       # (docs/unreal/SCENE-BUNDLE.md).
@@ -847,6 +871,58 @@ jobs:
   # halves. Mobile shares the list (gateShape() in smoke_budget.mjs reads one
   # `stage:` row for both viewports); its legs only get shorter. The cap is
   # unchanged; content is unchanged; no check moved between parts.
+  # THE GATE, IN PARTS, ON THE TREE THE BAKE PUSHED (T-3503).
+  #
+  # bake.sh used to end in `check.sh` whole, inside the bake job's cap. Whole is
+  # about thirty minutes now, so it runs here as the same eight-part partition
+  # `chicago-4d-check.yml` runs on every PR — the same setup, env and per-part
+  # ceiling, so a bake is held to exactly the gate a PR is. It reads the bake
+  # branch when the bake produced content and the baked commit when it did not,
+  # because that is the tree `open-pr` proposes and `publish-bundle` packs. The
+  # bake PR is opened with GITHUB_TOKEN, which starts no `pull_request` workflow,
+  # so this is the only gate a bake PR ever gets — `needs: gate` below is not
+  # optional. Its check names are prefixed `bake` so they never share a name with
+  # the PR gate's own `gate part k/8` on one commit.
+  gate:
+    needs: bake
+    name: bake gate part ${{ matrix.part }}/8
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        part: [1, 2, 3, 4, 5, 6, 7, 8]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.bake.outputs.changed == '1' && needs.bake.outputs.branch || needs.bake.outputs.sha }}
+          fetch-depth: 0
+          filter: blob:none
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install validator dependencies
+        run: pip install --quiet jsonschema pyproj openpyxl pypdf numpy scipy Pillow
+
+      - name: How many cores this runner has
+        id: jobs
+        run: echo "n=$(nproc)" >> "$GITHUB_OUTPUT"
+
+      - name: Run the gate
+        working-directory: chicago/4d
+        env:
+          C4D_GATE_REQUIRE_READERS: '1'
+          C4D_GATE_REQUIRE_BASE: '1'
+          CHECK_JOBS: ${{ steps.jobs.outputs.n }}
+        run: timeout --kill-after=5s 600s ./tools/check.sh --part "${{ matrix.part }}/8"
+
   smoke:
     needs: bake
     # T-3169: PINNED, NOT `ubuntu-latest`. On 2026-10-26 the label moved to
@@ -925,7 +1001,7 @@ jobs:
 
   # Only now. A bake whose mirror fails the smoke keeps its branch and gets no PR.
   open-pr:
-    needs: [bake, smoke]
+    needs: [bake, gate, smoke]
     # `base_live` is the second half of T-0454. `base` says which ref this bake
     # was built from; `base_live` says whether that ref still has anywhere to go.
     # A bake whose branch merged while it ran would otherwise open a 196-file PR
@@ -987,7 +1063,7 @@ jobs:
           if out=$(bash .github/steward/pr-rest.sh create \
             --title "chore: content bake (run ${GITHUB_RUN_ID})" \
             --base "$BASE" \
-            --body "Automated bake from \`tools/bake.sh\`. Regenerated glTF, web derivatives and sidecars. \`check.sh\` ran green at the end of the bake, and the published mirror passed the smoke at BOTH viewports in the \`smoke\` job before this PR was opened (T-0165). Targets \`$BASE\` — the ref this bake was built from (T-0454). Merging a \`dev\` bake publishes the /4d/dev/ preview only, and production moves on owner dispatch." \
+            --body "Automated bake from \`tools/bake.sh\`. Regenerated glTF, web derivatives and sidecars. \`check.sh\` ran green in eight parts on the baked tree (T-3503), and the published mirror passed the smoke at BOTH viewports in the \`smoke\` job before this PR was opened (T-0165). Targets \`$BASE\` — the ref this bake was built from (T-0454). Merging a \`dev\` bake publishes the /4d/dev/ preview only, and production moves on owner dispatch." \
             --head "$BRANCH"); then
             PR_NUM="$out"
           else
@@ -1058,7 +1134,7 @@ jobs:
   #
   # Every GitHub call is REST (`gh api`, `gh release upload|download`), per T-0234.
   publish-bundle:
-    needs: [bake, smoke]
+    needs: [bake, gate, smoke]
     if: needs.bake.outputs.bundle == '1'
     runs-on: ubuntu-latest
     timeout-minutes: 15

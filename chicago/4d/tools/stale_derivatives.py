@@ -2,6 +2,7 @@
 """Which masters does a whole-town bake actually have to derive? (T-2314)
 
     python3 tools/stale_derivatives.py              # comma list, possibly empty
+    python3 tools/stale_derivatives.py --reuse-packaged   # restore Glessner's first (T-3503)
     python3 tools/stale_derivatives.py --self-test
 
 `tools/bake.sh` with no `--only` regenerates every master and then handed all of them
@@ -24,6 +25,15 @@ asks it the same question one step earlier. A master is printed when
 and every version master (`assets/gltf/versions/*/*/*.glb`) is printed always: their
 freshness lives in `tools/structure_versions.py`'s receipts, not in this record, and
 there are four of them, so a whole-town bake derives them exactly as it always did.
+
+Glessner's v4 derivatives are the one pair this test could never pass on a fresh
+checkout: they are untracked (too large to commit, kept as a verified package and
+materialized at publish), so the master always read "underived" and every whole-town
+bake re-encoded it — 18 of its 20.6 derivative minutes on 2026-11-07/08, for bytes
+identical to the package (T-3503). `--reuse-packaged`, which bake.sh runs just before
+asking, restores them from the package when the master in the tree is the packaged
+master (`recover_glessner_v4.reuse_derivatives`), so a Glessner that did not move is
+skipped like any other master, and one that did is derived as before.
 
 What this CANNOT see is a change to the recipe — `web_derivatives.sh`'s flags or its
 pinned packages. K40 decided against recording a script hash (it would have
@@ -58,6 +68,44 @@ def stale(root: pathlib.Path) -> list[str]:
             out.append(name)
     out += sorted(str(p.relative_to(gltf)) for p in gltf.glob("versions/*/*/*.glb"))
     return out
+
+
+def reuse_packaged(root: pathlib.Path) -> str:
+    """Restore Glessner's packaged derivatives and RECORD them, as their producer would (T-3503).
+
+    Restoring the files is half of what deriving them did. The producer's other half
+    is `structure_versions.py record-web`, which checks the light tier's receipt
+    against the master and the LOD recipe and writes `web_master_sha256` and
+    `web_lods` onto the master's entry in assets/manifest.json — the entry the bake's
+    generate step has just rewritten without them, and the one
+    measure_web_derivatives.py reads to tell the light tier from an orphan. The
+    first content build of this change restored the files without it, and publish
+    refused `glessner_house__as_built_1887.light.glb has no master`. So the record
+    runs whenever all three files are the packaged ones; if it refuses, the restored
+    files are taken back out and the master is derived as before. Never a red bake.
+    """
+    import subprocess
+    from recover_glessner_v4 import drift, reuse_derivatives, targets
+    try:
+        count, why = reuse_derivatives(root)
+    except Exception as error:  # noqa: BLE001 — zipfile's BadZipFile included
+        # A corrupt package is publish's to refuse (it materializes the same
+        # archive); here it only means this bake derives Glessner itself.
+        return f"the Glessner v4 package would not verify ({error}): derive it"
+    master, *derived = targets(root)
+    if not (root / master).is_file() or drift(root):
+        return why
+    key = master[len("assets/gltf/"):]
+    done = subprocess.run([sys.executable, str(root / "tools" / "structure_versions.py"),
+                           "record-web", key], cwd=root, capture_output=True, text=True)
+    if done.returncode != 0:
+        if count:
+            for name in derived:
+                (root / name).unlink(missing_ok=True)
+        said = (done.stdout + done.stderr).strip().splitlines()
+        return (f"record-web refused the packaged Glessner derivatives "
+                f"({said[-1].strip() if said else f'exit {done.returncode}'}): derive it")
+    return why + (f" ({count} file(s))" if count else "") + "; recorded with record-web"
 
 
 def self_test() -> int:
@@ -100,4 +148,7 @@ def self_test() -> int:
 if __name__ == "__main__":
     if "--self-test" in sys.argv[1:]:
         sys.exit(self_test())
+    if "--reuse-packaged" in sys.argv[1:]:
+        print(f"   {reuse_packaged(ROOT)} (T-3503)")
+        sys.exit(0)
     print(",".join(stale(ROOT)))

@@ -1,0 +1,168 @@
+{
+  "id": "hi_camp_gathering_1812_middle_020",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "gathering_1812_middle_020",
+  "appearance": {
+    "asset_id": "potawatomi_woman_1812"
+  },
+  "placement": {
+    "local_e": 770.06,
+    "local_n": -163.97,
+    "heading_deg": 324.2,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.225
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "spans": [
+          {
+            "from": 0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_middle",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 770.06,
+              "local_n": -163.97,
+              "heading_deg": 324.2
+            },
+            "activity": "stand",
+            "doing": "up at the lodge door, the fire made up"
+          },
+          {
+            "from": 6.5,
+            "to": 7.5,
+            "indoors": false,
+            "at": {
+              "local_e": 768.79,
+              "local_n": -162.74,
+              "heading_deg": 237.8
+            },
+            "activity": "talk",
+            "doing": "eating with the lodge",
+            "knot": "meal_potawatomi_camp_1812_middle_lodge5"
+          },
+          {
+            "from": 7.5,
+            "to": 12,
+            "indoors": false,
+            "at": {
+              "local_e": 770.06,
+              "local_n": -163.97,
+              "heading_deg": 324.2
+            },
+            "activity": "work",
+            "doing": "tying back a loose mat on the lodge",
+            "spots": [
+              {
+                "local_e": 770.79,
+                "local_n": -163.45
+              },
+              {
+                "local_e": 769.59,
+                "local_n": -163.07
+              }
+            ]
+          },
+          {
+            "from": 12,
+            "to": 13.5,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_middle",
+            "doing": "out of the midday sun in the lodge"
+          },
+          {
+            "from": 13.5,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 770.06,
+              "local_n": -163.97,
+              "heading_deg": 324.2
+            },
+            "activity": "work",
+            "doing": "tying back a loose mat on the lodge",
+            "spots": [
+              {
+                "local_e": 770.79,
+                "local_n": -163.45
+              },
+              {
+                "local_e": 769.59,
+                "local_n": -163.07
+              }
+            ]
+          },
+          {
+            "from": 17.5,
+            "to": 18.75,
+            "indoors": false,
+            "at": {
+              "local_e": 768.79,
+              "local_n": -162.74,
+              "heading_deg": 237.8
+            },
+            "activity": "talk",
+            "doing": "the evening meal with the lodge",
+            "knot": "meal_potawatomi_camp_1812_middle_lodge5"
+          },
+          {
+            "from": 18.75,
+            "to": 21.5,
+            "indoors": false,
+            "at": {
+              "local_e": 770.06,
+              "local_n": -163.97,
+              "heading_deg": 324.2
+            },
+            "activity": "stand",
+            "doing": "evening at the lodge door"
+          },
+          {
+            "from": 21.5,
+            "to": 24,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_middle",
+            "doing": "asleep in the lodge"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-08-12",
+      "to": "1812-08-16"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": true,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "One of the gathering carded by T-3500 and drawn (about one in five), at the door of their own lodge by day and asleep in it by night; the hours, places and work are ours (liberty L-1812-gathering-people-3500); nothing of the 15th is staged.",
+    "sources": [
+      "quaife_1913"
+    ],
+    "liberty": "L418",
+    "seed": "gathering_1812_middle_020:T-3500:20261108",
+    "replaceable_by": "An account of the camp that says who lodged where and what they did."
+  }
+}

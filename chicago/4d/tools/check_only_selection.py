@@ -332,7 +332,7 @@ def run_bake(script: str, blender_exit: int, emits: tuple[str, ...], *args: str)
         for name in ("web_derivatives.sh", "publish.sh", "check.sh"):
             (root / "tools" / name).write_text(STUB_STEP)
             (root / "tools" / name).chmod(0o755)
-        for name in ("compile_scene.py", "stale_derivatives.py"):
+        for name in ("compile_scene.py", "stale_derivatives.py", "derive_doors_1812.py"):
             (root / "tools" / name).write_text("")
         log = root / "ran.log"
         log.write_text("")
