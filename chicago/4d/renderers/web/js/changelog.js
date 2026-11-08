@@ -1,4 +1,44 @@
 export const CHANGELOG = [ // newest first
+  { v: 2813, ts: '2026-11-08T00:39:34.866Z', date: 'Nov 7, 2026, 6:39 PM CT', title: 'Frances Glessner looks her age, and everyone blinks properly', kind: 'fix',
+    items: [
+      'Frances Glessner no longer looks young beside her 1892 photograph. Her face is fuller in the cheeks and jaw, with the start of a jowl and a level mouth, as the photograph shows.',
+      'Faces now show their age: folds beside the nose and mouth, creases under the eyes, crow\'s feet and forehead lines, with lids resting a little lower after 40. John Glessner at 73 shows it most.',
+      'Blinks close only the eyelids. Before, a blink pulled the whole band round the eyes down, forehead and all.',
+      'Eyelashes grow from the edge of the lid and close with it. They no longer read as a second, darker eyebrow.',
+      'Women\'s brows are finer and sparser, with a soft shade underneath. Frances\'s are a light brown, as her photograph shows them.',
+    ] },
+  { v: 2812, ts: '2026-11-08T00:39:34.866Z', date: 'Nov 7, 2026, 6:39 PM CT', title: 'Faces for the whole Glessner household', kind: 'feature',
+    items: [
+      'Mattie Williamson\'s face is fitted to her own 1890s portrait, and her card shows the two side by side.',
+      'No photographs are known of Mary Reynolds, Kate Ryan, Christine Nelson, Charles Nelson or August Billings. Each face is fitted to a stand-in instead: a period photograph of someone of the same age, country and work.',
+      'Each card shows the stand-in\'s photograph beside the model and labels it plainly: stand-in, not them.',
+    ] },
+  { v: 2811, ts: '2026-11-08T00:39:34.866Z', date: 'Nov 7, 2026, 6:39 PM CT', title: 'August Billings, the Glessners\' stable helper, in the stable yard', kind: 'feature',
+    items: [
+      'August Billings, the young Swedish helper the 1900 census finds living behind 1800 Prairie, now stands in the stable yard just inside the courtyard gates. Walk up to him to open his card.',
+      'He works in his shirt sleeves after a groom photographed about 1902: a striped shirt, black braces and a belt, dark trousers and a light felt hat.',
+    ] },
+  { v: 2810, ts: '2026-11-08T00:39:34.866Z', date: 'Nov 7, 2026, 6:39 PM CT', title: 'Charles Nelson, the Glessners\' coachman, at his stable doors', kind: 'feature',
+    items: [
+      'Charles Nelson, the Glessners\' Swedish coachman in the 1900 census, now stands on Eighteenth Street beside the carriage doors of the stable he lived behind. Walk up to him to open his card.',
+      'He wears a coachman\'s standing livery after a 1902 household manual\'s photograph: a long double-breasted bottle-green coat with two rows of bright buttons, white stock and gloves, white breeches, black top boots and a silk hat. It is not Hans Johnson\'s box coat and cape.',
+    ] },
+  { v: 2809, ts: '2026-11-08T00:39:34.866Z', date: 'Nov 7, 2026, 6:39 PM CT', title: 'Christine Nelson, the Glessners\' parlor maid, walks round the block', kind: 'feature',
+    items: [
+      'Christine Nelson, the Swedish parlor maid the 1900 census finds in the house, now walks round the Glessner block on its sidewalks with a market basket in her hand, up Prairie Avenue and along Eighteenth Street past the house, and on round. Walk up to her to open her card.',
+      'She wears a young working woman\'s street clothes of the decade, after a shirtwaist and a straw boater in the Met and photographs of working women: a white shirtwaist with a black bow, a navy walking skirt clear of the ground, and a straw sailor hat.',
+      'People walking a route now keep walking when you are not near, so she comes round again.',
+    ] },
+  { v: 2808, ts: '2026-11-08T00:39:34.866Z', date: 'Nov 7, 2026, 6:39 PM CT', title: 'Kate Ryan, the Glessners\' cook, at the foot of the service stair', kind: 'feature',
+    items: [
+      'Kate Ryan, the Irish cook the 1900 census finds in the house at 1800 Prairie, now stands in the courtyard at the foot of the service stair. Walk up to her to open her card.',
+      'She is in her own working dress, after older cooks photographed in 1901 and 1903: a dark print dress with the sleeves rolled up, a broad checked apron wrapped round the skirt, and a cloth tied over her hair.',
+    ] },
+  { v: 2807, ts: '2026-11-08T00:39:34.866Z', date: 'Nov 7, 2026, 6:39 PM CT', title: 'Stand-in likenesses', kind: 'feature',
+    items: [
+      'When no photograph of a person is known, their face can be fitted to a stand-in: a period photograph of someone of the same sex, age, heritage and work.',
+      'The card says so plainly: the picture is captioned and labelled as a stand-in, not them, and the face is graded reconstructed.',
+    ] },
   { v: 2806, ts: '2026-11-08T00:14:10.233Z', date: 'Nov 7, 2026, 6:14 PM CT', title: 'Pullman house: From this spot stands where the c. 1900 photographer stood', kind: 'fix',
     items: [
       'On the Pullman house\'s Photos tab, From this spot for the Detroit Publishing photograph of about 1900 used to put you in the middle of 18th Street, level with the stable. It now stands you on Calumet Avenue, about 30 m south of 18th Street, looking north-west across the crossing, which is where the picture was taken. The house\'s flank and its carriage porch now line up with the photograph from there.',
