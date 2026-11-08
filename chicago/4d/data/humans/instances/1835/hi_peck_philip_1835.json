@@ -18,7 +18,66 @@
     "phase": 0.55
   },
   "behaviour": {
-    "state": "standing"
+    "state": "standing",
+    "day": [
+      {
+        "note": "Reconstructed day (L-t3516-days, T-3516): docs/RESEARCH/people-days-1835-1904/days.py.",
+        "spans": [
+          {
+            "from": 0,
+            "to": 6,
+            "indoors": true,
+            "where": "peck_store",
+            "doing": "asleep at the store"
+          },
+          {
+            "from": 6,
+            "to": 7,
+            "indoors": true,
+            "where": "peck_store",
+            "doing": "breakfast"
+          },
+          {
+            "from": 7,
+            "to": 11.75,
+            "indoors": false,
+            "at": {
+              "local_e": 437.5,
+              "local_n": -1.2,
+              "heading_deg": 290
+            },
+            "activity": "stand",
+            "doing": "at the store front: goods in and out, the stock looked over"
+          },
+          {
+            "from": 11.75,
+            "to": 12.25,
+            "indoors": true,
+            "where": "peck_store",
+            "doing": "dinner"
+          },
+          {
+            "from": 12.25,
+            "to": 18.5,
+            "indoors": false,
+            "at": {
+              "local_e": 437.5,
+              "local_n": -1.2,
+              "heading_deg": 290
+            },
+            "activity": "stand",
+            "doing": "at the store front: goods in and out, the stock looked over"
+          },
+          {
+            "from": 18.5,
+            "to": 24,
+            "indoors": true,
+            "where": "peck_store",
+            "doing": "supper, the books, asleep"
+          }
+        ]
+      }
+    ]
   },
   "interaction": {
     "selectable": true,

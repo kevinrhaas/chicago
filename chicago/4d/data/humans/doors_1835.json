@@ -1,0 +1,84 @@
+{
+ "format": "c4d-doors-scene/1",
+ "ticket": "T-3516",
+ "generated_by": "tools/derive_doors_scene.py",
+ "note": "Where each 1835 building a drawn person's day goes into is entered, and where one who answers stands. Asking at a door, going in and out: renderers/web/js/human-days.js.",
+ "structures": [
+  {
+   "structure": "peck_store",
+   "name": "P. F. W. Peck's Store",
+   "placement": {
+    "local_e": 428.149,
+    "local_n": -13.509,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "peck_store:front",
+     "leaf": {
+      "local_e": 434.24,
+      "local_n": -6.05
+     },
+     "step": {
+      "local_e": 434.24,
+      "local_n": -5.35
+     },
+     "outward_deg": 0.0,
+     "width_m": 1.02
+    },
+    {
+     "id": "peck_store:door2",
+     "leaf": {
+      "local_e": 440.39,
+      "local_n": -10.16
+     },
+     "step": {
+      "local_e": 441.09,
+      "local_n": -10.16
+     },
+     "outward_deg": 90.0,
+     "width_m": 0.92
+    },
+    {
+     "id": "peck_store:door3",
+     "leaf": {
+      "local_e": 440.39,
+      "local_n": -9.23
+     },
+     "step": {
+      "local_e": 441.09,
+      "local_n": -9.23
+     },
+     "outward_deg": 90.0,
+     "width_m": 0.92
+    }
+   ],
+   "asset_sha256": "1f8acb85cc3090d79383f8c22f9a091f02ca0a50a867cd9d63634c1b265391a0"
+  },
+  {
+   "structure": "recon_1835_blk_south_water_lasalle_d1_04",
+   "name": "Reconstructed D1 older log dwelling #04",
+   "placement": {
+    "local_e": 519.584,
+    "local_n": -11.941,
+    "rotation_deg": 359.54
+   },
+   "doors": [
+    {
+     "id": "recon_1835_blk_south_water_lasalle_d1_04:front",
+     "leaf": {
+      "local_e": 522.2,
+      "local_n": -5.08
+     },
+     "step": {
+      "local_e": 522.19,
+      "local_n": -4.38
+     },
+     "outward_deg": 359.5,
+     "width_m": 1.26
+    }
+   ],
+   "asset_sha256": "b8184b274831a2ac14e70b9c23146872701b0049cd5bb5c35de15a2bb73fa891"
+  }
+ ]
+}

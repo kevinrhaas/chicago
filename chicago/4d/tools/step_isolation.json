@@ -3939,6 +3939,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/derive_doors_scene.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/derive_evacuation_1812.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -4296,6 +4300,10 @@
       "wrote_ignored": []
     },
     "tools/ktx2_sheets.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/lay_crossing_boats_1812.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5702,6 +5710,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_crossings.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_daybook.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6079,6 +6091,10 @@
       "wrote_ignored": []
     },
     "tools/test_human_potawatomi_man_1812.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_rounds.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

@@ -271,6 +271,23 @@ const cache = new Map();
 const patched = new WeakSet();
 
 /**
+ * T-3510: the pair a substrate was ALREADY loaded with for this page and tier, or null —
+ * never a load. The 1812 crossing boats (crossings.js) wear the hewn-log face the town's
+ * log walls already hold, so they add no texture to a phone; where the walls were not
+ * bound (`?walls=flat`, a failed sheet) the boats fall back to their own flat colour.
+ */
+export async function loadedSubstrate(substrate, { assetBase = resolveBases().assetBase, lowSpec = false } = {}) {
+  const pending = cache.get(`${assetBase}|${lowSpec ? 'light' : 'full'}`);
+  if (!pending) return null;
+  try {
+    const set = (await pending).get(substrate);
+    return set ? { normal: set.normal, orl: set.orl, tileM: set.tileM, meanRough: set.meanRough } : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
  * Load both substrates. Resolves to `{ problem, apply(material, sidecar) }`;
  * `apply` returns the grain to write into `_grain` for this material's vertices,
  * or `null` when the material is not a bound wall.

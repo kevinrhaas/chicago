@@ -29286,8 +29286,21 @@ how they were set out and what each looked like is ours. Every record is `review
 **How to resolve:** a count or a map of the lodges of August 1812; a picture or a description of a
 Potawatomi camp at Chicago in those years; the judgement of Native scholars or community
 organisations, which may change the forms, the number or whether the camp is drawn at all.
-**Ticket:** T-2515 (piece 2 of T-2490; the date move was T-2514); rebuilt by T-3342.
-**Recorded:** 2026-10-15 (T-2515).
+**The worn ground, redrawn (T-3511, 2026-11-08).** The owner, from 715 ft: *"the camps look oddly
+regular, maybe that is the case that they are very round like that, but I would expect more
+variation, but check me on that"*. The rounded patches were ours, and nothing supports them: Currey
+has "groups of Indian wigwams clustered along the creek", and the witnesses of the 1833 treaty
+gathering (Andreas 1884 v1) put the Potawatomi "encamped on all sides on the wide, level prairie
+... beneath the low wood which chequered them, on the sides of the small river" and "in groups in
+their wigwams scattered about on the prairie". No account of a Potawatomi camp at Chicago describes
+rows or a ring. So each group's worn patch is now the ground round its own lodges, fires, racks and
+stakes as the archetype lays them (`tools/generate_camp_ground_1812.py`: a disc round each item,
+sized by what it is, smoothed, frayed by a seeded wobble, held within 1 m of the footprint), and no
+two are alike. The lodges did not move. What is ours: how far round each thing the ground wore (0.9 m
+round a bundle to 2.9 m round an arbor), the fray and the smoothing. The grounds' own places, which
+still sit 40-60 m apart on level ground, are unchanged.
+**Ticket:** T-2515 (piece 2 of T-2490; the date move was T-2514); rebuilt by T-3342, T-3511.
+**Recorded:** 2026-10-15 (T-2515); 2026-11-08 (T-3511).
 **Revised:** 2026-11-03 (T-3342).
 **Covers:** `potawatomi_camp_1812_mouth.occupants`, `potawatomi_camp_1812_mouth.camp_1812.footprint`, `potawatomi_camp_1812_mouth.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_mouth.camp_1812.form.long_lodges`, `potawatomi_camp_1812_mouth.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_mouth.camp_1812.form.bark_houses`, `potawatomi_camp_1812_mouth.camp_1812.form.arbors`, `potawatomi_camp_1812_mouth.camp_1812.form.hearths`, `potawatomi_camp_1812_mouth.camp_1812.form.drying_racks`, `potawatomi_camp_1812_mouth.camp_1812.form.scaffolds`, `potawatomi_camp_1812_mouth.camp_1812.form.hide_frames`, `potawatomi_camp_1812_mouth.camp_1812.form.woodpiles`, `potawatomi_camp_1812_mouth.camp_1812.form.mortars`, `potawatomi_camp_1812_mouth.camp_1812.form.canoes`, `potawatomi_camp_1812_mouth.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_mouth.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_mouth.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_mouth.camp_1812.form.mat_condition`, `potawatomi_camp_1812_middle.occupants`, `potawatomi_camp_1812_middle.camp_1812.footprint`, `potawatomi_camp_1812_middle.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_middle.camp_1812.form.long_lodges`, `potawatomi_camp_1812_middle.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_middle.camp_1812.form.bark_houses`, `potawatomi_camp_1812_middle.camp_1812.form.arbors`, `potawatomi_camp_1812_middle.camp_1812.form.hearths`, `potawatomi_camp_1812_middle.camp_1812.form.drying_racks`, `potawatomi_camp_1812_middle.camp_1812.form.scaffolds`, `potawatomi_camp_1812_middle.camp_1812.form.hide_frames`, `potawatomi_camp_1812_middle.camp_1812.form.woodpiles`, `potawatomi_camp_1812_middle.camp_1812.form.mortars`, `potawatomi_camp_1812_middle.camp_1812.form.canoes`, `potawatomi_camp_1812_middle.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_middle.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_middle.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_middle.camp_1812.form.mat_condition`, `potawatomi_camp_1812_west_bank.occupants`, `potawatomi_camp_1812_west_bank.camp_1812.footprint`, `potawatomi_camp_1812_west_bank.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_west_bank.camp_1812.form.long_lodges`, `potawatomi_camp_1812_west_bank.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_west_bank.camp_1812.form.bark_houses`, `potawatomi_camp_1812_west_bank.camp_1812.form.arbors`, `potawatomi_camp_1812_west_bank.camp_1812.form.hearths`, `potawatomi_camp_1812_west_bank.camp_1812.form.drying_racks`, `potawatomi_camp_1812_west_bank.camp_1812.form.scaffolds`, `potawatomi_camp_1812_west_bank.camp_1812.form.hide_frames`, `potawatomi_camp_1812_west_bank.camp_1812.form.woodpiles`, `potawatomi_camp_1812_west_bank.camp_1812.form.mortars`, `potawatomi_camp_1812_west_bank.camp_1812.form.canoes`, `potawatomi_camp_1812_west_bank.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_west_bank.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_west_bank.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_west_bank.camp_1812.form.mat_condition`, `potawatomi_camp_1812_upper.occupants`, `potawatomi_camp_1812_upper.camp_1812.footprint`, `potawatomi_camp_1812_upper.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_upper.camp_1812.form.long_lodges`, `potawatomi_camp_1812_upper.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_upper.camp_1812.form.bark_houses`, `potawatomi_camp_1812_upper.camp_1812.form.arbors`, `potawatomi_camp_1812_upper.camp_1812.form.hearths`, `potawatomi_camp_1812_upper.camp_1812.form.drying_racks`, `potawatomi_camp_1812_upper.camp_1812.form.scaffolds`, `potawatomi_camp_1812_upper.camp_1812.form.hide_frames`, `potawatomi_camp_1812_upper.camp_1812.form.woodpiles`, `potawatomi_camp_1812_upper.camp_1812.form.mortars`, `potawatomi_camp_1812_upper.camp_1812.form.canoes`, `potawatomi_camp_1812_upper.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_upper.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_upper.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_upper.camp_1812.form.mat_condition`, `potawatomi_camp_1812_south_reach.occupants`, `potawatomi_camp_1812_south_reach.camp_1812.footprint`, `potawatomi_camp_1812_south_reach.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_south_reach.camp_1812.form.long_lodges`, `potawatomi_camp_1812_south_reach.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_south_reach.camp_1812.form.bark_houses`, `potawatomi_camp_1812_south_reach.camp_1812.form.arbors`, `potawatomi_camp_1812_south_reach.camp_1812.form.hearths`, `potawatomi_camp_1812_south_reach.camp_1812.form.drying_racks`, `potawatomi_camp_1812_south_reach.camp_1812.form.scaffolds`, `potawatomi_camp_1812_south_reach.camp_1812.form.hide_frames`, `potawatomi_camp_1812_south_reach.camp_1812.form.woodpiles`, `potawatomi_camp_1812_south_reach.camp_1812.form.mortars`, `potawatomi_camp_1812_south_reach.camp_1812.form.canoes`, `potawatomi_camp_1812_south_reach.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_south_reach.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_south_reach.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_south_reach.camp_1812.form.mat_condition`, `potawatomi_camp_1812_horse_ground.occupants`, `potawatomi_camp_1812_horse_ground.camp_1812.footprint`, `potawatomi_camp_1812_horse_ground.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_horse_ground.camp_1812.form.long_lodges`, `potawatomi_camp_1812_horse_ground.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_horse_ground.camp_1812.form.bark_houses`, `potawatomi_camp_1812_horse_ground.camp_1812.form.arbors`, `potawatomi_camp_1812_horse_ground.camp_1812.form.hearths`, `potawatomi_camp_1812_horse_ground.camp_1812.form.drying_racks`, `potawatomi_camp_1812_horse_ground.camp_1812.form.scaffolds`, `potawatomi_camp_1812_horse_ground.camp_1812.form.hide_frames`, `potawatomi_camp_1812_horse_ground.camp_1812.form.woodpiles`, `potawatomi_camp_1812_horse_ground.camp_1812.form.mortars`, `potawatomi_camp_1812_horse_ground.camp_1812.form.canoes`, `potawatomi_camp_1812_horse_ground.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_horse_ground.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_horse_ground.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_horse_ground.camp_1812.form.mat_condition`
 
@@ -30547,8 +30560,18 @@ record of that spot is reading this pattern. Nothing a record states has moved.
 **How to resolve:** a plant-community record for the 1835 plain (wet prairie, mesic prairie,
 sloughs), such as one read from the federal land survey's field notes, would replace the noise
 with evidence. The map's role is the slot such a record would fill.
-**Ticket:** T-2552.
-**Recorded:** 2026-10-16.
+**From the air (T-3514, 2026-11-08).** The owner, from 715 ft over the 1812 camp: *"from above it looks
+very patchy regular repeating pattern on the ground. While you don't see this while walking you can see how
+regular it looks from above"*. Two repeats were still showing: inside each 22 m band the 11 m tile, and,
+further out, the far sward's grain (T-2783), one small tile that a grazing view compresses into streaks
+but that, looked down on, is a checker to the horizon. So past ~110 m the tile hands up to 0.78 of its say
+to a second read of this same map at a sixth of its scale (3-45 m clumps, a 531 m repeat, turned 57
+degrees off the first), and the far sward's grain hands over to that read as the view steepens (fully
+at 0.34 radian down; every far fragment a walker sees is under 0.12). Both are read over their own
+means, so no albedo moves, and on foot nothing changes. The scale, the angles, the shares and the
+steepness band are ours.
+**Ticket:** T-2552, T-3514.
+**Recorded:** 2026-10-16; 2026-11-08 (T-3514).
 
 
 ### L-k01-1812-wheeler-front-2543 — 1812 Prairie refined from the district draft to a K01 house built from Albert Levy's photograph: its massing, south projection and shaped Flemish gable read through a solved camera, the rest the kits' until T-2544 and T-2545
@@ -31063,8 +31086,12 @@ under L-tree-architecture-2743.
 **How to resolve:** the original township plat's notes on the sand ridges, an early drawing or
 photograph of the lake shore south of Twelfth Street or north of the harbour before the fills, or a
 botanical record of the Chicago dunes before 1860 naming the cedar and the pine.
-**Ticket:** T-2768.
-**Recorded:** 2026-10-18 (T-2768).
+T-3513 (2026-11-08): the scanty reach is read at 8-18 stems a hectare instead of 3-9, in the same
+clumps and the same two species. The owner asked for the battle shore's look along the whole shore;
+Currey's word is still "scanty", so the reach stays thinner than the cedar hills south of it, and
+the cedars stay where Clarke puts the sand hills. The new figure is ours, as the old one was.
+**Ticket:** T-2768, T-3513.
+**Recorded:** 2026-10-18 (T-2768); 2026-11-08 (T-3513).
 
 ### L-woods-structure-2807 — The woods in clumps and openings, young trees in the gaps, and the thicket at the woods' prairie edge
 
@@ -40630,8 +40657,18 @@ T-3457 (2026-11-07, the owner: "minimize or eliminate the grass in the worn path
 grass off the worn ground harder than the earth shows: inside a yard and on a trail's core about 96 in 100 plants
 go whatever the wear, and round each yard the grass thins out over 1.8 times its earth's feather, never nearer than a
 fifth of that band to the yard, before it frays back to prairie. That share, that reach and that floor are ours.
-**Ticket:** T-3339, T-3401, T-3457.
-**Recorded:** 2026-11-03 (T-3339); the stack yard 2026-11-06 (T-3401); the grass 2026-11-07 (T-3457).
+T-3512 (2026-11-08, the owner: *"The camps are also missing natural worn paths to each other and
+the river and maybe even to the fort or factor house"*) adds the camp's own paths to the same file
+and rule: the Potawatomi grounds joined by their minimum spanning tree plus every link under 75 m
+it left out; from each ground within 170 m of open water a path to the bank, nearest first, a later
+one ending where it meets one already worn and sharing a landing within 70 m (Wau-Bun ch. XIX: water
+dipped "from a stream that flowed near"); and from the ground nearest the factory a path toward the
+agent's door that ends where it meets the south-bank path. A new route walks an already-worn line at
+0.4 of the cost of grass and stops where it reaches it. Every one of those numbers, every line, its
+width (0.8-1.1 m) and its wear (0.4-0.65) is ours; that a gathering of some seven hundred people
+camped for days a few dozen metres apart wore such lines is our reading.
+**Ticket:** T-3339, T-3401, T-3457, T-3512.
+**Recorded:** 2026-11-03 (T-3339); the stack yard 2026-11-06 (T-3401); the grass 2026-11-07 (T-3457); the camp paths 2026-11-08 (T-3512).
 
 ### L-t3492-underpinnings-1812 — the stone under the factory's and the interpreter's sills, and their doorsteps
 
@@ -40721,8 +40758,20 @@ the height band that makes a hollow (fully wet below 0.96 m, none above 1.32 m),
 past the Wells Street line rather than stopping at it. **How to resolve:** the 1821-22 federal
 survey's field notes for the South Branch townships (line trees, "timber" and "prairie" calls along the section
 lines south of the forks), or an early map that draws the timber along the South Branch.
-**Ticket:** T-3340.
-**Recorded:** 2026-11-03 (T-3340).
+**The pockets of low wood (T-3513, 2026-11-08).** The owner: *"from above I think south of the river
+you would have had more trees like pockets of trees scattered"*. A third kind, the **pocket**: on the
+dry plain east of the South Branch (0.82 m and more above the summer water, 70 m and more from it,
+where no wood or dune stands; the sand plain east of Wells included), a coarse field picks the few
+patches that carry a pocket of low wood: bur oak, white oak and cottonwood, grown at 0.52-0.86 of
+their full size. **What is read:** Latrobe at the treaty of 1833, the one account of the plain round
+the town as a whole (Andreas 1884 v1): the Potawatomi "encamped on all sides on the wide, level
+prairie ... beneath the low wood which chequered them"; the oak opening as the lake plain's woody
+community on dry ground (McBride and Bowles, ZONE 7). **What is invented:** which patches (a 150 m
+field cut at 0.70), their density (22-52 a hectare inside a pocket), the species weights, the low
+scale and the caps (1,300 / 800 / 380 stems at full / balanced / light). 1833 is read back to 1812
+because nothing between them cleared the plain.
+**Ticket:** T-3340, T-3513.
+**Recorded:** 2026-11-03 (T-3340); the pockets 2026-11-08 (T-3513).
 
 
 ### L-sauganash-entrance-lower-sash-2383 — Sauganash entrance and four lower sash
@@ -41905,6 +41954,17 @@ the town.
 **Ticket:** T-3419 (a piece of T-3415).
 **Recorded:** 2026-11-06 (T-3419).
 
+**The touch of the hat, 2026-11-08 (T-3515):** the owner, "when the coachman or glessner greet you
+their hand goes through their hat, if people in any time period greet you and tip their hat their hand
+should not penetrate". The greeting had put the fingertips at a fixed point by the brow, inside every
+crown. A man in a hat now takes his brim where it is: the edge of the lowest part of the hat he is
+wearing, read off its own mesh, 55 degrees round from straight ahead toward his right hand, at its
+underside; his fingertip pads come to it from outside and below, the fingers up and a little in, the
+palm toward his head, and every part of the hand (balls laid along the skin of each finger, a glove's
+where he wears one) is kept 3 mm off every triangle of the hat, stepping out where a brim turns up or a
+cocked hat's side flares. A man bareheaded keeps the touch to the brow. The bearing, the clearance and
+the hand's angles are chosen by eye against the gesture, not measured from any person or picture.
+
 ### L-human-variation-3412 — Every person drawn gets their own height, build and face
 
 **Decision:** every figure drawn by `humans.js` takes its own shape from the shared body all figures wear,
@@ -42547,6 +42607,22 @@ wagons and teams it had and who drove them; a drawing of the post's wagons would
 **Ticket:** T-3504.
 **Recorded:** 2026-11-08.
 
+### L-t3505-rounds — A talk comes and goes; between, each person is at their own job or at play; breaks indoors
+
+**Decision:** the owner, 2026-11-08: *"I do not want to have everyone standing in groups talking, it's fine if there are conversations that come together and break up, but the whole day of theirs should not be spent talking, they should be doing something their duty or other normal activities. Some if not many can be inside because that might be normal, so please give everyone a purpose and role for every part of the day"*, and *"the people should look natural that they are doing ordinary things on a loop for example. They can take breaks and go in and out of houses and buildings"*. The scene's hour stands still while the visitor looks about, so the renderer plays each span as a round on its own clock (`renderers/web/js/human-days.js`, seeded, the same on every load). (1) **A talk is a gathering that comes and goes.** A talk of two or more (written, or a company of people standing together) gathers every 75-150 s (each knot its own beat) for 24-52 s; each of its people is seeded to come or not each time (three in four; two at least), stands in its ring and talks, and goes back. (2) **Between, a job of one's own.** Each one works 1.8-3.4 m out from the ring, turned from it, between that place and two more 1.2-2.6 m about it; a child plays, walking between three places 2.5-6 m apart. A talk that names no one else is a job. (3) **Breaks indoors.** Someone at a job or a talk whose day has them in a building with a door within 45 m of their place now and then goes in, for 28-75 s in about half of every 150-330 s, and comes out again; while in they are offered at that door as anyone inside is. (4) **One place each.** Two or more people whose jobs name one spot at once (three of the militia) work at places of their own about it, 0.95 m apart. Every place of a job is clear of the buildings and never across the fort's pickets (`clearWayOf`, the walker's footprints).
+**Not invented:** anyone's place, company, hours or building; nobody is put into a building their day does not have them in.
+**Re-opens on:** a source that says what a person was doing at a given hour, which goes into their day reading and is then played as written.
+**Ticket:** T-3505.
+**Recorded:** 2026-11-08.
+
+### L-t3516-days — A working day for each drawn person of 1835 and 1904, with breaks in and out of their own door
+
+**Decision:** the owner, 2026-11-08: *"give everyone a purpose and role for every part of the day. This is for all years starting with 1812"*, and *"They can take breaks and go in and out of houses and buildings"*. Each drawn person of 1835 and 1904 has a day (`docs/RESEARCH/people-days-1835-1904/days.py`), played as 1812's are (`renderers/web/js/human-days.js`, L-t3505-rounds): out at the place the record already stands them, at a job about it, in their building at night and for a meal. (1) **1835.** Philip F. W. Peck in and out of his store (Andreas 1884: he kept it and lived in it), out at its front 7-11.45 and 12.15-18.30; Mary Flynn in and out of her log house, at her dooryard 5.30-11 and 12-17.30; Patrick Mahoney (a labourer, no fixed premises) on the river bank 5.30-18.30 and Otis Bardwell (a teamster) at his wagon in the tavern yard 5.30-19, each off the scene at night, since no record names where they lodged. (2) **1904.** The Glessners' cooks (Mattie Williamson, Kate Ryan) and stable helper (August Billings) out in the court, the maid (Mary Reynolds) at the servants' entry and the coachman (Charles Nelson) at the stable doors on Eighteenth Street, through the morning and the afternoon, in the house at night and for its meals. Each group gathers now and then about the one of them nearest their middle. (3) **Their doors.** Read off the 1835 models (`tools/derive_doors_scene.py`, as 1812's); Glessner's from its record: the court's service entrance, entered at the foot of its service stair (the climb to the landing door is not walked), the north entry's alcove and the stable's carriage doorway. The family (John J. and Frances) keep to the front door's own comings and goings (T-3443, T-3444), and Christine Nelson to her errand route.
+**Not invented:** anyone's place, trade or building; the hours of each day are.
+**Re-opens on:** a source that says what one of them was doing at a given hour, or where Mahoney or Bardwell lodged.
+**Ticket:** T-3516.
+**Recorded:** 2026-11-08.
+
 ### L-1812-gathering-people-3500 — A card for everyone of the August 1812 gathering and of Wells's escort, and Louis Fettle: sex, age, lodge, who is drawn and their day
 
 **Decision:** the owner, 2026-11-08, after the spike that counted about 820 people at Chicago on 14 August 1812: *"Card all, draw a sample"*, *"The remainder would be in buildings and I can ask them to come out and meet them"*. Helm's narrative (Quaife 1913, Appendix VI) counts the gathering at Wells's council as *"500 warriors 179 women & children"* and the escort as *"27 Miamis"*; T-3461 and T-3463..T-3467 had carded 42 Potawatomi and 8 Miamis. `docs/RESEARCH/gathering-people-1812-3500/build.py` cards the other 476 men, 50 women and 111 children of the gathering in twelve households, one for each camp ground of T-3342 and T-3499 (`hh_gathering_<ground>_1812`), the other 19 of the escort at its camp (`hh_miami_escort_camp_1812`), and Louis Fettle (`hh_fettle_louis_1812`). Seven things are ours. (1) **Sex and age.** Helm's split is followed to the person; each age is seeded (men 16-60, most about 28; women 16-62; children 0-15), and a child under three is carried: carded, neither drawn nor called out at a door. (2) **Which lodge.** T-3499's four men's grounds take men only, about 57 each; the women and children go to the family grounds in proportion to the room T-3499's occupancy rule leaves there, each woman with two or three children and a man in one lodge, and the rest of the men fill the family grounds. Which family had which lodge is recorded nowhere. (3) **Who is drawn.** About one in five, seeded per person (114): asleep in their lodge at night, out at its door at a camp's ordinary work by day, eating with whoever of their lodge is drawn, the men of a ground talking together in the afternoon; on the 15th the men are away from the camp from 7:30 to 13:00, as the T-3467 people are. Every point stands clear of every lodge, rack and woodpile of the ground's model. (4) **Everyone else** (520) is listed in `data/humans/inside_1812.json` at their own lodge's door, where Ask for calls them out in their dress. (5) **The look.** Heritage, not a description: black hair (grey from 55), dark eyes, a brown complexion drawn copper, a few lighter or darker; stature seeded about the period's means, children's by age; no feature exaggerated. (6) **Wells's escort's camp.** The eight drawn Miamis of T-3467 move from their bivouac by the south stable to `miami_escort_camp_1812` (T-3499): every point of theirs by the bivouac moves the same 28 m west and 99 m south onto clear ground, a night asleep by the fire becomes a night in the lodges, and their walks to the river and the gate run by way of the old bivouac to the camp's north edge. (7) **Louis Fettle's home.** Currey's *"small cabin near the Kinzie house"* is read as one of the four houses of 1808 (`data/exclusions.json` `pettell_cabin_1812`), La Lime's or Le Mai's; La Lime lived in his until 17 June 1812, so Fettle is put in Le Mai's and asked for at its door. Whether he was in the town on 14 August is uncertain, as his card says; his Indian wife (Quaife) is not named and not carded.
@@ -42554,6 +42630,16 @@ wagons and teams it had and who drove them; a drawing of the post's wagons would
 **Not invented:** Helm's counts and Heald's date for the escort (*"On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies"*, Appendix IV), each on every card with its quote; Fettle's years at Chicago, his wife and Quaife's guess that he was one of the twelve militia (Quaife ch. VI and Appendix IX). No card invents a name, band, kin or story; no speech, council, distribution, ceremony or act of war is staged (L1).
 **Re-opens on:** a roll, a letter or an account that names any of the gathering, counts it by band or by ground, or says where Wells's Miamis camped; anything that puts Louis Fettle in a house of 1812.
 **Ticket:** T-3500.
+**Recorded:** 2026-11-08.
+
+### L-1812-crossing-boats-3510 — Twelve boats drawn up at the 1812 river's crossings, each its own shape and weathering, a visitor Crosses in any of them, and the fort wharf's puncheon deck
+
+**Decision:** the owner, 2026-11-08: *"In 1812 there are no bridges so can you in all scenes and areas where we might want to cross like at some of the docks which need to me made photographic wood and at the forks at hardscrabble, at logical places up and down the river provide a small period appropriate boat or canoe that looks photographic correct and allow me to walk up to the boat and interact is board and cross river"*, *"The boats should look a bit different, different wood weathering and slightly different shape"*, and *"Don't add a bunch of docks, in most cases you should board from the bank other than maybe around the fort"*. `tools/lay_crossing_boats_1812.py` lays twelve boats (`data/boats/crossings_1812.json`): six dugout pirogues, four bark canoes and two plank skiffs, each drawn up bow-first on a bank of the 1812 river with a crossing to the far bank, except the garrison's skiff, which lies alongside the fort's wharf. `renderers/web/js/crossings.js` builds each hull at load from its own length, beam, depth, sheer, rocker and fullness, colours it by its own tone, silvering, waterline stain and bilge moss, and lets a visitor on foot Cross: step in, push off, paddle or row over, run ashore and step out; the boat stays on the bank it was taken to. The fort wharf (Whistler's no. 27, L-first-fort-water-2508) gets a deck of split-log puncheons on its crib top and its crib logs the hewn-log relief of the 1812 log houses. No dock, landing stage or texture is added.
+**What is recorded:** that the Kinzie family had boats at the landing below their house: Moses and Kirkland 1895, after Wau-Bun, of the night of the Lee's Place killings in April 1812, *"The family was hurried into two old pirogues [dug-out tree-trunks] that were moored near the house and paddled with all possible haste across the river to take refuge in the fort"*; so the two Kinzie pirogues are graded attested in existence. At Lee's Place on the South Branch near its forks (Moses and Kirkland), Currey 1912 has the discharged soldier, on 6 April 1812, walk *"down the path toward the canoes tied up at the river bank"*, so the farm's canoe and pirogue are graded the same way; that one is of bark and the other a dugout is ours. The wharf is Whistler's.
+**What is ours:** every other boat (the garrison's skiff at the wharf, Burns's skiff, the two bark canoes at the Potawatomi camp by the mouth, the pirogue at the forks, the pirogues below the Lee house and on the South Branch, the bark canoe on the North Branch) and every boat's place, bearing, hull dimensions, timber, colour and wear; which kind stands where (a dugout for the French and Métis households, a bark canoe at the camps, a sawn-plank skiff for the garrison and for a soldier's family); the paddles and oars; the crossing's pace (1.6 m/s) and its steps' durations; the puncheon deck (no source says how the wharf was floored), the split widths and the ragged river ends. Where a boat lies is derived from the 1812 ground: the bow up the bank with 30 % of the hull ashore, the stern afloat at its draft, the visitor's stand on dry ground clear of any building, and a path deep enough to float the boat all the way over. The reeds and grass are kept off a trodden landing round each drawn-up boat (a strip from the stand past the stern), which is ours too.
+**Not invented:** no person rows the visitor; no boat carries a name, owner's mark or cargo. The 1835 scene is untouched: its river (terrain epoch e1834_harbor_cut) has its bridge and ferries.
+**Re-opens on:** an account, inventory or drawing of the post's or the traders' boats in 1808-1812; a description of the wharf's deck; anything that places a ferry or canoe landing on the 1812 river.
+**Ticket:** T-3510.
 **Recorded:** 2026-11-08.
 
 ### L-1812-native-dress-3506 — Each Potawatomi and Miami person of 1812 dressed and wearing their hair as their own

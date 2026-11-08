@@ -612,6 +612,10 @@ step "Driven assembly retains named drivers, vehicle ownership and exact current
   node tools/test_driven_assembly.mjs
 step "The 1812 fort wagons' rows are what their layer writes: roads, stops and hours (T-3497)" \
   node tools/lay_driven_wagons_1812.mjs --check
+step "The 1812 crossing boats are what their layer writes: on dry banks, afloat at the stern, a path deep enough to float them over (T-3510)" \
+  python3 tools/lay_crossing_boats_1812.py --check
+step "Every 1812 boat builds, rests bow up the bank, and carries a visitor across and back with no jump, and the wharf's deck sits on its crib (T-3510)" \
+  node tools/test_crossings.mjs
 step "A seated driver breathes, looks round and holds his reins, bounded and deterministic, on the real 1904 driver (T-1790)" \
   node tools/test_driver_life.mjs
 step "People on foot breathe, shift weight with feet planted, look at a close visitor and blink irregularly, bounded and deterministic (T-3402)" \
@@ -628,6 +632,12 @@ step "1812 people keep their day: off their dates nowhere (Lalime gone by 14 Aug
   node tools/test_human_days.mjs
 step "Nobody stands in anybody else's place: a talk in a ring, people standing together talk, one alone is at a job, and every year's figures kept a body's width apart through the day (T-3504)" \
   node tools/test_human_spacing.mjs
+step "People keep busy all day: a talk gathers and parts again, each of its people at a job of their own or at play between, breaks indoors at their door and asked for there, every job's places clear of the buildings, the same round on every load; 1835 and 1904 too (T-3505, T-3516)" \
+  node tools/test_human_rounds.mjs
+step "1835's and 1904's drawn people's days are what days.py writes (T-3516)" \
+  python3 docs/RESEARCH/people-days-1835-1904/days.py --check
+step "The 1835 and 1904 buildings a day goes into are entered where the models and Glessner's record say (T-3516)" \
+  python3 tools/derive_doors_scene.py --check
 step "The 1812 town's people (Kinzie, Lalime, the officers, women, children, Potawatomi and Miami) are what place_town.py writes from their day readings, every indoor span at a building with a door (T-3463..T-3467)" \
   python3 docs/RESEARCH/people-1812-town/place_town.py --check
 step "The cards of the 1812 town's people the 14 August sweep left out (Lalime, Irwin, the Mirandeaus, the camp families, the Miami escort) are what cards.py writes (T-3463..T-3467)" \

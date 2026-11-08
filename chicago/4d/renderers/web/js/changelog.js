@@ -1,4 +1,40 @@
 export const CHANGELOG = [ // newest first
+  { v: 2835, ts: '2026-11-08T19:44:44.799Z', date: 'Nov 8, 2026, 1:44 PM CT', title: 'Cross the 1812 river by dugout, bark canoe or skiff', kind: 'feature',
+    items: [
+      'Twelve boats lie drawn up at the river\'s crossings: the Kinzie landing, the fort wharf, the forks, Lee\'s Place and the branches.',
+      'Walk up and Cross: you step in, push off, paddle or row over, run ashore and step out.',
+      'Each boat has its own shape and weathering; the boat stays on the bank you left it.',
+      'The fort wharf has a weathered puncheon deck and hewn-log crib.',
+      'Reeds are trodden flat at each landing so the boats show.',
+    ] },
+  { v: 2834, ts: '2026-11-08T19:44:44.799Z', date: 'Nov 8, 2026, 1:44 PM CT', title: '1835 and 1904 people keep busy: jobs, breaks indoors, in at night', kind: 'improvement',
+    items: [
+      'Peck at his store front and Mary Flynn at her dooryard in 1835 work through the day, go in and out of their own doors, and are in at night. Mahoney and Bardwell work the bank and the tavern yard.',
+      'In 1904 the Glessners\' cooks, stable helper, maid and coachman work about the court and Eighteenth Street. They gather now and then, and go in by the service stair, the north entry or the stable doors.',
+      'While someone is in, their door offers Ask for them, as in 1812.',
+    ] },
+  { v: 2833, ts: '2026-11-08T19:22:18.241Z', date: 'Nov 8, 2026, 1:22 PM CT', title: '1812: natural camp ground, camp paths, and pockets of low wood', kind: 'improvement',
+    items: [
+      'Each camp group\'s bare ground now follows its own lodges, fires and racks, so no two are the same shape; the lodges have not moved.',
+      'Worn paths link the camp groups, run down to the river at shared landings, and join the river path toward the agency and the factory.',
+      'Pockets of low oak and cottonwood wood now dot the dry prairie south of the river, after an 1833 visitor who saw the camps "beneath the low wood which chequered" the plain.',
+      'The dune scrub between the river mouth and the battle shore is about twice as thick, still Currey\'s "scanty growth of cottonwoods and pines".',
+      'From the air the prairie no longer shows a repeating checker pattern; on foot it looks as it did. This applies in every year.',
+    ] },
+  { v: 2832, ts: '2026-11-08T19:20:39.214Z', date: 'Nov 8, 2026, 1:20 PM CT', title: 'Tipping the hat: the hand meets the brim, never goes through it', kind: 'fix',
+    items: [
+      'A man who greets you touches his hat\'s brim from outside and below it; before, his fingers sank through the crown.',
+      'It holds for every hat in every year: Glessner\'s derby, the coachman\'s silk hat over his glove, felt and slouch hats, round hats, the tuque, the infantry cap, and the officers\' cocked hats with their plumes.',
+      'The brim is read off the hat he is wearing, so the hand finds it whether he is standing or walking, nodding or not.',
+      'Arms now reach exactly as far as each person\'s own height draws them.',
+    ] },
+  { v: 2831, ts: '2026-11-08T18:41:19.627Z', date: 'Nov 8, 2026, 12:41 PM CT', title: '1812 people keep busy: talks come and go, jobs between, breaks indoors', kind: 'improvement',
+    items: [
+      'A conversation in 1812 now gathers every minute or two and breaks up again, rather than lasting all day; who comes to each one changes from time to time.',
+      'Between conversations each person works at a job of their own a few metres off, and children play.',
+      'People whose house is nearby go indoors for a while and come out again. While they are in, the door offers Ask for them.',
+      'People who shared one work spot now get a spot each, and every job\'s places are clear of the buildings and the fort\'s pickets.',
+    ] },
   { v: 2830, ts: '2026-11-08T17:06:30.155Z', date: 'Nov 8, 2026, 11:06 AM CT', title: 'Content builds fit their time limit again', kind: 'chore',
     items: [
       'A full rebuild of the town no longer spends eighteen minutes re-encoding the Glessner house\'s textures into bytes it already ships; they are restored from the committed package when the house has not changed.',
