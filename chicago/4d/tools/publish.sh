@@ -757,6 +757,16 @@ cp -a data/humans/. "$SITE/data/humans/"
 # readings and the dress recipes are build and gate inputs the renderer never fetches.
 rm -rf "$SITE/data/humans/recipes"
 rm -f "$SITE"/data/humans/*.measure.json
+# T-3463: the people's instance records ship minified, as the residents do: the 1812 town's
+# 158 records are 0.86 MB of indentation a visitor never reads (humans.js fetches them with
+# response.json()). tools/check_published.mjs holds each to its source, value for value.
+node -e '
+const fs = require("fs"), path = require("path");
+const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) =>
+  e.isDirectory() ? walk(path.join(d, e.name)) : e.name.endsWith(".json") ? [path.join(d, e.name)] : []);
+for (const f of fs.existsSync(process.argv[1]) ? walk(process.argv[1]) : [])
+  fs.writeFileSync(f, JSON.stringify(JSON.parse(fs.readFileSync(f, "utf8"))));
+' "$SITE/data/humans/instances"
 if [ -d assets/humans/web ]; then
   cp -a assets/humans/web/. "$SITE/data/humans/web/"
   # T-3451: a figure that nothing in the town draws (no instance, pose binding,

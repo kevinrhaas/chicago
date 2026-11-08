@@ -30,6 +30,7 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import { checkSheets } from './share_glb_sheets.mjs';
 
 const HERE = path.dirname(new URL(import.meta.url).pathname);
@@ -273,6 +274,18 @@ const TRANSFORMED = [
     gate: 'share_glb_sheets.mjs --dir data/humans/web --check: named by its own hash, held by two or more GLBs, '
         + 'and a re-deflated PNG draws its source\'s pixels with its source\'s other chunks (samePngPixels).' },
   // T-3463: the browser fixture's readings and the dress recipes are not shipped (publish.sh).
+  { re: /^data\/humans\/instances\/.+\.json$/,
+    what: 'publish.sh writes the people\'s instance records minified — the same JSON value on one line (T-3463)',
+    gate: 'checked here: the SHIPPED file parses to a value deep-equal to its source data/humans/instances '
+        + 'record. The 1812 town\'s 158 records carried 0.86 MB of indentation; humans.js reads them with '
+        + 'response.json().',
+    verify: (rel) => {
+      const src = path.join(REPO, rel);
+      if (!existsSync(src)) return `${rel} is published but ${rel} does not exist in the repository`;
+      const same = isDeepStrictEqual(JSON.parse(readFileSync(src, 'utf8')),
+        JSON.parse(readFileSync(path.join(SITE, rel), 'utf8')));
+      return same ? null : `${rel} does not parse to its source's value; publish.sh only minifies it`;
+    } },
 ];
 
 const walk = (dir, base = '') => {
@@ -355,7 +368,12 @@ for (const rel of ['data/transport/driven/loops.json', 'data/transport/driven/hi
 
 for (const rel of walk(SITE)) {
   const t = TRANSFORMED.find((x) => x.re.test(rel));
-  if (t) { transformed.push({ rel, ...t }); continue; }
+  if (t) {
+    const bad = t.verify?.(rel);
+    if (bad) problems.push(bad);
+    transformed.push({ rel, ...t });
+    continue;
+  }
 
   const row = COPIES.find(([pfx]) => rel === pfx || rel.startsWith(pfx));
   if (!row) { unmapped.push(rel); continue; }

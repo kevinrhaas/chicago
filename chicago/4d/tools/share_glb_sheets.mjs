@@ -57,10 +57,40 @@ export const BUILD_EXTRAS = Object.freeze(['body_source_json', 'hair_source_json
   'skin_source_json', 'body_parameters_json', 'person_reference_summary_json']);
 const leanable = (json) => (json.scenes ?? []).some((sc) => BUILD_EXTRAS.some((k) => sc.extras?.chicago4d_human?.[k] !== undefined));
 export function leanExtras(json) {
+  let human = false;
   for (const sc of json.scenes ?? []) {
     const e = sc.extras?.chicago4d_human;
-    if (e) for (const k of BUILD_EXTRAS) delete e[k];
+    if (e) { human = true; for (const k of BUILD_EXTRAS) delete e[k]; }
   }
+  if (human) leanHumanJson(json);
+  return json;
+}
+
+/**
+ * T-3463: a figure's JSON chunk is about 90 KB of every GLB (a third of a far LOD), 10 MB
+ * across the people. Two things in it say nothing: properties written at their glTF 2.0
+ * default (an accessor's `normalized: false` and `byteOffset: 0`, a sampler's
+ * `interpolation: "LINEAR"`), and the float64 spelling of numbers that are float32 values
+ * (`0.00808150414377451`, which is the float32 0.0080815041). Defaults go; an accessor's
+ * min/max and a node's translation, rotation, scale and matrix are written as the shortest
+ * decimal that reads back as the SAME float32, and only where the number already is one, so
+ * nothing the GPU or the skeleton sees changes. Human GLBs only: the buildings are untouched.
+ */
+const f32Short = (x) => {
+  if (typeof x !== 'number' || Number.isInteger(x) || Math.fround(x) !== x) return x;
+  for (let p = 1; p < 17; p++) { const t = Number(x.toPrecision(p)); if (Math.fround(t) === x) return t; }
+  return x;
+};
+const shortAll = (a) => (Array.isArray(a) ? a.map(f32Short) : a);
+function leanHumanJson(json) {
+  for (const a of json.accessors ?? []) {
+    if (a.normalized === false) delete a.normalized;
+    if (a.byteOffset === 0) delete a.byteOffset;
+    if (a.min) a.min = shortAll(a.min);
+    if (a.max) a.max = shortAll(a.max);
+  }
+  for (const an of json.animations ?? []) for (const s of an.samplers ?? []) if (s.interpolation === 'LINEAR') delete s.interpolation;
+  for (const n of json.nodes ?? []) for (const k of ['translation', 'rotation', 'scale', 'matrix']) if (n[k]) n[k] = shortAll(n[k]);
   return json;
 }
 const JSON_CHUNK = 0x4E4F534A;
