@@ -68,6 +68,14 @@ const LAID_LOG_ARCHETYPES = new Set(['log_dwelling', 'outbuilding', 'fort_struct
  * runs up the post — the same map, the same program, one sign on the vertex.
  */
 const STANDING_LOG_ARCHETYPES = new Set(['palisade']);
+/**
+ * Records whose crib logs take the laid-log relief although their archetype's
+ * do not (T-3510). The first fort's wharf is where the 1812 crossings land, and
+ * a visitor stands on it at arm's length from its timbers; the 1835 harbour
+ * piers share the archetype and stay as they were, which is why this goes by
+ * record and not by `pier_crib`.
+ */
+const LAID_LOG_RECORDS = new Set(['first_fort_wharf']);
 
 /** A stated attribute's value, whether the record writes it bare or as `{ value, confidence }`. */
 function valueOf(a) {
@@ -98,7 +106,7 @@ export function wallRelief(sidecar) {
     }
   }
   let log = null;
-  if (LAID_LOG_ARCHETYPES.has(archetype)) {
+  if (LAID_LOG_ARCHETYPES.has(archetype) || LAID_LOG_RECORDS.has(sidecar?.id)) {
     log = { substrate: 'hewn_log', finish: null, grain: GRAIN_BARE };
   } else if (STANDING_LOG_ARCHETYPES.has(archetype)) {
     log = { substrate: 'hewn_log', finish: null, grain: GRAIN_BARE, upright: true };

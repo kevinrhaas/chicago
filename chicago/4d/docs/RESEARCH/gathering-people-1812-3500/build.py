@@ -613,13 +613,22 @@ def build():
                     men_talk = (seat, kid)
             spans = day_for(p, (at[0], at[1], hd), meal, work, 'miami' if p['kind'] == 'miami' else p['kind'], men_talk)
             variants = []
-            if p['kind'] == 'man':
+            if p['kind'] == 'man' and p['age'] <= 55:   # T-3509: the older men stay at the camp
                 variants.append(({'from': '1812-08-15', 'to': '1812-08-15'}, away(spans, 7.5, 13.0, 'away from the camp')))
             if p['kind'] == 'miami':
                 variants.append(({'from': '1812-08-13', 'to': '1812-08-13'}, away(spans, 0, 16.0, 'on the road from Fort Wayne (not drawn)')))
                 variants.append(({'from': '1812-08-15', 'to': '1812-08-15'}, away(spans, 9.0, 24.0, 'gone south with the column (not drawn)')))
             iid, rec = instance(pid, p, spans, variants, asset_of(p))
             files_inst[f'{iid}.json'] = rec
+    # T-3507..T-3509: names, histories and the 15th on every card (tools/native_cards_1812.py),
+    # avoiding the names the town cards (people-1812-town/cards.py) already gave.
+    import native_cards_1812 as nc
+    town = nc.on_disk([h for h in (f.stem for f in HH.glob('hh_*.json')) if h.startswith('hh_potawatomi_camp_') or h == 'hh_miami_escort_1812'])
+    nc.apply_households({h: r for h, r in files_hh.items() if nc.is_native(h)},
+                        drawn={pid for pid, p, g, door in rows if p.get('drawn')},
+                        lodges={pid: door['id'] for pid, p, g, door in rows},
+                        families={pid: p['fam'][0]['pid'] for pid, p, g, door in rows},
+                        reserved=nc.reconstructed_names(town))
     for pid, p, g, door in rows:
         if p['age'] < CARRIED_UNDER and p['kind'] == 'child':
             continue

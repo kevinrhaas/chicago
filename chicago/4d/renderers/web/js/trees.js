@@ -915,7 +915,11 @@ const COMMUNITIES = {
     label: 'Scanty cottonwoods and pines on the dunes south of the mouth (Currey)',
     dossier: 'ZONE 8c — stabilised back-dune; Currey 1912',
     zones: ['z08_lakeshore'],
-    perHa: [3, 9],
+    // T-3513: from 3-9 to 8-18 a hectare. The owner (2026-11-08) wants the battle shore's
+    // look carried up the shore; Currey's word is still "scanty" and his trees are still
+    // cottonwoods and pines, so the reach stays thinner than the cedar hills south of it
+    // and keeps its two species, in the same clumps.
+    perHa: [8, 18],
     mix: [['pinus_banksiana', 3], ['populus_deltoides', 3]],
     swaleMix: [['populus_deltoides', 9], ['populus_balsamifera', 5]],
     reachN: [-2410, -400], reachFadeM: 0, clumpM: 30,
@@ -1179,11 +1183,33 @@ const SOUTH_GROVES = {
     perHa: [20, 56], zone: 'z05_riverbank_timber',
     mix: [['salix_nigra', 30], ['populus_deltoides', 30], ['salix_amygdaloides', 22],
       ['fraxinus_pennsylvanica', 18]] },
+  // T-3513 — THE LOW WOOD THAT CHEQUERED THE PRAIRIE. The owner, 2026-11-08: "from above I
+  // think south of the river you would have had more trees like pockets of trees scattered".
+  // The witness is Latrobe at the treaty of 1833, the one account of the plain round the
+  // town as a whole (Andreas 1884 v1, the treaty of 1833): the Potawatomi "were encamped on
+  // all sides on the wide, level prairie beyond the scattered village, beneath the low wood
+  // which chequered them". So on the dry plain east of the South Branch, away from the belt
+  // and the hollows, a coarse field (`groveM`, `cut`) picks the few patches that carry a
+  // pocket of low wood: bur and white oak, the oak opening's trees on the lake plain
+  // (McBride and Bowles, ZONE 7), with cottonwood, the plain's lone tree (PRAIRIE_WOODY),
+  // drawn small (`scale`) because Latrobe's wood is LOW. The sand plain east of Wells is
+  // part of the plain here: Latrobe's camps lay "beyond the scattered village" on it. Its own share of each tier and its
+  // own cap, kept small: 1812's phone is over its memory line already, and every species
+  // here is one the scene already grows, so a pocket adds instances and no template.
+  pocket: { fromN: -160, toE: 1600, minBankM: 70, groveM: 150, cut: 0.70, dryY: 0.82,
+    perHa: [22, 52],
+    zones: { quercus_macrocarpa: 'z07_bur_oak_savanna', quercus_alba: 'z07_bur_oak_savanna',
+      populus_deltoides: 'z05_riverbank_timber' },
+    mix: [['quercus_macrocarpa', 50], ['quercus_alba', 18], ['populus_deltoides', 32]],
+    scale: [0.52, 0.86],
+    keepK: { full: 1, balanced: 0.7, light: 0.4 },
+    cap: { full: 1300, balanced: 800, light: 380 },
+    sources: ['andreas_1884_v1', 'mcbride_bowles_2007'] },
   scale: [0.66, 1.0],
   keepK: { full: 1, balanced: 0.75, light: 0.45 },
   cap: { full: 4600, balanced: 3500, light: 2200 },
   confidence: 'reconstructed',
-  sources: ['chicagology_prefire273', 'mcbride_bowles_2007'],
+  sources: ['chicagology_prefire273', 'mcbride_bowles_2007', 'andreas_1884_v1'],
 };
 
 /**
@@ -2688,7 +2714,7 @@ export async function createTrees({
       samples: { dry: [], wet: [], lone: [] } },
     sandWood: { offered: 0, planted: 0, mesic: 0 },
     /** T-3340: the 1812 groves south of the river. */
-    groves: { belt: 0, hollow: 0, planted: 0, species: {}, samples: [] },
+    groves: { belt: 0, hollow: 0, pocket: 0, planted: 0, species: {}, samples: [] },
     paths: { lines: {}, cleared: 0, shrubs: 0 },
     /** T-2807: stems the clump field set in an opening, grown young. */
     youngInOpenings: 0,
@@ -4030,14 +4056,15 @@ export async function createTrees({
 
   const SG = SOUTH_GROVES;
   const groving = String(sceneId) === SG.scene;
-  const groveSpecs = { belt: {}, hollow: {} };
+  const groveSpecs = { belt: {}, hollow: {}, pocket: {} };
   if (groving) {
-    for (const kind of ['belt', 'hollow']) {
+    for (const kind of ['belt', 'hollow', 'pocket']) {
       for (const [id] of SG[kind].mix) {
-        const rec = records.byZone?.[SG[kind].zone]?.[id];
+        const zone = SG[kind].zones?.[id] ?? SG[kind].zone;
+        const rec = records.byZone?.[zone]?.[id];
         if (rec) groveSpecs[kind][id] = rec;
         else {
-          problems.push(`trees: the 1812 groves take ${id} from ${SG[kind].zone} and that record `
+          problems.push(`trees: the 1812 groves take ${id} from ${zone} and that record `
             + 'did not load — the groves are drawn without it');
         }
       }
@@ -4127,6 +4154,54 @@ export async function createTrees({
     }
   };
 
+  /* T-3513: the pockets of low wood on the dry plain south of the river, 1812, on their own
+   * generator and their own cap (SOUTH_GROVES.pocket). */
+  const PK = SG.pocket;
+  const pocketKeep = PK.keepK[level] ?? 1;
+  const maxPockets = PK.cap[level] ?? PK.cap.full;
+  const pocketRollMax = (PK.perHa[1] * cellArea * pocketKeep) / 10000;
+  const plantPockets = (e0, n0) => {
+    if (!groving || stats.groves.pocket >= maxPockets) return;
+    const sr = seededAt(e0, n0, 0x3513);
+    const roll = sr();
+    if (roll >= pocketRollMax) return;
+    const qe = e0 + (sr() - 0.5) * step * 0.92;
+    const qn = n0 + (sr() - 0.5) * step * 0.92;
+    if (qn > PK.fromN || qe > PK.toE) return;
+    const field = noise2(qe, qn, PK.groveM, 71) * 0.8 + noise2(qe, qn, PK.groveM * 0.37, 73) * 0.2;
+    const grove = smoothstep(PK.cut, PK.cut + 0.07, field);
+    if (grove <= 0) return;
+    const perHa = lerp(PK.perHa[0], PK.perHa[1], noise2(qe, qn, 34, 79)) * grove;
+    if (roll >= (perHa * cellArea * pocketKeep) / 10000) return;
+    const i = cellAt(qe, qn);
+    if (i < 0 || div[i] === WEST || div[i] === NORTH) return;
+    const rE = riverEastAt(i);
+    if (rE === null || qe <= rE) return;
+    if (dw[i] < PK.minBankM) return;
+    if (terrain.isWater(qe, qn)) return;
+    const gy = terrain.surfaceHeight(qe, qn);
+    if (gy < PK.dryY) return;
+    // Not where a wood or a dune already stands; the sand plain east of Wells (the
+    // sand hills' inland ground, open grass in 1812) takes pockets like the rest of the plain.
+    const comm = communityAt(qe, qn);
+    if (comm !== null && comm !== 'sand_hill_inland') return;
+    if (blocked(qe, qn) || inClearedPlot(qe, qn)) return;
+    const cleared = clearedFactor(qe, qn);
+    if (roll >= (perHa * cleared * cleared * cellArea * pocketKeep) / 10000) return;
+    const mix = PK.mix.filter(([id]) => groveSpecs.pocket[id]);
+    let total = 0;
+    for (const [, w] of mix) total += w;
+    let a = sr() * total;
+    let id = null;
+    for (const [k, w] of mix) { a -= w; if (a < 0) { id = k; break; } }
+    const spec = id && groveSpecs.pocket[id];
+    if (!spec) return;
+    grown.add(spec, qe, gy, worldZ(qn), lerp(PK.scale[0], PK.scale[1], sr()));
+    noteStation(qe, qn, gy);
+    stats.groves.pocket++;
+    bump(stats.groves.species, id);
+  };
+
   const sweepE0 = originE + step;
   const sweepE1 = originE + (cols - 1) * cellM - step;
   const sweepN0 = originN + step;
@@ -4142,6 +4217,8 @@ export async function createTrees({
       plantPrairie(e, n);
       // T-3340: the 1812 groves south of the river, likewise off the stream.
       plantSouthGroves(e, n);
+      // T-3513: and the pockets of low wood on the dry plain, likewise.
+      plantPockets(e, n);
       const px = e + (rnd() - 0.5) * step * 0.92;
       const pz = n + (rnd() - 0.5) * step * 0.92;
       if (terrain.isWater(px, pz)) continue;

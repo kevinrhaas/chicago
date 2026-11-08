@@ -79,6 +79,9 @@ export const RELEASE_KEEP = {
   // T-3488: the 1904 back yards pick on their surfaces' planes, their doors' and posts' boxes
   // (back-yards.js pickAt), and swap their crop rows' levels by geometry id: nothing is read back.
   'back-yards': [],
+  // T-3510: the 1812 crossing boats answer a tap by raycasting their merged hulls
+  // (crossings.js pickAt), so their positions stay; colour, uv, normal and grade go.
+  crossings: ['position'],
 };
 
 function dropArray() { this.array = null; }

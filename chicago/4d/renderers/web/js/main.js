@@ -84,6 +84,7 @@ import { createBlackbox, wasCut, summary as blackboxSummary, report as blackboxR
 import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
+import { createCrossings } from './crossings.js';
 import { mountHumans } from './humans.js';
 import { createHumanDuties } from './human-duties.js';
 import { createHumanDays, clearWayOf } from './human-days.js';
@@ -2921,6 +2922,23 @@ async function boot() {
   scene3d.add(fortGates.group);
   for (const thing of fortGates.gates) interactions.add(thing);
   api.fortGates = fortGates;
+  // T-3510: the 1812 river has no bridge, so boats lie drawn up at its crossings — the
+  // Kinzies' two old pirogues, the canoes at Lee's Place, a skiff at the fort's wharf and
+  // more up and down the river (data/boats/crossings_1812.json). Each is an Interact thing:
+  // Cross steps in, paddles or rows over and steps out, and the boat stays on that bank.
+  // Built after the buildings, whose log walls' hewn-wood sheets the hulls wear.
+  const crossings = await createCrossings({
+    dataBase: layerBase('crossings'), terrain, confidence, problems: layerProblems('crossings'),
+    detail: detailLevel, coarse, lowSpec: coarse, walkEye: () => WALK.eyeHeight,
+    onRide: (boat, on) => {
+      if (!on) return;
+      api.travel?.stop?.('crossing');
+      if (api.follow?.active) api.follow.stop('crossing');
+    },
+  });
+  scene3d.add(crossings.group);
+  for (const thing of crossings.things) interactions.add(thing);
+  api.crossings = crossings;
   // T-3332 — the town by night: lit windows (buildings.js patches the glass) and the
   // lamps outside, from data/night_lights/<scene>.json. Hidden, and free, by day.
   const nightLights = await createNightLights({
@@ -2941,7 +2959,7 @@ async function boot() {
    * building itself.
    */
   const planting = footprints.concat(
-    wharves.keepOut, boats.keepOut, wells.keepOut,
+    wharves.keepOut, boats.keepOut, wells.keepOut, crossings.keepOut,
     // The plank walks and crossings (T-0085/T-0124): a sidewalk is as much a
     // floor as a wharf deck, and the sward was rooting straight through it.
     frontage.keepOut,
@@ -3826,10 +3844,14 @@ async function boot() {
   // door and ask for any person inside"): each person's day by the scene's date and hour,
   // and every 1812 door that has someone behind it offers Ask for them (human-days.js).
   api.days = null;
-  if (String(loaded.scene.id ?? YEAR) === '1812') {
+  // T-3516 (owner, 2026-11-08: "This is for all years starting with 1812, give all people a
+  // purpose and something to do"): every year's people keep a day, by its own doors file.
+  const daysScene = String(loaded.scene.id ?? YEAR);
+  if (['1812', '1835', '1904'].includes(daysScene)) {
     const getOptional = (rel) => fetch(new URL(rel, bases.dataBase), { cache: 'no-cache' })
       .then((r) => (r.ok ? r.json() : null)).catch(() => null);
-    const [doors, inside] = await Promise.all([getOptional('humans/doors_1812.json'), getOptional('humans/inside_1812.json')]);
+    const [doors, inside] = await Promise.all([getOptional(`humans/doors_${daysScene}.json`),
+      daysScene === '1812' ? getOptional('humans/inside_1812.json') : null]);
     // The gathering's people who are carded and not drawn (inside_1812.json): a figure is
     // built for one only when they are asked for at their lodge's door, from the dress their
     // entry names, and taken away once they are back in.
@@ -3837,7 +3859,7 @@ async function boot() {
     const spawn = (entry, door) => {
       if (!entry.asset_id || !api.humans?.add) return null;
       const rec = {
-        id: `hi_inside_${entry.person}`, contract_version: 1, scene: '1812', person_id: entry.person,
+        id: `hi_inside_${entry.person}`, contract_version: 1, scene: daysScene, person_id: entry.person,
         appearance: { asset_id: entry.asset_id },
         placement: { local_e: door.leaf.local_e, local_n: door.leaf.local_n, heading_deg: door.outward_deg, anchor: 'terrain' },
         animation: { clip: 'idle', loop: true, phase: 0 }, behaviour: { state: 'standing' },
@@ -4625,6 +4647,9 @@ async function boot() {
     if (boat && boat.record && (!hit || boat.distance < hit.distance)) {
       hit = { ...boat };
     }
+    // T-3510: and so can a crossing boat, with its own card the same way.
+    const crossingBoat = crossings.pickAt(ndc, camera);
+    if (crossingBoat?.record && (!hit || crossingBoat.distance < hit.distance)) hit = { ...crossingBoat };
     const vehicle = parkedTransport.pickAt(ndc, camera);
     if (vehicle?.record && (!hit || vehicle.distance < hit.distance)) hit = vehicle;
     const horse = standingHorses.pickAt(ndc, camera);
@@ -5356,7 +5381,8 @@ async function boot() {
       .then((res) => (res.ok ? res.json() : null))
       .catch(() => { humanPersons = null; return null; });
     // T-3491: and how he looks (`looks`), for the card's Looks section.
-    return humanPersons.then((d) => { const r = d?.persons?.[id]; return r?.face || r?.looks ? { face: r.face ?? null, looks: r.looks ?? null, base: String(base) } : null; });
+    // T-3508: the base goes back even with no face, for a card's own portrait (Shabbona's).
+    return humanPersons.then((d) => { const r = d?.persons?.[id]; return { face: r?.face ?? null, looks: r?.looks ?? null, base: String(base) }; });
   }
   // A nearby occupied driver can be inspected as soon as its model is ready.
   // Warm only the existing card code/metadata; never open Navigator or acquire a model.
@@ -6039,6 +6065,8 @@ async function boot() {
       follow.afterWalk(intent);
       travel.afterWalk(intent, walkDt);
     }
+    // T-3510: while a crossing runs, the visitor sits in the boat whatever the walk did.
+    crossings.holdVisitor(walker, WALK);
     // Before the render, after the walker: the near plane is a function of where
     // the eye ended up this frame (R-BUG1, and the NEAR block above).
     setNearFor(walker.state.altitude);
@@ -6065,6 +6093,7 @@ async function boot() {
     gardens.update(dt, camera);
     railway.update(camera);
     flags.update(dt);
+    crossings.update(dt, camera);
     parkedTransport.update(camera);
     // T-3439: Settings › Show › Carriages and horses, hidden: nothing driven is fetched,
     // and a team already on its round is hidden the way the Confidence view hides it.

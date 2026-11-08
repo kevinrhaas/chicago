@@ -14,6 +14,9 @@
 //     gathers and parts again; people go in for a break and come out, and while in are offered at
 //     their door; nobody out of doors stands idle but at a post;
 //   - the same seeds play the same round on every load.
+// T-3516 ("This is for all years starting with 1812"): 1835's and 1904's drawn people (but the
+// Glessners, the front door's, and a walker on her route) have a day, are in or away at night,
+// take breaks at their own doors, and 1904's staff gather now and then.
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 const here = new URL('../', import.meta.url);
@@ -22,12 +25,14 @@ const js = async (name) => fs.readFile(new URL(`renderers/web/js/${name}`, here)
 const days = await import(data(await js('human-days.js')));
 const { createHumanDays, planDay, dayOn, spanAt, clearWayOf, GATHER, BREAK, POST_RE, CHILD_RE } = days;
 const { occupiedPolygons } = await import(data(await js('occupied-footprints.js')));
-const doors = JSON.parse(await fs.readFile(new URL('data/humans/doors_1812.json', here), 'utf8'));
+const doorsOf = async (scene) => JSON.parse(await fs.readFile(new URL(`data/humans/doors_${scene}.json`, here), 'utf8'));
+const doors = await doorsOf('1812');
 const three = { Vector3: class { constructor() { this.x = 0; this.y = 0; this.z = 0; } } };
 
 // ── the footprints the walker keeps out of (walker.js footprintsFrom), the fort's pickets as walls ──
-const FORT_GATES = ['first_fort_dearborn_pickets_outer', 'first_fort_dearborn_pickets_inner', 'first_fort_outer_officers_garden'];
-const sideDir = new URL('data/sidecars/1812/', here);
+const FORT_GATES = ['first_fort_dearborn_pickets_outer', 'first_fort_dearborn_pickets_inner', 'first_fort_outer_officers_garden', 'fort_dearborn_palisade'];
+async function footprintsOf(scene) {
+const sideDir = new URL(`data/sidecars/${scene}/`, here);
 const footprints = [];
 for (const f of (await fs.readdir(sideDir)).filter((x) => x.endsWith('.json')).sort()) {
   const sc = JSON.parse(await fs.readFile(new URL(f, sideDir), 'utf8'));
@@ -43,6 +48,9 @@ for (const f of (await fs.readdir(sideDir)).filter((x) => x.endsWith('.json')).s
     footprints.push(fp);
   }
 }
+return footprints;
+}
+const footprints = await footprintsOf('1812');
 assert(footprints.length > 40, `the 1812 footprints (${footprints.length})`);
 const clear = clearWayOf(footprints);
 assert.equal(clear({ e: 0, n: 0 }, { e: 1, n: 0 }), true, 'open ground is clear');
@@ -97,13 +105,13 @@ function actor(r) {
   };
   return a;
 }
-function play(hour, seconds = 600, dt = 0.25) {
-  const actors = recs.map(actor);
+function play(hour, seconds = 600, dt = 0.25, { recs: rs = recs, date: dd = date, doors: ds = doors, clear: cl = clear, visit = { e: 1150, n: 220 } } = {}) {
+  const actors = rs.map(actor);
   const humans = { actors, shown: true };
-  let visitor = { e: 1150, n: 220 };
+  let visitor = { ...visit };
   const things = [];
   const interactions = { add: (t) => things.push(t) };
-  const d = createHumanDays({ humans, three, hour: () => hour, date: () => date, doors, interactions, clear, visitor: () => visitor });
+  const d = createHumanDays({ humans, three, hour: () => hour, date: () => dd, doors: ds, interactions, clear: cl, visitor: () => visitor });
   const tally = new Map();
   const knots = new Map();
   let askable = 0;
@@ -174,5 +182,44 @@ for (const hour of [7, 10, 15.5, 19.5]) {
   assert(askable > 0, `${hour}h: and while in is offered at the door`);
   report.push(`${hour}h ${(100 * talk / all).toFixed(0)}% talk (most ${(100 * worst).toFixed(0)}%), ${met.length}/${knots.size} knots gather, ${breaks} breaks`);
 }
-void spanAt; void GATHER; void BREAK;
+// ── 1835 and 1904 (T-3516): every drawn person but the Glessners (the front door's, T-3443) and
+// a walker on her route has a day; played, they work, gather (1904's staff), take breaks in at
+// their own doors, and are in (or away) at night.
+for (const [scene, when, hours] of [['1835', '1835-07-01', [7, 12.5, 16]], ['1904', '1904-07-01', [10.5, 15.5]]]) {
+  const dir = new URL(`data/humans/instances/${scene}/`, here);
+  const idx = JSON.parse(await fs.readFile(new URL('index.json', dir), 'utf8'));
+  const rs = (await Promise.all(idx.instances.map(async (id) => JSON.parse(await fs.readFile(new URL(`${id}.json`, dir), 'utf8')))))
+    .filter((r) => r.display === 'shown');
+  const withDay = rs.filter((r) => Array.isArray(r.behaviour?.day));
+  const without = rs.filter((r) => !Array.isArray(r.behaviour?.day)).map((r) => r.id).sort();
+  const allowed = { 1835: [], 1904: ['hi_glessner_frances_m_1904', 'hi_glessner_john_j_1904', 'hi_pa1904_glessner_john_j_c1900_christine_nelson_1904'] }[scene];
+  assert.deepEqual(without, allowed, `${scene}: everyone drawn has a day but ${allowed.join(', ') || 'no one'}`);
+  const ds = await doorsOf(scene);
+  const cl = clearWayOf(await footprintsOf(scene));
+  const centre = { e: withDay.reduce((t, r) => t + r.placement.local_e, 0) / withDay.length, n: withDay.reduce((t, r) => t + r.placement.local_n, 0) / withDay.length };
+  let night = 0;
+  for (const r of withDay) {
+    const s = spanAt(dayOn(r.behaviour, when, r.person_id), 2);
+    if (s.indoors) night++;
+  }
+  assert.equal(night, withDay.length, `${scene}: at night everyone is in, or away`);
+  const seen = [];
+  for (const hour of hours) {
+    let breaks = 0, idle = 0, talk = 0, all = 0;
+    // The visitor stands by each of them in turn (a break is taken only near the visitor).
+    for (const r of withDay) {
+      const { tally } = play(hour, 400, 0.25, { recs: rs, date: when, doors: ds, clear: cl, visit: { e: r.placement.local_e + 3, n: r.placement.local_n } });
+      const c = tally.get(r.person_id);
+      if (!c) continue;
+      breaks += c.brk; idle += c.idle; talk += c.talk; all += c.n;
+    }
+    assert(idle / Math.max(1, all) < 0.02, `${scene} ${hour}h: someone out stands idle`);
+    assert(breaks > 0, `${scene} ${hour}h: someone goes in for a break`);
+    if (scene === '1904') assert(talk > 0, `${scene} ${hour}h: the staff gather now and then`);
+    seen.push(`${hour}h ${breaks} breaks, ${(100 * talk / Math.max(1, all)).toFixed(0)}% talk`);
+  }
+  void centre;
+  report.push(`${scene}: ${withDay.length} with a day, ${ds.structures.length} homes with doors, ${seen.join(', ')}`);
+}
+void GATHER; void BREAK;
 console.log(`human rounds: ${rounds} talks are rounds (${ownJobs} jobs, ${plays} at play, ${lone} lone jobs), clear of buildings; ${report.join('; ')}: PASS`);

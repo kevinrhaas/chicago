@@ -18,7 +18,61 @@
     "phase": 0.3
   },
   "behaviour": {
-    "state": "standing"
+    "state": "standing",
+    "day": [
+      {
+        "note": "Reconstructed day (L-t3516-days, T-3516): docs/RESEARCH/people-days-1835-1904/days.py.",
+        "spans": [
+          {
+            "from": 0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "asleep in the rear building"
+          },
+          {
+            "from": 5.5,
+            "to": 12,
+            "indoors": false,
+            "at": {
+              "local_e": 1342.1,
+              "local_n": -3237.0,
+              "heading_deg": 80
+            },
+            "activity": "talk",
+            "doing": "in the court by the stable: the harness, the carriage washed",
+            "knot": "glessner_court"
+          },
+          {
+            "from": 12,
+            "to": 13,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "dinner"
+          },
+          {
+            "from": 13,
+            "to": 19,
+            "indoors": false,
+            "at": {
+              "local_e": 1342.1,
+              "local_n": -3237.0,
+              "heading_deg": 80
+            },
+            "activity": "talk",
+            "doing": "in the court by the stable: the harness, the carriage washed",
+            "knot": "glessner_court"
+          },
+          {
+            "from": 19,
+            "to": 24,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "supper; asleep in the rear building"
+          }
+        ]
+      }
+    ]
   },
   "interaction": {
     "selectable": true,

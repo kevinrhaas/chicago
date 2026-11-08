@@ -6,7 +6,7 @@
   "division": "fort",
   "review_required": true,
   "touches_removal": false,
-  "review_note": "review_required: a Miami man drawn to stand for the escort William Wells brought from Fort Wayne, whom no source names. The card invents no name or story and stages no speech, ceremony or act of war.",
+  "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
   "present_on_scene_date": {
     "value": "present",
     "confidence": "inferred",
@@ -44,12 +44,13 @@
   "persons": [
     {
       "id": "miami_escort_1812_01",
-      "name": "A man of Wells's Miami escort (name not recorded)",
+      "name": "Black Buzzard",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
         "currey_1912_old_fort_dearborn",
         "kinzie_waubun_1856",
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -68,59 +69,91 @@
       "note": "In the town from 1812-08-13 to 1812-08-15: From Heald's date of arrival (13th) to the march out at 9 on the 15th, after which the escort left the field. Helm dates the arrival to the 12th and Wau-Bun and Currey to the 14th.",
       "review_required": true,
       "touches_removal": true,
-      "review_note": "review_required: a man of the Miami escort that came with Captain William Wells from Fort Wayne (Heald: 'about 30 Miamies'). No man of the escort is named in any source read (native.json: 'Corn Plant' is unsupported), so this card names none. touches_removal: the Miami were removed from Indiana in 1846; this card stages nothing of the 15th beyond the march out that Heald records. Its place, dress and day are reconstructed (L-1812-people-day-3467).",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "liberty": "L-1812-town-days-3463",
-        "ticket": "T-3467"
+        "ticket": "T-3467",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Buzzard gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of Wells's Miami escort (name not recorded)"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Wells arrived on the 13th with about 30 Miami (Heald; the date this reading follows).",
-          "tier": "contemporary (Heald, 1812)"
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm dates Wells to the 12th and counts 27 Miami.",
-          "tier": "contemporary (Helm, 1814)"
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
         },
         {
-          "source_id": "kinzie_waubun_1856",
-          "locator": "ch. XVIII, Gutenberg #12183 lines 5446-5448",
-          "quote": "the arrival, on the 14th of August, of Captain Wells[33] with fifteen friendly Miamis.",
-          "claim": "Wau-Bun's date for Wells: the 14th, with fifteen Miami.",
-          "tier": "Kinzie family tradition (Wau-Bun; Quaife App. II judges its speeches and dialogue invented)"
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "currey_1912_old_fort_dearborn",
-          "locator": "ch. III, Gutenberg #52346 lines 2181-2182",
-          "quote": "a band of about thirty friendly Indians of the Miami tribe mounted on ponies",
-          "claim": "Wells's Miami were mounted on ponies (Currey dates them to the 14th).",
-          "tier": "compiled secondary (Currey 1912)"
+          "label": "Gens",
+          "value": "Buzzard (Ah-pă′-kose-e-ă)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16238-16240",
-          "quote": "On the 15th, at 9 o'clock in the morning, we commenced our march: a part of the Miamies were detached in front",
-          "claim": "The march began at 9 on the 15th, Miami in front and rear (Heald).",
-          "tier": "contemporary (Heald, 1812)"
+          "label": "Age in 1812",
+          "value": "About 22",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Buzzard gens (Ah-pă′-kose-e-ă), and his children are of it after him.",
+          "He hunts deer in the oak openings, and in the fall goes after ducks and geese in the marshes of the Calumet.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_02",
-      "name": "A man of Wells's Miami escort (name not recorded)",
+      "name": "Great Turkey",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
         "currey_1912_old_fort_dearborn",
         "kinzie_waubun_1856",
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -139,59 +172,91 @@
       "note": "In the town from 1812-08-13 to 1812-08-15: From Heald's date of arrival (13th) to the march out at 9 on the 15th, after which the escort left the field. Helm dates the arrival to the 12th and Wau-Bun and Currey to the 14th.",
       "review_required": true,
       "touches_removal": true,
-      "review_note": "review_required: a man of the Miami escort that came with Captain William Wells from Fort Wayne (Heald: 'about 30 Miamies'). No man of the escort is named in any source read (native.json: 'Corn Plant' is unsupported), so this card names none. touches_removal: the Miami were removed from Indiana in 1846; this card stages nothing of the 15th beyond the march out that Heald records. Its place, dress and day are reconstructed (L-1812-people-day-3467).",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "liberty": "L-1812-town-days-3463",
-        "ticket": "T-3467"
+        "ticket": "T-3467",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Turkey gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of Wells's Miami escort (name not recorded)"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Wells arrived on the 13th with about 30 Miami (Heald; the date this reading follows).",
-          "tier": "contemporary (Heald, 1812)"
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm dates Wells to the 12th and counts 27 Miami.",
-          "tier": "contemporary (Helm, 1814)"
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
         },
         {
-          "source_id": "kinzie_waubun_1856",
-          "locator": "ch. XVIII, Gutenberg #12183 lines 5446-5448",
-          "quote": "the arrival, on the 14th of August, of Captain Wells[33] with fifteen friendly Miamis.",
-          "claim": "Wau-Bun's date for Wells: the 14th, with fifteen Miami.",
-          "tier": "Kinzie family tradition (Wau-Bun; Quaife App. II judges its speeches and dialogue invented)"
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "currey_1912_old_fort_dearborn",
-          "locator": "ch. III, Gutenberg #52346 lines 2181-2182",
-          "quote": "a band of about thirty friendly Indians of the Miami tribe mounted on ponies",
-          "claim": "Wells's Miami were mounted on ponies (Currey dates them to the 14th).",
-          "tier": "compiled secondary (Currey 1912)"
+          "label": "Gens",
+          "value": "Turkey (Pĭ-la-wä′)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16238-16240",
-          "quote": "On the 15th, at 9 o'clock in the morning, we commenced our march: a part of the Miamies were detached in front",
-          "claim": "The march began at 9 on the 15th, Miami in front and rear (Heald).",
-          "tier": "contemporary (Heald, 1812)"
+          "label": "Age in 1812",
+          "value": "About 27",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Turkey gens (Pĭ-la-wä′), and his children are of it after him.",
+          "He has a pony, and some winters went as far as the Wabash to hunt.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_03",
-      "name": "A man of Wells's Miami escort (name not recorded)",
+      "name": "Tall Wolf",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
         "currey_1912_old_fort_dearborn",
         "kinzie_waubun_1856",
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -210,59 +275,91 @@
       "note": "In the town from 1812-08-13 to 1812-08-15: From Heald's date of arrival (13th) to the march out at 9 on the 15th, after which the escort left the field. Helm dates the arrival to the 12th and Wau-Bun and Currey to the 14th.",
       "review_required": true,
       "touches_removal": true,
-      "review_note": "review_required: a man of the Miami escort that came with Captain William Wells from Fort Wayne (Heald: 'about 30 Miamies'). No man of the escort is named in any source read (native.json: 'Corn Plant' is unsupported), so this card names none. touches_removal: the Miami were removed from Indiana in 1846; this card stages nothing of the 15th beyond the march out that Heald records. Its place, dress and day are reconstructed (L-1812-people-day-3467).",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "liberty": "L-1812-town-days-3463",
-        "ticket": "T-3467"
+        "ticket": "T-3467",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Wolf gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of Wells's Miami escort (name not recorded)"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Wells arrived on the 13th with about 30 Miami (Heald; the date this reading follows).",
-          "tier": "contemporary (Heald, 1812)"
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm dates Wells to the 12th and counts 27 Miami.",
-          "tier": "contemporary (Helm, 1814)"
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
         },
         {
-          "source_id": "kinzie_waubun_1856",
-          "locator": "ch. XVIII, Gutenberg #12183 lines 5446-5448",
-          "quote": "the arrival, on the 14th of August, of Captain Wells[33] with fifteen friendly Miamis.",
-          "claim": "Wau-Bun's date for Wells: the 14th, with fifteen Miami.",
-          "tier": "Kinzie family tradition (Wau-Bun; Quaife App. II judges its speeches and dialogue invented)"
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "currey_1912_old_fort_dearborn",
-          "locator": "ch. III, Gutenberg #52346 lines 2181-2182",
-          "quote": "a band of about thirty friendly Indians of the Miami tribe mounted on ponies",
-          "claim": "Wells's Miami were mounted on ponies (Currey dates them to the 14th).",
-          "tier": "compiled secondary (Currey 1912)"
+          "label": "Gens",
+          "value": "Wolf (Mo-wha′-wä)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16238-16240",
-          "quote": "On the 15th, at 9 o'clock in the morning, we commenced our march: a part of the Miamies were detached in front",
-          "claim": "The march began at 9 on the 15th, Miami in front and rear (Heald).",
-          "tier": "contemporary (Heald, 1812)"
+          "label": "Age in 1812",
+          "value": "About 32",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Wolf gens (Mo-wha′-wä), and his children are of it after him.",
+          "He has a pony, and some winters went as far as the Wabash to hunt.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_04",
-      "name": "A man of Wells's Miami escort (name not recorded)",
+      "name": "Great Noon Sun",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
         "currey_1912_old_fort_dearborn",
         "kinzie_waubun_1856",
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -281,59 +378,91 @@
       "note": "In the town from 1812-08-13 to 1812-08-15: From Heald's date of arrival (13th) to the march out at 9 on the 15th, after which the escort left the field. Helm dates the arrival to the 12th and Wau-Bun and Currey to the 14th.",
       "review_required": true,
       "touches_removal": true,
-      "review_note": "review_required: a man of the Miami escort that came with Captain William Wells from Fort Wayne (Heald: 'about 30 Miamies'). No man of the escort is named in any source read (native.json: 'Corn Plant' is unsupported), so this card names none. touches_removal: the Miami were removed from Indiana in 1846; this card stages nothing of the 15th beyond the march out that Heald records. Its place, dress and day are reconstructed (L-1812-people-day-3467).",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "liberty": "L-1812-town-days-3463",
-        "ticket": "T-3467"
+        "ticket": "T-3467",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Sun gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of Wells's Miami escort (name not recorded)"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Wells arrived on the 13th with about 30 Miami (Heald; the date this reading follows).",
-          "tier": "contemporary (Heald, 1812)"
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm dates Wells to the 12th and counts 27 Miami.",
-          "tier": "contemporary (Helm, 1814)"
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
         },
         {
-          "source_id": "kinzie_waubun_1856",
-          "locator": "ch. XVIII, Gutenberg #12183 lines 5446-5448",
-          "quote": "the arrival, on the 14th of August, of Captain Wells[33] with fifteen friendly Miamis.",
-          "claim": "Wau-Bun's date for Wells: the 14th, with fifteen Miami.",
-          "tier": "Kinzie family tradition (Wau-Bun; Quaife App. II judges its speeches and dialogue invented)"
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "currey_1912_old_fort_dearborn",
-          "locator": "ch. III, Gutenberg #52346 lines 2181-2182",
-          "quote": "a band of about thirty friendly Indians of the Miami tribe mounted on ponies",
-          "claim": "Wells's Miami were mounted on ponies (Currey dates them to the 14th).",
-          "tier": "compiled secondary (Currey 1912)"
+          "label": "Gens",
+          "value": "Sun (Kul-swä′)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16238-16240",
-          "quote": "On the 15th, at 9 o'clock in the morning, we commenced our march: a part of the Miamies were detached in front",
-          "claim": "The march began at 9 on the 15th, Miami in front and rear (Heald).",
-          "tier": "contemporary (Heald, 1812)"
+          "label": "Age in 1812",
+          "value": "About 37",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Sun gens (Kul-swä′), and his children are of it after him.",
+          "In the spring he helped at the sugar camp, and in summer fished the river and the lake while the corn grew at the village.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_05",
-      "name": "A man of Wells's Miami escort (name not recorded)",
+      "name": "Yellow Turkey Foot",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
         "currey_1912_old_fort_dearborn",
         "kinzie_waubun_1856",
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -352,59 +481,91 @@
       "note": "In the town from 1812-08-13 to 1812-08-15: From Heald's date of arrival (13th) to the march out at 9 on the 15th, after which the escort left the field. Helm dates the arrival to the 12th and Wau-Bun and Currey to the 14th.",
       "review_required": true,
       "touches_removal": true,
-      "review_note": "review_required: a man of the Miami escort that came with Captain William Wells from Fort Wayne (Heald: 'about 30 Miamies'). No man of the escort is named in any source read (native.json: 'Corn Plant' is unsupported), so this card names none. touches_removal: the Miami were removed from Indiana in 1846; this card stages nothing of the 15th beyond the march out that Heald records. Its place, dress and day are reconstructed (L-1812-people-day-3467).",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "liberty": "L-1812-town-days-3463",
-        "ticket": "T-3467"
+        "ticket": "T-3467",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Turkey gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of Wells's Miami escort (name not recorded)"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Wells arrived on the 13th with about 30 Miami (Heald; the date this reading follows).",
-          "tier": "contemporary (Heald, 1812)"
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm dates Wells to the 12th and counts 27 Miami.",
-          "tier": "contemporary (Helm, 1814)"
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
         },
         {
-          "source_id": "kinzie_waubun_1856",
-          "locator": "ch. XVIII, Gutenberg #12183 lines 5446-5448",
-          "quote": "the arrival, on the 14th of August, of Captain Wells[33] with fifteen friendly Miamis.",
-          "claim": "Wau-Bun's date for Wells: the 14th, with fifteen Miami.",
-          "tier": "Kinzie family tradition (Wau-Bun; Quaife App. II judges its speeches and dialogue invented)"
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "currey_1912_old_fort_dearborn",
-          "locator": "ch. III, Gutenberg #52346 lines 2181-2182",
-          "quote": "a band of about thirty friendly Indians of the Miami tribe mounted on ponies",
-          "claim": "Wells's Miami were mounted on ponies (Currey dates them to the 14th).",
-          "tier": "compiled secondary (Currey 1912)"
+          "label": "Gens",
+          "value": "Turkey (Pĭ-la-wä′)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16238-16240",
-          "quote": "On the 15th, at 9 o'clock in the morning, we commenced our march: a part of the Miamies were detached in front",
-          "claim": "The march began at 9 on the 15th, Miami in front and rear (Heald).",
-          "tier": "contemporary (Heald, 1812)"
+          "label": "Age in 1812",
+          "value": "About 22",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Turkey gens (Pĭ-la-wä′), and his children are of it after him.",
+          "He hunts deer in the oak openings, and in the fall goes after ducks and geese in the marshes of the Calumet.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_06",
-      "name": "A man of Wells's Miami escort (name not recorded)",
+      "name": "Yellow Turkey",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
         "currey_1912_old_fort_dearborn",
         "kinzie_waubun_1856",
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -423,59 +584,91 @@
       "note": "In the town from 1812-08-13 to 1812-08-15: From Heald's date of arrival (13th) to the march out at 9 on the 15th, after which the escort left the field. Helm dates the arrival to the 12th and Wau-Bun and Currey to the 14th.",
       "review_required": true,
       "touches_removal": true,
-      "review_note": "review_required: a man of the Miami escort that came with Captain William Wells from Fort Wayne (Heald: 'about 30 Miamies'). No man of the escort is named in any source read (native.json: 'Corn Plant' is unsupported), so this card names none. touches_removal: the Miami were removed from Indiana in 1846; this card stages nothing of the 15th beyond the march out that Heald records. Its place, dress and day are reconstructed (L-1812-people-day-3467).",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "liberty": "L-1812-town-days-3463",
-        "ticket": "T-3467"
+        "ticket": "T-3467",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Turkey gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of Wells's Miami escort (name not recorded)"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Wells arrived on the 13th with about 30 Miami (Heald; the date this reading follows).",
-          "tier": "contemporary (Heald, 1812)"
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm dates Wells to the 12th and counts 27 Miami.",
-          "tier": "contemporary (Helm, 1814)"
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
         },
         {
-          "source_id": "kinzie_waubun_1856",
-          "locator": "ch. XVIII, Gutenberg #12183 lines 5446-5448",
-          "quote": "the arrival, on the 14th of August, of Captain Wells[33] with fifteen friendly Miamis.",
-          "claim": "Wau-Bun's date for Wells: the 14th, with fifteen Miami.",
-          "tier": "Kinzie family tradition (Wau-Bun; Quaife App. II judges its speeches and dialogue invented)"
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "currey_1912_old_fort_dearborn",
-          "locator": "ch. III, Gutenberg #52346 lines 2181-2182",
-          "quote": "a band of about thirty friendly Indians of the Miami tribe mounted on ponies",
-          "claim": "Wells's Miami were mounted on ponies (Currey dates them to the 14th).",
-          "tier": "compiled secondary (Currey 1912)"
+          "label": "Gens",
+          "value": "Turkey (Pĭ-la-wä′)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16238-16240",
-          "quote": "On the 15th, at 9 o'clock in the morning, we commenced our march: a part of the Miamies were detached in front",
-          "claim": "The march began at 9 on the 15th, Miami in front and rear (Heald).",
-          "tier": "contemporary (Heald, 1812)"
+          "label": "Age in 1812",
+          "value": "About 27",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Turkey gens (Pĭ-la-wä′), and his children are of it after him.",
+          "The winter before, he hunted with his family on the Kankakee and traded the skins at Kinzie's for powder, cloth and kettles.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_07",
-      "name": "A man of Wells's Miami escort (name not recorded)",
+      "name": "Black Turkey Feather",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
         "currey_1912_old_fort_dearborn",
         "kinzie_waubun_1856",
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -494,59 +687,91 @@
       "note": "In the town from 1812-08-13 to 1812-08-15: From Heald's date of arrival (13th) to the march out at 9 on the 15th, after which the escort left the field. Helm dates the arrival to the 12th and Wau-Bun and Currey to the 14th.",
       "review_required": true,
       "touches_removal": true,
-      "review_note": "review_required: a man of the Miami escort that came with Captain William Wells from Fort Wayne (Heald: 'about 30 Miamies'). No man of the escort is named in any source read (native.json: 'Corn Plant' is unsupported), so this card names none. touches_removal: the Miami were removed from Indiana in 1846; this card stages nothing of the 15th beyond the march out that Heald records. Its place, dress and day are reconstructed (L-1812-people-day-3467).",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "liberty": "L-1812-town-days-3463",
-        "ticket": "T-3467"
+        "ticket": "T-3467",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Turkey gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of Wells's Miami escort (name not recorded)"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Wells arrived on the 13th with about 30 Miami (Heald; the date this reading follows).",
-          "tier": "contemporary (Heald, 1812)"
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm dates Wells to the 12th and counts 27 Miami.",
-          "tier": "contemporary (Helm, 1814)"
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
         },
         {
-          "source_id": "kinzie_waubun_1856",
-          "locator": "ch. XVIII, Gutenberg #12183 lines 5446-5448",
-          "quote": "the arrival, on the 14th of August, of Captain Wells[33] with fifteen friendly Miamis.",
-          "claim": "Wau-Bun's date for Wells: the 14th, with fifteen Miami.",
-          "tier": "Kinzie family tradition (Wau-Bun; Quaife App. II judges its speeches and dialogue invented)"
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "currey_1912_old_fort_dearborn",
-          "locator": "ch. III, Gutenberg #52346 lines 2181-2182",
-          "quote": "a band of about thirty friendly Indians of the Miami tribe mounted on ponies",
-          "claim": "Wells's Miami were mounted on ponies (Currey dates them to the 14th).",
-          "tier": "compiled secondary (Currey 1912)"
+          "label": "Gens",
+          "value": "Turkey (Pĭ-la-wä′)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16238-16240",
-          "quote": "On the 15th, at 9 o'clock in the morning, we commenced our march: a part of the Miamies were detached in front",
-          "claim": "The march began at 9 on the 15th, Miami in front and rear (Heald).",
-          "tier": "contemporary (Heald, 1812)"
+          "label": "Age in 1812",
+          "value": "About 32",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Turkey gens (Pĭ-la-wä′), and his children are of it after him.",
+          "The winter before, he hunted with his family on the Kankakee and traded the skins at Kinzie's for powder, cloth and kettles.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
     },
     {
       "id": "miami_escort_1812_08",
-      "name": "A man of Wells's Miami escort (name not recorded)",
+      "name": "Little Loon",
       "relationship": "household_member",
       "grade": "reconstructed",
       "sources": [
         "currey_1912_old_fort_dearborn",
         "kinzie_waubun_1856",
+        "morgan_1877_ancient_society",
         "quaife_1913"
       ],
       "sex": "male",
@@ -565,50 +790,136 @@
       "note": "In the town from 1812-08-13 to 1812-08-15: From Heald's date of arrival (13th) to the march out at 9 on the 15th, after which the escort left the field. Helm dates the arrival to the 12th and Wau-Bun and Currey to the 14th.",
       "review_required": true,
       "touches_removal": true,
-      "review_note": "review_required: a man of the Miami escort that came with Captain William Wells from Fort Wayne (Heald: 'about 30 Miamies'). No man of the escort is named in any source read (native.json: 'Corn Plant' is unsupported), so this card names none. touches_removal: the Miami were removed from Indiana in 1846; this card stages nothing of the 15th beyond the march out that Heald records. Its place, dress and day are reconstructed (L-1812-people-day-3467).",
+      "review_note": "review_required: a Miami man of the escort William Wells brought from Fort Wayne, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507). Nothing of the fighting is staged in the scene.",
       "reconstruction": {
         "stage": "counted_unnamed",
         "counted_by": "quaife_1913",
         "liberty": "L-1812-town-days-3463",
-        "ticket": "T-3467"
+        "ticket": "T-3467",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
       },
-      "evidence": [
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Loon gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of Wells's Miami escort (name not recorded)"
+      ],
+      "on_15_august": {
+        "value": "Rode out with the column; did not fight",
+        "grade": "inferred",
+        "note": "Heald: \"finding the Miamies did not assist us\". Of the escort as a body; what this man did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
-          "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
-          "claim": "Wells arrived on the 13th with about 30 Miami (Heald; the date this reading follows).",
-          "tier": "contemporary (Heald, 1812)"
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
-          "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
-          "claim": "Helm dates Wells to the 12th and counts 27 Miami.",
-          "tier": "contemporary (Helm, 1814)"
+          "label": "People",
+          "value": "Miami",
+          "grade": "inferred"
         },
         {
-          "source_id": "kinzie_waubun_1856",
-          "locator": "ch. XVIII, Gutenberg #12183 lines 5446-5448",
-          "quote": "the arrival, on the 14th of August, of Captain Wells[33] with fifteen friendly Miamis.",
-          "claim": "Wau-Bun's date for Wells: the 14th, with fifteen Miami.",
-          "tier": "Kinzie family tradition (Wau-Bun; Quaife App. II judges its speeches and dialogue invented)"
+          "label": "Band",
+          "value": "The Miami towns about Fort Wayne",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "currey_1912_old_fort_dearborn",
-          "locator": "ch. III, Gutenberg #52346 lines 2181-2182",
-          "quote": "a band of about thirty friendly Indians of the Miami tribe mounted on ponies",
-          "claim": "Wells's Miami were mounted on ponies (Currey dates them to the 14th).",
-          "tier": "compiled secondary (Currey 1912)"
+          "label": "Gens",
+          "value": "Loon (Mon-gwä′)",
+          "grade": "reconstructed"
         },
         {
-          "source_id": "quaife_1913",
-          "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16238-16240",
-          "quote": "On the 15th, at 9 o'clock in the morning, we commenced our march: a part of the Miamies were detached in front",
-          "claim": "The march began at 9 on the 15th, Miami in front and rear (Heald).",
-          "tier": "contemporary (Heald, 1812)"
+          "label": "Age in 1812",
+          "value": "About 37",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Rode out with the column; did not fight",
+          "grade": "inferred"
         }
-      ]
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "He came from the Miami towns about Fort Wayne on the upper Wabash and the Maumee, by Fort Wayne, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.",
+          "He is of the Loon gens (Mon-gwä′), and his children are of it after him.",
+          "In the spring he helped at the sugar camp, and in summer fished the river and the lake while the corn grew at the village.",
+          "At Chicago he camps with the escort south-west of the fort, with his pony."
+        ]
+      }
+    }
+  ],
+  "card_evidence": [
+    {
+      "source_id": "quaife_1913",
+      "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16229-16230",
+      "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies, for the purpose of escorting us in",
+      "claim": "Wells arrived on the 13th with about 30 Miami (Heald; the date this reading follows).",
+      "tier": "contemporary (Heald, 1812)"
+    },
+    {
+      "source_id": "quaife_1913",
+      "locator": "App. VI, Helm's narrative, Gutenberg #69274 lines 16634-16635",
+      "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis",
+      "claim": "Helm dates Wells to the 12th and counts 27 Miami.",
+      "tier": "contemporary (Helm, 1814)"
+    },
+    {
+      "source_id": "kinzie_waubun_1856",
+      "locator": "ch. XVIII, Gutenberg #12183 lines 5446-5448",
+      "quote": "the arrival, on the 14th of August, of Captain Wells[33] with fifteen friendly Miamis.",
+      "claim": "Wau-Bun's date for Wells: the 14th, with fifteen Miami.",
+      "tier": "Kinzie family tradition (Wau-Bun; Quaife App. II judges its speeches and dialogue invented)"
+    },
+    {
+      "source_id": "currey_1912_old_fort_dearborn",
+      "locator": "ch. III, Gutenberg #52346 lines 2181-2182",
+      "quote": "a band of about thirty friendly Indians of the Miami tribe mounted on ponies",
+      "claim": "Wells's Miami were mounted on ponies (Currey dates them to the 14th).",
+      "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+      "source_id": "quaife_1913",
+      "locator": "App. IV, Heald's report, Gutenberg #69274 lines 16238-16240",
+      "quote": "On the 15th, at 9 o'clock in the morning, we commenced our march: a part of the Miamies were detached in front",
+      "claim": "The march began at 9 on the 15th, Miami in front and rear (Heald).",
+      "tier": "contemporary (Heald, 1812)"
+    },
+    {
+      "source_id": "morgan_1877_ancient_society",
+      "locator": "pt. II, ch. II (VI, the right of bestowing names) and ch. VI (the gentes, notes 170 and 172)",
+      "quote": "These names either proclaimed by their signification the gens to which they belonged, or were known as such by common reputation.",
+      "claim": "how a reconstructed name is made"
+    },
+    {
+      "source_id": "quaife_1913",
+      "locator": "App. IV (Heald, 1812)",
+      "quote": "Captain Wells, of Fort Wayne",
+      "claim": "the Miami towns about Fort Wayne, the band these cards are put with (reconstructed)"
+    },
+    {
+      "source_id": "quaife_1913",
+      "locator": "App. IV, Heald (23 Oct 1812), line 16252",
+      "quote": "finding the Miamies did not assist us",
+      "claim": "the Miami escort did not fight"
     }
   ]
 }
