@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2818, ts: '2026-11-08T03:24:24.967Z', date: 'Nov 7, 2026, 9:24 PM CT', title: 'Pullman\'s 18th Street side: the east window in its place', kind: 'improvement',
+    items: [
+      'On the 1729 Prairie Avenue Pullman house, the broad window in the 18th Street side\'s east section and the pair of narrow windows above it now stand half a metre further east, where the c. 1900 Detroit Publishing photograph places them, with the pair centred over the window as the photograph draws it.',
+    ] },
   { v: 2817, ts: '2026-11-08T02:25:08.779Z', date: 'Nov 7, 2026, 8:25 PM CT', title: 'Every soldier at Fort Dearborn has his own looks', kind: 'feature',
     items: [
       'The 51 men of Heald\'s company no longer share one face colour and one head of hair. Each has his own complexion, hair colour and eyes, drawn in the words the Army\'s enlistment registers of 1812 used, leaned a little by where his name comes from.',
