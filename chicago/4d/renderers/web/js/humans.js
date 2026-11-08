@@ -390,6 +390,8 @@ export class HumanActor {
     // skin and iris, before dressSkin patches them.
     const looks = variation?.persons?.[this.personId]?.looks ?? null;
     const looked = looks ? dressLooks(scene, looks) : [];
+    // ...and his own hair colour and cut, for the hair layer below.
+    const style = looks ? looksHairStyle(looks, hairFor(this.personId ?? null, Number(this.instance.scene) || null)) : null;
     // T-3400: skin with pores, blood and a glow, hair with a strand sheen, wet eyes, on
     // every person (human-skin.js; a shader patch, no texture). Bound to the rest pose.
     dressSkin(scene);
@@ -400,8 +402,7 @@ export class HumanActor {
     // T-3414: at the near levels, strand-card hair, beard and whiskers grown from this body's
     // own scalp and face, by the person's cut (human-hair-styles.js). Not counted in its height.
     const year = Number(this.instance.scene) || null;
-    const hair = dressHair(scene, { lod, person: this.personId ?? null, year,
-      style: looks ? looksHairStyle(looks, hairFor(this.personId ?? null, year)) : null });
+    const hair = dressHair(scene, { lod, person: this.personId ?? null, year, style });
     // T-3440: spectacles, for a person whose portrait shows them (human-spectacles.js).
     this.spectacles = dressSpectacles(scene, { lod, person: this.personId ?? null });
     const clips = new Map();
