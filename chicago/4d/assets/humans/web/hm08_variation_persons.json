@@ -2311,7 +2311,8 @@
    "scene": "1812",
    "record": "data/residents_1812/households/hh_heald_company_1812.json",
    "drawn_as": [
-    "data/humans/instances/1812/hi_mills_elias_1812.json"
+    "data/humans/instances/1812/hi_mills_elias_1812.json",
+    "data/transport/driven/loops.json#fort_wagon_loop_1812"
    ],
    "age": {
     "band": [
@@ -2368,7 +2369,8 @@
    "scene": "1812",
    "record": "data/residents_1812/households/hh_heald_company_1812.json",
    "drawn_as": [
-    "data/humans/instances/1812/hi_moffett_william_1812.json"
+    "data/humans/instances/1812/hi_moffett_william_1812.json",
+    "data/transport/driven/loops.json#shore_road_wagon_haul_1812"
    ],
    "age": {
     "band": [

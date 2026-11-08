@@ -1,4 +1,25 @@
 export const CHANGELOG = [ // newest first
+  { v: 2821, ts: '2026-11-08T05:02:46.994Z', date: 'Nov 7, 2026, 11:02 PM CT', title: 'Pullman\'s 18th Street wall gets its piers, urn and curved walls back', kind: 'fix',
+    items: [
+      'East of the porch stair on 18th Street, the Pullman house\'s boundary wall again has the fourth, fifth and sixth stone piers, the urn on the fifth, and the low wall that dips and sweeps back up between the third and fourth piers. A closer look at the Detroit Publishing photograph of about 1900, through its newly fitted camera, shows the wall still standing as the 1894 plate drew it. It had been taken out on an earlier reading of the same picture that mistook which pier was which.',
+    ] },
+  { v: 2820, ts: '2026-11-08T04:27:15.331Z', date: 'Nov 7, 2026, 10:27 PM CT', title: 'Horse-drawn wagons move around the 1812 fort', kind: 'feature',
+    items: [
+      'Two of the fort\'s wagons, drawn by two-horse teams, now move in 1812: one goes round the outbuildings, the other runs the shore road to the Lees\' house and back.',
+      'Each wagon stops at its places (the south gate, the stables, the merchant\'s shop, the Lees\' door) and stands about a minute as if loading, then goes on.',
+      'A private of Heald\'s company leads each team on foot at the near horse\'s head, as army teamsters did: Elias Mills on the round, William Moffett on the shore road. Click either to open his card, or stop him and send him on.',
+      'The wagon is the photographic farm-box cart; phones load its lighter level.',
+    ] },
+  { v: 2819, ts: '2026-11-08T03:39:49.319Z', date: 'Nov 7, 2026, 9:39 PM CT', title: 'Arms and hands swing like a real walk', kind: 'improvement',
+    items: [
+      'The arm swing follows measured walking: the arm swings mostly behind the body, and the forearm trails the upper arm like a loose pendulum',
+      'Hands hang relaxed: each hand is curled once instead of twice (two curls added up to a claw), the fingers bend gently and evenly side by side with the knuckles standing up, and the thumb rests beside the first finger without tearing the skin at its root',
+      'Each person swings a little differently: how far, how bent the elbow, and one arm a touch more than the other',
+    ] },
+  { v: 2818, ts: '2026-11-08T03:24:24.967Z', date: 'Nov 7, 2026, 9:24 PM CT', title: 'Pullman\'s 18th Street side: the east window in its place', kind: 'improvement',
+    items: [
+      'On the 1729 Prairie Avenue Pullman house, the broad window in the 18th Street side\'s east section and the pair of narrow windows above it now stand half a metre further east, where the c. 1900 Detroit Publishing photograph places them, with the pair centred over the window as the photograph draws it.',
+    ] },
   { v: 2817, ts: '2026-11-08T02:25:08.779Z', date: 'Nov 7, 2026, 8:25 PM CT', title: 'Every soldier at Fort Dearborn has his own looks', kind: 'feature',
     items: [
       'The 51 men of Heald\'s company no longer share one face colour and one head of hair. Each has his own complexion, hair colour and eyes, drawn in the words the Army\'s enlistment registers of 1812 used, leaned a little by where his name comes from.',

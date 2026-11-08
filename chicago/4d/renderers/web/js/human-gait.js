@@ -103,6 +103,7 @@ export function gaitProfile({ sex = 'male', age = 35, height = 1.72, skirt = fal
     pelvisYawDeg: 5.5 * (skirt ? 0.7 : 1) * (1 - 0.3 * old),
     pelvisRollDeg: 4.5 * (skirt ? 0.7 : 1) * (1 - 0.3 * old),
     lateral: female ? 0.022 : 0.02,
+    female, old,
   };
 }
 

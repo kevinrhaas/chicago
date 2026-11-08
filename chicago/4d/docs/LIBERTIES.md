@@ -307,6 +307,47 @@ line is now load-bearing rather than a courtesy: an entry here without one is a 
 that has been misfiled, and `tools/compile_liberties.py` says so and compiles it as standing.
 
 
+### L-pullman-18th-street-wall-c1900-1934 — Pullman's 18th Street wall east of the stair's pier built as the c. 1900 picture shows it: one level coping, its later piers, urn and curved low walls withdrawn
+**Recorded:** 2026-10-31.
+
+**Decision:** east of the third pier (the east pier of the stair at the house's 18th Street porch, x -9.35
+to -10.25 in `pullman_house_1729_prairie`'s frame) the 18th Street wall (`form.boundary.side_return`) now
+runs level at 0.9 m to the stable's east wall. The fourth, fifth and sixth piers, the fifth's urn, the
+sweeps from 1.4 m to 0.85 m and back up to 1.45 m between the third and fourth piers, and the sweep up to
+the sixth pier are withdrawn for 1904. L-pullman-18th-street-wall-1934 had built them off the 1894 Inland
+plate, which Taylor's 16555 and 16554, both of the early 1890s, agree with.
+**What is read.** The Detroit Publishing view of c. 1900 (`loc_det_4a08066_pullman_residence`, LC-D4-12552,
+taken beside the Fort Dearborn monument looking west-north-west along this wall) is the picture nearest
+1 July 1904. From the stair's east pier (its x 475-485 px) to the monument (x 740) it shows one level coping,
+about as high as the hydrant at the curb stands over the walk, with a dense border of shrubs behind it. No
+pier rises over its top, there is no urn, and no low wall falls and rises (x 485-740, y 520-535). The Chicago
+History Museum's view of the monument (ICHi-19208, circa 1900; the Prairie library's
+`a16-chm-ichi-19208-monument-pullman-wall`, no source record yet, so a check only) shows the same plain
+coping at the stable's end. So the earlier pictures' piers and curved walls are taken to have gone in a
+rebuilding between 1894 and about 1900, which no record held here dates.
+**What is invented.** The two openings are kept: the one onto the terrace's ground (x -15.2 to -16.15) and the
+court's carriage mouth (x -17.05 to -20.4). The Detroit view sees this face edge-on, where a doorway-wide
+opening reads as a narrow dark slot (it shows two, at x 493-497 and 611-617 px), and the court's mouth falls
+behind a parkway trunk there (x 702-714). So the picture can neither place nor deny them, and the carriage
+drive (L-pullman-carriage-ways-1934) needs the court's. Their plain ends without piers are reconstructed.
+**Read the same way:** the 1894 plate's planting before the terrace (its evergreen mass, a potted conifer) and
+Taylor's 16555's flights open from the walk give way in 1904 to the c. 1900 border, which the 1729 lot's border in
+`data/front_yards/1904.json` already draws. Those items read `not shown`, replaced for 1904, in the estate's
+match records.
+**How to resolve:** a solved camera for the Detroit view (an earlier attempt was withdrawn on 13-30 px
+residuals), a picture of the wall between 1894 and 1904 that dates the rebuilding, or a full-size copy of
+CHM i70232 (1905-1906) showing the wall at the court's mouth.
+**Resolved:** 2026-11-08, by the first of those: the Detroit view's solved camera (T-1881, 2.6 px rms on the
+house). Through it the third pier stands at x 373 px, not at the 475-485 this entry read it at, and the print
+from x 330 east shows the 1894 plate's wall feature for feature: the third pier (x 330-336), the coping falling
+from it and sweeping back up to the fourth pier (x 382-388), the doorway slot (x 397-406), the fifth pier with
+its urn (x 406-413), the carriage mouth with the terrace's flight seen through it (x 413-475), and the sixth
+pier (x 475-485). The level coping this entry read lies east of the sixth pier, where the build kept it. So the
+wall had not been rebuilt by about 1900, and the withdrawn piers, urn and sweeps are restored for 1904 as
+L-pullman-18th-street-wall-1934 built them; this entry no longer stands.
+**Ticket:** T-1934; resolved by T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg` and `taylor_16555_west_front-side-by-side.jpg`, with the estate's six match records.
+
 ### L46 — The fort stands on a bank the model has no cut or fill for
 **Decision:** the **stockade** and the **commandant's quarters** stand clear of the terrain on
 their north sides — 1.40 m and 0.46 m at the worst point — and are declared
@@ -39335,39 +39376,6 @@ glazing: the fence hides their feet and whatever grilles they had. Their surroun
 plain stone.
 **How to resolve:** a nearer photograph of the entrance and its steps, or of the house's basement.
 **Recorded:** 2026-10-31 (T-3257).
-### L-pullman-18th-street-wall-c1900-1934 — Pullman's 18th Street wall east of the stair's pier built as the c. 1900 picture shows it: one level coping, its later piers, urn and curved low walls withdrawn
-**Recorded:** 2026-10-31.
-
-**Decision:** east of the third pier (the east pier of the stair at the house's 18th Street porch, x -9.35
-to -10.25 in `pullman_house_1729_prairie`'s frame) the 18th Street wall (`form.boundary.side_return`) now
-runs level at 0.9 m to the stable's east wall. The fourth, fifth and sixth piers, the fifth's urn, the
-sweeps from 1.4 m to 0.85 m and back up to 1.45 m between the third and fourth piers, and the sweep up to
-the sixth pier are withdrawn for 1904. L-pullman-18th-street-wall-1934 had built them off the 1894 Inland
-plate, which Taylor's 16555 and 16554, both of the early 1890s, agree with.
-**What is read.** The Detroit Publishing view of c. 1900 (`loc_det_4a08066_pullman_residence`, LC-D4-12552,
-taken beside the Fort Dearborn monument looking west-north-west along this wall) is the picture nearest
-1 July 1904. From the stair's east pier (its x 475-485 px) to the monument (x 740) it shows one level coping,
-about as high as the hydrant at the curb stands over the walk, with a dense border of shrubs behind it. No
-pier rises over its top, there is no urn, and no low wall falls and rises (x 485-740, y 520-535). The Chicago
-History Museum's view of the monument (ICHi-19208, circa 1900; the Prairie library's
-`a16-chm-ichi-19208-monument-pullman-wall`, no source record yet, so a check only) shows the same plain
-coping at the stable's end. So the earlier pictures' piers and curved walls are taken to have gone in a
-rebuilding between 1894 and about 1900, which no record held here dates.
-**What is invented.** The two openings are kept: the one onto the terrace's ground (x -15.2 to -16.15) and the
-court's carriage mouth (x -17.05 to -20.4). The Detroit view sees this face edge-on, where a doorway-wide
-opening reads as a narrow dark slot (it shows two, at x 493-497 and 611-617 px), and the court's mouth falls
-behind a parkway trunk there (x 702-714). So the picture can neither place nor deny them, and the carriage
-drive (L-pullman-carriage-ways-1934) needs the court's. Their plain ends without piers are reconstructed.
-**Read the same way:** the 1894 plate's planting before the terrace (its evergreen mass, a potted conifer) and
-Taylor's 16555's flights open from the walk give way in 1904 to the c. 1900 border, which the 1729 lot's border in
-`data/front_yards/1904.json` already draws. Those items read `not shown`, replaced for 1904, in the estate's
-match records.
-**How to resolve:** a solved camera for the Detroit view (an earlier attempt was withdrawn on 13-30 px
-residuals), a picture of the wall between 1894 and 1904 that dates the rebuilding, or a full-size copy of
-CHM i70232 (1905-1906) showing the wall at the court's mouth.
-**Ticket:** T-1934.
-**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg` and `taylor_16555_west_front-side-by-side.jpg`, with the estate's six match records.
-
 ### L-field-1905-conservatory-1905 — 1905 Prairie's conservatory stood as glass on the house's stone bow, off the 1893 Pictorial Chicago plate
 
 **Decision:** T-1905 builds the conservatory on the Field house's south flank as the 1893 plate
@@ -42238,13 +42246,21 @@ toe-off. The swing follows the measured hip, knee and ankle curves (the knee fol
 corrected to leave and land exactly. The pelvis rides as low as the leading knee's measured bend allows (2-3 cm
 of bob, lowest in double support), shifts 2 cm over the stance foot, turns about 5 degrees with the leading
 leg and dips about 4 on the swing side (a third less in a skirt); stopping takes a closing step. The arm layer (human-actions.js) swings the
-arms from the gait's phase, opposite the legs and a little after the other heel strikes, about 22 degrees at
-1.25 m/s with the elbow bending more at the front (half that in a full skirt); the life layer
+arms from the gait's phase, opposite the legs, along the measured curves of the upper arm and elbow (T-3496,
+Kevin 2026-11-08: "the hand and arm swing still could be more natural"): mostly behind the body, from about 19
+degrees back to 6 forward of the vertical, the elbow 12-43 degrees and following the shoulder late, scaled by
+sex and speed from the measured range (half in a full skirt); the hand hangs loose and trails at the wrist,
+fingers loosely curled once (Kevin 2026-11-08, of the clawed hands: "the fingers still seem kind of janky":
+the hanging hand's curl and the walk's had added up; then "missing the knuckle"), bent about as much at the
+knuckle as at the middle joint, a little more toward the little finger, side by side, each knuckle standing up
+a little as its finger bends, the thumb laid beside the first finger short of turning its root all the way;
+and each person draws their own range, carriage, elbow and a slightly stronger arm; the life layer
 (human-life.js) turns the chest back against the pelvis, leans the trunk forward 2-4 degrees with speed and
 keeps the head steady in the world.
 **What is read.** Nothing about any person's own walk. The shape of the cycle and its events are the means of
 the young adults walking at 1.24 m/s in the public gait dataset of Fukuchi, Fukuchi & Duarte (2018, *PeerJ*
-6:e4640), the shoulder line against the pelvis from Horst et al. (2019); speeds, steps and cadence by sex and
+6:e4640), the shoulder line against the pelvis and the upper arm and elbow over the cycle from Horst et al.
+(2019); speeds, steps and cadence by sex and
 age from Oberg, Karsznia & Oberg (1993) and Bohannon & Andrews (2011). A lady's restraint in swinging her arms
 is period advice (Hill's Manual, Chicago, 1887), and the shortened step of a long skirt is a period complaint
 (Galbraith, quoted by Macfadden, 1901). Tables, sources and period street films to judge by are in
@@ -42252,10 +42268,13 @@ is period advice (Hill's Manual, Chicago, 1887), and the shortened step of a lon
 **What is invented.** That any person of 1812, 1835 or 1904 walked so: modern laboratory means stand in for
 period walking. The skirt factors (no measured study of a 1900s walking skirt over a corset was found), the
 per-person seeded variation of pace (±3 %) and stride, the start and closing steps, and every amplitude
-within the published ranges.
+within the published ranges; the arm swing's scaling with speed and age (the decline with age is reported,
+Mirelman 2015, not tabled), each person's arm variation (range ±15 %, carriage ±3 degrees, elbow ±4 degrees,
+one arm up to 8 % stronger), the wrist's trailing and the hand's curl, its share among the joints, the
+cascade, the knuckles' lift and the thumb's lie.
 **How to resolve:** motion capture of walkers in reproduction period dress, or measurement of walking from
 period street films (Lumière and Edison/AM&B street scenes of 1896-1906), reviewed in the town.
-**Ticket:** T-3472.
+**Ticket:** T-3472, T-3496.
 **Recorded:** 2026-11-07 (T-3472).
 ### L-1812-garrison-looks-3491 — How each man of Heald's company looks: complexion, hair, eyes, height
 
@@ -42329,3 +42348,34 @@ creole field crop *"Corn, pumpkins, and spring wheat"*), the place and size of t
 strip's crop are ours. **How to resolve:** a return, an order book or a letter naming what the company grew at the
 forks, or how the field was divided between garden and corn, replaces the strips; a drawing of the field replaces the
 layout.
+
+### L-1812-army-wagons-3497 — Two of the fort's wagons on the move on 14 August 1812, each led by a private on foot
+
+**Recorded:** 2026-11-08 (T-3497).
+
+**Decision:** two horse-drawn wagons now move in the 1812 scene, on the same driven-team system as the 1835 wagon and
+the 1904 brougham (`data/transport/driven/loops.json`, laid by `tools/lay_driven_wagons_1812.mjs`). One goes round the
+fort's outbuildings, standing at the foot of the south gate, the stables and the merchant's shop; the other runs down
+the shore road south of the fort to the Lee family's house and back up to the north end of the road, standing at
+each end. Each stands about a minute at a stop, as if loading. Each is led by a private of Heald's company walking at
+the near horse's head with a lead rope, not driving from a seat: Elias Mills on the round and William Moffett on the
+shore road, the two men the garrison stations already put at the stables (L-1812-garrison-stations-3462). While a man
+leads his wagon his standing figure is withdrawn, so he is never drawn twice.
+**Why:** the owner, 2026-11-08: *"add some wagons that are driven by horses and in movement in 1812 just like we have
+in 1904 but make them the wagons from the era and have some wagons rotating around town on loops ... you should I
+think have people taking wagons places"*; and *"We should have some existing photographic wagons that can work for
+this"*, *"As long as they are appropriate"*.
+**What is recorded and what is not:** that the company had wagons at the post is the accounts' (the women and
+children rode in the wagons on the march of 15 August: Quaife 1913, Kirkland 1893, Wau-Bun); the eve of the
+evacuation was spent readying the stores and baggage. Everything else is ours: that two wagons were working that
+afternoon, the vehicle, the teams, the men leading them, the roads they take, where they stop, how long they stand
+and the pace (a slow walk, 1.3 m/s). The vehicle is the scanned "Old Cart" farm-box wagon (Lyskilde, CC BY 4.0,
+`renderers/web/transport/farm-box-master/`), a plain four-wheeled box wagon of the kind in use on farms and with
+armies through the period; it is not a drawing or record of a Fort Dearborn wagon. Army teams of the time were as often
+oxen as horses; the scene's only draught model is the horse, so horses draw both. Leading a team on foot by the near
+horse's head was a common way for a teamster to work a slow wagon; nothing records how these men drove. The roads are
+hand-laid along the 1812 trails and the plain round the fort, held to a turn the wagon can make (18 m) and to ground
+it can stand on; they are not surveyed roads. The ground under the wheels and hooves is read smoothed from the
+committed heightfield (`renderers/web/js/transport-ground.js`); the drawn ground is unchanged.
+**How to resolve:** an order book, morning report or quartermaster's return of the post for August 1812 would say what
+wagons and teams it had and who drove them; a drawing of the post's wagons would replace the cart.
