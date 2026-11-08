@@ -326,8 +326,10 @@ const excursion = (rows, s) => { const v = rows.map(x => x[s].flex); return Math
     const ex = excursion(rows, s), mean = (Math.max(...flex) + Math.min(...flex)) / 2;
     assert(ex > 20 && ex < 30, `gait: the ${s} shoulder swings ${ex.toFixed(1)} deg`);
     assert(Math.max(...flex) - mean > 8 && Math.max(...flex) - mean < 12.5, `gait: ±${(ex / 2).toFixed(1)} deg about ${mean.toFixed(1)}`);
+    // Mostly behind the body, as measured (Horst 2019: about 19 deg back to 6 forward of the vertical).
+    assert(Math.min(...flex) < -14 && Math.max(...flex) < 9 && mean < -3, `gait: the ${s} arm swings mostly behind the body (${Math.min(...flex).toFixed(1)}..${Math.max(...flex).toFixed(1)} deg)`);
     const front = rows[flex.indexOf(Math.max(...flex))][s], back = rows[flex.indexOf(Math.min(...flex))][s];
-    assert(front.elbow > back.elbow + 10 && front.elbow > 26 && front.elbow < 40 && back.elbow > 10 && back.elbow < 22,
+    assert(front.elbow > back.elbow + 10 && front.elbow > 26 && front.elbow < 48 && back.elbow > 8 && back.elbow < 22,
       `gait: the ${s} elbow bends more at the front (${back.elbow.toFixed(1)} → ${front.elbow.toFixed(1)} deg)`);
     // The hand goes further forward than back of where it hangs, and a little inward in front.
     const hz = rows.map(x => x[s].wrist.z), hx = rows.map(x => Math.abs(x[s].wrist.x));

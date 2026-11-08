@@ -15,8 +15,8 @@
  *   - a visitor who comes up in front is greeted with a hand to the brow (the working
  *     man's touch of the hat brim or forelock) and a small nod;
  *   - walking, the arms swing opposite to the legs. With the gait layer (human-gait.js,
- *     passed in as `gait`) the swing is driven from its phase and speed, no lag (see
- *     ARM_SWING below); without it, read from where the feet are, so the swing follows
+ *     passed in as `gait`) the swing is driven from its phase and speed along measured
+ *     arm curves (see ARM_SWING below); without it, read from where the feet are, so the swing follows
  *     any walk clip's stride and stops when the feet stop.
  *
  * Hand placements are solved by two-bone IK in the figure's own frame, from landmarks
@@ -44,6 +44,7 @@ const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
 const smooth = (t) => { t = clamp(t, 0, 1); return t * t * (3 - 2 * t); };
 const SIDES = ['l', 'r'];
 const FINGERS = ['index', 'middle', 'ring', 'pinky'];
+const CASCADE = Object.freeze({ index: 0.82, middle: 1, ring: 1.1, pinky: 1.2 });
 const ARM = (s) => [`upperarm_${s}`, `lowerarm_${s}`, `hand_${s}`,
   ...FINGERS.flatMap((f) => ['01', '02', '03'].map((k) => `${f}_${k}_${s}`)), `thumb_01_${s}`, `thumb_02_${s}`];
 const NEEDED = ['pelvis', 'spine_03', 'head', 'thigh_l', 'thigh_r', 'foot_l', 'foot_r', 'upperarm_l', 'upperarm_r',
@@ -57,30 +58,61 @@ export const HAND_POSES = Object.freeze(['rest', 'hips', 'behind', 'clasp']);
 export const SKIRT_POSES = Object.freeze(['clasp', 'behind']);
 
 /**
- * The arm swing on the gait layer's walk. Each arm swings with the opposite leg, a pendulum
- * driven a little from the shoulder (Collins, Adamczyk & Kuo 2009; Meyns, Bruijn & Duysens
- * 2013), so the shoulder's flexion peaks just after the other foot's heel strike (`lag`, a
- * fraction of the cycle: the arm trails the leg a little). At an ordinary 1.2-1.3 m/s the
- * upper arm swings about +/-11 deg about a mean held a little back (`mean`), some 22 deg
- * in all, and the elbow bends from about 15 deg at the back of the swing to about 33 at
- * the front, the forearm a touch ahead of the upper arm (`elbowLead`), so the hand goes
- * further forward than back (the sagittal shoulder and elbow rotations Murray, Sepic &
- * Barnard 1967 measured; the numbers here are reconstructed inside them). The swing grows
- * with speed (`nominal_m_s` gives the amplitudes above), the hand relaxed, its path a
- * little inward in front of the thigh (`inward`, radians of adduction per radian of
- * flexion). A woman in a full skirt swings about half as far (a lady's arm-swinging was
- * "ill-breeding" to Hill's Manual, Chicago 1887; data/humans/gait/README.md) and carries the arm out over
- * the skirt's bell, a little outward as it comes forward, never in toward it.
+ * The arm swing on the gait layer's walk, read from motion capture rather than drawn as a
+ * sine. Each arm swings with the opposite leg. `upper` is the upper arm against the
+ * vertical over one cycle from the same side's heel strike (+ elbow ahead of the shoulder),
+ * and `elbow` the elbow's flexion: Horst et al. 2019, 57 young adults
+ * (data/humans/gait/normative_gait.json, alt.arm_vs_vertical_deg and
+ * cycle_tables.elbow_flexion_deg). What the curves say, and the sine said wrongly:
+ *   - the arm swings mostly BEHIND the body: from about 19 deg back to 6 forward of the
+ *     vertical, so the hand comes only a little ahead of the thigh but well back of it;
+ *   - the arm is furthest back just after its own heel strike and furthest forward at the
+ *     other heel strike, and the elbow follows the shoulder late (its peak about 4 % of the
+ *     cycle later), so the forearm trails the upper arm like a loose pendulum;
+ *   - the elbow is never straight: about 20 deg at the back of the swing to about 50 at
+ *     the front (the dataset's shoulder point is the acromion, which reads the elbow some
+ *     8 deg too bent, `elbowOffset_deg`).
+ * The swing is scaled from the measured range of each sex at its measured speed (`rom`:
+ * women 31.2 deg at 1.49 m/s, men 22.4 at 1.40) to the walker's own speed, and less with
+ * age (`older`, reconstructed: the decline is reported, Mirelman 2015, not tabled). The hand
+ * hangs loose from the wrist and trails the forearm (`wristLag`, a fraction of the cycle),
+ * fingers loosely curled (`curl`), the palm to the thigh and turning back as the arm goes
+ * back (`palmBack`). A woman in a full skirt swings about half as far (a lady's
+ * arm-swinging was "ill-breeding" to Hill's Manual, Chicago 1887; data/humans/gait/README.md)
+ * and carries the arm out over the skirt's bell, a little outward as it comes forward,
+ * never in toward it. The shapes are measured; the scalings, the wrist and the hand are
+ * reconstructed (liberty L-human-gait-3472).
  */
 export const ARM_SWING = Object.freeze({
-  nominal_m_s: 1.25, shoulder_deg: 11, mean_deg: -2, lag: 0.05,
-  elbowBack_deg: 16, elbowFront_deg: 33, elbowLead: 0.03, wrist_deg: 6, curl: 0.3,
+  upper: Object.freeze([-19.4, -19.4, -18.0, -15.7, -12.8, -9.0, -5.0, -1.3, 1.9, 4.4, 5.8, 5.5, 3.4, 0.4, -2.1, -4.7, -8.1, -11.7, -15.0, -17.6, -19.0]),
+  elbow: Object.freeze([22.6, 21.3, 20.4, 21.3, 23.9, 27.4, 32.4, 38.1, 43.8, 48.4, 51.0, 51.5, 49.8, 45.6, 39.6, 33.8, 29.9, 27.5, 25.9, 24.6, 23.2]),
+  rom: Object.freeze({ female: [31.2, 1.49], male: [22.4, 1.40], all: [26.9, 1.44] }),
+  elbowOffset_deg: 8, older: 0.3, wristLag: 0.06, wrist_deg: 6, curl: 0.42, palmBack: 0.35,
+  // Two people never swing alike (reconstructed): each draws how far (`range`), how far back
+  // the arm hangs (`mean_deg`), how bent the elbow (`elbow_deg`), and one arm a little more than the other (`side`).
+  person: Object.freeze({ range: [0.85, 1.15], mean_deg: [-3, 3], elbow_deg: [-4, 4], side: [0.92, 1.08] }),
   inward: 0.25, skirt: { scale: 0.5, inward: -0.2 },
 });
+/** A periodic table of 21 values (0..100 % of the cycle, the last repeating the first) at cycle fraction `c`. */
+function cycleAt(table, c) {
+  const x = (((c % 1) + 1) % 1) * 20, i = Math.floor(x), t = x - i;
+  const p = (k) => table[((k % 20) + 20) % 20];
+  const p0 = p(i - 1), p1 = p(i), p2 = p(i + 1), p3 = p(i + 2);
+  return 0.5 * (2 * p1 + (-p0 + p2) * t + (2 * p0 - 5 * p1 + 4 * p2 - p3) * t * t + (-p0 + 3 * p1 - 3 * p2 + p3) * t * t * t);
+}
+const tableMean = (t) => t.slice(0, 20).reduce((a, b) => a + b, 0) / 20;
+const UPPER_MEAN = tableMean(ARM_SWING.upper), UPPER_ROM = Math.max(...ARM_SWING.upper) - Math.min(...ARM_SWING.upper);
+const ELBOW_MEAN = tableMean(ARM_SWING.elbow);
 const fin = (x, d = 0) => (Number.isFinite(x) ? x : d);
 
 export function createHumanActions({ id = 'human', scene = null, greeting = 'brow', skirt = false, carry = null } = {}) {
   const rand = seededRandom(`actions:${id}`);
+  // This person's own arm swing (ARM_SWING.person), from its own stream so it moves no other draw.
+  const own = (() => {
+    const r = seededRandom(`arms:${id}`), p = ARM_SWING.person, pick = ([a, b]) => a + (b - a) * r();
+    const range = pick(p.range), mean = pick(p.mean_deg), elbow = pick(p.elbow_deg), side = pick(p.side);
+    return { range, mean, elbow, l: side, r: 2 - side };
+  })();
   const between = (a, b) => a + (b - a) * rand();
   let bones = {}, held = {}, bound = false, root = null, body = null;
   const L = {}; // landmarks and lengths, figure frame, from the bind pose
@@ -130,6 +162,15 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
         palm.addScaledVector(along, -palm.dot(along)).normalize();
       }
       local[`hand_${s}`] = { along, palm };
+      // Each finger's first bone, along to its second (for drawing the fingers together).
+      for (const f of FINGERS) {
+        const n = `${f}_01_${s}`, c = found[`${f}_02_${s}`];
+        if (found[n] && c && c.position.lengthSq() > 1e-12) local[n] = { along: c.position.clone().normalize() };
+      }
+      // The thumb's two bones, each along to its child.
+      for (const [n, c] of [[`thumb_01_${s}`, `thumb_02_${s}`], [`thumb_02_${s}`, `thumb_03_${s}`]]) {
+        if (found[n] && found[c] && found[c].position.lengthSq() > 1e-12) local[n] = { along: found[c].position.clone().normalize() };
+      }
       // Which way about each finger's local X closes it toward the palm.
       const f2 = found[`index_02_${s}`], tip = found[`index_03_${s}`];
       if (f2 && tip) {
@@ -219,13 +260,61 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
   /** Curl side `s`'s fingers by `k` (0 open .. 1 a loose fist); additive about the knuckles. */
   function curl(s, k) {
     if (!(Math.abs(k) > 1e-4)) return;
-    for (const f of FINGERS) for (const [seg, amt] of [['01', 0.8], ['02', 1], ['03', 0.6]]) {
+    for (const f of FINGERS) for (const [seg, amt0] of [['01', 1], ['02', 0.85], ['03', 0.5]]) {
       const b = bones[`${f}_${seg}_${s}`];
       if (!b) continue;
+      // A relaxed hand's cascade: each finger toward the little one a little more closed.
+      const amt = amt0 * CASCADE[f];
       // Each finger bends about its own local X, as the contract hand does (driver-life.js
       // bends them about the figure's right, which is the same axis in a hanging hand).
       b.quaternion.multiply(qa.setFromAxisAngle(new THREE.Vector3(1, 0, 0), local[`curl_${s}`] * k * amt * 60 * DEG));
     }
+  }
+
+  /**
+   * Lay side `s`'s thumb in along the side of the index finger, a little round toward the
+   * palm, as a hand hanging loose holds it (blend `w`). The clip holds it straight out from
+   * the hand, which from the side reads as a thumb stuck out like a hitchhiker's.
+   */
+  function thumbIn(s, w) {
+    if (!(w > 1e-4) || !local[`thumb_01_${s}`]) return;
+    const h = bones[`hand_${s}`], ax = local[`hand_${s}`];
+    h.updateWorldMatrix(true, false);
+    const hq = h.getWorldQuaternion(new THREE.Quaternion());
+    const along = ax.along.clone().applyQuaternion(hq), palm = ax.palm.clone().applyQuaternion(hq);
+    aimAlong(`thumb_01_${s}`, along.clone().multiplyScalar(0.85).addScaledVector(palm, 0.42), w);
+    if (local[`thumb_02_${s}`]) {
+      bones[`thumb_01_${s}`].updateMatrixWorld(true);
+      aimAlong(`thumb_02_${s}`, along.clone().multiplyScalar(0.62).addScaledVector(palm, 0.78), w);
+    }
+  }
+  /**
+   * Draw side `s`'s fingers together toward the middle one by `k` (0..1): a loose hand's
+   * fingers lie side by side, not fanned as the bind pose spreads them.
+   */
+  function closeFingers(s, k) {
+    if (!(k > 1e-4) || !local[`middle_01_${s}`]) return;
+    const mid = bones[`middle_01_${s}`];
+    mid.updateWorldMatrix(true, false);
+    const md = local[`middle_01_${s}`].along.clone().applyQuaternion(mid.getWorldQuaternion(new THREE.Quaternion())).normalize();
+    for (const f of ['index', 'ring', 'pinky']) {
+      const n = `${f}_01_${s}`, b = bones[n];
+      if (!b || !local[n]) continue;
+      b.updateWorldMatrix(true, false);
+      const d = local[n].along.clone().applyQuaternion(b.getWorldQuaternion(new THREE.Quaternion())).normalize();
+      aimAlong(n, d.lerp(md, k).normalize(), 1);
+    }
+  }
+  /** Turn bone `n` so its own `local[n].along` points along world `dir` (blend `w`). */
+  function aimAlong(n, dir, w) {
+    const b = bones[n];
+    if (!b || !local[n]) return;
+    b.parent.updateWorldMatrix(true, false);
+    const parentQ = b.parent.getWorldQuaternion(new THREE.Quaternion());
+    const worldQ = parentQ.clone().multiply(b.quaternion);
+    const cur = local[n].along.clone().applyQuaternion(worldQ).normalize();
+    const target = new THREE.Quaternion().setFromUnitVectors(cur, dir.clone().normalize()).multiply(worldQ);
+    b.quaternion.slerp(parentQ.invert().multiply(target), w);
   }
 
   // State, kept across a LOD swap.
@@ -323,7 +412,9 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
         // fingers loosely curled (the clip holds them open and turned out).
         bones[`lowerarm_${s}`].updateMatrixWorld(true);
         orientHand(s, toWorldDir(new THREE.Vector3(0, -1, walking ? 0.25 : 0.12)), toWorldDir(new THREE.Vector3(-sx, 0, -0.25)), 0.8);
+        closeFingers(s, 0.5);
         curl(s, 0.32);
+        thumbIn(s, 0.7);
       }
 
       // Walking: each arm swings opposite its own side's leg, as far as the stride is long.
@@ -361,17 +452,21 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
       // forearm from the elbow, then the hand along it, so the swing does not depend on
       // what the clip did with the arm.
       if (gait && gw > 1e-4) {
-        const A = ARM_SWING, phase = fin(gait.phase), sk = skirt ? A.skirt.scale : 1;
-        const f = clamp(fin(gait.speed, A.nominal_m_s) / A.nominal_m_s, 0.3, 1.5) * sk;
+        const A = ARM_SWING, phase = fin(gait.phase), P = gait.profile ?? {};
+        const [rom, at] = A.rom[P.female === true || skirt ? 'female' : P.female === false ? 'male' : 'all'];
+        const speed = fin(gait.speed, at);
+        // How far this walker swings against the measured mean, by speed (the swing grows
+        // about in proportion to it) and age, and half that in a skirt.
+        const k = clamp((rom / UPPER_ROM) * (speed / at) * (1 - A.older * clamp(fin(P.old), 0, 1)), 0.2, 1.6) * (skirt ? A.skirt.scale : 1);
         const abd = skirt ? 0.16 : 0.075, carry = skirt ? 0.12 : 0.03, inK = skirt ? A.skirt.inward : A.inward;
         for (const s of SIDES) {
           if (s === hold?.side) { gaitArm[s] = 0; continue; } // T-3481: the carrying arm is held, not swung
-          const sx = s === 'l' ? 1 : -1;
-          // The left arm comes forward with the right leg, whose heel strikes at phase 0.5.
-          const peak = (s === 'l' ? 0.5 : 0) + A.lag;
-          const th = (A.mean_deg + A.shoulder_deg * f * Math.cos(2 * Math.PI * (phase - peak))) * DEG;
-          const front = 0.5 + 0.5 * Math.cos(2 * Math.PI * (phase - peak + A.elbowLead)); // 0 back .. 1 front
-          const elbow = (A.elbowBack_deg + (A.elbowFront_deg - A.elbowBack_deg) * f * front) * DEG;
+          const sx = s === 'l' ? 1 : -1, ks = k * own.range * own[s];
+          const shoulderAt = (c) => (UPPER_MEAN + own.mean + (cycleAt(A.upper, c) - UPPER_MEAN) * ks) * DEG;
+          const elbowAt = (c) => Math.max(6, ELBOW_MEAN - A.elbowOffset_deg + own.elbow + (cycleAt(A.elbow, c) - ELBOW_MEAN) * ks) * DEG;
+          // The tables run from the same side's heel strike: the left at phase 0, the right at 0.5.
+          const c = phase + (s === 'l' ? 0 : 0.5);
+          const th = shoulderAt(c), elbow = elbowAt(c);
           gaitArm[s] = th;
           // The upper arm: down, swung about the figure's right, a little out from the side
           // (in a skirt, out over the bell), and in toward the front of the thigh as it comes forward.
@@ -384,17 +479,20 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
           bones[`upperarm_${s}`].updateMatrixWorld(true);
           aim(`lowerarm_${s}`, wdir.copy(foreDir).applyQuaternion(sceneQ), gw);
           bones[`lowerarm_${s}`].updateMatrixWorld(true);
-          // The hand hangs on from the forearm, the wrist a touch flexed, palm to the thigh.
-          handDir.copy(foreDir).applyAxisAngle(bend, A.wrist_deg * DEG).applyQuaternion(sceneQ);
-          palmDir.copy(fig.left).multiplyScalar(-sx).addScaledVector(fig.fwd, -0.25).applyQuaternion(sceneQ);
+          // The hand hangs loose from the wrist and trails: it points where the forearm
+          // pointed a moment ago (flexing as the arm comes back, extending as it goes forward).
+          const lagged = (shoulderAt(c - A.wristLag) + elbowAt(c - A.wristLag)) - (th + elbow);
+          const wrist = clamp(A.wrist_deg * DEG + lagged, -14 * DEG, 18 * DEG);
+          handDir.copy(foreDir).applyAxisAngle(bend, wrist).applyQuaternion(sceneQ);
+          // Palm to the thigh, turning back as the arm goes behind (0 at the front, 1 at the back).
+          const back = clamp((Math.max(...A.upper) - cycleAt(A.upper, c)) / UPPER_ROM, 0, 1);
+          palmDir.copy(fig.left).multiplyScalar(-sx).addScaledVector(fig.fwd, -(0.12 + A.palmBack * back)).applyQuaternion(sceneQ);
           orientHand(s, handDir, palmDir, gw);
           // Fingers loosely closed and the thumb in along the index, as a walking hand is
           // carried (the clip holds them open, which reads as a hand held out).
+          closeFingers(s, 0.6 * gw);
           curl(s, A.curl * gw);
-          for (const [seg, k] of [['01', 0.35], ['02', 0.5]]) {
-            const b = bones[`thumb_${seg}_${s}`];
-            if (b) b.quaternion.multiply(qa.setFromAxisAngle(new THREE.Vector3(1, 0, 0), local[`curl_${s}`] * k * A.curl * gw * 60 * DEG));
-          }
+          thumbIn(s, 0.85 * gw);
         }
       } else { gaitArm.l = 0; gaitArm.r = 0; }
 
