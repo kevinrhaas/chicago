@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "detroit_det_4a08066",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "d9d4b45c8ab5da47cc304d1945f2ee3c1865d1f2f9b261fcd3190704d86304b7",
+  "glb_sha256": "10f6bca8d23fe0d26a88e82bc7d8dc4bd43aa2f0e15e4e77deb807c39c3bd430",
   "camera_sha256": "e1983a073ee8677c97941e6478f7753b65e26ab2fb1822cfacdd533053fc5e34",
   "photo_sha256": "297e4d7b05312c70ddea6e5dbb24a74cffd0db743f3bb9cdcbb1f4c0edc5f4fb",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "d9d4b45c8ab5da47cc304d1945f2ee3c1865d1f2f9b261fcd3190704d86304b7"
+      "glb_sha256": "10f6bca8d23fe0d26a88e82bc7d8dc4bd43aa2f0e15e4e77deb807c39c3bd430"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "33753cacaa38e5035e8d72e0f568c4efa6c9770272b67ef2f03738313beeb916"
     }
   ],
-  "group_sha256": "a78a478ff5e09bafd1a3213344cbb2e73136c111894887327738739f740bffbd",
+  "group_sha256": "d21199679891a723eb44ce698dfc0a1dd8d023b0714875360f4e0cea782b4f14",
   "rendered_flora": {
     "season": "winter",
     "creeper_in_leaf": true,
@@ -225,8 +225,8 @@
       "status": "open"
     },
     {
-      "what": "the flank's east section's second-storey pair: the print shows its lights at x 362-371 (the left one, if a pair, behind the elm's trunk at 355-364), centred about x 366 over the broad ground-storey window centred at 360.5; the render's pair is centred at x 357 over its window at 357. On the flank's plane that puts the print's window at s 21.9-25.0 (centre 23.5; built 22.95, 2.8 m wide) and the pair's centre at about s 23.9-24.2 (built 22.95; Taylor's no. 1445 reads 23.35): the pair about 1 m and the window about 0.5 m east of the build's",
-      "status": "open"
+      "what": "the flank's east section's second-storey pair: the print shows its lights at x 362-371 (the left one, if a pair, behind the elm's trunk at 355-364), centred about x 366 over the broad ground-storey window centred at 360.5; the render's pair is centred at x 357 over its window at 357. On the flank's plane that puts the print's window at s 21.9-25.0 (centre 23.5; built 22.95, 2.8 m wide) and the pair's centre at about s 23.9-24.2 (built 22.95; Taylor's no. 1445 reads 23.35): the pair about 1 m and the window about 0.5 m east of the build's [T-1881, 2026-11-08] FIXED: the window now stands at s 23.5 (its centre 0.55 m east), on the print's reading, and the pair above it is kept centred on it at s 23.5; re-rendered through the same camera the pair's lights read at x about 361-371 against the print's 362-371 and the window's jambs at about 357-372 against 350-372, both half behind the elm and the shrubs as in the print. The pair stands between this print's s 23.9-24.2 and Taylor's no. 1445's 23.35, a gap two pictures disagree about (T-3153).",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

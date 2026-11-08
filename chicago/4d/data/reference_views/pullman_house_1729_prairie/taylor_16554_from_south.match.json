@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_16554_from_south",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "d9d4b45c8ab5da47cc304d1945f2ee3c1865d1f2f9b261fcd3190704d86304b7",
+  "glb_sha256": "10f6bca8d23fe0d26a88e82bc7d8dc4bd43aa2f0e15e4e77deb807c39c3bd430",
   "camera_sha256": "568a603acd37c9549b21b76a5f24b692670a1c74a4abc57c3eaf1aaa48334598",
   "photo_sha256": "f1099e538ca42a2bf75bc3db892a8e73c172c22f866862b71fa38c27c464dbfa",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "d9d4b45c8ab5da47cc304d1945f2ee3c1865d1f2f9b261fcd3190704d86304b7"
+      "glb_sha256": "10f6bca8d23fe0d26a88e82bc7d8dc4bd43aa2f0e15e4e77deb807c39c3bd430"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "33753cacaa38e5035e8d72e0f568c4efa6c9770272b67ef2f03738313beeb916"
     }
   ],
-  "group_sha256": "a78a478ff5e09bafd1a3213344cbb2e73136c111894887327738739f740bffbd",
+  "group_sha256": "d21199679891a723eb44ce698dfc0a1dd8d023b0714875360f4e0cea782b4f14",
   "rendered_flora": {
     "season": "winter",
     "lots": [
@@ -203,6 +203,10 @@
     },
     {
       "what": "the 18th Street flank's ground-storey lights east of the porte-cochere: this winter print, of the early 1890s, draws narrow round-headed lights under the pavilion's triple and in the east section, where the build now has two broad square-headed windows under transoms, read off the Detroit print det 4a08066 of c. 1900 (T-1881, 2026-11-07); two dated pictures disagree and the later one governs a 1904 build, so the earlier lights are read as altered before c. 1900",
+      "status": "within tolerance"
+    },
+    {
+      "what": "[T-1881, 2026-11-08] the flank's east section's window and second-storey pair moved from s 22.95 to 23.5 (off the Detroit print det 4a08066): in this print they move about 7 px east (the side-by-side's render x 363-404, y 389-545), the pair now a little east of the narrow lights this winter print draws; the three pictures place the pair between s 23.35 and 24.2, a gap pictures disagree about (T-3153), and the ground-storey lights stay as ruled above; the rest of the render is pixel-identical",
       "status": "within tolerance"
     }
   ],
