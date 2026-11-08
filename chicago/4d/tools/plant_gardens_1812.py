@@ -74,6 +74,11 @@ NEW_CROPS = {
                "crops of turnep'; by the middle of the month the drills show their seed leaves."),
     "weed": ("weeds: ragweed, lamb's-quarters, smartweed", "reconstructed",
              "An annual weed stand on ground tilled last year and not this: waist to head high by August."),
+    # T-3498: the forks field's corn, drawn four hills to a stand
+    "corn_stand": ("Indian corn in the field, in hills, with pumpkins", "attested",
+                   "The draught letters the field 'Company Garden & public Cornfield'; corn in hills three and a half "
+                   "feet apart, tasselled and in the ear by mid-August, pumpkins running between (Brackenridge's creole "
+                   "field). The spacing, stage and pumpkins are reconstructed; four hills are drawn as one stand."),
 }
 
 SRC_MMAHON = ["mmahon_1857_american_gardeners_calendar"]
@@ -292,6 +297,35 @@ GARDENS = [
         ],
     },
     {
+        # T-3498 (the owner, 2026-11-08: "Sure do it"): the eight acres at the forks
+        "id": "forks_company_cornfield_1812", "structure_id": "forks_company_cornfield_1812",
+        "record": "forks_company_cornfield_1812", "ticket": "T-3498",
+        "name": "The company garden and public cornfield",
+        "where": "At the forks, on the south side of the main river, inside its worm fence",
+        "household": "The garrison: Heald's company, worked by its fatigue parties",
+        "ground": "beds", "grade": "attested",
+        # a stand of four hills grown whole is a garden plant's cost: grow them only round the eye
+        "rings_m": {"near": 6, "mid": 15}, "ground_cell_m": 2.0,
+        "why": ("The draught's 'Company Garden & public Cornfield Eight acres'; Quaife p. 166, 'a small field of eight or "
+                "nine acres had been reduced to cultivation and made to serve as the company gardens and public "
+                "cornfield'. About seven acres of Indian corn in hills, tasselled and in the ear in mid-August, pumpkins "
+                "between; the company garden an acre's corner nearest the bank path to the fort, in mess strips: "
+                "potatoes, cabbages, beans, onions and a strip of turnips just sown. A path is trodden through the corn "
+                "to where the fatigue party is at work."),
+        "beds": [
+            ("corn_west", "stand_field", 1.6, 1.6, 96.9, 215.2, "Indian corn in hills, with pumpkins"),
+            ("corn_east", "stand_field", 98.9, 1.6, 148.3, 162.8, "Indian corn in hills, with pumpkins"),
+            ("mess_potatoes_1", "potato", 100.9, 210.0, 148.3, 215.2, "the company's potatoes"),
+            ("mess_potatoes_2", "potato", 100.9, 203.6, 148.3, 208.8, "the company's potatoes"),
+            ("mess_cabbages", "cabbage", 100.9, 197.2, 148.3, 202.4, "the company's cabbages"),
+            ("mess_beans", "pole_bean", 100.9, 190.8, 148.3, 196.0, "the company's beans on poles"),
+            ("mess_onions", "roots_onion", 100.9, 184.4, 148.3, 189.6, "the company's onions"),
+            ("mess_turnips", "turnip", 100.9, 178.0, 148.3, 183.2, "turnips, sown this week"),
+            ("mess_potatoes_3", "potato", 100.9, 171.6, 148.3, 176.8, "the company's potatoes"),
+            ("mess_cabbages_2", "cabbage", 100.9, 165.2, 148.3, 170.4, "the company's cabbages"),
+        ],
+    },
+    {
         "id": "lees_place_garden_1812", "structure_id": "lees_place_cabin_1812", "lees_place": True,
         "size": (14.0, 10.0), "name": "The little enclosure at Lee's Place",
         "where": "On the river side of the cabin at Lee's Place, on the South Branch",
@@ -305,6 +339,37 @@ GARDENS = [
         ],
     },
 ]
+
+
+def _seg_dist(u, v, a, b):
+    """Plan distance from (u, v) to the segment a-b."""
+    (au, av), (bu, bv) = a, b
+    du, dv = bu - au, bv - av
+    t = max(0.0, min(1.0, ((u - au) * du + (v - av) * dv) / (du * du + dv * dv or 1.0)))
+    return math.hypot(u - au - du * t, v - av - dv * t)
+
+
+def keep_clear(fr, W, D, pad=1.5):
+    """T-3498: where the scene's own people stand or walk inside a garden's plan, as (a, b, r)
+    segments in plan metres: each person's placement and every leg of their route. A field's corn
+    is not grown on them (a soldier at work hoeing stands between hills, not inside a stand)."""
+    out = []
+    inside = lambda u, v: -2 <= u <= W + 2 and -2 <= v <= D + 2
+    for f in sorted((DATA / "humans" / "instances" / "1812").glob("*.json")):
+        h = json.loads(f.read_text())
+        pl = h.get("placement") or {}
+        if pl.get("local_e") is None:
+            continue
+        pts = [to_plan(fr, pl["local_e"], pl["local_n"])]
+        for st in ((h.get("behaviour") or {}).get("route") or []):
+            pts.append(to_plan(fr, st["local_e"], st["local_n"]))
+        if not any(inside(u, v) for u, v in pts):
+            continue
+        out.append((pts[0], pts[0], pad))
+        # the walk out to the route, each leg of it, and back round to its start
+        legs = list(zip(pts, pts[1:])) + ([(pts[-1], pts[1])] if len(pts) > 2 else [])
+        out += [(a, b, pad * 0.9) for a, b in legs]
+    return out
 
 
 def frame_of(g):
@@ -403,6 +468,21 @@ def plant_bed(plan, poly, rng, grid, inside, edge_dist, g=None):
         for u, v, _ in grid(poly, 3.5 * FT, 3.5 * FT, 0.5, rng, jitter=0.12):
             x = rng.random()
             put("squash" if x < 0.14 else "pole_bean" if x < 0.45 else "corn", u, v, (0.86, 1.06))
+    elif plan == "stand_field":
+        # T-3498: a field too big to grow hill by hill: corn in hills three and a half feet each way,
+        # laid four hills to a stand (two by two); none on a path the garrison's people walk or a place
+        # they stand at work (keep_clear, from their own records)
+        S = 3.5 * FT
+        clear = (g or {}).get("_keep_clear", [])
+        u = u0 + 0.6 + S
+        while u <= u1 - 0.6 - S + 1e-9:
+            v = v0 + 0.6 + S
+            while v <= v1 - 0.6 - S + 1e-9:
+                pu, pv = u + rng.uniform(-0.08, 0.08), v + rng.uniform(-0.08, 0.08)
+                if all(_seg_dist(pu, pv, a, b) > r for a, b, r in clear):
+                    put("corn_stand", pu, pv, (0.94, 1.06), yaw=rng.choice((0, 90, 180, 270)) + rng.uniform(-3, 3))
+                v += 2 * S
+            u += 2 * S
     elif plan == "hill_field":
         # a field's corn in hills three and a half feet each way, a pumpkin vine in every third hill's
         # gap; the hills lean and vary more than a garden's
@@ -454,6 +534,8 @@ def build(grid, inside, edge_dist) -> tuple[list[dict], dict]:
         theta = math.degrees(math.atan2(fr["u"][1], fr["u"][0]))
         beds, plants = [], {}
         stems = [tuple(s) for s in g.get("stems", [])]
+        if g.get("rings_m"):
+            g = {**g, "_keep_clear": keep_clear(fr, W, D)}
         for bid, plan, a, b, c, d, words in g["beds"]:
             poly = rect(a, b, c, d)
             beds.append({"id": bid, "name": words, "crop": plan, "plan": plan, "grade": "reconstructed",
@@ -461,7 +543,7 @@ def build(grid, inside, edge_dist) -> tuple[list[dict], dict]:
                          "note": f"{g['name']}: laid out for this household by tools/plant_gardens_1812.py (T-3477); "
                                  f"the bed and what grows in it are reconstructed.",
                          "poly": poly})
-            rng = random.Random(f"{TICKET}:{g['id']}:{bid}")
+            rng = random.Random(f"{g.get('ticket', TICKET)}:{g['id']}:{bid}")
             for kind, u, v, yaw, scale in plant_bed(plan, poly, rng, grid, inside, edge_dist, g):
                 # nothing planted on a bush the flora layer already stands (Ouilmette's currants)
                 if any(math.hypot(u - su, v - sv) < 1.1 for su, sv in stems):
@@ -474,6 +556,9 @@ def build(grid, inside, edge_dist) -> tuple[list[dict], dict]:
             "household": g["household"], "grade": g["grade"], "why": g["why"],
             "frame": fr, "size_m": [round(W, 3), round(D, 3)],
         }
+        if g.get("rings_m"):
+            rec["rings_m"] = g["rings_m"]
+            rec["ground_cell_m"] = g["ground_cell_m"]
         if g["ground"] == "beds":
             rec["ground"] = "beds"
             # open ground: the sward does not grow through the garden (gardens.js keepOut)
@@ -496,7 +581,7 @@ def build(grid, inside, edge_dist) -> tuple[list[dict], dict]:
 def crop_of(plan: str) -> str:
     """The crop a bed is named by in Inspect: its main kind."""
     return {"bushes": "currant", "roots": "onion", "onion_salad": "onion", "field_corn": "corn", "vines": "cucumber",
-            "melons": "muskmelon", "vines_cucumber": "cucumber", "roots_onion": "onion", "corn_beans": "corn",
+            "melons": "muskmelon", "stand_field": "corn", "vines_cucumber": "cucumber", "roots_onion": "onion", "corn_beans": "corn",
             "corn_beans_squash": "corn", "hill_field": "corn", "currant_rows": "currant", "neglected": "weed",
             "weeds": "weed"}.get(plan, plan)
 

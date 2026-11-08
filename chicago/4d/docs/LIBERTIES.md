@@ -42324,8 +42324,30 @@ beans, read in the 1857 printing) and the creole field crop "Corn, pumpkins, and
 Wau-Bun's "company gardens, well filled with currant-bushes and young fruit-trees" is 1831 and not used for 1812.
 **How to resolve:** an account book, letter or recollection naming what one of these households grew, or a drawing
 of one of the gardens, replaces that garden's beds; a reading that places Lee's garden, or Burns's, replaces its plot.
-The company's cornfield and gardens at the forks are not planted yet: some twenty thousand corn hills want a cheaper
-way to draw a field than one plant at a time.
+The company's cornfield and gardens at the forks are planted under L-t3498-forks-cornfield-1812.
+
+### L-t3498-forks-cornfield-1812 — The company's eight acres at the forks planted: Indian corn in hills, and the company garden in mess strips
+
+**Recorded:** 2026-11-08 (T-3498).
+
+**Decision:** the worm-fenced field at the forks (`forks_company_cornfield_1812`, 150 x 217 m) is planted for
+14 August 1812 (`tools/plant_gardens_1812.py`, `data/gardens/1812.json`). About seven acres of it are Indian corn in
+hills three and a half feet apart each way, tasselled and in the ear, pumpkins running in the gaps; the company garden
+is the north-east acre, the corner nearest the bank path to the fort, laid in eight mess strips across the field
+(potatoes, cabbages, beans on poles, onions, a strip of turnips sown that week, potatoes and cabbages again). Some
+twenty-four thousand hills are drawn four to a stand (`corn_stand` in `renderers/web/js/gardens.js`): grown whole only
+within 6 m of the eye and simply within 15 m, and past that as a pair of crossed cards painted with a stand of corn under a patch of its leaves seen from above. In
+October the stand is dry and part cut, the pumpkins ripe among it; in early July it is two-thirds grown and not yet
+tasselled; in spring and winter no corn stands. No corn is grown where the fatigue party works (T-3462) or on the
+path its man walks. **Why:** the owner, 2026-11-08, *"Sure do it"*, asked whether to file the field as its own ticket
+after T-3477 left it unplanted for its cost. **What is recorded and what is not:** the field is the draught's
+*"Company Garden & public Cornfield Eight acres"* and Quaife p. 166, *"a small field of eight or nine acres had been
+reduced to cultivation and made to serve as the company gardens and public cornfield"*; that it grew corn is in its
+name. The spacing (M'Mahon; the hills of Coursoll's field, L-t3477), the stage, the pumpkins (Brackenridge 1814, the
+creole field crop *"Corn, pumpkins, and spring wheat"*), the place and size of the garden within the field and every
+strip's crop are ours. **How to resolve:** a return, an order book or a letter naming what the company grew at the
+forks, or how the field was divided between garden and corn, replaces the strips; a drawing of the field replaces the
+layout.
 
 ### L-1812-army-wagons-3497 — Two of the fort's wagons on the move on 14 August 1812, each led by a private on foot
 
