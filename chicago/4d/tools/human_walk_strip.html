@@ -11,7 +11,9 @@
        &gait=off (the baked walk clip without human-gait.js: a before/after toggle)
        &hide=<regex> (leave out meshes by name: hide=skirt shows the legs under a skirt)
      window.__strip = { ready, step(seconds), actor, setView(v), metrics(), snap(), sheet() }.
-     &zoom=2.5&aimy=1.0 frames the arms and hands closer.
+     &zoom=2.5&aimy=1.0 frames the arms and hands closer. &aimbone=hand_r&dir=-1,0.2,0.4&zoom=9
+     follows one bone from any direction (dir in the figure's own frame: +x left, +y up,
+     +z ahead), for a close look at a hand.
      The clock is manual once step() is called: nothing moves between steps, so a script can
      step 1/30 s at a time and read the same frames on every run. -->
 <style>html,body{margin:0;height:100%;background:#8d8f8c;overflow:hidden;font:12px system-ui}canvas{display:block}
@@ -151,6 +153,9 @@ try {
     camera.zoom = Number(q.get('zoom')) || 1; camera.updateProjectionMatrix();
     flats.visible = view === 'three-quarter';   // edge-on clutter from the side and the front
     const d = new THREE.Vector3(...VIEWS[view].dir).normalize();
+    const aimBone = q.get('aimbone') && actor.body?.scene.getObjectByName(q.get('aimbone'));
+    if (aimBone) { actor.root.updateMatrixWorld(true); aimBone.getWorldPosition(aim); }
+    if (q.get('dir')) d.set(...q.get('dir').split(',').map(Number)).transformDirection(actor.root.matrixWorld).normalize();
     camera.position.copy(aim).addScaledVector(d, 8);
     camera.up.set(0, 1, 0);
     camera.lookAt(aim);

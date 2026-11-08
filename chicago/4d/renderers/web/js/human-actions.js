@@ -44,9 +44,22 @@ const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
 const smooth = (t) => { t = clamp(t, 0, 1); return t * t * (3 - 2 * t); };
 const SIDES = ['l', 'r'];
 const FINGERS = ['index', 'middle', 'ring', 'pinky'];
-const CASCADE = Object.freeze({ index: 0.82, middle: 1, ring: 1.1, pinky: 1.2 });
+const CASCADE = Object.freeze({ index: 0.93, middle: 1, ring: 1.04, pinky: 1.08 });
+// How a curl shares out along each finger: the knuckle, the middle joint and the last one.
+// A loose hand bends about as much at the knuckle as at the middle joint, and the last joint
+// half that; a hand bent mostly past the knuckle is a claw.
+const FLEX = Object.freeze([['01', 1], ['02', 0.9], ['03', 0.45]]);
+// How far each finger turns toward the index (degrees, + toward it) as the hand closes to 0.4.
+const CONVERGE = Object.freeze({ index: -9, middle: 0, ring: 5, pinky: 11 });
+// How much fuller across the fingers are drawn (see shapeHand).
+const FINGER_FILL = 1.12;
+// The relaxed thumb's three bones, each as (along the hand, toward the palm, toward the index).
+// Its root bone goes only THUMB_ROOT of the way: turned all the way in from the model's flat
+// hand, the web at the root of the thumb folds through itself and tears.
+const THUMB_ROOT = 0.72;
+const THUMB = Object.freeze([['01', [0.8, 0.45, 0.4]], ['02', [0.92, 0.32, -0.12]], ['03', [0.85, 0.42, -0.15]]]);
 const ARM = (s) => [`upperarm_${s}`, `lowerarm_${s}`, `hand_${s}`,
-  ...FINGERS.flatMap((f) => ['01', '02', '03'].map((k) => `${f}_${k}_${s}`)), `thumb_01_${s}`, `thumb_02_${s}`];
+  ...FINGERS.flatMap((f) => ['01', '02', '03'].map((k) => `${f}_${k}_${s}`)), `thumb_01_${s}`, `thumb_02_${s}`, `thumb_03_${s}`];
 const NEEDED = ['pelvis', 'spine_03', 'head', 'thigh_l', 'thigh_r', 'foot_l', 'foot_r', 'upperarm_l', 'upperarm_r',
   'lowerarm_l', 'lowerarm_r', 'hand_l', 'hand_r'];
 
@@ -87,7 +100,7 @@ export const ARM_SWING = Object.freeze({
   upper: Object.freeze([-19.4, -19.4, -18.0, -15.7, -12.8, -9.0, -5.0, -1.3, 1.9, 4.4, 5.8, 5.5, 3.4, 0.4, -2.1, -4.7, -8.1, -11.7, -15.0, -17.6, -19.0]),
   elbow: Object.freeze([22.6, 21.3, 20.4, 21.3, 23.9, 27.4, 32.4, 38.1, 43.8, 48.4, 51.0, 51.5, 49.8, 45.6, 39.6, 33.8, 29.9, 27.5, 25.9, 24.6, 23.2]),
   rom: Object.freeze({ female: [31.2, 1.49], male: [22.4, 1.40], all: [26.9, 1.44] }),
-  elbowOffset_deg: 8, older: 0.3, wristLag: 0.06, wrist_deg: 6, curl: 0.42, palmBack: 0.35,
+  elbowOffset_deg: 8, older: 0.3, wristLag: 0.06, wrist_deg: 6, curl: 0.4, palmBack: 0.35,
   // Two people never swing alike (reconstructed): each draws how far (`range`), how far back
   // the arm hangs (`mean_deg`), how bent the elbow (`elbow_deg`), and one arm a little more than the other (`side`).
   person: Object.freeze({ range: [0.85, 1.15], mean_deg: [-3, 3], elbow_deg: [-4, 4], side: [0.92, 1.08] }),
@@ -161,16 +174,20 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
         if (palm.lengthSq() < 1e-10) palm.set(1, 0, 0);
         palm.addScaledVector(along, -palm.dot(along)).normalize();
       }
-      local[`hand_${s}`] = { along, palm };
-      // Each finger's first bone, along to its second (for drawing the fingers together).
-      for (const f of FINGERS) {
-        const n = `${f}_01_${s}`, c = found[`${f}_02_${s}`];
-        if (found[n] && c && c.position.lengthSq() > 1e-12) local[n] = { along: c.position.clone().normalize() };
+      // Across the knuckles toward the index finger, square to the other two.
+      let index = new THREE.Vector3(0, 0, 1);
+      if (found[`index_01_${s}`] && found[`pinky_01_${s}`]) {
+        index = found[`index_01_${s}`].position.clone().sub(found[`pinky_01_${s}`].position);
+        index.addScaledVector(along, -index.dot(along)).addScaledVector(palm, -index.dot(palm)).normalize();
       }
-      // The thumb's two bones, each along to its child.
+      local[`hand_${s}`] = { along, palm, index };
+      // The thumb's bones, each along to its child; the last, which has none, along its own
+      // offset from its parent (the line of the bone before it).
       for (const [n, c] of [[`thumb_01_${s}`, `thumb_02_${s}`], [`thumb_02_${s}`, `thumb_03_${s}`]]) {
         if (found[n] && found[c] && found[c].position.lengthSq() > 1e-12) local[n] = { along: found[c].position.clone().normalize() };
       }
+      const t3 = found[`thumb_03_${s}`];
+      if (t3 && t3.position.lengthSq() > 1e-12) local[`thumb_03_${s}`] = { along: t3.position.clone().normalize().applyQuaternion(t3.quaternion.clone().invert()) };
       // Which way about each finger's local X closes it toward the palm.
       const f2 = found[`index_02_${s}`], tip = found[`index_03_${s}`];
       if (f2 && tip) {
@@ -180,6 +197,13 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
         const toF1 = found[`index_01_${s}`].quaternion.clone().invert();
         local[`curl_${s}`] = t1.sub(t0).dot(palm.clone().applyQuaternion(toF1)) >= 0 ? 1 : -1;
       } else local[`curl_${s}`] = 1;
+      // Which way about each finger's local Z (square to the palm) turns it toward the index.
+      const f1 = found[`index_01_${s}`];
+      if (f1 && f2 && f2.position.lengthSq() > 1e-12) {
+        const c0 = f2.position.clone().applyQuaternion(f1.quaternion);
+        const c1 = f2.position.clone().applyQuaternion(f1.quaternion.clone().multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 0, 1), 0.3)));
+        local[`spread_${s}`] = c1.sub(c0).dot(index) >= 0 ? 1 : -1;
+      } else local[`spread_${s}`] = 0;
     }
     L.handLen = found.middle_03_r ? at('middle_03_r').distanceTo(at('hand_r')) + 0.025 : 0.17;
     const hipL = at('thigh_l'), hipR = at('thigh_r');
@@ -257,10 +281,29 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
     h.quaternion.slerp(parentQ.invert().multiply(world), w);
   }
 
-  /** Curl side `s`'s fingers by `k` (0 open .. 1 a loose fist); additive about the knuckles. */
-  function curl(s, k) {
-    if (!(Math.abs(k) > 1e-4)) return;
-    for (const f of FINGERS) for (const [seg, amt0] of [['01', 1], ['02', 0.85], ['03', 0.5]]) {
+  /**
+   * Ask for side `s`'s fingers curled by `k` (0 open .. 1 a loose fist), blended in by `w`
+   * over what was asked before in this frame: the hanging hand asks first, then the walk, a
+   * pose, the talk, the greeting or a held thing each take over as far as their own weight.
+   * The curl is laid on once, in shapeHand() at the end of the frame, so two askers never
+   * add up (T-3496: the hanging hand's curl and the walk's together closed every walking
+   * hand to 0.74, a claw).
+   */
+  function curl(s, k, w = 1) { if (w > 1e-4) handAsk[s].curl += (k - handAsk[s].curl) * Math.min(1, w); }
+  /** Ask for side `s`'s thumb laid in along the index (0 as the clip has it .. 1), blended by `w`. */
+  function thumbIn(s, k, w = 1) { if (w > 1e-4) handAsk[s].thumb += (k - handAsk[s].thumb) * Math.min(1, w); }
+  const handAsk = { l: { curl: 0, thumb: 0 }, r: { curl: 0, thumb: 0 } };
+
+  /** Lay side `s`'s asked curl and thumb on its fingers, once, at the end of the frame. */
+  function shapeHand(s) {
+    const k = handAsk[s].curl;
+    // As a hand closes its fingers come together, toward the middle one (they point to the
+    // root of the thumb): the bind pose holds them side by side, which curled reads as a fan.
+    if (k > 1e-4 && local[`spread_${s}`]) for (const f of FINGERS) {
+      const b = bones[`${f}_01_${s}`];
+      if (b && CONVERGE[f]) b.quaternion.multiply(qa.setFromAxisAngle(new THREE.Vector3(0, 0, 1), local[`spread_${s}`] * CONVERGE[f] * Math.min(1, k / 0.4) * DEG));
+    }
+    if (Math.abs(k) > 1e-4) for (const f of FINGERS) for (const [seg, amt0] of FLEX) {
       const b = bones[`${f}_${seg}_${s}`];
       if (!b) continue;
       // A relaxed hand's cascade: each finger toward the little one a little more closed.
@@ -269,40 +312,32 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
       // bends them about the figure's right, which is the same axis in a hanging hand).
       b.quaternion.multiply(qa.setFromAxisAngle(new THREE.Vector3(1, 0, 0), local[`curl_${s}`] * k * amt * 60 * DEG));
     }
+    // The model's hand is a flat one with gaps between the fingers; a little fuller across,
+    // they lie against each other as a loose hand's do. Set outright each frame (no other
+    // layer scales a finger), about the finger's own axis, so it moves no joint.
+    for (const f of FINGERS) bones[`${f}_01_${s}`]?.scale.set(FINGER_FILL, 1, 1.04);
+    layThumb(s, handAsk[s].thumb);
+    handAsk[s].curl = 0; handAsk[s].thumb = 0;
   }
 
   /**
    * Lay side `s`'s thumb in along the side of the index finger, a little round toward the
    * palm, as a hand hanging loose holds it (blend `w`). The clip holds it straight out from
-   * the hand, which from the side reads as a thumb stuck out like a hitchhiker's.
+   * the hand, which from the side reads as a thumb stuck out like a hitchhiker's. Each bone
+   * is aimed in the hand's own frame (along the hand, toward the palm, toward the index), so
+   * the tip comes to lie beside the index's middle joint, not into the palm or the finger.
    */
-  function thumbIn(s, w) {
+  function layThumb(s, w) {
     if (!(w > 1e-4) || !local[`thumb_01_${s}`]) return;
     const h = bones[`hand_${s}`], ax = local[`hand_${s}`];
     h.updateWorldMatrix(true, false);
     const hq = h.getWorldQuaternion(new THREE.Quaternion());
-    const along = ax.along.clone().applyQuaternion(hq), palm = ax.palm.clone().applyQuaternion(hq);
-    aimAlong(`thumb_01_${s}`, along.clone().multiplyScalar(0.85).addScaledVector(palm, 0.42), w);
-    if (local[`thumb_02_${s}`]) {
-      bones[`thumb_01_${s}`].updateMatrixWorld(true);
-      aimAlong(`thumb_02_${s}`, along.clone().multiplyScalar(0.62).addScaledVector(palm, 0.78), w);
-    }
-  }
-  /**
-   * Draw side `s`'s fingers together toward the middle one by `k` (0..1): a loose hand's
-   * fingers lie side by side, not fanned as the bind pose spreads them.
-   */
-  function closeFingers(s, k) {
-    if (!(k > 1e-4) || !local[`middle_01_${s}`]) return;
-    const mid = bones[`middle_01_${s}`];
-    mid.updateWorldMatrix(true, false);
-    const md = local[`middle_01_${s}`].along.clone().applyQuaternion(mid.getWorldQuaternion(new THREE.Quaternion())).normalize();
-    for (const f of ['index', 'ring', 'pinky']) {
-      const n = `${f}_01_${s}`, b = bones[n];
-      if (!b || !local[n]) continue;
-      b.updateWorldMatrix(true, false);
-      const d = local[n].along.clone().applyQuaternion(b.getWorldQuaternion(new THREE.Quaternion())).normalize();
-      aimAlong(n, d.lerp(md, k).normalize(), 1);
+    const along = ax.along.clone().applyQuaternion(hq), palm = ax.palm.clone().applyQuaternion(hq), index = ax.index.clone().applyQuaternion(hq);
+    for (const [seg, [a, p, i]] of THUMB) {
+      const n = `thumb_${seg}_${s}`;
+      if (!local[n]) continue;
+      aimAlong(n, along.clone().multiplyScalar(a).addScaledVector(palm, p).addScaledVector(index, i), w * (seg === '01' ? THUMB_ROOT : 1));
+      bones[n].updateMatrixWorld(true);
     }
   }
   /** Turn bone `n` so its own `local[n].along` points along world `dir` (blend `w`). */
@@ -412,9 +447,8 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
         // fingers loosely curled (the clip holds them open and turned out).
         bones[`lowerarm_${s}`].updateMatrixWorld(true);
         orientHand(s, toWorldDir(new THREE.Vector3(0, -1, walking ? 0.25 : 0.12)), toWorldDir(new THREE.Vector3(-sx, 0, -0.25)), 0.8);
-        closeFingers(s, 0.5);
         curl(s, 0.32);
-        thumbIn(s, 0.7);
+        thumbIn(s, 0.8);
       }
 
       // Walking: each arm swings opposite its own side's leg, as far as the stride is long.
@@ -490,9 +524,8 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
           orientHand(s, handDir, palmDir, gw);
           // Fingers loosely closed and the thumb in along the index, as a walking hand is
           // carried (the clip holds them open, which reads as a hand held out).
-          closeFingers(s, 0.6 * gw);
-          curl(s, A.curl * gw);
-          thumbIn(s, 0.85 * gw);
+          curl(s, A.curl, gw);
+          thumbIn(s, 0.9, gw);
         }
       } else { gaitArm.l = 0; gaitArm.r = 0; }
 
@@ -510,7 +543,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
             reach(s, toWorldPos(t.wrist), toWorldDir(t.pole), w);
             bones[`lowerarm_${s}`].updateMatrixWorld(true);
             orientHand(s, toWorldDir(t.fingers), toWorldDir(t.palm), w * 0.9);
-            curl(s, t.curl * w);
+            curl(s, t.curl, w);
           }
         }
         // A visitor coming up in front is greeted, once in a while.
@@ -534,7 +567,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
         reach(s, toWorldPos(wrist), toWorldDir(new THREE.Vector3(sx, -0.7, -0.35)), w);
         bones[`lowerarm_${s}`].updateMatrixWorld(true);
         orientHand(s, toWorldDir(new THREE.Vector3(-sx * 0.25, 0.12 + beat, 1)), toWorldDir(new THREE.Vector3(-sx * 0.55, 0.8, 0)), w * 0.9);
-        curl(s, 0.2 * w);
+        curl(s, 0.2, w);
       }
       // The greeting: the right fingertips up to the brow (a touch of the brim or the
       // forelock), held a beat, and down. The wrist sits a hand's length below and outside
@@ -550,7 +583,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
         reach('r', toWorldPos(wrist), toWorldDir(new THREE.Vector3(-0.9, -0.35, 0.25)), w);
         bones.lowerarm_r.updateMatrixWorld(true);
         orientHand('r', toWorldDir(fingers), toWorldDir(new THREE.Vector3(1, 0.1, -0.3)), w);
-        curl('r', 0.18 * w);
+        curl('r', 0.18, w);
         // The rest of the right arm comes back from wherever its pose had it.
         if (greet >= T) greet = -1;
       }
@@ -562,6 +595,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
         orientHand(s, toWorldDir(hold.fingers), toWorldDir(hold.palm), 1);
         curl(s, hold.curl);
       }
+      for (const s of SIDES) shapeHand(s);
       settle();
     },
     snapshot() {
