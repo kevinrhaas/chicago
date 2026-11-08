@@ -372,6 +372,12 @@ jobs:
       base_live: ${{ steps.baseref.outputs.base_live }}
       bundle: ${{ steps.bundle.outputs.packed }}
       bundle_commit: ${{ steps.bundle.outputs.commit }}
+    # T-3501: where the KTX-Software .deb is kept between builds — the directory
+    # tools/ktx2_sheets.py reads it from, so the workflow's cached copy and the
+    # script's fallback fetch are one file, verified against one pin. It is the
+    # script's own default path on a hosted runner, written out so neither can drift.
+    env:
+      KTX_CACHE: /home/runner/.cache/chicago-4d/ktx-4.3.2
     steps:
       - uses: actions/checkout@v4
         with:
@@ -478,23 +484,70 @@ jobs:
       # binary is on PATH, because gltf-transform aborts the WHOLE optimize when
       # it is missing — meshopt included — and for months that silently meant NO
       # compression at all on the derivatives. ubuntu-latest does not ship it.
-      # Installing it here is what makes W2's textures shippable; until W2 lands
-      # there is nothing textured in the scene, so this is a no-op that changes
-      # no bytes today and unblocks the phase that needs it.
+      # Since W2 landed the textured meshes cannot be built without it either:
+      # tools/ktx2_glb.py and tools/ktx2_sheets.py encode with this exact release.
+      #
+      # T-3501 — CACHED, VERIFIED AND RETRIED. The .deb is a github.com release
+      # asset, and on 2026-11-08 it answered 504 three times running (PR #1873's
+      # run 42469167608, 09:57, 10:06 and 10:21Z): this step warned and went on,
+      # then ktx2_sheets.py fetched it again with a single urlopen and FATALed on
+      # the first textured mesh — three bakes lost, nothing in the diff at fault.
+      # So the verified .deb now lives in actions/cache, keyed on its version and
+      # pinned sha256, at the very directory ktx2_sheets.py caches it in
+      # (KTX_CACHE): a warm build never asks github.com for it. A cold one fetches
+      # with curl retrying every transient answer for up to ten minutes, checks
+      # the sha256 (this step never did), and SAVES the cache at once rather than
+      # in the post-job hook, so a bake that fails later still leaves it warm.
+      # If even that fails the step warns and goes on as before, and
+      # ktx2_sheets.py tries again with its own retries (`--self-test` proves
+      # them) before anything textured is encoded.
+      - name: Restore the KTX-Software .deb
+        id: ktx-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ env.KTX_CACHE }}
+          key: ktx-deb-4.3.2-fa0670f157b77bc67e2da00fb4825a2df69a1a0ed12058626c9852dd23b90f07
+
       - name: Install KTX-Software (ktx binary for gltf-transform)
+        id: ktx
         run: |
           set -e
           VER=4.3.2
+          SHA=fa0670f157b77bc67e2da00fb4825a2df69a1a0ed12058626c9852dd23b90f07
           DEB="KTX-Software-${VER}-Linux-x86_64.deb"
           URL="https://github.com/KhronosGroup/KTX-Software/releases/download/v${VER}/${DEB}"
-          if curl -fsSL --retry 3 -o "/tmp/${DEB}" "$URL"; then
-            sudo dpkg -i "/tmp/${DEB}" || sudo apt-get -y -f install
-            ktx --version || echo "::warning::ktx installed but not runnable"
-          else
-            # A missing release asset must not fail the nightly: bake.sh already
-            # degrades to meshopt-only and says so.
-            echo "::warning::could not fetch ${URL} — bake will run meshopt-only"
+          mkdir -p "$KTX_CACHE"
+          CACHED="$KTX_CACHE/$DEB"
+          if [ -f "$CACHED" ] && ! echo "$SHA  $CACHED" | sha256sum -c --quiet -; then
+            echo "::warning::cached ${DEB} does not hash to the pin — fetching it again"
+            rm -f "$CACHED"
           fi
+          if [ -f "$CACHED" ]; then
+            echo "using the cached ${DEB}"
+          elif curl -fsSL --retry 8 --retry-all-errors --retry-delay 15 --retry-max-time 600 \
+                 --connect-timeout 30 -o "${CACHED}.part" "$URL" \
+               && echo "$SHA  ${CACHED}.part" | sha256sum -c --quiet -; then
+            mv "${CACHED}.part" "$CACHED"
+            echo "fetched=1" >> "$GITHUB_OUTPUT"
+          else
+            rm -f "${CACHED}.part"
+            # A missing release asset must not fail the step: ktx2_sheets.py
+            # retries the fetch itself, and bake.sh degrades to meshopt-only
+            # where nothing textured needs encoding.
+            echo "::warning::could not fetch ${URL} (or it did not hash to the pin) — ktx2_sheets.py will try again"
+          fi
+          if [ -f "$CACHED" ]; then
+            sudo dpkg -i "$CACHED" || sudo apt-get -y -f install
+            ktx --version || echo "::warning::ktx installed but not runnable"
+          fi
+
+      - name: Save the KTX-Software .deb
+        if: steps.ktx.outputs.fetched == '1' && steps.ktx-cache.outputs.cache-hit != 'true'
+        continue-on-error: true
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ env.KTX_CACHE }}
+          key: ktx-deb-4.3.2-fa0670f157b77bc67e2da00fb4825a2df69a1a0ed12058626c9852dd23b90f07
 
       - name: Read the Blender pin
         id: pin

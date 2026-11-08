@@ -1826,6 +1826,12 @@ selftest "…and a missing, lossy, resized, mislabelled or orphaned derivative s
 step "every drop-in library sheet carries its KTX2: its web map's size, a full mip chain, no orphans (T-2582)" \
   python3 tools/ktx2_sheets.py --check
 
+# T-3501. ...and the pinned `ktx` those sheets (and every textured GLB) are encoded with
+# survives the release asset's 504s: a transient answer is waited out, a 404 and a .deb
+# whose sha256 is not the pin are refused at once. Against a local server, with no sleeps.
+selftest "…and the pinned KTX-Software fetch waits out a 5xx but refuses a 404 or a wrong sha256 (T-3501)" \
+  python3 tools/ktx2_sheets.py --self-test
+
 # T-2299. ...and the relief in them points the way its name says. The 1835 library's
 # generator wrote green as -dh/drow, the DirectX sign, into every `normal_gl` and filed
 # the OpenGL map as `normal_dx`, as the 1904 street library did until T-2296. Every
