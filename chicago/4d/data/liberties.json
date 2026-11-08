@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1045,
+  "count": 1046,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -69551,7 +69551,7 @@
         },
         {
           "label": "What is recorded and what is not",
-          "text": "the garden, its name, its place south of the fort and its ruled beds are the draught's (the place by 's rule, itself reconstructed); that melons and small fruit and vegetables were raised there is Quaife's (\"in Cooper's time\", the years before 1812 that Dr. John Cooper of the garrison described); that a soldier \"worked hard all day in the Colonel's garden\" in May 1811 is Quaife's account of a court martial. Nothing reached says which vegetables, which small fruit, how they stood in the beds, or how the garden looked on 14 August 1812, the day before the garrison marched out. The choice of crops and their places, the beds' crown and the corner beds' use, every leaf, fruit and pole, the fruit left on the bushes, the fallen onion tops, the wicket's make, its swing and a visitor's power to open it are ours, from M'Mahon's calendar of the August kitchen garden and its distances (read in the 1857 printing)."
+          "text": "the garden, its name, its place south of the fort and its ruled beds are the draught's (the place by 's rule, itself reconstructed); that melons and small fruit and vegetables were raised there is Quaife's (\"in Cooper's time\", the years before 1812 that Dr. John Cooper of the garrison described); Quaife's court-martial account of a soldier who \"worked hard all day in the Colonel's garden\" in May 1811 is of Detroit, not Chicago (corrected 2026-11-07), and says nothing of this garden. Nothing reached says which vegetables, which small fruit, how they stood in the beds, or how the garden looked on 14 August 1812, the day before the garrison marched out. The choice of crops and their places, the beds' crown and the corner beds' use, every leaf, fruit and pole, the fruit left on the bushes, the fallen onion tops, the wicket's make, its swing and a visitor's power to open it are ours, from M'Mahon's calendar of the August kitchen garden and its distances (read in the 1857 printing)."
         },
         {
           "label": "How to resolve",
@@ -69569,6 +69569,7 @@
       "work_refs": [
         "T-3407",
         "T-2062",
+        "T-3477",
         "T-3460"
       ]
     },
@@ -70319,6 +70320,38 @@
       "work_refs": [
         "T-3472"
       ]
+    },
+    {
+      "id": "L-t3477-gardens-1812",
+      "title": "Every 1812 household's garden laid out and planted for its own house, and Lee's Place left to weeds",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-07",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Recorded",
+          "text": "2026-11-07 (T-3477)."
+        },
+        {
+          "label": "Decision",
+          "text": "besides the commanding officer's garden (L-other work-officers-garden), the 1812 gardens data now lays out and plants twelve more pieces of ground for 14 August 1812, each sized and laid for its household (the plant gardens 1812 tool). Inside their palings: Kinzie's kitchen garden north of the house, 46 x 15.5 m, a walk from the south gate between two rows of beds (onions and roots, cabbages and new-set savoys, potatoes, musk-melons and cucumbers; corn with running beans, a turnip bed sown that week, onions and lettuce, squashes and pumpkins), sage, thyme and parsley at the gate and currants and gooseberries the length of the north paling; and the sutler's garden as a market garden, a walk down the middle and four blocks a side (cabbages, onions, potatoes, cucumbers, musk-melons, beans, turnips), its north end left to the way worn in to the house the draught draws inside it. Coursoll's worm-fenced field is Indian corn in hills three and a half feet apart, tasselled, with pumpkins in the gaps. On open ground, each clearing its own plot of sward: Ouilmette's garden behind the house, the six currant bushes already standing there (the ouilmette garden 1812 data) with seven more round them, hill corn with beans and squash, onions and potatoes; La Lime's patch, sown in May and neglected since June, the corn stunted and gone to weeds and the squash sprawling; a rough clearing behind the Burns cabin (potatoes, corn, cabbages, beans, pumpkins); Clark's small garden at the forks (potatoes, cabbages, pumpkins) and the discharged soldier's smaller one; Lee's garden landward of his house on the lake shore, melons and water-melons first on the sand, cucumbers, squash, potatoes, beans, cabbages and onions; the factory's paled yard as a neat kitchen garden and the agency's as a crowded one of potatoes and cabbages; and at Lee's Place the cabin's small enclosure as a stand of weeds over the last pot-herbs, with one volunteer pumpkin. Two kinds join the garden's growers (the walkthrough's gardens code): turnip seed leaves in drills, and an annual weed stand waist to head high, both following Settings > Season. Every bed stands clear of the scene's buildings, fences, worn trails and yards, planted stems and yard goods, on dry ground (the tool's check)."
+        },
+        {
+          "label": "Why",
+          "text": "the owner, 2026-11-07: *\"can you do a sweep of 1812 and 1835 and improve all of the gardens?... all of the gardens should be unique... different sizes and layouts that are sensible for the design of the property and the family and team at hand, like I think Lees place had a large garden? and kinize?\"*; and his ruling the same day that Lee's Place in August 1812 is left unplanted."
+        },
+        {
+          "label": "What is recorded and what is not",
+          "text": "the gardens at Kinzie's (Whistler 1808 \"Mr Kinzie's kitchen garden\"; Quaife p. 166; J. H. Kinzie's \"the garden and the shrubbery, the fence paling that surrounded it\", Andreas vol. 1 p. 76), Ouilmette's and its currant bushes (Wau-Bun ch. XIX), Lee's on the lake shore (Andreas p. 92), the sutler's (the draught), Coursoll's inclosed field (Quaife p. 167) and the small enclosure at Lee's Place (Wau-Bun ch. XVIII) are the sources'. The gardens at La Lime's, Burns's, Clark's and the soldier's houses, and the use of the factory's and the agency's paled yards, are ours. No source names a crop in any of them; every size, place, bed, crop and stage is reconstructed, from M'Mahon's calendar for August (the first edition of 1806 for the turnip sowing, the savoys and the beans, read in the 1857 printing) and the creole field crop \"Corn, pumpkins, and spring wheat\" (Brackenridge 1814). Wau-Bun's \"company gardens, well filled with currant-bushes and young fruit-trees\" is 1831 and not used for 1812."
+        },
+        {
+          "label": "How to resolve",
+          "text": "an account book, letter or recollection naming what one of these households grew, or a drawing of one of the gardens, replaces that garden's beds; a reading that places Lee's garden, or Burns's, replaces its plot. The company's cornfield and gardens at the forks are not planted yet: some twenty thousand corn hills want a cheaper way to draw a field than one plant at a time."
+        }
+      ],
+      "work_refs": []
     },
     {
       "id": "L46",

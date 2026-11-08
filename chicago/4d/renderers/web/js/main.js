@@ -2954,6 +2954,8 @@ async function boot() {
     // a bush rooting between the tents, or a tree through a wall tent, was the
     // first thing the bank showed once the canvas stood on it.
     footprintsFrom(loaded.registry, { camps: true }),
+    // T-3477: 1812's house gardens on open ground, which the sward does not grow through
+    gardens.keepOut ?? [],
   );
 
   // …AND THE WHARF PLANKS BECOME FLOORS — after `planting` has been taken and

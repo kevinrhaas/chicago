@@ -867,7 +867,7 @@ export const CROPS = {
     // April's onion sets: green shoots standing up, no bulb swelled yet
     const sets = look.stage === 'sets';
     const L = 1.0;
-    const n = { beet: 7, carrot: 10, parsnip: 6, onion: 9, lettuce: 4 }[kind] * q(lod, 1, 0.5, 0.3, false);
+    const n = { beet: 7, carrot: 10, parsnip: 6, onion: 9, lettuce: 4, turnip: 12 }[kind] * q(lod, 1, 0.5, 0.3, false);
     // the drill's ridge
     if (lod !== 'far') ellipsoid(sb, [0, 0, 0], L / 2, 0.035, 0.09, () => tint(SOIL, 0.95 + r() * 0.1), { lat: 2, lon: 8, cutBelow: 0 });
     for (let i = 0; i < n; i += 1) {
@@ -894,6 +894,17 @@ export const CROPS = {
             wid: 0.16, tile: kind === 'parsnip' ? LEAF.bean : LEAF.fern, col: tint(GREEN, 0.9 + r() * 0.2), cup: 0, segs: q(lod, 2, 1, 1) });
         }
         if (near) ellipsoid(sb, [x, 0.02, z], 0.018, 0.01, 0.018, () => [0.75, 0.42, 0.12], { lat: 2, lon: 5 });
+      } else if (kind === 'turnip') {
+        // T-3477: M'Mahon's turnips sown in the first week of August, in mid-month a drill of
+        // seed leaves, a pair of round cotyledons and the first rough leaf; by October (size)
+        // a rosette of rough leaves over the swelling root
+        const leaves = q(lod, 3, 2);
+        const big = look.size ?? 1;
+        for (let k = 0; k < leaves; k += 1) {
+          const a = r() * Math.PI * 2;
+          blade(lb, { base: [x, 0.015, z], heading: a, tilt: 0.7 + r() * 0.5, len: (0.075 + r() * 0.04) * big,
+            wid: 0.6, tile: LEAF.beet, col: tint(GREEN, 1.0 + r() * 0.15), cup: 0.2, segs: 1 });
+        }
       } else if (kind === 'beet') {
         if (lod !== 'far') ellipsoid(sb, [x, 0.035, z], 0.04, 0.035, 0.04, () => [0.36, 0.08, 0.12], { lat: 3, lon: 6 });
         const leaves = q(lod, 6, 3);
@@ -1027,6 +1038,27 @@ export const CROPS = {
     }
   },
 
+  /** T-3477: an annual weed of tilled ground left untended — ragweed, lamb's-quarters,
+   *  smartweed — waist to head high by mid-August: a few branching stems in leaf. */
+  weed(lb, sb, r, lod, _arg, look = {}) {
+    const size = look.size ?? 1;
+    const stems = q(lod, 4, 2);
+    for (let s = 0; s < stems; s += 1) {
+      const a = r() * Math.PI * 2, d = r() * 0.14;
+      const foot = [Math.cos(a) * d, 0, Math.sin(a) * d];
+      const h = (0.75 + r() * 0.75) * size;
+      const top = add(foot, [(r() - 0.5) * 0.3, h, (r() - 0.5) * 0.3]);
+      tube(sb, foot, top, 0.012, 0.004, STALK, 3);
+      const leaves = q(lod, 9, 4);
+      for (let i = 0; i < leaves; i += 1) {
+        const f = 0.12 + (i / leaves) * 0.82;
+        blade(lb, { base: add(foot, mul(sub(top, foot), f)), heading: r() * Math.PI * 2, tilt: 0.5 + r() * 0.7,
+          len: (0.26 - f * 0.12) * Math.max(0.6, size), wid: 0.2, tile: i % 2 ? LEAF.fern : LEAF.beet,
+          col: tint(GREEN, 0.72 + r() * 0.22), cup: 0.1, segs: 1 });
+      }
+    }
+  },
+
   /** A clump of sage or thyme: low grey-green mounds. */
   herb(lb, sb, r, lod) {
     const near = lod === 'near';
@@ -1048,6 +1080,8 @@ export const KINDS = {
   lettuce: ['row', 'lettuce'],
   currant: ['berry_bush', 'currant'], gooseberry: ['berry_bush', 'gooseberry'], raspberry: ['raspberry'],
   strawberry: ['strawberry'], asparagus: ['asparagus'], herb: ['herb'],
+  // T-3477: 1812's other gardens
+  turnip: ['row', 'turnip'], weed: ['weed'],
 };
 const VARIANTS = 3;
 
@@ -1106,6 +1140,8 @@ export const SEASON_CROPS = Object.freeze({
     raspberry: { keep: 0.35, leafScale: 0.5, leaf: TINT.fresh, stage: 'pruned' },
     strawberry: { size: 0.7, leaf: TINT.fresh },
     herb: { size: 0.7 },
+    // T-3477: last year's weeds are down; this year's a few inches high
+    weed: { size: 0.25, leaf: TINT.fresh },
   },
   fall: {
     corn: { stage: 'dry', keep: 0.8, leaf: TINT.straw, dry: DRY.straw },
@@ -1125,6 +1161,9 @@ export const SEASON_CROPS = Object.freeze({
     raspberry: { keep: 0.6, leaf: TINT.turned, dry: DRY.cane },
     strawberry: { keep: 0.8, leaf: TINT.red },
     herb: {},
+    // T-3477: the August turnips grown to a rosette over the root; the weeds seeded and dead
+    turnip: { size: 2.4 },
+    weed: { keep: 0.35, leaf: TINT.dead, dry: DRY.brown },
   },
   /** T-3476: a scene dated in early July (1835's 1 July) draws its summer as this: M'Mahon's
    *  June and July. The corn in blade, not tasselled; beans partway up their poles in
@@ -1151,11 +1190,16 @@ export const SEASON_CROPS = Object.freeze({
     raspberry: {},
     strawberry: {},
     herb: {},
+    // T-3477: no turnips sown yet (none of 1835's beds grows them); the weeds half grown
+    turnip: {},
+    weed: { size: 0.7 },
   },
   winter: {
     currant: { keep: 0, stage: 'bare' },
     gooseberry: { keep: 0, stage: 'bare' },
     raspberry: { keep: 0, dry: DRY.cane },
+    // T-3477: the weeds' dead stalks stand through the snow
+    weed: { keep: 0, dry: DRY.straw },
   },
 });
 
@@ -1332,7 +1376,7 @@ export async function createGardens({
   group.name = 'gardens';
   const stats = { gardens: 0, beds: 0, plants: 0, near: 0, triangles: 0, drawCalls: 0, detail, season };
   const out = {
-    group, stats, records: [], pickAt: () => null, cardFor: () => null, update() {}, setDetail() {},
+    group, stats, records: [], keepOut: [], pickAt: () => null, cardFor: () => null, update() {}, setDetail() {},
     setSeason() {}, settle() {}, dispose() {},
   };
   if (!dataBase || !terrain) return out;
@@ -1347,6 +1391,15 @@ export async function createGardens({
   out.records = gardens;
   stats.gardens = gardens.length;
   if (!gardens.length) return out;
+  // T-3477: a garden on open ground (1812's house gardens, outside any fence) is ground the
+  // sward does not grow through: its plot goes to the planters' keep-out, read at load, before
+  // a phone has laid the garden itself
+  for (const g of gardens) {
+    if (!g.clears_sward) continue;
+    const toWorld = frameOf(g);
+    const [W, D] = g.size_m;
+    out.keepOut.push({ id: `${g.id}__garden`, pts: [[0, 0], [W, 0], [W, D], [0, D]].map((c) => toWorld(c)) });
+  }
   const groundAt = (e, n) => terrain.surfaceHeight(e, n) + (levelAt?.(e, n) ?? 0);
   const disposers = [];
   // A phone (T-3407 follow-up, 1812 phone memory over its ceiling): the soil laid on a
@@ -1571,26 +1624,27 @@ export async function createGardens({
   // three quarters of it)
   const farOf = () => Math.min(LEVELS[current].far,
     (doc.reach_m ?? Infinity) * (current === 'light' ? 0.75 : 1));
-  const ball = new THREE.Sphere();
-  {
-    const pts = [];
-    for (const g of gardens) {
-      const toWorld = frameOf(g);
-      const [W, D] = g.size_m;
-      for (const c of [[0, 0], [W, 0], [W, D], [0, D]]) {
-        const [e, n] = toWorld(c);
-        pts.push(new THREE.Vector3(e, groundAt(e, n) + 1, -n));
-      }
-    }
-    ball.setFromPoints(pts);
+  // T-3477: a ball round each garden, not one round them all: 1812's gardens run from the fort
+  // to the forks and to Lee's Place four kilometres off, and one ball that size is always in view
+  const balls = gardens.map((g) => {
+    const toWorld = frameOf(g);
+    const [W, D] = g.size_m;
+    const pts = [[0, 0], [W, 0], [W, D], [0, D]].map((c) => {
+      const [e, n] = toWorld(c);
+      return new THREE.Vector3(e, groundAt(e, n) + 1, -n);
+    });
+    const ball = new THREE.Sphere().setFromPoints(pts);
     ball.radius += 3;
-  }
+    return ball;
+  });
   const frustum = new THREE.Frustum(), view = new THREE.Matrix4();
   const comesIntoView = (camera) => {
-    if (camera.position.distanceTo(ball.center) - ball.radius > farOf()) return false;
+    const near = balls.filter((b) => camera.position.distanceTo(b.center) - b.radius <= farOf());
+    if (!near.length) return false;
     camera.updateMatrixWorld();
     view.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse);
-    return frustum.setFromProjectionMatrix(view).intersectsSphere(ball);
+    frustum.setFromProjectionMatrix(view);
+    return near.some((b) => frustum.intersectsSphere(b));
   };
   const ensureBuilt = (camera) => {
     if (built) return true;
