@@ -357,8 +357,8 @@
       "placement": "manifest",
       "write_mode": "(bare)",
       "measured": "2026-11-06",
-      "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/gardens/1812.json byte for byte, changed no committed byte; --check writes nothing in-tree.",
-      "placed": "by layer, 2026-11-06 \u2014 a reader of the committed structure record first_fort_outer_officers_garden and of its own bed and crop tables (T-3407); see the manifest step"
+      "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/gardens/1812.json and (T-3476) data/gardens/1835.json byte for byte, changed no committed byte; --check writes nothing in-tree.",
+      "placed": "by layer, 2026-11-07 \u2014 a reader of the committed structure record first_fort_outer_officers_garden, of data/enclosures/town_dooryard_pickets.json (T-3476, so after tools/generate_dooryard_pickets.py) and of its own bed and crop tables (T-3407); see the manifest step"
     },
     "lay_prairie_1904_street_furniture.py": {
       "placement": "manifest",

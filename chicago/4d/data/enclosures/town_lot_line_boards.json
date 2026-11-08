@@ -28,8 +28,8 @@
     ],
     "confidence": "derived",
     "counts": {
-      "runs_joined_to_a_household": 76,
-      "runs_bounding_structures_only": 573,
+      "runs_joined_to_a_household": 75,
+      "runs_bounding_structures_only": 620,
       "households_that_gained_a_fence": 30,
       "lots_named": 253,
       "households": [
@@ -2075,46 +2075,6 @@
       "note": "A SIDE LOT LINE — the east side of blk_lake_wells_lot2 — and the fence on it is built ONCE: blk_lake_wells_lot2 and blk_lake_wells_lot4 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
-      "id": "side_blk_lake_lasalle_lot0_blk_lake_lasalle_lot2_e_1",
-      "path_local_enu_m": [
-        [
-          488.51,
-          -153.07
-        ],
-        [
-          488.67,
-          -125.84
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_lake_lasalle_lot0",
-          "structures": [
-            "old_bank_building",
-            "recon_1835_south_d4_009"
-          ],
-          "households": [
-            {
-              "id": "hh_hubbard_gurdon",
-              "held_as": "workplace",
-              "at": "old_bank_building"
-            }
-          ],
-          "side": "south-west"
-        },
-        {
-          "lot": "blk_lake_lasalle_lot2",
-          "structures": [
-            "recon_1835_south_d1_010"
-          ],
-          "households": [],
-          "side": "south-east",
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "A SIDE LOT LINE — the east side of blk_lake_lasalle_lot0 — and the fence on it is built ONCE: blk_lake_lasalle_lot0 and blk_lake_lasalle_lot2 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
-    },
-    {
       "id": "side_blk_lake_market_lot0_w",
       "path_local_enu_m": [
         [
@@ -2321,8 +2281,8 @@
           -180.51
         ],
         [
-          268.51,
-          -162.52
+          268.46,
+          -170.27
         ]
       ],
       "belongs_to": [
@@ -2638,8 +2598,8 @@
           -182.3
         ],
         [
-          488.45,
-          -162.06
+          488.67,
+          -125.84
         ]
       ],
       "belongs_to": [
@@ -2656,7 +2616,7 @@
               "at": "old_bank_building"
             }
           ],
-          "side": "north-west"
+          "side": "west"
         },
         {
           "lot": "blk_lake_lasalle_lot2",
@@ -2664,7 +2624,7 @@
             "recon_1835_south_d1_010"
           ],
           "households": [],
-          "side": "north-east",
+          "side": "east",
           "refused": "no_household_names_this_ground"
         }
       ],
@@ -4098,7 +4058,7 @@
       "blk_south_water_wells_lot4",
       "blk_south_water_wells_lot6"
     ],
-    "runs": 93,
+    "runs": 92,
     "note": "253 of the 263 improved platted lots in this town carry a yard fence after this record and its two companions — every one the rule reaches, on every block of the plat. The other 10 are refused for want of room behind their buildings and each is named in `refused` below with the measurement that refused it. THE REMAINDER OF THE OWNER'S ASK IS NOT HERE AND IS NOT PRETENDED TO BE: the continuous street-lining fences at the road edge are T-0069's half of it, and ground outside the 65 platted blocks that carry lot lines — the reservation, Kinzie's Addition, the West Division blocks whose own sheet prints no dimension to divide them by, the country places outside the plat — has no committed lot geometry to derive a line from at all."
   },
   "refused": [
