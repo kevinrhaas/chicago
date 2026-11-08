@@ -80,7 +80,7 @@ assert.deepEqual(released, []);
 
 // A tier that no longer allows a level lets it go (Light draws 2 and 3 only).
 actor.tier = 'light';
-actor.update(.05, new THREE.Vector3(0, 0, 30));
+actor.update(.05, new THREE.Vector3(0, 0, 22));   // light's LOD2 band ends at 25 m (T-3463)
 assert.equal(actor.parked.size, 0, 'Light lets go of parked levels 0 and 1');
 assert.deepEqual(released.slice().sort(), [0, 1]);
 actor.tier = 'full';

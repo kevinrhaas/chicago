@@ -1,0 +1,345 @@
+{
+  "id": "hi_town_laframboise_josette_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "laframboise_josette_1812",
+  "appearance": {
+    "asset_id": "woman_working_1812"
+  },
+  "placement": {
+    "local_e": 1153.2,
+    "local_n": 310.2,
+    "heading_deg": 180.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.256
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-01-01",
+          "to": "1812-04-06"
+        },
+        "note": "With the household at the Kinzie house.",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 6.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "asleep, with the younger children"
+          },
+          {
+            "from": 6.0,
+            "to": 8.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "dressing and feeding the children"
+          },
+          {
+            "from": 8.0,
+            "to": 9.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1160.5,
+              "local_n": 349.0,
+              "heading_deg": 200.0
+            },
+            "doing": "with the children in the yard behind the house",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1159.18,
+                "local_n": 349.48
+              },
+              {
+                "local_e": 1161.82,
+                "local_n": 348.52
+              }
+            ]
+          },
+          {
+            "from": 9.5,
+            "to": 11.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1153.0,
+              "local_n": 367.5,
+              "heading_deg": 30.0
+            },
+            "doing": "in the garden with Mrs. Kinzie and the children",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1154.21,
+                "local_n": 366.8
+              },
+              {
+                "local_e": 1151.79,
+                "local_n": 368.2
+              }
+            ]
+          },
+          {
+            "from": 11.5,
+            "to": 15.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "dinner; the children's rest; sewing"
+          },
+          {
+            "from": 15.0,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1146.8,
+              "local_n": 309.2,
+              "heading_deg": 180.0
+            },
+            "doing": "with the children on the bank before the house",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1145.4,
+                "local_n": 309.2
+              },
+              {
+                "local_e": 1148.2,
+                "local_n": 309.2
+              }
+            ]
+          },
+          {
+            "from": 17.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "supper; putting the children to bed; asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-04-07",
+          "to": "1812-08-13"
+        },
+        "note": "With the household in the fort.",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 6.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep, with the younger children"
+          },
+          {
+            "from": 6.0,
+            "to": 8.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "dressing and feeding the children"
+          },
+          {
+            "from": 8.0,
+            "to": 8.5,
+            "indoors": true,
+            "away": true,
+            "doing": "crossed with Mrs. Kinzie to the house"
+          },
+          {
+            "from": 8.5,
+            "to": 10.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1150.0,
+              "local_n": 366.0,
+              "heading_deg": 0.0
+            },
+            "doing": "with the children in the Kinzie garden",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1151.4,
+                "local_n": 366.0
+              },
+              {
+                "local_e": 1148.6,
+                "local_n": 366.0
+              }
+            ]
+          },
+          {
+            "from": 10.5,
+            "to": 11.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1153.0,
+              "local_n": 367.5,
+              "heading_deg": 30.0
+            },
+            "doing": "gathering with Mrs. Kinzie",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1154.21,
+                "local_n": 366.8
+              },
+              {
+                "local_e": 1151.79,
+                "local_n": 368.2
+              }
+            ]
+          },
+          {
+            "from": 11.5,
+            "to": 12.0,
+            "indoors": true,
+            "away": true,
+            "doing": "back across to the fort"
+          },
+          {
+            "from": 12.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "dinner; the children; supper; asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-14",
+          "to": "1812-08-14"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep, with the children"
+          },
+          {
+            "from": 5.0,
+            "to": 7.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "dressing and feeding the children; packing their things"
+          },
+          {
+            "from": 7.5,
+            "to": 11.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1153.2,
+              "local_n": 310.2,
+              "heading_deg": 180.0
+            },
+            "doing": "carrying bundles down to the boat",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1151.8,
+                "local_n": 310.2
+              },
+              {
+                "local_e": 1154.6,
+                "local_n": 310.2
+              }
+            ]
+          },
+          {
+            "from": 11.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "with the children at the house; dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 16.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1146.8,
+              "local_n": 309.2,
+              "heading_deg": 180.0
+            },
+            "doing": "minding the children on the bank while the boat is loaded",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1145.4,
+                "local_n": 309.2
+              },
+              {
+                "local_e": 1148.2,
+                "local_n": 309.2
+              }
+            ]
+          },
+          {
+            "from": 16.0,
+            "to": 16.5,
+            "indoors": true,
+            "away": true,
+            "doing": "crossing back to the fort"
+          },
+          {
+            "from": 16.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "supper; the children to bed; asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-16",
+          "to": "1812-08-18"
+        },
+        "note": "15 August is the battle jaunt's day.",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "with the children in the house"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-01-01",
+      "to": "1812-08-18"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Josette LaFramboise in the 1812 town, at each hour of each run of dates where the reading for T-3464 (docs/RESEARCH/people-1812-3464/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the woman working 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "currey_1912_story_of_old_fort_dearborn",
+      "kinzie_waubun_1856",
+      "quaife_1913"
+    ],
+    "liberty": "L418",
+    "seed": "laframboise_josette_1812:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

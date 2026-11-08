@@ -1,0 +1,42 @@
+{
+ "format": "chicago4d_human_looks_v1",
+ "ticket": "T-3464",
+ "person_id": "bisson_mrs",
+ "scene": "1812",
+ "generated_by": "docs/RESEARCH/people-1812-town/looks.py",
+ "heritage": {
+  "origin": "not recorded (see the basis)",
+  "family": "reading"
+ },
+ "complexion": {
+  "value": "light brown to brown",
+  "drawn": "tan",
+  "grade": "reconstructed"
+ },
+ "hair": {
+  "value": "black",
+  "drawn": "black",
+  "cut": "centre_part_knot_1835",
+  "facial": [
+   "brows_fine",
+   "lashes_upper"
+  ],
+  "grade": "reconstructed"
+ },
+ "eyes": {
+  "value": "dark brown",
+  "drawn": "dark_brown",
+  "grade": "reconstructed"
+ },
+ "stature": {
+  "inches": 61,
+  "grade": "reconstructed",
+  "basis": "No likeness. Wau-Bun: \"a half-breed\", sister of Ouilmette's wife; colouring by that heritage."
+ },
+ "height_scale": 0.939,
+ "basis": "Drawn in the words of the day reading for T-3464 (docs/RESEARCH/people-1812-3464/day.json): No likeness. Wau-Bun: \"a half-breed\", sister of Ouilmette's wife; colouring by that heritage. The drawn colours, cut and scale are a reconstructed rendering of those words (liberty L-1812-town-days-3463).",
+ "grade": "reconstructed",
+ "liberty": "L-1812-town-days-3463",
+ "replaceable_by": "A portrait or a description of them written in their lifetime.",
+ "build_words": "medium"
+}

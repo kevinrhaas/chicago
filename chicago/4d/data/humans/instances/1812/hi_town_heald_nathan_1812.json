@@ -1,0 +1,575 @@
+{
+  "id": "hi_town_heald_nathan_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "heald_nathan",
+  "appearance": {
+    "asset_id": "officer_first_infantry_1812"
+  },
+  "placement": {
+    "local_e": 1162.0,
+    "local_n": 229.4,
+    "heading_deg": 20.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.463
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-01-01",
+          "to": "1812-08-12"
+        },
+        "note": "a plain day of 1812 at the post (summer hours)",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.2,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.2,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "rising and dressing"
+          },
+          {
+            "from": 5.5,
+            "to": 6.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1156.0,
+              "local_n": 221.0,
+              "heading_deg": 270.0
+            },
+            "doing": "taking the morning report from his lieutenant and ensign",
+            "activity": "talk",
+            "knot": "morning_report"
+          },
+          {
+            "from": 6.0,
+            "to": 7.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "at his desk: orders, the company books and returns"
+          },
+          {
+            "from": 7.5,
+            "to": 8.2,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "breakfast with his wife"
+          },
+          {
+            "from": 8.2,
+            "to": 8.7,
+            "indoors": false,
+            "at": {
+              "local_e": 1152.0,
+              "local_n": 216.8,
+              "heading_deg": 180.0
+            },
+            "doing": "watching the new guard mounted",
+            "activity": "stand"
+          },
+          {
+            "from": 8.7,
+            "to": 10.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1156.0,
+              "local_n": 218.6,
+              "heading_deg": 0.0
+            },
+            "doing": "going round the barracks, the store and the magazine",
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1156.0,
+              "local_n": 224.4
+            }
+          },
+          {
+            "from": 10.5,
+            "to": 12.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "in his parlor, seeing visitors to the commanding officer, among them Potawatomi callers"
+          },
+          {
+            "from": 12.5,
+            "to": 14.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "dinner"
+          },
+          {
+            "from": 14.0,
+            "to": 16.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1147.5,
+              "local_n": 139.5,
+              "heading_deg": 180.0
+            },
+            "doing": "walking his garden and looking over the soldiers at work in it",
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1147.5,
+              "local_n": 126.0
+            }
+          },
+          {
+            "from": 16.0,
+            "to": 18.7,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "letters and accounts at his desk"
+          },
+          {
+            "from": 18.7,
+            "to": 19.2,
+            "indoors": false,
+            "at": {
+              "local_e": 1156.0,
+              "local_n": 221.0,
+              "heading_deg": 270.0
+            },
+            "doing": "at retreat, the gates shut",
+            "activity": "talk",
+            "knot": "retreat"
+          },
+          {
+            "from": 19.2,
+            "to": 20.2,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "supper and tea"
+          },
+          {
+            "from": 20.2,
+            "to": 21.6,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "the evening at home with his wife"
+          },
+          {
+            "from": 21.6,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-13",
+          "to": "1812-08-13"
+        },
+        "note": "13 August 1812: the plain day until supper, then Wells, and the destruction at night",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.2,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.2,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "rising and dressing"
+          },
+          {
+            "from": 5.5,
+            "to": 6.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1156.0,
+              "local_n": 221.0,
+              "heading_deg": 270.0
+            },
+            "doing": "taking the morning report from his lieutenant and ensign",
+            "activity": "talk",
+            "knot": "morning_report"
+          },
+          {
+            "from": 6.0,
+            "to": 7.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "at his desk: orders, the company books and returns"
+          },
+          {
+            "from": 7.5,
+            "to": 8.2,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "breakfast with his wife"
+          },
+          {
+            "from": 8.2,
+            "to": 8.7,
+            "indoors": false,
+            "at": {
+              "local_e": 1152.0,
+              "local_n": 216.8,
+              "heading_deg": 180.0
+            },
+            "doing": "watching the new guard mounted",
+            "activity": "stand"
+          },
+          {
+            "from": 8.7,
+            "to": 10.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1156.0,
+              "local_n": 218.6,
+              "heading_deg": 0.0
+            },
+            "doing": "going round the barracks, the store and the magazine",
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1156.0,
+              "local_n": 224.4
+            }
+          },
+          {
+            "from": 10.5,
+            "to": 12.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "in his parlor, seeing visitors to the commanding officer, among them Potawatomi callers"
+          },
+          {
+            "from": 12.5,
+            "to": 14.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "dinner"
+          },
+          {
+            "from": 14.0,
+            "to": 16.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1147.5,
+              "local_n": 139.5,
+              "heading_deg": 180.0
+            },
+            "doing": "walking his garden and looking over the soldiers at work in it",
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1147.5,
+              "local_n": 126.0
+            }
+          },
+          {
+            "from": 16.0,
+            "to": 18.7,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "letters and accounts at his desk"
+          },
+          {
+            "from": 18.7,
+            "to": 19.2,
+            "indoors": false,
+            "at": {
+              "local_e": 1156.0,
+              "local_n": 221.0,
+              "heading_deg": 270.0
+            },
+            "doing": "at retreat, the gates shut",
+            "activity": "talk",
+            "knot": "retreat"
+          },
+          {
+            "from": 19.2,
+            "to": 19.8,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "supper with his wife and her uncle, just come"
+          },
+          {
+            "from": 19.8,
+            "to": 21.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "Wells, Kinzie and Helm press him to destroy the arms, powder and liquor; he agrees"
+          },
+          {
+            "from": 21.0,
+            "to": 24.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1162.0,
+              "local_n": 229.4,
+              "heading_deg": 20.0
+            },
+            "doing": "overseeing the ammunition and broken muskets going down the well",
+            "activity": "talk",
+            "knot": "well_destruction"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-14",
+          "to": "1812-08-14"
+        },
+        "note": "14 August 1812, the last full day",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 1.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1162.0,
+              "local_n": 229.4,
+              "heading_deg": 20.0
+            },
+            "doing": "seeing the last of the muskets, shot and flints thrown down the well",
+            "activity": "talk",
+            "knot": "well_destruction"
+          },
+          {
+            "from": 1.0,
+            "to": 5.2,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.2,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "rising and dressing"
+          },
+          {
+            "from": 5.5,
+            "to": 6.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1156.0,
+              "local_n": 221.0,
+              "heading_deg": 270.0
+            },
+            "doing": "taking the morning report",
+            "activity": "talk",
+            "knot": "morning_report"
+          },
+          {
+            "from": 6.0,
+            "to": 7.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1066.6,
+              "local_n": 140.2,
+              "heading_deg": 250.0
+            },
+            "doing": "looking over the horses and mules hired from Kinzie and Forsyth for the march",
+            "activity": "talk",
+            "knot": "hired_horses"
+          },
+          {
+            "from": 7.0,
+            "to": 7.8,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "breakfast with his wife and her uncle"
+          },
+          {
+            "from": 7.8,
+            "to": 8.4,
+            "indoors": false,
+            "at": {
+              "local_e": 1152.0,
+              "local_n": 216.8,
+              "heading_deg": 180.0
+            },
+            "doing": "giving orders for the day at guard mounting",
+            "activity": "stand"
+          },
+          {
+            "from": 8.4,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1073.6,
+              "local_n": 219.0,
+              "heading_deg": 60.0
+            },
+            "doing": "giving out the goods of the factory store to the Potawatomi",
+            "activity": "talk",
+            "knot": "factory_distribution"
+          },
+          {
+            "from": 12.0,
+            "to": 13.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.5,
+            "to": 14.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "with his lieutenant over the order of march"
+          },
+          {
+            "from": 14.0,
+            "to": 16.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1104.0,
+              "local_n": 222.0,
+              "heading_deg": 270.0
+            },
+            "doing": "in council with the Potawatomi leaders",
+            "activity": "talk",
+            "knot": "second_council_14aug"
+          },
+          {
+            "from": 16.5,
+            "to": 18.7,
+            "indoors": false,
+            "at": {
+              "local_e": 1157.0,
+              "local_n": 196.0,
+              "heading_deg": 160.0
+            },
+            "doing": "seeing the wagons loaded and the pack-horses assigned",
+            "activity": "talk",
+            "knot": "wagons_14aug"
+          },
+          {
+            "from": 18.7,
+            "to": 19.2,
+            "indoors": false,
+            "at": {
+              "local_e": 1156.0,
+              "local_n": 221.0,
+              "heading_deg": 270.0
+            },
+            "doing": "at retreat, the gates shut for the last time",
+            "activity": "talk",
+            "knot": "retreat"
+          },
+          {
+            "from": 19.2,
+            "to": 19.8,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "supper"
+          },
+          {
+            "from": 19.8,
+            "to": 21.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "Black Partridge and the interpreter come to his quarters; Black Partridge gives up his medal"
+          },
+          {
+            "from": 21.5,
+            "to": 22.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "at his desk, settling the post's papers"
+          },
+          {
+            "from": 22.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-15",
+          "to": "1812-08-15"
+        },
+        "note": "15 August 1812, until the march at nine",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 4.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 4.5,
+            "to": 8.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "packing his last things; dressing for the march"
+          },
+          {
+            "from": 8.5,
+            "to": 9.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1155.0,
+              "local_n": 223.0,
+              "heading_deg": 180.0
+            },
+            "doing": "forming the company to march out",
+            "activity": "stand"
+          },
+          {
+            "from": 9.0,
+            "to": 24.0,
+            "indoors": true,
+            "away": true,
+            "doing": "gone out of the gate with the column (the battle jaunt has the march, the battle and its end)"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1810-06-01",
+      "to": "1812-08-15"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Nathan Heald in the 1812 town, at each hour of each run of dates where the reading for T-3463 (docs/RESEARCH/people-1812-3463/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the officer first infantry 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "andreas_1884_v1",
+      "currey_1912_story_of_old_fort_dearborn",
+      "kinzie_waubun_1856",
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913",
+      "us_1812_rules_and_articles_albany"
+    ],
+    "liberty": "L418",
+    "seed": "heald_nathan:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

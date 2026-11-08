@@ -3935,6 +3935,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/derive_doors_1812.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/derive_evacuation_1812.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5930,11 +5934,19 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_human_child_1812.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_human_coachman_1904.py": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/test_human_cook_1904.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_days.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5947,6 +5959,10 @@
       "wrote_ignored": []
     },
     "tools/test_human_duties.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_engage_1812.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6054,6 +6070,18 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_human_officer_1812.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_potawatomi_man_1812.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_settler_1812.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_human_skin.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6082,7 +6110,15 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_human_trader_1812.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_human_variation.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_women_1812.py": {
       "wrote": [],
       "wrote_ignored": []
     },

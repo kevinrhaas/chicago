@@ -60,6 +60,14 @@ export const FACE_M = 20;
 export const SHADOW_M = 30;
 export const ANIMATE_M = 70;
 export const DRAW_M = 140;
+/**
+ * T-3463: how far the `light` tier (a phone's) draws a figure. 1812's town put some 160 people
+ * within DRAW_M of the fort, sixteen dresses among them, and a phone held every one of their
+ * bodies and textures (+70 MB at spawn); at this distance it holds those near the visitor.
+ */
+export const DRAW_M_BY_TIER = Object.freeze({ full: DRAW_M, balanced: DRAW_M, light: 60 });
+/** T-3463: and the `light` tier gives LOD2 (its 1024 px dress sheet) way to LOD3 sooner. */
+export const LOD_BANDS_BY_TIER = Object.freeze({ light: Object.freeze([8, 20, 25]) });
 export const RECHECK_S = 0.5;
 /** T-3439: seconds a level drawn before is kept, parked, for a swap back to it. */
 export const PARK_S = 180;
@@ -82,16 +90,17 @@ const BLINK = ['eyeBlinkLeft', 'eyeBlinkRight'];
  * Returns -1 beyond DRAW_M (not drawn).
  */
 export function chooseHumanLod(distance, tier = 'full', current = -1, { policy = 'auto', fixed = 0 } = {}) {
-  if (!(distance <= DRAW_M)) return -1;
+  if (!(distance <= (DRAW_M_BY_TIER[tier] ?? DRAW_M))) return -1;
   const allowed = HUMAN_TIERS[tier] ?? HUMAN_TIERS.full;
   const clamp = (lod) => Math.min(Math.max(lod, allowed[0]), allowed[allowed.length - 1]);
   if (policy === 'fixed') return clamp(fixed);
-  let lod = LOD_BANDS_M.findIndex((band) => distance < band);
-  if (lod < 0) lod = LOD_BANDS_M.length;
+  const bands = LOD_BANDS_BY_TIER[tier] ?? LOD_BANDS_M;
+  let lod = bands.findIndex((band) => distance < band);
+  if (lod < 0) lod = bands.length;
   if (current >= 0 && current !== lod) {
     // Moving out to a coarser LOD needs the distance past the band by the margin; moving
     // back in needs it short of the band by the same margin.
-    const edge = LOD_BANDS_M[Math.min(current, lod)];
+    const edge = bands[Math.min(current, lod)];
     const margin = edge * LOD_HYSTERESIS;
     if (lod > current ? distance < edge + margin : distance > edge - margin) lod = current;
   }

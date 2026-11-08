@@ -1,0 +1,285 @@
+{
+  "id": "hi_town_lee_mrs_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "lee_mrs",
+  "appearance": {
+    "asset_id": "woman_working_1812"
+  },
+  "placement": {
+    "local_e": 1085.0,
+    "local_n": 238.5,
+    "heading_deg": 0.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.425
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-01-01",
+          "to": "1812-04-06"
+        },
+        "note": "At home before the alarm.",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "lee_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 7.0,
+            "indoors": true,
+            "where": "lee_house_1812",
+            "doing": "fire, milking, breakfast"
+          },
+          {
+            "from": 7.0,
+            "to": 11.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1131.0,
+              "local_n": -444.2,
+              "heading_deg": 180.0
+            },
+            "doing": "at work about the house and yard: washing, the kitchen garden, the fowls",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1129.6,
+                "local_n": -444.2
+              },
+              {
+                "local_e": 1132.4,
+                "local_n": -444.2
+              }
+            ]
+          },
+          {
+            "from": 11.5,
+            "to": 13.0,
+            "indoors": true,
+            "where": "lee_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 16.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1131.0,
+              "local_n": -444.2,
+              "heading_deg": 180.0
+            },
+            "doing": "spinning or sewing at the door",
+            "activity": "stand"
+          },
+          {
+            "from": 16.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "lee_house_1812",
+            "doing": "supper; the children; asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-04-07",
+          "to": "1812-08-13"
+        },
+        "note": "In the fortified agency house.",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 7.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "fire, breakfast, the baby"
+          },
+          {
+            "from": 7.0,
+            "to": 10.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1085.0,
+              "local_n": 238.5,
+              "heading_deg": 0.0
+            },
+            "doing": "washing at the river below the factory",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1086.4,
+                "local_n": 238.5
+              },
+              {
+                "local_e": 1083.6,
+                "local_n": 238.5
+              }
+            ]
+          },
+          {
+            "from": 10.0,
+            "to": 11.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1073.4,
+              "local_n": 171.0,
+              "heading_deg": 90.0
+            },
+            "doing": "before the agency house, minding the children and the kettle",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1073.4,
+                "local_n": 169.6
+              },
+              {
+                "local_e": 1073.4,
+                "local_n": 172.4
+              }
+            ]
+          },
+          {
+            "from": 11.5,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 16.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1073.4,
+              "local_n": 171.0,
+              "heading_deg": 90.0
+            },
+            "doing": "sewing before the agency house with the other wives",
+            "activity": "talk",
+            "knot": "talk_010b3c2c"
+          },
+          {
+            "from": 16.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "supper; the children; asleep behind the planked-up piazzas"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-14",
+          "to": "1812-08-14"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 8.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "breakfast; packing what the wagons will take"
+          },
+          {
+            "from": 8.0,
+            "to": 10.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1085.0,
+              "local_n": 238.5,
+              "heading_deg": 0.0
+            },
+            "doing": "washing the last linen for the march",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1086.4,
+                "local_n": 238.5
+              },
+              {
+                "local_e": 1083.6,
+                "local_n": 238.5
+              }
+            ]
+          },
+          {
+            "from": 10.5,
+            "to": 13.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1073.4,
+              "local_n": 171.0,
+              "heading_deg": 90.0
+            },
+            "doing": "before the agency house with bundles, watching the goods given out at the factory nearby",
+            "activity": "stand"
+          },
+          {
+            "from": 13.0,
+            "to": 23.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "dinner; baking and packing food for the march; the children; late to bed"
+          },
+          {
+            "from": 23.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "asleep"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-01-01",
+      "to": "1812-08-15"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Mrs. Lee (given name not recorded) in the 1812 town, at each hour of each run of dates where the reading for T-3464 (docs/RESEARCH/people-1812-3464/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the woman working 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "kinzie_waubun_1856",
+      "quaife_1913"
+    ],
+    "liberty": "L418",
+    "seed": "lee_mrs:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

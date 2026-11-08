@@ -59,6 +59,22 @@ export const HAIR_CUTS = Object.freeze({
     flow: 'forward', part_cm: 0, lengths_cm: Object.freeze({ top: 3.2, side: 1.3, back: 1.5 }),
     lift_mm: Object.freeze({ root: 1, tip: 2.6 }), density: 1.3, curl: .1, hang: false,
   }),
+  // Worn long and drawn back to be tied or clubbed at the nape (T-3463..T-3467): the
+  // Potawatomi and Miami men of 1812 ("hair long and tied or clubbed behind", Keating 1824 of
+  // Metea) and the older men of the post who kept a queue (John Kinzie). The tie is where the
+  // strands meet, low behind the head; the tail itself is not grown.
+  clubbed_behind_1812: Object.freeze({
+    flow: 'centre_part_back', part_cm: 0, lengths_cm: Object.freeze({ top: 8, side: 7, back: 8 }),
+    knot_cm: Object.freeze({ up: -4, back: 11 }),
+    lift_mm: Object.freeze({ root: .6, tip: 1.6 }), density: 1.3, curl: .02, hang: false,
+  }),
+  // A woman's of 1812 (T-3464, T-3467): parted in the middle and worn long, drawn smooth back
+  // over the ears to be tied or clubbed low at the back of the head.
+  centre_part_clubbed_1812: Object.freeze({
+    flow: 'centre_part_back', part_cm: 0, lengths_cm: Object.freeze({ top: 8, side: 7, back: 7 }),
+    knot_cm: Object.freeze({ up: -2, back: 12 }),
+    lift_mm: Object.freeze({ root: .5, tip: 1.2 }), density: 1.35, curl: .02, hang: false,
+  }),
   // Of the 1830s: fuller all round, brushed forward from the crown toward the brow and
   // temples, over the tops of the ears.
   brushed_forward_1835: Object.freeze({

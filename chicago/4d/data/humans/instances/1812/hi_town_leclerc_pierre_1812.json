@@ -1,0 +1,299 @@
+{
+  "id": "hi_town_leclerc_pierre_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "leclerc_pierre",
+  "appearance": {
+    "asset_id": "engage_1812"
+  },
+  "placement": {
+    "local_e": 1183.0,
+    "local_n": 347.0,
+    "heading_deg": 20.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.233
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-01-01",
+          "to": "1812-08-13"
+        },
+        "note": "a boy in Kinzie's service",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.3,
+            "indoors": true,
+            "where": "kinzie_lodging_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.3,
+            "to": 7.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1183.0,
+              "local_n": 347.0,
+              "heading_deg": 20.0
+            },
+            "doing": "watering and feeding the horses",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1184.32,
+                "local_n": 346.52
+              },
+              {
+                "local_e": 1181.68,
+                "local_n": 347.48
+              }
+            ]
+          },
+          {
+            "from": 7.0,
+            "to": 7.5,
+            "indoors": true,
+            "where": "kinzie_lodging_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 7.5,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1175.5,
+              "local_n": 346.5,
+              "heading_deg": 45.0
+            },
+            "doing": "at Kinzie's heel: carrying messages, interpreting at the store for Indian customers",
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1177.97,
+              "local_n": 348.97
+            }
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "kinzie_lodging_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1160.0,
+              "local_n": 368.0,
+              "heading_deg": 0.0
+            },
+            "doing": "hoeing in the Kinzie garden",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1161.4,
+                "local_n": 368.0
+              },
+              {
+                "local_e": 1158.6,
+                "local_n": 368.0
+              }
+            ]
+          },
+          {
+            "from": 17.5,
+            "to": 19.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1148.0,
+              "local_n": 308.0,
+              "heading_deg": 160.0
+            },
+            "doing": "at the pirogues, bailing and setting them ready for the morning",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1146.68,
+                "local_n": 307.52
+              },
+              {
+                "local_e": 1149.32,
+                "local_n": 308.48
+              }
+            ]
+          },
+          {
+            "from": 19.0,
+            "to": 20.0,
+            "indoors": true,
+            "where": "kinzie_lodging_house_1812",
+            "doing": "supper"
+          },
+          {
+            "from": 20.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "kinzie_lodging_house_1812",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-14",
+          "to": "1812-08-14"
+        },
+        "note": "the last day",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "kinzie_lodging_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 7.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1183.0,
+              "local_n": 347.0,
+              "heading_deg": 20.0
+            },
+            "doing": "saddling the hired horses and mules",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1184.32,
+                "local_n": 346.52
+              },
+              {
+                "local_e": 1181.68,
+                "local_n": 347.48
+              }
+            ]
+          },
+          {
+            "from": 7.0,
+            "to": 7.5,
+            "indoors": true,
+            "where": "kinzie_lodging_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 7.5,
+            "to": 13.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1065.8,
+              "local_n": 140.0,
+              "heading_deg": 270.0
+            },
+            "doing": "leading the pack-horses across to the fort's stables and loading provisions",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1065.8,
+                "local_n": 141.4
+              },
+              {
+                "local_e": 1065.8,
+                "local_n": 138.6
+              }
+            ]
+          },
+          {
+            "from": 13.0,
+            "to": 13.8,
+            "indoors": true,
+            "where": "kinzie_lodging_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.8,
+            "to": 16.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1110.0,
+              "local_n": 220.0,
+              "heading_deg": 260.0
+            },
+            "doing": "at the second council, near Kinzie, listening",
+            "activity": "stand"
+          },
+          {
+            "from": 16.5,
+            "to": 18.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1148.0,
+              "local_n": 308.0,
+              "heading_deg": 160.0
+            },
+            "doing": "carrying boxes down to the boat",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1146.68,
+                "local_n": 307.52
+              },
+              {
+                "local_e": 1149.32,
+                "local_n": 308.48
+              }
+            ]
+          },
+          {
+            "from": 18.5,
+            "to": 19.3,
+            "indoors": true,
+            "where": "kinzie_lodging_house_1812",
+            "doing": "supper"
+          },
+          {
+            "from": 19.3,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "at the agency house with the militia, ready to march with them in the morning"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-01-01",
+      "to": "1812-08-15"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Pierre Le Clerc (Peresh Leclerc) in the 1812 town, at each hour of each run of dates where the reading for T-3466 (docs/RESEARCH/people-1812-3466/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the engage 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "kinzie_waubun_1856",
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913"
+    ],
+    "liberty": "L418",
+    "seed": "leclerc_pierre:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

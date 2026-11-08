@@ -1,0 +1,230 @@
+{
+  "id": "hh_mirandeau_1812",
+  "scene": "1812",
+  "name": "Jean Baptiste Mirandeau and his daughters, lodging at the Ouilmette house",
+  "head": "mirandeau_jean_baptiste",
+  "division": "north",
+  "review_required": true,
+  "touches_removal": false,
+  "review_note": "review_required: a Métis family of an Ottawa mother, depicted through the French household they lodged in; dress and looks are reconstructed and say so.",
+  "present_on_scene_date": {
+    "value": "absent",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "kirkland_1893_chicago_massacre"
+    ],
+    "note": "Dead or gone before 14 August 1812; in the town on the earlier dates their cards give."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "ouilmette_house_1812",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "attested",
+      "source_id": "andreas_1884_v1",
+      "also_sources": [
+        "kirkland_1893_chicago_massacre"
+      ],
+      "note": "Victoire Mirandeau (Andreas p. 105): 'some of us lived in the Ouilmette house, across the river from the fort'."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "Everyone the T-3463..T-3467 day readings put in this household is on the card (liberty L-1812-town-days-3463).",
+    "sources": [
+      "andreas_1884_v1",
+      "kirkland_1893_chicago_massacre"
+    ]
+  },
+  "persons": [
+    {
+      "id": "mirandeau_jean_baptiste",
+      "name": "Jean Baptiste Mirandeau (the elder)",
+      "relationship": "head",
+      "grade": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "kirkland_1893_chicago_massacre"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "45-45",
+        "low": 45,
+        "high": 45,
+        "tier": "reconstructed",
+        "note": "Not recorded; father of Victoire (born 1800 or 1801, Andreas) and older children; drawn at about forty-five."
+      },
+      "present_on_scene_date": {
+        "value": "absent",
+        "confidence": "inferred",
+        "note": "Back at Milwaukee before the evacuation (Porthier). No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "A Frenchman who did blacksmith work at the fort in 1811 and lodged his family at Ouilmette's. On the night of 17 June 1812 he took John Kinzie to Milwaukee; the family were gone before the fort burned. In the town from 1811-05-01 to 1812-06-17: Porthier (Andreas p. 105): her father worked at the fort \"the year before\" it burned, i.e. 1811, and took Kinzie to Milwaukee on the night of 17 June 1812; \"We were not there when the fort was burned\". Andreas calls him \"a sojourner in Chicago in 1811\". Both dates are ours within that.",
+      "review_required": true,
+      "touches_removal": false,
+      "review_note": "review_required: a Métis family of an Ottawa mother, depicted through the French household they lodged in; dress and looks are reconstructed and say so.",
+      "evidence": [
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 105 (Mrs. Porthier, 1883) (IA historyofchicago01andr full-text OCR lines 24848-24851)",
+          "quote": "my father was a Frenchman. He was a good scholar, a very handsome man, and had many books.",
+          "claim": "a Frenchman, a handsome man with books"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 105 (Mrs. Porthier) (IA historyofchicago01andr full-text OCR lines 24857-24858)",
+          "quote": "my father was down to the fort--the year before--and did blacksmith work there.",
+          "claim": "blacksmith work at the fort the year before"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 105 (Mrs. Porthier) (IA historyofchicago01andr full-text OCR lines 24860-24861)",
+          "quote": "some of us lived in the Ouilmette house, across the river from the fort.",
+          "claim": "lodged at Ouilmette's"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 105 (IA historyofchicago01andr full-text OCR lines 24830-24831)",
+          "quote": "the earliest permanent white settler in Milwaukee and a sojourner in Chicago in 1811",
+          "claim": "a sojourner of 1811"
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "app. F (Mrs. Porthier), PG 59624 lines 6291-6292",
+          "quote": "In the night he packed up some things and my father took him to Milwaukee",
+          "claim": "took Kinzie to Milwaukee"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 105 (Mrs. Porthier) (IA historyofchicago01andr full-text OCR lines 24886-24888)",
+          "quote": "We were not there when the fort was burned--we had gone back to Milwaukee.",
+          "claim": "gone before the fort burned"
+        }
+      ]
+    },
+    {
+      "id": "mirandeau_victoire_1812",
+      "name": "Victoire Mirandeau",
+      "relationship": "daughter",
+      "grade": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "sex": "female",
+      "age_band": {
+        "value": "11-11",
+        "low": 11,
+        "high": 11,
+        "tier": "inferred",
+        "note": "Born 1800 or 1801 by collateral evidence (Andreas): 11 or 12 in June 1812."
+      },
+      "present_on_scene_date": {
+        "value": "absent",
+        "confidence": "inferred",
+        "note": "Not at Chicago on 14 August: \"we had gone back to Milwaukee\" (Andreas p. 105). No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "A daughter of Jean Baptiste Mirandeau and his Ottawa wife; she and her sister Madeline saw the fight between John Kinzie and Lalime (Andreas p. 105). Victoire later lived with the Kinzies as their servant (Andreas p. 105). In the town from 1811-06-01 to 1812-06-18: Victoire: her father worked at the fort \"the year before\" the burning and the family came down while he was there; they had gone back to Milwaukee before August. The month they came is not recorded (June 1811 is a stand-in). Last attested at sunset on 17 June 1812; their father took the wounded Kinzie to Milwaukee that night, and the family is ended the next day, which is ours.",
+      "review_required": true,
+      "touches_removal": false,
+      "review_note": "review_required: Metis children of an Ottawa mother; depicted through the French household they lodged in, with dress and looks reconstructed and declared so.",
+      "evidence": [
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 105 (IA OCR, cleaned; OCR \"iSoo or iSor\")",
+          "quote": "it is believed to have been in 1800 or 1801",
+          "claim": "Victoire Mirandeau was born about 1800 or 1801."
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 105 (IA OCR, cleaned)",
+          "quote": "The family went down while he was there, and some of us lived in the Ouilmette house, across the river from the fort.",
+          "claim": "Some of the Mirandeau family lived in the Ouilmette house while the father worked at the fort."
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 105 (IA OCR, cleaned)",
+          "quote": "My sister Madaline (afterward the wife of John K. Clark) and I saw the fight between old John Kinzie and Lalime",
+          "claim": "Victoire and her sister Madeline saw the Kinzie-Lalime fight (17 June 1812)."
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 105 (IA OCR, cleaned)",
+          "quote": "It was sunset when they used to shut the gates of the fort",
+          "claim": "The fight was at sunset, when the gates were shut."
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 105 (IA OCR, cleaned)",
+          "quote": "In the night he packed up some things, and my father took him to Milwaukee",
+          "claim": "That night Victoire's father took the wounded Kinzie to Milwaukee."
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 105",
+          "quote": "We were not there when the fort was burned—we had gone back to Milwaukee.",
+          "claim": "The Mirandeaus were back at Milwaukee before the fort burned."
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 105 (IA OCR, cleaned)",
+          "quote": "He taught us children to speak French, and we all learned to speak Indian of the tribe and mother.",
+          "claim": "The Mirandeau children spoke French and their mother's language and had no schooling."
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 105 (IA OCR, cleaned)",
+          "quote": "We had no schools nor education. I never learned to read or write.",
+          "claim": "No schooling."
+        }
+      ]
+    },
+    {
+      "id": "mirandeau_madeline_1812",
+      "name": "Madeline Mirandeau",
+      "relationship": "daughter",
+      "grade": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "sex": "female",
+      "age_band": {
+        "value": "13-13",
+        "low": 13,
+        "high": 13,
+        "tier": "reconstructed",
+        "note": "Not recorded. She married John K. Clark later; taken as a little older than Victoire, band 9-15."
+      },
+      "present_on_scene_date": {
+        "value": "absent",
+        "confidence": "inferred",
+        "note": "Not at Chicago on 14 August: \"we had gone back to Milwaukee\" (Andreas p. 105). No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "A daughter of Jean Baptiste Mirandeau and his Ottawa wife, afterwards the wife of John K. Clark; she and her sister Victoire saw the fight between John Kinzie and Lalime (Andreas p. 105). Victoire later lived with the Kinzies as their servant (Andreas p. 105). In the town from 1811-06-01 to 1812-06-18: Victoire: her father worked at the fort \"the year before\" the burning and the family came down while he was there; they had gone back to Milwaukee before August. The month they came is not recorded (June 1811 is a stand-in). Last attested at sunset on 17 June 1812; their father took the wounded Kinzie to Milwaukee that night, and the family is ended the next day, which is ours.",
+      "review_required": true,
+      "touches_removal": false,
+      "review_note": "review_required: Metis children of an Ottawa mother; depicted through the French household they lodged in, with dress and looks reconstructed and declared so.",
+      "evidence": [
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 105 (IA OCR, cleaned)",
+          "quote": "My sister Madaline (afterward the wife of John K. Clark) and I saw the fight between old John Kinzie and Lalime",
+          "claim": "Victoire and her sister Madeline saw the Kinzie-Lalime fight (17 June 1812)."
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 104 (IA OCR, cleaned)",
+          "quote": "who lived in Chicago both before and after the massacre, although not here at the time",
+          "claim": "Madeline Mirandeau lived at Chicago before and after the massacre, not at it."
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 105 (IA OCR, cleaned)",
+          "quote": "The family went down while he was there, and some of us lived in the Ouilmette house, across the river from the fort.",
+          "claim": "Some of the Mirandeau family lived in the Ouilmette house while the father worked at the fort."
+        }
+      ]
+    }
+  ]
+}

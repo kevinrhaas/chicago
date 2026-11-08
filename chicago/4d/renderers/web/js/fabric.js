@@ -38,7 +38,8 @@ export const CLOTHS = Object.freeze({
 export function clothFor(material) {
   const name = material?.name ?? '';
   if (!/^garment_/.test(name)) return null;
-  if (/wool|coat|waistcoat|vest|jacket/.test(name)) return CLOTHS.wool;
+  if (/deerskin|buckskin|leather/.test(name)) return null;   // hide has no weave (T-3466)
+  if (/wool|stroud|broadcloth|coat|waistcoat|vest|jacket/.test(name)) return CLOTHS.wool;
   if (/linen|shirt/.test(name)) return CLOTHS.linen;
   return CLOTHS.cotton_twill;
 }

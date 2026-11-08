@@ -1,0 +1,39 @@
+{
+ "format": "chicago4d_human_looks_v1",
+ "ticket": "T-3467",
+ "person_id": "potawatomi_1812_middle_man_2",
+ "scene": "1812",
+ "generated_by": "docs/RESEARCH/people-1812-town/looks.py",
+ "heritage": {
+  "origin": "Potawatomi",
+  "family": "reading"
+ },
+ "complexion": {
+  "value": "brown, a warm medium-to-deep tone weathered by sun",
+  "drawn": "copper",
+  "grade": "reconstructed"
+ },
+ "hair": {
+  "value": "black, straight",
+  "drawn": "black",
+  "cut": "clubbed_behind_1812",
+  "facial": [],
+  "grade": "reconstructed"
+ },
+ "eyes": {
+  "value": "dark brown",
+  "drawn": "dark_brown",
+  "grade": "reconstructed"
+ },
+ "stature": {
+  "inches": 67,
+  "grade": "reconstructed",
+  "basis": "Heritage, not a description: no source read describes this person's face, colouring or stature. Drawn from the variation kit with the same care and range as everyone else in the town, with no exaggerated features."
+ },
+ "height_scale": 0.9725,
+ "basis": "Drawn in the words of the day reading for T-3467 (docs/RESEARCH/people-1812-3467/day.json): Heritage, not a description: no source read describes this person's face, colouring or stature. Drawn from the variation kit with the same care and range as everyone else in the town, with no exaggerated features. The drawn colours, cut and scale are a reconstructed rendering of those words (liberty L-1812-town-days-3463).",
+ "grade": "reconstructed",
+ "liberty": "L-1812-town-days-3463",
+ "replaceable_by": "A portrait or a description of them written in their lifetime.",
+ "build_words": "medium"
+}

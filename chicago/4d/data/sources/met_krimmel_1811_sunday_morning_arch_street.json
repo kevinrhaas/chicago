@@ -1,0 +1,25 @@
+{
+ "id": "met_krimmel_1811_sunday_morning_arch_street",
+ "type": "illustration",
+ "citation": "John Lewis Krimmel, Sunday Morning in front of the Arch Street Meeting House, Philadelphia, 1811-ca. 1813. The Metropolitan Museum of Art, 42.95.17.",
+ "author": "John Lewis Krimmel",
+ "date": "1811-ca. 1813",
+ "describes_date": "1811-1813",
+ "repository": "The Metropolitan Museum of Art; object 12749 in the museum's collection API (isPublicDomain: true), image DP276569 at images.metmuseum.org.",
+ "url": "https://www.metmuseum.org/art/collection/search/12749",
+ "locator": "Open-access image DP276569: the five figures on the pavement.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). Watercolour. Two young women in white and cream high-waisted gowns with long sleeves, close bonnets and blue gloves, one with a parasol; an older woman in a brown gown and black bonnet; an older man in a drab coat, breeches and broad hat; a boy of about eight in a dark short jacket and long trousers with a white collar and a round hat.",
+ "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record. Added for the 1812 women's dress (T-3464 dress build, tools/human_women_1812.py) from docs/RESEARCH/people-1812-3461/dress.json.",
+ "what_it_supplies": [
+  "women's walking dress with close bonnets 1811-1813",
+  "a boy's jacket-and-trousers suit and round hat 1811-1813"
+ ],
+ "what_it_does_not_supply": [
+  "a frontier household; the sitters are Philadelphia Quakers"
+ ]
+}

@@ -1,0 +1,407 @@
+{
+  "id": "hi_town_irwin_matthew_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "irwin_matthew",
+  "appearance": {
+    "asset_id": "trader_1812"
+  },
+  "placement": {
+    "local_e": 1074.0,
+    "local_n": 213.0,
+    "heading_deg": 270.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.044
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1809-06-01",
+          "to": "1812-06-16"
+        },
+        "note": "the factor at the government store",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "breakfast"
+          },
+          {
+            "from": 6.5,
+            "to": 12.0,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "in the factory store: Indian customers, skins weighed, goods sold at cost"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 15.5,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "at his daybook and letters to the Superintendent of Indian Trade"
+          },
+          {
+            "from": 15.5,
+            "to": 17.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1074.0,
+              "local_n": 213.0,
+              "heading_deg": 270.0
+            },
+            "doing": "at the factory door, seeing furs pressed and baled",
+            "activity": "stand"
+          },
+          {
+            "from": 17.0,
+            "to": 18.5,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "at the store"
+          },
+          {
+            "from": 18.5,
+            "to": 19.5,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "supper"
+          },
+          {
+            "from": 19.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-03-10",
+          "to": "1812-03-10"
+        },
+        "note": "the letter about the sutlership (jaunt stop)",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "breakfast"
+          },
+          {
+            "from": 6.5,
+            "to": 12.0,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "writing to Washington that Kinzie & Forsyth had offered money for the sutlership"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 15.5,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "at his daybook and letters to the Superintendent of Indian Trade"
+          },
+          {
+            "from": 15.5,
+            "to": 17.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1074.0,
+              "local_n": 213.0,
+              "heading_deg": 270.0
+            },
+            "doing": "at the factory door, seeing furs pressed and baled",
+            "activity": "stand"
+          },
+          {
+            "from": 17.0,
+            "to": 18.5,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "at the store"
+          },
+          {
+            "from": 18.5,
+            "to": 19.5,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "supper"
+          },
+          {
+            "from": 19.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-06-17",
+          "to": "1812-06-17"
+        },
+        "note": "the witness",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "breakfast"
+          },
+          {
+            "from": 6.5,
+            "to": 12.0,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "in the factory store: Indian customers, skins weighed, goods sold at cost"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 15.5,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "at his daybook and letters to the Superintendent of Indian Trade"
+          },
+          {
+            "from": 15.5,
+            "to": 17.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1074.0,
+              "local_n": 213.0,
+              "heading_deg": 270.0
+            },
+            "doing": "at the factory door, seeing furs pressed and baled",
+            "activity": "stand"
+          },
+          {
+            "from": 17.0,
+            "to": 19.5,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "at the store"
+          },
+          {
+            "from": 19.5,
+            "to": 19.7,
+            "indoors": false,
+            "at": {
+              "local_e": 1128.0,
+              "local_n": 197.0,
+              "heading_deg": 90.0
+            },
+            "doing": "twenty or thirty yards from the gate when the two men fight",
+            "activity": "stand"
+          },
+          {
+            "from": 19.7,
+            "to": 22.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "in the fort: Heald orders him to help arrest Kinzie; he refuses and is turned out of the garrison"
+          },
+          {
+            "from": 22.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "back at the factory"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-06-18",
+          "to": "1812-07-04"
+        },
+        "note": "winding up the factory",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "breakfast"
+          },
+          {
+            "from": 6.5,
+            "to": 12.0,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "in the factory store: Indian customers, skins weighed, goods sold at cost"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 15.5,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "at his daybook and letters to the Superintendent of Indian Trade"
+          },
+          {
+            "from": 15.5,
+            "to": 17.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1074.0,
+              "local_n": 213.0,
+              "heading_deg": 270.0
+            },
+            "doing": "at the factory door, seeing furs pressed and baled",
+            "activity": "stand"
+          },
+          {
+            "from": 17.0,
+            "to": 18.5,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "at the store"
+          },
+          {
+            "from": 18.5,
+            "to": 19.5,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "supper"
+          },
+          {
+            "from": 19.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-07-05",
+          "to": "1812-07-05"
+        },
+        "note": "leaving Chicago",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "breakfast"
+          },
+          {
+            "from": 6.5,
+            "to": 9.0,
+            "indoors": true,
+            "where": "first_fort_outer_factory",
+            "doing": "closing the storehouse; the keys to Dr. Van Voorhis"
+          },
+          {
+            "from": 9.0,
+            "to": 24.0,
+            "indoors": true,
+            "away": true,
+            "doing": "left Chicago (not drawn after 9.0)"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1809-06-01",
+      "to": "1812-07-05"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Matthew Irwin in the 1812 town, at each hour of each run of dates where the reading for T-3466 (docs/RESEARCH/people-1812-3466/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the trader 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "dailing_2018_chicago_reader_lalime",
+      "quaife_1913"
+    ],
+    "liberty": "L418",
+    "seed": "irwin_matthew:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

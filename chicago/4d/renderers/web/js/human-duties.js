@@ -74,7 +74,11 @@ export function withinHours(hour, [from, to]) {
   return from <= to ? hour >= from && hour < to : hour >= from || hour < to;
 }
 
-export function createHumanDuties({ humans, three = null, hour = () => null } = {}) {
+/**
+ * `held(actor)`: a man taken out of his duty for now — asked for at his quarters' door
+ * (human-days.js, T-3463) — whom this layer neither walks nor sends in or out.
+ */
+export function createHumanDuties({ humans, three = null, hour = () => null, held = () => false } = {}) {
   let groups = [];
   let timed = [];
   let seen = -1;
@@ -94,6 +98,7 @@ export function createHumanDuties({ humans, three = null, hour = () => null } = 
    */
   function go(actor, points, heading, done) {
     const end = points[points.length - 1];
+    if (held(actor)) { done(actor); return; }
     if (!actor.inRange || typeof actor.walkPath !== 'function') {
       actor.path = null;
       actor.e = end.e; actor.n = end.n;
@@ -221,6 +226,7 @@ export function createHumanDuties({ humans, three = null, hour = () => null } = 
       dt = Math.min(dt, 0.25);
       const h = hour();
       for (const a of timed) {
+        if (held(a)) continue;
         const inside = !withinHours(h, a.instance.behaviour.hours);
         if (!!a.indoors !== inside) a.setIndoors?.(inside);
       }

@@ -1,0 +1,351 @@
+{
+  "id": "hi_town_kinzie_eleanor_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "kinzie_eleanor",
+  "appearance": {
+    "asset_id": "lady_1812"
+  },
+  "placement": {
+    "local_e": 1150.0,
+    "local_n": 309.6,
+    "heading_deg": 180.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.858
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-01-01",
+          "to": "1812-04-06"
+        },
+        "note": "At home across the river, before the alarm (6 April in Quaife, 7 April in Wau-Bun).",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 7.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "rising; setting the household to work; breakfast"
+          },
+          {
+            "from": 7.5,
+            "to": 9.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1155.0,
+              "local_n": 352.0,
+              "heading_deg": 0.0
+            },
+            "doing": "at the dairy and the bake-house behind the house",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1156.4,
+                "local_n": 352.0
+              },
+              {
+                "local_e": 1153.6,
+                "local_n": 352.0
+              }
+            ]
+          },
+          {
+            "from": 9.5,
+            "to": 11.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1150.0,
+              "local_n": 366.0,
+              "heading_deg": 0.0
+            },
+            "doing": "in the garden north of the house",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1151.4,
+                "local_n": 366.0
+              },
+              {
+                "local_e": 1148.6,
+                "local_n": 366.0
+              }
+            ]
+          },
+          {
+            "from": 11.5,
+            "to": 13.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 17.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "sewing; the children's lessons; on some days out to nurse a sick neighbour"
+          },
+          {
+            "from": 17.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "tea; music in the evening; asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-04-07",
+          "to": "1812-08-13"
+        },
+        "note": "Living in the fort.",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 8.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "rising; breakfast"
+          },
+          {
+            "from": 8.0,
+            "to": 8.5,
+            "indoors": true,
+            "away": true,
+            "doing": "crossed by canoe to the house with Josette and the children"
+          },
+          {
+            "from": 8.5,
+            "to": 10.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1155.0,
+              "local_n": 352.0,
+              "heading_deg": 0.0
+            },
+            "doing": "at the dairy and bake-house across the river",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1156.4,
+                "local_n": 352.0
+              },
+              {
+                "local_e": 1153.6,
+                "local_n": 352.0
+              }
+            ]
+          },
+          {
+            "from": 10.5,
+            "to": 11.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1150.0,
+              "local_n": 366.0,
+              "heading_deg": 0.0
+            },
+            "doing": "gathering in the garden",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1151.4,
+                "local_n": 366.0
+              },
+              {
+                "local_e": 1148.6,
+                "local_n": 366.0
+              }
+            ]
+          },
+          {
+            "from": 11.5,
+            "to": 12.0,
+            "indoors": true,
+            "away": true,
+            "doing": "back across to the fort"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 17.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "sewing with her daughter Margaret; the children"
+          },
+          {
+            "from": 17.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "supper; the evening; asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-14",
+          "to": "1812-08-14"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 7.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "packing the family's things; breakfast"
+          },
+          {
+            "from": 7.5,
+            "to": 11.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1150.0,
+              "local_n": 309.6,
+              "heading_deg": 180.0
+            },
+            "doing": "loading the family's boat at the landing before the house",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1148.6,
+                "local_n": 309.6
+              },
+              {
+                "local_e": 1151.4,
+                "local_n": 309.6
+              }
+            ]
+          },
+          {
+            "from": 11.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "choosing what to take from the house; dinner there"
+          },
+          {
+            "from": 13.0,
+            "to": 16.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1150.0,
+              "local_n": 309.6,
+              "heading_deg": 180.0
+            },
+            "doing": "stowing bedding and provisions in the boat",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1148.6,
+                "local_n": 309.6
+              },
+              {
+                "local_e": 1151.4,
+                "local_n": 309.6
+              }
+            ]
+          },
+          {
+            "from": 16.0,
+            "to": 16.5,
+            "indoors": true,
+            "away": true,
+            "doing": "crossing back to the fort"
+          },
+          {
+            "from": 16.5,
+            "to": 23.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "supper; the last evening with her daughter Margaret, who goes overland"
+          },
+          {
+            "from": 23.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-16",
+          "to": "1812-08-18"
+        },
+        "note": "15 August is the battle jaunt's day, not planned here.",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "back at her own house with the family; dressing Mrs. Heald's wounds on the 15th-16th is the jaunt's"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-01-01",
+      "to": "1812-08-18"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Eleanor Lytle McKillip Kinzie in the 1812 town, at each hour of each run of dates where the reading for T-3464 (docs/RESEARCH/people-1812-3464/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the lady 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "kinzie_waubun_1856",
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913"
+    ],
+    "liberty": "L418",
+    "seed": "kinzie_eleanor:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

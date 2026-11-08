@@ -1,0 +1,27 @@
+{
+ "id": "keating_1824_narrative_v1",
+ "type": "book",
+ "citation": "William H. Keating, comp., Narrative of an Expedition to the Source of St. Peter's River, Lake Winnepeek, Lake of the Woods, &c., performed in the year 1823 ... under the command of Stephen H. Long. Vol. 1. Philadelphia: H. C. Carey & I. Lea, 1824.",
+ "author": "William H. Keating (compiler), from the journals of the Long expedition of 1823",
+ "date": "1824",
+ "describes_date": "1823 (May-June: Fort Wayne, the St Joseph, Chicago, the Pecatonica)",
+ "repository": "Internet Archive, item narrativeofexped01keat (the djvu text was read; leaves from the page_numbers file).",
+ "url": "https://archive.org/details/narrativeofexped01keat",
+ "archived_url": "https://archive.org/download/narrativeofexped01keat/narrativeofexped01keat_djvu.txt",
+ "locator": "Vol. 1, pp. 89-90 (Metea, a Potawatomi chief, at Fort Wayne: 'leather leggings buttoned on the outside, a breech-cloth of blue broadcloth, and a short checkered shirt over it; the whole was covered with a blanket, which was secured round his waist by a belt, and hung not ungracefully from his shoulders'; djvu text lines 4427-4447); pp. 190-191 (Wennebea, of a mixed Sauk, Fox, Winnebago, Menominee and Potawatomi village on the Pecatonica: 'as usual with the Indians of this country, of a blanket thrown over his shoulders, and reaching to his ankles; a breech-cloth of blue broad-cloth; buckskin leggings and moccassins of the same material ... Garters ... support the leggings immediately below the knee. His pipe was stuck into the plaited hair which he wore on the crown of his head', lines 8433-8443); p. 91 ('diversities of dress and of dialect distinguish them', line 4508); p. 80 (Frenchmen who had exchanged their usual dress for the breech-cloth and blanket, Fort Wayne, lines 4043-4047); p. 107 (a 'half-breed Miami' at Fort Wayne 'dressed like a trader' who 'sometimes assumes the Indian costume, with the exception of the blanket, for which he always substitutes a capote', lines 5132-5139).",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Published 1824 in Philadelphia; public domain. Used as text only for the 1812 Potawatomi man's dress (T-3463..T-3467 dress builders); no pixels from its plates enter any asset.",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "djvu text fetched 2026-11-07 by the 1812 people researchers (native.json) and re-read 2026-11-08 for the dress; the plate of Metea and Wennebea (Seymour's heads, Plate III) was not found among the leaves near p. 90 of this scan and was not seen.",
+ "what_it_supplies": [
+  "the closest dated, detailed eyewitness descriptions of Potawatomi and neighbouring men's everyday dress near Chicago: broadcloth breechcloth, leather leggings with garters below the knee, a short shirt worn over the breechcloth, a blanket belted at the waist; 1823"
+ ],
+ "what_it_does_not_supply": [
+  "1812: it describes 1823, eleven years after the scene",
+  "Chicago in August 1812 or any man of the 1812 camp",
+  "colours beyond 'blue broadcloth' and 'checkered'",
+  "a distinct Miami dress"
+ ]
+}

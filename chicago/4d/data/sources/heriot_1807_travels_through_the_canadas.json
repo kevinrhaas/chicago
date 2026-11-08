@@ -1,0 +1,25 @@
+{
+ "id": "heriot_1807_travels_through_the_canadas",
+ "type": "book",
+ "citation": "George Heriot, Travels through the Canadas, containing a description of the picturesque scenery on some of the rivers and lakes ... London: Richard Phillips, 1807.",
+ "author": "George Heriot",
+ "date": "1807",
+ "describes_date": "about 1792-1806",
+ "repository": "Internet Archive, item travelsthroughca00heri_2; the djvu text was read.",
+ "url": "https://archive.org/details/travelsthroughca00heri_2",
+ "archived_url": "https://archive.org/download/travelsthroughca00heri_2/travelsthroughca00heri_2_djvu.txt",
+ "locator": "p. 236, the Montreal fur-trade canoemen: 'To each man, a blanket, shirt, and pair of trowsers are supplied' (djvu lines 8038-8039); pp. 226-227, Canadian household manufacture of 'worsted caps knitted with wires' and summer 'hats and bonnets of straw' (lines 7745-7749).",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Published 1807; public domain. Text only.",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "djvu text fetched 2026-11-08 (1,002,914 bytes); quotes checked against it.",
+ "what_it_supplies": [
+  "the fur-trade engage's issue (blanket, shirt, trousers) and the Canadian knitted worsted cap, about 1800-1807"
+ ],
+ "what_it_does_not_supply": [
+  "Chicago or the Great Lakes posts",
+  "colours of the issue"
+ ]
+}

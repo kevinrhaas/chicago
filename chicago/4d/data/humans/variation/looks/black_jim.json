@@ -1,0 +1,39 @@
+{
+ "format": "chicago4d_human_looks_v1",
+ "ticket": "T-3466",
+ "person_id": "black_jim",
+ "scene": "1812",
+ "generated_by": "docs/RESEARCH/people-1812-town/looks.py",
+ "heritage": {
+  "origin": "not recorded (see the basis)",
+  "family": "reading"
+ },
+ "complexion": {
+  "value": "dark brown",
+  "drawn": "deep_brown",
+  "grade": "reconstructed"
+ },
+ "hair": {
+  "value": "black, close-cropped",
+  "drawn": "black",
+  "cut": "cropped_1812",
+  "facial": [],
+  "grade": "reconstructed"
+ },
+ "eyes": {
+  "value": "dark brown",
+  "drawn": "dark_brown",
+  "grade": "reconstructed"
+ },
+ "stature": {
+  "inches": 68,
+  "grade": "reconstructed",
+  "basis": "Only the name implies he was Black (T-3461 grades that inferred). No description or likeness. Height is the period mean."
+ },
+ "height_scale": 0.987,
+ "basis": "Drawn in the words of the day reading for T-3466 (docs/RESEARCH/people-1812-3466/day.json): Only the name implies he was Black (T-3461 grades that inferred). No description or likeness. Height is the period mean. The drawn colours, cut and scale are a reconstructed rendering of those words (liberty L-1812-town-days-3463).",
+ "grade": "reconstructed",
+ "liberty": "L-1812-town-days-3463",
+ "replaceable_by": "A portrait or a description of them written in their lifetime.",
+ "build_words": "medium, strong"
+}

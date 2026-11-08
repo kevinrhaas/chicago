@@ -1,0 +1,53 @@
+{
+  "format": "chicago4d_human_graphical_target_recipe_v1",
+  "targets": [
+    {
+      "path": "makehuman/data/targets/macrodetails/caucasian-male-child.target",
+      "sha256": "401b9b0349c88dc7aacb81e71f67daf747fecde0f7fd7f3f6e10fb2ce5586d1e",
+      "coefficient": 0.25925925925925924
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/caucasian-male-baby.target",
+      "sha256": "f970a2e354b70f8438508a884cd40a9b2ea5cbd24fa6b89a99071a30720c7417",
+      "coefficient": 0.07407407407407407
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/asian-male-child.target",
+      "sha256": "c1b56e9cc549cd7c463f407557d7adceaa217b528c600d34c19df98bc3d6472e",
+      "coefficient": 0.25925925925925924
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/asian-male-baby.target",
+      "sha256": "296f9dd9c9716a0e43afb9dadfb35e11be0ecc1f15d2efae6e903b0e91bc07a5",
+      "coefficient": 0.07407407407407407
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/african-male-child.target",
+      "sha256": "5b89c85ed7ba9984b5e57a5844b10eb74ab7fcfa79f77a5a3ec697dd860969ed",
+      "coefficient": 0.25925925925925924
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/african-male-baby.target",
+      "sha256": "32ce877fa330805971ca636a78aa736bc486b37118e91d2e4bfb9f1ad2cd48a1",
+      "coefficient": 0.07407407407407407
+    }
+  ],
+  "phenotype": {
+    "sex": "male engineering child",
+    "chosen_age_years": 8,
+    "age_band_years": [
+      6,
+      10
+    ],
+    "age_anchors_years": {
+      "baby": 1,
+      "child": 10,
+      "young": 25
+    },
+    "age_method": "Linear between the upstream baby (1 year) and child (10 year) anchors, as adult_35 is linear between young (25) and old (90): child 7/9, baby 2/9, each shared equally over the three upstream shape categories.",
+    "ancestry_status": "unattested; equal upstream software-category blend is an authoring liberty, not a resident ethnicity",
+    "age_status": "chosen 8-year authoring point for the children of 1812 about six to ten; no birth year or precise age asserted",
+    "likeness_status": "component study; not attested likeness"
+  },
+  "basis": "Sparse CC0 graphical child/baby target deltas applied to base and all helper vertices before skeleton derivation; no upstream program logic copied (T-3465)"
+}

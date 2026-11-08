@@ -30,6 +30,7 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import { checkSheets } from './share_glb_sheets.mjs';
 
 const HERE = path.dirname(new URL(import.meta.url).pathname);
@@ -261,12 +262,30 @@ const TRANSFORMED = [
   // skin and eye pictures (about 50 MB of copies across eleven figures on 2026-11-07).
   { re: /^data\/humans\/web\/[^/]+\.lod[0-3]\.glb$/,
     what: 'a human web GLB whose pictures another figure also carries, rewritten by '
-        + 'tools/share_glb_sheets.mjs --dir data/humans/web (run by publish.sh) to name them as external buffers',
+        + 'tools/share_glb_sheets.mjs --dir data/humans/web (run by publish.sh) to name them as external buffers; '
+        + 'with --streams (T-3463) also its geometry and clip streams 2 KiB or more that another figure carries, '
+        + 'and without the build\'s source records in its scene extras (BUILD_EXTRAS), which the renderer never reads',
     gate: 'share_glb_sheets.mjs --dir data/humans/web --source assets/humans/web --check (check.sh) reads '
-        + 'every rewrite back through its sheets to its assets/humans/web source, view for view (T-3453).' },
-  { re: /^data\/humans\/web\/sheets\/[0-9a-f]{16}\.(?:ktx2|png|jpg|webp)$/,
-    what: 'a picture two or more published human GLBs embed, written once by tools/share_glb_sheets.mjs (T-3453)',
-    gate: 'share_glb_sheets.mjs --dir data/humans/web --check: named by its own hash, held by two or more GLBs.' },
+        + 'every rewrite back through its sheets to its assets/humans/web source, view for view, its JSON its '
+        + 'source\'s with BUILD_EXTRAS set aside (T-3453, T-3463).' },
+  { re: /^data\/humans\/web\/sheets\/[0-9a-f]{16}\.(?:ktx2|png|jpg|webp|bin)$/,
+    what: 'a picture or a stream (.bin, T-3463) two or more published human GLBs embed, written once by '
+        + 'tools/share_glb_sheets.mjs (T-3453); a PNG re-deflated losslessly when that is smaller (T-3463)',
+    gate: 'share_glb_sheets.mjs --dir data/humans/web --check: named by its own hash, held by two or more GLBs, '
+        + 'and a re-deflated PNG draws its source\'s pixels with its source\'s other chunks (samePngPixels).' },
+  // T-3463: the browser fixture's readings and the dress recipes are not shipped (publish.sh).
+  { re: /^data\/humans\/instances\/.+\.json$/,
+    what: 'publish.sh writes the people\'s instance records minified — the same JSON value on one line (T-3463)',
+    gate: 'checked here: the SHIPPED file parses to a value deep-equal to its source data/humans/instances '
+        + 'record. The 1812 town\'s 158 records carried 0.86 MB of indentation; humans.js reads them with '
+        + 'response.json().',
+    verify: (rel) => {
+      const src = path.join(REPO, rel);
+      if (!existsSync(src)) return `${rel} is published but ${rel} does not exist in the repository`;
+      const same = isDeepStrictEqual(JSON.parse(readFileSync(src, 'utf8')),
+        JSON.parse(readFileSync(path.join(SITE, rel), 'utf8')));
+      return same ? null : `${rel} does not parse to its source's value; publish.sh only minifies it`;
+    } },
 ];
 
 const walk = (dir, base = '') => {
@@ -349,7 +368,12 @@ for (const rel of ['data/transport/driven/loops.json', 'data/transport/driven/hi
 
 for (const rel of walk(SITE)) {
   const t = TRANSFORMED.find((x) => x.re.test(rel));
-  if (t) { transformed.push({ rel, ...t }); continue; }
+  if (t) {
+    const bad = t.verify?.(rel);
+    if (bad) problems.push(bad);
+    transformed.push({ rel, ...t });
+    continue;
+  }
 
   const row = COPIES.find(([pfx]) => rel === pfx || rel.startsWith(pfx));
   if (!row) { unmapped.push(rel); continue; }

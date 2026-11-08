@@ -1,0 +1,42 @@
+{
+ "format": "chicago4d_human_looks_v1",
+ "ticket": "T-3464",
+ "person_id": "helm_margaret",
+ "scene": "1812",
+ "generated_by": "docs/RESEARCH/people-1812-town/looks.py",
+ "heritage": {
+  "origin": "not recorded (see the basis)",
+  "family": "reading"
+ },
+ "complexion": {
+  "value": "fair",
+  "drawn": "fair",
+  "grade": "inferred"
+ },
+ "hair": {
+  "value": "brown (reconstructed)",
+  "drawn": "mid_brown",
+  "cut": "centre_part_knot_1835",
+  "facial": [
+   "brows_fine",
+   "lashes_upper"
+  ],
+  "grade": "inferred"
+ },
+ "eyes": {
+  "value": "grey-blue (reconstructed)",
+  "drawn": "grey",
+  "grade": "inferred"
+ },
+ "stature": {
+  "inches": 62,
+  "grade": "inferred",
+  "basis": "Wau-Bun: her \"fair complexion and general appearance\" might betray her as an American, and calls her \"delicate\"; hair, eyes and height are reconstructed from her Scots/Ulster-Scots heritage (McKillip, Lytle). No likeness is known."
+ },
+ "height_scale": 0.9544,
+ "basis": "Drawn in the words of the day reading for T-3464 (docs/RESEARCH/people-1812-3464/day.json): Wau-Bun: her \"fair complexion and general appearance\" might betray her as an American, and calls her \"delicate\"; hair, eyes and height are reconstructed from her Scots/Ulster-Scots heritage (McKillip, Lytle). No likeness is known. The drawn colours, cut and scale are a reconstructed rendering of those words (liberty L-1812-town-days-3463).",
+ "grade": "inferred",
+ "liberty": "L-1812-town-days-3463",
+ "replaceable_by": "A portrait or a description of them written in their lifetime.",
+ "build_words": "slight"
+}

@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1050,
+  "count": 1051,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -62745,6 +62745,38 @@
           "text": "the shared young light-skinned generic skin and short04 hair of the period studies; no hair row (1812 has no era default). Every amount is chosen by eye; none is measured, and none says what the garrison wore."
         },
         {
+          "label": "The 1812 women supplement, 2026-11-08",
+          "text": "the modular dress path now dresses the women of the 1812 town and camp on the shared female rig, one generator (the human women 1812 tool) and four anonymous role assets: lady 1812 (an officer's or trader's wife's high-waisted day gown of a small blue print, a muslin kerchief and a day cap, after the Met's American linen dress and cap of 1810-20 and Krimmel's Philadelphia pictures of 1811), woman working 1812 (Wau-Bun's short gown and petticoat with an apron, kerchief and linen cap, after Lambert's country women of 1810 and Krimmel's *Black Sawyers*), its variant woman country 1812 (the same in a red print and dark stroud with Wau-Bun's \"blue cotton handkerchief wrapped around her head\" and moccasins), and potawatomi woman 1812 (a wrapped strouding skirt with its selvage at the hem, a calico shirt, cloth leggings, moccasins, a trade blanket and three small silver brooches, from the goods distributed to the camp on the 13th and the presents of the years before, Wau-Bun, Quaife and Hubbard; review required and touching removal, under the the project's rules standing constraint; no paint, nothing ceremonial). The pictures are of Philadelphia and Lower Canada and the garments in museums are of the eastern states; no woman at Chicago is pictured in these clothes, and no asset is a likeness of anyone. Every cut, ease, length, fold, colour and the Potawatomi selvage are reconstructed; prints are drawn as their mean colour; hair is drawn by the looks layer."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a printed cloth texture within the budget, a crossed kerchief with real folds, a blanket that hangs as loose wool when the arms come down, a faded variant for the elder woman, the Potawatomi woman's beads and ear-bobs if a source of 1812 names them, and a review of the Potawatomi figure by people with standing to judge (the Newberry's Indigenous Chicago material and the Citizen Potawatomi Nation's own record)."
+        },
+        {
+          "label": "The 1812 children supplement, 2026-11-08",
+          "text": "the modular dress path now dresses children, on two new CC0 engineering bodies blended from the pinned MakeHuman child and baby macro targets (an 8-year boy and girl at 120.8 and 120.5 cm, a 3-year child of either sex at 90.5 cm: CDC 2000 10th centile, the research's centile; ages linear between MakeHuman's baby (1) and child (10) anchors). Five anonymous role assets, the human child 1812 tool: child boy 1812 (a skeleton suit after Joshua Johnson's Rutter children and the Pixler family), child girl 1812 (a high-waisted frock after the Rutter girl, Emma Van Name and the Beecher frock, with a reconstructed pinafore), child toddler 1812 (the unbreeched child's white frock), and potawatomi boy 1812 and potawatomi girl 1812 (calico, stroud and moccasins of the camp, after Wau-Bun, Quaife, Hubbard and Keating; review required and touching removal, under the the project's rules standing constraint). The pictures are of Baltimore and rural Pennsylvania children in their best, and George Winter's 1837 picture of Potawatomi children is reference only (permission required, nothing taken). Every cut, ease, length, colour and the pinafore are reconstructed; no child at Chicago is pictured or described in these clothes, and no asset is a likeness of anyone. The baked walk is scaled to the child's leg (a stopgap until the builder takes a walk scale)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a 12-year body for the 11-13-year-olds, the frill of the boy's collar, sunbonnets and caps, bare feet in summer, the head kerchief of the Potawatomi girls, and a review of the Potawatomi pair by people with standing to judge."
+        },
+        {
+          "label": "The 1812 engagé and Potawatomi man supplement, 2026-11-08",
+          "text": "two role dresses on the same component path, each anonymous, graded reconstructed and naming no one. **The engagé** (the human engage 1812 tool, the engage 1812 data, asset engage 1812, the shared male body at 35): a French Canadian or Métis engagé of a Chicago trading household, after Wau-Bun's engagé of 1812 (\"a suit of deer-skin, with belt, moccasins\", Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West) and the habitant and voyageur dress of Lambert (1810), Heriot (1807) and Hubbard (1818): the 1835 labourer's shirt and trouser shells in blue calico and deer-skin, a red worsted sash 8.5 cm deep knotted at the left hip with ends of 30 and 23 cm, the shared closed foot loft as smoked moccasins, and a red knitted cap seated 8.8 cm below the crown with its top rising 7.5 cm and falling 7.5 cm back, rigid on the head. The cap is chosen over the bare head that Hubbard gives for summer because the shared short crop beneath would misrepresent hair worn long; the straw hat and a bare head with long hair are recorded alternatives. Held for review as a possible Métis depiction; touches removal false. **The Potawatomi man** (the human potawatomi man 1812 tool, the potawatomi man 1812 data, asset potawatomi man 1812, the shared male body at 25): everyday dress of 14 August 1812 after Keating's Metea (1823, William H. Keating, comp., Narrative of an Expedition to the Source of St.…) and the goods given out to the camp on the 13th (Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West): the labourer's shirt shell in a blue-and-white check with a hanging skirt to 0.70 m, a blue broadcloth breechcloth with flaps before and behind to 0.52 and 0.545 m, scarlet stroud leggings on the shared trouser shell cut off at 0.78 m with flaps 3.2 cm wide along the outer seam and a 9 mm white selvage, dark garters 5 cm below the knee, a white wool blanket with dark stripes 5 cm from its ends belted round the waist from 1.04 to 0.505 m and open 30 to 42 degrees either side of the front, a dark leather belt, a silver band on each upper arm and three silver brooches. The blanket is worn round the waist (Keating; Lambert's warm-weather wrap) because a mantle over the lowered arms cannot be built on this rig; the stroud is the research's reading where Keating's men wore leather. No paint, feathers, arms, medal or gorget, nothing ceremonial and nothing of the Plains; the bare head carries the shared short04 cap and the hair is grown per person by the looks layer (clubbed behind 1812). The Miami of Wells's escort wear the same dress because no source read distinguishes theirs. Held for review and flagged touches removal under the the project's rules standing constraint."
+        },
+        {
+          "label": "Colour",
+          "text": "every colour is chosen by eye within the colours the sources name; the calico's print and the check are drawn as flat colours."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a dated description or picture of a Chicago engagé or of a Potawatomi or Miami man of 1810-1815, or the judgment of people with standing to review the Native depiction, replaces these choices. **The 1812 officers', trader's and settler's supplement, 2026-11-08 (the 1812 dress build):** three more role dresses on the same component path, each anonymous, graded reconstructed and naming no one; the person who wears one brings their own face, height and build. **Officer** (the human officer 1812 tool, the officer 1812 data; assets officer first infantry 1812, officer first infantry 1812 lieutenant, surgeons mate first infantry 1812; the 25 body). This is a company officer of the First Infantry in August 1812, read from the 1814 printing of the staff and artillery officers' dress by analogy (Military Laws, and Rules and Regulations for the Army of the United States: chapeau, black cockade, \"A white feather to rise eight inches\", white leather waist belts, epaulettes by rank, \"Sashes... to be worn only on a tour of duty\", surgeons and mates \"the cape... of black velvet; the plume black\"), from the 1813 change read backwards (scarlet collar and cuffs and lace, taken away in 1813, were worn before), from Krimmel's officer of 1811-13 (John Lewis Krimmel, Members of the City Troop and Other Philadelphia Soldiery…: long skirts, the chapeau worn fore-and-aft, high boots) and from Heald's surviving sword (Quaife, Milo Milton. Chicago and the Old Northwest, 1673-1835: A Study of the… ch. XI; Kirkland 1893's plate). Ours: the cut (the private's coat with skirts to the bend of the knee), the white turnbacks and waistcoat, the collar's lace loops and their place, ten silver buttons, the epaulette's size, the chapeau's size and the cockade's place, the sword's length, curve and hang, and the lieutenant's straight sword. The ensign wears the lieutenant's left-shoulder epaulette, and the surgeon's mate none; no source was read for either. No sash is drawn (the everyday figure), and no lace on the breast (Peale's Pike of 1808 shows it, but its record is check required). The surgeon's mate's black velvet collar is the 1814 artillery rule; an unverified transcription gives medical staff blue collars, and he may well have worn civilian dress. **Trader** (the human trader 1812 tool, trader 1812; the 35 body). This is a prosperous trader about 1810 as the research notes on people 1812 reads the type: a dark green tailcoat cut square at the waist (Peale's Robinson, 1811; Krimmel's man before Christ Church, 1811-13; the cut after the Coutts coat and a coat of about 1815, both British), a yellow waistcoat, a white neckcloth with shirt collar points, buff breeches and top boots with tan tops, and a tall round hat kept lower and tapering. Nothing describes Kinzie's or any Chicago man's clothes, and Kinzie has no portrait. The colours, the cut and the hat's height are ours. It also stands for Wells on 14 August in place of his frontier dress, which no asset draws. **Settler** (the human settler 1812 tool, settler 1812; the 35 body). This is plain working dress about 1810: an unbleached shirt, a neckerchief, a brown waistcoat, loose linen trousers, shoes and a black round hat, after Krimmel's Philadelphia sawyers and country inn and the Pixler family. No source describes any Chicago settler's clothes in 1812, so every garment is reconstructed. It is also worn by Black Jim, with nothing that implies a status the record does not give."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a portrait, inventory or description of any of these men's clothes replaces the role dress for that man; an 1812 infantry officer's dress regulation (the War Department's of 1810-12, or the 30 December 1812 description, verified) replaces the analogies."
+        },
+        {
           "label": "The 1904 coachman's livery supplement, 2026-11-07",
           "text": "a coachman's standing livery on the same component path, the human coachman 1904 tool with the coachman livery 1904 data, built as the asset nelson charles 1904 coachman on the shared male body and first worn by Charles Nelson (inferred; the Glessners' coachman in the 1900 census)."
         },
@@ -62841,6 +62873,9 @@
         "T-3449",
         "T-3450",
         "T-3451",
+        "T-3464",
+        "T-3465",
+        "T-3467",
         "T-3483",
         "T-3484",
         "T-3479",
@@ -71413,6 +71448,40 @@
         }
       ],
       "work_refs": []
+    },
+    {
+      "id": "L-1812-town-days-3463",
+      "title": "Everyone of the 1812 town at their own day: where each person is at each hour, indoors or out, on each run of dates",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-08",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-08, of the 1812 town: *\"What about the rest of the 1812 people John Kinzie, Black Partridge, etc\"*, *\"Right everyone! lalime and everyone\"*, *\"Follow the same rules for deployment of these people some inside and others active and doing what they would be doing as normal activities per time of day\"*, *\"If they are inside I can walk to door and ask for any person inside\"* and *\"if we set to winter lalime would exist and we will need him for the murder jaunt\"*. Five day readings (the research notes on people 1812 3463 3467: the officers and Wells; the women; the children; the civilian men; the Potawatomi and Miami people) give each person a presence window and, for each run of dates in which it differs, a day of spans, each span graded with its own basis. the research notes on people 1812 town writes them as instance records (the hi town <person> 1812 data) that the walkthrough's human days code plays by the scene's own date and sun hour; the derive doors 1812 tool reads each building's door (and each lodge's) off its model so a door can offer Ask for whoever is inside. Six things are ours. (1) **The hours.** No diary or reconstruction plan gives any of these people's day; when each rose, ate, worked, visited and went in is reconstructed from the ordinary round of a frontier post, a trader's house and a family camp in each season, and from the events the sources date (the April murders, the 17 June killing, Irwin's leaving on 5 July, the 13 and 14 August distribution and council). (2) **The places and the company.** Where each stands out of doors and with whom is the reading's; spans within 4 m at overlapping hours are one talk. (3) **Who is drawn when.** A presence window ends with a death or a leaving the sources date (Lalime 17 June, Irwin 5 July, White and Cardin 6 April); its start is often ours, and the readings say which. The Potawatomi families' ordinary visits before the August gathering come \"about one day in five\" or \"one day in ten\" by the readings' reckoning, seeded by person and date. (4) **What is not drawn.** No canoe, horse, lying-down pose or carried child is drawn yet, so a person paddling, riding with no path, asleep out of doors, carried or afloat is off the scene for that span, as is anyone in a building the town does not draw (Fettle's cabin). (5) **The cards** of the 47 people the 14 August sweep left out (Lalime, Irwin, the Mirandeau father and daughters, White and Cardin, two Kinzie engagés, 30 representative Potawatomi in five camp households, eight of Wells's Miami escort; the research notes on people 1812 town): which household each joins and its home where no source says; the 38 representative people are counted by Helm and Heald, not named, and are given no name, band or story. (6) **The look.** Each person's dress is their role's (officer, trader, settler, engagé, lady, working woman, child, Potawatomi man and woman), with their own face, height, build and colouring (the research notes on people 1812 town): the readings' own words for complexion, hair and eyes drawn by reconstructed tints (adding olive, tan, a warm copper brown and a deep brown), the Potawatomi and Miami men's hair long and drawn back to the nape (Keating 1824, of Metea), the women's parted and tied behind."
+        },
+        {
+          "label": "Not invented",
+          "text": "any person's name, kin, home, work or fate where a source gives it, each on their card with its quote; the dates the sources give; Helm's and Heald's counts of the gathering. No speech, council, distribution, paint, ceremony or act of war is staged (“No people, anywhere”); the 15th is the battle jaunt's."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a diary, letter, account book or reconstruction plan of the post that says where any of these people were on a day of 1811-12; a portrait or description written in their lifetime."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-08."
+        }
+      ],
+      "work_refs": [
+        "T-3463",
+        "T-3464",
+        "T-3465",
+        "T-3466",
+        "T-3467"
+      ]
     },
     {
       "id": "L-pullman-18th-street-wall-c1900-1934",

@@ -175,10 +175,11 @@ def men():
     hh = [json.loads(p.read_text()) for p in sorted(COMPANY.glob('hh_*_1812.json'))]
     out = []
     for h in hh:
+        home = next((a['place_or_structure_id'] for a in h.get('associated_with', []) if a.get('kind') == 'home'), None)
         for p in h['persons']:
             occ = (p.get('occupation') or {}).get('value', '')
             if "heald's company" in occ.lower() and not occ.startswith(('captain', 'second lieutenant', 'ensign', "surgeon")):
-                out.append(p)
+                out.append({**p, '_home': home})
     return out
 
 
@@ -193,6 +194,9 @@ def instance(p, st):
         behaviour['duty'] = duty
     if sid not in NIGHT_GUARD:
         behaviour['hours'] = list(DAY_HOURS)
+        # T-3463: in quarters he can be asked for at its door — his household's home (T-3461).
+        if p.get('_home'):
+            behaviour['quarters'] = p['_home']
     seed_phase = (sum(map(ord, p['id'])) % 97) / 97
     return {
         'id': f"hi_{p['id']}_1812",
@@ -245,7 +249,9 @@ def main(check=False):
     index_path = INST / 'index.json'
     index = json.loads(index_path.read_text())
     others = [i for i in index['instances'] if not (i.startswith('hi_') and f"{i}.json" in files)]
-    index = {'scene': '1812', 'instances': others + sorted(f[:-5] for f in files)}
+    # Sorted whole, so every script that writes its own instances here (this one, the town's
+    # place_town.py) writes the same index.
+    index = {'scene': '1812', 'instances': sorted(set(others) | {f[:-5] for f in files})}
     files['index.json'] = index
     stale = []
     for name, rec in files.items():

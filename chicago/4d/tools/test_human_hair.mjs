@@ -191,7 +191,11 @@ assert.equal(hairFor(null, 1600), null, 'no era, no hair grown');
     try { index = JSON.parse(await fs.readFile(new URL(`data/humans/instances/${year}/index.json`, here), 'utf8')); } catch { continue; }
     for (const id of index.instances) {
       const rec = JSON.parse(await fs.readFile(new URL(`data/humans/instances/${year}/${id}.json`, here), 'utf8'));
-      if (sexOf[rec.appearance.asset_id]?.sex === 'female') assert(rec.person_id && PEOPLE_HAIR[rec.person_id], `${id}: a woman drawn in the town has her own hair row`);
+      if (sexOf[rec.appearance.asset_id]?.sex !== 'female') continue;
+      // T-3464: or her own looks file (data/humans/variation/looks/), whose hair names her cut and colour.
+      let looks = null;
+      try { looks = JSON.parse(await fs.readFile(new URL(`data/humans/variation/looks/${rec.person_id}.json`, here), 'utf8')); } catch { /* none */ }
+      assert(rec.person_id && (PEOPLE_HAIR[rec.person_id] || (looks?.hair?.cut && looks.hair.drawn)), `${id}: a woman drawn in the town has her own hair row`);
     }
   }
 }

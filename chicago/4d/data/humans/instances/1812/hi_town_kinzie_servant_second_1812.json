@@ -1,0 +1,262 @@
+{
+  "id": "hi_town_kinzie_servant_second_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "kinzie_servant_second",
+  "appearance": {
+    "asset_id": "settler_1812"
+  },
+  "placement": {
+    "local_e": 1148.0,
+    "local_n": 308.0,
+    "heading_deg": 160.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.865
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-01-01",
+          "to": "1812-04-06"
+        },
+        "note": "at the house across the river",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 9.0,
+            "indoors": true,
+            "where": "kinzie_bake_house_1812",
+            "doing": "baking the day's bread"
+          },
+          {
+            "from": 9.0,
+            "to": 12.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "at the household's washing and mending"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "serving dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 15.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1153.0,
+              "local_n": 309.0,
+              "heading_deg": 200.0
+            },
+            "doing": "washing linen at the river",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1151.68,
+                "local_n": 309.48
+              },
+              {
+                "local_e": 1154.32,
+                "local_n": 308.52
+              }
+            ]
+          },
+          {
+            "from": 15.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "in the house: supper, then the night"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-04-07",
+          "to": "1812-08-13"
+        },
+        "note": "serving the family in the fort",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 5.3,
+            "indoors": true,
+            "away": true,
+            "doing": "paddling across to the bake-house"
+          },
+          {
+            "from": 5.3,
+            "to": 9.0,
+            "indoors": true,
+            "where": "kinzie_bake_house_1812",
+            "doing": "baking the day's bread"
+          },
+          {
+            "from": 9.0,
+            "to": 9.3,
+            "indoors": true,
+            "away": true,
+            "doing": "carrying the bread across to the fort"
+          },
+          {
+            "from": 9.3,
+            "to": 12.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "at the family's washing, mending and the children's meals"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "serving the family's dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 15.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1108.0,
+              "local_n": 244.0,
+              "heading_deg": 20.0
+            },
+            "doing": "washing linen at the river below the wharf",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1109.32,
+                "local_n": 243.52
+              },
+              {
+                "local_e": 1106.68,
+                "local_n": 244.48
+              }
+            ]
+          },
+          {
+            "from": 15.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "with the family in the fort: supper, then the night"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-14",
+          "to": "1812-08-14"
+        },
+        "note": "baking for the voyage",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 4.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 4.5,
+            "to": 4.8,
+            "indoors": true,
+            "away": true,
+            "doing": "paddling across in the dark"
+          },
+          {
+            "from": 4.8,
+            "to": 12.0,
+            "indoors": true,
+            "where": "kinzie_bake_house_1812",
+            "doing": "baking bread and biscuit for the voyage to St Joseph"
+          },
+          {
+            "from": 12.0,
+            "to": 16.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1148.0,
+              "local_n": 308.0,
+              "heading_deg": 160.0
+            },
+            "doing": "carrying the baking and the bedding down to the boat",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1146.68,
+                "local_n": 307.52
+              },
+              {
+                "local_e": 1149.32,
+                "local_n": 308.48
+              }
+            ]
+          },
+          {
+            "from": 16.0,
+            "to": 16.3,
+            "indoors": true,
+            "away": true,
+            "doing": "back to the fort"
+          },
+          {
+            "from": 16.3,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "with the family in the fort, packing their clothes for the morning"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-01-01",
+      "to": "1812-08-18"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of A second Kinzie servant, name not recorded in the 1812 town, at each hour of each run of dates where the reading for T-3466 (docs/RESEARCH/people-1812-3466/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the settler 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "kinzie_waubun_1856",
+      "kirkland_1893_chicago_massacre"
+    ],
+    "liberty": "L418",
+    "seed": "kinzie_servant_second:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

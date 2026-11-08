@@ -1,0 +1,271 @@
+{
+  "id": "hi_town_white_liberty_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "white_liberty",
+  "appearance": {
+    "asset_id": "settler_1812"
+  },
+  "placement": {
+    "local_e": -1650.1,
+    "local_n": -4228.2,
+    "heading_deg": 151.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.544
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1811-01-01",
+          "to": "1812-04-05"
+        },
+        "note": "a hand at Lee's Place",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "lees_place_cabin_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": -1650.1,
+              "local_n": -4228.2,
+              "heading_deg": 151.0
+            },
+            "doing": "feeding and watering the stock",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": -1651.32,
+                "local_n": -4228.88
+              },
+              {
+                "local_e": -1648.88,
+                "local_n": -4227.52
+              }
+            ]
+          },
+          {
+            "from": 6.5,
+            "to": 7.0,
+            "indoors": true,
+            "where": "lees_place_cabin_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 7.0,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": -1653.1,
+              "local_n": -4230.2,
+              "heading_deg": 151.0
+            },
+            "doing": "in the field: ploughing, fencing, or at the hay",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": -1654.32,
+                "local_n": -4230.88
+              },
+              {
+                "local_e": -1651.88,
+                "local_n": -4229.52
+              }
+            ]
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "lees_place_cabin_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": -1650.1,
+              "local_n": -4228.2,
+              "heading_deg": 151.0
+            },
+            "doing": "about the farm",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": -1651.32,
+                "local_n": -4228.88
+              },
+              {
+                "local_e": -1648.88,
+                "local_n": -4227.52
+              }
+            ]
+          },
+          {
+            "from": 18.0,
+            "to": 19.0,
+            "indoors": true,
+            "where": "lees_place_cabin_1812",
+            "doing": "supper"
+          },
+          {
+            "from": 19.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "lees_place_cabin_1812",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-04-06",
+          "to": "1812-04-06"
+        },
+        "note": "the last day",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "lees_place_cabin_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": -1650.1,
+              "local_n": -4228.2,
+              "heading_deg": 151.0
+            },
+            "doing": "feeding and watering the stock",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": -1651.32,
+                "local_n": -4228.88
+              },
+              {
+                "local_e": -1648.88,
+                "local_n": -4227.52
+              }
+            ]
+          },
+          {
+            "from": 6.5,
+            "to": 7.0,
+            "indoors": true,
+            "where": "lees_place_cabin_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 7.0,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": -1653.1,
+              "local_n": -4230.2,
+              "heading_deg": 151.0
+            },
+            "doing": "in the field: ploughing, fencing, or at the hay",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": -1654.32,
+                "local_n": -4230.88
+              },
+              {
+                "local_e": -1651.88,
+                "local_n": -4229.52
+              }
+            ]
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "lees_place_cabin_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 17.8,
+            "indoors": false,
+            "at": {
+              "local_e": -1650.1,
+              "local_n": -4228.2,
+              "heading_deg": 151.0
+            },
+            "doing": "about the farm",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": -1651.32,
+                "local_n": -4228.88
+              },
+              {
+                "local_e": -1648.88,
+                "local_n": -4227.52
+              }
+            ]
+          },
+          {
+            "from": 17.8,
+            "to": 18.3,
+            "indoors": true,
+            "where": "lees_place_cabin_1812",
+            "doing": "in the house with the visitors; the soldier and the boy go out to the canoes"
+          },
+          {
+            "from": 18.3,
+            "to": 24.0,
+            "indoors": true,
+            "where": "lees_place_cabin_1812",
+            "doing": "killed at the farm a little before sunset: not drawn"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1811-01-01",
+      "to": "1812-04-06"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Liberty White in the 1812 town, at each hour of each run of dates where the reading for T-3466 (docs/RESEARCH/people-1812-3466/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the settler 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "kinzie_waubun_1856",
+      "moses_kirkland_history_of_chicago_v1",
+      "quaife_1913"
+    ],
+    "liberty": "L418",
+    "seed": "white_liberty:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

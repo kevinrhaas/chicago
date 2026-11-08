@@ -1,0 +1,24 @@
+{
+ "id": "met_krimmel_1811_merrymaking_wayside_inn",
+ "type": "illustration",
+ "citation": "John Lewis Krimmel, Merrymaking at a Wayside Inn, 1811-ca. 1813. The Metropolitan Museum of Art, 42.95.12.",
+ "author": "John Lewis Krimmel",
+ "date": "1811-ca. 1813",
+ "describes_date": "1811-1813",
+ "repository": "The Metropolitan Museum of Art; object 12728 in the museum's collection API (isPublicDomain: true), image DT1801 at images.metmuseum.org.",
+ "url": "https://www.metmuseum.org/art/collection/search/12728",
+ "locator": "Open-access image DT1801: the dancing couples and the fiddler.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). Watercolour of a country inn. Young men in shirtsleeves, red waistcoat or brown coat, red neckerchief, light trousers, tall round hats; young women in high-waisted gowns (blue, yellow) with red neckerchiefs crossed over the bosom, one in a bonnet trimmed green; a Black fiddler in a green coat and round hat; an older seated woman in a cap.",
+ "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record. Added for the 1812 women's dress (T-3464 dress build, tools/human_women_1812.py) from docs/RESEARCH/people-1812-3461/dress.json.",
+ "what_it_supplies": [
+  "rural working and holiday dress of men and women 1811-1813: shirtsleeves and waistcoats, round hats, high-waisted gowns with neckerchiefs, a bonnet"
+ ],
+ "what_it_does_not_supply": [
+  "the frontier; Pennsylvania, not Illinois"
+ ]
+}

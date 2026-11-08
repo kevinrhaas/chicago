@@ -54,7 +54,8 @@ function tick(duties, actors, dt) {
 const duty = (r) => r.behaviour.duty;
 const fort = (r) => r.placement.local_e > 1138.5 && r.placement.local_e < 1165.8 && r.placement.local_n > 207.1 && r.placement.local_n < 234.9;
 const inside = records.filter(fort);
-const loose = inside.filter((r) => !duty(r) && r.behaviour.state !== 'walking');
+// A record with a day of its own (T-3463..T-3467: the officers, the families) is human-days.js's.
+const loose = inside.filter((r) => !duty(r) && r.behaviour.state !== 'walking' && !Array.isArray(r.behaviour.day));
 assert(inside.length >= 24, `the fort holds its men (${inside.length})`);
 assert(loose.length <= 2, `no more than the orderly stands loose inside the pickets: ${loose.map((r) => r.person_id)}`);
 const kinds = new Map();

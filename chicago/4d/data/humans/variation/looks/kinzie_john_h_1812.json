@@ -1,0 +1,39 @@
+{
+ "format": "chicago4d_human_looks_v1",
+ "ticket": "T-3465",
+ "person_id": "kinzie_john_h_1812",
+ "scene": "1812",
+ "generated_by": "docs/RESEARCH/people-1812-town/looks.py",
+ "heritage": {
+  "origin": "not recorded (see the basis)",
+  "family": "reading"
+ },
+ "complexion": {
+  "value": "fair",
+  "drawn": "fair",
+  "grade": "inferred"
+ },
+ "hair": {
+  "value": "light brown, wavy",
+  "drawn": "light_brown",
+  "cut": "cropped_1812",
+  "facial": [],
+  "grade": "inferred"
+ },
+ "eyes": {
+  "value": "light (grey or blue)",
+  "drawn": "blue",
+  "grade": "inferred"
+ },
+ "stature": {
+  "inches": 49.7,
+  "grade": "inferred",
+  "basis": "Heritage: father of Scottish descent, born at Quebec; mother Eleanor (Lytle) of a Pennsylvania family. Fair skin, brown hair, light eyes. Colouring read off his own 1827 miniature (at 24). Height for age: the CDC 2000 stature-for-age table at the 10th centile for the age on 14 Aug 1812. Not a measurement. Why that centile: Steckel 1985 finds slave children below the first centile of modern standards and Komlos 2003 puts American apprentices of 14 at the 0.8th, while American adults reached about the 20th-30th; free children of a fed frontier household are set at the 10th, a prosperous trader's"
+ },
+ "height_scale": 1.0476,
+ "basis": "Drawn in the words of the day reading for T-3465 (docs/RESEARCH/people-1812-3465/day.json): Heritage: father of Scottish descent, born at Quebec; mother Eleanor (Lytle) of a Pennsylvania family. Fair skin, brown hair, light eyes. Colouring read off his own 1827 miniature (at 24). Height for age: the CDC 2000 stature-for-age table at the 10th centile for the age on 14 Aug 1812. Not a measurement. Why that centile: Steckel 1985 finds slave children below the first centile of modern standards and Komlos 2003 puts American apprentices of 14 at the 0.8th, while American adults reached about the 20th-30th; free children of a fed frontier household are set at the 10th, a prosperous trader's family. The drawn colours, cut and scale are a reconstructed rendering of those words (liberty L-1812-town-days-3463).",
+ "grade": "inferred",
+ "liberty": "L-1812-town-days-3463",
+ "replaceable_by": "A portrait or a description of them written in their lifetime.",
+ "build_words": "slight"
+}
