@@ -390,18 +390,20 @@ console.log(`transport loop: ${count} checks PASS`);
   const confidence = { hidden: { reconstructed: false }, setHidden(level, value) { this.hidden[level] = !!value; } };
   // T-3439: Settings › Show › Carriages and horses hides the teams the way the Confidence view does.
   const shownLayers = { people: true, vehicles: true };
-  const native = new Function('clock', 'document', 'window', 'api', 'camera', 'confidence', 'gateFrame', 'shownLayers', `
+  const world = { sunTime: '12:30' }; // T-3497: the sun clock the teams' hours are read on
+  const native = new Function('clock', 'document', 'window', 'api', 'camera', 'confidence', 'gateFrame', 'shownLayers', 'world', `
     let animationHold = false, gateOpen = false;
     ${latch}\n${media}
     return {tick() { ${clockBody}\n${forwarding} }, hide(level, hide) { ${hide} }};
   `)(clock, { hidden: false }, { matchMedia: () => motion },
     { townTransport: { update(dt, camera, options) { assert.strictEqual(camera, eye); calls.push({dt, options}); } } },
-    { position: eye }, confidence, { invalidate() {} }, shownLayers);
+    { position: eye }, confidence, { invalidate() {} }, shownLayers, world);
   const tick = delta => { clock.delta = delta; const reads = clock.reads; native.tick(); assert.equal(clock.reads, reads + 1); return calls.at(-1); };
   assert.equal(tick(30).dt, 0);
   assert.equal(tick(.5).dt, .5);
   assert.equal(calls.at(-1).options.elapsedFrame, true);
   assert.equal(calls.at(-1).options.visualDt, .5);
+  assert.equal(calls.at(-1).options.hour, 12.5);
   motion.matches = true; for (const listener of listeners) listener();
   motion.matches = false; for (const listener of listeners) listener();
   assert.equal(tick(30).dt, 0, 'Preference off/on without any held tick rebases the journey interval');
@@ -415,4 +417,82 @@ console.log(`transport loop: ${count} checks PASS`);
   shownLayers.vehicles = true; tick(.5);
   assert.equal(calls.at(-1).options.hidden, false);
   console.log('native main elapsed forwarding and no-held-tick transport preference/confidence boundaries PASS');
+}
+
+// T-3497: closed paths, timed stops, and the 1812 fort wagons on the committed 1812 ground.
+{
+  const { pathRoute, routeFor, routeDistanceNear } = await import('../renderers/web/js/transport-loop.js');
+  const { createSmoothedGround } = await import('../renderers/web/js/transport-ground.js');
+  const { teamSupportAt, certifiedHorseSupportDomain } = await import('../renderers/web/js/transport-support.js');
+  const { buildRows } = await import('./lay_driven_wagons_1812.mjs');
+  let checks = 0;
+  // A square path with filleted corners is closed, unit-speed and turns left at +1/R.
+  const square = pathRoute({ points_enu_m: [[0, 0], [100, 0], [100, 100], [0, 100]], corner_radius_m: 20 });
+  near(square.length, 4 * 60 + 2 * Math.PI * 20, 1e-6); checks++;
+  for (const s of [0, 10, 70, 150, square.length - .1]) {
+    const a = square.at(s), b = square.at(s + 1e-4);
+    near(Math.hypot(b.e - a.e, b.n - a.n) / 1e-4, 1, 1e-3); checks++;
+  }
+  near(square.maxCurvature, 1 / 20, 1e-9); checks++;
+  // It starts on the first corner's bend; the bends of a counter-clockwise square turn left.
+  for (let k = 0; k < 4; k++) { near(square.at(k * (60 + 10 * Math.PI) + 5 * Math.PI).curvature, 1 / 20, 1e-9); checks++; }
+  near(square.at(10 * Math.PI + 30).curvature, 0, 1e-12); checks++;
+  near(square.at(0).e, square.at(square.length).e, 1e-9); checks++;
+  assert.throws(() => pathRoute({ points_enu_m: [[0, 0], [10, 0], [10, 10], [0, 10]], corner_radius_m: 20 }), /too close/); checks++;
+  assert.deepEqual(routeFor({ kind: 'path', points_enu_m: [[0, 0], [100, 0], [100, 100], [0, 100]], corner_radius_m: 20 }).length, square.length); checks++;
+  const near50 = routeDistanceNear(square, 50, -1);
+  near(near50.distance_m, 10 * Math.PI + 30, .25); near(near50.off_m, 1, .01); checks++;
+
+  // A stop: the team pulls up exactly there, dwells while still moving, then goes on.
+  const poses = [], events = [];
+  const stopped = createTransportLoop({ id: 'stop', name: 'Teamster', route: square,
+    assembly: { pose(p) { poses.push(p); }, visible() {}, stop() { events.push('stop'); }, dispose() {} },
+    speed_m_s: 1, wheelbase_m: 2, track_m: 1.2, root_ahead_of_rear_axle_m: 1, steering_limit_deg: 12,
+    wheel_radii_m: [.7, .7, .5, .5], driver_local_m: [1.3, 0, 4], heightAt: () => 0,
+    stops: [{ distance_m: 5, dwell_s: 3, label: 'door' }] });
+  for (let i = 0; i < 20; i++) stopped.update(.5); // .25 m an update, so 5 m in 20
+  near(stopped.snapshot().distance_m, 5, 1e-9); checks++;
+  assert.equal(stopped.state, 'moving'); assert.equal(stopped.dwelling?.label, 'door'); checks++;
+  assert(events.includes('stop')); checks++;
+  for (let i = 0; i < 5; i++) stopped.update(.5);
+  near(stopped.snapshot().distance_m, 5, 1e-9); checks++;
+  for (let i = 0; i < 2; i++) stopped.update(.5);
+  assert.equal(stopped.dwelling, null); assert(stopped.snapshot().distance_m > 5); checks++;
+  assert.throws(() => createTransportLoop({ id: 'x', name: 'x', route: square, assembly: { pose() {} },
+    speed_m_s: 1, wheelbase_m: 2, track_m: 1.2, root_ahead_of_rear_axle_m: 1, steering_limit_deg: 12,
+    wheel_radii_m: [.7, .7, .5, .5], driver_local_m: [0, 0, 0], heightAt: () => 0,
+    stops: [{ distance_m: NaN, dwell_s: 3 }] }), /stops need/); checks++;
+
+  // The laid rows are the committed rows, and each whole road holds wheels and hooves on the
+  // committed 1812 ground (read as the scene reads it for transport: transport-ground.js).
+  const config = JSON.parse(readFileSync(new URL('../data/transport/driven/loops.json', import.meta.url)));
+  assert.deepEqual(config.rows.filter(row => row.scene === '1812'), buildRows(), 'run node tools/lay_driven_wagons_1812.mjs'); checks++;
+  const terrainDir = new URL('../data/terrain/epochs/e1830_natural/', import.meta.url);
+  const hf = JSON.parse(readFileSync(new URL('heightfield.json', terrainDir)));
+  const raw = new Int16Array(readFileSync(new URL('heightfield.bin', terrainDir)).buffer.slice(0));
+  const cells = Float32Array.from(raw.subarray(0, hf.cols * hf.rows), v => v * hf.scale + hf.offset);
+  const bilinear = (e, n) => {
+    const gx = (e - hf.origin_e) / hf.cell_m, gy = (n - hf.origin_n) / hf.cell_m;
+    const x0 = Math.min(Math.floor(gx), hf.cols - 2), y0 = Math.min(Math.floor(gy), hf.rows - 2), fx = gx - x0, fy = gy - y0;
+    const r0 = y0 * hf.cols, r1 = r0 + hf.cols;
+    return (cells[r0 + x0] * (1 - fx) + cells[r0 + x0 + 1] * fx) * (1 - fy) + (cells[r1 + x0] * (1 - fx) + cells[r1 + x0 + 1] * fx) * fy;
+  };
+  const ground = createSmoothedGround({ sample: bilinear, grid: { cellM: hf.cell_m, originE: hf.origin_e, originN: hf.origin_n } });
+  const spec = config.horse_models.current26_walk_v2;
+  const domain = certifiedHorseSupportDomain(spec, JSON.parse(readFileSync(new URL(`../data/${spec.support_domain.certificate_file}`, import.meta.url))));
+  for (const row of config.rows.filter(r => r.scene === '1812')) {
+    const route = routeFor(row.route);
+    const reading = preflightTransportRoute({ row, route, heightAt: ground, clear: () => true,
+      support: pose => teamSupportAt(row, pose, ground, domain) });
+    assert.match(reading.status, /PASS/, `${row.id} on the 1812 ground`); checks++;
+    assert(reading.maximum_wheel_gap_m < .03); checks++;
+    for (const stop of row.stops) assert(stop.distance_m >= 0 && stop.distance_m < route.length && stop.dwell_s > 0); checks++;
+  }
+  // Hours: a team is put up outside its teamster's [from, to); no hour or no hours, never.
+  const { offHours } = await import('../renderers/web/js/town-transport.js');
+  assert.equal(offHours([5.5, 21], 12), false); assert.equal(offHours([5.5, 21], 21.5), true);
+  assert.equal(offHours([5.5, 21], 3), true); assert.equal(offHours([22, 6], 23), false);
+  assert.equal(offHours([22, 6], 12), true); assert.equal(offHours(null, 3), false);
+  assert.equal(offHours([5.5, 21], null), false); checks += 7;
+  console.log(`T-3497 paths, stops and 1812 wagon roads: ${checks} checks PASS`);
 }

@@ -1,4 +1,28 @@
 export const CHANGELOG = [ // newest first
+  { v: 2820, ts: '2026-11-08T04:27:15.331Z', date: 'Nov 7, 2026, 10:27 PM CT', title: 'Horse-drawn wagons move around the 1812 fort', kind: 'feature',
+    items: [
+      'Two of the fort\'s wagons, drawn by two-horse teams, now move in 1812: one goes round the outbuildings, the other runs the shore road to the Lees\' house and back.',
+      'Each wagon stops at its places (the south gate, the stables, the merchant\'s shop, the Lees\' door) and stands about a minute as if loading, then goes on.',
+      'A private of Heald\'s company leads each team on foot at the near horse\'s head, as army teamsters did: Elias Mills on the round, William Moffett on the shore road. Click either to open his card, or stop him and send him on.',
+      'The wagon is the photographic farm-box cart; phones load its lighter level.',
+    ] },
+  { v: 2819, ts: '2026-11-08T03:39:49.319Z', date: 'Nov 7, 2026, 9:39 PM CT', title: 'Arms and hands swing like a real walk', kind: 'improvement',
+    items: [
+      'The arm swing follows measured walking: the arm swings mostly behind the body, and the forearm trails the upper arm like a loose pendulum',
+      'Hands hang relaxed: each hand is curled once instead of twice (two curls added up to a claw), the fingers bend gently and evenly side by side with the knuckles standing up, and the thumb rests beside the first finger without tearing the skin at its root',
+      'Each person swings a little differently: how far, how bent the elbow, and one arm a touch more than the other',
+    ] },
+  { v: 2818, ts: '2026-11-08T03:24:24.967Z', date: 'Nov 7, 2026, 9:24 PM CT', title: 'Pullman\'s 18th Street side: the east window in its place', kind: 'improvement',
+    items: [
+      'On the 1729 Prairie Avenue Pullman house, the broad window in the 18th Street side\'s east section and the pair of narrow windows above it now stand half a metre further east, where the c. 1900 Detroit Publishing photograph places them, with the pair centred over the window as the photograph draws it.',
+    ] },
+  { v: 2817, ts: '2026-11-08T02:25:08.779Z', date: 'Nov 7, 2026, 8:25 PM CT', title: 'Every soldier at Fort Dearborn has his own looks', kind: 'feature',
+    items: [
+      'The 51 men of Heald\'s company no longer share one face colour and one head of hair. Each has his own complexion, hair colour and eyes, drawn in the words the Army\'s enlistment registers of 1812 used, leaned a little by where his name comes from.',
+      'Heights spread the way the period\'s recruits measured, about 5 ft 8 in on average. Paul Grummo stands tall and well built, as a neighbour remembered him, and David Kennison at about 5 ft 10 in.',
+      'Each man\'s card has a Looks section showing what is drawn and why, and a period portrait of a man with similar colouring, labelled as a stand-in.',
+      'People now stand on the ground as it is drawn. Yards and worn trails sit a couple of centimetres above the bare ground, which was hiding the soldiers\' shoes under their trouser hems.',
+    ] },
   { v: 2816, ts: '2026-11-08T01:46:15.434Z', date: 'Nov 7, 2026, 7:46 PM CT', title: 'Pullman house: the carriage porch\'s east arch opens again', kind: 'fix',
     items: [
       'The ivy over the east arch of the Pullman house\'s carriage porch, on 18th Street, grew down into the arch\'s opening and closed about half of it. The c. 1900 Detroit Publishing photograph shows the opening dark and clear, with the leaves on the two piers and over the arch\'s stone ring.',

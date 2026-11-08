@@ -610,6 +610,8 @@ step "Current in-place horse travel keeps route, wheel, stop and culled-motion c
   node tools/test_transport_loop.mjs
 step "Driven assembly retains named drivers, vehicle ownership and exact current horse travel (T-2804)" \
   node tools/test_driven_assembly.mjs
+step "The 1812 fort wagons' rows are what their layer writes: roads, stops and hours (T-3497)" \
+  node tools/lay_driven_wagons_1812.mjs --check
 step "A seated driver breathes, looks round and holds his reins, bounded and deterministic, on the real 1904 driver (T-1790)" \
   node tools/test_driver_life.mjs
 step "People on foot breathe, shift weight with feet planted, look at a close visitor and blink irregularly, bounded and deterministic (T-3402)" \

@@ -326,8 +326,10 @@ const excursion = (rows, s) => { const v = rows.map(x => x[s].flex); return Math
     const ex = excursion(rows, s), mean = (Math.max(...flex) + Math.min(...flex)) / 2;
     assert(ex > 20 && ex < 30, `gait: the ${s} shoulder swings ${ex.toFixed(1)} deg`);
     assert(Math.max(...flex) - mean > 8 && Math.max(...flex) - mean < 12.5, `gait: ±${(ex / 2).toFixed(1)} deg about ${mean.toFixed(1)}`);
+    // Mostly behind the body, as measured (Horst 2019: about 19 deg back to 6 forward of the vertical).
+    assert(Math.min(...flex) < -14 && Math.max(...flex) < 9 && mean < -3, `gait: the ${s} arm swings mostly behind the body (${Math.min(...flex).toFixed(1)}..${Math.max(...flex).toFixed(1)} deg)`);
     const front = rows[flex.indexOf(Math.max(...flex))][s], back = rows[flex.indexOf(Math.min(...flex))][s];
-    assert(front.elbow > back.elbow + 10 && front.elbow > 26 && front.elbow < 40 && back.elbow > 10 && back.elbow < 22,
+    assert(front.elbow > back.elbow + 10 && front.elbow > 26 && front.elbow < 48 && back.elbow > 8 && back.elbow < 22,
       `gait: the ${s} elbow bends more at the front (${back.elbow.toFixed(1)} → ${front.elbow.toFixed(1)} deg)`);
     // The hand goes further forward than back of where it hangs, and a little inward in front.
     const hz = rows.map(x => x[s].wrist.z), hx = rows.map(x => Math.abs(x[s].wrist.x));
@@ -346,6 +348,25 @@ const excursion = (rows, s) => { const v = rows.map(x => x[s].flex); return Math
   const half = excursion((await gaitWalk('bardwell_otis_1835', { clip: 'idle', weight: 0.5 })).rows, 'l');
   assert(half > full * 0.35 && half < full * 0.65, `gait: blended by its weight (${half.toFixed(1)} of ${full.toFixed(1)} deg at 0.5)`);
   console.log(`gait: at weight 0.5 the swing is ${half.toFixed(1)} of ${full.toFixed(1)} deg: PASS`);
+}
+{
+  // T-3496: a walking hand is curled once, loosely (the hanging hand's curl and the walk's
+  // used to add up to 0.74 of a fist, a claw), its fingers side by side, its knuckles up,
+  // and the thumb laid beside the index rather than stuck out from the hand.
+  const { r } = await gaitWalk('bardwell_otis_1835');
+  for (const s of ['l', 'r']) {
+    const P = n => world(r.bone(`${n}_${s}`));
+    const along = P('middle_01').sub(P('hand')).normalize();
+    const bend = f => along.angleTo(P(`${f}_03`).sub(P(`${f}_02`))) * 180 / Math.PI;
+    const ix = bend('index'), px = bend('pinky');
+    assert(ix > 25 && ix < 55 && px > ix && px < 65, `gait: the ${s} fingers loosely curled, the little one more (index ${ix.toFixed(0)}, little ${px.toFixed(0)} deg)`);
+    // Side by side, not fanned or kinked in at the root (that pinched the skin at the knuckle).
+    const base = P('index_01').distanceTo(P('pinky_01')), tips = P('index_03').distanceTo(P('pinky_03'));
+    assert(Math.abs(tips - base) < 0.008, `gait: the ${s} fingers bend side by side (${(base * 100).toFixed(1)} cm at the knuckles, ${(tips * 100).toFixed(1)} at the last joints)`);
+    const thumb = P('thumb_03').distanceTo(P('index_02'));
+    assert(thumb < 0.05, `gait: the ${s} thumb lies beside the index (${(thumb * 100).toFixed(1)} cm from its middle joint)`);
+    console.log(`gait: ${s} hand curled ${ix.toFixed(0)}..${px.toFixed(0)} deg, fingers ${(base * 100).toFixed(1)} → ${(tips * 100).toFixed(1)} cm, thumb ${(thumb * 100).toFixed(1)} cm from the index: PASS`);
+  }
 }
 {
   // A woman in a full skirt swings about half as far, and her hands stay out of the bell.

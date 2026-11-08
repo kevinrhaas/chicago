@@ -845,6 +845,16 @@
       "singletree_root_z_m": 1.9,
       "singletree_root_y_m": 0.72
     },
+    "farm_box_w01": {
+      "pole_node": "vehicle_tongue",
+      "tip_node": "vehicle_hitch_team",
+      "reuse_existing_pivot": true,
+      "horse_center_z_root_m": 3.4987,
+      "front_axle_node": "vehicle_steer_front",
+      "singletree_root_z_m": 1.9,
+      "singletree_root_y_m": 0.72,
+      "derivative_scope": "T-3497: the photographic farm-box wagon (farm-box-master) carries the W01 interface nodes at the W01 stations (tongue pivot z .35 under the front gear, team hitch z 2.75), so it takes the W01 numbers; its single pole is the reconstructed one of its adaptation."
+    },
     "studebaker_brougham_1893": {
       "pole_node": "vehicle_team_pole",
       "tip_node": "vehicle_hitch_team",

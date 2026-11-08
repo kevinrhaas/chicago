@@ -61,10 +61,10 @@
         2.430052623233238
       ],
       "rotation_y": 0,
-      "glb_sha256": "d9d4b45c8ab5da47cc304d1945f2ee3c1865d1f2f9b261fcd3190704d86304b7"
+      "glb_sha256": "10f6bca8d23fe0d26a88e82bc7d8dc4bd43aa2f0e15e4e77deb807c39c3bd430"
     }
   ],
-  "group_sha256": "d66421741fec9aa3bd6be5ee0449c89490a6d9d0eed030d780aeea32080fd7fb",
+  "group_sha256": "0a9f39513c35ab993e24e7415915c8a439ec421721ee941c4f3c1131f1dbd943",
   "rendered_flora": {
     "season": "winter",
     "lots": [
@@ -293,6 +293,10 @@
     {
       "what": "[T-1881, 2026-11-07] the print's stout trunk at x 417 (base y 595), forking about 8 m up into a narrow, sparse head about 3 m across and 13 m to its top, is 18th Street's tree at 58.8 m: the build drew the grown elm's forked fountain there, about 6 m across and 19 m high over the house's south-east corner, and now draws a straight leader under a narrow head (high_head, scale 0.65). It renders about 46 px east of the print's trunk, as this camera draws the trees at 43.7 and 51.3 m (33 and 45 px; 2.3-2.8 m along the parkway), a camera-fit disagreement. Re-read on this render, which also carries the house's rear-step stack as #1828 moved it: no new difference.",
       "status": "fixed"
+    },
+    {
+      "what": "[T-1881, 2026-11-08] the flank's east section's window and second-storey pair moved from s 22.95 to 23.5 (off the Detroit print det 4a08066): in this print they move about 7 px east (the side-by-side's render x 363-404, y 389-545), the pair now a little east of the narrow lights this winter print draws; the three pictures place the pair between s 23.35 and 24.2, a gap pictures disagree about (T-3153), and the ground-storey lights stay as ruled above; the rest of the render is pixel-identical",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
