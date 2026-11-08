@@ -42631,3 +42631,35 @@ wagons and teams it had and who drove them; a drawing of the post's wagons would
 **Re-opens on:** a roll, a letter or an account that names any of the gathering, counts it by band or by ground, or says where Wells's Miamis camped; anything that puts Louis Fettle in a house of 1812.
 **Ticket:** T-3500.
 **Recorded:** 2026-11-08.
+
+### L-t3517-state-slough-1812 — The 1812 sloughs hold water: the State Street slough through the camps and the north-side slough, carved as winding watercourses
+
+**Decision:** two blocks of `data/terrain/epochs/e1830_natural/terrain_spec.json`, read by
+`generators/terrain_gen_e1830.py` after the 1812 field is built, in place of the 1834 entries the 1812 ground used to
+carry. `state_slough_1812`: the State Street slough (dossier zone 14) on its documented line, the 1834 spec's
+`state_slough_course` and `state_slough_mouth` vertices joined, winding up to 6 m off it (never in the last 100 m,
+which keep Wright's notch), holding open water from about 75 m below its head east of Clark to the river: a bed of
+-0.5 to about -1.8 ft and a water half-width of 2.4 to 5 m, each varied +/-30% by seeded noise into pools and narrows,
+a wet margin rising 0.8 ft, the bank at 1.2 ft per metre into the plain; the head a damp hollow above the water.
+`north_side_slough_1812`: the north-side slough on Wright's traced centreline (no winding), water from about 25 m
+below its head, half-width 2 to 5.5 m round the stroke separation T-0795 measured, a bed of -0.5 to about -1.7 ft,
+in place of the 1834 entry's constant 7.1 m band at -1.0 ft that stops square. Neither bed goes below -1.95 ft, where
+the flora would read river channel. The carve only lowers the ground, and refuses to touch any lodge, hearth, arbor
+or picket of the Potawatomi camps. The 1835 ground keeps both 1834 entries unchanged.
+**Why:** the owner, 2026-11-08, flying the 1812 camps: *"There would be more water in that slough they are
+gathering around can you make sure though sloughs are carved correctly and naturally with the right water there"*.
+Carried from 1835, the State Street slough was a 10 m swale 2.2 ft deep with its bed above the water, open water
+only in its last 20 m; the north-side slough a canal of one width.
+**What is read.** The State Street slough's route: it drained the public-square pond and the Wells Street marsh,
+*"passed over the site of the Tremont House and entered the river at the end of State Street"* (chicagology
+prefire273); Conley/Stelzer 1933's winding course; Wright 1834's notch for its mouth. The north-side slough's line:
+Wright 1834, re-read whole by T-0795. The dossier's zone 14 width, 15-40 ft.
+**What is invented.** That either slough held open water on 15 August 1812: zone 14 reads the State Street
+slough's thalweg 0.5 to 1.5 ft ABOVE the 1835 water, a damp drain in July 1835, and no 1812 stage or depth is
+recorded (`lake_stage_1812`); the water is the owner's ruling. Every depth, width, pool and narrow; the winding
+off the documented line; the margins and banks.
+**How to resolve:** an account of either slough before 1830 (a crossing, a canoe landing, a description of the
+ground behind the fort), or a reconstruction of the lake stage in the 1810s.
+**Covers:** `terrain.e1830_natural.state_slough_1812`, `terrain.e1830_natural.north_side_slough_1812`
+**Ticket:** T-3517.
+**Recorded:** 2026-11-08 (T-3517).

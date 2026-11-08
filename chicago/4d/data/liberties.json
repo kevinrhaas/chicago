@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1055,
+  "count": 1056,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -71629,6 +71629,52 @@
         "T-3467",
         "T-3342",
         "T-3500"
+      ]
+    },
+    {
+      "id": "L-t3517-state-slough-1812",
+      "title": "The 1812 sloughs hold water: the State Street slough through the camps and the north-side slough, carved as winding watercourses",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [
+        {
+          "domain": "terrain",
+          "epoch": "e1830_natural",
+          "claim": "north_side_slough_1812"
+        },
+        {
+          "domain": "terrain",
+          "epoch": "e1830_natural",
+          "claim": "state_slough_1812"
+        }
+      ],
+      "recorded": "2026-11-08",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "two blocks of the terrain spec data, read by the terrain gen e1830 generator after the 1812 field is built, in place of the 1834 entries the 1812 ground used to carry. state slough 1812: the State Street slough (dossier zone 14) on its documented line, the 1834 spec's state slough course and state slough mouth vertices joined, winding up to 6 m off it (never in the last 100 m, which keep Wright's notch), holding open water from about 75 m below its head east of Clark to the river: a bed of -0.5 to about -1.8 ft and a water half-width of 2.4 to 5 m, each varied +/-30% by seeded noise into pools and narrows, a wet margin rising 0.8 ft, the bank at 1.2 ft per metre into the plain; the head a damp hollow above the water. north side slough 1812: the north-side slough on Wright's traced centreline (no winding), water from about 25 m below its head, half-width 2 to 5.5 m round the stroke separation earlier work measured, a bed of -0.5 to about -1.7 ft, in place of the 1834 entry's constant 7.1 m band at -1.0 ft that stops square. Neither bed goes below -1.95 ft, where the flora would read river channel. The carve only lowers the ground, and refuses to touch any lodge, hearth, arbor or picket of the Potawatomi camps. The 1835 ground keeps both 1834 entries unchanged."
+        },
+        {
+          "label": "Why",
+          "text": "the owner, 2026-11-08, flying the 1812 camps: *\"There would be more water in that slough they are gathering around can you make sure though sloughs are carved correctly and naturally with the right water there\"*. Carried from 1835, the State Street slough was a 10 m swale 2.2 ft deep with its bed above the water, open water only in its last 20 m; the north-side slough a canal of one width. **What is read.** The State Street slough's route: it drained the public-square pond and the Wells Street marsh, *\"passed over the site of the Tremont House and entered the river at the end of State Street\"* (chicagology prefire273); Conley/Stelzer 1933's winding course; Wright 1834's notch for its mouth. The north-side slough's line: Wright 1834, re-read whole by earlier work. The dossier's zone 14 width, 15-40 ft. **What is invented.** That either slough held open water on 15 August 1812: zone 14 reads the State Street slough's thalweg 0.5 to 1.5 ft ABOVE the 1835 water, a damp drain in July 1835, and no 1812 stage or depth is recorded (lake stage 1812); the water is the owner's ruling. Every depth, width, pool and narrow; the winding off the documented line; the margins and banks."
+        },
+        {
+          "label": "How to resolve",
+          "text": "an account of either slough before 1830 (a crossing, a canoe landing, a description of the ground behind the fort), or a reconstruction of the lake stage in the 1810s."
+        },
+        {
+          "label": "Covers",
+          "text": "`terrain.e1830_natural.state_slough_1812`, `terrain.e1830_natural.north_side_slough_1812`"
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-08 (T-3517)."
+        }
+      ],
+      "work_refs": [
+        "T-0795",
+        "T-3517"
       ]
     },
     {

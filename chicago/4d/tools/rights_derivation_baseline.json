@@ -4467,6 +4467,15 @@
       "sole_support": false,
       "confidence": "reconstructed"
     },
+    "terrain/e1830_natural/state_slough_1812": {
+      "kind": "ground",
+      "blocked_sources": [
+        "chicagology_prefire273",
+        "conley_stelzer_1933"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
     "terrain/e1834_harbor_cut/divisions.north_division": {
       "kind": "ground",
       "blocked_sources": [

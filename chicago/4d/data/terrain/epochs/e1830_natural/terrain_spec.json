@@ -138,12 +138,19 @@
         "why": "Natural margin marsh (zone 11)."
       },
       "swales": {
-        "take": "carry",
-        "why": "Natural sloughs (zone 14) drawn off Wright 1834; nothing dug them."
+        "take": "carry_except",
+        "drop": [
+          "state_slough_course",
+          "state_slough_mouth"
+        ],
+        "why": "Natural sloughs (zone 14) drawn off Wright 1834; nothing dug them. The State Street slough is the 1835 town's damp July drain, carved as two dry swales; in 1812 it is carved as water by state_slough_1812, on the owner's ruling (T-3517)."
       },
       "watercourses": {
-        "take": "carry",
-        "why": "The north-side slough is a natural backwater."
+        "take": "carry_except",
+        "drop": [
+          "north_side_slough"
+        ],
+        "why": "The north-side slough is a natural backwater, and in 1812 it is carved as one by north_side_slough_1812 (T-3517): the same traced centreline, a natural width and bed in place of the 1834 entry's constant 7.1 m band."
       },
       "approaches_note": {
         "take": "drop",
@@ -567,6 +574,217 @@
       "readings": "record_only"
     },
     "note": "T-3469. T-3403 raised this rise as Heald's 'small elevation in the open prarie' at his mile and a half; T-3469 moved Heald's elevation south to the ground the place readings name (heald_small_elevation_1812). The owner asked (2026-11-07) that the ground already built here be kept: 'keep that beachy sandy shore and elevations and ridges along there that you already built its nice so dont destroy it'. So the rise stays where and as it was, but it is no longer anyone's elevation and no account names it: it is a swell on the South Division plain, 8 ft over it, its top 36 m across with a 34 m skirt, centred at E +960, N -1853. WHAT IS RECONSTRUCTED: all of it, existence included. Admitted in docs/LIBERTIES.md L-t3403-battle-shore-1812 (revised T-3469)."
+  },
+  "state_slough_1812": {
+    "id": "state_slough_1812",
+    "label": "The State Street slough, holding water",
+    "line": [
+      [
+        596.0,
+        -340.0
+      ],
+      [
+        618.0,
+        -262.0
+      ],
+      [
+        641.0,
+        -235.0
+      ],
+      [
+        666.0,
+        -218.0
+      ],
+      [
+        702.0,
+        -190.0
+      ],
+      [
+        728.0,
+        -172.0
+      ],
+      [
+        752.0,
+        -152.0
+      ],
+      [
+        776.0,
+        -118.0
+      ],
+      [
+        788.0,
+        -84.0
+      ],
+      [
+        795.0,
+        -60.0
+      ],
+      [
+        806.0,
+        -35.0
+      ],
+      [
+        812.0,
+        -20.0
+      ],
+      [
+        819.0,
+        -11.0
+      ],
+      [
+        828.0,
+        -8.0
+      ],
+      [
+        838.0,
+        -3.0
+      ],
+      [
+        846.0,
+        3.0
+      ],
+      [
+        850.5,
+        8.2
+      ],
+      [
+        853.5,
+        14.0
+      ]
+    ],
+    "fixed_tail_m": 100.0,
+    "notch_hold_m": 35.0,
+    "meander_m": 6.0,
+    "meander_wavelengths_m": [
+      74.0,
+      31.0
+    ],
+    "profile": [
+      [
+        0.0,
+        1.2,
+        2.5,
+        3.0
+      ],
+      [
+        40.0,
+        0.4,
+        3.0,
+        3.5
+      ],
+      [
+        75.0,
+        -0.5,
+        3.0,
+        3.5
+      ],
+      [
+        120.0,
+        -1.0,
+        4.0,
+        3.5
+      ],
+      [
+        200.0,
+        -1.3,
+        5.0,
+        3.5
+      ],
+      [
+        300.0,
+        -1.4,
+        5.0,
+        3.0
+      ],
+      [
+        350.0,
+        -1.4,
+        4.0,
+        2.0
+      ],
+      [
+        385.0,
+        -1.4,
+        2.6,
+        0.8
+      ],
+      [
+        456.8,
+        -1.3,
+        2.4,
+        0.8
+      ]
+    ],
+    "vary": 0.3,
+    "margin_rise_ft": 0.8,
+    "bank_ft_per_m": 1.2,
+    "seed": 3517,
+    "dossier_zone": 14,
+    "confidence": "reconstructed",
+    "sources": [
+      "chicagology_prefire273",
+      "conley_stelzer_1933",
+      "wright_1834"
+    ],
+    "mesh": {
+      "dossier_zone": "record_only"
+    },
+    "note": "T-3517, on the owner's ruling of 2026-11-08, flying the Potawatomi camps from the air: 'There would be more water in that slough they are gathering around can you make sure though sloughs are carved correctly and naturally with the right water there'. THE ROUTE IS THE 1835 ONE: the same documented course (chicagology_prefire273: it drained the public-square pond and the Wells Street marsh, 'passed over the site of the Tremont House and entered the river at the end of State Street'; Conley/Stelzer 1933's winding line; Wright 1834's traced notch for the mouth), the 1834 spec's state_slough_course and state_slough_mouth vertices joined into one line. THE WATER IS THE OWNER'S, NOT A SOURCE'S: zone 14 reads the bed +0.5 to +1.5 ft above the 1835 water, a damp drain in July 1835, and that reading stays on the 1835 ground. No 1812 stage or depth is recorded (lake_stage_1812). For 1812 the bed is carved below the water plane from about 75 m below the head to the river, so the slough holds open water through the camps: pools to about -1.8 ft and narrows (never below -1.95 ft: a slough stays shallower than the -0.60 m the flora's divisions take for river channel, renderers/web/js/trees.js CHANNEL_Y), a profile of [along_m, bed_ft, water_half_m, margin_m] knots, each modulated +/-30% by seeded noise so no two reaches match. CARVED AS A WATERCOURSE, NOT A DITCH: the centreline winds up to 6 m off the documented line (inside Conley's 20-30 m reading tolerance), never in the last 100 m, which keep Wright's notch; water edge, then a wet margin rising 0.8 ft (3-3.5 m wide through the camps, under a metre where the mouth cuts the State Street ridge toe to Wright's notch), then the bank at 1.2 ft per metre into the plain, the ground only ever lowered. The head stays a damp hollow above the water and feathers out east of Clark. Where the water would reach a camp's site outline the line bends round it (never in the last 35 m, Wright's notch), and the bank may lower a site's ground by no more than 0.4 ft; the carve may not touch the ground under any lodge, hearth, arbor or picket of the camps (terrain_gen_e1830.state_slough, which refuses). Recorded in docs/LIBERTIES.md (L-t3517-state-slough-1812)."
+  },
+  "north_side_slough_1812": {
+    "id": "north_side_slough_1812",
+    "label": "The north-side slough, a backwater off the river",
+    "line_from": "north_side_slough",
+    "fixed_tail_m": 0.0,
+    "meander_m": 0.0,
+    "meander_wavelengths_m": [
+      60.0
+    ],
+    "profile": [
+      [
+        0.0,
+        0.6,
+        2.0,
+        2.5
+      ],
+      [
+        25.0,
+        -0.5,
+        3.0,
+        3.0
+      ],
+      [
+        60.0,
+        -1.0,
+        4.0,
+        3.0
+      ],
+      [
+        140.0,
+        -1.3,
+        5.0,
+        3.0
+      ],
+      [
+        209.6,
+        -1.2,
+        5.5,
+        2.5
+      ]
+    ],
+    "vary": 0.3,
+    "margin_rise_ft": 0.8,
+    "bank_ft_per_m": 1.2,
+    "seed": 35171,
+    "dossier_zone": 19,
+    "confidence": "reconstructed",
+    "sources": [
+      "wright_1834"
+    ],
+    "mesh": {
+      "dossier_zone": "record_only"
+    },
+    "note": "T-3517, on the owner's ruling of 2026-11-08 ('make sure those sloughs are carved correctly and naturally with the right water there'). THE COURSE IS WRIGHT'S: the centreline is hydrology.geojson's north_side_slough, read whole off the NA/HUP sheet by T-0795 to 1.78 m median, so it does not wind off its trace (meander 0). WHAT CHANGES FOR 1812 is the section. The 1834 watercourses entry floods a constant 7.1 m band to -1.0 ft and stops square at its head. Here the slough is a still backwater ('marshy, wet areas with little current', the form the 1834 record cites): water from about 25 m below the head to the river, its half-width read round T-0795's stroke separation (13.0 m median, 7-23 m) at 2 to 5.5 m, varied +/-30% into pools and narrows, a bed of -0.5 to about -1.7 ft, never below -1.95 ft (trees.js CHANNEL_Y) (the 1834 entry's -1.0 is invented too), a wet margin rising 0.8 ft, then the bank at 1.2 ft per metre; the head a damp hollow that feathers into the plain. Every depth and width here is reconstructed. Recorded in docs/LIBERTIES.md (L-t3517-state-slough-1812). Cited to zone 19, the North Division ground it is cut into: the dossier gives the slough no row of its own."
   },
   "spit_1812": {
     "feature": "baymouth_bar_1812",
