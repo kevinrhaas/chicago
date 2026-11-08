@@ -612,6 +612,10 @@ step "Driven assembly retains named drivers, vehicle ownership and exact current
   node tools/test_driven_assembly.mjs
 step "The 1812 fort wagons' rows are what their layer writes: roads, stops and hours (T-3497)" \
   node tools/lay_driven_wagons_1812.mjs --check
+step "The 1812 crossing boats are what their layer writes: on dry banks, afloat at the stern, a path deep enough to float them over (T-3510)" \
+  python3 tools/lay_crossing_boats_1812.py --check
+step "Every 1812 boat builds, rests bow up the bank, and carries a visitor across and back with no jump, and the wharf's deck sits on its crib (T-3510)" \
+  node tools/test_crossings.mjs
 step "A seated driver breathes, looks round and holds his reins, bounded and deterministic, on the real 1904 driver (T-1790)" \
   node tools/test_driver_life.mjs
 step "People on foot breathe, shift weight with feet planted, look at a close visitor and blink irregularly, bounded and deterministic (T-3402)" \
