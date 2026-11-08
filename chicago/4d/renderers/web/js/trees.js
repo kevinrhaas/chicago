@@ -79,6 +79,7 @@ import { floraInScene } from './flora.js';
 import { createTreeAtlasSliced, leafFamily, treeAtlasUV, TREE_ALPHA_CUTOFF, patchTreeWind } from './tree-surface.js';
 import { TreeInstances, createGrownTreeMaterials, isGrownForm } from './tree-instances.js';
 import { resolveBases } from './scene-loader.js';
+import { RULES, compactPlan, compactGeometry } from './compact-attributes.js';
 
 /**
  * The zone records this module reads, by the CONTRACT's `z<NN>_<slug>` id. Only
@@ -1987,6 +1988,31 @@ export function compactTimberFlags(geometry) {
     geometry.setAttribute(name, packed);
   }
   return saved;
+}
+
+/**
+ * The final timber batch's normal, uv and colour in compact formats (T-3499).
+ * The timber is the largest thing 1812 keeps: about 1.35 million vertices whose
+ * normal, uv and colour were float32, 32 bytes a vertex, held twice on a desktop
+ * (the page's copy and the GPU's). WebGL decodes a normalized integer in the
+ * vertex fetch, so every shader reads the same kind of value; only storage
+ * changes, through compact-attributes.js's own plan, which never chooses a
+ * format a value would clamp in. The normal and uv take that module's rules
+ * (Int8 x4, 1/127 a component; Uint16 x2, 1/65535). The colour is a LINEAR tint,
+ * where a byte would step a dark bark visibly, so it keeps sixteen bits a
+ * channel (Uint16 x4, alpha 1): 1/65535 linear. 32 -> 16 bytes a vertex. Run once the batch
+ * holds every chunk: a BatchedMesh sizes its buffers from the first geometry
+ * and nothing is added after this.
+ */
+export const TIMBER_CHANNEL_RULES = {
+  normal: RULES.normal,
+  uv: RULES.uv,
+  color: { array: Uint16Array, pad: 4, padValue: 1, min: 0, max: 1 },
+};
+export function compactTimberChannels(geometry) {
+  const before = Object.values(geometry.attributes).reduce((t, a) => t + a.array.byteLength, 0);
+  compactGeometry(geometry, compactPlan([geometry], TIMBER_CHANNEL_RULES));
+  return before - Object.values(geometry.attributes).reduce((t, a) => t + a.array.byteLength, 0);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -4512,6 +4538,7 @@ export async function createTrees({
       b.release();
     }
     compactTimberFlags(batch.geometry);
+    compactTimberChannels(batch.geometry);
     batch.computeBoundingSphere();
     group.add(batch);
     disposables.push(batch);
