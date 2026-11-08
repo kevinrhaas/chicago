@@ -2102,6 +2102,26 @@ export const PRAIRIE_FRAGMENT = /* glsl */`
   // them. A mix toward the mean moves no albedo.
   chiTex = mix(chiTex, uPrairieMean, 0.35 * chiFar);
 
+  // T-3514 — FROM THE AIR THE TILE GIVES WAY TO GROUND THAT DOES NOT REPEAT. The
+  // owner, 2026-11-08, from 715 ft over the 1812 camp: "from above it looks very
+  // patchy regular repeating pattern on the ground. While you don't see this while
+  // walking you can see how regular it looks from above". The variants above break
+  // the tile's lattice into 22 m bands, but inside a band the 11 m tile still
+  // repeats, and from a few hundred metres up every band shows the same checker.
+  // So past ~110 m the tile hands most of its say (up to 0.78 of what is left of
+  // it) to a second, finer read of the variation map — the same texture, a sixth
+  // of its scale (3-45 m clumps, a 531 m repeat that the haze and the stands hide),
+  // turned 57 degrees off the first so neither lattice lines up with the other —
+  // read over its own mean, so the albedo the tile carried is unmoved. Under
+  // ~110 m nothing changes: on foot the ground is the tile it always was.
+  float chiAir = smoothstep(110.0, 420.0, distance(vChiWorld, cameraPosition));
+  vec4 chiFine = texture2D(uMacro, mat2(0.5446, -0.8387, 0.8387, 0.5446) * vChiWorld.xz
+                                   / (uMacroM * 0.1729) + vec2(0.37, 0.61)) - uMacroMean;
+  vec3 chiAirTex = uPrairieMean
+                 * (1.0 + 0.24 * uMacroGain * chiFine.r + 0.10 * chiFine.g)
+                 * (vec3(1.0) + vec3(0.05, 0.025, -0.09) * chiFine.a);
+  chiTex = mix(chiTex, chiAirTex, 0.78 * chiAir);
+
   // Wet ground: the marshy shore strip, keyed on height above the datum.
   // Dossier zone 11 puts that strip at +0.5 to +2.0 ft and the heightfield puts
   // it at +1.25 ft, so elevation is the honest driver — it paints the mud wide
@@ -2448,10 +2468,21 @@ const FAR_SWARD_FRAGMENT = /* glsl */`
     // compresses into streaks across the plain.
     vec2 chiFsUv = mat2(0.6157, 0.7880, -0.7880, 0.6157) * chiFsEN / uFarSwRamp.w;
     float chiFsGrain = texture2D(uSward, chiFsUv).r / max(uSwardMean, 1e-6);
+    // T-3514: but that grain is ONE tile a few metres across, and only a grazing view
+    // compresses it into streaks. Looked DOWN on, from the air, it is a checker that
+    // repeats every few metres to the horizon - the "very patchy regular repeating
+    // pattern" the owner saw over the 1812 camp (2026-11-08). So as the view steepens
+    // the grain hands over to the prairie's own non-repeating fine read (chiFine,
+    // PRAIRIE_FRAGMENT), which averages 1.0 as the grain does. On foot every far
+    // fragment is grazing (under 0.12 of a radian down), so walking is as it was.
+    float chiFsSteep = smoothstep(0.12, 0.34,
+      abs(cameraPosition.y - vChiWorld.y) / max(distance(vChiWorld, cameraPosition), 1.0));
+    float chiFsTex = mix(mix(1.0, chiFsGrain, uFarSwRamp.z),
+                         1.0 + 0.24 * uMacroGain * chiFine.r + 0.10 * chiFine.g, chiFsSteep);
     vec3 chiFsC = chiFs.rgb * chiFs.rgb * uFarSwGain
                 * (1.0 + mix(0.18, 0.30, chiFar) * chiPatch)
                 * (vec3(1.0) + vec3(0.07, 0.035, -0.13) * chiMacro.a)
-                * mix(1.0, chiFsGrain, uFarSwRamp.z);
+                * chiFsTex;
     chiPrairie = mix(chiPrairie, diffuseColor.rgb * min(vec3(1.0), chiFsC), chiFsW);
   }
 `;
