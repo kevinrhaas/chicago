@@ -128,6 +128,79 @@ for (const [asset, lod, clip] of [['bardwell_otis_1835', 0, 'idle_natural_v1'], 
   console.log(`${asset} LOD${lod}: arms in ${clipX.toFixed(2)}→${restX.toFixed(2)} m, hips, behind, fingertips ${nearest.toFixed(3)} m from the brow: PASS`);
 }
 
+// T-3515 (owner, 2026-11-08: "when the coachman or glessner greet you their hand goes through
+// their hat ... their hand should not penetrate"): a man in a hat greets with his fingertips
+// at its brim, and no part of his hand goes through the hat at any moment of the greeting: a
+// derby, a silk hat over a glove, and a cocked hat with a plume, each on a figure drawn a
+// little taller than it was made (a person's own height, which the arm's reach must follow).
+{
+  const RH = /^(hand_r|(thumb|index|middle|ring|pinky)_0[123]_r)$/;
+  // World triangles of a skinned mesh whose three corners belong mostly to bones that `pick` takes.
+  const tris = (m, pick) => {
+    const g = m.geometry, p = g.attributes.position, sw = g.attributes.skinWeight, si = g.attributes.skinIndex, ix = g.index;
+    const at = new Array(p.count);
+    for (let i = 0; i < p.count; i++) {
+      let best = 0, bi = 0;
+      for (let k = 0; k < 4; k++) { const w = sw.getComponent(i, k); if (w > best) { best = w; bi = si.getComponent(i, k); } }
+      if (pick(m.skeleton.bones[bi].name)) at[i] = m.getVertexPosition(i, new THREE.Vector3()).applyMatrix4(m.matrixWorld);
+    }
+    const out = [];
+    for (let t = 0, n = ix ? ix.count : p.count; t + 2 < n; t += 3) {
+      const c = [0, 1, 2].map(k => at[ix ? ix.getX(t + k) : t + k]);
+      if (c.every(Boolean)) out.push(c);
+    }
+    return out;
+  };
+  const ray = new THREE.Ray(), hit = new THREE.Vector3();
+  const box = (T) => new THREE.Box3().setFromPoints(T);
+  // How many edges of A's triangles pass through B's.
+  const through = (A, B) => {
+    const boxes = B.map(box);
+    let n = 0;
+    for (const T of A) {
+      const b = box(T);
+      for (let j = 0; j < B.length; j++) {
+        if (!b.intersectsBox(boxes[j])) continue;
+        for (const [p, q] of [[T[0], T[1]], [T[1], T[2]], [T[2], T[0]]]) {
+          const len = p.distanceTo(q);
+          ray.set(p, q.clone().sub(p).normalize());
+          if (ray.intersectTriangle(B[j][0], B[j][1], B[j][2], false, hit) && hit.distanceTo(p) < len) { n++; break; }
+        }
+      }
+    }
+    return n;
+  };
+  for (const asset of ['glessner_john_j_1904', 'nelson_charles_1904_coachman', 'surgeons_mate_first_infantry_1812']) {
+    const r = await rig(asset, 0, 'idle');
+    r.root.scale.setScalar(1.06); r.root.updateMatrixWorld(true);
+    const life = createHumanLife({ id: `hat:${asset}`, scene: r.scene }), acts = createHumanActions({ id: `hat:${asset}`, scene: r.scene });
+    const opts = { state: 'standing', root: r.root };
+    for (let i = 0; i < 45; i++) step(r, life, acts, 1 / 30, opts);
+    const meshes = [];
+    r.scene.traverse(o => { if (o.isSkinnedMesh && o.visible) meshes.push(o); });
+    const hats = meshes.filter(m => /^headwear__/.test(m.material.name));
+    assert(hats.length, `${asset}: wears a hat`);
+    acts.greet();
+    let crossings = 0, frames = 0, touch = 9;
+    for (let i = 0; i < 54; i++) {
+      step(r, life, acts, 1 / 30, opts);
+      if (i % 3) continue;
+      const H = hats.flatMap(m => tris(m, () => true)), hand = meshes.filter(m => !hats.includes(m)).flatMap(m => tris(m, n => RH.test(n)));
+      crossings += through(hand, H) + through(H, hand); frames++;
+      // Held at the brim (from half a second to a second in): how near the hand's skin comes to the hat.
+      if (i >= 18 && i <= 27) {
+        const hv = [...new Set(hand.flat())], Hv = [...new Set(H.flat())];
+        for (const a of hv) for (const b of Hv) touch = Math.min(touch, a.distanceToSquared(b));
+      }
+    }
+    assert(!acts.snapshot().greeting, `${asset}: the greeting ends`);
+    assert(crossings === 0, `${asset}: no part of the right hand goes through the hat in the greeting (${crossings} crossings over ${frames} frames)`);
+    touch = Math.sqrt(touch);
+    assert(touch < 0.015, `${asset}: the fingertips come to the brim (nearest ${(touch * 100).toFixed(1)} cm)`);
+    console.log(`${asset}: hat greeting, the hand ${(touch * 100).toFixed(1)} cm from the hat at nearest, never through it: PASS`);
+  }
+}
+
 // A figure in the dress assembly (T-3423) greets with the nod alone: no hand to the brow.
 {
   const r = await rig('flynn_mary_1835_dress_study', 0, 'idle');

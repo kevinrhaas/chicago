@@ -16446,17 +16446,2723 @@
         ],
         "length_m": 24.3,
         "wet_vertices": 0
+      },
+      {
+        "id": "camp_path_far_west_to_head_west_1812",
+        "name": "A camp path between the far west and head west groups",
+        "form": "tread",
+        "width_m": 0.8,
+        "wear": 0.4,
+        "treatment": "trodden_earth",
+        "fords": true,
+        "existence": {
+          "confidence": "reconstructed",
+          "sources": [
+            "currey_1912_story_of_old_fort_dearborn",
+            "kinzie_waubun_1856"
+          ],
+          "note": "Currey (1912): 'groups of Indian wigwams clustered along the creek', the Potawatomi's 'favorite camping place'. That the groups wore paths between them is this project's reading of a camp of some seven hundred people a few dozen metres apart."
+        },
+        "alignment": "reconstructed: the least-cost route between the two groups' worn edges, round every other group; a short link the spanning tree left out",
+        "line_local_enu_m": [
+          [
+            604.31,
+            -128.66
+          ],
+          [
+            606.17,
+            -130.4
+          ],
+          [
+            608.05,
+            -132.11
+          ],
+          [
+            609.94,
+            -133.81
+          ],
+          [
+            611.84,
+            -135.5
+          ],
+          [
+            613.74,
+            -137.18
+          ],
+          [
+            615.54,
+            -138.98
+          ],
+          [
+            617.33,
+            -140.79
+          ],
+          [
+            619.11,
+            -142.6
+          ],
+          [
+            620.89,
+            -144.42
+          ],
+          [
+            622.66,
+            -146.24
+          ]
+        ],
+        "length_m": 25.4,
+        "wet_vertices": 0
+      },
+      {
+        "id": "camp_path_far_west_to_prairie_west_1812",
+        "name": "A camp path between the far west and prairie west groups",
+        "form": "tread",
+        "width_m": 1.0,
+        "wear": 0.55,
+        "treatment": "trodden_earth",
+        "fords": true,
+        "existence": {
+          "confidence": "reconstructed",
+          "sources": [
+            "currey_1912_story_of_old_fort_dearborn",
+            "kinzie_waubun_1856"
+          ],
+          "note": "Currey (1912): 'groups of Indian wigwams clustered along the creek', the Potawatomi's 'favorite camping place'. That the groups wore paths between them is this project's reading of a camp of some seven hundred people a few dozen metres apart."
+        },
+        "alignment": "reconstructed: the least-cost route between the two groups' worn edges, round every other group",
+        "line_local_enu_m": [
+          [
+            591.93,
+            -128.88
+          ],
+          [
+            592.48,
+            -131.25
+          ],
+          [
+            593.04,
+            -133.63
+          ],
+          [
+            593.2,
+            -136.09
+          ],
+          [
+            592.88,
+            -138.54
+          ],
+          [
+            592.04,
+            -140.86
+          ],
+          [
+            590.94,
+            -143.04
+          ],
+          [
+            589.79,
+            -145.19
+          ],
+          [
+            588.64,
+            -147.34
+          ]
+        ],
+        "length_m": 19.6,
+        "wet_vertices": 0
+      },
+      {
+        "id": "camp_path_head_west_to_prairie_west_1812",
+        "name": "A camp path between the head west and prairie west groups",
+        "form": "tread",
+        "width_m": 1.0,
+        "wear": 0.55,
+        "treatment": "trodden_earth",
+        "fords": true,
+        "existence": {
+          "confidence": "reconstructed",
+          "sources": [
+            "currey_1912_story_of_old_fort_dearborn",
+            "kinzie_waubun_1856"
+          ],
+          "note": "Currey (1912): 'groups of Indian wigwams clustered along the creek', the Potawatomi's 'favorite camping place'. That the groups wore paths between them is this project's reading of a camp of some seven hundred people a few dozen metres apart."
+        },
+        "alignment": "reconstructed: the least-cost route between the two groups' worn edges, round every other group",
+        "line_local_enu_m": [
+          [
+            622.15,
+            -157.85
+          ],
+          [
+            619.66,
+            -157.96
+          ],
+          [
+            617.17,
+            -158.07
+          ],
+          [
+            614.69,
+            -158.18
+          ],
+          [
+            612.2,
+            -158.28
+          ],
+          [
+            609.71,
+            -158.22
+          ],
+          [
+            607.23,
+            -158.17
+          ],
+          [
+            604.74,
+            -158.12
+          ],
+          [
+            602.25,
+            -158.06
+          ]
+        ],
+        "length_m": 19.9,
+        "wet_vertices": 0
+      },
+      {
+        "id": "camp_path_head_west_to_upper_1812",
+        "name": "A camp path between the head west and upper groups",
+        "form": "tread",
+        "width_m": 1.0,
+        "wear": 0.55,
+        "treatment": "trodden_earth",
+        "fords": true,
+        "existence": {
+          "confidence": "reconstructed",
+          "sources": [
+            "currey_1912_story_of_old_fort_dearborn",
+            "kinzie_waubun_1856"
+          ],
+          "note": "Currey (1912): 'groups of Indian wigwams clustered along the creek', the Potawatomi's 'favorite camping place'. That the groups wore paths between them is this project's reading of a camp of some seven hundred people a few dozen metres apart."
+        },
+        "alignment": "reconstructed: the least-cost route between the two groups' worn edges, round every other group",
+        "line_local_enu_m": [
+          [
+            633.6,
+            -170.69
+          ],
+          [
+            633.49,
+            -173.19
+          ],
+          [
+            633.39,
+            -175.69
+          ],
+          [
+            633.28,
+            -178.2
+          ],
+          [
+            633.18,
+            -180.7
+          ],
+          [
+            633.06,
+            -183.2
+          ],
+          [
+            632.95,
+            -185.7
+          ],
+          [
+            632.64,
+            -188.19
+          ],
+          [
+            632.35,
+            -190.67
+          ],
+          [
+            632.06,
+            -193.16
+          ],
+          [
+            631.77,
+            -195.65
+          ],
+          [
+            631.48,
+            -198.13
+          ],
+          [
+            631.18,
+            -200.62
+          ]
+        ],
+        "length_m": 30.0,
+        "wet_vertices": 0
+      },
+      {
+        "id": "camp_path_head_west_to_west_bank_1812",
+        "name": "A camp path between the head west and west bank groups",
+        "form": "tread",
+        "width_m": 1.0,
+        "wear": 0.55,
+        "treatment": "trodden_earth",
+        "fords": true,
+        "existence": {
+          "confidence": "reconstructed",
+          "sources": [
+            "currey_1912_story_of_old_fort_dearborn",
+            "kinzie_waubun_1856"
+          ],
+          "note": "Currey (1912): 'groups of Indian wigwams clustered along the creek', the Potawatomi's 'favorite camping place'. That the groups wore paths between them is this project's reading of a camp of some seven hundred people a few dozen metres apart."
+        },
+        "alignment": "reconstructed: the least-cost route between the two groups' worn edges, round every other group",
+        "line_local_enu_m": [
+          [
+            648.25,
+            -157.34
+          ],
+          [
+            650.77,
+            -157.26
+          ],
+          [
+            653.28,
+            -157.17
+          ],
+          [
+            655.8,
+            -157.08
+          ],
+          [
+            658.31,
+            -156.99
+          ],
+          [
+            660.83,
+            -156.92
+          ],
+          [
+            663.34,
+            -156.88
+          ],
+          [
+            665.86,
+            -156.84
+          ],
+          [
+            668.37,
+            -156.79
+          ],
+          [
+            670.89,
+            -156.73
+          ]
+        ],
+        "length_m": 22.6,
+        "wet_vertices": 0
+      },
+      {
+        "id": "camp_path_horse_ground_to_middle_1812",
+        "name": "A camp path between the horse ground and middle groups",
+        "form": "tread",
+        "width_m": 1.0,
+        "wear": 0.55,
+        "treatment": "trodden_earth",
+        "fords": true,
+        "existence": {
+          "confidence": "reconstructed",
+          "sources": [
+            "currey_1912_story_of_old_fort_dearborn",
+            "kinzie_waubun_1856"
+          ],
+          "note": "Currey (1912): 'groups of Indian wigwams clustered along the creek', the Potawatomi's 'favorite camping place'. That the groups wore paths between them is this project's reading of a camp of some seven hundred people a few dozen metres apart."
+        },
+        "alignment": "reconstructed: the least-cost route between the two groups' worn edges, round every other group",
+        "line_local_enu_m": [
+          [
+            718.63,
+            -135.94
+          ],
+          [
+            720.64,
+            -137.51
+          ],
+          [
+            722.66,
+            -139.08
+          ],
+          [
+            724.67,
+            -140.64
+          ],
+          [
+            726.7,
+            -142.19
+          ],
+          [
+            728.73,
+            -143.74
+          ],
+          [
+            730.76,
+            -145.28
+          ],
+          [
+            732.8,
+            -146.81
+          ],
+          [
+            734.84,
+            -148.35
+          ],
+          [
+            736.87,
+            -149.89
+          ],
+          [
+            738.89,
+            -151.46
+          ],
+          [
+            740.87,
+            -153.06
+          ],
+          [
+            742.82,
+            -154.7
+          ],
+          [
+            744.77,
+            -156.35
+          ],
+          [
+            746.72,
+            -157.99
+          ],
+          [
+            748.68,
+            -159.63
+          ],
+          [
+            750.65,
+            -161.26
+          ],
+          [
+            752.61,
+            -162.88
+          ],
+          [
+            754.59,
+            -164.5
+          ],
+          [
+            756.56,
+            -166.12
+          ],
+          [
+            758.53,
+            -167.74
+          ],
+          [
+            760.49,
+            -169.36
+          ]
+        ],
+        "length_m": 53.6,
+        "wet_vertices": 0
+      },
+      {
+        "id": "camp_path_horse_ground_to_north_flat_1812",
+        "name": "A camp path between the horse ground and north flat groups",
+        "form": "tread",
+        "width_m": 1.0,
+        "wear": 0.55,
+        "treatment": "trodden_earth",
+        "fords": true,
+        "existence": {
+          "confidence": "reconstructed",
+          "sources": [
+            "currey_1912_story_of_old_fort_dearborn",
+            "kinzie_waubun_1856"
+          ],
+          "note": "Currey (1912): 'groups of Indian wigwams clustered along the creek', the Potawatomi's 'favorite camping place'. That the groups wore paths between them is this project's reading of a camp of some seven hundred people a few dozen metres apart."
+        },
+        "alignment": "reconstructed: the least-cost route between the two groups' worn edges, round every other group",
+        "line_local_enu_m": [
+          [
+            709.63,
+            -118.13
+          ],
+          [
+            709.93,
+            -115.6
+          ],
+          [
+            710.25,
+            -113.08
+          ],
+          [
+            710.59,
+            -110.55
+          ],
+          [
+            710.96,
+            -108.03
+          ],
+          [
+            711.17,
+            -105.5
+          ],
+          [
+            711.36,
+            -102.96
+          ],
+          [
+            711.53,
+            -100.42
+          ],
+          [
+            711.68,
+            -97.88
+          ]
+        ],
+        "length_m": 20.4,
+        "wet_vertices": 0
+      },
+      {
+        "id": "camp_path_horse_ground_to_west_bank_1812",
+        "name": "A camp path between the horse ground and west bank groups",
+        "form": "tread",
+        "width_m": 1.0,
+        "wear": 0.55,
+        "treatment": "trodden_earth",
+        "fords": true,
+        "existence": {
+          "confidence": "reconstructed",
+          "sources": [
+            "currey_1912_story_of_old_fort_dearborn",
+            "kinzie_waubun_1856"
+          ],
+          "note": "Currey (1912): 'groups of Indian wigwams clustered along the creek', the Potawatomi's 'favorite camping place'. That the groups wore paths between them is this project's reading of a camp of some seven hundred people a few dozen metres apart."
+        },
+        "alignment": "reconstructed: the least-cost route between the two groups' worn edges, round every other group",
+        "line_local_enu_m": [
+          [
+            703.18,
+            -134.26
+          ],
+          [
+            701.64,
+            -136.05
+          ],
+          [
+            700.09,
+            -137.84
+          ],
+          [
+            698.54,
+            -139.62
+          ],
+          [
+            696.99,
+            -141.4
+          ],
+          [
+            695.44,
+            -143.18
+          ],
+          [
+            693.9,
+            -144.97
+          ],
+          [
+            692.35,
+            -146.75
+          ]
+        ],
+        "length_m": 16.5,
+        "wet_vertices": 0
+      },
+      {
+        "id": "camp_path_middle_to_south_bend_1812",
+        "name": "A camp path between the middle and south bend groups",
+        "form": "tread",
+        "width_m": 1.0,
+        "wear": 0.55,
+        "treatment": "trodden_earth",
+        "fords": true,
+        "existence": {
+          "confidence": "reconstructed",
+          "sources": [
+            "currey_1912_story_of_old_fort_dearborn",
+            "kinzie_waubun_1856"
+          ],
+          "note": "Currey (1912): 'groups of Indian wigwams clustered along the creek', the Potawatomi's 'favorite camping place'. That the groups wore paths between them is this project's reading of a camp of some seven hundred people a few dozen metres apart."
+        },
+        "alignment": "reconstructed: the least-cost route between the two groups' worn edges, round every other group",
+        "line_local_enu_m": [
+          [
+            765.16,
+            -188.83
+          ],
+          [
+            764.29,
+            -191.19
+          ],
+          [
+            763.45,
+            -193.57
+          ],
+          [
+            762.63,
+            -195.95
+          ],
+          [
+            761.82,
+            -198.33
+          ],
+          [
+            760.94,
+            -200.69
+          ],
+          [
+            759.96,
+            -203.01
+          ],
+          [
+            758.97,
+            -205.33
+          ],
+          [
+            757.97,
+            -207.64
+          ],
+          [
+            756.96,
+            -209.95
+          ]
+        ],
+        "length_m": 22.7,
+        "wet_vertices": 0
+      },
+      {
+        "id": "camp_path_mouth_to_north_flat_1812",
+        "name": "A camp path between the mouth and north flat groups",
+        "form": "tread",
+        "width_m": 1.0,
+        "wear": 0.55,
+        "treatment": "trodden_earth",
+        "fords": true,
+        "existence": {
+          "confidence": "reconstructed",
+          "sources": [
+            "currey_1912_story_of_old_fort_dearborn",
+            "kinzie_waubun_1856"
+          ],
+          "note": "Currey (1912): 'groups of Indian wigwams clustered along the creek', the Potawatomi's 'favorite camping place'. That the groups wore paths between them is this project's reading of a camp of some seven hundred people a few dozen metres apart."
+        },
+        "alignment": "reconstructed: the least-cost route between the two groups' worn edges, round every other group",
+        "line_local_enu_m": [
+          [
+            768.93,
+            -43.41
+          ],
+          [
+            767.15,
+            -45.15
+          ],
+          [
+            765.36,
+            -46.89
+          ],
+          [
+            763.57,
+            -48.61
+          ],
+          [
+            761.77,
+            -50.34
+          ],
+          [
+            759.97,
+            -52.06
+          ],
+          [
+            758.17,
+            -53.79
+          ],
+          [
+            756.38,
+            -55.52
+          ],
+          [
+            754.6,
+            -57.27
+          ],
+          [
+            752.83,
+            -59.02
+          ],
+          [
+            751.06,
+            -60.78
+          ],
+          [
+            749.26,
+            -62.51
+          ],
+          [
+            747.44,
+            -64.21
+          ],
+          [
+            745.59,
+            -65.89
+          ],
+          [
+            743.67,
+            -67.49
+          ],
+          [
+            741.71,
+            -69.03
+          ],
+          [
+            739.69,
+            -70.51
+          ],
+          [
+            737.6,
+            -71.89
+          ],
+          [
+            735.45,
+            -73.16
+          ],
+          [
+            733.21,
+            -74.28
+          ],
+          [
+            730.87,
+            -75.15
+          ],
+          [
+            728.49,
+            -75.91
+          ],
+          [
+            726.12,
+            -76.68
+          ],
+          [
+            723.76,
+            -77.46
+          ]
+        ],
+        "length_m": 57.4,
+        "wet_vertices": 0
+      },
+      {
+        "id": "camp_path_prairie_west_to_upper_1812",
+        "name": "A camp path between the prairie west and upper groups",
+        "form": "tread",
+        "width_m": 0.8,
+        "wear": 0.4,
+        "treatment": "trodden_earth",
+        "fords": true,
+        "existence": {
+          "confidence": "reconstructed",
+          "sources": [
+            "currey_1912_story_of_old_fort_dearborn",
+            "kinzie_waubun_1856"
+          ],
+          "note": "Currey (1912): 'groups of Indian wigwams clustered along the creek', the Potawatomi's 'favorite camping place'. That the groups wore paths between them is this project's reading of a camp of some seven hundred people a few dozen metres apart."
+        },
+        "alignment": "reconstructed: the least-cost route between the two groups' worn edges, round every other group; a short link the spanning tree left out",
+        "line_local_enu_m": [
+          [
+            595.37,
+            -168.39
+          ],
+          [
+            597.12,
+            -170.16
+          ],
+          [
+            598.86,
+            -171.92
+          ],
+          [
+            600.6,
+            -173.7
+          ],
+          [
+            602.34,
+            -175.47
+          ],
+          [
+            604.07,
+            -177.25
+          ],
+          [
+            605.8,
+            -179.03
+          ],
+          [
+            607.52,
+            -180.82
+          ],
+          [
+            609.23,
+            -182.62
+          ],
+          [
+            610.93,
+            -184.43
+          ],
+          [
+            612.62,
+            -186.25
+          ],
+          [
+            614.32,
+            -188.06
+          ],
+          [
+            616.01,
+            -189.87
+          ],
+          [
+            617.69,
+            -191.69
+          ],
+          [
+            619.36,
+            -193.52
+          ],
+          [
+            621.02,
+            -195.35
+          ],
+          [
+            622.65,
+            -197.21
+          ],
+          [
+            624.19,
+            -199.12
+          ],
+          [
+            625.32,
+            -201.23
+          ],
+          [
+            625.5,
+            -203.69
+          ]
+        ],
+        "length_m": 47.0,
+        "wet_vertices": 0
+      },
+      {
+        "id": "camp_path_south_bend_to_south_prairie_1812",
+        "name": "A camp path between the south bend and south prairie groups",
+        "form": "tread",
+        "width_m": 1.0,
+        "wear": 0.55,
+        "treatment": "trodden_earth",
+        "fords": true,
+        "existence": {
+          "confidence": "reconstructed",
+          "sources": [
+            "currey_1912_story_of_old_fort_dearborn",
+            "kinzie_waubun_1856"
+          ],
+          "note": "Currey (1912): 'groups of Indian wigwams clustered along the creek', the Potawatomi's 'favorite camping place'. That the groups wore paths between them is this project's reading of a camp of some seven hundred people a few dozen metres apart."
+        },
+        "alignment": "reconstructed: the least-cost route between the two groups' worn edges, round every other group",
+        "line_local_enu_m": [
+          [
+            753.6,
+            -227.99
+          ],
+          [
+            753.73,
+            -230.36
+          ],
+          [
+            753.86,
+            -232.73
+          ],
+          [
+            753.99,
+            -235.09
+          ],
+          [
+            754.11,
+            -237.46
+          ],
+          [
+            754.05,
+            -239.83
+          ],
+          [
+            753.99,
+            -242.2
+          ],
+          [
+            753.94,
+            -244.57
+          ],
+          [
+            753.89,
+            -246.94
+          ]
+        ],
+        "length_m": 19.0,
+        "wet_vertices": 0
+      },
+      {
+        "id": "camp_path_south_bend_to_south_reach_1812",
+        "name": "A camp path between the south bend and south reach groups",
+        "form": "tread",
+        "width_m": 1.0,
+        "wear": 0.55,
+        "treatment": "trodden_earth",
+        "fords": true,
+        "existence": {
+          "confidence": "reconstructed",
+          "sources": [
+            "currey_1912_story_of_old_fort_dearborn",
+            "kinzie_waubun_1856"
+          ],
+          "note": "Currey (1912): 'groups of Indian wigwams clustered along the creek', the Potawatomi's 'favorite camping place'. That the groups wore paths between them is this project's reading of a camp of some seven hundred people a few dozen metres apart."
+        },
+        "alignment": "reconstructed: the least-cost route between the two groups' worn edges, round every other group",
+        "line_local_enu_m": [
+          [
+            741.02,
+            -223.12
+          ],
+          [
+            738.87,
+            -221.86
+          ],
+          [
+            736.43,
+            -222.33
+          ],
+          [
+            734.08,
+            -223.28
+          ],
+          [
+            731.78,
+            -224.37
+          ],
+          [
+            729.51,
+            -225.53
+          ],
+          [
+            727.19,
+            -226.58
+          ],
+          [
+            724.86,
+            -227.64
+          ],
+          [
+            722.53,
+            -228.7
+          ],
+          [
+            720.2,
+            -229.76
+          ],
+          [
+            717.87,
+            -230.82
+          ]
+        ],
+        "length_m": 25.4,
+        "wet_vertices": 0
+      },
+      {
+        "id": "camp_path_south_prairie_to_south_reach_1812",
+        "name": "A camp path between the south prairie and south reach groups",
+        "form": "tread",
+        "width_m": 0.8,
+        "wear": 0.4,
+        "treatment": "trodden_earth",
+        "fords": true,
+        "existence": {
+          "confidence": "reconstructed",
+          "sources": [
+            "currey_1912_story_of_old_fort_dearborn",
+            "kinzie_waubun_1856"
+          ],
+          "note": "Currey (1912): 'groups of Indian wigwams clustered along the creek', the Potawatomi's 'favorite camping place'. That the groups wore paths between them is this project's reading of a camp of some seven hundred people a few dozen metres apart."
+        },
+        "alignment": "reconstructed: the least-cost route between the two groups' worn edges, round every other group; a short link the spanning tree left out",
+        "line_local_enu_m": [
+          [
+            741.51,
+            -251.45
+          ],
+          [
+            739.27,
+            -250.51
+          ],
+          [
+            737.03,
+            -249.59
+          ],
+          [
+            734.78,
+            -248.68
+          ],
+          [
+            732.53,
+            -247.78
+          ],
+          [
+            730.27,
+            -246.89
+          ],
+          [
+            728.01,
+            -246.0
+          ],
+          [
+            725.83,
+            -244.94
+          ],
+          [
+            723.66,
+            -243.85
+          ],
+          [
+            721.49,
+            -242.77
+          ],
+          [
+            719.32,
+            -241.68
+          ],
+          [
+            717.15,
+            -240.6
+          ],
+          [
+            714.97,
+            -239.52
+          ]
+        ],
+        "length_m": 29.1,
+        "wet_vertices": 0
+      },
+      {
+        "id": "camp_path_south_prairie_to_south_west_1812",
+        "name": "A camp path between the south prairie and south west groups",
+        "form": "tread",
+        "width_m": 0.8,
+        "wear": 0.4,
+        "treatment": "trodden_earth",
+        "fords": true,
+        "existence": {
+          "confidence": "reconstructed",
+          "sources": [
+            "currey_1912_story_of_old_fort_dearborn",
+            "kinzie_waubun_1856"
+          ],
+          "note": "Currey (1912): 'groups of Indian wigwams clustered along the creek', the Potawatomi's 'favorite camping place'. That the groups wore paths between them is this project's reading of a camp of some seven hundred people a few dozen metres apart."
+        },
+        "alignment": "reconstructed: the least-cost route between the two groups' worn edges, round every other group; a short link the spanning tree left out",
+        "line_local_enu_m": [
+          [
+            742.08,
+            -260.43
+          ],
+          [
+            739.6,
+            -260.59
+          ],
+          [
+            737.11,
+            -260.74
+          ],
+          [
+            734.62,
+            -260.89
+          ],
+          [
+            732.14,
+            -261.04
+          ],
+          [
+            729.69,
+            -261.35
+          ],
+          [
+            727.26,
+            -261.81
+          ],
+          [
+            724.87,
+            -262.4
+          ],
+          [
+            722.51,
+            -263.11
+          ],
+          [
+            720.14,
+            -263.83
+          ],
+          [
+            717.8,
+            -264.66
+          ],
+          [
+            715.5,
+            -265.6
+          ],
+          [
+            713.25,
+            -266.65
+          ],
+          [
+            710.99,
+            -267.72
+          ],
+          [
+            708.75,
+            -268.8
+          ],
+          [
+            706.51,
+            -269.9
+          ],
+          [
+            704.28,
+            -271.0
+          ]
+        ],
+        "length_m": 39.7,
+        "wet_vertices": 0
+      },
+      {
+        "id": "camp_path_south_reach_to_south_west_1812",
+        "name": "A camp path between the south reach and south west groups",
+        "form": "tread",
+        "width_m": 1.0,
+        "wear": 0.55,
+        "treatment": "trodden_earth",
+        "fords": true,
+        "existence": {
+          "confidence": "reconstructed",
+          "sources": [
+            "currey_1912_story_of_old_fort_dearborn",
+            "kinzie_waubun_1856"
+          ],
+          "note": "Currey (1912): 'groups of Indian wigwams clustered along the creek', the Potawatomi's 'favorite camping place'. That the groups wore paths between them is this project's reading of a camp of some seven hundred people a few dozen metres apart."
+        },
+        "alignment": "reconstructed: the least-cost route between the two groups' worn edges, round every other group",
+        "line_local_enu_m": [
+          [
+            703.05,
+            -242.12
+          ],
+          [
+            702.28,
+            -244.64
+          ],
+          [
+            701.51,
+            -247.16
+          ],
+          [
+            700.72,
+            -249.67
+          ],
+          [
+            699.91,
+            -252.18
+          ],
+          [
+            699.21,
+            -254.72
+          ],
+          [
+            698.53,
+            -257.26
+          ],
+          [
+            697.87,
+            -259.81
+          ],
+          [
+            697.22,
+            -262.37
+          ]
+        ],
+        "length_m": 21.1,
+        "wet_vertices": 0
+      },
+      {
+        "id": "camp_water_path_mouth_1812",
+        "name": "The mouth group's path down to the water",
+        "form": "tread",
+        "width_m": 1.0,
+        "wear": 0.6,
+        "treatment": "trodden_earth",
+        "existence": {
+          "confidence": "reconstructed",
+          "sources": [
+            "kinzie_waubun_1856"
+          ],
+          "note": "Wau-Bun ch. XIX: at the wigwam Mrs. Helm was led to, water was dipped 'from a stream that flowed near'. Every lodge carried its water, every day, so each group wore a path to the bank, and the groups behind ran theirs into it."
+        },
+        "alignment": "reconstructed: the least-cost route from the group's worn edge to the dry bank above the nearest open water, ending where it meets a water path already worn",
+        "line_local_enu_m": [
+          [
+            789.58,
+            -29.81
+          ],
+          [
+            791.06,
+            -28.38
+          ],
+          [
+            792.55,
+            -26.96
+          ],
+          [
+            794.04,
+            -25.56
+          ],
+          [
+            795.56,
+            -24.18
+          ],
+          [
+            797.16,
+            -22.93
+          ],
+          [
+            798.86,
+            -21.82
+          ],
+          [
+            800.56,
+            -20.76
+          ],
+          [
+            802.38,
+            -19.91
+          ],
+          [
+            804.29,
+            -19.26
+          ],
+          [
+            806.29,
+            -18.83
+          ],
+          [
+            808.3,
+            -18.4
+          ],
+          [
+            810.31,
+            -17.96
+          ]
+        ],
+        "length_m": 24.5,
+        "wet_vertices": 0
+      },
+      {
+        "id": "camp_water_path_north_flat_1812",
+        "name": "The north flat group's path down to the water",
+        "form": "tread",
+        "width_m": 1.0,
+        "wear": 0.6,
+        "treatment": "trodden_earth",
+        "existence": {
+          "confidence": "reconstructed",
+          "sources": [
+            "kinzie_waubun_1856"
+          ],
+          "note": "Wau-Bun ch. XIX: at the wigwam Mrs. Helm was led to, water was dipped 'from a stream that flowed near'. Every lodge carried its water, every day, so each group wore a path to the bank, and the groups behind ran theirs into it."
+        },
+        "alignment": "reconstructed: the least-cost route from the group's worn edge to the dry bank above the nearest open water, ending where it meets a water path already worn",
+        "line_local_enu_m": [
+          [
+            713.83,
+            -76.1
+          ],
+          [
+            713.8,
+            -74.09
+          ],
+          [
+            713.78,
+            -72.08
+          ],
+          [
+            713.76,
+            -70.07
+          ],
+          [
+            713.75,
+            -68.06
+          ],
+          [
+            713.75,
+            -66.06
+          ],
+          [
+            713.74,
+            -64.05
+          ],
+          [
+            713.74,
+            -62.04
+          ],
+          [
+            713.74,
+            -60.03
+          ],
+          [
+            713.74,
+            -58.02
+          ],
+          [
+            713.74,
+            -56.01
+          ],
+          [
+            713.74,
+            -54.0
+          ],
+          [
+            713.74,
+            -51.99
+          ],
+          [
+            713.75,
+            -49.98
+          ],
+          [
+            713.77,
+            -47.97
+          ],
+          [
+            713.85,
+            -45.97
+          ],
+          [
+            713.94,
+            -43.96
+          ],
+          [
+            714.05,
+            -41.95
+          ],
+          [
+            714.23,
+            -39.95
+          ],
+          [
+            714.43,
+            -37.96
+          ],
+          [
+            714.7,
+            -35.97
+          ],
+          [
+            715.01,
+            -33.99
+          ],
+          [
+            715.38,
+            -32.02
+          ],
+          [
+            715.81,
+            -30.08
+          ],
+          [
+            716.33,
+            -28.16
+          ],
+          [
+            716.91,
+            -26.29
+          ],
+          [
+            717.68,
+            -24.53
+          ],
+          [
+            718.6,
+            -22.92
+          ],
+          [
+            719.88,
+            -21.5
+          ],
+          [
+            721.21,
+            -19.85
+          ],
+          [
+            722.25,
+            -17.94
+          ],
+          [
+            723.01,
+            -15.95
+          ],
+          [
+            723.56,
+            -13.92
+          ],
+          [
+            723.96,
+            -11.87
+          ],
+          [
+            724.18,
+            -9.8
+          ],
+          [
+            724.21,
+            -7.74
+          ],
+          [
+            724.18,
+            -5.7
+          ],
+          [
+            724.08,
+            -3.66
+          ],
+          [
+            723.92,
+            -1.64
+          ],
+          [
+            723.72,
+            0.37
+          ],
+          [
+            723.53,
+            2.38
+          ],
+          [
+            723.35,
+            4.38
+          ],
+          [
+            723.16,
+            6.38
+          ],
+          [
+            722.98,
+            8.38
+          ],
+          [
+            722.81,
+            10.39
+          ],
+          [
+            722.63,
+            12.39
+          ],
+          [
+            722.45,
+            14.39
+          ]
+        ],
+        "length_m": 92.8,
+        "wet_vertices": 0
+      },
+      {
+        "id": "camp_water_path_far_west_1812",
+        "name": "The far west group's path down to the water",
+        "form": "tread",
+        "width_m": 1.0,
+        "wear": 0.6,
+        "treatment": "trodden_earth",
+        "existence": {
+          "confidence": "reconstructed",
+          "sources": [
+            "kinzie_waubun_1856"
+          ],
+          "note": "Wau-Bun ch. XIX: at the wigwam Mrs. Helm was led to, water was dipped 'from a stream that flowed near'. Every lodge carried its water, every day, so each group wore a path to the bank, and the groups behind ran theirs into it."
+        },
+        "alignment": "reconstructed: the least-cost route from the group's worn edge to the dry bank above the nearest open water, ending where it meets a water path already worn",
+        "line_local_enu_m": [
+          [
+            594.41,
+            -106.62
+          ],
+          [
+            594.38,
+            -104.6
+          ],
+          [
+            594.36,
+            -102.59
+          ],
+          [
+            594.34,
+            -100.57
+          ],
+          [
+            594.34,
+            -98.56
+          ],
+          [
+            594.34,
+            -96.55
+          ],
+          [
+            594.35,
+            -94.53
+          ],
+          [
+            594.36,
+            -92.52
+          ],
+          [
+            594.37,
+            -90.5
+          ],
+          [
+            594.38,
+            -88.49
+          ],
+          [
+            594.38,
+            -86.48
+          ],
+          [
+            594.37,
+            -84.46
+          ],
+          [
+            594.35,
+            -82.45
+          ],
+          [
+            594.31,
+            -80.43
+          ],
+          [
+            594.27,
+            -78.42
+          ],
+          [
+            594.23,
+            -76.41
+          ],
+          [
+            594.18,
+            -74.39
+          ],
+          [
+            594.13,
+            -72.38
+          ],
+          [
+            594.09,
+            -70.36
+          ],
+          [
+            594.05,
+            -68.35
+          ],
+          [
+            594.03,
+            -66.34
+          ],
+          [
+            594.01,
+            -64.32
+          ],
+          [
+            594.01,
+            -62.31
+          ],
+          [
+            594.02,
+            -60.29
+          ],
+          [
+            594.05,
+            -58.28
+          ],
+          [
+            594.1,
+            -56.26
+          ],
+          [
+            594.16,
+            -54.25
+          ],
+          [
+            594.24,
+            -52.24
+          ],
+          [
+            594.31,
+            -50.22
+          ],
+          [
+            594.4,
+            -48.21
+          ],
+          [
+            594.5,
+            -46.2
+          ],
+          [
+            594.6,
+            -44.18
+          ],
+          [
+            594.7,
+            -42.17
+          ],
+          [
+            594.8,
+            -40.16
+          ],
+          [
+            594.91,
+            -38.15
+          ],
+          [
+            595.01,
+            -36.14
+          ],
+          [
+            595.12,
+            -34.13
+          ],
+          [
+            595.25,
+            -32.12
+          ],
+          [
+            595.39,
+            -30.11
+          ],
+          [
+            595.55,
+            -28.11
+          ],
+          [
+            595.75,
+            -26.11
+          ],
+          [
+            595.98,
+            -24.12
+          ],
+          [
+            596.31,
+            -22.16
+          ],
+          [
+            596.79,
+            -20.29
+          ],
+          [
+            597.84,
+            -18.67
+          ],
+          [
+            598.71,
+            -16.78
+          ],
+          [
+            599.31,
+            -14.79
+          ],
+          [
+            599.77,
+            -12.79
+          ],
+          [
+            600.14,
+            -10.79
+          ],
+          [
+            600.45,
+            -8.78
+          ],
+          [
+            600.65,
+            -6.75
+          ],
+          [
+            600.79,
+            -4.73
+          ],
+          [
+            600.91,
+            -2.71
+          ],
+          [
+            600.96,
+            -0.69
+          ],
+          [
+            600.99,
+            1.33
+          ],
+          [
+            601.01,
+            3.34
+          ],
+          [
+            601.01,
+            5.36
+          ],
+          [
+            601.0,
+            7.37
+          ],
+          [
+            600.99,
+            9.39
+          ],
+          [
+            600.97,
+            11.41
+          ],
+          [
+            600.96,
+            13.43
+          ],
+          [
+            600.95,
+            15.44
+          ]
+        ],
+        "length_m": 122.9,
+        "wet_vertices": 0
+      },
+      {
+        "id": "camp_water_path_horse_ground_1812",
+        "name": "The horse ground group's path down to the water",
+        "form": "tread",
+        "width_m": 1.0,
+        "wear": 0.6,
+        "treatment": "trodden_earth",
+        "existence": {
+          "confidence": "reconstructed",
+          "sources": [
+            "kinzie_waubun_1856"
+          ],
+          "note": "Wau-Bun ch. XIX: at the wigwam Mrs. Helm was led to, water was dipped 'from a stream that flowed near'. Every lodge carried its water, every day, so each group wore a path to the bank, and the groups behind ran theirs into it."
+        },
+        "alignment": "reconstructed: the least-cost route from the group's worn edge to the dry bank above the nearest open water, ending where it meets a water path already worn",
+        "line_local_enu_m": [
+          [
+            709.59,
+            -118.14
+          ],
+          [
+            710.95,
+            -116.67
+          ],
+          [
+            712.31,
+            -115.2
+          ],
+          [
+            713.67,
+            -113.73
+          ],
+          [
+            715.03,
+            -112.27
+          ],
+          [
+            716.4,
+            -110.81
+          ],
+          [
+            717.77,
+            -109.35
+          ],
+          [
+            719.14,
+            -107.89
+          ],
+          [
+            720.5,
+            -106.43
+          ],
+          [
+            721.87,
+            -104.97
+          ],
+          [
+            723.18,
+            -103.54
+          ],
+          [
+            724.27,
+            -101.92
+          ],
+          [
+            725.36,
+            -100.3
+          ],
+          [
+            726.3,
+            -98.61
+          ],
+          [
+            727.24,
+            -96.87
+          ],
+          [
+            728.12,
+            -95.14
+          ],
+          [
+            728.85,
+            -93.32
+          ],
+          [
+            729.6,
+            -91.49
+          ],
+          [
+            730.24,
+            -89.64
+          ],
+          [
+            730.82,
+            -87.75
+          ],
+          [
+            731.41,
+            -85.85
+          ],
+          [
+            731.89,
+            -83.94
+          ],
+          [
+            732.33,
+            -82.0
+          ],
+          [
+            732.76,
+            -80.06
+          ],
+          [
+            733.13,
+            -78.11
+          ],
+          [
+            733.42,
+            -76.14
+          ],
+          [
+            733.7,
+            -74.16
+          ],
+          [
+            733.97,
+            -72.18
+          ],
+          [
+            734.1,
+            -70.2
+          ],
+          [
+            734.23,
+            -68.2
+          ],
+          [
+            734.34,
+            -66.21
+          ],
+          [
+            734.41,
+            -64.21
+          ],
+          [
+            734.39,
+            -62.22
+          ],
+          [
+            734.36,
+            -60.22
+          ],
+          [
+            734.32,
+            -58.22
+          ],
+          [
+            734.27,
+            -56.23
+          ],
+          [
+            734.17,
+            -54.23
+          ],
+          [
+            734.08,
+            -52.24
+          ],
+          [
+            733.98,
+            -50.24
+          ],
+          [
+            733.86,
+            -48.25
+          ],
+          [
+            733.71,
+            -46.26
+          ],
+          [
+            733.58,
+            -44.27
+          ],
+          [
+            733.42,
+            -42.29
+          ],
+          [
+            733.21,
+            -40.31
+          ],
+          [
+            733.03,
+            -38.33
+          ],
+          [
+            732.8,
+            -36.36
+          ],
+          [
+            732.52,
+            -34.39
+          ],
+          [
+            732.2,
+            -32.43
+          ],
+          [
+            731.74,
+            -30.5
+          ],
+          [
+            731.2,
+            -28.59
+          ],
+          [
+            730.48,
+            -26.74
+          ],
+          [
+            729.5,
+            -25.04
+          ],
+          [
+            728.17,
+            -23.61
+          ],
+          [
+            726.57,
+            -22.43
+          ],
+          [
+            724.96,
+            -21.24
+          ],
+          [
+            723.35,
+            -20.05
+          ],
+          [
+            721.75,
+            -18.86
+          ]
+        ],
+        "length_m": 111.2,
+        "wet_vertices": 0
+      },
+      {
+        "id": "camp_water_path_middle_1812",
+        "name": "The middle group's path down to the water",
+        "form": "tread",
+        "width_m": 1.0,
+        "wear": 0.6,
+        "treatment": "trodden_earth",
+        "existence": {
+          "confidence": "reconstructed",
+          "sources": [
+            "kinzie_waubun_1856"
+          ],
+          "note": "Wau-Bun ch. XIX: at the wigwam Mrs. Helm was led to, water was dipped 'from a stream that flowed near'. Every lodge carried its water, every day, so each group wore a path to the bank, and the groups behind ran theirs into it."
+        },
+        "alignment": "reconstructed: the least-cost route from the group's worn edge to the dry bank above the nearest open water, ending where it meets a water path already worn",
+        "line_local_enu_m": [
+          [
+            773.16,
+            -163.67
+          ],
+          [
+            773.22,
+            -161.67
+          ],
+          [
+            773.29,
+            -159.67
+          ],
+          [
+            773.37,
+            -157.67
+          ],
+          [
+            773.47,
+            -155.68
+          ],
+          [
+            773.57,
+            -153.68
+          ],
+          [
+            773.69,
+            -151.68
+          ],
+          [
+            773.82,
+            -149.68
+          ],
+          [
+            773.96,
+            -147.71
+          ],
+          [
+            774.25,
+            -145.8
+          ],
+          [
+            774.65,
+            -143.91
+          ],
+          [
+            775.19,
+            -142.05
+          ],
+          [
+            775.81,
+            -140.22
+          ],
+          [
+            776.46,
+            -138.41
+          ],
+          [
+            777.15,
+            -136.59
+          ],
+          [
+            777.85,
+            -134.79
+          ],
+          [
+            778.68,
+            -133.03
+          ],
+          [
+            779.51,
+            -131.25
+          ],
+          [
+            780.43,
+            -129.53
+          ],
+          [
+            781.39,
+            -127.79
+          ],
+          [
+            782.35,
+            -126.08
+          ],
+          [
+            783.42,
+            -124.42
+          ],
+          [
+            784.5,
+            -122.75
+          ],
+          [
+            785.6,
+            -121.11
+          ],
+          [
+            786.78,
+            -119.52
+          ],
+          [
+            787.98,
+            -117.92
+          ],
+          [
+            789.18,
+            -116.35
+          ],
+          [
+            790.46,
+            -114.83
+          ],
+          [
+            791.75,
+            -113.3
+          ],
+          [
+            793.05,
+            -111.76
+          ],
+          [
+            794.21,
+            -110.09
+          ],
+          [
+            795.32,
+            -108.42
+          ],
+          [
+            796.42,
+            -106.75
+          ],
+          [
+            797.44,
+            -105.0
+          ],
+          [
+            798.35,
+            -103.21
+          ],
+          [
+            799.23,
+            -101.42
+          ],
+          [
+            800.12,
+            -99.61
+          ],
+          [
+            800.81,
+            -97.72
+          ],
+          [
+            801.48,
+            -95.84
+          ],
+          [
+            802.15,
+            -93.95
+          ],
+          [
+            802.74,
+            -92.05
+          ],
+          [
+            803.23,
+            -90.11
+          ],
+          [
+            803.71,
+            -88.17
+          ],
+          [
+            804.21,
+            -86.25
+          ],
+          [
+            804.59,
+            -84.3
+          ],
+          [
+            804.93,
+            -82.34
+          ],
+          [
+            805.29,
+            -80.37
+          ],
+          [
+            805.66,
+            -78.42
+          ],
+          [
+            805.93,
+            -76.47
+          ],
+          [
+            806.17,
+            -74.49
+          ],
+          [
+            806.42,
+            -72.51
+          ],
+          [
+            806.69,
+            -70.53
+          ],
+          [
+            806.88,
+            -68.56
+          ],
+          [
+            807.02,
+            -66.58
+          ],
+          [
+            807.16,
+            -64.58
+          ],
+          [
+            807.29,
+            -62.59
+          ],
+          [
+            807.41,
+            -60.61
+          ],
+          [
+            807.41,
+            -58.62
+          ],
+          [
+            807.4,
+            -56.62
+          ],
+          [
+            807.38,
+            -54.62
+          ],
+          [
+            807.35,
+            -52.62
+          ],
+          [
+            807.32,
+            -50.62
+          ],
+          [
+            807.27,
+            -48.63
+          ],
+          [
+            807.22,
+            -46.63
+          ],
+          [
+            807.16,
+            -44.63
+          ],
+          [
+            807.12,
+            -42.63
+          ],
+          [
+            807.09,
+            -40.64
+          ],
+          [
+            807.07,
+            -38.64
+          ],
+          [
+            807.06,
+            -36.64
+          ],
+          [
+            807.05,
+            -34.64
+          ],
+          [
+            807.05,
+            -32.65
+          ],
+          [
+            807.06,
+            -30.65
+          ],
+          [
+            807.07,
+            -28.65
+          ],
+          [
+            807.08,
+            -26.65
+          ],
+          [
+            807.08,
+            -24.65
+          ],
+          [
+            807.09,
+            -22.65
+          ],
+          [
+            807.09,
+            -20.66
+          ],
+          [
+            807.09,
+            -18.66
+          ]
+        ],
+        "length_m": 153.1,
+        "wet_vertices": 0
+      },
+      {
+        "id": "camp_water_path_west_bank_1812",
+        "name": "The west bank group's path down to the water",
+        "form": "tread",
+        "width_m": 1.0,
+        "wear": 0.6,
+        "treatment": "trodden_earth",
+        "existence": {
+          "confidence": "reconstructed",
+          "sources": [
+            "kinzie_waubun_1856"
+          ],
+          "note": "Wau-Bun ch. XIX: at the wigwam Mrs. Helm was led to, water was dipped 'from a stream that flowed near'. Every lodge carried its water, every day, so each group wore a path to the bank, and the groups behind ran theirs into it."
+        },
+        "alignment": "reconstructed: the least-cost route from the group's worn edge to the dry bank above the nearest open water, ending where it meets a water path already worn",
+        "line_local_enu_m": [
+          [
+            686.46,
+            -145.52
+          ],
+          [
+            686.42,
+            -143.53
+          ],
+          [
+            686.37,
+            -141.53
+          ],
+          [
+            686.33,
+            -139.54
+          ],
+          [
+            686.29,
+            -137.55
+          ],
+          [
+            686.26,
+            -135.56
+          ],
+          [
+            686.23,
+            -133.57
+          ],
+          [
+            686.22,
+            -131.58
+          ],
+          [
+            686.22,
+            -129.58
+          ],
+          [
+            686.23,
+            -127.59
+          ],
+          [
+            686.25,
+            -125.6
+          ],
+          [
+            686.28,
+            -123.61
+          ],
+          [
+            686.31,
+            -121.62
+          ],
+          [
+            686.34,
+            -119.63
+          ],
+          [
+            686.37,
+            -117.64
+          ],
+          [
+            686.39,
+            -115.64
+          ],
+          [
+            686.4,
+            -113.65
+          ],
+          [
+            686.39,
+            -111.66
+          ],
+          [
+            686.37,
+            -109.67
+          ],
+          [
+            686.38,
+            -107.67
+          ],
+          [
+            686.41,
+            -105.68
+          ],
+          [
+            686.42,
+            -103.69
+          ],
+          [
+            686.44,
+            -101.69
+          ],
+          [
+            686.53,
+            -99.7
+          ],
+          [
+            686.63,
+            -97.71
+          ],
+          [
+            686.73,
+            -95.71
+          ],
+          [
+            686.91,
+            -93.72
+          ],
+          [
+            687.13,
+            -91.74
+          ],
+          [
+            687.36,
+            -89.75
+          ],
+          [
+            687.7,
+            -87.77
+          ],
+          [
+            688.09,
+            -85.81
+          ],
+          [
+            688.52,
+            -83.85
+          ],
+          [
+            689.09,
+            -81.93
+          ],
+          [
+            689.67,
+            -80.0
+          ],
+          [
+            690.47,
+            -78.16
+          ],
+          [
+            691.31,
+            -76.33
+          ],
+          [
+            692.41,
+            -74.64
+          ],
+          [
+            693.71,
+            -73.12
+          ],
+          [
+            695.16,
+            -71.75
+          ],
+          [
+            696.64,
+            -70.41
+          ],
+          [
+            698.15,
+            -69.12
+          ],
+          [
+            699.7,
+            -67.87
+          ],
+          [
+            701.29,
+            -66.67
+          ],
+          [
+            702.93,
+            -65.55
+          ],
+          [
+            704.63,
+            -64.51
+          ],
+          [
+            706.39,
+            -63.58
+          ],
+          [
+            708.22,
+            -62.8
+          ],
+          [
+            710.06,
+            -62.04
+          ],
+          [
+            711.9,
+            -61.28
+          ],
+          [
+            713.74,
+            -60.52
+          ]
+        ],
+        "length_m": 97.8,
+        "wet_vertices": 0
+      },
+      {
+        "id": "camp_water_path_prairie_west_1812",
+        "name": "The prairie west group's path down to the water",
+        "form": "tread",
+        "width_m": 1.0,
+        "wear": 0.6,
+        "treatment": "trodden_earth",
+        "existence": {
+          "confidence": "reconstructed",
+          "sources": [
+            "kinzie_waubun_1856"
+          ],
+          "note": "Wau-Bun ch. XIX: at the wigwam Mrs. Helm was led to, water was dipped 'from a stream that flowed near'. Every lodge carried its water, every day, so each group wore a path to the bank, and the groups behind ran theirs into it."
+        },
+        "alignment": "reconstructed: the least-cost route from the group's worn edge to the dry bank above the nearest open water, ending where it meets a water path already worn",
+        "line_local_enu_m": [
+          [
+            587.62,
+            -147.02
+          ],
+          [
+            586.27,
+            -145.53
+          ],
+          [
+            584.93,
+            -144.03
+          ],
+          [
+            583.6,
+            -142.54
+          ],
+          [
+            582.27,
+            -141.05
+          ],
+          [
+            581.11,
+            -139.47
+          ],
+          [
+            580.08,
+            -137.8
+          ],
+          [
+            579.17,
+            -136.07
+          ],
+          [
+            578.36,
+            -134.28
+          ],
+          [
+            577.64,
+            -132.46
+          ],
+          [
+            577.0,
+            -130.6
+          ],
+          [
+            576.42,
+            -128.72
+          ],
+          [
+            575.9,
+            -126.83
+          ],
+          [
+            575.48,
+            -124.95
+          ],
+          [
+            575.28,
+            -123.06
+          ],
+          [
+            575.36,
+            -121.15
+          ],
+          [
+            575.79,
+            -119.28
+          ],
+          [
+            576.49,
+            -117.47
+          ],
+          [
+            577.43,
+            -115.75
+          ],
+          [
+            578.56,
+            -114.14
+          ],
+          [
+            579.87,
+            -112.64
+          ],
+          [
+            581.34,
+            -111.3
+          ],
+          [
+            582.89,
+            -110.04
+          ],
+          [
+            584.51,
+            -108.88
+          ],
+          [
+            586.15,
+            -107.71
+          ],
+          [
+            587.78,
+            -106.55
+          ],
+          [
+            589.42,
+            -105.4
+          ],
+          [
+            591.06,
+            -104.24
+          ],
+          [
+            592.7,
+            -103.09
+          ],
+          [
+            594.35,
+            -101.95
+          ]
+        ],
+        "length_m": 57.2,
+        "wet_vertices": 0
+      },
+      {
+        "id": "camp_path_to_factory_1812",
+        "name": "The camp's path to the agency and the factory",
+        "form": "tread",
+        "width_m": 1.1,
+        "wear": 0.65,
+        "treatment": "trodden_earth",
+        "fords": true,
+        "existence": {
+          "confidence": "inferred",
+          "sources": [
+            "kinzie_waubun_1856",
+            "currey_1912_story_of_old_fort_dearborn"
+          ],
+          "note": "The gathering had come for the factory's goods and the agent's council (Wau-Bun ch. XVIII: the council 'on the afternoon of the 12th'; the goods given out on the 14th). The traffic between the camp and the agency would have worn the camp's busiest line."
+        },
+        "alignment": "reconstructed: the least-cost route from the nearest group (mouth) toward the agent's house door, beside the factory, ending where it meets the south-bank path that runs on to it",
+        "line_local_enu_m": [
+          [
+            789.74,
+            -28.16
+          ],
+          [
+            791.45,
+            -26.44
+          ],
+          [
+            793.29,
+            -24.88
+          ],
+          [
+            795.27,
+            -25.86
+          ],
+          [
+            796.1,
+            -28.15
+          ],
+          [
+            796.7,
+            -30.5
+          ],
+          [
+            797.3,
+            -32.84
+          ]
+        ],
+        "length_m": 14.3,
+        "wet_vertices": 0
       }
     ]
   },
   "census": {
-    "trails": 15,
-    "metres": 14882.2
+    "trails": 39,
+    "metres": 16025.4
   },
   "assertions": [
     {
       "id": "no_trail_on_water",
-      "claim": "no vertex of any trail lies on water, except where the two bank paths ford a creek (the renderer leaves the ford's wet ground undrawn)",
+      "claim": "no vertex of any trail lies on water, except where the two bank paths and the camp paths marked `fords` cross a creek (the renderer leaves the ford's wet ground undrawn)",
       "found": [],
       "holds": true
     },

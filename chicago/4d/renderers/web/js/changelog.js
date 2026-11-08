@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 2832, ts: '2026-11-08T19:20:39.214Z', date: 'Nov 8, 2026, 1:20 PM CT', title: 'Tipping the hat: the hand meets the brim, never goes through it', kind: 'fix',
+    items: [
+      'A man who greets you touches his hat\'s brim from outside and below it; before, his fingers sank through the crown.',
+      'It holds for every hat in every year: Glessner\'s derby, the coachman\'s silk hat over his glove, felt and slouch hats, round hats, the tuque, the infantry cap, and the officers\' cocked hats with their plumes.',
+      'The brim is read off the hat he is wearing, so the hand finds it whether he is standing or walking, nodding or not.',
+      'Arms now reach exactly as far as each person\'s own height draws them.',
+    ] },
+  { v: 2831, ts: '2026-11-08T18:41:19.627Z', date: 'Nov 8, 2026, 12:41 PM CT', title: '1812 people keep busy: talks come and go, jobs between, breaks indoors', kind: 'improvement',
+    items: [
+      'A conversation in 1812 now gathers every minute or two and breaks up again, rather than lasting all day; who comes to each one changes from time to time.',
+      'Between conversations each person works at a job of their own a few metres off, and children play.',
+      'People whose house is nearby go indoors for a while and come out again. While they are in, the door offers Ask for them.',
+      'People who shared one work spot now get a spot each, and every job\'s places are clear of the buildings and the fort\'s pickets.',
+    ] },
   { v: 2830, ts: '2026-11-08T17:06:30.155Z', date: 'Nov 8, 2026, 11:06 AM CT', title: 'Content builds fit their time limit again', kind: 'chore',
     items: [
       'A full rebuild of the town no longer spends eighteen minutes re-encoding the Glessner house\'s textures into bytes it already ships; they are restored from the committed package when the house has not changed.',
