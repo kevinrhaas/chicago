@@ -58,6 +58,7 @@ await new Promise((r) => server.listen(0, r));
 const base = `http://127.0.0.1:${server.address().port}`;
 const browser = await chromium.launch({ executablePath: process.env.PW_EXECUTABLE || undefined, args: ['--use-gl=swiftshader', '--enable-unsafe-swiftshader'] });
 
+const STANDS = {};
 async function shoot(vp, phase) {
   const page = await browser.newPage({ viewport: VIEWPORTS[vp], deviceScaleFactor: 1 });
   const errors = [];
@@ -83,19 +84,37 @@ async function shoot(vp, phase) {
   });
   const rows = [];
   for (const [name, ids] of Object.entries(GROUPS)) {
+    // First go near where the group's records place them, so their figures are made.
+    const seeds = [];
+    for (const id of ids) {
+      try { const j = JSON.parse(await readFile(path.join(HERE, '..', 'data/humans/instances/1812', `hi_town_${id}_1812.json`), 'utf8')); seeds.push([j.placement.local_e, j.placement.local_n]); } catch { /* not a town record */ }
+    }
+    if (seeds.length) {
+      const se = seeds.reduce((s, p) => s + p[0], 0) / seeds.length, sn = seeds.reduce((s, p) => s + p[1], 0) / seeds.length;
+      await page.evaluate((s) => { const api = window.__chicago4d; api.setFly?.(false); api.walker.teleport(s); }, { local_e: se, local_n: sn - 15, yaw_deg: 0, pitch_deg: -3 });
+      await page.waitForTimeout(8000);
+      await page.evaluate(() => { for (let i = 0; i < 8; i++) window.__chicago4d.days?.update?.(0.25); });
+    }
+    // Where the group's people are drawn now (each actor's own root), the ones showing.
     const at = await page.evaluate((ids) => {
       const api = window.__chicago4d, pts = [];
       for (const id of ids) {
-        const a = api.humans?.get?.(id) ?? api.humans?.actors?.find((x) => x.personId === id);
-        const p = a?.instance?.placement;
-        const e = a?.root?.position ?? null;
-        if (a && a.root?.visible === false) continue;
-        if (a && a.e != null) pts.push([a.e, a.n]);
-        else if (p) pts.push([p.local_e, p.local_n]);
+        const a = api.humans?.get?.(id) ?? api.humans?.actors?.find((x) => x.personId === id || x.id === id);
+        if (!a || a.root?.visible === false || !a.root?.parent) continue;
+        const p = a.position;
+        pts.push([p.e, p.n, id]);
       }
       return pts;
     }, ids);
+    console.log(vp, phase, name, JSON.stringify(at.map((p) => [p[2], Math.round(p[0]), Math.round(p[1])])));
+    // The densest knot: everyone within 12 m of the person with the most others near.
+    let knot = [];
+    for (const p of at) { const near = at.filter((q) => Math.hypot(q[0] - p[0], q[1] - p[1]) < 12); if (near.length > knot.length) knot = near; }
+    at.length = 0; at.push(...knot);
+    // BEFORE stands where AFTER stood (the same page; only the persons file differs).
+    if (phase === 'before' && STANDS[`${vp}:${name}`]) at.splice(0, at.length, ...STANDS[`${vp}:${name}`]);
     if (!at.length) continue;
+    STANDS[`${vp}:${name}`] = at.slice();
     const me = at.reduce((s, p) => s + p[0], 0) / at.length, mn = at.reduce((s, p) => s + p[1], 0) / at.length;
     for (const dist of [10, 25]) {
       // From the south-south-west, looking at the group's middle.
