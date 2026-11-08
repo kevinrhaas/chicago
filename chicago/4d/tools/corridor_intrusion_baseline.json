@@ -269,6 +269,23 @@
       "street": "lake",
       "structure": "philo_carpenter_log_shop"
     },
+    "potawatomi_camp_1812_far_west:camp_1812": {
+      "anchor_in": [
+        "clark"
+      ],
+      "anchor_offset_m": 17.64,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [
+        "lake"
+      ],
+      "depth_m": 12.05,
+      "layer": "research",
+      "phase": "camp_1812",
+      "position_confidence": "reconstructed",
+      "street": "lake",
+      "structure": "potawatomi_camp_1812_far_west"
+    },
     "potawatomi_camp_1812_horse_ground:camp_1812": {
       "anchor_in": [
         "dearborn"
@@ -287,6 +304,53 @@
       "street": "dearborn",
       "structure": "potawatomi_camp_1812_horse_ground"
     },
+    "potawatomi_camp_1812_north_flat:camp_1812": {
+      "anchor_in": [
+        "dearborn"
+      ],
+      "anchor_offset_m": 2.27,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [],
+      "depth_m": 12.13,
+      "layer": "research",
+      "phase": "camp_1812",
+      "position_confidence": "reconstructed",
+      "street": "dearborn",
+      "structure": "potawatomi_camp_1812_north_flat"
+    },
+    "potawatomi_camp_1812_prairie_west:camp_1812": {
+      "anchor_in": [
+        "clark"
+      ],
+      "anchor_offset_m": 6.85,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [
+        "clark"
+      ],
+      "depth_m": 12.16,
+      "layer": "research",
+      "phase": "camp_1812",
+      "position_confidence": "reconstructed",
+      "street": "clark",
+      "structure": "potawatomi_camp_1812_prairie_west"
+    },
+    "potawatomi_camp_1812_south_prairie:camp_1812": {
+      "anchor_in": [],
+      "anchor_offset_m": 13.54,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [
+        "randolph"
+      ],
+      "depth_m": 12.15,
+      "layer": "research",
+      "phase": "camp_1812",
+      "position_confidence": "reconstructed",
+      "street": "randolph",
+      "structure": "potawatomi_camp_1812_south_prairie"
+    },
     "potawatomi_camp_1812_south_reach:camp_1812": {
       "anchor_in": [
         "dearborn",
@@ -304,6 +368,21 @@
       "position_confidence": "inferred",
       "street": "dearborn",
       "structure": "potawatomi_camp_1812_south_reach"
+    },
+    "potawatomi_camp_1812_south_west:camp_1812": {
+      "anchor_in": [],
+      "anchor_offset_m": 21.1,
+      "body_toward_street": true,
+      "category": "building",
+      "centroid_in": [
+        "dearborn"
+      ],
+      "depth_m": 12.1,
+      "layer": "research",
+      "phase": "camp_1812",
+      "position_confidence": "reconstructed",
+      "street": "dearborn",
+      "structure": "potawatomi_camp_1812_south_west"
     },
     "potawatomi_camp_1812_west_bank:camp_1812": {
       "anchor_in": [],
@@ -410,7 +489,7 @@
     }
   },
   "measured": "2026-10-15",
-  "placed_phases": 875,
+  "placed_phases": 1039,
   "refused": {
     "first_fort_wharf:first_fort_1803": {
       "depth_m": 5.15,
@@ -472,6 +551,16 @@
       "ticket": "T-0195",
       "why": "T-0195. THE ONLY TRANSLATION THAT CLEARS THIS CORRIDOR RUNS SIDEWAYS ACROSS THE RECORD'S OWN FRONT, so it moves where along South Water Street the building stands \u2014 and the corner is the one part of this placement a source argues. The setback was re-derived against this project's committed South Water centreline by T-0127's method (T-0198, T-0199); the cross-street half of the same offset was left on the OpenStreetMap junction centre, and this residual IS that disagreement. It is refused rather than repaired because the repair would spend a source-argued coordinate on a derived number two orders of magnitude below the placement's own working uncertainty (about 20 m, on a datum with 17.5 m RMS). Argued in full in the record's own position.note; reproduce the geometry with tools/measure_corridor_intrusion.py --escape."
     },
+    "potawatomi_camp_1812_far_west:camp_1812": {
+      "depth_m": 12.05,
+      "escape_bearing_deg": 180.47,
+      "escape_m": 22.847,
+      "escape_vs_facade": "across",
+      "on": "2026-11-08",
+      "street": "lake",
+      "ticket": "T-3499",
+      "why": "T-3499. A CAMP OF AUGUST 1812 ON GROUND THE 1830 PLAT LATER CUT INTO STREETS. The corridor is the platted Lake Street, and no plat of Chicago existed before James Thompson's of 4 August 1830 (thompson_plat_1830); the camp's one phase is August 1812, so the ground and the street never stand in one scene. The ground is one of the seven T-3499 added beside T-3342's six so the camp roofs Helm's count of the gathering, and clearing an eighteen-years-later street (22.8 m) would walk it off the level ground the search chose for it to satisfy a road that did not exist. Refused rather than repaired, as T-3342's horse ground and the first fort's cornfield and wharf are; argued in the record's own position.note."
+    },
     "potawatomi_camp_1812_horse_ground:camp_1812": {
       "depth_m": 12.17,
       "escape_bearing_deg": 90.36,
@@ -482,6 +571,36 @@
       "ticket": "T-3342",
       "why": "T-3342. A CAMP OF AUGUST 1812 ON GROUND THE 1830 PLAT LATER CUT INTO STREETS. The corridor is the platted Dearborn Street, and no plat of Chicago existed before James Thompson's of 4 August 1830 (thompson_plat_1830); the camp's one phase is August 1812, so the ground and the street never stand in one scene. The camp's grounds are laid between the fort and the creek Currey names as the Potawatomi's camping place, and clearing an eighteen-years-later street (18.4 m along its own front) would walk a ground away from that place to satisfy a road that did not exist. Refused rather than repaired, as the first fort's cornfield and wharf are (T-2512, T-2508); argued in the record's own position.note."
     },
+    "potawatomi_camp_1812_north_flat:camp_1812": {
+      "depth_m": 12.13,
+      "escape_bearing_deg": 90.36,
+      "escape_m": 14.632,
+      "escape_vs_facade": "along",
+      "on": "2026-11-08",
+      "street": "dearborn",
+      "ticket": "T-3499",
+      "why": "T-3499. A CAMP OF AUGUST 1812 ON GROUND THE 1830 PLAT LATER CUT INTO STREETS. The corridor is the platted Dearborn Street, and no plat of Chicago existed before James Thompson's of 4 August 1830 (thompson_plat_1830); the camp's one phase is August 1812, so the ground and the street never stand in one scene. The ground is one of the seven T-3499 added beside T-3342's six so the camp roofs Helm's count of the gathering, and clearing an eighteen-years-later street (14.6 m) would walk it off the level ground the search chose for it to satisfy a road that did not exist. Refused rather than repaired, as T-3342's horse ground and the first fort's cornfield and wharf are; argued in the record's own position.note."
+    },
+    "potawatomi_camp_1812_prairie_west:camp_1812": {
+      "depth_m": 12.16,
+      "escape_bearing_deg": 90.36,
+      "escape_m": 19.219,
+      "escape_vs_facade": "along",
+      "on": "2026-11-08",
+      "street": "clark",
+      "ticket": "T-3499",
+      "why": "T-3499. A CAMP OF AUGUST 1812 ON GROUND THE 1830 PLAT LATER CUT INTO STREETS. The corridor is the platted Clark Street, and no plat of Chicago existed before James Thompson's of 4 August 1830 (thompson_plat_1830); the camp's one phase is August 1812, so the ground and the street never stand in one scene. The ground is one of the seven T-3499 added beside T-3342's six so the camp roofs Helm's count of the gathering, and clearing an eighteen-years-later street (19.2 m) would walk it off the level ground the search chose for it to satisfy a road that did not exist. Refused rather than repaired, as T-3342's horse ground and the first fort's cornfield and wharf are; argued in the record's own position.note."
+    },
+    "potawatomi_camp_1812_south_prairie:camp_1812": {
+      "depth_m": 12.15,
+      "escape_bearing_deg": 0.47,
+      "escape_m": 25.73,
+      "escape_vs_facade": "across",
+      "on": "2026-11-08",
+      "street": "randolph",
+      "ticket": "T-3499",
+      "why": "T-3499. A CAMP OF AUGUST 1812 ON GROUND THE 1830 PLAT LATER CUT INTO STREETS. The corridor is the platted Randolph Street, and no plat of Chicago existed before James Thompson's of 4 August 1830 (thompson_plat_1830); the camp's one phase is August 1812, so the ground and the street never stand in one scene. The ground is one of the seven T-3499 added beside T-3342's six so the camp roofs Helm's count of the gathering, and clearing an eighteen-years-later street (25.7 m) would walk it off the level ground the search chose for it to satisfy a road that did not exist. Refused rather than repaired, as T-3342's horse ground and the first fort's cornfield and wharf are; argued in the record's own position.note."
+    },
     "potawatomi_camp_1812_south_reach:camp_1812": {
       "depth_m": 12.17,
       "escape_bearing_deg": 90.36,
@@ -491,6 +610,16 @@
       "street": "dearborn",
       "ticket": "T-3342",
       "why": "T-3342. A CAMP OF AUGUST 1812 ON GROUND THE 1830 PLAT LATER CUT INTO STREETS. The corridor is the platted Dearborn Street, and no plat of Chicago existed before James Thompson's of 4 August 1830 (thompson_plat_1830); the camp's one phase is August 1812, so the ground and the street never stand in one scene. The camp's grounds are laid between the fort and the creek Currey names as the Potawatomi's camping place, and clearing an eighteen-years-later street (21.7 m along its own front) would walk a ground away from that place to satisfy a road that did not exist. Refused rather than repaired, as the first fort's cornfield and wharf are (T-2512, T-2508); argued in the record's own position.note."
+    },
+    "potawatomi_camp_1812_south_west:camp_1812": {
+      "depth_m": 12.1,
+      "escape_bearing_deg": 270.36,
+      "escape_m": 27.095,
+      "escape_vs_facade": "along",
+      "on": "2026-11-08",
+      "street": "dearborn",
+      "ticket": "T-3499",
+      "why": "T-3499. A CAMP OF AUGUST 1812 ON GROUND THE 1830 PLAT LATER CUT INTO STREETS. The corridor is the platted Dearborn Street, and no plat of Chicago existed before James Thompson's of 4 August 1830 (thompson_plat_1830); the camp's one phase is August 1812, so the ground and the street never stand in one scene. The ground is one of the seven T-3499 added beside T-3342's six so the camp roofs Helm's count of the gathering, and clearing an eighteen-years-later street (27.1 m) would walk it off the level ground the search chose for it to satisfy a road that did not exist. Refused rather than repaired, as T-3342's horse ground and the first fort's cornfield and wharf are; argued in the record's own position.note."
     },
     "potawatomi_camp_1812_west_bank:camp_1812": {
       "depth_m": 12.19,
