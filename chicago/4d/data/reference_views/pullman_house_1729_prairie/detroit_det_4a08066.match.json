@@ -3,7 +3,7 @@
   "view": "detroit_det_4a08066",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
   "glb_sha256": "d9d4b45c8ab5da47cc304d1945f2ee3c1865d1f2f9b261fcd3190704d86304b7",
-  "camera_sha256": "2782cfb7522dcbce06430cb36da1cc7ca371344a01271c28449ffb8942619cd9",
+  "camera_sha256": "e1983a073ee8677c97941e6478f7753b65e26ab2fb1822cfacdd533053fc5e34",
   "photo_sha256": "297e4d7b05312c70ddea6e5dbb24a74cffd0db743f3bb9cdcbb1f4c0edc5f4fb",
   "rendered_members": [
     {
@@ -112,7 +112,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "7f4ba235f07a51d60ba052a507137919c58c6a0bfeeb45a6a9696e112ab092b3"
+      "sha256": "1d76c4415a93713c9e01d4b8400d4dbb0175f88a8eadb3414a66b7666f3be2ff"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -143,16 +143,16 @@
       "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "b85cc2bcfda8fbb69411435ac5671bd331360a9ab450ce632090d59ac54e9a08",
+  "flora_sha256": "33e9829df9ec4c30652e81b23863f403831d4f7b31a3bb357e5f20de649fcaf7",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08066-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
     {
-      "what": "massing: the main block's flank east section and rear (east) face under the mansard, the south-east corner at x 393 (cornice y 352), the rear face's north end at x 545, the step's return at x 458: the camera's fitted points, within 1-6 px",
+      "what": "massing: the main block's flank east section and rear (east) face under the mansard, the south-east corner at x 393 (cornice y 352), the rear face's north end at x 545, the step's return at x 458, the 18th Street pavilion's east return at x 326-342 and the porte-cochere's deck from x 241 to 288: the camera's fitted points, within 1-6 px [T-1881, 2026-11-07: the camera re-solved with the pavilion's return and the porte-cochere's deck added, 2.6 px rms; the earlier camera drew the flank foreshortened, the return about 20 px and the porte-cochere about 40 px right]",
       "status": "fixed"
     },
     {
-      "what": "the rear face's three window columns, one round-headed light a storey in the south section and two in the step (the print's heads at x 422, 477 and 522; the render's at 427, 487 and 522), and a dormer over each (the print's at x 427, 480 and 524; the render's 427, 487, 522)",
+      "what": "the rear face's three window columns, one round-headed light a storey in the south section and two in the step (the print's heads at x 422, 477 and 522; the render's at 427, 487 and 522), and a dormer over each (the print's at x 427, 480 and 524; the render's 427, 487, 522) [T-1881, 2026-11-07, through the re-solved camera: the heads at x 420, 483 and 523 and the dormers at 422, 486 and 523; the middle column about 6 px (0.4 m) east of the print's, the others within 5 px]",
       "status": "within tolerance"
     },
     {
@@ -173,11 +173,19 @@
       "how": "T-1881 (2026-11-07): the stack now stands on the rear step's cornice and is carried up the step's mansard face in front of the slope (a new K01 chimney key, on_step: its outer face 0.47 m past the step's face, inside the cornice, as the flank's cornice stack stands; its foot buried in the step's roof, a tail joining it to the house's). Placed at v 5.9, read against the step's two dormers (the print's stack centre x 500.5 lies 0.47 of the way from the south dormer at x 480 to the north at 524, which on the face is v 5.88); 1.1 m along the face and 0.8 m deep, the flank stack's plan, with its cap. It renders at x 498-511 between the dormers at x 488 and 522; its top, 18.0 m, puts its cap just over the cresting behind it as the print draws it (this camera reads the whole deck about 20 px low here, the disagreement the stack's liberty records). L-pullman-1729-rear-stack-1934."
     },
     {
-      "what": "the deck's cresting and its finials over the south-east corner, the cresting's top at y 293 (the render's 296)",
+      "what": "the deck's cresting and its finials over the south-east corner, the cresting's top at y 293 (the render's 296) [T-1881, 2026-11-07, through the re-solved camera: the corner's cornice lands on the print's (y 352-355), but the mansard's deck edge renders at y 311 against the print's 300 and the cresting's rail at 307 with its finials to 291, against the print's cresting to y 289-294: the mansard and the cresting stand about 0.8 m higher in the print. Taylor's no. 1445 reads the flank's heights 8-10 % over the build's too; the porte-cochere's deck (7.9 m) and the main cornice (12.9 m) here read 72 px apart in the print and 63 in the render. Open on the build's heights, not this camera]",
+      "status": "open"
+    },
+    {
+      "what": "the porte-cochere on the flank: a one-storey block with a balustraded deck (its top at y 425) and a dark round arch facing the camera, the deck's balustrade running from the block's outer corner (x 241) back to the pavilion (x 288). [T-1881, 2026-11-07: the block was never out of place; the camera was. Re-solved with the pavilion's east return and the deck's two ends among its points, the render's deck runs x 241-290 at y 419-429 against the print's 241-288 at 420-430, and its arch's outer jamb lands on the print's (x 251, 250). Earlier readings, kept for the record: through the earlier camera the arch rendered 35-40 px right of the print's (x 291-319 against 250-285), which no level camera through the rear face, the stable and this end of the flank together could fit; dropping the stable and adding the flank's own points fits them all at 2.6 px rms]",
       "status": "fixed"
     },
     {
-      "what": "the porte-cochere on the flank: a one-storey block with a balustraded deck (its top at y 427) and a dark round arch facing the camera at x 247-285, the deck's balustrade running back to the flank; the render's block stands in place (deck within 9 px) but its arch toward the camera renders narrower and about 15-20 px right (x 270-295), about 2 m at this distance [Read again for T-1881, 2026-11-07, on the print at 4x: the arch facing the camera is x 250-285, its mouth's crown at y 447, under a deck whose balustrade runs x 241-288 at y 424-426; the build draws its east end's arch at x 291-319, crown y 431, under a deck at x 282-328, so the miss is about 35-40 px (about 4 m at this distance), not 15-20. The camera's porte-cochere point (290, 427) is the deck's back corner against the pavilion, not its south-east corner. A least-squares re-fit with the point re-read and the arch's jambs added (level, principal x at the centre) comes to 9.4 px rms with the stable's eave 22 px off, and with the porte-cochere taken horizontally only to 6.5 px, both against the solve's 3.9: no level camera fits the rear face, the stable and this end of the flank together, so the gap is not this camera's alone. The print also draws the arch wider than the build's 2.8 m (about 3.2 m on the deck's scale) and its crown about 2.0 m under the deck's top, against the build's 1.65 m. The camera is left as solved; this stays open for a re-solve beside Taylor's 16554 and no. 1445 and for the arch's size.]",
+      "what": "the porte-cochere's east arch: the print's dark mouth runs x 250-284 with its springing at y 455 (4.8 m) and its crown at y 446, where the build's 2.8 m arch renders at x 251-278 with its crown at y 439 (6.25 m): the mouth reads about 0.6 m wider on the house's side (about 3.3-3.5 m), and the crown about 0.6 m lower, though the print's ivy hangs over the ring there, so the crown's reading is the leaves' edge rather than the stone's. Taylor's no. 1445 reads the west end's arch at 2.86 m and LC-D4-12551 at 2.37 m, and the owner asked for the block to be balanced, so the east end is not widened on this print alone",
+      "status": "open"
+    },
+    {
+      "what": "the ivy at the porte-cochere's east end: the print's leaves lie flat on the two piers and over the ring, the arch's mouth dark and clear between them (x 250-284); the review's ivy, drawn from the planting's pier patches (0.61 m) and ring strips (0.5 m) laid on the model's piers and ring, grows out into the mouth by about 1 m on the outer side and 0.4 m on the inner (green to x 262 and from 274), so the arch reads half closed",
       "status": "open"
     },
     {
@@ -193,8 +201,8 @@
       "status": "owner ruling"
     },
     {
-      "what": "18th Street's north parkway trees before the house: the print's trunks stand at x about 345, 435 and 540 (before the flank's east section, before the terrace's flight and at the rear face's north end), the render's at about 245, 305, 390 and 497, up to about 45 px (about 5 m) off; the trees were planted at Taylor's no. 1445's trunks (T-1881, 2026-10-30), which this print, of c. 1900, does not confirm [T-1881, 2026-11-07, re-read on a fresh render with the print at 2.5-3x: the render's trunk at x 245 is 18th Street's tree at 58.8 m, now on a straight leader under a narrow head (high_head), and pairs with the print's slender trunk at x 232 (feet y 516 against the render's 525, 1.3 m along the parkway), which this record had not listed. The print's three trunks at x about 360, 432 and 542 (feet y 530, 534, 539) pair with the render's Calumet-corner trees at x 307, 392 and 497 (3.3, 10.3 and 16.1 m on the corner's curve), 40-55 px left of them and their feet 30-180 px low; the hydrant the same way (the render's at x about 615, its foot about y 765, against the print's x 593, y 546). Those trees stand 7-17 m from this camera, whose raised eye (3.8 m) is fitted on the house 40-50 m off and does not hold the ground near it (its solve says the street's ground and the coping's foot in the foreground are not compared); an eye 1 m off moves a trunk at 10 m about 45 px. Their places are read through Taylor's 16555 and 16554, cameras fitted on that ground at 15-30 m, so the gap is a camera-fit disagreement, within tolerance.]",
-      "status": "within tolerance"
+      "what": "18th Street's north parkway trees before the house: the print's trunks stand at x about 345, 435 and 540 (before the flank's east section, before the terrace's flight and at the rear face's north end), the render's at about 245, 305, 390 and 497, up to about 45 px (about 5 m) off; the trees were planted at Taylor's no. 1445's trunks (T-1881, 2026-10-30), which this print, of c. 1900, does not confirm [T-1881, 2026-11-07, re-read on a fresh render with the print at 2.5-3x: the render's trunk at x 245 is 18th Street's tree at 58.8 m, now on a straight leader under a narrow head (high_head), and pairs with the print's slender trunk at x 232 (feet y 516 against the render's 525, 1.3 m along the parkway), which this record had not listed. The print's three trunks at x about 360, 432 and 542 (feet y 530, 534, 539) pair with the render's Calumet-corner trees at x 307, 392 and 497 (3.3, 10.3 and 16.1 m on the corner's curve), 40-55 px left of them and their feet 30-180 px low; the hydrant the same way (the render's at x about 615, its foot about y 765, against the print's x 593, y 546). Those trees stand 7-17 m from this camera, whose raised eye (3.8 m) is fitted on the house 40-50 m off and does not hold the ground near it (its solve says the street's ground and the coping's foot in the foreground are not compared); an eye 1 m off moves a trunk at 10 m about 45 px. Their places are read through Taylor's 16555 and 16554, cameras fitted on that ground at 15-30 m, so the gap is a camera-fit disagreement, within tolerance.] [T-1881, 2026-11-07, through the re-solved camera: the print's trunks before the house stand at x about 231, 290, 361, 433 and 541; the render's at 266, 313-320, 343, 393, 455 and 541. The trunks at 541 agree; those at 361 and 433 are matched by the render's 343 and 455, about 1.4-1.7 m off along the parkway, and the render draws trunks at 266, 313-320 and 393 where the print's are at 290 or none shows. No longer a disagreement between cameras, so open]",
+      "status": "open"
     },
     {
       "what": "the walls' colour and the mansard's slate: a monochrome print",
@@ -205,12 +213,20 @@
       "status": "not shown"
     },
     {
-      "what": "the estate's other buildings, judged in their own records (T-1934): the raised terrace in the rear's south-east angle (the conservatory record's), which the print shows as a low balustraded terrace along the rear face from the corner to about x 495 with its flight descending to the 18th Street walk between two piers at x 435-470 and no awning, where the build lays a terrace with its awning and flights and urned piers reaching forward and west to the coping (x 350-570); the low east range with its balustrade and two stacks (x 545-640) and the conservatory's drum behind it (x 640-660, y 395); and the stable, whose south-east corner (x 930) the fit used, and whose south face the build draws long and tall across x 570-930, where the print shows the low range, a two-storey block (x 700-800) and the stable's hipped roof only from about x 860; the 18th Street coping and its piers",
+      "what": "the estate's other buildings, judged in their own records (T-1934): the raised terrace in the rear's south-east angle (the conservatory record's), which the print shows as a low balustraded terrace along the rear face from the corner to about x 495 with its flight descending to the 18th Street walk between two piers at x 435-470 and no awning, where the build lays a terrace with its awning and flights and urned piers reaching forward and west to the coping (x 350-570); the low east range with its balustrade and two stacks (x 545-640) and the conservatory's drum behind it (x 640-660, y 395); and the stable, whose south-east corner (x 930) the fit used, and whose south face the build draws long and tall across x 570-930, where the print shows the low range, a two-storey block (x 700-800) and the stable's hipped roof only from about x 860; the 18th Street coping and its piers [T-1881, 2026-11-07, through the re-solved camera: the stable, which the earlier camera fitted at its south-east corner, now falls left of the print's: the build's east face at x 799-898 with its eave at y 457 (4.0 m), where the print's building at the right edge shows a corner pier at x 927-940, a belt at y 423 and a cornice at y 383 under a hip to y 317, which on this camera's rays read about 9 m and 14 m over grade at the stable's east end. Either the print's building there is not the stable or the stable is taller than built; judged in its own record (T-1934)]",
       "status": "not shown"
     },
     {
       "what": "the leaves over the porte-cochere's east arch: the print shows the ivy running over the arch's ring between the clothed piers (x 255-285, y 415-430); the build clothes the piers to the entablature and leaves the ring bare [T-1881, 2026-11-07: fixed. The ring is now clothed by a run of narrow strips laid on the model's own arch (`creeper_arches` in the front-yard planter, a new `mantle_ring` form grown at its own half-metre width), each standing on the intrados and reaching to the entablature's soffit, so the leaves run over the ring and its spandrels between the clothed piers and the mouth stays clear; re-rendered here, the leaves close over the arch's head at x 290-300, y 425-437.]",
       "status": "fixed"
+    },
+    {
+      "what": "the 18th Street coping's piers before the house: the print shows square piers along the wall at x 245-255, 271-281, 311-322, 330-342, 382-397, 406-420 and 474-485, their tops level at y 491-496 (about 1.8 m); through the re-solved camera the build's piers on the lot's 18th Street line (boundary.side_return, v 28.05: u 16.4-17.3, 13.05-13.95, 4.7-5.6, -2.0 to -1.1, -8.0 to -7.1, -10.25 to -9.35) fall at x 173-178, 193-199, 249-255, 299-306, 349-357 and 369-377, 50-100 px left of the print's row, with the terrace's own piers between. The print's row stands either further east along the street or nearer the house than the build's line; to be read with Taylor's no. 1445 and 16554, which see the same wall",
+      "status": "open"
+    },
+    {
+      "what": "the flank's east section's second-storey pair: the print shows its lights at x 362-371 (the left one, if a pair, behind the elm's trunk at 355-364), centred about x 366 over the broad ground-storey window centred at 360.5; the render's pair is centred at x 357 over its window at 357. On the flank's plane that puts the print's window at s 21.9-25.0 (centre 23.5; built 22.95, 2.8 m wide) and the pair's centre at about s 23.9-24.2 (built 22.95; Taylor's no. 1445 reads 23.35): the pair about 1 m and the window about 0.5 m east of the build's",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
