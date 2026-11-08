@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2816, ts: '2026-11-08T01:46:15.434Z', date: 'Nov 7, 2026, 7:46 PM CT', title: 'Pullman house: the carriage porch\'s east arch opens again', kind: 'fix',
+    items: [
+      'The ivy over the east arch of the Pullman house\'s carriage porch, on 18th Street, grew down into the arch\'s opening and closed about half of it. The c. 1900 Detroit Publishing photograph shows the opening dark and clear, with the leaves on the two piers and over the arch\'s stone ring.',
+      'The ivy on the ring now stays on the ring: its leaves are smaller, held to the stonework and turned up the wall. The opening reads as an arch again, framed in ivy, from the street and from the photograph\'s own spot.',
+    ] },
   { v: 2815, ts: '2026-11-08T01:40:35.384Z', date: 'Nov 7, 2026, 7:40 PM CT', title: '1835: boarders share the named houses, not three log cabins', kind: 'fix',
     items: [
       'The South Division\'s boarders and families no longer pile into three one-room cabins (up to 124 people in one).',
