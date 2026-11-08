@@ -42238,13 +42238,21 @@ toe-off. The swing follows the measured hip, knee and ankle curves (the knee fol
 corrected to leave and land exactly. The pelvis rides as low as the leading knee's measured bend allows (2-3 cm
 of bob, lowest in double support), shifts 2 cm over the stance foot, turns about 5 degrees with the leading
 leg and dips about 4 on the swing side (a third less in a skirt); stopping takes a closing step. The arm layer (human-actions.js) swings the
-arms from the gait's phase, opposite the legs and a little after the other heel strikes, about 22 degrees at
-1.25 m/s with the elbow bending more at the front (half that in a full skirt); the life layer
+arms from the gait's phase, opposite the legs, along the measured curves of the upper arm and elbow (T-3496,
+Kevin 2026-11-08: "the hand and arm swing still could be more natural"): mostly behind the body, from about 19
+degrees back to 6 forward of the vertical, the elbow 12-43 degrees and following the shoulder late, scaled by
+sex and speed from the measured range (half in a full skirt); the hand hangs loose and trails at the wrist,
+fingers loosely curled once (Kevin 2026-11-08, of the clawed hands: "the fingers still seem kind of janky":
+the hanging hand's curl and the walk's had added up; then "missing the knuckle"), bent about as much at the
+knuckle as at the middle joint, a little more toward the little finger, side by side, each knuckle standing up
+a little as its finger bends, the thumb laid beside the first finger short of turning its root all the way;
+and each person draws their own range, carriage, elbow and a slightly stronger arm; the life layer
 (human-life.js) turns the chest back against the pelvis, leans the trunk forward 2-4 degrees with speed and
 keeps the head steady in the world.
 **What is read.** Nothing about any person's own walk. The shape of the cycle and its events are the means of
 the young adults walking at 1.24 m/s in the public gait dataset of Fukuchi, Fukuchi & Duarte (2018, *PeerJ*
-6:e4640), the shoulder line against the pelvis from Horst et al. (2019); speeds, steps and cadence by sex and
+6:e4640), the shoulder line against the pelvis and the upper arm and elbow over the cycle from Horst et al.
+(2019); speeds, steps and cadence by sex and
 age from Oberg, Karsznia & Oberg (1993) and Bohannon & Andrews (2011). A lady's restraint in swinging her arms
 is period advice (Hill's Manual, Chicago, 1887), and the shortened step of a long skirt is a period complaint
 (Galbraith, quoted by Macfadden, 1901). Tables, sources and period street films to judge by are in
@@ -42252,10 +42260,13 @@ is period advice (Hill's Manual, Chicago, 1887), and the shortened step of a lon
 **What is invented.** That any person of 1812, 1835 or 1904 walked so: modern laboratory means stand in for
 period walking. The skirt factors (no measured study of a 1900s walking skirt over a corset was found), the
 per-person seeded variation of pace (±3 %) and stride, the start and closing steps, and every amplitude
-within the published ranges.
+within the published ranges; the arm swing's scaling with speed and age (the decline with age is reported,
+Mirelman 2015, not tabled), each person's arm variation (range ±15 %, carriage ±3 degrees, elbow ±4 degrees,
+one arm up to 8 % stronger), the wrist's trailing and the hand's curl, its share among the joints, the
+cascade, the knuckles' lift and the thumb's lie.
 **How to resolve:** motion capture of walkers in reproduction period dress, or measurement of walking from
 period street films (Lumière and Edison/AM&B street scenes of 1896-1906), reviewed in the town.
-**Ticket:** T-3472.
+**Ticket:** T-3472, T-3496.
 **Recorded:** 2026-11-07 (T-3472).
 ### L-1812-garrison-looks-3491 — How each man of Heald's company looks: complexion, hair, eyes, height
 
