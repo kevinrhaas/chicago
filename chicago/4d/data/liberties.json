@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1051,
+  "count": 1052,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -71481,6 +71481,43 @@
         "T-3465",
         "T-3466",
         "T-3467"
+      ]
+    },
+    {
+      "id": "L-1812-gathering-people-3500",
+      "title": "A card for everyone of the August 1812 gathering and of Wells's escort, and Louis Fettle: sex, age, lodge, who is drawn and their day",
+      "section": "per_subject",
+      "subjects": [
+        "miami_escort_camp_1812"
+      ],
+      "covers": [],
+      "recorded": "2026-11-08",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-08, after the spike that counted about 820 people at Chicago on 14 August 1812: *\"Card all, draw a sample\"*, *\"The remainder would be in buildings and I can ask them to come out and meet them\"*. Helm's narrative (Quaife 1913, Appendix VI) counts the gathering at Wells's council as *\"500 warriors 179 women & children\"* and the escort as *\"27 Miamis\"*; earlier work..earlier work had carded 42 Potawatomi and 8 Miamis. the research notes on gathering people 1812 cards the other 476 men, 50 women and 111 children of the gathering in twelve households, one for each camp ground of earlier work (hh gathering_<ground>_1812), the other 19 of the escort at its camp (the Miami household), and Louis Fettle (the Fettle household). Seven things are ours. (1) **Sex and age.** Helm's split is followed to the person; each age is seeded (men 16-60, most about 28; women 16-62; children 0-15), and a child under three is carried: carded, neither drawn nor called out at a door. (2) **Which lodge.** earlier work's four men's grounds take men only, about 57 each; the women and children go to the family grounds in proportion to the room earlier work's occupancy rule leaves there, each woman with two or three children and a man in one lodge, and the rest of the men fill the family grounds. Which family had which lodge is recorded nowhere. (3) **Who is drawn.** About one in five, seeded per person (114): asleep in their lodge at night, out at its door at a camp's ordinary work by day, eating with whoever of their lodge is drawn, the men of a ground talking together in the afternoon; on the 15th the men are away from the camp from 7:30 to 13:00, as the people are. Every point stands clear of every lodge, rack and woodpile of the ground's model. (4) **Everyone else** (520) is listed in the inside 1812 data at their own lodge's door, where Ask for calls them out in their dress. (5) **The look.** Heritage, not a description: black hair (grey from 55), dark eyes, a brown complexion drawn copper, a few lighter or darker; stature seeded about the period's means, children's by age; no feature exaggerated. (6) **Wells's escort's camp.** The eight drawn Miamis of earlier work move from their bivouac by the south stable to The Miami escort's camp, August 1812: every point of theirs by the bivouac moves the same 28 m west and 99 m south onto clear ground, a night asleep by the fire becomes a night in the lodges, and their walks to the river and the gate run by way of the old bivouac to the camp's north edge. (7) **Louis Fettle's home.** Currey's *\"small cabin near the Kinzie house\"* is read as one of the four houses of 1808 (the exclusions record Pettell's 'small cabin near the Kinzie house', for 1812), La Lime's or Le Mai's; La Lime lived in his until 17 June 1812, so Fettle is put in Le Mai's and asked for at its door. Whether he was in the town on 14 August is uncertain, as his card says; his Indian wife (Quaife) is not named and not carded."
+        },
+        {
+          "label": "Not invented",
+          "text": "Helm's counts and Heald's date for the escort (*\"On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies\"*, Appendix IV), each on every card with its quote; Fettle's years at Chicago, his wife and Quaife's guess that he was one of the twelve militia (Quaife ch. VI and Appendix IX). No card invents a name, band, kin or story; no speech, council, distribution, ceremony or act of war is staged (“No people, anywhere”)."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a roll, a letter or an account that names any of the gathering, counts it by band or by ground, or says where Wells's Miamis camped; anything that puts Louis Fettle in a house of 1812."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-08."
+        }
+      ],
+      "work_refs": [
+        "T-3499",
+        "T-3461",
+        "T-3463",
+        "T-3467",
+        "T-3342",
+        "T-3500"
       ]
     },
     {

@@ -324,7 +324,7 @@ const variants = new WeakMap();   // source geometry -> Map(variation key -> var
 export function disposeVariants(geometries) {
   for (const g of geometries) {
     const m = variants.get(g); if (!m) continue;
-    for (const v of m.values()) { v.dispose?.(); }
+    for (const v of m.values()) { v?.dispose?.(); }   // null: a variant that moved nothing (remembered so)
     variants.delete(g);
   }
 }
