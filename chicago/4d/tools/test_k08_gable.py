@@ -74,6 +74,9 @@ def main() -> int:
     v["plan"].pop("chamfer_top_m", None)
     # T-3073: the deep gable is held square on the front; 1801's own inset is held below
     v["roof"]["gable"].pop("inset_m", None)
+    # T-1890 (2026-11-08): 1801's coping now runs 0.95 m back from its 0.8 m proud face to pass
+    # the wall plane; the deep gable is held on the 0.45 m coping a 0.6 m projection takes
+    v["roof"]["gable"]["coping"]["width_m"] = 0.45
     for q in v["plan"]["points"][1:3]:
         q[1] = 0.6
     rf = v["roof"]
@@ -167,11 +170,12 @@ def main() -> int:
 
     # T-3047: the shallow pavilion's gable, as 1801 stands it: no roof in front of the plane, the
     # parapet and kneelers carried back to the copings' back and closed under it over the wall top
-    check(shallow.get("shallow") is True and max(q[1] for q in shallow["plan"]["points"]) < 0.3,
+    check(shallow.get("shallow") is True and max(q[1] for q in shallow["plan"]["points"]) <= 0.8,   # T-1890: K01's SHALLOW_PROUD_M
           "1801's pavilion stands shallow")
     sb = K8.build_variant(shallow, board=False)
     sp = shallow["plan"]["points"][1][1]
-    zb = sp + g["coping"]["proud_m"] - g["coping"]["width_m"]
+    sc = shallow["roof"]["gable"]["coping"]   # T-1890: the shallow pavilion's own coping, not the deep one's
+    zb = sp + sc["proud_m"] - sc["width_m"]
     sband = sb.prims["band"].pos
     check("roof" not in sb.prims and sb.meta["roof"]["planes"] == 0, "a shallow gable has no roof in front of the plane")
     # (over the wall top: under it a chamfer's bands run on behind the plane, T-3048)

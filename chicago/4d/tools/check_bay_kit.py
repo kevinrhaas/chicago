@@ -301,7 +301,14 @@ def rule_keyed(b, v):
     if worst[0] < -1e-6:
         fails.append(f"behind: a {worst[1]} vertex stands {-worst[0]:.4f} m behind the host wall's face")
     if through:
-        deep = b.meta["recess_m"] - max(q[1] for q in v["plan"]["points"])
+        proud = max(q[1] for q in v["plan"]["points"])
+        deep = b.meta["recess_m"] - proud
+        # T-1890 (2026-11-08): a shallow pavilion standing out past its recesses' depth (1801's
+        # south one, 0.8 m) still carries its gable's parapet back past the plane to the copings'
+        # back, which K08 holds 0.05 m or more behind it (k08_bays.Bay._gable)
+        cp = ((v.get("roof") or {}).get("gable") or {}).get("coping")
+        if cp:
+            deep = max(deep, float(cp["width_m"]) - float(cp["proud_m"]) - proud)
         far = min(((p[2], role) for role in through for p in b.prims.get(role, K.Prim(role)).pos if not cut(p)),
                   default=(0.0, None))
         if far[0] < -deep - 1e-6:
