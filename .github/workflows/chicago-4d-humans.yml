@@ -85,7 +85,7 @@ permissions:
 jobs:
   humans:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 45
     outputs:
       dress_source_sha: ${{ steps.dress_binding.outputs.source_sha }}
     steps:
