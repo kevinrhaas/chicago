@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2819, ts: '2026-11-08T03:39:49.319Z', date: 'Nov 7, 2026, 9:39 PM CT', title: 'Arms and hands swing like a real walk', kind: 'improvement',
+    items: [
+      'The arm swing follows measured walking: the arm swings mostly behind the body, and the forearm trails the upper arm like a loose pendulum',
+      'Hands hang relaxed: each hand is curled once instead of twice (two curls added up to a claw), the fingers bend gently and evenly side by side with the knuckles standing up, and the thumb rests beside the first finger without tearing the skin at its root',
+      'Each person swings a little differently: how far, how bent the elbow, and one arm a touch more than the other',
+    ] },
   { v: 2818, ts: '2026-11-08T03:24:24.967Z', date: 'Nov 7, 2026, 9:24 PM CT', title: 'Pullman\'s 18th Street side: the east window in its place', kind: 'improvement',
     items: [
       'On the 1729 Prairie Avenue Pullman house, the broad window in the 18th Street side\'s east section and the pair of narrow windows above it now stand half a metre further east, where the c. 1900 Detroit Publishing photograph places them, with the pair centred over the window as the photograph draws it.',
