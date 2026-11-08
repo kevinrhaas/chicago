@@ -70,8 +70,9 @@ def record_checks():
     b = built(v)
     m = b.meta
     line = m["levels_m"][2]
-    check(abs(line - 9.45) < 1e-6 and abs(m["wall_top_m"] - 12.4) < 1e-6,
-          f"p_flank's third storey stands on the 9.45 m line under a 12.4 m wall top ({m['levels_m']}, {m['wall_top_m']})")
+    # T-1890 (2026-11-08): 9.75 m from 9.45, its corner round 0.3 m over the main eave raised to 9.4 m
+    check(abs(line - 9.75) < 1e-6 and abs(m["wall_top_m"] - 12.4) < 1e-6,
+          f"p_flank's third storey stands on the 9.75 m line under a 12.4 m wall top ({m['levels_m']}, {m['wall_top_m']})")
     cor = b.prims["corbel"].pos
     check(bool(cor) and min(q[1] for q in cor) >= line - ct["height_m"] - 1e-6
           and max(q[1] for q in cor) <= line - ct["course_m"] + 1e-6,

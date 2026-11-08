@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2838, ts: '2026-11-08T21:22:50.544Z', date: 'Nov 8, 2026, 3:22 PM CT', title: '1801 Prairie\'s south front now reads as one front, as photographed', kind: 'improvement',
+    items: [
+      'The Kimball house\'s round bay, gabled face and second bay now stand as one front, the face flush with the bay beside it and the cornice running across all three.',
+      'The south-west corner\'s round bay meets the south wall where the 1965 photograph and the 1911 map put it.',
+      'Over the corner, the slate roof now comes down behind the round bay\'s balustrade instead of a tall block of stone.',
+      'The main cornice and roof stand about half a metre higher, where all three photographs put them.',
+      'Both north-west photographs (1895 and 1965) match the model; the 1965 south-west one still shows one small window over the corner that is not built yet.',
+    ] },
   { v: 2837, ts: '2026-11-08T20:52:41.697Z', date: 'Nov 8, 2026, 2:52 PM CT', title: 'Dry 1812 boats, full-height skiffs, and a smaller review note', kind: 'fix',
     items: [
       'The river no longer shows through the bottom of a dugout or canoe.',

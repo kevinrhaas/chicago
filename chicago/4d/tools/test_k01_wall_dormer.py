@@ -66,13 +66,16 @@ walls = [d for d in p.mansard["dormers"] if d["head"] == "flat"]
 check(len(walls) == 1, f"1801's mansard carries one flat-capped wall dormer ({len(walls)})")
 w = walls[0]
 lo, hi = w["along_m"] - w["width_m"] / 2, w["along_m"] + w["width_m"] / 2
-check(w["face"] == "street" and abs(lo - 3.9) < 1e-6 and abs(hi - 6.85) < 1e-6,
-      f"it stands on the street face from v {lo:.3f} to {hi:.3f} (3.9-6.85: the hooded dormer to the pavilion)")
-check(abs(w["along_m"] + w["light_shift_m"] - 5.795) < 1e-6 and w["sash_width_m"] < w["width_m"],
+# T-1890 (2026-11-08): the south pavilion's face now runs north to v 6.3, flush with the bow's crown
+# (HABS photograph 1, the 1911 sheet), so the wall dormer stands v 3.8-6.4, its light's middle at 5.25
+LO, HI, LC = 3.8, 6.4, 5.25
+check(w["face"] == "street" and abs(lo - LO) < 1e-6 and abs(hi - HI) < 1e-6,
+      f"it stands on the street face from v {lo:.3f} to {hi:.3f} ({LO}-{HI}: the hooded dormer to the pavilion)")
+check(abs(w["along_m"] + w["light_shift_m"] - LC) < 1e-6 and w["sash_width_m"] < w["width_m"],
       f"its one light's middle at v {w['along_m'] + w['light_shift_m']:.3f}, south of the face's")
 check(w["overhang_m"] > 0 and w["fascia_m"] > 0, "its cap takes the kit's dormer overhang and fascia")
 top = w["foot_m"] + w["sill_m"] + w["head_m"]
-check(abs(top - 11.25) < 0.01, f"its eave at {top:.3f} m (the prints' triangulated 11.1-11.75 m)")
+check(11.1 <= top <= 11.75, f"its eave at {top:.3f} m (the prints' triangulated 11.1-11.75 m)")
 
 with_wall(lambda d: d.update(head="hip", hip_pitch_deg=30.0), "a hipped head on the main mansard is still refused")
 with_wall(lambda d: d.update(face_width_m=3.6), "a wall dormer over 3.5 m across is refused")
@@ -85,7 +88,7 @@ ar = w.get("architrave") or {}
 check(ar.get("band_m") == 0.18 and ar.get("lug_m") == 0.08 and ar.get("sill_proud_m") == 0.12,
       "its light stands in a lugged architrave with a projecting sill (HABS photograph 2, the Taylor print)")
 with_wall(lambda d: d["architrave"].update(band_m=0.3), "an architrave head taller than the frieze under the cap is refused")
-with_wall(lambda d: d.update(face_width_m=2.5) or d["architrave"].update(lug_m=0.15),
+with_wall(lambda d: d.update(face_width_m=1.8) or d["architrave"].update(lug_m=0.15),
           "an architrave whose lugs or sill run off the face is refused")
 with_wall(lambda d: d["architrave"].update(sill_proud_m=0.03), "a sill standing out less than the band is refused")
 with_wall(lambda d: d["architrave"].pop("lug_m"), "an architrave missing a key is refused")
@@ -96,9 +99,10 @@ with_wall(lambda d: d.update(head="round", sash=dict(d["sash"], variant="k06.ope
 asm = K1.build(p, SID)
 D, o = p.depth_m, p.eave_overhang_m
 face = [q for q in asm.prims["dormer_stone"].pos
-        if abs(q[0] - (D + o - w["face_setback_m"])) < 1e-3 and 3.8 < -q[2] < 7.0 and 9.5 < q[1] < 11.3]
-check(face and abs(min(-q[2] for q in face) - 3.9) < 1e-3 and abs(max(-q[2] for q in face) - 6.85) < 1e-3,
-      f"the built face stands {w['face_setback_m']} m in from the fascia from v 3.9 to 6.85 ({len(face)} vertices)")
+        if abs(q[0] - (D + o - w["face_setback_m"])) < 1e-3 and 3.7 < -q[2] < 7.0 and 9.5 < q[1] < 11.4]
+# its south end runs 0.1 m into the pavilion, whose north cheek (v 6.3) closes it 5 mm in
+check(face and abs(min(-q[2] for q in face) - LO) < 1e-3 and abs(max(-q[2] for q in face) - 6.305) < 1e-3,
+      f"the built face stands {w['face_setback_m']} m in from the fascia from v {LO} to the pavilion's cheek ({len(face)} vertices)")
 nf = D + o - w["face_setback_m"]
 lc = w["along_m"] + w["light_shift_m"]
 frame = [q for q in asm.prims["dormer_stone"].pos if abs(q[0] - (nf + ar["proud_m"])) < 1e-3
@@ -112,7 +116,7 @@ check(sills and abs(max(abs(-q[2] - lc) for q in sills) - (w["sash_width_m"] / 2
       f"the built sill stands {ar['sill_proud_m']} m proud and runs past the band")
 glass = [q for q in asm.prims["glass"].pos if q[0] > D - 0.5 and 3.8 < -q[2] < 7.0 and 9.5 < q[1] < 11.3]
 mid = (min(-q[2] for q in glass) + max(-q[2] for q in glass)) / 2 if glass else 0.0
-check(glass and abs(mid - 5.795) < 0.02, f"its glass stands where the record puts the light (middle v {mid:.3f})")
+check(glass and abs(mid - LC) < 0.02, f"its glass stands where the record puts the light (middle v {mid:.3f})")
 
 if failures:
     print(f"\n{len(failures)} failure(s)")
