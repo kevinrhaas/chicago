@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2833, ts: '2026-11-08T19:22:18.241Z', date: 'Nov 8, 2026, 1:22 PM CT', title: '1812: natural camp ground, camp paths, and pockets of low wood', kind: 'improvement',
+    items: [
+      'Each camp group\'s bare ground now follows its own lodges, fires and racks, so no two are the same shape; the lodges have not moved.',
+      'Worn paths link the camp groups, run down to the river at shared landings, and join the river path toward the agency and the factory.',
+      'Pockets of low oak and cottonwood wood now dot the dry prairie south of the river, after an 1833 visitor who saw the camps "beneath the low wood which chequered" the plain.',
+      'The dune scrub between the river mouth and the battle shore is about twice as thick, still Currey\'s "scanty growth of cottonwoods and pines".',
+      'From the air the prairie no longer shows a repeating checker pattern; on foot it looks as it did. This applies in every year.',
+    ] },
   { v: 2832, ts: '2026-11-08T19:20:39.214Z', date: 'Nov 8, 2026, 1:20 PM CT', title: 'Tipping the hat: the hand meets the brim, never goes through it', kind: 'fix',
     items: [
       'A man who greets you touches his hat\'s brim from outside and below it; before, his fingers sank through the crown.',
