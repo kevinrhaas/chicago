@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 2835, ts: '2026-11-08T19:44:44.799Z', date: 'Nov 8, 2026, 1:44 PM CT', title: 'Cross the 1812 river by dugout, bark canoe or skiff', kind: 'feature',
+    items: [
+      'Twelve boats lie drawn up at the river\'s crossings: the Kinzie landing, the fort wharf, the forks, Lee\'s Place and the branches.',
+      'Walk up and Cross: you step in, push off, paddle or row over, run ashore and step out.',
+      'Each boat has its own shape and weathering; the boat stays on the bank you left it.',
+      'The fort wharf has a weathered puncheon deck and hewn-log crib.',
+      'Reeds are trodden flat at each landing so the boats show.',
+    ] },
+  { v: 2834, ts: '2026-11-08T19:44:44.799Z', date: 'Nov 8, 2026, 1:44 PM CT', title: '1835 and 1904 people keep busy: jobs, breaks indoors, in at night', kind: 'improvement',
+    items: [
+      'Peck at his store front and Mary Flynn at her dooryard in 1835 work through the day, go in and out of their own doors, and are in at night. Mahoney and Bardwell work the bank and the tavern yard.',
+      'In 1904 the Glessners\' cooks, stable helper, maid and coachman work about the court and Eighteenth Street. They gather now and then, and go in by the service stair, the north entry or the stable doors.',
+      'While someone is in, their door offers Ask for them, as in 1812.',
+    ] },
   { v: 2833, ts: '2026-11-08T19:22:18.241Z', date: 'Nov 8, 2026, 1:22 PM CT', title: '1812: natural camp ground, camp paths, and pockets of low wood', kind: 'improvement',
     items: [
       'Each camp group\'s bare ground now follows its own lodges, fires and racks, so no two are the same shape; the lodges have not moved.',
