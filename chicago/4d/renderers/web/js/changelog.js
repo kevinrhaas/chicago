@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2821, ts: '2026-11-08T05:02:46.994Z', date: 'Nov 7, 2026, 11:02 PM CT', title: 'Pullman\'s 18th Street wall gets its piers, urn and curved walls back', kind: 'fix',
+    items: [
+      'East of the porch stair on 18th Street, the Pullman house\'s boundary wall again has the fourth, fifth and sixth stone piers, the urn on the fifth, and the low wall that dips and sweeps back up between the third and fourth piers. A closer look at the Detroit Publishing photograph of about 1900, through its newly fitted camera, shows the wall still standing as the 1894 plate drew it. It had been taken out on an earlier reading of the same picture that mistook which pier was which.',
+    ] },
   { v: 2820, ts: '2026-11-08T04:27:15.331Z', date: 'Nov 7, 2026, 10:27 PM CT', title: 'Horse-drawn wagons move around the 1812 fort', kind: 'feature',
     items: [
       'Two of the fort\'s wagons, drawn by two-horse teams, now move in 1812: one goes round the outbuildings, the other runs the shore road to the Lees\' house and back.',
