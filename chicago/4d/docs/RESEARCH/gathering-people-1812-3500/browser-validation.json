@@ -1,0 +1,633 @@
+{
+  "method": "Published /1812/ app, normal boot; animation paused after readiness, the sun set to 14 August 10:00 and the day layer stepped by hand, for fixed review stands. T-3500: the gathering carded and one in five drawn; one asked for at her lodge door.",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1812"
+      },
+      "errors": [],
+      "bad": [],
+      "day": {
+        "drawn": 114,
+        "present": 114,
+        "out": 114,
+        "indoorsByDay": [],
+        "insideOnly": {
+          "listed": 520,
+          "out": 0
+        }
+      },
+      "stands": [
+        {
+          "name": "south-grounds-from-above",
+          "detail": "full",
+          "problems": [
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "miami_escort_camp_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_far_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_head_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_north_flat: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_prairie_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_bend: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_prairie: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release",
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 1872697,
+            "drawCalls": 2471
+          }
+        },
+        {
+          "name": "middle-ground-at-work",
+          "detail": "full",
+          "problems": [
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "miami_escort_camp_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_far_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_head_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_north_flat: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_prairie_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_bend: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_prairie: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release",
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 1690030,
+            "drawCalls": 2143
+          }
+        },
+        {
+          "name": "the-bend-at-work",
+          "detail": "full",
+          "problems": [
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "miami_escort_camp_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_far_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_head_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_north_flat: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_prairie_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_bend: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_prairie: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release",
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 2204705,
+            "drawCalls": 2505
+          }
+        },
+        {
+          "name": "north-flat-men",
+          "detail": "full",
+          "problems": [
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "miami_escort_camp_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_far_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_head_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_north_flat: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_prairie_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_bend: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_prairie: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release",
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 1957495,
+            "drawCalls": 2727
+          }
+        },
+        {
+          "name": "west-bank-at-work",
+          "detail": "full",
+          "problems": [
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "miami_escort_camp_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_far_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_head_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_north_flat: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_prairie_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_bend: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_prairie: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release",
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release"
+          ],
+          "stats": {
+            "withinBudget": false,
+            "triangles": 2378747,
+            "drawCalls": 9213
+          }
+        },
+        {
+          "name": "miami-camp",
+          "detail": "full",
+          "problems": [
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "miami_escort_camp_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_far_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_head_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_north_flat: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_prairie_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_bend: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_prairie: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release",
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release"
+          ],
+          "stats": {
+            "withinBudget": false,
+            "triangles": 1806001,
+            "drawCalls": 9549
+          }
+        },
+        {
+          "name": "asked-for-at-her-lodge-door",
+          "ask": {
+            "ok": true,
+            "door": "door:potawatomi_camp_1812_upper:lodge1",
+            "out": 1,
+            "figure": {
+              "e": 616.32,
+              "n": -215.04,
+              "indoors": false
+            },
+            "after": {
+              "costs": {
+                "lod": 0,
+                "drawn": true,
+                "distance": 2.12,
+                "animates": true,
+                "face": true,
+                "shadow": true,
+                "morphs": true
+              },
+              "body": true,
+              "at": [
+                616.32,
+                -215.04
+              ],
+              "world": [
+                616.32,
+                0.85,
+                215.04
+              ],
+              "ground": 0.85,
+              "indoors": false,
+              "assetId": "potawatomi_woman_1812",
+              "bodyAfter": true
+            }
+          },
+          "detail": "full",
+          "problems": [
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "miami_escort_camp_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_far_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_head_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_north_flat: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_prairie_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_bend: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_prairie: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release",
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 1647211,
+            "drawCalls": 2949
+          }
+        }
+      ]
+    },
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1812"
+      },
+      "errors": [],
+      "bad": [],
+      "day": {
+        "drawn": 114,
+        "present": 114,
+        "out": 114,
+        "indoorsByDay": [],
+        "insideOnly": {
+          "listed": 520,
+          "out": 0
+        }
+      },
+      "stands": [
+        {
+          "name": "south-grounds-from-above",
+          "detail": "light",
+          "problems": [
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "miami_escort_camp_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_far_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_head_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_north_flat: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_prairie_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_bend: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_prairie: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 528271,
+            "drawCalls": 577
+          }
+        },
+        {
+          "name": "middle-ground-at-work",
+          "detail": "light",
+          "problems": [
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "miami_escort_camp_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_far_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_head_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_north_flat: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_prairie_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_bend: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_prairie: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 561884,
+            "drawCalls": 829
+          }
+        },
+        {
+          "name": "the-bend-at-work",
+          "detail": "light",
+          "problems": [
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "miami_escort_camp_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_far_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_head_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_north_flat: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_prairie_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_bend: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_prairie: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 562712,
+            "drawCalls": 1003
+          }
+        },
+        {
+          "name": "north-flat-men",
+          "detail": "light",
+          "problems": [
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "miami_escort_camp_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_far_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_head_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_north_flat: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_prairie_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_bend: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_prairie: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 433279,
+            "drawCalls": 748
+          }
+        },
+        {
+          "name": "west-bank-at-work",
+          "detail": "light",
+          "problems": [
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "miami_escort_camp_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_far_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_head_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_north_flat: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_prairie_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_bend: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_prairie: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 495184,
+            "drawCalls": 679
+          }
+        },
+        {
+          "name": "miami-camp",
+          "detail": "light",
+          "problems": [
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "miami_escort_camp_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_far_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_head_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_north_flat: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_prairie_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_bend: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_prairie: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 365374,
+            "drawCalls": 1341
+          }
+        },
+        {
+          "name": "asked-for-at-her-lodge-door",
+          "ask": {
+            "ok": true,
+            "door": "door:potawatomi_camp_1812_upper:lodge1",
+            "out": 1,
+            "figure": {
+              "e": 616.32,
+              "n": -215.04,
+              "indoors": false
+            },
+            "after": {
+              "costs": {
+                "lod": 2,
+                "drawn": true,
+                "distance": 2.12,
+                "animates": true,
+                "face": false,
+                "shadow": false,
+                "morphs": false
+              },
+              "body": true,
+              "at": [
+                616.32,
+                -215.04
+              ],
+              "world": [
+                616.32,
+                0.85,
+                215.04
+              ],
+              "ground": 0.85,
+              "indoors": false,
+              "assetId": "potawatomi_woman_1812",
+              "bodyAfter": true
+            }
+          },
+          "detail": "light",
+          "problems": [
+            "burns_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lalime_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lee_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_cabin_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_field_fence_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_a: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_b: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_c: review_required is set — review annotation retained; this flag does not block scene release",
+            "lees_place_haystack_1812_d: review_required is set — review annotation retained; this flag does not block scene release",
+            "lemai_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "miami_escort_camp_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "ouilmette_house_1812: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_far_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_head_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_horse_ground: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_middle: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_mouth: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_north_flat: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_prairie_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_bend: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_prairie: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_reach: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_south_west: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_upper: review_required is set — review annotation retained; this flag does not block scene release",
+            "potawatomi_camp_1812_west_bank: review_required is set — review annotation retained; this flag does not block scene release"
+          ],
+          "stats": {
+            "withinBudget": true,
+            "triangles": 347046,
+            "drawCalls": 515
+          }
+        }
+      ]
+    }
+  ]
+}

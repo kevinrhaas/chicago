@@ -1,0 +1,32 @@
+{
+ "format": "chicago4d_human_looks_v1",
+ "ticket": "T-3500",
+ "person_id": "gathering_1812_west_bank_011",
+ "scene": "1812",
+ "generated_by": "docs/RESEARCH/gathering-people-1812-3500/build.py",
+ "heritage": {
+  "origin": "Potawatomi",
+  "family": "reading"
+ },
+ "complexion": {
+  "value": "dark brown",
+  "drawn": "deep_brown",
+  "grade": "reconstructed"
+ },
+ "hair": {
+  "value": "black, straight",
+  "drawn": "black",
+  "cut": "clubbed_behind_1812",
+  "facial": [],
+  "grade": "reconstructed"
+ },
+ "eyes": {
+  "value": "dark brown",
+  "drawn": "dark_brown",
+  "grade": "reconstructed"
+ },
+ "height_scale": 0.9449,
+ "basis": "Heritage, not a description: no one of the gathering is described. Seeded colouring and stature, no exaggerated feature (L-1812-gathering-people-3500).",
+ "grade": "reconstructed",
+ "liberty": "L-1812-gathering-people-3500"
+}

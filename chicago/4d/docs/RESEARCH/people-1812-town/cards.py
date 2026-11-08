@@ -23,7 +23,8 @@ card note, presence basis and role. What it decides, said here:
     window is in their instance's behaviour.presence and their card's note.
   * EVIDENCE cites only sources with a record under data/sources; a fact citing anything else
     is left in the reading and named on the run.
-  * Louis Fettle is not carded: Quaife's guess is all there is, and his cabin is not drawn.
+  * Louis Fettle is not carded here: his card is T-3500's (docs/RESEARCH/gathering-people-1812-3500/build.py),
+    asked for at Le Mai's door; Quaife's guess is all there is of his 1812, and his own cabin is not drawn.
 
 Liberty L-1812-town-days-3463 (who is put in which household, and its home, where a source does
 not say).
@@ -65,10 +66,11 @@ HOUSEHOLDS = {
                            "Lee's farm, where Liberty White had charge and he and Cardin were killed on 6 April 1812 (Quaife ch. X).", None),
     'hh_kinzie_engages_1812': ("John Kinzie's engagés, at the lodging house by his", 'kinzie_boatman_1812', 'north', 'kinzie_lodging_house_1812',
                                'reconstructed', "Wau-Bun's lodging house 'for the Frenchmen' beside the Kinzie house; which men slept there is not said.", None),
-    'hh_miami_escort_1812': ("The Miami escort William Wells brought from Fort Wayne", 'miami_escort_1812_01', 'fort', 'first_fort_outer_stable_south',
+    'hh_miami_escort_1812': ("The Miami escort William Wells brought from Fort Wayne", 'miami_escort_1812_01', 'fort', 'miami_escort_camp_1812',
                              'reconstructed',
-                             "A bivouac in the open outside the fort, by the stables where their ponies (Currey: 'mounted on ponies') could be "
-                             "kept; where they camped is not recorded. Put at the south stable until the escort's own camp ground is drawn.",
+                             "The escort's camp ground on the prairie south-west of the fort, by the stables where their ponies (Currey: "
+                             "'mounted on ponies') could be kept (T-3499); where they camped is not recorded. The rest of the 27 are "
+                             "carded at the same camp by T-3500.",
                              REVIEW_MIAMI),
 }
 for ground, nm in (('mouth', 'the creek mouth'), ('middle', 'the middle of the creek'), ('west_bank', 'the west bank'),

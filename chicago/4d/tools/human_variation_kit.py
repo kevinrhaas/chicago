@@ -241,6 +241,11 @@ def drawn_people():
     for row in loops.get('rows', []):
         if row.get('person_id'):
             out.setdefault(row['person_id'], {'scene': str(row['scene']), 'drawn_as': []})['drawn_as'].append(f"data/transport/driven/loops.json#{row['id']}")
+    # Carded people drawn only when asked for at their door (T-3500): their figure is built
+    # then, from the same row as anyone's.
+    inside = ROOT / 'data/humans/inside_1812.json'
+    for row in json.loads(inside.read_text()).get('people', []) if inside.exists() else []:
+        out.setdefault(row['person'], {'scene': '1812', 'drawn_as': []})['drawn_as'].append(f"data/humans/inside_1812.json#{row['person']}")
     for path in sorted(FITS.glob('*.json')) if FITS.exists() else []:
         fit = json.loads(path.read_text())
         # A fitted face is carried for the person whether or not a figure draws them yet.

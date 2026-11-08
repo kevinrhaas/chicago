@@ -1,0 +1,93 @@
+{
+  "id": "hh_fettle_louis_1812",
+  "scene": "1812",
+  "name": "Louis Fettle, in Le Mai's house",
+  "head": "fettle_louis",
+  "division": "north",
+  "present_on_scene_date": {
+    "value": "uncertain",
+    "confidence": "inferred",
+    "sources": [
+      "quaife_1913"
+    ],
+    "note": "His card says what is known of him in 1812."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "lemai_house_1812",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "currey_1912_story_of_old_fort_dearborn",
+      "also_sources": [
+        "quaife_1913"
+      ],
+      "note": "Currey's 'small cabin near the Kinzie house', read as one of the four houses of 1808 (pettell_cabin_1812); Le Mai's, since La Lime's was his own until June 1812."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "His wife, an Indian woman (Quaife), is not named and not carded.",
+    "sources": [
+      "quaife_1913"
+    ]
+  },
+  "persons": [
+    {
+      "id": "fettle_louis",
+      "name": "Louis Fettle (Pettell)",
+      "relationship": "head",
+      "grade": "inferred",
+      "sources": [
+        "currey_1912_story_of_old_fort_dearborn",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "45-45",
+        "low": 45,
+        "high": 45,
+        "tier": "reconstructed",
+        "note": "Not recorded; settled here by 1803 with a wife, drawn at forty-five."
+      },
+      "present_on_scene_date": {
+        "value": "uncertain",
+        "confidence": "inferred",
+        "note": "In Kinzie's books down to 1812; only Quaife's guess (\"Probably\") puts him among the twelve militia of 15 August."
+      },
+      "note": "A French-Canadian who was living at Chicago with an Indian wife when the garrison came in 1803, and whose name is in John Kinzie's books down to 1812; then he disappears. Quaife thinks him probably one of the twelve militia killed on 15 August. His home here is Le Mai's house: the hut Currey puts 'near the Kinzie house' is read as one of the four houses of 1808 under a later name (data/exclusions.json pettell_cabin_1812), La Lime's or Le Mai's, and La Lime lived in his until 17 June 1812 (L-1812-gathering-people-3500). His wife is not named or carded.",
+      "reconstruction": {
+        "stage": "home_inferred",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500"
+      },
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. VI, PG 69274 lines 5706-5707",
+          "quote": "he was a French-Canadian living here with an Indian wife when the garrison came in 1803",
+          "claim": "French Canadian with an Indian wife, here in 1803"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. VI, PG 69274 lines 5709-5710",
+          "quote": "His name occurs at intervals down to 1812, showing that he was a resident of Chicago during the entire period.",
+          "claim": "in Kinzie's books down to 1812"
+        },
+        {
+          "source_id": "currey_1912_story_of_old_fort_dearborn",
+          "locator": "pt. II, PG 52346 line 707",
+          "quote": "A man named Pettell also had a small cabin near the Kinzie house.",
+          "claim": "his cabin"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "app. IX, PG 69274 lines 17158-17159",
+          "quote": "Probably Louis Fettle, who lived at Chicago from 1803 to 1812 and then disappeared from recorded history, was still another.",
+          "claim": "Quaife's guess: one of the twelve militia"
+        }
+      ]
+    }
+  ]
+}

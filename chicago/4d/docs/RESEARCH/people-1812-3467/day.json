@@ -28433,9 +28433,9 @@
      "from": 0,
      "to": 2.5,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "keeping watch by the fire and the horses",
-     "at": {"local_e": 1100.4, "local_n": 167.4, "heading_deg": 189},
+     "at": {"local_e": 1072.4, "local_n": 68.4, "heading_deg": 189},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -28443,11 +28443,9 @@
     {
      "from": 2.5,
      "to": 4.75,
-     "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
-     "doing": "asleep by the fire, rolled in his blanket",
-     "at": {"local_e": 1100.4, "local_n": 167.4, "heading_deg": 189},
-     "activity": "sleep",
+     "indoors": true,
+     "where": "miami_escort_camp_1812",
+     "doing": "asleep in the lodge",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
     },
@@ -28455,9 +28453,9 @@
      "from": 4.75,
      "to": 5.5,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "up at first light, the fire made up",
-     "at": {"local_e": 1100.4, "local_n": 167.4, "heading_deg": 189},
+     "at": {"local_e": 1072.4, "local_n": 68.4, "heading_deg": 189},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -28469,7 +28467,7 @@
      "where": "the river bank west of the factory",
      "doing": "leading the horses down to the river to drink",
      "activity": "walk",
-     "route": [[1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165]],
+     "route": [[1076.0, 83.0], [1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165], [1076.0, 83.0]],
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
     },
@@ -28477,9 +28475,9 @@
      "from": 6.5,
      "to": 7.5,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "eating by the fire",
-     "at": {"local_e": 1100.4, "local_n": 167.4, "heading_deg": 189},
+     "at": {"local_e": 1072.4, "local_n": 68.4, "heading_deg": 189},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -28488,9 +28486,9 @@
      "from": 7.5,
      "to": 12.0,
      "indoors": false,
-     "where": "outdoors by the horses south of the bivouac",
+     "where": "outdoors by the horses by the escort's camp",
      "doing": "rubbing down the horses and looking to their hooves after the hard ride",
-     "at": {"local_e": 1094.0, "local_n": 150.0, "heading_deg": 90},
+     "at": {"local_e": 1066.0, "local_n": 51.0, "heading_deg": 90},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@basis_7"
@@ -28499,9 +28497,9 @@
      "from": 12.0,
      "to": 13.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "eating by the fire",
-     "at": {"local_e": 1100.4, "local_n": 167.4, "heading_deg": 189},
+     "at": {"local_e": 1072.4, "local_n": 68.4, "heading_deg": 189},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -28510,9 +28508,9 @@
      "from": 13.0,
      "to": 14.25,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "resting by the fire",
-     "at": {"local_e": 1100.4, "local_n": 167.4, "heading_deg": 189},
+     "at": {"local_e": 1072.4, "local_n": 68.4, "heading_deg": 189},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -28521,9 +28519,9 @@
      "from": 14.25,
      "to": 18.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "at the fire",
-     "at": {"local_e": 1100.4, "local_n": 167.4, "heading_deg": 189},
+     "at": {"local_e": 1072.4, "local_n": 68.4, "heading_deg": 189},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -28532,9 +28530,9 @@
      "from": 18.0,
      "to": 19.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "cooking and eating the evening meal",
-     "at": {"local_e": 1100.4, "local_n": 167.4, "heading_deg": 189},
+     "at": {"local_e": 1072.4, "local_n": 68.4, "heading_deg": 189},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -28543,9 +28541,9 @@
      "from": 19.0,
      "to": 22.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "sitting at the fire in the evening",
-     "at": {"local_e": 1100.4, "local_n": 167.4, "heading_deg": 189},
+     "at": {"local_e": 1072.4, "local_n": 68.4, "heading_deg": 189},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@evening_at_yard"
@@ -28554,9 +28552,9 @@
      "from": 22.0,
      "to": 24.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "keeping the first watch",
-     "at": {"local_e": 1100.4, "local_n": 167.4, "heading_deg": 189},
+     "at": {"local_e": 1072.4, "local_n": 68.4, "heading_deg": 189},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -28586,7 +28584,7 @@
        "with": [
         "wells_william"
        ],
-       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165]],
+       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@basis_9"
       },
@@ -28594,9 +28592,9 @@
        "from": 17.0,
        "to": 18.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "unsaddling and picketing the horses",
-       "at": {"local_e": 1094.0, "local_n": 150.0, "heading_deg": 90},
+       "at": {"local_e": 1066.0, "local_n": 51.0, "heading_deg": 90},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -28605,9 +28603,9 @@
        "from": 18.0,
        "to": 19.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "making a fire and cooking",
-       "at": {"local_e": 1100.4, "local_n": 167.4, "heading_deg": 189},
+       "at": {"local_e": 1072.4, "local_n": 68.4, "heading_deg": 189},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -28616,9 +28614,9 @@
        "from": 19.0,
        "to": 22.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "sitting at the fire",
-       "at": {"local_e": 1100.4, "local_n": 167.4, "heading_deg": 189},
+       "at": {"local_e": 1072.4, "local_n": 68.4, "heading_deg": 189},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@evening_at_yard"
@@ -28626,11 +28624,9 @@
       {
        "from": 22.0,
        "to": 24.0,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire, rolled in his blanket",
-       "at": {"local_e": 1100.4, "local_n": 167.4, "heading_deg": 189},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       }
@@ -28643,11 +28639,9 @@
       {
        "from": 0,
        "to": 4.5,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire",
-       "at": {"local_e": 1100.4, "local_n": 167.4, "heading_deg": 189},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       },
@@ -28658,7 +28652,7 @@
        "where": "the river bank west of the factory",
        "doing": "watering the horses before the march",
        "activity": "walk",
-       "route": [[1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165]],
+       "route": [[1076.0, 83.0], [1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       },
@@ -28666,9 +28660,9 @@
        "from": 6.0,
        "to": 7.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "eating by the fire",
-       "at": {"local_e": 1100.4, "local_n": 167.4, "heading_deg": 189},
+       "at": {"local_e": 1072.4, "local_n": 68.4, "heading_deg": 189},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -28677,9 +28671,9 @@
        "from": 7.0,
        "to": 8.5,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "saddling and packing for the march",
-       "at": {"local_e": 1094.0, "local_n": 150.0, "heading_deg": 90},
+       "at": {"local_e": 1066.0, "local_n": 51.0, "heading_deg": 90},
        "activity": "work",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -28762,10 +28756,10 @@
     "relationship": "member",
     "grade": "reconstructed",
     "sex": "m",
-    "stands_for": "about 4 of the escort of about 30 (Heald), 27 (Helm) or fifteen (Wau-Bun)",
+    "stands_for": "himself: one of the 27 (Helm); T-3500 cards the other 19",
     "home": {
-     "place_or_structure_id": null,
-     "note": "No structure: a bivouac in the open south-west of the fort, at the points given in the day.",
+     "place_or_structure_id": "miami_escort_camp_1812",
+     "note": "The escort's camp ground south-west of the fort (T-3499); where they camped is not recorded. Moved there from the bivouac by the stables by T-3500.",
      "tier": "reconstructed"
     },
     "review_required": true,
@@ -28801,7 +28795,7 @@
        "with": [
         "wells_william"
        ],
-       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165]],
+       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@basis_9"
       },
@@ -28809,9 +28803,9 @@
        "from": 19.0,
        "to": 19.75,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "unsaddling and picketing the horses",
-       "at": {"local_e": 1094.0, "local_n": 150.0, "heading_deg": 90},
+       "at": {"local_e": 1066.0, "local_n": 51.0, "heading_deg": 90},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -28820,9 +28814,9 @@
        "from": 19.75,
        "to": 20.5,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "making a fire and cooking",
-       "at": {"local_e": 1100.4, "local_n": 167.4, "heading_deg": 189},
+       "at": {"local_e": 1072.4, "local_n": 68.4, "heading_deg": 189},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -28831,9 +28825,9 @@
        "from": 20.5,
        "to": 22.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "sitting at the fire",
-       "at": {"local_e": 1100.4, "local_n": 167.4, "heading_deg": 189},
+       "at": {"local_e": 1072.4, "local_n": 68.4, "heading_deg": 189},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@evening_at_yard"
@@ -28841,11 +28835,9 @@
       {
        "from": 22.0,
        "to": 24.0,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire, rolled in his blanket",
-       "at": {"local_e": 1100.4, "local_n": 167.4, "heading_deg": 189},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       }
@@ -28903,11 +28895,9 @@
     {
      "from": 0,
      "to": 2.5,
-     "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
-     "doing": "asleep by the fire, rolled in his blanket",
-     "at": {"local_e": 1102.0, "local_n": 166.4, "heading_deg": 235},
-     "activity": "sleep",
+     "indoors": true,
+     "where": "miami_escort_camp_1812",
+     "doing": "asleep in the lodge",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
     },
@@ -28915,9 +28905,9 @@
      "from": 2.5,
      "to": 4.75,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "keeping watch by the fire and the horses",
-     "at": {"local_e": 1102.0, "local_n": 166.4, "heading_deg": 235},
+     "at": {"local_e": 1074.25, "local_n": 66.97, "heading_deg": 235},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -28926,9 +28916,9 @@
      "from": 4.75,
      "to": 5.5,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "up at first light, the fire made up",
-     "at": {"local_e": 1102.0, "local_n": 166.4, "heading_deg": 235},
+     "at": {"local_e": 1074.25, "local_n": 66.97, "heading_deg": 235},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -28940,7 +28930,7 @@
      "where": "the river bank west of the factory",
      "doing": "leading the horses down to the river to drink",
      "activity": "walk",
-     "route": [[1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165]],
+     "route": [[1076.0, 83.0], [1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165], [1076.0, 83.0]],
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
     },
@@ -28948,9 +28938,9 @@
      "from": 6.5,
      "to": 7.5,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "eating by the fire",
-     "at": {"local_e": 1102.0, "local_n": 166.4, "heading_deg": 235},
+     "at": {"local_e": 1074.25, "local_n": 66.97, "heading_deg": 235},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -28959,9 +28949,9 @@
      "from": 7.5,
      "to": 12.0,
      "indoors": false,
-     "where": "outdoors by the horses south of the bivouac",
+     "where": "outdoors by the horses by the escort's camp",
      "doing": "rubbing down the horses and looking to their hooves after the hard ride",
-     "at": {"local_e": 1097.0, "local_n": 147.5, "heading_deg": 0},
+     "at": {"local_e": 1069.0, "local_n": 48.5, "heading_deg": 0},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@basis_7"
@@ -28970,9 +28960,9 @@
      "from": 12.0,
      "to": 13.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "eating by the fire",
-     "at": {"local_e": 1102.0, "local_n": 166.4, "heading_deg": 235},
+     "at": {"local_e": 1074.25, "local_n": 66.97, "heading_deg": 235},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -28981,9 +28971,9 @@
      "from": 13.0,
      "to": 14.25,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "resting by the fire",
-     "at": {"local_e": 1102.0, "local_n": 166.4, "heading_deg": 235},
+     "at": {"local_e": 1074.25, "local_n": 66.97, "heading_deg": 235},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -28992,9 +28982,9 @@
      "from": 14.25,
      "to": 18.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "at the fire",
-     "at": {"local_e": 1102.0, "local_n": 166.4, "heading_deg": 235},
+     "at": {"local_e": 1074.25, "local_n": 66.97, "heading_deg": 235},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -29003,9 +28993,9 @@
      "from": 18.0,
      "to": 19.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "cooking and eating the evening meal",
-     "at": {"local_e": 1102.0, "local_n": 166.4, "heading_deg": 235},
+     "at": {"local_e": 1074.25, "local_n": 66.97, "heading_deg": 235},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -29014,9 +29004,9 @@
      "from": 19.0,
      "to": 22.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "sitting at the fire in the evening",
-     "at": {"local_e": 1102.0, "local_n": 166.4, "heading_deg": 235},
+     "at": {"local_e": 1074.25, "local_n": 66.97, "heading_deg": 235},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@evening_at_yard"
@@ -29024,11 +29014,9 @@
     {
      "from": 22.0,
      "to": 24.0,
-     "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
-     "doing": "asleep by the fire, rolled in his blanket",
-     "at": {"local_e": 1102.0, "local_n": 166.4, "heading_deg": 235},
-     "activity": "sleep",
+     "indoors": true,
+     "where": "miami_escort_camp_1812",
+     "doing": "asleep in the lodge",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
     }
@@ -29057,7 +29045,7 @@
        "with": [
         "wells_william"
        ],
-       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165]],
+       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@basis_9"
       },
@@ -29065,9 +29053,9 @@
        "from": 17.0,
        "to": 18.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "unsaddling and picketing the horses",
-       "at": {"local_e": 1097.0, "local_n": 147.5, "heading_deg": 0},
+       "at": {"local_e": 1069.0, "local_n": 48.5, "heading_deg": 0},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -29076,9 +29064,9 @@
        "from": 18.0,
        "to": 19.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "making a fire and cooking",
-       "at": {"local_e": 1102.0, "local_n": 166.4, "heading_deg": 235},
+       "at": {"local_e": 1074.25, "local_n": 66.97, "heading_deg": 235},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -29087,9 +29075,9 @@
        "from": 19.0,
        "to": 22.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "sitting at the fire",
-       "at": {"local_e": 1102.0, "local_n": 166.4, "heading_deg": 235},
+       "at": {"local_e": 1074.25, "local_n": 66.97, "heading_deg": 235},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@evening_at_yard"
@@ -29097,11 +29085,9 @@
       {
        "from": 22.0,
        "to": 24.0,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire, rolled in his blanket",
-       "at": {"local_e": 1102.0, "local_n": 166.4, "heading_deg": 235},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       }
@@ -29114,11 +29100,9 @@
       {
        "from": 0,
        "to": 4.5,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire",
-       "at": {"local_e": 1102.0, "local_n": 166.4, "heading_deg": 235},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       },
@@ -29129,7 +29113,7 @@
        "where": "the river bank west of the factory",
        "doing": "watering the horses before the march",
        "activity": "walk",
-       "route": [[1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165]],
+       "route": [[1076.0, 83.0], [1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       },
@@ -29137,9 +29121,9 @@
        "from": 6.0,
        "to": 7.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "eating by the fire",
-       "at": {"local_e": 1102.0, "local_n": 166.4, "heading_deg": 235},
+       "at": {"local_e": 1074.25, "local_n": 66.97, "heading_deg": 235},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -29148,9 +29132,9 @@
        "from": 7.0,
        "to": 8.5,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "saddling and packing for the march",
-       "at": {"local_e": 1097.0, "local_n": 147.5, "heading_deg": 0},
+       "at": {"local_e": 1069.0, "local_n": 48.5, "heading_deg": 0},
        "activity": "work",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -29233,10 +29217,10 @@
     "relationship": "member",
     "grade": "reconstructed",
     "sex": "m",
-    "stands_for": "about 4 of the escort of about 30 (Heald), 27 (Helm) or fifteen (Wau-Bun)",
+    "stands_for": "himself: one of the 27 (Helm); T-3500 cards the other 19",
     "home": {
-     "place_or_structure_id": null,
-     "note": "No structure: a bivouac in the open south-west of the fort, at the points given in the day.",
+     "place_or_structure_id": "miami_escort_camp_1812",
+     "note": "The escort's camp ground south-west of the fort (T-3499); where they camped is not recorded. Moved there from the bivouac by the stables by T-3500.",
      "tier": "reconstructed"
     },
     "review_required": true,
@@ -29272,7 +29256,7 @@
        "with": [
         "wells_william"
        ],
-       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165]],
+       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@basis_9"
       },
@@ -29280,9 +29264,9 @@
        "from": 19.0,
        "to": 19.75,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "unsaddling and picketing the horses",
-       "at": {"local_e": 1097.0, "local_n": 147.5, "heading_deg": 0},
+       "at": {"local_e": 1069.0, "local_n": 48.5, "heading_deg": 0},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -29291,9 +29275,9 @@
        "from": 19.75,
        "to": 20.5,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "making a fire and cooking",
-       "at": {"local_e": 1102.0, "local_n": 166.4, "heading_deg": 235},
+       "at": {"local_e": 1074.25, "local_n": 66.97, "heading_deg": 235},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -29302,9 +29286,9 @@
        "from": 20.5,
        "to": 22.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "sitting at the fire",
-       "at": {"local_e": 1102.0, "local_n": 166.4, "heading_deg": 235},
+       "at": {"local_e": 1074.25, "local_n": 66.97, "heading_deg": 235},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@evening_at_yard"
@@ -29312,11 +29296,9 @@
       {
        "from": 22.0,
        "to": 24.0,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire, rolled in his blanket",
-       "at": {"local_e": 1102.0, "local_n": 166.4, "heading_deg": 235},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       }
@@ -29374,11 +29356,9 @@
     {
      "from": 0,
      "to": 4.75,
-     "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
-     "doing": "asleep by the fire, rolled in his blanket",
-     "at": {"local_e": 1102.4, "local_n": 164.6, "heading_deg": 279},
-     "activity": "sleep",
+     "indoors": true,
+     "where": "miami_escort_camp_1812",
+     "doing": "asleep in the lodge",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
     },
@@ -29386,9 +29366,9 @@
      "from": 4.75,
      "to": 5.5,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "up at first light, the fire made up",
-     "at": {"local_e": 1102.4, "local_n": 164.6, "heading_deg": 279},
+     "at": {"local_e": 1074.58, "local_n": 65.78, "heading_deg": 279},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -29400,7 +29380,7 @@
      "where": "the river bank west of the factory",
      "doing": "leading the horses down to the river to drink",
      "activity": "walk",
-     "route": [[1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165]],
+     "route": [[1076.0, 83.0], [1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165], [1076.0, 83.0]],
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
     },
@@ -29408,9 +29388,9 @@
      "from": 6.5,
      "to": 7.5,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "eating by the fire",
-     "at": {"local_e": 1102.4, "local_n": 164.6, "heading_deg": 279},
+     "at": {"local_e": 1074.58, "local_n": 65.78, "heading_deg": 279},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -29419,9 +29399,9 @@
      "from": 7.5,
      "to": 12.0,
      "indoors": false,
-     "where": "outdoors by the horses south of the bivouac",
+     "where": "outdoors by the horses by the escort's camp",
      "doing": "rubbing down the horses and looking to their hooves after the hard ride",
-     "at": {"local_e": 1100.0, "local_n": 150.0, "heading_deg": 270},
+     "at": {"local_e": 1072.0, "local_n": 51.0, "heading_deg": 270},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@basis_7"
@@ -29430,9 +29410,9 @@
      "from": 12.0,
      "to": 13.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "eating by the fire",
-     "at": {"local_e": 1102.4, "local_n": 164.6, "heading_deg": 279},
+     "at": {"local_e": 1074.58, "local_n": 65.78, "heading_deg": 279},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -29441,9 +29421,9 @@
      "from": 13.0,
      "to": 14.25,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "resting by the fire",
-     "at": {"local_e": 1102.4, "local_n": 164.6, "heading_deg": 279},
+     "at": {"local_e": 1074.58, "local_n": 65.78, "heading_deg": 279},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -29452,9 +29432,9 @@
      "from": 14.25,
      "to": 16.75,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "resting in the shade of his saddle and blanket",
-     "at": {"local_e": 1102.4, "local_n": 164.6, "heading_deg": 279},
+     "at": {"local_e": 1074.58, "local_n": 65.78, "heading_deg": 279},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -29466,7 +29446,7 @@
      "where": "the river bank west of the factory",
      "doing": "taking the horses to water again",
      "activity": "walk",
-     "route": [[1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165]],
+     "route": [[1076.0, 83.0], [1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165], [1076.0, 83.0]],
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
     },
@@ -29474,9 +29454,9 @@
      "from": 18.0,
      "to": 19.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "cooking and eating the evening meal",
-     "at": {"local_e": 1102.4, "local_n": 164.6, "heading_deg": 279},
+     "at": {"local_e": 1074.58, "local_n": 65.78, "heading_deg": 279},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -29485,9 +29465,9 @@
      "from": 19.0,
      "to": 22.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "sitting at the fire in the evening",
-     "at": {"local_e": 1102.4, "local_n": 164.6, "heading_deg": 279},
+     "at": {"local_e": 1074.58, "local_n": 65.78, "heading_deg": 279},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@evening_at_yard"
@@ -29495,11 +29475,9 @@
     {
      "from": 22.0,
      "to": 24.0,
-     "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
-     "doing": "asleep by the fire, rolled in his blanket",
-     "at": {"local_e": 1102.4, "local_n": 164.6, "heading_deg": 279},
-     "activity": "sleep",
+     "indoors": true,
+     "where": "miami_escort_camp_1812",
+     "doing": "asleep in the lodge",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
     }
@@ -29528,7 +29506,7 @@
        "with": [
         "wells_william"
        ],
-       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165]],
+       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@basis_9"
       },
@@ -29536,9 +29514,9 @@
        "from": 17.0,
        "to": 18.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "unsaddling and picketing the horses",
-       "at": {"local_e": 1100.0, "local_n": 150.0, "heading_deg": 270},
+       "at": {"local_e": 1072.0, "local_n": 51.0, "heading_deg": 270},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -29547,9 +29525,9 @@
        "from": 18.0,
        "to": 19.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "making a fire and cooking",
-       "at": {"local_e": 1102.4, "local_n": 164.6, "heading_deg": 279},
+       "at": {"local_e": 1074.58, "local_n": 65.78, "heading_deg": 279},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -29558,9 +29536,9 @@
        "from": 19.0,
        "to": 22.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "sitting at the fire",
-       "at": {"local_e": 1102.4, "local_n": 164.6, "heading_deg": 279},
+       "at": {"local_e": 1074.58, "local_n": 65.78, "heading_deg": 279},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@evening_at_yard"
@@ -29568,11 +29546,9 @@
       {
        "from": 22.0,
        "to": 24.0,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire, rolled in his blanket",
-       "at": {"local_e": 1102.4, "local_n": 164.6, "heading_deg": 279},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       }
@@ -29585,11 +29561,9 @@
       {
        "from": 0,
        "to": 4.5,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire",
-       "at": {"local_e": 1102.4, "local_n": 164.6, "heading_deg": 279},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       },
@@ -29600,7 +29574,7 @@
        "where": "the river bank west of the factory",
        "doing": "watering the horses before the march",
        "activity": "walk",
-       "route": [[1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165]],
+       "route": [[1076.0, 83.0], [1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       },
@@ -29608,9 +29582,9 @@
        "from": 6.0,
        "to": 7.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "eating by the fire",
-       "at": {"local_e": 1102.4, "local_n": 164.6, "heading_deg": 279},
+       "at": {"local_e": 1074.58, "local_n": 65.78, "heading_deg": 279},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -29619,9 +29593,9 @@
        "from": 7.0,
        "to": 8.5,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "saddling and packing for the march",
-       "at": {"local_e": 1100.0, "local_n": 150.0, "heading_deg": 270},
+       "at": {"local_e": 1072.0, "local_n": 51.0, "heading_deg": 270},
        "activity": "work",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -29704,10 +29678,10 @@
     "relationship": "member",
     "grade": "reconstructed",
     "sex": "m",
-    "stands_for": "about 4 of the escort of about 30 (Heald), 27 (Helm) or fifteen (Wau-Bun)",
+    "stands_for": "himself: one of the 27 (Helm); T-3500 cards the other 19",
     "home": {
-     "place_or_structure_id": null,
-     "note": "No structure: a bivouac in the open south-west of the fort, at the points given in the day.",
+     "place_or_structure_id": "miami_escort_camp_1812",
+     "note": "The escort's camp ground south-west of the fort (T-3499); where they camped is not recorded. Moved there from the bivouac by the stables by T-3500.",
      "tier": "reconstructed"
     },
     "review_required": true,
@@ -29743,7 +29717,7 @@
        "with": [
         "wells_william"
        ],
-       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165]],
+       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@basis_9"
       },
@@ -29751,9 +29725,9 @@
        "from": 19.0,
        "to": 19.75,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "unsaddling and picketing the horses",
-       "at": {"local_e": 1100.0, "local_n": 150.0, "heading_deg": 270},
+       "at": {"local_e": 1072.0, "local_n": 51.0, "heading_deg": 270},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -29762,9 +29736,9 @@
        "from": 19.75,
        "to": 20.5,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "making a fire and cooking",
-       "at": {"local_e": 1102.4, "local_n": 164.6, "heading_deg": 279},
+       "at": {"local_e": 1074.58, "local_n": 65.78, "heading_deg": 279},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -29773,9 +29747,9 @@
        "from": 20.5,
        "to": 22.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "sitting at the fire",
-       "at": {"local_e": 1102.4, "local_n": 164.6, "heading_deg": 279},
+       "at": {"local_e": 1074.58, "local_n": 65.78, "heading_deg": 279},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@evening_at_yard"
@@ -29783,11 +29757,9 @@
       {
        "from": 22.0,
        "to": 24.0,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire, rolled in his blanket",
-       "at": {"local_e": 1102.4, "local_n": 164.6, "heading_deg": 279},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       }
@@ -29845,11 +29817,9 @@
     {
      "from": 0,
      "to": 4.75,
-     "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
-     "doing": "asleep by the fire, rolled in his blanket",
-     "at": {"local_e": 1101.4, "local_n": 163.0, "heading_deg": 325},
-     "activity": "sleep",
+     "indoors": true,
+     "where": "miami_escort_camp_1812",
+     "doing": "asleep in the lodge",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
     },
@@ -29857,9 +29827,9 @@
      "from": 4.75,
      "to": 5.5,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "up at first light, the fire made up",
-     "at": {"local_e": 1101.4, "local_n": 163.0, "heading_deg": 325},
+     "at": {"local_e": 1073.58, "local_n": 64.18, "heading_deg": 325},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -29871,7 +29841,7 @@
      "where": "the river bank west of the factory",
      "doing": "leading the horses down to the river to drink",
      "activity": "walk",
-     "route": [[1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165]],
+     "route": [[1076.0, 83.0], [1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165], [1076.0, 83.0]],
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
     },
@@ -29879,9 +29849,9 @@
      "from": 6.5,
      "to": 7.5,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "eating by the fire",
-     "at": {"local_e": 1101.4, "local_n": 163.0, "heading_deg": 325},
+     "at": {"local_e": 1073.58, "local_n": 64.18, "heading_deg": 325},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -29890,9 +29860,9 @@
      "from": 7.5,
      "to": 12.0,
      "indoors": false,
-     "where": "outdoors by the horses south of the bivouac",
+     "where": "outdoors by the horses by the escort's camp",
      "doing": "rubbing down the horses and looking to their hooves after the hard ride",
-     "at": {"local_e": 1097.0, "local_n": 152.5, "heading_deg": 180},
+     "at": {"local_e": 1069.0, "local_n": 53.5, "heading_deg": 180},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@basis_7"
@@ -29901,9 +29871,9 @@
      "from": 12.0,
      "to": 13.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "eating by the fire",
-     "at": {"local_e": 1101.4, "local_n": 163.0, "heading_deg": 325},
+     "at": {"local_e": 1073.58, "local_n": 64.18, "heading_deg": 325},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -29912,9 +29882,9 @@
      "from": 13.0,
      "to": 14.25,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "resting by the fire",
-     "at": {"local_e": 1101.4, "local_n": 163.0, "heading_deg": 325},
+     "at": {"local_e": 1073.58, "local_n": 64.18, "heading_deg": 325},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -29923,9 +29893,9 @@
      "from": 14.25,
      "to": 16.75,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "resting in the shade of his saddle and blanket",
-     "at": {"local_e": 1101.4, "local_n": 163.0, "heading_deg": 325},
+     "at": {"local_e": 1073.58, "local_n": 64.18, "heading_deg": 325},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -29937,7 +29907,7 @@
      "where": "the river bank west of the factory",
      "doing": "taking the horses to water again",
      "activity": "walk",
-     "route": [[1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165]],
+     "route": [[1076.0, 83.0], [1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165], [1076.0, 83.0]],
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
     },
@@ -29945,9 +29915,9 @@
      "from": 18.0,
      "to": 19.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "cooking and eating the evening meal",
-     "at": {"local_e": 1101.4, "local_n": 163.0, "heading_deg": 325},
+     "at": {"local_e": 1073.58, "local_n": 64.18, "heading_deg": 325},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -29956,9 +29926,9 @@
      "from": 19.0,
      "to": 22.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "sitting at the fire in the evening",
-     "at": {"local_e": 1101.4, "local_n": 163.0, "heading_deg": 325},
+     "at": {"local_e": 1073.58, "local_n": 64.18, "heading_deg": 325},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@evening_at_yard"
@@ -29966,11 +29936,9 @@
     {
      "from": 22.0,
      "to": 24.0,
-     "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
-     "doing": "asleep by the fire, rolled in his blanket",
-     "at": {"local_e": 1101.4, "local_n": 163.0, "heading_deg": 325},
-     "activity": "sleep",
+     "indoors": true,
+     "where": "miami_escort_camp_1812",
+     "doing": "asleep in the lodge",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
     }
@@ -29999,7 +29967,7 @@
        "with": [
         "wells_william"
        ],
-       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165]],
+       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@basis_9"
       },
@@ -30007,9 +29975,9 @@
        "from": 17.0,
        "to": 18.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "unsaddling and picketing the horses",
-       "at": {"local_e": 1097.0, "local_n": 152.5, "heading_deg": 180},
+       "at": {"local_e": 1069.0, "local_n": 53.5, "heading_deg": 180},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -30018,9 +29986,9 @@
        "from": 18.0,
        "to": 19.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "making a fire and cooking",
-       "at": {"local_e": 1101.4, "local_n": 163.0, "heading_deg": 325},
+       "at": {"local_e": 1073.58, "local_n": 64.18, "heading_deg": 325},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -30029,9 +29997,9 @@
        "from": 19.0,
        "to": 22.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "sitting at the fire",
-       "at": {"local_e": 1101.4, "local_n": 163.0, "heading_deg": 325},
+       "at": {"local_e": 1073.58, "local_n": 64.18, "heading_deg": 325},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@evening_at_yard"
@@ -30039,11 +30007,9 @@
       {
        "from": 22.0,
        "to": 24.0,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire, rolled in his blanket",
-       "at": {"local_e": 1101.4, "local_n": 163.0, "heading_deg": 325},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       }
@@ -30056,11 +30022,9 @@
       {
        "from": 0,
        "to": 4.5,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire",
-       "at": {"local_e": 1101.4, "local_n": 163.0, "heading_deg": 325},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       },
@@ -30071,7 +30035,7 @@
        "where": "the river bank west of the factory",
        "doing": "watering the horses before the march",
        "activity": "walk",
-       "route": [[1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165]],
+       "route": [[1076.0, 83.0], [1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       },
@@ -30079,9 +30043,9 @@
        "from": 6.0,
        "to": 7.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "eating by the fire",
-       "at": {"local_e": 1101.4, "local_n": 163.0, "heading_deg": 325},
+       "at": {"local_e": 1073.58, "local_n": 64.18, "heading_deg": 325},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -30090,9 +30054,9 @@
        "from": 7.0,
        "to": 8.5,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "saddling and packing for the march",
-       "at": {"local_e": 1097.0, "local_n": 152.5, "heading_deg": 180},
+       "at": {"local_e": 1069.0, "local_n": 53.5, "heading_deg": 180},
        "activity": "work",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -30175,10 +30139,10 @@
     "relationship": "member",
     "grade": "reconstructed",
     "sex": "m",
-    "stands_for": "about 4 of the escort of about 30 (Heald), 27 (Helm) or fifteen (Wau-Bun)",
+    "stands_for": "himself: one of the 27 (Helm); T-3500 cards the other 19",
     "home": {
-     "place_or_structure_id": null,
-     "note": "No structure: a bivouac in the open south-west of the fort, at the points given in the day.",
+     "place_or_structure_id": "miami_escort_camp_1812",
+     "note": "The escort's camp ground south-west of the fort (T-3499); where they camped is not recorded. Moved there from the bivouac by the stables by T-3500.",
      "tier": "reconstructed"
     },
     "review_required": true,
@@ -30214,7 +30178,7 @@
        "with": [
         "wells_william"
        ],
-       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165]],
+       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@basis_9"
       },
@@ -30222,9 +30186,9 @@
        "from": 19.0,
        "to": 19.75,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "unsaddling and picketing the horses",
-       "at": {"local_e": 1097.0, "local_n": 152.5, "heading_deg": 180},
+       "at": {"local_e": 1069.0, "local_n": 53.5, "heading_deg": 180},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -30233,9 +30197,9 @@
        "from": 19.75,
        "to": 20.5,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "making a fire and cooking",
-       "at": {"local_e": 1101.4, "local_n": 163.0, "heading_deg": 325},
+       "at": {"local_e": 1073.58, "local_n": 64.18, "heading_deg": 325},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -30244,9 +30208,9 @@
        "from": 20.5,
        "to": 22.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "sitting at the fire",
-       "at": {"local_e": 1101.4, "local_n": 163.0, "heading_deg": 325},
+       "at": {"local_e": 1073.58, "local_n": 64.18, "heading_deg": 325},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@evening_at_yard"
@@ -30254,11 +30218,9 @@
       {
        "from": 22.0,
        "to": 24.0,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire, rolled in his blanket",
-       "at": {"local_e": 1101.4, "local_n": 163.0, "heading_deg": 325},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       }
@@ -30316,11 +30278,9 @@
     {
      "from": 0,
      "to": 4.75,
-     "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
-     "doing": "asleep by the fire, rolled in his blanket",
-     "at": {"local_e": 1099.6, "local_n": 162.6, "heading_deg": 9},
-     "activity": "sleep",
+     "indoors": true,
+     "where": "miami_escort_camp_1812",
+     "doing": "asleep in the lodge",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
     },
@@ -30328,9 +30288,9 @@
      "from": 4.75,
      "to": 5.5,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "up at first light, the fire made up",
-     "at": {"local_e": 1099.6, "local_n": 162.6, "heading_deg": 9},
+     "at": {"local_e": 1073.53, "local_n": 64.12, "heading_deg": 9},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -30339,9 +30299,9 @@
      "from": 5.5,
      "to": 6.5,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "cooking the morning meal",
-     "at": {"local_e": 1099.6, "local_n": 162.6, "heading_deg": 9},
+     "at": {"local_e": 1073.53, "local_n": 64.12, "heading_deg": 9},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -30350,9 +30310,9 @@
      "from": 6.5,
      "to": 7.5,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "eating by the fire",
-     "at": {"local_e": 1099.6, "local_n": 162.6, "heading_deg": 9},
+     "at": {"local_e": 1073.53, "local_n": 64.12, "heading_deg": 9},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -30364,7 +30324,7 @@
      "where": "path to the fort gate",
      "doing": "walking to the fort gate",
      "activity": "walk",
-     "route": [[1100, 165], [1120, 185], [1132, 193]],
+     "route": [[1076.0, 83.0], [1100, 165], [1120, 185], [1132, 193]],
      "grade": "reconstructed",
      "basis": "@walk_camp_fort"
     },
@@ -30383,10 +30343,10 @@
      "from": 11.75,
      "to": 12.0,
      "indoors": false,
-     "where": "path to the bivouac",
-     "doing": "walking back to the bivouac",
+     "where": "path to the escort's camp",
+     "doing": "walking back to the escort's camp",
      "activity": "walk",
-     "route": [[1132, 193], [1120, 185], [1100, 165]],
+     "route": [[1132, 193], [1120, 185], [1100, 165], [1076.0, 83.0]],
      "grade": "reconstructed",
      "basis": "@walk_camp_fort"
     },
@@ -30394,9 +30354,9 @@
      "from": 12.0,
      "to": 13.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "eating by the fire",
-     "at": {"local_e": 1099.6, "local_n": 162.6, "heading_deg": 9},
+     "at": {"local_e": 1073.53, "local_n": 64.12, "heading_deg": 9},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -30405,9 +30365,9 @@
      "from": 13.0,
      "to": 14.25,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "resting by the fire",
-     "at": {"local_e": 1099.6, "local_n": 162.6, "heading_deg": 9},
+     "at": {"local_e": 1073.53, "local_n": 64.12, "heading_deg": 9},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -30419,7 +30379,7 @@
      "where": "path to the esplanade",
      "doing": "walking to the esplanade",
      "activity": "walk",
-     "route": [[1100, 165], [1100, 190], [1113, 210]],
+     "route": [[1076.0, 83.0], [1100, 165], [1100, 190], [1113, 210]],
      "grade": "reconstructed",
      "basis": "@walk_camp_fort"
     },
@@ -30441,10 +30401,10 @@
      "from": 16.5,
      "to": 16.75,
      "indoors": false,
-     "where": "path to the bivouac",
-     "doing": "walking back to the bivouac",
+     "where": "path to the escort's camp",
+     "doing": "walking back to the escort's camp",
      "activity": "walk",
-     "route": [[1113, 210], [1100, 190], [1100, 165]],
+     "route": [[1113, 210], [1100, 190], [1100, 165], [1076.0, 83.0]],
      "grade": "reconstructed",
      "basis": "@walk_camp_fort"
     },
@@ -30452,9 +30412,9 @@
      "from": 16.75,
      "to": 18.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "at the fire",
-     "at": {"local_e": 1099.6, "local_n": 162.6, "heading_deg": 9},
+     "at": {"local_e": 1073.53, "local_n": 64.12, "heading_deg": 9},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -30463,9 +30423,9 @@
      "from": 18.0,
      "to": 19.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "cooking and eating the evening meal",
-     "at": {"local_e": 1099.6, "local_n": 162.6, "heading_deg": 9},
+     "at": {"local_e": 1073.53, "local_n": 64.12, "heading_deg": 9},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -30474,9 +30434,9 @@
      "from": 19.0,
      "to": 22.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "sitting at the fire in the evening",
-     "at": {"local_e": 1099.6, "local_n": 162.6, "heading_deg": 9},
+     "at": {"local_e": 1073.53, "local_n": 64.12, "heading_deg": 9},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@evening_at_yard"
@@ -30484,11 +30444,9 @@
     {
      "from": 22.0,
      "to": 24.0,
-     "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
-     "doing": "asleep by the fire, rolled in his blanket",
-     "at": {"local_e": 1099.6, "local_n": 162.6, "heading_deg": 9},
-     "activity": "sleep",
+     "indoors": true,
+     "where": "miami_escort_camp_1812",
+     "doing": "asleep in the lodge",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
     }
@@ -30517,7 +30475,7 @@
        "with": [
         "wells_william"
        ],
-       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165]],
+       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@basis_9"
       },
@@ -30525,9 +30483,9 @@
        "from": 17.0,
        "to": 18.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "unsaddling and picketing the horses",
-       "at": {"local_e": 1095.0, "local_n": 150.0, "heading_deg": 90},
+       "at": {"local_e": 1067.0, "local_n": 51.0, "heading_deg": 90},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -30536,9 +30494,9 @@
        "from": 18.0,
        "to": 19.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "making a fire and cooking",
-       "at": {"local_e": 1099.6, "local_n": 162.6, "heading_deg": 9},
+       "at": {"local_e": 1073.53, "local_n": 64.12, "heading_deg": 9},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -30547,9 +30505,9 @@
        "from": 19.0,
        "to": 22.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "sitting at the fire",
-       "at": {"local_e": 1099.6, "local_n": 162.6, "heading_deg": 9},
+       "at": {"local_e": 1073.53, "local_n": 64.12, "heading_deg": 9},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@evening_at_yard"
@@ -30557,11 +30515,9 @@
       {
        "from": 22.0,
        "to": 24.0,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire, rolled in his blanket",
-       "at": {"local_e": 1099.6, "local_n": 162.6, "heading_deg": 9},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       }
@@ -30574,11 +30530,9 @@
       {
        "from": 0,
        "to": 4.5,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire",
-       "at": {"local_e": 1099.6, "local_n": 162.6, "heading_deg": 9},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       },
@@ -30589,7 +30543,7 @@
        "where": "the river bank west of the factory",
        "doing": "watering the horses before the march",
        "activity": "walk",
-       "route": [[1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165]],
+       "route": [[1076.0, 83.0], [1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       },
@@ -30597,9 +30551,9 @@
        "from": 6.0,
        "to": 7.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "eating by the fire",
-       "at": {"local_e": 1099.6, "local_n": 162.6, "heading_deg": 9},
+       "at": {"local_e": 1073.53, "local_n": 64.12, "heading_deg": 9},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -30608,9 +30562,9 @@
        "from": 7.0,
        "to": 8.5,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "saddling and packing for the march",
-       "at": {"local_e": 1095.0, "local_n": 150.0, "heading_deg": 90},
+       "at": {"local_e": 1067.0, "local_n": 51.0, "heading_deg": 90},
        "activity": "work",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -30693,10 +30647,10 @@
     "relationship": "member",
     "grade": "reconstructed",
     "sex": "m",
-    "stands_for": "about 4 of the escort of about 30 (Heald), 27 (Helm) or fifteen (Wau-Bun)",
+    "stands_for": "himself: one of the 27 (Helm); T-3500 cards the other 19",
     "home": {
-     "place_or_structure_id": null,
-     "note": "No structure: a bivouac in the open south-west of the fort, at the points given in the day.",
+     "place_or_structure_id": "miami_escort_camp_1812",
+     "note": "The escort's camp ground south-west of the fort (T-3499); where they camped is not recorded. Moved there from the bivouac by the stables by T-3500.",
      "tier": "reconstructed"
     },
     "review_required": true,
@@ -30732,7 +30686,7 @@
        "with": [
         "wells_william"
        ],
-       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165]],
+       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@basis_9"
       },
@@ -30740,9 +30694,9 @@
        "from": 19.0,
        "to": 19.75,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "unsaddling and picketing the horses",
-       "at": {"local_e": 1095.0, "local_n": 150.0, "heading_deg": 90},
+       "at": {"local_e": 1067.0, "local_n": 51.0, "heading_deg": 90},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -30751,9 +30705,9 @@
        "from": 19.75,
        "to": 20.5,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "making a fire and cooking",
-       "at": {"local_e": 1099.6, "local_n": 162.6, "heading_deg": 9},
+       "at": {"local_e": 1073.53, "local_n": 64.12, "heading_deg": 9},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -30762,9 +30716,9 @@
        "from": 20.5,
        "to": 22.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "sitting at the fire",
-       "at": {"local_e": 1099.6, "local_n": 162.6, "heading_deg": 9},
+       "at": {"local_e": 1073.53, "local_n": 64.12, "heading_deg": 9},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@evening_at_yard"
@@ -30772,11 +30726,9 @@
       {
        "from": 22.0,
        "to": 24.0,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire, rolled in his blanket",
-       "at": {"local_e": 1099.6, "local_n": 162.6, "heading_deg": 9},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       }
@@ -30834,11 +30786,9 @@
     {
      "from": 0,
      "to": 4.75,
-     "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
-     "doing": "asleep by the fire, rolled in his blanket",
-     "at": {"local_e": 1098.0, "local_n": 163.6, "heading_deg": 55},
-     "activity": "sleep",
+     "indoors": true,
+     "where": "miami_escort_camp_1812",
+     "doing": "asleep in the lodge",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
     },
@@ -30846,9 +30796,9 @@
      "from": 4.75,
      "to": 5.5,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "up at first light, the fire made up",
-     "at": {"local_e": 1098.0, "local_n": 163.6, "heading_deg": 55},
+     "at": {"local_e": 1070.0, "local_n": 66.6, "heading_deg": 55},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -30857,9 +30807,9 @@
      "from": 5.5,
      "to": 6.5,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "cooking the morning meal",
-     "at": {"local_e": 1098.0, "local_n": 163.6, "heading_deg": 55},
+     "at": {"local_e": 1070.0, "local_n": 66.6, "heading_deg": 55},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -30868,9 +30818,9 @@
      "from": 6.5,
      "to": 7.5,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "eating by the fire",
-     "at": {"local_e": 1098.0, "local_n": 163.6, "heading_deg": 55},
+     "at": {"local_e": 1070.0, "local_n": 66.6, "heading_deg": 55},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -30882,7 +30832,7 @@
      "where": "path to the fort gate",
      "doing": "walking to the fort gate",
      "activity": "walk",
-     "route": [[1100, 165], [1120, 185], [1132, 193]],
+     "route": [[1076.0, 83.0], [1100, 165], [1120, 185], [1132, 193]],
      "grade": "reconstructed",
      "basis": "@walk_camp_fort"
     },
@@ -30901,10 +30851,10 @@
      "from": 11.75,
      "to": 12.0,
      "indoors": false,
-     "where": "path to the bivouac",
-     "doing": "walking back to the bivouac",
+     "where": "path to the escort's camp",
+     "doing": "walking back to the escort's camp",
      "activity": "walk",
-     "route": [[1132, 193], [1120, 185], [1100, 165]],
+     "route": [[1132, 193], [1120, 185], [1100, 165], [1076.0, 83.0]],
      "grade": "reconstructed",
      "basis": "@walk_camp_fort"
     },
@@ -30912,9 +30862,9 @@
      "from": 12.0,
      "to": 13.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "eating by the fire",
-     "at": {"local_e": 1098.0, "local_n": 163.6, "heading_deg": 55},
+     "at": {"local_e": 1070.0, "local_n": 66.6, "heading_deg": 55},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -30923,9 +30873,9 @@
      "from": 13.0,
      "to": 14.25,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "resting by the fire",
-     "at": {"local_e": 1098.0, "local_n": 163.6, "heading_deg": 55},
+     "at": {"local_e": 1070.0, "local_n": 66.6, "heading_deg": 55},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -30937,7 +30887,7 @@
      "where": "path to the esplanade",
      "doing": "walking to the esplanade",
      "activity": "walk",
-     "route": [[1100, 165], [1100, 190], [1113, 210]],
+     "route": [[1076.0, 83.0], [1100, 165], [1100, 190], [1113, 210]],
      "grade": "reconstructed",
      "basis": "@walk_camp_fort"
     },
@@ -30959,10 +30909,10 @@
      "from": 16.5,
      "to": 16.75,
      "indoors": false,
-     "where": "path to the bivouac",
-     "doing": "walking back to the bivouac",
+     "where": "path to the escort's camp",
+     "doing": "walking back to the escort's camp",
      "activity": "walk",
-     "route": [[1113, 210], [1100, 190], [1100, 165]],
+     "route": [[1113, 210], [1100, 190], [1100, 165], [1076.0, 83.0]],
      "grade": "reconstructed",
      "basis": "@walk_camp_fort"
     },
@@ -30970,9 +30920,9 @@
      "from": 16.75,
      "to": 18.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "at the fire",
-     "at": {"local_e": 1098.0, "local_n": 163.6, "heading_deg": 55},
+     "at": {"local_e": 1070.0, "local_n": 66.6, "heading_deg": 55},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -30981,9 +30931,9 @@
      "from": 18.0,
      "to": 19.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "cooking and eating the evening meal",
-     "at": {"local_e": 1098.0, "local_n": 163.6, "heading_deg": 55},
+     "at": {"local_e": 1070.0, "local_n": 66.6, "heading_deg": 55},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -30992,9 +30942,9 @@
      "from": 19.0,
      "to": 22.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "sitting at the fire in the evening",
-     "at": {"local_e": 1098.0, "local_n": 163.6, "heading_deg": 55},
+     "at": {"local_e": 1070.0, "local_n": 66.6, "heading_deg": 55},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@evening_at_yard"
@@ -31002,11 +30952,9 @@
     {
      "from": 22.0,
      "to": 24.0,
-     "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
-     "doing": "asleep by the fire, rolled in his blanket",
-     "at": {"local_e": 1098.0, "local_n": 163.6, "heading_deg": 55},
-     "activity": "sleep",
+     "indoors": true,
+     "where": "miami_escort_camp_1812",
+     "doing": "asleep in the lodge",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
     }
@@ -31035,7 +30983,7 @@
        "with": [
         "wells_william"
        ],
-       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165]],
+       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@basis_9"
       },
@@ -31043,9 +30991,9 @@
        "from": 17.0,
        "to": 18.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "unsaddling and picketing the horses",
-       "at": {"local_e": 1098.0, "local_n": 147.5, "heading_deg": 0},
+       "at": {"local_e": 1070.0, "local_n": 48.5, "heading_deg": 0},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -31054,9 +31002,9 @@
        "from": 18.0,
        "to": 19.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "making a fire and cooking",
-       "at": {"local_e": 1098.0, "local_n": 163.6, "heading_deg": 55},
+       "at": {"local_e": 1070.0, "local_n": 66.6, "heading_deg": 55},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -31065,9 +31013,9 @@
        "from": 19.0,
        "to": 22.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "sitting at the fire",
-       "at": {"local_e": 1098.0, "local_n": 163.6, "heading_deg": 55},
+       "at": {"local_e": 1070.0, "local_n": 66.6, "heading_deg": 55},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@evening_at_yard"
@@ -31075,11 +31023,9 @@
       {
        "from": 22.0,
        "to": 24.0,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire, rolled in his blanket",
-       "at": {"local_e": 1098.0, "local_n": 163.6, "heading_deg": 55},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       }
@@ -31092,11 +31038,9 @@
       {
        "from": 0,
        "to": 4.5,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire",
-       "at": {"local_e": 1098.0, "local_n": 163.6, "heading_deg": 55},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       },
@@ -31107,7 +31051,7 @@
        "where": "the river bank west of the factory",
        "doing": "watering the horses before the march",
        "activity": "walk",
-       "route": [[1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165]],
+       "route": [[1076.0, 83.0], [1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       },
@@ -31115,9 +31059,9 @@
        "from": 6.0,
        "to": 7.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "eating by the fire",
-       "at": {"local_e": 1098.0, "local_n": 163.6, "heading_deg": 55},
+       "at": {"local_e": 1070.0, "local_n": 66.6, "heading_deg": 55},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -31126,9 +31070,9 @@
        "from": 7.0,
        "to": 8.5,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "saddling and packing for the march",
-       "at": {"local_e": 1098.0, "local_n": 147.5, "heading_deg": 0},
+       "at": {"local_e": 1070.0, "local_n": 48.5, "heading_deg": 0},
        "activity": "work",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -31211,10 +31155,10 @@
     "relationship": "member",
     "grade": "reconstructed",
     "sex": "m",
-    "stands_for": "about 4 of the escort of about 30 (Heald), 27 (Helm) or fifteen (Wau-Bun)",
+    "stands_for": "himself: one of the 27 (Helm); T-3500 cards the other 19",
     "home": {
-     "place_or_structure_id": null,
-     "note": "No structure: a bivouac in the open south-west of the fort, at the points given in the day.",
+     "place_or_structure_id": "miami_escort_camp_1812",
+     "note": "The escort's camp ground south-west of the fort (T-3499); where they camped is not recorded. Moved there from the bivouac by the stables by T-3500.",
      "tier": "reconstructed"
     },
     "review_required": true,
@@ -31250,7 +31194,7 @@
        "with": [
         "wells_william"
        ],
-       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165]],
+       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@basis_9"
       },
@@ -31258,9 +31202,9 @@
        "from": 19.0,
        "to": 19.75,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "unsaddling and picketing the horses",
-       "at": {"local_e": 1098.0, "local_n": 147.5, "heading_deg": 0},
+       "at": {"local_e": 1070.0, "local_n": 48.5, "heading_deg": 0},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -31269,9 +31213,9 @@
        "from": 19.75,
        "to": 20.5,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "making a fire and cooking",
-       "at": {"local_e": 1098.0, "local_n": 163.6, "heading_deg": 55},
+       "at": {"local_e": 1070.0, "local_n": 66.6, "heading_deg": 55},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -31280,9 +31224,9 @@
        "from": 20.5,
        "to": 22.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "sitting at the fire",
-       "at": {"local_e": 1098.0, "local_n": 163.6, "heading_deg": 55},
+       "at": {"local_e": 1070.0, "local_n": 66.6, "heading_deg": 55},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@evening_at_yard"
@@ -31290,11 +31234,9 @@
       {
        "from": 22.0,
        "to": 24.0,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire, rolled in his blanket",
-       "at": {"local_e": 1098.0, "local_n": 163.6, "heading_deg": 55},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       }
@@ -31352,11 +31294,9 @@
     {
      "from": 0,
      "to": 4.75,
-     "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
-     "doing": "asleep by the fire, rolled in his blanket",
-     "at": {"local_e": 1097.6, "local_n": 165.4, "heading_deg": 99},
-     "activity": "sleep",
+     "indoors": true,
+     "where": "miami_escort_camp_1812",
+     "doing": "asleep in the lodge",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
     },
@@ -31364,9 +31304,9 @@
      "from": 4.75,
      "to": 5.5,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "up at first light, the fire made up",
-     "at": {"local_e": 1097.6, "local_n": 165.4, "heading_deg": 99},
+     "at": {"local_e": 1069.6, "local_n": 66.65, "heading_deg": 99},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -31375,9 +31315,9 @@
      "from": 5.5,
      "to": 6.5,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "cooking the morning meal",
-     "at": {"local_e": 1097.6, "local_n": 165.4, "heading_deg": 99},
+     "at": {"local_e": 1069.6, "local_n": 66.65, "heading_deg": 99},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -31386,9 +31326,9 @@
      "from": 6.5,
      "to": 7.5,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "eating by the fire",
-     "at": {"local_e": 1097.6, "local_n": 165.4, "heading_deg": 99},
+     "at": {"local_e": 1069.6, "local_n": 66.65, "heading_deg": 99},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -31397,9 +31337,9 @@
      "from": 7.5,
      "to": 12.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "mending saddle and bridle gear by the fire",
-     "at": {"local_e": 1097.6, "local_n": 165.4, "heading_deg": 99},
+     "at": {"local_e": 1069.6, "local_n": 66.65, "heading_deg": 99},
      "activity": "work",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -31408,9 +31348,9 @@
      "from": 12.0,
      "to": 13.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "eating by the fire",
-     "at": {"local_e": 1097.6, "local_n": 165.4, "heading_deg": 99},
+     "at": {"local_e": 1069.6, "local_n": 66.65, "heading_deg": 99},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -31419,9 +31359,9 @@
      "from": 13.0,
      "to": 14.25,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "resting by the fire",
-     "at": {"local_e": 1097.6, "local_n": 165.4, "heading_deg": 99},
+     "at": {"local_e": 1069.6, "local_n": 66.65, "heading_deg": 99},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -31430,9 +31370,9 @@
      "from": 14.25,
      "to": 16.75,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "at the fire",
-     "at": {"local_e": 1097.6, "local_n": 165.4, "heading_deg": 99},
+     "at": {"local_e": 1069.6, "local_n": 66.65, "heading_deg": 99},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -31444,7 +31384,7 @@
      "where": "the river bank west of the factory",
      "doing": "taking the horses to water again",
      "activity": "walk",
-     "route": [[1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165]],
+     "route": [[1076.0, 83.0], [1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165], [1076.0, 83.0]],
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
     },
@@ -31452,9 +31392,9 @@
      "from": 18.0,
      "to": 19.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "cooking and eating the evening meal",
-     "at": {"local_e": 1097.6, "local_n": 165.4, "heading_deg": 99},
+     "at": {"local_e": 1069.6, "local_n": 66.65, "heading_deg": 99},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -31463,9 +31403,9 @@
      "from": 19.0,
      "to": 22.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "sitting at the fire in the evening",
-     "at": {"local_e": 1097.6, "local_n": 165.4, "heading_deg": 99},
+     "at": {"local_e": 1069.6, "local_n": 66.65, "heading_deg": 99},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@evening_at_yard"
@@ -31473,11 +31413,9 @@
     {
      "from": 22.0,
      "to": 24.0,
-     "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
-     "doing": "asleep by the fire, rolled in his blanket",
-     "at": {"local_e": 1097.6, "local_n": 165.4, "heading_deg": 99},
-     "activity": "sleep",
+     "indoors": true,
+     "where": "miami_escort_camp_1812",
+     "doing": "asleep in the lodge",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
     }
@@ -31506,7 +31444,7 @@
        "with": [
         "wells_william"
        ],
-       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165]],
+       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@basis_9"
       },
@@ -31514,9 +31452,9 @@
        "from": 17.0,
        "to": 18.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "unsaddling and picketing the horses",
-       "at": {"local_e": 1101.0, "local_n": 150.0, "heading_deg": 270},
+       "at": {"local_e": 1073.0, "local_n": 51.0, "heading_deg": 270},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -31525,9 +31463,9 @@
        "from": 18.0,
        "to": 19.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "making a fire and cooking",
-       "at": {"local_e": 1097.6, "local_n": 165.4, "heading_deg": 99},
+       "at": {"local_e": 1069.6, "local_n": 66.65, "heading_deg": 99},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -31536,9 +31474,9 @@
        "from": 19.0,
        "to": 22.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "sitting at the fire",
-       "at": {"local_e": 1097.6, "local_n": 165.4, "heading_deg": 99},
+       "at": {"local_e": 1069.6, "local_n": 66.65, "heading_deg": 99},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@evening_at_yard"
@@ -31546,11 +31484,9 @@
       {
        "from": 22.0,
        "to": 24.0,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire, rolled in his blanket",
-       "at": {"local_e": 1097.6, "local_n": 165.4, "heading_deg": 99},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       }
@@ -31563,11 +31499,9 @@
       {
        "from": 0,
        "to": 4.5,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire",
-       "at": {"local_e": 1097.6, "local_n": 165.4, "heading_deg": 99},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       },
@@ -31578,7 +31512,7 @@
        "where": "the river bank west of the factory",
        "doing": "watering the horses before the march",
        "activity": "walk",
-       "route": [[1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165]],
+       "route": [[1076.0, 83.0], [1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       },
@@ -31586,9 +31520,9 @@
        "from": 6.0,
        "to": 7.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "eating by the fire",
-       "at": {"local_e": 1097.6, "local_n": 165.4, "heading_deg": 99},
+       "at": {"local_e": 1069.6, "local_n": 66.65, "heading_deg": 99},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -31597,9 +31531,9 @@
        "from": 7.0,
        "to": 8.5,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "saddling and packing for the march",
-       "at": {"local_e": 1101.0, "local_n": 150.0, "heading_deg": 270},
+       "at": {"local_e": 1073.0, "local_n": 51.0, "heading_deg": 270},
        "activity": "work",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -31682,10 +31616,10 @@
     "relationship": "member",
     "grade": "reconstructed",
     "sex": "m",
-    "stands_for": "about 4 of the escort of about 30 (Heald), 27 (Helm) or fifteen (Wau-Bun)",
+    "stands_for": "himself: one of the 27 (Helm); T-3500 cards the other 19",
     "home": {
-     "place_or_structure_id": null,
-     "note": "No structure: a bivouac in the open south-west of the fort, at the points given in the day.",
+     "place_or_structure_id": "miami_escort_camp_1812",
+     "note": "The escort's camp ground south-west of the fort (T-3499); where they camped is not recorded. Moved there from the bivouac by the stables by T-3500.",
      "tier": "reconstructed"
     },
     "review_required": true,
@@ -31721,7 +31655,7 @@
        "with": [
         "wells_william"
        ],
-       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165]],
+       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@basis_9"
       },
@@ -31729,9 +31663,9 @@
        "from": 19.0,
        "to": 19.75,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "unsaddling and picketing the horses",
-       "at": {"local_e": 1101.0, "local_n": 150.0, "heading_deg": 270},
+       "at": {"local_e": 1073.0, "local_n": 51.0, "heading_deg": 270},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -31740,9 +31674,9 @@
        "from": 19.75,
        "to": 20.5,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "making a fire and cooking",
-       "at": {"local_e": 1097.6, "local_n": 165.4, "heading_deg": 99},
+       "at": {"local_e": 1069.6, "local_n": 66.65, "heading_deg": 99},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -31751,9 +31685,9 @@
        "from": 20.5,
        "to": 22.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "sitting at the fire",
-       "at": {"local_e": 1097.6, "local_n": 165.4, "heading_deg": 99},
+       "at": {"local_e": 1069.6, "local_n": 66.65, "heading_deg": 99},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@evening_at_yard"
@@ -31761,11 +31695,9 @@
       {
        "from": 22.0,
        "to": 24.0,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire, rolled in his blanket",
-       "at": {"local_e": 1097.6, "local_n": 165.4, "heading_deg": 99},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       }
@@ -31823,11 +31755,9 @@
     {
      "from": 0,
      "to": 4.75,
-     "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
-     "doing": "asleep by the fire, rolled in his blanket",
-     "at": {"local_e": 1098.6, "local_n": 167.0, "heading_deg": 145},
-     "activity": "sleep",
+     "indoors": true,
+     "where": "miami_escort_camp_1812",
+     "doing": "asleep in the lodge",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
     },
@@ -31835,9 +31765,9 @@
      "from": 4.75,
      "to": 5.5,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "up at first light, the fire made up",
-     "at": {"local_e": 1098.6, "local_n": 167.0, "heading_deg": 145},
+     "at": {"local_e": 1070.6, "local_n": 68.0, "heading_deg": 145},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -31846,9 +31776,9 @@
      "from": 5.5,
      "to": 6.5,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "cooking the morning meal",
-     "at": {"local_e": 1098.6, "local_n": 167.0, "heading_deg": 145},
+     "at": {"local_e": 1070.6, "local_n": 68.0, "heading_deg": 145},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -31857,9 +31787,9 @@
      "from": 6.5,
      "to": 7.5,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "eating by the fire",
-     "at": {"local_e": 1098.6, "local_n": 167.0, "heading_deg": 145},
+     "at": {"local_e": 1070.6, "local_n": 68.0, "heading_deg": 145},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -31868,9 +31798,9 @@
      "from": 7.5,
      "to": 12.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "mending saddle and bridle gear by the fire",
-     "at": {"local_e": 1098.6, "local_n": 167.0, "heading_deg": 145},
+     "at": {"local_e": 1070.6, "local_n": 68.0, "heading_deg": 145},
      "activity": "work",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -31879,9 +31809,9 @@
      "from": 12.0,
      "to": 13.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "eating by the fire",
-     "at": {"local_e": 1098.6, "local_n": 167.0, "heading_deg": 145},
+     "at": {"local_e": 1070.6, "local_n": 68.0, "heading_deg": 145},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -31890,9 +31820,9 @@
      "from": 13.0,
      "to": 14.25,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "resting by the fire",
-     "at": {"local_e": 1098.6, "local_n": 167.0, "heading_deg": 145},
+     "at": {"local_e": 1070.6, "local_n": 68.0, "heading_deg": 145},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -31901,9 +31831,9 @@
      "from": 14.25,
      "to": 16.75,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "at the fire",
-     "at": {"local_e": 1098.6, "local_n": 167.0, "heading_deg": 145},
+     "at": {"local_e": 1070.6, "local_n": 68.0, "heading_deg": 145},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
@@ -31915,7 +31845,7 @@
      "where": "the river bank west of the factory",
      "doing": "taking the horses to water again",
      "activity": "walk",
-     "route": [[1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165]],
+     "route": [[1076.0, 83.0], [1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165], [1076.0, 83.0]],
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
     },
@@ -31923,9 +31853,9 @@
      "from": 18.0,
      "to": 19.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "cooking and eating the evening meal",
-     "at": {"local_e": 1098.6, "local_n": 167.0, "heading_deg": 145},
+     "at": {"local_e": 1070.6, "local_n": 68.0, "heading_deg": 145},
      "activity": "tend",
      "grade": "reconstructed",
      "basis": "@meal_at_arbor"
@@ -31934,9 +31864,9 @@
      "from": 19.0,
      "to": 22.0,
      "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
+     "where": "outdoors at the Miami escort's camp south-west of the fort",
      "doing": "sitting at the fire in the evening",
-     "at": {"local_e": 1098.6, "local_n": 167.0, "heading_deg": 145},
+     "at": {"local_e": 1070.6, "local_n": 68.0, "heading_deg": 145},
      "activity": "sit",
      "grade": "reconstructed",
      "basis": "@evening_at_yard"
@@ -31944,11 +31874,9 @@
     {
      "from": 22.0,
      "to": 24.0,
-     "indoors": false,
-     "where": "outdoors at the Miami bivouac south-west of the fort",
-     "doing": "asleep by the fire, rolled in his blanket",
-     "at": {"local_e": 1098.6, "local_n": 167.0, "heading_deg": 145},
-     "activity": "sleep",
+     "indoors": true,
+     "where": "miami_escort_camp_1812",
+     "doing": "asleep in the lodge",
      "grade": "reconstructed",
      "basis": "@miami_bivouac"
     }
@@ -31977,7 +31905,7 @@
        "with": [
         "wells_william"
        ],
-       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165]],
+       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@basis_9"
       },
@@ -31985,9 +31913,9 @@
        "from": 17.0,
        "to": 18.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "unsaddling and picketing the horses",
-       "at": {"local_e": 1098.0, "local_n": 152.5, "heading_deg": 180},
+       "at": {"local_e": 1070.0, "local_n": 53.5, "heading_deg": 180},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -31996,9 +31924,9 @@
        "from": 18.0,
        "to": 19.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "making a fire and cooking",
-       "at": {"local_e": 1098.6, "local_n": 167.0, "heading_deg": 145},
+       "at": {"local_e": 1070.6, "local_n": 68.0, "heading_deg": 145},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -32007,9 +31935,9 @@
        "from": 19.0,
        "to": 22.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "sitting at the fire",
-       "at": {"local_e": 1098.6, "local_n": 167.0, "heading_deg": 145},
+       "at": {"local_e": 1070.6, "local_n": 68.0, "heading_deg": 145},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@evening_at_yard"
@@ -32017,11 +31945,9 @@
       {
        "from": 22.0,
        "to": 24.0,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire, rolled in his blanket",
-       "at": {"local_e": 1098.6, "local_n": 167.0, "heading_deg": 145},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       }
@@ -32034,11 +31960,9 @@
       {
        "from": 0,
        "to": 4.5,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire",
-       "at": {"local_e": 1098.6, "local_n": 167.0, "heading_deg": 145},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       },
@@ -32049,7 +31973,7 @@
        "where": "the river bank west of the factory",
        "doing": "watering the horses before the march",
        "activity": "walk",
-       "route": [[1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165]],
+       "route": [[1076.0, 83.0], [1100, 165], [1085, 190], [1046, 212], [1046, 212], [1085, 190], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       },
@@ -32057,9 +31981,9 @@
        "from": 6.0,
        "to": 7.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "eating by the fire",
-       "at": {"local_e": 1098.6, "local_n": 167.0, "heading_deg": 145},
+       "at": {"local_e": 1070.6, "local_n": 68.0, "heading_deg": 145},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -32068,9 +31992,9 @@
        "from": 7.0,
        "to": 8.5,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "saddling and packing for the march",
-       "at": {"local_e": 1098.0, "local_n": 152.5, "heading_deg": 180},
+       "at": {"local_e": 1070.0, "local_n": 53.5, "heading_deg": 180},
        "activity": "work",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -32153,10 +32077,10 @@
     "relationship": "member",
     "grade": "reconstructed",
     "sex": "m",
-    "stands_for": "about 4 of the escort of about 30 (Heald), 27 (Helm) or fifteen (Wau-Bun)",
+    "stands_for": "himself: one of the 27 (Helm); T-3500 cards the other 19",
     "home": {
-     "place_or_structure_id": null,
-     "note": "No structure: a bivouac in the open south-west of the fort, at the points given in the day.",
+     "place_or_structure_id": "miami_escort_camp_1812",
+     "note": "The escort's camp ground south-west of the fort (T-3499); where they camped is not recorded. Moved there from the bivouac by the stables by T-3500.",
      "tier": "reconstructed"
     },
     "review_required": true,
@@ -32192,7 +32116,7 @@
        "with": [
         "wells_william"
        ],
-       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165]],
+       "route": [[1195, -200], [1196, 95], [1196, 165], [1160, 188], [1100, 165], [1076.0, 83.0]],
        "grade": "reconstructed",
        "basis": "@basis_9"
       },
@@ -32200,9 +32124,9 @@
        "from": 19.0,
        "to": 19.75,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "unsaddling and picketing the horses",
-       "at": {"local_e": 1098.0, "local_n": 152.5, "heading_deg": 180},
+       "at": {"local_e": 1070.0, "local_n": 53.5, "heading_deg": 180},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
@@ -32211,9 +32135,9 @@
        "from": 19.75,
        "to": 20.5,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "making a fire and cooking",
-       "at": {"local_e": 1098.6, "local_n": 167.0, "heading_deg": 145},
+       "at": {"local_e": 1070.6, "local_n": 68.0, "heading_deg": 145},
        "activity": "tend",
        "grade": "reconstructed",
        "basis": "@meal_at_arbor"
@@ -32222,9 +32146,9 @@
        "from": 20.5,
        "to": 22.0,
        "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
+       "where": "outdoors at the Miami escort's camp south-west of the fort",
        "doing": "sitting at the fire",
-       "at": {"local_e": 1098.6, "local_n": 167.0, "heading_deg": 145},
+       "at": {"local_e": 1070.6, "local_n": 68.0, "heading_deg": 145},
        "activity": "sit",
        "grade": "reconstructed",
        "basis": "@evening_at_yard"
@@ -32232,11 +32156,9 @@
       {
        "from": 22.0,
        "to": 24.0,
-       "indoors": false,
-       "where": "outdoors at the Miami bivouac south-west of the fort",
-       "doing": "asleep by the fire, rolled in his blanket",
-       "at": {"local_e": 1098.6, "local_n": 167.0, "heading_deg": 145},
-       "activity": "sleep",
+       "indoors": true,
+       "where": "miami_escort_camp_1812",
+       "doing": "asleep in the lodge",
        "grade": "reconstructed",
        "basis": "@miami_bivouac"
       }

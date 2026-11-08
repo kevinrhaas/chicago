@@ -7,8 +7,8 @@
     "asset_id": "potawatomi_man_1812"
   },
   "placement": {
-    "local_e": 1100.4,
-    "local_n": 167.4,
+    "local_e": 1072.4,
+    "local_n": 68.4,
     "heading_deg": 189.0,
     "anchor": "terrain"
   },
@@ -44,8 +44,8 @@
             },
             "activity": "walk",
             "to_point": {
-              "local_e": 1100.0,
-              "local_n": 165.0
+              "local_e": 1076.0,
+              "local_n": 83.0
             },
             "via": [
               {
@@ -59,6 +59,10 @@
               {
                 "local_e": 1160.0,
                 "local_n": 188.0
+              },
+              {
+                "local_e": 1100.0,
+                "local_n": 165.0
               }
             ],
             "once": true,
@@ -69,20 +73,20 @@
             "to": 18.0,
             "indoors": false,
             "at": {
-              "local_e": 1094.0,
-              "local_n": 150.0,
+              "local_e": 1066.0,
+              "local_n": 51.0,
               "heading_deg": 90.0
             },
             "doing": "unsaddling and picketing the horses",
             "activity": "work",
             "spots": [
               {
-                "local_e": 1094.0,
-                "local_n": 148.6
+                "local_e": 1066.0,
+                "local_n": 49.6
               },
               {
-                "local_e": 1094.0,
-                "local_n": 151.4
+                "local_e": 1066.0,
+                "local_n": 52.4
               }
             ]
           },
@@ -91,20 +95,20 @@
             "to": 19.0,
             "indoors": false,
             "at": {
-              "local_e": 1100.4,
-              "local_n": 167.4,
+              "local_e": 1072.4,
+              "local_n": 68.4,
               "heading_deg": 189.0
             },
             "doing": "making a fire and cooking",
             "activity": "work",
             "spots": [
               {
-                "local_e": 1099.02,
-                "local_n": 167.62
+                "local_e": 1071.02,
+                "local_n": 68.62
               },
               {
-                "local_e": 1101.78,
-                "local_n": 167.18
+                "local_e": 1073.78,
+                "local_n": 68.18
               }
             ]
           },
@@ -113,8 +117,8 @@
             "to": 22.0,
             "indoors": false,
             "at": {
-              "local_e": 1100.4,
-              "local_n": 167.4,
+              "local_e": 1072.4,
+              "local_n": 68.4,
               "heading_deg": 189.0
             },
             "doing": "sitting at the fire",
@@ -125,8 +129,8 @@
             "from": 22.0,
             "to": 24.0,
             "indoors": true,
-            "away": true,
-            "doing": "asleep by the fire, rolled in his blanket"
+            "where": "miami_escort_camp_1812",
+            "doing": "asleep in the lodge"
           }
         ]
       },
@@ -140,25 +144,29 @@
             "from": 0.0,
             "to": 4.5,
             "indoors": true,
-            "away": true,
-            "doing": "asleep by the fire"
+            "where": "miami_escort_camp_1812",
+            "doing": "asleep in the lodge"
           },
           {
             "from": 4.5,
             "to": 6.0,
             "indoors": false,
             "at": {
-              "local_e": 1100.0,
-              "local_n": 165.0,
-              "heading_deg": 329.0
+              "local_e": 1076.0,
+              "local_n": 83.0,
+              "heading_deg": 16.3
             },
             "activity": "walk",
             "to_point": {
-              "local_e": 1100.0,
-              "local_n": 165.0
+              "local_e": 1076.0,
+              "local_n": 83.0
             },
             "via": [
               {
+                "local_e": 1100.0,
+                "local_n": 165.0
+              },
+              {
                 "local_e": 1085.0,
                 "local_n": 190.0
               },
@@ -173,6 +181,10 @@
               {
                 "local_e": 1085.0,
                 "local_n": 190.0
+              },
+              {
+                "local_e": 1100.0,
+                "local_n": 165.0
               }
             ],
             "once": true,
@@ -183,8 +195,8 @@
             "to": 7.0,
             "indoors": false,
             "at": {
-              "local_e": 1100.4,
-              "local_n": 167.4,
+              "local_e": 1072.4,
+              "local_n": 68.4,
               "heading_deg": 189.0
             },
             "doing": "eating by the fire",
@@ -196,20 +208,20 @@
             "to": 8.5,
             "indoors": false,
             "at": {
-              "local_e": 1094.0,
-              "local_n": 150.0,
+              "local_e": 1066.0,
+              "local_n": 51.0,
               "heading_deg": 90.0
             },
             "doing": "saddling and packing for the march",
             "activity": "work",
             "spots": [
               {
-                "local_e": 1094.0,
-                "local_n": 148.6
+                "local_e": 1066.0,
+                "local_n": 49.6
               },
               {
-                "local_e": 1094.0,
-                "local_n": 151.4
+                "local_e": 1066.0,
+                "local_n": 52.4
               }
             ]
           },
@@ -272,8 +284,8 @@
             "to": 2.5,
             "indoors": false,
             "at": {
-              "local_e": 1100.4,
-              "local_n": 167.4,
+              "local_e": 1072.4,
+              "local_n": 68.4,
               "heading_deg": 189.0
             },
             "doing": "keeping watch by the fire and the horses",
@@ -283,28 +295,28 @@
             "from": 2.5,
             "to": 4.75,
             "indoors": true,
-            "away": true,
-            "doing": "asleep by the fire, rolled in his blanket"
+            "where": "miami_escort_camp_1812",
+            "doing": "asleep in the lodge"
           },
           {
             "from": 4.75,
             "to": 5.5,
             "indoors": false,
             "at": {
-              "local_e": 1100.4,
-              "local_n": 167.4,
+              "local_e": 1072.4,
+              "local_n": 68.4,
               "heading_deg": 189.0
             },
             "doing": "up at first light, the fire made up",
             "activity": "work",
             "spots": [
               {
-                "local_e": 1099.02,
-                "local_n": 167.62
+                "local_e": 1071.02,
+                "local_n": 68.62
               },
               {
-                "local_e": 1101.78,
-                "local_n": 167.18
+                "local_e": 1073.78,
+                "local_n": 68.18
               }
             ]
           },
@@ -313,17 +325,21 @@
             "to": 6.5,
             "indoors": false,
             "at": {
-              "local_e": 1100.0,
-              "local_n": 165.0,
-              "heading_deg": 329.0
+              "local_e": 1076.0,
+              "local_n": 83.0,
+              "heading_deg": 16.3
             },
             "activity": "walk",
             "to_point": {
-              "local_e": 1100.0,
-              "local_n": 165.0
+              "local_e": 1076.0,
+              "local_n": 83.0
             },
             "via": [
               {
+                "local_e": 1100.0,
+                "local_n": 165.0
+              },
+              {
                 "local_e": 1085.0,
                 "local_n": 190.0
               },
@@ -338,6 +354,10 @@
               {
                 "local_e": 1085.0,
                 "local_n": 190.0
+              },
+              {
+                "local_e": 1100.0,
+                "local_n": 165.0
               }
             ],
             "once": true,
@@ -348,8 +368,8 @@
             "to": 7.5,
             "indoors": false,
             "at": {
-              "local_e": 1100.4,
-              "local_n": 167.4,
+              "local_e": 1072.4,
+              "local_n": 68.4,
               "heading_deg": 189.0
             },
             "doing": "eating by the fire",
@@ -361,20 +381,20 @@
             "to": 12.0,
             "indoors": false,
             "at": {
-              "local_e": 1094.0,
-              "local_n": 150.0,
+              "local_e": 1066.0,
+              "local_n": 51.0,
               "heading_deg": 90.0
             },
             "doing": "rubbing down the horses and looking to their hooves after the hard ride",
             "activity": "work",
             "spots": [
               {
-                "local_e": 1094.0,
-                "local_n": 148.6
+                "local_e": 1066.0,
+                "local_n": 49.6
               },
               {
-                "local_e": 1094.0,
-                "local_n": 151.4
+                "local_e": 1066.0,
+                "local_n": 52.4
               }
             ]
           },
@@ -383,8 +403,8 @@
             "to": 13.0,
             "indoors": false,
             "at": {
-              "local_e": 1100.4,
-              "local_n": 167.4,
+              "local_e": 1072.4,
+              "local_n": 68.4,
               "heading_deg": 189.0
             },
             "doing": "eating by the fire",
@@ -396,8 +416,8 @@
             "to": 14.25,
             "indoors": false,
             "at": {
-              "local_e": 1100.4,
-              "local_n": 167.4,
+              "local_e": 1072.4,
+              "local_n": 68.4,
               "heading_deg": 189.0
             },
             "doing": "resting by the fire",
@@ -409,33 +429,33 @@
             "to": 18.0,
             "indoors": false,
             "at": {
-              "local_e": 1100.4,
-              "local_n": 167.4,
+              "local_e": 1072.4,
+              "local_n": 68.4,
               "heading_deg": 189.0
             },
             "doing": "at the fire",
             "activity": "talk",
-            "knot": "talk_093fb668"
+            "knot": "talk_a679449f"
           },
           {
             "from": 18.0,
             "to": 19.0,
             "indoors": false,
             "at": {
-              "local_e": 1100.4,
-              "local_n": 167.4,
+              "local_e": 1072.4,
+              "local_n": 68.4,
               "heading_deg": 189.0
             },
             "doing": "cooking and eating the evening meal",
             "activity": "work",
             "spots": [
               {
-                "local_e": 1099.02,
-                "local_n": 167.62
+                "local_e": 1071.02,
+                "local_n": 68.62
               },
               {
-                "local_e": 1101.78,
-                "local_n": 167.18
+                "local_e": 1073.78,
+                "local_n": 68.18
               }
             ]
           },
@@ -444,8 +464,8 @@
             "to": 22.0,
             "indoors": false,
             "at": {
-              "local_e": 1100.4,
-              "local_n": 167.4,
+              "local_e": 1072.4,
+              "local_n": 68.4,
               "heading_deg": 189.0
             },
             "doing": "sitting at the fire in the evening",
@@ -457,8 +477,8 @@
             "to": 24.0,
             "indoors": false,
             "at": {
-              "local_e": 1100.4,
-              "local_n": 167.4,
+              "local_e": 1072.4,
+              "local_n": 68.4,
               "heading_deg": 189.0
             },
             "doing": "keeping the first watch",
