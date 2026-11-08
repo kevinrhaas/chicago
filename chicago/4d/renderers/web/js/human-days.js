@@ -37,6 +37,20 @@
  *                          of points, when given), a pause at each end; with `once`, from `at`
  *                          by `via` to `to_point` and there they stand (a path walked once)
  *
+ * EVERYONE APART, EVERYONE AT SOMETHING (T-3504). The owner, 2026-11-08, of two figures standing
+ * in one place on the 1812 parade: *"two people occupying the same space? Prevent that"*, and
+ * *"give everyone a purpose or task so they are all not standing around idly"*. A span as written
+ * is played (`plan()`, once per scene date) so that:
+ *   - the people of one talk stand in a ring about the knot's place, facing in (RING), unless their
+ *     own `at`s already stand them apart: a knot's records all name the knot's one point;
+ *   - two or more people standing out at once within GROUP_M of each other are a company and
+ *     talk (an implicit knot, in a ring about where they stood): waiting at the factory, an
+ *     evening at the yard, a muster;
+ *   - one person standing alone is at a job there (`work` about two spots a few metres off,
+ *     POTTER), unless the span is a post (a sentry, a watch, a guard: POST_RE), which is stood.
+ * Where and when stay the record's; only how the hour is spent is filled in (liberty
+ * L-t3504-people-apart). human-spacing.js keeps whoever is left too close a body's width apart.
+ *
  * Between spans a person walks: out of the door of the building they were in, to the next
  * span's place, or from where they are to the door and in. The way is the router's (route.js)
  * when there is one, else straight. Far from the visitor (beyond NEAR_M), no one walks: they
@@ -100,6 +114,15 @@ export const LEAVE_S = 4;
 /** How many Ask for <name> a door offers at once. */
 export const ASK_PAGE = 6;
 const HEAD_M = 1.6;
+/** T-3504: a talk's ring: neighbours GAP_M apart, never nearer the middle than MIN_R_M; a knot
+ *  whose people already stand SPREAD_M apart keeps their own places. */
+export const RING = Object.freeze({ gap_m: 0.95, min_r_m: 0.6, spread_m: 0.7 });
+/** People standing out at the same time this near one another are one company (they talk). */
+export const GROUP_M = 6;
+/** One person standing alone, not at a post, works about two spots this far off their place. */
+export const POTTER = Object.freeze({ off_m: [1.4, 3.0], spots: 2 });
+/** What a post is: the span's own words say the person keeps a watch there. */
+export const POST_RE = /\b(sentry|sentinel|sentries|guard|watch|post|picket|lookout)\b/i;
 
 const bearing = (de, dn) => ((Math.atan2(de, dn) * 180) / Math.PI + 360) % 360;
 const pt = (p) => ({ e: p.local_e ?? p.e, n: p.local_n ?? p.n });
@@ -155,6 +178,105 @@ export function spanAt(day, hour) {
 export const shortName = (name) => String(name ?? '').split(/[,;(]/)[0].trim();
 
 /**
+ * T-3504: places for `ids` (in that order) in a ring about `centre` ({e, n}), each turned to the
+ * middle: [{ e, n, heading_deg }]. Seeded by `key`, so a knot stands the same way on every load.
+ */
+export function ringAbout(centre, ids, key = '') {
+  const k = ids.length;
+  if (k < 2) return ids.map(() => ({ e: centre.e, n: centre.n, heading_deg: null }));
+  const r = Math.max(RING.min_r_m, RING.gap_m / (2 * Math.sin(Math.PI / k)));
+  const base = seededRandom(`ring:${key}`)() * 360;
+  return ids.map((_, i) => {
+    const b = (base + (360 * i) / k) % 360, rad = (b * Math.PI) / 180;
+    return { e: centre.e + r * Math.sin(rad), n: centre.n + r * Math.cos(rad), heading_deg: (b + 180) % 360 };
+  });
+}
+
+const atOf = (span) => ({ e: span.at.local_e, n: span.at.local_n });
+const overlaps = (a, b) => {
+  const seg = (s) => (s.from <= s.to ? [[s.from, s.to]] : [[s.from, 24], [0, s.to]]);
+  return seg(a).some(([a0, a1]) => seg(b).some(([b0, b1]) => a0 < b1 && b0 < a1));
+};
+
+/**
+ * T-3504: how each out span of each person is played on `date`. `people` is [{ key, b }] (a
+ * record's behaviour and its person's key, for `chance` days). Returns a Map span -> played span
+ * (a copy: `at` moved onto the person's place in its ring, `activity`/`knot`/`spots` filled in);
+ * a span played as written is not in it.
+ */
+export function planDay(people, date) {
+  const out = new Map();
+  const outs = [];
+  for (const { key, b } of people) {
+    const day = dayOn(b, date, key);
+    if (!day || day.away_day) continue;
+    for (const span of day.spans ?? []) if (!span.indoors && span.at) outs.push({ key, span });
+  }
+  const play = (span) => { if (!out.has(span)) out.set(span, { ...span, at: { ...span.at } }); return out.get(span); };
+  // Lone or in company: everyone standing (not at a post) is grouped with whoever else stands
+  // within GROUP_M at an overlapping hour (single linkage).
+  const standing = outs.filter((x) => (x.span.activity ?? 'stand') === 'stand' && !POST_RE.test(x.span.doing ?? ''));
+  const seen = new Set();
+  for (const first of standing) {
+    if (seen.has(first)) continue;
+    const group = [first];
+    seen.add(first);
+    for (let i = 0; i < group.length; i++) {
+      for (const o of standing) {
+        if (seen.has(o) || o.key === group[i].key) continue;
+        const a = atOf(group[i].span), c = atOf(o.span);
+        if (Math.hypot(a.e - c.e, a.n - c.n) <= GROUP_M && overlaps(group[i].span, o.span)) { seen.add(o); group.push(o); }
+      }
+    }
+    const keys = new Set(group.map((x) => x.key));
+    if (keys.size >= 2) {
+      const knot = `company:${group[0].key}:${group[0].span.from}`;
+      for (const x of group) Object.assign(play(x.span), { activity: 'talk', knot });
+    } else {
+      // Alone: at a job about the place, two spots a little off it.
+      const span = first.span, at = atOf(span), rand = seededRandom(`potter:${first.key}:${span.from}`);
+      const spots = [];
+      for (let i = 0; i < POTTER.spots; i++) {
+        const bearingDeg = (Number.isFinite(span.at.heading_deg) ? span.at.heading_deg : 0) + (i ? 1 : -1) * (40 + rand() * 80);
+        const r = POTTER.off_m[0] + (POTTER.off_m[1] - POTTER.off_m[0]) * rand();
+        spots.push({ local_e: at.e + r * Math.sin((bearingDeg * Math.PI) / 180), local_n: at.n + r * Math.cos((bearingDeg * Math.PI) / 180) });
+      }
+      Object.assign(play(span), { activity: 'work', spots });
+    }
+  }
+  // Every knot, written or a company: its people in a ring about its place, unless they already
+  // stand apart.
+  const knots = new Map();
+  for (const x of outs) {
+    const s = out.get(x.span) ?? x.span;
+    if ((s.activity ?? 'stand') !== 'talk' || !s.knot) continue;
+    if (!knots.has(s.knot)) knots.set(s.knot, new Map());
+    const members = knots.get(s.knot);
+    if (!members.has(x.key)) members.set(x.key, []);
+    members.get(x.key).push(x.span);
+  }
+  for (const [knot, members] of knots) {
+    const keys = [...members.keys()].sort();
+    if (keys.length < 2) continue;
+    const ats = keys.map((k) => atOf(members.get(k)[0]));
+    let apart = true;
+    for (let i = 0; i < ats.length && apart; i++) for (let j = i + 1; j < ats.length; j++) {
+      if (Math.hypot(ats[i].e - ats[j].e, ats[i].n - ats[j].n) < RING.spread_m) { apart = false; break; }
+    }
+    if (apart) continue;
+    const centre = { e: ats.reduce((t, p) => t + p.e, 0) / ats.length, n: ats.reduce((t, p) => t + p.n, 0) / ats.length };
+    const ring = ringAbout(centre, keys, knot);
+    keys.forEach((k, i) => {
+      for (const span of members.get(k)) {
+        const p = play(span);
+        p.at.local_e = +ring[i].e.toFixed(3); p.at.local_n = +ring[i].n.toFixed(3); p.at.heading_deg = +ring[i].heading_deg.toFixed(1);
+      }
+    });
+  }
+  return out;
+}
+
+/**
  * @param {object} o
  * @param {{ actors: object[], shown?: boolean, isHeld?: (a: object) => boolean }} o.humans
  * @param {object} [o.three]                   three.js (for gaze points)
@@ -175,6 +297,16 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   let seen = -1;
   let clock = 0;
   const talks = new Map();
+  /** T-3504: how today's spans are played (planDay), made again when the date or the people change. */
+  let plan = { date: undefined, map: new Map() };
+  const playOf = (span) => {
+    const today = date();
+    if (plan.date !== today) {
+      plan = { date: today, map: planDay(people.filter((q) => !q.entry && !q.soldier && Array.isArray(q.b.day))
+        .map((q) => ({ key: q.actor.personId ?? q.id, b: q.b })), today) };
+    }
+    return plan.map.get(span) ?? span;
+  };
   const doorThings = [];
   /** Inside-only people (no figure until asked for), and those of them called out now. */
   const insideOnly = (inside?.people ?? []).filter((x) => x?.person && x.home);
@@ -242,6 +374,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     }
     people.push(...spawned);
     seen = humans.actors.length;
+    plan = { date: undefined, map: new Map() };
   }
 
   /** Which door of its home an inside-only person answers at. */
@@ -362,9 +495,10 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   }
 
   /** Move a person to `span` (the hour has turned, or they were let go from a call). */
-  function enter(p, span) {
+  function enter(p, written) {
     const a = p.actor;
-    p.span = span;
+    p.span = written;
+    const span = p.play = playOf(written);
     p.job = null;
     p.token = (p.token ?? 0) + 1;
     if (span.away) { talk(a, false); a.path = null; a.setIndoors?.(true); p.mode = 'in'; p.inside = null; return; }
@@ -376,10 +510,11 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   function stepTalks(dt) {
     const groups = new Map();
     for (const p of people) {
-      if (p.mode !== 'out' || p.called || !p.span || p.span.activity !== 'talk' || !p.span.knot) continue;
+      const s = p.play ?? p.span;
+      if (p.mode !== 'out' || p.called || !s || s.activity !== 'talk' || !s.knot) continue;
       if (humans.isHeld?.(p.actor)) continue;
-      if (!groups.has(p.span.knot)) groups.set(p.span.knot, []);
-      groups.get(p.span.knot).push(p);
+      if (!groups.has(s.knot)) groups.set(s.knot, []);
+      groups.get(s.knot).push(p);
     }
     for (const [id, g] of talks) if (!groups.has(id)) { if (g.speaker) talk(g.speaker.actor, false); talks.delete(id); }
     for (const [id, here] of groups) {
@@ -586,7 +721,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       return people.map((p) => ({
         person: p.actor.personId, instance: p.id, absent: p.absent, mode: p.mode, indoors: !!p.actor.indoors,
         inside: p.actor.indoors ? (p.soldier ? p.b.quarters ?? null : p.inside) : null,
-        span: p.span ? { from: p.span.from, to: p.span.to, activity: p.span.indoors ? 'indoors' : p.span.activity ?? 'stand', where: p.span.where ?? null } : null,
+        span: p.span ? { from: p.span.from, to: p.span.to, activity: p.span.indoors ? 'indoors' : (p.play ?? p.span).activity ?? 'stand', where: p.span.where ?? null } : null,
         called: !!p.called, e: +p.actor.e.toFixed(2), n: +p.actor.n.toFixed(2),
       }));
     },
