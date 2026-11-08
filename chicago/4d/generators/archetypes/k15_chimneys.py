@@ -283,6 +283,29 @@ def stack_solids(s: dict, F: Frame, data: dict, t: float, bottom: float | None =
     cp = cap["projection_m"]
     head = [box(F, a0 - cp, a1 + cp, y_cap, top, c0 - cp, c1 + cp, cap["role"])]
 
+    # T-3370: a STAGE on the cap (1936 Prairie's right stack, its Chicagology photograph: a
+    # broad moulded cap with a narrower stage standing on it to the top, a dark opening in its
+    # street face): a brick block `inset_m` in from the shaft's faces and `height_m` high on
+    # the cap, under its own stone cap; each broad face carries a dark vent sunk into it
+    head_cutters = []
+    top_all = top
+    stg = s.get("stage")
+    if stg:
+        si, sh, sc = stg["inset_m"], stg["height_m"], stg["cap"]
+        ys = top + sh
+        head.append(box(F, a0 + si, a1 - si, top - ov, ys, c0 + si, c1 - si, f"shaft_{mat}"))
+        sp = sc["projection_m"]
+        head.append(box(F, a0 + si - sp, a1 - si + sp, ys - ov, ys + sc["thickness_m"], c0 + si - sp, c1 - si + sp,
+                        cap["role"]))
+        top_all = ys + sc["thickness_m"]
+        vn = stg.get("vent")
+        if vn:
+            ym = top + sh / 2
+            for af, sg in ((a0 + si, -1.0), (a1 - si, 1.0)):
+                ea, eb = af - sg * vn["depth_m"], af + sg * 0.05
+                head_cutters.append(box(F, min(ea, eb), max(ea, eb), ym - vn["height_m"] / 2, ym + vn["height_m"] / 2,
+                                        -vn["width_m"] / 2, vn["width_m"] / 2, "flue"))
+
     # sandstone string courses
     for hb, tb, pb in s.get("bands", []):
         yb = cov_hi + hb
@@ -311,7 +334,6 @@ def stack_solids(s: dict, F: Frame, data: dict, t: float, bottom: float | None =
     # flues: through a pot if the flue has one, else square in the cap
     pf = data["pot"]
     fo = p["flue"]["opening_m"]
-    head_cutters = []
     yb = top - p["flue"]["depth_m"]
     for off, pot in flues(s):
         x, z = F.xz(0.0, off)
@@ -329,11 +351,11 @@ def stack_solids(s: dict, F: Frame, data: dict, t: float, bottom: float | None =
             head_cutters.append(box(F, -bo, bo, y_cap, ytop + 0.05, off - bo, off + bo, "flue"))
         else:
             cutters.append(box(F, -fo / 2, fo / 2, yb, y_cap, off - fo / 2, off + fo / 2, "flue"))
-            head_cutters.append(box(F, -fo / 2, fo / 2, y_cap, top + 0.05, off - fo / 2, off + fo / 2, "flue"))
+            head_cutters.append(box(F, -fo / 2, fo / 2, y_cap, top_all + 0.05, off - fo / 2, off + fo / 2, "flue"))
 
     if not flashing:
         return {"body": solids, "cut_body": cutters, "head": head, "cut_head": head_cutters, "bed": y_cap}, {
-            "behind": None, "cover_low_m": round(cov_lo, 4), "cover_high_m": round(cov_hi, 4), "top_m": top,
+            "behind": None, "cover_low_m": round(cov_lo, 4), "cover_high_m": round(cov_hi, 4), "top_m": top_all,
             "head_m": round(y_head, 4), "flues": len(s["flues"]), "material": mat, "bed_m": round(y_cap, 4)}
     # flashing: an apron below (on both slopes astride a ridge), stepped side flashing,
     # and behind a slope stack a cricket if it is wide, else back flashing

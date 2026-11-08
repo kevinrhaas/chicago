@@ -2,7 +2,7 @@
   "structure_id": "house_1918_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/house_1918_prairie__as_mapped_1904.glb",
-  "glb_sha256": "fbe97e547329070ec49f1fc15f32d293559b9176759a528708588980b8ae9a7b",
+  "glb_sha256": "440852fc737f69539531d151d683d2281697b6a37a5c0e02ffe31378d50c9202",
   "camera_sha256": "c5c49af27eec1d98bff1ffde086b8c22674806b06a0ed68eafa2bfba3072f1db",
   "photo_sha256": "7458a4902276cccdaa289b9767e8ab717b5dd0fcf06ba3969a97c4fa8d00e92a",
   "side_by_side": "docs/RESEARCH/photo-match/house_1918_prairie/chicagology_photo-side-by-side.jpg",
@@ -57,15 +57,19 @@
       "status": "fixed"
     },
     {
-      "what": "the right stack's head (T-3370): the print's is two-staged, a broad moulded cap at y 225-248 px (16.75-17.30 m) with a narrower stage on it to the top at y 185 (18.26 m), a dark opening in its east side; the build's one 0.85 m head stands at the top (17.37-18.22 m). Its shaft also stands about 20 px west of the print's, the 0.6 m spread between the camera's fits (u 11.7 built, 12.3 in the final fit)",
-      "status": "open"
+      "what": "the right stack's head (T-3370): the print's is two-staged, a broad moulded cap at y 225-248 px (16.75-17.30 m) with a narrower stage on it to the top at y 185 (18.26 m), a dark opening in its east side; the build's one 0.85 m head stands at the top (17.37-18.22 m). Its shaft also stands about 20 px west of the print's, the 0.6 m spread between the camera's fits (u 11.7 built, 12.3 in the final fit); T-3370 (fourth pass): built as the print draws it: the K15 head laid lower, its corbels and broad cap to 17.30 m, and on the cap a stage (k15 stage) 0.58 m high about the shaft's width under its own 0.34 m stone cap to 18.22 m, a dark vent about 0.36 m square sunk in its east face; the stack moved to u 12.3, the committed camera's reading, so its shaft renders at x 1226-1283 px for the print's 1228-1285. The render's broad cap and stage cap land within about 6 px (0.15 m) of the print's; the print's lower cap reads as a moulding, the build's as a plain slab, within tolerance",
+      "status": "fixed"
     },
     {
       "what": "the left stack's shaft (T-3370): about 65 px across in the print, where the build's 1.1 by 0.8 m stack spans 52 px through the camera, so about 0.25 m broader, inside the print's blur at that size",
       "status": "within tolerance"
     },
     {
-      "what": "the roof's deck: T-3370 reads the rail's top over its south-east corner (x 1345, y 257 px) at about 17.0 m through the re-solved camera, the build's height (deck 16.22 m, rail 0.8 m), so the height is within tolerance; still open: the photograph shows no rail west of the right stack (x 1150-1215 px, where only a low dark curb shows at y 335), and the build's rail runs on there, its corner about 0.5-1 m from the photograph's: the deck is smaller, or stands further east, than the build's",
+      "what": "the roof's deck: T-3370 reads the rail's top over its south-east corner (x 1345, y 257 px) at about 17.0 m through the re-solved camera, the build's height (deck 16.22 m, rail 0.8 m), so the height is within tolerance; still open: the photograph shows no rail west of the right stack (x 1150-1215 px, where only a low dark curb shows at y 335), and the build's rail runs on there, its corner about 0.5-1 m from the photograph's: the deck is smaller, or stands further east, than the build's; T-3370 (fourth pass): the rail now ends behind the right stack (hip_deck.rail.from_u_m 8.3, closed by a cross-run hidden behind the south rail's panel), and west of the stack the render, like the print, shows only the hip's slope rising to the stack: that part fixed",
+      "status": "fixed"
+    },
+    {
+      "what": "the deck's south-east corner (T-3370, fourth pass): the print's rail turns its south-east corner at x 1345 px, y 257; the build's turns at about x 1377, y 253, so the railed deck stands about 1 m further east along the south side than the print's (or, the camera being single, about 1 m further north); the hip's level cut sets the deck's rectangle, and moving its east edge alone is not yet a K01 hip deck's parameter",
       "status": "open"
     },
     {

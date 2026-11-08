@@ -1201,6 +1201,34 @@ def _k15_heads(k: dict, stacks: list, chimneys: list, cover) -> None:
     for st_, c in zip(stacks, chimneys):
         sx, sz = c["plan_m"]
         u, v, top = c["u_m"], c["v_m"], c["top_m"]
+        # T-3370: a stack may carry a STAGE on its head (k15_chimneys.stack_solids; 1936's right
+        # stack, the Chicagology photograph): its head then tops at the stage's foot, and the
+        # record's top_m is the stage cap's, the height the draught rule was asked at
+        stage = st_.get("stage")
+        if stage is not None:
+            if not isinstance(stage, dict) or set(stage) - {"height_m", "inset_m", "cap", "vent"} \
+                    or not {"height_m", "inset_m", "cap"} <= set(stage) or not isinstance(stage["cap"], dict) \
+                    or set(stage["cap"]) != {"thickness_m", "projection_m"}:
+                raise ParamError(f"chimney at ({u}, {v}): stage takes height_m, inset_m, cap "
+                                 "{thickness_m, projection_m} and optionally vent {width_m, height_m, depth_m}")
+            sh, si = float(stage["height_m"]), float(stage["inset_m"])
+            sct, scp = float(stage["cap"]["thickness_m"]), float(stage["cap"]["projection_m"])
+            if pot is not None or not (0.2 <= sh <= 1.5 and 0.0 <= si <= min(sx, sz) / 2 - fo / 2 - 0.1
+                                        and 0.05 <= sct <= 0.45 and 0.0 <= scp <= 0.3):
+                raise ParamError(f"chimney at ({u}, {v}): a stage 0.2-1.5 m high, 0 m or more in from the shaft "
+                                 f"leaving room round its flues, its cap 0.05-0.45 m thick and 0-0.3 m out; no pots")
+            stg = {"height_m": sh, "inset_m": si, "cap": {"thickness_m": sct, "projection_m": scp}}
+            vn = stage.get("vent")
+            if vn is not None:
+                if not isinstance(vn, dict) or set(vn) != {"width_m", "height_m", "depth_m"}:
+                    raise ParamError(f"chimney at ({u}, {v}): stage.vent takes width_m, height_m and depth_m")
+                vw, vh, vd = (float(vn[k_]) for k_ in ("width_m", "height_m", "depth_m"))
+                if not (0.1 <= vw <= sz - 2 * si - 0.2 and 0.1 <= vh <= sh - 0.1
+                        and 0.03 <= vd <= sx / 2 - si - fo / 2 - 0.02):
+                    raise ParamError(f"chimney at ({u}, {v}): stage.vent 0.1 m or more, 0.1 m inside the stage's "
+                                     f"face and height, and clear of its flues")
+                stg["vent"] = {"width_m": vw, "height_m": vh, "depth_m": vd}
+            top = round(top - sh - sct, 4)
         if sz / max(nfl, 1) < fo + 0.1:
             raise ParamError(f"chimney at ({u}, {v}): {nfl} flues of {fo} m do not fit its {sz} m face")
         spec = {key: copy.deepcopy(x) for key, x in base.items()
@@ -1209,6 +1237,8 @@ def _k15_heads(k: dict, stacks: list, chimneys: list, cover) -> None:
             spec["corbels"] = copy.deepcopy(head_over["corbels"])
         if "cap" in head_over:
             spec["cap"] = dict(spec["cap"], **head_over["cap"])
+        if stage is not None:
+            spec["stage"] = stg
         spec.update(width_m=sz, depth_m=sx, across="z", top_m=top,
                     flues=[{"at": round((i + 0.5) * sz / nfl - sz / 2, 4), **({"pot": pot} if pot else {})}
                            for i in range(nfl)])
@@ -1218,7 +1248,12 @@ def _k15_heads(k: dict, stacks: list, chimneys: list, cover) -> None:
             raise ParamError(f"chimney at ({u}, {v}): its shaft stands {y_head - hi:.2f} m over its roof under "
                              f"K15's head, too little for the head's courses and its sooted band")
         if pn and "panels" not in omit and st_.get("panelled", True):
-            ph = round(y_head - pn["under_head_m"] - hi - pn["above_roof_m"], 4)
+            # T-3370: a stack whose picture sinks its panel nearer its head than the house's
+            # others names its own gap (1936's right stack, the panel under its band)
+            uh = float(st_.get("panel_under_head_m", pn["under_head_m"]))
+            if not 0.1 <= uh <= 2.0:
+                raise ParamError(f"chimney at ({u}, {v}): panel_under_head_m {uh}: 0.1-2.0 m")
+            ph = round(y_head - uh - hi - pn["above_roof_m"], 4)
             if ph < pn["min_height_m"]:
                 raise ParamError(f"chimney at ({u}, {v}): room for a {ph} m panel, under the {pn['min_height_m']} m "
                                  f"chimneys.k15.panels asks; mark the stack panelled: false")

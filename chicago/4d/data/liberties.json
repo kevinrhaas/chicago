@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1050,
+  "count": 1051,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -71413,6 +71413,33 @@
         }
       ],
       "work_refs": []
+    },
+    {
+      "id": "L-k01-1936-allerton-stage-3370",
+      "title": "1936 Prairie's right stack built with its photograph's stage on a lowered head, and the roof deck's rail stopped behind it",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-08",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the Chicagology photograph ([1936 S. Prairie Ave. (Daniel M. Thompson / Samuel W. Allerton residence).]…) draws the right-hand stack over the south flank with a two-staged head: a broad moulded cap at about 16.75-17.30 m and on it a narrower stage to the top at about 18.26 m, with a dark opening in its east face. The K15 kit gains a stage on a stack's cap (`chimneys.stacks[].stage`: a brick block in from the shaft's faces under its own stone cap, an optional dark vent sunk into each broad face), and the stack's head is laid lower, to 17.30 m, with its sunk panel moved up under the upper band (panel under head (m)). The stack stands at u 12.3, the committed camera's own reading of it. The same photograph shows the deck's rail running from the deck's south-east corner west behind that stack and not out again on its west side, where the hip's slope rises to the stack bare: the hip deck's rail gains a west end (hip deck rail from u (m), 8.3 m), closed by a cross-run, the deck's edge west of it a curb at the rail's plinth. **What is read, not invented.** The stage's height and its cap's (0.58 and 0.34 m, the print's y 200-225 and 185-200 px at about 42 px a metre), its width (about the shaft's), the vent's place and size on the east face (about 0.36 m square), the broad cap's height, the stack's place (its shaft at x 1226-1283 px through the camera, the print's 1228-1285), and that no rail shows west of the stack. **What is invented.** The vent's depth (0.15 m) and its twin on the rear face, the stage cap's projection to about 0.02 m, the rail's end at u 8.3 (anywhere the camera hides it behind the stack would do; 8.3 is the middle), the cross-run closing it (hidden behind the south rail's panel from the street) and the curb west of it. Where the deck itself ends the photograph cannot say: no deck surface is seen from the street, so the hip's level cut is kept."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a picture of the roof from another side, or from above, would show the deck's extent and the rail's west end; a sharper copy of the plate would settle whether the stage's openings pass through."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-08 (T-3370)."
+        }
+      ],
+      "work_refs": [
+        "T-3370",
+        "T-3367"
+      ]
     },
     {
       "id": "L-pullman-18th-street-wall-c1900-1934",

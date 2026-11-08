@@ -42420,3 +42420,29 @@ it can stand on; they are not surveyed roads. The ground under the wheels and ho
 committed heightfield (`renderers/web/js/transport-ground.js`); the drawn ground is unchanged.
 **How to resolve:** an order book, morning report or quartermaster's return of the post for August 1812 would say what
 wagons and teams it had and who drove them; a drawing of the post's wagons would replace the cart.
+
+### L-k01-1936-allerton-stage-3370 — 1936 Prairie's right stack built with its photograph's stage on a lowered head, and the roof deck's rail stopped behind it
+
+**Decision:** the Chicagology photograph (`chicagology_1936_prairie_exterior_photo`) draws the right-hand
+stack over the south flank with a two-staged head: a broad moulded cap at about 16.75-17.30 m and on it a
+narrower stage to the top at about 18.26 m, with a dark opening in its east face. The K15 kit gains a stage on
+a stack's cap (`chimneys.stacks[].stage`: a brick block in from the shaft's faces under its own stone cap,
+an optional dark vent sunk into each broad face), and the stack's head is laid lower, to 17.30 m, with its
+sunk panel moved up under the upper band (`panel_under_head_m`). The stack stands at u 12.3, the committed
+camera's own reading of it. The same photograph shows the deck's rail running from the deck's south-east
+corner west behind that stack and not out again on its west side, where the hip's slope rises to the stack
+bare: the hip deck's rail gains a west end (`hip_deck.rail.from_u_m`, 8.3 m), closed by a cross-run, the
+deck's edge west of it a curb at the rail's plinth.
+**What is read, not invented.** The stage's height and its cap's (0.58 and 0.34 m, the print's y 200-225 and
+185-200 px at about 42 px a metre), its width (about the shaft's), the vent's place and size on the east face
+(about 0.36 m square), the broad cap's height, the stack's place (its shaft at x 1226-1283 px through the
+camera, the print's 1228-1285), and that no rail shows west of the stack.
+**What is invented.** The vent's depth (0.15 m) and its twin on the rear face, the stage cap's projection to
+about 0.02 m, the rail's end at u 8.3 (anywhere the camera hides it behind the stack would do; 8.3 is the
+middle), the cross-run closing it (hidden behind the south rail's panel from the street) and the curb west of
+it. Where the deck itself ends the photograph cannot say: no deck surface is seen from the street, so the
+hip's level cut is kept.
+**How to resolve:** a picture of the roof from another side, or from above, would show the deck's extent
+and the rail's west end; a sharper copy of the plate would settle whether the stage's openings pass through.
+**Ticket:** T-3370 (piece 2 of T-3367).
+**Recorded:** 2026-11-08 (T-3370).
