@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2820, ts: '2026-11-08T04:27:15.331Z', date: 'Nov 7, 2026, 10:27 PM CT', title: 'Horse-drawn wagons move around the 1812 fort', kind: 'feature',
+    items: [
+      'Two of the fort\'s wagons, drawn by two-horse teams, now move in 1812: one goes round the outbuildings, the other runs the shore road to the Lees\' house and back.',
+      'Each wagon stops at its places (the south gate, the stables, the merchant\'s shop, the Lees\' door) and stands about a minute as if loading, then goes on.',
+      'A private of Heald\'s company leads each team on foot at the near horse\'s head, as army teamsters did: Elias Mills on the round, William Moffett on the shore road. Click either to open his card, or stop him and send him on.',
+      'The wagon is the photographic farm-box cart; phones load its lighter level.',
+    ] },
   { v: 2819, ts: '2026-11-08T03:39:49.319Z', date: 'Nov 7, 2026, 9:39 PM CT', title: 'Arms and hands swing like a real walk', kind: 'improvement',
     items: [
       'The arm swing follows measured walking: the arm swings mostly behind the body, and the forearm trails the upper arm like a loose pendulum',
