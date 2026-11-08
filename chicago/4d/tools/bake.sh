@@ -9,6 +9,7 @@
 #   tools/bake.sh --only a,b,c    build several, in one Blender start-up
 #                                 (either form derives only the masters it built)
 #   tools/bake.sh --no-bake       skip the UV unwrap (fast iteration)
+#   SKIP_GATE=1 tools/bake.sh     leave check.sh to the caller (CI runs it in parts)
 #
 # AO is NOT baked here and never has been in the nightly: `--ao` is opt-in on
 # generators/build.py and nothing passes it (T-0015). This line used to say
@@ -121,6 +122,13 @@ else
   # what its derivative was made from needs nothing: deriving all ~714 took about
   # twenty minutes and pushed the content-build job past its thirty-minute ceiling.
   # The rule and its self-test live in tools/stale_derivatives.py.
+  #
+  # T-3503. Glessner's v4 derivatives are untracked (a verified package, materialized
+  # at publish), so on a fresh checkout its master always read "underived" and every
+  # whole-town bake re-encoded both tiers: 18 of the derivative step's 20.6 minutes,
+  # for bytes publish then verified identical to the package. Restore them first when
+  # the master just built IS the packaged one; a moved master is still derived below.
+  python3 tools/stale_derivatives.py --reuse-packaged
   MOVED="$(python3 tools/stale_derivatives.py)"
   if [ -z "$MOVED" ]; then
     echo "   every master matches assets/manifest.web.json; nothing to derive (T-2314)"
@@ -138,9 +146,22 @@ echo
 echo "== publish"
 tools/publish.sh
 
-echo
-echo "== gate"
-tools/check.sh
+# T-3503 — AND IN CI THE GATE RUNS SOMEWHERE ELSE TOO, for the smoke's reason below.
+# Whole, `check.sh` outgrew one job: about thirty minutes on four cores by 2026-11-08
+# (CI's own gate runs it as eight parts summing 38-42 minutes), after a twenty-minute
+# derivative step, so the content build's bake job hit its fifty-minute cap inside
+# this step on every whole-town bake of 11-07/08. `chicago-4d-bake.yml` sets
+# SKIP_GATE=1 and runs the gate as eight parallel `--part k/8` jobs on the tree this
+# bake pushed; no bake PR opens and no scene bundle publishes unless all eight pass.
+# Run without it (the default) and the gate runs here, whole, as it always has.
+if [ "${SKIP_GATE:-0}" = "1" ]; then
+  echo
+  echo "== gate (skipped: SKIP_GATE=1 — the content build runs it in parts, T-3503)"
+else
+  echo
+  echo "== gate"
+  tools/check.sh
+fi
 
 # The smoke runs against the PUBLISHED mirror, not the source tree, and it runs
 # here because this is the step that just produced the compressed derivatives.

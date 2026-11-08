@@ -2,6 +2,7 @@
 """Which masters does a whole-town bake actually have to derive? (T-2314)
 
     python3 tools/stale_derivatives.py              # comma list, possibly empty
+    python3 tools/stale_derivatives.py --reuse-packaged   # restore Glessner's first (T-3503)
     python3 tools/stale_derivatives.py --self-test
 
 `tools/bake.sh` with no `--only` regenerates every master and then handed all of them
@@ -24,6 +25,15 @@ asks it the same question one step earlier. A master is printed when
 and every version master (`assets/gltf/versions/*/*/*.glb`) is printed always: their
 freshness lives in `tools/structure_versions.py`'s receipts, not in this record, and
 there are four of them, so a whole-town bake derives them exactly as it always did.
+
+Glessner's v4 derivatives are the one pair this test could never pass on a fresh
+checkout: they are untracked (too large to commit, kept as a verified package and
+materialized at publish), so the master always read "underived" and every whole-town
+bake re-encoded it — 18 of its 20.6 derivative minutes on 2026-11-07/08, for bytes
+identical to the package (T-3503). `--reuse-packaged`, which bake.sh runs just before
+asking, restores them from the package when the master in the tree is the packaged
+master (`recover_glessner_v4.reuse_derivatives`), so a Glessner that did not move is
+skipped like any other master, and one that did is derived as before.
 
 What this CANNOT see is a change to the recipe — `web_derivatives.sh`'s flags or its
 pinned packages. K40 decided against recording a script hash (it would have
@@ -100,4 +110,14 @@ def self_test() -> int:
 if __name__ == "__main__":
     if "--self-test" in sys.argv[1:]:
         sys.exit(self_test())
+    if "--reuse-packaged" in sys.argv[1:]:
+        from recover_glessner_v4 import reuse_derivatives
+        try:
+            count, why = reuse_derivatives()
+        except Exception as error:  # noqa: BLE001 — zipfile's BadZipFile included
+            # A corrupt package is publish's to refuse (it materializes the same
+            # archive); here it only means this bake derives Glessner itself.
+            count, why = 0, f"the Glessner v4 package would not verify ({error}): derive it"
+        print(f"   {why}" + (f" ({count} file(s))" if count else "") + " (T-3503)")
+        sys.exit(0)
     print(",".join(stale(ROOT)))
