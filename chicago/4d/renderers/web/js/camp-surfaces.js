@@ -57,6 +57,16 @@ export const HAY_COVERINGS = {
 
 const LIBRARY = 'textures/camp_1812_pbr/';
 
+/**
+ * T-3510: every covering's sheets once loaded, by material name, with the sheet's own span —
+ * so the 1812 crossing boats' elm-bark canoes wear the camp's bark without a second copy of
+ * it on the GPU. `campSheet(name)` reads it; it never loads.
+ */
+const loadedSheets = new Map();
+export function campSheet(name) {
+  return loadedSheets.get(name) ?? null;
+}
+
 async function sheet(loader, url, srgb) {
   let tex;
   try {
@@ -98,6 +108,7 @@ export async function loadCampSurfaces({ wanted = false, hay = false, assetBase 
         sheet(loader, file('orm'), false),
       ]);
       sheets.set(name, { map, normalMap, orm });
+      loadedSheets.set(name, { map, normalMap, orm, spanM: Number(doc.span_m) || 1 });
     }));
   } catch (err) {
     return { ...none, problem: `camp coverings not bound — ${err.message}` };
