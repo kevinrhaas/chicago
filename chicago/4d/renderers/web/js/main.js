@@ -3859,13 +3859,18 @@ async function boot() {
   if (supportsTownTransport(YEAR)) {
     try {
       const { mountTownTransport } = await import('./town-transport-scene.js');
+      // T-3497: 1812's natural ground is read smoothed for wheels and hooves (transport-ground.js).
+      const smoothGround = String(YEAR) === '1812'
+        ? (await import('./transport-ground.js')).createSmoothedGround({
+          sample: (e, n) => profiledGroundHeight(terrain, decks, e, n), grid: terrain.grid })
+        : null;
       api.townTransport = await mountTownTransport({
         sceneId: YEAR, dataBase: bases.dataBase, people, getPeople: () => peopleDirectory.load(),
         preparePersonCard: !draws('residents') ? prepareSceneDirectoryPerson : null,
         humans: api.humans, confidence,
         heightAt: String(YEAR) === '1904'
           ? (e, n) => streetGrid.carriagewayHeight(e, n)
-          : (e, n) => profiledGroundHeight(terrain, decks, e, n),
+          : smoothGround ?? ((e, n) => profiledGroundHeight(terrain, decks, e, n)),
         footprints: () => footprints, visitor: () => walker.state,
         interactions, detail: detailLevel, coarse, problems,
         // T-3475: Step back to let it pass walks the visitor to a clear stand, looking where they looked.
@@ -6026,6 +6031,8 @@ async function boot() {
       reducedMotion: transportReducedMotion.matches,
       hidden: confidence.hidden.reconstructed || !shownLayers.vehicles,
       visualDt,
+      // T-3497: a team keeps its teamster's hours, by the same sun clock as his duty's.
+      hour: (() => { const [h, m] = String(world.sunTime ?? '').split(':').map(Number); return Number.isFinite(h) ? h + (m || 0) / 60 : null; })(),
     });
     api.townTransport?.refreshInteractions();
     // T-3445: the first time the key offers something, once per device, what it is.

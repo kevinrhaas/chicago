@@ -251,6 +251,8 @@ export class HumanActor {
     // T-3442: a one-way walk (walkPath), and the height it last stood the figure at.
     this.path = null;
     this.standY = null;
+    // T-3497: where a teamster's team leads him this frame (walk()); null for everyone else.
+    this.tow = null;
     // T-3443: gone indoors (house-errands.js): not drawn, not picked, met by nobody.
     this.indoors = false;
     this.place();
@@ -652,6 +654,13 @@ export class HumanActor {
 
   /** Advance along a walking route at the walk clip's stated ground speed (§ 7: in place). */
   walk(dt) {
+    // T-3497: a teamster on foot is led by his team: `tow()` says where he walks this frame
+    // ({ e, n, heading }), and the gait reads the ground he covered as it does any walk.
+    if (this.tow) {
+      const at = this.tow();
+      if (at) { this.e = at.e; this.n = at.n; this.heading = at.heading; this.place(); }
+      return;
+    }
     if (this.path) { this.followPath(dt); return; }
     if (this.state !== 'walking' || !this.route || this.route.length < 2) return;
     const clip = this.body && findClip(this.body.clips, 'walk');
@@ -684,7 +693,9 @@ export class HumanActor {
     this.recheck -= dt;
     this.clock += dt;
     // T-3481: a figure on a looped route walks it out of range too, so she comes round again.
-    const walkedAway = !this.inRange && !!this.route;
+    // T-3497: a towed teamster is put beside his team first, so his range is read where he is.
+    const e0 = this.e, n0 = this.n;
+    const walkedAway = !!this.tow || (!this.inRange && !!this.route);
     if (walkedAway) this.walk(dt);
     if (!this.inRange && this.recheck > 0) return false;
     this.distance = cameraPosition.distanceTo(this.root.position);
@@ -700,7 +711,6 @@ export class HumanActor {
     this.counters.updates++;
     this.root.visible = !!this.body;
     if (lod !== this.lod && lod !== this.wanted) this.setLod(lod).catch(() => {});
-    const e0 = this.e, n0 = this.n;
     if (!walkedAway) this.walk(dt);
     // T-3472: the ground covered this frame, which is what the gait's phase advances by.
     const moved = Math.hypot(this.e - e0, this.n - n0);
@@ -865,6 +875,14 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
       actors.set(instance.id, actor);
       group.add(actor.root);
       return actor;
+    },
+
+    /** T-3497: a figure made as this layer makes its own (its looks, clips, ground and
+     * tier) but not stood in it: a vehicle's teamster on foot, whom the vehicle advances. */
+    createActor(instance, { person = null, identity = null } = {}) {
+      if (disposed) throw Error('humans: layer disposed');
+      const id = identity ?? { kind: 'person', personId: instance.person_id, person, profile: null, role: null };
+      return new HumanActor({ instance, person: person ?? id.person ?? null, identity: id, assets: store, heightAt, clipLibrary, tier, prepare });
     },
 
     /** Transfer only the standing depiction; the vehicle owns its seated actor.

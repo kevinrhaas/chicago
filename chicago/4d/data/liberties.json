@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1047,
+  "count": 1048,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -70351,6 +70351,38 @@
         {
           "label": "How to resolve",
           "text": "an account book, letter or recollection naming what one of these households grew, or a drawing of one of the gardens, replaces that garden's beds; a reading that places Lee's garden, or Burns's, replaces its plot. The company's cornfield and gardens at the forks are not planted yet: some twenty thousand corn hills want a cheaper way to draw a field than one plant at a time."
+        }
+      ],
+      "work_refs": []
+    },
+    {
+      "id": "L-1812-army-wagons-3497",
+      "title": "Two of the fort's wagons on the move on 14 August 1812, each led by a private on foot",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-08",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Recorded",
+          "text": "2026-11-08 (T-3497)."
+        },
+        {
+          "label": "Decision",
+          "text": "two horse-drawn wagons now move in the 1812 scene, on the same driven-team system as the 1835 wagon and the 1904 brougham (the loops data, laid by the lay driven wagons 1812 tool). One goes round the fort's outbuildings, standing at the foot of the south gate, the stables and the merchant's shop; the other runs down the shore road south of the fort to the Lee family's house and back up to the north end of the road, standing at each end. Each stands about a minute at a stop, as if loading. Each is led by a private of Heald's company walking at the near horse's head with a lead rope, not driving from a seat: Elias Mills on the round and William Moffett on the shore road, the two men the garrison stations already put at the stables (“Where each man of Heald's company stands on the afternoon of 14 August 1812”). While a man leads his wagon his standing figure is withdrawn, so he is never drawn twice."
+        },
+        {
+          "label": "Why",
+          "text": "the owner, 2026-11-08: *\"add some wagons that are driven by horses and in movement in 1812 just like we have in 1904 but make them the wagons from the era and have some wagons rotating around town on loops... you should I think have people taking wagons places\"*; and *\"We should have some existing photographic wagons that can work for this\"*, *\"As long as they are appropriate\"*."
+        },
+        {
+          "label": "What is recorded and what is not",
+          "text": "that the company had wagons at the post is the accounts' (the women and children rode in the wagons on the march of 15 August: Quaife 1913, Kirkland 1893, Wau-Bun); the eve of the evacuation was spent readying the stores and baggage. Everything else is ours: that two wagons were working that afternoon, the vehicle, the teams, the men leading them, the roads they take, where they stop, how long they stand and the pace (a slow walk, 1.3 m/s). The vehicle is the scanned \"Old Cart\" farm-box wagon (Lyskilde, CC BY 4.0, the walkthrough's farm box master code), a plain four-wheeled box wagon of the kind in use on farms and with armies through the period; it is not a drawing or record of a Fort Dearborn wagon. Army teams of the time were as often oxen as horses; the scene's only draught model is the horse, so horses draw both. Leading a team on foot by the near horse's head was a common way for a teamster to work a slow wagon; nothing records how these men drove. The roads are hand-laid along the 1812 trails and the plain round the fort, held to a turn the wagon can make (18 m) and to ground it can stand on; they are not surveyed roads. The ground under the wheels and hooves is read smoothed from the committed heightfield (the walkthrough's transport ground code); the drawn ground is unchanged."
+        },
+        {
+          "label": "How to resolve",
+          "text": "an reconstruction plan, morning report or quartermaster's return of the post for August 1812 would say what wagons and teams it had and who drove them; a drawing of the post's wagons would replace the cart."
         }
       ],
       "work_refs": []

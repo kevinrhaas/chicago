@@ -75,6 +75,87 @@ export function roundedBlockRoute({ bounds_enu_m, corner_radius_m, clockwise = f
   });
 }
 
+/**
+ * T-3497: a closed road of straight legs joined by tangent arcs — a track that follows the
+ * ground's own paths (1812's worn trails) rather than a circle or a town block. `points_enu_m`
+ * are the corners in driving order (the last joins back to the first); every corner is rounded
+ * to `corner_radius_m`, or to its own `corner_radii_m[i]` where a wider bend is wanted. A
+ * corner's arc must fit inside both of its legs, so a road too tight for its team is refused
+ * here rather than drawn with a cusp. Left turns carry positive curvature, as the block's do.
+ */
+export function pathRoute({ points_enu_m, corner_radius_m, corner_radii_m = null }) {
+  if (!Array.isArray(points_enu_m) || points_enu_m.length < 3
+    || !points_enu_m.every(p => Array.isArray(p) && p.length === 2 && p.every(Number.isFinite))) throw Error('transport loop: at least three finite path corners required');
+  finite(corner_radius_m, 'corner radius');
+  if (corner_radius_m < 6) throw Error('transport loop: path corner radius must be at least 6 metres');
+  const count = points_enu_m.length;
+  if (corner_radii_m !== null && (!Array.isArray(corner_radii_m) || corner_radii_m.length !== count
+    || !corner_radii_m.every(r => Number.isFinite(r) && r >= corner_radius_m))) throw Error('transport loop: one corner radius per path corner, none under the path minimum');
+  const corners = points_enu_m.map((p, i) => {
+    const a = points_enu_m[(i + count - 1) % count], b = points_enu_m[(i + 1) % count];
+    const inLength = Math.hypot(p[0] - a[0], p[1] - a[1]), outLength = Math.hypot(b[0] - p[0], b[1] - p[1]);
+    if (inLength < 1e-6 || outLength < 1e-6) throw Error('transport loop: repeated path corner');
+    const din = [(p[0] - a[0]) / inLength, (p[1] - a[1]) / inLength];
+    const dout = [(b[0] - p[0]) / outLength, (b[1] - p[1]) / outLength];
+    const turn = Math.atan2(din[0] * dout[1] - din[1] * dout[0], din[0] * dout[0] + din[1] * dout[1]);
+    if (Math.abs(turn) > Math.PI * 0.95) throw Error('transport loop: a path corner turns back on itself');
+    const r = corner_radii_m ? corner_radii_m[i] : corner_radius_m;
+    const tangent = r * Math.tan(Math.abs(turn) / 2);
+    return { p, din, dout, turn, r, tangent, outLength };
+  });
+  const pieces = [];
+  corners.forEach((c, i) => {
+    const next = corners[(i + 1) % count];
+    if (c.tangent + next.tangent > c.outLength + 1e-9) throw Error(`transport loop: path corners ${i} and ${(i + 1) % count} are too close for their bends`);
+    if (Math.abs(c.turn) > 1e-9) {
+      const side = Math.sign(c.turn); // +1 left (counter-clockwise)
+      const start = [c.p[0] - c.din[0] * c.tangent, c.p[1] - c.din[1] * c.tangent];
+      const centre = [start[0] - side * c.din[1] * c.r, start[1] + side * c.din[0] * c.r];
+      const a0 = Math.atan2(start[1] - centre[1], start[0] - centre[0]);
+      pieces.push({ length: Math.abs(c.turn) * c.r, at: s => {
+        const a = a0 + side * s / c.r;
+        return { e: centre[0] + c.r * Math.cos(a), n: centre[1] + c.r * Math.sin(a),
+          forwardE: -side * Math.sin(a), forwardN: side * Math.cos(a), curvature: side / c.r };
+      } });
+    }
+    const from = [c.p[0] + c.dout[0] * c.tangent, c.p[1] + c.dout[1] * c.tangent];
+    const length = c.outLength - c.tangent - next.tangent;
+    if (length > 1e-9) pieces.push({ length, at: s => ({ e: from[0] + c.dout[0] * s, n: from[1] + c.dout[1] * s,
+      forwardE: c.dout[0], forwardN: c.dout[1], curvature: 0 }) });
+  });
+  const length = pieces.reduce((sum, p) => sum + p.length, 0);
+  const maxCurvature = Math.max(...corners.filter(c => Math.abs(c.turn) > 1e-9).map(c => 1 / c.r), 0);
+  return Object.freeze({ length, maxCurvature: maxCurvature || 1 / corner_radius_m,
+    at(distance) {
+      finite(distance, 'distance');
+      let s = wrap(distance, length), sample;
+      for (const piece of pieces) {
+        if (s <= piece.length) { sample = piece.at(s); break; }
+        s -= piece.length;
+      }
+      if (!sample) sample = pieces[0].at(0);
+      return { ...sample, yaw: Math.atan2(sample.forwardE, -sample.forwardN) };
+    },
+  });
+}
+
+/** The route a driven row names: circle, rounded block or (T-3497) a closed path. */
+export function routeFor(route) {
+  if (route?.kind === 'rounded_block') return roundedBlockRoute(route);
+  if (route?.kind === 'path') return pathRoute(route);
+  return circleRoute(route);
+}
+
+/** T-3497: the route distance nearest a place, for a stop named by where it is. */
+export function routeDistanceNear(route, e, n, step_m = .25) {
+  let best = 0, bestD = Infinity;
+  for (let s = 0; s < route.length; s += step_m) {
+    const p = route.at(s), d = Math.hypot(p.e - e, p.n - n);
+    if (d < bestD) { bestD = d; best = s; }
+  }
+  return { distance_m: best, off_m: bestD };
+}
+
 /** A live spawn obstruction is recoverable; malformed ground/route/asset inputs are not.
  * Store only the finite clearance pose, so a retry needs no GLB or full route reading. */
 export class TransportSpawnObstructedError extends Error {
@@ -93,6 +174,7 @@ export function createTransportLoop({
   root_ahead_of_rear_axle_m, driver_local_m, wheel_radii_m,
   heightAt, clear = () => true, initial_distance_m = 0, steering_limit_deg,
   initial_total_distance_m = 0, initial_wheel_rotation_rad = [0, 0, 0, 0], initial_state = 'moving', person_id = null,
+  stops = [], initial_dwell_s = 0,
 }) {
   if (!id || !name || typeof route?.at !== 'function' || !assembly?.pose) throw Error('transport loop: id, name, route and assembly required');
   if (typeof heightAt !== 'function' || typeof clear !== 'function') throw Error('transport loop: ground and clearance readers required');
@@ -105,6 +187,13 @@ export function createTransportLoop({
   if (!['moving', 'stopped'].includes(initial_state) || initial_total_distance_m < 0
     || !Array.isArray(initial_wheel_rotation_rad) || initial_wheel_rotation_rad.length !== 4
     || !initial_wheel_rotation_rad.every(Number.isFinite)) throw Error('transport loop: invalid saved journey');
+  // T-3497: timed stops along the road (a wagon loading at a door). Each is a route distance
+  // and a dwell; the team pulls up exactly there, stands, then goes on. Dwelling is still the
+  // 'moving' journey — only a visitor's Stop or an obstruction makes it 'stopped'.
+  if (!Array.isArray(stops) || !stops.every(s => Number.isFinite(s?.distance_m) && Number.isFinite(s?.dwell_s) && s.dwell_s >= 0)) throw Error('transport loop: stops need a finite distance and dwell');
+  const stopList = stops.map(s => ({ ...s, distance_m: wrap(s.distance_m, route.length) }));
+  finite(initial_dwell_s, 'saved dwell');
+  let dwell = Math.max(0, initial_dwell_s), dwellingAt = dwell > 0 ? stopList.find(s => Math.abs(s.distance_m - wrap(initial_distance_m, route.length)) < 1e-6) ?? null : null;
   let distance = wrap(initial_distance_m, route.length), totalDistance = initial_total_distance_m;
   let state = initial_state, reason = null, disposed = false, visible = false;
   let lastPose = null, motionReset = true;
@@ -152,6 +241,8 @@ export function createTransportLoop({
     /** T-3404: the compass bearing the team faces (forward is +z of the vehicle root). */
     get heading_deg() { return ((180 - lastPose.yaw * 180 / Math.PI) % 360 + 360) % 360; },
     get state() { return state; },
+    /** T-3497: the stop the team stands at, while it dwells there; null on the road. */
+    get dwelling() { return dwell > 0 ? dwellingAt : null; },
     get visible() { return visible && !disposed; },
     get disposed() { return disposed; },
     pickDriverAt(...args) { return disposed || !visible ? null : assembly.pickDriverAt?.(...args) ?? null; },
@@ -191,12 +282,28 @@ export function createTransportLoop({
         if (!motionFrame) return;
         if (motionReset) { motionReset = false; return; }
       }
+      // T-3497: standing at a stop. The clock runs down here; the team stands (its
+      // distance-driven gait holds its phase) until it is spent.
+      if (dwell > 0) {
+        dwell = Math.max(0, dwell - dt);
+        assembly.stop?.();
+        if (dwell > 0) return;
+        motionReset = true;
+        if (elapsedFrame) return;
+      }
       // Bound the rear axle's per-frame advance, not the slow horse's elapsed
       // time. Speed 1 + update(10) still advances at most .25m. Every accepted
       // metre takes the same <= .05s clearance/ground/wheel/gait steps below.
       let remaining = Math.min(dt, elapsedFrame ? 0.25 / speed_m_s : 0.25);
       while (remaining > 1e-10) {
-        const tick = Math.min(remaining, 0.05), ds = tick * speed_m_s;
+        let tick = Math.min(remaining, 0.05), ds = tick * speed_m_s;
+        // T-3497: pull up exactly at the next stop ahead (a stop just left lies behind).
+        let arriving = null;
+        for (const s of stopList) {
+          const ahead = wrap(s.distance_m - distance, route.length);
+          if (ahead > 1e-6 && ahead <= ds && (!arriving || ahead < arriving.ahead)) arriving = { stop: s, ahead };
+        }
+        if (arriving) { ds = arriving.ahead; tick = ds / speed_m_s; }
         const next = readNext(ds);
         if (!next) { out.stop('obstruction'); break; }
         // Exact rear/front arc lengths for the independent wheel centres. Spinning
@@ -210,6 +317,10 @@ export function createTransportLoop({
         distance = next.distance; totalDistance += ds;
         assembly.advance?.(tick, ds);
         draw(); remaining -= tick;
+        if (arriving) {
+          distance = arriving.stop.distance_m;
+          if (arriving.stop.dwell_s > 0) { dwell = arriving.stop.dwell_s; dwellingAt = arriving.stop; assembly.stop?.(); break; }
+        }
       }
     },
     snapshot() {
@@ -217,7 +328,8 @@ export function createTransportLoop({
         total_distance_m: totalDistance, at_enu_m: out.at,
         assembly_state: assembly.snapshot?.() ?? null,
         yaw_rad: lastPose.yaw, steering_rad: lastPose.steering,
-        wheel_rotation_rad: [...wheelRotation], wheel_gap_m: lastPose.wheelGap };
+        wheel_rotation_rad: [...wheelRotation], wheel_gap_m: lastPose.wheelGap,
+        dwell_s: dwell, dwelling: dwell > 0 ? dwellingAt?.label ?? null : null };
     },
     dispose() {
       if (disposed) return;

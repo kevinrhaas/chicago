@@ -3,7 +3,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import * as THREE from '../renderers/web/vendor/three-0.185.1/three.module.js';
-import { createDrivenAssembly, createTownTransport } from '../renderers/web/js/town-transport.js';
+import { createDrivenAssembly, createTeamsterAssembly, createTownTransport } from '../renderers/web/js/town-transport.js';
 import { circleRoute, createTransportLoop } from '../renderers/web/js/transport-loop.js';
 
 const path = new URL('../renderers/web/transport/wagon-driver/wagon-w01.glb', import.meta.url);
@@ -259,12 +259,13 @@ async function controlledFactory(code, { syncFailure = null, wrongMetadata = fal
     }
   }
   class FixtureLoader {
+    setMeshoptDecoder() { return this; }
     loadAsync() { events.push('horse-start'); if (syncFailure === 'horse') throw failure; return io.horse.promise; }
     parseAsync(bytes, resourcePath) { const isHorse = resourcePath.includes('/horse/'); events.push(isHorse ? 'horse-parse' : 'vehicle-parse'); return Promise.resolve(isHorse ? gltfHorse : gltfVehicle); }
   }
   const dependencyKey = `__controlledDriverFactory${fixtureNumber++}`;
   globalThis[dependencyKey] = { THREE, GLTFLoader: FixtureLoader, cloneSkinned: root => root.clone(true),
-    HumanActor: FixtureActor, resolveHumanIdentity, createDrivenAssembly, createDriverLife: () => null, clothHuman: () => [],
+    HumanActor: FixtureActor, resolveHumanIdentity, createDrivenAssembly, createTeamsterAssembly, MeshoptDecoder: {}, createDriverLife: () => null, clothHuman: () => [],
     fitHorseSupport: () => ({ height_m: 0, normal_local_xyz: [0, 1, 0] }), crypto: webcrypto,
     disposeLoadedAsset(value) {
       if (value === gltfVehicle) stats.vehicleDisposed++;
@@ -273,7 +274,7 @@ async function controlledFactory(code, { syncFailure = null, wrongMetadata = fal
     },
     fetch(url) { const kind = String(url).includes('/horse/') ? 'horse' : 'vehicle'; events.push(kind + '-start'); if (syncFailure === kind) throw failure; return io[kind].promise; },
   };
-  const injected = `const { THREE, GLTFLoader, cloneSkinned, HumanActor, resolveHumanIdentity, disposeLoadedAsset, createDrivenAssembly, createDriverLife, clothHuman, fitHorseSupport, crypto, fetch } = globalThis[${JSON.stringify(dependencyKey)}];\n`
+  const injected = `const { THREE, GLTFLoader, cloneSkinned, HumanActor, resolveHumanIdentity, disposeLoadedAsset, createDrivenAssembly, createTeamsterAssembly, MeshoptDecoder, createDriverLife, clothHuman, fitHorseSupport, crypto, fetch } = globalThis[${JSON.stringify(dependencyKey)}];\n`
     + code.replace(/^import .*;\n/gm, '');
   const module = await import('data:text/javascript;base64,' + Buffer.from(injected).toString('base64'));
   delete globalThis[dependencyKey];
@@ -364,8 +365,8 @@ const actualDriverRow = actualRoutes.rows.find(r => r.scene === '1904');
 assert(!actualScene1904.layers.includes('residents') && actualScene1904.layers.includes('humans'));
 assert.equal(actualPeople1904.people.length, 440); assert.equal(actualPeople1904.residents_root, 'data/residents_1904');
 assert.equal(actualDriverRow.person_id, 'pa1904_otis_f_r_c1900_hans_johnson');
-for (const id of ['1835', '1904', 1835, 1904]) assert(supportsTownTransport(id));
-for (const id of ['1812', '1880', '1905', null]) assert(!supportsTownTransport(id));
+for (const id of ['1812', '1835', '1904', 1812, 1835, 1904]) assert(supportsTownTransport(id));
+for (const id of ['1880', '1905', null]) assert(!supportsTownTransport(id));
 assert(sceneBindingSource.includes('if (!supportsTownTransport(sceneId)) return null;'), 'Mount shares the same eligibility guard');
 // T-3468 (owner, 2026-11-07): every scene without the 1835 drawer directory (1812 and 1904)
 // opens its people in the Inspect person card; the 1835 drawer keeps its own.
@@ -617,7 +618,7 @@ console.log('module-warm oldgeneration cancels beforemodels/newgeneration mounts
     file => { events.push(['household', file]); return failing ? Promise.reject(Error('household offline')) : pending.promise; },
     () => { events.push('citations'); return pending.promise; }, navigatorUi);
   await warm('1835', true)(actualDriverRow.person_id);
-  await warm('1812', false)(actualDriverRow.person_id); assert.equal(events.length, 0);
+  await warm('1880', false)(actualDriverRow.person_id); assert.equal(events.length, 0);
   const waiting = warm('1904', false)(actualDriverRow.person_id);
   assert.deepEqual(events, ['./apps/inspect-view.js', 'summary', 'reader', 'pictures', 'directory']);
   await Promise.resolve();
