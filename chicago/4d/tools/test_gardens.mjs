@@ -34,7 +34,7 @@ register(`data:text/javascript,${encodeURIComponent(`export function resolve(s, 
   if (s.startsWith('three/addons/')) return { url: '${vendor}addons/' + s.slice(13), shortCircuit: true };
   return next(s, c);
 }`)}`, import.meta.url);
-const { growTemplate, KINDS, SEASON_CROPS, seasonLook } = await import('../renderers/web/js/gardens.js');
+const { growTemplate, KINDS, SEASON_CROPS, seasonLook, VARIANTS_OF } = await import('../renderers/web/js/gardens.js');
 
 // Measured 2026-11-06: 64k at far, ~2.3 MB of templates. The ceilings leave room to grow
 // a crop's detail, not to double the garden.
@@ -42,8 +42,10 @@ const { growTemplate, KINDS, SEASON_CROPS, seasonLook } = await import('../rende
 // factory's and the agency's, Ouilmette's and La Lime's) all stand within the far ring of the
 // officer's: 192k at far with every one of them in view, the officer's own 73k of it. A phone
 // draws its far ring to 280 m, not 450, and its frame holds only part of the bank.
+// T-3498, 2026-11-08: the forks field adds one kind, its stand of four hills (two variants,
+// 0.28 MB, near level 0.24 MB of it, which a phone never builds); 3.51 MB with it.
 const FAR_TRIS = 200_000;
-const TEMPLATE_BYTES = 3_500_000;
+const TEMPLATE_BYTES = 3_600_000;
 
 const doc = JSON.parse(fs.readFileSync(new URL('../data/gardens/1812.json', import.meta.url), 'utf8'));
 let checks = 0;
@@ -61,7 +63,7 @@ const tris = {};
 for (const k of Object.keys(KINDS)) {
   tris[k] = {};
   for (const lod of LEVELS) {
-    for (const v of [0, 1, 2]) {
+    for (const v of [0, 1, 2].slice(0, VARIANTS_OF[k] ?? 3)) {
       const t = growTemplate(k, v, lod, 1);
       ok(t && t.tris > 0, `${k} ${lod} v${v} grows nothing`);
       for (const part of ['leaves', 'solid']) {
@@ -142,7 +144,7 @@ for (const season of Object.keys(SEASON_CROPS)) {
     if (!look) { ok(growTemplate(k, 0, 'far', 1, season) === null, `${season}: ${k} has no look but grows`); continue; }
     st[k] = {};
     for (const lod of LEVELS) {
-      for (const v of [0, 1, 2]) {
+      for (const v of [0, 1, 2].slice(0, VARIANTS_OF[k] ?? 3)) {
         const t = growTemplate(k, v, lod, 1, season);
         ok(t && t.tris > 0, `${season}: ${k} ${lod} v${v} grows nothing`);
         for (const part of ['leaves', 'solid']) {

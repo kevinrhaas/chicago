@@ -307,6 +307,47 @@ line is now load-bearing rather than a courtesy: an entry here without one is a 
 that has been misfiled, and `tools/compile_liberties.py` says so and compiles it as standing.
 
 
+### L-pullman-18th-street-wall-c1900-1934 — Pullman's 18th Street wall east of the stair's pier built as the c. 1900 picture shows it: one level coping, its later piers, urn and curved low walls withdrawn
+**Recorded:** 2026-10-31.
+
+**Decision:** east of the third pier (the east pier of the stair at the house's 18th Street porch, x -9.35
+to -10.25 in `pullman_house_1729_prairie`'s frame) the 18th Street wall (`form.boundary.side_return`) now
+runs level at 0.9 m to the stable's east wall. The fourth, fifth and sixth piers, the fifth's urn, the
+sweeps from 1.4 m to 0.85 m and back up to 1.45 m between the third and fourth piers, and the sweep up to
+the sixth pier are withdrawn for 1904. L-pullman-18th-street-wall-1934 had built them off the 1894 Inland
+plate, which Taylor's 16555 and 16554, both of the early 1890s, agree with.
+**What is read.** The Detroit Publishing view of c. 1900 (`loc_det_4a08066_pullman_residence`, LC-D4-12552,
+taken beside the Fort Dearborn monument looking west-north-west along this wall) is the picture nearest
+1 July 1904. From the stair's east pier (its x 475-485 px) to the monument (x 740) it shows one level coping,
+about as high as the hydrant at the curb stands over the walk, with a dense border of shrubs behind it. No
+pier rises over its top, there is no urn, and no low wall falls and rises (x 485-740, y 520-535). The Chicago
+History Museum's view of the monument (ICHi-19208, circa 1900; the Prairie library's
+`a16-chm-ichi-19208-monument-pullman-wall`, no source record yet, so a check only) shows the same plain
+coping at the stable's end. So the earlier pictures' piers and curved walls are taken to have gone in a
+rebuilding between 1894 and about 1900, which no record held here dates.
+**What is invented.** The two openings are kept: the one onto the terrace's ground (x -15.2 to -16.15) and the
+court's carriage mouth (x -17.05 to -20.4). The Detroit view sees this face edge-on, where a doorway-wide
+opening reads as a narrow dark slot (it shows two, at x 493-497 and 611-617 px), and the court's mouth falls
+behind a parkway trunk there (x 702-714). So the picture can neither place nor deny them, and the carriage
+drive (L-pullman-carriage-ways-1934) needs the court's. Their plain ends without piers are reconstructed.
+**Read the same way:** the 1894 plate's planting before the terrace (its evergreen mass, a potted conifer) and
+Taylor's 16555's flights open from the walk give way in 1904 to the c. 1900 border, which the 1729 lot's border in
+`data/front_yards/1904.json` already draws. Those items read `not shown`, replaced for 1904, in the estate's
+match records.
+**How to resolve:** a solved camera for the Detroit view (an earlier attempt was withdrawn on 13-30 px
+residuals), a picture of the wall between 1894 and 1904 that dates the rebuilding, or a full-size copy of
+CHM i70232 (1905-1906) showing the wall at the court's mouth.
+**Resolved:** 2026-11-08, by the first of those: the Detroit view's solved camera (T-1881, 2.6 px rms on the
+house). Through it the third pier stands at x 373 px, not at the 475-485 this entry read it at, and the print
+from x 330 east shows the 1894 plate's wall feature for feature: the third pier (x 330-336), the coping falling
+from it and sweeping back up to the fourth pier (x 382-388), the doorway slot (x 397-406), the fifth pier with
+its urn (x 406-413), the carriage mouth with the terrace's flight seen through it (x 413-475), and the sixth
+pier (x 475-485). The level coping this entry read lies east of the sixth pier, where the build kept it. So the
+wall had not been rebuilt by about 1900, and the withdrawn piers, urn and sweeps are restored for 1904 as
+L-pullman-18th-street-wall-1934 built them; this entry no longer stands.
+**Ticket:** T-1934; resolved by T-1881.
+**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg` and `taylor_16555_west_front-side-by-side.jpg`, with the estate's six match records.
+
 ### L46 — The fort stands on a bank the model has no cut or fill for
 **Decision:** the **stockade** and the **commandant's quarters** stand clear of the terrain on
 their north sides — 1.40 m and 0.46 m at the worst point — and are declared
@@ -39444,39 +39485,6 @@ glazing: the fence hides their feet and whatever grilles they had. Their surroun
 plain stone.
 **How to resolve:** a nearer photograph of the entrance and its steps, or of the house's basement.
 **Recorded:** 2026-10-31 (T-3257).
-### L-pullman-18th-street-wall-c1900-1934 — Pullman's 18th Street wall east of the stair's pier built as the c. 1900 picture shows it: one level coping, its later piers, urn and curved low walls withdrawn
-**Recorded:** 2026-10-31.
-
-**Decision:** east of the third pier (the east pier of the stair at the house's 18th Street porch, x -9.35
-to -10.25 in `pullman_house_1729_prairie`'s frame) the 18th Street wall (`form.boundary.side_return`) now
-runs level at 0.9 m to the stable's east wall. The fourth, fifth and sixth piers, the fifth's urn, the
-sweeps from 1.4 m to 0.85 m and back up to 1.45 m between the third and fourth piers, and the sweep up to
-the sixth pier are withdrawn for 1904. L-pullman-18th-street-wall-1934 had built them off the 1894 Inland
-plate, which Taylor's 16555 and 16554, both of the early 1890s, agree with.
-**What is read.** The Detroit Publishing view of c. 1900 (`loc_det_4a08066_pullman_residence`, LC-D4-12552,
-taken beside the Fort Dearborn monument looking west-north-west along this wall) is the picture nearest
-1 July 1904. From the stair's east pier (its x 475-485 px) to the monument (x 740) it shows one level coping,
-about as high as the hydrant at the curb stands over the walk, with a dense border of shrubs behind it. No
-pier rises over its top, there is no urn, and no low wall falls and rises (x 485-740, y 520-535). The Chicago
-History Museum's view of the monument (ICHi-19208, circa 1900; the Prairie library's
-`a16-chm-ichi-19208-monument-pullman-wall`, no source record yet, so a check only) shows the same plain
-coping at the stable's end. So the earlier pictures' piers and curved walls are taken to have gone in a
-rebuilding between 1894 and about 1900, which no record held here dates.
-**What is invented.** The two openings are kept: the one onto the terrace's ground (x -15.2 to -16.15) and the
-court's carriage mouth (x -17.05 to -20.4). The Detroit view sees this face edge-on, where a doorway-wide
-opening reads as a narrow dark slot (it shows two, at x 493-497 and 611-617 px), and the court's mouth falls
-behind a parkway trunk there (x 702-714). So the picture can neither place nor deny them, and the carriage
-drive (L-pullman-carriage-ways-1934) needs the court's. Their plain ends without piers are reconstructed.
-**Read the same way:** the 1894 plate's planting before the terrace (its evergreen mass, a potted conifer) and
-Taylor's 16555's flights open from the walk give way in 1904 to the c. 1900 border, which the 1729 lot's border in
-`data/front_yards/1904.json` already draws. Those items read `not shown`, replaced for 1904, in the estate's
-match records.
-**How to resolve:** a solved camera for the Detroit view (an earlier attempt was withdrawn on 13-30 px
-residuals), a picture of the wall between 1894 and 1904 that dates the rebuilding, or a full-size copy of
-CHM i70232 (1905-1906) showing the wall at the court's mouth.
-**Ticket:** T-1934.
-**Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg` and `taylor_16555_west_front-side-by-side.jpg`, with the estate's six match records.
-
 ### L-field-1905-conservatory-1905 — 1905 Prairie's conservatory stood as glass on the house's stone bow, off the 1893 Pictorial Chicago plate
 
 **Decision:** T-1905 builds the conservatory on the Field house's south flank as the 1893 plate
@@ -42425,8 +42433,30 @@ beans, read in the 1857 printing) and the creole field crop "Corn, pumpkins, and
 Wau-Bun's "company gardens, well filled with currant-bushes and young fruit-trees" is 1831 and not used for 1812.
 **How to resolve:** an account book, letter or recollection naming what one of these households grew, or a drawing
 of one of the gardens, replaces that garden's beds; a reading that places Lee's garden, or Burns's, replaces its plot.
-The company's cornfield and gardens at the forks are not planted yet: some twenty thousand corn hills want a cheaper
-way to draw a field than one plant at a time.
+The company's cornfield and gardens at the forks are planted under L-t3498-forks-cornfield-1812.
+
+### L-t3498-forks-cornfield-1812 — The company's eight acres at the forks planted: Indian corn in hills, and the company garden in mess strips
+
+**Recorded:** 2026-11-08 (T-3498).
+
+**Decision:** the worm-fenced field at the forks (`forks_company_cornfield_1812`, 150 x 217 m) is planted for
+14 August 1812 (`tools/plant_gardens_1812.py`, `data/gardens/1812.json`). About seven acres of it are Indian corn in
+hills three and a half feet apart each way, tasselled and in the ear, pumpkins running in the gaps; the company garden
+is the north-east acre, the corner nearest the bank path to the fort, laid in eight mess strips across the field
+(potatoes, cabbages, beans on poles, onions, a strip of turnips sown that week, potatoes and cabbages again). Some
+twenty-four thousand hills are drawn four to a stand (`corn_stand` in `renderers/web/js/gardens.js`): grown whole only
+within 6 m of the eye and simply within 15 m, and past that as a pair of crossed cards painted with a stand of corn under a patch of its leaves seen from above. In
+October the stand is dry and part cut, the pumpkins ripe among it; in early July it is two-thirds grown and not yet
+tasselled; in spring and winter no corn stands. No corn is grown where the fatigue party works (T-3462) or on the
+path its man walks. **Why:** the owner, 2026-11-08, *"Sure do it"*, asked whether to file the field as its own ticket
+after T-3477 left it unplanted for its cost. **What is recorded and what is not:** the field is the draught's
+*"Company Garden & public Cornfield Eight acres"* and Quaife p. 166, *"a small field of eight or nine acres had been
+reduced to cultivation and made to serve as the company gardens and public cornfield"*; that it grew corn is in its
+name. The spacing (M'Mahon; the hills of Coursoll's field, L-t3477), the stage, the pumpkins (Brackenridge 1814, the
+creole field crop *"Corn, pumpkins, and spring wheat"*), the place and size of the garden within the field and every
+strip's crop are ours. **How to resolve:** a return, an order book or a letter naming what the company grew at the
+forks, or how the field was divided between garden and corn, replaces the strips; a drawing of the field replaces the
+layout.
 
 ### L-1812-army-wagons-3497 — Two of the fort's wagons on the move on 14 August 1812, each led by a private on foot
 

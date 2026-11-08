@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_16554_from_south",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "10f6bca8d23fe0d26a88e82bc7d8dc4bd43aa2f0e15e4e77deb807c39c3bd430",
+  "glb_sha256": "968ac3f1a0a55b4c5a44645336d4ce0b08a24dc1971398cb7d6a4181d557528b",
   "camera_sha256": "568a603acd37c9549b21b76a5f24b692670a1c74a4abc57c3eaf1aaa48334598",
   "photo_sha256": "f1099e538ca42a2bf75bc3db892a8e73c172c22f866862b71fa38c27c464dbfa",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "10f6bca8d23fe0d26a88e82bc7d8dc4bd43aa2f0e15e4e77deb807c39c3bd430"
+      "glb_sha256": "968ac3f1a0a55b4c5a44645336d4ce0b08a24dc1971398cb7d6a4181d557528b"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,7 +64,7 @@
       "glb_sha256": "33753cacaa38e5035e8d72e0f568c4efa6c9770272b67ef2f03738313beeb916"
     }
   ],
-  "group_sha256": "d21199679891a723eb44ce698dfc0a1dd8d023b0714875360f4e0cea782b4f14",
+  "group_sha256": "97c44220255143b754cab98d3e79e8ab4042c862d8d7d36e56aac879df911ed3",
   "rendered_flora": {
     "season": "winter",
     "lots": [
@@ -172,8 +172,8 @@
       "status": "within tolerance"
     },
     {
-      "what": "the 18th Street boundary in the foreground (x 100-560): the print, of the early 1890s, shows the earlier wall with its piers and urns and the low walls sweeping between them; the build is the wall as the Detroit view of about 1900 shows it, nearest 1 July 1904 (the boundary's note, L-pullman-18th-street-wall-c1900-1934), so this print cannot show the 1904 wall",
-      "status": "not shown"
+      "what": "the 18th Street boundary in the foreground (x 100-560): the print, of the early 1890s, shows the earlier wall with its piers and urns and the low walls sweeping between them; the build is the wall as the Detroit view of about 1900 shows it, nearest 1 July 1904 (the boundary's note, L-pullman-18th-street-wall-c1900-1934), so this print cannot show the 1904 wall [T-1881, 2026-11-08: the earlier wall this print shows is the 1904 wall again (the Detroit view of c. 1900, read through its solved camera, shows it still standing; L-pullman-18th-street-wall-c1900-1934 resolved): the render now draws its piers, the low wall dipping and sweeping up between them and the fifth pier's urn, up to about 40 px off the print's through this camera, which puts the walk's ground about 45 px higher than the print does (its lamp item); the 1894 plate's camera, fitted on these piers' bases, places them within about 30 px.]",
+      "status": "within tolerance"
     },
     {
       "what": "colour and the ivy: the print is monochrome and of winter, with no leaf on the walls",
