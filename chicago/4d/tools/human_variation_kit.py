@@ -39,6 +39,7 @@ PERSONS = ROOT / 'assets/humans/web/hm08_variation_persons.json'  # beside the k
 FITS = ROOT / 'data/humans/variation/fits'
 LOOKS = ROOT / 'data/humans/variation/looks'   # T-3491: complexion, hair, eyes, stature
 DRESS = ROOT / 'data/humans/variation/dress_1812_native.json'   # T-3506: each Native person's own dress and hair
+DRESS_CHILDREN = ROOT / 'data/humans/variation/dress_1812_children.json'   # T-3520: each town child's
 RESIDENTS = {'1812': ROOT / 'data/residents_1812', '1835': ROOT / 'data/residents', '1904': ROOT / 'data/residents_1904'}
 COMMIT = 'a8bc2d54ff0ac92e78ff71431b1023eda42bf482'
 RAW = f'https://raw.githubusercontent.com/makehumancommunity/makehuman/{COMMIT}/makehuman/data/targets/'
@@ -270,7 +271,11 @@ _DRESSES = None
 def dresses():
     global _DRESSES
     if _DRESSES is None:
-        _DRESSES = json.loads(DRESS.read_text())['persons'] if DRESS.exists() else {}
+        _DRESSES = {}
+        # T-3506 the Native people's, T-3520 the town's children's.
+        for f in (DRESS, DRESS_CHILDREN):
+            if f.exists():
+                _DRESSES.update(json.loads(f.read_text())['persons'])
     return _DRESSES
 
 

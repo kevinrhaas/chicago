@@ -593,6 +593,22 @@
     "grade": "reconstructed",
     "liberty": "L-1812-town-days-3463",
     "file": "data/humans/variation/looks/burns_child_a.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__skeleton_jacket_blue_1812": [
+      0.11,
+      0.065,
+      0.04
+     ],
+     "garment_lower__skeleton_trousers_blue_1812": [
+      0.11,
+      0.065,
+      0.04
+     ]
+    },
+    "worn": "a skeleton suit, brown; hair cropped",
+    "grade": "reconstructed"
    }
   },
   "burns_child_b": {
@@ -610,7 +626,7 @@
     "hair": {
      "value": "brown",
      "drawn": "mid_brown",
-     "cut": "centre_part_knot_1835",
+     "cut": "toddler_curls_1812",
      "facial": [
       "brows_fine",
       "lashes_upper"
@@ -635,6 +651,27 @@
     "grade": "reconstructed",
     "liberty": "L-1812-town-days-3463",
     "file": "data/humans/variation/looks/burns_child_b.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__toddler_frock_white_1812": [
+      0.58,
+      0.52,
+      0.4
+     ],
+     "garment_lower__toddler_frock_white_1812": [
+      0.58,
+      0.52,
+      0.4
+     ],
+     "footwear__toddler_shoes_red_1812": [
+      0.02,
+      0.019,
+      0.018
+     ]
+    },
+    "worn": "a frock of unbleached cotton, black shoes; hair loose to the neck",
+    "grade": "reconstructed"
    }
   },
   "burns_mrs": {
@@ -1153,7 +1190,7 @@
     "hair": {
      "value": "brown (not recorded)",
      "drawn": "mid_brown",
-     "cut": "centre_part_knot_1835",
+     "cut": "girl_curls_1812",
      "facial": [
       "brows_fine",
       "lashes_upper"
@@ -1178,6 +1215,26 @@
     "grade": "reconstructed",
     "liberty": "L-1812-town-days-3463",
     "file": "data/humans/variation/looks/cooper_isabella.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__frock_bodice_rose_1812": [
+      0.44,
+      0.32,
+      0.15
+     ],
+     "garment_lower__frock_skirt_rose_1812": [
+      0.44,
+      0.32,
+      0.15
+     ]
+    },
+    "hide": [
+     "pinafore_apron",
+     "pinafore_bib"
+    ],
+    "worn": "a frock of buff-and-yellow calico, no pinafore; hair worn loose to the shoulders",
+    "grade": "reconstructed"
    }
   },
   "cooper_joseph": {
@@ -1976,6 +2033,22 @@
     "grade": "reconstructed",
     "liberty": "L-1812-town-days-3463",
     "file": "data/humans/variation/looks/garrison_child_unnamed_1.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__skeleton_jacket_blue_1812": [
+      0.03,
+      0.075,
+      0.045
+     ],
+     "garment_lower__skeleton_trousers_blue_1812": [
+      0.03,
+      0.075,
+      0.045
+     ]
+    },
+    "worn": "a skeleton suit, bottle green; hair cropped",
+    "grade": "reconstructed"
    }
   },
   "garrison_child_unnamed_2": {
@@ -1993,7 +2066,7 @@
     "hair": {
      "value": "fair",
      "drawn": "fair",
-     "cut": "centre_part_knot_1835",
+     "cut": "girl_curls_1812",
      "facial": [
       "brows_fine",
       "lashes_upper"
@@ -2018,6 +2091,27 @@
     "grade": "reconstructed",
     "liberty": "L-1812-town-days-3463",
     "file": "data/humans/variation/looks/garrison_child_unnamed_2.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__frock_bodice_rose_1812": [
+      0.4,
+      0.22,
+      0.2
+     ],
+     "garment_lower__frock_skirt_rose_1812": [
+      0.4,
+      0.22,
+      0.2
+     ],
+     "garment_outer__pinafore_linen_1812": [
+      0.7,
+      0.69,
+      0.63
+     ]
+    },
+    "worn": "a frock of faded rose print, a white linen pinafore; hair worn loose to the shoulders",
+    "grade": "reconstructed"
    }
   },
   "garrison_child_unnamed_3": {
@@ -2035,7 +2129,7 @@
     "hair": {
      "value": "dark brown",
      "drawn": "dark_brown",
-     "cut": "centre_part_knot_1835",
+     "cut": "girl_curls_1812",
      "facial": [
       "brows_fine",
       "lashes_upper"
@@ -2060,6 +2154,27 @@
     "grade": "reconstructed",
     "liberty": "L-1812-town-days-3463",
     "file": "data/humans/variation/looks/garrison_child_unnamed_3.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__frock_bodice_rose_1812": [
+      0.07,
+      0.1,
+      0.2
+     ],
+     "garment_lower__frock_skirt_rose_1812": [
+      0.07,
+      0.1,
+      0.2
+     ],
+     "garment_outer__pinafore_linen_1812": [
+      0.56,
+      0.49,
+      0.37
+     ]
+    },
+    "worn": "a frock of indigo-ground print, an unbleached linen pinafore; hair worn loose to the shoulders",
+    "grade": "reconstructed"
    }
   },
   "garrison_child_unnamed_4": {
@@ -2077,7 +2192,7 @@
     "hair": {
      "value": "sandy",
      "drawn": "sandy",
-     "cut": "cropped_1812",
+     "cut": "boy_fringe_1812",
      "facial": [],
      "grade": "reconstructed"
     },
@@ -2099,6 +2214,22 @@
     "grade": "reconstructed",
     "liberty": "L-1812-town-days-3463",
     "file": "data/humans/variation/looks/garrison_child_unnamed_4.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__skeleton_jacket_blue_1812": [
+      0.03,
+      0.04,
+      0.095
+     ],
+     "garment_lower__skeleton_trousers_blue_1812": [
+      0.03,
+      0.04,
+      0.095
+     ]
+    },
+    "worn": "a skeleton suit, dark blue; hair cut straight across the brow",
+    "grade": "reconstructed"
    }
   },
   "garrison_child_unnamed_5": {
@@ -2116,7 +2247,7 @@
     "hair": {
      "value": "brown",
      "drawn": "mid_brown",
-     "cut": "centre_part_knot_1835",
+     "cut": "girl_plait_1812",
      "facial": [
       "brows_fine",
       "lashes_upper"
@@ -2141,6 +2272,27 @@
     "grade": "reconstructed",
     "liberty": "L-1812-town-days-3463",
     "file": "data/humans/variation/looks/garrison_child_unnamed_5.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__frock_bodice_rose_1812": [
+      0.09,
+      0.15,
+      0.08
+     ],
+     "garment_lower__frock_skirt_rose_1812": [
+      0.09,
+      0.15,
+      0.08
+     ]
+    },
+    "hide": [
+     "pinafore_apron",
+     "pinafore_bib"
+    ],
+    "worn": "a frock of green print, no pinafore; hair plaited down the back, 28 cm",
+    "grade": "reconstructed",
+    "tail_cm": 28.4
    }
   },
   "garrison_child_unnamed_6": {
@@ -2180,6 +2332,27 @@
     "grade": "reconstructed",
     "liberty": "L-1812-town-days-3463",
     "file": "data/humans/variation/looks/garrison_child_unnamed_6.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__toddler_frock_white_1812": [
+      0.52,
+      0.3,
+      0.29
+     ],
+     "garment_lower__toddler_frock_white_1812": [
+      0.52,
+      0.3,
+      0.29
+     ],
+     "footwear__toddler_shoes_red_1812": [
+      0.02,
+      0.019,
+      0.018
+     ]
+    },
+    "worn": "a frock of pink sprigged cotton, black shoes; hair cropped",
+    "grade": "reconstructed"
    }
   },
   "garrison_child_unnamed_7": {
@@ -2197,7 +2370,7 @@
     "hair": {
      "value": "brown",
      "drawn": "mid_brown",
-     "cut": "centre_part_knot_1835",
+     "cut": "toddler_curls_1812",
      "facial": [
       "brows_fine",
       "lashes_upper"
@@ -2222,6 +2395,27 @@
     "grade": "reconstructed",
     "liberty": "L-1812-town-days-3463",
     "file": "data/humans/variation/looks/garrison_child_unnamed_7.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__toddler_frock_white_1812": [
+      0.47,
+      0.36,
+      0.2
+     ],
+     "garment_lower__toddler_frock_white_1812": [
+      0.47,
+      0.36,
+      0.2
+     ],
+     "footwear__toddler_shoes_red_1812": [
+      0.3,
+      0.045,
+      0.035
+     ]
+    },
+    "worn": "a frock of buff calico, red shoes; hair loose to the neck",
+    "grade": "reconstructed"
    }
   },
   "gathering_1812_far_west_001": {
@@ -55114,7 +55308,7 @@
     "hair": {
      "value": "brown",
      "drawn": "mid_brown",
-     "cut": "centre_part_knot_1835",
+     "cut": "toddler_curls_1812",
      "facial": [
       "brows_fine",
       "lashes_upper"
@@ -55139,6 +55333,27 @@
     "grade": "reconstructed",
     "liberty": "L-1812-town-days-3463",
     "file": "data/humans/variation/looks/holt_child.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__toddler_frock_white_1812": [
+      0.6,
+      0.58,
+      0.52
+     ],
+     "garment_lower__toddler_frock_white_1812": [
+      0.6,
+      0.58,
+      0.52
+     ],
+     "footwear__toddler_shoes_red_1812": [
+      0.02,
+      0.019,
+      0.018
+     ]
+    },
+    "worn": "a frock of white muslin, washed grey, black shoes; hair loose to the neck",
+    "grade": "reconstructed"
    }
   },
   "holt_isaac": {
@@ -55833,7 +56048,7 @@
     "hair": {
      "value": "brown",
      "drawn": "mid_brown",
-     "cut": "centre_part_knot_1835",
+     "cut": "girl_curls_1812",
      "facial": [
       "brows_fine",
       "lashes_upper"
@@ -55858,6 +56073,26 @@
     "grade": "reconstructed",
     "liberty": "L-1812-town-days-3463",
     "file": "data/humans/variation/looks/kinzie_ellen_marion.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__frock_bodice_rose_1812": [
+      0.24,
+      0.07,
+      0.05
+     ],
+     "garment_lower__frock_skirt_rose_1812": [
+      0.24,
+      0.07,
+      0.05
+     ]
+    },
+    "hide": [
+     "pinafore_apron",
+     "pinafore_bib"
+    ],
+    "worn": "a frock of madder-red calico, no pinafore; hair worn loose to the shoulders",
+    "grade": "reconstructed"
    }
   },
   "kinzie_engage_1812": {
@@ -55978,7 +56213,7 @@
     "hair": {
      "value": "light brown, wavy",
      "drawn": "light_brown",
-     "cut": "cropped_1812",
+     "cut": "boy_fringe_1812",
      "facial": [],
      "grade": "inferred"
     },
@@ -56000,6 +56235,22 @@
     "grade": "inferred",
     "liberty": "L-1812-town-days-3463",
     "file": "data/humans/variation/looks/kinzie_john_h_1812.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__skeleton_jacket_blue_1812": [
+      0.07,
+      0.06,
+      0.05
+     ],
+     "garment_lower__skeleton_trousers_blue_1812": [
+      0.48,
+      0.37,
+      0.2
+     ]
+    },
+    "worn": "a skeleton suit, a dark jacket over nankeen trousers; hair cut straight across the brow",
+    "grade": "reconstructed"
    }
   },
   "kinzie_maria_indiana": {
@@ -56025,7 +56276,7 @@
     "hair": {
      "value": "brown",
      "drawn": "mid_brown",
-     "cut": "centre_part_knot_1835",
+     "cut": "toddler_curls_1812",
      "facial": [
       "brows_fine",
       "lashes_upper"
@@ -56050,6 +56301,27 @@
     "grade": "reconstructed",
     "liberty": "L-1812-town-days-3463",
     "file": "data/humans/variation/looks/kinzie_maria_indiana.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__toddler_frock_white_1812": [
+      0.66,
+      0.65,
+      0.61
+     ],
+     "garment_lower__toddler_frock_white_1812": [
+      0.66,
+      0.65,
+      0.61
+     ],
+     "footwear__toddler_shoes_red_1812": [
+      0.09,
+      0.05,
+      0.03
+     ]
+    },
+    "worn": "a frock of white muslin, brown shoes; hair loose to the neck",
+    "grade": "reconstructed"
    }
   },
   "kinzie_robert_allen": {
@@ -56097,6 +56369,27 @@
     "grade": "reconstructed",
     "liberty": "L-1812-town-days-3463",
     "file": "data/humans/variation/looks/kinzie_robert_allen.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__toddler_frock_white_1812": [
+      0.3,
+      0.36,
+      0.46
+     ],
+     "garment_lower__toddler_frock_white_1812": [
+      0.3,
+      0.36,
+      0.46
+     ],
+     "footwear__toddler_shoes_red_1812": [
+      0.3,
+      0.045,
+      0.035
+     ]
+    },
+    "worn": "a frock of blue-and-white check, red shoes; hair cropped",
+    "grade": "reconstructed"
    }
   },
   "kinzie_servant_second": {
@@ -59601,7 +59894,7 @@
     "hair": {
      "value": "dark brown to black",
      "drawn": "black",
-     "cut": "centre_part_knot_1835",
+     "cut": "girl_curls_1812",
      "facial": [
       "brows_fine",
       "lashes_upper"
@@ -59626,6 +59919,27 @@
     "grade": "reconstructed",
     "liberty": "L-1812-town-days-3463",
     "file": "data/humans/variation/looks/mirandeau_victoire_1812.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__frock_bodice_rose_1812": [
+      0.21,
+      0.28,
+      0.4
+     ],
+     "garment_lower__frock_skirt_rose_1812": [
+      0.21,
+      0.28,
+      0.4
+     ],
+     "garment_outer__pinafore_linen_1812": [
+      0.7,
+      0.69,
+      0.63
+     ]
+    },
+    "worn": "a frock of faded blue cotton, a white linen pinafore; hair worn loose to the shoulders",
+    "grade": "reconstructed"
    }
   },
   "moffett_william": {
@@ -59868,6 +60182,27 @@
     "grade": "reconstructed",
     "liberty": "L-1812-town-days-3463",
     "file": "data/humans/variation/looks/needs_child.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__toddler_frock_white_1812": [
+      0.38,
+      0.3,
+      0.42
+     ],
+     "garment_lower__toddler_frock_white_1812": [
+      0.38,
+      0.3,
+      0.42
+     ],
+     "footwear__toddler_shoes_red_1812": [
+      0.09,
+      0.05,
+      0.03
+     ]
+    },
+    "worn": "a frock of lilac print, brown shoes; hair cropped",
+    "grade": "reconstructed"
    }
   },
   "needs_john": {
@@ -60201,7 +60536,7 @@
     "hair": {
      "value": "dark brown to black",
      "drawn": "black",
-     "cut": "cropped_1812",
+     "cut": "boy_fringe_1812",
      "facial": [],
      "grade": "reconstructed"
     },
@@ -60222,6 +60557,22 @@
     "grade": "reconstructed",
     "liberty": "L-1812-town-days-3463",
     "file": "data/humans/variation/looks/ouilmette_children.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__skeleton_jacket_blue_1812": [
+      0.15,
+      0.15,
+      0.14
+     ],
+     "garment_lower__skeleton_trousers_blue_1812": [
+      0.15,
+      0.15,
+      0.14
+     ]
+    },
+    "worn": "a skeleton suit, grey; hair cut straight across the brow",
+    "grade": "reconstructed"
    }
   },
   "pa1904_glessner_john_j_c1900_august_billings": {
@@ -63676,6 +64027,27 @@
     "grade": "inferred",
     "liberty": "L-1812-town-days-3463",
     "file": "data/humans/variation/looks/simmons_david.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__toddler_frock_white_1812": [
+      0.27,
+      0.34,
+      0.21
+     ],
+     "garment_lower__toddler_frock_white_1812": [
+      0.27,
+      0.34,
+      0.21
+     ],
+     "footwear__toddler_shoes_red_1812": [
+      0.02,
+      0.019,
+      0.018
+     ]
+    },
+    "worn": "a frock of green sprigged cotton, black shoes; hair cropped",
+    "grade": "reconstructed"
    }
   },
   "simmons_john": {

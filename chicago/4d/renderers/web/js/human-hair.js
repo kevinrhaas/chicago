@@ -201,6 +201,14 @@ function combed(cut, f, p, n) {
     const onTop = across.addScaledVector(f.z, -.35).normalize();
     return onTop.multiplyScalar(top).add(toKnot.multiplyScalar(1 - top)).normalize();
   }
+  if (cut.flow === 'centre_part_down') {
+    // T-3520: parted in the middle and worn loose: on top combed to either side of the parting,
+    // over the ears and at the back falling straight down (a girl's hair to the neck or shoulders).
+    const across = f.x.clone().multiplyScalar(lx >= 0 ? 1 : -1);
+    const onTop = across.addScaledVector(f.z, -.25).normalize();
+    const sides = down.clone().addScaledVector(f.z, -.12).addScaledVector(f.x, (lx >= 0 ? 1 : -1) * .08).normalize();
+    return onTop.multiplyScalar(top).add(sides.multiplyScalar(1 - top)).normalize();
+  }
   if (cut.flow === 'swept_up') {
     // Drawn up and back from the face all round to a knot high on the crown (the 1900s,
     // T-3423): every strand runs toward the knot, with no parting.

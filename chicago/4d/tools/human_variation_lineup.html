@@ -21,7 +21,9 @@ import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
 import { loadMeshoptDecoder } from '../renderers/web/js/scene-loader.js';
 import { loadVariationKit, personVariation, applyVariation } from '../renderers/web/js/human-variation.js';
 import { dressSkin, restingLid } from '../renderers/web/js/human-skin.js';
-import { dressHair } from '../renderers/web/js/human-hair.js';
+import { dressHair, dressHeadcloth } from '../renderers/web/js/human-hair.js';
+import { dressLooks, dressCloth, looksHairStyle } from '../renderers/web/js/human-looks.js';
+import { hairFor } from '../renderers/web/js/human-hair-styles.js';
 import { dressSpectacles } from '../renderers/web/js/human-spectacles.js';
 
 const q = new URLSearchParams(location.search);
@@ -73,7 +75,14 @@ keys.forEach((key, i) => {
   // own hair and facial hair (human-hair-styles.js) and spectacles where they wear them.
   if (q.get('dress') === '1') {
     dressSkin(fig, { age: window.__variations?.find((x) => x.key === key)?.age ?? null, person: key === 'base' ? null : key, year: Number(q.get('year') ?? 1904) });
-    const hair = dressHair(fig, { lod, person: key === 'base' ? null : key, year: Number(q.get('year') ?? 1904) });
+    // T-3520: and, as humans.js build() does, their looks, their own cloth and hair (a girl's plait).
+    const looks = record?.looks ?? null, dress = record?.dress ?? null, yr = Number(q.get('year') ?? 1904);
+    if (looks) dressLooks(fig, looks);
+    if (dress) dressCloth(fig, dress);
+    const style = looks ? looksHairStyle(looks, hairFor(key === 'base' ? null : key, yr)) : null;
+    if (style && dress?.tail_cm) style.tail_cm = dress.tail_cm;
+    const hair = dressHair(fig, { lod, person: key === 'base' ? null : key, year: yr, style });
+    if (dress?.headcloth) dressHeadcloth(fig, dress.headcloth, { person: key });
     const specs = dressSpectacles(fig, { lod, person: key === 'base' ? null : key });
     window.__dressed = [...(window.__dressed ?? []), { key, hair: hair ? { cut: hair.style.cut, grown: hair.grown } : null, spectacles: !!specs }];
   }
