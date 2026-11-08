@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2815, ts: '2026-11-08T01:40:35.384Z', date: 'Nov 7, 2026, 7:40 PM CT', title: '1835: boarders share the named houses, not three log cabins', kind: 'fix',
+    items: [
+      'The South Division\'s boarders and families no longer pile into three one-room cabins (up to 124 people in one).',
+      'They now lodge with the town\'s named households as well, spread over 338 roofs.',
+      'The busiest house holds 37 people in 217 m², and no cabin holds more than ten.',
+    ] },
   { v: 2814, ts: '2026-11-08T00:59:37.148Z', date: 'Nov 7, 2026, 6:59 PM CT', title: '1812: twelve more gardens and fields, each its household\'s', kind: 'feature',
     items: [
       'Kinzie\'s kitchen garden: two rows of beds off the gate walk, currants and gooseberries along the north paling.',
