@@ -70,6 +70,44 @@ def stale(root: pathlib.Path) -> list[str]:
     return out
 
 
+def reuse_packaged(root: pathlib.Path) -> str:
+    """Restore Glessner's packaged derivatives and RECORD them, as their producer would (T-3503).
+
+    Restoring the files is half of what deriving them did. The producer's other half
+    is `structure_versions.py record-web`, which checks the light tier's receipt
+    against the master and the LOD recipe and writes `web_master_sha256` and
+    `web_lods` onto the master's entry in assets/manifest.json — the entry the bake's
+    generate step has just rewritten without them, and the one
+    measure_web_derivatives.py reads to tell the light tier from an orphan. The
+    first content build of this change restored the files without it, and publish
+    refused `glessner_house__as_built_1887.light.glb has no master`. So the record
+    runs whenever all three files are the packaged ones; if it refuses, the restored
+    files are taken back out and the master is derived as before. Never a red bake.
+    """
+    import subprocess
+    from recover_glessner_v4 import drift, reuse_derivatives, targets
+    try:
+        count, why = reuse_derivatives(root)
+    except Exception as error:  # noqa: BLE001 — zipfile's BadZipFile included
+        # A corrupt package is publish's to refuse (it materializes the same
+        # archive); here it only means this bake derives Glessner itself.
+        return f"the Glessner v4 package would not verify ({error}): derive it"
+    master, *derived = targets(root)
+    if not (root / master).is_file() or drift(root):
+        return why
+    key = master[len("assets/gltf/"):]
+    done = subprocess.run([sys.executable, str(root / "tools" / "structure_versions.py"),
+                           "record-web", key], cwd=root, capture_output=True, text=True)
+    if done.returncode != 0:
+        if count:
+            for name in derived:
+                (root / name).unlink(missing_ok=True)
+        said = (done.stdout + done.stderr).strip().splitlines()
+        return (f"record-web refused the packaged Glessner derivatives "
+                f"({said[-1].strip() if said else f'exit {done.returncode}'}): derive it")
+    return why + (f" ({count} file(s))" if count else "") + "; recorded with record-web"
+
+
 def self_test() -> int:
     failures = 0
 
@@ -111,13 +149,6 @@ if __name__ == "__main__":
     if "--self-test" in sys.argv[1:]:
         sys.exit(self_test())
     if "--reuse-packaged" in sys.argv[1:]:
-        from recover_glessner_v4 import reuse_derivatives
-        try:
-            count, why = reuse_derivatives()
-        except Exception as error:  # noqa: BLE001 — zipfile's BadZipFile included
-            # A corrupt package is publish's to refuse (it materializes the same
-            # archive); here it only means this bake derives Glessner itself.
-            count, why = 0, f"the Glessner v4 package would not verify ({error}): derive it"
-        print(f"   {why}" + (f" ({count} file(s))" if count else "") + " (T-3503)")
+        print(f"   {reuse_packaged(ROOT)} (T-3503)")
         sys.exit(0)
     print(",".join(stale(ROOT)))
