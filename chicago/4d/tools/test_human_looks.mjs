@@ -80,4 +80,10 @@ const rows = Object.fromEntries(card.rows);
 assert(rows.Complexion === looks.complexion.value && rows.Eyes === looks.eyes.value && /^about \d ft \d+ in$/.test(rows.Height), `card rows: ${JSON.stringify(rows)}`);
 assert(card.reference.image.startsWith('https://example.org/data/humans/web/portraits/') && card.reference.caption.includes(looks.reference.artist), 'the stand-in portrait, by its artist');
 assert.equal(looksOf(null), null, 'no looks, no section');
+// Standing on the ground as drawn (the owner: "their feet are sinked"): figures are stood on the
+// yard earth and worn trails, which are draped a couple of centimetres over the heightfield.
+const mainJs = await fs.readFile(new URL('renderers/web/js/main.js', here), 'utf8');
+const yardsJs = await fs.readFile(new URL('renderers/web/js/yards.js', here), 'utf8');
+assert(/const figureGround = [^;]*yards\.groundLiftAt/s.test(mainJs) && /groundHeight: \(e, n\) => figureGround\(e, n\)/.test(mainJs), 'figures stand on the drawn yard ground');
+assert(/out\.groundLiftAt = \(e, n\) => \(out\.treatmentAt\(e, n\) \? LIFT_M\.base : out\.trailCover\(e, n\) > 0 \? TRAIL_LIFT_M : 0\)/.test(yardsJs), 'yards say how far their earth is lifted');
 console.log(`human looks: ${privates.length} men, ${combos.size} colourings (commonest ${most}), heights ${mean.toFixed(1)} ± ${sd.toFixed(1)} in, Grummo ${persons.grummo_paul.looks.stature.inches} in: PASS`);
